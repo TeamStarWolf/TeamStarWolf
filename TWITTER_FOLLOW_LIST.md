@@ -2,7 +2,7 @@
 
 The complete, deduplicated, categorized list of every cybersecurity, infosec, threat intel, detection engineering, red/blue team, and policy account worth following on X/Twitter.
 
-**Total: ~150 accounts** organized into 16 sections.
+**Total: ~195 accounts** organized into 19 sections.
 
 ---
 
@@ -24,6 +24,9 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 14. [AppSec / DevSecOps](#appsec--devsecops)
 15. [ICS / OT / Hardware Security](#ics--ot--hardware-security)
 16. [Blockchain / Crypto Security](#blockchain--crypto-security)
+17. [CVE & Vulnerability Tracking](#cve--vulnerability-tracking)
+18. [DFIR & Forensics](#dfir--forensics)
+19. [Additional Vendors & Orgs](#additional-vendors--orgs)
 
 ---
 
@@ -72,6 +75,8 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 
 ## Detection Engineering & Blue Team
 - @SBousseaden — Detection engineering / Sigma
+- @mattifestation — Matt Graeber (PowerShell, detection)
+- @IAmATrashPanda — Amanda Berlin (BlueTeamCon)
 - @cyb3rward0g — Roberto Rodriguez (HELK, OTRF)
 - @swannysec — Detection engineering
 - @SigmaHQ — Sigma Project
@@ -98,6 +103,11 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @Metasploit — Metasploit Framework
 - @BishopFox — Bishop Fox
 - @Dave_Kennedy — Dave Kennedy (TrustedSec)
+- @enigma0x3 — Matt Nelson (UAC bypass, AppLocker)
+- @tifkin_ — Lee Christensen (GhostPack co-author)
+- @_batsec_ — Bat (Cobalt Strike tradecraft)
+- @carnal0wnage — Attack Research
+- @hdmoore — HD Moore (Metasploit creator)
 
 ## Vulnerability Research & Exploit Dev
 - @KatieMoussouris — Katie Moussouris (Luta Security)
@@ -130,6 +140,8 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @lorenzofb — Lorenzo Franceschi-Bicchierai (404 Media)
 - @josephfcox — Joseph Cox (404 Media)
 - @campuscodi — Catalin Cimpanu (security journalist)
+- @a_greenberg — Andy Greenberg (Wired, author of Sandworm)
+- @evacide — Eva Galperin (EFF, surveillance/stalkerware expert)
 - @thehackersnews — The Hacker News
 - @SecurityWeek — SecurityWeek
 - @DarkReading — Dark Reading
@@ -204,3 +216,36 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @samczsun — samczsun (DeFi / smart contract security)
 - @zachxbt — ZachXBT (on-chain investigator)
 - @tayvano_ — Taylor Monahan (MetaMask / crypto security)
+
+## CVE & Vulnerability Tracking
+- @CVEnew — MITRE CVE announcements (automated feed)
+- @VulnCheck — VulnCheck KEV intelligence
+- @wdormann — Will Dormann (former CERT/CC, deep CVE analysis)
+- @qualys — Qualys Threat Research (Patch Tuesday analysis)
+- @rapid7 — Rapid7 (vulnerability disclosure + Metasploit)
+- @Synacktiv — Synacktiv (high-quality original vuln research)
+- @pdnuclei — Nuclei by ProjectDiscovery (CVE detection templates)
+- @pdiscoveryio — ProjectDiscovery (open-source security tooling)
+
+## DFIR & Forensics
+- @4n6lady — Heather Mahalik (mobile forensics, Cellebrite)
+- @jackcr — Jack Crook (DFIR)
+- @EricRZimmerman — Eric Zimmerman (DFIR tools)
+- @iamevltwin — Sarah Edwards (Mac forensics)
+- @maridegrazia — Mari DeGrazia (DFIR)
+- @HeatherMahalik — Heather Mahalik Barnhart
+- @iMHLv2 — Michael Ligh (The Art of Memory Forensics)
+- @eric_capuano — Eric Capuano (detection/IR)
+- @s0md3v — s0md3v (security tools)
+- @CitizenLab — Citizen Lab (state-sponsored spyware research)
+
+## Additional Vendors & Orgs
+- @teamcymru — Team Cymru (threat intelligence)
+- @Shadowserver — Shadowserver Foundation (internet scanning)
+- @SentinelOne — SentinelOne
+- @WithSecure — WithSecure (formerly F-Secure)
+- @kaspersky — Kaspersky (threat research)
+- @trendaisecurity — Trend Micro security
+- @proofpoint — Proofpoint
+- @threatinsight — Proofpoint Threat Insight
+- @CyberArk — CyberArk

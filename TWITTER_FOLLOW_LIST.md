@@ -2,7 +2,7 @@
 
 The complete, deduplicated, categorized list of every cybersecurity, infosec, threat intel, detection engineering, red/blue team, and policy account worth following on X/Twitter.
 
-**Total: ~195 accounts** organized into 19 sections.
+**Total: ~205 accounts** organized into 19 sections.
 
 ---
 
@@ -198,6 +198,10 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @CiscoSecure — Cisco Security
 - @defcon — DEF CON
 - @BlackHatEvents — Black Hat
+- @BSidesLV — BSides Las Vegas
+- @recon_infosec — Recon InfoSec
+- @sansforensics — SANS Forensics
+- @404mediaco — 404 Media (cybersecurity journalism)
 
 ## Cloud Security
 - @scott_piper — Summit Route (AWS security)
@@ -211,6 +215,8 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 ## ICS / OT / Hardware Security
 - @deviantollam — Deviant Ollam (physical security, red team)
 - @joe_fitz — Joe FitzPatrick (hardware hacking)
+- @_mg_ — MG (USB implants, hardware hacking)
+- @_sn0ww — DEF CON Co-Founder, 3x Black Badge
 
 ## Blockchain / Crypto Security
 - @samczsun — samczsun (DeFi / smart contract security)
@@ -231,6 +237,11 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @4n6lady — Heather Mahalik (mobile forensics, Cellebrite)
 - @jackcr — Jack Crook (DFIR)
 - @EricRZimmerman — Eric Zimmerman (DFIR tools)
+- @Grifter801 — Threat Hunting & DFIR, DEF CON/Black Hat CFP Review Board
+- @Bandrel — Justin Bollinger (CVE-2024-49019 finder)
+- @volatility — Volatility Memory Analysis Project
+- @Volexity — Volexity (threat intel, memory forensics)
+- @x0rz — Cybersecurity & threat intelligence
 - @iamevltwin — Sarah Edwards (Mac forensics)
 - @maridegrazia — Mari DeGrazia (DFIR)
 - @HeatherMahalik — Heather Mahalik Barnhart

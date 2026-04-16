@@ -2,7 +2,7 @@
 
 The complete, deduplicated, categorized list of every cybersecurity, infosec, threat intel, detection engineering, red/blue team, and policy account worth following on X/Twitter.
 
-**Total: ~150 accounts** organized into 12 sections.
+**Total: ~135 accounts** organized into 12 sections.
 
 ---
 
@@ -40,7 +40,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @thegrugq — Thaddeus Grugq (OPSEC commentary)
 - @vxunderground — Malware sample archive
 - @malwrhunterteam — Malware research collective
-- @malware_traffic — Malware-Traffic-Analysis.net
 
 ## Threat Intelligence Analysts
 - @MalwareJake — John Bambenek
@@ -51,7 +50,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @RidT — Thomas Rid (cyber strategy)
 - @craiu — Bitdefender researcher
 - @inversecos — DFIR & IR research
-- @DFIRReport — The DFIR Report
 - @RedDrip7 — Threat intel
 - @threatintel — General threat intel feed
 - @MsftSecIntel — Microsoft Threat Intelligence
@@ -72,7 +70,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @SigmaHQ — Sigma Project
 - @cyberdefenders — CyberDefenders
 - @SOCPrime — SOC Prime
-- @SecurityBlueTeam — Blue Team community
 - @letsdefendio — LetsDefend
 - @HuntressLabs — Huntress
 - @Velocidex — Velociraptor
@@ -96,14 +93,8 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @Dave_Kennedy — Dave Kennedy (TrustedSec)
 
 ## Vulnerability Research & Exploit Dev
-- @maddiestone — (also in Researchers)
-- @taviso — (also in Researchers)
-- @natashenka — (also in Researchers)
-- @halvarflake — (also in Researchers)
-- @stephenfewer — (also in Researchers)
 - @KatieMoussouris — Katie Moussouris (Luta Security)
 - @jeremiahg — Jeremiah Grossman
-- @GoogleProjectZero — Project Zero team
 
 ## Bug Bounty / Web App Security
 - @nahamsec / @NahamSec — Ben Sadeghipour
@@ -132,8 +123,7 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @thehackersnews — The Hacker News
 - @SecurityWeek — SecurityWeek
 - @DarkReading — Dark Reading
-- @RiskyBizNews — Risky Business
-- @bleepingcomputer — BleepingComputer
+- @BleepinComputer — BleepingComputer
 - @cyberscoopnews — CyberScoop
 - @threatpost — Threatpost
 - @IT_SecGuru — IT Security Guru
@@ -147,7 +137,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @neirajones — Neira Jones
 - @shirarubin — Shira Rubin
 - @ChuckDBrooks — Chuck Brooks
-- @MatthewRosenq — Matthew Rosenquist
 - @GaryHayslip — Gary Hayslip
 - @robertherjavec — Robert Herjavec
 - @cybersecuritysf — Steve Morgan (Cybersecurity Ventures)
@@ -159,7 +148,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @_JohnHammond / @JohnHammond010 — John Hammond (CTF, malware)
 - @LiveOverflow — LiveOverflow (CTF/RE education)
 - @ippsec — IppSec (HackTheBox writeups)
-- @TCM_Security — TCM Security
 - @malwareunicorn — Amanda Rousseau
 - @danielmiessler — Daniel Miessler (SecLists, Fabric)
 - @darrenkitchen — Darren Kitchen (Hak5 founder)
@@ -173,7 +161,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @Steve_Lockstep — Steve Wilson
 - @JohnFontana — John Fontana
 - @jacksonshaw — Jackson Shaw
-- @lukedemichele — Luke DeMichele
 
 ## Organizations, Vendors & Conferences
 - @OWASP — OWASP Foundation
@@ -189,5 +176,3 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @CiscoSecure — Cisco Security
 - @defcon — DEF CON
 - @BlackHatEvents — Black Hat
-- @RSAConference — RSA Conference
-- @WildWestHackin — Wild West Hackin' Fest

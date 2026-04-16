@@ -4,6 +4,32 @@
 
 The 20 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
 
+**Coverage:** 625 of ~917 starred repositories are now sorted into Lists (~872 list-memberships, since many repos belong to multiple Lists).
+
+| List | Repos |
+|---|---|
+| Enterprise Security Vendor Tooling | 124 |
+| Detection Engineering and Analytics | 55 |
+| Malware Analysis and Reverse Engineering | 53 |
+| Active Directory Offensive Operations | 52 |
+| Cybersecurity Learning Resources and Catalogs | 51 |
+| Bug Bounty and Web Application Reconnaissance | 50 |
+| Vulnerability and Attack Surface Management | 49 |
+| Cloud and Container Security: Attack and Defense | 41 |
+| Command-and-Control and Post-Exploitation Frameworks | 34 |
+| Compliance, GRC and OSCAL | 34 |
+| Enterprise EDR and Endpoint Security Vendors | 29 |
+| MITRE ATT&CK Framework and CTID Tooling | 28 |
+| Digital Forensics and Incident Response | 23 |
+| Identity, Zero Trust and Privileged Access | 22 |
+| Daily Operational Toolkit | 18 |
+| Cyber Threat Intelligence Platforms and Feeds | 15 |
+| AI and LLM Security Engineering | 14 |
+| OSINT and External Reconnaissance | 14 |
+| SOAR and Security Automation | 9 |
+| TeamStarWolf - Production Stack | 7 |
+
+
 ---
 
 ## 1. Daily Operational Toolkit

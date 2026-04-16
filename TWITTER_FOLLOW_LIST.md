@@ -1,90 +1,127 @@
-# Cybersecurity / InfoSec Twitter (X) Follow List
+# Top 100 Cybersecurity Twitter Accounts (2026)
 
-A curated list of high-value accounts to follow for threat intel, detection engineering, offensive security, and research.
+Curated list of high-value accounts to follow for threat intel, detection engineering, offensive/defensive security, journalism, and policy.
 
-## Threat Intel & Research
-- @MalwareJake — John Bambenek (threat intel)
-- @malwrhunterteam — Malware research collective
-- @likethecoins — Katie Nickels (Red Canary)
-- @RidT — Thomas Rid (cyber strategy)
-- @JohnHultquist — Mandiant threat intel head
+---
+
+## Elite Researchers & Technical Experts
+- @maddiestone — Maddie Stone (Google Project Zero)
+- @hasherezade — Aleksandra Doniec (PE-bear, malware analyst)
+- @SwiftOnSecurity — Anonymous CISO/sysadmin (also privacy/humor)
+- @taviso — Tavis Ormandy (Project Zero)
+- @thegrugq — Thaddeus Grugq (OPSEC, threat intel commentary)
+- @natashenka — Natalie Silvanovich (Project Zero)
+- @malwaretechblog — Marcus Hutchins
+- @0xdea — Reverse engineering
 - @cyb3rops — Florian Roth (Sigma, signature-base)
+- @campuscodi — Catalin Cimpanu (security journalist)
+- @JoeSlowik — Threat intel
+- @KatieNickels — Katie Nickels (Red Canary)
+- @JohnLaTwC — John Lambert (Microsoft threat hunting)
 - @vxunderground — Malware sample archive
-- @certbund — German CERT
-- @CISAgov — US CISA official
-- @NCSC — UK NCSC
-- @MsftSecIntel — Microsoft Threat Intel
-- @CrowdStrike — Official CrowdStrike
-- @TalosSecurity — Cisco Talos
-- @Mandiant — Mandiant (Google Cloud)
-- @Unit42_Intel — Palo Alto Unit 42
+- @malwrhunterteam — Malware research collective
 
-## Detection Engineering / Blue Team
-- @SBousseaden — Detection engineering / Sigma
-- @inversecos — DFIR + IR research
-- @cyb3rward0g — Roberto Rodriguez (OTRF, HELK)
-- @swannysec — Detection engineering
-- @JohnLaTwC — Microsoft threat hunting
-- @craiu — Bitdefender researcher
+## Journalists & News Sources
+- @briankrebs — Brian Krebs (Krebs on Security)
+- @KimZetter — Kim Zetter
+- @thehackersnews — News aggregator
+- @SecurityWeek
+- @DarkReading
+- @RiskyBizNews — Risky Business
+- @bleepingcomputer — BleepingComputer
+- @cyberscoopnews — CyberScoop
+- @threatpost — Threatpost
+- @recordedfuture — Recorded Future
+
+> Real-time threat intel and reporting — a key reason Twitter remains central to cybersecurity awareness.
+
+## Industry Leaders & Influencers
+- @RobertMLee — Robert M. Lee (Dragos)
+- @Dave_Kennedy — Dave Kennedy (TrustedSec)
+- @KatieMoussouris — Katie Moussouris (Luta Security)
+- @jeremiahg — Jeremiah Grossman
+- @mikko — Mikko Hyppönen (WithSecure)
+- @e_kaspersky — Eugene Kaspersky
+- @jen_easterly — Jen Easterly (former CISA Director)
+- @troelsoerting — Troels Oerting
+- @neirajones — Neira Jones
+- @shirarubin — Shira Rubin
+- @ChuckDBrooks
+- @MatthewRosenq
+- @GaryHayslip
+- @robertherjavec — Robert Herjavec
+- @cybersecuritysf — Steve Morgan (Cybersecurity Ventures)
+
+## Educators, Trainers & Community Builders
+- @JohnHammond010 — John Hammond (CTF, malware)
+- @LiveOverflow — LiveOverflow (CTF/RE education)
+- @NahamSec — Ben Sadeghipour (bug bounty)
+- @InsiderPhD — Katie Paxton-Fear
+- @TCM_Security — TCM Security
+- @TheColonial — Marcus J. Carey
+- @malwareunicorn — Amanda Rousseau
+- @danielmiessler — Daniel Miessler (SecLists, Fabric)
+- @IT_SecGuru — IT Security Guru
+- @SANSInstitute — SANS
+
+## Threat Intelligence & Detection
+- @Mandiant — Mandiant (now Google Cloud)
+- @CISAgov — US CISA official
+- @NSAGov — NSA official
+- @CrowdStrike — CrowdStrike official
+- @RecordedFuture
+- @Unit42_Intel — Palo Alto Unit 42
+- @RedDrip7
+- @threatintel
+- @DFIRReport — The DFIR Report
+- @malware_traffic — Malware-Traffic-Analysis.net
 
 ## Offensive Security / Red Team
-- @harmj0y — Will Schroeder (BloodHound, GhostPack)
-- @_wald0 — Andy Robbins (BloodHound)
-- @TinkerSec — Phineas Vega
-- @_RastaMouse — Daniel Duggan (red team training)
-- @gentilkiwi — Benjamin Delpy (Mimikatz)
-- @PayloadArtist — Mr. Un1k0d3r
-- @spotheplanet — Reza Soosahabi
-- @cobbr_io — Ryan Cobb (Covenant)
-
-## Vulnerability Research / Exploit Dev
-- @taviso — Tavis Ormandy (Google Project Zero)
-- @maddiestone — Maddie Stone (Project Zero)
-- @halvarflake — Thomas Dullien
-- @gynvael — Gynvael Coldwind
+- @OffSecTraining — Offensive Security
+- @Metasploit
+- @portswigger — PortSwigger
+- @burpsuite — Burp Suite
 - @hackerfantastic — Hacker Fantastic
-- @stephenfewer — Stephen Fewer (Metasploit core)
-
-## Content Creators / Education
-- @_JohnHammond — John Hammond (CTF, malware analysis)
-- @NetworkChuck — Chuck Keith
-- @hak5 — Hak5 official
-- @darrenkitchen — Darren Kitchen (Hak5 founder)
-- @ippsec — IppSec (HackTheBox writeups)
-- @LiveOverflow — LiveOverflow (CTF / RE)
-- @danielhbohannon — PowerShell obfuscation
-- @danielmiessler — Daniel Miessler (SecLists)
-- @TheHackersNews — News aggregator
-- @thegrugq — OPSEC / threat intel commentary
-
-## Industry Voices / CISOs
-- @SwiftOnSecurity — Anonymous CISO/sysadmin
-- @thedarktangent — Jeff Moss (DEF CON founder)
-- @hacks4pancakes — Lesley Carhart (Dragos IR)
-- @briankrebs — Brian Krebs (Krebs on Security)
-- @campuscodi — Catalin Cimpanu (security journalist)
-- @CiscoCSIRT — Cisco's response team
-
-## Bug Bounty / Web App
-- @nahamsec — Ben Sadeghipour
-- @stokfredrik — STÖK
-- @Jhaddix — Jason Haddix
-- @samwcyo — Sam Curry (web vuln research)
-- @TomNomNom — Tomnomnom (recon tools)
-- @orange_8361 — Orange Tsai
-- @infosec_au — Albinowax (PortSwigger)
-
-## OSINT
-- @quiztime — OSINT puzzle community
-- @bellingcat — Bellingcat
-- @Sector035 — OSINT week-in-review
-- @cyb_detective — OSINT tools
-
-## Conferences / Communities
-- @defcon — DEF CON
-- @RSAConference — RSA Conference
+- @xsspayloads — XSS payloads collection
+- @pentesttoolscom — Pentest-Tools
+- @BishopFox — Bishop Fox
 - @BlackHatEvents — Black Hat
-- @WildWestHackin — Wild West Hackin' Fest
+- @defcon — DEF CON
+
+## Blue Team / Defensive Security
+- @cyberdefenders — CyberDefenders
+- @SOCPrime — SOC Prime
+- @SecurityBlueTeam
+- @letsdefendio — LetsDefend
+- @HuntressLabs — Huntress
+- @Velocidex — Velociraptor
+- @ElasticSecurity — Elastic Security
+- @splunk — Splunk
+- @osquery — osquery
+- @SigmaHQ — Sigma Project
+
+## Privacy, Policy & Identity
+- @Snowden — Edward Snowden
+- @EFF — Electronic Frontier Foundation
+- @privacyint — Privacy International
+- @Steve_Lockstep — Steve Wilson
+- @JohnFontana — John Fontana
+- @jacksonshaw — Jackson Shaw
+- @lukedemichele
+
+## Organizations & Ecosystem Accounts
+- @OWASP — OWASP Foundation
+- @CISAcyber
+- @NISTcyber — NIST Cybersecurity
+- @CyberGovAU — Australian Cyber Security Centre
+- @ENISA_EU — EU Agency for Cybersecurity
+- @MITREattack — MITRE ATT&CK
+- @FIRSTdotOrg — Forum of Incident Response and Security Teams
+- @ISACs — Information Sharing and Analysis Centers
+- @Cloudflare — Cloudflare
+- @GoogleProjectZero — Project Zero
+- @MicrosoftSec — Microsoft Security
+- @CiscoSecure — Cisco Security
 
 ---
 
@@ -94,4 +131,4 @@ Paste this prompt into Grok:
 
 > Here is a list of cybersecurity Twitter accounts I want to follow. For each one, verify the handle is still active and accurate, then follow them and add them to a new Twitter List called "Cybersecurity & InfoSec". Skip any accounts I already follow.
 >
-> [paste the @handles here]
+> [paste the @handles from above]

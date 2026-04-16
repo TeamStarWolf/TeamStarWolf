@@ -1,32 +1,8 @@
 # TeamStarWolf — Master Cybersecurity Twitter (X) Follow List
 
-> Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
-
 The complete, deduplicated, categorized list of every cybersecurity, infosec, threat intel, detection engineering, red/blue team, and policy account worth following on X/Twitter.
 
-**Total: ~135 accounts** organized into 12 sections.
-
-> ✅ Last bulk-follow run: handles marked **(✅ followed)** are confirmed active and followed. Handles marked **(❌ inactive)** are suspended, deleted, or not findable.
-
----
-
-## Inactive / Removed Accounts (do not retry)
-
-- ~~@TCM_Security~~ ❌
-- ~~@DFIRReport~~ ❌
-- ~~@GoogleProjectZero~~ ❌
-- ~~@WildWestHackin~~ ❌
-- ~~@RSAConference~~ ❌ (suspended)
-- ~~@malware_traffic~~ ❌ (suspended)
-- ~~@SecurityBlueTeam~~ ❌
-- ~~@CiscoCSIRT~~ ❌
-- ~~@RiskyBizNews~~ ❌
-- ~~@MatthewRosenq~~ ❌
-- ~~@lukedemichele~~ ❌
-
-## Handle Corrections
-
-- @bleepingcomputer → **@BleepinComputer** (already followed)
+**Total: ~150 accounts** organized into 16 sections.
 
 ---
 
@@ -44,6 +20,10 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 10. [Educators, Trainers & Content Creators](#educators-trainers--content-creators)
 11. [Privacy, Policy & Identity](#privacy-policy--identity)
 12. [Organizations, Vendors & Conferences](#organizations-vendors--conferences)
+13. [Cloud Security](#cloud-security)
+14. [AppSec / DevSecOps](#appsec--devsecops)
+15. [ICS / OT / Hardware Security](#ics--ot--hardware-security)
+16. [Blockchain / Crypto Security](#blockchain--crypto-security)
 
 ---
 
@@ -64,6 +44,8 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @thegrugq — Thaddeus Grugq (OPSEC commentary)
 - @vxunderground — Malware sample archive
 - @malwrhunterteam — Malware research collective
+- @GossiTheDog — Kevin Beaumont (threat commentary, vuln research)
+- @bartblaze — Bart Blaze (malware researcher)
 
 ## Threat Intelligence Analysts
 - @MalwareJake — John Bambenek
@@ -82,6 +64,7 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @Mandiant — Mandiant (Google Cloud)
 - @CrowdStrike — CrowdStrike official
 - @RecordedFuture — Recorded Future
+- @abuse_ch — abuse.ch (MalwareBazaar, URLhaus, ThreatFox)
 - @certbund — German CERT
 - @CISAgov — US CISA official
 - @NCSC — UK NCSC
@@ -143,6 +126,9 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 ## Journalists & News Sources
 - @briankrebs — Brian Krebs (Krebs on Security)
 - @KimZetter — Kim Zetter
+- @zackwhittaker — Zack Whittaker (TechCrunch / 404 Media)
+- @lorenzofb — Lorenzo Franceschi-Bicchierai (404 Media)
+- @josephfcox — Joseph Cox (404 Media)
 - @campuscodi — Catalin Cimpanu (security journalist)
 - @thehackersnews — The Hacker News
 - @SecurityWeek — SecurityWeek
@@ -186,124 +172,6 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @JohnFontana — John Fontana
 - @jacksonshaw — Jackson Shaw
 
-## GitHub Owners → Twitter Handles
-*Researchers behind repos you've starred. Curated mappings of confirmed accounts.*
-
-### Active Directory & Red Team Researchers
-- @harmj0y — Will Schroeder (BloodHound, GhostPack, PowerView)
-- @_wald0 — Andy Robbins (BloodHound)
-- @gentilkiwi — Benjamin Delpy (Mimikatz)
-- @podalirius_ — Rémi Gascou (Coercer, DonPAPI)
-- @_dirkjan — Dirk-jan Mollema (ROADtools, krbrelayx, mitm6)
-- @ly4k_ — Oliver Lyak (Certipy, SpoolFool)
-- @bitsadmin — Arris Huijgen (wesng)
-- @byt3bl33d3r — Marcello Salvati (CrackMapExec)
-- @TheXC3LL — Pennyw0rth (NetExec)
-- @0xthirteen — Caleb Stewart
-- @SpecterOps — SpecterOps team
-- @nikhil_mitt — Nikhil Mittal (samratashok / Nishang)
-- @kevin_robertson — Kevin Robertson (Inveigh)
-- @subTee — Casey Smith (red team research)
-- @NinjaParanoid — Brett Hawkins
-- @_RastaMouse — Daniel Duggan
-
-### Malware Analysts / Reverse Engineers
-- @hasherezade — Aleksandra Doniec (PE-bear, PE-sieve)
-- @cyb3rops — Florian Roth (Sigma, signature-base, Loki, Raccine)
-- @kevoreilly — Kevin O'Reilly (CAPE Sandbox)
-- @hackerfantastic — Hacker Fantastic
-- @gynvael — Gynvael Coldwind
-- @stephenfewer — Stephen Fewer
-- @malwareunicorn — Amanda Rousseau
-- @0xdea — RE researcher
-- @0xthirteen — Reverse engineering
-
-### Detection / Threat Hunting
-- @SBousseaden — Samir Bousseaden (Sigma rules)
-- @Cyb3rWard0g — Roberto Rodriguez (HELK, OSSEM)
-- @swannysec — Detection engineering
-- @JohnLaTwC — John Lambert (Microsoft)
-- @likethecoins — Katie Nickels (Red Canary)
-- @MalwareJake — John Bambenek
-- @YamatoSecurity — Hayabusa team
-
-### Web App / Bug Bounty
-- @samwcyo — Sam Curry
-- @nahamsec — Ben Sadeghipour
-- @stokfredrik — STÖK
-- @Jhaddix — Jason Haddix
-- @TomNomNom — Tom Hudson
-- @orange_8361 — Orange Tsai
-- @infosec_au — James Kettle (Albinowax / PortSwigger)
-- @InsiderPhD — Katie Paxton-Fear
-- @six2dez1 — six2dez (reconftw)
-- @KathanP19 — Kathan Patel (HowToHunt)
-- @EdOverflow — Ed (can-i-take-over-xyz)
-- @streaak — keyhacks
-- @maurosoria — Mauro Soria (dirsearch)
-- @michenriksen — Michael Henriksen (aquatone)
-
-### Pentest / Tooling Authors
-- @pentest_swissky — Swissky (PayloadsAllTheThings)
-- @carlospolopm — Carlos Polop (HackTricks, PEASS)
-- @g0tmi1k — Ben Wilson (Kali / OffSec)
-- @stamparm — Miroslav Stampar (sqlmap, maltrail, ipsum)
-- @DanielMiessler — Daniel Miessler (SecLists, Fabric)
-- @joohoi — Joona Hoikkala (ffuf)
-- @TheColonial — Marcus Carey
-- @Mr_Un1k0d3r — Mr.Un1k0d3r
-
-### OSINT / Recon
-- @soxoj — soxoj (maigret)
-- @megadose — megadose (holehe)
-- @mxrch_gh — mxrch (GHunt)
-- @smicallef — Steve Micallef (Spiderfoot)
-- @sherlock_so — Sherlock project
-- @TheXploitedX — phoneinfoga
-
-### CTF / Education
-- @_JohnHammond — John Hammond
-- @LiveOverflow — LiveOverflow
-- @ippsec — IppSec
-- @gallopsled — pwntools team
-- @huskyhacks_mk — HuskyHacks
-- @AntonOsika — Anton Osika (gpt-engineer)
-
-### Hardware / Hak5
-- @darrenkitchen — Darren Kitchen (Hak5 founder)
-- @hak5 — Hak5 official
-- @samykamkar — Samy Kamkar (samyk)
-
-### Founders / Vendor Leadership
-- @taviso — Tavis Ormandy (Project Zero)
-- @maddiestone — Maddie Stone (Project Zero)
-- @natashenka — Natalie Silvanovich (Project Zero)
-- @halvarflake — Thomas Dullien
-- @kennethreitz — Kenneth Reitz (Python)
-
-### Threat Intel Orgs (with active Twitter)
-- @MITREattack
-- @CrowdStrike
-- @Mandiant
-- @TalosSecurity
-- @Unit42_Intel
-- @MsftSecIntel
-- @CISAgov
-- @GoogleProjectZero
-- @SigmaHQ
-- @projectdiscovery / @pdiscoveryio
-- @TheHive_Project
-- @MISPProject
-- @OpenCTI_Platform
-- @VirusTotal
-- @TrustedSec
-- @bishopfox
-- @SpecterOps
-- @redcanary
-- @velocidex
-
----
-
 ## Organizations, Vendors & Conferences
 - @OWASP — OWASP Foundation
 - @MITREattack — MITRE ATT&CK
@@ -318,3 +186,21 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @CiscoSecure — Cisco Security
 - @defcon — DEF CON
 - @BlackHatEvents — Black Hat
+
+## Cloud Security
+- @scott_piper — Summit Route (AWS security)
+- @ToniBlyx — Toni de la Fuente (Prowler, AWS security)
+- @Frichette_n — Nick Frichette (AWS offensive security research)
+
+## AppSec / DevSecOps
+- @shehackspurple — Tanya Janca (We Hack Purple, AppSec)
+- @clintgibler — Clint Gibler (tl;dr sec newsletter)
+
+## ICS / OT / Hardware Security
+- @deviantollam — Deviant Ollam (physical security, red team)
+- @joe_fitz — Joe FitzPatrick (hardware hacking)
+
+## Blockchain / Crypto Security
+- @samczsun — samczsun (DeFi / smart contract security)
+- @zachxbt — ZachXBT (on-chain investigator)
+- @tayvano_ — Taylor Monahan (MetaMask / crypto security)

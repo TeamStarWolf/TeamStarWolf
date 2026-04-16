@@ -2,7 +2,7 @@
 
 The complete, deduplicated, categorized list of every cybersecurity, infosec, threat intel, detection engineering, red/blue team, and policy account worth following on X/Twitter.
 
-**Total: ~150 accounts** organized into 16 sections.
+**Total: ~160 accounts** organized into 17 sections.
 
 ---
 
@@ -24,6 +24,7 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 14. [AppSec / DevSecOps](#appsec--devsecops)
 15. [ICS / OT / Hardware Security](#ics--ot--hardware-security)
 16. [Blockchain / Crypto Security](#blockchain--crypto-security)
+17. [CVE & Vulnerability Tracking](#cve--vulnerability-tracking)
 
 ---
 
@@ -204,3 +205,13 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 - @samczsun — samczsun (DeFi / smart contract security)
 - @zachxbt — ZachXBT (on-chain investigator)
 - @tayvano_ — Taylor Monahan (MetaMask / crypto security)
+
+## CVE & Vulnerability Tracking
+- @CVEnew — MITRE CVE announcements (automated feed)
+- @VulnCheck — VulnCheck KEV intelligence
+- @wdormann — Will Dormann (former CERT/CC, deep CVE analysis)
+- @qualys — Qualys Threat Research (Patch Tuesday analysis)
+- @rapid7 — Rapid7 (vulnerability disclosure + Metasploit)
+- @Synacktiv — Synacktiv (high-quality original vuln research)
+- @pdnuclei — Nuclei by ProjectDiscovery (CVE detection templates)
+- @pdiscoveryio — ProjectDiscovery (open-source security tooling)

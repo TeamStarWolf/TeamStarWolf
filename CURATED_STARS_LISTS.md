@@ -2,7 +2,7 @@
 
 > Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
 
-The 20 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
+The 21 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
 
 **Coverage:** 625 of ~917 starred repositories are now sorted into Lists (~872 list-memberships, since many repos belong to multiple Lists).
 
@@ -91,3 +91,6 @@ Open-source compliance automation, GRC platforms, and NIST OSCAL tooling. usnist
 
 ## 20. Identity, Zero Trust and Privileged Access
 Identity providers, zero-trust network access, and privileged access management. Authelia, Gravitational Teleport, HashiCorp Boundary, CyberArk Conjur, Cloudflare cloudflared and Wrangler. For modern IAM, ZTNA tunnels, and just-in-time access workflows.
+
+## 21. All-in-One Hacker Toolkit and Recon
+Practitioner-grade omnibus list combining hacking-book companion code (Black Hat Python, Violent Python, Practical Malware Analysis, PacktPublishing pentesting and reverse engineering), end-to-end recon and pentest frameworks (Sn1per, Recon-ng + marketplace, AutoRecon, Bluto, Discover, Sublist3r, Photon, ParamSpider, FavFreak, hackingtool, Coldfire), foundational exploitation suites (BeEF, Responder, sqlmap, Wapiti, ZAP community scripts), and the most-referenced hacking knowledge bases (h4cker, RedTeam-Tools, Awesome-CTF, ctf-tools, Free-Security-eBooks, Penetration-Testing, Infosec_Reference, hackerschoice tips, jhaddix tbhm, Ignite cheatsheets). The single list to open when you need to do everything from external recon to post-exploitation in one place.

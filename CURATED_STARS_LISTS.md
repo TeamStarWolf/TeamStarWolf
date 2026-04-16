@@ -2,7 +2,7 @@
 
 > Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
 
-The 17 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
+The 20 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
 
 ---
 
@@ -56,3 +56,12 @@ Open-source vulnerability management platforms, vulnerability scanners, attack s
 
 ## 17. Enterprise EDR and Endpoint Security Vendors
 Official tooling and integrations from major endpoint security vendors. **CrowdStrike Falcon** (falconpy, falcon-helm, falcon-operator, foundry samples, caracara, container-image-scan, gofalcon, falcon-integration-gateway). **Microsoft Defender for Endpoint** (MDE PowerBI templates, MSTIC-Sysmon, MSTICPy, MDTI Solutions, defender-docs, M365 Defender hunting queries, Cloud-Katana, counterfit, SimuLand). **Tanium** (Tanium-OSS, Sentinel integration). **Armis** (CLI, SDK, BlueBorne research, ICS Security Tools, Kenna toolkit).
+
+## 18. SOAR and Security Automation
+Security orchestration, automation, and response platforms plus SIEM-adjacent automation. Demisto/Cortex XSOAR content, demisto-sdk, Shuffle and Shuffle python-apps, Splunk Ansible, Splunk security_content, Elastic integrations and Kibana. For building SOC playbook automation and detection content pipelines.
+
+## 19. Compliance, GRC and OSCAL
+Open-source compliance automation, GRC platforms, and NIST OSCAL tooling. usnistgov OSCAL spec, oscal-tools, oscal-cli, oscal-compass compliance-trestle, GovReady-Q, ComplianceAsCode/content. Plus secret detection (GitGuardian ggshield) and SBOM generators (cdxgen) used in compliance pipelines.
+
+## 20. Identity, Zero Trust and Privileged Access
+Identity providers, zero-trust network access, and privileged access management. Authelia, Gravitational Teleport, HashiCorp Boundary, CyberArk Conjur, Cloudflare cloudflared and Wrangler. For modern IAM, ZTNA tunnels, and just-in-time access workflows.

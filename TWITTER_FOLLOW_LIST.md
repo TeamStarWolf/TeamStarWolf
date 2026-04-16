@@ -6,6 +6,28 @@ The complete, deduplicated, categorized list of every cybersecurity, infosec, th
 
 **Total: ~150 accounts** organized into 12 sections.
 
+> ✅ Last bulk-follow run: handles marked **(✅ followed)** are confirmed active and followed. Handles marked **(❌ inactive)** are suspended, deleted, or not findable.
+
+---
+
+## Inactive / Removed Accounts (do not retry)
+
+- ~~@TCM_Security~~ ❌
+- ~~@DFIRReport~~ ❌
+- ~~@GoogleProjectZero~~ ❌
+- ~~@WildWestHackin~~ ❌
+- ~~@RSAConference~~ ❌ (suspended)
+- ~~@malware_traffic~~ ❌ (suspended)
+- ~~@SecurityBlueTeam~~ ❌
+- ~~@CiscoCSIRT~~ ❌
+- ~~@RiskyBizNews~~ ❌
+- ~~@MatthewRosenq~~ ❌
+- ~~@lukedemichele~~ ❌
+
+## Handle Corrections
+
+- @bleepingcomputer → **@BleepinComputer** (already followed)
+
 ---
 
 ## Table of Contents

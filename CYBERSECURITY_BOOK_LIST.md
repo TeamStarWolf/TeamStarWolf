@@ -9,7 +9,7 @@
 |---|---------|-------|
 | 1 | [How To Use This List](#-how-to-use-this-list) | — |
 | 2 | [Learning Paths](#-learning-paths) | — |
-| 3 | [📰 News & Daily Intel](#-news--daily-intel) | — |
+| 3 | [News & Daily Intel](#-news--daily-intel) | — |
 | 4 | [Core / Must-Read](#-core--must-read-high-signal) | All |
 | 5 | [Offensive Security & Pentesting](#-offensive-security--pentesting) | 🟡🔴 |
 | 6 | [Web Security & Bug Bounty](#-web-security--bug-bounty) | 🟡🔴 |

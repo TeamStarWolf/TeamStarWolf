@@ -21,8 +21,6 @@ If you are new to this page, start with these four library pages:
 
 ## Reference Library
 
-These are the pages I want end users to find first.
-
 | Resource | What it covers |
 |---|---|
 | [Starred Repositories Index](STARRED_REPOS.md) | Searchable index of the repositories I have starred |

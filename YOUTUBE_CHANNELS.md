@@ -1,14 +1,16 @@
-# TeamStarWolf - Cybersecurity YouTube Channel Library
+# Cybersecurity YouTube Channel Library
 
-> Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
+A curated library of YouTube channels organized by discipline. Use it when you want to watch workflows, walkthroughs, talks, or labs instead of only reading code and documentation.
 
-A curated library of YouTube channels organized by discipline. The companion to the [GitHub Stars Lists](CURATED_STARS_LISTS.md) — when you want to *watch* someone do the thing instead of just reading the code.
+## How To Use This File
 
-> **Curation policy:** Channels listed here have uploaded within the past ~12 months OR are still the canonical reference for their topic despite a slower cadence. Verified live as of latest commit; broken handles and dead channels (no upload in 2+ years, or zero videos) have been pruned.
+- Start with the discipline you are actively learning or working in.
+- Use it alongside [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md) and [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) to pair videos with tools and reading.
+- Channels listed here are either active within roughly the last 12 months or still the clearest reference for the topic.
 
 ---
 
-## Table of Contents
+## Category Index
 
 1. [General Cybersecurity and Hacking](#general-cybersecurity-and-hacking)
 2. [CTF Walkthroughs and HackTheBox/THM](#ctf-walkthroughs-and-hacktheboxthm)
@@ -177,12 +179,6 @@ A curated library of YouTube channels organized by discipline. The companion to 
 
 ---
 
-## How to use this list
-
-1. **For learning a tool**: Cross-reference with [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md). For example, the Detection Engineering list includes Splunk security_content; the Splunk YouTube channel walks through deploying it.
-2. **For staying current**: Subscribe to news/commentary, threat intelligence, and conference channels.
-3. **For deep dives**: Use the topic-specific channels (e.g., OALabs for malware analysis) to follow ongoing series.
-
-## Contributions
+## Suggesting Additions
 
 Open a PR to suggest additional channels. Aim for active channels (uploaded in the last 12 months) with substantive technical content.

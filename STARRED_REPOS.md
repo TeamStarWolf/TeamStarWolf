@@ -1,12 +1,16 @@
-# TeamStarWolf - Starred Repos by Cybersecurity Category
+# Starred Repositories Index
 
-A categorized index of **1032** starred repositories, grouped by cybersecurity discipline.
+A categorized index of **1032** starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
 
-Use `Ctrl+F` to search. Each section lists repos alphabetically.
+## How To Use This File
+
+- Use `Ctrl+F` to jump straight to a product, framework, or topic.
+- Start with the category index below if you want a higher-level map of the collection.
+- Use [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md) when you want smaller hand-picked starting points instead of the full index.
 
 ---
 
-## Table of Contents
+## Category Index
 
 - **[Frameworks & Standards](#frameworks--standards)** (38)
 - **[Threat Intelligence](#threat-intelligence)** (29)

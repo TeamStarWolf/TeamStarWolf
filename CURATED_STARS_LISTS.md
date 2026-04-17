@@ -1,10 +1,18 @@
-# TeamStarWolf — Curated GitHub Stars Lists
+# Curated GitHub Stars Lists
 
-> Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
+This file explains the cybersecurity GitHub Stars Lists maintained on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Use it when you want short descriptions of each list before drilling into the live GitHub view.
 
-The 30 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
+## How To Use This File
 
-**Coverage:** 813 of ~1032 starred repositories are now sorted into Lists (~1100 list-memberships, since many repos belong to multiple Lists).
+- Start here if you want the purpose of each list in plain language.
+- Use the live profile lists when you want GitHub-native browsing and starring.
+- Use [STARRED_REPOS.md](STARRED_REPOS.md) when you want the broader alphabetical index.
+
+## Coverage Snapshot
+
+The 30 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars).
+
+**Coverage:** 813 of ~1032 starred repositories are sorted into Lists, with roughly 1100 list memberships because many repositories belong to more than one list.
 
 | List | Repos |
 |---|---|

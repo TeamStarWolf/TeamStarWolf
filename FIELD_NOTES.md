@@ -1,10 +1,12 @@
-# Field Notes — Applied Security Research and Writeups
+# Field Notes
 
-> Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
+Writeups and lessons learned from building, reviewing, and hardening projects in public. The goal is to document what changed, what it surfaced, and what may be useful to other people doing similar work.
 
-A running record of original analysis from working on TeamStarWolf projects. The intent is to publish what is learned in the open — vulnerabilities found, patterns observed, mistakes corrected — rather than only collecting other people's work.
+## How To Use This File
 
-Entries are append-only. New work is added to the bottom; the table of contents below is reverse-chronological.
+- Start with the index if you want the shortest route to a topic.
+- Entries are append-only and listed in reverse-chronological order.
+- Expect concrete details: file paths, failure modes, fixes, and lessons carried forward.
 
 ---
 

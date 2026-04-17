@@ -1,12 +1,18 @@
-# TeamStarWolf — Master Cybersecurity Twitter (X) Follow List
+# Cybersecurity X / Twitter Follow List
 
-The complete, deduplicated, categorized list of every cybersecurity, infosec, threat intel, detection engineering, red/blue team, and policy account worth following on X/Twitter.
+A categorized list of X and Twitter accounts that regularly share useful research, tooling, threat reporting, detection work, and community commentary. This is meant to be a signal-focused reference list, not a popularity ranking.
 
-**Total: ~205 accounts** organized into 19 sections.
+## How To Use This File
+
+- Start with the section closest to your current area of work.
+- Use it to build a smaller reading list rather than following everything at once.
+- Revisit it periodically because account quality and activity change over time.
+
+**Scope:** about 205 accounts organized into 19 sections.
 
 ---
 
-## Table of Contents
+## Category Index
 
 1. [Elite Researchers & Reverse Engineers](#elite-researchers--reverse-engineers)
 2. [Threat Intelligence Analysts](#threat-intelligence-analysts)

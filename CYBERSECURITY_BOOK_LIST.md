@@ -194,6 +194,13 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [Nemesis](https://github.com/SpecterOps/Nemesis) — Offensive data enrichment and triage pipeline
 - [impacket](https://github.com/fortra/impacket) — Python classes for Windows network protocols (AD attacks)
 - [nishang](https://github.com/samratashok/nishang) — PowerShell offensive security framework
+- [AutoRecon](https://github.com/AutoRecon/AutoRecon) — Multi-threaded automated network recon and service enumeration
+- [reconftw](https://github.com/six2dez/reconftw) — Full automated recon framework for bug bounty and pentesting
+- [discover](https://github.com/leebaird/discover) — Custom Kali bash scripts for recon, scanning, and payload creation
+- [beef](https://github.com/beefproject/beef) — Browser Exploitation Framework — hook browsers and launch client-side attacks
+- [IntruderPayloads](https://github.com/1N3/IntruderPayloads) — Burp Intruder payloads, fuzz lists, and web pentest checklists
+- [ParamSpider](https://github.com/devanshbatham/ParamSpider) — Mine URLs from web archives for parameter fuzzing
+- [wapiti](https://github.com/wapiti-scanner/wapiti) — Web vulnerability scanner — command injection, SQLi, XSS, and more
 
 **📋 Essential cheat sheet URLs (bookmark these):**
 - [revshells.com](https://www.revshells.com) — Reverse shell generator for every language — instant copy/paste
@@ -343,6 +350,9 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [awesome-malware-analysis](https://github.com/rshipp/awesome-malware-analysis) — Curated malware analysis resource list
 - [awesome-reversing](https://github.com/tylerha97/awesome-reversing) — Curated reversing resource list
 - [theZoo](https://github.com/ytisf/theZoo) — Live malware samples for analysis practice (handle safely!)
+- [PracticalMalwareAnalysis-Labs](https://github.com/mikesiko/PracticalMalwareAnalysis-Labs) — Official lab binaries for the Practical Malware Analysis book
+- [blackhat-python3](https://github.com/EONRaider/blackhat-python3) — Black Hat Python source code ported to Python 3 — run the book examples
+- [efiXplorer](https://github.com/REhints/efiXplorer) — IDA/Ghidra plugin for UEFI firmware analysis and RE automation
 
 **🎓 Certifications:** GREM · eCMAP · GCFE · GCFA · CREA  
 **📺 YouTube:** [OALabs](https://www.youtube.com/@OALABS) · [MalwareAnalysisForHedgehogs](https://www.youtube.com/@MalwareAnalysisForHedgehogs) · [hasherezade](https://www.youtube.com/@hasherezade)  
@@ -420,6 +430,13 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [awesome-detection-engineering](https://github.com/infosecB/awesome-detection-engineering) — Detection engineering resources
 - [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection) — Threat detection and hunting resources
 - [chainsaw](https://github.com/WithSecureLabs/chainsaw) — Hunt through Windows event logs fast
+- [sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config) — SwiftOnSecurity's Sysmon config — the standard baseline for Windows telemetry
+- [sysmon-modular](https://github.com/olafhartong/sysmon-modular) — Modular Sysmon configuration — build exactly the telemetry you need
+- [windows-event-forwarding](https://github.com/palantir/windows-event-forwarding) — Palantir's WEF configuration for centralized Windows event collection
+- [python-evtx](https://github.com/williballenthin/python-evtx) — Pure Python Windows EVTX log parser
+- [Aurora-Incident-Response](https://github.com/cyb3rfox/Aurora-Incident-Response) — Incident response documentation framework
+- [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) — Wazuh SIEM detection rules — covers 3000+ attack scenarios
+- [scirius](https://github.com/StamusNetworks/scirius) — Suricata ruleset management and threat hunting UI
 
 **🎓 Certifications:** BTL1 · GCIH · GCFE · GCFA · CySA+ · BlueTeamLabs  
 **📺 YouTube:** [Eric Capuano](https://www.youtube.com/@reginald254) · [SANS DFIR](https://www.youtube.com/@SANSForensics) · [13Cubed](https://www.youtube.com/@13Cubed)  
@@ -494,6 +511,14 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [Maltego community](https://github.com/MaltegoTech/maltego-trx) — Graph-based OSINT visualization framework
 - [OSINT-Framework](https://github.com/lockfale/OSINT-Framework) — Web-based OSINT tool directory organized by category
 
+### 🔒 Privacy & Anonymity Tools
+- [tor](https://github.com/torproject/tor) — The Tor anonymizing network — essential for privacy research
+- [i2p.i2p](https://github.com/i2p/i2p.i2p) — I2P anonymizing network — layered encryption, no central authority
+- [libsignal](https://github.com/signalapp/libsignal) — Signal Protocol cryptographic primitives — the gold standard for E2E encryption
+- [arkenfox/user.js](https://github.com/arkenfox/user.js) — Firefox privacy hardening config — comprehensive anti-fingerprinting
+- [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) — Network-wide DNS ad/tracker blocking
+- [pi-hole](https://github.com/pi-hole/pi-hole) — DNS-level ad blocking for your entire network
+
 **🎓 Certifications:** OSINT Curious · GOSI · CREST · Trace Labs OSINT CTF  
 **📺 YouTube:** [Michael Bazzell](https://www.youtube.com/@IntelTechniques) · [OSINT Dojo](https://www.youtube.com/@OSINTDojo) · [Bendobrown](https://www.youtube.com/@Bendobrown)  
 **🏆 Practice:** [TraceLabs Missing Persons CTF](https://tracelabs.org) · [Bellingcat Online Investigations](https://www.bellingcat.com)
@@ -536,6 +561,12 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [TerraformGoat](https://github.com/HXSecurity/TerraformGoat) — Vulnerable Terraform deployments for cloud security labs
 - [stratus-red-team](https://github.com/DataDog/stratus-red-team) — Cloud threat emulation for AWS/Azure/GCP
 - [cloud-custodian](https://github.com/cloud-custodian/cloud-custodian) — Rules engine for cloud governance and security
+- [tfsec](https://github.com/aquasecurity/tfsec) — Terraform security scanner (now integrated into Trivy)
+- [conftest](https://github.com/open-policy-agent/conftest) — OPA-based policy testing for Terraform, Kubernetes, Dockerfiles
+- [hadolint](https://github.com/hadolint/hadolint) — Dockerfile linter — catch security issues in container builds
+- [snyk/cli](https://github.com/snyk/cli) — Open source vulnerability scanner for code, containers, and IaC
+- [ggshield](https://github.com/GitGuardian/ggshield) — GitGuardian CLI — detect 500+ secret types in pre-commit hooks and CI
+- [scirius](https://github.com/StamusNetworks/scirius) — Suricata NDR ruleset management
 
 **🎓 Certifications:** CCSP · AWS Security Specialty · CCSK · KCSA · GCP Security Engineer  
 **📺 YouTube:** [CloudSecurityPodcast](https://www.youtube.com/@CloudSecurityPodcast) · [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec) · [Nick Jones (NCC)](https://www.youtube.com/@nickjones)  
@@ -601,6 +632,15 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [ICS/SCADA resources](https://github.com/hslatman/awesome-industrial-control-system-security) — Curated ICS/SCADA security resource list
 - [GNURadio](https://github.com/gnuradio/gnuradio) — Software-defined radio toolkit for RF analysis
 - [URH](https://github.com/jopohl/urh) — Universal Radio Hacker — analyze wireless protocols
+- [hackrf](https://github.com/greatscottgadgets/hackrf) — HackRF One SDR platform — sub-1GHz to 6GHz radio hacking
+- [kismet](https://github.com/kismetwireless/kismet) — Wireless network detector, sniffer, wardriving tool
+- [wifiphisher](https://github.com/wifiphisher/wifiphisher) — Rogue AP framework for credential capture and MitM
+- [rtl-sdr](https://github.com/osmocom/rtl-sdr) — RTL-SDR library — turn a $20 USB dongle into a spectrum analyzer
+- [firmadyne](https://github.com/firmadyne/firmadyne) — Platform for firmware emulation and dynamic analysis
+- [attify/firmware-analysis-toolkit](https://github.com/attify/firmware-analysis-toolkit) — Simplified firmware emulation and vulnerability analysis
+- [ICS-Security-Tools](https://github.com/ITI/ICS-Security-Tools) — Curated ICS/SCADA security tools, resources, and references
+- [ICS-pcap](https://github.com/automayt/ICS-pcap) — ICS/SCADA protocol PCAP collection for analysis practice
+- [pymodbus](https://github.com/pymodbus-dev/pymodbus) — Full Modbus protocol in Python — read/write PLC registers
 
 **🎓 Certifications:** GICSP (ICS Security) · ICS-CERT training · CSSA  
 **📺 YouTube:** [Joe Grand (Kingpin)](https://www.youtube.com/@JoeGrand) · [Phil's Lab](https://www.youtube.com/@PhilsLab) · [LiveOverflow Hardware](https://www.youtube.com/@LiveOverflow)  
@@ -741,6 +781,9 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [Sliver](https://github.com/BishopFox/sliver) — Go-based C2 framework — study the source
 - [Havoc](https://github.com/HavocFramework/Havoc) — Modern C2 framework — C/C++ core to study
 - [metasploit-framework](https://github.com/rapid7/metasploit-framework) — Ruby C2/exploitation framework — read the modules
+- [violent-python3](https://github.com/EONRaider/violent-python3) — Violent Python source code ported to Python 3 — fully working examples
+- [hacking](https://github.com/intere/hacking) — Source code from Hacking: The Art of Exploitation 2nd Edition
+- [Hands-On-Penetration-Testing-with-Python](https://github.com/PacktPublishing/Hands-On-Penetration-Testing-with-Python) — Packt book companion repo — Python for pentesting
 
 **🎓 Certifications:** PCEP (Python) · PNPT (applied scripting) · OSCP (custom tools)  
 **📺 YouTube:** [TCM Security Python](https://www.youtube.com/@TCMSecurityAcademy) · [Seitz Black Hat Python series](https://www.youtube.com/)  
@@ -824,6 +867,9 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [awesome-hacking](https://github.com/carpedm20/awesome-hacking) — Hacking tutorials and resources for foundations
 - [90DaysOfCyber](https://github.com/0xHop/90DaysOfCyber) — Structured 90-day cybersecurity learning path
 - [Cybersecurity-Roadmap](https://github.com/nicowillis/cybersecurity-roadmap) — Community-built career roadmap
+- [Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks) — Curated free hacking and security ebooks
+- [security-study-plan](https://github.com/jassics/security-study-plan) — Complete study plans for pentest, AppSec, cloud security, and DevSecOps roles
+- [Infosec_Reference](https://github.com/rmusser01/Infosec_Reference) — Massive information security reference — doesn't suck
 
 **📺 YouTube:** [Professor Messer (Sec+, Net+)](https://www.youtube.com/@professormesser) · [Pete Zerger (CISSP)](https://www.youtube.com/@insidecloudandsecurity)  
 **🏆 Free study:** [Professor Messer free course notes](https://professormesser.com) · [CyberSeek](https://cyberseek.org/pathway.html)
@@ -908,6 +954,10 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [CTFd](https://github.com/CTFd/CTFd) — Host your own CTF challenges
 - [ctf-katana](https://github.com/JohnHammond/ctf-katana) — CTF problem-solving hints and tools
 - [awesome-ctf](https://github.com/apsdehal/awesome-ctf) — Curated CTF resources
+- [ctf-tools](https://github.com/zardus/ctf-tools) — Setup scripts for 90+ security research and CTF tools
+- [Ignitetechnologies/Mindmap](https://github.com/Ignitetechnologies/Mindmap) — Security technology and certification mindmaps
+- [Ignitetechnologies/HackTheBox-CTF-Writeups](https://github.com/Ignitetechnologies/HackTheBox-CTF-Writeups) — HTB machine writeups sorted by OS and difficulty
+- [Ignitetechnologies/Vulnhub-CTF-Writeups](https://github.com/Ignitetechnologies/Vulnhub-CTF-Writeups) — VulnHub writeup index
 
 ### Malware Analysis Labs
 - [PMAT-labs](https://github.com/HuskyHacks/PMAT-labs) — Practical Malware Analysis & Triage course labs

@@ -2,7 +2,7 @@
 
 > Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
 
-The 21 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
+The 30 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
 
 **Coverage:** 813 of ~1032 starred repositories are now sorted into Lists (~1100 list-memberships, since many repos belong to multiple Lists).
 
@@ -94,3 +94,18 @@ Identity providers, zero-trust network access, and privileged access management.
 
 ## 21. All-in-One Hacker Toolkit and Recon
 Practitioner-grade omnibus list combining hacking-book companion code (Black Hat Python, Violent Python, Practical Malware Analysis, PacktPublishing pentesting and reverse engineering), end-to-end recon and pentest frameworks (Sn1per, Recon-ng + marketplace, AutoRecon, Bluto, Discover, Sublist3r, Photon, ParamSpider, FavFreak, hackingtool, Coldfire), foundational exploitation suites (BeEF, Responder, sqlmap, Wapiti, ZAP community scripts), and the most-referenced hacking knowledge bases (h4cker, RedTeam-Tools, Awesome-CTF, ctf-tools, Free-Security-eBooks, Penetration-Testing, Infosec_Reference, hackerschoice tips, jhaddix tbhm, Ignite cheatsheets). The single list to open when you need to do everything from external recon to post-exploitation in one place.
+
+## 22-26. ICS, Wireless, Windows, DevSecOps, Privacy
+Earlier-added discipline-specific lists covering ICS/OT critical infrastructure, wireless and RF, Windows internals and Sysmon engineering, DevSecOps pipeline security, and privacy/anonymity tooling. See the live profile for full membership.
+
+## 27. Email Security and Anti-Phishing
+Open-source email security stack: anti-spam (Rspamd, SpamAssassin), DKIM/DMARC enforcement (OpenDKIM, OpenDMARC), full mail-server appliances (Mail-in-a-Box), antivirus (ClamAV), MIME parsing libraries (MimeKit), reply parsers (Talon), phishing simulation (GoPhish, Evilginx2), and IOC/phishing-kit detection (phish-report IOK).
+
+## 28. Honeypots and Deception Technology
+Production-grade honeypots, deception toolkits, and canary tokens for detection and threat-intelligence collection. T-Pot, Cowrie, Conpot, Snare, Glastopf, Dionaea, OpenCanary, HoneyPy, ElasticHoney, Tanner, Box-JS sandbox, Canarytokens, MTPot, IoT telnet honeypot, and the awesome-honeypots catalog.
+
+## 29. Application Security: SAST, DAST, and AppSec
+Application security across the SDLC: dynamic and static scanners (ZAP, Nikto, Wapiti, Nettacker, Semgrep, Bandit, Brakeman, gosec, CodeQL), secret scanning (TruffleHog, Gitleaks, detect-secrets), SCA and SBOM (Snyk, Trivy, Grype, cdxgen, Cosign), web application firewalls (Coraza, ModSecurity, OWASP CRS), OWASP standards (Top 10, ASVS, WSTG, SAMM, Cheat Sheets), and intentionally vulnerable training apps (WebGoat, NodeGoat, DVWA).
+
+## 30. Mobile Application Security
+iOS and Android security testing, runtime instrumentation (Frida, Objection), reverse engineering (Apktool, JADX, Smali, dex2jar, Ghidra), automated assessment (MobSF, mobsfscan, Quark-Engine), runtime testing (drozer, Needle, House), and OWASP MASVS/MASTG mobile security standards.

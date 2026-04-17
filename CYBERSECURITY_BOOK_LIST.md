@@ -21,29 +21,30 @@ A practical reading and lab guide for people learning or working in cybersecurit
 |---|---------|-------|
 | 1 | [How To Use This File](#how-to-use-this-file) | Reference |
 | 2 | [Learning Paths](#learning-paths) | Reference |
-| 3 | [News and Daily Intel](#news-and-daily-intel) | Reference |
-| 4 | [Core / Must-Read](#core--must-read-high-signal) | All |
-| 5 | [Offensive Security & Pentesting](#offensive-security--pentesting) | Intermediate/Advanced |
-| 6 | [Web Security & Bug Bounty](#web-security--bug-bounty) | Intermediate/Advanced |
-| 7 | [Active Directory & Windows Security](#active-directory--windows-security) | Intermediate/Advanced |
-| 8 | [Reverse Engineering & Malware Analysis](#reverse-engineering--malware-analysis) | Advanced |
-| 9 | [Cryptography](#cryptography) | Intermediate/Advanced |
-| 10 | [Blue Team / Defense / SOC](#blue-team--defense--soc) | Beginner/Intermediate |
-| 11 | [Threat Intelligence & Hunting](#threat-intelligence--hunting) | Intermediate/Advanced |
-| 12 | [OSINT / Privacy / Social Engineering](#osint--privacy--social-engineering) | Beginner/Intermediate |
-| 13 | [Cloud Security](#cloud-security) | Intermediate/Advanced |
-| 14 | [Mobile Security](#mobile-security) | Intermediate/Advanced |
-| 15 | [Hardware / IoT / ICS Security](#hardware--iot--ics-security) | Advanced |
-| 16 | [Systems / Low-Level / Exploit Dev](#systems--low-level--exploit-dev) | Advanced |
-| 17 | [Research / Exploit Culture / Fuzzing](#research--exploit-culture--fuzzing) | Advanced |
-| 18 | [Networking](#networking-critical-foundation) | Beginner/Intermediate |
-| 19 | [Programming for Hackers](#programming-for-hackers) | Beginner/Intermediate |
-| 20 | [Hacker Culture / History / Real-World Ops](#hacker-culture--history--real-world-ops) | Beginner |
-| 21 | [AI / ML Security](#ai--ml-security) | Intermediate/Advanced |
-| 22 | [Certifications & Foundations](#certifications--foundations) | Beginner/Intermediate |
-| 23 | [Career / Getting Hired](#career--getting-hired) | Beginner |
-| 24 | [Practice Environments](#practice-environments) | All |
-| 25 | [Coverage Summary](#coverage-summary) | Reference |
+| 3 | [Black Hat Arsenal Companion Track](#black-hat-arsenal-companion-track) | Reference |
+| 4 | [News and Daily Intel](#news-and-daily-intel) | Reference |
+| 5 | [Core / Must-Read](#core--must-read-high-signal) | All |
+| 6 | [Offensive Security & Pentesting](#offensive-security--pentesting) | Intermediate/Advanced |
+| 7 | [Web Security & Bug Bounty](#web-security--bug-bounty) | Intermediate/Advanced |
+| 8 | [Active Directory & Windows Security](#active-directory--windows-security) | Intermediate/Advanced |
+| 9 | [Reverse Engineering & Malware Analysis](#reverse-engineering--malware-analysis) | Advanced |
+| 10 | [Cryptography](#cryptography) | Intermediate/Advanced |
+| 11 | [Blue Team / Defense / SOC](#blue-team--defense--soc) | Beginner/Intermediate |
+| 12 | [Threat Intelligence & Hunting](#threat-intelligence--hunting) | Intermediate/Advanced |
+| 13 | [OSINT / Privacy / Social Engineering](#osint--privacy--social-engineering) | Beginner/Intermediate |
+| 14 | [Cloud Security](#cloud-security) | Intermediate/Advanced |
+| 15 | [Mobile Security](#mobile-security) | Intermediate/Advanced |
+| 16 | [Hardware / IoT / ICS Security](#hardware--iot--ics-security) | Advanced |
+| 17 | [Systems / Low-Level / Exploit Dev](#systems--low-level--exploit-dev) | Advanced |
+| 18 | [Research / Exploit Culture / Fuzzing](#research--exploit-culture--fuzzing) | Advanced |
+| 19 | [Networking](#networking-critical-foundation) | Beginner/Intermediate |
+| 20 | [Programming for Hackers](#programming-for-hackers) | Beginner/Intermediate |
+| 21 | [Hacker Culture / History / Real-World Ops](#hacker-culture--history--real-world-ops) | Beginner |
+| 22 | [AI / ML Security](#ai--ml-security) | Intermediate/Advanced |
+| 23 | [Certifications & Foundations](#certifications--foundations) | Beginner/Intermediate |
+| 24 | [Career / Getting Hired](#career--getting-hired) | Beginner |
+| 25 | [Practice Environments](#practice-environments) | All |
+| 26 | [Coverage Summary](#coverage-summary) | Reference |
 
 ---
 
@@ -88,6 +89,21 @@ Hacking: Art of Exploitation -> Shellcoder's Handbook
 -> Art of Software Security Assessment -> Fuzzing book
 -> AFL++ + CodeQL labs -> bug bounty -> CVE credits
 ```
+
+---
+
+## Black Hat Arsenal Companion Track
+
+When I want to turn the reading list into a more tool-first study plan, Black Hat Arsenal is a strong secondary source. The [crosswalk page](BLACK_HAT_ARSENAL_CROSSWALK.md) and [dataset](data/blackhat_arsenal_tools.csv) collect the conference-linked repos, maintainers, and demo paths.
+
+| Study area | Read first | Pair with Arsenal tools |
+|---|---|---|
+| Cloud security | the cloud and infrastructure sections in this file | [Prowler](https://github.com/prowler-cloud/prowler), [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
+| Offensive and red team | *The Hacker Playbook 3*, *Advanced Penetration Testing*, *RTFM* | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper), [Legion](https://github.com/GoVanguard/legion) |
+| Web and AppSec | *The Web Application Hacker's Handbook*, *Bug Bounty Bootcamp* | [ZAP](https://github.com/zaproxy/zaproxy), [OWTF](https://github.com/owtf/owtf), [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck) |
+| Mobile security | the mobile section in this file plus OWASP MASTG and MASVS material | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/mwrlabs/needle) |
+| Malware and DFIR | *Practical Malware Analysis*, *The Art of Memory Forensics* | [FLOSS](https://github.com/fireeye/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
+| Hardware, firmware, and OT | the hardware and OT sections in this file | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
 
 ---
 

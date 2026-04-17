@@ -36,6 +36,21 @@ A categorized index of **1032** starred repositories grouped by cybersecurity di
 - **[GitHub Tools](#github-tools)** (1)
 - **[Personal & Misc](#personal--misc)** (173)
 
+## Black Hat Arsenal Review Queue
+
+These are not part of the starred index below. They are Arsenal-sourced candidates worth reviewing if I want the library to lean harder into tool-backed cyber education.
+
+| Area | Candidate repos |
+|---|---|
+| Cloud labs and assessment | [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
+| Offensive and post-exploitation | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper) |
+| Mobile testing | [Needle](https://github.com/mwrlabs/needle) |
+| Malware and DFIR | [FLOSS](https://github.com/fireeye/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
+| AppSec and exposure work | [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck), [OWTF](https://github.com/owtf/owtf), [CrowdSec](https://github.com/crowdsecurity/crowdsec) |
+| Embedded, hardware, and OT | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
+
+Use [BLACK_HAT_ARSENAL_CROSSWALK.md](BLACK_HAT_ARSENAL_CROSSWALK.md) for the broader cross-reference, maintainer feeds, and direct demo links.
+
 
 ## Frameworks & Standards
 

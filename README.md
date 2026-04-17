@@ -4,7 +4,7 @@ Cybersecurity tools, ATT&CK workflows, detection engineering notes, and practica
 
 I use this profile to share projects, writeups, and reference material that may be useful to people learning or working in defensive security. Most of the public work here is centered on ATT&CK, detections, threat intelligence context, exposure analysis, and hands-on analysis workflows.
 
-[ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | [Live Site](https://teamstarwolf.github.io/ATTACK-Navi/) | [Field Notes](FIELD_NOTES.md) | [Curated Stars Lists](CURATED_STARS_LISTS.md)
+[ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | [Live Site](https://teamstarwolf.github.io/ATTACK-Navi/) | [Field Notes](FIELD_NOTES.md) | [Curated Stars Lists](CURATED_STARS_LISTS.md) | [Black Hat Arsenal Crosswalk](BLACK_HAT_ARSENAL_CROSSWALK.md)
 
 ---
 
@@ -15,6 +15,7 @@ If you are new to this page, these are the best entry points:
 - [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi): a browser-based ATT&CK workbench for coverage review, exposure mapping, detection engineering, and threat intelligence correlation
 - [Field Notes](FIELD_NOTES.md): writeups and lessons learned from building, testing, and hardening real projects
 - [Curated Stars Lists](CURATED_STARS_LISTS.md): organized cybersecurity resource lists built from the repositories and material I keep returning to
+- [Black Hat Arsenal Crosswalk](BLACK_HAT_ARSENAL_CROSSWALK.md): a source-backed bridge between Black Hat Arsenal tools and the learning pages in this repo
 - [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md): books, labs, and companion repositories that are useful for deeper study
 
 ---
@@ -62,6 +63,7 @@ I also maintain a set of curated resources for people who prefer learning from s
 |---|---|
 | [Curated Stars Lists](CURATED_STARS_LISTS.md) | Cybersecurity GitHub stars lists organized by discipline |
 | [Starred Repositories Index](STARRED_REPOS.md) | Searchable index of the repositories I have starred |
+| [Black Hat Arsenal Crosswalk](BLACK_HAT_ARSENAL_CROSSWALK.md) | Arsenal-derived repo candidates, maintainer feeds, video links, and book pairings |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning |
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple areas of security |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Accounts that regularly share useful research, tooling, or operational insight |

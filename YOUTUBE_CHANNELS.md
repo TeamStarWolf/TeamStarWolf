@@ -6,6 +6,7 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 
 - Start with the discipline you are actively learning or working in.
 - Use it alongside [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md) and [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) to pair videos with tools and reading.
+- Use [BLACK_HAT_ARSENAL_CROSSWALK.md](BLACK_HAT_ARSENAL_CROSSWALK.md) when you want a tighter Black Hat Arsenal watch path instead of browsing conference uploads at random.
 - Channels listed here are either active within roughly the last 12 months or still the clearest reference for the topic.
 
 ---
@@ -176,6 +177,19 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 - **BSides Tel Aviv** - https://www.youtube.com/@BSidesTLV
 - **BSides Budapest** - https://www.youtube.com/@BSidesBUD
 - **SecKC** - https://www.youtube.com/@SecKCVids - Kansas City Security Meetup recordings
+
+---
+
+## Black Hat Arsenal Companion Videos
+
+The Arsenal source material only exposes a handful of direct YouTube links, so this section stays intentionally small and source-backed.
+
+- **Black Hat Official YouTube** - https://www.youtube.com/@BlackHatOfficialYT - Use this with [BLACK_HAT_ARSENAL_CROSSWALK.md](BLACK_HAT_ARSENAL_CROSSWALK.md) and the session titles in [data/blackhat_arsenal_tools.csv](data/blackhat_arsenal_tools.csv) to build a focused watch queue
+- **Faraday** - https://www.youtube.com/channel/UCnHpyTi7zRQ9A4U4Ldc65YQ - Collaborative pentest platform walkthroughs
+- **OWTF** - https://www.youtube.com/user/owtfproject - Offensive web testing workflow demos
+- **GEF playlist** - https://www.youtube.com/playlist?list=PLjAuO31Rg972WeMvdR_57Qu-aVM8T6DkQ - Debugger workflow material tied to GEF
+- **MI-X demo** - https://www.youtube.com/watch?v=2FsnsJ0mr68 - Arsenal-linked vulnerability assessment demo
+- **Remote Method Guesser demo** - https://youtu.be/t_aw1mDNhzI - Focused demo for Java/RMI attack surface work
 
 ---
 

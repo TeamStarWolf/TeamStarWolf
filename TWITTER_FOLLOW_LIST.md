@@ -8,7 +8,7 @@ A categorized list of X and Twitter accounts that regularly share useful researc
 - Use it to build a smaller reading list rather than following everything at once.
 - Revisit it periodically because account quality and activity change over time.
 
-**Scope:** about 205 accounts organized into 19 sections.
+**Scope:** about 205 accounts organized into 19 main sections, plus a short Black Hat Arsenal appendix.
 
 ---
 
@@ -255,6 +255,21 @@ A categorized list of X and Twitter accounts that regularly share useful researc
 - @eric_capuano — Eric Capuano (detection/IR)
 - @s0md3v — s0md3v (security tools)
 - @CitizenLab — Citizen Lab (state-sponsored spyware research)
+
+## Black Hat Arsenal Maintainers And Project Feeds
+- @Ne0nd0g - Merlin C2 and operator tradecraft
+- @dafthack - MailSniper and Microsoft-focused offensive tooling
+- @patrickwardle - Objective-See tooling and macOS security
+- @ajinabraham - MobSF maintainer and mobile app security
+- @leonjza - objection maintainer and mobile instrumentation
+- @securefirmware - EMBA and firmware analysis
+- @joegrand - JTAGulator and hardware hacking
+- @williballenthin - FLOSS and reverse engineering support tooling
+- @qtc_de - Remote Method Guesser and Java/RMI attack surface work
+- @Crowd_Security - CrowdSec project feed and community defense content
+- @faradaysec - Faraday collaborative pentest platform
+- @zaproxy - ZAP project account
+- @owtfp - OWTF offensive web testing
 
 ## Additional Vendors & Orgs
 - @teamcymru — Team Cymru (threat intelligence)

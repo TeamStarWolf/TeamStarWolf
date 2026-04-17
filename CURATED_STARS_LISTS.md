@@ -37,6 +37,20 @@ The 30 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://git
 | SOAR and Security Automation | 13 |
 | TeamStarWolf - Production Stack | 7 |
 
+## Black Hat Arsenal Alignment
+
+I also keep a [Black Hat Arsenal crosswalk](BLACK_HAT_ARSENAL_CROSSWALK.md) for when I want to expand these lists from a source-backed conference catalog instead of wandering GitHub at random.
+
+The strongest fits against the current lists are:
+
+- `Cloud and Container Security: Attack and Defense`: [Prowler](https://github.com/prowler-cloud/prowler), [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat)
+- `Command-and-Control and Post-Exploitation Frameworks`: [Merlin](https://github.com/Ne0nd0g/merlin), [Legion](https://github.com/GoVanguard/legion), [MailSniper](https://github.com/dafthack/MailSniper)
+- `Malware Analysis and Reverse Engineering`: [FLOSS](https://github.com/fireeye/flare-floss), [GEF](https://github.com/hugsy/gef), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [EMBA](https://github.com/e-m-b-a/emba)
+- `Vulnerability and Attack Surface Management`: [Faraday](https://github.com/infobyte/faraday), [Archery](https://github.com/archerysec/archerysec), [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck), [OWTF](https://github.com/owtf/owtf)
+- `Mobile Application Security`: [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/mwrlabs/needle), [Kwetza](https://github.com/sensepost/kwetza)
+
+Use the crosswalk page when you want the repo review queue, maintainer handles, direct video links, and the generated Arsenal dataset.
+
 
 ---
 

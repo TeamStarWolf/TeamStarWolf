@@ -158,65 +158,39 @@ A curated library of YouTube channels organized by discipline. The companion to 
 
 ---
 
-## TeamStarWolf Personal Subscription Additions
+## Extended Library — Specialized and Vendor Channels
 
-These are channels @WolfenLabs is already subscribed to that fit the cybersecurity discipline. Added here for the public library.
+A second tier of channels covering vendor-specific platforms, professional training programs, narrative-format content, and specialized subject-matter domains.
 
-### Vendor Detection / Threat Intel (additional)
-- **Microsoft Security Community** - https://www.youtube.com/@MicrosoftSecurityCommunity - Defender, Sentinel, Entra ID community
-- **Red Canary, a Zscaler company** - https://www.youtube.com/@RedCanary - Detection engineering, Atomic Red Team
+### Vendor and Platform Channels
+- **Microsoft Security Community** - https://www.youtube.com/@MicrosoftSecurityCommunity - Microsoft Defender, Sentinel, and Entra ID community sessions
+- **Red Canary** - https://www.youtube.com/@RedCanary - Detection engineering and Atomic Red Team content (now part of Zscaler)
 
-### Training / Career (additional)
-- **Antisyphon Training** - https://www.youtube.com/@AntisyphonTraining - Black Hills Information Security training arm; pay-what-you-can pentesting and detection courses
-- **A Cloud Guru** - https://www.youtube.com/@acloudguru - Cloud (AWS, Azure, GCP) certifications, including security paths
+### Professional Training Programs
+- **Antisyphon Training** - https://www.youtube.com/@AntisyphonTraining - Pay-what-you-can pentesting and detection-engineering courses from the Black Hills Information Security training arm
+- **A Cloud Guru** - https://www.youtube.com/@acloudguru - Cloud (AWS, Azure, GCP) certification preparation, including security specialty paths
 
-### Red Team / Pentest (additional)
-- **Red Siege Information Security** - https://www.youtube.com/@RedSiege - Red team consultancy talks, EyeWitness author
-- **Beau Bullock** - https://www.youtube.com/@beau_bullock - BHIS testing, Azure attack content
+### Red Team Operations
+- **Red Siege Information Security** - https://www.youtube.com/@RedSiege - Red-team consultancy talks and offensive research
+- **Beau Bullock** - https://www.youtube.com/@beau_bullock - Penetration testing technique deep-dives, with a focus on Azure attack paths
 
-### Hardware Hacking (additional)
-- **Joe Grand (Kingpin)** - https://www.youtube.com/@JoeGrand - Hardware hacking legend; co-founder of @stake, original L0pht member
+### Hardware Hacking
+- **Joe Grand (Kingpin)** - https://www.youtube.com/@JoeGrand - Hardware-hacking legend; co-founder of @stake and original L0pht member, hardware reverse-engineering deep-dives
 
-### Storytelling / Long-form (additional)
-- **Jack Rhysider (Darknet Diaries)** - https://www.youtube.com/@JackRhysider - Companion channel to the Darknet Diaries podcast; cybercrime narratives
+### Long-Form and Narrative Cybersecurity
+- **Jack Rhysider** - https://www.youtube.com/@JackRhysider - Companion channel to the *Darknet Diaries* podcast; long-form cybercrime and intelligence-operation narratives
 
-### Scam Awareness / Social Engineering
-- **Kitboga** - https://www.youtube.com/@KitbogaShow - Live scam baiting; great for social-engineering and phone-fraud awareness
+### Social Engineering and Fraud Awareness
+- **Kitboga** - https://www.youtube.com/@KitbogaShow - Live scam-baiting recordings; useful reference for social-engineering tradecraft and phone-fraud awareness training
 
-### Purple Team / Community Podcasts
-- **The Weekly Purple Team** - https://www.youtube.com/@WeeklyPurpleTeam - Purple-team operations focus
-- **CyberBytes: The Podcast** - https://www.youtube.com/@cyberbytes-the-podcast - Practitioner interviews and discussion
-- **Cyber Warriors HQ** - https://www.youtube.com/@CyberWarriorsHQ - Career/community
-- **Cyber Warriors HQ Dispatch** - https://www.youtube.com/@CyberWarriorsHQDispatch - Daily news brief
+### Purple Team and Practitioner Podcasts
+- **The Weekly Purple Team** - https://www.youtube.com/@WeeklyPurpleTeam - Weekly discussion focused on purple-team operations, methodology, and tooling
+- **CyberBytes** - https://www.youtube.com/@cyberbytes-the-podcast - Practitioner interviews and industry discussion
+- **Cyber Warriors HQ** - https://www.youtube.com/@CyberWarriorsHQ - Career development, community discussion, and industry interviews
+- **Cyber Warriors HQ Dispatch** - https://www.youtube.com/@CyberWarriorsHQDispatch - Daily cybersecurity news briefings
 
-### Web3 / Crypto Security
-- **CoinSec Podcast** - https://www.youtube.com/@CoinSecPodcast - Cryptocurrency and web3 security discussion
-
----
-
-## Pruned (do not retry)
-
-These were removed during verification — broken handles, dead channels (no upload in 2+ years), or zero videos:
-
-- ~~@_Codingo_~~ — broken handle
-- ~~@MosseCyberSecurityInstitute~~ — 404
-- ~~@CodeMachineInc~~ — 404
-- ~~@DevSecCon~~ — 404
-- ~~@0x00sec~~ — 404
-- ~~@RiskyBusinessHQ~~ — broken handle (podcast lives on `risky.biz`)
-- ~~@hopeconf~~ — 404
-- ~~@44con~~ — 404
-- ~~@zSeano~~ — last upload 4 years ago
-- ~~@bugbountyreports~~ — no videos
-- ~~@HusseinDaher~~ — no videos
-- ~~@VbScrub~~ — last upload 4 years ago
-- ~~@HuskyHacks~~ — last upload 3 years ago
-- ~~@pentesteracademytv~~ — last upload 4 years ago
-- ~~@RanaKhalil101~~ — last upload 2 years ago
-- ~~@OSINTCurious~~ — last upload 4 years ago
-- ~~@Tinkernut~~ — last upload 4 years ago
-- ~~@outpost24~~ — no videos
-- ~~@Cyberspatial~~ — last upload over 1 year ago
+### Cryptocurrency and Web3 Security
+- **CoinSec Podcast** - https://www.youtube.com/@CoinSecPodcast - Cryptocurrency, smart-contract, and Web3 security discussion
 
 ---
 

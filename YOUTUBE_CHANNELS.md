@@ -4,6 +4,8 @@
 
 A curated library of YouTube channels organized by discipline. The companion to the [GitHub Stars Lists](CURATED_STARS_LISTS.md) — when you want to *watch* someone do the thing instead of just reading the code.
 
+> **Curation policy:** Channels listed here have uploaded within the past ~12 months OR are still the canonical reference for their topic despite a slower cadence. Verified live as of latest commit; broken handles and dead channels (no upload in 2+ years, or zero videos) have been pruned.
+
 ---
 
 ## Table of Contents
@@ -41,23 +43,17 @@ A curated library of YouTube channels organized by discipline. The companion to 
 
 ## CTF Walkthroughs and HackTheBox/THM
 - **IppSec** - https://www.youtube.com/@ippsec - The HackTheBox writeup channel
-- **0xdf hacks stuff** - https://0xdf.gitlab.io/ (blog) and YouTube content for HTB
 - **CryptoCat** - https://www.youtube.com/@_CryptoCat - CTF challenges, especially crypto and pwn
 - **PinkDraconian** - https://www.youtube.com/@PinkDraconian - HackTheBox, CTFs
 - **Tib3rius** - https://www.youtube.com/@Tib3rius - AutoRecon author, OSCP/PNPT prep
-- **VbScrub** - https://www.youtube.com/@VbScrub - HTB, AD focused walkthroughs
-- **CryptoCat** - CTF cryptography deep dives
 
 ## Malware Analysis and Reverse Engineering
 - **OALabs** - https://www.youtube.com/@OALABS - Live malware analysis with Sergei Frankoff and Sean Wilson
 - **MalwareAnalysisForHedgehogs (Karsten Hahn)** - https://www.youtube.com/@MalwareAnalysisForHedgehogs - Static and dynamic analysis tutorials
-- **stacksmashing** - https://www.youtube.com/@stacksmashing - Hardware RE, firmware
-- **MalwareTechBlog (Marcus Hutchins)** - https://www.youtube.com/@MalwareTechBlog - RE, malware deep dives
+- **MalwareTechBlog (Marcus Hutchins)** - https://www.youtube.com/@MalwareTechBlog - RE, malware deep dives (active again as of 2025)
 - **Day Cyberwox** - https://www.youtube.com/@DayCyberwox - Cloud + RE
-- **HuskyHacks** - https://www.youtube.com/@HuskyHacks - PMAT (Practical Malware Analysis & Triage) author
 - **Guided Hacking** - https://www.youtube.com/@GuidedHacking - Game hacking and RE
-- **Open Security Training** - https://www.youtube.com/@OpenSecurityTraining - University-level malware/RE courses
-- **CodeMachine** - https://www.youtube.com/@CodeMachineInc - Windows internals deep dives
+- **Open Security Training** - https://www.youtube.com/@OpenSecurityTraining - University-level malware/RE courses (slower cadence; canonical course archive)
 
 ## Detection Engineering and Blue Team
 - **13Cubed** - https://www.youtube.com/@13Cubed - DFIR techniques, Windows forensics, memory analysis
@@ -65,87 +61,64 @@ A curated library of YouTube channels organized by discipline. The companion to 
 - **SANS Digital Forensics and Incident Response** - https://www.youtube.com/@SANSForensics
 - **SANS Cyber Defense** - https://www.youtube.com/@SANSCyberDefense
 - **Black Hills Information Security** - https://www.youtube.com/@BlackHillsInformationSecurity - Wild West Hackin' Fest, John Strand
-- **Mossé Cyber Security Institute** - https://www.youtube.com/@MosseCyberSecurityInstitute
 - **Cyber Defenders** - https://www.youtube.com/@cyberdefenders
-- **Splunk** - https://www.youtube.com/@splunk-official - Boss of the SOC, ESCU
+- **Splunk** - https://www.youtube.com/@splunkofficial - Boss of the SOC, ESCU
 - **Elastic** - https://www.youtube.com/@elastic - Detection engineering, EDR
 
 ## Bug Bounty and Web App Security
-- **NahamSec (Ben Sadeghipour)** - https://www.youtube.com/@NahamSec - Bug bounty live hunts and methodology
+- **NahamSec (Ben Sadeghipour)** - https://www.youtube.com/@NahamSec - Bug bounty live hunts and methodology (very active, weekly)
 - **InsiderPhD (Katie Paxton-Fear)** - https://www.youtube.com/@InsiderPhD - API security, beginner to advanced bug bounty
-- **PwnFunction** - https://www.youtube.com/@PwnFunction - Web app security explainers (XSS, prototype pollution)
 - **PortSwigger Web Security** - https://www.youtube.com/@PortSwiggerTV - Burp Suite, Web Security Academy content
-- **zSeano** - https://www.youtube.com/@zSeano - Bug bounty methodology
 - **Farah Hawa** - https://www.youtube.com/@FarahHawa - Bug bounty career and tutorials
-- **bugbountyreports** - https://www.youtube.com/@bugbountyreports - Real bug bounty report breakdowns
-- **Codingo** - https://www.youtube.com/@_Codingo_ - Recon, automation, bug bounty
-- **Hussein Daher** - https://www.youtube.com/@HusseinDaher - Bug bounty deep dives
+- **PwnFunction** - https://www.youtube.com/@PwnFunction - Web app security explainers, XSS deep dives (slower cadence)
 
 ## Active Directory and Red Team
-- **VbScrub** - AD attack techniques walkthroughs
 - **Conda (Daniel Lowrie)** - https://www.youtube.com/@daniellowrie - Pentest tooling
-- **Outpost24** - https://www.youtube.com/@outpost24 - Red team, web hacking
 - **ChrisGreer** - https://www.youtube.com/@ChrisGreer - Wireshark, network analysis (useful for AD attacks too)
-- **Pentester Academy TV** - https://www.youtube.com/@pentesteracademytv - AD attacks, AWS pentesting, etc.
-- **SpecterOps** - https://www.youtube.com/@SpecterOps - BloodHound, AD research
-- **Red Team Village** - https://www.youtube.com/@RedTeamVillage_ - DEF CON village talks
+- **SpecterOps** - https://www.youtube.com/@SpecterOps - BloodHound, AD research (very active)
+- **Red Team Village** - https://www.youtube.com/@RedTeamVillage - DEF CON village talks
 
 ## Cloud Security and DevSecOps
 - **Day Cyberwox** - https://www.youtube.com/@DayCyberwox - AWS, Azure, GCP security
-- **Rana Khalil** - https://www.youtube.com/@RanaKhalil101 - Web security and PortSwigger labs
 - **fwd:cloudsec** - https://www.youtube.com/@fwdcloudsec - Cloud security conference
-- **Cloud Security Podcast** - https://www.youtube.com/@CloudSecurityPodcast
+- **Cloud Security Podcast** - https://www.youtube.com/@CloudSecurityPodcast - Active podcast
 - **HashiCorp** - https://www.youtube.com/@HashiCorp - Vault, Boundary, Consul
-- **DevSecCon** - https://www.youtube.com/@DevSecCon - DevSecOps community
 
 ## Exploit Development and Low-Level
-- **LiveOverflow** - Binary exploitation series, browser RCE deep dives
-- **stacksmashing** - Microcontroller/firmware exploitation
+- **LiveOverflow** - https://www.youtube.com/@LiveOverflow - Binary exploitation series, browser RCE deep dives
+- **stacksmashing** - https://www.youtube.com/@stacksmashing - Hardware RE, glitching (slower cadence; canonical)
 - **OST2 (Open Security Training 2)** - https://ost2.fyi/ - University-quality RE, exploit dev courses
-- **NahamSec** - Some exploit dev content mixed with bug bounty
-- **0x00sec** - https://www.youtube.com/@0x00sec - Hacker community videos
 - **gynvael** - https://www.youtube.com/@GynvaelEN - Project Zero researcher livestreams (English)
 
 ## OSINT and Investigation
-- **The OSINT Curious Project** - https://www.youtube.com/@OSINTCurious - OSINT techniques
-- **Bellingcat** - https://www.youtube.com/@bellingcat - Investigative OSINT
-- **Michael Bazzell (IntelTechniques)** - books and resources, see https://inteltechniques.com
-- **OSINTDojo** - OSINT skill tree training
-- **Sector035** - Week in OSINT compilations
-- **The OSINT Newsletter** - YouTube versions of newsletter content
+- **Bellingcat** - https://www.youtube.com/@BellingcatOfficial - Investigative OSINT (active)
+- **Michael Bazzell (IntelTechniques)** - https://inteltechniques.com - Books and resources (no YouTube channel; web reference)
 
 ## Threat Intelligence and APT Research
-- **SANS Internet Storm Center** - https://www.youtube.com/@SansInstitute - Daily threat updates
-- **Mandiant** - https://www.youtube.com/@Mandiant - APT reports, threat intelligence
+- **SANS Internet Storm Center** - https://www.youtube.com/@SansInstitute - Daily threat updates (very active)
+- **Mandiant & Google Cloud Security** - https://www.youtube.com/@Mandiant - APT reports, threat intelligence
 - **CrowdStrike** - https://www.youtube.com/@CrowdStrike - Falcon, threat intel
-- **Cisco Talos Intelligence Group** - https://www.youtube.com/@CiscoTalos - Threat reports, malware analysis
+- **Cisco Talos Intelligence Group** - https://www.youtube.com/@CiscoTalosIntelligenceGroup - Threat reports, malware analysis
 - **Recorded Future** - https://www.youtube.com/@recordedfuture - Cyber threat intelligence
-- **MITRE ATT&CK** - https://www.youtube.com/@MITREcorporation - ATT&CKcon talks
 
 ## Networking and Infrastructure
-- **NetworkChuck** - Networking fundamentals
-- **David Bombal** - Cisco, Linux, networking deep dives
+- **NetworkChuck** - https://www.youtube.com/@NetworkChuck - Networking fundamentals
+- **David Bombal** - https://www.youtube.com/@davidbombal - Cisco, Linux, networking deep dives
 - **Practical Networking** - https://www.youtube.com/@PracticalNetworking - Subnetting, routing, fundamentals
 - **Jeremy's IT Lab** - https://www.youtube.com/@JeremysITLab - CCNA prep
 - **Wireshark Foundation** - https://www.youtube.com/@WiresharkFoundation - Packet analysis
 
 ## Hardware Hacking and ICS/OT
-- **Hak5** - Hardware hacking gear demos
-- **stacksmashing** - Hardware RE, glitching
-- **JackkTutorials** - Hardware/software hacking
+- **Hak5** - https://www.youtube.com/@hak5 - Hardware hacking gear demos
+- **stacksmashing** - https://www.youtube.com/@stacksmashing - Hardware RE, glitching
 - **EEVblog** - https://www.youtube.com/@EEVblog - Electronics engineering (useful for hardware sec)
-- **Hash Inspector** - Reverse engineering hardware devices
-- **Tinkernut** - https://www.youtube.com/@Tinkernut - Maker/hacker projects
-- **Robert Murray-Smith** - Electronics tutorials
-- **Joe Grand (Kingpin)** - Hardware hacking from a legend
+- **Joe Grand (Kingpin)** - https://www.youtube.com/@JoeGrand - Hardware hacking legend (also in personal-additions section)
 
 ## Privacy, Anonymity and OPSEC
 - **The Hated One** - https://www.youtube.com/@TheHatedOne - Privacy, surveillance, OPSEC
 - **Mental Outlaw** - https://www.youtube.com/@MentalOutlaw - Privacy, Linux, anti-surveillance
-- **Techlore** - https://www.youtube.com/@techlore - Privacy software reviews and how-to
+- **Techlore** - https://www.youtube.com/@techlore - Privacy software reviews and how-to (very active)
 - **Naomi Brockwell TV** - https://www.youtube.com/@NaomiBrockwellTV - Privacy advocacy
-- **Sun Knudsen** - Privacy tutorials (older but classic)
-- **The New Oil** - Privacy resource center
 
 ## AI / LLM Security
 - **AI Explained** - https://www.youtube.com/@aiexplained-official - AI safety and capability
@@ -155,24 +128,20 @@ A curated library of YouTube channels organized by discipline. The companion to 
 - **Yannic Kilcher** - https://www.youtube.com/@YannicKilcher - ML paper reviews
 
 ## News, Commentary and Career
-- **SimplyCyber (Gerald Auger)** - https://www.youtube.com/@SimplyCyber - Career, news, interviews
-- **Cyberspatial** - https://www.youtube.com/@Cyberspatial - Career and tutorials
+- **SimplyCyber (Gerald Auger)** - https://www.youtube.com/@SimplyCyber - Career, news, interviews (very active)
 - **Lawrence Systems** - https://www.youtube.com/@LAWRENCESYSTEMS - IT, networking, security ops
-- **The Cyber Mentor** - Career, ethical hacking education
-- **TLDR Sec** - https://www.youtube.com/@TLDRsec - Weekly security news
-- **Risky Business** - https://www.youtube.com/@RiskyBusinessHQ - Podcast format
+- **TLDR Sec** - https://www.youtube.com/@TLDRsec - Weekly security news (slower cadence)
 
 ## Conference Talks (Channels)
-- **DEF CONConference** - https://www.youtube.com/@DEFCONConference - All DEF CON main-stage talks
+- **DEF CON Conference** - https://www.youtube.com/@DEFCONConference - All DEF CON main-stage talks
 - **Black Hat** - https://www.youtube.com/@BlackHatOfficialYT - Black Hat USA/EU/Asia
 - **RSA Conference** - https://www.youtube.com/@RSAConference
 - **OWASP Foundation** - https://www.youtube.com/@OWASPGLOBAL - AppSec talks
-- **NorthSec** - https://www.youtube.com/@NorthSec_io - Canadian security conference
-- **HOPE Conference** - https://www.youtube.com/@hopeconf
-- **CCC (Chaos Computer Club)** - https://www.youtube.com/@mediacccde - CCC Congress talks
-- **44CON** - https://www.youtube.com/@44con
+- **NorthSec** - https://www.youtube.com/@NorthSec - Canadian security conference
+- **Chaos Computer Club (CCC)** - https://www.youtube.com/@mediacccde - CCC Congress talks
 - **Hack In The Box** - https://www.youtube.com/@HITBSecConf
 - **Wild West Hackin' Fest** - https://www.youtube.com/@WildWestHackinFest
+- **MITRE Corp** - https://www.youtube.com/@MITREcorp - ATT&CKcon, SAF, MITRE-led security talks
 - **SANS Summits** - https://www.youtube.com/@sanssummits3560 - SANS summit recordings (DFIR, Cloud, ICS, etc.)
 
 ### BSides Regional Conferences
@@ -225,6 +194,32 @@ These are channels @WolfenLabs is already subscribed to that fit the cybersecuri
 
 ---
 
+## Pruned (do not retry)
+
+These were removed during verification — broken handles, dead channels (no upload in 2+ years), or zero videos:
+
+- ~~@_Codingo_~~ — broken handle
+- ~~@MosseCyberSecurityInstitute~~ — 404
+- ~~@CodeMachineInc~~ — 404
+- ~~@DevSecCon~~ — 404
+- ~~@0x00sec~~ — 404
+- ~~@RiskyBusinessHQ~~ — broken handle (podcast lives on `risky.biz`)
+- ~~@hopeconf~~ — 404
+- ~~@44con~~ — 404
+- ~~@zSeano~~ — last upload 4 years ago
+- ~~@bugbountyreports~~ — no videos
+- ~~@HusseinDaher~~ — no videos
+- ~~@VbScrub~~ — last upload 4 years ago
+- ~~@HuskyHacks~~ — last upload 3 years ago
+- ~~@pentesteracademytv~~ — last upload 4 years ago
+- ~~@RanaKhalil101~~ — last upload 2 years ago
+- ~~@OSINTCurious~~ — last upload 4 years ago
+- ~~@Tinkernut~~ — last upload 4 years ago
+- ~~@outpost24~~ — no videos
+- ~~@Cyberspatial~~ — last upload over 1 year ago
+
+---
+
 ## How to use this list
 
 1. **For learning a tool**: Cross-reference with [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md). For example, the Detection Engineering list includes Splunk security_content; the Splunk YouTube channel walks through deploying it.
@@ -233,4 +228,4 @@ These are channels @WolfenLabs is already subscribed to that fit the cybersecuri
 
 ## Contributions
 
-Open a PR to suggest additional channels. Aim for active channels (uploaded in the last 6 months) with substantive technical content.
+Open a PR to suggest additional channels. Aim for active channels (uploaded in the last 12 months) with substantive technical content.

@@ -6,7 +6,7 @@ This file explains the cybersecurity GitHub Stars Lists maintained on the [TeamS
 
 - Start here if you want the purpose of each list in plain language.
 - Use the live profile lists when you want GitHub-native browsing and starring.
-- Use [STARRED_REPOS.md](STARRED_REPOS.md) when you want the broader alphabetical index.
+- Use [../STARRED_REPOS.md](../STARRED_REPOS.md) when you want the broader alphabetical index.
 
 ## Coverage Snapshot
 

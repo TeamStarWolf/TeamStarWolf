@@ -41,14 +41,14 @@ The goal is not to mirror Arsenal entry-for-entry. The goal is to turn a confere
 | TeamStarWolf page | Best use of Arsenal data |
 |---|---|
 | [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md) | Expand list descriptions with tool-first examples that come from a known conference catalog instead of random repo browsing |
-| [STARRED_REPOS.md](STARRED_REPOS.md) | Maintain a clear review queue of strong Arsenal repos that are not yet part of the starred index |
-| [TWITTER_FOLLOW_LIST.md](TWITTER_FOLLOW_LIST.md) | Pull in maintainer and project feeds tied directly to tools, not just general commentary accounts |
-| [YOUTUBE_CHANNELS.md](YOUTUBE_CHANNELS.md) | Build a short watch path from Arsenal-linked channels, playlists, and demos |
-| [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) | Pair books with concrete tools so the reading list becomes easier to lab against |
+| [../STARRED_REPOS.md](../STARRED_REPOS.md) | Maintain a clear review queue of strong Arsenal repos that are not yet part of the starred index |
+| [../TWITTER_FOLLOW_LIST.md](../TWITTER_FOLLOW_LIST.md) | Pull in maintainer and project feeds tied directly to tools, not just general commentary accounts |
+| [../YOUTUBE_CHANNELS.md](../YOUTUBE_CHANNELS.md) | Build a short watch path from Arsenal-linked channels, playlists, and demos |
+| [../CYBERSECURITY_BOOK_LIST.md](../CYBERSECURITY_BOOK_LIST.md) | Pair books with concrete tools so the reading list becomes easier to lab against |
 
 ## High-Signal Review Queue
 
-These are good candidates to review for future starring because they appear in Black Hat Arsenal but are not currently listed in [STARRED_REPOS.md](STARRED_REPOS.md).
+These are good candidates to review for future starring because they appear in Black Hat Arsenal but are not currently listed in [../STARRED_REPOS.md](../STARRED_REPOS.md).
 
 | Area | Candidate repos |
 |---|---|
@@ -94,12 +94,12 @@ Use these when you want to turn the reading list into a lab track.
 
 | Study area | Read with | Then open |
 |---|---|---|
-| Cloud security | cloud and infrastructure sections in [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) | [Prowler](https://github.com/prowler-cloud/prowler), [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
+| Cloud security | cloud and infrastructure sections in [../CYBERSECURITY_BOOK_LIST.md](../CYBERSECURITY_BOOK_LIST.md) | [Prowler](https://github.com/prowler-cloud/prowler), [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
 | Offensive and red team | *The Hacker Playbook 3*, *Advanced Penetration Testing*, *RTFM* | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper), [Legion](https://github.com/GoVanguard/legion) |
 | Web and AppSec | *The Web Application Hacker's Handbook*, *Bug Bounty Bootcamp* | [ZAP](https://github.com/zaproxy/zaproxy), [OWTF](https://github.com/owtf/owtf), [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck) |
-| Mobile security | the mobile section in [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) plus OWASP MASTG | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/mwrlabs/needle) |
+| Mobile security | the mobile section in [../CYBERSECURITY_BOOK_LIST.md](../CYBERSECURITY_BOOK_LIST.md) plus OWASP MASTG | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/mwrlabs/needle) |
 | Malware and DFIR | *Practical Malware Analysis*, *The Art of Memory Forensics* | [FLOSS](https://github.com/fireeye/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
-| Hardware, firmware, and OT | the hardware and OT sections in [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
+| Hardware, firmware, and OT | the hardware and OT sections in [../CYBERSECURITY_BOOK_LIST.md](../CYBERSECURITY_BOOK_LIST.md) | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
 
 ## Notes
 

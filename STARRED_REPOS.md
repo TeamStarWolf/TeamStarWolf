@@ -6,7 +6,7 @@ A categorized index of **1032** starred repositories grouped by cybersecurity di
 
 - Use `Ctrl+F` to jump straight to a product, framework, or topic.
 - Start with the category index below if you want a higher-level map of the collection.
-- Use [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md) when you want smaller hand-picked starting points instead of the full index.
+- Use [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md) when you want smaller hand-picked starting points instead of the full index.
 
 ---
 
@@ -49,7 +49,7 @@ These are not part of the starred index below. They are Arsenal-sourced candidat
 | AppSec and exposure work | [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck), [OWTF](https://github.com/owtf/owtf), [CrowdSec](https://github.com/crowdsecurity/crowdsec) |
 | Embedded, hardware, and OT | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
 
-Use [BLACK_HAT_ARSENAL_CROSSWALK.md](BLACK_HAT_ARSENAL_CROSSWALK.md) for the broader cross-reference, maintainer feeds, and direct demo links.
+Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) for the broader cross-reference, maintainer feeds, and direct demo links.
 
 
 ## Frameworks & Standards

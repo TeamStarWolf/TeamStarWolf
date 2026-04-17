@@ -94,7 +94,7 @@ Hacking: Art of Exploitation -> Shellcoder's Handbook
 
 ## Black Hat Arsenal Companion Track
 
-When I want to turn the reading list into a more tool-first study plan, Black Hat Arsenal is a strong secondary source. The [crosswalk page](BLACK_HAT_ARSENAL_CROSSWALK.md) and [dataset](data/blackhat_arsenal_tools.csv) collect the conference-linked repos, maintainers, and demo paths.
+When I want to turn the reading list into a more tool-first study plan, Black Hat Arsenal is a strong secondary source. The [crosswalk page](research/BLACK_HAT_ARSENAL_CROSSWALK.md) and [dataset](research/data/blackhat_arsenal_tools.csv) collect the conference-linked repos, maintainers, and demo paths.
 
 | Study area | Read first | Pair with Arsenal tools |
 |---|---|---|

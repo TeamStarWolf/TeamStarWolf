@@ -1,6 +1,6 @@
 # TeamStarWolf - Starred Repos by Cybersecurity Category
 
-A categorized index of **844** starred repositories, grouped by cybersecurity discipline.
+A categorized index of **1032** starred repositories, grouped by cybersecurity discipline.
 
 Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
@@ -8,27 +8,29 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 ## Table of Contents
 
-- **[Frameworks & Standards](#frameworks--standards)** (36)
-- **[Threat Intelligence](#threat-intelligence)** (27)
-- **[Detection Engineering](#detection-engineering)** (26)
-- **[Vulnerability Management](#vulnerability-management)** (46)
-- **[DFIR - Digital Forensics & Incident Response](#dfir---digital-forensics--incident-response)** (24)
-- **[Malware Analysis & Reverse Engineering](#malware-analysis--reverse-engineering)** (37)
-- **[Red Team - Offensive Security](#red-team---offensive-security)** (224)
-- **[Network Security](#network-security)** (17)
-- **[Cloud, Container & Identity](#cloud-container--identity)** (42)
-- **[Cryptography & Passwords](#cryptography--passwords)** (10)
+- **[Frameworks & Standards](#frameworks--standards)** (38)
+- **[Threat Intelligence](#threat-intelligence)** (29)
+- **[Detection Engineering](#detection-engineering)** (37)
+- **[Vulnerability Management](#vulnerability-management)** (57)
+- **[DFIR - Digital Forensics & Incident Response](#dfir---digital-forensics--incident-response)** (28)
+- **[Malware Analysis & Reverse Engineering](#malware-analysis--reverse-engineering)** (42)
+- **[Red Team - Offensive Security](#red-team---offensive-security)** (272)
+- **[Network Security](#network-security)** (20)
+- **[Cloud, Container & Identity](#cloud-container--identity)** (59)
+- **[Cryptography & Passwords](#cryptography--passwords)** (21)
 - **[AI / LLM Security](#ai--llm-security)** (8)
 - **[Smart Contracts / Web3](#smart-contracts--web3)** (6)
 - **[Threat Modeling](#threat-modeling)** (2)
-- **[Vendor & Platform Repos](#vendor--platform-repos)** (64)
-- **[Hardware, OS, Lab](#hardware-os-lab)** (47)
+- **[Vendor & Platform Repos](#vendor--platform-repos)** (110)
+- **[Hardware, OS, Lab](#hardware-os-lab)** (82)
+- **[Compliance GRC](#compliance-grc)** (6)
+- **[SOAR](#soar)** (4)
 - **[Honeypots & Deception](#honeypots--deception)** (6)
 - **[Government Agencies](#government-agencies)** (2)
-- **[Learning & Content](#learning--content)** (42)
+- **[Learning & Content](#learning--content)** (58)
 - **[Anthropic & AI Skills](#anthropic--ai-skills)** (7)
 - **[GitHub Tools](#github-tools)** (1)
-- **[Personal & Misc](#personal--misc)** (170)
+- **[Personal & Misc](#personal--misc)** (173)
 
 
 ## Frameworks & Standards
@@ -87,6 +89,11 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [GTFOBins/GTFOBins.github.io](https://github.com/GTFOBins/GTFOBins.github.io)
 - [LOLBAS-Project/LOLBAS](https://github.com/LOLBAS-Project/LOLBAS)
 
+### ATT&CK Data & Automation (2)
+
+- [CVEProject/automation-working-group](https://github.com/CVEProject/automation-working-group)
+- [olafhartong/ATTACKdatamap](https://github.com/olafhartong/ATTACKdatamap)
+
 
 ## Threat Intelligence
 
@@ -113,6 +120,11 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [oasis-open/cti-python-stix2](https://github.com/oasis-open/cti-python-stix2)
 - [oasis-open/cti-taxii-client](https://github.com/oasis-open/cti-taxii-client)
 
+### Threat Intel Tools (2)
+
+- [achillean/shodan-python](https://github.com/achillean/shodan-python)
+- [elceef/dnstwist](https://github.com/elceef/dnstwist)
+
 ### Threat Hunting (13)
 
 - [3lp4tr0n/BeaconHunter](https://github.com/3lp4tr0n/BeaconHunter)
@@ -131,6 +143,16 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 
 ## Detection Engineering
+
+### Sysmon & Windows Logging (7)
+
+- [SwiftOnSecurity/sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config)
+- [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)
+- [palantir/windows-event-forwarding](https://github.com/palantir/windows-event-forwarding)
+- [palantir/Sysmon](https://github.com/palantir/Sysmon)
+- [williballenthin/python-evtx](https://github.com/williballenthin/python-evtx)
+- [omerbenamram/evtx](https://github.com/omerbenamram/evtx)
+- [microsoft/MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon)
 
 ### Sigma Rules (5)
 
@@ -159,10 +181,14 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [Yara-Rules/rules](https://github.com/Yara-Rules/rules)
 - [reversinglabs/reversinglabs-yara-rules](https://github.com/reversinglabs/reversinglabs-yara-rules)
 
-### Detection Engineering (2)
+### Detection Engineering (6)
 
 - [elastic/detection-rules](https://github.com/elastic/detection-rules)
 - [mdecrevoisier/SIGMA-detection-rules](https://github.com/mdecrevoisier/SIGMA-detection-rules)
+- [wazuh/wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset)
+- [mthcht/ThreatHunting-Keywords](https://github.com/mthcht/ThreatHunting-Keywords)
+- [mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)
+- [StamusNetworks/scirius](https://github.com/StamusNetworks/scirius)
 
 ### Endpoint Telemetry (2)
 
@@ -219,6 +245,21 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [sigstore/sigstore](https://github.com/sigstore/sigstore)
 - [slsa-framework/slsa](https://github.com/slsa-framework/slsa)
 - [spdx/spdx-spec](https://github.com/spdx/spdx-spec)
+
+### Vulnerability Scanners & Platforms (12)
+
+- [greenbone/gvmd](https://github.com/greenbone/gvmd)
+- [greenbone/openvas-scanner](https://github.com/greenbone/openvas-scanner)
+- [archerysec/archerysec](https://github.com/archerysec/archerysec)
+- [DefectDojo/django-DefectDojo](https://github.com/DefectDojo/django-DefectDojo)
+- [SonarSource/sonarqube](https://github.com/SonarSource/sonarqube)
+- [snyk/cli](https://github.com/snyk/cli)
+- [GhostTroops/scan4all](https://github.com/GhostTroops/scan4all)
+- [CVEProject/automation-working-group](https://github.com/CVEProject/automation-working-group)
+- [qazbnm456/awesome-cve-poc](https://github.com/qazbnm456/awesome-cve-poc)
+- [rapid7/recog](https://github.com/rapid7/recog)
+- [corazawaf/coraza](https://github.com/corazawaf/coraza)
+- [wiz-sec/open-cvdb](https://github.com/wiz-sec/open-cvdb)
 
 ### SBOM & Container Scanning (2)
 
@@ -291,11 +332,15 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [activecm/zeek-log-transport](https://github.com/activecm/zeek-log-transport)
 - [activecm/zeek-open-connections](https://github.com/activecm/zeek-open-connections)
 
-### Incident Response (3)
+### Incident Response (7)
 
 - [TheHive-Project/Cortex](https://github.com/TheHive-Project/Cortex)
 - [TheHive-Project/Cortex-Analyzers](https://github.com/TheHive-Project/Cortex-Analyzers)
 - [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive)
+- [cyb3rfox/Aurora-Incident-Response](https://github.com/cyb3rfox/Aurora-Incident-Response)
+- [mthcht/uac](https://github.com/mthcht/uac)
+- [omerbenamram/evtx](https://github.com/omerbenamram/evtx)
+- [williballenthin/python-evtx](https://github.com/williballenthin/python-evtx)
 
 
 ## Malware Analysis & Reverse Engineering
@@ -358,10 +403,18 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 - [NotPrab/.NET-Obfuscator](https://github.com/NotPrab/.NET-Obfuscator)
 
+### Book Labs & RE Tools (5)
+
+- [REhints/efiXplorer](https://github.com/REhints/efiXplorer)
+- [mikesiko/PracticalMalwareAnalysis-Labs](https://github.com/mikesiko/PracticalMalwareAnalysis-Labs)
+- [PacktPublishing/Mastering-Reverse-Engineering](https://github.com/PacktPublishing/Mastering-Reverse-Engineering)
+- [redcode-labs/Coldfire](https://github.com/redcode-labs/Coldfire)
+- [ReversecLabs/needle](https://github.com/ReversecLabs/needle)
+
 
 ## Red Team - Offensive Security
 
-### C2 Frameworks (14)
+### C2 Frameworks (15)
 
 - [BC-SECURITY/Empire](https://github.com/BC-SECURITY/Empire)
 - [BishopFox/badPods](https://github.com/BishopFox/badPods)
@@ -377,6 +430,7 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [n1nj4sec/pupy](https://github.com/n1nj4sec/pupy)
 - [rapid7/metasploit-framework](https://github.com/rapid7/metasploit-framework)
 - [t3l3machus/Villain](https://github.com/t3l3machus/Villain)
+- [rapid7/metasploit-payloads](https://github.com/rapid7/metasploit-payloads)
 
 ### Active Directory Attacks (60)
 
@@ -458,9 +512,11 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [p3nt4/Invoke-SocksProxy](https://github.com/p3nt4/Invoke-SocksProxy)
 - [synacktiv/Invoke-RunAsWithCert](https://github.com/synacktiv/Invoke-RunAsWithCert)
 
-### Privilege Escalation (8)
+### Privilege Escalation (11)
 
 - [Ignitetechnologies/Privilege-Escalation](https://github.com/Ignitetechnologies/Privilege-Escalation)
+- [Ignitetechnologies/Linux-Privilege-Escalation](https://github.com/Ignitetechnologies/Linux-Privilege-Escalation)
+- [Ignitetechnologies/Windows-Privilege-Escalation](https://github.com/Ignitetechnologies/Windows-Privilege-Escalation)
 - [LuemmelSec/CVE-2023-29357](https://github.com/LuemmelSec/CVE-2023-29357)
 - [PaulSec/twittor](https://github.com/PaulSec/twittor)
 - [bitsadmin/wesng](https://github.com/bitsadmin/wesng)
@@ -468,6 +524,7 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [lucyoa/kernel-exploits](https://github.com/lucyoa/kernel-exploits)
 - [peass-ng/PEASS-ng](https://github.com/peass-ng/PEASS-ng)
 - [rebootuser/LinEnum](https://github.com/rebootuser/LinEnum)
+- [1N3/PrivEsc](https://github.com/1N3/PrivEsc)
 
 ### EDR Evasion (12)
 
@@ -484,7 +541,7 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [plackyhacker/Suspended-Thread-Injection](https://github.com/plackyhacker/Suspended-Thread-Injection)
 - [tkmru/awesome-edr-bypass](https://github.com/tkmru/awesome-edr-bypass)
 
-### Reconnaissance (25)
+### Reconnaissance (37)
 
 - [RedSiege/EyeWitness](https://github.com/RedSiege/EyeWitness)
 - [fwaeytens/dnsenum](https://github.com/fwaeytens/dnsenum)
@@ -511,8 +568,20 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [projectdiscovery/vulnx](https://github.com/projectdiscovery/vulnx)
 - [thewhiteh4t/FinalRecon](https://github.com/thewhiteh4t/FinalRecon)
 - [vortexau/dnsvalidator](https://github.com/vortexau/dnsvalidator)
+- [bp0lr/dmut](https://github.com/bp0lr/dmut)
+- [devanshbatham/ParamSpider](https://github.com/devanshbatham/ParamSpider)
+- [s0md3v/Photon](https://github.com/s0md3v/Photon)
+- [aboul3la/Sublist3r](https://github.com/aboul3la/Sublist3r)
+- [TheRook/subbrute](https://github.com/TheRook/subbrute)
+- [lanmaster53/recon-ng-marketplace](https://github.com/lanmaster53/recon-ng-marketplace)
+- [darryllane/Bluto](https://github.com/darryllane/Bluto)
+- [leebaird/discover](https://github.com/leebaird/discover)
+- [AutoRecon/AutoRecon](https://github.com/AutoRecon/AutoRecon)
+- [1N3/BlackWidow](https://github.com/1N3/BlackWidow)
+- [yogeshojha/rengine](https://github.com/yogeshojha/rengine)
+- [1N3/Sn1per](https://github.com/1N3/Sn1per)
 
-### OSINT (12)
+### OSINT (13)
 
 - [6abd/horus](https://github.com/6abd/horus)
 - [khast3x/h8mail](https://github.com/khast3x/h8mail)
@@ -526,17 +595,28 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [soxoj/maigret](https://github.com/soxoj/maigret)
 - [soxoj/socid-extractor](https://github.com/soxoj/socid-extractor)
 - [twintproject/twint](https://github.com/twintproject/twint)
+- [lanmaster53/recon-ng](https://github.com/lanmaster53/recon-ng)
 
 ### Web Vulnerability Scanners (1)
 
 - [sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)
 
-### Web Exploitation (4)
+### Web Exploitation (14)
 
 - [Acceis/rump-xss-unicode](https://github.com/Acceis/rump-xss-unicode)
 - [Coalfire-Research/npk](https://github.com/Coalfire-Research/npk)
 - [Kr1s77/awesome-python-login-model](https://github.com/Kr1s77/awesome-python-login-model)
 - [cujanovic/SSRF-Testing](https://github.com/cujanovic/SSRF-Testing)
+- [zaproxy/community-scripts](https://github.com/zaproxy/community-scripts)
+- [wapiti-scanner/wapiti](https://github.com/wapiti-scanner/wapiti)
+- [beefproject/beef](https://github.com/beefproject/beef)
+- [1N3/IntruderPayloads](https://github.com/1N3/IntruderPayloads)
+- [foospidy/payloads](https://github.com/foospidy/payloads)
+- [assetnote/surf](https://github.com/assetnote/surf)
+- [jonaslejon/malicious-pdf](https://github.com/jonaslejon/malicious-pdf)
+- [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+- [42Crunch/vscode-openapi](https://github.com/42Crunch/vscode-openapi)
+- [akto-api-security/akto](https://github.com/akto-api-security/akto)
 
 ### Web Fuzzers (4)
 
@@ -545,9 +625,10 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [maurosoria/dirsearch](https://github.com/maurosoria/dirsearch)
 - [stanislav-web/OpenDoor](https://github.com/stanislav-web/OpenDoor)
 
-### Web App Scanners (1)
+### Web App Scanners (2)
 
 - [wpscanteam/wpscan](https://github.com/wpscanteam/wpscan)
+- [zaproxy/zaproxy](https://github.com/zaproxy/zaproxy)
 
 ### WAF & Bypass (1)
 
@@ -643,6 +724,38 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [digininja/DVWA](https://github.com/digininja/DVWA)
 - [vulhub/vulhub](https://github.com/vulhub/vulhub)
 
+### Cheatsheets & References (23)
+
+- [Ignitetechnologies/PayloadsAllTheThings](https://github.com/Ignitetechnologies/PayloadsAllTheThings)
+- [Ignitetechnologies/cheatsheets](https://github.com/Ignitetechnologies/cheatsheets)
+- [Ignitetechnologies/OSCP_Tools](https://github.com/Ignitetechnologies/OSCP_Tools)
+- [Ignitetechnologies/Credential-Dumping](https://github.com/Ignitetechnologies/Credential-Dumping)
+- [Ignitetechnologies/MSSQL-Pentest-Cheatsheet](https://github.com/Ignitetechnologies/MSSQL-Pentest-Cheatsheet)
+- [Ignitetechnologies/Android-Penetration-Testing](https://github.com/Ignitetechnologies/Android-Penetration-Testing)
+- [Ignitetechnologies/Wireless-Penetration-Testing](https://github.com/Ignitetechnologies/Wireless-Penetration-Testing)
+- [Ignitetechnologies/TryHackMe-CTF-Writeups](https://github.com/Ignitetechnologies/TryHackMe-CTF-Writeups)
+- [Ignitetechnologies/ADCS-Attack](https://github.com/Ignitetechnologies/ADCS-Attack)
+- [Ignitetechnologies/Impacket-for-Pentester](https://github.com/Ignitetechnologies/Impacket-for-Pentester)
+- [Ignitetechnologies/Abusing-DACL](https://github.com/Ignitetechnologies/Abusing-DACL)
+- [Ignitetechnologies/AWS-Pentest](https://github.com/Ignitetechnologies/AWS-Pentest)
+- [Ignitetechnologies/Vulnhub-CTF-Writeups](https://github.com/Ignitetechnologies/Vulnhub-CTF-Writeups)
+- [Ignitetechnologies/HackTheBox-CTF-Writeups](https://github.com/Ignitetechnologies/HackTheBox-CTF-Writeups)
+- [Ignitetechnologies/BurpSuite-For-Pentester](https://github.com/Ignitetechnologies/BurpSuite-For-Pentester)
+- [Ignitetechnologies/Mindmap](https://github.com/Ignitetechnologies/Mindmap)
+- [Ignitetechnologies/Web-Application-Cheatsheet](https://github.com/Ignitetechnologies/Web-Application-Cheatsheet)
+- [hackerschoice/thc-tips-tricks-hacks-cheat-sheet](https://github.com/hackerschoice/thc-tips-tricks-hacks-cheat-sheet)
+- [A-poc/RedTeam-Tools](https://github.com/A-poc/RedTeam-Tools)
+- [rmusser01/Infosec_Reference](https://github.com/rmusser01/Infosec_Reference)
+- [Z4nzu/hackingtool](https://github.com/Z4nzu/hackingtool)
+- [apsdehal/awesome-ctf](https://github.com/apsdehal/awesome-ctf)
+- [zardus/ctf-tools](https://github.com/zardus/ctf-tools)
+
+### Evasion & Payloads (3)
+
+- [Nightmare-Eclipse/UnDefend](https://github.com/Nightmare-Eclipse/UnDefend)
+- [Nightmare-Eclipse/BlueHammer](https://github.com/Nightmare-Eclipse/BlueHammer)
+- [Nightmare-Eclipse/RedSun](https://github.com/Nightmare-Eclipse/RedSun)
+
 ### Bug Bounty (15)
 
 - [EdOverflow/bugbounty-cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)
@@ -701,6 +814,12 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 - [jopohl/urh](https://github.com/jopohl/urh)
 
+### Network Libraries & Tools (3)
+
+- [TalAloni/SMBLibrary](https://github.com/TalAloni/SMBLibrary)
+- [StamusNetworks/Clear-NDR-ISO](https://github.com/StamusNetworks/Clear-NDR-ISO)
+- [EONRaider/Packet-Sniffer](https://github.com/EONRaider/Packet-Sniffer)
+
 
 ## Cloud, Container & Identity
 
@@ -749,7 +868,22 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [open-policy-agent/gatekeeper](https://github.com/open-policy-agent/gatekeeper)
 - [open-policy-agent/opa](https://github.com/open-policy-agent/opa)
 
-### Identity & Zero Trust (6)
+### DevSecOps / IaC (12)
+
+- [open-policy-agent/conftest](https://github.com/open-policy-agent/conftest)
+- [aquasecurity/tfsec](https://github.com/aquasecurity/tfsec)
+- [antonbabenko/pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
+- [hadolint/hadolint](https://github.com/hadolint/hadolint)
+- [pre-commit/pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks)
+- [pre-commit/pre-commit](https://github.com/pre-commit/pre-commit)
+- [snyk/cli](https://github.com/snyk/cli)
+- [GitGuardian/ggshield](https://github.com/GitGuardian/ggshield)
+- [cdxgen/cdxgen](https://github.com/cdxgen/cdxgen)
+- [boostsecurityio/smokedmeat](https://github.com/boostsecurityio/smokedmeat)
+- [lacework/terraform-aws-config](https://github.com/lacework/terraform-aws-config)
+- [shellhub-io/shellhub](https://github.com/shellhub-io/shellhub)
+
+### Identity & Zero Trust (11)
 
 - [authelia/authelia](https://github.com/authelia/authelia)
 - [goauthentik/authentik](https://github.com/goauthentik/authentik)
@@ -757,6 +891,11 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [openziti/ziti](https://github.com/openziti/ziti)
 - [ory/hydra](https://github.com/ory/hydra)
 - [ory/kratos](https://github.com/ory/kratos)
+- [hashicorp/boundary](https://github.com/hashicorp/boundary)
+- [cyberark/conjur](https://github.com/cyberark/conjur)
+- [gravitational/teleport](https://github.com/gravitational/teleport)
+- [cloudflare/cloudflared](https://github.com/cloudflare/cloudflared)
+- [cloudflare/wrangler-legacy](https://github.com/cloudflare/wrangler-legacy)
 
 ### VPN / Privacy (6)
 
@@ -769,6 +908,20 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 
 ## Cryptography & Passwords
+
+### Privacy & Anonymity (11)
+
+- [signalapp/libsignal](https://github.com/signalapp/libsignal)
+- [signalapp/Signal-Server](https://github.com/signalapp/Signal-Server)
+- [signalapp/Signal-Android](https://github.com/signalapp/Signal-Android)
+- [torproject/tor](https://github.com/torproject/tor)
+- [TheTorProject/gettorbrowser](https://github.com/TheTorProject/gettorbrowser)
+- [i2p/i2p.i2p](https://github.com/i2p/i2p.i2p)
+- [arkenfox/user.js](https://github.com/arkenfox/user.js)
+- [AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
+- [pi-hole/pi-hole](https://github.com/pi-hole/pi-hole)
+- [brave/brave-browser](https://github.com/brave/brave-browser)
+- [mozilla-mobile/firefox-android](https://github.com/mozilla-mobile/firefox-android)
 
 ### Password Cracking (5)
 
@@ -832,7 +985,7 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 ## Vendor & Platform Repos
 
-### Vendor - Microsoft (30)
+### Vendor - Microsoft (32)
 
 - [Azure/Azure-Network-Security](https://github.com/Azure/Azure-Network-Security)
 - [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel)
@@ -864,14 +1017,46 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 - [microsoft/security-utilities](https://github.com/microsoft/security-utilities)
 - [microsoft/terminal](https://github.com/microsoft/terminal)
 - [microsoft/vscode](https://github.com/microsoft/vscode)
+- [microsoft/MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon)
+- [microsoft/MDE-PowerBI-Templates](https://github.com/microsoft/MDE-PowerBI-Templates)
 
-### Vendor - CrowdStrike (5)
+### Vendor - Nextron Systems (6)
+
+- [NextronSystems/thunderstorm-collector](https://github.com/NextronSystems/thunderstorm-collector)
+- [NextronSystems/thunderstorm-collector-private](https://github.com/NextronSystems/thunderstorm-collector-private)
+- [NextronSystems/log-analysis-manual](https://github.com/NextronSystems/log-analysis-manual)
+- [NextronSystems/thor-plugin](https://github.com/NextronSystems/thor-plugin)
+- [NextronSystems/thor-util-manual](https://github.com/NextronSystems/thor-util-manual)
+- [NextronSystems/thor-manual](https://github.com/NextronSystems/thor-manual)
+
+### Vendor - CrowdStrike (13)
 
 - [CrowdStrike/Falcon-Toolkit](https://github.com/CrowdStrike/Falcon-Toolkit)
 - [CrowdStrike/MISP-tools](https://github.com/CrowdStrike/MISP-tools)
 - [CrowdStrike/falcon-installer](https://github.com/CrowdStrike/falcon-installer)
 - [CrowdStrike/falcon-scripts](https://github.com/CrowdStrike/falcon-scripts)
 - [CrowdStrike/falconpy](https://github.com/CrowdStrike/falconpy)
+- [CrowdStrike/falcon-integration-gateway](https://github.com/CrowdStrike/falcon-integration-gateway)
+- [CrowdStrike/gofalcon](https://github.com/CrowdStrike/gofalcon)
+- [CrowdStrike/container-image-scan](https://github.com/CrowdStrike/container-image-scan)
+- [CrowdStrike/falcon-operator](https://github.com/CrowdStrike/falcon-operator)
+- [CrowdStrike/caracara](https://github.com/CrowdStrike/caracara)
+- [CrowdStrike/detection-container](https://github.com/CrowdStrike/detection-container)
+- [CrowdStrike/foundry-sample-threat-intel](https://github.com/CrowdStrike/foundry-sample-threat-intel)
+- [CrowdStrike/falcon-helm](https://github.com/CrowdStrike/falcon-helm)
+
+### Vendor - Armis (5)
+
+- [ArmisSecurity/kennasecurity-toolkit](https://github.com/ArmisSecurity/kennasecurity-toolkit)
+- [ArmisSecurity/ICSSecurityTools](https://github.com/ArmisSecurity/ICSSecurityTools)
+- [ArmisSecurity/blueborne](https://github.com/ArmisSecurity/blueborne)
+- [ArmisSecurity/armis-cli](https://github.com/ArmisSecurity/armis-cli)
+- [ArmisSecurity/armis-sdk-python](https://github.com/ArmisSecurity/armis-sdk-python)
+
+### Vendor - Tanium (2)
+
+- [Tanium-OSS/terror](https://github.com/Tanium-OSS/terror)
+- [tanium/Azure-Sentinel](https://github.com/tanium/Azure-Sentinel)
 
 ### Vendor - Cisco Talos (1)
 
@@ -928,6 +1113,23 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 ### Big Tech - Square (1)
 
 - [square/leakcanary](https://github.com/square/leakcanary)
+
+### Vendor - Elastic (2)
+
+- [elastic/kibana](https://github.com/elastic/kibana)
+- [elastic/integrations](https://github.com/elastic/integrations)
+
+### Vendor - Splunk (1)
+
+- [splunk/splunk-ansible](https://github.com/splunk/splunk-ansible)
+
+### Vendor - AlienVault (1)
+
+- [jpalanco/alienvault-ossim](https://github.com/jpalanco/alienvault-ossim)
+
+### Vendor - Backbay Labs (1)
+
+- [backbay-labs/clawdstrike](https://github.com/backbay-labs/clawdstrike)
 
 
 ## Hardware, OS, Lab
@@ -1006,6 +1208,67 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 - [gorhill/uBlock](https://github.com/gorhill/uBlock)
 
+### SDR & Radio (7)
+
+- [osmocom/rtl-sdr](https://github.com/osmocom/rtl-sdr)
+- [rxseger/rx_tools](https://github.com/rxseger/rx_tools)
+- [greatscottgadgets/hackrf](https://github.com/greatscottgadgets/hackrf)
+- [gnuradio/gnuradio](https://github.com/gnuradio/gnuradio)
+- [osmocom/op25](https://github.com/osmocom/op25)
+- [kismetwireless/kismet](https://github.com/kismetwireless/kismet)
+- [evilsocket/bleah](https://github.com/evilsocket/bleah)
+
+### WiFi Attacks (1)
+
+- [wifiphisher/wifiphisher](https://github.com/wifiphisher/wifiphisher)
+
+### ICS / SCADA (10)
+
+- [automayt/ICS-pcap](https://github.com/automayt/ICS-pcap)
+- [arnaudsoullie/ics-default-passwords](https://github.com/arnaudsoullie/ics-default-passwords)
+- [digitalbond/Redpoint](https://github.com/digitalbond/Redpoint)
+- [ITI/ICS-Security-Tools](https://github.com/ITI/ICS-Security-Tools)
+- [klsecservices/s7scan](https://github.com/klsecservices/s7scan)
+- [w3h/icsmaster](https://github.com/w3h/icsmaster)
+- [mz-automation/libiec61850](https://github.com/mz-automation/libiec61850)
+- [sourceperl/pyModbusTCP](https://github.com/sourceperl/pyModbusTCP)
+- [pymodbus-dev/pymodbus](https://github.com/pymodbus-dev/pymodbus)
+- [ArmisSecurity/ICSSecurityTools](https://github.com/ArmisSecurity/ICSSecurityTools)
+
+### Firmware (4)
+
+- [REhints/efiXplorer](https://github.com/REhints/efiXplorer)
+- [attify/firmware-analysis-toolkit](https://github.com/attify/firmware-analysis-toolkit)
+- [firmadyne/firmadyne](https://github.com/firmadyne/firmadyne)
+- [ReversecLabs/needle](https://github.com/ReversecLabs/needle)
+
+### Mobile (2)
+
+- [mozilla-mobile/firefox-android](https://github.com/mozilla-mobile/firefox-android)
+- [brave/brave-browser](https://github.com/brave/brave-browser)
+
+
+## Compliance GRC
+
+### OSCAL & GRC Tooling (6)
+
+- [oscal-compass/compliance-trestle](https://github.com/oscal-compass/compliance-trestle)
+- [GovReady/govready-q](https://github.com/GovReady/govready-q)
+- [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content)
+- [usnistgov/oscal-cli](https://github.com/usnistgov/oscal-cli)
+- [usnistgov/oscal-tools](https://github.com/usnistgov/oscal-tools)
+- [usnistgov/OSCAL](https://github.com/usnistgov/OSCAL)
+
+
+## SOAR
+
+### SOAR Platforms (4)
+
+- [demisto/demisto-sdk](https://github.com/demisto/demisto-sdk)
+- [Shuffle/python-apps](https://github.com/Shuffle/python-apps)
+- [Shuffle/Shuffle](https://github.com/Shuffle/Shuffle)
+- [demisto/content](https://github.com/demisto/content)
+
 
 ## Honeypots & Deception
 
@@ -1028,6 +1291,26 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 
 ## Learning & Content
+
+### Hacking Books & Study Plans (17)
+
+- [jassics/security-study-plan](https://github.com/jassics/security-study-plan)
+- [tanc7/hacking-books](https://github.com/tanc7/hacking-books)
+- [rng70/Hacking-Resources](https://github.com/rng70/Hacking-Resources)
+- [Hack-with-Github/Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks)
+- [mikesiko/PracticalMalwareAnalysis-Labs](https://github.com/mikesiko/PracticalMalwareAnalysis-Labs)
+- [intere/hacking](https://github.com/intere/hacking)
+- [PacktPublishing/Hands-On-Penetration-Testing-with-Python](https://github.com/PacktPublishing/Hands-On-Penetration-Testing-with-Python)
+- [EONRaider/violent-python3](https://github.com/EONRaider/violent-python3)
+- [EONRaider/blackhat-python3](https://github.com/EONRaider/blackhat-python3)
+- [apsdehal/awesome-ctf](https://github.com/apsdehal/awesome-ctf)
+- [zardus/ctf-tools](https://github.com/zardus/ctf-tools)
+- [vinta/awesome-python](https://github.com/vinta/awesome-python)
+- [PaulMcMillan/2014_defcon_timing](https://github.com/PaulMcMillan/2014_defcon_timing)
+- [cipher387/osint_stuff_tool_collection](https://github.com/cipher387/osint_stuff_tool_collection)
+- [rmusser01/Infosec_Reference](https://github.com/rmusser01/Infosec_Reference)
+- [A-poc/RedTeam-Tools](https://github.com/A-poc/RedTeam-Tools)
+- [cloudcommunity/Free-Certifications](https://github.com/cloudcommunity/Free-Certifications)
 
 ### Awesome Lists (31)
 
@@ -1112,11 +1395,12 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 ## Personal & Misc
 
-### TeamStarWolf - Your Repos (3)
+### TeamStarWolf - Your Repos (4)
 
 - [TeamStarWolf/ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi)
 - [TeamStarWolf/LimeWire](https://github.com/TeamStarWolf/LimeWire)
 - [TeamStarWolf/PokeNav](https://github.com/TeamStarWolf/PokeNav)
+- [TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf)
 
 ### Pokemon Disassembly (8)
 
@@ -1133,6 +1417,11 @@ Use `Ctrl+F` to search. Each section lists repos alphabetically.
 
 - [PokeAPI/pokeapi](https://github.com/PokeAPI/pokeapi)
 - [skydoves/Pokedex](https://github.com/skydoves/Pokedex)
+
+### Labs & Misc Tools (2)
+
+- [brinqa/ldap-cli](https://github.com/brinqa/ldap-cli)
+- [OTRF/SimuLand](https://github.com/OTRF/SimuLand)
 
 ### Downloaders & Utilities (1)
 

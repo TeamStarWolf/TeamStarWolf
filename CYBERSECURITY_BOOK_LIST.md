@@ -9,28 +9,29 @@
 |---|---------|-------|
 | 1 | [How To Use This List](#-how-to-use-this-list) | — |
 | 2 | [Learning Paths](#-learning-paths) | — |
-| 3 | [Core / Must-Read](#-core--must-read-high-signal) | All |
-| 4 | [Offensive Security & Pentesting](#-offensive-security--pentesting) | 🟡🔴 |
-| 5 | [Web Security & Bug Bounty](#-web-security--bug-bounty) | 🟡🔴 |
-| 6 | [Active Directory & Windows Security](#-active-directory--windows-security) | 🟡🔴 |
-| 7 | [Reverse Engineering & Malware Analysis](#-reverse-engineering--malware-analysis) | 🔴 |
-| 8 | [Cryptography](#-cryptography) | 🟡🔴 |
-| 9 | [Blue Team / Defense / SOC](#️-blue-team--defense--soc) | 🟢🟡 |
-| 10 | [Threat Intelligence & Hunting](#-threat-intelligence--hunting) | 🟡🔴 |
-| 11 | [OSINT / Privacy / Social Engineering](#️-osint--privacy--social-engineering) | 🟢🟡 |
-| 12 | [Cloud Security](#️-cloud-security) | 🟡🔴 |
-| 13 | [Mobile Security](#-mobile-security) | 🟡🔴 |
-| 14 | [Hardware / IoT / ICS Security](#-hardware--iot--ics-security) | 🔴 |
-| 15 | [Systems / Low-Level / Exploit Dev](#️-systems--low-level--exploit-dev) | 🔴 |
-| 16 | [Research / Fuzzing](#-research--exploit-culture--fuzzing) | 🔴 |
-| 17 | [Networking](#-networking-critical-foundation) | 🟢🟡 |
-| 18 | [Programming for Hackers](#-programming-for-hackers) | 🟢🟡 |
-| 19 | [Hacker Culture / History](#-hacker-culture--history--real-world-ops) | 🟢 |
-| 20 | [AI / ML Security](#-ai--ml-security) | 🟡🔴 |
-| 21 | [Certifications & Foundations](#-certifications--foundations) | 🟢🟡 |
-| 22 | [Career / Getting Hired](#-career--getting-hired) | 🟢 |
-| 23 | [Practice Environments](#-practice-environments) | All |
-| 24 | [Coverage Summary](#-coverage-summary) | — |
+| 3 | [📰 News & Daily Intel](#-news--daily-intel) | — |
+| 4 | [Core / Must-Read](#-core--must-read-high-signal) | All |
+| 5 | [Offensive Security & Pentesting](#-offensive-security--pentesting) | 🟡🔴 |
+| 6 | [Web Security & Bug Bounty](#-web-security--bug-bounty) | 🟡🔴 |
+| 7 | [Active Directory & Windows Security](#-active-directory--windows-security) | 🟡🔴 |
+| 8 | [Reverse Engineering & Malware Analysis](#-reverse-engineering--malware-analysis) | 🔴 |
+| 9 | [Cryptography](#-cryptography) | 🟡🔴 |
+| 10 | [Blue Team / Defense / SOC](#️-blue-team--defense--soc) | 🟢🟡 |
+| 11 | [Threat Intelligence & Hunting](#-threat-intelligence--hunting) | 🟡🔴 |
+| 12 | [OSINT / Privacy / Social Engineering](#️-osint--privacy--social-engineering) | 🟢🟡 |
+| 13 | [Cloud Security](#️-cloud-security) | 🟡🔴 |
+| 14 | [Mobile Security](#-mobile-security) | 🟡🔴 |
+| 15 | [Hardware / IoT / ICS Security](#-hardware--iot--ics-security) | 🔴 |
+| 16 | [Systems / Low-Level / Exploit Dev](#️-systems--low-level--exploit-dev) | 🔴 |
+| 17 | [Research / Fuzzing](#-research--exploit-culture--fuzzing) | 🔴 |
+| 18 | [Networking](#-networking-critical-foundation) | 🟢🟡 |
+| 19 | [Programming for Hackers](#-programming-for-hackers) | 🟢🟡 |
+| 20 | [Hacker Culture / History](#-hacker-culture--history--real-world-ops) | 🟢 |
+| 21 | [AI / ML Security](#-ai--ml-security) | 🟡🔴 |
+| 22 | [Certifications & Foundations](#-certifications--foundations) | 🟢🟡 |
+| 23 | [Career / Getting Hired](#-career--getting-hired) | 🟢 |
+| 24 | [Practice Environments](#-practice-environments) | All |
+| 25 | [Coverage Summary](#-coverage-summary) | — |
 
 **Difficulty Key:** 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced
 
@@ -91,6 +92,42 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 → Art of Software Security Assessment → Fuzzing book
 → AFL++ + CodeQL labs → bug bounty → CVE credits
 ```
+
+---
+
+## 📰 News & Daily Intel
+
+> Stay current. Attackers don't take days off. These are the highest-signal free sources in the industry — bookmark them all, read daily.
+
+### Breaking News
+- [The Hacker News](https://thehackernews.com) — High-volume daily cybersecurity news — breaches, CVEs, threat actors
+- [Bleeping Computer](https://www.bleepingcomputer.com) — Best breaking coverage on ransomware, malware, and vulnerability disclosures
+- [The Record by Recorded Future](https://therecord.media) — Serious journalism on nation-state and criminal cyber operations
+- [Dark Reading](https://www.darkreading.com) — Enterprise security news and in-depth analysis
+- [SC Magazine](https://www.scmagazine.com) — Security industry news and product coverage
+- [Krebs on Security](https://krebsonsecurity.com) — Brian Krebs — investigative cybercrime journalism, unmatched depth
+- [TechCrunch Security](https://techcrunch.com/category/security/) — Tech-focused breach and vulnerability coverage
+- [Network Computing](https://www.networkcomputing.com) — Infrastructure and network security news
+- [Information Week Security](https://www.informationweek.com) — Enterprise security strategy and news
+
+### Threat Intelligence & Research
+- [SANS Internet Storm Center](https://isc.sans.edu/diaryarchive.html) — Daily threat diary from SANS handlers — excellent signal-to-noise ratio
+- [Mandiant Blog](https://www.mandiant.com/resources/blog) — APT tracking, malware analysis, and incident reports
+- [Google Project Zero](https://googleprojectzero.blogspot.com) — Elite vuln research — browser, kernel, and hardware bugs
+- [SpecterOps Posts](https://posts.specterops.io) — AD and Windows attack research from the BloodHound team
+- [DFIR Report](https://thedfirreport.com) — Real intrusion case studies — attacker TTPs from actual incidents
+- [Offensive Security Research](https://www.offensive-security.com) — OffSec exploits, papers, and CVE research
+- [Risky Business Podcast](https://risky.biz) — Weekly security news podcast — the best in the industry
+
+### CVE & Vulnerability Tracking
+- [NVD (NIST)](https://nvd.nist.gov) — Official CVE database with CVSS scores and patch info
+- [CVE.mitre.org](https://cve.mitre.org) — Canonical CVE list and reference
+- [Exploit-DB](https://www.exploit-db.com) — Public exploit archive — search by CVE, platform, or type
+- [CISA KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) — Known Exploited Vulnerabilities actively used by attackers — highest priority patching list
+- [AttackerKB](https://attackerkb.com) — Community-rated CVE exploitability assessments
+- [Vulners](https://vulners.com) — Aggregated vulnerability database with API access
+
+> 💡 **Pro tip:** Subscribe to the CISA KEV RSS feed and set up a Google Alert for your organization's tech stack. The KEV catalog is the most actionable threat list available — if a CVE is on it, patch immediately.
 
 ---
 
@@ -157,6 +194,16 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 - [Nemesis](https://github.com/SpecterOps/Nemesis) — Offensive data enrichment and triage pipeline
 - [impacket](https://github.com/fortra/impacket) — Python classes for Windows network protocols (AD attacks)
 - [nishang](https://github.com/samratashok/nishang) — PowerShell offensive security framework
+
+**📋 Essential cheat sheet URLs (bookmark these):**
+- [revshells.com](https://www.revshells.com) — Reverse shell generator for every language — instant copy/paste
+- [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) — Free comprehensive Metasploit guide from OffSec
+- [ropnop - Upgrading Shells to TTY](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/) — The definitive TTY upgrade guide
+- [ropnop - Transferring Files Kali→Windows](https://blog.ropnop.com/transferring-files-from-kali-to-windows/) — All file transfer methods in one place
+- [explainshell.com](https://explainshell.com) — Paste any shell command and get an explanation of every flag
+- [Nmap NSE Script Docs](https://nmap.org/nsedoc/) — Full reference for all 600+ Nmap scripts
+- [Nmap Cheat Sheet (highon.coffee)](https://highon.coffee/blog/nmap-cheat-sheet/) — Quick flag and scan type reference
+- [LOLBAS Project](https://lolbas-project.github.io) — Windows Living Off The Land binary abuse
 
 **🎓 Certifications:** OSCP · PNPT · eCPPT · GPEN · GCIH  
 **📺 YouTube:** [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) · [IppSec](https://www.youtube.com/@ippsec) · [HackerSploit](https://www.youtube.com/@HackerSploit)  
@@ -816,8 +863,41 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 ### Web & App Security
 - [DVWA](https://github.com/digininja/DVWA) — Damn Vulnerable Web Application — classic beginner web target
 - [WebGoat](https://github.com/WebGoat/WebGoat) — OWASP deliberately insecure web app with lessons
-- [vulhub](https://github.com/vulhub/vulhub) — Pre-built vulnerable Docker environments for 100s of CVEs
 - [OWASP Juice Shop](https://github.com/juice-shop/juice-shop) — Most modern intentionally vulnerable web app
+- [vulhub](https://github.com/vulhub/vulhub) — Pre-built vulnerable Docker environments for 100s of real CVEs
+- [Metasploitable3](https://github.com/rapid7/metasploitable3) — Deliberately vulnerable VM from Rapid7 — pairs directly with Metasploit book
+- [OWASP Broken Web Applications (BWA)](https://github.com/chuckfw/owaspbwa) — Collection of vulnerable web apps in a single VM
+- [PentesterLab Exercises](https://www.pentesterlab.com/exercises/) — Structured web security labs with badges — great for web fundamentals
+
+### OSCP-Prep VulnHub Progression
+> Complete these in order — they mirror OSCP lab difficulty. Attempt yourself first, then watch the walkthrough.
+
+| # | Machine | Key Skills |
+|---|---------|-----------|
+| 1 | [Kioptrix Level 1](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/) | SMB exploitation, basic enumeration |
+| 2 | [Kioptrix Level 1.1 (#2)](https://www.vulnhub.com/entry/kioptrix-level-11-2,23/) | SQL injection, command injection |
+| 3 | [Kioptrix Level 1.2 (#3)](https://www.vulnhub.com/entry/kioptrix-level-12-3,24/) | Web app exploitation, privesc |
+| 4 | [Kioptrix Level 1.3 (#4)](https://www.vulnhub.com/entry/kioptrix-level-13-4,25/) | SMB, MySQL, restricted shell escape |
+| 5 | [Kioptrix 2014](https://www.vulnhub.com/entry/kioptrix-2014-5,62/) | Web + BSD privesc |
+| 6 | [FristiLeaks 1.3](https://www.vulnhub.com/entry/fristileaks-13,133/) | Web exploitation, Python privesc |
+| 7 | [Stapler 1](https://www.vulnhub.com/entry/stapler-1,150/) | Multiple attack vectors, great methodology practice |
+| 8 | [PwnLab: init](https://www.vulnhub.com/entry/pwnlab-init,158/) | LFI, file upload, pivoting between users |
+| 9 | [Tr0ll 1](https://www.vulnhub.com/entry/tr0ll-1,100/) | Enumeration patience, trolling-style hints |
+| 10 | [Tr0ll 2](https://www.vulnhub.com/entry/tr0ll-2,107/) | More complex, multiple privesc vectors |
+| 11 | [Mr-Robot 1](https://www.vulnhub.com/entry/mr-robot-1,151/) | WordPress exploitation + privesc — iconic machine |
+| 12 | [SickOs 1.2](https://www.vulnhub.com/entry/sickos-12,144/) | SSRF + privesc chain, realistic flow |
+| 13 | [HackLAB: Vulnix](https://www.vulnhub.com/entry/hacklab-vulnix,48/) | NFS, user enumeration, privesc |
+| 14 | [pWnOS 2.0](https://www.vulnhub.com/entry/pwnos-20-pre-release,34/) | Web app exploitation focus |
+| 15 | [Lord Of The Root 1.0.1](https://www.vulnhub.com/entry/lord-of-the-root-101,129/) | Port knocking, SQLi, kernel exploit |
+
+> 💡 After VulnHub basics, move to [Hack The Box retired machines](https://hackthebox.com). Watch [IppSec's walkthroughs](https://www.youtube.com/@ippsec) after each attempt — the best free OSCP prep available.
+
+### Traffic Analysis Labs
+- [Malware Traffic Analysis Training](https://www.malware-traffic-analysis.net/training-exercises.html) — Real PCAP exercises — identify C2, malware, and intrusions from packet captures
+- [Malware Traffic Analysis Tutorials](https://www.malware-traffic-analysis.net/tutorials/index.html) — Step-by-step Wireshark analysis tutorials
+- [Blue Team Village DEFCON Workshop](https://www.malware-traffic-analysis.net/2018/workshop/BlueTeamVillage/) — Workshop-style PCAP analysis exercises
+- [Wireshark Sample Captures](https://wiki.wireshark.org/SampleCaptures) — Official Wireshark sample PCAPs for all protocol types
+- [PacketLife PCAP Library](https://packetlife.net/captures/) — Protocol-specific capture files for study
 
 ### Active Directory Labs
 - [GOAD](https://github.com/Orange-Cyberdefense/GOAD) — Game of Active Directory — 5-VM vulnerable AD lab (the best one)
@@ -859,6 +939,7 @@ Hacking: Art of Exploitation → Shellcoder's Handbook
 
 | Domain | Books | Key Tools | Best Free Practice |
 |--------|-------|-----------|-------------------|
+| News & Daily Intel | — | SANS ISC, CISA KEV, Exploit-DB | CISA KEV catalog (free) |
 | Core Foundation | 6 | HackTricks, awesome-security | Security Engineering (free PDF) |
 | Offensive / Pentest | 10 | Metasploit, NetExec, BloodHound | Hack The Box |
 | Web Security | 5 | ZAP, Nuclei, ffuf, OWASP WSTG | PortSwigger Academy (free) |

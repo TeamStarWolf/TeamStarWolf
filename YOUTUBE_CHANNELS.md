@@ -168,12 +168,60 @@ A curated library of YouTube channels organized by discipline. The companion to 
 - **RSA Conference** - https://www.youtube.com/@RSAConference
 - **OWASP Foundation** - https://www.youtube.com/@OWASPGLOBAL - AppSec talks
 - **NorthSec** - https://www.youtube.com/@NorthSec_io - Canadian security conference
-- **BSides** (multiple regional channels) - search "BSides [city]"
 - **HOPE Conference** - https://www.youtube.com/@hopeconf
 - **CCC (Chaos Computer Club)** - https://www.youtube.com/@mediacccde - CCC Congress talks
 - **44CON** - https://www.youtube.com/@44con
 - **Hack In The Box** - https://www.youtube.com/@HITBSecConf
 - **Wild West Hackin' Fest** - https://www.youtube.com/@WildWestHackinFest
+- **SANS Summits** - https://www.youtube.com/@sanssummits3560 - SANS summit recordings (DFIR, Cloud, ICS, etc.)
+
+### BSides Regional Conferences
+- **BSides Las Vegas** - https://www.youtube.com/@BsideslvOrg - The BSides flagship, runs alongside DEF CON
+- **BSides San Francisco** - https://www.youtube.com/@BSidesSF
+- **BSides Tampa** - https://www.youtube.com/@bsidestampa
+- **BSides STL (St. Louis)** - https://www.youtube.com/@bsidesstl9980
+- **BSides KC (Kansas City)** - https://www.youtube.com/@BSidesKC
+- **BSides Charm (Baltimore/DC)** - https://www.youtube.com/@bsidescharm
+- **BSides San Antonio** - https://www.youtube.com/@BSidesSATX
+- **BSides Tel Aviv** - https://www.youtube.com/@BSidesTLV
+- **BSides Budapest** - https://www.youtube.com/@BSidesBUD
+- **SecKC** - https://www.youtube.com/@SecKCVids - Kansas City Security Meetup recordings
+
+---
+
+## TeamStarWolf Personal Subscription Additions
+
+These are channels @WolfenLabs is already subscribed to that fit the cybersecurity discipline. Added here for the public library.
+
+### Vendor Detection / Threat Intel (additional)
+- **Microsoft Security Community** - https://www.youtube.com/@MicrosoftSecurityCommunity - Defender, Sentinel, Entra ID community
+- **Red Canary, a Zscaler company** - https://www.youtube.com/@RedCanary - Detection engineering, Atomic Red Team
+
+### Training / Career (additional)
+- **Antisyphon Training** - https://www.youtube.com/@AntisyphonTraining - Black Hills Information Security training arm; pay-what-you-can pentesting and detection courses
+- **A Cloud Guru** - https://www.youtube.com/@acloudguru - Cloud (AWS, Azure, GCP) certifications, including security paths
+
+### Red Team / Pentest (additional)
+- **Red Siege Information Security** - https://www.youtube.com/@RedSiege - Red team consultancy talks, EyeWitness author
+- **Beau Bullock** - https://www.youtube.com/@beau_bullock - BHIS testing, Azure attack content
+
+### Hardware Hacking (additional)
+- **Joe Grand (Kingpin)** - https://www.youtube.com/@JoeGrand - Hardware hacking legend; co-founder of @stake, original L0pht member
+
+### Storytelling / Long-form (additional)
+- **Jack Rhysider (Darknet Diaries)** - https://www.youtube.com/@JackRhysider - Companion channel to the Darknet Diaries podcast; cybercrime narratives
+
+### Scam Awareness / Social Engineering
+- **Kitboga** - https://www.youtube.com/@KitbogaShow - Live scam baiting; great for social-engineering and phone-fraud awareness
+
+### Purple Team / Community Podcasts
+- **The Weekly Purple Team** - https://www.youtube.com/@WeeklyPurpleTeam - Purple-team operations focus
+- **CyberBytes: The Podcast** - https://www.youtube.com/@cyberbytes-the-podcast - Practitioner interviews and discussion
+- **Cyber Warriors HQ** - https://www.youtube.com/@CyberWarriorsHQ - Career/community
+- **Cyber Warriors HQ Dispatch** - https://www.youtube.com/@CyberWarriorsHQDispatch - Daily news brief
+
+### Web3 / Crypto Security
+- **CoinSec Podcast** - https://www.youtube.com/@CoinSecPodcast - Cryptocurrency and web3 security discussion
 
 ---
 

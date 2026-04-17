@@ -2,31 +2,31 @@
 
 > Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
 
-The 26 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
+The 21 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars). Each one answers the question: *"what would I open if I needed to do this work today?"*
 
-**Coverage:** 625 of ~917 starred repositories are now sorted into Lists (~872 list-memberships, since many repos belong to multiple Lists).
+**Coverage:** 813 of ~1032 starred repositories are now sorted into Lists (~1100 list-memberships, since many repos belong to multiple Lists).
 
 | List | Repos |
 |---|---|
-| Enterprise Security Vendor Tooling | 124 |
-| Detection Engineering and Analytics | 55 |
-| Malware Analysis and Reverse Engineering | 53 |
+| Enterprise Security Vendor Tooling | 148 |
+| Detection Engineering and Analytics | 66 |
+| Malware Analysis and Reverse Engineering | 57 |
 | Active Directory Offensive Operations | 52 |
-| Cybersecurity Learning Resources and Catalogs | 51 |
-| Bug Bounty and Web Application Reconnaissance | 50 |
-| Vulnerability and Attack Surface Management | 49 |
-| Cloud and Container Security: Attack and Defense | 41 |
+| Cybersecurity Learning Resources and Catalogs | 72 |
+| Bug Bounty and Web Application Reconnaissance | 62 |
+| Vulnerability and Attack Surface Management | 58 |
+| Cloud and Container Security: Attack and Defense | 54 |
 | Command-and-Control and Post-Exploitation Frameworks | 34 |
-| Compliance, GRC and OSCAL | 34 |
+| Compliance, GRC and OSCAL | 40 |
 | Enterprise EDR and Endpoint Security Vendors | 29 |
-| MITRE ATT&CK Framework and CTID Tooling | 28 |
-| Digital Forensics and Incident Response | 23 |
-| Identity, Zero Trust and Privileged Access | 22 |
-| Daily Operational Toolkit | 18 |
-| Cyber Threat Intelligence Platforms and Feeds | 15 |
-| AI and LLM Security Engineering | 14 |
-| OSINT and External Reconnaissance | 14 |
-| SOAR and Security Automation | 9 |
+| MITRE ATT&CK Framework and CTID Tooling | 30 |
+| Digital Forensics and Incident Response | 27 |
+| Identity, Zero Trust and Privileged Access | 27 |
+| Daily Operational Toolkit | 22 |
+| Cyber Threat Intelligence Platforms and Feeds | 17 |
+| AI and LLM Security Engineering | 15 |
+| OSINT and External Reconnaissance | 19 |
+| SOAR and Security Automation | 13 |
 | TeamStarWolf - Production Stack | 7 |
 
 
@@ -94,18 +94,3 @@ Identity providers, zero-trust network access, and privileged access management.
 
 ## 21. All-in-One Hacker Toolkit and Recon
 Practitioner-grade omnibus list combining hacking-book companion code (Black Hat Python, Violent Python, Practical Malware Analysis, PacktPublishing pentesting and reverse engineering), end-to-end recon and pentest frameworks (Sn1per, Recon-ng + marketplace, AutoRecon, Bluto, Discover, Sublist3r, Photon, ParamSpider, FavFreak, hackingtool, Coldfire), foundational exploitation suites (BeEF, Responder, sqlmap, Wapiti, ZAP community scripts), and the most-referenced hacking knowledge bases (h4cker, RedTeam-Tools, Awesome-CTF, ctf-tools, Free-Security-eBooks, Penetration-Testing, Infosec_Reference, hackerschoice tips, jhaddix tbhm, Ignite cheatsheets). The single list to open when you need to do everything from external recon to post-exploitation in one place.
-
-## 22. ICS, OT and Critical Infrastructure Security
-Industrial control systems, operational technology, SCADA, PLC, and critical infrastructure security tools and research. Modbus and S7 scanners, IEC 61850 libraries, ICS honeypots (Conpot), digitalbond Redpoint, ICS-Security-Tools, default password databases, ICS-pcap samples, Attify firmware analysis toolkit, firmadyne, and ReversecLabs Needle.
-
-## 23. Wireless, Bluetooth and RF Security
-WiFi, Bluetooth, RFID, and software-defined radio assessment toolkits. Aircrack-ng, Bettercap, Kismet, Wifite2, Reaver, Airgeddon, WiFi Pineapple modules, HackRF, GNU Radio, URH, Proxmark3, RTL-SDR, OP25, magspoof, Wifiphisher, and BLE attack tools.
-
-## 24. Windows Internals and Sysmon Engineering
-Windows-focused detection, telemetry, and logging tools. SwiftOnSecurity Sysmon config, olafhartong sysmon-modular and ATTACK datamap, LOLBAS, GTFOBins, EVTX parsers (omerbenamram, williballenthin), Windows Event Forwarding (Palantir), Aurora IR, SMBLibrary, Detect-It-Easy, efiXplorer, and shadow-box research.
-
-## 25. DevSecOps Pipeline Security
-Static analysis, secret scanning, IaC security, container linting, supply-chain attestation, and policy-as-code for CI/CD pipelines. Semgrep, Bandit, Brakeman, gosec, TruffleHog, Gitleaks, detect-secrets, pre-commit, hadolint, dockle, tfsec, Checkov, terrascan, Snyk CLI, in-toto, Cosign, Conftest, Kyverno.
-
-## 26. Privacy, Anonymity and Anti-Surveillance
-Tor, mesh VPNs, secure messaging, password managers, network-wide ad blocking, and privacy-hardened browsing. Tor, Streisand, Algo, WireGuard, Mullvad, Tailscale, Headscale, Vaultwarden, Bitwarden, KeePassXC, Signal, I2P, Brave, Pi-hole, AdGuard Home, uBlock, arkenfox user.js, Tor Browser.

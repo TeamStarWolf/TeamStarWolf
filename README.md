@@ -31,6 +31,8 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Offensive Security](disciplines/offensive-security.md) | Penetration testing, red teaming, and adversary emulation |
 | [Vulnerability Management](disciplines/vulnerability-management.md) | Identifying, prioritizing, and remediating vulnerabilities |
 | [Cloud Security](disciplines/cloud-security.md) | Securing cloud infrastructure, containers, and identity |
+| [Network Security](disciplines/network-security.md) | Monitoring and defending network traffic; NSM, IDS/IPS, wireless |
+| [Malware Analysis](disciplines/malware-analysis.md) | Static and dynamic analysis, reverse engineering, and sandbox investigation |
 
 ---
 

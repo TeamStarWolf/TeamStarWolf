@@ -12,7 +12,7 @@ A public resource library for the cybersecurity community.
 
 | Resource | Description |
 |---|---|
-| [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around the Optiv Cybersecurity Technology Map taxonomy |
+| [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |

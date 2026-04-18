@@ -1,0 +1,60 @@
+name: Validate Data Files
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'navigator/**'
+      - 'scripts/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'navigator/**'
+  workflow_dispatch:
+
+jobs:
+  validate-jsonl:
+    name: Validate JSONL edge tables
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate JSONL files
+        run: python scripts/validate_jsonl.py
+
+  validate-navigator:
+    name: Validate ATT&CK Navigator layer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Navigator layer JSON
+        run: |
+          python -c "
+          import json, sys
+          with open('navigator/teamstarwolf_vendor_coverage.json') as f:
+              layer = json.load(f)
+          required = ['name', 'versions', 'domain', 'techniques', 'gradient']
+          missing = [k for k in required if k not in layer]
+          if missing:
+              print(f'ERROR: Missing required fields: {missing}')
+              sys.exit(1)
+          technique_count = len(layer['techniques'])
+          print(f'OK: Navigator layer valid — {technique_count} techniques')
+          scores = [t['score'] for t in layer['techniques'] if 'score' in t]
+          print(f'OK: Score range {min(scores)}–{max(scores)}')
+          "

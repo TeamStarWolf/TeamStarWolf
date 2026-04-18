@@ -33,6 +33,9 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Cloud Security](disciplines/cloud-security.md) | Securing cloud infrastructure, containers, and identity |
 | [Network Security](disciplines/network-security.md) | Monitoring and defending network traffic; NSM, IDS/IPS, wireless |
 | [Malware Analysis](disciplines/malware-analysis.md) | Static and dynamic analysis, reverse engineering, and sandbox investigation |
+| [ICS/OT Security](disciplines/ics-ot-security.md) | Securing industrial control systems, SCADA, and critical infrastructure |
+| [Application Security](disciplines/application-security.md) | Web app and API security, secure SDLC, threat modeling, and bug bounty |
+| [AI & LLM Security](disciplines/ai-llm-security.md) | Securing AI systems, red-teaming LLMs, and adversarial machine learning |
 
 ---
 
@@ -45,12 +48,14 @@ High-quality training does not require a large budget. These platforms offer fre
 | [Antisyphon Training](https://www.antisyphontraining.com/pay-forward-what-you-can/) | Pay-what-you-can live courses from John Strand and practitioners; SOC, pentesting, active defense |
 | [Black Hills Information Security](https://www.blackhillsinfosec.com/blog/webcasts/) | Hundreds of free webcasts on every security discipline |
 | [TCM Security Academy](https://academy.tcm-sec.com/courses) | Free tier with 25+ hours of on-demand content; practical ethical hacking and SOC |
+| [PortSwigger Web Security Academy](https://portswigger.net/web-security) | The best free web application security training available; interactive labs for every major vulnerability class |
 | [Hack The Box Academy](https://academy.hackthebox.com) | Free Student tier; SOC analyst, DFIR, penetration testing, and cloud security paths |
 | [TryHackMe](https://tryhackme.com) | Browser-based beginner-to-advanced labs; no local setup required |
 | [IppSec](https://www.youtube.com/@ippsec) | HackTheBox walkthroughs demonstrating real attack techniques with full methodology |
 | [Blue Team Labs Online](https://blueteamlabs.online) | Free investigation challenges for detection, forensics, and IR |
 | [LetsDefend](https://letsdefend.io) | Free SOC simulator for alert triage and threat analysis |
-| [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training open to the public |
+| [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training open to the public including ICS/OT, cloud, and IR content |
+| [Anthropic Courses](https://github.com/anthropics/courses) | Free AI and LLM security courses from Anthropic |
 
 ---
 
@@ -62,7 +67,7 @@ High-quality training does not require a large budget. These platforms offer fre
 [![Docker Build](https://github.com/TeamStarWolf/ATTACK-Navi/workflows/Docker%20Build/badge.svg)](https://github.com/TeamStarWolf/ATTACK-Navi/actions/workflows/docker.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/TeamStarWolf/ATTACK-Navi/blob/main/LICENSE)
 
-MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation.
+MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation. Supports Enterprise, ICS, and Mobile ATT&CK domains.
 
 **Capabilities**
 - Multiple heatmap modes across coverage, detection, exposure, compliance, and risk

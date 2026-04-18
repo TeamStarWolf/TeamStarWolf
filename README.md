@@ -21,7 +21,7 @@ A public resource library for the cybersecurity community.
 
 ## Disciplines
 
-Focused starting points by area of practice.
+Focused starting points by area of practice. Each page includes a learning path, free training resources, tools, books, certifications, and who to follow.
 
 | Area | Description |
 |---|---|
@@ -31,6 +31,24 @@ Focused starting points by area of practice.
 | [Offensive Security](disciplines/offensive-security.md) | Penetration testing, red teaming, and adversary emulation |
 | [Vulnerability Management](disciplines/vulnerability-management.md) | Identifying, prioritizing, and remediating vulnerabilities |
 | [Cloud Security](disciplines/cloud-security.md) | Securing cloud infrastructure, containers, and identity |
+
+---
+
+## Free & Accessible Training
+
+High-quality training does not require a large budget. These platforms offer free or pay-what-you-can content taught by working practitioners.
+
+| Platform | Focus |
+|---|---|
+| [Antisyphon Training](https://www.antisyphontraining.com/pay-forward-what-you-can/) | Pay-what-you-can live courses from John Strand and practitioners; SOC, pentesting, active defense |
+| [Black Hills Information Security](https://www.blackhillsinfosec.com/blog/webcasts/) | Hundreds of free webcasts on every security discipline |
+| [TCM Security Academy](https://academy.tcm-sec.com/courses) | Free tier with 25+ hours of on-demand content; practical ethical hacking and SOC |
+| [Hack The Box Academy](https://academy.hackthebox.com) | Free Student tier; SOC analyst, DFIR, penetration testing, and cloud security paths |
+| [TryHackMe](https://tryhackme.com) | Browser-based beginner-to-advanced labs; no local setup required |
+| [IppSec](https://www.youtube.com/@ippsec) | HackTheBox walkthroughs demonstrating real attack techniques with full methodology |
+| [Blue Team Labs Online](https://blueteamlabs.online) | Free investigation challenges for detection, forensics, and IR |
+| [LetsDefend](https://letsdefend.io) | Free SOC simulator for alert triage and threat analysis |
+| [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training open to the public |
 
 ---
 

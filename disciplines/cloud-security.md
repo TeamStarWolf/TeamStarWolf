@@ -4,6 +4,33 @@ Securing cloud infrastructure, workloads, containers, and identities across AWS,
 
 ---
 
+## Where to Start
+
+Cloud security requires understanding both how cloud platforms work and how they are attacked. Start with a single provider — AWS is the most common, Azure is dominant in enterprise — and learn the identity model first: IAM permissions, roles, and trust relationships are the most exploited attack surface in cloud environments. Then layer in infrastructure assessment with tools like Prowler. Kubernetes security builds on container fundamentals; understand how pods, namespaces, and RBAC interact before you can defend them effectively. Use Hack The Box, TryHackMe, or flaws.cloud to practice against real misconfigured cloud environments.
+
+| Stage | Focus | Where to Begin |
+|---|---|---|
+| Foundation | Cloud IAM models, shared responsibility, basic misconfiguration patterns | AWS free tier labs, TryHackMe cloud paths, CISA free training |
+| Practitioner | Prowler/ScoutSuite assessments, Kubernetes security, IaC scanning, Trivy | HTB Academy cloud path, BHIS webcasts, flaws.cloud |
+| Advanced | Cloud attack paths (Pacu, ROADtools), eBPF runtime security, policy-as-code | CCSP, AWS Security Specialty, AZ-500, CKS |
+
+---
+
+## Free Training
+
+- [BHIS Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) — Free webcasts on cloud attack techniques, AWS/Azure misconfigurations, and Kubernetes security
+- [BHIS YouTube](https://www.youtube.com/@BlackHillsInformationSecurity) — Cloud security attack walkthroughs, container security, and DevSecOps content
+- [TCM Security YouTube](https://www.youtube.com/@TCMSecurityAcademy) — Cloud security and AWS pentesting content
+- [Hack The Box Academy](https://academy.hackthebox.com) — Free Student tier; cloud security and container security modules
+- [TryHackMe](https://tryhackme.com) — Cloud security learning paths for AWS and Azure
+- [flaws.cloud](http://flaws.cloud) — Free AWS misconfiguration challenge course by Scott Piper; learn by exploiting real misconfigs
+- [flaws2.cloud](http://flaws2.cloud) — Follow-on challenge with both attacker and defender perspectives
+- [Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) — Free guide to understanding Kubernetes from the ground up; essential context for securing it
+- [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) — Includes cloud security, IaC, and identity management topics
+- [AWS Security Documentation](https://docs.aws.amazon.com/security/) — Free; the most authoritative source for AWS security controls and best practices
+
+---
+
 ## Tools & Repositories
 
 ### Multi-Cloud Assessment
@@ -64,42 +91,51 @@ Securing cloud infrastructure, workloads, containers, and identities across AWS,
 | Hacking Kubernetes | Rice & Hausenblas | Attack and defense for Kubernetes; the definitive container security book |
 | Kubernetes Security and Observability | Liz Rice | Container and K8s security from the author of container security fundamentals |
 | CCSP Official Study Guide | Chapple & Seidl | Broad cloud security foundations covering architecture, compliance, and operations |
-| Hacking the Cloud (online) | Various | [hackingthe.cloud](https://hackingthe.cloud) — Free, updated constantly with real attack techniques |
+| Hacking the Cloud (online) | Various | [hackingthe.cloud](https://hackingthe.cloud) — Free, continuously updated with real attack techniques and mitigations |
 | AWS Security Handbook | Marzia Kjell | Practical AWS security from misconfiguration to exploitation |
-
-## Certifications
-
-- **CCSP** (Certified Cloud Security Professional) — Broad cloud security architecture and governance
-- **AWS Security Specialty** — AWS-specific security services, detection, and response
-- **Azure Security Engineer (AZ-500)** — Azure security controls and identity management
-- **KCSA** (Kubernetes and Cloud Native Security Associate) — Kubernetes security fundamentals
-- **CKS** (Certified Kubernetes Security Specialist) — Advanced Kubernetes cluster hardening
-
-## Channels
-
-- [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec) — Cloud security conference recordings
-- [Cloud Security Podcast](https://www.youtube.com/@CloudSecurityPodcast) — Practitioner interviews across AWS, Azure, and GCP
-- [Day Cyberwox](https://www.youtube.com/@DayCyberwox) — AWS, Azure, GCP security walkthroughs
-- [A Cloud Guru](https://www.youtube.com/@acloudguru) — Cloud certification preparation including security specialty paths
-- [HashiCorp](https://www.youtube.com/@HashiCorp) — Vault, Boundary, and infrastructure security tooling
-
-## Who to Follow
-
-- [@scott_piper](https://x.com/scott_piper) — Summit Route; AWS security research and misconfig tracking
-- [@ToniBlyx](https://x.com/ToniBlyx) — Toni de la Fuente; Prowler creator and AWS security expertise
-- [@Frichette_n](https://x.com/Frichette_n) — Nick Frichette; AWS offensive security and credential abuse research
-- [@shehackspurple](https://x.com/shehackspurple) — Tanya Janca; DevSecOps, AppSec, and cloud security
-- [@clintgibler](https://x.com/clintgibler) — Clint Gibler; tl;dr sec newsletter covering cloud and AppSec
-- [@RobertMLee](https://x.com/RobertMLee) — Robert M. Lee; Dragos ICS/OT and cloud-adjacent infrastructure security
-
-## Key Resources
-
-- [HackingThe.Cloud](https://hackingthe.cloud) — Cloud attack techniques, misconfigurations, and exploitation methods
-- [CloudSecDocs](https://cloudsecdocs.com) — Cloud security documentation and reference
-- [AWS Security Reference Architecture](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html) — AWS prescriptive security guidance
-- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) — Hardening benchmarks for AWS, Azure, GCP, and Kubernetes
-- [CNCF Security Whitepaper](https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf) — Cloud native security model
 
 ---
 
-*Part of the [TeamStarWolf](https://github.com/TeamStarWolf) community resource library.*
+## Certifications
+
+- **CCSP** (Certified Cloud Security Professional) — Broad cloud security architecture and governance; the leading vendor-neutral cloud security certification
+- **AWS Security Specialty** — AWS-specific security services, detection, and response; the practitioner benchmark for AWS environments
+- **Azure Security Engineer (AZ-500)** — Azure security controls and Entra ID management
+- **KCSA** (Kubernetes and Cloud Native Security Associate) — Kubernetes security fundamentals; the entry-level cloud native security certification
+- **CKS** (Certified Kubernetes Security Specialist) — Advanced Kubernetes cluster hardening; requires passing CKA first
+
+---
+
+## Channels
+
+- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — Cloud attack techniques, AWS/Azure misconfigurations, and cloud-specific adversary simulation
+- [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec) — Cloud security conference recordings from the leading practitioner event
+- [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) — Cloud pentesting and AWS security content
+- [SANS Cloud Security](https://www.youtube.com/@SansInstitute) — Cloud security architecture and operations content
+- [KubeCon](https://www.youtube.com/@cncf) — CNCF conference recordings including Kubernetes security sessions
+
+---
+
+## Who to Follow
+
+- [@SpenGietz](https://x.com/SpenGietz) — Spencer Gietzen; Rhino Security Labs cloud research
+- [@_dirkjan](https://x.com/_dirkjan) — Dirk-jan Mollema; Azure/Entra ID attack research, ROADtools
+- [@christophetd](https://x.com/christophetd) — Cloud security research and attack path analysis
+- [@kmcquade3](https://x.com/kmcquade3) — Kinnaird McQuade; AWS IAM and cloud policy security
+- [@LizRice](https://x.com/lizrice) — Liz Rice; container security and eBPF; Aqua Security
+- [@IanColdwater](https://x.com/IanColdwater) — Kubernetes security and container hardening
+- [@NigelDouglas10](https://x.com/NigelDouglas10) — Cloud native security and runtime security
+- [@sysdig](https://x.com/sysdig) — Container and cloud runtime security research
+- [@falcosecurity](https://x.com/falcosecurity) — Falco runtime security project
+
+---
+
+## Key Resources
+
+- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) — Map cloud attack techniques to ATT&CK; correlate with CVE and KEV data; visualize detection gaps across cloud-focused technique clusters
+- [Hacking the Cloud](https://hackingthe.cloud) — Free, community-maintained reference for cloud attack techniques with mitigations
+- [flaws.cloud](http://flaws.cloud) — Free AWS misconfiguration challenge; learn to find the same issues assessors find
+- [CloudSecDocs](https://cloudsecdocs.com) — Free community cloud security reference
+- [CISA Cloud Security Resources](https://www.cisa.gov/topics/cyber-threats-and-advisories/cloud-security) — Federal cloud security guidance and best practices
+- [AWS Well-Architected Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) — Free; the AWS security architecture reference
+- [NSA Cloud Security Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2987379/) — NSA guidance on cloud security principles and misconfiguration risks

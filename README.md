@@ -12,10 +12,10 @@ A public resource library for the cybersecurity community.
 
 | Resource | Description |
 |---|---|
-| [Starred Repositories](STARRED_REPOS.md) | 1,042 repos across 29 sections, structured around the Optiv Cybersecurity Technology Map taxonomy |
+| [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around the Optiv Cybersecurity Technology Map taxonomy |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
-| [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across 16 security disciplines |
-| [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | ~205 vetted accounts that regularly share original research, tooling, or operational insight |
+| [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
+| [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
 
 ---
 
@@ -30,8 +30,8 @@ A public resource library for the cybersecurity community.
 MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation.
 
 **Capabilities**
-- 24 heatmap modes across coverage, detection, exposure, compliance, and risk
-- 4.5M CVE mappings; live integrations with MISP, OpenCTI, EPSS, CISA KEV, NVD, Elastic, Splunk, Sigma, Atomic Red Team, ExploitDB, and Nuclei
+- Multiple heatmap modes across coverage, detection, exposure, compliance, and risk
+- CVE mappings with live integrations: MISP, OpenCTI, EPSS, CISA KEV, NVD, Elastic, Splunk, Sigma, Atomic Red Team, ExploitDB, and Nuclei
 - STIX 2.1 import/export, custom technique editing, and collection sharing
 - Deployable via Docker or GitHub Pages
 

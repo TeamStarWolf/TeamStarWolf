@@ -4,6 +4,33 @@ Simulating adversary tactics through penetration testing, red teaming, and adver
 
 ---
 
+## Where to Start
+
+Offensive security is learned by doing. The conceptual foundation is understanding how systems work — operating systems, networking, authentication protocols, and application behavior — before you understand how they break. Start with Hack The Box or TryHackMe to build lab skills in a safe environment. Watch IppSec's HackTheBox walkthroughs to understand not just the answer but the thought process. Build up to Active Directory attacks, which are the core skill set for real-world engagements. From there, adversary emulation with a C2 framework and ATT&CK-mapped techniques takes you from penetration testing into red teaming.
+
+| Stage | Focus | Where to Begin |
+|---|---|---|
+| Foundation | Linux fundamentals, networking, scripting, basic exploitation | TryHackMe (beginner paths), TCM Security free YouTube, IppSec easy boxes |
+| Practitioner | Active Directory attacks, web exploitation, C2 frameworks, privilege escalation | HTB Academy, TCM Security PNPT course, BHIS Introduction to Pentesting |
+| Advanced | Red team operations, EDR evasion, adversary emulation, custom tooling | CRTO, OSCP, OSEP, CRTE |
+
+---
+
+## Free Training
+
+- [IppSec YouTube](https://www.youtube.com/@ippsec) — HackTheBox walkthroughs averaging nearly an hour each; 500+ videos covering every technique from beginner to expert; the most effective free offensive security education available
+- [IppSec Search](https://ippsec.rocks) — Search across all IppSec video transcripts by tool or technique to find exactly the walkthrough you need
+- [TCM Security YouTube](https://www.youtube.com/@TCMSecurityAcademy) — Free full courses and technique demonstrations; Practical Ethical Hacking previews, Active Directory content, and SOC 101
+- [TCM Academy Free Tier](https://academy.tcm-sec.com/courses) — 25+ hours of free on-demand content; no credit card required
+- [Antisyphon: Introduction to Pentesting](https://www.antisyphontraining.com/product/introduction-to-pentesting-with-john-strand/) — Pay-what-you-can ($0+) with John Strand; fundamentals through lab exercises
+- [BHIS YouTube](https://www.youtube.com/@BlackHillsInformationSecurity) — Pentest technique deep dives, Active Directory attack walkthroughs, and adversary simulation content
+- [BHIS Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) — Free webcasts on offensive techniques, red team operations, and adversary behavior
+- [Hack The Box Academy](https://academy.hackthebox.com) — Free Student tier; Active Directory, web exploitation, and penetration testing paths
+- [TryHackMe](https://tryhackme.com) — Beginner-friendly browser-based labs; no local setup required; structured learning paths
+- [CISA Free Training](https://niccs.cisa.gov/training/catalog) — Includes ethical hacking and penetration testing fundamentals
+
+---
+
 ## Tools & Repositories
 
 ### C2 Frameworks
@@ -80,12 +107,9 @@ Simulating adversary tactics through penetration testing, red teaming, and adver
 - [social-engineer-toolkit](https://github.com/trustedsec/social-engineer-toolkit) — TrustedSec social engineering framework
 
 ### Reference & Wordlists
-- [HackTricks](https://github.com/HackTricks-wiki/hacktricks) — Comprehensive hacking techniques wiki
-- [InternalAllTheThings](https://github.com/swisskyrepo/InternalAllTheThings) — Internal network pentest cheat sheet
-- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) — Payloads for all vulnerability types
-- [SecLists](https://github.com/danielmiessler/SecLists) — Wordlists for fuzzing, credential attacks, and more
-- [LOLBAS](https://github.com/LOLBAS-Project/LOLBAS) — Living Off The Land Binaries and Scripts for Windows
-- [GTFOBins](https://github.com/GTFOBins/GTFOBins.github.io) — Unix binary abuse for privilege escalation and shell escapes
+- [SecLists](https://github.com/danielmiessler/SecLists) — The most-used collection of security wordlists for fuzzing and brute-force
+- [HackTricks](https://github.com/carlospolop/hacktricks) — The community reference for pentesting techniques, attack commands, and methodology
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) — Payload cheat sheets for every attack class
 
 ---
 
@@ -93,57 +117,57 @@ Simulating adversary tactics through penetration testing, red teaming, and adver
 
 | Book | Author | Why Read It |
 |---|---|---|
-| Penetration Testing: A Hands-On Introduction | Georgia Weidman | Lab-first approach to learning pentesting fundamentals |
-| Red Team Field Manual (RTFM) | Ben Clark | On-engagement command reference — print this and keep it on your desk |
-| The Hacker Playbook 3 | Peter Kim | Best practical AD attack coverage available in book form |
-| Black Hat Python | Justin Seitz | Build your own offensive tools — pairs directly with OSCP preparation |
-| Hacking: The Art of Exploitation | Jon Erickson | Teaches C, assembly, shellcode, and exploitation together |
-| Advanced Penetration Testing | Wil Allsopp | Nation-state tradecraft, APT simulation, and custom C2 concepts |
-| Attacking and Defending Active Directory | Nikhil Mittal | Focused entirely on AD attack paths, Kerberos, and defense |
-| Windows Internals (Part 1 & 2) | Russinovich et al. | The definitive Windows OS internals reference |
-
-## Certifications
-
-- **OSCP** (Offensive Security Certified Professional) — The industry-standard hands-on pentesting certification
-- **PNPT** (Practical Network Penetration Tester) — TCM Security's practical, report-based certification
-- **CRTO** (Certified Red Team Operator) — Cobalt Strike tradecraft and red team operations
-- **CRTE** (Certified Red Team Expert) — Advanced AD attacks with defense evasion
-- **OSEP** (Offensive Security Experienced Penetration Tester) — Evasion techniques and mature environments
-
-## Channels
-
-- [IppSec](https://www.youtube.com/@ippsec) — HackTheBox machine walkthroughs with deep methodology explanations
-- [The Cyber Mentor](https://www.youtube.com/@TCMSecurityAcademy) — Practical pentesting training and OSCP preparation
-- [SpecterOps](https://www.youtube.com/@SpecterOps) — BloodHound, AD research, and red team operations
-- [Red Team Village](https://www.youtube.com/@RedTeamVillage) — DEF CON red team village talks and workshops
-- [LiveOverflow](https://www.youtube.com/@LiveOverflow) — CTF challenges, exploit development, and RE with deep explanations
-- [John Hammond](https://www.youtube.com/@_JohnHammond) — CTFs, malware analysis, and tool demonstrations
-- [Antisyphon Training](https://www.youtube.com/@AntisyphonTraining) — Pay-what-you-can pentesting and detection courses
-
-## Who to Follow
-
-- [@harmj0y](https://x.com/harmj0y) — Will Schroeder; BloodHound co-creator and GhostPack author
-- [@_wald0](https://x.com/_wald0) — Andy Robbins; BloodHound co-creator and AD research
-- [@gentilkiwi](https://x.com/gentilkiwi) — Benjamin Delpy; Mimikatz author
-- [@danielhbohannon](https://x.com/danielhbohannon) — PowerShell obfuscation and offensive scripting research
-- [@enigma0x3](https://x.com/enigma0x3) — Matt Nelson; UAC bypass and AppLocker research
-- [@tifkin_](https://x.com/tifkin_) — Lee Christensen; GhostPack co-author
-- [@hdmoore](https://x.com/hdmoore) — HD Moore; Metasploit creator
-- [@_RastaMouse](https://x.com/_RastaMouse) — Daniel Duggan; red team training and evasion research
-- [@cobbr_io](https://x.com/cobbr_io) — Ryan Cobb; Covenant C2 and offensive .NET
-- [@BishopFox](https://x.com/BishopFox) — Bishop Fox offensive security research
-- [@OffSecTraining](https://x.com/OffSecTraining) — Offensive Security official
-
-## Key Resources
-
-- [HackTricks](https://book.hacktricks.xyz) — The most comprehensive hacking techniques reference
-- [SpecterOps Blog](https://posts.specterops.io) — Regular deep-dive AD and offensive research posts
-- [HackingThe.Cloud](https://hackingthe.cloud) — Cloud attack techniques and misconfigurations
-- [LOLBAS Project](https://lolbas-project.github.io) — Searchable LOLBAS reference
-- [GTFOBins](https://gtfobins.github.io) — Unix binary abuse reference
-- [TryHackMe](https://tryhackme.com) — Guided labs for learning offensive techniques
-- [HackTheBox](https://www.hackthebox.com) — Practice machines for developing real-world attack skills
+| The Hacker Playbook 3 | Peter Kim | Red team methodology, AD attacks, and bypass techniques in a structured scenario format |
+| Penetration Testing | Georgia Weidman | Foundational pentesting methodology with lab-first approach |
+| The Web Application Hacker's Handbook | Stuttard & Pinto | Comprehensive web exploitation reference covering every vulnerability class |
+| Red Team Development and Operations | Joe Vest | Red team program design, tradecraft, and operational planning |
+| Hacking: The Art of Exploitation | Jon Erickson | Low-level exploitation fundamentals; shellcode, buffer overflows, and memory manipulation |
+| The Art of Intrusion | Kevin Mitnick | Real intrusion case studies with attacker methodology and thought process |
 
 ---
 
-*Part of the [TeamStarWolf](https://github.com/TeamStarWolf) community resource library.*
+## Certifications
+
+- **PNPT** (Practical Network Penetration Tester) — TCM Security's hands-on pentesting certification; report-based assessment; best value for practitioners
+- **OSCP** (Offensive Security Certified Professional) — The industry benchmark; 24-hour hands-on exam; proves you can find and exploit vulnerabilities under pressure
+- **CRTO** (Certified Red Team Operator) — Zero-Point Security; Cobalt Strike red team operations with real-world tradecraft
+- **CRTE** (Certified Red Team Expert) — Active Directory and enterprise red team operations at advanced level
+- **OSEP** (Offensive Security Experienced Penetration Tester) — Advanced bypasses, evasion, and mature target environments
+- **CEH** (Certified Ethical Hacker) — Widely recognized vendor-neutral certification; more theory-focused
+
+---
+
+## Channels
+
+- [IppSec](https://www.youtube.com/@ippsec) — The gold standard for learning offensive techniques through HackTheBox walkthroughs; every video teaches methodology, not just commands
+- [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) — Practical pentesting instruction covering Active Directory, web apps, and real-world engagement methodology
+- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — Active Directory attacks, C2 techniques, and adversary simulation walkthroughs
+- [John Hammond](https://www.youtube.com/@_JohnHammond) — CTF walkthroughs, malware analysis, and offensive technique demonstrations
+- [LiveOverflow](https://www.youtube.com/@LiveOverflow) — Binary exploitation, CTF, and deep technical offensive research
+- [The Cyber Mentor](https://www.youtube.com/@TCMSecurityAcademy) — Practical ethical hacking and penetration testing instruction
+
+---
+
+## Who to Follow
+
+- [@HackingLZ](https://x.com/HackingLZ) — Chris Truncer; red team tooling and tradecraft
+- [@424f424f](https://x.com/424f424f) — Rob Fuller; Active Directory attacks and pentesting
+- [@gentilkiwi](https://x.com/gentilkiwi) — Benjamin Delpy; mimikatz author and Kerberos research
+- [@harmj0y](https://x.com/harmj0y) — Will Schroeder; GhostPack and AD attack research
+- [@_dirkjan](https://x.com/_dirkjan) — Dirk-jan Mollema; Azure/AD attacks, mitm6, ROADtools
+- [@ly4k_](https://x.com/ly4k_) — Certipy author; AD CS attack research
+- [@SpecterOps](https://x.com/SpecterOps) — BloodHound team; AD attack path research
+- [@vysecurity](https://x.com/vysecurity) — Red team tradecraft and OPSEC
+- [@TheHackersNews](https://x.com/TheHackersNews) — Vulnerability and exploit news
+
+---
+
+## Key Resources
+
+- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) — Map red team techniques to ATT&CK, correlate with CVE and EPSS data, and identify detection gaps across the matrix
+- [HackTricks](https://book.hacktricks.xyz) — The community cheat sheet for every attack technique; search by protocol, service, or technique
+- [GTFOBins](https://gtfobins.github.io) — Unix binary abuse reference for privilege escalation and defense bypass
+- [LOLBAS](https://lolbas-project.github.io) — Living Off the Land Binaries and Scripts for Windows abuse techniques
+- [Hack The Box](https://www.hackthebox.com) — The premier platform for offensive security skill development
+- [Exploit-DB](https://www.exploit-db.com) — Archive of public exploits and proof-of-concept code
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) — Attack payload cheat sheets maintained by the community

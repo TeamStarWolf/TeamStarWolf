@@ -19,6 +19,21 @@ A public resource library for the cybersecurity community.
 
 ---
 
+## Disciplines
+
+Focused starting points by area of practice.
+
+| Area | Description |
+|---|---|
+| [Threat Intelligence](disciplines/threat-intelligence.md) | Collecting, analyzing, and acting on threat data |
+| [Detection Engineering](disciplines/detection-engineering.md) | Building and tuning detections across log sources and SIEMs |
+| [Incident Response](disciplines/incident-response.md) | Responding to and recovering from security incidents |
+| [Offensive Security](disciplines/offensive-security.md) | Penetration testing, red teaming, and adversary emulation |
+| [Vulnerability Management](disciplines/vulnerability-management.md) | Identifying, prioritizing, and remediating vulnerabilities |
+| [Cloud Security](disciplines/cloud-security.md) | Securing cloud infrastructure, containers, and identity |
+
+---
+
 ## Tool
 
 ### [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi)

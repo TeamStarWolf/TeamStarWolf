@@ -1,0 +1,21 @@
+# Social media — often block scrapers
+twitter.com
+x.com
+linkedin.com
+instagram.com
+facebook.com
+
+# GitHub blob links (our own repo — always valid)
+github.com/TeamStarWolf
+
+# Common false positives
+localhost
+127.0.0.1
+0.0.0.0
+example.com
+example.org
+
+# Redirect-heavy sites
+bit.ly
+tinyurl.com
+t.co

@@ -4,6 +4,33 @@ Preparing for, detecting, containing, eradicating, and recovering from security 
 
 ---
 
+## Where to Start
+
+Incident response is where preparation meets execution under pressure. The discipline spans four phases — preparation, detection and analysis, containment and eradication, and recovery — and your effectiveness in each depends on the work you did before the incident. Start with the Blue Team Field Manual to understand what evidence exists and how to collect it. Practice collecting Windows artifacts with KAPE in a lab environment. Then learn memory forensics with Volatility — it reveals what is running in memory right now, which disk forensics cannot always tell you. Build your case management workflow with TheHive before an incident forces you to improvise one.
+
+| Stage | Focus | Where to Begin |
+|---|---|---|
+| Foundation | Windows artifacts, event log analysis, IR methodology, evidence handling | BTFM, Antisyphon SOC Core Skills, Blue Team Labs Online |
+| Practitioner | Memory forensics, disk forensics, timeline analysis, network forensics | SANS FOR508, HTB Academy DFIR path, LetsDefend |
+| Advanced | Malware triage, SOAR automation, large-scale IR, threat-informed response | GCFA, GCFE, eCIR, Eric Zimmerman toolset mastery |
+
+---
+
+## Free Training
+
+- [Antisyphon: SOC Core Skills with John Strand](https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/) — Pay-what-you-can ($0+); incident triage, log analysis, and response fundamentals
+- [BHIS Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) — Free IR-focused webcasts covering memory forensics, network analysis, and active response techniques
+- [BHIS YouTube](https://www.youtube.com/@BlackHillsInformationSecurity) — RITA beaconing analysis, network forensics, and IR walkthroughs from the team behind Active Countermeasures
+- [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) — Free YouTube content covering malware analysis and IR concepts
+- [TCM Academy Free Tier](https://academy.tcm-sec.com/courses) — 25+ hours of free on-demand content
+- [Hack The Box Academy](https://academy.hackthebox.com) — Free Student tier; DFIR path with memory forensics, disk analysis, and network forensics modules
+- [Blue Team Labs Online](https://blueteamlabs.online) — Free challenge-based IR and forensics investigations; closest thing to a real investigation in a lab
+- [LetsDefend](https://letsdefend.io) — Simulated SOC IR exercises with guided triage workflows
+- [13Cubed YouTube](https://www.youtube.com/@13Cubed) — Deep-dive Windows forensics and DFIR technique walkthroughs; free and consistently high quality
+- [SANS DFIR Posters](https://www.sans.org/posters) — Free memory forensics, Windows forensics, and SIFT cheat sheets
+
+---
+
 ## Tools & Repositories
 
 ### Live Forensics & Response
@@ -67,46 +94,48 @@ Preparing for, detecting, containing, eradicating, and recovering from security 
 | Applied Incident Response | Steve Anson | Practical IR with Windows artifacts, evidence collection, and TI integration |
 | The Practice of Network Security Monitoring | Richard Bejtlich | NSM methodology and building a network-focused IR capability |
 
+---
+
 ## Certifications
 
-- **GCFE** (GIAC Certified Forensic Examiner) — Windows forensics artifacts and evidence handling
-- **GCFA** (GIAC Certified Forensic Analyst) — Advanced memory forensics and timeline analysis
-- **GCIH** (GIAC Certified Incident Handler) — Detection, containment, and eradication of incidents
-- **eCIR** (eLearnSecurity Certified Incident Responder) — Practical incident response with hands-on labs
-- **BTL1** (Blue Team Labs Level 1) — Beginner-to-intermediate hands-on IR and analysis
-
-## Channels
-
-- [13Cubed](https://www.youtube.com/@13Cubed) — DFIR techniques, Windows forensics, and memory analysis walkthroughs
-- [SANS Digital Forensics and Incident Response](https://www.youtube.com/@SANSForensics) — SANS DFIR course content and conference talks
-- [SANS Cyber Defense](https://www.youtube.com/@SANSCyberDefense) — Blue-team and IR content
-- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — IR webinars and tooling demos
-- [DFIR Diva](https://www.youtube.com/@DFIRDiva) — DFIR walkthroughs and career content
-- [Cyber Defenders](https://www.youtube.com/@cyberdefenders) — Blue-team labs and IR challenge walkthroughs
-
-## Who to Follow
-
-- [@EricRZimmerman](https://x.com/EricRZimmerman) — Eric Zimmerman; author of KapeFiles and suite of DFIR tools
-- [@4n6lady](https://x.com/4n6lady) — Heather Mahalik; mobile forensics and Cellebrite expertise
-- [@inversecos](https://x.com/inversecos) — DFIR and incident response research
-- [@iamevltwin](https://x.com/iamevltwin) — Sarah Edwards; Mac and iOS forensics
-- [@jackcr](https://x.com/jackcr) — Jack Crook; DFIR practitioner
-- [@maridegrazia](https://x.com/maridegrazia) — Mari DeGrazia; DFIR research and tools
-- [@iMHLv2](https://x.com/iMHLv2) — Michael Ligh; co-author of The Art of Memory Forensics
-- [@volatility](https://x.com/volatility) — Volatility Memory Analysis Project
-- [@Volexity](https://x.com/Volexity) — Threat intelligence and memory forensics firm
-- [@eric_capuano](https://x.com/eric_capuano) — Eric Capuano; detection and IR practitioner
-- [@Grifter801](https://x.com/Grifter801) — Threat hunting and DFIR; DEF CON review board
-- [@CitizenLab](https://x.com/CitizenLab) — State-sponsored spyware research and investigations
-
-## Key Resources
-
-- [The DFIR Report](https://thedfirreport.com) — Real intrusion case studies with detailed TTPs and detection opportunities
-- [Eric Zimmerman Tools](https://ericzimmerman.github.io) — Suite of free Windows forensics tools
-- [NIST SP 800-61](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) — Computer security incident handling guide
-- [SANS Posters](https://www.sans.org/posters/) — Windows forensics, memory analysis, and IR cheat sheets
-- [CyberDefenders](https://cyberdefenders.org) — Blue-team labs for DFIR skill building
+- **GCFE** (GIAC Certified Forensic Examiner) — Windows forensics artifacts and evidence handling; for practitioners who need to defend findings
+- **GCFA** (GIAC Certified Forensic Analyst) — Advanced memory forensics and timeline analysis; the gold standard for forensic IR
+- **GCIH** (GIAC Certified Incident Handler) — Detection, containment, and eradication of incidents; broad IR methodology
+- **eCIR** (eLearnSecurity Certified Incident Responder) — Practical hands-on IR certification with lab-based assessment
+- **BTL1** (Blue Team Labs Level 1) — Accessible hands-on certification covering IR, log analysis, and forensics; great first DFIR credential
 
 ---
 
-*Part of the [TeamStarWolf](https://github.com/TeamStarWolf) community resource library.*
+## Channels
+
+- [13Cubed](https://www.youtube.com/@13Cubed) — DFIR techniques, Windows forensics, and memory analysis walkthroughs; consistently the best free DFIR content available
+- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — Network IR, beaconing detection, Active Directory forensics, and incident response exercises
+- [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) — Malware analysis and IR fundamentals with accessible delivery
+- [SANS Institute](https://www.youtube.com/@SansInstitute) — DFIR webinars and technique breakdowns from FOR508 instructors
+- [John Hammond](https://www.youtube.com/@_JohnHammond) — Malware analysis, CTF forensics, and IR technique demonstrations
+
+---
+
+## Who to Follow
+
+- [@EricRZimmerman](https://x.com/EricRZimmerman) — Eric Zimmerman; author of the most-used Windows forensic artifact tools
+- [@inversecos](https://x.com/inversecos) — DFIR research and threat intelligence
+- [@iamnickfury](https://x.com/iamnickfury) — DFIR practitioner and author
+- [@jackcr](https://x.com/jackcr) — Jack Crook; DFIR and threat hunting
+- [@DFIRScience](https://x.com/DFIRScience) — DFIR Science; forensics guides and walkthroughs
+- [@AdrianCrenshaw](https://x.com/AdrianCrenshaw) — Irongeek; security presentations and IR research
+- [@volatility](https://x.com/volatility) — Volatility framework updates
+- [@REMnuxdotorg](https://x.com/REMnuxdotorg) — REMnux Linux distro for malware analysis
+
+---
+
+## Key Resources
+
+- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) — Pivot from an incident's observed techniques to threat group attribution, CVE correlation, and detection coverage gaps across the ATT&CK matrix
+- [Eric Zimmerman Tools](https://ericzimmerman.github.io) — The most comprehensive free Windows forensic artifact toolkit available
+- [REMnux](https://remnux.org) — Free Linux distribution purpose-built for malware analysis and DFIR
+- [SANS DFIR Cheat Sheets](https://www.sans.org/posters) — Free reference posters for memory forensics, Windows artifacts, and SIFT
+- [SIFT Workstation](https://www.sans.org/tools/sift-workstation/) — Free DFIR Linux environment from SANS
+- [Active Countermeasures](https://www.activecountermeasures.com) — RITA beaconing detection tool and free threat hunting resources from the BHIS team
+- [Volatility Foundation](https://www.volatilityfoundation.org) — Home of the Volatility memory forensics framework
+- [TheHive Project](https://thehive-project.org) — Open source IR platform for case management and observable enrichment

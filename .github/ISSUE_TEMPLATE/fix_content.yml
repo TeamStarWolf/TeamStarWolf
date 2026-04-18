@@ -1,0 +1,56 @@
+name: Fix Factual Error
+description: Report a broken link, wrong certification name, incorrect tool URL, or other factual error
+title: "[FIX] "
+labels: ["content: correction", "needs-review"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us keep the content accurate. Please describe the error and provide the correct information.
+
+  - type: input
+    id: file
+    attributes:
+      label: File or page with the error
+      description: Which file or page contains the error?
+      placeholder: disciplines/incident-response.md or https://teamstarwolf.github.io/TeamStarWolf/#/disciplines/incident-response
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: What is wrong?
+      description: Quote the incorrect text or describe the problem
+      placeholder: |
+        The UAC tool is listed with the wrong GitHub URL: mthcht/uac
+        Correct URL is: tclahr/uac
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What is the correct information?
+      description: Provide the correct value and a source link if available
+      placeholder: |
+        Correct: tclahr/uac (https://github.com/tclahr/uac)
+        Source: https://github.com/tclahr/uac (maintainer's repo)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: error_type
+    attributes:
+      label: Type of error
+      options:
+        - Broken link
+        - Wrong GitHub URL
+        - Wrong certification name or issuer
+        - Deprecated / archived tool (not noted)
+        - Duplicate entry
+        - Wrong certification category (listed as cert but it's a course)
+        - Other
+    validations:
+      required: true

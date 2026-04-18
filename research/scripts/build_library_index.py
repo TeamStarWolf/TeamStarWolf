@@ -237,106 +237,238 @@ TACTIC_KEYWORDS: dict[str, list[str]] = {
     "reconnaissance": [
         "recon", "osint", "subdomain", "dns enumeration", "scanner", "spider",
         "subfinder", "amass", "harvester", "shodan", "censys", "fingerprint",
-        "asset discovery", "external attack surface", "asm",
+        "asset discovery", "external attack surface", "asm", "whois",
+        "wayback", "google dork", "github dork", "metadata", "exif",
+        "sherlock", "spiderfoot", "maigret", "social media intelligence",
+        "people search", "public record", "leaked database", "breach data",
+        "spoof", "search engine", "open source intelligence", "infrastructure mapping",
     ],
     "resource-development": [
         "phishing kit", "evilginx", "gophish", "infrastructure", "c2 setup",
-        "domain generation", "typosquat",
+        "domain generation", "typosquat", "lookalike domain", "fake site",
+        "homoglyph", "punycode", "tooling development", "loader development",
+        "weaponize", "weaponization",
     ],
     "initial-access": [
         "phishing", "phish", "exploit kit", "spear", "drive-by", "supply chain",
-        "valid account", "credential stuffing", "exposed service",
+        "valid account", "credential stuffing", "exposed service", "external service",
+        "smishing", "vishing", "social engineering", "vector", "browser exploit",
+        "rogue ap", "rogue access point", "evil twin", "wifi attack",
+        "web exploit", "sql injection", "sqli", "xss", "xxe", "rfi", "lfi",
+        "ssrf", "ssti", "csrf", "command injection", "deserialization",
+        "burp", "zap", "nikto", "wfuzz", "ffuf", "sqlmap", "wpscan",
     ],
     "execution": [
         "command execution", "powershell", "shell", "wmi", "scheduled task",
-        "interpreter", "container exec", "user execution",
+        "interpreter", "container exec", "user execution", "rce",
+        "remote code execution", "binary execution", "bash", "python script",
+        "macro", "ole", "shellcode", "loader", "exec",
     ],
     "persistence": [
         "persistence", "startup", "boot", "registry run", "service install",
-        "scheduled task", "cron", "rootkit", "implant",
+        "scheduled task", "cron", "rootkit", "implant", "backdoor",
+        "wmi event", "logon script", "browser extension", "office addin",
+        "ssh key", "sticky keys", "image file execution",
     ],
     "privilege-escalation": [
         "privilege escalation", "privesc", "uac bypass", "sudo", "setuid",
         "kernel exploit", "winpeas", "linpeas", "peass", "privilege",
+        "token impersonation", "named pipe", "service abuse", "dll hijack",
+        "abuse elevation", "escalation",
     ],
     "defense-evasion": [
         "evasion", "obfuscation", "donut", "shellcode loader", "av bypass",
         "edr bypass", "amsi bypass", "etw", "rootkit", "process injection",
-        "dll injection", "process hollowing", "unhook",
+        "dll injection", "process hollowing", "unhook", "syscall",
+        "indirect syscall", "direct syscall", "anti-debug", "anti-vm",
+        "anti-sandbox", "obfuscator", "packer", "encrypt payload",
+        "polymorphic", "fileless", "living off the land", "lolbin", "lolbas",
+        "binary proxy", "signed binary", "trust hijack",
     ],
     "credential-access": [
         "credential", "kerberos", "kerberoast", "asreproast", "mimikatz",
         "lsass", "ntds", "ntlm", "password crack", "hash", "hashcat", "john the ripper",
         "secrets", "vault dump", "dpapi", "keepass", "bloodhound",
+        "credential dump", "credentials", "passwords", "secret", "api key",
+        "api keys", "token theft", "oauth abuse", "saml", "responder",
+        "ntlm relay", "coercer", "petitpotam", "printerbug", "sam dump",
+        "lsasecrets", "browser password", "wordlist", "rockyou", "seclists",
+        "wifi password", "wpa", "handshake", "rainbow table", "pwdump",
+        "secretsdump", "kerbrute",
     ],
     "discovery": [
         "discovery", "enumeration", "enum4linux", "ldap", "active directory",
         "domain enumeration", "share enumeration", "smb scan",
+        "system info", "network discovery", "port scan", "service enum",
+        "user enumeration", "group enumeration", "account discovery",
+        "process discovery", "registry query", "permission groups",
+        "remote system discovery", "file and directory discovery",
+        "nmap", "masscan", "naabu", "rustscan", "netexec", "crackmapexec",
+        "powerview", "sharpview", "adfind", "purpleknight", "pingcastle",
     ],
     "lateral-movement": [
         "lateral movement", "psexec", "wmiexec", "smbexec", "winrm", "ssh hop",
         "pivot", "rdp", "pass the hash", "pass the ticket", "overpass",
+        "evil-winrm", "remote service", "remote desktop", "internal phishing",
+        "session hijack", "rdp hijack", "vnc", "teamviewer", "tunneling",
+        "chisel", "ligolo", "proxychains", "socks proxy",
     ],
     "collection": [
         "collection", "screen capture", "keylogger", "audio capture",
-        "clipboard", "browser data", "email harvest",
+        "clipboard", "browser data", "email harvest", "data staging",
+        "input capture", "video capture", "archive collected", "compress data",
+        "data from local", "data from network share",
     ],
     "command-and-control": [
         "c2", "command and control", "beacon", "implant", "rat", "covenant",
         "metasploit", "sliver", "havoc", "mythic", "empire", "cobalt strike",
-        "merlin", "nimplant", "caldera",
+        "merlin", "nimplant", "caldera", "remote access trojan",
+        "tunneling", "dns tunneling", "encrypted channel", "web protocol",
+        "web shell", "fallback channel", "domain fronting", "proxy chain",
+        "starkiller", "silentrinity", "koadic", "ibombshell",
     ],
     "exfiltration": [
         "exfiltration", "exfil", "data staging", "dns tunneling", "icmp tunnel",
-        "stego", "steganography",
+        "stego", "steganography", "data transfer", "data over c2",
+        "scheduled transfer", "exfil over web", "cloud storage exfil",
     ],
     "impact": [
         "ransomware", "wiper", "destructive", "ddos", "defacement", "encryption attack",
-        "denial of service", "disk wipe",
+        "denial of service", "disk wipe", "data destruction", "data manipulation",
+        "service stop", "system shutdown", "resource hijack", "cryptojacking",
+        "miner", "cryptominer", "account access removal", "encrypted disk",
     ],
 }
 
 # Map bulk asset categories to tactic sets. Matches whole category strings (case-insensitive substring).
 CATEGORY_TACTIC_MAP: dict[str, list[str]] = {
-    # tools
+    # offensive tooling
     "active directory": ["credential-access", "discovery", "lateral-movement", "privilege-escalation"],
+    "red team": ["execution", "persistence", "credential-access", "lateral-movement", "command-and-control"],
+    "offensive security": ["initial-access", "execution", "credential-access", "lateral-movement"],
     "post-exploitation": ["execution", "persistence", "command-and-control"],
     "command and control": ["command-and-control"],
     "command-and-control": ["command-and-control"],
+    "exploitation": ["initial-access", "execution"],
+    "exploit": ["initial-access", "execution"],
+    "privilege escalation": ["privilege-escalation"],
+    "lateral movement": ["lateral-movement"],
+    "pentest": ["initial-access", "discovery", "credential-access", "lateral-movement"],
+    "penetration test": ["initial-access", "discovery", "credential-access", "lateral-movement"],
+    "exploit dev": ["execution", "defense-evasion"],
+    "wordlist": ["credential-access"],
+    "password": ["credential-access"],
+    "credential": ["credential-access"],
+    "secret": ["credential-access"],
+    "secrets management": ["credential-access"],
+
+    # malware / re
     "malware analysis": ["defense-evasion", "execution"],
     "reverse engineering": ["defense-evasion"],
+    "binary analysis": ["defense-evasion"],
+    "fuzzing": ["initial-access", "execution"],
+    "exploit research": ["execution"],
+
+    # defensive
     "dfir": ["collection", "discovery"],
     "incident response": ["collection", "discovery"],
     "forensics": ["collection"],
-    "detection engineering": ["defense-evasion", "command-and-control", "execution"],
-    "threat intelligence": ["reconnaissance", "command-and-control"],
-    "osint": ["reconnaissance"],
-    "external reconnaissance": ["reconnaissance"],
-    "bug bounty": ["reconnaissance", "initial-access", "discovery"],
-    "web application": ["initial-access", "discovery"],
-    "cloud security": ["discovery", "credential-access", "privilege-escalation"],
-    "container security": ["execution", "privilege-escalation"],
-    "kubernetes": ["execution", "privilege-escalation", "discovery"],
-    "vulnerability management": ["initial-access", "privilege-escalation"],
-    "attack surface": ["reconnaissance"],
+    "memory forensics": ["collection", "defense-evasion"],
+    "detection engineering": ["defense-evasion", "command-and-control", "execution", "credential-access"],
+    "blue team": ["defense-evasion", "discovery", "command-and-control"],
     "edr": ["defense-evasion", "execution"],
-    "endpoint security": ["defense-evasion", "execution"],
+    "endpoint": ["defense-evasion", "execution"],
     "siem": ["collection", "discovery"],
     "soar": ["collection"],
+    "purple team": ["execution", "defense-evasion"],
+    "threat hunting": ["command-and-control", "discovery"],
     "honeypot": ["initial-access", "discovery"],
     "deception": ["initial-access"],
+    "honeypots & deception": ["initial-access", "discovery"],
+
+    # intel
+    "threat intelligence": ["reconnaissance", "command-and-control"],
+    "cti": ["reconnaissance", "command-and-control"],
+    "intelligence": ["reconnaissance"],
+
+    # recon
+    "osint": ["reconnaissance"],
+    "external reconnaissance": ["reconnaissance"],
+    "recon": ["reconnaissance"],
+    "attack surface": ["reconnaissance"],
+
+    # web / appsec / bug bounty
+    "bug bounty": ["reconnaissance", "initial-access", "discovery"],
+    "web application": ["initial-access", "discovery"],
+    "web security": ["initial-access"],
+    "appsec": ["initial-access"],
+    "application security": ["initial-access"],
+    "sast": ["initial-access"],
+    "dast": ["initial-access"],
+    "sca": ["initial-access"],
+    "supply chain": ["initial-access"],
+    "secret scan": ["credential-access"],
+    "vulnerability scan": ["initial-access"],
+
+    # cloud / containers
+    "cloud security": ["discovery", "credential-access", "privilege-escalation"],
+    "cloud, container": ["discovery", "credential-access", "privilege-escalation"],
+    "container security": ["execution", "privilege-escalation"],
+    "kubernetes": ["execution", "privilege-escalation", "discovery"],
+    "aws": ["discovery", "credential-access"],
+    "azure": ["discovery", "credential-access"],
+    "gcp": ["discovery", "credential-access"],
+    "identity": ["credential-access", "privilege-escalation"],
+    "zero trust": ["credential-access", "discovery"],
+    "iam": ["credential-access", "privilege-escalation"],
+    "privileged access": ["credential-access", "privilege-escalation"],
+
+    # vuln mgmt / asm
+    "vulnerability management": ["initial-access", "privilege-escalation"],
+    "asm": ["reconnaissance"],
+
+    # email / phish
     "email security": ["initial-access"],
     "phishing": ["initial-access"],
+    "anti-phishing": ["initial-access"],
+    "anti-spam": ["initial-access"],
+
+    # network / wifi / ot
+    "network security": ["discovery", "lateral-movement", "command-and-control"],
     "wireless": ["credential-access", "initial-access"],
+    "rf": ["credential-access", "initial-access"],
     "mobile": ["initial-access", "discovery"],
     "ics": ["initial-access", "impact"],
     "ot": ["initial-access", "impact"],
-    "appsec": ["initial-access"],
-    "sast": ["initial-access"],
-    "dast": ["initial-access"],
-    "cti": ["reconnaissance", "command-and-control"],
+    "industrial control": ["initial-access", "impact"],
+    "iot": ["initial-access", "discovery"],
+    "hardware": ["initial-access", "credential-access"],
+
+    # frameworks / research / misc
     "mitre att&ck": ["reconnaissance", "execution", "credential-access"],
     "mitre attack": ["reconnaissance", "execution", "credential-access"],
+    "frameworks & standards": ["reconnaissance"],   # very broad — at least gives recon as default
+
+    # cryptography / passwords
+    "cryptography": ["credential-access"],
+    "password crack": ["credential-access"],
+
+    # ai / llm
+    "ai / llm": ["initial-access"],
+    "ai security": ["initial-access"],
+    "llm security": ["initial-access"],
+    "prompt injection": ["initial-access"],
+
+    # gov / compliance
+    "compliance": ["discovery"],
+    "grc": ["discovery"],
+    "oscal": ["discovery"],
+    "vendor": ["reconnaissance"],
+
+    # daily / generic toolkit categories
+    "all-in-one hacker": ["reconnaissance", "initial-access", "credential-access", "lateral-movement", "command-and-control"],
+    "daily operational": ["reconnaissance", "initial-access", "discovery"],
+    "daily driver": ["reconnaissance", "initial-access", "discovery"],
 }
 
 

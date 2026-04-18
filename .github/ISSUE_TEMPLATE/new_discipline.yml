@@ -1,0 +1,67 @@
+name: Nominate New Discipline Page
+description: Suggest a new cybersecurity discipline page to add to the library
+title: "[DISCIPLINE] "
+labels: ["content: new discipline", "needs-review"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New discipline pages are created when a topic has enough depth to support a full learning path (free training, tools, certifications, who to follow, commercial platforms). Please make the case below.
+
+  - type: input
+    id: discipline_name
+    attributes:
+      label: Discipline name
+      description: What would this page be called?
+      placeholder: e.g. "Supply Chain Security" or "Cryptography & PKI"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: What does this discipline cover?
+      description: Describe the scope — what problems does a practitioner in this area solve?
+      placeholder: |
+        Supply Chain Security covers securing the software and hardware supply chain: 
+        SBOMs, dependency scanning, build pipeline integrity, vendor risk for software components...
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_separate
+    attributes:
+      label: Why does it need its own page?
+      description: Why isn't it covered by an existing discipline page?
+      placeholder: |
+        Supply chain security spans AppSec, Cloud, and GRC but has its own tooling (Syft, Grype, 
+        in-toto), certifications (none dedicated, but several relevant), and community...
+    validations:
+      required: true
+
+  - type: textarea
+    id: starter_content
+    attributes:
+      label: Starter content (optional but helpful)
+      description: If you know key tools, certs, or training resources to include, list them here
+      placeholder: |
+        Tools: Syft, Grype, in-toto, SLSA framework
+        Certs: None dedicated — CSSLP covers some aspects
+        Training: CISA SBOM resources, OpenSSF Scorecard docs
+        Commercial: Snyk, JFrog Xray, Anchore, Chainguard
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: depth_check
+    attributes:
+      label: Depth check
+      description: Confirm the discipline has sufficient depth for a full page
+      options:
+        - label: There are at least 5 notable open-source tools or repositories specific to this discipline
+          required: false
+        - label: There is at least one certification relevant to this discipline
+          required: false
+        - label: There are practitioners actively publishing content in this area
+          required: false

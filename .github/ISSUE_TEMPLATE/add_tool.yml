@@ -1,0 +1,98 @@
+name: Add Tool, Resource, or Vendor
+description: Suggest a tool, repository, book, channel, certification, or vendor to add to a discipline page
+title: "[ADD] "
+labels: ["content: addition", "needs-review"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Please fill out the form below so we can add your suggestion accurately.
+
+  - type: dropdown
+    id: discipline
+    attributes:
+      label: Which discipline page?
+      description: Select the most relevant discipline
+      options:
+        - Threat Intelligence
+        - Detection Engineering
+        - Incident Response
+        - Offensive Security
+        - Vulnerability Management
+        - Cloud Security
+        - Network Security
+        - Malware Analysis
+        - ICS / OT Security
+        - Application Security
+        - AI & LLM Security
+        - Governance, Risk & Compliance
+        - Digital Forensics
+        - Security Architecture
+        - Other / New page needed
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which section?
+      options:
+        - Tools & Repositories
+        - Commercial & Enterprise Platforms
+        - Free Training
+        - Books & Learning
+        - Certifications
+        - YouTube Channels
+        - Who to Follow
+        - Key Resources
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Exact name of the tool, platform, certification, book, channel, or person
+      placeholder: e.g. "Hayabusa" or "GCFE — GIAC Certified Forensic Examiner"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL / Link
+      description: GitHub repo, official site, or documentation link
+      placeholder: https://github.com/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: One-line description
+      description: What does this tool/resource do? Be specific and factual (not marketing copy)
+      placeholder: Fast Windows event log threat hunting and timeline generation using Sigma rules
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should this be included?
+      description: Is it widely used? Does it fill a gap in the current list? Is it maintained and actively developed?
+      placeholder: Hayabusa is the primary open-source tool for Windows event log triage in DFIR investigations...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: The link works and points to the correct resource
+          required: true
+        - label: This is not already listed on the discipline page
+          required: true
+        - label: This is not promotional content
+          required: true

@@ -37,6 +37,9 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [ICS/OT Security](disciplines/ics-ot-security.md) | Securing industrial control systems, SCADA, and critical infrastructure |
 | [Application Security](disciplines/application-security.md) | Web app and API security, secure SDLC, threat modeling, and bug bounty |
 | [AI & LLM Security](disciplines/ai-llm-security.md) | Securing AI systems, red-teaming LLMs, and adversarial machine learning |
+| [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) | Risk frameworks, compliance programs, NIST CSF/800-53, ISO 27001, GRC tooling |
+| [Digital Forensics](disciplines/digital-forensics.md) | Disk, memory, and network forensics; evidence handling; DFIR methodology |
+| [Security Architecture](disciplines/security-architecture.md) | Zero Trust design, threat modeling, defense-in-depth, architectural frameworks |
 
 ---
 
@@ -57,6 +60,21 @@ High-quality training does not require a large budget. These platforms offer fre
 | [LetsDefend](https://letsdefend.io) | Free SOC simulator for alert triage and threat analysis |
 | [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training open to the public including ICS/OT, cloud, and IR content |
 | [Anthropic Courses](https://github.com/anthropics/courses) | Free AI and LLM security courses from Anthropic |
+
+---
+
+## Coverage & Data
+
+Machine-readable data files and an ATT&CK Navigator layer connecting the TeamStarWolf vendor stack to NIST 800-53 controls and ATT&CK techniques.
+
+| Resource | Description |
+|---|---|
+| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 → ATT&CK coverage heatmap (313 techniques, CTID-sourced). [Load in Navigator ↗](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [Vendor → Control edges](data/vendor_to_control.jsonl) | JSONL edge table: 100+ vendor → NIST 800-53 control mappings |
+| [Control → Technique edges](data/control_to_technique.jsonl) | JSONL edge table: NIST 800-53 R5 → ATT&CK technique mappings (CTID) |
+| [Vendor → Technique edges](data/vendor_to_technique.jsonl) | JSONL derived edge table: vendor → ATT&CK technique coverage via control join |
+| [Controls Mapping](CONTROLS_MAPPING.md) | Full Vendor → NIST 800-53 → ATT&CK cross-reference |
+| [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, Python scoring functions |
 
 ---
 

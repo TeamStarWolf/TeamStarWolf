@@ -273,6 +273,44 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 ---
 
+## Application Security (SAST, DAST & Secure Development)
+
+> Covers secure coding, shift-left security, AppSec program building, and tooling for finding vulnerabilities in source code and running apps. Distinct from web pentesting — this section is developer and AppSec engineer oriented.
+
+| Book | Author | Difficulty | Why Read It |
+|------|--------|-----------|-------------|
+| **Building Secure Software** | Viega & McGraw | Intermediate | Still the foundational text on writing secure code — threat models, design principles, common flaws |
+| **The Art of Software Security Assessment** | Dowd, McDonald & Schuh | Advanced | Deep source code review methodology — finding vulns by reading code, not running exploits |
+| **Writing Secure Code (2nd ed.)** | Howard & LeBlanc | Intermediate | Microsoft SDL origins — threat modelling, input validation, buffer overflows from a dev perspective |
+| **The DevSecOps Handbook** | Kim et al. | Intermediate | How to integrate security into CI/CD pipelines without slowing delivery |
+| **Alice and Bob Learn Application Security** | Tanya Janca | Beginner | Approachable intro to AppSec concepts for developers — OWASP Top 10, secure design, threat modelling |
+| **Threat Modeling: Designing for Security** | Adam Shostack | Intermediate | The definitive threat modelling book — STRIDE, data flow diagrams, systematic risk identification |
+| **Iron-Clad Java** | Manico & Detlefsen | Intermediate | Java-specific secure coding — injection, auth, session management, crypto, covering OWASP controls |
+| **Agile Application Security** | Bell et al. | Intermediate | Security in agile teams — security champions, lightweight threat modelling, DevSecOps culture |
+
+> **Practical note:** [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) is the most actionable free AppSec reference. Pair it with the [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) as your verification framework.
+
+**Hands-on repos:**
+- [semgrep](https://github.com/semgrep/semgrep) - Fast SAST engine with 2000+ rules across 30+ languages
+- [codeql](https://github.com/github/codeql) - GitHub's semantic code analysis engine (variant analysis)
+- [bandit](https://github.com/PyCQA/bandit) - Python SAST — finds common security issues in Python code
+- [gosec](https://github.com/securego/gosec) - Go security checker — rules for common Go vulnerability patterns
+- [brakeman](https://github.com/presidentbeef/brakeman) - Static analysis for Ruby on Rails applications
+- [trufflehog](https://github.com/trufflesecurity/trufflehog) - Secret scanning in git history and CI pipelines
+- [gitleaks](https://github.com/gitleaks/gitleaks) - Detect and prevent secrets in git repos
+- [detect-secrets](https://github.com/Yelp/detect-secrets) - Lightweight secret detection to use as a git hook
+- [OWASP Cheat Sheet Series](https://github.com/OWASP/CheatSheetSeries) - Developer-facing secure coding cheat sheets
+- [OWASP ASVS](https://github.com/OWASP/ASVS) - Application Security Verification Standard
+- [OWASP SAMM](https://github.com/owaspsamm/core) - Software Assurance Maturity Model — AppSec program maturity framework
+- [WebGoat](https://github.com/WebGoat/WebGoat) - Deliberately insecure Java web app for hands-on AppSec training
+- [NodeGoat](https://github.com/OWASP/NodeGoat) - Intentionally vulnerable Node.js app for OWASP Top 10 practice
+- [DVWA](https://github.com/digininja/DVWA) - Damn Vulnerable Web App — classic training target
+- [juice-shop](https://github.com/juice-shop/juice-shop) - OWASP Juice Shop — the modern intentionally vulnerable web app
+- [cdxgen](https://github.com/CycloneDX/cdxgen) - Generate CycloneDX SBOM from source code and containers
+- [syft](https://github.com/anchore/syft) - CLI and Go library for generating SBOMs from containers and filesystems
+- [grype](https://github.com/anchore/grype) - Vulnerability scanner for container images and filesystems
+
+
 ## Active Directory & Windows Security
 
 > One of the most critical domains for red and blue teams. AD is present in ~90% of enterprise environments.

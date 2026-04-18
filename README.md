@@ -72,16 +72,3 @@ Public reference material for practitioners and learners.
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across 16 security disciplines |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | ~205 vetted accounts that regularly share original research, tooling, or operational insight |
-
----
-
-## Research
-
-Extended reference material in [research/](research/):
-
-| File | Description |
-|---|---|
-| [CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md) | Descriptions and counts for the 30 curated GitHub Stars Lists on this profile |
-| [BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) | Crosswalk between the Stars Lists and the Black Hat Arsenal tool catalog |
-| [FIELD_NOTES.md](research/FIELD_NOTES.md) | Working notes, observations, and candidate repos under evaluation |
-| [create_starred_lists.py](research/create_starred_lists.py) | Python script for managing GitHub Stars Lists via the API |

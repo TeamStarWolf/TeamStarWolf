@@ -4,6 +4,34 @@ Building, testing, and maintaining detection logic across log sources, SIEMs, an
 
 ---
 
+## Where to Start
+
+Detection engineering is where threat intelligence becomes operational. The goal is not to collect logs — it is to build reliable, tuned, ATT&CK-mapped analytics that alert when adversary behavior is present and stay quiet when it is not. Start by learning Windows event logs and Sysmon: they are the primary telemetry source for most enterprise detections. Then learn Sigma — the vendor-agnostic rule format that lets you write a detection once and deploy it anywhere. Practice writing detections against known attack techniques using Atomic Red Team to generate the behavior, then validate your rules catch it.
+
+| Stage | Focus | Where to Begin |
+|---|---|---|
+| Foundation | Windows event logs, Sysmon setup, log analysis basics | DeepBlueCLI, Antisyphon SOC Core Skills, TryHackMe Blue Team path |
+| Practitioner | Sigma rules, SIEM queries, ATT&CK data sources, adversary emulation | HTB Academy SOC path, BHIS webcasts, LetsDefend |
+| Advanced | Detection-as-code, analytics pipelines, purple teaming, metrics | SANS SEC555, GCED, detection maturity frameworks |
+
+---
+
+## Free Training
+
+- [Antisyphon: SOC Core Skills with John Strand](https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/) — Pay-what-you-can ($0+); covers detection strategy, log analysis, and building a detection program
+- [BHIS Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) — Free webcasts covering detection engineering, log analysis, Active Directory detection, and adversary behavior
+- [BHIS YouTube](https://www.youtube.com/@BlackHillsInformationSecurity) — Extensive free content on Windows event logging, network detection, and SOC operations; search their channel for specific techniques
+- [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) — SOC 101 course and free YouTube content covering detection from an analyst perspective
+- [TCM Academy Free Tier](https://academy.tcm-sec.com/courses) — 25+ hours of free on-demand content
+- [Hack The Box Academy](https://academy.hackthebox.com) — Free Student tier; SOC Analyst path with hands-on SIEM and detection labs
+- [Blue Team Labs Online](https://blueteamlabs.online) — Free tier; practical detection and analysis challenges
+- [LetsDefend](https://letsdefend.io) — SOC simulation platform with detection alert triage and analysis exercises
+- [IppSec](https://www.youtube.com/@ippsec) — HackTheBox walkthroughs that show exactly how attacks behave; essential context for writing detections
+- [IppSec Search](https://ippsec.rocks) — Search across all IppSec walkthrough transcripts by tool or technique name
+- [SANS Cheat Sheets](https://www.sans.org/posters) — Free Windows forensics, log analysis, and SIEM cheat sheets
+
+---
+
 ## Tools & Repositories
 
 ### Sigma
@@ -21,6 +49,7 @@ Building, testing, and maintaining detection logic across log sources, SIEMs, an
 - [python-evtx](https://github.com/williballenthin/python-evtx) — Pure Python parser for Windows EVTX log files
 - [evtx](https://github.com/omerbenamram/evtx) — Fast EVTX parser in Rust
 - [MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon) — Microsoft Threat Intelligence Center Sysmon resources
+- [EventLogging](https://github.com/blackhillsinfosec/EventLogging) — Black Hills Windows event logging guidance
 
 ### Detection Content
 - [detection-rules](https://github.com/elastic/detection-rules) — Elastic SIEM detection rules and ATT&CK-mapped analytics
@@ -55,7 +84,6 @@ Building, testing, and maintaining detection logic across log sources, SIEMs, an
 - [hayabusa](https://github.com/Yamato-Security/hayabusa) — Sigma-based Windows event log threat hunting and timeline tool
 - [DeepBlueCLI](https://github.com/sans-blue-team/DeepBlueCLI) — PowerShell event log analysis for threat hunting
 - [LogonTracer](https://github.com/JPCERTCC/LogonTracer) — Visualize malicious Windows logon activity
-- [EventLogging](https://github.com/blackhillsinfosec/EventLogging) — Black Hills Windows event logging guidance
 
 ### Adversary Emulation & Testing
 - [atomic-red-team](https://github.com/redcanaryco/atomic-red-team) — Atomic tests mapped to ATT&CK for validating detections
@@ -77,47 +105,46 @@ Building, testing, and maintaining detection logic across log sources, SIEMs, an
 | Applied Network Security Monitoring | Sanders & Smith | Practical NSM with Zeek, Snort, and Security Onion — lab-first |
 | Security Operations Center | Joseph Muniz | SOC design, detection workflows, staffing, and tool selection |
 
+---
+
 ## Certifications
 
-- **GCED** (GIAC Certified Enterprise Defender) — Covers defensive network infrastructure and detection
-- **GCIH** (GIAC Certified Incident Handler) — Detection, response, and containment of incidents
-- **BTL1** (Blue Team Labs Level 1) — Hands-on detection and analysis cert from Security Blue Team
-- **CySA+** (CompTIA Cybersecurity Analyst) — SIEM, threat detection, and security analytics
-
-## Channels
-
-- [13Cubed](https://www.youtube.com/@13Cubed) — DFIR techniques, Windows forensics, and event log analysis
-- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — Detection engineering, webcasts, and Wild West Hackin' Fest talks
-- [Elastic](https://www.youtube.com/@elastic) — Detection rule engineering and SIEM content
-- [Splunk](https://www.youtube.com/@splunkofficial) — Boss of the SOC, ESCU, and detection use cases
-- [Red Canary](https://www.youtube.com/@RedCanary) — Detection engineering and Atomic Red Team content
-- [The Weekly Purple Team](https://www.youtube.com/@WeeklyPurpleTeam) — Purple-team operations, detection coverage, and methodology
-- [SANS Digital Forensics and Incident Response](https://www.youtube.com/@SANSForensics) — SANS DFIR and detection content
-- [Microsoft Security Community](https://www.youtube.com/@MicrosoftSecurityCommunity) — Sentinel, Defender, and KQL-based detection
-
-## Who to Follow
-
-- [@SBousseaden](https://x.com/SBousseaden) — Detection engineering, Sigma rules, and endpoint research
-- [@mattifestation](https://x.com/mattifestation) — Matt Graeber; PowerShell, detection bypass research, and AMSI
-- [@cyb3rward0g](https://x.com/cyb3rward0g) — Roberto Rodriguez; HELK, OSSEM, and ATT&CK data modeling
-- [@cyb3rops](https://x.com/cyb3rops) — Florian Roth; Sigma, YARA, and signature-based detection
-- [@JohnLaTwC](https://x.com/JohnLaTwC) — John Lambert, Microsoft; threat hunting and detection strategy
-- [@SigmaHQ](https://x.com/SigmaHQ) — Sigma project official account
-- [@ElasticSecurity](https://x.com/ElasticSecurity) — Elastic Security detections and research
-- [@splunk](https://x.com/splunk) — Splunk platform and ESCU updates
-- [@HuntressLabs](https://x.com/HuntressLabs) — Huntress; SMB-focused detection and threat hunting
-- [@Velocidex](https://x.com/Velocidex) — Velociraptor project
-- [@swannysec](https://x.com/swannysec) — Detection engineering practice and community
-
-## Key Resources
-
-- [Sigma Rules Repository](https://github.com/SigmaHQ/sigma) — The primary community detection rule library
-- [The DFIR Report](https://thedfirreport.com) — Real intrusion case studies with full ATT&CK mapping
-- [OTRF Security-Datasets](https://github.com/OTRF/Security-Datasets) — Labeled telemetry datasets for detection testing
-- [Elastic Detection Blog](https://www.elastic.co/security-labs) — Detection engineering research and rule walkthroughs
-- [Splunk ESCU](https://research.splunk.com) — Splunk's published detection content with analytics stories
-- [ATT&CK Data Sources](https://attack.mitre.org/datasources/) — MITRE mapping of telemetry to detectable behaviors
+- **GCED** (GIAC Certified Enterprise Defender) — Covers network security, endpoint visibility, and detection engineering fundamentals
+- **GCIH** (GIAC Certified Incident Handler) — Detection, triage, and containment of security incidents
+- **BTL1** (Blue Team Labs Level 1) — Practical hands-on certification covering detection, log analysis, and incident triage
+- **CompTIA CySA+** — Entry-level detection and analysis certification; good vendor-neutral foundation
+- **Antisyphon SOC Core Skills** — Pay-what-you-can with credential upon completion
 
 ---
 
-*Part of the [TeamStarWolf](https://github.com/TeamStarWolf) community resource library.*
+## Channels
+
+- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — Detection engineering, Windows event logging, and adversary behavior content; BHIS is behind the widely-used EventLogging repo
+- [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) — SOC analyst training and detection-focused content
+- [13Cubed](https://www.youtube.com/@13Cubed) — Windows forensics, log analysis, and artifact deep dives
+- [SANS Internet Storm Center](https://www.youtube.com/@SansInstitute) — Threat analysis and detection guidance
+- [John Hammond](https://www.youtube.com/@_JohnHammond) — CTF walkthroughs, malware analysis, and detection technique demonstrations
+
+---
+
+## Who to Follow
+
+- [@cyb3rops](https://x.com/cyb3rops) — Florian Roth; Sigma co-creator, YARA expert, detection engineering authority
+- [@olafhartong](https://x.com/olafhartong) — Sysmon-modular author; Windows telemetry and detection engineering
+- [@neu5ron](https://x.com/neu5ron) — Detection engineering research
+- [@SBousseaden](https://x.com/SBousseaden) — Elastic detection research; Windows internals for detection
+- [@SwiftOnSecurity](https://x.com/SwiftOnSecurity) — Author of the most-used Sysmon config baseline
+- [@SecurityOnion](https://x.com/SecurityOnion) — Open source NSM platform
+- [@DougBurks](https://x.com/DougBurks) — Security Onion creator
+- [@Cyb3rWard0g](https://x.com/Cyb3rWard0g) — HELK and ThreatHunter-Playbook creator
+
+---
+
+## Key Resources
+
+- [MITRE ATT&CK Data Sources](https://attack.mitre.org/datasources/) — Maps telemetry sources to the techniques they can detect
+- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) — Visualize Sigma rule coverage, Atomic Red Team tests, Elastic/Splunk detections, and CAR analytics across the ATT&CK matrix
+- [SigmaHQ Rules](https://github.com/SigmaHQ/sigma/tree/master/rules) — The community Sigma rule repository; a detection engineering curriculum in itself
+- [Atomic Red Team](https://atomicredteam.io) — Free adversary emulation tests for every ATT&CK technique
+- [Security Onion](https://securityonionsolutions.com) — Free NSM and detection platform; the fastest way to build a detection lab
+- [SANS Blue Team Posters](https://www.sans.org/posters) — Free cheat sheets for Windows event IDs, log analysis, and memory forensics

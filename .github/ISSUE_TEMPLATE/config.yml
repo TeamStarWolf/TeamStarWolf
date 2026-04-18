@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussion / Question
+    url: https://github.com/TeamStarWolf/TeamStarWolf/discussions
+    about: Ask a question or start a discussion about the content
+  - name: 🐺 TeamStarWolf Site
+    url: https://teamstarwolf.github.io/TeamStarWolf/
+    about: Browse the live resource site

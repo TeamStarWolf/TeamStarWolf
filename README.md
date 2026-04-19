@@ -48,6 +48,7 @@ A public resource library for the cybersecurity community.
 | [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
 | [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
+| [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
 
 ---
 

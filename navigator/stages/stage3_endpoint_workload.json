@@ -1,0 +1,228 @@
+{
+  "name": "Stage 3 — Endpoint & Workload Protection",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage from Stage 3: Endpoint & Workload Protection (EDR, AV, HIPS, application control). Controls from SI-3, SI-7, CM-7, CM-8, SC-3, SC-39.",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Containers"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "SI-3: Malicious Code Protection; behavioral detection of scripting"
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "PowerShell AMSI integration; script block logging"
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "Windows Command Shell; EDR command line monitoring"
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "JavaScript/VBScript; browser-based EDR monitoring"
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "SC-3/SC-39: Process Isolation; EDR memory scanning"
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "SC-3/SC-39: Process Isolation prevents injection priv-esc"
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "CM-7: Least Functionality; autostart monitoring"
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "Registry Run Keys; EDR registry monitoring"
+    },
+    {
+      "techniqueID": "T1543",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "CM-7: Service creation monitoring"
+    },
+    {
+      "techniqueID": "T1543",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Service creation with elevated permissions detected"
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "Scheduled Task monitoring; CM-7 application control"
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "Scheduled task execution; behavioral monitoring"
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 3,
+      "comment": "SI-3: Anti-ransomware; behavioral blocking of mass encryption"
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 3,
+      "comment": "Shadow copy deletion blocked; backup integrity monitoring"
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "Service stop detection; SI-3 behavioral rules"
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "EDR self-protection; tamper protection; AU integrity"
+    },
+    {
+      "techniqueID": "T1562.001",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "Disable/modify security tools — tamper protection"
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "Credential Guard; LSASS protection; memory scanning"
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "LSASS memory dumping blocked by EDR + Credential Guard"
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "SI-3: Malicious attachment scanning; macro blocking"
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "User execution of malicious files; EDR behavioral rules"
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Malicious file execution; application control"
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Exploit mitigation (DEP, ASLR, CFG); vulnerability patching"
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Token manipulation detection; EDR behavioral monitoring"
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "CM-7/SI-7: Masquerading detection; binary integrity checking"
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#fff7ed",
+      "#f97316"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "Score 1: Detection only",
+      "color": "#fed7aa"
+    },
+    {
+      "label": "Score 2: Detect + alert",
+      "color": "#fb923c"
+    },
+    {
+      "label": "Score 3: Prevent + detect + respond",
+      "color": "#f97316"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "stage",
+      "value": "Stage 3 — Endpoint & Workload Protection"
+    },
+    {
+      "name": "nist_families",
+      "value": "SI-3, SI-7, CM-7, CM-8, SC-3, SC-39"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+    }
+  ],
+  "links": [
+    {
+      "label": "Pipeline Stage 3",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/SECURITY_PIPELINE"
+    },
+    {
+      "label": "Malware Analysis Discipline",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/disciplines/malware-analysis"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

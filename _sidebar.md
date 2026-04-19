@@ -68,7 +68,6 @@
   - [IR Playbooks](IR_PLAYBOOKS.md)
   - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)
   - [HTB Learning Tracks](research/HTB_TRACKS.md)
-  - [Rawsec Tool Inventory](research/RAWSEC_INVENTORY.md)
   - [Glossary](GLOSSARY.md)
   - [Threat Actors](THREAT_ACTORS.md)
   - [Starred Repositories](STARRED_REPOS.md)

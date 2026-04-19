@@ -49,6 +49,7 @@ A public resource library for the cybersecurity community.
 | [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
+| [HTB Machine Index](research/HTB_MACHINE_INDEX.md) | 127 retired HackTheBox machines indexed by difficulty, OS, and skills learned |
 
 ---
 
@@ -96,6 +97,8 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [IoT Security](disciplines/iot-security.md) | IoT attack surface, firmware analysis, MQTT/CoAP testing, device identity, OWASP IoT Top 10 |
 | [Container & Kubernetes Security](disciplines/container-kubernetes-security.md) | Container runtime security, K8s RBAC, image scanning, Falco, OPA Gatekeeper, CKS prep |
 | [Cyber Risk Quantification](disciplines/cyber-risk-quantification.md) | FAIR methodology, Monte Carlo simulation, ALE/ROSI calculation, board-level risk communication |
+| [Blockchain & Web3 Security](disciplines/blockchain-web3-security.md) | Smart contract auditing, DeFi exploits, reentrancy, Slither/Echidna/Mythril, Ethernaut CTF |
+| [Security Awareness](disciplines/security-awareness.md) | Phishing simulation, behavior change programs, KnowBe4/GoPhish, human risk metrics |
 ---
 
 

@@ -34,7 +34,9 @@
   - [Enterprise Security Pipeline](SECURITY_PIPELINE.md)
   - [Controls Mapping](CONTROLS_MAPPING.md)
   - [Coverage Schema](COVERAGE_SCHEMA.md)
+  - [Coverage Gap Analysis](scores/coverage_gaps.md)
   - [ATT&CK Navigator Layer](navigator/)
+  - [Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md)
 
 ---
 

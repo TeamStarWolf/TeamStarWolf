@@ -27,6 +27,15 @@
   - [Security Operations](disciplines/security-operations.md)
   - [Data Security](disciplines/data-security.md)
   - [Active Defense & Deception](disciplines/active-defense-deception.md)
+  - [Hardware Security](disciplines/hardware-security.md)
+  - [Mobile Security](disciplines/mobile-security.md)
+  - [Purple Teaming](disciplines/purple-teaming.md)
+  - [Bug Bounty](disciplines/bug-bounty.md)
+
+---
+
+- **🗺️ Career Paths**
+  - [Career Paths & Cert Roadmap](CAREER_PATHS.md)
 
 ---
 

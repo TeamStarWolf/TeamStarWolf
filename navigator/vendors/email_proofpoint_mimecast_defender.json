@@ -1,0 +1,297 @@
+{
+  "name": "Email Security \u2014 Proofpoint / Mimecast / Microsoft Defender for O365",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Secure email gateway, sandboxing, DMARC enforcement, click-time URL protection, anti-phishing and BEC coverage",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "color": "#f43f5e",
+      "comment": "Phishing emails blocked by secure email gateway",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "color": "#f43f5e",
+      "comment": "Spearphishing attachments sandboxed and blocked at email gateway",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "color": "#f43f5e",
+      "comment": "Spearphishing links rewritten and scanned at click-time",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "color": "#f43f5e",
+      "comment": "Spearphishing via service detected by cross-platform email scanning",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "color": "#f43f5e",
+      "comment": "Phishing for information campaign blocked by email controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1598.001",
+      "tactic": "reconnaissance",
+      "color": "#f43f5e",
+      "comment": "Spearphishing service targeted collection \u2014 monitored via email logs",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "color": "#f43f5e",
+      "comment": "Spearphishing link for credential harvesting \u2014 click-time URL protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1534",
+      "tactic": "lateral-movement",
+      "color": "#f43f5e",
+      "comment": "Internal spearphishing via compromised mailbox \u2014 anomaly detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "color": "#f43f5e",
+      "comment": "Email collection via forwarding rules \u2014 Defender for O365 alert",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "color": "#f43f5e",
+      "comment": "Local email collection blocked by DLP content inspection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "color": "#f43f5e",
+      "comment": "Remote email collection via IMAP/Exchange abuse \u2014 anomaly detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "color": "#f43f5e",
+      "comment": "Email forwarding to external address \u2014 forward rule policy enforcement",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "color": "#f43f5e",
+      "comment": "Email account discovery via directory harvest attack prevention",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1056.004",
+      "tactic": "credential-access",
+      "color": "#f43f5e",
+      "comment": "Credential API hooking via browser extension detected",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "color": "#f43f5e",
+      "comment": "Steal application access token via OAuth phishing \u2014 blocked",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "color": "#f43f5e",
+      "comment": "Steal web session cookie via phishing \u2014 click-time protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "color": "#f43f5e",
+      "comment": "Browser session hijacking via AiTM phishing \u2014 detected by Defender",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "color": "#f43f5e",
+      "comment": "Trusted relationship abuse via third-party email compromise alerts",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "color": "#f43f5e",
+      "comment": "Compromise email accounts \u2014 DMARC/DKIM/SPF enforcement",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "color": "#f43f5e",
+      "comment": "Upload malware to phishing site \u2014 URL reputation blocking",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "color": "#f43f5e",
+      "comment": "Acquire domain \u2014 lookalike domain detection and alerting",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "color": "#f43f5e",
+      "comment": "Drive-by compromise via email-delivered links \u2014 URL sandboxing",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "color": "#f43f5e",
+      "comment": "Malicious file execution via email attachment sandboxing",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "color": "#f43f5e",
+      "comment": "Malicious link execution via click-time URL protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#f43f5e"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by Email Security \u2014 Proofpoint / Mimecast / Microsoft Defender for O365",
+      "color": "#f43f5e"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

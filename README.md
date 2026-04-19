@@ -90,6 +90,8 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Physical Security](disciplines/physical-security.md) | Physical pen testing, RFID cloning, badge bypass, access control systems, facility security |
 | [Threat Modeling](disciplines/threat-modeling.md) | STRIDE/PASTA/LINDDUN methodologies, threat model as code, DFD-based analysis, DevSecOps integration |
 | [OSINT](disciplines/osint.md) | Open source intelligence collection, recon methodology, SOCMINT/GEOINT, OpSec for analysts |
+| [Zero Trust Architecture](disciplines/zero-trust-architecture.md) | ZT principles, CISA ZTMM, microsegmentation, ZTNA tooling, BeyondCorp, NIST SP 800-207 |
+| [IoT Security](disciplines/iot-security.md) | IoT attack surface, firmware analysis, MQTT/CoAP testing, device identity, OWASP IoT Top 10 |
 ---
 
 

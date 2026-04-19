@@ -1,0 +1,297 @@
+{
+  "name": "WAF/WAAP \u2014 Cloudflare / Akamai / AWS WAF / F5 Advanced",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Web Application Firewall and API protection coverage: SQLi/XSS/SSRF/RCE blocking, rate limiting, bot management, DDoS mitigation",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "color": "#10b981",
+      "comment": "Web application exploit attempts blocked by WAF rule engine",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "color": "#10b981",
+      "comment": "JavaScript injection (XSS) blocked by WAF XSS ruleset",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "defense-evasion",
+      "color": "#10b981",
+      "comment": "Process injection via web shell blocked by WAF/WAAP",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "color": "#10b981",
+      "comment": "Web shell upload blocked by file upload restrictions",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1505.004",
+      "tactic": "persistence",
+      "color": "#10b981",
+      "comment": "IIS ISAPI extension exploitation blocked by server-side WAF",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "color": "#10b981",
+      "comment": "Encoded/obfuscated payloads detected and blocked",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "defense-evasion",
+      "color": "#10b981",
+      "comment": "Binary padding/obfuscation in web requests detected",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "color": "#10b981",
+      "comment": "Phishing links blocked via URL reputation and categorization",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "color": "#10b981",
+      "comment": "Port scanning from WAF-protected origin IP masked",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "color": "#10b981",
+      "comment": "Vulnerability scanning detected via rate limiting and WAF",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "color": "#10b981",
+      "comment": "Gather victim host information via header suppression",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "color": "#10b981",
+      "comment": "Gather victim identity info via input validation",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "privilege-escalation",
+      "color": "#10b981",
+      "comment": "SUID exploitation via RCE blocked by WAF/runtime protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "color": "#10b981",
+      "comment": "Client execution via browser exploit blocked by content policies",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1211",
+      "tactic": "defense-evasion",
+      "color": "#10b981",
+      "comment": "Exploitation for defense evasion blocked at WAF boundary",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "color": "#10b981",
+      "comment": "Exploitation of remote services via SSRF detection and blocking",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "color": "#10b981",
+      "comment": "HTTP/S C2 traffic inspection via SSL termination at WAF",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "color": "#10b981",
+      "comment": "Web service C2 via allowed cloud platforms \u2014 CASB + WAF combination",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "color": "#10b981",
+      "comment": "Cloud storage object access \u2014 S3 presigned URL abuse detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "color": "#10b981",
+      "comment": "Browser session hijacking blocked by cookie protections (SameSite, HttpOnly)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "color": "#10b981",
+      "comment": "Drive-by compromise blocked via malicious URL/domain reputation",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "color": "#10b981",
+      "comment": "Replication through removable media \u2014 web-delivered payload blocked",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1176",
+      "tactic": "persistence",
+      "color": "#10b981",
+      "comment": "Browser extension installation blocked by WAF/endpoint policy",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "color": "#10b981",
+      "comment": "Automated collection via web scraping rate-limited and blocked",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#10b981"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by WAF/WAAP \u2014 Cloudflare / Akamai / AWS WAF / F5 Advanced",
+      "color": "#10b981"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

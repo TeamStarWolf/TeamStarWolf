@@ -82,6 +82,8 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Mobile Security](disciplines/mobile-security.md) | iOS/Android app security, MASVS, MDM/EMM, mobile threat defense, dynamic analysis |
 | [Purple Teaming](disciplines/purple-teaming.md) | Adversary emulation, BAS, detection validation, ATT&CK coverage measurement |
 | [Bug Bounty](disciplines/bug-bounty.md) | Web/API/mobile vulnerability research, recon methodology, responsible disclosure |
+| [Social Engineering](disciplines/social-engineering.md) | Phishing simulations, pretexting, vishing, security awareness training, human risk management |
+| [Physical Security](disciplines/physical-security.md) | Physical pen testing, RFID cloning, badge bypass, access control systems, facility security |
 ---
 
 

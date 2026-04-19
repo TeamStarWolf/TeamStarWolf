@@ -45,6 +45,7 @@ A public resource library for the cybersecurity community.
 | [Hands-On Labs](LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
 | [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
+| [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 
 ---
 

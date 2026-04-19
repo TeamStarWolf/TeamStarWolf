@@ -1,0 +1,218 @@
+{
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "name": "SIEM Coverage \u2014 Splunk ES, Microsoft Sentinel, Elastic Security",
+  "description": "ATT&CK technique coverage provided by Splunk Enterprise Security, Microsoft Sentinel, and Elastic Security SIEM through log correlation, behavioral detection rules, and UEBA analytics.",
+  "domain": "enterprise-attack",
+  "techniques": [
+    {
+      "techniqueID": "T1566",
+      "score": 2,
+      "comment": "Email alert correlation across SIEM platforms",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1190",
+      "score": 2,
+      "comment": "Web log detection for exploit attempts",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1059.001",
+      "score": 3,
+      "comment": "PowerShell behavioral detection rules",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1059.003",
+      "score": 2,
+      "comment": "Windows Command Shell execution detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1059.007",
+      "score": 2,
+      "comment": "JavaScript execution detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1204.002",
+      "score": 2,
+      "comment": "Malicious file execution detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1053.005",
+      "score": 2,
+      "comment": "Scheduled task creation detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1547.001",
+      "score": 2,
+      "comment": "Registry Run Keys modification detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1543.003",
+      "score": 2,
+      "comment": "Windows Service creation/modification detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1548.002",
+      "score": 2,
+      "comment": "UAC bypass attempt detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1098",
+      "score": 3,
+      "comment": "Account manipulation detection via UEBA and audit logs",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1136",
+      "score": 3,
+      "comment": "Account creation event detection and alerting",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1562.001",
+      "score": 2,
+      "comment": "Security tool disable/modify detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1562.004",
+      "score": 2,
+      "comment": "Firewall disable/modify detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1003.001",
+      "score": 3,
+      "comment": "LSASS memory access detection \u2014 Mimikatz signatures",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1003.003",
+      "score": 3,
+      "comment": "NTDS DC sync detection via replication event correlation",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 3,
+      "comment": "Brute force lockout correlation and threshold alerting",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 3,
+      "comment": "Valid account anomaly detection via UEBA baselines",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1021.001",
+      "score": 2,
+      "comment": "Anomalous RDP access alert and geo-correlation",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1021.002",
+      "score": 2,
+      "comment": "SMB lateral movement detection via event correlation",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1550.002",
+      "score": 2,
+      "comment": "Pass-the-Hash detection via event log correlation",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1550.003",
+      "score": 2,
+      "comment": "Pass-the-Ticket Kerberos anomaly detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1048",
+      "score": 1,
+      "comment": "DLP log correlation for alternate protocol exfiltration",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1114.002",
+      "score": 2,
+      "comment": "Remote email collection detection via mail audit logs",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1071",
+      "score": 2,
+      "comment": "C2 beacon detection via application layer protocol analytics",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 2,
+      "comment": "Ingress tool transfer detection via network logs",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1572",
+      "score": 1,
+      "comment": "Protocol tunneling log visibility",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1090",
+      "score": 1,
+      "comment": "Proxy usage log visibility",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1102",
+      "score": 1,
+      "comment": "Web service C2 log visibility",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1486",
+      "score": 3,
+      "comment": "Ransomware behavioral detection \u2014 mass file encryption patterns",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1490",
+      "score": 2,
+      "comment": "System recovery inhibition detection via shadow copy deletion events",
+      "color": ""
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#8b5cf6"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "SIEM coverage (Splunk / Sentinel / Elastic)",
+      "color": "#8b5cf6"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#1e293b",
+  "selectTechniquesAcrossTactics": true,
+  "hideDisabled": false
+}

@@ -93,6 +93,8 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [OSINT](disciplines/osint.md) | Open source intelligence collection, recon methodology, SOCMINT/GEOINT, OpSec for analysts |
 | [Zero Trust Architecture](disciplines/zero-trust-architecture.md) | ZT principles, CISA ZTMM, microsegmentation, ZTNA tooling, BeyondCorp, NIST SP 800-207 |
 | [IoT Security](disciplines/iot-security.md) | IoT attack surface, firmware analysis, MQTT/CoAP testing, device identity, OWASP IoT Top 10 |
+| [Container & Kubernetes Security](disciplines/container-kubernetes-security.md) | Container runtime security, K8s RBAC, image scanning, Falco, OPA Gatekeeper, CKS prep |
+| [Cyber Risk Quantification](disciplines/cyber-risk-quantification.md) | FAIR methodology, Monte Carlo simulation, ALE/ROSI calculation, board-level risk communication |
 ---
 
 

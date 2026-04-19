@@ -46,6 +46,7 @@
 
 - **🗺️ Career Paths**
   - [Career Paths](CAREER_PATHS.md)
+  - [Interview Prep](INTERVIEW_PREP.md)
   - [Certifications Reference](CERTIFICATIONS.md)
   - [Hands-On Labs](LABS.md)
 

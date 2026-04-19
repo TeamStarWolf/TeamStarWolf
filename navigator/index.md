@@ -1,51 +1,51 @@
 # ATT&CK Navigator — TeamStarWolf Coverage Layers
 
-Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage across ATT&CK techniques. All layers are sourced from the [TeamStarWolf edge tables](../data/) and [CTID NIST 580-53 R5 mappings](https://github.com/center-for-threat-informed-defense/attack-control-framework-mappings).
+Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage across ATT&CK techniques. All layers are sourced from the [TeamStarWolf edge tables](../data/) and [CTID NIST 800-53 R5 mappings](https://github.com/center-for-threat-informed-defense/attack-control-framework-mappings).
 
 ---
 
-## Available Layers
+## Full Stack Coverage
 
-### Full Stack Coverage
 | Layer | Description | Load |
 |---|---|---|
-| [NIST 800-53 R5 Overview](teamstarwolf_vendor_coverage.json) | 313 techniques scored by NIST 800-53 control depth (CTID-sourced) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [NIST 800-53 R5 Overview](teamstarwolf_vendor_coverage.json) | 313 ATT&CK techniques scored by NIST 800-53 R5 control depth (CTID-sourced mapping) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
 
-### Vendor Layers
-| Layer | Vendors | Primary Focus | Load |
-|---|---|---|---|
-| [EDR](vendors/edr_crowdstrike_sentinelone.json) | CrowdStrike Falcon, SentinelOne | Endpoint prevent/detect | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/edr_crowdstrike_sentinelone.json) |
-| Network Security — Palo Alto NGFW / Fortinet / Cisco | 24 techniques: C2 protocol detection, DNS tunneling, exfiltration blocking | [Download JSON](vendors/network_paloalto_fortinet.json) |
-| Identity — Okta / Entra ID / CyberArk PAM | 24 techniques: brute force, pass-the-hash, Kerberoasting, privilege escalation | [Download JSON](vendors/identity_okta_entra_cyberark.json) |
-| WAF/WAAP — Cloudflare / Akamai / AWS WAF / F5 | 24 techniques: SQLi/XSS/RCE blocking, SSRF, web shell, bot management | [Download JSON](vendors/waf_cloudflare_akamai_awswaf.json) |
-| Email Security — Proofpoint / Mimecast / Defender for O365 | 24 techniques: phishing, spearphishing, BEC, email collection, click-time protection | [Download JSON](vendors/email_proofpoint_mimecast_defender.json) |
-| [Identity & PAM](vendors/identity_entra_okta_cyberark.json) | Microsoft Entra ID, Okta, CyberArk | Credential & access protection | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/identity_entra_okta_cyberark.json) |
-| [Network & Zero Trust](vendors/network_zscaler_paloalto.json) | Zscaler, Palo Alto NGFW | Boundary & C2 prevention | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/network_zscaler_paloalto.json) |
-| [Email Security](vendors/email_proofpoint_mimecast.json) | Proofpoint, Mimecast | Phishing prevention | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/email_proofpoint_mimecast.json) |
-| [Vulnerability Management](vendors/vuln_mgmt_tenable_qualys_wiz.json) | Tenable, Qualys, Wiz | Pre-compromise identify | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/vuln_mgmt_tenable_qualys_wiz.json) |
-| [SIEM](vendors/siem_splunk_sentinel_elastic.json) | Splunk ES, Microsoft Sentinel, Elastic SIEM | Log correlation, behavioral detection, UEBA | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/siem_splunk_sentinel_elastic.json) |
-| [Cloud Security](vendors/cloud_wiz_prisma_defender.json) | Wiz, Prisma Cloud, Microsoft Defender for Cloud | CSPM, secrets scanning, cloud account protection | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/cloud_wiz_prisma_defender.json) |
+---
 
-### Pipeline Stage Layers
-| Layer | Stage | NIST Controls | Load |
+## Pipeline Stage Layers
+
+| Layer | Description | Techniques | Load |
 |---|---|---|---|
-| [Stage 1 — Governance & GRC](stages/stage1_governance_grc.json) | Governance, Risk & Compliance | PL-1, RA-3, CA-2, CA-7, PM-9, PM-30 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage1_governance_grc.json) |
-| [Stage 2 — Network & Perimeter Security](stages/stage2_network_perimeter.json) | NGFW, IDS/IPS, NDR, DNS security, network segmentation | [Download JSON](stages/stage2_network_perimeter.json) |
-| [Stage 2 — Identity & Access](stages/stage2_identity_access.json) | Identity & Access Management | IA-2, IA-5, AC-2, AC-3, AC-6 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage2_identity_access.json) |
-| [Stage 3 — Endpoint & Workload](stages/stage3_endpoint_workload.json) | Endpoint & Workload Protection | SI-3, SI-7, CM-7, CM-8, SC-3, SC-39 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage3_endpoint_workload.json) |
-| [Stage 4 — Identity & Access Management](stages/stage4_identity_access.json) | IAM, PAM, MFA, SSO, Conditional Access, JIT access controls | [Download JSON](stages/stage4_identity_access.json) |
-| [Stage 5 — Application Security](stages/stage5_application_security.json) | SAST, DAST, SCA, WAF, API security, DevSecOps pipeline controls | [Download JSON](stages/stage5_application_security.json) |
-| [Stage 4 — Network & Boundary](stages/stage4_network_boundary.json) | Network & Boundary Defense | SC-7, SC-8, AC-17, AC-20, SI-8, SC-5 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage4_network_boundary.json) |
-| [Stage 5 — Visibility & Detection](stages/stage5_visibility_detection.json) | Visibility, Detection & Operations | AU-2, AU-6, IR-4, IR-5, SI-4, RA-5 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage5_visibility_detection.json) |
-| [Stage 6 — Data & Cloud](stages/stage6_data_cloud.json) | Data & Cloud Security | MP-2, SC-28, SC-8, RA-5, CM-6, SA-9 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage6_data_cloud.json) |
+| [Stage 1 — Governance & GRC](stages/stage1_governance_grc.json) | Supply chain controls, vendor risk, policy enforcement | 20 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage1_governance_grc.json) |
+| [Stage 2 — Network & Perimeter Security](stages/stage2_network_perimeter.json) | NGFW, IDS/IPS, NDR, DNS security, exfiltration controls | 25 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage2_network_perimeter.json) |
+| [Stage 3 — Endpoint & Workload](stages/stage3_endpoint_workload.json) | EDR, HIPS, application control, OS hardening | 25 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage3_endpoint_workload.json) |
+| [Stage 4 — Identity & Access Management](stages/stage4_identity_access.json) | IAM, PAM, MFA, SSO, Conditional Access, JIT access | 31 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage4_identity_access.json) |
+| [Stage 5 — Application Security](stages/stage5_application_security.json) | SAST, DAST, WAF, API security, DevSecOps pipeline | 27 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage5_application_security.json) |
+| [Stage 6 — Data & Cloud Security](stages/stage6_data_cloud.json) | DSPM, CASB, DLP, cloud security posture, data controls | 20 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage6_data_cloud.json) |
+
+---
+
+## Vendor Layers
+
+| Layer | Vendors | Techniques | Load |
+|---|---|---|---|
+| [SIEM & Detection](vendors/siem_splunk_sentinel_elastic.json) | Splunk ES, Microsoft Sentinel, Elastic Security | 31 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/siem_splunk_sentinel_elastic.json) |
+| [EDR & Endpoint](vendors/edr_crowdstrike_sentinelone.json) | CrowdStrike Falcon, SentinelOne, VMware Carbon Black | 25 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/edr_crowdstrike_sentinelone.json) |
+| [Cloud Security](vendors/cloud_wiz_prisma_defender.json) | Wiz, Prisma Cloud, Microsoft Defender for Cloud | 25 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/cloud_wiz_prisma_defender.json) |
+| [Identity & PAM](vendors/identity_okta_entra_cyberark.json) | Okta, Microsoft Entra ID, CyberArk PAM | 24 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/identity_okta_entra_cyberark.json) |
+| [Network Security](vendors/network_paloalto_fortinet.json) | Palo Alto NGFW, Fortinet FortiGate, Cisco Secure | 24 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/network_paloalto_fortinet.json) |
+| [WAF & API Protection](vendors/waf_cloudflare_akamai_awswaf.json) | Cloudflare WAF, Akamai, AWS WAF, F5 Advanced | 24 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/waf_cloudflare_akamai_awswaf.json) |
+| [Email Security](vendors/email_proofpoint_mimecast_defender.json) | Proofpoint, Mimecast, Microsoft Defender for Office 365 | 24 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/email_proofpoint_mimecast_defender.json) |
 
 ---
 
 ## Score Interpretation (Full Stack Layer)
 
-- **High score (20–33)** — Many NIST 800-53 controls address this technique; broad vendor coverage across the enterprise stack
-- **Medium score (10–19)** — Moderate control coverage; most mature security programs address this
-- **Low score (1–9)** — Fewer controls map here; may represent capability gaps worth prioritizing
+| Score Range | Meaning |
+|---|---|
+| 20–33 | Many NIST 800-53 controls address this technique; broad vendor coverage across the enterprise stack |
+| 10–19 | Moderate control coverage; most mature security programs address this technique |
+| 1–9 | Fewer controls map here; may represent a capability gap worth prioritizing |
 
 ---
 
@@ -54,7 +54,6 @@ Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage acros
 - [Layer JSON source files](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/navigator/)
 - [Vendor → Control edge table](../data/vendor_to_control.jsonl)
 - [Control → Technique edge table](../data/control_to_technique.jsonl)
-- [Vendor → Technique derived edges](../data/vendor_to_technique.jsonl)
 - [Controls Mapping reference](../CONTROLS_MAPPING.md)
 - [Coverage gap analysis](../scores/coverage_gaps.md)
 - [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)

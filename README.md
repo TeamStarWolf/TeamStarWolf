@@ -41,6 +41,7 @@ A public resource library for the cybersecurity community.
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
+| [Career Paths & Cert Roadmap](CAREER_PATHS.md) | Structured progression guides from entry-level to senior for 7 security career tracks |
 
 ---
 
@@ -76,6 +77,10 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Security Operations](disciplines/security-operations.md) | SOC operations, SIEM/SOAR, threat hunting, detection lifecycle, and SOC metrics |
 | [Data Security](disciplines/data-security.md) | Data classification, DLP, encryption, DSPM, and database activity monitoring |
 | [Active Defense & Deception](disciplines/active-defense-deception.md) | Honeypots, honeytokens, canary tokens, deception grids, and adversary engagement |
+| [Hardware Security](disciplines/hardware-security.md) | Firmware analysis, secure boot, TPM/HSM, hardware hacking, side-channel attacks |
+| [Mobile Security](disciplines/mobile-security.md) | iOS/Android app security, MASVS, MDM/EMM, mobile threat defense, dynamic analysis |
+| [Purple Teaming](disciplines/purple-teaming.md) | Adversary emulation, BAS, detection validation, ATT&CK coverage measurement |
+| [Bug Bounty](disciplines/bug-bounty.md) | Web/API/mobile vulnerability research, recon methodology, responsible disclosure |
 ---
 
 

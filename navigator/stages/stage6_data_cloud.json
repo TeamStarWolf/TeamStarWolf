@@ -1,0 +1,206 @@
+{
+  "name": "Stage 6 — Data & Cloud Security",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage from Stage 6: Data & Cloud Security (DSPM, CSPM, DLP, CASB, encryption). Controls from MP-2, SC-28, SC-8, RA-5, CM-6, SA-9.",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Cloud",
+      "IaaS",
+      "SaaS",
+      "Containers",
+      "Office Suite"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "DSPM discovers exposed buckets; CSPM enforces bucket policies; DLP alerts on access"
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "DSPM finds credentials in storage; secrets scanning; KMS enforcement"
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "Credentials in files — DLP scanning of storage objects"
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "Cloud Instance Metadata API — CSPM metadata exposure checks"
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "CSPM: Cloud Infrastructure Discovery — posture management alerts on enumeration"
+    },
+    {
+      "techniqueID": "T1619",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "Cloud Storage Object Discovery — CSPM bucket access logging"
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "Transfer to Cloud — CASB egress monitoring; DLP blocks exfil to unauthorized cloud"
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "Exfiltration over alt protocol — CASB + DLP network inspection"
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "Exfiltration over unencrypted protocol — DLP SSL inspection"
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "Exfiltration to cloud service — CASB blocks unauthorized SaaS uploads"
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "Exfiltration to cloud storage — CASB Google Drive/OneDrive controls"
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "CSPM: public-facing cloud app misconfiguration detection"
+    },
+    {
+      "techniqueID": "T1525",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Implant Container Image — CSPM container registry scanning"
+    },
+    {
+      "techniqueID": "T1611",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Escape to Host — CSPM container hardening checks"
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Cloud Accounts — CIEM excessive permissions detection"
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Account Manipulation in cloud — CSPM IAM change monitoring"
+    },
+    {
+      "techniqueID": "T1578",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "Modify Cloud Compute Infrastructure — CSPM change detection"
+    },
+    {
+      "techniqueID": "T1578.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "Create Cloud Instance — CSPM anomalous resource creation"
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Data from Information Repositories — DLP SharePoint/Confluence scanning"
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Data from Local System — DLP endpoint agents; data classification enforcement"
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ecfeff",
+      "#06b6d4"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "Score 1: Policy/posture check",
+      "color": "#a5f3fc"
+    },
+    {
+      "label": "Score 2: Detection + alert",
+      "color": "#22d3ee"
+    },
+    {
+      "label": "Score 3: Prevent + detect (CASB/DLP/DSPM)",
+      "color": "#06b6d4"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "stage",
+      "value": "Stage 6 — Data & Cloud Security"
+    },
+    {
+      "name": "nist_families",
+      "value": "MP-2, SC-28, SC-8, RA-5, CM-6, SA-9"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+    }
+  ],
+  "links": [
+    {
+      "label": "Pipeline Stage 6",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/SECURITY_PIPELINE"
+    },
+    {
+      "label": "Cloud Security Discipline",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/disciplines/cloud-security"
+    },
+    {
+      "label": "Data Security Discipline",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/disciplines/data-security"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

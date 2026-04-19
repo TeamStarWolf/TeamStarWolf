@@ -3,6 +3,7 @@
 - [Disciplines](disciplines/threat-intelligence.md)
 - [Pipeline](SECURITY_PIPELINE.md)
 - [Navigator](navigator/)
+- [Tools](TOOLS.md)
 - [Labs](LABS.md)
 - [Careers](CAREER_PATHS.md)
 - [Resources](STARRED_REPOS.md)

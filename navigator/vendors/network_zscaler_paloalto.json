@@ -1,0 +1,43 @@
+{
+  "name": "Network & Zero Trust — Zscaler + Palo Alto NGFW",
+  "versions": {"attack": "13", "navigator": "4.9", "layer": "4.5"},
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage for network security and Zero Trust vendors: Zscaler Zero Trust Exchange and Palo Alto Networks NGFW. Coverage via NIST 800-53 controls AC-17, SC-7, SC-8, AC-4, AC-20. Source: https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl",
+  "filters": {"platforms": ["Windows", "Linux", "macOS", "Network", "Cloud"]},
+  "sorting": 0,
+  "layout": {"layout": "side", "aggregateFunction": "average", "showID": true, "showName": true, "showAggregateScores": false, "countUnscored": false, "expandedSubtechniques": "none"},
+  "hideDisabled": false,
+  "techniques": [
+    {"techniqueID": "T1021", "score": 1, "comment": "Zscaler ZTNA — AC-17: Zero Trust Network Access replaces VPN, requires explicit authorization for every remote service connection"},
+    {"techniqueID": "T1021.001", "score": 1, "comment": "Zscaler — Remote Desktop Protocol access controlled via ZTNA policy"},
+    {"techniqueID": "T1021.002", "score": 1, "comment": "Zscaler — SMB/Windows Admin Shares access controlled via micro-segmentation"},
+    {"techniqueID": "T1021.004", "score": 1, "comment": "Zscaler — SSH access controlled via ZTNA policy"},
+    {"techniqueID": "T1133", "score": 1, "comment": "Zscaler ZTNA — AC-17: external remote services replaced by identity-verified, device-verified ZTNA tunnels"},
+    {"techniqueID": "T1048", "score": 1, "comment": "Zscaler + Palo Alto — SC-7/AC-4: SSL inspection and DLP block exfiltration over alternative protocols"},
+    {"techniqueID": "T1048.002", "score": 1, "comment": "Zscaler + Palo Alto — Exfiltration over asymmetric encrypted non-C2 blocked by SSL inspection"},
+    {"techniqueID": "T1048.003", "score": 1, "comment": "Zscaler + Palo Alto — Exfiltration over unencrypted non-C2 protocol blocked by policy"},
+    {"techniqueID": "T1071", "score": 1, "comment": "Zscaler + Palo Alto — SC-7: C2 over application layer protocols detected via SSL inspection and threat intelligence"},
+    {"techniqueID": "T1071.001", "score": 1, "comment": "Zscaler + Palo Alto — C2 over HTTP/S detection"},
+    {"techniqueID": "T1071.004", "score": 1, "comment": "Zscaler + Palo Alto — C2 over DNS detection"},
+    {"techniqueID": "T1040", "score": 1, "comment": "Palo Alto NGFW — SC-8: encrypted network traffic prevents network sniffing; TLS inspection detects cleartext credential transmission"},
+    {"techniqueID": "T1557", "score": 1, "comment": "Palo Alto NGFW — SC-8: ARP poisoning and MITM attack detection on network segments"},
+    {"techniqueID": "T1090", "score": 1, "comment": "Zscaler + Palo Alto — SC-7: proxy and relay traffic inspection; Tor exit node blocking"},
+    {"techniqueID": "T1090.003", "score": 1, "comment": "Zscaler + Palo Alto — Multi-hop proxy / Tor blocking via threat intelligence"},
+    {"techniqueID": "T1095", "score": 1, "comment": "Palo Alto NGFW — SC-7: non-standard protocol detection via App-ID"},
+    {"techniqueID": "T1572", "score": 1, "comment": "Zscaler + Palo Alto — SC-7: protocol tunneling detection (DNS tunneling, ICMP tunneling)"},
+    {"techniqueID": "T1571", "score": 1, "comment": "Palo Alto NGFW — SC-7: non-standard port usage detection via App-ID regardless of port"},
+    {"techniqueID": "T1041", "score": 1, "comment": "Zscaler + Palo Alto — SC-7/AC-4: exfiltration over C2 channel detected and blocked"},
+    {"techniqueID": "T1537", "score": 1, "comment": "Zscaler CASB — AC-20: cloud account data transfer monitoring and blocking"}
+  ],
+  "gradient": {"colors": ["#ffffff00", "#22c55eff"], "minValue": 0, "maxValue": 1},
+  "legendItems": [{"label": "Covered by Zscaler / Palo Alto NGFW", "color": "#22c55eff"}],
+  "metadata": [
+    {"name": "Vendors", "value": "Zscaler Zero Trust Exchange, Palo Alto NGFW"},
+    {"name": "Market Family", "value": "Network Security / Zero Trust"},
+    {"name": "Primary Controls", "value": "AC-17, SC-7, SC-8, AC-4, AC-20"},
+    {"name": "Source", "value": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl"},
+    {"name": "Load in Navigator", "value": "https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/network_zscaler_paloalto.json"}
+  ],
+  "showTacticRowBackground": false, "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": false, "selectSubtechniquesWithParent": false
+}

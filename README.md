@@ -84,6 +84,8 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Bug Bounty](disciplines/bug-bounty.md) | Web/API/mobile vulnerability research, recon methodology, responsible disclosure |
 | [Social Engineering](disciplines/social-engineering.md) | Phishing simulations, pretexting, vishing, security awareness training, human risk management |
 | [Physical Security](disciplines/physical-security.md) | Physical pen testing, RFID cloning, badge bypass, access control systems, facility security |
+| [Threat Modeling](disciplines/threat-modeling.md) | STRIDE/PASTA/LINDDUN methodologies, threat model as code, DFD-based analysis, DevSecOps integration |
+| [OSINT](disciplines/osint.md) | Open source intelligence collection, recon methodology, SOCMINT/GEOINT, OpSec for analysts |
 ---
 
 

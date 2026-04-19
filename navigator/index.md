@@ -19,6 +19,8 @@ Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage acros
 | [Network & Zero Trust](vendors/network_zscaler_paloalto.json) | Zscaler, Palo Alto NGFW | Boundary & C2 prevention | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/network_zscaler_paloalto.json) |
 | [Email Security](vendors/email_proofpoint_mimecast.json) | Proofpoint, Mimecast | Phishing prevention | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/email_proofpoint_mimecast.json) |
 | [Vulnerability Management](vendors/vuln_mgmt_tenable_qualys_wiz.json) | Tenable, Qualys, Wiz | Pre-compromise identify | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/vuln_mgmt_tenable_qualys_wiz.json) |
+| [SIEM](vendors/siem_splunk_sentinel_elastic.json) | Splunk ES, Microsoft Sentinel, Elastic SIEM | Log correlation, behavioral detection, UEBA | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/siem_splunk_sentinel_elastic.json) |
+| [Cloud Security](vendors/cloud_wiz_prisma_defender.json) | Wiz, Prisma Cloud, Microsoft Defender for Cloud | CSPM, secrets scanning, cloud account protection | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/cloud_wiz_prisma_defender.json) |
 
 ### Pipeline Stage Layers
 | Layer | Stage | NIST Controls | Load |

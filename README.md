@@ -43,6 +43,7 @@ A public resource library for the cybersecurity community.
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
 | [Career Paths & Cert Roadmap](CAREER_PATHS.md) | Structured progression guides from entry-level to senior for 7 security career tracks |
 | [Hands-On Labs](LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline |
+| [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
 
 ---
 

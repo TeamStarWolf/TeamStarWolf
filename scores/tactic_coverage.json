@@ -1,0 +1,141 @@
+{
+  "generated": "2026-04-18",
+  "source": "data/vendor_to_technique.jsonl",
+  "note": "Coverage percentages are based on vendor_to_technique.jsonl edge table vs. known ATT&CK Enterprise v13 technique counts. Recompute with: python scripts/compute_coverage.py",
+  "tactics": {
+    "initial-access": {
+      "name": "Initial Access",
+      "covered_techniques": ["T1133", "T1190", "T1566", "T1566.001", "T1566.002", "T1566.003", "T1598", "T1598.002", "T1598.003"],
+      "covered_count": 9,
+      "approx_total_in_attack": 9,
+      "coverage_pct": 22.0,
+      "primary_gap": "Supply chain compromise (T1195), trusted relationship exploitation (T1199), hardware additions (T1200)",
+      "status": "partial"
+    },
+    "execution": {
+      "name": "Execution",
+      "covered_techniques": ["T1059", "T1059.001", "T1059.003", "T1059.004", "T1204", "T1204.001", "T1204.002"],
+      "covered_count": 7,
+      "approx_total_in_attack": 14,
+      "coverage_pct": 7.0,
+      "primary_gap": "T1047 WMI, T1053 Scheduled Task, T1106 Native API, T1047 WMI lateral execution",
+      "status": "gap"
+    },
+    "persistence": {
+      "name": "Persistence",
+      "covered_techniques": ["T1098", "T1098.001", "T1098.003", "T1098.005", "T1136", "T1136.002", "T1136.003", "T1525", "T1543", "T1543.003", "T1547", "T1547.001"],
+      "covered_count": 12,
+      "approx_total_in_attack": 19,
+      "coverage_pct": 21.0,
+      "primary_gap": "T1137 Office App Startup, T1176 Browser Extensions, T1197 BITS Jobs, T1505 Server Software Component",
+      "status": "partial"
+    },
+    "privilege-escalation": {
+      "name": "Privilege Escalation",
+      "covered_techniques": ["T1068", "T1078.003", "T1543", "T1543.003", "T1547", "T1547.001", "T1548", "T1550.002", "T1558", "T1558.003", "T1611"],
+      "covered_count": 11,
+      "approx_total_in_attack": 13,
+      "coverage_pct": 23.0,
+      "primary_gap": "T1134 Access Token Manipulation, T1484 Domain Policy Modification",
+      "status": "partial"
+    },
+    "defense-evasion": {
+      "name": "Defense Evasion",
+      "covered_techniques": ["T1040", "T1562", "T1562.001"],
+      "covered_count": 3,
+      "approx_total_in_attack": 42,
+      "coverage_pct": 5.0,
+      "primary_gap": "T1218 LOLBAS, T1027 Obfuscation, T1574 Hijack Execution, T1070 Indicator Removal, T1553 Subvert Trust -- CRITICAL",
+      "status": "critical_gap"
+    },
+    "credential-access": {
+      "name": "Credential Access",
+      "covered_techniques": ["T1003", "T1003.001", "T1040", "T1110", "T1110.001", "T1110.003", "T1110.004", "T1556", "T1556.001", "T1556.006", "T1558", "T1558.003", "T1621"],
+      "covered_count": 13,
+      "approx_total_in_attack": 17,
+      "coverage_pct": 29.0,
+      "primary_gap": "T1552 Unsecured Credentials (score 33 -- highest in CTID), T1555 Password Stores, T1557 MITM for creds",
+      "status": "partial"
+    },
+    "discovery": {
+      "name": "Discovery",
+      "covered_techniques": ["T1046", "T1580", "T1619"],
+      "covered_count": 3,
+      "approx_total_in_attack": 31,
+      "coverage_pct": 3.0,
+      "primary_gap": "T1082 System Info, T1083 File/Dir, T1087 Account Discovery, T1018 Remote System Discovery -- CRITICAL",
+      "status": "critical_gap"
+    },
+    "lateral-movement": {
+      "name": "Lateral Movement",
+      "covered_techniques": ["T1021", "T1021.001", "T1021.002", "T1021.004", "T1133", "T1534"],
+      "covered_count": 6,
+      "approx_total_in_attack": 9,
+      "coverage_pct": 22.0,
+      "primary_gap": "T1550 Use Alt Auth Material, T1563 Remote Session Hijacking, T1570 Lateral Tool Transfer",
+      "status": "partial"
+    },
+    "collection": {
+      "name": "Collection",
+      "covered_techniques": ["T1114", "T1114.003"],
+      "covered_count": 2,
+      "approx_total_in_attack": 17,
+      "coverage_pct": 6.0,
+      "primary_gap": "T1213 Info Repositories, T1530 Cloud Storage, T1560 Archive, T1056 Input Capture, T1074 Data Staged -- CRITICAL",
+      "status": "critical_gap"
+    },
+    "command-and-control": {
+      "name": "Command and Control",
+      "covered_techniques": ["T1071", "T1071.001", "T1071.004", "T1090", "T1090.003", "T1095", "T1572", "T1571", "T1041"],
+      "covered_count": 9,
+      "approx_total_in_attack": 16,
+      "coverage_pct": 25.0,
+      "primary_gap": "T1001 Data Obfuscation, T1008 Fallback Channels, T1104 Multi-Stage Channels, T1219 Remote Access Software",
+      "status": "partial"
+    },
+    "exfiltration": {
+      "name": "Exfiltration",
+      "covered_techniques": ["T1041", "T1048", "T1048.002", "T1048.003", "T1537"],
+      "covered_count": 5,
+      "approx_total_in_attack": 9,
+      "coverage_pct": 33.0,
+      "primary_gap": "T1020 Automated Exfiltration, T1022 Data Encrypted, T1029 Scheduled Transfer, T1052 Physical Medium",
+      "status": "partial"
+    },
+    "impact": {
+      "name": "Impact",
+      "covered_techniques": ["T1486", "T1489", "T1490", "T1491", "T1491.001", "T1491.002"],
+      "covered_count": 6,
+      "approx_total_in_attack": 14,
+      "coverage_pct": 21.0,
+      "primary_gap": "T1485 Data Destruction, T1496 Resource Hijacking, T1498 Network DoS, T1499 Endpoint DoS, T1565 Data Manipulation",
+      "status": "partial"
+    }
+  },
+  "recommendations": {
+    "p1_casb_dlp": {
+      "capability": "CASB + DLP",
+      "vendors": ["Netskope", "Microsoft Purview", "Zscaler CASB"],
+      "fills": ["collection", "exfiltration"],
+      "techniques_unlocked": ["T1213", "T1530", "T1560", "T1074", "T1114"]
+    },
+    "p1_ueba": {
+      "capability": "UEBA (User and Entity Behavior Analytics)",
+      "vendors": ["Splunk UBA", "Microsoft Sentinel UEBA", "Securonix"],
+      "fills": ["discovery", "credential-access"],
+      "techniques_unlocked": ["T1082", "T1083", "T1087", "T1018", "T1552"]
+    },
+    "p2_app_control": {
+      "capability": "Application Control / Endpoint Hardening",
+      "vendors": ["CrowdStrike App Control", "Carbon Black App Control", "Tanium"],
+      "fills": ["defense-evasion", "execution"],
+      "techniques_unlocked": ["T1218", "T1574", "T1047", "T1053", "T1027"]
+    },
+    "p2_ndr": {
+      "capability": "Network Detection & Response (NDR)",
+      "vendors": ["Corelight", "ExtraHop Reveal(x)", "Darktrace"],
+      "fills": ["command-and-control", "lateral-movement"],
+      "techniques_unlocked": ["T1219", "T1008", "T1104", "T1550", "T1563"]
+    }
+  }
+}

@@ -44,6 +44,7 @@ A public resource library for the cybersecurity community.
 | [Career Paths & Cert Roadmap](CAREER_PATHS.md) | Structured progression guides from entry-level to senior for 7 security career tracks |
 | [Hands-On Labs](LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
+| [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
 
 ---
 

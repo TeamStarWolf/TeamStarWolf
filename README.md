@@ -42,6 +42,7 @@ A public resource library for the cybersecurity community.
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
 | [Career Paths & Cert Roadmap](CAREER_PATHS.md) | Structured progression guides from entry-level to senior for 7 security career tracks |
+| [Hands-On Labs](LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline |
 
 ---
 

@@ -1,0 +1,182 @@
+{
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "name": "Cloud Security Coverage \u2014 Wiz, Prisma Cloud, Microsoft Defender for Cloud",
+  "description": "ATT&CK technique coverage provided by Wiz, Prisma Cloud (Palo Alto Networks), and Microsoft Defender for Cloud through CSPM, secrets scanning, cloud account protection, and workload security.",
+  "domain": "enterprise-attack",
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "score": 3,
+      "comment": "CSPM misconfiguration detection for exploitable public-facing apps",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1580",
+      "score": 3,
+      "comment": "Cloud infrastructure discovery activity detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1619",
+      "score": 3,
+      "comment": "Cloud storage object enumeration detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1613",
+      "score": 2,
+      "comment": "Container and resource discovery detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1526",
+      "score": 2,
+      "comment": "Cloud service discovery detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1518",
+      "score": 1,
+      "comment": "Software discovery log visibility in cloud workloads",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1552.001",
+      "score": 3,
+      "comment": "Secrets scanning for credentials in files and repos",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1552.004",
+      "score": 3,
+      "comment": "Private key exposure detection via secrets scanning",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1552.007",
+      "score": 2,
+      "comment": "Container API credential exposure detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1528",
+      "score": 2,
+      "comment": "Application access token theft detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1539",
+      "score": 1,
+      "comment": "Web session cookie theft log visibility",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1098.001",
+      "score": 3,
+      "comment": "Additional cloud credential creation detection and alerting",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1098.004",
+      "score": 2,
+      "comment": "SSH authorized key addition detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1078.004",
+      "score": 3,
+      "comment": "Cloud account anomaly detection and access governance",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1548",
+      "score": 2,
+      "comment": "Elevation control mechanism abuse detection in cloud",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1136.003",
+      "score": 3,
+      "comment": "Cloud account creation detection and policy enforcement",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1562.008",
+      "score": 3,
+      "comment": "Cloud logging disable detection \u2014 CloudTrail/Diagnostic settings",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1578",
+      "score": 2,
+      "comment": "Cloud compute infrastructure modification detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1578.002",
+      "score": 2,
+      "comment": "Cloud instance creation anomaly detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1578.004",
+      "score": 1,
+      "comment": "Cloud instance revert log visibility",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1537",
+      "score": 3,
+      "comment": "Data transfer to external cloud account detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1530",
+      "score": 3,
+      "comment": "Cloud storage object access and exfiltration detection",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1048",
+      "score": 2,
+      "comment": "Alternate protocol exfiltration detection via cloud egress monitoring",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1496",
+      "score": 3,
+      "comment": "Resource hijacking and cryptomining detection via anomalous compute usage",
+      "color": ""
+    },
+    {
+      "techniqueID": "T1499",
+      "score": 1,
+      "comment": "Endpoint denial of service log visibility",
+      "color": ""
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#06b6d4"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "Cloud Security coverage (Wiz / Prisma Cloud / Defender for Cloud)",
+      "color": "#06b6d4"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#1e293b",
+  "selectTechniquesAcrossTactics": true,
+  "hideDisabled": false
+}

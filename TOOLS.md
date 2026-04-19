@@ -288,6 +288,180 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 
 ---
 
+---
+
+## OSINT & Reconnaissance
+
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [Amass](https://www.owasp.org/index.php/OWASP_Amass_Project) | Go | OSS | DNS enumeration and network mapping tool suite: scraping, recursive brute forcing, crawling web |
+| [Argus](https://github.com/jasonxtn/Argus) | Python | OSS | All-in-one toolkit for information gathering and reconnaissance |
+| [Ars0n Framework](https://github.com/R-s0n/ars0n-framework) | JavaScript | OSS | Bug bounty hunting framework to automate the reconnaissance in a WebUI |
+| [Ars0n Framework v2](https://github.com/R-s0n/ars0n-framework-v2) | JavaScript | OSS | Bug bounty hunting framework to automate the reconnaissance in a WebUI |
+| [Asnlookup](https://github.com/yassineaboukir/Asnlookup) | Python | OSS | Leverage ASN to look up IP addresses (IPv4 & IPv6) owned by a specific organization for reconna |
+| [AttackSurfaceMapper](https://github.com/superhedgy/AttackSurfaceMapper) | Python | OSS | Subdomain enumerator |
+| [AutoRecon](https://github.com/Tib3rius/AutoRecon) | Python | OSS | Multi-threaded network reconnaissance tool which performs automated enumeration of services |
+| [BBOT](https://github.com/blacklanternsecurity/bbot) | Python | OSS | OSINT framework; subdomain enumeration, port scanning, web screenshots, vulnerability scanning |
+| [Belati](https://github.com/aancw/Belati) | Python | OSS | OSINT tool, collect data and document actively or passively |
+| [Bitcrook](https://github.com/ax-i-om/bitcrook) | Go | OSS | Reconnaissance Apparatus; Information gathering, conglomerate of tools including custom algorit |
+| [Censys](https://search.censys.io/) |  | OSS | Search devices connected to the internet; helps find information about desktops, servers, IoT d |
+| [Certstream](https://certstream.calidog.io/) | Elixir | OSS | Intelligence feed that gives real-time updates from the Certificate Transparency Log network |
+| [DNSDumpster](https://dnsdumpster.com/) |  | OSS | Domain research tool that can discover hosts related to a domain |
+| [DNSRecon](https://github.com/darkoperator/dnsrecon) | Python | OSS | DNS reconnaissance tool: AXFR, DNS records enumeration, TLD expansion, wildcard resolution, sub |
+| [Darkshot](https://github.com/mxrch/darkshot) | Python | OSS | Lightshot scraper with multi-threaded OCR and auto categorizing screenshots |
+| [Domainim](https://github.com/pptx704/domainim) | Nim | OSS | Domain reconnaissance for organizational network scanning |
+| [EagleEye](https://github.com/ThoughtfulDev/EagleEye) | Python | OSS | Image recognition on instagram, facebook and twitter |
+| [Espionage](https://github.com/iAbdullahMughal/espionage) | Python | OSS | Domain information gathering: whois, history, dns records, web technologies, records |
+| [FOCA](https://github.com/ElevenPaths/FOCA) | Csharp | OSS | OSINT framework and metadata analyser |
+| [FULLHUNT](https://fullhunt.io/) |  | OSS | Search devices connected to the internet; helps find information about desktops, servers, IoT d |
+| [Facebook_OSINT_Dump](https://github.com/TheCyberViking/Facebook_OSINT_Dump) | Shell | OSS | OSINT tool, facebook profile dumper, windows and chrome only |
+| [FinalRecon](https://github.com/thewhiteh4t/FinalRecon) | Python | OSS | Web reconnaissance script |
+| [Findomain](https://github.com/Edu4rdSHL/findomain) | Rust | OSS | Fast subdomain enumerator |
+| [GHunt](https://github.com/mxrch/GHunt) | Python | OSS | Investigate Google accounts with emails and find name, usernames, Youtube Channel, probable loc |
+| [Geolocation Estimation](https://labs.tib.eu/geoestimation/) |  | OSS | Automatic GEOINT using deep learning |
+
+---
+
+## Password Cracking & Hash Analysis
+
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [BEWGor](https://github.com/berzerk0/BEWGor) | Python | OSS | Bull's Eye Wordlist Generator, password wordlist generator based on target information |
+| [Bopscrk](https://github.com/R3nt0n/bopscrk) | Python | OSS | Before Outset PaSsword CRacKing, password wordlist generator with exclusive features like lyric |
+| [CUPP](https://github.com/Mebus/cupp) | Python | OSS | Common User Passwords Profiler, wordlist generator based on user profiling |
+| [CeWL](https://github.com/digininja/CeWL) | Ruby | OSS | Custom wordlist generator based on website crawling |
+| [ComPP](https://github.com/sec-it/ComPP) | Python | OSS | Company Passwords Profiler helps making a bruteforce wordlist for a targeted company |
+| [CrackQ](https://github.com/f0cker/crackq) | Python | OSS | Hashcat cracking queue system, API and WebUI |
+| [CrackStation](https://crackstation.net/) | PHP | OSS | Pre-computed lookup tables to crack password hashes |
+| [Cracken](https://github.com/shmuelamar/cracken) | Rust | OSS | Password wordlist generator, Smartlist creation and password hybrid-mask |
+| [CrackerJack](https://github.com/ctxis/crackerjack) | Python | OSS | Hashcat WebUI; session management, mask generation, API, notifications, local and LDAP authenti |
+| [Cracklord](http://jmmcatee.github.io/cracklord/) | Go | OSS | Scalable, pluggable, and distributed system for hash cracking, supports Hashcat |
+| [Duplicut](https://github.com/nil0x42/duplicut) | C | OSS | Remove duplicates from massive wordlist, without sorting it (for dictionary-based password crac |
+| [Fitcrack](https://fitcrack.fit.vutbr.cz/) | C | OSS | Hashcat-based distributed password cracking system with WebUI |
+| [GAU](https://github.com/lc/gau) | Go | OSS | Fetch known URLs from AlienVault's Open Threat Exchange, the Wayback Machine, Common Crawl, and |
+| [GeoWordlists](https://github.com/p0dalirius/GeoWordlists) | Python | OSS | Generate wordlists of passwords containing cities at a defined distance around the client city |
+| [GoCrack](https://github.com/fireeye/gocrack) | Go | OSS | Management frontend for hash cracking tools, supporting hashcat |
+| [HashKitty](https://github.com/ScriptSathi/HashKitty) | TypeScript | OSS | Web interface for Hashcat |
+| [Hashcat](https://hashcat.net/hashcat/) | C | OSS | Hash cracking tool |
+| [Hashpass](https://github.com/dj-zombie/hashpass) | Ruby | OSS | Hashcat WebUI; queuing, local authentication, SMS and email notifications, map integration |
+| [Hashtopolis](https://github.com/s3inlc/hashtopolis) | PHP | OSS | Hashcat wrapper for distributed hashcracking |
+| [Hashview](http://www.hashview.io/) | Python | OSS | Web-UI for managing, organizing, automating Hashcat commands/tasks |
+
+---
+
+## Wireless Security
+
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [Aircrack-Ng](http://www.aircrack-ng.org/) | C | OSS | Suite of tools to assess WiFi network security (cracking WEP and WPA PSK) |
+| [BtleJack](https://github.com/virtualabs/btlejack) | Python | OSS | Bluetooth Low Energy Swiss-army knife |
+| [Crunch-Cracker](https://github.com/KURO-CODE/Crunch-Cracker) | Shell | OSS | Wordlist generator and Wi-Fi cracker |
+| [Fluxion](https://fluxionnetwork.github.io/fluxion/) | Shell | OSS | MITM WPA attack tool |
+| [FruityWiFi](https://github.com/xtr4nge/FruityWifi) | PHP | OSS | Wireless network auditing tool controlled by a web interface |
+| [Hijacker](https://github.com/chrisk44/Hijacker) | Java | OSS | Android GUI for Aircrack, Airodump, Aireplay, MDK3 and Reaver |
+| [Infernal-Wireless](https://github.com/entropy1337/infernal-twin) | Python | OSS | Automated wireless hacking tool  |
+| [Kismet](https://www.kismetwireless.net/) | CPlusPlus | OSS | Sniffer, WIDS, and wardriving tool for Wi-Fi, Bluetooth, Zigbee, RF |
+| [MDK3-master](https://github.com/wi-fi-analyzer/mdk3-master) | C | OSS | PoC tool to exploit common IEEE 802.11 protocol weaknesses |
+| [MDK4](https://github.com/aircrack-ng/mdk4) | C | OSS | PoC tool to exploit common IEEE 802.11 protocol weaknesses |
+| [Modmobjam](https://github.com/Synacktiv/Modmobjam) | Python | OSS | Cellular networks jamming PoC for mobile equipments |
+| [Modmobmap](https://github.com/Synacktiv/Modmobmap) | Python | OSS | Tool to retrieve information of cellular networks |
+| [Oasis](https://github.com/RCayre/oasis) | C | OSS | Framework allowing to write, build and patch instrumentation modules for Bluetooth Low Energy ( |
+| [QCSuper](https://github.com/P1sec/QCSuper) | Python | OSS | Communicate with Qualcomm-based phones and modems, allowing to capture raw 2G/3G/4G radio frame |
+| [RF Swift](https://github.com/penthertz/rf-swift) | Go | OSS | Toolbox for HAM radio enthusiasts and RF professionals |
+
+---
+
+## Binary Exploitation
+
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [ASLRay](https://github.com/cryptolok/ASLRay) | Shell | OSS | Tool for ASLR bypass with stack-spraying |
+| [ROPgadget](https://github.com/JonathanSalwan/ROPgadget) | Python | OSS | Framework for ROP exploitation |
+| [heaphopper](https://github.com/angr/heaphopper) | Python | OSS | Bounded model checking framework for Heap-implementations |
+| [libformatstr](https://github.com/hellman/libformatstr) | Python | OSS | Library to simplify format string exploitation |
+| [pwntools](https://github.com/Gallopsled/pwntools) | Python | OSS | Framework and exploit development library |
+| [pwntools-ruby](https://github.com/peter50216/pwntools-ruby) | Ruby | OSS | Framework and exploit development library, ported onto ruby |
+
+---
+
+## Steganography
+
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [Aperi'Solve](https://aperisolve.fr/) | Python | OSS | Steganalysis web platform with layer, zsteg, steghide and exiftool analysis |
+| [Audacity](http://www.audacityteam.org/) |  | OSS | Tool to edit and analyze audio tracks |
+| [Depix](https://github.com/spipm/Depix) | Python | OSS | Recover plaintext from pixelized screenshots |
+| [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/) | Perl | OSS | Library and CLI tool to read and write meta information (EXIF, GPS, IPTC, XMP, JFIF, …) in file |
+| [Exiv2](http://www.exiv2.org/index.html) | CPlusPlus | OSS | Library and CLI tool to read and write meta information (Exif, IPTC & XMP metadata and ICC Prof |
+| [ImageMagick](http://www.imagemagick.org) | C | OSS | Software suite and library to create, edit, compose, or convert images |
+| Outguess |  | OSS | Tool to hide messages in files (website down since 2004) |
+| [SHIT](https://github.com/qll/shit) | Python | OSS | Stego Helper Identification Tool, multi-purpose image steganography tool |
+| [SmartDeblur](https://github.com/Y-Vladimir/SmartDeblur) | CPlusPlus | OSS | To to restore defocused and blurred images (update binary only for Windows, Mac OS binary out o |
+| [Sonic Visualiser](http://www.sonicvisualiser.org/) |  | OSS | Tool to edit and analyze audio tracks |
+| [StegOnline](https://georgeom.net/StegOnline) | JavaScript | OSS | Stego image toolsuite in the browser |
+| StegSolve | Java | OSS | GUI tool to analyse images |
+
+---
+
+## Practice & Intentionally Vulnerable Applications
+
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [Bodhi](https://github.com/amolnaik4/bodhi) | Python | OSS | Client-side vulnerability playground, CTF style application, a bot program which simulates the  |
+| [Bust-A-Kube](https://www.bustakube.com/) | PHP | OSS | Intentionally-vulnerable Kubernetes cluster, intended to help people self-train on attacking an |
+| [DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | Python | OSS | Damn Vulnerable GraphQL Application, insecure webapp for GraphQL security trainings |
+| [DVIA](http://damnvulnerableiosapp.com/) | Swift | OSS | Damn Vulnerable iOS App, insecure webapp for mobile security trainings |
+| [DVWA](https://github.com/ethicalhack3r/DVWA) | PHP | OSS | Damn Vulnerable Web Application, insecure webapp for security trainings |
+| [Google Gruyere](http://google-gruyere.appspot.com) | Python | OSS | Codelab for white-box and black-box hacking |
+| [Hackazon](https://github.com/rapid7/hackazon) | PHP | OSS | Intentionally vulnerable web shopping application using modern technologies and containing conf |
+| [Metasploitable](https://github.com/rapid7/metasploitable3) |  | OSS | VM that is built from the ground up with a large amount of security vulnerabilities |
+| [OWASP Juice Shop](http://owasp-juice.shop) | JavaScript | OSS | Insecure web application with >85 challenges; supports CTFs, custom themes, tutorial mode etc. |
+| [OWASP Mutillidae II](https://www.owasp.org/index.php/OWASP_Mutillidae_2_Project) | PHP | OSS | Intentionally vulnerable web-application containing some OWASP Top Ten vulnerabilities, with hi |
+| [OWASP WebGoat](https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project) | Java | OSS | Deliberately insecure web application to teach web application security lessons |
+| [OopsSec Store](https://github.com/kOaDT/oss-oopssec-store) | JavaScript | OSS | Intentionally vulnerable e-commerce application built with Next.js and React, REST API, solutio |
+| [VAmPI](https://github.com/erev0s/VAmPI) | Python | OSS | Vulnerable REST API with OWASP top 10 vulnerabilities for security testing  |
+| [XVNA](https://github.com/vegabird/xvna) | JavaScript | OSS | Extreme Vulnerable Node Application, insecure webapp for security trainings |
+### Additional Reverse Engineering Tools
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [ANY RUN](https://any.run/) |  | OSS | Online virtual machine for malware hunting, sandbox with interactive access, real-time data-flo |
+| [Apk2Gold](https://github.com/lxdvs/apk2gold) | Shell | OSS | Android decompiler (wrapper for apktool, dex2jar, and jd-gui) |
+| [Apktool](https://ibotpeaches.github.io/Apktool/) | Java | OSS | Android disassembler and rebuilder |
+| [BOF launcher](https://github.com/The-Z-Labs/bof-launcher) | Zig | OSS | Beacon Object File (BOF) launcher; library for executing BOF files in C/C++/Zig applications |
+| [Barf](https://github.com/programa-stic/barf-project) | Python | OSS | Binary Analysis and Reverse engineering Framework |
+| [BinCAT](https://github.com/airbus-seclab/bincat) | OCaml | OSS | Binary code static analyser, with IDA integration; performs value and taint analysis, type reco |
+| [BinDiff](https://github.com/google/bindiff) | CPlusPlus | OSS | Binary diffing for many architectures compatible with IDA Pro, Binary Ninja and Ghidra |
+| [CFF Explorer](http://www.ntcore.com/exsuite.php) |  | OSS | PE Editor |
+| [Cerberus](https://github.com/h311d1n3r/Cerberus) | CPlusPlus | OSS | Unstrip Rust and Go binaries (ELF and PE) for static analysis; based on hashing and scoring sys |
+| [Cuckoo 3](https://github.com/cert-ee/cuckoo3) | Python | OSS | Python 3 port of Cuckoo, automated malware analysis system |
+| [Cutter](https://cutter.re/) | CPlusPlus | OSS | Qt and C++ GUI for rizin |
+| [DRAKVUF Sandbox](https://github.com/CERT-Polska/drakvuf-sandbox) | Python | OSS | Automated black-box hypervisor-level malware analysis system |
+### Additional Web Testing Tools
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [0d1n](https://github.com/CoolerVoid/0d1n) | C | OSS | Automate customized attacks against web applications |
+| [1u.ms](http:/1u.ms) | Go | OSS | zero-configuration DNS utilities for assisting in detection and exploitation of SSRF-related vu |
+| [230-OOB](http://xxe.sh/) | Python | OSS | FTP server for OOB XXE attacks |
+| [API-fuzzer](https://github.com/Fuzzapi/API-fuzzer) | Ruby | OSS | Library to fuzz request attributes using common pentesting techniques and lists vulnerabilities |
+| [Acunetix](https://www.acunetix.com/) |  | OSS | Web application security scanner |
+| [Afuzz](https://github.com/RapidDNS/Afuzz) | Python | OSS | Web directory and file scanner (wordlist bruteforce) |
+| [Aquatone](https://michenriksen.com/blog/aquatone-now-in-go/) | Go | OSS | Domain flyover tool; visual inspection of websites across a large amount of hosts and is conven |
+| [Arachni](http://www.arachni-scanner.com/) | Ruby | OSS | Web application security scanner framework |
+| [Arjun](https://github.com/s0md3v/Arjun) | Python | OSS | HTTP parameter discovery suite |
+| [AssassinGo](https://github.com/AmyangXYZ/AssassinGo) | Go | OSS | Web pentest framework for information gathering and vulnerability scanning |
+| [Astra](https://github.com/flipkart-incubator/astra) | Python | OSS | REST API penetration testing tool |
+| [Atlas](https://github.com/m4ll0k/Atlas) | Python | OSS | Tool that suggests sqlmap tampers to bypass WAF/IDS/IPS based on status codes |
+### Additional Threat Intelligence Tools
+| Tool | Language | Type | Description |
+|---|---|---|---|
+| [Hudson Rock Cybercrime Intelligence Tools](https://www.hudsonrock.com/threat-intelligence-cybercrime-tools) |  | OSS | Cybercrime intelligence toolset to check if a specific digital asset was compromised in global  |
+| [Intelligence X](https://intelx.io/) |  | OSS | Threat intelligence search engine: email addresses, domains, URLs, IPs, CIDRs, Bitcoin addresse |
+| [IsMalicious](https://ismalicious.com) |  | OSS | Malicious IP address and domain detection, classification and monitoring |
+| [Netglub](https://www.netglub.org/) |  | OSS | Maltego alternative |
+| [PatrowlHears](https://patrowlhears.io/) | Python | OSS | Provides a unified source of vulnerability, exploit and threat Intelligence feeds; comprehensiv |
+| [Pulsedive](https://pulsedive.com/) |  | OSS | CTI platform to search, scan, and enrich IPs, URLs, domains and other IOCs from OSINT feeds or  |
+| [Redirect Tracker](https://www.redirecttracker.com/) |  | OSS | Track the HTTP redirect chains; 301 and 302, JavaScript and Meta fresh redirects |
+| [ThreatIngestor](https://inquest.readthedocs.io/projects/threatingestor/) | Python | OSS | Extract and aggregate threat intelligence (IOCs from threat feeds) |
 ## Related Resources
 - [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — tools mapped to NIST controls and pipeline stages
 - [Controls Mapping](CONTROLS_MAPPING.md) — full vendor → NIST 800-53 → ATT&CK chain

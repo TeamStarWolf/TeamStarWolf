@@ -71,6 +71,7 @@
   - [Glossary](GLOSSARY.md)
   - [Threat Actors](THREAT_ACTORS.md)
   - [Starred Repositories](STARRED_REPOS.md)
+  - [Resources](RESOURCES.md)
   - [Book List](CYBERSECURITY_BOOK_LIST.md)
   - [YouTube Channels](YOUTUBE_CHANNELS.md)
   - [X / Twitter List](TWITTER_FOLLOW_LIST.md)

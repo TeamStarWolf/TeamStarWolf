@@ -1,0 +1,39 @@
+{
+  "name": "Vulnerability Management — Tenable + Qualys + Wiz",
+  "versions": {"attack": "13", "navigator": "4.9", "layer": "4.5"},
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage for vulnerability management and CSPM vendors: Tenable, Qualys, and Wiz. These tools primarily provide 'Identify' coverage — they detect exploitable conditions before attackers can use them. Coverage via NIST 800-53 controls RA-5, CM-8, SA-11, SI-2. Source: https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl",
+  "filters": {"platforms": ["Windows", "Linux", "macOS", "Cloud", "IaaS", "Containers"]},
+  "sorting": 0,
+  "layout": {"layout": "side", "aggregateFunction": "average", "showID": true, "showName": true, "showAggregateScores": false, "countUnscored": false, "expandedSubtechniques": "none"},
+  "hideDisabled": false,
+  "techniques": [
+    {"techniqueID": "T1190", "score": 1, "comment": "Tenable + Qualys + Wiz — RA-5: continuous scanning identifies exploitable public-facing vulnerabilities before attackers; reduces exploit window"},
+    {"techniqueID": "T1210", "score": 1, "comment": "Tenable + Qualys + Wiz — RA-5: exploitation of remote services prevented by identifying and remediating unpatched services"},
+    {"techniqueID": "T1068", "score": 1, "comment": "Tenable + Qualys + Wiz — RA-5/CM-8: local privilege escalation vulnerabilities identified and remediated before exploitation"},
+    {"techniqueID": "T1203", "score": 1, "comment": "Tenable + Qualys — RA-5: client-side exploitation vulnerabilities (browser, Office) identified via authenticated scanning"},
+    {"techniqueID": "T1195", "score": 1, "comment": "Wiz — CM-8: software supply chain vulnerabilities in container images and dependencies identified via CSPM/SCA scanning"},
+    {"techniqueID": "T1195.002", "score": 1, "comment": "Wiz + Qualys — Software Supply Chain compromise risk identified via SCA and container image scanning"},
+    {"techniqueID": "T1525", "score": 1, "comment": "Wiz — SA-11: implant in cloud image detected via cloud workload scanning and image integrity checks"},
+    {"techniqueID": "T1611", "score": 1, "comment": "Wiz — CM-8: container escape vulnerability identification in misconfigurations and CVEs"},
+    {"techniqueID": "T1552", "score": 1, "comment": "Wiz — RA-5: exposed credentials in cloud storage, environment variables, and metadata services identified via CSPM"},
+    {"techniqueID": "T1552.001", "score": 1, "comment": "Wiz — Credentials in Files: cloud storage and filesystem credential exposure detection"},
+    {"techniqueID": "T1552.005", "score": 1, "comment": "Wiz — Cloud Instance Metadata API: IMDS exposure and misconfigurations identified"},
+    {"techniqueID": "T1580", "score": 1, "comment": "Wiz + Tenable — RA-5/CM-8: cloud infrastructure discovery attack surface identified and reduced via asset inventory"},
+    {"techniqueID": "T1619", "score": 1, "comment": "Wiz — CM-8: cloud storage object discovery risks mitigated via bucket permission scanning"},
+    {"techniqueID": "T1078.004", "score": 1, "comment": "Wiz — AC-2/CM-8: over-privileged cloud accounts and service accounts identified via CIEM"},
+    {"techniqueID": "T1098.001", "score": 1, "comment": "Wiz — Additional Cloud Credentials: service account key exposure identified"}
+  ],
+  "gradient": {"colors": ["#ffffff00", "#a855f7ff"], "minValue": 0, "maxValue": 1},
+  "legendItems": [{"label": "Covered (Identify) by Tenable / Qualys / Wiz", "color": "#a855f7ff"}],
+  "metadata": [
+    {"name": "Vendors", "value": "Tenable, Qualys, Wiz"},
+    {"name": "Market Family", "value": "Risk & Vulnerability Management / Cloud Security"},
+    {"name": "Coverage Type", "value": "Identify (pre-compromise exposure reduction)"},
+    {"name": "Primary Controls", "value": "RA-5, CM-8, SA-11, SI-2"},
+    {"name": "Source", "value": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl"},
+    {"name": "Load in Navigator", "value": "https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/vuln_mgmt_tenable_qualys_wiz.json"}
+  ],
+  "showTacticRowBackground": false, "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": false, "selectSubtechniquesWithParent": false
+}

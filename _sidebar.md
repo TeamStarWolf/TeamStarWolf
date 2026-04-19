@@ -33,6 +33,8 @@
   - [Bug Bounty](disciplines/bug-bounty.md)
   - [Social Engineering](disciplines/social-engineering.md)
   - [Physical Security](disciplines/physical-security.md)
+  - [Threat Modeling](disciplines/threat-modeling.md)
+  - [OSINT](disciplines/osint.md)
 
 ---
 

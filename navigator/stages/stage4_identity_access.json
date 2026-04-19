@@ -1,0 +1,367 @@
+{
+  "name": "Stage 4 — Identity & Access Management",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "IAM, PAM, MFA, SSO, Conditional Access, JIT access controls",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM/PAM valid account controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "color": "#a855f7",
+      "comment": "Covered by PAM default account management",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM domain account controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM local account controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM cloud account controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by MFA and account lockout policies",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by MFA password guessing prevention",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by MFA password cracking prevention",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by Conditional Access password spraying detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by Conditional Access credential stuffing detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM authentication process integrity monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by PAM domain controller authentication monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM password filter monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by IAM MFA multi-factor authentication protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by PAM Kerberos ticket monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by PAM golden ticket detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by PAM Kerberoasting detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1558.004",
+      "tactic": "credential-access",
+      "color": "#a855f7",
+      "comment": "Covered by PAM AS-REP roasting detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "lateral-movement",
+      "color": "#a855f7",
+      "comment": "Covered by PAM alternate authentication material controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "color": "#a855f7",
+      "comment": "Covered by PAM pass the hash detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "color": "#a855f7",
+      "comment": "Covered by PAM pass the ticket detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM account manipulation monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM additional cloud credentials monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM exchange email delegate permissions monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM additional cloud roles monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM account creation controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM local account creation controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "color": "#a855f7",
+      "comment": "Covered by IAM domain account creation controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "color": "#a855f7",
+      "comment": "Covered by IAM account discovery monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "color": "#a855f7",
+      "comment": "Covered by IAM local account discovery monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "color": "#a855f7",
+      "comment": "Covered by IAM domain account discovery monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#a855f7"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by Stage 4 controls",
+      "color": "#a855f7"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

@@ -39,6 +39,8 @@
   - [IoT Security](disciplines/iot-security.md)
   - [Container & Kubernetes Security](disciplines/container-kubernetes-security.md)
   - [Cyber Risk Quantification](disciplines/cyber-risk-quantification.md)
+  - [Blockchain & Web3 Security](disciplines/blockchain-web3-security.md)
+  - [Security Awareness](disciplines/security-awareness.md)
 
 ---
 
@@ -63,6 +65,7 @@
 
 - **📖 Resources**
   - [IR Playbooks](IR_PLAYBOOKS.md)
+  - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)
   - [Glossary](GLOSSARY.md)
   - [Threat Actors](THREAT_ACTORS.md)
   - [Starred Repositories](STARRED_REPOS.md)

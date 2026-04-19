@@ -1,0 +1,203 @@
+{
+  "name": "Stage 1 — Governance, Risk & Compliance",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage from Stage 1: Governance, Risk & Compliance controls (NIST 800-53 PM/PL/CA/RA/SA families). GRC controls establish policy baselines, supply chain risk management, and compliance monitoring.",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Cloud",
+      "Containers",
+      "Network",
+      "IaaS",
+      "SaaS",
+      "Office Suite"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "SA-12: Supply Chain Risk Management; PM-30: Supply Chain Risk Management Strategy"
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "SA-12: Compromise Software Dependencies controlled via SCRM"
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "SA-12: Software supply chain integrity via SCRM policy"
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "SA-9: External System Services; vendor risk management"
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "AC-2: Account Management policy; periodic access reviews"
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "AC-2: Account Management policy; Joiner-Mover-Leaver process"
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "AC-2: Account Management; orphaned account cleanup"
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "AC-5/AC-6: Separation of Duties and Least Privilege policy"
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "RA-5: Vulnerability Scanning mandate; patch management policy"
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "RA-5: Vulnerability scanning controls lateral movement paths"
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "RA-5: Vulnerability management program identifies priv-esc vulns"
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "MP-2: Media Access; data classification policy; SC-28 enforcement"
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "IA-5: Authenticator Management policy; credential storage standards"
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "CP-9: System Backup; CP-10: System Recovery mandate"
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "CP-9/CP-10: Backup and recovery mandated by policy"
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "IR-4: Incident Handling policy addresses ransomware response"
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "CA-7: Continuous Monitoring policy; AU-9: Audit Log Protection"
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "AU-9: Protection of Audit Information; log retention policy"
+    },
+    {
+      "techniqueID": "T1565",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "SI-7: Software and Information Integrity policy"
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "CM-7: Least Functionality; application allowlist policy"
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e6fffa",
+      "#14b8a6"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "Score 1: Policy baseline",
+      "color": "#9de8df"
+    },
+    {
+      "label": "Score 2: Control family mandate",
+      "color": "#2dd4bf"
+    },
+    {
+      "label": "Score 3: SCRM / supply chain controls",
+      "color": "#14b8a6"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "stage",
+      "value": "Stage 1 — Governance, Risk & Compliance"
+    },
+    {
+      "name": "nist_families",
+      "value": "PM, PL, CA, RA, SA, CP, AU, AC, IA, SI"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+    }
+  ],
+  "links": [
+    {
+      "label": "Pipeline Stage 1",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/SECURITY_PIPELINE"
+    },
+    {
+      "label": "GRC Discipline Page",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/disciplines/governance-risk-compliance"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

@@ -1,132 +1,269 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="TeamStarWolf — A public cybersecurity resource library covering 14 disciplines, enterprise vendor landscape, ATT&CK coverage mapping, and NIST 800-53 control references.">
+
   <title>TeamStarWolf | Cybersecurity Resource Library</title>
+
   <link rel="icon" href="https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/_media/favicon.ico" type="image/x-icon">
+
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+
   <style>
+
     :root {
+
       --theme-color: #3b82f6;
+
       --sidebar-width: 280px;
+
     }
+
     .sidebar-toggle { color: var(--theme-color); }
+
     .app-name-link { font-weight: 700; font-size: 1.1em; }
+
     .search input { border-radius: 4px; }
+
     .markdown-section code { font-size: 0.88em; }
+
     .markdown-section table { display: table; width: 100%; }
+
     .markdown-section th { background: #1e293b; }
+
     .cover-main h1 { font-size: 3rem; font-weight: 800; }
+
     .cover-main blockquote p { font-size: 1.2rem; opacity: 0.85; }
+
   </style>
+
 </head>
+
 <body>
+
   <div id="app">Loading...</div>
+
   <script>
+
     window.$docsify = {
+
       name: '🐺 TeamStarWolf',
+
       nameLink: '/',
+
       repo: 'https://github.com/TeamStarWolf/TeamStarWolf',
+
       logo: '',
+
       loadSidebar: true,
+
       loadNavbar: true,
+
       coverpage: true,
+
       onlyCover: false,
+
       subMaxLevel: 3,
+
       auto2top: true,
+
       homepage: 'README.md',
+
       relativePath: false,
 
+
+
       search: {
+
         maxAge: 86400000,
+
         paths: [
+
           '/',
+
           '/README',
+
           '/SECURITY_PIPELINE',
+
           '/CONTROLS_MAPPING',
+
           '/COVERAGE_SCHEMA',
+
           '/CYBERSECURITY_BOOK_LIST',
+
           '/STARRED_REPOS',
+
           '/YOUTUBE_CHANNELS',
+
           '/TWITTER_FOLLOW_LIST',
+
           '/navigator/index',
+
           '/scores/coverage_gaps',
+
           '/research/BLACK_HAT_ARSENAL_CROSSWALK',
+
           '/disciplines/threat-intelligence',
+
           '/disciplines/detection-engineering',
+
           '/disciplines/incident-response',
+
           '/disciplines/offensive-security',
+
           '/disciplines/vulnerability-management',
+
           '/disciplines/cloud-security',
+
           '/disciplines/network-security',
+
           '/disciplines/malware-analysis',
+
           '/disciplines/ics-ot-security',
+
           '/disciplines/application-security',
+
           '/disciplines/ai-llm-security',
+
           '/disciplines/governance-risk-compliance',
+
           '/disciplines/digital-forensics',
+
           '/disciplines/security-architecture',
+
           '/disciplines/devsecops',
+
           '/disciplines/cryptography-pki',
+
           '/disciplines/supply-chain-security',
+
           '/disciplines/privacy-engineering',
+
           '/disciplines/identity-access-management',
+
           '/disciplines/security-operations',
+
           '/disciplines/data-security',
+
           '/disciplines/active-defense-deception',
+          '/disciplines/hardware-security',
+          '/disciplines/mobile-security',
+          '/disciplines/purple-teaming',
+          '/disciplines/bug-bounty',
+          '/CAREER_PATHS',
+
         ],
+
         placeholder: '🔍 Search tools, certs, vendors...',
+
         noData: 'No results for that query.',
+
         depth: 4,
+
         hideOtherSidebarContent: false,
+
       },
+
+
 
       pagination: {
+
         previousText: '← Previous',
+
         nextText: 'Next →',
+
         crossChapter: true,
+
         crossChapterText: true,
+
       },
+
+
 
       copyCode: {
+
         buttonText: 'Copy',
+
         errorText: 'Error',
+
         successText: 'Copied!',
+
       },
 
+
+
       plugins: [
+
         function(hook, vm) {
+
           hook.beforeEach(function(html) {
+
             var url = 'https://github.com/TeamStarWolf/TeamStarWolf/blob/main/' + vm.route.file;
+
             var editHtml = '> 📝 [Edit this page on GitHub](' + url + ')\n\n';
+
             return editHtml + html;
+
           });
+
         }
+
       ],
+
     };
+
   </script>
 
+
+
   <!-- Docsify core -->
+
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
 
+
+
   <!-- Search plugin -->
+
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
 
+
+
   <!-- Copy code button -->
+
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
 
+
+
   <!-- Pagination -->
+
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
+
+
   <!-- Syntax highlighting -->
+
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
 
+
+
   <!-- Tabs -->
+
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
 </body>
+
 </html>
+

@@ -50,6 +50,7 @@ A public resource library for the cybersecurity community.
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
 | [HTB Machine Index](research/HTB_MACHINE_INDEX.md) | 127 retired HackTheBox machines indexed by difficulty, OS, and skills learned |
+| [Resources](RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities |
 
 ---
 

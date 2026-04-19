@@ -1,6 +1,6 @@
 # ATT&CK Navigator — TeamStarWolf Coverage Layers
 
-Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage across ATT&CK techniques. All layers are sourced from the [TeamStarWolf edge tables](../data/) and [CTID NIST 800-53 R5 mappings](https://github.com/center-for-threat-informed-defense/attack-control-framework-mappings).
+Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage across ATT&CK techniques. All layers are sourced from the [TeamStarWolf edge tables](../data/) and [CTID NIST 580-53 R5 mappings](https://github.com/center-for-threat-informed-defense/attack-control-framework-mappings).
 
 ---
 
@@ -24,8 +24,11 @@ Live ATT&CK Enterprise heatmaps showing vendor and pipeline stage coverage acros
 | Layer | Stage | NIST Controls | Load |
 |---|---|---|---|
 | [Stage 2 — Identity & Access](stages/stage2_identity_access.json) | Identity & Access Management | IA-2, IA-5, AC-2, AC-3, AC-6 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage2_identity_access.json) |
-| [Stage 4 — Network & Boundary](stages/stage4_network_boundary.json) | Network & Boundary Defense | SC-7, SC-8, AC-17, SI-3, SI-8 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage4_network_boundary.json) |
+| [Stage 4 — Network & Boundary](stages/stage4_network_boundary.json) | Network & Boundary Defense | SC-7, SA-8, AC-17, SI-3, SI-8 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage4_network_boundary.json) |
 | [Stage 5 — Visibility & Detection](stages/stage5_visibility_detection.json) | Visibility, Detection & Operations | AU-2, AU-6, SI-3, SI-4 | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage5_visibility_detection.json) |
+| [Stage 1 — Governance & GRC](stages/stage1_governance_grc.json) | GRC policy controls (PM, PL, CA, RA, SA, CP) | 20 techniques | [↗ Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage1_governance_grc.json) |
+| [Stage 3 — Endpoint & Workload](stages/stage3_endpoint_workload.json) | EDR/AV/HIPS, process protection, ransomware prevention | 25 techniques | [↗ Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage3_endpoint_workload.json) |
+| [Stage 6 — Data & Cloud](stages/stage6_data_cloud.json) | DSPM/CSPM/DLP/CASB, cloud storage, exfil prevention | 20 techniques | [↗ Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/stages/stage6_data_cloud.json) |
 
 ---
 

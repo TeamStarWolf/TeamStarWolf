@@ -1,0 +1,307 @@
+{
+  "name": "Stage 2 — Network & Perimeter Security",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "NGFW, IDS/IPS, NDR, DNS security, network segmentation controls",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW/NDR",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW/NDR deep packet inspection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW file transfer protocol inspection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by DNS security controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW non-standard protocol blocking",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW remote access software control",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR exfiltration detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1048.001",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR encrypted channel exfiltration detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW unencrypted channel blocking",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW protocol tunneling detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW proxy detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW internal proxy blocking",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW external proxy detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW multi-hop proxy detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "color": "#3b82f6",
+      "comment": "Covered by NGFW external remote services control",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "color": "#3b82f6",
+      "comment": "Covered by IDS/IPS exploit detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR traffic signaling detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR network scanning detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR remote system discovery detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR network connections discovery detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "color": "#3b82f6",
+      "comment": "Covered by network segmentation configuration controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR C2 channel exfiltration detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1011",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR alternate medium exfiltration detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR automated exfiltration detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1030",
+      "tactic": "exfiltration",
+      "color": "#3b82f6",
+      "comment": "Covered by NDR data transfer size limit monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#3b82f6"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by Stage 2 controls",
+      "color": "#3b82f6"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

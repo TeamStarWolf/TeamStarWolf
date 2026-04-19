@@ -40,6 +40,10 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) | Risk frameworks, compliance programs, NIST CSF/800-53, ISO 27001, GRC tooling |
 | [Digital Forensics](disciplines/digital-forensics.md) | Disk, memory, and network forensics; evidence handling; DFIR methodology |
 | [Security Architecture](disciplines/security-architecture.md) | Zero Trust design, threat modeling, defense-in-depth, architectural frameworks |
+| [DevSecOps](disciplines/devsecops.md) | CI/CD pipeline security, SAST/DAST/SCA, IaC scanning, secrets detection | Semgrep, Trivy, Checkov, Gitleaks | Snyk, Checkmarx, Veracode | CSSLP, GCSA |
+| [Cryptography & PKI](disciplines/cryptography-pki.md) | Certificate lifecycle, key management, HSMs, TLS hardening, post-quantum prep | OpenSSL, step-ca, Vault, Cosign | Venafi, DigiCert, Entrust, Thales | CISSP, CPP |
+| [Supply Chain Security](disciplines/supply-chain-security.md) | SBOM generation, artifact signing, dependency security, SLSA framework | Syft, Grype, Cosign, in-toto | Chainguard, Snyk, JFrog Xray | CSSLP |
+| [Privacy Engineering](disciplines/privacy-engineering.md) | PII detection, data minimization, consent management, DSR automation, GDPR/CCPA | Presidio, ARX, OPA, Privado | OneTrust, BigID, Immuta | CIPP/E, CIPT |
 
 ---
 

@@ -51,6 +51,15 @@ A public resource library for the cybersecurity community.
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
 | [HTB Machine Index](research/HTB_MACHINE_INDEX.md) | 127 retired HackTheBox machines indexed by difficulty, OS, and skills learned |
 | [Resources](RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities |
+| [HTB Learning Tracks](research/HTB_TRACKS.md) | 45 curated HackTheBox learning tracks mapped to disciplines and certification paths |
+| [Interview Prep](INTERVIEW_PREP.md) | Common interview questions by role — SOC analyst, pentester, DFIR, cloud security, AppSec |
+| [Home Lab Setup](HOMELAB_SETUP.md) | Hardware, hypervisors, network architecture, and detection stacks for building a security lab |
+| [Pentest Checklists](PENTEST_CHECKLISTS.md) | Step-by-step checklists for external, internal, AD, web app, cloud, and post-exploitation testing |
+| [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
+| [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
+| [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
+| [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
+| [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
 
 ---
 
@@ -100,6 +109,14 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Cyber Risk Quantification](disciplines/cyber-risk-quantification.md) | FAIR methodology, Monte Carlo simulation, ALE/ROSI calculation, board-level risk communication |
 | [Blockchain & Web3 Security](disciplines/blockchain-web3-security.md) | Smart contract auditing, DeFi exploits, reentrancy, Slither/Echidna/Mythril, Ethernaut CTF |
 | [Security Awareness](disciplines/security-awareness.md) | Phishing simulation, behavior change programs, KnowBe4/GoPhish, human risk metrics |
+| [Active Directory Security](disciplines/active-directory.md) | AD attack paths, Kerberoasting, DCSync, BloodHound, defensive controls, and detection strategies |
+| [AI / ML Security](disciplines/ai-ml-security.md) | Adversarial ML, model inversion, data poisoning, MITRE ATLAS, and MLOps security |
+| [Exploit Development](disciplines/exploit-development.md) | Buffer overflows, ROP chains, heap exploitation, format strings, fuzzing, and CVE research |
+| [Penetration Testing](disciplines/penetration-testing.md) | Scoping, methodology, CVSS scoring, tooling by phase, and report structure |
+| [Red Teaming](disciplines/red-teaming.md) | APT simulation, C2 frameworks, payload evasion, infrastructure OPSEC, and engagement types |
+| [Reverse Engineering](disciplines/reverse-engineering.md) | x86/x64 assembly, static/dynamic analysis, anti-analysis bypasses, and platform-specific RE |
+| [SIEM & SOAR](disciplines/siem-soar.md) | SIEM architecture, SPL/KQL query writing, SOAR playbook design, and log source onboarding |
+| [Threat Hunting](disciplines/threat-hunting.md) | Hypothesis-driven hunting, ATT&CK-mapped procedures, Splunk/KQL queries, and maturity model |
 ---
 
 

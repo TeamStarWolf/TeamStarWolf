@@ -19,6 +19,10 @@
   - [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md)
   - [Digital Forensics](disciplines/digital-forensics.md)
   - [Security Architecture](disciplines/security-architecture.md)
+  - [DevSecOps](disciplines/devsecops.md)
+  - [Cryptography & PKI](disciplines/cryptography-pki.md)
+  - [Supply Chain Security](disciplines/supply-chain-security.md)
+  - [Privacy Engineering](disciplines/privacy-engineering.md)
 
 ---
 

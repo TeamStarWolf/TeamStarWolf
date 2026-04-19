@@ -35,6 +35,8 @@
   - [Physical Security](disciplines/physical-security.md)
   - [Threat Modeling](disciplines/threat-modeling.md)
   - [OSINT](disciplines/osint.md)
+  - [Zero Trust Architecture](disciplines/zero-trust-architecture.md)
+  - [IoT Security](disciplines/iot-security.md)
 
 ---
 

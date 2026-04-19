@@ -62,6 +62,7 @@
 ---
 
 - **📖 Resources**
+  - [IR Playbooks](IR_PLAYBOOKS.md)
   - [Glossary](GLOSSARY.md)
   - [Threat Actors](THREAT_ACTORS.md)
   - [Starred Repositories](STARRED_REPOS.md)

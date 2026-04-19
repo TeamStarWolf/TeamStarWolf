@@ -42,6 +42,7 @@
 
 - **🗺️ Career Paths**
   - [Career Paths & Cert Roadmap](CAREER_PATHS.md)
+  - [Certifications Reference](CERTIFICATIONS.md)
   - [Hands-On Labs](LABS.md)
 
 ---

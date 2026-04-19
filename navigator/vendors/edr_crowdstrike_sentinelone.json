@@ -1,48 +1,317 @@
 {
-  "name": "EDR — CrowdStrike Falcon + SentinelOne",
-  "versions": {"attack": "13", "navigator": "4.9", "layer": "4.5"},
+  "name": "EDR \u2014 CrowdStrike Falcon / SentinelOne / Carbon Black",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
   "domain": "enterprise-attack",
-  "description": "ATT&CK technique coverage for endpoint detection and response vendors CrowdStrike Falcon and SentinelOne. Coverage is derived from their NIST 800-53 control implementations (SI-3, SI-4, AU-2, CM-7, IR-4) mapped to ATT&CK techniques via CTID. Source: https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl",
-  "filters": {"platforms": ["Windows", "Linux", "macOS"]},
+  "description": "Endpoint Detection and Response coverage: process execution monitoring, memory scanning, behavioral ML, rollback capabilities",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
   "sorting": 0,
-  "layout": {"layout": "side", "aggregateFunction": "average", "showID": true, "showName": true, "showAggregateScores": false, "countUnscored": false, "expandedSubtechniques": "none"},
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
   "hideDisabled": false,
   "techniques": [
-    {"techniqueID": "T1059", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-3: NGAV + behavioral detection blocks/alerts on scripting interpreter abuse"},
-    {"techniqueID": "T1059.001", "score": 1, "comment": "CrowdStrike + SentinelOne — PowerShell execution detection and blocking"},
-    {"techniqueID": "T1059.003", "score": 1, "comment": "CrowdStrike + SentinelOne — Windows Command Shell detection"},
-    {"techniqueID": "T1059.004", "score": 1, "comment": "CrowdStrike + SentinelOne — Unix Shell execution detection"},
-    {"techniqueID": "T1055", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-3: process injection detection via kernel-level telemetry"},
-    {"techniqueID": "T1055.001", "score": 1, "comment": "CrowdStrike + SentinelOne — DLL injection detection"},
-    {"techniqueID": "T1055.002", "score": 1, "comment": "CrowdStrike + SentinelOne — Portable Executable injection"},
-    {"techniqueID": "T1055.012", "score": 1, "comment": "CrowdStrike + SentinelOne — Process Hollowing detection"},
-    {"techniqueID": "T1486", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-3: ransomware behavioral detection (mass file encryption, shadow copy deletion)"},
-    {"techniqueID": "T1566", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-3: malicious attachment/payload detection on endpoint after delivery"},
-    {"techniqueID": "T1566.001", "score": 1, "comment": "CrowdStrike + SentinelOne — spearphishing attachment payload detection"},
-    {"techniqueID": "T1046", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-4: network scanning activity detection from endpoint"},
-    {"techniqueID": "T1078", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-4: anomalous credential use, impossible travel, first-seen login detection"},
-    {"techniqueID": "T1098", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-4: account manipulation detection (new admin, MFA modification)"},
-    {"techniqueID": "T1190", "score": 1, "comment": "CrowdStrike + SentinelOne — IR-4: post-exploitation detection and containment after public-facing app exploit"},
-    {"techniqueID": "T1547", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-3: persistence mechanism detection (registry run keys, startup folder)"},
-    {"techniqueID": "T1547.001", "score": 1, "comment": "CrowdStrike + SentinelOne — Registry Run Keys / Startup Folder"},
-    {"techniqueID": "T1543", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-3: malicious service/process creation detection"},
-    {"techniqueID": "T1543.003", "score": 1, "comment": "CrowdStrike + SentinelOne — Windows Service creation detection"},
-    {"techniqueID": "T1053", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-4: scheduled task creation by unusual processes"},
-    {"techniqueID": "T1053.005", "score": 1, "comment": "CrowdStrike + SentinelOne — Scheduled Task detection"},
-    {"techniqueID": "T1562", "score": 1, "comment": "CrowdStrike + SentinelOne — SI-4: defense impairment detection (AV disable attempts, log clearing)"},
-    {"techniqueID": "T1562.001", "score": 1, "comment": "CrowdStrike + SentinelOne — Disable or Modify Tools detection"},
-    {"techniqueID": "T1490", "score": 1, "comment": "CrowdStrike + SentinelOne — IR-4: shadow copy deletion detection (pre-ransomware indicator)"},
-    {"techniqueID": "T1489", "score": 1, "comment": "CrowdStrike + SentinelOne — IR-4: service stop detection"}
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "Process execution monitoring detects malicious scripts",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "PowerShell script block logging via EDR telemetry",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "CMD execution monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "Python execution behavioral detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Process injection behavioral detection (hollowing, DLL injection)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "DLL injection via CreateRemoteThread detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Process hollowing detection via memory scanning",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "Scheduled task creation monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "Windows Task Scheduler abuse detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "color": "#ef4444",
+      "comment": "Registry run key and startup folder monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "color": "#ef4444",
+      "comment": "Registry run key persistence detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "color": "#ef4444",
+      "comment": "Credential dumping detection (LSASS access, SAM hive reads)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "color": "#ef4444",
+      "comment": "LSASS memory access detection (Mimikatz patterns)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Obfuscated payload detection via ML/behavioral engines",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Software packing/obfuscation detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Masquerading detection (process name spoofing)",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Match legitimate name or location detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1574",
+      "tactic": "persistence",
+      "color": "#ef4444",
+      "comment": "DLL search order hijacking detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "persistence",
+      "color": "#ef4444",
+      "comment": "DLL search order hijacking via EDR file monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Security tool tampering detection and prevention",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1562.001",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Security tool disabling / EDR self-protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "color": "#ef4444",
+      "comment": "Token impersonation and manipulation detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "color": "#ef4444",
+      "comment": "Token impersonation behavioral detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "color": "#ef4444",
+      "comment": "Valid account abuse detection via behavioral baseline",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "color": "#ef4444",
+      "comment": "Ransomware encryption behavior detection and rollback",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "color": "#ef4444",
+      "comment": "Shadow copy deletion via vssadmin/wmic detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    }
   ],
-  "gradient": {"colors": ["#ffffff00", "#ef4444ff"], "minValue": 0, "maxValue": 1},
-  "legendItems": [{"label": "Covered by CrowdStrike Falcon / SentinelOne", "color": "#ef4444ff"}],
-  "metadata": [
-    {"name": "Vendors", "value": "CrowdStrike Falcon, SentinelOne"},
-    {"name": "Market Family", "value": "SecOps / EDR"},
-    {"name": "Primary Controls", "value": "SI-3, SI-4, AU-2, CM-7, IR-4"},
-    {"name": "Source", "value": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl"},
-    {"name": "Load in Navigator", "value": "https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/edr_crowdstrike_sentinelone.json"}
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#ef4444"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by EDR \u2014 CrowdStrike Falcon / SentinelOne / Carbon Black",
+      "color": "#ef4444"
+    }
   ],
-  "showTacticRowBackground": false, "tacticRowBackground": "#dddddd",
-  "selectTechniquesAcrossTactics": false, "selectSubtechniquesWithParent": false
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
 }

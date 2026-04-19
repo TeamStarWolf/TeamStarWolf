@@ -106,3 +106,50 @@ Use these when you want to turn the reading list into a lab track.
 - Black Hat Arsenal is a discovery layer, not a quality ranking.
 - Some entries are older. Treat the dataset as a starting point, then verify project freshness and maintenance before relying on a tool.
 - When a tool has both a GitHub repo and a project page, prefer the project docs first and the repo second.
+
+---
+
+## Arsenal Tool Crosswalk
+
+> Mapping Black Hat USA/Europe/Asia Arsenal tools to TeamStarWolf discipline pages and MITRE ATT&CK techniques.
+
+Use this table to find Arsenal tools by discipline and ATT&CK technique coverage.
+
+| Tool | Arsenal Year | Category | Discipline Page | ATT&CK Techniques | Notes |
+|---|---|---|---|---|---|
+| Volatility 3 | BH USA 2020 | DFIR / Memory Forensics | [Digital Forensics](../disciplines/digital-forensics.md) | T1055, T1059, T1547 | Memory acquisition and analysis framework |
+| Hayabusa | BH USA 2022 | DFIR / Threat Hunting | [Digital Forensics](../disciplines/digital-forensics.md) | T1078, T1059, T1003 | Windows event log fast forensics |
+| Velociraptor | BH USA 2019 | DFIR / Endpoint | [Digital Forensics](../disciplines/digital-forensics.md) | T1059, T1078, T1003 | Endpoint visibility and DFIR collection |
+| FLOSS | BH USA 2016 | Malware Analysis | [Malware Analysis](../disciplines/malware-analysis.md) | T1027, T1059, T1140 | FireEye FLARE Obfuscated String Solver |
+| Semgrep | BH USA 2020 | AppSec / SAST | [DevSecOps](../disciplines/devsecops.md) | T1059, T1190, T1552 | Fast, customizable SAST for 30+ languages |
+| Trivy | BH USA 2021 | Container Security | [DevSecOps](../disciplines/devsecops.md) | T1190, T1195, T1552 | All-in-one container + IaC scanner |
+| Checkov | BH USA 2021 | IaC Security | [DevSecOps](../disciplines/devsecops.md) | T1190, T1068 | Infrastructure-as-Code policy scanner |
+| gitleaks | BH USA 2021 | Secrets Detection | [DevSecOps](../disciplines/devsecops.md) | T1552, T1552.001 | Git history secrets scanning |
+| KICS | BH USA 2022 | IaC Security | [DevSecOps](../disciplines/devsecops.md) | T1190, T1068 | Multi-IaC security scanner |
+| Falco | BH USA 2019 | Runtime Security | [DevSecOps](../disciplines/devsecops.md) | T1059, T1055, T1543 | CNCF runtime security for containers |
+| Cosign | BH USA 2022 | Supply Chain | [Supply Chain Security](../disciplines/supply-chain-security.md) | T1195.002, T1554 | Keyless container signing via Sigstore |
+| Syft | BH USA 2022 | Supply Chain / SBOM | [Supply Chain Security](../disciplines/supply-chain-security.md) | T1195, T1195.001 | SBOM generation for containers and filesystems |
+| in-toto | BH USA 2018 | Supply Chain | [Supply Chain Security](../disciplines/supply-chain-security.md) | T1195.002 | Software supply chain attestation framework |
+| Rekor | BH USA 2021 | Supply Chain | [Supply Chain Security](../disciplines/supply-chain-security.md) | T1195, T1554 | Immutable supply chain transparency log |
+| OpenBao | BH USA 2024 | Secrets Management | [Cryptography & PKI](../disciplines/cryptography-pki.md) | T1552, T1528 | Open-source Vault fork for secrets management |
+| step-ca | BH USA 2020 | PKI | [Cryptography & PKI](../disciplines/cryptography-pki.md) | T1557, T1040 | Private ACME CA with automated cert issuance |
+| testssl.sh | BH USA 2016 | TLS Testing | [Cryptography & PKI](../disciplines/cryptography-pki.md) | T1040, T1557 | Comprehensive TLS/SSL server testing |
+| Presidio | BH USA 2022 | Privacy / PII | [Privacy Engineering](../disciplines/privacy-engineering.md) | T1005, T1213 | Microsoft PII detection and anonymization |
+| ARX | BH Europe 2018 | Privacy / Anonymization | [Privacy Engineering](../disciplines/privacy-engineering.md) | T1005 | k-anonymity and data de-identification |
+| Wazuh | BH USA 2023 | SIEM / XDR | [Security Operations](../disciplines/security-operations.md) | T1078, T1059, T1003 | Open-source XDR and SIEM |
+| BloodHound | BH USA 2016 | Identity / AD | [Identity & Access Management](../disciplines/identity-access-management.md) | T1078, T1069, T1087 | Active Directory attack path analysis |
+| Impacket | BH USA 2012 | Network / AD | [Identity & Access Management](../disciplines/identity-access-management.md) | T1550, T1558, T1003 | Python framework for Windows network protocols |
+| Nuclei | BH USA 2021 | Vulnerability Scanning | [Vulnerability Management](../disciplines/vulnerability-management.md) | T1190, T1210 | Fast, template-based vulnerability scanner |
+| OpenVAS / GVM | BH USA 2005 | Vulnerability Scanning | [Vulnerability Management](../disciplines/vulnerability-management.md) | T1190, T1210 | Open-source network vulnerability scanner |
+| Zeek (Bro) | BH USA 2002 | Network Security | [Network Security](../disciplines/network-security.md) | T1040, T1071, T1048 | Network traffic analysis framework |
+| Suricata | BH USA 2010 | IDS/IPS | [Network Security](../disciplines/network-security.md) | T1071, T1048, T1090 | High-performance network IDS/IPS/NSM |
+| Burp Suite (community) | BH USA 2006 | Web AppSec | [Application Security](../disciplines/application-security.md) | T1190, T1059.007 | Web application proxy and scanner |
+| Metasploit (modules) | BH USA 2004 | Offensive / Pentesting | [Offensive Security](../disciplines/offensive-security.md) | T1190, T1068, T1059 | Exploitation framework |
+| OpenTitan | BH USA 2022 | Hardware Security | [Security Architecture](../disciplines/security-architecture.md) | T1542, T1495 | Open-source silicon root of trust |
+| OWASP Threat Dragon | BH USA 2019 | Threat Modeling | [Security Architecture](../disciplines/security-architecture.md) | — | Visual threat modeling tool |
+
+## Sources
+
+- [Black Hat Arsenal](https://www.blackhat.com/arsenal.html) — Official Arsenal archive
+- [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools) — Community-maintained Arsenal tool list
+- [MITRE ATT&CK](https://attack.mitre.org/) — Technique references

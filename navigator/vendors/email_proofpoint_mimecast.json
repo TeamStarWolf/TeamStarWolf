@@ -1,0 +1,36 @@
+{
+  "name": "Email Security — Proofpoint + Mimecast",
+  "versions": {"attack": "13", "navigator": "4.9", "layer": "4.5"},
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage for email security vendors Proofpoint and Mimecast. Coverage via NIST 800-53 controls SI-3, SI-8, SC-8, SC-26. Source: https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl",
+  "filters": {"platforms": ["Windows", "Linux", "macOS", "Office 365", "SaaS"]},
+  "sorting": 0,
+  "layout": {"layout": "side", "aggregateFunction": "average", "showID": true, "showName": true, "showAggregateScores": false, "countUnscored": false, "expandedSubtechniques": "none"},
+  "hideDisabled": false,
+  "techniques": [
+    {"techniqueID": "T1566", "score": 1, "comment": "Proofpoint + Mimecast — SI-3/SI-8: email gateway inspection, sandboxing, and URL rewriting prevent phishing delivery"},
+    {"techniqueID": "T1566.001", "score": 1, "comment": "Proofpoint + Mimecast — Spearphishing Attachment: sandbox detonation and file type blocking"},
+    {"techniqueID": "T1566.002", "score": 1, "comment": "Proofpoint + Mimecast — Spearphishing Link: URL rewriting, time-of-click analysis, and link sandboxing"},
+    {"techniqueID": "T1566.003", "score": 1, "comment": "Proofpoint + Mimecast — Spearphishing via Service: lookalike domain detection and impersonation protection"},
+    {"techniqueID": "T1598", "score": 1, "comment": "Proofpoint + Mimecast — SI-8: phishing-for-information emails detected via threat intelligence and sender reputation"},
+    {"techniqueID": "T1598.002", "score": 1, "comment": "Proofpoint + Mimecast — Spearphishing Attachment (recon): attachment-based credential harvesting detection"},
+    {"techniqueID": "T1598.003", "score": 1, "comment": "Proofpoint + Mimecast — Spearphishing Link (recon): link-based credential harvesting detection"},
+    {"techniqueID": "T1204", "score": 1, "comment": "Proofpoint + Mimecast — SI-3: user execution of malicious email content prevented by sandbox detonation before delivery"},
+    {"techniqueID": "T1204.001", "score": 1, "comment": "Proofpoint + Mimecast — Malicious Link execution prevention via URL rewriting"},
+    {"techniqueID": "T1204.002", "score": 1, "comment": "Proofpoint + Mimecast — Malicious File execution prevention via sandbox"},
+    {"techniqueID": "T1114", "score": 1, "comment": "Mimecast — SC-8: email content inspection and DLP detects email collection/forwarding rules"},
+    {"techniqueID": "T1114.003", "score": 1, "comment": "Mimecast — Email Forwarding Rules: suspicious auto-forward rule detection"},
+    {"techniqueID": "T1534", "score": 1, "comment": "Proofpoint + Mimecast — Internal Spearphishing: compromised internal account sending phishing detected via behavioral anomalies"}
+  ],
+  "gradient": {"colors": ["#ffffff00", "#f59e0bff"], "minValue": 0, "maxValue": 1},
+  "legendItems": [{"label": "Covered by Proofpoint / Mimecast", "color": "#f59e0bff"}],
+  "metadata": [
+    {"name": "Vendors", "value": "Proofpoint, Mimecast"},
+    {"name": "Market Family", "value": "Email Security"},
+    {"name": "Primary Controls", "value": "SI-3, SI-8, SC-8, SC-26"},
+    {"name": "Source", "value": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl"},
+    {"name": "Load in Navigator", "value": "https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/vendors/email_proofpoint_mimecast.json"}
+  ],
+  "showTacticRowBackground": false, "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": false, "selectSubtechniquesWithParent": false
+}

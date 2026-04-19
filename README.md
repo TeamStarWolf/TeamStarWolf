@@ -41,7 +41,7 @@ A public resource library for the cybersecurity community.
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
-| [Career Paths & Cert Roadmap](CAREER_PATHS.md) | Structured progression guides from entry-level to senior for 7 security career tracks |
+| [Career Paths](CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths |
 | [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications — cost, difficulty, DoD 8570, and who should pursue each |
 | [Hands-On Labs](LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |

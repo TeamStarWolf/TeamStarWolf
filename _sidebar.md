@@ -46,6 +46,7 @@
 
 - **🗺️ Coverage & Data**
   - [Enterprise Security Pipeline](SECURITY_PIPELINE.md)
+  - [Security Tools Reference](TOOLS.md)
   - [Controls Mapping](CONTROLS_MAPPING.md)
   - [Coverage Schema](COVERAGE_SCHEMA.md)
   - [Coverage Gap Analysis](scores/coverage_gaps.md)

@@ -1,0 +1,42 @@
+{
+  "name": "Stage 2 — Identity & Access Management",
+  "versions": {"attack": "13", "navigator": "4.9", "layer": "4.5"},
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage for Pipeline Stage 2: Identity & Access Management. Vendors: Microsoft Entra ID, Okta, CyberArk, BeyondTrust, Ping Identity, Zscaler. NIST controls: IA-2, IA-5, AC-2, AC-3, AC-6, IA-4. Source: TeamStarWolf Security Pipeline https://github.com/TeamStarWolf/TeamStarWolf/blob/main/SECURITY_PIPELINE.md",
+  "filters": {"platforms": ["Windows", "Linux", "macOS", "Azure AD", "SaaS", "Cloud"]},
+  "sorting": 0,
+  "layout": {"layout": "side", "aggregateFunction": "average", "showID": true, "showName": true, "showAggregateScores": false, "countUnscored": false, "expandedSubtechniques": "none"},
+  "hideDisabled": false,
+  "techniques": [
+    {"techniqueID": "T1078", "score": 1, "comment": "Stage 2 IAM — Entra ID + Okta: MFA, Conditional Access, identity risk scoring"},
+    {"techniqueID": "T1078.002", "score": 1, "comment": "Stage 2 IAM — Domain account protection via privileged identity management"},
+    {"techniqueID": "T1078.003", "score": 1, "comment": "Stage 2 PAM — CyberArk: local account vaulting and rotation"},
+    {"techniqueID": "T1078.004", "score": 1, "comment": "Stage 2 CIEM — Wiz/Entra: cloud account entitlement management"},
+    {"techniqueID": "T1110", "score": 1, "comment": "Stage 2 IAM — Entra ID + Okta: smart lockout, MFA, and password protection block brute force"},
+    {"techniqueID": "T1110.001", "score": 1, "comment": "Stage 2 IAM — Password guessing blocked by lockout + MFA"},
+    {"techniqueID": "T1110.003", "score": 1, "comment": "Stage 2 IAM — Password spraying detection"},
+    {"techniqueID": "T1110.004", "score": 1, "comment": "Stage 2 IAM — Credential stuffing blocked by MFA"},
+    {"techniqueID": "T1556", "score": 1, "comment": "Stage 2 IAM — Entra ID Conditional Access: authentication process modification detection"},
+    {"techniqueID": "T1556.006", "score": 1, "comment": "Stage 2 IAM — MFA modification detection"},
+    {"techniqueID": "T1621", "score": 1, "comment": "Stage 2 IAM — Entra ID + Okta: MFA push bombing detection, number matching"},
+    {"techniqueID": "T1098", "score": 1, "comment": "Stage 2 IAM — Account manipulation detection and alerting"},
+    {"techniqueID": "T1098.001", "score": 1, "comment": "Stage 2 IAM — Additional cloud credential detection"},
+    {"techniqueID": "T1098.003", "score": 1, "comment": "Stage 2 IAM — Cloud role assignment detection"},
+    {"techniqueID": "T1136", "score": 1, "comment": "Stage 2 IAM — Unauthorized account creation detection"},
+    {"techniqueID": "T1003", "score": 1, "comment": "Stage 2 PAM — CyberArk: credential dumping prevention via privileged session isolation"},
+    {"techniqueID": "T1068", "score": 1, "comment": "Stage 2 PAM — CyberArk: least privilege limits privilege escalation exploitation"},
+    {"techniqueID": "T1550.002", "score": 1, "comment": "Stage 2 PAM — CyberArk: Pass-the-Hash prevention"},
+    {"techniqueID": "T1558", "score": 1, "comment": "Stage 2 PAM — CyberArk: Kerberoasting mitigation via managed service account rotation"},
+    {"techniqueID": "T1558.003", "score": 1, "comment": "Stage 2 PAM — Kerberoasting: managed SPN password rotation"}
+  ],
+  "gradient": {"colors": ["#ffffff00", "#3b82f6ff"], "minValue": 0, "maxValue": 1},
+  "legendItems": [{"label": "Covered by Stage 2 — Identity & Access Management", "color": "#3b82f6ff"}],
+  "metadata": [
+    {"name": "Pipeline Stage", "value": "Stage 2 — Identity & Access Management"},
+    {"name": "NIST Controls", "value": "IA-2, IA-5, AC-2, AC-3, AC-6, IA-4"},
+    {"name": "Key Vendors", "value": "Microsoft Entra ID, Okta, CyberArk, BeyondTrust"},
+    {"name": "Pipeline Reference", "value": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/SECURITY_PIPELINE.md"}
+  ],
+  "showTacticRowBackground": false, "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": false, "selectSubtechniquesWithParent": false
+}

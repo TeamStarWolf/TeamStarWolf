@@ -1,0 +1,297 @@
+{
+  "name": "Identity \u2014 Okta / Microsoft Entra ID / CyberArk PAM",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Identity Provider, MFA, Conditional Access, Privileged Access Management, and UEBA coverage",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "color": "#8b5cf6",
+      "comment": "Valid account abuse detected by UEBA and impossible travel policies",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "defense-evasion",
+      "color": "#8b5cf6",
+      "comment": "Domain account abuse: Entra ID sign-in risk policies",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "defense-evasion",
+      "color": "#8b5cf6",
+      "comment": "Local account abuse: CyberArk PAM vaulting and session recording",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "defense-evasion",
+      "color": "#8b5cf6",
+      "comment": "Cloud account abuse: Okta / Entra ID risk-based Conditional Access",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Brute force detection via smart lockout and anomaly detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Password guessing: account lockout and velocity throttling",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Password cracking prevention via phishing-resistant MFA",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Password spraying detection via low-and-slow anomaly alerts",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Credential stuffing detection via leaked cred monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Authentication process modification: MFA enforcement prevents bypass",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Multi-factor authentication bypass mitigation via FIDO2",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Kerberos ticket attacks detected by Entra ID Identity Protection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Golden ticket: DC anomaly alerting and privileged session recording",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "color": "#8b5cf6",
+      "comment": "Kerberoasting: SPN enumeration detection via UEBA",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "lateral-movement",
+      "color": "#8b5cf6",
+      "comment": "Alternate authentication material: token theft detection via Entra ID",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "color": "#8b5cf6",
+      "comment": "Pass the hash: Conditional Access device compliance enforcement",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "color": "#8b5cf6",
+      "comment": "Pass the ticket: Kerberos anomaly detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "color": "#8b5cf6",
+      "comment": "Account manipulation detected: admin role change alerting",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "color": "#8b5cf6",
+      "comment": "Additional cloud credentials: Okta/Entra audit log alerting",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "color": "#8b5cf6",
+      "comment": "Additional email delegate permissions: audit and review",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "color": "#8b5cf6",
+      "comment": "Account creation: provisioning workflow enforcement and alerting",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "color": "#8b5cf6",
+      "comment": "Account discovery: privileged account enumeration detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "color": "#8b5cf6",
+      "comment": "Domain account discovery: LDAP query monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1484",
+      "tactic": "defense-evasion",
+      "color": "#8b5cf6",
+      "comment": "Domain policy modification: GPO change alerting",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#8b5cf6"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by Identity \u2014 Okta / Microsoft Entra ID / CyberArk PAM",
+      "color": "#8b5cf6"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

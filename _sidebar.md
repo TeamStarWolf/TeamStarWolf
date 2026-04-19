@@ -31,6 +31,8 @@
   - [Mobile Security](disciplines/mobile-security.md)
   - [Purple Teaming](disciplines/purple-teaming.md)
   - [Bug Bounty](disciplines/bug-bounty.md)
+  - [Social Engineering](disciplines/social-engineering.md)
+  - [Physical Security](disciplines/physical-security.md)
 
 ---
 

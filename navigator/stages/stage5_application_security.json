@@ -1,0 +1,317 @@
+{
+  "name": "Stage 5 — Application Security",
+  "versions": {
+    "attack": "13",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "SAST, DAST, SCA, WAF, API security, DevSecOps pipeline controls",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "Cloud",
+      "Containers",
+      "SaaS",
+      "IaaS",
+      "Office 365",
+      "Azure AD",
+      "Google Workspace"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by WAF and DAST exploit detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST/DAST scripting interpreter detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "color": "#f59e0b",
+      "comment": "Covered by WAF JavaScript injection prevention",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST process injection detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST dynamic-link library injection detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST process hollowing detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1505",
+      "tactic": "persistence",
+      "color": "#f59e0b",
+      "comment": "Covered by DAST server software component detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "color": "#f59e0b",
+      "comment": "Covered by WAF/DAST web shell detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1505.004",
+      "tactic": "persistence",
+      "color": "#f59e0b",
+      "comment": "Covered by DAST IIS components monitoring",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST deobfuscation/decode detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST obfuscated files detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST binary padding detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST software packing detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST steganography detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "color": "#f59e0b",
+      "comment": "Covered by DAST remote services exploitation detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1211",
+      "tactic": "defense-evasion",
+      "color": "#f59e0b",
+      "comment": "Covered by DAST defense evasion exploit detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1212",
+      "tactic": "credential-access",
+      "color": "#f59e0b",
+      "comment": "Covered by DAST credential access exploit detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "color": "#f59e0b",
+      "comment": "Covered by SAST/DAST client execution exploit detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by API security phishing delivery detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by API security spearphishing attachment detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by WAF spearphishing link detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by SCA supply chain compromise detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by SCA dependency compromise detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "color": "#f59e0b",
+      "comment": "Covered by SCA software supply chain compromise detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1176",
+      "tactic": "persistence",
+      "color": "#f59e0b",
+      "comment": "Covered by DevSecOps browser extension controls",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1104",
+      "tactic": "command-and-control",
+      "color": "#f59e0b",
+      "comment": "Covered by WAF/API security multi-stage channel detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": false
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#f59e0b"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "legendItems": [
+    {
+      "label": "Covered by Stage 5 controls",
+      "color": "#f59e0b"
+    }
+  ],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

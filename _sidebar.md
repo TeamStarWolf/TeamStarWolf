@@ -7,6 +7,7 @@
 - **📚 Disciplines**
   - [Active Defense & Deception](disciplines/active-defense-deception.md)
   - [Active Directory Security](disciplines/active-directory.md)
+  - [Adversarial AI Attacks](disciplines/adversarial-ai-attacks.md)
   - [AI & LLM Security](disciplines/ai-llm-security.md)
   - [AI / ML Security](disciplines/ai-ml-security.md)
   - [Application Security](disciplines/application-security.md)
@@ -22,6 +23,7 @@
   - [Digital Forensics](disciplines/digital-forensics.md)
   - [Exploit Development](disciplines/exploit-development.md)
   - [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md)
+  - [Hacker Hobbies & Community](disciplines/hacker-hobbies.md)
   - [Hardware Security](disciplines/hardware-security.md)
   - [ICS / OT Security](disciplines/ics-ot-security.md)
   - [Identity & Access Management](disciplines/identity-access-management.md)
@@ -36,6 +38,7 @@
   - [Physical Security](disciplines/physical-security.md)
   - [Privacy Engineering](disciplines/privacy-engineering.md)
   - [Purple Teaming](disciplines/purple-teaming.md)
+  - [Radio Frequency Security](disciplines/radio-frequency-security.md)
   - [Red Teaming](disciplines/red-teaming.md)
   - [Reverse Engineering](disciplines/reverse-engineering.md)
   - [Security Architecture](disciplines/security-architecture.md)
@@ -63,7 +66,9 @@
 
 - **🗺️ Coverage & Data**
   - [Enterprise Security Pipeline](SECURITY_PIPELINE.md)
+  - [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md)
   - [Security Tools Reference](TOOLS.md)
+  - [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md)
   - [Frameworks Reference](FRAMEWORKS.md)
   - [Controls Mapping](CONTROLS_MAPPING.md)
   - [Coverage Schema](COVERAGE_SCHEMA.md)
@@ -89,6 +94,7 @@
   - [Threat Actors](THREAT_ACTORS.md)
   - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)
   - [HTB Learning Tracks](research/HTB_TRACKS.md)
+  - [Conference Talks & Papers](research/CONFERENCE_TALKS.md)
   - [Resources](RESOURCES.md)
   - [Starred Repositories](STARRED_REPOS.md)
   - [Book List](CYBERSECURITY_BOOK_LIST.md)

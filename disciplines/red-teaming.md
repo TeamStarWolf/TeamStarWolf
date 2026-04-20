@@ -25,7 +25,7 @@ Red teaming differs fundamentally from penetration testing. A pentest is scoped,
 
 **Assumed Breach** — Operators are seeded with a foothold: a compromised endpoint, VPN credentials, or low-privilege domain account. Skips initial access to focus assessment time on post-exploitation, lateral movement, and detection capability. Most efficient model for organizations that have already tested initial access controls.
 
-**Purple Team** — Collaborative exercise where defenders observe attacks in real time. Red team announces each technique before executing it; blue team attempts detection. Produces a direct mapping of detection coverage and drives immediate tuning of SIEM rules and EDR policies. See also: [Purple Teaming](disciplines/purple-teaming.md).
+**Purple Team** — Collaborative exercise where defenders observe attacks in real time. Red team announces each technique before executing it; blue team attempts detection. Produces a direct mapping of detection coverage and drives immediate tuning of SIEM rules and EDR policies. See also: [Purple Teaming](purple-teaming.md).
 
 **Tabletop Exercise** — Scenario-based discussion with no actual attack execution. A facilitator walks an IR team through a realistic intrusion scenario and evaluates response decisions, escalation paths, and playbook quality. Low cost; high value for process validation and training.
 
@@ -62,7 +62,7 @@ Red team operations map across both the Lockheed Martin Cyber Kill Chain and the
 
 **5. Persistence** — Registry run keys, scheduled tasks, WMI subscriptions, implant staging in legitimate-looking paths, COM hijacking, service installation. Persistence is established before escalation to survive endpoint reboots and credential rotation.
 
-**6. Privilege Escalation** — Local privesc (token impersonation, service misconfiguration, AlwaysInstallElevated), Active Directory escalation (Kerberoasting, AS-REP Roasting, ADCS ESC attacks via Certipy, ACL abuse, DCSync). See: [Active Directory](disciplines/active-directory.md).
+**6. Privilege Escalation** — Local privesc (token impersonation, service misconfiguration, AlwaysInstallElevated), Active Directory escalation (Kerberoasting, AS-REP Roasting, ADCS ESC attacks via Certipy, ACL abuse, DCSync). See: [Active Directory](active-directory.md).
 
 **7. Defense Evasion** — AMSI patching, hardware breakpoint-based bypasses, EDR unhooking via direct/indirect syscalls, sleep obfuscation, process injection into trusted processes, LOLBins for execution proxy, stomping PE headers.
 
@@ -171,8 +171,8 @@ Self-signed certificates or stolen/leaked code-signing certificates are applied 
 
 ## Related Pages
 
-- [Offensive Security](disciplines/offensive-security.md) — broader offensive discipline including exploitation fundamentals
-- [Active Directory](disciplines/active-directory.md) — AD attack techniques in depth
-- [Penetration Testing](disciplines/penetration-testing.md) — scoped vulnerability testing methodology
+- [Offensive Security](offensive-security.md) — broader offensive discipline including exploitation fundamentals
+- [Active Directory](active-directory.md) — AD attack techniques in depth
+- [Penetration Testing](penetration-testing.md) — scoped vulnerability testing methodology
 - [HTB Tracks](research/HTB_TRACKS.md) — HackTheBox learning paths including red team content
 - [Pentest Checklists](PENTEST_CHECKLISTS.md) — phase-by-phase engagement checklists

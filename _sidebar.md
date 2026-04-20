@@ -92,6 +92,7 @@
 - **📖 Reference**
   - [Glossary](GLOSSARY.md)
   - [Threat Actors](THREAT_ACTORS.md)
+  - [Notable Incidents](NOTABLE_INCIDENTS.md)
   - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)
   - [HTB Learning Tracks](research/HTB_TRACKS.md)
   - [Conference Talks & Papers](research/CONFERENCE_TALKS.md)

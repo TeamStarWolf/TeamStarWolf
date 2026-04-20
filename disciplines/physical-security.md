@@ -1,170 +1,143 @@
 # Physical Security
 
-> Protecting physical assets, facilities, personnel, and systems from unauthorized physical access, theft, sabotage, and environmental threats. Physical access defeats all logical controls — a locked-down server is compromised the moment an attacker can touch it.
+Physical security is the discipline of protecting physical assets, facilities, people, and hardware from unauthorized access, theft, sabotage, and environmental threats. It bridges the gap between the digital and physical worlds — an attacker who can walk into a data center, clone a badge, or plug in a rogue device has bypassed virtually every logical control in place. Physical security professionals must think offensively (how would an adversary defeat our controls?) and defensively (what layers of protection make that defeat expensive and detectable?).
 
-Physical security is frequently underestimated in security programs that focus heavily on cyber controls. It covers the full range from perimeter fencing and access badges to environmental controls in data centers, and extends into physical penetration testing as a discipline. For security professionals, understanding physical security is essential both for designing layered defenses and for assessing physical attack surface during engagements.
+Physical security underpins every other security domain. Strong network segmentation means nothing if an attacker can unplug a server, and encryption is irrelevant if a drive can be physically removed. Understanding physical security is essential for penetration testers, red teamers, facility managers, and enterprise security architects alike.
 
----
+## Where to Start
 
-## Key Domains
+| Level | Description | Free Resource |
+|-------|-------------|---------------|
+| Beginner | Learn the fundamentals: access control categories (something you have, are, know), lock types, CCTV basics, visitor management, and why physical security matters in a layered security program | [CISA Physical Security Overview](https://www.cisa.gov/topics/physical-security) |
+| Intermediate | Dive into RFID/NFC technology (how HID cards work, ISO 14443/15693 standards), lock bypass techniques, alarm system architecture, and physical penetration testing methodology | [Deviant Ollam's Physical Security Talks (YouTube)](https://www.youtube.com/@DeviantOllam) |
+| Advanced | Master badge cloning with Proxmark3, OSDP protocol security, under-door tool techniques, multi-layer physical pen testing with full kill chain documentation, and integrating physical findings into enterprise risk reports | [DEF CON Physical Security Village Talks Archive](https://www.youtube.com/@DEFCONConference) |
 
-| Domain | Description |
-|---|---|
-| Access Control | Badge systems, biometrics, PIN pads, mantraps, and turnstiles controlling entry to facilities and zones |
-| Surveillance | CCTV, motion detection, video analytics, and security operations center (SOC) monitoring |
-| Perimeter Security | Fences, bollards, security guards, vehicle barriers, and lighting |
-| Environmental Controls | Fire suppression (halon, FM-200), UPS, HVAC, temperature/humidity monitoring |
-| Data Center Physical Security | Cage locks, server rack locks, tamper-evident seals, strict visitor escorting |
-| Lock Picking / Bypass | Techniques used by pen testers to defeat locks without keys — lock picking, bump keys, bypass tools |
-| RFID / Credential Systems | Badge technologies (HID, MIFARE) and their vulnerabilities to cloning attacks |
+## Free Training
 
----
+| Platform | URL | What You Learn |
+|----------|-----|----------------|
+| CISA Physical Security Resources | https://www.cisa.gov/topics/physical-security | Facility hardening, active shooter response, perimeter security principles |
+| DEF CON Physical Security Village | https://physec.village.defcon.org | Badge cloning, lock bypass, physical pen testing methodology |
+| DEF CON Lockpick Village | https://toool.us/deviant/ | Lock picking mechanics, practice locks, bypass tools |
+| Deviant Ollam YouTube | https://www.youtube.com/@DeviantOllam | Elevator hacking, door hardware attacks, physical pen test walkthroughs |
+| SANS Reading Room (Physical) | https://www.sans.org/reading-room/ | Research papers on physical security controls and threat scenarios |
+| Proxmark3 Community Wiki | https://github.com/Proxmark/proxmark3/wiki | RFID protocol analysis, card cloning, firmware usage |
+| TOOOL (The Open Organisation Of Lockpickers) | https://toool.us | Lock picking fundamentals, bypass techniques, hardware analysis |
 
-## Physical Penetration Testing Techniques
+## Tools & Repositories
 
-Physical pen testers assess whether unauthorized individuals can gain access to restricted areas or sensitive systems:
+| Tool | Description | Link |
+|------|-------------|-------|
+| Proxmark3 | Premier RFID research tool supporting HID, EM4100, MIFARE, iCLASS, and dozens of other card standards — used for reading, cloning, and analyzing RF cards | https://github.com/Proxmark/proxmark3 |
+| Flipper Zero | Portable multi-tool for RF, NFC, IR, iButton, GPIO, and BadUSB attacks; widely used in physical pen tests | https://github.com/flipperdevices/flipperzero-firmware |
+| RFIDler | Open-source HF/LF RFID and NFC research platform | https://github.com/ApertureLabsLtd/RFIDler |
+| Crapto1 | Implementation of the broken Crypto1 cipher used in MIFARE Classic cards; enables offline cracking of intercepted authentication sessions | https://github.com/RfidResearchGroup/proxmark3 |
+| ChameleonMini | RFID emulator and sniffer for NFC and ISO 14443/15693 cards, useful for relay attacks and emulation | https://github.com/emsec/ChameleonMini |
+| Lock Pick Training Boards (Sparrows) | Open-source cutaway lock designs for learning single pin picking | https://www.sparrowslockpicks.com |
+| UDT (Under-Door Tool) Designs | Community documentation of under-door lever manipulation tools | https://github.com/deviantollam/decoding |
+| Wiegand Attack Tools | Tools for intercepting and replaying Wiegand protocol signals from card readers | https://github.com/linklayer/wiegotcha |
+| GrayKey / Cellebrite (research refs) | Commercial forensic tools referenced in physical security research for device seizure scenarios | — |
 
-| Technique | Description |
-|---|---|
-| Lock Picking | Manipulating lock pins with picks and tension wrenches to open locks without keys |
-| Bump Keys | Using a specially cut key with impact to set pins and open pin tumbler locks |
-| RFID Cloning | Capturing and replaying badge RF signals using tools like Proxmark3 or Flipper Zero |
-| Tailgating / Piggybacking | Following authorized personnel through access-controlled doors |
-| Badge Cloning | Duplicating proximity cards or smart cards to gain unauthorized access |
-| Dumpster Diving | Recovering sensitive documents, credentials, or hardware from trash |
-| Shoulder Surfing | Observing screens, keyboards, or combination entries in proximity |
-| Device Implant Placement | Deploying rogue hardware (network implants, keyloggers, rogue APs) on-site |
-| Social Engineering (Physical) | Impersonating vendors, IT staff, or delivery personnel to gain entry |
+## Commercial Platforms
 
----
+| Platform | Description |
+|----------|-------------|
+| HID Global (Lenel / OnGuard) | Industry-leading access control hardware (cards, readers, controllers) and PACS software; most common enterprise badge system |
+| Software House / CCURE 9000 | Enterprise access control and video management platform widely deployed in large facilities |
+| Lenel S2 | Cloud-connected PACS with mobile credential support and deep integration with HR and IT systems |
+| Genetec Security Center | Unified physical security platform combining access control, video surveillance, and ALPR |
+| Bosch Building Technologies | Enterprise-grade intrusion detection, video, and access control systems |
+| Verkada | Cloud-managed enterprise cameras, access control, and environmental sensors with centralized management |
+| Envoy / Proxyclick | Visitor management systems that register and badge guests, integrate with PACS, and log access |
+| Allegion (Schlage) | Commercial-grade electronic locks, including wireless locks and mobile credential readers |
+| Identiv / Hirsch | PACS and credential systems with strong government and defense market presence |
+| Stanley Security | Comprehensive physical security integrator offering cameras, alarms, and access control |
 
-## Defensive Controls
+## NIST 800-53 Control Alignment
 
-Physical defense follows the same defense-in-depth principle as cyber security — multiple layers that an attacker must defeat sequentially:
+| Control | Family | Relevance |
+|---------|--------|-----------|
+| PE-1 | Physical and Environmental Protection | Policy and procedures governing physical access to facilities |
+| PE-2 | Physical and Environmental Protection | Physical access authorizations — who is permitted where |
+| PE-3 | Physical and Environmental Protection | Physical access control enforcement at entry points — locks, card readers, guards |
+| PE-4 | Physical and Environmental Protection | Access control for transmission medium — physical protection of cable runs and patch panels |
+| PE-5 | Physical and Environmental Protection | Access control for output devices — printers, fax, displays with sensitive data |
+| PE-6 | Physical and Environmental Protection | Monitoring physical access — CCTV, guard logs, access logs reviewed regularly |
+| PE-8 | Physical and Environmental Protection | Visitor access records — maintaining and reviewing visitor logs |
+| PE-9 | Physical and Environmental Protection | Power equipment and cabling — protecting utility infrastructure from tampering |
+| PE-11 | Physical and Environmental Protection | Emergency power — UPS and generator controls |
+| PE-13 | Physical and Environmental Protection | Fire protection systems — suppression and detection |
+| PE-17 | Physical and Environmental Protection | Alternate work site physical protection requirements |
+| PE-20 | Physical and Environmental Protection | Asset monitoring and tracking — asset tags, RF-based inventory systems |
 
-**Layered Physical Defense Model**:
-`Perimeter → Building → Floor → Room → Rack / Device`
+## ATT&CK Coverage
 
-| Control | Description |
-|---|---|
-| Mantraps / Airlocks | Double-door entry systems that prevent tailgating — only one person enters per authentication |
-| Visitor Management | Sign-in, photo ID verification, escort requirements, and visitor logs |
-| Clean Desk Policy | Requiring employees to clear desks of sensitive material when not in use |
-| Screen Lock Enforcement | Auto-lock policies and physical privacy screens on displays |
-| Cable Locks | Physical tethering of laptops and workstations to desks or fixtures |
-| Tamper-Evident Seals | Seals on server chassis, cables, and enclosures that reveal interference |
-| CCTV with Retention | Video surveillance with adequate retention for forensic investigation |
-| Security Guards | Human patrol and response capability — first responders to physical incidents |
-| Environmental Monitoring | Sensors for temperature, humidity, smoke, water intrusion, and power |
-
----
-
-## NIST 800-53 Controls
-
-| Control | Name | Relevance |
-|---|---|---|
-| PE-2 | Physical Access Authorizations | Maintains a current list of individuals authorized physical access to facilities |
-| PE-3 | Physical Access Control | Controls entry and exit points using authentication mechanisms |
-| PE-6 | Monitoring Physical Access | Reviews physical access logs and investigates anomalies |
-| PE-9 | Power Equipment and Cabling | Protects power equipment and distribution cabling from damage and unauthorized access |
-| PE-11 | Emergency Power | Provides short-term UPS and long-term alternate power for critical systems |
-| PE-17 | Alternate Work Site | Establishes security controls for personnel working at alternate locations |
-| MA-5 | Maintenance Personnel | Controls physical access for maintenance personnel and escorts as required |
-
----
-
-## MITRE ATT&CK Coverage
-
-| Technique ID | Name | Notes |
-|---|---|---|
-| T1200 | Hardware Additions | Placing rogue devices — USB implants, network taps, keyloggers — requiring physical access |
-| T1091 | Replication Through Removable Media | Spreading malware via USB or other removable media introduced physically |
-| T1052 | Exfiltration over Physical Medium | Removing data via physical media or devices rather than network channels |
-
-**ICS ATT&CK**: Physical security failures in industrial environments can lead to direct manipulation of physical processes — ICS ATT&CK covers physical process manipulation as a final-stage impact.
-
-Physical intrusions also enable **Initial Access** (ATT&CK TA0001) — once inside, attackers may connect implants to internal networks, access unattended workstations, or steal hardware.
-
----
-
-## Tooling
-
-### RFID and Badge Tools
-
-| Tool | Purpose |
-|---|---|
-| Proxmark3 | Professional RFID research and cloning tool — reads, emulates, and clones HID and MIFARE cards |
-| ChameleonMini | Open-source RFID emulator for NFC/RFID credential testing |
-| Flipper Zero | Multi-tool device — RFID, NFC, infrared, sub-GHz, iButton, and GPIO in one portable unit |
-
-### Lock Picking Resources
-
-| Resource | Notes |
-|---|---|
-| Sparrows | Quality practice lock sets and picks used by security professionals |
-| TOOOL (The Open Organisation Of Lockpickers) | Community organization promoting lock sport and physical security research |
-| Practice Locks | Transparent and progressive practice locks for developing picking technique |
-
-### Surveillance Platforms
-
-| Tool | Type | Notes |
-|---|---|
-| Shinobi | Open source | Self-hosted video management system (VMS) |
-| ZoneMinder | Open source | Linux-based video surveillance and monitoring platform |
-| Verkada | Commercial | Cloud-managed physical security platform — cameras, access control, sensors |
-| Axis | Commercial | Enterprise IP camera and video analytics platform |
-
-### Physical Access Control Systems (PACS)
-
-| System | Notes |
-|---|---|
-| Lenel OnGuard | Enterprise PACS widely deployed in large facilities |
-| Software House C-CURE | Competitor PACS platform — common in corporate and government environments |
-| Genetec Security Center | Unified security platform combining PACS, VMS, and analytics |
-| HID Global | Leading manufacturer of credential and reader technology |
-
----
-
-## Standards and Frameworks
-
-| Standard / Framework | Scope |
-|---|---|
-| ASIS International | Leading professional association for physical security — publishes standards and the PSP/CPP certifications |
-| NIST SP 800-116 | Guidelines for using PIV (Personal Identity Verification) credentials for physical access |
-| IEC 62443 | Industrial cybersecurity standard — includes physical security requirements for ICS/OT environments |
-| PCI DSS | Payment Card Industry standard — includes physical requirements for cardholder data environments (Requirement 9) |
-| ISO 27001 Annex A.11 | Physical and environmental security controls within the ISO 27001 ISMS framework |
-
----
+| Technique ID | Name | Tactic | Relevance |
+|-------------|------|--------|-----------|
+| T1200 | Hardware Additions | Initial Access | Rogue devices (keyloggers, implants, network taps) plugged in during physical access |
+| T1091 | Replication Through Removable Media | Initial Access / Lateral Movement | Dropping infected USB drives; payload delivery via physical media |
+| T1052 | Exfiltration Over Physical Medium | Exfiltration | Removing data via USB drives, hard drives, or optical media physically carried out |
+| T1078 | Valid Accounts | Defense Evasion / Persistence | Using cloned/stolen badges or credentials obtained through physical access |
+| T1056.002 | Input Capture: Port Monitors | Collection | Hardware keyloggers installed during brief physical access |
+| T1025 | Data from Removable Media | Collection | Accessing sensitive data from drives removed from systems |
+| T1074.001 | Data Staged: Local Data Staging | Collection | Aggregating data to removable media before physical exfil |
+| T1601 | Modify System Image | Defense Evasion | Firmware or hardware implants installed with direct physical access |
+| T1495 | Firmware Corruption | Impact | Destructive firmware attacks possible only with physical device access |
+| T1485 | Data Destruction | Impact | Physical destruction of drives, systems, or backup media |
 
 ## Certifications
 
-| Certification | Issuer | Relevance |
-|---|---|---|
-| PSP (Physical Security Professional) | ASIS International | Dedicated physical security credential — assessment, implementation, and management |
-| CPP (Certified Protection Professional) | ASIS International | Broad security management credential covering physical, personnel, and information security |
-| Security+ | CompTIA | Covers physical security controls as part of general security foundations |
-| CEH (Certified Ethical Hacker) | EC-Council | Includes physical attack techniques in its pen testing curriculum |
-| CPTE | Mile2 | Physical security as part of broader penetration testing curriculum |
-
----
+| Certification | Issuer | Level | Notes |
+|--------------|--------|-------|-------|
+| CPP — Certified Protection Professional | ASIS International | Advanced | Gold standard for physical security management; covers risk, threat assessment, and program management |
+| PSP — Physical Security Professional | ASIS International | Intermediate | Focused on physical security surveys, design, and implementation |
+| APP — Associate Protection Professional | ASIS International | Entry | Entry-level ASIS credential for those new to physical security |
+| CPOI — Certified Protection Officer Instructor | IFPO | Intermediate | Instructor-level credential for security officer programs |
+| CPO — Certified Protection Officer | IFPO | Entry | Foundational credential for security officers |
+| CPTED Certification | CPTED Security | Intermediate | Crime Prevention Through Environmental Design — architectural security |
+| CompTIA Security+ (Physical Domain) | CompTIA | Entry | Covers physical controls as part of broader security+ objectives |
 
 ## Learning Resources
 
-- **Organization**: ASIS International (asisonline.org) — standards, certification, and professional community for physical security
-- **Practitioner**: Deviant Ollam — leading physical pen tester; presentations at DEF CON and Black Hat on lock bypass, access control failures, and physical assessments
-- **YouTube**: LockPickingLawyer (LPL) — the most accessible resource for understanding lock vulnerabilities and picking technique
-- **Community**: TOOOL (toool.us) — The Open Organisation Of Lockpickers; chapters, resources, and lock sport events
-- **Conference**: DEF CON Physical Security Village — hands-on lockpicking, talks, and physical pen testing competitions
-- **Conference**: DEF CON — Gringo Warrior physical pen test competition
-- **Book**: Deviant Ollam — *Practical Lock Picking* — the standard technical reference for physical pen testers
+| Resource | Type | Notes |
+|----------|------|-------|
+| *Practical Lock Picking* — Deviant Ollam | Book | The definitive guide to lock picking; covers theory, tools, and technique |
+| *The Art of Intrusion* — Kevin Mitnick | Book | Real-world case studies of physical intrusions, social engineering, and access bypass |
+| *The Art of Deception* — Kevin Mitnick | Book | Social engineering and physical pretexting methodology |
+| *Low Tech Hacking* — Jack Wiles | Book | Physical security threats in enterprise environments |
+| *ASIS Physical Security Handbook* | Reference | Comprehensive reference aligned to CPP/PSP exam content |
+| DEF CON Physical Security Village Talks | Video | Annual conference talks on badge cloning, lock bypass, and facility pentesting |
+| Deviant Ollam — "It's the Little Things" Series | Video | Deep dives into door hardware vulnerabilities |
+| NIST SP 800-116 | Standard | PIV card and reader deployment guidance for federal facilities |
+| OSDP (SIA Open Supervised Device Protocol) | Standard | Modern access control wiring protocol; review for replay and manipulation vulnerabilities |
+| Proxmark3 RDV4 Documentation | Documentation | Official docs for the most capable open-source RFID research tool |
 
----
+## Physical Penetration Testing Methodology
+
+A physical penetration test follows a structured kill chain:
+
+1. **Reconnaissance** — Open-source intelligence: Google Maps satellite/Street View, Shodan for exposed cameras (search `has_screenshot:true`), LinkedIn for employee names and badge photos, company website for office locations and photos that reveal badge designs, access reader models, and security posture.
+2. **Pretext Development** — Building a believable cover story (IT contractor, vendor, delivery, fire marshal inspection) with supporting props (uniforms, ID holders, lanyards, clipboards, fake work orders).
+3. **Badge Cloning** — Using Proxmark3 or Flipper Zero at close range (e.g., in a crowded elevator) to read a victim's HID Prox, HID iCLASS, or EM4100 card and write a clone. iCLASS SE and SEOS cards require additional credential attacks.
+4. **Lock Bypass** — Single pin picking (SPP), raking, bump keys, shims on padlocks, under-door tools (UDT) to manipulate lever handles, door gap tools (latch shims), loiding (credit card shimming), and REX (Request to Exit) sensor manipulation by sliding tools under doors to trigger motion-based door releases.
+5. **Entry and Objective** — Tailgating/piggybacking through mantrap or turnstile, accessing server rooms, network closets, or executive offices, installing hardware implants or retrieving sensitive material.
+6. **Evidence Collection and Exfiltration** — Photographing evidence, copying data to USB, and physically removing items per scope.
+7. **Reporting** — Documenting each bypass method with photos, timestamps, and video; mapping findings to NIST PE controls and business risk; recommending specific remediations.
+
+## RFID/NFC Attack Detail
+
+- **HID Prox (125 kHz LF)**: No authentication; trivially cloned with Proxmark3 or Flipper Zero at 5–10 cm range. Extremely common in older deployments.
+- **HID iCLASS (13.56 MHz HF)**: Early versions cracked using the iCLASS master key (publicly known since 2012). iCLASS SE and iCLASS Seos offer genuine cryptographic protection but are more expensive.
+- **MIFARE Classic**: Uses the broken Crypto1 stream cipher. Vulnerable to nested authentication attacks and offline cracking with Crapto1. Widely deployed in parking, transit, and some enterprise PACS.
+- **NFC Relay Attacks**: Using two devices (one near victim, one near reader) to relay an authentication session in real time — bypasses distance-based security assumptions.
+- **OSDP Protocol**: Open Supervised Device Protocol (RS-485) is the modern standard for reader-to-controller communication. Unlike Wiegand (no encryption, no authentication), OSDP v2 supports AES-128 encryption, but many deployments leave it unconfigured.
 
 ## Related Disciplines
 
-- [Hardware Security](hardware-security.md) — Physical access is the primary enabler of hardware attacks — implants, JTAG, and side-channel attacks require physical proximity
-- [ICS / OT Security](ics-ot-security.md) — Physical security of industrial facilities is critical — physical access to OT systems can cause real-world process disruption
-- [Social Engineering](social-engineering.md) — Tailgating, impersonation, and pretexting are social engineering techniques with direct physical access objectives
-- [Offensive Security](offensive-security.md) — Physical pen testing is a component of comprehensive red team and penetration testing engagements
-- [Governance, Risk & Compliance](governance-risk-compliance.md) — Physical security controls are required by PCI DSS, HIPAA, ISO 27001, and NIST frameworks
+- [Social Engineering](social-engineering.md)
+- [Red Teaming](red-teaming.md)
+- [Penetration Testing](penetration-testing.md)
+- [Hardware Security](hardware-security.md)
+- [Identity Access Management](identity-access-management.md)
+- [Security Awareness](security-awareness.md)
+- [OSINT](osint.md)

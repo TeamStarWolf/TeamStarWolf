@@ -12,9 +12,9 @@ Anchor on the intelligence cycle before anything else — it provides the framew
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
-| Foundation | Intelligence cycle, indicator types (IOC/TTP), STIX/TAXII basics, MITRE ATT&CK threat group profiles, source evaluation | MITRE ATT&CK website, MISP community docs, Recorded Future University (free), SANS CTI Summit talks (YouTube) |
-| Practitioner | Platform operation (MISP/OpenCTI), threat actor profiling, campaign tracking, pivot techniques, feed curation and deduplication | OpenCTI deployment labs, MISP Galaxy documentation, Hatching Triage community, CISA advisories |
-| Advanced | Intelligence program design, adversary emulation alignment, deception operations, attribution methodology, fusion center integration | SANS FOR578 previews (YouTube), CrowdStrike/Mandiant annual reports, CTID publications |
+| Foundation | Intelligence cycle, indicator types (IOC/TTP), STIX/TAXII basics, MITRE ATT&CK threat group profiles, source evaluation | [MITRE ATT&CK website](https://attack.mitre.org), [MISP community docs](https://www.misp-project.org/documentation/), [Recorded Future University (free)](https://university.recordedfuture.com), [SANS CTI Summit talks (YouTube)](https://www.youtube.com/@SansInstitute) |
+| Practitioner | Platform operation (MISP/OpenCTI), threat actor profiling, campaign tracking, pivot techniques, feed curation and deduplication | [OpenCTI deployment labs](https://docs.opencti.io), [MISP Galaxy documentation](https://github.com/MISP/misp-galaxy), [Hatching Triage community](https://tria.ge), [CISA advisories](https://www.cisa.gov/news-events/cybersecurity-advisories) |
+| Advanced | Intelligence program design, adversary emulation alignment, deception operations, attribution methodology, fusion center integration | [SANS FOR578 previews (YouTube)](https://www.youtube.com/@SansInstitute), [CrowdStrike annual Global Threat Report](https://www.crowdstrike.com/global-threat-report/), [Mandiant M-Trends](https://www.mandiant.com/m-trends), [CTID publications](https://ctid.mitre-engenuity.org/) |
 
 ---
 
@@ -82,6 +82,43 @@ Open-source tools cover analyst workflows well, but enterprise TI programs typic
 
 ---
 
+## NIST 800-53 Control Alignment
+
+Threat intelligence programs support and are supported by multiple [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) control families. CTI is not a standalone compliance control — it is the operational input that makes other controls more effective and targeted.
+
+| Control Family | Control ID(s) | Threat Intelligence Application |
+|---|---|---|
+| Risk Assessment (RA) | RA-3, RA-10 | Threat intelligence informs risk assessments by providing adversary context: which threat actors target your sector, what techniques they use, and which assets they prioritize — turning generic risk ratings into adversary-informed risk priorities |
+| Risk Assessment (RA) | RA-5, RA-5(2) | Vulnerability intelligence: correlating CVE severity with active exploitation evidence from CTI feeds; prioritizing patches based on adversary tooling observed in campaigns |
+| Incident Response (IR) | IR-4, IR-8 | Intelligence-driven IR: threat actor TTPs inform IR playbook design; CTI platforms provide campaign context during active incidents to accelerate scope determination and attacker eviction |
+| System and Information Integrity (SI) | SI-5 | Security alerts and advisories: government CTI (CISA, MS-ISAC) and commercial feeds provide advance warning of exploitation campaigns; SI-5 requires organizations to receive and act on this intelligence |
+| Planning (PL) | PL-7, PL-8 | Concept of operations for security: CTI-informed threat models inform security architecture decisions and guide defensive prioritization at the program planning level |
+| Program Management (PM) | PM-9, PM-16 | Threat awareness program: formal CTI program supports enterprise risk management and provides threat context for the supply chain risk management program |
+| Supply Chain Risk Management (SR) | SR-6, SR-8 | Supply chain intelligence: monitoring for adversary targeting of software supply chains, tracking vulnerability disclosures in third-party components, and receiving threat notifications for critical supplier relationships |
+| Audit and Accountability (AU) | AU-6 | Audit review informed by CTI: threat intelligence drives the prioritization of log review and correlation; SIEM rules are tuned against known adversary TTPs rather than generic anomaly thresholds |
+| Configuration Management (CM) | CM-4 | Security impact analysis: CTI on exploitation techniques for specific vulnerabilities informs the risk analysis of unpatched configurations and prioritizes remediation urgency |
+
+---
+
+## ATT&CK Coverage
+
+Threat intelligence practitioners use the [MITRE ATT&CK framework](https://attack.mitre.org) as the primary language for describing, tracking, and communicating adversary behavior. The CTI use case is not just mapping techniques — it is tracking which groups use which techniques and translating that into detection priorities and adversary emulation plans.
+
+| Technique | ID | How Threat Intelligence Addresses It |
+|---|---|---|
+| Phishing | [T1566](https://attack.mitre.org/techniques/T1566/) | CTI tracks phishing kit evolution, lure themes per threat actor, and infrastructure patterns; enables proactive blocking of phishing domains before campaigns hit the inbox |
+| Valid Accounts: Domain Accounts | [T1078.002](https://attack.mitre.org/techniques/T1078/002/) | Credential compromise intelligence from dark web monitoring; breach correlation against internal account lists; early warning when employee credentials appear in stealer log dumps |
+| Command and Scripting Interpreter | [T1059](https://attack.mitre.org/techniques/T1059/) | Malware family TTPs inform detection rule development; knowing which interpreter a threat actor prefers (PowerShell vs. WMI vs. Python) drives targeted detection engineering |
+| Exfiltration Over C2 Channel | [T1041](https://attack.mitre.org/techniques/T1041/) | C2 infrastructure tracking; domain reputation feeds; threat actor C2 framework profiling enables network-level blocking before exfiltration occurs |
+| Supply Chain Compromise | [T1195](https://attack.mitre.org/techniques/T1195/) | Software supply chain intelligence: tracking adversary targeting of open-source repositories, managed service providers, and build pipelines; SolarWinds and 3CX attacks were supply chain CTI events |
+| Exploit Public-Facing Application | [T1190](https://attack.mitre.org/techniques/T1190/) | Vulnerability exploitation intelligence: CTI feeds track active exploitation of CVEs, often before vendor patches are available; enables emergency mitigations and hunting for compromise indicators |
+| Lateral Movement via Remote Services | [T1021](https://attack.mitre.org/techniques/T1021/) | Threat actor playbook analysis reveals preferred lateral movement techniques; CTI-informed detection rules target the specific tool combinations known adversaries use |
+| Data Encrypted for Impact (Ransomware) | [T1486](https://attack.mitre.org/techniques/T1486/) | Ransomware group tracking: monitoring RaaS affiliate activity, negotiation site intelligence, leak site monitoring; early warning on campaigns targeting specific sectors or geographies |
+| Trusted Relationship | [T1199](https://attack.mitre.org/techniques/T1199/) | Third-party and MSP compromise intelligence: tracking adversary exploitation of managed service provider access to pivot into customer environments |
+| Gather Victim Identity Information | [T1589](https://attack.mitre.org/techniques/T1589/) | Open source intelligence (OSINT) monitoring for adversary reconnaissance against your organization; dark web monitoring for leaked employee data, org charts, and internal documentation |
+
+---
+
 ## Books & Learning
 
 | Book | Author | Why Read It |
@@ -137,3 +174,14 @@ Open-source tools cover analyst workflows well, but enterprise TI programs typic
 - [Lockheed Martin Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) — The original kill chain paper; foundational framework for structuring TI around adversary operations
 - [TAXII 2.1 Specification](https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html) — The standard transport mechanism for STIX-based intelligence sharing
 - [CrowdStrike Adversary Universe](https://adversary.crowdstrike.com) — Free publicly accessible threat actor profiles with ATT&CK mappings and campaign descriptions
+
+---
+
+## Related Disciplines
+
+- [detection-engineering.md](detection-engineering.md) — Threat intelligence is the fuel that powers detection engineering: CTI-derived TTPs translate directly into Sigma rules, YARA signatures, and SIEM correlation logic; the best detection programs are threat-informed, meaning detections are built against the specific techniques of adversaries most likely to target the organization
+- [incident-response.md](incident-response.md) — CTI and IR are tightly coupled operational disciplines: during an active incident, threat intelligence provides campaign context that accelerates attacker identification, scope determination, and eviction; post-incident, IR findings feed back into the intelligence cycle as new adversary data
+- [vulnerability-management.md](vulnerability-management.md) — Threat intelligence transforms vulnerability management from CVSS-score-driven prioritization to exploitation-evidence-driven prioritization; knowing which CVEs are actively exploited by specific adversary groups enables risk-ranked patching that matches actual threat exposure
+- [cloud-security.md](cloud-security.md) — Cloud-targeted threat groups (Scattered Spider, APT29 targeting Azure, UNC3944) require cloud-specific CTI; understanding adversary techniques for abusing cloud IAM, storage, and compute helps cloud security teams prioritize which misconfigurations to fix first
+- [identity-access-management.md](identity-access-management.md) — Credential theft, AiTM phishing, and MFA fatigue campaigns are the dominant initial access technique for many tracked adversary groups; CTI on these campaigns drives IAM control prioritization and phishing-resistant MFA adoption timelines
+- [governance-risk-compliance.md](governance-risk-compliance.md) — Threat intelligence informs risk register entries with adversary-contextualized likelihood ratings; CTI outputs feed the threat model that underpins enterprise risk assessments and compliance program scoping decisions

@@ -87,6 +87,43 @@ Incident response demands operating system internals knowledge before the forens
 
 ---
 
+## NIST 800-53 Control Alignment
+
+NIST SP 800-53 governs IR program structure in U.S. federal environments and sets the baseline for FedRAMP, FISMA, and CMMC compliance. The IR-related controls define the minimum capabilities an organization must demonstrate: a documented IR capability, trained personnel, tested plans, and a process for incorporating lessons learned. This is the governance framework IR practitioners must understand when operating in or selling to regulated sectors.
+
+| Control ID | Control Name | How Incident Response Addresses It |
+|---|---|---|
+| [IR-1](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-1) | Incident Response Policy and Procedures | The IR policy and plan document satisfies IR-1; establishes the organizational commitment to IR capability and the procedures for executing it |
+| [IR-2](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-2) | Incident Response Training | IR team training programs, tabletop exercises, and practitioner certification satisfy IR-2; training must be role-based and include simulated exercises |
+| [IR-3](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-3) | Incident Response Testing | Tabletop exercises, red team exercises, and simulated incident drills satisfy IR-3; the requirement to actually test — not just document — the IR plan |
+| [IR-4](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-4) | Incident Handling | The core IR control: requires an incident handling capability covering preparation, detection, analysis, containment, eradication, and recovery; maps directly to the NIST SP 800-61 incident lifecycle |
+| [IR-5](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-5) | Incident Monitoring | SIEM, EDR, and continuous monitoring programs satisfy IR-5; requires tracking and documenting incidents throughout their lifecycle |
+| [IR-6](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-6) | Incident Reporting | Requires reporting incidents to organizational authorities and US-CERT/CISA within defined timeframes; incident ticket systems and escalation procedures satisfy this control |
+| [IR-7](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-7) | Incident Response Assistance | SOAR platforms, IR retainers (Mandiant, CrowdStrike), and CISA coordination satisfy IR-7; requires external IR assistance resources |
+| [IR-8](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-8) | Incident Response Plan | The documented IR plan including scope, roles, communication procedures, and escalation paths satisfies IR-8; must be reviewed and updated annually |
+| [AU-6](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=AU-6) | Audit Record Review, Analysis, and Reporting | Log analysis and SIEM correlation during IR satisfy AU-6; requires reviewing audit logs for indicators of attack and inappropriate activity |
+| [SI-4](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SI-4) | System Monitoring | EDR, NDR, and SIEM monitoring tools that generate IR alerts satisfy SI-4; the detection capability that triggers the IR process |
+
+---
+
+## ATT&CK Coverage
+
+Incident response is most effective when analysts can map observed behaviors to ATT&CK techniques in real time. This mapping allows responders to predict attacker next steps, identify what evidence to collect, and understand the full scope of an intrusion rather than chasing individual IOCs. MITRE ATT&CK was largely designed by practitioners who build these mental models during investigations.
+
+| Technique | ID | How Incident Response Addresses It |
+|---|---|---|
+| Initial Access (all sub-techniques) | [TA0001](https://attack.mitre.org/tactics/TA0001/) | First-response forensics determines how attackers entered: email logs for phishing, web server logs for T1190, VPN logs for valid accounts; correctly identifying initial access prevents reinfection after remediation |
+| Persistence | [TA0003](https://attack.mitre.org/tactics/TA0003/) | IR analysts hunt for persistence mechanisms — scheduled tasks, registry run keys, WMI subscriptions, cron jobs, startup items — to ensure complete eradication; missing a persistence mechanism means the attacker returns after remediation |
+| Defense Evasion | [TA0005](https://attack.mitre.org/tactics/TA0005/) | Memory forensics and process analysis detect evasion techniques like process injection (T1055), timestomping (T1070.006), and log clearing (T1070.001); understanding evasion techniques determines what evidence is trustworthy |
+| Credential Access | [TA0006](https://attack.mitre.org/tactics/TA0006/) | Credential dumping artifacts (LSASS memory dumps, SAM database access, DCSync events) are key IR evidence; scope of credential compromise determines password reset requirements across the environment |
+| Lateral Movement | [TA0008](https://attack.mitre.org/tactics/TA0008/) | Network forensics (Zeek logs, Windows Security Event 4624/4625, SMB logs) maps attacker movement between systems; critical for scoping the incident and identifying all affected hosts |
+| Collection | [TA0009](https://attack.mitre.org/tactics/TA0009/) | File access logs, cloud storage API logs, and DLP telemetry identify data staging and collection before exfiltration; determines what data was compromised for breach notification decisions |
+| Exfiltration | [TA0010](https://attack.mitre.org/tactics/TA0010/) | Network traffic analysis, DNS logs, and proxy logs identify data leaving the environment; critical for breach notification scope determination and regulatory reporting |
+| Command and Control | [TA0011](https://attack.mitre.org/tactics/TA0011/) | C2 infrastructure identification through network forensics (JA3/JA3S fingerprinting, Zeek SSL logs, DNS queries) enables containment and IOC extraction; blocking C2 is often the first containment action |
+| Impact | [TA0040](https://attack.mitre.org/tactics/TA0040/) | Ransomware deployment (T1486), data destruction (T1485), and service disruption (T1489) are the terminal IR scenarios; rapid identification of impact scope drives recovery prioritization and business continuity decisions |
+
+---
+
 ## Books & Learning
 
 | Book | Author | Why Read It |
@@ -95,6 +132,24 @@ Incident response demands operating system internals knowledge before the forens
 | The Art of Memory Forensics | Ligh, Case, Levy, Walters | The definitive memory forensics reference; covers Volatility, Windows/Linux/macOS memory structures, and malware detection in memory; required reading for DFIR practitioners |
 | Incident Response & Computer Forensics (3rd ed.) | Luttgens, Pepe, Mandia | Mandia's foundational IR textbook covering process, methodology, and technical analysis; the standard reference in university and enterprise training programs |
 | Digital Forensics with Open Source Tools | Altheide & Carvey | Practical open-source forensics workflows covering disk, registry, log, and network artifact analysis with free tooling |
+
+---
+
+## Learning Resources
+
+| Type | Resource | Notes |
+|---|---|---|
+| Standard | [NIST SP 800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) | The federal IR standard defining the four-phase lifecycle (Preparation, Detection & Analysis, Containment/Eradication/Recovery, Post-Incident Activity); free and authoritative |
+| Framework | [MITRE ATT&CK](https://attack.mitre.org) | Adversary behavior taxonomy; mapping observed TTPs to ATT&CK during an investigation produces structured threat intelligence and reveals attacker intent |
+| Playbooks | [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks) | Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable templates for non-government organizations |
+| Tool | [Velociraptor Documentation](https://docs.velociraptor.app) | The most capable free IR platform; covers deployment, VQL artifact queries, and remote forensic collection at enterprise scale |
+| Tool | [Eric Zimmerman Tools](https://ericzimmerman.github.io) | The complete collection of Windows forensic tools with documentation; required bookmark for every Windows DFIR analyst |
+| Tool | [Volatility 3 Documentation](https://volatility3.readthedocs.io) | Complete plugin reference and analysis methodology for the industry-standard memory forensics framework |
+| Reference | [SANS DFIR Posters](https://www.sans.org/posters/?focus-area=digital-forensics) | Free reference cards covering Windows artifact locations, memory forensics workflow, and evidence collection procedures; printable field references |
+| Blog | [The DFIR Report](https://thedfirreport.com) | Real-world intrusion timelines from actual ransomware and APT incidents; the best free resource for understanding what investigations actually look like |
+| Course | [13Cubed YouTube](https://www.youtube.com/@13Cubed) | Free, deeply technical Windows forensics and DFIR video content; covers artifact analysis with real examples |
+| Course | [Blue Team Labs Online](https://blueteamlabs.online) | Hands-on investigation challenges covering log analysis, memory forensics, and realistic threat scenarios |
+| Community | [DFIR.training](https://dfir.training) | Aggregator of DFIR training resources, tools, and certifications maintained by the community |
 
 ---
 
@@ -140,3 +195,17 @@ Incident response demands operating system internals knowledge before the forens
 - [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks) — Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable for non-government organizations
 - [Eric Zimmerman Tools](https://ericzimmerman.github.io) — The complete collection of Windows forensic tools; required bookmark for every Windows DFIR analyst
 - [Velociraptor Documentation](https://docs.velociraptor.app) — The most capable free IR platform; documentation covers deployment, VQL queries, and IR artifact collection at scale
+
+---
+
+## Related Disciplines
+
+Incident response sits at the intersection of nearly every security discipline. During an active incident, IR teams call on capabilities across the entire security program — and every other team should feed context into the investigation.
+
+- [threat-intelligence.md](threat-intelligence.md) — Threat intelligence transforms raw IOCs into structured adversary context during an investigation; knowing that a C2 IP belongs to a specific threat actor group immediately expands the scope of investigation to include that actor's known TTPs; post-incident, the findings feed back as new threat intelligence
+- [security-operations.md](security-operations.md) — SOC analysts are the first line of detection that triggers IR; the quality of detection content (SIEM rules, EDR detections, alert tuning) directly determines dwell time before an incident is declared; the SOC and IR team operate as a continuous loop where IR findings drive new detection logic
+- [vulnerability-management.md](vulnerability-management.md) — Post-incident root cause analysis almost always reveals an unpatched vulnerability or misconfiguration as the initial access vector; IR findings should automatically feed VM remediation priorities; VM data (which hosts have critical unpatched CVEs) helps IR teams scope the blast radius during an active investigation
+- [digital-forensics.md](digital-forensics.md) — Forensics is the technical core of incident investigation; IR defines the process and coordination while DFIR practitioners provide the artifact acquisition, analysis, and evidence preservation skills that make investigations defensible in legal proceedings
+- [malware-analysis.md](malware-analysis.md) — Malware encountered during incidents (ransomware encryptors, backdoors, loaders, credential stealers) must be analyzed to understand capabilities, persistence mechanisms, and C2 protocols; malware analysis findings directly improve detection signatures and inform the scope of compromise
+- [cloud-security.md](cloud-security.md) — Cloud IR requires fundamentally different skills and tools from on-premises IR; cloud providers (AWS, Azure, GCP) have specific forensic capabilities (CloudTrail, Azure Activity Logs, Cloud Audit Logs) and limitations (ephemeral compute, shared responsibility boundaries) that IR practitioners must understand before an incident occurs
+- [devsecops.md](devsecops.md) — Software supply chain incidents (compromised CI/CD pipelines, malicious dependencies, build system breaches) require IR teams to investigate developer infrastructure that traditional IR playbooks do not cover; DevSecOps practitioners provide critical context about pipeline architecture, artifact provenance, and deployment processes during these investigations

@@ -283,7 +283,7 @@ Prioritize log sources by detection value per ingestion cost. Endpoint and authe
 
 ## Related Disciplines
 
-- [Detection Engineering](disciplines/detection-engineering.md) — Detection logic authoring, Sigma, rule validation, and detection-as-code pipelines that feed SIEM platforms
-- [Security Operations](disciplines/security-operations.md) — SOC structure, analyst workflows, and the operational context in which SIEM and SOAR are used daily
-- [Threat Hunting](disciplines/threat-hunting.md) — Proactive hypothesis-driven hunting using SIEM data beyond what automated alerting surfaces
+- [Detection Engineering](detection-engineering.md) — Detection logic authoring, Sigma, rule validation, and detection-as-code pipelines that feed SIEM platforms
+- [Security Operations](security-operations.md) — SOC structure, analyst workflows, and the operational context in which SIEM and SOAR are used daily
+- [Threat Hunting](threat-hunting.md) — Proactive hypothesis-driven hunting using SIEM data beyond what automated alerting surfaces
 - [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) — Quick-reference index of detection rules and event IDs used across the curriculum

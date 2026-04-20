@@ -28,6 +28,144 @@ A public resource library for the cybersecurity community.
 
 
 
+---
+
+
+
+
+## Table of Contents
+
+<details>
+<summary><strong>Reference Files</strong></summary>
+
+| File | Description |
+|---|---|
+| [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping |
+| [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component in the enterprise |
+| [Security Tools Reference](TOOLS.md) | 100+ tools organized by category |
+| [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | OSS security tools and bookmarks by discipline |
+| [Frameworks Reference](FRAMEWORKS.md) | NIST CSF, ISO 27001, PCI DSS, CMMC, GDPR, and 10+ frameworks |
+| [Controls Mapping](CONTROLS_MAPPING.md) | Vendor → NIST 800-53 → ATT&CK cross-reference |
+| [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring model, JSON schemas, Python scoring functions |
+| [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions |
+
+</details>
+
+<details>
+<summary><strong>Threat Intelligence & Incidents</strong></summary>
+
+| File | Description |
+|---|---|
+| [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors |
+| [Notable Incidents](NOTABLE_INCIDENTS.md) | Historic hacks, Sandworm, ransomware campaigns, and recent events |
+| [Malware Families](MALWARE_FAMILIES.md) | Ransomware, RATs, APT tools, rootkits, and loaders |
+| [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques and escalation paths |
+| [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux, Windows, and cloud privilege escalation techniques |
+| [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, and landmark talk archives |
+
+</details>
+
+<details>
+<summary><strong>Playbooks, Checklists & Methodology</strong></summary>
+
+| File | Description |
+|---|---|
+| [IR Playbooks](IR_PLAYBOOKS.md) | Ransomware, BEC, data exfiltration, DDoS, cloud incidents |
+| [Pentest Checklists](PENTEST_CHECKLISTS.md) | External, internal, AD, web app, cloud, and post-exploitation |
+| [CTF Methodology](CTF_METHODOLOGY.md) | Web, forensics, crypto, RE, binary exploitation, and OSINT challenges |
+| [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples |
+
+</details>
+
+<details>
+<summary><strong>Career & Learning</strong></summary>
+
+| File | Description |
+|---|---|
+| [Career Paths](CAREER_PATHS.md) | 15+ roles with skill maps, salary ranges, and cert roadmaps |
+| [Certifications Reference](CERTIFICATIONS.md) | 40+ certifications — cost, difficulty, DoD 8570 mapping |
+| [Interview Prep](INTERVIEW_PREP.md) | Role-specific questions, GRC/CTI sections, salary negotiation |
+| [Hands-On Labs](LABS.md) | Free lab platforms mapped to each security discipline |
+| [Home Lab Setup](HOMELAB_SETUP.md) | AD lab, cloud lab, VPS hosting, defensive stack, hardware guide |
+| [HTB Machine Index](research/HTB_MACHINE_INDEX.md) | 127 retired HackTheBox machines by difficulty, OS, and skills |
+| [HTB Learning Tracks](research/HTB_TRACKS.md) | 45 curated HackTheBox paths mapped to certs and disciplines |
+| [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books grouped by discipline with cert roadmaps |
+| [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across all security disciplines |
+| [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts sharing research, tooling, and operational insight |
+| [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around cybersecurity technology |
+| [Resources](RESOURCES.md) | Courses, podcasts, CTF platforms, and communities |
+
+</details>
+
+<details>
+<summary><strong>Disciplines (47 Learning Paths)</strong></summary>
+
+| Discipline | Focus |
+|---|---|
+| [Active Defense & Deception](disciplines/active-defense-deception.md) | Honeypots, honeytokens, canary tokens, deception grids, adversary engagement |
+| [Active Directory Security](disciplines/active-directory.md) | AD attack paths, Kerberoasting, DCSync, BloodHound, detection strategies |
+| [Adversarial AI Attacks](disciplines/adversarial-ai-attacks.md) | Attacking AI/ML — adversarial examples, model inversion, data poisoning, LLM jailbreaks |
+| [AI & LLM Security](disciplines/ai-llm-security.md) | Securing AI systems, red-teaming LLMs, prompt injection, adversarial ML |
+| [AI / ML Security](disciplines/ai-ml-security.md) | ML pipeline security, adversarial robustness, MITRE ATLAS, MLOps security |
+| [Application Security](disciplines/application-security.md) | Web/API security, OWASP Top 10, secure SDLC, SAST/DAST, threat modeling |
+| [Blockchain & Web3 Security](disciplines/blockchain-web3-security.md) | Smart contract auditing, DeFi exploits, reentrancy, Slither/Echidna/Mythril |
+| [Bug Bounty](disciplines/bug-bounty.md) | Web/API/mobile vuln research, recon methodology, responsible disclosure |
+| [Cloud Security](disciplines/cloud-security.md) | Securing cloud infrastructure, containers, serverless, and cloud identity |
+| [Container & Kubernetes Security](disciplines/container-kubernetes-security.md) | Container runtime security, K8s RBAC, image scanning, Falco, OPA |
+| [Cryptography & PKI](disciplines/cryptography-pki.md) | Certificate lifecycle, key management, TLS hardening, post-quantum readiness |
+| [Cyber Risk Quantification](disciplines/cyber-risk-quantification.md) | FAIR methodology, Monte Carlo simulation, ALE/ROSI, board-level communication |
+| [Data Security](disciplines/data-security.md) | Data classification, DLP, encryption, DSPM, database activity monitoring |
+| [Detection Engineering](disciplines/detection-engineering.md) | Building, tuning, and validating detections across SIEMs and EDR platforms |
+| [DevSecOps](disciplines/devsecops.md) | SAST, SCA, IaC scanning, secrets detection, CI/CD pipeline security |
+| [Digital Forensics](disciplines/digital-forensics.md) | Disk, memory, and network forensics; evidence handling; DFIR methodology |
+| [Exploit Development](disciplines/exploit-development.md) | Buffer overflows, ROP chains, heap exploitation, format strings, fuzzing |
+| [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) | Risk frameworks, NIST CSF/800-53, ISO 27001, SOC 2, CMMC, GRC tooling |
+| [Hacker Hobbies & Community](disciplines/hacker-hobbies.md) | Locksport, SDR, badge hacking, ham radio, DEF CON villages, hacking culture |
+| [Hardware Security](disciplines/hardware-security.md) | Firmware analysis, secure boot, TPM/HSM, hardware hacking, side-channel attacks |
+| [ICS / OT Security](disciplines/ics-ot-security.md) | Securing industrial control systems, SCADA, PLCs, and critical infrastructure |
+| [Identity & Access Management](disciplines/identity-access-management.md) | IAM/PAM architecture, SSO/MFA, Zero Trust identity, AD security, CIEM |
+| [Incident Response](disciplines/incident-response.md) | Responding to, containing, and recovering from security incidents |
+| [IoT Security](disciplines/iot-security.md) | IoT attack surface, firmware analysis, MQTT testing, OWASP IoT Top 10 |
+| [Malware Analysis](disciplines/malware-analysis.md) | Static and dynamic analysis, reverse engineering, sandbox investigation |
+| [Mobile Security](disciplines/mobile-security.md) | iOS/Android app security, MASVS, MDM/EMM, mobile threat defense |
+| [Network Security](disciplines/network-security.md) | NSM, IDS/IPS, Zero Trust networking, protocol attacks, wireless security |
+| [Offensive Security](disciplines/offensive-security.md) | Penetration testing, red teaming, adversary emulation, vulnerability research |
+| [OSINT](disciplines/osint.md) | Open source intelligence collection, SOCMINT/GEOINT, recon methodology |
+| [Penetration Testing](disciplines/penetration-testing.md) | Scoping, methodology, web/AD/cloud pentesting, reporting |
+| [Physical Security](disciplines/physical-security.md) | Physical pen testing, RFID cloning, lock bypass, access control systems |
+| [Privacy Engineering](disciplines/privacy-engineering.md) | PII detection, data minimization, consent management, GDPR/CCPA |
+| [Purple Teaming](disciplines/purple-teaming.md) | Adversary emulation, BAS, detection validation, ATT&CK coverage measurement |
+| [Radio Frequency Security](disciplines/radio-frequency-security.md) | RF attack techniques, SDR tooling, replay attacks, protocol analysis |
+| [Red Teaming](disciplines/red-teaming.md) | APT simulation, C2 frameworks, payload evasion, infrastructure OPSEC |
+| [Reverse Engineering](disciplines/reverse-engineering.md) | x86/x64 assembly, static/dynamic analysis, anti-analysis bypasses |
+| [Security Architecture](disciplines/security-architecture.md) | Zero Trust design, threat modeling, defense-in-depth, reference architectures |
+| [Security Awareness](disciplines/security-awareness.md) | Phishing simulation, behavior change programs, human risk metrics |
+| [Security Operations](disciplines/security-operations.md) | SOC operations, SIEM/SOAR, alert triage, threat hunting, SOC metrics |
+| [SIEM & SOAR](disciplines/siem-soar.md) | SIEM architecture, SPL/KQL query writing, SOAR playbook design |
+| [Social Engineering](disciplines/social-engineering.md) | Phishing, pretexting, vishing, physical SE, security awareness training |
+| [Supply Chain Security](disciplines/supply-chain-security.md) | SBOM generation, artifact signing, SLSA framework, dependency security |
+| [Threat Hunting](disciplines/threat-hunting.md) | Hypothesis-driven hunting, ATT&CK-mapped procedures, hunting maturity model |
+| [Threat Intelligence](disciplines/threat-intelligence.md) | Collecting, analyzing, and acting on threat data; intelligence lifecycle |
+| [Threat Modeling](disciplines/threat-modeling.md) | STRIDE/PASTA/LINDDUN, threat model as code, DFD-based analysis |
+| [Vulnerability Management](disciplines/vulnerability-management.md) | VM lifecycle, CVE/CWE/EPSS/KEV, ASM, automated response |
+| [Zero Trust Architecture](disciplines/zero-trust-architecture.md) | ZT principles, CISA ZTMM, microsegmentation, ZTNA tooling |
+
+</details>
+
+<details>
+<summary><strong>Coverage Data & ATT&CK Layers</strong></summary>
+
+| Resource | Description |
+|---|---|
+| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 → ATT&CK heatmap (313 techniques). [Load in Navigator ↗](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [Vendor → Control edges](data/vendor_to_control.jsonl) | 100+ vendor → NIST 800-53 control mappings |
+| [Control → Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 → ATT&CK technique mappings (CTID) |
+| [Vendor → Technique edges](data/vendor_to_technique.jsonl) | Derived vendor → ATT&CK coverage via control join |
+| [Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) | Black Hat Arsenal tools mapped to ATT&CK |
+
+</details>
+
+
 ## Start Here
 
 

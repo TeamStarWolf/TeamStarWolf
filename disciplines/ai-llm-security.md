@@ -78,13 +78,48 @@ The AI security market is nascent but growing rapidly. These platforms address t
 | **Lakera Guard** | Real-time prompt injection detection and LLM security firewall; integrates at the API layer to detect and block adversarial inputs, PII leakage, and jailbreak attempts; one of the most deployed commercial LLM security solutions |
 | **Protect AI** | AI/ML security platform covering model scanning, MLOps pipeline protection, and LLM vulnerability assessment; the most comprehensive platform for organizations with significant ML infrastructure |
 | **HiddenLayer** | AI detection and response; behavioral analysis of model inputs and outputs to detect adversarial attacks, model theft attempts, and prompt injection without requiring access to model internals |
-| **Robust Intelligence (now part of Cisco)** — AI security testing and validation platform; automated red-teaming of LLMs and ML models with structured risk assessment; acquired by Cisco in 2024 |
+| **Robust Intelligence (now part of Cisco)** | AI security testing and validation platform; automated red-teaming of LLMs and ML models with structured risk assessment; acquired by Cisco in 2024 |
 | **AWS Bedrock Guardrails** | Native guardrails for Amazon Bedrock LLM deployments; content filtering, topic denial, PII redaction, and grounding checks integrated into the AWS AI platform |
 | **Azure AI Content Safety** | Microsoft's API for detecting harmful content, prompt injection, and policy violations in LLM applications; native integration with Azure OpenAI Service and the broader Azure AI stack |
 | **Google Vertex AI Safety Filters** | Content moderation and safety systems built into Google's Vertex AI platform; configurable harm categories and fine-grained safety thresholds for Gemini-based deployments |
 | **Wiz AI Security** | Cloud security platform extending into AI workload protection; scanning model registries, detecting sensitive data in training datasets, and identifying misconfigured AI pipelines |
 | **Snyk AI Security** | Developer-focused AI security scanning for LLM application code, identifying insecure patterns in AI application development |
 | **Garak (NVIDIA, open source)** | While open-source, NVIDIA offers enterprise support and integration pathways; the most comprehensive automated LLM red-teaming tool with over 100 probe types |
+
+---
+
+## NIST 800-53 Control Alignment
+
+NIST SP 800-53 predates the current AI security landscape, but many controls map directly to AI/LLM security concerns. NIST is also developing AI-specific guidance (AI RMF, NIST AI 600-1) that complements 800-53. The controls below are the most directly applicable to organizations deploying LLM systems in regulated environments. NIST SP 800-218A (Secure Software Development for AI) extends the SSDF specifically to AI/ML development.
+
+| Control ID | Control Name | How AI/LLM Security Addresses It |
+|---|---|---|
+| [SA-11](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SA-11) | Developer Testing and Evaluation | Red-teaming LLM systems before production deployment (using garak, PyRIT) satisfies the developer testing requirement; adversarial ML testing is a form of security testing that must be integrated into the AI development lifecycle |
+| [SA-15](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SA-15) | Development Process, Standards, and Tools | Secure AI development practices — including training data provenance, model version control, and supply chain integrity for model weights — map to SA-15 development process requirements |
+| [RA-3](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=RA-3) | Risk Assessment | AI/ML system risk assessments using MITRE ATLAS as a threat model and OWASP LLM Top 10 as a vulnerability taxonomy satisfy RA-3 for AI deployments; the NIST AI RMF provides the governance structure |
+| [SI-10](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SI-10) | Information Input Validation | Prompt injection defenses and input sanitization for LLM applications are a form of input validation; guardrails (NeMo-Guardrails, llm-guard) satisfy SI-10 for AI-powered interfaces |
+| [SI-7](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SI-7) | Software, Firmware, and Information Integrity | Model weight integrity verification, SBOM tracking for ML dependencies, and supply chain controls for training datasets satisfy SI-7 for AI system components |
+| [AC-3](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=AC-3) | Access Enforcement | LLM API access controls, model registry permissions, and fine-grained authorization for AI service endpoints satisfy AC-3; prevents unauthorized model access and misuse |
+| [AU-2](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=AU-2) | Event Logging | Logging LLM inputs and outputs for security monitoring satisfies AU-2; audit trails of AI interactions are necessary for detecting prompt injection campaigns and policy violations |
+| [CM-7](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=CM-7) | Least Functionality | Restricting LLM tool-use capabilities, limiting external data access in agentic workflows, and applying principle of least privilege to AI agent permissions satisfies CM-7 |
+| [SC-28](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SC-28) | Protection of Information at Rest | Encrypting training datasets, model weights, and fine-tuning data at rest satisfies SC-28 for AI assets; particularly relevant when training data contains sensitive organizational information |
+
+---
+
+## MITRE ATLAS Coverage
+
+[MITRE ATLAS](https://atlas.mitre.org) (Adversarial Threat Landscape for Artificial-Intelligence Systems) is the authoritative adversarial ML framework, organized equivalently to ATT&CK. Each tactic represents a phase of an adversarial attack against an AI/ML system, and each technique describes a specific method. Unlike ATT&CK, ATLAS includes real-world AI attack case studies that ground the taxonomy in documented incidents rather than theoretical threat modeling.
+
+| Tactic | Representative Technique | How the Discipline Addresses It |
+|---|---|---|
+| ML Attack Staging | [AML.T0047 - ML-Enabled Product or Service](https://atlas.mitre.org/techniques/AML.T0047) | Reconnaissance against AI APIs to identify model behavior, version, and capabilities; rate limiting, response normalization, and input/output monitoring are the primary defenses |
+| ML Attack Staging | [AML.T0035 - Develop Capabilities](https://atlas.mitre.org/techniques/AML.T0035) | Attackers develop adversarial examples or jailbreak prompts offline before deployment; model behavior consistency testing and red-teaming catch exploitable inconsistencies before attackers do |
+| Adversarial ML Attack | [AML.T0043 - Craft Adversarial Data](https://atlas.mitre.org/techniques/AML.T0043) | Adversarial input crafting against image classifiers or text models; adversarial robustness testing (IBM ART, TextAttack) evaluates model resilience before production deployment |
+| Adversarial ML Attack | [AML.T0051 - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051) | Direct and indirect prompt injection attacks that override system instructions; input sanitization, sandboxed tool execution, and output validation are the primary mitigations; rebuff and llm-guard provide runtime detection |
+| Adversarial ML Attack | [AML.T0054 - LLM Jailbreak](https://atlas.mitre.org/techniques/AML.T0054) | Techniques to bypass LLM safety systems through role-playing, encoding, or context manipulation; constitutional AI training and adversarial fine-tuning improve model resistance; garak automates jailbreak probing |
+| Exfiltration via ML Inference API | [AML.T0040 - ML Model Inference API Access](https://atlas.mitre.org/techniques/AML.T0040) | Model inversion and membership inference attacks extract training data through repeated API queries; rate limiting, output perturbation, and differential privacy in training mitigate these attacks |
+| Impact | [AML.T0031 - Erode ML Model Integrity](https://atlas.mitre.org/techniques/AML.T0031) | Data poisoning attacks corrupt model behavior during training; training data provenance, integrity verification, and anomaly detection in the training pipeline are the primary controls |
+| Impact | [AML.T0048 - Backdoor ML Model](https://atlas.mitre.org/techniques/AML.T0048) | Backdoored model weights trigger on attacker-controlled inputs; model scanning tools (Protect AI ModelScan), SBOM tracking of model provenance, and behavioral evaluation against known backdoor triggers detect compromised models |
 
 ---
 
@@ -96,6 +131,27 @@ The AI security market is nascent but growing rapidly. These platforms address t
 | The Alignment Problem | Brian Christian | Deep exploration of why AI systems fail to do what designers intend; understanding misalignment is foundational to understanding why AI security differs from traditional software security |
 | AI Snake Oil | Narayanan & Kapoor | Critical examination of AI capability claims and failure modes; essential for calibrating threat models and avoiding both over- and under-estimating AI security risks |
 | Security Engineering (3rd ed.) | Ross Anderson | Chapter 26 covers ML security; the surrounding threat modeling and system design chapters provide essential context for approaching AI security rigorously; free online |
+
+---
+
+## Learning Resources
+
+| Type | Resource | Notes |
+|---|---|---|
+| Framework | [MITRE ATLAS](https://atlas.mitre.org) | Adversarial threat landscape for AI/ML systems; organized like ATT&CK with real-world case studies; the authoritative starting framework for AI threat modeling |
+| Framework | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Ten critical LLM application risk categories with scenarios and mitigations; the most widely adopted framework for LLM deployment risk assessment |
+| Framework | [NIST AI Risk Management Framework](https://airc.nist.gov/RMF) | Comprehensive governance framework for AI system risk across the full lifecycle; the compliance baseline for regulated AI deployments |
+| Framework | [Google SAIF](https://safety.google/cybersecurity-advancements/saif/) | Google's Secure AI Framework; six core elements for securing AI development and deployment |
+| Standard | [NIST AI 600-1](https://airc.nist.gov/Docs/1) | NIST's guidance on generative AI risks including adversarial manipulation, data privacy, and model bias; the emerging federal standard for GenAI security |
+| Standard | [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final) | Secure software development practices extended specifically to AI/ML systems; the SSDF for AI development pipelines |
+| Tool | [NVIDIA garak](https://github.com/NVIDIA/garak) | LLM vulnerability scanner with 100+ probe types; the most comprehensive automated LLM red-teaming tool available for free |
+| Tool | [Microsoft PyRIT](https://github.com/microsoft/PyRIT) | Python Risk Identification Toolkit for orchestrating automated AI red-teaming at scale |
+| Research | [ArXiv LLM Security](https://arxiv.org/search/?searchtype=all&query=llm+security) | Pre-publication adversarial ML and LLM security research; following this feed is essential given the pace of the field |
+| Aggregator | [LLM Security (llmsecurity.net)](https://llmsecurity.net) | Curated aggregator of LLM vulnerability research and real-world incident disclosures; the best single source for staying current |
+| Blog | [Microsoft AI Red Team Blog](https://www.microsoft.com/en-us/security/blog/topic/microsoft-ai-red-team/) | Case studies and methodology from Microsoft's dedicated AI Red Team practice |
+| Research | [Berryville Institute of Machine Learning (BIML)](https://berryvilleiml.com) | Gary McGraw's systematic architectural risk analysis of ML systems; rigorous engineering perspective on AI security |
+| Course | [Anthropic Courses](https://github.com/anthropics/courses) | Free structured courses on prompt engineering, tool use, and responsible LLM deployment from the model creator |
+| Community | [DEF CON AI Village](https://aivillage.org) | Premier community for AI security research; annual CTFs, red-team exercises, and talks at DEF CON |
 
 ---
 
@@ -149,3 +205,17 @@ Note: AI security is an emerging field and formal certification infrastructure i
 - [Microsoft AI Red Team Blog](https://www.microsoft.com/en-us/security/blog/topic/microsoft-ai-red-team/) — Case studies and methodology from Microsoft's dedicated AI Red Team practice
 - [Berryville Institute of Machine Learning (BIML)](https://berryvilleiml.com) — Gary McGraw's systematic architectural risk analysis of ML systems; rigorous engineering perspective on AI security
 - [ArXiv AI Security Papers](https://arxiv.org/search/?searchtype=all&query=llm+security) — Pre-publication adversarial ML and LLM security research; following this feed is essential given how rapidly new attack techniques emerge
+
+---
+
+## Related Disciplines
+
+AI/LLM security is inherently cross-disciplinary. Understanding how it connects to traditional security domains helps practitioners avoid blind spots — both the ones that come from approaching AI as a pure software problem and the ones that come from treating AI security as entirely separate from mainstream security practice.
+
+- [threat-intelligence.md](threat-intelligence.md) — AI systems are increasingly both producers and targets of threat intelligence; LLMs can accelerate threat report analysis and IOC extraction, but they also introduce new attack surfaces (adversarial prompts in threat feeds, malicious content in RAG data sources) that threat intelligence practitioners must understand
+- [vulnerability-management.md](vulnerability-management.md) — AI/ML system components (frameworks like PyTorch and TensorFlow, inference servers like Triton, model hub packages) have CVEs just like any other software; VM programs must extend scope to include ML infrastructure; additionally, LLM-assisted code generation creates new vulnerability classes (insecure AI-generated code) that VM programs must account for
+- [incident-response.md](incident-response.md) — Prompt injection attacks against production AI systems constitute security incidents; IR teams need AI-specific playbooks for responding to LLM system compromises, training data breaches, and model integrity violations; cloud IR skills are essential since most LLM deployments are cloud-native
+- [penetration-testing.md](penetration-testing.md) — AI red-teaming is a specialized form of penetration testing focused on model behavior rather than infrastructure; AI red team engagements probe for prompt injection, jailbreaks, data extraction, and unsafe outputs; traditional pen testers must develop AI-specific methodology to assess LLM-powered applications
+- [security-operations.md](security-operations.md) — AI is transforming SOC operations through automated alert triage, LLM-assisted investigation, and AI-generated detection content; simultaneously, adversaries are using AI to generate more convincing phishing, accelerate reconnaissance, and evade signature-based detection; SOC practitioners must both leverage and defend against these capabilities
+- [cloud-security.md](cloud-security.md) — Nearly all production LLM deployments run on cloud infrastructure (AWS Bedrock, Azure OpenAI, Google Vertex AI, self-hosted on GPU instances); cloud security practitioners must understand AI-specific threat models including model registry access controls, training pipeline isolation, and GPU workload security that go beyond standard cloud workload protection
+- [devsecops.md](devsecops.md) — AI development introduces unique DevSecOps challenges: training data supply chain integrity, model weight version control, ML pipeline security, and the risk of insecure code generated by AI coding assistants embedded in developer workflows; DevSecOps teams must build AI-aware pipelines that treat models and training data as first-class security artifacts

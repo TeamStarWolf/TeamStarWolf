@@ -120,6 +120,65 @@ Enterprise AppSec programs layer commercial tools on top of open-source for scal
 
 ---
 
+## OWASP Web Security Top 10 (2021)
+
+The OWASP Top 10 is the most widely referenced framework for classifying web application security risks. It is updated roughly every three to four years based on data from hundreds of organizations and tens of thousands of applications. The 2021 edition reflects the current state of web application risk — including the shift from classic injection dominance toward broken access control and misconfiguration as the top issues.
+
+Every AppSec practitioner should be able to explain each category, recognize it in code and traffic, and describe both how to test for it and how to remediate it.
+
+| ID | Category | Description | Primary CWE(s) |
+|---|---|---|---|
+| A01 | Broken Access Control | Moving up from #5, this is now the most commonly found risk. Applications fail to enforce restrictions on what authenticated users are allowed to do — attackers exploit flaws to act as another user, access admin functions, or read/modify other users' data. Authorization logic is notoriously difficult to get right across complex applications. | CWE-284, CWE-285, CWE-639 |
+| A02 | Cryptographic Failures | Formerly "Sensitive Data Exposure," the 2021 renaming emphasizes root cause over symptom. Covers failures related to cryptography — or lack thereof — including data transmitted in cleartext, use of weak or outdated algorithms (MD5, SHA1, DES, RC4), improper key management, and missing HTTPS. | CWE-259, CWE-327, CWE-331 |
+| A03 | Injection | SQL, OS command, LDAP, NoSQL, and expression language injection remain critical risks despite decades of awareness. An attacker supplies hostile data that the interpreter executes as a command rather than treating it as data. SQLi remains one of the most frequently exploited web vulnerabilities in production breaches. | CWE-89 (SQLi), CWE-77 (Command injection), CWE-79 (XSS) |
+| A04 | Insecure Design | A new 2021 category addressing missing or ineffective security controls in application architecture and design — before any code is written. This is about threat modeling gaps, missing rate limiting on critical flows, insecure design patterns, and business logic flaws that no implementation fix can fully remediate. | CWE-209, CWE-256, CWE-501, CWE-522 |
+| A05 | Security Misconfiguration | The most commonly found issue in practice: default credentials left enabled, unnecessary features turned on, cloud storage buckets publicly readable, missing security headers (CSP, HSTS, X-Frame-Options), verbose error messages revealing stack traces, and unpatched known CVEs in dependencies. | CWE-16, CWE-611 |
+| A06 | Vulnerable and Outdated Components | Using components (libraries, frameworks, packages) with known vulnerabilities. Log4Shell (CVE-2021-44228) is the canonical example: a ubiquitous logging library with a JNDI injection vulnerability affecting millions of applications globally. SCA tools exist specifically to detect this risk. | CWE-1035, CWE-937 |
+| A07 | Identification and Authentication Failures | Formerly "Broken Authentication." Covers weak credential policies, missing MFA, session token weaknesses (predictable tokens, long-lived sessions), credential stuffing exposure, and improper session invalidation on logout. Authentication is the gateway — failures here undermine all other controls. | CWE-287, CWE-297, CWE-384 |
+| A08 | Software and Data Integrity Failures | New in 2021, covering insecure deserialization and CI/CD pipeline integrity failures. Applications that deserialize untrusted data without integrity checks, auto-update mechanisms without signature verification, and CI/CD pipelines that pull unsigned dependencies all fall here. The SolarWinds supply chain attack is a defining example. | CWE-494, CWE-502, CWE-829 |
+| A09 | Security Logging and Monitoring Failures | Insufficient logging, monitoring, and alerting means attackers can operate undetected for weeks or months. This category covers missing audit logs for authentication events, failed access attempts, and high-value transactions; logs that lack sufficient context for forensics; and absence of alerting on suspicious patterns. | CWE-117, CWE-223, CWE-778 |
+| A10 | Server-Side Request Forgery (SSRF) | Added in 2021 based on community data showing high severity despite relatively low incidence. SSRF flaws let an attacker cause the server to make HTTP requests to an attacker-specified URL — allowing access to internal services, cloud metadata endpoints (AWS IMDS, GCP metadata), and back-end systems not externally reachable. | CWE-918 |
+
+### Key Test Technique by Category
+
+| ID | Category | Primary Test Technique |
+|---|---|---|
+| A01 | Broken Access Control | Test horizontal and vertical access control by substituting other users' resource IDs (IDOR) and accessing privileged endpoints with lower-privilege tokens; use Burp Autorize extension to automate access control regression across authenticated sessions |
+| A02 | Cryptographic Failures | Inspect TLS configuration with testssl.sh or SSLLabs; check for HTTP endpoints or mixed content; review cookie flags (Secure, HttpOnly, SameSite); search code for hardcoded keys and weak algorithm calls (MD5, SHA1, DES) |
+| A03 | Injection (SQLi: CWE-89; XSS: CWE-79) | Submit injection payloads (single quote, OR 1=1 variants, semicolon-command sequences, JNDI strings) in all input fields and HTTP headers; use sqlmap for automated SQLi detection; audit ORM usage in code review for raw query construction that bypasses parameterization |
+| A04 | Insecure Design | Conduct threat modeling during design review (STRIDE); test business logic flows (skip payment steps, replay discount codes, exceed rate limits on OTP entry); review architecture against OWASP ASVS requirements |
+| A05 | Security Misconfiguration | Run Nikto and Nuclei against the target; check security headers with securityheaders.com; enumerate default credentials; review cloud storage bucket permissions; verify stack traces do not appear in production error responses |
+| A06 | Vulnerable Components | Run OWASP Dependency-Check or Snyk against all dependency manifests (package.json, pom.xml, requirements.txt); check versions against NVD/CVE databases; flag abandoned or unmaintained packages |
+| A07 | Auth Failures (CWE-287) | Attempt credential stuffing with known breach password lists; test for missing account lockout; check that session tokens are invalidated server-side on logout; verify MFA cannot be bypassed via direct endpoint access without completing the second factor |
+| A08 | Integrity Failures | Send serialized object payloads (ysoserial for Java deserialization) to any endpoint that accepts serialized data; review CI/CD pipeline for unsigned dependency pulls; verify image and artifact signatures in build pipelines |
+| A09 | Logging Failures | Attempt authentication bypasses and confirm log entries include sufficient context (IP, user, timestamp, action); test whether repeated failed logins trigger alerting; confirm logs flow to a SIEM and generate alerts for critical security events |
+| A10 | SSRF (CWE-918) | Supply internal IP addresses (169.254.169.254 for AWS IMDS, 10.x.x.x ranges), file:// URIs, and localhost references to all URL input parameters; use Burp Collaborator to detect out-of-band SSRF; specifically test webhook registration and URL redirect endpoints |
+
+---
+
+## OWASP API Security Top 10 (2023)
+
+The API Security Top 10 is a separate OWASP project addressing risks specific to REST, GraphQL, gRPC, and other API architectures. Web application risks and API risks overlap but are not identical — APIs introduce unique concerns around object-level authorization, function-level authorization, mass assignment, and resource consumption controls that the web Top 10 does not fully address.
+
+APIs now represent the dominant attack surface in modern application architectures. Microservices, mobile backends, and third-party integrations all expose API endpoints, and these are frequently less rigorously tested than web UIs.
+
+| ID | Category | Description | Key CWE |
+|---|---|---|---|
+| API1 | Broken Object Level Authorization (BOLA) | The most common API vulnerability. APIs expose object identifiers in endpoints (`/api/users/1234/orders`) but fail to verify the requesting user is authorized for that specific object. Equivalent to IDOR in web apps but ubiquitous in API design. | CWE-284 |
+| API2 | Broken Authentication | Weak or missing authentication on API endpoints; API keys transmitted in URLs (captured in server logs and browser history); JWT weaknesses (alg:none, weak HMAC secrets, missing expiry); no rate limiting on authentication endpoints. | CWE-287 |
+| API3 | Broken Object Property Level Authorization | APIs return full objects when only a subset of fields should be visible, or accept more properties than intended (mass assignment). An endpoint that binds request body properties to a data model may allow escalating a privileged field if PUT/PATCH is not properly restricted. | CWE-213, CWE-915 |
+| API4 | Unrestricted Resource Consumption | No rate limiting, no request size limits, no query depth or complexity limits (critical for GraphQL). Attackers exhaust backend resources, trigger excessive billed third-party API calls, or cause denial of service via deeply nested queries. | CWE-770 |
+| API5 | Broken Function Level Authorization | Administrative API endpoints exist alongside regular endpoints but rely on security-through-obscurity or insufficient role checks. Common in APIs generated from code without per-endpoint authorization review. | CWE-285 |
+| API6 | Unrestricted Access to Sensitive Business Flows | APIs expose high-value business flows (purchase, account creation, OTP verification) without controls preventing automated abuse — bulk purchases, mass account creation for credential stuffing, or SMS OTP abuse for carrier billing fraud. | CWE-799 |
+| API7 | Server-Side Request Forgery (SSRF) | Particularly prevalent in APIs that accept user-supplied URLs for webhooks, integrations, or file fetch operations. Enables access to internal microservices and cloud metadata endpoints not reachable externally. | CWE-918 |
+| API8 | Security Misconfiguration | Default API gateway configurations, verbose error responses, permissive CORS (`Access-Control-Allow-Origin: *`), missing TLS, and exposed API documentation (Swagger/OpenAPI) with writable endpoints accessible without authentication. | CWE-16 |
+| API9 | Improper Inventory Management | Organizations run multiple API versions (`/v1/`, `/v2/`, `/beta/`) but retire old versions inconsistently. Attackers target deprecated endpoints that bypass current security controls and are often outside WAF or pentest scope. | CWE-1059 |
+| API10 | Unsafe Consumption of APIs | Applications that consume third-party APIs trust responses too implicitly — no input validation on third-party data, no TLS certificate verification, following redirects from untrusted sources. A compromised third-party API can inject malicious data into the consuming application. | CWE-285, CWE-346 |
+
+**Key difference from Web Top 10:** BOLA (API1) and Broken Function Level Authorization (API5) are authorization failures specific to API endpoint design. Mass assignment (API3) is a property-level authorization failure unique to APIs that bind request bodies directly to data models. These categories are frequently undertested in web application security programs that focus primarily on web UI endpoints.
+
+---
+
 ## Certifications
 
 - **BSCP** (Burp Suite Certified Practitioner — PortSwigger) — Hands-on web application security certification built around Burp Suite; one of the most technically demanding AppSec credentials; directly validates real-world exploitation skill

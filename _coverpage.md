@@ -2,12 +2,12 @@
 
 # TeamStarWolf 🐺
 
-> A public cybersecurity resource library
+> A structured cybersecurity reference library built for practitioners
 
-- **14 discipline learning paths** — threat intel to security architecture
-- **Enterprise vendor landscape** — 100+ vendors mapped to NIST 800-53 controls
-- **ATT&CK coverage heatmap** — 313 techniques scored via CTID mappings
-- **Free tools, certs, training** — curated and vetted by practitioners
+- **44 discipline learning paths** — from threat intelligence to security architecture
+- **40+ enterprise vendors** — mapped to NIST 800-53 controls and ATT&CK techniques via CTID
+- **ATT&CK coverage heatmap** — techniques scored through the NIST 800-53 → CTID mappings chain
+- **Free tools, certifications, and training** — curated and verified by practitioners
 
 [Get Started](README.md)
 [GitHub](https://github.com/TeamStarWolf/TeamStarWolf)

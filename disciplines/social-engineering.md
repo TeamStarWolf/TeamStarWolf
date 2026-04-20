@@ -152,8 +152,8 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ## Related Disciplines
 
-- [Offensive Security](disciplines/offensive-security.md) — SE is a primary initial access vector in red team and pen test engagements
-- [Incident Response](disciplines/incident-response.md) — SE incidents trigger IR processes; phishing is a leading initial access method
-- [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) — SAT programs are compliance requirements (NIST, ISO 27001, PCI DSS, HIPAA)
-- [Identity & Access Management](disciplines/identity-access-management.md) — MFA and privileged access management limit the blast radius of credential harvesting
-- [Network Security](disciplines/network-security.md) — Email security gateways, DNS filtering, and proxy controls defend against phishing delivery
+- [Offensive Security](offensive-security.md) — SE is a primary initial access vector in red team and pen test engagements
+- [Incident Response](incident-response.md) — SE incidents trigger IR processes; phishing is a leading initial access method
+- [Governance, Risk & Compliance](governance-risk-compliance.md) — SAT programs are compliance requirements (NIST, ISO 27001, PCI DSS, HIPAA)
+- [Identity & Access Management](identity-access-management.md) — MFA and privileged access management limit the blast radius of credential harvesting
+- [Network Security](network-security.md) — Email security gateways, DNS filtering, and proxy controls defend against phishing delivery

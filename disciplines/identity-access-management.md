@@ -1,5 +1,9 @@
 # Identity & Access Management
 
+Identity and Access Management (IAM) is the discipline of ensuring that every user, device, and workload can prove who they are, gets only the access they need, and that privileged access is tightly controlled and audited. In modern enterprise environments, identity has replaced the network perimeter as the primary security boundary — compromising an identity often means compromising everything that identity can reach, which in an overprivileged organization can mean the entire environment. The shift to cloud, remote work, and SaaS has made IAM simultaneously more complex and more critical: identities now span on-premises Active Directory, cloud directories, SaaS applications, and non-human service accounts in numbers that dwarf human user counts.
+
+IAM failures drive a disproportionate share of significant breaches. The Lapsus$ campaign, the SolarWinds supply chain attack, and the majority of ransomware deployment chains all depend on identity compromise — credential theft, privilege escalation, and lateral movement through misconfigured trust relationships. Understanding IAM means understanding why these attacks succeed, and building the controls that make them fail.
+
 > Ensuring every user, device, and workload can prove who they are, gets only the access they need, and that privileged access is tightly controlled and audited.
 
 ## What IAM Engineers Do
@@ -12,6 +16,33 @@
 - Implement Zero Trust identity controls: continuous authentication, device trust, context-aware access
 - Manage cloud entitlements and CIEM (Cloud Infrastructure Entitlement Management)
 - Investigate identity-based attacks: credential stuffing, MFA fatigue, Kerberoasting, Golden Ticket
+
+---
+
+## Where to Start
+
+IAM has two distinct learning tracks that eventually converge: the defensive/engineering track (building identity systems, configuring MFA, managing access reviews) and the offensive/detection track (understanding how attackers abuse identity to move laterally). Both tracks require understanding Active Directory deeply — even in cloud-first organizations, AD remains the identity backbone that most attacks pivot through.
+
+| Stage | Focus | Where to Begin |
+|---|---|---|
+| Foundation | Active Directory fundamentals, authentication protocols (Kerberos, NTLM, SAML, OAuth 2.0/OIDC), MFA concepts, RBAC vs ABAC, Joiner-Mover-Leaver lifecycle | [Microsoft Learn — Identity fundamentals](https://learn.microsoft.com/en-us/training/paths/m365-identity-associate/), [TryHackMe Active Directory Basics](https://tryhackme.com/room/winadbasics), [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html), [BHIS IAM webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) |
+| Practitioner | Cloud IAM (AWS IAM, Entra ID Conditional Access), PAM deployment, BloodHound AD attack path analysis, SSO federation, SCIM provisioning, access certification programs | [BloodHound CE](https://github.com/SpecterOps/BloodHound), [SC-300 learning path (free)](https://learn.microsoft.com/en-us/certifications/identity-and-access-administrator/), [SpecterOps blog](https://specterops.io/blog/), [The Hacker Recipes — AD](https://www.thehacker.recipes/ad/) |
+| Advanced | Zero trust architecture design, CIEM, non-human identity (NHI) governance, cross-cloud identity federation, identity threat detection engineering, IGA program design | [NIST SP 800-207](https://csrc.nist.gov/publications/detail/sp/800-207/final), [SANS SEC542 AD/IAM content](https://www.sans.org/cyber-security-courses/web-app-penetration-testing-ethical-hacking/), [SailPoint identity program design](https://www.sailpoint.com/identity-library/), [CyberArk Blueprint](https://www.cyberark.com/resources/blueprint/) |
+
+---
+
+## Free Training
+
+- [Microsoft Learn — Identity and Access Administrator](https://learn.microsoft.com/en-us/certifications/identity-and-access-administrator/) — Free comprehensive learning path covering Entra ID, Conditional Access, MFA, external identities, and application access; the SC-300 prep path doubles as an excellent IAM foundations course for any practitioner
+- [TryHackMe Active Directory](https://tryhackme.com/room/winadbasics) — Free introductory rooms covering AD structure, users/groups, GPOs, and domain trusts; essential foundational knowledge before studying AD attack techniques
+- [SpecterOps Blog and Talks](https://specterops.io/blog/) — Free deep-dive research on AD/Azure attack techniques, BloodHound development, and identity-based attack paths; some of the most technically rigorous IAM security content published anywhere
+- [The Hacker Recipes — Active Directory](https://www.thehacker.recipes/ad/) — Free comprehensive reference for AD attack techniques (for defensive awareness); covers NTLM relay, Kerberoasting, AS-REP roasting, DCSync, and domain privilege escalation paths
+- [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-3/) — Free government standard defining identity assurance levels, authenticator assurance levels, and federation assurance levels; the authoritative reference for identity program design
+- [BloodHound Community Edition Documentation](https://support.bloodhoundenterprise.io/) — Free documentation explaining attack path concepts, AD relationships, and how attackers chain privileges; reading the docs teaches you the attack paths even without running the tool
+- [HashiCorp Vault Learn](https://developer.hashicorp.com/vault/tutorials) — Free tutorials covering secrets management, dynamic credentials, PKI, and encryption as a service; the most important PAM-adjacent open-source skill for cloud practitioners
+- [Okta Developer Documentation](https://developer.okta.com/docs/) — Free documentation covering OAuth 2.0, OIDC, SAML, and modern identity federation implementation; excellent for understanding how enterprise SSO actually works
+- [SANS Cyber Aces — Windows Security](https://www.sans.org/cyberaces/) — Free introductory course covering Windows authentication, AD basics, and access control; a good entry point before diving into attack-oriented content
+- [CISA Zero Trust Maturity Model](https://www.cisa.gov/zero-trust-maturity-model) — Free government guidance on zero trust identity pillar implementation; practical framework for planning identity-centric zero trust programs
 
 ---
 
@@ -70,16 +101,37 @@
 
 ## Commercial Platforms
 
-| Vendor | Capability | Notes |
+| Vendor | Capability | Strength |
 |---|---|---|
-| [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Cloud IAM + Conditional Access | Dominant in enterprise; integrates with M365 |
-| [Okta](https://okta.com/) | Universal directory + SSO + MFA | Workforce and customer identity |
-| [CyberArk](https://www.cyberark.com/) | PAM + secrets + endpoint privilege | Market leader in PAM |
-| [BeyondTrust](https://www.beyondtrust.com/) | PAM + remote access | Strong in endpoint privilege management |
-| [SailPoint](https://www.sailpoint.com/) | Identity governance | Access reviews, certifications, IGA |
-| [Saviynt](https://saviynt.com/) | Cloud-native IGA | Converged IGA + PAM |
-| [Ping Identity](https://www.pingidentity.com/) | Enterprise SSO + MFA | Strong federation capabilities |
-| [Delinea](https://delinea.com/) | PAM (formerly Thycotic + Centrify) | Secret Server, Privilege Manager |
+| [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Cloud IAM + Conditional Access | Dominant in enterprise; deep M365 integration; Conditional Access is the most flexible policy engine at scale |
+| [Okta](https://okta.com/) | Universal directory + SSO + MFA | Best-in-class workforce and customer identity; richest third-party integration library; Okta Verify supports FIDO2 |
+| [CyberArk](https://www.cyberark.com/) | PAM + secrets + endpoint privilege | Market leader in PAM; strongest for privileged session recording and credential vaulting at enterprise scale |
+| [BeyondTrust](https://www.beyondtrust.com/) | PAM + remote access | Strong in endpoint privilege management and remote vendor access; Privileged Remote Access module is a key differentiator |
+| [SailPoint](https://www.sailpoint.com/) | Identity governance | Leading IGA platform; access certification, entitlement management, and role mining; strong in regulated industries |
+| [Saviynt](https://saviynt.com/) | Cloud-native IGA | Converged IGA + PAM; strong for cloud application access governance; SaaS delivery model reduces operational overhead |
+| [Ping Identity](https://www.pingidentity.com/) | Enterprise SSO + MFA | Strong federation capabilities; widely deployed in financial services; handles complex B2B federation scenarios |
+| [Delinea](https://delinea.com/) | PAM (formerly Thycotic + Centrify) | Secret Server for credential vaulting; Privilege Manager for endpoint privilege; strong SMB to mid-market PAM option |
+
+---
+
+## NIST 800-53 Control Alignment
+
+IAM directly implements the Access Control (AC) and Identification & Authentication (IA) families from [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). These controls define the baseline requirements that IAM programs must satisfy in federal systems and are widely adopted as the compliance anchor for enterprise IAM programs.
+
+| Control Family | Control ID(s) | IAM Implementation |
+|---|---|---|
+| Access Control (AC) | AC-2 | Account management lifecycle: provisioning, access reviews, deprovisioning via Joiner-Mover-Leaver process and IGA platform |
+| Access Control (AC) | AC-3, AC-6 | Enforce least-privilege RBAC; periodic access reviews; privileged access restricted to PAM-vaulted accounts |
+| Access Control (AC) | AC-7 | Account lockout after failed authentication attempts; rate limiting on authentication endpoints |
+| Access Control (AC) | AC-17 | Remote access via MFA-enforced VPN or zero trust network access (ZTNA); conditional access policies evaluating device trust |
+| Identification & Authentication (IA) | IA-2, IA-2(1), IA-2(6) | MFA for all interactive logins; phishing-resistant MFA (FIDO2) for privileged accounts; network device authentication |
+| Identification & Authentication (IA) | IA-5 | Authenticator management: password policy enforcement, credential rotation for service accounts, hardware token lifecycle |
+| Identification & Authentication (IA) | IA-8 | Non-organizational user identification: external partner federation via SAML/OIDC, guest account lifecycle |
+| Identification & Authentication (IA) | IA-12 | Identity proofing for high-assurance accounts aligning to NIST SP 800-63A IAL2/IAL3 requirements |
+| Audit and Accountability (AU) | AU-2, AU-12 | Audit logging of authentication events, privilege use, account changes; SIEM ingestion of identity logs for anomaly detection |
+| Personnel Security (PS) | PS-4, PS-5 | Timely account termination on separation; access transfer on role change; IGA workflow automation for HR-triggered events |
+| Configuration Management (CM) | CM-5, CM-11 | Privileged access for change management; least privilege enforcement for software installation and configuration changes |
+| System and Services Acquisition (SA) | SA-9 | External information system services: third-party identity federation governance, SaaS OAuth application registration controls |
 
 ---
 
@@ -108,12 +160,12 @@ Load the [Identity & Access Stage Layer](https://mitre-attack.github.io/attack-n
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| [SC-300](https://learn.microsoft.com/en-us/certifications/identity-and-access-administrator/) | Microsoft | Microsoft Identity and Access Administrator |
-| [GIAC GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Includes AD/Kerberos attack techniques |
-| [CyberArk Trustee / Defender](https://www.cyberark.com/services/training-certification/) | CyberArk | PAM practitioner certs |
-| [Okta Certified Professional](https://www.okta.com/learning/certification/) | Okta | Okta implementation |
-| [CISSP](https://www.isc2.org/Certifications/CISSP) | ISC² | Domain 5: Identity and Access Management |
-| [CIAM](https://www.iapp.org/) | IAPP | Customer identity and privacy |
+| [SC-300](https://learn.microsoft.com/en-us/certifications/identity-and-access-administrator/) | Microsoft | Microsoft Identity and Access Administrator — Entra ID, Conditional Access, MFA, external identities, application access; free preparation materials on Microsoft Learn |
+| [GIAC GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Includes AD/Kerberos attack techniques; valuable for IAM defenders who need to understand the attack perspective |
+| [CyberArk Trustee / Defender](https://www.cyberark.com/services/training-certification/) | CyberArk | PAM practitioner certifications for CyberArk platform administration and security design |
+| [Okta Certified Professional](https://www.okta.com/learning/certification/) | Okta | Okta platform implementation covering SSO, MFA, lifecycle management, and API access management |
+| [CISSP](https://www.isc2.org/Certifications/CISSP) | ISC2 | Domain 5: Identity and Access Management covers IAM architecture, access control models, and identity federation at a strategic level |
+| [CIAM](https://www.iapp.org/) | IAPP | Customer identity and privacy; covers GDPR and privacy-by-design considerations for customer-facing identity systems |
 
 ---
 
@@ -127,13 +179,18 @@ Load the [Identity & Access Stage Layer](https://mitre-attack.github.io/attack-n
 | [NIST 800-207 Zero Trust](https://csrc.nist.gov/publications/detail/sp/800-207/final) | Framework | Zero trust architecture for IAM |
 | [The Hacker Recipes — AD](https://www.thehacker.recipes/ad/) | Reference | AD attack technique walkthroughs (defensive awareness) |
 | [OpenSecurityTraining2](https://p.ost2.fyi/) | Free course | Architecture 1001: PC Internals includes auth |
+| [CyberArk Identity Security Blueprint](https://www.cyberark.com/resources/blueprint/) | Framework | Structured approach to building a privileged access management program from initial deployment to mature zero trust |
+| [SailPoint Identity Library](https://www.sailpoint.com/identity-library/) | Reference | Free practitioner resources on IGA program design, access certification best practices, and identity governance maturity |
 
 ---
 
 ## Related Disciplines
 
-- [Security Architecture](security-architecture.md) — Zero trust design, identity-aware access
-- [Detection Engineering](detection-engineering.md) — Detecting credential-based attacks
-- [Governance, Risk & Compliance](governance-risk-compliance.md) — Access reviews, SOX/HIPAA controls
-- [Cryptography & PKI](cryptography-pki.md) — Certificate-based auth, smart cards
+- [security-architecture.md](security-architecture.md) — Zero trust design, identity-aware access
+- [detection-engineering.md](detection-engineering.md) — Detecting credential-based attacks; identity threat detection requires SIEM rules for Kerberoasting, golden ticket use, anomalous authentication patterns, and privilege escalation chains that detection engineers build using IAM log sources
+- [governance-risk-compliance.md](governance-risk-compliance.md) — Access reviews, SOX/HIPAA controls; IGA programs are the operational mechanism for meeting access control requirements in SOX, HIPAA, PCI DSS, and FedRAMP compliance frameworks
+- [cryptography-pki.md](cryptography-pki.md) — Certificate-based auth, smart cards; PKI underpins phishing-resistant MFA (smart cards, FIDO2), mutual TLS for service-to-service authentication, and code signing for software supply chain integrity
+- [cloud-security.md](cloud-security.md) — Cloud IAM is a distinct and critical subdiscipline: AWS IAM, Azure Entra ID Conditional Access, and GCP Workload Identity are the access control planes that CIEM tools analyze and cloud security practitioners must master
+- [threat-intelligence.md](threat-intelligence.md) — Identity-targeted threat actors and campaigns (credential phishing, AiTM attacks, MFA fatigue campaigns) require CTI context to understand current adversary tradecraft and prioritize which authentication controls to harden first
+- [incident-response.md](incident-response.md) — Identity compromise is the most common initial access and lateral movement vector; IR teams depend on IAM teams to reset credentials, revoke tokens, and implement emergency access controls during active incidents
 - [Enterprise Security Pipeline](../SECURITY_PIPELINE.md) — Stage 2: Identity & Access

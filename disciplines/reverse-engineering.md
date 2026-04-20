@@ -270,6 +270,6 @@ Firmware reversing extracts and analyzes the software running on embedded device
 
 Reverse engineering is foundational to several adjacent disciplines. Skills built here transfer directly:
 
-- [Malware Analysis](disciplines/malware-analysis.md) — RE is the core technical skill in malware analysis; everything in that discipline builds on the ability to read disassembly and trace binary logic
-- [Exploit Development](disciplines/exploit-development.md) — finding and weaponizing vulnerabilities requires RE to locate the vulnerable code path and understand memory layout
-- [CTF Methodology](CTF_METHODOLOGY.md) — RE challenges are a core CTF category; the crackme workflow and tool fluency built here applies directly to CTF binary challenges
+- [Malware Analysis](malware-analysis.md) — RE is the core technical skill in malware analysis; everything in that discipline builds on the ability to read disassembly and trace binary logic
+- [Exploit Development](exploit-development.md) — finding and weaponizing vulnerabilities requires RE to locate the vulnerable code path and understand memory layout
+- [CTF Methodology](../CTF_METHODOLOGY.md) — RE challenges are a core CTF category; the crackme workflow and tool fluency built here applies directly to CTF binary challenges

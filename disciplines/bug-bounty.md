@@ -1,127 +1,164 @@
 # Bug Bounty & Vulnerability Research
 
-> Finding and responsibly disclosing security vulnerabilities in exchange for recognition or financial reward — the intersection of technical skill, legal frameworks, and researcher methodology.
-
-## What Bug Bounty Hunters Do
-
-- Conduct authorized security research against in-scope targets defined by program policies
-- Identify and reproduce vulnerabilities: IDOR, SSRF, XSS, SQLi, auth bypass, RCE, logic flaws
-- Write clear, reproducible proof-of-concept reports that triage teams can act on
-- Navigate responsible disclosure and coordinated disclosure processes
-- Work across web applications, APIs, mobile apps, cloud environments, and network services
-- Build custom tooling and scripts to automate recon and vulnerability discovery
-- Track disclosed CVEs and emerging vulnerability classes
-- Participate in private programs, live hacking events (LHEs), and public programs
+Bug bounty programs are structured arrangements where organizations invite external security researchers to identify and responsibly disclose vulnerabilities in exchange for recognition or financial rewards. Practitioners — called hunters or researchers — operate within a defined scope and rules of engagement, applying offensive security techniques to real production targets. The discipline sits at the intersection of web application security, network reconnaissance, reverse engineering, and technical writing. It matters because it surfaces vulnerabilities that internal teams miss, incentivizes responsible disclosure over black-market exploitation, and creates a continuous, community-driven security testing layer. Hunters range from students using free platforms to elite researchers earning millions annually through private programs. Defenders benefit equally: understanding hunter methodology reveals which controls to harden, which logs to monitor, and how exploitation chains actually assemble in the wild.
 
 ---
 
-## Core Frameworks & Standards
+## Where to Start
 
-| Framework | Purpose |
-|---|---|
-| [OWASP Testing Guide (OTG)](https://owasp.org/www-project-web-security-testing-guide/) | Web application security testing methodology |
-| [Bug Bounty Hunter Methodology (Jason Haddix)](https://github.com/jhaddix/tbhm) | Community methodology guide |
-| [PTES (Penetration Testing Execution Standard)](http://www.pentest-standard.org/) | General penetration testing methodology |
-| [CVE / NVD](https://www.cve.org/) | Common Vulnerability naming standard |
-| [CVSS](https://www.first.org/cvss/) | Common Vulnerability Scoring System |
-| [ISO/IEC 29147](https://www.iso.org/standard/72311.html) | Vulnerability disclosure standard |
-| [ISO/IEC 30111](https://www.iso.org/standard/69725.html) | Vulnerability handling processes |
-
----
-
-## Bug Bounty Platforms
-
-| Platform | Focus | Notes |
+| Level | Description | Free Resource |
 |---|---|---|
-| [HackerOne](https://hackerone.com/) | Web, API, mobile, network | Largest platform; private + public programs |
-| [Bugcrowd](https://bugcrowd.com/) | Web, API, mobile | Strong private program network |
-| [Intigriti](https://www.intigriti.com/) | Web, API | EU-focused; growing rapidly |
-| [Synack Red Team](https://www.synack.com/red-team/) | Invite-only, vetted | Higher payouts; curated researcher pool |
-| [YesWeHack](https://www.yeswehack.com/) | Web, API, mobile | European platform |
-| [Open Bug Bounty](https://www.openbugbounty.org/) | Web (XSS/CSRF focus) | Non-commercial; responsible disclosure |
-| [Google Bug Hunters](https://bughunters.google.com/) | Google products | Android, GCP, Chrome, YouTube |
-| [Microsoft Security Response Center](https://msrc.microsoft.com/bounty) | Microsoft products | Azure, M365, Windows, Edge |
-| [Apple Security Research](https://security.apple.com/bounty/) | iOS, macOS, Safari | Up to $1M for critical iOS bugs |
+| Beginner | Learn HTTP basics, OWASP Top 10, and complete PortSwigger Web Security Academy labs. Set up Burp Suite Community and practice on legal targets (DVWA, HackTheBox Starting Point). | [PortSwigger Web Security Academy](https://portswigger.net/web-security) |
+| Intermediate | Build a full recon pipeline (subfinder → httpx → nuclei), learn SSRF, IDOR, OAuth, and JWT attacks. Read disclosed HackerOne reports. Submit to public programs on HackerOne or Bugcrowd. | [Hacker101 CTF by HackerOne](https://ctf.hacker101.com/) |
+| Advanced | Hunt on private programs, chain multi-step vulnerabilities (auth bypass → SSRF → RCE), write custom nuclei templates, automate recon pipelines on cloud VMs, and contribute CVEs. | [Bugcrowd University](https://www.bugcrowd.com/hackers/bugcrowd-university/) |
 
 ---
 
-## Free & Open-Source Tools
+## Free Training
+
+| Platform | URL | What You Learn |
+|---|---|---|
+| PortSwigger Web Security Academy | https://portswigger.net/web-security | XSS, SQLi, SSRF, XXE, IDOR, OAuth, JWT, deserialization — 250+ interactive labs |
+| Hacker101 | https://www.hacker101.com/ | Web security fundamentals, CTF challenges, bug bounty methodology |
+| Bugcrowd University | https://www.bugcrowd.com/hackers/bugcrowd-university/ | Scoping, recon, vulnerability classes, report writing |
+| PentesterLab | https://pentesterlab.com/ | Web app exploitation exercises with solutions (free tier available) |
+| OWASP WebGoat | https://github.com/WebGoat/WebGoat | Deliberately vulnerable app for hands-on practice locally |
+| TryHackMe Bug Bounty Path | https://tryhackme.com/path/outline/bugbountyhunter | Guided learning path with labs and walkthroughs |
+| HackXpert Labs | https://labs.hackxpert.com/ | Free vulnerable labs and recon practice |
+
+---
+
+## Tools & Repositories
 
 ### Reconnaissance
 
-| Tool | Purpose | Notes |
+| Tool | Purpose | Repository |
 |---|---|---|
-| [Amass](https://github.com/owasp-amass/amass) | Subdomain enumeration | OWASP; comprehensive recon |
-| [subfinder](https://github.com/projectdiscovery/subfinder) | Passive subdomain discovery | Fast; uses many data sources |
-| [httpx](https://github.com/projectdiscovery/httpx) | HTTP probe | Probe subdomains for live hosts |
-| [Shodan](https://www.shodan.io/) | Internet asset discovery | Find exposed services, ASN data |
-| [Censys](https://search.censys.io/) | Internet scan data | Certificate transparency + port data |
-| [crt.sh](https://crt.sh/) | Certificate transparency | Find subdomains from CT logs |
-| [GitHub dorking](https://github.com/techgaun/github-dorks) | Source code recon | Find leaked secrets in public repos |
-| [theHarvester](https://github.com/laramies/theHarvester) | OSINT gathering | Emails, names, subdomains, IPs |
+| Amass | Subdomain enumeration via passive + active DNS | https://github.com/owasp-amass/amass |
+| subfinder | Fast passive subdomain discovery using many data sources | https://github.com/projectdiscovery/subfinder |
+| httpx | HTTP probing to identify live hosts from subdomain lists | https://github.com/projectdiscovery/httpx |
+| katana | High-speed web crawler for endpoint and parameter discovery | https://github.com/projectdiscovery/katana |
+| waybackurls | Fetch historical URLs from Wayback Machine | https://github.com/tomnomnom/waybackurls |
+| gau | Fetch known URLs from AlienVault OTX, Wayback, URLScan | https://github.com/lc/gau |
+
+### Parameter & Content Discovery
+
+| Tool | Purpose | Repository |
+|---|---|---|
+| ffuf | Fast web fuzzer for directories, parameters, vhosts | https://github.com/ffuf/ffuf |
+| Arjun | HTTP parameter discovery — finds hidden GET/POST/JSON params | https://github.com/s0md3v/Arjun |
+| ParamSpider | Parameter mining from web archives | https://github.com/devanshbatham/ParamSpider |
+| gf | Pattern-based grep to find interesting URL parameters | https://github.com/tomnomnom/gf |
+| dirsearch | Directory and file brute-force enumeration | https://github.com/maurosoria/dirsearch |
+
+### JavaScript Analysis
+
+| Tool | Purpose | Repository |
+|---|---|---|
+| LinkFinder | Extract endpoints and parameters from JavaScript files | https://github.com/GerbenJavado/LinkFinder |
+| SecretFinder | Find secrets and API keys in JavaScript files | https://github.com/m4ll0k/SecretFinder |
 
 ### Web Application Testing
 
-| Tool | Purpose | Notes |
+| Tool | Purpose | Repository |
 |---|---|---|
-| [Burp Suite Community](https://portswigger.net/burp/communitydownload) | Web proxy + scanner | Essential tool; free community edition |
-| [Burp Suite Pro](https://portswigger.net/burp/pro) | Advanced scanner + extensions | Paid; worth it for serious hunters |
-| [OWASP ZAP](https://www.zaproxy.org/) | Web app scanner | Free alternative to Burp Pro |
-| [Nuclei](https://github.com/projectdiscovery/nuclei) | Template-based scanner | 5,000+ community vulnerability templates |
-| [ffuf](https://github.com/ffuf/ffuf) | Web fuzzer | Directory/parameter/vhost fuzzing |
-| [dirsearch](https://github.com/maurosoria/dirsearch) | Directory brute forcer | Find hidden endpoints and files |
-| [sqlmap](https://sqlmap.org/) | SQL injection automation | Automated SQLi detection and exploitation |
-| [dalfox](https://github.com/hahwul/dalfox) | XSS scanner | Fast, accurate XSS discovery |
-| [gf](https://github.com/tomnomnom/gf) | Pattern grep for params | Find interesting URL parameters |
-| [waybackurls](https://github.com/tomnomnom/waybackurls) | Historical URL discovery | Find old endpoints via Wayback Machine |
-| [gau](https://github.com/lc/gau) | URL harvester | Fetches known URLs from passive sources |
-
-### API Testing
-
-| Tool | Purpose | Notes |
-|---|---|---|
-| [Postman](https://www.postman.com/) | API client + testing | Essential for API recon and testing |
-| [Insomnia](https://insomnia.rest/) | REST/GraphQL client | Good GraphQL testing support |
-| [GraphQL Voyager](https://github.com/graphql-kit/graphql-voyager) | GraphQL schema explorer | Visualize schema for attack surface |
-| [Arjun](https://github.com/s0md3v/Arjun) | HTTP parameter discovery | Find hidden API parameters |
-
-### Automation & Pipelines
-
-| Tool | Purpose | Notes |
-|---|---|---|
-| [anew](https://github.com/tomnomnom/anew) | Append new lines to file | De-duplicate recon output |
-| [notify](https://github.com/projectdiscovery/notify) | Notification gateway | Alert on new findings via Slack/Discord |
-| [reNgine](https://github.com/yogeshojha/rengine) | Automated recon platform | Full recon pipeline with reporting |
-| [axiom](https://github.com/pry0cc/axiom) | Cloud recon infrastructure | Distributed scanning across cloud VMs |
+| Burp Suite Community | Core web proxy, interceptor, repeater, and intruder | https://portswigger.net/burp/communitydownload |
+| nuclei | Template-based vulnerability scanner with 9,000+ community templates | https://github.com/projectdiscovery/nuclei |
+| sqlmap | Automated SQL injection detection and exploitation | https://github.com/sqlmapproject/sqlmap |
+| dalfox | Fast and accurate XSS scanner | https://github.com/hahwul/dalfox |
+| OWASP ZAP | Free web application scanner and proxy | https://www.zaproxy.org/ |
+| jwt_tool | Test and attack JWT tokens (algorithm confusion, key confusion) | https://github.com/ticarpi/jwt_tool |
+| SSRFmap | SSRF exploitation and automation framework | https://github.com/swisskyrepo/SSRFmap |
 
 ---
 
-## High-Value Vulnerability Classes
+## Commercial Platforms
 
-| Vulnerability | Typical Payout Range | Key Resources |
-|---|---|---|
-| Remote Code Execution (RCE) | $5,000 – $1,000,000+ | OWASP A03; Deserialization, SSTI |
-| Authentication Bypass | $2,000 – $50,000+ | OAuth flaws, JWT attacks, password reset |
-| IDOR (Broken Object Level Auth) | $500 – $10,000+ | OWASP API2; parameter tampering |
-| SSRF | $1,000 – $30,000+ | Internal metadata access, cloud SSRF |
-| SQL Injection | $500 – $25,000+ | Union-based, blind, time-based |
-| XXE | $500 – $10,000+ | XML external entity injection |
-| Business Logic Flaws | $500 – $50,000+ | Price manipulation, privilege escalation |
-| Subdomain Takeover | $100 – $5,000+ | Dangling DNS records |
-| Account Takeover | $1,000 – $25,000+ | Password reset flaws, OAuth misconfig |
-| Stored XSS | $200 – $10,000+ | Persistent XSS with high impact |
+| Platform | Description |
+|---|---|
+| HackerOne | World's largest bug bounty platform; private and public programs, triage services, and VDP hosting |
+| Bugcrowd | Managed bug bounty and penetration testing marketplace with strong enterprise focus |
+| Intigriti | European-headquartered platform with strong GDPR-aware programs and growing global researcher base |
+| Synack Red Team | Invite-only, vetted researcher network with higher payouts and structured assessment services |
+| YesWeHack | European platform popular in France and DACH regions with growing enterprise programs |
+| Cobalt | Pentest-as-a-service integrating bug bounty methodology with compliance deliverables |
+| Burp Suite Professional | Industry-standard web proxy with active scanner, extensions marketplace, and out-of-band Collaborator |
 
 ---
 
-## ATT&CK Alignment
+## Vulnerability Classes: Offensive & Defensive Perspectives
 
-Bug bounty targets techniques that attackers use against the same applications:
+| Vulnerability | Offensive Technique | Defensive Detection |
+|---|---|---|
+| XSS (Reflected/Stored/DOM) | Inject script payloads via inputs or URL params to steal cookies or execute actions in victim browsers | CSP headers, output encoding, WAF rules alerting on script patterns in request and response bodies |
+| SQL Injection | Union-based, blind time-based, error-based extraction via unsanitized database queries | Parameterized queries, WAF SQLi rules, anomalous query latency alerts in database logs |
+| SSRF | Fetch internal metadata endpoints or pivot to internal services via user-supplied URLs | Egress filtering, IMDSv2 enforcement, deny-listing RFC-1918 ranges at the application layer |
+| IDOR | Modify object IDs in requests to access other users' data without authorization checks | Object-level authorization on every data access, access control audit logs |
+| OAuth Misconfiguration | Open redirect in redirect_uri, state parameter CSRF, implicit flow token leakage | Strict redirect_uri allowlisting, PKCE enforcement, short-lived tokens |
+| JWT Weaknesses | Algorithm confusion (alg:none), RS256-to-HS256 key confusion, weak secret brute-force | Strict algorithm allowlisting on the server, long random secrets, short expiry and rotation |
+| Business Logic Flaws | Price manipulation, race conditions on payments, privilege escalation via parameter tampering | Server-side validation of all state transitions, functional security testing in CI/CD |
+| API Flaws (BOLA/BFLA) | Access other users' resources via predictable IDs; call admin functions via undocumented endpoints | Object-level authorization checks, API schema validation, per-endpoint rate limiting |
 
-- **T1190** — Exploit Public-Facing Application (web/API RCE)
-- **T1078.001** — Default Accounts (credential stuffing, weak defaults)
-- **T1059.007** — JavaScript (XSS leading to account takeover)
-- **T1552.001** — Credentials in Files (exposed .env, config files in recon)
-- **T1213** — Data from Information Repositories (IDOR, broken access control)
+---
+
+## Recon Methodology
+
+A structured recon pipeline maximizes attack surface coverage before active testing:
+
+1. **Subdomain Enumeration** — `subfinder -d target.com | httpx -silent` for passive discovery and live host probing
+2. **JavaScript Analysis** — Run `katana` to crawl and extract JS files, then `LinkFinder` and `SecretFinder` on each file
+3. **Parameter Discovery** — `gau target.com | gf xss` to pull historical URLs filtered for XSS-prone parameters; `Arjun` on API endpoints
+4. **Google Dorks** — `site:target.com ext:php inurl:id=` to find parameter-rich pages and exposed configuration files
+5. **Certificate Transparency** — Query `crt.sh` for subdomains from CT logs: `curl "https://crt.sh/?q=%.target.com&output=json"`
+6. **GitHub Dorking** — Search `org:targetname` for exposed secrets, internal API keys, and development endpoints in source code
+7. **Cloud Asset Discovery** — Use `nuclei -t exposures/` to scan for exposed S3 buckets, Firebase instances, and open cloud storage
+
+---
+
+## Writing a High-Quality Bug Report
+
+| Report Component | What to Include |
+|---|---|
+| Title | Clear and specific: "Stored XSS in user profile bio field leads to account takeover" |
+| Severity | CVSS v3.1 score with full vector string |
+| Summary | Two to three sentences — what the bug is, where it exists, and what an attacker can do |
+| Steps to Reproduce | Numbered, exact steps from unauthenticated state to demonstrated impact |
+| Proof of Concept | Screenshots, HTTP request/response dumps from Burp Suite, video for complex chains |
+| Impact | Business impact — what data, systems, or users are affected and how |
+| Remediation | Specific fix recommendation, not generic advice |
+| References | CWE number, OWASP classification, any related CVEs |
+
+---
+
+## NIST 800-53 Control Alignment
+
+| Control | Family | Relevance |
+|---|---|---|
+| SA-11 | System and Services Acquisition | Developer security testing; bug bounty supplements formal code review requirements |
+| RA-5 | Risk Assessment | Vulnerability scanning; researcher findings feed the organizational risk register |
+| SI-3 | Malicious Code Protection | Injection vulnerabilities (XSS, SQLi) map to malicious code execution risks |
+| SI-10 | Information Input Validation | Input validation failures are the root cause of the majority of web bug bounty findings |
+| SC-28 | Protection of Information at Rest | IDOR and broken access control expose data that SC-28 is designed to protect |
+| CA-8 | Penetration Testing | Bug bounty programs function as continuous, community-driven penetration testing |
+| AC-17 | Remote Access | OAuth and authentication bypass findings directly undermine remote access controls |
+| SA-15 | Development Process Standards | Secure SDLC gaps that developers miss are routinely caught by external researchers |
+| SI-7 | Software, Firmware, and Information Integrity | Dependency confusion and supply chain bugs compromise software integrity |
+| RA-3 | Risk Assessment | High-severity bounty findings must feed into risk assessments and treatment plans |
+
+---
+
+## ATT&CK Coverage
+
+| Technique ID | Name | Tactic | Relevance |
+|---|---|---|---|
+| T1190 | Exploit Public-Facing Application | Initial Access | Core bug bounty target — web and API RCE, SSRF, SQLi exploitation |
+| T1059.007 | Command and Scripting Interpreter: JavaScript | Execution | XSS payloads executing JavaScript in victim browsers |
+| T1055 | Process Injection | Privilege Escalation | Deserialization and memory corruption bugs enabling injection |
+| T1078 | Valid Accounts | Defense Evasion / Persistence | Account takeover via auth bypass, OAuth flaws, JWT attacks |
+| T1134 | Access Token Manipulation | Privilege Escalation | JWT algorithm confusion and OAuth token theft techniques |
+| T1552 | Unsecured Credentials | Credential Access | Exposed API keys in JS files, .env files, and GitHub repositories |
+| T1083 | File and Directory Discovery | Discovery | Path traversal and IDOR enabling enumeration of files and objects |
+| T1203 | Exploitation for Client Execution | Execution | XSS and CSRF exploiting user browsers to execute attacker-controlled code |
 
 ---
 
@@ -129,11 +166,12 @@ Bug bounty targets techniques that attackers use against the same applications:
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| [BSCP (Burp Suite Certified Practitioner)](https://portswigger.net/web-security/certification) | PortSwigger | Web app security; exam via Web Security Academy |
-| [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing fundamentals |
-| [eWPT](https://elearnsecurity.com/product/ewpt-certification/) | eLearnSecurity | Web application pentesting |
-| [GWAPT](https://www.giac.org/certifications/web-application-penetration-tester-gwapt/) | GIAC | Web application penetration testing |
-| [GWEB](https://www.giac.org/certifications/web-application-defender-gweb/) | GIAC | Web application defender |
+| BSCP (Burp Suite Certified Practitioner) | PortSwigger | Web application security; hands-on exam via Web Security Academy |
+| OSCP (Offensive Security Certified Professional) | OffSec | Penetration testing fundamentals including web exploitation |
+| eWPT (Web Application Penetration Tester) | eLearnSecurity / INE | Web application pentesting methodology |
+| GWEB (GIAC Web Application Defender) | GIAC | Web application defense from an attacker-informed perspective |
+| GWAPT (GIAC Web Application Penetration Tester) | GIAC | Web application penetration testing |
+| PNPT (Practical Network Penetration Tester) | TCM Security | Practical offensive security with bug bounty-adjacent methodology |
 
 ---
 
@@ -141,20 +179,24 @@ Bug bounty targets techniques that attackers use against the same applications:
 
 | Resource | Type | Notes |
 |---|---|---|
-| [PortSwigger Web Security Academy](https://portswigger.net/web-security) | Free labs | Best free web app security training; 250+ labs |
-| [HackTheBox Bug Bounty Path](https://academy.hackthebox.com/path/preview/bug-bounty-hunter) | Course | Structured HTB bug bounty curriculum |
-| [Nahamsec Bug Bounty Bootcamp](https://www.udemy.com/course/the-complete-bug-bounty-bootcamp/) | Course | Beginner-friendly; recon methodology |
-| [Stök's YouTube Channel](https://www.youtube.com/@STOKfredrik) | Free videos | Hacking techniques, mindset, live hunts |
-| [Insider PhD (LiveOverflow)](https://www.youtube.com/@LiveOverflow) | Free videos | Deep technical security research |
-| [The Bug Bounty Playbook](https://payhip.com/b/wAoh) | Book | Frans Rosén and community methodology |
-| [Hacktivity (HackerOne)](https://hackerone.com/hacktivity) | Disclosed reports | Read real disclosed bug reports |
-| [Pentester Land](https://pentester.land/writeups/) | Write-ups | Curated bug bounty write-up database |
+| [PortSwigger Web Security Academy](https://portswigger.net/web-security) | Free labs | Best free web app security training; 250+ labs covering every major vulnerability class |
+| [Hacker101 CTF](https://ctf.hacker101.com/) | Free CTF | HackerOne-operated CTF that earns private program invitations |
+| [Bugcrowd University](https://www.bugcrowd.com/hackers/bugcrowd-university/) | Free course | Scoping, methodology, and report writing from practitioners |
+| [PentesterLab](https://pentesterlab.com/) | Labs | Hands-on exercises from basic to advanced; free and Pro tiers |
+| [Hacktivity (HackerOne)](https://hackerone.com/hacktivity) | Disclosed reports | Read real triaged and paid bug reports to study patterns and methodology |
+| [Pentester Land Write-ups](https://pentester.land/writeups/) | Write-ups | Curated database of community write-ups organized by vulnerability type |
+| [NahamSec Bug Bounty Bootcamp](https://www.udemy.com/course/the-complete-bug-bounty-bootcamp/) | Course | Beginner-friendly; recon methodology and live hunting demonstrations |
+| [Real-World Bug Hunting — Peter Yaworski](https://nostarch.com/bughunting) | Book | Case studies of real disclosed reports organized by vulnerability type |
+| [The Web Application Hacker's Handbook](https://www.wiley.com/en-us/The+Web+Application+Hacker%27s+Handbook%2C+2nd+Edition-p-9781118026472) | Book | Foundational reference for web vulnerability exploitation techniques |
+| [Jason Haddix Bug Bounty Methodology](https://github.com/jhaddix/tbhm) | GitHub | Community methodology guide maintained by a top-ranked researcher |
 
 ---
 
 ## Related Disciplines
 
-- [Application Security](application-security.md) — Secure development that reduces bug bounty findings
-- [Offensive Security](offensive-security.md) — Core hacking techniques
-- [Vulnerability Management](vulnerability-management.md) — CVE scoring and triage
-- [Detection Engineering](detection-engineering.md) — Detecting exploitation of disclosed vulnerabilities
+- [Application Security](application-security.md)
+- [Offensive Security](offensive-security.md)
+- [Vulnerability Management](vulnerability-management.md)
+- [Detection Engineering](detection-engineering.md)
+- [DevSecOps](devsecops.md)
+- [Network Security](network-security.md)

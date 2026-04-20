@@ -12,9 +12,9 @@ Earn AWS Solutions Architect Associate (or its Azure/GCP equivalent) before focu
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
-| Foundation | Shared responsibility model, cloud IAM fundamentals, S3/blob storage security, VPC/network segmentation, CloudTrail/cloud logging | AWS Cloud Practitioner (free training), flaws.cloud lab (free), BHIS cloud security webcasts |
-| Practitioner | Cloud pentesting (IAM privesc, SSRF to metadata, S3 enumeration), cloud-native logging and detection, container security, Kubernetes hardening | flaws.cloud + flaws2.cloud, CloudGoat (Rhino Security), HTB Academy Cloud path, Wiz Academy (free) |
-| Advanced | Multi-cloud CSPM, cloud IR and forensics, zero trust architecture, eBPF-based runtime security, CNAPP concepts, cloud attack simulation | SANS SEC541/SEC588, Wiz Research blog, Stratus Red Team, CNCF security papers |
+| Foundation | Shared responsibility model, cloud IAM fundamentals, S3/blob storage security, VPC/network segmentation, CloudTrail/cloud logging | [AWS Cloud Practitioner (free)](https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/), [flaws.cloud](http://flaws.cloud), [BHIS cloud security webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) |
+| Practitioner | Cloud pentesting (IAM privesc, SSRF to metadata, S3 enumeration), cloud-native logging and detection, container security, Kubernetes hardening | [flaws.cloud](http://flaws.cloud) + [flaws2.cloud](http://flaws2.cloud), [CloudGoat (Rhino Security)](https://github.com/RhinoSecurityLabs/cloudgoat), [HTB Academy Cloud path](https://academy.hackthebox.com), [Wiz Academy (free)](https://www.wiz.io/academy) |
+| Advanced | Multi-cloud CSPM, cloud IR and forensics, zero trust architecture, eBPF-based runtime security, CNAPP concepts, cloud attack simulation | [SANS SEC541](https://www.sans.org/cyber-security-courses/aws-bootcamp/)/[SEC588](https://www.sans.org/cyber-security-courses/cloud-penetration-testing/), [Wiz Research blog](https://www.wiz.io/blog/tag/research), [Stratus Red Team](https://stratus-red-team.cloud), [CNCF security papers](https://github.com/cncf/tag-security) |
 
 ---
 
@@ -89,6 +89,44 @@ Cloud security has the most dynamic commercial tool market of any security disci
 
 ---
 
+## NIST 800-53 Control Alignment
+
+Cloud security maps directly to several [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) control families. Understanding which controls apply and why helps practitioners communicate cloud risk in terms that auditors and compliance programs recognize.
+
+| Control Family | Control ID(s) | Cloud Security Application |
+|---|---|---|
+| Access Control (AC) | AC-2, AC-3, AC-6, AC-17 | IAM role least privilege, cross-account access policies, cloud console access restrictions, remote access via VPN/bastion |
+| Audit and Accountability (AU) | AU-2, AU-3, AU-6, AU-9, AU-12 | CloudTrail / Azure Monitor / Cloud Audit Logs configuration, log integrity, SIEM ingestion of cloud logs, alerting on sensitive API calls |
+| Configuration Management (CM) | CM-2, CM-6, CM-7, CM-8 | IaC security scanning (Checkov, Terraform), cloud resource inventory via CSPM, CIS benchmark enforcement, drift detection |
+| Identification and Authentication (IA) | IA-2, IA-3, IA-5, IA-8 | MFA enforcement for cloud console, service account credential management, workload identity federation, cross-provider federation |
+| System and Communications Protection (SC) | SC-7, SC-8, SC-12, SC-28 | VPC security groups and NACLs, encryption in transit (TLS), cloud KMS key management, encryption at rest for S3/blob/disks |
+| Incident Response (IR) | IR-4, IR-5, IR-6, IR-8 | Cloud-native IR playbooks, GuardDuty/Defender for Cloud alert triage, cloud forensic evidence preservation, IR plan covering cloud workloads |
+| Risk Assessment (RA) | RA-3, RA-5 | CSPM continuous risk assessment, cloud vulnerability scanning with Inspector/Defender, third-party cloud risk assessments |
+| Supply Chain Risk Management (SR) | SR-3, SR-11 | Container image supply chain security, SBOMs for cloud workloads, third-party managed service provider risk |
+| Program Management (PM) | PM-9, PM-30 | Cloud security program governance, shared responsibility model documentation, cloud risk in enterprise risk register |
+| System and Services Acquisition (SA) | SA-10, SA-11 | Secure SDLC for cloud workloads, IaC security in CI/CD pipelines, container image signing and verification |
+
+---
+
+## ATT&CK Coverage
+
+Cloud attack techniques are catalogued in the [MITRE ATT&CK Cloud Matrix](https://attack.mitre.org/matrices/enterprise/cloud/) covering AWS, Azure, GCP, Office 365, and SaaS platforms. Understanding these techniques explains why each cloud security control exists.
+
+| Technique | ID | How Cloud Security Addresses It |
+|---|---|---|
+| Cloud Infrastructure Discovery | [T1580](https://attack.mitre.org/techniques/T1580/) | CSPM continuous inventory; restrict ListBuckets/DescribeInstances via SCPs; monitor for reconnaissance API calls in CloudTrail |
+| Exploit Public-Facing Application | [T1190](https://attack.mitre.org/techniques/T1190/) | WAF in front of public cloud workloads; container image vulnerability scanning; runtime workload protection to detect exploitation |
+| Valid Accounts: Cloud Accounts | [T1078.004](https://attack.mitre.org/techniques/T1078/004/) | MFA enforcement, anomalous login detection via GuardDuty/Defender, just-in-time privileged access, short-lived credentials via STS |
+| Steal Application Access Token | [T1528](https://attack.mitre.org/techniques/T1528/) | Token expiry enforcement, SSRF protection to block metadata API abuse, workload identity federation replacing long-lived keys |
+| Unsecured Credentials: Cloud Instance Metadata API | [T1552.005](https://attack.mitre.org/techniques/T1552/005/) | IMDSv2 enforcement (AWS), SSRF-blocking WAF rules, network controls restricting metadata API access from container workloads |
+| Modify Cloud Compute Infrastructure | [T1578](https://attack.mitre.org/techniques/T1578/) | CloudTrail alerting on compute modification events, SCPs restricting region/service usage, change management integration |
+| Exfiltration to Cloud Storage | [T1567.002](https://attack.mitre.org/techniques/T1567/002/) | S3/blob DLP controls, bucket policies blocking public access, network egress monitoring for large S3 transfers |
+| Resource Hijacking | [T1496](https://attack.mitre.org/techniques/T1496/) | Cost anomaly detection, GuardDuty CryptoCurrency findings, budget alerts for unexpected compute/GPU spin-up |
+| Account Manipulation: Additional Cloud Credentials | [T1098.001](https://attack.mitre.org/techniques/T1098/001/) | CloudTrail/Entra ID alerting on new access key creation or role assignment changes; PAM coverage of cloud console access |
+| Data from Cloud Storage | [T1530](https://attack.mitre.org/techniques/T1530/) | S3 Block Public Access enforcement, Macie sensitive data discovery, bucket ACL auditing via CSPM, access logging on all storage |
+
+---
+
 ## Books & Learning
 
 | Book | Author | Why Read It |
@@ -144,3 +182,14 @@ Cloud security has the most dynamic commercial tool market of any security disci
 - [CIS Cloud Benchmarks](https://www.cisecurity.org/cis-benchmarks) — Free hardening baselines for AWS, Azure, GCP, and Kubernetes; the compliance standard most cloud security programs anchor to
 - [AWS Customer Security Incidents](https://github.com/ramimac/aws-customer-security-incidents) — Curated public record of real AWS security incidents; learning from actual breaches is the best way to understand real cloud attack patterns
 - [CNCF Cloud Native Security Whitepaper](https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf) — Authoritative cloud-native security architecture reference from the CNCF Security Technical Advisory Group
+
+---
+
+## Related Disciplines
+
+- [identity-access-management.md](identity-access-management.md) — Cloud security and IAM are inseparable: misconfigured IAM roles and overprivileged identities are the leading root cause of cloud breaches; CIEM, entitlement analysis, and cloud-specific OAuth patterns are shared territory
+- [detection-engineering.md](detection-engineering.md) — Cloud attack detection requires purpose-built rules for CloudTrail, Azure Monitor, and GCP Audit Logs; cloud-native SIEM integrations and detection content for ATT&CK cloud techniques are built by detection engineers
+- [devsecops.md](devsecops.md) — IaC security scanning, container image signing, Kubernetes admission control, and supply chain security live at the intersection of cloud security and DevSecOps; shift-left cloud security is largely a DevSecOps responsibility
+- [threat-intelligence.md](threat-intelligence.md) — Cloud-targeted threat actors require CTI-informed defensive posture; threat intelligence feeds directly into which cloud misconfigurations to prioritize and which attack paths to harden
+- [incident-response.md](incident-response.md) — Cloud IR requires cloud-specific forensic techniques: CloudTrail forensics, S3 access log analysis, container forensics, and workload memory acquisition in ephemeral environments differ significantly from traditional IR
+- [governance-risk-compliance.md](governance-risk-compliance.md) — Cloud compliance programs (FedRAMP, SOC 2, ISO 27001 in cloud environments) require CSPM evidence, IaC policy-as-code, and cloud-specific control implementation guidance

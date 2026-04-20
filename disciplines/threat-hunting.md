@@ -323,8 +323,8 @@ SecurityEvent
 
 ## Related Disciplines
 
-- [Detection Engineering](disciplines/detection-engineering.md) — Converting successful hunt findings into automated detection rules; SIGMA rule authoring; detection lifecycle management
-- [Threat Intelligence](disciplines/threat-intelligence.md) — Intelligence-driven hypothesis generation; threat actor TTP mapping; IOC enrichment for hunt data
-- [Incident Response](disciplines/incident-response.md) — Response handoff from confirmed hunt findings; containment, eradication, and recovery
-- [Security Operations](disciplines/security-operations.md) — SOC context for hunt programs; alert triage, SIEM operations, and escalation workflows
+- [Detection Engineering](detection-engineering.md) — Converting successful hunt findings into automated detection rules; SIGMA rule authoring; detection lifecycle management
+- [Threat Intelligence](threat-intelligence.md) — Intelligence-driven hypothesis generation; threat actor TTP mapping; IOC enrichment for hunt data
+- [Incident Response](incident-response.md) — Response handoff from confirmed hunt findings; containment, eradication, and recovery
+- [Security Operations](security-operations.md) — SOC context for hunt programs; alert triage, SIEM operations, and escalation workflows
 - [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) — Repository detection rule library and SIGMA conversion reference

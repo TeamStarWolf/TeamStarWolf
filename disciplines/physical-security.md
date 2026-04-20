@@ -163,8 +163,8 @@ Physical intrusions also enable **Initial Access** (ATT&CK TA0001) — once insi
 
 ## Related Disciplines
 
-- [Hardware Security](disciplines/hardware-security.md) — Physical access is the primary enabler of hardware attacks — implants, JTAG, and side-channel attacks require physical proximity
-- [ICS / OT Security](disciplines/ics-ot-security.md) — Physical security of industrial facilities is critical — physical access to OT systems can cause real-world process disruption
-- [Social Engineering](disciplines/social-engineering.md) — Tailgating, impersonation, and pretexting are social engineering techniques with direct physical access objectives
-- [Offensive Security](disciplines/offensive-security.md) — Physical pen testing is a component of comprehensive red team and penetration testing engagements
-- [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) — Physical security controls are required by PCI DSS, HIPAA, ISO 27001, and NIST frameworks
+- [Hardware Security](hardware-security.md) — Physical access is the primary enabler of hardware attacks — implants, JTAG, and side-channel attacks require physical proximity
+- [ICS / OT Security](ics-ot-security.md) — Physical security of industrial facilities is critical — physical access to OT systems can cause real-world process disruption
+- [Social Engineering](social-engineering.md) — Tailgating, impersonation, and pretexting are social engineering techniques with direct physical access objectives
+- [Offensive Security](offensive-security.md) — Physical pen testing is a component of comprehensive red team and penetration testing engagements
+- [Governance, Risk & Compliance](governance-risk-compliance.md) — Physical security controls are required by PCI DSS, HIPAA, ISO 27001, and NIST frameworks

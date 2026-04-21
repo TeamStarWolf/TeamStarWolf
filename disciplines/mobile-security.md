@@ -200,6 +200,116 @@ Key attack techniques:
 
 ---
 
+
+## Mobile Attack Surface
+
+### iOS Attack Surface
+
+- **Safari/WebKit**: Browser vulnerabilities; web content parsing flaws exploited remotely
+- **iMessage**: Zero-click exploits — FORCEDENTRY (CVE-2021-30860) used by NSO Pegasus; no user interaction required
+- **AirDrop**: BTLE/WiFi proximity exploitation
+- **Kernel**: Privilege escalation to gain code execution at kernel level
+- **Jailbreaking**: Checkra1n (checkm8 BootROM), Unc0ver, Palera1n — bypass iOS security model
+
+### Android Attack Surface
+
+- **APK sideloading**: Install apps from unknown sources bypasses Play Protect
+- **Stagefright (2015)**: MMS video parsing heap overflow — remote code execution
+- **MediaTek backdoor**: Undocumented factory mode access on chipsets
+- **Intent hijacking**: Intercept implicit intents; steal data from exported activities
+- **Rooting**: Magisk (most popular), KernelSU — root without modifying /system partition
+
+### Network Attacks on Mobile
+
+- **Evil twin WiFi**: Force device to connect to rogue AP; SSL stripping/MitM
+- **Stingray/IMSI Catcher**: Fake cell tower; intercept calls/SMS; identify device location
+- **SS7 attacks**: Signaling System 7 vulnerabilities; intercept SMS 2FA codes; track location
+- **Bluetooth attacks**: BlueBorne (2017) — remote code execution over Bluetooth without pairing
+
+---
+
+## Mobile Application Security Testing (MASVS)
+
+### OWASP Mobile Application Security Verification Standard (MASVS)
+
+- **MASVS-RESILIENCE**: Anti-tampering, anti-debugging, certificate pinning, jailbreak/root detection
+- **MASVS-CRYPTO**: Key management, algorithm choices, random number generation
+- **MASVS-NETWORK**: Certificate validation, TLS configuration, certificate pinning
+- **MASVS-AUTH**: Authentication, session management
+- **MASVS-STORAGE**: Local storage security, keychain/keystore usage, log data
+- **MASVS-CODE**: Code quality, injection prevention, third-party library security
+
+### Android Penetration Testing
+
+```bash
+# APK extraction from device
+adb pull /data/app/com.target.app-*.apk
+
+# Static analysis with jadx (decompile to Java)
+jadx -d output/ target.apk
+
+# Dynamic analysis with Frida
+frida-ps -U                             # list running processes
+frida -U -l hook_ssl.js com.target.app  # hook SSL to bypass certificate pinning
+
+# MobSF (Mobile Security Framework) - automated SAST/DAST
+docker run -it -p 8000:8000 opensecurity/mobile-security-framework-mobsf
+
+# Objection - runtime mobile exploration
+objection -g com.target.app explore
+android sslpinning disable
+android root disable
+```
+
+### iOS Penetration Testing
+
+```bash
+# SSH into jailbroken device
+ssh mobile@DEVICE_IP
+
+# Frida on iOS
+frida-ps -U
+frida -U -l ios_ssl_bypass.js com.target.app
+
+# Objection - iOS
+objection -g com.target.app explore
+ios sslpinning disable
+
+# Class-dump - extract Objective-C headers
+class-dump TargetApp.app/TargetApp > headers.h
+
+# Cycript - runtime patching
+cycript -p com.target.app
+```
+
+### Certificate Pinning Bypass Techniques
+
+- **Objection**: `ios sslpinning disable` / `android sslpinning disable` (hooks TrustManager/SSLContext)
+- **Frida scripts**: Universal bypass scripts for iOS (ssl_kill_switch2) and Android
+- **APK patching**: Decompile with apktool, modify network_security_config.xml, repackage and sign
+- **Proxy approach**: Charles Proxy or Burp with mitmproxy for traffic interception
+
+---
+
+## Mobile Security Tooling Reference
+
+| Tool | Platform | Use Case |
+|------|----------|----------|
+| MobSF | Both | Automated static + dynamic analysis |
+| Frida | Both | Dynamic instrumentation framework |
+| Objection | Both | Runtime mobile exploration built on Frida |
+| jadx | Android | APK decompiler to Java/Kotlin |
+| apktool | Android | APK disassembly/reassembly |
+| adb | Android | Android Debug Bridge — device control |
+| Drozer | Android | Android app attack framework |
+| idb | iOS | iOS app investigation tool |
+| class-dump | iOS | Objective-C header extraction |
+| Cycript | iOS | Runtime patching via ObjC/JS bridge |
+| ssl_kill_switch2 | iOS | Bypass certificate pinning (jailbroken) |
+| Burp Suite | Both | HTTP proxy for traffic analysis |
+| Checkra1n | iOS | Jailbreaking tool (checkm8 BootROM) |
+| Magisk | Android | Rooting framework |
+
 ## Related Disciplines
 
 - [Application Security](application-security.md) — Mobile API and backend security, OWASP alignment

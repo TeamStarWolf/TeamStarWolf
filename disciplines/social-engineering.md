@@ -205,6 +205,99 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ---
 
+## Social Engineering Attack Taxonomy
+
+**Phishing Types**
+
+| Type | Target | Medium | Sophistication |
+|------|--------|--------|----------------|
+| Spearphishing | Named individual | Email | High (personalized) |
+| Whaling | C-level executive | Email/Phone | Very high |
+| Vishing | Anyone with phone | Voice call | Medium-High |
+| Smishing | Mobile users | SMS | Low-Medium |
+| Spearphishing via LinkedIn | Professionals | LinkedIn message | High |
+| Business Email Compromise (BEC) | Finance/HR/executives | Email | Very high (no malware) |
+
+**Pretexting Scenarios (Real-World Examples)**
+- IT helpdesk impersonation: "Hi, this is Bob from IT. We detected unusual activity on your account. I need to verify your credentials."
+- Vendor impersonation: Fake invoice from "known" vendor with updated payment details
+- Executive impersonation (CEO fraud): Urgency + authority -> "I need a wire transfer done today, don't tell anyone"
+- Government impersonation: IRS, FBI, USCIS threatening legal action unless immediate payment
+- Job recruiter: Fake LinkedIn recruiter sending malicious "assessment" or "portfolio" links
+
+---
+
+## Phishing Infrastructure Setup
+
+**Technical Setup**
+- Domain selection: Typosquatting (targetcorp.com -> target-corp.com), homoglyph (paypa1.com), combo-squatting (secure-microsoft-login.com)
+- Email infrastructure: VPS + Postfix + SPF/DKIM/DMARC records for deliverability
+- GoPhish: Open-source phishing framework; campaigns, templates, tracking
+- Evilginx3: AiTM proxy — captures session tokens + credentials even with MFA; targets Office 365, Google, GitHub
+- Modlishka: Similar AiTM tool; more customizable
+- EvilnoVNC: Browser-in-browser phishing via VNC; bypasses most MFA
+
+**Email Delivery Bypass Techniques**
+- Authenticated sending infrastructure: SPF/DKIM/DMARC alignment from purchased lookalike domain
+- Relay through compromised accounts: Use compromised email account to send — passes reputation filters
+- HTML obfuscation: Zero-width characters, hidden text, CSS manipulation to bypass content filters
+- URL shorteners/redirectors: Multi-hop redirectors (Google -> bit.ly -> target) to bypass URL scanners
+
+---
+
+## Vishing (Voice Phishing)
+
+**Vishing Technique Guide**
+- Research phase: LinkedIn for target's name/role/org, company website for vendor/HR contact names
+- Caller ID spoofing: Burner SIM, SpoofCard, Google Voice; spoof to appear as internal number
+- Tone and pace: Confident, slightly rushed (urgency without panic), professional vocabulary
+- Information elicitation: Use what you know to unlock what you don't know ("I'm calling about the ServiceNow ticket for John in Finance...")
+- Dual pretext: Two callers working together — one gets partial info, second call uses that as verification
+- Recording and analysis: Review calls for improvement; Scattered Spider was recorded and studied
+
+**Scattered Spider Case Study (2022-2023)**
+- English-speaking native English group (MGM, Caesars, Riot Games, Reddit, Twilio)
+- Primary TTPs: Vishing IT helpdesks to initiate MFA reset; "I've lost my phone, can you reset my Okta?"
+- MFA fatigue: Bombarding user with push notifications at 2am until they approve
+- SIM swapping: Bribing telco employees or social engineering to port victim's number
+- Impact: $100M+ impact on MGM; Caesars paid $15M ransom
+
+---
+
+## Security Awareness Program Design
+
+**Human Risk Metrics**
+
+| Metric | Benchmark | How to Measure |
+|--------|-----------|----------------|
+| Phishing simulation click rate | Industry avg ~25%, target <5% | Monthly simulated campaigns |
+| Credential submission rate | Target <1% | Track form submissions in GoPhish |
+| Reporting rate | Target >30% of phishing sims reported | Track "Report Phishing" button clicks |
+| Repeat offenders | Target <10% repeat click after training | Track per-user over time |
+| Training completion rate | Target >95% within 30 days | LMS reporting |
+| MTTA (Mean Time to Acknowledge alert) | Target <30min for P1 phish | SOC metrics |
+
+**Phishing Simulation Vendors**
+- KnowBe4: Largest awareness platform; 35,000+ template library; PhishER triage tool
+- Proofpoint Security Awareness: Behavioral science-based; Targeted Attack Protection integration
+- Cofense: Phishing simulation + threat intelligence from clicked links
+- Hoxhunt: Gamified simulation; AI-adaptive difficulty
+- GoPhish (OSS): Self-hosted; flexible; used for red team internal phishing campaigns
+
+**Behavior Change Framework**
+- BJ Fogg Tiny Habits Model: Behavior = Motivation + Ability + Prompt. Lower barriers (increase ability) not just motivate
+- Feedback loops: Immediate feedback when phishing link clicked -> training before bad habits form
+- Positive reinforcement: Reward reporting; recognize security champions publicly
+- Micro-learning: 3-5 minute modules better than annual 2-hour compliance training
+
+**Building a Security Champions Program**
+- 1 security champion per department/team (dev, HR, finance, ops)
+- Responsibilities: Report suspicious activity, be local security contact, attend monthly security briefings
+- Recognition: Champions get early threat intel, exclusive content, visible program participation
+- Metrics: Track security incidents before/after program launch in champion-covered teams
+
+---
+
 ## Related Disciplines
 
 - [Offensive Security](offensive-security.md) — SE is a primary initial access vector in red team and pen test engagements

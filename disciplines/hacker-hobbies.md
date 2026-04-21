@@ -318,6 +318,176 @@ DEF CON villages are semi-independent spaces within the conference where specifi
 
 ---
 
+## Hacker Culture and History
+
+**The Hacker Ethic (Steven Levy, 1984)**
+Core tenets from Hackers: Heroes of the Computer Revolution:
+- Sharing: Information should be free; share knowledge openly
+- Decentralization: Bureaucratic structures impede the flow of information
+- Hands-on access: Always prefer direct engagement with a system over theoretical study
+- Trust through meritocracy: Hackers are judged by their hacks, not degrees, titles, or seniority
+- Beauty: Elegant code is inherently beautiful; an appreciation for craftsmanship
+- Computers change the world: The potential for computers to improve life is vast and mostly untapped
+
+**The Hacker Manifesto (The Mentor, 1986)**
+Written by Loyd Blankenship after his arrest. Published in Phrack Issue 7. One of the defining texts of hacker identity — "This is our world now, the world of the electron and the switch..." Articulates the alienation of intellectually curious youth within rigid educational systems, and the joy of finding community and freedom in networks. Essential cultural reading.
+
+**Phone Phreaking Era (1960s–1990s)**
+- 2600 Hz tone: Discovered that AT&T's long-distance signaling used a 2600 Hz tone; could be replicated with a toy whistle (Cap'n Crunch whistle — John Draper "Captain Crunch" discovered this)
+- Blue boxes: Electronic devices generating the exact signaling tones to seize long-distance phone circuits, enabling free calls anywhere in the world
+- Key figures: Captain Crunch (John Draper), Joybubbles (Joe Engressia — blind phone phreak), Mark Bernay
+- Steve Wozniak and Steve Jobs built and sold blue boxes in college — formative experience in their partnership
+- 2600: The Hacker Quarterly — still published, named after the 2600 Hz phreaking tone
+- Underground BBS culture: Bulletin Board Systems in the 1980s as the internet before the internet — where hackers shared knowledge, tools, and culture
+
+**Phrack Magazine**
+- Published since 1985; the oldest and most respected underground technical journal
+- Notable issues: #49 (Smashing the Stack for Fun and Profit by Aleph One — defined a generation of security research), #7 (Hacker Manifesto), #57 (The Art of Exploitation)
+- Still published at phrack.org; a rite of passage to be published in Phrack
+- Shaped offensive security research more than any other publication
+
+**2600 Magazine**
+- Founded 1984 by Emmanuel Goldstein (Eric Corley)
+- Quarterly print magazine covering hacker culture, phone phreaking, civil liberties, and technology
+- Famous cover stories: Operation Sundevil aftermath, free speech/DMCA battles, hacking culture anthropology
+- 2600 meetings: First Friday of every month at shopping malls in cities worldwide — a community institution
+
+**Famous Hackers and Their Stories**
+
+| Hacker | Era | Claim to Fame | Outcome |
+|--------|-----|---------------|---------|
+| Kevin Mitnick | 1980s-90s | Most wanted hacker; social engineering master; hacked Motorola, Nokia, Pacific Bell; featured in "Takedown" | Arrested 1995, served 5 years; became legendary security consultant |
+| Kevin Poulsen (Dark Dante) | 1980s-90s | Took over Los Angeles radio station phone lines to guarantee winning caller spot; hacked FBI databases | Arrested 1991; became senior editor at WIRED |
+| Robert Tappan Morris | 1988 | Created the Morris Worm — first major internet worm; first person convicted under CFAA | Community service; became MIT professor |
+| Adrian Lamo | 2000s | Hacked NYT, Microsoft, MCI; used corporate network access; reported Chelsea Manning to authorities | Controversial figure; died 2018 |
+| Gary McKinnon | 2001-02 | Hacked 97 US military and NASA systems looking for UFO evidence; solo UK hacker | Long extradition battle; UK blocked US extradition due to mental health (Asperger's) |
+| LulzSec | 2011 | 50-day rampage: Sony, PBS, CIA website, US Senate, News International | Core members arrested; FBI informant (Sabu) turned; most served prison time |
+| Aaron Swartz | 2000s-2013 | Co-created RSS and Reddit; JSTOR data liberation; internet freedom activist | Prosecuted aggressively by DOJ (13 felony counts); died 2013; deeply mourned by hacker community |
+
+---
+
+## DEF CON Culture
+
+**Conference Overview**
+- Founded 1993 by Jeff Moss (Dark Tangent) in Las Vegas; world's largest hacker conference (~30,000 attendees)
+- Unofficial rule: No suits (they're probably feds) — or wear them ironically
+- Goon: Volunteer staff (recognizable by staff badge); respected community role
+- Badge: Custom cryptographic/hardware challenge badge; solving it is a community event
+
+**DEF CON Villages**
+The village system lets specialized communities run their own mini-conferences within DEF CON:
+- Car Hacking Village: CAN bus exploitation, OBD-II hacking, autonomous vehicle security
+- ICS Village: SCADA/PLC/OT live equipment — hands-on industrial control system hacking
+- Aerospace Village: Aviation security, ADS-B spoofing, drone hacking
+- BioHacking Village: Medical device security, wearable hacking, synthetic biology
+- Packet Hacking Village: Forensics challenges, wireless attacks, network analysis
+- Social Engineering Village: Live SE competitions, vishing, pretexting techniques
+- Red Team Village: Red team competitions, adversary simulation content
+- AI Village: Adversarial ML, prompt injection competitions, LLM security
+- Crypto & Privacy Village: Applied cryptography, surveillance resistance, Tor/privacy tools
+
+**Hacker Jargon and Culture**
+- 31337 (elite/leet): Origin of "leet speak" — 3->E, 1->L, 3->E, 7->T
+- 0-day: Unknown/unpatched vulnerability
+- Script kiddie: Someone who uses others' tools without understanding them (pejorative)
+- pwned: From gaming (owned -> typo -> pwned); to completely compromise a system
+- /b/: Anonymous imageboard culture; origin of many hacktivist operations
+- The dark arts: Social engineering; considered by many to be the most powerful offensive capability
+- War dialing: Systematically calling phone numbers looking for modem answer (War Games reference)
+- War driving: Driving around logging WiFi networks (802.11 era)
+- Rubber duck debugging: Explaining code to an inanimate object to find bugs
+
+---
+
+## Hacking in Media and Literature
+
+**Essential Books**
+
+| Book | Author | Type | Why Essential |
+|------|--------|------|---------------|
+| The Hacker Crackdown | Bruce Sterling | Non-fiction | 1990 crackdown aftermath; civil liberties; Operation Sundevil |
+| Hackers: Heroes of the Computer Revolution | Steven Levy | Non-fiction | Origin of hacker culture; the hacker ethic; early computer culture |
+| Ghost in the Wires | Kevin Mitnick | Autobiography | Best social engineering case studies; Mitnick's methods in detail |
+| The Art of Intrusion | Kevin Mitnick | Case studies | Real hack stories from the trenches |
+| The Cuckoo's Egg | Clifford Stoll | Non-fiction | First cyber espionage case (KGB); riveting detective story |
+| Countdown to Zero Day | Kim Zetter | Non-fiction | Definitive Stuxnet book; ICS cyberweapons |
+| Sandworm | Andy Greenberg | Non-fiction | Russia's Sandworm team; NotPetya; Ukraine cyber war |
+| This Is How They Tell Me the World Ends | Nicole Perlroth | Non-fiction | Global zero-day market; cyberweapon brokers |
+| The Tangled Web | Michal Zalewski | Technical | Web browser security deep dive |
+| Hacking: The Art of Exploitation | Jon Erickson | Technical | Buffer overflows, shellcoding, network hacking |
+
+**Essential Films and Shows**
+
+| Title | Year | Why Notable |
+|-------|------|-------------|
+| WarGames | 1983 | Sparked public debate about computer security; coined "war dialing" |
+| Hackers | 1995 | Culturally iconic; not technically accurate but defining of the era |
+| The Matrix | 1999 | Shaped hacker aesthetic; "There is no spoon" as philosophical frame |
+| Mr. Robot | 2015-2019 | Most technically accurate hacking show ever; real tools, real TTPs; Elliott Alderson |
+| Halt and Catch Fire | 2014-2017 | Early PC era, building the internet; not hacking-focused but essential tech culture |
+| Zero Days (Gibney) | 2016 | Documentary on Stuxnet; unprecedented reporting on Equation Group |
+| We Are Legion | 2012 | Documentary on Anonymous; hactivism and online collective action |
+| The Internet's Own Boy | 2014 | Aaron Swartz documentary; internet freedom and prosecutorial overreach |
+
+---
+
+## Hardware Hacking and Maker Culture
+
+**Hacker Hardware**
+
+| Device | Use Case | Skill Level |
+|--------|----------|-------------|
+| Raspberry Pi | DIY projects, network implants, security tools | Beginner |
+| Arduino | Hardware prototyping, embedded systems, sensors | Beginner |
+| HackRF One | SDR transmit/receive (1MHz-6GHz) | Intermediate |
+| RTL-SDR | Receive-only SDR ($25) | Beginner |
+| Flipper Zero | RFID/NFC/IR/Sub-GHz/BadUSB; Swiss army knife for hardware hacking | Beginner-Intermediate |
+| GreatFET One | USB toolkit for hardware hacking and glitching | Advanced |
+| ChipWhisperer | Power analysis side-channel attacks | Advanced |
+| Proxmark3 | RFID/NFC research and cloning | Intermediate |
+| USB Rubber Ducky | HID keystroke injection device | Beginner |
+| WiFi Pineapple | WiFi MitM and pentesting | Intermediate |
+
+**Locksport**
+- The art and sport of picking locks non-destructively
+- TOOOL (The Open Organisation Of Lockpickers): Global community, chapters worldwide
+- LockPickingLawyer: Most popular locksport YouTube channel (18M+ subscribers)
+- ALOA (Associated Locksmiths of America): Professional organization
+- Locksport International (LSI): Competitive picking community
+- Security pin sets, spool pins, serrated pins — progressive difficulty
+- Resources: Deviant Ollam (physical security), r/lockpicking (subreddit with belt ranking system)
+
+**Ham Radio (Amateur Radio)**
+- Security relevance: Signal analysis, SDR, protocol reverse engineering background
+- License path (US): Technician -> General -> Amateur Extra (FCC exams)
+- Community: ARRL (American Radio Relay League), Hamvention (world's largest ham convention)
+- Security-relevant activities: Packet radio, APRS tracking, satellite communications, emergency comms
+- Callsign lookup: QRZ.com
+
+---
+
+## CTF Culture and Competitions
+
+**CTF Types**
+- Jeopardy style: Individual challenge categories (web, pwn, crypto, forensics, RE, misc) — most common format
+- Attack/Defense: Each team has a server to defend and attack others' — dynamic, stressful, exciting
+- King of the Hill: Own a server and maintain control while others try to take it
+- Mixed: Some competitions combine elements
+
+**Top CTF Competitions**
+
+| Competition | Format | Difficulty | Why Notable |
+|-------------|--------|------------|-------------|
+| DEF CON CTF | Attack/Defense | Elite | World championship; most prestigious; teams qualify via other CTFs |
+| PlaidCTF | Jeopardy | Elite | Plaid Parliament of Pwning; legendary challenges |
+| Google CTF | Jeopardy | Hard | High-quality challenges; attracts global talent |
+| picoCTF | Jeopardy | Beginner-Medium | Carnegie Mellon; best learning CTF; permanent challenge archive |
+| pwn.college | Training | Progressive | ASU; best binary exploitation training with dojo structure |
+| CyberDefenders | DFIR/Blue | Beginner-Hard | Blue team CTF; memory forensics, log analysis |
+| Hack The Box | CTF-like labs | All levels | Continuous challenge platform; community write-ups after retire |
+
+---
+
 ## Related Disciplines
 
 - [physical-security.md](physical-security.md) — Physical penetration testing, social engineering, access control assessments

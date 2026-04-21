@@ -143,3 +143,88 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 - [FedRAMP Authorization Process](https://www.fedramp.gov/program-basics/)
 - [TeamStarWolf Controls Mapping](../CONTROLS_MAPPING.md) — Vendor → NIST 800-53 → ATT&CK cross-reference
 - [TeamStarWolf Security Pipeline](../SECURITY_PIPELINE.md) — GRC in the enterprise security lifecycle
+
+#### GRC Frameworks Side-by-Side
+
+| Framework | Type | Certifiable? | Who Needs It | Key Controls |
+|---|---|---|---|---|
+| NIST CSF 2.0 | Voluntary | No (but widely assessed) | US organizations, critical infrastructure | 6 functions: Govern, Identify, Protect, Detect, Respond, Recover |
+| NIST SP 800-53 R5 | Federal standard | Yes (FedRAMP, FISMA) | Federal agencies and contractors | 20 control families, 1,000+ controls |
+| ISO 27001:2022 | International standard | Yes (third-party audit) | Global organizations seeking trust/compliance | 93 controls in Annex A, 4 new for cloud/DevSecOps |
+| SOC 2 Type II | AICPA audit | Yes (CPA firm) | SaaS, cloud providers | 5 Trust Services Criteria (Security mandatory + Privacy/Availability/Confidentiality/Processing Integrity) |
+| PCI DSS v4.0 | Payment standard | Yes (QSA) | Any entity storing/processing card data | 12 requirements, 64 objectives |
+| CMMC 2.0 | US DoD standard | Yes (C3PAO for L2/L3) | Defense contractors (DIB) | L1:17 practices, L2:110 (NIST 800-171), L3:+24 (NIST 800-172) |
+| HIPAA Security Rule | US law | No certification, but auditable | Healthcare covered entities and BAs | Administrative, Physical, Technical safeguards |
+| GDPR | EU law | No certification, but fines | Any org processing EU residents' data | Data minimization, consent, DSAR, 72hr breach notification |
+
+#### Risk Management Process
+
+**NIST RMF (Risk Management Framework) — 7 Steps**
+1. Prepare: Identify mission/business objectives, define risk tolerance, designate roles (ISSO, ISSM)
+2. Categorize: FIPS 199 impact levels (Low/Moderate/High) for Confidentiality, Integrity, Availability
+3. Select: Choose controls from NIST 800-53 baseline for impact level, tailor as needed
+4. Implement: Deploy controls with evidence (policies, procedures, configurations, logs)
+5. Assess: Third-party or independent assessment team validates controls (SP 800-53A)
+6. Authorize: Authorizing Official (AO) reviews POA&M and issues ATO (Authority to Operate)
+7. Monitor: Continuous monitoring (ConMon), update POA&M, re-assess on significant changes
+
+**Risk Register Template**
+
+Fields: Risk ID | Risk Description | Likelihood (1-5) | Impact (1-5) | Risk Score (L×I) | Treatment | Owner | Target Date | Status
+
+**Risk Treatment Options**
+- Accept: Risk within tolerance, no action (document with business owner sign-off)
+- Avoid: Stop the activity that creates the risk
+- Mitigate: Implement controls to reduce likelihood or impact
+- Transfer: Cyber insurance, contractual liability transfer to vendor
+
+**Quantitative Risk (FAIR Model)**
+- LEF (Loss Event Frequency) = TEF (Threat Event Frequency) × Vulnerability
+- LM (Loss Magnitude) = Primary Loss + Secondary Loss
+- ALE = Annual Loss Expectancy = LEF × LM
+- ROSI = (Reduced risk exposure × Asset value) - Control cost
+
+#### Compliance Program Operations
+
+**Evidence Collection and Audit Readiness**
+- GRC platforms: ServiceNow GRC, Archer, OneTrust, Drata (automated evidence collection), Vanta (automated SOC 2/ISO compliance)
+- Continuous compliance: Integrate automated evidence via API (cloud config states, access reviews, patch compliance) — removes point-in-time scramble
+- Evidence types: Screenshots, log exports, policy documents, signed attestations, configuration exports
+- Audit cycle: Quarterly control self-assessments, annual internal audits, annual external audit/pentest
+
+**Third-Party Risk Management (TPRM)**
+- Vendor tiering: Tier 1 (critical, data access) → full questionnaire + SOC 2 + onsite
+- Tier 2 (important) → questionnaire + SOC 2 review
+- Tier 3 (low risk) → self-attestation
+- Assessment platforms: ProcessUnity, BitSight, SecurityScorecard (passive monitoring), CyberGRX
+- Contract requirements: Security addendum with right-to-audit, breach notification SLA (72hr), data handling requirements, subprocessor approval
+
+#### Policy Framework
+
+**Policy Hierarchy**
+- Information Security Policy (top-level): Signed by CEO/Board, sets tone and authority
+- Standards: NIST/ISO-aligned specific requirements (password standard, encryption standard)
+- Procedures: Step-by-step operational instructions
+- Guidelines: Recommended practices (not mandatory)
+
+**Essential Policies (ISO 27001 Annex A aligned)**
+- Acceptable Use Policy (AUP)
+- Access Control Policy
+- Remote Work/BYOD Policy
+- Incident Response Policy
+- Business Continuity/Disaster Recovery Policy
+- Vendor Management Policy
+- Data Classification and Handling Policy
+- Vulnerability Management Policy
+
+#### GRC Career Path and Certifications
+
+| Certification | Issuing Body | Focus | Recommended For |
+|---|---|---|---|
+| CISM | ISACA | Security management | Security managers/directors |
+| CRISC | ISACA | IT risk management | Risk managers, GRC analysts |
+| CGEIT | ISACA | IT governance | C-suite/governance roles |
+| CISSP | ISC2 | Broad security management | Senior security professionals |
+| CISA | ISACA | IS auditing | Internal auditors, compliance leads |
+| CompTIA SecurityX (CASP+) | CompTIA | Advanced security practitioner | Technical GRC roles |
+| ISO 27001 Lead Implementer/Auditor | PECB/BSI | ISO standard operations | ISO programs |

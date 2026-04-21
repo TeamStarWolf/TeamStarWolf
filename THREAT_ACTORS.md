@@ -143,8 +143,116 @@ Threat intelligence is shared under the **Traffic Light Protocol (TLP)**:
 **Intelligence sharing platforms**: ISACs (sector-specific), MISP communities, FS-ISAC, MS-ISAC, CISA AIS (Automated Indicator Sharing)
 
 ---
+---
+
+## Russian Threat Actors (Deep Dive)
+
+### Sandworm (GRU Unit 74455)
+- Attribution: Russian GRU, most destructive cyber unit in history
+- Notable operations: Ukraine power grid (2015, 2016), NotPetya ($10B+ damage), Olympic Destroyer (Pyeongchang 2018 false flag), VPNFilter botnet (500K routers), Prestige ransomware (2022), Industroyer2 (2022), Cyclops Blink
+- Signature TTPs: wiper malware, destructive ICS attacks, supply chain compromise, false flag operations mimicking other APT groups
+- Primary targets: Ukrainian government/infrastructure, NATO countries, global collateral damage
+- Detection: Monitoring for Industroyer IOCs, VPNFilter C2 domains, GRU infrastructure patterns
+
+### APT28 / Fancy Bear (GRU Unit 26165)
+- Attribution: Russian GRU military intelligence
+- Notable operations: DNC hack (2016), Bundestag hack (2015), WADA Olympic doping records, SolarWinds supply chain (suspected), Fancy Bear anti-doping campaign
+- Signature TTPs: X-Agent implant, Sofacy/CHOPSTICK malware, spearphishing with zero-days, credential harvesting, Responder tool usage
+- Primary targets: Political parties, government agencies, defense contractors, sports/anti-doping organizations
+
+### APT29 / Cozy Bear (SVR)
+- Attribution: Russian SVR (Foreign Intelligence Service)
+- Notable operations: DNC hack (2016), SolarWinds/SUNBURST (2020), COVID-19 vaccine research theft, Microsoft breach (2024 — Midnight Blizzard/Nobelium)
+- Signature TTPs: SUNBURST backdoor, TEARDROP in-memory loader, WellMess, BEATDROP, Cobalt Strike with malleable C2, living-off-the-land, patient long-term access
+- Primary targets: Government, defense, think tanks, pharma/biotech, cloud providers
+
+### Turla (FSB)
+- Attribution: Russian FSB
+- Notable operations: Uroburos/Snake rootkit (30+ countries), Carbon backdoor, KazVar backdoor, hijacked Iranian APT infrastructure for operations
+- Signature TTPs: Rootkit-level persistence, satellite C2, watering hole attacks, Snake malware framework, using compromised Komodo C2 from OilRig
+
+---
+
+## Chinese Threat Actors (Deep Dive)
+
+### APT41 / Winnti Group (Double Dragon)
+- Attribution: Chinese MSS-sponsored, dual nexus (espionage + cybercrime)
+- Notable operations: BARIUM/LEAD supply chain attacks, video game gold farming, ShadowPad, 2020 DOJ indictment (five Chinese nationals), Pulse Secure VPN exploitation
+- Signature TTPs: ShadowPad modular implant, Winnti malware, supply chain compromise of software vendors, DLL side-loading, rootkit deployment
+- Primary targets: Healthcare, pharma, gaming, media, semiconductors
+
+### Volt Typhoon (Vanguard Panda)
+- Attribution: Chinese state-sponsored, PRC
+- Notable operations: US critical infrastructure pre-positioning (2023-present), Guam military networks, living-off-the-land confirmed by CISA/NSA/FBI joint advisory
+- Signature TTPs: Zero use of custom malware (LOL only), KV-Botnet SOHO router proxy network, LOTL (wmic, netsh, ntdsutil, certutil), web shells on edge devices
+- Primary targets: US military bases, communications infrastructure, power grid, water — pre-positioning for potential conflict
+
+### APT10 / Stone Panda / MenuPass
+- Attribution: Chinese MSS (Tianjin State Security Bureau)
+- Notable operations: Cloud Hopper (2016-2018) — massive MSP supply chain attack compromising hundreds of downstream enterprises, US Navy contractor breach (614GB stolen)
+- Signature TTPs: MSP targeting for downstream access, PlugX/RedLeaves/UPPERCUT, spearphishing, VPN exploitation
+
+---
+
+## North Korean Threat Actors
+
+### Lazarus Group (Bureau 121)
+- Attribution: North Korean RGB (Reconnaissance General Bureau)
+- Notable operations: Sony Pictures hack (2014), Bangladesh Bank SWIFT heist ($81M), WannaCry (2017), Crypto exchange thefts ($3B+ since 2017), Bybit hack (2025, $1.5B)
+- Signature TTPs: Destructive wiper + SWIFT malware + ransomware across different operations, BLINDINGCAN, COPPERHEDGE, AppleJeus cryptocurrency theft tool
+- Financial motivation: Crypto theft directly funds DPRK weapons programs
+
+### APT38 (Financial crimes sub-unit)
+- Specialized in SWIFT manipulation and bank heist operations
+- $1.2B+ stolen from banks globally
+
+---
+
+## Iranian Threat Actors
+
+### APT33 / Refined Kitten (IRGC)
+- Notable operations: Shamoon wiper attacks against Saudi Arabia (2012, 2016-2017), TRITON/TRISIS ICS attack on Saudi petrochemical plant (shared with APT34)
+- Signature TTPs: Shamoon wiper, StoneDrill, TURNEDUP backdoor, spearphishing via LinkedIn impersonation
+
+### APT34 / OilRig (Ministry of Intelligence)
+- Notable operations: DNS hijacking campaign, supply chain via IT providers, Turla/Snake C2 infrastructure hijacking, QUADAGENT, RDAT backdoor using Exchange email for C2
+- Primary targets: Government, financial, energy sectors across Middle East
+
+---
+
+## Ransomware Groups Reference
+
+| Group | Active Period | RaaS? | Notable Victims | Takedown Status | Key TTPs |
+|---|---|---|---|---|---|
+| LockBit | 2019–present | Yes | Royal Mail, ICBC, Boeing | Disrupted Feb 2024 (Op Cronos), rebuilt; operators indicted | Double extortion, affiliate model, ESXi attacks |
+| ALPHV/BlackCat | 2021–2024 | Yes | MGM Resorts ($100M+), Change Healthcare | Disbanded 2024; FBI seized infra, exit scam | Rust-based ransomware, triple extortion |
+| Conti | 2020–2022 | Yes | HSE Ireland, Broward County schools | Disbanded 2022; playbooks leaked; members joined BlackBasta/Royal | Cobalt Strike, Ryuk successor |
+| REvil/Sodinokibi | 2019–2021 | Yes | Kaseya VSA (1500+ orgs), JBS Foods | Seized Nov 2021; members arrested in Russia (2022) | Supply chain, auction-based extortion |
+| DarkSide/BlackMatter | 2020–2021 | Yes | Colonial Pipeline ($4.4M ransom) | Rebranded after Colonial Pipeline pressure; BlackMatter successor also shutdown | Affiliate RaaS, ESXi, double extortion |
+| Cl0p | 2019–present | No (FIN11 nexus) | MOVEit campaign (2023, 2000+ orgs), GoAnywhere, Accellion | Active | MFT zero-day exploitation specialty |
+| Scattered Spider / 0ktapus | 2022–present | Affiliate | MGM, Caesars, ~130 orgs | Members arrested 2023-2024 (English-speaking, UG) | Social engineering, MFA fatigue, helpdesk vishing |
+| Akira | 2023–present | Yes | Stanford, Cisco | Active | Conti successor TTP overlap; ESXi attacks |
+| Play | 2022–present | No | Dallas, Oakland, Rackspace | Active | VMware ESXi vulns, no public leak site initially |
+| Black Basta | 2022–present | Yes | Ascension Health, BACnet orgs | Active | Ex-Conti operators; QakBot distribution |
+
+---
+
+## Hacktivists and Other Actors
+
+- **Anonymous**: Decentralized collective with no persistent infrastructure. Key operations: Operation Payback (RIAA/MPAA 2010), HBGary Federal hack (2011 — exposed HB Gary's plans against WikiLeaks), OpRussia (2022 Ukraine war). Capability varies widely by participant.
+- **Lapsus$**: South American teenager-led group (2021-2022). Hit Microsoft, Okta, Nvidia, Samsung, T-Mobile via social engineering and MFA fatigue attacks — no traditional malware. Several members arrested in UK and Brazil (2022).
+- **GhostSec**: Initially anti-ISIS hacktivists; shifted to pro-Russian/anti-NATO stance during Ukraine war; associated with ransomware operations in 2023.
+- **KillNet**: Pro-Russian hacktivist collective conducting DDoS campaigns against NATO member websites, hospitals, and government portals during Ukraine conflict. Limited persistent impact beyond availability disruption.
+- **IT Army of Ukraine**: Volunteer cyber force targeting Russian infrastructure, organized via Telegram; coordinated DDoS and data exfiltration against Russian state entities.
+
+
+---
 
 ## Related Resources
+- [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md) — timeline of major cyber incidents
+- [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md) — malware family reference by threat actor
+- [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) — incident response playbooks for APT intrusions
+- [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) — Sigma/YARA/Snort rules mapped to actor TTPs
 - [Threat Intelligence](disciplines/threat-intelligence.md) — full discipline page with tools and methodology
 - [Detection Engineering](disciplines/detection-engineering.md) — building detections from actor TTPs
 - [ATT&CK Navigator](navigator/) — visualize actor coverage against your controls

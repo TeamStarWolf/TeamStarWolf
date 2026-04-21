@@ -487,6 +487,189 @@ For high-security environments, Tetragon can enforce this as a kernel-level poli
 
 ---
 
+
+---
+
+## Container Escape Techniques (Structured Reference)
+
+### Common Container Escape Methods
+
+| Technique | Requires | Method | Detection |
+|-----------|----------|--------|-----------|
+| Privileged container | `--privileged` flag | Mount host filesystem: `mount /dev/sda1 /mnt`; chroot to host | Alert on privileged container creation; detect /dev/sda mount in container |
+| Host PID namespace | `--pid=host` | See host processes; signal host processes; access `/proc/PID/root` | Flag pods with `hostPID: true` |
+| Host network namespace | `--net=host` | Bypass network policy; access host network interfaces; listen on host ports | Flag pods with `hostNetwork: true` |
+| Writable /proc | Proc filesystem exposed | Write to `/proc/sys/kernel/*` to affect host | Monitor /proc writes from container |
+| CAP_SYS_ADMIN | sys_admin capability | Load kernel modules; mount filesystems; various kernel operations | Alert on sys_admin capability grant |
+| CAP_NET_ADMIN | net_admin capability | Modify network interfaces; iptables rules | Alert on net_admin without explicit justification |
+| Docker socket mount | `/var/run/docker.sock` mounted | Create new privileged container with host mount | Block docker.sock mounts in admission policy |
+| CVE exploits | Unpatched container runtime | runc CVE-2019-5736 (container exit overwrites host runc binary) | Patch container runtime; immutable host filesystem |
+
+### Kubernetes Attack Paths
+
+**RBAC Misconfigurations**
+
+- Wildcards in rules: `rules: [{apiGroups: ["*"], resources: ["*"], verbs: ["*"]}]` — full cluster admin
+- Dangerous verbs: `create` on pods (deploy malicious pod), `exec` on pods (command execution), `list/get` on secrets (read all secrets)
+- Privilege escalation via pod creation: Create pod with `hostPath: /` and `privileged: true` — host access
+- Service account token exposure: Default token automounted even when not needed
+
+**Service Account Exploitation**
+
+```bash
+# From inside a pod — check mounted service account token
+cat /var/run/secrets/kubernetes.io/serviceaccount/token
+
+# Use token to query Kubernetes API
+TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+curl -k -H "Authorization: Bearer $TOKEN" https://kubernetes.default.svc/api/v1/secrets
+
+# Check what permissions this service account has
+kubectl auth can-i --list --token=$TOKEN
+```
+
+**etcd Attack**
+
+- etcd contains all Kubernetes state including secrets (base64 encoded, not encrypted by default)
+- Access: If etcd exposed without mTLS (common misconfiguration): `etcdctl get / --prefix --keys-only`
+- Extract all secrets: `etcdctl get /registry/secrets/ --prefix`
+- Defense: Encrypt etcd at rest; mTLS for etcd; restrict etcd network access to control plane only
+
+**Kubernetes Privilege Escalation Techniques**
+
+- Pod Security Policy bypass (deprecated but still seen): PSP misconfiguration allows privileged pods
+- Node compromise via DaemonSet: Create DaemonSet with `hostPID + hostNetwork + privileged` — runs on every node
+- Volume mounts: Mount host path with sensitive files (kubeconfig, cloud credentials)
+- init containers: Run privileged init container to modify host before main container starts
+
+---
+
+## Kubernetes Hardening (Prescriptive)
+
+### Pod Security Standards (PSS) Enforcement
+
+```yaml
+# Label namespace to enforce restricted PSS
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
+```
+
+### Network Policies (Default Deny)
+
+```yaml
+# Default deny all ingress and egress
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: production
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+---
+# Allow only specific communication
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-frontend-to-backend
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+    ports:
+    - port: 8080
+```
+
+### Secure Pod Spec Checklist
+
+```yaml
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  runAsGroup: 10001
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  seccompProfile:
+    type: RuntimeDefault
+  capabilities:
+    drop:
+    - ALL
+```
+
+### OPA Gatekeeper Policy Example
+
+```yaml
+# Block privileged containers
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPPrivilegedContainer
+metadata:
+  name: psp-privileged-container
+spec:
+  match:
+    kinds:
+    - apiGroups: [""]
+      kinds: ["Pod"]
+```
+
+### Falco Runtime Detection Rules
+
+```yaml
+# Detect container escape attempts
+- rule: Container Escape via Privileged Mount
+  desc: Detect mounting of host filesystem from container
+  condition: >
+    container.id != host and
+    evt.type = mount and
+    fd.name startswith /dev/sd
+  output: "Possible container escape via mount (container=%container.name user=%user.name)"
+  priority: CRITICAL
+
+# Detect kubectl exec into running pod
+- rule: Kubectl exec into pod
+  desc: Someone executed a shell in a running pod
+  condition: >
+    spawned_process and
+    container and
+    proc.name in (bash, sh, zsh) and
+    proc.pname = runc
+  output: "Shell spawned in container via exec (user=%user.name container=%container.name)"
+  priority: WARNING
+```
+
+---
+
+## Container Security Tooling Reference
+
+| Tool | Purpose | OSS? |
+|------|---------|------|
+| Trivy | Container vuln scanning (OS + app layers) | Yes |
+| Grype (Anchore) | Container and filesystem scanning | Yes |
+| Falco (CNCF) | Runtime anomaly detection | Yes |
+| OPA Gatekeeper | Kubernetes admission policy | Yes |
+| Kyverno | Kubernetes-native policy engine | Yes |
+| kube-bench | CIS Kubernetes Benchmark assessment | Yes |
+| kube-hunter | Kubernetes penetration testing | Yes |
+| kubeaudit | Kubernetes security audit | Yes |
+| Checkov | IaC scanning (K8s manifests) | Yes |
+| Snyk Container | Developer-facing container scanning | Freemium |
+| Aqua Security | Full container/K8s security platform | Commercial |
+| Sysdig Secure | Falco-based runtime; CNAPP | Commercial |
+
+---
+
 ## Related Disciplines
 
 - [Cloud Security](cloud-security.md) — Container and Kubernetes security is a specialization within the broader cloud security discipline; EKS, GKE, and AKS add cloud IAM and managed control plane attack surfaces

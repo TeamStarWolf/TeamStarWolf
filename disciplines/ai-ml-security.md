@@ -133,6 +133,76 @@ See [Adversarial AI Attacks](adversarial-ai-attacks.md) and [AI LLM Security](ai
 | OWASP Top 10 for Machine Learning | Standard | Emerging OWASP project covering the top ML security risks |
 | *Stealing Machine Learning Models via Prediction APIs* — Tramèr et al. | Paper | Foundational model extraction attack paper |
 
+## MLOps Security
+
+**ML Pipeline Attack Surface**
+
+| Pipeline Stage | Attack Surface | Threat | Defense |
+|---------------|---------------|--------|---------|
+| Data collection | Web scraping, third-party data sources | Data poisoning, privacy violation | Curate sources; anomaly detection; differential privacy |
+| Data labeling | Crowdsourced labeling (MTurk, Scale AI) | Label poisoning; backdoor injection | Label verification; redundant labeling; label poisoning detection |
+| Model training | Cloud compute, shared infrastructure | Model theft via co-tenancy; gradient inversion in FL | Confidential computing (TEEs); secure aggregation in FL |
+| Model storage | S3 buckets, MLflow, Hugging Face | Model exfiltration; malicious deserialization | Access controls; model signing; malicious file scanning |
+| Model serving | REST API, gRPC endpoints | Adversarial inputs; model extraction; DoS | Rate limiting; input validation; anomaly detection; authentication |
+| Model monitoring | Feedback loops | Concept drift exploitation; label manipulation | Drift detection; human review of edge cases |
+
+**MLOps Security Tooling**
+
+| Tool | Purpose |
+|------|---------|
+| ModelScan | Scan model files for malicious code (supports PyTorch, TensorFlow, ONNX formats) |
+| Garak | LLM vulnerability scanner (jailbreaks, injection, toxicity probes) |
+| Adversarial Robustness Toolbox (ART) | IBM; adversarial attack generation and defense evaluation |
+| Foolbox | Adversarial example library; 30+ attack algorithms |
+| TextAttack | Adversarial examples for NLP models |
+| PrivacyMeter | Membership inference and attribute inference evaluation |
+| ML Privacy Meter | Audit ML model privacy risks |
+| TFX (TensorFlow Extended) | ML pipeline with built-in data validation |
+
+**Supply Chain Security for AI**
+- Model provenance: Who trained the model? On what data? With what code?
+- Hugging Face model scanning: ModelScan (`modelscan -p model.pkl`) — detects malicious code in serialized models
+- Serialization security: PyTorch saves in formats that can embed executable code; only load from trusted sources
+- Safe serialization: SafeTensors format (Hugging Face) — safe alternative for model weights storage
+- Dataset auditing: Check for duplicates, label errors (Cleanlab), PII in training data, copyright issues
+
+## AI Security Governance
+
+**NIST AI Risk Management Framework (AI RMF)**
+- Govern: Policies, accountability, organizational practices for AI risk
+- Map: Categorize AI risks in context of application
+- Measure: Analyze, assess, and track identified risks
+- Manage: Prioritize and implement risk treatments
+
+**EU AI Act (2024) — Risk Tiers**
+
+| Risk Level | Examples | Requirements |
+|-----------|---------|-------------|
+| Unacceptable (Banned) | Social scoring, subliminal manipulation, real-time biometric surveillance (public) | Prohibited |
+| High Risk | Critical infrastructure, employment screening, credit scoring, law enforcement | Conformity assessment, transparency, human oversight, logging |
+| Limited Risk | Chatbots, deepfakes | Transparency obligations (disclose AI nature) |
+| Minimal Risk | Spam filters, recommendations | No specific requirements |
+
+**Responsible AI Principles**
+- Fairness: Detect and mitigate algorithmic bias (demographic parity, equalized odds)
+- Transparency: Model cards, datasheets for datasets, explainable AI (SHAP, LIME)
+- Privacy: Differential privacy, federated learning, data minimization
+- Robustness: Adversarial testing; certified defenses; redundancy
+- Accountability: Human oversight; audit trails; clear ownership of AI decisions
+
+**Bias and Fairness Testing**
+```python
+# Fairlearn — fairness metrics and mitigation
+from fairlearn.metrics import demographic_parity_difference, equalized_odds_difference
+
+# Check if predictions differ across demographic groups
+dpd = demographic_parity_difference(y_true, y_pred, sensitive_features=gender)
+eod = equalized_odds_difference(y_true, y_pred, sensitive_features=gender)
+
+print(f"Demographic Parity Difference: {dpd}")  # 0 = perfect fairness
+print(f"Equalized Odds Difference: {eod}")
+```
+
 ## Related Disciplines
 
 - [Adversarial AI Attacks](adversarial-ai-attacks.md)

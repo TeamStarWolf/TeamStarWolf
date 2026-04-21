@@ -199,6 +199,89 @@ An SBOM is a formal, machine-readable inventory of all software components, thei
 
 ---
 
+## Shift-Left Security Principles
+
+- Shift left: Move security earlier in the SDLC (design → code → build vs. deployment → production)
+- Cost of fixing a bug: ~6x more expensive in production vs. development phase (IBM Systems Sciences Institute)
+- Developer ownership: Security is everyone's responsibility; "you build it, you secure it"
+- Security guardrails: Make secure patterns the path of least resistance (pre-approved libraries, templates, IaC modules)
+
+## CI/CD Pipeline Security Controls
+
+**Pre-Commit (Developer Workstation)**
+- Pre-commit hooks: `pre-commit` framework — run secrets scanning, linting before `git commit`
+- Secrets detection: `detect-secrets`, `git-secrets`, `gitleaks` — block API keys, passwords, tokens
+- SAST local: IDE plugins (Semgrep VSCode, SonarLint)
+
+**Build Phase (CI/CD Pipeline)**
+- SAST (Static Analysis):
+  - Semgrep: Fast, pattern-based; free for OSS; excellent for custom rules
+  - SonarQube/SonarCloud: Broad language support; technical debt tracking
+  - Checkmarx, Fortify: Commercial; DoD/enterprise standard
+- SCA (Software Composition Analysis):
+  - OWASP Dependency-Check: Free, widely used
+  - Snyk: Developer-friendly; GitHub/GitLab/Jira integration; free tier
+  - BlackDuck: Commercial; license compliance + vulnerability
+  - Dependabot (GitHub): Automated PR creation for vulnerable dependencies
+- Container scanning:
+  - Trivy: Fast, comprehensive (OS + app layer); free
+  - Grype: Anchore's container scanner
+  - Snyk Container: Developer-facing container vuln management
+- IaC scanning:
+  - Checkov: Terraform/CloudFormation/Kubernetes/ARM policies; 1,000+ checks
+  - tfsec: Terraform-specific; fast
+  - KICS: Broad IaC support (Terraform, Ansible, Docker, CloudFormation)
+
+**Secrets Management**
+- Never commit secrets: Use environment variables, secrets managers
+- HashiCorp Vault: Dynamic secrets, PKI, encryption as a service; self-hosted
+- AWS Secrets Manager / Azure Key Vault / GCP Secret Manager: Cloud-native
+- SOPS (Mozilla): Encrypt secrets files in git; supports KMS + PGP
+- Doppler / 1Password Secrets Automation: Developer-friendly SaaS
+
+**Artifact Signing and Integrity**
+- Sigstore / Cosign: Sign container images with keyless signing (OIDC-based); `cosign sign`
+- SLSA (Supply-chain Levels for Software Artifacts): Framework for supply chain integrity
+- SBOM generation: Syft (`syft image:tag -o spdx-json > sbom.json`), CycloneDX Maven/Gradle plugins
+- Artifact attestations: Link build provenance to artifact; GitHub Artifact Attestations (GA)
+
+## Kubernetes and Container Security
+
+**Container Image Hardening**
+- Use minimal base images: `distroless`, `alpine`, `scratch` — reduce attack surface
+- Run as non-root: `USER 1001` in Dockerfile
+- Read-only root filesystem: `securityContext.readOnlyRootFilesystem: true` in pod spec
+- No privileged containers: `privileged: false`, drop all capabilities then add only needed
+- No latest tags: Pin to digest (`image@sha256:...`) for reproducibility
+
+**Kubernetes Security Controls**
+- Pod Security Standards (PSS): Privileged, Baseline, Restricted profiles (K8s 1.25+)
+- Network Policies: Default deny-all ingress/egress; explicitly allow needed traffic
+- RBAC: Principle of least privilege; avoid `ClusterAdmin`; use namespaced roles
+- Admission controllers: OPA Gatekeeper or Kyverno for policy enforcement
+- Secrets encryption: Enable etcd encryption at rest for K8s Secrets
+- Runtime security: Falco (CNCF) — anomaly detection based on syscall patterns
+
+**DevSecOps Toolchain Reference**
+
+| Stage | Tool | Type | Use Case |
+|---|---|---|---|
+| Pre-commit | git-secrets | OSS | Block secrets from being committed |
+| Pre-commit | detect-secrets | OSS | Detect secrets with entropy analysis |
+| SAST | Semgrep | OSS/Commercial | Pattern-based code analysis |
+| SAST | SonarQube | OSS/Commercial | Code quality + security |
+| SCA | Snyk | OSS/Commercial | Dependency vulnerability management |
+| SCA | OWASP Dependency-Check | OSS | Open-source dependency scanning |
+| Container | Trivy | OSS | Container + IaC + SCA scanning |
+| IaC | Checkov | OSS | Terraform/CF/K8s policy scanning |
+| Secrets | HashiCorp Vault | OSS/Enterprise | Dynamic secrets management |
+| Signing | Sigstore/Cosign | OSS | Container image signing |
+| SBOM | Syft | OSS | Software bill of materials generation |
+| Runtime | Falco | OSS | Container runtime anomaly detection |
+| Policy | OPA Gatekeeper | OSS | K8s admission policy enforcement |
+
+---
+
 ## Related Disciplines
 
 - [Application Security](application-security.md)

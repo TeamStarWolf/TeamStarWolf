@@ -200,6 +200,110 @@ Tracking outcomes precisely is critical for measuring program value:
 
 ---
 
+
+## Purple Team vs. Red Team vs. Blue Team
+
+| Attribute | Red Team | Blue Team | Purple Team |
+|---|---|---|---|
+| Objective | Find weaknesses | Detect attacks | Improve detection coverage |
+| Deconfliction | No (usually) | No | Core feature — fully informed |
+| Mode | Adversarial | Defensive | Collaborative |
+| Duration | Weeks-months | Ongoing | Hours-days per technique |
+| Output | Findings report | Incident reports | Detection coverage improvements |
+| ATT&CK alignment | TTPs executed | Detections mapped | Gap analysis per technique |
+
+---
+
+## Adversary Emulation Planning
+
+**ATT&CK-Based Emulation Plan**
+1. Select adversary profile: Choose threat actor relevant to your sector (e.g., APT29 for government, FIN7 for retail)
+2. Extract TTPs: Use MITRE ATT&CK Evaluations for structured technique lists
+3. Prioritize: Focus on techniques with detection gaps first
+4. Plan execution order: Follow realistic kill chain (Initial Access → Execution → Persistence → Privilege Escalation → Lateral Movement → Exfiltration)
+5. Execute and observe: Red executes TTP; Blue observes whether detection fires
+6. Document outcome: True positive / True negative / False positive / Missed detection
+7. Create/tune detection: If missed, create new detection rule; tune if noisy
+
+**MITRE ATT&CK Evaluations**
+- MITRE independently tests EDR vendors against real APT TTPs annually
+- APT29 Round 1, Carbanak+FIN7 Round 2, Wizard Spider + Sandworm Round 3, Turla Round 4
+- Results at `attackevals.mitre-engenuity.org` — see which vendors detect which techniques
+- Use to validate vendor claims and guide purchase decisions
+
+**Atomic Red Team Testing**
+```powershell
+# Install Invoke-AtomicRedTeam
+Install-Module -Name invoke-atomicredteam, powershell-yaml -Scope CurrentUser
+
+# Execute specific technique
+Invoke-AtomicTest T1003.001          # OS Credential Dumping: LSASS Memory
+Invoke-AtomicTest T1059.001          # PowerShell execution
+Invoke-AtomicTest T1053.005          # Scheduled Task creation
+
+# List all tests for a technique
+Invoke-AtomicTest T1003.001 -ShowDetailsBrief
+
+# Cleanup after test
+Invoke-AtomicTest T1003.001 -Cleanup
+```
+
+---
+
+## Breach and Attack Simulation (BAS)
+
+**BAS Platforms**
+
+| Product | Approach | ATT&CK Coverage | Notes |
+|---|---|---|---|
+| Cymulate | Automated + continuous | High | Most comprehensive BAS platform |
+| AttackIQ | ATT&CK-aligned scenarios | High | Partners with MITRE; scenario library |
+| SafeBreach | Hacker's Playbook | High | Large playbook library; continuous |
+| Palo Alto Cortex Xpanse | External attack surface | Medium | Focuses on internet-facing exposure |
+| SCYTHE | Custom emulation | High | More technical; used by red teams |
+| Vectr | Tracking + reporting | N/A | Free tracking tool for purple team exercises; pairs with Atomic Red Team |
+
+**What BAS Tests**
+- Email gateway: Can malicious attachments/URLs get through?
+- Web proxy/firewall: Can C2 traffic egress the network?
+- Endpoint detection: Do EDR/AV tools detect known malicious behaviors?
+- SIEM/detection: Do correlation rules fire correctly?
+- Data exfiltration controls: Can DLP detect simulated sensitive data leaving?
+
+---
+
+## Detection Coverage Measurement
+
+**Coverage Matrix Approach**
+- Map each ATT&CK technique to existing detection rules (Sigma, SIEM correlation rules)
+- Score each: Detected (alerting) / Logged (visible in data but no alert) / Blind (no visibility)
+- Heatmap in ATT&CK Navigator: Red = blind, yellow = logged, green = detected
+- Prioritize: Techniques used by your threat actors that are currently blind
+
+**ATT&CK Navigator Usage**
+```
+# Import vendor coverage layer
+# Load TeamStarWolf layer:
+# https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json
+
+# Create detection coverage layer manually:
+# 1. Open Navigator → New Layer → Enterprise
+# 2. Select detected techniques → color green
+# 3. Select logged-but-no-alert → color yellow
+# 4. Uncolored = blind
+# 5. Export and share with leadership
+```
+
+**Purple Team Exercise Structure (1-Day Sprint)**
+- 0800-0900: Briefing — agree on 5-10 techniques to test; confirm tooling; establish comms channel
+- 0900-1200: Morning execution — Red executes techniques; Blue observes + documents detection results
+- 1200-1300: Lunch + review — compare notes; identify what was detected vs missed
+- 1300-1500: Detection improvement — Blue creates/tunes rules for missed detections
+- 1500-1600: Retest — Red re-executes techniques to validate new detections
+- 1600-1700: Documentation + debrief — update coverage matrix, write improvement tickets
+
+---
+
 ## Related Disciplines
 
 - [Detection Engineering](detection-engineering.md) — Building the detections purple team validates; writing Sigma rules for identified gaps

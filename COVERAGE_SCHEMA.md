@@ -304,3 +304,138 @@ Download the raw mapping data directly from CTID to build the control_to_techniq
 | Microsoft 365 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) | M365 controls → ATT&CK |
 | CSA CCM | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) | Cloud security controls → ATT&CK |
 | CISA KEV | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) | Known exploited CVEs → ATT&CK techniques |
+
+
+### Coverage Gap Analysis Methodology
+
+**Step 1: Asset Inventory**
+Before measuring coverage, establish what you're protecting:
+```json
+{
+  "asset_types": ["workstation", "server", "cloud_vm", "saas_app", "network_device"],
+  "data_classifications": ["public", "internal", "confidential", "restricted"],
+  "business_criticality": ["critical", "high", "medium", "low"]
+}
+```
+
+**Step 2: Control Mapping**
+Map each deployed control to NIST 800-53 families and ATT&CK techniques it addresses:
+```python
+# Example control mapping entry
+control = {
+    "vendor": "CrowdStrike Falcon",
+    "deployment_coverage": 0.94,  # 94% of endpoints have agent
+    "nist_controls": ["SI-3", "SI-7", "AU-12", "IR-4"],
+    "attack_techniques": ["T1059.001", "T1055", "T1003", "T1548"],
+    "gap_notes": "6% coverage gap — Linux servers in DMZ zone"
+}
+```
+
+**Step 3: Gap Scoring**
+```python
+def calculate_technique_coverage(technique_id: str, controls: list[dict]) -> float:
+    """
+    Returns 0.0 (no coverage) to 1.0 (fully covered)
+    """
+    covering_controls = [c for c in controls if technique_id in c.get("attack_techniques", [])]
+    if not covering_controls:
+        return 0.0
+    # Weight by deployment coverage
+    avg_deployment = sum(c["deployment_coverage"] for c in covering_controls) / len(covering_controls)
+    # Bonus for multiple independent controls (defense in depth)
+    depth_multiplier = min(1.0, 0.7 + (len(covering_controls) * 0.1))
+    return min(1.0, avg_deployment * depth_multiplier)
+```
+
+**Step 4: ATT&CK Navigator Layer Generation**
+```python
+import json
+
+def generate_navigator_layer(technique_scores: dict[str, float]) -> dict:
+    """Generate ATT&CK Navigator layer from technique coverage scores."""
+    techniques = []
+    for technique_id, score in technique_scores.items():
+        # Color: red (0) → yellow (0.5) → green (1.0)
+        color = score_to_color(score)
+        techniques.append({
+            "techniqueID": technique_id,
+            "score": round(score * 100),
+            "color": color,
+            "comment": f"Coverage score: {score:.0%}",
+            "enabled": True
+        })
+
+    return {
+        "name": "Coverage Heatmap",
+        "versions": {"attack": "14", "navigator": "4.9", "layer": "4.5"},
+        "domain": "enterprise-attack",
+        "description": "Control coverage mapped to ATT&CK techniques",
+        "gradient": {
+            "colors": ["#ff6666", "#ffe766", "#8ec843"],
+            "minValue": 0,
+            "maxValue": 100
+        },
+        "techniques": techniques
+    }
+
+def score_to_color(score: float) -> str:
+    if score < 0.25: return "#ff6666"   # Red
+    if score < 0.5:  return "#ffa500"   # Orange
+    if score < 0.75: return "#ffe766"   # Yellow
+    return "#8ec843"                     # Green
+```
+
+### Gap Priority Matrix
+
+| Technique Coverage | Business Impact | Priority | Action |
+|---|---|---|---|
+| 0% | Critical | P1 | Immediate — acquire or deploy control within 30 days |
+| 0% | High | P2 | Near-term — deploy within 90 days |
+| 0-25% | Critical | P1 | Immediate — expand deployment coverage |
+| 25-50% | High | P2 | Near-term — expand deployment and add compensating control |
+| 50-75% | Medium | P3 | Planned — include in next budget cycle |
+| 75-100% | Any | P4 | Monitoring — optimize existing controls |
+
+### ROSI Calculation Model
+
+**Return on Security Investment**
+
+```python
+def calculate_rosi(
+    asset_value: float,          # Total value of assets at risk ($)
+    threat_frequency: float,     # Estimated annual events (ARO)
+    exposure_factor: float,      # % of asset value lost per event (0-1)
+    control_effectiveness: float, # % risk reduction from control (0-1)
+    control_cost: float          # Annual cost of control ($)
+) -> dict:
+    """
+    ROSI = (Risk Reduced * Control Effectiveness) - Control Cost
+    """
+    ale_before = asset_value * threat_frequency * exposure_factor  # Annual Loss Expectancy
+    ale_after = ale_before * (1 - control_effectiveness)
+    risk_reduced = ale_before - ale_after
+    rosi = risk_reduced - control_cost
+    rosi_percent = (rosi / control_cost) * 100 if control_cost > 0 else 0
+
+    return {
+        "ale_before": ale_before,
+        "ale_after": ale_after,
+        "annual_risk_reduction": risk_reduced,
+        "control_cost": control_cost,
+        "net_rosi": rosi,
+        "rosi_percentage": rosi_percent,
+        "recommendation": "Deploy" if rosi > 0 else "Do not deploy based on ROSI alone"
+    }
+
+# Example: EDR deployment
+result = calculate_rosi(
+    asset_value=50_000_000,    # $50M in sensitive systems
+    threat_frequency=0.3,      # 0.3 ransomware events per year (industry average)
+    exposure_factor=0.2,       # 20% average loss per event
+    control_effectiveness=0.85, # EDR reduces ransomware success by 85%
+    control_cost=200_000       # $200K/year EDR license
+)
+# Result: $2.55M risk reduction, $2.35M ROSI, 1175% ROI
+```
+
+---

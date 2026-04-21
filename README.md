@@ -27,12 +27,6 @@ A public resource library for the cybersecurity community.
 
 
 
-
----
-
-
-
-
 ## Table of Contents
 
 <details>

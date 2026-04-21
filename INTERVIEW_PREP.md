@@ -304,6 +304,89 @@ Research compensation thoroughly before any negotiation. Key sources:
 
 *Never accept same-day pressure tactics. Legitimate offers allow at least 48-72 hours for consideration.*
 
+
+### Governance, Risk & Compliance (GRC)
+
+| Question | Answer Guidance |
+|---|---|
+| What is a risk register? | A living document tracking identified risks, their likelihood, impact, owner, and treatment status. Updated regularly and reviewed by leadership |
+| Explain the difference between a policy, standard, and procedure | Policy: high-level intent and direction. Standard: specific measurable requirement. Procedure: step-by-step instructions. Guidelines: recommended but not mandatory |
+| What is NIST CSF 2.0 and what are its six functions? | Govern, Identify, Protect, Detect, Respond, Recover. CSF 2.0 added Govern as a new function covering strategy, roles, and organizational risk appetite |
+| What is a SOC 2 Type II report? | AICPA audit of controls across 5 Trust Services Criteria over a 6-12 month period. Type I: design only (point-in-time). Type II: operating effectiveness over time |
+| How do you perform a gap analysis? | Compare current-state controls against a target framework. Document gaps, assign risk ratings, prioritize by risk severity and remediation effort |
+| What is a BIA (Business Impact Analysis)? | Identifies critical business functions and quantifies the impact of disruption. Outputs RTO, RPO, and MTD per critical function |
+| Qualitative vs. quantitative risk assessment? | Qualitative: High/Medium/Low ratings — fast but subjective. Quantitative: dollar-value calculations (ALE = ARO x SLE) — more defensible for budget decisions |
+| How would you build a third-party risk program? | Tier vendors by risk level (data access, operational criticality), define questionnaires per tier, review SOC 2 and ISO 27001 reports, perform on-site assessments for highest-risk vendors, include contractual security requirements |
+| What is CMMC 2.0? | DoD framework for defense contractors: Level 1 (17 practices), Level 2 (110 NIST 800-171 practices), Level 3 (plus 24 NIST 800-172 practices). C3PAO third-party assessments required at Levels 2 and 3 |
+| How do you measure security program effectiveness? | KPIs: patch SLA compliance rate, phishing simulation click rate trend, MTTD/MTTR, critical vulnerability remediation rate, control test pass rates, audit findings closed on time |
+
+### Threat Intelligence Analyst
+
+| Question | Answer Guidance |
+|---|---|
+| Explain the intelligence lifecycle | Planning and Direction -> Collection -> Processing -> Analysis -> Dissemination -> Feedback. Feedback loop refines future collection requirements |
+| What is the difference between strategic, operational, and tactical intelligence? | Strategic: long-term executive-level trend reports. Operational: active campaign TTPs and threat actor profiles. Tactical: IOCs (IPs, hashes, domains) for immediate defensive use |
+| What is the Diamond Model of Intrusion Analysis? | Framework with four vertices: Adversary, Capability, Infrastructure, Victim. Used to link intrusion events into campaigns and cluster activity for attribution |
+| Cyber Kill Chain vs. ATT&CK? | Kill Chain (Lockheed Martin): 7 linear phases from Reconnaissance to Actions on Objectives. ATT&CK: granular non-linear taxonomy with 14 tactics and hundreds of techniques -- better for detection engineering and coverage gap analysis |
+| What is MISP and how is it used? | Open-source Threat Intelligence Platform for sharing structured threat data. Supports STIX/TAXII, automated correlation, and galaxy clusters for tagging actors and malware families |
+| How do you assess confidence in a report? | Evaluate source reliability (track record and access level), information credibility (corroboration, timeliness, internal consistency), and analysis quality. Apply the Admiralty Scale or ACH methodology |
+| IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability -- adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
+| What is STIX/TAXII? | STIX: structured JSON format for threat intelligence objects (indicators, campaigns, malware, TTPs, threat actors). TAXII: transport protocol for automated STIX data sharing between platforms |
+| Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR) -- targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
+
+---
+
+## Salary Negotiation & Offer Evaluation
+
+### Know Your Market Value
+
+Research compensation thoroughly before any negotiation. Key sources:
+
+| Source | URL | Best For |
+|---|---|---|
+| Levels.fyi | [levels.fyi](https://www.levels.fyi/) | Base + bonus + equity at tech companies |
+| LinkedIn Salary | [linkedin.com/salary](https://www.linkedin.com/salary/) | Role and location-based ranges |
+| Glassdoor | [glassdoor.com](https://www.glassdoor.com/) | Company-specific data with culture reviews |
+| SANS Salary Survey | [sans.org/salary-survey](https://www.sans.org/salary-survey/) | Annual cybersecurity-specific compensation benchmarks |
+| Dice | [dice.com](https://www.dice.com/) | Tech and security contractor/permanent role rates |
+
+### Approximate Security Salary Ranges (US, 2024-2025)
+
+| Role | Entry (0-2 yr) | Mid (3-5 yr) | Senior (6+ yr) |
+|---|---|---|---|
+| SOC Analyst | $55,000-$75,000 | $75,000-$100,000 | $100,000-$130,000 |
+| Penetration Tester | $70,000-$95,000 | $95,000-$130,000 | $130,000-$180,000+ |
+| Incident Responder | $65,000-$90,000 | $90,000-$125,000 | $125,000-$170,000+ |
+| Security Engineer | $80,000-$110,000 | $110,000-$150,000 | $150,000-$200,000+ |
+| Cloud Security Engineer | $90,000-$120,000 | $120,000-$160,000 | $160,000-$220,000+ |
+| AppSec Engineer | $85,000-$115,000 | $115,000-$155,000 | $155,000-$210,000+ |
+| Security Architect | $110,000-$140,000 | $140,000-$180,000 | $180,000-$250,000+ |
+| CISO | --- | $150,000-$220,000 | $220,000-$400,000+ |
+| GRC Analyst | $60,000-$85,000 | $85,000-$115,000 | $115,000-$150,000 |
+| Threat Intel Analyst | $65,000-$90,000 | $90,000-$130,000 | $130,000-$170,000+ |
+| DFIR Analyst | $70,000-$95,000 | $95,000-$130,000 | $130,000-$175,000+ |
+
+*Ranges vary significantly by location, company size, industry, and clearance level. TS/SCI clearance typically commands a $20,000-$50,000+ premium.*
+
+### Negotiation Principles
+
+1. **Get the offer in writing first.** Never negotiate from a verbal offer.
+2. **Never anchor first.** When asked for salary expectations: *"I would prefer to discuss compensation once I understand the full scope of the role and total package."*
+3. **Counter anchored high.** If offered $95,000 and your market data supports $110,000-$120,000: *"Based on my experience with [specific skills/certs] and current market data, I was targeting $110,000-$120,000. Is there flexibility?"*
+4. **Evaluate total compensation.** Bonus target, RSU vesting schedule, 401k match, health premiums, training budget ($5,000-$15,000/yr at top security employers), remote flexibility, and signing bonus all have real dollar value.
+5. **Use competing offers ethically.** *"I have a competing offer at $X. I prefer your organization because of [genuine reason], but would need compensation closer to that level to accept."*
+
+### Handling Negotiation Pushback
+
+| Pushback | Effective Response |
+|---|---|
+| "That is above our budget" | "Could we structure a 90-day review milestone with a defined path to $X?" |
+| "We have a fixed salary band" | "What is the top of the band? Can we close the gap with signing bonus or additional PTO?" |
+| "You lack the experience" | "Understood. Given my [cert/project/achievement], what would a 6-12 month milestone look like to reach that target?" |
+| "We need an answer today" | "I need 48 hours to review the complete offer and benefits. I will confirm by [specific date and time]." |
+
+*Never accept same-day pressure tactics. Legitimate offers allow at least 48-72 hours for consideration.*
+
 ## Related Resources
 - [Career Paths](CAREER_PATHS.md) — role descriptions, salary ranges, and progression maps
 - [Certifications Reference](CERTIFICATIONS.md) — 40+ certs with costs, difficulty, and DoD 8570 status

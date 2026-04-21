@@ -213,6 +213,109 @@ CRQ and the MITRE ATT&CK framework are complementary: ATT&CK provides the threat
 
 ---
 
+---
+
+#### FAIR Model Deep Dive
+
+**FAIR (Factor Analysis of Information Risk) Ontology**
+
+Risk = Loss Event Frequency (LEF) × Loss Magnitude (LM)
+
+**Loss Event Frequency**
+- Threat Event Frequency (TEF): How often does a threat agent come in contact with your asset?
+- Vulnerability: Given contact, what is the probability of a successful attack?
+- LEF = TEF × Vulnerability
+
+**Loss Magnitude**
+- Primary Loss: Direct financial impact to your organization
+  - Productivity loss (downtime × hourly rate)
+  - Response costs (IR, legal, PR, forensics)
+  - Replacement costs (hardware, software rebuild)
+  - Competitive advantage loss
+- Secondary Loss: Stakeholder reaction to event
+  - Regulatory fines and legal settlements
+  - Reputation damage (revenue reduction)
+  - Stock price impact (public companies)
+
+**Example FAIR Analysis: Ransomware Scenario**
+- Asset: Finance systems with sensitive customer data
+- Threat: Ransomware affiliate group
+- TEF: 2 times per year (based on sector threat intel)
+- Vulnerability: 40% (assume patching, EDR, backups reduce but not eliminate risk)
+- LEF: 2 × 0.4 = 0.8 times per year
+- Primary Loss range: $800K - $3M (IR: $200K, downtime: $500K-$1.5M, ransom/recovery: $100K-$1.3M)
+- Secondary Loss range: $200K - $2M (regulatory notification, reputation)
+- Annual Loss Expectancy (ALE) = LEF × Expected LM = 0.8 × $1.5M = $1.2M per year
+- Conclusion: Any control costing <$1.2M/year with >0% risk reduction is net positive
+
+#### Monte Carlo Simulation
+
+**Why Monte Carlo for Cyber Risk**
+- Range inputs (min, most likely, max) instead of point estimates
+- Captures uncertainty and model sensitivity
+- Output: Probability distribution of potential losses — "90th percentile loss is $4.2M"
+- Industry tools: RiskLens (FAIR-native), FAIR-U (free simulation), @RISK (Excel add-in), Python scipy/numpy
+
+**Python FAIR Monte Carlo Example**
+```python
+import numpy as np
+
+np.random.seed(42)
+n_simulations = 100_000
+
+# Loss Event Frequency — PERT distribution (min, likely, max)
+tef = np.random.triangular(0.5, 2, 5, n_simulations)      # threat event frequency per year
+vulnerability = np.random.triangular(0.1, 0.35, 0.6, n_simulations)
+lef = tef * vulnerability
+
+# Loss Magnitude — log-normal (realistic for financial losses)
+primary_loss = np.random.lognormal(mean=13.5, sigma=1.0, size=n_simulations)  # ~$730K median
+secondary_loss = np.random.lognormal(mean=12.5, sigma=0.8, size=n_simulations) # ~$270K median
+total_loss = primary_loss + secondary_loss
+
+# Annual loss
+annual_loss = lef * total_loss
+
+print(f"Expected Annual Loss (mean): ${annual_loss.mean():,.0f}")
+print(f"90th percentile annual loss: ${np.percentile(annual_loss, 90):,.0f}")
+print(f"95th percentile annual loss: ${np.percentile(annual_loss, 95):,.0f}")
+```
+
+#### Communicating Risk to the Board
+
+**Board-Level Metrics**
+- Cyber Value at Risk (CyVaR): Dollar amount at risk at specific confidence interval (like financial VaR)
+- Annual Loss Expectancy by business unit: Which units carry the most cyber risk?
+- Risk reduction per dollar: Which controls generate the highest risk reduction per dollar invested?
+- Coverage metrics: % of critical assets covered by EDR, backup, vulnerability management
+- Top 5 scenarios: Board wants to understand the biggest potential impacts, not 300 risk register rows
+
+**CISO Board Presentation Template**
+1. Current threat landscape (1 slide): What threats are most active in our sector?
+2. Top 3 risk scenarios (1 slide per): FAIR quantification, P50/P90 loss estimates, current controls
+3. Control effectiveness metrics (1 slide): How well are our investments working?
+4. Risk reduction investment request (1 slide): This program reduces ALE by $X for $Y cost
+5. Regulatory posture (1 slide): Where do we stand on material obligations?
+
+**Business Risk vs Technical Risk Communication**
+- Technical: "We have a critical unpatched RCE in our customer portal"
+- Business: "There is a $2.3M expected annual loss exposure from an exploitable web vulnerability that enables unauthorized access to 800,000 customer records — representing CCPA notification and regulatory penalty risk"
+
+#### ROSI (Return on Security Investment)
+
+Formula: ROSI = (Risk Reduction Amount × Asset Value) - Control Cost
+Or alternatively: ROSI = (ALE Before - ALE After) - Annual Control Cost
+
+**Example**:
+- ALE before EDR: $3.2M (based on FAIR model)
+- ALE after EDR deployment: $1.1M (65% reduction)
+- Risk reduction: $2.1M/year
+- EDR annual cost: $400K
+- ROSI: $2.1M - $400K = $1.7M/year positive return
+- ROI %: ($2.1M - $400K) / $400K = 425%
+
+---
+
 ## Related Disciplines
 
 - [Governance, Risk & Compliance](governance-risk-compliance.md) — CRQ is the quantitative engine inside GRC programs; it transforms qualitative risk registers into financially expressed risk portfolios that governance frameworks can act on

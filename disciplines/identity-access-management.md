@@ -184,6 +184,81 @@ Load the [Identity & Access Stage Layer](https://mitre-attack.github.io/attack-n
 
 ---
 
+---
+
+#### Identity Attack Techniques
+
+**Credential-Based Attacks**
+- Password spraying: Low-and-slow against many accounts (avoid lockout); `ruler --brute --users users.txt --passwords passwords.txt`; target Office 365, VPN, Citrix
+- Credential stuffing: Reuse credentials from breached databases (Have I Been Pwned API for detection)
+- MFA fatigue: Bombard with push notifications until user approves; Scattered Spider/Lapsus$ primary TTPs
+- AiTM (Adversary-in-the-Middle): Evilginx3 captures session token post-MFA — bypasses all TOTP/push MFA
+- Device code phishing: Abuse OAuth device authorization flow — user enters code at login.microsoftonline.com/devicelogin; attacker gets token
+
+**Privilege Escalation via IAM**
+- AWS: `iam:AttachUserPolicy`, `iam:CreatePolicyVersion`, `iam:PassRole` + Lambda create → admin
+- Azure: App Registration with Directory.ReadWrite.All; Service Principal with Contributor; adding self to Global Admin via Graph API with right permissions
+- Cross-account: Overly permissive assume-role trust policies allow any account to escalate
+
+#### PAM (Privileged Access Management)
+
+**PAM Architecture Components**
+- Vault: Encrypted credential store; check-out/check-in workflow; automatic password rotation
+- Session manager: Broker privileged sessions; proxy connections; record full session video/keystrokes
+- Just-in-time (JIT) access: Provision privileged access on-demand with approval workflow; auto-deprovision
+- Dual control: Require two-person authorization for most sensitive actions
+- Command filtering: Allow/deny specific commands in privileged sessions
+
+**PAM Products**
+
+| Product | Tier | Notes |
+|---|---|---|
+| CyberArk PAS/EPM | Enterprise | Market leader; most comprehensive; expensive |
+| BeyondTrust Password Safe + Privilege Management | Enterprise | Strong for Windows environments |
+| Delinea Secret Server | Mid-market | Formerly Thycotic; good UX |
+| HashiCorp Vault | OSS/Enterprise | Developer-friendly; dynamic secrets; API-first |
+| Teleport | OSS/Enterprise | Modern PAM for cloud/K8s; certificate-based access |
+
+#### Zero Trust Identity Implementation
+
+**Identity-Centric Zero Trust Controls**
+- Strong authentication: Phishing-resistant MFA (FIDO2/WebAuthn, PIV/CAC smart cards) — not TOTP or push
+- Continuous evaluation: Re-evaluate risk mid-session (sign-in frequency policies, continuous access evaluation)
+- Device posture: Require managed, compliant device for access to sensitive resources
+- Risk-based conditional access: Block sign-ins from risky locations/IPs/devices automatically
+- Privileged access workstation (PAW): Dedicated hardened device for admin tasks only
+
+**Phishing-Resistant MFA Methods**
+
+| Method | Standard | Phishing Resistant | Notes |
+|---|---|---|---|
+| FIDO2/WebAuthn | W3C + FIDO Alliance | Yes | Hardware keys (YubiKey, Titan) or platform authenticators (Windows Hello, Face ID) |
+| PIV/CAC Smart Card | NIST SP 800-73 | Yes | US federal standard; certificate-based |
+| Passkeys | FIDO2 | Yes | Passwordless evolution of FIDO2; synced across devices |
+| TOTP (Google Authenticator) | RFC 6238 | No | AiTM attacks steal the time-based token |
+| Push notification (Duo, Okta Verify) | Vendor | No | MFA fatigue attacks; AiTM attacks |
+| SMS | Telco | No | SIM swapping; SS7 interception |
+
+#### IAM Governance
+
+**Access Certification (Access Reviews)**
+- Quarterly access reviews: Manager reviews reports' access; approve or revoke
+- Certification tools: SailPoint IdentityNow, Saviynt, Omada — automate review campaigns
+- Trigger: User role change, departure, 90-day tenure, sensitive data access
+
+**Identity Governance and Administration (IGA)**
+- Joiner-Mover-Leaver (JML) process: Automate account lifecycle
+  - Joiner: Provision based on HR system (Workday/SAP/BambooHR) — right access from Day 1
+  - Mover: Re-provision on role change; remove old access; provisioning new access
+  - Leaver: Disable accounts within hours of termination; start 90-day retention before deletion
+
+**SCIM (System for Cross-domain Identity Management)**
+- Standard protocol for automating user provisioning between IdP and SaaS apps
+- Eliminates manual account creation; real-time deprovisioning on departure
+- Supported by: Okta, Azure AD, most major SaaS (Salesforce, GitHub, Slack, Zoom, Snowflake)
+
+---
+
 ## Related Disciplines
 
 - [security-architecture.md](security-architecture.md) — Zero trust design, identity-aware access

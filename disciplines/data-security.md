@@ -185,6 +185,92 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 
 ---
 
+---
+
+#### Data Classification Framework
+
+**Classification Levels (Standard Model)**
+
+| Level | Examples | Controls Required |
+|---|---|---|
+| Public | Marketing materials, press releases | No special handling |
+| Internal / For Official Use Only | Internal memos, org charts, general business data | Store on approved systems; don't share externally |
+| Confidential / Sensitive | Financial reports, HR records, customer PII, contracts | Encryption at rest; access control; need-to-know |
+| Restricted / Highly Confidential | Trade secrets, M&A plans, TS/SCI classified, cryptographic keys | Strict access logging; MFA; air-gapped where required |
+
+**Data Classification Tools**
+- Microsoft Purview (formerly AIP): Auto-classification via ML, sensitivity labels, policy enforcement across M365
+- Varonis: Data classification + access governance; identifies sensitive data and over-privileged access
+- BigID: ML-based PII/PHI/PCI discovery across structured and unstructured stores
+- Spirion: Finds sensitive data on endpoints, servers, cloud storage
+- Elastic DLP: Classification integrated with Elastic Security
+
+#### Database Activity Monitoring (DAM)
+
+**Why DAM?**
+- DBA accounts with SELECT * on everything; privileged access is the biggest data breach risk
+- DAM records all SQL activity at the network/agent level — independent of database audit logs
+- Key use cases: Insider threat detection, compliance (PCI DSS, SOX, HIPAA), data exfiltration detection
+
+**DAM Detection Patterns**
+- Unusual query volume: DBA running SELECT on 10M rows at 2am
+- New query patterns: Application service account running ad-hoc queries (not part of normal app pattern)
+- Cross-table access: Joining PII tables with financial tables — unusual for application accounts
+- Bulk export: Repeated SELECT with ORDER BY on primary key — full table walk pattern
+
+**DAM Products**
+- IBM Guardium: Market leader; agent + network-based; comprehensive; expensive
+- Imperva Data Security Fabric: Strong DAM + data classification
+- DataSunrise: Cross-database, cloud-friendly
+- pgAudit: PostgreSQL audit extension (free)
+- MariaDB Audit Plugin: Free for MariaDB/MySQL
+
+#### Data Loss Prevention (DLP)
+
+**DLP Deployment Modes**
+- Network DLP: Inspect traffic leaving perimeter (email, web, FTP); block or quarantine
+- Endpoint DLP: Agent on laptop/desktop; monitor clipboard, print, USB, screenshot, file access
+- Cloud DLP (CASB): API-based inspection of cloud storage (Box, SharePoint, S3); proxy-based inline inspection
+
+**DLP Content Detection Techniques**
+- Regex patterns: Credit card (Luhn check), SSN (XXX-XX-XXXX pattern), phone numbers
+- Exact data match (EDM): Fingerprint specific known sensitive records (customer database) — high precision, no false positives
+- Document fingerprinting: Detect modified versions of specific documents
+- ML classifiers: Classify content by category (financial, medical, legal) without exact patterns
+
+**DLP Products**
+
+| Product | Type | Strength |
+|---|---|---|
+| Symantec DLP (Broadcom) | Network + Endpoint + Cloud | Most comprehensive; complex to tune |
+| Forcepoint DLP | Network + Endpoint | Behavior-based; user risk scoring |
+| Microsoft Purview DLP | Cloud + Endpoint (M365 focused) | Best for M365 environments; free with E5 |
+| Zscaler DLP | Cloud/Proxy-based | Excellent for BYOD/remote workforce |
+| Nightfall AI | Cloud-native | API-based; developer-friendly; SaaS integration |
+
+#### Encryption Reference
+
+**Encryption at Rest**
+- AES-256-GCM: Standard choice for file/disk encryption (AEAD — provides both confidentiality and integrity)
+- BitLocker (Windows): Full-disk encryption; TPM-backed key; FIPS 140-2 validated
+- FileVault 2 (macOS): AES-XTS; TPM (T2/Apple Silicon) backed
+- LUKS (Linux): Linux Unified Key Setup; dm-crypt; multiple key slots
+- Database: TDE (Transparent Data Encryption) in SQL Server, Oracle, PostgreSQL
+
+**Encryption in Transit**
+- TLS 1.3: Mandatory; eliminates weak cipher suites and RSA key exchange
+- Certificate management: Minimum 2048-bit RSA or P-256 ECDSA; 1-year max validity (will become 47 days in 2026)
+- HSTS: HTTP Strict Transport Security — `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
+- mTLS: Mutual TLS — both client and server authenticate; used in service mesh, Zero Trust
+
+**Key Management**
+- Principle: Keys must be protected as carefully as the data they protect
+- KMIP (Key Management Interoperability Protocol): Standard for key lifecycle management
+- Solutions: HashiCorp Vault, AWS KMS, Azure Key Vault, GCP KMS, Thales CipherTrust
+- Key rotation: Automatic rotation schedule; different keys per classification level; envelope encryption (DEK wrapped by KEK)
+
+---
+
 ## Related Disciplines
 
 - [Privacy Engineering](privacy-engineering.md) — Data security provides the technical controls (encryption, DLP, access) that privacy engineering programs depend on to enforce consent, minimization, and DSR workflows; the two disciplines share tooling but have different regulatory drivers

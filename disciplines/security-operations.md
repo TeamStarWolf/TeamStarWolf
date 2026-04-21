@@ -242,6 +242,118 @@ A SOAR playbook automates repetitive analyst tasks triggered by specific alert t
 
 ---
 
+
+## SOC Tiers and Responsibilities
+
+### SOC Tier Model
+
+| Tier | Role | Responsibilities | Tools | Escalation |
+|---|---|---|---|---|
+| Tier 1 (Alert Analyst) | Monitor, triage, basic investigation | Review SIEM alerts; close false positives; escalate true positives; collect initial evidence | SIEM dashboard, ticketing system | Escalate after 15-30 min if unclear |
+| Tier 2 (Incident Responder) | Deep investigation, containment | Full incident investigation; threat hunting; malware analysis basics; containment recommendations | EDR, SOAR, sandboxes, forensic tools | Escalate critical/advanced threats to T3 |
+| Tier 3 (Threat Hunter / SME) | Proactive hunting, advanced IR | Hypothesis-based hunting; reverse engineering; custom detection creation; threat intel correlation | Memory forensics tools, Volatility, custom analytics | Brief leadership; drive resolution |
+| SOC Manager | Operations management | Metrics, staffing, process improvement, escalation coordination, regulatory reporting | All platforms + dashboards | Brief CISO; initiate war room if needed |
+
+### SOC Metrics (KPIs)
+
+| Metric | Target | Why It Matters |
+|---|---|---|
+| MTTD (Mean Time to Detect) | <24 hours | Industry avg 197 days; every hour matters |
+| MTTR (Mean Time to Respond/Resolve) | <72 hours | How fast are we containing and recovering? |
+| Alert volume per analyst per day | 20-30 actionable alerts | More than this = analyst fatigue; tuning needed |
+| False positive rate | <20% | High FPR = alert fatigue; missed detections |
+| Escalation accuracy rate | >85% | T1 calling T2 unnecessarily = wasted senior time |
+| Ticket closure within SLA | >95% | Process discipline |
+| Detection coverage (ATT&CK %) | Track & improve | How many techniques do we detect? |
+| Phishing simulation response time | <30 minutes to report | Measures security culture |
+
+---
+
+## SIEM Operations
+
+### Alert Triage Workflow
+
+1. Alert fires → T1 analyst receives in queue
+2. Context enrichment: Lookup user in HR/CMDB; lookup IP in threat intel; check asset criticality
+3. Initial determination: True positive / false positive / needs investigation
+4. If TP or unclear: Create incident ticket; collect evidence (logs, memory, artifacts)
+5. Escalate to T2 if: Activity ongoing, privileged account involved, multiple systems, unknown malware
+6. T2 investigates → contains → documents → hands to T3 if APT-level
+7. Post-incident: Update detection rules to reduce FP or improve TP capture
+
+### Splunk SPL for SOC Operations
+
+```spl
+# Alert queue management - incidents by severity last 24h
+index=security sourcetype=alert severity IN (high critical)
+| timechart span=1h count by severity
+
+# Analyst workload distribution
+index=ticketing status=open
+| stats count by assigned_analyst
+| sort -count
+
+# Top alert sources (tune noisiest detections)
+index=security sourcetype=alert
+| stats count by alert_name
+| sort -count
+| head 20
+
+# Mean time to acknowledge (MTTA) calculation
+index=ticketing
+| eval acknowledge_time = (first_acknowledged - created) / 3600
+| stats avg(acknowledge_time) as MTTA_hours by severity
+```
+
+### SOAR Platform Comparison
+
+| Platform | Parent | Strength | Pricing |
+|---|---|---|---|
+| Splunk SOAR (Phantom) | Splunk | Largest playbook library; strong Splunk integration | Commercial |
+| Palo Alto XSOAR (Demisto) | Palo Alto | Most mature; many integrations; complex | Commercial |
+| Microsoft Sentinel Automation | Microsoft | Native with Sentinel; Logic Apps based; no-code | Included with Sentinel |
+| Tines | Independent | Modern; no-code/low-code; developer-friendly | Commercial (startup pricing) |
+| Shuffle | OSS | Open-source; 400+ apps; self-hosted | Free (OSS) |
+| TheHive | OSS | Case management + MISP integration; collaborative | Free (OSS) |
+| Cortex | OSS | Complement to TheHive; observable analysis automation | Free (OSS) |
+
+---
+
+## Threat Intelligence Operations
+
+### Intel Lifecycle in the SOC
+
+- Strategic: Brief leadership on threat landscape; inform security program investment
+- Operational: Track active campaigns targeting your sector; IOC watchlists in SIEM
+- Tactical: Real-time IOC feeds → SIEM correlation rules; block lists for firewall/proxy
+
+### Intel Platforms
+
+| Platform | Type | Key Feature |
+|---|---|---|
+| MISP | OSS | Structured sharing; ATT&CK tagging; STIX/TAXII; self-hosted |
+| OpenCTI | OSS | Graph-based; STIX 2.1; Elasticsearch backend; free |
+| Recorded Future | Commercial | Machine speed threat intel; browser plugin; SIEM integration |
+| Mandiant Advantage | Commercial | APT tracking; actor profiles; malware intel |
+| ThreatConnect | Commercial | Risk scoring; team workflow; STIX/TAXII |
+| Anomali | Commercial | ThreatStream; IOC management; integration platform |
+| AlienVault OTX | Free/Commercial | Community threat intel; STIX/TAXII export; AT&T owned |
+
+### Threat Intel Feed Integration
+
+```python
+# MISP push to Splunk (conceptual)
+import pymisp
+misp = pymisp.ExpandedPyMISP(url="https://misp.internal", key="API_KEY", ssl=True)
+events = misp.search(tags="tlp:white", type_attribute="ip-dst", to_ids=True, last="1d")
+for event in events:
+    for attribute in event.attributes:
+        # Push to Splunk lookup table
+        print(f"{attribute.value},{attribute.type},{event.info}")
+```
+
+---
+
 ## Related Disciplines
 
 - [Detection Engineering](detection-engineering.md)

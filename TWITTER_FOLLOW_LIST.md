@@ -281,3 +281,67 @@ A categorized list of X and Twitter accounts that regularly share useful researc
 - @proofpoint — Proofpoint
 - @threatinsight — Proofpoint Threat Insight
 - @CyberArk — CyberArk
+
+
+---
+
+## Enriched Reference Tables
+
+> The following tables expand on the sections above with additional accounts and structured metadata.
+
+
+#### Detection Engineering and Blue Team (Enriched Accounts)
+
+| Account | Real Name | Focus | Why Follow |
+|---|---|---|---|
+| @cyb3rops | Florian Roth | YARA rules, detection, Sigma | Creator of Neo23x0/signature-base and Sigma; essential follow for detection engineers |
+| @Kostastsale | Kostas | Detection engineering, Sigma | Prolific detection rule author; SOC content |
+| @nas_bench | Nate Becketts | Blue team, incident response | Solid IR and detection content |
+| @HackingLZ | Leron Gray | DFIR, threat hunting | Experienced IR practitioner; quality content |
+| @svch0st | svch0st | Malware analysis, detection | Windows internals, malware analysis |
+| @SBousseaden | Samir Bousseaden | EDR detection, Windows internals | Elastic security researcher; deep Windows detection expertise |
+| @TazWake | Pete Cowman | DFIR, forensics | Great forensics and IR threads |
+| @ionstorm | Jon Gorenflo | Threat hunting, Active Directory | AD security and detection content |
+| @blueteamsec | Various curators | Blue team research aggregator | Curated blue team research links; high signal |
+
+
+#### Offensive Security and Red Team (Enriched Accounts)
+
+| Account | Real Name | Focus | Why Follow |
+|---|---|---|---|
+| @harmj0y | Will Harmj0y | Active Directory attacks, BloodHound | SpecterOps researcher; BloodHound co-creator; essential AD security resource |
+| @enigma0x3 | Matt Nelson | Windows security, AppLocker bypass | SpecterOps; Windows attack research |
+| @tifkin_ | Lee Christensen | AD exploitation, ADCS | SpecterOps; ESC1-ESC8 ADCS attack discoverer |
+| @GhostPack | SpecterOps | Offensive tool releases | Account for GhostPack tool releases (Rubeus, SharpHound, Seatbelt, etc.) |
+| @armitagehacker | Raphael Mudge | Cobalt Strike creator | Original Cobalt Strike developer |
+| @rsmudge | Raphael Mudge | C2, Cobalt Strike | Cobalt Strike-adjacent research |
+| @_dirkjan | Dirk-jan Mollema | Azure AD, Kerberos, impacket | Creator of impacket contributions, Azure AD attack research; essential |
+| @decoder_it | Roberto Sanchez | Windows privilege escalation | PrintSpoofer, RogueWinRM, token impersonation discoveries |
+| @splinter_code | Andrea Pierini | Windows security, privesc | Potato exploits co-author |
+
+
+#### Threat Intelligence Analysts (Enriched Accounts)
+
+| Account | Real Name / Org | Focus | Why Follow |
+|---|---|---|---|
+| @MandiantIntel | Mandiant | APT tracking, threat intelligence | Major IR firm; breaking threat intel |
+| @Unit42_Intel | Palo Alto Unit 42 | APT research, malware analysis | High-quality APT reports |
+| @ESETresearch | ESET | APT research, malware | Sandworm/Industroyer researchers |
+| @VK_Intel | Vitali Kremez | Ransomware, cybercrime intel | Prolific ransomware researcher |
+| @malwrhunterteam | MalwareHunterTeam | Malware discovery | Prolific malware discovery; often first to identify new samples |
+| @craiu | Costin Raiu | APT research, Kaspersky GReAT | GReAT lead; APT29, Equation Group researcher |
+| @emgent | Emanuele De Lucia | Threat intel, dark web monitoring | Dark web intelligence; ransomware tracking |
+| @pancak3lullz | Brett Callow | Ransomware tracking | Emsisoft analyst; best ransomware incident tracker |
+| @Cybereason | Cybereason | Threat intelligence | IR firm threat research |
+
+
+#### Vulnerability Research and Bug Bounty (Enriched Accounts)
+
+| Account | Real Name | Focus | Why Follow |
+|---|---|---|---|
+| @orange_8361 | Orange Tsai | Web security, RCE chains | ProxyLogon/ProxyShell/ProxyNotShell discoverer; exceptional researcher |
+| @taviso | Tavis Ormandy | Google Project Zero | One of the most prolific vuln researchers ever |
+| @j00sean | Sean | Browser security, CTF | Web/browser vulnerability research |
+| @IanColdwater | Ian Coldwater | Kubernetes security | K8s security research and hardening |
+| @hakluke | Luke Stephens | Bug bounty methodology | Bug bounty education; high-signal methodology content |
+| @NahamSec | Ben Sadeghipour | Bug bounty, recon | Live hacking events; practical bug bounty |

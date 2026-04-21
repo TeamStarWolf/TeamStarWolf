@@ -277,3 +277,78 @@ Data files:
 - [Coverage Schema](COVERAGE_SCHEMA.md) — JSONL schema documentation
 - [ATT&CK Navigator](navigator/index.md) — Interactive coverage visualization
 - [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) — Open-source tools mapped to this pipeline
+
+---
+
+## Enterprise Security Tool Integration Map
+
+This maps security tools to pipeline stages across the full enterprise security stack.
+
+| Stage | Open Source Tools | Commercial Tools | Key Capability |
+|---|---|---|---|
+| Asset Inventory | Amass, Shodan CLI, Censys CLI, Nmap | Qualys AssetView, Tenable.io ASM, Axonius | Discover all assets including shadow IT |
+| Vulnerability Scanning | OpenVAS, Nuclei | Tenable Nessus, Qualys VM, Rapid7 InsightVM | Identify vulnerabilities at scale |
+| Patch Management | WSUS, Chocolatey, Ansible | Tanium Patch, SCCM/Intune, BigFix | Remediate vulnerabilities |
+| Email Security | Rspamd, SpamAssassin, GoPhish | Proofpoint TAP, Microsoft Defender O365 | Block phishing, BEC, malware delivery |
+| Endpoint Protection | Wazuh, OSSEC | CrowdStrike Falcon, SentinelOne, Microsoft Defender for Endpoint | Prevent, detect, respond on endpoints |
+| Network Security | Suricata, Zeek, Snort | Palo Alto NGFW, Zscaler ZIA, Cisco Umbrella | Filter traffic, detect network attacks |
+| Identity/Access | OpenLDAP, Keycloak | CyberArk, Okta, Azure Entra ID | Manage identities and privileged access |
+| Cloud Security | Prowler, ScoutSuite, Trivy | Prisma Cloud, Wiz, Microsoft Defender for Cloud | Secure cloud environments |
+| SIEM/Detection | Elastic Security, Wazuh | Splunk, Microsoft Sentinel, Chronicle | Correlate and detect threats |
+| SOAR/Response | TheHive + Cortex, Shuffle | Splunk SOAR, XSOAR, Tines | Automate response workflows |
+| Threat Intelligence | MISP, OpenCTI | Recorded Future, Mandiant Advantage, ThreatConnect | Contextualize threats with intel |
+| Deception | OpenCanary, Cowrie, Canarytokens | Thinkst Canary, Attivo Networks | Detect attackers in environment |
+| Pentest/Validation | Atomic Red Team, Caldera | AttackIQ, Cymulate, SCYTHE | Validate controls continuously |
+
+---
+
+## Incident Response Pipeline Integration
+
+End-to-end IR workflow integrating SIEM, SOAR, EDR, and threat intelligence platforms.
+
+```
+Alert fired in SIEM
+    |
+    v
+Automated triage (SOAR):
+  - Enrich: VirusTotal, Shodan, GreyNoise, Recorded Future
+  - Asset lookup: CMDB (ServiceNow), CMDB criticality
+  - User lookup: HR system (Workday), Active Directory
+    |
+    v
+Risk score calculated:
+  - High severity + critical asset + known bad IOC = P1 auto-page
+  - High severity + non-critical + low confidence = P2 auto-ticket
+    |
+    v
+If P1: Auto-contain (EDR network isolate)
+        Create major incident ticket
+        Page on-call analyst (PagerDuty)
+        Start war room (Slack/Teams)
+        |
+        v
+Analyst investigation:
+  - EDR telemetry (process tree, network, file events)
+  - Memory forensics if needed (Velociraptor)
+  - Threat intel correlation (MISP/ThreatConnect)
+        |
+        v
+Containment/Eradication:
+  - Block IOCs in firewall/proxy/EDR
+  - Remove malicious files/persistence
+  - Reset compromised credentials
+  - Patch exploited vulnerability
+        |
+        v
+Recovery:
+  - Restore from clean backup
+  - Verify no re-infection
+  - Re-enable systems
+        |
+        v
+Post-incident:
+  - Update detection rules
+  - Improve playbooks
+  - Report to leadership
+  - Submit to threat intelligence (MISP/ISAC)
+```

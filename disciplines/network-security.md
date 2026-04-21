@@ -145,3 +145,86 @@ Network security has a mature commercial market with specialized vendors for NDR
 - [RITA Project](https://github.com/activecm/rita) — The leading open-source beaconing detection tool; essential for C2 identification in Zeek data
 - [JA3 TLS Fingerprinting](https://github.com/salesforce/ja3) — Free TLS fingerprinting method for identifying malware and anomalous TLS configurations without decryption
 - [Malware Traffic Analysis](https://www.malware-traffic-analysis.net) — Free pcap files from real malware infections and C2 traffic; the best resource for practicing malicious traffic identification
+---
+
+## Network Attack Techniques
+
+#### Reconnaissance
+
+**Passive**
+- Shodan (`shodan search net:TARGET_CIDR`), Censys, FOFA for internet-facing infrastructure
+
+**Active scanning**
+- nmap SYN scan: `nmap -sS -T4 -p- TARGET`
+- Masscan: `masscan -p1-65535 TARGET --rate=10000`
+- Service fingerprinting: Banner grabbing (`nc -nv IP PORT`), nmap version scan (`nmap -sV`)
+
+#### Man-in-the-Middle Attacks
+
+- ARP spoofing: `arpspoof -i eth0 -t VICTIM GATEWAY` + `arpspoof -i eth0 -t GATEWAY VICTIM`
+- Responder (LLMNR/NBNS/mDNS poisoning): `responder -I eth0 -rdw` — captures NTLMv2 hashes
+- IPv6 attacks: mitm6 (`mitm6 -d domain.local`) — Windows prefers IPv6 DNS, enables WPAD injection
+- DHCP starvation: Exhaust DHCP pool then serve rogue DHCP → control default gateway
+
+#### Protocol-Specific Attacks
+
+- SMB relay: `ntlmrelayx.py -tf targets.txt -smb2support` — relay captured NTLM to other targets
+- Kerberoasting (network perspective): Requires domain account, tickets captured from DC
+- DNS poisoning: Cache poisoning (Kaminsky attack), DNS zone transfer (`dig axfr @DNS_SERVER domain.com`)
+- SSL stripping: `sslstrip -l 8080` + arpspoof — downgrades HTTPS to HTTP
+- VLAN hopping: Double tagging, DTP negotiation abuse
+
+#### Wireless Attacks
+
+- WPA2 cracking: `airmon-ng start wlan0` → `airodump-ng wlan0mon` → capture 4-way handshake → hashcat
+- Evil twin AP: `hostapd-wpe` for WPA2-Enterprise credential harvesting
+- PMKID attack: `hcxdumptool -o capture.pcapng` — no client needed
+- Deauth flood: `aireplay-ng -0 0 -a BSSID wlan0mon`
+
+---
+
+## Network Monitoring and Defense
+
+#### Network Security Monitoring (NSM) Architecture
+
+- Visibility points: Internet perimeter, internal segment taps, out-of-band SPAN ports
+- Full packet capture: Security Onion, Arkime/Moloch for PCAP + index
+- Flow analysis: NetFlow/IPFIX → ELK or Splunk for anomaly detection
+- Protocol analysis: Zeek/Bro — automatic parsing of 35+ protocols into structured logs
+
+#### Intrusion Detection Systems
+
+- Suricata: Multi-threaded, higher performance than Snort, supports AF_PACKET + DPDK
+- Snort 3: Rebuilt architecture, improved rule syntax
+- Zeek (IDS mode): Anomaly detection via scripting, not signature-based
+- Rule sources: ET Open (Emerging Threats), CISA/US-CERT advisories, Mandiant FLARE
+
+#### Zero Trust Networking
+
+- Microsegmentation: Software-defined perimeter, deny-by-default east-west traffic
+- ZTNA (Zero Trust Network Access): Application-level access, no implicit trust after VPN
+- Tools: Zscaler Private Access, Cloudflare Access, HashiCorp Boundary, Tailscale (mesh VPN)
+
+#### Firewall and Network Controls
+
+- Next-gen firewall (NGFW): Application-layer inspection, user/group policies, SSL inspection
+- Network ACLs: Ingress + egress filtering (egress filtering prevents C2 callback from internal hosts)
+- DNS security: RPZ (Response Policy Zones), Quad9, Cloudflare Gateway, DNS-over-HTTPS
+- BGP security: RPKI (Route Origin Validation), MANRS compliance
+
+#### Key Network Security Tools
+
+| Tool | Type | Use Case |
+|---|---|---|
+| Zeek (Bro) | OSS | Network traffic analysis and protocol parsing |
+| Suricata | OSS | High-performance IDS/IPS |
+| Security Onion | OSS | Full NSM platform (Zeek + Suricata + Elastic) |
+| Arkime | OSS | Full packet capture and indexing |
+| Wireshark | OSS | Protocol analysis and PCAP inspection |
+| tcpdump | CLI | Live capture and PCAP analysis |
+| nmap | OSS | Port scanning and service enumeration |
+| Masscan | OSS | High-speed port scanning |
+| Responder | OSS | LLMNR/NBT-NS/MDNS poisoning |
+| mitm6 | OSS | IPv6-based MitM attacks |
+| CrackMapExec | OSS | Network-level SMB/LDAP enumeration and attacks |
+| Impacket | Python | SMB/Kerberos/LDAP protocol attacks |

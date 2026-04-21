@@ -294,6 +294,78 @@ Understanding attack construction is essential for building effective defenses:
 
 ---
 
+## Software Supply Chain Attacks
+
+**Attack Vectors**
+
+| Attack Type | Example | Description |
+|---|---|---|
+| Dependency confusion | Alex Birsan (2021) — uploaded packages with same name as internal packages to public registries; auto-installed by build systems at 35 companies | Public package namespace squatting overrides internal package |
+| Typosquatting | `colourama` vs `colorama`; multiple npm/PyPI attacks | Misspelled package name tricks developers into installing malicious version |
+| Compromised maintainer | event-stream (2018) — new maintainer added crypto-stealing code | Legitimate maintainer account compromised or package donated to malicious actor |
+| Build system compromise | SolarWinds (2020) — Orion build pipeline injected with SUNBURST backdoor | CI/CD or build server compromised; malicious code inserted before signing |
+| Repository compromise | Codecov (2021) — bash uploader script modified to exfiltrate env vars | Dependency script fetched from compromised CDN/repo |
+| Malicious container | Cryptomining images on Docker Hub | Poisoned base images distributed via official registries |
+
+**Dependency Security Management**
+- Lock files: `package-lock.json`, `Gemfile.lock`, `requirements.txt` with pinned versions + hashes
+- Dependency pinning to hash: `pip install 'requests==2.31.0 --hash=sha256:...'`
+- Private package registry mirroring: Artifactory, Nexus — proxy public registries; scan before serving
+- Automated PRs: Dependabot, Renovate Bot — auto-update deps with PRs including security advisories
+- OSS audit: `npm audit`, `pip-audit`, `cargo audit`, `bundle-audit`
+
+## SBOM (Software Bill of Materials)
+
+**What is an SBOM?**
+A machine-readable inventory of all components in a software artifact — libraries, OS packages, transitive dependencies — with versions, licenses, and provenance.
+
+**Regulatory Mandate**
+- US Executive Order 14028 (May 2021): Federal agencies must obtain SBOM for all software they purchase
+- FDA cybersecurity guidance: Medical device makers must submit SBOM before device approval
+- EU Cyber Resilience Act: SBOM requirements for products with digital elements
+
+**SBOM Formats**
+- SPDX: Linux Foundation standard; ISO/IEC 5962:2021; XML, JSON, YAML, tag-value formats
+- CycloneDX: OWASP standard; designed for security use cases; supports VEX (vulnerability exploitability exchange)
+- SWID: Software Identification Tags; US government/enterprise focus
+
+**SBOM Generation Tools**
+
+| Tool | Language | Format | Notes |
+|---|---|---|---|
+| Syft (Anchore) | Go | SPDX, CycloneDX, SWID | Best overall; container + filesystem |
+| cdxgen | Node.js | CycloneDX | Multi-language; CI/CD friendly |
+| CycloneDX Maven/Gradle plugin | Java | CycloneDX | First-party for Java builds |
+| bom (Microsoft) | Go | SPDX | Microsoft's SBOM tool |
+| trivy (SBOM mode) | Go | SPDX, CycloneDX | Integrated in Trivy scanner |
+
+## SLSA Framework (Supply-chain Levels for Software Artifacts)
+
+**SLSA Levels**
+- L1: Provenance exists; build scripted; documentation
+- L2: Hosted build platform; signed provenance; two-person review
+- L3: Hardened build platform; non-falsifiable provenance; isolated build environment
+- (L4 was retired in v1.0)
+
+**Provenance and Attestation**
+- `cosign attest`: Attach SLSA provenance as OCI artifact attestation
+- GitHub Actions SLSA generator: `slsa-framework/slsa-github-generator`
+- Sigstore policy-controller: Enforce SLSA level requirements in Kubernetes admission
+
+## Software Supply Chain Defense Checklist
+- [ ] All dependencies pinned to exact version + hash
+- [ ] SCA tool integrated in CI/CD pipeline (Snyk, Dependabot, OWASP DC)
+- [ ] SBOM generated for every build artifact
+- [ ] Container images signed with Cosign
+- [ ] Build provenance generated and attached
+- [ ] Private package registry proxying public registries
+- [ ] Audit of all direct and transitive dependencies for license and vulnerability
+- [ ] Secrets scanning on all code before commit
+- [ ] Two-person review for pipeline configuration changes
+- [ ] Regular audit of package maintainer access
+
+---
+
 ## Related Disciplines
 
 - [DevSecOps](devsecops.md) — Pipeline security, SAST/SCA integration, and shift-left supply chain controls

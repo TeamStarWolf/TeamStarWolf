@@ -198,6 +198,110 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 ---
 
+---
+
+## IR Framework and Lifecycle
+
+### NIST SP 800-61 Rev 2 Lifecycle
+
+Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity
+
+### PICERL Model (alternative widely used)
+
+Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned
+
+---
+
+## Detection and Triage
+
+### Triage Severity Scoring (P1-P4 framework)
+
+- **P1 (Critical, <1hr response):** Active ransomware spreading, confirmed data exfiltration, ICS/OT compromise, nation-state APT
+- **P2 (High, <4hr):** Compromised privileged account, malware on endpoint, suspicious lateral movement
+- **P3 (Medium, <24hr):** Phishing email opened, suspicious login, policy violation
+- **P4 (Low, <72hr):** Scanning/probe with no evidence of compromise, informational alerts
+
+### Initial Triage Questions
+
+- What systems are affected? What is their business criticality?
+- Is the attacker still active? When was last confirmed malicious activity?
+- What is the blast radius? Is this contained to one host or has it spread?
+- Has data been exfiltrated? What types? What regulatory implications?
+- Can we isolate without disrupting critical business operations?
+
+---
+
+## Containment Strategies
+
+### Short-term containment (preserve evidence)
+
+- Network isolation: Block source/destination at firewall, VLAN segregation
+- Account action: Disable compromised accounts (do NOT change password yet — preserve for attribution)
+- Do NOT immediately wipe endpoint — forensic evidence
+- Enable verbose logging on affected systems immediately
+
+### Evidence Collection Checklist
+
+- RAM dump (before isolation if possible)
+- Full disk image with forensic write blocker
+- Network capture (if active C2)
+- Export Windows Event Logs (Security, System, Application, PowerShell)
+- Export EDR telemetry (process tree, network connections, file events)
+- Active Directory event logs (DCs)
+
+---
+
+## Windows Rapid Triage Commands
+
+```powershell
+# Suspicious processes
+Get-Process | Select-Object Name, Id, Path, Company | Sort-Object Id
+Get-WmiObject Win32_Process | Select Name, ProcessId, ParentProcessId, CommandLine
+
+# Network connections
+netstat -anob
+Get-NetTCPConnection | Where-Object {$_.State -eq 'Established'} | Select-Object LocalPort, RemoteAddress, RemotePort, OwningProcess
+
+# Persistence locations
+Get-ScheduledTask | Where-Object {$_.State -ne 'Disabled'}
+Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+Get-Service | Where-Object {$_.StartType -eq 'Automatic'}
+
+# Recently modified files
+Get-ChildItem C:\Windows\System32 -Filter *.dll | Where-Object {$_.LastWriteTime -gt (Get-Date).AddDays(-7)}
+```
+
+---
+
+## Linux Rapid Triage Commands
+
+```bash
+# Active connections
+ss -tulnp
+netstat -antp
+
+# Running processes
+ps auxf
+ls -la /proc/*/exe 2>/dev/null | grep deleted  # deleted binary still running
+
+# Persistence
+crontab -l
+ls -la /etc/cron*
+cat /etc/rc.local
+systemctl list-units --type=service --state=running
+
+# Recently modified files
+find /tmp /var/tmp /dev/shm -type f -newer /bin/bash 2>/dev/null
+find / -mtime -1 -type f 2>/dev/null | grep -v proc | grep -v sys
+
+# Loaded kernel modules
+lsmod
+cat /proc/modules
+```
+
+---
+
 ## Related Disciplines
 
 Incident response sits at the intersection of nearly every security discipline. During an active incident, IR teams call on capabilities across the entire security program — and every other team should feed context into the investigation.

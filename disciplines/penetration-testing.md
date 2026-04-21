@@ -331,3 +331,115 @@ Each finding contains:
 - [PENTEST_CHECKLISTS.md](../PENTEST_CHECKLISTS.md) — Phase-by-phase testing checklists
 - [CERTIFICATIONS.md](../CERTIFICATIONS.md) — Full certification roadmap across all disciplines
 - [HTB Tracks](../research/HTB_TRACKS.md) — HackTheBox learning paths aligned to penetration testing
+
+---
+
+## Penetration Testing Methodology (Full)
+
+### Phase 1: Pre-Engagement
+
+- Scoping: IP ranges, domains, excluded systems, time windows
+- Rules of Engagement (RoE): emergency contacts, stop conditions, pivoting limits
+- Legal documentation: Signed authorization letter, MSA, liability waiver
+- Kickoff: NDAs, emergency contacts, status reporting cadence
+
+### Phase 2: Reconnaissance
+
+- Passive OSINT: Shodan (`shodan search org:"Target Corp"`), Censys, FOFA, SecurityTrails, WHOIS, ASN lookups
+- Active recon: nmap (`nmap -sV -sC -p- --min-rate 5000 -oA full_scan TARGET`), Masscan
+- Web recon: Gobuster (`gobuster dir -u https://target.com -w /usr/share/seclists/Discovery/Web-Content/raft-large-words.txt`), ffuf, amass (`amass enum -d target.com -o subs.txt`)
+- Google dorks: `site:target.com filetype:pdf`, `site:target.com inurl:admin`, `"target.com" password filetype:xls`
+
+### Phase 3: Vulnerability Analysis
+
+- Automated: Nessus, OpenVAS, Nuclei (`nuclei -u https://target.com -t cves/ -severity critical,high`)
+- Manual web app: Burp Suite Pro — active scan, intruder, repeater workflow
+- Service enumeration: enum4linux-ng (SMB), smbclient, rpcclient, ldapsearch
+
+### Phase 4: Exploitation
+
+- Metasploit workflow: `search`, `use`, `set RHOSTS`, `set PAYLOAD`, `run`, `sessions -i`
+- Manual exploitation: Searchsploit, ExploitDB, GitHub PoC hunting
+- Password attacks: Hydra (`hydra -L users.txt -P rockyou.txt ssh://TARGET`), CrackMapExec (`crackmapexec smb TARGET -u users.txt -p passwords.txt`)
+- Web exploitation: SQLmap (`sqlmap -u "https://target.com/item?id=1" --dbs --batch`), XSS payloads
+
+### Phase 5: Post-Exploitation (Windows)
+
+- Privilege escalation: WinPEAS, PrivescCheck, PowerUp
+- Token impersonation: Incognito, Potato exploits (Sweet/Rotten/PrintSpoofer), SeImpersonatePrivilege
+- Credential dumping: Mimikatz (`sekurlsa::logonpasswords`, `lsadump::sam`), secretsdump.py
+- Lateral movement: Pass-the-Hash (PtH), Pass-the-Ticket (PtT), WMI execution, PsExec
+
+### Phase 6: Active Directory Testing
+
+- Enumeration: BloodHound + SharpHound, PowerView (`Get-NetUser`, `Get-DomainGroupMember "Domain Admins"`)
+- Kerberoasting: `GetUserSPNs.py domain/user:pass@DC -request -outputfile hashes.txt`
+- AS-REP Roasting: `GetNPUsers.py domain/ -no-pass -usersfile users.txt`
+- ACL abuse: GenericAll/GenericWrite/WriteDACL — targeted Kerberoast or DCSync via rights escalation
+- ADCS attacks: Certipy (`certipy find -u user@domain -p pass -dc-ip IP -vulnerable`), ESC1-ESC8 exploitation
+- DCSync: `secretsdump.py -just-dc domain/DA:pass@DC`
+- Domain persistence: Golden ticket, Silver ticket, DSRM abuse, AdminSDHolder
+
+### Phase 7: Reporting
+
+- Executive summary: Business impact focus, no technical jargon
+- Technical findings: CVSS score, CVE reference (if applicable), evidence (redacted screenshots), reproduction steps
+- Remediation guidance: Specific, actionable — not just "patch the system"
+- Risk ratings: Critical/High/Medium/Low with CVSS v3.1 vector strings
+- Retest: Include in scope for proper pentest engagements
+
+---
+
+## Web Application Penetration Testing
+
+Full OWASP Top 10 2021 testing methodology:
+
+- **A01 Broken Access Control:** IDOR testing, privilege escalation, forced browsing
+- **A02 Cryptographic Failures:** SSL/TLS scanning (testssl.sh), weak cipher detection
+- **A03 Injection:** SQL injection (manual + sqlmap), SSTI (`{{7*7}}`), command injection (`; id`, `| whoami`)
+- **A04 Insecure Design:** Business logic flaws, price manipulation, race conditions
+- **A05 Security Misconfiguration:** Default creds, debug modes, exposed admin panels
+- **A06 Vulnerable Components:** Retire.js, OWASP Dependency Check
+- **A07 Auth Failures:** Session token analysis, password policy, MFA bypass techniques
+- **A08 Software Integrity Failures:** CSRF, subresource integrity
+- **A09 Logging Failures:** Verify logging exists, test log injection
+- **A10 SSRF:** AWS metadata (`http://169.254.169.254/latest/meta-data/`), internal port scanning
+
+---
+
+## Cloud Penetration Testing
+
+### AWS
+
+- Enumeration: `aws sts get-caller-identity`, `aws iam list-users`, `aws s3 ls`, enumerate attached policies
+- Common misconfigs: Overly permissive IAM roles, public S3 buckets (`aws s3 ls s3://bucket --no-sign-request`), IMDSv1 SSRF
+- Privilege escalation: `iam:CreatePolicyVersion`, `iam:AttachUserPolicy`, `sts:AssumeRole` abuse — see Rhino Security Labs AWS PrivEsc arsenal
+- Tools: Pacu (AWS exploitation framework), ScoutSuite (multi-cloud auditing), Prowler
+
+### Azure
+
+- Enumeration: `az ad user list`, `az role assignment list --all`, Graph API enumeration
+- Common misconfigs: Excessive app registrations, legacy auth enabled, privileged identity misconfiguration
+- Tools: ROADtools, AzureHound (BloodHound for Azure), MicroBurst, Stormspotter
+
+---
+
+## Pentest Tools Reference Table
+
+| Category | Tool | Use Case |
+|---|---|---|
+| Recon | Amass | Subdomain enumeration |
+| Recon | Shodan CLI | Internet-exposed asset discovery |
+| Scanning | nmap | Port/service/version scanning |
+| Scanning | Nuclei | Templated CVE/misconfiguration scanning |
+| Web | Burp Suite Pro | Web app proxy, active scan, intruder |
+| Web | ffuf | Fuzzing directories, parameters, subdomains |
+| Exploitation | Metasploit | Framework for known exploits |
+| Exploitation | SQLmap | SQL injection automation |
+| Post-Exploit | Mimikatz | Windows credential dumping |
+| AD | BloodHound | AD attack path visualization |
+| AD | Impacket | SMB/Kerberos/LDAP attack toolkit |
+| AD | Certipy | ADCS ESC attack suite |
+| Cloud | Pacu | AWS exploitation framework |
+| Reporting | Ghostwriter | Pentest reporting platform |
+| Reporting | PlexTrac | Finding management and reporting |

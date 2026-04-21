@@ -181,3 +181,83 @@ The CTID Mappings Explorer provides downloadable STIX/JSON data for each framewo
 6. Score gaps by tactic, technique criticality (EPSS/KEV), and pipeline stage
 
 See [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md) for the full data model and scoring logic.
+
+
+### Vendor to NIST 800-53 Control Mapping Reference
+
+**Identity and Access Management**
+| Vendor / Solution | NIST 800-53 Controls | Description |
+|---|---|---|
+| Okta / Azure AD / Ping | AC-2, AC-3, IA-2, IA-5, IA-8 | Identity providers mapping access to controls |
+| CyberArk PAM | AC-2, AC-3, AC-6, IA-2, AU-9 | Privileged access management |
+| BeyondTrust | AC-2, AC-6, AC-17, IA-2 | Remote access + privileged session management |
+| SailPoint IIQ | AC-2, AC-5, AC-6, AU-9 | Identity governance and access reviews |
+| Saviynt | AC-2, AC-3, AC-5, AC-6 | IGA and privileged access |
+| Duo Security | IA-2(1), IA-2(2), IA-2(8), IA-2(12) | MFA enforcement |
+
+**Endpoint Security**
+| Vendor / Solution | NIST 800-53 Controls | Description |
+|---|---|---|
+| CrowdStrike Falcon | SI-3, SI-7, SI-16, AU-12, IR-4 | EDR/AV, IOA detection, threat hunting |
+| Microsoft Defender for Endpoint | SI-3, SI-4, SI-7, AU-2, CM-7 | EDR + ASR rules + attack surface reduction |
+| SentinelOne | SI-3, SI-4, SI-7, IR-4 | AI-powered EDR with rollback capability |
+| Carbon Black | SI-3, SI-4, AU-12 | Behavioral EDR and threat hunting |
+| Tanium | CM-1, CM-2, CM-6, SI-2, SI-3 | Endpoint management + vulnerability scanning |
+
+**Network Security**
+| Vendor / Solution | NIST 800-53 Controls | Description |
+|---|---|---|
+| Palo Alto Networks NGFW | SC-7, SC-8, SI-3, AC-17 | Next-gen firewall with app-ID and threat prevention |
+| Zscaler ZIA | SC-7, SC-8, SC-28, AC-17, SI-3 | Secure web gateway + cloud firewall |
+| Zscaler ZPA | AC-17, AC-3, SC-7, SC-28 | Zero Trust Network Access |
+| Fortinet FortiGate | SC-7, SC-8, SI-3, AC-17 | NGFW with SD-WAN integration |
+| Cisco Umbrella | SC-7, SI-3, SC-20 | DNS-layer security |
+| Akamai Enterprise App Access | AC-17, SC-7, IA-8 | ZTNA platform |
+
+**Security Operations / SIEM**
+| Vendor / Solution | NIST 800-53 Controls | Description |
+|---|---|---|
+| Splunk Enterprise Security | AU-2, AU-3, AU-6, IR-4, IR-5, SI-4 | SIEM with UBA and SOAR |
+| Microsoft Sentinel | AU-2, AU-3, AU-6, AU-12, IR-4 | Cloud-native SIEM + SOAR |
+| IBM QRadar | AU-2, AU-6, IR-4, IR-5, SI-4 | SIEM with threat intelligence integration |
+| Elastic SIEM | AU-2, AU-6, SI-4 | Open-source SIEM on ELK stack |
+| Palo Alto Cortex XSIAM | AU-2, AU-6, IR-4, SI-4 | AI-driven SOC platform |
+
+**Vulnerability and Compliance**
+| Vendor / Solution | NIST 800-53 Controls | Description |
+|---|---|---|
+| Tenable.io / Nessus | RA-3, RA-5, SI-2, CA-7 | Vulnerability scanning and assessment |
+| Qualys VMDR | RA-5, SI-2, CM-6, CA-7 | VM + compliance + CSPM |
+| Rapid7 InsightVM | RA-5, SI-2, CM-6 | Vulnerability management with risk scoring |
+| Wiz | RA-5, CM-6, AC-3, SC-7 | Cloud-native CSPM/CNAPP |
+| Orca Security | RA-5, CM-6, SC-7 | Agentless cloud security posture |
+| Lacework | AU-2, RA-5, CM-6, IR-4 | Cloud security + behavioral detection |
+
+**Email Security**
+| Vendor / Solution | NIST 800-53 Controls | Description |
+|---|---|---|
+| Proofpoint | SI-3, SC-8, SC-28, SC-7 | Advanced threat protection for email |
+| Microsoft Defender for Office 365 | SI-3, SC-8, SC-28 | Native email security for M365 |
+| Mimecast | SI-3, SC-8, AU-2 | Email security + archive + continuity |
+| Abnormal Security | SI-3, SC-7 | AI-based email threat detection |
+| Ironscales | SI-3, AT-2 | Email security + phishing training |
+
+### ATT&CK Technique to Control Family Mapping
+
+| ATT&CK Tactic | Example Technique | Primary 800-53 Controls |
+|---|---|---|
+| Initial Access | T1566 Phishing | SC-7, SC-8, AT-2, SI-3 |
+| Initial Access | T1190 Exploit Public App | SI-2, RA-5, CM-6, SC-7 |
+| Execution | T1059 Command-Line Interface | CM-7, SI-4, AU-12 |
+| Persistence | T1053 Scheduled Task | CM-7, SI-4, AU-2 |
+| Privilege Escalation | T1548 Abuse Elevation Control | AC-6, CM-6, AU-12 |
+| Defense Evasion | T1562 Impair Defenses | AU-9, SI-7, SI-4 |
+| Credential Access | T1003 OS Credential Dumping | IA-5, AC-6, SC-28 |
+| Discovery | T1083 File and Directory Discovery | AU-12, SI-4 |
+| Lateral Movement | T1021 Remote Services | AC-17, SC-7, AC-3 |
+| Collection | T1560 Archive Collected Data | SC-28, AU-12 |
+| Exfiltration | T1048 Exfiltration Over Alt Protocol | SC-7, AU-12, SI-4 |
+| Command & Control | T1071 App Layer Protocol | SC-7, SI-4, SI-3 |
+| Impact | T1486 Data Encrypted for Impact | CP-9, SC-28, SI-3 |
+
+---

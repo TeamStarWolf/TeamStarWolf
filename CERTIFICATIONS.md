@@ -515,3 +515,76 @@ Senior / Specialist (5+ years)
 - [Hands-On Labs](LABS.md) — practice environments to prepare for exams
 - [Security Tools Reference](TOOLS.md) — tools covered in certification curricula
 - [Disciplines](disciplines/threat-intelligence.md) — discipline pages with cert recommendations
+---
+
+## Quick-Reference Summary Tables
+
+### Cloud Security Certifications
+
+| Certification | Issuer | Level | Cost (USD) | Validity | DoD 8570? |
+|---|---|---|---|---|---|
+| AWS Certified Security — Specialty | Amazon | Advanced | $300 | 3 years | No |
+| Azure Security Engineer Associate (AZ-500) | Microsoft | Mid | $165 | Perpetual | No |
+| Microsoft Security Operations Analyst (SC-200) | Microsoft | Mid | $165 | Perpetual | No |
+| Google Professional Cloud Security Engineer | Google | Advanced | $200 | 2 years | No |
+| CCSP (Certified Cloud Security Professional) | ISC2 | Advanced | $599 | 3 years | IAT Level III |
+| CCSK (Certificate of Cloud Security Knowledge) | CSA | Foundation | $395 | Lifetime | No |
+| CompTIA Cloud+ | CompTIA | Mid | $369 | 3 years | No |
+
+### Offensive Security Certifications
+
+| Certification | Issuer | Level | Cost | Exam Format | Notes |
+|---|---|---|---|---|---|
+| OSCP (PEN-200) | Offensive Security | Intermediate | $1,499 | 24hr practical + report | Gold standard for pentesters; required by many employers |
+| OSEP (PEN-300) | Offensive Security | Advanced | $1,499 | 48hr practical + report | Evasion and advanced exploitation |
+| OSED (EXP-301) | Offensive Security | Advanced | $1,499 | 48hr practical | Windows exploit development |
+| OSWE (WEB-300) | Offensive Security | Advanced | $1,499 | 48hr practical | Web application whitebox testing |
+| OSMR (EXP-312) | Offensive Security | Advanced | $1,499 | 48hr practical | macOS control bypass |
+| BSCP (Burp Suite Certified Practitioner) | PortSwigger | Intermediate | $99 | 4hr practical | Web app focus; Burp Pro fluency required |
+| PNPT (Practical Network Penetration Tester) | TCM Security | Intermediate | $399 | 5-day + report | No MCQ; practical exam; cheaper OSCP alternative |
+| CEH (Certified Ethical Hacker) | EC-Council | Beginner-Mid | $1,199 | MCQ | Lower technical bar than OSCP; DoD approved; widely recognized |
+| GPEN (GIAC Penetration Tester) | SANS/GIAC | Intermediate | $949 (exam only) | MCQ + practical | GIAC quality; expensive but respected; SANS training pairs well |
+| CRTO (Certified Red Team Operator) | Zero-Point Security | Intermediate | £399 | 48hr lab exam | Cobalt Strike focused; outstanding value |
+| CRTE (Certified Red Team Expert) | Altered Security | Advanced | $249 | 24hr | Active Directory red team; excellent AD coverage |
+| eWPT (eLearnSecurity Web Penetration Tester) | INE | Intermediate | $200 | Practical | Good web app cert; practical exam |
+
+### Blue Team / Defensive Certifications
+
+| Certification | Issuer | Level | Cost | Notes |
+|---|---|---|---|---|
+| BTL1 (Blue Team Labs Level 1) | Security Blue Team | Beginner-Mid | $530 | 24hr practical; SOC + DFIR + threat intel; excellent value |
+| BTL2 (Blue Team Labs Level 2) | Security Blue Team | Advanced | $600 | More advanced DFIR and threat hunting |
+| GCIH (GIAC Certified Incident Handler) | SANS/GIAC | Intermediate | $949 | Incident response; DoD 8570 approved (CND Analyst) |
+| GCFE (GIAC Certified Forensic Examiner) | SANS/GIAC | Intermediate | $949 | Windows DFIR; digital forensics |
+| GCFA (GIAC Certified Forensic Analyst) | SANS/GIAC | Advanced | $949 | Memory forensics; threat hunting; advanced DFIR |
+| GREM (GIAC Reverse Engineering Malware) | SANS/GIAC | Advanced | $949 | Gold standard for malware analysts |
+| CDSA (Certified Defensive Security Analyst) | HTB | Intermediate | $220 | SOC + DFIR practical; HTB Academy-based |
+| CDFE (Certified Digital Forensics Examiner) | Mile2 | Intermediate | ~$500 | Vendor-neutral DFIR |
+| EnCE (EnCase Certified Examiner) | OpenText | Advanced | ~$400 | EnCase-specific; widely used in law enforcement |
+| CHFI (Computer Hacking Forensics Investigator) | EC-Council | Intermediate | ~$600 | DFIR + law enforcement focus |
+
+---
+
+## Exam Preparation Tips
+
+**General Strategy**
+- Read the exam guide before studying: Every cert has an official exam guide listing domains and weightings
+- Prioritize high-weight domains: 20% domain = 20% of exam questions; focus time accordingly
+- Practice exams before scheduling: Score 85%+ consistently before booking; ExamTopics, Boson, MeasureUp
+- Flashcards for terminology-heavy certs: Security+, CISSP have many acronyms; Anki + Quizlet
+- Lab practice for technical certs: OSCP, BTL1, CRTO — no amount of reading substitutes for hands-on
+
+**Budget Certification Path (< $500 Total)**
+1. CompTIA Security+ (~$369) — foundation, DoD 8570 compliant, 3-year validity
+2. BTL1 (~$530 all-in with exam) — practical blue team; great ROI
+3. PNPT (~$399) — practical offensive; cheaper than OSCP; accepted by many employers
+
+**Mid-Range Path (~$1,000-$2,000)**
+1. CompTIA Security+ + CySA+
+2. PNPT or eWPT for offensive
+3. GCIH or BTL2 for defensive
+
+**Premium Path (Industry Standard)**
+1. OSCP — offensive gold standard
+2. CISSP — management/architecture
+3. GREM or GCFA — specialization

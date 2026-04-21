@@ -1610,3 +1610,67 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [yeswehack/vulnerable-code-snippets](https://github.com/yeswehack/vulnerable-code-snippets)
 - [ytisf/PyExfil](https://github.com/ytisf/PyExfil)
 - [zeek/zeek](https://github.com/zeek/zeek)
+
+
+## Enterprise Security Platforms and Tools
+
+Curated reference additions: enterprise-grade detection and SIEM platforms, and mappings from major vendors.
+
+| Repository | Author/Org | Stars | Description |
+|------------|-----------|-------|-------------|
+| [CrowdStrike/MITRE-Eval-Detections](https://github.com/CrowdStrike/MITRE-Eval-Detections) | CrowdStrike | — | Detection mappings from CrowdStrike ATT&CK Evaluations |
+| [microsoft/MSTIC-Jupyter-Notebooks](https://github.com/microsoft/MSTIC-Jupyter-Notebooks) | Microsoft | — | Threat intelligence and hunting notebooks from MSTIC |
+| [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) | Microsoft | ★★★★★ | Microsoft Sentinel detection rules, playbooks, workbooks |
+| [splunk/security_content](https://github.com/splunk/security_content) | Splunk | ★★★★★ | Splunk Security Essentials detection rules and use cases |
+| [elastic/detection-rules](https://github.com/elastic/detection-rules) | Elastic | ★★★★★ | Elastic Security detection rules (EQL, KQL, YARA) |
+| [cisagov](https://github.com/cisagov) | CISA | ★★★★ | CISA open-source tools and advisories |
+| [Neo23x0/sigma](https://github.com/Neo23x0/sigma) | Neo23x0 | ★★★★★ | Sigma rule format specification and community rules |
+
+
+## Offensive Security and Red Team Repos
+
+Supplemental offensive security references and privilege escalation tooling.
+
+| Repository | Author | Stars | Description |
+|------------|--------|-------|-------------|
+| [swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) | swisskyrepo | ★★★★★ | Massive payload reference for every web and system attack type |
+| [saisathvik1/OSCP-Cheatsheet](https://github.com/saisathvik1/OSCP-Cheatsheet) | various | ★★★★ | OSCP preparation cheatsheets and methodology |
+| [carlospolop/PEASS-ng](https://github.com/carlospolop/PEASS-ng) | carlospolop | ★★★★★ | WinPEAS/LinPEAS/MacPEAS privilege escalation enum scripts |
+| [absolomb/WindowsEnum](https://github.com/absolomb/WindowsEnum) | absolomb | ★★★★ | Windows privilege escalation enumeration |
+| [rebootuser/LinEnum](https://github.com/rebootuser/LinEnum) | rebootuser | ★★★★ | Linux enumeration and privilege escalation script |
+| [bitsadmin/wesng](https://github.com/bitsadmin/wesng) | bitsadmin | ★★★★ | Windows Exploit Suggester Next Gen |
+| [itm4n/PrivescCheck](https://github.com/itm4n/PrivescCheck) | itm4n | ★★★★★ | PowerShell Windows privilege escalation check script |
+| [BishopFox/sliver](https://github.com/BishopFox/sliver) | BishopFox | ★★★★★ | Sliver C2 framework |
+| [BishopFox/cloudfox](https://github.com/BishopFox/cloudfox) | BishopFox | ★★★★ | AWS/Azure/GCP attack surface enumeration |
+| [dirkjanm/BloodHound.py](https://github.com/dirkjanm/BloodHound.py) | dirkjanm | ★★★★★ | BloodHound Python ingestor |
+
+
+## Blue Team and Defensive Tooling
+
+Supplemental defensive and DFIR tooling not covered elsewhere.
+
+| Repository | Author | Stars | Description |
+|------------|--------|-------|-------------|
+| [EricZimmermann/KAPE](https://ericzimmerman.github.io/#!index.md) | EricZimmermann | ★★★★★ | Kroll Artifact Parser and Extractor — triage collection |
+| [volatilityfoundation/volatility3](https://github.com/volatilityfoundation/volatility3) | Volatility Foundation | ★★★★★ | Memory forensics framework (Python 3) |
+| [countercept/chainsaw](https://github.com/countercept/chainsaw) | countercept | ★★★★★ | Fast Windows event log hunting (Sigma rules) |
+| [Yamato-Security/hayabusa](https://github.com/Yamato-Security/hayabusa) | Yamato-Security | ★★★★ | Sigma-based Windows event log analysis |
+| [pstirparo/mac4n6](https://github.com/pstirparo/mac4n6) | pstirparo | ★★★ | macOS forensics artifacts reference |
+| [Velocidex/velociraptor](https://github.com/Velocidex/velociraptor) | Velocidex | ★★★★★ | Enterprise DFIR and threat hunting |
+| [iped-project/iped](https://github.com/iped-project/iped) | IPED Project | ★★★★ | Brazilian federal police DFIR tool (open source) |
+| [Neo23x0/Fenrir](https://github.com/Neo23x0/Fenrir) | Neo23x0 | ★★★★ | Simple bash IOC scanner for Unix systems |
+| [mandiant/capa](https://github.com/mandiant/capa) | Mandiant | ★★★★★ | Identify capabilities in executable files (malware analysis) |
+
+
+## Threat Intelligence and IOC Resources
+
+Supplemental threat intelligence feeds and IOC repositories.
+
+| Repository | Author | Stars | Description |
+|------------|--------|-------|-------------|
+| [mitre/cti](https://github.com/mitre/cti) | MITRE | ★★★★★ | MITRE ATT&CK STIX data — machine-readable technique data |
+| [pan-unit42](https://github.com/pan-unit42) | Palo Alto Unit 42 | ★★★★★ | Unit 42 threat intelligence reports and IOC collections |
+| [MalwareBazaar](https://bazaar.abuse.ch/) | Abuse.ch | ★★★★★ | Malware sample repository with IOCs |
+| [firehol/blocklist-ipsets](https://github.com/firehol/blocklist-ipsets) | FireHOL | ★★★★ | Aggregated blocklists from 300+ sources |
+| [stamparm/ipsum](https://github.com/stamparm/ipsum) | stamparm | ★★★★ | Daily updated IP blacklist (threat intelligence) |
+| [Neo23x0/signature-base](https://github.com/Neo23x0/signature-base) | Neo23x0 | ★★★★★ | YARA rules from Florian Roth — most comprehensive public collection |

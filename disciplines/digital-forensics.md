@@ -143,6 +143,81 @@ Start with the foundational skill: disk forensics. Learn the evidence handling c
 
 ---
 
+---
+
+## DFIR Investigation Methodology
+
+### Order of Volatility (collect most volatile first)
+
+1. CPU registers, cache, running processes
+2. RAM / memory contents
+3. Network connections (active)
+4. Running processes with open files
+5. Disk (filesystem, MFT, prefetch)
+6. Remote logging / SIEM (before log rotation)
+7. Physical media (offline backups)
+
+---
+
+## Disk Forensics
+
+### Evidence Acquisition
+
+- Physical: `dd if=/dev/sda of=/path/to/image.dd bs=512` + SHA256 hash before/after
+- Forensic tools: FTK Imager (Windows, free), Guymager (Linux), dcfldd (hash-while-imaging)
+- Write blockers: Tableau, Wiebetech — always use hardware write blocker before imaging
+- Chain of custody: Document every step, hash evidence at acquisition
+
+### Windows Artifact Locations
+
+| Artifact | Path | Forensic Value |
+|---|---|---|
+| Prefetch | C:\Windows\Prefetch\*.pf | Program execution evidence (last 8 run times) |
+| NTFS MFT | $MFT | Every file ever on volume, timestamps |
+| Recycle Bin | C:\$Recycle.Bin | Deleted files with original path + deletion time |
+| LNK Files | %APPDATA%\Microsoft\Windows\Recent | File access history |
+| Jump Lists | %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations | Application-specific recent files |
+| Shimcache/AppCompatCache | SYSTEM hive | Program execution (AppCompat layer) |
+| Amcache | C:\Windows\AppCompat\Programs\Amcache.hve | SHA1 hashes of executed programs |
+| Registry Run Keys | HKLM/HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run | Persistence |
+| NTFS Journal ($UsnJrnl) | $Extend\$UsnJrnl | File system change log |
+| Browser History | %APPDATA%\Local\[Browser]\User Data\Default | Web activity |
+| Event Logs | C:\Windows\System32\winevt\Logs\ | Security, System, Application events |
+| Windows Timeline | C:\Users\[user]\AppData\Local\ConnectedDevicesPlatform | App and file activity |
+| SRUM | C:\Windows\System32\sru\SRUDB.dat | Network and app resource usage |
+
+### Key Windows Event IDs for DFIR
+
+- 4624/4625: Logon success/failure
+- 4648: Explicit credential logon (runas)
+- 4688: Process creation
+- 4698/4702: Scheduled task created/modified
+- 7045: New service installed
+- 4776: NTLM authentication
+- 4768/4769: Kerberos TGT/service ticket request
+- 1102: Security audit log cleared
+- 4657: Registry key value modified
+
+---
+
+## DFIR Tooling
+
+| Tool | Use Case | Platform |
+|---|---|---|
+| Volatility 3 | Memory analysis | Cross-platform |
+| Autopsy | Disk forensics GUI | Cross-platform |
+| KAPE | Triage artifact collection | Windows |
+| Velociraptor | Enterprise DFIR at scale | Cross-platform |
+| Chainsaw | Fast Windows event log hunting | Windows |
+| Hayabusa | Sigma-based Windows event log analysis | Windows |
+| Eric Zimmermann Tools (EZTools) | Windows artifact parsing (MFT, LNK, Registry, Prefetch) | Windows |
+| FTK Imager | Evidence acquisition | Windows |
+| WinPMem | Memory acquisition | Windows |
+| NetworkMiner | PCAP analysis | Cross-platform |
+| Zeek | Network traffic analysis | Linux/Mac |
+
+---
+
 ## Key Resources
 
 - [DFIR.training — Free Tools & Training Registry](https://www.dfir.training)

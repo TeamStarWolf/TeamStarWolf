@@ -205,6 +205,95 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 ---
 
+
+## Deception Technology Deep Dive
+
+### Honeypot Types and Deployment
+
+| Type | Interaction Level | Purpose | Examples |
+|---|---|---|---|
+| Low-interaction honeypot | Emulate services; no real OS | Network recon detection | Cowrie (SSH/Telnet), Dionaea (malware capture), OpenCanary |
+| Medium-interaction | Partial emulation | Credential harvest detection | Cowrie with realistic shell, Heralding |
+| High-interaction | Real OS and services | Full attacker behavior capture | Actual vulnerable system in isolated VLAN |
+| Production honeypot | Blend with real infra | Early warning; lower false positive | OpenCanary deployed alongside real servers |
+| Research honeypot | Isolated lab | Malware/attacker behavior analysis | KFSensor, Sebek |
+
+### Honeytoken Categories
+
+| Token Type | Implementation | Detects | Tools |
+|---|---|---|---|
+| AWS honey credentials | IAM user with CloudTrail alerts | Cloud credential theft | SpaceSiren, CanaryTokens |
+| Honey documents | Office files with web beacon | Document exfiltration | Canarytokens.org (Word/PDF/Excel) |
+| Honey database records | Fake customer records with alert trigger | Database exfiltration (data appears in breach) | canary fields with unique values |
+| Honey DNS entries | DNS records that should never be queried | Internal recon / lateral movement | Internal DNS + alerting |
+| Honey email addresses | Addresses seeded in internal docs | Phishing list generation | Monitor incoming mail to honey address |
+| Active Directory decoy accounts | Fake DA account with no legit logins | AD enumeration and credential use | PurpleSharp, AD honeypot accounts |
+| Browser saved credentials | Fake credentials in browser password store | Endpoint compromise, credential harvester | canarytoken browser credential type |
+
+### Canary Token Deployment (Thinkst Canary)
+
+- Free tier: canarytokens.org — generate URL, file, AWS key, email address tokens
+- Enterprise: Thinkst Canary hardware devices; realistic honeypot infrastructure; per-device pricing
+- HTTPS web bug: Embed in documents; fires when document opened online
+- Usage: Seed fake credentials in password managers; embed URL tokens in sensitive directories; place DNS tokens in internal documentation
+
+### Deception Grid Architecture
+
+- Coverage points: Every subnet should have at least one honeypot; cover all common attack pivot paths
+- Realistic appearance: Decoys should look identical to real systems (same OS, same open ports, same naming convention)
+- Low noise: Honeypots should generate near-zero legitimate traffic — any connection is suspicious
+- Alert fidelity: Honeypot alerts are high-fidelity (very few false positives); treat every alert as real
+- Integration: Feed honeypot alerts to SIEM as high-priority events; auto-create incident tickets
+
+---
+
+## Adversary Engagement
+
+### Active Defense Spectrum (David Dittrich Framework)
+
+- Passive defense: Standard hardening, patching, detection (fully legal everywhere)
+- Active defense: Using deception and engagement techniques against attackers within your own network (legal)
+- Offensive countermeasures: Hacking back — illegal in almost all jurisdictions; significant legal risk
+- Legal boundary: Everything within your own network is generally permissible; never hack back into external systems
+
+### Adversary Engagement Goals
+
+- Intelligence collection: Understand TTPs, tools, objectives, indicators
+- Slow attackers down: Tarpit interactions; time wasted on deception = time not attacking real systems
+- Attribution data: Collect artifacts that may aid attribution (C2 infrastructure, unique tool signatures)
+- Feed threat intelligence: IOCs from honeypots become actionable intelligence
+
+### MITRE ENGAGE Framework
+
+- Prepare: Plan deception operations; understand adversary objectives
+- Expose: Reveal adversary presence through deception artifacts
+- Affect: Manipulate adversary actions by influencing their environment
+- Elicit: Capture adversary TTPs through controlled engagement
+- Understand: Analyze collected data; improve defenses
+
+### Deception Playbooks
+
+- Honey credentials workflow: Create fake AD account → monitor authentication logs → alert if account used → auto-isolate source IP
+- Honey document exfiltration workflow: Seed document with canarytoken → employee receives alert email on open → SOC investigates source IP/device
+
+---
+
+## Tools Reference
+
+| Tool | Type | Use Case | Cost |
+|---|---|---|---|
+| OpenCanary | OSS | Lightweight honeypot daemon (SSH/HTTP/FTP/SMB/MySQL) | Free |
+| Canarytokens.org | SaaS | Web tokens, DNS tokens, Office docs, AWS keys | Free (self-host option) |
+| Thinkst Canary | Commercial | Hardware + cloud deception platform | Commercial |
+| Cowrie | OSS | High-fidelity SSH/Telnet honeypot with session recording | Free |
+| Dionaea | OSS | Malware capture honeypot (SMB, HTTP, FTP) | Free |
+| Conpot | OSS | ICS/SCADA protocol honeypot (Modbus, S7, IPMI) | Free |
+| HoneyDB | OSS | Honeypot data aggregation and threat intelligence | Free |
+| HoneySAP | OSS | SAP-specific honeypot for enterprise ERP attacks | Free |
+| PurpleSharp | OSS | AD attack simulation including honey account triggering | Free |
+
+---
+
 ## Related Disciplines
 
 - [Detection Engineering](detection-engineering.md) — Integrating deception alerts into detection pipeline

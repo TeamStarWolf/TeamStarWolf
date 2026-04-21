@@ -176,3 +176,110 @@ Self-signed certificates or stolen/leaked code-signing certificates are applied 
 - [Penetration Testing](penetration-testing.md) — scoped vulnerability testing methodology
 - [HTB Tracks](research/HTB_TRACKS.md) — HackTheBox learning paths including red team content
 - [Pentest Checklists](PENTEST_CHECKLISTS.md) — phase-by-phase engagement checklists
+
+---
+
+## Red Team vs. Pentest vs. Purple Team
+
+| Attribute | Pentest | Red Team | Purple Team |
+|---|---|---|---|
+| Duration | Days-weeks | Weeks-months | Ongoing |
+| Objective | Find vulns | Simulate APT, test detection | Improve detection coverage |
+| Deconfliction | Not usually | Always | Core feature |
+| Scope | Defined, broad | Narrow objective-based | Collaborative |
+| Report | Vuln list | TTPs, objectives achieved | Detection gap analysis |
+
+---
+
+## Red Team Infrastructure Setup
+
+### Redirectors (Traffic obfuscation)
+
+- Apache/Nginx as redirectors: Only forward traffic matching specific URI patterns to C2 server
+- CDN fronting: Cloudflare Workers or Azure CDN as front-end for C2 traffic
+- Domain categorization: Use aged domains with established category (shopping/finance) to bypass URL filtering
+
+### C2 Framework Selection
+
+| Framework | Language | Protocol | License | Notes |
+|---|---|---|---|---|
+| Cobalt Strike | Java | HTTP/S/DNS/TCP | Commercial ($3,500/yr) | Industry standard, massive community, well-detected by AV |
+| Sliver | Go | mTLS/HTTP/S/DNS/WireGuard | Apache 2.0 | Best open-source alternative, OPSEC-capable |
+| Havoc | C/C++ | HTTP/S/SMB | Apache 2.0 | Modern UI, Demon agent, active development |
+| Brute Ratel C4 | C | HTTP/S | Commercial | Designed to evade EDR, common in real APT ops |
+| Merlin | Go | HTTP/2/QUIC | Apache 2.0 | Less common, evades some detections |
+
+### Malleable C2 Profiles
+
+- Purpose: Customize beacon traffic to mimic legitimate applications (Gmail, OneDrive, Slack)
+- Key fields: sleeptime, jitter, http-get/post URIs, headers, User-Agent
+- Resource: `github.com/Cobalt-Strike/Malleable-C2-Profiles`
+- Detection evasion: Focus on behavioral (beaconing cadence, parent process) not static IOCs
+
+---
+
+## Payload Development and Evasion
+
+### AV/EDR Evasion Techniques
+
+- AMSI bypass: PowerShell memory patching of AmsiScanBuffer
+- ETW bypass: Patching EtwEventWrite in ntdll.dll
+- Process injection: Classic DLL injection → Process Hollowing → Reflective DLL → Direct syscalls
+- Direct syscalls: SysWhispers3, HellsGate, TartarusGate — bypass EDR userland hooks
+- PPID spoofing: CreateProcess with STARTUPINFOEX to set arbitrary parent PID
+- Stomping: Module stomping (overwrite legitimate DLL in memory), ETW stomping
+- Obfuscation: LLVM-Obfuscator, ScareCrow (Go shellcode loader), Freeze (suspend + inject + resume)
+- Memory: Heap encryption between callbacks, sleep obfuscation (Ekko, Foliage)
+
+### Staged vs. Stageless Payloads
+
+- Staged: Small stager downloads full payload from C2 (smaller initial footprint, network noise on stage pull)
+- Stageless: Full payload embedded (larger, but no staging network traffic — better OPSEC)
+
+---
+
+## Red Team Operations Planning
+
+### Objective-Based Engagement Types
+
+- Assumed Breach: Start with initial access already provided (focus on detection/response testing)
+- Full Scope: OSINT → initial access → post-exploitation → objectives (most realistic)
+- Physical + Cyber: Badge cloning, tailgating, dropped USBs combined with cyber TTPs
+- Crown Jewel Attack: Define specific target (AD, intellectual property, finance systems) — work backwards
+
+### OPSEC Principles
+
+- Operational compartmentalization: Separate infra for each engagement
+- Attribution avoidance: Never use personal email/accounts, pay for VPS with crypto, use residential proxies
+- C2 domain vetting: Check domain reputation (Cisco Talos, VirusTotal, URLVoid), categorize before use
+- Log cleanup: Clear Windows event logs, bash history, web server logs after engagement
+- Time-stamping: Operate during business hours to blend with normal traffic
+
+---
+
+## ATT&CK Emulation Plans
+
+- MITRE ATT&CK Evaluations methodology
+- APT3, APT29, FIN6 emulation plans (MITRE CTID)
+- Atomic Red Team tests mapped to each technique
+
+---
+
+## Red Team Tooling
+
+| Category | Tool | Purpose |
+|---|---|---|
+| C2 | Sliver | Open-source C2 framework |
+| C2 | Cobalt Strike | Commercial C2, industry standard |
+| Payload | ScareCrow | EDR-evading shellcode loader |
+| Payload | Freeze | Suspend + hollow + inject loader |
+| Initial Access | Gophish | Phishing infrastructure |
+| Initial Access | Evilginx3 | AiTM phishing with MFA bypass |
+| AD | Impacket | AD exploitation suite |
+| AD | BloodHound CE | Attack path discovery |
+| AD | Rubeus | Kerberos abuse toolkit |
+| ADCS | Certipy | AD certificate services attacks |
+| Cloud | Pacu | AWS red team framework |
+| Cloud | AzureHound | Azure AD attack paths |
+| Evasion | SysWhispers3 | Direct syscall bypass |
+| OPSEC | Redirectors | Apache/Nginx traffic routing |

@@ -1,151 +1,254 @@
 # Zero Trust Architecture
 
-Zero Trust Architecture (ZTA) is a security model and strategy built on the principle of "never trust, always verify." Unlike traditional perimeter-based security, Zero Trust grants no implicit trust based on network location — whether inside or outside a corporate network. Every access request is explicitly authenticated, authorized, and continuously validated regardless of origin. Zero Trust is distinct from Security Architecture (the broader discipline) and Network Security (which addresses one layer of a ZT implementation); ZTA is a cross-cutting model that touches identity, devices, applications, data, and infrastructure simultaneously.
+## Introduction
 
-The model was formalized by John Kindervag at Forrester Research and has since been codified by NIST (SP 800-207), CISA (Zero Trust Maturity Model), the Department of Defense (ZT Reference Architecture), and major cloud providers. The practical driver for adoption is the collapse of the traditional network perimeter: remote work, SaaS, multi-cloud, and BYOD have made "inside the network = trusted" untenable. Zero Trust replaces that assumption with continuous verification at every layer.
+Zero Trust Architecture (ZTA) is a security paradigm that eliminates implicit trust and enforces continuous verification for every user, device, and workload — regardless of whether they are inside or outside the traditional network perimeter. The foundational principle, coined by John Kindervag at Forrester Research in 2010, is **"never trust, always verify."**
 
-The three core ZT principles are: **Verify explicitly** — always authenticate and authorize using all available data points including identity, location, device health, service or workload, data classification, and anomalies; **Use least privilege access** — limit user access with just-in-time and just-enough-access, risk-based adaptive policies, and data protection; **Assume breach** — minimize blast radius and segment access, encrypt end-to-end, use analytics to get visibility and drive threat detection.
-
----
+Traditional perimeter-based security assumed that everything inside the corporate network was safe. Modern threats — cloud adoption, remote work, supply chain compromises, and insider threats — shattered that assumption. ZTA treats every access request as potentially hostile and requires explicit verification before granting access.
 
 ## Where to Start
 
-Zero Trust implementation is more architectural and strategic than most disciplines. Start with NIST SP 800-207 to understand the formal model, then work through a cloud provider's ZT framework (Microsoft or Google) to see how it maps to real products. Hands-on practice comes through configuring Conditional Access policies, ZTNA solutions, and microsegmentation — not through CTFs.
+1. **Read NIST SP 800-207** (free PDF) — the authoritative U.S. government reference for ZTA
+2. **Read the CISA Zero Trust Maturity Model** (free) — practical pillar-based roadmap
+3. **Inventory your identity providers** — Identity is the new perimeter; start there
+4. **Map your most sensitive data and applications** — ZTA protects assets, not network zones
+5. **Assess your current MFA posture** — phishing-resistant MFA (FIDO2) is the baseline
+6. **Pick one pillar** (Identity is recommended first) and mature it before expanding
 
-| Stage | Focus | Where to Begin |
-|---|---|---|
-| Foundation | NIST SP 800-207 ZTA principles, CISA ZTMM pillars, identity as the new perimeter, Conditional Access concepts, difference between VPN and ZTNA | NIST SP 800-207 (free), Microsoft Zero Trust documentation (free), CISA ZTMM (free) |
-| Practitioner | Deploying Conditional Access policies, configuring ZTNA (Zscaler ZPA / Cloudflare Access), device posture integration, microsegmentation design, continuous monitoring | Microsoft Learn SC-900 / AZ-500 labs, Cloudflare One free tier, Tailscale homelab, Okta developer sandbox |
-| Advanced | Multi-pillar ZT roadmap development, DoD ZT Reference Architecture mapping, ZTMM maturity assessment, ZT for OT/ICS environments, automating posture-based access decisions | DoD ZT Reference Architecture, CISA ZTMM assessment tooling, SANS ZT-focused webcasts, enterprise ZT design workshops |
+## Free Training
 
----
-
-## ZT Pillars (CISA Model)
-
-CISA's Zero Trust Maturity Model organizes ZT implementation across six pillars, each with four maturity levels: Traditional, Initial, Advanced, and Optimal.
-
-| Pillar | Description |
-|---|---|
-| **Identity** | All human and non-human identities are validated; strong MFA, continuous authentication, and identity governance |
-| **Devices / Endpoints** | Device health and compliance is verified before granting access; MDM, EDR posture checks, certificate-based device identity |
-| **Applications / Workloads** | Application-layer access controls; application segmentation, API security, privileged access to workloads |
-| **Data** | Data classification, labeling, and protection at rest and in transit; data-centric access policies |
-| **Networks / Infrastructure** | Microsegmentation replaces flat networks; encrypt all traffic, limit lateral movement, software-defined perimeters |
-| **Visibility / Analytics / Automation** | Continuous monitoring, behavioral analytics, SIEM/SOAR integration, automated policy enforcement |
-
----
-
-## Free Training & Frameworks
-
-- [NIST SP 800-207 Zero Trust Architecture](https://doi.org/10.6028/NIST.SP.800-207) — The authoritative NIST definition of ZTA; covers logical components, deployment models, and migration strategies; the foundational reference for any ZT program
-- [CISA Zero Trust Maturity Model](https://www.cisa.gov/zero-trust-maturity-model) — CISA's six-pillar ZT maturity model for federal agencies; broadly applicable for any enterprise ZT program; free PDF and assessment guidance
-- [Microsoft Zero Trust Documentation](https://learn.microsoft.com/en-us/security/zero-trust/) — Microsoft's comprehensive ZT guidance covering identity, endpoints, applications, data, and infrastructure; directly maps to Entra ID and Microsoft security products
-- [Google BeyondCorp Enterprise](https://cloud.google.com/beyondcorp) — Google's real-world ZT implementation that influenced the entire industry; enterprise docs and original research papers are freely available
-- [DoD Zero Trust Reference Architecture](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v2.0(U)_Sep22.pdf) — DoD's detailed ZT reference architecture; most prescriptive public ZT framework available; valuable even outside federal contexts
-- [John Kindervag's Original ZT Research](https://www.forrester.com/report/no-more-chewy-centers-introducing-the-zero-trust-model-of-information-security/RES56682) — The Forrester report that defined Zero Trust; foundational reading to understand the original model and intent
-- [Microsoft SC-900 Learning Path](https://learn.microsoft.com/en-us/certifications/exams/sc-900) — Free Microsoft training covering Zero Trust fundamentals, Entra ID, and security concepts; approachable entry point with free practice labs
-
----
+- [NIST SP 800-207: Zero Trust Architecture](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf) — foundational standard (free PDF)
+- [CISA Zero Trust Maturity Model v2](https://www.cisa.gov/zero-trust-maturity-model) — free government guide
+- [Google BeyondCorp papers](https://cloud.google.com/beyondcorp) — real-world ZTA implementation at scale
+- [Microsoft Zero Trust Guidance Center](https://learn.microsoft.com/en-us/security/zero-trust/) — free, extensive
+- [Cloudflare Learning: What is Zero Trust?](https://www.cloudflare.com/learning/security/glossary/what-is-zero-trust/) — free conceptual primer
+- [NSA Zero Trust Guidance](https://media.defense.gov/2021/Feb/25/2002588479/-1/-1/0/CSI_EMBRACING_ZT_SECURITY_MODEL_UOO115131-21.PDF) — NSA cybersecurity information sheet (free PDF)
 
 ## Tools & Repositories
 
-### Open Source ZTNA & Proxies
-- [OpenZiti](https://github.com/openziti/ziti) — Open-source zero trust overlay networking; provides application-embedded zero trust connectivity without requiring network changes; the leading OSS zero trust networking project
-- [Pomerium](https://github.com/pomerium/pomerium) — Open-source identity-aware access proxy; provides ZT application access with context-aware policy enforcement; self-hostable alternative to commercial ZTNA for internal applications
-- [Tailscale](https://github.com/tailscale/tailscale) — WireGuard-based mesh VPN with zero trust properties; device certificate authentication, ACL-based access controls, and audit logging; strong for homelab and SMB ZT implementation
+### Identity & Access
+| Tool | Purpose | Notes |
+|---|---|---|
+| [Azure AD / Entra ID Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/) | Risk-based adaptive access policies | Deep Microsoft 365 integration |
+| [Okta](https://www.okta.com/) | Identity platform with adaptive MFA | Broad SaaS integration |
+| [Ping Identity](https://www.pingidentity.com/) | Enterprise SSO/MFA/PAM | Strong on-prem + cloud hybrid |
+| [CyberArk](https://www.cyberark.com/) | Privileged Access Management (PAM) | Industry leader for PAM/PIM |
+| [BeyondTrust](https://www.beyondtrust.com/) | PAM + Remote Access | Strong least-privilege enforcement |
 
-### Policy & Secrets
-- [open-policy-agent/opa](https://github.com/open-policy-agent/opa) — Policy-as-code engine used in ZT implementations for application-layer authorization decisions; Kubernetes admission, API gateway policy enforcement
-- [hashicorp/vault](https://github.com/hashicorp/vault) — Secrets management and dynamic credentials; core to ZT infrastructure by eliminating static credentials and enabling just-in-time access provisioning
+### Network & Access Proxy
+| Tool | Purpose | Notes |
+|---|---|---|
+| [Zscaler Private Access (ZPA)](https://www.zscaler.com/products/zscaler-private-access) | ZTNA — replace VPN | Cloud-delivered, app-level proxy |
+| [Cloudflare Access](https://www.cloudflare.com/products/zero-trust/access/) | ZTNA — identity-aware application proxy | Free tier available |
+| [Palo Alto Prisma Access](https://www.paloaltonetworks.com/sase/access) | SASE + ZTNA | Integrated firewall + access control |
+| [Tailscale](https://tailscale.com/) | WireGuard-based mesh VPN with device auth | Easy ZTA for small teams; open source client |
+| [Boundary (HashiCorp)](https://www.boundaryproject.io/) | Open-source identity-based access management | Good for dynamic cloud infrastructure |
 
----
-
-## Commercial & Enterprise Platforms
-
-| Platform | Strength |
+### Microsegmentation
+| Tool | Purpose |
 |---|---|
-| **Microsoft Entra ID (Conditional Access)** | Identity pillar of ZT for Microsoft environments; Conditional Access policies enforce MFA, device compliance, location, and risk signals before granting access to any resource; the most widely deployed ZT identity control plane |
-| **Okta Adaptive MFA / Okta Identity Cloud** | Identity-as-a-Service with adaptive MFA and contextual access policies; supports any cloud or on-premises app; the leading independent identity platform for ZT |
-| **Zscaler Zero Trust Exchange (ZPA / ZIA)** | The market-defining ZTNA platform; ZPA replaces VPN with identity and posture-based application access; ZIA provides SWG; full SASE architecture built on ZT principles |
-| **Cloudflare Access (Cloudflare One)** | ZTNA and SASE platform built on Cloudflare's global network; application-level access control with identity, device, and context-based policies; accessible free tier makes it practical for smaller organizations |
-| **Palo Alto Prisma Access** | SASE and ZTNA from Palo Alto; integrates with Prisma Cloud and Cortex for full ZT stack across network, cloud, and endpoint; strongest for organizations on the Palo Alto platform |
-| **Cisco Duo** | MFA and device trust platform; device health attestation for ZT device pillar; widely deployed in enterprise environments; strong integration with Cisco network infrastructure |
-| **Google BeyondCorp Enterprise** | Google's production ZT platform based on BeyondCorp principles; context-aware access for GCP and SaaS applications; native integration with Google Workspace and Chrome Browser |
-| **CrowdStrike Falcon (Device Posture)** | EDR-derived device health signals for ZT device trust decisions; integrates with ZTNA platforms to enforce access based on real-time endpoint security posture |
-| **Illumio** | Microsegmentation platform for ZT network pillar; application dependency mapping and workload-level segmentation across on-premises and cloud; leader in enterprise microsegmentation |
-| **Guardicore (Akamai Guardicore Segmentation)** | Software-defined microsegmentation; granular east-west traffic control with process-level visibility; acquired by Akamai for integration with their network security portfolio |
+| [Illumio](https://www.illumio.com/) | Workload microsegmentation |
+| [VMware NSX](https://www.vmware.com/products/nsx.html) | Software-defined networking + microsegmentation |
+| [Guardicore (Akamai)](https://www.akamai.com/products/guardicore-segmentation) | Agentless microsegmentation, workload visualization |
+| [Cisco Secure Workload](https://www.cisco.com/c/en/us/products/security/tetration/index.html) | Application-aware microsegmentation |
 
----
-
-## NIST 800-53 Controls
-
-| Control | Description |
+### Service Mesh (Application/Workload Pillar)
+| Tool | Purpose |
 |---|---|
-| AC-2 | Account Management — enforce identity lifecycle controls foundational to the identity pillar |
-| AC-3 | Access Enforcement — enforce approved authorizations for logical access; direct ZT policy enforcement |
-| AC-6 | Least Privilege — restrict user and process access to only what is required; core ZT principle |
-| AC-17 | Remote Access — control and monitor remote access methods; replace VPN with ZTNA |
-| CA-7 | Continuous Monitoring — ongoing assessment of security controls; maps to ZT visibility pillar |
-| CM-7 | Least Functionality — disable unnecessary functions and ports; device and workload ZT hardening |
-| IA-2 | Identification and Authentication — multi-factor authentication for all users; ZT identity pillar |
-| IA-5 | Authenticator Management — manage and protect credentials; ZT identity credential lifecycle |
-| SC-7 | Boundary Protection — monitor and control traffic at network boundaries; ZT network pillar |
-| SI-4 | Information System Monitoring — monitor for attacks and unauthorized activity; ZT visibility pillar |
+| [Istio](https://istio.io/) | Service mesh with mTLS, RBAC, traffic policies |
+| [Linkerd](https://linkerd.io/) | Lightweight service mesh for Kubernetes |
+| [Consul Connect (HashiCorp)](https://www.consul.io/docs/connect) | Service mesh with certificate-based mTLS |
 
----
+## Commercial Platforms
+
+| Platform | Description |
+|---|---|
+| **Zscaler Zero Trust Exchange** | Cloud-delivered SASE platform; ZTNA, SWG, CASB, DLP |
+| **Palo Alto Prisma Access** | SASE + Prisma Cloud for workload protection |
+| **Microsoft Entra + Defender XDR** | Integrated identity, device, and app zero trust stack |
+| **Okta Identity Cloud** | Identity-first ZTA: SSO, MFA, lifecycle management, PAM |
+| **CrowdStrike Falcon Zero Trust** | Device trust + identity protection integrated with EDR |
+| **Fortinet Zero Trust Access** | Network-centric ZTA with ZTNA and NAC |
+| **Illumio Core** | Workload microsegmentation for data center and cloud |
+
+## Core Principles
+
+### "Never Trust, Always Verify"
+Every access request — from any user, device, or workload, on any network — is treated as untrusted until verified. Network location (inside or outside the perimeter) grants no inherent trust.
+
+### Microsegmentation
+The network is divided into small, isolated zones. Each zone requires separate authentication and authorization to access. Breach of one zone does not grant access to others. This limits blast radius.
+
+### Least Privilege Access
+Users and workloads receive the minimum access required for their task. Privileges are granted just-in-time (JIT) and just-enough-access (JEA). No standing administrative privileges — admins elevate when needed and de-elevate when done.
+
+### Assume Breach
+Design the system assuming attackers are already inside. Focus on minimizing damage, detecting quickly, and containing laterally. This mindset drives micro-segmentation, east-west inspection, and aggressive monitoring.
+
+## NIST SP 800-207 Zero Trust Architecture
+
+NIST SP 800-207 is the authoritative U.S. government standard for ZTA, published in August 2020.
+
+### Five Tenets of Zero Trust (NIST)
+1. **All data sources and computing services are resources** — every device, service, and data store is treated as a resource regardless of location
+2. **All communication is secured regardless of network location** — being on an internal network grants no special trust; communications are authenticated and encrypted
+3. **Access to individual enterprise resources is granted per-session** — trust is evaluated for each session; prior access does not guarantee future access
+4. **Access is determined by dynamic policy** — real-time evaluation of identity, application state, device health, behavioral signals, and environmental context
+5. **Enterprise monitors and measures the integrity of all owned and associated assets** — continuous monitoring informs policy decisions
+
+### ZTA Logical Components
+- **Policy Engine (PE)**: Makes the trust decision — grant, deny, or revoke access. Uses policies, threat intelligence, CDM data, and compliance signals
+- **Policy Administrator (PA)**: Communicates the PE decision to the enforcement point; establishes and terminates sessions
+- **Policy Enforcement Point (PEP)**: The gate — enforces the PE/PA decision; splits into client agent and resource gateway components
+
+## CISA Zero Trust Maturity Model (ZTMM)
+
+The CISA ZTMM provides a roadmap for federal agencies (and is widely adopted commercially) across **five pillars** and **three maturity stages**.
+
+### Five Pillars
+| Pillar | Focus |
+|---|---|
+| **Identity** | User and non-person entities (NPEs): authentication, authorization, lifecycle |
+| **Devices** | Hardware health, compliance, inventory, patching |
+| **Networks** | Segmentation, encryption, traffic inspection |
+| **Applications & Workloads** | App-layer authentication, API security, CI/CD security |
+| **Data** | Classification, access governance, encryption, DLP |
+
+### Three Maturity Stages
+| Stage | Description |
+|---|---|
+| **Traditional** | Manual configurations, static policies, perimeter-centric |
+| **Advanced** | Some automation, risk-based policies, partial attribute-based access |
+| **Optimal** | Dynamic policy, fully automated, continuous monitoring, behavioral analytics |
+
+### Cross-Cutting Capabilities
+- **Visibility and Analytics**: Centralized logging, SIEM, UEBA, behavioral baselines
+- **Automation and Orchestration**: SOAR, automated policy responses, infrastructure as code
+- **Governance**: Policy framework, risk management integration, compliance alignment
+
+## Identity Pillar (Deep Dive)
+
+Identity is universally recommended as the starting point for ZTA implementation.
+
+- **Phishing-resistant MFA**: FIDO2/WebAuthn hardware security keys (YubiKey, Titan Key) — resistant to token theft, AiTM phishing, and MFA fatigue attacks
+- **Continuous identity verification**: Risk-based adaptive authentication — step-up auth when anomalies detected (new device, impossible travel, risky sign-in)
+- **Privileged Identity Management (PIM/PAM)**: Just-in-time role activation with approval workflows; no standing admin accounts
+- **Device-bound credentials**: Certificates tied to specific enrolled devices; prevent credential theft from being used from unauthorized hardware
+- **Non-Person Entities (NPEs)**: Service accounts, workload identities, managed identities — apply same ZT principles; avoid long-lived secrets
+
+**Key Tools**: Azure AD/Entra PIM, Okta Privileged Access, CyberArk Privilege Cloud, BeyondTrust Password Safe, HashiCorp Vault (secrets management)
+
+## Device Pillar (Deep Dive)
+
+- **Device health verification**: Before any access is granted, verify device compliance: EDR agent present and healthy, OS patch level meets policy, disk encryption enabled, no known malware
+- **Certificate-based device authentication**: Device certificates issued by enterprise PKI; untrusted devices cannot authenticate
+- **Mobile Device Management (MDM)**: Microsoft Intune, Jamf Pro (macOS/iOS), VMware Workspace ONE — enforce compliance policies, remote wipe capability
+- **Privileged Access Workstations (PAW)**: Dedicated, hardened workstations for administrative tasks; isolated from standard user browsing/email risk
+
+## Network Pillar (Deep Dive)
+
+- **Microsegmentation**: Granular network zones — each workload communicates only with explicitly permitted peers; east-west traffic is controlled and inspected
+- **Software-Defined Perimeter (SDP)**: Replaces VPN; applications are invisible to the internet until authenticated users/devices are verified; "dark cloud" concept
+- **ZTNA (Zero Trust Network Access)**: Identity-aware proxy model — users connect to a broker that authenticates them and proxies access to the application; no direct network connectivity to the application server
+- **East-West Traffic Inspection**: Internal network traffic is not implicitly trusted; IDS/IPS/firewalls inspect lateral traffic, not just north-south
+- **Encrypted Communications Everywhere**: TLS 1.3 minimum; mutual TLS (mTLS) between services; deprecate legacy protocols (Telnet, FTP, HTTP, SMBv1)
+
+## Application & Workload Pillar (Deep Dive)
+
+- **Application-layer authentication**: Every app authenticates the user and device independently, not relying on network location
+- **API Security**: OAuth 2.0 / OIDC for authorization; API gateways enforce rate limiting, authentication, and schema validation (Kong, AWS API Gateway, Apigee, Azure APIM)
+- **Service Mesh**: Istio and Linkerd enforce mTLS between microservices automatically; policy-based service-to-service authorization
+- **Continuous Application Security Testing**: SAST, DAST, SCA in CI/CD pipelines; shift-left security baked into development
+
+## Data Pillar (Deep Dive)
+
+- **Data Classification and Labeling**: Sensitivity labels (Microsoft Purview, Titus) on documents and emails; drives access control policies
+- **Data Access Governance**: Enforce who can access which data, from which devices, at which times; attribute-based access control (ABAC)
+- **Data Loss Prevention (DLP)**: Prevent sensitive data from leaving authorized channels; inspect outbound flows at endpoint and network
+- **Encryption at Rest and in Transit**: AES-256 for data at rest; TLS 1.3 in transit; database column-level encryption for PII/PHI/PCI data
+
+## Offensive Angle — Zero Trust Bypass Techniques
+
+Understanding how attackers target ZTA implementations is essential for defenders.
+
+### Identity Provider Attacks
+- **MFA Fatigue (Push Bombing)**: Attacker obtains credentials then floods victim with MFA push notifications until they approve out of frustration. **Mitigation**: Number matching, context in push notifications, FIDO2 hardware keys
+- **Adversary-in-the-Middle (AiTM) Phishing**: Tools like Evilginx2 proxy authentication in real time, stealing session cookies post-MFA. **Mitigation**: FIDO2 (phishing-resistant), Conditional Access requiring compliant device
+- **Device Code Phishing**: Attacker tricks user into entering a device code at `microsoft.com/devicelogin`, which grants the attacker a valid OAuth token without browser interception. **Mitigation**: Block device code flow via Conditional Access where not needed
+- **Token Theft**: Steal session tokens from browser storage or memory; replay without needing credentials. **Mitigation**: Token binding, Continuous Access Evaluation (CAE), short-lived tokens
+
+### Device Trust Bypass
+- **MDM Enrollment Attack**: Attacker enrolls a malicious device into MDM by exploiting misconfigured enrollment policies (e.g., no enrollment approval required). **Mitigation**: Require device enrollment approval, hardware attestation (TPM)
+- **Compromised Compliant Device**: If attacker compromises an already-enrolled compliant device, the device passes all ZT checks. **Mitigation**: EDR behavioral detection; re-evaluate device trust dynamically
+
+### Policy and Configuration Gaps
+- **Legacy Authentication Protocols**: SMTP, IMAP, POP3, and Basic Auth bypass Conditional Access policies. **Mitigation**: Block legacy auth in Conditional Access; enforce modern auth only
+- **Conditional Access Exclusions**: Emergency break-glass accounts, service accounts, specific user groups excluded from strong auth requirements — often targeted. **Mitigation**: Audit exclusions regularly; monitor excluded accounts aggressively
+- **Service Account Abuse**: Service accounts frequently exempt from ZT policies (no MFA, no device compliance) — prime lateral movement targets. **Mitigation**: Workload identity federation; managed identities; apply ZT to service accounts
+
+### Post-Access Exploitation
+- **Lateral Movement Within Allowed Application Scope**: ZTA prevents unauthorized application access, but legitimate application vulnerabilities (SSRF, SQLi) can still be exploited once access is granted
+- **Overly Permissive Microsegmentation**: Incorrectly defined allow-lists permit more east-west traffic than intended; auditing segmentation policies is critical
+
+## NIST 800-53 Alignment
+
+| Control | Family | Zero Trust Relevance |
+|---|---|---|
+| AC-2 | Access Control | Account management; enforce least privilege; no standing admin accounts |
+| AC-3 | Access Control | Access enforcement; attribute-based and role-based access control |
+| AC-17 | Access Control | Remote access control; replace VPN with ZTNA |
+| IA-2 | Identification & Auth | Multi-factor authentication for all users; phishing-resistant MFA |
+| IA-5 | Identification & Auth | Authenticator management; certificate-based device credentials |
+| SC-7 | System & Comms | Boundary protection; microsegmentation; east-west traffic control |
+| SC-8 | System & Comms | Transmission confidentiality and integrity; TLS 1.3, mTLS everywhere |
+| SC-28 | System & Comms | Protection of information at rest; encryption for all sensitive data |
+| SI-4 | System & Info Integrity | System monitoring; continuous monitoring of all assets and communications |
+| CM-7 | Configuration Mgmt | Least functionality; disable legacy protocols; enforce minimum required services |
 
 ## ATT&CK Coverage
 
-Zero Trust Architecture directly mitigates techniques that exploit implicit trust, lateral movement, and weak authentication.
-
-| Technique | ID | ZT Mitigation |
+| Technique | ID | ZTA Defense |
 |---|---|---|
-| Valid Accounts | T1078 | MFA enforcement and Conditional Access deny access even with valid stolen credentials |
-| Remote Services | T1021 | ZTNA replaces broad network access; each service requires explicit policy-based authorization |
-| Use Alternate Auth Material | T1550 | Device posture checks and certificate-based authentication block pass-the-hash and pass-the-ticket |
-| External Remote Services | T1133 | ZTNA replaces VPN; application-level access policies eliminate broad network entry points |
-| Network Sniffing | T1040 | Microsegmentation and end-to-end encryption limit lateral visibility and traffic interception |
-| Proxy | T1090 | Continuous identity and device verification detects anomalous routing and proxy-based evasion |
-| Application Layer Protocol | T1071 | Microsegmentation and application-layer ZT policies restrict legitimate protocol abuse for lateral movement |
-
----
+| Valid Accounts | T1078 | Continuous auth, behavioral analytics, JIT privilege — limits utility of stolen credentials |
+| Modify Authentication Process | T1556 | MFA enforcement, phishing-resistant FIDO2, monitoring IdP configuration changes |
+| MFA Request Generation (Fatigue) | T1621 | Number matching MFA, FIDO2 hardware keys, anomaly detection on auth attempts |
+| Steal Application Access Token | T1528 | Short-lived tokens, Continuous Access Evaluation (CAE), token binding |
+| Use Alternate Authentication Material | T1550 | Device compliance checks, session binding, re-authentication on sensitive operations |
+| Brute Force | T1110 | Account lockout, rate limiting, CAPTCHA, adaptive risk policies |
+| Application Layer Protocol | T1071 | Layer 7 inspection at PEP; DPI on all traffic regardless of source |
+| Steal Web Session Cookie | T1539 | FIDO2 passkeys (session-less), short token TTLs, device-bound sessions |
 
 ## Certifications
 
-- **CCZT** (Certified Zero Trust Professional — Zero Trust Certification Organization / ZCOE) — The only certification dedicated specifically to Zero Trust; covers ZT principles, pillars, and implementation; credential for ZT architects and practitioners
-- **CISSP** (Certified Information Systems Security Professional — ISC2) — Security architecture domain covers ZT concepts; the standard credential for security architects implementing ZT programs
-- **Microsoft SC-900** (Security, Compliance, and Identity Fundamentals) — Entry-level Microsoft ZT certification; covers Entra ID, Conditional Access, and ZT fundamentals; strong starting point for the identity pillar
-- **Microsoft AZ-500** (Azure Security Engineer Associate) — Practical Azure ZT implementation: Entra ID Conditional Access, Privileged Identity Management, Defender for Cloud; required for Azure ZT roles
-- **CCNP / CCIE Security** (Cisco) — Network security certifications covering Cisco ZT and SASE implementations; valuable for network-layer ZT deployment
-- **PCNSE** (Palo Alto Networks Certified Network Security Engineer) — Covers Prisma Access and ZT architecture on the Palo Alto platform
+| Certification | Issuer | Level | Notes |
+|---|---|---|---|
+| **CCZT** (Certificate of Competence in Zero Trust) | Cloud Security Alliance (CSA) | Intermediate | Dedicated ZTA cert; highly recommended |
+| **CISSP** | (ISC)² | Expert | Covers ZTA in Architecture domain; broad security |
+| **CCSP** | (ISC)² | Expert | Cloud-focused; ZTA in cloud context |
+| **CISM** | ISACA | Management | Governance-focused; ZTA strategy and risk |
+| **CompTIA Security+** | CompTIA | Entry | ZTA concepts covered; good starting point |
+| **CISA** | ISACA | Expert | ZTA in audit and governance context |
+| **SC-900 / SC-100** | Microsoft | Entry/Expert | Microsoft-specific ZTA; Azure/Entra-focused |
 
----
+## Learning Resources
 
-## Books & Learning
-
-| Book | Author | Why Read It |
+| Resource | Type | Cost |
 |---|---|---|
-| Zero Trust Networks | Evan Gilman & Doug Barth | The definitive book on ZT network architecture; device identity, trust scoring, and control plane design; essential reading before implementing network-layer ZT |
-| Project Zero Trust | George Finney | Practical ZT implementation narrative; covers organizational change management and phased rollout; useful for practitioners leading ZT adoption programs |
-| Zero Trust Security | Jason Garbis & Jerry W. Chapman | Comprehensive ZT implementation guide covering all six pillars with practical architecture guidance and enterprise case studies |
-
----
-
-## Key Resources
-
-- [NIST SP 800-207](https://doi.org/10.6028/NIST.SP.800-207) — Authoritative NIST Zero Trust Architecture standard; defines ZT components, tenets, and implementation approaches
-- [CISA Zero Trust Maturity Model](https://www.cisa.gov/zero-trust-maturity-model) — Six-pillar maturity model with four levels per pillar; the most actionable ZT assessment framework available
-- [Microsoft Zero Trust Deployment Center](https://learn.microsoft.com/en-us/security/zero-trust/deploy/overview) — Step-by-step ZT deployment guidance for Microsoft environments covering all six pillars
-- [BeyondCorp: A New Approach to Enterprise Security](https://research.google/pubs/beyondcorp-a-new-approach-to-enterprise-security/) — Google's original BeyondCorp paper; the real-world implementation that validated ZT at global scale
-- [DoD Zero Trust Reference Architecture v2.0](https://dodcio.defense.gov/Portals/0/Documents/Library/(U)ZT_RA_v2.0(U)_Sep22.pdf) — The most detailed publicly available ZT reference architecture; prescriptive guidance applicable beyond federal environments
-- [Forrester Zero Trust eXtended (ZTX) Framework](https://www.forrester.com/report/the-zero-trust-extended-ztx-ecosystem/RES137210) — Forrester's expansion of the original ZT model across seven pillars; the framework most commercial vendors align their marketing to
-
----
+| [NIST SP 800-207](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf) | Standard/PDF | Free |
+| [CISA Zero Trust Maturity Model](https://www.cisa.gov/zero-trust-maturity-model) | Guide | Free |
+| [Google BeyondCorp Research Papers](https://research.google/pubs/?area=security-privacy-and-abuse-prevention) | Research | Free |
+| John Kindervag "Build Security Into Your Network's DNA" | Original ZT paper (Forrester) | Free online |
+| [Microsoft Zero Trust Adoption Framework](https://learn.microsoft.com/en-us/security/zero-trust/adopt/zero-trust-adoption-overview) | Guide | Free |
+| [NSA Zero Trust Pillars Guidance Series](https://www.nsa.gov/Press-Room/Cybersecurity-Advisories-Guidance/) | Advisory | Free |
+| [Zero Trust Networks (O'Reilly Book)](https://www.oreilly.com/library/view/zero-trust-networks/9781492096580/) | Book | Paid |
+| [Cloudflare Zero Trust Platform Docs](https://developers.cloudflare.com/cloudflare-one/) | Docs | Free |
 
 ## Related Disciplines
 
-- [Network Security](/disciplines/network-security) — ZT network pillar; microsegmentation, network access control, and east-west traffic inspection
-- [Identity & Access Management](/disciplines/identity-access-management) — ZT identity pillar; the most critical ZT pillar and the primary implementation starting point
-- [Cloud Security](/disciplines/cloud-security) — ZT in cloud environments; Conditional Access, workload identity, and CSPM align directly with ZT principles
-- [Security Architecture](/disciplines/security-architecture) — ZTA is a security architecture framework; architectural skills and design patterns are prerequisites
-- [DevSecOps](/disciplines/devsecops) — ZT for workloads and pipelines; workload identity, secrets management, and CI/CD access controls
+- [identity-and-access-management.md](identity-and-access-management.md)
+- [cloud-security.md](cloud-security.md)
+- [network-security.md](network-security.md)
+- [endpoint-security.md](endpoint-security.md)
+- [privileged-access-management.md](privileged-access-management.md)
+- [siem-soar.md](siem-soar.md)
+- [threat-modeling.md](threat-modeling.md)

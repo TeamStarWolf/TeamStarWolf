@@ -53,7 +53,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | SANS OnDemand | [www.sans.org/ondemand](https://www.sans.org/ondemand) | Paid (premium, ~$5k+ per course) | Advanced technical courses across all security domains; GIAC-aligned |
 | INE / eLearnSecurity | [ine.com](https://ine.com) | Free starter / Subscription | Penetration testing, network security, cloud, eJPT/eCPPT/eWPT paths |
 | Cybrary | [www.cybrary.it](https://www.cybrary.it) | Free tier / Subscription | Broad catalog; cert prep, SOC, threat intel, and career development |
-| Coursera — Google Cybersecurity | [coursera.org/google-certificates/cybersecurity-certificate](https://www.coursera.org/google-certificates/cybersecurity-certificate) | Paid (financial aid available) | Entry-level foundations; Linux, Python, SIEM, and IDS/IPS concepts |
+| Coursera â€” Google Cybersecurity | [coursera.org/google-certificates/cybersecurity-certificate](https://www.coursera.org/google-certificates/cybersecurity-certificate) | Paid (financial aid available) | Entry-level foundations; Linux, Python, SIEM, and IDS/IPS concepts |
 | ISC2 Certified in Cybersecurity (CC) | [isc2.org/certifications/cc](https://www.isc2.org/certifications/cc) | Free exam (limited offer) | Security fundamentals; ideal first certification for career changers |
 
 ---
@@ -69,7 +69,7 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [STOK](https://www.youtube.com/@STOKfredrik) | Bug bounty methodology, recon automation, and web application security research |
 | [The Cyber Mentor (TCM)](https://www.youtube.com/@TCMSecurityAcademy) | Practical ethical hacking, Active Directory attacks, OSCP prep, and career guidance |
 | [David Bombal](https://www.youtube.com/@davidbombal) | Networking, Python automation, ethical hacking tools, and certification prep |
-| [Gerald Auger — SimplyCyber](https://www.youtube.com/@SimplyCyber) | GRC, security leadership, career development, and daily cybersecurity news |
+| [Gerald Auger â€” SimplyCyber](https://www.youtube.com/@SimplyCyber) | GRC, security leadership, career development, and daily cybersecurity news |
 | [SANS Institute](https://www.youtube.com/@SANSInstitute) | Technical talks, course previews, Summit recordings, and practitioner interviews |
 | [Seytonic](https://www.youtube.com/@Seytonic) | Hardware hacking, Flipper Zero, RF security, and DIY security projects |
 
@@ -88,6 +88,12 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [Unsupervised Learning](https://danielmiessler.com/podcast) | Daniel Miessler | Weekly | Threat intel, security strategy, AI implications, and mental models |
 | [Hacking Humans](https://thecyberwire.com/podcasts/hacking-humans) | Dave Bittner & Joe Carrigan | Weekly | Social engineering tactics, phishing campaigns, and human risk research |
 
+| [The Social-Engineer Podcast](https://www.social-engineer.org/podcast/) | Chris Hadnagy | Variable | Deep dives into SE techniques and psychology |
+| [CISO Series](https://cisoseries.com) | David Spark | Weekly | Career-focused; leadership perspective for security executives |
+| [Defense in Depth](https://cisoseries.com/defense-in-depth/) | David Spark, Allan Alford | Short episodes | Conceptual security strategy; 15-minute format |
+| [Malicious Life](https://malicious.life) | Ran Levi | Bi-weekly | Documentary style; history of famous hacks and cybersecurity |
+| [Down the Security Rabbit Hole](https://podcast.wh.com/) | Rafal Los, James Jardine | Variable | Deep dives; CISO perspective on strategy and risk |
+| [Open Source Security Podcast](https://opensourcesecurity.io/category/podcast/) | Josh Bressers, Kurt Seifried | Weekly | SCA, supply chain, OSS vulnerability ecosystem |
 ---
 
 ## News & Threat Intelligence Sources
@@ -120,6 +126,13 @@ A curated reference of books, courses, platforms, communities, and standards for
 | CryptoHack | [cryptohack.org](https://cryptohack.org) | Interactive cryptography challenges from stream ciphers to elliptic curves |
 | RingZer0 | [ringzer0ctf.com](https://ringzer0ctf.com) | Broad challenge categories including reversing, forensics, web, and crypto |
 
+| [PortSwigger Web Academy](https://portswigger.net/web-security) | Beginner-Advanced | Web labs; always available | portswigger.net/web-security |
+| [Hack The Box](https://hackthebox.com) | All levels | Machine-based; CTF events | hackthebox.com |
+| [CyberDefenders](https://cyberdefenders.org) | Blue team | DFIR investigations | cyberdefenders.org |
+| [BTLO](https://blueteamlabs.online) | Blue team | Investigation challenges | blueteamlabs.online |
+| [Google CTF](https://capturetheflag.withgoogle.com) | Advanced | Annual; high-quality challenges | capturetheflag.withgoogle.com |
+| [CSAW CTF](https://ctf.csaw.io) | Intermediate | NYU annual competition | ctf.csaw.io |
+| [National Cyber League (NCL)](https://nationalcyberleague.org) | Student | Semi-annual competition | nationalcyberleague.org |
 ---
 
 ## Practice & Lab Environments
@@ -194,3 +207,24 @@ A curated reference of books, courses, platforms, communities, and standards for
 | [@thegrugq](https://x.com/thegrugq) | OpSec, threat intelligence, and security strategy from an operational perspective |
 | [@0xdade](https://x.com/0xdade) | Offensive security research, tooling, and red team techniques |
 | [@AliaseSec](https://x.com/AliaseSec) | Penetration testing insights, certification guidance, and community building |
+
+---
+
+## Communities and Forums
+
+| Community | Platform | Focus | URL |
+|---|---|---|---|
+| Hack The Box Forums | Discourse | HTB walkthroughs and help | forum.hackthebox.com |
+| Reddit /r/netsec | Reddit | News, research, technical discussion | reddit.com/r/netsec |
+| Reddit /r/AskNetsec | Reddit | Questions and career advice | reddit.com/r/AskNetsec |
+| Reddit /r/hacking | Reddit | Broad hacking community | reddit.com/r/hacking |
+| Reddit /r/cybersecurity | Reddit | Industry news and discussion | reddit.com/r/cybersecurity |
+| Security StackExchange | Q&A | Technical security questions | security.stackexchange.com |
+| SANS Internet Storm Center | ISC | Daily threat updates | isc.sans.edu |
+| Securelist (Kaspersky) | Blog | APT reports, malware analysis | securelist.com |
+| Krebs on Security | Blog | Cybercrime, data breaches | krebsonsecurity.com |
+| Troy Hunt's Blog | Blog | Data breaches, HaveIBeenPwned | troyhunt.com |
+| Schneier on Security | Blog | Broad security commentary | schneier.com |
+| Exploit-DB | Database | CVE and exploit database | exploit-db.com |
+| Packet Storm | Database | Security news, exploits, tools | packetstormsecurity.com |
+| TryHackMe Discord | Discord | Learning community | tryhackme.com community |

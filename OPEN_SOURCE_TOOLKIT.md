@@ -384,3 +384,50 @@
 > Many tools listed here are dual-use — understanding offensive techniques is essential for building effective defenses.
 
 *Last updated: April 2026 — contributions welcome via PR.*
+
+---
+
+## Windows Hardening and Assessment
+
+| Tool | Use Case | Notes |
+|---|---|---|
+| [Hardentools](https://github.com/securitywithoutborders/hardentools) | Disable risky Windows features | One-click disable macros, autorun, PowerShell, etc. |
+| [HardeningKitty](https://github.com/0x6d69636b/windows_hardening) | CIS Benchmark assessment + scoring | PowerShell; exports CSV results |
+| [Microsoft LAPS](https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview) | Local admin password management | Now built into Windows 11/Server 2022 |
+| [PingCastle](https://www.pingcastle.com/) | AD security assessment | Fast; generates risk score; maps attack paths |
+| [BloodHound CE](https://github.com/SpecterOps/BloodHound) | AD attack path mapping | Community edition; JavaScript rewrite of original |
+| [Plextrac / Ghostwriter](https://github.com/GhostManager/Ghostwriter) | Pentest reporting | OSS reporting platforms |
+| [SysinternalsSuite](https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite) | Windows investigation toolkit | ProcMon, ProcessExplorer, Autoruns, TCPView, etc. |
+| [LGPO.exe](https://www.microsoft.com/en-us/download/details.aspx?id=55319) | Import/export local GPO | Microsoft tool for deploying GPO baselines |
+| [PolicyAnalyzer](https://www.microsoft.com/en-us/download/details.aspx?id=55319) | Compare GPOs and baselines | Microsoft Security Compliance Toolkit |
+
+---
+
+## Deception and Honeypots
+
+| Tool | Use Case |
+|---|---|
+| [OpenCanary](https://github.com/thinkst/opencanary) | Multi-protocol honeypot daemon (SSH, HTTP, SMB, MySQL, Telnet) |
+| [Cowrie](https://github.com/cowrie/cowrie) | SSH/Telnet honeypot with full session recording |
+| [Canarytokens.org](https://canarytokens.org/) | Free web-based honey tokens (URL, file, AWS key, email, DNS) |
+| [Dionaea](https://github.com/DinoTools/dionaea) | Malware capture honeypot; SMB, HTTP, FTP exploits |
+| [Conpot](https://github.com/mushorg/conpot) | ICS/SCADA protocol honeypot (Modbus, IEC 104, S7) |
+| [HoneyDB](https://honeydb.io/) | Honeypot data aggregation and threat intelligence feeds |
+| [Wordpot](https://github.com/gbrindisi/wordpot) | WordPress honeypot; detect WordPress scanners |
+
+---
+
+## Vulnerability Management and Attack Surface Management
+
+| Tool | Use Case |
+|---|---|
+| [OpenVAS / Greenbone](https://github.com/greenbone/openvas-scanner) | Full-featured vulnerability scanner (free Greenbone Community Edition) |
+| [Nuclei](https://github.com/projectdiscovery/nuclei) | Fast, template-based vulnerability/misconfiguration scanner (ProjectDiscovery) |
+| [Nessus Essentials](https://www.tenable.com/products/nessus/nessus-essentials) | Free tier of Nessus; up to 16 IPs; best UX in free scanners |
+| [OWASP ZAP](https://www.zaproxy.org/) | DAST for web applications; good CI/CD integration |
+| [Amass](https://github.com/owasp-amass/amass) | Attack surface enumeration; subdomain discovery; graph output |
+| [Subfinder](https://github.com/projectdiscovery/subfinder) | Fast passive subdomain enumeration |
+| [httpx](https://github.com/projectdiscovery/httpx) | HTTP toolkit; probe alive hosts; get titles/status codes |
+| [dnsx](https://github.com/projectdiscovery/dnsx) | DNS enumeration and resolution toolkit |
+| [Shodan CLI](https://cli.shodan.io/) | Internet-exposed asset discovery and monitoring |
+| [Censys CLI](https://github.com/censys/censys-python) | Certificate and asset intelligence |

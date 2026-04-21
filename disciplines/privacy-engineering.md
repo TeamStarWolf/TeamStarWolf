@@ -214,6 +214,88 @@ Privacy engineering controls address adversary techniques that exploit data coll
 
 ---
 
+#### Privacy Frameworks and Regulations
+
+**GDPR (General Data Protection Regulation)**
+- Scope: Any organization processing EU residents' personal data, regardless of location
+- Key principles: Lawfulness, fairness, transparency; purpose limitation; data minimization; accuracy; storage limitation; integrity and confidentiality; accountability
+- Lawful bases: Consent, contract, legal obligation, vital interests, public task, legitimate interests
+- Data subject rights: Access (DSAR), rectification, erasure, restriction, portability, objection, automated decision-making rights
+- Breach notification: 72 hours to supervisory authority (DPA), "without undue delay" to data subjects if high risk
+- Penalties: Up to €20M or 4% of global annual turnover (whichever higher)
+
+**CCPA/CPRA (California)**
+- Consumer rights: Know, delete, opt-out of sale, non-discrimination, correct, limit use of sensitive PI
+- Sensitive PI categories: SSN, financial account numbers, health data, precise geolocation, biometric identifiers
+- Enforcement: California Privacy Protection Agency (CPPA), $2,500/violation or $7,500/intentional violation
+
+**HIPAA (US Healthcare)**
+- PHI (Protected Health Information): Any individually identifiable health information
+- Safe harbor de-identification: Remove 18 specific identifiers OR statistical verification that re-identification risk is very small
+- BAAs (Business Associate Agreements): Required for all vendors processing PHI
+- Minimum Necessary Standard: Only access/share the minimum PHI needed
+
+#### Privacy Engineering Techniques
+
+**Privacy by Design (PbD) — 7 Foundational Principles**
+1. Proactive, not reactive — embed privacy before the fact
+2. Privacy as the default setting
+3. Privacy embedded into design
+4. Full functionality — positive-sum (privacy + security, not either/or)
+5. End-to-end security — full lifecycle protection
+6. Visibility and transparency
+7. Respect for user privacy — keep it user-centric
+
+**Data Minimization Techniques**
+- K-anonymity: Each record indistinguishable from k-1 others on quasi-identifiers
+- L-diversity: Each equivalence class has at least l different sensitive values
+- T-closeness: Distribution of sensitive attribute in group similar to overall distribution
+- Differential privacy: Add calibrated noise; used by Apple, Google, US Census
+- Pseudonymization: Replace direct identifiers with tokens; reversible (different from anonymization)
+- Tokenization: Replace with cryptographically random tokens; PCI DSS card data protection
+
+**Consent Management**
+- Consent Management Platforms (CMPs): OneTrust, Didomi, TrustArc, Cookiebot
+- IAB TCF v2.2: Industry framework for programmatic advertising consent
+- Double opt-in: Confirmation via email for marketing consent (GDPR best practice)
+- Granular consent: Separate consent per purpose; bundled consent not valid under GDPR
+
+**Data Subject Access Requests (DSAR)**
+- Identity verification workflow before releasing data
+- 30-day response window (GDPR); 45 days (CCPA)
+- DSAR automation: OneTrust DSAR, WireWheel, Securiti.ai
+
+#### PII Discovery and Data Mapping
+
+**Technical Discovery Tools**
+- AWS Macie: ML-based PII detection in S3 buckets
+- Microsoft Purview: Data catalog, classification, and governance across Azure
+- Google Cloud DLP: API-based PII detection in text, images, Cloud Storage
+- Open Policy Agent (OPA): Policy-as-code for data access enforcement
+- Apache Atlas: Metadata management and data lineage
+
+**Data Flow Mapping**
+- Data Processing Inventory (ROPA — Records of Processing Activities): Required by GDPR Article 30
+- ROPA fields: Processing purpose, data categories, subject categories, recipients, retention period, transfers to third countries
+- Tools: OneTrust Data Mapping, Spirion, BigID, Securiti.ai
+
+#### Privacy Engineering Career Path
+
+| Role | Skills | Certs |
+|---|---|---|
+| Privacy Analyst | Policy interpretation, DSAR handling, vendor reviews | CIPP/US or CIPP/E |
+| Privacy Engineer | Data mapping, PETs implementation, DSAR automation | CIPT, CDPSE |
+| DPO (Data Protection Officer) | Regulatory compliance, supervisory authority liaison | CIPM, CIPP/E |
+| Privacy Architect | System design with privacy controls, PbD integration | CIPT + architecture background |
+
+**IAPP Certifications**
+- CIPP/E (European): EU GDPR specialist — most in-demand globally
+- CIPP/US (US privacy law): CCPA, HIPAA, sector-specific laws
+- CIPM (Privacy management): Running privacy programs
+- CIPT (Privacy technology): Technical implementation
+
+---
+
 ## Related Disciplines
 
 - [Governance, Risk & Compliance](governance-risk-compliance.md) — GRC programs define the regulatory requirements (GDPR, CCPA, HIPAA) that privacy engineers translate into technical controls; privacy engineering without GRC context produces compliant-looking systems that miss the regulatory intent

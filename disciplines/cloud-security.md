@@ -185,6 +185,99 @@ Cloud attack techniques are catalogued in the [MITRE ATT&CK Cloud Matrix](https:
 
 ---
 
+---
+
+## Cloud Attack Techniques (AWS)
+
+### IAM Attacks
+
+- Privilege escalation via policy attachment: `iam:AttachUserPolicy`, `iam:CreatePolicyVersion`, `iam:PassRole` + Lambda/EC2 abuse
+- Role assumption chain: `sts:AssumeRole` to hop across accounts
+- Key exposure: Leaked access keys in GitHub (`truffleHog`, `gitleaks` for detection), pastebin monitoring
+- Credential exfiltration from EC2: IMDSv1 SSRF (`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name`)
+
+### Compute and Storage
+
+- EC2 snapshot exfiltration: Share snapshot with attacker account → restore in attacker VPC
+- S3 misconfiguration: Public buckets, overly permissive bucket policies, ACL `public-read`
+- Lambda abuse: Overprivileged execution role, environment variable secrets, zip poisoning
+- ECS/EKS: Container escape to host, IMDS access from pod, overprivileged service accounts
+
+### Detection and Defense (AWS)
+
+- CloudTrail: Enable in all regions, log to S3 with Object Lock, alert on `ConsoleLogin` from unknown IP, `StopLogging`, `DeleteTrail`
+- GuardDuty: Enable in all accounts/regions, findings for crypto mining, credential exfiltration, port scanning from EC2
+- AWS Config: Continuous compliance checking, config rules for S3 public access, root MFA, CloudTrail enabled
+- Security Hub: Aggregates GuardDuty + Config + Inspector + Macie findings
+- AWS IAM Access Analyzer: Identify externally accessible resources (cross-account trust, public S3)
+
+---
+
+## Cloud Attack Techniques (Azure)
+
+### Entra ID / Azure AD Attacks
+
+- Password spray: `o365spray --spray -U users.txt -P passwords.txt --domain target.com`
+- Legacy authentication: IMAP/POP3/SMTP bypass MFA — block with Conditional Access
+- Consent phishing: OAuth app requests read access to email/files, user grants it
+- Service principal abuse: Over-privileged managed identities, client secret exfiltration
+- PRT (Primary Refresh Token) theft: Pass-the-PRT for SSO bypass
+
+### Azure Resource Manager
+
+- VM extensions: Abuse CustomScriptExtension to run code on VMs
+- Runbook abuse: Automation accounts with contributor+ rights
+- Key Vault: List/read secrets if access policies misconfigured
+
+### Detection and Defense (Azure)
+
+- Microsoft Defender for Cloud: Secure score, attack path analysis, workload protections
+- Entra ID sign-in logs: Alert on impossible travel, legacy auth, MFA failures
+- Conditional Access: Require compliant device + MFA for all users, block legacy auth
+- PIM (Privileged Identity Management): Just-in-time privileged access, approval workflows
+
+---
+
+## Cloud Attack Techniques (GCP)
+
+- Service account key abuse: Downloaded JSON keys persist indefinitely
+- Workload Identity Federation: Misconfigured allows any external identity to assume GCP role
+- GCS bucket misconfiguration: `allUsers` or `allAuthenticatedUsers` ACLs
+- Cloud Functions: Overprivileged service accounts, env var secrets
+
+---
+
+## Common Cloud Misconfigurations (All Platforms)
+
+| Misconfiguration | Platform | Severity | Remediation |
+|---|---|---|---|
+| Public S3/GCS/Azure Blob | All | High | Enable public access blocks, review bucket ACLs |
+| Root/Owner account used for daily ops | All | Critical | Create IAM users/service accounts with least privilege |
+| No MFA on privileged accounts | All | Critical | Enforce MFA via policy/conditional access |
+| Overpermissive IAM roles | All | High | Implement least privilege, use access analyzer |
+| CloudTrail/audit logging disabled | All | High | Enable in all regions with tamper-proof storage |
+| IMDSv1 enabled | AWS | High | Enforce IMDSv2 with `http-tokens: required` |
+| Public AMI/snapshot sharing | AWS | Medium | Review snapshot permissions, encrypt EBS |
+| Legacy authentication enabled | Azure | High | Block via Conditional Access policy |
+
+---
+
+## Cloud Security Tooling
+
+| Tool | Type | Use Case |
+|---|---|---|
+| ScoutSuite | OSS | Multi-cloud security auditing (AWS/Azure/GCP) |
+| Prowler | OSS | AWS/Azure/GCP CIS benchmark assessment (3,000+ checks) |
+| Pacu | OSS | AWS exploitation framework (post-compromise) |
+| CloudMapper | OSS | AWS network visualization and attack surface analysis |
+| ROADtools | OSS | Azure AD enumeration and dumping |
+| AzureHound | OSS | BloodHound data collector for Azure |
+| Stratus Red Team | OSS | Cloud TTPs simulator (Atomic Red Team for cloud) |
+| Cartography | OSS | Graph-based cloud asset relationships |
+| Cloudsploit | OSS | Cloud misconfiguration scanning |
+
+---
+
 ## Related Disciplines
 
 - [identity-access-management.md](identity-access-management.md) — Cloud security and IAM are inseparable: misconfigured IAM roles and overprivileged identities are the leading root cause of cloud breaches; CIEM, entitlement analysis, and cloud-specific OAuth patterns are shared territory

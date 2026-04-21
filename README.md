@@ -42,6 +42,8 @@ A public resource library for the cybersecurity community.
 |---|---|
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component in the enterprise |
+| [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | WAF rules, ASR rules, CrowdStrike prevention policies, Tanium modules, Proofpoint, Zscaler ZIA/ZPA |
+| [Windows Hardening & GPO Reference](WINDOWS_HARDENING_GPO.md) | GPO-based hardening, service disabling, credential protection, audit policy, CIS benchmarks |
 | [Security Tools Reference](TOOLS.md) | 100+ tools organized by category |
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | OSS security tools and bookmarks by discipline |
 | [Frameworks Reference](FRAMEWORKS.md) | NIST CSF, ISO 27001, PCI DSS, CMMC, GDPR, and 10+ frameworks |
@@ -199,6 +201,8 @@ A public resource library for the cybersecurity community.
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
+| [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | WAF rules, ASR rules, CrowdStrike prevention policies, Tanium modules, Proofpoint, Zscaler ZIA/ZPA |
+| [Windows Hardening & GPO Reference](WINDOWS_HARDENING_GPO.md) | GPO-based hardening, service disabling, credential protection, audit policy, CIS benchmarks |
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
 

@@ -129,6 +129,96 @@ Good security architecture is not just about controls — it is about making sec
 | Microsoft Security Architecture Documentation | Online | PAW design, ESAE (red forest), tiered Active Directory model — directly applicable reference architectures |
 | O-ESA: Open Enterprise Security Architecture | Framework | The Open Group's enterprise security architecture reference model |
 
+#### Zero Trust Architecture (Deep Reference)
+
+**CISA Zero Trust Maturity Model (ZTMM) — 5 Pillars**
+
+| Pillar | Traditional | Advanced | Optimal |
+|---|---|---|---|
+| Identity | Per-app MFA | Risk-based adaptive MFA | Continuous identity validation, ML-driven behavior |
+| Devices | MDM enrollment | Posture assessment per request | Automated response to anomalous device behavior |
+| Networks | VPN-based perimeter | Microsegmentation | Application-level access, dynamic policy |
+| Applications | Monolithic firewall rules | Application-layer access controls | Zero implicit trust, continuous validation per session |
+| Data | Perimeter protection | Data classification, DLP at perimeter | Data-centric controls, automated classification, encryption everywhere |
+
+**Zero Trust Architecture Principles (NIST SP 800-207)**
+1. All data sources and computing services are treated as resources
+2. All communication is secured regardless of network location
+3. Access to individual resources is granted per-session
+4. Access policy is determined dynamically from client identity + posture + other attributes
+5. Monitor all assets and communications for integrity and security posture
+6. Authentication and authorization are dynamic and strictly enforced before access
+
+**Reference Architecture — ZTNA Implementation**
+- Identity Provider (IdP): Okta, Azure AD / Entra ID, Ping Identity
+- Device trust: Intune, Jamf, CrowdStrike Falcon Device Control
+- ZTNA gateway: Zscaler Private Access, Cloudflare Access, Palo Alto Prisma Access
+- Microsegmentation: Illumio, Guardicore, NSX-T
+- Continuous verification: SIEM integration for anomaly-triggered step-up auth
+
+#### Threat Modeling
+
+**STRIDE Methodology**
+
+| Threat | Description | Mitigation |
+|---|---|---|
+| Spoofing | Pretending to be someone else | Authentication, certificates |
+| Tampering | Modifying data or code | Integrity checks, signing, HMAC |
+| Repudiation | Denying actions | Non-repudiation logging, audit trails |
+| Information Disclosure | Unauthorized data access | Encryption, authorization |
+| Denial of Service | Preventing legitimate access | Rate limiting, redundancy, DDoS protection |
+| Elevation of Privilege | Gaining unauthorized permissions | Least privilege, authorization enforcement |
+
+**PASTA (Process for Attack Simulation and Threat Analysis)**
+
+7-stage methodology: Define objectives → Define technical scope → Decompose application → Analyze threats → Identify vulnerabilities → Enumerate attacks → Risk/impact analysis
+
+**Threat Modeling Tools**
+- Microsoft Threat Modeling Tool (free): DFD-based, STRIDE auto-generation
+- OWASP Threat Dragon (free): Cross-platform, DFD + STRIDE
+- IriusRisk: Commercial, integrates with Jira/CI pipeline
+- Trike: Risk-based, actor-goal decomposition
+- pytm: Threat model as code (Python library)
+
+#### Security Architecture Patterns (Extended)
+
+**Defense in Depth Layers**
+1. Perimeter: NGFW, WAF, DDoS protection, IPS
+2. Network: Segmentation, VLAN, microsegmentation, IDS/IPS sensors
+3. Identity: MFA, PAM, JIT access, directory services
+4. Endpoint: EDR, AV, application allowlisting, disk encryption
+5. Application: SAST/DAST/SCA, WAF, API gateway
+6. Data: Encryption at rest/in transit, DLP, data classification
+7. Detection/Response: SIEM, SOAR, MDR/XDR
+
+**Reference Architectures**
+- NIST SP 800-207: Zero Trust Architecture
+- CIS Critical Security Controls v8: 18 controls with implementation groups
+- SABSA (Sherwood Applied Business Security Architecture): Business-driven layered model
+- TOGAF: Enterprise architecture with security as domain
+- Google BeyondCorp: Original zero trust implementation, white papers available
+
+**Secure-by-Design Principles**
+- Least privilege: Minimum access required for function
+- Separation of duties: No single person can complete sensitive task alone
+- Defense in depth: Multiple independent controls — failure of one doesn't compromise system
+- Economy of mechanism: Simple designs are easier to analyze and trust
+- Fail secure: Failures deny access rather than grant it
+- Open design: Security through obscurity is not security
+- Complete mediation: Every access checked against policy every time
+
+#### Security Architecture Certifications (Extended)
+
+| Cert | Body | Focus | Level |
+|---|---|---|---|
+| SABSA Foundation/Practitioner | SABSA Institute | Business-driven security architecture | Practitioner |
+| CISSP — Architecture domain | ISC2 | Broad with architecture emphasis | Senior |
+| CISA | ISACA | IS audit/control systems | Mid-senior |
+| AWS/Azure/GCP Security specialty | Cloud providers | Cloud-native architecture | Mid |
+| Google ZTNA certification | Google | Zero Trust implementation | Specialist |
+
+---
+
 ## Related Disciplines
 
 - [Zero Trust Architecture](zero-trust-architecture.md)

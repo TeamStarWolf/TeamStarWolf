@@ -468,3 +468,47 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 - [ATT&CK Navigator](navigator/) — technique coverage visualization
 - [Starred Repositories](STARRED_REPOS.md) — curated GitHub tool repositories
 - [Hands-On Labs](LABS.md) — practice environments for each category
+
+---
+
+## Email Security
+
+| Tool | Type | Key Capability |
+|---|---|---|
+| [Proofpoint Enterprise](https://www.proofpoint.com/) | Commercial | TAP, URL Defense, Attachment Defense, VAP tracking |
+| [Microsoft Defender for Office 365 (EOP/MDO)](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-defender-office-365) | Commercial | Anti-phish, Safe Links, Safe Attachments, Attack Simulator |
+| [Mimecast](https://www.mimecast.com/) | Commercial | Email gateway; anti-phish; continuity; archiving |
+| [Abnormal Security](https://abnormalsecurity.com/) | Commercial | AI-based BEC detection; API-based (no MX change) |
+| [DMARC Analyzer / Dmarcian](https://dmarcian.com/) | SaaS | DMARC reporting and management |
+| [Valimail](https://www.valimail.com/) | Commercial | Automated DMARC enforcement |
+| [GoPhish](https://getgophish.com/) | OSS | Phishing simulation; security awareness testing |
+| [MailHog](https://github.com/mailhog/MailHog) | OSS | Development email server; fake SMTP for testing |
+
+---
+
+## Zero Trust Network Access (ZTNA) / SASE
+
+| Tool | Type | Key Capability |
+|---|---|---|
+| [Zscaler Internet Access (ZIA)](https://www.zscaler.com/products/zscaler-internet-access) | Commercial | Cloud-native proxy; SSL inspection; URL filtering |
+| [Zscaler Private Access (ZPA)](https://www.zscaler.com/products/zscaler-private-access) | Commercial | ZTNA; app-level access; no VPN needed |
+| [Cloudflare Access](https://www.cloudflare.com/zero-trust/products/access/) | Commercial | ZTNA; identity-aware proxy; free tier available |
+| [Palo Alto Prisma Access](https://www.paloaltonetworks.com/sase/access) | Commercial | SASE; cloud-delivered security services |
+| [Netskope](https://www.netskope.com/) | Commercial | CASB + ZTNA + DLP; excellent cloud app control |
+| [HashiCorp Boundary](https://www.boundaryproject.io/) | OSS | Identity-based infrastructure access; no VPN |
+| [Tailscale](https://tailscale.com/) | OSS/Commercial | WireGuard-based mesh VPN; zero-config; easy ZTNA-lite |
+
+---
+
+## Identity and Access Management (IAM/PAM)
+
+| Tool | Type | Key Capability |
+|---|---|---|
+| [CyberArk PAS](https://www.cyberark.com/) | Commercial | PAM; session management; credential vault; market leader |
+| [BeyondTrust Password Safe](https://www.beyondtrust.com/products/password-safe) | Commercial | PAM; endpoint privilege management |
+| [Delinea Secret Server](https://delinea.com/products/secret-server) | Commercial | Password vault; session recording; approval workflows |
+| [HashiCorp Vault](https://www.vaultproject.io/) | OSS/Enterprise | Dynamic secrets; PKI; encryption as a service |
+| [Okta](https://okta.com/) | Commercial | Identity provider; SSO; adaptive MFA; lifecycle management |
+| [Azure Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) | Commercial | Cloud IAM; Conditional Access; PIM; best for Microsoft |
+| [SailPoint IdentityNow](https://www.sailpoint.com/) | Commercial | IGA; access certifications; role management |
+| [Teleport](https://goteleport.com/) | OSS/Commercial | Modern PAM; certificate-based access; K8s/SSH/DB |

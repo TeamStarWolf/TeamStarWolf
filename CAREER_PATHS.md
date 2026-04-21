@@ -631,6 +631,58 @@ Common and well-worn ways to move between roles as you grow.
 
 ---
 
+## Career Transition Paths
+
+### From IT/Sysadmin to Security
+- **Strengths:** Deep system knowledge; networking; Windows/Linux administration
+- **Recommended path:** CompTIA Security+ → CySA+ → get help desk/IT admin to SOC role → OSCP
+- **Focus areas:** Learn detection engineering (Splunk/SIEM), incident response basics, vulnerability management
+- **Timeline:** 6–12 months to first security role from IT background
+
+### From Software Developer to AppSec/DevSecOps
+- **Strengths:** Code understanding; SDLC familiarity; language expertise
+- **Recommended path:** CSSLP or GWEB → AppSec engineer role at developer-friendly company → bug bounty
+- **Focus areas:** OWASP Top 10 in depth; SAST/SCA/DAST tooling; threat modeling; secure code review
+- **Timeline:** 3–6 months of focused study; can often lateral within same company
+
+### From Military/Government to Civilian Security
+- **Strengths:** TS/SCI clearance (high value); discipline; incident response experience
+- **Recommended path:** Leverage clearance for cleared positions → CISSP for leadership → or OSCP for technical
+- **Resources:** Hire Veterans (Military.com), ClearanceJobs.com, Veteran SEC (veteran security community)
+- **DoD 8570/8140:** Mapping military experience to civilian cert equivalencies
+
+### From Finance/Compliance to GRC
+- **Strengths:** Risk mindset; regulatory knowledge; audit experience
+- **Recommended path:** CISM or CRISC → GRC analyst role → CISA for audit-focused career
+- **Focus areas:** NIST CSF/800-53, SOC 2, ISO 27001 implementation, vendor risk management
+
+---
+
+## Job Search Strategy
+
+### Resume Tips for Security
+- **Quantify impact:** "Reduced MTTD from 4 hours to 45 minutes by implementing X" beats "improved detection"
+- **List certifications prominently:** Certs are table stakes for HR keyword filtering
+- **Include GitHub:** Especially for technical roles; show tools, scripts, CTF writeups
+- **Tailor to job description:** Mirror language from job posting; ATS (Applicant Tracking System) keyword matching
+- **Avoid:** Listing Windows/Linux as skills (assumed); generic "team player" language
+
+### Where to Find Security Jobs
+
+| Platform | Best For | Notes |
+|---|---|---|
+| LinkedIn | All roles | Best network; set "Open to Work"; connect with recruiters |
+| CyberSecJobs.com | Security-specific | Aggregates security jobs |
+| Indeed | Volume | Broad search; many entry-level roles |
+| Dice | Technical roles | Strong for security engineers |
+| USAJobs.gov | Federal/cleared | All federal positions; clearance required for many |
+| ClearanceJobs.com | Cleared positions | Requires active clearance or eligibility |
+| Hack The Box Jobs | Technical roles | Self-selecting for technical candidates |
+| Twitter/X | Networking | Many CISO/practitioner referrals shared on cybersecurity Twitter |
+| Discord servers | Community referrals | TryHackMe, HTB, SANS Discord communities |
+
+---
+
 ## Resource Recommendations
 
 | Resource | What it covers |

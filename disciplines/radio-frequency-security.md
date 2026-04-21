@@ -236,6 +236,101 @@ Always operate within the scope of authorized engagements. For research, obtain 
 
 ---
 
+
+---
+
+## RF Attack Techniques (Extended)
+
+### Software-Defined Radio (SDR) Fundamentals
+
+- SDR: Replace hardware components with software; one device covers wide frequency range
+- Receive-only tools: RTL-SDR (~$25 USB dongle); covers 500kHz-1.7GHz
+- Transmit+receive: HackRF One (1MHz-6GHz), USRP B200 (70MHz-6GHz), LimeSDR
+- Software: GNU Radio (signal processing toolkit), GQRX (spectrum analyzer GUI), URH (Universal Radio Hacker)
+
+### RollJam Attack (Samy Kamkar) — Detailed
+
+- Target: Rolling code car locks, garage doors using KeeLoq or similar
+- Mechanism: Jam the signal while recording; victim presses button again; record second code; now possess both codes — first use is already invalidated, but second code is still valid
+- Implementation: HackRF + custom firmware or RTL-SDR + software-defined jammer
+- Rolling code (KeeLoq): Challenge-response prevents simple replay; but still vulnerable to RollJam attack
+
+### ADS-B Security (Aviation)
+
+- ADS-B: Automatic Dependent Surveillance-Broadcast; aircraft broadcast position/speed/ID unencrypted at 1090 MHz
+- No authentication: Anyone can inject fake aircraft (ghost plane attacks)
+- SDR reception: `dump1090 --interactive` — receive all aircraft in range with RTL-SDR
+- Attack tool: `ADSB-Out` — inject fake flight data; demonstrated at DEF CON
+- Defense: Multi-sensor validation (MLAT — multilateration confirms position); FAA/ICAO working on ADS-B authentication (ADS-B+ / ACAS)
+
+### Bluetooth Attacks
+
+- BlueBorne (2017): RCE over Bluetooth without pairing; CVE-2017-0781; affected all major OS
+- Bluejacking: Send unsolicited messages to discoverable devices (nuisance, not threat)
+- Bluesnarfing: Unauthorized access to Bluetooth device data (contacts, calendar)
+- KNOB attack (CVE-2019-9506): Force short encryption key; brute force session
+- BLE GATT scanning: Enumerate Bluetooth Low Energy services and characteristics without pairing
+- Ubertooth One: ~$120 Bluetooth monitoring/sniffing hardware; demodulates Bluetooth Classic
+
+### ZigBee / Z-Wave / MQTT Attacks (Extended)
+
+- ZigBee: IEEE 802.15.4; smart home and IoT; 2.4GHz; killerbee framework for testing
+- Z-Wave: Proprietary; smart home; 900MHz band; Z-Wave JS for research
+- MQTT: Application layer protocol for IoT; broker-based pub/sub; usually port 1883 (unencrypted) or 8883 (TLS)
+  - Attack: `mosquitto_sub -h TARGET -t '#'` — subscribe to ALL topics; reveals all sensor data
+  - Authentication bypass: Default no-auth brokers; guest accounts on Mosquitto
+  - Payload injection: Publish commands to control actuators (locks, HVAC, lights)
+
+### RFID/NFC Attacks — Extended Detail
+
+- 125kHz RFID (HID Prox, EM4100): No encryption; clonable in seconds with Proxmark3 or Flipper Zero
+- 13.56MHz MIFARE Classic: Proprietary Crypto-1 cipher; fully broken (mfoc, mfcuk attacks)
+- 13.56MHz MIFARE DESFire EV2: AES-128; much harder; limited attack surface
+- NFC relay attack: Relay card transaction over distance; PoC demonstrated for VISA contactless
+- Proxmark3: Full RFID/NFC research platform; read, write, simulate, attack
+
+---
+
+## RF Defense and Detection
+
+### Signal Monitoring and Threat Detection
+
+- RF spectrum monitoring: SDR + spectrum analyzer to detect rogue transmitters, jammers, ADS-B injectors
+- Wireless IDS (WIDS): Detect rogue APs, deauth flooding, karma attacks (hostapd-wpe)
+- Bluetooth monitoring: Ubertooth + BlueZ tools for unauthorized Bluetooth device detection
+- TSCM (Technical Surveillance Countermeasures): Professional RF bug sweeping; detect hidden transmitters
+
+### Hardening Wireless Infrastructure
+
+| Control | Implementation | Protects Against |
+|---------|---------------|-----------------|
+| WPA3 (SAE) | Replace WPA2 with WPA3 on all APs | PMKID attacks; dictionary attacks; KRACK |
+| 802.1X (WPA2-Enterprise) | Radius server with EAP-TLS certificates | Credential-based attacks; evil twin |
+| SSID segregation | Separate SSIDs for IoT, guest, corporate | Lateral movement from compromised IoT devices |
+| Rogue AP detection | WIDS (Cisco CleanAir, Mist, Aruba RAPIDS) | Evil twin, karma attacks |
+| RF shielding | Faraday enclosures for secure rooms | RF eavesdropping, TEMPEST |
+| Disable Bluetooth | MDM policy; disable when not needed | Bluetooth attacks (BlueBorne) |
+| Disable NFC when not in use | MDM policy for mobile devices | NFC relay/skim attacks |
+
+---
+
+## RF Security Tools Reference
+
+| Tool | Type | Frequency | Use Case |
+|------|------|-----------|----------|
+| RTL-SDR | Receive-only | 500kHz-1.7GHz | Spectrum monitoring, ADS-B, FM |
+| HackRF One | TX+RX | 1MHz-6GHz | Full spectrum analysis, replay attacks |
+| USRP B200 | TX+RX (high-quality) | 70MHz-6GHz | Professional research, LTE analysis |
+| Flipper Zero | Multi-protocol | Sub-GHz+NFC+RFID | Physical/RF pen testing |
+| Proxmark3 RDV4 | RFID/NFC | LF+HF | RFID cloning, NFC attacks |
+| Ubertooth One | Bluetooth sniff | 2.4GHz | Bluetooth Classic monitoring |
+| GNU Radio | Software toolkit | Any (with hardware) | Custom signal processing |
+| GQRX | Spectrum analyzer | Any (with SDR) | Visual spectrum monitoring |
+| Universal Radio Hacker (URH) | Signal analysis | Any (with SDR) | Decode, analyze, fuzz RF protocols |
+| KillerBee | ZigBee framework | 2.4GHz | ZigBee sniffing and attacks |
+
+---
+
 ## Related Disciplines
 
 - [hardware-security.md](hardware-security.md) — PCB analysis, firmware extraction, hardware RE; often paired with RF for embedded wireless device assessments

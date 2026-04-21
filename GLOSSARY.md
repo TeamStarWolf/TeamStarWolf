@@ -364,6 +364,55 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 
 ---
 
+## Additional Terms
+
+### Offensive / Attack Terms
+
+| Term | Definition |
+|---|---|
+| **AiTM (Adversary-in-the-Middle)** | Phishing attack that proxies authentication between victim and legitimate site, capturing session tokens even after MFA — used by Evilginx3 and similar tools |
+| **AS-REP Roasting** | Attack targeting Kerberos accounts with pre-authentication disabled; attacker requests an AS-REP encrypted with user's password hash, then cracks offline |
+| **BFLA (Broken Function Level Authorization)** | API vulnerability where a lower-privileged user can invoke administrative functions; unauthorized vertical privilege escalation via API endpoints |
+| **BOLA (Broken Object Level Authorization)** | API vulnerability where a user can access another user's objects by manipulating ID parameters; most common API vulnerability (OWASP API #1) |
+| **CRTO** | Certified Red Team Operator — practical red team certification by Zero-Point Security; Cobalt Strike focused; 48-hour lab exam |
+| **DCSync** | Post-exploitation technique using legitimate AD replication (drsuapi) to extract password hashes from domain controllers without directly accessing NTDS.dit |
+| **DGA (Domain Generation Algorithm)** | Malware technique generating hundreds of pseudo-random domain names daily; only the attacker knows which are registered, making C2 blocking difficult |
+| **ESC1-ESC8** | Categories of Active Directory Certificate Services (ADCS) misconfigurations enabling privilege escalation and authentication bypass; discovered by SpecterOps researchers |
+| **FGSM (Fast Gradient Sign Method)** | Single-step adversarial example attack; perturbs input by one gradient step in the direction of maximum loss |
+| **Golden Ticket** | Kerberos attack using the KRBTGT account hash to forge Ticket Granting Tickets (TGTs) valid for any user, including Domain Admin, for up to 10 years |
+| **LLMNR Poisoning** | Attack exploiting Link-Local Multicast Name Resolution to intercept network name resolution requests and capture NTLMv2 hashes; countered by Responder tool |
+| **MFA Fatigue** | Social engineering attack flooding a target with MFA push notifications until they approve one out of annoyance; used by Scattered Spider and Lapsus$ |
+| **Pass-the-Hash (PtH)** | Using a captured NTLM hash directly for authentication without needing the plaintext password |
+| **Pass-the-Ticket (PtT)** | Using a stolen Kerberos ticket (TGT or TGS) directly for authentication without knowing the password |
+| **RollJam** | RF attack by Samy Kamkar that captures rolling-code key fob signals by jamming while recording; attacker retains valid unused code for replay |
+| **Silver Ticket** | Kerberos attack using a service account's hash to forge service tickets for a specific service; more targeted than Golden Ticket but doesn't require KRBTGT |
+| **SPN (Service Principal Name)** | AD attribute registering a service for Kerberos authentication; accounts with SPNs are targets for Kerberoasting |
+| **Unconstrained Delegation** | AD configuration allowing a service account to impersonate any user to any service; the most dangerous delegation type; exploited via SpoolSample/PrinterBug |
+
+### Defensive / Blue Team Terms
+
+| Term | Definition |
+|---|---|
+| **ASR Rules (Attack Surface Reduction)** | Windows Defender feature blocking specific behaviors commonly used by malware (Office spawning child processes, LSASS credential access) independent of signatures |
+| **ATT&CK Evaluations** | MITRE annual testing of commercial EDR vendors against real APT techniques; results published at attackevals.mitre-engenuity.org |
+| **Canary Token** | Lightweight honeytoken (URL, file, credential) that fires an alert when accessed; used to detect intruders accessing areas they shouldn't |
+| **DAM (Database Activity Monitoring)** | Records all SQL queries against databases at network/agent level; detects insider threats, privilege abuse, and data exfiltration |
+| **FAIR Model** | Factor Analysis of Information Risk — quantitative framework for modeling cyber risk in financial terms (Annual Loss Expectancy = Loss Event Frequency × Loss Magnitude) |
+| **Honeynet** | Network of honeypots and decoy systems designed to attract and study attackers while protecting real assets |
+| **JA3/JA3S** | TLS fingerprinting method based on client (JA3) and server (JA3S) hello parameters; used to identify specific TLS clients (Cobalt Strike beacons, malware families) |
+| **Malleable C2** | Cobalt Strike and Sliver feature allowing complete customization of beacon network traffic to mimic legitimate applications; makes static IOC detection ineffective |
+| **MTD (Maximum Tolerable Downtime)** | Maximum period a business process can be disrupted before unacceptable consequences occur; drives RPO/RTO requirements |
+| **OCSF (Open Cybersecurity Schema Framework)** | Open-source schema for normalizing security event data across vendors; enables interoperability between SIEM and security tools |
+| **PAW (Privileged Access Workstation)** | Dedicated hardened device used only for administrative tasks; isolated from internet browsing and email to prevent credential theft |
+| **RPKI (Resource Public Key Infrastructure)** | System for cryptographically verifying BGP route origin announcements; prevents BGP hijacking attacks |
+| **ROSI (Return on Security Investment)** | Financial metric calculating security investment value: (Risk Reduction × Asset Value) - Control Cost; used to justify security budgets |
+| **SCIM (System for Cross-domain Identity Management)** | Standard protocol for automating user provisioning between identity providers and SaaS applications |
+| **Sigma** | Generic, open-source SIEM rule format that can be converted to Splunk SPL, KQL, Elastic EQL, and other platform-specific query languages |
+| **Tiered Administration Model** | Active Directory security architecture separating administrator accounts into tiers (0=DCs, 1=Servers, 2=Workstations) to prevent credential theft across tiers |
+| **VAP (Very Attacked People)** | Proofpoint metric identifying employees receiving the most targeted, sophisticated attacks; used to prioritize additional security controls |
+
+---
+
 ## Related Resources
 - [Security Frameworks Reference](FRAMEWORKS.md) — framework comparisons and mappings
 - [Security Tools Reference](TOOLS.md) — tool quick-reference by category

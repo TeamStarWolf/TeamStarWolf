@@ -450,6 +450,211 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 
 ---
 
+## Ransomware Response Playbook (Detailed)
+
+### Phase 1: Initial Detection and Triage (0–2 Hours)
+
+**Immediate Actions (first 15 minutes)**
+1. **Do NOT reboot affected systems** — volatile memory contains forensic artifacts (encryption keys, running processes, network connections)
+2. **Isolate affected systems** — disconnect from network (pull cable or disable NIC via management interface) but keep powered on
+3. **Preserve evidence** — take memory snapshot if possible (WinPmem, DumpIt, or EDR live response)
+4. **Identify patient zero** — review logs for earliest encryption activity, anomalous process creation, lateral movement indicators
+5. **Activate Incident Response team** — engage internal IR, cyber insurance, and legal counsel simultaneously
+
+**Scope Assessment (15–60 minutes)**
+- Query EDR for any host executing ransomware binary hash or exhibiting encryption behavior (high I/O, file extension changes)
+- Search SIEM for shadow copy deletion (vssadmin, wmic, wbadmin), backup deletion, and mass file modification
+- Identify affected file shares, databases, and backup systems
+- Check cloud environments (AWS/Azure/GCP) for any encrypted cloud storage or compromised credentials
+
+**Communication (first hour)**
+- Notify: CISO, Legal, Communications, Executive Leadership
+- Do NOT communicate via email if compromised — use out-of-band channel (personal phones, Signal, Teams on separate tenant)
+- Engage cyber insurance carrier immediately — most policies require notification within 24-72 hours
+- Do not make public statements until legal counsel approves
+
+### Phase 2: Investigation (2–12 Hours)
+
+**Initial Access Analysis**
+- Review VPN/RDP access logs for the 30-60 days prior to encryption
+- Check for phishing emails or malicious attachments in email security gateway
+- Examine Active Directory for new accounts, group changes, GPO modifications
+- Review firewall logs for unusual inbound connections or beaconing patterns
+- Identify if credentials were sold on dark web (SpyCloud, Flare, or manual dark web search)
+
+**Attacker Timeline Reconstruction**
+1. Identify earliest attacker foothold (initial access date — often weeks before encryption)
+2. Map lateral movement: BloodHound AD enumeration, PsExec/WMI/WinRM activity in event logs
+3. Identify data exfiltration: large outbound transfers (firewall/proxy logs), cloud storage uploads, Rclone/MEGAsync/FTP activity
+4. Confirm scope of encrypted systems and backup status
+
+**Backup Integrity Assessment**
+- Are offline/air-gapped backups intact and clean?
+- Were backup credentials compromised and backups deleted?
+- Was Veeam/Backup Exec/Azure Backup targeted?
+- Test restore from backup on isolated system before committing to restore path
+
+### Phase 3: Ransomware Negotiation Guidance
+
+**Engage Professional Negotiators**
+Do not negotiate directly without expertise. Engage:
+- Coveware (leading ransomware negotiation and recovery firm)
+- Mandiant/Google, CrowdStrike Incident Response, Palo Alto Unit 42
+- Your cyber insurer's preferred IR/negotiation partner
+
+**OFAC Sanctions Check (Mandatory)**
+Before any payment consideration, verify the group is NOT on the OFAC SDN list:
+- [ofac.treasury.gov/sanctions-programs-and-country-information](https://ofac.treasury.gov/sanctions-programs-and-country-information)
+- Paying sanctioned entities (LockBit after certain dates, EVIL CORP) violates US law regardless of victimhood
+- Professional negotiators maintain current sanctions status; this is another reason to use them
+
+**Negotiation Principles**
+- Ransomware operators run this as a business — they negotiate
+- Common starting position: full ransom demand. Common settlement: 20-70% of initial demand
+- Demonstrate financial distress to justify lower payment: audited financials, attorney letter
+- Request test decryption of 2-5 non-critical files BEFORE paying — verify decryptor actually works
+- Get technical support commitment in writing — decryptors sometimes break on certain file types
+
+**Free Decryption Keys**
+ALWAYS check before paying:
+- **No More Ransom Project**: [nomoreransom.org](https://www.nomoreransom.org/) — free keys for 150+ ransomware strains (Hive, REvil, GandCrab, Maze, Dharma, and many others)
+- **ID Ransomware**: [id-ransomware.malwarehunterteam.com](https://id-ransomware.malwarehunterteam.com/) — identify ransomware family from ransom note or encrypted file
+- **Europol No More Ransom partners**: law enforcement regularly seizes keys during group takedowns
+
+**Payment Decision Framework**
+| Scenario | Recommended Decision |
+|---|---|
+| Clean offline backups available, RTO acceptable | Do not pay — restore from backup |
+| Partial backups, data exfiltration confirmed | Consider paying for decryptor; also must address extortion threat |
+| No backups, critical operations down | Engage professional negotiators; payment may be necessary |
+| Group is OFAC sanctioned | Do NOT pay — seek legal counsel and FBI engagement |
+| Group has history of not providing working decryptors | Do not pay — prioritize rebuild and data loss acceptance |
+
+### Phase 4: Containment and Eradication
+
+**Eradication Steps**
+1. Identify and remove all persistence mechanisms (registry run keys, scheduled tasks, services, WMI subscriptions)
+2. Reset ALL credentials — assume all AD accounts are compromised: service accounts, domain admins, local admins
+3. Revoke and reissue all certificates if ADCS was targeted (check for ADCS ESC attacks)
+4. Rebuild compromised systems from clean images — do not remediate in place
+5. Patch the initial access vector before returning to production
+6. Verify backup systems are clean before connecting to production
+
+**Active Directory Rebuild Considerations**
+- If NTDS.dit was stolen: all password hashes are compromised — force password reset for all users
+- If KRBTGT hash was obtained: Golden Tickets can persist; reset KRBTGT password TWICE (24 hours apart)
+- Review all GPOs for backdoors, all admin group memberships for unauthorized accounts
+- Deploy Microsoft's ESAE/Enhanced Security Admin Environment or Tier Model going forward
+
+### Phase 5: Recovery and Post-Incident
+
+**Restore Sequencing**
+Priority order: 1) Identity infrastructure (AD/AAD) → 2) Critical business systems → 3) Secondary systems → 4) User workstations
+
+**Post-Incident Review (within 30 days)**
+- Root cause analysis: how did attacker get in? How did they move laterally? How long were they present?
+- What controls failed? (MFA absent on VPN? Unpatched vulnerability? Weak password policy?)
+- What controls worked? (What did EDR catch? What SIEM alerts fired?)
+- Produce written After Action Report (AAR) with specific remediation items, owners, and deadlines
+
+---
+
+## Cloud Incident Response Playbook
+
+### AWS Incident Response
+
+**Immediate Triage**
+```bash
+# Identify compromised IAM entities
+aws iam get-account-authorization-details --output json > iam_snapshot.json
+
+# Review recent API activity for suspicious actions
+aws cloudtrail lookup-events --start-time 2024-01-01T00:00:00Z \
+  --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin
+
+# Check for new IAM users created recently
+aws iam list-users --query 'Users[?CreateDate>`2024-01-01`]'
+
+# List all active access keys (look for unexpected ones)
+aws iam list-users --query 'Users[*].UserName' --output text | \
+  xargs -I{} aws iam list-access-keys --user-name {}
+```
+
+**Containment**
+```bash
+# Immediately deactivate suspected compromised access key
+aws iam update-access-key --access-key-id AKIAXXXXXXXXXXXXXXXX --status Inactive --user-name victim-user
+
+# Attach deny-all policy to compromised IAM principal
+aws iam put-user-policy --user-name compromised-user --policy-name EmergencyDeny \
+  --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Deny","Action":"*","Resource":"*"}]}'
+
+# Revoke all active sessions for a role
+aws iam put-role-policy --role-name compromised-role --policy-name RevokeOldSessions \
+  --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Deny","Action":"*","Resource":"*","Condition":{"DateLessThan":{"aws:TokenIssueTime":"2024-01-01T12:00:00Z"}}}]}'
+```
+
+**Investigation**
+- Enable GuardDuty if not already active
+- Export CloudTrail logs to S3 and analyze with Athena or a SIEM
+- Look for: CreateUser, CreateAccessKey, AttachUserPolicy, CreateLoginProfile, PutRolePolicy
+- Check S3 buckets for unauthorized access or exfiltration
+- Review EC2 instance metadata service calls for credential theft
+
+### Azure Incident Response
+
+**Immediate Triage**
+```powershell
+# Review recent Entra ID sign-in activity
+Get-AzureADAuditSignInLogs -Filter "createdDateTime gt 2024-01-01" |
+  Where-Object {$_.riskLevelDuringSignIn -eq "high"} |
+  Select-Object userPrincipalName, ipAddress, location, riskDetail
+
+# List all Global Admins
+Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq "Global Administrator"} |
+  Get-AzureADDirectoryRoleMember
+
+# Check for new App Registrations (common persistence method)
+Get-AzureADApplication -All $true |
+  Where-Object {$_.createdDateTime -gt "2024-01-01"} |
+  Select-Object displayName, appId, createdDateTime
+```
+
+**Containment**
+- Revoke all refresh tokens for compromised user: `Revoke-AzureADUserAllRefreshToken -ObjectId <userid>`
+- Disable compromised account: `Set-AzureADUser -ObjectId <userid> -AccountEnabled $false`
+- Remove unauthorized App Registrations and Service Principals
+- Enable Conditional Access policy to block all sign-ins from compromised accounts
+
+---
+
+## Contacting Authorities — Complete Reference
+
+### United States
+| Agency | Contact | When to Use |
+|---|---|---|
+| FBI Cyber Division | [ic3.gov](https://www.ic3.gov/) or local field office | Ransomware, nation-state attacks, critical infrastructure incidents — FBI may have decryption keys |
+| CISA | [cisa.gov/report](https://www.cisa.gov/report) or 1-888-282-0870 | Critical infrastructure incidents; CISA provides free technical assistance |
+| US Secret Service | [secretservice.gov/investigation/cyber](https://www.secretservice.gov/investigation/cyber) | Financial cybercrime, BEC, payment card fraud |
+| DHS | Via CISA for most cyber incidents | |
+| NSA (CNMF) | For cleared defense contractors | Nation-state intrusions on defense networks |
+| OFAC | [ofac.treasury.gov](https://ofac.treasury.gov/) | Ransomware payment compliance — report if paying or seeking license |
+
+### International
+| Country | Agency | Contact |
+|---|---|---|
+| UK | NCSC | [report.ncsc.gov.uk](https://report.ncsc.gov.uk) |
+| EU | Europol EC3 | [europol.europa.eu/report-a-crime/report-cybercrime-online](https://www.europol.europa.eu/report-a-crime/report-cybercrime-online) |
+| Australia | ACSC | [cyber.gov.au/report](https://www.cyber.gov.au/report) |
+| Canada | CCCS | [cyber.gc.ca](https://www.cyber.gc.ca/) |
+| Germany | BSI | [bsi.bund.de](https://www.bsi.bund.de/) |
+| Global | INTERPOL | Via national contact; for multi-country attacks |
+| Global | No More Ransom | [nomoreransom.org](https://www.nomoreransom.org/) — free decryption keys |
+
+**Reporting ransomware to the FBI does NOT mean you cannot pay the ransom.** However, the FBI may have decryption keys for the specific ransomware variant. They will not share keys without engagement. Engaging early maximizes your options.
+
+---
+
 ## Related Resources
 - [Incident Response](disciplines/incident-response.md) — full IR discipline page with tools and methodology
 - [Digital Forensics](disciplines/digital-forensics.md) — forensic investigation techniques

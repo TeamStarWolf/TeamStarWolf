@@ -192,6 +192,110 @@ A structured recon pipeline maximizes attack surface coverage before active test
 
 ---
 
+
+## Bug Bounty Reconnaissance Methodology
+
+**Target Selection and Scope Review**
+- Read the entire program scope document before anything else
+- Wild card scopes (`*.target.com`) are richer; narrow scopes require precision
+- Note out-of-scope assets — submitting out-of-scope reports is a reputation killer
+- Check for "recently added" scope changes — fresh attack surface, fewer reports
+
+**Subdomain Enumeration**
+```bash
+# Passive (no direct contact with target)
+amass enum -passive -d target.com -o subs_passive.txt
+subfinder -d target.com -o subs_subfinder.txt
+assetfinder --subs-only target.com > subs_asset.txt
+
+# Active (touches DNS servers)
+amass enum -active -d target.com -o subs_active.txt
+
+# Brute force DNS
+gobuster dns -d target.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+
+# Combine and sort unique
+cat subs_*.txt | sort -u > all_subs.txt
+
+# Probe which are alive
+httpx -list all_subs.txt -o alive.txt -title -status-code
+```
+
+**Web Application Discovery**
+```bash
+# Screenshot alive hosts for quick triage
+gowitness file -f alive.txt -P screenshots/
+
+# Find web paths
+ffuf -u https://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/raft-large-words.txt -mc 200,301,302,403
+
+# Technology fingerprinting
+whatweb https://target.com
+wappalyzer-cli https://target.com
+
+# JavaScript endpoint discovery
+katana -u https://target.com -jc -o katana_output.txt  # Katana crawler
+
+# Find JS files and extract endpoints
+gau target.com | grep "\.js$" | tee js_files.txt
+cat js_files.txt | xargs -I {} sh -c 'curl -s {} | grep -oP "(?<=")[/a-zA-Z0-9_-]+(?=")"' | sort -u
+```
+
+---
+
+## High-Value Bug Classes
+
+**Server-Side Request Forgery (SSRF)**
+- Impact: Internal network access, metadata service (cloud credentials), internal port scanning
+- AWS IMDS: `http://169.254.169.254/latest/meta-data/iam/security-credentials/`
+- Azure IMDS: `http://169.254.169.254/metadata/instance?api-version=2021-02-01`
+- DNS rebinding: Time-of-check vs time-of-use; bypass IP allowlisting
+- Detection: Any URL parameter, file imports, webhook URLs, PDF generators, image processors
+- Tools: SSRFire, Interactsh (out-of-band detection)
+
+**Insecure Direct Object Reference (IDOR)**
+- Pattern: `GET /api/users/1234/documents` — change 1234 to another user's ID
+- Horizontal privilege escalation: Access another user's data at same privilege level
+- Vertical privilege escalation: Access admin functionality as regular user
+- Testing approach: Two accounts, capture requests from Account A, replay with Account B's session
+
+**Authentication Vulnerabilities**
+- JWT attacks: `alg:none` bypass, RS256 to HS256 confusion, weak secret brute force (`hashcat -a 0 -m 16500 token.txt wordlist.txt`)
+- OAuth vulnerabilities: redirect_uri manipulation, state parameter CSRF, token leakage via Referer
+- Account takeover via password reset: Token predictability, token reuse, host header injection (`Host: attacker.com` in password reset email)
+- 2FA bypass: Race condition, backup code enumeration, step skipping, response manipulation
+
+**Business Logic Flaws**
+- Price manipulation: Negative quantity, integer overflow, race conditions on coupon codes
+- Workflow bypass: Skip payment step, access post-purchase resources without purchasing
+- Mass assignment: Send unexpected fields in JSON body (`"role":"admin"`, `"credit":9999`)
+- Race conditions: Turbo Intruder in Burp Pro for parallel request attacks
+
+---
+
+## Platform and Program Strategy
+
+**Bug Bounty Platforms**
+
+| Platform | Model | Notes |
+|---|---|---|
+| HackerOne | Managed + public/private | Largest platform; Fortune 500 programs; VDP programs |
+| Bugcrowd | Managed + public/private | Strong enterprise focus; Next Gen Pen Test feature |
+| Intigriti | Managed (EU-focused) | Growing; strong European programs; good payouts |
+| Synack | Invite-only vetted | Paid platform; US government + large enterprise |
+| YesWeHack | EU-based | GDPR-compliant; strong French + European market |
+| Direct VDP | Company-managed | Many companies run own programs (Google, Apple, Microsoft, Meta) |
+
+**Responsible Disclosure Best Practices**
+- Document everything: Screenshots, HTTP requests/responses, reproduction steps
+- Proof of concept: Demonstrate impact clearly; don't just find the bug, show what an attacker could do
+- Don't exfiltrate real data: Demonstrate access without actually taking user data
+- Report clearly: Title (vuln type + location), severity (CVSS), steps to reproduce, impact, suggested remediation
+- Timelines: HackerOne standard is 30 days to triage, 90 days to fix; public programs often faster
+- Duplicates: Check BugCrowd/HackerOne public program reports for already-known issues before submitting
+
+---
+
 ## Related Disciplines
 
 - [Application Security](application-security.md)

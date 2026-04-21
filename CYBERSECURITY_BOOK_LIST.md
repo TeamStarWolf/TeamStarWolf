@@ -1035,6 +1035,93 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 ---
 
+## Incident Response & Digital Forensics
+
+> Dedicated IR and DFIR resource track. The books below focus specifically on forensic methodology, evidence acquisition, and the full incident response lifecycle — complementing the Blue Team section's detection and monitoring focus.
+
+| Book | Author | Year | Level | Why Read |
+|---|---|---|---|---|
+| **The Practice of Network Security Monitoring** | Richard Bejtlich | 2013 | Beginner-Mid | NSM methodology; Sguil/Bro/Snort; foundational for blue team |
+| **Applied Network Security Monitoring** | Chris Sanders & Jason Smith | 2013 | Intermediate | Collection, detection, analysis lifecycle; practical NSM |
+| **The Art of Memory Forensics** | Ligh, Case, Levy, Walters | 2014 | Intermediate-Advanced | Definitive Volatility reference; memory forensics for Windows/Linux/Mac |
+| **Digital Forensics with Open Source Tools** | Cory Altheide & Harlan Carvey | 2011 | Intermediate | Open-source forensic toolchain; Sleuth Kit, Autopsy, Volatility |
+| **Windows Forensics Analysis Toolkit** | Harlan Carvey | Various editions | Intermediate | Windows registry/artifact forensics; deep Windows internals |
+| **The Rootkit Arsenal** | Bill Blunden | 2009 | Advanced | Rootkit design and detection; deep kernel internals |
+| **Incident Response & Computer Forensics** | Luttgens, Pepe, Mandia | 2014 | Intermediate | End-to-end IR methodology; evidence collection; from Mandiant |
+| **Blue Team Handbook: Incident Response** | Don Murdoch | 2019 | Intermediate | Concise reference card format; excellent on-the-job companion |
+| **Intelligence-Driven Incident Response** | Rebekah Brown & Scott Roberts | 2017 | Intermediate | Threat intelligence + IR integration; F3EAD methodology |
+
+> **Practical note:** Pair these books with the [DFIR Report](https://thedfirreport.com) for real-world intrusion case studies. Volatility3 + memory samples from MalwareBazaar are the best free practice environment.
+
+**Hands-on repos:**
+- [volatility3](https://github.com/volatilityfoundation/volatility3) - Memory forensics framework (pairs with Art of Memory Forensics)
+- [sleuthkit](https://github.com/sleuthkit/sleuthkit) - Digital forensics toolkit (pairs with Digital Forensics with Open Source Tools)
+- [autopsy](https://github.com/sleuthkit/autopsy) - GUI forensics platform built on Sleuth Kit
+- [uac](https://github.com/tclahr/uac) - Live response artifact collection
+- [velociraptor](https://github.com/Velocidex/velociraptor) - Endpoint visibility and forensics
+- [plaso](https://github.com/log2timeline/plaso) - Super timeline creation from forensic artifacts
+- [timesketch](https://github.com/google/timesketch) - Timeline analysis and collaboration for DFIR
+- [awesome-incident-response](https://github.com/meirwah/awesome-incident-response) - Curated IR tools and resources
+
+**Certifications:** GCFE  | GCFA  | GCFR  | GCIH  | EnCE  | CFCE
+**Practice:** [CyberDefenders](https://cyberdefenders.org)  | [Blue Team Labs Online](https://blueteamlabs.online)  | [DFIR.training](https://dfir.training)
+
+---
+
+
+## Recent Publications (2022-2025)
+
+> Books published or gaining significant traction in 2022-2025. Covers emerging attack surfaces (APIs, AI), updated offensive tooling, and new non-fiction on nation-state operations.
+
+| Book | Author | Year | Level | Why Read |
+|---|---|---|---|---|
+| **Fancy Bear Goes Phishing** | Scott Shapiro | 2023 | Non-fiction | History of famous hacks through a cultural lens; very accessible; great for security awareness |
+| **The Art of Cyberwarfare** | Jon DiMaggio | 2022 | Intermediate | Threat intelligence practitioner guide; APT tracking methodology; attribution techniques |
+| **Hacking APIs** | Corey Ball | 2022 | Intermediate | API security testing; Postman, Burp, REST/GraphQL attacks; essential for bug bounty |
+| **Practical Threat Intelligence and Data-Driven Threat Hunting** | Valentina Palacin | 2021 | Intermediate | Threat intelligence lifecycle; data-driven hunting with Python; actionable methodology |
+| **Cybersecurity Ops with bash** | Paul Troncone & Carl Albing | 2019 | Beginner-Mid | Command-line security tools in bash; useful for SOC analysts and defenders |
+| **Bug Bounty Bootcamp** | Vickie Li | 2021 | Beginner-Mid | Web security from attacker perspective; great for bug bounty hunters starting out |
+| **Black Hat Python, 2nd Edition** | Justin Seitz & Tim Arnold | 2021 | Intermediate | Python for security tooling; network tools, exploits, trojans; updated for Python 3 |
+| **The Hacker and the State** | Ben Buchanan | 2020 | Non-fiction | Cyber operations as statecraft; NSA, GCHQ, China, Russia; essential policy context |
+| **Sandworm** | Andy Greenberg | 2019/2022 | Non-fiction | Definitive account of Russia's Sandworm team; NotPetya; Ukraine cyberwar |
+| **This Is How They Tell Me the World Ends** | Nicole Perlroth | 2021 | Non-fiction | Global zero-day market; NSA, Vupen, Zerodium; cyberweapon arms race |
+
+> **Practical note:** API security is now one of the highest-signal areas for bug bounty. *Hacking APIs* pairs directly with PortSwigger's Web Security Academy API labs. *The Art of Cyberwarfare* is the best practitioner-level TI book since Intelligence-Driven IR.
+
+**Hands-on repos:**
+- [crAPI](https://github.com/OWASP/crAPI) - Completely Ridiculous API: vulnerable API app for practice (pairs with Hacking APIs)
+- [vapi](https://github.com/roottusk/vapi) - Vulnerable API for API security testing practice
+- [APTnotes](https://github.com/kbandla/APTnotes) - Public APT reports for TI methodology practice (pairs with Art of Cyberwarfare)
+- [MISP](https://github.com/MISP/MISP) - Threat intelligence sharing platform (pairs with Practical Threat Intelligence)
+
+**Certifications:** GCTI  | CREST CRT  | eCTHP  | HTB CPTS
+**YouTube:** [John Hammond](https://www.youtube.com/@_JohnHammond)  | [IppSec](https://www.youtube.com/@ippsec)  | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy)
+
+---
+
+
+## Hacker Culture Classics (Extended)
+
+> These titles round out the cultural and historical canon -- covering the origins of hacker culture, the 1990s federal crackdowns, cybercrime journalism, and techno-fiction that gets the details right. Read alongside the main Hacker Culture / History section.
+
+| Book | Author | Year | Level | Why Read |
+|---|---|---|---|---|
+| **Hackers: Heroes of the Computer Revolution** | Steven Levy | 1984 | Anyone | Origin of hacker culture; hacker ethic; MIT AI Lab; Homebrew Computer Club; essential cultural literacy |
+| **The Hacker Crackdown** | Bruce Sterling | 1992 | Anyone | 1990 federal crackdown; Operation Sundevil; civil liberties; available free online; prescient |
+| **Fatal System Error** | Joseph Menn | 2010 | Anyone | Cybercrime, FBI, Russian mafia; investigative journalism; underground economy origins |
+| **We Are Anonymous** | Parmy Olson | 2012 | Anyone | Inside Anonymous; LulzSec; hacktivism; social dynamics of online collectives; IRC culture |
+| **Zero Day** | Mark Russinovich | 2011 | Fiction | Techno-thriller by the Sysinternals creator; surprisingly technically accurate; good gateway fiction |
+
+> **Note:** *The Hacker Crackdown* is freely available online (Bruce Sterling released it). *Hackers: Heroes* explains why the hacker ethic exists -- understanding it makes you a better defender and more ethical practitioner.
+
+**Hands-on repos:**
+- [APTnotes](https://github.com/kbandla/APTnotes) - Real APT campaign reports (modern equivalent of the stories in these books)
+- [the-catch](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks covering culture and history
+
+**Read next:** [Darknet Diaries Podcast](https://darknetdiaries.com)  | [2600: The Hacker Quarterly](https://www.2600.com)  | [Phrack Magazine](http://phrack.org) (archive)
+
+---
+
 ## Coverage Summary
 
 | Domain | Books | Key Tools | Best Free Practice |

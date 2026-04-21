@@ -300,6 +300,82 @@ Understanding how attacks are detected is as important for attackers (to evade d
 
 ---
 
+## Adversarial Machine Learning Attacks
+
+**Adversarial Examples (Evasion Attacks)**
+- Definition: Carefully crafted inputs that cause ML model to misclassify with high confidence
+- Classic example: Goodfellow et al. 2014 — panda image + imperceptible noise = gibbon (99.3% confidence)
+- Types:
+  - White-box: Full access to model gradients; most powerful (FGSM, PGD, C&W)
+  - Black-box: Query-only access; no gradient access; harder but practical (ZOO, NES attacks)
+  - Physical-world: Adversarial patches, glasses, stop sign stickers that fool real cameras (Eykholt et al. 2018)
+- Security relevance: Bypass malware classifiers, face recognition, autonomous vehicle perception, spam filters
+
+**Key Evasion Attack Algorithms**
+- FGSM (Fast Gradient Sign Method): Single gradient step; fast; weak but demonstrates vulnerability
+- PGD (Projected Gradient Descent): Multi-step; strongest known attack; standard for adversarial training
+- C&W (Carlini & Wagner): Optimized attack finding minimal perturbation; defeats many defenses
+- Adversarial patch: Print and place physical patch that universally fools classifiers in a scene
+
+**Model Inversion Attacks**
+- Goal: Reconstruct training data from model predictions
+- Face reconstruction: Given facial recognition model, reconstruct what training faces look like
+- Attribute inference: Given model, infer sensitive attributes of training subjects (medical conditions, demographics)
+- Defense: Differential privacy; prediction confidence hiding; output smoothing
+
+**Membership Inference Attacks**
+- Goal: Determine if specific sample was in the training dataset
+- Method: Training samples typically have higher confidence and lower loss than non-training samples
+- Security impact: Can expose that specific individuals' data was used (medical records, private photos)
+- Defense: Differential privacy; regularization; early stopping to reduce overfitting
+
+**Data Poisoning Attacks**
+- Clean-label poisoning: Add carefully crafted samples to training data causing model to misbehave on specific inputs
+- Backdoor/Trojan attack: Insert trigger pattern; model behaves normally except when trigger present
+- Model supply chain: Hugging Face malicious models; poisoned datasets on public repositories
+- Defense: Data provenance; anomaly detection in training data; certified defenses
+
+## MITRE ATLAS Framework
+
+ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) — MITRE's ML threat matrix
+
+**Key ATLAS Tactics and Techniques**
+
+| Tactic | Technique | Example |
+|--------|-----------|---------|
+| Reconnaissance | AML.T0000 - Search for Victim | Finding ML model endpoints via API docs, LinkedIn, GitHub |
+| Resource Development | AML.T0008 - Develop Capabilities | Building surrogate model for black-box transfer attacks |
+| Initial Access | AML.T0012 - Valid ML Accounts | Compromising API keys for ML services |
+| Execution | AML.T0040 - ML Supply Chain Compromise | Malicious PyPI/Conda package injecting backdoor |
+| Evasion | AML.T0015 - Evade ML Model | Adversarial examples bypassing image classifier |
+| Exfiltration | AML.T0024 - Invert ML Model | Model inversion to reconstruct training data |
+| Impact | AML.T0031 - Erode ML Model Integrity | Poisoning deployed model's behavior |
+
+**Security AI Applications and Their Attack Surfaces**
+
+| Application | Attack Surface | Adversarial Technique | Impact |
+|-------------|---------------|----------------------|--------|
+| Malware classification | PE feature manipulation | Evasion attack (modify binary without breaking function) | Bypass detection |
+| Spam/phishing detection | Adversarial text | Text-based evasion (typos, homoglyphs, paraphrasing) | Phishing delivery |
+| Facial recognition | Physical adversarial examples | Adversarial glasses/makeup | Bypass authentication |
+| Network intrusion detection | Packet manipulation | Feature-space evasion | IDS bypass |
+| CAPTCHA solving | Neural network solvers | Black-box query attack | Bot automation |
+| Autonomous vehicles | Camera adversarial patches | Physical adversarial examples | Safety risk |
+
+## Defenses Against Adversarial ML
+
+**Certified Defenses**
+- Randomized smoothing: Add Gaussian noise during inference; provable robustness radius
+- Certified training: Interval Bound Propagation (IBP) — verify no adversarial examples exist within epsilon ball
+- Limitation: Certified defenses have significantly lower accuracy on clean data
+
+**Practical Defenses**
+- Adversarial training (PGD-AT): Include adversarial examples in training data; most practical defense
+- Input preprocessing: JPEG compression, bit-depth reduction, feature squeezing — reduce adversarial perturbation signal
+- Ensemble defenses: Multiple models must agree; harder to fool simultaneously
+- Anomaly detection: Flag inputs with unusual gradient/activation patterns as potential adversarial examples
+- Input validation: For LLMs, validate inputs against known injection patterns before passing to model
+
 ## Related Disciplines
 
 - [ai-ml-security.md](ai-ml-security.md) — Defensive coverage of AI/ML systems: securing the ML pipeline, MLSecOps, model governance

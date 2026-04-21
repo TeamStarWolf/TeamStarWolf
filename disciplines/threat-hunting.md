@@ -321,6 +321,88 @@ SecurityEvent
 
 ---
 
+## Threat Hunting Hypothesis Development
+
+**Hypothesis Sources**
+- ATT&CK techniques not covered by existing detections
+- Threat intelligence reports about active campaigns targeting your sector
+- Anomaly in telemetry or SIEM data suggesting unexplained behavior
+- Red team findings showing detection gaps
+- Industry ISAC alerts (FS-ISAC, H-ISAC, E-ISAC, etc.)
+
+**Hypothesis Structure**
+Template: "I believe [threat actor type] may be [ATT&CK technique] via [specific mechanism] targeting [asset type], which would be visible in [data source] as [observable behavior]"
+
+Example: "I believe a lateral movement threat may be using Pass-the-Hash via CrackMapExec targeting Windows servers, which would be visible in Windows Security Event Logs (Event 4624 Type 3, 4648) as NTLM authentication from workstation IPs to server IPs without corresponding interactive logon."
+
+## Threat Hunting Procedures (ATT&CK-Mapped)
+
+**Hunt 1: Kerberoasting Detection**
+- Hypothesis: Adversary requesting service tickets for offline cracking
+- Data source: Windows Security Event Log 4769
+- Query (Splunk SPL):
+```
+index=windows EventCode=4769 TicketEncryptionType=0x17
+| stats count by Account_Name, ServiceName, Client_Address
+| where count > 5
+| sort -count
+```
+- Query (KQL/Sentinel):
+```kusto
+SecurityEvent
+| where EventID == 4769
+| where TicketEncryptionType == "0x17"
+| summarize count() by Account, ServiceName, IpAddress
+| where count_ > 5
+```
+- True positive signals: Multiple RC4 (0x17) tickets requested in short time from same source; service accounts that shouldn't be authenticated from workstations
+
+**Hunt 2: C2 Beaconing Detection (Statistical)**
+- Hypothesis: Beaconing malware making regular outbound connections
+- Data source: Proxy/firewall logs, DNS logs
+- Logic: Group connections by (src_ip, dst_ip, port), measure inter-arrival time variance
+- Low variance = periodic beaconing, not human traffic
+```
+index=proxy
+| stats count, avg(response_time), stdev(response_time) by src_ip, dest_ip
+| where count > 100 AND stdev(response_time) < 5
+| sort count desc
+```
+
+**Hunt 3: LSASS Memory Access**
+- Hypothesis: Credential dumping tool accessing LSASS
+- Data source: Sysmon Event 10 (ProcessAccess)
+- Query:
+```
+index=sysmon EventCode=10 TargetImage="*lsass.exe"
+| where NOT (SourceImage IN ("C:\Windows\System32\*", "C:\Program Files\*"))
+| table _time, SourceImage, GrantedAccess, CallTrace
+```
+
+**Hunt 4: Lateral Movement via WMI/PsExec**
+- Data sources: Sysmon Event 1 (process create), Security Event 7045/4697 (service install), Security Event 4624 Type 3
+- Indicator: wmiprvse.exe or services.exe spawning cmd.exe, powershell.exe, or unusual binaries
+
+**Hunt 5: Domain Fronting / Unusual HTTPS**
+- Data source: Proxy logs with SSL inspection, JA3 hashes
+- Hunt for: Known malicious JA3 hashes, HTTPS to CDN providers with unusual URI patterns, high-frequency small HTTPS posts with consistent byte sizes
+
+## Threat Hunting Tooling
+
+| Tool | Type | Use Case |
+|---|---|---|
+| Velociraptor | OSS | Enterprise-scale forensic collection and hunting queries (VQL) |
+| Elastic EQL | Built-in | Event Query Language for sequence-based hunting across Elastic data |
+| Sigma | OSS | Portable hunt rule format; convert to Splunk/KQL/Elastic |
+| HELK | OSS | Hunting ELK stack: Elasticsearch + Logstash + Kibana + Kafka + Spark ML |
+| KQL (Sentinel) | Cloud | Advanced hunting across Microsoft XDR and Sentinel |
+| Splunk Enterprise Security | Commercial | Threat hunting workbench, risk-based alerting |
+| ThreatHunter-Playbook | OSS | Open-source playbook library mapping ATT&CK to hunting procedures |
+| Jupyter Notebooks | OSS | Data science-style threat hunting; pandas + matplotlib for statistical hunting |
+| OSSEM | OSS | Open Source Security Events Metadata — data model for cross-platform hunting |
+
+---
+
 ## Related Disciplines
 
 - [Detection Engineering](detection-engineering.md) — Converting successful hunt findings into automated detection rules; SIGMA rule authoring; detection lifecycle management

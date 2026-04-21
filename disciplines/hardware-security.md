@@ -187,6 +187,111 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 ---
 
+
+## Hardware Attack Techniques
+
+### Side-Channel Attacks
+
+**Power Analysis**
+- Simple Power Analysis (SPA): single trace reveals key bits from power variations
+- Differential Power Analysis (DPA): statistical correlation across many traces extracts secret keys
+
+**Timing Attacks**
+- Measure execution time variations to infer secret data (crypto key bits, password characters)
+- Applies to software crypto without constant-time implementations
+
+**Electromagnetic Emissions**
+- EM radiation from chips leaks computation; measured with EM probe + oscilloscope
+- ChipWhisperer: Open hardware platform for power analysis and glitching attacks; `chipwhisperer.io`
+
+**Cache Side-Channel**
+- Spectre/Meltdown class attacks — exploit CPU cache timing differences to read across privilege boundaries
+
+### Fault Injection
+
+**Voltage Glitching**
+- Brief voltage spike causes CPU to skip instructions (bypass secure boot, authentication checks)
+
+**Clock Glitching**
+- Momentary clock signal manipulation causes setup/hold time violations → computation errors
+
+**Laser Fault Injection**
+- Focused laser induces bit flips in memory cells (most precise, expensive)
+
+**Tools**: ChipWhisperer, Riscure Inspector, NewAE CW Husky
+
+### JTAG and Debug Interface Attacks
+
+**JTAG (IEEE 1149.1)**
+- Test interface on nearly all embedded devices; provides full CPU control when active
+- Discovery: JTAGulator — automated JTAG pin discovery; scan 24 I/O lines to find TCK/TDO/TDI/TMS/TRST
+- Exploitation: OpenOCD + JTAG adapter → halt CPU → dump firmware → patch memory → read protected areas
+
+**UART**
+- Async serial interface (common default console); 115200 baud common
+- `minicom -D /dev/ttyUSB0 -b 115200`
+
+### Firmware Extraction and Analysis
+
+**Chip-off**
+- Physically remove flash chip → read with programmer (SOIC clip, VCC-GND-CLK-DATA-CS connections)
+
+**In-Circuit Programming (ICSP)**
+- Read flash in-circuit using SPI/I2C/JTAG without desoldering
+
+**Key Tools**
+- Binwalk: Identify embedded file systems, compression, crypto; `binwalk -e firmware.bin` extracts
+- Firmwalker: Scripts for finding interesting files (passwords, keys, telnet/ssh config, admin interfaces)
+- QEMU: Emulate ARM/MIPS firmware without hardware; `qemu-arm-static ./squashfs-root/usr/bin/httpd`
+
+### Secure Boot Bypass Techniques
+
+**Known Methods**
+- BootROM vulnerabilities: Immutable code in ROM; if flawed, game over (Samsung BootROM, iPhone checkm8)
+- Key extraction: Read signing keys from OTP (One-Time Programmable) memory via glitching
+- Downgrade attack: Flash older vulnerable firmware if version checking not enforced
+- U-Boot exploits: Interrupt boot sequence at U-Boot prompt if console accessible
+
+---
+
+## Trusted Platform Module (TPM) and Secure Enclaves
+
+### TPM 2.0
+
+- **Purpose**: Hardware root of trust; stores keys, certificates; measured boot; remote attestation
+- **Key capabilities**: Key generation, signing/encryption, PCR sealing (bind key to system state), attestation
+- **Attack**: TPM sniffing — intercept SPI bus between CPU and TPM; demonstrated on BitLocker-protected laptops
+- **Defense**: Use TPM 2.0 with PIN/biometric second factor; PIN defeats direct SPI sniffing attack
+
+### Intel SGX / AMD SEV
+
+- **SGX (Software Guard Extensions)**: CPU-level memory encryption; enclaves isolated from OS/hypervisor
+- **Attacks on SGX**: ÆPIC Leak (CVE-2022-21233), Foreshadow (L1TF), PlunderVolt (voltage fault injection)
+- **AMD SEV**: Encrypt virtual machine memory; protect VMs from hypervisor; SEV-SNP adds integrity protection
+
+### HSM (Hardware Security Module)
+
+- FIPS 140-2/140-3 Level 3/4 hardware device for key storage and cryptographic operations
+- Tamper-evident: Physical attack triggers key zeroization
+- Products: Thales Luna, Entrust nShield, AWS CloudHSM, Azure Dedicated HSM
+
+---
+
+## Hardware Security Tools Reference
+
+| Tool | Use Case | Skill Level |
+|------|----------|-------------|
+| ChipWhisperer | Power analysis and voltage glitching | Intermediate-Advanced |
+| JTAGulator | JTAG/UART pin discovery | Beginner-Intermediate |
+| Binwalk | Firmware analysis and extraction | Beginner |
+| OpenOCD | JTAG/SWD debugger and programmer | Intermediate |
+| Firmwalker | Firmware secret hunting | Beginner |
+| QEMU | Firmware emulation | Intermediate |
+| Bus Pirate | Serial/SPI/I2C/JTAG interface | Beginner-Intermediate |
+| Logic analyzer (Saleae) | Protocol analysis | Intermediate |
+| SOIC clip (Pomona) | In-circuit flash reading | Intermediate |
+| Riscure Inspector | Commercial side-channel analysis platform | Advanced |
+
 ## Related Disciplines
 
 - [ICS / OT Security](ics-ot-security.md) — Industrial control systems, PLCs, SCADA with embedded firmware

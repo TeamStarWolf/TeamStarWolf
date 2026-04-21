@@ -133,11 +133,11 @@ A curated index of free and accessible lab environments, CTF platforms, and prac
 |---|---|---|
 | [PicoCTF](https://picoctf.org/) | Jeopardy-style challenges | Beginner |
 | [CTFtime.org](https://ctftime.org/) | CTF event calendar and archives | All levels |
-| [Hack The Box](https://hackthebox.com) | Machine and challenge hacking | Intermediate–Advanced |
+| [Hack The Box](https://hackthebox.com) | Machine and challenge hacking | Intermediateâ€“Advanced |
 | [pwn.college](https://pwn.college/) | Binary exploitation and systems security | Intermediate |
 | [pwnable.kr](https://pwnable.kr/) | Binary exploitation wargames | Intermediate |
 | [Root-Me](https://www.root-me.org/) | 500+ challenges across all categories | All levels |
-| [NahamCon CTF](https://www.nahamcon.com/) | Annual beginner-friendly CTF | Beginner–Intermediate |
+| [NahamCon CTF](https://www.nahamcon.com/) | Annual beginner-friendly CTF | Beginnerâ€“Intermediate |
 | [RingZer0 CTF](https://ringzer0ctf.com/) | Broad category challenges | Intermediate |
 | [DEF CON CTF](https://defcon.org/html/links/dc-ctf.html) | World's most prestigious hacking competition | Elite |
 
@@ -172,12 +172,77 @@ Use AWS Free Tier + CloudGoat + Prowler:
 1. Create free AWS account
 2. Deploy [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) vulnerable scenarios
 3. Run [Prowler](https://github.com/prowler-cloud/prowler) to identify misconfigurations
-4. Practice with [flaws.cloud](http://flaws.cloud) — no AWS account needed
+4. Practice with [flaws.cloud](http://flaws.cloud) â€” no AWS account needed
 
 ---
 
 ## Related Resources
-- [Career Paths & Cert Roadmap](CAREER_PATHS.md) — skill progression by career track
-- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — vendor and control mapping by stage
-- [ATT&CK Navigator](navigator/) — technique coverage visualization
-- [Starred Repositories](STARRED_REPOS.md) — curated tool and project repos
+- [Career Paths & Cert Roadmap](CAREER_PATHS.md) â€” skill progression by career track
+- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) â€” vendor and control mapping by stage
+- [ATT&CK Navigator](navigator/) â€” technique coverage visualization
+- [Starred Repositories](STARRED_REPOS.md) â€” curated tool and project repos
+
+---
+
+## Blue Team Lab Platforms
+
+| Platform | Focus | Free? | Notes |
+|---|---|---|---|
+| LetsDefend | SOC analysis, alert triage, malware analysis | Free tier | Browser-based SOC simulator; paid plans for more scenarios |
+| Blue Team Labs Online (BTLO) | DFIR, threat hunting, log analysis | Free tier | Investigation challenges with realistic artifacts |
+| CyberDefenders | DFIR, blue team CTF | Free tier | High-quality memory/disk forensics challenges |
+| Hack Blue Team (HBT) | Detection engineering, Splunk | Free | SIEM-focused labs |
+| Splunk BOTS (Boss of the SOC) | Splunk investigation scenarios | Free (with Splunk account) | Annual CTF dataset; multiple seasons (v1-v4) |
+| Microsoft Sentinel Training Lab | Sentinel configuration and detection | Free (Azure free tier) | Official Microsoft training environment |
+| AttackIQ Academy | Security control validation | Free | Vendor training but genuinely useful purple team content |
+| Elastic Training | Elasticsearch/Kibana security | Free | Official Elastic security learning paths |
+
+---
+
+## Red Team / Offensive Lab Platforms
+
+| Platform | Focus | Free? | Notes |
+|---|---|---|---|
+| Hack The Box (HTB) | Machine-based hacking labs | Free (2 active machines) | Largest offensive platform; retiring machines unlock writeups |
+| TryHackMe | Beginner-friendly guided rooms | Free tier | Best for absolute beginners; guided learning paths |
+| pwn.college | Binary exploitation mastery | Free | Arizona State; dojo structure; best for exploit dev |
+| PentesterLab | Web app and code review | Free tier | Excellent for AppSec; pro plan has badge certification |
+| PortSwigger Web Security Academy | Web application attacks | Free | Best web security training available; 200+ labs |
+| VulnHub | Downloadable vulnerable VMs | Free | Offline; great for OSCP prep |
+| OWASP WebGoat / DVWA | Intentionally vulnerable web apps | Free | Self-hosted vulnerable app targets |
+
+---
+
+## Cloud Security Labs
+
+| Platform | Cloud | Focus | Free? | Notes |
+|---|---|---|---|---|
+| flaws.cloud | AWS | Common AWS misconfigurations (IAM, S3, EC2) | Free | Created by Scott Piper of Summit Route |
+| flaws2.cloud | AWS | AWS attacker + defender paths | Free | |
+| CloudGoat (Rhino Security) | AWS | Vulnerable-by-design AWS environment | Free (deploy yourself) | |
+| AWSGoat | AWS | Vulnerable AWS infrastructure | Free | |
+| DVCA (Damn Vulnerable Cloud App) | Azure | Azure security misconfigs | Free | |
+| TerraGoat | AWS/Azure/GCP | Vulnerable Terraform configurations | Free (IaC security learning) | |
+| GCPGoat | GCP | GCP security misconfigurations | Free | |
+
+---
+
+## Home Lab Environments
+
+### Defensive Stack Home Lab
+
+- Hypervisor: VMware Workstation Pro ($200, permanent license) or Proxmox VE (free, enterprise-grade)
+- Domain: Windows Server 2022 Evaluation (free 180 days); active directory with multiple OUs
+- Detection stack: Security Onion (Zeek + Suricata + Elastic + Kibana) — single-ISO deployment
+- Endpoint telemetry: Sysmon on Windows VMs; Wazuh agents; forward to Elastic
+- Attack machine: Kali Linux or Parrot OS
+- Recommended exercises: Run Atomic Red Team tests; verify they appear in SIEM; tune detections
+
+### Minimum Hardware for Lab
+
+| Component | Minimum | Recommended | Notes |
+|---|---|---|---|
+| RAM | 16GB | 32-64GB | Each VM needs 2-4GB; more VMs = more RAM |
+| CPU | 4 cores | 8+ cores | Virtualization support (VT-x/VT-d) required |
+| Storage | 500GB SSD | 1TB+ NVMe SSD | VMs are IO-intensive; NVMe matters |
+| Network | 1Gbps | 2.5Gbps | Internal lab traffic; host-only networks in hypervisor |

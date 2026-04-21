@@ -132,6 +132,93 @@ A physical penetration test follows a structured kill chain:
 - **NFC Relay Attacks**: Using two devices (one near victim, one near reader) to relay an authentication session in real time — bypasses distance-based security assumptions.
 - **OSDP Protocol**: Open Supervised Device Protocol (RS-485) is the modern standard for reader-to-controller communication. Unlike Wiegand (no encryption, no authentication), OSDP v2 supports AES-128 encryption, but many deployments leave it unconfigured.
 
+
+## Physical Penetration Testing Methodology -- Extended
+
+### Legal and Authorization
+
+- **Scope document**: Explicit authorization letter from authorized decision-maker (not just IT director; facilities and legal leadership may also need to authorize)
+- **Emergency contact list**: 24/7 numbers to call if caught by security or law enforcement
+- **Get out of jail letter**: Physical letter on company letterhead authorizing the test; includes tester description, vehicle, equipment
+- **Rules of engagement**: What constitutes success? Building access only? Executive floor? Server room? Data center? Safe combinations?
+
+### Reconnaissance
+
+- **OSINT**: Google Street View, Google Earth, building permit records, LinkedIn for security team names and schedules
+- **Physical observation**: Note guard patrol patterns, shift changes, smoking areas (tailgate opportunities), delivery schedules
+- **Social media**: Employees posting badge photos reveal badge design, color, and format
+
+### Entry Techniques
+
+- **Tailgating**: Following authorized personnel through door; asking them to hold it
+- **Piggybacking**: Social engineering the holder to actively hold door
+- **Shoulder surfing**: Observing PINs and access codes
+- **Badge cloning**: Proxmark3 or ACR122U for 125kHz (HID Prox, EM4100) cloning; Flipper Zero for low-frequency RFID
+- **Shimming**: Thin plastic card to slip door latch on improperly fitted door frames
+- **Under-door tool**: Hook to pull down lever handles from underside of door
+- **Rex sensor defeat**: Motion sensor above door triggers release from inside; use lever/thin rod under door
+
+### Lock Picking
+
+- **Single Pin Picking (SPP)**: Most controlled technique; feedback-driven; tension wrench + pick
+- **Raking**: Fast, less controlled; serrated rakes; effective against low-security locks
+- **Bumping**: Modified key + mallet; resonance defeats spring-loaded pins
+- **Bypass tools**: Credit card shimming, loiding, jiggler keys for wafer locks
+- **High-security locks**: Medeco, Abloy, Mul-T-Lock -- require specialist bypass or alternative attack path
+- **Resources**: Deviant Ollam (Practical Lock Picking), LockPickingLawyer YouTube
+
+### Wireless Security Testing
+
+- **RFID/NFC attacks**: Flipper Zero, Proxmark3 -- read, save, replay, emulate badges
+- **125kHz (HID, EM4100)**: No encryption; fully clonable; most common in older buildings
+- **13.56 MHz (MIFARE Classic)**: Weakly encrypted; Crypto-1 cipher broken; clonable with mfoc/mfcuk
+- **13.56 MHz (MIFARE DESFire, ICODE)**: AES/3DES encryption; much harder to clone
+- **WiFi survey**: Detect rogue APs, probe for WPA2-Enterprise networks
+
+### Social Engineering -- Physical Component
+
+- **Pretext scenarios**: IT support, vendor/contractor, facilities maintenance, auditor, delivery person
+- **Vishing before visit**: Call ahead to name-drop, set up pretext with receptionist
+- **Physical props**: Hard hat, safety vest, clipboard, ID badge holder
+- **Visual impersonation**: Dress like the target's typical contractors or visitors
+
+---
+
+## Physical Security Controls and Bypass Methods
+
+| Control | Bypass Method | Detection/Prevention |
+|---------|---------------|----------------------|
+| Deadbolt | Lock picking, shimming, bump key | High-security locks (Medeco, Abloy), security pins |
+| Electromagnetic lock (mag-lock) | REX sensor defeat, power outage | Fail-secure wiring, REX override, UPS |
+| PIN pad | Shoulder surfing, thermal camera attack | Privacy shields, anti-tailgate sensors |
+| RFID/Prox badge | Clone with Proxmark3/Flipper Zero | Encrypted badges (DESFire EV2), anti-cloning readers |
+| Mantrap/airlock | Social engineering entry staff | Anti-tailgate + mantrap + trained guard |
+| CCTV | Blind spots, covering cameras, misdirection | Overlapping coverage, motion alerts, FOV audits |
+| Security guard | Social engineering pretext | Training, challenge culture, visitor escort policy |
+| Dumpster | Physical access (public trash) | Shredding policy, locked dumpster enclosures |
+
+---
+
+## Reporting Physical Pen Test Findings
+
+### Finding Format
+
+- **Finding title**: e.g., Badge cloning enables unauthorized facility access
+- **Risk rating**: Critical/High/Medium/Low
+- **Evidence**: Photos (redacted if containing sensitive info), description of entry method used
+- **Remediation**: Specific technical and procedural recommendations
+- **Detection**: Were guards/security systems triggered? If not, detection gap noted
+
+### Common Physical Security Findings
+
+- 125kHz RFID badges (fully clonable without encryption)
+- Tailgating not challenged by staff (culture/training gap)
+- Server rooms accessible with same badge as main building
+- Laptop/equipment left unattended in public/semi-public spaces
+- Sensitive documents visible on desks or in unlocked filing cabinets
+- Dumpster containing unshredded employee data
+
+---
 ## Related Disciplines
 
 - [Social Engineering](social-engineering.md)

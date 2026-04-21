@@ -355,6 +355,198 @@ International standard for industrial automation and control system (IACS) secur
 
 ---
 
+---
+
+## NIST CSF 2.0 Deep Dive
+
+NIST CSF 2.0 (released February 2024) added a sixth function — **Govern** — and restructured the framework to be applicable to any organization size and sector.
+
+**Six Functions and Core Categories**
+
+| Function | ID | Key Categories | Purpose |
+|---|---|---|---|
+| Govern | GV | Organizational Context, Risk Management Strategy, Roles & Responsibilities, Policy, Oversight, Supply Chain Risk | New in 2.0 — sets organizational risk strategy and accountabilities |
+| Identify | ID | Asset Management, Risk Assessment, Improvement | Understand cybersecurity risks to systems, people, assets, data |
+| Protect | PR | Identity Management, Awareness Training, Data Security, Platform Security, Technology Resilience | Safeguards to limit or contain cybersecurity event impact |
+| Detect | DE | Continuous Monitoring, Adverse Event Analysis | Identify occurrence of cybersecurity events |
+| Respond | RS | Incident Management, Incident Analysis, Reporting, Communication, Mitigation | Take action on detected cybersecurity incidents |
+| Recover | RC | Incident Recovery Plan, Incident Recovery Communication | Restore capabilities after a cybersecurity incident |
+
+**Key Changes from CSF 1.1 to 2.0**
+- Govern function added (organizational leadership accountability)
+- Supply chain risk management elevated to its own category under Govern
+- Expanded applicability beyond critical infrastructure (now universal)
+- Implementation Examples added alongside Informative References
+- Community Profiles concept introduced for sector-specific guidance
+- Tiers 1-4 now called Implementation Tiers (Partial, Risk-Informed, Repeatable, Adaptive)
+
+---
+
+## NIST 800-53 Rev 5 Control Families Quick Reference
+
+| Family | ID | Control Count | Focus |
+|---|---|---|---|
+| Access Control | AC | 25 | IAM, least privilege, remote access |
+| Awareness and Training | AT | 6 | Security awareness, role-based training |
+| Audit and Accountability | AU | 16 | Logging, audit records, non-repudiation |
+| Assessment, Authorization | CA | 9 | Security assessments, authorization, continuous monitoring |
+| Configuration Management | CM | 14 | Baseline configs, change control, software restrictions |
+| Contingency Planning | CP | 13 | BCP/DR, backup, alternate processing |
+| Identification and Authentication | IA | 13 | MFA, authenticator management, identity proofing |
+| Incident Response | IR | 10 | IR capability, training, reporting, handling |
+| Maintenance | MA | 6 | Controlled maintenance, remote maintenance |
+| Media Protection | MP | 8 | Media access, sanitization, transport |
+| Physical Protection | PE | 23 | Physical access control, monitoring, utilities |
+| Planning | PL | 11 | System security plans, rules of behavior |
+| Program Management | PM | 32 | Enterprise-wide risk management program |
+| Personnel Security | PS | 9 | Screening, termination, third-party personnel |
+| PII Processing | PT | 8 | Privacy controls (new in Rev 5) |
+| Risk Assessment | RA | 10 | Risk assessments, vulnerability scanning, SCRM |
+| Supply Chain Risk | SR | 12 | New expanded family in Rev 5 |
+| System & Services Acquisition | SA | 23 | Secure development, developer security testing |
+| System & Comm Protection | SC | 51 | Network boundaries, cryptography, data-in-transit |
+| System & Info Integrity | SI | 23 | Malware protection, security alerts, patching |
+
+**Key Rev 5 Changes**
+- Supply Chain Risk Management (SR) family added
+- PII Processing and Transparency (PT) family added
+- Outcome-based language replacing prescriptive requirements
+- Controls now apply to all federal systems (previously tiered by impact level)
+- Integrated with NIST Privacy Framework
+
+---
+
+## ISO/IEC 27001:2022 Changes
+
+ISO 27001 was updated in October 2022 with significant changes to Annex A controls.
+
+**Control Set Changes: 2013 to 2022**
+
+| Category | 2013 | 2022 |
+|---|---|---|
+| Total controls | 114 (14 domains) | 93 (4 themes) |
+| New controls | — | 11 new controls |
+| Merged controls | — | 24 pairs merged |
+| Deleted controls | — | 1 deleted |
+
+**Four Themes (replacing 14 domains)**
+1. **Organizational controls** (37 controls) — policies, roles, risk management, supplier security
+2. **People controls** (8 controls) — screening, awareness, responsibilities, remote work
+3. **Physical controls** (14 controls) — physical security, media, equipment
+4. **Technological controls** (34 controls) — authentication, access, encryption, monitoring, vulnerability management
+
+**11 New Controls in 2022 Annex A**
+
+| Control | ID | Description |
+|---|---|---|
+| Threat Intelligence | 5.7 | Collect and analyze threat intel to inform controls |
+| Information Security for Cloud Services | 5.23 | Acquisition and management of cloud security |
+| ICT Readiness for Business Continuity | 5.30 | BC planning including ICT continuity |
+| Physical Security Monitoring | 7.4 | CCTV, alarms, access monitoring |
+| Configuration Management | 8.9 | Secure configurations for hardware/software/networks |
+| Information Deletion | 8.10 | Proper deletion when no longer needed |
+| Data Masking | 8.11 | Masking PII and sensitive data |
+| Data Leakage Prevention | 8.12 | DLP controls |
+| Monitoring Activities | 8.16 | Network and system activity monitoring |
+| Web Filtering | 8.23 | Control access to external websites |
+| Secure Coding | 8.28 | Apply secure coding principles in development |
+
+---
+
+## SOC 2 Trust Services Criteria
+
+**Five Trust Service Categories**
+
+| Category | Abbreviation | Always Required | Description |
+|---|---|---|---|
+| Security | CC (Common Criteria) | Yes | Protection against unauthorized access |
+| Availability | A | Optional | System available for operation as agreed |
+| Processing Integrity | PI | Optional | Complete, valid, accurate, timely processing |
+| Confidentiality | C | Optional | Confidential info protected as agreed |
+| Privacy | P | Optional | PII collected, used, retained, disclosed appropriately |
+
+**Type I vs Type II**
+- **Type I**: Point-in-time assessment of control design only. Completed faster (2-4 months). Less meaningful to sophisticated customers.
+- **Type II**: 6-12 month observation period assessing operating effectiveness. Standard expectation for B2B SaaS vendors. More expensive ($30,000-$100,000+).
+
+**Common Criteria (CC) Control Categories**
+- CC1: Control Environment (COSO principles)
+- CC2: Communication and Information
+- CC3: Risk Assessment
+- CC4: Monitoring of Controls
+- CC5: Control Activities
+- CC6: Logical and Physical Access (most intensive)
+- CC7: System Operations
+- CC8: Change Management
+- CC9: Risk Mitigation
+
+---
+
+## PCI DSS v4.0 Key Changes (Effective March 2024)
+
+PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024.
+
+**Key Changes**
+
+| Area | Change |
+|---|---|
+| Customized approach | New alternative to prescriptive controls — organizations can design their own controls to meet security objectives |
+| Authentication | MFA required for ALL access to cardholder data environment (not just remote access) |
+| Anti-phishing | New requirements for anti-phishing mechanisms |
+| E-commerce | Explicit requirements for protection of payment pages |
+| Penetration testing | Role-based training requirement added |
+| Network security | "Firewalls" replaced with "network security controls" (broadened to include cloud/SDWAN) |
+| Targeted risk analysis | Organizations must perform TRA for each requirement with "periodically" language |
+
+**12 PCI DSS Requirements (v4.0)**
+1. Install and maintain network security controls
+2. Apply secure configurations to all system components
+3. Protect stored account data
+4. Protect cardholder data with strong cryptography during transmission
+5. Protect all systems against malware
+6. Develop and maintain secure systems and software
+7. Restrict access to system components and cardholder data by business need to know
+8. Identify users and authenticate access to system components
+9. Restrict physical access to cardholder data
+10. Log and monitor all access to system components and cardholder data
+11. Test security of systems and networks regularly
+12. Support information security with organizational policies and programs
+
+---
+
+## CMMC 2.0 Level Reference
+
+| Level | Name | Practice Count | Assessment | Who Needs It |
+|---|---|---|---|---|
+| Level 1 | Foundational | 17 (FAR 52.204-21) | Annual self-assessment | FCI (Federal Contract Information) only |
+| Level 2 | Advanced | 110 (NIST SP 800-171) | Annual self-assessment OR triennial C3PAO | Contractors handling CUI |
+| Level 3 | Expert | 110 + 24 (NIST SP 800-172) | Triennial DCSA-led government assessment | High-value/priority programs, advanced APT risk |
+
+**Domains in Level 2 (800-171 Families)**
+
+Access Control, Awareness & Training, Audit & Accountability, Configuration Management, Identification & Authentication, Incident Response, Maintenance, Media Protection, Personnel Security, Physical Protection, Risk Assessment, Security Assessment, System & Communications Protection, System & Information Integrity
+
+---
+
+## Framework Selection Guide
+
+| Scenario | Recommended Framework(s) |
+|---|---|
+| US Federal agency or contractor (any) | NIST 800-53, NIST CSF 2.0 |
+| DoD/Defense contractor with CUI | CMMC 2.0 + NIST 800-171 |
+| SaaS company selling to enterprise | SOC 2 Type II + ISO 27001 |
+| Payment processing / cardholder data | PCI DSS v4.0 |
+| EU/global customer data (personal data) | ISO 27001 + GDPR |
+| Healthcare (US) | HIPAA Security Rule + NIST CSF |
+| Critical infrastructure (US) | NIST CSF 2.0 + sector-specific (NERC CIP, NIST 800-82) |
+| ICS/OT environment | IEC 62443, NIST 800-82 Rev 3 |
+| Cloud security posture | CSA CCM, ISO 27017 |
+| AI/ML systems | NIST AI RMF 1.0, ISO 42001 |
+| Small/mid-size company (general) | CIS Controls v8 Implementation Groups 1-2 |
+
+
+---
+
 ## Related Resources
 - [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — controls mapped to pipeline stages and vendors
 - [Controls Mapping](CONTROLS_MAPPING.md) — NIST 800-53 → ATT&CK technique chain

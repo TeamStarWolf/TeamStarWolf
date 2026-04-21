@@ -215,6 +215,157 @@ Understanding how cryptographic systems are attacked is essential for both build
 
 ---
 
+---
+
+## Cryptography Fundamentals
+
+**Symmetric Encryption**
+
+| Algorithm | Key Size | Mode | Use Case | Notes |
+|---|---|---|---|---|
+| AES-128-GCM | 128-bit | GCM (AEAD) | TLS 1.3, disk encryption, API encryption | Best for most uses; authenticated encryption |
+| AES-256-GCM | 256-bit | GCM | High-security requirements, post-quantum margin | FIPS 140-3 approved; minimal performance cost over AES-128 |
+| AES-128-CBC | 128-bit | CBC | Legacy; widely supported | Requires separate MAC; BEAST attack on old TLS; no auth encryption |
+| ChaCha20-Poly1305 | 256-bit | Stream+MAC | Mobile/low-power devices | TLS 1.3 alternative to AES-GCM; faster on devices without AES hardware instructions |
+| 3DES | 168-bit effective | CBC | Legacy mainframe, some payment HSMs | Deprecated; Sweet32 attack; avoid in new systems |
+| DES | 56-bit | CBC | Do not use | Trivially broken (56-bit key) |
+
+**Asymmetric Encryption**
+
+| Algorithm | Key Size | Use Case | Post-Quantum Safe? |
+|---|---|---|---|
+| RSA-2048 | 2048-bit | TLS cert signing, email encryption | No (Shor's algorithm) |
+| RSA-4096 | 4096-bit | High-security signing | No (still Shor's) |
+| ECDSA P-256 | 256-bit | TLS certificates, code signing | No |
+| ECDH P-256 | 256-bit | Key exchange (TLS) | No |
+| Ed25519 | 255-bit | SSH keys, JWT signing, certificate signing | No |
+| ML-KEM (CRYSTALS-Kyber) | Various | Post-quantum key encapsulation | YES (NIST FIPS 203) |
+| ML-DSA (CRYSTALS-Dilithium) | Various | Post-quantum digital signatures | YES (NIST FIPS 204) |
+
+**Hash Functions**
+
+| Function | Output | Use | Status |
+|---|---|---|---|
+| SHA-256 | 256-bit | Integrity, digital signatures, certificates | Current standard |
+| SHA-384/512 | 384/512-bit | High-security environments, NSA Suite B | Current standard |
+| SHA3-256 | 256-bit | Alternative to SHA-2 | NIST approved |
+| bcrypt | 60 chars | Password hashing | Recommended; auto-salted |
+| Argon2id | Variable | Password hashing | NIST recommended 2023; PHC winner |
+| MD5 | 128-bit | Checksums only (not security) | Cryptographically broken for signatures |
+| SHA-1 | 160-bit | Deprecated legacy | Broken (SHAttered attack 2017); do not use |
+
+**Common Crypto Mistakes**
+
+| Mistake | Correct Approach | Vulnerability |
+|---|---|---|
+| ECB mode for block cipher | Use GCM or CBC+HMAC | ECB blocks reveal patterns (penguin attack) |
+| MD5/SHA1 for password storage | bcrypt, Argon2id, scrypt | Rainbow table attacks; collision attacks |
+| Weak random for crypto | `os.urandom()`, `SecureRandom`, `crypto.randomBytes()` | Predictable keys |
+| Self-rolled crypto | Use OpenSSL, libsodium, Bouncy Castle | Subtle flaws in custom implementations |
+| Hardcoded encryption key | Key management service (Vault, KMS) | Key exposure = all data exposed |
+| No IV or static IV in CBC | Random IV per encryption operation | Duplicate ciphertext reveals duplicate plaintext |
+
+---
+
+## PKI and Certificate Lifecycle
+
+**Certificate Authority Hierarchy**
+```
+Root CA (offline, air-gapped, HSM-backed)
+└── Intermediate CA 1 (online, issues TLS certificates)
+    ├── *.example.com (TLS leaf cert)
+    └── code-signing.example.com (code signing cert)
+└── Intermediate CA 2 (issues client auth certificates)
+    └── user@example.com (client auth cert)
+```
+
+**Certificate Profiles**
+
+| Type | Key Usage | Extended Key Usage | Common Use |
+|---|---|---|---|
+| TLS Server | Digital Signature, Key Encipherment | Server Authentication (1.3.6.1.5.5.7.3.1) | HTTPS web servers |
+| TLS Client | Digital Signature | Client Authentication (1.3.6.1.5.5.7.3.2) | mTLS, ZTNA |
+| Code Signing | Digital Signature | Code Signing (1.3.6.1.5.5.7.3.3) | Software signing |
+| Email (S/MIME) | Digital Signature, Key Encipherment | Email Protection (1.3.6.1.5.5.7.3.4) | Encrypted/signed email |
+| Document Signing | Non-Repudiation | Document Signing | PDF signing |
+
+**Certificate Transparency (CT)**
+- All public TLS certs must be logged in CT logs (since 2018)
+- CT log: Public append-only ledger; anyone can query
+- crt.sh: Query CT logs for certificates issued for a domain — attackers use for recon!
+- Defense: Monitor CT logs for unauthorized certificates for your domain (crt.sh, Facebook CT Monitor)
+
+**ACME Protocol (Let's Encrypt)**
+```bash
+# Certbot — automated certificate management
+certbot --nginx -d example.com -d www.example.com
+
+# Wildcard certificate (DNS challenge required)
+certbot certonly --manual --preferred-challenges dns -d "*.example.com"
+
+# Auto-renewal (add to cron)
+0 3 * * * certbot renew --quiet
+
+# Testing with staging environment
+certbot --staging --nginx -d example.com
+```
+
+**Certificate Pinning**
+- HPKP (deprecated): HTTP header pinning; catastrophic if pin changed incorrectly; removed from browsers
+- Application-level pinning: Mobile apps pin expected cert hash; bypass requires repackaging
+- CAA (Certification Authority Authorization) DNS record:
+```
+example.com. CAA 0 issue "letsencrypt.org"
+example.com. CAA 0 issuewild ";"  (no wildcard certs allowed)
+example.com. CAA 0 iodef "mailto:security@example.com"
+```
+
+---
+
+## TLS Hardening Reference
+
+**TLS Configuration Best Practices (Nginx)**
+```nginx
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305;
+ssl_prefer_server_ciphers off;  # TLS 1.3 handles this
+ssl_session_timeout 1d;
+ssl_session_cache shared:SSL:10m;
+ssl_session_tickets off;         # Disable TLS session tickets (forward secrecy)
+ssl_stapling on;                 # OCSP stapling
+ssl_stapling_verify on;
+add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";
+```
+
+**Testing TLS Configuration**
+```bash
+# SSLyze (Python)
+sslyze target.com:443 --regular
+
+# testssl.sh
+./testssl.sh target.com:443
+
+# nmap TLS scan
+nmap --script ssl-enum-ciphers -p 443 target.com
+
+# Online: ssllabs.com/ssltest
+```
+
+---
+
+## Post-Quantum Cryptography
+
+**NIST Post-Quantum Standards (2024)**
+- FIPS 203 (ML-KEM / Kyber): Key encapsulation; replace RSA/ECDH in key exchange
+- FIPS 204 (ML-DSA / Dilithium): Digital signatures; replace RSA/ECDSA
+- FIPS 205 (SLH-DSA / SPHINCS+): Hash-based signatures; backup when lattice math broken
+
+**Migration Strategy**
+- Crypto-agile architecture: Cipher suites parameterized; swap without rewriting system
+- Hybrid mode: Combine classical + post-quantum key exchange (X25519 + Kyber) — defeats both attacks
+- Timeline: "Store now, decrypt later" attacks happening now; migrate sensitive data within 5 years
+- TLS 1.3 + Kyber: Chrome and major browsers experimenting with hybrid X25519Kyber768
+
 ## Related Disciplines
 
 - [Supply Chain Security](supply-chain-security.md) — Code signing, SBOM, artifact provenance

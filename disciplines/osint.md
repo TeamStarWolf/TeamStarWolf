@@ -205,6 +205,107 @@ Understanding which of these techniques expose your organization's data drives p
 
 ---
 
+
+## OSINT Collection Methodology (OPSEC-First)
+
+**Pre-Collection OPSEC**
+- Sock puppet accounts: Create realistic fake personas for attribution-sensitive investigations
+- Separate browser profile with VPN: Never investigate from personal IP or browser with existing cookies
+- Tor Browser: For highest-risk lookups; slower but prevents ISP/target visibility
+- VM snapshots: Revert after each investigation to avoid cross-contamination of browsing fingerprint
+- Never click on investigated URLs directly from browser — use screenshot services or archive.org
+
+**Recon Phase Order**
+1. Passive DNS/infrastructure mapping (without touching target)
+2. WHOIS, ASN, netblock ownership
+3. Certificate transparency logs (no direct contact with target)
+4. Code repository scanning
+5. Social media and SOCMINT
+6. Active enumeration (if authorized — touches target directly)
+
+---
+
+## Technical OSINT Techniques
+
+**Domain and Infrastructure Intelligence**
+```bash
+# WHOIS and history
+whois target.com
+whois -h whois.radb.net -- '-i origin AS12345'  # BGP route objects
+
+# DNS enumeration
+host target.com
+nslookup -type=MX target.com
+amass enum -d target.com -passive    # passive subdomain enum
+
+# Certificate transparency (no contact with target)
+# Search: crt.sh, censys.io, certspotter.com
+curl 'https://crt.sh/?q=%.target.com&output=json' | jq '.[].name_value' | sort -u
+
+# Reverse IP (find other domains on same IP)
+# HackerTarget Reverse IP, ViewDNS, SecurityTrails
+
+# Shodan for infrastructure
+shodan search org:"Target Corp"
+shodan host TARGET_IP
+```
+
+**Google Dorking Reference**
+
+| Dork | Purpose | Example |
+|---|---|---|
+| `site:` | Limit to domain | `site:target.com filetype:pdf` |
+| `inurl:` | URL contains string | `inurl:admin site:target.com` |
+| `intitle:` | Page title | `intitle:"index of" site:target.com` |
+| `filetype:` | Specific file type | `filetype:xls site:target.com password` |
+| `cache:` | Google's cached version | `cache:target.com/admin` |
+| `"string"` | Exact phrase | `"target.com" "password"` |
+| `-` | Exclude term | `site:target.com -www` |
+| `OR` | Boolean OR | `site:target.com (admin OR login)` |
+
+**Leaked Credentials and Data**
+- Have I Been Pwned (HIBP): `hibp.api` — check if email appears in breaches; enterprise API for bulk
+- Dehashed: Aggregates leaked data; email → hash/password (subscription required)
+- BreachDirectory: Similar to Dehashed
+- GitHub/GitLab code search: `"target.com" password` or API key patterns in public repos
+- Gitleaks: Scan git repos for secrets; `gitleaks detect --source . --verbose`
+- TruffleHog: Deep scan git history including deleted commits; `trufflehog git https://github.com/target/repo`
+
+**Social Media OSINT (SOCMINT)**
+- LinkedIn: Employee enumeration, org structure, tech stack (job postings), departure timing
+- Twitter/X: Real-time intel, hashtag monitoring, location metadata from old tweets
+- Instagram: Geolocation from photos (Exif data in older posts; building backgrounds)
+- OSINT Framework (osintframework.com): Comprehensive resource map for all OSINT categories
+
+**GEOINT and Physical Location**
+- Google Street View: Building layout, security camera positions, entry points
+- Satellite imagery: Google Earth, Sentinel Hub, Planet Labs
+- Wigle.net: WiFi network database with geolocation; `wigle.net/search?ssid=TargetCorp`
+- EXIF data: `exiftool image.jpg` — GPS coordinates in unstripped photos
+
+---
+
+## OSINT Tooling Reference
+
+| Tool | Type | Use Case |
+|---|---|---|
+| Maltego | Commercial/Community | Visual link analysis and graph-based OSINT |
+| SpiderFoot | OSS | Automated OSINT with 200+ modules |
+| recon-ng | OSS | Modular web recon framework (like Metasploit for OSINT) |
+| theHarvester | OSS | Email, domain, IP, employee enumeration from 50+ sources |
+| Shodan CLI | OSS/Commercial | Internet-exposed device intelligence |
+| Censys | Commercial | Certificate and infrastructure search |
+| OSINT Framework | OSS | Curated resource directory (osintframework.com) |
+| Creepy | OSS | Geolocation social media OSINT |
+| Exiftool | OSS | Metadata extraction from files |
+| Amass | OSS | Subdomain enumeration (passive + active) |
+| IntelX | Commercial | Data breach search, darkweb, leaked data |
+| SecurityTrails | Commercial | DNS history, subdomain enum, IP intel |
+| Twint | OSS | Twitter scraping without API (check current status) |
+| Sherlock | OSS | Username enumeration across 400+ platforms |
+
+---
+
 ## Related Disciplines
 
 - [Threat Intelligence](/disciplines/threat-intelligence) — OSINT is the primary collection method for threat intelligence; threat intel analysts use OSINT to track threat actors, identify infrastructure, and produce finished intelligence products

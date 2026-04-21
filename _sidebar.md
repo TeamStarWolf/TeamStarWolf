@@ -67,6 +67,8 @@
 - **🗺️ Coverage & Data**
   - [Enterprise Security Pipeline](SECURITY_PIPELINE.md)
   - [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md)
+  - [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md)
+  - [Windows Hardening & GPO Reference](WINDOWS_HARDENING_GPO.md)
   - [Security Tools Reference](TOOLS.md)
   - [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md)
   - [Frameworks Reference](FRAMEWORKS.md)

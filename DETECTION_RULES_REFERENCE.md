@@ -1125,6 +1125,425 @@ Maintain a changelog alongside rules:
 
 ---
 
+---
+
+## 9. Sigma Rules — Practical Examples by ATT&CK Tactic
+
+### Initial Access (T1566 — Phishing)
+```yaml
+title: Suspicious Office Child Process
+id: 438025f9-5856-4663-83f7-52f878a70a50
+status: stable
+description: Detects suspicious child processes spawned by Office applications — common phishing attachment execution pattern
+author: TeamStarWolf
+date: 2024/01/01
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        ParentImage|endswith:
+            - '\WINWORD.EXE'
+            - '\EXCEL.EXE'
+            - '\POWERPNT.EXE'
+            - '\OUTLOOK.EXE'
+        Image|endswith:
+            - '\cmd.exe'
+            - '\powershell.exe'
+            - '\wscript.exe'
+            - '\cscript.exe'
+            - '\mshta.exe'
+            - '\regsvr32.exe'
+    condition: selection
+falsepositives:
+    - Legitimate Office macros used in the environment (document and suppress)
+level: high
+tags:
+    - attack.initial_access
+    - attack.t1566.001
+    - attack.execution
+    - attack.t1204.002
+```
+
+### Execution (T1059.001 — PowerShell)
+```yaml
+title: Suspicious PowerShell Encoded Command
+id: ca2092a1-c273-4878-9b4b-a3f2a4f0a6b7
+status: stable
+description: Detects PowerShell with encoded commands — common for obfuscated malware and post-exploitation
+author: TeamStarWolf
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_img:
+        Image|endswith: '\powershell.exe'
+    selection_cli:
+        CommandLine|contains:
+            - ' -EncodedCommand '
+            - ' -enc '
+            - ' -EC '
+    filter_legitimate:
+        CommandLine|contains:
+            - 'Get-GPOReport'   # GPMC legitimate use
+    condition: selection_img and selection_cli and not filter_legitimate
+falsepositives:
+    - Legitimate administrative scripts using -EncodedCommand
+level: medium
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.defense_evasion
+    - attack.t1027
+```
+
+### Persistence (T1053.005 — Scheduled Task)
+```yaml
+title: Scheduled Task Created via Schtasks
+id: 92a65ab3-4078-4d5b-89eb-4e01f2a28bab
+status: stable
+description: Detects creation of scheduled tasks via schtasks.exe — common persistence mechanism
+author: TeamStarWolf
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\schtasks.exe'
+        CommandLine|contains: '/create'
+    filter_system:
+        User: 'SYSTEM'
+        CommandLine|contains: '\Microsoft\Windows'
+    condition: selection and not filter_system
+falsepositives:
+    - Legitimate software installers
+    - IT automation tools (SCCM, Ansible, etc.)
+level: medium
+tags:
+    - attack.persistence
+    - attack.t1053.005
+```
+
+### Defense Evasion (T1070.001 — Clear Windows Event Logs)
+```yaml
+title: Windows Event Log Cleared
+id: a62b31e2-d8d6-4b29-bf50-e4b4edb9c45a
+status: stable
+description: Detects clearing of Windows event logs — strong indicator of attacker covering tracks
+author: TeamStarWolf
+logsource:
+    product: windows
+    service: system
+detection:
+    selection:
+        EventID:
+            - 104   # System log cleared
+            - 1102  # Security log cleared
+    condition: selection
+falsepositives:
+    - Legitimate log rotation (rare for Security log)
+    - Forensic investigation procedures
+level: high
+tags:
+    - attack.defense_evasion
+    - attack.t1070.001
+```
+
+### Credential Access (T1003.001 — LSASS Memory Dump)
+```yaml
+title: LSASS Memory Access by Non-System Process
+id: 32d0d3e2-e58d-4d41-a703-4b59b8d18901
+status: stable
+description: Detects non-system processes accessing LSASS memory — credential dumping indicator
+author: TeamStarWolf
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess|contains:
+            - '0x1010'
+            - '0x1410'
+            - '0x147a'
+            - '0x143a'
+    filter:
+        SourceImage|startswith:
+            - 'C:\Windows\System32\'
+            - 'C:\Windows\SysWOW64\'
+            - 'C:\Program Files\Windows Defender\'
+    condition: selection and not filter
+falsepositives:
+    - Security software and EDR agents (add to filter list)
+level: critical
+tags:
+    - attack.credential_access
+    - attack.t1003.001
+```
+
+### Lateral Movement (T1021.002 — SMB/Windows Admin Shares)
+```yaml
+title: Remote Service Installation via Admin Shares
+id: 4e0a78ef-7d53-4f4e-b1b2-8d9f5e62a1bc
+status: stable
+description: Detects use of PsExec-style remote service installation — lateral movement indicator
+author: TeamStarWolf
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 7045   # New service installed
+        ServiceFileName|contains:
+            - '\ADMIN$\'
+            - '\C$\'
+            - '\IPC$\'
+    condition: selection
+falsepositives:
+    - Legitimate remote administration tools
+    - Software deployment via SCCM/PDQ Deploy
+level: high
+tags:
+    - attack.lateral_movement
+    - attack.t1021.002
+    - attack.t1569.002
+```
+
+---
+
+## 10. KQL — Microsoft Sentinel Queries
+
+### Detect Suspicious PowerShell Network Connections
+```kql
+// Hunt for PowerShell making unexpected outbound connections
+// Useful for detecting C2 beaconing or PowerShell download cradles
+DeviceNetworkEvents
+| where InitiatingProcessFileName =~ "powershell.exe"
+| where RemoteIPType != "Private"
+| where RemotePort in (80, 443, 8080, 8443)
+| summarize
+    ConnectionCount = count(),
+    DistinctIPs = dcount(RemoteIP),
+    FirstSeen = min(Timestamp),
+    LastSeen = max(Timestamp)
+    by DeviceName, InitiatingProcessCommandLine, RemoteIP, RemotePort
+| where ConnectionCount > 5
+| sort by ConnectionCount desc
+```
+
+### Detect LSASS Dump via Task Manager or ProcDump
+```kql
+// Detect credential dumping via common tools
+DeviceProcessEvents
+| where FileName in~ ("procdump.exe", "procdump64.exe", "sqldumper.exe")
+| where ProcessCommandLine has_any ("lsass", "-ma", "-mm")
+| project Timestamp, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName
+| sort by Timestamp desc
+```
+
+### Detect Kerberoasting Activity
+```kql
+// Kerberoasting: TGS ticket requests for SPNs with RC4 encryption
+// Event 4769 — Kerberos Service Ticket Operations
+SecurityEvent
+| where EventID == 4769
+| where TicketEncryptionType == "0x17"  // RC4 (weak — targeted by Kerberoasting)
+| where ServiceName !endswith "$"        // Exclude machine accounts
+| where ServiceName !startswith "krbtgt" // Exclude krbtgt
+| summarize
+    RequestCount = count(),
+    TargetAccounts = make_set(ServiceName)
+    by IpAddress, Account, bin(TimeGenerated, 5m)
+| where RequestCount > 3
+| sort by RequestCount desc
+```
+
+### Detect Azure AD Risky Sign-Ins
+```kql
+// Detect impossible travel or other risk signals in Entra ID
+SigninLogs
+| where RiskLevelDuringSignIn in ("high", "medium")
+| where ResultType == 0  // Successful sign-in despite risk
+| project
+    TimeGenerated,
+    UserPrincipalName,
+    IPAddress,
+    Location,
+    RiskLevelDuringSignIn,
+    RiskDetail,
+    AppDisplayName,
+    DeviceDetail
+| sort by TimeGenerated desc
+```
+
+### Hunt for DNS Tunneling
+```kql
+// High-entropy or high-volume DNS queries indicating tunneling
+DnsEvents
+| extend QueryLength = strlen(Name)
+| where QueryLength > 40  // Long subdomain labels common in DNS tunneling
+| summarize
+    QueryCount = count(),
+    AvgQueryLength = avg(QueryLength),
+    UniqueDomains = dcount(Name)
+    by ClientIP, bin(TimeGenerated, 1h)
+| where QueryCount > 200  // Unusually high DNS query rate
+| sort by QueryCount desc
+```
+
+---
+
+## 11. Splunk SPL Queries
+
+### Detect Lateral Movement via PsExec
+```spl
+index=windows source="WinEventLog:Security" EventCode=7045
+| where like(ServiceFileName, "%ADMIN$%") OR like(ServiceFileName, "%C$%")
+| stats count by host, ServiceName, ServiceFileName, AccountName
+| sort -count
+```
+
+### Detect Mimikatz via Process Name and Command Line
+```spl
+index=windows (EventCode=4688 OR source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1)
+| where lower(CommandLine) LIKE "%sekurlsa%" 
+   OR lower(CommandLine) LIKE "%privilege::debug%"
+   OR lower(CommandLine) LIKE "%lsadump::dcsync%"
+   OR lower(CommandLine) LIKE "%mimikatz%"
+| table _time, host, user, CommandLine, ParentProcessName
+```
+
+### Detect DNS Beaconing (Statistical Analysis)
+```spl
+index=network sourcetype=stream:dns query=*
+| bucket _time span=1h
+| stats count AS query_count, dc(query) AS unique_queries BY _time, src, dest
+| eventstats avg(query_count) AS avg_qps, stdev(query_count) AS stdev_qps BY src, dest
+| where query_count > avg_qps + (2 * stdev_qps)
+| sort -query_count
+```
+
+### Detect Shadow Copy Deletion (Ransomware Pre-Encryption)
+```spl
+index=windows (EventCode=4688 OR source="*Sysmon*" EventCode=1)
+| where like(lower(CommandLine), "%vssadmin%delete%shadows%")
+   OR like(lower(CommandLine), "%wmic%shadowcopy%delete%")
+   OR like(lower(CommandLine), "%wbadmin%delete%catalog%")
+| table _time, host, user, CommandLine
+| sort -_time
+```
+
+### Hunt for C2 Beaconing (Periodic Connection Pattern)
+```spl
+index=network sourcetype=stream:tcp dest_port IN (80, 443, 8080, 8443)
+| bucket _time span=1h
+| stats count AS conn_count, dc(_time) AS hours_active BY src_ip, dest_ip, dest_port
+| where conn_count > 20 AND hours_active > 4
+| eventstats avg(conn_count) AS avg_conns, stdev(conn_count) AS stdev_conns BY src_ip, dest_ip
+| where abs(conn_count - avg_conns) < stdev_conns  // Low variance = beaconing
+| sort -conn_count
+```
+
+---
+
+## 12. Suricata Rules
+
+### Detect Metasploit Meterpreter HTTPS Traffic (JA3)
+```suricata
+alert tls any any -> any any (
+    msg:"MALWARE Metasploit Meterpreter HTTPS Default JA3";
+    ja3.hash; content:"ae4edc6faf64d08308082ad26be60767";
+    classtype:trojan-activity;
+    sid:9000001;
+    rev:1;
+    metadata:created_at 2024_01_01, affected_product Windows;
+)
+```
+
+### Detect DNS Tunneling via Long Labels
+```suricata
+alert dns any any -> any 53 (
+    msg:"POTENTIAL DNS Tunneling - Excessively Long Query Label";
+    dns.query; pcre:"/[a-zA-Z0-9\-]{50,}\./";
+    threshold: type limit, track by_src, count 5, seconds 60;
+    classtype:policy-violation;
+    sid:9000002;
+    rev:1;
+)
+```
+
+### Detect ICMP Tunneling (Large Payload)
+```suricata
+alert icmp any any -> $HOME_NET any (
+    msg:"POTENTIAL ICMP Tunneling - Oversized Echo Payload";
+    itype:8;
+    dsize:>64;
+    threshold: type threshold, track by_src, count 10, seconds 10;
+    classtype:policy-violation;
+    sid:9000003;
+    rev:1;
+)
+```
+
+### Detect Cobalt Strike Staging URI Pattern
+```suricata
+alert http $HOME_NET any -> any any (
+    msg:"MALWARE Cobalt Strike Default Staging URI";
+    http.uri; content:"/submit.php"; endswith;
+    http.method; content:"POST";
+    classtype:trojan-activity;
+    sid:9000004;
+    rev:1;
+)
+```
+
+### Detect SMB Pass-the-Hash Lateral Movement
+```suricata
+alert smb $HOME_NET any -> $HOME_NET 445 (
+    msg:"LATERAL MOVEMENT Potential Pass-the-Hash via SMB";
+    smb.ntlmssp_auth;
+    threshold: type both, track by_src, count 5, seconds 30;
+    classtype:policy-violation;
+    sid:9000005;
+    rev:1;
+)
+```
+
+---
+
+## 13. Detection Testing with Atomic Red Team
+
+Validate your detections by executing the exact technique and confirming the rule fires.
+
+```bash
+# Install Atomic Red Team
+Install-Module -Name invoke-atomicredteam -Force
+Import-Module invoke-atomicredteam
+
+# List available tests for a technique
+Invoke-AtomicTest T1003.001 -ShowDetailsBrief
+
+# Execute LSASS dump test (run as admin in isolated lab)
+Invoke-AtomicTest T1003.001 -TestNumbers 1
+
+# Clean up after test
+Invoke-AtomicTest T1003.001 -TestNumbers 1 -Cleanup
+```
+
+**Detection validation workflow**:
+1. Pick the ATT&CK technique your rule targets (e.g., T1059.001)
+2. Run `Invoke-AtomicTest T1059.001 -ShowDetailsBrief` to see available tests
+3. Execute the test in your lab environment
+4. Confirm your SIEM/EDR fires the expected alert
+5. If no alert: investigate log coverage → tune data source → update rule
+6. Document: technique, test number, expected alert, confirmed firing, false positive rate
+
+**Key Atomic Red Team resources**:
+- Repository: [github.com/redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team)
+- ATT&CK technique index: [atomicredteam.io/atomics](https://atomicredteam.io/atomics)
+- Windows test prerequisites: Windows Defender exclusions on lab VM required for many tests
+
+
 ## 8. Useful References
 
 | Resource | URL | Description |

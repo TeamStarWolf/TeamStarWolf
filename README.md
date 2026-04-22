@@ -65,6 +65,7 @@ A public resource library for the cybersecurity community.
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
+| [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | WiFi attacks (WPA2/WPA3, evil twin, PMKID), Bluetooth, SDR, RFID/NFC, and enterprise wireless hardening |
 
 ---
 

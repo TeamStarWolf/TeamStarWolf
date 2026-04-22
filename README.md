@@ -200,6 +200,7 @@ A public resource library for the cybersecurity community.
 | [Pentest Checklists](PENTEST_CHECKLISTS.md) | Step-by-step checklists for external, internal, AD, web app, cloud, and post-exploitation testing |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
+| [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | Enumeration, Kerberoasting, DCSync, ACL abuse, ADCS ESC attacks, NTLM relay, and domain trust exploitation |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | Wireshark, tcpdump, Zeek, Suricata -- traffic analysis, C2 detection, and network IR procedures |

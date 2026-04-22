@@ -68,6 +68,7 @@ A public resource library for the cybersecurity community.
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [Windows Hardening](WINDOWS_HARDENING.md) | CIS benchmarks, GPO hardening, ASR rules, Defender for Endpoint, AppLocker/WDAC, and compliance scanning |
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | WiFi attacks (WPA2/WPA3, evil twin, PMKID), Bluetooth, SDR, RFID/NFC, and enterprise wireless hardening |
+| [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
 | [Container Security](CONTAINER_SECURITY_REFERENCE.md) | Docker hardening, Kubernetes security, OPA/Gatekeeper, Falco, SBOM, supply chain security, and SLSA |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, TLS configuration, PKI, key management, post-quantum cryptography, and attack reference |

@@ -87,6 +87,7 @@
   - [Privilege Escalation Reference](PRIVESC_REFERENCE.md)
   - [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)
   - [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)
+  - [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md)
   - [Malware Families](MALWARE_FAMILIES.md)
 
 ---

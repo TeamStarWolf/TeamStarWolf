@@ -37,6 +37,7 @@ A public resource library for the cybersecurity community.
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component in the enterprise |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | WAF rules, ASR rules, CrowdStrike prevention policies, Tanium modules, Proofpoint, Zscaler ZIA/ZPA |
 | [Windows Hardening & GPO Reference](WINDOWS_HARDENING_GPO.md) | GPO-based hardening, service disabling, credential protection, audit policy, CIS benchmarks |
+| [Linux Hardening Reference](LINUX_HARDENING.md) | CIS Benchmark controls, SSH hardening, auditd, SELinux/AppArmor, kernel parameters, and service hardening |
 | [Security Tools Reference](TOOLS.md) | 100+ tools organized by category |
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | OSS security tools and bookmarks by discipline |
 | [Frameworks Reference](FRAMEWORKS.md) | NIST CSF, ISO 27001, PCI DSS, CMMC, GDPR, and 10+ frameworks |

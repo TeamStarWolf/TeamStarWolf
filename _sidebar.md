@@ -29,6 +29,7 @@
   - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)
   - [API Security Reference](API_SECURITY_REFERENCE.md)
   - [Windows Hardening](WINDOWS_HARDENING.md)
+  - [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md)
   - [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
   - [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md)
   - [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md)

@@ -99,6 +99,7 @@
 
 - **📖 Reference**
   - [Glossary](GLOSSARY.md)
+  - [Email Security Reference](EMAIL_SECURITY_REFERENCE.md)
   - [Threat Actors](THREAT_ACTORS.md)
   - [Notable Incidents](NOTABLE_INCIDENTS.md)
   - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)

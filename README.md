@@ -69,6 +69,7 @@ A public resource library for the cybersecurity community.
 | [Pentest Checklists](PENTEST_CHECKLISTS.md) | External, internal, AD, web app, cloud, and post-exploitation |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Web, forensics, crypto, RE, binary exploitation, and OSINT challenges |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples |
+| [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to ATT&CK with SPL, KQL, and investigation steps |
 
 </details>
 

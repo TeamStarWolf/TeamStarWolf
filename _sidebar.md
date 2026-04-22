@@ -87,6 +87,7 @@
   - [Pentest Checklists](PENTEST_CHECKLISTS.md)
   - [CTF Methodology](CTF_METHODOLOGY.md)
   - [Privilege Escalation Reference](PRIVESC_REFERENCE.md)
+  - [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md)
   - [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)
   - [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)
   - [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md)

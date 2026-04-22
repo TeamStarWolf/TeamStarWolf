@@ -87,19 +87,17 @@
   - [Pentest Checklists](PENTEST_CHECKLISTS.md)
   - [CTF Methodology](CTF_METHODOLOGY.md)
   - [Privilege Escalation Reference](PRIVESC_REFERENCE.md)
-  - [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md)
   - [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)
+  - [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md)
   - [Detection Rules Reference](DETECTION_RULES_REFERENCE.md)
   - [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md)
   - [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md)
   - [Malware Families](MALWARE_FAMILIES.md)
-  - [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md)
 
 ---
 
 - **📖 Reference**
   - [Glossary](GLOSSARY.md)
-  - [Email Security Reference](EMAIL_SECURITY_REFERENCE.md)
   - [Threat Actors](THREAT_ACTORS.md)
   - [Notable Incidents](NOTABLE_INCIDENTS.md)
   - [HTB Machine Index](research/HTB_MACHINE_INDEX.md)

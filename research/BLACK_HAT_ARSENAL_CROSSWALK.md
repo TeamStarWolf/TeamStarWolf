@@ -422,3 +422,110 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | KAPE | EricZimmerman | Triage artifact collection and processing tool; collects Windows forensic artifacts and runs analysis modules | https://www.kroll.com/en/services/cyber-risk/incidents-intrusions-breaches/kroll-artifact-parser-extractor-kape |
 | Chainsaw | WithSecureLabs | Fast Windows Event Log hunting and threat detection using Sigma rules and built-in patterns | github.com/WithSecureLabs/chainsaw |
 | Hayabusa | Yamato-Security | Windows Event Log fast forensics and threat hunting tool with 4000+ Sigma-based detection rules | github.com/Yamato-Security/hayabusa |
+
+---
+
+## Extended Tool Reference
+
+### C2 Frameworks and Post-Exploitation Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| Cobalt Strike | T1071, T1055, T1059, T1548 | C2 Framework | Industry-standard adversary simulation; malleable profiles, BOFs, SMB/DNS/HTTP beacons |
+| Sliver | T1071, T1055, T1059, T1548 | C2 Framework | Open-source Go-based C2; mTLS, WireGuard, HTTP/S, DNS implants; sidesteps CS signatures |
+| Havoc | T1071, T1059, T1055 | C2 Framework | Modern C2 with Demon implant; custom binary protocol; sleep obfuscation |
+| Brute Ratel C4 | T1071, T1055, T1027 | C2 Framework | Commercial adversary simulation targeting EDR evasion; no Cobalt Strike signatures |
+| Metasploit | T1190, T1059, T1055 | Exploitation Framework | Gold-standard open-source framework; 2,000+ modules; Meterpreter implant |
+| Empire | T1059.001, T1071, T1055 | Post-Exploitation | PowerShell/Python/C# agents; OPSEC profiles; BloodHound integration |
+| Mythic | T1059, T1071, T1055 | C2 Framework | Multi-operator collaborative C2; agent-agnostic; React UI; containerized |
+
+### Credential Access Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| Mimikatz | T1003.001, T1558, T1550.002 | Credential Dumping | sekurlsa::logonpasswords, lsadump::dcsync, kerberos::golden, kerberos::silver |
+| Rubeus | T1558.003, T1558.004, T1550.003 | Kerberos Attacks | Pure C# Kerberos toolkit: Kerberoasting, AS-REP Roasting, ticket manipulation, S4U abuse |
+| Impacket | T1003, T1558, T1021.006 | Protocol Implementation | Python toolkit: secretsdump, GetSPNs, wmiexec, smbexec, psexec, ntlmrelayx |
+| CrackMapExec / NetExec | T1021, T1003, T1087 | Network Pentesting | Swiss Army knife for AD: SMB/WinRM/LDAP/MSSQL; BloodHound integration |
+| Certipy | T1649, T1558 | ADCS Attacks | Python tool for ESC1-ESC8 certificate template abuse, shadow credentials |
+| Certify | T1649, T1558 | ADCS Attacks | .NET tool for enumerating and abusing AD Certificate Services misconfigurations |
+
+### Active Directory Attack Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| BloodHound | T1087, T1482, T1069 | AD Attack Paths | Graph-based AD attack path analysis; SharpHound collector; Community Edition (CE) is free |
+| SharpHound | T1087, T1069, T1482 | AD Enumeration | .NET BloodHound data collector; also available as PowerShell |
+| PowerView | T1069, T1087, T1482 | AD Enumeration | PowerShell AD recon: Get-NetUser, Get-ObjectAcl, Find-DomainShare |
+| ADRecon | T1087, T1069 | AD Enumeration | Comprehensive AD snapshot in Excel -- users, groups, GPOs, trusts, SPNs |
+| PingCastle | T1087, T1069 | AD Risk Assessment | Domain risk scoring and attack path visualization; produces health report |
+| Ldapdomaindump | T1087, T1069 | AD Enumeration | LDAP data dump to JSON/CSV/HTML; users, groups, computers, GPOs, trusts |
+
+### Web Application Exploitation Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| Burp Suite Pro | T1190, T1059 | Web App Testing | Full interception proxy; Scanner, Intruder, Repeater, Collaborator; OAST testing |
+| sqlmap | T1190 | SQL Injection | Automated SQL injection detection and exploitation; dumps databases |
+| ffuf | T1595, T1083 | Fuzzing/Discovery | Fast web fuzzer; directory/file/vhost/parameter discovery; supports filters |
+| Nuclei | T1190, T1595 | Vulnerability Scanner | Template-based scanner; 8,000+ community templates; CVSS scoring; CI/CD integration |
+| Katana | T1595 | Web Crawling | Fast web crawler/spider; JavaScript parsing; form extraction |
+| OWASP ZAP | T1190 | Web App Testing | Open-source DAST; AJAX spider; API testing; active/passive scanning |
+| dalfox | T1190 | XSS Scanner | Fast parameter-based XSS scanner; blind XSS; pipe-friendly for automation |
+
+### Network Attack Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| Responder | T1557.001, T1040 | LLMNR/NBT-NS Poisoning | Captures NTLMv1/v2 hashes via LLMNR/NBT-NS/mDNS poisoning; built-in HTTP/FTP/LDAP servers |
+| mitm6 | T1557, T1040 | IPv6 MITM | IPv6 DNS takeover for credential capture; pairs with ntlmrelayx |
+| Nmap | T1595, T1046 | Network Scanner | Port scanning, service detection, OS fingerprinting, NSE scripts |
+| Masscan | T1595, T1046 | Mass Port Scanner | Internet-scale port scanning; faster than Nmap for broad discovery |
+| Scapy | T1040, T1557 | Packet Crafting | Python packet crafting; custom protocol testing; ARP/DNS attacks |
+| bettercap | T1557, T1040 | Network MITM | Full network attack framework; ARP spoofing, DNS spoofing, BLE/WiFi attacks |
+
+### Privilege Escalation Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| WinPEAS | T1087, T1083, T1548 | Windows Enum | Comprehensive Windows privilege escalation enumeration; color-coded output |
+| LinPEAS | T1087, T1083, T1548 | Linux Enum | Comprehensive Linux privilege escalation enumeration; PEASS-ng project |
+| Seatbelt | T1087, T1082, T1083 | Windows Enum | .NET security config audit; 100+ checks for credentials, configs, and misconfigs |
+| PowerUp | T1548, T1083 | Windows Privesc | PowerShell privilege escalation checks; unquoted paths, weak service ACLs |
+| pspy | T1053, T1059 | Linux Process Monitor | Unprivileged Linux process monitor; catches cron jobs and SUID execution |
+| PrintSpoofer | T1548.002 | Token Impersonation | SeImpersonatePrivilege to SYSTEM via print spooler named pipe trick |
+| GodPotato | T1548.002 | Token Impersonation | SeImpersonatePrivilege to SYSTEM; works Windows 2012-2022 |
+
+### OSINT and Reconnaissance Tools
+
+| Tool | ATT&CK Techniques | Category | Description |
+|---|---|---|---|
+| Maltego | T1589, T1590, T1591 | OSINT Visualization | Graph-based OSINT with transforms; people, domains, IPs, social media links |
+| Spiderfoot | T1589, T1590 | Automated OSINT | 200+ OSINT modules; email, domain, IP, social media, dark web |
+| Shodan | T1595, T1590 | Internet Scanner | Search engine for internet-connected devices; CVE search; banner grabbing |
+| theHarvester | T1589, T1590 | Recon | Email/subdomain/IP harvesting from Google, Bing, LinkedIn, Shodan |
+| Amass | T1595.002 | Subdomain Enum | OWASP tool for comprehensive subdomain enumeration; DNS brute force and scraping |
+| recon-ng | T1589, T1590 | Recon Framework | Modular web recon framework similar to Metasploit; marketplace modules |
+
+### Defensive and Forensics Tools
+
+| Tool | Category | Description |
+|---|---|---|
+| Volatility 3 | Memory Forensics | Memory artifact extraction; pslist, netscan, malfind, cmdline, timeliner |
+| KAPE | DFIR Triage | Fast artifact collection and processing; compound targets; module system |
+| Velociraptor | DFIR / Hunting | Agent-based DFIR platform; VQL queries; live response at scale |
+| Hayabusa | Windows Event Analysis | Sigma-based Windows event log analysis; threat hunting; timeline generation |
+| Chainsaw | Windows Event Analysis | Fast Event Log, MFT, and Shimcache analysis; Sigma and Chainsaw rules |
+| REMnux | Malware Analysis | Linux distro for malware analysis; pre-installed static and dynamic tools |
+| FLARE-VM | Malware Analysis | Windows-based malware analysis environment; Mandiant tooling |
+| Sysinternals Suite | System Analysis | Microsoft tools: Process Monitor, Autoruns, TCPView, ProcExp, AccessChk |
+
+### Detection Coverage by Tool Category
+
+| Category | Key ATT&CK Tactics Covered | Detection Approach |
+|---|---|---|
+| C2 Frameworks | Command and Control, Lateral Movement | Beacon cadence, JA3 fingerprints, named pipes, memory scanning |
+| Credential Tools | Credential Access, Privilege Escalation | LSASS access events, Kerberos ticket anomalies, DCSync detection |
+| AD Attack Tools | Discovery, Lateral Movement, Privilege Escalation | BloodHound collection noise, LDAP queries, GPO enumeration |
+| Web Exploitation | Initial Access | WAF rules, anomalous user-agents, SQLi pattern matching |
+| Network Tools | Discovery, Lateral Movement, Credential Access | Port scan patterns, LLMNR/NBT-NS queries, ARP anomalies |

@@ -56,7 +56,6 @@ A public resource library for the cybersecurity community.
 | [Notable Incidents](NOTABLE_INCIDENTS.md) | Historic hacks, Sandworm, ransomware campaigns, and recent events |
 | [CVE Reference](CVE_REFERENCE.md) | Critical and high-impact CVEs with exploitation context, detection indicators, and remediation guidance |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, RATs, APT tools, rootkits, and loaders |
-| [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static and dynamic analysis workflows, Volatility 3, sandbox comparison, YARA writing, anti-analysis techniques |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques and escalation paths |
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux, Windows, and cloud privilege escalation techniques |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, and landmark talk archives |
@@ -200,19 +199,17 @@ A public resource library for the cybersecurity community.
 | [Pentest Checklists](PENTEST_CHECKLISTS.md) | Step-by-step checklists for external, internal, AD, web app, cloud, and post-exploitation testing |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
-| [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | Enumeration, Kerberoasting, DCSync, ACL abuse, ADCS ESC attacks, NTLM relay, and domain trust exploitation |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
+| [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmark controls for AWS, Azure, and GCP with automated checks, remediation scripts, and CSPM tool reference |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | Wireshark, tcpdump, Zeek, Suricata -- traffic analysis, C2 detection, and network IR procedures |
 | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to ATT&CK — SPL, KQL, Sigma, investigation steps, and response actions |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
-| [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static and dynamic analysis workflows, Volatility 3, sandbox comparison, YARA writing, anti-analysis techniques |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | WAF rules, ASR rules, CrowdStrike prevention policies, Tanium modules, Proofpoint, Zscaler ZIA/ZPA |
 | [Windows Hardening & GPO Reference](WINDOWS_HARDENING_GPO.md) | GPO-based hardening, service disabling, credential protection, audit policy, CIS benchmarks |
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
-| [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF, DKIM, DMARC, BEC attacks, AiTM phishing, header analysis, MDO and Proofpoint configurations |
 
 ---
 

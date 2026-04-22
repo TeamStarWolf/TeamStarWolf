@@ -70,6 +70,7 @@ A public resource library for the cybersecurity community.
 | [Pentest Checklists](PENTEST_CHECKLISTS.md) | External, internal, AD, web app, cloud, and post-exploitation |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Web, forensics, crypto, RE, binary exploitation, and OSINT challenges |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples |
+| [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | Wireshark, tcpdump, Zeek, Suricata -- traffic analysis, C2 detection, and network IR procedures |
 | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to ATT&CK with SPL, KQL, and investigation steps |
 
 </details>
@@ -199,6 +200,7 @@ A public resource library for the cybersecurity community.
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
+| [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | Wireshark, tcpdump, Zeek, Suricata -- traffic analysis, C2 detection, and network IR procedures |
 | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to ATT&CK — SPL, KQL, Sigma, investigation steps, and response actions |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |

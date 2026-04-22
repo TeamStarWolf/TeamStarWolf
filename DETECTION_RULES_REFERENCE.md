@@ -1565,3 +1565,295 @@ Invoke-AtomicTest T1003.001 -TestNumbers 1 -Cleanup
 | CAPE Sandbox | https://github.com/kevoreilly/CAPEv2 | Malware sandbox with YARA extraction |
 | Splunk Security Content | https://research.splunk.com | Splunk-maintained detection rules and analytics |
 | Microsoft Sentinel GitHub | https://github.com/Azure/Azure-Sentinel | Sentinel analytics rules and hunting queries |
+---
+
+## Sigma Rule Writing Reference
+
+### Sigma Rule Structure
+
+```yaml
+title: Suspicious PowerShell Encoded Command
+id: a3a8a4a0-1234-4321-abcd-000000000001
+status: experimental
+description: Detects PowerShell execution with -EncodedCommand or -enc flags, commonly used for obfuscation
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+author: TeamStarWolf
+date: 2024/01/15
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.defense_evasion
+    - attack.t1027
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+        CommandLine|contains:
+            - ' -enc '
+            - ' -EncodedCommand '
+            - ' -ec '
+    condition: selection
+falsepositives:
+    - Legitimate automation scripts using encoded commands
+    - Configuration management tools (SCCM, Ansible)
+level: medium
+```
+
+### Sigma Condition Operators
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `selection` | All conditions in group must match | `condition: selection` |
+| `1 of selection*` | At least one selection group matches | `condition: 1 of selection*` |
+| `all of selection*` | All selection groups must match | `condition: all of selection*` |
+| `selection and not filter` | Selection minus filter | `condition: selection and not filter` |
+| `\|contains` | String contains value | `CommandLine\|contains: '-enc'` |
+| `\|startswith` | String starts with value | `Image\|startswith: 'C:\Users'` |
+| `\|endswith` | String ends with value | `Image\|endswith: '\powershell.exe'` |
+| `\|re` | Regex match | `CommandLine\|re: '(?i)invoke'` |
+
+### Sigma for T1003 — LSASS Memory Access
+
+```yaml
+title: LSASS Memory Access
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess|contains:
+            - '0x1010'
+            - '0x1410'
+            - '0x147a'
+            - '0x1fffff'
+    filter_legitimate:
+        SourceImage|endswith:
+            - '\MsMpEng.exe'
+            - '\csrss.exe'
+    condition: selection and not filter_legitimate
+level: high
+tags:
+    - attack.credential_access
+    - attack.t1003.001
+```
+
+### Sigma for T1059.003 — Cmd Spawned by Office
+
+```yaml
+title: Cmd.exe Spawned by Office Application
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\cmd.exe'
+        ParentImage|endswith:
+            - '\winword.exe'
+            - '\excel.exe'
+            - '\outlook.exe'
+            - '\mshta.exe'
+            - '\wscript.exe'
+    condition: selection
+level: high
+tags:
+    - attack.execution
+    - attack.t1059.003
+```
+
+---
+
+## KQL (Kusto Query Language) Detection Reference
+
+### Brute Force Detection
+
+```kql
+let threshold = 10;
+let timeframe = 10m;
+let failedLogons = SecurityEvent
+    | where TimeGenerated > ago(1d)
+    | where EventID == 4625
+    | summarize FailedCount = count(), LastFail = max(TimeGenerated)
+        by Account, IpAddress
+    | where FailedCount >= threshold;
+let successLogons = SecurityEvent
+    | where TimeGenerated > ago(1d)
+    | where EventID == 4624
+    | project SuccessTime = TimeGenerated, Account, IpAddress;
+failedLogons
+| join kind=inner successLogons on Account, IpAddress
+| where SuccessTime between (LastFail .. (LastFail + timeframe))
+| project Account, IpAddress, FailedCount, LastFail, SuccessTime
+| extend AlertName = "Brute Force Success After Multiple Failures"
+```
+
+### Suspicious PowerShell (KQL)
+
+```kql
+DeviceProcessEvents
+| where TimeGenerated > ago(7d)
+| where FileName in~ ("powershell.exe", "pwsh.exe")
+| where ProcessCommandLine has_any ("-enc", "-EncodedCommand", "IEX", "Invoke-Expression",
+    "DownloadString", "WebClient", "FromBase64String")
+| project TimeGenerated, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName
+| order by TimeGenerated desc
+```
+
+### C2 Beaconing Detection (KQL)
+
+```kql
+let lookback = 24h;
+let minConnections = 10;
+DeviceNetworkEvents
+| where TimeGenerated > ago(lookback)
+| where ActionType == "ConnectionSuccess"
+| where not(RemoteIPType == "Private")
+| summarize ConnectionCount = count(), ConnectionTimes = make_list(TimeGenerated, 100)
+    by DeviceName, RemoteIP, RemotePort
+| where ConnectionCount >= minConnections
+| extend AlertName = "Potential C2 Beaconing - High Frequency External Connection"
+| order by ConnectionCount desc
+```
+
+---
+
+## Splunk SPL Detection Reference
+
+### Ransomware Precursor Activity
+
+```spl
+index=windows sourcetype="WinEventLog:Security"
+(CommandLine="*vssadmin*delete*shadows*"
+ OR CommandLine="*wbadmin*delete*catalog*"
+ OR CommandLine="*bcdedit*/set*recoveryenabled*no*"
+ OR CommandLine="*wmic*shadowcopy*delete*")
+| eval risk="HIGH - Ransomware Precursor"
+| stats count by host, user, CommandLine, risk
+| sort -count
+```
+
+### Pass-the-Hash Detection (Splunk)
+
+```spl
+index=windows sourcetype="WinEventLog:Security" EventCode=4624
+LogonType=3 AuthPackage=NTLM
+| eval hour=strftime(_time, "%H")
+| stats count by src_ip, user, host, hour
+| where count > 5 AND (hour < 7 OR hour > 19)
+| eval alert="PtH Candidate - NTLM Network Logon After Hours"
+```
+
+### Data Exfiltration via DNS (Splunk)
+
+```spl
+index=network sourcetype=dns
+| eval query_length=len(query)
+| where query_length > 50
+| stats count, avg(query_length), values(query) as sample_queries
+    by src_ip, answer
+| where count > 20
+| sort -count
+```
+
+### PowerShell Script Block Logging (Splunk)
+
+```spl
+index=windows source="XmlWinEventLog:Microsoft-Windows-PowerShell/Operational" EventCode=4104
+ScriptBlockText IN ("*Net.WebClient*", "*DownloadString*", "*IEX*",
+                     "*Invoke-Expression*", "*WebRequest*", "*bitsadmin*")
+| rex field=ScriptBlockText "(?P<url>https?://[^\s'\"]+)"
+| stats count by host, user, url, ScriptBlockText
+| sort -count
+```
+
+---
+
+## Suricata Rule Writing Reference
+
+### Rule Format
+
+```
+action proto src_ip src_port -> dst_ip dst_port (options)
+```
+
+### Cobalt Strike Default Beacon
+
+```suricata
+alert http $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"ET MALWARE Cobalt Strike Beacon Activity - Default URI";
+    flow:established,to_server;
+    http.method; content:"POST";
+    http.uri; content:"/submit.php";
+    threshold:type limit, track by_src, seconds 60, count 1;
+    classtype:trojan-activity;
+    sid:9000001; rev:1;
+)
+```
+
+### DNS Tunneling
+
+```suricata
+alert dns any any -> any 53 (
+    msg:"ET DNS Tunneling - Suspiciously Long DNS Query";
+    dns.query;
+    pcre:"/^[a-zA-Z0-9]{40,}\.[a-z]{2,}\.[a-z]{2,}$/i";
+    threshold:type limit, track by_src, seconds 60, count 1;
+    classtype:policy-violation;
+    sid:9000002; rev:1;
+)
+```
+
+### Log4Shell Detection
+
+```suricata
+alert http any any -> any any (
+    msg:"ET EXPLOIT Apache Log4j RCE Attempt (CVE-2021-44228)";
+    flow:established,to_server;
+    http.uri; content:"${jndi:"; nocase;
+    threshold:type limit, track by_src, seconds 60, count 1;
+    classtype:attempted-admin;
+    sid:9000004; rev:1;
+    reference:cve,2021-44228;
+)
+```
+
+---
+
+## Detection Engineering Quality Framework
+
+### Pyramid of Pain (David Bianco)
+
+| Level | Indicator Type | Adversary Cost to Change |
+|---|---|---|
+| Trivial | Hash values (MD5, SHA-1) | Recompile or repack |
+| Easy | IP addresses | Change C2 server |
+| Simple | Domain names | New domain registration |
+| Annoying | Network artifacts | Modify tool configurations |
+| Challenging | Host artifacts | Significant retooling |
+| Tough | Tools | Develop new tooling |
+| Very Hard | TTPs | Change fundamental approach |
+
+### Alert Quality Metrics
+
+| Metric | Formula | Target |
+|---|---|---|
+| True Positive Rate | TP / (TP + FN) | > 80% |
+| False Positive Rate | FP / (FP + TN) | < 5% |
+| Precision | TP / (TP + FP) | > 85% |
+| Alert-to-Incident Rate | Incidents / Total Alerts | > 30% |
+| Mean Time to Detect | Avg(Detect - Breach Time) | < 24 hours |
+
+### Detection Lifecycle
+
+1. **Hypothesis** — ATT&CK technique, threat intel, incident retrospective
+2. **Data Sources** — Which logs capture this behavior?
+3. **Logic** — Write detection using required fields
+4. **Test** — Validate against attack simulation and benign data
+5. **Tune** — Reduce FPs via allow-listing, thresholds
+6. **Deploy** — Push to SIEM with severity and response runbook
+7. **Review** — Measure FP rate, detection rate, MTTD

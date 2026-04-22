@@ -27,6 +27,7 @@
   - [Controls Mapping](CONTROLS_MAPPING.md)
   - [Coverage Schema](COVERAGE_SCHEMA.md)
   - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)
+  - [API Security Reference](API_SECURITY_REFERENCE.md)
   - [ATT&CK Navigator Layer](navigator/)
 
 ---

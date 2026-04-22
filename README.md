@@ -187,6 +187,7 @@ Machine-readable data files and an ATT&CK Navigator layer connecting the TeamSta
 | [Vendor → Technique edges](data/vendor_to_technique.jsonl) | JSONL derived edge table: vendor → ATT&CK technique coverage via control join |
 | [Controls Mapping](CONTROLS_MAPPING.md) | Full Vendor → NIST 800-53 → ATT&CK cross-reference |
 | [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, Python scoring functions |
+| [OSINT Reference](OSINT_REFERENCE.md) | Reconnaissance methodology, domain/IP/people intelligence, GitHub OSINT, cloud asset discovery, and tools reference |
 
 ---
 

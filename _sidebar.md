@@ -32,6 +32,7 @@
   - [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
   - [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md)
   - [ATT&CK Navigator Layer](navigator/)
+  - [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)
 
 ---
 

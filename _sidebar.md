@@ -92,6 +92,7 @@
   - [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md)
   - [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md)
   - [Malware Families](MALWARE_FAMILIES.md)
+  - [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md)
 
 ---
 

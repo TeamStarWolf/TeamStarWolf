@@ -72,6 +72,7 @@ A public resource library for the cybersecurity community.
 | [Container Security](CONTAINER_SECURITY_REFERENCE.md) | Docker hardening, Kubernetes security, OPA/Gatekeeper, Falco, SBOM, supply chain security, and SLSA |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, TLS configuration, PKI, key management, post-quantum cryptography, and attack reference |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, CISA ZTMM v2.0, identity/device/network/data pillars, ZTNA, micro-segmentation, and implementation roadmap |
+| [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs |
 
 ---
 

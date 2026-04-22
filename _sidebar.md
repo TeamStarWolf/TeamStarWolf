@@ -44,3 +44,4 @@
 
 - [🤝 Contributing](.github/CONTRIBUTING.md)
   - [Container Security](CONTAINER_SECURITY_REFERENCE.md)
+  - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)

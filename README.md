@@ -212,6 +212,7 @@ A public resource library for the cybersecurity community.
 | [Windows Hardening & GPO Reference](WINDOWS_HARDENING_GPO.md) | GPO-based hardening, service disabling, credential protection, audit policy, CIS benchmarks |
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
+| [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF, DKIM, DMARC, BEC attacks, AiTM phishing, header analysis, MDO and Proofpoint configurations |
 
 ---
 

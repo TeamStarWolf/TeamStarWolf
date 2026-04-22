@@ -36,6 +36,7 @@
   - [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md)
   - [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md)
   - [ATT&CK Navigator Layer](navigator/)
+  - [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md)
   - [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)
 
 ---

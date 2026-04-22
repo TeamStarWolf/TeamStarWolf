@@ -222,6 +222,57 @@ Most presenters release code, tools, or datasets alongside their research. Relia
 
 ---
 
+
+## DEF CON Landmark Talks Archive
+
+| Year | Talk | Speaker | Why It Matters |
+|---|---|---|---|
+| 2012 | "Defeating PPTP VPNs and WPA2 Enterprise with MS-CHAPv2" | Moxie Marlinspike, David Hulton | Broke MS-CHAPv2 in under 24 hours using GPU cracking |
+| 2014 | "Hacking USB Firmware (BadUSB)" | Karsten Nohl, Jakob Lell | USB devices can be maliciously reprogrammed at firmware level |
+| 2015 | "Remote Exploitation of an Unaltered Passenger Vehicle" | Charlie Miller, Chris Valasek | Jeep Cherokee remote 0-day; triggered Chrysler recall of 1.4M vehicles |
+| 2018 | "DEF CON Voting Village" | Various | Breached every voting machine within hours |
+| 2019 | "Breaking Parser Logic: Path Normalization 0days" | Orange Tsai | Path normalization inconsistencies leading to auth bypass and RCE |
+| 2022 | "Attacking Industrial Control Systems" | Ron Brash | Practical OT/SCADA attack techniques |
+| 2023 | "Supply Chain Attacks Against Package Managers" | Multiple | Typosquatting, dependency confusion, CI/CD pipeline compromise |
+
+## Black Hat USA Landmark Talks Archive
+
+| Year | Talk | Speaker | Why It Matters |
+|---|---|---|---|
+| 2012 | "Abusing Windows Management Instrumentation (WMI)" | Matthew Graeber | WMI as attacker persistence and lateral movement platform |
+| 2015 | "How to Hack a Plane" | Ruben Santamarta | Aircraft entertainment/navigation system vulnerabilities |
+| 2016 | "Breaking the x86 Instruction Set" | Christopher Domas | CPU undocumented x86 instructions; sandsifter tool |
+| 2018 | "Inside the Magecart Breach of British Airways" | Various | First major Magecart attribution; 500K card compromise |
+| 2021 | "Abusing Microsoft Platform: From AAD to AD" | Dr. Nestori Syynimaa | Azure AD to on-premise AD attack paths; AADInternals research |
+| 2023 | "ProxyLogon to ProxyShell: A Year in Exchange Bugs" | Orange Tsai | Exchange attack chain evolution; researcher retrospective |
+
+## CCC (Chaos Communication Congress) Notable Talks
+
+| Year | Event | Talk | Speaker | Significance |
+|---|---|---|---|---|
+| 2013 | 30C3 | "To Protect and Infect: The Militarization of the Internet" | Jacob Appelbaum | NSA TAO catalog leak; QUANTUM INSERT; DROPOUT JEEP |
+| 2014 | 31C3 | "SS7: Locate. Track. Manipulate." | Tobias Engel | SS7 cellular protocol attacks — track anyone with a phone number |
+| 2017 | 34C3 | "Postquantum Cryptography: State-of-the-Art" | Daniel Bernstein | PQC landscape and timeline — prescient given NIST selections |
+
+## USENIX Security Landmark Papers
+
+| Year | Paper | Key Finding |
+|---|---|---|
+| 2016 | "SoK: Eternal War in Memory" | Systematic survey of memory safety exploits and mitigations |
+| 2018 | "Meltdown and Spectre" | Speculative execution attacks against modern CPUs |
+| 2020 | "Cached and Confused: Web Cache Deception in the Wild" | Cache poisoning attack surface across CDNs |
+| 2021 | "ALPACA: Application Layer Protocol Confusion" | Cross-protocol attack against TLS services |
+
+## Finding Conference Research Materials
+
+- **DEF CON**: [media.defcon.org](https://media.defcon.org/) — slides and videos for every year
+- **Black Hat**: blackhat.com/us-XX/briefings/ — slides for all briefings
+- **CCC**: [media.ccc.de](https://media.ccc.de/) — full video archive
+- **USENIX Security**: [usenix.org/publications/proceedings](https://www.usenix.org/publications/proceedings) — full papers open access
+- **Black Hat Arsenal**: Tool demos with associated GitHub repos — search `site:github.com blackhat <year> <tool>`
+
+---
+
 ## Related Resources
 
 - [STARRED_REPOS.md](STARRED_REPOS.md) — GitHub repositories referenced by conference speakers and security researchers

@@ -46,4 +46,5 @@
   - [Container Security](CONTAINER_SECURITY_REFERENCE.md)
   - [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)
   - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)
+  - [GRC Reference](GRC_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)

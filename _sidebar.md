@@ -30,6 +30,7 @@
   - [API Security Reference](API_SECURITY_REFERENCE.md)
   - [Windows Hardening](WINDOWS_HARDENING.md)
   - [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
+  - [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md)
   - [ATT&CK Navigator Layer](navigator/)
 
 ---

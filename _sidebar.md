@@ -83,6 +83,7 @@
 
 - **📖 Playbooks & Checklists**
   - [IR Playbooks](IR_PLAYBOOKS.md)
+- [CVE Reference](CVE_REFERENCE.md)
   - [Pentest Checklists](PENTEST_CHECKLISTS.md)
   - [CTF Methodology](CTF_METHODOLOGY.md)
   - [Privilege Escalation Reference](PRIVESC_REFERENCE.md)

@@ -78,6 +78,7 @@ A public resource library for the cybersecurity community.
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols, DNS, and network security architecture for security practitioners |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs |
+| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
 
 ---
 
@@ -138,6 +139,7 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Reverse Engineering](disciplines/reverse-engineering.md) | x86/x64 assembly, static/dynamic analysis, anti-analysis bypasses, and platform-specific RE |
 | [SIEM & SOAR](disciplines/siem-soar.md) | SIEM architecture, SPL/KQL query writing, SOAR playbook design, and log source onboarding |
 | [Threat Hunting](disciplines/threat-hunting.md) | Hypothesis-driven hunting, ATT&CK-mapped procedures, Splunk/KQL queries, and maturity model |
+| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
 ---
 
 
@@ -169,6 +171,7 @@ High-quality training does not require a large budget. These platforms offer fre
 | [LetsDefend](https://letsdefend.io) | Free SOC simulator for alert triage and threat analysis |
 | [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training open to the public including ICS/OT, cloud, and IR content |
 | [Anthropic Courses](https://github.com/anthropics/courses) | Free AI and LLM security courses from Anthropic |
+| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
 
 ---
 
@@ -197,6 +200,7 @@ Machine-readable data files and an ATT&CK Navigator layer connecting the TeamSta
 | [Controls Mapping](CONTROLS_MAPPING.md) | Full Vendor → NIST 800-53 → ATT&CK cross-reference |
 | [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, Python scoring functions |
 | [OSINT Reference](OSINT_REFERENCE.md) | Reconnaissance methodology, domain/IP/people intelligence, GitHub OSINT, cloud asset discovery, and tools reference |
+| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
 
 ---
 

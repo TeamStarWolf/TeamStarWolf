@@ -63,6 +63,7 @@ A public resource library for the cybersecurity community.
 | [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [GRC Reference](GRC_REFERENCE.md) | Security governance, risk management (FAIR), SOC 2, ISO 27001, PCI DSS, TPRM, compliance program management |
+| [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, LINDDUN, attack trees, MITRE ATT&CK integration, DFDs, pytm, cloud microservices threat modeling |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |

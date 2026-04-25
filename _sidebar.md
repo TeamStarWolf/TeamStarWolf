@@ -32,6 +32,7 @@
   - [Windows Hardening](WINDOWS_HARDENING.md)
   - [Linux Hardening](LINUX_HARDENING.md)
   - [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md)
+  * [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md)
   - [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
   - [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md)
   - [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md)

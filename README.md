@@ -208,6 +208,7 @@ Machine-readable data files and an ATT&CK Navigator layer connecting the TeamSta
 | [Vendor → Technique edges](data/vendor_to_technique.jsonl) | JSONL derived edge table: vendor → ATT&CK technique coverage via control join |
 | [Controls Mapping](CONTROLS_MAPPING.md) | Full Vendor → NIST 800-53 → ATT&CK cross-reference |
 | [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, Python scoring functions |
+| [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) | ICS/SCADA architecture, Stuxnet/TRITON/Industroyer analysis, Modbus/DNP3/S7 attacks, IEC 62443, NERC CIP, Dragos/Claroty |
 | [OSINT Reference](OSINT_REFERENCE.md) | Reconnaissance methodology, domain/IP/people intelligence, GitHub OSINT, cloud asset discovery, and tools reference |
 | [Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md) | DNS, HTTP, SMB, Kerberos, RDP, SSH, LDAP, SNMP, NTP, DHCP, BGP — how each protocol works and how attackers exploit it |
 

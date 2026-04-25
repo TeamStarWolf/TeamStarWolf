@@ -81,6 +81,7 @@ A public resource library for the cybersecurity community.
 | [Container Security](CONTAINER_SECURITY_REFERENCE.md) | Docker hardening, Kubernetes security, OPA/Gatekeeper, Falco, SBOM, supply chain security, and SLSA |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, TLS configuration, PKI, key management, post-quantum cryptography, and attack reference |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, CISA ZTMM v2.0, identity/device/network/data pillars, ZTNA, micro-segmentation, and implementation roadmap |
+| [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |

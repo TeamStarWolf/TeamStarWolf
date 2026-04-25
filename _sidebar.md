@@ -29,6 +29,7 @@
   - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)
   - [API Security Reference](API_SECURITY_REFERENCE.md)
   - [Windows Hardening](WINDOWS_HARDENING.md)
+  - [Linux Hardening](LINUX_HARDENING.md)
   - [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md)
   - [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
   - [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md)

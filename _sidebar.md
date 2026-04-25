@@ -68,6 +68,7 @@
   - [GRC Reference](GRC_REFERENCE.md)
   * [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)
+  - [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md)
   - [Secure Coding Reference](SECURE_CODING_REFERENCE.md)
   - [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md)
   - [Red Team Reference](RED_TEAM_REFERENCE.md)

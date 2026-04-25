@@ -66,6 +66,7 @@
   - [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)
   - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)
   - [GRC Reference](GRC_REFERENCE.md)
+  * [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)
   - [Secure Coding Reference](SECURE_CODING_REFERENCE.md)
   - [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md)

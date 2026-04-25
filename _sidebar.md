@@ -38,6 +38,7 @@
   - [ATT&CK Navigator Layer](navigator/)
   - [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md)
   - [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)
+  - [Cloud Network Security](CLOUD_NETWORK_SECURITY.md)
 
 ---
 

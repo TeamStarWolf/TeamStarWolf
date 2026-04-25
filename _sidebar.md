@@ -49,6 +49,7 @@
   - [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md)
   - [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)
   - [Cloud Network Security](CLOUD_NETWORK_SECURITY.md)
+  * [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md)
 
 ---
 

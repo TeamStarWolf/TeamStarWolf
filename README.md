@@ -81,6 +81,7 @@ A public resource library for the cybersecurity community.
 | [Container Security](CONTAINER_SECURITY_REFERENCE.md) | Docker hardening, Kubernetes security, OPA/Gatekeeper, Falco, SBOM, supply chain security, and SLSA |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, TLS configuration, PKI, key management, post-quantum cryptography, and attack reference |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, CISA ZTMM v2.0, identity/device/network/data pillars, ZTNA, micro-segmentation, and implementation roadmap |
+| [Web App Pentesting](WEB_APPLICATION_PENTESTING.md) | Testing methodology, SQLi/XSS/SSRF/SSTI payloads, JWT attacks, auth bypass, business logic testing, Burp Suite and ffuf reference |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |

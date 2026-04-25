@@ -63,4 +63,5 @@
   - [GRC Reference](GRC_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)
   - [Secure Coding Reference](SECURE_CODING_REFERENCE.md)
+  - [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md)
   - [Red Team Reference](RED_TEAM_REFERENCE.md)

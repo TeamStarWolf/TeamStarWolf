@@ -33,6 +33,7 @@
   - [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md)
   - [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md)
   - [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md)
+  - [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md)
   - [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md)
   - [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md)
   - [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md)

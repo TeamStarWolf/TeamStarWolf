@@ -70,6 +70,7 @@
   - [OSINT Reference](OSINT_REFERENCE.md)
   - [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md)
   - [Secure Coding Reference](SECURE_CODING_REFERENCE.md)
+  * [DevSecOps Reference](DEVSECOPS_REFERENCE.md)
   - [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md)
   - [Red Team Reference](RED_TEAM_REFERENCE.md)
   - [Web App Pentesting](WEB_APPLICATION_PENTESTING.md)

@@ -82,6 +82,7 @@ A public resource library for the cybersecurity community.
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, CISA ZTMM v2.0, identity/device/network/data pillars, ZTNA, micro-segmentation, and implementation roadmap |
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
+| [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |
 | [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs |
 | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |
 | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | Wireshark display filters, tcpdump BPF syntax, Zeek logs and scripting, JA3 fingerprinting, and attack pattern detection in pcaps |

@@ -95,6 +95,7 @@ A public resource library for the cybersecurity community.
 | [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
 | [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md) | SolarWinds/XZ Utils/3CX attack analysis, SBOM (Syft/CycloneDX/SPDX), SLSA framework, Sigstore/Cosign, and CI/CD pipeline hardening |
 | [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team methodology, ROE, C2 framework comparison (Cobalt Strike/Sliver/Havoc/Mythic), LOLBAS, persistence, lateral movement tradecraft |
+| [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 
 ---
 
@@ -155,6 +156,7 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Reverse Engineering](disciplines/reverse-engineering.md) | x86/x64 assembly, static/dynamic analysis, anti-analysis bypasses, and platform-specific RE |
 | [SIEM & SOAR](disciplines/siem-soar.md) | SIEM architecture, SPL/KQL query writing, SOAR playbook design, and log source onboarding |
 | [Threat Hunting](disciplines/threat-hunting.md) | Hypothesis-driven hunting, ATT&CK-mapped procedures, Splunk/KQL queries, and maturity model |
+| [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 
 ---
 
@@ -187,6 +189,7 @@ High-quality training does not require a large budget. These platforms offer fre
 | [LetsDefend](https://letsdefend.io) | Free SOC simulator for alert triage and threat analysis |
 | [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training open to the public including ICS/OT, cloud, and IR content |
 | [Anthropic Courses](https://github.com/anthropics/courses) | Free AI and LLM security courses from Anthropic |
+| [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 
 ---
 
@@ -217,6 +220,7 @@ Machine-readable data files and an ATT&CK Navigator layer connecting the TeamSta
 | [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) | ICS/SCADA architecture, Stuxnet/TRITON/Industroyer analysis, Modbus/DNP3/S7 attacks, IEC 62443, NERC CIP, Dragos/Claroty |
 | [OSINT Reference](OSINT_REFERENCE.md) | Reconnaissance methodology, domain/IP/people intelligence, GitHub OSINT, cloud asset discovery, and tools reference |
 | [Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md) | DNS, HTTP, SMB, Kerberos, RDP, SSH, LDAP, SNMP, NTP, DHCP, BGP — how each protocol works and how attackers exploit it |
+| [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 
 ---
 

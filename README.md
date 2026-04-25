@@ -60,6 +60,7 @@ A public resource library for the cybersecurity community.
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
+| [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [GRC Reference](GRC_REFERENCE.md) | Security governance, risk management (FAIR), SOC 2, ISO 27001, PCI DSS, TPRM, compliance program management |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |

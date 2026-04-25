@@ -85,6 +85,7 @@ A public resource library for the cybersecurity community.
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | OWASP MASVS, Android/iOS security architecture, APK/IPA analysis, Frida/objection, MDM/MAM policies, and mobile threats |
 | [Cloud Network Security](CLOUD_NETWORK_SECURITY.md) | AWS VPC/Security Groups/WAF/Network Firewall, Azure NSG/Firewall/Private Endpoints, GCP VPC/Cloud Armor, and flow log analysis |
 | [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
+| [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md) | SolarWinds/XZ Utils/3CX attack analysis, SBOM (Syft/CycloneDX/SPDX), SLSA framework, Sigstore/Cosign, and CI/CD pipeline hardening |
 | [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team methodology, ROE, C2 framework comparison (Cobalt Strike/Sliver/Havoc/Mythic), LOLBAS, persistence, lateral movement tradecraft |
 
 ---

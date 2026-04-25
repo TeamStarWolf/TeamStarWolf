@@ -78,6 +78,7 @@ A public resource library for the cybersecurity community.
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols, DNS, and network security architecture for security practitioners |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs |
+| [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | OWASP MASVS, Android/iOS security architecture, APK/IPA analysis, Frida/objection, MDM/MAM policies, and mobile threats |
 | [Cloud Network Security](CLOUD_NETWORK_SECURITY.md) | AWS VPC/Security Groups/WAF/Network Firewall, Azure NSG/Firewall/Private Endpoints, GCP VPC/Cloud Armor, and flow log analysis |
 | [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
 

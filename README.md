@@ -141,6 +141,7 @@ Focused starting points by area of practice. Each page includes a learning path,
 | [Reverse Engineering](disciplines/reverse-engineering.md) | x86/x64 assembly, static/dynamic analysis, anti-analysis bypasses, and platform-specific RE |
 | [SIEM & SOAR](disciplines/siem-soar.md) | SIEM architecture, SPL/KQL query writing, SOAR playbook design, and log source onboarding |
 | [Threat Hunting](disciplines/threat-hunting.md) | Hypothesis-driven hunting, ATT&CK-mapped procedures, Splunk/KQL queries, and maturity model |
+
 ---
 
 

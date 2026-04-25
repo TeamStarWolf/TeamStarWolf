@@ -55,3 +55,4 @@
   - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)
   - [GRC Reference](GRC_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)
+  - [Secure Coding Reference](SECURE_CODING_REFERENCE.md)

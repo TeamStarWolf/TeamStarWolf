@@ -27,6 +27,7 @@
   - [Controls Mapping](CONTROLS_MAPPING.md)
   - [Coverage Schema](COVERAGE_SCHEMA.md)
   - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)
+  * [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
   - [API Security Reference](API_SECURITY_REFERENCE.md)
   - [Windows Hardening](WINDOWS_HARDENING.md)
   - [Linux Hardening](LINUX_HARDENING.md)

@@ -316,5 +316,6 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | Wi-Fi protocols (WEP/WPA/WPA3), Bluetooth, Cellular (4G/5G), RFID/NFC, IoT protocols, attack techniques, WIDS, hardening, standards |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434, UNECE WP.29 |
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards |
+| [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md) | Honeypot & Deception Technology Reference — OpenCanary, Cowrie, Dionaea, T-Pot, Canarytokens, MITRE D3FEND/ATT&CK mapping |
 - [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)
 - [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) — AI-powered offensive security tools (Glasswing, Clearwing, CVE exploitation, MITRE ATT&CK mapping, defensive frameworks)

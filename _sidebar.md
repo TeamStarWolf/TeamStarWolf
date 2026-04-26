@@ -90,3 +90,4 @@
   * [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md)
   * [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md)
   * [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md)
+- [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)

@@ -59,6 +59,7 @@ A public resource library for the cybersecurity community.
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |
+| [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) | Zeek logs/scripts, Suricata rules, JA3/JARM, NetFlow/SiLK, beaconing detection, DGA hunting, Security Onion |
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
 | [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |

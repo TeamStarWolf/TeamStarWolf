@@ -91,3 +91,4 @@
   * [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md)
   * [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md)
 - [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)
+* [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE)

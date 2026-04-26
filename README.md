@@ -319,3 +319,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md) | Honeypot & Deception Technology Reference — OpenCanary, Cowrie, Dionaea, T-Pot, Canarytokens, MITRE D3FEND/ATT&CK mapping |
 - [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)
 - [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) — AI-powered offensive security tools (Glasswing, Clearwing, CVE exploitation, MITRE ATT&CK mapping, defensive frameworks)
+| [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) | Comprehensive penetration testing methodology reference covering scoping, recon, exploitation, post-exploitation, web, cloud, reporting, and MITRE ATT&CK mapping | Security |

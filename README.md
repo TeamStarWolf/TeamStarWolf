@@ -307,3 +307,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA/HIPAA, Privacy by Design, anonymization/pseudonymization, consent management, DPIA, field-level encryption |
 | [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md) | TPM 2.0, HSM/FIPS 140-3, Secure Boot/UEFI, side-channel attacks, fault injection, JTAG, confidential computing (SGX/TDX/SEV) |
+| [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |

@@ -68,6 +68,7 @@
   - [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)
   * [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md)
   - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)
+  - [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md)
   - [GRC Reference](GRC_REFERENCE.md)
   * [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)

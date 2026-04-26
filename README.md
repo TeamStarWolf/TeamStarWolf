@@ -312,3 +312,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
 | [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md) | AFL++, libFuzzer, OSS-Fuzz, binary analysis, Ghidra/angr, symbolic execution, CVE process, bug bounty methodology |
+| [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) | Defense-in-depth, Zero Trust architecture, cloud security design, application security patterns, identity architecture, SecOps architecture, and resilience design |

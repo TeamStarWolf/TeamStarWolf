@@ -47,6 +47,7 @@
   - [ATT&CK Navigator Layer](navigator/)
   - [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md)
   - [SIEM Detection Content](SIEM_DETECTION_CONTENT.md)
+  - [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md)
   - [Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md)
   - [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md)
   - [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)

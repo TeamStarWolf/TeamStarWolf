@@ -86,3 +86,4 @@
   * [Email Security Reference](EMAIL_SECURITY_REFERENCE.md)
   * [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md)
   * [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md)
+  * [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md)

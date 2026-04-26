@@ -65,6 +65,7 @@
 - [🤝 Contributing](.github/CONTRIBUTING.md)
   - [Container Security](CONTAINER_SECURITY_REFERENCE.md)
   - [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md)
+  * [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md)
   - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)
   - [GRC Reference](GRC_REFERENCE.md)
   * [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md)

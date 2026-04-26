@@ -80,3 +80,4 @@
   * [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md)
   * [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md)
   * [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md)
+  * [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md)

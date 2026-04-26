@@ -224,7 +224,7 @@ Machine-readable data files and an ATT&CK Navigator layer connecting the TeamSta
 | [Controls Mapping](CONTROLS_MAPPING.md) | Full Vendor → NIST 800-53 → ATT&CK cross-reference |
 | [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, Python scoring functions |
 | [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) | ICS/SCADA architecture, Stuxnet/TRITON/Industroyer analysis, Modbus/DNP3/S7 attacks, IEC 62443, NERC CIP, Dragos/Claroty |
-| [OSINT Reference](OSINT_REFERENCE.md) | Reconnaissance methodology, domain/IP/people intelligence, GitHub OSINT, cloud asset discovery, and tools reference |
+| [OSINT Reference](OSINT_REFERENCE.md) | Comprehensive OSINT methodology: passive/active recon, Google dorks, domain/IP intelligence, SOCMINT, GEOINT, corporate and threat intel OSINT, full tools reference, and ATT&CK mapping |
 | [Network Protocols Security](NETWORK_PROTOCOLS_SECURITY.md) | DNS, HTTP, SMB, Kerberos, RDP, SSH, LDAP, SNMP, NTP, DHCP, BGP — how each protocol works and how attackers exploit it |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 

@@ -93,3 +93,4 @@
 - [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)
 * [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE)
 - [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md)
+  * [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md)

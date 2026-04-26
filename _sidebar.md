@@ -83,3 +83,4 @@
   * [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md)
   * [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md)
   * [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md)
+  * [Email Security Reference](EMAIL_SECURITY_REFERENCE.md)

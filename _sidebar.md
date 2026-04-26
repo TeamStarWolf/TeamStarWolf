@@ -94,3 +94,4 @@
 * [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE)
 - [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md)
   * [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md)
+- [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)

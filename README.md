@@ -308,3 +308,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA/HIPAA, Privacy by Design, anonymization/pseudonymization, consent management, DPIA, field-level encryption |
 | [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md) | TPM 2.0, HSM/FIPS 140-3, Secure Boot/UEFI, side-channel attacks, fault injection, JTAG, confidential computing (SGX/TDX/SEV) |
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
+| [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |

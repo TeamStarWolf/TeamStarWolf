@@ -315,3 +315,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) | Defense-in-depth, Zero Trust architecture, cloud security design, application security patterns, identity architecture, SecOps architecture, and resilience design |
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | Wi-Fi protocols (WEP/WPA/WPA3), Bluetooth, Cellular (4G/5G), RFID/NFC, IoT protocols, attack techniques, WIDS, hardening, standards |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434, UNECE WP.29 |
+- [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)

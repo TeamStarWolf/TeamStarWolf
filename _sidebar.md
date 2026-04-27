@@ -98,3 +98,4 @@
 - [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)
 - [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE)
 - [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md)
+* [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md)

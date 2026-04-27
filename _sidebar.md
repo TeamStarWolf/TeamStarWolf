@@ -99,3 +99,4 @@
 - [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE)
 - [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md)
 * [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md)
+- [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)

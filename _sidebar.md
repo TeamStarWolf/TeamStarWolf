@@ -56,6 +56,7 @@
 
 ---
 
+  - [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md)
 - **📖 Resources**
   - [Starred Repositories](STARRED_REPOS.md)
   - [Book List](CYBERSECURITY_BOOK_LIST.md)

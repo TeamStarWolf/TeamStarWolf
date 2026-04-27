@@ -79,7 +79,7 @@ A public resource library for the cybersecurity community.
 | [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Phishing taxonomy, AiTM attacks, vishing, pretexting, physical SE, simulation programs, and awareness training |
 | [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
-| [Container Security](CONTAINER_SECURITY_REFERENCE.md) | Docker hardening, Kubernetes security, OPA/Gatekeeper, Falco, SBOM, supply chain security, and SLSA |
+| [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, TLS configuration, PKI, key management, post-quantum cryptography, and attack reference |
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Hash formats, hashcat/John mastery, Argon2/bcrypt/PBKDF2 storage, NIST 800-63B policy, LAPS, gMSA, HIBP API |
 | [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) | Adversary emulation, Atomic Red Team, CALDERA, detection validation, Sigma rules, BAS tools, ATT&CK Navigator coverage |

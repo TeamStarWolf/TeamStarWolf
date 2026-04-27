@@ -320,3 +320,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 - [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)
 - [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) — AI-powered offensive security tools (Glasswing, Clearwing, CVE exploitation, MITRE ATT&CK mapping, defensive frameworks)
 | [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) | Comprehensive penetration testing methodology reference covering scoping, recon, exploitation, post-exploitation, web, cloud, reporting, and MITRE ATT&CK mapping | Security |
+| [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) | Comprehensive Windows security hardening: architecture, accounts, GPO, Sysmon, WEF, PowerShell, Defender, AppControl, network, audit policy | Windows 10/11, Server 2019/2022 |

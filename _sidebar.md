@@ -97,3 +97,4 @@
   * [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md)
 - [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)
 - [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE)
+- [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md)

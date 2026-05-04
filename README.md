@@ -325,3 +325,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets (AWS/Azure/GCP), Kubernetes secrets security, PKI/SSH management, CI/CD OIDC federation, secrets operations |
 | [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) | Suricata, Zeek, Security Onion, Arkime, DNS security, nDPI, NAC, DDoS protection, NSM operations |
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | Comprehensive threat hunting reference: KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, and hunt tracking |
+| [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: hardware, GNU Radio, protocol analysis (GSM/LTE/Bluetooth/Zigbee/P25), replay attacks, RFID/NFC, Kismet, TEMPEST, and legal framework |

@@ -1,486 +1,568 @@
-# DevSecOps Reference
+# DevSecOps Reference Library
 
-> A comprehensive DevSecOps reference covering security integration across the full CI/CD pipeline with real tool configurations, GitHub Actions examples, and vendor-specific implementations.
+> A professional, comprehensive reference for integrating security into every phase of the software development lifecycle. Maintained for practitioners, architects, and security champions.
 
 ---
 
 ## Table of Contents
 
-1. [DevSecOps Philosophy](#1-devsecops-philosophy)
-2. [Threat Modeling in SDLC](#2-threat-modeling-in-sdlc)
-3. [SAST (Static Application Security Testing)](#3-sast-static-application-security-testing)
-4. [SCA (Software Composition Analysis)](#4-sca-software-composition-analysis)
-5. [Secret Detection](#5-secret-detection)
-6. [DAST (Dynamic Application Security Testing)](#6-dast-dynamic-application-security-testing)
-7. [Container Security in CI/CD](#7-container-security-in-cicd)
-8. [Infrastructure as Code (IaC) Security](#8-infrastructure-as-code-iac-security)
-9. [GitHub Actions Security Hardening](#9-github-actions-security-hardening)
-10. [SBOM (Software Bill of Materials) in CI/CD](#10-sbom-software-bill-of-materials-in-cicd)
-11. [Security Gates in CI/CD Pipeline](#11-security-gates-in-cicd-pipeline)
-12. [Secrets Management in Applications](#12-secrets-management-in-applications)
-13. [OWASP DevSecOps Guideline](#13-owasp-devsecops-guideline)
-14. [Compliance Integration](#14-compliance-integration)
+1. [DevSecOps Fundamentals](#1-devsecops-fundamentals)
+2. [SAST & Code Analysis](#2-sast--code-analysis)
+3. [SCA & Dependency Security](#3-sca--dependency-security)
+4. [Secrets Detection & Management in CI/CD](#4-secrets-detection--management-in-cicd)
+5. [CI/CD Pipeline Security](#5-cicd-pipeline-security)
+6. [Container & IaC Security](#6-container--iac-security)
+7. [DAST & API Testing in Pipelines](#7-dast--api-testing-in-pipelines)
+8. [Infrastructure as Code Security Practices](#8-infrastructure-as-code-security-practices)
+9. [Software Supply Chain in DevSecOps](#9-software-supply-chain-in-devsecops)
+10. [Observability, Compliance & Culture](#10-observability-compliance--culture)
 
 ---
 
-## 1. DevSecOps Philosophy
+## 1. DevSecOps Fundamentals
 
-### Shift Left Security
+### Shift-Left Security Philosophy
 
-"Shift Left" is the foundational principle of DevSecOps: find and fix vulnerabilities during development, not in production. Moving security testing earlier in the SDLC reduces cost, reduces risk, and increases developer ownership of security.
+Shift-left security is the practice of integrating security activities as early in the SDLC as possible — moving security "left" on the timeline toward design and coding phases rather than relegating it to a post-development gate.
 
-**Cost of fixing a vulnerability by phase (IBM Systems Sciences Institute):**
-- Design: 1x
-- Development: 6x
-- Testing: 15x
-- Production: 100x
+**NIST Cost Curve for Defect Remediation:**
 
-### DevSecOps vs. DevOps
+| Phase Defect Discovered | Relative Cost to Fix |
+|------------------------|----------------------|
+| Requirements / Design  | 1x                   |
+| Coding                 | 6x                   |
+| Integration Testing    | 15x                  |
+| System Testing         | 30x                  |
+| Production             | 100x                 |
 
-DevOps integrated development and operations teams. DevSecOps adds security as a **shared responsibility** across all roles — developers, ops engineers, and security professionals. Security is no longer a gate at the end of the pipeline; it is a continuous activity embedded throughout.
+The IBM Systems Sciences Institute study and subsequent NIST research reinforce this exponential cost curve. A vulnerability caught by a pre-commit hook costs minutes of developer time; the same vulnerability reaching production can require incident response, forensics, customer notification, legal fees, and reputational damage worth orders of magnitude more.
 
-**Key differences:**
-| Aspect | DevOps | DevSecOps |
-|--------|--------|-----------|
-| Security responsibility | Security team | Everyone |
-| When security happens | Pre-release gate | Throughout SDLC |
-| Security tools | Separate toolchain | Integrated in CI/CD |
-| Security culture | Compliance checkbox | Continuous improvement |
-| Incident response | Reactive | Proactive + reactive |
-
-### Security Champions Program
-
-Security champions embed security advocates directly in development teams — engineers with interest in security who bridge the gap between the security team and their dev squad.
-
-**Responsibilities:**
-- First point of contact for security questions
-- Conduct threat modeling with the team
-- Review security findings from automated tools
-- Evangelize secure coding practices
-- Participate in security training and relay knowledge
-
-**Program elements:**
-- Regular champions meetings (bi-weekly or monthly)
-- Dedicated training budget and conference attendance
-- Recognition program (security champion awards, badges)
-- Access to security team slack channel or office hours
-- Champions as reviewers on security-sensitive PRs
-
-### OWASP SAMM (Software Assurance Maturity Model)
-
-SAMM provides a measurable framework for evaluating and improving a software security program. It defines **5 business functions**, each with **3 security practices**, each with **3 maturity levels**.
-
-**Business Functions:**
-1. **Governance** — Strategy, Policy, Education & Guidance
-2. **Design** — Threat Assessment, Security Requirements, Security Architecture
-3. **Implementation** — Secure Build, Secure Deployment, Defect Management
-4. **Verification** — Architecture Assessment, Requirements Testing, Security Testing
-5. **Operations** — Incident Management, Environment Management, Operational Management
-
-**Maturity Levels (per practice):**
-- Level 1: Initial understanding and ad hoc practice
-- Level 2: Increase efficiency and/or effectiveness
-- Level 3: Comprehensive mastery
-
-**Assessment approach:**
-- Use SAMM Toolbox (spreadsheet or SaaS tool) to score current state
-- Set target maturity per practice based on risk appetite
-- Build roadmap to close gaps
-
-### BSIMM (Building Security In Maturity Model)
-
-BSIMM is an observational study of real-world software security programs — not prescriptive, but descriptive. It measures what organizations actually do and lets you benchmark against your industry.
-
-**12 Practices across 4 domains:**
-- **Governance:** Strategy & Metrics, Compliance & Policy, Training
-- **Intelligence:** Attack Models, Security Features & Design, Standards & Requirements
-- **SSDL Touchpoints:** Architecture Analysis, Code Review, Security Testing
-- **Deployment:** Penetration Testing, Software Environment, Configuration Management & VM
-
-**Current release:** BSIMM14 (2023) — 130+ participating firms, ~$2T in market cap represented
-
-### Key DevSecOps Metrics
-
-| Metric | Description | Target |
-|--------|-------------|--------|
-| MTTD in CI/CD | Mean time to detect vulnerabilities in pipeline | < 10 min |
-| Vulnerability escape rate | % of vulns that reach production | < 5% |
-| Mean time to remediate (MTTR) | Time from finding to fix merged | Critical < 24h, High < 7d |
-| SAST false-positive rate | % of SAST findings that are not real | < 20% |
-| Security debt ratio | Open security issues / total open issues | < 10% |
-| Coverage rate | % of repos with automated security scanning | 100% |
-| Security gate pass rate | % of builds passing security gates | > 95% |
-| Patch currency | % of dependencies up to date | > 90% |
+**Core Shift-Left Practices:**
+- Threat modeling during sprint planning and design reviews
+- Security unit tests alongside functional unit tests
+- Pre-commit hooks for secrets scanning and linting
+- IDE plugins (Snyk, SonarLint, Semgrep VSCode extension) providing real-time feedback
+- Mandatory security training before developers commit to production codebases
+- Security acceptance criteria in user stories (Definition of Done includes security)
+- Developer-accessible security dashboards (not just security team dashboards)
 
 ---
 
-## 2. Threat Modeling in SDLC
+### DevSecOps Maturity Models
 
-### When to Threat Model
+#### BSIMM v14 (Building Security In Maturity Model)
 
-- **Sprint 0** for significant new features or new services
-- During **architecture reviews** for any system handling sensitive data
-- **Before significant changes** to authentication, authorization, or data flows
-- When introducing **new third-party integrations** or APIs
-- After a **security incident** that reveals a design flaw
+BSIMM is a data-driven model built from observing real software security initiatives at over 130 firms. It describes what organizations actually do, not just what they should do.
 
-### Who Should Participate
+**4 Domains:**
+1. **Governance** — strategy, metrics, compliance, and executive engagement
+2. **Intelligence** — attack models, security features and design, standards and requirements
+3. **SSDL Touchpoints** — architecture analysis, code review, security testing
+4. **Deployment** — penetration testing, software environment, configuration and vulnerability management
 
-Threat modeling does not require a dedicated security team for every session:
-- **Developer** — knows the code and implementation details
-- **Security champion** — brings security mindset, owns facilitation
-- **Architect** — understands system boundaries and data flows
+**12 Practices (3 per domain):**
 
-Invite the security team for high-risk systems (payment processing, identity management, PII-heavy systems).
+| Domain | Practice |
+|--------|----------|
+| Governance | Strategy & Metrics (SM), Compliance & Policy (CP), Training (T) |
+| Intelligence | Attack Models (AM), Security Features & Design (SFD), Standards & Requirements (SR) |
+| SSDL Touchpoints | Architecture Analysis (AA), Code Review (CR), Security Testing (ST) |
+| Deployment | Penetration Testing (PT), Software Environment (SE), Configuration Mgmt & Vulnerability Mgmt (CMVM) |
 
-### STRIDE Threat Model
+Each practice contains activities scored by prevalence. BSIMM scores help organizations benchmark against their industry vertical (FinSrv, ISV, Healthcare, IoT).
 
-The classic Microsoft methodology — identify threats by category:
+#### OWASP SAMM 2.0 (Software Assurance Maturity Model)
 
-| Threat | Description | Example |
-|--------|-------------|---------|
-| **S**poofing | Impersonating another user or system | Session hijacking, CSRF |
-| **T**ampering | Modifying data in transit or at rest | Parameter tampering, SQLi |
-| **R**epudiation | Denying actions occurred | Missing audit logs |
-| **I**nformation Disclosure | Exposing data to unauthorized parties | Path traversal, IDOR |
-| **D**enial of Service | Making system unavailable | ReDoS, resource exhaustion |
-| **E**levation of Privilege | Gaining unauthorized permissions | Privilege escalation |
+SAMM provides a measurable, actionable framework for building and improving software security programs.
 
-### PASTA (Process for Attack Simulation and Threat Analysis)
+**5 Business Functions:**
+1. **Governance** — organizational management, policy, and education
+2. **Design** — threat assessment, security requirements, security architecture
+3. **Implementation** — secure build, secure deployment, defect management
+4. **Verification** — architecture assessment, requirements-driven testing, security testing
+5. **Operations** — incident management, environment management, operational management
 
-A risk-centric, 7-stage methodology:
-1. Define objectives and scope
-2. Define technical scope (architecture, components)
-3. Decompose the application (DFDs, trust boundaries)
-4. Analyze threats (attack libraries, threat intelligence)
-5. Vulnerability analysis (map threats to vulnerabilities)
-6. Attack modeling (attack trees, simulation)
-7. Risk/impact analysis and controls
+**15 Security Practices** (3 per function), each with **Maturity Levels 0-3:**
+- Level 0: Practice not performed
+- Level 1: Initial understanding and ad hoc performance
+- Level 2: Increased efficiency and/or effectiveness of the practice
+- Level 3: Comprehensive mastery at scale
 
-### Tool Integration
-
-**OWASP Threat Dragon:**
-```bash
-# Run locally
-docker run -it --rm -p 3000:3000 \
-  -e ENCRYPTION_JWT_SIGNING_KEY=my-signing-key \
-  -e ENCRYPTION_JWT_REFRESH_SIGNING_KEY=my-refresh-key \
-  owasp/threat-dragon:latest
-
-# Store threat model in Git repo
-# threat-models/feature-x-auth.json
-```
-
-**IriusRisk** — enterprise SaaS, integrates with Jira:
-- Auto-generates threat models from architecture diagrams
-- Links threats to Jira tickets automatically
-- Supports STRIDE, PASTA, CVSS scoring
-
-### Abuse Cases as User Stories
-
-Security requirements expressed in developer-friendly format:
-
-```
-As an attacker, I can bypass authentication by replaying a stolen session token,
-so the application must invalidate tokens on logout and implement absolute session expiry.
-
-As an attacker, I can enumerate user accounts via the password reset endpoint's
-different error messages, so the application must return identical responses for
-valid and invalid email addresses.
-
-As an attacker, I can inject SQL via the search parameter because it is not
-parameterized, so all database queries must use prepared statements.
-```
-
-### Security Requirements → Acceptance Criteria
-
-Threat model outputs become ticket acceptance criteria:
-
-```
-Story: User login
-Acceptance Criteria (Security):
-- [ ] Passwords hashed with bcrypt (cost factor >= 12)
-- [ ] Account lockout after 5 failed attempts (15 min lockout)
-- [ ] MFA supported (TOTP)
-- [ ] Login failures logged with IP, timestamp, username
-- [ ] Session token is 128-bit random, HttpOnly, Secure, SameSite=Strict
-- [ ] Session invalidated on logout (server-side)
-```
+SAMM assessments produce a scorecard that feeds roadmap planning. The SAMM Toolbox (Excel) and SAMMwise web application automate scoring.
 
 ---
 
-## 3. SAST (Static Application Security Testing)
+### Security Gates vs. Guardrails
 
-### What SAST Does
+| Aspect | Security Gate (Blocking) | Security Guardrail (Advisory) |
+|--------|--------------------------|-------------------------------|
+| Behavior | Fails the pipeline / blocks merge | Warns but allows continuation |
+| Use case | Critical/High findings, policy violations | Medium/Low findings, style issues |
+| Risk | Can slow velocity if miscalibrated | May be ignored if not tracked |
+| Best for | CVSS Critical + confirmed vulns, secret exposure | New findings under triage, informational |
 
-SAST analyzes **source code without executing it** to find:
-- Common Weakness Enumeration (CWE) patterns
-- Insecure coding patterns (hardcoded secrets, SQL injection sinks)
-- Taint flows from user input to dangerous functions
-- Misconfigurations in code (e.g., disabled TLS verification)
+**Recommended approach:** Start with guardrails to build data, tune false positive rates, then progressively promote categories to gates as confidence grows. Gate on: any secret in code, any CRITICAL CVSS in direct dependencies, any known-exploited CVE (CISA KEV list).
 
-**False positive challenge:** SAST tools are known for high false positive rates. Mitigation:
-- Tune rules per project (disable irrelevant rules)
-- Add suppression comments with justification (not blanket suppresses)
-- Establish a triage workflow — SLA for reviewing new findings
-- Track false positive rate as a metric
+---
+
+### Threat Modeling in SDLC
+
+#### STRIDE Methodology
+
+STRIDE is a per-component threat enumeration methodology developed at Microsoft.
+
+| Threat | Violates | Example |
+|--------|----------|---------|
+| **S**poofing | Authentication | Attacker impersonates a user or service |
+| **T**ampering | Integrity | Attacker modifies data in transit or at rest |
+| **R**epudiation | Non-repudiation | User denies performing an action with no audit trail |
+| **I**nformation Disclosure | Confidentiality | Verbose error messages expose stack traces |
+| **D**enial of Service | Availability | Unauthenticated endpoint triggers expensive computation |
+| **E**levation of Privilege | Authorization | User accesses admin functionality via IDOR |
+
+**STRIDE Process:**
+1. Draw a Data Flow Diagram (DFD) with trust boundaries
+2. Enumerate STRIDE threats per component and data flow
+3. Rate each threat (DREAD or CVSS-like scoring)
+4. Define mitigations and assign to owners
+5. Validate mitigations in code review and testing
+
+#### PASTA (Process for Attack Simulation and Threat Analysis) — 7 Stages
+
+1. **Define Objectives** — business impact analysis, regulatory scope
+2. **Define Technical Scope** — system components, APIs, data stores
+3. **Application Decomposition** — DFDs, trust boundaries, entry/exit points
+4. **Threat Analysis** — threat intelligence, threat actor profiling
+5. **Vulnerability & Weakness Analysis** — existing scan results, CVE mapping
+6. **Attack Modeling** — attack trees, kill chain mapping
+7. **Risk & Impact Analysis** — risk rating, residual risk acceptance
+
+#### Risk Rating Matrix
+
+| Likelihood vs Impact | Low | Medium | High | Critical |
+|---------------------|-----|--------|------|----------|
+| Very Likely         | Medium | High | Critical | Critical |
+| Likely              | Low | Medium | High | Critical |
+| Unlikely            | Low | Low | Medium | High |
+| Very Unlikely       | Info | Low | Low | Medium |
+
+---
+
+### Developer Security Training Programs
+
+| Platform | Format | Strengths |
+|----------|--------|-----------|
+| **OWASP WebGoat** | Self-hosted vulnerable app | Free, hands-on, covers OWASP Top 10 |
+| **Secure Code Warrior** | Role-based gamified training | Language-specific, tournament mode, LMS integration |
+| **HackEdu** | Secure coding challenges | Language-aware, real code snippets |
+| **SANS SEC522** | Instructor-led course | Deep web app security, 5-day intensive |
+| **OWASP SKF** | Self-hosted + labs | Security Knowledge Framework with code examples |
+
+**Training Cadence Recommendation:**
+- Onboarding: 8-hour foundational secure coding course
+- Annual: 4-hour refresher with current threat landscape
+- Role-specific: AppSec champions get 40+ hours/year
+- Just-in-time: Contextual training triggered by SAST findings (Secure Code Warrior integration)
+
+---
+
+### Security Champions Program Design
+
+**Selection Criteria:** Volunteer (not assigned), respected developer peer, technical competence, security curiosity, communication skills.
+
+**Training Curriculum (Recommended 40-hour path):**
+- OWASP Top 10 Web + API in depth (8h)
+- Threat modeling facilitation (4h)
+- SAST/DAST tool operation (4h)
+- Secure code review techniques (8h)
+- Cryptography fundamentals (4h)
+- Incident response basics (4h)
+- Cloud security fundamentals (4h)
+- AppSec architecture patterns (4h)
+
+**Champion Responsibilities:** Facilitate sprint threat models, triage SAST findings, advocate for security in backlog grooming, lead security retrospectives, represent team in security guild.
+
+**Recognition:** Dedicated conference budget ($2K+/year), security certification sponsorship, visible credit in security reports, career ladder acknowledgment.
+
+---
+
+### Measuring DevSecOps Maturity — KPIs
+
+| KPI | Formula | Target |
+|-----|---------|--------|
+| SAST scan coverage | Repos with SAST / Total repos x 100 | >= 95% |
+| Mean Time to Remediate (Critical) | Avg(patch_date - discovery_date) for CVSS >= 9.0 | <= 24 hours |
+| Mean Time to Remediate (High) | Avg for CVSS 7.0-8.9 | <= 7 days |
+| Vulnerability escape rate | Vulns found in prod / Total vulns found x 100 | <= 5% |
+| Security training completion | Devs completed training / Total devs x 100 | >= 90% |
+| False positive rate | FP SAST findings / Total SAST findings x 100 | <= 20% |
+| Security gate bypass rate | Pipeline overrides / Total gate failures x 100 | <= 2% |
+
+---
+## 2. SAST & Code Analysis
+
+### SAST Tool Comparison
+
+Static Application Security Testing analyzes source code, bytecode, or binary without executing the program to find security defects.
+
+| Tool | Languages | Deployment | Strength |
+|------|-----------|------------|----------|
+| Semgrep | 30+ | Cloud + self-hosted | Fast, custom rules, OSS community rules |
+| SonarQube | 29 | Self-hosted / SonarCloud | Quality + security combined, branch analysis |
+| CodeQL | 10 | GitHub-native / self-hosted | Deep semantic analysis, complex queries |
+| Checkmarx SAST | 35+ | Cloud + on-prem | Enterprise workflow, SDLC integration |
+| Veracode Static | 20+ | SaaS | Policy-based, compliance reporting |
+
+---
 
 ### Semgrep
 
-Lightweight, rule-based, fast SAST that runs in seconds. Rules are YAML, open-source, and highly customizable.
+**Basic scan:**
+```bash
+semgrep --config p/security-audit --config p/owasp-top-ten ./src
+semgrep --config p/python ./src --json > semgrep-results.json
+```
 
+**Custom rule syntax (YAML):**
 ```yaml
-# Custom Semgrep rule example
 rules:
-  - id: hardcoded-secret-key
+  - id: hardcoded-secret-env-bypass
     patterns:
-      - pattern: $KEY = "..."
-      - metavariable-regex:
-          metavariable: $KEY
-          regex: (?i)(secret|password|api_key|token|passwd)
-    message: "Potential hardcoded secret in $KEY"
+      - pattern: os.environ["SECRET"] = "..."
+    message: "Hardcoded secret assigned to environment variable"
+    languages: [python]
     severity: ERROR
-    languages: [python, javascript, java, go]
     metadata:
       cwe: CWE-798
-      owasp: A07:2021 - Identification and Authentication Failures
 
-  - id: sql-injection-string-format
+  - id: sql-injection-format-string
     patterns:
-      - pattern: |
-          $DB.execute("..." % $USER_INPUT)
-      - pattern: |
-          $DB.execute("..." + $USER_INPUT)
-    message: "Potential SQL injection via string concatenation"
-    severity: ERROR
+      - pattern: cursor.execute($QUERY % ...)
+      - pattern-not: cursor.execute($QUERY % ($SAFE, ...))
+    message: "Potential SQL injection via string formatting"
     languages: [python]
-    metadata:
-      cwe: CWE-89
+    severity: ERROR
 ```
 
-```bash
-# Run Semgrep
-semgrep --config=p/security-audit --config=p/owasp-top-ten .
-semgrep --config=./custom-rules/ --json --output results.json .
-
-# CI integration (uses rules from .semgrep.yml or Semgrep Cloud)
-semgrep ci --config=auto
-
-# Scan with multiple rulesets
-semgrep --config=p/python --config=p/secrets --config=p/jwt .
-
-# Suppress false positive inline
-x = user_input  # nosemgrep: rule-id (reason: input is already validated by schema)
+**Taint tracking rule:**
+```yaml
+rules:
+  - id: flask-taint-sqli
+    mode: taint
+    pattern-sources:
+      - pattern: request.args.get(...)
+      - pattern: request.form.get(...)
+    pattern-sinks:
+      - pattern: cursor.execute(...)
+    message: "User-controlled input flows into SQL query"
+    languages: [python]
+    severity: ERROR
 ```
 
-**Semgrep Registry:** https://semgrep.dev/r — thousands of community and official rules
+Community rulesets: `p/security-audit`, `p/owasp-top-ten`, `p/python`, `p/javascript`, `p/typescript`, `p/golang`, `p/java`, `p/kotlin`, `p/react`, `p/django`. Browse at semgrep.dev/r.
+
+---
 
 ### SonarQube
 
-Comprehensive, enterprise-grade platform with taint analysis, Quality Gates, and dashboards.
-
-**Key features:**
-- **Quality Gates:** configurable criteria that block PR merge (e.g., no new Critical issues, Security Hotspots reviewed)
-- **Taint analysis:** tracks data flow from user-controlled source to dangerous sink
-- **Issue lifecycle:** Open → Confirmed → Resolved → Won't Fix
-- **Security Hotspots:** code that needs manual review (not a confirmed bug)
-
-```bash
-# Scanner invocation
-sonar-scanner \
-  -Dsonar.projectKey=myapp \
-  -Dsonar.sources=src \
-  -Dsonar.host.url=https://sonar.company.com \
-  -Dsonar.login=$SONAR_TOKEN
-
-# Quality Gate check in CI
-curl -s "https://sonar.company.com/api/qualitygates/project_status?projectKey=myapp" \
-  | jq '.projectStatus.status'
-# Returns: OK or ERROR
+**sonar-project.properties:**
+```properties
+sonar.projectKey=my-org_my-project
+sonar.organization=my-org
+sonar.sources=src
+sonar.tests=tests
+sonar.python.coverage.reportPaths=coverage.xml
+sonar.exclusions=**/node_modules/**,**/vendor/**
+sonar.coverage.exclusions=**/*test*/**
 ```
 
-**Key rules:**
-- `RSPEC-2091` — SQL injection (taint analysis)
-- `RSPEC-5145` — Log injection
-- `RSPEC-2076` — OS command injection
-- `RSPEC-4830` — Certificate validation disabled
-- `RSPEC-2115` — Database password in connection string
+**Quality Gate configuration (SonarQube API):**
+```bash
+# Create custom quality gate
+curl -X POST "https://sonar.example.com/api/qualitygates/create"   -u admin:password -d "name=DevSecOps-Gate"
 
-### CodeQL (GitHub Advanced Security)
+# Add condition: block on any new blocker/critical security issue
+curl -X POST "https://sonar.example.com/api/qualitygates/create_condition"   -u admin:password   -d "gateId=3&metric=new_security_rating&op=GT&error=1"
+```
 
-Semantic code analysis by GitHub — queries written in QL language, extremely powerful for finding complex vulnerability patterns.
+**Security Hotspots vs Vulnerabilities:**
+- **Vulnerability**: Confirmed security issue requiring immediate action
+- **Security Hotspot**: Suspicious code requiring human review to determine if exploitable
+- Hotspots use a review workflow (To Review > Acknowledged/Fixed/Safe) distinct from the vulnerability fix workflow
 
+Branch analysis (Developer Edition+): Analyzes feature branches independently; PR decoration posts findings as comments; new code period tracks delta.
+
+---
+
+### CodeQL
+
+**Database creation and analysis:**
+```bash
+# Create database for Python project
+codeql database create my-db --language=python --source-root=.
+
+# Analyze with security queries
+codeql analyze my-db python-security-and-quality.qls   --format=sarif-latest --output=results.sarif
+
+# Run specific query pack
+codeql analyze my-db   codeql/python-queries:Security/CWE-089/SqlInjection.ql   --format=sarif-latest --output=sqli.sarif
+```
+
+**Custom QL query:**
+```ql
+import python
+import semmle.python.security.dataflow.SqlInjection
+
+from SqlInjection::Configuration cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+where cfg.hasFlowPath(source, sink)
+select sink.getNode(), source, sink,
+  "SQL injection from $@", source.getNode(), "user-controlled input"
+```
+
+**GitHub Advanced Security code scanning setup (.github/workflows/codeql.yml):**
 ```yaml
-# .github/workflows/codeql.yml
-name: CodeQL
+name: CodeQL Analysis
 on:
   push:
     branches: [main]
   pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * 1'
 jobs:
   analyze:
     runs-on: ubuntu-latest
     permissions:
       security-events: write
       contents: read
-    strategy:
-      matrix:
-        language: [python, javascript]
     steps:
       - uses: actions/checkout@v4
       - uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
+          languages: python, javascript
           queries: security-and-quality
       - uses: github/codeql-action/autobuild@v3
       - uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:${{ matrix.language }}"
+          category: "/language:python"
+          output: results/
           upload: true
 ```
 
-**Custom CodeQL query example:**
-```ql
-/**
- * @name Hardcoded credentials
- * @kind problem
- * @severity error
- * @id py/hardcoded-credentials
- */
-import python
-import semmle.python.security.dataflow.HardcodedCredentials
+---
 
-from HardcodedCredentialsSink sink
-select sink, "Hardcoded credential found."
+### GitHub Advanced Security Features
+
+**Secret Scanning:**
+- Auto-enabled for all public repos and GHAS-licensed private repos
+- Partner program: 100+ token types with provider-side revocation on detection
+- Custom patterns: regex-based patterns with up to 10 test strings
+- Push protection: blocks pushes containing detected secrets
+
+**Custom secret pattern:**
+```json
+{
+  "name": "Internal API Token",
+  "secret_type": "internal_api_token",
+  "pattern": "INT-[A-Z0-9]{32}",
+  "test_string": "INT-ABCDEFGH12345678IJKLMNOP90QRST"
+}
 ```
 
-### Language-Specific SAST Tools
-
-| Language | Tool | Command / Notes |
-|----------|------|----------------|
-| Python | Bandit | `bandit -r . -f json -o bandit-report.json` |
-| Python | Semgrep + p/python | Fast, low false positive rate |
-| JavaScript/TS | ESLint (eslint-plugin-security) | Add to `.eslintrc` |
-| JavaScript/TS | njsscan | `njsscan --json -o njsscan.json .` |
-| Java | SpotBugs + FindSecBugs | Maven/Gradle plugin |
-| Java | Checkmarx | Enterprise, taint analysis |
-| Go | gosec | `gosec ./...` |
-| Ruby | Brakeman | Rails-specific: `brakeman -o report.json` |
-| C/C++ | Flawfinder | `flawfinder --html . > report.html` |
-| C/C++ | Cppcheck | `cppcheck --enable=all --xml . 2> report.xml` |
-| PHP | PHPCS Security Audit | `phpcs --standard=Security src/` |
-| .NET/C# | Roslyn Analyzers | Built into VS, MSBuild |
-| Infrastructure | checkov | `checkov -d . --framework terraform` |
-| Infrastructure | tfsec | `tfsec .` |
-| Infrastructure | kics | `kics scan -p .` |
+**Dependency review action:**
+```yaml
+- uses: actions/dependency-review-action@v4
+  with:
+    fail-on-severity: high
+    deny-licenses: GPL-2.0, AGPL-3.0
+    comment-summary-in-pr: always
+```
 
 ---
 
-## 4. SCA (Software Composition Analysis)
+### GitLab SAST Integration
 
-### What SCA Does
+```yaml
+# .gitlab-ci.yml
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
 
-SCA scans **open-source dependencies** (libraries, packages, transitive deps) for:
-- Known CVEs from public databases
-- License compliance issues (GPL in commercial product)
-- Outdated packages (upgrade paths)
-- Malicious packages (typosquatting detection)
+variables:
+  SAST_EXCLUDED_PATHS: "spec, test, tests, tmp"
+  SAST_SEVERITY_LEVEL: "medium"
 
-**Key vulnerability databases:**
-- NVD (National Vulnerability Database) — https://nvd.nist.gov
-- GitHub Advisory Database — https://github.com/advisories
-- OSV (Open Source Vulnerabilities) — https://osv.dev
-- Sonatype OSS Index — https://ossindex.sonatype.org
-
-### Snyk
-
-Commercial SCA with developer-friendly output, fix PRs, and container scanning.
-
-```bash
-# Test project for vulnerabilities
-snyk test --severity-threshold=high
-
-# Continuous monitoring (registers project in Snyk dashboard)
-snyk monitor
-
-# Container image scanning
-snyk container test nginx:latest
-snyk container test myapp:latest --file=Dockerfile
-
-# IaC scanning
-snyk iac test terraform/
-snyk iac test k8s-manifests/
-
-# Fix automatically (opens PR)
-snyk fix
-
-# Auth
-snyk auth $SNYK_TOKEN
+sast:
+  stage: test
+  variables:
+    SEARCH_MAX_DEPTH: 10
 ```
 
-**GitHub Actions:**
+GitLab runs language-specific analyzers: Bandit (Python), ESLint (JS), SpotBugs (Java/Scala/Groovy), Semgrep (multi), Flawfinder (C/C++).
+
+---
+
+### SARIF Format for Interoperability
+
+SARIF (Static Analysis Results Interchange Format) is the OASIS standard for sharing static analysis results across tools and platforms.
+
+```json
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [{
+    "tool": {
+      "driver": {
+        "name": "MyScanner",
+        "rules": [{"id": "SQL001", "name": "SqlInjection"}]
+      }
+    },
+    "results": [{
+      "ruleId": "SQL001",
+      "level": "error",
+      "locations": [{
+        "physicalLocation": {
+          "artifactLocation": {"uri": "src/db.py"},
+          "region": {"startLine": 42}
+        }
+      }]
+    }]
+  }]
+}
+```
+
+SARIF is consumed by GitHub (code scanning alerts), Azure DevOps, and SARIF viewers.
+
+---
+
+### False Positive Management Workflow
+
+1. **Triage queue**: All new findings enter a triage queue (not directly assigned as bugs)
+2. **Classifier review**: Security champion reviews within SLA (Critical: same day; High: 3 days)
+3. **Disposition options**: Confirmed -> Jira ticket with severity SLA; False Positive -> suppress with justification comment; Accepted Risk -> risk register entry with owner sign-off
+4. **Suppression syntax:**
+```python
+result = cursor.execute(query)  # nosemgrep: sql-injection-format-string
+# Justification: query is a compile-time constant, never user-controlled
+```
+5. **Suppression audit**: Monthly review of all suppressions; automated check that suppression comments include justification
+
+**Incremental scanning for PRs:** Scan only changed files and their transitive imports to reduce scan time. Full scan runs nightly on main. Both results feed the same dashboard.
+
+---
+## 3. SCA & Dependency Security
+
+### SCA Tool Ecosystem
+
+Software Composition Analysis identifies known vulnerabilities, license issues, and supply chain risks in open-source dependencies — both direct and transitive.
+
+#### Snyk Open Source
+
+```bash
+# Scan project dependencies
+snyk test --severity-threshold=high --json > snyk-results.json
+
+# Monitor project (uploads to Snyk dashboard for ongoing monitoring)
+snyk monitor --project-name=my-service --org=my-org
+
+# Auto-fix vulnerabilities (creates PR)
+snyk fix
+
+# License compliance check
+snyk test --license
+
+# Container image SCA
+snyk container test myimage:latest --file=Dockerfile
+```
+
+**Snyk in GitHub Actions:**
 ```yaml
-- name: Run Snyk
-  uses: snyk/actions/node@master
+- uses: snyk/actions/python@master
   env:
     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   with:
-    args: --severity-threshold=high
+    args: --severity-threshold=high --sarif-file-output=snyk.sarif
+- uses: github/codeql-action/upload-sarif@v3
+  with:
+    sarif_file: snyk.sarif
 ```
 
-### OWASP Dependency-Check
-
-Open-source SCA tool, integrates with Maven/Gradle/CLI.
+#### OWASP Dependency-Check
 
 ```bash
-# CLI scan
-dependency-check \
-  --project "MyApp" \
-  --scan ./lib \
-  --format JSON \
+# Standalone scan (downloads NVD data on first run, ~20 min)
+dependency-check.sh \
+  --project "MyProject" \
+  --scan ./src \
   --format HTML \
-  --out reports/
+  --format JSON \
+  --out ./reports \
+  --failOnCVSS 7
 
-# Fail build if CVSS >= 7
-dependency-check --project "MyApp" --scan . --failOnCVSS 7
+# Maven plugin
+mvn org.owasp:dependency-check-maven:check \
+  -DfailBuildOnCVSS=7 \
+  -Dformat=HTML,JSON
+
+# NVD API key (avoids rate limiting)
+dependency-check.sh --nvdApiKey $NVD_API_KEY ...
 ```
 
-**Maven plugin:**
-```xml
-<plugin>
-  <groupId>org.owasp</groupId>
-  <artifactId>dependency-check-maven</artifactId>
-  <version>9.0.9</version>
-  <configuration>
-    <failBuildOnCVSS>7</failBuildOnCVSS>
-    <format>JSON</format>
-    <suppressionFile>suppression.xml</suppressionFile>
-  </configuration>
-  <executions>
-    <execution>
-      <goals><goal>check</goal></goals>
-    </execution>
-  </executions>
-</plugin>
+#### Grype
+
+```bash
+# Scan container image
+grype myimage:latest
+
+# Scan directory
+grype dir:.
+
+# Scan from SBOM
+grype sbom:./sbom.cyclonedx.json
+
+# Fail on high/critical
+grype myimage:latest --fail-on high
+
+# Output SARIF
+grype myimage:latest -o sarif > grype.sarif
 ```
 
-**Suppression file:**
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-  <suppress>
-    <notes>False positive: CVE-2023-1234 does not affect this usage pattern</notes>
-    <cve>CVE-2023-1234</cve>
-  </suppress>
-</suppressions>
+#### OSV-Scanner
+
+```bash
+# Recursive scan of project
+osv-scanner -r .
+
+# Scan specific lockfile
+osv-scanner --lockfile=package-lock.json
+
+# Scan SBOM
+osv-scanner --sbom=sbom.spdx.json
+
+# JSON output
+osv-scanner -r . --json > osv-results.json
 ```
 
-### GitHub Dependabot
+OSV-Scanner queries the OSV.dev database which aggregates from GitHub Advisory Database, NVD, PyPI Advisory Database, RustSec, and Go vulnerability database.
 
-Native GitHub dependency management — automated PRs for security updates and version upgrades.
+#### Socket.dev
 
+Real-time analysis of npm and PyPI packages for:
+- Protestware / malicious code injection
+- Typosquatting detection
+- Install scripts executing network calls
+- Dependency confusion risk
+- Abandoned maintainer detection
+
+```bash
+# CLI
+socket scan create --repo . --report-format sarif
+```
+
+#### GitHub Dependabot
+
+**.github/dependabot.yml:**
 ```yaml
-# .github/dependabot.yml
 version: 2
 updates:
   - package-ecosystem: "npm"
@@ -488,157 +570,236 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "09:00"
-      timezone: "America/New_York"
     open-pull-requests-limit: 10
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+    ignore:
+      - dependency-name: "aws-sdk"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "daily"
     reviewers:
       - "security-team"
     labels:
-      - "dependencies"
       - "security"
-    ignore:
-      - dependency-name: "legacy-package"
-        versions: ["2.x"]
-    groups:
-      dev-dependencies:
-        dependency-type: "development"
-
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "daily"
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
+      - "dependencies"
 ```
-
-**Dependabot security alerts:** Auto-enabled on all GitHub repos — creates alerts in Security tab for vulnerable dependencies.
-
-### OSV-Scanner (Google)
-
-Fast, open-source SCA using the OSV database — great for lockfile scanning.
-
-```bash
-# Install
-go install github.com/google/osv-scanner/cmd/osv-scanner@latest
-
-# Scan by lockfile
-osv-scanner --lockfile=package-lock.json
-osv-scanner --lockfile=requirements.txt
-osv-scanner --lockfile=Gemfile.lock
-osv-scanner --lockfile=go.sum
-
-# Recursive scan
-osv-scanner -r ./project
-
-# Scan SBOM
-osv-scanner --sbom=sbom.spdx.json
-
-# Output formats
-osv-scanner --format table -r .
-osv-scanner --format json -r . > osv-results.json
-```
-
-### License Compliance
-
-SCA tools also flag license issues:
-
-| License | Restriction | Risk |
-|---------|-------------|------|
-| MIT, BSD, Apache 2.0 | Permissive | Low |
-| LGPL | Must open-source modifications to the library | Medium |
-| GPL v2/v3 | Copyleft — can infect entire project | High |
-| AGPL | Network use triggers copyleft | Very High |
-| Proprietary | Commercial restrictions | Review required |
-
-**Tools:** FOSSA, licensee, WhiteSource (Mend), Black Duck
 
 ---
 
-## 5. Secret Detection
+### Vulnerability Sources
 
-Secrets in version control are one of the most common and most damaging security incidents. Prevention requires scanning at multiple stages.
+| Source | Coverage |
+|--------|----------|
+| NVD (NIST) — nvd.nist.gov | CVEs with CVSS scores |
+| GitHub Advisory DB — github.com/advisories | GHSA IDs, package-specific |
+| OSV.dev — osv.dev | Unified schema, 20+ ecosystems |
+| Snyk Vuln DB — security.snyk.io | Curated, earlier disclosure |
+| VulnDB (Risk Based) | Commercial, broadest coverage |
 
-### Defense in Depth for Secrets
+---
 
-```
-Developer machine
-  └── pre-commit hook (gitleaks protect --staged)
+### Transitive Dependency Risk
 
-Git push
-  └── CI secret scanning (gitleaks detect, GitHub Secret Scanning)
-
-Code review
-  └── PR check — secrets surfaced as review annotations
-
-Repository
-  └── GitHub Secret Scanning (continuous, all pushes)
-  └── Periodic full history scan
-```
-
-### Gitleaks
-
-Fast, open-source tool for detecting secrets in git repos and commit history.
+Direct dependencies typically represent only 10-20% of the total dependency tree. Transitive (indirect) dependencies carry equal risk.
 
 ```bash
-# Scan current repo (all history)
-gitleaks detect --source=. --report-format=json --report-path=gitleaks-report.json
+# Visualize full npm dependency tree
+npm ls --all 2>/dev/null | head -100
 
-# Scan only staged changes (pre-commit)
+# Specific package path
+npm ls lodash
+
+# Maven dependency tree
+mvn dependency:tree -Dverbose -Dincludes=log4j
+
+# Snyk with full tree
+snyk test --print-deps
+
+# Gradle
+./gradlew dependencies --configuration runtimeClasspath
+```
+
+**Risk factors for transitive deps:**
+- Deeply nested (hard to patch — must wait for intermediate package update)
+- Unmaintained intermediate packages blocking security updates
+- Version conflicts causing older vulnerable versions to be selected
+
+**Mitigation:** Use lockfiles to pin exact transitive versions; enable Dependabot for transitive updates; use `overrides` (npm) or `resolutions` (yarn) to force patched versions when intermediaries are slow.
+
+---
+
+### License Compliance Automation
+
+| License | Commercial Use | Copyleft | Risk Level |
+|---------|---------------|----------|------------|
+| MIT | Yes | No | Low |
+| Apache 2.0 | Yes | No | Low |
+| BSD 2/3 Clause | Yes | No | Low |
+| LGPL 2.1/3 | Yes (with care) | Weak | Medium |
+| GPL 2.0/3.0 | Restricted | Strong | High |
+| AGPL 3.0 | SaaS triggers copyleft | Strong | Very High |
+| SSPL | Cloud service triggers | Strong | Very High |
+
+```bash
+# FOSSA CLI
+fossa analyze
+fossa test --config .fossa.yml
+
+# Scancode-toolkit
+scancode -l -r --json-pp results.json ./src
+
+# License Finder
+license_finder --decisions-file doc/dependency_decisions.yml
+```
+
+SPDX 2.3 defines compound expressions: `MIT AND Apache-2.0`, `GPL-2.0-only OR MIT`, `LicenseRef-custom`. Tools like `spdx-tools` validate these expressions.
+
+---
+
+### Dependency Confusion Attack Mitigations
+
+Dependency confusion occurs when an attacker publishes a public package with the same name as a private internal package at a higher version, causing package managers to pull the malicious public version.
+
+**Mitigations:**
+
+```ini
+# .npmrc — always prefer internal registry for scoped packages
+@myorg:registry=https://registry.internal.example.com/
+//registry.internal.example.com/:_authToken=${NPM_TOKEN}
+```
+
+```ini
+# pip.conf — require internal index
+[global]
+index-url = https://pypi.internal.example.com/simple/
+# Avoid extra-index-url which falls through to public PyPI
+```
+
+**Artifactory/Nexus controls:**
+- Enable "exclude patterns" to block public resolution of internal package names
+- Use virtual repositories with priority ordering, internal first
+- Enable "block requests on namespace collision"
+
+---
+
+### Lockfile Security
+
+```bash
+# npm — install only from lockfile, no network modification
+npm ci --ignore-scripts
+
+# pip — verify hashes (add with pip-compile --generate-hashes)
+pip install -r requirements.txt --require-hashes
+
+# Verify lockfile integrity
+npm audit signatures  # verifies registry signatures on installed packages
+```
+
+Lockfile tampering detection: Use git hooks or CI checks to verify lockfile was not modified without corresponding package manifest change. Tools: `lockfile-lint` for npm.
+
+---
+
+### SBOM Generation and Attestation
+
+```bash
+# cdxgen — CycloneDX SBOM for multiple ecosystems
+cdxgen -o sbom.cyclonedx.json -t python .
+cdxgen -o sbom.cyclonedx.json -t npm .
+
+# syft — SBOM for containers and filesystems
+syft myimage:latest -o cyclonedx-json > sbom.cyclonedx.json
+syft dir:. -o spdx-json > sbom.spdx.json
+
+# Attach SBOM attestation with Cosign
+cosign attest --predicate sbom.cyclonedx.json \
+  --type cyclonedx \
+  myimage:latest
+```
+
+**NTIA Minimum Elements for SBOMs:**
+1. Supplier name
+2. Component name
+3. Version
+4. Other unique identifiers (PURL, CPE)
+5. Dependency relationships
+6. Author of SBOM data
+7. Timestamp
+
+---
+## 4. Secrets Detection & Management in CI/CD
+
+### Pre-Commit Hook Tools
+
+Detecting secrets before they are committed is the most cost-effective prevention. Pre-commit hooks execute locally on the developer's machine.
+
+#### git-secrets (AWS Labs)
+
+```bash
+# Install and configure
+brew install git-secrets
+git secrets --install     # install hooks in current repo
+git secrets --register-aws  # add AWS secret patterns
+
+# Manual scan
+git secrets --scan
+git secrets --scan-history  # scan entire git history
+
+# Add custom pattern
+git secrets --add 'INT-[A-Z0-9]{32}'
+git secrets --add --literal 'my-actual-secret-value'
+```
+
+#### Gitleaks
+
+```bash
+# Detect secrets in working directory
+gitleaks detect --source . --verbose
+
+# Detect in git log
+gitleaks detect --source . --log-opts="--all"
+
+# Generate baseline (allow existing findings)
+gitleaks detect --source . --baseline-path .gitleaks-baseline.json --report-path report.json
+
+# Protect pre-commit (staged files only)
 gitleaks protect --staged
 
-# Scan specific commit range
-gitleaks detect --log-opts="HEAD~10..HEAD"
-
-# GitHub Actions
-- uses: gitleaks/gitleaks-action@v2
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}  # for org scans
+# In CI
+gitleaks detect --source . --exit-code 1
 ```
 
-**Custom .gitleaks.toml rules:**
+**.gitleaks.toml configuration:**
 ```toml
+[extend]
+useDefault = true  # use built-in ruleset
+
 [[rules]]
-id = "company-api-key"
-description = "Company internal API key"
-regex = '''MYCO_[A-Z0-9]{32}'''
-tags = ["key", "internal"]
+id = "custom-internal-token"
+description = "Internal API Token"
+regex = "INT-[A-Z0-9]{32}"
+entropy = 3.5
+keywords = ["INT-"]
 
 [allowlist]
-paths = [
-  '''tests/fixtures/''',
-  '''\.gitleaks\.toml'''
-]
-regexes = [
-  '''EXAMPLE_KEY_FOR_DOCS''',
-]
+commits = ["abc123def456"]  # known safe commits
+paths = ["(?i)test", "\.md$"]  # test files, docs
 ```
 
-### detect-secrets (Yelp)
-
-Python-based, creates a baseline of known false positives.
+#### detect-secrets
 
 ```bash
-pip install detect-secrets
-
-# Create baseline (scan all files, mark existing as known)
+# Create baseline (all current findings become baseline)
 detect-secrets scan > .secrets.baseline
 
-# Audit baseline interactively (mark true/false positives)
+# Audit baseline (review each finding)
 detect-secrets audit .secrets.baseline
 
-# Pre-commit hook usage
-detect-secrets-hook --baseline .secrets.baseline
-
-# Update baseline after adding intentional test fixtures
+# Scan and fail on new secrets not in baseline
 detect-secrets scan --baseline .secrets.baseline
 ```
 
@@ -652,1130 +813,1782 @@ repos:
         args: ['--baseline', '.secrets.baseline']
 ```
 
-### TruffleHog
-
-Detects secrets with entropy analysis and verified credentials (actually tests if secret is valid).
+#### truffleHog
 
 ```bash
-# Scan git history (only verified secrets)
+# Scan current repo
+trufflehog git file://.
+
+# Scan remote repo
+trufflehog github --repo https://github.com/org/repo
+
+# Scan with depth limit
+trufflehog git file://. --since-commit HEAD~100
+
+# Only verified secrets (reduces FPs via live API validation)
 trufflehog git file://. --only-verified
-
-# Scan GitHub org
-trufflehog github --org=myorg --token=$GITHUB_TOKEN
-
-# Scan Docker image layers
-trufflehog docker --image=myapp:latest
 
 # Scan S3 bucket
 trufflehog s3 --bucket=my-bucket
 
-# GitHub Actions
-- uses: trufflesecurity/trufflehog@main
-  with:
-    path: ./
-    base: ${{ github.event.repository.default_branch }}
-    head: HEAD
-    extra_args: --only-verified
+# JSON output
+trufflehog git file://. --json
 ```
 
-### Git Pre-commit Hook (Project-Level Enforcement)
-
-```bash
-#!/bin/bash
-# .git/hooks/pre-commit  (or use pre-commit framework)
-set -e
-
-echo "Running secret detection..."
-if command -v gitleaks &> /dev/null; then
-  if ! gitleaks protect --staged --no-banner 2>&1; then
-    echo "ERROR: Gitleaks found potential secrets. Commit blocked."
-    echo "Review findings and add to allowlist if false positive."
-    exit 1
-  fi
-else
-  echo "WARNING: gitleaks not installed. Install: brew install gitleaks"
-fi
-
-echo "Secret scan passed."
-exit 0
-```
+---
 
 ### GitHub Secret Scanning
 
-Native GitHub feature — automatically scans for 200+ secret patterns from 100+ service providers.
+Auto-enabled for all public repositories and GHAS-licensed private repositories.
 
-**Enable in repository settings:**
-- Settings → Security → Secret scanning → Enable
-- Push protection: blocks pushes that contain secrets (not just detects)
+**Partner Program:** 100+ token types; when detected, GitHub notifies the provider (AWS, GCP, Slack, Stripe, etc.) who can immediately revoke the exposed credential.
 
-**Supported partners (sample):** AWS, Azure, GCP, GitHub, Stripe, Twilio, SendGrid, Slack, npm, PyPI, Docker Hub
+**Push Protection:** Blocks pushes containing detected secrets before they reach the repository. Developer sees a blocking message with remediation options. Bypass requires choosing a reason (creates audit trail and security alert).
+
+**Custom Patterns (Organization or Repository level):**
+```
+Pattern name: Internal Service Token
+Pattern: INT-[A-Z]{4}-[0-9]{8}-[A-Z0-9]{16}
+Test string: INT-AUTH-20240101-ABC1234567890XYZ
+```
 
 ---
 
-## 6. DAST (Dynamic Application Security Testing)
+### Historical Repository Scanning
 
-### What DAST Does
-
-DAST tests a **running application** by sending malicious inputs and analyzing responses. It finds:
-- XSS, SQLi, command injection in live application behavior
-- Authentication and session management flaws
-- Broken access control (BOLA, BFLA)
-- Security misconfigurations in headers, TLS, cookies
-- Business logic flaws
-
-**Requires:** A deployed application (staging or test environment), valid credentials for authenticated scanning.
-
-### OWASP ZAP (Zed Attack Proxy)
-
-The most widely-used open-source DAST tool.
+When secrets may have been committed historically:
 
 ```bash
-# Passive/API scan (safe for staging)
-docker run -t zaproxy/zap-stable zap-api-scan.py \
-  -t https://api.example.com/openapi.json \
-  -f openapi \
-  -r api-report.html
+# trufflehog — scan all branches and tags
+trufflehog git file://. --log-opts="--all" --json | jq .
 
-# Baseline scan (passive only, safe for production)
-docker run -t zaproxy/zap-stable zap-baseline.py \
-  -t https://staging.example.com \
-  -r baseline-report.html
+# gitleaks — scan full history
+gitleaks detect --source . --log-opts="--all" --report-path history-report.json
 
-# Full active scan (aggressive — staging only!)
-docker run -t zaproxy/zap-stable zap-full-scan.py \
-  -t https://staging.example.com \
-  -r full-report.html \
-  -I  # do not fail on warning
-
-# GitHub Actions integration
-- name: ZAP API Scan
-  uses: zaproxy/action-api-scan@v0.7.0
-  with:
-    target: 'https://staging.example.com/api/openapi.json'
-    format: openapi
-    rules_file_name: '.zap/rules.tsv'
-
-- name: ZAP Full Scan
-  uses: zaproxy/action-full-scan@v0.7.0
-  with:
-    target: 'https://staging.example.com'
-    rules_file_name: '.zap/rules.tsv'
-    cmd_options: '-a'
+# Remove file from history after secret found (BFG Repo Cleaner)
+java -jar bfg.jar --delete-files secret-config.py
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+# Coordinate force push with team before executing
 ```
 
-**ZAP rules.tsv** (configure pass/warn/fail per alert):
-```
-10016	WARN	# Web Browser XSS Protection Not Enabled
-10017	WARN	# Cross-Domain JavaScript Source File Inclusion
-10021	FAIL	# X-Content-Type-Options Header Missing
-10038	FAIL	# Content Security Policy (CSP) Header Not Set
-40012	FAIL	# Cross Site Scripting (Reflected)
-40018	FAIL	# SQL Injection
-```
+**Important:** Rotating credentials is mandatory. History rewriting is supplementary — assume the secret is compromised from the moment it was committed to any shared repository.
 
-### Nuclei
+---
 
-Template-based vulnerability scanner with a massive community template library.
+### Common Secret Types & Detection Patterns
+
+| Secret Type | Pattern Example | Notes |
+|-------------|----------------|-------|
+| AWS Access Key ID | AKIA[A-Z0-9]{16} | Always 20 chars starting AKIA |
+| AWS Secret Access Key | [A-Za-z0-9/+=]{40} | High entropy 40-char string |
+| GitHub PAT (classic) | ghp_[A-Za-z0-9]{36} | Personal access token |
+| GitHub OAuth token | gho_[A-Za-z0-9]{36} | OAuth token |
+| GitHub App user token | ghu_[A-Za-z0-9]{36} | User-to-server token |
+| GitHub Actions token | ghs_[A-Za-z0-9]{36} | Server-to-server token |
+| Private key header | -----BEGIN RSA PRIVATE KEY----- | PEM format |
+| DB connection string | Server=.*;Database=.*;User Id=.*;Password= | Multiple variants |
+| Slack webhook | https://hooks.slack.com/services/T.../B.../... | Webhook URL format |
+| Stripe secret key | sk_live_[A-Za-z0-9]{24,} | Live key prefix |
+
+---
+
+### HashiCorp Vault CI/CD Integration
+
+#### AppRole Authentication
 
 ```bash
-# Install
-go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+# Vault setup (one-time)
+vault auth enable approle
+vault write auth/approle/role/ci-role \
+  secret_id_ttl=10m \
+  token_num_uses=10 \
+  token_ttl=20m \
+  token_max_ttl=30m \
+  secret_id_num_uses=40
 
-# Scan with CVE templates
-nuclei -u https://target.example.com -t cves/ -severity medium,high,critical
+# CI pipeline: get short-lived secret_id
+SECRET_ID=$(vault write -f -field=secret_id auth/approle/role/ci-role/secret-id)
 
-# Multiple template categories
-nuclei -u https://target.example.com \
-  -t cves/ -t exposures/ -t misconfiguration/ \
-  -severity high,critical \
-  -o nuclei-results.txt
+# Login and get token
+VAULT_TOKEN=$(vault write -field=token auth/approle/login \
+  role_id=$ROLE_ID secret_id=$SECRET_ID)
 
-# Automatic template selection based on tech stack
-nuclei -u https://target.example.com -as
-
-# Scan multiple targets
-nuclei -list targets.txt -t cves/ -c 50
-
-# GitHub Actions
-- name: Nuclei Scan
-  uses: projectdiscovery/nuclei-action@main
-  with:
-    target: https://staging.example.com
-    flags: "-severity high,critical"
+# Fetch secret
+vault kv get -field=api_key secret/ci/external-api
 ```
 
-**Custom Nuclei template:**
+#### Dynamic Secrets (Database)
+
+```bash
+# Vault auto-generates short-lived DB credentials
+vault read database/creds/my-role
+# Returns: username=v-ci-abc123, password=A1B2C3..., lease_duration=1h
+# Credentials expire automatically — no manual rotation required
+```
+
+#### GitHub Actions + Vault
+
 ```yaml
-id: custom-debug-endpoint
-
-info:
-  name: Debug Endpoint Exposed
-  author: security-team
-  severity: high
-  tags: exposure,debug
-
-http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/debug"
-      - "{{BaseURL}}/admin/debug"
-      - "{{BaseURL}}/_debug"
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-      - type: word
-        words:
-          - "debug"
-          - "stack trace"
-        condition: or
-        part: body
+- uses: hashicorp/vault-action@v3
+  with:
+    url: https://vault.example.com
+    method: approle
+    roleId: ${{ secrets.VAULT_ROLE_ID }}
+    secretId: ${{ secrets.VAULT_SECRET_ID }}
+    secrets: |
+      secret/data/ci/deploy api_key | DEPLOY_API_KEY ;
+      database/creds/readonly username | DB_USER ;
+      database/creds/readonly password | DB_PASS
 ```
-
-### API Security Testing — OWASP API Top 10
-
-| Risk | Description | Test Approach |
-|------|-------------|---------------|
-| API1 — BOLA | Broken Object Level Authorization | Change object IDs in requests (`/users/1` → `/users/2`) |
-| API2 — Broken Auth | Weak authentication | Test with expired/invalid tokens, no token |
-| API3 — BOPLA | Broken Object Property Level Auth | Request sensitive fields not in UI |
-| API4 — Unrestricted Resource Consumption | No rate limiting | Rapid fire requests, large payloads |
-| API5 — BFLA | Broken Function Level Authorization | Access admin endpoints as regular user |
-| API6 — Unrestricted Business Flow | No abuse prevention | Automate checkout, skip payment steps |
-| API7 — SSRF | Server-Side Request Forgery | Inject internal URLs in URL parameters |
-| API8 — Security Misconfiguration | Default creds, verbose errors | Check headers, error messages |
-| API9 — Improper Inventory Management | Shadow/undocumented APIs | Enumerate API versions, old endpoints |
-| API10 — Unsafe Consumption of APIs | Trusting 3rd party APIs | Inject malicious data via 3rd party |
-
-**Automated API testing tools:**
-- **RESTler** (Microsoft): fuzzes REST APIs based on OpenAPI spec
-- **CATS** (Endpoint Fuzzer): `cats --contract=openapi.yml --server=https://api.example.com`
-- **42Crunch API Security Audit**: static analysis of OpenAPI specs
 
 ---
 
-## 7. Container Security in CI/CD
+### AWS Secrets Manager in Pipelines
 
-### Trivy (Aqua Security)
+```python
+import boto3, json
+client = boto3.client('secretsmanager', region_name='us-east-1')
+secret = json.loads(
+    client.get_secret_value(SecretId='prod/myservice/dbcreds')['SecretString']
+)
+DB_PASSWORD = secret['password']
+```
 
-The most comprehensive open-source container security scanner — images, filesystems, IaC, SBOM.
+**GitHub Actions (OIDC -> AWS Secrets Manager — no static keys):**
+```yaml
+- uses: aws-actions/configure-aws-credentials@v4
+  with:
+    role-to-assume: arn:aws:iam::123456789012:role/github-actions-role
+    aws-region: us-east-1
+- name: Get secret
+  run: |
+    SECRET=$(aws secretsmanager get-secret-value \
+      --secret-id prod/myservice/apikey \
+      --query SecretString --output text)
+    echo "API_KEY=$SECRET" >> $GITHUB_ENV
+```
+
+---
+
+### Secrets Rotation Automation
+
+**Rotation pattern — AWS Lambda + Secrets Manager:**
+1. Secrets Manager triggers Lambda on rotation schedule
+2. Lambda: `createSecret` -> generate new credential at target service
+3. Lambda: `setSecret` -> store new credential in Secrets Manager (staging)
+4. Lambda: `testSecret` -> validate new credential works
+5. Lambda: `finishSecret` -> promote staging to current, retire old
+
+**Rotation cadence recommendations:**
+- CI/CD service tokens: every 30 days
+- Database passwords: every 90 days (or on team member offboarding)
+- API keys: per service SLA (many providers support 60-day rotation)
+- Certificate private keys: annually or on CA compromise
+
+---
+## 5. CI/CD Pipeline Security
+
+### Pipeline Security Principles
+
+**Ephemeral Build Agents:** Every build job runs in a fresh, clean environment. Never reuse build agents across jobs — persistent agents accumulate secrets, caches with malicious content, and state from previous (potentially compromised) builds.
+
+**Least Privilege Pipeline Identities:** Pipeline service accounts and OIDC roles should have only the permissions required for that specific job. Separate read-only roles for test jobs from read-write roles for deployment jobs.
+
+**Signed Artifacts with Provenance:** Every artifact that flows through the pipeline should be signed and accompanied by a provenance attestation describing how it was built.
+
+**No Secrets in Environment Variables:** Secrets in env vars are readable by all process children and appear in crash dumps. Use Vault, AWS Secrets Manager, or similar — fetch at use time, not at job start.
+
+---
+
+### GitHub Actions Security Hardening
+
+#### Permissions Block (Principle of Least Privilege)
+
+```yaml
+# Default to no permissions; grant minimally per job
+permissions: {}
+
+jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+  security-scan:
+    permissions:
+      security-events: write
+      contents: read
+  deploy:
+    permissions:
+      id-token: write   # required for OIDC
+      contents: read
+```
+
+#### OIDC Federation — Eliminate Long-Lived Cloud Keys
+
+```yaml
+# GitHub Actions -> AWS (no static AWS keys stored anywhere)
+- uses: aws-actions/configure-aws-credentials@v4
+  with:
+    role-to-assume: arn:aws:iam::123456789012:role/github-oidc-role
+    aws-region: us-east-1
+    role-session-name: github-actions-${{ github.run_id }}
+
+# GitHub Actions -> GCP
+- uses: google-github-actions/auth@v2
+  with:
+    workload_identity_provider: projects/123/locations/global/workloadIdentityPools/github/providers/github
+    service_account: deploy@project.iam.gserviceaccount.com
+
+# GitHub Actions -> Azure
+- uses: azure/login@v2
+  with:
+    client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+```
+
+**AWS IAM trust policy for GitHub OIDC:**
+```json
+{
+  "Effect": "Allow",
+  "Principal": {"Federated": "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"},
+  "Action": "sts:AssumeRoleWithWebIdentity",
+  "Condition": {
+    "StringEquals": {
+      "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+    },
+    "StringLike": {
+      "token.actions.githubusercontent.com:sub": "repo:myorg/myrepo:ref:refs/heads/main"
+    }
+  }
+}
+```
+
+#### Action Pinning to Full SHA
+
+```yaml
+# Insecure — tag can be moved to malicious commit
+- uses: actions/checkout@v4
+
+# Secure — immutable reference
+- uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+```
+
+Use Dependabot to keep pinned SHA actions up to date automatically via `.github/dependabot.yml` with `package-ecosystem: "github-actions"`.
+
+#### Environment Protection Rules
+
+```yaml
+jobs:
+  deploy-production:
+    environment:
+      name: production
+      url: https://app.example.com
+    # GitHub environment configured with:
+    # - Required reviewers: security-team, lead-engineer
+    # - Deployment branches: main only
+    # - Wait timer: 5 minutes (time to cancel)
+    runs-on: ubuntu-latest
+```
+
+#### Reusable Workflows for Centralized Security Controls
+
+```yaml
+# Centralized security workflow (org/.github/workflows/security-scan.yml)
+on:
+  workflow_call:
+    inputs:
+      language:
+        required: true
+        type: string
+
+# Consuming workflow in any repo
+jobs:
+  security:
+    uses: myorg/.github/workflows/security-scan.yml@main
+    with:
+      language: python
+    secrets: inherit
+```
+
+#### CODEOWNERS for Security-Critical Files
+
+```
+# .github/CODEOWNERS
+/.github/workflows/    @myorg/security-team
+/infrastructure/       @myorg/security-team @myorg/platform-team
+/src/auth/             @myorg/security-team
+*.tf                   @myorg/platform-team
+```
+
+---
+
+### GitLab CI Security
+
+```yaml
+# Protected variables: set in UI as "masked" — not shown in logs
+# Protected branches: only maintainers can push to main
+
+# Limiting job token scope
+job:
+  variables:
+    CI_JOB_TOKEN_SCOPE_ENABLED: "true"
+
+# Protected runners for sensitive jobs
+deploy-prod:
+  tags:
+    - protected  # only runs on runners tagged 'protected'
+  environment: production
+```
+
+---
+
+### Jenkins Security
+
+```groovy
+// Credential binding — credentials never exposed as plain env var
+withCredentials([
+  usernamePassword(credentialsId: 'aws-creds',
+    usernameVariable: 'AWS_ACCESS_KEY_ID',
+    passwordVariable: 'AWS_SECRET_ACCESS_KEY'),
+  string(credentialsId: 'api-token', variable: 'API_TOKEN')
+]) {
+  sh 'aws s3 cp artifact.zip s3://my-bucket/'
+}
+// Credentials masked in build log after this block
+```
+
+**Script Security Plugin:** Groovy scripts in Jenkinsfiles run in a sandbox. Unsafe methods require explicit administrator approval. Avoid `@Grab` and `evaluate()` in pipeline scripts.
+
+**Agent-to-Controller Security:** Enable "Agent -> Master Access Control" in Jenkins security settings. Agents should not be able to read arbitrary files from the controller or modify configurations.
+
+---
+
+### Supply Chain Attacks on CI/CD — Historical Examples
+
+| Incident | Year | Attack Vector | Impact |
+|----------|------|--------------|--------|
+| SolarWinds SUNBURST | 2020 | Build system compromise; malicious code injected into Orion builds | 18,000+ organizations; US government agencies |
+| Codecov bash uploader | 2021 | Attacker modified uploaded script; CI pipelines curl'd malicious version | Credentials exfiltrated from 29,000+ companies |
+| event-stream npm | 2018 | Malicious maintainer added crypto-stealing payload via transitive dep | Targeted Bitcoin wallet apps |
+| ua-parser-js | 2021 | npm account hijack; malware published to popular package | Cryptominer + credential stealer |
+| node-ipc | 2022 | Maintainer added protestware wiping files for Russian/Belarusian IPs | Supply chain integrity concerns |
+
+**Lessons:**
+- Pin action/script versions to immutable references (full SHA, not tags)
+- Verify checksums of downloaded scripts before executing
+- Use SBOM attestation to detect tampering
+- Never `curl | bash` from external sources in CI without verification
+
+---
+
+### SLSA Framework for Build Integrity
+
+SLSA (Supply chain Levels for Software Artifacts) provides a graduated security framework for build systems.
+
+| Level | Requirements |
+|-------|-------------|
+| Build L1 | Provenance exists in standard format |
+| Build L2 | Signed provenance from hosted build platform |
+| Build L3 | Hardened isolated build environment; provenance non-falsifiable |
+
+**GitHub Actions SLSA provenance generation:**
+```yaml
+provenance:
+  needs: build
+  permissions:
+    actions: read
+    id-token: write
+    contents: write
+  uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
+  with:
+    base64-subjects: "${{ needs.build.outputs.digests }}"
+    upload-assets: true
+```
+
+**Verification:**
+```bash
+slsa-verifier verify-artifact \
+  --provenance-path artifact.intoto.jsonl \
+  --source-uri github.com/myorg/myrepo \
+  --source-tag v1.2.3 \
+  artifact.tar.gz
+```
+
+---
+## 6. Container & IaC Security
+
+### Dockerfile Security Scanning
+
+#### hadolint
 
 ```bash
-# Scan Docker image
-trivy image nginx:latest --severity HIGH,CRITICAL
+# Scan Dockerfile
+hadolint Dockerfile
 
-# Scan with SARIF output (GitHub integration)
-trivy image --format sarif --output trivy-results.sarif myapp:latest
+# In CI with SARIF output
+hadolint Dockerfile --format sarif > hadolint.sarif
+```
 
-# Scan filesystem / repository
-trivy fs . --security-checks vuln,config,secret
+**.hadolint.yaml:**
+```yaml
+ignore:
+  - DL3008  # Allow apt-get without version pinning in dev images
+trustedRegistries:
+  - docker.io
+  - gcr.io
+  - 123456789012.dkr.ecr.us-east-1.amazonaws.com
+failure-threshold: warning
+```
 
-# Scan Kubernetes cluster
-trivy k8s --report all cluster
+**Common Dockerfile security findings:**
 
-# Generate SBOM
-trivy image --format spdx-json --output sbom.spdx.json myapp:latest
-trivy image --format cyclonedx --output sbom.cyclonedx.json myapp:latest
+| Rule | Issue | Secure Alternative |
+|------|-------|-------------------|
+| DL3002 | Last USER is root | Add `USER nonroot` at end of Dockerfile |
+| DL3007 | FROM image:latest | Pin to digest: `FROM image@sha256:abc...` |
+| DL3009 | apt-get lists not deleted | Add `rm -rf /var/lib/apt/lists/*` |
+| DL3015 | apt-get without --no-install-recommends | Add flag to reduce attack surface |
+| DL3020 | Use ADD for URLs | Use `COPY` — no auto-extraction/URL fetch |
 
-# Scan IaC files
-trivy config ./terraform/
-trivy config ./k8s-manifests/
+**Minimal secure Dockerfile pattern:**
+```dockerfile
+FROM python:3.12-slim@sha256:abc123def456...
 
-# GitHub Actions with SARIF upload
+# Non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+WORKDIR /app
+
+# Copy requirements first (layer caching optimization)
+COPY --chown=appuser:appuser requirements.txt .
+RUN pip install --no-cache-dir --require-hashes -r requirements.txt
+
+# Copy source
+COPY --chown=appuser:appuser src/ .
+
+# Drop to non-root
+USER appuser
+
+EXPOSE 8080
+ENTRYPOINT ["python", "app.py"]
+```
+
+---
+
+### Container Image Scanning in CI Pipeline
+
+#### Trivy (GitHub Action)
+
+```yaml
 - name: Run Trivy vulnerability scanner
   uses: aquasecurity/trivy-action@master
   with:
-    image-ref: 'myapp:${{ github.sha }}'
+    image-ref: 'myimage:${{ github.sha }}'
     format: 'sarif'
     output: 'trivy-results.sarif'
     severity: 'CRITICAL,HIGH'
+    exit-code: '1'
     ignore-unfixed: true
 
-- name: Upload Trivy scan results to GitHub Security tab
-  uses: github/codeql-action/upload-sarif@v3
+- uses: github/codeql-action/upload-sarif@v3
   with:
     sarif_file: 'trivy-results.sarif'
 ```
 
-**.trivyignore (suppress known false positives):**
-```
-# CVE-2023-1234 -- false positive in alpine base, does not affect our usage
-CVE-2023-1234
-# Suppress entire package
-golang.org/x/net
-```
+#### Snyk Container
 
-### Security-Focused Dockerfile Best Practices
+```bash
+snyk container test myimage:latest \
+  --file=Dockerfile \
+  --severity-threshold=high \
+  --sarif-file-output=snyk-container.sarif
 
-```dockerfile
-# 1. Use specific digest — not mutable tag
-FROM node:20-alpine@sha256:abc123def456...
-
-# 2. Run as non-root user
-RUN addgroup -g 1001 -S appgroup && \
-    adduser -u 1001 -S appuser -G appgroup
-USER appuser
-
-# 3. Multi-stage build — minimize attack surface
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
-COPY . .
-RUN npm run build
-
-FROM node:20-alpine AS runtime
-WORKDIR /app
-# Copy only what's needed
-COPY --from=builder --chown=appuser:appgroup /app/dist ./dist
-COPY --from=builder --chown=appuser:appgroup /app/node_modules ./node_modules
-# No secrets in ENV (inject at runtime)
-EXPOSE 3000
-CMD ["node", "dist/server.js"]
-
-# 4. Labels for tracking
-LABEL org.opencontainers.image.source="https://github.com/org/repo"
-LABEL org.opencontainers.image.revision="${GIT_SHA}"
-
-# 5. Healthcheck
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://localhost:3000/health || exit 1
+snyk container monitor myimage:latest --project-name=my-service
 ```
 
-### Kubernetes Security Context
+#### Grype
 
+```bash
+# Fail build on any critical vulnerability
+grype myimage:latest --fail-on critical
+
+# SARIF output
+grype myimage:latest -o sarif > grype-results.sarif
+```
+
+**Policy configuration (.grype.yaml):**
 ```yaml
-apiVersion: apps/v1
-kind: Deployment
-spec:
-  template:
-    spec:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1001
-        runAsGroup: 1001
-        fsGroup: 1001
-        seccompProfile:
-          type: RuntimeDefault
-      containers:
-        - name: app
-          securityContext:
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            capabilities:
-              drop:
-                - ALL
-          volumeMounts:
-            - name: tmp
-              mountPath: /tmp
-            - name: cache
-              mountPath: /app/.cache
-      volumes:
-        - name: tmp
-          emptyDir: {}
-        - name: cache
-          emptyDir: {}
-```
-
-### Hadolint (Dockerfile Linting)
-
-```bash
-# CLI
-hadolint Dockerfile
-hadolint --ignore DL3008 --ignore DL3009 Dockerfile
-
-# GitHub Actions
-- name: Lint Dockerfile
-  uses: hadolint/hadolint-action@v3.1.0
-  with:
-    dockerfile: Dockerfile
-    ignore: DL3008,DL3009
-    failure-threshold: warning
-```
-
-**Key Hadolint rules:**
-- `DL3006` — Always tag Docker images (avoid `latest`)
-- `DL3007` — Pin Docker image versions
-- `DL3008` — Pin package versions in apt-get install
-- `DL3013` — Pin pip package versions
-- `DL3020` — Use COPY instead of ADD for files
-- `DL3025` — Use JSON array CMD
-- `SC2086` — Double-quote variables to prevent word splitting
-
-### Container Image Signing (Cosign + Sigstore)
-
-```bash
-# Install cosign
-brew install cosign  # or download from releases
-
-# Generate key pair
-cosign generate-key-pair
-
-# Sign image
-cosign sign --key cosign.key myregistry.io/myapp:latest
-
-# Verify signature
-cosign verify --key cosign.pub myregistry.io/myapp:latest
-
-# Keyless signing (using OIDC, no key management)
-cosign sign myregistry.io/myapp:latest  # uses Fulcio CA + Rekor transparency log
-
-# Verify keyless
-cosign verify --certificate-identity=user@example.com \
-  --certificate-oidc-issuer=https://accounts.google.com \
-  myregistry.io/myapp:latest
+fail-on-severity: high
+ignore:
+  - vulnerability: CVE-2023-XXXX
+    reason: "Not exploitable in our configuration — tracked in issue #1234"
 ```
 
 ---
 
-## 8. Infrastructure as Code (IaC) Security
+### Image Signing Workflow — Cosign Keyless
 
-### Checkov (Bridgecrew/Prisma Cloud)
-
-Multi-framework IaC scanner — Terraform, CloudFormation, Kubernetes, Helm, ARM, Bicep.
-
-```bash
-# Scan Terraform
-checkov -d . --framework terraform
-
-# Specific checks only
-checkov -d . --check CKV_AWS_18,CKV_AWS_20
-
-# Skip certain checks
-checkov -d . --skip-check CKV_AWS_8
-
-# SARIF output
-checkov -f main.tf --output sarif > checkov-results.sarif
-
-# GitHub Actions
-- name: Checkov IaC Scan
-  uses: bridgecrewio/checkov-action@master
-  with:
-    directory: terraform/
-    framework: terraform
-    output_format: sarif
-    output_file_path: checkov-results.sarif
-    soft_fail: false
-```
-
-### tfsec (Terraform-Specific)
-
-```bash
-# Basic scan
-tfsec .
-
-# SARIF output
-tfsec . --format sarif --out tfsec-results.sarif
-
-# Custom checks
-tfsec . --custom-check-dir ./custom-checks/
-
-# Ignore specific warning
-# tfsec:ignore:aws-s3-enable-bucket-logging
-resource "aws_s3_bucket" "example" {
-  ...
-}
-```
-
-### KICS (Keeping Infrastructure as Code Secure)
-
-```bash
-# Install
-curl -sfL https://raw.githubusercontent.com/Checkmarx/kics/master/install.sh | bash
-
-# Scan
-kics scan -p ./terraform -o results/ --report-formats sarif,json
-
-# Scan multiple types
-kics scan -p ./ --type Terraform,CloudFormation,Kubernetes -o results/
-```
-
-### Key IaC Security Controls
-
-**AWS Terraform security checks:**
-```hcl
-# S3 — block all public access
-resource "aws_s3_bucket_public_access_block" "main" {
-  bucket                  = aws_s3_bucket.main.id
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
-}
-
-# RDS — encryption at rest, no public access
-resource "aws_db_instance" "main" {
-  storage_encrypted      = true
-  publicly_accessible    = false
-  deletion_protection    = true
-  backup_retention_period = 7
-  enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]
-}
-
-# Security Group — no 0.0.0.0/0 ingress on sensitive ports
-resource "aws_security_group_rule" "bad_example" {
-  # WRONG: Open SSH to the world
-  type        = "ingress"
-  from_port   = 22
-  to_port     = 22
-  protocol    = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]  # checkov: CKV_AWS_25
-}
-
-# IAM — no wildcard
-resource "aws_iam_policy" "bad_example" {
-  policy = jsonencode({
-    Statement = [{
-      Effect   = "Allow"
-      Action   = "*"      # checkov: CKV_AWS_49
-      Resource = "*"
-    }]
-  })
-}
-```
-
-**Checklist of IaC security controls:**
-- [ ] S3 bucket public access block enabled
-- [ ] S3 bucket versioning and MFA delete
-- [ ] RDS encryption at rest + in transit
-- [ ] EBS volume encryption
-- [ ] No security groups with 0.0.0.0/0 on SSH (22) or RDP (3389)
-- [ ] CloudTrail enabled with log file validation
-- [ ] VPC flow logs enabled
-- [ ] IMDSv2 required on EC2 instances
-- [ ] EKS cluster endpoint not public
-- [ ] Lambda functions not publicly accessible
-- [ ] IAM policies use least privilege (no `*` actions)
-- [ ] KMS key rotation enabled
-
----
-
-## 9. GitHub Actions Security Hardening
-
-### Principle of Least Privilege
-
-Always declare minimal workflow permissions:
+Keyless signing uses ephemeral keys tied to the build identity via OIDC, eliminating the need to manage long-term signing keys.
 
 ```yaml
-# Global default — read only
-permissions: read-all
+- name: Install Cosign
+  uses: sigstore/cosign-installer@v3
 
-# Or per-workflow with specific grants
-permissions:
-  contents: read        # read-only checkout
-  security-events: write  # SARIF upload to Security tab
-  pull-requests: write   # PR comments only
-  id-token: write        # OIDC for cloud auth
-  packages: write        # Push to GitHub Packages
-```
-
-### Pin Actions to Commit SHA
-
-Mutable tags like `@v4` can be hijacked by supply chain attacks. Pin to a specific commit SHA:
-
-```yaml
-# BAD — mutable tag, can be changed by attacker
-- uses: actions/checkout@v4
-- uses: actions/setup-node@v4
-
-# GOOD — pinned to immutable SHA
-- uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
-- uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8  # v4.0.2
-```
-
-**Automate with Dependabot:**
-```yaml
-# .github/dependabot.yml
-- package-ecosystem: "github-actions"
-  directory: "/"
-  schedule:
-    interval: "weekly"
-```
-
-### Prevent Script Injection
-
-Untrusted event data (PR titles, commit messages, branch names) can inject commands:
-
-```yaml
-# BAD — direct interpolation enables injection
-- run: |
-    echo "Building PR: ${{ github.event.pull_request.title }}"
-    git tag "${{ github.event.pull_request.head.ref }}"
-
-# GOOD — pass through environment variable
-- env:
-    PR_TITLE: ${{ github.event.pull_request.title }}
-    BRANCH: ${{ github.event.pull_request.head.ref }}
+- name: Sign image (keyless, using GitHub OIDC)
   run: |
-    echo "Building PR: $PR_TITLE"
-    git tag "$BRANCH"
+    cosign sign --yes \
+      --certificate-identity ${{ github.server_url }}/${{ github.repository }}/.github/workflows/build.yml@${{ github.ref }} \
+      --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+      myimage:${{ github.sha }}
 ```
 
-### OIDC for Cloud Authentication
-
-Eliminate long-lived cloud credentials stored as secrets:
-
-```yaml
-permissions:
-  id-token: write
-  contents: read
-
-steps:
-  # AWS
-  - uses: aws-actions/configure-aws-credentials@v4
-    with:
-      role-to-assume: arn:aws:iam::123456789012:role/github-actions-role
-      aws-region: us-east-1
-      role-session-name: GitHubActionsSession
-
-  # GCP
-  - uses: google-github-actions/auth@v2
-    with:
-      workload_identity_provider: projects/123/locations/global/workloadIdentityPools/pool/providers/provider
-      service_account: github-actions@project.iam.gserviceaccount.com
-
-  # Azure
-  - uses: azure/login@v2
-    with:
-      client-id: ${{ secrets.AZURE_CLIENT_ID }}
-      tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-      subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-```
-
-### Secrets Best Practices
-
-```yaml
-# Store in: Settings → Secrets and variables → Actions
-# OR use Environments for deployment-specific secrets
-
-# Reference in workflow
-- name: Deploy
-  env:
-    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-    API_KEY: ${{ secrets.API_KEY }}
-  run: ./deploy.sh
-
-# NEVER do:
-- run: echo "${{ secrets.DB_PASSWORD }}"  # logs to console!
-- run: curl https://api.example.com?key=${{ secrets.API_KEY }}  # URL logged!
-
-# Secrets are automatically masked in logs when referenced via ${{ secrets.X }}
-# but NOT when echoed explicitly or passed in URLs
-```
-
-### Restrict Workflow Triggers
-
-```yaml
-# DANGEROUS: pull_request_target has write access + runs attacker code
-on:
-  pull_request_target:
-    types: [opened, synchronize]
-
-# Use pull_request instead (no write access, safe for external PRs)
-on:
-  pull_request:
-    branches: [main, develop]
-
-# If you MUST use pull_request_target, never checkout PR code:
-- uses: actions/checkout@v4
-  with:
-    ref: ${{ github.base_ref }}  # checkout base, not PR head
-```
-
-### Workflow Linting Tools
-
+**Verification:**
 ```bash
-# actionlint — lint workflow files
-brew install actionlint
-actionlint .github/workflows/*.yml
-
-# zizmor — deeper security analysis
-pip install zizmor
-zizmor .github/workflows/
-
-# GitHub Actions Security Hardening checklist (Datree)
+cosign verify \
+  --certificate-identity "https://github.com/myorg/myrepo/.github/workflows/build.yml@refs/heads/main" \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+  myimage:latest
 ```
 
-### Branch Protection Rules
-
-Enforce in repository settings:
-- [ ] Require PR before merging (no direct push to main)
-- [ ] Require status checks to pass (security scans must pass)
-- [ ] Require code review (1-2 approvals)
-- [ ] Require conversation resolution
-- [ ] Do not allow force pushes
-- [ ] Do not allow deletions
-- [ ] Require signed commits
+**How it works:**
+1. GitHub Actions OIDC token presented to Fulcio CA (Sigstore's free CA)
+2. Fulcio issues short-lived certificate binding the key to the OIDC identity
+3. Signature + certificate stored in Rekor transparency log
+4. No private key to manage; full audit trail in public append-only log
 
 ---
 
-## 10. SBOM (Software Bill of Materials) in CI/CD
+### Kubernetes Admission Control for Supply Chain
 
-### Why SBOM Matters
-
-**Executive Order 14028** (US, May 2021) mandates SBOMs for software sold to federal government. Beyond compliance:
-- Rapid vulnerability response: know within minutes which products are affected by CVE-2021-44228 (Log4Shell)
-- Transparency for customers and auditors
-- Supply chain risk visibility
-
-**SBOM formats:**
-- **SPDX** (ISO/IEC 5962:2021) — Linux Foundation standard
-- **CycloneDX** — OWASP standard, richer security metadata
-- **SWID** (ISO/IEC 19770-2) — enterprise asset management
-
-### Generate SBOM in CI (Syft + Grype)
+#### Kyverno verify-image policy
 
 ```yaml
-# GitHub Actions
-- name: Generate SBOM with Syft
-  uses: anchore/sbom-action@v0
-  with:
-    image: myapp:${{ github.sha }}
-    format: spdx-json
-    artifact-name: sbom.spdx.json
-
-- name: Scan SBOM for vulnerabilities with Grype
-  uses: anchore/scan-action@v3
-  with:
-    sbom: sbom.spdx.json
-    fail-build: true
-    severity-cutoff: high
-    output-format: sarif
-
-- uses: github/codeql-action/upload-sarif@v3
-  with:
-    sarif_file: ${{ steps.scan.outputs.sarif }}
-```
-
-```bash
-# CLI usage
-# Install
-curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-
-# Generate SBOM
-syft myapp:latest -o spdx-json > sbom.spdx.json
-syft myapp:latest -o cyclonedx-json > sbom.cyclonedx.json
-syft dir:./src -o spdx-json > sbom.spdx.json
-
-# Scan SBOM with Grype
-grype sbom:sbom.spdx.json --fail-on high
-grype myapp:latest --fail-on critical
-```
-
-### SBOM Attestation (Cosign + Sigstore)
-
-Cryptographically sign and verify SBOMs:
-
-```bash
-# Sign SBOM as an attestation
-cosign attest \
-  --predicate sbom.spdx.json \
-  --type spdxjson \
-  myregistry.io/myapp:latest
-
-# Verify SBOM attestation
-cosign verify-attestation \
-  --type spdxjson \
-  --certificate-identity=ci@company.com \
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  myregistry.io/myapp:latest | jq '.payload | @base64d | fromjson'
-```
-
-### SLSA (Supply Chain Levels for Software Artifacts)
-
-SLSA (pronounced "salsa") is a framework for supply chain security:
-
-| Level | Requirements |
-|-------|-------------|
-| SLSA 1 | Build process documented, provenance generated |
-| SLSA 2 | Version control, authenticated provenance |
-| SLSA 3 | Hardened build platform, non-falsifiable provenance |
-| SLSA 4 | Two-party review, hermetic builds |
-
-```yaml
-# Generate SLSA provenance in GitHub Actions
-- uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0
-  with:
-    base64-subjects: "${{ needs.build.outputs.hashes }}"
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: verify-image-signatures
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: check-image-signature
+      match:
+        any:
+          - resources:
+              kinds: [Pod]
+      verifyImages:
+        - imageReferences:
+            - "123456789012.dkr.ecr.us-east-1.amazonaws.com/*"
+          attestors:
+            - entries:
+                - keyless:
+                    subject: "https://github.com/myorg/myrepo/.github/workflows/build.yml@refs/heads/main"
+                    issuer: "https://token.actions.githubusercontent.com"
+                    rekor:
+                      url: https://rekor.sigstore.dev
 ```
 
 ---
 
-## 11. Security Gates in CI/CD Pipeline
+### IaC Scanning Tools
 
-### Full Pipeline Security Architecture
+#### Checkov
 
-```
-Developer Workstation
-├── IDE plugins: SonarLint, Snyk IDE, Semgrep (real-time feedback)
-└── Pre-commit hooks: gitleaks, detect-secrets, code formatting
+```bash
+# Scan Terraform directory
+checkov -d . --framework terraform --output sarif --output-file-path results/
 
-Code Commit / Push
-├── Branch protection: require PR, signed commits
-└── GitHub Secret Scanning: push protection blocks secrets
+# Scan specific checks
+checkov -f main.tf --check CKV_AWS_20,CKV_AWS_57
 
-Pull Request / CI Build
-├── SAST: Semgrep (fast, <2min), CodeQL (thorough, ~15min)
-│   └── Results as PR annotations, block merge on High/Critical
-├── SCA: Snyk or Dependabot
-│   └── Block on Critical CVE with available fix
-├── Secret scanning: Gitleaks
-│   └── Block immediately on any new secret
-├── IaC scanning: Checkov, tfsec
-│   └── Block on policy violations (configurable severity)
-├── License compliance: FOSSA
-│   └── Warn on GPL, block on AGPL/proprietary conflicts
-└── Workflow security: actionlint, zizmor
+# Scan Kubernetes manifests
+checkov -d k8s/ --framework kubernetes
 
-Container Build Gate
-├── Image scan: Trivy
-│   └── Block on Critical CVE in OS packages or app deps
-├── Dockerfile lint: Hadolint
-├── SBOM generation: Syft (attach to artifact)
-└── Image signing: Cosign (sign with OIDC)
-
-Staging Deployment Gate
-├── DAST: OWASP ZAP API scan
-│   └── Block on OWASP Top 10 findings (High+)
-├── Nuclei: template-based CVE checks
-└── Smoke tests: verify health endpoints, auth flows
-
-Production Deployment Gate
-├── Approval: security sign-off for major changes
-├── Attestation: verify SLSA + SBOM + image signature
-└── Change management: CAB approval for regulated environments
-
-Post-Deployment
-├── Runtime security: Falco (K8s syscall monitoring)
-├── RASP: Contrast Security, Sqreen (request-level protection)
-├── Continuous monitoring: CloudTrail → SIEM alerts
-└── Periodic penetration testing (quarterly)
+# Inline suppression
+# checkov:skip=CKV_AWS_20:S3 bucket is intentionally public for static website
 ```
 
-### Configuring Quality Gates
+#### tfsec
 
-**GitHub branch protection rulesets:**
-```yaml
-# Via GitHub API
-{
-  "name": "main-protection",
-  "target": "branch",
-  "enforcement": "active",
-  "conditions": {
-    "ref_name": {
-      "include": ["refs/heads/main"],
-      "exclude": []
+```bash
+tfsec . --format sarif --out tfsec.sarif
+tfsec . --minimum-severity HIGH
+tfsec . --exclude aws-s3-enable-versioning
+```
+
+#### terrascan
+
+```bash
+terrascan scan -i terraform -d . --output sarif > terrascan.sarif
+terrascan scan -i k8s -f deployment.yaml
+```
+
+#### Snyk IaC
+
+```bash
+snyk iac test --severity-threshold=high
+snyk iac test main.tf --report
+```
+
+---
+
+### Terraform State Security
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket         = "myorg-tfstate-prod"
+    key            = "services/myservice/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    kms_key_id     = "arn:aws:kms:us-east-1:123456789012:key/abc123"
+    dynamodb_table = "terraform-state-lock"
+    # No credentials in backend config — use OIDC/instance profile
+  }
+}
+```
+
+**State security rules:**
+- Never store state locally in CI (state files contain plaintext secrets)
+- Enable S3 versioning + MFA delete for state buckets
+- Restrict state bucket access to pipeline roles only
+- Enable S3 access logging for audit trail
+- Use workspace isolation (separate state files per environment)
+
+---
+## 7. DAST & API Testing in Pipelines
+
+### DAST Integration Approaches
+
+Dynamic Application Security Testing tests running applications by sending crafted inputs and analyzing responses, finding runtime vulnerabilities that static analysis cannot detect (authentication flaws, authorization bypasses, session management issues, business logic vulnerabilities).
+
+#### OWASP ZAP
+
+```bash
+# API scan against OpenAPI spec (Docker)
+docker run --rm -v $(pwd):/zap/wrk/:rw \
+  ghcr.io/zaproxy/zaproxy:stable zap-api-scan.py \
+  -t /zap/wrk/openapi.yaml \
+  -f openapi \
+  -r zap-report.html \
+  -J zap-report.json \
+  -x zap-report.xml
+
+# Full site scan
+docker run ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py \
+  -t https://staging.example.com \
+  -r full-scan-report.html
+
+# GitHub Action
+- uses: zaproxy/action-api-scan@v0.7.0
+  with:
+    target: 'https://staging.example.com/openapi.json'
+    format: openapi
+    fail_action: true
+    rules_file_name: '.zap/rules.tsv'
+```
+
+**ZAP rules configuration (.zap/rules.tsv):**
+```
+10202	IGNORE	Absence of Anti-CSRF Tokens (handled by SPA framework)
+10038	WARN	Content Security Policy not set
+10098	FAIL	Cross-Domain Misconfiguration
+```
+
+#### Burp Suite Enterprise
+
+```bash
+# Trigger scan via REST API
+curl -X POST https://burp-enterprise.internal/api/v1/scan \
+  -H "Authorization: $BURP_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "scan_configurations": [{"type": "NamedConfiguration", "name": "API scan"}],
+    "urls": ["https://staging.api.example.com"]
+  }'
+```
+
+#### Nuclei
+
+```bash
+# Scan for known CVEs
+nuclei -t cves/ -u https://staging.example.com -o nuclei-results.txt
+
+# Technology-specific templates
+nuclei -t technologies/ -t misconfigurations/ -u https://staging.example.com
+
+# Scan with severity filter
+nuclei -t cves/ -severity critical,high -u https://staging.example.com -json > nuclei.json
+
+# Custom template example
+id: custom-sqli-check
+info:
+  name: Custom SQLi Check
+  severity: high
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/search?q=1' OR '1'='1"
+    matchers:
+      - type: word
+        words:
+          - "SQL syntax"
+          - "mysql_fetch"
+        condition: or
+```
+
+---
+
+### REST API Security Testing
+
+#### OWASP API Security Top 10 (2023)
+
+| # | Vulnerability | Description |
+|---|--------------|-------------|
+| API1 | Broken Object Level Authorization (BOLA) | Accessing other users' resources by manipulating object IDs |
+| API2 | Broken Authentication | Weak auth, missing rate limiting on auth endpoints |
+| API3 | Broken Object Property Level Authorization | Over-exposure of object properties (mass assignment) |
+| API4 | Unrestricted Resource Consumption | No rate limiting leads to DoS or financial impact |
+| API5 | Broken Function Level Authorization (BFLA) | Regular users access admin endpoints |
+| API6 | Unrestricted Access to Sensitive Business Flows | Abuse of valid API flows (cart manipulation) |
+| API7 | Server Side Request Forgery (SSRF) | API fetches attacker-controlled URLs |
+| API8 | Security Misconfiguration | Verbose errors, debug endpoints, open CORS |
+| API9 | Improper Inventory Management | Undocumented or legacy API versions exposed |
+| API10 | Unsafe Consumption of APIs | Trusting third-party API data without validation |
+
+#### Schemathesis — Property-Based API Testing
+
+```bash
+# Run all checks against OpenAPI spec
+schemathesis run https://staging.api.example.com/openapi.json \
+  --checks all \
+  --auth "Bearer $TOKEN" \
+  --stateful links \
+  --report schemathesis-report.html
+
+# Specific checks
+schemathesis run openapi.json \
+  --checks not_a_server_error,status_code_conformance,content_type_conformance \
+  --max-response-time 500
+
+# CI with JUnit output
+schemathesis run openapi.json \
+  --checks all \
+  --exitfirst \
+  --junit-xml schemathesis-results.xml
+```
+
+#### Dredd — OpenAPI Contract Testing
+
+```bash
+# Test API implementation against OpenAPI spec
+dredd openapi.yaml https://staging.example.com \
+  --hookfiles dredd-hooks.js \
+  --reporter junit
+```
+
+---
+
+### GraphQL Security Testing
+
+#### graphql-cop
+
+```bash
+# Run all GraphQL security checks
+graphql-cop -t https://staging.example.com/graphql \
+  -H "Authorization: Bearer $TOKEN"
+
+# Checks performed:
+# - Introspection enabled (information disclosure)
+# - Field suggestions enabled (schema enumeration)
+# - Batch query attacks
+# - Query depth attacks via aliases
+# - Circular fragment detection
+# - GET-based mutations allowed
+```
+
+#### Common GraphQL Vulnerabilities
+
+```graphql
+# Introspection query — should be disabled in production
+{ __schema { types { name fields { name } } } }
+
+# Deeply nested query for DoS via complexity
+{ user { friends { friends { friends { name email phone } } } } }
+
+# Batch query abuse — rate limit bypass (1000 login attempts in one HTTP request)
+[
+  {"query": "mutation { login(email:"a@a.com", pass:"pass1") { token } }"},
+  {"query": "mutation { login(email:"a@a.com", pass:"pass2") { token } }"}
+]
+```
+
+**Mitigations:** Query complexity limits, depth limits (max 5-7), persisted queries, rate limiting per operation type, disable introspection in production.
+
+---
+
+### Authentication Testing Automation
+
+#### JWT Testing
+
+```bash
+# jwt_tool — algorithm confusion and common JWT attacks
+python3 jwt_tool.py $JWT -X a  # RS256->HS256 algorithm confusion
+python3 jwt_tool.py $JWT -X n  # none algorithm attack
+python3 jwt_tool.py $JWT -X b  # blank password brute force
+
+# Validate PKCE implementation
+# S256 (correct): code_challenge = BASE64URL(SHA256(code_verifier))
+# Plain (insecure — should be rejected): code_challenge = code_verifier
+```
+
+---
+
+### Fuzzing in CI
+
+#### AFL++ for Binary Targets
+
+```bash
+# Instrument binary with AddressSanitizer
+CC=afl-cc CXX=afl-c++ ./configure && make
+
+# Run fuzzer
+afl-fuzz -i corpus/ -o findings/ -- ./target @@
+
+# Parallel fuzzing (1 main + N workers)
+afl-fuzz -M main -i corpus/ -o findings/ -- ./target @@
+afl-fuzz -S worker1 -i corpus/ -o findings/ -- ./target @@
+```
+
+#### Atheris — Python Fuzzing with Coverage Guidance
+
+```python
+import atheris, sys
+
+@atheris.instrument_func
+def test_one_input(data):
+    fdp = atheris.FuzzedDataProvider(data)
+    target_function(fdp.ConsumeUnicodeNoSurrogates(100))
+
+atheris.Setup(sys.argv, test_one_input)
+atheris.Fuzz()
+```
+
+#### CI Fuzzing Budget
+
+```bash
+# LibFuzzer with time-bounded CI run
+clang++ -fsanitize=fuzzer,address -o fuzz_target fuzz_target.cpp
+./fuzz_target -max_total_time=60 corpus/
+# Crashes saved to crash-* files and uploaded as build artifacts
+# OSS-Fuzz provides continuous fuzzing for open source with 30-day disclosure SLA
+```
+
+---
+## 8. Infrastructure as Code Security Practices
+
+### Terraform Security Controls
+
+#### Provider Version Pinning
+
+```hcl
+terraform {
+  required_version = ">= 1.6.0, < 2.0.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.30"  # minor updates OK, major blocked
     }
-  },
-  "rules": [
-    {"type": "pull_request", "parameters": {"required_approving_review_count": 1}},
-    {"type": "required_status_checks", "parameters": {
-      "required_status_checks": [
-        {"context": "CodeQL / analyze (javascript)"},
-        {"context": "Semgrep / semgrep"},
-        {"context": "Snyk / snyk-test"}
-      ],
-      "strict_required_status_checks_policy": true
-    }},
-    {"type": "non_fast_forward"},
-    {"type": "deletion"}
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "= 2.24.0"  # exact pin for stability
+    }
+  }
+}
+```
+
+#### Remote State with S3 + DynamoDB Encryption and Locking
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket               = "myorg-tfstate-production"
+    key                  = "services/payment-api/terraform.tfstate"
+    region               = "us-east-1"
+    encrypt              = true
+    kms_key_id           = data.aws_kms_key.tfstate.arn
+    dynamodb_table       = "terraform-state-locks"
+    workspace_key_prefix = "workspaces"
+  }
+}
+```
+
+#### Sentinel Policy-as-Code (Terraform Enterprise/Cloud)
+
+```python
+# sentinel/policy/restrict-instance-types.sentinel
+import "tfplan/v2" as tfplan
+
+allowed_types = ["t3.micro", "t3.small", "t3.medium"]
+
+main = rule {
+  all tfplan.resource_changes as _, rc {
+    rc.type is not "aws_instance" or
+    rc.change.after.instance_type in allowed_types
+  }
+}
+```
+
+**Policy enforcement levels:**
+- `advisory` — log violation, allow plan to proceed
+- `soft-mandatory` — block unless overridden by operator with justification
+- `hard-mandatory` — always block; no override possible
+
+#### Atlantis PR Workflow
+
+```yaml
+# atlantis.yaml
+version: 3
+projects:
+  - name: payment-api
+    dir: services/payment-api
+    workspace: production
+    apply_requirements: [approved, mergeable, undiverged]
+    autoplan:
+      when_modified: ["*.tf", "../modules/**/*.tf"]
+
+workflows:
+  secure:
+    plan:
+      steps:
+        - run: tfsec . --minimum-severity HIGH --no-colour
+        - run: checkov -d . --framework terraform --compact --quiet
+        - init
+        - plan
+    apply:
+      steps:
+        - apply
+```
+
+---
+
+### Pulumi Security
+
+```python
+import pulumi
+
+# Store secret (encrypted in Pulumi state with stack-specific key)
+db_password = pulumi.Config().require_secret("dbPassword")
+# CLI: pulumi config set --secret dbPassword mysecretvalue
+# State stores ciphertext only — plaintext never written to disk
+```
+
+**Pulumi ESC (Environments, Secrets, Config):**
+```yaml
+# esc/environments/production.yaml
+values:
+  aws:
+    creds:
+      fn::open::aws-secrets:
+        login:
+          roleArn: arn:aws:iam::123456789012:role/pulumi-esc
+        get:
+          db-password:
+            secretId: prod/myapp/db-password
+  pulumiConfig:
+    dbPassword: ${aws.creds.db-password}
+```
+
+---
+
+### AWS CDK Security — cdk-nag
+
+```python
+from aws_cdk import App, Stack, Aspects
+from cdk_nag import AwsSolutionsChecks, NagSuppressions
+
+app = App()
+stack = MyStack(app, "MyStack")
+
+# Apply AwsSolutions rule pack
+Aspects.of(app).add(AwsSolutionsChecks(verbose=True))
+
+# Suppress specific findings with mandatory justification
+NagSuppressions.add_stack_suppressions(stack, [
+    {
+        "id": "AwsSolutions-S1",
+        "reason": "S3 access logging disabled for cost reasons in dev; enabled in prod"
+    }
+])
+
+# Suppress on specific resource
+NagSuppressions.add_resource_suppressions(
+    my_bucket,
+    [{"id": "AwsSolutions-S2", "reason": "Public read intentional for static website"}],
+    apply_to_children=True
+)
+```
+
+**Available rule packs:**
+- `AwsSolutionsChecks` — general AWS best practices
+- `HIPAASecurityChecks` — HIPAA compliance requirements
+- `NIST80053R5Checks` — NIST 800-53 Rev 5
+- `PCIDSS321Checks` — PCI DSS 3.2.1
+
+---
+
+### Ansible Security Hardening
+
+#### ansible-vault for Sensitive Variables
+
+```bash
+# Encrypt a string value
+ansible-vault encrypt_string 'my-db-password' --name 'db_password'
+# Output: db_password: !vault | $ANSIBLE_VAULT;1.1;AES256...
+
+# Encrypt an entire file
+ansible-vault encrypt group_vars/production/secrets.yml
+
+# Edit encrypted file
+ansible-vault edit group_vars/production/secrets.yml
+
+# Run playbook with vault
+ansible-playbook site.yml --vault-password-file ~/.vault_pass
+```
+
+#### Security Best Practices in Playbooks
+
+```yaml
+# tasks/deploy.yml
+- name: Deploy application
+  become: yes
+  become_user: appuser   # escalate to specific user, not root
+  block:
+    - name: Copy secret config
+      template:
+        src: config.j2
+        dest: /etc/myapp/config.yml
+        owner: appuser
+        mode: '0600'  # restrictive permissions
+
+    - name: Call external API
+      uri:
+        url: https://api.example.com/register
+        method: POST
+        body_format: json
+        body:
+          api_key: "{{ vault_api_key }}"
+      no_log: true  # prevent secret from appearing in Ansible output
+```
+
+---
+
+### CIS Benchmark Automation
+
+#### Chef InSpec
+
+```bash
+# Run CIS AWS Foundations Benchmark
+inspec exec https://github.com/dev-sec/cis-aws-benchmark \
+  -t aws:// \
+  --reporter cli html:report.html json:report.json
+
+# Custom InSpec control
+control 's3-encryption' do
+  impact 1.0
+  title 'Ensure S3 bucket has server-side encryption enabled'
+  describe aws_s3_bucket('my-bucket') do
+    it { should have_default_encryption_enabled }
+  end
+end
+```
+
+#### OpenSCAP
+
+```bash
+# Scan RHEL system against CIS benchmark
+oscap xccdf eval \
+  --profile xccdf_org.ssgproject.content_profile_cis \
+  --results scan-results.xml \
+  --report scan-report.html \
+  /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
+
+# Generate remediation script
+oscap xccdf generate fix \
+  --fix-type bash \
+  --output remediation.sh \
+  scan-results.xml
+```
+
+#### AWS Security Hub CIS Auto-Remediation
+
+```python
+# Lambda triggered by Security Hub finding events
+import boto3
+
+def handler(event, context):
+    finding = event['detail']['findings'][0]
+    control_id = finding['ProductFields']['ControlId']
+    resource = finding['Resources'][0]
+
+    if control_id == 'CIS.2.1.1':  # S3 no public access
+        s3 = boto3.client('s3')
+        bucket = resource['Id'].split(':::')[1]
+        s3.put_public_access_block(
+            Bucket=bucket,
+            PublicAccessBlockConfiguration={
+                'BlockPublicAcls': True,
+                'IgnorePublicAcls': True,
+                'BlockPublicPolicy': True,
+                'RestrictPublicBuckets': True
+            }
+        )
+```
+
+---
+
+### Drift Detection
+
+**Terraform Cloud drift detection:**
+- Enable in workspace settings: Drift Detection > automatic health assessment
+- Runs `terraform plan` on schedule, compares result to state
+- Alerts via Slack, PagerDuty, or webhook integrations
+
+**AWS Config Rules for drift:**
+```python
+# Config Rule — detect unencrypted EBS volumes
+def evaluate_compliance(configuration_item):
+    if configuration_item['resourceType'] != 'AWS::EC2::Volume':
+        return 'NOT_APPLICABLE'
+    if configuration_item['configuration'].get('encrypted'):
+        return 'COMPLIANT'
+    return 'NON_COMPLIANT'
+```
+
+**Drift response playbook:**
+1. Alert fires (Config rule non-compliant or Terraform drift detected)
+2. Automated remediation attempted (if pre-approved via Lambda)
+3. If remediation fails: create Jira ticket with P1 priority, engineering on-call reviews within 4 hours
+4. Revert to IaC-defined state or create approved exception with CISO sign-off
+5. Post-incident: add preventive control (SCPs, permissions boundary, Config rule)
+
+---
+## 9. Software Supply Chain in DevSecOps
+
+### SLSA Framework Implementation
+
+SLSA (Supply chain Levels for Software Artifacts) provides a framework for measuring and improving the security of the software supply chain by requiring provenance attestations about how software was built.
+
+#### GitHub Actions SLSA Generator
+
+```yaml
+# .github/workflows/build-and-attest.yml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      digests: ${{ steps.hash.outputs.digests }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Build artifact
+        run: |
+          make release
+          sha256sum artifacts/* > SHA256SUMS
+      - name: Generate subject digests
+        id: hash
+        run: |
+          DIGESTS=$(cat SHA256SUMS | base64 -w0)
+          echo "digests=$DIGESTS" >> $GITHUB_OUTPUT
+
+  provenance:
+    needs: build
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
+    with:
+      base64-subjects: "${{ needs.build.outputs.digests }}"
+      upload-assets: true
+```
+
+**SLSA Level Requirements:**
+
+| Level | Build Platform | Provenance | Build Environment |
+|-------|---------------|------------|-------------------|
+| L1 | Any | Generated | No requirement |
+| L2 | Hosted (GitHub Actions, Cloud Build) | Signed by platform | No requirement |
+| L3 | Hosted | Non-falsifiable (generated by platform) | Isolated, hermetic |
+
+**Verification:**
+```bash
+slsa-verifier verify-artifact \
+  --provenance-path artifact.intoto.jsonl \
+  --source-uri github.com/myorg/myrepo \
+  --source-tag v1.2.3 \
+  artifact.tar.gz
+```
+
+---
+
+### Sigstore Integration
+
+Sigstore provides free, transparent signing infrastructure using short-lived certificates tied to OIDC identities — eliminating the need for long-term key management.
+
+#### Cosign for Non-Container Artifacts
+
+```bash
+# Sign a binary or archive (keyless)
+COSIGN_EXPERIMENTAL=1 cosign sign-blob \
+  --bundle artifact.bundle \
+  artifact.tar.gz
+
+# Verify
+COSIGN_EXPERIMENTAL=1 cosign verify-blob \
+  --bundle artifact.bundle \
+  --certificate-identity "https://github.com/myorg/myrepo/.github/workflows/release.yml@refs/heads/main" \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+  artifact.tar.gz
+```
+
+#### Gitsign — Commit Signing with Fulcio CA
+
+```bash
+# Configure git to use gitsign
+git config --global gpg.x509.program gitsign
+git config --global gpg.format x509
+git config --global commit.gpgsign true
+
+# Commits signed with short-lived Fulcio certificate
+# No GPG key management required — uses OIDC identity
+
+# Verify a commit
+git verify-commit HEAD
+```
+
+#### Rekor — Transparency Log Verification
+
+```bash
+# Look up an entry in the transparency log
+rekor-cli get --uuid $UUID --format json
+
+# Search by artifact hash
+rekor-cli search --sha $(sha256sum artifact.tar.gz | cut -d' ' -f1)
+
+# Search by email identity
+rekor-cli search --email developer@example.com
+```
+
+---
+
+### in-toto Attestation Framework
+
+in-toto provides cryptographic guarantees about the software supply chain by defining steps, expected commands, and expected artifacts at each step.
+
+```json
+{
+  "steps": [
+    {
+      "name": "clone",
+      "expected_command": ["git", "clone"],
+      "expected_products": [{"artifact": "src/", "rules": ["CREATE"]}]
+    },
+    {
+      "name": "build",
+      "expected_command": ["make", "release"],
+      "expected_materials": [{"artifact": "src/", "rules": ["MATCH"]}],
+      "expected_products": [{"artifact": "artifact.tar.gz", "rules": ["CREATE"]}]
+    }
   ]
 }
 ```
 
-### Fail-Fast vs. Warn-Only Strategy
-
-| Finding Type | Recommended Gate | Rationale |
-|-------------|-----------------|-----------|
-| Critical CVE (exploitable, fix available) | Hard block | High risk, actionable |
-| High CVE (fix available) | Block with override | High risk, should fix |
-| High CVE (no fix available) | Warn + track | Can't fix, track debt |
-| Medium CVE | Warn | Background noise if always blocking |
-| SAST Critical | Hard block | Code issue, must fix |
-| SAST High | Block | Strong signal |
-| SAST Medium | Warn | Review triage first |
-| Secret detected | Hard block | Immediate risk |
-| IaC policy violation | Block | Infrastructure risk |
-| License conflict | Warn → escalate | Legal review needed |
+Each step generates a signed link metadata file. in-toto-verify checks that the actual build matched the layout.
 
 ---
 
-## 12. Secrets Management in Applications
+### Package Manager Hardening
 
-### Anti-Patterns to Avoid
+#### npm
 
-```python
-# NEVER: Hardcode secrets
-DB_PASSWORD = "SuperSecret123!"
-API_KEY = "sk-abc123..."
+```bash
+# Install from lockfile only — no lockfile modification permitted
+npm ci --ignore-scripts
 
-# NEVER: Committed .env files
-# .env
-DATABASE_URL=postgresql://user:password@host/db
+# Security audit
+npm audit --audit-level critical
+npm audit --json > npm-audit.json
 
-# NEVER: Environment variables set in Dockerfile
-ENV DB_PASSWORD=secret  # visible in image layers!
-
-# NEVER: Log secrets
-logger.info(f"Connecting with password: {db_password}")
-
-# NEVER: Secrets in Git history (even if later deleted)
-# git filter-branch or BFG needed if this happens
+# Verify registry signatures (npm 9+)
+npm audit signatures
 ```
 
-### Correct Approaches
+**.npmrc hardening:**
+```ini
+@myorg:registry=https://registry.internal.example.com/
+audit=true
+ignore-scripts=true
+package-lock=true
+save-exact=true
+```
 
-**12-Factor App — Config from Environment:**
+#### pip
+
+```bash
+# Generate requirements with cryptographic hashes
+pip-compile --generate-hashes requirements.in -o requirements.txt
+
+# Install with hash verification (prevents tampering)
+pip install -r requirements.txt --require-hashes
+
+# Security audit
+pip-audit -r requirements.txt --output json > pip-audit.json
+pip-audit --requirement requirements.txt \
+  --vulnerability-service pypi \
+  --format cyclonedx-json \
+  --output sbom.json
+```
+
+#### Cargo (Rust)
+
+```bash
+# Security audit against RustSec Advisory DB
+cargo audit
+
+# cargo-deny — comprehensive dependency checks
+deny.toml:
+[licenses]
+unlicensed = "deny"
+deny = ["GPL-2.0"]
+
+[advisories]
+vulnerability = "deny"
+unmaintained = "warn"
+yanked = "deny"
+
+cargo deny check
+```
+
+---
+
+### OpenSSF Scorecard
+
+Scorecard automatically evaluates 18+ security practices for GitHub repositories and produces a score (0-10) per check.
+
+```yaml
+# .github/workflows/scorecard.yml
+- uses: ossf/scorecard-action@v2.4.0
+  with:
+    results_file: results.sarif
+    results_format: sarif
+    publish_results: true
+
+- uses: github/codeql-action/upload-sarif@v3
+  with:
+    sarif_file: results.sarif
+```
+
+**Scorecard checks:**
+
+| Check | What it measures |
+|-------|-----------------|
+| Maintained | Recent commits and releases |
+| Code-Review | PRs require review before merge |
+| Branch-Protection | Main branch has protection rules |
+| Token-Permissions | Workflows follow least privilege |
+| Dangerous-Workflow | No script injection in workflows |
+| Pinned-Dependencies | Actions pinned to full SHA |
+| SAST | Static analysis runs in CI |
+| Secret-Scanning | Secret scanning enabled |
+| Binary-Artifacts | No binary blobs in repository |
+| Signed-Releases | Releases are signed |
+
+---
+
+### Allstar — Organization-Wide Policy Enforcement
+
+```yaml
+# .allstar/allstar.yaml (org-level configuration repository)
+optConfig:
+  optOutStrategy: false  # all repos must comply; exemptions require explicit opt-out
+
+# .allstar/branch_protection.yaml
+optConfig:
+  optOutStrategy: false
+action: fix  # auto-apply branch protection settings
+
+branch_protection:
+  enforceDefault: true
+  requirePullRequestReviews:
+    requiredApprovingReviewCount: 1
+    dismissStaleReviews: true
+  requireStatusChecks:
+    strict: true
+    contexts: ["CI", "Security Scan"]
+  requireAdminsToAbideByProtection: true
+```
+
+---
+
+### SBOM Mandate Compliance
+
+**US Executive Order 14028 (May 2021):**
+- Requires SBOM for software sold to US federal government
+- NTIA Minimum Elements must be present
+- Machine-readable format (SPDX or CycloneDX required)
+
+**EU Cyber Resilience Act (CRA, 2024):**
+- Applies to products with digital elements sold in the EU
+- SBOM required as part of technical documentation
+- Vulnerability disclosure obligations within 24 hours of active exploitation
+- Security updates required for entire expected product lifetime
+
+**NTIA Minimum Elements:**
+
+| Element | SPDX Field | CycloneDX Field |
+|---------|------------|-----------------|
+| Supplier name | PackageSupplier | supplier |
+| Component name | PackageName | name |
+| Version | PackageVersion | version |
+| Other identifiers | ExternalRef: PURL | purl |
+| Dependencies | Relationship | dependencies |
+| SBOM Author | Creator | metadata.authors |
+| Timestamp | Created | metadata.timestamp |
+
+---
+## 10. Observability, Compliance & Culture
+
+### Security Observability from Applications
+
+#### Structured Security Event Logging
+
 ```python
-import os
-from functools import lru_cache
+import json, logging, datetime
 
-@lru_cache
-def get_settings():
-    return {
-        "db_url": os.environ["DATABASE_URL"],      # Required — fail fast if missing
-        "api_key": os.environ.get("API_KEY", ""),  # Optional
-        "debug": os.environ.get("DEBUG", "false").lower() == "true"
+def security_event(event_type, severity, actor, resource, action, outcome, **kwargs):
+    event = {
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "event_type": event_type,      # AUTH_FAILURE, AUTHZ_VIOLATION, DATA_ACCESS
+        "severity": severity,          # CRITICAL, HIGH, MEDIUM, LOW, INFO
+        "actor": {
+            "user_id": actor.get("user_id"),
+            "ip": actor.get("ip"),
+            "user_agent": actor.get("user_agent"),
+            "session_id": actor.get("session_id")
+        },
+        "resource": {
+            "type": resource.get("type"),  # endpoint, file, database_record
+            "id": resource.get("id"),
+            "owner": resource.get("owner")
+        },
+        "action": action,   # read, write, delete, login, logout
+        "outcome": outcome, # success, failure, blocked
+        **kwargs
     }
-```
-
-### AWS Secrets Manager
-
-```python
-import boto3
-import json
-from botocore.exceptions import ClientError
-
-def get_secret(secret_name: str, region: str = "us-east-1") -> dict:
-    client = boto3.client("secretsmanager", region_name=region)
-    try:
-        response = client.get_secret_value(SecretId=secret_name)
-    except ClientError as e:
-        raise RuntimeError(f"Failed to retrieve secret {secret_name}: {e}")
-
-    secret = response.get("SecretString") or \
-             base64.b64decode(response["SecretBinary"]).decode("utf-8")
-    return json.loads(secret)
+    logging.getLogger("security").info(json.dumps(event))
 
 # Usage
-creds = get_secret("prod/myapp/database")
-DB_HOST = creds["host"]
-DB_PASSWORD = creds["password"]
+security_event(
+    event_type="AUTH_FAILURE",
+    severity="HIGH",
+    actor={"user_id": None, "ip": "198.51.100.42"},
+    resource={"type": "endpoint", "id": "/api/admin/users"},
+    action="login",
+    outcome="failure",
+    failure_reason="invalid_credentials",
+    attempt_count=5
+)
 ```
 
-```bash
-# CLI
-aws secretsmanager get-secret-value --secret-id prod/myapp/db --query SecretString --output text
+**SIEM detection rules (Splunk SPL examples):**
+```
+# Brute force detection
+index=app sourcetype=security_events event_type="AUTH_FAILURE"
+| stats count by actor.ip, _time span=60s
+| where count > 5
+
+# Privilege escalation detection
+index=app sourcetype=security_events event_type="AUTHZ_VIOLATION"
+  resource.id="/api/admin/*"
+| alert
+
+# Data exfiltration indicator
+index=app sourcetype=security_events event_type="DATA_ACCESS"
+| stats count by actor.user_id, _time span=300s
+| where count > 1000
 ```
 
-### HashiCorp Vault
-
-```bash
-# Vault Agent — auto-inject secrets as files or env vars
-vault agent -config=vault-agent.hcl
-
-# vault-agent.hcl
-auto_auth {
-  method "kubernetes" {
-    config = {
-      role = "my-app-role"
-    }
-  }
-}
-
-template {
-  source      = "/etc/vault-templates/db-config.ctmpl"
-  destination = "/etc/app/db.env"
-}
-```
-
-**Kubernetes External Secrets Operator:**
-```yaml
-apiVersion: external-secrets.io/v1beta1
-kind: ExternalSecret
-metadata:
-  name: app-secrets
-spec:
-  refreshInterval: 1h
-  secretStoreRef:
-    name: aws-secrets-manager
-    kind: ClusterSecretStore
-  target:
-    name: app-secrets
-    creationPolicy: Owner
-  data:
-    - secretKey: db-password
-      remoteRef:
-        key: prod/myapp/database
-        property: password
-```
-
-### Secret Rotation
+#### WAF Integration in DevSecOps
 
 ```python
-# AWS Secrets Manager automatic rotation Lambda
-def lambda_handler(event, context):
-    arn = event['SecretId']
-    token = event['ClientRequestToken']
-    step = event['Step']
+# AWS WAF CDK construct — WAF rules stored as code in git
+from aws_cdk import aws_wafv2 as wafv2
 
-    if step == "createSecret":
-        # Generate new password
-        new_password = generate_secure_password()
-        put_secret_value(arn, token, new_password)
+web_acl = wafv2.CfnWebACL(self, "ApiWAF",
+    scope="REGIONAL",
+    default_action=wafv2.CfnWebACL.DefaultActionProperty(allow={}),
+    rules=[
+        wafv2.CfnWebACL.RuleProperty(
+            name="AWSManagedRulesCommonRuleSet",
+            priority=1,
+            override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
+            statement=wafv2.CfnWebACL.StatementProperty(
+                managed_rule_group_statement=wafv2.CfnWebACL.ManagedRuleGroupStatementProperty(
+                    vendor_name="AWS",
+                    name="AWSManagedRulesCommonRuleSet"
+                )
+            ),
+            visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
+                cloud_watch_metrics_enabled=True,
+                metric_name="CommonRuleSet",
+                sampled_requests_enabled=True
+            )
+        )
+    ],
+    visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
+        cloud_watch_metrics_enabled=True,
+        metric_name="ApiWAF",
+        sampled_requests_enabled=True
+    )
+)
+```
 
-    elif step == "setSecret":
-        # Update the actual database/service
-        set_new_password_in_database(new_password)
-
-    elif step == "testSecret":
-        # Verify new credentials work
-        test_database_connection(new_password)
-
-    elif step == "finishSecret":
-        # Mark new version as AWSCURRENT
-        finalize_rotation(arn, token)
+**ModSecurity / Coraza WAF rules in git:**
+```
+# Store CRS rules in git repository
+# .github/workflows/waf-deploy.yml
+- name: Deploy WAF rules
+  run: |
+    rsync -av modsecurity/rules/ waf-server:/etc/modsecurity/rules/
+    ssh waf-server systemctl reload nginx
 ```
 
 ---
 
-## 13. OWASP DevSecOps Guideline
+### Compliance-as-Code Automation
 
-**Official resource:** https://owasp.org/www-project-devsecops-guideline/
+#### Automated Evidence Collection for SOC 2 / ISO 27001
 
-The OWASP DevSecOps Guideline covers the entire pipeline from pre-commit to production.
+| Control | Automated Evidence | Collection Method |
+|---------|-------------------|------------------|
+| CC6.1 - Logical access uses MFA | IAM Credential Report MFA status | AWS Config + Lambda daily export |
+| CC6.2 - Access provisioning | GitHub Actions log of role assignments | GitHub Audit Log API |
+| CC6.3 - Access removal on termination | IAM user deactivation within 24h | Identity provider webhook + Lambda |
+| CC7.2 - Anomalous activity monitoring | SIEM alert rule coverage report | Splunk API weekly export |
+| CC8.1 - Change management | PR approvals + deployment logs | GitHub API + ArgoCD |
+| A.12.6.1 - Vulnerability management | Scan coverage + MTTR metrics | Snyk + Jira APIs |
 
-### OWASP Top 10 CI/CD Security Risks
+**Drata/Vanta/Secureframe API integration:**
+```python
+import requests, datetime, os
 
-Reference: https://owasp.org/www-project-top-10-ci-cd-security-risks/
+DRATA_API_KEY = os.environ['DRATA_API_KEY']
 
-| Risk | Name | Description | Mitigation |
-|------|------|-------------|-----------|
-| CICD-SEC-1 | Insufficient Flow Control Mechanisms | Unauthorized pipeline triggers or bypasses | Branch protection, required PR reviews, job conditions |
-| CICD-SEC-2 | Inadequate Identity and Access Management | Excessive permissions on CI/CD systems | OIDC, least privilege, no shared service accounts |
-| CICD-SEC-3 | Dependency Chain Abuse | Typosquatting, dependency confusion attacks | Lockfiles, private registries, SCA scanning |
-| CICD-SEC-4 | Poisoned Pipeline Execution (PPE) | Code injection via CI config in PR | Avoid `pull_request_target`, review CI config changes |
-| CICD-SEC-5 | Insufficient PBAC | Pipeline jobs have too many permissions | Scope tokens per job, use environments |
-| CICD-SEC-6 | Insufficient Credential Hygiene | Long-lived secrets, secrets in logs | OIDC, secret scanning, auto-rotation |
-| CICD-SEC-7 | Insecure System Configuration | Default credentials, unpatched CI runners | Harden runners, ephemeral runners, patch management |
-| CICD-SEC-8 | Ungoverned Usage of 3rd Party Services | Unreviewed GitHub Actions, cloud services | Action allowlists, vendor review process |
-| CICD-SEC-9 | Improper Artifact Integrity Validation | Running unsigned or unverified artifacts | Image signing (Cosign), SLSA provenance |
-| CICD-SEC-10 | Insufficient Logging and Visibility | No audit trail for pipeline events | SIEM integration, pipeline audit logs |
+def push_evidence(control_id, evidence_type, description, file_path=None):
+    headers = {"Authorization": f"Bearer {DRATA_API_KEY}"}
+    data = {
+        "controlId": control_id,
+        "evidenceType": evidence_type,  # SCREENSHOT, EXPORT, LINK
+        "description": description,
+        "collectionDate": datetime.datetime.utcnow().isoformat()
+    }
+    if file_path:
+        with open(file_path, 'rb') as f:
+            requests.post(
+                "https://api.drata.com/v1/evidence",
+                headers=headers, data=data,
+                files={"file": f}
+            )
 
-### Dependency Confusion Attack (CICD-SEC-3)
-
-One of the most impactful supply chain attacks:
-
-```bash
-# Attacker publishes malicious package to public registry (npm/PyPI)
-# with same name as your internal private package but higher version number.
-# Build system fetches from public registry first.
-
-# Mitigation 1: Use scoped packages (npm @company/package-name)
-# Mitigation 2: Set registry to private first with fallthrough disabled
-# npm config:
-# @company:registry=https://internal-npm.company.com
-# always-auth=true
-
-# Mitigation 3: Pin all dependencies with lockfiles
-# Mitigation 4: Hash verification in CI
-# Mitigation 5: Network egress controls on build runners
+# Example: push daily MFA compliance evidence
+push_evidence(
+    control_id="CC6.1",
+    evidence_type="EXPORT",
+    description=f"IAM Credential Report showing MFA status — {datetime.date.today()}",
+    file_path="/tmp/credential-report.csv"
+)
 ```
 
-### OWASP SAMM Toolbox Mapping
+---
 
-| SAMM Activity | DevSecOps Control |
-|--------------|-------------------|
-| Threat Assessment | Threat Dragon in repo, threat modeling in sprint |
-| Security Requirements | Abuse cases as acceptance criteria |
-| Secure Build | SAST, SCA, secret scanning in CI |
-| Secure Deployment | IaC scanning, image signing, deployment gates |
-| Defect Management | SAST results tracked in issue tracker |
-| Security Testing | DAST in staging pipeline |
+### Vulnerability SLA Enforcement
+
+#### CVSS-Based SLA Tiers
+
+| Severity | CVSS Score | SLA to Remediate | Escalation Path |
+|----------|------------|-----------------|-----------------|
+| Critical | 9.0-10.0 | 24 hours | CISO + VP Engineering immediately |
+| High | 7.0-8.9 | 7 days | Security team + Engineering manager |
+| Medium | 4.0-6.9 | 30 days | Security team notification |
+| Low | 0.1-3.9 | 90 days | Engineering backlog |
+| Informational | 0.0 | Best effort | No escalation |
+
+**CISA KEV Override:** Any vulnerability on the CISA Known Exploited Vulnerability catalog gets promoted to Critical SLA (24h) regardless of CVSS score.
+
+#### Security Debt Tracking Metrics
+
+```python
+# Engineering dashboard metrics
+{
+    "vulnerability_debt": {
+        "critical_open": 0,           # must always be 0 after SLA window
+        "high_open_within_sla": 12,
+        "high_open_breached_sla": 1,  # any > 0 requires escalation
+        "medium_open": 47,
+        "low_open": 203
+    },
+    "mean_time_to_remediate": {
+        "critical_hours": 18.2,
+        "high_days": 4.2,
+        "medium_days": 18.5,
+        "low_days": 62.1
+    },
+    "escape_rate": 0.032,   # 3.2% of vulns found post-deployment
+    "scan_coverage": 0.97   # 97% of repos have SAST enabled
+}
+```
 
 ---
 
-## 14. Compliance Integration
+### DevSecOps Culture Change Management
 
-### SOC 2 Type II
+#### Developer Empathy Approach
 
-SOC 2 auditors look for **evidence** that controls operate continuously. CI/CD automation provides automated, auditable evidence.
+Security programs fail when they create friction without empathy. Key principles:
 
-| SOC 2 Criterion | CI/CD Control | Evidence |
-|-----------------|---------------|---------|
-| CC6.1 — Logical Access | Branch protection, required reviews | GitHub audit log |
-| CC6.2 — Authentication | SSO required, MFA enforced | IdP audit log |
-| CC6.3 — Segregation of duties | No direct commits to main | Branch protection settings |
-| CC7.1 — Change management | All changes via PR, approved by reviewer | PR history |
-| CC7.2 — Monitoring | SIEM alerts on anomalous events | SIEM logs |
-| CC8.1 — Change management | Automated tests + security scans must pass | CI/CD run history |
+- **Fix the tool, not the developer**: If SAST has 40% false positive rate, fix the rules before demanding developers triage findings
+- **Context in findings**: Every alert includes "Why this matters" and "How to fix it" — not just "CWE-89"
+- **One-click remediation**: Where possible, provide automated fix (Snyk fix PR, Dependabot PR, suggested code change in PR comment)
+- **Security office hours**: Weekly 30-minute open Q&A with security team — no judgment, all questions welcome
+- **Hack-and-fix days**: Quarterly event where developers fix security findings in other teams' codebases (cross-pollination and empathy building)
+- **Blameless post-mortems**: Security incidents analyzed for system failures, not individual blame
 
-### PCI DSS v4.0
+#### Security Newsletter for Developers
 
-| Requirement | Description | Implementation |
-|-------------|-------------|----------------|
-| 6.2.4 | Prevent common software vulnerabilities | SAST (Semgrep/CodeQL) + DAST (ZAP) in pipeline |
-| 6.3.1 | Maintain security policies for development | SDLC policy doc, developer training |
-| 6.3.2 | Software inventory | SBOM generated per build |
-| 6.4.1 | WAF deployed | AWS WAF / Cloudflare in front of CHD environment |
-| 6.4.2 | WAF detecting and preventing web attacks | WAF rules, blocking mode |
-| 6.5.1 | Protect web-facing apps | DAST + SAST + RASP |
-| 12.3.2 | Targeted risk analysis | Risk assessment for each significant change |
+Monthly 5-minute read format:
+- 1 recent relevant breach and the root cause
+- 1 new tool or technique relevant to the team's stack
+- Top 3 security findings caught this month (anonymized)
+- Recognition: developer who found or fixed the most impactful security issue
 
-### NIST SSDF (SP 800-218)
+#### Gamification with Security Achievements
 
-Secure Software Development Framework — referenced in EO 14028 and CISA guidance.
-
-| Practice | ID | Implementation |
-|----------|-----|----------------|
-| Implement supporting toolchains | PO.3 | SAST/SCA/DAST toolchain in CI/CD |
-| Implement secure environments | PO.5 | Hardened CI runners, ephemeral environments |
-| Protect all code from unauthorized access | PS.1 | Branch protection, signed commits |
-| Verify third-party software compliance | PW.4 | SCA scanning, vendor assessments |
-| Design software to meet security requirements | PW.1 | Threat modeling, security architecture review |
-| Review and/or analyze human-readable code | PW.7 | SAST + manual code review |
-| Test executable code | PW.8 | DAST, IAST, penetration testing |
-| Identify and confirm vulnerabilities | RV.1 | Triaging SAST/SCA/DAST findings |
-| Analyze vulnerabilities to determine root cause | RV.2 | Post-incident analysis, RCA process |
-| Address vulnerabilities | RV.3 | Remediation SLAs, patch pipeline |
-
-### FedRAMP / FISMA
-
-For US federal or FedRAMP-authorized systems:
-- NIST SP 800-53 Rev 5 controls apply
-- **SA-11**: Developer Security Testing and Evaluation — requires SAST, DAST
-- **SA-15**: Development Process, Standards, and Tools — approved toolchain
-- **CM-14**: Signed Components — SBOM + code signing
-- **RA-5**: Vulnerability Monitoring and Scanning — continuous SCA + image scanning
-
-### ISO/IEC 27001:2022
-
-| Control | Annex A Reference | Implementation |
-|---------|-------------------|----------------|
-| Secure development policy | A.8.25 | SDLC policy, developer training |
-| Secure development environment | A.8.31 | Hardened CI/CD, network segmentation |
-| Application security testing | A.8.29 | SAST + DAST in pipeline |
-| Secure coding | A.8.28 | Secure coding standards + SAST enforcement |
-| Outsourced development | A.8.30 | SCA for third-party components |
+| Achievement | Trigger | Recognition |
+|-------------|---------|-------------|
+| First Blood | First security finding filed | Mention in newsletter |
+| Bug Slayer | 10 confirmed vulnerabilities fixed | Swag package |
+| Guardian | Introduce a security guardrail adopted by team | Conference budget |
+| Champion | Become certified security champion | Salary adjustment + title |
+| Zero Day Hero | Report CVE in upstream dependency | CISO recognition + bounty |
 
 ---
 
-## Quick Reference: Tool Selection
+### DevSecOps Tool Chain Evaluation Matrix
 
-| Need | Open Source | Commercial |
-|------|------------|-----------|
-| SAST (fast) | Semgrep | Checkmarx, Veracode |
-| SAST (thorough) | CodeQL | SonarQube Enterprise |
-| SCA | OSV-Scanner, OWASP DC | Snyk, Mend (WhiteSource) |
-| Secrets detection | Gitleaks, detect-secrets | Nightfall, GitGuardian |
-| Container scanning | Trivy, Grype | Aqua Security, Sysdig |
-| DAST | OWASP ZAP, Nuclei | Invicti, Rapid7 InsightAppSec |
-| IaC scanning | Checkov, tfsec, KICS | Prisma Cloud, Wiz |
-| SBOM | Syft, Trivy | Anchore Enterprise |
-| Secret management | HashiCorp Vault (OSS) | AWS Secrets Manager, Azure Key Vault |
-| Workflow security | actionlint, zizmor | Legit Security, Cycode |
+| Criteria | Weight | How to Score |
+|----------|--------|-------------|
+| Scan accuracy (FP/FN rate) | 25% | Benchmark against known-vulnerable code corpus |
+| CI/CD integration effort | 20% | Time to integrate into existing pipeline |
+| Developer experience | 20% | Finding quality, fix guidance, PR comment integration |
+| Coverage (languages/frameworks) | 15% | Percentage of your stack covered |
+| Remediation guidance quality | 10% | Actionability of fix recommendations |
+| Pricing model fit | 10% | Per-scan vs per-developer vs enterprise licensing |
 
 ---
 
-*Part of the [TeamStarWolf Cybersecurity Reference Library](README.md)*
+### Demonstrating DevSecOps ROI
+
+#### Vulnerability Reduction Rate
+
+```
+VRR = (Vulns_Year_N-1 - Vulns_Year_N) / Vulns_Year_N-1 x 100
+
+Example:
+  Year 1 (pre-DevSecOps): 450 vulnerabilities found in production
+  Year 2 (post-DevSecOps): 180 vulnerabilities found in production
+  VRR = (450 - 180) / 450 x 100 = 60% reduction in production vulnerabilities
+```
+
+#### Breach Cost Avoidance
+
+Using IBM Cost of a Data Breach 2024 ($4.88M average):
+```
+Before DevSecOps:
+  Breach probability: 32% per year
+  Expected Annual Cost = 0.32 x $4,880,000 = $1,561,600
+
+DevSecOps program cost: $400,000/year (tools + training + headcount)
+
+If DevSecOps reduces breach probability by 40% (to 19.2%):
+  New Expected Annual Cost = 0.192 x $4,880,000 = $936,960
+  Annual Avoidance = $1,561,600 - $936,960 = $624,640
+  Net ROI = ($624,640 - $400,000) / $400,000 x 100 = 56%
+```
+
+#### Audit Efficiency Improvement
+
+```
+Evidence collection hours per audit cycle:
+  Before DevSecOps (manual): 800 hours
+  After DevSecOps (automated evidence): 120 hours
+
+  Time saved: 680 hours x $150/hour loaded cost = $102,000 per audit
+  Annual savings (2 audit cycles): $204,000
+```
+
+---
+
+### Security Champions Community of Practice
+
+**Meeting cadence:** Monthly 1-hour call for all champions across teams.
+
+**Agenda template:**
+1. Threat landscape update (10 min) — 2-3 relevant recent incidents
+2. Tool tip of the month (10 min) — deep dive on one specific feature or technique
+3. Champion showcase (15 min) — champion presents a security improvement shipped this month
+4. Open discussion and Q&A (15 min)
+5. Metrics review (10 min) — org-wide security KPIs, celebrate improvements
+
+**Communication channels:**
+- `#security-champions` Slack: async Q&A, tool tips, threat intel sharing
+- `#security-alerts`: critical vulnerability notifications requiring immediate action
+- Monthly digest email with metrics and achievements
+
+**Champion recognition:**
+- Quarterly Champion of the Quarter award ($500 L&D budget + leadership recognition)
+- Annual Security Summit attendance (fully paid)
+- Speaking opportunity at internal and external tech talks
+- Visible credit in security reports shared with the board
+
+---
+
+## Quick Reference
+
+### CVSS v3.1 Severity Ratings
+
+| Score | Severity |
+|-------|----------|
+| 0.0 | None |
+| 0.1-3.9 | Low |
+| 4.0-6.9 | Medium |
+| 7.0-8.9 | High |
+| 9.0-10.0 | Critical |
+
+### Essential DevSecOps Resources
+
+| Resource | Description |
+|----------|-------------|
+| owasp.org/www-project-top-ten | OWASP Top 10 Web Application Risks |
+| owasp.org/www-project-api-security | OWASP API Security Top 10 |
+| nvd.nist.gov | NIST National Vulnerability Database |
+| cisa.gov/known-exploited-vulnerabilities-catalog | CISA KEV Catalog |
+| osv.dev | Open Source Vulnerabilities database |
+| sigstore.dev | Sigstore signing infrastructure |
+| slsa.dev | SLSA supply chain framework |
+| securityscorecards.dev | OpenSSF Scorecard |
+| bsimm.com | Building Security In Maturity Model |
+| owaspsamm.org | OWASP Software Assurance Maturity Model |
+
+---
+
+*Last updated: 2026-05-04 | Maintained by the DevSecOps Practice*

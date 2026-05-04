@@ -327,3 +327,4 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | Comprehensive threat hunting reference: KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, and hunt tracking |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: hardware, GNU Radio, protocol analysis (GSM/LTE/Bluetooth/Zigbee/P25), replay attacks, RFID/NFC, Kismet, TEMPEST, and legal framework |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | Shift-left philosophy, BSIMM/SAMM maturity models, SAST/SCA/DAST tooling, secrets management, pipeline security, container security, SLSA supply chain, and compliance-as-code |
+| [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall, compliance |

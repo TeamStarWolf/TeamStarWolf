@@ -354,3 +354,10 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, BeyondCorp, microsegmentation, identity-centric security, continuous verification, vendor implementations |
 | [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading list: offensive security, defensive security, malware analysis, forensics, cryptography, leadership |
+
+## Reference Libraries
+
+| Library | Description |
+|---|---|
+| [SIEM Reference Library](SIEM_REFERENCE.md) | Comprehensive SIEM & SOC reference: Splunk ES, Microsoft Sentinel, QRadar, Elastic, detection engineering, threat hunting, and SOC operations |
+

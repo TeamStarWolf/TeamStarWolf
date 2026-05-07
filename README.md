@@ -38,7 +38,6 @@ A public resource library for the cybersecurity community.
 |---|---|
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
 | [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology |
-| [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 | [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
 | [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
@@ -77,6 +76,7 @@ A public resource library for the cybersecurity community.
 | [Linux Hardening](LINUX_HARDENING.md) | CIS Benchmark, STIG, kernel hardening (sysctl), SELinux/AppArmor, auditd rules, SSH hardening, service sandboxing |
 | [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) | DMZ design, VLAN segmentation, firewall policy, IDS/IPS placement, NAC/802.1X, DDoS protection, and network monitoring |
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | WiFi attacks (WPA2/WPA3, evil twin, PMKID), Bluetooth, SDR, RFID/NFC, and enterprise wireless hardening |
+| [SIEM Reference](SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting |
 | [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Phishing taxonomy, AiTM attacks, vishing, pretexting, physical SE, simulation programs, and awareness training |
 | [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
@@ -291,8 +291,6 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 
 ---
 
----
-
 ## Side Projects
 
 | Project | Description |
@@ -340,10 +338,12 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) | Red/Blue collaboration, detection validation, adversary emulation, atomic tests, coverage measurement, MITRE ATT&CK |
 | [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team operations, C2 frameworks (Cobalt Strike/Havoc/Sliver), tradecraft, persistence, lateral movement, OPSEC |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST |
+| [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
 | [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10, secure SDLC, input validation, injection prevention, cryptographic coding patterns, security testing |
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC |
 | [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) | Defense-in-depth, Zero Trust architecture, cloud security design, application security patterns, identity architecture, SecOps |
 | [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet |
+| [SIEM Reference](SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting |
 | [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Phishing campaigns, vishing, pretexting, BEC, physical social engineering, awareness training, GoPhish |
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, hunt tracking |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | CTI lifecycle, MISP, OpenCTI, STIX/TAXII, threat actor profiling, dark web monitoring, TI-driven detection |
@@ -352,12 +352,6 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) | Windows security hardening: accounts, GPO, Sysmon, WEF, PowerShell, Defender, AppControl, network, audit policy |
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | Wi-Fi protocols (WEP/WPA/WPA3), Bluetooth, Cellular (4G/5G), RFID/NFC, IoT protocols, attack techniques, WIDS, hardening |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, BeyondCorp, microsegmentation, identity-centric security, continuous verification, vendor implementations |
-| [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading list: offensive security, defensive security, malware analysis, forensics, cryptography, leadership |
 
-## Reference Libraries
-
-| Library | Description |
-|---|---|
-| [SIEM Reference Library](SIEM_REFERENCE.md) | Comprehensive SIEM & SOC reference: Splunk ES, Microsoft Sentinel, QRadar, Elastic, detection engineering, threat hunting, and SOC operations |
 

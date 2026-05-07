@@ -152,3 +152,4 @@
 * [Linux Hardening Reference](LINUX_HARDENING_REFERENCE)
 
 - [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md)
+- [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)

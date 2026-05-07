@@ -89,6 +89,7 @@ A public resource library for the cybersecurity community.
 | [Web App Pentesting](WEB_APPLICATION_PENTESTING.md) | Testing methodology, SQLi/XSS/SSRF/SSTI payloads, JWT attacks, auth bypass, business logic testing, Burp Suite and ffuf reference |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
+| [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | AD architecture, Kerberos attacks (Kerberoasting/Golden Ticket/DCSync), AD CS ESC vulnerabilities, GPO hardening, tiered admin model, MDI detection |
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |

@@ -321,6 +321,7 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Homelab Setup](HOMELAB_SETUP.md) | Building a security homelab: network segmentation, VMs, SIEM/EDR deployment, vulnerable targets, attack simulation |
 | [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md) | OpenCanary, Cowrie, Dionaea, T-Pot, Canarytokens, MITRE D3FEND/ATT&CK deception mapping |
 | [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) | SCADA/ICS threats, Purdue model, IEC 62443, Modbus/DNP3 security, OT network monitoring, incident response |
+| [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) | FIDO2/WebAuthn, RBAC/ABAC/ReBAC, Entra ID/Okta/CyberArk/Vault, JIT/PAM, SCIM, SPIFFE, Zero Trust identity, IGA |
 | [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md) | IAM, PAM, MFA bypass techniques, AD attacks, Okta/Entra/CyberArk/Vault vendor controls, identity detection |
 | [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | IR lifecycle, playbooks, DFIR tooling, ransomware response, threat containment, forensic evidence collection |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |

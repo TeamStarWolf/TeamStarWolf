@@ -120,6 +120,7 @@
   * [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md)
   - [OSINT Reference](OSINT_REFERENCE.md)
   - [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md)
+  - [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
   - [Secure Coding Reference](SECURE_CODING_REFERENCE.md)
   - [AI Security Reference](AI_SECURITY_REFERENCE.md)
   * [DevSecOps Reference](DEVSECOPS_REFERENCE.md)

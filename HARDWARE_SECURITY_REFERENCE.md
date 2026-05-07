@@ -1,983 +1,1074 @@
 # Hardware Security Reference
 
-> A comprehensive reference for hardware security concepts, tools, and techniques used in offensive and defensive security.
+## 1. TPM 2.0 Deep Dive
 
----
+### Architecture Overview
 
-## Table of Contents
-1. [Hardware Security Fundamentals](#1-hardware-security-fundamentals)
-2. [Trusted Platform Module (TPM)](#2-trusted-platform-module-tpm)
-3. [Hardware Security Modules (HSM)](#3-hardware-security-modules-hsm)
-4. [Secure Boot](#4-secure-boot)
-5. [UEFI Firmware Security](#5-uefi-firmware-security)
-6. [Side-Channel Attacks](#6-side-channel-attacks)
-7. [Fault Injection](#7-fault-injection)
-8. [JTAG / Debug Interface Security](#8-jtag--debug-interface-security)
-9. [Hardware Attacks on Cryptographic Tokens](#9-hardware-attacks-on-cryptographic-tokens)
-10. [Supply Chain Hardware Security](#10-supply-chain-hardware-security)
-11. [Physical Unclonable Functions (PUF)](#11-physical-unclonable-functions-puf)
-12. [Confidential Computing](#12-confidential-computing)
-13. [Hardware Security Tools Reference](#13-hardware-security-tools-reference)
+The Trusted Platform Module (TPM) 2.0 is a hardware-based security coprocessor defined by TCG (Trusted Computing Group) specification. Unlike TPM 1.2, TPM 2.0 supports multiple cryptographic algorithms simultaneously, uses a hierarchical key structure, and provides more flexible policy-based authorization.
 
----
+**Key Components:**
+- **Platform Hierarchy** – Used during manufacturing; primary seeds change at provisioning
+- **Storage Hierarchy** – Persistent storage for user keys (SRK = Storage Root Key)
+- **Endorsement Hierarchy** – Privacy-sensitive; contains the EK (Endorsement Key) used for attestation
+- **Null Hierarchy** – Ephemeral; cleared on every boot
 
-## 1. Hardware Security Fundamentals
+### PCR Banks
 
-### Why Hardware Security Matters
-Software controls cannot fully protect against physical or hardware-level attacks. An attacker with physical access to a device can often bypass every software security control, from OS authentication to encrypted filesystems. Hardware security addresses this gap by establishing roots of trust that are anchored in silicon rather than software.
+Platform Configuration Registers (PCRs) are hash accumulators. TPM 2.0 maintains multiple PCR banks (SHA-1, SHA-256, SHA-384, SHA-512). Each bank has 24 registers (PCR[0]-PCR[23]).
 
-### Hardware Attack Categories
-| Category | Description | Example |
-|---|---|---|
-| Side-channel | Extract secrets from physical implementation (power, EM, timing) | DPA against AES hardware |
-| Fault injection | Cause hardware faults to bypass security checks | Voltage glitch to skip PIN verify |
-| Physical tampering | Direct hardware modification or probing | PCB trace cuts, rework |
-| Firmware attacks | Exploit or implant malicious code in firmware/UEFI | UEFI bootkits, persistent implants |
-| Supply chain implants | Malicious components inserted during manufacturing | Nation-state hardware backdoors |
-| Debug interface abuse | Use JTAG/UART to read memory or extract firmware | OpenOCD firmware dump |
-
-### Threat Actors
-- **Nation-state actors**: Advanced capabilities — PCB-level implants, custom ASICs, supply chain access (Bloomberg SuperMicro "The Big Hack" claims, 2018 — disputed but technically plausible)
-- **Insiders**: Physical access to production hardware or manufacturing facilities
-- **Criminal groups**: Target payment terminals, ATMs, HSM-protected payment systems
-- **Security researchers**: Responsible disclosure of hardware vulnerabilities (e.g., Seunghun Han TPM research)
-
-### Defense Layers
-1. Physical access control (locks, cages, guards)
-2. Tamper-evident seals and enclosures
-3. Hardware roots of trust (TPM, Intel Boot Guard, ARM TrustZone)
-4. Secure boot chains (UEFI Secure Boot, measured boot)
-5. HSMs for key isolation
-6. Supply chain verification and component authentication
-
----
-
-## 2. Trusted Platform Module (TPM)
-
-### Overview
-The TPM (Trusted Platform Module) is a dedicated microcontroller designed to secure hardware through integrated cryptographic keys. The TPM 2.0 specification is published by the Trusted Computing Group (TCG). TPMs are present in most modern enterprise laptops, desktops, and servers, and are required for Windows 11.
-
-### Core Functions
-- **Sealed storage**: Encrypt data so it can only be decrypted when the system is in a known-good state (measured by PCRs)
-- **Key generation and storage**: Hardware-protected RSA/ECC key generation — private keys never leave the TPM
-- **PCR measurements**: Cryptographic hash of firmware, bootloader, and OS state stored in Platform Configuration Registers
-- **Remote attestation**: Prove to a remote verifier that the system is in a trusted state
-- **Random number generation**: Hardware true random number generator (TRNG)
-
-### Platform Configuration Registers (PCRs)
-PCR banks are available in SHA-1 (PCR 0-23) and SHA-256. Each register holds the cumulative hash of firmware or boot component state.
-
-| PCR | Contents |
+**Standard PCR Allocation (UEFI):**
+| PCR | Content |
 |-----|---------|
-| 0 | BIOS/UEFI firmware code |
-| 1 | BIOS configuration and data |
-| 2 | Option ROMs (expansion card firmware) |
-| 3 | Option ROM configuration |
-| 4 | MBR / bootloader code |
-| 5 | MBR configuration / GPT |
-| 6 | Platform-specific |
-| 7 | Secure Boot policy and state |
-| 8-9 | GRUB / bootloader components (Linux) |
-| 11 | BitLocker (Windows) |
-| 14 | MOK (Machine Owner Key) |
+| 0   | SRTM, BIOS, Host Platform Extensions |
+| 1   | Host Platform Config (BIOS config data) |
+| 2   | Option ROM Code |
+| 3   | Option ROM Config & Data |
+| 4   | IPL Code (MBR/GPT, bootloader) |
+| 5   | IPL Config Data (partition tables) |
+| 6   | State Transitions & Wake Events |
+| 7   | Secure Boot Policy (PK/KEK/db/dbx/mode) |
+| 8-9 | Used by OS/Bootloader (GRUB2 uses 8,9) |
+| 10  | MeasureBoot (IMA on Linux) |
+| 11-13 | Reserved for OS |
+| 14  | MOK (Machine Owner Key) |
 
-PCR values are extended (not overwritten): `PCR_new = SHA256(PCR_old || new_measurement)`
+**PCR Extension Mechanics:**
+```
+PCR[n] = H(PCR[n] || new_value)
+```
+A PCR starts at all-zeros and is extended by hashing the concatenation of the current value with the measurement. This makes PCR values a running hash chain — you cannot remove a measurement, only accumulate.
 
-### TPM Key Hierarchy
-- **Endorsement Key (EK)**: RSA-2048 or ECC key burned in at manufacture; identifies the TPM; used for attestation
-- **Storage Root Key (SRK)**: Master key for TPM key hierarchy, seeded when TPM is provisioned
-- **Attestation Identity Keys (AIK)**: Pseudonymous keys used for remote attestation without revealing EK
-- **Platform keys**: Created by software, stored in TPM's non-volatile memory
+### Key Hierarchy
 
-### TPM Commands (tpm2-tools)
+```
+Platform Hierarchy
+  └── Platform Primary Key (PPK) → platform-specific
+
+Storage Hierarchy (most common)
+  └── Storage Root Key (SRK) → typically RSA-2048 or ECC-P256
+        ├── Sealing Keys (bind data to PCR state)
+        ├── Signing Keys
+        └── Child CAs
+
+Endorsement Hierarchy
+  └── Endorsement Key (EK) → burned in at manufacture
+        └── AK (Attestation Key) derived from EK
+```
+
+### tpm2-tools Command Reference
+
 ```bash
-# Generate 32 random bytes
-tpm2_getrandom 32
+# List all PCR values (SHA-256 bank)
+tpm2_pcrread sha256
 
-# Read PCR values (SHA-256 bank, PCRs 0,1,2,7)
+# Read specific PCRs
 tpm2_pcrread sha256:0,1,2,7
 
-# Create a primary key in the Endorsement hierarchy
-tpm2_createprimary -C e -g sha256 -G rsa -c primary.ctx
+# Create a primary key in storage hierarchy
+tpm2_createprimary -C o -g sha256 -G rsa2048 -c primary.ctx
 
-# Create a child RSA key under the primary
-tpm2_create -C primary.ctx -g sha256 -G rsa -u key.pub -r key.priv
+# Create an RSA signing child key
+tpm2_create -C primary.ctx -g sha256 -G rsa2048   -u sign.pub -r sign.priv
 
-# Load the key into the TPM
-tpm2_load -C primary.ctx -u key.pub -r key.priv -c key.ctx
+# Load key
+tpm2_load -C primary.ctx -u sign.pub -r sign.priv -c sign.ctx
 
 # Sign data
-tpm2_sign -c key.ctx -g sha256 -f plain -o sig.out data.txt
+echo "data" | tpm2_sign -c sign.ctx -g sha256 -o sig.rsa -
 
-# Verify signature
-tpm2_verifysignature -c key.ctx -g sha256 -m data.txt -s sig.out
+# Quote PCRs (remote attestation step 1)
+tpm2_quote -c ak.ctx -l sha256:0,1,2,7   -q $(openssl rand -hex 20)   -m quote.msg -s quote.sig -o pcrs.out -g sha256
 
-# Define NV (non-volatile) storage index
+# Verify quote (on verifier side)
+tpm2_checkquote -u ak.pub -m quote.msg -s quote.sig   -f pcrs.out -g sha256 -q <nonce>
+
+# Seal a secret to PCR state (PCR 7 = secure boot policy)
+tpm2_create -C primary.ctx -g sha256 -G keyedhash   -i secret.txt -u seal.pub -r seal.priv   -L "sha256:7"
+
+# Unseal
+tpm2_load -C primary.ctx -u seal.pub -r seal.priv -c seal.ctx
+tpm2_unseal -c seal.ctx
+
+# NV storage write/read (e.g., store a 32-byte secret at index 0x1500016)
 tpm2_nvdefine 0x1500016 -C o -s 32 -a "ownerread|ownerwrite"
-
-# Write to NV storage
-tpm2_nvwrite 0x1500016 -C o -i data.bin
-
-# Read NV storage
+echo -n "my32bytesecretmy32bytesecretXXXX" | tpm2_nvwrite 0x1500016 -C o -i -
 tpm2_nvread 0x1500016 -C o
 
-# Seal data to current PCR state
-tpm2_create -C primary.ctx -g sha256 -G keyedhash -i secret.txt   -u sealed.pub -r sealed.priv -L "sha256:7"
+# Get EK certificate chain
+tpm2_getekcertificate -o ek_cert.pem
 
-# Quote (attest PCR values)
-tpm2_quote -c key.ctx -l sha256:0,1,2,7 -q nonce.bin -m pcrs.msg -s pcrs.sig
+# Create Attestation Key bound to EK
+tpm2_createek -c ek.ctx -G rsa -u ek.pub
+tpm2_createak -C ek.ctx -c ak.ctx -G rsa -g sha256 -s rsassa   -u ak.pub -r ak.priv
 ```
-
-### BitLocker TPM Integration
-BitLocker uses the TPM to seal the Volume Master Key (VMK). The VMK is only unsealed when:
-1. PCR values match expected values (firmware and bootloader unchanged)
-2. Optionally: a pre-boot PIN or USB key is provided
-
-Attack vector: if PCR values haven't changed (no firmware/bootloader update), BitLocker auto-unlocks at boot — TPM PIN provides an extra factor.
-
-### Attacking TPM
-- **TPM bus sniffing**: On older systems, the TPM communicates via the LPC bus (not encrypted). Seunghun Han demonstrated BitLocker key interception by sniffing LPC bus on a ThinkPad (2021). TPM 2.0 uses SPI on modern systems — still potentially sniffable.
-- **TPM PIN brute force**: BitLocker without pre-boot PIN — attacker with physical access and a cloned drive can brute-force offline if TPM is not used or seal is bypassed.
-- **Cold boot attack**: Freeze RAM (liquid nitrogen/CO2) to slow bit decay → read DRAM contents after power-off → extract BitLocker key from memory.
-- **Mitigation**: Enable pre-boot PIN, use TPM+PIN mode, enable memory encryption (AMD SME/SEV).
-
-### TPM in Cloud Environments
-| Platform | TPM Type | Notes |
-|---|---|---|
-| Azure | vTPM (virtual TPM) | TPM 2.0 emulated in hypervisor, supports attestation |
-| AWS | Nitro TPM | Available on Nitro-based instances |
-| GCP | vTPM | Confidential VMs with AMD SEV + vTPM |
-
----
-
-## 3. Hardware Security Modules (HSM)
-
-### Purpose
-An HSM is a dedicated hardware device for performing cryptographic operations. The critical property: **private keys are generated inside the HSM and never exported in plaintext**. Even if the host system is compromised, the keys remain protected.
-
-### FIPS 140-2 / 140-3 Security Levels
-| Level | Physical Security | Key Usage |
-|---|---|---|
-| 1 | Software only, no physical protection | Laboratory/development |
-| 2 | Tamper-evident coatings/seals, role-based auth | Commercial applications |
-| 3 | Tamper-responsive (zeroize keys on attack), identity-based auth | Financial/PKI |
-| 4 | Complete envelope of protection, environmental attack resistance | Top secret / classified |
-
-FIPS 140-3 (2019) aligned with ISO/IEC 19790, superseding FIPS 140-2. Many organizations still deploy FIPS 140-2 Level 3 HSMs.
-
-### Hardware HSM Vendors
-| Vendor | Product | Notes |
-|---|---|---|
-| Thales | Luna Network HSM 7 | Industry standard, FIPS 140-3 L3 |
-| Entrust | nShield Connect | High-availability clustering |
-| Utimaco | SecurityServer | German engineering, banking focused |
-| Securosys | Primus HSM | Swiss-made, PCI HSM certified |
-| IBM | 4769 Crypto Coprocessor | Mainframe HSM |
-
-### Payment HSMs
-- **Thales payShield 10K**: PCI PTS HSM v3/v4 certified — used for PIN block translation, card personalization, 3DS authentication
-- **Utimaco PaymentServer**: EMV, PIN translation, key injection
-
-### Cloud HSM Services
-| Provider | Service | Tenancy | FIPS Level |
-|---|---|---|---|
-| AWS | CloudHSM | Single-tenant | FIPS 140-2 L3 |
-| AWS | KMS | Multi-tenant (managed) | FIPS 140-2 L3 (HSM backend) |
-| Azure | Key Vault Managed HSM | Single-tenant | FIPS 140-2 L3 |
-| GCP | Cloud HSM | Single-tenant | FIPS 140-2 L3 |
-
-### HSM Use Cases
-- **Certificate Authority (CA) private key storage**: Root CA keys stored in HSM — signing only happens inside HSM
-- **TLS private key protection**: Web servers offload TLS private key operations to HSM
-- **Code signing**: Software publisher keys stored in HSM (prevents stolen signing keys)
-- **Database encryption**: Column encryption keys wrapped by HSM master key
-- **Blockchain / crypto custody**: Multi-sig keys stored in geographically distributed HSMs
-
-### PKCS#11 Interface
-PKCS#11 is the standard API for interacting with HSMs and smart cards.
-
-```python
-import pkcs11
-from pkcs11 import Mechanism, KeyType
-
-# Initialize PKCS#11 library (SoftHSM2 example)
-lib = pkcs11.lib('/usr/lib/softhsm/libsofthsm2.so')
-
-# Get token
-token = lib.get_token(token_label='MyToken')
-
-# Open session
-with token.open(user_pin='1234') as session:
-    # Generate AES-256 key
-    key = session.generate_key(KeyType.AES, 256,
-                               store=True,
-                               label='my-aes-key')
-
-    # Encrypt data
-    iv = session.generate_random(128)  # 16-byte IV
-    encrypted = key.encrypt(b'plaintext data here',
-                             mechanism=Mechanism.AES_CBC_PAD,
-                             mechanism_param=iv)
-
-    # Decrypt data
-    decrypted = key.decrypt(encrypted,
-                            mechanism=Mechanism.AES_CBC_PAD,
-                            mechanism_param=iv)
-
-    # Generate RSA key pair
-    pub, priv = session.generate_keypair(KeyType.RSA, 2048,
-                                         store=True,
-                                         label='my-rsa-key')
-
-    # Sign with RSA
-    signature = priv.sign(b'message to sign',
-                          mechanism=Mechanism.SHA256_RSA_PKCS)
-```
-
-### SoftHSM2 (Development/Testing)
-```bash
-# Install
-apt-get install softhsm2
-
-# Initialize a token
-softhsm2-util --init-token --slot 0 --label MyToken   --pin 1234 --so-pin 12345678
-
-# List tokens
-softhsm2-util --show-slots
-
-# Use with OpenSSL via PKCS#11 engine
-openssl engine pkcs11 -pre "MODULE_PATH:/usr/lib/softhsm/libsofthsm2.so"
-```
-
----
-
-## 4. Secure Boot
-
-### Overview
-UEFI Secure Boot verifies the cryptographic signature of each boot component before executing it. This prevents unauthorized bootloaders, kernels, and drivers from running — blocking bootkits and rootkits that persist below the OS level.
-
-### Key Database Structure
-| Database | Contents | Owner |
-|---|---|---|
-| PK (Platform Key) | OEM root of trust; controls KEK | OEM (Lenovo, Dell, HP) |
-| KEK (Key Exchange Key) | OS vendor keys; signs db/dbx updates | Microsoft, Linux Foundation |
-| db (Allowed Signatures) | Trusted bootloader/driver certificates/hashes | OEM + OS vendor |
-| dbx (Forbidden Signatures) | Revoked binaries (by hash or certificate) | Microsoft (monthly updates) |
-| MOKList | Machine Owner Key list (user-enrolled, GRUB) | System owner |
-
-### Boot Chain Verification
-```
-UEFI Firmware (anchored by PK)
-    → shim.efi (signed by Microsoft KEK → in db)
-        → grub.efi (signed by distro → in MOKList or db)
-            → vmlinuz (kernel, signed by distro)
-                → initrd (integrity checked)
-```
-
-Each stage is verified against the db before execution. If a binary's signature is in dbx, it is blocked even if also in db.
-
-### Secure Boot Status Checks
-```bash
-# Linux — check Secure Boot state
-mokutil --sb-state
-# Output: SecureBoot enabled
-
-# More detail
-bootctl status | grep "Secure Boot"
-
-# Check enrolled keys
-mokutil --list-enrolled
-
-# Windows — PowerShell
-Confirm-SecureBootUEFI
-# Returns: True or False
-
-# Windows — GUI
-msinfo32
-# Look for: Secure Boot State = On
-
-# Windows — command line
-reg query HKLM\SYSTEM\CurrentControlSet\Control\SecureBoot\State /v UEFISecureBootEnabled
-```
-
-### Secure Boot Bypass Techniques
-| Technique | Requirement | Notes |
-|---|---|---|
-| Exploit UEFI firmware vulnerability | Remote (if pre-boot reachable) or local | Many CVEs in UEFI implementations |
-| BootHole / CVE-2020-10713 | GRUB2 buffer overflow | Allows arbitrary code in bootloader despite Secure Boot |
-| BlackLotus (CVE-2023-24932) | Local admin | First in-the-wild UEFI bootkit bypassing Secure Boot on patched Win11 |
-| MOKList enrollment | Physical access (reboot required) | Enroll custom certificate, then sign custom kernel |
-| Legacy BIOS fallback | Physical BIOS access | Disable Secure Boot in UEFI settings |
-| dbx bypass (stale revocation) | Unpatched db/dbx | Use old revoked-but-not-yet-dbx'd binary |
 
 ### Measured Boot
-Measured Boot records all boot component hashes into TPM PCRs without blocking execution (unlike Secure Boot which blocks). Complements Secure Boot:
-- Secure Boot: **prevent** untrusted code from running
-- Measured Boot: **record** what ran for later attestation
 
----
+Measured Boot extends each stage of the boot chain into TPM PCRs before executing the next stage:
 
-## 5. UEFI Firmware Security
+```
+CRTM (Core Root of Trust for Measurement)
+  → extends PCR[0] with BIOS firmware hash
+  → extends PCR[2] with option ROM hashes
+  → extends PCR[4] with bootloader hash (shim/GRUB)
+  → GRUB2 extends PCR[8] with grub.cfg
+  → GRUB2 extends PCR[9] with kernel cmdline
+  → Linux kernel extends PCR[10] via IMA
+```
 
-### Notable UEFI Vulnerabilities
-| Vulnerability | Year | Impact |
-|---|---|---|
-| ThinkPwn | 2016 | Arbitrary SMM code execution on Lenovo ThinkPads |
-| BootHole (CVE-2020-10713) | 2020 | GRUB2 buffer overflow, Secure Boot bypass |
-| MosaicRegressor | 2020 | UEFI implant (SPI flash) in diplomatic laptops |
-| CosmicStrand | 2022 | UEFI rootkit distributed via compromised firmware images |
-| LogoFAIL (CVE-2023-40238+) | 2023 | Parser vulnerabilities in UEFI logo image handling — code exec from SPI flash |
-| BlackLotus (CVE-2023-24932) | 2023 | First in-the-wild Secure Boot bypass bootkit on Windows 11 |
-
-### UEFI Persistent Implants
-UEFI firmware implants survive:
-- OS reinstallation
-- Hard drive/SSD replacement
-- Factory reset
-
-They are stored in SPI flash on the motherboard. Removal requires reflashing the SPI chip (if not write-protected) or replacing the motherboard.
-
-### Firmware Security Tools
+**IMA (Integrity Measurement Architecture) setup:**
 ```bash
-# CHIPSEC — comprehensive UEFI security testing framework
-pip install chipsec
-python chipsec_main.py  # Run all modules
-python chipsec_main.py -m common.bios_wp  # Check BIOS write protection
-python chipsec_main.py -m common.secureboot.variables  # Check Secure Boot variables
+# /etc/kernel/cmdline
+ima_policy=tcb ima_template=ima-ng ima_hash=sha256
 
-# UEFITool — GUI/CLI tool for analyzing UEFI firmware images
-# Download firmware from vendor, open in UEFITool, search for modules
-
-# Binwalk — extract components from firmware images
-binwalk -e firmware.rom              # Extract filesystem
-binwalk -M -e firmware.rom           # Recursive extraction
-binwalk --signature firmware.rom     # Identify file signatures
-
-# fwupd — Linux firmware update daemon
-fwupdmgr get-devices                 # List updatable devices
-fwupdmgr get-updates                 # Check for firmware updates
-fwupdmgr update                      # Apply firmware updates
-
-# uefi-firmware-parser
-pip install uefi-firmware-parser
-python -m uefi_firmware.guids        # List known GUIDs
+# View IMA measurement log
+cat /sys/kernel/security/integrity/ima/ascii_runtime_measurements
 ```
 
-### SPI Flash Write Protection
-- **BIOS_WE / BIOSWE bit**: In the PCH (Platform Controller Hub), this bit controls whether the SPI flash region containing UEFI firmware is write-protected
-- When BIOSWE=0: SPI flash is write-protected (correct state)
-- When BIOSWE=1: SPI flash is writable — allows firmware modification (attack opportunity)
-- CHIPSEC checks: `chipsec_main.py -m common.bios_wp`
+### Remote Attestation Protocol
 
-### Hardware Root of Trust
-- **Intel Boot Guard**: Hardware mechanism in PCH that verifies the initial boot block of UEFI firmware using a hash fused into the PCH. Prevents BIOS reflashing with unsigned firmware. Cannot be disabled once fused.
-- **AMD Platform Secure Boot (PSB)**: AMD equivalent — roots trust in processor fuses, verifies AGESA (AMD Generic Encapsulated Software Architecture) before UEFI loads.
-- Both mechanisms are one-time-programmable — once enabled by OEM, cannot be disabled.
-
----
-
-## 6. Side-Channel Attacks
-
-### Overview
-Side-channel attacks extract secret information from the **physical implementation** of a cryptographic system rather than exploiting weaknesses in the algorithm itself. Even a mathematically perfect implementation can leak secrets through observable physical characteristics.
-
-### Power Analysis
 ```
-SPA (Simple Power Analysis)
-├── Single power trace
-├── Visual inspection reveals algorithm operations
-├── Example: RSA square-and-multiply — different operations have distinct power signatures
-└── Can reveal key bits directly
-
-DPA (Differential Power Analysis)
-├── Statistical analysis of many power traces
-├── Correlate power consumption with hypothetical key values
-├── Even noisy measurements yield key bits with enough traces
-└── Kocher et al. 1999 — demonstrated against DES smartcards
+Device (Prover)                    Attestation Service (Verifier)
+     |                                          |
+     |<------ nonce (challenge) ----------------|
+     |                                          |
+     | tpm2_quote with nonce                    |
+     |------ {quote_msg, quote_sig, pcrs} ----->|
+     |                                          |
+     | (separately enroll EK cert)              |
+     |------ EK cert chain -------------------->|
+     |                                          |
+     |                   verify sig with AK pub |
+     |                   verify AK bound to EK  |
+     |                   verify PCR values      |
+     |<------ attestation result ---------------|
 ```
 
-**ChipWhisperer** (open-source platform for power analysis and fault injection):
+### BitLocker TPM Binding
+
+BitLocker seals the VMK (Volume Master Key) to PCR values. Default profile: PCRs 0, 2, 4, 11.
+
+```powershell
+# Enable BitLocker with TPM only (PCRs 0,2,4,11)
+Enable-BitLocker -MountPoint "C:" -TpmProtector
+
+# Check PCR binding
+manage-bde -protectors -get C:
+
+# Change PCR profile (e.g., add PCR 7 for Secure Boot)
+manage-bde -protectors -delete C: -Type TPM
+Enable-BitLocker -MountPoint "C:" -TpmAndPinProtector -Pin $pin
+
+# Or via registry
+HKLM\SOFTWARE\Policies\Microsoft\FVE
+  PlatformValidationProfile DWORD = 0x87 (PCRs 0,1,2,7)
+```
+
+### LUKS2 + TPM Binding via systemd-cryptenroll
+
+```bash
+# Enroll TPM2 device into LUKS2 slot, bind to PCRs 0,7
+systemd-cryptenroll --tpm2-device=auto   --tpm2-pcrs=0+7 /dev/sda2
+
+# Optionally require PIN as well
+systemd-cryptenroll --tpm2-device=auto   --tpm2-pcrs=0+7 --tpm2-with-pin=yes /dev/sda2
+
+# View enrolled slots
+cryptsetup luksDump /dev/sda2
+
+# Remove TPM slot
+systemd-cryptenroll --wipe-slot=tpm2 /dev/sda2
+
+# /etc/crypttab entry for auto-unlock
+luks-<uuid> UUID=<uuid> - tpm2-device=auto,tpm2-pcrs=0+7
+```
+
+### SSH Keys Stored in TPM
+
+```bash
+# Using tpm2-pkcs11 and ssh-agent
+# Initialize token
+tpm2_ptool init
+tpm2_ptool addtoken --pid=1 --sopin=mysopin --userpin=myuserpin --label=ssh
+
+# Create RSA key
+tpm2_ptool addkey --label=ssh --userpin=myuserpin --algorithm=rsa2048
+
+# List objects
+tpm2_ptool listobjects --label=ssh
+
+# Use with OpenSSH via PKCS#11
+ssh-add -s /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so
+ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so user@host
+```
+
+## 2. HSM & FIPS 140-3
+
+### HSM Architecture
+
+Hardware Security Modules are tamper-resistant cryptographic processors that protect key material. They provide:
+- **Key Generation** inside tamper boundary (keys never leave in plaintext)
+- **Cryptographic Operations** (sign, decrypt, derive) performed inside HSM
+- **Tamper Detection/Response** (zeroize keys on physical attack)
+- **Audit Logging** (cryptographically signed event logs)
+
+**Physical Security Layers:**
+1. Epoxy encapsulation of die
+2. Active mesh (detects probing)
+3. Environmental sensors (voltage, temperature, light)
+4. Zeroization circuits (FRAM/SRAM clear on tamper)
+
+### FIPS 140-3 Security Levels
+
+FIPS 140-3 (aligned with ISO/IEC 19790:2012) defines four security levels:
+
+| Level | Physical Requirements | Use Case |
+|-------|----------------------|----------|
+| **1** | Production-grade components, no physical security | Software HSM, cloud VM |
+| **2** | Tamper-evident coatings/seals, role-based auth | Enterprise HSM, USB tokens |
+| **3** | Tamper-resistant, identity-based auth, zeroize on tamper | Network HSM, payment terminals |
+| **4** | Complete physical envelope, environmental attack protection | Military, air-gapped PKI |
+
+**FIPS 140-3 vs 140-2 Key Differences:**
+- 140-3 uses ISO/IEC 19790 + 24759 as base standards
+- Adds Software/Firmware security requirements
+- Non-invasive attack resistance (side-channel) at Level 3+
+- Lifecycle assurance improvements
+- Conditional algorithm testing on startup
+
+### Vendor Comparison
+
+**Thales Luna Network HSM (formerly SafeNet)**
+```
+Models: Luna 7 (FIPS 140-3 L3), Luna 7 PCIe (L3), Luna Cloud (SaaS)
+Throughput: 10,000–20,000 RSA-2048 ops/sec
+Partitions: up to 20 per appliance
+Key capacity: 1M+ keys
+HA: Active-active clustering, automatic failover
+Client: Luna Client software, PKCS#11, JCE, CNG
+```
+
+**Entrust nShield (formerly Thales e-Security)**
+```
+Models: nShield Connect XC (FIPS 140-3 L3), nShield Solo PCIe
+Security World: proprietary cluster key management
+Throughput: 7,000 RSA-2048 ops/sec (Connect XC Base)
+Unique: CodeSafe (run app code inside HSM boundary)
+OCS: Operator Card Set for key recovery
+```
+
+**AWS CloudHSM**
+```
+Hardware: Cavium Nitrox (FIPS 140-2 L3 certified)
+Access: PKCS#11, JCE, OpenSSL Dynamic Engine
+Pricing: ~$1.45/hr per HSM
+Clustering: Multi-AZ, client-side load balancing
+Limitation: You manage keys; AWS has no access
+Backup: Encrypted cluster backup to S3
+```
+
+**Azure Dedicated HSM**
+```
+Hardware: Thales Luna Network HSM 7 (FIPS 140-2 L3)
+Model: Customer-managed, single-tenant
+SLA: 99.9% availability
+Networking: Injected into customer VNet
+```
+
+**Azure Managed HSM**
+```
+FIPS 140-2 L3, HSM-protected key vault
+Backed by Marvell LiquidSecurity HSMs
+Role-based access (RBAC)
+Key: az keyvault key create --hsm-name <name> --kty RSA-HSM
+```
+
+**YubiHSM 2** (low-cost, developer-friendly)
+```
+FIPS 140-2 L3, USB-A form factor
+2M key operations/sec (AES-128)
+Max 127 key objects per device
+API: PKCS#11, yubihsm-shell, REST via connector
+Use case: Dev/test, edge, embedded signing
+```
+
+### PKCS#11 API Essentials
+
+```c
+// Initialize and get function list
+CK_FUNCTION_LIST_PTR pFunctionList;
+C_GetFunctionList(&pFunctionList);
+pFunctionList->C_Initialize(NULL);
+
+// Open session
+CK_SLOT_ID slotId = 0;
+CK_SESSION_HANDLE hSession;
+pFunctionList->C_OpenSession(slotId,
+    CKF_SERIAL_SESSION | CKF_RW_SESSION,
+    NULL, NULL, &hSession);
+
+// Login as user
+pFunctionList->C_Login(hSession, CKU_USER,
+    (CK_UTF8CHAR_PTR)"userpin", 7);
+
+// Generate RSA-2048 key pair
+CK_MECHANISM mech = {CKM_RSA_PKCS_KEY_PAIR_GEN, NULL, 0};
+CK_ULONG modulus = 2048;
+CK_BBOOL yes = CK_TRUE, no = CK_FALSE;
+CK_ATTRIBUTE pubTemplate[] = {
+    {CKA_MODULUS_BITS, &modulus, sizeof(modulus)},
+    {CKA_TOKEN, &yes, sizeof(yes)},
+    {CKA_VERIFY, &yes, sizeof(yes)},
+};
+CK_ATTRIBUTE privTemplate[] = {
+    {CKA_TOKEN, &yes, sizeof(yes)},
+    {CKA_PRIVATE, &yes, sizeof(yes)},
+    {CKA_SENSITIVE, &yes, sizeof(yes)},
+    {CKA_EXTRACTABLE, &no, sizeof(no)},  // Key never leaves HSM
+    {CKA_SIGN, &yes, sizeof(yes)},
+};
+CK_OBJECT_HANDLE hPub, hPriv;
+pFunctionList->C_GenerateKeyPair(hSession, &mech,
+    pubTemplate, 3, privTemplate, 5, &hPub, &hPriv);
+```
+
+```bash
+# p11tool (GnuTLS) - list HSM objects
+p11tool --provider /usr/lib/libCryptoki2.so --list-all
+
+# pkcs11-tool (OpenSC)
+pkcs11-tool --module /usr/lib/libCryptoki2.so --list-objects
+pkcs11-tool --module /usr/lib/libCryptoki2.so --keypairgen   --key-type rsa:2048 --label "my-key" --login
+
+# OpenSSL with PKCS#11 engine
+openssl req -engine pkcs11 -keyform engine   -key "pkcs11:object=my-key;type=private"   -new -out csr.pem -subj "/CN=test"
+```
+
+### Key Ceremony Procedure
+
+A key ceremony is the formal, audited process of generating and distributing a high-value key (e.g., Root CA key):
+
+```
+Pre-ceremony:
+1. Schedule witnesses (auditors, security officers)
+2. Verify HSM firmware integrity (check hash against vendor manifest)
+3. Initialize Key Custodian smart cards (M-of-N scheme, e.g., 3-of-5)
+4. Prepare air-gapped ceremony room (Faraday cage, no cameras)
+
+During ceremony:
+1. All participants sign attendance log
+2. HSM factory-reset and re-initialized on camera
+3. Generate Root CA key inside HSM (CKA_EXTRACTABLE=FALSE)
+4. Export key backup shares to custodian cards (Shamir Secret Sharing)
+5. Issue self-signed Root CA cert
+6. Sign Intermediate CA CSR
+7. Verify certificate chain
+8. Seal HSM with tamper-evident tape (numbered seals, log serial numbers)
+
+Post-ceremony:
+1. Distribute custodian cards to separate custodians
+2. Store cards in geographically distributed safes
+3. Document procedure hash and witness signatures
+4. Schedule quarterly HSM health checks
+```
+
+### HSM High Availability & Clustering
+
+**Thales Luna HA:**
+```bash
+# On primary HSM
+lunash:> ha register -haLabel MyHA -serialNum <hsm2-serial>   -passwd <partition-password>
+
+# Client-side HA config
+vi /etc/Chrystoki.conf
+[HAConfiguration]
+  HAAutoRecover=1
+  HARecoveryPollInterval=60
+
+# Test HA failover
+lunacm:> ha synchronize
+lunacm:> ha listmembers
+```
+
+**AWS CloudHSM Cluster:**
+```bash
+# Initialize cluster with first HSM
+aws cloudhsmv2 initialize-cluster --cluster-id <id>   --signed-cert file://customerCA.crt   --trust-anchor file://customerCA.crt
+
+# Add second HSM (different AZ)
+aws cloudhsmv2 create-hsm --cluster-id <id>   --availability-zone us-east-1b
+
+# CloudHSM client connects to both automatically
+/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg
+```
+
+### Common HSM Misconfigurations
+
+| Misconfig | Risk | Remediation |
+|-----------|------|-------------|
+| Default SO/User PIN unchanged | Full key compromise | Change PINs at deployment |
+| CKA_EXTRACTABLE=TRUE on sensitive keys | Key exfiltration | Audit key attributes; regenerate |
+| No audit log monitoring | Undetected misuse | SIEM integration for HSM logs |
+| Single HSM, no HA | Single point of failure | Deploy 2+ HSMs in different racks/AZs |
+| Missing FIPS mode enforcement | Weak algorithms permitted | Enable FIPS mode in HSM config |
+| Overly broad PKCS#11 permissions | Privilege escalation | Least-privilege partition assignment |
+| Network HSM on flat network | Lateral movement risk | Dedicated VLAN, firewall rules |
+
+## 3. Secure Boot & UEFI Security
+
+### UEFI Secure Boot Chain
+
+Secure Boot validates each component in the boot chain using a public key infrastructure stored in NVRAM:
+
+```
+PK  (Platform Key)      — One key; controls KEK updates; OEM-held
+ └── KEK (Key Exchange Key) — Signs db/dbx updates; OEM + Microsoft
+       ├── db  (Signature Database) — Allowed cert/hash whitelist
+       └── dbx (Forbidden Signature Database) — Revocation list
+```
+
+**Secure Boot Verification Flow:**
+```
+Power On
+  → UEFI Firmware (verified by ROM/fuse)
+    → Check EFI binary signature against db
+    → Check EFI binary hash NOT in dbx
+    → Load shim.efi (signed by Microsoft CA)
+      → shim verifies grubx64.efi against MOK + db
+        → GRUB2 verifies kernel against GPG key
+          → Kernel verifies modules (CONFIG_MODULE_SIG=y)
+```
+
+### Key Database Management
+
+```bash
+# Export current Secure Boot keys from Linux
+efi-readvar -v PK -o PK.esl
+efi-readvar -v KEK -o KEK.esl
+efi-readvar -v db -o db.esl
+efi-readvar -v dbx -o dbx.esl
+
+# Generate new PK (self-signed for custom setup)
+openssl req -newkey rsa:4096 -nodes -keyout PK.key   -new -x509 -sha256 -days 3650 -subj "/CN=Platform Key/" -out PK.crt
+cert-to-efi-sig-list -g $(uuidgen) PK.crt PK.esl
+sign-efi-sig-list -k PK.key -c PK.crt PK PK.esl PK.auth
+
+# Generate KEK
+openssl req -newkey rsa:4096 -nodes -keyout KEK.key   -new -x509 -sha256 -days 3650 -subj "/CN=Key Exchange Key/" -out KEK.crt
+cert-to-efi-sig-list -g $(uuidgen) KEK.crt KEK.esl
+sign-efi-sig-list -k PK.key -c PK.crt KEK KEK.esl KEK.auth
+
+# Generate db signing key
+openssl req -newkey rsa:4096 -nodes -keyout db.key   -new -x509 -sha256 -days 3650 -subj "/CN=DB Signing Key/" -out db.crt
+cert-to-efi-sig-list -g $(uuidgen) db.crt db.esl
+sign-efi-sig-list -k KEK.key -c KEK.crt db db.esl db.auth
+
+# Enroll in UEFI (requires Setup mode)
+efi-updatevar -e -f db.esl db
+efi-updatevar -e -f KEK.esl KEK
+efi-updatevar -f PK.auth PK  # Exits Setup mode
+
+# Sign EFI binary with db key
+sbsign --key db.key --cert db.crt --output grubx64.efi.signed grubx64.efi
+sbverify --cert db.crt grubx64.efi.signed
+```
+
+### MOK (Machine Owner Key) for Linux
+
+Used by shim to allow distributions to verify their own bootloaders without being signed by Microsoft:
+
+```bash
+# Enroll MOK
+openssl req -newkey rsa:4096 -nodes -keyout MOK.key   -new -x509 -sha256 -days 3650 -subj "/CN=MOK/" -out MOK.crt
+mokutil --import MOK.crt  # Requires reboot + MokManager password
+
+# List enrolled MOKs
+mokutil --list-enrolled
+
+# Sign kernel module
+/usr/src/linux-headers-$(uname -r)/scripts/sign-file   sha256 MOK.key MOK.crt mymodule.ko
+
+# Check module signature
+modinfo mymodule.ko | grep sig
+```
+
+### Notable Secure Boot Bypasses
+
+**CVE-2020-10713 — BootHole (GRUB2)**
+- Severity: CVSS 8.2
+- Root Cause: Buffer overflow in GRUB2's config file parser (`grub.cfg`)
+- Impact: Arbitrary code execution in bootloader context, bypass Secure Boot
+- Vector: Attacker with root access can modify grub.cfg on EFI partition
+- Fix: Updated shim with revocation of vulnerable GRUB2 binaries; massive dbx update
+- Affected: All distros using GRUB2 + shim prior to 2020-07-29 patch
+- Detection: `sbverify` against updated db/dbx; check GRUB2 version ≥ 2.06
+
+**CVE-2023-21894 — BlackLotus UEFI Bootkit**
+- Severity: CVSS 6.7 (requires physical or admin access)
+- Root Cause: Exploited CVE-2022-21894 (Secure Boot bypass via Windows Boot Manager)
+- Impact: First in-the-wild UEFI bootkit bypassing Secure Boot on fully-patched Win11
+- Technique: Installs vulnerable signed bootmgr, then boots into malicious UEFI app
+- Persistence: Writes to EFI System Partition, survives OS reinstall
+- Detection: Check for suspicious files in \EFI\Microsoft\Boot\; unusual MokList entries
+- Fix: KB5025885 — revocation via dbx; enable Secure Boot CVE-2023-21894 mitigation
+- Indicators: `bootmgr.efi` with hash matching revoked list, unexpected SbPolicy changes
+
+**CVE-2022-21894 — "Baton Drop"**
+- Allows enrolling attacker-controlled Secure Boot policy
+- Affects Windows boot manager versions before Jan 2022 patch
+- BlackLotus uses this to downgrade to vulnerable bootmgr
+
+### UEFITool Analysis
+
+```bash
+# Extract UEFI firmware for analysis
+# Dump firmware from SPI flash (physical access required)
+flashrom -p internal -r firmware.rom
+
+# Or from running Linux
+cat /sys/firmware/efi/efivars/SecureBoot-* | xxd
+
+# UEFITool (GUI or NE CLI)
+./UEFIExtract firmware.rom all  # Extract all volumes
+
+# Search for suspicious modules
+./UEFIFind firmware.rom body text "backdoor_string"
+
+# Check for known malicious GUIDs
+# Malicious UEFI implants often use GUIDs from legitimate modules
+
+# binwalk firmware analysis
+binwalk -e firmware.rom
+binwalk --signature firmware.rom
+```
+
+### DRTM — Dynamic Root of Trust for Measurement
+
+Unlike SRTM (Static, starts at power-on), DRTM establishes a new trust chain at runtime:
+
+```
+Intel TXT (Trusted Execution Technology):
+  SENTER instruction → CPU micro-code measures SINIT ACM
+  SINIT ACM measures MLE (Measured Launch Environment)
+  MLE extends PCR[17] (DRTM measurement), PCR[18] (config)
+  Starts TXT measured environment independent of BIOS state
+
+AMD SKINIT:
+  SKINIT instruction → CPU atomically measures SLB (Secure Loader Block)
+  No BIOS involvement in measurement chain
+  PSP (Platform Security Processor) validates
+
+DRTM Tools:
+  tboot (Intel TXT bootloader)
+  txt-stat (verify TXT launch)
+  txt-test (pre-launch TXT validation)
+```
+
+### UEFI Hardening Checklist
+
+```
+Firmware Security:
+  [x] Enable Secure Boot in "deployed mode" (not Setup mode)
+  [x] Set PK to OEM or custom key; do NOT use default OEM PK for prod
+  [x] Set strong UEFI admin password
+  [x] Disable legacy (CSM) boot
+  [x] Update dbx with latest revocations (UEFI Revocation List File from uefi.org)
+  [x] Disable unused boot devices (PXE, USB, optical)
+  [x] Enable Intel Boot Guard (ACM-based firmware verification)
+  [x] Enable AMD Platform Secure Boot (PSB)
+  [x] Configure TCG measured boot with TPM PCRs
+  [x] Enable SMM (System Management Mode) protections (TSEG lock, SMM_PROT)
+
+Runtime Security:
+  [x] Kernel lockdown mode enabled (restricts /dev/mem, kexec, etc.)
+  [x] CONFIG_LOCK_DOWN_IN_EFI_SECURE_BOOT=y
+  [x] IMA/EVM enabled with TPM backing
+  [x] dm-verity on read-only root filesystem
+  [x] Module signing enforced (CONFIG_MODULE_SIG_FORCE=y)
+```
+
+## 4. Side-Channel Attacks
+
+### Spectre & Meltdown Variants
+
+**Meltdown (CVE-2017-5754) — Rogue Data Cache Load**
+- Mechanism: Out-of-order execution reads kernel memory into CPU cache before privilege check completes; Flush+Reload leaks cached value
+- Affected: Intel (primarily); some ARM; not AMD
+- Mitigation: KPTI (Kernel Page Table Isolation) — separates kernel/user page tables
+```bash
+# Check KPTI status
+cat /sys/devices/system/cpu/vulnerabilities/meltdown
+# "Mitigation: PTI" = patched
+# Verify kernel boot: grep pti /proc/cmdline (nopti disables it)
+```
+
+**Spectre v1 (CVE-2017-5753) — Bounds Check Bypass**
+- Mechanism: Speculative execution bypasses array bounds check; side-channel leaks
+- Mitigation: Compiler retpoline (`__builtin_load_no_speculate`); lfence barriers
+```c
+// Spectre v1 safe array access pattern
+if (index < array1_size) {
+    // lfence prevents speculative access past this point
+    __asm__ volatile("lfence" ::: "memory");
+    value = array2[array1[index] * 512];
+}
+```
+
+**Spectre v2 (CVE-2017-5715) — Branch Target Injection**
+- Mechanism: Poison indirect branch predictor to redirect speculative execution
+- Mitigation: Retpoline (thunk-based indirect call replacement); microcode IBRS/IBPB/STIBP
+
+```bash
+# Check Spectre v2 mitigation
+cat /sys/devices/system/cpu/vulnerabilities/spectre_v2
+# Ideal: "Mitigation: Enhanced IBRS, IBPB: conditional, RSB filling"
+
+# Kernel parameters
+spectre_v2=retpoline   # Software mitigation
+spectre_v2=ibrs        # Hardware IBRS (slower)
+```
+
+**Spectre v4 (CVE-2018-3639) — Speculative Store Bypass**
+```bash
+cat /sys/devices/system/cpu/vulnerabilities/spec_store_bypass
+# "Mitigation: Speculative Store Bypass disabled via prctl"
+# Per-process mitigation:
+prctl(PR_SET_SPECULATION_CTRL, PR_SPEC_STORE_BYPASS, PR_SPEC_DISABLE, 0, 0);
+```
+
+**MDS Attacks (Microarchitectural Data Sampling):**
+- RIDL (CVE-2018-12127): Leak from Line Fill Buffers
+- Fallout (CVE-2018-12126): Leak from Store Buffers
+- ZombieLoad (CVE-2018-12130): Leak from Fill Buffers
+```bash
+# Check MDS
+cat /sys/devices/system/cpu/vulnerabilities/mds
+# Mitigation: Clear CPU buffers; SMT vulnerable
+# Disable SMT for full mitigation: nosmt in cmdline (30-40% perf hit)
+```
+
+### Cache-Based Attacks
+
+**Flush+Reload:**
+```
+1. Attacker flushes target cache line (clflush)
+2. Victim accesses secret-dependent memory address
+3. Attacker reloads — fast = cached (victim accessed it), slow = not cached
+4. Threshold: ~200 cycles = cached; >300 cycles = not cached (LLC miss)
+```
+
+**Prime+Probe:**
+```
+1. Attacker "primes" cache sets by filling with own data
+2. Victim runs and accesses its data, evicting attacker's data
+3. Attacker "probes" — measures which sets were evicted
+4. Infers victim's memory access pattern without shared memory
+```
+
+**Rowhammer (CVE-2014-3122, CVE-2015-0573):**
+```c
+// Classic rowhammer loop
+void hammer(volatile uint64_t *addr1, volatile uint64_t *addr2) {
+    for (int i = 0; i < 1000000; i++) {
+        *addr1;
+        *addr2;
+        __asm__ volatile("clflush (%0)" :: "r"(addr1));
+        __asm__ volatile("clflush (%0)" :: "r"(addr2));
+        __asm__ volatile("mfence");
+    }
+}
+// Rapidly accessing two rows causes bit flips in adjacent DRAM row
+// Exploited for privilege escalation: flip bit in page table entry
+```
+
+**Rowhammer Defenses:**
+- Target Row Refresh (TRR) — vendor-specific, bypassable
+- ECC memory (corrects 1-bit errors, detects 2-bit)
+- LPDDR4X with higher refresh rate
+- Guard rows in memory allocators
+- Google's rowhammer.py test utility
+
+### Power Analysis Against AES
+
+**Simple Power Analysis (SPA):**
+Direct visual inspection of power trace to identify operations
+
+**Differential Power Analysis (DPA) — Kocher et al. 1999:**
 ```python
+# DPA attack skeleton against AES first round
+import numpy as np
+
+def aes_sbox(x):
+    return SBOX[x]
+
+def hypothetical_power(plaintext_byte, key_guess):
+    # Hamming weight of S-Box output models power consumption
+    intermediate = aes_sbox(plaintext_byte ^ key_guess)
+    return bin(intermediate).count('1')
+
+# For each key guess (0-255)
+for kg in range(256):
+    # Compute hypothetical power for each trace
+    hyp = [hypothetical_power(pt[i], kg) for i, pt in enumerate(traces)]
+    # Correlate with actual power at each time sample
+    corr = np.corrcoef(hyp, traces_matrix)[0, 1:]
+    # Highest correlation peak = correct key byte
+```
+
+**ChipWhisperer Toolchain:**
+```python
+# ChipWhisperer-Lite AES capture
 import chipwhisperer as cw
 
-# Connect to target
 scope = cw.scope()
 target = cw.target(scope)
 scope.default_setup()
 
-# Capture power trace during AES encryption
-key = bytearray(16)  # Known key for testing
-text = bytearray(16)
+# Configure trigger
+scope.adc.samples = 5000
+scope.adc.offset = 0
 
-scope.arm()
-target.simpleserial_write('k', key)
-target.simpleserial_write('p', text)
-response = scope.capture()
-trace = scope.get_last_trace()
+# Capture traces
+traces = []
+for i in range(1000):
+    pt = cw.bytearray(16)  # random plaintext
+    cw.capture_trace(scope, target, pt)
+    traces.append(scope.get_last_trace())
 
-# Use cwanalysis for DPA
-import cwanalysis
-results = cwanalysis.cpa(traces, texts, cwanalysis.leakage.sbox_output)
+# Run CPA
+import chipwhisperer.analyzer as cwa
+attack = cwa.cpa()
+results = attack.run(project)
+print(results.find_maximums())
 ```
 
-### Timing Attacks
-Non-constant-time operations leak information through execution time differences.
+### Timing Attacks on RSA
 
-```python
-# VULNERABLE: short-circuit comparison
-def verify_token_bad(expected, provided):
-    return expected == provided  # Returns early on first mismatch
+**Kocher's Timing Attack on RSA (1996):**
+- Square-and-multiply exponentiation leaks bit pattern of private exponent via timing
+- Longer time = multiply operation (bit=1); shorter = just square (bit=0)
 
-# SECURE: constant-time comparison
-import hmac
-def verify_token_good(expected, provided):
-    return hmac.compare_digest(expected, provided)  # Always compares all bytes
+**Countermeasures:**
+```c
+// RSA blinding (OpenSSL's approach)
+// Before: m' = m * r^e mod n  (r = random blinding factor)
+// Compute: s' = (m')^d mod n  (timing doesn't reveal d)
+// After: s = s' * r^(-1) mod n
 
-# SECURE in C (OpenBSD / LibreSSL)
-int timingsafe_bcmp(const void *b1, const void *b2, size_t n);
-int timingsafe_memcmp(const void *b1, const void *b2, size_t n);
+// Constant-time comparison (critical for MAC verification)
+int constant_time_memcmp(const void *a, const void *b, size_t len) {
+    const uint8_t *x = a, *y = b;
+    uint8_t diff = 0;
+    for (size_t i = 0; i < len; i++)
+        diff |= x[i] ^ y[i];  // No early exit
+    return diff;  // 0 = equal
+}
 ```
 
-**Notable timing attack exploits:**
-- **Lucky13** (2013): TLS MAC timing leaks padding oracle in CBC mode
-- **Bleichenbacher's attack** (1998): RSA PKCS#1 v1.5 padding oracle — decrypts TLS sessions
-- **Minerva** (2020): ECDSA nonce timing bias in hardware security tokens (YubiKey, Feitian)
-- **Port contention** (2018): SMT timing attack (Portsmash, CVE-2018-5407)
+### T-Table AES Cache Timing
 
-### Cache-Based Attacks
+Classic AES implementations use 4KB lookup tables. Access pattern leaks key via cache timing:
+
 ```
-Flush+Reload
-├── Attacker flushes cache line
-├── Victim accesses memory (or not)
-├── Attacker reloads — fast = victim accessed (in cache), slow = victim didn't
-└── Infer secret based on access pattern
-
-Prime+Probe
-├── Attacker fills cache set
-├── Victim runs, evicts some attacker lines
-├── Attacker probes — slow eviction = victim accessed that set
-└── Works without shared memory (cross-VM)
-
-Evict+Time
-├── Attacker evicts cache lines
-├── Measures victim execution time
-└── Slower execution = cache miss = attacker can infer data access
+AES T-table attack:
+1. Observe which cache lines are accessed during encryption
+2. T-table index = plaintext_byte XOR key_byte (mod 256)
+3. Multiple encryptions with known plaintext reveal key bytes
 ```
 
-Cross-VM cache attacks demonstrated in cloud environments (CVE-2013-2107, Ristenpart et al. 2009).
-
-### Electromagnetic (EM) Analysis
-- Similar to power analysis but measures electromagnetic emissions from the chip
-- Does not require electrical contact with the target
-- Near-field EM probes capture localized emissions from specific chip areas
-- Can be more precise than power analysis (target specific functional units)
+**Countermeasure:** Bit-sliced AES (no table lookups; processes 128 blocks in parallel using bitwise ops):
+```c
+// AES-NI hardware instruction (cache-timing immune)
+#include <wmmintrin.h>
+__m128i aes_encrypt(__m128i plaintext, __m128i key) {
+    __m128i r = _mm_xor_si128(plaintext, key);
+    r = _mm_aesenc_si128(r, round_keys[1]);
+    // ... 9 more rounds
+    return _mm_aesenclast_si128(r, round_keys[10]);
+}
+```
 
 ### Acoustic Cryptanalysis
-Genkin, Shamir, and Tromer (2014) demonstrated RSA-4096 key extraction from laptop acoustics:
-- Laptops emit distinct sounds during different computations
-- Different RSA key bits produce different acoustic signatures
-- Key extracted by analyzing audio from microphone or smartphone placed near laptop
 
-### Spectre and Meltdown (2018)
-```
-Meltdown (CVE-2017-5754)
-├── Exploit out-of-order execution
-├── Read kernel memory from unprivileged user space
-├── All x86 CPUs pre-2018 affected
-└── Mitigation: KPTI (Kernel Page-Table Isolation) — separate page tables for user/kernel
+Genkin et al. (2014) extracted 4096-bit RSA keys from laptop sounds:
+- GnuPG's RSA square-and-multiply emits acoustic signatures
+- Microphone placed near laptop or phone call recording sufficient
+- **Countermeasure:** GnuPG 2.1+ uses blinding by default; constant-time exponentiation
 
-Spectre Variant 1 (CVE-2018-3639) — Bounds Check Bypass
-├── Exploit speculative execution past bounds check
-├── Read out-of-bounds memory speculatively
-└── Mitigation: lfence barriers, compiler __builtin_speculation_safe_value
-
-Spectre Variant 2 (CVE-2018-3640) — Branch Target Injection
-├── Poison branch prediction unit (BTB)
-├── Force speculative execution of chosen gadgets
-└── Mitigation: Retpoline (return trampoline), IBRS/eIBRS microcode
-
-Spectre-BHI (2022)
-├── Branch History Injection — bypasses eIBRS
-├── Affects Intel Ice Lake, Alder Lake+
-└── Mitigation: BHI_DIS_S microcode, IBPB on privilege transitions
-```
-
-**CPU mitigations status check:**
-```bash
-# Linux — check spectre/meltdown mitigations
-grep -r . /sys/devices/system/cpu/vulnerabilities/
-
-# Example output:
-# spectre_v1: Mitigation: usercopy/swapgs barriers and __user pointer sanitization
-# spectre_v2: Mitigation: Enhanced / Automatic IBRS; IBPB: conditional; RSB filling
-# meltdown: Not affected (or: Mitigation: PTI)
-```
-
----
-
-## 7. Fault Injection
-
-### Overview
-Fault injection deliberately causes hardware faults to bypass security controls, corrupt cryptographic operations, or skip instruction sequences. The goal is often to make a conditional branch (like a PIN check) evaluate incorrectly.
-
-### Voltage Glitching
-A brief undershoot or overshoot in the supply voltage can cause a CPU to execute incorrectly.
+### EM Analysis
 
 ```
-Attack flow:
-1. Identify target operation (e.g., PIN comparison, secure boot signature check)
-2. Trigger glitch at precise timing (microsecond precision required)
-3. Observe effect — did the device skip the check? Boot into unlocked mode?
-4. Iterate timing and glitch parameters until success
+Electromagnetic leakage from:
+  - CPU execution (each instruction type has distinct EM signature)
+  - Memory bus activity
+  - Power regulator switching
+
+Tools:
+  - Near-field EM probes (HydraBus + RF probe)
+  - Software-defined radio (RTL-SDR, HackRF)
+  - Langer RF-U 5-2 near-field probe set
+
+Countermeasures:
+  - Faraday shielding
+  - Ground planes in PCB design
+  - Randomized execution timing (jitter injection)
+  - Decoupling capacitors on power lines
 ```
 
-**Tools:**
-- **ChipWhisperer**: Open-source voltage glitcher + oscilloscope combo
-  ```python
-  import chipwhisperer as cw
+## 5. Fault Injection & Physical Attacks
 
-  scope = cw.scope()
-  scope.glitch.clk_src = "clkgen"
-  scope.glitch.output = "glitch_only"
-  scope.glitch.trigger_src = "ext_single"
-  scope.glitch.width = 10     # Glitch width in clock cycles
-  scope.glitch.offset = 1200  # Offset from trigger
+### Voltage Fault Injection
 
-  scope.arm()
-  # Trigger the target operation
-  scope.glitch.arm()
-  ```
-- **Riscure Voltage Glitcher**: Professional tool used in labs
-- **GreatFET**: Open-source multi-tool with glitching capability
+Voltage glitching introduces brief power supply disturbances to cause CPU/MCU to skip instructions, mis-execute conditionals, or corrupt registers.
 
-**Targets:**
-- Microcontrollers with Code Read Protection (CRP) — e.g., NXP LPC series
-- Secure elements in payment cards
-- Embedded device secure boot checks
-- Hardware wallet PIN verification
+**Attack Mechanism:**
+```
+Normal: VCC = 3.3V stable
+Glitch:  VCC drops to 0V for 50-200ns
+Effect:  CPU misses memory read, skips instruction, or reads wrong value
+Target:  Security checks, CRC verifications, loop counters, key derivations
+```
+
+**ChipWhisperer Glitch Parameters:**
+```python
+import chipwhisperer as cw
+
+scope = cw.scope(cw.scopes.OpenADC)
+scope.glitch.clk_src = 'clkgen'
+scope.glitch.output = 'enable_only'
+scope.glitch.trigger_src = 'ext_single'
+
+# Voltage glitch parameters
+scope.glitch.width = 10    # Glitch width in ns (10-1000ns typical)
+scope.glitch.offset = 0    # Offset from trigger (samples)
+scope.glitch.repeat = 1    # Number of glitches
+
+# Power glitcher setup (CW308 UFO board)
+scope.glitch.output = 'glitch_only'
+scope.io.glitch_lp = True  # Low-power MOSFET glitch
+
+# Parameter sweep
+for width in range(5, 50):
+    for offset in range(-100, 100):
+        scope.glitch.width = width
+        scope.glitch.offset = offset
+        result = target_reset_and_try()
+        if result == GLITCH_SUCCESS:
+            print(f"Success: width={width}, offset={offset}")
+```
 
 ### Clock Glitching
-Inject a glitch in the clock signal to force the CPU to skip clock cycles.
 
-```
-Normal: [CLK: _|-|_|-|_|-|_|-] → stable instruction execution
-Glitch:  [CLK: _|-|_|--|_|-|_] → extra/missing cycle → instruction skip
-```
+Instead of manipulating voltage, inject extra clock edges or stretches:
 
-### Laser Fault Injection
-- Focused laser beam directed at specific transistors on the die
-- Can flip individual bits in registers or SRAM
-- Requires: chip decapping (remove packaging), optical microscope, laser cutter
-- Very targeted and expensive but extremely precise
-- Used in academic research to attack smart cards, microcontrollers, and secure elements
+```python
+# ChipWhisperer clock glitch
+scope.glitch.clk_src = 'clkgen'
+scope.glitch.output = 'clock_xor'  # XOR extra pulse into clock
 
-### Electromagnetic Fault Injection (EMFI)
-- EM pulse induces fault via electromagnetic coupling
-- No need for direct electrical contact or chip decapping
-- ColiBreak: open-source EMFI tool
-- Less precise than laser FI but more practical
+# Effect: Double-clock cycle causes two instruction fetches
+# CPU may execute same instruction twice, or skip next instruction
 
-### Real-World Applications
-- Extracting firmware from locked microcontrollers (MCUs with read protection)
-- Bypassing secure boot on embedded Linux devices (routers, IoT)
-- Extracting cryptographic keys from hardware wallets (Ledger, Trezor research)
-- Bypassing PIN retry counters on secure elements
-- Breaking code read protection on ARM Cortex-M devices
-
----
-
-## 8. JTAG / Debug Interface Security
-
-### JTAG Overview
-JTAG (IEEE 1149.1 — Joint Test Action Group) is a hardware debug interface designed for boundary scan testing of PCBs. It has become ubiquitous for firmware debugging and is present on virtually all modern embedded systems.
-
-**JTAG capabilities:**
-- Halt/resume CPU execution
-- Read/write memory, registers, and flash
-- Set hardware breakpoints
-- Boundary scan (test PCB connections)
-
-### Finding JTAG on a PCB
-1. Look for test pads or pin headers (often unlabeled)
-2. Use JTAGulator to probe possible pins:
-   ```
-   JTAGulator (hardware tool by Joe Grand)
-   - Connect probe to suspected test pins
-   - Set target voltage (1.8V, 3.3V, 5V)
-   - Run IDCODE scan: tries all pin combinations
-   - Output: TDI, TDO, TCK, TMS pin assignments
-   ```
-3. Identify via datasheets, FCC filings, or PCB silkscreen markings
-
-### Exploiting JTAG with OpenOCD
-```bash
-# Start OpenOCD with J-Link adapter and STM32 target
-openocd -f interface/jlink.cfg -f target/stm32f4x.cfg
-
-# In another terminal, connect via telnet
-telnet localhost 4444
-
-# Halt CPU
-> halt
-
-# Read register state
-> reg
-
-# Dump flash memory to file (start addr, length)
-> dump_image firmware.bin 0x08000000 0x100000
-
-# Write firmware
-> flash write_image erase new_firmware.bin 0x08000000
-
-# Read memory
-> mdw 0x20000000 64   # Read 64 words from SRAM
-
-# Set breakpoint
-> bp 0x08001234 2 hw
-
-# Resume execution
-> resume
-
-# Reset target
-> reset run
+# ARM Cortex-M0 clock glitch to bypass CRP check
+# Target: LPC1343 secure boot CRP bit check at 0x02FC
+scope.glitch.width = 8
+scope.glitch.offset = 1234  # Tuned to align with CRP read instruction
 ```
 
-### UART Debug Interfaces
-Many embedded devices expose UART consoles that provide root shell access:
-```bash
-# Identify UART pins on PCB
-# - Usually 3 pins: TX, RX, GND (sometimes VCC)
-# - Use multimeter or logic analyzer to identify
+### Laser/EMFI Fault Injection
 
-# Connect with USB-UART adapter (e.g., CH340, FT232)
-screen /dev/ttyUSB0 115200
-# or
-minicom -D /dev/ttyUSB0 -b 115200
-
-# May get:
-# [    0.000000] Linux version 5.10.0 ...
-# ...
-# root@device:/#
-```
-
-### SWD (Serial Wire Debug)
-ARM Cortex processors use SWD as a 2-wire alternative to JTAG:
-- **SWDIO**: Combined data in/out (bidirectional)
-- **SWDCLK**: Clock
-- Compatible with OpenOCD and most debug probes (J-Link, ST-Link, CMSIS-DAP)
-- Often exposed as 2-pad test point on PCB
-
-### Protecting Debug Interfaces
-| Protection | Method |
-|---|---|
-| OTP fuses | One-time programmable bit disables JTAG permanently |
-| JTAG lock | Password-protected access to JTAG |
-| TrustZone gating | Secure world controls debug access |
-| Debug authentication | Challenge-response before JTAG access granted |
-| Physical removal | Test pads not populated in production |
-
----
-
-## 9. Hardware Attacks on Cryptographic Tokens
-
-### USB Security Keys (FIDO2 / PIV)
-Modern hardware security keys like YubiKey and Feitian keys use ECDSA (P-256) for FIDO2 authentication.
-
-**Minerva Attack (2020) — CVE-2024-45678:**
-- Certain YubiKey 5 series and Infineon security library had biased ECDSA nonces
-- Lattice attack on biased nonces can recover the private key
-- Requires ~6,000-10,000 authentication operations observed by attacker
-- Practical in scenarios where attacker can observe many authentications (MITM)
+**Laser Fault Injection:**
+- Focused laser beam induces transient faults in transistors
+- Requires decapping (removing IC package)
+- Precision: Can target single transistors on 28nm process
+- Cost: $50,000–$500,000 for precision laser station
 
 ```
-ECDSA signing: r,s = sign(k, m, privkey)
-  where k = random nonce
-
-If k has bias (not uniformly random):
-  Collect many (r,s,m) tuples
-  Set up lattice problem
-  Solve with LLL/BKZ algorithm
-  → Recover privkey
+Procedure:
+1. Decap chip (fuming nitric acid or plasma etching for plastic; mechanical for ceramic)
+2. Map die using optical microscope or SEM
+3. Align laser to target gate (e.g., security fuse latch, CRC logic)
+4. Fire 532nm green or 1064nm IR laser
+5. Observe fault effect (UART output, debug port response)
 ```
 
-**Practical FIDO2 security note:** For most threat models, hardware keys remain extremely effective — the Minerva attack requires specific conditions and was patched.
+**EMFI (Electromagnetic Fault Injection):**
+- Near-field EM pulse coil placed near chip
+- Induces current in die without decapping
+- Less precise than laser but non-invasive (no decap needed)
 
-### Smart Card Attacks
-```
-Non-invasive attacks (no chip modification):
-├── Power analysis (SPA/DPA) during cryptographic operations
-├── EM analysis — EM probe near chip during operation
-├── Timing attacks on PIN verification
-└── Fault injection via voltage/clock glitch
+```python
+# Riscure EM-FI Transient Probe (or DIY: ChipSHOUTER)
+# ChipSHOUTER setup
+import chipshout
 
-Semi-invasive attacks:
-├── UV light to clear EEPROM security fuses
-├── Focused ion beam (FIB) for circuit modification
-└── Laser fault injection
+cs = chipshout.ChipSHOUTER('/dev/ttyUSB0')
+cs.voltage = 150    # Pulse voltage (V)
+cs.pulse_length = 80  # Pulse length (ns)
 
-Invasive attacks:
-├── Chip delayering via acid
-├── Microprobing on internal buses
-└── Complete reverse engineering
-```
-
-**PIN counter bypass via fault injection:**
-- Many smart cards enforce a 3-attempt limit on PIN verification
-- Voltage glitch during the failed attempt counter increment → counter not updated → unlimited attempts
-- Demonstrated on various banking cards and security tokens
-
-### TPM Bus Sniffing
-As noted in the TPM section, on systems where TPM communicates via unencrypted LPC or SPI bus:
-- Attacker with physical access can attach logic analyzer / bus sniffer
-- Intercept key material during TPM unseal operation
-- Demonstrated by Seunghun Han: BitLocker VMK extraction via LPC bus sniffing on ThinkPad
-
-Mitigation: Use BitLocker with pre-boot PIN so TPM seal requires PIN input — key never transmitted in observable form at a predictable time.
-
----
-
-## 10. Supply Chain Hardware Security
-
-### Hardware Implants
-Nation-state actors have the capability to insert malicious components into the hardware supply chain:
-- **Bloomberg "The Big Hack" (2018)**: Claimed Chinese intelligence inserted tiny chips on SuperMicro server motherboards. SuperMicro, Apple, and Amazon denied. Technical community remains skeptical of specific claims, but attack is theoretically possible.
-- **NSA ANT Catalog (Snowden 2013)**: Documented NSA hardware implants for routers, firewalls, and hard drives — IRONCHEF, COTTONMOUTH, GINSU.
-- **Cisco router interdiction**: NSA reportedly intercepted routers in shipping to install implants.
-
-### Threat Vectors
-```
-Manufacturing time:
-├── Counterfeit components (fake ICs with altered functionality)
-├── Trojan circuits (additional logic in legitimate chip)
-├── Modified firmware in flash at factory
-└── Backdoored microcontrollers
-
-Transit time:
-├── Package interdiction (NSA/adversary intercepts shipment)
-└── Substitution of legitimate hardware
-
-Integration time:
-├── Malicious insider installs hardware implant during integration
-└── Supply of compromised spare parts
+# XYZ table sweep
+for x in range(0, 100, 5):    # mm
+    for y in range(0, 100, 5):
+        cs.armed = True
+        trigger_device()
+        cs.pulse()
+        result = read_uart()
+        if is_fault(result):
+            print(f"EMFI fault at x={x}, y={y}")
 ```
 
-### Detection and Prevention
-```bash
-# PCB inspection
-# - X-ray analysis: compare component count and placement vs. reference design
-# - Optical inspection: compare against known-good board photos
-# - Component authentication: verify IC markings match expected part numbers
+### ChipWhisperer Hardware Comparison
 
-# Firmware verification
-# - Verify firmware hash against vendor-signed manifest
-# - LVFS (Linux Vendor Firmware Service) for Linux firmware: fwupdmgr verify
+| Model | Glitch Type | ADC | Max Sample Rate | Best For |
+|-------|------------|-----|-----------------|----------|
+| **CW-Nano** | Voltage | 20MS/s | 20 MS/s | Learning, Arduino |
+| **CW-Lite** | Voltage + Clock | 105 MS/s | 105 MS/s | 8/32-bit MCUs |
+| **CW-Pro** | Voltage + Clock | 200 MS/s | 200 MS/s | Complex SoCs, FPGA |
+| **CW305 (FPGA target)** | External glitch | N/A | N/A | FPGA crypto research |
+| **CW308 UFO** | Swappable targets | N/A | N/A | Multi-target testing |
 
-# Supply chain standards
-# - NIST SP 800-161r1: Cybersecurity Supply Chain Risk Management
-# - CISA SCRM guidelines: Hardware Bill of Materials (HBOM)
-# - IPC-1401: Component Authenticity
+### Bypassing Secure Boot on STM32
+
+**STM32 RDP (Read-out Protection) Levels:**
+- **RDP 0:** No protection; flash readable over SWD
+- **RDP 1:** Flash read-protected; SRAM readable; debug functional
+- **RDP 2:** Full protection; jtag/SWD locked; permanent (no downgrade without erase)
+
+**STM32 RDP1→RDP0 Voltage Glitch:**
+```
+Vulnerability: Downgrade from RDP1 to RDP0 is supposed to erase flash
+               but a glitch can abort the erase during the protection change
+
+Procedure:
+1. Power cycle with SWD connected
+2. Trigger glitch ~100µs after power-on (during RDP check)
+3. Attempt to read flash via SWD
+4. On success: flash content readable without erase
+
+Patch: STM32H7 series fixed this; use H7 for security-critical applications
 ```
 
-### Component Authentication
-- **NXP EdgeLock SE050**: Crypto-authenticated secure element — can prove component authenticity to host system
-- **Microchip ATECC608B**: Turnkey hardware authentication IC used in IoT devices
-- **Root of trust anchoring**: Devices can verify component authenticity at boot using certificate chains
+### NXP CRP (Code Read Protection) Bypass
 
-### Firmware Supply Chain
-- **Secure firmware signing**: Vendor signs firmware with hardware-stored private key
-- **LVFS (Linux Vendor Firmware Service)**: Linux firmware update infrastructure — vendors upload signed firmware
-- **PSIRT (Product Security Incident Response Team)**: Vendor team handling firmware vulnerability disclosure
-- **SBOM → HBOM**: Software Bill of Materials concept extended to Hardware Bill of Materials for component tracking
-
----
-
-## 11. Physical Unclonable Functions (PUF)
-
-### Concept
-A Physical Unclonable Function exploits the inherent, random manufacturing variations of silicon to create a unique "fingerprint" for each chip. These variations (gate delay, transistor threshold voltage, SRAM cell bias) are:
-- **Unique**: No two chips are identical at the physical level
-- **Unclonable**: Cannot be reproduced, even by the manufacturer
-- **Unpredictable**: Cannot be modeled without measuring the specific chip
-
-### How PUFs Work
+**LPC1343/LPC2148 CRP Bypass:**
 ```
-Enrollment phase (at factory):
-1. Apply challenge C to PUF circuit
-2. Measure response R (determined by physical variations)
-3. Store (C, R) pair in secure database
+Magic Word: 0x87654321 at flash offset 0x02FC enables CRP2
+CRP1 (0x4E697370): Disables flash read; SWD functional
+CRP2 (0x87654321): Stronger; ISP disabled
+CRP3 (0x43218765): Full lockout
 
-Authentication phase:
-1. Send challenge C to device
-2. Device computes R from PUF circuit
-3. Verify R matches enrolled value (with error correction)
-
-Fuzzy extraction:
-- PUF responses may have bit errors (temperature, aging)
-- Error-correcting codes reconstruct exact response from noisy measurement
+Voltage glitch attack on CRP1:
+1. Set up glitch trigger on RESET release
+2. Glitch timing: 2-5ms after boot (CRP check window)
+3. On success: UART ISP responds to read-memory command
 ```
 
-### PUF Types
-| Type | Mechanism | Notes |
-|---|---|---|
-| SRAM PUF | SRAM cell power-up state (random due to transistor mismatch) | Most common, used in NXP iMX chips |
-| Ring Oscillator PUF | Frequency difference between matched oscillator chains | Stable but larger area |
-| Arbiter PUF | Race condition in delay lines — arbiter records winner | Compact but vulnerable to ML modeling |
-| Coating PUF | Random distribution of conductive particles in coating | Physical destruction = authentication failure |
-| DRAM PUF | DRAM decay patterns (retention time variation) | No dedicated hardware needed |
+### RP2040 Glitching
 
-### Use Cases
-- **Device identity**: Unique hardware fingerprint without storing a secret key
-- **Key generation**: Derive cryptographic key from PUF response — key never stored, regenerated on demand
-- **Anti-counterfeiting**: Chip can prove authenticity without stored secrets
-- **Secure provisioning**: Factory enrolls CRPs; no key material needs to be injected
-
-### Attacks on PUFs
-- **Machine learning modeling**: Collect enough CRPs → train ML model → predict responses for unseen challenges (Arbiter PUFs vulnerable)
-- **Side-channel**: EM/power analysis during PUF evaluation to extract response
-- **Physical cloning** (partial): With detailed physical access and equipment, partially characterize PUF variations
-
----
-
-## 12. Confidential Computing
-
-### Goal
-Confidential computing protects data **in use** — data is encrypted not just at rest and in transit, but also while being processed by the CPU. This is achieved through Trusted Execution Environments (TEEs).
-
-### Intel SGX (Software Guard Extensions)
+Raspberry Pi RP2040 has no hardware secure boot by default:
 ```
-SGX Architecture:
-├── Enclave: isolated region of process address space
-├── EPC (Enclave Page Cache): encrypted DRAM region
-├── CPU encrypts/decrypts data at memory controller
-├── OS/hypervisor cannot read enclave memory
-└── Remote attestation: prove enclave code to remote party
+Attack surface: OTP (One-Time Programmable) boot key verification
+Target: Second stage bootloader signature check
+Method: Clock glitch to skip signature verification
 
-Enclave lifecycle:
-ECREATE → EADD (add pages) → EINIT (initialize) → EENTER (call enclave) → EEXIT
-
-Remote attestation flow:
-1. Enclave generates quote (signed measurement)
-2. Quote contains MRENCLAVE (enclave measurement hash)
-3. Remote verifier checks quote against Intel Attestation Service (IAS)
-4. Verifier confirms correct enclave code is running
+Defense (RP2040):
+- Use secure element (ATECC608) for attestation
+- Implement software fault detection:
+  - Verify critical values twice
+  - Use redundant checks with different variables
+  - Error correction codes on security flags
 ```
 
-**SGX Attacks:**
-- **LVI (Load Value Injection, 2020)**: Inject attacker-controlled values into transient execution gadgets inside enclave
-- **PLATYPUS (2020)**: Read SGX enclave memory via RAPL power interface (unprivileged power readings)
-- **Foreshadow / L1TF (CVE-2018-3615)**: Read SGX enclave memory via L1 cache speculative execution
-- **SGAxe (2020)**: Extract SGX attestation keys from production Intel CPUs
+### Defense Mechanisms
 
-### Intel TDX (Trust Domain Extensions)
-- Successor to SGX for VM-level isolation (where SGX is process-level)
-- Entire VMs run in encrypted "Trust Domains"
-- Hypervisor cannot access TD memory
-- Available on 4th Gen Xeon Scalable (Sapphire Rapids) and newer
-
-### AMD SEV (Secure Encrypted Virtualization)
+**Voltage/Clock Monitor Circuits:**
 ```
-SEV: VM memory encrypted with VM-specific AES key
-    - Hypervisor sees only ciphertext
-    - Keys managed by AMD Secure Processor (AMD-SP)
-    - No integrity protection
+On-chip countermeasures:
+  - Voltage detector (brown-out detector): Reset if VCC < threshold
+  - Clock frequency monitor: Reset if CLK frequency deviates > ±20%
+  - Temperature sensor: Reset if die temp outside -40°C to +125°C
+  - Light sensor (photo detector): Reset if die exposed to light (decap detection)
+  - Active metal mesh: Continuity check; short/open triggers zeroize
 
-SEV-ES (Encrypted State):
-    - Additionally encrypts CPU register state
-    - Protects against hypervisor reading register values
-
-SEV-SNP (Secure Nested Paging):
-    - Adds memory integrity protection
-    - Reverse Map Table (RMP) prevents hypervisor modifying/remapping VM memory
-    - Strong attestation report signed by AMD-SP
-    - Deployed in: Azure CVM, AWS Nitro Enclaves (partial), GCP Confidential VMs
+Typical secure microcontroller (e.g., STSAFE-A, SE050):
+  - 9+ environmental sensors
+  - Cryptographic fault detection (recalculate and compare)
+  - Dual-rail logic (CMOS + inverse logic simultaneously)
+  - Randomized clock (spreads power signature)
+  - Memory scrambling (address and data XOR with random seed)
 ```
 
-### ARM TrustZone
-```
-TrustZone Architecture:
-├── Normal World: Linux/Android, untrusted apps
-├── Secure World: Trusted OS (OP-TEE), Trusted Applications (TAs)
-├── Hardware enforced: NS (Non-Secure) bit on AXI bus
-└── Secure Monitor (EL3): mediates world transitions
+**Software Countermeasures:**
+```c
+// Double-check critical security decisions
+bool authenticate_user(const uint8_t *pin, size_t len) {
+    // First check
+    bool result1 = constant_time_memcmp(stored_hash,
+                                         compute_hash(pin, len), 32) == 0;
+    // Inject random delay (jitter)
+    random_delay();
+    // Second check (different code path, different registers)
+    volatile bool result2 = verify_pin_alternative(pin, len);
 
-TZASC (TrustZone Address Space Controller):
-- Partitions DRAM into secure/non-secure regions
-- Non-secure world cannot access secure DRAM
+    // Both must agree; XOR-based check detects glitch on either
+    if (result1 != result2) {
+        log_fault_attack();
+        zeroize_keys();
+        hard_reset();
+    }
+    return result1 && result2;
+}
 
-Common TrustZone uses:
-- Android Keystore: private key operations in secure world
-- Mobile payments: NFC payment credentials in TA
-- DRM (Widevine L1): media decryption in secure world
-- Fingerprint/biometric: matching in secure world
-- Secure boot validation
-
-Attack surface:
-- OP-TEE vulnerabilities (CVE-2021-44141, multiple others)
-- Trusted Application vulnerabilities (poor sandboxing)
-- SMC (Secure Monitor Call) interface vulnerabilities
-- Cache side-channels between worlds
-```
-
-### Confidential Computing Consortium (CCC)
-Open Governance Alliance under Linux Foundation promoting confidential computing standards:
-- Members: Intel, AMD, ARM, Microsoft, Google, IBM, Red Hat
-- Projects: Enarx (write-once, run anywhere TEE), Gramine (library OS for SGX), Veraison (attestation service)
-
----
-
-## 13. Hardware Security Tools Reference
-
-| Tool | Purpose | Platform | Source |
-|------|---------|----------|--------|
-| ChipWhisperer | Side-channel analysis + fault injection | Hardware + Python | newae.com/chipwhisperer |
-| CHIPSEC | UEFI/firmware security testing | Python (Windows/Linux) | github.com/chipsec/chipsec |
-| JTAGulator | JTAG/UART interface discovery | Hardware (PIC32) | github.com/grandideastudio/jtagulator |
-| OpenOCD | JTAG/SWD debug interface | Cross-platform | openocd.org |
-| UEFITool | UEFI firmware analysis/editing | Qt GUI + CLI | github.com/LongSoft/UEFITool |
-| Binwalk | Firmware extraction and analysis | Python | github.com/ReFirmLabs/binwalk |
-| tpm2-tools | TPM 2.0 command-line operations | Linux | github.com/tpm2-software/tpm2-tools |
-| SoftHSM2 | Software HSM for development/testing | Cross-platform | softhsm.org |
-| Riscure Inspector | Professional side-channel analysis | Commercial | riscure.com |
-| Ghidra (+ extensions) | Firmware reverse engineering | Java | github.com/NationalSecurityAgency/ghidra |
-| ColiBreak | EM fault injection (open-source) | Hardware + Python | GitHub |
-| GreatFET | Open-source hardware hacking platform | Hardware + Python | greatscottgadgets.com/greatfet |
-| flashrom | SPI flash read/write/erase | Linux | flashrom.org |
-| PCILeech | DMA attack via PCIe | Hardware + C | github.com/ufrisk/pcileech |
-| USB Armory | Secure USB computer for security research | ARM hardware | inversepath.com |
-
----
-
-## Quick Reference: Common Attack Vectors
-
-### Attack Decision Tree
-```
-Physical access available?
-├── YES:
-│   ├── JTAG/UART exposed? → OpenOCD / screen to dump firmware
-│   ├── SPI flash accessible? → flashrom to read UEFI firmware
-│   ├── PCIe slot available? → PCILeech DMA attack
-│   ├── TPM via LPC/SPI? → Bus sniff to capture key material
-│   └── Time unlimited? → Decap chip → laser fault injection
-└── NO (remote/software):
-    ├── UEFI vulnerability? → Exploit for persistent implant
-    ├── Spectre/Meltdown? → Cross-privilege memory read
-    ├── Side-channel (timing)? → Timing attack on crypto
-    └── Hypervisor escape? → Break TEE isolation
+// Stack canaries for fault injection
+#define CANARY_VALUE 0xDEADBEEFCAFEBABE
+uint64_t canary = CANARY_VALUE;
+// ... security-critical code ...
+if (canary != CANARY_VALUE) {
+    // Fault injection detected
+    zeroize_and_halt();
+}
 ```
 
-### Key Standards and References
-| Standard | Organization | Topic |
-|---|---|---|
-| TCG TPM 2.0 Specification | Trusted Computing Group | TPM architecture and commands |
-| FIPS 140-3 | NIST | HSM security requirements |
-| IEEE 1149.1 | IEEE | JTAG standard |
-| NIST SP 800-193 | NIST | Platform Firmware Resiliency |
-| NIST SP 800-155 | NIST | BIOS Integrity Measurement Guidelines |
-| NIST SP 800-161r1 | NIST | Supply Chain Risk Management |
-| UEFI Specification v2.10 | UEFI Forum | UEFI firmware interface |
-| ISO/IEC 19790 | ISO | Security requirements for crypto modules |
+### TI CC2640 Bluetooth SoC Case Study
 
----
+**Attack: Firmware Extraction via Voltage Glitching**
+```
+Target: Texas Instruments CC2640 (BLE SoC)
+Protection: JTAG debug port locked via CCFG (Customer Config)
+             JTAG_INTERFACE_DISABLE bit in flash at 0x50003FAB
 
-*Hardware Security Reference — TeamStarWolf Cybersecurity Library*
-*Last updated: 2026-04-26*
+Attack sequence:
+1. Connect JTAG + power glitcher
+2. Power on chip, glitch within 5ms of boot
+3. Timing window: ~500ns; width: ~50ns; offset: sweep 3000-4000 samples
+4. On success: JTAG responds; dump flash via OpenOCD
+5. Success rate: ~1 in 500 attempts (iterate with automation)
+
+Countermeasure:
+  - Upgrade to CC2652R1 (improved CRP)
+  - Use TI's secure boot with code encryption
+  - Implement software glitch detection (voltage measurement via ADC)
+```
+
+**Defense: Glitch Detection via On-chip ADC:**
+```c
+// Monitor VCC via ADC on TI CC2640
+void init_vcc_monitor(void) {
+    ADC_open(VCC_ADC_CHANNEL, NULL);
+}
+
+bool vcc_in_range(void) {
+    uint16_t raw;
+    ADC_convert(handle, &raw);
+    uint32_t mv = (raw * 3300) / 4096;
+    return (mv >= 2900 && mv <= 3700);  // ±~12% tolerance
+}
+
+// Call in security-critical paths
+if (!vcc_in_range()) {
+    // Possible glitch attack
+    zeroize_keys();
+    reboot();
+}
+```
+

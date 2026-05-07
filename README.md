@@ -349,6 +349,7 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | CTI lifecycle, MISP, OpenCTI, STIX/TAXII, threat actor profiling, dark web monitoring, TI-driven detection |
 | [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, Attack Trees, LINDDUN, threat modeling tools, data flow diagrams, risk rating methodologies |
 | [Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS/CVSSv4, EPSS, KEV, patch management, scanner config (Nessus/Qualys/Rapid7), risk-based prioritization |
+| [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md) | OWASP Top 10, SQL injection, XSS, authentication attacks, SSRF/XXE, API security, WAF bypass, secure coding, bug bounty methodology |
 | [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) | Windows security hardening: accounts, GPO, Sysmon, WEF, PowerShell, Defender, AppControl, network, audit policy |
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | Wi-Fi protocols (WEP/WPA/WPA3), Bluetooth, Cellular (4G/5G), RFID/NFC, IoT protocols, attack techniques, WIDS, hardening |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, BeyondCorp, microsegmentation, identity-centric security, continuous verification, vendor implementations |
@@ -356,4 +357,3 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 
 
 
-| [WEB_APPLICATION_SECURITY_REFERENCE](WEB_APPLICATION_SECURITY_REFERENCE.md) | OWASP Top 10, SQLi, XSS, Auth, SSRF, XXE, API Security, WAF, Secure Coding, Bug Bounty |

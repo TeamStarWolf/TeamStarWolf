@@ -305,6 +305,7 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio — download, analysis, editing, stem separation, and batch processing |
 | [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
 | [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md) | IAM, PAM, MFA bypass techniques, AD attacks, Okta/Entra/CyberArk/Vault vendor controls, identity detection |
+| [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) | IAM fundamentals, authentication technologies, authorization models, PAM, IGA, Zero Trust identity, machine identity, ITDR, and compliance |
 | [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md) | Lock picking, RFID badge cloning (Proxmark3/Flipper Zero), physical pentesting, drop boxes, CCTV assessment, NIST PE controls |
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA/HIPAA, Privacy by Design, anonymization/pseudonymization, consent management, DPIA, field-level encryption |

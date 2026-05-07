@@ -1072,3 +1072,1267 @@ if (!vcc_in_range()) {
 }
 ```
 
+
+## 6. JTAG & Debug Interface Security
+
+### JTAG TAP State Machine
+
+JTAG (IEEE 1149.1) defines a 16-state TAP (Test Access Port) controller driven by the TMS signal:
+
+```
+                     ┌──────────────────────────────┐
+                     │         Test-Logic-Reset       │ ← TMS=1 (×5 from any state)
+                     └──────────────┬───────────────┘
+                                    │ TMS=0
+                             ┌──────▼──────┐
+                             │   Run-Test  │
+                             │   /Idle     │
+                             └──────┬──────┘
+                    TMS=1 ──────────┘─────────── TMS=1
+              ┌─────▼─────┐               ┌──────▼──────┐
+              │  Select   │               │   Select    │
+              │  DR-Scan  │               │   IR-Scan   │
+              └─────┬─────┘               └──────┬──────┘
+              TMS=0 │                     TMS=0  │
+              ┌─────▼─────┐               ┌──────▼──────┐
+              │  Capture  │               │   Capture   │
+              │    DR     │               │     IR      │
+              └─────┬─────┘               └──────┬──────┘
+```
+
+**Key Signals:**
+- **TCK** — Test Clock (drives state machine)
+- **TMS** — Test Mode Select (navigates states)
+- **TDI** — Test Data In (serial input)
+- **TDO** — Test Data Out (serial output)
+- **TRST** — Test Reset (optional, async reset)
+
+### IR/DR Registers
+
+**Instruction Register (IR):**
+- Selects active DR register and operation mode
+- Common instructions:
+  - `BYPASS` (all 1s) — single-bit bypass DR
+  - `IDCODE` (device-specific) — reads 32-bit device ID
+  - `EXTEST` — test board-level interconnects
+  - `SAMPLE/PRELOAD` — capture/drive boundary scan
+  - `DEBUG` (ARM-specific) — enable debug access port
+
+**Device ID Format (IDCODE, 32-bit):**
+```
+Bit 31-28: Version
+Bit 27-12: Part Number
+Bit 11-1:  Manufacturer ID (JEDEC)
+Bit 0:     Always 1 (JTAG compliance)
+
+Example: STM32F4 IDCODE = 0x10016413
+  Version=1, Part=0x0641, Mfr=0x020 (ST Microelectronics)
+```
+
+### OpenOCD — Open On-Chip Debugger
+
+```bash
+# Start OpenOCD with ST-Link and STM32F4 target
+openocd -f interface/stlink.cfg -f target/stm32f4x.cfg
+
+# Connect telnet
+telnet localhost 4444
+
+# Basic commands in OpenOCD console
+> halt                          # Halt CPU
+> reg                           # Dump all registers
+> mdw 0x08000000 64             # Read 64 words from flash start
+> dump_image firmware.bin 0x08000000 0x80000  # Dump 512KB flash
+> flash write_image erase fw_new.bin 0x08000000  # Flash new firmware
+> reset run                     # Resume execution
+
+# Read from running system without halt (non-invasive)
+> mem2array data 32 0x20000000 256  # Read SRAM
+```
+
+**OpenOCD config for Raspberry Pi RP2040 SWD:**
+```tcl
+# rp2040.cfg
+source [find interface/raspberrypi-swd.cfg]
+transport select swd
+source [find target/rp2040.cfg]
+adapter speed 5000
+```
+
+### SWD vs JTAG
+
+| Feature | JTAG | SWD (Serial Wire Debug) |
+|---------|------|------------------------|
+| Signal pins | TCK, TMS, TDI, TDO [, TRST] | SWCLK, SWDIO |
+| Standard | IEEE 1149.1 | ARM ADIv5 |
+| Topology | Daisy-chain (multi-device) | Single device |
+| Speed | Up to 30 MHz | Up to 50 MHz |
+| Boundary scan | Yes | No |
+| Common on | FPGAs, CPLDs, complex SoCs | ARM Cortex-M |
+
+```bash
+# Switch from JTAG to SWD (OpenOCD)
+transport select swd
+swd newdap $_CHIPNAME cpu -enable
+dap create $_CHIPNAME.dap -chain-position $_CHIPNAME.cpu
+```
+
+### Boundary Scan
+
+IEEE 1149.1 boundary scan allows testing board-level connections:
+
+```bash
+# Using BSDL (Boundary Scan Description Language) files
+# Enumerate ICs via IDCODE
+openocd -c "jtag scan_chain"
+
+# Python boundary scan with pyBSDL
+pip install python-bsdl
+
+# SVF (Serial Vector Format) playback
+openocd -f interface/jlink.cfg -c "svf firmware_test.svf"
+
+# JTAG boundary scan tools:
+#   UrJTAG: open-source, supports 400+ devices
+#   OpenOCD: primary debug; limited boundary scan
+#   Lauterbach TRACE32: commercial, full boundary scan
+```
+
+### Firmware Dumping via JTAG
+
+```bash
+# Dump full flash memory of target MCU
+# 1. OpenOCD approach
+openocd -f board/stm32f4discovery.cfg   -c "init; halt; dump_image dump.bin 0x08000000 0x100000; shutdown"
+
+# 2. GDB approach
+arm-none-eabi-gdb -ex "target remote localhost:3333"   -ex "dump binary memory dump.bin 0x08000000 0x08100000"   -ex "quit"
+
+# 3. Analyze dump
+binwalk -e dump.bin          # Extract filesystem / components
+strings dump.bin | grep -i password  # Quick win
+hexdump -C dump.bin | grep -i "key"
+
+# Recover source via Ghidra
+# Load as ARM Cortex-M binary, base address 0x08000000
+# Auto-analyze, look for security checks, key storage
+```
+
+### ARM CoreSight Authentication
+
+ARM CoreSight provides hardware authentication to disable debug access:
+
+```
+DBGEN  — Invasive debug enable (halt, step, register access)
+NIDEN  — Non-invasive debug enable (trace only)
+SPIDEN — Secure privileged invasive debug (TrustZone secure world)
+SPNIDEN — Secure non-invasive debug
+
+Authentication Interface (AUTHSTATUS register):
+  Bits [1:0] = NSID — Non-secure invasive debug supported/enabled
+  Bits [3:2] = NSNID — Non-secure non-invasive debug
+  Bits [5:4] = SID — Secure invasive debug
+  Bits [7:6] = SNID — Secure non-invasive debug
+```
+
+**Disabling Debug in Production (STM32 example):**
+```c
+// Permanently disable JTAG (OTP-equivalent via option bytes)
+// WARNING: Irreversible on some devices
+#define FLASH_OPTCR_nJTAG_SEL  (1 << 2)
+// Set via STM32CubeProgrammer or:
+HAL_FLASH_OB_Unlock();
+FLASH->OPTCR |= FLASH_OPTCR_RDP_Pos;  // Set RDP to Level 2
+HAL_FLASH_OB_Lock();
+HAL_FLASH_OB_Launch();
+```
+
+### Fuse Bit Lockdown
+
+```bash
+# AVR fuse bits (ATmega328P example)
+# Lock bits: prevent flash read, disable programming
+avrdude -p m328p -c usbtiny -U lock:w:0x0C:m
+# 0x0C = BLB11 BLB10 set: No read from application, no write from bootloader
+
+# Check current fuse state
+avrdude -p m328p -c usbtiny -U lfuse:r:-:h -U hfuse:r:-:h -U efuse:r:-:h
+
+# TI MSP430 BSL (Bootstrap Loader) password lock
+# BSL is unlocked by sending correct 32-byte password (= flash interrupt vectors)
+# Wrong password triggers mass erase
+```
+
+### UART Discovery
+
+```bash
+# Find UART on unknown hardware
+# 1. Measure with multimeter: TX idles HIGH (3.3V or 5V)
+# 2. Look for test points labeled RX/TX/GND/VCC on PCB
+
+# 3. Logic analyzer (Saleae) - UART protocol auto-detection
+# 4. baudrate bruteforce
+minicom -D /dev/ttyUSB0 -b 115200  # Try common baud rates
+# Common: 9600, 19200, 38400, 57600, 115200, 230400, 921600
+
+# Interact with U-Boot bootloader (common on embedded Linux)
+# Press any key within 3 seconds of boot to stop autoboot
+# U-Boot commands:
+# md.b 0x80000000 0x100   - memory display
+# nand dump 0 0x10000     - NAND flash dump
+# env print               - show environment variables
+```
+
+### JTAGulator
+
+JTAGulator is a purpose-built JTAG/UART discovery tool:
+
+```
+Hardware: Parallax P8X32A Propeller microcontroller
+Supported: JTAG, SWD, UART
+Features:
+  - Auto-scan for JTAG pinout on 24-channel target interface
+  - Works on 1.2V–3.3V targets
+  - IDCODE-based device enumeration
+
+Usage:
+  1. Connect unknown PCB test points to JTAGulator channels 0–7
+  2. Serial interface: 115200 baud
+  3. Command 'J' to scan JTAG (brute-forces pin combinations)
+  4. Output: "Found JTAG!" with TCK/TMS/TDI/TDO pin assignments
+
+# Serial session
+screen /dev/ttyUSB0 115200
+> J  # JTAG scan
+> U  # UART scan
+> Target voltage: 3.3
+> Channels to scan: 0-7
+```
+
+## 7. Confidential Computing
+
+### Intel SGX (Software Guard Extensions)
+
+SGX provides hardware-enforced memory encryption and isolation for user-mode code called **enclaves**. The Enclave Page Cache (EPC) is encrypted with a processor-managed key (MEK); host OS cannot read enclave memory.
+
+**SGX Architecture:**
+```
+Host Application (untrusted)
+  │
+  ├── ECALL ─────────────────────────────► Enclave Code (trusted)
+  │                                           │
+  ◄── OCALL ◄────────────────────────────────┘
+  │
+  └── Attestation ──► Intel IAS/DCAP ──► Verifier
+
+EPC (Enclave Page Cache): encrypted DRAM region, 128MB default (expandable)
+MEK: Memory Encryption Key, derived per-boot from fuses
+MRSIGNER: Hash of enclave signing key
+MRENCLAVE: Hash of enclave measurement (code + data layout)
+```
+
+**Writing SGX Enclaves (Intel SGX SDK):**
+```c
+// enclave.edl — Interface definition
+enclave {
+    trusted {
+        // ECALLs: untrusted → enclave
+        public int seal_secret([in, size=len] const uint8_t *data,
+                               size_t len,
+                               [out, size=sealed_size] uint8_t *sealed,
+                               size_t sealed_size);
+        public int unseal_secret([in, size=sealed_len] const uint8_t *sealed,
+                                 size_t sealed_len,
+                                 [out, size=out_len] uint8_t *out,
+                                 size_t out_len);
+    };
+    untrusted {
+        // OCALLs: enclave → untrusted (for I/O, etc.)
+        void ocall_print([in, string] const char *str);
+    };
+};
+
+// enclave.cpp
+#include "sgx_tseal.h"
+
+int seal_secret(const uint8_t *data, size_t len,
+                uint8_t *sealed, size_t sealed_size) {
+    sgx_sealed_data_t *p = (sgx_sealed_data_t *)sealed;
+    // Seal binds to MRENCLAVE (same enclave only) or MRSIGNER (same signer)
+    return sgx_seal_data(0, NULL, len, data,
+                         sealed_size, p);
+}
+```
+
+**SGX Remote Attestation (DCAP — Data Center Attestation Primitives):**
+```
+1. Enclave generates RSA/ECDSA attestation key pair
+2. Enclave calls sgx_get_quote() → produces SGX Quote (signed by PCK)
+3. Quote sent to Verifier + Intel PCS (Provisioning Certificate Service)
+4. PCS returns PCK cert chain + CRL
+5. Verifier checks:
+   a. Quote signature valid against PCK cert
+   b. PCK cert chain valid (trusted Intel root)
+   c. MRENCLAVE matches expected measurement
+   d. ISV SVN ≥ minimum
+   e. TCB status = UpToDate (not vulnerable to known CVEs)
+```
+
+```bash
+# Intel DCAP setup
+apt install libsgx-dcap-ql libsgx-dcap-default-qpl
+
+# Verify SGX platform
+sgx_capable  # Check if SGX enabled in BIOS
+sgx_detect   # Detailed SGX feature detection
+
+# Build enclave
+cmake -DSGX_MODE=HW -DSGX_BUILD=RELEASE ..
+make
+
+# Run attestation demo
+./app --attest
+```
+
+### Intel TDX (Trust Domain Extensions)
+
+TDX protects entire Virtual Machines rather than individual processes:
+
+```
+TDX Trust Domain (TD) = encrypted, isolated VM
+TD runs on TDX Module (SEAM Module in SEAM range)
+VMM (hypervisor) cannot read TD memory
+TDVMCALL: TD exits to VMM for I/O (analogous to OCALL)
+
+TD Attestation:
+  TDX TDREPORT → signed by TDEL (TD Execution Layer)
+  → Intel TD Quoting Enclave → TDX Quote
+  → Same DCAP verification flow as SGX
+```
+
+### AMD SEV (Secure Encrypted Virtualization)
+
+**SEV:** Each VM encrypted with unique VM Encryption Key (VEK); hypervisor sees ciphertext
+**SEV-ES (Encrypted State):** Also encrypts CPU register state on VM exit
+**SEV-SNP (Secure Nested Paging):** Adds memory integrity protection + RMP (Reverse Map Table)
+
+```bash
+# Check SEV support
+dmesg | grep -i sev
+cat /sys/module/kvm_amd/parameters/sev   # 1 = enabled
+cat /sys/module/kvm_amd/parameters/sev_es
+cat /sys/module/kvm_amd/parameters/sev_snp
+
+# Launch SEV-SNP VM with QEMU
+qemu-system-x86_64   -machine q35,memory-encryption=sev0,vmport=off   -object sev-snp-guest,id=sev0,cbitpos=51,reduced-phys-bits=1,          policy=0x30000,measurement-policy=0x1   -m 2G -smp 2   -drive file=ubuntu.qcow2,format=qcow2
+
+# SNP attestation
+# Guest runs: snpguest report attestation.bin random-nonce.bin
+# Verifier: snpguest verify attestation
+```
+
+### ARM CCA (Confidential Compute Architecture)
+
+ARM CCA introduces **Realms** — hardware-isolated VMs protected from hypervisor:
+
+```
+Exception Levels:
+  EL3: Secure Monitor (trusted firmware, RMM entry)
+  EL2: Hypervisor (Normal World) / RMM (Realm Management Monitor)
+  EL1: OS (Realm or Normal World)
+  EL0: Application
+
+Realm lifecycle:
+  RMI_REALM_CREATE → RMI_REC_CREATE → RMI_REALM_ACTIVATE
+  → RMI_REC_ENTER (run realm) → RMI_REALM_DESTROY
+
+CCA attestation uses:
+  - Realm Token (signed by Realm Signing Key)
+  - Platform Token (signed by device attestation key)
+  Combined via CBOR EAT (Entity Attestation Token)
+```
+
+### Confidential Containers
+
+```bash
+# Kata Containers with AMD SEV-SNP
+# /etc/kata-containers/configuration-qemu-snp.toml
+[hypervisor.qemu]
+  machine_type = "q35"
+  confidential_guest = true
+  sev_snp_guest = true
+
+# Run container in confidential pod (Kubernetes)
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: confidential-pod
+  annotations:
+    io.katacontainers.config.hypervisor.machine_type: "q35"
+    io.containerd.cri.runtime-handler: kata-qemu-snp
+spec:
+  runtimeClassName: kata-qemu-snp
+  containers:
+  - name: app
+    image: myapp:latest
+EOF
+```
+
+### Attestation Services
+
+| Service | Backing TEE | Protocol | SLA |
+|---------|------------|----------|-----|
+| Intel IAS (deprecated) | SGX v1 | REST/JSON | - |
+| Intel PCS/PCCS | SGX DCAP, TDX | REST/JSON | - |
+| AWS Nitro Attestation | Nitro Enclaves | NitroTPM | 99.99% |
+| Azure MAA (Microsoft Azure Attestation) | SGX, SEV-SNP, TDX | JWT/JWK | 99.9% |
+| Veraison | Generic | EAT/CBOR | Open source |
+
+**Azure MAA Example:**
+```bash
+# Get attestation token from inside SGX enclave
+az attestation attest-sgx-enclave   --attestation-provider-name myattest   --resource-group myRG   --quote "$(cat sgx_quote.b64)"   --enclave-held-data "$(echo -n 'nonce' | base64)"
+
+# JWT claims include:
+# x-ms-sgx-mrenclave, x-ms-sgx-mrsigner
+# x-ms-sgx-is-debuggable: false (production)
+# x-ms-sgx-product-id, x-ms-sgx-svn
+```
+
+**AWS Nitro Enclave Attestation:**
+```python
+import boto3
+import json
+import base64
+from aws_nitro_enclaves_nsm_api import nsm_get_attestation_doc
+
+# Inside Nitro Enclave
+doc = nsm_get_attestation_doc(
+    user_data=b"my-nonce",
+    nonce=b"verifier-nonce",
+    public_key=my_pub_key_der
+)
+# doc is CBOR-encoded COSE_Sign1 structure
+# Contains PCRs 0-7 (enclave measurements)
+# Send to verifier for validation
+```
+
+## 8. Embedded System Security
+
+### ARM TrustZone-M
+
+TrustZone for Cortex-M (ARMv8-M) provides hardware-enforced separation of Secure and Non-Secure worlds on microcontrollers:
+
+```
+Security Attribution Unit (SAU):
+  - Configures which address regions are Secure vs Non-Secure
+  - Up to 8 SAU regions (or more via IDAU from SoC vendor)
+
+NSC (Non-Secure Callable) regions:
+  - Special code region accessible from Non-Secure world
+  - Contains "SG" (Secure Gateway) instructions for controlled entry
+
+Thread execution:
+  Secure Thread Mode (privileged or unprivileged)
+  Non-Secure Thread Mode (untrusted application)
+  Transitions via SG instruction → veneer → Secure function
+```
+
+**TF-M (Trusted Firmware-M) PSA Architecture:**
+```c
+// Secure service definition (PSA API)
+#include "psa/client.h"
+#include "psa/service.h"
+
+// Non-Secure client calls (from application)
+psa_handle_t handle = psa_connect(CRYPTO_SERVICE_SID, CRYPTO_VERSION);
+psa_status_t status = psa_call(handle, PSA_IPC_CALL,
+    in_vecs, IOVEC_LEN(in_vecs),
+    out_vecs, IOVEC_LEN(out_vecs));
+psa_close(handle);
+
+// Secure service implementation
+void crypto_main(void) {
+    psa_msg_t msg;
+    while (1) {
+        psa_wait(CRYPTO_SERVICE_SIGNAL, PSA_BLOCK);
+        if (psa_get(CRYPTO_SERVICE_SIGNAL, &msg) == PSA_SUCCESS) {
+            switch (msg.type) {
+            case PSA_IPC_CALL:
+                handle_crypto_request(&msg);
+                break;
+            }
+            psa_reply(msg.handle, PSA_SUCCESS);
+        }
+    }
+}
+```
+
+### Flash RDP (Read-out Protection) Levels
+
+**STM32 Option Bytes:**
+```
+RDP Level 0 (0xAA): No protection
+  - JTAG/SWD: Full access to flash, SRAM, debug
+  - ISP: Read, write, erase allowed
+
+RDP Level 1 (any non-AA/CC value):
+  - JTAG/SWD: Debug access to SRAM; flash reads blocked
+  - ISP (UART/USB): Write and erase allowed; read blocked
+  - Regression to Level 0: Triggers mass erase
+
+RDP Level 2 (0xCC): Permanent
+  - JTAG/SWD: Completely disabled (cannot reconnect)
+  - ISP: Disabled
+  - OTP: Cannot be reversed; device is locked forever
+  WARNING: Set Level 2 only in final production build
+
+# Set RDP via STM32CubeProgrammer CLI
+STM32_Programmer_CLI -c port=SWD -ob RDP=0xBB
+# Or in code:
+FLASH_OBProgramInitTypeDef ob = {0};
+ob.OptionType = OPTIONBYTE_RDP;
+ob.RDPLevel = OB_RDP_LEVEL_1;
+HAL_FLASHEx_OBProgram(&ob);
+HAL_FLASH_OB_Launch();
+```
+
+### Code Signing for Embedded Systems
+
+```bash
+# Generate signing key pair
+openssl ecparam -name prime256v1 -genkey -noout -out signing_key.pem
+openssl ec -in signing_key.pem -pubout -out signing_key_pub.pem
+
+# Sign firmware binary
+openssl dgst -sha256 -sign signing_key.pem   -out firmware.bin.sig firmware.bin
+
+# Verify signature
+openssl dgst -sha256 -verify signing_key_pub.pem   -signature firmware.bin.sig firmware.bin
+
+# Embed public key in bootloader (as C array)
+xxd -i signing_key_pub.pem > pub_key.h
+```
+
+**MCUboot Secure Bootloader:**
+```yaml
+# mcuboot.yaml
+boot:
+  signature-type: ECDSA-P256
+  key: signing_key.pem
+  slot-size: 0x60000
+  upgrade-only: false   # Allow rollback?
+  security-counter: 1   # Anti-rollback counter
+
+# Sign image
+imgtool sign   --key signing_key.pem   --align 4   --version 1.0.0   --header-size 0x200   --slot-size 0x60000   firmware.bin firmware_signed.bin
+
+# Verify
+imgtool verify --key signing_key_pub.pem firmware_signed.bin
+```
+
+### RTOS Security
+
+**FreeRTOS with MPU (Memory Protection Unit):**
+```c
+// Create task with restricted memory access
+static StackType_t ucTaskStack[256] __attribute__((aligned(256)));
+
+TaskParameters_t xParams = {
+    .pvTaskCode    = vSecureTask,
+    .pcName        = "SecureTask",
+    .usStackDepth  = 256,
+    .pvParameters  = NULL,
+    .uxPriority    = 2 | portPRIVILEGE_BIT,  // Privileged
+    .puxStackBuffer = ucTaskStack,
+    .xRegions = {
+        // Allow read-write to specific SRAM region only
+        { ucSharedBuffer, 0x400, portMPU_REGION_READ_WRITE },
+        { 0, 0, 0 },  // Sentinel
+    }
+};
+xTaskCreateRestricted(&xParams, NULL);
+
+// Zeroize sensitive data in task cleanup
+void vTaskCleanup(void *pvParam) {
+    memset(session_key, 0, sizeof(session_key));
+    memset(pvParam, 0, sizeof(SensitiveData_t));
+    vTaskDelete(NULL);
+}
+```
+
+### CAN Bus Security
+
+```python
+# CAN bus sniffing (Python-CAN)
+import can
+
+bus = can.Bus(channel='can0', interface='socketcan')
+for msg in bus:
+    print(f"ID: {msg.arbitration_id:#05x} DLC: {msg.dlc} Data: {msg.data.hex()}")
+
+# CAN injection attack
+bus.send(can.Message(
+    arbitration_id=0x7DF,  # OBD-II broadcast
+    data=[0x02, 0x01, 0x0D, 0, 0, 0, 0, 0],  # Request vehicle speed
+    is_extended_id=False
+))
+
+# CAN FD with authentication (AUTOSAR SecOC)
+# HMAC-based Message Authentication Code appended to payload
+# Requires shared key and freshness counter (anti-replay)
+```
+
+**CANalyzer / Wireshark for CAN:**
+```bash
+# Linux SocketCAN setup
+ip link set can0 type can bitrate 500000
+ip link set up can0
+
+# Wireshark CAN capture
+tcpdump -i can0 -w can_capture.pcap
+
+# candump
+candump -l can0   # Log to candump_YYYYMMDD.log format
+
+# cansend
+cansend can0 7DF#0201010000000000
+
+# canreplay (replay attack)
+canplayer -I capture.log
+```
+
+### Secure Element: ATECC608A
+
+Microchip ATECC608A provides hardware crypto acceleration and secure key storage:
+
+```python
+# Using cryptoauthlib
+import cryptoauthlib as cal
+
+# Initialize I2C connection
+cal.atcab_init(cal.cfg_ateccx08a_i2c_default())
+
+# Generate ECDSA P-256 key in slot 0 (non-extractable)
+cal.atcab_genkey(0)   # Generates and stores internally
+
+# Get public key
+pub_key = bytearray(64)
+cal.atcab_get_pubkey(0, pub_key)
+
+# Sign data
+msg_digest = bytearray(32)   # SHA-256 hash
+signature = bytearray(64)    # ECDSA r+s
+cal.atcab_sign(0, msg_digest, signature)
+
+# Verify
+verified = bytearray(1)
+cal.atcab_verify_extern(msg_digest, signature, pub_key, verified)
+
+# ECDH key exchange (slot 2 configured for ECDH)
+their_pub_key = bytearray(64)
+pmk = bytearray(32)   # Pre-Master Key
+cal.atcab_ecdh(2, their_pub_key, pmk)
+
+# Random number generation
+random_bytes = bytearray(32)
+cal.atcab_random(random_bytes)
+```
+
+### ETSI EN 303 645 (IoT Security Baseline)
+
+```
+Mandatory provisions (shall):
+  1. No universal default passwords (unique per device or user-settable)
+  2. Implement a means to manage vulnerability reports (security@, HackerOne)
+  3. Keep software updated (OTA mechanism required)
+  4. Securely store sensitive security parameters (use secure element)
+  5. Communicate securely (TLS 1.2+ with cert validation)
+  6. Minimize exposed attack surfaces (close unused ports)
+  7. Ensure software integrity (signed firmware with verification)
+  8. Ensure personal data is secure (encryption at rest)
+  9. Make systems resilient to outages (watchdog, fallback)
+  10. Monitor system telemetry data (anomaly detection)
+  11. Make it easy for users to delete personal data (factory reset)
+  12. Make installation and maintenance of devices easy (docs, UX)
+  13. Validate input data (input validation for all interfaces)
+
+Compliance assessment:
+  ETSI TS 103 701: Test spec for EN 303 645
+  CSA IoT Security label (Singapore)
+  UK PSTI Act 2022 (mandatory for UK market from April 2024)
+```
+
+## 9. Hardware Security Testing Tools
+
+### Test Bench Equipment
+
+**Saleae Logic Analyzer:**
+```
+Models: Logic 8 (8-ch, 100MHz digital / 10MHz analog)
+        Logic Pro 8 (100MHz analog)
+        Logic Pro 16 (16-ch, 500MHz digital)
+
+Protocols supported: UART, SPI, I2C, 1-Wire, CAN, USB, I2S, Manchester,
+                     JTAG, SWD, Modbus, DMX-512, MDIO, PS/2, SMBus
+
+Usage:
+  1. Connect probes to target signals
+  2. Open Logic 2 software
+  3. Add protocol analyzer (e.g., I2C): set SCL/SDA pins
+  4. Capture and decode traffic
+  5. Export as CSV or binary for offline analysis
+
+# CLI capture (Saleae CLI)
+./Logic2_cli --capture --duration 5 --output capture.sal   --channels 0,1,2,3 --sample-rate 24000000
+```
+
+**Oscilloscope Requirements for Side-Channel:**
+```
+Minimum for SCA:
+  - Bandwidth: 1 GHz (to capture nanosecond power spikes)
+  - Sample rate: 2-4 GS/s (Nyquist for 1GHz)
+  - Vertical resolution: 12-bit ADC preferred (Rohde & Schwarz RTO2000)
+  - Memory depth: 100M points per channel
+
+Budget options:
+  - Rigol DS1054Z: 50MHz, 4ch, $350 (limited for SCA)
+  - Rigol DS1104Z-Plus: 100MHz, $450
+  - Keysight DSOX1204G: 200MHz, $800
+
+Professional:
+  - Rohde & Schwarz RTO2014: 1GHz, 4ch, ~$20k
+  - Tektronix MSO6B: 10GHz, ~$50k
+```
+
+**Current Probe (for power analysis):**
+```
+Method 1: Shunt resistor (10Ω in VCC line → voltage ∝ current)
+  Resolution: ΔV = I × R; 1mA → 10mV across 10Ω
+  Limitation: Reduces supply voltage
+
+Method 2: Magnetic current probe (non-invasive)
+  Stiermer EMC-1 or Rigol RP1025D
+  Clamps around power wire; no circuit modification
+```
+
+### Bus Pirate
+
+Universal serial protocol analyzer and debugger:
+
+```bash
+# Connect Bus Pirate to target via UART
+screen /dev/ttyUSB0 115200
+
+# Bus Pirate interactive commands
+m        # Mode menu (1=HiZ, 2=1-WIRE, 3=UART, 4=I2C, 5=SPI...)
+> 3      # Select UART
+Baud: 1  # 115200
+
+# UART mode
+>        # Type characters to send
+[ r ]    # Read one byte
+
+# I2C scan (find device addresses)
+m 4      # I2C mode
+(1)      # Macro 1: I2C scan
+# Output: I2C address scan: Found device at 0x68 (MPU-6050)
+
+# SPI flash read (25-series flash chip)
+m 5      # SPI mode
+W        # Power on 3.3V supply
+{ 0x9F r:3 }  # Send JEDEC ID command, read 3 bytes
+# 0xEF 0x40 0x18 = Winbond W25Q128 (16MB)
+{ 0x03 0x00 0x00 0x00 r:256 }  # Read 256 bytes from address 0x000000
+```
+
+### Proxmark3
+
+Industry-standard RFID/NFC security research tool:
+
+```bash
+# Proxmark3 RDV4.01 (recommended hardware)
+pm3 --port /dev/ttyACM0
+
+# HID Prox (125kHz) card clone
+pm3 --> lf hid read          # Read card
+pm3 --> lf hid sim -r <raw>  # Simulate cloned card
+pm3 --> lf hid clone -r <raw> --b t5577  # Clone to T5577 blank
+
+# MIFARE Classic attack (CRYPTO1 weakness)
+pm3 --> hf mf autopwn        # Auto-crack all sectors using nested attack
+# Nested authentication attack: ~minutes to recover all keys
+# Darkside attack: ~seconds if one default key known
+pm3 --> hf mf dump --gen1a   # Dump card after cracking
+
+# MIFARE Ultralight (NTAG)
+pm3 --> hf mfu info           # Card info + page dump
+pm3 --> hf mfu dump           # Full dump
+
+# iClass (HID Seos)
+pm3 --> hf iclass info        # Reader mode
+pm3 --> hf iclass sniff       # Sniff reader-card comms
+```
+
+### HackRF One (SDR)
+
+```bash
+# Record raw RF for replay attacks
+hackrf_transfer -r capture.bin -f 433920000 -s 2000000 -g 40
+
+# Replay recorded signal
+hackrf_transfer -t capture.bin -f 433920000 -s 2000000 -x 47
+
+# GNU Radio companion for signal analysis
+# Load capture.bin, demodulate ASK/FSK/OOK
+# Common IoT protocols: 315MHz/433MHz (key fobs), 868/915MHz (LoRa/Zigbee)
+
+# URH (Universal Radio Hacker) - GUI tool for RF analysis
+urh  # Open .bin file, auto-detect modulation, demodulate, decode
+```
+
+### PCB Analysis (X-ray / Decap)
+
+```
+X-ray analysis:
+  Equipment: North Star Imaging M-5000 CT, Phoenix Nanotom
+  Purpose: Non-destructive PCB layer analysis, BGA ball inspection
+  Security use: Detect hidden chips/mesh shields, verify BOM matches X-ray
+
+Decapsulation (removing IC packaging):
+  Plastic packages:
+    - Fuming nitric acid (98%): Dissolve epoxy at 60°C
+    - Hot Jet decapper: Heated acid jet
+    - Plasma decap: Clean removal for FIB preparation
+  Ceramic packages:
+    - Mechanical: Diamond saw or chisel
+
+  After decap:
+    - Optical microscope (up to 1000×)
+    - SEM (Scanning Electron Microscope): 100,000×
+    - FIB (Focused Ion Beam): Mill and image cross-sections
+    - EDX (Energy-Dispersive X-ray): Material composition
+```
+
+### UART/SPI/I2C/JTAG Identification Methodology
+
+```
+Step 1: Visual inspection
+  - Count test points/pads; measure pin pitch
+  - Label clues: TP_TX, TP_RX, J1 (JTAG header)
+  - 2.54mm pitch = UART/JTAG header; 1.27mm = SWD header
+
+Step 2: Multimeter
+  - UART TX: idles HIGH (3.3V or 1.8V); pulses LOW on boot
+  - JTAG TCK: idle LOW, pulses during programming
+  - I2C SCL: idles HIGH; SDA pulses during comms
+  - GND: continuity to chassis/shield
+
+Step 3: Logic analyzer
+  - Trigger on falling edge of suspected TX
+  - Auto-decode UART at detected baud rate
+  - I2C: Look for START condition (SDA falls while SCL high)
+
+Step 4: JTAGulator (for JTAG pinout)
+  - Connect 4-8 unknown pins
+  - Run IDCODE scan
+```
+
+### Firmware Extraction from SPI Flash
+
+```bash
+# Desolder or clip-connect to SPI flash (Winbond W25Q series, common)
+# Tools: SOIC-8 clip + Bus Pirate or dedicated programmer (CH341A)
+
+# Using flashrom with CH341A programmer
+flashrom -p ch341a_spi -r firmware_dump.bin
+
+# Using Bus Pirate
+# (as shown above with SPI read-all macro)
+
+# Verify dump integrity
+md5sum firmware_dump.bin  # Save hash; read again and compare
+
+# Identify filesystem
+binwalk firmware_dump.bin
+# Example output:
+# 0x50        SquashFS, little endian, version 4.0, compression: lzma
+# 0x180000    JFFS2, little endian
+
+# Extract
+binwalk -e firmware_dump.bin
+# Extract SquashFS
+unsquashfs -d squashfs_root firmware_dump.bin.extracted/squashfs-root.squashfs
+
+# Look for secrets
+find squashfs_root -name "*.conf" -exec grep -il "password\|key\|secret" {} \;
+find squashfs_root -name "*.pem" -o -name "*.key" -o -name "*.p12"
+strings squashfs_root/usr/bin/httpd | grep -i password
+```
+
+### Glue Logic Attacks
+
+```
+Target: Inter-chip communication on PCB
+Buses: SPI, I2C, UART between main SoC and peripheral (e.g., TPM, crypto IC, flash)
+
+Attack: Man-in-the-middle on SPI bus
+  1. Desolder SPI flash from PCB
+  2. Insert FPGA (Lattice iCE40 or Artix-7) as SPI bridge
+  3. FPGA records all read/write transactions
+  4. Modify data on-the-fly (e.g., flip bit in firmware during read)
+
+Example: Nintendo Switch SPI boot ROM bypass
+  - Boot ROM reads encrypted firmware from NAND via SPI
+  - Attacker replaces NAND with FPGA
+  - FPGA returns crafted payload to trigger bootrom bug
+```
+
+### Riscure Inspector
+
+Commercial SCA platform:
+```
+Features:
+  - High-speed trace acquisition (up to 1GS/s, 12-bit)
+  - Built-in DPA/CPA/DEMA attacks against AES, DES, RSA, ECC
+  - Inspector Java API for custom attacks
+  - Trace Inspector: visual alignment and filtering
+
+Workflow:
+  1. Setup: Define target device, connect oscilloscope + trigger
+  2. Acquisition: Capture 10K-1M traces with random input data
+  3. Analysis: Run CPA with Hamming Weight power model
+  4. Results: Key byte confidence scores; highest = recovered key
+```
+
+### Hardware Pentest Methodology
+
+```
+Phase 1: Reconnaissance
+  - Obtain device (eBay, manufacturer, retailer)
+  - FCC ID search (fcc.io) for internal photos, test reports
+  - FCC teardown photos reveal PCB layout before disassembly
+  - Shodan for firmware versions, exposed admin interfaces
+
+Phase 2: Physical Access
+  - Non-destructive first: open screws, find hidden screws (under labels)
+  - PCB photography: both sides, high resolution
+  - Component identification: look up ICs on datasheet databases
+
+Phase 3: Firmware Acquisition
+  - Priority 1: Update package download (vendor website, app store)
+  - Priority 2: UART console with U-Boot shell (least invasive)
+  - Priority 3: SPI/NAND flash direct read (clip or desolder)
+  - Priority 4: JTAG dump (if not locked)
+  - Priority 5: Glitching to bypass RDP
+
+Phase 4: Firmware Analysis
+  - Static: binwalk, Ghidra, radare2, strings, grep for secrets
+  - Dynamic: QEMU emulation (for Linux targets), GDB remote debugging
+  - Web interface: crawl for hidden endpoints, check auth bypass
+
+Phase 5: Runtime Testing
+  - Protocol fuzzing: boofuzz, sulley, custom fuzzers
+  - RF attacks: HackRF replay, Proxmark RFID attacks
+  - Side-channel: ChipWhisperer power analysis
+  - Fault injection: glitch security checks, bypass RDP
+```
+
+## 10. Supply Chain & Hardware Integrity
+
+### Counterfeit PCB/Component Detection
+
+Counterfeit electronic components are a major supply chain risk, estimated at $169B/year globally.
+
+**Visual Inspection Techniques:**
+```
+Marking irregularities:
+  - Font inconsistencies (compare to genuine datasheet photos)
+  - Blurry or inconsistent laser markings (sign of remarking)
+  - Date codes that post-date current year
+  - Incorrect package outline (compare to datasheet dimensions)
+
+Under microscope (10-40×):
+  - Lead finish quality (genuine = smooth matte; counterfeit = grainy/pitted)
+  - Die visibility through package (genuine = consistent color)
+  - Solder balls on BGA (genuine = uniform sphere size, pitch)
+
+X-ray inspection:
+  - Wire bond pattern inside package (compare to reference sample)
+  - Die size mismatch (smaller die glued into larger package)
+  - Missing or incorrect internal metallization
+```
+
+**Electrical Testing:**
+```python
+# Automated test using boundary scan (ICT — In-Circuit Test)
+# JTAG boundary scan verifies IO cell behavior
+
+# Functional verification script (example for AES IC)
+def verify_aes_ic(port):
+    dut = connect_uart(port, 115200)
+    # Known-answer test vectors (NIST FIPS-197)
+    plaintext = bytes.fromhex('6bc1bee22e409f96e93d7e117393172a')
+    key = bytes.fromhex('2b7e151628aed2a6abf7158809cf4f3c')
+    expected = bytes.fromhex('3ad77bb40d7a3660a89ecaf32466ef97')
+
+    result = dut_encrypt(dut, plaintext, key)
+    if result != expected:
+        log_fail(f"AES KAT failed: got {result.hex()}")
+        return False
+    return True
+
+# Thermal profile (counterfeit ICs may have different power dissipation)
+# Use thermal camera during burn-in test; outliers indicate remarked dies
+```
+
+### Supply Chain Attack Vectors
+
+**Hardware Implant Attacks:**
+- **Interception attacks:** Package interception during shipping; add implant IC
+- **Insider threats:** Malicious component substitution at contract manufacturer
+- **Rogue supplier:** Counterfeit IC with added functionality (hardware trojan)
+
+**Notable Case Studies:**
+```
+Bloomberg "Big Hack" (2018) — disputed but informative:
+  - Alleged: Tiny IC (~pencil tip) added to server motherboards at Supermicro's
+    Chinese contract manufacturer
+  - Purported capability: Intercept BMC communications, create backdoor
+  - Industry response: Intensified supply chain auditing regardless of veracity
+
+Cisco Router Implants (documented by NSA/TAO, Snowden documents):
+  - JETPLOW: Persistent implant in Cisco PIX/ASA firewall
+    Method: NSA interdiction of equipment in transit (QUANTUM INSERT)
+  - HALLUXWATER: Huawei router backdoor implant
+  - Countermeasure: Verify router firmware hash immediately on delivery
+
+SolarWinds Orion (2020) — Software supply chain:
+  - Malicious code injected into build system
+  - Signed update distributed to 18,000+ customers
+  - Hardware equivalent: Subverted programming station at manufacturer
+
+Supermicro BMC Vulnerabilities (legitimate, documented):
+  - CVE-2019-16649: Unauthenticated code execution in BMC web interface
+  - CVE-2020-15362: BMC IPMI authentication bypass
+  - Lesson: BMC firmware must be treated as supply chain risk
+```
+
+### X-Supply Chain Security Framework
+
+```
+NIST SSDF (Secure Software Development Framework) for Hardware:
+  PW.4: Reuse existing, well-secured software/hardware where feasible
+  PW.6: Configure environments to support security
+  PS.1: Protect all forms of code (hardware design files, HDL, BSDL)
+  RV.1: Identify and confirm vulnerabilities during testing
+
+Hardware SBOM (Software Bill of Materials → Hardware Bill of Materials):
+  Contents:
+    - Component manufacturer, part number, revision
+    - Manufacturer country of origin
+    - Contract manufacturer (CM) information
+    - Component certification (AEC-Q100, automotive; HIREL for mil/aero)
+    - EOL (End-of-Life) status
+    - Known vulnerability references (CVE cross-reference)
+
+  Format: emerging standards include CycloneDX (supports hardware)
+```
+
+### NIST SP 800-161r1 — C-SCRM (Cybersecurity Supply Chain Risk Management)
+
+```
+Core SCRM practices (aligned to NIST CSF):
+IDENTIFY:
+  ID.SC-1: Cyber supply chain risk management policies established
+  ID.SC-2: Identify, prioritize, assess suppliers
+  ID.SC-3: Contracts include cybersecurity requirements
+  ID.SC-4: Suppliers routinely assessed (audits, test results, CVEs)
+  ID.SC-5: Response/recovery planning for supply chain events
+
+Key controls from 800-161r1 appendix:
+  SR-2:  Supply chain risk assessment
+  SR-3:  Supply chain controls and processes
+  SR-5:  Acquisition strategies, tools, and methods
+  SR-6:  Supplier assessments and reviews
+  SR-9:  Tamper resistance and detection
+  SR-10: Inspection of systems, components, or services
+  SR-11: Component authenticity
+  SR-12: Component disposal
+
+Questionnaire for supplier assessment:
+  - Does the supplier have an ISO 27001 or SOC 2 Type II certification?
+  - Is hardware designed in a FABS country trusted per CHIPS Act criteria?
+  - What is the component traceability chain (OEM → distributor → CM)?
+  - Are firmware/FPGA bitstreams signed and stored securely (HSM)?
+  - Is there a vulnerability disclosure program and patch SLA?
+```
+
+### Hardware Bill of Materials (HBOM) Attestation
+
+```bash
+# Generate HBOM from design files using CycloneDX
+pip install cyclonedx-bom
+
+# For PCB (KiCad BOM export + CycloneDX)
+cyclonedx-py --bom bom.xml   --component-type hardware   --manufacturer "AcmeCorp"   --name "SecurityController v2"
+
+# Verify HBOM signature (vendor-signed HBOM)
+openssl dgst -sha256 -verify vendor_pub.pem   -signature hbom.xml.sig hbom.xml
+
+# HBOM entry example (JSON)
+{
+  "type": "hardware",
+  "manufacturer": "NXP Semiconductors",
+  "name": "SE050C2HQ1/Z",
+  "version": "AR00.03.00",
+  "description": "EdgeLock SE050 Secure Element",
+  "licenses": [],
+  "hashes": [{"alg": "SHA-256", "content": "a3f5..."}],
+  "externalReferences": [{
+    "type": "advisories",
+    "url": "https://www.nxp.com/products/SE050"
+  }],
+  "properties": [{
+    "name": "country-of-origin",
+    "value": "Netherlands"
+  }]
+}
+```
+
+### Tamper-Evident Packaging
+
+```
+Levels of tamper evidence:
+
+Level 1: Visual tamper evidence
+  - Holographic seals with serial numbers
+  - Breakaway screws / shear screws
+  - Void labels (VOID pattern reveals on removal)
+  - Numbered security seals with audit log
+
+Level 2: Mechanical tamper resistance (FIPS 140-3 Level 2+)
+  - Epoxy potting of internal components
+  - Chassis bolts torqued and sealed with lacquer
+  - PCB conformal coating (visible if disturbed)
+
+Level 3: Active tamper detection
+  - Capacitive sense: detects case removal
+  - Light sensors: detect decap or case opening
+  - Conductive mesh over entire PCB (mesh break = zeroize)
+  - Pressure-sensitive adhesive with conductive traces
+
+Implementation (battery-backed tamper detection):
+  - Separate battery maintains tamper detect logic
+  - If tamper triggered: crypto accelerator zeroizes keys in <1ms
+  - Log event with timestamp to non-volatile tamper register
+
+Testing:
+  - Shock (MIL-STD-810H, Method 516.8)
+  - Vibration (MIL-STD-810H, Method 514.8)
+  - Temperature cycling (-40°C to +85°C) — does sealing maintain integrity?
+```
+
+### COTS Risk Assessment
+
+Commercial Off-the-Shelf hardware risk framework:
+
+```
+Risk Matrix:
+  Likelihood: How often is this component class targeted?
+  Impact: What access does compromise of this component provide?
+
+High-risk COTS categories:
+  1. Network equipment (routers, switches, firewalls)
+     - BMC/iDRAC/iLO firmware (Baseboard Management Controllers)
+     - JTAG/UART debug left exposed (CVE-2019-16649 Supermicro BMC)
+
+  2. Storage controllers (SAS HBA, NVMe controllers)
+     - Firmware updates typically unsigned
+     - Example: Seagate HDD firmware implant research (2015, Equation Group)
+
+  3. USB peripherals (keyboards, mice, hubs)
+     - BadUSB: Reprogrammable firmware on unprotected USB controllers
+     - HID injection attacks
+
+Mitigation by risk level:
+  Critical (classified, financial, healthcare):
+    - 100% X-ray inspection of incoming PCBs
+    - Firmware hash verification before deployment
+    - Air-gapped procurement and inspection network
+    - Known-good sample comparison
+
+  High (enterprise, infrastructure):
+    - Approved vendor list (AVL) enforcement
+    - Authorized distributor only (no spot buys or broker market)
+    - Incoming inspection sampling per MIL-STD-1916 or AQL 0.65
+    - Hash firmware against vendor-published values
+
+  Standard (commercial):
+    - Authorized distributor
+    - Certificate of conformance from supplier
+    - Counterfeit screening per SAE AS6081 (distributor standard)
+```
+
+### DoD CMMC Hardware Requirements
+
+```
+CMMC Level 2 (Advanced, 110 practices from NIST 800-171):
+  SA.L2-3.14.7: Identify unauthorized use of systems
+  MP.L2-3.8.7: Control use of removable media
+  CM.L2-3.4.1: Establish/maintain baseline configs (hardware inventory)
+  CM.L2-3.4.2: Establish/enforce security config settings
+  SR.L2-3.14.6 (from 800-171r3): Assess supply chain risks
+
+Hardware-specific CMMC controls:
+  - Maintain hardware inventory (CMDB with serial numbers, firmware versions)
+  - Firmware patching SLA: critical CVEs ≤ 72 hours, high ≤ 30 days
+  - Removable media: encrypt (FIPS 140-2/3 validated) or prohibit
+  - Debug interfaces: physically disabled on production hardware
+  - Side-channel mitigations for systems handling CUI (Controlled Unclassified Info)
+
+CMMC Level 3 (Expert, NIST 800-172):
+  - Employ hardware-based security (TPM, HSM, secure boot)
+  - Protect firmware using cryptographic mechanisms
+  - Detect and respond to supply chain anomalies
+  - Conduct red team exercises targeting hardware attack vectors
+```
+
+### Anti-Tamper Techniques (Military/Aerospace)
+
+```
+MIL-STD-3048: DoD Anti-Tamper specification
+NSA CSfC (Commercial Solutions for Classified):
+  - Requires defense-in-depth hardware controls
+
+Techniques:
+  1. Zeroization: FIPS-validated zeroize on tamper
+     (SRAM clear + key register clear in <1ms)
+
+  2. Potting: Entire PCB encased in hard epoxy
+     (drill/cut = destroy function + trigger detect)
+
+  3. Secure enclave: Physical envelope with mesh
+     - Dallas/Maxim DS3640 secure microcontroller
+     - Covers: light, temp, voltage, attack mesh
+
+  4. Optical fiber mesh: Fiber woven through epoxy
+     - Light continuity monitored; break = tamper
+
+  5. Code obfuscation + encryption of FPGA bitstream:
+     - Xilinx/Intel FPGAs: AES-256 bitstream encryption
+     - Key stored in battery-backed SRAM on FPGA
+
+  6. Supply chain provenance tracking:
+     - Physically Unclonable Functions (PUF) — unique IC fingerprint
+     - Device responds to challenge with PUF-derived response
+     - Cannot be cloned (manufactured variation used as ID)
+
+PUF implementation:
+  - SRAM PUF: Power-on state of uninitialized SRAM is device-unique
+  - Ring oscillator PUF: Manufacturing variation in oscillator frequency
+  - Arbiter PUF: Race condition in D-FF varies by chip
+  Used for: Key generation without storage, device authentication
+```
+

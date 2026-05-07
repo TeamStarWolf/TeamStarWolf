@@ -89,7 +89,6 @@ A public resource library for the cybersecurity community.
 | [Web App Pentesting](WEB_APPLICATION_PENTESTING.md) | Testing methodology, SQLi/XSS/SSRF/SSTI payloads, JWT attacks, auth bypass, business logic testing, Burp Suite and ffuf reference |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
-| [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | AD architecture, Kerberos attacks (Kerberoasting/Golden Ticket/DCSync), AD CS ESC vulnerabilities, GPO hardening, tiered admin model, MDI detection |
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |
@@ -299,6 +298,7 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio - download, analysis, editing, stem separation, and batch processing |
 | [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | Kerberoasting, Pass-the-Hash, DCSync, BloodHound, AD CS attacks, LDAP enumeration, GPO abuse |
+| [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | AD architecture, Kerberos attacks (Kerberoasting/Golden Ticket/DCSync), AD CS ESC vulnerabilities, GPO hardening, tiered admin model, MDI detection |
 | [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation |
 | [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | AI/ML security fundamentals, model poisoning, adversarial attacks, AI governance, NIST AI RMF |

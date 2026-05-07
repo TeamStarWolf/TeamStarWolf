@@ -155,3 +155,5 @@
 - [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)
 - [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md)
 - [SIEM Reference Library](SIEM_REFERENCE.md)
+
+  * [Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md)

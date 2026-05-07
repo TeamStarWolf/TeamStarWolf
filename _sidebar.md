@@ -129,6 +129,7 @@
   - [Web App Pentesting](WEB_APPLICATION_PENTESTING.md)
   * [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md)
   * [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md)
+  * [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
   * [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md)
   * [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md)
   * [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md)

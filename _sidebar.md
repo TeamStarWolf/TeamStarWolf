@@ -153,3 +153,4 @@
 
 - [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md)
 - [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)
+- [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md)

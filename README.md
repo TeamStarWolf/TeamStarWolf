@@ -355,3 +355,5 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading list: offensive security, defensive security, malware analysis, forensics, cryptography, leadership |
 
 
+
+| [WEB_APPLICATION_SECURITY_REFERENCE](WEB_APPLICATION_SECURITY_REFERENCE.md) | OWASP Top 10, SQLi, XSS, Auth, SSRF, XXE, API Security, WAF, Secure Coding, Bug Bounty |

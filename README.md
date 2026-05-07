@@ -328,3 +328,6 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: hardware, GNU Radio, protocol analysis (GSM/LTE/Bluetooth/Zigbee/P25), replay attacks, RFID/NFC, Kismet, TEMPEST, and legal framework |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | Shift-left philosophy, BSIMM/SAMM maturity models, SAST/SCA/DAST tooling, secrets management, pipeline security, container security, SLSA supply chain, and compliance-as-code |
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall, compliance |
+
+## References
+- [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md) — Security-focused protocol guide covering TCP/IP, DNS, TLS, HTTP, authentication, email, ICS, and analysis tools

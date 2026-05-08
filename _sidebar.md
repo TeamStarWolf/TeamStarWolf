@@ -55,6 +55,7 @@
   - [Coverage Schema](COVERAGE_SCHEMA.md)
 
   - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md)
+  - [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)
 
   * [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
   - [API Security Reference](API_SECURITY_REFERENCE.md)

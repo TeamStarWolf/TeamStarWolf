@@ -115,6 +115,19 @@ A public resource library for the cybersecurity community.
 | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | Wireshark, tcpdump, Zeek, JA3, attack pattern detection |
 | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | PCAP forensics, NetFlow, encrypted traffic analysis, cloud |
 
+**Coverage & Data**
+
+ATT&CK Navigator layer and machine-readable edge tables mapping the TeamStarWolf vendor stack to NIST 800-53 controls and ATT&CK techniques.
+
+| Resource | Description |
+|---|---|
+| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 -> ATT&CK heatmap (313 techniques, CTID-sourced) &nbsp;[Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [Vendor -> Control edges](data/vendor_to_control.jsonl) | 100+ vendor -> NIST 800-53 control mappings |
+| [Control -> Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique mappings (CTID) |
+| [Vendor -> Technique edges](data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK technique coverage via control join |
+| [Controls Mapping](CONTROLS_MAPPING.md) | Full vendor -> NIST 800-53 -> ATT&CK cross-reference |
+| [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, and Python scoring functions |
+
 </details>
 
 <details>
@@ -130,11 +143,7 @@ A public resource library for the cybersecurity community.
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading organized by discipline and level |
 | [Starred Repositories](STARRED_REPOS.md) | Curated GitHub repos structured around the security technology landscape |
 
-</details>
-
----
-
-## Free Training
+**Free Training**
 
 | Platform | What You Get |
 |---|---|
@@ -150,20 +159,7 @@ A public resource library for the cybersecurity community.
 | [CISA Training Catalog](https://niccs.cisa.gov/training/catalog) | No-cost federal training — ICS/OT, cloud, and IR |
 | [Anthropic Courses](https://github.com/anthropics/courses) | Free AI and LLM security courses |
 
----
-
-## Coverage & Data
-
-ATT&CK Navigator layer and machine-readable edge tables mapping the TeamStarWolf vendor stack to NIST 800-53 controls and ATT&CK techniques.
-
-| Resource | Description |
-|---|---|
-| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 -> ATT&CK heatmap (313 techniques, CTID-sourced) &nbsp;[Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
-| [Vendor -> Control edges](data/vendor_to_control.jsonl) | 100+ vendor -> NIST 800-53 control mappings |
-| [Control -> Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique mappings (CTID) |
-| [Vendor -> Technique edges](data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK technique coverage via control join |
-| [Controls Mapping](CONTROLS_MAPPING.md) | Full vendor -> NIST 800-53 -> ATT&CK cross-reference |
-| [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, and Python scoring functions |
+</details>
 
 ---
 

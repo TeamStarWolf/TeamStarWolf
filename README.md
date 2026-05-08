@@ -28,88 +28,101 @@ A public resource library for the cybersecurity community.
 
 
 
-## Start Here
+## Browse by Domain
 
-
-
-
-
-| Resource | Description |
-|---|---|
-| [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
-| [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology |
-| [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
-| [YouTube Channel Library](YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines |
-| [X / Twitter Follow List](TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight |
-| [Career Paths](CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths |
-| [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications — cost, difficulty, DoD 8570, and who should pursue each |
-| [Hands-On Labs](LABS.md) | Free lab environments, CTF platforms, and home lab builds mapped to each security discipline |
-| [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
-| [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
-| [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
-| [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
-| [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
-| [HTB Machine Index](research/HTB_MACHINE_INDEX.md) | 127 retired HackTheBox machines indexed by difficulty, OS, and skills learned |
-| [Resources](RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities |
-| [HTB Learning Tracks](research/HTB_TRACKS.md) | 45 curated HackTheBox learning tracks mapped to disciplines and certification paths |
-| [Interview Prep](INTERVIEW_PREP.md) | Common interview questions by role — SOC analyst, pentester, DFIR, cloud security, AppSec |
-| [Home Lab Setup](HOMELAB_SETUP.md) | Hardware, hypervisors, network architecture, and detection stacks for building a security lab |
-| [Pentest Checklists](PENTEST_CHECKLISTS.md) | Step-by-step checklists for external, internal, AD, web app, cloud, and post-exploitation testing |
-| [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
-| [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |
-| [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
-| [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |
-| [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) | Zeek logs/scripts, Suricata rules, JA3/JARM, NetFlow/SiLK, beaconing detection, DGA hunting, Security Onion |
-| [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
-| [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise |
-| [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
-| [GRC Reference](GRC_REFERENCE.md) | Security governance, risk management (FAIR), SOC 2, ISO 27001, PCI DSS, TPRM, compliance program management |
-| [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, LINDDUN, attack trees, MITRE ATT&CK integration, DFDs, pytm, cloud microservices threat modeling |
-| [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
-| [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
-| [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
-| [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
-| [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
-| [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
-| [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management |
-| [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
-| [Windows Hardening](WINDOWS_HARDENING.md) | CIS benchmarks, GPO hardening, ASR rules, Defender for Endpoint, AppLocker/WDAC, and compliance scanning |
-| [Linux Hardening](LINUX_HARDENING.md) | CIS Benchmark, STIG, kernel hardening (sysctl), SELinux/AppArmor, auditd rules, SSH hardening, service sandboxing |
-| [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) | DMZ design, VLAN segmentation, firewall policy, IDS/IPS placement, NAC/802.1X, DDoS protection, and network monitoring |
-| [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | WiFi attacks (WPA2/WPA3, evil twin, PMKID), Bluetooth, SDR, RFID/NFC, and enterprise wireless hardening |
-| [SIEM Reference](SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting |
-| [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Phishing taxonomy, AiTM attacks, vishing, pretexting, physical SE, simulation programs, and awareness training |
-| [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
-| [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
-| [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers |
-| [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, TLS configuration, PKI, key management, post-quantum cryptography, and attack reference |
-| [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Hash formats, hashcat/John mastery, Argon2/bcrypt/PBKDF2 storage, NIST 800-63B policy, LAPS, gMSA, HIBP API |
-| [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) | Adversary emulation, Atomic Red Team, CALDERA, detection validation, Sigma rules, BAS tools, ATT&CK Navigator coverage |
-| [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, CISA ZTMM v2.0, identity/device/network/data pillars, ZTNA, micro-segmentation, and implementation roadmap |
-| [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract vulnerabilities, DeFi hack case studies, auditing tools, consensus security, exchange security, and on-chain incident response |
-| [Web App Pentesting](WEB_APPLICATION_PENTESTING.md) | Testing methodology, SQLi/XSS/SSRF/SSTI payloads, JWT attacks, auth bypass, business logic testing, Burp Suite and ffuf reference |
-| [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
-| [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
-| [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
-| [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
-| [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |
-| [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs |
-| [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |
-| [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | Wireshark display filters, tcpdump BPF syntax, Zeek logs and scripting, JA3 fingerprinting, and attack pattern detection in pcaps |
-| [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | OWASP MASVS, Android/iOS security architecture, APK/IPA analysis, Frida/objection, MDM/MAM policies, and mobile threats |
-| [Cloud Network Security](CLOUD_NETWORK_SECURITY.md) | AWS VPC/Security Groups/WAF/Network Firewall, Azure NSG/Firewall/Private Endpoints, GCP VPC/Cloud Armor, and flow log analysis |
-| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10 (2021), input validation, auth/session security, cryptography in code, SAST/DAST tools, and supply chain security |
-| [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
-| [Supply Chain Security](SUPPLY_CHAIN_SECURITY.md) | SolarWinds/XZ Utils/3CX attack analysis, SBOM (Syft/CycloneDX/SPDX), SLSA framework, Sigstore/Cosign, and CI/CD pipeline hardening |
-| [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team methodology, ROE, C2 framework comparison (Cobalt Strike/Sliver/Havoc/Mythic), LOLBAS, persistence, lateral movement tradecraft |
-| [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
-| [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md) | SOP, CORS attacks, CSP bypass, security headers, CSRF, clickjacking, cookie security, extension analysis, prototype pollution |
+> **[→ Full Index — all documents A–Z](INDEX.md)**
 
 ---
 
+### 🔴 Offensive Security
+- [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md) — structured methodology for external, internal, web, and AD engagements
+- [Red Team Reference](RED_TEAM_REFERENCE.md) — ROE, C2 frameworks, OPSEC, payload dev, lateral movement tradecraft
+- [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) — Kerberoasting, DCSync, Golden tickets, BloodHound, AD CS attacks
+- [Web Application Pentesting](WEB_APPLICATION_PENTESTING.md) — SQLi, XSS, SSRF, JWT attacks, Burp Suite, auth bypass
+- [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) — phishing, vishing, AiTM, pretexting, campaign ops
+- [Privilege Escalation Reference](PRIVESC_REFERENCE.md) — Windows and Linux privesc with detection and remediation
+- [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) — buffer overflows, ROP chains, shellcode, pwntools
+- [CTF Methodology](CTF_METHODOLOGY.md) — web, forensics, crypto, reversing, pwn — systematic approach and tooling
 
+---
 
+### 🔵 Defensive Security
+- [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) — NIST/SANS IR frameworks, live response, forensic triage
+- [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) — hypothesis-driven hunting, KQL/SPL queries, data sources
+- [SIEM Reference](SIEM_REFERENCE.md) — Splunk, Sentinel, QRadar, Elastic — query languages and detection engineering
+- [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) — disk, memory, network, and cloud forensics workflows
+- [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) — static/dynamic analysis, sandbox, behavioral detection
+- [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) — adversary emulation, Atomic Red Team, detection validation
+- [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) — Sigma, YARA, Suricata rule writing with examples
+- [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) — IDS/IPS, firewall policy, network segmentation, NDR
 
+---
+
+### ☁️ Cloud & Infrastructure
+- [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) — AWS/Azure/GCP controls, IAM, CSPM, cloud-native threats
+- [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) — cloud privilege escalation, lateral movement, exfiltration, persistence
+- [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) — Docker hardening, Kubernetes security, container escapes
+- [DevSecOps Reference](DEVSECOPS_REFERENCE.md) — SAST/DAST/SCA, GitHub Actions security, secrets in CI/CD
+- [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md) — SBOM, Sigstore/cosign, SLSA, dependency security
+- [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) — DMZ design, VLAN segmentation, firewall policy
+- [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) — Sysmon, WEF, Defender, AppControl, GPO, ASR rules
+- [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) — CIS benchmarks, sysctl, SELinux, auditd, service hardening
+
+---
+
+### 🔐 Identity, Access & Cryptography
+- [Identity Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) — IAM architecture, MFA, PAM, JIT, SSO
+- [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) — AD hardening, tiered admin, MDI, Kerberos defense
+- [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) — NIST SP 800-207, CISA ZTMM, microsegmentation, BeyondCorp
+- [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) — Vault, AWS Secrets Manager, rotation, detection
+- [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) — symmetric/asymmetric, TLS, PKI, HSM, quantum-resistant algorithms
+- [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) — hash formats, hashcat/John, credential stuffing defense
+
+---
+
+### 🏛️ Governance, Risk & Compliance
+- [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) — NIST 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC
+- [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) — MTTD/MTTR, vulnerability SLAs, SOC KPIs, FAIR model
+- [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) — STRIDE, PASTA, attack trees, MITRE ATT&CK integration
+- [Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md) — CVSS, EPSS, CISA KEV, VEX, patch prioritization
+- [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) — GDPR/CCPA, PbD, data minimization, PIA
+- [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) — zero trust, defense-in-depth, SABSA, enterprise patterns
+
+---
+
+### 🔬 Specialized Domains
+- [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) — CAN bus, ECU, V2X, OTA updates, ISO 21434
+- [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) — SCADA, PLC, Purdue model, IEC 62443, OT incident response
+- [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md) — TPM, HSM, side-channel attacks, JTAG/SWD, fault injection
+- [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) — binwalk, UART/JTAG extraction, firmware emulation
+- [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) — OWASP MASVS, Android/iOS RE, Frida, MDM/MAM
+- [AI Security Reference](AI_SECURITY_REFERENCE.md) — LLM threat models, prompt injection, adversarial ML, MCP security
+- [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) — HackRF, Flipper Zero, sub-GHz analysis, RF attack surface
+
+---
+
+### 🔍 Research & Analysis
+- [OSINT Reference](OSINT_REFERENCE.md) — passive recon, Shodan/Censys, GEOINT, SOCMINT, automation
+- [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) — Ghidra/IDA/Binary Ninja, dynamic analysis, firmware RE
+- [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) — intel lifecycle, STIX/TAXII, threat actor tracking
+- [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md) — TCP/IP, DNS, TLS, authentication protocols, analysis tools
+- [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) — Wireshark, tcpdump, Zeek, JA3, attack pattern detection
+- [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) — pcap forensics, NetFlow, encrypted traffic analysis, cloud
+
+---
+
+### 🎓 Learning & Career
+- [Career Paths](CAREER_PATHS.md) — 15+ security roles with skill maps, salary ranges, and cert roadmaps
+- [Certifications Reference](CERTIFICATIONS.md) — 40+ certifications with cost, difficulty, and domain coverage
+- [Interview Prep](INTERVIEW_PREP.md) — questions by role: SOC analyst, pentester, DFIR, cloud security
+- [Home Lab Setup](HOMELAB_SETUP.md) — hardware, hypervisors, network design, detection stacks
+- [Hands-On Labs](LABS.md) — free lab environments and CTF platforms mapped to each security domain
+- [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) — curated reading organized by discipline and level
+- [Starred Repositories](STARRED_REPOS.md) — curated GitHub repos structured around the security technology landscape
+
+---
+
+> 📚 **[Browse the complete index — all documents A–Z](INDEX.md)**
 
 ## Disciplines
 

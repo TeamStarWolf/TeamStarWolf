@@ -34,7 +34,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🔴 Offensive Security
+### Offensive Security
 - [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md) — structured methodology for external, internal, web, and AD engagements
 - [Red Team Reference](RED_TEAM_REFERENCE.md) — ROE, C2 frameworks, OPSEC, payload dev, lateral movement tradecraft
 - [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) — Kerberoasting, DCSync, Golden tickets, BloodHound, AD CS attacks
@@ -46,7 +46,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🔵 Defensive Security
+### Defensive Security
 - [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) — NIST/SANS IR frameworks, live response, forensic triage
 - [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) — hypothesis-driven hunting, KQL/SPL queries, data sources
 - [SIEM Reference](SIEM_REFERENCE.md) — Splunk, Sentinel, QRadar, Elastic — query languages and detection engineering
@@ -58,7 +58,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### ☁️ Cloud & Infrastructure
+### Cloud & Infrastructure
 - [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) — AWS/Azure/GCP controls, IAM, CSPM, cloud-native threats
 - [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) — cloud privilege escalation, lateral movement, exfiltration, persistence
 - [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) — Docker hardening, Kubernetes security, container escapes
@@ -70,7 +70,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🔐 Identity, Access & Cryptography
+### Identity, Access & Cryptography
 - [Identity Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) — IAM architecture, MFA, PAM, JIT, SSO
 - [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) — AD hardening, tiered admin, MDI, Kerberos defense
 - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) — NIST SP 800-207, CISA ZTMM, microsegmentation, BeyondCorp
@@ -80,7 +80,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🏛️ Governance, Risk & Compliance
+### Governance, Risk & Compliance
 - [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) — NIST 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC
 - [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) — MTTD/MTTR, vulnerability SLAs, SOC KPIs, FAIR model
 - [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) — STRIDE, PASTA, attack trees, MITRE ATT&CK integration
@@ -90,7 +90,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🔬 Specialized Domains
+### Specialized Domains
 - [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) — CAN bus, ECU, V2X, OTA updates, ISO 21434
 - [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md) — SCADA, PLC, Purdue model, IEC 62443, OT incident response
 - [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md) — TPM, HSM, side-channel attacks, JTAG/SWD, fault injection
@@ -101,7 +101,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🔍 Research & Analysis
+### Research & Analysis
 - [OSINT Reference](OSINT_REFERENCE.md) — passive recon, Shodan/Censys, GEOINT, SOCMINT, automation
 - [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) — Ghidra/IDA/Binary Ninja, dynamic analysis, firmware RE
 - [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) — intel lifecycle, STIX/TAXII, threat actor tracking
@@ -111,7 +111,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-### 🎓 Learning & Career
+### Learning & Career
 - [Career Paths](CAREER_PATHS.md) — 15+ security roles with skill maps, salary ranges, and cert roadmaps
 - [Certifications Reference](CERTIFICATIONS.md) — 40+ certifications with cost, difficulty, and domain coverage
 - [Interview Prep](INTERVIEW_PREP.md) — questions by role: SOC analyst, pentester, DFIR, cloud security
@@ -122,7 +122,7 @@ A public resource library for the cybersecurity community.
 
 ---
 
-> 📚 **[Browse the complete index — all documents A–Z](INDEX.md)**
+> **[Browse the complete index — all documents A–Z](INDEX.md)**
 
 ## Disciplines
 

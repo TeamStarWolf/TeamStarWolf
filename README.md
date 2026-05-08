@@ -71,6 +71,7 @@ A public resource library for the cybersecurity community.
 | [Open Source Toolkit](OPEN_SOURCE_TOOLKIT.md) | Comprehensive open source security tooling reference and bookmarks organized by category across 20+ disciplines |
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
+| [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [Windows Hardening](WINDOWS_HARDENING.md) | CIS benchmarks, GPO hardening, ASR rules, Defender for Endpoint, AppLocker/WDAC, and compliance scanning |
 | [Linux Hardening](LINUX_HARDENING.md) | CIS Benchmark, STIG, kernel hardening (sysctl), SELinux/AppArmor, auditd rules, SSH hardening, service sandboxing |

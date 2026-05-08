@@ -296,8 +296,7 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 
 | Project | Description |
 |---------|-------------|
-| [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio - download, analysis, editing, stem separation, and batch processing |
-| [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
+| [Active Directory Attack Reference](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) | Kerberoasting, DCSync, NTLM relay, Golden/Silver tickets, AD CS attacks, lateral movement detection |
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | Kerberoasting, Pass-the-Hash, DCSync, BloodHound, AD CS attacks, LDAP enumeration, GPO abuse |
 | [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | AD architecture, Kerberos attacks (Kerberoasting/Golden Ticket/DCSync), AD CS ESC vulnerabilities, GPO hardening, tiered admin model, MDI detection |
 | [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation |
@@ -306,15 +305,19 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST/GraphQL/gRPC security, API gateway hardening, OAuth/JWT attacks, fuzzing APIs |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 |
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
+| [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmarks for AWS, Azure, and GCP with automated remediation and detection queries |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security controls, IAM, cloud-native threats, CSPM, CWPP, container security, serverless, compliance |
 | [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/OCI hardening, Kubernetes security, container escapes, image scanning, runtime security, supply chain |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric crypto, PKI, TLS internals, quantum-resistant algorithms, HSM usage, cryptographic pitfalls |
 | [CTF Methodology](CTF_METHODOLOGY.md) | CTF categories, web exploitation, binary exploitation, reversing, crypto, forensics, steganography, tooling, and strategy |
+| [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
+| [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading list: offensive security, defensive security, malware analysis, forensics, cryptography, leadership |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma rules, Snort/Suricata rules, YARA, KQL, SPL, detection engineering lifecycle, rule testing and validation |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | Shift-left philosophy, BSIMM/SAMM maturity models, SAST/SCA/DAST tooling, pipeline security, SLSA supply chain |
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Disk/memory forensics, file system analysis, Volatility, Autopsy, network forensics, mobile forensics, chain of custody |
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
+| [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards |
 | [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md) | AFL++, libFuzzer, OSS-Fuzz, binary analysis, Ghidra/angr, symbolic execution, CVE process, bug bounty methodology |
 | [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) | NIST CSF 2.0, OSCAL, ComplianceAsCode/OpenSCAP, CIS Controls v8, PCI DSS v4.0, HIPAA/HITECH, SOC 2 Type II, ISO 27001:2022 |
@@ -326,36 +329,42 @@ MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapp
 | [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md) | IAM, PAM, MFA bypass techniques, AD attacks, Okta/Entra/CyberArk/Vault vendor controls, identity detection |
 | [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | IR lifecycle, playbooks, DFIR tooling, ransomware response, threat containment, forensic evidence collection |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
+| [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio - download, analysis, editing, stem separation, and batch processing |
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall configuration, compliance |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, sandboxing, Ghidra/IDA Pro, YARA rules, behavioral detection, C2 traffic analysis, rootkit detection |
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis |
 | [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) | Suricata, Zeek, Security Onion, Arkime, DNS security, nDPI, NAC, DDoS protection, NSM operations |
+| [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | Packet capture, protocol analysis, NetFlow, encrypted traffic analysis, cloud forensics, incident reconstruction |
 | [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md) | TCP/IP, DNS, TLS, HTTP, Kerberos/NTLM, BGP/OSPF, email security protocols, ICS/OT, Wireshark/Zeek analysis |
+| [Notable Incidents](NOTABLE_INCIDENTS.md) | Curated reference of significant cyber incidents, nation-state campaigns, ransomware events, and critical vulnerabilities |
 | [OSINT Reference](OSINT_REFERENCE.md) | Passive recon, OSINT frameworks, Maltego, Shodan/Censys/FOFA, social media OSINT, domain/IP investigation |
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Cracking techniques (Hashcat/John), password policies, MFA, credential stuffing, password managers, breach databases |
 | [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md) | Scoping, recon, exploitation, post-exploitation, web, cloud, reporting, and MITRE ATT&CK mapping |
 | [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md) | Lock picking, RFID badge cloning (Proxmark3/Flipper Zero), physical pentesting, drop boxes, CCTV assessment, NIST PE controls |
+| [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA/HIPAA, Privacy by Design, anonymization/pseudonymization, consent management, DPIA, field-level encryption |
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Windows/Linux privesc techniques, sudo abuse, SUID/SGID, token impersonation, service misconfigurations, automation |
 | [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) | Red/Blue collaboration, detection validation, adversary emulation, atomic tests, coverage measurement, MITRE ATT&CK |
 | [Red Team Reference](RED_TEAM_REFERENCE.md) | Red team operations, C2 frameworks (Cobalt Strike/Havoc/Sliver), tradecraft, persistence, lateral movement, OPSEC |
+| [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) | Ghidra/IDA/Binary Ninja, dynamic analysis, anti-analysis techniques, firmware RE, malware-focused RE workflow |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST |
-| [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
-| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10, secure SDLC, input validation, injection prevention, cryptographic coding patterns, security testing |
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | HashiCorp Vault, CyberArk Conjur, secret detection (gitleaks/ggshield/TruffleHog), cloud-native secrets, PKI/SSH, CI/CD OIDC |
+| [Secure Coding Reference](SECURE_CODING_REFERENCE.md) | OWASP Top 10, secure SDLC, input validation, injection prevention, cryptographic coding patterns, security testing |
 | [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) | Defense-in-depth, Zero Trust architecture, cloud security design, application security patterns, identity architecture, SecOps |
 | [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md) | Hak5 ecosystem, HackRF/Ubertooth, Samy Kamkar tools, Flipper Zero, Pi-hole, Meshtastic/LoRa, Proxmark3, Alfa/GL.iNet |
 | [SIEM Reference](SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting |
+| [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
 | [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Phishing campaigns, vishing, pretexting, BEC, physical social engineering, awareness training, GoPhish |
+| [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to MITRE ATT&CK with data sources, detection logic, and response actions |
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, hunt tracking |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | CTI lifecycle, MISP, OpenCTI, STIX/TAXII, threat actor profiling, dark web monitoring, TI-driven detection |
 | [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, Attack Trees, LINDDUN, threat modeling tools, data flow diagrams, risk rating methodologies |
 | [Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS/CVSSv4, EPSS, KEV, patch management, scanner config (Nessus/Qualys/Rapid7), risk-based prioritization |
 | [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md) | OWASP Top 10, SQL injection, XSS, authentication attacks, SSRF/XXE, API security, WAF bypass, secure coding, bug bounty methodology |
+| [Windows Hardening GPO Reference](WINDOWS_HARDENING_GPO.md) | Windows Group Policy hardening, attack surface reduction, service management, and enterprise mitigation strategies |
 | [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) | Windows security hardening: accounts, GPO, Sysmon, WEF, PowerShell, Defender, AppControl, network, audit policy |
 | [Wireless Security Reference](WIRELESS_SECURITY_REFERENCE.md) | Wi-Fi protocols (WEP/WPA/WPA3), Bluetooth, Cellular (4G/5G), RFID/NFC, IoT protocols, attack techniques, WIDS, hardening |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, BeyondCorp, microsegmentation, identity-centric security, continuous verification, vendor implementations |
-| [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading list: offensive security, defensive security, malware analysis, forensics, cryptography, leadership |
 
 
 

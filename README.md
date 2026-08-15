@@ -4,9 +4,26 @@
 
 A public resource library for the cybersecurity community.
 
-[Reference Index](INDEX.md) &nbsp;|&nbsp; [Discipline Paths](disciplines/) &nbsp;|&nbsp; [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/)
+[Reference Index](INDEX.md) &nbsp;|&nbsp; [Discipline Paths](disciplines/) &nbsp;|&nbsp; [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) &nbsp;|&nbsp; [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/)
 
 </div>
+
+---
+
+## ⭐ Threat-Informed Defense
+
+MITRE ATT&CK at the center, enriched with the vulnerability, weakness, detection, and control knowledge
+that makes coverage analysis actionable. Powered by the same data model as the
+[ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
+
+| Resource | What you get |
+|---|---|
+| [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | The ATT&CK-centric knowledge graph (CVE → CWE → CAPEC → ATT&CK → D3FEND), the open-source data-source stack, and the per-technique coverage-stack model |
+| [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, and composite risk |
+| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries (Splunk, Elastic, Microsoft, Chronicle, CrowdStrike) keyed to ATT&CK techniques and the NIST controls that mitigate them |
+| [ATT&CK Navigator Coverage Layers](navigator/) | Live heatmaps of NIST 800-53 R5 control depth and vendor/domain coverage across the enterprise stack — [load the master layer ↗](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+
+**Machine-readable data** &nbsp;·&nbsp; [Control → Technique edges](data/control_to_technique.jsonl) (CTID, 5,300+) &nbsp;·&nbsp; [Vendor → Control edges](data/vendor_to_control.jsonl) &nbsp;·&nbsp; [Vendor → Technique edges](data/vendor_to_technique.jsonl) &nbsp;·&nbsp; [Controls Mapping](CONTROLS_MAPPING.md) &nbsp;·&nbsp; [Coverage Schema](COVERAGE_SCHEMA.md) &nbsp;·&nbsp; [Coverage Gaps](scores/coverage_gaps.md)
 
 ---
 
@@ -121,10 +138,11 @@ ATT&CK Navigator layer and machine-readable edge tables mapping the TeamStarWolf
 
 | Resource | Description |
 |---|---|
-| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 -> ATT&CK heatmap (313 techniques, CTID-sourced) &nbsp;[Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
-| [Vendor -> Control edges](data/vendor_to_control.jsonl) | 100+ vendor -> NIST 800-53 control mappings |
-| [Control -> Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique mappings (CTID) |
-| [Vendor -> Technique edges](data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK technique coverage via control join |
+| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 -> ATT&CK control-depth heatmap (470 techniques, CTID-sourced) &nbsp;[Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [Vendor -> Control edges](data/vendor_to_control.jsonl) | 60+ vendors -> NIST 800-53 control mappings (237 edges) |
+| [Control -> Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique mappings, CTID (5,314 edges, 109 controls) |
+| [Vendor -> Technique edges](data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK technique coverage via control join (17K+ edges) |
+| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries keyed to ATT&CK techniques + mitigating NIST controls |
 | [Controls Mapping](CONTROLS_MAPPING.md) | Full vendor -> NIST 800-53 -> ATT&CK cross-reference |
 | [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, and Python scoring functions |
 

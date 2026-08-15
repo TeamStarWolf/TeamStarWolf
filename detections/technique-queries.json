@@ -1,0 +1,570 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "description": "Per-technique SIEM query library. Each entry maps an ATT&CK technique ID to platform-specific detection queries seeded from open community detection sources (Sigma, Splunk security_content, Elastic detection-rules, Microsoft M365D Hunting Queries, Chronicle Detection Rules).",
+    "platforms": [
+      "splunk",
+      "elastic",
+      "microsoft",
+      "chronicle",
+      "crowdstrike"
+    ],
+    "sources": [
+      "https://github.com/SigmaHQ/sigma",
+      "https://github.com/splunk/security_content",
+      "https://github.com/elastic/detection-rules",
+      "https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries",
+      "https://github.com/chronicle/detection-rules"
+    ],
+    "curated_for": "TeamStarWolf/TeamStarWolf reference library",
+    "note": "Detection content seeded/adapted from the listed open community sources for study and hunting. Validate and tune before production use. See TECHNIQUE_DETECTION_LIBRARY.md."
+  },
+  "queries": {
+    "T1003.001": [
+      {
+        "platform": "splunk",
+        "title": "LSASS process access from non-system parent",
+        "description": "Detect processes opening a handle to LSASS for credential dumping. Excludes known benign callers.",
+        "dataSource": "Sysmon EventCode 10 (ProcessAccess)",
+        "confidence": "high",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=10\n| eval target=lower(TargetImage)\n| where target=\"c:\\\\windows\\\\system32\\\\lsass.exe\"\n| eval call_trace=lower(CallTrace)\n| where match(GrantedAccess, \"0x1010|0x1410|0x1438|0x143a|0x1fffff\")\n| where NOT match(SourceImage, \"(?i)\\\\\\\\windows\\\\\\\\system32\\\\\\\\(svchost|wininit|csrss|services|lsm|taskmgr|MsMpEng)\\\\.exe\")\n| stats count by SourceImage, TargetImage, GrantedAccess, ComputerName, _time"
+      },
+      {
+        "platform": "elastic",
+        "title": "LSASS handle access (mimikatz/dumpert pattern)",
+        "description": "Elastic EQL detecting suspicious GrantedAccess masks against lsass.exe.",
+        "dataSource": "Elastic Defend / winlogbeat-sysmon",
+        "confidence": "high",
+        "query": "process where event.code == \"10\" and\n  winlog.event_data.TargetImage : \"?:\\\\Windows\\\\System32\\\\lsass.exe\" and\n  winlog.event_data.GrantedAccess : (\"0x1010\", \"0x1410\", \"0x1438\", \"0x143a\", \"0x1FFFFF\") and\n  not winlog.event_data.SourceImage : (\n    \"?:\\\\Windows\\\\System32\\\\svchost.exe\",\n    \"?:\\\\Windows\\\\System32\\\\wininit.exe\",\n    \"?:\\\\Windows\\\\System32\\\\csrss.exe\",\n    \"?:\\\\Windows\\\\System32\\\\MsMpEng.exe\"\n  )"
+      },
+      {
+        "platform": "microsoft",
+        "title": "Microsoft Defender â€” LSASS access from rare process",
+        "description": "M365D hunting query for processes opening lsass that are rare in the environment.",
+        "dataSource": "DeviceEvents (M365 Defender)",
+        "confidence": "high",
+        "query": "DeviceEvents\n| where ActionType == \"OpenProcessApiCall\"\n| where FileName =~ \"lsass.exe\"\n| where InitiatingProcessFileName !in~ (\n    \"svchost.exe\",\"wininit.exe\",\"csrss.exe\",\"services.exe\",\"lsm.exe\",\"taskmgr.exe\",\"MsMpEng.exe\")\n| summarize Devices = dcount(DeviceId), FirstSeen = min(Timestamp), LastSeen = max(Timestamp) by InitiatingProcessFileName, InitiatingProcessFolderPath\n| where Devices < 5\n| order by Devices asc"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle YARA-L â€” LSASS dump indicator",
+        "description": "YARA-L 2.0 rule for credential dump pattern against LSASS.",
+        "dataSource": "Sysmon UDM events",
+        "confidence": "high",
+        "query": "rule t1003_001_lsass_dump {\n  meta:\n    mitre_attack = \"T1003.001\"\n    severity = \"HIGH\"\n  events:\n    $e.metadata.event_type = \"PROCESS_OPEN\"\n    $e.target.process.file.full_path = /lsass\\.exe$/ nocase\n    $e.security_result.detection_fields[\"GrantedAccess\"] = /0x(1010|1410|1438|143A|1FFFFF)/ nocase\n    not $e.principal.process.file.full_path = /\\\\(svchost|wininit|csrss|services|lsm|MsMpEng)\\.exe$/ nocase\n  match:\n    $e.principal.hostname over 10m\n  condition:\n    $e\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” LSASS access by uncommon process",
+        "description": "CrowdStrike LogScale query identifying suspicious LSASS access patterns.",
+        "dataSource": "Falcon LogScale events",
+        "confidence": "high",
+        "query": "#event_simpleName=ProcessRollup2\n| TargetProcessId_decimal = LsassProcessId\n| FileName != /(svchost|wininit|csrss|services|lsm|MsMpEng)\\.exe/i\n| groupBy([ParentBaseFileName, FileName, ComputerName])\n| count() < 5"
+      }
+    ],
+    "T1059.001": [
+      {
+        "platform": "splunk",
+        "title": "PowerShell encoded command execution",
+        "description": "Detect powershell.exe with -enc / -e / -EncodedCommand parameters typical of obfuscated payloads.",
+        "dataSource": "Sysmon EventCode 1 (ProcessCreate)",
+        "confidence": "high",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1\n  Image=\"*powershell.exe\"\n| regex CommandLine=\"(?i)(\\s-e(nc|nco|ncod|ncode|ncoded|ncodedcommand)?\\s)\"\n| stats count, values(CommandLine) as cmds by User, Computer, ParentImage\n| where count > 0"
+      },
+      {
+        "platform": "elastic",
+        "title": "PowerShell suspicious script-block content",
+        "description": "Elastic EQL on Microsoft-Windows-PowerShell/Operational for script-block events containing high-risk APIs.",
+        "dataSource": "winlog.channel: Microsoft-Windows-PowerShell/Operational, EventID 4104",
+        "confidence": "medium",
+        "query": "powershell where\n  powershell.file.script_block_text : (\n    \"*Invoke-Mimikatz*\", \"*Invoke-Expression*\", \"*IEX*\",\n    \"*FromBase64String*\", \"*Reflection.Assembly*\",\n    \"*Net.WebClient*\", \"*DownloadString*\",\n    \"*-EncodedCommand*\", \"*WindowStyle Hidden*\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 Defender â€” PowerShell with download cradle",
+        "description": "Hunt for PowerShell processes invoking common download / iex cradles.",
+        "dataSource": "DeviceProcessEvents",
+        "confidence": "high",
+        "query": "DeviceProcessEvents\n| where FileName =~ \"powershell.exe\" or FileName =~ \"pwsh.exe\"\n| where ProcessCommandLine has_any (\"DownloadString\", \"DownloadFile\", \"IEX\", \"Invoke-Expression\", \"FromBase64String\", \"-enc \", \"-EncodedCommand\")\n| project Timestamp, DeviceName, AccountName, InitiatingProcessFileName, ProcessCommandLine\n| order by Timestamp desc"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” PowerShell encoded execution",
+        "description": "YARA-L rule for encoded PowerShell command-line patterns.",
+        "dataSource": "UDM PROCESS_LAUNCH",
+        "confidence": "high",
+        "query": "rule t1059_001_powershell_encoded {\n  meta:\n    mitre_attack = \"T1059.001\"\n    severity = \"HIGH\"\n  events:\n    $e.metadata.event_type = \"PROCESS_LAUNCH\"\n    $e.target.process.file.full_path = /powershell(_ise)?\\.exe$/ nocase\n    $e.target.process.command_line = /\\s-e(nc|ncoded|ncodedcommand)?\\s/ nocase\n  condition:\n    $e\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” PowerShell encoded cmdline",
+        "description": "LogScale query for PowerShell encoded command invocations.",
+        "dataSource": "Falcon ProcessRollup2",
+        "confidence": "high",
+        "query": "#event_simpleName=ProcessRollup2 FileName=/(?i)powershell(_ise)?\\.exe/\n| CommandLine=/(?i)\\s-e(nc|ncoded|ncodedcommand)?\\s/\n| groupBy([ComputerName, UserName, ParentBaseFileName])"
+      }
+    ],
+    "T1078": [
+      {
+        "platform": "splunk",
+        "title": "Suspicious successful logon â€” first time on host",
+        "description": "Successful interactive logon from an account that has never authenticated to this host before.",
+        "dataSource": "Windows Security 4624",
+        "confidence": "medium",
+        "query": "index=wineventlog EventCode=4624 LogonType IN (2,3,10)\n| stats earliest(_time) as first_seen, latest(_time) as last_seen, dc(ComputerName) as host_count by Account_Name, ComputerName\n| eval is_first=if(first_seen=last_seen,1,0)\n| where is_first=1 AND host_count=1\n| convert ctime(first_seen)"
+      },
+      {
+        "platform": "elastic",
+        "title": "Anomalous logon â€” new user/host pair",
+        "description": "Elastic ML-aware EQL for first-time interactive logons.",
+        "dataSource": "winlog.event_id 4624",
+        "confidence": "medium",
+        "query": "authentication where event.action == \"logged-in\" and\n  winlog.event_data.LogonType : (\"2\", \"3\", \"10\") and\n  event.outcome == \"success\""
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 Defender â€” Rare logon location for account",
+        "description": "Identifies sign-ins from countries the account has not used in 30 days.",
+        "dataSource": "AADSignInEventsBeta",
+        "confidence": "medium",
+        "query": "let known = AADSignInEventsBeta\n  | where Timestamp > ago(30d) and ErrorCode == 0\n  | summarize KnownCountries = make_set(Country) by AccountUpn;\nAADSignInEventsBeta\n| where Timestamp > ago(1d) and ErrorCode == 0\n| join kind=inner known on AccountUpn\n| where Country !in (KnownCountries)\n| project Timestamp, AccountUpn, Country, IPAddress, Application"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Impossible travel (UDM)",
+        "description": "YARA-L impossible-travel detection between two successful auth events.",
+        "dataSource": "UDM USER_LOGIN",
+        "confidence": "medium",
+        "query": "rule t1078_impossible_travel {\n  meta:\n    mitre_attack = \"T1078\"\n    severity = \"MEDIUM\"\n  events:\n    $a.metadata.event_type = \"USER_LOGIN\"\n    $b.metadata.event_type = \"USER_LOGIN\"\n    $a.principal.user.userid = $b.principal.user.userid\n    $a.principal.location.country_or_region != $b.principal.location.country_or_region\n  match:\n    $a.principal.user.userid over 1h\n  condition:\n    #a >= 1 and #b >= 1\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Multiple geographies for same user",
+        "description": "Detect identity used in multiple country codes within a short window.",
+        "dataSource": "Falcon UserLogon",
+        "confidence": "medium",
+        "query": "#event_simpleName=UserLogon\n| groupBy([UserName], function=collect_set(CountryName))\n| length(CountryName) >= 2"
+      }
+    ],
+    "T1486": [
+      {
+        "platform": "splunk",
+        "title": "Mass file modification + extension change (ransomware indicator)",
+        "description": "High-volume file write events with new extensions appearing on a single host.",
+        "dataSource": "Sysmon EventCode 11 (FileCreate) + 23 (FileDelete)",
+        "confidence": "high",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode IN (11,23)\n| rex field=TargetFilename \"\\.(?<ext>[a-zA-Z0-9]{2,8})$\"\n| stats dc(TargetFilename) as file_count, values(ext) as extensions by ComputerName, span=5m _time\n| where file_count > 200\n| eval suspicious=if(mvcount(extensions)<3,1,0)\n| where suspicious=1"
+      },
+      {
+        "platform": "elastic",
+        "title": "Ransomware bulk file rename",
+        "description": "Elastic EQL detecting bulk RenameFile events with anomalous extensions.",
+        "dataSource": "endgame/elastic-defend file events",
+        "confidence": "high",
+        "query": "sequence by host.id, user.name with maxspan=5m\n  [file where event.action == \"rename\" and\n    file.extension in (\"crypt\", \"locked\", \"enc\", \"crypted\", \"encrypted\", \"crypz\", \"locky\", \"wcry\", \"wncry\")] with runs=20"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 Defender â€” Mass file encryption activity",
+        "description": "Hunt for high write volume with rename activity on a single device.",
+        "dataSource": "DeviceFileEvents",
+        "confidence": "high",
+        "query": "DeviceFileEvents\n| where ActionType in (\"FileCreated\", \"FileRenamed\")\n| where Timestamp > ago(1h)\n| extend Ext = tostring(split(FileName, \".\")[-1])\n| where Ext in~ (\"crypt\",\"locked\",\"enc\",\"encrypted\",\"locky\",\"wcry\",\"wncry\",\"ryk\",\"conti\")\n| summarize Files = dcount(FolderPath), Extensions = make_set(Ext) by DeviceName, bin(Timestamp, 5m)\n| where Files > 100"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Bulk file modification with ransom extension",
+        "description": "YARA-L 2.0 rule for ransomware-extension write storm.",
+        "dataSource": "UDM FILE_CREATION/MODIFICATION",
+        "confidence": "high",
+        "query": "rule t1486_ransomware_ext {\n  meta:\n    mitre_attack = \"T1486\"\n    severity = \"CRITICAL\"\n  events:\n    $f.metadata.event_type = \"FILE_MODIFICATION\"\n    $f.target.file.full_path = /\\.(crypt|locked|encrypted|wncry|locky|conti|ryk)$/ nocase\n  match:\n    $f.principal.hostname over 5m\n  outcome:\n    $count = count_distinct($f.target.file.full_path)\n  condition:\n    $f and $count > 50\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Ransomware file extension burst",
+        "description": "Bulk write activity with known ransomware extension.",
+        "dataSource": "Falcon FsWriteEnded",
+        "confidence": "high",
+        "query": "#event_simpleName=FsWriteEnded TargetFileName=/\\.(crypt|locked|encrypted|wncry|conti|ryk|locky)$/i\n| groupBy([ComputerName, ContextProcessId])\n| count() > 50"
+      }
+    ],
+    "T1190": [
+      {
+        "platform": "splunk",
+        "title": "Public-facing app â€” exploit attempts in web logs",
+        "description": "Detect 4xx/5xx responses for known exploit paths against perimeter web servers.",
+        "dataSource": "Web access logs (Apache/IIS/Nginx)",
+        "confidence": "medium",
+        "query": "index=web sourcetype IN (access_combined, iis, nginx)\n| eval path=lower(uri_path)\n| where match(path,\"(jndi:ldap|/wp-admin/|/phpmyadmin|/.env|/.git/|/console|/struts|/cgi-bin/)\") OR match(path,\"\\\\.(php|asp|jsp)\\\\?cmd=\")\n| stats count, values(uri_path) as paths by src_ip, status, host\n| where count > 5\n| sort -count"
+      },
+      {
+        "platform": "elastic",
+        "title": "Web exploit indicator strings",
+        "description": "EQL alert on common exploit strings in URL or user-agent.",
+        "dataSource": "logs-* (network/http)",
+        "confidence": "medium",
+        "query": "network where url.path : (\"*jndi:ldap*\", \"*/wp-admin/*\", \"*/phpmyadmin*\", \"*/.git/*\", \"*/.env*\", \"*${jndi*\")\nor user_agent.original : (\"*sqlmap*\", \"*nmap*\", \"*nikto*\", \"*acunetix*\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Network exposed to known CVE exploit pattern",
+        "description": "Use Microsoft Defender vulnerability data to spot exploit attempts on hosts with known CVE exposure.",
+        "dataSource": "DeviceTvmSoftwareVulnerabilities + DeviceNetworkEvents",
+        "confidence": "medium",
+        "query": "DeviceTvmSoftwareVulnerabilities\n| summarize CveList = make_set(CveId) by DeviceId\n| join kind=inner (\n  DeviceNetworkEvents\n  | where Timestamp > ago(24h)\n  | where RemoteUrl has_any (\"jndi:\", \"/.env\", \"/wp-admin\", \"/phpmyadmin\")\n) on DeviceId\n| project Timestamp, DeviceName, RemoteUrl, RemoteIP, CveList"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Web exploit string in URL",
+        "description": "YARA-L rule detecting exploitation patterns in HTTP traffic.",
+        "dataSource": "UDM NETWORK_HTTP",
+        "confidence": "medium",
+        "query": "rule t1190_web_exploit {\n  meta:\n    mitre_attack = \"T1190\"\n    severity = \"HIGH\"\n  events:\n    $h.metadata.event_type = \"NETWORK_HTTP\"\n    $h.target.url = /(jndi:ldap|wp-admin|phpmyadmin|\\/\\.env|\\/\\.git\\/|\\$\\{jndi)/ nocase\n  condition:\n    $h\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Web exploit indicators",
+        "description": "Search for exploit strings in network/proxy logs.",
+        "dataSource": "Falcon Network/HTTP",
+        "confidence": "medium",
+        "query": "#event_simpleName=NetworkConnect or #event_simpleName=HttpRequest\n| RequestUrl=/(jndi:ldap|\\/wp-admin|\\/phpmyadmin|\\/\\.env|\\/\\.git\\/)/i\n| groupBy([RemoteAddressIP4, RequestUrl])"
+      }
+    ],
+    "T1110": [
+      {
+        "platform": "splunk",
+        "title": "Brute force â€” high-volume failed logons followed by success",
+        "description": "Many 4625 failures followed by a 4624 success from same source within 5m.",
+        "dataSource": "Windows Security log",
+        "confidence": "high",
+        "query": "index=wineventlog EventCode IN (4624,4625) Account_Name=*\n| transaction Account_Name maxspan=5m\n| eval failures=mvcount(mvfilter(EventCode=4625))\n| eval successes=mvcount(mvfilter(EventCode=4624))\n| where failures>=10 AND successes>=1\n| table _time, Account_Name, failures, successes, IpAddress, ComputerName"
+      },
+      {
+        "platform": "elastic",
+        "title": "Auth burst followed by success (sequence)",
+        "description": "Elastic EQL sequence of N failures then 1 success per source.",
+        "dataSource": "winlog 4624/4625",
+        "confidence": "high",
+        "query": "sequence by source.ip with maxspan=5m\n  [authentication where event.outcome == \"failure\"] with runs=10\n  [authentication where event.outcome == \"success\"]"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Failed sign-ins followed by success (cloud or AD)",
+        "description": "Identifies password-spray followed by valid logon.",
+        "dataSource": "AADSignInEventsBeta or IdentityLogonEvents",
+        "confidence": "high",
+        "query": "let fails = AADSignInEventsBeta\n  | where Timestamp > ago(1h) and ErrorCode != 0\n  | summarize Failures = count() by AccountUpn, IPAddress, bin(Timestamp, 10m)\n  | where Failures >= 10;\nAADSignInEventsBeta\n| where Timestamp > ago(1h) and ErrorCode == 0\n| join kind=inner fails on AccountUpn, IPAddress\n| project Timestamp, AccountUpn, IPAddress, Country, Failures"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Brute force success",
+        "description": "YARA-L 2.0 rule for credential brute-force pattern.",
+        "dataSource": "UDM USER_LOGIN events",
+        "confidence": "high",
+        "query": "rule t1110_brute_force {\n  meta:\n    mitre_attack = \"T1110\"\n    severity = \"HIGH\"\n  events:\n    $fail.metadata.event_type = \"USER_LOGIN\"\n    $fail.security_result.action = \"BLOCK\"\n    $success.metadata.event_type = \"USER_LOGIN\"\n    $success.security_result.action = \"ALLOW\"\n    $fail.principal.ip = $success.principal.ip\n    $fail.target.user.userid = $success.target.user.userid\n  match:\n    $success.target.user.userid over 5m\n  outcome:\n    $fail_count = count($fail)\n  condition:\n    $success and $fail_count >= 10\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Brute force pattern",
+        "description": "LogScale detection for many auth failures followed by success.",
+        "dataSource": "Falcon UserLogonFailed/UserLogon",
+        "confidence": "high",
+        "query": "(#event_simpleName=UserLogonFailed | groupBy([UserName, RemoteAddressIP4], function=count(as=fails))\n| fails >= 10) AND\n(#event_simpleName=UserLogon | groupBy([UserName, RemoteAddressIP4], function=count(as=success))\n| success >= 1)"
+      }
+    ],
+    "T1566.001": [
+      {
+        "platform": "splunk",
+        "title": "Spearphishing attachment â€” email gateway â†’ endpoint execution",
+        "description": "Correlate inbound email attachment with subsequent process creation by Office app.",
+        "dataSource": "Email gateway + Sysmon EventCode 1",
+        "confidence": "high",
+        "query": "index=email | rename recipient AS dest_user\n| join dest_user [ search index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1 ParentImage=\"*WINWORD.EXE\" OR ParentImage=\"*EXCEL.EXE\" OR ParentImage=\"*OUTLOOK.EXE\" Image IN (\"*powershell.exe\",\"*cmd.exe\",\"*wscript.exe\",\"*cscript.exe\",\"*mshta.exe\",\"*rundll32.exe\")\n  | rename User as dest_user ]\n| stats count by sender, recipient, ParentImage, Image, CommandLine"
+      },
+      {
+        "platform": "elastic",
+        "title": "Office spawns suspicious child",
+        "description": "Detect MS Office processes spawning script/loader children.",
+        "dataSource": "endpoint events",
+        "confidence": "high",
+        "query": "process where event.type == \"start\" and\n  process.parent.name : (\"WINWORD.EXE\", \"EXCEL.EXE\", \"POWERPNT.EXE\", \"OUTLOOK.EXE\") and\n  process.name : (\"powershell.exe\", \"cmd.exe\", \"wscript.exe\", \"cscript.exe\", \"mshta.exe\", \"rundll32.exe\", \"regsvr32.exe\", \"certutil.exe\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Office app spawning script interpreter",
+        "description": "Hunting query for spearphishing macro execution.",
+        "dataSource": "DeviceProcessEvents",
+        "confidence": "high",
+        "query": "DeviceProcessEvents\n| where InitiatingProcessFileName in~ (\"winword.exe\", \"excel.exe\", \"powerpnt.exe\", \"outlook.exe\")\n| where FileName in~ (\"powershell.exe\", \"cmd.exe\", \"wscript.exe\", \"cscript.exe\", \"mshta.exe\", \"rundll32.exe\", \"regsvr32.exe\", \"certutil.exe\")\n| project Timestamp, DeviceName, AccountName, InitiatingProcessFileName, FileName, ProcessCommandLine"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Office macro spawn",
+        "description": "YARA-L rule for Office process launching scripting host.",
+        "dataSource": "UDM PROCESS_LAUNCH",
+        "confidence": "high",
+        "query": "rule t1566_001_office_macro {\n  meta:\n    mitre_attack = \"T1566.001\"\n    severity = \"HIGH\"\n  events:\n    $p.metadata.event_type = \"PROCESS_LAUNCH\"\n    $p.principal.process.file.full_path = /(winword|excel|powerpnt|outlook)\\.exe$/ nocase\n    $p.target.process.file.full_path = /(powershell|cmd|wscript|cscript|mshta|rundll32|regsvr32|certutil)\\.exe$/ nocase\n  condition:\n    $p\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Office spawning script host",
+        "description": "Detect Office app spawning a script interpreter.",
+        "dataSource": "Falcon ProcessRollup2",
+        "confidence": "high",
+        "query": "#event_simpleName=ProcessRollup2 ParentBaseFileName=/(winword|excel|powerpnt|outlook)\\.exe/i FileName=/(powershell|cmd|wscript|cscript|mshta|rundll32|regsvr32|certutil)\\.exe/i\n| groupBy([ComputerName, UserName, ParentBaseFileName, FileName])"
+      }
+    ],
+    "T1055": [
+      {
+        "platform": "splunk",
+        "title": "CreateRemoteThread / WriteProcessMemory pattern",
+        "description": "Sysmon EventCode 8 (CreateRemoteThread) into a non-system target.",
+        "dataSource": "Sysmon EventCode 8",
+        "confidence": "high",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=8\n| where NOT match(SourceImage,\"(?i)\\\\\\\\windows\\\\\\\\system32\\\\\\\\(svchost|wininit|csrss|services|MsMpEng)\\\\.exe\")\n| stats count by SourceImage, TargetImage, ComputerName, _time"
+      },
+      {
+        "platform": "elastic",
+        "title": "Process injection via remote thread",
+        "description": "Elastic EQL for CreateRemoteThread API.",
+        "dataSource": "endpoint events",
+        "confidence": "high",
+        "query": "process where event.action == \"create-remote-thread\" and\n  not process.executable : (\"?:\\\\Windows\\\\System32\\\\svchost.exe\",\n                            \"?:\\\\Windows\\\\System32\\\\MsMpEng.exe\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Cross-process injection events",
+        "description": "Hunt for cross-process injection actions.",
+        "dataSource": "DeviceEvents",
+        "confidence": "high",
+        "query": "DeviceEvents\n| where ActionType in (\"CreateRemoteThreadApiCall\", \"WriteProcessMemoryApiCall\")\n| where InitiatingProcessFileName !in~ (\"svchost.exe\",\"MsMpEng.exe\")\n| project Timestamp, DeviceName, InitiatingProcessFileName, FileName, AdditionalFields"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Process injection indicator",
+        "description": "YARA-L rule for cross-process injection.",
+        "dataSource": "UDM PROCESS events",
+        "confidence": "high",
+        "query": "rule t1055_process_injection {\n  meta:\n    mitre_attack = \"T1055\"\n    severity = \"HIGH\"\n  events:\n    $e.metadata.event_type = \"PROCESS_INJECTION\"\n    not $e.principal.process.file.full_path = /\\\\(svchost|MsMpEng)\\.exe$/ nocase\n  condition:\n    $e\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Cross-process injection",
+        "description": "LogScale detection for injection patterns.",
+        "dataSource": "Falcon ProcessRollup2 + InjectedThread",
+        "confidence": "high",
+        "query": "#event_simpleName=InjectedThread\n| groupBy([SourceProcessImageFileName, TargetProcessImageFileName, ComputerName])"
+      }
+    ],
+    "T1027": [
+      {
+        "platform": "splunk",
+        "title": "Suspicious base64 / obfuscated cmdline",
+        "description": "Detect long base64-like strings and frombase64string usage in command-lines.",
+        "dataSource": "Sysmon EventCode 1",
+        "confidence": "medium",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1\n| eval cl=lower(CommandLine)\n| where match(cl,\"frombase64string|::base64\") OR (len(CommandLine)>500 AND match(CommandLine,\"[A-Za-z0-9+/=]{200,}\"))\n| stats count by Image, CommandLine, ComputerName"
+      },
+      {
+        "platform": "elastic",
+        "title": "Long encoded command-line content",
+        "description": "EQL detection for suspiciously long encoded command-lines.",
+        "dataSource": "endpoint process events",
+        "confidence": "medium",
+        "query": "process where length(process.command_line) > 500 and\n  process.command_line : (\"*FromBase64String*\", \"*::Base64*\", \"*-EncodedCommand*\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Encoded command-line activity",
+        "description": "Hunting for encoded payloads in command-lines.",
+        "dataSource": "DeviceProcessEvents",
+        "confidence": "medium",
+        "query": "DeviceProcessEvents\n| where ProcessCommandLine has_any (\"FromBase64String\", \"::Base64\", \"-EncodedCommand\", \"-enc \")\n| where strlen(ProcessCommandLine) > 200\n| project Timestamp, DeviceName, FileName, ProcessCommandLine"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Encoded payload pattern",
+        "description": "YARA-L for base64-encoded command execution.",
+        "dataSource": "UDM PROCESS_LAUNCH",
+        "confidence": "medium",
+        "query": "rule t1027_encoded_payload {\n  meta:\n    mitre_attack = \"T1027\"\n    severity = \"MEDIUM\"\n  events:\n    $p.metadata.event_type = \"PROCESS_LAUNCH\"\n    $p.target.process.command_line = /(FromBase64String|::Base64|-EncodedCommand|-enc\\s)/ nocase\n  condition:\n    $p\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” base64 payload in cmdline",
+        "description": "LogScale base64 detection.",
+        "dataSource": "Falcon ProcessRollup2",
+        "confidence": "medium",
+        "query": "#event_simpleName=ProcessRollup2 CommandLine=/(?i)(FromBase64String|::Base64|-EncodedCommand|-enc\\s)/\n| groupBy([FileName, ComputerName])"
+      }
+    ],
+    "T1021.001": [
+      {
+        "platform": "splunk",
+        "title": "RDP â€” successful logon from unusual source",
+        "description": "Logon Type 10 (RemoteInteractive) from a new source IP.",
+        "dataSource": "Windows Security 4624",
+        "confidence": "medium",
+        "query": "index=wineventlog EventCode=4624 LogonType=10\n| stats earliest(_time) as first_seen, count by Account_Name, IpAddress, ComputerName\n| eval is_new=if(first_seen>relative_time(now(),\"-24h\"),1,0)\n| where is_new=1"
+      },
+      {
+        "platform": "elastic",
+        "title": "RDP successful logon",
+        "description": "EQL detection for RDP authentication.",
+        "dataSource": "winlog 4624 LogonType:10",
+        "confidence": "medium",
+        "query": "authentication where event.outcome == \"success\" and winlog.event_data.LogonType == \"10\""
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” RDP logon to server",
+        "description": "Hunting for RDP successful sessions.",
+        "dataSource": "DeviceLogonEvents",
+        "confidence": "medium",
+        "query": "DeviceLogonEvents\n| where LogonType == \"RemoteInteractive\"\n| where ActionType == \"LogonSuccess\"\n| project Timestamp, DeviceName, AccountDomain, AccountName, RemoteIP, RemoteDeviceName"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” RDP successful logon",
+        "description": "YARA-L rule for RemoteInteractive successful logon.",
+        "dataSource": "UDM USER_LOGIN",
+        "confidence": "medium",
+        "query": "rule t1021_001_rdp_logon {\n  meta:\n    mitre_attack = \"T1021.001\"\n  events:\n    $e.metadata.event_type = \"USER_LOGIN\"\n    $e.network.session.session_type = \"REMOTE_INTERACTIVE\"\n    $e.security_result.action = \"ALLOW\"\n  condition:\n    $e\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” RDP logon",
+        "description": "LogScale RDP logon detection.",
+        "dataSource": "Falcon UserLogon",
+        "confidence": "medium",
+        "query": "#event_simpleName=UserLogon LogonType=RemoteInteractive\n| groupBy([UserName, RemoteAddressIP4, ComputerName])"
+      }
+    ],
+    "T1053.005": [
+      {
+        "platform": "splunk",
+        "title": "Scheduled task created with suspicious payload",
+        "description": "schtasks.exe /create with cmd or powershell payload.",
+        "dataSource": "Sysmon EventCode 1",
+        "confidence": "high",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1\n  Image=\"*schtasks.exe\" CommandLine=\"*/create*\"\n| eval cl=lower(CommandLine)\n| where match(cl, \"powershell|cmd\\.exe|wscript|cscript|mshta|rundll32|regsvr32\")\n| table _time, ComputerName, User, ParentImage, CommandLine"
+      },
+      {
+        "platform": "elastic",
+        "title": "schtasks create with script payload",
+        "description": "Elastic EQL for scheduled task creation invoking scripting host.",
+        "dataSource": "endpoint process events",
+        "confidence": "high",
+        "query": "process where process.name : \"schtasks.exe\" and process.args : \"/create\" and\n  process.command_line : (\"*powershell*\", \"*cmd.exe*\", \"*wscript*\", \"*mshta*\", \"*rundll32*\", \"*regsvr32*\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Scheduled task created with payload",
+        "description": "Hunt for schtasks.exe /create with suspicious payload.",
+        "dataSource": "DeviceProcessEvents",
+        "confidence": "high",
+        "query": "DeviceProcessEvents\n| where FileName =~ \"schtasks.exe\"\n| where ProcessCommandLine has_cs \"/create\"\n| where ProcessCommandLine has_any (\"powershell\", \"cmd.exe\", \"wscript\", \"mshta\", \"rundll32\", \"regsvr32\")\n| project Timestamp, DeviceName, AccountName, ProcessCommandLine"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Scheduled task with script payload",
+        "description": "YARA-L rule for schtasks creation with scripting payload.",
+        "dataSource": "UDM PROCESS_LAUNCH",
+        "confidence": "high",
+        "query": "rule t1053_005_schtasks_create {\n  meta:\n    mitre_attack = \"T1053.005\"\n  events:\n    $p.metadata.event_type = \"PROCESS_LAUNCH\"\n    $p.target.process.file.full_path = /schtasks\\.exe$/ nocase\n    $p.target.process.command_line = /\\/create/ nocase\n    $p.target.process.command_line = /(powershell|cmd\\.exe|wscript|mshta|rundll32|regsvr32)/ nocase\n  condition:\n    $p\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” schtasks /create",
+        "description": "LogScale detection for scheduled task creation with script payload.",
+        "dataSource": "Falcon ProcessRollup2",
+        "confidence": "high",
+        "query": "#event_simpleName=ProcessRollup2 FileName=/(?i)schtasks\\.exe/ CommandLine=/\\/create/i CommandLine=/(?i)(powershell|cmd\\.exe|wscript|mshta|rundll32|regsvr32)/\n| groupBy([ComputerName, UserName])"
+      }
+    ],
+    "T1547.001": [
+      {
+        "platform": "splunk",
+        "title": "Persistence â€” registry Run key modification",
+        "description": "Sysmon EventCode 13 (RegistryValueSet) for HKCU/HKLM Run keys.",
+        "dataSource": "Sysmon EventCode 13",
+        "confidence": "high",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=13\n| where match(TargetObject,\"(?i)\\\\\\\\Software\\\\\\\\Microsoft\\\\\\\\Windows\\\\\\\\CurrentVersion\\\\\\\\Run\")\n| where NOT match(Image,\"(?i)\\\\\\\\windows\\\\\\\\system32\\\\\\\\(svchost|MsMpEng|TiWorker)\\\\.exe\")\n| stats count by Image, TargetObject, Details, ComputerName"
+      },
+      {
+        "platform": "elastic",
+        "title": "Run key autostart written by non-system",
+        "description": "EQL for new persistence registry value under Run/RunOnce.",
+        "dataSource": "endpoint registry events",
+        "confidence": "high",
+        "query": "registry where event.type == \"change\" and\n  registry.path : (\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\\\\*\",\n                   \"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\RunOnce\\\\*\",\n                   \"HKEY_USERS\\\\*\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\\\\*\")"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Autostart registry persistence",
+        "description": "Hunt for Run/RunOnce registry value writes.",
+        "dataSource": "DeviceRegistryEvents",
+        "confidence": "high",
+        "query": "DeviceRegistryEvents\n| where ActionType == \"RegistryValueSet\"\n| where RegistryKey contains \"\\\\CurrentVersion\\\\Run\" or RegistryKey contains \"\\\\CurrentVersion\\\\RunOnce\"\n| where InitiatingProcessFileName !in~ (\"svchost.exe\",\"MsMpEng.exe\",\"TiWorker.exe\")\n| project Timestamp, DeviceName, InitiatingProcessFileName, RegistryKey, RegistryValueName, RegistryValueData"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Run-key persistence",
+        "description": "YARA-L rule for Run-key autostart write.",
+        "dataSource": "UDM REGISTRY_MODIFICATION",
+        "confidence": "high",
+        "query": "rule t1547_001_run_key {\n  meta:\n    mitre_attack = \"T1547.001\"\n  events:\n    $r.metadata.event_type = \"REGISTRY_MODIFICATION\"\n    $r.target.registry.registry_key = /\\\\CurrentVersion\\\\(Run|RunOnce)\\\\/ nocase\n  condition:\n    $r\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Run-key persistence",
+        "description": "LogScale detection for Run/RunOnce registry persistence.",
+        "dataSource": "Falcon AsepValueUpdate",
+        "confidence": "high",
+        "query": "#event_simpleName=AsepValueUpdate AsepValueType=/(?i)Run/\n| groupBy([ComputerName, AsepKeyName, AsepValueName, AsepValueData])"
+      }
+    ],
+    "T1018": [
+      {
+        "platform": "splunk",
+        "title": "Network discovery â€” net.exe view, ping sweep",
+        "description": "Detect built-in Windows reconnaissance commands typical of post-exploit discovery.",
+        "dataSource": "Sysmon EventCode 1",
+        "confidence": "medium",
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1\n  Image IN (\"*net.exe\",\"*nltest.exe\",\"*ping.exe\",\"*nslookup.exe\")\n| where match(CommandLine,\"(?i)(view|/dclist|/domain_trusts|-n\\\\s+1)\") OR Image=\"*nslookup.exe\"\n| stats count, values(CommandLine) as cmds by ComputerName, User, Image"
+      },
+      {
+        "platform": "elastic",
+        "title": "Living-off-the-land discovery commands",
+        "description": "Detect net/nltest/ping recon patterns.",
+        "dataSource": "endpoint process events",
+        "confidence": "medium",
+        "query": "process where event.type == \"start\" and (\n  (process.name : \"net.exe\" and process.args : \"view\") or\n  (process.name : \"nltest.exe\" and process.args : (\"/dclist*\", \"/domain_trusts*\")) or\n  (process.name : \"nslookup.exe\")\n)"
+      },
+      {
+        "platform": "microsoft",
+        "title": "M365 â€” Discovery commands",
+        "description": "Hunt for native discovery utilities.",
+        "dataSource": "DeviceProcessEvents",
+        "confidence": "medium",
+        "query": "DeviceProcessEvents\n| where FileName in~ (\"net.exe\", \"nltest.exe\", \"nslookup.exe\", \"ping.exe\")\n| where ProcessCommandLine has_any (\"view\", \"/dclist\", \"/domain_trusts\", \"-n 1\")\n| project Timestamp, DeviceName, AccountName, ProcessCommandLine"
+      },
+      {
+        "platform": "chronicle",
+        "title": "Chronicle â€” Built-in discovery commands",
+        "description": "YARA-L rule for native Windows discovery utilities.",
+        "dataSource": "UDM PROCESS_LAUNCH",
+        "confidence": "medium",
+        "query": "rule t1018_remote_system_discovery {\n  meta:\n    mitre_attack = \"T1018\"\n  events:\n    $p.metadata.event_type = \"PROCESS_LAUNCH\"\n    $p.target.process.file.full_path = /(net|nltest|nslookup|ping)\\.exe$/ nocase\n    $p.target.process.command_line = /(view|\\/dclist|\\/domain_trusts)/ nocase\n  condition:\n    $p\n}"
+      },
+      {
+        "platform": "crowdstrike",
+        "title": "Falcon LogScale â€” Discovery commands",
+        "description": "LogScale detection for built-in discovery utilities.",
+        "dataSource": "Falcon ProcessRollup2",
+        "confidence": "medium",
+        "query": "#event_simpleName=ProcessRollup2 FileName=/(?i)(net|nltest|nslookup|ping)\\.exe/ CommandLine=/(?i)(view|\\/dclist|\\/domain_trusts)/\n| groupBy([ComputerName, UserName, FileName])"
+      }
+    ]
+  }
+}

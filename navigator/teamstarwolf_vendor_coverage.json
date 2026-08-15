@@ -1,0 +1,3951 @@
+{
+  "name": "TeamStarWolf - NIST 800-53 R5 Control Depth",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "ATT&CK technique coverage scored by NIST 800-53 R5 control depth - the number of distinct NIST controls that map to each technique via the CTID Mappings Explorer (NIST 800-53 R5 to ATT&CK v16.1). Higher score = more control families available to mitigate the technique; low scores flag techniques with thin framework coverage that warrant compensating detection or design controls. Source: center-for-threat-informed-defense/mappings-explorer.",
+  "filters": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network",
+      "PRE",
+      "Containers",
+      "IaaS",
+      "SaaS",
+      "Office Suite",
+      "Identity Provider"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "max",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 32,
+      "comment": "32 NIST 800-53 R5 controls map to this technique. Top families: AC (11), CM (6), IA (6), SI (5)."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 32,
+      "comment": "32 NIST 800-53 R5 controls map to this technique. Top families: AC (10), SI (6), CM (5), IA (4)."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 31,
+      "comment": "31 NIST 800-53 R5 controls map to this technique. Top families: SC (10), CM (6), SI (5), AC (5)."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 29,
+      "comment": "29 NIST 800-53 R5 controls map to this technique. Top families: SC (8), SI (5), AC (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 27,
+      "comment": "27 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (6), SI (5), SC (4)."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 27,
+      "comment": "27 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (6), SI (5), SC (4)."
+    },
+    {
+      "techniqueID": "T1565",
+      "tactic": "impact",
+      "score": 26,
+      "comment": "26 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SC (5), SI (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: SA (7), IA (4), AC (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: SA (7), IA (4), AC (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: SA (7), IA (4), AC (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: SA (7), IA (4), AC (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1602",
+      "tactic": "collection",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), SC (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1602.001",
+      "tactic": "collection",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), SC (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1602.002",
+      "tactic": "collection",
+      "score": 25,
+      "comment": "25 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), SC (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "defense-evasion",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: SA (7), AC (6), IA (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: SA (7), AC (6), IA (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: SA (7), AC (6), IA (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: SA (7), AC (6), IA (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1212",
+      "tactic": "credential-access",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: SC (8), SI (5), CM (4), AC (3)."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: AC (9), CM (7), IA (3), SC (2)."
+    },
+    {
+      "techniqueID": "T1213.005",
+      "tactic": "collection",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: AC (8), CM (6), IA (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), SC (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), SC (5), CM (4)."
+    },
+    {
+      "techniqueID": "T1601",
+      "tactic": "defense-evasion",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (5), IA (3), SR (3)."
+    },
+    {
+      "techniqueID": "T1601.001",
+      "tactic": "defense-evasion",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (5), IA (3), SR (3)."
+    },
+    {
+      "techniqueID": "T1601.002",
+      "tactic": "defense-evasion",
+      "score": 24,
+      "comment": "24 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (5), IA (3), SR (3)."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (10), CM (6), IA (4), SC (2)."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SC (4), SI (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SC (4), SI (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SC (4), SI (4), CM (3)."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (6), AC (5), IA (3)."
+    },
+    {
+      "techniqueID": "T1213.001",
+      "tactic": "collection",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (9), CM (7), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1213.002",
+      "tactic": "collection",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (9), CM (7), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1542.005",
+      "tactic": "defense-evasion",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (4), IA (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1542.005",
+      "tactic": "persistence",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (4), IA (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 23,
+      "comment": "23 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SI (5), CP (4), SC (4)."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SI (5), CM (4), IA (3)."
+    },
+    {
+      "techniqueID": "T1021.005",
+      "tactic": "lateral-movement",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: CM (8), AC (5), SI (4), IA (3)."
+    },
+    {
+      "techniqueID": "T1070.008",
+      "tactic": "defense-evasion",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: AC (10), SI (5), CP (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (4), SR (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1211",
+      "tactic": "defense-evasion",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: SC (9), SI (5), CM (4), RA (2)."
+    },
+    {
+      "techniqueID": "T1505.004",
+      "tactic": "persistence",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (5), AC (4), SR (3)."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (6), AC (5), SC (2)."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "defense-evasion",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (6), AC (5), SC (2)."
+    },
+    {
+      "techniqueID": "T1557.002",
+      "tactic": "credential-access",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), CM (4), SC (4)."
+    },
+    {
+      "techniqueID": "T1557.002",
+      "tactic": "collection",
+      "score": 22,
+      "comment": "22 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (6), CM (4), SC (4)."
+    },
+    {
+      "techniqueID": "T1020.001",
+      "tactic": "exfiltration",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: AC (9), CM (5), SC (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: SC (6), CM (5), SI (5), AC (3)."
+    },
+    {
+      "techniqueID": "T1070.001",
+      "tactic": "defense-evasion",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: AC (8), SI (5), CP (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1070.002",
+      "tactic": "defense-evasion",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: AC (8), SI (5), CP (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1505",
+      "tactic": "persistence",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (5), SI (3), SR (3)."
+    },
+    {
+      "techniqueID": "T1505.002",
+      "tactic": "persistence",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (5), SI (3), SR (3)."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 21,
+      "comment": "21 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SC (4), CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "defense-evasion",
+      "score": 20,
+      "comment": "20 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SI (5), CP (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "defense-evasion",
+      "score": 20,
+      "comment": "20 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (5), AC (5), CA (1)."
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 20,
+      "comment": "20 NIST 800-53 R5 controls map to this technique. Top families: AC (8), IA (4), CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1543",
+      "tactic": "persistence",
+      "score": 20,
+      "comment": "20 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (5), SI (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1543",
+      "tactic": "privilege-escalation",
+      "score": 20,
+      "comment": "20 NIST 800-53 R5 controls map to this technique. Top families: CM (7), AC (5), SI (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1553",
+      "tactic": "defense-evasion",
+      "score": 20,
+      "comment": "20 NIST 800-53 R5 controls map to this technique. Top families: CM (8), SI (4), AC (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), SI (4), SC (3)."
+    },
+    {
+      "techniqueID": "T1021.003",
+      "tactic": "lateral-movement",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (5), SC (4), SI (2)."
+    },
+    {
+      "techniqueID": "T1052",
+      "tactic": "exfiltration",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), SC (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1052.001",
+      "tactic": "exfiltration",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), SC (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: SI (6), AC (5), CM (4), IA (3)."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "defense-evasion",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (5), CM (4), SA (2)."
+    },
+    {
+      "techniqueID": "T1542",
+      "tactic": "defense-evasion",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), SA (2)."
+    },
+    {
+      "techniqueID": "T1542",
+      "tactic": "persistence",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), SA (2)."
+    },
+    {
+      "techniqueID": "T1542.004",
+      "tactic": "defense-evasion",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (3), SA (2), RA (2)."
+    },
+    {
+      "techniqueID": "T1542.004",
+      "tactic": "persistence",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (3), SA (2), RA (2)."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (8), SI (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1558.002",
+      "tactic": "credential-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (8), SI (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (8), SI (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1558.004",
+      "tactic": "credential-access",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SI (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1559",
+      "tactic": "execution",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (5), SC (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1563",
+      "tactic": "lateral-movement",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (6), IA (3), SC (2)."
+    },
+    {
+      "techniqueID": "T1611",
+      "tactic": "privilege-escalation",
+      "score": 19,
+      "comment": "19 NIST 800-53 R5 controls map to this technique. Top families: SC (5), SI (5), AC (5), CM (3)."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SC (4), CA (2), SA (2)."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: SC (8), SI (4), CM (3), AC (2)."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: SC (7), SI (4), CM (3), AC (2)."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SA (4), SR (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1213.004",
+      "tactic": "collection",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (8), IA (3), SI (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1218.015",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: SI (6), CM (5), SC (3), AC (2)."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), SA (2)."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), SA (2)."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "persistence",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: SI (7), AC (4), CM (3), IA (3)."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "privilege-escalation",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: SI (7), AC (4), CM (3), IA (3)."
+    },
+    {
+      "techniqueID": "T1552.002",
+      "tactic": "credential-access",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SC (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (8), CM (5), SC (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1574",
+      "tactic": "persistence",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (5), AC (5), CA (1)."
+    },
+    {
+      "techniqueID": "T1574",
+      "tactic": "privilege-escalation",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (5), AC (5), CA (1)."
+    },
+    {
+      "techniqueID": "T1574",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (5), AC (5), CA (1)."
+    },
+    {
+      "techniqueID": "T1599",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), SI (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1599.001",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), SI (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1003.005",
+      "tactic": "credential-access",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), IA (3), SC (2)."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (5), CM (4), SC (1)."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: SI (6), CM (4), AC (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (4), CM (3), CP (3)."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "persistence",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), IA (3), SA (2)."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "defense-evasion",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), IA (3), SA (2)."
+    },
+    {
+      "techniqueID": "T1548.006",
+      "tactic": "defense-evasion",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), AC (5), CA (1)."
+    },
+    {
+      "techniqueID": "T1548.006",
+      "tactic": "privilege-escalation",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), AC (5), CA (1)."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: SC (4), AC (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "credential-access",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "defense-evasion",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "persistence",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1562.006",
+      "tactic": "defense-evasion",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SI (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1563.001",
+      "tactic": "lateral-movement",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 17,
+      "comment": "17 NIST 800-53 R5 controls map to this technique. Top families: AC (7), SC (3), CA (2), SA (2)."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), IA (3), SC (2)."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (4), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (5), SC (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), AC (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: SC (8), SI (4), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1204.003",
+      "tactic": "execution",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SR (3), SC (2)."
+    },
+    {
+      "techniqueID": "T1218.012",
+      "tactic": "defense-evasion",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: SI (6), CM (5), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SA (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "persistence",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (4), AC (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "privilege-escalation",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (4), AC (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "credential-access",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: SC (6), AC (4), SI (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "collection",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: SC (6), AC (4), SI (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "score": 16,
+      "comment": "16 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SI (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1025",
+      "tactic": "collection",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SC (4), SI (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1059.002",
+      "tactic": "execution",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: SI (5), AC (4), SR (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: SI (6), CM (5), AC (4)."
+    },
+    {
+      "techniqueID": "T1059.008",
+      "tactic": "execution",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (5), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: SC (8), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: SC (8), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: SC (8), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1071.003",
+      "tactic": "command-and-control",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: SC (8), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1098.004",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1098.004",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SI (3), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1525",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (4), AC (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1547.013",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1547.013",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SI (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SI (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "credential-access",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (4), SI (4), AC (2)."
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "collection",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (4), SI (4), AC (2)."
+    },
+    {
+      "techniqueID": "T1557.003",
+      "tactic": "credential-access",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (4), SI (4), AC (2)."
+    },
+    {
+      "techniqueID": "T1557.003",
+      "tactic": "collection",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (4), SI (4), AC (2)."
+    },
+    {
+      "techniqueID": "T1574.007",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.007",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.007",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.008",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.008",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.008",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.009",
+      "tactic": "persistence",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.009",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.009",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), SI (4), CA (1)."
+    },
+    {
+      "techniqueID": "T1622",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (4), SI (4), AC (2)."
+    },
+    {
+      "techniqueID": "T1622",
+      "tactic": "discovery",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (4), SI (4), AC (2)."
+    },
+    {
+      "techniqueID": "T1647",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1003.004",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1003.007",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1003.008",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (4), IA (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), RA (1)."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), RA (1)."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "privilege-escalation",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), IA (3), RA (1)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "defense-evasion",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (3), CA (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (3), CA (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (3), CA (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: SA (8), AC (3), CA (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SI (3), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1136.003",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1176",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (7), SI (4), CA (1), RA (1)."
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1195.003",
+      "tactic": "initial-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SR (3), SA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "defense-evasion",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: SA (5), AC (4), IA (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1221",
+      "tactic": "defense-evasion",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: SI (6), CM (4), SC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SC (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (3), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1552.007",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (3), SC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "defense-evasion",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.009",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.009",
+      "tactic": "defense-evasion",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.009",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), IA (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1559.002",
+      "tactic": "execution",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SC (3), SI (3), AC (2)."
+    },
+    {
+      "techniqueID": "T1569",
+      "tactic": "execution",
+      "score": 14,
+      "comment": "14 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (4), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SC (3), SI (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1053.002",
+      "tactic": "execution",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1053.002",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1053.002",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (6), AC (4), IA (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), IA (4), CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1134.005",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SA (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1134.005",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SA (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1137",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (3), SC (2)."
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (6), CM (3), SC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (3), AC (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CP (4), CM (3), SI (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1546.006",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SR (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1546.006",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SR (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (5), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (5), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1548.003",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), CA (1), RA (1)."
+    },
+    {
+      "techniqueID": "T1548.003",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), CA (1), RA (1)."
+    },
+    {
+      "techniqueID": "T1553.006",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SA (2), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "credential-access",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (3), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1559.001",
+      "tactic": "execution",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SC (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1562.001",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1562.002",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1562.004",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1562.009",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1564.009",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SC (3), SA (1)."
+    },
+    {
+      "techniqueID": "T1565.003",
+      "tactic": "impact",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SC (4), SI (3), CM (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: SI (4), SC (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.004",
+      "tactic": "persistence",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.004",
+      "tactic": "privilege-escalation",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.004",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), IA (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1048.001",
+      "tactic": "exfiltration",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), SC (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1055.008",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1055.008",
+      "tactic": "privilege-escalation",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), SC (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SC (3), SI (3), CM (1)."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (3), SC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1484",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1484",
+      "tactic": "privilege-escalation",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: CM (5), AC (5), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SR (3), SA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "privilege-escalation",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1552.006",
+      "tactic": "credential-access",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: CM (3), AC (3), IA (2), SA (2)."
+    },
+    {
+      "techniqueID": "T1556.003",
+      "tactic": "credential-access",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.003",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1556.003",
+      "tactic": "persistence",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (3), SC (1)."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 12,
+      "comment": "12 NIST 800-53 R5 controls map to this technique. Top families: SI (4), SC (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1021.008",
+      "tactic": "lateral-movement",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), IA (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SC (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (5), AC (4), CM (2)."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (5), AC (4), CM (2)."
+    },
+    {
+      "techniqueID": "T1059.010",
+      "tactic": "execution",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (3), AC (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), IA (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), IA (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SR (3), CA (2), RA (2), CM (2)."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), SC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1218.002",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1218.003",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1218.004",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1218.008",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1218.009",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1218.013",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1218.014",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (5), RA (1)."
+    },
+    {
+      "techniqueID": "T1222",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1222.002",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CP (5), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1505.005",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (7), CM (2), RA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1547.007",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (2), AC (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1547.007",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (6), SI (2), AC (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (3), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), SI (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), SI (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1548.004",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SC (2)."
+    },
+    {
+      "techniqueID": "T1548.004",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SC (2)."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (3), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (4), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (4), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (4), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.005",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.005",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.005",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.010",
+      "tactic": "persistence",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.010",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.010",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (4), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1578",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (3), CM (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1578.001",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (3), CM (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1578.002",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (3), CM (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1578.003",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (3), CM (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (3), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (3), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: SC (3), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1609",
+      "tactic": "execution",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (6), CM (2), SI (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1612",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), RA (1), SA (1)."
+    },
+    {
+      "techniqueID": "T1053.006",
+      "tactic": "execution",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1053.006",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1053.006",
+      "tactic": "privilege-escalation",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1070.003",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1070.007",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1070.009",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), SI (3), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (4), SC (2), CM (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), AC (2), MP (1)."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), AC (2), MP (1)."
+    },
+    {
+      "techniqueID": "T1127.002",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (3), AC (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), SC (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1137.002",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), SC (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1187",
+      "tactic": "credential-access",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1218.001",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CM (4), SC (1)."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1491",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CM (2), IA (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1546.013",
+      "tactic": "privilege-escalation",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1546.013",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1547.003",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1547.003",
+      "tactic": "privilege-escalation",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1553.003",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1558.005",
+      "tactic": "credential-access",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (3), AC (3), IA (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1561",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: CP (4), SI (3), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (4), AC (3), SC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.014",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.014",
+      "tactic": "privilege-escalation",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1574.014",
+      "tactic": "defense-evasion",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1613",
+      "tactic": "discovery",
+      "score": 10,
+      "comment": "10 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SC (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "execution",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), RA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1055.009",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (4), SC (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1055.009",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (4), SC (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1059.011",
+      "tactic": "execution",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (4), AC (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1111",
+      "tactic": "credential-access",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: IA (3), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (5), SI (3), SC (1)."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (4), AC (4), IA (1)."
+    },
+    {
+      "techniqueID": "T1482",
+      "tactic": "discovery",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SA (2), SC (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1499.001",
+      "tactic": "impact",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1499.002",
+      "tactic": "impact",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1499.003",
+      "tactic": "impact",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1546",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), AC (3), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1546",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (3), AC (3), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1546.002",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (4), RA (1)."
+    },
+    {
+      "techniqueID": "T1546.002",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (4), RA (1)."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SR (3), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1556.008",
+      "tactic": "credential-access",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1556.008",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1556.008",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: CM (5), SI (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (2)."
+    },
+    {
+      "techniqueID": "T1574.002",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: SA (8), SI (1)."
+    },
+    {
+      "techniqueID": "T1574.012",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.012",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.012",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "execution",
+      "score": 9,
+      "comment": "9 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1011.001",
+      "tactic": "exfiltration",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (2), RA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (3), AC (1)."
+    },
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1092",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (2), MP (1), RA (1)."
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1102.003",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1104",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1127",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (3), RA (1)."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2), CM (2)."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2), CM (2)."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1134.003",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1134.003",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (2)."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SC (2)."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), RA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1547.012",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (1), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1547.012",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (1), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), SI (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (3), SI (2), CA (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1555.005",
+      "tactic": "credential-access",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (2), IA (2), SI (2), AC (2)."
+    },
+    {
+      "techniqueID": "T1562.012",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), AC (3), SI (2)."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: SC (4), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: SC (4), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "persistence",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (4), RA (1)."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "privilege-escalation",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (4), RA (1)."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (4), RA (1)."
+    },
+    {
+      "techniqueID": "T1648",
+      "tactic": "execution",
+      "score": 8,
+      "comment": "8 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CM (2), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1001",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), AC (1), CA (1)."
+    },
+    {
+      "techniqueID": "T1001.001",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1021.007",
+      "tactic": "lateral-movement",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (5), IA (2)."
+    },
+    {
+      "techniqueID": "T1029",
+      "tactic": "exfiltration",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1030",
+      "tactic": "exfiltration",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.002",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.002",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.003",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.003",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.005",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1037.005",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1053.007",
+      "tactic": "execution",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1053.007",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1053.007",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "collection",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "credential-access",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2)."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (2)."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (1)."
+    },
+    {
+      "techniqueID": "T1132",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1132.002",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1137.003",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (2), SI (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1137.004",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (2), SI (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1137.005",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (2), SI (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1547.008",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), SC (1), RA (1)."
+    },
+    {
+      "techniqueID": "T1547.008",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2), SC (1), RA (1)."
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "lateral-movement",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1559.003",
+      "tactic": "execution",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SA (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1562.008",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1562.010",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), RA (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1564.006",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (4), SI (3)."
+    },
+    {
+      "techniqueID": "T1564.008",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3), AC (1)."
+    },
+    {
+      "techniqueID": "T1569.001",
+      "tactic": "execution",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CA (1), CM (1)."
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CA (1), CM (1)."
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (5), CA (1), CM (1)."
+    },
+    {
+      "techniqueID": "T1598.001",
+      "tactic": "reconnaissance",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), CA (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1606",
+      "tactic": "credential-access",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (1), SC (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1619",
+      "tactic": "discovery",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: AC (5), CM (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 7,
+      "comment": "7 NIST 800-53 R5 controls map to this technique. Top families: IA (4), AC (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1036.007",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), CA (1), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.003",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.003",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.004",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.004",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.005",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.005",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.011",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.011",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.013",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.013",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.014",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1055.014",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1059.009",
+      "tactic": "execution",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1), CM (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1087.004",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (4), CM (2)."
+    },
+    {
+      "techniqueID": "T1137.006",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (2), SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1216",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1216.001",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1220",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1485.001",
+      "tactic": "impact",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CP (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1538",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (2)."
+    },
+    {
+      "techniqueID": "T1546.008",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1546.008",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1546.014",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1546.014",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (2), RA (1)."
+    },
+    {
+      "techniqueID": "T1553.001",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1553.004",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), IA (1), SC (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1553.005",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (3)."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: IA (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: IA (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: IA (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "credential-access",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: IA (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: IA (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: IA (3), AC (3)."
+    },
+    {
+      "techniqueID": "T1562.007",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (1), IA (1)."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: SI (3), AC (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1651",
+      "tactic": "execution",
+      "score": 6,
+      "comment": "6 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1011",
+      "tactic": "exfiltration",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (1), AC (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1036.001",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), IA (1)."
+    },
+    {
+      "techniqueID": "T1036.008",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (2), CM (1), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1127.001",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: CM (3), RA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1200",
+      "tactic": "initial-access",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (3), MP (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1201",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1543.005",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (1)."
+    },
+    {
+      "techniqueID": "T1543.005",
+      "tactic": "privilege-escalation",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (1)."
+    },
+    {
+      "techniqueID": "T1546.010",
+      "tactic": "privilege-escalation",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1546.010",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1547.002",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1547.002",
+      "tactic": "privilege-escalation",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1547.005",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1547.005",
+      "tactic": "privilege-escalation",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1555.002",
+      "tactic": "credential-access",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (2), CA (1), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1555.004",
+      "tactic": "credential-access",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: CM (3), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (2), RA (1), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (2), RA (1), CM (1), SC (1)."
+    },
+    {
+      "techniqueID": "T1562.011",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (2)."
+    },
+    {
+      "techniqueID": "T1578.005",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (4), CM (1)."
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: AC (4), IA (1)."
+    },
+    {
+      "techniqueID": "T1590.002",
+      "tactic": "reconnaissance",
+      "score": 5,
+      "comment": "5 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (2), AC (1)."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (4)."
+    },
+    {
+      "techniqueID": "T1027.007",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (4)."
+    },
+    {
+      "techniqueID": "T1027.008",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (4)."
+    },
+    {
+      "techniqueID": "T1027.009",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (4)."
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CM (1)."
+    },
+    {
+      "techniqueID": "T1056.002",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1056.002",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1071.005",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SC (2), SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1098.006",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1098.006",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1216.002",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1218.010",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: SI (3), CA (1)."
+    },
+    {
+      "techniqueID": "T1548.005",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CM (1)."
+    },
+    {
+      "techniqueID": "T1548.005",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CM (1)."
+    },
+    {
+      "techniqueID": "T1552.003",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SC (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1555.006",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), CM (1)."
+    },
+    {
+      "techniqueID": "T1556.005",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1556.005",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1556.005",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1562.003",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1564.007",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (2)."
+    },
+    {
+      "techniqueID": "T1606.001",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1606.002",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (3), IA (1)."
+    },
+    {
+      "techniqueID": "T1653",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: CM (3), SI (1)."
+    },
+    {
+      "techniqueID": "T1654",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "4 NIST 800-53 R5 controls map to this technique. Top families: AC (4)."
+    },
+    {
+      "techniqueID": "T1070.010",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (3)."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (1), CM (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (1), CM (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1546.009",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1546.009",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SC (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SC (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1555.001",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CA (1), IA (1), SI (1)."
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1564.002",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: CM (2), SI (1)."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (2), CM (1)."
+    },
+    {
+      "techniqueID": "T1564.010",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: SI (2), CA (1)."
+    },
+    {
+      "techniqueID": "T1567.001",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: AC (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: AC (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1567.003",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: AC (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1567.004",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: AC (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1649",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: IA (3)."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: AC (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "command-and-control",
+      "score": 3,
+      "comment": "3 NIST 800-53 R5 controls map to this technique. Top families: AC (2), SC (1)."
+    },
+    {
+      "techniqueID": "T1027.012",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (2)."
+    },
+    {
+      "techniqueID": "T1037.001",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: AC (1), CM (1)."
+    },
+    {
+      "techniqueID": "T1037.001",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: AC (1), CM (1)."
+    },
+    {
+      "techniqueID": "T1205.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1205.002",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1205.002",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1546.011",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1546.011",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1552.008",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: SI (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1574.011",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: CM (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1574.011",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: CM (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1574.011",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: CM (1), AC (1)."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "2 NIST 800-53 R5 controls map to this technique. Top families: AC (2)."
+    },
+    {
+      "techniqueID": "T1027.011",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SI (1)."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SI (1)."
+    },
+    {
+      "techniqueID": "T1027.014",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SI (1)."
+    },
+    {
+      "techniqueID": "T1055.015",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SI (1)."
+    },
+    {
+      "techniqueID": "T1055.015",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SI (1)."
+    },
+    {
+      "techniqueID": "T1090.004",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SC (1)."
+    },
+    {
+      "techniqueID": "T1496.003",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SC (1)."
+    },
+    {
+      "techniqueID": "T1521.003",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SC (1)."
+    },
+    {
+      "techniqueID": "T1535",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SC (1)."
+    },
+    {
+      "techniqueID": "T1564.012",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SI (1)."
+    },
+    {
+      "techniqueID": "T1593.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: CM (1)."
+    },
+    {
+      "techniqueID": "T1595.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: SC (1)."
+    },
+    {
+      "techniqueID": "T1666",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 NIST 800-53 R5 controls map to this technique. Top families: CM (1)."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5f5f9",
+      "#2ca25f",
+      "#00441b"
+    ],
+    "minValue": 1,
+    "maxValue": 32
+  },
+  "legendItems": [
+    {
+      "label": "1-9 controls: thin framework coverage (prioritize compensating controls)",
+      "color": "#e5f5f9"
+    },
+    {
+      "label": "10-19 controls: moderate coverage",
+      "color": "#2ca25f"
+    },
+    {
+      "label": "20+ controls: deep control coverage",
+      "color": "#00441b"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "CTID Mappings Explorer - NIST 800-53 R5 to ATT&CK v16.1"
+    },
+    {
+      "name": "mapping_url",
+      "value": "https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "470"
+    },
+    {
+      "name": "nist_controls",
+      "value": "109"
+    },
+    {
+      "name": "generated_by",
+      "value": "TeamStarWolf/TeamStarWolf navigator pipeline"
+    }
+  ],
+  "links": [
+    {
+      "label": "Edge tables",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data"
+    },
+    {
+      "label": "Controls Mapping",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CONTROLS_MAPPING.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

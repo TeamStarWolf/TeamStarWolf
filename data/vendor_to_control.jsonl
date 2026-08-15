@@ -1,0 +1,237 @@
+{"edge_type": "vendor_satisfies_control", "vendor_id": "abnormal-security", "vendor_name": "Abnormal Security", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "abnormal-security", "vendor_name": "Abnormal Security", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "akamai-enterprise-app-access", "vendor_name": "Akamai Enterprise App Access", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "akamai-enterprise-app-access", "vendor_name": "Akamai Enterprise App Access", "control_id": "IA-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "akamai-enterprise-app-access", "vendor_name": "Akamai Enterprise App Access", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "aws-security-hub", "vendor_name": "AWS Security Hub", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "aws-security-hub", "vendor_name": "AWS Security Hub", "control_id": "CM-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "aws-security-hub", "vendor_name": "AWS Security Hub", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "beyondtrust", "vendor_name": "BeyondTrust", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "beyondtrust", "vendor_name": "BeyondTrust", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "beyondtrust", "vendor_name": "BeyondTrust", "control_id": "AC-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "beyondtrust", "vendor_name": "BeyondTrust", "control_id": "IA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "beyondtrust", "vendor_name": "BeyondTrust", "control_id": "IA-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "carbon-black", "vendor_name": "Carbon Black", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "carbon-black", "vendor_name": "Carbon Black", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "carbon-black", "vendor_name": "Carbon Black", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cisco-secure-firewall", "vendor_name": "Cisco Secure Firewall", "control_id": "AC-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cisco-secure-firewall", "vendor_name": "Cisco Secure Firewall", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cisco-secure-firewall", "vendor_name": "Cisco Secure Firewall", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cisco-umbrella", "vendor_name": "Cisco Umbrella", "control_id": "SC-20", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cisco-umbrella", "vendor_name": "Cisco Umbrella", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cisco-umbrella", "vendor_name": "Cisco Umbrella", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "corelight", "vendor_name": "Corelight", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "corelight", "vendor_name": "Corelight", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "corelight", "vendor_name": "Corelight", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "CM-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "SI-16", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-falcon", "vendor_name": "CrowdStrike Falcon", "control_id": "SI-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-intelligence", "vendor_name": "CrowdStrike Intelligence", "control_id": "PM-16", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-intelligence", "vendor_name": "CrowdStrike Intelligence", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "crowdstrike-intelligence", "vendor_name": "CrowdStrike Intelligence", "control_id": "SI-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark", "vendor_name": "CyberArk", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark", "vendor_name": "CyberArk", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark", "vendor_name": "CyberArk", "control_id": "AC-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark", "vendor_name": "CyberArk", "control_id": "IA-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark-pam", "vendor_name": "CyberArk PAM", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark-pam", "vendor_name": "CyberArk PAM", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark-pam", "vendor_name": "CyberArk PAM", "control_id": "AC-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark-pam", "vendor_name": "CyberArk PAM", "control_id": "AU-9", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "cyberark-pam", "vendor_name": "CyberArk PAM", "control_id": "IA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "darktrace", "vendor_name": "Darktrace", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "darktrace", "vendor_name": "Darktrace", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "darktrace", "vendor_name": "Darktrace", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "duo-security", "vendor_name": "Duo Security", "control_id": "IA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "elastic-security", "vendor_name": "Elastic Security", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "elastic-security", "vendor_name": "Elastic Security", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "elastic-security", "vendor_name": "Elastic Security", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "elastic-siem", "vendor_name": "Elastic SIEM", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "elastic-siem", "vendor_name": "Elastic SIEM", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "elastic-siem", "vendor_name": "Elastic SIEM", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "exabeam", "vendor_name": "Exabeam", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "exabeam", "vendor_name": "Exabeam", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "exabeam", "vendor_name": "Exabeam", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "extrahop-reveal", "vendor_name": "ExtraHop Reveal(x)", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "extrahop-reveal", "vendor_name": "ExtraHop Reveal(x)", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "extrahop-reveal", "vendor_name": "ExtraHop Reveal(x)", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "fortinet-fortigate", "vendor_name": "Fortinet FortiGate", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "fortinet-fortigate", "vendor_name": "Fortinet FortiGate", "control_id": "SC-10", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "fortinet-fortigate", "vendor_name": "Fortinet FortiGate", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "fortinet-fortigate", "vendor_name": "Fortinet FortiGate", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "fortinet-fortigate", "vendor_name": "Fortinet FortiGate", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ibm-qradar", "vendor_name": "IBM QRadar", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ibm-qradar", "vendor_name": "IBM QRadar", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ibm-qradar", "vendor_name": "IBM QRadar", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ibm-qradar", "vendor_name": "IBM QRadar", "control_id": "IR-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ibm-qradar", "vendor_name": "IBM QRadar", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ironscales", "vendor_name": "Ironscales", "control_id": "AT-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ironscales", "vendor_name": "Ironscales", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "lacework", "vendor_name": "Lacework", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "lacework", "vendor_name": "Lacework", "control_id": "CM-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "lacework", "vendor_name": "Lacework", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "lacework", "vendor_name": "Lacework", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mandiant-advantage", "vendor_name": "Mandiant Advantage", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mandiant-advantage", "vendor_name": "Mandiant Advantage", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mandiant-advantage", "vendor_name": "Mandiant Advantage", "control_id": "SI-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "metricstream", "vendor_name": "MetricStream", "control_id": "CA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "metricstream", "vendor_name": "MetricStream", "control_id": "PM-1", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "metricstream", "vendor_name": "MetricStream", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-cloud", "vendor_name": "Microsoft Defender for Cloud", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-cloud", "vendor_name": "Microsoft Defender for Cloud", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-cloud", "vendor_name": "Microsoft Defender for Cloud", "control_id": "CM-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-cloud", "vendor_name": "Microsoft Defender for Cloud", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-endpoint", "vendor_name": "Microsoft Defender for Endpoint", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-endpoint", "vendor_name": "Microsoft Defender for Endpoint", "control_id": "CM-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-endpoint", "vendor_name": "Microsoft Defender for Endpoint", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-endpoint", "vendor_name": "Microsoft Defender for Endpoint", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-endpoint", "vendor_name": "Microsoft Defender for Endpoint", "control_id": "SI-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-o365", "vendor_name": "Microsoft Defender for O365", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-o365", "vendor_name": "Microsoft Defender for O365", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-o365", "vendor_name": "Microsoft Defender for O365", "control_id": "SI-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-office-365", "vendor_name": "Microsoft Defender for Office 365", "control_id": "SC-28", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-office-365", "vendor_name": "Microsoft Defender for Office 365", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-defender-for-office-365", "vendor_name": "Microsoft Defender for Office 365", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-entra-id", "vendor_name": "Microsoft Entra ID", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-entra-id", "vendor_name": "Microsoft Entra ID", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-entra-id", "vendor_name": "Microsoft Entra ID", "control_id": "AC-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-entra-id", "vendor_name": "Microsoft Entra ID", "control_id": "IA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-entra-id", "vendor_name": "Microsoft Entra ID", "control_id": "IA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-sentinel", "vendor_name": "Microsoft Sentinel", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-sentinel", "vendor_name": "Microsoft Sentinel", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-sentinel", "vendor_name": "Microsoft Sentinel", "control_id": "AU-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-sentinel", "vendor_name": "Microsoft Sentinel", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-sentinel", "vendor_name": "Microsoft Sentinel", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "microsoft-sentinel", "vendor_name": "Microsoft Sentinel", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mimecast", "vendor_name": "Mimecast", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mimecast", "vendor_name": "Mimecast", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mimecast", "vendor_name": "Mimecast", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "mimecast", "vendor_name": "Mimecast", "control_id": "SI-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "netskope", "vendor_name": "Netskope", "control_id": "AC-20", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "netskope", "vendor_name": "Netskope", "control_id": "AC-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "netskope", "vendor_name": "Netskope", "control_id": "MP-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "netskope", "vendor_name": "Netskope", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "okta", "vendor_name": "Okta", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "okta", "vendor_name": "Okta", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "okta", "vendor_name": "Okta", "control_id": "IA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "okta", "vendor_name": "Okta", "control_id": "IA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "okta", "vendor_name": "Okta", "control_id": "IA-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "onetrust", "vendor_name": "OneTrust", "control_id": "PM-1", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "onetrust", "vendor_name": "OneTrust", "control_id": "PM-20", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "onetrust", "vendor_name": "OneTrust", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "onetrust", "vendor_name": "OneTrust", "control_id": "RA-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "orca-security", "vendor_name": "Orca Security", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "orca-security", "vendor_name": "Orca Security", "control_id": "CM-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "orca-security", "vendor_name": "Orca Security", "control_id": "CM-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "orca-security", "vendor_name": "Orca Security", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "orca-security", "vendor_name": "Orca Security", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-cortex-xsiam", "vendor_name": "Palo Alto Cortex XSIAM", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-cortex-xsiam", "vendor_name": "Palo Alto Cortex XSIAM", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-cortex-xsiam", "vendor_name": "Palo Alto Cortex XSIAM", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-cortex-xsiam", "vendor_name": "Palo Alto Cortex XSIAM", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-networks-ngfw", "vendor_name": "Palo Alto Networks NGFW", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-networks-ngfw", "vendor_name": "Palo Alto Networks NGFW", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-networks-ngfw", "vendor_name": "Palo Alto Networks NGFW", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "palo-alto-networks-ngfw", "vendor_name": "Palo Alto Networks NGFW", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ping-identity", "vendor_name": "Ping Identity", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ping-identity", "vendor_name": "Ping Identity", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ping-identity", "vendor_name": "Ping Identity", "control_id": "IA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "ping-identity", "vendor_name": "Ping Identity", "control_id": "IA-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "prisma-cloud", "vendor_name": "Prisma Cloud", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "prisma-cloud", "vendor_name": "Prisma Cloud", "control_id": "CM-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "prisma-cloud", "vendor_name": "Prisma Cloud", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "prisma-cloud", "vendor_name": "Prisma Cloud", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "proofpoint", "vendor_name": "Proofpoint", "control_id": "SC-28", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "proofpoint", "vendor_name": "Proofpoint", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "proofpoint", "vendor_name": "Proofpoint", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "proofpoint", "vendor_name": "Proofpoint", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "proofpoint", "vendor_name": "Proofpoint", "control_id": "SI-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys", "vendor_name": "Qualys", "control_id": "CM-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys", "vendor_name": "Qualys", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys", "vendor_name": "Qualys", "control_id": "SI-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys-vmdr", "vendor_name": "Qualys VMDR", "control_id": "CA-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys-vmdr", "vendor_name": "Qualys VMDR", "control_id": "CM-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys-vmdr", "vendor_name": "Qualys VMDR", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "qualys-vmdr", "vendor_name": "Qualys VMDR", "control_id": "SI-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rapid7", "vendor_name": "Rapid7", "control_id": "CM-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rapid7", "vendor_name": "Rapid7", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rapid7", "vendor_name": "Rapid7", "control_id": "SI-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rapid7-insightvm", "vendor_name": "Rapid7 InsightVM", "control_id": "CM-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rapid7-insightvm", "vendor_name": "Rapid7 InsightVM", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rapid7-insightvm", "vendor_name": "Rapid7 InsightVM", "control_id": "SI-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "recorded-future", "vendor_name": "Recorded Future", "control_id": "PM-16", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "recorded-future", "vendor_name": "Recorded Future", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "recorded-future", "vendor_name": "Recorded Future", "control_id": "SI-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rsa-archer", "vendor_name": "RSA Archer", "control_id": "CA-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rsa-archer", "vendor_name": "RSA Archer", "control_id": "CA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rsa-archer", "vendor_name": "RSA Archer", "control_id": "PM-1", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "rsa-archer", "vendor_name": "RSA Archer", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sailpoint-iiq", "vendor_name": "SailPoint IIQ", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sailpoint-iiq", "vendor_name": "SailPoint IIQ", "control_id": "AC-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sailpoint-iiq", "vendor_name": "SailPoint IIQ", "control_id": "AC-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sailpoint-iiq", "vendor_name": "SailPoint IIQ", "control_id": "AU-9", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "saviynt", "vendor_name": "Saviynt", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "saviynt", "vendor_name": "Saviynt", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "saviynt", "vendor_name": "Saviynt", "control_id": "AC-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "saviynt", "vendor_name": "Saviynt", "control_id": "AC-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "securonix", "vendor_name": "Securonix", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "securonix", "vendor_name": "Securonix", "control_id": "IA-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "securonix", "vendor_name": "Securonix", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sentinelone", "vendor_name": "SentinelOne", "control_id": "CM-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sentinelone", "vendor_name": "SentinelOne", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sentinelone", "vendor_name": "SentinelOne", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sentinelone", "vendor_name": "SentinelOne", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "sentinelone", "vendor_name": "SentinelOne", "control_id": "SI-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "servicenow", "vendor_name": "ServiceNow", "control_id": "CA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "servicenow", "vendor_name": "ServiceNow", "control_id": "IR-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "servicenow", "vendor_name": "ServiceNow", "control_id": "PM-1", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "servicenow", "vendor_name": "ServiceNow", "control_id": "PM-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-enterprise-security", "vendor_name": "Splunk Enterprise Security", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-enterprise-security", "vendor_name": "Splunk Enterprise Security", "control_id": "AU-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-enterprise-security", "vendor_name": "Splunk Enterprise Security", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-enterprise-security", "vendor_name": "Splunk Enterprise Security", "control_id": "IR-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-enterprise-security", "vendor_name": "Splunk Enterprise Security", "control_id": "IR-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-enterprise-security", "vendor_name": "Splunk Enterprise Security", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-es", "vendor_name": "Splunk ES", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-es", "vendor_name": "Splunk ES", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-es", "vendor_name": "Splunk ES", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "splunk-es", "vendor_name": "Splunk ES", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tanium", "vendor_name": "Tanium", "control_id": "CM-1", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tanium", "vendor_name": "Tanium", "control_id": "CM-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tanium", "vendor_name": "Tanium", "control_id": "CM-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tanium", "vendor_name": "Tanium", "control_id": "SI-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tanium", "vendor_name": "Tanium", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable", "vendor_name": "Tenable", "control_id": "CM-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable", "vendor_name": "Tenable", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable", "vendor_name": "Tenable", "control_id": "SA-11", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable-io", "vendor_name": "Tenable.io / Nessus", "control_id": "CA-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable-io", "vendor_name": "Tenable.io / Nessus", "control_id": "RA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable-io", "vendor_name": "Tenable.io / Nessus", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "tenable-io", "vendor_name": "Tenable.io / Nessus", "control_id": "SI-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "vectra-ai", "vendor_name": "Vectra AI", "control_id": "AU-12", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "vectra-ai", "vendor_name": "Vectra AI", "control_id": "AU-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "vectra-ai", "vendor_name": "Vectra AI", "control_id": "SI-4", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "AC-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "AU-2", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "CM-6", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "CM-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "RA-5", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "wiz", "vendor_name": "Wiz", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler", "vendor_name": "Zscaler", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler", "vendor_name": "Zscaler", "control_id": "AC-20", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler", "vendor_name": "Zscaler", "control_id": "IA-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler", "vendor_name": "Zscaler", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zia", "vendor_name": "Zscaler ZIA", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zia", "vendor_name": "Zscaler ZIA", "control_id": "SC-28", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zia", "vendor_name": "Zscaler ZIA", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zia", "vendor_name": "Zscaler ZIA", "control_id": "SC-8", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zia", "vendor_name": "Zscaler ZIA", "control_id": "SI-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zpa", "vendor_name": "Zscaler ZPA", "control_id": "AC-17", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zpa", "vendor_name": "Zscaler ZPA", "control_id": "AC-3", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zpa", "vendor_name": "Zscaler ZPA", "control_id": "SC-28", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}
+{"edge_type": "vendor_satisfies_control", "vendor_id": "zscaler-zpa", "vendor_name": "Zscaler ZPA", "control_id": "SC-7", "confidence": "high", "source": "TeamStarWolf CONTROLS_MAPPING.md"}

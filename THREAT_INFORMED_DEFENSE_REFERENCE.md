@@ -19,14 +19,14 @@ way to a concrete defensive action.
 Keep ATT&CK as the base graph and normalize every other source into one of six node roles. This avoids
 treating each knowledge base as a disconnected panel and instead builds a single graph you can traverse.
 
-| Role | System | What it answers | Authoritative source |
+| Role | System | What it answers | In this library |
 |---|---|---|---|
-| **behavior** | **MITRE ATT&CK** | What is the adversary *doing*? (tactics, techniques, groups, software, campaigns) | [attack.mitre.org](https://attack.mitre.org/) · [attack-stix-data](https://github.com/mitre-attack/attack-stix-data) |
-| **attack_pattern** | **CAPEC** | Through what *pattern* is a weakness exploited? | [capec.mitre.org](https://capec.mitre.org/) |
-| **weakness** | **CWE** | What *class of flaw* makes it possible? | [cwe.mitre.org](https://cwe.mitre.org/data/downloads.html) |
-| **exposure** | **CVE** | Which *specific vulnerabilities* exist? | [cve.org](https://www.cve.org/) · [CVE List V5](https://github.com/CVEProject/cvelistV5) |
+| **behavior** | **MITRE ATT&CK** | What is the adversary *doing*? (tactics, techniques, groups, software, campaigns) | [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) · [Detail Pages](techniques/README.md) · [Groups](THREAT_GROUP_PROFILES.md) |
+| **attack_pattern** | **CAPEC** | Through what *pattern* is a weakness exploited? | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) |
+| **weakness** | **CWE** | What *class of flaw* makes it possible? | [CWE Weakness Reference](CWE_REFERENCE.md) |
+| **exposure** | **CVE** | Which *specific vulnerabilities* exist? | [CVE Reference](CVE_REFERENCE.md) |
 | **product** | **CPE** | Which *products/versions* are affected? | [NVD CPE](https://nvd.nist.gov/products/cpe/search) |
-| **defense** | **MITRE D3FEND** | What *countermeasure* opposes the behavior? | [d3fend.mitre.org](https://d3fend.mitre.org/) |
+| **defense** | **MITRE D3FEND** | What *countermeasure* opposes the behavior? | [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) |
 
 Add a small set of relationship types between these nodes, and the graph becomes traversable in any
 direction:

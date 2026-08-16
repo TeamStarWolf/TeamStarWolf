@@ -9,7 +9,7 @@ Live ATT&CK Enterprise heatmaps showing vendor and security domain coverage acro
 
 | Layer | Description | Load |
 |---|---|---|
-| [NIST 800-53 R5 Overview](teamstarwolf_vendor_coverage.json) | 313 ATT&CK techniques scored by NIST 800-53 R5 control depth (CTID-sourced mapping) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [NIST 800-53 R5 Overview](teamstarwolf_vendor_coverage.json) | 470 ATT&CK techniques scored by NIST 800-53 R5 control depth — CTID-sourced (ATT&CK v16.1, 109 controls, 5,314 mapping edges) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
 
 ---
 
@@ -49,9 +49,9 @@ These six domains follow the stage order defined in the [Enterprise Security Pip
 
 | Score Range | Meaning |
 |---|---|
-| 20–33 | Many NIST 800-53 controls address this technique; broad vendor coverage across the enterprise stack |
+| 20–32 | Many NIST 800-53 controls address this technique; broad vendor coverage across the enterprise stack |
 | 10–19 | Moderate control coverage; most mature security programs address this technique |
-| 1–9 | Fewer controls map here; may represent a capability gap worth prioritizing |
+| 1–9 | Fewer controls map here; may represent a capability gap worth prioritizing with compensating detection or design controls |
 
 ---
 

@@ -48,6 +48,12 @@
 
 - **🗺️ Coverage & Data**
 
+  - [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
+
+  - [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md)
+
+  - [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
   - [Enterprise Security Pipeline](SECURITY_PIPELINE.md)
 
   - [Controls Mapping](CONTROLS_MAPPING.md)
@@ -141,17 +147,17 @@
   * [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md)
   * [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md)
 - [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md)
-* [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE)
+* [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md)
 - [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md)
   * [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md)
 - [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md)
-- [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE)
+- [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md)
 - [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md)
 * [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md)
 - [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md)
 - [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md)
 - [DevSecOps Reference](DEVSECOPS_REFERENCE.md)
-* [Linux Hardening Reference](LINUX_HARDENING_REFERENCE)
+* [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md)
 
 - [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md)
 - [Security Gadgets Reference](SECURITY_GADGETS_REFERENCE.md)

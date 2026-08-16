@@ -1,36 +1,96 @@
 <div align="center">
 
-# TeamStarWolf
+# 🐺 TeamStarWolf
 
-A public resource library for the cybersecurity community.
+### An open, threat-informed cybersecurity reference library
 
-[Reference Index](INDEX.md) &nbsp;|&nbsp; [Discipline Paths](disciplines/) &nbsp;|&nbsp; [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) &nbsp;|&nbsp; [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/)
+*Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
+
+[![Reference docs](https://img.shields.io/badge/reference_docs-109-2b6cb0?style=flat-square)](INDEX.md)
+[![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
+[![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
+[![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-4a5568?style=flat-square)](LICENSE)
+
+[**Reference Index**](INDEX.md) &nbsp;·&nbsp; [**Discipline Paths**](disciplines/) &nbsp;·&nbsp; [**Threat-Informed Defense**](THREAT_INFORMED_DEFENSE_REFERENCE.md) &nbsp;·&nbsp; [**Coverage & Data**](#coverage-data) &nbsp;·&nbsp; [**ATTACK-Navi**](https://teamstarwolf.github.io/ATTACK-Navi/)
 
 </div>
 
 ---
 
-## ⭐ Threat-Informed Defense
+## About
 
-MITRE ATT&CK at the center, enriched with the vulnerability, weakness, detection, and control knowledge
-that makes coverage analysis actionable. Powered by the same data model as the
-[ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
+**TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
+blog or a link dump — it is a structured library of **109 in-depth reference documents** and **47 discipline
+learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
+to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
-| Resource | What you get |
-|---|---|
-| [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | The ATT&CK-centric knowledge graph (CVE → CWE → CAPEC → ATT&CK → D3FEND), the open-source data-source stack, and the per-technique coverage-stack model |
-| [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, and composite risk |
-| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries (Splunk, Elastic, Microsoft, Chronicle, CrowdStrike) keyed to ATT&CK techniques and the NIST controls that mitigate them |
-| [ATT&CK Navigator Coverage Layers](navigator/) | Live heatmaps of NIST 800-53 R5 control depth and vendor/domain coverage across the enterprise stack — [load the master layer ↗](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+Three principles run through everything here:
 
-**Machine-readable data** &nbsp;·&nbsp; [Control → Technique edges](data/control_to_technique.jsonl) (CTID, 5,300+) &nbsp;·&nbsp; [Vendor → Control edges](data/vendor_to_control.jsonl) &nbsp;·&nbsp; [Vendor → Technique edges](data/vendor_to_technique.jsonl) &nbsp;·&nbsp; [Controls Mapping](CONTROLS_MAPPING.md) &nbsp;·&nbsp; [Coverage Schema](COVERAGE_SCHEMA.md) &nbsp;·&nbsp; [Coverage Gaps](scores/coverage_gaps.md)
+- **ATT&CK at the center.** Adversary behavior is the common language. References map techniques to the
+  controls that mitigate them (NIST 800-53 via [CTID](https://center-for-threat-informed-defense.github.io/mappings-explorer/)),
+  the detections that catch them, and the tests that validate them.
+- **Operational, not theoretical.** Real commands, real queries, real tooling, and real detection logic —
+  written to be used on an engagement or in a SOC, not just read.
+- **Open and practitioner-built.** Everything is free, MIT-licensed, and cross-referenced so you can move
+  from a concept to a command to a control in a couple of clicks.
+
+New here? Jump to [**Start here**](#start-here) for goal-based entry points, or browse the full
+[**Reference Index**](INDEX.md).
 
 ---
 
-## Browse by Domain
+## At a glance
 
-<details>
-<summary><strong>Offensive Security</strong></summary>
+| | | |
+|---|---|---|
+| 📚 **109** reference documents | 🧭 **47** discipline learning paths | 🗺️ **21** ATT&CK Navigator coverage layers |
+| 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🎯 **65** multi-platform detection queries |
+| 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
+
+---
+
+## Start here
+
+Pick your goal — each path drops you into the right part of the library.
+
+| I want to… | Start with |
+|---|---|
+| **Learn a discipline from zero** | [Discipline learning paths](disciplines/) → pick a track (e.g. [Threat Intelligence](disciplines/threat-intelligence.md), [Detection Engineering](disciplines/detection-engineering.md), [Red Teaming](disciplines/red-teaming.md)) |
+| **Run or prep for a pentest** | [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md) · [Pentest Checklists](PENTEST_CHECKLISTS.md) · [Red Team Reference](RED_TEAM_REFERENCE.md) |
+| **Build detections & hunt** | [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) · [Detection Rules](DETECTION_RULES_REFERENCE.md) · [Threat Hunting](THREAT_HUNTING_REFERENCE.md) · [SIEM Reference](SIEM_REFERENCE.md) |
+| **Map coverage & find gaps** | [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) · [Navigator layers](navigator/) |
+| **Respond to an incident** | [Incident Response](INCIDENT_RESPONSE_REFERENCE.md) · [IR Playbooks](IR_PLAYBOOKS.md) · [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md) |
+| **Harden systems & cloud** | [Windows](WINDOWS_HARDENING_REFERENCE.md) / [Linux](LINUX_HARDENING_REFERENCE.md) hardening · [Cloud Security](CLOUD_SECURITY_REFERENCE.md) · [Zero Trust](ZERO_TRUST_REFERENCE.md) |
+| **Break into the field / level up** | [Career Paths](CAREER_PATHS.md) · [Certifications](CERTIFICATIONS.md) · [Home Lab Setup](HOMELAB_SETUP.md) · [Free Training](#learn-grow) |
+
+---
+
+## ⭐ Threat-Informed Defense
+
+The flagship of the library: **MITRE ATT&CK at the center**, enriched with the vulnerability, weakness,
+detection, and control knowledge that turns a coverage map into decisions. It shares its data model with the
+[ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench, and the mappings below are
+machine-readable so you can query them, not just read them.
+
+| Resource | What you get |
+|---|---|
+| [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | The ATT&CK-centric knowledge graph (**CVE → CWE → CAPEC → ATT&CK → D3FEND**), the open-source data-source stack, and the per-technique coverage-stack model |
+| [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | **24 analytic lenses** for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, and composite risk |
+| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries (**Splunk · Elastic · Microsoft · Chronicle · CrowdStrike**) keyed to ATT&CK techniques and the NIST controls that mitigate them |
+| [ATT&CK Navigator Coverage Layers](navigator/) | Live heatmaps of NIST 800-53 R5 control depth and vendor/domain coverage — [**load the master layer ↗**](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+
+---
+
+## 📚 Explore the library
+
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 109 documents.
+
+<details open>
+<summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>
+
+> Reconnaissance and initial access through privilege escalation, lateral movement, and exfiltration —
+> mapped to ATT&CK with real tooling, commands, and OPSEC.
 
 | Reference | Coverage |
 |---|---|
@@ -46,7 +106,10 @@ that makes coverage analysis actionable. Powered by the same data model as the
 </details>
 
 <details>
-<summary><strong>Defensive Security</strong></summary>
+<summary><strong>🛡️ Defensive Security</strong> — detect, hunt, respond, investigate</summary>
+
+> The blue-team lifecycle: detection engineering, hypothesis-driven hunting, incident response, and
+> forensics, with query languages and data-source guidance for the major SIEM/EDR stacks.
 
 | Reference | Coverage |
 |---|---|
@@ -62,7 +125,10 @@ that makes coverage analysis actionable. Powered by the same data model as the
 </details>
 
 <details>
-<summary><strong>Cloud & Infrastructure</strong></summary>
+<summary><strong>☁️ Cloud & Infrastructure</strong> — secure the modern stack</summary>
+
+> Cloud-native security across AWS/Azure/GCP, containers and Kubernetes, CI/CD and supply chain, and
+> OS-level hardening — attacker techniques paired with the controls that stop them.
 
 | Reference | Coverage |
 |---|---|
@@ -78,7 +144,10 @@ that makes coverage analysis actionable. Powered by the same data model as the
 </details>
 
 <details>
-<summary><strong>Identity, Access & Cryptography</strong></summary>
+<summary><strong>🔑 Identity, Access & Cryptography</strong> — the new perimeter</summary>
+
+> Identity is the primary attack surface in cloud-first environments. IAM and PAM architecture, Zero Trust,
+> secrets management, and applied cryptography — with attacker techniques and defensive design side by side.
 
 | Reference | Coverage |
 |---|---|
@@ -92,7 +161,10 @@ that makes coverage analysis actionable. Powered by the same data model as the
 </details>
 
 <details>
-<summary><strong>Governance, Risk & Compliance</strong></summary>
+<summary><strong>📋 Governance, Risk & Compliance</strong> — run the program</summary>
+
+> Turning security into a managed program: control frameworks, risk quantification, metrics, threat
+> modeling, and vulnerability management that maps back to ATT&CK and real business risk.
 
 | Reference | Coverage |
 |---|---|
@@ -106,7 +178,10 @@ that makes coverage analysis actionable. Powered by the same data model as the
 </details>
 
 <details>
-<summary><strong>Specialized Domains</strong></summary>
+<summary><strong>🔬 Specialized Domains</strong> — beyond the enterprise IT boundary</summary>
+
+> Where security meets the physical and the emerging: vehicles, industrial control systems, hardware and
+> firmware, mobile, radio, and AI/LLM systems — each with its own threat model and toolchain.
 
 | Reference | Coverage |
 |---|---|
@@ -121,35 +196,50 @@ that makes coverage analysis actionable. Powered by the same data model as the
 </details>
 
 <details>
-<summary><strong>Research & Analysis</strong></summary>
+<summary><strong>🔎 Research & Analysis</strong> — recon, RE, and traffic</summary>
+
+> The investigative disciplines: open-source intelligence, reverse engineering, threat intelligence, and
+> the network and protocol analysis skills that underpin both offense and defense.
 
 | Reference | Coverage |
 |---|---|
 | [OSINT Reference](OSINT_REFERENCE.md) | Passive recon, Shodan/Censys, GEOINT, SOCMINT, automation |
 | [Reverse Engineering Reference](REVERSE_ENGINEERING_REFERENCE.md) | Ghidra/IDA/Binary Ninja, dynamic analysis, firmware RE |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor tracking |
+| [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK |
 | [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md) | TCP/IP, DNS, TLS, authentication protocols, analysis tools |
 | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md) | Wireshark, tcpdump, Zeek, JA3, attack pattern detection |
 | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md) | PCAP forensics, NetFlow, encrypted traffic analysis, cloud |
 
-**Coverage & Data**
+</details>
 
-ATT&CK Navigator layer and machine-readable edge tables mapping the TeamStarWolf vendor stack to NIST 800-53 controls and ATT&CK techniques.
+---
+
+## 🗺️ Coverage & Data
+<a id="coverage-data"></a>
+
+Machine-readable mappings that connect **security vendors → NIST 800-53 controls → ATT&CK techniques**, plus
+the ATT&CK Navigator layers that visualize them. The control→technique bridge is sourced from the authoritative
+[CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/) (NIST 800-53
+R5 → ATT&CK v16.1). See [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) and [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md)
+for the model and [scores/coverage_gaps.md](scores/coverage_gaps.md) for gap analysis.
 
 | Resource | Description |
 |---|---|
-| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 -> ATT&CK control-depth heatmap (470 techniques, CTID-sourced) &nbsp;[Load in Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
-| [Vendor -> Control edges](data/vendor_to_control.jsonl) | 60+ vendors -> NIST 800-53 control mappings (237 edges) |
-| [Control -> Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 -> ATT&CK technique mappings, CTID (5,314 edges, 109 controls) |
-| [Vendor -> Technique edges](data/vendor_to_technique.jsonl) | Derived vendor -> ATT&CK technique coverage via control join (17K+ edges) |
-| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries keyed to ATT&CK techniques + mitigating NIST controls |
-| [Controls Mapping](CONTROLS_MAPPING.md) | Full vendor -> NIST 800-53 -> ATT&CK cross-reference |
-| [Coverage Schema](COVERAGE_SCHEMA.md) | Gap scoring data model, JSON schemas, and Python scoring functions |
+| [ATT&CK Navigator Layer](navigator/teamstarwolf_vendor_coverage.json) | NIST 800-53 R5 → ATT&CK control-depth heatmap (**470 techniques**, CTID-sourced) · [Load in Navigator ↗](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
+| [Control → Technique edges](data/control_to_technique.jsonl) | NIST 800-53 R5 → ATT&CK mappings, CTID (**5,314 edges**, 109 controls) |
+| [Vendor → Control edges](data/vendor_to_control.jsonl) | 60+ vendors → NIST 800-53 controls (**237 edges**) |
+| [Vendor → Technique edges](data/vendor_to_technique.jsonl) | Derived vendor → ATT&CK coverage via control join (**17K+ edges**) |
+| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detections keyed to techniques + mitigating NIST controls |
+| [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
 
-</details>
+---
 
-<details>
-<summary><strong>Learning & Career</strong></summary>
+## 🎓 Learn & grow
+<a id="learn-grow"></a>
+
+<details open>
+<summary><strong>Career & study</strong></summary>
 
 | Reference | Coverage |
 |---|---|
@@ -161,9 +251,12 @@ ATT&CK Navigator layer and machine-readable edge tables mapping the TeamStarWolf
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Curated reading organized by discipline and level |
 | [Starred Repositories](STARRED_REPOS.md) | Curated GitHub repos structured around the security technology landscape |
 
-**Free Training**
+</details>
 
-| Platform | What You Get |
+<details>
+<summary><strong>Free training platforms</strong></summary>
+
+| Platform | What you get |
 |---|---|
 | [Antisyphon Training](https://www.antisyphontraining.com/pay-forward-what-you-can/) | Pay-what-you-can live courses — SOC, pentesting, active defense |
 | [Black Hills Information Security](https://www.blackhillsinfosec.com/blog/webcasts/) | Hundreds of free webcasts on every security discipline |
@@ -181,26 +274,47 @@ ATT&CK Navigator layer and machine-readable edge tables mapping the TeamStarWolf
 
 ---
 
-## ATTACK-Navi
+## 🛠️ ATTACK-Navi
 
 [![Deploy to GitHub Pages](https://github.com/TeamStarWolf/ATTACK-Navi/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/TeamStarWolf/ATTACK-Navi/actions/workflows/deploy.yml) [![Docker Build](https://github.com/TeamStarWolf/ATTACK-Navi/workflows/Docker%20Build/badge.svg)](https://github.com/TeamStarWolf/ATTACK-Navi/actions/workflows/docker.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/TeamStarWolf/ATTACK-Navi/blob/main/LICENSE)
 
-MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation. Supports Enterprise, ICS, and Mobile ATT&CK domains.
+The interactive companion to this library — a MITRE ATT&CK workbench for coverage review, detection
+engineering, exposure mapping, and threat-intelligence correlation. Supports Enterprise, ICS, and Mobile
+ATT&CK domains, and consumes the same [coverage data](#coverage-data) published here.
 
 | Capability | Details |
 |---|---|
-| Heatmap modes | Coverage, detection, exposure, compliance, and risk |
+| Heatmap modes | Coverage, detection, exposure, compliance, and risk — [24 analytic lenses](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) |
 | Live integrations | MISP, OpenCTI, EPSS, CISA KEV, NVD, Elastic, Splunk, Sigma, Atomic Red Team, ExploitDB, Nuclei |
 | Data | STIX 2.1 import/export, custom technique editing, collection sharing |
 | Deployment | Docker or GitHub Pages |
 
-[Repository](https://github.com/TeamStarWolf/ATTACK-Navi) &nbsp;|&nbsp; [Live Site](https://teamstarwolf.github.io/ATTACK-Navi/) &nbsp;|&nbsp; [Docs](https://github.com/TeamStarWolf/ATTACK-Navi/blob/main/docs/README.md)
+[**Repository**](https://github.com/TeamStarWolf/ATTACK-Navi) &nbsp;·&nbsp; [**Live Site**](https://teamstarwolf.github.io/ATTACK-Navi/) &nbsp;·&nbsp; [**Docs**](https://github.com/TeamStarWolf/ATTACK-Navi/blob/main/docs/README.md)
 
 ---
 
-## Projects
+## 📦 Other projects
 
 | Project | Description |
 |---|---|
 | [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio — download, analysis, editing, stem separation, and batch processing |
-| [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
+| [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokémon encyclopedia with game-aware browsing and trainer archives |
+
+---
+
+## 🤝 Contributing & license
+
+Contributions, corrections, and new references are welcome — see [CONTRIBUTING](.github/CONTRIBUTING.md) and
+open an [issue](https://github.com/TeamStarWolf/TeamStarWolf/issues) to suggest a tool, fix content, or
+propose a new discipline. Released under the [MIT License](LICENSE).
+
+> **Disclaimer.** All offensive material is provided for authorized security testing, education, and defensive
+> research only. Use it only against systems you own or have explicit permission to test.
+
+<div align="center">
+
+**[📖 Reference Index](INDEX.md)** · **[🧭 Discipline Paths](disciplines/)** · **[🌐 Live Docs](https://teamstarwolf.github.io/TeamStarWolf/)**
+
+<sub>🐺 TeamStarWolf — built for the cybersecurity community.</sub>
+
+</div>

@@ -54,6 +54,14 @@
 
   - [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
 
+  - [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
+
+  - [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
+
+  - [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md)
+
+  - [ATT&CK Priority Gaps](scores/attack_priority_gaps.md)
+
   - [Enterprise Security Pipeline](SECURITY_PIPELINE.md)
 
   - [Controls Mapping](CONTROLS_MAPPING.md)

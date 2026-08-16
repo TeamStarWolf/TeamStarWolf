@@ -45,6 +45,17 @@ These six domains follow the stage order defined in the [Enterprise Security Pip
 
 ---
 
+## Analytic Layers
+
+Threat-intelligence and gap-analysis heatmaps derived from MITRE ATT&CK Enterprise v18.1 (STIX) and the CTID NIST 800-53 R5 mappings. See the [ATT&CK Priority Gap Analysis](../scores/attack_priority_gaps.md) for the ranked write-up.
+
+| Layer | Description | Load |
+|---|---|---|
+| [Threat Group Frequency](analytics/group_frequency.json) | Techniques colored by how many tracked ATT&CK threat groups use them — the most common adversary behaviors | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/group_frequency.json) |
+| [Framework Blind Spots](analytics/no_nist_coverage.json) | The 223 techniques with no mapped NIST 800-53 control, shaded by threat-group usage (priority) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/no_nist_coverage.json) |
+
+---
+
 ## Score Interpretation (Full Stack Layer)
 
 | Score Range | Meaning |

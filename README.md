@@ -6,7 +6,7 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-109-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-112-2b6cb0?style=flat-square)](INDEX.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -21,7 +21,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **109 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **112 in-depth reference documents** and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -44,7 +44,8 @@ New here? Jump to [**Start here**](#start-here) for goal-based entry points, or 
 
 | | | |
 |---|---|---|
-| 📚 **109** reference documents | 🧭 **47** discipline learning paths | 🗺️ **21** ATT&CK Navigator coverage layers |
+| 📚 **112** reference documents | 🧭 **47** discipline learning paths | 🗺️ **23** ATT&CK Navigator coverage layers |
+| 🐉 **691** ATT&CK techniques cross-referenced | 👥 **168** threat groups & **784** software profiled | 🛡️ **44** ATT&CK mitigations mapped |
 | 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🎯 **65** multi-platform detection queries |
 | 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
 
@@ -80,11 +81,22 @@ machine-readable so you can query them, not just read them.
 | [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries (**Splunk · Elastic · Microsoft · Chronicle · CrowdStrike**) keyed to ATT&CK techniques and the NIST controls that mitigate them |
 | [ATT&CK Navigator Coverage Layers](navigator/) | Live heatmaps of NIST 800-53 R5 control depth and vendor/domain coverage — [**load the master layer ↗**](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json) |
 
+**ATT&CK knowledge base** — the full MITRE ATT&CK Enterprise matrix (v18.1), parsed and cross-referenced:
+
+| Resource | What you get |
+|---|---|
+| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **691 techniques** by tactic, each scored by threat-group usage, software, ATT&CK mitigations, NIST controls, and detection availability |
+| [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | **168 adversary groups** (APTs, eCrime) with aliases, attributed techniques, and tooling |
+| [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All **44 ATT&CK mitigations** (M-codes) and the techniques each one addresses |
+| [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | The most-used, least-covered techniques — where to focus detection and mitigation |
+
+**Machine-readable datasets** &nbsp;·&nbsp; [Technique profiles](data/attack/technique_profiles.jsonl) &nbsp;·&nbsp; [Group → Technique](data/attack/group_to_technique.jsonl) &nbsp;·&nbsp; [Software → Technique](data/attack/software_to_technique.jsonl) &nbsp;·&nbsp; [Mitigation → Technique](data/attack/mitigation_to_technique.jsonl) &nbsp;·&nbsp; [Groups](data/attack/groups.jsonl) &nbsp;·&nbsp; [Software](data/attack/software.jsonl) &nbsp;·&nbsp; [Mitigations](data/attack/mitigations.jsonl) &nbsp;·&nbsp; [Campaigns](data/attack/campaigns.jsonl)
+
 ---
 
 ## 📚 Explore the library
 
-Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 109 documents.
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 112 documents.
 
 <details open>
 <summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>
@@ -231,6 +243,8 @@ for the model and [scores/coverage_gaps.md](scores/coverage_gaps.md) for gap ana
 | [Vendor → Control edges](data/vendor_to_control.jsonl) | 60+ vendors → NIST 800-53 controls (**237 edges**) |
 | [Vendor → Technique edges](data/vendor_to_technique.jsonl) | Derived vendor → ATT&CK coverage via control join (**17K+ edges**) |
 | [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detections keyed to techniques + mitigating NIST controls |
+| [Group Frequency layer](navigator/analytics/group_frequency.json) | ATT&CK techniques colored by threat-group usage — the most common adversary behaviors |
+| [Framework Blind Spots layer](navigator/analytics/no_nist_coverage.json) | The **223 techniques** with no NIST 800-53 control mapping — coverage blind spots |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
 
 ---

@@ -14,6 +14,9 @@
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, compliance, and composite risk |
+| [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses |
+| [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
+| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 691 ATT&CK techniques by tactic, cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
 | [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 |
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
@@ -120,6 +123,7 @@
 |---|---|
 | [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Multi-platform detection queries (Splunk, Elastic, Microsoft, Chronicle, CrowdStrike) keyed to ATT&CK techniques and their mitigating NIST 800-53 controls |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
+| [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | 168 MITRE ATT&CK adversary groups with aliases, attributed techniques, and tooling (authoritative STIX-derived) |
 | [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | ATT&CK-centric knowledge graph (CVE → CWE → CAPEC → ATT&CK → D3FEND), open-source data-source stack, and per-technique coverage-stack model |
 | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to MITRE ATT&CK with data sources, detection logic, and response actions |
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, hunt tracking |

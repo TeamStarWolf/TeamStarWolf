@@ -1,0 +1,23 @@
+{"software_id": "S0603", "name": "Stuxnet", "type": "malware", "platforms": ["Windows"], "technique_count": 25, "group_count": 0, "url": "https://attack.mitre.org/software/S0603"}
+{"software_id": "S0604", "name": "Industroyer", "type": "malware", "platforms": ["Windows"], "technique_count": 24, "group_count": 1, "url": "https://attack.mitre.org/software/S0604"}
+{"software_id": "S1009", "name": "Triton", "type": "malware", "platforms": [], "technique_count": 18, "group_count": 1, "url": "https://attack.mitre.org/software/S1009"}
+{"software_id": "S1045", "name": "INCONTROLLER", "type": "malware", "platforms": ["Field Controller/RTU/PLC/IED", "Safety Instrumented System/Protection Relay", "Engineering Workstation", "Windows"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S1045"}
+{"software_id": "S0093", "name": "Backdoor.Oldrea", "type": "malware", "platforms": ["Windows"], "technique_count": 8, "group_count": 1, "url": "https://attack.mitre.org/software/S0093"}
+{"software_id": "S0496", "name": "REvil", "type": "malware", "platforms": ["Windows"], "technique_count": 8, "group_count": 2, "url": "https://attack.mitre.org/software/S0496"}
+{"software_id": "S1006", "name": "PLC-Blaster", "type": "malware", "platforms": [], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S1006"}
+{"software_id": "S1072", "name": "Industroyer2", "type": "malware", "platforms": ["Field Controller/RTU/PLC/IED", "Engineering Workstation"], "technique_count": 7, "group_count": 1, "url": "https://attack.mitre.org/software/S1072"}
+{"software_id": "S1157", "name": "Fuxnet", "type": "malware", "platforms": ["Input/Output Server", "Control Server"], "technique_count": 6, "group_count": 0, "url": "https://attack.mitre.org/software/S1157"}
+{"software_id": "S0606", "name": "Bad Rabbit", "type": "malware", "platforms": ["Windows"], "technique_count": 5, "group_count": 1, "url": "https://attack.mitre.org/software/S0606"}
+{"software_id": "S1165", "name": "FrostyGoop", "type": "malware", "platforms": ["Control Server", "Field Controller/RTU/PLC/IED"], "technique_count": 5, "group_count": 0, "url": "https://attack.mitre.org/software/S1165"}
+{"software_id": "S0607", "name": "KillDisk", "type": "malware", "platforms": ["Linux", "Windows"], "technique_count": 4, "group_count": 2, "url": "https://attack.mitre.org/software/S0607"}
+{"software_id": "S0605", "name": "EKANS", "type": "malware", "platforms": ["Windows"], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0605"}
+{"software_id": "S0038", "name": "Duqu", "type": "malware", "platforms": ["Windows"], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0038"}
+{"software_id": "S0089", "name": "BlackEnergy", "type": "malware", "platforms": ["Windows"], "technique_count": 3, "group_count": 1, "url": "https://attack.mitre.org/software/S0089"}
+{"software_id": "S0372", "name": "LockerGoga", "type": "malware", "platforms": ["Windows"], "technique_count": 3, "group_count": 1, "url": "https://attack.mitre.org/software/S0372"}
+{"software_id": "S0608", "name": "Conficker", "type": "malware", "platforms": ["Windows"], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0608"}
+{"software_id": "S0368", "name": "NotPetya", "type": "malware", "platforms": ["Windows"], "technique_count": 3, "group_count": 1, "url": "https://attack.mitre.org/software/S0368"}
+{"software_id": "S1000", "name": "ACAD/Medre.A", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S1000"}
+{"software_id": "S0143", "name": "Flame", "type": "malware", "platforms": ["Windows"], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0143"}
+{"software_id": "S0366", "name": "WannaCry", "type": "malware", "platforms": ["Windows"], "technique_count": 2, "group_count": 1, "url": "https://attack.mitre.org/software/S0366"}
+{"software_id": "S1010", "name": "VPNFilter", "type": "malware", "platforms": ["Network Devices", "Linux"], "technique_count": 2, "group_count": 1, "url": "https://attack.mitre.org/software/S1010"}
+{"software_id": "S0446", "name": "Ryuk", "type": "malware", "platforms": ["Windows"], "technique_count": 1, "group_count": 2, "url": "https://attack.mitre.org/software/S0446"}

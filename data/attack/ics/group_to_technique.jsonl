@@ -1,0 +1,20 @@
+{"group_id": "G0032", "group_name": "Lazarus Group", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T0807", "technique_name": "Command-Line Interface"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T0819", "technique_name": "Exploit Public-Facing Application"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T0884", "technique_name": "Connection Proxy"}
+{"group_id": "G0035", "group_name": "Dragonfly", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
+{"group_id": "G0035", "group_name": "Dragonfly", "technique_id": "T0862", "technique_name": "Supply Chain Compromise"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0853", "technique_name": "Scripting"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0859", "technique_name": "Valid Accounts"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T0869", "technique_name": "Standard Application Layer Protocol"}
+{"group_id": "G0064", "group_name": "APT33", "technique_id": "T0852", "technique_name": "Screen Capture"}
+{"group_id": "G0064", "group_name": "APT33", "technique_id": "T0853", "technique_name": "Scripting"}
+{"group_id": "G0064", "group_name": "APT33", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}
+{"group_id": "G0088", "group_name": "TEMP.Veles", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
+{"group_id": "G0088", "group_name": "TEMP.Veles", "technique_id": "T0862", "technique_name": "Supply Chain Compromise"}
+{"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0817", "technique_name": "Drive-by Compromise"}
+{"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0852", "technique_name": "Screen Capture"}
+{"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0859", "technique_name": "Valid Accounts"}
+{"group_id": "G1000", "group_name": "ALLANITE", "technique_id": "T0865", "technique_name": "Spearphishing Attachment"}

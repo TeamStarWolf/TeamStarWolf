@@ -2,13 +2,13 @@
 
 # TeamStarWolf 🐺
 
-> A structured cybersecurity reference library built for practitioners
+> An open, threat-informed cybersecurity reference library — built for practitioners.
 
-- **47 discipline learning paths** — from threat intelligence to red teaming, hacking culture to AI security
-- **40+ enterprise vendors** — mapped to NIST 800-53 controls and ATT&CK techniques via CTID
-- **ATT&CK coverage heatmap** — techniques scored through the NIST 800-53 → CTID mappings chain
-- **Notable incidents, ransomware playbooks, and CVE reference** — real-world context for every discipline
-- **Free tools, certifications, and training** — curated and verified by practitioners
+- **109 in-depth references** across **47 discipline paths** — offense, defense, cloud, identity, GRC, and specialized security
+- **ATT&CK at the center** — techniques mapped to NIST 800-53 controls (CTID), detections, and validation
+- **5,314 control→technique mappings** & a 470-technique coverage heatmap you can load in ATT&CK Navigator
+- **Multi-platform detection library** — Splunk, Elastic, Microsoft, Chronicle, and CrowdStrike queries
+- **Free & open** — certifications, home-lab builds, curated tooling, and verified training
 
 [Get Started](README.md)
 [GitHub](https://github.com/TeamStarWolf/TeamStarWolf)

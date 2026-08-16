@@ -86,6 +86,7 @@ machine-readable so you can query them, not just read them.
 | Resource | What you get |
 |---|---|
 | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **691 Enterprise techniques** by tactic, each scored by threat-group usage, software, ATT&CK mitigations, NIST controls, and detection availability |
+| [Technique Detail Pages](techniques/README.md) | A **full consolidated write-up per technique** — description, mitigations, NIST controls, detections, and the groups & software that use it |
 | [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | **168 adversary groups** (APTs, eCrime) with aliases, attributed techniques, and tooling |
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | **784 malware families & tools** with the techniques they implement and the groups that use them |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **52 intrusion campaigns** with active windows, techniques, software, and group attribution |

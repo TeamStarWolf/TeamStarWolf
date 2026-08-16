@@ -56,6 +56,8 @@
 
   - [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
 
+  - [Technique Detail Pages](techniques/README.md)
+
   - [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
 
   - [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md)

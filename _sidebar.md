@@ -54,6 +54,16 @@
 
   - [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
 
+  - [ATT&CK Detection Strategies](detections/strategies/README.md)
+
+  - [ATT&CK Data Components](ATTACK_DATA_COMPONENTS.md)
+
+  - [D3FEND Countermeasures](D3FEND_REFERENCE.md)
+
+  - [CWE Weakness Reference](CWE_REFERENCE.md)
+
+  - [CAPEC Attack Patterns](CAPEC_REFERENCE.md)
+
   - [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
 
   - [Technique Detail Pages](techniques/README.md)

@@ -1,0 +1,3673 @@
+{
+  "name": "ATT&CK Technique Frequency - Threat Group Usage",
+  "versions": {
+    "attack": "18",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques colored by the number of tracked ATT&CK threat groups observed using them. High-frequency techniques are the most broadly adopted adversary behaviors and are strong candidates for detection and mitigation investment. Source: MITRE ATT&CK Enterprise v18.1 intrusion-set usage.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "max",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": true,
+  "techniques": [
+    {
+      "techniqueID": "T1001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1001.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 16 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 3,
+      "comment": "3 threat groups, 18 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 13,
+      "comment": "13 threat groups, 7 software use this. 22 NIST controls, 9 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 42,
+      "comment": "42 threat groups, 26 software use this. 19 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 13,
+      "comment": "13 threat groups, 15 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 17,
+      "comment": "17 threat groups, 4 software use this. 18 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003.004",
+      "tactic": "credential-access",
+      "score": 10,
+      "comment": "10 threat groups, 9 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003.005",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 threat groups, 4 software use this. 17 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 threat groups, 1 software use this. 16 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 43,
+      "comment": "43 threat groups, 161 software use this. 13 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1006",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 14,
+      "comment": "14 threat groups, 51 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 5,
+      "comment": "5 threat groups, 47 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1010",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 threat groups, 32 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 19,
+      "comment": "19 threat groups, 98 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 threat groups, 24 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 42,
+      "comment": "42 threat groups, 225 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1016.001",
+      "tactic": "discovery",
+      "score": 11,
+      "comment": "11 threat groups, 13 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1016.002",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 5 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 39,
+      "comment": "39 threat groups, 52 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 6,
+      "comment": "6 threat groups, 20 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 3,
+      "comment": "3 threat groups, 4 software use this. 14 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 35,
+      "comment": "35 threat groups, 17 software use this. 23 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 26,
+      "comment": "26 threat groups, 30 software use this. 16 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 19,
+      "comment": "19 threat groups, 4 software use this. 15 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021.005",
+      "tactic": "lateral-movement",
+      "score": 4,
+      "comment": "4 threat groups, 7 software use this. 22 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 5,
+      "comment": "5 threat groups, 3 software use this. 16 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1021.007",
+      "tactic": "lateral-movement",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 7 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1025",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "4 threat groups, 20 software use this. 15 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 threat groups, 130 software use this. 8 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 threat groups, 20 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "defense-evasion",
+      "score": 23,
+      "comment": "23 threat groups, 72 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 threat groups, 19 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 6 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.005",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 threat groups, 9 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.006",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.007",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 13 software use this. 4 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.009",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 18 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "defense-evasion",
+      "score": 28,
+      "comment": "28 threat groups, 31 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.011",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 27 software use this. 1 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.012",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 1 software use this. 2 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "defense-evasion",
+      "score": 37,
+      "comment": "37 threat groups, 172 software use this. 1 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 threat groups, 24 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1027.016",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 threat groups, 14 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1029",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "1 threat groups, 17 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1030",
+      "tactic": "exfiltration",
+      "score": 5,
+      "comment": "5 threat groups, 14 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 38,
+      "comment": "38 threat groups, 186 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "defense-evasion",
+      "score": 20,
+      "comment": "20 threat groups, 31 software use this. 12 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.001",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 7 software use this. 5 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.002",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 threat groups, 0 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 threat groups, 4 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "defense-evasion",
+      "score": 22,
+      "comment": "22 threat groups, 61 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "defense-evasion",
+      "score": 59,
+      "comment": "59 threat groups, 130 software use this. 12 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.006",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.007",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 6 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.008",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 11 software use this. 5 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 5 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1037.001",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 2 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1037.001",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 2 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 4 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 4 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1039",
+      "tactic": "collection",
+      "score": 8,
+      "comment": "8 threat groups, 4 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 8,
+      "comment": "8 threat groups, 16 software use this. 12 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 8,
+      "comment": "8 threat groups, 16 software use this. 12 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 25,
+      "comment": "25 threat groups, 156 software use this. 18 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 31,
+      "comment": "31 threat groups, 35 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 39,
+      "comment": "39 threat groups, 88 software use this. 17 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "2 threat groups, 7 software use this. 23 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "3 threat groups, 2 software use this. 23 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 11,
+      "comment": "11 threat groups, 22 software use this. 23 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 32,
+      "comment": "32 threat groups, 60 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1052.001",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "2 threat groups, 5 software use this. 19 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.002",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.002",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.002",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "3 threat groups, 12 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 12 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 12 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 54,
+      "comment": "54 threat groups, 118 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 54,
+      "comment": "54 threat groups, 118 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 54,
+      "comment": "54 threat groups, 118 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "defense-evasion",
+      "score": 15,
+      "comment": "15 threat groups, 60 software use this. 12 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 15,
+      "comment": "15 threat groups, 60 software use this. 12 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 threat groups, 56 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 threat groups, 56 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 10 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 threat groups, 10 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.004",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 threat groups, 32 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 threat groups, 32 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.013",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1055.013",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "3 threat groups, 7 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 threat groups, 7 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 26,
+      "comment": "26 threat groups, 123 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 26,
+      "comment": "26 threat groups, 123 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.002",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "2 threat groups, 11 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.002",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 11 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.004",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1056.004",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "40 threat groups, 255 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 17,
+      "comment": "17 threat groups, 22 software use this. 23 NIST controls, 9 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 83,
+      "comment": "83 threat groups, 124 software use this. 19 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 71,
+      "comment": "71 threat groups, 286 software use this. 11 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 10,
+      "comment": "10 threat groups, 45 software use this. 11 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 45,
+      "comment": "45 threat groups, 67 software use this. 17 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 17,
+      "comment": "17 threat groups, 34 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 25,
+      "comment": "25 threat groups, 32 software use this. 16 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.009",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "3 threat groups, 1 software use this. 6 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.010",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 5 software use this. 11 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.012",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1059.013",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 22,
+      "comment": "22 threat groups, 19 software use this. 21 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "6 threat groups, 6 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1069.001",
+      "tactic": "discovery",
+      "score": 7,
+      "comment": "7 threat groups, 21 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 13,
+      "comment": "13 threat groups, 21 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 25 software use this. 20 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.001",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "13 threat groups, 26 software use this. 21 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.002",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 4 software use this. 21 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.003",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 threat groups, 3 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "defense-evasion",
+      "score": 46,
+      "comment": "46 threat groups, 239 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.005",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 threat groups, 42 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.007",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 10 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1070.008",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 22 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 5,
+      "comment": "5 threat groups, 10 software use this. 15 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 56,
+      "comment": "56 threat groups, 329 software use this. 15 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "4 threat groups, 19 software use this. 15 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1071.003",
+      "tactic": "command-and-control",
+      "score": 6,
+      "comment": "6 threat groups, 20 software use this. 15 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 threat groups, 41 software use this. 18 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 6,
+      "comment": "6 threat groups, 1 software use this. 27 NIST controls, 10 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 6,
+      "comment": "6 threat groups, 1 software use this. 27 NIST controls, 10 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "4 threat groups, 4 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 27,
+      "comment": "27 threat groups, 88 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 10,
+      "comment": "10 threat groups, 1 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 44,
+      "comment": "44 threat groups, 6 software use this. 25 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 44,
+      "comment": "44 threat groups, 6 software use this. 25 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 44,
+      "comment": "44 threat groups, 6 software use this. 25 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 44,
+      "comment": "44 threat groups, 6 software use this. 25 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 14 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 14 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 14 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 14 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "defense-evasion",
+      "score": 18,
+      "comment": "18 threat groups, 5 software use this. 13 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 18,
+      "comment": "18 threat groups, 5 software use this. 13 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 18,
+      "comment": "18 threat groups, 5 software use this. 13 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 18,
+      "comment": "18 threat groups, 5 software use this. 13 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 threat groups, 5 software use this. 19 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 12,
+      "comment": "12 threat groups, 5 software use this. 19 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 12,
+      "comment": "12 threat groups, 5 software use this. 19 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 12,
+      "comment": "12 threat groups, 5 software use this. 19 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "9 threat groups, 3 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 9,
+      "comment": "9 threat groups, 3 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 9,
+      "comment": "9 threat groups, 3 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 9,
+      "comment": "9 threat groups, 3 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 5,
+      "comment": "5 threat groups, 7 software use this. 10 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 55,
+      "comment": "55 threat groups, 336 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "50 threat groups, 295 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 threat groups, 5 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 18,
+      "comment": "18 threat groups, 44 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 27,
+      "comment": "27 threat groups, 25 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "4 threat groups, 8 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1087.004",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 6 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 17,
+      "comment": "17 threat groups, 46 software use this. 12 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 9,
+      "comment": "9 threat groups, 20 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 threat groups, 10 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 threat groups, 20 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1090.004",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 1 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 8,
+      "comment": "8 threat groups, 20 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 8,
+      "comment": "8 threat groups, 20 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1092",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 12,
+      "comment": "12 threat groups, 86 software use this. 11 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 2 software use this. 11 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 2 software use this. 11 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 15 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 15 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.004",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 15 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.004",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 15 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "persistence",
+      "score": 7,
+      "comment": "7 threat groups, 4 software use this. 11 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "privilege-escalation",
+      "score": 7,
+      "comment": "7 threat groups, 4 software use this. 11 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "score": 14,
+      "comment": "14 threat groups, 27 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 6,
+      "comment": "6 threat groups, 15 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 16,
+      "comment": "16 threat groups, 37 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1102.003",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "2 threat groups, 6 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1104",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "4 threat groups, 10 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 85,
+      "comment": "85 threat groups, 385 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 18,
+      "comment": "18 threat groups, 189 software use this. 7 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 threat groups, 7 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 9 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 threat groups, 1 software use this. 14 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 11,
+      "comment": "11 threat groups, 4 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1111",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 9 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-evasion",
+      "score": 29,
+      "comment": "29 threat groups, 136 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 29,
+      "comment": "29 threat groups, 136 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 18,
+      "comment": "18 threat groups, 148 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 6,
+      "comment": "6 threat groups, 11 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 12,
+      "comment": "12 threat groups, 4 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 5,
+      "comment": "5 threat groups, 0 software use this. 12 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1115",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "3 threat groups, 41 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 20,
+      "comment": "20 threat groups, 44 software use this. 17 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 9,
+      "comment": "9 threat groups, 46 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1123",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 30 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 13,
+      "comment": "13 threat groups, 77 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1125",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "3 threat groups, 31 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 21 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1132",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 5 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 threat groups, 108 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 26,
+      "comment": "26 threat groups, 5 software use this. 17 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 26,
+      "comment": "26 threat groups, 5 software use this. 17 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 19 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 19 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 15 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 threat groups, 15 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 11 software use this. 7 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134.002",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 threat groups, 11 software use this. 7 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134.003",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1134.003",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 16,
+      "comment": "16 threat groups, 57 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 1 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 14,
+      "comment": "14 threat groups, 15 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "5 threat groups, 4 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1136.003",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1137",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 10 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1137.002",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 10 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1137.004",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1137.006",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "defense-evasion",
+      "score": 38,
+      "comment": "38 threat groups, 274 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1176.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 6 software use this. 0 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1176.002",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 13 software use this. 14 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1187",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 10 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 31,
+      "comment": "31 threat groups, 10 software use this. 18 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 42,
+      "comment": "42 threat groups, 8 software use this. 29 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "3 threat groups, 2 software use this. 22 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 9,
+      "comment": "9 threat groups, 3 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 threat groups, 8 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "5 threat groups, 8 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 11,
+      "comment": "11 threat groups, 0 software use this. 8 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1200",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 5 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1201",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 threat groups, 4 software use this. 5 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1202",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 41,
+      "comment": "41 threat groups, 14 software use this. 16 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 13 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 47,
+      "comment": "47 threat groups, 28 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 84,
+      "comment": "84 threat groups, 90 software use this. 12 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1204.003",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 16 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1204.004",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1204.005",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 16 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 16 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "score": 3,
+      "comment": "3 threat groups, 16 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1205.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 11,
+      "comment": "11 threat groups, 13 software use this. 31 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1211",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 22 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1212",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 24 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1213.001",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 23 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1213.002",
+      "tactic": "collection",
+      "score": 6,
+      "comment": "6 threat groups, 1 software use this. 23 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1213.005",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 24 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 0 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1216.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 6 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1217",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "6 threat groups, 17 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 20 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.001",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 threat groups, 1 software use this. 10 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.003",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.004",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "defense-evasion",
+      "score": 17,
+      "comment": "17 threat groups, 11 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "6 threat groups, 21 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.008",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.010",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 threat groups, 23 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "defense-evasion",
+      "score": 26,
+      "comment": "26 threat groups, 69 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1218.014",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 13,
+      "comment": "13 threat groups, 7 software use this. 13 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1219.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1219.002",
+      "tactic": "command-and-control",
+      "score": 9,
+      "comment": "9 threat groups, 0 software use this. 0 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1220",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1221",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "7 threat groups, 2 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 9 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1222.002",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 10 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 33 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 8 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1480.002",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 15 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1482",
+      "tactic": "discovery",
+      "score": 9,
+      "comment": "9 threat groups, 19 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 8 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 threat groups, 8 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 5,
+      "comment": "5 threat groups, 24 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 17,
+      "comment": "17 threat groups, 61 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 6,
+      "comment": "6 threat groups, 44 software use this. 14 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 6,
+      "comment": "6 threat groups, 48 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 3,
+      "comment": "3 threat groups, 9 software use this. 10 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 10 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1496.001",
+      "tactic": "impact",
+      "score": 4,
+      "comment": "4 threat groups, 9 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 22 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "3 threat groups, 22 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "5 threat groups, 59 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "5 threat groups, 59 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1497.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1497.002",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 9 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 31,
+      "comment": "31 threat groups, 19 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1505.006",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 11,
+      "comment": "11 threat groups, 36 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 27,
+      "comment": "27 threat groups, 105 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1518.002",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1526",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 19 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 4,
+      "comment": "4 threat groups, 23 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 5,
+      "comment": "5 threat groups, 3 software use this. 32 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1534",
+      "tactic": "lateral-movement",
+      "score": 4,
+      "comment": "4 threat groups, 0 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 20 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1538",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 8,
+      "comment": "8 threat groups, 16 software use this. 10 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 6 software use this. 18 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 6 software use this. 18 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 20 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 20 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 8 software use this. 16 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 8 software use this. 16 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 26,
+      "comment": "26 threat groups, 108 software use this. 8 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 26,
+      "comment": "26 threat groups, 108 software use this. 8 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "privilege-escalation",
+      "score": 10,
+      "comment": "10 threat groups, 13 software use this. 12 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 10,
+      "comment": "10 threat groups, 13 software use this. 12 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.008",
+      "tactic": "privilege-escalation",
+      "score": 6,
+      "comment": "6 threat groups, 1 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.008",
+      "tactic": "persistence",
+      "score": 6,
+      "comment": "6 threat groups, 1 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.010",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 5 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.010",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 5 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.011",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 2 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.011",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 2 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.013",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.013",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.015",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1546.015",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 11 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 5 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 5 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 55,
+      "comment": "55 threat groups, 194 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 55,
+      "comment": "55 threat groups, 194 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 10 software use this. 13 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 10 software use this. 13 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "persistence",
+      "score": 4,
+      "comment": "4 threat groups, 25 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "privilege-escalation",
+      "score": 4,
+      "comment": "4 threat groups, 25 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.012",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.012",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 8 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.013",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 6 software use this. 15 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1547.013",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 6 software use this. 15 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 22 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 22 NIST controls, 8 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 11,
+      "comment": "11 threat groups, 49 software use this. 11 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 threat groups, 49 software use this. 11 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 15 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 15 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "defense-evasion",
+      "score": 11,
+      "comment": "11 threat groups, 8 software use this. 8 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 11,
+      "comment": "11 threat groups, 8 software use this. 8 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 11 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 11 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 32 NIST controls, 11 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 14,
+      "comment": "14 threat groups, 18 software use this. 17 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552.002",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 7 software use this. 18 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 5,
+      "comment": "5 threat groups, 11 software use this. 21 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 14 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552.006",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 12 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1552.008",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 2 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1553",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 20 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-evasion",
+      "score": 26,
+      "comment": "26 threat groups, 52 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1553.005",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 2 software use this. 6 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1553.006",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 13 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 16 software use this. 9 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 12,
+      "comment": "12 threat groups, 24 software use this. 8 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1555.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 10 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 23,
+      "comment": "23 threat groups, 62 software use this. 0 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1555.004",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "4 threat groups, 9 software use this. 5 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1555.005",
+      "tactic": "credential-access",
+      "score": 7,
+      "comment": "7 threat groups, 4 software use this. 8 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1555.006",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 17 NIST controls, 9 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 17 NIST controls, 9 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 17 NIST controls, 9 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.002",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.007",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 6 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.009",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 14 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.009",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 14 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1556.009",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 14 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 24 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 5 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "2 threat groups, 5 software use this. 15 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557.002",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 22 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557.002",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 22 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 16 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 16 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 19 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 9 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 threat groups, 6 software use this. 19 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1559.001",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "3 threat groups, 17 software use this. 13 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1559.002",
+      "tactic": "execution",
+      "score": 11,
+      "comment": "11 threat groups, 8 software use this. 14 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 13,
+      "comment": "13 threat groups, 41 software use this. 5 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 37,
+      "comment": "37 threat groups, 31 software use this. 5 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1560.002",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "2 threat groups, 13 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 7,
+      "comment": "7 threat groups, 31 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "2 threat groups, 13 software use this. 10 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 5,
+      "comment": "5 threat groups, 11 software use this. 10 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 16 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.001",
+      "tactic": "defense-evasion",
+      "score": 30,
+      "comment": "30 threat groups, 71 software use this. 13 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.003",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 4 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.004",
+      "tactic": "defense-evasion",
+      "score": 17,
+      "comment": "17 threat groups, 24 software use this. 13 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.006",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 8 software use this. 17 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.008",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1562.013",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 18 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "12 threat groups, 45 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "defense-evasion",
+      "score": 16,
+      "comment": "16 threat groups, 38 software use this. 3 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 15 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.008",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.011",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 4 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1564.012",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 1 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1565",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 26 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 23 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 12 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1565.003",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 13 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 6,
+      "comment": "6 threat groups, 3 software use this. 13 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 77,
+      "comment": "77 threat groups, 55 software use this. 12 NIST controls, 7 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 43,
+      "comment": "43 threat groups, 29 software use this. 11 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 14,
+      "comment": "14 threat groups, 1 software use this. 10 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 4,
+      "comment": "4 threat groups, 7 software use this. 17 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 24,
+      "comment": "24 threat groups, 15 software use this. 3 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 6,
+      "comment": "6 threat groups, 8 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1568.001",
+      "tactic": "command-and-control",
+      "score": 3,
+      "comment": "3 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "2 threat groups, 20 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1568.003",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 16,
+      "comment": "16 threat groups, 51 software use this. 13 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1569.003",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 19,
+      "comment": "19 threat groups, 25 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 16,
+      "comment": "16 threat groups, 37 software use this. 8 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 14,
+      "comment": "14 threat groups, 18 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "4 threat groups, 11 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 14,
+      "comment": "14 threat groups, 159 software use this. 11 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 11,
+      "comment": "11 threat groups, 73 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "persistence",
+      "score": 32,
+      "comment": "32 threat groups, 67 software use this. 8 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "privilege-escalation",
+      "score": 32,
+      "comment": "32 threat groups, 67 software use this. 8 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "defense-evasion",
+      "score": 32,
+      "comment": "32 threat groups, 67 software use this. 8 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.005",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.005",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.005",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 11 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "3 threat groups, 6 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "3 threat groups, 6 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 6 software use this. 4 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.012",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 9 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.012",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 9 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.012",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 9 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1574.013",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 7 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1578.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1578.003",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 5 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583",
+      "tactic": "resource-development",
+      "score": 8,
+      "comment": "8 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "40 threat groups, 3 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.002",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 14,
+      "comment": "14 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.004",
+      "tactic": "resource-development",
+      "score": 6,
+      "comment": "6 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.005",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 24,
+      "comment": "24 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1583.008",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 6,
+      "comment": "6 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.002",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.003",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 10,
+      "comment": "10 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "4 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.006",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "4 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1584.008",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "4 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 5,
+      "comment": "5 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 17,
+      "comment": "17 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 18,
+      "comment": "18 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1585.003",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1586.001",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 12,
+      "comment": "12 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1587",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 22,
+      "comment": "22 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1587.002",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1587.003",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "4 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 15,
+      "comment": "15 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 79,
+      "comment": "79 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 7,
+      "comment": "7 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 7,
+      "comment": "7 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.006",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 9,
+      "comment": "9 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1589.001",
+      "tactic": "reconnaissance",
+      "score": 5,
+      "comment": "5 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1589.002",
+      "tactic": "reconnaissance",
+      "score": 14,
+      "comment": "14 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1589.003",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1590.001",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1590.004",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1590.005",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1590.006",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 6,
+      "comment": "6 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1591.001",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1591.002",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1591.004",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "4 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1592.004",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 6,
+      "comment": "6 threat groups, 0 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1593.001",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1593.002",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1593.003",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 1 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 6,
+      "comment": "6 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 13,
+      "comment": "13 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1595.003",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 1 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1596",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1596.005",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1597",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1597.002",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 5,
+      "comment": "5 threat groups, 0 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "4 threat groups, 0 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 15,
+      "comment": "15 threat groups, 2 software use this. 11 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1598.004",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1599",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 18 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1602.002",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 25 NIST controls, 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 25,
+      "comment": "25 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608.002",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608.003",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608.004",
+      "tactic": "resource-development",
+      "score": 8,
+      "comment": "8 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608.005",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1608.006",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1609",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 11 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 9 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 9 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1611",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 19 NIST controls, 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1613",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 10 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1614",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "2 threat groups, 18 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1614.001",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "4 threat groups, 31 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1615",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 5 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1620",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "4 threat groups, 22 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "3 threat groups, 0 software use this. 7 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1622",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 21 software use this. 15 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1622",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 21 software use this. 15 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1649",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 3 NIST controls, 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1650",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1651",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 6 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1652",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1654",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "5 threat groups, 5 software use this. 4 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1656",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "8 threat groups, 1 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 14,
+      "comment": "14 threat groups, 5 software use this. 2 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 3 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1659",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 3 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1665",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "2 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1667",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1673",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1674",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 0 NIST controls, 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1675",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 1 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1678",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 10,
+      "comment": "10 threat groups, 86 software use this. 0 NIST controls, 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1681",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 0 NIST controls, 1 ATT&CK mitigations."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#f7fbff",
+      "#4292c6",
+      "#08306b"
+    ],
+    "minValue": 0,
+    "maxValue": 85
+  },
+  "legendItems": [
+    {
+      "label": "used by few groups",
+      "color": "#f7fbff"
+    },
+    {
+      "label": "used by many groups (top adversary behaviors)",
+      "color": "#08306b"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "MITRE ATT&CK Enterprise v18.1"
+    },
+    {
+      "name": "max_group_count",
+      "value": "85"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#205b8f",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

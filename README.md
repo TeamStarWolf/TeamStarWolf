@@ -6,7 +6,7 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-116-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-120-2b6cb0?style=flat-square)](INDEX.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -21,7 +21,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **116 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **120 in-depth reference documents** and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -44,8 +44,9 @@ New here? Jump to [**Start here**](#start-here) for goal-based entry points, or 
 
 | | | |
 |---|---|---|
-| 📚 **116** reference documents | 🧭 **47** discipline learning paths | 🗺️ **25** ATT&CK Navigator coverage layers |
+| 📚 **120** reference documents | 🧭 **47** discipline learning paths | 🗺️ **25** ATT&CK Navigator coverage layers |
 | 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
+| 🔬 **691** detection strategies · **1,739** analytics | 🧬 **969** CWE weaknesses · **615** CAPEC patterns | 🛡️ **156** D3FEND countermeasures |
 | 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🎯 **65** multi-platform detection queries |
 | 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
 
@@ -96,11 +97,29 @@ machine-readable so you can query them, not just read them.
 
 **Machine-readable datasets** &nbsp;·&nbsp; [Technique profiles](data/attack/technique_profiles.jsonl) &nbsp;·&nbsp; [Group → Technique](data/attack/group_to_technique.jsonl) &nbsp;·&nbsp; [Software → Technique](data/attack/software_to_technique.jsonl) &nbsp;·&nbsp; [Mitigation → Technique](data/attack/mitigation_to_technique.jsonl) &nbsp;·&nbsp; [Groups](data/attack/groups.jsonl) &nbsp;·&nbsp; [Software](data/attack/software.jsonl) &nbsp;·&nbsp; [Mitigations](data/attack/mitigations.jsonl) &nbsp;·&nbsp; [Campaigns](data/attack/campaigns.jsonl) &nbsp;·&nbsp; [ICS datasets](data/attack/ics/) &nbsp;·&nbsp; [Mobile datasets](data/attack/mobile/)
 
+**Detection engineering** — MITRE's own detection guidance, with concrete log sources and tunable logic:
+
+| Resource | What you get |
+|---|---|
+| [ATT&CK Detection Strategies](detections/strategies/README.md) | **691 detection strategies** and **1,739 analytics** — per technique, the log sources/channels, detection logic, and tunable parameters to detect it |
+| [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) | Ready-to-adapt SIEM/EDR queries (Splunk · Elastic · Microsoft · Chronicle · CrowdStrike) |
+| [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | **106 telemetry categories** mapped to the techniques they detect — plan your logging coverage |
+
+**Completing the knowledge graph** — the *weakness*, *attack-pattern*, and *defense* nodes of **CVE → CWE → CAPEC → ATT&CK → D3FEND**:
+
+| Resource | What you get |
+|---|---|
+| [CWE Weakness Reference](CWE_REFERENCE.md) | **969 weakness types** (10 pillars, 114 classes) with consequences, mitigations, and a data-driven "most-attacked" ranking |
+| [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | **615 attack patterns** — 177 bridging directly to ATT&CK techniques, linked to their CWE weaknesses |
+| [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | **156 defensive techniques** (7 D3FEND tactics) mapped to the **426 ATT&CK techniques** they counter |
+
+**More datasets** &nbsp;·&nbsp; [Detection strategies](data/attack/detection_strategies.jsonl) &nbsp;·&nbsp; [Analytics](data/attack/analytics.jsonl) &nbsp;·&nbsp; [Data components](data/attack/data_components.jsonl) &nbsp;·&nbsp; [Technique → D3FEND](data/attack/technique_to_d3fend.jsonl) &nbsp;·&nbsp; [CWE](data/weaknesses/cwe.jsonl) &nbsp;·&nbsp; [CAPEC](data/weaknesses/capec.jsonl)
+
 ---
 
 ## 📚 Explore the library
 
-Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 116 documents.
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 120 documents.
 
 <details open>
 <summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>

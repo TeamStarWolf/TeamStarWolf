@@ -14,6 +14,8 @@
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 52 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
+| [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |
+| [ATT&CK Detection Strategies](detections/strategies/README.md) | 691 MITRE detection strategies + 1,739 analytics — log sources, detection logic, and tunable parameters per technique |
 | [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, compliance, and composite risk |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses |
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 784 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |
@@ -32,13 +34,16 @@
 | [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
 | [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
+| [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
+| [CWE Weakness Reference](CWE_REFERENCE.md) | 969 software/hardware weakness types (10 pillars, 114 classes) with consequences, mitigations, and a most-attacked ranking |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 
 ## D–G
 
 | Resource | Description |
 |---|---|
+| [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | 156 MITRE D3FEND defensive techniques (7 tactics) mapped to the 426 ATT&CK techniques they counter |
 | [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |

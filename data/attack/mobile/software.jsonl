@@ -1,0 +1,122 @@
+{"software_id": "S1185", "name": "LightSpy", "type": "malware", "platforms": ["Android", "Windows", "iOS", "macOS"], "technique_count": 35, "group_count": 1, "url": "https://attack.mitre.org/software/S1185"}
+{"software_id": "S1094", "name": "BRATA", "type": "malware", "platforms": ["Android"], "technique_count": 27, "group_count": 0, "url": "https://attack.mitre.org/software/S1094"}
+{"software_id": "S1231", "name": "GodFather", "type": "malware", "platforms": ["Android"], "technique_count": 26, "group_count": 0, "url": "https://attack.mitre.org/software/S1231"}
+{"software_id": "S1083", "name": "Chameleon", "type": "malware", "platforms": ["Android"], "technique_count": 26, "group_count": 0, "url": "https://attack.mitre.org/software/S1083"}
+{"software_id": "S0485", "name": "Mandrake", "type": "malware", "platforms": ["Android"], "technique_count": 25, "group_count": 0, "url": "https://attack.mitre.org/software/S0485"}
+{"software_id": "S1079", "name": "BOULDSPY", "type": "malware", "platforms": ["Android"], "technique_count": 25, "group_count": 0, "url": "https://attack.mitre.org/software/S1079"}
+{"software_id": "S0407", "name": "Monokle", "type": "malware", "platforms": ["Android"], "technique_count": 24, "group_count": 0, "url": "https://attack.mitre.org/software/S0407"}
+{"software_id": "S1061", "name": "AbstractEmu", "type": "malware", "platforms": ["Android"], "technique_count": 23, "group_count": 0, "url": "https://attack.mitre.org/software/S1061"}
+{"software_id": "S1195", "name": "SpyC23", "type": "malware", "platforms": ["Android"], "technique_count": 21, "group_count": 1, "url": "https://attack.mitre.org/software/S1195"}
+{"software_id": "S1077", "name": "Hornbill", "type": "malware", "platforms": ["Android"], "technique_count": 21, "group_count": 1, "url": "https://attack.mitre.org/software/S1077"}
+{"software_id": "S0422", "name": "Anubis", "type": "malware", "platforms": ["Android"], "technique_count": 21, "group_count": 0, "url": "https://attack.mitre.org/software/S0422"}
+{"software_id": "S0558", "name": "Tiktok Pro", "type": "malware", "platforms": ["Android"], "technique_count": 20, "group_count": 0, "url": "https://attack.mitre.org/software/S0558"}
+{"software_id": "S1062", "name": "S.O.V.A.", "type": "malware", "platforms": ["Android"], "technique_count": 19, "group_count": 0, "url": "https://attack.mitre.org/software/S1062"}
+{"software_id": "S0405", "name": "Exodus", "type": "malware", "platforms": ["Android"], "technique_count": 19, "group_count": 0, "url": "https://attack.mitre.org/software/S0405"}
+{"software_id": "S1241", "name": "RatMilad", "type": "malware", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S1241"}
+{"software_id": "S0551", "name": "GoldenEagle", "type": "malware", "platforms": [], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S0551"}
+{"software_id": "S0655", "name": "BusyGasper", "type": "malware", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S0655"}
+{"software_id": "S1055", "name": "SharkBot", "type": "malware", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S1055"}
+{"software_id": "S0536", "name": "GPlayed", "type": "malware", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S0536"}
+{"software_id": "S0480", "name": "Cerberus", "type": "malware", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S0480"}
+{"software_id": "S0550", "name": "DoubleAgent", "type": "malware", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S0550"}
+{"software_id": "S0408", "name": "FlexiSpy", "type": "tool", "platforms": ["Android"], "technique_count": 18, "group_count": 0, "url": "https://attack.mitre.org/software/S0408"}
+{"software_id": "S0427", "name": "TrickMo", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S0427"}
+{"software_id": "S0505", "name": "Desert Scorpion", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 1, "url": "https://attack.mitre.org/software/S0505"}
+{"software_id": "S0544", "name": "HenBox", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S0544"}
+{"software_id": "S0463", "name": "INSOMNIA", "type": "malware", "platforms": ["iOS"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S0463"}
+{"software_id": "S1082", "name": "Sunbird", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 1, "url": "https://attack.mitre.org/software/S1082"}
+{"software_id": "S0421", "name": "GolfSpy", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 1, "url": "https://attack.mitre.org/software/S0421"}
+{"software_id": "S1067", "name": "FluBot", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S1067"}
+{"software_id": "S0489", "name": "WolfRAT", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S0489"}
+{"software_id": "S0529", "name": "CarbonSteal", "type": "malware", "platforms": ["Android"], "technique_count": 17, "group_count": 0, "url": "https://attack.mitre.org/software/S0529"}
+{"software_id": "S1092", "name": "Escobar", "type": "malware", "platforms": ["Android"], "technique_count": 16, "group_count": 0, "url": "https://attack.mitre.org/software/S1092"}
+{"software_id": "S0411", "name": "Rotexy", "type": "malware", "platforms": ["Android"], "technique_count": 16, "group_count": 0, "url": "https://attack.mitre.org/software/S0411"}
+{"software_id": "S0509", "name": "FakeSpy", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0509"}
+{"software_id": "S0549", "name": "SilkBean", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0549"}
+{"software_id": "S0545", "name": "TERRACOTTA", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0545"}
+{"software_id": "S0425", "name": "Corona Updates", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0425"}
+{"software_id": "S0406", "name": "Gustuff", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0406"}
+{"software_id": "S1095", "name": "AhRat", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S1095"}
+{"software_id": "S0289", "name": "Pegasus for iOS", "type": "malware", "platforms": ["iOS"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0289"}
+{"software_id": "S0522", "name": "Exobot", "type": "malware", "platforms": ["Android"], "technique_count": 15, "group_count": 0, "url": "https://attack.mitre.org/software/S0522"}
+{"software_id": "S0478", "name": "EventBot", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 0, "url": "https://attack.mitre.org/software/S0478"}
+{"software_id": "S0418", "name": "ViceLeaker", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 0, "url": "https://attack.mitre.org/software/S0418"}
+{"software_id": "S0399", "name": "Pallas", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 1, "url": "https://attack.mitre.org/software/S0399"}
+{"software_id": "S1054", "name": "Drinik", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 0, "url": "https://attack.mitre.org/software/S1054"}
+{"software_id": "S0328", "name": "Stealth Mango", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 0, "url": "https://attack.mitre.org/software/S0328"}
+{"software_id": "S0316", "name": "Pegasus for Android", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 0, "url": "https://attack.mitre.org/software/S0316"}
+{"software_id": "S0324", "name": "SpyDealer", "type": "malware", "platforms": ["Android"], "technique_count": 14, "group_count": 0, "url": "https://attack.mitre.org/software/S0324"}
+{"software_id": "S1225", "name": "CherryBlos", "type": "malware", "platforms": ["Android"], "technique_count": 13, "group_count": 0, "url": "https://attack.mitre.org/software/S1225"}
+{"software_id": "S0535", "name": "Golden Cup", "type": "malware", "platforms": ["Android"], "technique_count": 13, "group_count": 0, "url": "https://attack.mitre.org/software/S0535"}
+{"software_id": "S0506", "name": "ViperRAT", "type": "malware", "platforms": ["Android"], "technique_count": 13, "group_count": 0, "url": "https://attack.mitre.org/software/S0506"}
+{"software_id": "S0539", "name": "Red Alert 2.0", "type": "malware", "platforms": ["Android"], "technique_count": 13, "group_count": 0, "url": "https://attack.mitre.org/software/S0539"}
+{"software_id": "S1216", "name": "TriangleDB", "type": "malware", "platforms": ["iOS"], "technique_count": 12, "group_count": 0, "url": "https://attack.mitre.org/software/S1216"}
+{"software_id": "S0311", "name": "YiSpecter", "type": "malware", "platforms": ["Android", "iOS"], "technique_count": 12, "group_count": 0, "url": "https://attack.mitre.org/software/S0311"}
+{"software_id": "S0423", "name": "Ginp", "type": "malware", "platforms": ["Android"], "technique_count": 12, "group_count": 0, "url": "https://attack.mitre.org/software/S0423"}
+{"software_id": "S1069", "name": "TangleBot", "type": "malware", "platforms": ["Android"], "technique_count": 12, "group_count": 0, "url": "https://attack.mitre.org/software/S1069"}
+{"software_id": "S1243", "name": "DCHSpy", "type": "malware", "platforms": ["Android"], "technique_count": 12, "group_count": 1, "url": "https://attack.mitre.org/software/S1243"}
+{"software_id": "S0540", "name": "Asacub", "type": "malware", "platforms": ["Android"], "technique_count": 12, "group_count": 0, "url": "https://attack.mitre.org/software/S0540"}
+{"software_id": "S0555", "name": "CHEMISTGAMES", "type": "malware", "platforms": ["Android"], "technique_count": 11, "group_count": 1, "url": "https://attack.mitre.org/software/S0555"}
+{"software_id": "S0577", "name": "FrozenCell", "type": "malware", "platforms": ["Android"], "technique_count": 11, "group_count": 1, "url": "https://attack.mitre.org/software/S0577"}
+{"software_id": "S1080", "name": "Fakecalls", "type": "malware", "platforms": ["Android"], "technique_count": 11, "group_count": 0, "url": "https://attack.mitre.org/software/S1080"}
+{"software_id": "S0507", "name": "eSurv", "type": "malware", "platforms": ["Android", "iOS"], "technique_count": 10, "group_count": 0, "url": "https://attack.mitre.org/software/S0507"}
+{"software_id": "S0292", "name": "AndroRAT", "type": "malware", "platforms": ["Android"], "technique_count": 10, "group_count": 0, "url": "https://attack.mitre.org/software/S0292"}
+{"software_id": "S1126", "name": "Phenakite", "type": "malware", "platforms": ["iOS"], "technique_count": 10, "group_count": 1, "url": "https://attack.mitre.org/software/S1126"}
+{"software_id": "S0525", "name": "Android/AdDisplay.Ashas", "type": "malware", "platforms": ["Android"], "technique_count": 9, "group_count": 0, "url": "https://attack.mitre.org/software/S0525"}
+{"software_id": "S1056", "name": "TianySpy", "type": "malware", "platforms": ["Android", "iOS"], "technique_count": 9, "group_count": 0, "url": "https://attack.mitre.org/software/S1056"}
+{"software_id": "S0432", "name": "Bread", "type": "malware", "platforms": ["Android"], "technique_count": 9, "group_count": 0, "url": "https://attack.mitre.org/software/S0432"}
+{"software_id": "S0295", "name": "RCSAndroid", "type": "malware", "platforms": ["Android"], "technique_count": 9, "group_count": 0, "url": "https://attack.mitre.org/software/S0295"}
+{"software_id": "S0326", "name": "RedDrop", "type": "malware", "platforms": ["Android"], "technique_count": 9, "group_count": 0, "url": "https://attack.mitre.org/software/S0326"}
+{"software_id": "S0440", "name": "Agent Smith", "type": "malware", "platforms": ["Android"], "technique_count": 9, "group_count": 0, "url": "https://attack.mitre.org/software/S0440"}
+{"software_id": "S0424", "name": "Triada", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S0424"}
+{"software_id": "S0318", "name": "XLoader for Android", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S0318"}
+{"software_id": "S0327", "name": "Skygofree", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S0327"}
+{"software_id": "S1214", "name": "Android/SpyAgent", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S1214"}
+{"software_id": "S0403", "name": "Riltok", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S0403"}
+{"software_id": "S0494", "name": "Zen", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S0494"}
+{"software_id": "S0301", "name": "Dendroid", "type": "malware", "platforms": ["Android"], "technique_count": 8, "group_count": 0, "url": "https://attack.mitre.org/software/S0301"}
+{"software_id": "S0420", "name": "Dvmap", "type": "malware", "platforms": ["Android"], "technique_count": 7, "group_count": 0, "url": "https://attack.mitre.org/software/S0420"}
+{"software_id": "S0329", "name": "Tangelo", "type": "malware", "platforms": ["iOS"], "technique_count": 7, "group_count": 0, "url": "https://attack.mitre.org/software/S0329"}
+{"software_id": "S1215", "name": "Binary Validator", "type": "malware", "platforms": ["iOS"], "technique_count": 7, "group_count": 0, "url": "https://attack.mitre.org/software/S1215"}
+{"software_id": "S1093", "name": "FlyTrap", "type": "malware", "platforms": ["Android"], "technique_count": 7, "group_count": 0, "url": "https://attack.mitre.org/software/S1093"}
+{"software_id": "S0304", "name": "Android/Chuli.A", "type": "malware", "platforms": ["Android"], "technique_count": 7, "group_count": 0, "url": "https://attack.mitre.org/software/S0304"}
+{"software_id": "S0305", "name": "SpyNote RAT", "type": "malware", "platforms": ["Android"], "technique_count": 6, "group_count": 0, "url": "https://attack.mitre.org/software/S0305"}
+{"software_id": "S1128", "name": "HilalRAT", "type": "malware", "platforms": ["Android"], "technique_count": 6, "group_count": 1, "url": "https://attack.mitre.org/software/S1128"}
+{"software_id": "S1103", "name": "FlixOnline", "type": "malware", "platforms": ["Android"], "technique_count": 6, "group_count": 0, "url": "https://attack.mitre.org/software/S1103"}
+{"software_id": "S0293", "name": "BrainTest", "type": "malware", "platforms": [], "technique_count": 5, "group_count": 0, "url": "https://attack.mitre.org/software/S0293"}
+{"software_id": "S0479", "name": "DEFENSOR ID", "type": "malware", "platforms": ["Android"], "technique_count": 5, "group_count": 0, "url": "https://attack.mitre.org/software/S0479"}
+{"software_id": "S0309", "name": "Adups", "type": "malware", "platforms": [], "technique_count": 5, "group_count": 0, "url": "https://attack.mitre.org/software/S0309"}
+{"software_id": "S0320", "name": "DroidJack", "type": "malware", "platforms": ["Android"], "technique_count": 5, "group_count": 0, "url": "https://attack.mitre.org/software/S0320"}
+{"software_id": "S1208", "name": "FjordPhantom", "type": "malware", "platforms": ["Android"], "technique_count": 5, "group_count": 0, "url": "https://attack.mitre.org/software/S1208"}
+{"software_id": "S0182", "name": "FinFisher", "type": "malware", "platforms": ["Windows", "Android"], "technique_count": 5, "group_count": 1, "url": "https://attack.mitre.org/software/S0182"}
+{"software_id": "S0524", "name": "AndroidOS/MalLocker.B", "type": "malware", "platforms": ["Android"], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0524"}
+{"software_id": "S0298", "name": "Xbot", "type": "tool", "platforms": [], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0298"}
+{"software_id": "S0313", "name": "RuMMS", "type": "malware", "platforms": [], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0313"}
+{"software_id": "S0419", "name": "SimBad", "type": "malware", "platforms": ["Android"], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0419"}
+{"software_id": "S0490", "name": "XLoader for iOS", "type": "malware", "platforms": ["iOS"], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0490"}
+{"software_id": "S0323", "name": "Charger", "type": "malware", "platforms": ["Android"], "technique_count": 4, "group_count": 0, "url": "https://attack.mitre.org/software/S0323"}
+{"software_id": "S0297", "name": "XcodeGhost", "type": "malware", "platforms": [], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0297"}
+{"software_id": "S0291", "name": "PJApps", "type": "malware", "platforms": [], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0291"}
+{"software_id": "S0310", "name": "ANDROIDOS_ANSERVER.A", "type": "malware", "platforms": ["Android"], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0310"}
+{"software_id": "S0290", "name": "Gooligan", "type": "malware", "platforms": ["Android"], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0290"}
+{"software_id": "S0426", "name": "Concipit1248", "type": "malware", "platforms": ["iOS"], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0426"}
+{"software_id": "S0302", "name": "Twitoor", "type": "malware", "platforms": ["Android"], "technique_count": 3, "group_count": 0, "url": "https://attack.mitre.org/software/S0302"}
+{"software_id": "S0288", "name": "KeyRaider", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0288"}
+{"software_id": "S0312", "name": "WireLurker", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0312"}
+{"software_id": "S0314", "name": "X-Agent for Android", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 1, "url": "https://attack.mitre.org/software/S0314"}
+{"software_id": "S0294", "name": "ShiftyBug", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0294"}
+{"software_id": "S0325", "name": "Judy", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0325"}
+{"software_id": "S0286", "name": "OBAD", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0286"}
+{"software_id": "S0303", "name": "MazarBOT", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0303"}
+{"software_id": "S0315", "name": "DualToy", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0315"}
+{"software_id": "S0322", "name": "HummingBad", "type": "malware", "platforms": [], "technique_count": 2, "group_count": 0, "url": "https://attack.mitre.org/software/S0322"}
+{"software_id": "S0308", "name": "Trojan-SMS.AndroidOS.OpFake.a", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0308"}
+{"software_id": "S0307", "name": "Trojan-SMS.AndroidOS.Agent.ao", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0307"}
+{"software_id": "S0285", "name": "OldBoot", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0285"}
+{"software_id": "S0306", "name": "Trojan-SMS.AndroidOS.FakeInst.a", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0306"}
+{"software_id": "S0602", "name": "Circles", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0602"}
+{"software_id": "S0300", "name": "DressCode", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0300"}
+{"software_id": "S0321", "name": "HummingWhale", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0321"}
+{"software_id": "S0319", "name": "Allwinner", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0319"}
+{"software_id": "S0287", "name": "ZergHelper", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0287"}
+{"software_id": "S0299", "name": "NotCompatible", "type": "malware", "platforms": [], "technique_count": 1, "group_count": 0, "url": "https://attack.mitre.org/software/S0299"}

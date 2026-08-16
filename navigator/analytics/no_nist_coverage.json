@@ -1,0 +1,1531 @@
+{
+  "name": "ATT&CK Framework Blind Spots - No NIST 800-53 Coverage",
+  "versions": {
+    "attack": "18",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "The 223 ATT&CK techniques with NO mapped NIST 800-53 R5 control (CTID). These are framework blind spots that cannot be addressed by control coverage alone and require compensating detection, architecture, or process controls. Darker = used by more threat groups (higher priority). Source: MITRE ATT&CK Enterprise v18.1 + CTID NIST 800-53 R5 mappings.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "max",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": true,
+  "techniques": [
+    {
+      "techniqueID": "T1006",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 1 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 15,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 14 groups, 51 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1010",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 32 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 20,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 19 groups, 98 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "defense-evasion",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 24 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 43,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 42 groups, 225 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1016.001",
+      "tactic": "discovery",
+      "score": 12,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 11 groups, 13 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1016.002",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 5 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 39 groups, 52 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 20 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 8 groups, 20 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 8 groups, 19 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 6 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.005",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 7 groups, 9 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.006",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 2 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "defense-evasion",
+      "score": 8,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 7 groups, 24 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.016",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 5 groups, 14 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1027.017",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 39,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 38 groups, 186 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1036.002",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 5 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "defense-evasion",
+      "score": 23,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 22 groups, 61 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1036.006",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1036.009",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1036.011",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1036.012",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1039",
+      "tactic": "collection",
+      "score": 9,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 8 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 33,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 32 groups, 60 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 7 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 7 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 27,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 26 groups, 123 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 27,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 26 groups, 123 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1056.004",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 11 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1056.004",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 11 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 41,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 40 groups, 255 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1059.012",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1059.013",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 6 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1069.001",
+      "tactic": "discovery",
+      "score": 8,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 7 groups, 21 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 14,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 13 groups, 21 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1069.003",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "defense-evasion",
+      "score": 47,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 46 groups, 239 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1070.005",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "defense-evasion",
+      "score": 12,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 11 groups, 42 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 28,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 27 groups, 88 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 11,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 10 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 56,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 55 groups, 336 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 51,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 50 groups, 295 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 8 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 19,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 18 groups, 148 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1115",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 41 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 10,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 9 groups, 46 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1123",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 30 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 14,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 13 groups, 77 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1125",
+      "tactic": "collection",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 31 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1127.003",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1134.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1134.004",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "defense-evasion",
+      "score": 39,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 38 groups, 274 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1176.001",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 6 software. ATT&CK mitigations: 5. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1176.002",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 5. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1202",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 2 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1204.004",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 3. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1204.005",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 3. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1207",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 2 software. ATT&CK mitigations: 5. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1217",
+      "tactic": "discovery",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 17 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1219.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1219.002",
+      "tactic": "command-and-control",
+      "score": 10,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 9 groups, 0 software. ATT&CK mitigations: 3. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1219.003",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 33 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 8 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1480.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 15 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 8 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "privilege-escalation",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 8 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 1 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 1 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1496",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1496.001",
+      "tactic": "impact",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 9 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1496.002",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1496.004",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "defense-evasion",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 22 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 22 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "defense-evasion",
+      "score": 6,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 5 groups, 59 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497.001",
+      "tactic": "discovery",
+      "score": 6,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 5 groups, 59 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497.002",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497.002",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497.003",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 45 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1497.003",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 45 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1505.006",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 3. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 12,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 11 groups, 36 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 28,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 27 groups, 105 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1518.002",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1526",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 23 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1534",
+      "tactic": "lateral-movement",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.005",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.005",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.007",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.007",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.012",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 2 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.012",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 2 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.015",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 11 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.015",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 11 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.017",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.017",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.018",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1546.018",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 5 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 5 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 56,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 55 groups, 194 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 56,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 55 groups, 194 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.010",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.010",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.014",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.014",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 1 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.015",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1547.015",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-evasion",
+      "score": 27,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 26 groups, 52 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 24,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 23 groups, 62 software. ATT&CK mitigations: 5. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1560.002",
+      "tactic": "collection",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 13 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 8,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 7 groups, 31 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1562.013",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 3. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1564",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 5 software. ATT&CK mitigations: 4. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "defense-evasion",
+      "score": 13,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 12 groups, 45 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1564.011",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 4 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1564.013",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1564.014",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1568.001",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1568.003",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1569.003",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1578.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583",
+      "tactic": "resource-development",
+      "score": 9,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 8 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 41,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 40 groups, 3 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.002",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 15,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 14 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.004",
+      "tactic": "resource-development",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.005",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 25,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 24 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.007",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1583.008",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.002",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.003",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 11,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 10 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.006",
+      "tactic": "resource-development",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.007",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1584.008",
+      "tactic": "resource-development",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1585",
+      "tactic": "resource-development",
+      "score": 6,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 5 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 18,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 17 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 19,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 18 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1585.003",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1586",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1586.001",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 13,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 12 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1587",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 23,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 22 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1587.002",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1587.003",
+      "tactic": "resource-development",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 16,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 15 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 80,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 79 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 8,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 7 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 8,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 7 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.006",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 10,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 9 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1589.001",
+      "tactic": "reconnaissance",
+      "score": 6,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 5 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1589.002",
+      "tactic": "reconnaissance",
+      "score": 15,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 14 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1589.003",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1590.001",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1590.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1590.004",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1590.005",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1590.006",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1591.001",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1591.002",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1591.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1591.004",
+      "tactic": "reconnaissance",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1592.001",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1592.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1592.004",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1593.001",
+      "tactic": "reconnaissance",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1593.002",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 7,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 6 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 14,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 13 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1596",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1596.001",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1596.002",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1596.003",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1596.004",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1596.005",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1597",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1597.001",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1597.002",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1598.004",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1600",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1600.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1600.002",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 26,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 25 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608.002",
+      "tactic": "resource-development",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608.003",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608.004",
+      "tactic": "resource-development",
+      "score": 9,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 8 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608.005",
+      "tactic": "resource-development",
+      "score": 4,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 3 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1608.006",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1614",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 18 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1614.001",
+      "tactic": "discovery",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 31 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1615",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 5 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1620",
+      "tactic": "defense-evasion",
+      "score": 5,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 4 groups, 22 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1650",
+      "tactic": "resource-development",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1652",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1656",
+      "tactic": "defense-evasion",
+      "score": 9,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 8 groups, 1 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1665",
+      "tactic": "command-and-control",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1667",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1668",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 3. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1671",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1672",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1673",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1674",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1675",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 1 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1677",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 0 software. ATT&CK mitigations: 2. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1678",
+      "tactic": "defense-evasion",
+      "score": 2,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 1 groups, 2 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1679",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 0 groups, 3 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 11,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 10 groups, 86 software. ATT&CK mitigations: 0. ATT&CK detection strategy available."
+    },
+    {
+      "techniqueID": "T1681",
+      "tactic": "reconnaissance",
+      "score": 3,
+      "comment": "NO NIST 800-53 control maps to this technique (framework blind spot). Used by 2 groups, 0 software. ATT&CK mitigations: 1. ATT&CK detection strategy available."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#fff5f0",
+      "#fb6a4a",
+      "#67000d"
+    ],
+    "minValue": 0,
+    "maxValue": 80
+  },
+  "legendItems": [
+    {
+      "label": "blind spot, few groups",
+      "color": "#fff5f0"
+    },
+    {
+      "label": "blind spot, many groups (priority)",
+      "color": "#67000d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "MITRE ATT&CK Enterprise v18.1"
+    },
+    {
+      "name": "blind_spot_count",
+      "value": "223"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#205b8f",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

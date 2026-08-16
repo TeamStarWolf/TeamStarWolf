@@ -19,6 +19,7 @@
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 784 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
 | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 691 ATT&CK techniques by tactic, cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
+| [ATT&CK Technique Detail Pages](techniques/README.md) | Full consolidated per-technique write-ups (description, mitigations, NIST controls, detections, groups, software) across 14 tactic files |
 | [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 |
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |

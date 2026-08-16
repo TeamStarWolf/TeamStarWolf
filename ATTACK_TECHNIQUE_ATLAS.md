@@ -4,6 +4,8 @@
 
 **Legend** — **Grp** = threat groups observed using it · **SW** = software (malware/tools) implementing it · **Mit** = ATT&CK mitigations · **NIST** = NIST 800-53 R5 controls (via CTID) · **Det** = ATT&CK detection strategy exists. Machine-readable source: [`data/attack/technique_profiles.jsonl`](data/attack/technique_profiles.jsonl).
 
+📄 **Want the full write-up per technique?** Browse the [Technique Detail Pages](techniques/README.md) — each of the 691 techniques consolidated with its description, mitigations, NIST controls, detections, and the groups and software that use it.
+
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) · [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) · [Threat Group Profiles](THREAT_GROUP_PROFILES.md) · [ATT&CK Mitigations](ATTACK_MITIGATIONS_REFERENCE.md)
 
 ## Tactics

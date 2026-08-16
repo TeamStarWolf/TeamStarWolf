@@ -58,7 +58,15 @@
 
   - [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
 
+  - [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md)
+
+  - [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md)
+
   - [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md)
+
+  - [ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md)
+
+  - [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md)
 
   - [ATT&CK Priority Gaps](scores/attack_priority_gaps.md)
 

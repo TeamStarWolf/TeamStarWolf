@@ -53,6 +53,8 @@ Threat-intelligence and gap-analysis heatmaps derived from MITRE ATT&CK Enterpri
 |---|---|---|
 | [Threat Group Frequency](analytics/group_frequency.json) | Techniques colored by how many tracked ATT&CK threat groups use them — the most common adversary behaviors | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/group_frequency.json) |
 | [Framework Blind Spots](analytics/no_nist_coverage.json) | The 223 techniques with no mapped NIST 800-53 control, shaded by threat-group usage (priority) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/no_nist_coverage.json) |
+| [ICS — Group Frequency](analytics/ics_group_frequency.json) | MITRE ATT&CK for **ICS** techniques colored by threat-group usage | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/ics_group_frequency.json) |
+| [Mobile — Group Frequency](analytics/mobile_group_frequency.json) | MITRE ATT&CK for **Mobile** techniques colored by threat-group usage | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/mobile_group_frequency.json) |
 
 ---
 

@@ -1,0 +1,115 @@
+{
+  "name": "ICS ATT&CK - Threat Group Frequency",
+  "versions": {
+    "attack": "18",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "MITRE ATT&CK for ICS techniques colored by number of tracked threat groups using them. Source: ATT&CK ICS v18.1.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true
+  },
+  "hideDisabled": true,
+  "techniques": [
+    {
+      "techniqueID": "T0807",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "1 threat groups, 3 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0817",
+      "tactic": "initial-access",
+      "score": 4,
+      "comment": "4 threat groups, 1 software use this. 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0819",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 6 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0852",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0853",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 10 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "2 threat groups, 2 software use this. 10 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0862",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "2 threat groups, 1 software use this. 5 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0865",
+      "tactic": "initial-access",
+      "score": 4,
+      "comment": "4 threat groups, 2 software use this. 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0869",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 6 software use this. 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T0884",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 4 ATT&CK mitigations."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#f7fbff",
+      "#4292c6",
+      "#08306b"
+    ],
+    "minValue": 0,
+    "maxValue": 4
+  },
+  "legendItems": [
+    {
+      "label": "few groups",
+      "color": "#f7fbff"
+    },
+    {
+      "label": "many groups",
+      "color": "#08306b"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "MITRE ATT&CK for ICS v18.1"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#205b8f",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

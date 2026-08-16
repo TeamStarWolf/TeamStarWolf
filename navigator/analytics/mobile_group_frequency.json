@@ -1,0 +1,205 @@
+{
+  "name": "Mobile ATT&CK - Threat Group Frequency",
+  "versions": {
+    "attack": "18",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "mobile-attack",
+  "description": "MITRE ATT&CK for Mobile techniques colored by number of tracked threat groups using them. Source: ATT&CK Mobile v18.1.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true
+  },
+  "hideDisabled": true,
+  "techniques": [
+    {
+      "techniqueID": "T1406",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 44 software use this. 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1407",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 38 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1409",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 29 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1417.001",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 16 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1417.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "1 threat groups, 16 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1420",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 14 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1422",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 45 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1426",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 53 software use this. 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1429",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 49 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1430",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 55 software use this. 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1430",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "1 threat groups, 55 software use this. 4 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1437.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 46 software use this. 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1451",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1512",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 38 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1521.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "1 threat groups, 4 software use this. 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1533",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 50 software use this. 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1627.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 2 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1628.003",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 0 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1632.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 8 software use this. 3 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1633.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "comment": "1 threat groups, 15 software use this. 0 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1636.003",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 53 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1636.004",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "1 threat groups, 68 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1655.001",
+      "tactic": "defense-evasion",
+      "score": 3,
+      "comment": "3 threat groups, 40 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1660",
+      "tactic": "initial-access",
+      "score": 5,
+      "comment": "5 threat groups, 9 software use this. 2 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1676",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 1 ATT&CK mitigations."
+    },
+    {
+      "techniqueID": "T1676",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "2 threat groups, 0 software use this. 1 ATT&CK mitigations."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#f7fbff",
+      "#4292c6",
+      "#08306b"
+    ],
+    "minValue": 0,
+    "maxValue": 5
+  },
+  "legendItems": [
+    {
+      "label": "few groups",
+      "color": "#f7fbff"
+    },
+    {
+      "label": "many groups",
+      "color": "#08306b"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "MITRE ATT&CK for Mobile v18.1"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#205b8f",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

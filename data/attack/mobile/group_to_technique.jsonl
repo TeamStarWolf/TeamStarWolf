@@ -1,0 +1,31 @@
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1409", "technique_name": "Stored Application Data"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1660", "technique_name": "Phishing"}
+{"group_id": "G0034", "group_name": "Sandworm Team", "technique_id": "T1676", "technique_name": "Linked Devices"}
+{"group_id": "G0070", "group_name": "Dark Caracal", "technique_id": "T1437.001", "technique_name": "Web Protocols"}
+{"group_id": "G0097", "group_name": "Bouncing Golf", "technique_id": "T1655.001", "technique_name": "Match Legitimate Name or Location"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1406", "technique_name": "Obfuscated Files or Information"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1407", "technique_name": "Download New Code at Runtime"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1417.001", "technique_name": "Keylogging"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1420", "technique_name": "File and Directory Discovery"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1426", "technique_name": "System Information Discovery"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1429", "technique_name": "Audio Capture"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1430", "technique_name": "Location Tracking"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1512", "technique_name": "Video Capture"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1521.001", "technique_name": "Symmetric Cryptography"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1533", "technique_name": "Data from Local System"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1627.001", "technique_name": "Geofencing"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1628.003", "technique_name": "Conceal Multimedia Files"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1632.001", "technique_name": "Code Signing Policy Modification"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1633.001", "technique_name": "System Checks"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1636.003", "technique_name": "Contact List"}
+{"group_id": "G0112", "group_name": "Windshift", "technique_id": "T1636.004", "technique_name": "SMS Messages"}
+{"group_id": "G1002", "group_name": "BITTER", "technique_id": "T1660", "technique_name": "Phishing"}
+{"group_id": "G1004", "group_name": "LAPSUS$", "technique_id": "T1451", "technique_name": "SIM Card Swap"}
+{"group_id": "G1015", "group_name": "Scattered Spider", "technique_id": "T1451", "technique_name": "SIM Card Swap"}
+{"group_id": "G1015", "group_name": "Scattered Spider", "technique_id": "T1660", "technique_name": "Phishing"}
+{"group_id": "G1019", "group_name": "MoustachedBouncer", "technique_id": "T1655.001", "technique_name": "Match Legitimate Name or Location"}
+{"group_id": "G1028", "group_name": "APT-C-23", "technique_id": "T1422", "technique_name": "System Network Configuration Discovery"}
+{"group_id": "G1028", "group_name": "APT-C-23", "technique_id": "T1655.001", "technique_name": "Match Legitimate Name or Location"}
+{"group_id": "G1028", "group_name": "APT-C-23", "technique_id": "T1660", "technique_name": "Phishing"}
+{"group_id": "G1029", "group_name": "UNC788", "technique_id": "T1660", "technique_name": "Phishing"}
+{"group_id": "G1033", "group_name": "Star Blizzard", "technique_id": "T1676", "technique_name": "Linked Devices"}

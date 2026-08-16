@@ -6,7 +6,7 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-112-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-116-2b6cb0?style=flat-square)](INDEX.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -21,7 +21,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **112 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **116 in-depth reference documents** and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -44,8 +44,8 @@ New here? Jump to [**Start here**](#start-here) for goal-based entry points, or 
 
 | | | |
 |---|---|---|
-| 📚 **112** reference documents | 🧭 **47** discipline learning paths | 🗺️ **23** ATT&CK Navigator coverage layers |
-| 🐉 **691** ATT&CK techniques cross-referenced | 👥 **168** threat groups & **784** software profiled | 🛡️ **44** ATT&CK mitigations mapped |
+| 📚 **116** reference documents | 🧭 **47** discipline learning paths | 🗺️ **25** ATT&CK Navigator coverage layers |
+| 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
 | 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🎯 **65** multi-platform detection queries |
 | 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
 
@@ -85,18 +85,21 @@ machine-readable so you can query them, not just read them.
 
 | Resource | What you get |
 |---|---|
-| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **691 techniques** by tactic, each scored by threat-group usage, software, ATT&CK mitigations, NIST controls, and detection availability |
+| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **691 Enterprise techniques** by tactic, each scored by threat-group usage, software, ATT&CK mitigations, NIST controls, and detection availability |
 | [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | **168 adversary groups** (APTs, eCrime) with aliases, attributed techniques, and tooling |
+| [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | **784 malware families & tools** with the techniques they implement and the groups that use them |
+| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **52 intrusion campaigns** with active windows, techniques, software, and group attribution |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All **44 ATT&CK mitigations** (M-codes) and the techniques each one addresses |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | The most-used, least-covered techniques — where to focus detection and mitigation |
+| [ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md) · [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | The **ICS** (83 techniques) and **Mobile** (124 techniques) ATT&CK matrices, same cross-referenced treatment |
 
-**Machine-readable datasets** &nbsp;·&nbsp; [Technique profiles](data/attack/technique_profiles.jsonl) &nbsp;·&nbsp; [Group → Technique](data/attack/group_to_technique.jsonl) &nbsp;·&nbsp; [Software → Technique](data/attack/software_to_technique.jsonl) &nbsp;·&nbsp; [Mitigation → Technique](data/attack/mitigation_to_technique.jsonl) &nbsp;·&nbsp; [Groups](data/attack/groups.jsonl) &nbsp;·&nbsp; [Software](data/attack/software.jsonl) &nbsp;·&nbsp; [Mitigations](data/attack/mitigations.jsonl) &nbsp;·&nbsp; [Campaigns](data/attack/campaigns.jsonl)
+**Machine-readable datasets** &nbsp;·&nbsp; [Technique profiles](data/attack/technique_profiles.jsonl) &nbsp;·&nbsp; [Group → Technique](data/attack/group_to_technique.jsonl) &nbsp;·&nbsp; [Software → Technique](data/attack/software_to_technique.jsonl) &nbsp;·&nbsp; [Mitigation → Technique](data/attack/mitigation_to_technique.jsonl) &nbsp;·&nbsp; [Groups](data/attack/groups.jsonl) &nbsp;·&nbsp; [Software](data/attack/software.jsonl) &nbsp;·&nbsp; [Mitigations](data/attack/mitigations.jsonl) &nbsp;·&nbsp; [Campaigns](data/attack/campaigns.jsonl) &nbsp;·&nbsp; [ICS datasets](data/attack/ics/) &nbsp;·&nbsp; [Mobile datasets](data/attack/mobile/)
 
 ---
 
 ## 📚 Explore the library
 
-Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 112 documents.
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 116 documents.
 
 <details open>
 <summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>

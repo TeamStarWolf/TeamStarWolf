@@ -37,6 +37,7 @@
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
 | [CWE Weakness Reference](CWE_REFERENCE.md) | 969 software/hardware weakness types (10 pillars, 114 classes) with consequences, mitigations, and a most-attacked ranking |
+| [CTEM Reference](CTEM_REFERENCE.md) | Continuous Threat Exposure Management — Gartner's 5-stage loop (scoping, discovery, prioritization, validation, mobilization), EASM/CAASM/BAS/AEV tooling, metrics, and a 90-day plan |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 
 ## D–G
@@ -55,6 +56,7 @@
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards |
+| [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md) | 123 cyber-enabled financial fraud techniques across 8 tactics — reconnaissance through monetization — from MITRE's Center for Threat-Informed Defense |
 | [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
 | [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md) | AFL++, libFuzzer, OSS-Fuzz, binary analysis, Ghidra/angr, symbolic execution, CVE process, bug bounty methodology |
 | [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) | NIST CSF 2.0, OSCAL, ComplianceAsCode/OpenSCAP, CIS Controls v8, PCI DSS v4.0, HIPAA/HITECH, SOC 2 Type II, ISO 27001:2022 |

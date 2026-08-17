@@ -68,6 +68,10 @@
 
   - [MITRE F3 Fraud Framework](FRAUD_FRAMEWORK_REFERENCE.md)
 
+  - [MITRE ATLAS (AI Threats)](ATLAS_REFERENCE.md)
+
+  - [MITRE Engage (Deception)](ENGAGE_REFERENCE.md)
+
   - [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
 
   - [Technique Detail Pages](techniques/README.md)

@@ -64,6 +64,10 @@
 
   - [CAPEC Attack Patterns](CAPEC_REFERENCE.md)
 
+  - [CTEM (Exposure Management)](CTEM_REFERENCE.md)
+
+  - [MITRE F3 Fraud Framework](FRAUD_FRAMEWORK_REFERENCE.md)
+
   - [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
 
   - [Technique Detail Pages](techniques/README.md)

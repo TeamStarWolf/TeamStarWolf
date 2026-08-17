@@ -1,10 +1,27 @@
 <!-- _navbar.md -->
 
+- [Index](INDEX.md)
+- Frameworks
+  - [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
+  - [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md)
+  - [ATLAS — AI Threats](ATLAS_REFERENCE.md)
+  - [Engage — Deception](ENGAGE_REFERENCE.md)
+  - [D3FEND — Countermeasures](D3FEND_REFERENCE.md)
+  - [F3 — Fraud](FRAUD_FRAMEWORK_REFERENCE.md)
+  - [CWE](CWE_REFERENCE.md) · [CAPEC](CAPEC_REFERENCE.md)
+- Operate
+  - [CTEM — Exposure Mgmt](CTEM_REFERENCE.md)
+  - [Detection Strategies](detections/strategies/README.md)
+  - [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md)
+  - [Threat Groups](THREAT_GROUP_PROFILES.md)
+  - [Priority Gaps](scores/attack_priority_gaps.md)
 - [Disciplines](disciplines/threat-intelligence.md)
-- [Pipeline](SECURITY_PIPELINE.md)
 - [Navigator](navigator/)
-- [Tools](TOOLS.md)
-- [Labs](LABS.md)
-- [Careers](CAREER_PATHS.md)
-- [Resources](STARRED_REPOS.md)
+- Learn
+  - [Career Paths](CAREER_PATHS.md)
+  - [Certifications](CERTIFICATIONS.md)
+  - [Labs](LABS.md)
+  - [Home Lab](HOMELAB_SETUP.md)
+  - [Tools](TOOLS.md)
+- [ATTACK-Navi ↗](https://teamstarwolf.github.io/ATTACK-Navi/)
 - [GitHub ↗](https://github.com/TeamStarWolf/TeamStarWolf)

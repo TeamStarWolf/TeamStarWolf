@@ -6,7 +6,7 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-122-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-124-2b6cb0?style=flat-square)](INDEX.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -21,7 +21,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **122 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **124 in-depth reference documents** and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -44,11 +44,12 @@ New here? Jump to [**Start here**](#start-here) for goal-based entry points, or 
 
 | | | |
 |---|---|---|
-| 📚 **122** reference documents | 🧭 **47** discipline learning paths | 🗺️ **26** ATT&CK Navigator coverage layers |
+| 📚 **124** reference documents | 🧭 **47** discipline learning paths | 🗺️ **28** ATT&CK Navigator coverage layers |
 | 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
 | 🔬 **691** detection strategies · **1,739** analytics | 🧬 **969** CWE weaknesses · **615** CAPEC patterns | 🛡️ **156** D3FEND countermeasures |
-| 💳 **123** MITRE F3 fraud techniques (8 tactics) | 🔁 **CTEM** 5-stage exposure loop | 🎯 **65** multi-platform detection queries |
-| 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 📋 **106** data components / log sources |
+| 💳 **123** MITRE F3 fraud techniques (8 tactics) | 🤖 **170** ATLAS AI-attack techniques | 🪤 **31** Engage deception activities |
+| 🔁 **CTEM** 5-stage exposure loop | 🎯 **65** multi-platform detection queries | 📋 **106** data components / log sources |
+| 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🧩 ATT&CK · ATLAS · Engage · D3FEND · F3 · CWE · CAPEC |
 | 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
 
 ---
@@ -66,6 +67,8 @@ Pick your goal — each path drops you into the right part of the library.
 | **Respond to an incident** | [Incident Response](INCIDENT_RESPONSE_REFERENCE.md) · [IR Playbooks](IR_PLAYBOOKS.md) · [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md) |
 | **Harden systems & cloud** | [Windows](WINDOWS_HARDENING_REFERENCE.md) / [Linux](LINUX_HARDENING_REFERENCE.md) hardening · [Cloud Security](CLOUD_SECURITY_REFERENCE.md) · [Zero Trust](ZERO_TRUST_REFERENCE.md) |
 | **Run an exposure management program** | [CTEM Reference](CTEM_REFERENCE.md) · [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) · [Priority Gap Analysis](scores/attack_priority_gaps.md) |
+| **Secure AI/ML systems** | [MITRE ATLAS](ATLAS_REFERENCE.md) · [AI Security](AI_SECURITY_REFERENCE.md) · [AI & MCP Security](AI_MCP_SECURITY_REFERENCE.md) |
+| **Run deception / active defense** | [MITRE Engage](ENGAGE_REFERENCE.md) · [Honeypot & Deception](HONEYPOT_DECEPTION_REFERENCE.md) · [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) |
 | **Defend against financial fraud** | [MITRE F3 Fraud Framework](FRAUD_FRAMEWORK_REFERENCE.md) · [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md) · [Identity Security](IDENTITY_SECURITY_REFERENCE.md) |
 | **Break into the field / level up** | [Career Paths](CAREER_PATHS.md) · [Certifications](CERTIFICATIONS.md) · [Home Lab Setup](HOMELAB_SETUP.md) · [Free Training](#learn-grow) |
 
@@ -116,6 +119,13 @@ machine-readable so you can query them, not just read them.
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | **615 attack patterns** — 177 bridging directly to ATT&CK techniques, linked to their CWE weaknesses |
 | [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | **156 defensive techniques** (7 D3FEND tactics) mapped to the **426 ATT&CK techniques** they counter |
 
+**The rest of the MITRE stack** — adversary behavior beyond the classic enterprise intrusion:
+
+| Resource | What you get |
+|---|---|
+| [MITRE ATLAS Reference](ATLAS_REFERENCE.md) | **ATT&CK for AI** — **170 techniques** across **16 tactics** targeting ML/AI systems, including the AI-only *AI Model Access* and *AI Attack Staging* tactics, plus 35 mitigations · [Navigator layers](navigator/ai/) · [datasets](data/ai/) |
+| [MITRE Engage Reference](ENGAGE_REFERENCE.md) | **Denial, deception & adversary engagement** — 5 goals → 9 approaches → **31 activities**, with **793 mappings** to ATT&CK techniques so deception becomes a measurable control · [datasets](data/engage/) |
+
 **More datasets** &nbsp;·&nbsp; [Detection strategies](data/attack/detection_strategies.jsonl) &nbsp;·&nbsp; [Analytics](data/attack/analytics.jsonl) &nbsp;·&nbsp; [Data components](data/attack/data_components.jsonl) &nbsp;·&nbsp; [Technique → D3FEND](data/attack/technique_to_d3fend.jsonl) &nbsp;·&nbsp; [CWE](data/weaknesses/cwe.jsonl) &nbsp;·&nbsp; [CAPEC](data/weaknesses/capec.jsonl)
 
 **Exposure management & fraud** — running the loop, and extending it past the intrusion to where the money leaves:
@@ -129,7 +139,7 @@ machine-readable so you can query them, not just read them.
 
 ## 📚 Explore the library
 
-Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 122 documents.
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 124 documents.
 
 <details open>
 <summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>

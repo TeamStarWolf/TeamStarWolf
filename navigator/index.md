@@ -58,6 +58,18 @@ Threat-intelligence and gap-analysis heatmaps derived from MITRE ATT&CK Enterpri
 
 ---
 
+## Fraud Matrix (MITRE F3)
+
+The [MITRE Fight Fraud Framework](../FRAUD_FRAMEWORK_REFERENCE.md) matrix — 123 cyber-enabled fraud techniques across 8 tactics, from reconnaissance through monetization. Published by MITRE's Center for Threat-Informed Defense (Apache-2.0) and vendored here with provenance metadata.
+
+| Layer | Description | Load |
+|---|---|---|
+| [F3 Matrix](fraud/f3-matrix.json) | The full **F3 fraud matrix** (v1.1) — use with the [F3 reference](../FRAUD_FRAMEWORK_REFERENCE.md) and [datasets](../data/fraud/) | [↗ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/fraud/f3-matrix.json) |
+
+> **Note:** F3 uses its own `f3-financial` domain. The Navigator renders it as a custom matrix; some ATT&CK-specific overlays do not apply.
+
+---
+
 ## Score Interpretation (Full Stack Layer)
 
 | Score Range | Meaning |

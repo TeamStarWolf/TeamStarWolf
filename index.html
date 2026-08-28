@@ -1,306 +1,441 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-
   <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description" content="TeamStarWolf — A public cybersecurity resource library covering 36 disciplines, enterprise vendor landscape, ATT&CK coverage mapping, NIST 800-53 control references, and career path guides.">
-
-  <title>TeamStarWolf | Cybersecurity Resource Library</title>
-
-  <link rel="icon" href="https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/_media/favicon.ico" type="image/x-icon">
-
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="TeamStarWolf — an open, threat-informed cybersecurity reference library. 120+ in-depth references across offense, defense, cloud, identity, GRC and AI security, anchored to MITRE ATT&CK, ATLAS, Engage, D3FEND and NIST 800-53.">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:title" content="TeamStarWolf — Cybersecurity Reference Library">
+  <meta property="og:description" content="An open, threat-informed cybersecurity reference library anchored to MITRE ATT&CK, ATLAS, Engage and D3FEND.">
+  <meta property="og:type" content="website">
+  <title>TeamStarWolf — Cybersecurity Reference Library</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 
   <style>
-
+    /* ===================== TeamStarWolf dark theme ===================== */
     :root {
+      /* Core palette — deep navy field, cyan/violet Star Wolf accents */
+      --tsw-bg:            #0b1220;
+      --tsw-bg-alt:        #0f172a;
+      --tsw-surface:       #131d33;
+      --tsw-surface-2:     #18243d;
+      --tsw-border:        #24324e;
+      --tsw-border-soft:   #1b2740;
 
-      --theme-color: #3b82f6;
+      --tsw-text:          #e6edf7;
+      --tsw-text-muted:    #9fb0ca;
+      --tsw-text-dim:      #7286a4;
 
-      --sidebar-width: 280px;
+      --tsw-accent:        #38bdf8;   /* sky   */
+      --tsw-accent-2:      #a78bfa;   /* violet*/
+      --tsw-accent-3:      #22d3ee;   /* cyan  */
+      --tsw-warn:          #fbbf24;
+      --tsw-danger:        #f87171;
+      --tsw-ok:            #4ade80;
 
+      --theme-color:       var(--tsw-accent);
+      --sidebar-width:     305px;
+
+      --tsw-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+      --tsw-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    .sidebar-toggle { color: var(--theme-color); }
+    html, body { background: var(--tsw-bg); }
+    body {
+      color: var(--tsw-text);
+      font-family: var(--tsw-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-    .app-name-link { font-weight: 700; font-size: 1.1em; }
+    /* Subtle starfield/aurora wash so it doesn't read as flat black */
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(900px 500px at 12% -8%, rgba(56,189,248,.10), transparent 60%),
+        radial-gradient(800px 500px at 100% 0%, rgba(167,139,250,.09), transparent 60%),
+        radial-gradient(700px 500px at 50% 110%, rgba(34,211,238,.05), transparent 60%);
+    }
+    .sidebar, .content, .app-nav, main { position: relative; z-index: 1; }
 
-    .search input { border-radius: 4px; }
+    /* ===================== Sidebar ===================== */
+    .sidebar {
+      background: linear-gradient(180deg, #0c1526 0%, #0a1120 100%);
+      border-right: 1px solid var(--tsw-border);
+      padding-top: 0;
+    }
+    .sidebar > h1 {
+      margin: 0; padding: 20px 22px 14px;
+      border-bottom: 1px solid var(--tsw-border-soft);
+      background: rgba(56,189,248,.045);
+    }
+    .sidebar > h1 .app-name-link {
+      color: var(--tsw-text); font-weight: 800; font-size: 1.18rem;
+      letter-spacing: -.015em; display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .sidebar > h1 .app-name-link:hover { color: var(--tsw-accent); }
 
-    .markdown-section code { font-size: 0.88em; }
+    .sidebar ul li a {
+      color: var(--tsw-text-muted);
+      font-size: .875rem; line-height: 1.45;
+      padding: 4px 0; border: 0;
+      transition: color .13s ease, transform .13s ease;
+    }
+    .sidebar ul li a:hover { color: var(--tsw-accent); transform: translateX(2px); }
+    .sidebar ul li.active > a {
+      color: var(--tsw-accent) !important;
+      font-weight: 650;
+      border-right: 2px solid var(--tsw-accent);
+    }
+    /* docsify wraps every sidebar item in <p> — keep those neutral */
+    .sidebar ul li p {
+      margin: 0;
+      text-transform: none;
+      font-size: inherit;
+      letter-spacing: normal;
+      color: inherit;
+    }
+    /* Section headings = the bold entries in _sidebar.md */
+    .sidebar ul li > p > strong,
+    .sidebar ul li > strong {
+      display: block;
+      color: var(--tsw-text-dim);
+      font-size: .705rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .09em;
+      margin: 18px 0 6px;
+    }
+    .sidebar hr { border-color: var(--tsw-border-soft); margin: 14px 0; }
+    .sidebar::-webkit-scrollbar { width: 9px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #24324e; border-radius: 9px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: #33456b; }
+    .sidebar-toggle { background: transparent; color: var(--tsw-accent); }
+    .sidebar-toggle span { background-color: var(--tsw-accent); }
 
-    .markdown-section table { display: table; width: 100%; }
+    /* ===================== Search ===================== */
+    .search {
+      margin: 0; padding: 14px 16px 12px;
+      border-bottom: 1px solid var(--tsw-border-soft);
+      background: rgba(255,255,255,.015);
+    }
+    .search .input-wrap { background: transparent; }
+    .search input {
+      background: var(--tsw-surface);
+      border: 1px solid var(--tsw-border);
+      border-radius: 9px;
+      color: var(--tsw-text);
+      font-size: .875rem;
+      padding: 10px 12px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .search input::placeholder { color: var(--tsw-text-dim); }
+    .search input:focus {
+      outline: none;
+      border-color: var(--tsw-accent);
+      box-shadow: 0 0 0 3px rgba(56,189,248,.16);
+    }
+    .search .results-panel { background: transparent; color: var(--tsw-text-muted); }
+    .search .matching-post { border-bottom: 1px solid var(--tsw-border-soft); padding: 10px 0; }
+    .search .matching-post:last-child { border-bottom: 0; }
+    .search p.title { color: var(--tsw-accent); font-weight: 650; font-size: .86rem; }
+    .search p { font-size: .8rem; color: var(--tsw-text-dim); }
+    .search .clear-button { cursor: pointer; }
 
-    .markdown-section th { background: #1e293b; }
+    /* ===================== Top navbar ===================== */
+    .app-nav {
+      margin: 0; padding: 0;
+      position: fixed; top: 0; right: 0; left: var(--sidebar-width);
+      background: rgba(11,18,32,.82);
+      backdrop-filter: saturate(160%) blur(12px);
+      -webkit-backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid var(--tsw-border);
+      text-align: right;
+      height: 52px; line-height: 52px;
+      padding-right: 22px;
+    }
+    .app-nav li ul { background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px; }
+    .app-nav a {
+      color: var(--tsw-text-muted); font-size: .85rem; font-weight: 550;
+      padding: 6px 2px; transition: color .13s;
+    }
+    .app-nav a:hover { color: var(--tsw-accent); }
+    .app-nav li { margin: 0 10px; }
+    body.close .app-nav { left: 0; }
 
-    .cover-main h1 { font-size: 3rem; font-weight: 800; }
+    /* ===================== Content ===================== */
+    .content { background: transparent; padding-top: 52px; }
+    .markdown-section {
+      max-width: 1080px;
+      padding: 34px 40px 80px;
+      color: var(--tsw-text);
+      font-size: 15.5px;
+      line-height: 1.72;
+    }
+    .markdown-section > *:first-child { margin-top: 0; }
 
-    .cover-main blockquote p { font-size: 1.2rem; opacity: 0.85; }
+    .markdown-section h1, .markdown-section h2,
+    .markdown-section h3, .markdown-section h4 {
+      color: #f2f7ff; font-weight: 750; letter-spacing: -.018em; line-height: 1.25;
+    }
+    .markdown-section h1 { font-size: 2.05rem; margin: 0 0 1.1rem; }
+    .markdown-section h2 {
+      font-size: 1.5rem; margin: 2.6rem 0 1rem;
+      padding-bottom: .45rem; border-bottom: 1px solid var(--tsw-border);
+    }
+    .markdown-section h3 { font-size: 1.18rem; margin: 2rem 0 .75rem; color: #e8f0fb; }
+    .markdown-section h4 { font-size: 1.02rem; margin: 1.5rem 0 .6rem; color: var(--tsw-text-muted); }
+    .markdown-section h2 + h3 { margin-top: 1.1rem; }
 
+    .markdown-section a { color: var(--tsw-accent); text-decoration: none; font-weight: 500; }
+    .markdown-section a:hover { color: var(--tsw-accent-3); text-decoration: underline; text-underline-offset: 3px; }
+    .markdown-section p, .markdown-section li { color: var(--tsw-text); }
+    .markdown-section strong { color: #fff; font-weight: 680; }
+    .markdown-section em { color: var(--tsw-text-muted); }
+    .markdown-section hr { border: 0; border-top: 1px solid var(--tsw-border); margin: 2.4rem 0; }
+
+    /* Blockquote — used heavily for doc intros */
+    .markdown-section blockquote {
+      background: linear-gradient(90deg, rgba(56,189,248,.09), rgba(56,189,248,.02));
+      border-left: 3px solid var(--tsw-accent);
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0; padding: 1rem 1.2rem;
+      color: var(--tsw-text);
+    }
+    .markdown-section blockquote p { margin: .35rem 0; color: var(--tsw-text); }
+
+    /* ---------- Tables: this library is table-heavy ---------- */
+    .markdown-section table {
+      display: block; width: 100%; overflow-x: auto;
+      border-collapse: collapse; border-spacing: 0;
+      margin: 1.4rem 0; font-size: .885rem;
+      border: 1px solid var(--tsw-border); border-radius: 10px;
+    }
+    .markdown-section thead { background: var(--tsw-surface-2); }
+    .markdown-section th {
+      background: var(--tsw-surface-2);
+      color: #eaf2ff; font-weight: 680; text-align: left;
+      padding: 10px 14px; white-space: nowrap;
+      border: 0; border-bottom: 1px solid var(--tsw-border);
+      position: sticky; top: 0; z-index: 2;
+    }
+    .markdown-section td {
+      padding: 9px 14px; border: 0;
+      border-bottom: 1px solid var(--tsw-border-soft);
+      vertical-align: top; color: var(--tsw-text);
+    }
+    .markdown-section tr:last-child td { border-bottom: 0; }
+    .markdown-section tbody tr { background: transparent; transition: background .12s; }
+    .markdown-section tbody tr:nth-child(even) { background: rgba(255,255,255,.022); }
+    .markdown-section tbody tr:hover { background: rgba(56,189,248,.075); }
+
+    /* ---------- Code ---------- */
+    .markdown-section code {
+      font-family: var(--tsw-mono);
+      background: rgba(56,189,248,.11);
+      color: #7dd3fc;
+      border: 1px solid rgba(56,189,248,.16);
+      border-radius: 5px;
+      padding: .12em .42em; font-size: .855em;
+    }
+    .markdown-section pre {
+      background: #08101f;
+      border: 1px solid var(--tsw-border);
+      border-radius: 11px;
+      margin: 1.3rem 0; padding: 0;
+    }
+    .markdown-section pre > code {
+      background: transparent; border: 0; color: #d7e3f4;
+      font-size: .845rem; line-height: 1.65; padding: 1.05rem 1.2rem; display: block;
+    }
+    .markdown-section pre::after { display: none; }
+    .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #64748b; }
+    .token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: #f472b6; }
+    .token.boolean, .token.number { color: #fbbf24; }
+    .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: #86efac; }
+    .token.operator, .token.entity, .token.url, .token.variable { color: #7dd3fc; }
+    .token.atrule, .token.attr-value, .token.function, .token.class-name { color: #a78bfa; }
+    .token.keyword { color: #38bdf8; }
+
+    .docsify-copy-code-button {
+      background: var(--tsw-surface-2) !important;
+      color: var(--tsw-text-muted) !important;
+      border: 1px solid var(--tsw-border) !important;
+      border-radius: 0 10px 0 8px !important;
+      font-size: .74rem !important;
+    }
+    .docsify-copy-code-button:hover { color: var(--tsw-accent) !important; }
+
+    /* ---------- Cover page ---------- */
+    section.cover {
+      background: radial-gradient(1100px 620px at 50% -10%, #16233d 0%, #0b1220 62%) !important;
+    }
+    section.cover .cover-main { max-width: 900px; }
+    section.cover h1 {
+      font-size: 3.4rem; font-weight: 850; letter-spacing: -.035em;
+      background: linear-gradient(96deg, #38bdf8 0%, #a78bfa 55%, #22d3ee 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: .5rem;
+    }
+    section.cover h1 a { color: inherit; }
+    section.cover blockquote p { font-size: 1.16rem; color: var(--tsw-text-muted); }
+    section.cover .cover-main > p:last-child a {
+      border-radius: 10px; font-size: .93rem; font-weight: 640;
+      padding: .62rem 1.5rem; margin: .38rem .3rem;
+      border: 1px solid var(--tsw-border); color: var(--tsw-text);
+      transition: transform .13s, box-shadow .18s, border-color .13s;
+    }
+    section.cover .cover-main > p:last-child a:last-child {
+      background: linear-gradient(96deg, var(--tsw-accent), var(--tsw-accent-2));
+      border-color: transparent; color: #08101f; font-weight: 700;
+    }
+    section.cover .cover-main > p:last-child a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(56,189,248,.22);
+      border-color: var(--tsw-accent);
+    }
+    section.cover ul { color: var(--tsw-text-muted); }
+    section.cover ul li { margin: .35rem 0; }
+
+    /* ---------- Pagination ---------- */
+    .pagination-item-title { color: var(--tsw-text-muted) !important; }
+    .pagination-item-label { color: var(--tsw-accent) !important; }
+    .docsify-pagination-container { border-top: 1px solid var(--tsw-border); }
+
+    /* ---------- Misc ---------- */
+    ::selection { background: rgba(56,189,248,.3); }
+    img { max-width: 100%; }
+    .markdown-section img[src*="shields.io"] { display: inline-block; margin: 2px 1px; vertical-align: middle; }
+
+    /* Back-to-top */
+    #tsw-top {
+      position: fixed; right: 22px; bottom: 22px; z-index: 40;
+      width: 40px; height: 40px; border-radius: 11px;
+      display: none; align-items: center; justify-content: center;
+      background: var(--tsw-surface-2); border: 1px solid var(--tsw-border);
+      color: var(--tsw-accent); cursor: pointer; font-size: 17px;
+      transition: transform .13s, box-shadow .18s;
+    }
+    #tsw-top:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.45); }
+    #tsw-top.show { display: flex; }
+
+    /* ---------- Responsive ---------- */
+    @media screen and (max-width: 768px) {
+      .app-nav { left: 0; padding-right: 12px; height: 48px; line-height: 48px; }
+      .app-nav li { margin: 0 7px; }
+      .app-nav a { font-size: .8rem; }
+      .markdown-section { padding: 26px 18px 64px; font-size: 15px; }
+      .markdown-section h1 { font-size: 1.7rem; }
+      .markdown-section h2 { font-size: 1.3rem; }
+      section.cover h1 { font-size: 2.3rem; }
+      .content { padding-top: 48px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
   </style>
-
 </head>
-
 <body>
-
-  <div id="app">Loading...</div>
+  <div id="app">Loading TeamStarWolf…</div>
+  <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
 
   <script>
-
     window.$docsify = {
-
       name: '🐺 TeamStarWolf',
-
       nameLink: '/',
-
       repo: 'https://github.com/TeamStarWolf/TeamStarWolf',
-
-      logo: '',
-
       loadSidebar: true,
-
       loadNavbar: true,
-
       coverpage: true,
-
       onlyCover: false,
-
       subMaxLevel: 3,
-
+      maxLevel: 4,
       auto2top: true,
-
       homepage: 'README.md',
-
       relativePath: false,
+      mergeNavbar: true,
+      externalLinkTarget: '_blank',
+      notFoundPage: true,
 
-
-
+      // Index EVERY page reachable from the sidebar — no hardcoded allowlist to go stale.
       search: {
-
-        maxAge: 86400000,
-
-        paths: [
-
-          '/',
-
-          '/README',
-
-          '/SECURITY_PIPELINE',
-
-          '/CONTROLS_MAPPING',
-
-          '/COVERAGE_SCHEMA',
-
-          '/CYBERSECURITY_BOOK_LIST',
-
-          '/STARRED_REPOS',
-
-          '/YOUTUBE_CHANNELS',
-
-          '/TWITTER_FOLLOW_LIST',
-
-          '/navigator/index',
-
-          '/scores/coverage_gaps',
-
-          '/research/BLACK_HAT_ARSENAL_CROSSWALK',
-
-          '/disciplines/threat-intelligence',
-
-          '/disciplines/detection-engineering',
-
-          '/disciplines/incident-response',
-
-          '/disciplines/offensive-security',
-
-          '/disciplines/vulnerability-management',
-
-          '/disciplines/cloud-security',
-
-          '/disciplines/network-security',
-
-          '/disciplines/malware-analysis',
-
-          '/disciplines/ics-ot-security',
-
-          '/disciplines/application-security',
-
-          '/disciplines/ai-llm-security',
-
-          '/disciplines/governance-risk-compliance',
-
-          '/disciplines/digital-forensics',
-
-          '/disciplines/security-architecture',
-
-          '/disciplines/devsecops',
-
-          '/disciplines/cryptography-pki',
-
-          '/disciplines/supply-chain-security',
-
-          '/disciplines/privacy-engineering',
-
-          '/disciplines/identity-access-management',
-
-          '/disciplines/security-operations',
-
-          '/disciplines/data-security',
-
-          '/disciplines/active-defense-deception',
-          '/disciplines/hardware-security',
-          '/disciplines/mobile-security',
-          '/disciplines/purple-teaming',
-          '/disciplines/bug-bounty',
-          '/CAREER_PATHS',
-          '/CERTIFICATIONS',
-          '/LABS',
-          '/TOOLS',
-          '/FRAMEWORKS',
-          '/IR_PLAYBOOKS',
-          '/GLOSSARY',
-          '/THREAT_ACTORS',
-          '/disciplines/social-engineering',
-          '/disciplines/physical-security',
-          '/disciplines/threat-modeling',
-          '/disciplines/osint',
-          '/disciplines/zero-trust-architecture',
-          '/disciplines/iot-security',
-          '/disciplines/container-kubernetes-security',
-          '/disciplines/cyber-risk-quantification',
-          '/disciplines/blockchain-web3-security',
-          '/disciplines/security-awareness',
-          '/research/HTB_MACHINE_INDEX',
-            '/research/HTB_TRACKS',
-          '/HOMELAB_SETUP',
-          '/INTERVIEW_PREP',
-          '/RESOURCES',
-          '/PENTEST_CHECKLISTS',
-          '/CTF_METHODOLOGY',
-          '/PRIVESC_REFERENCE',
-          '/CLOUD_ATTACK_REFERENCE',
-          '/DETECTION_RULES_REFERENCE',
-          '/MALWARE_FAMILIES',
-          '/disciplines/active-directory',
-          '/disciplines/threat-hunting',
-          '/disciplines/red-teaming',
-          '/disciplines/penetration-testing',
-          '/disciplines/exploit-development',
-          '/disciplines/reverse-engineering',
-          '/disciplines/siem-soar',
-          '/disciplines/ai-ml-security',
-
-
-        ],
-
-        placeholder: '🔍 Search tools, certs, vendors...',
-
-        noData: 'No results for that query.',
-
-        depth: 4,
-
+        maxAge: 3600000,
+        paths: 'auto',
+        placeholder: '🔍  Search 120+ references…',
+        noData: 'No matches. Try a technique ID (T1059), a tool, a control, or a concept.',
+        depth: 6,
         hideOtherSidebarContent: false,
-
+        pathNamespaces: []
       },
-
-
 
       pagination: {
-
         previousText: '← Previous',
-
         nextText: 'Next →',
-
         crossChapter: true,
-
-        crossChapterText: true,
-
+        crossChapterText: true
       },
-
-
 
       copyCode: {
-
         buttonText: 'Copy',
-
         errorText: 'Error',
-
-        successText: 'Copied!',
-
+        successText: 'Copied'
       },
 
-
-
       plugins: [
-
-        function(hook, vm) {
-
-          hook.beforeEach(function(html) {
-
+        // "Edit on GitHub" + keyboard shortcut hint on every page
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
             var url = 'https://github.com/TeamStarWolf/TeamStarWolf/blob/main/' + vm.route.file;
-
-            var editHtml = '> 📝 [Edit this page on GitHub](' + url + ')\n\n';
-
-            return editHtml + html;
-
+            return '> 📝 [Edit this page on GitHub](' + url + ') &nbsp;·&nbsp; press <kbd>/</kbd> to search\n\n' + html;
           });
-
+        },
+        // Back-to-top behaviour
+        function (hook) {
+          hook.doneEach(function () {
+            var btn = document.getElementById('tsw-top');
+            var body = document.querySelector('.content') || window;
+            function onScroll() {
+              var y = window.scrollY || document.documentElement.scrollTop;
+              btn.classList.toggle('show', y > 700);
+            }
+            window.removeEventListener('scroll', onScroll);
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+            btn.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+          });
         }
-
-      ],
-
+      ]
     };
 
+    // "/" focuses search, Esc clears it
+    document.addEventListener('keydown', function (e) {
+      var el = document.activeElement;
+      var typing = el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+      if (e.key === '/' && !typing) {
+        var input = document.querySelector('.search input');
+        if (input) { e.preventDefault(); input.focus(); input.select(); }
+      }
+      if (e.key === 'Escape') {
+        var i2 = document.querySelector('.search input');
+        if (i2 && document.activeElement === i2) { i2.value = ''; i2.blur(); }
+      }
+    });
   </script>
 
-
-
   <!-- Docsify core -->
-
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-
-
-
-  <!-- Search plugin -->
-
+  <!-- Full-text search -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-
-
-
-  <!-- Copy code button -->
-
+  <!-- Copy-code, pagination, tabs -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
-
-
-
-  <!-- Pagination -->
-
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-
-
-
-  <!-- Syntax highlighting -->
-
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
-
-
-
-  <!-- Tabs -->
-
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
-
+  <!-- Syntax highlighting -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-powershell.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
 </body>
-
 </html>
-

@@ -1,0 +1,5 @@
+{"goal_id": "EGO0001", "name": "Expose", "description": "Reveal the presence of ongoing adversary operations.", "approaches": ["EAP0001", "EAP0002"]}
+{"goal_id": "EGO0002", "name": "Affect", "description": "Negatively impact the adversaries operations.", "approaches": ["EAP0003", "EAP0004", "EAP0005"]}
+{"goal_id": "EGO0003", "name": "Elicit", "description": "Learn about adversaries tactics, techniques, and procedures (TTPs).", "approaches": ["EAP0006", "EAP0007"]}
+{"goal_id": "SGO0001", "name": "Prepare", "description": "Help the defender think about what they want to accomplish with operations.", "approaches": ["SAP0001"]}
+{"goal_id": "SGO0002", "name": "Understand", "description": "Make sure that the defender is capturing, utilizing, and refining knowledge learned to improve the defender’s posture.", "approaches": ["SAP0002"]}

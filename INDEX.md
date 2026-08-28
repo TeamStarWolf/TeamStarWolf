@@ -22,6 +22,7 @@
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
 | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All 691 ATT&CK techniques by tactic, cross-referenced to threat groups, software, mitigations, NIST controls, and detection |
 | [ATT&CK Technique Detail Pages](techniques/README.md) | Full consolidated per-technique write-ups (description, mitigations, NIST controls, detections, groups, software) across 14 tactic files |
+| [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md) | MITRE ATLAS — 170 adversarial techniques against AI/ML systems across 16 tactics, including AI Model Access and AI Attack Staging, plus 35 mitigations |
 | [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) | MITRE ATT&CK workbench for coverage review, detection engineering, exposure mapping, and threat-intelligence correlation |
 | [Automotive Security Reference](AUTOMOTIVE_SECURITY_REFERENCE.md) | CAN bus attacks, ECU security, OTA update integrity, V2X/DSRC/C-V2X, key fob relay attacks, ADAS sensor spoofing, ISO 21434 |
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
@@ -51,6 +52,7 @@
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
+| [Engage Reference (deception)](ENGAGE_REFERENCE.md) | MITRE Engage — denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 793 mappings to ATT&CK techniques |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |

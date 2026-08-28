@@ -1,0 +1,9 @@
+{"approach_id": "EAP0001", "name": "Collect", "description": "Gather adversary tools, observe tactics, and collect other raw intelligence about the adversary’s activity.", "activities": ["EAC0001", "EAC0002", "EAC0014", "EAC0003"]}
+{"approach_id": "EAP0002", "name": "Detect", "description": "Establish or maintain awareness regarding adversary activity.", "activities": ["EAC0005", "EAC0013", "EAC0004", "EAC0023"]}
+{"approach_id": "EAP0003", "name": "Prevent", "description": "Stop all or part of the adversary’s ability to conduct their operation as intended.", "activities": ["EAC0019", "EAC0017", "EAC0020", "EAC0016", "EAC0018"]}
+{"approach_id": "EAP0004", "name": "Direct", "description": "Encourage or discourage the adversary from conducting their operation as intended.", "activities": ["EAC0005", "EAC0013", "EAC0009", "EAC0021", "EAC0016", "EAC0010", "EAC0018", "EAC0014", "EAC0023"]}
+{"approach_id": "EAP0005", "name": "Disrupt", "description": "Impair an adversary’s ability to conduct their operation as intended.", "activities": ["EAC0005", "EAC0020", "EAC0016", "EAC0014"]}
+{"approach_id": "EAP0006", "name": "Reassure", "description": "Add authenticity to deceptive components to convince an adversary that an environment is real.", "activities": ["EAC0006", "EAC0022", "EAC0008", "EAC0009", "EAC0015", "EAC0007", "EAC0010", "EAC0011"]}
+{"approach_id": "EAP0007", "name": "Motivate", "description": "Encourage an adversary to conduct part or all of their mission.", "activities": ["EAC0006", "EAC0022", "EAC0013", "EAC0015", "EAC0012", "EAC0007", "EAC0023"]}
+{"approach_id": "SAP0001", "name": "Plan", "description": "Identify and align an operation with a desired end-state.", "activities": ["SAC0004", "SAC0012", "SAC0005", "SAC0001", "SAC0002", "SAC0003", "SAC0009"]}
+{"approach_id": "SAP0002", "name": "Analyze", "description": "Retrospective review of information gained from an operation .", "activities": ["SAC0006", "SAC0004", "SAC0009"]}

@@ -1,0 +1,31 @@
+{"activity_id": "EAC0001", "name": "API Monitoring", "description": "Monitor local APIs that might be used by adversary tools and activity.", "attack_technique_count": 23}
+{"activity_id": "EAC0002", "name": "Network Monitoring", "description": "Monitor network traffic in order to detect adversary activity.", "attack_technique_count": 25}
+{"activity_id": "EAC0003", "name": "System Activity Monitoring", "description": "Collect system activity logs that can reveal adversary activity.", "attack_technique_count": 22}
+{"activity_id": "EAC0004", "name": "Network Analysis", "description": "Analyze network traffic to gain intelligence on communications between systems.", "attack_technique_count": 12}
+{"activity_id": "EAC0005", "name": "Lures", "description": "Deceptive systems and artifacts intended to serve as decoys, breadcrumbs, or bait to elicit a specific response from the adversary.", "attack_technique_count": 93}
+{"activity_id": "EAC0006", "name": "Application Diversity", "description": "Present the adversary with a variety of installed applications and services.", "attack_technique_count": 23}
+{"activity_id": "EAC0007", "name": "Network Diversity", "description": "Use a diverse set of devices on the network to help establish the legitimacy of a deceptive network.", "attack_technique_count": 10}
+{"activity_id": "EAC0008", "name": "Burn-In", "description": "Exercise a target system in a manner where it will generate desirable system artifacts.", "attack_technique_count": 13}
+{"activity_id": "EAC0009", "name": "Email Manipulation", "description": "Modify the flow of email in the environment.", "attack_technique_count": 3}
+{"activity_id": "EAC0010", "name": "Peripheral Management", "description": "Manage peripheral devices used on systems within the network for engagement purposes.", "attack_technique_count": 8}
+{"activity_id": "EAC0011", "name": "Pocket Litter", "description": "Data used to support the engagement narrative.", "attack_technique_count": 58}
+{"activity_id": "EAC0012", "name": "Personas", "description": "Create fictitious human user(s) through a combination of planted data and revealed behavior patterns.", "attack_technique_count": 22}
+{"activity_id": "EAC0013", "name": "Malware Detonation", "description": "Execute malware under controlled conditions to analyze its functionality.", "attack_technique_count": 11}
+{"activity_id": "EAC0014", "name": "Software Manipulation", "description": "Make changes to a system’s software properties and functions to achieve a desired effect.", "attack_technique_count": 53}
+{"activity_id": "EAC0015", "name": "Information Manipulation", "description": "Conceal and reveal both facts and fictions to support a deception story", "attack_technique_count": 54}
+{"activity_id": "EAC0016", "name": "Network Manipulation", "description": "Make changes to network properties and functions to achieve a desired effect.", "attack_technique_count": 45}
+{"activity_id": "EAC0017", "name": "Hardware Manipulation", "description": "Alter the hardware configuration of a system to limit what an adversary can do with the device.", "attack_technique_count": 3}
+{"activity_id": "EAC0018", "name": "Security Controls", "description": "Alter security controls to make the system more or less vulnerable to attack.", "attack_technique_count": 66}
+{"activity_id": "EAC0019", "name": "Baseline", "description": "Identify key system elements to establish a baseline and be prepared to reset a system to that baseline when necessary.", "attack_technique_count": 14}
+{"activity_id": "EAC0020", "name": "Isolation", "description": "Configure devices, systems, networks, etc. to contain activity and data, thus preventing the expansion of an engagement beyond desired limits.", "attack_technique_count": 6}
+{"activity_id": "EAC0021", "name": "Attack Vector Migration", "description": "Move a malicious link, file, or device from its intended location to an engagement system or network for execution/use.", "attack_technique_count": 7}
+{"activity_id": "EAC0022", "name": "Artifact Diversity", "description": "Present the adversary with a variety of network and system artifacts.", "attack_technique_count": 21}
+{"activity_id": "EAC0023", "name": "Introduced Vulnerabilities", "description": "Intentionally introduce vulnerabilities into the environment for the adversary to exploit.", "attack_technique_count": 4}
+{"activity_id": "SAC0001", "name": "Operational Objective", "description": "Define the objective of the desired end-state of your adversary engagement operations.", "attack_technique_count": 0}
+{"activity_id": "SAC0002", "name": "Persona Creation", "description": "Plan and create a fictitious human user through a combination of planted data and revealed behavior patterns.", "attack_technique_count": 0}
+{"activity_id": "SAC0003", "name": "Storyboarding", "description": "Plan and create the deception story.", "attack_technique_count": 0}
+{"activity_id": "SAC0004", "name": "Cyber Threat Intelligence", "description": "The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce harm through better security decision-making", "attack_technique_count": 0}
+{"activity_id": "SAC0005", "name": "Gating Criteria", "description": "Define the set of events that would lead to the unnegotiable pause or conclusion to the operation.", "attack_technique_count": 0}
+{"activity_id": "SAC0006", "name": "After-Action Review", "description": "Review of operational activities.", "attack_technique_count": 0}
+{"activity_id": "SAC0012", "name": "Engagement Environment", "description": "Design the systems and network for the operation.", "attack_technique_count": 0}
+{"activity_id": "SAC0009", "name": "Threat Model", "description": "A risk assessment that models organizational strengths and weaknesses", "attack_technique_count": 0}

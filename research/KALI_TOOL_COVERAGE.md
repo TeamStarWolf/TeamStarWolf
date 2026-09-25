@@ -2,7 +2,7 @@
 
 > Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
 >
-> A coverage analysis comparing the Kali Linux tool catalog against the [curated Stars Lists](/research/CURATED_STARS_LISTS.md) and the broader [Starred GitHub Repositories index](../Starred%20GitHub%20Repositories.md). Surveyed against the full Kali tool index at <https://www.kali.org/tools/all-tools/>.
+> A coverage analysis comparing the Kali Linux tool catalog against the [curated Stars Lists](/research/CURATED_STARS_LISTS.md) and the broader [Starred GitHub Repositories index](/STARRED_REPOS.md). Surveyed against the full Kali tool index at <https://www.kali.org/tools/all-tools/>.
 
 ## Why this exists
 

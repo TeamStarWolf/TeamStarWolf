@@ -1599,7 +1599,7 @@ SMS OTP and push notifications do NOT meet phishing resistance requirement.
 
 ### Related References
 
-- [Active Directory Security](active-directory.md)
+- [Active Directory Security](/disciplines/active-directory.md)
 - [Zero Trust Reference](ZERO_TRUST_REFERENCE.md)
 - [GRC Reference](GRC_REFERENCE.md)
 - [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md)

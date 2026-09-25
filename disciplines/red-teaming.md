@@ -174,7 +174,7 @@ Self-signed certificates or stolen/leaked code-signing certificates are applied 
 - [Offensive Security](/disciplines/offensive-security.md) — broader offensive discipline including exploitation fundamentals
 - [Active Directory](/disciplines/active-directory.md) — AD attack techniques in depth
 - [Penetration Testing](/disciplines/penetration-testing.md) — scoped vulnerability testing methodology
-- [HTB Tracks](research/HTB_TRACKS.md) — HackTheBox learning paths including red team content
+- [HTB Tracks](/research/HTB_TRACKS.md) — HackTheBox learning paths including red team content
 - [Pentest Checklists](/PENTEST_CHECKLISTS.md) — phase-by-phase engagement checklists
 
 ---

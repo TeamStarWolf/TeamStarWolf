@@ -391,5 +391,5 @@ SecurityEvent
 - [identity-access-management.md](/disciplines/identity-access-management.md) — IAM architecture, PAM, MFA, Credential Guard
 - [red-teaming.md](/disciplines/red-teaming.md) — adversary simulation, C2 frameworks, full AD exploitation chains
 - [penetration-testing.md](/disciplines/penetration-testing.md) — scoped AD assessments, methodology, reporting
-- [kerberos-attacks.md](kerberos-attacks.md) — deep dive into Kerberos protocol attacks: delegation, ticket forging, roasting
+- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) — deep dive into Kerberos protocol attacks: delegation, ticket forging, roasting
 - [cloud-security.md](/disciplines/cloud-security.md) — Azure AD / Entra ID hybrid attack paths extending from on-prem AD compromise

@@ -310,9 +310,9 @@ Threat modeling identifies which techniques are relevant to your architecture. T
 ## Related Disciplines
 
 - [application-security.md](/disciplines/application-security.md)
-- [secure-software-development.md](secure-software-development.md)
+- [Application Security](/disciplines/application-security.md)
 - [penetration-testing.md](/disciplines/penetration-testing.md)
-- [risk-management.md](risk-management.md)
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md)
 - [cloud-security.md](/disciplines/cloud-security.md)
 - [zero-trust-architecture.md](/disciplines/zero-trust-architecture.md)
 - [identity-and-access-management.md](/disciplines/identity-access-management.md)

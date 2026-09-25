@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Linux Hardening Fundamentals & CIS Benchmarks](#1-linux-hardening-fundamentals--cis-benchmarks)
-2. [User & Authentication Hardening](#2-user--authentication-hardening)
-3. [Filesystem Security](#3-filesystem-security)
-4. [Kernel Hardening & sysctl](#4-kernel-hardening--sysctl)
-5. [SELinux Configuration](#5-selinux-configuration)
-6. [Network Security & Firewall](#6-network-security--firewall)
-7. [Auditd & System Logging](#7-auditd--system-logging)
-8. [Service Hardening & Application Security](#8-service-hardening--application-security)
-9. [Intrusion Detection & Monitoring](#9-intrusion-detection--monitoring)
-10. [Compliance, Automation & References](#10-compliance-automation--references)
+1. [Linux Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks)
+2. [User & Authentication Hardening](#_2-user-amp-authentication-hardening)
+3. [Filesystem Security](#_3-filesystem-security)
+4. [Kernel Hardening & sysctl](#_4-kernel-hardening-amp-sysctl)
+5. [SELinux Configuration](#_5-selinux-configuration)
+6. [Network Security & Firewall](#_6-network-security-amp-firewall)
+7. [Auditd & System Logging](#_7-auditd-amp-system-logging)
+8. [Service Hardening & Application Security](#_8-service-hardening-amp-application-security)
+9. [Intrusion Detection & Monitoring](#_9-intrusion-detection-amp-monitoring)
+10. [Compliance, Automation & References](#_10-compliance-automation-amp-references)
 
 ---
 

@@ -6,14 +6,14 @@ A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/S
 
 ## Table of Contents
 
-1. [Overview of Detection Rule Formats](#1-overview-of-detection-rule-formats)
-2. [Sigma Rules](#2-sigma-rules)
-3. [YARA Rules](#3-yara-rules)
-4. [Suricata / Snort Rules](#4-suricata--snort-rules)
-5. [Splunk SPL Detection Queries](#5-splunk-spl-detection-queries)
-6. [KQL for Microsoft Sentinel](#6-kql-for-microsoft-sentinel)
-7. [Best Practices for Detection Engineering](#7-best-practices-for-detection-engineering)
-8. [Useful References](#8-useful-references)
+1. [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats)
+2. [Sigma Rules](#_2-sigma-rules)
+3. [YARA Rules](#_3-yara-rules)
+4. [Suricata / Snort Rules](#_4-suricata-snort-rules)
+5. [Splunk SPL Detection Queries](#_5-splunk-spl-detection-queries)
+6. [KQL for Microsoft Sentinel](#_6-kql-for-microsoft-sentinel)
+7. [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering)
+8. [Useful References](#_8-useful-references)
 
 ---
 

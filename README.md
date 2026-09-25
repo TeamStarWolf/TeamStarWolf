@@ -12,7 +12,7 @@
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-4a5568?style=flat-square)](LICENSE)
 
-[**Reference Index**](INDEX.md) &nbsp;·&nbsp; [**Discipline Paths**](disciplines/) &nbsp;·&nbsp; [**Threat-Informed Defense**](THREAT_INFORMED_DEFENSE_REFERENCE.md) &nbsp;·&nbsp; [**Coverage & Data**](#coverage-data) &nbsp;·&nbsp; [**ATTACK-Navi**](https://teamstarwolf.github.io/ATTACK-Navi/)
+[**Reference Index**](INDEX.md) &nbsp;·&nbsp; [**Discipline Paths**](disciplines/) &nbsp;·&nbsp; [**Threat-Informed Defense**](THREAT_INFORMED_DEFENSE_REFERENCE.md) &nbsp;·&nbsp; [**Coverage & Data**](#🗺️-coverage-amp-data) &nbsp;·&nbsp; [**ATTACK-Navi**](https://teamstarwolf.github.io/ATTACK-Navi/)
 
 </div>
 
@@ -70,7 +70,7 @@ Pick your goal — each path drops you into the right part of the library.
 | **Secure AI/ML systems** | [MITRE ATLAS](ATLAS_REFERENCE.md) · [AI Security](AI_SECURITY_REFERENCE.md) · [AI & MCP Security](AI_MCP_SECURITY_REFERENCE.md) |
 | **Run deception / active defense** | [MITRE Engage](ENGAGE_REFERENCE.md) · [Honeypot & Deception](HONEYPOT_DECEPTION_REFERENCE.md) · [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) |
 | **Defend against financial fraud** | [MITRE F3 Fraud Framework](FRAUD_FRAMEWORK_REFERENCE.md) · [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md) · [Identity Security](IDENTITY_SECURITY_REFERENCE.md) |
-| **Break into the field / level up** | [Career Paths](CAREER_PATHS.md) · [Certifications](CERTIFICATIONS.md) · [Home Lab Setup](HOMELAB_SETUP.md) · [Free Training](#learn-grow) |
+| **Break into the field / level up** | [Career Paths](CAREER_PATHS.md) · [Certifications](CERTIFICATIONS.md) · [Home Lab Setup](HOMELAB_SETUP.md) · [Free Training](#🎓-learn-amp-grow) |
 
 ---
 
@@ -337,7 +337,7 @@ for the model and [scores/coverage_gaps.md](scores/coverage_gaps.md) for gap ana
 
 The interactive companion to this library — a MITRE ATT&CK workbench for coverage review, detection
 engineering, exposure mapping, and threat-intelligence correlation. Supports Enterprise, ICS, and Mobile
-ATT&CK domains, and consumes the same [coverage data](#coverage-data) published here.
+ATT&CK domains, and consumes the same [coverage data](#🗺️-coverage-amp-data) published here.
 
 | Capability | Details |
 |---|---|

@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [AWS Security Fundamentals](#1-aws-security-fundamentals)
-2. [AWS Attack Techniques](#2-aws-attack-techniques)
-3. [Azure Security](#3-azure-security)
-4. [Azure Attack Techniques](#4-azure-attack-techniques)
-5. [GCP Security](#5-gcp-security)
-6. [Multi-Cloud Attack Tools](#6-multi-cloud-attack-tools)
-7. [Cloud IAM Security & Least Privilege](#7-cloud-iam-security--least-privilege)
-8. [Cloud Data Security](#8-cloud-data-security)
-9. [Cloud Native Security (CNAPP)](#9-cloud-native-security-cnapp)
-10. [Serverless, DevSecOps & Cloud Compliance](#10-serverless-devsecops--cloud-compliance)
+1. [AWS Security Fundamentals](#_1-aws-security-fundamentals)
+2. [AWS Attack Techniques](#_2-aws-attack-techniques)
+3. [Azure Security](#_3-azure-security)
+4. [Azure Attack Techniques](#_4-azure-attack-techniques)
+5. [GCP Security](#_5-gcp-security)
+6. [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools)
+7. [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege)
+8. [Cloud Data Security](#_8-cloud-data-security)
+9. [Cloud Native Security (CNAPP)](#_9-cloud-native-security-cnapp)
+10. [Serverless, DevSecOps & Cloud Compliance](#_10-serverless-devsecops-amp-cloud-compliance)
 
 ---
 

@@ -8,50 +8,50 @@ Machine-readable: [`data/attack/mitigations.jsonl`](data/attack/mitigations.json
 
 | Mitigation | Techniques addressed |
 |---|--:|
-| [M1018 User Account Management](#m1018) | 120 |
-| [M1026 Privileged Account Management](#m1026) | 112 |
-| [M1047 Audit](#m1047) | 109 |
-| [M1056 Pre-compromise](#m1056) | 84 |
-| [M1038 Execution Prevention](#m1038) | 80 |
-| [M1042 Disable or Remove Feature or Program](#m1042) | 71 |
-| [M1022 Restrict File and Directory Permissions](#m1022) | 61 |
-| [M1017 User Training](#m1017) | 59 |
-| [M1031 Network Intrusion Prevention](#m1031) | 59 |
-| [M1040 Behavior Prevention on Endpoint](#m1040) | 51 |
-| [M1037 Filter Network Traffic](#m1037) | 49 |
-| [M1032 Multi-factor Authentication](#m1032) | 48 |
-| [M1027 Password Policies](#m1027) | 47 |
-| [M1051 Update Software](#m1051) | 42 |
-| [M1028 Operating System Configuration](#m1028) | 39 |
-| [M1030 Network Segmentation](#m1030) | 37 |
-| [M1054 Software Configuration](#m1054) | 37 |
-| [M1041 Encrypt Sensitive Information](#m1041) | 33 |
-| [M1021 Restrict Web-Based Content](#m1021) | 31 |
-| [M1049 Antivirus/Antimalware](#m1049) | 23 |
-| [M1045 Code Signing](#m1045) | 22 |
-| [M1024 Restrict Registry Permissions](#m1024) | 20 |
-| [M1035 Limit Access to Resource Over Network](#m1035) | 19 |
-| [M1013 Application Developer Guidance](#m1013) | 17 |
-| [M1033 Limit Software Installation](#m1033) | 17 |
-| [M1015 Active Directory Configuration](#m1015) | 15 |
-| [M1046 Boot Integrity](#m1046) | 14 |
-| [M1048 Application Isolation and Sandboxing](#m1048) | 14 |
-| [M1050 Exploit Protection](#m1050) | 12 |
-| [M1057 Data Loss Prevention](#m1057) | 12 |
-| [M1029 Remote Data Storage](#m1029) | 11 |
-| [M1036 Account Use Policies](#m1036) | 10 |
-| [M1043 Credential Access Protection](#m1043) | 10 |
-| [M1053 Data Backup](#m1053) | 10 |
-| [M1025 Privileged Process Integrity](#m1025) | 7 |
-| [M1034 Limit Hardware Installation](#m1034) | 7 |
-| [M1052 User Account Control](#m1052) | 7 |
-| [M1060 Out-of-Band Communications Channel](#m1060) | 7 |
-| [M1016 Vulnerability Scanning](#m1016) | 5 |
-| [M1019 Threat Intelligence Program](#m1019) | 5 |
-| [M1020 SSL/TLS Inspection](#m1020) | 4 |
-| [M1044 Restrict Library Loading](#m1044) | 3 |
-| [M1055 Do Not Mitigate](#m1055) | 3 |
-| [M1039 Environment Variable Permissions](#m1039) | 2 |
+| [M1018 User Account Management](#m1018-user-account-management) | 120 |
+| [M1026 Privileged Account Management](#m1026-privileged-account-management) | 112 |
+| [M1047 Audit](#m1047-audit) | 109 |
+| [M1056 Pre-compromise](#m1056-pre-compromise) | 84 |
+| [M1038 Execution Prevention](#m1038-execution-prevention) | 80 |
+| [M1042 Disable or Remove Feature or Program](#m1042-disable-or-remove-feature-or-program) | 71 |
+| [M1022 Restrict File and Directory Permissions](#m1022-restrict-file-and-directory-permissions) | 61 |
+| [M1017 User Training](#m1017-user-training) | 59 |
+| [M1031 Network Intrusion Prevention](#m1031-network-intrusion-prevention) | 59 |
+| [M1040 Behavior Prevention on Endpoint](#m1040-behavior-prevention-on-endpoint) | 51 |
+| [M1037 Filter Network Traffic](#m1037-filter-network-traffic) | 49 |
+| [M1032 Multi-factor Authentication](#m1032-multi-factor-authentication) | 48 |
+| [M1027 Password Policies](#m1027-password-policies) | 47 |
+| [M1051 Update Software](#m1051-update-software) | 42 |
+| [M1028 Operating System Configuration](#m1028-operating-system-configuration) | 39 |
+| [M1030 Network Segmentation](#m1030-network-segmentation) | 37 |
+| [M1054 Software Configuration](#m1054-software-configuration) | 37 |
+| [M1041 Encrypt Sensitive Information](#m1041-encrypt-sensitive-information) | 33 |
+| [M1021 Restrict Web-Based Content](#m1021-restrict-web-based-content) | 31 |
+| [M1049 Antivirus/Antimalware](#m1049-antivirusantimalware) | 23 |
+| [M1045 Code Signing](#m1045-code-signing) | 22 |
+| [M1024 Restrict Registry Permissions](#m1024-restrict-registry-permissions) | 20 |
+| [M1035 Limit Access to Resource Over Network](#m1035-limit-access-to-resource-over-network) | 19 |
+| [M1013 Application Developer Guidance](#m1013-application-developer-guidance) | 17 |
+| [M1033 Limit Software Installation](#m1033-limit-software-installation) | 17 |
+| [M1015 Active Directory Configuration](#m1015-active-directory-configuration) | 15 |
+| [M1046 Boot Integrity](#m1046-boot-integrity) | 14 |
+| [M1048 Application Isolation and Sandboxing](#m1048-application-isolation-and-sandboxing) | 14 |
+| [M1050 Exploit Protection](#m1050-exploit-protection) | 12 |
+| [M1057 Data Loss Prevention](#m1057-data-loss-prevention) | 12 |
+| [M1029 Remote Data Storage](#m1029-remote-data-storage) | 11 |
+| [M1036 Account Use Policies](#m1036-account-use-policies) | 10 |
+| [M1043 Credential Access Protection](#m1043-credential-access-protection) | 10 |
+| [M1053 Data Backup](#m1053-data-backup) | 10 |
+| [M1025 Privileged Process Integrity](#m1025-privileged-process-integrity) | 7 |
+| [M1034 Limit Hardware Installation](#m1034-limit-hardware-installation) | 7 |
+| [M1052 User Account Control](#m1052-user-account-control) | 7 |
+| [M1060 Out-of-Band Communications Channel](#m1060-out-of-band-communications-channel) | 7 |
+| [M1016 Vulnerability Scanning](#m1016-vulnerability-scanning) | 5 |
+| [M1019 Threat Intelligence Program](#m1019-threat-intelligence-program) | 5 |
+| [M1020 SSL/TLS Inspection](#m1020-ssltls-inspection) | 4 |
+| [M1044 Restrict Library Loading](#m1044-restrict-library-loading) | 3 |
+| [M1055 Do Not Mitigate](#m1055-do-not-mitigate) | 3 |
+| [M1039 Environment Variable Permissions](#m1039-environment-variable-permissions) | 2 |
 
 ---
 

@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [IoT/Firmware Attack Surface](#1-iotfirmware-attack-surface)
-2. [Firmware Extraction](#2-firmware-extraction)
-3. [Firmware Analysis Tools](#3-firmware-analysis-tools)
-4. [UEFI/BIOS Security](#4-uefibios-security)
-5. [IoT Protocol Security](#5-iot-protocol-security)
-6. [Hardware Interface Testing](#6-hardware-interface-testing)
-7. [Common IoT Vulnerability Classes](#7-common-iot-vulnerability-classes)
-8. [IoT Security Testing Methodology](#8-iot-security-testing-methodology)
-9. [IoT Security Standards](#9-iot-security-standards)
-10. [Defensive IoT Security](#10-defensive-iot-security)
+1. [IoT/Firmware Attack Surface](#_1-iotfirmware-attack-surface)
+2. [Firmware Extraction](#_2-firmware-extraction)
+3. [Firmware Analysis Tools](#_3-firmware-analysis-tools)
+4. [UEFI/BIOS Security](#_4-uefibios-security)
+5. [IoT Protocol Security](#_5-iot-protocol-security)
+6. [Hardware Interface Testing](#_6-hardware-interface-testing)
+7. [Common IoT Vulnerability Classes](#_7-common-iot-vulnerability-classes)
+8. [IoT Security Testing Methodology](#_8-iot-security-testing-methodology)
+9. [IoT Security Standards](#_9-iot-security-standards)
+10. [Defensive IoT Security](#_10-defensive-iot-security)
 
 ---
 

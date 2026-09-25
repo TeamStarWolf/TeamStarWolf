@@ -17,7 +17,7 @@ A quick-reference guide to major cybersecurity and privacy frameworks — what t
 | [HIPAA Security Rule](#hipaa-security-rule) | HHS | Healthcare data | US healthcare entities | Yes (US law) |
 | [CMMC 2.0](#cmmc-20) | DoD | Supply chain security | US DoD contractors | Yes (contracts) |
 | [CIS Controls v8](#cis-controls-v8) | CIS | Control prioritization | All sectors | No (best practice) |
-| [NIST CSF / MITRE ATT&CK](#nist-csf--mitre-attck) | NIST/MITRE | Threat-informed defense | All sectors | No |
+| [NIST CSF / MITRE ATT&CK](#nist-csf-mitre-attampck) | NIST/MITRE | Threat-informed defense | All sectors | No |
 | [ISO 27701](#iso-27701) | ISO/IEC | Privacy extension to 27001 | Privacy programs | No (certification) |
 | [GDPR](#gdpr) | EU | Privacy regulation | EU data processors | Yes (EU law) |
 | [CCPA / CPRA](#ccpacpra) | California | Privacy regulation | CA consumer data | Yes (CA law) |

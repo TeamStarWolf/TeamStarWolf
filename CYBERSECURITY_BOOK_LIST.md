@@ -23,26 +23,26 @@ A practical reading and lab guide for people learning or working in cybersecurit
 | 2 | [Learning Paths](#learning-paths) | Reference |
 | 3 | [Black Hat Arsenal Companion Track](#black-hat-arsenal-companion-track) | Reference |
 | 4 | [News and Daily Intel](#news-and-daily-intel) | Reference |
-| 5 | [Core / Must-Read](#core--must-read-high-signal) | All |
-| 6 | [Offensive Security & Pentesting](#offensive-security--pentesting) | Intermediate/Advanced |
-| 7 | [Web Security & Bug Bounty](#web-security--bug-bounty) | Intermediate/Advanced |
-| 8 | [Active Directory & Windows Security](#active-directory--windows-security) | Intermediate/Advanced |
-| 9 | [Reverse Engineering & Malware Analysis](#reverse-engineering--malware-analysis) | Advanced |
+| 5 | [Core / Must-Read](#core-must-read-high-signal) | All |
+| 6 | [Offensive Security & Pentesting](#offensive-security-amp-pentesting) | Intermediate/Advanced |
+| 7 | [Web Security & Bug Bounty](#web-security-amp-bug-bounty) | Intermediate/Advanced |
+| 8 | [Active Directory & Windows Security](#active-directory-amp-windows-security) | Intermediate/Advanced |
+| 9 | [Reverse Engineering & Malware Analysis](#reverse-engineering-amp-malware-analysis) | Advanced |
 | 10 | [Cryptography](#cryptography) | Intermediate/Advanced |
-| 11 | [Blue Team / Defense / SOC](#blue-team--defense--soc) | Beginner/Intermediate |
-| 12 | [Threat Intelligence & Hunting](#threat-intelligence--hunting) | Intermediate/Advanced |
-| 13 | [OSINT / Privacy / Social Engineering](#osint--privacy--social-engineering) | Beginner/Intermediate |
+| 11 | [Blue Team / Defense / SOC](#blue-team-defense-soc) | Beginner/Intermediate |
+| 12 | [Threat Intelligence & Hunting](#threat-intelligence-amp-hunting) | Intermediate/Advanced |
+| 13 | [OSINT / Privacy / Social Engineering](#osint-privacy-social-engineering) | Beginner/Intermediate |
 | 14 | [Cloud Security](#cloud-security) | Intermediate/Advanced |
 | 15 | [Mobile Security](#mobile-security) | Intermediate/Advanced |
-| 16 | [Hardware / IoT / ICS Security](#hardware--iot--ics-security) | Advanced |
-| 17 | [Systems / Low-Level / Exploit Dev](#systems--low-level--exploit-dev) | Advanced |
-| 18 | [Research / Exploit Culture / Fuzzing](#research--exploit-culture--fuzzing) | Advanced |
+| 16 | [Hardware / IoT / ICS Security](#hardware-iot-ics-security) | Advanced |
+| 17 | [Systems / Low-Level / Exploit Dev](#systems-low-level-exploit-dev) | Advanced |
+| 18 | [Research / Exploit Culture / Fuzzing](#research-exploit-culture-fuzzing) | Advanced |
 | 19 | [Networking](#networking-critical-foundation) | Beginner/Intermediate |
 | 20 | [Programming for Hackers](#programming-for-hackers) | Beginner/Intermediate |
-| 21 | [Hacker Culture / History / Real-World Ops](#hacker-culture--history--real-world-ops) | Beginner |
-| 22 | [AI / ML Security](#ai--ml-security) | Intermediate/Advanced |
-| 23 | [Certifications & Foundations](#certifications--foundations) | Beginner/Intermediate |
-| 24 | [Career / Getting Hired](#career--getting-hired) | Beginner |
+| 21 | [Hacker Culture / History / Real-World Ops](#hacker-culture-history-real-world-ops) | Beginner |
+| 22 | [AI / ML Security](#ai-ml-security) | Intermediate/Advanced |
+| 23 | [Certifications & Foundations](#certifications-amp-foundations) | Beginner/Intermediate |
+| 24 | [Career / Getting Hired](#career-getting-hired) | Beginner |
 | 25 | [Practice Environments](#practice-environments) | All |
 | 26 | [Coverage Summary](#coverage-summary) | Reference |
 

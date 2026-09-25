@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Container Security Fundamentals](#1-container-security-fundamentals)
-2. [Docker Bench for Security](#2-docker-bench-for-security)
-3. [Dockerfile Security Best Practices](#3-dockerfile-security-best-practices)
-4. [Container Image Scanning](#4-container-image-scanning)
-5. [Container Runtime Security](#5-container-runtime-security)
-6. [Container Escape Techniques and Defense](#6-container-escape-techniques-and-defense)
-7. [Container Networking Security](#7-container-networking-security)
-8. [Container Registry Security](#8-container-registry-security)
-9. [Secrets in Containers](#9-secrets-in-containers)
-10. [Container Security Operations](#10-container-security-operations)
+1. [Container Security Fundamentals](#_1-container-security-fundamentals)
+2. [Docker Bench for Security](#_2-docker-bench-for-security)
+3. [Dockerfile Security Best Practices](#_3-dockerfile-security-best-practices)
+4. [Container Image Scanning](#_4-container-image-scanning)
+5. [Container Runtime Security](#_5-container-runtime-security)
+6. [Container Escape Techniques and Defense](#_6-container-escape-techniques-and-defense)
+7. [Container Networking Security](#_7-container-networking-security)
+8. [Container Registry Security](#_8-container-registry-security)
+9. [Secrets in Containers](#_9-secrets-in-containers)
+10. [Container Security Operations](#_10-container-security-operations)
 
 ---
 

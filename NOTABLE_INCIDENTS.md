@@ -6,13 +6,13 @@
 
 ## Table of Contents
 
-1. [Early Hacking History (1986–2009)](#1-early-hacking-history-19862009)
-2. [Nation-State Campaigns (2010–2020)](#2-nation-state-campaigns-20102020)
-3. [Recent Events (2020–2025)](#3-recent-events-20202025)
-4. [Ransomware Incident Reference](#4-ransomware-incident-reference)
-5. [Ransomware Incident Response — Negotiation Guide](#5-ransomware-incident-response--negotiation-guide)
-6. [Contacting Authorities](#6-contacting-authorities)
-7. [Critical Vulnerability Classes to Watch](#7-critical-vulnerability-classes-to-watch)
+1. [Early Hacking History (1986–2009)](#_1-early-hacking-history-19862009)
+2. [Nation-State Campaigns (2010–2020)](#_2-nation-state-campaigns-20102020)
+3. [Recent Events (2020–2025)](#_3-recent-events-20202025)
+4. [Ransomware Incident Reference](#_4-ransomware-incident-reference)
+5. [Ransomware Incident Response — Negotiation Guide](#_5-ransomware-incident-response-negotiation-guide)
+6. [Contacting Authorities](#_6-contacting-authorities)
+7. [Critical Vulnerability Classes to Watch](#_7-critical-vulnerability-classes-to-watch)
 8. [Related Resources](#related-resources)
 
 ---

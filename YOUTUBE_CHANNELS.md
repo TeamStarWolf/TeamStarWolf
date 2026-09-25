@@ -26,7 +26,7 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 11. [Networking and Infrastructure](#networking-and-infrastructure)
 12. [Hardware Hacking and ICS/OT](#hardware-hacking-and-icsot)
 13. [Privacy, Anonymity and OPSEC](#privacy-anonymity-and-opsec)
-14. [AI / LLM Security](#ai--llm-security)
+14. [AI / LLM Security](#ai-llm-security)
 15. [Cryptocurrency and Web3 Security](#cryptocurrency-and-web3-security)
 16. [Social Engineering and Fraud Awareness](#social-engineering-and-fraud-awareness)
 17. [News, Commentary and Career](#news-commentary-and-career)

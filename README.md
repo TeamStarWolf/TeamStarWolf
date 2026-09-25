@@ -6,7 +6,7 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-124-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-132-2b6cb0?style=flat-square)](INDEX.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -21,7 +21,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **124 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **132 in-depth reference documents** and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -44,12 +44,12 @@ New here? Jump to [**Start here**](#start-here) for goal-based entry points, or 
 
 | | | |
 |---|---|---|
-| 📚 **124** reference documents | 🧭 **47** discipline learning paths | 🗺️ **28** ATT&CK Navigator coverage layers |
+| 📚 **132** reference documents | 🧭 **47** discipline learning paths | 🗺️ **28** ATT&CK Navigator coverage layers |
 | 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
 | 🔬 **691** detection strategies · **1,739** analytics | 🧬 **969** CWE weaknesses · **615** CAPEC patterns | 🛡️ **156** D3FEND countermeasures |
 | 💳 **123** MITRE F3 fraud techniques (8 tactics) | 🤖 **170** ATLAS AI-attack techniques | 🪤 **31** Engage deception activities |
 | 🔁 **CTEM** 5-stage exposure loop | 🎯 **65** multi-platform detection queries | 📋 **106** data components / log sources |
-| 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🧩 ATT&CK · ATLAS · Engage · D3FEND · F3 · CWE · CAPEC |
+| 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🧩 ATT&CK · ATLAS · Engage · D3FEND · F3 · EMB3D · FiGHT · CWE · CAPEC |
 | 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
 
 ---
@@ -139,7 +139,7 @@ machine-readable so you can query them, not just read them.
 
 ## 📚 Explore the library
 
-Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 124 documents.
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 132 documents.
 
 <details open>
 <summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>
@@ -176,6 +176,8 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Purple Team Reference](PURPLE_TEAM_REFERENCE.md) | Adversary emulation, Atomic Red Team, detection validation |
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, Suricata rule writing with examples |
 | [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) | IDS/IPS, firewall policy, network segmentation, NDR |
+| [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md) | CISA #StopRansomware, NIST IR 8374r1, immutable backups, payment policy |
+| [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md) | CTID Insider Threat TTP KB, NITTF/CISA program guidance, UAM detection |
 
 </details>
 
@@ -195,6 +197,8 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) | DMZ design, VLAN segmentation, firewall policy |
 | [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) | Sysmon, WEF, Defender, AppControl, GPO, ASR rules |
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | CIS benchmarks, sysctl, SELinux, auditd, service hardening |
+| [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | Gatekeeper/TCC/XProtect, mSCP and CIS baselines, Endpoint Security telemetry |
+| [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md) | OAuth app governance, CISA SCuBA, SSPM, M365/GWS tenant hardening |
 
 </details>
 
@@ -211,6 +215,7 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | NIST SP 800-207, CISA ZTMM, microsegmentation, BeyondCorp |
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | Vault, AWS Secrets Manager, rotation, detection |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric, TLS, PKI, HSM, quantum-resistant algorithms |
+| [Post-Quantum Migration Reference](POST_QUANTUM_MIGRATION_REFERENCE.md) | HNDL risk, FIPS 203/204/205, CNSA 2.0 timelines, CBOM, crypto-agility |
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Hash formats, hashcat/John, credential stuffing defense |
 
 </details>
@@ -247,6 +252,9 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | OWASP MASVS, Android/iOS RE, Frida, MDM/MAM |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | LLM threat models, prompt injection, adversarial ML, MCP security |
 | [SDR & RF Security Reference](SDR_RF_SECURITY_REFERENCE.md) | HackRF, Flipper Zero, sub-GHz analysis, RF attack surface |
+| [Space Systems Security Reference](SPACE_SECURITY_REFERENCE.md) | SPARTA framework, TT&C/SDLS protection, GNSS resilience, Viasat case study |
+| [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md) | MITRE FiGHT, SS7/Diameter defense, 5G core security, Salt Typhoon |
+| [EMB3D Reference](EMB3D_REFERENCE.md) | MITRE EMB3D device threat model, tiered mitigations, IEC 62443 alignment |
 
 </details>
 

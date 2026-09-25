@@ -269,6 +269,6 @@ Detection engineering directly implements coverage against specific ATT&CK techn
 - [Incident Response](/disciplines/incident-response.md)
 - [Threat Intelligence](/disciplines/threat-intelligence.md)
 - [Threat Hunting](/disciplines/threat-hunting.md)
-- [SIEM & Log Management](siem-log-management.md)
+- [SIEM & Log Management](/disciplines/siem-soar.md)
 - [Offensive Security](/disciplines/offensive-security.md)
 - [Malware Analysis](/disciplines/malware-analysis.md)

@@ -191,4 +191,4 @@ Security awareness directly mitigates initial access and execution techniques by
 - [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md)
 - [Incident Response](/disciplines/incident-response.md)
 - [Identity & Access Management](/disciplines/identity-access-management.md)
-- [Phishing & Email Security](phishing-email-security.md)
+- [Phishing & Email Security](/EMAIL_SECURITY_REFERENCE.md)

@@ -6,18 +6,18 @@
 
 ## Table of Contents
 
-1. [Psychology of Social Engineering](#1-psychology-of-social-engineering)
-2. [Phishing Attack Types](#2-phishing-attack-types)
-3. [Phishing Infrastructure and Tooling](#3-phishing-infrastructure-and-tooling)
-4. [Vishing and Phone-Based Attacks](#4-vishing-and-phone-based-attacks)
-5. [Physical Social Engineering](#5-physical-social-engineering)
-6. [Spear Phishing Campaign Methodology](#6-spear-phishing-campaign-methodology)
-7. [Security Awareness Training](#7-security-awareness-training)
-8. [Technical Countermeasures](#8-technical-countermeasures)
-9. [BEC (Business Email Compromise) Defense](#9-bec-business-email-compromise-defense)
-10. [Regulatory and Compliance](#10-regulatory-and-compliance)
-11. [MITRE ATT&CK Mapping](#11-mitre-attck-mapping)
-12. [Quick Reference Checklists](#12-quick-reference-checklists)
+1. [Psychology of Social Engineering](#_1-psychology-of-social-engineering)
+2. [Phishing Attack Types](#_2-phishing-attack-types)
+3. [Phishing Infrastructure and Tooling](#_3-phishing-infrastructure-and-tooling)
+4. [Vishing and Phone-Based Attacks](#_4-vishing-and-phone-based-attacks)
+5. [Physical Social Engineering](#_5-physical-social-engineering)
+6. [Spear Phishing Campaign Methodology](#_6-spear-phishing-campaign-methodology)
+7. [Security Awareness Training](#_7-security-awareness-training)
+8. [Technical Countermeasures](#_8-technical-countermeasures)
+9. [BEC (Business Email Compromise) Defense](#_9-bec-business-email-compromise-defense)
+10. [Regulatory and Compliance](#_10-regulatory-and-compliance)
+11. [MITRE ATT&CK Mapping](#_11-mitre-attampck-mapping)
+12. [Quick Reference Checklists](#_12-quick-reference-checklists)
 
 ---
 

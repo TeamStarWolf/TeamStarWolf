@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Network Forensics Fundamentals & Evidence Collection](#1-network-forensics-fundamentals--evidence-collection)
-2. [Packet Capture Tools & Infrastructure](#2-packet-capture-tools--infrastructure)
-3. [Protocol Analysis & Decoding](#3-protocol-analysis--decoding)
-4. [NetFlow & Traffic Analysis](#4-netflow--traffic-analysis)
-5. [Malware Traffic Analysis](#5-malware-traffic-analysis)
-6. [Incident Reconstruction from Network Evidence](#6-incident-reconstruction-from-network-evidence)
-7. [Encrypted Traffic Analysis](#7-encrypted-traffic-analysis)
-8. [Wireless & Remote Access Forensics](#8-wireless--remote-access-forensics)
-9. [Cloud & Container Network Forensics](#9-cloud--container-network-forensics)
-10. [Forensic Reporting & Tools Reference](#10-forensic-reporting--tools-reference)
+1. [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection)
+2. [Packet Capture Tools & Infrastructure](#_2-packet-capture-tools-amp-infrastructure)
+3. [Protocol Analysis & Decoding](#_3-protocol-analysis-amp-decoding)
+4. [NetFlow & Traffic Analysis](#_4-netflow-amp-traffic-analysis)
+5. [Malware Traffic Analysis](#_5-malware-traffic-analysis)
+6. [Incident Reconstruction from Network Evidence](#_6-incident-reconstruction-from-network-evidence)
+7. [Encrypted Traffic Analysis](#_7-encrypted-traffic-analysis)
+8. [Wireless & Remote Access Forensics](#_8-wireless-amp-remote-access-forensics)
+9. [Cloud & Container Network Forensics](#_9-cloud-amp-container-network-forensics)
+10. [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference)
 
 ---
 

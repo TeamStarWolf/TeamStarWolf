@@ -221,10 +221,10 @@ Good security architecture is not just about controls — it is about making sec
 
 ## Related Disciplines
 
-- [Zero Trust Architecture](zero-trust-architecture.md)
-- [Threat Modeling](threat-modeling.md)
-- [Cloud Security](cloud-security.md)
-- [Network Security](network-security.md)
-- [Identity Access Management](identity-access-management.md)
-- [Governance Risk Compliance](governance-risk-compliance.md)
-- [DevSecOps](devsecops.md)
+- [Zero Trust Architecture](/disciplines/zero-trust-architecture.md)
+- [Threat Modeling](/disciplines/threat-modeling.md)
+- [Cloud Security](/disciplines/cloud-security.md)
+- [Network Security](/disciplines/network-security.md)
+- [Identity Access Management](/disciplines/identity-access-management.md)
+- [Governance Risk Compliance](/disciplines/governance-risk-compliance.md)
+- [DevSecOps](/disciplines/devsecops.md)

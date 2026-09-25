@@ -284,10 +284,10 @@ An SBOM is a formal, machine-readable inventory of all software components, thei
 
 ## Related Disciplines
 
-- [Application Security](application-security.md)
-- [Cloud Security](cloud-security.md)
-- [Vulnerability Management](vulnerability-management.md)
-- [Container Security](container-security.md)
-- [Bug Bounty](bug-bounty.md)
-- [Security Operations](security-operations.md)
-- [Offensive Security](offensive-security.md)
+- [Application Security](/disciplines/application-security.md)
+- [Cloud Security](/disciplines/cloud-security.md)
+- [Vulnerability Management](/disciplines/vulnerability-management.md)
+- [Container Security](/disciplines/container-kubernetes-security.md)
+- [Bug Bounty](/disciplines/bug-bounty.md)
+- [Security Operations](/disciplines/security-operations.md)
+- [Offensive Security](/disciplines/offensive-security.md)

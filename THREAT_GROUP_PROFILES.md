@@ -10,174 +10,174 @@ Sorted by breadth of attributed ATT&CK techniques.
 
 | Group | Also known as | Techniques | Software |
 |---|---|--:|--:|
-| [G0094 Kimsuky](#g0094) | Black Banshee, Velvet Chollima, Emerald Sleet, THALLIUM, APT43, TA427, Springtai | 109 | 17 |
-| [G0032 Lazarus Group](#g0032) | Labyrinth Chollima, HIDDEN COBRA, Guardians of Peace, ZINC, NICKEL ACADEMY, Diam | 93 | 26 |
-| [G0007 APT28](#g0007) | IRON TWILIGHT, SNAKEMACKEREL, Swallowtail, Group 74, Sednit, Sofacy, Pawn Storm, | 91 | 28 |
-| [G0129 Mustang Panda](#g0129) | TA416, RedDelta, BRONZE PRESIDENT, STATELY TAURUS, FIREANT, CAMARO DRAGON, EARTH | 85 | 23 |
-| [G0096 APT41](#g0096) | Wicked Panda, Brass Typhoon, BARIUM | 82 | 32 |
-| [G1017 Volt Typhoon](#g1017) | BRONZE SILHOUETTE, Vanguard Panda, DEV-0391, UNC3236, Voltzite, Insidious Taurus | 81 | 17 |
-| [G0034 Sandworm Team](#g0034) | ELECTRUM, Telebots, IRON VIKING, BlackEnergy (Group), Quedagh, Voodoo Bear, IRID | 79 | 27 |
-| [G0059 Magic Hound](#g0059) | TA453, COBALT ILLUSION, Charming Kitten, ITG18, Phosphorus, Newscaster, APT35, M | 79 | 13 |
-| [G0050 APT32](#g0050) | SeaLotus, OceanLotus, APT-C-00, Canvas Cyclone, BISMUTH | 78 | 15 |
-| [G0049 OilRig](#g0049) | COBALT GYPSY, IRN2, APT34, Helix Kitten, Evasive Serpens, Hazel Sandstorm, EUROP | 76 | 30 |
-| [G0047 Gamaredon Group](#g0047) | IRON TILDEN, Primitive Bear, ACTINIUM, Armageddon, Shuckworm, DEV-0157, Aqua Bli | 70 | 6 |
-| [G0010 Turla](#g0010) | IRON HUNTER, Group 88, Waterbug, WhiteBear, Snake, Krypton, Venomous Bear, Secre | 68 | 30 |
-| [G0046 FIN7](#g0046) | GOLD NIAGARA, ITG14, Carbon Spider, ELBRUS, Sangria Tempest | 67 | 18 |
-| [G0016 APT29](#g0016) | IRON RITUAL, IRON HEMLOCK, NobleBaron, Dark Halo, NOBELIUM, UNC2452, YTTRIUM, Th | 66 | 49 |
-| [G0102 Wizard Spider](#g0102) | UNC1878, TEMP.MixMaster, Grim Spider, FIN12, GOLD BLACKBURN, ITG23, Periwinkle T | 64 | 21 |
-| [G1015 Scattered Spider](#g1015) | Roasted 0ktapus, Octo Tempest, Storm-0875, UNC3944 | 64 | 9 |
-| [G0114 Chimera](#g0114) | — | 59 | 6 |
-| [G0069 MuddyWater](#g0069) | Earth Vetala, MERCURY, Static Kitten, Seedworm, TEMP.Zagros, Mango Sandstorm, TA | 58 | 15 |
-| [G1051 Medusa Group](#g1051) | — | 57 | 5 |
-| [G0027 Threat Group-3390](#g0027) | Earth Smilodon, TG-3390, Emissary Panda, BRONZE UNION, APT27, Iron Tiger, LuckyM | 57 | 24 |
-| [G0035 Dragonfly](#g0035) | TEMP.Isotope, DYMALLOY, Berserk Bear, TG-4192, Crouching Yeti, IRON LIBERTY, Ene | 56 | 10 |
-| [G0139 TeamTNT](#g0139) | — | 56 | 4 |
-| [G0082 APT38](#g0082) | NICKEL GLADSTONE, BeagleBoyz, Bluenoroff, Stardust Chollima, Sapphire Sleet, COP | 56 | 6 |
-| [G0087 APT39](#g0087) | ITG07, Chafer, Remix Kitten | 53 | 11 |
-| [G1016 FIN13](#g1016) | Elephant Beetle | 53 | 4 |
-| [G1052 Contagious Interview](#g1052) | DeceptiveDevelopment, Gwisin Gang, Tenacious Pungsan, DEV#POPPER, PurpleBravo, T | 52 | 4 |
-| [G0065 Leviathan](#g0065) | MUDCARP, Kryptonite Panda, Gadolinium, BRONZE MOHAWK, TEMP.Jumper, APT40, TEMP.P | 50 | 17 |
-| [G1048 UNC3886](#g1048) | — | 49 | 8 |
-| [G1043 BlackByte](#g1043) | Hecamede | 49 | 8 |
-| [G1003 Ember Bear](#g1003) | UNC2589, Bleeding Bear, DEV-0586, Cadet Blizzard, Frozenvista, UAC-0056 | 48 | 11 |
-| [G0004 Ke3chang](#g0004) | APT15, Mirage, Vixen Panda, GREF, Playful Dragon, RoyalAPT, NICKEL, Nylon Typhoo | 46 | 11 |
-| [G0045 menuPass](#g0045) | Cicada, POTASSIUM, Stone Panda, APT10, Red Apollo, CVNX, HOGFISH, BRONZE RIVERSI | 46 | 25 |
-| [G1006 Earth Lusca](#g1006) | TAG-22, Charcoal Typhoon, CHROMIUM, ControlX | 44 | 9 |
-| [G0125 HAFNIUM](#g0125) | Operation Exchange Marauder, Silk Typhoon | 44 | 6 |
-| [G0022 APT3](#g0022) | Gothic Panda, Pirpi, UPS Team, Buckeye, Threat Group-0110, TG-0110 | 44 | 6 |
-| [G1004 LAPSUS$](#g1004) | DEV-0537, Strawberry Tempest | 43 | 1 |
-| [G1053 Storm-0501](#g1053) | — | 42 | 8 |
-| [G0117 Fox Kitten](#g0117) | UNC757, Parisite, Pioneer Kitten, RUBIDIUM, Lemon Sandstorm | 41 | 4 |
-| [G0040 Patchwork](#g0040) | Hangover Group, Dropping Elephant, Chinastrats, MONSOON, Operation Hangover | 41 | 8 |
-| [G1039 RedCurl](#g1039) | — | 41 | 0 |
-| [G0060 BRONZE BUTLER](#g0060) | REDBALDKNIGHT, Tick | 40 | 14 |
-| [G0081 Tropic Trooper](#g0081) | Pirate Panda, KeyBoy | 40 | 6 |
-| [G0037 FIN6](#g0037) | Magecart Group 6, ITG08, Skeleton Spider, TAAL, Camouflage Tempest | 40 | 12 |
-| [G1001 HEXANE](#g1001) | Lyceum, Siamesekitten, Spirlin | 36 | 12 |
-| [G0061 FIN8](#g0061) | Syssphinx | 36 | 11 |
-| [G0106 Rocke](#g0106) | — | 36 | 0 |
-| [G0143 Aquatic Panda](#g0143) | — | 35 | 6 |
-| [G0080 Cobalt Group](#g0080) | GOLD KINGSWOOD, Cobalt Gang, Cobalt Spider | 34 | 6 |
-| [G0092 TA505](#g0092) | Hive0065, Spandex Tempest, CHIMBORAZO | 34 | 16 |
-| [G0119 Indrik Spider](#g0119) | Evil Corp, Manatee Tempest, DEV-0243, UNC2165 | 33 | 8 |
-| [G1044 APT42](#g1044) | — | 31 | 2 |
-| [G1046 Storm-1811](#g1046) | — | 31 | 7 |
-| [G0093 GALLIUM](#g0093) | Granite Typhoon | 31 | 16 |
-| [G0064 APT33](#g0064) | HOLMIUM, Elfin, Peach Sandstorm | 31 | 16 |
-| [G0121 Sidewinder](#g0121) | T-APT-04, Rattlesnake | 30 | 1 |
-| [G1036 Moonstone Sleet](#g1036) | Storm-1789 | 30 | 1 |
-| [G1023 APT5](#g1023) | Mulberry Typhoon, MANGANESE, BRONZE FLEETWOOD, Keyhole Panda, UNC2630 | 29 | 13 |
-| [G0067 APT37](#g0067) | InkySquid, ScarCruft, Reaper, Group123, TEMP.Reaper, Ricochet Chollima | 29 | 13 |
-| [G0128 ZIRCONIUM](#g0128) | APT31, Violet Typhoon | 29 | 0 |
-| [G1014 LuminousMoth](#g1014) | — | 28 | 2 |
-| [G0091 Silence](#g0091) | Whisper Spider | 28 | 3 |
-| [G1018 TA2541](#g1018) | — | 28 | 9 |
-| [G0126 Higaisa](#g0126) | — | 28 | 3 |
-| [G1041 Sea Turtle](#g1041) | Teal Kurma, Marbled Dust, Cosmic Wolf, SILICON | 27 | 1 |
-| [G1035 Winter Vivern](#g1035) | TA473, UAC-0114 | 27 | 0 |
-| [G1040 Play](#g1040) | — | 26 | 9 |
-| [G1032 INC Ransom](#g1032) | GOLD IONIC | 25 | 8 |
-| [G1022 ToddyCat](#g1022) | — | 25 | 9 |
-| [G0012 Darkhotel](#g0012) | DUBNIUM, Zigzag Hail | 24 | 0 |
-| [G0006 APT1](#g0006) | Comment Crew, Comment Group, Comment Panda | 23 | 17 |
-| [G0100 Inception](#g0100) | Inception Framework, Cloud Atlas | 22 | 3 |
-| [G0108 Blue Mockingbird](#g0108) | — | 22 | 2 |
-| [G1047 Velvet Ant](#g1047) | — | 22 | 2 |
-| [G1030 Agrius](#g1030) | Pink Sandstorm, AMERICIUM, Agonizing Serpens, BlackShadow | 22 | 9 |
-| [G0073 APT19](#g0073) | Codoso, C0d0so0, Codoso Team, Sunshop Group | 21 | 2 |
-| [G0030 Lotus Blossom](#g0030) | DRAGONFISH, Spring Dragon, RADIUM, Raspberry Typhoon, Bilbug, Thrip | 21 | 9 |
-| [G0140 LazyScripter](#g0140) | — | 20 | 7 |
-| [G1021 Cinnamon Tempest](#g1021) | DEV-0401, Emperor Dragonfly, BRONZE STARLIGHT | 19 | 8 |
-| [G1012 CURIUM](#g1012) | Crimson Sandstorm, TA456, Tortoise Shell, Yellow Liderc | 19 | 1 |
-| [G0112 Windshift](#g0112) | Bahamut | 19 | 1 |
-| [G0142 Confucius](#g0142) | Confucius APT | 19 | 1 |
-| [G1033 Star Blizzard](#g1033) | SEABORGIUM, Callisto Group, TA446, COLDRIVER | 19 | 1 |
-| [G1031 Saint Bear](#g1031) | Storm-0587, TA471, UAC-0056, Lorec53 | 18 | 2 |
-| [G1034 Daggerfly](#g1034) | Evasive Panda, BRONZE HIGHLAND | 17 | 6 |
-| [G1024 Akira](#g1024) | GOLD SAHARA, PUNK SPIDER, Howling Scorpius | 17 | 8 |
-| [G0077 Leafminer](#g0077) | Raspite | 17 | 4 |
-| [G1002 BITTER](#g1002) | T-APT-17 | 16 | 1 |
-| [G0038 Stealth Falcon](#g0038) | — | 16 | 0 |
-| [G0078 Gorgon Group](#g0078) | — | 16 | 4 |
-| [G0001 Axiom](#g0001) | Group 72 | 16 | 8 |
-| [G0021 Molerats](#g0021) | Operation Molerats, Gaza Cybergang | 16 | 6 |
-| [G1008 SideCopy](#g1008) | — | 16 | 2 |
-| [G0135 BackdoorDiplomacy](#g0135) | — | 15 | 5 |
-| [G0131 Tonto Team](#g0131) | Earth Akhlut, BRONZE HUNTLEY, CactusPete, Karma Panda | 15 | 6 |
-| [G1011 EXOTIC LILY](#g1011) | — | 15 | 2 |
-| [G0098 BlackTech](#g0098) | Palmerworm | 14 | 6 |
-| [G0134 Transparent Tribe](#g0134) | COPPER FIELDSTONE, APT36, Mythic Leopard, ProjectM | 14 | 5 |
-| [G0127 TA551](#g0127) | GOLD CABIN, Shathak | 14 | 5 |
-| [G1045 Salt Typhoon](#g1045) | — | 14 | 1 |
-| [G0019 Naikon](#g0019) | — | 14 | 15 |
-| [G0122 Silent Librarian](#g0122) | TA407, COBALT DICKENS | 13 | 0 |
-| [G1026 Malteiro](#g1026) | — | 12 | 1 |
-| [G1020 Mustard Tempest](#g1020) | DEV-0206, TA569, GOLD PRELUDE, UNC1543 | 12 | 2 |
-| [G1009 Moses Staff](#g1009) | DEV-0500, Marigold Sandstorm | 12 | 4 |
-| [G0085 FIN4](#g0085) | — | 12 | 0 |
-| [G0070 Dark Caracal](#g0070) | — | 12 | 3 |
-| [G0018 admin@338](#g0018) | — | 12 | 7 |
-| [G0026 APT18](#g0026) | TG-0416, Dynamite Panda, Threat Group-0416 | 12 | 5 |
-| [G0138 Andariel](#g0138) | Silent Chollima, PLUTONIUM, Onyx Sleet | 12 | 2 |
-| [G0090 WIRTE](#g0090) | — | 11 | 3 |
-| [G0068 PLATINUM](#g0068) | — | 11 | 3 |
-| [G0051 FIN10](#g0051) | — | 11 | 1 |
-| [G0095 Machete](#g0095) | APT-C-43, El Machete | 11 | 1 |
-| [G0053 FIN5](#g0053) | — | 11 | 6 |
-| [G0120 Evilnum](#g0120) | — | 11 | 3 |
-| [G0056 PROMETHIUM](#g0056) | StrongPity | 11 | 2 |
-| [G0105 DarkVishnya](#g0105) | — | 10 | 2 |
-| [G0009 Deep Panda](#g0009) | Shell Crew, WebMasters, KungFu Kittens, PinkPanther, Black Vine | 10 | 7 |
-| [G0075 Rancor](#g0075) | — | 9 | 4 |
-| [G0066 Elderwood](#g0066) | Elderwood Gang, Beijing Group, Sneaky Panda | 9 | 9 |
-| [G1013 Metador](#g1013) | — | 9 | 2 |
-| [G0054 Sowbug](#g0054) | — | 9 | 2 |
-| [G0115 GOLD SOUTHFIELD](#g0115) | Pinchy Spider | 9 | 2 |
-| [G0107 Whitefly](#g0107) | — | 9 | 1 |
-| [G0008 Carbanak](#g0008) | Anunak | 9 | 4 |
-| [G1007 Aoqin Dragon](#g1007) | — | 9 | 2 |
-| [G0099 APT-C-36](#g0099) | Blind Eagle | 9 | 1 |
-| [G0033 Poseidon Group](#g0033) | — | 8 | 0 |
-| [G1019 MoustachedBouncer](#g1019) | — | 8 | 3 |
-| [G0052 CopyKittens](#g0052) | — | 8 | 4 |
-| [G0048 RTM](#g0048) | — | 7 | 1 |
-| [G0124 Windigo](#g0124) | — | 7 | 1 |
-| [G0089 The White Company](#g0089) | — | 7 | 2 |
-| [G0079 DarkHydrus](#g0079) | — | 7 | 3 |
-| [G1005 POLONIUM](#g1005) | Plaid Rain | 7 | 2 |
-| [G0133 Nomadic Octopus](#g0133) | DustSquad | 7 | 1 |
-| [G0136 IndigoZebra](#g0136) | — | 7 | 3 |
-| [G0044 Winnti Group](#g0044) | Blackfly | 6 | 3 |
-| [G0103 Mofang](#g0103) | — | 6 | 2 |
-| [G0130 Ajax Security Team](#g0130) | Operation Woolen-Goldfish, AjaxTM, Rocket Kitten, Flying Kitten, Operation Saffr | 6 | 2 |
-| [G0084 Gallmaker](#g0084) | — | 6 | 0 |
-| [G0137 Ferocious Kitten](#g0137) | — | 6 | 2 |
-| [G1037 TA577](#g1037) | — | 6 | 3 |
-| [G1042 RedEcho](#g1042) | — | 5 | 1 |
-| [G0005 APT12](#g0005) | IXESHE, DynCalc, Numbered Panda, DNSCALC | 5 | 3 |
-| [G0039 Suckfly](#g0039) | — | 5 | 1 |
-| [G0123 Volatile Cedar](#g0123) | Lebanese Cedar | 5 | 2 |
-| [G0003 Cleaver](#g0003) | Threat Group 2889, TG-2889 | 5 | 4 |
-| [G0062 TA459](#g0062) | — | 5 | 4 |
-| [G0020 Equation](#g0020) | — | 4 | 0 |
-| [G0028 Threat Group-1314](#g0028) | TG-1314 | 4 | 2 |
-| [G0076 Thrip](#g0076) | — | 4 | 3 |
-| [G0024 Putter Panda](#g0024) | APT2, MSUpdater | 4 | 4 |
-| [G0083 SilverTerrier](#g0083) | — | 4 | 5 |
-| [G0043 Group5](#g0043) | — | 4 | 2 |
-| [G1038 TA578](#g1038) | — | 4 | 3 |
-| [G1050 Water Galura](#g1050) | GOLD FEATHER | 3 | 2 |
-| [G0041 Strider](#g0041) | ProjectSauron | 3 | 1 |
-| [G0071 Orangeworm](#g0071) | — | 2 | 8 |
-| [G0036 GCMAN](#g0036) | — | 2 | 0 |
-| [G0025 APT17](#g0025) | Deputy Dog | 2 | 1 |
-| [G1049 AppleJeus](#g1049) | Gleaming Pisces, Citrine Sleet, UNC1720, UNC4736 | 2 | 0 |
-| [G0011 PittyTiger](#g0011) | — | 2 | 5 |
-| [G0013 APT30](#g0013) | — | 2 | 5 |
-| [G0063 BlackOasis](#g0063) | — | 1 | 0 |
-| [G0023 APT16](#g0023) | — | 1 | 1 |
-| [G0002 Moafee](#g0002) | — | 1 | 1 |
-| [G0029 Scarlet Mimic](#g0029) | — | 1 | 4 |
+| [G0094 Kimsuky](#g0094-kimsuky) | Black Banshee, Velvet Chollima, Emerald Sleet, THALLIUM, APT43, TA427, Springtai | 109 | 17 |
+| [G0032 Lazarus Group](#g0032-lazarus-group) | Labyrinth Chollima, HIDDEN COBRA, Guardians of Peace, ZINC, NICKEL ACADEMY, Diam | 93 | 26 |
+| [G0007 APT28](#g0007-apt28) | IRON TWILIGHT, SNAKEMACKEREL, Swallowtail, Group 74, Sednit, Sofacy, Pawn Storm, | 91 | 28 |
+| [G0129 Mustang Panda](#g0129-mustang-panda) | TA416, RedDelta, BRONZE PRESIDENT, STATELY TAURUS, FIREANT, CAMARO DRAGON, EARTH | 85 | 23 |
+| [G0096 APT41](#g0096-apt41) | Wicked Panda, Brass Typhoon, BARIUM | 82 | 32 |
+| [G1017 Volt Typhoon](#g1017-volt-typhoon) | BRONZE SILHOUETTE, Vanguard Panda, DEV-0391, UNC3236, Voltzite, Insidious Taurus | 81 | 17 |
+| [G0034 Sandworm Team](#g0034-sandworm-team) | ELECTRUM, Telebots, IRON VIKING, BlackEnergy (Group), Quedagh, Voodoo Bear, IRID | 79 | 27 |
+| [G0059 Magic Hound](#g0059-magic-hound) | TA453, COBALT ILLUSION, Charming Kitten, ITG18, Phosphorus, Newscaster, APT35, M | 79 | 13 |
+| [G0050 APT32](#g0050-apt32) | SeaLotus, OceanLotus, APT-C-00, Canvas Cyclone, BISMUTH | 78 | 15 |
+| [G0049 OilRig](#g0049-oilrig) | COBALT GYPSY, IRN2, APT34, Helix Kitten, Evasive Serpens, Hazel Sandstorm, EUROP | 76 | 30 |
+| [G0047 Gamaredon Group](#g0047-gamaredon-group) | IRON TILDEN, Primitive Bear, ACTINIUM, Armageddon, Shuckworm, DEV-0157, Aqua Bli | 70 | 6 |
+| [G0010 Turla](#g0010-turla) | IRON HUNTER, Group 88, Waterbug, WhiteBear, Snake, Krypton, Venomous Bear, Secre | 68 | 30 |
+| [G0046 FIN7](#g0046-fin7) | GOLD NIAGARA, ITG14, Carbon Spider, ELBRUS, Sangria Tempest | 67 | 18 |
+| [G0016 APT29](#g0016-apt29) | IRON RITUAL, IRON HEMLOCK, NobleBaron, Dark Halo, NOBELIUM, UNC2452, YTTRIUM, Th | 66 | 49 |
+| [G0102 Wizard Spider](#g0102-wizard-spider) | UNC1878, TEMP.MixMaster, Grim Spider, FIN12, GOLD BLACKBURN, ITG23, Periwinkle T | 64 | 21 |
+| [G1015 Scattered Spider](#g1015-scattered-spider) | Roasted 0ktapus, Octo Tempest, Storm-0875, UNC3944 | 64 | 9 |
+| [G0114 Chimera](#g0114-chimera) | — | 59 | 6 |
+| [G0069 MuddyWater](#g0069-muddywater) | Earth Vetala, MERCURY, Static Kitten, Seedworm, TEMP.Zagros, Mango Sandstorm, TA | 58 | 15 |
+| [G1051 Medusa Group](#g1051-medusa-group) | — | 57 | 5 |
+| [G0027 Threat Group-3390](#g0027-threat-group-3390) | Earth Smilodon, TG-3390, Emissary Panda, BRONZE UNION, APT27, Iron Tiger, LuckyM | 57 | 24 |
+| [G0035 Dragonfly](#g0035-dragonfly) | TEMP.Isotope, DYMALLOY, Berserk Bear, TG-4192, Crouching Yeti, IRON LIBERTY, Ene | 56 | 10 |
+| [G0139 TeamTNT](#g0139-teamtnt) | — | 56 | 4 |
+| [G0082 APT38](#g0082-apt38) | NICKEL GLADSTONE, BeagleBoyz, Bluenoroff, Stardust Chollima, Sapphire Sleet, COP | 56 | 6 |
+| [G0087 APT39](#g0087-apt39) | ITG07, Chafer, Remix Kitten | 53 | 11 |
+| [G1016 FIN13](#g1016-fin13) | Elephant Beetle | 53 | 4 |
+| [G1052 Contagious Interview](#g1052-contagious-interview) | DeceptiveDevelopment, Gwisin Gang, Tenacious Pungsan, DEV#POPPER, PurpleBravo, T | 52 | 4 |
+| [G0065 Leviathan](#g0065-leviathan) | MUDCARP, Kryptonite Panda, Gadolinium, BRONZE MOHAWK, TEMP.Jumper, APT40, TEMP.P | 50 | 17 |
+| [G1048 UNC3886](#g1048-unc3886) | — | 49 | 8 |
+| [G1043 BlackByte](#g1043-blackbyte) | Hecamede | 49 | 8 |
+| [G1003 Ember Bear](#g1003-ember-bear) | UNC2589, Bleeding Bear, DEV-0586, Cadet Blizzard, Frozenvista, UAC-0056 | 48 | 11 |
+| [G0004 Ke3chang](#g0004-ke3chang) | APT15, Mirage, Vixen Panda, GREF, Playful Dragon, RoyalAPT, NICKEL, Nylon Typhoo | 46 | 11 |
+| [G0045 menuPass](#g0045-menupass) | Cicada, POTASSIUM, Stone Panda, APT10, Red Apollo, CVNX, HOGFISH, BRONZE RIVERSI | 46 | 25 |
+| [G1006 Earth Lusca](#g1006-earth-lusca) | TAG-22, Charcoal Typhoon, CHROMIUM, ControlX | 44 | 9 |
+| [G0125 HAFNIUM](#g0125-hafnium) | Operation Exchange Marauder, Silk Typhoon | 44 | 6 |
+| [G0022 APT3](#g0022-apt3) | Gothic Panda, Pirpi, UPS Team, Buckeye, Threat Group-0110, TG-0110 | 44 | 6 |
+| [G1004 LAPSUS$](#g1004-lapsus) | DEV-0537, Strawberry Tempest | 43 | 1 |
+| [G1053 Storm-0501](#g1053-storm-0501) | — | 42 | 8 |
+| [G0117 Fox Kitten](#g0117-fox-kitten) | UNC757, Parisite, Pioneer Kitten, RUBIDIUM, Lemon Sandstorm | 41 | 4 |
+| [G0040 Patchwork](#g0040-patchwork) | Hangover Group, Dropping Elephant, Chinastrats, MONSOON, Operation Hangover | 41 | 8 |
+| [G1039 RedCurl](#g1039-redcurl) | — | 41 | 0 |
+| [G0060 BRONZE BUTLER](https://attack.mitre.org/groups/G0060/) | REDBALDKNIGHT, Tick | 40 | 14 |
+| [G0081 Tropic Trooper](https://attack.mitre.org/groups/G0081/) | Pirate Panda, KeyBoy | 40 | 6 |
+| [G0037 FIN6](https://attack.mitre.org/groups/G0037/) | Magecart Group 6, ITG08, Skeleton Spider, TAAL, Camouflage Tempest | 40 | 12 |
+| [G1001 HEXANE](https://attack.mitre.org/groups/G1001/) | Lyceum, Siamesekitten, Spirlin | 36 | 12 |
+| [G0061 FIN8](https://attack.mitre.org/groups/G0061/) | Syssphinx | 36 | 11 |
+| [G0106 Rocke](https://attack.mitre.org/groups/G0106/) | — | 36 | 0 |
+| [G0143 Aquatic Panda](https://attack.mitre.org/groups/G0143/) | — | 35 | 6 |
+| [G0080 Cobalt Group](https://attack.mitre.org/groups/G0080/) | GOLD KINGSWOOD, Cobalt Gang, Cobalt Spider | 34 | 6 |
+| [G0092 TA505](https://attack.mitre.org/groups/G0092/) | Hive0065, Spandex Tempest, CHIMBORAZO | 34 | 16 |
+| [G0119 Indrik Spider](https://attack.mitre.org/groups/G0119/) | Evil Corp, Manatee Tempest, DEV-0243, UNC2165 | 33 | 8 |
+| [G1044 APT42](https://attack.mitre.org/groups/G1044/) | — | 31 | 2 |
+| [G1046 Storm-1811](https://attack.mitre.org/groups/G1046/) | — | 31 | 7 |
+| [G0093 GALLIUM](https://attack.mitre.org/groups/G0093/) | Granite Typhoon | 31 | 16 |
+| [G0064 APT33](https://attack.mitre.org/groups/G0064/) | HOLMIUM, Elfin, Peach Sandstorm | 31 | 16 |
+| [G0121 Sidewinder](https://attack.mitre.org/groups/G0121/) | T-APT-04, Rattlesnake | 30 | 1 |
+| [G1036 Moonstone Sleet](https://attack.mitre.org/groups/G1036/) | Storm-1789 | 30 | 1 |
+| [G1023 APT5](https://attack.mitre.org/groups/G1023/) | Mulberry Typhoon, MANGANESE, BRONZE FLEETWOOD, Keyhole Panda, UNC2630 | 29 | 13 |
+| [G0067 APT37](https://attack.mitre.org/groups/G0067/) | InkySquid, ScarCruft, Reaper, Group123, TEMP.Reaper, Ricochet Chollima | 29 | 13 |
+| [G0128 ZIRCONIUM](https://attack.mitre.org/groups/G0128/) | APT31, Violet Typhoon | 29 | 0 |
+| [G1014 LuminousMoth](https://attack.mitre.org/groups/G1014/) | — | 28 | 2 |
+| [G0091 Silence](https://attack.mitre.org/groups/G0091/) | Whisper Spider | 28 | 3 |
+| [G1018 TA2541](https://attack.mitre.org/groups/G1018/) | — | 28 | 9 |
+| [G0126 Higaisa](https://attack.mitre.org/groups/G0126/) | — | 28 | 3 |
+| [G1041 Sea Turtle](https://attack.mitre.org/groups/G1041/) | Teal Kurma, Marbled Dust, Cosmic Wolf, SILICON | 27 | 1 |
+| [G1035 Winter Vivern](https://attack.mitre.org/groups/G1035/) | TA473, UAC-0114 | 27 | 0 |
+| [G1040 Play](https://attack.mitre.org/groups/G1040/) | — | 26 | 9 |
+| [G1032 INC Ransom](https://attack.mitre.org/groups/G1032/) | GOLD IONIC | 25 | 8 |
+| [G1022 ToddyCat](https://attack.mitre.org/groups/G1022/) | — | 25 | 9 |
+| [G0012 Darkhotel](https://attack.mitre.org/groups/G0012/) | DUBNIUM, Zigzag Hail | 24 | 0 |
+| [G0006 APT1](https://attack.mitre.org/groups/G0006/) | Comment Crew, Comment Group, Comment Panda | 23 | 17 |
+| [G0100 Inception](https://attack.mitre.org/groups/G0100/) | Inception Framework, Cloud Atlas | 22 | 3 |
+| [G0108 Blue Mockingbird](https://attack.mitre.org/groups/G0108/) | — | 22 | 2 |
+| [G1047 Velvet Ant](https://attack.mitre.org/groups/G1047/) | — | 22 | 2 |
+| [G1030 Agrius](https://attack.mitre.org/groups/G1030/) | Pink Sandstorm, AMERICIUM, Agonizing Serpens, BlackShadow | 22 | 9 |
+| [G0073 APT19](https://attack.mitre.org/groups/G0073/) | Codoso, C0d0so0, Codoso Team, Sunshop Group | 21 | 2 |
+| [G0030 Lotus Blossom](https://attack.mitre.org/groups/G0030/) | DRAGONFISH, Spring Dragon, RADIUM, Raspberry Typhoon, Bilbug, Thrip | 21 | 9 |
+| [G0140 LazyScripter](https://attack.mitre.org/groups/G0140/) | — | 20 | 7 |
+| [G1021 Cinnamon Tempest](https://attack.mitre.org/groups/G1021/) | DEV-0401, Emperor Dragonfly, BRONZE STARLIGHT | 19 | 8 |
+| [G1012 CURIUM](https://attack.mitre.org/groups/G1012/) | Crimson Sandstorm, TA456, Tortoise Shell, Yellow Liderc | 19 | 1 |
+| [G0112 Windshift](https://attack.mitre.org/groups/G0112/) | Bahamut | 19 | 1 |
+| [G0142 Confucius](https://attack.mitre.org/groups/G0142/) | Confucius APT | 19 | 1 |
+| [G1033 Star Blizzard](https://attack.mitre.org/groups/G1033/) | SEABORGIUM, Callisto Group, TA446, COLDRIVER | 19 | 1 |
+| [G1031 Saint Bear](https://attack.mitre.org/groups/G1031/) | Storm-0587, TA471, UAC-0056, Lorec53 | 18 | 2 |
+| [G1034 Daggerfly](https://attack.mitre.org/groups/G1034/) | Evasive Panda, BRONZE HIGHLAND | 17 | 6 |
+| [G1024 Akira](https://attack.mitre.org/groups/G1024/) | GOLD SAHARA, PUNK SPIDER, Howling Scorpius | 17 | 8 |
+| [G0077 Leafminer](https://attack.mitre.org/groups/G0077/) | Raspite | 17 | 4 |
+| [G1002 BITTER](https://attack.mitre.org/groups/G1002/) | T-APT-17 | 16 | 1 |
+| [G0038 Stealth Falcon](https://attack.mitre.org/groups/G0038/) | — | 16 | 0 |
+| [G0078 Gorgon Group](https://attack.mitre.org/groups/G0078/) | — | 16 | 4 |
+| [G0001 Axiom](https://attack.mitre.org/groups/G0001/) | Group 72 | 16 | 8 |
+| [G0021 Molerats](https://attack.mitre.org/groups/G0021/) | Operation Molerats, Gaza Cybergang | 16 | 6 |
+| [G1008 SideCopy](https://attack.mitre.org/groups/G1008/) | — | 16 | 2 |
+| [G0135 BackdoorDiplomacy](https://attack.mitre.org/groups/G0135/) | — | 15 | 5 |
+| [G0131 Tonto Team](https://attack.mitre.org/groups/G0131/) | Earth Akhlut, BRONZE HUNTLEY, CactusPete, Karma Panda | 15 | 6 |
+| [G1011 EXOTIC LILY](https://attack.mitre.org/groups/G1011/) | — | 15 | 2 |
+| [G0098 BlackTech](https://attack.mitre.org/groups/G0098/) | Palmerworm | 14 | 6 |
+| [G0134 Transparent Tribe](https://attack.mitre.org/groups/G0134/) | COPPER FIELDSTONE, APT36, Mythic Leopard, ProjectM | 14 | 5 |
+| [G0127 TA551](https://attack.mitre.org/groups/G0127/) | GOLD CABIN, Shathak | 14 | 5 |
+| [G1045 Salt Typhoon](https://attack.mitre.org/groups/G1045/) | — | 14 | 1 |
+| [G0019 Naikon](https://attack.mitre.org/groups/G0019/) | — | 14 | 15 |
+| [G0122 Silent Librarian](https://attack.mitre.org/groups/G0122/) | TA407, COBALT DICKENS | 13 | 0 |
+| [G1026 Malteiro](https://attack.mitre.org/groups/G1026/) | — | 12 | 1 |
+| [G1020 Mustard Tempest](https://attack.mitre.org/groups/G1020/) | DEV-0206, TA569, GOLD PRELUDE, UNC1543 | 12 | 2 |
+| [G1009 Moses Staff](https://attack.mitre.org/groups/G1009/) | DEV-0500, Marigold Sandstorm | 12 | 4 |
+| [G0085 FIN4](https://attack.mitre.org/groups/G0085/) | — | 12 | 0 |
+| [G0070 Dark Caracal](https://attack.mitre.org/groups/G0070/) | — | 12 | 3 |
+| [G0018 admin@338](https://attack.mitre.org/groups/G0018/) | — | 12 | 7 |
+| [G0026 APT18](https://attack.mitre.org/groups/G0026/) | TG-0416, Dynamite Panda, Threat Group-0416 | 12 | 5 |
+| [G0138 Andariel](https://attack.mitre.org/groups/G0138/) | Silent Chollima, PLUTONIUM, Onyx Sleet | 12 | 2 |
+| [G0090 WIRTE](https://attack.mitre.org/groups/G0090/) | — | 11 | 3 |
+| [G0068 PLATINUM](https://attack.mitre.org/groups/G0068/) | — | 11 | 3 |
+| [G0051 FIN10](https://attack.mitre.org/groups/G0051/) | — | 11 | 1 |
+| [G0095 Machete](https://attack.mitre.org/groups/G0095/) | APT-C-43, El Machete | 11 | 1 |
+| [G0053 FIN5](https://attack.mitre.org/groups/G0053/) | — | 11 | 6 |
+| [G0120 Evilnum](https://attack.mitre.org/groups/G0120/) | — | 11 | 3 |
+| [G0056 PROMETHIUM](https://attack.mitre.org/groups/G0056/) | StrongPity | 11 | 2 |
+| [G0105 DarkVishnya](https://attack.mitre.org/groups/G0105/) | — | 10 | 2 |
+| [G0009 Deep Panda](https://attack.mitre.org/groups/G0009/) | Shell Crew, WebMasters, KungFu Kittens, PinkPanther, Black Vine | 10 | 7 |
+| [G0075 Rancor](https://attack.mitre.org/groups/G0075/) | — | 9 | 4 |
+| [G0066 Elderwood](https://attack.mitre.org/groups/G0066/) | Elderwood Gang, Beijing Group, Sneaky Panda | 9 | 9 |
+| [G1013 Metador](https://attack.mitre.org/groups/G1013/) | — | 9 | 2 |
+| [G0054 Sowbug](https://attack.mitre.org/groups/G0054/) | — | 9 | 2 |
+| [G0115 GOLD SOUTHFIELD](https://attack.mitre.org/groups/G0115/) | Pinchy Spider | 9 | 2 |
+| [G0107 Whitefly](https://attack.mitre.org/groups/G0107/) | — | 9 | 1 |
+| [G0008 Carbanak](https://attack.mitre.org/groups/G0008/) | Anunak | 9 | 4 |
+| [G1007 Aoqin Dragon](https://attack.mitre.org/groups/G1007/) | — | 9 | 2 |
+| [G0099 APT-C-36](https://attack.mitre.org/groups/G0099/) | Blind Eagle | 9 | 1 |
+| [G0033 Poseidon Group](https://attack.mitre.org/groups/G0033/) | — | 8 | 0 |
+| [G1019 MoustachedBouncer](https://attack.mitre.org/groups/G1019/) | — | 8 | 3 |
+| [G0052 CopyKittens](https://attack.mitre.org/groups/G0052/) | — | 8 | 4 |
+| [G0048 RTM](https://attack.mitre.org/groups/G0048/) | — | 7 | 1 |
+| [G0124 Windigo](https://attack.mitre.org/groups/G0124/) | — | 7 | 1 |
+| [G0089 The White Company](https://attack.mitre.org/groups/G0089/) | — | 7 | 2 |
+| [G0079 DarkHydrus](https://attack.mitre.org/groups/G0079/) | — | 7 | 3 |
+| [G1005 POLONIUM](https://attack.mitre.org/groups/G1005/) | Plaid Rain | 7 | 2 |
+| [G0133 Nomadic Octopus](https://attack.mitre.org/groups/G0133/) | DustSquad | 7 | 1 |
+| [G0136 IndigoZebra](https://attack.mitre.org/groups/G0136/) | — | 7 | 3 |
+| [G0044 Winnti Group](https://attack.mitre.org/groups/G0044/) | Blackfly | 6 | 3 |
+| [G0103 Mofang](https://attack.mitre.org/groups/G0103/) | — | 6 | 2 |
+| [G0130 Ajax Security Team](https://attack.mitre.org/groups/G0130/) | Operation Woolen-Goldfish, AjaxTM, Rocket Kitten, Flying Kitten, Operation Saffr | 6 | 2 |
+| [G0084 Gallmaker](https://attack.mitre.org/groups/G0084/) | — | 6 | 0 |
+| [G0137 Ferocious Kitten](https://attack.mitre.org/groups/G0137/) | — | 6 | 2 |
+| [G1037 TA577](https://attack.mitre.org/groups/G1037/) | — | 6 | 3 |
+| [G1042 RedEcho](https://attack.mitre.org/groups/G1042/) | — | 5 | 1 |
+| [G0005 APT12](https://attack.mitre.org/groups/G0005/) | IXESHE, DynCalc, Numbered Panda, DNSCALC | 5 | 3 |
+| [G0039 Suckfly](https://attack.mitre.org/groups/G0039/) | — | 5 | 1 |
+| [G0123 Volatile Cedar](https://attack.mitre.org/groups/G0123/) | Lebanese Cedar | 5 | 2 |
+| [G0003 Cleaver](https://attack.mitre.org/groups/G0003/) | Threat Group 2889, TG-2889 | 5 | 4 |
+| [G0062 TA459](https://attack.mitre.org/groups/G0062/) | — | 5 | 4 |
+| [G0020 Equation](https://attack.mitre.org/groups/G0020/) | — | 4 | 0 |
+| [G0028 Threat Group-1314](https://attack.mitre.org/groups/G0028/) | TG-1314 | 4 | 2 |
+| [G0076 Thrip](https://attack.mitre.org/groups/G0076/) | — | 4 | 3 |
+| [G0024 Putter Panda](https://attack.mitre.org/groups/G0024/) | APT2, MSUpdater | 4 | 4 |
+| [G0083 SilverTerrier](https://attack.mitre.org/groups/G0083/) | — | 4 | 5 |
+| [G0043 Group5](https://attack.mitre.org/groups/G0043/) | — | 4 | 2 |
+| [G1038 TA578](https://attack.mitre.org/groups/G1038/) | — | 4 | 3 |
+| [G1050 Water Galura](https://attack.mitre.org/groups/G1050/) | GOLD FEATHER | 3 | 2 |
+| [G0041 Strider](https://attack.mitre.org/groups/G0041/) | ProjectSauron | 3 | 1 |
+| [G0071 Orangeworm](https://attack.mitre.org/groups/G0071/) | — | 2 | 8 |
+| [G0036 GCMAN](https://attack.mitre.org/groups/G0036/) | — | 2 | 0 |
+| [G0025 APT17](https://attack.mitre.org/groups/G0025/) | Deputy Dog | 2 | 1 |
+| [G1049 AppleJeus](https://attack.mitre.org/groups/G1049/) | Gleaming Pisces, Citrine Sleet, UNC1720, UNC4736 | 2 | 0 |
+| [G0011 PittyTiger](https://attack.mitre.org/groups/G0011/) | — | 2 | 5 |
+| [G0013 APT30](https://attack.mitre.org/groups/G0013/) | — | 2 | 5 |
+| [G0063 BlackOasis](https://attack.mitre.org/groups/G0063/) | — | 1 | 0 |
+| [G0023 APT16](https://attack.mitre.org/groups/G0023/) | — | 1 | 1 |
+| [G0002 Moafee](https://attack.mitre.org/groups/G0002/) | — | 1 | 1 |
+| [G0029 Scarlet Mimic](https://attack.mitre.org/groups/G0029/) | — | 1 | 4 |
 
 ---
 

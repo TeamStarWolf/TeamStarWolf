@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Digital Forensics Fundamentals](#1-digital-forensics-fundamentals)
-2. [Windows Forensics — Artifacts](#2-windows-forensics--artifacts)
-3. [Windows Forensics — Advanced](#3-windows-forensics--advanced)
-4. [Linux & macOS Forensics](#4-linux--macos-forensics)
-5. [Memory Forensics](#5-memory-forensics)
-6. [Disk & File System Forensics](#6-disk--file-system-forensics)
-7. [Network Forensics](#7-network-forensics)
-8. [Mobile Device Forensics](#8-mobile-device-forensics)
-9. [Cloud & Email Forensics](#9-cloud--email-forensics)
-10. [Forensic Reporting & Tools Reference](#10-forensic-reporting--tools-reference)
+1. [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals)
+2. [Windows Forensics — Artifacts](#_2-windows-forensics-artifacts)
+3. [Windows Forensics — Advanced](#_3-windows-forensics-advanced)
+4. [Linux & macOS Forensics](#_4-linux-amp-macos-forensics)
+5. [Memory Forensics](#_5-memory-forensics)
+6. [Disk & File System Forensics](#_6-disk-amp-file-system-forensics)
+7. [Network Forensics](#_7-network-forensics)
+8. [Mobile Device Forensics](#_8-mobile-device-forensics)
+9. [Cloud & Email Forensics](#_9-cloud-amp-email-forensics)
+10. [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference)
 
 ---
 

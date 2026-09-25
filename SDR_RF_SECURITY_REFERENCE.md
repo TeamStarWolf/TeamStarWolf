@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [SDR Fundamentals & Hardware](#1-sdr-fundamentals--hardware)
-2. [GNU Radio](#2-gnu-radio)
-3. [RTL-SDR & Common Tools](#3-rtl-sdr--common-tools)
-4. [HackRF One](#4-hackrf-one)
-5. [Wireless Protocol Analysis](#5-wireless-protocol-analysis)
-6. [P25 & Public Safety Radio](#6-p25--public-safety-radio)
-7. [Replay & Signal Injection](#7-replay--signal-injection)
-8. [Kismet Wireless Monitor](#8-kismet-wireless-monitor)
-9. [RFID, NFC & TPMS](#9-rfid-nfc--tpms)
-10. [Defensive RF & Legal Framework](#10-defensive-rf--legal-framework)
+1. [SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware)
+2. [GNU Radio](#_2-gnu-radio)
+3. [RTL-SDR & Common Tools](#_3-rtl-sdr-amp-common-tools)
+4. [HackRF One](#_4-hackrf-one)
+5. [Wireless Protocol Analysis](#_5-wireless-protocol-analysis)
+6. [P25 & Public Safety Radio](#_6-p25-amp-public-safety-radio)
+7. [Replay & Signal Injection](#_7-replay-amp-signal-injection)
+8. [Kismet Wireless Monitor](#_8-kismet-wireless-monitor)
+9. [RFID, NFC & TPMS](#_9-rfid-nfc-amp-tpms)
+10. [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework)
 
 ---
 

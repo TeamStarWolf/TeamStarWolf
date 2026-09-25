@@ -1,6 +1,6 @@
 # Initial Access — Technique Detail
 
-> Full detail pages for the **15 ATT&CK techniques** whose primary tactic is [Initial Access](https://attack.mitre.org/tactics/TA0001/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **15 ATT&CK techniques** whose primary tactic is [Initial Access](https://attack.mitre.org/tactics/TA0001/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -52,7 +52,7 @@ Adversaries may manipulate products or product delivery mechanisms prior to rece
 ### T1195.001 — Compromise Software Dependencies and Development Tools
 <a id="t1195001"></a>
 
-sub-technique of [T1195](initial-access.md#t1195) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1195/001)  
+sub-technique of [T1195](/techniques/initial-access.md#t1195) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1195/001)  
 
 Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise. Applications often depend on external software to function properly.
 
@@ -66,7 +66,7 @@ Adversaries may manipulate software dependencies and development tools prior to 
 ### T1195.002 — Compromise Software Supply Chain
 <a id="t1195002"></a>
 
-sub-technique of [T1195](initial-access.md#t1195) · **Tactics:** Initial Access · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1195/002)  
+sub-technique of [T1195](/techniques/initial-access.md#t1195) · **Tactics:** Initial Access · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1195/002)  
 
 Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 
@@ -81,7 +81,7 @@ Adversaries may manipulate application software prior to receipt by a final cons
 ### T1195.003 — Compromise Hardware Supply Chain
 <a id="t1195003"></a>
 
-sub-technique of [T1195](initial-access.md#t1195) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1195/003)  
+sub-technique of [T1195](/techniques/initial-access.md#t1195) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1195/003)  
 
 Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
 
@@ -137,7 +137,7 @@ Adversaries may send phishing messages to gain access to victim systems. All for
 ### T1566.001 — Spearphishing Attachment
 <a id="t1566001"></a>
 
-sub-technique of [T1566](initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/001)  
+sub-technique of [T1566](/techniques/initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/001)  
 
 Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems. Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email.
 
@@ -152,7 +152,7 @@ Adversaries may send spearphishing emails with a malicious attachment in an atte
 ### T1566.002 — Spearphishing Link
 <a id="t1566002"></a>
 
-sub-technique of [T1566](initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Identity Provider, Linux, macOS, Office Suite, SaaS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/002)  
+sub-technique of [T1566](/techniques/initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Identity Provider, Linux, macOS, Office Suite, SaaS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/002)  
 
 Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems. Spearphishing with a link is a specific variant of spearphishing.
 
@@ -167,7 +167,7 @@ Adversaries may send spearphishing emails with a malicious link in an attempt to
 ### T1566.003 — Spearphishing via Service
 <a id="t1566003"></a>
 
-sub-technique of [T1566](initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/003)  
+sub-technique of [T1566](/techniques/initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/003)  
 
 Adversaries may send spearphishing messages via third-party services in an attempt to gain access to victim systems. Spearphishing via service is a specific variant of spearphishing.
 
@@ -182,7 +182,7 @@ Adversaries may send spearphishing messages via third-party services in an attem
 ### T1566.004 — Spearphishing Voice
 <a id="t1566004"></a>
 
-sub-technique of [T1566](initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/004)  
+sub-technique of [T1566](/techniques/initial-access.md#t1566) · **Tactics:** Initial Access · **Platforms:** Linux, macOS, Windows, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1566/004)  
 
 Adversaries may use voice communications to ultimately gain access to victim systems. Spearphishing voice is a specific variant of spearphishing.
 

@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Red Team Program Design & Rules of Engagement](#1-red-team-program-design--rules-of-engagement)
-2. [Reconnaissance & OSINT](#2-reconnaissance--osint)
-3. [Initial Access Techniques](#3-initial-access-techniques)
-4. [C2 Infrastructure & OPSEC](#4-c2-infrastructure--opsec)
-5. [Payload Development & Evasion](#5-payload-development--evasion)
-6. [Privilege Escalation](#6-privilege-escalation)
-7. [Lateral Movement & Credential Access](#7-lateral-movement--credential-access)
-8. [Domain Dominance & Persistence](#8-domain-dominance--persistence)
-9. [Reporting & Purple Team Integration](#9-reporting--purple-team-integration)
-10. [Red Team Tooling Reference](#10-red-team-tooling-reference)
+1. [Red Team Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement)
+2. [Reconnaissance & OSINT](#_2-reconnaissance-amp-osint)
+3. [Initial Access Techniques](#_3-initial-access-techniques)
+4. [C2 Infrastructure & OPSEC](#_4-c2-infrastructure-amp-opsec)
+5. [Payload Development & Evasion](#_5-payload-development-amp-evasion)
+6. [Privilege Escalation](#_6-privilege-escalation)
+7. [Lateral Movement & Credential Access](#_7-lateral-movement-amp-credential-access)
+8. [Domain Dominance & Persistence](#_8-domain-dominance-amp-persistence)
+9. [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration)
+10. [Red Team Tooling Reference](#_10-red-team-tooling-reference)
 
 ---
 

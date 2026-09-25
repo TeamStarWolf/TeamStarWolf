@@ -8,16 +8,16 @@
 
 ## Table of Contents
 
-1. [AD Reconnaissance & Enumeration (Defender View)](#1-ad-reconnaissance--enumeration-defender-view)
-2. [Kerberoasting](#2-kerberoasting)
-3. [AS-REP Roasting](#3-as-rep-roasting)
-4. [Kerberos Ticket Attacks](#4-kerberos-ticket-attacks)
-5. [Pass-the-Hash & NTLM Relay](#5-pass-the-hash--ntlm-relay)
-6. [DCSync Attack](#6-dcsync-attack)
-7. [Active Directory Certificate Services Attacks](#7-active-directory-certificate-services-attacks)
-8. [Lateral Movement Techniques](#8-lateral-movement-techniques)
-9. [Domain Persistence Techniques](#9-domain-persistence-techniques)
-10. [Detection & Hardening Summary](#10-detection--hardening-summary)
+1. [AD Reconnaissance & Enumeration (Defender View)](#_1-ad-reconnaissance-amp-enumeration-defender-view)
+2. [Kerberoasting](#_2-kerberoasting)
+3. [AS-REP Roasting](#_3-as-rep-roasting)
+4. [Kerberos Ticket Attacks](#_4-kerberos-ticket-attacks)
+5. [Pass-the-Hash & NTLM Relay](#_5-pass-the-hash-amp-ntlm-relay)
+6. [DCSync Attack](#_6-dcsync-attack)
+7. [Active Directory Certificate Services Attacks](#_7-active-directory-certificate-services-attacks)
+8. [Lateral Movement Techniques](#_8-lateral-movement-techniques)
+9. [Domain Persistence Techniques](#_9-domain-persistence-techniques)
+10. [Detection & Hardening Summary](#_10-detection-amp-hardening-summary)
 
 ---
 

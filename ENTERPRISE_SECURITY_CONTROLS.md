@@ -3,12 +3,12 @@
 > Vendor-specific configuration, policy tuning, and detection guidance for major enterprise security platforms.
 
 ## Table of Contents
-- [1. Web Application Firewall (WAF) Rules](#1-web-application-firewall-waf-rules)
-- [2. Microsoft Defender Attack Surface Reduction (ASR) Rules](#2-microsoft-defender-attack-surface-reduction-asr-rules)
-- [3. CrowdStrike Falcon Prevention Policies](#3-crowdstrike-falcon-prevention-policies)
-- [4. Tanium Modules and Use Cases](#4-tanium-modules)
-- [5. Proofpoint Email Security Configuration](#5-proofpoint-email-security)
-- [6. Zscaler Internet Access and ZPA](#6-zscaler-internet-access-zia-and-zscaler-private-access-zpa)
+- [1. Web Application Firewall (WAF) Rules](#_1-web-application-firewall-waf-rules)
+- [2. Microsoft Defender Attack Surface Reduction (ASR) Rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules)
+- [3. CrowdStrike Falcon Prevention Policies](#_3-crowdstrike-falcon-prevention-policies)
+- [4. Tanium Modules and Use Cases](#_4-tanium-modules)
+- [5. Proofpoint Email Security Configuration](#_5-proofpoint-email-security)
+- [6. Zscaler Internet Access and ZPA](#_6-zscaler-internet-access-zia-and-zscaler-private-access-zpa)
 
 ---
 

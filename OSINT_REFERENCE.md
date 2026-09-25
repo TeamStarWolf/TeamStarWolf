@@ -8,18 +8,18 @@
 
 ## Table of Contents
 
-1. [OSINT Fundamentals and Legal Framework](#1-osint-fundamentals-and-legal-framework)
-2. [Search Engine OSINT](#2-search-engine-osint)
-3. [Domain and IP Intelligence](#3-domain-and-ip-intelligence)
-4. [Social Media OSINT (SOCMINT)](#4-social-media-osint-socmint)
-5. [People and Identity OSINT](#5-people-and-identity-osint)
-6. [Geospatial OSINT (GEOINT)](#6-geospatial-osint-geoint)
-7. [Corporate and Business OSINT](#7-corporate-and-business-osint)
-8. [Threat Intelligence OSINT](#8-threat-intelligence-osint)
-9. [OSINT Frameworks and Tools](#9-osint-frameworks-and-tools)
-10. [OSINT Investigation Methodology](#10-osint-investigation-methodology)
-11. [OSINT Tools Reference Table](#11-osint-tools-reference-table)
-12. [ATT&CK Reconnaissance Mapping](#12-attck-reconnaissance-mapping)
+1. [OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework)
+2. [Search Engine OSINT](#_2-search-engine-osint)
+3. [Domain and IP Intelligence](#_3-domain-and-ip-intelligence)
+4. [Social Media OSINT (SOCMINT)](#_4-social-media-osint-socmint)
+5. [People and Identity OSINT](#_5-people-and-identity-osint)
+6. [Geospatial OSINT (GEOINT)](#_6-geospatial-osint-geoint)
+7. [Corporate and Business OSINT](#_7-corporate-and-business-osint)
+8. [Threat Intelligence OSINT](#_8-threat-intelligence-osint)
+9. [OSINT Frameworks and Tools](#_9-osint-frameworks-and-tools)
+10. [OSINT Investigation Methodology](#_10-osint-investigation-methodology)
+11. [OSINT Tools Reference Table](#_11-osint-tools-reference-table)
+12. [ATT&CK Reconnaissance Mapping](#_12-attampck-reconnaissance-mapping)
 
 ---
 

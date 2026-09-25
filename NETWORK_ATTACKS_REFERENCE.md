@@ -8,16 +8,16 @@
 
 ## Table of Contents
 
-1. [Network Attack Taxonomy & Threat Landscape](#1-network-attack-taxonomy--threat-landscape)
-2. [ARP & Layer 2 Attacks](#2-arp--layer-2-attacks)
-3. [DNS Attacks](#3-dns-attacks)
-4. [Man-in-the-Middle Attacks](#4-man-in-the-middle-attacks)
-5. [SMB & Windows Network Attacks](#5-smb--windows-network-attacks)
-6. [DoS & DDoS Attacks](#6-dos--ddos-attacks)
-7. [BGP & Routing Attacks](#7-bgp--routing-attacks)
-8. [Wireless Network Attacks](#8-wireless-network-attacks)
-9. [Protocol-Specific Attacks](#9-protocol-specific-attacks)
-10. [Network Attack Detection & Hunting](#10-network-attack-detection--hunting)
+1. [Network Attack Taxonomy & Threat Landscape](#_1-network-attack-taxonomy-amp-threat-landscape)
+2. [ARP & Layer 2 Attacks](#_2-arp-amp-layer-2-attacks)
+3. [DNS Attacks](#_3-dns-attacks)
+4. [Man-in-the-Middle Attacks](#_4-man-in-the-middle-attacks)
+5. [SMB & Windows Network Attacks](#_5-smb-amp-windows-network-attacks)
+6. [DoS & DDoS Attacks](#_6-dos-amp-ddos-attacks)
+7. [BGP & Routing Attacks](#_7-bgp-amp-routing-attacks)
+8. [Wireless Network Attacks](#_8-wireless-network-attacks)
+9. [Protocol-Specific Attacks](#_9-protocol-specific-attacks)
+10. [Network Attack Detection & Hunting](#_10-network-attack-detection-amp-hunting)
 
 ---
 

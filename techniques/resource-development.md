@@ -1,6 +1,6 @@
 # Resource Development — Technique Detail
 
-> Full detail pages for the **47 ATT&CK techniques** whose primary tactic is [Resource Development](https://attack.mitre.org/tactics/TA0042/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **47 ATT&CK techniques** whose primary tactic is [Resource Development](https://attack.mitre.org/tactics/TA0042/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -21,7 +21,7 @@ Adversaries may buy, lease, rent, or obtain infrastructure that can be used duri
 ### T1583.001 — Domains
 <a id="t1583001"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/001)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/001)  
 
 Adversaries may acquire domains that can be used during targeting. Domain names are the human readable names used to represent one or more IP addresses. They can be purchased or, in some cases, acquired for free.
 
@@ -36,7 +36,7 @@ Adversaries may acquire domains that can be used during targeting. Domain names 
 ### T1583.002 — DNS Server
 <a id="t1583002"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/002)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/002)  
 
 Adversaries may set up their own Domain Name System (DNS) servers that can be used during targeting. During post-compromise activity, adversaries may utilize DNS traffic for various tasks, including for Command and Control (ex: Application Layer Protocol).
 
@@ -50,7 +50,7 @@ Adversaries may set up their own Domain Name System (DNS) servers that can be us
 ### T1583.003 — Virtual Private Server
 <a id="t1583003"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/003)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/003)  
 
 Adversaries may rent Virtual Private Servers (VPSs) that can be used during targeting. There exist a variety of cloud service providers that will sell virtual machines/containers as a service. By utilizing a VPS, adversaries can make it difficult to physically tie back operations to them.
 
@@ -64,7 +64,7 @@ Adversaries may rent Virtual Private Servers (VPSs) that can be used during targ
 ### T1583.004 — Server
 <a id="t1583004"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/004)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/004)  
 
 Adversaries may buy, lease, rent, or obtain physical servers that can be used during targeting. Use of servers allows an adversary to stage, launch, and execute an operation.
 
@@ -78,7 +78,7 @@ Adversaries may buy, lease, rent, or obtain physical servers that can be used du
 ### T1583.005 — Botnet
 <a id="t1583005"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/005)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/005)  
 
 Adversaries may buy, lease, or rent a network of compromised systems that can be used during targeting. A botnet is a network of compromised systems that can be instructed to perform coordinated tasks. Adversaries may purchase a subscription to use an existing botnet from a booter/stresser service.
 
@@ -92,7 +92,7 @@ Adversaries may buy, lease, or rent a network of compromised systems that can be
 ### T1583.006 — Web Services
 <a id="t1583006"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/006)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/006)  
 
 Adversaries may register for web services that can be used during targeting.
 
@@ -106,7 +106,7 @@ Adversaries may register for web services that can be used during targeting.
 ### T1583.007 — Serverless
 <a id="t1583007"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/007)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/007)  
 
 Adversaries may purchase and configure serverless cloud infrastructure, such as Cloudflare Workers, AWS Lambda functions, or Google Apps Scripts, that can be used during targeting.
 
@@ -119,7 +119,7 @@ Adversaries may purchase and configure serverless cloud infrastructure, such as 
 ### T1583.008 — Malvertising
 <a id="t1583008"></a>
 
-sub-technique of [T1583](resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/008)  
+sub-technique of [T1583](/techniques/resource-development.md#t1583) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1583/008)  
 
 Adversaries may purchase online advertisements that can be abused to distribute malware to victims. Ads can be purchased to plant as well as favorably position artifacts in specific locations online, such as prominently placed within search engine results.
 
@@ -147,7 +147,7 @@ Adversaries may compromise third-party infrastructure that can be used during ta
 ### T1584.001 — Domains
 <a id="t1584001"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/001)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/001)  
 
 Adversaries may hijack domains and/or subdomains that can be used during targeting. Domain registration hijacking is the act of changing the registration of a domain name without the permission of the original registrant. Adversaries may gain access to an email account for the person listed as the owner of the domain.
 
@@ -162,7 +162,7 @@ Adversaries may hijack domains and/or subdomains that can be used during targeti
 ### T1584.002 — DNS Server
 <a id="t1584002"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/002)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/002)  
 
 Adversaries may compromise third-party DNS servers that can be used during targeting. During post-compromise activity, adversaries may utilize DNS traffic for various tasks, including for Command and Control (ex: Application Layer Protocol).
 
@@ -176,7 +176,7 @@ Adversaries may compromise third-party DNS servers that can be used during targe
 ### T1584.003 — Virtual Private Server
 <a id="t1584003"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/003)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/003)  
 
 Adversaries may compromise third-party Virtual Private Servers (VPSs) that can be used during targeting. There exist a variety of cloud service providers that will sell virtual machines/containers as a service. Adversaries may compromise VPSs purchased by third-party entities.
 
@@ -190,7 +190,7 @@ Adversaries may compromise third-party Virtual Private Servers (VPSs) that can b
 ### T1584.004 — Server
 <a id="t1584004"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/004)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/004)  
 
 Adversaries may compromise third-party servers that can be used during targeting. Use of servers allows an adversary to stage, launch, and execute an operation. During post-compromise activity, adversaries may utilize servers for various tasks, including for Command and Control.
 
@@ -204,7 +204,7 @@ Adversaries may compromise third-party servers that can be used during targeting
 ### T1584.005 — Botnet
 <a id="t1584005"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/005)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/005)  
 
 Adversaries may compromise numerous third-party systems to form a botnet that can be used during targeting. A botnet is a network of compromised systems that can be instructed to perform coordinated tasks.
 
@@ -218,7 +218,7 @@ Adversaries may compromise numerous third-party systems to form a botnet that ca
 ### T1584.006 — Web Services
 <a id="t1584006"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/006)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/006)  
 
 Adversaries may compromise access to third-party web services that can be used during targeting. A variety of popular websites exist for legitimate users to register for web-based services, such as GitHub, Twitter, Dropbox, Google, SendGrid, etc.
 
@@ -233,7 +233,7 @@ Adversaries may compromise access to third-party web services that can be used d
 ### T1584.007 — Serverless
 <a id="t1584007"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/007)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/007)  
 
 Adversaries may compromise serverless cloud infrastructure, such as Cloudflare Workers, AWS Lambda functions, or Google Apps Scripts, that can be used during targeting. By utilizing serverless infrastructure, adversaries can make it more difficult to attribute infrastructure used during operations back to them.
 
@@ -246,7 +246,7 @@ Adversaries may compromise serverless cloud infrastructure, such as Cloudflare W
 ### T1584.008 — Network Devices
 <a id="t1584008"></a>
 
-sub-technique of [T1584](resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/008)  
+sub-technique of [T1584](/techniques/resource-development.md#t1584) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1584/008)  
 
 Adversaries may compromise third-party network devices that can be used during targeting.
 
@@ -274,7 +274,7 @@ Adversaries may create and cultivate accounts with services that can be used dur
 ### T1585.001 — Social Media Accounts
 <a id="t1585001"></a>
 
-sub-technique of [T1585](resource-development.md#t1585) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1585/001)  
+sub-technique of [T1585](/techniques/resource-development.md#t1585) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1585/001)  
 
 Adversaries may create and cultivate social media accounts that can be used during targeting. Adversaries can create social media accounts that can be used to build a persona to further operations. Persona development consists of the development of public information, presence, history and appropriate affiliations.
 
@@ -288,7 +288,7 @@ Adversaries may create and cultivate social media accounts that can be used duri
 ### T1585.002 — Email Accounts
 <a id="t1585002"></a>
 
-sub-technique of [T1585](resource-development.md#t1585) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1585/002)  
+sub-technique of [T1585](/techniques/resource-development.md#t1585) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1585/002)  
 
 Adversaries may create email accounts that can be used during targeting. Adversaries can use accounts created with email providers to further their operations, such as leveraging them to conduct Phishing for Information or Phishing.
 
@@ -302,7 +302,7 @@ Adversaries may create email accounts that can be used during targeting. Adversa
 ### T1585.003 — Cloud Accounts
 <a id="t1585003"></a>
 
-sub-technique of [T1585](resource-development.md#t1585) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1585/003)  
+sub-technique of [T1585](/techniques/resource-development.md#t1585) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1585/003)  
 
 Adversaries may create accounts with cloud providers that can be used during targeting. Adversaries can use cloud accounts to further their operations, including leveraging cloud storage services such as Dropbox, MEGA, Microsoft OneDrive, or AWS S3 buckets for Exfiltration to Cloud Storage or to Upload Tools.
 
@@ -329,7 +329,7 @@ Adversaries may compromise accounts with services that can be used during target
 ### T1586.001 — Social Media Accounts
 <a id="t1586001"></a>
 
-sub-technique of [T1586](resource-development.md#t1586) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1586/001)  
+sub-technique of [T1586](/techniques/resource-development.md#t1586) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1586/001)  
 
 Adversaries may compromise social media accounts that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating social media profiles (i.e.
 
@@ -343,7 +343,7 @@ Adversaries may compromise social media accounts that can be used during targeti
 ### T1586.002 — Email Accounts
 <a id="t1586002"></a>
 
-sub-technique of [T1586](resource-development.md#t1586) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1586/002)  
+sub-technique of [T1586](/techniques/resource-development.md#t1586) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1586/002)  
 
 Adversaries may compromise email accounts that can be used during targeting. Adversaries can use compromised email accounts to further their operations, such as leveraging them to conduct Phishing for Information, Phishing, or large-scale spam email campaigns.
 
@@ -357,7 +357,7 @@ Adversaries may compromise email accounts that can be used during targeting. Adv
 ### T1586.003 — Cloud Accounts
 <a id="t1586003"></a>
 
-sub-technique of [T1586](resource-development.md#t1586) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1586/003)  
+sub-technique of [T1586](/techniques/resource-development.md#t1586) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1586/003)  
 
 Adversaries may compromise cloud accounts that can be used during targeting. Adversaries can use compromised cloud accounts to further their operations, including leveraging cloud storage services such as Dropbox, Microsoft OneDrive, or AWS S3 buckets for Exfiltration to Cloud Storage or to Upload Tools.
 
@@ -385,7 +385,7 @@ Adversaries may build capabilities that can be used during targeting. Rather tha
 ### T1587.001 — Malware
 <a id="t1587001"></a>
 
-sub-technique of [T1587](resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/001)  
+sub-technique of [T1587](/techniques/resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/001)  
 
 Adversaries may develop malware and malware components that can be used during targeting. Building malicious software can include the development of payloads, droppers, post-compromise tools, backdoors (including backdoored images), packers, C2 protocols, and the creation of infected removable media.
 
@@ -399,7 +399,7 @@ Adversaries may develop malware and malware components that can be used during t
 ### T1587.002 — Code Signing Certificates
 <a id="t1587002"></a>
 
-sub-technique of [T1587](resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/002)  
+sub-technique of [T1587](/techniques/resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/002)  
 
 Adversaries may create self-signed code signing certificates that can be used during targeting. Code signing is the process of digitally signing executables and scripts to confirm the software author and guarantee that the code has not been altered or corrupted.
 
@@ -413,7 +413,7 @@ Adversaries may create self-signed code signing certificates that can be used du
 ### T1587.003 — Digital Certificates
 <a id="t1587003"></a>
 
-sub-technique of [T1587](resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/003)  
+sub-technique of [T1587](/techniques/resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/003)  
 
 Adversaries may create self-signed SSL/TLS certificates that can be used during targeting. SSL/TLS certificates are designed to instill trust. They include information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct.
 
@@ -427,7 +427,7 @@ Adversaries may create self-signed SSL/TLS certificates that can be used during 
 ### T1587.004 — Exploits
 <a id="t1587004"></a>
 
-sub-technique of [T1587](resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/004)  
+sub-technique of [T1587](/techniques/resource-development.md#t1587) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1587/004)  
 
 Adversaries may develop exploits that can be used during targeting. An exploit takes advantage of a bug or vulnerability in order to cause unintended or unanticipated behavior to occur on computer hardware or software.
 
@@ -454,7 +454,7 @@ Adversaries may buy and/or steal capabilities that can be used during targeting.
 ### T1588.001 — Malware
 <a id="t1588001"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/001)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/001)  
 
 Adversaries may buy, steal, or download malware that can be used during targeting. Malicious software can include payloads, droppers, post-compromise tools, backdoors, packers, and C2 protocols.
 
@@ -468,7 +468,7 @@ Adversaries may buy, steal, or download malware that can be used during targetin
 ### T1588.002 — Tool
 <a id="t1588002"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/002)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/002)  
 
 Adversaries may buy, steal, or download software tools that can be used during targeting. Tools can be open or closed source, free or commercial. A tool can be used for malicious purposes by an adversary, but (unlike malware) were not intended to be used for those purposes (ex: PsExec).
 
@@ -483,7 +483,7 @@ Adversaries may buy, steal, or download software tools that can be used during t
 ### T1588.003 — Code Signing Certificates
 <a id="t1588003"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/003)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/003)  
 
 Adversaries may buy and/or steal code signing certificates that can be used during targeting. Code signing is the process of digitally signing executables and scripts to confirm the software author and guarantee that the code has not been altered or corrupted.
 
@@ -498,7 +498,7 @@ Adversaries may buy and/or steal code signing certificates that can be used duri
 ### T1588.004 — Digital Certificates
 <a id="t1588004"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/004)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/004)  
 
 Adversaries may buy and/or steal SSL/TLS certificates that can be used during targeting. SSL/TLS certificates are designed to instill trust. They include information about the key, information about its owner's identity, and the digital signature of an entity that has verified the certificate's contents are correct.
 
@@ -512,7 +512,7 @@ Adversaries may buy and/or steal SSL/TLS certificates that can be used during ta
 ### T1588.005 — Exploits
 <a id="t1588005"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/005)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/005)  
 
 Adversaries may buy, steal, or download exploits that can be used during targeting. An exploit takes advantage of a bug or vulnerability in order to cause unintended or unanticipated behavior to occur on computer hardware or software.
 
@@ -526,7 +526,7 @@ Adversaries may buy, steal, or download exploits that can be used during targeti
 ### T1588.006 — Vulnerabilities
 <a id="t1588006"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/006)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/006)  
 
 Adversaries may acquire information about vulnerabilities that can be used during targeting. A vulnerability is a weakness in computer hardware or software that can, potentially, be exploited by an adversary to cause unintended or unanticipated behavior to occur.
 
@@ -540,7 +540,7 @@ Adversaries may acquire information about vulnerabilities that can be used durin
 ### T1588.007 — Artificial Intelligence
 <a id="t1588007"></a>
 
-sub-technique of [T1588](resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/007)  
+sub-technique of [T1588](/techniques/resource-development.md#t1588) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1588/007)  
 
 Adversaries may obtain access to generative artificial intelligence tools, such as large language models (LLMs), to aid various techniques during targeting.
 
@@ -568,7 +568,7 @@ Adversaries may upload, install, or otherwise set up capabilities that can be us
 ### T1608.001 — Upload Malware
 <a id="t1608001"></a>
 
-sub-technique of [T1608](resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/001)  
+sub-technique of [T1608](/techniques/resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/001)  
 
 Adversaries may upload malware to third-party or adversary controlled infrastructure to make it accessible during targeting. Malicious software can include payloads, droppers, post-compromise tools, backdoors, and a variety of other malicious content.
 
@@ -582,7 +582,7 @@ Adversaries may upload malware to third-party or adversary controlled infrastruc
 ### T1608.002 — Upload Tool
 <a id="t1608002"></a>
 
-sub-technique of [T1608](resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/002)  
+sub-technique of [T1608](/techniques/resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/002)  
 
 Adversaries may upload tools to third-party or adversary controlled infrastructure to make it accessible during targeting. Tools can be open or closed source, free or commercial. Tools can be used for malicious purposes by an adversary, but (unlike malware) were not intended to be used for those purposes (ex: PsExec).
 
@@ -596,7 +596,7 @@ Adversaries may upload tools to third-party or adversary controlled infrastructu
 ### T1608.003 — Install Digital Certificate
 <a id="t1608003"></a>
 
-sub-technique of [T1608](resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/003)  
+sub-technique of [T1608](/techniques/resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/003)  
 
 Adversaries may install SSL/TLS certificates that can be used during targeting. SSL/TLS certificates are files that can be installed on servers to enable secure communications between systems.
 
@@ -610,7 +610,7 @@ Adversaries may install SSL/TLS certificates that can be used during targeting. 
 ### T1608.004 — Drive-by Target
 <a id="t1608004"></a>
 
-sub-technique of [T1608](resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/004)  
+sub-technique of [T1608](/techniques/resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/004)  
 
 Adversaries may prepare an operational environment to infect systems that visit a website over the normal course of browsing. Endpoint systems may be compromised through browsing to adversary controlled sites, as in Drive-by Compromise.
 
@@ -624,7 +624,7 @@ Adversaries may prepare an operational environment to infect systems that visit 
 ### T1608.005 — Link Target
 <a id="t1608005"></a>
 
-sub-technique of [T1608](resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/005)  
+sub-technique of [T1608](/techniques/resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/005)  
 
 Adversaries may put in place resources that are referenced by a link that can be used during targeting. An adversary may rely upon a user clicking a malicious link in order to divulge information (including credentials) or to gain execution, as in Malicious Link.
 
@@ -638,7 +638,7 @@ Adversaries may put in place resources that are referenced by a link that can be
 ### T1608.006 — SEO Poisoning
 <a id="t1608006"></a>
 
-sub-technique of [T1608](resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/006)  
+sub-technique of [T1608](/techniques/resource-development.md#t1608) · **Tactics:** Resource Development · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1608/006)  
 
 Adversaries may poison mechanisms that influence search engine optimization (SEO) to further lure staged capabilities towards potential victims. Search engines typically display results to users based on purchased ads as well as the site’s ranking/score/reputation calculated by their web crawlers and algorithms.
 

@@ -6,14 +6,14 @@
 
 ## Table of Contents
 
-- [1. Enterprise Operating Systems](#1-enterprise-operating-systems)
-- [2. Server Roles & Functions](#2-server-roles--functions)
-- [3. Network Infrastructure Components](#3-network-infrastructure-components)
-- [4. Directory Services & Identity](#4-directory-services--identity)
-- [5. Virtualization & Cloud Platforms](#5-virtualization--cloud-platforms)
-- [6. Database Systems](#6-database-systems)
-- [7. Enterprise Applications](#7-enterprise-applications)
-- [8. Security Relevance by Component](#8-security-relevance-by-component)
+- [1. Enterprise Operating Systems](#_1-enterprise-operating-systems)
+- [2. Server Roles & Functions](#_2-server-roles-amp-functions)
+- [3. Network Infrastructure Components](#_3-network-infrastructure-components)
+- [4. Directory Services & Identity](#_4-directory-services-amp-identity)
+- [5. Virtualization & Cloud Platforms](#_5-virtualization-amp-cloud-platforms)
+- [6. Database Systems](#_6-database-systems)
+- [7. Enterprise Applications](#_7-enterprise-applications)
+- [8. Security Relevance by Component](#_8-security-relevance-by-component)
 
 ---
 

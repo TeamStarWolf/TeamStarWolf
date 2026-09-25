@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [API Security Landscape](#1-api-security-landscape)
-2. [OWASP API Security Top 10 2023](#2-owasp-api-security-top-10-2023)
-3. [REST API Security](#3-rest-api-security)
-4. [GraphQL Security](#4-graphql-security)
-5. [gRPC Security](#5-grpc-security)
-6. [API Gateway Security](#6-api-gateway-security)
-7. [Akto API Security Platform](#7-akto-api-security-platform)
-8. [API Penetration Testing](#8-api-penetration-testing)
-9. [API Security in CI/CD](#9-api-security-in-cicd)
-10. [API Security Standards and Monitoring](#10-api-security-standards-and-monitoring)
+1. [API Security Landscape](#_1-api-security-landscape)
+2. [OWASP API Security Top 10 2023](#_2-owasp-api-security-top-10-2023)
+3. [REST API Security](#_3-rest-api-security)
+4. [GraphQL Security](#_4-graphql-security)
+5. [gRPC Security](#_5-grpc-security)
+6. [API Gateway Security](#_6-api-gateway-security)
+7. [Akto API Security Platform](#_7-akto-api-security-platform)
+8. [API Penetration Testing](#_8-api-penetration-testing)
+9. [API Security in CI/CD](#_9-api-security-in-cicd)
+10. [API Security Standards and Monitoring](#_10-api-security-standards-and-monitoring)
 
 ---
 

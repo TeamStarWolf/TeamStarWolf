@@ -1,6 +1,6 @@
 # Command and Control — Technique Detail
 
-> Full detail pages for the **41 ATT&CK techniques** whose primary tactic is [Command and Control](https://attack.mitre.org/tactics/TA0011/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **41 ATT&CK techniques** whose primary tactic is [Command and Control](https://attack.mitre.org/tactics/TA0011/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Adversaries may obfuscate command and control traffic to make it more difficult 
 ### T1001.001 — Junk Data
 <a id="t1001001"></a>
 
-sub-technique of [T1001](command-and-control.md#t1001) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1001/001)  
+sub-technique of [T1001](/techniques/command-and-control.md#t1001) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1001/001)  
 
 Adversaries may add junk data to protocols used for command and control to make detection more difficult. By adding random or meaningless data to the protocols used for command and control, adversaries can prevent trivial methods for decoding, deciphering, or otherwise analyzing the traffic.
 
@@ -37,7 +37,7 @@ Adversaries may add junk data to protocols used for command and control to make 
 ### T1001.002 — Steganography
 <a id="t1001002"></a>
 
-sub-technique of [T1001](command-and-control.md#t1001) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1001/002)  
+sub-technique of [T1001](/techniques/command-and-control.md#t1001) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1001/002)  
 
 Adversaries may use steganographic techniques to hide command and control traffic to make detection efforts more difficult. Steganographic techniques can be used to hide data in digital messages that are transferred between systems. This hidden information can be used for command and control of compromised systems.
 
@@ -52,7 +52,7 @@ Adversaries may use steganographic techniques to hide command and control traffi
 ### T1001.003 — Protocol or Service Impersonation
 <a id="t1001003"></a>
 
-sub-technique of [T1001](command-and-control.md#t1001) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1001/003)  
+sub-technique of [T1001](/techniques/command-and-control.md#t1001) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1001/003)  
 
 Adversaries may impersonate legitimate protocols or web service traffic to disguise command and control activity and thwart analysis efforts. By impersonating legitimate protocols or web services, adversaries can make their command and control traffic blend in with legitimate network traffic.
 
@@ -97,7 +97,7 @@ Adversaries may communicate using OSI application layer protocols to avoid detec
 ### T1071.001 — Web Protocols
 <a id="t1071001"></a>
 
-sub-technique of [T1071](command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/001)  
+sub-technique of [T1071](/techniques/command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/001)  
 
 Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.
 
@@ -112,7 +112,7 @@ Adversaries may communicate using application layer protocols associated with we
 ### T1071.002 — File Transfer Protocols
 <a id="t1071002"></a>
 
-sub-technique of [T1071](command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/002)  
+sub-technique of [T1071](/techniques/command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/002)  
 
 Adversaries may communicate using application layer protocols associated with transferring files to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.
 
@@ -127,7 +127,7 @@ Adversaries may communicate using application layer protocols associated with tr
 ### T1071.003 — Mail Protocols
 <a id="t1071003"></a>
 
-sub-technique of [T1071](command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/003)  
+sub-technique of [T1071](/techniques/command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/003)  
 
 Adversaries may communicate using application layer protocols associated with electronic mail delivery to avoid detection/network filtering by blending in with existing traffic.
 
@@ -142,7 +142,7 @@ Adversaries may communicate using application layer protocols associated with el
 ### T1071.004 — DNS
 <a id="t1071004"></a>
 
-sub-technique of [T1071](command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/004)  
+sub-technique of [T1071](/techniques/command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/004)  
 
 Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.
 
@@ -157,7 +157,7 @@ Adversaries may communicate using the Domain Name System (DNS) application layer
 ### T1071.005 — Publish/Subscribe Protocols
 <a id="t1071005"></a>
 
-sub-technique of [T1071](command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** macOS, Linux, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/005)  
+sub-technique of [T1071](/techniques/command-and-control.md#t1071) · **Tactics:** Command and Control · **Platforms:** macOS, Linux, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1071/005)  
 
 Adversaries may communicate using publish/subscribe (pub/sub) application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server.
 
@@ -186,7 +186,7 @@ Adversaries may use a connection proxy to direct network traffic between systems
 ### T1090.001 — Internal Proxy
 <a id="t1090001"></a>
 
-sub-technique of [T1090](command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** Linux, Network Devices, Windows, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/001)  
+sub-technique of [T1090](/techniques/command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** Linux, Network Devices, Windows, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/001)  
 
 Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment. Many tools exist that enable traffic redirection through proxies or port redirection, including HTRAN, ZXProxy, and ZXPortMap.
 
@@ -201,7 +201,7 @@ Adversaries may use an internal proxy to direct command and control traffic betw
 ### T1090.002 — External Proxy
 <a id="t1090002"></a>
 
-sub-technique of [T1090](command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, Network Devices, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/002)  
+sub-technique of [T1090](/techniques/command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, Network Devices, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/002)  
 
 Adversaries may use an external proxy to act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure. Many tools exist that enable traffic redirection through proxies or port redirection, including HTRAN, ZXProxy, and ZXPortMap.
 
@@ -216,7 +216,7 @@ Adversaries may use an external proxy to act as an intermediary for network comm
 ### T1090.003 — Multi-hop Proxy
 <a id="t1090003"></a>
 
-sub-technique of [T1090](command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/003)  
+sub-technique of [T1090](/techniques/command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/003)  
 
 Adversaries may chain together multiple proxies to disguise the source of malicious traffic. Typically, a defender will be able to identify the last proxy traffic traversed before it enters their network; the defender may or may not be able to identify any previous proxies before the last-hop proxy.
 
@@ -231,7 +231,7 @@ Adversaries may chain together multiple proxies to disguise the source of malici
 ### T1090.004 — Domain Fronting
 <a id="t1090004"></a>
 
-sub-technique of [T1090](command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/004)  
+sub-technique of [T1090](/techniques/command-and-control.md#t1090) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1090/004)  
 
 Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through HTTPS.
 
@@ -291,7 +291,7 @@ Adversaries may use an existing, legitimate external Web service as a means for 
 ### T1102.001 — Dead Drop Resolver
 <a id="t1102001"></a>
 
-sub-technique of [T1102](command-and-control.md#t1102) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1102/001)  
+sub-technique of [T1102](/techniques/command-and-control.md#t1102) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1102/001)  
 
 Adversaries may use an existing, legitimate external Web service to host information that points to additional command and control (C2) infrastructure. Adversaries may post content, known as a dead drop resolver, on Web services with embedded (and often obfuscated/encoded) domains or IP addresses.
 
@@ -306,7 +306,7 @@ Adversaries may use an existing, legitimate external Web service to host informa
 ### T1102.002 — Bidirectional Communication
 <a id="t1102002"></a>
 
-sub-technique of [T1102](command-and-control.md#t1102) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1102/002)  
+sub-technique of [T1102](/techniques/command-and-control.md#t1102) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1102/002)  
 
 Adversaries may use an existing, legitimate external Web service as a means for sending commands to and receiving output from a compromised system over the Web service channel. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions.
 
@@ -321,7 +321,7 @@ Adversaries may use an existing, legitimate external Web service as a means for 
 ### T1102.003 — One-Way Communication
 <a id="t1102003"></a>
 
-sub-technique of [T1102](command-and-control.md#t1102) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1102/003)  
+sub-technique of [T1102](/techniques/command-and-control.md#t1102) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1102/003)  
 
 Adversaries may use an existing, legitimate external Web service as a means for sending commands to a compromised system without receiving return output over the Web service channel. Compromised systems may leverage popular websites and social media to host command and control (C2) instructions.
 
@@ -381,7 +381,7 @@ Adversaries may encode data to make the content of command and control traffic m
 ### T1132.001 — Standard Encoding
 <a id="t1132001"></a>
 
-sub-technique of [T1132](command-and-control.md#t1132) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1132/001)  
+sub-technique of [T1132](/techniques/command-and-control.md#t1132) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1132/001)  
 
 Adversaries may encode data with a standard data encoding system to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a standard data encoding system that adheres to existing protocol specifications.
 
@@ -396,7 +396,7 @@ Adversaries may encode data with a standard data encoding system to make the con
 ### T1132.002 — Non-Standard Encoding
 <a id="t1132002"></a>
 
-sub-technique of [T1132](command-and-control.md#t1132) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1132/002)  
+sub-technique of [T1132](/techniques/command-and-control.md#t1132) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1132/002)  
 
 Adversaries may encode data with a non-standard data encoding system to make the content of command and control traffic more difficult to detect. Command and control (C2) information can be encoded using a non-standard data encoding system that diverges from existing protocol specifications.
 
@@ -425,7 +425,7 @@ An adversary may use legitimate remote access tools to establish an interactive 
 ### T1219.001 — IDE Tunneling
 <a id="t1219001"></a>
 
-sub-technique of [T1219](command-and-control.md#t1219) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1219/001)  
+sub-technique of [T1219](/techniques/command-and-control.md#t1219) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1219/001)  
 
 Adversaries may abuse Integrated Development Environment (IDE) software with remote development features to establish an interactive command and control channel on target systems within a network.
 
@@ -439,7 +439,7 @@ Adversaries may abuse Integrated Development Environment (IDE) software with rem
 ### T1219.002 — Remote Desktop Software
 <a id="t1219002"></a>
 
-sub-technique of [T1219](command-and-control.md#t1219) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1219/002)  
+sub-technique of [T1219](/techniques/command-and-control.md#t1219) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1219/002)  
 
 An adversary may use legitimate desktop support software to establish an interactive command and control channel to target systems within networks.
 
@@ -453,7 +453,7 @@ An adversary may use legitimate desktop support software to establish an interac
 ### T1219.003 — Remote Access Hardware
 <a id="t1219003"></a>
 
-sub-technique of [T1219](command-and-control.md#t1219) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1219/003)  
+sub-technique of [T1219](/techniques/command-and-control.md#t1219) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1219/003)  
 
 An adversary may use legitimate remote access hardware to establish an interactive command and control channel to target systems within networks.
 
@@ -481,7 +481,7 @@ Adversaries may dynamically establish connections to command and control infrast
 ### T1568.001 — Fast Flux DNS
 <a id="t1568001"></a>
 
-sub-technique of [T1568](command-and-control.md#t1568) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1568/001)  
+sub-technique of [T1568](/techniques/command-and-control.md#t1568) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1568/001)  
 
 Adversaries may use Fast Flux DNS to hide a command and control channel behind an array of rapidly changing IP addresses linked to a single domain resolution.
 
@@ -496,7 +496,7 @@ Adversaries may use Fast Flux DNS to hide a command and control channel behind a
 ### T1568.002 — Domain Generation Algorithms
 <a id="t1568002"></a>
 
-sub-technique of [T1568](command-and-control.md#t1568) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1568/002)  
+sub-technique of [T1568](/techniques/command-and-control.md#t1568) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1568/002)  
 
 Adversaries may make use of Domain Generation Algorithms (DGAs) to dynamically identify a destination domain for command and control traffic rather than relying on a list of static IP addresses or domains.
 
@@ -511,7 +511,7 @@ Adversaries may make use of Domain Generation Algorithms (DGAs) to dynamically i
 ### T1568.003 — DNS Calculation
 <a id="t1568003"></a>
 
-sub-technique of [T1568](command-and-control.md#t1568) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1568/003)  
+sub-technique of [T1568](/techniques/command-and-control.md#t1568) · **Tactics:** Command and Control · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1568/003)  
 
 Adversaries may perform calculations on addresses returned in DNS results to determine which port and IP address to use for command and control, rather than relying on a predetermined port number or the actual returned IP address.
 
@@ -570,7 +570,7 @@ Adversaries may employ an encryption algorithm to conceal command and control tr
 ### T1573.001 — Symmetric Cryptography
 <a id="t1573001"></a>
 
-sub-technique of [T1573](command-and-control.md#t1573) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1573/001)  
+sub-technique of [T1573](/techniques/command-and-control.md#t1573) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1573/001)  
 
 Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. Symmetric encryption algorithms use the same key for plaintext encryption and ciphertext decryption.
 
@@ -585,7 +585,7 @@ Adversaries may employ a known symmetric encryption algorithm to conceal command
 ### T1573.002 — Asymmetric Cryptography
 <a id="t1573002"></a>
 
-sub-technique of [T1573](command-and-control.md#t1573) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1573/002)  
+sub-technique of [T1573](/techniques/command-and-control.md#t1573) · **Tactics:** Command and Control · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1573/002)  
 
 Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.
 

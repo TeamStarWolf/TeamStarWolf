@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Zero Trust Fundamentals](#1-zero-trust-fundamentals)
-2. [Identity Pillar](#2-identity-pillar)
-3. [Device Pillar](#3-device-pillar)
-4. [Network Pillar](#4-network-pillar)
-5. [Application and Workload Pillar](#5-application-and-workload-pillar)
-6. [Data Pillar](#6-data-pillar)
-7. [Teleport — Open-Source ZT Infrastructure Access](#7-teleport--open-source-zt-infrastructure-access)
-8. [HashiCorp Boundary — Open-Source ZTNA](#8-hashicorp-boundary--open-source-ztna)
-9. [Cloudflare Zero Trust](#9-cloudflare-zero-trust)
-10. [ZTA Implementation Roadmap](#10-zta-implementation-roadmap)
+1. [Zero Trust Fundamentals](#_1-zero-trust-fundamentals)
+2. [Identity Pillar](#_2-identity-pillar)
+3. [Device Pillar](#_3-device-pillar)
+4. [Network Pillar](#_4-network-pillar)
+5. [Application and Workload Pillar](#_5-application-and-workload-pillar)
+6. [Data Pillar](#_6-data-pillar)
+7. [Teleport — Open-Source ZT Infrastructure Access](#_7-teleport-open-source-zt-infrastructure-access)
+8. [HashiCorp Boundary — Open-Source ZTNA](#_8-hashicorp-boundary-open-source-ztna)
+9. [Cloudflare Zero Trust](#_9-cloudflare-zero-trust)
+10. [ZTA Implementation Roadmap](#_10-zta-implementation-roadmap)
 
 ---
 

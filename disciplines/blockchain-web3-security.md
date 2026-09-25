@@ -176,8 +176,8 @@ There is no single dominant certification for smart contract security — the di
 
 ## Related Disciplines
 
-- [Application Security](application-security.md)
-- [Cryptography & PKI](cryptography-pki.md)
-- [Bug Bounty](bug-bounty.md)
-- [Offensive Security](offensive-security.md)
-- [Supply Chain Security](supply-chain-security.md)
+- [Application Security](/disciplines/application-security.md)
+- [Cryptography & PKI](/disciplines/cryptography-pki.md)
+- [Bug Bounty](/disciplines/bug-bounty.md)
+- [Offensive Security](/disciplines/offensive-security.md)
+- [Supply Chain Security](/disciplines/supply-chain-security.md)

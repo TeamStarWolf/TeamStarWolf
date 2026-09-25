@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [General CTF Strategy](#1-general-ctf-strategy)
-2. [Web Challenges](#2-web-challenges)
-3. [Forensics Challenges](#3-forensics-challenges)
-4. [Cryptography Challenges](#4-cryptography-challenges)
-5. [Reverse Engineering](#5-reverse-engineering)
-6. [Binary Exploitation (Pwn)](#6-binary-exploitation-pwn)
-7. [OSINT Challenges](#7-osint-challenges)
-8. [Miscellaneous / Stego](#8-miscellaneous--stego)
-9. [CTF Platform Quick Reference](#9-ctf-platform-quick-reference)
-10. [Useful One-Liners and Quick Reference](#10-useful-one-liners-and-quick-reference)
+1. [General CTF Strategy](#_1-general-ctf-strategy)
+2. [Web Challenges](#_2-web-challenges)
+3. [Forensics Challenges](#_3-forensics-challenges)
+4. [Cryptography Challenges](#_4-cryptography-challenges)
+5. [Reverse Engineering](#_5-reverse-engineering)
+6. [Binary Exploitation (Pwn)](#_6-binary-exploitation-pwn)
+7. [OSINT Challenges](#_7-osint-challenges)
+8. [Miscellaneous / Stego](#_8-miscellaneous-stego)
+9. [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference)
+10. [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference)
 
 ---
 

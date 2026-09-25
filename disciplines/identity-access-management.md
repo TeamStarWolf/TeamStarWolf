@@ -261,11 +261,11 @@ Load the [Identity & Access Stage Layer](https://mitre-attack.github.io/attack-n
 
 ## Related Disciplines
 
-- [security-architecture.md](security-architecture.md) — Zero trust design, identity-aware access
-- [detection-engineering.md](detection-engineering.md) — Detecting credential-based attacks; identity threat detection requires SIEM rules for Kerberoasting, golden ticket use, anomalous authentication patterns, and privilege escalation chains that detection engineers build using IAM log sources
-- [governance-risk-compliance.md](governance-risk-compliance.md) — Access reviews, SOX/HIPAA controls; IGA programs are the operational mechanism for meeting access control requirements in SOX, HIPAA, PCI DSS, and FedRAMP compliance frameworks
-- [cryptography-pki.md](cryptography-pki.md) — Certificate-based auth, smart cards; PKI underpins phishing-resistant MFA (smart cards, FIDO2), mutual TLS for service-to-service authentication, and code signing for software supply chain integrity
-- [cloud-security.md](cloud-security.md) — Cloud IAM is a distinct and critical subdiscipline: AWS IAM, Azure Entra ID Conditional Access, and GCP Workload Identity are the access control planes that CIEM tools analyze and cloud security practitioners must master
-- [threat-intelligence.md](threat-intelligence.md) — Identity-targeted threat actors and campaigns (credential phishing, AiTM attacks, MFA fatigue campaigns) require CTI context to understand current adversary tradecraft and prioritize which authentication controls to harden first
-- [incident-response.md](incident-response.md) — Identity compromise is the most common initial access and lateral movement vector; IR teams depend on IAM teams to reset credentials, revoke tokens, and implement emergency access controls during active incidents
+- [security-architecture.md](/disciplines/security-architecture.md) — Zero trust design, identity-aware access
+- [detection-engineering.md](/disciplines/detection-engineering.md) — Detecting credential-based attacks; identity threat detection requires SIEM rules for Kerberoasting, golden ticket use, anomalous authentication patterns, and privilege escalation chains that detection engineers build using IAM log sources
+- [governance-risk-compliance.md](/disciplines/governance-risk-compliance.md) — Access reviews, SOX/HIPAA controls; IGA programs are the operational mechanism for meeting access control requirements in SOX, HIPAA, PCI DSS, and FedRAMP compliance frameworks
+- [cryptography-pki.md](/disciplines/cryptography-pki.md) — Certificate-based auth, smart cards; PKI underpins phishing-resistant MFA (smart cards, FIDO2), mutual TLS for service-to-service authentication, and code signing for software supply chain integrity
+- [cloud-security.md](/disciplines/cloud-security.md) — Cloud IAM is a distinct and critical subdiscipline: AWS IAM, Azure Entra ID Conditional Access, and GCP Workload Identity are the access control planes that CIEM tools analyze and cloud security practitioners must master
+- [threat-intelligence.md](/disciplines/threat-intelligence.md) — Identity-targeted threat actors and campaigns (credential phishing, AiTM attacks, MFA fatigue campaigns) require CTI context to understand current adversary tradecraft and prioritize which authentication controls to harden first
+- [incident-response.md](/disciplines/incident-response.md) — Identity compromise is the most common initial access and lateral movement vector; IR teams depend on IAM teams to reset credentials, revoke tokens, and implement emergency access controls during active incidents
 - [Enterprise Security Pipeline](../SECURITY_PIPELINE.md) — Stage 2: Identity & Access

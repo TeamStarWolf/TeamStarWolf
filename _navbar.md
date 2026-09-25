@@ -8,6 +8,9 @@
   - [Engage — Deception](/ENGAGE_REFERENCE.md)
   - [D3FEND — Countermeasures](/D3FEND_REFERENCE.md)
   - [F3 — Fraud](/FRAUD_FRAMEWORK_REFERENCE.md)
+  - [EMB3D — Embedded](/EMB3D_REFERENCE.md)
+  - [FiGHT — 5G](/TELECOM_5G_SECURITY_REFERENCE.md)
+  - [SPARTA — Space](/SPACE_SECURITY_REFERENCE.md)
   - [CWE](/CWE_REFERENCE.md) · [CAPEC](/CAPEC_REFERENCE.md)
 - Operate
   - [CTEM — Exposure Mgmt](/CTEM_REFERENCE.md)

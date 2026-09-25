@@ -72,6 +72,14 @@
 
   - [MITRE Engage (Deception)](/ENGAGE_REFERENCE.md)
 
+  - [MITRE EMB3D (Embedded Devices)](/EMB3D_REFERENCE.md)
+
+  - [MITRE FiGHT (Telecom & 5G)](/TELECOM_5G_SECURITY_REFERENCE.md)
+
+  - [SPARTA (Space Systems)](/SPACE_SECURITY_REFERENCE.md)
+
+  - [Insider Threat Program](/INSIDER_THREAT_REFERENCE.md)
+
   - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
 
   - [Technique Detail Pages](/techniques/README.md)
@@ -103,6 +111,7 @@
   - [API Security Reference](/API_SECURITY_REFERENCE.md)
   - [Windows Hardening](/WINDOWS_HARDENING.md)
   - [Linux Hardening](/LINUX_HARDENING.md)
+  - [macOS Security Reference](/MACOS_SECURITY_REFERENCE.md)
   - [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md)
 
   * [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
@@ -112,6 +121,7 @@
   * [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
   - [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)
   * [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+  - [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
   - [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md)
   - [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md)
   - [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md)
@@ -129,6 +139,7 @@
 
   - [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md)
   * [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
+  - [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md)
 
 
 ---
@@ -156,6 +167,7 @@
 
   - [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md)
   - [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+  - [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md)
   * [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md)
   - [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
   - [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md)

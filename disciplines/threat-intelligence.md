@@ -55,7 +55,7 @@ Anchor on the intelligence cycle before anything else — it provides the framew
 
 ### ATT&CK & Threat Mapping
 - [mitre/attack-navigator](https://github.com/mitre/attack-navigator) — The official ATT&CK Navigator for heatmap visualization; maps threat actor techniques, coverage gaps, and campaign profiles
-- [center-for-threat-informed-defense/attack_flow](https://github.com/center-for-threat-informed-defense/attack_flow) — CTID's Attack Flow project for modeling adversary behavior as linked sequences of ATT&CK techniques; elevates TI reports from lists of techniques to structured attack narratives
+- [center-for-threat-informed-defense/attack-flow](https://github.com/center-for-threat-informed-defense/attack-flow) — CTID's Attack Flow project for modeling adversary behavior as linked sequences of ATT&CK techniques; elevates TI reports from lists of techniques to structured attack narratives
 - [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) — Generic SIEM detection rule format; TI analysts use Sigma to convert intelligence into detections deployable across Splunk, Elastic, Microsoft Sentinel, and 30+ other platforms
 
 ### Hunting & Enrichment Utilities
@@ -170,7 +170,7 @@ Threat intelligence practitioners use the [MITRE ATT&CK framework](https://attac
 - [MISP Project](https://www.misp-project.org) — Community hub for the world's most deployed open-source TI platform; documentation, galaxy updates, and sharing community links
 - [OpenCTI Platform](https://www.opencti.io) — Documentation and community for the leading modern open-source TI platform
 - [FIRST.org TLP Standard](https://www.first.org/tlp/) — The Traffic Light Protocol standard for intelligence sharing classification; required knowledge for any CTI practitioner sharing intelligence across organizations
-- [The Diamond Model](https://www.activeresponse.org/the-diamond-model/) — Free original paper defining the analytic model that underlies how most TI platforms structure adversary relationships
+- [The Diamond Model](https://www.threatintel.academy/diamond/) — Free original paper defining the analytic model that underlies how most TI platforms structure adversary relationships
 - [Lockheed Martin Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) — The original kill chain paper; foundational framework for structuring TI around adversary operations
 - [TAXII 2.1 Specification](https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html) — The standard transport mechanism for STIX-based intelligence sharing
 - [CrowdStrike Adversary Universe](https://adversary.crowdstrike.com) — Free publicly accessible threat actor profiles with ATT&CK mappings and campaign descriptions

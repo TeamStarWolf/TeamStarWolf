@@ -275,8 +275,8 @@ Most presenters release code, tools, or datasets alongside their research. Relia
 
 ## Related Resources
 
-- [STARRED_REPOS.md](STARRED_REPOS.md) — GitHub repositories referenced by conference speakers and security researchers
-- [YOUTUBE_CHANNELS.md](YOUTUBE_CHANNELS.md) — Channels that aggregate conference talk recordings
-- [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) — Books that expand on foundational conference research
-- [RESOURCES.md](RESOURCES.md) — Broader security resource reference
+- [STARRED_REPOS.md](/STARRED_REPOS.md) — GitHub repositories referenced by conference speakers and security researchers
+- [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md) — Channels that aggregate conference talk recordings
+- [CYBERSECURITY_BOOK_LIST.md](/CYBERSECURITY_BOOK_LIST.md) — Books that expand on foundational conference research
+- [RESOURCES.md](/RESOURCES.md) — Broader security resource reference
 - [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) — Black Hat Arsenal tool crosswalk

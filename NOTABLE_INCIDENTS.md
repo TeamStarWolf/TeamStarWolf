@@ -188,6 +188,14 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - **Impact:** Tens of thousands of Exchange servers compromised globally; web shells planted en masse; CISA emergency directive issued; hundreds of US government agencies affected
 - **Significance:** Illustrated how a single product's widespread deployment makes it a strategic target; ProxyShell exploitation continued 18+ months after patches were available
 
+### 2022 — Viasat KA-SAT Attack (AcidRain)
+
+- **Date:** February 24, 2022 (beginning roughly one hour before Russia's invasion of Ukraine)
+- **Actor:** Russian Federation (formally attributed May 10, 2022 by the EU together with the US, UK, and other partner governments)
+- **Method:** Entry through a misconfigured VPN appliance into the KA-SAT ground-segment management network; the AcidRain wiper was then pushed to subscriber modems through the legitimate management plane, overwriting their flash memory — the satellite itself was never touched (per Viasat's own incident disclosure)
+- **Impact:** Tens of thousands of KA-SAT broadband modems rendered inoperable across Ukraine and Europe at the moment of invasion; spillover knocked out remote monitoring and control of roughly 5,800 Enercon wind turbines in Germany; Viasat had to ship replacement modems in bulk to restore service
+- **Significance:** The most consequential publicly documented cyberattack on a space system; assessed by the attributing governments as intended to disrupt Ukrainian command and control during the invasion; proved the ground and user segments — not the satellite — are the real attack surface, and that a SATCOM attack cascades across sectors; prompted the CISA/FBI AA22-076A SATCOM hardening advisory. Full segment-by-segment case study in the library's [Space Systems Security Reference](SPACE_SECURITY_REFERENCE.md)
+
 ### 2022 — Lapsus$ Group
 
 - **Targets:** Microsoft (Bing/Cortana source code), Okta (customer support systems), Nvidia (DLSS source code, employee credentials), Samsung (Galaxy source code), T-Mobile, Ubisoft, Vodafone, Globant
@@ -252,6 +260,14 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - **Method:** Living-off-the-land (LOTL) — exclusively uses native OS tools (wmic, ntdsutil, netsh, PowerShell); no custom malware deployed; compromises SOHO routers (Cisco, Netgear, ASUS) as proxy infrastructure; long-dwell persistent access
 - **Impact:** Confirmed presence in multiple US critical infrastructure sectors; CISA/FBI issued emergency advisories; some victims had Volt Typhoon present for 5+ years undetected; no destructive action taken — assessed as pre-positioning for wartime disruption
 - **Significance:** Shift from intelligence collection to sabotage pre-positioning; LOTL techniques defeat signature-based detection; assessed as preparation for potential conflict over Taiwan; forced rethinking of OT/IT network segmentation and SOHO router security
+
+### 2024–2025 — Salt Typhoon (Chinese Telecom Espionage)
+
+- **Actor:** PRC state-sponsored actors — activity overlapping industry reporting on Salt Typhoon, OPERATOR PANDA, RedMike, UNC5807, and GhostEmperor; joint advisory AA25-239A names three PRC companies providing cyber services to Chinese intelligence
+- **Targets:** Commercial telecommunications carriers (multiple US providers confirmed compromised in FBI/CISA joint statements, October–November 2024), plus government, transportation, lodging, and military infrastructure worldwide
+- **Method:** Exploitation of known, unpatched vulnerabilities in network edge devices — Cisco IOS XE web UI (CVE-2023-20198, CVE-2023-20273), Cisco Smart Install (CVE-2018-0171), Ivanti Connect Secure (CVE-2024-21887), Palo Alto PAN-OS GlobalProtect (CVE-2024-3400) — with long-dwell persistence in carrier backbone and provider-edge routers and their management planes; no 5G-specific exploitation involved
+- **Impact:** FBI/CISA confirmed three categories: bulk theft of customer call records (metadata), compromise of the private communications of a limited number of individuals primarily involved in government or political activity, and copying of information subject to US law-enforcement requests under court orders — a publicly documented reach into lawful-intercept infrastructure
+- **Significance:** The most sweeping publicly confirmed compromise of telecommunications infrastructure to date; answered by the December 2024 joint visibility/hardening guidance and by advisory AA25-239A (August 2025), co-sealed by agencies from 13 countries; alongside Volt Typhoon it defines the twin PRC threats of espionage at scale and sabotage pre-positioning. Full advisory timeline and defender guidance in the library's [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md)
 
 ---
 

@@ -340,13 +340,13 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 ## Related Resources
 
-- [Hands-On Labs](LABS.md) — practice platforms including Hack The Box, TryHackMe, VulnHub
+- [Hands-On Labs](/LABS.md) — practice platforms including Hack The Box, TryHackMe, VulnHub
 
 - [Offensive Security](disciplines/offensive-security.md) — pentesting methodology and tools
 
-- [Certifications Reference](CERTIFICATIONS.md) — OSCP and other offensive certs
+- [Certifications Reference](/CERTIFICATIONS.md) — OSCP and other offensive certs
 
-- [Career Paths & Cert Roadmap](CAREER_PATHS.md) — HTB Pro Labs in career progression
+- [Career Paths & Cert Roadmap](/CAREER_PATHS.md) — HTB Pro Labs in career progression
 ---
 
 ## How to Use This Index

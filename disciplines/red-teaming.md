@@ -175,7 +175,7 @@ Self-signed certificates or stolen/leaked code-signing certificates are applied 
 - [Active Directory](active-directory.md) — AD attack techniques in depth
 - [Penetration Testing](penetration-testing.md) — scoped vulnerability testing methodology
 - [HTB Tracks](research/HTB_TRACKS.md) — HackTheBox learning paths including red team content
-- [Pentest Checklists](PENTEST_CHECKLISTS.md) — phase-by-phase engagement checklists
+- [Pentest Checklists](/PENTEST_CHECKLISTS.md) — phase-by-phase engagement checklists
 
 ---
 

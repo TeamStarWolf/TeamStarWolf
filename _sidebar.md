@@ -67,12 +67,14 @@
   - [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
   - [SIEM Reference Library](/SIEM_REFERENCE.md)
   - [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+  - [Security Data Engineering](/SECURITY_DATA_ENGINEERING_REFERENCE.md)
   - [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md)
   - [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)
   - [Threat Hunting Playbooks](/THREAT_HUNTING_PLAYBOOKS.md)
   - [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md)
   - [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md)
   - [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+  - [LOTL Detection Reference](/LOTL_DETECTION_REFERENCE.md)
   - [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md)
   - [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md)
   - [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md)
@@ -93,6 +95,7 @@
   - [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
   - [IR Playbooks](/IR_PLAYBOOKS.md)
   - [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
+  - [Cyber Resilience & BCDR](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
   - [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)
   - [Network Forensics Reference](/NETWORK_FORENSICS_REFERENCE.md)
   - [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md)
@@ -122,6 +125,7 @@
   - [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)
   - [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md)
   - [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md)
+  - [Edge & Network Device Security](/EDGE_DEVICE_SECURITY_REFERENCE.md)
   - [Packet Analysis Reference](/PACKET_ANALYSIS_REFERENCE.md)
   - [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md)
   - [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md)
@@ -170,6 +174,7 @@
   - [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
   - [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
   - [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md)
+  - [Data Security Reference](/DATA_SECURITY_REFERENCE.md)
   - [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md)
 
 ---
@@ -201,6 +206,7 @@
   - [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md)
   - [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)
   - [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+  - [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
   - [CVE Reference](/CVE_REFERENCE.md)
 
 ---

@@ -6,7 +6,7 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-132-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-138-2b6cb0?style=flat-square)](INDEX.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -21,7 +21,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **132 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **138 in-depth reference documents** and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -44,7 +44,7 @@ New here? Jump to [**Start here**](#start-here) for goal-based entry points, or 
 
 | | | |
 |---|---|---|
-| 📚 **132** reference documents | 🧭 **47** discipline learning paths | 🗺️ **28** ATT&CK Navigator coverage layers |
+| 📚 **138** reference documents | 🧭 **47** discipline learning paths | 🗺️ **28** ATT&CK Navigator coverage layers |
 | 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
 | 🔬 **691** detection strategies · **1,739** analytics | 🧬 **969** CWE weaknesses · **615** CAPEC patterns | 🛡️ **156** D3FEND countermeasures |
 | 💳 **123** MITRE F3 fraud techniques (8 tactics) | 🤖 **170** ATLAS AI-attack techniques | 🪤 **31** Engage deception activities |
@@ -139,7 +139,7 @@ machine-readable so you can query them, not just read them.
 
 ## 📚 Explore the library
 
-Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 132 documents.
+Curated highlights by domain — see the [full Reference Index](INDEX.md) for all 138 documents.
 
 <details open>
 <summary><strong>🗡️ Offensive Security</strong> — adversary tradecraft, end to end</summary>
@@ -178,6 +178,8 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Network Defense Reference](NETWORK_DEFENSE_REFERENCE.md) | IDS/IPS, firewall policy, network segmentation, NDR |
 | [Ransomware Defense & Resilience](RANSOMWARE_DEFENSE_REFERENCE.md) | CISA #StopRansomware, NIST IR 8374r1, immutable backups, payment policy |
 | [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md) | CTID Insider Threat TTP KB, NITTF/CISA program guidance, UAM detection |
+| [LOTL Detection Reference](LOTL_DETECTION_REFERENCE.md) | LOLBAS/GTFOBins/LOLDrivers as watchlists, CISA LOTL guidance, WDAC/AppLocker |
+| [Security Data Engineering Reference](SECURITY_DATA_ENGINEERING_REFERENCE.md) | OCSF/ECS/CIM/ASIM schemas, log pipelines, security data lakes |
 
 </details>
 
@@ -199,6 +201,7 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | CIS benchmarks, sysctl, SELinux, auditd, service hardening |
 | [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | Gatekeeper/TCC/XProtect, mSCP and CIS baselines, Endpoint Security telemetry |
 | [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md) | OAuth app governance, CISA SCuBA, SSPM, M365/GWS tenant hardening |
+| [Edge & Network Device Security](EDGE_DEVICE_SECURITY_REFERENCE.md) | BOD 23-02/26-04, edge exploitation record, appliance forensic readiness |
 
 </details>
 
@@ -216,6 +219,7 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | Vault, AWS Secrets Manager, rotation, detection |
 | [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) | Symmetric/asymmetric, TLS, PKI, HSM, quantum-resistant algorithms |
 | [Post-Quantum Migration Reference](POST_QUANTUM_MIGRATION_REFERENCE.md) | HNDL risk, FIPS 203/204/205, CNSA 2.0 timelines, CBOM, crypto-agility |
+| [Data Security Reference](DATA_SECURITY_REFERENCE.md) | Classification and Purview labels, DSPM, DLP channels, egress controls |
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | Hash formats, hashcat/John, credential stuffing defense |
 
 </details>
@@ -232,6 +236,8 @@ Curated highlights by domain — see the [full Reference Index](INDEX.md) for al
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | MTTD/MTTR, vulnerability SLAs, SOC KPIs, FAIR model |
 | [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, attack trees, MITRE ATT&CK integration |
 | [Vulnerability Management Reference](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS, EPSS, CISA KEV, VEX, patch prioritization |
+| [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision trees, KEV/BOD 26-04 timelines, Vulnrichment, CSAF/VEX |
+| [Cyber Resilience & BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md) | NIST SP 800-34, RTO/RPO under cyber scenarios, AD forest recovery |
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA, PbD, data minimization, PIA |
 | [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md) | Zero trust, defense-in-depth, SABSA, enterprise patterns |
 

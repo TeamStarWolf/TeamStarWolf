@@ -1,6 +1,6 @@
 # Impact — Technique Detail
 
-> Full detail pages for the **33 ATT&CK techniques** whose primary tactic is [Impact](https://attack.mitre.org/tactics/TA0040/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **33 ATT&CK techniques** whose primary tactic is [Impact](https://attack.mitre.org/tactics/TA0040/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Adversaries may destroy data and files on specific systems or in large numbers o
 ### T1485.001 — Lifecycle-Triggered Deletion
 <a id="t1485001"></a>
 
-sub-technique of [T1485](impact.md#t1485) · **Tactics:** Impact · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1485/001)  
+sub-technique of [T1485](/techniques/impact.md#t1485) · **Tactics:** Impact · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1485/001)  
 
 Adversaries may modify the lifecycle policies of a cloud storage bucket to destroy all objects stored within. Cloud storage buckets often allow users to set lifecycle policies to automate the migration, archival, or deletion of objects after a set period of time.
 
@@ -93,7 +93,7 @@ Adversaries may modify visual content available internally or externally to an e
 ### T1491.001 — Internal Defacement
 <a id="t1491001"></a>
 
-sub-technique of [T1491](impact.md#t1491) · **Tactics:** Impact · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1491/001)  
+sub-technique of [T1491](/techniques/impact.md#t1491) · **Tactics:** Impact · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1491/001)  
 
 An adversary may deface systems internal to an organization in an attempt to intimidate or mislead users, thus discrediting the integrity of the systems. This may take the form of modifications to internal websites or server login messages, or directly to user systems with the replacement of the desktop wallpaper.
 
@@ -108,7 +108,7 @@ An adversary may deface systems internal to an organization in an attempt to int
 ### T1491.002 — External Defacement
 <a id="t1491002"></a>
 
-sub-technique of [T1491](impact.md#t1491) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1491/002)  
+sub-technique of [T1491](/techniques/impact.md#t1491) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1491/002)  
 
 An adversary may deface systems external to an organization in an attempt to deliver messaging, intimidate, or otherwise mislead an organization or users. External Defacement may ultimately cause users to distrust the systems and to question/discredit the system’s integrity.
 
@@ -149,7 +149,7 @@ Adversaries may leverage the resources of co-opted systems to complete resource-
 ### T1496.001 — Compute Hijacking
 <a id="t1496001"></a>
 
-sub-technique of [T1496](impact.md#t1496) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS, Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/001)  
+sub-technique of [T1496](/techniques/impact.md#t1496) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS, Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/001)  
 
 Adversaries may leverage the compute resources of co-opted systems to complete resource-intensive tasks, which may impact system and/or hosted service availability. One common purpose for Compute Hijacking is to validate transactions of cryptocurrency networks and earn virtual currency.
 
@@ -164,7 +164,7 @@ Adversaries may leverage the compute resources of co-opted systems to complete r
 ### T1496.002 — Bandwidth Hijacking
 <a id="t1496002"></a>
 
-sub-technique of [T1496](impact.md#t1496) · **Tactics:** Impact · **Platforms:** Linux, Windows, macOS, IaaS, Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/002)  
+sub-technique of [T1496](/techniques/impact.md#t1496) · **Tactics:** Impact · **Platforms:** Linux, Windows, macOS, IaaS, Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/002)  
 
 Adversaries may leverage the network bandwidth resources of co-opted systems to complete resource-intensive tasks, which may impact system and/or hosted service availability.
 
@@ -177,7 +177,7 @@ Adversaries may leverage the network bandwidth resources of co-opted systems to 
 ### T1496.003 — SMS Pumping
 <a id="t1496003"></a>
 
-sub-technique of [T1496](impact.md#t1496) · **Tactics:** Impact · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/003)  
+sub-technique of [T1496](/techniques/impact.md#t1496) · **Tactics:** Impact · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/003)  
 
 Adversaries may leverage messaging services for SMS pumping, which may impact system and/or hosted service availability.
 
@@ -190,7 +190,7 @@ Adversaries may leverage messaging services for SMS pumping, which may impact sy
 ### T1496.004 — Cloud Service Hijacking
 <a id="t1496004"></a>
 
-sub-technique of [T1496](impact.md#t1496) · **Tactics:** Impact · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/004)  
+sub-technique of [T1496](/techniques/impact.md#t1496) · **Tactics:** Impact · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1496/004)  
 
 Adversaries may leverage compromised software-as-a-service (SaaS) applications to complete resource-intensive tasks, which may impact hosted service availability.
 
@@ -218,7 +218,7 @@ Adversaries may perform Network Denial of Service (DoS) attacks to degrade or bl
 ### T1498.001 — Direct Network Flood
 <a id="t1498001"></a>
 
-sub-technique of [T1498](impact.md#t1498) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1498/001)  
+sub-technique of [T1498](/techniques/impact.md#t1498) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1498/001)  
 
 Adversaries may attempt to cause a denial of service (DoS) by directly sending a high-volume of network traffic to a target. This DoS attack may also reduce the availability and functionality of the targeted system(s) and network.
 
@@ -231,7 +231,7 @@ Adversaries may attempt to cause a denial of service (DoS) by directly sending a
 ### T1498.002 — Reflection Amplification
 <a id="t1498002"></a>
 
-sub-technique of [T1498](impact.md#t1498) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1498/002)  
+sub-technique of [T1498](/techniques/impact.md#t1498) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1498/002)  
 
 Adversaries may attempt to cause a denial of service (DoS) by reflecting a high-volume of network traffic to a target. This type of Network DoS takes advantage of a third-party server intermediary that hosts and will respond to a given spoofed source IP address. This third-party server is commonly termed a reflector.
 
@@ -259,7 +259,7 @@ Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or b
 ### T1499.001 — OS Exhaustion Flood
 <a id="t1499001"></a>
 
-sub-technique of [T1499](impact.md#t1499) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/001)  
+sub-technique of [T1499](/techniques/impact.md#t1499) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/001)  
 
 Adversaries may launch a denial of service (DoS) attack targeting an endpoint's operating system (OS). A system's OS is responsible for managing the finite resources as well as preventing the entire system from being overwhelmed by excessive demands on its capacity.
 
@@ -272,7 +272,7 @@ Adversaries may launch a denial of service (DoS) attack targeting an endpoint's 
 ### T1499.002 — Service Exhaustion Flood
 <a id="t1499002"></a>
 
-sub-technique of [T1499](impact.md#t1499) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/002)  
+sub-technique of [T1499](/techniques/impact.md#t1499) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/002)  
 
 Adversaries may target the different network services provided by systems to conduct a denial of service (DoS). Adversaries often target the availability of DNS and web services, however others have been targeted as well.
 
@@ -285,7 +285,7 @@ Adversaries may target the different network services provided by systems to con
 ### T1499.003 — Application Exhaustion Flood
 <a id="t1499003"></a>
 
-sub-technique of [T1499](impact.md#t1499) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/003)  
+sub-technique of [T1499](/techniques/impact.md#t1499) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/003)  
 
 Adversaries may target resource intensive features of applications to cause a denial of service (DoS), denying availability to those applications. For example, specific features in web applications may be highly resource intensive.
 
@@ -298,7 +298,7 @@ Adversaries may target resource intensive features of applications to cause a de
 ### T1499.004 — Application or System Exploitation
 <a id="t1499004"></a>
 
-sub-technique of [T1499](impact.md#t1499) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/004)  
+sub-technique of [T1499](/techniques/impact.md#t1499) · **Tactics:** Impact · **Platforms:** Windows, IaaS, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1499/004)  
 
 Adversaries may exploit software vulnerabilities that can cause an application or system to crash and deny availability to users. Some systems may automatically restart critical applications and services when crashes occur, but they can likely be re-exploited to cause a persistent denial of service (DoS) condition.
 
@@ -355,7 +355,7 @@ Adversaries may wipe or corrupt raw disk data on specific systems or in large nu
 ### T1561.001 — Disk Content Wipe
 <a id="t1561001"></a>
 
-sub-technique of [T1561](impact.md#t1561) · **Tactics:** Impact · **Platforms:** Linux, Network Devices, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1561/001)  
+sub-technique of [T1561](/techniques/impact.md#t1561) · **Tactics:** Impact · **Platforms:** Linux, Network Devices, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1561/001)  
 
 Adversaries may erase the contents of storage devices on specific systems or in large numbers in a network to interrupt availability to system and network resources. Adversaries may partially or completely overwrite the contents of a storage device rendering the data irrecoverable through the storage interface.
 
@@ -370,7 +370,7 @@ Adversaries may erase the contents of storage devices on specific systems or in 
 ### T1561.002 — Disk Structure Wipe
 <a id="t1561002"></a>
 
-sub-technique of [T1561](impact.md#t1561) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1561/002)  
+sub-technique of [T1561](/techniques/impact.md#t1561) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1561/002)  
 
 Adversaries may corrupt or wipe the disk data structures on a hard drive necessary to boot a system; targeting specific critical systems or in large numbers in a network to interrupt availability to system and network resources.
 
@@ -399,7 +399,7 @@ Adversaries may insert, delete, or manipulate data in order to influence externa
 ### T1565.001 — Stored Data Manipulation
 <a id="t1565001"></a>
 
-sub-technique of [T1565](impact.md#t1565) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1565/001)  
+sub-technique of [T1565](/techniques/impact.md#t1565) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1565/001)  
 
 Adversaries may insert, delete, or manipulate data at rest in order to influence external outcomes or hide activity, thus threatening the integrity of the data. By manipulating stored data, adversaries may attempt to affect a business process, organizational understanding, and decision making.
 
@@ -414,7 +414,7 @@ Adversaries may insert, delete, or manipulate data at rest in order to influence
 ### T1565.002 — Transmitted Data Manipulation
 <a id="t1565002"></a>
 
-sub-technique of [T1565](impact.md#t1565) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1565/002)  
+sub-technique of [T1565](/techniques/impact.md#t1565) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1565/002)  
 
 Adversaries may alter data en route to storage or other systems in order to manipulate external outcomes or hide activity, thus threatening the integrity of the data. By manipulating transmitted data, adversaries may attempt to affect a business process, organizational understanding, and decision making.
 
@@ -429,7 +429,7 @@ Adversaries may alter data en route to storage or other systems in order to mani
 ### T1565.003 — Runtime Data Manipulation
 <a id="t1565003"></a>
 
-sub-technique of [T1565](impact.md#t1565) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1565/003)  
+sub-technique of [T1565](/techniques/impact.md#t1565) · **Tactics:** Impact · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1565/003)  
 
 Adversaries may modify systems in order to manipulate the data as it is accessed and displayed to an end user, thus threatening the integrity of the data. By manipulating runtime data, adversaries may attempt to affect a business process, organizational understanding, and decision making.
 

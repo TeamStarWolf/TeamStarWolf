@@ -6,7 +6,7 @@
 
 ## Table of Contents
 
-- [1. Linux Privilege Escalation](#1-linux-privilege-escalation)
+- [1. Linux Privilege Escalation](#_1-linux-privilege-escalation)
   - [Initial Enumeration](#initial-enumeration)
   - [SUID/SGID Exploitation](#suidsgid-exploitation)
   - [Sudo Misconfigurations](#sudo-misconfigurations)
@@ -17,25 +17,25 @@
   - [LD_PRELOAD Abuse](#ld_preload-abuse)
   - [NFS no_root_squash](#nfs-no_root_squash)
   - [Kernel Exploits](#kernel-exploits)
-- [2. Windows Privilege Escalation](#2-windows-privilege-escalation)
+- [2. Windows Privilege Escalation](#_2-windows-privilege-escalation)
   - [Initial Enumeration](#initial-enumeration-1)
   - [Unquoted Service Paths](#unquoted-service-paths)
   - [Weak Service Permissions](#weak-service-permissions)
   - [AlwaysInstallElevated](#alwaysinstallelevated)
   - [DLL Hijacking](#dll-hijacking)
   - [Stored Credentials](#stored-credentials)
-  - [PowerShell History / Config Files](#powershell-history--config-files)
+  - [PowerShell History / Config Files](#powershell-history-config-files)
   - [Token Impersonation](#token-impersonation)
   - [Scheduled Tasks](#scheduled-tasks)
   - [Registry AutoRuns](#registry-autoruns)
-- [3. Active Directory Privesc](#3-active-directory-privesc)
-- [4. Cloud Privilege Escalation](#4-cloud-privilege-escalation)
+- [3. Active Directory Privesc](#_3-active-directory-privesc)
+- [4. Cloud Privilege Escalation](#_4-cloud-privilege-escalation)
   - [AWS](#aws)
   - [Azure](#azure)
   - [GCP](#gcp)
-- [5. Automated Tools](#5-automated-tools)
-- [6. MITRE ATT&CK Mappings](#6-mitre-attck-mappings)
-- [7. Related Resources](#7-related-resources)
+- [5. Automated Tools](#_5-automated-tools)
+- [6. MITRE ATT&CK Mappings](#_6-mitre-attampck-mappings)
+- [7. Related Resources](#_7-related-resources)
 
 ---
 

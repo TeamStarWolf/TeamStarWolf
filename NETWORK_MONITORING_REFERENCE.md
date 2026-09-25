@@ -6,17 +6,17 @@
 
 ## Table of Contents
 
-- [Network Monitoring Architecture](#1-network-monitoring-architecture)
-- [Zeek (formerly Bro)](#2-zeek-formerly-bro)
-- [Suricata IDS/IPS](#3-suricata-idsips)
-- [JA3/JA3S TLS Fingerprinting](#4-ja3ja3s-tls-fingerprinting)
-- [NetFlow / IPFIX / sFlow](#5-netflow--ipfix--sflow)
-- [Network Threat Hunting](#6-network-threat-hunting)
-- [DNS Security Monitoring](#7-dns-security-monitoring)
-- [Full Packet Capture](#8-full-packet-capture)
-- [Security Onion Platform](#9-security-onion-platform)
-- [Detection KQL/Elasticsearch](#10-detection-kqlelasticsearch)
-- [Tools Reference Table](#11-tools-reference-table)
+- [Network Monitoring Architecture](#_1-network-monitoring-architecture)
+- [Zeek (formerly Bro)](#_2-zeek-formerly-bro)
+- [Suricata IDS/IPS](#_3-suricata-idsips)
+- [JA3/JA3S TLS Fingerprinting](#_4-ja3ja3s-tls-fingerprinting)
+- [NetFlow / IPFIX / sFlow](#_5-netflow-ipfix-sflow)
+- [Network Threat Hunting](#_6-network-threat-hunting)
+- [DNS Security Monitoring](#_7-dns-security-monitoring)
+- [Full Packet Capture](#_8-full-packet-capture)
+- [Security Onion Platform](#_9-security-onion-platform)
+- [Detection KQL/Elasticsearch](#_10-detection-kqlelasticsearch)
+- [Tools Reference Table](#_11-tools-reference-table)
 
 ---
 

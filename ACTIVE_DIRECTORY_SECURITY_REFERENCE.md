@@ -5,16 +5,16 @@
 ---
 
 ## Table of Contents
-1. [AD Architecture & Security Fundamentals](#1-ad-architecture--security-fundamentals)
-2. [Reconnaissance & Enumeration Detection](#2-reconnaissance--enumeration-detection)
-3. [Kerberos Attack Detection](#3-kerberos-attack-detection)
-4. [Lateral Movement Detection](#4-lateral-movement-detection)
-5. [Privilege Escalation & Persistence](#5-privilege-escalation--persistence)
-6. [Domain Controller Security](#6-domain-controller-security)
-7. [Group Policy Security](#7-group-policy-security)
-8. [AD CS (Certificate Services) Security](#8-ad-cs-certificate-services-security)
-9. [Detection Engineering for AD](#9-detection-engineering-for-ad)
-10. [AD Tiering & Zero Trust](#10-ad-tiering--zero-trust)
+1. [AD Architecture & Security Fundamentals](#_1-ad-architecture-amp-security-fundamentals)
+2. [Reconnaissance & Enumeration Detection](#_2-reconnaissance-amp-enumeration-detection)
+3. [Kerberos Attack Detection](#_3-kerberos-attack-detection)
+4. [Lateral Movement Detection](#_4-lateral-movement-detection)
+5. [Privilege Escalation & Persistence](#_5-privilege-escalation-amp-persistence)
+6. [Domain Controller Security](#_6-domain-controller-security)
+7. [Group Policy Security](#_7-group-policy-security)
+8. [AD CS (Certificate Services) Security](#_8-ad-cs-certificate-services-security)
+9. [Detection Engineering for AD](#_9-detection-engineering-for-ad)
+10. [AD Tiering & Zero Trust](#_10-ad-tiering-amp-zero-trust)
 
 ---
 

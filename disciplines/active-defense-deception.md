@@ -296,8 +296,8 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 ## Related Disciplines
 
-- [Detection Engineering](detection-engineering.md) — Integrating deception alerts into detection pipeline
-- [Threat Intelligence](threat-intelligence.md) — Extracting intel from attacker behavior in deception environments
-- [Security Operations](security-operations.md) — Triaging high-fidelity deception alerts
-- [Incident Response](incident-response.md) — Using deception to slow and study active intrusions
-- [Network Security](network-security.md) — Network-layer deception (fake VLANs, honey services)
+- [Detection Engineering](/disciplines/detection-engineering.md) — Integrating deception alerts into detection pipeline
+- [Threat Intelligence](/disciplines/threat-intelligence.md) — Extracting intel from attacker behavior in deception environments
+- [Security Operations](/disciplines/security-operations.md) — Triaging high-fidelity deception alerts
+- [Incident Response](/disciplines/incident-response.md) — Using deception to slow and study active intrusions
+- [Network Security](/disciplines/network-security.md) — Network-layer deception (fake VLANs, honey services)

@@ -1,6 +1,6 @@
 # Execution — Technique Detail
 
-> Full detail pages for the **45 ATT&CK techniques** whose primary tactic is [Execution](https://attack.mitre.org/tactics/TA0002/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **45 ATT&CK techniques** whose primary tactic is [Execution](https://attack.mitre.org/tactics/TA0002/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -36,7 +36,7 @@ Adversaries may abuse task scheduling functionality to facilitate initial or rec
 ### T1053.002 — At
 <a id="t1053002"></a>
 
-sub-technique of [T1053](execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/002)  
+sub-technique of [T1053](/techniques/execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/002)  
 
 Adversaries may abuse the at utility to perform task scheduling for initial or recurring execution of malicious code. The at utility exists as an executable within Windows, Linux, and macOS for scheduling tasks at a specified time and date.
 
@@ -51,7 +51,7 @@ Adversaries may abuse the at utility to perform task scheduling for initial or r
 ### T1053.003 — Cron
 <a id="t1053003"></a>
 
-sub-technique of [T1053](execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Linux, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/003)  
+sub-technique of [T1053](/techniques/execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Linux, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/003)  
 
 Adversaries may abuse the <code>cron</code> utility to perform task scheduling for initial or recurring execution of malicious code. The <code>cron</code> utility is a time-based job scheduler for Unix-like operating systems.
 
@@ -66,7 +66,7 @@ Adversaries may abuse the <code>cron</code> utility to perform task scheduling f
 ### T1053.005 — Scheduled Task
 <a id="t1053005"></a>
 
-sub-technique of [T1053](execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/005)  
+sub-technique of [T1053](/techniques/execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/005)  
 
 Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code. There are multiple ways to access the Task Scheduler in Windows.
 
@@ -81,7 +81,7 @@ Adversaries may abuse the Windows Task Scheduler to perform task scheduling for 
 ### T1053.006 — Systemd Timers
 <a id="t1053006"></a>
 
-sub-technique of [T1053](execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/006)  
+sub-technique of [T1053](/techniques/execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/006)  
 
 Adversaries may abuse systemd timers to perform task scheduling for initial or recurring execution of malicious code. Systemd timers are unit files with file extension <code>.timer</code> that control services. Timers can be set to run on a calendar event or after a time span relative to a starting point.
 
@@ -94,7 +94,7 @@ Adversaries may abuse systemd timers to perform task scheduling for initial or r
 ### T1053.007 — Container Orchestration Job
 <a id="t1053007"></a>
 
-sub-technique of [T1053](execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/007)  
+sub-technique of [T1053](/techniques/execution.md#t1053) · **Tactics:** Execution, Persistence, Privilege Escalation · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1053/007)  
 
 Adversaries may abuse task scheduling functionality provided by container orchestration tools such as Kubernetes to schedule deployment of containers configured to execute malicious code. Container orchestration jobs run these automated tasks at a specific date and time, similar to cron jobs on a Linux system.
 
@@ -122,7 +122,7 @@ Adversaries may abuse command and script interpreters to execute commands, scrip
 ### T1059.001 — PowerShell
 <a id="t1059001"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/001)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/001)  
 
 Adversaries may abuse PowerShell commands and scripts for execution. PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system. Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code.
 
@@ -137,7 +137,7 @@ Adversaries may abuse PowerShell commands and scripts for execution. PowerShell 
 ### T1059.002 — AppleScript
 <a id="t1059002"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/002)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/002)  
 
 Adversaries may abuse AppleScript for execution. AppleScript is a macOS scripting language designed to control applications and parts of the OS via inter-application messages called AppleEvents. These AppleEvent messages can be sent independently or easily scripted with AppleScript.
 
@@ -151,7 +151,7 @@ Adversaries may abuse AppleScript for execution. AppleScript is a macOS scriptin
 ### T1059.003 — Windows Command Shell
 <a id="t1059003"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/003)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/003)  
 
 Adversaries may abuse the Windows command shell for execution. The Windows command shell (cmd) is the primary command prompt on Windows systems. The Windows command prompt can be used to control almost any aspect of a system, with various permission levels required for different subsets of commands.
 
@@ -166,7 +166,7 @@ Adversaries may abuse the Windows command shell for execution. The Windows comma
 ### T1059.004 — Unix Shell
 <a id="t1059004"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** ESXi, Linux, macOS, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/004)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** ESXi, Linux, macOS, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/004)  
 
 Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the primary command prompt on Linux, macOS, and ESXi systems, though many variations of the Unix shell exist (e.g. sh, ash, bash, zsh, etc.) depending on the specific OS or distribution.
 
@@ -181,7 +181,7 @@ Adversaries may abuse Unix shell commands and scripts for execution. Unix shells
 ### T1059.005 — Visual Basic
 <a id="t1059005"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/005)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/005)  
 
 Adversaries may abuse Visual Basic (VB) for execution. VB is a programming language created by Microsoft with interoperability with many Windows technologies such as Component Object Model and the Native API through the Windows API.
 
@@ -196,7 +196,7 @@ Adversaries may abuse Visual Basic (VB) for execution. VB is a programming langu
 ### T1059.006 — Python
 <a id="t1059006"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/006)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/006)  
 
 Adversaries may abuse Python commands and scripts for execution. Python is a very popular scripting/programming language, with capabilities to perform many functions.
 
@@ -211,7 +211,7 @@ Adversaries may abuse Python commands and scripts for execution. Python is a ver
 ### T1059.007 — JavaScript
 <a id="t1059007"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/007)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/007)  
 
 Adversaries may abuse various implementations of JavaScript for execution. JavaScript (JS) is a platform-independent scripting language (compiled just-in-time at runtime) commonly associated with scripts in webpages, though JS can be executed in runtime environments outside the browser.
 
@@ -226,7 +226,7 @@ Adversaries may abuse various implementations of JavaScript for execution. JavaS
 ### T1059.008 — Network Device CLI
 <a id="t1059008"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/008)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/008)  
 
 Adversaries may abuse scripting or built-in command line interpreters (CLI) on network devices to execute malicious command and payloads.
 
@@ -240,7 +240,7 @@ Adversaries may abuse scripting or built-in command line interpreters (CLI) on n
 ### T1059.009 — Cloud API
 <a id="t1059009"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/009)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/009)  
 
 Adversaries may abuse cloud APIs to execute malicious commands. APIs available in cloud environments provide various functionalities and are a feature-rich method for programmatic access to nearly all aspects of a tenant.
 
@@ -255,7 +255,7 @@ Adversaries may abuse cloud APIs to execute malicious commands. APIs available i
 ### T1059.010 — AutoHotKey & AutoIT
 <a id="t1059010"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/010)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/010)  
 
 Adversaries may execute commands and perform malicious tasks using AutoIT and AutoHotKey automation scripts. AutoIT and AutoHotkey (AHK) are scripting languages that enable users to automate Windows tasks.
 
@@ -270,7 +270,7 @@ Adversaries may execute commands and perform malicious tasks using AutoIT and Au
 ### T1059.011 — Lua
 <a id="t1059011"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Linux, Network Devices, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/011)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Linux, Network Devices, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/011)  
 
 Adversaries may abuse Lua commands and scripts for execution. Lua is a cross-platform scripting and programming language primarily designed for embedded use in applications.
 
@@ -284,7 +284,7 @@ Adversaries may abuse Lua commands and scripts for execution. Lua is a cross-pla
 ### T1059.012 — Hypervisor CLI
 <a id="t1059012"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/012)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/012)  
 
 Adversaries may abuse hypervisor command line interpreters (CLIs) to execute malicious commands. Hypervisor CLIs typically enable a wide variety of functionality for managing both the hypervisor itself and the guest virtual machines it hosts.
 
@@ -299,7 +299,7 @@ Adversaries may abuse hypervisor command line interpreters (CLIs) to execute mal
 ### T1059.013 — Container CLI/API
 <a id="t1059013"></a>
 
-sub-technique of [T1059](execution.md#t1059) · **Tactics:** Execution · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/013)  
+sub-technique of [T1059](/techniques/execution.md#t1059) · **Tactics:** Execution · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1059/013)  
 
 Adversaries may abuse built-in CLI tools or API calls to execute malicious commands in containerized environments. The Docker CLI is used for managing containers via an exposed API point from the `dockerd` daemon.
 
@@ -388,7 +388,7 @@ An adversary may rely upon specific actions by a user in order to gain execution
 ### T1204.001 — Malicious Link
 <a id="t1204001"></a>
 
-sub-technique of [T1204](execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/001)  
+sub-technique of [T1204](/techniques/execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/001)  
 
 An adversary may rely upon a user clicking a malicious link in order to gain execution. Users may be subjected to social engineering to get them to click on a link that will lead to code execution. This user action will typically be observed as follow-on behavior from Spearphishing Link.
 
@@ -403,7 +403,7 @@ An adversary may rely upon a user clicking a malicious link in order to gain exe
 ### T1204.002 — Malicious File
 <a id="t1204002"></a>
 
-sub-technique of [T1204](execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/002)  
+sub-technique of [T1204](/techniques/execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/002)  
 
 An adversary may rely upon a user opening a malicious file in order to gain execution. Users may be subjected to social engineering to get them to open a file that will lead to code execution. This user action will typically be observed as follow-on behavior from Spearphishing Attachment.
 
@@ -418,7 +418,7 @@ An adversary may rely upon a user opening a malicious file in order to gain exec
 ### T1204.003 — Malicious Image
 <a id="t1204003"></a>
 
-sub-technique of [T1204](execution.md#t1204) · **Tactics:** Execution · **Platforms:** IaaS, Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/003)  
+sub-technique of [T1204](/techniques/execution.md#t1204) · **Tactics:** Execution · **Platforms:** IaaS, Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/003)  
 
 Adversaries may rely on a user running a malicious image to facilitate execution. Amazon Web Services (AWS) Amazon Machine Images (AMIs), Google Cloud Platform (GCP) Images, and Azure Images as well as popular container runtimes such as Docker can be backdoored.
 
@@ -432,7 +432,7 @@ Adversaries may rely on a user running a malicious image to facilitate execution
 ### T1204.004 — Malicious Copy and Paste
 <a id="t1204004"></a>
 
-sub-technique of [T1204](execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/004)  
+sub-technique of [T1204](/techniques/execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/004)  
 
 An adversary may rely upon a user copying and pasting code in order to gain execution. Users may be subjected to social engineering to get them to copy and paste code directly into a Command and Scripting Interpreter.
 
@@ -447,7 +447,7 @@ An adversary may rely upon a user copying and pasting code in order to gain exec
 ### T1204.005 — Malicious Library
 <a id="t1204005"></a>
 
-sub-technique of [T1204](execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/005)  
+sub-technique of [T1204](/techniques/execution.md#t1204) · **Tactics:** Execution · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1204/005)  
 
 Adversaries may rely on a user installing a malicious library to facilitate execution. Threat actors may Upload Malware to package managers such as NPM and PyPi, as well as to public code repositories such as GitHub.
 
@@ -475,7 +475,7 @@ Adversaries may abuse inter-process communication (IPC) mechanisms for local cod
 ### T1559.001 — Component Object Model
 <a id="t1559001"></a>
 
-sub-technique of [T1559](execution.md#t1559) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1559/001)  
+sub-technique of [T1559](/techniques/execution.md#t1559) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1559/001)  
 
 Adversaries may use the Windows Component Object Model (COM) for local code execution. COM is an inter-process communication (IPC) component of the native Windows application programming interface (API) that enables interaction between software objects, or executable code that implements one or more interfaces.
 
@@ -490,7 +490,7 @@ Adversaries may use the Windows Component Object Model (COM) for local code exec
 ### T1559.002 — Dynamic Data Exchange
 <a id="t1559002"></a>
 
-sub-technique of [T1559](execution.md#t1559) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1559/002)  
+sub-technique of [T1559](/techniques/execution.md#t1559) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1559/002)  
 
 Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands. DDE is a client-server protocol for one-time and/or continuous inter-process communication (IPC) between applications.
 
@@ -505,7 +505,7 @@ Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary com
 ### T1559.003 — XPC Services
 <a id="t1559003"></a>
 
-sub-technique of [T1559](execution.md#t1559) · **Tactics:** Execution · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1559/003)  
+sub-technique of [T1559](/techniques/execution.md#t1559) · **Tactics:** Execution · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1559/003)  
 
 Adversaries can provide malicious content to an XPC service daemon for local code execution. macOS uses XPC services for basic inter-process communication between various processes, such as between the XPC Service daemon and third-party application privileged helper tools.
 
@@ -531,7 +531,7 @@ Adversaries may abuse system services or daemons to execute commands or programs
 ### T1569.001 — Launchctl
 <a id="t1569001"></a>
 
-sub-technique of [T1569](execution.md#t1569) · **Tactics:** Execution · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1569/001)  
+sub-technique of [T1569](/techniques/execution.md#t1569) · **Tactics:** Execution · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1569/001)  
 
 Adversaries may abuse launchctl to execute commands or programs. Launchctl interfaces with launchd, the service management framework for macOS. Launchctl supports taking subcommands on the command-line, interactively, or even redirected from standard input.
 
@@ -545,7 +545,7 @@ Adversaries may abuse launchctl to execute commands or programs. Launchctl inter
 ### T1569.002 — Service Execution
 <a id="t1569002"></a>
 
-sub-technique of [T1569](execution.md#t1569) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1569/002)  
+sub-technique of [T1569](/techniques/execution.md#t1569) · **Tactics:** Execution · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1569/002)  
 
 Adversaries may abuse the Windows service control manager to execute malicious commands or payloads. The Windows service control manager (<code>services.exe</code>) is an interface to manage and manipulate services.
 
@@ -560,7 +560,7 @@ Adversaries may abuse the Windows service control manager to execute malicious c
 ### T1569.003 — Systemctl
 <a id="t1569003"></a>
 
-sub-technique of [T1569](execution.md#t1569) · **Tactics:** Execution · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1569/003)  
+sub-technique of [T1569](/techniques/execution.md#t1569) · **Tactics:** Execution · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1569/003)  
 
 Adversaries may abuse systemctl to execute commands or programs. Systemctl is the primary interface for systemd, the Linux init system and service manager. Typically invoked from a shell, Systemctl can also be integrated into scripts or applications.
 

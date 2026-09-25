@@ -1,6 +1,6 @@
 # Collection — Technique Detail
 
-> Full detail pages for the **36 ATT&CK techniques** whose primary tactic is [Collection](https://attack.mitre.org/tactics/TA0009/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **36 ATT&CK techniques** whose primary tactic is [Collection](https://attack.mitre.org/tactics/TA0009/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -67,7 +67,7 @@ Adversaries may use methods of capturing user input to obtain credentials or col
 ### T1056.001 — Keylogging
 <a id="t1056001"></a>
 
-sub-technique of [T1056](collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/001)  
+sub-technique of [T1056](/techniques/collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/001)  
 
 Adversaries may log user keystrokes to intercept credentials as the user types them.
 
@@ -82,7 +82,7 @@ Adversaries may log user keystrokes to intercept credentials as the user types t
 ### T1056.002 — GUI Input Capture
 <a id="t1056002"></a>
 
-sub-technique of [T1056](collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** macOS, Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/002)  
+sub-technique of [T1056](/techniques/collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** macOS, Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/002)  
 
 Adversaries may mimic common operating system GUI components to prompt users for credentials with a seemingly legitimate prompt.
 
@@ -97,7 +97,7 @@ Adversaries may mimic common operating system GUI components to prompt users for
 ### T1056.003 — Web Portal Capture
 <a id="t1056003"></a>
 
-sub-technique of [T1056](collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/003)  
+sub-technique of [T1056](/techniques/collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/003)  
 
 Adversaries may install code on externally facing portals, such as a VPN login page, to capture and transmit credentials of users who attempt to log into the service. For example, a compromised login page may log provided user credentials before logging the user in to the service.
 
@@ -112,7 +112,7 @@ Adversaries may install code on externally facing portals, such as a VPN login p
 ### T1056.004 — Credential API Hooking
 <a id="t1056004"></a>
 
-sub-technique of [T1056](collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/004)  
+sub-technique of [T1056](/techniques/collection.md#t1056) · **Tactics:** Collection, Credential Access · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1056/004)  
 
 Adversaries may hook into Windows application programming interface (API) functions and Linux system functions to collect user credentials. Malicious hooking mechanisms may capture API or function calls that include parameters that reveal user authentication credentials.
 
@@ -142,7 +142,7 @@ Adversaries may stage collected data in a central location or directory prior to
 ### T1074.001 — Local Data Staging
 <a id="t1074001"></a>
 
-sub-technique of [T1074](collection.md#t1074) · **Tactics:** Collection · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1074/001)  
+sub-technique of [T1074](/techniques/collection.md#t1074) · **Tactics:** Collection · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1074/001)  
 
 Adversaries may stage collected data in a central location or directory on the local system prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as Archive Collected Data.
 
@@ -157,7 +157,7 @@ Adversaries may stage collected data in a central location or directory on the l
 ### T1074.002 — Remote Data Staging
 <a id="t1074002"></a>
 
-sub-technique of [T1074](collection.md#t1074) · **Tactics:** Collection · **Platforms:** Windows, IaaS, Linux, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1074/002)  
+sub-technique of [T1074](/techniques/collection.md#t1074) · **Tactics:** Collection · **Platforms:** Windows, IaaS, Linux, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1074/002)  
 
 Adversaries may stage data collected from multiple systems in a central location or directory on one system prior to Exfiltration. Data may be kept in separate files or combined into one file through techniques such as Archive Collected Data.
 
@@ -202,7 +202,7 @@ Adversaries may target user email to collect sensitive information. Emails may c
 ### T1114.001 — Local Email Collection
 <a id="t1114001"></a>
 
-sub-technique of [T1114](collection.md#t1114) · **Tactics:** Collection · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1114/001)  
+sub-technique of [T1114](/techniques/collection.md#t1114) · **Tactics:** Collection · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1114/001)  
 
 Adversaries may target user email on local systems to collect sensitive information. Files containing email data can be acquired from a user’s local system, such as Outlook storage or cache files. Outlook stores data locally in offline data files with an extension of .ost.
 
@@ -217,7 +217,7 @@ Adversaries may target user email on local systems to collect sensitive informat
 ### T1114.002 — Remote Email Collection
 <a id="t1114002"></a>
 
-sub-technique of [T1114](collection.md#t1114) · **Tactics:** Collection · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1114/002)  
+sub-technique of [T1114](/techniques/collection.md#t1114) · **Tactics:** Collection · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1114/002)  
 
 Adversaries may target an Exchange server, Office 365, or Google Workspace to collect sensitive information. Adversaries may leverage a user's credentials and interact directly with the Exchange server to acquire information from within a network.
 
@@ -232,7 +232,7 @@ Adversaries may target an Exchange server, Office 365, or Google Workspace to co
 ### T1114.003 — Email Forwarding Rule
 <a id="t1114003"></a>
 
-sub-technique of [T1114](collection.md#t1114) · **Tactics:** Collection · **Platforms:** Linux, macOS, Office Suite, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1114/003)  
+sub-technique of [T1114](/techniques/collection.md#t1114) · **Tactics:** Collection · **Platforms:** Linux, macOS, Office Suite, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1114/003)  
 
 Adversaries may setup email forwarding rules to collect sensitive information. Adversaries may abuse email forwarding rules to monitor the activities of a victim, steal information, and further gain intelligence on the victim or the victim’s organization to use as part of further exploits or operations.
 
@@ -336,7 +336,7 @@ Adversaries may leverage information repositories to mine valuable information.
 ### T1213.001 — Confluence
 <a id="t1213001"></a>
 
-sub-technique of [T1213](collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/001)  
+sub-technique of [T1213](/techniques/collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/001)  
 
 Adversaries may leverage Confluence repositories to mine valuable information.
 
@@ -350,7 +350,7 @@ Adversaries may leverage Confluence repositories to mine valuable information.
 ### T1213.002 — Sharepoint
 <a id="t1213002"></a>
 
-sub-technique of [T1213](collection.md#t1213) · **Tactics:** Collection · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/002)  
+sub-technique of [T1213](/techniques/collection.md#t1213) · **Tactics:** Collection · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/002)  
 
 Adversaries may leverage the SharePoint repository as a source to mine valuable information. SharePoint will often contain useful information for an adversary to learn about the structure and functionality of the internal network and systems.
 
@@ -365,7 +365,7 @@ Adversaries may leverage the SharePoint repository as a source to mine valuable 
 ### T1213.003 — Code Repositories
 <a id="t1213003"></a>
 
-sub-technique of [T1213](collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/003)  
+sub-technique of [T1213](/techniques/collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/003)  
 
 Adversaries may leverage code repositories to collect valuable information. Code repositories are tools/services that store source code and automate software builds. They may be hosted internally or privately on third party sites such as Github, GitLab, SourceForge, and BitBucket.
 
@@ -379,7 +379,7 @@ Adversaries may leverage code repositories to collect valuable information. Code
 ### T1213.004 — Customer Relationship Management Software
 <a id="t1213004"></a>
 
-sub-technique of [T1213](collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/004)  
+sub-technique of [T1213](/techniques/collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/004)  
 
 Adversaries may leverage Customer Relationship Management (CRM) software to mine valuable information. CRM software is used to assist organizations in tracking and managing customer interactions, as well as storing customer data.
 
@@ -392,7 +392,7 @@ Adversaries may leverage Customer Relationship Management (CRM) software to mine
 ### T1213.005 — Messaging Applications
 <a id="t1213005"></a>
 
-sub-technique of [T1213](collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/005)  
+sub-technique of [T1213](/techniques/collection.md#t1213) · **Tactics:** Collection · **Platforms:** SaaS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/005)  
 
 Adversaries may leverage chat and messaging applications, such as Microsoft Teams, Google Chat, and Slack, to mine valuable information.
 
@@ -406,7 +406,7 @@ Adversaries may leverage chat and messaging applications, such as Microsoft Team
 ### T1213.006 — Databases
 <a id="t1213006"></a>
 
-sub-technique of [T1213](collection.md#t1213) · **Tactics:** Collection · **Platforms:** Linux, Windows, macOS, IaaS, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/006)  
+sub-technique of [T1213](/techniques/collection.md#t1213) · **Tactics:** Collection · **Platforms:** Linux, Windows, macOS, IaaS, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1213/006)  
 
 Adversaries may leverage databases to mine valuable information. These databases may be hosted on-premises or in the cloud (both in platform-as-a-service and software-as-a-service environments).
 
@@ -451,7 +451,7 @@ An adversary may compress and/or encrypt data that is collected prior to exfiltr
 ### T1560.001 — Archive via Utility
 <a id="t1560001"></a>
 
-sub-technique of [T1560](collection.md#t1560) · **Tactics:** Collection · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1560/001)  
+sub-technique of [T1560](/techniques/collection.md#t1560) · **Tactics:** Collection · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1560/001)  
 
 Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration. Many utilities include functionalities to compress, encrypt, or otherwise package data into a format that is easier/more secure to transport.
 
@@ -466,7 +466,7 @@ Adversaries may use utilities to compress and/or encrypt collected data prior to
 ### T1560.002 — Archive via Library
 <a id="t1560002"></a>
 
-sub-technique of [T1560](collection.md#t1560) · **Tactics:** Collection · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1560/002)  
+sub-technique of [T1560](/techniques/collection.md#t1560) · **Tactics:** Collection · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1560/002)  
 
 An adversary may compress or encrypt data that is collected prior to exfiltration using 3rd party libraries. Many libraries exist that can archive data, including Python rarfile , libzip , and zlib . Most libraries include functionality to encrypt and/or compress data.
 
@@ -481,7 +481,7 @@ An adversary may compress or encrypt data that is collected prior to exfiltratio
 ### T1560.003 — Archive via Custom Method
 <a id="t1560003"></a>
 
-sub-technique of [T1560](collection.md#t1560) · **Tactics:** Collection · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1560/003)  
+sub-technique of [T1560](/techniques/collection.md#t1560) · **Tactics:** Collection · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1560/003)  
 
 An adversary may compress or encrypt data that is collected prior to exfiltration using a custom method. Adversaries may choose to use custom archival methods, such as encryption with XOR or stream ciphers implemented with no external library or utility references.
 
@@ -509,7 +509,7 @@ Adversaries may collect data related to managed devices from configuration repos
 ### T1602.001 — SNMP (MIB Dump)
 <a id="t1602001"></a>
 
-sub-technique of [T1602](collection.md#t1602) · **Tactics:** Collection · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1602/001)  
+sub-technique of [T1602](/techniques/collection.md#t1602) · **Tactics:** Collection · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1602/001)  
 
 Adversaries may target the Management Information Base (MIB) to collect and/or mine valuable information in a network managed using Simple Network Management Protocol (SNMP). The MIB is a configuration repository that stores variable information accessible via SNMP in the form of object identifiers (OID).
 
@@ -522,7 +522,7 @@ Adversaries may target the Management Information Base (MIB) to collect and/or m
 ### T1602.002 — Network Device Configuration Dump
 <a id="t1602002"></a>
 
-sub-technique of [T1602](collection.md#t1602) · **Tactics:** Collection · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1602/002)  
+sub-technique of [T1602](/techniques/collection.md#t1602) · **Tactics:** Collection · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1602/002)  
 
 Adversaries may access network configuration files to collect sensitive data about the device and the network. The network configuration is a file containing parameters that determine the operation of the device.
 

@@ -6,17 +6,17 @@
 
 ## Table of Contents
 
-- [1. AD Fundamentals for Attackers](#1-ad-fundamentals-for-attackers)
-- [2. Enumeration & Reconnaissance](#2-enumeration--reconnaissance)
-- [3. Credential Attacks](#3-credential-attacks)
-- [4. Kerberos Attacks](#4-kerberos-attacks)
-- [5. Lateral Movement](#5-lateral-movement)
-- [6. Credential Harvesting](#6-credential-harvesting)
-- [7. Domain Persistence](#7-domain-persistence)
-- [8. AD Certificate Services (ADCS) Attacks — ESC1–ESC8](#8-ad-certificate-services-adcs-attacks--esc1esc8)
-- [9. Domain Trust Attacks](#9-domain-trust-attacks)
-- [10. Tools Quick Reference](#10-tools-quick-reference)
-- [11. Detection & Defense Summary](#11-detection--defense-summary)
+- [1. AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers)
+- [2. Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance)
+- [3. Credential Attacks](#_3-credential-attacks)
+- [4. Kerberos Attacks](#_4-kerberos-attacks)
+- [5. Lateral Movement](#_5-lateral-movement)
+- [6. Credential Harvesting](#_6-credential-harvesting)
+- [7. Domain Persistence](#_7-domain-persistence)
+- [8. AD Certificate Services (ADCS) Attacks — ESC1–ESC8](#_8-ad-certificate-services-adcs-attacks-esc1esc8)
+- [9. Domain Trust Attacks](#_9-domain-trust-attacks)
+- [10. Tools Quick Reference](#_10-tools-quick-reference)
+- [11. Detection & Defense Summary](#_11-detection-amp-defense-summary)
 
 ---
 

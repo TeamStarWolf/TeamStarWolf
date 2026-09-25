@@ -9,16 +9,16 @@ and reviewing security architectures across modern enterprise environments.
 
 ## Table of Contents
 
-1. [Security Architecture Fundamentals](#1-security-architecture-fundamentals)
-2. [Zero Trust Architecture](#2-zero-trust-architecture)
-3. [Network Security Architecture](#3-network-security-architecture)
-4. [Cloud Security Architecture](#4-cloud-security-architecture)
-5. [Application Security Architecture](#5-application-security-architecture)
-6. [Data Security Architecture](#6-data-security-architecture)
-7. [Identity Architecture](#7-identity-architecture)
-8. [Security Operations Architecture](#8-security-operations-architecture)
-9. [Resilience Architecture](#9-resilience-architecture)
-10. [Architecture Review Process](#10-architecture-review-process)
+1. [Security Architecture Fundamentals](#_1-security-architecture-fundamentals)
+2. [Zero Trust Architecture](#_2-zero-trust-architecture)
+3. [Network Security Architecture](#_3-network-security-architecture)
+4. [Cloud Security Architecture](#_4-cloud-security-architecture)
+5. [Application Security Architecture](#_5-application-security-architecture)
+6. [Data Security Architecture](#_6-data-security-architecture)
+7. [Identity Architecture](#_7-identity-architecture)
+8. [Security Operations Architecture](#_8-security-operations-architecture)
+9. [Resilience Architecture](#_9-resilience-architecture)
+10. [Architecture Review Process](#_10-architecture-review-process)
 
 ---
 

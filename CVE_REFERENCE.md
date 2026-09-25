@@ -6,20 +6,20 @@
 ---
 
 ## Table of Contents
-1. [CVE Program & NVD Architecture](#s1)
-2. [CVSS v3.1 Deep Dive](#s2)
-3. [CVSS v4.0](#s3)
-4. [EPSS -- Exploit Prediction Scoring System](#s4)
-5. [CISA KEV Catalog](#s5)
-6. [Vulnerability Databases & Feeds](#s6)
-7. [Vulnerability Research & Disclosure](#s7)
-8. [Patch Management & Remediation](#s8)
-9. [Notable CVEs & Case Studies](#s9)
-10. [CVE Automation & Tooling](#s10)
+1. [CVE Program & NVD Architecture](#_1-cve-program-amp-nvd-architecture)
+2. [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive)
+3. [CVSS v4.0](#_3-cvss-v40)
+4. [EPSS -- Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system)
+5. [CISA KEV Catalog](#_5-cisa-kev-catalog)
+6. [Vulnerability Databases & Feeds](#_6-vulnerability-databases-amp-feeds)
+7. [Vulnerability Research & Disclosure](#_7-vulnerability-research-amp-disclosure)
+8. [Patch Management & Remediation](#_8-patch-management-amp-remediation)
+9. [Notable CVEs & Case Studies](#_9-notable-cves-amp-case-studies)
+10. [CVE Automation & Tooling](#_10-cve-automation-amp-tooling)
 
 ---
 
-## 1. CVE Program & NVD Architecture {#s1}
+## 1. CVE Program & NVD Architecture
 
 ### History & Scale
 The Common Vulnerabilities and Exposures (CVE) program was established in 1999
@@ -121,7 +121,7 @@ NVD (nvd.nist.gov) independently adds to each published CVE record:
 
 ---
 
-## 2. CVSS v3.1 Deep Dive {#s2}
+## 2. CVSS v3.1 Deep Dive
 
 ### Base Metric Weights
 
@@ -211,7 +211,7 @@ CR/IR/AR (Requirement modifiers): Low 0.50 | Medium 1.00 | High 1.50
 
 ---
 
-## 3. CVSS v4.0 {#s3}
+## 3. CVSS v4.0
 
 Released by FIRST, October 2023. Significant structural changes from v3.1.
 
@@ -282,7 +282,7 @@ Calculator: https://www.first.org/cvss/calculator/4-0
 
 ---
 
-## 4. EPSS -- Exploit Prediction Scoring System {#s4}
+## 4. EPSS -- Exploit Prediction Scoring System
 
 ### What EPSS Measures
 EPSS (maintained by FIRST) answers: **"What is the probability this CVE will
@@ -354,7 +354,7 @@ Only **5-7% of all published CVEs** are ever exploited. EPSS identifies which.
 
 ---
 
-## 5. CISA KEV Catalog {#s5}
+## 5. CISA KEV Catalog
 
 ### Legal Authority
 **BOD 22-01** (November 3, 2021): Federal Civilian Executive Branch (FCEB)
@@ -431,7 +431,7 @@ Feed structure:
 
 ---
 
-## 6. Vulnerability Databases & Feeds {#s6}
+## 6. Vulnerability Databases & Feeds
 
 ### NVD REST API v2.0
 
@@ -574,7 +574,7 @@ GraphQL:
 
 ---
 
-## 7. Vulnerability Research & Disclosure {#s7}
+## 7. Vulnerability Research & Disclosure
 
 ### Finding Vulnerabilities
 
@@ -683,7 +683,7 @@ Platforms: HackerOne, Bugcrowd, Intigriti, Synack (invite-only), YesWeHack
 
 ---
 
-## 8. Patch Management & Remediation {#s8}
+## 8. Patch Management & Remediation
 
 ### Scanner Output
 
@@ -761,7 +761,7 @@ Commands:
 
 ---
 
-## 9. Notable CVEs & Case Studies {#s9}
+## 9. Notable CVEs & Case Studies
 
 ### CVE-2021-44228 -- Log4Shell
 
@@ -888,7 +888,7 @@ Oct 10, 2023 patch release due to slow enterprise edge infrastructure patching.
 
 ---
 
-## 10. CVE Automation & Tooling {#s10}
+## 10. CVE Automation & Tooling
 
 ### NVD API Python Client with SQLite Cache
 

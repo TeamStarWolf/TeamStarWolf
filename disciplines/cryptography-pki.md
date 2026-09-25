@@ -368,9 +368,9 @@ nmap --script ssl-enum-ciphers -p 443 target.com
 
 ## Related Disciplines
 
-- [Supply Chain Security](supply-chain-security.md) — Code signing, SBOM, artifact provenance
-- [DevSecOps](devsecops.md) — Secrets scanning, certificate management in pipelines
-- [Security Architecture](security-architecture.md) — TLS design, zero trust mutual auth
-- [Cloud Security](cloud-security.md) — KMS, cloud certificate management, CloudHSM
-- [Hardware Security](hardware-security.md) — HSMs, TPMs, hardware-backed key storage
-- [Identity & Access Management](identity-access-management.md) — Certificate-based authentication, PKI-backed MFA
+- [Supply Chain Security](/disciplines/supply-chain-security.md) — Code signing, SBOM, artifact provenance
+- [DevSecOps](/disciplines/devsecops.md) — Secrets scanning, certificate management in pipelines
+- [Security Architecture](/disciplines/security-architecture.md) — TLS design, zero trust mutual auth
+- [Cloud Security](/disciplines/cloud-security.md) — KMS, cloud certificate management, CloudHSM
+- [Hardware Security](/disciplines/hardware-security.md) — HSMs, TPMs, hardware-backed key storage
+- [Identity & Access Management](/disciplines/identity-access-management.md) — Certificate-based authentication, PKI-backed MFA

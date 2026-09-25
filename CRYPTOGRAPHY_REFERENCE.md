@@ -7,16 +7,16 @@
 
 ## Table of Contents
 
-1. [Symmetric Cryptography](#1-symmetric-cryptography)
-2. [Asymmetric Cryptography](#2-asymmetric-cryptography)
-3. [Hash Functions](#3-hash-functions)
-4. [Public Key Infrastructure (PKI)](#4-public-key-infrastructure-pki)
-5. [TLS/SSL Security](#5-tlsssl-security)
-6. [Random Number Generation](#6-random-number-generation)
-7. [Cryptographic Attacks](#7-cryptographic-attacks)
-8. [Applied Cryptography](#8-applied-cryptography)
-9. [Cryptographic Libraries and Implementation](#9-cryptographic-libraries-and-implementation)
-10. [Compliance and Standards](#10-compliance-and-standards)
+1. [Symmetric Cryptography](#_1-symmetric-cryptography)
+2. [Asymmetric Cryptography](#_2-asymmetric-cryptography)
+3. [Hash Functions](#_3-hash-functions)
+4. [Public Key Infrastructure (PKI)](#_4-public-key-infrastructure-pki)
+5. [TLS/SSL Security](#_5-tlsssl-security)
+6. [Random Number Generation](#_6-random-number-generation)
+7. [Cryptographic Attacks](#_7-cryptographic-attacks)
+8. [Applied Cryptography](#_8-applied-cryptography)
+9. [Cryptographic Libraries and Implementation](#_9-cryptographic-libraries-and-implementation)
+10. [Compliance and Standards](#_10-compliance-and-standards)
 
 ---
 

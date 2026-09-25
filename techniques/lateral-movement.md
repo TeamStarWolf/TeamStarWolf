@@ -1,6 +1,6 @@
 # Lateral Movement — Technique Detail
 
-> Full detail pages for the **17 ATT&CK techniques** whose primary tactic is [Lateral Movement](https://attack.mitre.org/tactics/TA0008/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **17 ATT&CK techniques** whose primary tactic is [Lateral Movement](https://attack.mitre.org/tactics/TA0008/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Adversaries may use Valid Accounts to log into a service that accepts remote con
 ### T1021.001 — Remote Desktop Protocol
 <a id="t1021001"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/001)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/001)  
 
 Adversaries may use Valid Accounts to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user. Remote desktop is a common feature in operating systems.
 
@@ -37,7 +37,7 @@ Adversaries may use Valid Accounts to log into a computer using the Remote Deskt
 ### T1021.002 — SMB/Windows Admin Shares
 <a id="t1021002"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/002)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/002)  
 
 Adversaries may use Valid Accounts to interact with a remote network share using Server Message Block (SMB). The adversary may then perform actions as the logged-on user. SMB is a file, printer, and serial port sharing protocol for Windows machines on the same network or domain.
 
@@ -52,7 +52,7 @@ Adversaries may use Valid Accounts to interact with a remote network share using
 ### T1021.003 — Distributed Component Object Model
 <a id="t1021003"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/003)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/003)  
 
 Adversaries may use Valid Accounts to interact with remote machines by taking advantage of Distributed Component Object Model (DCOM). The adversary may then perform actions as the logged-on user.
 
@@ -66,7 +66,7 @@ Adversaries may use Valid Accounts to interact with remote machines by taking ad
 ### T1021.004 — SSH
 <a id="t1021004"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** ESXi, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/004)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** ESXi, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/004)  
 
 Adversaries may use Valid Accounts to log into remote machines using Secure Shell (SSH). The adversary may then perform actions as the logged-on user. SSH is a protocol that allows authorized users to open remote shells on other computers.
 
@@ -81,7 +81,7 @@ Adversaries may use Valid Accounts to log into remote machines using Secure Shel
 ### T1021.005 — VNC
 <a id="t1021005"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/005)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/005)  
 
 Adversaries may use Valid Accounts to remotely control machines using Virtual Network Computing (VNC).
 
@@ -96,7 +96,7 @@ Adversaries may use Valid Accounts to remotely control machines using Virtual Ne
 ### T1021.006 — Windows Remote Management
 <a id="t1021006"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/006)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/006)  
 
 Adversaries may use Valid Accounts to interact with remote systems using Windows Remote Management (WinRM). The adversary may then perform actions as the logged-on user.
 
@@ -111,7 +111,7 @@ Adversaries may use Valid Accounts to interact with remote systems using Windows
 ### T1021.007 — Cloud Services
 <a id="t1021007"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/007)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/007)  
 
 Adversaries may log into accessible cloud services within a compromised environment using Valid Accounts that are synchronized with or federated to on-premises user identities. The adversary may then perform management actions or access cloud-hosted resources as the logged-on user.
 
@@ -125,7 +125,7 @@ Adversaries may log into accessible cloud services within a compromised environm
 ### T1021.008 — Direct Cloud VM Connections
 <a id="t1021008"></a>
 
-sub-technique of [T1021](lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/008)  
+sub-technique of [T1021](/techniques/lateral-movement.md#t1021) · **Tactics:** Lateral Movement · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1021/008)  
 
 Adversaries may leverage Valid Accounts to log directly into accessible cloud hosted compute infrastructure through cloud native methods.
 
@@ -210,7 +210,7 @@ Adversaries may take control of preexisting sessions with remote services to mov
 ### T1563.001 — SSH Hijacking
 <a id="t1563001"></a>
 
-sub-technique of [T1563](lateral-movement.md#t1563) · **Tactics:** Lateral Movement · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1563/001)  
+sub-technique of [T1563](/techniques/lateral-movement.md#t1563) · **Tactics:** Lateral Movement · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1563/001)  
 
 Adversaries may hijack a legitimate user's SSH session to move laterally within an environment. Secure Shell (SSH) is a standard means of remote access on Linux and macOS systems.
 
@@ -224,7 +224,7 @@ Adversaries may hijack a legitimate user's SSH session to move laterally within 
 ### T1563.002 — RDP Hijacking
 <a id="t1563002"></a>
 
-sub-technique of [T1563](lateral-movement.md#t1563) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1563/002)  
+sub-technique of [T1563](/techniques/lateral-movement.md#t1563) · **Tactics:** Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1563/002)  
 
 Adversaries may hijack a legitimate user’s remote desktop session to move laterally within an environment. Remote desktop is a common feature in operating systems. It allows a user to log into an interactive session with a system desktop graphical user interface on a remote system.
 

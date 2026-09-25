@@ -245,10 +245,10 @@ Understanding how attackers target ZTA implementations is essential for defender
 
 ## Related Disciplines
 
-- [identity-and-access-management.md](identity-and-access-management.md)
-- [cloud-security.md](cloud-security.md)
-- [network-security.md](network-security.md)
-- [endpoint-security.md](endpoint-security.md)
-- [privileged-access-management.md](privileged-access-management.md)
-- [siem-soar.md](siem-soar.md)
-- [threat-modeling.md](threat-modeling.md)
+- [identity-and-access-management.md](/disciplines/identity-access-management.md)
+- [cloud-security.md](/disciplines/cloud-security.md)
+- [network-security.md](/disciplines/network-security.md)
+- [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+- [Identity & Access Management](/disciplines/identity-access-management.md)
+- [siem-soar.md](/disciplines/siem-soar.md)
+- [threat-modeling.md](/disciplines/threat-modeling.md)

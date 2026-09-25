@@ -6,15 +6,15 @@
 
 ## Table of Contents
 
-1. [What is MCP (Model Context Protocol)](#1-what-is-mcp-model-context-protocol)
-2. [MCP Security Threat Model](#2-mcp-security-threat-model)
-3. [MCP Security Hardening](#3-mcp-security-hardening)
-4. [AI/LLM Security Fundamentals](#4-aillm-security-fundamentals)
-5. [MITRE ATLAS Techniques](#5-mitre-atlas-techniques)
-6. [MITRE ATLAS Mitigations](#6-mitre-atlas-mitigations)
-7. [AI Security Controls for Enterprise](#7-ai-security-controls-for-enterprise)
-8. [OWASP Top 10 for LLMs 2025](#8-owasp-top-10-for-llms-2025)
-9. [Regulatory Framework](#9-regulatory-framework)
+1. [What is MCP (Model Context Protocol)](#_1-what-is-mcp-model-context-protocol)
+2. [MCP Security Threat Model](#_2-mcp-security-threat-model)
+3. [MCP Security Hardening](#_3-mcp-security-hardening)
+4. [AI/LLM Security Fundamentals](#_4-aillm-security-fundamentals)
+5. [MITRE ATLAS Techniques](#_5-mitre-atlas-techniques)
+6. [MITRE ATLAS Mitigations](#_6-mitre-atlas-mitigations)
+7. [AI Security Controls for Enterprise](#_7-ai-security-controls-for-enterprise)
+8. [OWASP Top 10 for LLMs 2025](#_8-owasp-top-10-for-llms-2025)
+9. [Regulatory Framework](#_9-regulatory-framework)
 
 ---
 

@@ -188,9 +188,9 @@ ATT&CK for ICS documents techniques used in real campaigns against industrial en
 
 ## Related Disciplines
 
-- [Network Security](network-security.md)
-- [IoT Security](iot-security.md)
-- [Incident Response](incident-response.md)
-- [Threat Intelligence](threat-intelligence.md)
-- [Hardware Security](hardware-security.md)
-- [Governance, Risk & Compliance](governance-risk-compliance.md)
+- [Network Security](/disciplines/network-security.md)
+- [IoT Security](/disciplines/iot-security.md)
+- [Incident Response](/disciplines/incident-response.md)
+- [Threat Intelligence](/disciplines/threat-intelligence.md)
+- [Hardware Security](/disciplines/hardware-security.md)
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md)

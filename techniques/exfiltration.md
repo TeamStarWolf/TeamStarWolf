@@ -1,6 +1,6 @@
 # Exfiltration — Technique Detail
 
-> Full detail pages for the **19 ATT&CK techniques** whose primary tactic is [Exfiltration](https://attack.mitre.org/tactics/TA0010/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **19 ATT&CK techniques** whose primary tactic is [Exfiltration](https://attack.mitre.org/tactics/TA0010/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -20,7 +20,7 @@ Adversaries may attempt to exfiltrate data over a different network medium than 
 ### T1011.001 — Exfiltration Over Bluetooth
 <a id="t1011001"></a>
 
-sub-technique of [T1011](exfiltration.md#t1011) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1011/001)  
+sub-technique of [T1011](/techniques/exfiltration.md#t1011) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1011/001)  
 
 Adversaries may attempt to exfiltrate data over Bluetooth rather than the command and control channel. If the command and control network is a wired Internet connection, an adversary may opt to exfiltrate data using a Bluetooth communication channel.
 
@@ -49,7 +49,7 @@ Adversaries may exfiltrate data, such as sensitive documents, through the use of
 ### T1020.001 — Traffic Duplication
 <a id="t1020001"></a>
 
-sub-technique of [T1020](exfiltration.md#t1020) · **Tactics:** Exfiltration · **Platforms:** Network Devices, IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1020/001)  
+sub-technique of [T1020](/techniques/exfiltration.md#t1020) · **Tactics:** Exfiltration · **Platforms:** Network Devices, IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1020/001)  
 
 Adversaries may leverage traffic mirroring in order to automate data exfiltration over compromised infrastructure. Traffic mirroring is a native feature for some devices, often used for network analysis.
 
@@ -122,7 +122,7 @@ Adversaries may steal data by exfiltrating it over a different protocol than tha
 ### T1048.001 — Exfiltration Over Symmetric Encrypted Non-C2 Protocol
 <a id="t1048001"></a>
 
-sub-technique of [T1048](exfiltration.md#t1048) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1048/001)  
+sub-technique of [T1048](/techniques/exfiltration.md#t1048) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1048/001)  
 
 Adversaries may steal data by exfiltrating it over a symmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.
 
@@ -135,7 +135,7 @@ Adversaries may steal data by exfiltrating it over a symmetrically encrypted net
 ### T1048.002 — Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
 <a id="t1048002"></a>
 
-sub-technique of [T1048](exfiltration.md#t1048) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1048/002)  
+sub-technique of [T1048](/techniques/exfiltration.md#t1048) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1048/002)  
 
 Adversaries may steal data by exfiltrating it over an asymmetrically encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.
 
@@ -150,7 +150,7 @@ Adversaries may steal data by exfiltrating it over an asymmetrically encrypted n
 ### T1048.003 — Exfiltration Over Unencrypted Non-C2 Protocol
 <a id="t1048003"></a>
 
-sub-technique of [T1048](exfiltration.md#t1048) · **Tactics:** Exfiltration · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1048/003)  
+sub-technique of [T1048](/techniques/exfiltration.md#t1048) · **Tactics:** Exfiltration · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1048/003)  
 
 Adversaries may steal data by exfiltrating it over an un-encrypted network protocol other than that of the existing command and control channel. The data may also be sent to an alternate network location from the main command and control server.
 
@@ -178,7 +178,7 @@ Adversaries may attempt to exfiltrate data via a physical medium, such as a remo
 ### T1052.001 — Exfiltration over USB
 <a id="t1052001"></a>
 
-sub-technique of [T1052](exfiltration.md#t1052) · **Tactics:** Exfiltration · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1052/001)  
+sub-technique of [T1052](/techniques/exfiltration.md#t1052) · **Tactics:** Exfiltration · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1052/001)  
 
 Adversaries may attempt to exfiltrate data over a USB connected physical device. In certain circumstances, such as an air-gapped network compromise, exfiltration could occur via a USB device introduced by a user.
 
@@ -222,7 +222,7 @@ Adversaries may use an existing, legitimate external Web service to exfiltrate d
 ### T1567.001 — Exfiltration to Code Repository
 <a id="t1567001"></a>
 
-sub-technique of [T1567](exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/001)  
+sub-technique of [T1567](/techniques/exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/001)  
 
 Adversaries may exfiltrate data to a code repository rather than over their primary command and control channel. Code repositories are often accessible via an API (ex: https://api.github.com). Access to these APIs are often over HTTPS, which gives the adversary an additional level of protection.
 
@@ -236,7 +236,7 @@ Adversaries may exfiltrate data to a code repository rather than over their prim
 ### T1567.002 — Exfiltration to Cloud Storage
 <a id="t1567002"></a>
 
-sub-technique of [T1567](exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/002)  
+sub-technique of [T1567](/techniques/exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/002)  
 
 Adversaries may exfiltrate data to a cloud storage service rather than over their primary command and control channel. Cloud storage services allow for the storage, edit, and retrieval of data from a remote cloud storage server over the Internet. Examples of cloud storage services include Dropbox and Google Docs.
 
@@ -251,7 +251,7 @@ Adversaries may exfiltrate data to a cloud storage service rather than over thei
 ### T1567.003 — Exfiltration to Text Storage Sites
 <a id="t1567003"></a>
 
-sub-technique of [T1567](exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/003)  
+sub-technique of [T1567](/techniques/exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/003)  
 
 Adversaries may exfiltrate data to text storage sites instead of their primary command and control channel. Text storage sites, such as <code>pastebin[.]com</code>, are commonly used by developers to share code and other information.
 
@@ -264,7 +264,7 @@ Adversaries may exfiltrate data to text storage sites instead of their primary c
 ### T1567.004 — Exfiltration Over Webhook
 <a id="t1567004"></a>
 
-sub-technique of [T1567](exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** Windows, macOS, Linux, SaaS, Office Suite, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/004)  
+sub-technique of [T1567](/techniques/exfiltration.md#t1567) · **Tactics:** Exfiltration · **Platforms:** Windows, macOS, Linux, SaaS, Office Suite, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1567/004)  
 
 Adversaries may exfiltrate data to a webhook endpoint rather than over their primary command and control channel. Webhooks are simple mechanisms for allowing a server to push data over HTTP/S to a client without the need for the client to continuously poll the server.
 

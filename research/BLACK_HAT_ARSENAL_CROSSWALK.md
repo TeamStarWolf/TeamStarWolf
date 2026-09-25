@@ -82,7 +82,7 @@ The goal is not to mirror Arsenal entry-for-entry. The goal is to turn a confere
 
 |---|---|
 
-| [CURATED_STARS_LISTS.md](CURATED_STARS_LISTS.md) | Expand list descriptions with tool-first examples that come from a known conference catalog instead of random repo browsing |
+| [CURATED_STARS_LISTS.md](/research/CURATED_STARS_LISTS.md) | Expand list descriptions with tool-first examples that come from a known conference catalog instead of random repo browsing |
 
 | [../STARRED_REPOS.md](../STARRED_REPOS.md) | Maintain a clear review queue of strong Arsenal repos that are not yet part of the starred index |
 

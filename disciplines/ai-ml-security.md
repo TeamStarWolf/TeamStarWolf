@@ -103,7 +103,7 @@ For Large Language Model security, see the related disciplines below. Key LLM-sp
 - **Training Data Memorization**: Models that regurgitate verbatim training data including PII and credentials
 - **Indirect Prompt Injection**: Malicious instructions embedded in documents, web pages, or tool outputs that the LLM processes
 
-See [Adversarial AI Attacks](adversarial-ai-attacks.md) and [AI LLM Security](ai-llm-security.md) for detailed LLM threat coverage.
+See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM Security](/disciplines/ai-llm-security.md) for detailed LLM threat coverage.
 
 ## Certifications
 
@@ -205,10 +205,10 @@ print(f"Equalized Odds Difference: {eod}")
 
 ## Related Disciplines
 
-- [Adversarial AI Attacks](adversarial-ai-attacks.md)
-- [AI LLM Security](ai-llm-security.md)
-- [Application Security](application-security.md)
-- [Cloud Security](cloud-security.md)
-- [Supply Chain Security](supply-chain-security.md)
-- [Data Security](data-security.md)
-- [DevSecOps](devsecops.md)
+- [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md)
+- [AI LLM Security](/disciplines/ai-llm-security.md)
+- [Application Security](/disciplines/application-security.md)
+- [Cloud Security](/disciplines/cloud-security.md)
+- [Supply Chain Security](/disciplines/supply-chain-security.md)
+- [Data Security](/disciplines/data-security.md)
+- [DevSecOps](/disciplines/devsecops.md)

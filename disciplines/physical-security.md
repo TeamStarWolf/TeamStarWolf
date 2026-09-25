@@ -221,10 +221,10 @@ A physical penetration test follows a structured kill chain:
 ---
 ## Related Disciplines
 
-- [Social Engineering](social-engineering.md)
-- [Red Teaming](red-teaming.md)
-- [Penetration Testing](penetration-testing.md)
-- [Hardware Security](hardware-security.md)
-- [Identity Access Management](identity-access-management.md)
-- [Security Awareness](security-awareness.md)
-- [OSINT](osint.md)
+- [Social Engineering](/disciplines/social-engineering.md)
+- [Red Teaming](/disciplines/red-teaming.md)
+- [Penetration Testing](/disciplines/penetration-testing.md)
+- [Hardware Security](/disciplines/hardware-security.md)
+- [Identity Access Management](/disciplines/identity-access-management.md)
+- [Security Awareness](/disciplines/security-awareness.md)
+- [OSINT](/disciplines/osint.md)

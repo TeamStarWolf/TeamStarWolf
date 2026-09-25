@@ -123,7 +123,7 @@ Tracks created by industry partners for recruitment or team development.
 | Mobile Exploitation | [Mobile Security](../disciplines/mobile-security.md) |
 | Intro to Blockchain | [Blockchain and Web3 Security](../disciplines/blockchain-web3-security.md) |
 | Hardware Exploitation | [IoT Security](../disciplines/iot-security.md) |
-| Quantum Exploitation | [Cryptography](../disciplines/cryptography.md) |
+| Quantum Exploitation | [Cryptography](/disciplines/cryptography-pki.md) |
 | AI and ML Exploitation | [AI/ML Security](../disciplines/ai-ml-security.md) |
 | CREST CRT / CREST CCT INF / CREST CCT APP | [Certifications](../CERTIFICATIONS.md) |
 
@@ -152,7 +152,7 @@ Tracks created by industry partners for recruitment or team development.
 ---
 
 ## Related Resources
-- [HTB Machine Index](HTB_MACHINE_INDEX.md) — 127 retired machines indexed by difficulty and skill
+- [HTB Machine Index](/research/HTB_MACHINE_INDEX.md) — 127 retired machines indexed by difficulty and skill
 - [Labs Reference](../LABS.md) — all practice platforms including HTB, THM, BTLO
 - [Certifications](../CERTIFICATIONS.md) — cert guide with CREST, HTB, OSCP and 40+ more
 - [HackTheBox Tracks](https://app.hackthebox.com/tracks) — live tracks on HTB (login required)

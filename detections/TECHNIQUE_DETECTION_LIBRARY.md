@@ -29,19 +29,19 @@ These analytics are seeded and adapted from open community detection sources. Co
 
 | ATT&CK ID | Technique | Tactic(s) | Queries | NIST 800-53 controls |
 |---|---|---|---|---|
-| [T1003.001](#t1003001) | LSASS Memory | Credential Access | 5 | 19 controls |
-| [T1018](#t1018) | Remote System Discovery | Discovery | 5 | 0 controls |
-| [T1021.001](#t1021001) | Remote Desktop Protocol | Lateral Movement | 5 | 23 controls |
-| [T1027](#t1027) | Obfuscated Files or Information | Defense Evasion | 5 | 8 controls |
-| [T1053.005](#t1053005) | Scheduled Task | Execution, Persistence, Privilege Escalation | 5 | 13 controls |
-| [T1055](#t1055) | Process Injection | Defense Evasion, Privilege Escalation | 5 | 12 controls |
-| [T1059.001](#t1059001) | PowerShell | Execution | 5 | 19 controls |
-| [T1078](#t1078) | Valid Accounts | Defense Evasion, Persistence, Privilege Escalation, Initial Access | 5 | 25 controls |
-| [T1110](#t1110) | Brute Force | Credential Access | 5 | 14 controls |
-| [T1190](#t1190) | Exploit Public-Facing Application | Initial Access | 5 | 29 controls |
-| [T1486](#t1486) | Data Encrypted for Impact | Impact | 5 | 11 controls |
-| [T1547.001](#t1547001) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | 5 | 0 controls |
-| [T1566.001](#t1566001) | Spearphishing Attachment | Initial Access | 5 | 12 controls |
+| [T1003.001](#t1003001-lsass-memory) | LSASS Memory | Credential Access | 5 | 19 controls |
+| [T1018](#t1018-remote-system-discovery) | Remote System Discovery | Discovery | 5 | 0 controls |
+| [T1021.001](#t1021001-remote-desktop-protocol) | Remote Desktop Protocol | Lateral Movement | 5 | 23 controls |
+| [T1027](#t1027-obfuscated-files-or-information) | Obfuscated Files or Information | Defense Evasion | 5 | 8 controls |
+| [T1053.005](#t1053005-scheduled-task) | Scheduled Task | Execution, Persistence, Privilege Escalation | 5 | 13 controls |
+| [T1055](#t1055-process-injection) | Process Injection | Defense Evasion, Privilege Escalation | 5 | 12 controls |
+| [T1059.001](#t1059001-powershell) | PowerShell | Execution | 5 | 19 controls |
+| [T1078](#t1078-valid-accounts) | Valid Accounts | Defense Evasion, Persistence, Privilege Escalation, Initial Access | 5 | 25 controls |
+| [T1110](#t1110-brute-force) | Brute Force | Credential Access | 5 | 14 controls |
+| [T1190](#t1190-exploit-public-facing-application) | Exploit Public-Facing Application | Initial Access | 5 | 29 controls |
+| [T1486](#t1486-data-encrypted-for-impact) | Data Encrypted for Impact | Impact | 5 | 11 controls |
+| [T1547.001](#t1547001-registry-run-keys-startup-folder) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | 5 | 0 controls |
+| [T1566.001](#t1566001-spearphishing-attachment) | Spearphishing Attachment | Initial Access | 5 | 12 controls |
 
 ---
 

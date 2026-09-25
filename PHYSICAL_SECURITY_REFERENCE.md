@@ -7,18 +7,18 @@
 
 ## Table of Contents
 
-1. [Physical Security Fundamentals](#1-physical-security-fundamentals)
-2. [Physical Penetration Testing Overview](#2-physical-penetration-testing-overview)
-3. [Lock Picking](#3-lock-picking)
-4. [Badge / Access Card Attacks](#4-badge--access-card-attacks)
-5. [Social Engineering for Physical Access](#5-social-engineering-for-physical-access)
-6. [Wireless Physical Attacks](#6-wireless-physical-attacks)
-7. [Physical Network Attacks](#7-physical-network-attacks)
-8. [Server Room / Data Center Security](#8-server-room--data-center-security)
-9. [CCTV and Surveillance Systems](#9-cctv-and-surveillance-systems)
-10. [OSINT for Physical Reconnaissance](#10-osint-for-physical-reconnaissance)
-11. [Physical Security Controls Assessment Checklist](#11-physical-security-controls-assessment-checklist)
-12. [Physical Security Standards and Frameworks](#12-physical-security-standards--frameworks)
+1. [Physical Security Fundamentals](#_1-physical-security-fundamentals)
+2. [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview)
+3. [Lock Picking](#_3-lock-picking)
+4. [Badge / Access Card Attacks](#_4-badge-access-card-attacks)
+5. [Social Engineering for Physical Access](#_5-social-engineering-for-physical-access)
+6. [Wireless Physical Attacks](#_6-wireless-physical-attacks)
+7. [Physical Network Attacks](#_7-physical-network-attacks)
+8. [Server Room / Data Center Security](#_8-server-room-data-center-security)
+9. [CCTV and Surveillance Systems](#_9-cctv-and-surveillance-systems)
+10. [OSINT for Physical Reconnaissance](#_10-osint-for-physical-reconnaissance)
+11. [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist)
+12. [Physical Security Standards and Frameworks](#_12-physical-security-standards-amp-frameworks)
 
 ---
 

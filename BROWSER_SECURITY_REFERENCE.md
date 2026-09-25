@@ -6,19 +6,19 @@ A comprehensive reference for browser security architecture, web security polici
 
 ## Table of Contents
 
-1. [Browser Security Architecture](#1-browser-security-architecture)
-2. [Same-Origin Policy (SOP)](#2-same-origin-policy-sop)
-3. [CORS (Cross-Origin Resource Sharing)](#3-cors-cross-origin-resource-sharing)
-4. [Content Security Policy (CSP)](#4-content-security-policy-csp)
-5. [Security Headers Reference](#5-security-headers-reference)
-6. [Cookie Security](#6-cookie-security)
-7. [Cross-Site Request Forgery (CSRF)](#7-cross-site-request-forgery-csrf)
-8. [Clickjacking](#8-clickjacking)
-9. [Web Storage Security](#9-web-storage-security)
-10. [Browser Extension Security](#10-browser-extension-security)
-11. [Browser Exploitation](#11-browser-exploitation)
-12. [Browser Security Configuration Checklist](#12-browser-security-configuration-checklist)
-13. [Prototype Pollution](#13-prototype-pollution)
+1. [Browser Security Architecture](#_1-browser-security-architecture)
+2. [Same-Origin Policy (SOP)](#_2-same-origin-policy-sop)
+3. [CORS (Cross-Origin Resource Sharing)](#_3-cors-cross-origin-resource-sharing)
+4. [Content Security Policy (CSP)](#_4-content-security-policy-csp)
+5. [Security Headers Reference](#_5-security-headers-reference)
+6. [Cookie Security](#_6-cookie-security)
+7. [Cross-Site Request Forgery (CSRF)](#_7-cross-site-request-forgery-csrf)
+8. [Clickjacking](#_8-clickjacking)
+9. [Web Storage Security](#_9-web-storage-security)
+10. [Browser Extension Security](#_10-browser-extension-security)
+11. [Browser Exploitation](#_11-browser-exploitation)
+12. [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist)
+13. [Prototype Pollution](#_13-prototype-pollution)
 
 ---
 

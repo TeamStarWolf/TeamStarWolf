@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Mobile Security Landscape](#1-mobile-security-landscape)
-2. [Android Security Architecture](#2-android-security-architecture)
-3. [iOS Security Architecture](#3-ios-security-architecture)
-4. [Mobile Application Security Testing (MAST)](#4-mobile-application-security-testing-mast)
-5. [Common Mobile Vulnerabilities](#5-common-mobile-vulnerabilities)
-6. [Mobile Malware Analysis](#6-mobile-malware-analysis)
-7. [Mobile Device Management (MDM) Security](#7-mobile-device-management-mdm-security)
-8. [Mobile Network Security](#8-mobile-network-security)
-9. [Enterprise Mobile Security](#9-enterprise-mobile-security)
-10. [Mobile CTF and Bug Bounty](#10-mobile-ctf-and-bug-bounty)
+1. [Mobile Security Landscape](#_1-mobile-security-landscape)
+2. [Android Security Architecture](#_2-android-security-architecture)
+3. [iOS Security Architecture](#_3-ios-security-architecture)
+4. [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast)
+5. [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities)
+6. [Mobile Malware Analysis](#_6-mobile-malware-analysis)
+7. [Mobile Device Management (MDM) Security](#_7-mobile-device-management-mdm-security)
+8. [Mobile Network Security](#_8-mobile-network-security)
+9. [Enterprise Mobile Security](#_9-enterprise-mobile-security)
+10. [Mobile CTF and Bug Bounty](#_10-mobile-ctf-and-bug-bounty)
 
 ---
 

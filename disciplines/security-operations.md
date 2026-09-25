@@ -356,10 +356,10 @@ for event in events:
 
 ## Related Disciplines
 
-- [Detection Engineering](detection-engineering.md)
-- [Incident Response](incident-response.md)
-- [Threat Intelligence](threat-intelligence.md)
-- [Digital Forensics](digital-forensics.md)
-- [Offensive Security](offensive-security.md)
-- [DevSecOps](devsecops.md)
-- [Vulnerability Management](vulnerability-management.md)
+- [Detection Engineering](/disciplines/detection-engineering.md)
+- [Incident Response](/disciplines/incident-response.md)
+- [Threat Intelligence](/disciplines/threat-intelligence.md)
+- [Digital Forensics](/disciplines/digital-forensics.md)
+- [Offensive Security](/disciplines/offensive-security.md)
+- [DevSecOps](/disciplines/devsecops.md)
+- [Vulnerability Management](/disciplines/vulnerability-management.md)

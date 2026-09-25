@@ -12,7 +12,7 @@
 - [John the Ripper](#john-the-ripper)
 - [Password Attack Types](#password-attack-types)
 - [Password Generation and Wordlist Creation](#password-generation-and-wordlist-creation)
-- [Secure Password Storage — Developer Reference](#secure-password-storage--developer-reference)
+- [Secure Password Storage — Developer Reference](#secure-password-storage-developer-reference)
 - [Enterprise Password Policies](#enterprise-password-policies)
 - [Privileged Account Password Management](#privileged-account-password-management)
 - [MFA as Password Supplement](#mfa-as-password-supplement)

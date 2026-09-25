@@ -6,16 +6,16 @@
 ---
 
 ## Table of Contents
-1. [Windows Security Architecture](#1-windows-security-architecture)
-2. [Account and Authentication Hardening](#2-account-and-authentication-hardening)
-3. [Group Policy Hardening](#3-group-policy-hardening)
-4. [Sysmon Deployment and Configuration](#4-sysmon-deployment-and-configuration)
-5. [Windows Event Forwarding (WEF)](#5-windows-event-forwarding-wef)
-6. [PowerShell Security](#6-powershell-security)
-7. [Windows Defender and Endpoint Protection](#7-windows-defender-and-endpoint-protection)
-8. [Application Control](#8-application-control)
-9. [Network Hardening and SMB Security](#9-network-hardening-and-smb-security)
-10. [Audit Policy and Monitoring](#10-audit-policy-and-monitoring)
+1. [Windows Security Architecture](#_1-windows-security-architecture)
+2. [Account and Authentication Hardening](#_2-account-and-authentication-hardening)
+3. [Group Policy Hardening](#_3-group-policy-hardening)
+4. [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration)
+5. [Windows Event Forwarding (WEF)](#_5-windows-event-forwarding-wef)
+6. [PowerShell Security](#_6-powershell-security)
+7. [Windows Defender and Endpoint Protection](#_7-windows-defender-and-endpoint-protection)
+8. [Application Control](#_8-application-control)
+9. [Network Hardening and SMB Security](#_9-network-hardening-and-smb-security)
+10. [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring)
 
 ---
 

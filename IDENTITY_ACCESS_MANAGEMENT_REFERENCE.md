@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [IAM Fundamentals](#1-iam-fundamentals)
-2. [Authentication Technologies](#2-authentication-technologies)
-3. [Authorization Models](#3-authorization-models)
-4. [Identity Providers & Federation](#4-identity-providers--federation)
-5. [Privileged Access Management](#5-privileged-access-management)
-6. [Identity Governance & Administration](#6-identity-governance--administration)
-7. [Zero Trust Identity](#7-zero-trust-identity)
-8. [Machine Identity & Workload Identity](#8-machine-identity--workload-identity)
-9. [IAM Security Monitoring](#9-iam-security-monitoring)
-10. [IAM Governance & Compliance](#10-iam-governance--compliance)
+1. [IAM Fundamentals](#_1-iam-fundamentals)
+2. [Authentication Technologies](#_2-authentication-technologies)
+3. [Authorization Models](#_3-authorization-models)
+4. [Identity Providers & Federation](#_4-identity-providers-amp-federation)
+5. [Privileged Access Management](#_5-privileged-access-management)
+6. [Identity Governance & Administration](#_6-identity-governance-amp-administration)
+7. [Zero Trust Identity](#_7-zero-trust-identity)
+8. [Machine Identity & Workload Identity](#_8-machine-identity-amp-workload-identity)
+9. [IAM Security Monitoring](#_9-iam-security-monitoring)
+10. [IAM Governance & Compliance](#_10-iam-governance-amp-compliance)
 
 ---
 

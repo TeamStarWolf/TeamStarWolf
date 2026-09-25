@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [DevSecOps Fundamentals](#1-devsecops-fundamentals)
-2. [SAST & Code Analysis](#2-sast--code-analysis)
-3. [SCA & Dependency Security](#3-sca--dependency-security)
-4. [Secrets Detection & Management in CI/CD](#4-secrets-detection--management-in-cicd)
-5. [CI/CD Pipeline Security](#5-cicd-pipeline-security)
-6. [Container & IaC Security](#6-container--iac-security)
-7. [DAST & API Testing in Pipelines](#7-dast--api-testing-in-pipelines)
-8. [Infrastructure as Code Security Practices](#8-infrastructure-as-code-security-practices)
-9. [Software Supply Chain in DevSecOps](#9-software-supply-chain-in-devsecops)
-10. [Observability, Compliance & Culture](#10-observability-compliance--culture)
+1. [DevSecOps Fundamentals](#_1-devsecops-fundamentals)
+2. [SAST & Code Analysis](#_2-sast-amp-code-analysis)
+3. [SCA & Dependency Security](#_3-sca-amp-dependency-security)
+4. [Secrets Detection & Management in CI/CD](#_4-secrets-detection-amp-management-in-cicd)
+5. [CI/CD Pipeline Security](#_5-cicd-pipeline-security)
+6. [Container & IaC Security](#_6-container-amp-iac-security)
+7. [DAST & API Testing in Pipelines](#_7-dast-amp-api-testing-in-pipelines)
+8. [Infrastructure as Code Security Practices](#_8-infrastructure-as-code-security-practices)
+9. [Software Supply Chain in DevSecOps](#_9-software-supply-chain-in-devsecops)
+10. [Observability, Compliance & Culture](#_10-observability-compliance-amp-culture)
 
 ---
 

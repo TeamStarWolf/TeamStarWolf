@@ -10,17 +10,17 @@
 
 ## Table of Contents
 
-1. [Privacy Fundamentals](#1-privacy-fundamentals)
-2. [GDPR Deep Dive](#2-gdpr-deep-dive)
-3. [CCPA / CPRA](#3-ccpa--cpra)
-4. [Global Privacy Regulations](#4-global-privacy-regulations)
-5. [Privacy by Design — 7 Principles](#5-privacy-by-design--7-principles)
-6. [Data Classification & ROPA](#6-data-classification--records-of-processing-activity-ropa)
-7. [Technical Privacy Controls](#7-technical-privacy-controls)
-8. [Privacy Engineering in APIs](#8-privacy-engineering-in-apis)
-9. [Privacy Impact Assessment (PIA / DPIA)](#9-privacy-impact-assessment-pia--dpia)
-10. [International Data Transfers](#10-international-data-transfers)
-11. [Privacy Compliance Program](#11-privacy-compliance-program)
+1. [Privacy Fundamentals](#_1-privacy-fundamentals)
+2. [GDPR Deep Dive](#_2-gdpr-deep-dive)
+3. [CCPA / CPRA](#_3-ccpa-cpra)
+4. [Global Privacy Regulations](#_4-global-privacy-regulations)
+5. [Privacy by Design — 7 Principles](#_5-privacy-by-design-7-principles)
+6. [Data Classification & ROPA](#_6-data-classification-amp-records-of-processing-activity-ropa)
+7. [Technical Privacy Controls](#_7-technical-privacy-controls)
+8. [Privacy Engineering in APIs](#_8-privacy-engineering-in-apis)
+9. [Privacy Impact Assessment (PIA / DPIA)](#_9-privacy-impact-assessment-pia-dpia)
+10. [International Data Transfers](#_10-international-data-transfers)
+11. [Privacy Compliance Program](#_11-privacy-compliance-program)
 
 ---
 

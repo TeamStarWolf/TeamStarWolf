@@ -7,16 +7,16 @@
 
 ## Table of Contents
 
-1. [TCP/IP Fundamentals](#1-tcpip-fundamentals)
-2. [DNS Security](#2-dns-security)
-3. [TLS/SSL Security](#3-tlsssl-security)
-4. [HTTP/HTTPS Security](#4-httphttps-security)
-5. [Authentication Protocols](#5-authentication-protocols)
-6. [Network Management Protocols](#6-network-management-protocols)
-7. [Routing & Switching Security](#7-routing--switching-security)
-8. [Email Protocol Security](#8-email-protocol-security)
-9. [Industrial & Specialized Protocols](#9-industrial--specialized-protocols)
-10. [Protocol Analysis Tools](#10-protocol-analysis-tools)
+1. [TCP/IP Fundamentals](#_1-tcpip-fundamentals)
+2. [DNS Security](#_2-dns-security)
+3. [TLS/SSL Security](#_3-tlsssl-security)
+4. [HTTP/HTTPS Security](#_4-httphttps-security)
+5. [Authentication Protocols](#_5-authentication-protocols)
+6. [Network Management Protocols](#_6-network-management-protocols)
+7. [Routing & Switching Security](#_7-routing-amp-switching-security)
+8. [Email Protocol Security](#_8-email-protocol-security)
+9. [Industrial & Specialized Protocols](#_9-industrial-amp-specialized-protocols)
+10. [Protocol Analysis Tools](#_10-protocol-analysis-tools)
 
 ---
 

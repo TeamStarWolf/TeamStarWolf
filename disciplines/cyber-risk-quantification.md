@@ -318,8 +318,8 @@ Or alternatively: ROSI = (ALE Before - ALE After) - Annual Control Cost
 
 ## Related Disciplines
 
-- [Governance, Risk & Compliance](governance-risk-compliance.md) — CRQ is the quantitative engine inside GRC programs; it transforms qualitative risk registers into financially expressed risk portfolios that governance frameworks can act on
-- [Security Architecture](security-architecture.md) — CRQ provides the financial justification for architecture decisions; ROSI calculations determine which security architecture investments are economically rational
-- [Threat Intelligence](threat-intelligence.md) — Threat intelligence feeds provide empirical data for FAIR Threat Event Frequency estimation; CTI teams are the primary source of adversary capability and frequency data for CRQ models
-- [Threat Modeling](threat-modeling.md) — Threat modeling identifies the risk scenarios that CRQ quantifies; the two disciplines are complementary — threat modeling scopes and structures the scenarios, CRQ assigns financial values
-- [Security Operations](security-operations.md) — SOC detection coverage and incident metrics provide empirical Vulnerability and frequency data for FAIR models; CRQ quantifies the financial value of SOC investment and detection engineering
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md) — CRQ is the quantitative engine inside GRC programs; it transforms qualitative risk registers into financially expressed risk portfolios that governance frameworks can act on
+- [Security Architecture](/disciplines/security-architecture.md) — CRQ provides the financial justification for architecture decisions; ROSI calculations determine which security architecture investments are economically rational
+- [Threat Intelligence](/disciplines/threat-intelligence.md) — Threat intelligence feeds provide empirical data for FAIR Threat Event Frequency estimation; CTI teams are the primary source of adversary capability and frequency data for CRQ models
+- [Threat Modeling](/disciplines/threat-modeling.md) — Threat modeling identifies the risk scenarios that CRQ quantifies; the two disciplines are complementary — threat modeling scopes and structures the scenarios, CRQ assigns financial values
+- [Security Operations](/disciplines/security-operations.md) — SOC detection coverage and incident metrics provide empirical Vulnerability and frequency data for FAIR models; CRQ quantifies the financial value of SOC investment and detection engineering

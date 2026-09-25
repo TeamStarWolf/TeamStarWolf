@@ -1,6 +1,6 @@
 # Defense Evasion — Technique Detail
 
-> Full detail pages for the **183 ATT&CK techniques** whose primary tactic is [Defense Evasion](https://attack.mitre.org/tactics/TA0005/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **183 ATT&CK techniques** whose primary tactic is [Defense Evasion](https://attack.mitre.org/tactics/TA0005/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -52,7 +52,7 @@ Adversaries may attempt to make an executable or file difficult to discover or a
 ### T1027.001 — Binary Padding
 <a id="t1027001"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/001)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/001)  
 
 Adversaries may use binary padding to add junk data and change the on-disk representation of malware. This can be done without affecting the functionality or behavior of a binary, but can increase the size of the binary beyond what some security tools are capable of handling due to file size limitations.
 
@@ -67,7 +67,7 @@ Adversaries may use binary padding to add junk data and change the on-disk repre
 ### T1027.002 — Software Packing
 <a id="t1027002"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/002)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/002)  
 
 Adversaries may perform software packing or virtual machine software protection to conceal their code. Software packing is a method of compressing or encrypting an executable. Packing an executable changes the file signature in an attempt to avoid signature-based detection.
 
@@ -82,7 +82,7 @@ Adversaries may perform software packing or virtual machine software protection 
 ### T1027.003 — Steganography
 <a id="t1027003"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/003)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/003)  
 
 Adversaries may use steganography techniques in order to prevent the detection of hidden information. Steganographic techniques can be used to hide data in digital media such as images, audio tracks, video clips, or text files. Duqu was an early example of malware that used steganography.
 
@@ -97,7 +97,7 @@ Adversaries may use steganography techniques in order to prevent the detection o
 ### T1027.004 — Compile After Delivery
 <a id="t1027004"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/004)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/004)  
 
 Adversaries may attempt to make payloads difficult to discover and analyze by delivering files to victims as uncompiled code. Text-based source code files may subvert analysis and scrutiny from protections targeting executables/binaries.
 
@@ -112,7 +112,7 @@ Adversaries may attempt to make payloads difficult to discover and analyze by de
 ### T1027.005 — Indicator Removal from Tools
 <a id="t1027005"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/005)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/005)  
 
 Adversaries may remove indicators from tools if they believe their malicious tool was detected, quarantined, or otherwise curtailed.
 
@@ -127,7 +127,7 @@ Adversaries may remove indicators from tools if they believe their malicious too
 ### T1027.006 — HTML Smuggling
 <a id="t1027006"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/006)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/006)  
 
 Adversaries may smuggle data and files past content filters by hiding malicious payloads inside of seemingly benign HTML files. HTML documents can store large binary objects known as JavaScript Blobs (immutable data that represents raw bytes) that can later be constructed into file-like objects.
 
@@ -142,7 +142,7 @@ Adversaries may smuggle data and files past content filters by hiding malicious 
 ### T1027.007 — Dynamic API Resolution
 <a id="t1027007"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/007)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/007)  
 
 Adversaries may obfuscate then dynamically resolve API functions called by their malware in order to conceal malicious functionalities and impair defensive analysis.
 
@@ -157,7 +157,7 @@ Adversaries may obfuscate then dynamically resolve API functions called by their
 ### T1027.008 — Stripped Payloads
 <a id="t1027008"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** macOS, Linux, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/008)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** macOS, Linux, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/008)  
 
 Adversaries may attempt to make a payload difficult to analyze by removing symbols, strings, and other human readable information. Scripts and executables may contain variables names and other strings that help developers document code functionality.
 
@@ -171,7 +171,7 @@ Adversaries may attempt to make a payload difficult to analyze by removing symbo
 ### T1027.009 — Embedded Payloads
 <a id="t1027009"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/009)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/009)  
 
 Adversaries may embed payloads within other files to conceal malicious content from defenses. Otherwise seemingly benign files (such as scripts and executables) may be abused to carry and obfuscate malicious payloads and content.
 
@@ -186,7 +186,7 @@ Adversaries may embed payloads within other files to conceal malicious content f
 ### T1027.010 — Command Obfuscation
 <a id="t1027010"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/010)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/010)  
 
 Adversaries may obfuscate content during command execution to impede detection. Command-line obfuscation is a method of making strings and patterns within commands and scripts more difficult to signature and analyze.
 
@@ -201,7 +201,7 @@ Adversaries may obfuscate content during command execution to impede detection. 
 ### T1027.011 — Fileless Storage
 <a id="t1027011"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/011)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/011)  
 
 Adversaries may store data in "fileless" formats to conceal malicious activity from defenses. Fileless storage can be broadly defined as any format other than a file. Common examples of non-volatile fileless storage in Windows systems include the Windows Registry, event logs, or WMI repository.
 
@@ -216,7 +216,7 @@ Adversaries may store data in "fileless" formats to conceal malicious activity f
 ### T1027.012 — LNK Icon Smuggling
 <a id="t1027012"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/012)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/012)  
 
 Adversaries may smuggle commands to download malicious payloads past content filters by hiding them within otherwise seemingly benign windows shortcut files.
 
@@ -231,7 +231,7 @@ Adversaries may smuggle commands to download malicious payloads past content fil
 ### T1027.013 — Encrypted/Encoded File
 <a id="t1027013"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/013)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/013)  
 
 Adversaries may encrypt or encode files to obfuscate strings, bytes, and other specific patterns to impede detection. Encrypting and/or encoding file content aims to conceal malicious artifacts within a file used in an intrusion.
 
@@ -246,7 +246,7 @@ Adversaries may encrypt or encode files to obfuscate strings, bytes, and other s
 ### T1027.014 — Polymorphic Code
 <a id="t1027014"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/014)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/014)  
 
 Adversaries may utilize polymorphic code (also known as metamorphic or mutating code) to evade detection. Polymorphic code is a type of software capable of changing its runtime footprint during code execution.
 
@@ -260,7 +260,7 @@ Adversaries may utilize polymorphic code (also known as metamorphic or mutating 
 ### T1027.015 — Compression
 <a id="t1027015"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/015)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/015)  
 
 Adversaries may use compression to obfuscate their payloads or files. Compressed file formats such as ZIP, gzip, 7z, and RAR can compress and archive multiple files together to make it easier and faster to transfer files.
 
@@ -275,7 +275,7 @@ Adversaries may use compression to obfuscate their payloads or files. Compressed
 ### T1027.016 — Junk Code Insertion
 <a id="t1027016"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/016)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/016)  
 
 Adversaries may use junk code / dead code to obfuscate a malware’s functionality. Junk code is code that either does not execute, or if it does execute, does not change the functionality of the code.
 
@@ -290,7 +290,7 @@ Adversaries may use junk code / dead code to obfuscate a malware’s functionali
 ### T1027.017 — SVG Smuggling
 <a id="t1027017"></a>
 
-sub-technique of [T1027](defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/017)  
+sub-technique of [T1027](/techniques/defense-evasion.md#t1027) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1027/017)  
 
 Adversaries may smuggle data and files past content filters by hiding malicious payloads inside of seemingly benign SVG files. SVGs, or Scalable Vector Graphics, are vector-based image files constructed using XML.
 
@@ -318,7 +318,7 @@ Adversaries may attempt to manipulate features of their artifacts to make them a
 ### T1036.001 — Invalid Code Signature
 <a id="t1036001"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/001)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/001)  
 
 Adversaries may attempt to mimic features of valid code signatures to increase the chance of deceiving a user, analyst, or tool. Code signing provides a level of authenticity on a binary from the developer and a guarantee that the binary has not been tampered with.
 
@@ -333,7 +333,7 @@ Adversaries may attempt to mimic features of valid code signatures to increase t
 ### T1036.002 — Right-to-Left Override
 <a id="t1036002"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/002)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/002)  
 
 Adversaries may abuse the right-to-left override (RTLO or RLO) character (U+202E) to disguise a string and/or file name to make it appear benign. RTLO is a non-printing Unicode character that causes the text that follows it to be displayed in reverse.
 
@@ -347,7 +347,7 @@ Adversaries may abuse the right-to-left override (RTLO or RLO) character (U+202E
 ### T1036.003 — Rename Legitimate Utilities
 <a id="t1036003"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/003)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/003)  
 
 Adversaries may rename legitimate / system utilities to try to evade security mechanisms concerning the usage of those utilities.
 
@@ -362,7 +362,7 @@ Adversaries may rename legitimate / system utilities to try to evade security me
 ### T1036.004 — Masquerade Task or Service
 <a id="t1036004"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/004)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/004)  
 
 Adversaries may attempt to manipulate the name of a task or service to make it appear legitimate or benign. Tasks/services executed by the Task Scheduler or systemd will typically be given a name and/or description. Windows services will have a service name as well as a display name.
 
@@ -377,7 +377,7 @@ Adversaries may attempt to manipulate the name of a task or service to make it a
 ### T1036.005 — Match Legitimate Resource Name or Location
 <a id="t1036005"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Containers, ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/005)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Containers, ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/005)  
 
 Adversaries may match or approximate the name or location of legitimate files, Registry keys, or other resources when naming/placing them. This is done for the sake of evading defenses and observation.
 
@@ -392,7 +392,7 @@ Adversaries may match or approximate the name or location of legitimate files, R
 ### T1036.006 — Space after Filename
 <a id="t1036006"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/006)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/006)  
 
 Adversaries can hide a program's true filetype by changing the extension of a file. With certain file types (specifically this does not work with .app extensions), appending a space to the end of a filename will change how the file is processed by the operating system.
 
@@ -407,7 +407,7 @@ Adversaries can hide a program's true filetype by changing the extension of a fi
 ### T1036.007 — Double File Extension
 <a id="t1036007"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/007)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/007)  
 
 Adversaries may abuse a double extension in the filename as a means of masquerading the true file type. A file name may include a secondary file type extension that may cause only the first extension to be displayed (ex: <code>File.txt.exe</code> may render in some views as just <code>File.txt</code>).
 
@@ -422,7 +422,7 @@ Adversaries may abuse a double extension in the filename as a means of masquerad
 ### T1036.008 — Masquerade File Type
 <a id="t1036008"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/008)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/008)  
 
 Adversaries may masquerade malicious payloads as legitimate files through changes to the payload's formatting, including the file’s signature, extension, icon, and contents. Various file types have a typical standard format, including how they are encoded and organized.
 
@@ -437,7 +437,7 @@ Adversaries may masquerade malicious payloads as legitimate files through change
 ### T1036.009 — Break Process Trees
 <a id="t1036009"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/009)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/009)  
 
 An adversary may attempt to evade process tree-based analysis by modifying executed malware's parent process ID (PPID).
 
@@ -451,7 +451,7 @@ An adversary may attempt to evade process tree-based analysis by modifying execu
 ### T1036.010 — Masquerade Account Name
 <a id="t1036010"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, SaaS, IaaS, Containers, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/010)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, SaaS, IaaS, Containers, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/010)  
 
 Adversaries may match or approximate the names of legitimate accounts to make newly created ones appear benign. This will typically occur during Create Account, although accounts may also be renamed at a later date.
 
@@ -466,7 +466,7 @@ Adversaries may match or approximate the names of legitimate accounts to make ne
 ### T1036.011 — Overwrite Process Arguments
 <a id="t1036011"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/011)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/011)  
 
 Adversaries may modify a process's in-memory arguments to change its name in order to appear as a legitimate or benign process. On Linux, the operating system stores command-line arguments in the process’s stack and passes them to the `main()` function as the `argv` array.
 
@@ -480,7 +480,7 @@ Adversaries may modify a process's in-memory arguments to change its name in ord
 ### T1036.012 — Browser Fingerprint
 <a id="t1036012"></a>
 
-sub-technique of [T1036](defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/012)  
+sub-technique of [T1036](/techniques/defense-evasion.md#t1036) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1036/012)  
 
 Adversaries may attempt to blend in with legitimate traffic by spoofing browser and system attributes like operating system, system language, platform, user-agent string, resolution, time zone, etc.
 
@@ -509,7 +509,7 @@ Adversaries may inject code into processes in order to evade process-based defen
 ### T1055.001 — Dynamic-link Library Injection
 <a id="t1055001"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/001)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/001)  
 
 Adversaries may inject dynamic-link libraries (DLLs) into processes in order to evade process-based defenses as well as possibly elevate privileges. DLL injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -524,7 +524,7 @@ Adversaries may inject dynamic-link libraries (DLLs) into processes in order to 
 ### T1055.002 — Portable Executable Injection
 <a id="t1055002"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/002)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/002)  
 
 Adversaries may inject portable executables (PE) into processes in order to evade process-based defenses as well as possibly elevate privileges. PE injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -539,7 +539,7 @@ Adversaries may inject portable executables (PE) into processes in order to evad
 ### T1055.003 — Thread Execution Hijacking
 <a id="t1055003"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/003)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/003)  
 
 Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. Thread Execution Hijacking is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -553,7 +553,7 @@ Adversaries may inject malicious code into hijacked processes in order to evade 
 ### T1055.004 — Asynchronous Procedure Call
 <a id="t1055004"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/004)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/004)  
 
 Adversaries may inject malicious code into processes via the asynchronous procedure call (APC) queue in order to evade process-based defenses as well as possibly elevate privileges. APC injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -568,7 +568,7 @@ Adversaries may inject malicious code into processes via the asynchronous proced
 ### T1055.005 — Thread Local Storage
 <a id="t1055005"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/005)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/005)  
 
 Adversaries may inject malicious code into processes via thread local storage (TLS) callbacks in order to evade process-based defenses as well as possibly elevate privileges. TLS callback injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -582,7 +582,7 @@ Adversaries may inject malicious code into processes via thread local storage (T
 ### T1055.008 — Ptrace System Calls
 <a id="t1055008"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/008)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/008)  
 
 Adversaries may inject malicious code into processes via ptrace (process trace) system calls in order to evade process-based defenses as well as possibly elevate privileges. Ptrace system call injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -596,7 +596,7 @@ Adversaries may inject malicious code into processes via ptrace (process trace) 
 ### T1055.009 — Proc Memory
 <a id="t1055009"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/009)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/009)  
 
 Adversaries may inject malicious code into processes via the /proc filesystem in order to evade process-based defenses as well as possibly elevate privileges. Proc memory injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -609,7 +609,7 @@ Adversaries may inject malicious code into processes via the /proc filesystem in
 ### T1055.011 — Extra Window Memory Injection
 <a id="t1055011"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/011)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/011)  
 
 Adversaries may inject malicious code into process via Extra Window Memory (EWM) in order to evade process-based defenses as well as possibly elevate privileges. EWM injection is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -623,7 +623,7 @@ Adversaries may inject malicious code into process via Extra Window Memory (EWM)
 ### T1055.012 — Process Hollowing
 <a id="t1055012"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/012)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/012)  
 
 Adversaries may inject malicious code into suspended and hollowed processes in order to evade process-based defenses. Process hollowing is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -638,7 +638,7 @@ Adversaries may inject malicious code into suspended and hollowed processes in o
 ### T1055.013 — Process Doppelgänging
 <a id="t1055013"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/013)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/013)  
 
 Adversaries may inject malicious code into process via process doppelgänging in order to evade process-based defenses as well as possibly elevate privileges. Process doppelgänging is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -653,7 +653,7 @@ Adversaries may inject malicious code into process via process doppelgänging in
 ### T1055.014 — VDSO Hijacking
 <a id="t1055014"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/014)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/014)  
 
 Adversaries may inject malicious code into processes via VDSO hijacking in order to evade process-based defenses as well as possibly elevate privileges. Virtual dynamic shared object (vdso) hijacking is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -666,7 +666,7 @@ Adversaries may inject malicious code into processes via VDSO hijacking in order
 ### T1055.015 — ListPlanting
 <a id="t1055015"></a>
 
-sub-technique of [T1055](defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/015)  
+sub-technique of [T1055](/techniques/defense-evasion.md#t1055) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1055/015)  
 
 Adversaries may abuse list-view controls to inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges. ListPlanting is a method of executing arbitrary code in the address space of a separate live process.
 
@@ -695,7 +695,7 @@ Adversaries may delete or modify artifacts generated within systems to remove ev
 ### T1070.001 — Clear Windows Event Logs
 <a id="t1070001"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/001)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/001)  
 
 Adversaries may clear Windows Event Logs to hide the activity of an intrusion. Windows Event Logs are a record of a computer's alerts and notifications.
 
@@ -710,7 +710,7 @@ Adversaries may clear Windows Event Logs to hide the activity of an intrusion. W
 ### T1070.002 — Clear Linux or Mac System Logs
 <a id="t1070002"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/002)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/002)  
 
 Adversaries may clear system logs to hide evidence of an intrusion. macOS and Linux both keep track of system or user-initiated actions via system logs. The majority of native system logging is stored under the <code>/var/log/</code> directory.
 
@@ -725,7 +725,7 @@ Adversaries may clear system logs to hide evidence of an intrusion. macOS and Li
 ### T1070.003 — Clear Command History
 <a id="t1070003"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/003)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/003)  
 
 In addition to clearing system logs, an adversary may clear the command history of a compromised account to conceal the actions undertaken during an intrusion. Various command interpreters keep track of the commands users type in their terminal so that users can retrace what they've done.
 
@@ -740,7 +740,7 @@ In addition to clearing system logs, an adversary may clear the command history 
 ### T1070.004 — File Deletion
 <a id="t1070004"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/004)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/004)  
 
 Adversaries may delete files left behind by the actions of their intrusion activity. Malware, tools, or other non-native files dropped or created on a system by an adversary (ex: Ingress Tool Transfer) may leave traces to indicate to what was done within a network and how.
 
@@ -755,7 +755,7 @@ Adversaries may delete files left behind by the actions of their intrusion activ
 ### T1070.005 — Network Share Connection Removal
 <a id="t1070005"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/005)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/005)  
 
 Adversaries may remove share connections that are no longer useful in order to clean up traces of their operation. Windows shared drive and SMB/Windows Admin Shares connections can be removed when no longer needed.
 
@@ -770,7 +770,7 @@ Adversaries may remove share connections that are no longer useful in order to c
 ### T1070.006 — Timestomp
 <a id="t1070006"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/006)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/006)  
 
 Adversaries may modify file time attributes to hide new files or changes to existing files. Timestomping is a technique that modifies the timestamps of a file (the modify, access, create, and change times), often to mimic files that are in the same folder and blend malicious files with legitimate files.
 
@@ -785,7 +785,7 @@ Adversaries may modify file time attributes to hide new files or changes to exis
 ### T1070.007 — Clear Network Connection History and Configurations
 <a id="t1070007"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/007)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/007)  
 
 Adversaries may clear or remove evidence of malicious network connections in order to clean up traces of their operations.
 
@@ -800,7 +800,7 @@ Adversaries may clear or remove evidence of malicious network connections in ord
 ### T1070.008 — Clear Mailbox Data
 <a id="t1070008"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Office Suite, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/008)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Office Suite, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/008)  
 
 Adversaries may modify mail and mail application data to remove evidence of their activity. Email applications allow users and other programs to export and delete mailbox data via command line tools or use of APIs.
 
@@ -815,7 +815,7 @@ Adversaries may modify mail and mail application data to remove evidence of thei
 ### T1070.009 — Clear Persistence
 <a id="t1070009"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/009)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/009)  
 
 Adversaries may clear artifacts associated with previously established persistence on a host system to remove evidence of their activity.
 
@@ -829,7 +829,7 @@ Adversaries may clear artifacts associated with previously established persisten
 ### T1070.010 — Relocate Malware
 <a id="t1070010"></a>
 
-sub-technique of [T1070](defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/010)  
+sub-technique of [T1070](/techniques/defense-evasion.md#t1070) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1070/010)  
 
 Once a payload is delivered, adversaries may reproduce copies of the same malware on the victim system to remove evidence of their presence and/or avoid defenses. Copying malware payloads to new locations may also be combined with File Deletion to cleanup older artifacts.
 
@@ -857,7 +857,7 @@ Adversaries may obtain and abuse credentials of existing accounts as a means of 
 ### T1078.001 — Default Accounts
 <a id="t1078001"></a>
 
-sub-technique of [T1078](defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/001)  
+sub-technique of [T1078](/techniques/defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/001)  
 
 Adversaries may obtain and abuse credentials of a default account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Default accounts are those that are built-into an OS, such as the Guest or Administrator accounts on Windows systems.
 
@@ -872,7 +872,7 @@ Adversaries may obtain and abuse credentials of a default account as a means of 
 ### T1078.002 — Domain Accounts
 <a id="t1078002"></a>
 
-sub-technique of [T1078](defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/002)  
+sub-technique of [T1078](/techniques/defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/002)  
 
 Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
 
@@ -887,7 +887,7 @@ Adversaries may obtain and abuse credentials of a domain account as a means of g
 ### T1078.003 — Local Accounts
 <a id="t1078003"></a>
 
-sub-technique of [T1078](defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** Linux, macOS, Windows, Containers, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/003)  
+sub-technique of [T1078](/techniques/defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** Linux, macOS, Windows, Containers, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/003)  
 
 Adversaries may obtain and abuse credentials of a local account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.
 
@@ -902,7 +902,7 @@ Adversaries may obtain and abuse credentials of a local account as a means of ga
 ### T1078.004 — Cloud Accounts
 <a id="t1078004"></a>
 
-sub-technique of [T1078](defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/004)  
+sub-technique of [T1078](/techniques/defense-evasion.md#t1078) · **Tactics:** Defense Evasion, Persistence, Privilege Escalation, Initial Access · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1078/004)  
 
 Valid accounts in cloud environments may allow adversaries to perform actions to achieve Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
 
@@ -945,7 +945,7 @@ Adversaries may take advantage of trusted developer utilities to proxy execution
 ### T1127.001 — MSBuild
 <a id="t1127001"></a>
 
-sub-technique of [T1127](defense-evasion.md#t1127) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1127/001)  
+sub-technique of [T1127](/techniques/defense-evasion.md#t1127) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1127/001)  
 
 Adversaries may use MSBuild to proxy execution of code through a trusted Windows utility. MSBuild.exe (Microsoft Build Engine) is a software build platform used by Visual Studio. It handles XML formatted project files that define requirements for loading and building various platforms and configurations.
 
@@ -959,7 +959,7 @@ Adversaries may use MSBuild to proxy execution of code through a trusted Windows
 ### T1127.002 — ClickOnce
 <a id="t1127002"></a>
 
-sub-technique of [T1127](defense-evasion.md#t1127) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1127/002)  
+sub-technique of [T1127](/techniques/defense-evasion.md#t1127) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1127/002)  
 
 Adversaries may use ClickOnce applications (.appref-ms and .application files) to proxy execution of code through a trusted Windows utility.
 
@@ -972,7 +972,7 @@ Adversaries may use ClickOnce applications (.appref-ms and .application files) t
 ### T1127.003 — JamPlus
 <a id="t1127003"></a>
 
-sub-technique of [T1127](defense-evasion.md#t1127) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1127/003)  
+sub-technique of [T1127](/techniques/defense-evasion.md#t1127) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1127/003)  
 
 Adversaries may use `JamPlus` to proxy the execution of a malicious script. `JamPlus` is a build utility tool for code and data build systems. It works with several popular compilers and can be used for generating workspaces in code editors such as Visual Studio.
 
@@ -1000,7 +1000,7 @@ Adversaries may modify access tokens to operate under a different user or system
 ### T1134.001 — Token Impersonation/Theft
 <a id="t1134001"></a>
 
-sub-technique of [T1134](defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/001)  
+sub-technique of [T1134](/techniques/defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/001)  
 
 Adversaries may duplicate then impersonate another user's existing token to escalate privileges and bypass access controls. For example, an adversary can duplicate an existing token using `DuplicateToken` or `DuplicateTokenEx`.
 
@@ -1015,7 +1015,7 @@ Adversaries may duplicate then impersonate another user's existing token to esca
 ### T1134.002 — Create Process with Token
 <a id="t1134002"></a>
 
-sub-technique of [T1134](defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/002)  
+sub-technique of [T1134](/techniques/defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/002)  
 
 Adversaries may create a new process with an existing token to escalate privileges and bypass access controls. Processes can be created with the token and resulting security context of another user using features such as <code>CreateProcessWithTokenW</code> and <code>runas</code>.
 
@@ -1030,7 +1030,7 @@ Adversaries may create a new process with an existing token to escalate privileg
 ### T1134.003 — Make and Impersonate Token
 <a id="t1134003"></a>
 
-sub-technique of [T1134](defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/003)  
+sub-technique of [T1134](/techniques/defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/003)  
 
 Adversaries may make new tokens and impersonate users to escalate privileges and bypass access controls. For example, if an adversary has a username and password but the user is not logged onto the system the adversary can then create a logon session for the user using the `LogonUser` function.
 
@@ -1045,7 +1045,7 @@ Adversaries may make new tokens and impersonate users to escalate privileges and
 ### T1134.004 — Parent PID Spoofing
 <a id="t1134004"></a>
 
-sub-technique of [T1134](defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/004)  
+sub-technique of [T1134](/techniques/defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/004)  
 
 Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges. New processes are typically spawned directly from their parent, or calling, process unless explicitly specified.
 
@@ -1059,7 +1059,7 @@ Adversaries may spoof the parent process identifier (PPID) of a new process to e
 ### T1134.005 — SID-History Injection
 <a id="t1134005"></a>
 
-sub-technique of [T1134](defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/005)  
+sub-technique of [T1134](/techniques/defense-evasion.md#t1134) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1134/005)  
 
 Adversaries may use SID-History Injection to escalate privileges and bypass access controls. The Windows security identifier (SID) is a unique value that identifies a user or group account. SIDs are used by Windows security in both security descriptors and access tokens.
 
@@ -1133,7 +1133,7 @@ Adversaries may use traffic signaling to hide open ports or other malicious func
 ### T1205.001 — Port Knocking
 <a id="t1205001"></a>
 
-sub-technique of [T1205](defense-evasion.md#t1205) · **Tactics:** Defense Evasion, Persistence, Command and Control · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1205/001)  
+sub-technique of [T1205](/techniques/defense-evasion.md#t1205) · **Tactics:** Defense Evasion, Persistence, Command and Control · **Platforms:** Linux, macOS, Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1205/001)  
 
 Adversaries may use port knocking to hide open ports used for persistence or command and control. To enable a port, an adversary sends a series of attempted connections to a predefined sequence of closed ports.
 
@@ -1148,7 +1148,7 @@ Adversaries may use port knocking to hide open ports used for persistence or com
 ### T1205.002 — Socket Filters
 <a id="t1205002"></a>
 
-sub-technique of [T1205](defense-evasion.md#t1205) · **Tactics:** Defense Evasion, Persistence, Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1205/002)  
+sub-technique of [T1205](/techniques/defense-evasion.md#t1205) · **Tactics:** Defense Evasion, Persistence, Command and Control · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1205/002)  
 
 Adversaries may attach filters to a network socket to monitor then activate backdoors used for persistence or command and control.
 
@@ -1203,7 +1203,7 @@ Adversaries may use trusted scripts, often signed with certificates, to proxy th
 ### T1216.001 — PubPrn
 <a id="t1216001"></a>
 
-sub-technique of [T1216](defense-evasion.md#t1216) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1216/001)  
+sub-technique of [T1216](/techniques/defense-evasion.md#t1216) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1216/001)  
 
 Adversaries may use PubPrn to proxy execution of malicious remote files. PubPrn.vbs is a Visual Basic script that publishes a printer to Active Directory Domain Services. The script may be signed by Microsoft and is commonly executed through the Windows Command Shell via <code>Cscript.exe</code>.
 
@@ -1217,7 +1217,7 @@ Adversaries may use PubPrn to proxy execution of malicious remote files. PubPrn.
 ### T1216.002 — SyncAppvPublishingServer
 <a id="t1216002"></a>
 
-sub-technique of [T1216](defense-evasion.md#t1216) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1216/002)  
+sub-technique of [T1216](/techniques/defense-evasion.md#t1216) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1216/002)  
 
 Adversaries may abuse SyncAppvPublishingServer.vbs to proxy execution of malicious PowerShell commands. SyncAppvPublishingServer.vbs is a Visual Basic script associated with how Windows virtualizes applications (Microsoft Application Virtualization, or App-V).
 
@@ -1244,7 +1244,7 @@ Adversaries may bypass process and/or signature-based defenses by proxying execu
 ### T1218.001 — Compiled HTML File
 <a id="t1218001"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/001)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/001)  
 
 Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code. CHM files are commonly distributed as part of the Microsoft HTML Help system.
 
@@ -1259,7 +1259,7 @@ Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code. CHM 
 ### T1218.002 — Control Panel
 <a id="t1218002"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/002)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/002)  
 
 Adversaries may abuse control.exe to proxy execution of malicious payloads. The Windows Control Panel process binary (control.exe) handles execution of Control Panel items, which are utilities that allow users to view and adjust computer settings.
 
@@ -1273,7 +1273,7 @@ Adversaries may abuse control.exe to proxy execution of malicious payloads. The 
 ### T1218.003 — CMSTP
 <a id="t1218003"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/003)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/003)  
 
 Adversaries may abuse CMSTP to proxy execution of malicious code. The Microsoft Connection Manager Profile Installer (CMSTP.exe) is a command-line program used to install Connection Manager service profiles.
 
@@ -1288,7 +1288,7 @@ Adversaries may abuse CMSTP to proxy execution of malicious code. The Microsoft 
 ### T1218.004 — InstallUtil
 <a id="t1218004"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/004)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/004)  
 
 Adversaries may use InstallUtil to proxy execution of code through a trusted Windows utility. InstallUtil is a command-line utility that allows for installation and uninstallation of resources by executing specific installer components specified in .NET binaries.
 
@@ -1303,7 +1303,7 @@ Adversaries may use InstallUtil to proxy execution of code through a trusted Win
 ### T1218.005 — Mshta
 <a id="t1218005"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/005)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/005)  
 
 Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
 
@@ -1318,7 +1318,7 @@ Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and J
 ### T1218.007 — Msiexec
 <a id="t1218007"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/007)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/007)  
 
 Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msiexec.exe is the command-line utility for the Windows Installer and is thus commonly associated with executing installation packages (.msi). The Msiexec.exe binary may also be digitally signed by Microsoft.
 
@@ -1333,7 +1333,7 @@ Adversaries may abuse msiexec.exe to proxy execution of malicious payloads. Msie
 ### T1218.008 — Odbcconf
 <a id="t1218008"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/008)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/008)  
 
 Adversaries may abuse odbcconf.exe to proxy execution of malicious payloads. Odbcconf.exe is a Windows utility that allows you to configure Open Database Connectivity (ODBC) drivers and data source names. The Odbcconf.exe binary may be digitally signed by Microsoft.
 
@@ -1348,7 +1348,7 @@ Adversaries may abuse odbcconf.exe to proxy execution of malicious payloads. Odb
 ### T1218.009 — Regsvcs/Regasm
 <a id="t1218009"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/009)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/009)  
 
 Adversaries may abuse Regsvcs and Regasm to proxy execution of code through a trusted Windows utility. Regsvcs and Regasm are Windows command-line utilities that are used to register .NET Component Object Model (COM) assemblies. Both are binaries that may be digitally signed by Microsoft.
 
@@ -1362,7 +1362,7 @@ Adversaries may abuse Regsvcs and Regasm to proxy execution of code through a tr
 ### T1218.010 — Regsvr32
 <a id="t1218010"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/010)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/010)  
 
 Adversaries may abuse Regsvr32.exe to proxy execution of malicious code. Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. The Regsvr32.exe binary may also be signed by Microsoft.
 
@@ -1377,7 +1377,7 @@ Adversaries may abuse Regsvr32.exe to proxy execution of malicious code. Regsvr3
 ### T1218.011 — Rundll32
 <a id="t1218011"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/011)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/011)  
 
 Adversaries may abuse rundll32.exe to proxy execution of malicious code. Using rundll32.exe, vice executing directly (i.e. Shared Modules), may avoid triggering security tools that may not monitor execution of the rundll32.exe process because of allowlists or false positives from normal operations.
 
@@ -1392,7 +1392,7 @@ Adversaries may abuse rundll32.exe to proxy execution of malicious code. Using r
 ### T1218.012 — Verclsid
 <a id="t1218012"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/012)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/012)  
 
 Adversaries may abuse verclsid.exe to proxy execution of malicious code. Verclsid.exe is known as the Extension CLSID Verification Host and is responsible for verifying each shell extension before they are used by Windows Explorer or the Windows Shell. Adversaries may abuse verclsid.exe to execute malicious payloads.
 
@@ -1406,7 +1406,7 @@ Adversaries may abuse verclsid.exe to proxy execution of malicious code. Verclsi
 ### T1218.013 — Mavinject
 <a id="t1218013"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/013)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/013)  
 
 Adversaries may abuse mavinject.exe to proxy execution of malicious code. Mavinject.exe is the Microsoft Application Virtualization Injector, a Windows utility that can inject code into external processes as part of Microsoft Application Virtualization (App-V).
 
@@ -1420,7 +1420,7 @@ Adversaries may abuse mavinject.exe to proxy execution of malicious code. Mavinj
 ### T1218.014 — MMC
 <a id="t1218014"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/014)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/014)  
 
 Adversaries may abuse mmc.exe to proxy execution of malicious .msc files. Microsoft Management Console (MMC) is a binary that may be signed by Microsoft and is used in several ways in either its GUI or in a command prompt.
 
@@ -1434,7 +1434,7 @@ Adversaries may abuse mmc.exe to proxy execution of malicious .msc files. Micros
 ### T1218.015 — Electron Applications
 <a id="t1218015"></a>
 
-sub-technique of [T1218](defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/015)  
+sub-technique of [T1218](/techniques/defense-evasion.md#t1218) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1218/015)  
 
 Adversaries may abuse components of the Electron framework to execute malicious code. The Electron framework hosts many common applications such as Signal, Slack, and Microsoft Teams.
 
@@ -1492,7 +1492,7 @@ Adversaries may modify file or directory permissions/attributes to evade access 
 ### T1222.001 — Windows File and Directory Permissions Modification
 <a id="t1222001"></a>
 
-sub-technique of [T1222](defense-evasion.md#t1222) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1222/001)  
+sub-technique of [T1222](/techniques/defense-evasion.md#t1222) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1222/001)  
 
 Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files. File and directory permissions are commonly managed by ACLs configured by the file or directory owner, or users with the appropriate permissions.
 
@@ -1507,7 +1507,7 @@ Adversaries may modify file or directory permissions/attributes to evade access 
 ### T1222.002 — Linux and Mac File and Directory Permissions Modification
 <a id="t1222002"></a>
 
-sub-technique of [T1222](defense-evasion.md#t1222) · **Tactics:** Defense Evasion · **Platforms:** macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1222/002)  
+sub-technique of [T1222](/techniques/defense-evasion.md#t1222) · **Tactics:** Defense Evasion · **Platforms:** macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1222/002)  
 
 Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files. File and directory permissions are commonly managed by ACLs configured by the file or directory owner, or users with the appropriate permissions.
 
@@ -1537,7 +1537,7 @@ Adversaries may use execution guardrails to constrain execution or actions based
 ### T1480.001 — Environmental Keying
 <a id="t1480001"></a>
 
-sub-technique of [T1480](defense-evasion.md#t1480) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1480/001)  
+sub-technique of [T1480](/techniques/defense-evasion.md#t1480) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1480/001)  
 
 Adversaries may environmentally key payloads or other features of malware to evade defenses and constraint execution to a specific target environment.
 
@@ -1552,7 +1552,7 @@ Adversaries may environmentally key payloads or other features of malware to eva
 ### T1480.002 — Mutual Exclusion
 <a id="t1480002"></a>
 
-sub-technique of [T1480](defense-evasion.md#t1480) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1480/002)  
+sub-technique of [T1480](/techniques/defense-evasion.md#t1480) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1480/002)  
 
 Adversaries may constrain execution or actions based on the presence of a mutex associated with malware. A mutex is a locking mechanism used to synchronize access to a resource. Only one thread or process can acquire a mutex at a given time.
 
@@ -1580,7 +1580,7 @@ Adversaries may modify the configuration settings of a domain or identity tenant
 ### T1484.001 — Group Policy Modification
 <a id="t1484001"></a>
 
-sub-technique of [T1484](defense-evasion.md#t1484) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1484/001)  
+sub-technique of [T1484](/techniques/defense-evasion.md#t1484) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1484/001)  
 
 Adversaries may modify Group Policy Objects (GPOs) to subvert the intended discretionary access controls for a domain, usually with the intention of escalating privileges on the domain. Group policy allows for centralized management of user and computer settings in Active Directory (AD).
 
@@ -1595,7 +1595,7 @@ Adversaries may modify Group Policy Objects (GPOs) to subvert the intended discr
 ### T1484.002 — Trust Modification
 <a id="t1484002"></a>
 
-sub-technique of [T1484](defense-evasion.md#t1484) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Identity Provider, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1484/002)  
+sub-technique of [T1484](/techniques/defense-evasion.md#t1484) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** Identity Provider, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1484/002)  
 
 Adversaries may add new domain trusts, modify the properties of existing domain trusts, or otherwise change the configuration of trust relationships between domains and tenants to evade defenses and/or elevate privileges.Trust details, such as whether or not user identities are federated, allow authentication and autho…
 
@@ -1625,7 +1625,7 @@ Adversaries may employ various means to detect and avoid virtualization and anal
 ### T1497.001 — System Checks
 <a id="t1497001"></a>
 
-sub-technique of [T1497](defense-evasion.md#t1497) · **Tactics:** Defense Evasion, Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1497/001)  
+sub-technique of [T1497](/techniques/defense-evasion.md#t1497) · **Tactics:** Defense Evasion, Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1497/001)  
 
 Adversaries may employ various system checks to detect and avoid virtualization and analysis environments. This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox.
 
@@ -1640,7 +1640,7 @@ Adversaries may employ various system checks to detect and avoid virtualization 
 ### T1497.002 — User Activity Based Checks
 <a id="t1497002"></a>
 
-sub-technique of [T1497](defense-evasion.md#t1497) · **Tactics:** Defense Evasion, Discovery · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1497/002)  
+sub-technique of [T1497](/techniques/defense-evasion.md#t1497) · **Tactics:** Defense Evasion, Discovery · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1497/002)  
 
 Adversaries may employ various user activity checks to detect and avoid virtualization and analysis environments. This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox.
 
@@ -1655,7 +1655,7 @@ Adversaries may employ various user activity checks to detect and avoid virtuali
 ### T1497.003 — Time Based Checks
 <a id="t1497003"></a>
 
-sub-technique of [T1497](defense-evasion.md#t1497) · **Tactics:** Defense Evasion, Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1497/003)  
+sub-technique of [T1497](/techniques/defense-evasion.md#t1497) · **Tactics:** Defense Evasion, Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1497/003)  
 
 Adversaries may employ various time-based methods to detect virtualization and analysis environments, particularly those that attempt to manipulate time mechanisms to simulate longer elapses of time. This may include enumerating time-based properties, such as uptime or the system clock.
 
@@ -1695,7 +1695,7 @@ Adversaries may abuse Pre-OS Boot mechanisms as a way to establish persistence o
 ### T1542.004 — ROMMONkit
 <a id="t1542004"></a>
 
-sub-technique of [T1542](defense-evasion.md#t1542) · **Tactics:** Defense Evasion, Persistence · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/004)  
+sub-technique of [T1542](/techniques/defense-evasion.md#t1542) · **Tactics:** Defense Evasion, Persistence · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/004)  
 
 Adversaries may abuse the ROM Monitor (ROMMON) by loading an unauthorized firmware with adversary code to provide persistent access and manipulate device behavior that is difficult to detect.
 
@@ -1708,7 +1708,7 @@ Adversaries may abuse the ROM Monitor (ROMMON) by loading an unauthorized firmwa
 ### T1542.005 — TFTP Boot
 <a id="t1542005"></a>
 
-sub-technique of [T1542](defense-evasion.md#t1542) · **Tactics:** Defense Evasion, Persistence · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/005)  
+sub-technique of [T1542](/techniques/defense-evasion.md#t1542) · **Tactics:** Defense Evasion, Persistence · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/005)  
 
 Adversaries may abuse netbooting to load an unauthorized network device operating system from a Trivial File Transfer Protocol (TFTP) server. TFTP boot (netbooting) is commonly used by network administrators to load configuration-controlled network device images from a centralized management server.
 
@@ -1735,7 +1735,7 @@ Adversaries may use alternate authentication material, such as password hashes, 
 ### T1550.001 — Application Access Token
 <a id="t1550001"></a>
 
-sub-technique of [T1550](defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** SaaS, Containers, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/001)  
+sub-technique of [T1550](/techniques/defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** SaaS, Containers, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/001)  
 
 Adversaries may use stolen application access tokens to bypass the typical authentication process and access restricted accounts, information, or services on remote systems. These tokens are typically stolen from users or services and used in lieu of login credentials.
 
@@ -1750,7 +1750,7 @@ Adversaries may use stolen application access tokens to bypass the typical authe
 ### T1550.002 — Pass the Hash
 <a id="t1550002"></a>
 
-sub-technique of [T1550](defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/002)  
+sub-technique of [T1550](/techniques/defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/002)  
 
 Adversaries may “pass the hash” using stolen password hashes to move laterally within an environment, bypassing normal system access controls. Pass the hash (PtH) is a method of authenticating as a user without having access to the user's cleartext password.
 
@@ -1765,7 +1765,7 @@ Adversaries may “pass the hash” using stolen password hashes to move lateral
 ### T1550.003 — Pass the Ticket
 <a id="t1550003"></a>
 
-sub-technique of [T1550](defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/003)  
+sub-technique of [T1550](/techniques/defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/003)  
 
 Adversaries may “pass the ticket” using stolen Kerberos tickets to move laterally within an environment, bypassing normal system access controls. Pass the ticket (PtT) is a method of authenticating to a system using Kerberos tickets without having access to an account's password.
 
@@ -1780,7 +1780,7 @@ Adversaries may “pass the ticket” using stolen Kerberos tickets to move late
 ### T1550.004 — Web Session Cookie
 <a id="t1550004"></a>
 
-sub-technique of [T1550](defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** SaaS, IaaS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/004)  
+sub-technique of [T1550](/techniques/defense-evasion.md#t1550) · **Tactics:** Defense Evasion, Lateral Movement · **Platforms:** SaaS, IaaS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1550/004)  
 
 Adversaries can use stolen session cookies to authenticate to web applications and services. This technique bypasses some multi-factor authentication protocols since the session is already authenticated.
 
@@ -1808,7 +1808,7 @@ Adversaries may undermine security controls that will either warn users of untru
 ### T1553.001 — Gatekeeper Bypass
 <a id="t1553001"></a>
 
-sub-technique of [T1553](defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/001)  
+sub-technique of [T1553](/techniques/defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/001)  
 
 Adversaries may modify file attributes and subvert Gatekeeper functionality to evade user prompts and execute untrusted programs. Gatekeeper is a set of technologies that act as layer of Apple’s security model to ensure only trusted applications are executed on a host.
 
@@ -1822,7 +1822,7 @@ Adversaries may modify file attributes and subvert Gatekeeper functionality to e
 ### T1553.002 — Code Signing
 <a id="t1553002"></a>
 
-sub-technique of [T1553](defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/002)  
+sub-technique of [T1553](/techniques/defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/002)  
 
 Adversaries may create, acquire, or steal code signing materials to sign their malware or tools. Code signing provides a level of authenticity on a binary from the developer and a guarantee that the binary has not been tampered with.
 
@@ -1837,7 +1837,7 @@ Adversaries may create, acquire, or steal code signing materials to sign their m
 ### T1553.003 — SIP and Trust Provider Hijacking
 <a id="t1553003"></a>
 
-sub-technique of [T1553](defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/003)  
+sub-technique of [T1553](/techniques/defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/003)  
 
 Adversaries may tamper with SIP and trust provider components to mislead the operating system and application control tools when conducting signature validation checks.
 
@@ -1850,7 +1850,7 @@ Adversaries may tamper with SIP and trust provider components to mislead the ope
 ### T1553.004 — Install Root Certificate
 <a id="t1553004"></a>
 
-sub-technique of [T1553](defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/004)  
+sub-technique of [T1553](/techniques/defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/004)  
 
 Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers. Root certificates are used in public key cryptography to identify a root certificate authority (CA).
 
@@ -1864,7 +1864,7 @@ Adversaries may install a root certificate on a compromised system to avoid warn
 ### T1553.005 — Mark-of-the-Web Bypass
 <a id="t1553005"></a>
 
-sub-technique of [T1553](defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/005)  
+sub-technique of [T1553](/techniques/defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/005)  
 
 Adversaries may abuse specific file formats to subvert Mark-of-the-Web (MOTW) controls. In Windows, when files are downloaded from the Internet, they are tagged with a hidden NTFS Alternate Data Stream (ADS) named <code>Zone.Identifier</code> with a specific value known as the MOTW.
 
@@ -1879,7 +1879,7 @@ Adversaries may abuse specific file formats to subvert Mark-of-the-Web (MOTW) co
 ### T1553.006 — Code Signing Policy Modification
 <a id="t1553006"></a>
 
-sub-technique of [T1553](defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/006)  
+sub-technique of [T1553](/techniques/defense-evasion.md#t1553) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1553/006)  
 
 Adversaries may modify code signing policies to enable execution of unsigned or self-signed code. Code signing provides a level of authenticity on a program from a developer and a guarantee that the program has not been tampered with.
 
@@ -1909,7 +1909,7 @@ Adversaries may maliciously modify components of a victim environment in order t
 ### T1562.001 — Disable or Modify Tools
 <a id="t1562001"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Containers, IaaS, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/001)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Containers, IaaS, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/001)  
 
 Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities.
 
@@ -1924,7 +1924,7 @@ Adversaries may modify and/or disable security tools to avoid possible detection
 ### T1562.002 — Disable Windows Event Logging
 <a id="t1562002"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/002)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/002)  
 
 Adversaries may disable Windows event logging to limit data that can be leveraged for detections and audits. Windows event logs record user and system activity such as login attempts, process creation, and much more. This data is used by security tools and analysts to generate detections.
 
@@ -1939,7 +1939,7 @@ Adversaries may disable Windows event logging to limit data that can be leverage
 ### T1562.003 — Impair Command History Logging
 <a id="t1562003"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/003)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/003)  
 
 Adversaries may impair command history logging to hide commands they run on a compromised system. Various command interpreters keep track of the commands users type in their terminal so that users can retrace what they've done.
 
@@ -1954,7 +1954,7 @@ Adversaries may impair command history logging to hide commands they run on a co
 ### T1562.004 — Disable or Modify System Firewall
 <a id="t1562004"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/004)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** ESXi, Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/004)  
 
 Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage. Changes could be disabling the entire mechanism as well as adding, deleting, or modifying particular rules.
 
@@ -1969,7 +1969,7 @@ Adversaries may disable or modify system firewalls in order to bypass controls l
 ### T1562.006 — Indicator Blocking
 <a id="t1562006"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS, Linux, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/006)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS, Linux, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/006)  
 
 An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed. This could include maliciously redirecting or even disabling host-based sensors, such as Event Tracing for Windows (ETW), by tampering settings that control the collection and flow of event telemetry.
 
@@ -1984,7 +1984,7 @@ An adversary may attempt to block indicators or events typically captured by sen
 ### T1562.007 — Disable or Modify Cloud Firewall
 <a id="t1562007"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/007)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/007)  
 
 Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources. Cloud firewalls are separate from system firewalls that are described in Disable or Modify System Firewall.
 
@@ -1998,7 +1998,7 @@ Adversaries may disable or modify a firewall within a cloud environment to bypas
 ### T1562.008 — Disable or Modify Cloud Logs
 <a id="t1562008"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** IaaS, SaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/008)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** IaaS, SaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/008)  
 
 An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection. Cloud environments allow for collection and analysis of audit and application logs that provide insight into what activities a user does within the environment.
 
@@ -2013,7 +2013,7 @@ An adversary may disable or modify cloud logging capabilities and integrations t
 ### T1562.009 — Safe Mode Boot
 <a id="t1562009"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/009)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/009)  
 
 Adversaries may abuse Windows safe mode to disable endpoint defenses. Safe mode starts up the Windows operating system with a limited set of drivers and services. Third-party security software such as endpoint detection and response (EDR) tools may not start after booting Windows in safe mode.
 
@@ -2027,7 +2027,7 @@ Adversaries may abuse Windows safe mode to disable endpoint defenses. Safe mode 
 ### T1562.010 — Downgrade Attack
 <a id="t1562010"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/010)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/010)  
 
 Adversaries may downgrade or use a version of system features that may be outdated, vulnerable, and/or does not support updated security controls. Downgrade attacks typically take advantage of a system’s backward compatibility to force it into less secure modes of operation.
 
@@ -2041,7 +2041,7 @@ Adversaries may downgrade or use a version of system features that may be outdat
 ### T1562.011 — Spoof Security Alerting
 <a id="t1562011"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/011)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/011)  
 
 Adversaries may spoof security alerting from tools, presenting false evidence to impair defenders’ awareness of malicious activity. Messages produced by defensive tools contain information about potential security events as well as the functioning status of security software and the system.
 
@@ -2054,7 +2054,7 @@ Adversaries may spoof security alerting from tools, presenting false evidence to
 ### T1562.012 — Disable or Modify Linux Audit System
 <a id="t1562012"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/012)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/012)  
 
 Adversaries may disable or modify the Linux audit system to hide malicious activity and avoid detection. Linux admins use the Linux Audit system to track security-relevant information on a system.
 
@@ -2068,7 +2068,7 @@ Adversaries may disable or modify the Linux audit system to hide malicious activ
 ### T1562.013 — Disable or Modify Network Device Firewall
 <a id="t1562013"></a>
 
-sub-technique of [T1562](defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/013)  
+sub-technique of [T1562](/techniques/defense-evasion.md#t1562) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1562/013)  
 
 Adversaries may disable network device-based firewall mechanisms entirely or add, delete, or modify particular rules in order to bypass controls limiting network usage.
 
@@ -2097,7 +2097,7 @@ Adversaries may attempt to hide artifacts associated with their behaviors to eva
 ### T1564.001 — Hidden Files and Directories
 <a id="t1564001"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/001)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/001)  
 
 Adversaries may set files and directories to be hidden to evade detection mechanisms. To prevent normal users from accidentally changing special files on a system, most operating systems have the concept of a ‘hidden’ file.
 
@@ -2112,7 +2112,7 @@ Adversaries may set files and directories to be hidden to evade detection mechan
 ### T1564.002 — Hidden Users
 <a id="t1564002"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** macOS, Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/002)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** macOS, Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/002)  
 
 Adversaries may use hidden users to hide the presence of user accounts they create or modify. Administrators may want to hide users when there are many user accounts on a given system or if they want to hide their administrative or other management accounts from other users.
 
@@ -2127,7 +2127,7 @@ Adversaries may use hidden users to hide the presence of user accounts they crea
 ### T1564.003 — Hidden Window
 <a id="t1564003"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/003)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/003)  
 
 Adversaries may use hidden windows to conceal malicious activity from the plain sight of users. In some cases, windows that would typically be displayed when an application carries out an operation can be hidden.
 
@@ -2142,7 +2142,7 @@ Adversaries may use hidden windows to conceal malicious activity from the plain 
 ### T1564.004 — NTFS File Attributes
 <a id="t1564004"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/004)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/004)  
 
 Adversaries may use NTFS file attributes to hide their malicious data in order to evade detection. Every New Technology File System (NTFS) formatted partition contains a Master File Table (MFT) that maintains a record for every file/directory on the partition.
 
@@ -2157,7 +2157,7 @@ Adversaries may use NTFS file attributes to hide their malicious data in order t
 ### T1564.005 — Hidden File System
 <a id="t1564005"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/005)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/005)  
 
 Adversaries may use a hidden file system to conceal malicious activity from users and security tools. File systems provide a structure to store and access data from physical storage.
 
@@ -2172,7 +2172,7 @@ Adversaries may use a hidden file system to conceal malicious activity from user
 ### T1564.006 — Run Virtual Instance
 <a id="t1564006"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/006)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/006)  
 
 Adversaries may carry out malicious operations using a virtual instance to avoid detection. A wide variety of virtualization technologies exist that allow for the emulation of a computer or computing environment.
 
@@ -2186,7 +2186,7 @@ Adversaries may carry out malicious operations using a virtual instance to avoid
 ### T1564.007 — VBA Stomping
 <a id="t1564007"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/007)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/007)  
 
 Adversaries may hide malicious Visual Basic for Applications (VBA) payloads embedded within MS Office documents by replacing the VBA source code with benign data. MS Office documents with embedded VBA content store source code inside of module streams.
 
@@ -2199,7 +2199,7 @@ Adversaries may hide malicious Visual Basic for Applications (VBA) payloads embe
 ### T1564.008 — Email Hiding Rules
 <a id="t1564008"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux, macOS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/008)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Windows, Linux, macOS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/008)  
 
 Adversaries may use email rules to hide inbound emails in a compromised user's mailbox. Many email clients allow users to create inbox rules for various email functions, including moving emails to other folders, marking emails as read, or deleting emails.
 
@@ -2213,7 +2213,7 @@ Adversaries may use email rules to hide inbound emails in a compromised user's m
 ### T1564.009 — Resource Forking
 <a id="t1564009"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/009)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/009)  
 
 Adversaries may abuse resource forks to hide malicious code or executables to evade detection and bypass security applications. A resource fork provides applications a structured way to store resources such as thumbnail images, menu definitions, icons, dialog boxes, and code.
 
@@ -2227,7 +2227,7 @@ Adversaries may abuse resource forks to hide malicious code or executables to ev
 ### T1564.010 — Process Argument Spoofing
 <a id="t1564010"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/010)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/010)  
 
 Adversaries may attempt to hide process command-line arguments by overwriting process memory. Process command-line arguments are stored in the process environment block (PEB), a data structure used by Windows to store various information about/used by a process.
 
@@ -2241,7 +2241,7 @@ Adversaries may attempt to hide process command-line arguments by overwriting pr
 ### T1564.011 — Ignore Process Interrupts
 <a id="t1564011"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/011)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/011)  
 
 Adversaries may evade defensive mechanisms by executing commands that hide from process interrupt signals. Many operating systems use signals to deliver messages to control process behavior.
 
@@ -2256,7 +2256,7 @@ Adversaries may evade defensive mechanisms by executing commands that hide from 
 ### T1564.012 — File/Path Exclusions
 <a id="t1564012"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/012)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/012)  
 
 Adversaries may attempt to hide their file-based artifacts by writing them to specific folders or file names excluded from antivirus (AV) scanning and other defensive capabilities.
 
@@ -2270,7 +2270,7 @@ Adversaries may attempt to hide their file-based artifacts by writing them to sp
 ### T1564.013 — Bind Mounts
 <a id="t1564013"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/013)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/013)  
 
 Adversaries may abuse bind mounts on file structures to hide their activity and artifacts from native utilities. A bind mount maps a directory or file from one location on the filesystem to another, similar to a shortcut on Windows.
 
@@ -2283,7 +2283,7 @@ Adversaries may abuse bind mounts on file structures to hide their activity and 
 ### T1564.014 — Extended Attributes
 <a id="t1564014"></a>
 
-sub-technique of [T1564](defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/014)  
+sub-technique of [T1564](/techniques/defense-evasion.md#t1564) · **Tactics:** Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1564/014)  
 
 Adversaries may abuse extended attributes (xattrs) on macOS and Linux to hide their malicious data in order to evade detection. Extended attributes are key-value pairs of file and directory metadata used by both macOS and Linux.
 
@@ -2309,7 +2309,7 @@ An adversary may attempt to modify a cloud account's compute service infrastruct
 ### T1578.001 — Create Snapshot
 <a id="t1578001"></a>
 
-sub-technique of [T1578](defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/001)  
+sub-technique of [T1578](/techniques/defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/001)  
 
 An adversary may create a snapshot or data backup within a cloud account to evade defenses. A snapshot is a point-in-time copy of an existing cloud compute component such as a virtual machine (VM), virtual hard drive, or volume.
 
@@ -2323,7 +2323,7 @@ An adversary may create a snapshot or data backup within a cloud account to evad
 ### T1578.002 — Create Cloud Instance
 <a id="t1578002"></a>
 
-sub-technique of [T1578](defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/002)  
+sub-technique of [T1578](/techniques/defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/002)  
 
 An adversary may create a new instance or virtual machine (VM) within the compute service of a cloud account to evade defenses. Creating a new instance may allow an adversary to bypass firewall rules and permissions that exist on instances currently residing within an account.
 
@@ -2337,7 +2337,7 @@ An adversary may create a new instance or virtual machine (VM) within the comput
 ### T1578.003 — Delete Cloud Instance
 <a id="t1578003"></a>
 
-sub-technique of [T1578](defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/003)  
+sub-technique of [T1578](/techniques/defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/003)  
 
 An adversary may delete a cloud instance after they have performed malicious activities in an attempt to evade detection and remove evidence of their presence. Deleting an instance or virtual machine can remove valuable forensic artifacts and other evidence of suspicious behavior if the instance is not recoverable.
 
@@ -2351,7 +2351,7 @@ An adversary may delete a cloud instance after they have performed malicious act
 ### T1578.004 — Revert Cloud Instance
 <a id="t1578004"></a>
 
-sub-technique of [T1578](defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/004)  
+sub-technique of [T1578](/techniques/defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/004)  
 
 An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.
 
@@ -2364,7 +2364,7 @@ An adversary may revert changes made to a cloud instance after they have perform
 ### T1578.005 — Modify Cloud Compute Configurations
 <a id="t1578005"></a>
 
-sub-technique of [T1578](defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/005)  
+sub-technique of [T1578](/techniques/defense-evasion.md#t1578) · **Tactics:** Defense Evasion · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1578/005)  
 
 Adversaries may modify settings that directly affect the size, locations, and resources available to cloud compute infrastructure in order to evade defenses. These settings may include service quotas, subscription associations, tenant-wide policies, or other configurations that impact available compute.
 
@@ -2391,7 +2391,7 @@ Adversaries may bridge network boundaries by compromising perimeter network devi
 ### T1599.001 — Network Address Translation Traversal
 <a id="t1599001"></a>
 
-sub-technique of [T1599](defense-evasion.md#t1599) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1599/001)  
+sub-technique of [T1599](/techniques/defense-evasion.md#t1599) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1599/001)  
 
 Adversaries may bridge network boundaries by modifying a network device’s Network Address Translation (NAT) configuration. Malicious modifications to NAT may enable an adversary to bypass restrictions on traffic routing that otherwise separate trusted and untrusted networks.
 
@@ -2417,7 +2417,7 @@ Adversaries may compromise a network device’s encryption capability in order t
 ### T1600.001 — Reduce Key Space
 <a id="t1600001"></a>
 
-sub-technique of [T1600](defense-evasion.md#t1600) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1600/001)  
+sub-technique of [T1600](/techniques/defense-evasion.md#t1600) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1600/001)  
 
 Adversaries may reduce the level of effort required to decrypt data transmitted over the network by reducing the cipher strength of encrypted communications.
 
@@ -2430,7 +2430,7 @@ Adversaries may reduce the level of effort required to decrypt data transmitted 
 ### T1600.002 — Disable Crypto Hardware
 <a id="t1600002"></a>
 
-sub-technique of [T1600](defense-evasion.md#t1600) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1600/002)  
+sub-technique of [T1600](/techniques/defense-evasion.md#t1600) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1600/002)  
 
 Adversaries disable a network device’s dedicated hardware encryption, which may enable them to leverage weaknesses in software encryption in order to reduce the effort involved in collecting, manipulating, and exfiltrating transmitted data.
 
@@ -2456,7 +2456,7 @@ Adversaries may make changes to the operating system of embedded network devices
 ### T1601.001 — Patch System Image
 <a id="t1601001"></a>
 
-sub-technique of [T1601](defense-evasion.md#t1601) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1601/001)  
+sub-technique of [T1601](/techniques/defense-evasion.md#t1601) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1601/001)  
 
 Adversaries may modify the operating system of a network device to introduce new capabilities or weaken existing defenses. Some network devices are built with a monolithic architecture, where the entire operating system and most of the functionality of the device is contained within a single file.
 
@@ -2470,7 +2470,7 @@ Adversaries may modify the operating system of a network device to introduce new
 ### T1601.002 — Downgrade System Image
 <a id="t1601002"></a>
 
-sub-technique of [T1601](defense-evasion.md#t1601) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1601/002)  
+sub-technique of [T1601](/techniques/defense-evasion.md#t1601) · **Tactics:** Defense Evasion · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1601/002)  
 
 Adversaries may install an older version of the operating system of a network device to weaken security. Older operating system versions on network devices often have weaker encryption ciphers and, in general, fewer/less updated defensive features.
 
@@ -2625,7 +2625,7 @@ Adversaries may intentionally exclude certain files, folders, directories, file 
 ### T1548.006 — TCC Manipulation
 <a id="t1548006"></a>
 
-sub-technique of [T1548](privilege-escalation.md#t1548) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/006)  
+sub-technique of [T1548](/techniques/privilege-escalation.md#t1548) · **Tactics:** Defense Evasion, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/006)  
 
 Adversaries can manipulate or abuse the Transparency, Consent, & Control (TCC) service or database to grant malicious executables elevated permissions.
 

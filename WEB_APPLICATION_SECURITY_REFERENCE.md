@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [OWASP Top 10 2021](#1-owasp-top-10-2021)
-2. [SQL Injection Deep Dive](#2-sql-injection-deep-dive)
-3. [XSS and Client-Side Attacks](#3-xss-and-client-side-attacks)
-4. [Authentication and Session Security](#4-authentication-and-session-security)
-5. [Web App Testing Methodology](#5-web-app-testing-methodology)
-6. [SSRF and XXE](#6-ssrf-and-xxe)
-7. [Business Logic and API Security](#7-business-logic-and-api-security)
-8. [WAF and Defense Technologies](#8-waf-and-defense-technologies)
-9. [Secure Development Practices](#9-secure-development-practices)
-10. [Bug Bounty and Tool Reference](#10-bug-bounty-and-tool-reference)
+1. [OWASP Top 10 2021](#_1-owasp-top-10-2021)
+2. [SQL Injection Deep Dive](#_2-sql-injection-deep-dive)
+3. [XSS and Client-Side Attacks](#_3-xss-and-client-side-attacks)
+4. [Authentication and Session Security](#_4-authentication-and-session-security)
+5. [Web App Testing Methodology](#_5-web-app-testing-methodology)
+6. [SSRF and XXE](#_6-ssrf-and-xxe)
+7. [Business Logic and API Security](#_7-business-logic-and-api-security)
+8. [WAF and Defense Technologies](#_8-waf-and-defense-technologies)
+9. [Secure Development Practices](#_9-secure-development-practices)
+10. [Bug Bounty and Tool Reference](#_10-bug-bounty-and-tool-reference)
 
 ---
 
@@ -204,7 +204,7 @@ See Section 6 for comprehensive SSRF coverage.
 - Primary impact: internal network scanning, cloud metadata theft, potential RCE
 
 ---
-﻿## 2. SQL Injection Deep Dive
+## 2. SQL Injection Deep Dive
 
 ### Injection Types
 
@@ -358,7 +358,7 @@ $user = $stmt->fetch();
 - Never expose database errors to end users
 
 ---
-﻿## 3. XSS and Client-Side Attacks
+## 3. XSS and Client-Side Attacks
 
 ### XSS Types
 
@@ -516,7 +516,7 @@ Generate hash: `openssl dgst -sha384 -binary script.js | openssl base64 -A`
 - Use in authorized penetration tests only to demonstrate XSS business impact
 
 ---
-﻿## 4. Authentication and Session Security
+## 4. Authentication and Session Security
 
 ### Username Enumeration
 
@@ -680,7 +680,7 @@ ph.verify(hashed, password)
 ```
 
 ---
-﻿## 5. Web App Testing Methodology
+## 5. Web App Testing Methodology
 
 ### Burp Suite Professional Complete Reference
 
@@ -845,7 +845,7 @@ source-map-explorer main.chunk.js main.chunk.js.map
 ```
 
 ---
-﻿## 6. SSRF and XXE
+## 6. SSRF and XXE
 
 ### SSRF Server-Side Request Forgery
 
@@ -1021,7 +1021,7 @@ tree = ET.parse(xmlfile)  # Blocks XXE by default
 ```
 
 ---
-﻿## 7. Business Logic and API Security
+## 7. Business Logic and API Security
 
 ### Business Logic Vulnerabilities
 
@@ -1209,7 +1209,7 @@ curl -X POST https://api.target.com/graphql \
 ```
 
 ---
-﻿## 8. WAF and Defense Technologies
+## 8. WAF and Defense Technologies
 
 ### WAF Deployment Models
 
@@ -1387,7 +1387,7 @@ curl -k --resolve target.com:443:<direct_ip> https://target.com/
 ```
 
 ---
-﻿## 9. Secure Development Practices
+## 9. Secure Development Practices
 
 ### Secure Coding by Language
 
@@ -1582,7 +1582,7 @@ grep -rn "unserialize(" --include="*.php"
 - V2.3.1: System-generated initial passwords are random and minimum 6 characters
 
 ---
-﻿## 10. Bug Bounty and Tool Reference
+## 10. Bug Bounty and Tool Reference
 
 ### Bug Bounty Methodology Full Workflow
 

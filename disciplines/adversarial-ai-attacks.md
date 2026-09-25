@@ -378,7 +378,7 @@ ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) — MIT
 
 ## Related Disciplines
 
-- [ai-ml-security.md](ai-ml-security.md) — Defensive coverage of AI/ML systems: securing the ML pipeline, MLSecOps, model governance
-- [ai-llm-security.md](ai-llm-security.md) — LLM-specific security: RAG security, LLM deployment hardening, agentic system security
-- [red-teaming.md](red-teaming.md) — Adversarial simulation methodology; AI red teaming is a growing subdiscipline
-- [offensive-security.md](offensive-security.md) — Core offensive techniques that apply to AI infrastructure and support AI-enabled attacks
+- [ai-ml-security.md](/disciplines/ai-ml-security.md) — Defensive coverage of AI/ML systems: securing the ML pipeline, MLSecOps, model governance
+- [ai-llm-security.md](/disciplines/ai-llm-security.md) — LLM-specific security: RAG security, LLM deployment hardening, agentic system security
+- [red-teaming.md](/disciplines/red-teaming.md) — Adversarial simulation methodology; AI red teaming is a growing subdiscipline
+- [offensive-security.md](/disciplines/offensive-security.md) — Core offensive techniques that apply to AI infrastructure and support AI-enabled attacks

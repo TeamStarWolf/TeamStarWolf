@@ -318,10 +318,10 @@ Sophisticated attackers actively study and evade SIEM detection. Understanding t
 
 ## Related Disciplines
 
-- [threat-hunting.md](threat-hunting.md)
-- [incident-response.md](incident-response.md)
-- [digital-forensics.md](digital-forensics.md)
-- [threat-intelligence.md](threat-intelligence.md)
-- [zero-trust-architecture.md](zero-trust-architecture.md)
-- [network-security.md](network-security.md)
-- [cloud-security.md](cloud-security.md)
+- [threat-hunting.md](/disciplines/threat-hunting.md)
+- [incident-response.md](/disciplines/incident-response.md)
+- [digital-forensics.md](/disciplines/digital-forensics.md)
+- [threat-intelligence.md](/disciplines/threat-intelligence.md)
+- [zero-trust-architecture.md](/disciplines/zero-trust-architecture.md)
+- [network-security.md](/disciplines/network-security.md)
+- [cloud-security.md](/disciplines/cloud-security.md)

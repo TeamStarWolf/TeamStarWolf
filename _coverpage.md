@@ -10,5 +10,5 @@
 - **Machine-readable** — 5,314 control→technique mappings, 691 detection strategies, 26 Navigator layers
 - **Free & open** — MIT licensed, no signup, no tracking
 
-[Get Started](README.md)
+[Get Started](/README.md)
 [GitHub](https://github.com/TeamStarWolf/TeamStarWolf)

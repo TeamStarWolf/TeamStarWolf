@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [SIEM Fundamentals](#1-siem-fundamentals)
-2. [Splunk Enterprise Security](#2-splunk-enterprise-security)
-3. [Microsoft Sentinel](#3-microsoft-sentinel)
-4. [IBM QRadar](#4-ibm-qradar)
-5. [Elastic SIEM & Open Source](#5-elastic-siem--open-source)
-6. [Log Collection & Normalization](#6-log-collection--normalization)
-7. [Detection Engineering](#7-detection-engineering)
-8. [SOC Operations & Triage](#8-soc-operations--triage)
-9. [Threat Hunting with SIEM](#9-threat-hunting-with-siem)
-10. [SIEM Performance, Tuning & Operations](#10-siem-performance-tuning--operations)
+1. [SIEM Fundamentals](#_1-siem-fundamentals)
+2. [Splunk Enterprise Security](#_2-splunk-enterprise-security)
+3. [Microsoft Sentinel](#_3-microsoft-sentinel)
+4. [IBM QRadar](#_4-ibm-qradar)
+5. [Elastic SIEM & Open Source](#_5-elastic-siem-amp-open-source)
+6. [Log Collection & Normalization](#_6-log-collection-amp-normalization)
+7. [Detection Engineering](#_7-detection-engineering)
+8. [SOC Operations & Triage](#_8-soc-operations-amp-triage)
+9. [Threat Hunting with SIEM](#_9-threat-hunting-with-siem)
+10. [SIEM Performance, Tuning & Operations](#_10-siem-performance-tuning-amp-operations)
 
 ---
 

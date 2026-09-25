@@ -14,7 +14,7 @@
 5. [LDAP/LDAPS (389/636)](#ldapldaps-389636)
 6. [RDP (3389 TCP)](#rdp-3389-tcp)
 7. [SSH (22 TCP)](#ssh-22-tcp)
-8. [SMTP/IMAP/POP3 (25/587/465/993/143)](#smtpimappop3-255874659931 43)
+8. [SMTP/IMAP/POP3 (25/587/465/993/143)](#smtpimappop3-25587465993143)
 9. [SNMP (161/162 UDP)](#snmp-161162-udp)
 10. [NTP (123 UDP)](#ntp-123-udp)
 11. [DHCP (67/68 UDP)](#dhcp-6768-udp)

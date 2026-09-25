@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [GRC Fundamentals](#1-grc-fundamentals)
-2. [NIST Cybersecurity Framework (CSF) 2.0](#2-nist-cybersecurity-framework-csf-20)
-3. [OSCAL — Open Security Controls Assessment Language](#3-oscal--open-security-controls-assessment-language)
-4. [ComplianceAsCode / OpenSCAP](#4-complianceascode--openscap)
-5. [CIS Controls v8](#5-cis-controls-v8)
-6. [PCI DSS v4.0](#6-pci-dss-v40)
-7. [HIPAA / HITECH Security Rule](#7-hipaa--hitech-security-rule)
-8. [SOC 2 Type II](#8-soc-2-type-ii)
-9. [ISO 27001:2022](#9-iso-270012022)
-10. [GRC Tools and Automation](#10-grc-tools-and-automation)
+1. [GRC Fundamentals](#_1-grc-fundamentals)
+2. [NIST Cybersecurity Framework (CSF) 2.0](#_2-nist-cybersecurity-framework-csf-20)
+3. [OSCAL — Open Security Controls Assessment Language](#_3-oscal-open-security-controls-assessment-language)
+4. [ComplianceAsCode / OpenSCAP](#_4-complianceascode-openscap)
+5. [CIS Controls v8](#_5-cis-controls-v8)
+6. [PCI DSS v4.0](#_6-pci-dss-v40)
+7. [HIPAA / HITECH Security Rule](#_7-hipaa-hitech-security-rule)
+8. [SOC 2 Type II](#_8-soc-2-type-ii)
+9. [ISO 27001:2022](#_9-iso-270012022)
+10. [GRC Tools and Automation](#_10-grc-tools-and-automation)
 
 ---
 

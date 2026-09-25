@@ -6,14 +6,14 @@
 
 ## Table of Contents
 
-1. [The OSI Model — Security Perspective](#the-osi-model--security-perspective)
+1. [The OSI Model — Security Perspective](#the-osi-model-security-perspective)
 2. [TCP/IP Deep Dive](#tcpip-deep-dive)
    - [IP (IPv4)](#ip-ipv4)
    - [IPv4 Subnetting](#ipv4-subnetting-complete-reference)
    - [TCP](#tcp-transmission-control-protocol)
    - [UDP](#udp-user-datagram-protocol)
    - [ICMP](#icmp-internet-control-message-protocol)
-3. [Ethernet and Layer 2](#ethernet--layer-2)
+3. [Ethernet and Layer 2](#ethernet-amp-layer-2)
    - [MAC Addresses](#mac-addresses)
    - [ARP](#arp-address-resolution-protocol)
    - [VLANs (802.1Q)](#vlans-8021q)
@@ -24,14 +24,14 @@
    - [BGP](#bgp-border-gateway-protocol)
    - [NAT](#nat-network-address-translation)
 5. [DNS](#dns-domain-name-system)
-6. [Switching and Network Devices](#switching--network-devices)
+6. [Switching and Network Devices](#switching-amp-network-devices)
    - [Firewalls](#firewalls)
    - [IDS/IPS](#idsips)
    - [Network Access Control (NAC)](#network-access-control-nac)
 7. [Wireless Networking](#wireless-networking-security-fundamentals)
 8. [Network Troubleshooting Commands](#network-troubleshooting-commands-security-context)
 9. [Network Security Architecture](#network-security-architecture)
-10. [ATT&CK Technique Quick Reference](#attck-technique-quick-reference)
+10. [ATT&CK Technique Quick Reference](#attampck-technique-quick-reference)
 
 ---
 

@@ -7,16 +7,16 @@ A comprehensive reference for writing secure code, covering OWASP Top 10 (2021),
 ## Table of Contents
 
 1. [OWASP Top 10 (2021)](#owasp-top-10-2021)
-2. [Input Validation & Output Encoding](#input-validation--output-encoding)
-3. [Authentication & Session Management](#authentication--session-management)
+2. [Input Validation & Output Encoding](#input-validation-amp-output-encoding)
+3. [Authentication & Session Management](#authentication-amp-session-management)
 4. [Cryptography in Code](#cryptography-in-code)
 5. [File Upload Security](#file-upload-security)
-6. [Dependency & Supply Chain Security](#dependency--supply-chain-security)
+6. [Dependency & Supply Chain Security](#dependency-amp-supply-chain-security)
 7. [Security Testing in SDLC](#security-testing-in-sdlc)
 8. [Secure Design Principles](#secure-design-principles)
 9. [Language-Specific Quick Guides](#language-specific-quick-guides)
 10. [HTTP Security Headers Reference](#http-security-headers-reference)
-11. [Framework & Standards Mapping](#framework--standards-mapping)
+11. [Framework & Standards Mapping](#framework-amp-standards-mapping)
 
 ---
 

@@ -8,16 +8,16 @@
 
 ## Table of Contents
 
-1. [Engagement Scoping and Legal Framework](#1-engagement-scoping-and-legal-framework)
-2. [Reconnaissance](#2-reconnaissance)
-3. [Scanning and Enumeration](#3-scanning-and-enumeration)
-4. [Exploitation Methodology](#4-exploitation-methodology)
-5. [Post-Exploitation](#5-post-exploitation)
-6. [Web Application Testing](#6-web-application-testing)
-7. [Cloud Security Testing](#7-cloud-security-testing)
-8. [Professional Reporting](#8-professional-reporting)
-9. [Tools Reference](#9-tools-reference)
-10. [MITRE ATT&CK Mapping](#10-mitre-attck-mapping)
+1. [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework)
+2. [Reconnaissance](#_2-reconnaissance)
+3. [Scanning and Enumeration](#_3-scanning-and-enumeration)
+4. [Exploitation Methodology](#_4-exploitation-methodology)
+5. [Post-Exploitation](#_5-post-exploitation)
+6. [Web Application Testing](#_6-web-application-testing)
+7. [Cloud Security Testing](#_7-cloud-security-testing)
+8. [Professional Reporting](#_8-professional-reporting)
+9. [Tools Reference](#_9-tools-reference)
+10. [MITRE ATT&CK Mapping](#_10-mitre-attampck-mapping)
 
 ---
 

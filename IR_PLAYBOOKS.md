@@ -12,10 +12,10 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 |---|---|---|
 | [Ransomware](#ransomware) | Critical | 1–4 weeks |
 | [Business Email Compromise (BEC)](#business-email-compromise-bec) | High | 24–72 hours |
-| [Account Compromise / Credential Theft](#account-compromise--credential-theft) | High | 2–8 hours |
+| [Account Compromise / Credential Theft](#account-compromise-credential-theft) | High | 2–8 hours |
 | [Data Exfiltration](#data-exfiltration) | High–Critical | 4–24 hours |
 | [Phishing](#phishing) | Medium | 1–4 hours |
-| [Malware / Trojan Infection](#malware--trojan-infection) | Medium–High | 4–12 hours |
+| [Malware / Trojan Infection](#malware-trojan-infection) | Medium–High | 4–12 hours |
 | [Insider Threat](#insider-threat) | High | 1–5 days |
 | [DDoS Attack](#ddos-attack) | High | 2–6 hours |
 | [Cloud Security Incident](#cloud-security-incident) | High–Critical | 4–24 hours |

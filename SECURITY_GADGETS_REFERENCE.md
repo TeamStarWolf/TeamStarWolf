@@ -8,16 +8,16 @@
 
 ## Table of Contents
 
-1. [Hak5 Ecosystem](#1-hak5-ecosystem)
-2. [Great Scott Gadgets](#2-great-scott-gadgets)
-3. [Flipper Zero](#3-flipper-zero)
-4. [Samy Kamkar Projects](#4-samy-kamkar-projects)
-5. [Pi-hole & DNS Security Appliances](#5-pi-hole--dns-security-appliances)
-6. [Mesh Radio Networks](#6-mesh-radio-networks)
-7. [Raspberry Pi Security Projects](#7-raspberry-pi-security-projects)
-8. [RFID & Hardware Attack Tools](#8-rfid--hardware-attack-tools)
-9. [Maker & DIY Security Tools](#9-maker--diy-security-tools)
-10. [Lab Setup, Legal & Community](#10-lab-setup-legal--community)
+1. [Hak5 Ecosystem](#_1-hak5-ecosystem)
+2. [Great Scott Gadgets](#_2-great-scott-gadgets)
+3. [Flipper Zero](#_3-flipper-zero)
+4. [Samy Kamkar Projects](#_4-samy-kamkar-projects)
+5. [Pi-hole & DNS Security Appliances](#_5-pi-hole-amp-dns-security-appliances)
+6. [Mesh Radio Networks](#_6-mesh-radio-networks)
+7. [Raspberry Pi Security Projects](#_7-raspberry-pi-security-projects)
+8. [RFID & Hardware Attack Tools](#_8-rfid-amp-hardware-attack-tools)
+9. [Maker & DIY Security Tools](#_9-maker-amp-diy-security-tools)
+10. [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community)
 
 ---
 

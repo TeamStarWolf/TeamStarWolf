@@ -7,16 +7,16 @@
 
 ## Table of Contents
 
-1. [Cloud Attack Taxonomy & Initial Access](#1-cloud-attack-taxonomy--initial-access)
-2. [AWS Attack Techniques](#2-aws-attack-techniques)
-3. [Azure Attack Techniques](#3-azure-attack-techniques)
-4. [GCP Attack Techniques](#4-gcp-attack-techniques)
-5. [Container & Kubernetes Attacks](#5-container--kubernetes-attacks)
-6. [Serverless & PaaS Attacks](#6-serverless--paas-attacks)
-7. [Cloud Lateral Movement & Persistence](#7-cloud-lateral-movement--persistence)
-8. [Data Exfiltration from Cloud](#8-data-exfiltration-from-cloud)
-9. [Cloud-Specific Exploitation](#9-cloud-specific-exploitation)
-10. [Cloud Security Posture & Detection](#10-cloud-security-posture--detection)
+1. [Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access)
+2. [AWS Attack Techniques](#_2-aws-attack-techniques)
+3. [Azure Attack Techniques](#_3-azure-attack-techniques)
+4. [GCP Attack Techniques](#_4-gcp-attack-techniques)
+5. [Container & Kubernetes Attacks](#_5-container-amp-kubernetes-attacks)
+6. [Serverless & PaaS Attacks](#_6-serverless-amp-paas-attacks)
+7. [Cloud Lateral Movement & Persistence](#_7-cloud-lateral-movement-amp-persistence)
+8. [Data Exfiltration from Cloud](#_8-data-exfiltration-from-cloud)
+9. [Cloud-Specific Exploitation](#_9-cloud-specific-exploitation)
+10. [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection)
 
 ---
 

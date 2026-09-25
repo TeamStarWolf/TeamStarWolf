@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Threat Hunting Fundamentals](#1-threat-hunting-fundamentals)
-2. [KQL Threat Hunting (Microsoft Sentinel / Defender XDR)](#2-kql-threat-hunting-microsoft-sentinel--defender-xdr)
-3. [Splunk SPL Threat Hunting](#3-splunk-spl-threat-hunting)
-4. [Sigma Rules](#4-sigma-rules)
-5. [YARA Rules for Threat Hunting](#5-yara-rules-for-threat-hunting)
-6. [ATT&CK-Aligned Hunting Playbooks](#6-attck-aligned-hunting-playbooks)
-7. [Velociraptor for Threat Hunting](#7-velociraptor-for-threat-hunting)
-8. [osquery for Threat Hunting](#8-osquery-for-threat-hunting)
-9. [Threat Intelligence Integration](#9-threat-intelligence-integration)
-10. [Hunt Tracking and Reporting](#10-hunt-tracking-and-reporting)
+1. [Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals)
+2. [KQL Threat Hunting (Microsoft Sentinel / Defender XDR)](#_2-kql-threat-hunting-microsoft-sentinel-defender-xdr)
+3. [Splunk SPL Threat Hunting](#_3-splunk-spl-threat-hunting)
+4. [Sigma Rules](#_4-sigma-rules)
+5. [YARA Rules for Threat Hunting](#_5-yara-rules-for-threat-hunting)
+6. [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks)
+7. [Velociraptor for Threat Hunting](#_7-velociraptor-for-threat-hunting)
+8. [osquery for Threat Hunting](#_8-osquery-for-threat-hunting)
+9. [Threat Intelligence Integration](#_9-threat-intelligence-integration)
+10. [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting)
 
 ---
 

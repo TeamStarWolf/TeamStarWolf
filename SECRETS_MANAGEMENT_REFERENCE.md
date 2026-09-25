@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Secrets Management Fundamentals](#1-secrets-management-fundamentals)
-2. [HashiCorp Vault](#2-hashicorp-vault)
-3. [CyberArk Conjur](#3-cyberark-conjur)
-4. [Secret Detection in Code](#4-secret-detection-in-code)
-5. [Cloud-Native Secrets Management](#5-cloud-native-secrets-management)
-6. [Kubernetes Secrets Security](#6-kubernetes-secrets-security)
-7. [PKI and Certificate Management](#7-pki-and-certificate-management)
-8. [SSH Key Management](#8-ssh-key-management)
-9. [Secrets in CI/CD Pipelines](#9-secrets-in-cicd-pipelines)
-10. [Secrets Management Operations](#10-secrets-management-operations)
+1. [Secrets Management Fundamentals](#_1-secrets-management-fundamentals)
+2. [HashiCorp Vault](#_2-hashicorp-vault)
+3. [CyberArk Conjur](#_3-cyberark-conjur)
+4. [Secret Detection in Code](#_4-secret-detection-in-code)
+5. [Cloud-Native Secrets Management](#_5-cloud-native-secrets-management)
+6. [Kubernetes Secrets Security](#_6-kubernetes-secrets-security)
+7. [PKI and Certificate Management](#_7-pki-and-certificate-management)
+8. [SSH Key Management](#_8-ssh-key-management)
+9. [Secrets in CI/CD Pipelines](#_9-secrets-in-cicd-pipelines)
+10. [Secrets Management Operations](#_10-secrets-management-operations)
 
 ---
 

@@ -39,7 +39,7 @@ The 30 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://git
 
 ## Black Hat Arsenal Alignment
 
-I also keep a [Black Hat Arsenal crosswalk](BLACK_HAT_ARSENAL_CROSSWALK.md) for when I want to expand these lists from a source-backed conference catalog instead of wandering GitHub at random.
+I also keep a [Black Hat Arsenal crosswalk](/research/BLACK_HAT_ARSENAL_CROSSWALK.md) for when I want to expand these lists from a source-backed conference catalog instead of wandering GitHub at random.
 
 The strongest fits against the current lists are:
 

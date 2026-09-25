@@ -4,16 +4,16 @@
 ---
 
 ## Table of Contents
-1. [SOAR Fundamentals](#1-soar-fundamentals)
-2. [Playbook Design](#2-playbook-design)
-3. [Splunk SOAR (Phantom)](#3-splunk-soar-phantom)
-4. [Palo Alto XSOAR](#4-palo-alto-xsoar)
-5. [Microsoft Sentinel Automation](#5-microsoft-sentinel-automation)
-6. [IBM QRadar SOAR](#6-ibm-qradar-soar)
-7. [Phishing & Malware Triage Automation](#7-phishing--malware-triage-automation)
-8. [Threat Intelligence Automation](#8-threat-intelligence-automation)
-9. [IR Automation by Incident Type](#9-ir-automation-by-incident-type)
-10. [SOAR Metrics & Operations](#10-soar-metrics--operations)
+1. [SOAR Fundamentals](#_1-soar-fundamentals)
+2. [Playbook Design](#_2-playbook-design)
+3. [Splunk SOAR (Phantom)](#_3-splunk-soar-phantom)
+4. [Palo Alto XSOAR](#_4-palo-alto-xsoar)
+5. [Microsoft Sentinel Automation](#_5-microsoft-sentinel-automation)
+6. [IBM QRadar SOAR](#_6-ibm-qradar-soar)
+7. [Phishing & Malware Triage Automation](#_7-phishing-amp-malware-triage-automation)
+8. [Threat Intelligence Automation](#_8-threat-intelligence-automation)
+9. [IR Automation by Incident Type](#_9-ir-automation-by-incident-type)
+10. [SOAR Metrics & Operations](#_10-soar-metrics-amp-operations)
 
 ---
 

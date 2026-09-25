@@ -1,6 +1,6 @@
 # Credential Access — Technique Detail
 
-> Full detail pages for the **62 ATT&CK techniques** whose primary tactic is [Credential Access](https://attack.mitre.org/tactics/TA0006/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **62 ATT&CK techniques** whose primary tactic is [Credential Access](https://attack.mitre.org/tactics/TA0006/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Adversaries may attempt to dump credentials to obtain account login and credenti
 ### T1003.001 — LSASS Memory
 <a id="t1003001"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/001)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/001)  
 
 Adversaries may attempt to access credential material stored in the process memory of the Local Security Authority Subsystem Service (LSASS). After a user logs on, the system generates and stores a variety of credential materials in LSASS process memory.
 
@@ -37,7 +37,7 @@ Adversaries may attempt to access credential material stored in the process memo
 ### T1003.002 — Security Account Manager
 <a id="t1003002"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/002)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/002)  
 
 Adversaries may attempt to extract credential material from the Security Account Manager (SAM) database either through in-memory techniques or through the Windows Registry where the SAM database is stored.
 
@@ -52,7 +52,7 @@ Adversaries may attempt to extract credential material from the Security Account
 ### T1003.003 — NTDS
 <a id="t1003003"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/003)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/003)  
 
 Adversaries may attempt to access or create a copy of the Active Directory domain database in order to steal credential information, as well as obtain other information about domain members such as devices, users, and access rights.
 
@@ -67,7 +67,7 @@ Adversaries may attempt to access or create a copy of the Active Directory domai
 ### T1003.004 — LSA Secrets
 <a id="t1003004"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/004)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/004)  
 
 Adversaries with SYSTEM access to a host may attempt to access Local Security Authority (LSA) secrets, which can contain a variety of different credential materials, such as credentials for service accounts. LSA secrets are stored in the registry at <code>HKEY_LOCAL_MACHINE\SECURITY\Policy\Secrets</code>.
 
@@ -82,7 +82,7 @@ Adversaries with SYSTEM access to a host may attempt to access Local Security Au
 ### T1003.005 — Cached Domain Credentials
 <a id="t1003005"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/005)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/005)  
 
 Adversaries may attempt to access cached domain credentials used to allow authentication to occur in the event a domain controller is unavailable. On Windows Vista and newer, the hash format is DCC2 (Domain Cached Credentials version 2) hash, also known as MS-Cache v2 hash.
 
@@ -97,7 +97,7 @@ Adversaries may attempt to access cached domain credentials used to allow authen
 ### T1003.006 — DCSync
 <a id="t1003006"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/006)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/006)  
 
 Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain controller using a technique called DCSync.
 
@@ -112,7 +112,7 @@ Adversaries may attempt to access credentials and other sensitive information by
 ### T1003.007 — Proc Filesystem
 <a id="t1003007"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/007)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/007)  
 
 Adversaries may gather credentials from the proc filesystem or `/proc`. The proc filesystem is a pseudo-filesystem used as an interface to kernel data structures for Linux based systems managing virtual memory.
 
@@ -126,7 +126,7 @@ Adversaries may gather credentials from the proc filesystem or `/proc`. The proc
 ### T1003.008 — /etc/passwd and /etc/shadow
 <a id="t1003008"></a>
 
-sub-technique of [T1003](credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/008)  
+sub-technique of [T1003](/techniques/credential-access.md#t1003) · **Tactics:** Credential Access · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1003/008)  
 
 Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking.
 
@@ -170,7 +170,7 @@ Adversaries may use brute force techniques to gain access to accounts when passw
 ### T1110.001 — Password Guessing
 <a id="t1110001"></a>
 
-sub-technique of [T1110](credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/001)  
+sub-technique of [T1110](/techniques/credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/001)  
 
 Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts. Without knowledge of the password for an account, an adversary may opt to systematically guess the password using a repetitive or iterative mechanism.
 
@@ -185,7 +185,7 @@ Adversaries with no prior knowledge of legitimate credentials within the system 
 ### T1110.002 — Password Cracking
 <a id="t1110002"></a>
 
-sub-technique of [T1110](credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows, Network Devices, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/002)  
+sub-technique of [T1110](/techniques/credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows, Network Devices, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/002)  
 
 Adversaries may use password cracking to attempt to recover usable credentials, such as plaintext passwords, when credential material such as password hashes are obtained. OS Credential Dumping can be used to obtain password hashes, this may only get an adversary so far when Pass the Hash is not an option.
 
@@ -200,7 +200,7 @@ Adversaries may use password cracking to attempt to recover usable credentials, 
 ### T1110.003 — Password Spraying
 <a id="t1110003"></a>
 
-sub-technique of [T1110](credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Containers, ESXi, IaaS, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/003)  
+sub-technique of [T1110](/techniques/credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Containers, ESXi, IaaS, Identity Provider, Linux, Network Devices, Office Suite, SaaS, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/003)  
 
 Adversaries may use a single or small list of commonly used passwords against many different accounts to attempt to acquire valid account credentials. Password spraying uses one password (e.g. 'Password01'), or a small list of commonly used passwords, that may match the complexity policy of the domain.
 
@@ -215,7 +215,7 @@ Adversaries may use a single or small list of commonly used passwords against ma
 ### T1110.004 — Credential Stuffing
 <a id="t1110004"></a>
 
-sub-technique of [T1110](credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/004)  
+sub-technique of [T1110](/techniques/credential-access.md#t1110) · **Tactics:** Credential Access · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Containers, Network Devices, Office Suite, Identity Provider, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1110/004)  
 
 Adversaries may use credentials obtained from breach dumps of unrelated accounts to gain access to target accounts through credential overlap. Occasionally, large numbers of username and password pairs are dumped online when a website or service is compromised and the user account credentials accessed.
 
@@ -319,7 +319,7 @@ Adversaries may search compromised systems to find and obtain insecurely stored 
 ### T1552.001 — Credentials In Files
 <a id="t1552001"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Containers, IaaS, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/001)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Containers, IaaS, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/001)  
 
 Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials.
 
@@ -334,7 +334,7 @@ Adversaries may search local file systems and remote file shares for files conta
 ### T1552.002 — Credentials in Registry
 <a id="t1552002"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/002)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/002)  
 
 Adversaries may search the Registry on compromised systems for insecurely stored credentials. The Windows Registry stores configuration information that can be used by the system or other programs.
 
@@ -349,7 +349,7 @@ Adversaries may search the Registry on compromised systems for insecurely stored
 ### T1552.003 — Shell History
 <a id="t1552003"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/003)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/003)  
 
 Adversaries may search the command history on compromised systems for insecurely stored credentials. On Linux and macOS systems, shells such as Bash and Zsh keep track of the commands users type on the command-line with the "history" utility. Once a user logs out, the history is flushed to the user's history file.
 
@@ -363,7 +363,7 @@ Adversaries may search the command history on compromised systems for insecurely
 ### T1552.004 — Private Keys
 <a id="t1552004"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/004)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/004)  
 
 Adversaries may search for private key certificate files on compromised systems for insecurely stored credentials. Private cryptographic keys and certificates are used for authentication, encryption/decryption, and digital signatures.
 
@@ -378,7 +378,7 @@ Adversaries may search for private key certificate files on compromised systems 
 ### T1552.005 — Cloud Instance Metadata API
 <a id="t1552005"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/005)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/005)  
 
 Adversaries may attempt to access the Cloud Instance Metadata API to collect credentials and other sensitive data.
 
@@ -393,7 +393,7 @@ Adversaries may attempt to access the Cloud Instance Metadata API to collect cre
 ### T1552.006 — Group Policy Preferences
 <a id="t1552006"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/006)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/006)  
 
 Adversaries may attempt to find unsecured credentials in Group Policy Preferences (GPP). GPP are tools that allow administrators to create domain policies with embedded credentials. These policies allow administrators to set local accounts. These group policies are stored in SYSVOL on a domain controller.
 
@@ -408,7 +408,7 @@ Adversaries may attempt to find unsecured credentials in Group Policy Preference
 ### T1552.007 — Container API
 <a id="t1552007"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/007)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/007)  
 
 Adversaries may gather credentials via APIs within a containers environment. APIs in these environments, such as the Docker API and Kubernetes APIs, allow a user to remotely manage their container resources and cluster components.
 
@@ -422,7 +422,7 @@ Adversaries may gather credentials via APIs within a containers environment. API
 ### T1552.008 — Chat Messages
 <a id="t1552008"></a>
 
-sub-technique of [T1552](credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** SaaS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/008)  
+sub-technique of [T1552](/techniques/credential-access.md#t1552) · **Tactics:** Credential Access · **Platforms:** SaaS, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1552/008)  
 
 Adversaries may directly collect unsecured credentials stored or passed through user communication services.
 
@@ -451,7 +451,7 @@ Adversaries may search for common password storage locations to obtain user cred
 ### T1555.001 — Keychain
 <a id="t1555001"></a>
 
-sub-technique of [T1555](credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/001)  
+sub-technique of [T1555](/techniques/credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/001)  
 
 Adversaries may acquire credentials from Keychain. Keychain (or Keychain Services) is the macOS credential management system that stores account names, passwords, private keys, certificates, sensitive application data, payment data, and secure notes.
 
@@ -466,7 +466,7 @@ Adversaries may acquire credentials from Keychain. Keychain (or Keychain Service
 ### T1555.002 — Securityd Memory
 <a id="t1555002"></a>
 
-sub-technique of [T1555](credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/002)  
+sub-technique of [T1555](/techniques/credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/002)  
 
 An adversary with root access may gather credentials by reading `securityd`’s memory. `securityd` is a service/daemon responsible for implementing security protocols such as encryption and authorization.
 
@@ -480,7 +480,7 @@ An adversary with root access may gather credentials by reading `securityd`’s 
 ### T1555.003 — Credentials from Web Browsers
 <a id="t1555003"></a>
 
-sub-technique of [T1555](credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/003)  
+sub-technique of [T1555](/techniques/credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/003)  
 
 Adversaries may acquire credentials from web browsers by reading files specific to the target browser. Web browsers commonly save credentials such as website usernames and passwords so that they do not need to be entered manually in the future.
 
@@ -495,7 +495,7 @@ Adversaries may acquire credentials from web browsers by reading files specific 
 ### T1555.004 — Windows Credential Manager
 <a id="t1555004"></a>
 
-sub-technique of [T1555](credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/004)  
+sub-technique of [T1555](/techniques/credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/004)  
 
 Adversaries may acquire credentials from the Windows Credential Manager. The Credential Manager stores credentials for signing into websites, applications, and/or devices that request authentication through NTLM or Kerberos in Credential Lockers (previously known as Windows Vaults).
 
@@ -510,7 +510,7 @@ Adversaries may acquire credentials from the Windows Credential Manager. The Cre
 ### T1555.005 — Password Managers
 <a id="t1555005"></a>
 
-sub-technique of [T1555](credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/005)  
+sub-technique of [T1555](/techniques/credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/005)  
 
 Adversaries may acquire user credentials from third-party password managers. Password managers are applications designed to store user credentials, normally in an encrypted database. Credentials are typically accessible after a user provides a master password that unlocks the database.
 
@@ -525,7 +525,7 @@ Adversaries may acquire user credentials from third-party password managers. Pas
 ### T1555.006 — Cloud Secrets Management Stores
 <a id="t1555006"></a>
 
-sub-technique of [T1555](credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/006)  
+sub-technique of [T1555](/techniques/credential-access.md#t1555) · **Tactics:** Credential Access · **Platforms:** IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1555/006)  
 
 Adversaries may acquire credentials from cloud-native secret management solutions such as AWS Secrets Manager, GCP Secret Manager, Azure Key Vault, and Terraform Vault. Secrets managers support the secure centralized management of passwords, API keys, and other credential material.
 
@@ -555,7 +555,7 @@ Adversaries may modify authentication mechanisms and processes to access user cr
 ### T1556.001 — Domain Controller Authentication
 <a id="t1556001"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/001)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/001)  
 
 Adversaries may patch the authentication process on a domain controller to bypass the typical authentication mechanisms and enable access to accounts.
 
@@ -570,7 +570,7 @@ Adversaries may patch the authentication process on a domain controller to bypas
 ### T1556.002 — Password Filter DLL
 <a id="t1556002"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/002)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/002)  
 
 Adversaries may register malicious password filter dynamic link libraries (DLLs) into the authentication process to acquire user credentials as they are validated. Windows password filters are password policy enforcement mechanisms for both domain and local accounts.
 
@@ -585,7 +585,7 @@ Adversaries may register malicious password filter dynamic link libraries (DLLs)
 ### T1556.003 — Pluggable Authentication Modules
 <a id="t1556003"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/003)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/003)  
 
 Adversaries may modify pluggable authentication modules (PAM) to access user credentials or enable otherwise unwarranted access to accounts. PAM is a modular system of configuration files, libraries, and executable files which guide authentication for many services.
 
@@ -599,7 +599,7 @@ Adversaries may modify pluggable authentication modules (PAM) to access user cre
 ### T1556.004 — Network Device Authentication
 <a id="t1556004"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/004)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/004)  
 
 Adversaries may use Patch System Image to hard code a password in the operating system, thus bypassing of native authentication mechanisms for local accounts on network devices.
 
@@ -613,7 +613,7 @@ Adversaries may use Patch System Image to hard code a password in the operating 
 ### T1556.005 — Reversible Encryption
 <a id="t1556005"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/005)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/005)  
 
 An adversary may abuse Active Directory authentication encryption properties to gain access to credentials on Windows systems. The <code>AllowReversiblePasswordEncryption</code> property specifies whether reversible password encryption for an account is enabled or disabled.
 
@@ -626,7 +626,7 @@ An adversary may abuse Active Directory authentication encryption properties to 
 ### T1556.006 — Multi-Factor Authentication
 <a id="t1556006"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/006)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows, SaaS, IaaS, Linux, macOS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/006)  
 
 Adversaries may disable or modify multi-factor authentication (MFA) mechanisms to enable persistent access to compromised accounts.
 
@@ -641,7 +641,7 @@ Adversaries may disable or modify multi-factor authentication (MFA) mechanisms t
 ### T1556.007 — Hybrid Identity
 <a id="t1556007"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows, SaaS, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/007)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows, SaaS, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/007)  
 
 Adversaries may patch, modify, or otherwise backdoor cloud authentication processes that are tied to on-premises user identities in order to bypass typical authentication mechanisms, access credentials, and enable persistent access to accounts.
 
@@ -656,7 +656,7 @@ Adversaries may patch, modify, or otherwise backdoor cloud authentication proces
 ### T1556.008 — Network Provider DLL
 <a id="t1556008"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/008)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/008)  
 
 Adversaries may register malicious network provider dynamic link libraries (DLLs) to capture cleartext user credentials during the authentication process. Network provider DLLs allow Windows to interface with specific network protocols and can also support add-on credential management functions.
 
@@ -669,7 +669,7 @@ Adversaries may register malicious network provider dynamic link libraries (DLLs
 ### T1556.009 — Conditional Access Policies
 <a id="t1556009"></a>
 
-sub-technique of [T1556](credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** IaaS, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/009)  
+sub-technique of [T1556](/techniques/credential-access.md#t1556) · **Tactics:** Credential Access, Defense Evasion, Persistence · **Platforms:** IaaS, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1556/009)  
 
 Adversaries may disable or modify conditional access policies to enable persistent access to compromised accounts. Conditional access policies are additional verifications used by identity providers and identity and access management systems to determine whether a user should be granted access to a resource.
 
@@ -698,7 +698,7 @@ Adversaries may attempt to position themselves between two or more networked dev
 ### T1557.001 — LLMNR/NBT-NS Poisoning and SMB Relay
 <a id="t1557001"></a>
 
-sub-technique of [T1557](credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/001)  
+sub-technique of [T1557](/techniques/credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/001)  
 
 By responding to LLMNR/NBT-NS network traffic, adversaries may spoof an authoritative source for name resolution to force communication with an adversary controlled system. This activity may be used to collect or relay authentication materials.
 
@@ -713,7 +713,7 @@ By responding to LLMNR/NBT-NS network traffic, adversaries may spoof an authorit
 ### T1557.002 — ARP Cache Poisoning
 <a id="t1557002"></a>
 
-sub-technique of [T1557](credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/002)  
+sub-technique of [T1557](/techniques/credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/002)  
 
 Adversaries may poison Address Resolution Protocol (ARP) caches to position themselves between the communication of two or more networked devices. This activity may be used to enable follow-on behaviors such as Network Sniffing or Transmitted Data Manipulation.
 
@@ -727,7 +727,7 @@ Adversaries may poison Address Resolution Protocol (ARP) caches to position them
 ### T1557.003 — DHCP Spoofing
 <a id="t1557003"></a>
 
-sub-technique of [T1557](credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/003)  
+sub-technique of [T1557](/techniques/credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/003)  
 
 Adversaries may redirect network traffic to adversary-owned systems by spoofing Dynamic Host Configuration Protocol (DHCP) traffic and acting as a malicious DHCP server on the victim network.
 
@@ -740,7 +740,7 @@ Adversaries may redirect network traffic to adversary-owned systems by spoofing 
 ### T1557.004 — Evil Twin
 <a id="t1557004"></a>
 
-sub-technique of [T1557](credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/004)  
+sub-technique of [T1557](/techniques/credential-access.md#t1557) · **Tactics:** Credential Access, Collection · **Platforms:** Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1557/004)  
 
 Adversaries may host seemingly genuine Wi-Fi access points to deceive users into connecting to malicious networks as a way of supporting follow-on behaviors such as Network Sniffing, Transmitted Data Manipulation, or Input Capture.
 
@@ -768,7 +768,7 @@ Adversaries may attempt to subvert Kerberos authentication by stealing or forgin
 ### T1558.001 — Golden Ticket
 <a id="t1558001"></a>
 
-sub-technique of [T1558](credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/001)  
+sub-technique of [T1558](/techniques/credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/001)  
 
 Adversaries who have the KRBTGT account password hash may forge Kerberos ticket-granting tickets (TGT), also known as a golden ticket. Golden tickets enable adversaries to generate authentication material for any account in Active Directory.
 
@@ -783,7 +783,7 @@ Adversaries who have the KRBTGT account password hash may forge Kerberos ticket-
 ### T1558.002 — Silver Ticket
 <a id="t1558002"></a>
 
-sub-technique of [T1558](credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/002)  
+sub-technique of [T1558](/techniques/credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/002)  
 
 Adversaries who have the password hash of a target service account (e.g. SharePoint, MSSQL) may forge Kerberos ticket granting service (TGS) tickets, also known as silver tickets. Kerberos TGS tickets are also known as service tickets.
 
@@ -797,7 +797,7 @@ Adversaries who have the password hash of a target service account (e.g. SharePo
 ### T1558.003 — Kerberoasting
 <a id="t1558003"></a>
 
-sub-technique of [T1558](credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/003)  
+sub-technique of [T1558](/techniques/credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/003)  
 
 Adversaries may abuse a valid Kerberos ticket-granting ticket (TGT) or sniff network traffic to obtain a ticket-granting service (TGS) ticket that may be vulnerable to Brute Force. Service principal names (SPNs) are used to uniquely identify each instance of a Windows service.
 
@@ -812,7 +812,7 @@ Adversaries may abuse a valid Kerberos ticket-granting ticket (TGT) or sniff net
 ### T1558.004 — AS-REP Roasting
 <a id="t1558004"></a>
 
-sub-technique of [T1558](credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/004)  
+sub-technique of [T1558](/techniques/credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/004)  
 
 Adversaries may reveal credentials of accounts that have disabled Kerberos preauthentication by Password Cracking Kerberos messages. Preauthentication offers protection against offline Password Cracking.
 
@@ -826,7 +826,7 @@ Adversaries may reveal credentials of accounts that have disabled Kerberos preau
 ### T1558.005 — Ccache Files
 <a id="t1558005"></a>
 
-sub-technique of [T1558](credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/005)  
+sub-technique of [T1558](/techniques/credential-access.md#t1558) · **Tactics:** Credential Access · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1558/005)  
 
 Adversaries may attempt to steal Kerberos tickets stored in credential cache files (or ccache). These files are used for short term storage of a user's active session credentials.
 
@@ -853,7 +853,7 @@ Adversaries may forge credential materials that can be used to gain access to we
 ### T1606.001 — Web Cookies
 <a id="t1606001"></a>
 
-sub-technique of [T1606](credential-access.md#t1606) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows, SaaS, IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1606/001)  
+sub-technique of [T1606](/techniques/credential-access.md#t1606) · **Tactics:** Credential Access · **Platforms:** Linux, macOS, Windows, SaaS, IaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1606/001)  
 
 Adversaries may forge web cookies that can be used to gain access to web applications or Internet services. Web applications and services (hosted in cloud SaaS environments or on-premise servers) often use session cookies to authenticate and authorize user access.
 
@@ -866,7 +866,7 @@ Adversaries may forge web cookies that can be used to gain access to web applica
 ### T1606.002 — SAML Tokens
 <a id="t1606002"></a>
 
-sub-technique of [T1606](credential-access.md#t1606) · **Tactics:** Credential Access · **Platforms:** SaaS, Windows, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1606/002)  
+sub-technique of [T1606](/techniques/credential-access.md#t1606) · **Tactics:** Credential Access · **Platforms:** SaaS, Windows, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1606/002)  
 
 An adversary may forge SAML tokens with any permissions claims and lifetimes if they possess a valid SAML token-signing certificate. The default lifetime of a SAML token is one hour, but the validity period can be specified in the <code>NotOnOrAfter</code> value of the <code>conditions ...</code> element in a token.
 

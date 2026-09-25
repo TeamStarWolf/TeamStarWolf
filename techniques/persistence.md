@@ -1,6 +1,6 @@
 # Persistence — Technique Detail
 
-> Full detail pages for the **80 ATT&CK techniques** whose primary tactic is [Persistence](https://attack.mitre.org/tactics/TA0003/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **80 ATT&CK techniques** whose primary tactic is [Persistence](https://attack.mitre.org/tactics/TA0003/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Adversaries may use scripts automatically executed at boot or logon initializati
 ### T1037.001 — Logon Script (Windows)
 <a id="t1037001"></a>
 
-sub-technique of [T1037](persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/001)  
+sub-technique of [T1037](/techniques/persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/001)  
 
 Adversaries may use Windows logon scripts automatically executed at logon initialization to establish persistence. Windows allows logon scripts to be run whenever a specific user or group of users log into a system.
 
@@ -37,7 +37,7 @@ Adversaries may use Windows logon scripts automatically executed at logon initia
 ### T1037.002 — Login Hook
 <a id="t1037002"></a>
 
-sub-technique of [T1037](persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/002)  
+sub-technique of [T1037](/techniques/persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/002)  
 
 Adversaries may use a Login Hook to establish persistence executed upon user logon. A login hook is a plist file that points to a specific script to execute with root privileges upon user logon.
 
@@ -50,7 +50,7 @@ Adversaries may use a Login Hook to establish persistence executed upon user log
 ### T1037.003 — Network Logon Script
 <a id="t1037003"></a>
 
-sub-technique of [T1037](persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/003)  
+sub-technique of [T1037](/techniques/persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/003)  
 
 Adversaries may use network logon scripts automatically executed at logon initialization to establish persistence. Network logon scripts can be assigned using Active Directory or Group Policy Objects. These logon scripts run with the privileges of the user they are assigned to.
 
@@ -63,7 +63,7 @@ Adversaries may use network logon scripts automatically executed at logon initia
 ### T1037.004 — RC Scripts
 <a id="t1037004"></a>
 
-sub-technique of [T1037](persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS, Linux, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/004)  
+sub-technique of [T1037](/techniques/persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS, Linux, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/004)  
 
 Adversaries may establish persistence by modifying RC scripts, which are executed during a Unix-like system’s startup. These files allow system administrators to map and start custom services at startup for different run levels. RC scripts require root privileges to modify.
 
@@ -78,7 +78,7 @@ Adversaries may establish persistence by modifying RC scripts, which are execute
 ### T1037.005 — Startup Items
 <a id="t1037005"></a>
 
-sub-technique of [T1037](persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/005)  
+sub-technique of [T1037](/techniques/persistence.md#t1037) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1037/005)  
 
 Adversaries may use startup items automatically executed at boot initialization to establish persistence.
 
@@ -107,7 +107,7 @@ Adversaries may manipulate accounts to maintain and/or elevate access to victim 
 ### T1098.001 — Additional Cloud Credentials
 <a id="t1098001"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** IaaS, Identity Provider, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/001)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** IaaS, Identity Provider, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/001)  
 
 Adversaries may add adversary-controlled credentials to a cloud account to maintain persistent access to victim accounts and instances within the environment. For example, adversaries may add credentials for Service Principals and Applications in addition to existing legitimate credentials in Azure / Entra ID.
 
@@ -122,7 +122,7 @@ Adversaries may add adversary-controlled credentials to a cloud account to maint
 ### T1098.002 — Additional Email Delegate Permissions
 <a id="t1098002"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/002)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/002)  
 
 Adversaries may grant additional permission levels to maintain persistent access to an adversary-controlled email account. For example, the <code>Add-MailboxPermission</code> PowerShell cmdlet, available in on-premises Exchange and in the cloud-based service Office 365, adds permissions to a mailbox.
 
@@ -136,7 +136,7 @@ Adversaries may grant additional permission levels to maintain persistent access
 ### T1098.003 — Additional Cloud Roles
 <a id="t1098003"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/003)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/003)  
 
 An adversary may add additional roles or permissions to an adversary-controlled cloud account to maintain persistent access to a tenant. For example, adversaries may update IAM policies in cloud-based environments or add a new global administrator in Office 365 environments.
 
@@ -150,7 +150,7 @@ An adversary may add additional roles or permissions to an adversary-controlled 
 ### T1098.004 — SSH Authorized Keys
 <a id="t1098004"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux, macOS, IaaS, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/004)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux, macOS, IaaS, Network Devices, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/004)  
 
 Adversaries may modify the SSH <code>authorized_keys</code> file to maintain persistence on a victim host. Linux distributions, macOS, and ESXi hypervisors commonly use key-based authentication to secure the authentication process of SSH sessions for remote management.
 
@@ -165,7 +165,7 @@ Adversaries may modify the SSH <code>authorized_keys</code> file to maintain per
 ### T1098.005 — Device Registration
 <a id="t1098005"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/005)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/005)  
 
 Adversaries may register a device to an adversary-controlled account. Devices may be registered in a multifactor authentication (MFA) system, which handles authentication to the network, or in a device management system, which handles device access and compliance.
 
@@ -180,7 +180,7 @@ Adversaries may register a device to an adversary-controlled account. Devices ma
 ### T1098.006 — Additional Container Cluster Roles
 <a id="t1098006"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/006)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/006)  
 
 An adversary may add additional roles or permissions to an adversary-controlled user or service account to maintain persistent access to a container orchestration system.
 
@@ -193,7 +193,7 @@ An adversary may add additional roles or permissions to an adversary-controlled 
 ### T1098.007 — Additional Local or Domain Groups
 <a id="t1098007"></a>
 
-sub-technique of [T1098](persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/007)  
+sub-technique of [T1098](/techniques/persistence.md#t1098) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1098/007)  
 
 An adversary may add additional local or domain groups to an adversary-controlled account to maintain persistent access to a system or domain. On Windows, accounts may use the `net localgroup` and `net group` commands to add existing users to local and domain groups.
 
@@ -238,7 +238,7 @@ Adversaries may create an account to maintain access to victim systems. With a s
 ### T1136.001 — Local Account
 <a id="t1136001"></a>
 
-sub-technique of [T1136](persistence.md#t1136) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Windows, Network Devices, Containers, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1136/001)  
+sub-technique of [T1136](/techniques/persistence.md#t1136) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Windows, Network Devices, Containers, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1136/001)  
 
 Adversaries may create a local account to maintain access to victim systems. Local accounts are those configured by an organization for use by users, remote support, services, or for administration on a single system or service.
 
@@ -253,7 +253,7 @@ Adversaries may create a local account to maintain access to victim systems. Loc
 ### T1136.002 — Domain Account
 <a id="t1136002"></a>
 
-sub-technique of [T1136](persistence.md#t1136) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1136/002)  
+sub-technique of [T1136](/techniques/persistence.md#t1136) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1136/002)  
 
 Adversaries may create a domain account to maintain access to victim systems. Domain accounts are those managed by Active Directory Domain Services where access and permissions are configured across systems and services that are part of that domain. Domain accounts can cover user, administrator, and service accounts.
 
@@ -268,7 +268,7 @@ Adversaries may create a domain account to maintain access to victim systems. Do
 ### T1136.003 — Cloud Account
 <a id="t1136003"></a>
 
-sub-technique of [T1136](persistence.md#t1136) · **Tactics:** Persistence · **Platforms:** IaaS, SaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1136/003)  
+sub-technique of [T1136](/techniques/persistence.md#t1136) · **Tactics:** Persistence · **Platforms:** IaaS, SaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1136/003)  
 
 Adversaries may create a cloud account to maintain access to victim systems. With a sufficient level of access, such accounts may be used to establish secondary credentialed access that does not require persistent remote access tools to be deployed on the system.
 
@@ -297,7 +297,7 @@ Adversaries may leverage Microsoft Office-based applications for persistence bet
 ### T1137.001 — Office Template Macros
 <a id="t1137001"></a>
 
-sub-technique of [T1137](persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/001)  
+sub-technique of [T1137](/techniques/persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/001)  
 
 Adversaries may abuse Microsoft Office templates to obtain persistence on a compromised system. Microsoft Office contains templates that are part of common Office applications and are used to customize styles. The base templates within the application are used each time an application starts.
 
@@ -312,7 +312,7 @@ Adversaries may abuse Microsoft Office templates to obtain persistence on a comp
 ### T1137.002 — Office Test
 <a id="t1137002"></a>
 
-sub-technique of [T1137](persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/002)  
+sub-technique of [T1137](/techniques/persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/002)  
 
 Adversaries may abuse the Microsoft Office "Office Test" Registry key to obtain persistence on a compromised system. An Office Test Registry location exists that allows a user to specify an arbitrary DLL that will be executed every time an Office application is started.
 
@@ -326,7 +326,7 @@ Adversaries may abuse the Microsoft Office "Office Test" Registry key to obtain 
 ### T1137.003 — Outlook Forms
 <a id="t1137003"></a>
 
-sub-technique of [T1137](persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/003)  
+sub-technique of [T1137](/techniques/persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/003)  
 
 Adversaries may abuse Microsoft Outlook forms to obtain persistence on a compromised system. Outlook forms are used as templates for presentation and functionality in Outlook messages.
 
@@ -340,7 +340,7 @@ Adversaries may abuse Microsoft Outlook forms to obtain persistence on a comprom
 ### T1137.004 — Outlook Home Page
 <a id="t1137004"></a>
 
-sub-technique of [T1137](persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/004)  
+sub-technique of [T1137](/techniques/persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/004)  
 
 Adversaries may abuse Microsoft Outlook's Home Page feature to obtain persistence on a compromised system. Outlook Home Page is a legacy feature used to customize the presentation of Outlook folders. This feature allows for an internal or external URL to be loaded and presented whenever a folder is opened.
 
@@ -355,7 +355,7 @@ Adversaries may abuse Microsoft Outlook's Home Page feature to obtain persistenc
 ### T1137.005 — Outlook Rules
 <a id="t1137005"></a>
 
-sub-technique of [T1137](persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/005)  
+sub-technique of [T1137](/techniques/persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/005)  
 
 Adversaries may abuse Microsoft Outlook rules to obtain persistence on a compromised system. Outlook rules allow a user to define automated behavior to manage email messages.
 
@@ -369,7 +369,7 @@ Adversaries may abuse Microsoft Outlook rules to obtain persistence on a comprom
 ### T1137.006 — Add-ins
 <a id="t1137006"></a>
 
-sub-technique of [T1137](persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/006)  
+sub-technique of [T1137](/techniques/persistence.md#t1137) · **Tactics:** Persistence · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1137/006)  
 
 Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system. Office add-ins can be used to add functionality to Office programs.
 
@@ -397,7 +397,7 @@ Adversaries may abuse software extensions to establish persistent access to vict
 ### T1176.001 — Browser Extensions
 <a id="t1176001"></a>
 
-sub-technique of [T1176](persistence.md#t1176) · **Tactics:** Persistence · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1176/001)  
+sub-technique of [T1176](/techniques/persistence.md#t1176) · **Tactics:** Persistence · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1176/001)  
 
 Adversaries may abuse internet browser extensions to establish persistent access to victim systems. Browser extensions or plugins are small programs that can add functionality to and customize aspects of internet browsers.
 
@@ -412,7 +412,7 @@ Adversaries may abuse internet browser extensions to establish persistent access
 ### T1176.002 — IDE Extensions
 <a id="t1176002"></a>
 
-sub-technique of [T1176](persistence.md#t1176) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1176/002)  
+sub-technique of [T1176](/techniques/persistence.md#t1176) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1176/002)  
 
 Adversaries may abuse an integrated development environment (IDE) extension to establish persistent access to victim systems.
 
@@ -439,7 +439,7 @@ Adversaries may abuse legitimate extensible development features of servers to e
 ### T1505.001 — SQL Stored Procedures
 <a id="t1505001"></a>
 
-sub-technique of [T1505](persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/001)  
+sub-technique of [T1505](/techniques/persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Windows, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/001)  
 
 Adversaries may abuse SQL stored procedures to establish persistent access to systems. SQL Stored Procedures are code that can be saved and reused so that database users do not waste time rewriting frequently used SQL queries.
 
@@ -453,7 +453,7 @@ Adversaries may abuse SQL stored procedures to establish persistent access to sy
 ### T1505.002 — Transport Agent
 <a id="t1505002"></a>
 
-sub-technique of [T1505](persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Linux, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/002)  
+sub-technique of [T1505](/techniques/persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Linux, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/002)  
 
 Adversaries may abuse Microsoft transport agents to establish persistent access to systems.
 
@@ -467,7 +467,7 @@ Adversaries may abuse Microsoft transport agents to establish persistent access 
 ### T1505.003 — Web Shell
 <a id="t1505003"></a>
 
-sub-technique of [T1505](persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/003)  
+sub-technique of [T1505](/techniques/persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Linux, macOS, Network Devices, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/003)  
 
 Adversaries may backdoor web servers with web shells to establish persistent access to systems. A Web shell is a Web script that is placed on an openly accessible Web server to allow an adversary to access the Web server as a gateway into a network.
 
@@ -482,7 +482,7 @@ Adversaries may backdoor web servers with web shells to establish persistent acc
 ### T1505.004 — IIS Components
 <a id="t1505004"></a>
 
-sub-technique of [T1505](persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/004)  
+sub-technique of [T1505](/techniques/persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/004)  
 
 Adversaries may install malicious components that run on Internet Information Services (IIS) web servers to establish persistence. IIS provides several mechanisms to extend the functionality of the web servers.
 
@@ -496,7 +496,7 @@ Adversaries may install malicious components that run on Internet Information Se
 ### T1505.005 — Terminal Services DLL
 <a id="t1505005"></a>
 
-sub-technique of [T1505](persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/005)  
+sub-technique of [T1505](/techniques/persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/005)  
 
 Adversaries may abuse components of Terminal Services to enable persistent access to systems. Microsoft Terminal Services, renamed to Remote Desktop Services in some Windows Server OSs as of 2022, enable remote terminal connections to hosts.
 
@@ -509,7 +509,7 @@ Adversaries may abuse components of Terminal Services to enable persistent acces
 ### T1505.006 — vSphere Installation Bundles
 <a id="t1505006"></a>
 
-sub-technique of [T1505](persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/006)  
+sub-technique of [T1505](/techniques/persistence.md#t1505) · **Tactics:** Persistence · **Platforms:** ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1505/006)  
 
 Adversaries may abuse vSphere Installation Bundles (VIBs) to establish persistent access to ESXi hypervisors. VIBs are collections of files used for software distribution and virtual system management in VMware environments.
 
@@ -551,7 +551,7 @@ Adversaries may create or modify system-level processes to repeatedly execute ma
 ### T1543.001 — Launch Agent
 <a id="t1543001"></a>
 
-sub-technique of [T1543](persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/001)  
+sub-technique of [T1543](/techniques/persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/001)  
 
 Adversaries may create or modify launch agents to repeatedly execute malicious payloads as part of persistence.
 
@@ -566,7 +566,7 @@ Adversaries may create or modify launch agents to repeatedly execute malicious p
 ### T1543.002 — Systemd Service
 <a id="t1543002"></a>
 
-sub-technique of [T1543](persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/002)  
+sub-technique of [T1543](/techniques/persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/002)  
 
 Adversaries may create or modify systemd services to repeatedly execute malicious payloads as part of persistence. Systemd is a system and service manager commonly used for managing background daemon processes (also known as services) and other system resources.
 
@@ -581,7 +581,7 @@ Adversaries may create or modify systemd services to repeatedly execute maliciou
 ### T1543.003 — Windows Service
 <a id="t1543003"></a>
 
-sub-technique of [T1543](persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/003)  
+sub-technique of [T1543](/techniques/persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/003)  
 
 Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence. When Windows boots up, it starts programs or applications called services that perform background system functions.
 
@@ -596,7 +596,7 @@ Adversaries may create or modify Windows services to repeatedly execute maliciou
 ### T1543.004 — Launch Daemon
 <a id="t1543004"></a>
 
-sub-technique of [T1543](persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/004)  
+sub-technique of [T1543](/techniques/persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/004)  
 
 Adversaries may create or modify Launch Daemons to execute malicious payloads as part of persistence. Launch Daemons are plist files used to interact with Launchd, the service management framework used by macOS.
 
@@ -610,7 +610,7 @@ Adversaries may create or modify Launch Daemons to execute malicious payloads as
 ### T1543.005 — Container Service
 <a id="t1543005"></a>
 
-sub-technique of [T1543](persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/005)  
+sub-technique of [T1543](/techniques/persistence.md#t1543) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Containers · [ATT&CK ↗](https://attack.mitre.org/techniques/T1543/005)  
 
 Adversaries may create or modify container or container cluster management tools that run as daemons, agents, or services on individual hosts. These include software for creating and managing individual containers, such as Docker and Podman, as well as container cluster node-level agents such as kubelet.
 
@@ -638,7 +638,7 @@ Adversaries may configure system settings to automatically execute a program dur
 ### T1547.001 — Registry Run Keys / Startup Folder
 <a id="t1547001"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/001)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/001)  
 
 Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key. Adding an entry to the "run keys" in the Registry or startup folder will cause the program referenced to be executed when a user logs in.
 
@@ -653,7 +653,7 @@ Adversaries may achieve persistence by adding a program to a startup folder or r
 ### T1547.002 — Authentication Package
 <a id="t1547002"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/002)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/002)  
 
 Adversaries may abuse authentication packages to execute DLLs when the system boots. Windows authentication package DLLs are loaded by the Local Security Authority (LSA) process at system start. They provide support for multiple logon processes and multiple security protocols to the operating system.
 
@@ -667,7 +667,7 @@ Adversaries may abuse authentication packages to execute DLLs when the system bo
 ### T1547.003 — Time Providers
 <a id="t1547003"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/003)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/003)  
 
 Adversaries may abuse time providers to execute DLLs when the system boots. The Windows Time service (W32Time) enables time synchronization across and within domains. W32Time time providers are responsible for retrieving time stamps from hardware/network resources and outputting these values to other network clients.
 
@@ -680,7 +680,7 @@ Adversaries may abuse time providers to execute DLLs when the system boots. The 
 ### T1547.004 — Winlogon Helper DLL
 <a id="t1547004"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/004)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/004)  
 
 Adversaries may abuse features of Winlogon to execute DLLs and/or executables when a user logs in. Winlogon.exe is a Windows component responsible for actions at logon/logoff as well as the secure attention sequence (SAS) triggered by Ctrl-Alt-Delete.
 
@@ -695,7 +695,7 @@ Adversaries may abuse features of Winlogon to execute DLLs and/or executables wh
 ### T1547.005 — Security Support Provider
 <a id="t1547005"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/005)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/005)  
 
 Adversaries may abuse security support providers (SSPs) to execute DLLs when the system boots. Windows SSP DLLs are loaded into the Local Security Authority (LSA) process at system start.
 
@@ -709,7 +709,7 @@ Adversaries may abuse security support providers (SSPs) to execute DLLs when the
 ### T1547.006 — Kernel Modules and Extensions
 <a id="t1547006"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/006)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/006)  
 
 Adversaries may modify the kernel to automatically execute programs on system boot. Loadable Kernel Modules (LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system.
 
@@ -723,7 +723,7 @@ Adversaries may modify the kernel to automatically execute programs on system bo
 ### T1547.007 — Re-opened Applications
 <a id="t1547007"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/007)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/007)  
 
 Adversaries may modify plist files to automatically run an application when a user logs in. When a user logs out or restarts via the macOS Graphical User Interface (GUI), a prompt is provided to the user with a checkbox to "Reopen windows when logging back in".
 
@@ -736,7 +736,7 @@ Adversaries may modify plist files to automatically run an application when a us
 ### T1547.008 — LSASS Driver
 <a id="t1547008"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/008)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/008)  
 
 Adversaries may modify or add LSASS drivers to obtain persistence on compromised systems. The Windows security subsystem is a set of components that manage and enforce the security policy for a computer or domain.
 
@@ -750,7 +750,7 @@ Adversaries may modify or add LSASS drivers to obtain persistence on compromised
 ### T1547.009 — Shortcut Modification
 <a id="t1547009"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/009)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/009)  
 
 Adversaries may create or modify shortcuts that can execute a program during system boot or user login. Shortcuts or symbolic links are used to reference other files or programs that will be opened or executed when the shortcut is clicked or executed by a system startup process.
 
@@ -765,7 +765,7 @@ Adversaries may create or modify shortcuts that can execute a program during sys
 ### T1547.010 — Port Monitors
 <a id="t1547010"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/010)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/010)  
 
 Adversaries may use port monitors to run an adversary supplied DLL during system boot for persistence or privilege escalation. A port monitor can be set through the <code>AddMonitor</code> API call to set a DLL to be loaded at startup.
 
@@ -778,7 +778,7 @@ Adversaries may use port monitors to run an adversary supplied DLL during system
 ### T1547.012 — Print Processors
 <a id="t1547012"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/012)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/012)  
 
 Adversaries may abuse print processors to run malicious DLLs during system boot for persistence and/or privilege escalation. Print processors are DLLs that are loaded by the print spooler service, `spoolsv.exe`, during boot.
 
@@ -793,7 +793,7 @@ Adversaries may abuse print processors to run malicious DLLs during system boot 
 ### T1547.013 — XDG Autostart Entries
 <a id="t1547013"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/013)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/013)  
 
 Adversaries may add or modify XDG Autostart Entries to execute malicious programs or commands when a user’s desktop environment is loaded at login. XDG Autostart entries are available for any XDG-compliant Linux system.
 
@@ -808,7 +808,7 @@ Adversaries may add or modify XDG Autostart Entries to execute malicious program
 ### T1547.014 — Active Setup
 <a id="t1547014"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/014)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/014)  
 
 Adversaries may achieve persistence by adding a Registry key to the Active Setup of the local machine. Active Setup is a Windows mechanism that is used to execute programs when a user logs in. The value stored in the Registry key will be executed after a user logs into the computer.
 
@@ -822,7 +822,7 @@ Adversaries may achieve persistence by adding a Registry key to the Active Setup
 ### T1547.015 — Login Items
 <a id="t1547015"></a>
 
-sub-technique of [T1547](persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/015)  
+sub-technique of [T1547](/techniques/persistence.md#t1547) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1547/015)  
 
 Adversaries may add login items to execute upon user login to gain persistence or escalate privileges. Login items are applications, documents, folders, or server connections that are automatically launched when a user logs in. Login items can be added via a shared file list or Service Management Framework.
 
@@ -865,7 +865,7 @@ Adversaries may execute their own malicious payloads by hijacking the way operat
 ### T1574.001 — DLL
 <a id="t1574001"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/001)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/001)  
 
 Adversaries may abuse dynamic-link library files (DLLs) in order to achieve persistence, escalate privileges, and evade defenses. DLLs are libraries that contain code and data that can be simultaneously utilized by multiple programs.
 
@@ -880,7 +880,7 @@ Adversaries may abuse dynamic-link library files (DLLs) in order to achieve pers
 ### T1574.004 — Dylib Hijacking
 <a id="t1574004"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/004)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/004)  
 
 Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime. The dynamic loader will try to find the dylibs based on the sequential order of the search paths.
 
@@ -894,7 +894,7 @@ Adversaries may execute their own payloads by placing a malicious dynamic librar
 ### T1574.005 — Executable Installer File Permissions Weakness
 <a id="t1574005"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/005)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/005)  
 
 Adversaries may execute their own malicious payloads by hijacking the binaries used by an installer. These processes may automatically execute specific binaries as part of their functionality or to perform other actions.
 
@@ -908,7 +908,7 @@ Adversaries may execute their own malicious payloads by hijacking the binaries u
 ### T1574.006 — Dynamic Linker Hijacking
 <a id="t1574006"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/006)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/006)  
 
 Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
 
@@ -923,7 +923,7 @@ Adversaries may execute their own malicious payloads by hijacking environment va
 ### T1574.007 — Path Interception by PATH Environment Variable
 <a id="t1574007"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/007)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/007)  
 
 Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries. The PATH environment variable contains a list of directories (User and System) that the OS searches sequentially through in search of the binary that was called from a script or the command line.
 
@@ -937,7 +937,7 @@ Adversaries may execute their own malicious payloads by hijacking environment va
 ### T1574.008 — Path Interception by Search Order Hijacking
 <a id="t1574008"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/008)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/008)  
 
 Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 
@@ -951,7 +951,7 @@ Adversaries may execute their own malicious payloads by hijacking the search ord
 ### T1574.009 — Path Interception by Unquoted Path
 <a id="t1574009"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/009)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/009)  
 
 Adversaries may execute their own malicious payloads by hijacking vulnerable file path references. Adversaries can take advantage of paths that lack surrounding quotations by placing an executable in a higher level directory within the path, so that Windows will choose the adversary's executable to launch.
 
@@ -965,7 +965,7 @@ Adversaries may execute their own malicious payloads by hijacking vulnerable fil
 ### T1574.010 — Services File Permissions Weakness
 <a id="t1574010"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/010)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/010)  
 
 Adversaries may execute their own malicious payloads by hijacking the binaries used by services. Adversaries may use flaws in the permissions of Windows services to replace the binary that is executed upon service start.
 
@@ -979,7 +979,7 @@ Adversaries may execute their own malicious payloads by hijacking the binaries u
 ### T1574.011 — Services Registry Permissions Weakness
 <a id="t1574011"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/011)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/011)  
 
 Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services. Flaws in the permissions for Registry keys related to services can allow adversaries to redirect the originally specified executable to one they control, launching their own code when a service starts.
 
@@ -992,7 +992,7 @@ Adversaries may execute their own malicious payloads by hijacking the Registry e
 ### T1574.012 — COR_PROFILER
 <a id="t1574012"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/012)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/012)  
 
 Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR.
 
@@ -1007,7 +1007,7 @@ Adversaries may leverage the COR_PROFILER environment variable to hijack the exe
 ### T1574.013 — KernelCallbackTable
 <a id="t1574013"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/013)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/013)  
 
 Adversaries may abuse the <code>KernelCallbackTable</code> of a process to hijack its execution flow in order to run their own payloads.
 
@@ -1022,7 +1022,7 @@ Adversaries may abuse the <code>KernelCallbackTable</code> of a process to hijac
 ### T1574.014 — AppDomainManager
 <a id="t1574014"></a>
 
-sub-technique of [T1574](persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/014)  
+sub-technique of [T1574](/techniques/persistence.md#t1574) · **Tactics:** Persistence, Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1574/014)  
 
 Adversaries may execute their own malicious payloads by hijacking how the .NET `AppDomainManager` loads assemblies.
 
@@ -1076,7 +1076,7 @@ Adversaries may achieve persistence by leveraging OAuth application integrations
 ### T1542.001 — System Firmware
 <a id="t1542001"></a>
 
-sub-technique of [T1542](defense-evasion.md#t1542) · **Tactics:** Persistence, Defense Evasion · **Platforms:** Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/001)  
+sub-technique of [T1542](/techniques/defense-evasion.md#t1542) · **Tactics:** Persistence, Defense Evasion · **Platforms:** Windows, Network Devices · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/001)  
 
 Adversaries may modify system firmware to persist on systems.The BIOS (Basic Input/Output System) and The Unified Extensible Firmware Interface (UEFI) or Extensible Firmware Interface (EFI) are examples of system firmware that operate as the software interface between the operating system and hardware of a computer.
 
@@ -1090,7 +1090,7 @@ Adversaries may modify system firmware to persist on systems.The BIOS (Basic Inp
 ### T1542.002 — Component Firmware
 <a id="t1542002"></a>
 
-sub-technique of [T1542](defense-evasion.md#t1542) · **Tactics:** Persistence, Defense Evasion · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/002)  
+sub-technique of [T1542](/techniques/defense-evasion.md#t1542) · **Tactics:** Persistence, Defense Evasion · **Platforms:** Windows, Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/002)  
 
 Adversaries may modify component firmware to persist on systems. Some adversaries may employ sophisticated means to compromise computer components and install malicious firmware that will execute adversary code outside of the operating system and main system firmware or BIOS.
 
@@ -1105,7 +1105,7 @@ Adversaries may modify component firmware to persist on systems. Some adversarie
 ### T1542.003 — Bootkit
 <a id="t1542003"></a>
 
-sub-technique of [T1542](defense-evasion.md#t1542) · **Tactics:** Persistence, Defense Evasion · **Platforms:** Linux, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/003)  
+sub-technique of [T1542](/techniques/defense-evasion.md#t1542) · **Tactics:** Persistence, Defense Evasion · **Platforms:** Linux, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1542/003)  
 
 Adversaries may use bootkits to persist on systems. A bootkit is a malware variant that modifies the boot sectors of a hard drive, allowing malicious code to execute before a computer's operating system has loaded.
 
@@ -1120,7 +1120,7 @@ Adversaries may use bootkits to persist on systems. A bootkit is a malware varia
 ### T1546.017 — Udev Rules
 <a id="t1546017"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/017)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/017)  
 
 Adversaries may maintain persistence through executing malicious content triggered using udev rules.
 
@@ -1134,7 +1134,7 @@ Adversaries may maintain persistence through executing malicious content trigger
 ### T1546.018 — Python Startup Hooks
 <a id="t1546018"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/018)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Persistence, Privilege Escalation · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/018)  
 
 Adversaries may achieve persistence by leveraging Python’s startup mechanisms, including path configuration (`.pth`) files and the `sitecustomize.py` or `usercustomize.py` modules.
 

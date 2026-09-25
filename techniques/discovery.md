@@ -1,6 +1,6 @@
 # Discovery — Technique Detail
 
-> Full detail pages for the **43 ATT&CK techniques** whose primary tactic is [Discovery](https://attack.mitre.org/tactics/TA0007/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **43 ATT&CK techniques** whose primary tactic is [Discovery](https://attack.mitre.org/tactics/TA0007/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -67,7 +67,7 @@ Adversaries may look for details about the network configuration and settings, s
 ### T1016.001 — Internet Connection Discovery
 <a id="t1016001"></a>
 
-sub-technique of [T1016](discovery.md#t1016) · **Tactics:** Discovery · **Platforms:** Windows, Linux, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1016/001)  
+sub-technique of [T1016](/techniques/discovery.md#t1016) · **Tactics:** Discovery · **Platforms:** Windows, Linux, macOS, ESXi · [ATT&CK ↗](https://attack.mitre.org/techniques/T1016/001)  
 
 Adversaries may check for Internet connectivity on compromised systems. This may be performed during automated discovery and can be accomplished in numerous ways such as using Ping, <code>tracert</code>, and GET requests to websites, or performing initial speed testing to confirm bandwidth.
 
@@ -82,7 +82,7 @@ Adversaries may check for Internet connectivity on compromised systems. This may
 ### T1016.002 — Wi-Fi Discovery
 <a id="t1016002"></a>
 
-sub-technique of [T1016](discovery.md#t1016) · **Tactics:** Discovery · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1016/002)  
+sub-technique of [T1016](/techniques/discovery.md#t1016) · **Tactics:** Discovery · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1016/002)  
 
 Adversaries may search for information about Wi-Fi networks, such as network names and passwords, on compromised systems. Adversaries may use Wi-Fi information as part of Account Discovery, Remote System Discovery, and other discovery or Credential Access activity to support both ongoing and future campaigns.
 
@@ -187,7 +187,7 @@ Adversaries may attempt to discover group and permission settings. This informat
 ### T1069.001 — Local Groups
 <a id="t1069001"></a>
 
-sub-technique of [T1069](discovery.md#t1069) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1069/001)  
+sub-technique of [T1069](/techniques/discovery.md#t1069) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1069/001)  
 
 Adversaries may attempt to find local system groups and permission settings. The knowledge of local system permission groups can help adversaries determine which groups exist and which users belong to a particular group.
 
@@ -202,7 +202,7 @@ Adversaries may attempt to find local system groups and permission settings. The
 ### T1069.002 — Domain Groups
 <a id="t1069002"></a>
 
-sub-technique of [T1069](discovery.md#t1069) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1069/002)  
+sub-technique of [T1069](/techniques/discovery.md#t1069) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1069/002)  
 
 Adversaries may attempt to find domain-level groups and permission settings. The knowledge of domain-level permission groups can help adversaries determine which groups exist and which users belong to a particular group.
 
@@ -217,7 +217,7 @@ Adversaries may attempt to find domain-level groups and permission settings. The
 ### T1069.003 — Cloud Groups
 <a id="t1069003"></a>
 
-sub-technique of [T1069](discovery.md#t1069) · **Tactics:** Discovery · **Platforms:** SaaS, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1069/003)  
+sub-technique of [T1069](/techniques/discovery.md#t1069) · **Tactics:** Discovery · **Platforms:** SaaS, IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1069/003)  
 
 Adversaries may attempt to find cloud groups and permission settings. The knowledge of cloud permission groups can help adversaries determine the particular roles of users and groups within an environment, as well as which users are associated with a particular group.
 
@@ -276,7 +276,7 @@ Adversaries may attempt to get a listing of valid accounts, usernames, or email 
 ### T1087.001 — Local Account
 <a id="t1087001"></a>
 
-sub-technique of [T1087](discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/001)  
+sub-technique of [T1087](/techniques/discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** ESXi, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/001)  
 
 Adversaries may attempt to get a listing of local system accounts. This information can help adversaries determine which local accounts exist on a system to aid in follow-on behavior.
 
@@ -291,7 +291,7 @@ Adversaries may attempt to get a listing of local system accounts. This informat
 ### T1087.002 — Domain Account
 <a id="t1087002"></a>
 
-sub-technique of [T1087](discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/002)  
+sub-technique of [T1087](/techniques/discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/002)  
 
 Adversaries may attempt to get a listing of domain accounts. This information can help adversaries determine which domain accounts exist to aid in follow-on behavior such as targeting specific accounts which possess particular privileges.
 
@@ -306,7 +306,7 @@ Adversaries may attempt to get a listing of domain accounts. This information ca
 ### T1087.003 — Email Account
 <a id="t1087003"></a>
 
-sub-technique of [T1087](discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/003)  
+sub-technique of [T1087](/techniques/discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** Windows, Office Suite · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/003)  
 
 Adversaries may attempt to get a listing of email addresses and accounts. Adversaries may try to dump Exchange address lists such as global address lists (GALs).
 
@@ -321,7 +321,7 @@ Adversaries may attempt to get a listing of email addresses and accounts. Advers
 ### T1087.004 — Cloud Account
 <a id="t1087004"></a>
 
-sub-technique of [T1087](discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/004)  
+sub-technique of [T1087](/techniques/discovery.md#t1087) · **Tactics:** Discovery · **Platforms:** IaaS, Identity Provider, Office Suite, SaaS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1087/004)  
 
 Adversaries may attempt to get a listing of cloud accounts. Cloud accounts are those created and configured by an organization for use by users, remote support, services, or for administration of resources within a cloud service provider or SaaS application.
 
@@ -441,7 +441,7 @@ Adversaries may attempt to get a listing of software and software versions that 
 ### T1518.001 — Security Software Discovery
 <a id="t1518001"></a>
 
-sub-technique of [T1518](discovery.md#t1518) · **Tactics:** Discovery · **Platforms:** IaaS, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1518/001)  
+sub-technique of [T1518](/techniques/discovery.md#t1518) · **Tactics:** Discovery · **Platforms:** IaaS, Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1518/001)  
 
 Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. This may include things such as cloud monitoring agents and anti-virus.
 
@@ -456,7 +456,7 @@ Adversaries may attempt to get a listing of security software, configurations, d
 ### T1518.002 — Backup Software Discovery
 <a id="t1518002"></a>
 
-sub-technique of [T1518](discovery.md#t1518) · **Tactics:** Discovery · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1518/002)  
+sub-technique of [T1518](/techniques/discovery.md#t1518) · **Tactics:** Discovery · **Platforms:** Windows, macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1518/002)  
 
 Adversaries may attempt to get a listing of backup software or configurations that are installed on a system. Adversaries may use this information to shape follow-on behaviors, such as Data Destruction, Inhibit System Recovery, or Data Encrypted for Impact.
 
@@ -544,7 +544,7 @@ Adversaries may gather information in an attempt to calculate the geographical l
 ### T1614.001 — System Language Discovery
 <a id="t1614001"></a>
 
-sub-technique of [T1614](discovery.md#t1614) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1614/001)  
+sub-technique of [T1614](/techniques/discovery.md#t1614) · **Tactics:** Discovery · **Platforms:** Linux, macOS, Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1614/001)  
 
 Adversaries may attempt to gather information about the system language of a victim in order to infer the geographical location of that host. This information may be used to shape follow-on behaviors, including whether the adversary infects the target and/or attempts specific actions.
 

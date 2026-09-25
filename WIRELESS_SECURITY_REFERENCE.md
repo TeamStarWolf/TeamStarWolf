@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Wi-Fi Security Protocols](#1-wi-fi-security-protocols)
-2. [Wi-Fi Attack Techniques](#2-wi-fi-attack-techniques)
-3. [Bluetooth Security](#3-bluetooth-security)
-4. [Cellular Security (4G/5G)](#4-cellular-security-4g5g)
-5. [Zigbee, Z-Wave, and IoT Protocols](#5-zigbee-z-wave-and-iot-protocols)
-6. [RFID and NFC Security](#6-rfid-and-nfc-security)
-7. [Wireless Intrusion Detection/Prevention](#7-wireless-intrusion-detectionprevention)
-8. [Wireless Penetration Testing](#8-wireless-penetration-testing)
-9. [Wireless Hardening](#9-wireless-hardening)
-10. [Standards and Frameworks](#10-standards-and-frameworks)
+1. [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols)
+2. [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques)
+3. [Bluetooth Security](#_3-bluetooth-security)
+4. [Cellular Security (4G/5G)](#_4-cellular-security-4g5g)
+5. [Zigbee, Z-Wave, and IoT Protocols](#_5-zigbee-z-wave-and-iot-protocols)
+6. [RFID and NFC Security](#_6-rfid-and-nfc-security)
+7. [Wireless Intrusion Detection/Prevention](#_7-wireless-intrusion-detectionprevention)
+8. [Wireless Penetration Testing](#_8-wireless-penetration-testing)
+9. [Wireless Hardening](#_9-wireless-hardening)
+10. [Standards and Frameworks](#_10-standards-and-frameworks)
 
 ---
 

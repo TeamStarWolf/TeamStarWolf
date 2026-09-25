@@ -14,8 +14,8 @@ Writeups and lessons learned from building, reviewing, and hardening projects in
 
 | # | Entry | Topic |
 |---|---|---|
-| 2 | [Bulk-bookkeeping the GitHub Stars API](#2-bulk-bookkeeping-the-github-stars-api) | Web reverse engineering, rate-limit handling |
-| 1 | [Hardening LimeWire v4 — 32 vulnerabilities, 3 audit rounds](#1-hardening-limewire-v4) | Application security, secure coding patterns |
+| 2 | [Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api) | Web reverse engineering, rate-limit handling |
+| 1 | [Hardening LimeWire v4 — 32 vulnerabilities, 3 audit rounds](#_1-hardening-limewire-v4) | Application security, secure coding patterns |
 
 ---
 

@@ -12,15 +12,15 @@
 4. [LINDDUN (Privacy Threat Modeling)](#linddun-privacy-threat-modeling)
 5. [Attack Trees](#attack-trees)
 6. [DREAD Risk Scoring (Legacy, contextual use)](#dread-risk-scoring-legacy-contextual-use)
-7. [MITRE ATT&CK Integration](#mitre-attck-integration)
+7. [MITRE ATT&CK Integration](#mitre-attampck-integration)
 8. [Data Flow Diagrams (DFDs) for Threat Modeling](#data-flow-diagrams-dfds-for-threat-modeling)
 9. [Practical Threat Modeling Workflow](#practical-threat-modeling-workflow)
 10. [Threat Modeling Tools](#threat-modeling-tools)
-11. [Threat Modeling for Cloud & Microservices](#threat-modeling-for-cloud--microservices)
+11. [Threat Modeling for Cloud & Microservices](#threat-modeling-for-cloud-amp-microservices)
 12. [Secure Design Principles (Mitigations Catalog)](#secure-design-principles-mitigations-catalog)
 13. [Threat Modeling Metrics](#threat-modeling-metrics)
 14. [Integration with SDLC](#integration-with-sdlc)
-15. [Resources & Further Reading](#resources--further-reading)
+15. [Resources & Further Reading](#resources-amp-further-reading)
 
 ---
 

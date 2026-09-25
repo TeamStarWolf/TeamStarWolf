@@ -1,6 +1,6 @@
 # Reconnaissance — Technique Detail
 
-> Full detail pages for the **45 ATT&CK techniques** whose primary tactic is [Reconnaissance](https://attack.mitre.org/tactics/TA0043/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **45 ATT&CK techniques** whose primary tactic is [Reconnaissance](https://attack.mitre.org/tactics/TA0043/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -21,7 +21,7 @@ Adversaries may gather information about the victim's identity that can be used 
 ### T1589.001 — Credentials
 <a id="t1589001"></a>
 
-sub-technique of [T1589](reconnaissance.md#t1589) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1589/001)  
+sub-technique of [T1589](/techniques/reconnaissance.md#t1589) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1589/001)  
 
 Adversaries may gather credentials that can be used during targeting. Account credentials gathered by adversaries may be those directly associated with the target victim organization or attempt to take advantage of the tendency for users to use the same passwords across personal and business accounts.
 
@@ -35,7 +35,7 @@ Adversaries may gather credentials that can be used during targeting. Account cr
 ### T1589.002 — Email Addresses
 <a id="t1589002"></a>
 
-sub-technique of [T1589](reconnaissance.md#t1589) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1589/002)  
+sub-technique of [T1589](/techniques/reconnaissance.md#t1589) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1589/002)  
 
 Adversaries may gather email addresses that can be used during targeting. Even if internal instances exist, organizations may have public-facing email infrastructure and addresses for employees.
 
@@ -50,7 +50,7 @@ Adversaries may gather email addresses that can be used during targeting. Even i
 ### T1589.003 — Employee Names
 <a id="t1589003"></a>
 
-sub-technique of [T1589](reconnaissance.md#t1589) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1589/003)  
+sub-technique of [T1589](/techniques/reconnaissance.md#t1589) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1589/003)  
 
 Adversaries may gather employee names that can be used during targeting. Employee names be used to derive email addresses as well as to help guide other reconnaissance efforts and/or craft more-believable lures.
 
@@ -78,7 +78,7 @@ Adversaries may gather information about the victim's networks that can be used 
 ### T1590.001 — Domain Properties
 <a id="t1590001"></a>
 
-sub-technique of [T1590](reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/001)  
+sub-technique of [T1590](/techniques/reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/001)  
 
 Adversaries may gather information about the victim's network domain(s) that can be used during targeting.
 
@@ -93,7 +93,7 @@ Adversaries may gather information about the victim's network domain(s) that can
 ### T1590.002 — DNS
 <a id="t1590002"></a>
 
-sub-technique of [T1590](reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/002)  
+sub-technique of [T1590](/techniques/reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/002)  
 
 Adversaries may gather information about the victim's DNS that can be used during targeting. DNS information may include a variety of details, including registered name servers as well as records that outline addressing for a target’s subdomains, mail servers, and other hosts.
 
@@ -106,7 +106,7 @@ Adversaries may gather information about the victim's DNS that can be used durin
 ### T1590.003 — Network Trust Dependencies
 <a id="t1590003"></a>
 
-sub-technique of [T1590](reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/003)  
+sub-technique of [T1590](/techniques/reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/003)  
 
 Adversaries may gather information about the victim's network trust dependencies that can be used during targeting.
 
@@ -119,7 +119,7 @@ Adversaries may gather information about the victim's network trust dependencies
 ### T1590.004 — Network Topology
 <a id="t1590004"></a>
 
-sub-technique of [T1590](reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/004)  
+sub-technique of [T1590](/techniques/reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/004)  
 
 Adversaries may gather information about the victim's network topology that can be used during targeting. Information about network topologies may include a variety of details, including the physical and/or logical arrangement of both external-facing and internal network environments.
 
@@ -133,7 +133,7 @@ Adversaries may gather information about the victim's network topology that can 
 ### T1590.005 — IP Addresses
 <a id="t1590005"></a>
 
-sub-technique of [T1590](reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/005)  
+sub-technique of [T1590](/techniques/reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/005)  
 
 Adversaries may gather the victim's IP addresses that can be used during targeting. Public IP addresses may be allocated to organizations by block, or a range of sequential addresses. Information about assigned IP addresses may include a variety of details, such as which IP addresses are in use.
 
@@ -147,7 +147,7 @@ Adversaries may gather the victim's IP addresses that can be used during targeti
 ### T1590.006 — Network Security Appliances
 <a id="t1590006"></a>
 
-sub-technique of [T1590](reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/006)  
+sub-technique of [T1590](/techniques/reconnaissance.md#t1590) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1590/006)  
 
 Adversaries may gather information about the victim's network security appliances that can be used during targeting. Information about network security appliances may include a variety of details, such as the existence and specifics of deployed firewalls, content filters, and proxies/bastion hosts.
 
@@ -175,7 +175,7 @@ Adversaries may gather information about the victim's organization that can be u
 ### T1591.001 — Determine Physical Locations
 <a id="t1591001"></a>
 
-sub-technique of [T1591](reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/001)  
+sub-technique of [T1591](/techniques/reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/001)  
 
 Adversaries may gather the victim's physical location(s) that can be used during targeting. Information about physical locations of a target organization may include a variety of details, including where key resources and infrastructure are housed.
 
@@ -189,7 +189,7 @@ Adversaries may gather the victim's physical location(s) that can be used during
 ### T1591.002 — Business Relationships
 <a id="t1591002"></a>
 
-sub-technique of [T1591](reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/002)  
+sub-technique of [T1591](/techniques/reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/002)  
 
 Adversaries may gather information about the victim's business relationships that can be used during targeting.
 
@@ -203,7 +203,7 @@ Adversaries may gather information about the victim's business relationships tha
 ### T1591.003 — Identify Business Tempo
 <a id="t1591003"></a>
 
-sub-technique of [T1591](reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/003)  
+sub-technique of [T1591](/techniques/reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/003)  
 
 Adversaries may gather information about the victim's business tempo that can be used during targeting. Information about an organization’s business tempo may include a variety of details, including operational hours/days of the week.
 
@@ -216,7 +216,7 @@ Adversaries may gather information about the victim's business tempo that can be
 ### T1591.004 — Identify Roles
 <a id="t1591004"></a>
 
-sub-technique of [T1591](reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/004)  
+sub-technique of [T1591](/techniques/reconnaissance.md#t1591) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1591/004)  
 
 Adversaries may gather information about identities and roles within the victim organization that can be used during targeting. Information about business roles may reveal a variety of targetable details, including identifiable information for key personnel as well as what data/resources they have access to.
 
@@ -244,7 +244,7 @@ Adversaries may gather information about the victim's hosts that can be used dur
 ### T1592.001 — Hardware
 <a id="t1592001"></a>
 
-sub-technique of [T1592](reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/001)  
+sub-technique of [T1592](/techniques/reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/001)  
 
 Adversaries may gather information about the victim's host hardware that can be used during targeting.
 
@@ -257,7 +257,7 @@ Adversaries may gather information about the victim's host hardware that can be 
 ### T1592.002 — Software
 <a id="t1592002"></a>
 
-sub-technique of [T1592](reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/002)  
+sub-technique of [T1592](/techniques/reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/002)  
 
 Adversaries may gather information about the victim's host software that can be used during targeting.
 
@@ -271,7 +271,7 @@ Adversaries may gather information about the victim's host software that can be 
 ### T1592.003 — Firmware
 <a id="t1592003"></a>
 
-sub-technique of [T1592](reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/003)  
+sub-technique of [T1592](/techniques/reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/003)  
 
 Adversaries may gather information about the victim's host firmware that can be used during targeting.
 
@@ -284,7 +284,7 @@ Adversaries may gather information about the victim's host firmware that can be 
 ### T1592.004 — Client Configurations
 <a id="t1592004"></a>
 
-sub-technique of [T1592](reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/004)  
+sub-technique of [T1592](/techniques/reconnaissance.md#t1592) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1592/004)  
 
 Adversaries may gather information about the victim's client configurations that can be used during targeting. Information about client configurations may include a variety of details and settings, including operating system/version, virtualization, architecture (ex: 32 or 64 bit), language, and/or time zone.
 
@@ -312,7 +312,7 @@ Adversaries may search freely available websites and/or domains for information 
 ### T1593.001 — Social Media
 <a id="t1593001"></a>
 
-sub-technique of [T1593](reconnaissance.md#t1593) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1593/001)  
+sub-technique of [T1593](/techniques/reconnaissance.md#t1593) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1593/001)  
 
 Adversaries may search social media for information about victims that can be used during targeting. Social media sites may contain various information about a victim organization, such as business announcements as well as information about the roles, locations, and interests of staff.
 
@@ -326,7 +326,7 @@ Adversaries may search social media for information about victims that can be us
 ### T1593.002 — Search Engines
 <a id="t1593002"></a>
 
-sub-technique of [T1593](reconnaissance.md#t1593) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1593/002)  
+sub-technique of [T1593](/techniques/reconnaissance.md#t1593) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1593/002)  
 
 Adversaries may use search engines to collect information about victims that can be used during targeting. Search engine services typical crawl online sites to index context and may provide users with specialized syntax to search for specific keywords or specific types of content (i.e. filetypes).
 
@@ -340,7 +340,7 @@ Adversaries may use search engines to collect information about victims that can
 ### T1593.003 — Code Repositories
 <a id="t1593003"></a>
 
-sub-technique of [T1593](reconnaissance.md#t1593) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1593/003)  
+sub-technique of [T1593](/techniques/reconnaissance.md#t1593) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1593/003)  
 
 Adversaries may search public code repositories for information about victims that can be used during targeting. Victims may store code in repositories on various third-party websites such as GitHub, GitLab, SourceForge, and BitBucket.
 
@@ -381,7 +381,7 @@ Adversaries may execute active reconnaissance scans to gather information that c
 ### T1595.001 — Scanning IP Blocks
 <a id="t1595001"></a>
 
-sub-technique of [T1595](reconnaissance.md#t1595) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1595/001)  
+sub-technique of [T1595](/techniques/reconnaissance.md#t1595) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1595/001)  
 
 Adversaries may scan victim IP blocks to gather information that can be used during targeting. Public IP addresses may be allocated to organizations by block, or a range of sequential addresses.
 
@@ -395,7 +395,7 @@ Adversaries may scan victim IP blocks to gather information that can be used dur
 ### T1595.002 — Vulnerability Scanning
 <a id="t1595002"></a>
 
-sub-technique of [T1595](reconnaissance.md#t1595) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1595/002)  
+sub-technique of [T1595](/techniques/reconnaissance.md#t1595) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1595/002)  
 
 Adversaries may scan victims for vulnerabilities that can be used during targeting. Vulnerability scans typically check if the configuration of a target host/application (ex: software and version) potentially aligns with the target of a specific exploit the adversary may seek to use.
 
@@ -409,7 +409,7 @@ Adversaries may scan victims for vulnerabilities that can be used during targeti
 ### T1595.003 — Wordlist Scanning
 <a id="t1595003"></a>
 
-sub-technique of [T1595](reconnaissance.md#t1595) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1595/003)  
+sub-technique of [T1595](/techniques/reconnaissance.md#t1595) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1595/003)  
 
 Adversaries may iteratively probe infrastructure using brute-forcing and crawling techniques. While this technique employs similar methods to Brute Force, its goal is the identification of content and infrastructure rather than the discovery of valid credentials.
 
@@ -437,7 +437,7 @@ Adversaries may search freely available technical databases for information abou
 ### T1596.001 — DNS/Passive DNS
 <a id="t1596001"></a>
 
-sub-technique of [T1596](reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/001)  
+sub-technique of [T1596](/techniques/reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/001)  
 
 Adversaries may search DNS data for information about victims that can be used during targeting. DNS information may include a variety of details, including registered name servers as well as records that outline addressing for a target’s subdomains, mail servers, and other hosts.
 
@@ -450,7 +450,7 @@ Adversaries may search DNS data for information about victims that can be used d
 ### T1596.002 — WHOIS
 <a id="t1596002"></a>
 
-sub-technique of [T1596](reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/002)  
+sub-technique of [T1596](/techniques/reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/002)  
 
 Adversaries may search public WHOIS data for information about victims that can be used during targeting. WHOIS data is stored by regional Internet registries (RIR) responsible for allocating and assigning Internet resources such as domain names.
 
@@ -463,7 +463,7 @@ Adversaries may search public WHOIS data for information about victims that can 
 ### T1596.003 — Digital Certificates
 <a id="t1596003"></a>
 
-sub-technique of [T1596](reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/003)  
+sub-technique of [T1596](/techniques/reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/003)  
 
 Adversaries may search public digital certificate data for information about victims that can be used during targeting. Digital certificates are issued by a certificate authority (CA) in order to cryptographically verify the origin of signed content.
 
@@ -476,7 +476,7 @@ Adversaries may search public digital certificate data for information about vic
 ### T1596.004 — CDNs
 <a id="t1596004"></a>
 
-sub-technique of [T1596](reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/004)  
+sub-technique of [T1596](/techniques/reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/004)  
 
 Adversaries may search content delivery network (CDN) data about victims that can be used during targeting. CDNs allow an organization to host content from a distributed, load balanced array of servers. CDNs may also allow organizations to customize content delivery based on the requestor’s geographical region.
 
@@ -489,7 +489,7 @@ Adversaries may search content delivery network (CDN) data about victims that ca
 ### T1596.005 — Scan Databases
 <a id="t1596005"></a>
 
-sub-technique of [T1596](reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/005)  
+sub-technique of [T1596](/techniques/reconnaissance.md#t1596) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1596/005)  
 
 Adversaries may search within public scan databases for information about victims that can be used during targeting.
 
@@ -517,7 +517,7 @@ Adversaries may search and gather information about victims from closed (e.g., p
 ### T1597.001 — Threat Intel Vendors
 <a id="t1597001"></a>
 
-sub-technique of [T1597](reconnaissance.md#t1597) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1597/001)  
+sub-technique of [T1597](/techniques/reconnaissance.md#t1597) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1597/001)  
 
 Adversaries may search private data from threat intelligence vendors for information that can be used during targeting. Threat intelligence vendors may offer paid feeds or portals that offer more data than what is publicly reported.
 
@@ -530,7 +530,7 @@ Adversaries may search private data from threat intelligence vendors for informa
 ### T1597.002 — Purchase Technical Data
 <a id="t1597002"></a>
 
-sub-technique of [T1597](reconnaissance.md#t1597) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1597/002)  
+sub-technique of [T1597](/techniques/reconnaissance.md#t1597) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1597/002)  
 
 Adversaries may purchase technical information about victims that can be used during targeting. Information about victims may be available for purchase within reputable private sources and databases, such as paid subscriptions to feeds of scan databases or other data aggregation services.
 
@@ -558,7 +558,7 @@ Adversaries may send phishing messages to elicit sensitive information that can 
 ### T1598.001 — Spearphishing Service
 <a id="t1598001"></a>
 
-sub-technique of [T1598](reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/001)  
+sub-technique of [T1598](/techniques/reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/001)  
 
 Adversaries may send spearphishing messages via third-party services to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information.
 
@@ -571,7 +571,7 @@ Adversaries may send spearphishing messages via third-party services to elicit s
 ### T1598.002 — Spearphishing Attachment
 <a id="t1598002"></a>
 
-sub-technique of [T1598](reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/002)  
+sub-technique of [T1598](/techniques/reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/002)  
 
 Adversaries may send spearphishing messages with a malicious attachment to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information.
 
@@ -585,7 +585,7 @@ Adversaries may send spearphishing messages with a malicious attachment to elici
 ### T1598.003 — Spearphishing Link
 <a id="t1598003"></a>
 
-sub-technique of [T1598](reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/003)  
+sub-technique of [T1598](/techniques/reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/003)  
 
 Adversaries may send spearphishing messages with a malicious link to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information.
 
@@ -600,7 +600,7 @@ Adversaries may send spearphishing messages with a malicious link to elicit sens
 ### T1598.004 — Spearphishing Voice
 <a id="t1598004"></a>
 
-sub-technique of [T1598](reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/004)  
+sub-technique of [T1598](/techniques/reconnaissance.md#t1598) · **Tactics:** Reconnaissance · **Platforms:** PRE · [ATT&CK ↗](https://attack.mitre.org/techniques/T1598/004)  
 
 Adversaries may use voice communications to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information.
 

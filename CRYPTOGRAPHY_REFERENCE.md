@@ -1772,13 +1772,13 @@ Parameter sets:
 - ML-DSA-87: security level 5
 ```
 
-Signature sizes: 2420-4595 bytes (larger than ECC's 64 bytes).
+Signature sizes: ML-DSA-44 = 2420 bytes, ML-DSA-65 = 3309 bytes, ML-DSA-87 = 4627 bytes (larger than ECC's 64 bytes).
 
 #### SLH-DSA / SPHINCS+ (FIPS 205)
 
 Hash-based signature scheme. Security relies only on hash function security (conservative choice).
 
-- Larger signatures (~8-50 KB depending on parameter set)
+- Larger signatures (7856 bytes for SLH-DSA-128s up to 49856 bytes for SLH-DSA-256f)
 - Slower signing than ML-DSA
 - Alternative for environments where lattice assumptions are doubted
 

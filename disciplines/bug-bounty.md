@@ -298,9 +298,9 @@ cat js_files.txt | xargs -I {} sh -c 'curl -s {} | grep -oP "(?<=")[/a-zA-Z0-9_-
 
 ## Related Disciplines
 
-- [Application Security](application-security.md)
-- [Offensive Security](offensive-security.md)
-- [Vulnerability Management](vulnerability-management.md)
-- [Detection Engineering](detection-engineering.md)
-- [DevSecOps](devsecops.md)
-- [Network Security](network-security.md)
+- [Application Security](/disciplines/application-security.md)
+- [Offensive Security](/disciplines/offensive-security.md)
+- [Vulnerability Management](/disciplines/vulnerability-management.md)
+- [Detection Engineering](/disciplines/detection-engineering.md)
+- [DevSecOps](/disciplines/devsecops.md)
+- [Network Security](/disciplines/network-security.md)

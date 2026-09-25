@@ -259,8 +259,8 @@ MITRE ATT&CK Enterprise, ICS, and Mobile domains all apply to IoT. Key technique
 
 ## Related Disciplines
 
-- [Hardware Security](hardware-security.md)
-- [ICS / OT Security](ics-ot-security.md)
-- [Mobile Security](mobile-security.md)
-- [Network Security](network-security.md)
-- [Supply Chain Security](supply-chain-security.md)
+- [Hardware Security](/disciplines/hardware-security.md)
+- [ICS / OT Security](/disciplines/ics-ot-security.md)
+- [Mobile Security](/disciplines/mobile-security.md)
+- [Network Security](/disciplines/network-security.md)
+- [Supply Chain Security](/disciplines/supply-chain-security.md)

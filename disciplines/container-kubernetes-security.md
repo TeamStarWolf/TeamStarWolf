@@ -672,8 +672,8 @@ spec:
 
 ## Related Disciplines
 
-- [Cloud Security](cloud-security.md) — Container and Kubernetes security is a specialization within the broader cloud security discipline; EKS, GKE, and AKS add cloud IAM and managed control plane attack surfaces
-- [DevSecOps](devsecops.md) — Image scanning, admission control, and signing belong in CI/CD pipelines; container security is inseparable from DevSecOps pipeline design
-- [Supply Chain Security](supply-chain-security.md) — Container image signing, SLSA build provenance, and registry security are core supply chain security concerns
-- [Network Security](network-security.md) — Kubernetes NetworkPolicy and service mesh mTLS are the network security layer for containerized workloads
-- [Vulnerability Management](vulnerability-management.md) — Container image CVE scanning and base image remediation are a primary vulnerability management workflow in container-heavy environments
+- [Cloud Security](/disciplines/cloud-security.md) — Container and Kubernetes security is a specialization within the broader cloud security discipline; EKS, GKE, and AKS add cloud IAM and managed control plane attack surfaces
+- [DevSecOps](/disciplines/devsecops.md) — Image scanning, admission control, and signing belong in CI/CD pipelines; container security is inseparable from DevSecOps pipeline design
+- [Supply Chain Security](/disciplines/supply-chain-security.md) — Container image signing, SLSA build provenance, and registry security are core supply chain security concerns
+- [Network Security](/disciplines/network-security.md) — Kubernetes NetworkPolicy and service mesh mTLS are the network security layer for containerized workloads
+- [Vulnerability Management](/disciplines/vulnerability-management.md) — Container image CVE scanning and base image remediation are a primary vulnerability management workflow in container-heavy environments

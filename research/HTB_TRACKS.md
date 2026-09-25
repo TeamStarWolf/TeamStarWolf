@@ -152,7 +152,7 @@ Tracks created by industry partners for recruitment or team development.
 ---
 
 ## Related Resources
-- [HTB Machine Index](HTB_MACHINE_INDEX.md) — 127 retired machines indexed by difficulty and skill
+- [HTB Machine Index](/research/HTB_MACHINE_INDEX.md) — 127 retired machines indexed by difficulty and skill
 - [Labs Reference](../LABS.md) — all practice platforms including HTB, THM, BTLO
 - [Certifications](../CERTIFICATIONS.md) — cert guide with CREST, HTB, OSCP and 40+ more
 - [HackTheBox Tracks](https://app.hackthebox.com/tracks) — live tracks on HTB (login required)

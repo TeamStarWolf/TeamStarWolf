@@ -333,7 +333,7 @@ Always operate within the scope of authorized engagements. For research, obtain 
 
 ## Related Disciplines
 
-- [hardware-security.md](hardware-security.md) — PCB analysis, firmware extraction, hardware RE; often paired with RF for embedded wireless device assessments
-- [iot-security.md](iot-security.md) — IoT devices are primary consumers of ZigBee, Z-Wave, 433 MHz, and BLE protocols
-- [physical-security.md](physical-security.md) — RFID/NFC assessment is a core component of physical penetration testing
-- [hacker-hobbies.md](hacker-hobbies.md) — SDR, ham radio, and locksport as foundational skill-building activities
+- [hardware-security.md](/disciplines/hardware-security.md) — PCB analysis, firmware extraction, hardware RE; often paired with RF for embedded wireless device assessments
+- [iot-security.md](/disciplines/iot-security.md) — IoT devices are primary consumers of ZigBee, Z-Wave, 433 MHz, and BLE protocols
+- [physical-security.md](/disciplines/physical-security.md) — RFID/NFC assessment is a core component of physical penetration testing
+- [hacker-hobbies.md](/disciplines/hacker-hobbies.md) — SDR, ham radio, and locksport as foundational skill-building activities

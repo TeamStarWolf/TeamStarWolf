@@ -490,8 +490,8 @@ The village system lets specialized communities run their own mini-conferences w
 
 ## Related Disciplines
 
-- [physical-security.md](physical-security.md) — Physical penetration testing, social engineering, access control assessments
-- [hardware-security.md](hardware-security.md) — PCB analysis, firmware extraction, JTAG/UART, embedded RE
-- [iot-security.md](iot-security.md) — IoT device security, embedded Linux, consumer device research
-- [radio-frequency-security.md](radio-frequency-security.md) — Professional RF security work, wireless protocol analysis
-- [social-engineering.md](social-engineering.md) — Human-layer attacks, pretexting, physical social engineering
+- [physical-security.md](/disciplines/physical-security.md) — Physical penetration testing, social engineering, access control assessments
+- [hardware-security.md](/disciplines/hardware-security.md) — PCB analysis, firmware extraction, JTAG/UART, embedded RE
+- [iot-security.md](/disciplines/iot-security.md) — IoT device security, embedded Linux, consumer device research
+- [radio-frequency-security.md](/disciplines/radio-frequency-security.md) — Professional RF security work, wireless protocol analysis
+- [social-engineering.md](/disciplines/social-engineering.md) — Human-layer attacks, pretexting, physical social engineering

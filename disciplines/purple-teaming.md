@@ -306,9 +306,9 @@ Invoke-AtomicTest T1003.001 -Cleanup
 
 ## Related Disciplines
 
-- [Detection Engineering](detection-engineering.md) — Building the detections purple team validates; writing Sigma rules for identified gaps
-- [Security Operations](security-operations.md) — Blue team side of purple exercises; SIEM/EDR operators who confirm alert firing
-- [Offensive Security](offensive-security.md) — Red team techniques and C2 operations used in emulation campaigns
-- [Threat Intelligence](threat-intelligence.md) — Drives threat-actor-based emulation scenarios and technique selection
-- [Active Defense & Deception](active-defense-deception.md) — Testing deception efficacy and honeypot triggers in purple exercises
-- [Incident Response](incident-response.md) — Purple exercises test whether IR playbooks activate correctly on detection
+- [Detection Engineering](/disciplines/detection-engineering.md) — Building the detections purple team validates; writing Sigma rules for identified gaps
+- [Security Operations](/disciplines/security-operations.md) — Blue team side of purple exercises; SIEM/EDR operators who confirm alert firing
+- [Offensive Security](/disciplines/offensive-security.md) — Red team techniques and C2 operations used in emulation campaigns
+- [Threat Intelligence](/disciplines/threat-intelligence.md) — Drives threat-actor-based emulation scenarios and technique selection
+- [Active Defense & Deception](/disciplines/active-defense-deception.md) — Testing deception efficacy and honeypot triggers in purple exercises
+- [Incident Response](/disciplines/incident-response.md) — Purple exercises test whether IR playbooks activate correctly on detection

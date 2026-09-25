@@ -160,6 +160,8 @@
     }
     .app-nav a:hover { color: var(--tsw-accent); }
     .app-nav li { margin: 0 10px; }
+    /* dropdown parents are links to their first menu item; caret marks the menu */
+    .app-nav li:has(> ul) > a::after { content: ' ▾'; font-size: .72em; opacity: .65; }
     body.close .app-nav { left: 0; }
 
     /* ===================== Content ===================== */
@@ -353,6 +355,10 @@
       auto2top: true,
       homepage: 'README.md',
       relativePath: false,  // every in-repo link is absolute; see _sidebar.md
+      alias: {
+        // navigator/ ships index.md, not README.md — without this, /navigator/ 404s
+        '/navigator/': '/navigator/index'
+      },
       mergeNavbar: true,
       externalLinkTarget: '_blank',
       notFoundPage: true,

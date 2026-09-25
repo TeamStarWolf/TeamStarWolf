@@ -1,7 +1,7 @@
 <!-- _navbar.md -->
 
 - [Index](/INDEX.md)
-- Frameworks
+- [Frameworks](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
   - [Threat-Informed Defense](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
   - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
   - [ATLAS — AI Threats](/ATLAS_REFERENCE.md)
@@ -12,7 +12,7 @@
   - [FiGHT — 5G](/TELECOM_5G_SECURITY_REFERENCE.md)
   - [SPARTA — Space](/SPACE_SECURITY_REFERENCE.md)
   - [CWE](/CWE_REFERENCE.md) · [CAPEC](/CAPEC_REFERENCE.md)
-- Operate
+- [Operate](/CTEM_REFERENCE.md)
   - [CTEM — Exposure Mgmt](/CTEM_REFERENCE.md)
   - [Detection Strategies](/detections/strategies/README.md)
   - [Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
@@ -20,7 +20,7 @@
   - [Priority Gaps](/scores/attack_priority_gaps.md)
 - [Disciplines](/disciplines/threat-intelligence.md)
 - [Navigator](/navigator/)
-- Learn
+- [Learn](/CAREER_PATHS.md)
   - [Career Paths](/CAREER_PATHS.md)
   - [Certifications](/CERTIFICATIONS.md)
   - [Labs](/LABS.md)

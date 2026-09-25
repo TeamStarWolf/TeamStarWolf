@@ -1,6 +1,6 @@
 # Privilege Escalation — Technique Detail
 
-> Full detail pages for the **25 ATT&CK techniques** whose primary tactic is [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](README.md).
+> Full detail pages for the **25 ATT&CK techniques** whose primary tactic is [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/) (ATT&CK Enterprise v18.1). Each entry consolidates the ATT&CK description, mitigations, NIST 800-53 controls, detection guidance, and the threat groups and software that use it. See the [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) for the matrix view and [all techniques index](/techniques/README.md).
 
 ---
 
@@ -36,7 +36,7 @@ Adversaries may establish persistence and/or elevate privileges using system mec
 ### T1546.001 — Change Default File Association
 <a id="t1546001"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/001)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/001)  
 
 Adversaries may establish persistence by executing malicious content triggered by a file type association. When a file is opened, the default program used to open the file (also called the file association or handler) is checked.
 
@@ -51,7 +51,7 @@ Adversaries may establish persistence by executing malicious content triggered b
 ### T1546.002 — Screensaver
 <a id="t1546002"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/002)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/002)  
 
 Adversaries may establish persistence by executing malicious content triggered by user inactivity. Screensavers are programs that execute after a configurable time of user inactivity and consist of Portable Executable (PE) files with a .scr file extension.
 
@@ -65,7 +65,7 @@ Adversaries may establish persistence by executing malicious content triggered b
 ### T1546.003 — Windows Management Instrumentation Event Subscription
 <a id="t1546003"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/003)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/003)  
 
 Adversaries may establish persistence and elevate privileges by executing malicious content triggered by a Windows Management Instrumentation (WMI) event subscription. WMI can be used to install event filters, providers, consumers, and bindings that execute code when a defined event occurs.
 
@@ -80,7 +80,7 @@ Adversaries may establish persistence and elevate privileges by executing malici
 ### T1546.004 — Unix Shell Configuration Modification
 <a id="t1546004"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/004)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/004)  
 
 Adversaries may establish persistence through executing malicious commands triggered by a user’s shell. User Unix Shells execute several configuration scripts at different points throughout the session based on events.
 
@@ -95,7 +95,7 @@ Adversaries may establish persistence through executing malicious commands trigg
 ### T1546.005 — Trap
 <a id="t1546005"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/005)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** macOS, Linux · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/005)  
 
 Adversaries may establish persistence by executing malicious content triggered by an interrupt signal. The <code>trap</code> command allows programs and shells to specify commands that will be executed upon receiving interrupt signals.
 
@@ -108,7 +108,7 @@ Adversaries may establish persistence by executing malicious content triggered b
 ### T1546.006 — LC_LOAD_DYLIB Addition
 <a id="t1546006"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/006)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/006)  
 
 Adversaries may establish persistence by executing malicious content triggered by the execution of tainted binaries. Mach-O binaries have a series of headers that are used to perform certain operations when a binary is loaded.
 
@@ -121,7 +121,7 @@ Adversaries may establish persistence by executing malicious content triggered b
 ### T1546.007 — Netsh Helper DLL
 <a id="t1546007"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/007)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/007)  
 
 Adversaries may establish persistence by executing malicious content triggered by Netsh Helper DLLs. Netsh.exe (also referred to as Netshell) is a command-line scripting utility used to interact with the network configuration of a system.
 
@@ -135,7 +135,7 @@ Adversaries may establish persistence by executing malicious content triggered b
 ### T1546.008 — Accessibility Features
 <a id="t1546008"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/008)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/008)  
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by accessibility features. Windows contains accessibility features that may be launched with a key combination before a user has logged in (ex: when the user is on the Windows logon screen).
 
@@ -150,7 +150,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 ### T1546.009 — AppCert DLLs
 <a id="t1546009"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/009)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/009)  
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppCert DLLs loaded into processes.
 
@@ -164,7 +164,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 ### T1546.010 — AppInit DLLs
 <a id="t1546010"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/010)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/010)  
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by AppInit DLLs loaded into processes.
 
@@ -179,7 +179,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 ### T1546.011 — Application Shimming
 <a id="t1546011"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/011)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/011)  
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims.
 
@@ -194,7 +194,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 ### T1546.012 — Image File Execution Options Injection
 <a id="t1546012"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/012)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/012)  
 
 Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers. IFEOs enable a developer to attach a debugger to an application.
 
@@ -208,7 +208,7 @@ Adversaries may establish persistence and/or elevate privileges by executing mal
 ### T1546.013 — PowerShell Profile
 <a id="t1546013"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/013)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/013)  
 
 Adversaries may gain persistence and elevate privileges by executing malicious content triggered by PowerShell profiles. A PowerShell profile (<code>profile.ps1</code>) is a script that runs when PowerShell starts and can be used as a logon script to customize user environments.
 
@@ -222,7 +222,7 @@ Adversaries may gain persistence and elevate privileges by executing malicious c
 ### T1546.014 — Emond
 <a id="t1546014"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/014)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/014)  
 
 Adversaries may gain persistence and elevate privileges by executing malicious content triggered by the Event Monitor Daemon (emond). Emond is a Launch Daemon that accepts events from various services, runs them through a simple rules engine, and takes action.
 
@@ -235,7 +235,7 @@ Adversaries may gain persistence and elevate privileges by executing malicious c
 ### T1546.015 — Component Object Model Hijacking
 <a id="t1546015"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/015)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/015)  
 
 Adversaries may establish persistence by executing malicious content triggered by hijacked references to Component Object Model (COM) objects. COM is a system within Windows to enable interaction between software components through the operating system. References to various COM objects are stored in the Registry.
 
@@ -250,7 +250,7 @@ Adversaries may establish persistence by executing malicious content triggered b
 ### T1546.016 — Installer Packages
 <a id="t1546016"></a>
 
-sub-technique of [T1546](privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/016)  
+sub-technique of [T1546](/techniques/privilege-escalation.md#t1546) · **Tactics:** Privilege Escalation, Persistence · **Platforms:** Linux, Windows, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1546/016)  
 
 Adversaries may establish persistence and elevate privileges by using an installer to trigger the execution of malicious content. Installer packages are OS specific and contain the resources an operating system needs to install applications on a system.
 
@@ -279,7 +279,7 @@ Adversaries may circumvent mechanisms designed to control elevate privileges to 
 ### T1548.001 — Setuid and Setgid
 <a id="t1548001"></a>
 
-sub-technique of [T1548](privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/001)  
+sub-technique of [T1548](/techniques/privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/001)  
 
 An adversary may abuse configurations where an application has the setuid or setgid bits set in order to get code running in a different (and possibly more privileged) user’s context.
 
@@ -293,7 +293,7 @@ An adversary may abuse configurations where an application has the setuid or set
 ### T1548.002 — Bypass User Account Control
 <a id="t1548002"></a>
 
-sub-technique of [T1548](privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/002)  
+sub-technique of [T1548](/techniques/privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** Windows · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/002)  
 
 Adversaries may bypass UAC mechanisms to elevate process privileges on system. Windows User Account Control (UAC) allows a program to elevate its privileges (tracked as integrity levels ranging from low to high) to perform a task under administrator-level permissions, possibly by prompting the user for confirmation.
 
@@ -308,7 +308,7 @@ Adversaries may bypass UAC mechanisms to elevate process privileges on system. W
 ### T1548.003 — Sudo and Sudo Caching
 <a id="t1548003"></a>
 
-sub-technique of [T1548](privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/003)  
+sub-technique of [T1548](/techniques/privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** Linux, macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/003)  
 
 Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges. Adversaries may do this to execute commands as other users or spawn processes with higher privileges.
 
@@ -322,7 +322,7 @@ Adversaries may perform sudo caching and/or use the sudoers file to elevate priv
 ### T1548.004 — Elevated Execution with Prompt
 <a id="t1548004"></a>
 
-sub-technique of [T1548](privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/004)  
+sub-technique of [T1548](/techniques/privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** macOS · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/004)  
 
 Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API to escalate privileges by prompting the user for credentials. The purpose of this API is to give application developers an easy way to perform operations with root privileges, such as for application installation or updating.
 
@@ -336,7 +336,7 @@ Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API
 ### T1548.005 — Temporary Elevated Cloud Access
 <a id="t1548005"></a>
 
-sub-technique of [T1548](privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/005)  
+sub-technique of [T1548](/techniques/privilege-escalation.md#t1548) · **Tactics:** Privilege Escalation, Defense Evasion · **Platforms:** IaaS, Office Suite, Identity Provider · [ATT&CK ↗](https://attack.mitre.org/techniques/T1548/005)  
 
 Adversaries may abuse permission configurations that allow them to gain temporarily elevated access to cloud resources.
 

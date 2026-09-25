@@ -2,7 +2,7 @@
 
 > Maintained by [**@WolfenLabs**](https://x.com/WolfenLabs)
 >
-> A coverage analysis comparing the Kali Linux tool catalog against the [curated Stars Lists](CURATED_STARS_LISTS.md) and the broader [Starred GitHub Repositories index](../Starred%20GitHub%20Repositories.md). Surveyed against the full Kali tool index at <https://www.kali.org/tools/all-tools/>.
+> A coverage analysis comparing the Kali Linux tool catalog against the [curated Stars Lists](/research/CURATED_STARS_LISTS.md) and the broader [Starred GitHub Repositories index](../Starred%20GitHub%20Repositories.md). Surveyed against the full Kali tool index at <https://www.kali.org/tools/all-tools/>.
 
 ## Why this exists
 
@@ -144,7 +144,7 @@ The following Kali-shipped tools are **deliberately excluded** from the worth-ad
 
 - **Defending the curation against "you don't have X" challenges.** When someone asks "where's `feroxbuster`?" the answer is here, in the worth-adding queue, with a triage rationale.
 - **Avoiding curation drift.** Mass-starring all 547 uncovered Kali tools would inflate the catalogue by 50% overnight with mostly distro-package noise. This document is the explicit decision *not* to do that.
-- **Operating as a planning artifact.** The worth-adding queue is the next-actions list for the Stars Lists — additions go through the same classifier (`smart_categorize.py`) and bulk-add pipeline documented in [Field Notes](FIELD_NOTES.md).
+- **Operating as a planning artifact.** The worth-adding queue is the next-actions list for the Stars Lists — additions go through the same classifier (`smart_categorize.py`) and bulk-add pipeline documented in [Field Notes](/research/FIELD_NOTES.md).
 
 ## Adjacent reference distributions
 

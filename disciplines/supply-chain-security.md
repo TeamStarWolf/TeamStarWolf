@@ -368,9 +368,9 @@ A machine-readable inventory of all components in a software artifact — librar
 
 ## Related Disciplines
 
-- [DevSecOps](devsecops.md) — Pipeline security, SAST/SCA integration, and shift-left supply chain controls
-- [Cryptography & PKI](cryptography-pki.md) — Artifact signing, key management, and certificate transparency
-- [Cloud Security](cloud-security.md) — Registry security, container hardening, and cloud build platform controls
-- [Vulnerability Management](vulnerability-management.md) — CVE triage from SBOM findings and dependency scanner output
-- [Offensive Security](offensive-security.md) — Understanding attack construction (dependency confusion, CI token theft) to build better defenses
-- [Governance, Risk & Compliance](governance-risk-compliance.md) — NIST SP 800-161, EO 14028, and contractual SBOM requirements
+- [DevSecOps](/disciplines/devsecops.md) — Pipeline security, SAST/SCA integration, and shift-left supply chain controls
+- [Cryptography & PKI](/disciplines/cryptography-pki.md) — Artifact signing, key management, and certificate transparency
+- [Cloud Security](/disciplines/cloud-security.md) — Registry security, container hardening, and cloud build platform controls
+- [Vulnerability Management](/disciplines/vulnerability-management.md) — CVE triage from SBOM findings and dependency scanner output
+- [Offensive Security](/disciplines/offensive-security.md) — Understanding attack construction (dependency confusion, CI token theft) to build better defenses
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md) — NIST SP 800-161, EO 14028, and contractual SBOM requirements

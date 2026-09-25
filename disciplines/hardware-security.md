@@ -294,9 +294,9 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 ## Related Disciplines
 
-- [ICS / OT Security](ics-ot-security.md) — Industrial control systems, PLCs, SCADA with embedded firmware
-- [Malware Analysis](malware-analysis.md) — Firmware reverse engineering overlaps heavily with malware RE techniques
-- [Cryptography & PKI](cryptography-pki.md) — HSMs, TPMs, hardware-backed key storage and attestation
-- [Supply Chain Security](supply-chain-security.md) — Hardware supply chain integrity, component authentication
-- [Security Architecture](security-architecture.md) — Hardware root of trust design in system architecture
-- [Penetration Testing / Offensive Security](offensive-security.md) — Physical pentesting, red team hardware implants
+- [ICS / OT Security](/disciplines/ics-ot-security.md) — Industrial control systems, PLCs, SCADA with embedded firmware
+- [Malware Analysis](/disciplines/malware-analysis.md) — Firmware reverse engineering overlaps heavily with malware RE techniques
+- [Cryptography & PKI](/disciplines/cryptography-pki.md) — HSMs, TPMs, hardware-backed key storage and attestation
+- [Supply Chain Security](/disciplines/supply-chain-security.md) — Hardware supply chain integrity, component authentication
+- [Security Architecture](/disciplines/security-architecture.md) — Hardware root of trust design in system architecture
+- [Penetration Testing / Offensive Security](/disciplines/offensive-security.md) — Physical pentesting, red team hardware implants

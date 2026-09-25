@@ -312,9 +312,9 @@ cycript -p com.target.app
 
 ## Related Disciplines
 
-- [Application Security](application-security.md) — Mobile API and backend security, OWASP alignment
-- [Malware Analysis](malware-analysis.md) — Mobile malware analysis — APK/IPA reverse engineering
-- [Penetration Testing / Offensive Security](offensive-security.md) — Mobile pentesting methodology, red team techniques
-- [DevSecOps](devsecops.md) — Mobile SAST/DAST integration in CI/CD pipelines
-- [Privacy Engineering](privacy-engineering.md) — Mobile data collection, consent, and GDPR/CCPA compliance
-- [Identity & Access Management](identity-access-management.md) — MDM conditional access, mobile certificate-based auth
+- [Application Security](/disciplines/application-security.md) — Mobile API and backend security, OWASP alignment
+- [Malware Analysis](/disciplines/malware-analysis.md) — Mobile malware analysis — APK/IPA reverse engineering
+- [Penetration Testing / Offensive Security](/disciplines/offensive-security.md) — Mobile pentesting methodology, red team techniques
+- [DevSecOps](/disciplines/devsecops.md) — Mobile SAST/DAST integration in CI/CD pipelines
+- [Privacy Engineering](/disciplines/privacy-engineering.md) — Mobile data collection, consent, and GDPR/CCPA compliance
+- [Identity & Access Management](/disciplines/identity-access-management.md) — MDM conditional access, mobile certificate-based auth

@@ -397,7 +397,7 @@ Firmware reversing extracts and analyzes the software running on embedded device
 
 ## Related Disciplines
 
-- [malware-analysis.md](malware-analysis.md) — RE is the core technical skill in malware analysis; everything in that discipline builds on reading disassembly and tracing binary logic
-- [exploit-development.md](exploit-development.md) — finding and weaponizing vulnerabilities requires RE to locate the vulnerable code path and understand memory layout
+- [malware-analysis.md](/disciplines/malware-analysis.md) — RE is the core technical skill in malware analysis; everything in that discipline builds on reading disassembly and tracing binary logic
+- [exploit-development.md](/disciplines/exploit-development.md) — finding and weaponizing vulnerabilities requires RE to locate the vulnerable code path and understand memory layout
 - [vulnerability-research.md](vulnerability-research.md) — RE of patch diffs and target binaries is how vulnerability researchers identify exploitable bugs
 - [forensics.md](forensics.md) — memory forensics and artifact analysis frequently require RE skills to interpret recovered code and data structures

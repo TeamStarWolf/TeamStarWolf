@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Purple Team Fundamentals](#1-purple-team-fundamentals)
-2. [MITRE ATT&CK for Purple Teams](#2-mitre-attck-for-purple-teams)
-3. [Atomic Red Team](#3-atomic-red-team)
-4. [Adversary Emulation Platforms](#4-adversary-emulation-platforms)
-5. [Detection Validation Methodology](#5-detection-validation-methodology)
-6. [Threat Intelligence-Driven Purple Teaming](#6-threat-intelligence-driven-purple-teaming)
-7. [Purple Team Tools & Automation](#7-purple-team-tools--automation)
-8. [Active Directory Purple Teaming](#8-active-directory-purple-teaming)
-9. [Cloud Purple Teaming](#9-cloud-purple-teaming)
-10. [Purple Team Reporting & Maturity](#10-purple-team-reporting--maturity)
+1. [Purple Team Fundamentals](#_1-purple-team-fundamentals)
+2. [MITRE ATT&CK for Purple Teams](#_2-mitre-attampck-for-purple-teams)
+3. [Atomic Red Team](#_3-atomic-red-team)
+4. [Adversary Emulation Platforms](#_4-adversary-emulation-platforms)
+5. [Detection Validation Methodology](#_5-detection-validation-methodology)
+6. [Threat Intelligence-Driven Purple Teaming](#_6-threat-intelligence-driven-purple-teaming)
+7. [Purple Team Tools & Automation](#_7-purple-team-tools-amp-automation)
+8. [Active Directory Purple Teaming](#_8-active-directory-purple-teaming)
+9. [Cloud Purple Teaming](#_9-cloud-purple-teaming)
+10. [Purple Team Reporting & Maturity](#_10-purple-team-reporting-amp-maturity)
 
 ---
 

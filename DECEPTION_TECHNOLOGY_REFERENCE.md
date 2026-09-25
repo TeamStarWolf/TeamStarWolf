@@ -15,7 +15,7 @@
 - [Deception Deployment Strategy](#deception-deployment-strategy)
 - [Detection Rules for Deception](#detection-rules-for-deception)
 - [Metrics](#metrics)
-- [ATT&CK and Compliance Mapping](#attck-and-compliance-mapping)
+- [ATT&CK and Compliance Mapping](#attampck-and-compliance-mapping)
 
 ---
 

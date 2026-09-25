@@ -3,15 +3,15 @@
 > Comprehensive guide to Windows Group Policy hardening, attack surface reduction, service management, and enterprise mitigation strategies.
 
 ## Table of Contents
-1. [GPO Hardening Fundamentals](#1-gpo-hardening-fundamentals)
-2. [Disabling Dangerous Services via GPO](#2-disabling-dangerous-services-via-gpo)
-3. [Credential Hardening via GPO](#3-credential-hardening-via-gpo)
-4. [Network Hardening via GPO](#4-network-hardening-via-gpo)
-5. [PowerShell and Script Execution Controls](#5-powershell-and-script-execution-controls)
-6. [Audit Policy Configuration](#6-audit-policy-configuration)
-7. [Common Attack Techniques Enabled by GPO Misconfigurations](#7-common-attack-techniques-enabled-by-gpo-misconfigurations)
-8. [CIS Benchmark Key Controls](#8-cis-benchmark-key-controls-level-1--windows-1011-enterprise)
-9. [Mitigation Strategy Reference](#9-mitigation-strategy-reference)
+1. [GPO Hardening Fundamentals](#_1-gpo-hardening-fundamentals)
+2. [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo)
+3. [Credential Hardening via GPO](#_3-credential-hardening-via-gpo)
+4. [Network Hardening via GPO](#_4-network-hardening-via-gpo)
+5. [PowerShell and Script Execution Controls](#_5-powershell-and-script-execution-controls)
+6. [Audit Policy Configuration](#_6-audit-policy-configuration)
+7. [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations)
+8. [CIS Benchmark Key Controls](#_8-cis-benchmark-key-controls-level-1-windows-1011-enterprise)
+9. [Mitigation Strategy Reference](#_9-mitigation-strategy-reference)
 
 ---
 

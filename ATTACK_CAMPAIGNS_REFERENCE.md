@@ -8,58 +8,58 @@ Machine-readable: [`data/attack/campaigns.jsonl`](data/attack/campaigns.jsonl)
 
 | Campaign | First seen | Last seen | Techniques | Attributed to |
 |---|---|---|--:|---|
-| [C0059 Salesforce Data Exfiltration](#c0059) | 2004-10 | 2025-09 | 18 | — |
-| [C0002 Night Dragon](#c0002) | 2009-11 | 2011-02 | 29 | — |
-| [C0016 Operation Dust Storm](#c0016) | 2010-01 | 2016-02 | 17 | — |
-| [C0023 Operation Ghost](#c0023) | 2013-09 | 2019-10 | 8 | APT29 |
-| [C0032 C0032](#c0032) | 2014-10 | 2017-01 | 17 | TEMP.Veles |
-| [C0028 2015 Ukraine Electric Power Attack](#c0028) | 2015-12 | 2016-01 | 17 | Sandworm Team |
-| [C0033 C0033](#c0033) | 2016-05 | 2023-01 | 0 | PROMETHIUM |
-| [C0025 2016 Ukraine Electric Power Attack](#c0025) | 2016-12 | 2016-12 | 21 | Sandworm Team |
-| [C0030 Triton Safety Instrumented System Attack](#c0030) | 2017-06 | 2017-08 | 10 | TEMP.Veles |
-| [C0006 Operation Honeybee](#c0006) | 2017-08 | 2018-02 | 28 | — |
-| [C0013 Operation Sharpshooter](#c0013) | 2017-09 | 2019-03 | 13 | — |
-| [C0014 Operation Wocao](#c0014) | 2017-12 | 2019-12 | 70 | — |
-| [C0007 FunnyDream](#c0007) | 2018-07 | 2020-11 | 14 | — |
-| [C0021 C0021](#c0021) | 2018-11 | 2018-11 | 15 | — |
-| [C0053 FLORAHOX Activity](#c0053) | 2019-01 | 2024-05 | 6 | — |
-| [C0052 SPACEHOP Activity](#c0052) | 2019-01 | 2024-05 | 4 | APT5, Ke3chang |
-| [C0001 Frankenstein](#c0001) | 2019-01 | 2019-04 | 27 | — |
-| [C0024 SolarWinds Compromise](#c0024) | 2019-08 | 2021-01 | 71 | APT29 |
-| [C0022 Operation Dream Job](#c0022) | 2019-09 | 2020-08 | 55 | Lazarus Group |
-| [C0004 CostaRicto](#c0004) | 2019-10 | 2020-11 | 10 | — |
-| [C0005 Operation Spalax](#c0005) | 2019-11 | 2021-01 | 17 | — |
-| [C0012 Operation CuckooBees](#c0012) | 2019-12 | 2022-05 | 33 | — |
-| [C0010 C0010](#c0010) | 2020-12 | 2022-08 | 9 | — |
-| [C0042 Outer Space](#c0042) | 2021-01 | 2021-12 | 8 | OilRig |
-| [C0043 Indian Critical Infrastructure Intrusions](#c0043) | 2021-01 | 2022-04 | 8 | — |
-| [C0038 HomeLand Justice](#c0038) | 2021-05 | 2022-09 | 25 | HEXANE |
-| [C0017 C0017](#c0017) | 2021-05 | 2022-02 | 29 | APT41 |
-| [C0015 C0015](#c0015) | 2021-08 | 2021-08 | 34 | — |
-| [C0011 C0011](#c0011) | 2021-12 | 2022-07 | 8 | Transparent Tribe |
-| [C0044 Juicy Mix](#c0044) | 2022-01 | 2022-12 | 14 | OilRig |
-| [C0018 C0018](#c0018) | 2022-02 | 2022-03 | 19 | — |
-| [C0051 APT28 Nearest Neighbor Campaign](#c0051) | 2022-02 | 2024-11 | 18 | APT28 |
-| [C0049 Leviathan Australian Intrusions](#c0049) | 2022-04 | 2022-09 | 26 | Leviathan |
-| [C0027 C0027](#c0027) | 2022-06 | 2022-12 | 28 | Scattered Spider |
-| [C0034 2022 Ukraine Electric Power Attack](#c0034) | 2022-06 | 2022-10 | 10 | Sandworm Team |
-| [C0026 C0026](#c0026) | 2022-08 | 2022-09 | 6 | — |
-| [C0035 KV Botnet Activity](#c0035) | 2022-10 | 2024-01 | 20 | Volt Typhoon |
-| [C0057 3CX Supply Chain Attack](#c0057) | 2022-11 | 2023-03 | 22 | AppleJeus |
-| [C0037 Water Curupira Pikabot Distribution](#c0037) | 2023-01 | 2023-12 | 10 | — |
-| [C0040 APT41 DUST](#c0040) | 2023-01 | 2024-06 | 23 | APT41 |
-| [C0050 J-magic Campaign](#c0050) | 2023-06 | 2024-06 | 4 | — |
-| [C0046 ArcaneDoor](#c0046) | 2023-07 | 2024-04 | 25 | — |
-| [C0047 RedDelta Modified PlugX Infection Chain Operations](#c0047) | 2023-07 | 2024-12 | 22 | Mustang Panda |
-| [C0055 Quad7 Activity](#c0055) | 2023-08 | 2025-08 | 15 | — |
-| [C0045 ShadowRay](#c0045) | 2023-09 | 2024-03 | 10 | — |
-| [C0029 Cutting Edge](#c0029) | 2023-12 | 2024-02 | 31 | — |
-| [C0041 FrostyGoop Incident](#c0041) | 2024-01 | 2024-01 | 5 | — |
-| [C0036 Pikabot Distribution February 2024](#c0036) | 2024-02 | 2024-02 | 4 | — |
-| [C0048 Operation MidnightEclipse](#c0048) | 2024-03 | 2024-04 | 17 | — |
-| [C0039 Versa Director Zero Day Exploitation](#c0039) | 2024-06 | 2024-08 | 8 | Volt Typhoon |
-| [C0056 RedPenguin](#c0056) | 2024-07 | 2025-03 | 26 | UNC3886 |
-| [C0058 SharePoint ToolShell Exploitation](#c0058) | 2025-07 | 2025-07 | 35 | — |
+| [C0059 Salesforce Data Exfiltration](#c0059-salesforce-data-exfiltration) | 2004-10 | 2025-09 | 18 | — |
+| [C0002 Night Dragon](#c0002-night-dragon) | 2009-11 | 2011-02 | 29 | — |
+| [C0016 Operation Dust Storm](#c0016-operation-dust-storm) | 2010-01 | 2016-02 | 17 | — |
+| [C0023 Operation Ghost](#c0023-operation-ghost) | 2013-09 | 2019-10 | 8 | APT29 |
+| [C0032 C0032](#c0032-c0032) | 2014-10 | 2017-01 | 17 | TEMP.Veles |
+| [C0028 2015 Ukraine Electric Power Attack](#c0028-2015-ukraine-electric-power-attack) | 2015-12 | 2016-01 | 17 | Sandworm Team |
+| [C0033 C0033](#c0033-c0033) | 2016-05 | 2023-01 | 0 | PROMETHIUM |
+| [C0025 2016 Ukraine Electric Power Attack](#c0025-2016-ukraine-electric-power-attack) | 2016-12 | 2016-12 | 21 | Sandworm Team |
+| [C0030 Triton Safety Instrumented System Attack](#c0030-triton-safety-instrumented-system-attack) | 2017-06 | 2017-08 | 10 | TEMP.Veles |
+| [C0006 Operation Honeybee](#c0006-operation-honeybee) | 2017-08 | 2018-02 | 28 | — |
+| [C0013 Operation Sharpshooter](#c0013-operation-sharpshooter) | 2017-09 | 2019-03 | 13 | — |
+| [C0014 Operation Wocao](#c0014-operation-wocao) | 2017-12 | 2019-12 | 70 | — |
+| [C0007 FunnyDream](#c0007-funnydream) | 2018-07 | 2020-11 | 14 | — |
+| [C0021 C0021](#c0021-c0021) | 2018-11 | 2018-11 | 15 | — |
+| [C0053 FLORAHOX Activity](#c0053-florahox-activity) | 2019-01 | 2024-05 | 6 | — |
+| [C0052 SPACEHOP Activity](#c0052-spacehop-activity) | 2019-01 | 2024-05 | 4 | APT5, Ke3chang |
+| [C0001 Frankenstein](#c0001-frankenstein) | 2019-01 | 2019-04 | 27 | — |
+| [C0024 SolarWinds Compromise](#c0024-solarwinds-compromise) | 2019-08 | 2021-01 | 71 | APT29 |
+| [C0022 Operation Dream Job](#c0022-operation-dream-job) | 2019-09 | 2020-08 | 55 | Lazarus Group |
+| [C0004 CostaRicto](#c0004-costaricto) | 2019-10 | 2020-11 | 10 | — |
+| [C0005 Operation Spalax](#c0005-operation-spalax) | 2019-11 | 2021-01 | 17 | — |
+| [C0012 Operation CuckooBees](#c0012-operation-cuckoobees) | 2019-12 | 2022-05 | 33 | — |
+| [C0010 C0010](#c0010-c0010) | 2020-12 | 2022-08 | 9 | — |
+| [C0042 Outer Space](#c0042-outer-space) | 2021-01 | 2021-12 | 8 | OilRig |
+| [C0043 Indian Critical Infrastructure Intrusions](#c0043-indian-critical-infrastructure-intrusions) | 2021-01 | 2022-04 | 8 | — |
+| [C0038 HomeLand Justice](#c0038-homeland-justice) | 2021-05 | 2022-09 | 25 | HEXANE |
+| [C0017 C0017](#c0017-c0017) | 2021-05 | 2022-02 | 29 | APT41 |
+| [C0015 C0015](#c0015-c0015) | 2021-08 | 2021-08 | 34 | — |
+| [C0011 C0011](#c0011-c0011) | 2021-12 | 2022-07 | 8 | Transparent Tribe |
+| [C0044 Juicy Mix](#c0044-juicy-mix) | 2022-01 | 2022-12 | 14 | OilRig |
+| [C0018 C0018](#c0018-c0018) | 2022-02 | 2022-03 | 19 | — |
+| [C0051 APT28 Nearest Neighbor Campaign](#c0051-apt28-nearest-neighbor-campaign) | 2022-02 | 2024-11 | 18 | APT28 |
+| [C0049 Leviathan Australian Intrusions](#c0049-leviathan-australian-intrusions) | 2022-04 | 2022-09 | 26 | Leviathan |
+| [C0027 C0027](#c0027-c0027) | 2022-06 | 2022-12 | 28 | Scattered Spider |
+| [C0034 2022 Ukraine Electric Power Attack](#c0034-2022-ukraine-electric-power-attack) | 2022-06 | 2022-10 | 10 | Sandworm Team |
+| [C0026 C0026](#c0026-c0026) | 2022-08 | 2022-09 | 6 | — |
+| [C0035 KV Botnet Activity](#c0035-kv-botnet-activity) | 2022-10 | 2024-01 | 20 | Volt Typhoon |
+| [C0057 3CX Supply Chain Attack](#c0057-3cx-supply-chain-attack) | 2022-11 | 2023-03 | 22 | AppleJeus |
+| [C0037 Water Curupira Pikabot Distribution](#c0037-water-curupira-pikabot-distribution) | 2023-01 | 2023-12 | 10 | — |
+| [C0040 APT41 DUST](#c0040-apt41-dust) | 2023-01 | 2024-06 | 23 | APT41 |
+| [C0050 J-magic Campaign](#c0050-j-magic-campaign) | 2023-06 | 2024-06 | 4 | — |
+| [C0046 ArcaneDoor](#c0046-arcanedoor) | 2023-07 | 2024-04 | 25 | — |
+| [C0047 RedDelta Modified PlugX Infection Chain Operations](#c0047-reddelta-modified-plugx-infection-chain-operations) | 2023-07 | 2024-12 | 22 | Mustang Panda |
+| [C0055 Quad7 Activity](#c0055-quad7-activity) | 2023-08 | 2025-08 | 15 | — |
+| [C0045 ShadowRay](#c0045-shadowray) | 2023-09 | 2024-03 | 10 | — |
+| [C0029 Cutting Edge](#c0029-cutting-edge) | 2023-12 | 2024-02 | 31 | — |
+| [C0041 FrostyGoop Incident](#c0041-frostygoop-incident) | 2024-01 | 2024-01 | 5 | — |
+| [C0036 Pikabot Distribution February 2024](#c0036-pikabot-distribution-february-2024) | 2024-02 | 2024-02 | 4 | — |
+| [C0048 Operation MidnightEclipse](#c0048-operation-midnighteclipse) | 2024-03 | 2024-04 | 17 | — |
+| [C0039 Versa Director Zero Day Exploitation](#c0039-versa-director-zero-day-exploitation) | 2024-06 | 2024-08 | 8 | Volt Typhoon |
+| [C0056 RedPenguin](#c0056-redpenguin) | 2024-07 | 2025-03 | 26 | UNC3886 |
+| [C0058 SharePoint ToolShell Exploitation](#c0058-sharepoint-toolshell-exploitation) | 2025-07 | 2025-07 | 35 | — |
 
 ---
 

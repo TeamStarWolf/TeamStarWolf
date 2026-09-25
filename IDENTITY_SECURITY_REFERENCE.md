@@ -9,18 +9,18 @@
 
 ## Table of Contents
 
-1. [Identity Attack Surface](#1-identity-attack-surface)
-2. [Authentication Deep Dive](#2-authentication-deep-dive)
-3. [MFA Bypass Techniques & Defenses](#3-multi-factor-authentication--bypass-techniques--defenses)
-4. [Microsoft Entra ID (Azure AD)](#4-microsoft-entra-id-azure-ad--vendor-specific-controls)
-5. [Privileged Access Management (PAM)](#5-privileged-access-management-pam)
-6. [Identity Governance & Administration (IGA)](#6-identity-governance--administration-iga)
-7. [Okta — Vendor-Specific Controls](#7-okta--vendor-specific-controls)
-8. [Active Directory Identity Attacks](#8-active-directory-identity-attacks-deep-dive)
-9. [Service Accounts & Non-Human Identities](#9-service-accounts--non-human-identities)
-10. [Identity Detection & Response](#10-identity-detection--response)
-11. [Zero Trust Identity Principles](#11-zero-trust-identity-principles)
-12. [Compliance & Frameworks](#12-compliance--frameworks)
+1. [Identity Attack Surface](#_1-identity-attack-surface)
+2. [Authentication Deep Dive](#_2-authentication-deep-dive)
+3. [MFA Bypass Techniques & Defenses](#_3-multi-factor-authentication-bypass-techniques-amp-defenses)
+4. [Microsoft Entra ID (Azure AD)](#_4-microsoft-entra-id-azure-ad-vendor-specific-controls)
+5. [Privileged Access Management (PAM)](#_5-privileged-access-management-pam)
+6. [Identity Governance & Administration (IGA)](#_6-identity-governance-amp-administration-iga)
+7. [Okta — Vendor-Specific Controls](#_7-okta-vendor-specific-controls)
+8. [Active Directory Identity Attacks](#_8-active-directory-identity-attacks-deep-dive)
+9. [Service Accounts & Non-Human Identities](#_9-service-accounts-amp-non-human-identities)
+10. [Identity Detection & Response](#_10-identity-detection-amp-response)
+11. [Zero Trust Identity Principles](#_11-zero-trust-identity-principles)
+12. [Compliance & Frameworks](#_12-compliance-amp-frameworks)
 
 ---
 

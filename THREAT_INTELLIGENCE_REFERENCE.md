@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [CTI Fundamentals](#1-cti-fundamentals)
-2. [Threat Intelligence Platforms](#2-threat-intelligence-platforms)
-3. [STIX & TAXII Standards](#3-stix--taxii-standards)
-4. [IOC Management & Enrichment](#4-ioc-management--enrichment)
-5. [Threat Actor Tracking & Attribution](#5-threat-actor-tracking--attribution)
-6. [OSINT for Threat Intelligence](#6-osint-for-threat-intelligence)
-7. [Malware Intelligence for CTI](#7-malware-intelligence-for-cti)
-8. [Threat Intelligence Sharing](#8-threat-intelligence-sharing)
-9. [CTI Integration with Security Operations](#9-cti-integration-with-security-operations)
-10. [CTI Program Management & Metrics](#10-cti-program-management--metrics)
+1. [CTI Fundamentals](#_1-cti-fundamentals)
+2. [Threat Intelligence Platforms](#_2-threat-intelligence-platforms)
+3. [STIX & TAXII Standards](#_3-stix-amp-taxii-standards)
+4. [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment)
+5. [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution)
+6. [OSINT for Threat Intelligence](#_6-osint-for-threat-intelligence)
+7. [Malware Intelligence for CTI](#_7-malware-intelligence-for-cti)
+8. [Threat Intelligence Sharing](#_8-threat-intelligence-sharing)
+9. [CTI Integration with Security Operations](#_9-cti-integration-with-security-operations)
+10. [CTI Program Management & Metrics](#_10-cti-program-management-amp-metrics)
 
 ---
 

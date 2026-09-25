@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Network Defense Architecture](#1-network-defense-architecture)
-2. [Suricata IDS/IPS](#2-suricata-idsips)
-3. [Zeek Network Analysis Framework](#3-zeek-network-analysis-framework)
-4. [Security Onion](#4-security-onion)
-5. [Arkime Full Packet Capture](#5-arkime-full-packet-capture)
-6. [DNS Security and Monitoring](#6-dns-security-and-monitoring)
-7. [nDPI Deep Packet Inspection](#7-ndpi-deep-packet-inspection)
-8. [Network Access Control](#8-network-access-control)
-9. [DDoS Protection and Traffic Scrubbing](#9-ddos-protection-and-traffic-scrubbing)
-10. [Network Defense Operations](#10-network-defense-operations)
+1. [Network Defense Architecture](#_1-network-defense-architecture)
+2. [Suricata IDS/IPS](#_2-suricata-idsips)
+3. [Zeek Network Analysis Framework](#_3-zeek-network-analysis-framework)
+4. [Security Onion](#_4-security-onion)
+5. [Arkime Full Packet Capture](#_5-arkime-full-packet-capture)
+6. [DNS Security and Monitoring](#_6-dns-security-and-monitoring)
+7. [nDPI Deep Packet Inspection](#_7-ndpi-deep-packet-inspection)
+8. [Network Access Control](#_8-network-access-control)
+9. [DDoS Protection and Traffic Scrubbing](#_9-ddos-protection-and-traffic-scrubbing)
+10. [Network Defense Operations](#_10-network-defense-operations)
 
 ---
 

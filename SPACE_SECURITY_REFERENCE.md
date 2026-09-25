@@ -65,7 +65,7 @@ NIST IR 8270 and CISA's operator recommendations both decompose a space system i
 
 ### The threat is wider than cyber
 
-SPD-5's verb list (manipulate, deny, degrade, disrupt, destroy, surveil, eavesdrop) deliberately spans more than network intrusion, and SPARTA's scope statement matches it — compromise "via cyber and traditional counterspace means". A space program's threat model therefore has three lanes, and the cyber team usually owns only part of each:
+SPD-5's verb list (manipulate, deny, degrade, disrupt, destroy, surveil, eavesdrop) deliberately spans more than network intrusion, and SPARTA's scope statement matches it — compromise "via cyber and traditional counterspace means" (so stated on the [sparta.aerospace.org](https://sparta.aerospace.org) front page as of September 2026; some site pages, such as the FAQ, abbreviate the scope to "via cyber means", but the counterspace techniques are in the matrix itself). A space program's threat model therefore has three lanes, and the cyber team usually owns only part of each:
 
 | Lane | Examples (taxonomy level) | Primary defensive lever |
 |---|---|---|
@@ -79,7 +79,7 @@ The lanes interact: EW can be a denial tool while a cyber operation proceeds, an
 
 ## The SPARTA framework
 
-**SPARTA — Space Attack Research and Tactic Analysis** — is created and maintained by [The Aerospace Corporation](https://sparta.aerospace.org) to break down information-sharing barriers around space-system TTPs. It catalogs how spacecraft may be compromised via cyber **and traditional counterspace** means, and pairs every technique with defenses.
+**SPARTA — Space Attack Research and Tactic Analysis** — is created and maintained by [The Aerospace Corporation](https://sparta.aerospace.org) to break down information-sharing barriers around space-system TTPs. It catalogs how spacecraft may be compromised via cyber **and traditional counterspace** means — the scope as stated on the SPARTA homepage — and pairs every technique with defenses.
 
 | | |
 |---|---|
@@ -88,10 +88,19 @@ The lanes interact: EW can be a denial tool while a cyber operation proceeds, an
 | **First release** | v1.0, October 2022 |
 | **Current version** | **v4.0.1** (August 24, 2026 — website fixes, corrected STIX bundles, CM0003 TEMPEST/EMSEC modification); v4.0 debuted August 2026 at DEF CON 34 |
 | **Tactics** | 9 |
-| **Techniques** | 87 active techniques as rendered on the live matrix (September 2026); techniques carry 0–13 sub-techniques each |
+| **Techniques** | 87 active techniques as rendered on the live matrix (September 2026); many techniques carry sub-techniques, with per-technique counts varying widely — consult the matrix rather than quoting a range |
 | **Countermeasures** | 90 (CM0001–CM0090), tiered I/II/III |
 | **Official mappings** | NIST SP 800-53 Rev. 5, MITRE D3FEND, ISO/IEC 27001, NASA best-practice guidance |
-| **Tooling** | Navigator, Countermeasure Mapper, Control Mapper, Spacecraft Mapper, JSON Creator, Spacetrail, STIX bundles |
+| **Tooling** | Navigator, Countermeasure Mapper, Control Mapper, Spacecraft Mapper, JSON Creator, Attack Flow, Spacetrail, STIX bundles |
+
+### Version trajectory
+
+| Milestone | Date | Significance |
+|---|---|---|
+| **v1.0** | October 2022 | Initial public release — the first ATT&CK-style TTP framework for space systems |
+| **Countermeasure Utilization & Prioritization** | March 2026 | Published methodology scoring every CM on efficacy, feasibility (SWaP, architecture, maturity), and cost |
+| **v4.0** | August 2026 (debuted at DEF CON 34) | Impact tactic redesign, Ground System Defense section, lifecycle-focused countermeasure revision |
+| **v4.0.1** | August 24, 2026 | Current — website fixes, corrected STIX bundles, CM0003 TEMPEST/EMSEC modification |
 
 ### What changed in v4.0 (August 2026)
 
@@ -383,6 +392,7 @@ What the guidance above converges on, segment by segment. Threat-level descripti
 
 - Terminal/modem firmware update paths: signed updates, staged rollout, and monitoring of the management plane that pushes them.
 - Change default credentials, disable unneeded management interfaces, and inventory terminals so a mass-compromise is detectable and recoverable.
+- Assume the SATCOM link is untrusted transport: customers run their own encryption over it and place terminals outside the internal trust boundary (AA22-076A's customer-side theme).
 - GNSS receivers per the PNT section above.
 
 ---
@@ -444,6 +454,8 @@ A sequencing that matches how the guidance stack was written to be consumed — 
 | **PNT-dependent systems with validated holdover/fallback** | EO 13905 / IR 8323 posture in one number |
 | **Mean time to recover a mass-compromised terminal fleet** (from exercise) | Wiper resilience as a measured capability, not an assumption |
 
+> **Failure modes to avoid:** treating the spacecraft as the primary attack surface while the VPN concentrator rots; buying link crypto but leaving contingency command paths unauthenticated; a coverage map built once for an audit and never diffed again; PNT resilience scoped to navigation while every log timestamp trusts one GNSS clock; and security requirements arriving after the design review where they were still purchasable.
+
 ---
 
 ## SPARTA tooling and related frameworks
@@ -455,10 +467,52 @@ A sequencing that matches how the guidance stack was written to be consumed — 
 | **Control Mapper** | Countermeasure → NIST 800-53r5 / ISO control traceability |
 | **Spacecraft Mapper** | Threat-informed countermeasure baselining per spacecraft/mission class |
 | **JSON Creator / STIX bundles** | Machine-readable matrix and mappings for pipelines and tooling — the same integration pattern this library uses for ATT&CK data |
-| **Spacetrail** | Aerospace's companion tool shipped alongside the SPARTA resource set |
+| **Attack Flow** | Builds and visualizes multi-step attack sequences chaining SPARTA techniques — listed on the SPARTA resources page as an interactive tool plus a code repository |
+| **Spacetrail** | Educational companion game in the SPARTA resource set — an Oregon Trail-style survival sim (per Aerospace's DEF CON 34 materials) about keeping mission assets online through hazards; awareness/training, not analysis tooling |
 | **ESA SPACE-SHIELD** | The main European parallel: an ATT&CK-like knowledge base of adversary tactics and techniques for the space segment and communication links, at [spaceshield.esa.int](https://spaceshield.esa.int/). Maintained by ESA; version/counts not tracked here — consult the site directly |
 
-**In this library:** SPARTA's D3FEND mappings join the [D3FEND Reference](D3FEND_REFERENCE.md); ground-segment work runs on the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) and [Detection Strategies](detections/strategies/README.md); RF fundamentals live in [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md); the segmentation and safety-critical operations mindset carries over from [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md); and the Viasat incident belongs alongside [Notable Incidents](NOTABLE_INCIDENTS.md).
+**In this library:** SPARTA's D3FEND mappings join the [D3FEND Reference](D3FEND_REFERENCE.md); ground-segment work runs on the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) and [Detection Strategies](detections/strategies/README.md); RF fundamentals live in [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md); the segmentation and safety-critical operations mindset carries over from [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md); and the Viasat case study above is this library's write-up of that incident ([Notable Incidents](NOTABLE_INCIDENTS.md) covers the broader incident record but does not currently include Viasat).
+
+---
+
+## Domain vocabulary
+
+The minimum vocabulary for reading space-security guidance without stalling:
+
+| Term | Meaning |
+|---|---|
+| **Bus** | The spacecraft platform itself — power, attitude control, thermal, computing — as distinct from the payload |
+| **Payload** | The part of the spacecraft that performs the mission (imager, transponder, sensor); may have a different owner than the bus |
+| **Hosted payload** | A payload owned by one party flying on another party's bus — a trust boundary in orbit |
+| **OBC / flight software** | Onboard computer and the software that flies the spacecraft, typically on a real-time operating system |
+| **TT&C** | Telemetry, Tracking & Commanding — the housekeeping link that monitors and controls the spacecraft |
+| **TM / TC** | Telemetry (down) / Telecommand (up) — the CCSDS data link protocols for each direction |
+| **AOS / USLP** | Advanced Orbiting Systems and Unified Space Data Link Protocol — further CCSDS data link protocols covered by SDLS |
+| **SDLS** | Space Data Link Security — CCSDS 355.0-B-2, link-layer authentication/encryption for TM/TC/AOS/USLP |
+| **MOC** | Mission Operations Center — where operators plan and command the mission |
+| **Pass / contact** | The scheduled window when a ground station can communicate with a satellite |
+| **Crosslink / ISL** | Inter-satellite link — satellite-to-satellite communication, a lateral-movement seam |
+| **Transponder** | A payload channel that relays communications traffic (bent-pipe SATCOM) |
+| **VSAT** | Very Small Aperture Terminal — the class of user terminals hit in the Viasat incident |
+| **Flatsat** | A ground-based replica of spacecraft avionics used for development and test — holds flight software and command knowledge, protect accordingly |
+| **SWaP** | Size, Weight, and Power — the budget every onboard security control must fit inside |
+| **PNT / GNSS** | Positioning, Navigation, and Timing / Global Navigation Satellite Systems (GPS, Galileo, GLONASS, BeiDou) |
+| **Meaconing** | Rebroadcast of genuine navigation signals with delay to induce position/timing error |
+| **Bent pipe** | A transparent relay architecture — the satellite retransmits what it receives without processing it |
+
+---
+
+## Using this reference with the rest of the library
+
+| Goal | How |
+|---|---|
+| **Assess a space program's exposure** | Run the [CTEM loop](CTEM_REFERENCE.md) with the mission enclave as the scope; use the SPARTA coverage-map workflow above as the discovery/prioritization engine |
+| **Defend the ground segment** | It's enterprise IT — use the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md), and [Detection Strategies](detections/strategies/README.md) directly |
+| **Join SPARTA to your countermeasure graph** | Through its official D3FEND mappings and the [D3FEND Reference](D3FEND_REFERENCE.md) — the shared defensive vocabulary between matrices |
+| **Understand the RF layer** | [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md) covers the radio fundamentals behind jamming, interception, and spoofing |
+| **Borrow the operational mindset** | [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md) — safety-critical operations, segmentation zones, and engineering-driven change control translate almost directly |
+| **Brief the incident history** | The Viasat case study above — this library's coverage of that incident — plus [Notable Incidents](NOTABLE_INCIDENTS.md) for incidents in other domains |
+| **Secure what you buy and build** | [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the flight/ground software pipeline; [Cryptography](CRYPTOGRAPHY_REFERENCE.md) for the key-management foundations |
 
 ---
 
@@ -466,6 +520,7 @@ A sequencing that matches how the guidance stack was written to be consumed — 
 
 - SPARTA — The Aerospace Corporation: [sparta.aerospace.org](https://sparta.aerospace.org) · [version updates](https://sparta.aerospace.org/resources/updates-current) · [countermeasures](https://sparta.aerospace.org/countermeasures/SPARTA) · [resources](https://sparta.aerospace.org/resources/)
 - Aerospace Corporation, *Understanding Space-Cyber Threats with the SPARTA Matrix*: [aerospace.org](https://aerospace.org/article/understanding-space-cyber-threats-sparta-matrix)
+- Aerospace Corporation, *SPARTA 4.0 makes its debut at DEF CON* (Spacetrail description): [aerospace.org](https://aerospace.org/kickstage/sparta-40-makes-its-debut-def-con)
 - NIST IR 8270 (final, 2023-07-25): [csrc.nist.gov/pubs/ir/8270/final](https://csrc.nist.gov/pubs/ir/8270/final)
 - NIST IR 8401 (final, 2022-12-30): [csrc.nist.gov/pubs/ir/8401/final](https://csrc.nist.gov/pubs/ir/8401/final)
 - NIST IR 8441 (final, 2023-09-25): [csrc.nist.gov/pubs/ir/8441/final](https://csrc.nist.gov/pubs/ir/8441/final)
@@ -476,6 +531,7 @@ A sequencing that matches how the guidance stack was written to be consumed — 
 - CCSDS 355.0-B-2, Space Data Link Security Protocol (July 2022): [ccsds.org](https://ccsds.org/Pubs/355x0b2.pdf)
 - SentinelLabs, *AcidRain: A Modem Wiper Rains Down on Europe* (2022-03-31): [sentinelone.com](https://www.sentinelone.com/labs/acidrain-a-modem-wiper-rains-down-on-europe/)
 - CCDCOE Cyber Law Toolkit, *Viasat KA-SAT attack (2022)*: [cyberlaw.ccdcoe.org](https://cyberlaw.ccdcoe.org/wiki/Viasat_KA-SAT_attack_(2022))
+- Viasat hack attribution timeline (May 10, 2022 EU/US/UK statements): [en.wikipedia.org/wiki/Viasat_hack](https://en.wikipedia.org/wiki/Viasat_hack)
 - ESA SPACE-SHIELD: [spaceshield.esa.int](https://spaceshield.esa.int/)
 
 ---

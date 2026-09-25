@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Automotive Attack Surface](#1-automotive-attack-surface)
-2. [CAN Bus Security](#2-can-bus-security)
-3. [Automotive Network Architecture](#3-automotive-network-architecture)
-4. [ECU Security](#4-ecu-security)
-5. [OTA Update Security](#5-ota-update-security)
-6. [V2X (Vehicle-to-Everything) Security](#6-v2x-vehicle-to-everything-security)
-7. [Key Fob and Immobilizer Security](#7-key-fob-and-immobilizer-security)
-8. [ADAS and Autonomous Vehicle Security](#8-adas-and-autonomous-vehicle-security)
-9. [Regulatory and Standards](#9-regulatory-and-standards)
-10. [Automotive Penetration Testing](#10-automotive-penetration-testing)
+1. [Automotive Attack Surface](#_1-automotive-attack-surface)
+2. [CAN Bus Security](#_2-can-bus-security)
+3. [Automotive Network Architecture](#_3-automotive-network-architecture)
+4. [ECU Security](#_4-ecu-security)
+5. [OTA Update Security](#_5-ota-update-security)
+6. [V2X (Vehicle-to-Everything) Security](#_6-v2x-vehicle-to-everything-security)
+7. [Key Fob and Immobilizer Security](#_7-key-fob-and-immobilizer-security)
+8. [ADAS and Autonomous Vehicle Security](#_8-adas-and-autonomous-vehicle-security)
+9. [Regulatory and Standards](#_9-regulatory-and-standards)
+10. [Automotive Penetration Testing](#_10-automotive-penetration-testing)
 
 ---
 

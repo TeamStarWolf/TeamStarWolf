@@ -7,16 +7,16 @@
 
 ## Table of Contents
 
-1. [IR Frameworks & Preparation](#1-ir-frameworks--preparation)
-2. [Detection & Initial Triage](#2-detection--initial-triage)
-3. [Ransomware Response](#3-ransomware-response)
-4. [Business Email Compromise Response](#4-business-email-compromise-response)
-5. [Endpoint Forensics](#5-endpoint-forensics)
-6. [Network Forensics](#6-network-forensics)
-7. [Cloud Incident Response](#7-cloud-incident-response)
-8. [Threat Intelligence During IR](#8-threat-intelligence-during-ir)
-9. [Containment, Eradication & Recovery](#9-containment-eradication--recovery)
-10. [Post-Incident & Legal](#10-post-incident--legal)
+1. [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation)
+2. [Detection & Initial Triage](#_2-detection-amp-initial-triage)
+3. [Ransomware Response](#_3-ransomware-response)
+4. [Business Email Compromise Response](#_4-business-email-compromise-response)
+5. [Endpoint Forensics](#_5-endpoint-forensics)
+6. [Network Forensics](#_6-network-forensics)
+7. [Cloud Incident Response](#_7-cloud-incident-response)
+8. [Threat Intelligence During IR](#_8-threat-intelligence-during-ir)
+9. [Containment, Eradication & Recovery](#_9-containment-eradication-amp-recovery)
+10. [Post-Incident & Legal](#_10-post-incident-amp-legal)
 
 ---
 

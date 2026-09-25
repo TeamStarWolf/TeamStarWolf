@@ -8,16 +8,16 @@
 
 ## Table of Contents
 
-1. [Kubernetes Attack Surface](#1-kubernetes-attack-surface)
-2. [K8s RBAC Deep Dive](#2-k8s-rbac-deep-dive)
-3. [Container Escape Techniques](#3-container-escape-techniques)
-4. [Kubernetes Security Scanning Tools](#4-kubernetes-security-scanning-tools)
-5. [Pod Security Standards (PSS)](#5-pod-security-standards-pss)
-6. [Network Policies](#6-network-policies)
-7. [Secrets Management in Kubernetes](#7-secrets-management-in-kubernetes)
-8. [Supply Chain Security for K8s](#8-supply-chain-security-for-k8s)
-9. [etcd Security](#9-etcd-security)
-10. [K8s Security Hardening Checklist](#10-k8s-security-hardening-checklist)
+1. [Kubernetes Attack Surface](#_1-kubernetes-attack-surface)
+2. [K8s RBAC Deep Dive](#_2-k8s-rbac-deep-dive)
+3. [Container Escape Techniques](#_3-container-escape-techniques)
+4. [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools)
+5. [Pod Security Standards (PSS)](#_5-pod-security-standards-pss)
+6. [Network Policies](#_6-network-policies)
+7. [Secrets Management in Kubernetes](#_7-secrets-management-in-kubernetes)
+8. [Supply Chain Security for K8s](#_8-supply-chain-security-for-k8s)
+9. [etcd Security](#_9-etcd-security)
+10. [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist)
 
 ---
 

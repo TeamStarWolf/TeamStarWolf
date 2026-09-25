@@ -6,16 +6,16 @@
 
 ## Table of Contents
 
-1. [Blockchain Security Fundamentals](#1-blockchain-security-fundamentals)
-2. [Smart Contract Vulnerabilities](#2-smart-contract-vulnerabilities)
-3. [DeFi Attack Case Studies](#3-defi-attack-case-studies)
-4. [Smart Contract Auditing Tools](#4-smart-contract-auditing-tools)
-5. [Solidity Security Patterns](#5-solidity-security-patterns)
-6. [Blockchain Network Security](#6-blockchain-network-security)
-7. [Exchange and Wallet Security](#7-exchange-and-wallet-security)
-8. [NFT and Token Security](#8-nft-and-token-security)
-9. [Regulatory and Compliance](#9-regulatory-and-compliance)
-10. [Incident Response for Blockchain](#10-incident-response-for-blockchain)
+1. [Blockchain Security Fundamentals](#_1-blockchain-security-fundamentals)
+2. [Smart Contract Vulnerabilities](#_2-smart-contract-vulnerabilities)
+3. [DeFi Attack Case Studies](#_3-defi-attack-case-studies)
+4. [Smart Contract Auditing Tools](#_4-smart-contract-auditing-tools)
+5. [Solidity Security Patterns](#_5-solidity-security-patterns)
+6. [Blockchain Network Security](#_6-blockchain-network-security)
+7. [Exchange and Wallet Security](#_7-exchange-and-wallet-security)
+8. [NFT and Token Security](#_8-nft-and-token-security)
+9. [Regulatory and Compliance](#_9-regulatory-and-compliance)
+10. [Incident Response for Blockchain](#_10-incident-response-for-blockchain)
 
 ---
 

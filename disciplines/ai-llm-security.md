@@ -121,18 +121,18 @@ NIST SP 800-53 predates the current AI security landscape, but many controls map
 
 ## MITRE ATLAS Coverage
 
-[MITRE ATLAS](https://atlas.mitre.org) (Adversarial Threat Landscape for Artificial-Intelligence Systems) is the authoritative adversarial ML framework, organized equivalently to ATT&CK. Each tactic represents a phase of an adversarial attack against an AI/ML system, and each technique describes a specific method. Unlike ATT&CK, ATLAS includes real-world AI attack case studies that ground the taxonomy in documented incidents rather than theoretical threat modeling.
+[MITRE ATLAS](https://atlas.mitre.org) (Adversarial Threat Landscape for Artificial-Intelligence Systems) organizes adversarial AI behaviors into tactics and techniques. The names and representative tactic associations below were checked against [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml); defensive guidance is practitioner curation, not an official MITRE mapping or a guarantee of prevention. Tactics describe adversary objectives, not a mandatory sequence, and inclusion in ATLAS does not itself prove observation in an incident.
 
 | Tactic | Representative Technique | How the Discipline Addresses It |
 |---|---|---|
-| ML Attack Staging | [AML.T0047 - ML-Enabled Product or Service](https://atlas.mitre.org/techniques/AML.T0047) | Reconnaissance against AI APIs to identify model behavior, version, and capabilities; rate limiting, response normalization, and input/output monitoring are the primary defenses |
-| ML Attack Staging | [AML.T0035 - Develop Capabilities](https://atlas.mitre.org/techniques/AML.T0035) | Attackers develop adversarial examples or jailbreak prompts offline before deployment; model behavior consistency testing and red-teaming catch exploitable inconsistencies before attackers do |
-| Adversarial ML Attack | [AML.T0043 - Craft Adversarial Data](https://atlas.mitre.org/techniques/AML.T0043) | Adversarial input crafting against image classifiers or text models; adversarial robustness testing (IBM ART, TextAttack) evaluates model resilience before production deployment |
-| Adversarial ML Attack | [AML.T0051 - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051) | Direct and indirect prompt injection attacks that override system instructions; input sanitization, sandboxed tool execution, and output validation are the primary mitigations; rebuff and llm-guard provide runtime detection |
-| Adversarial ML Attack | [AML.T0054 - LLM Jailbreak](https://atlas.mitre.org/techniques/AML.T0054) | Techniques to bypass LLM safety systems through role-playing, encoding, or context manipulation; constitutional AI training and adversarial fine-tuning improve model resistance; garak automates jailbreak probing |
-| Exfiltration via ML Inference API | [AML.T0040 - ML Model Inference API Access](https://atlas.mitre.org/techniques/AML.T0040) | Model inversion and membership inference attacks extract training data through repeated API queries; rate limiting, output perturbation, and differential privacy in training mitigate these attacks |
-| Impact | [AML.T0031 - Erode ML Model Integrity](https://atlas.mitre.org/techniques/AML.T0031) | Data poisoning attacks corrupt model behavior during training; training data provenance, integrity verification, and anomaly detection in the training pipeline are the primary controls |
-| Impact | [AML.T0048 - Backdoor ML Model](https://atlas.mitre.org/techniques/AML.T0048) | Backdoored model weights trigger on attacker-controlled inputs; model scanning tools (Protect AI ModelScan), SBOM tracking of model provenance, and behavioral evaluation against known backdoor triggers detect compromised models |
+| AI Model Access | [AML.T0047 - AI-Enabled Product or Service](https://atlas.mitre.org/techniques/AML.T0047) | Access an underlying model through a product or service; review exposed logs, metadata, and interface permissions |
+| Collection | [AML.T0035 - AI Artifact Collection](https://atlas.mitre.org/techniques/AML.T0035) | Collect models, datasets, or related telemetry; restrict artifact access and audit retrieval |
+| AI Attack Adaptation | [AML.T0043 - Craft Adversarial Data](https://atlas.mitre.org/techniques/AML.T0043) | Create inputs that induce undesired model behavior; evaluate robustness against relevant input manipulations |
+| Execution | [AML.T0051 - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051) | Introduce instructions that redirect model behavior; isolate untrusted content and enforce tool authorization outside the model |
+| Defense Evasion / Privilege Escalation | [AML.T0054 - LLM Jailbreak](https://atlas.mitre.org/techniques/AML.T0054) | Bypass model safety behavior or guardrails; test refusal boundaries and independently constrain privileged actions |
+| AI Model Access | [AML.T0040 - AI Model Inference API Access](https://atlas.mitre.org/techniques/AML.T0040) | Access inference functionality; monitor usage and enforce scoped access without equating every API call with exfiltration |
+| Impact | [AML.T0031 - Erode AI Model Integrity](https://atlas.mitre.org/techniques/AML.T0031) | Degrade model performance through adversarial inputs; monitor model quality and investigate sustained anomalies |
+| Impact | [AML.T0048 - External Harms](https://atlas.mitre.org/techniques/AML.T0048) | Use system capabilities to cause harm outside the system; constrain downstream actions and define incident-response boundaries |
 
 ---
 

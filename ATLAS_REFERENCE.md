@@ -7,7 +7,7 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 | ATLAS-specific tactic | What the adversary is doing |
 |---|---|
 | **AI Model Access** | Obtaining some level of access to the model itself — API, inference endpoint, weights, or the physical environment — which is a prerequisite for most AI attacks |
-| **AI Attack Staging** | Preparing the attack offline: crafting adversarial examples, poisoning data, building proxy/surrogate models, verifying the exploit before deploying it |
+| **AI Attack Adaptation** | Adapting capabilities or observations to a target or operational objective, before initial access or during an operation |
 
 | | |
 |---|---|
@@ -30,7 +30,7 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 
 Autonomous agents can exchange discoveries, tasks, and results, including through shared artifacts that persist across otherwise independent runs. Shared-artifact communication does not by itself establish autonomous attack orchestration, which requires centralized control over distributed execution. A swarm threat model should distinguish adversary-operated agents from attacks against a defender's agents, including unsafe artifacts, compromised dependencies, and induced resource consumption. The [Agentic AI Attack Reference](/AGENTIC_AI_ATTACK_REFERENCE.md) offers a curated practitioner view, not an official MITRE mapping or evidence that every listed behavior occurs in every intrusion.
 
-**Version boundary:** The names and distinctions in this supplement were checked against [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml) on 2026-09-26; subtechniques below include their parent names where helpful. The remaining matrix tables, counts, and bundled datasets retain an older snapshot and are not refreshed by this supplement.
+**Version boundary:** The agentic supplement and bundled tactic/technique names were checked against [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml) on 2026-09-26; subtechniques below include their parent names where helpful. This is a terminology update, not a full dataset migration: counts, technique membership, relationships, mitigation records, and case-study scores retain the bundled 5.6.0 snapshot. Historical entries AML.T0019, AML.T0058, and AML.T0104 remain for snapshot traceability but are absent from the pinned release's technique collection; do not treat them as current IDs or infer replacement mappings. The four renamed technique summaries and the AI Attack Adaptation summary are practitioner paraphrases of the pinned definitions; other descriptions retain the older snapshot.
 
 | ATLAS technique | Behavior to distinguish |
 |---|---|
@@ -62,7 +62,7 @@ Autonomous agents can exchange discoveries, tasks, and results, including throug
 | 10 | **[Discovery](https://atlas.mitre.org/tactics/AML.TA0008)** | 16 | The adversary is trying to figure out your AI environment. Discovery consists of techniques an adversary may use to gain knowledge… |
 | 11 | **[Lateral Movement](https://atlas.mitre.org/tactics/AML.TA0015)** | 5 | The adversary is trying to move through your AI environment. Lateral Movement consists of techniques that adversaries may use to g… |
 | 12 | **[Collection](https://atlas.mitre.org/tactics/AML.TA0009)** | 6 | The adversary is trying to gather AI artifacts and other related information relevant to their goal. Collection consists of techni… |
-| 13 | **[AI Attack Staging](https://atlas.mitre.org/tactics/AML.TA0001)** 🤖 | 17 | The adversary is leveraging their knowledge of and access to the target system to tailor the attack. AI Attack Staging consists of… |
+| 13 | **[AI Attack Adaptation](https://atlas.mitre.org/tactics/AML.TA0001)** 🤖 | 17 | Adapting capabilities, methods, or observations to a target or operational objective, before initial access or during an operation. |
 | 14 | **[Command and Control](https://atlas.mitre.org/tactics/AML.TA0014)** | 3 | The adversary is trying to communicate with compromised AI systems to control them. Command and Control consists of techniques tha… |
 | 15 | **[Exfiltration](https://atlas.mitre.org/tactics/AML.TA0010)** | 9 | The adversary is trying to steal AI artifacts or other information about the AI system. Exfiltration consists of techniques that a… |
 | 16 | **[Impact](https://atlas.mitre.org/tactics/AML.TA0011)** | 19 | The adversary is trying to manipulate, interrupt, erode confidence in, or destroy your AI systems and data. Impact consists of tec… |
@@ -119,9 +119,9 @@ The adversary is trying to establish resources they can use to support operation
 | &nbsp;&nbsp;↳ [AML.T0016.002 Generative AI](https://atlas.mitre.org/techniques/AML.T0016.002) | 0 | Adversaries may search for and obtain generative AI models or tools, such as large language models (LLMs), to assist them in various steps of their operation. Generative… |
 | **[AML.T0017 Develop Capabilities](https://atlas.mitre.org/techniques/AML.T0017)** | 0 | Adversaries may develop their own capabilities to support operations. This process encompasses identifying requirements, building solutions, and deploying capabilities. Capabilities used to support at… |
 | &nbsp;&nbsp;↳ [AML.T0017.000 Adversarial AI Attacks](https://atlas.mitre.org/techniques/AML.T0017.000) | 0 | Adversaries may develop their own adversarial attacks. They may leverage existing libraries as a starting point (Adversarial AI Attack Implementations). They may implemen… |
-| **[AML.T0019 Publish Poisoned Datasets](https://atlas.mitre.org/techniques/AML.T0019)** | 3 | Adversaries may Poison Training Data and publish it to a public location. The poisoned dataset may be a novel dataset or a poisoned variant of an existing open source dataset. This data may be introdu… |
-| **[AML.T0020 Poison Training Data](https://atlas.mitre.org/techniques/AML.T0020)** | 6 | Adversaries may attempt to poison datasets used by an AI model by modifying the underlying data or its labels. This allows the adversary to embed vulnerabilities in AI models trained on the data that… |
-| **[AML.T0021 Establish Accounts](https://atlas.mitre.org/techniques/AML.T0021)** | 0 | Adversaries may create accounts with various services for use in targeting, to gain access to resources needed in AI Attack Staging, or for victim impersonation. |
+| **[AML.T0019 Publish Poisoned Datasets](https://atlas.mitre.org/techniques/AML.T0019)** | 3 | Adversaries may publish data affected by Training Data Poisoning to a public location. The poisoned dataset may be a novel dataset or a poisoned variant of an existing open source dataset. This data may be introdu… |
+| **[AML.T0020 Training Data Poisoning](https://atlas.mitre.org/techniques/AML.T0020)** | 6 | Adversaries alter training or fine-tuning samples, labels, or feedback to bias model behavior, impair performance, or introduce backdoors. |
+| **[AML.T0021 Establish Accounts](https://atlas.mitre.org/techniques/AML.T0021)** | 0 | Adversaries may create accounts with various services for use in targeting, to gain access to resources needed in AI Attack Adaptation, or for victim impersonation. |
 | **[AML.T0058 Publish Poisoned Models](https://atlas.mitre.org/techniques/AML.T0058)** | 1 | Adversaries may publish a poisoned model to a public location such as a model registry or code repository. The poisoned model may be a novel model or a poisoned variant of an existing open-source mode… |
 | **[AML.T0060 Publish Hallucinated Entities](https://atlas.mitre.org/techniques/AML.T0060)** | 0 | Adversaries may create an entity they control, such as a software package, website, or email address to a source hallucinated by an LLM. The hallucinations may take the form of package names commands,… |
 | **[AML.T0065 LLM Prompt Crafting](https://atlas.mitre.org/techniques/AML.T0065)** | 0 | Adversaries may use their acquired knowledge of the target generative AI system to craft prompts that bypass its defenses and allow malicious instructions to be executed. The adversary may iterate on… |
@@ -204,7 +204,7 @@ The adversary is trying to maintain their foothold via AI artifacts or software.
 | &nbsp;&nbsp;↳ [AML.T0018.000 Poison AI Model](https://atlas.mitre.org/techniques/AML.T0018.000) | 5 | Adversaries may manipulate an AI model's weights to change it's behavior or performance, resulting in a poisoned model. Adversaries may poison a model by directly manipul… |
 | &nbsp;&nbsp;↳ [AML.T0018.001 Modify AI Model Architecture](https://atlas.mitre.org/techniques/AML.T0018.001) | 3 | Adversaries may directly modify an AI model's architecture to re-define it's behavior. This can include adding or removing layers as well as adding pre or post-processing… |
 | &nbsp;&nbsp;↳ [AML.T0018.002 Embed Malware](https://atlas.mitre.org/techniques/AML.T0018.002) | 1 | Adversaries may embed malicious code into AI Model files. AI models may be packaged as a combination of instructions and weights. Some formats such as pickle files are un… |
-| **[AML.T0020 Poison Training Data](https://atlas.mitre.org/techniques/AML.T0020)** | 6 | Adversaries may attempt to poison datasets used by an AI model by modifying the underlying data or its labels. This allows the adversary to embed vulnerabilities in AI models trained on the data that… |
+| **[AML.T0020 Training Data Poisoning](https://atlas.mitre.org/techniques/AML.T0020)** | 6 | Adversaries alter training or fine-tuning samples, labels, or feedback to bias model behavior, impair performance, or introduce backdoors. |
 | **[AML.T0061 LLM Prompt Self-Replication](https://atlas.mitre.org/techniques/AML.T0061)** | 3 | An adversary may use a carefully crafted LLM Prompt Injection designed to cause the LLM to replicate the prompt as part of its output. This allows the prompt to propagate to other LLMs and persist on… |
 | **[AML.T0070 RAG Poisoning](https://atlas.mitre.org/techniques/AML.T0070)** | 0 | Adversaries may inject malicious content into data indexed by a retrieval augmented generation (RAG) system to contaminate a future thread through RAG-based search results. This may be accomplished by… |
 | **[AML.T0080 AI Agent Context Poisoning](https://atlas.mitre.org/techniques/AML.T0080)** | 1 | Adversaries may attempt to manipulate the context used by an AI agent's large language model (LLM) to influence the responses it generates or actions it takes. This allows an adversary to persistently… |
@@ -289,13 +289,13 @@ The adversary is trying to figure out your AI environment. Discovery consists of
 | &nbsp;&nbsp;↳ [AML.T0069.000 Special Character Sets](https://atlas.mitre.org/techniques/AML.T0069.000) | 0 | Adversaries may discover delimiters and special characters sets used by the large language model. For example, delimiters used in retrieval augmented generation applicati… |
 | &nbsp;&nbsp;↳ [AML.T0069.001 System Instruction Keywords](https://atlas.mitre.org/techniques/AML.T0069.001) | 0 | Adversaries may discover keywords that have special meaning to the large language model (LLM), such as function names or object names. These can later be exploited to con… |
 | &nbsp;&nbsp;↳ [AML.T0069.002 System Prompt](https://atlas.mitre.org/techniques/AML.T0069.002) | 0 | Adversaries may discover a large language model's system instructions provided by the AI system builder to learn about the system's capabilities and circumvent its guardr… |
-| **[AML.T0075 Cloud Service Discovery](https://atlas.mitre.org/techniques/AML.T0075)** | 0 | Adversaries may attempt to enumerate the cloud services running on a system after gaining access. These methods can differ from platform-as-a-service (PaaS), to infrastructure-as-a-service (IaaS), sof… |
+| **[AML.T0075 Enterprise Resource Discovery](https://atlas.mitre.org/techniques/AML.T0075)** | 0 | Adversaries enumerate enterprise resources, including accounts, systems, files, applications, services, and cloud assets, to identify targets or access paths. |
 | **[AML.T0084 Discover AI Agent Configuration](https://atlas.mitre.org/techniques/AML.T0084)** | 0 | Adversaries may attempt to discover configuration information for AI agents present on the victim's system. Agent configurations can include tools or services they have access to. Adversaries may dire… |
 | &nbsp;&nbsp;↳ [AML.T0084.000 Embedded Knowledge](https://atlas.mitre.org/techniques/AML.T0084.000) | 0 | Adversaries may attempt to discover the data sources a particular agent can access. The AI agent's configuration may reveal data sources or knowledge. The embedded knowle… |
 | &nbsp;&nbsp;↳ [AML.T0084.001 Tool Definitions](https://atlas.mitre.org/techniques/AML.T0084.001) | 0 | Adversaries may discover the tools the AI agent has access to. By identifying which tools are available, the adversary can understand what actions may be executed through… |
 | &nbsp;&nbsp;↳ [AML.T0084.002 Activation Triggers](https://atlas.mitre.org/techniques/AML.T0084.002) | 0 | Adversaries may discover keywords or other triggers (such as incoming emails, documents being added, incoming message, or other workflows) that activate an agent and may… |
 | &nbsp;&nbsp;↳ [AML.T0084.003 Call Chains](https://atlas.mitre.org/techniques/AML.T0084.003) | 0 | Adversaries may extract call chains from AI agent configurations, which can reveal potentially targets for remote code execution (RCE) or other vulnerabilities. Vulnerabl… |
-| **[AML.T0089 Process Discovery](https://atlas.mitre.org/techniques/AML.T0089)** | 0 | Adversaries may attempt to get information about processes running on a system. Once obtained, this information could be used to gain an understanding of common AI-related software/applications runnin… |
+| **[AML.T0089 Enterprise Environment Discovery](https://atlas.mitre.org/techniques/AML.T0089)** | 0 | Adversaries inspect enterprise configurations, activity, permissions, and security controls to understand the environment and adapt subsequent actions. |
 
 ## Lateral Movement
 <a id="lateral-movement"></a>
@@ -321,19 +321,20 @@ The adversary is trying to gather AI artifacts and other related information rel
 
 | Technique | Mitigations | Description |
 |---|--:|---|
-| **[AML.T0035 AI Artifact Collection](https://atlas.mitre.org/techniques/AML.T0035)** | 4 | Adversaries may collect AI artifacts for Exfiltration or for use in AI Attack Staging. AI artifacts include models and datasets as well as other telemetry data produced when interacting with a model. |
+| **[AML.T0035 AI Artifact Collection](https://atlas.mitre.org/techniques/AML.T0035)** | 4 | Adversaries may collect AI artifacts for Exfiltration or for use in AI Attack Adaptation. AI artifacts include models and datasets as well as other telemetry data produced when interacting with a model. |
 | **[AML.T0036 Data from Information Repositories](https://atlas.mitre.org/techniques/AML.T0036)** | 0 | Adversaries may leverage information repositories to mine valuable information. Information repositories are tools that allow for storage of information, typically to facilitate collaboration or infor… |
 | **[AML.T0037 Data from Local System](https://atlas.mitre.org/techniques/AML.T0037)** | 0 | Adversaries may search local system sources, such as file systems and configuration files or local databases, to find files of interest and sensitive data prior to Exfiltration. This can include basic… |
 | **[AML.T0085 Data from AI Services](https://atlas.mitre.org/techniques/AML.T0085)** | 5 | Adversaries may use their access to a victim organization's AI-enabled services to collect proprietary or otherwise sensitive information. As organizations adopt generative AI in centralized services… |
 | &nbsp;&nbsp;↳ [AML.T0085.000 RAG Databases](https://atlas.mitre.org/techniques/AML.T0085.000) | 4 | Adversaries may prompt the AI service to retrieve data from a RAG database. This can include the majority of an organization's internal documents. |
 | &nbsp;&nbsp;↳ [AML.T0085.001 AI Agent Tools](https://atlas.mitre.org/techniques/AML.T0085.001) | 5 | Adversaries may prompt the AI service to invoke various tools the agent has access to. Tools may retrieve data from different APIs or services in an organization. |
 
-## AI Attack Staging
+## AI Attack Adaptation
+<a id="ai-attack-adaptation"></a>
 <a id="ai-attack-staging"></a>
 
 [`AML.TA0001`](https://atlas.mitre.org/tactics/AML.TA0001) · 17 techniques
 
-The adversary is leveraging their knowledge of and access to the target system to tailor the attack. AI Attack Staging consists of techniques adversaries use to prepare their attack on the target AI model. Techniques can include training proxy models, poisoning the target model, and crafting adversarial data to feed the target model. Some of these techniques can be performed in an offline manner a…
+Adversaries adapt capabilities, methods, or observations into outputs suited to a target or operational objective. This can occur before initial access or repeatedly during an operation.
 
 | Technique | Mitigations | Description |
 |---|--:|---|
@@ -364,7 +365,7 @@ The adversary is trying to communicate with compromised AI systems to control th
 
 | Technique | Mitigations | Description |
 |---|--:|---|
-| **[AML.T0072 Reverse Shell](https://atlas.mitre.org/techniques/AML.T0072)** | 0 | Adversaries may utilize a reverse shell to communicate and control the victim system. Typically, a user uses a client to connect to a remote machine which is listening for connections. With a reverse… |
+| **[AML.T0072 Cyber Communication Channel](https://atlas.mitre.org/techniques/AML.T0072)** | 0 | Adversaries use network services, repositories, relays, or other communication channels for command and control, either synchronously or asynchronously. |
 | **[AML.T0096 AI Service API](https://atlas.mitre.org/techniques/AML.T0096)** | 0 | Adversaries may communicate using the API of an AI service on the victim's system. The adversary's commands to the victim system, and often the results, are embedded in the normal traffic of the AI se… |
 | **[AML.T0108 AI Agent](https://atlas.mitre.org/techniques/AML.T0108)** | 0 | Adversaries may abuse AI agents present on the victim's system for command and control. AI agents are often granted access to tools that can execute shell commands, reach out to the internet, and inte… |
 

@@ -825,11 +825,11 @@ Four core functions:
 
 Adversarial threat landscape for AI-enabled systems -- the ATT&CK framework equivalent for ML attacks.
 
-**Tactics**:
+**Selected ATLAS tactics** (see the [ATLAS reference](/ATLAS_REFERENCE.md) for the pinned 2026.09 source and snapshot limits):
 - Reconnaissance -- gather information about target ML system
 - Resource Development -- acquire tools, datasets, accounts
 - Initial Access -- gain access to ML system or its infrastructure
-- ML Attack Staging -- prepare adversarial data, craft attacks
+- AI Attack Adaptation -- tailor capabilities or observations to a target or operational objective
 - Exfiltration -- extract model weights, training data, or sensitive outputs
 - Impact -- degrade accuracy, cause misclassification, corrupt model
 
@@ -837,14 +837,14 @@ Adversarial threat landscape for AI-enabled systems -- the ATT&CK framework equi
 
 | Technique ID | Name | Description |
 |---|---|---|
-| AML.T0000 | Phishing for ML Model Access | Social engineering to obtain API keys or model access |
-| AML.T0012 | Valid ML Service Credentials | Use legitimate credentials to access ML APIs for extraction |
+| AML.T0000 | Search Open Technical Databases | Gather public technical information about AI deployments and capabilities |
+| AML.T0012 | Valid Accounts | Abuse legitimate accounts to obtain access or act within an environment |
 | AML.T0043 | Craft Adversarial Data | Create inputs that cause model misclassification |
-| AML.T0019 | Publish Poisoned Datasets | Upload malicious training data to public repositories |
-| AML.T0035 | ML Artifact Collection | Enumerate and collect model artifacts, weights, configs |
-| AML.T0040 | ML Model Inference API Access | Query model API to extract functionality |
-| AML.T0044 | Full ML Model Access | Obtain model weights directly |
-| AML.T0048 | Backdoor ML Model | Implant a backdoor in model during training or update |
+| AML.T0019 | Publish Poisoned Datasets (historical snapshot entry) | Upload poisoned datasets; this ID is absent from the pinned 2026.09 technique collection |
+| AML.T0035 | AI Artifact Collection | Collect models, datasets, or related telemetry |
+| AML.T0040 | AI Model Inference API Access | Access a model through its inference interface; access alone does not establish data theft |
+| AML.T0044 | Full AI Model Access | Obtain access to model internals such as architecture and parameters |
+| AML.T0048 | External Harms | Abuse a system's capabilities to cause harm beyond that system |
 
 ### OWASP AI Exchange
 

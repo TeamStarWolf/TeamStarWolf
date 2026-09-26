@@ -2,6 +2,12 @@
 
 > Consolidated detail pages for all **691 MITRE ATT&CK Enterprise techniques** (v18.1), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
 
+| | |
+|---|---|
+| **Read this when** | you have a technique ID and need its full context in one place, you are pivoting from a detection or CVE to the technique behind it, you want to browse techniques by tactic |
+| **Start at** | [the by-tactic links and lookup table below](#attampck-technique-detail-index) |
+| **Pairs with** | [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](../THREAT_GROUP_PROFILES.md), [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+
 **By tactic:** [Reconnaissance](/techniques/reconnaissance.md) · [Resource Development](/techniques/resource-development.md) · [Initial Access](/techniques/initial-access.md) · [Execution](/techniques/execution.md) · [Persistence](/techniques/persistence.md) · [Privilege Escalation](/techniques/privilege-escalation.md) · [Defense Evasion](/techniques/defense-evasion.md) · [Credential Access](/techniques/credential-access.md) · [Discovery](/techniques/discovery.md) · [Lateral Movement](/techniques/lateral-movement.md) · [Collection](/techniques/collection.md) · [Command and Control](/techniques/command-and-control.md) · [Exfiltration](/techniques/exfiltration.md) · [Impact](/techniques/impact.md)
 
 See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Threat Group Profiles](../THREAT_GROUP_PROFILES.md) · [Software Reference](../ATTACK_SOFTWARE_REFERENCE.md) · [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md)

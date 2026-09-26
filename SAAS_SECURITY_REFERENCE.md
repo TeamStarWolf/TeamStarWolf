@@ -8,6 +8,11 @@ This reference covers the SaaS threat surface at a taxonomy level, the case stud
 
 **Related:** [Identity & Access Management](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) · [Identity Security](IDENTITY_SECURITY_REFERENCE.md) · [Cloud Security](CLOUD_SECURITY_REFERENCE.md) · [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) · [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) · [Email Security](EMAIL_SECURITY_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | you inherit or stand up an M365/GWS/Salesforce/GitHub tenant and need a hardening baseline, an OAuth app or third-party integration needs review or a vendor just got breached, you are deciding which log tier or SSPM tooling to buy |
+| **Start at** | [The SaaS threat surface](#the-saas-threat-surface) for the five threat classes, [Case studies from public advisories](#case-studies-from-public-advisories) for the incidents that motivate every control, [Hardening checklists by platform](#hardening-checklists-by-platform) to act today |
+
 ---
 
 ## Why SaaS security is different

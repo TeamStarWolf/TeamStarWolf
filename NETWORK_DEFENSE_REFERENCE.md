@@ -2,6 +2,12 @@
 
 > Comprehensive reference for network defense, monitoring, and security operations.
 
+| | |
+|---|---|
+| **Read this when** | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
+| **Start at** | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
+| **Pairs with** | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

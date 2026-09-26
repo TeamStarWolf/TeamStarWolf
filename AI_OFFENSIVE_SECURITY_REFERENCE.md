@@ -1,5 +1,13 @@
 # AI Offensive Security Reference
 
+> **In one minute** — This is a field guide to how AI (large language models) has turned exploit writing from a specialist craft into something a moderately skilled attacker can direct at scale, and what defenders should do about it. It walks through the tools (Anthropic's internal Glasswing, the open-source Clearwing, EscalateGPT, PentestGPT and more), the benchmarks proving AI can exploit most known 1-day CVEs, and a concrete defensive playbook of patch SLAs, detection rules, and containment controls. Read it to understand the new attacker economics and to borrow the specific defenses and safe-use rules it lays out.
+
+| | |
+|---|---|
+| **Read this when** | You are sizing up AI-assisted attack risk, tightening patch SLAs to match AI exploitation speed, or planning an authorized AI red team engagement |
+| **Start at** | [The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment) |
+| **Pairs with** | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+
 ## Section 1: The AI Security Revolution
 
 ### Timeline of AI-Powered Offensive Security

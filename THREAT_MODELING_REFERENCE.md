@@ -2,6 +2,12 @@
 
 > **Threat Modeling** — comprehensive reference covering STRIDE, PASTA, LINDDUN, attack trees, DREAD, MITRE ATT&CK integration, Data Flow Diagrams, cloud/microservices threats, and practical SDLC integration for software and infrastructure security.
 
+| | |
+|---|---|
+| **Read this when** | Designing a new system or major feature, reviewing an architecture or cloud migration before code is written, picking a methodology (STRIDE vs PASTA vs LINDDUN) for a threat modeling session |
+| **Start at** | [Why Threat Modeling](#why-threat-modeling), [STRIDE Methodology (Microsoft)](#stride-methodology-microsoft), [Practical Threat Modeling Workflow](#practical-threat-modeling-workflow) |
+| **Pairs with** | [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Threat Modeling discipline](disciplines/threat-modeling.md) |
+
 ---
 
 ## Table of Contents

@@ -1,5 +1,13 @@
 # Home Lab Setup Guide
 
+> **In one minute** — This is a build guide for a personal cybersecurity practice lab: which hardware and hypervisor to buy, which virtual machines to spin up, how to segment them into safe VLANs, and how to stand up attack targets, logging, Active Directory, malware sandboxes, and free cloud environments. A practitioner cares because you cannot safely learn offense or detection on production systems, and this doc lets you break things freely and reset to a snapshot. It is useful because every section is concrete: copy-paste PowerShell/CLI commands, dollar-cost tiers, and a beginner-to-expert progression.
+
+| | |
+|---|---|
+| **Read this when** | You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect |
+| **Start at** | [Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options) |
+| **Pairs with** | [LABS.md](LABS.md), [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md) |
+
 A practical guide to building a cybersecurity home lab for hands-on learning across penetration testing, detection engineering, malware analysis, incident response, and Active Directory security.
 
 ---

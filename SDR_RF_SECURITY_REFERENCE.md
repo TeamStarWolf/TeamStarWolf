@@ -2,6 +2,12 @@
 
 > A professional cybersecurity reference for Software-Defined Radio and RF security research, penetration testing, and defensive operations.
 
+| | |
+|---|---|
+| **Read this when** | Choosing SDR hardware for a job, capturing or replaying an unknown RF signal, or decoding a wireless protocol (GSM, P25, Zigbee, BLE, ADS-B) |
+| **Start at** | [SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware), [Replay & Signal Injection](#_7-replay-amp-signal-injection), [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework) |
+| **Pairs with** | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [AUTOMOTIVE_SECURITY_REFERENCE.md](AUTOMOTIVE_SECURITY_REFERENCE.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

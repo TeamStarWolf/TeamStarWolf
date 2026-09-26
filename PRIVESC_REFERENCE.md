@@ -2,6 +2,12 @@
 
 > Comprehensive cheat sheet for Linux and Windows privilege escalation techniques used in penetration testing and CTF challenges. For education and authorized testing only.
 
+| | |
+|---|---|
+| **Read this when** | You have a low-privilege foothold and need to reach root or SYSTEM, you are prepping for OSCP/HTB/CTF privesc, you need to map a technique to its ATT&CK ID |
+| **Start at** | [Linux Initial Enumeration](#initial-enumeration), [Windows Initial Enumeration](#initial-enumeration-1), [Automated Tools](#_5-automated-tools) |
+| **Pairs with** | [Pentest Checklists](PENTEST_CHECKLISTS.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [HTB Machine Index](research/HTB_MACHINE_INDEX.md) |
+
 ---
 
 ## Table of Contents

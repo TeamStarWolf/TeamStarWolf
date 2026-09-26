@@ -2,6 +2,12 @@
 
 > Comprehensive reference for Docker/container security, image hardening, runtime protection, and container escape defense. For Kubernetes orchestration security, see [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md).
 
+| | |
+|---|---|
+| **Read this when** | Hardening a Dockerfile or image before it ships to production, investigating a privileged-container or container-escape finding, building image scanning and signing into a CI/CD pipeline |
+| **Start at** | [Container Security Fundamentals](#_1-container-security-fundamentals), [Dockerfile Security Best Practices](#_3-dockerfile-security-best-practices), [Container Escape Techniques and Defense](#_6-container-escape-techniques-and-defense) |
+| **Pairs with** | [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

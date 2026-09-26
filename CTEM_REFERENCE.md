@@ -8,6 +8,11 @@ This reference maps each CTEM stage to the concrete data, tooling, and reference
 
 **Related:** [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) · [Vulnerability Prioritization (SSVC, KEV, EPSS)](VULNERABILITY_PRIORITIZATION_REFERENCE.md) · [Purple Team](PURPLE_TEAM_REFERENCE.md) · [ATT&CK Priority Gaps](scores/attack_priority_gaps.md) · [Security Metrics](SECURITY_METRICS_REFERENCE.md) · [Fight Fraud Framework (F3)](FRAUD_FRAMEWORK_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | you are standing up or rebooting an exposure-management program, your vulnerability queue is ranked by CVSS alone and nobody trusts it, or you need to explain to leadership what CTEM is and why the loop beats scan-and-patch |
+| **Start at** | [The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement |
+
 ---
 
 ## Why CTEM exists

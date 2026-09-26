@@ -2,6 +2,12 @@
 
 > **Audience**: Penetration testers and red teamers. Every major AD attack with exact tool commands, ATT&CK mappings, detection event IDs, and defenses.
 
+| | |
+|---|---|
+| **Read this when** | Scoping an internal AD pentest or red team op, mapping a path to Domain Admins, or building detections and defenses for a specific AD attack |
+| **Start at** | [AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference) |
+| **Pairs with** | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

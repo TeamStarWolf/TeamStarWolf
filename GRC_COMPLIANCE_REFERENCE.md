@@ -2,6 +2,12 @@
 
 > Comprehensive reference for Governance, Risk & Compliance (GRC) — covering foundational concepts, major frameworks, automation tooling, and practical implementation guidance.
 
+| | |
+|---|---|
+| **Read this when** | standing up or maturing a GRC program, preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), building a risk register, or automating compliance evidence and scanning |
+| **Start at** | [GRC Fundamentals](#_1-grc-fundamentals) for definitions and risk scoring, [Control Frameworks Comparison](#_17-control-frameworks-comparison) to pick a framework, [GRC Tools and Automation](#_10-grc-tools-and-automation) for tooling |
+| **Pairs with** | [GRC_REFERENCE.md](GRC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

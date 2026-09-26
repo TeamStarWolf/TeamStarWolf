@@ -2,6 +2,14 @@
 
 > **Authorization Notice:** This reference is intended exclusively for authorized red team operators working under signed rules of engagement (ROE) and legal authorization documents. All techniques, tools, and methodologies described herein are for use in authorized security assessments only. Unauthorized use against systems you do not have explicit written permission to test is illegal and unethical. This document serves as a methodology and tradecraft reference — not a step-by-step exploitation guide.
 
+> **In one minute** — This is the methodology reference for running an authorized red team engagement end to end: how to scope and govern it, how adversaries are emulated across the attack lifecycle, and how the results get turned into defensive improvements. It exists so defenders and operators share one vocabulary for what an assessment covers and how findings feed detection and hardening.
+
+| | |
+|---|---|
+| **Read this when** | you are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
+| **Start at** | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
+| **Pairs with** | [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATTACK_MITIGATIONS_REFERENCE.md](ATTACK_MITIGATIONS_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

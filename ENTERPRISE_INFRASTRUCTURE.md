@@ -2,6 +2,12 @@
 
 > A practical reference for security practitioners covering the operating systems, server roles, networking components, and technology stacks present in enterprise environments. Understanding what you are working with — and what it does — is a prerequisite for both attacking and defending it effectively.
 
+| | |
+|---|---|
+| **Read this when** | You land in an unfamiliar environment and need to identify what a server or OS actually does, you are scoping a pentest or hardening effort and want the attack surface of each component, you need default ports or key CVEs for a system you just found |
+| **Start at** | [Server Roles & Functions](#_2-server-roles-amp-functions), [Enterprise Operating Systems](#_1-enterprise-operating-systems), [Security Relevance by Component](#_8-security-relevance-by-component) |
+| **Pairs with** | [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [HOMELAB_SETUP.md](HOMELAB_SETUP.md) |
+
 ---
 
 ## Table of Contents

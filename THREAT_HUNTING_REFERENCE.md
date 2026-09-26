@@ -2,6 +2,12 @@
 
 > A comprehensive, practitioner-focused reference for proactive threat hunting across Windows, Linux, and cloud environments. Covers hypothesis generation, platform-specific query languages, YARA/Sigma rule authoring, and end-to-end hunt tracking workflows.
 
+| | |
+|---|---|
+| **Read this when** | You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule |
+| **Start at** | [Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting) |
+| **Pairs with** | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md) |
+
 ---
 
 ## Table of Contents

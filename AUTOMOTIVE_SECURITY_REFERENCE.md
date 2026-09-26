@@ -2,6 +2,12 @@
 
 > Comprehensive reference for vehicle cybersecurity, CAN bus attacks, ECU security, OTA update integrity, V2X protocols, and automotive penetration testing.
 
+| | |
+|---|---|
+| **Read this when** | Scoping a vehicle or ECU penetration test, investigating how a car got remotely compromised, or learning why CAN and OBD-II have no built-in authentication |
+| **Start at** | [CAN Bus Security](#_2-can-bus-security), [Automotive Attack Surface](#_1-automotive-attack-surface), [Automotive Penetration Testing](#_10-automotive-penetration-testing) |
+| **Pairs with** | [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

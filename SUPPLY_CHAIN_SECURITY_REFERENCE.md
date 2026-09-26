@@ -1,5 +1,13 @@
 # Supply Chain Security Reference
 
+> **In one minute** — This document is a working reference for securing the software supply chain: every component, build step, and distribution channel between someone's source code and what you actually run. It walks the whole problem end to end — how attacks like typosquatting, dependency confusion, and build injection work (with real incidents such as SolarWinds and XZ Utils), then the defenses: SBOMs, dependency scanners, artifact signing with Sigstore/cosign, SLSA build levels, CI/CD hardening, and incident response. Nearly every section includes copy-paste commands and configs, so it doubles as a runbook, not just background reading.
+
+| | |
+|---|---|
+| **Read this when** | you need to vet or scan a project's dependencies, you're adding SBOM generation or artifact signing to a pipeline, you're hardening GitHub Actions/CI workflows, or you suspect a compromised package and need containment steps |
+| **Start at** | [Threat landscape](#_1-software-supply-chain-threat-landscape) for how the attacks work, [Artifact signing & verification](#_4-artifact-signing-amp-verification) for cosign/signing workflows, [Incident response](#_10-supply-chain-incident-response) when something is already on fire |
+| **Pairs with** | [SUPPLY_CHAIN_SECURITY.md](SUPPLY_CHAIN_SECURITY.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
+
 ## 1. Software Supply Chain Threat Landscape
 
 ### Attack Taxonomy

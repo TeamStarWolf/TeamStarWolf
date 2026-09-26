@@ -3,6 +3,12 @@
 > **Audience**: Cybersecurity professionals, physical penetration testers, red teamers, and security engineers.
 > **Purpose**: Comprehensive hands-on reference for physical security assessment and physical penetration testing.
 
+| | |
+|---|---|
+| **Read this when** | Scoping or running an authorized physical penetration test, assessing a facility's or server room's physical controls, building a remediation checklist after a walkthrough |
+| **Start at** | [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking) |
+| **Pairs with** | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

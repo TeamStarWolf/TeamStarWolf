@@ -6,6 +6,11 @@ A missed detection is rarely a bad rule. It is far more often a log source that 
 
 **Related:** [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) · [SIEM Reference](SIEM_REFERENCE.md) · [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) · [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) · [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) · [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | onboarding a new log source, choosing or reconciling a normalization schema (OCSF/ECS/CIM/ASIM), cutting SIEM ingest cost without breaking detections, designing retention or investigating why a rule silently sees nothing |
+| **Start at** | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) · [Why the data layer decides what you can detect](#why-the-data-layer-decides-what-you-can-detect) · [Onboarding a new log source: the runbook](#onboarding-a-new-log-source-the-runbook) |
+
 ---
 
 ## Scope & how to use this reference

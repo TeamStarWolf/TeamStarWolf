@@ -2,6 +2,12 @@
 
 > A comprehensive professional reference for digital forensics practitioners, incident responders, and cybersecurity analysts.
 
+| | |
+|---|---|
+| **Read this when** | You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline |
+| **Start at** | [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
+| **Pairs with** | [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

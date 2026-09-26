@@ -2,6 +2,12 @@
 
 > Comprehensive cybersecurity reference for AWS, Azure, GCP, multi-cloud attack tooling, IAM, data security, CNAPP, and compliance. Maintained by TeamStarWolf.
 
+| | |
+|---|---|
+| **Read this when** | You need to look up an AWS/Azure/GCP security control or its configuration, you are chasing a cloud privilege-escalation or metadata-service (IMDS/SSRF) attack path, or you are picking the right offensive/CSPM tool (Pacu, ROADtools, PMapper, Prowler) for a cloud engagement |
+| **Start at** | [AWS Security Fundamentals](#_1-aws-security-fundamentals), [Multi-Cloud Attack Tools](#_6-multi-cloud-attack-tools), [Cloud IAM Security & Least Privilege](#_7-cloud-iam-security-amp-least-privilege) |
+| **Pairs with** | [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md), [CLOUD_SECURITY_BENCHMARK.md](CLOUD_SECURITY_BENCHMARK.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

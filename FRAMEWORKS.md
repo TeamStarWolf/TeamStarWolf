@@ -1,5 +1,13 @@
 # Security Frameworks Reference
 
+> **In one minute** — This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
+
+| | |
+|---|---|
+| **Read this when** | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
+| **Start at** | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
+| **Pairs with** | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
+
 A quick-reference guide to major cybersecurity and privacy frameworks — what they cover, who they apply to, and how they relate to each other.
 
 ---

@@ -2,6 +2,12 @@
 
 > Comprehensive reference for secrets management practices, tools, detection, and operations in modern security engineering.
 
+| | |
+|---|---|
+| **Read this when** | a credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), you need to kill secrets sprawl in code, Kubernetes, or pipelines |
+| **Start at** | [Secrets Management Fundamentals](#_1-secrets-management-fundamentals), [Secret Detection in Code](#_4-secret-detection-in-code), [Quick Reference](#quick-reference) |
+| **Pairs with** | [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

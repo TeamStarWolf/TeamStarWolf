@@ -2,6 +2,12 @@
 
 > Comprehensive reference for mobile application security, platform architecture, malware analysis, MDM, mobile network threats, and enterprise mobile defense.
 
+| | |
+|---|---|
+| **Read this when** | You are testing or hardening an Android/iOS app, triaging suspected mobile malware or spyware, or designing MDM/enterprise mobile controls |
+| **Start at** | [Mobile Security Landscape](#_1-mobile-security-landscape), [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast), [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities) |
+| **Pairs with** | [MOBILE_ATTACK_ATLAS.md](MOBILE_ATTACK_ATLAS.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

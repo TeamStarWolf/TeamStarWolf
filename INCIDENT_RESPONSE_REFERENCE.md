@@ -3,6 +3,14 @@
 > **Classification:** Internal Security Reference | **Maintained by:** Security Operations
 > **Last Updated:** 2026-05-04 | **Version:** 1.0
 
+> **In one minute** — This is the working reference for handling security incidents end to end: frameworks (NIST 800-61, SANS PICERL), triage checklists, and hands-on response procedures for ransomware, business email compromise, endpoint/network forensics, and cloud (AWS/Azure/GCP) incidents. It is useful because it pairs the process side (severity levels, team roles, notification templates, regulatory deadlines) with copy-paste commands for the tools you actually use mid-incident (EDR containment, audit-log queries, firewall blocks). Reach for it when the clock is running and you need the next concrete step, not theory.
+
+| | |
+|---|---|
+| **Read this when** | an alert or user report needs triage in the next five minutes, ransomware or a suspicious wire request just landed, you are building or testing an IR plan and tabletop program |
+| **Start at** | [Detection & Initial Triage](#_2-detection-amp-initial-triage), [Ransomware Response](#_3-ransomware-response), [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation) |
+| **Pairs with** | [IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
+
 ---
 
 ## Table of Contents

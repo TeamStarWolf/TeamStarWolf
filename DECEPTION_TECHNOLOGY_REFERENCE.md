@@ -4,6 +4,12 @@
 > breadcrumb strategies, detection rules, and metrics. Maintained as part of the
 > [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library.
 
+| | |
+|---|---|
+| **Read this when** | You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, you are evaluating deception platforms or writing SIEM rules for decoy assets |
+| **Start at** | [Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines |
+| **Pairs with** | [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md) |
+
 ---
 
 ## Table of Contents

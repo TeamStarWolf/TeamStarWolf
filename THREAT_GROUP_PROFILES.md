@@ -2,6 +2,11 @@
 
 > Authoritative profiles for the **168 tracked adversary groups** in MITRE ATT&CK Enterprise (v18.1) that have observed technique usage — nation-state APTs, eCrime crews, and intrusion sets — each with its aliases, the count of techniques and software attributed to it, and (for the most active) its signature ATT&CK techniques. Pair this with [Threat Actors](THREAT_ACTORS.md) for narrative context and the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) for the behaviors.
 
+| | |
+|---|---|
+| **Read this when** | you need a group's aliases resolved to one ATT&CK ID, you're scoping which adversaries have the broadest technique coverage, you want a group's signature techniques for threat-informed defense |
+| **Start at** | [All tracked groups](#all-tracked-groups) for the alias-and-counts table, [Detailed profiles](#detailed-profiles-most-active-groups) for the most active groups' signature techniques |
+
 Machine-readable: [`data/attack/groups.jsonl`](data/attack/groups.jsonl) · [`data/attack/group_to_technique.jsonl`](data/attack/group_to_technique.jsonl)
 
 ## All tracked groups

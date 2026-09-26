@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="TeamStarWolf — an open, threat-informed cybersecurity reference library. 120+ in-depth references across offense, defense, cloud, identity, GRC and AI security, anchored to MITRE ATT&CK, ATLAS, Engage, D3FEND and NIST 800-53.">
+  <meta name="description" content="TeamStarWolf — an open, threat-informed cybersecurity reference library. 139 in-depth references across offense, defense, cloud, identity, GRC and AI security, anchored to MITRE ATT&CK, ATLAS, Engage, D3FEND and NIST 800-53.">
   <meta name="theme-color" content="#0b1220">
   <meta property="og:title" content="TeamStarWolf — Cybersecurity Reference Library">
-  <meta property="og:description" content="An open, threat-informed cybersecurity reference library anchored to MITRE ATT&CK, ATLAS, Engage and D3FEND.">
+  <meta property="og:description" content="An open, threat-informed cybersecurity reference library — 139 in-depth references anchored to MITRE ATT&CK, ATLAS, Engage and D3FEND.">
   <meta property="og:type" content="website">
   <title>TeamStarWolf — Cybersecurity Reference Library</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BA%3C/text%3E%3C/svg%3E">
@@ -64,7 +64,12 @@
       background: linear-gradient(180deg, #0c1526 0%, #0a1120 100%);
       border-right: 1px solid var(--tsw-border);
       padding-top: 0;
+      /* Pin the sidebar out of document flow on the cover route. Without this, its
+         full height (~8,000px of links) stacks between the cover and the homepage,
+         leaving a black void when scrolling. The cover paints above it (z-index below). */
+      position: fixed; top: 0; bottom: 0; z-index: 10;
     }
+    section.cover { position: relative; z-index: 20; }
     .sidebar > h1 {
       margin: 0; padding: 20px 22px 14px;
       border-bottom: 1px solid var(--tsw-border-soft);
@@ -335,6 +340,213 @@
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
     }
+
+    /* ===== tsw-home components (additive) =====
+       Used only by HOME.md (and disciplines/README.md). New .tsw-* classes only —
+       nothing below touches the selectors that style the other 139 docs.
+       All transitions are covered by the prefers-reduced-motion kill-switch above.
+       Every selector is prefixed .markdown-section so these rules out-rank the
+       generic .markdown-section a link styling without touching it. */
+
+    /* --- Hero band --- */
+    .markdown-section .tsw-hero {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem 1.6rem; flex-wrap: wrap;
+      position: relative; padding: .2rem 0 1.35rem; margin: .4rem 0 1.7rem;
+    }
+    .markdown-section .tsw-hero::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--tsw-accent), var(--tsw-accent-2));
+    }
+    .markdown-section .tsw-hero-id { display: flex; align-items: flex-start; gap: .85rem; flex: 1 1 380px; min-width: 0; }
+    .markdown-section .tsw-hero-glyph { font-size: 2.15rem; line-height: 1.15; }
+    .markdown-section .tsw-hero-title {
+      font-size: 1.6rem; font-weight: 850; letter-spacing: -.03em; line-height: 1.2;
+      background: linear-gradient(96deg, #38bdf8 0%, #a78bfa 55%, #22d3ee 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .markdown-section .tsw-hero-tag { margin: .25rem 0 0; font-size: .92rem; color: var(--tsw-text-muted); line-height: 1.5; }
+    .markdown-section .tsw-hero-actions { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; }
+
+    /* --- Pill buttons --- */
+    .markdown-section .tsw-btn {
+      display: inline-block; border-radius: 10px; padding: .55rem 1.15rem;
+      font-size: .88rem; font-weight: 640; white-space: nowrap;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border);
+      color: var(--tsw-text); text-decoration: none;
+      transition: transform .13s, box-shadow .18s, border-color .13s;
+    }
+    .markdown-section .tsw-btn:hover {
+      transform: translateY(-2px); border-color: var(--tsw-accent);
+      box-shadow: 0 8px 24px rgba(56,189,248,.18);
+      color: var(--tsw-text); text-decoration: none;
+    }
+    .markdown-section .tsw-btn--ghost { background: var(--tsw-surface); }
+    .markdown-section .tsw-btn--primary,
+    .markdown-section .tsw-btn--primary:hover {
+      background: linear-gradient(96deg, var(--tsw-accent), var(--tsw-accent-2));
+      border-color: transparent; color: #08101f; font-weight: 700;
+    }
+
+    /* --- Stat strip (8 linked chips) --- */
+    .markdown-section .tsw-stats {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px; margin: 1.4rem 0 2rem;
+    }
+    .markdown-section .tsw-stat {
+      display: flex; flex-direction: column; gap: 2px;
+      padding: .8rem .95rem; min-width: 0;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 10px;
+      text-decoration: none;
+      transition: border-color .13s, box-shadow .18s;
+    }
+    .markdown-section .tsw-stat:hover {
+      border-color: var(--tsw-accent);
+      box-shadow: 0 0 0 3px rgba(56,189,248,.13);
+      text-decoration: none;
+    }
+    .markdown-section .tsw-stat-n {
+      font-family: var(--tsw-mono); font-size: 1.4rem; font-weight: 700;
+      color: var(--tsw-accent); line-height: 1.25; overflow-wrap: break-word;
+    }
+    .markdown-section .tsw-stat-l {
+      font-size: .68rem; font-weight: 650; text-transform: uppercase;
+      letter-spacing: .07em; color: var(--tsw-text-dim); line-height: 1.4;
+    }
+    .markdown-section .tsw-stat-s { font-size: .7rem; font-family: var(--tsw-mono); color: var(--tsw-text-dim); }
+
+    /* --- Shared card base (router + flagships) --- */
+    .markdown-section .tsw-card {
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border);
+      border-radius: 12px; padding: .95rem 1.05rem; min-width: 0;
+      transition: border-color .13s, transform .13s, box-shadow .18s;
+    }
+    .markdown-section .tsw-card:hover { border-color: var(--tsw-accent); transform: translateY(-2px); }
+
+    /* --- Quick router --- */
+    .markdown-section .tsw-router {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 14px; margin: 1.2rem 0 .8rem;
+    }
+    .markdown-section .tsw-card-h {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .09em; color: var(--tsw-text-dim); margin-bottom: .5rem;
+    }
+    .markdown-section .tsw-card-l {
+      display: block; padding: 3px 0; font-size: .875rem;
+      color: var(--tsw-text-muted); text-decoration: none;
+      transition: color .13s;
+    }
+    .markdown-section .tsw-card-l::before { content: '› '; color: var(--tsw-accent); font-weight: 650; }
+    .markdown-section .tsw-card-l:hover { color: var(--tsw-accent); text-decoration: none; }
+
+    /* --- Pill chips + count badges (chain, beyond-row, disciplines) --- */
+    .markdown-section .tsw-chip {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .34rem .85rem; font-size: .82rem;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border); border-radius: 999px;
+      color: var(--tsw-text-muted); text-decoration: none;
+      transition: color .13s, border-color .13s;
+    }
+    .markdown-section .tsw-chip:hover { color: var(--tsw-accent); border-color: var(--tsw-accent); text-decoration: none; }
+    .markdown-section .tsw-chip-n {
+      font-family: var(--tsw-mono); font-size: .72rem; font-weight: 700;
+      color: var(--tsw-accent-3); background: var(--tsw-surface-2);
+      border-radius: 6px; padding: .06rem .4rem;
+    }
+    .markdown-section .tsw-chip--all { border-color: var(--tsw-accent); color: var(--tsw-accent); font-weight: 650; }
+
+    /* --- Knowledge-graph chain --- */
+    .markdown-section .tsw-chain {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 12px 32px; margin: 1.1rem 0 1.2rem;
+    }
+    .markdown-section .tsw-chain .tsw-chip { position: relative; }
+    .markdown-section .tsw-chain .tsw-chip:not(:last-child)::after {
+      content: '→'; position: absolute; right: -23px; top: 50%;
+      transform: translateY(-50%); color: var(--tsw-text-dim); font-size: .9rem;
+    }
+
+    /* --- Chip fields with block-breaking cluster labels --- */
+    .markdown-section .tsw-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: .8rem 0 1.2rem; }
+    .markdown-section .tsw-chips-label {
+      flex-basis: 100%; margin: .7rem 0 .1rem;
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .09em; color: var(--tsw-text-dim);
+    }
+    .markdown-section .tsw-chips-label:first-child { margin-top: 0; }
+
+    /* --- Flagship cards (violet top rule) --- */
+    .markdown-section .tsw-flagship {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px; margin: 1.2rem 0;
+    }
+    .markdown-section .tsw-flag { border-top: 2px solid var(--tsw-accent-2); display: flex; flex-direction: column; gap: .45rem; }
+    .markdown-section .tsw-flag-t { font-size: 1.05rem; font-weight: 720; color: var(--tsw-text); text-decoration: none; transition: color .13s; }
+    .markdown-section .tsw-flag-t:hover { color: var(--tsw-accent); text-decoration: none; }
+    .markdown-section .tsw-flag-sub { margin: 0; flex: 1; font-size: .86rem; line-height: 1.55; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-flag-links { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; margin-top: .3rem; }
+    .markdown-section .tsw-flag-cta { font-size: .85rem; font-weight: 650; color: var(--tsw-accent); text-decoration: none; }
+    .markdown-section .tsw-flag-cta:hover { color: var(--tsw-accent-3); text-decoration: none; }
+    .markdown-section .tsw-flag-2nd { font-size: .85rem; color: var(--tsw-text-dim); text-decoration: none; transition: color .13s; }
+    .markdown-section .tsw-flag-2nd:hover { color: var(--tsw-accent); text-decoration: none; }
+
+    /* --- Domain switchboard (mirrors _sidebar.md) ---
+       `columns: 3 250px` self-degrades to 2 columns near 1024px and 1 near 768px
+       without extra media queries. */
+    .markdown-section .tsw-switchboard { columns: 3 250px; column-gap: 28px; margin: 1.2rem 0; }
+    .markdown-section .tsw-swb-group {
+      break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid;
+      margin: 0 0 1.4rem; display: block;
+    }
+    .markdown-section .tsw-swb-h {
+      font-size: .705rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .09em; color: var(--tsw-text-dim); margin: 0 0 .45rem;
+    }
+    .markdown-section .tsw-swb-l {
+      display: block; padding: 3px 0; font-size: .85rem;
+      color: var(--tsw-text-muted); text-decoration: none;
+      transition: color .13s, transform .13s;
+    }
+    .markdown-section .tsw-swb-l:hover { color: var(--tsw-accent); transform: translateX(2px); text-decoration: none; }
+    .markdown-section .tsw-swb-more {
+      display: block; padding: 4px 0 0; text-align: right;
+      font-size: .78rem; color: var(--tsw-text-dim); text-decoration: none;
+      transition: color .13s;
+    }
+    .markdown-section .tsw-swb-more:hover { color: var(--tsw-accent); text-decoration: none; }
+
+    /* --- Data & Navigator band (2-col) / Learn & grow row --- */
+    .markdown-section .tsw-databand { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 28px; margin: 1.2rem 0; }
+    .markdown-section .tsw-learn .tsw-swb-l { display: inline-block; margin: 0 1.5rem 4px 0; }
+
+    /* --- Footer strip --- */
+    .markdown-section .tsw-footer { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--tsw-border); text-align: center; }
+    .markdown-section .tsw-footer-links { font-size: .86rem; color: var(--tsw-text-dim); }
+    .markdown-section .tsw-footer-links a { color: var(--tsw-text-muted); text-decoration: none; font-weight: 500; transition: color .13s; }
+    .markdown-section .tsw-footer-links a:hover { color: var(--tsw-accent); text-decoration: none; }
+    .markdown-section .tsw-footer-sep { margin: 0 .55rem; color: var(--tsw-text-dim); }
+    .markdown-section .tsw-footer-small { margin-top: .7rem; font-size: .78rem; line-height: 1.65; color: var(--tsw-text-dim); }
+
+    /* --- Mobile --- */
+    @media screen and (max-width: 768px) {
+      .markdown-section .tsw-hero { flex-direction: column; align-items: stretch; }
+      .markdown-section .tsw-hero-actions { width: 100%; }
+      .markdown-section .tsw-hero-actions .tsw-btn { flex: 1 1 100%; text-align: center; white-space: normal; }
+      .markdown-section .tsw-router { grid-template-columns: 1fr; }
+      .markdown-section .tsw-flagship { grid-template-columns: 1fr; }
+      .markdown-section .tsw-databand { grid-template-columns: 1fr; }
+      .markdown-section .tsw-chain { flex-direction: column; align-items: flex-start; gap: 26px; }
+      .markdown-section .tsw-chain .tsw-chip:not(:last-child)::after {
+        content: '↓'; right: auto; left: 50%; top: auto; bottom: -22px;
+        transform: translateX(-50%);
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .markdown-section .tsw-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
   </style>
 </head>
 <body>
@@ -353,7 +565,7 @@
       subMaxLevel: 3,
       maxLevel: 4,
       auto2top: true,
-      homepage: 'README.md',
+      homepage: 'HOME.md',   // site homepage; README.md stays the GitHub face
       relativePath: false,  // every in-repo link is absolute; see _sidebar.md
       alias: {
         // navigator/ ships index.md, not README.md — without this, /navigator/ 404s
@@ -367,7 +579,7 @@
       search: {
         maxAge: 3600000,
         paths: 'auto',
-        placeholder: '🔍  Search 120+ references…',
+        placeholder: '🔍  Search the library — try T1059…',
         noData: 'No matches. Try a technique ID (T1059), a tool, a control, or a concept.',
         depth: 6,
         hideOtherSidebarContent: false,

@@ -1,5 +1,13 @@
 # Resources
 
+> **In one minute** — A curated catalog of the learning and reference material worth your time: books, training platforms, YouTube channels, podcasts, news and threat-intel sources, CTF platforms, lab environments, conferences, standards bodies, and communities. Instead of wading through the internet's noise, you get vetted picks with notes on cost, focus, and skill level. Useful whether you are picking your first course or filling a gap in an established practice.
+
+| | |
+|---|---|
+| **Read this when** | you want a book or course for a specific skill (red team, DFIR, malware analysis), you need hands-on practice via CTFs or vulnerable labs, you are building a daily news and podcast rotation |
+| **Start at** | [Books](#books), [Online Courses & Training Platforms](#online-courses-amp-training-platforms), [CTF Platforms](#ctf-platforms) |
+| **Pairs with** | [CERTIFICATIONS.md](CERTIFICATIONS.md), [CAREER_PATHS.md](CAREER_PATHS.md), [LABS.md](LABS.md), [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md) |
+
 A curated reference of books, courses, platforms, communities, and standards for cybersecurity practitioners at every level.
 
 ---

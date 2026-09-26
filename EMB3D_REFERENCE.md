@@ -18,6 +18,11 @@ The defining design decision — and the thing to internalize before using it �
 
 **Related:** [Firmware & IoT Security](FIRMWARE_IOT_SECURITY_REFERENCE.md) · [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md) · [Hardware Security](HARDWARE_SECURITY_REFERENCE.md) · [Threat Modeling](THREAT_MODELING_REFERENCE.md) · [CWE Reference](CWE_REFERENCE.md) · [CTEM](CTEM_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | assessing or pen-testing an embedded device (PLC, controller, medical device, ECU, IoT endpoint), writing procurement or vendor-questionnaire language for device security, deciding whether a vendor claim counts as a real built-in mitigation or just deployment advice |
+| **Start at** | [Running a device threat-exposure review with EMB3D](#running-a-device-threat-exposure-review-with-emb3d) · [The properties-to-threats mapping](#the-properties-to-threats-mapping) · [Program guidance: procurement, vendor questionnaires, and gap tracking](#program-guidance-procurement-vendor-questionnaires-and-gap-tracking) |
+
 ---
 
 ## What EMB3D is (and is not)

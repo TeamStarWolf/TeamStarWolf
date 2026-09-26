@@ -2,6 +2,12 @@
 
 > **A comprehensive professional reference for Linux system hardening, compliance, and security operations.**
 
+| | |
+|---|---|
+| **Read this when** | Building or auditing a Linux server against CIS/STIG baselines, locking down SSH/sudo/PAM before exposing a host, chasing an SELinux denial or standing up auditd/FIM monitoring |
+| **Start at** | [Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist) |
+| **Pairs with** | [LINUX_HARDENING.md](LINUX_HARDENING.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
+
 ---
 
 ## Table of Contents

@@ -2,6 +2,12 @@
 
 > A comprehensive cybersecurity reference library covering the Model Context Protocol (MCP), AI/LLM security, MITRE ATLAS, OWASP Top 10 for LLMs, enterprise AI security controls, and regulatory frameworks.
 
+| | |
+|---|---|
+| **Read this when** | Evaluating or hardening an MCP server deployment, threat-modeling an LLM app or AI agent, mapping AI risks to ATLAS/OWASP/NIST or EU AI Act obligations |
+| **Start at** | [MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists) |
+| **Pairs with** | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_OFFENSIVE_SECURITY_REFERENCE.md](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

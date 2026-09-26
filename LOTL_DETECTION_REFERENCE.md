@@ -6,6 +6,11 @@ This reference is the defender's side of that story: the telemetry to enable, th
 
 **Related:** [Threat Hunting](THREAT_HUNTING_REFERENCE.md) · [Detection Rules](DETECTION_RULES_REFERENCE.md) · [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) · [Detection Strategies by Tactic](detections/strategies/README.md) · [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | you are standing up or maturing detection for abuse of built-in tools (LOLBins, RMM, cloud APIs), an advisory like Volt Typhoon lands and you need the defender's playbook, you are deciding which telemetry to enable or how to consume the LOLBAS/GTFOBins-style catalogs |
+| **Start at** | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) · [Telemetry foundation](#telemetry-foundation) · [Detection engineering: patterns that survive syntax changes](#detection-engineering-patterns-that-survive-syntax-changes) |
+
 ---
 
 ## Scope & how to use this reference

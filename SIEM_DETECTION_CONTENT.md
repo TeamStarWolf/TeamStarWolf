@@ -1,5 +1,13 @@
 # SIEM Detection Content Reference
 
+> **In one minute** — A catalog of the official, vendor-maintained repositories of ready-made SIEM detection content: Sigma's universal rule format, Splunk ESCU, Elastic detection rules, Microsoft Sentinel analytics, Chronicle YARA-L, and QRadar use cases, plus the hardening baselines (ATT&CK mitigations, CIS Controls, DISA STIGs) that pair with them. For each source it shows the rule format, how to install or deploy the content, and where the highest-value rule sets live. Useful because you rarely need to write detections from scratch — these repos hold thousands of maintained rules you can convert and deploy.
+
+| | |
+|---|---|
+| **Read this when** | You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, you want to convert Sigma rules to your platform's query language |
+| **Start at** | [Sigma — Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary) |
+| **Pairs with** | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [detections/strategies/README.md](detections/strategies/README.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+
 Detection content from official repositories, maintained by the organizations that build the underlying platforms. All sources are authoritative and regularly updated by practitioners.
 
 ---

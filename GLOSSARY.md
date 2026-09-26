@@ -1,5 +1,13 @@
 # Security Glossary
 
+> **In one minute** — A single lookup page for the security terms, acronyms, and attack/defense concepts used throughout this library, from everyday abbreviations like CVE and SIEM to specialist techniques like Kerberoasting and Golden Ticket. Each entry is a one-line plain-English definition, organized A-Z in tables you can search with Ctrl+F. Keep it open while reading any other doc here so an unfamiliar acronym never stops you.
+
+| | |
+|---|---|
+| **Read this when** | you hit an acronym or term you don't recognize in another doc, you need a quick one-line definition to drop into a report, you want to check the difference between similar terms (IOC vs IOA, Golden vs Silver Ticket) |
+| **Start at** | [A](#a) to browse alphabetically, [Common Acronym Reference](#common-acronym-reference) for acronym expansions only, [Additional Terms](#additional-terms) for offensive and blue-team specialist terms |
+| **Pairs with** | [FRAMEWORKS.md](FRAMEWORKS.md) for framework comparisons, [TOOLS.md](TOOLS.md) for tool quick-reference, [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md) for pipeline stages |
+
 Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl+F` (or the search bar) to find specific terms.
 
 ---

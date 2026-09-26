@@ -2,6 +2,12 @@
 
 > A curated reference for finding security conference presentations, research papers, vulnerability disclosures, and associated code repositories from the most significant security conferences worldwide. Conference talks represent the cutting edge of security research — often months or years ahead of any book, course, or certification curriculum.
 
+| | |
+|---|---|
+| **Read this when** | You need the original talk/paper/PoC behind a technique, you are hunting a speaker's tool repo after a conference, you want free archives of DEF CON/Black Hat/CCC/USENIX content |
+| **Start at** | [How to Get the Most From Conference Talks](#how-to-get-the-most-from-conference-talks), [Landmark Talks by Topic](#landmark-talks-by-topic), [Finding Speaker Repositories](#finding-speaker-repositories) |
+| **Pairs with** | [STARRED_REPOS.md](/STARRED_REPOS.md), [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](/research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+
 ---
 
 ## How to Get the Most From Conference Talks

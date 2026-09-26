@@ -1,5 +1,13 @@
 # Endpoint Security Reference
 
+> **In one minute** — This is a hands-on field guide to defending endpoints: choosing and tuning EDR (endpoint detection and response) platforms like Microsoft Defender, CrowdStrike, and SentinelOne, deploying Sysmon and Windows audit logging, and hunting for attacker behavior in the resulting telemetry. Practitioners care because most intrusions land on an endpoint first, and this doc gives the exact settings, commands, and queries to prevent, detect, and investigate them. It pairs ready-to-paste configuration (PowerShell, ASR rules, Sysmon XML) with KQL, S1QL, and Splunk hunting queries mapped to MITRE ATT&CK.
+
+| | |
+|---|---|
+| **Read this when** | you are configuring or hardening Defender/CrowdStrike/SentinelOne, deploying Sysmon or Windows audit policy, or hunting for LSASS access, LOLBin abuse, or persistence on hosts |
+| **Start at** | [Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist) |
+| **Pairs with** | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [LOTL_DETECTION_REFERENCE.md](LOTL_DETECTION_REFERENCE.md), [VENDOR_PREVENTION_POLICIES.md](VENDOR_PREVENTION_POLICIES.md) |
+
 A comprehensive reference covering EDR platforms, AV/next-gen AV, Windows Defender
 configuration, Sysmon deployment, and endpoint threat hunting. Aligned with MITRE
 ATT&CK and real-world blue-team operations.

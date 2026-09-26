@@ -4,6 +4,11 @@
 
 Machine-readable: [`data/weaknesses/capec.jsonl`](data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md) · [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
 
+| | |
+|---|---|
+| **Read this when** | you have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, you are triaging which high-severity patterns touch your stack |
+| **Start at** | [Attack patterns mapped to ATT&CK](#attack-patterns-mapped-to-attampck) for the direct CAPEC-to-ATT&CK bridge, [High-severity attack patterns](#high-severity-attack-patterns) for severity-first triage |
+
 **Abstraction:** 77 Meta · 197 Standard · 341 Detailed.
 
 ## Attack patterns mapped to ATT&CK

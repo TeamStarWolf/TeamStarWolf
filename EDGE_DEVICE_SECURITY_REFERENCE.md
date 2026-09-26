@@ -8,6 +8,11 @@ Attacker behavior here is described in the language public advisories use; defen
 
 **Related:** [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md) · [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) · [CVE Reference](CVE_REFERENCE.md) · [Zero Trust](ZERO_TRUST_REFERENCE.md) · [Network Monitoring](NETWORK_MONITORING_REFERENCE.md) · [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | a KEV entry or emergency directive hits your VPN/firewall/gateway fleet, you are designing management-plane isolation or off-box logging for appliances, you need to assess or rebuild a possibly compromised edge device |
+| **Start at** | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) · [The guidance stack](#the-guidance-stack) · [Why edge devices are structurally attractive targets](#why-edge-devices-are-structurally-attractive-targets) |
+
 ---
 
 ## Scope & how to use this reference

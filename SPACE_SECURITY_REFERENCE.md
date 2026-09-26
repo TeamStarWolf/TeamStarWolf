@@ -8,6 +8,11 @@ This reference covers the four segments of a space system and their attack surfa
 
 **Related:** [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [D3FEND Countermeasures](D3FEND_REFERENCE.md) · [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md) · [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md) · [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) · [Notable Incidents](NOTABLE_INCIDENTS.md)
 
+| | |
+|---|---|
+| **Read this when** | scoping security for a satellite or SATCOM program, mapping SPARTA coverage or countermeasures for a mission, investigating GNSS jamming/spoofing or a suspected hostile-commanding event |
+| **Start at** | [Why space systems security is different](#why-space-systems-security-is-different), [The SPARTA framework](#the-sparta-framework), [Standing up the program](#standing-up-the-program) |
+
 ---
 
 ## Why space systems security is different

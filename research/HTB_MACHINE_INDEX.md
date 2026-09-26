@@ -1,5 +1,13 @@
 # HackTheBox Machine Index
 
+> **In one minute** — An index of 127 retired Hack The Box machines with official writeups, organized by difficulty (Easy through Insane) with each machine's OS and the key skills it teaches. It doubles as a progressive learning roadmap: pick machines by the technique you want to learn, follow the enumeration and note-taking workflow, and use writeups only after genuine effort. Useful whenever you want deliberate hands-on practice instead of random machine grinding.
+
+| | |
+|---|---|
+| **Read this when** | picking your next HTB machine at your skill level, looking for machines that teach a specific technique, starting HTB from scratch and wanting a proven beginner order |
+| **Start at** | [How to Use This Index](#how-to-use-this-index), [Recommended Easy Machines for Beginners](#recommended-easy-machines-for-beginners), [How to Approach a Machine](#how-to-approach-a-machine) |
+| **Pairs with** | [Hands-On Labs](/LABS.md), [Offensive Security](/disciplines/offensive-security.md), [Certifications Reference](/CERTIFICATIONS.md) |
+
 
 
 Official HTB retired machine writeup index — 127 machines organized by difficulty with OS and key skills learned.

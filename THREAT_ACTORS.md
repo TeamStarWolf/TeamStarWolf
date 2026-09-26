@@ -1,5 +1,13 @@
 # Threat Actor Reference
 
+> **In one minute** — A quick-reference catalog of the threat actors that matter: nation-state APT groups (advanced persistent threats — state-backed intrusion teams) from China, Russia, North Korea, and Iran, plus ransomware operators, financial crime groups, and hacktivists. Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs (tactics, techniques, and procedures), so you can go from a name in a report to what the group actually does. Useful when you need attribution context, actor-specific TTPs to detect or emulate, or a fast answer to "who is Fancy Bear again?"
+
+| | |
+|---|---|
+| **Read this when** | an intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
+| **Start at** | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
+| **Pairs with** | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
+
 A quick-reference guide to notable advanced persistent threat (APT) groups, ransomware operators, and cybercriminal organizations, mapped to their known TTPs and ATT&CK groups. For deeper intelligence, use MISP, OpenCTI, or the ATT&CK Groups catalog.
 
 > All ATT&CK group IDs link to the official MITRE ATT&CK catalog. Attribution is based on publicly reported intelligence and is subject to revision.

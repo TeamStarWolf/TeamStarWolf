@@ -2,6 +2,14 @@
 
 > **Professional Cybersecurity Reference** | SIEM · Detection Engineering · SOC Operations · Threat Hunting
 
+> **In one minute** — This is a working reference for SIEM platforms (Security Information and Event Management: the systems that collect logs from across an environment, correlate them, and raise alerts). It covers the fundamentals — architecture, sizing, and vendor landscape — then goes deep on the query languages and detection workflows of Splunk, Microsoft Sentinel, QRadar, and Elastic, plus log collection, detection engineering, SOC triage, threat hunting, and performance tuning. Its value is copy-ready queries (SPL, KQL, AQL, EQL) and concrete numbers: EPS estimates, storage tiers, magnitude formulas, and quality targets.
+
+| | |
+|---|---|
+| **Read this when** | writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
+| **Start at** | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
+| **Pairs with** | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
+
 ---
 
 ## Table of Contents

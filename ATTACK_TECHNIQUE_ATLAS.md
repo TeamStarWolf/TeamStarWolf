@@ -8,6 +8,11 @@
 
 Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) · [Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) · [Threat Group Profiles](THREAT_GROUP_PROFILES.md) · [ATT&CK Mitigations](ATTACK_MITIGATIONS_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | you need to look up any ATT&CK technique fast, you want to see which techniques are heavily used by groups but light on mitigations or detections, you are prioritizing coverage across a whole tactic |
+| **Start at** | [Tactics](#tactics) for the per-tactic index, [Initial Access](#initial-access) or [Defense Evasion](#defense-evasion) to see the scoring columns in action |
+
 ## Tactics
 
 - [Reconnaissance](#reconnaissance) — 45 techniques

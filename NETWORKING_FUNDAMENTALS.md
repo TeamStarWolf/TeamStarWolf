@@ -2,6 +2,12 @@
 
 > This reference is written for cybersecurity practitioners who need to understand **how** networking works — not just what it is — so they can reason about attacks, build detections, and design defenses. OSI layers, TCP/IP internals, Layer 2 behavior, routing protocols, DNS, and security architecture are covered with operational depth.
 
+| | |
+|---|---|
+| **Read this when** | You need to reason about which OSI layer an attack lives at and what control stops it, you are decoding packet headers or subnetting during an investigation, or you need the operational mechanics behind ARP/VLAN/STP/routing/DNS abuse |
+| **Start at** | [The OSI Model — Security Perspective](#the-osi-model-security-perspective), [TCP/IP Deep Dive](#tcpip-deep-dive), [ATT&CK Technique Quick Reference](#attampck-technique-quick-reference) |
+| **Pairs with** | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

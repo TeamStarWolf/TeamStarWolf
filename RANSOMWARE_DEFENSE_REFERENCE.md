@@ -8,6 +8,11 @@ Family-by-family profiles (LockBit, ALPHV, Conti lineage, etc.) live in [Malware
 
 **Related:** [Malware Families](MALWARE_FAMILIES.md) · [IR Playbooks](IR_PLAYBOOKS.md) · [Incident Response](INCIDENT_RESPONSE_REFERENCE.md) · [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) · [Security Metrics](SECURITY_METRICS_REFERENCE.md) · [Threat Group Profiles](THREAT_GROUP_PROFILES.md)
 
+| | |
+|---|---|
+| **Read this when** | you are building or gap-assessing a ransomware defense program, a new #StopRansomware advisory lands and you need to turn it into work, or you must decide backup architecture, restore order, or payment policy before an incident |
+| **Start at** | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) · [Backup & recovery architecture](#backup-amp-recovery-architecture) · [A 90-day program bootstrap](#a-90-day-program-bootstrap) |
+
 ---
 
 ## Scope & how to use this reference

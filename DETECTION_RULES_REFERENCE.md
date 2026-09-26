@@ -1,5 +1,13 @@
 # Detection Rule Writing Reference
 
+> **In one minute** — This is a hands-on guide to writing detection rules in the five languages defenders actually use: Sigma (write once, convert to any SIEM), YARA (file and memory patterns for malware), Suricata/Snort (network traffic), Splunk SPL, and Microsoft Sentinel KQL. Every format gets a structure breakdown, copy-ready example rules mapped to MITRE ATT&CK techniques, and the tooling to convert, run, and tune them. It closes with detection engineering practice: testing rules with Atomic Red Team, managing false positives, and tracking coverage.
+
+| | |
+|---|---|
+| **Read this when** | you need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
+| **Start at** | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
+| **Pairs with** | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
+
 A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/Snort, Splunk SPL, and Microsoft Sentinel KQL — covering rule structure, example detections, conversion workflows, and detection engineering best practices.
 
 ---

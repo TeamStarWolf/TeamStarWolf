@@ -2,6 +2,12 @@
 
 > Comprehensive technical reference for wireless security protocols, attack techniques, detection, and hardening. Part of the TeamStarWolf cybersecurity reference library.
 
+| | |
+|---|---|
+| **Read this when** | Assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, planning or running a wireless penetration test, hardening a wireless network against real attacks |
+| **Start at** | [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening) |
+| **Pairs with** | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/iot-security.md](disciplines/iot-security.md) |
+
 ---
 
 ## Table of Contents

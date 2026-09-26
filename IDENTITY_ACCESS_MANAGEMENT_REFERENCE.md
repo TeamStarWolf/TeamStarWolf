@@ -2,6 +2,12 @@
 
 > A comprehensive cybersecurity reference covering IAM fundamentals, authentication technologies, authorization models, identity providers, PAM, IGA, Zero Trust identity, machine identity, security monitoring, and governance/compliance.
 
+| | |
+|---|---|
+| **Read this when** | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
+| **Start at** | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
+| **Pairs with** | [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

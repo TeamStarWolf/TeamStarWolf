@@ -4,6 +4,12 @@
 > penetration testers, and threat intelligence analysts. All techniques are for
 > use only within explicitly authorized engagements and legal frameworks.
 
+| | |
+|---|---|
+| **Read this when** | Scoping an authorized reconnaissance engagement, mapping a target's external attack surface before a pentest, running passive collection without touching target systems |
+| **Start at** | [OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table) |
+| **Pairs with** | [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

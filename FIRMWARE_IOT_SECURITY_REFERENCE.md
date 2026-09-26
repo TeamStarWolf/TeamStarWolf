@@ -2,6 +2,12 @@
 
 > Comprehensive reference for IoT/firmware security assessment, exploitation techniques, defensive hardening, and compliance standards. Covers hardware hacking, firmware analysis, UEFI/BIOS security, IoT protocols, and industry frameworks.
 
+| | |
+|---|---|
+| **Read this when** | You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443) |
+| **Start at** | [IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart |
+| **Pairs with** | [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

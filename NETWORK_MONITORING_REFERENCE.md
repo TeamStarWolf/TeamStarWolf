@@ -2,6 +2,12 @@
 
 > **Audience**: Security practitioners — SOC analysts, detection engineers, and network defenders. This reference covers the full NSM (Network Security Monitoring) stack: sensors, log sources, detection logic, and threat hunting workflows.
 
+| | |
+|---|---|
+| **Read this when** | standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
+| **Start at** | [Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting) |
+| **Pairs with** | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) |
+
 ---
 
 ## Table of Contents

@@ -1,5 +1,13 @@
 # Hardware Security Reference
 
+> **In one minute** — This is the practitioner's field manual for the security that lives below the operating system: the chips, boot firmware, and debug ports that decide whether a machine can be trusted at all. It walks through TPMs and HSMs (dedicated crypto chips that guard keys), Secure Boot and UEFI, the side-channel and fault-injection attacks that pull secrets out of silicon, JTAG/debug-port access, and confidential-computing enclaves. Reach for it when the threat model includes someone who can touch the hardware, tamper with the boot chain, or measure a chip's power and timing.
+
+| | |
+|---|---|
+| **Read this when** | hardening a device's boot chain or disk encryption, standing up or auditing an HSM and its key ceremony, assessing side-channel, fault-injection, or debug-port exposure on embedded hardware |
+| **Start at** | [TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools) |
+| **Pairs with** | [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
+
 ## 1. TPM 2.0 Deep Dive
 
 ### Architecture Overview

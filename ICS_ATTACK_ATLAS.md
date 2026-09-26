@@ -6,6 +6,11 @@
 
 Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Threat Group Profiles](THREAT_GROUP_PROFILES.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | You need to look up an ICS ATT&CK technique by tactic, check which threat groups or software use a technique, or find the ATT&CK mitigations that address it |
+| **Start at** | [Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control) |
+
 ## Tactics
 
 - [Initial Access](#initial-access) — 12 techniques

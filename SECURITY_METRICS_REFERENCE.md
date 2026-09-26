@@ -1,5 +1,13 @@
 # SECURITY METRICS REFERENCE
 
+> **In one minute** — This is a working reference for measuring a security program: which numbers to track (detection speed, patch SLAs, MFA coverage, incident cost), the formulas and targets behind them, and how to turn them into risk quantification and board-ready reporting. It matters because without metrics, security decisions run on anecdote — this doc gives you the denominators, benchmarks, and translation patterns to argue in dollars instead. Each section covers one domain (SOC, vulnerability management, identity, cloud, compliance, incident response) with formulas, industry benchmarks, and target values you can lift directly into a dashboard.
+
+| | |
+|---|---|
+| **Read this when** | you are building or overhauling a metrics program, preparing a CISO/board report and need dollar framing and benchmarks, defining SLA targets or RAG thresholds for a specific domain (SOC, vuln, IAM, cloud) |
+| **Start at** | [S1: Security Metrics Fundamentals](#s1-security-metrics-fundamentals) for the KPI/KRI groundwork, [S4: Risk Quantification](#s4-risk-quantification) for FAIR and dollar estimates, [S10: Executive Reporting & Dashboard Design](#s10-executive-reporting-amp-dashboard-design) for board translation |
+| **Pairs with** | [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [VULNERABILITY_PRIORITIZATION_REFERENCE.md](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md) |
+
 ## S1: Security Metrics Fundamentals
 
 ### Why Metrics Matter

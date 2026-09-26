@@ -2,6 +2,12 @@
 
 > This reference catalogs recommended settings from official vendor documentation for endpoint, network, identity, and email security controls. All settings are sourced from vendor security guidance and best-practice documentation. Links to authoritative sources are included throughout.
 
+| | |
+|---|---|
+| **Read this when** | rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
+| **Start at** | [Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory) |
+| **Pairs with** | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+
 ---
 
 ## Microsoft Defender for Endpoint Prevention Policies

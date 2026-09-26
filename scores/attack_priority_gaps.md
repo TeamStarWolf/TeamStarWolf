@@ -2,6 +2,12 @@
 
 > A data-driven prioritization of MITRE ATT&CK Enterprise techniques (v18.1), combining **how often adversaries use a technique** (tracked threat-group count) with **how thinly the control framework covers it** (NIST 800-53 R5 control depth). The result surfaces the techniques that are both widely used and under-covered — the behaviors most worth detection and mitigation investment.
 
+| | |
+|---|---|
+| **Read this when** | deciding which ATT&CK techniques to invest detection or mitigation effort in next, justifying control gaps against NIST 800-53 coverage, building a threat-informed roadmap from real adversary usage |
+| **Start at** | [Top 75 priority techniques](#top-75-priority-techniques), [Coverage by tactic](#coverage-by-tactic), [How to use this](#how-to-use-this) |
+| **Pairs with** | [ATTACK_MATRIX_ANALYSIS_REFERENCE.md](../ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](../detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+
 **Priority score** = `group_count × (1 + 1 / (nist_control_count + 1))` — the same inverse-coverage weighting as the [Risk lens](../ATTACK_MATRIX_ANALYSIS_REFERENCE.md#lens-family-5--breach-patterns--composite-risk). Machine-readable: [`scores/attack_priority_gaps.json`](attack_priority_gaps.json).
 
 ## Coverage by tactic

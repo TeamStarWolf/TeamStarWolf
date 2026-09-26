@@ -3,6 +3,12 @@
 > Comprehensive reference for CVE program, CVSS scoring, EPSS, KEV catalog,
 > vulnerability databases, research, patch management, notable CVEs, and automation tooling.
 
+| | |
+|---|---|
+| **Read this when** | Deciding which vulnerabilities to patch first, scoring a new CVE with CVSS v3.1 or v4.0, building automated CVE/EPSS/KEV enrichment pipelines |
+| **Start at** | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS -- Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
+| **Pairs with** | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

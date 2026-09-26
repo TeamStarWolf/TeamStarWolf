@@ -2,6 +2,12 @@
 
 > Vendor-specific configuration, policy tuning, and detection guidance for major enterprise security platforms.
 
+| | |
+|---|---|
+| **Read this when** | tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
+| **Start at** | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
+| **Pairs with** | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
+
 ## Table of Contents
 - [1. Web Application Firewall (WAF) Rules](#_1-web-application-firewall-waf-rules)
 - [2. Microsoft Defender Attack Surface Reduction (ASR) Rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules)

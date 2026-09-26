@@ -1,5 +1,13 @@
 # Security Tools Reference
 
+> **In one minute** — This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
+
+| | |
+|---|---|
+| **Read this when** | you need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
+| **Start at** | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
+| **Pairs with** | [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md) |
+
 A quick-reference matrix of commonly used security tools organized by function. Each entry links to the project homepage. OSS = open source; COM = commercial.
 
 For deeper context on how tools map to NIST 800-53 controls and ATT&CK techniques, see the [Controls Mapping](CONTROLS_MAPPING.md) and [ATT&CK Navigator layers](navigator/).

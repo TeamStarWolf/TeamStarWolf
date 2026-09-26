@@ -1,5 +1,13 @@
 # Secure Coding Reference
 
+> **In one minute** — This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
+
+| | |
+|---|---|
+| **Read this when** | reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
+| **Start at** | [OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist) |
+| **Pairs with** | [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) |
+
 A comprehensive reference for writing secure code, covering OWASP Top 10 (2021), input validation, authentication, cryptography, secure SDLC tooling, and supply chain security. Mapped to OWASP SAMM, NIST SSDF (SP 800-218), CWE Top 25, and MITRE ATT&CK.
 
 ---

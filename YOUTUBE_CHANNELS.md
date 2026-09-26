@@ -1,5 +1,13 @@
 # Cybersecurity YouTube Channel Library
 
+> **In one minute** — A curated directory of cybersecurity YouTube channels sorted into 18 disciplines, from CTF walkthroughs and malware analysis to cloud security and conference talks. It matters because watching a practitioner work through a lab, tool, or attack path is often faster than reading docs alone. Channels are kept current (active in roughly the last 12 months or still the clearest reference), and several tables add focus and skill-level ratings so you can pick content that matches where you are.
+
+| | |
+|---|---|
+| **Read this when** | you want to learn a discipline by watching workflows instead of reading, you need conference or BSides talk sources, you are building a Black Hat Arsenal watch queue |
+| **Start at** | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Companion Videos](#black-hat-arsenal-companion-videos) |
+| **Pairs with** | [CYBERSECURITY_BOOK_LIST.md](CYBERSECURITY_BOOK_LIST.md), [STARRED_REPOS.md](STARRED_REPOS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+
 A curated library of YouTube channels organized by discipline. Use it when you want to watch workflows, walkthroughs, talks, or labs instead of only reading code and documentation.
 
 ## How To Use This File

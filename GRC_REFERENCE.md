@@ -2,6 +2,12 @@
 
 > **Governance, Risk, and Compliance** — comprehensive operational reference for security program management, risk quantification, regulatory compliance, third-party risk, and audit management.
 
+| | |
+|---|---|
+| **Read this when** | standing up or maturing a security governance program, quantifying a risk for the register or board reporting, prepping for a SOC 2 / ISO 27001 / PCI DSS / HIPAA / CMMC audit, tiering and assessing a new vendor |
+| **Start at** | [Risk Management](#risk-management), [Compliance Programs](#compliance-programs), [Third-Party Risk Management (TPRM)](#third-party-risk-management-tprm) |
+| **Pairs with** | [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+
 **NIST 800-53 families**: PM (Program Management), CA (Assessment & Authorization), RA (Risk Assessment), SA (System & Services Acquisition)
 **ISO 27001:2022**: Clause 6 (Planning), Annex A Organizational/People/Physical/Technological controls
 **SOC 2**: CC9 (Risk Mitigation), CC1 (Control Environment), CC2 (Communication & Information)

@@ -1,5 +1,13 @@
 # Cybersecurity Interview Preparation
 
+> **In one minute** — This is a question bank and prep guide for cybersecurity job interviews: fundamentals (networking, Windows/Linux internals, security concepts), role-specific questions for SOC, pentest, DFIR, AppSec, cloud, GRC, and threat intel, plus behavioral answers and salary negotiation scripts. Each question comes with the key points an interviewer expects to hear, so you can rehearse answers instead of guessing what "good" sounds like. It also covers practical tests (CTF boxes, packet and log analysis) and which tools and certs to name for each role.
+
+| | |
+|---|---|
+| **Read this when** | you have an interview scheduled and need to rehearse likely questions, you are switching security roles and need the role-specific question set, you received an offer and want negotiation scripts |
+| **Start at** | [General Preparation Strategy](#general-preparation-strategy), [Role-Specific Questions](#role-specific-questions), [Salary Negotiation & Offer Evaluation](#salary-negotiation-amp-offer-evaluation) |
+| **Pairs with** | [Career Paths](CAREER_PATHS.md), [Certifications Reference](CERTIFICATIONS.md), [Hands-On Labs](LABS.md) |
+
 A comprehensive guide to common interview questions, technical topics, and preparation strategies for cybersecurity roles. Organized by role type and difficulty level.
 
 ---

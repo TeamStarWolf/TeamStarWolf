@@ -1,5 +1,13 @@
 # Packet Analysis Reference
 
+> **In one minute** — This is a hands-on reference for reading raw network traffic: decoding packets field by field, driving Wireshark, tcpdump, and Zeek, and spotting attacks (scans, C2 beaconing, DNS tunneling, ARP spoofing, exfiltration) directly in packet captures. Every section pairs the concept with copy-paste filters and queries, so you can go from "here's a pcap" to "here's what happened" without hunting through vendor docs. It also covers TLS decryption with session keys, JA3 fingerprinting of malware TLS clients, and a step-by-step pcap investigation workflow.
+
+| | |
+|---|---|
+| **Read this when** | you have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
+| **Start at** | [Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow) |
+| **Pairs with** | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) |
+
 A practitioner-level reference for reading raw network traffic, mastering Wireshark, tcpdump, and Zeek, and detecting attacks directly in packet captures.
 
 ---

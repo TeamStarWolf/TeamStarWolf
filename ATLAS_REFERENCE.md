@@ -19,6 +19,11 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 
 **Related in this library:** [AI Security Reference](AI_SECURITY_REFERENCE.md) (OWASP LLM Top 10, prompt injection, guardrails) · [AI & MCP Security](AI_MCP_SECURITY_REFERENCE.md) · [AI Offensive Security](AI_OFFENSIVE_SECURITY_REFERENCE.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | you need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
+| **Start at** | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
+
 ---
 
 ## The ATLAS matrix

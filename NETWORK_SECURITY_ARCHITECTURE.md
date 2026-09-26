@@ -1,5 +1,13 @@
 # Network Security Architecture Reference
 
+> **In one minute** — This document shows how to build an enterprise network that limits the damage of a breach: split the network into zones (DMZ, user, server, database, management), put firewalls and intrusion prevention at the right choke points, and control who gets on the wire with 802.1X port authentication. It pairs each pattern with real configuration examples (Cisco IOS-XE, Suricata, Calico, IKEv2 VPN) so you can implement rather than just read, and maps every control to NIST 800-53, CIS Controls 12-13, and MITRE ATT&CK.
+
+| | |
+|---|---|
+| **Read this when** | designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
+| **Start at** | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
+| **Pairs with** | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
+
 A practitioner reference for designing, evaluating, and defending enterprise networks.
 Covers defense-in-depth architecture patterns with real configuration examples, mapped to
 NIST 800-53 SC family, CIS Controls 12-13, and MITRE ATT&CK.

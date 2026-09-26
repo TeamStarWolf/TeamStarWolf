@@ -3,6 +3,12 @@
 > Comprehensive cloud attack techniques for AWS, Azure, and GCP — aligned to MITRE ATT&CK for Cloud.  
 > **For defensive security engineers and incident responders: understand attacker techniques to build better detections and controls.**
 
+| | |
+|---|---|
+| **Read this when** | Building or tuning cloud detections, running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, planning a red/purple-team cloud engagement |
+| **Start at** | [Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection) |
+| **Pairs with** | [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

@@ -2,6 +2,12 @@
 
 > A professional, comprehensive reference for integrating security into every phase of the software development lifecycle. Maintained for practitioners, architects, and security champions.
 
+| | |
+|---|---|
+| **Read this when** | You are adding security scanning (SAST, SCA, secrets, container, IaC, DAST) to a CI/CD pipeline, hardening the pipeline itself, or standing up a DevSecOps program with maturity models, KPIs, and a champions culture |
+| **Start at** | [DevSecOps Fundamentals](#_1-devsecops-fundamentals), [SAST & Code Analysis](#_2-sast-amp-code-analysis), [CI/CD Pipeline Security](#_5-cicd-pipeline-security) |
+| **Pairs with** | [Secure Coding](SECURE_CODING_REFERENCE.md), [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md), [Container Security](CONTAINER_SECURITY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

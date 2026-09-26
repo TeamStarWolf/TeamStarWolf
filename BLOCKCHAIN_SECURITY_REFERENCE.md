@@ -2,6 +2,12 @@
 
 > Comprehensive reference for blockchain security, smart contract vulnerabilities, DeFi attacks, auditing tools, and incident response. Maintained as part of the TeamStarWolf cybersecurity library.
 
+| | |
+|---|---|
+| **Read this when** | reviewing or auditing a smart contract before deployment, investigating a DeFi exploit or suspicious on-chain activity, hardening exchange or wallet operations |
+| **Start at** | [Smart Contract Vulnerabilities](#_2-smart-contract-vulnerabilities), [DeFi Attack Case Studies](#_3-defi-attack-case-studies), [Incident Response for Blockchain](#_10-incident-response-for-blockchain) |
+| **Pairs with** | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

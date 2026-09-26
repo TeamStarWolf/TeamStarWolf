@@ -2,6 +2,12 @@
 
 > Professional cybersecurity reference library for web application penetration testing, secure development, and vulnerability research.
 
+| | |
+|---|---|
+| **Read this when** | Testing a web app or API against the OWASP Top 10, writing an SQLi/XSS/SSRF payload or its fix, hardening auth, sessions, headers, or a WAF |
+| **Start at** | [OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security) |
+| **Pairs with** | [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) |
+
 ---
 
 ## Table of Contents

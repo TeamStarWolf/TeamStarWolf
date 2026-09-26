@@ -2,6 +2,12 @@
 
 > The **44 MITRE ATT&CK Enterprise mitigations** (M-codes, v18.1) — the defensive measures ATT&CK maps to adversary techniques. Each mitigation lists how many techniques it addresses and the behaviors it counters. Use it alongside the [NIST 800-53 control mappings](CONTROLS_MAPPING.md) and [D3FEND](https://d3fend.mitre.org/) for a full defensive picture.
 
+| | |
+|---|---|
+| **Read this when** | prioritizing which defensive measures buy the most technique coverage, translating an ATT&CK technique into concrete hardening steps, building or reviewing a mitigation-to-control mapping |
+| **Start at** | [Mitigations by coverage](#mitigations-by-coverage) for the ranked table, [Detail](#detail) for per-mitigation descriptions and example techniques |
+| **Pairs with** | [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [D3FEND_REFERENCE.md](D3FEND_REFERENCE.md), [ATTACK_TECHNIQUE_ATLAS.md](ATTACK_TECHNIQUE_ATLAS.md) |
+
 Machine-readable: [`data/attack/mitigations.jsonl`](data/attack/mitigations.jsonl) · [`data/attack/mitigation_to_technique.jsonl`](data/attack/mitigation_to_technique.jsonl)
 
 ## Mitigations by coverage

@@ -2,6 +2,12 @@
 
 > **Security Operations Companion** — This document is a defense-focused companion to [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md). It pairs every major attack technique with detection guidance, hardening controls, and response playbooks. Intended audience: blue teamers, SOC analysts, detection engineers, and AD administrators.
 
+| | |
+|---|---|
+| **Read this when** | Triaging an AD attack alert (Kerberoasting, DCSync, Golden Ticket) and need the event IDs and hunting queries, hardening a domain or its DCs, or building AD detection coverage in your SIEM |
+| **Start at** | [Critical Event IDs Reference Table](#_9-detection-engineering-for-ad), [Kerberos Attack Detection](#_3-kerberos-attack-detection), [AD Architecture & Security Fundamentals](#_1-ad-architecture-amp-security-fundamentals) |
+| **Pairs with** | [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

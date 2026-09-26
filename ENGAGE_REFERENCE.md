@@ -14,6 +14,11 @@
 
 **Related:** [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md) · [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) · [D3FEND](D3FEND_REFERENCE.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [Purple Team](PURPLE_TEAM_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
+| **Start at** | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
+
 ---
 
 ## The Engage matrix

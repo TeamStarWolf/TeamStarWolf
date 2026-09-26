@@ -2,6 +2,12 @@
 
 > A stage-by-stage model for building and operating enterprise security controls — from identity governance through detection and response. Each stage maps to NIST 800-53 control families, vendor tooling, and ATT&CK coverage.
 
+| | |
+|---|---|
+| **Read this when** | planning or maturing an enterprise security stack stage by stage, picking open-source vs commercial tooling for a control area, mapping vendors to NIST 800-53 controls and ATT&CK techniques |
+| **Start at** | [Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration) |
+| **Pairs with** | [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Gap Analysis](scores/coverage_gaps.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md), [Coverage Schema](COVERAGE_SCHEMA.md) |
+
 ---
 
 ## Pipeline Overview

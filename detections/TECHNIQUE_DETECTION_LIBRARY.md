@@ -2,6 +2,12 @@
 
 > Multi-platform detection content keyed to MITRE ATT&CK techniques. Each technique below carries ready-to-adapt analytics for the major SIEM/EDR query languages, the telemetry each one needs, an analyst confidence rating, and the NIST 800-53 controls that mitigate the same technique — so a hunt can move from behavior, to detection, to control gap in one place.
 
+| | |
+|---|---|
+| **Read this when** | you are building or tuning a SIEM/EDR detection for a specific ATT&CK technique, you need a hunt query for your platform's language (SPL, EQL/KQL, YARA-L, CQL), you want to check which NIST 800-53 controls mitigate a technique you just detected |
+| **Start at** | [How to use this library](#how-to-use-this-library), [Technique index](#technique-index), [Provenance & attribution](#provenance-amp-attribution) |
+| **Pairs with** | [Detection Rules Reference](../DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](../THREAT_HUNTING_REFERENCE.md), [Detection strategies](strategies/README.md), [Controls Mapping](../CONTROLS_MAPPING.md) |
+
 **Platforms covered:** Splunk (SPL), Elastic (EQL/KQL), Microsoft Defender / Sentinel (KQL), Google SecOps / Chronicle (YARA-L / UDM), CrowdStrike Falcon LogScale (CQL)  
 **Techniques covered:** 13  
 **Machine-readable source:** [`detections/technique-queries.json`](technique-queries.json)

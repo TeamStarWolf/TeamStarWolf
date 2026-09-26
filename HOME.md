@@ -18,14 +18,16 @@
     </div>
   </div>
   <div class="tsw-hero-actions">
-    <a class="tsw-btn tsw-btn--primary" href="#/INDEX">Reference Index</a>
+    <a class="tsw-btn tsw-btn--primary" href="#/guides/README">Step-by-Step Guides</a>
+    <a class="tsw-btn tsw-btn--ghost" href="#/INDEX">Reference Index</a>
     <a class="tsw-btn tsw-btn--ghost" href="#/THREAT_INFORMED_DEFENSE_REFERENCE">Threat-Informed Defense</a>
     <a class="tsw-btn tsw-btn--ghost" href="https://teamstarwolf.github.io/ATTACK-Navi/" target="_blank" rel="noopener">ATTACK-Navi ↗</a>
   </div>
 </div>
 
 <div class="tsw-stats">
-  <a class="tsw-stat" href="#/INDEX"><span class="tsw-stat-n">139</span><span class="tsw-stat-l">Reference docs</span></a>
+  <a class="tsw-stat" href="#/INDEX"><span class="tsw-stat-n">140</span><span class="tsw-stat-l">Reference docs</span></a>
+  <a class="tsw-stat" href="#/guides/README"><span class="tsw-stat-n">16</span><span class="tsw-stat-l">How-to guides</span></a>
   <a class="tsw-stat" href="#/disciplines/"><span class="tsw-stat-n">47</span><span class="tsw-stat-l">Discipline paths</span></a>
   <a class="tsw-stat" href="#/ATTACK_TECHNIQUE_ATLAS"><span class="tsw-stat-n">898</span><span class="tsw-stat-l">ATT&amp;CK techniques</span><span class="tsw-stat-s">691 Ent · 83 ICS · 124 Mobile</span></a>
   <a class="tsw-stat" href="#/detections/strategies/README"><span class="tsw-stat-n">691 + 1,739</span><span class="tsw-stat-l">Detection strategies + analytics</span></a>
@@ -121,6 +123,39 @@
 </div>
 
 Or press <kbd>/</kbd> and type a technique ID — T1059 works.
+
+## Guides — do it step by step
+
+New here, or need to actually *do* the thing? The [**Guides**](#/guides/README) are start-to-finish procedures with prerequisites, numbered steps, and checkpoints you can verify.
+
+<div class="tsw-router">
+  <a class="tsw-card" href="#/guides/HOW_TO_USE_THIS_LIBRARY">
+    <span class="tsw-card-t">Get oriented</span>
+    <span class="tsw-card-d">How to use this library — a map and three entry paths</span>
+  </a>
+  <a class="tsw-card" href="#/guides/TRIAGE_A_CVE">
+    <span class="tsw-card-t">Triage a CVE</span>
+    <span class="tsw-card-d">KEV + EPSS + SSVC to a decision and an SLA, in 30 minutes</span>
+  </a>
+  <a class="tsw-card" href="#/guides/BUILD_YOUR_FIRST_DETECTION">
+    <span class="tsw-card-t">Build a detection</span>
+    <span class="tsw-card-d">A tuned Sigma rule live in your SIEM, end to end</span>
+  </a>
+  <a class="tsw-card" href="#/guides/RESPOND_TO_RANSOMWARE">
+    <span class="tsw-card-t">Respond to ransomware</span>
+    <span class="tsw-card-d">The first 24–72 hours as a numbered procedure</span>
+  </a>
+  <a class="tsw-card" href="#/guides/HARDEN_A_WINDOWS_BASELINE">
+    <span class="tsw-card-t">Harden a baseline</span>
+    <span class="tsw-card-d">Windows via CIS/Microsoft policy, ASR, audit logging</span>
+  </a>
+  <a class="tsw-card" href="#/guides/START_A_VULN_MGMT_PROGRAM">
+    <span class="tsw-card-t">Start a VM program</span>
+    <span class="tsw-card-d">Inventory to KEV-first SLAs to a metrics pack — 90 days</span>
+  </a>
+</div>
+
+[**See all 16 guides →**](#/guides/README)
 
 ## How it connects
 

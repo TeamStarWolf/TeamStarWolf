@@ -6,7 +6,8 @@
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*
 
-[![Reference docs](https://img.shields.io/badge/reference_docs-139-2b6cb0?style=flat-square)](INDEX.md)
+[![Reference docs](https://img.shields.io/badge/reference_docs-140-2b6cb0?style=flat-square)](INDEX.md)
+[![How-to guides](https://img.shields.io/badge/how--to_guides-16-2f855a?style=flat-square)](guides/README.md)
 [![Discipline paths](https://img.shields.io/badge/discipline_paths-47-2b6cb0?style=flat-square)](disciplines/)
 [![ATT&CK](https://img.shields.io/badge/ATT%26CK-NIST_800--53_mapped-6b46c1?style=flat-square)](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 [![Live docs](https://img.shields.io/badge/docs-live-2f855a?style=flat-square)](https://teamstarwolf.github.io/TeamStarWolf/)
@@ -23,7 +24,7 @@
 ## About
 
 **TeamStarWolf is a free, vendor-neutral knowledge base for working security practitioners.** It is not a
-blog or a link dump — it is a structured library of **139 in-depth reference documents** and **47 discipline
+blog or a link dump — it is a structured library of **140 in-depth reference documents**, **16 step-by-step [how-to guides](guides/README.md)**, and **47 discipline
 learning paths** that cover the cybersecurity field end to end: how attacks work, how to detect and respond
 to them, how to harden systems and clouds, how to govern risk, and how to build a career doing it.
 
@@ -40,7 +41,7 @@ to them, how to harden systems and clouds, how to govern risk, and how to build 
 
 | | | |
 |---|---|---|
-| 📚 **139** reference documents | 🧭 **47** discipline learning paths | 🗺️ **28** ATT&CK Navigator coverage layers |
+| 📚 **140** reference documents | 🧭 **47** discipline learning paths · **16** how-to guides | 🗺️ **28** ATT&CK Navigator coverage layers |
 | 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
 | 🔬 **691** detection strategies · **1,739** analytics | 🧬 **969** CWE weaknesses · **615** CAPEC patterns | 🛡️ **156** D3FEND countermeasures |
 | 💳 **123** MITRE F3 fraud techniques (8 tactics) | 🤖 **170** ATLAS AI-attack techniques | 🪤 **31** Engage deception activities |
@@ -136,7 +137,7 @@ See [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) and [COVERAGE_SCHEMA.md](COVERAGE
 
 ## 📚 Library map
 
-Flagships by domain — the [Reference Index](INDEX.md) lists all 139 documents, and the
+Flagships by domain — the [Reference Index](INDEX.md) lists all 140 documents, and the
 [live site](https://teamstarwolf.github.io/TeamStarWolf/) browses every domain in two clicks.
 
 | Domain | Flagship references | |

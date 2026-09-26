@@ -1,6 +1,6 @@
 # Complete Document Index
 
-> Full alphabetical listing of all resources in this library. For a categorized overview, see the [README](README.md).
+> Full alphabetical listing of all resources in this library. For a categorized overview, see the [README](README.md). For step-by-step how-to procedures, see the [Guides](guides/README.md).
 
 ## A–C
 
@@ -156,6 +156,7 @@
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, hunt tracking |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
 | [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, LINDDUN, attack trees, MITRE ATT&CK integration, DFDs, pytm, cloud microservices threat modeling |
+| [Threat Report Almanac](THREAT_REPORT_ALMANAC.md) | Annotated index of the 15 major annual threat reports (DBIR, M-Trends, CrowdStrike GTR, MDDR, X-Force, ENISA, IC3, Dragos, etc.) organized by methodology basis, with a critical-reading method and a quarterly reading calendar |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |
 | [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV→ATT&CK mappings, SLA policy design |

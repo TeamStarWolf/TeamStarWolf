@@ -25,17 +25,7 @@
   </div>
 </div>
 
-<div class="tsw-stats">
-  <a class="tsw-stat" href="#/INDEX"><span class="tsw-stat-n">140</span><span class="tsw-stat-l">Reference docs</span></a>
-  <a class="tsw-stat" href="#/guides/README"><span class="tsw-stat-n">16</span><span class="tsw-stat-l">How-to guides</span></a>
-  <a class="tsw-stat" href="#/disciplines/"><span class="tsw-stat-n">47</span><span class="tsw-stat-l">Discipline paths</span></a>
-  <a class="tsw-stat" href="#/ATTACK_TECHNIQUE_ATLAS"><span class="tsw-stat-n">898</span><span class="tsw-stat-l">ATT&amp;CK techniques</span><span class="tsw-stat-s">691 Ent · 83 ICS · 124 Mobile</span></a>
-  <a class="tsw-stat" href="#/detections/strategies/README"><span class="tsw-stat-n">691 + 1,739</span><span class="tsw-stat-l">Detection strategies + analytics</span></a>
-  <a class="tsw-stat" href="#/CONTROLS_MAPPING"><span class="tsw-stat-n">5,314</span><span class="tsw-stat-l">Control→technique mappings</span></a>
-  <a class="tsw-stat" href="#/THREAT_GROUP_PROFILES"><span class="tsw-stat-n">168 / 784</span><span class="tsw-stat-l">Threat groups / software</span></a>
-  <a class="tsw-stat" href="#/navigator/"><span class="tsw-stat-n">28</span><span class="tsw-stat-l">Navigator layers</span></a>
-  <a class="tsw-stat" href="#/detections/TECHNIQUE_DETECTION_LIBRARY"><span class="tsw-stat-n">65</span><span class="tsw-stat-l">Multi-platform detection queries</span></a>
-</div>
+<p class="tsw-lede">A practitioner's reference library spanning offense, defense, cloud, identity, GRC, and AI security — built on MITRE ATT&amp;CK and mapped to the controls, detections, and countermeasures that actually contain each technique. Free, open, and MIT-licensed.</p>
 
 ## Quick router
 

@@ -1,0 +1,272 @@
+{
+  "name": "TeamStarWolf - Web Application Attacks",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view of ATT&CK techniques commonly encountered during web application, API, and application-security testing. This is not an official MITRE mapping. Sources: WEB_APPLICATION_SECURITY_REFERENCE.md, WEB_APPLICATION_PENTESTING.md, API_SECURITY_REFERENCE.md, SECURE_CODING_REFERENCE.md, PENETRATION_TESTING_METHODOLOGY.md, and data/attack/technique_profiles.jsonl.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Core web/API exploitation technique cited by the web pentesting, API security, and secure coding references for injection, SSRF, and public-facing application compromise."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 95,
+      "comment": "JavaScript execution covers XSS and client-side script abuse called out in the web application pentesting reference."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 90,
+      "comment": "Command and scripting interpreter abuse covers command injection, template injection, unsafe deserialization, and other interpreter-driven web application attack paths."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 90,
+      "comment": "Web shell deployment is explicitly mapped in the penetration testing methodology and is a common post-exploitation outcome for compromised web servers."
+    },
+    {
+      "techniqueID": "T1505",
+      "tactic": "persistence",
+      "score": 82,
+      "comment": "Server software component persistence generalizes web shell and server-extension abuse after application compromise."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 88,
+      "comment": "Valid Accounts is cited for API credential stuffing, stolen JWT reuse, broken auth, and access-control abuse in the API and secure coding references."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 78,
+      "comment": "Default accounts are included for default credential testing and exposed admin panels described in the web security and pentesting references."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 84,
+      "comment": "Brute Force covers authentication abuse, account lockout failures, and credential-stuffing exposure discussed across the web, API, and secure coding references."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 80,
+      "comment": "Password spraying is included for web and API login testing workflows in the penetration testing methodology."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 78,
+      "comment": "Stealing web session cookies maps to session-management weaknesses, XSS impact, and missing HttpOnly/SameSite controls in the secure coding reference."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 78,
+      "comment": "Unsecured Credentials covers API keys, secrets, cloud metadata credentials, and exposed configuration files highlighted in the API and secure coding references."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 74,
+      "comment": "Credentials in files are included for .env, config, backup, and repository secret exposure paths described in the web security references."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Private keys are included for hardcoded credential and exposed-key findings in source, configuration, and deployment artifacts."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 76,
+      "comment": "Proxy is included for SSRF-to-internal-service and proxy-abuse scenarios described in the web and secure coding references."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 68,
+      "comment": "Multi-hop proxy represents chained proxying and SSRF pivoting patterns used to reach internal services through a vulnerable application."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 74,
+      "comment": "Active scanning maps to web asset discovery, nuclei/nikto/testssl, and application reconnaissance workflows in the pentesting references."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 66,
+      "comment": "Scanning IP blocks supports external exposure discovery and perimeter enumeration during web application assessments."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 72,
+      "comment": "Vulnerability scanning covers nuclei, ZAP, Nikto, TLS scanners, and automated web/API assessment workflows referenced in the library."
+    },
+    {
+      "techniqueID": "T1595.003",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Wordlist scanning maps to ffuf, gobuster, feroxbuster, parameter discovery, and forced browsing activities from the web pentesting reference."
+    },
+    {
+      "techniqueID": "T1590.002",
+      "tactic": "reconnaissance",
+      "score": 62,
+      "comment": "DNS reconnaissance supports subdomain enumeration and certificate-transparency workflows used to build web application attack surface maps."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Network Service Discovery is cited in the API security reference for endpoint enumeration and in pentesting workflows for exposed service mapping."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 72,
+      "comment": "Data from Cloud Storage maps to misconfigured APIs, presigned URLs, and cloud object storage exposure called out in the API security reference."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 72,
+      "comment": "Exfiltration Over Web Service covers large API exports, HTTP exfiltration, and web-service data theft noted in the API and pentesting references."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 68,
+      "comment": "Exfiltration to Cloud Storage is included for API and storage abuse paths involving cloud buckets, presigned URLs, and object storage."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 66,
+      "comment": "Endpoint Denial of Service covers rate-limit failures, expensive API queries, large payloads, and resource exhaustion in the secure coding and API references."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 64,
+      "comment": "Application or system exploitation captures application-layer DoS through expensive requests, parser abuse, and business-flow abuse."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 66,
+      "comment": "Supply Chain Compromise is included for vulnerable/outdated components, CI/CD integrity failures, and dependency risk in the secure coding reference."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 64,
+      "comment": "Compromised software dependencies and development tools covers dependency confusion, malicious packages, and build-chain exposure affecting web applications."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 62,
+      "comment": "Exploitation for Client Execution covers vulnerable client-side components and browser exploitation paths surfaced by web application content."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 58,
+      "comment": "Gather Victim Host Information is included for verbose errors, exposed technology fingerprints, and stack/version disclosure during web recon."
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 56,
+      "comment": "Software fingerprinting maps to Wappalyzer, WhatWeb, headers, cookies, error pages, and JavaScript-library discovery in the web references."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "defense-evasion",
+      "score": 54,
+      "comment": "Indicator Removal is included for logging and monitoring failures, log tampering concerns, and missing audit trails in web and API environments."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 54,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "54-69: supporting web attack surface or impact technique",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70-84: common web/API testing and abuse technique",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "85-100: core web application compromise path",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf curated practitioner layer from web, API, secure coding, and pentesting references"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "32"
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "Web Application Security Reference",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/WEB_APPLICATION_SECURITY_REFERENCE.md"
+    },
+    {
+      "label": "Web Application Pentesting",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/WEB_APPLICATION_PENTESTING.md"
+    },
+    {
+      "label": "API Security Reference",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/API_SECURITY_REFERENCE.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

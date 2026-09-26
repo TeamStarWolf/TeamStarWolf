@@ -1,0 +1,165 @@
+{
+  "name": "TeamStarWolf - Container and Kubernetes Attacks",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view of container and Kubernetes attack behaviors, not an official MITRE mapping. Sources: the ATT&CK Containers Matrix table in CONTAINER_SECURITY_REFERENCE.md, the shell-execution detection example in KUBERNETES_SECURITY_REFERENCE.md, and data/attack/technique_profiles.jsonl. Selects only explicit technique references from those sources; this is not exhaustive Kubernetes coverage. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1610",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Deploying a container can introduce attacker-controlled execution into the environment. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Deploying a container can introduce attacker-controlled execution into the environment. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1611",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Container escape breaks workload isolation and reaches the host. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1612",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Building images on a compromised host can prepare attacker-controlled workloads. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1613",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Container and resource discovery enumerates the workload environment. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1496",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Hijacked container compute can run unauthorized workloads such as cryptocurrency mining. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1525",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "An implanted internal image can preserve a backdoor in later deployments. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "An exposed containerized application can be exploited for initial access. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Valid credentials can provide access to registries or other container services. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid credentials can provide access to registries or other container services. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid credentials can provide access to registries or other container services. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid credentials can provide access to registries or other container services. Sources: CONTAINER_SECURITY_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "The Kubernetes reference associates shell execution in a container with command and scripting interpreters. Sources: KUBERNETES_SECURITY_REFERENCE.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: included in this practitioner view (not severity or prevalence)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "CONTAINER_SECURITY_REFERENCE.md; KUBERNETES_SECURITY_REFERENCE.md; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "selection_rule",
+      "value": "Curated selection of explicit technique references in the named library documents; no additional technique relationships inferred."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "9"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "13"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means selected; no severity, prevalence, confidence, or control coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "CONTAINER_SECURITY_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CONTAINER_SECURITY_REFERENCE.md"
+    },
+    {
+      "label": "KUBERNETES_SECURITY_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/KUBERNETES_SECURITY_REFERENCE.md"
+    },
+    {
+      "label": "data/attack/technique_profiles.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

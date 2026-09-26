@@ -7,8 +7,8 @@
 
 > An open, threat-informed cybersecurity reference library — built for practitioners.
 
-- **140 references · 16 how-to guides · 47 discipline paths** — offense, defense, cloud, identity, GRC, AI, fraud
-- **ATT&CK at the center** — 898 techniques across Enterprise, ICS & Mobile, mapped to NIST 800-53 controls, 691 detection strategies, and D3FEND
+- **References, how-to guides & discipline paths** — offense, defense, cloud, identity, GRC, AI, and fraud
+- **ATT&CK at the center** — techniques mapped to NIST 800-53 controls, the detections that catch them, and D3FEND countermeasures
 - **The full MITRE stack** — ATT&CK · ATLAS · Engage · D3FEND · F3 · EMB3D · FiGHT · CWE · CAPEC
 - **Free, open & machine-readable** — MIT licensed, every mapping ships as JSONL, no signup, no tracking
 

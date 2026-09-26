@@ -36,20 +36,13 @@ to them, how to harden systems and clouds, how to govern risk, and how to build 
 
 ---
 
-## At a glance
+## What's inside
 
-<!-- SINGLE SOURCE OF TRUTH: every other surface (HOME.md hero/stats/chain, _coverpage.md bullets,
-     the badges above) mirrors these numbers — update them all in the same PR. -->
+TeamStarWolf covers the cybersecurity field end to end — offense, defense, cloud, identity, GRC, AI, and specialized domains — as in-depth references, step-by-step how-to guides, and discipline learning paths.
 
-| | | |
-|---|---|---|
-| 📚 **140** reference documents | 🧭 **47** discipline learning paths · **16** how-to guides | 🗺️ **28** ATT&CK Navigator coverage layers |
-| 🐉 **691** Enterprise + **83** ICS + **124** Mobile techniques | 👥 **168** threat groups & **784** software profiled | 🎬 **52** campaigns · 🛡️ **44** mitigations |
-| 🔬 **691** detection strategies · **1,739** analytics | 🧬 **969** CWE weaknesses · **615** CAPEC patterns | 🛡️ **156** D3FEND countermeasures |
-| 💳 **123** MITRE F3 fraud techniques (8 tactics) | 🤖 **170** ATLAS AI-attack techniques | 🪤 **31** Engage deception activities |
-| 🔁 **CTEM** 5-stage exposure loop | 🎯 **65** multi-platform detection queries | 📋 **106** data components / log sources |
-| 🔗 **5,314** control→technique mappings (CTID) | 🏢 **60+** enterprise vendors mapped to NIST 800-53 | 🧩 ATT&CK · ATLAS · Engage · D3FEND · F3 · EMB3D · FiGHT · CWE · CAPEC |
-| 🎓 **40+** certifications & role roadmaps | 🧪 Home-lab & free-training guides | 🆓 Free · open source · MIT licensed |
+Everything is built on **MITRE ATT&CK** and cross-referenced the way you actually work: each adversary technique is linked to the controls that mitigate it (NIST 800-53), the detections that catch it, the weaknesses and attack patterns behind it (CWE and CAPEC), and the countermeasures that stop it (D3FEND). That model extends across the full MITRE stack — ATLAS for AI threats, Engage for deception, F3 for fraud, EMB3D for embedded devices, FiGHT for 5G — and ships as machine-readable coverage data and ATT&CK Navigator layers you can query, not just read.
+
+Free, open, and MIT-licensed. No signup, no tracking.
 
 ---
 

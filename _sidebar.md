@@ -13,6 +13,7 @@
 ---
 
 - **📚 Disciplines**
+  - [All 47 Paths →](/disciplines/README.md)
   - [Threat Intelligence](/disciplines/threat-intelligence.md)
   - [Detection Engineering](/disciplines/detection-engineering.md)
   - [Incident Response](/disciplines/incident-response.md)

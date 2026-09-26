@@ -1,6 +1,6 @@
 # MITRE ATLAS Reference — Adversarial Threats to AI Systems
 
-> **[MITRE ATLAS™](https://atlas.mitre.org/)** (Adversarial Threat Landscape for Artificial-Intelligence Systems) is ATT&CK for AI. It documents **170 techniques** (101 parent + 69 sub-techniques) across **16 tactics** that adversaries use against machine-learning and AI-enabled systems — grounded in real incidents and red-team results, not hypotheticals.
+> **[MITRE ATLAS™](https://atlas.mitre.org/)** (Adversarial Threat Landscape for Artificial-Intelligence Systems) is ATT&CK for AI. This page's bundled snapshot documents **170 techniques** (101 parent + 69 sub-techniques) across **16 tactics** for machine-learning and AI-enabled systems. Check each technique's evidence and maturity; inclusion does not by itself establish observation in a real incident.
 
 ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names where behavior is the same, then adds the two tactics unique to attacking AI:
 
@@ -23,6 +23,26 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 |---|---|
 | **Read this when** | you need to map an attack on an AI/ML system to a named technique ID, you are threat-modeling an LLM, RAG, or AI-agent deployment, you want the mitigations ATLAS pairs with a given AI attack technique |
 | **Start at** | [The ATLAS matrix](#the-atlas-matrix) for the 16-tactic overview, [Execution](#execution) for prompt injection and agent-tool techniques, [ATLAS mitigations](#atlas-mitigations) for the defensive side |
+
+---
+
+## Agentic AI & AI Agent Swarms
+
+Autonomous agents can exchange discoveries, tasks, and results, including through shared artifacts that persist across otherwise independent runs. Shared-artifact communication does not by itself establish autonomous attack orchestration, which requires centralized control over distributed execution. A swarm threat model should distinguish adversary-operated agents from attacks against a defender's agents, including unsafe artifacts, compromised dependencies, and induced resource consumption. The [Agentic AI Attack Reference](/AGENTIC_AI_ATTACK_REFERENCE.md) offers a curated practitioner view, not an official MITRE mapping or evidence that every listed behavior occurs in every intrusion.
+
+**Version boundary:** The names and distinctions in this supplement were checked against [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml) on 2026-09-26; subtechniques below include their parent names where helpful. The remaining matrix tables, counts, and bundled datasets retain an older snapshot and are not refreshed by this supplement.
+
+| ATLAS technique | Behavior to distinguish |
+|---|---|
+| **AML.T0118 Autonomous AI Agent Communication** | Autonomous agents exchange operational information with other agents or subagents; communication alone does not establish malicious intent. |
+| **AML.T0118.000 Communication via Shared Artifacts** | Agents exchange information through persistent shared artifacts, including across runs that do not overlap in time. |
+| **AML.T0124 Autonomous Attack Orchestration** | Centralized autonomous control assigns, sequences, and coordinates distributed attack execution; shared notes alone are insufficient evidence. |
+| **AML.T0034.002 Cost Harvesting: Agentic Resource Consumption** | Adversaries induce costly tool calls, delegation, or repeated execution to consume resources; high usage alone is not proof of an attack. |
+| **AML.T0011.000 User Execution: Unsafe AI Artifacts** | Loading or processing an unsafe AI artifact can execute code or alter agent behavior through supported runtime features, without necessarily exploiting a software vulnerability. |
+| **AML.T0002 Acquire Public AI Artifacts** | Adversaries acquire public AI artifacts to support attack preparation; legitimate acquisition is not itself a compromise. |
+| **AML.T0010 AI Supply Chain Compromise** | Adversaries compromise AI supply-chain components to obtain access; this is distinct from simply acquiring a public artifact. |
+
+**Defensive application (practitioner curation):** Scope short-lived identities per agent and environment, enforce default-deny egress outside the model, and prohibit secrets shared across environments. Bound tool calls, retries, delegation, and spend; use pre-authorized, act-on-signals runbooks that can pause agents, revoke credentials, and isolate execution at machine tempo while preserving evidence. These choices draw on the same release's AML.M0032 (Segmentation of AI Agent Components), AML.M0037 (AI Agent Authority Expansion Controls), and AML.M0038 (AI Agent Scope Drift Detection); they are not a claim of complete mitigation coverage. See the [AI & LLM Security learning path](/disciplines/ai-llm-security.md) for a bounded practice exercise.
 
 ---
 

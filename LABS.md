@@ -10,6 +10,8 @@ A curated index of free and accessible lab environments, CTF platforms, and prac
 
 | Platform | Free Tier | Best For |
 |---|---|---|
+| [Antisyphon Training](https://www.antisyphontraining.com/pay-forward-what-you-can/) | Pay-what-you-can live courses | SOC, pentesting, active defense |
+| [Black Hills Information Security](https://www.blackhillsinfosec.com/blog/webcasts/) | Free webcasts (hundreds) | Every security discipline |
 | [Hack The Box Academy](https://academy.hackthebox.com) | Student tier (free) | SOC, DFIR, pentesting, cloud security paths |
 | [TryHackMe](https://tryhackme.com) | Free rooms available | Beginner-to-advanced browser-based labs |
 | [Blue Team Labs Online](https://blueteamlabs.online) | Free challenges | Detection, forensics, IR investigations |

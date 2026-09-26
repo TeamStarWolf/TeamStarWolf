@@ -1,6 +1,8 @@
 <!-- _coverpage.md — numbers mirror README.md "At a glance" (the single source of truth); update both in the same PR.
      Docsify styles the LAST link of the final paragraph as the gradient primary — keep "Enter the Library" last. -->
 
+<img src="assets/starwolf64-banner.jpg" alt="STARWOLF64" class="tsw-cover-banner" width="620" />
+
 # TeamStarWolf 🐺
 
 > An open, threat-informed cybersecurity reference library — built for practitioners.

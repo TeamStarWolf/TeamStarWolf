@@ -277,6 +277,12 @@
       background: radial-gradient(1100px 620px at 50% -10%, #16233d 0%, #0b1220 62%) !important;
     }
     section.cover .cover-main { max-width: 900px; }
+    section.cover .tsw-cover-banner {
+      display: block; margin: 0 auto .7rem; width: 100%; max-width: 560px;
+      border-radius: 14px; box-shadow: 0 12px 44px rgba(0,0,0,.5);
+      border: 1px solid var(--tsw-border);
+    }
+    @media screen and (max-width: 768px) { section.cover .tsw-cover-banner { max-width: 84%; } }
     section.cover h1 {
       font-size: 3.4rem; font-weight: 850; letter-spacing: -.035em;
       background: linear-gradient(96deg, #38bdf8 0%, #a78bfa 55%, #22d3ee 100%);

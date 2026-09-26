@@ -16,6 +16,19 @@ AI security demands fluency in both ML fundamentals and traditional offensive/de
 | Practitioner | Red-teaming LLM deployments, evaluation frameworks, guardrail implementation, AI-assisted security tooling | Microsoft PyRIT docs, NVIDIA garak, DEF CON AI Village talks (YouTube, free) |
 | Advanced | Adversarial ML research, AI supply chain security, autonomous agent security, threat taxonomy contribution | MITRE ATLAS in depth, ArXiv adversarial ML papers, AI Village CTFs, BIML architectural risk analysis |
 
+### Agentic AI & AI Agent Swarms
+
+Agents can exchange tasks and findings through tools or persistent shared artifacts, allowing one run's output to influence another run's actions. Distinguish adversary-operated agents coordinating an intrusion from a defender's agents being manipulated through unsafe artifacts, compromised dependencies, or resource-consuming loops; shared communication alone does not prove centralized attack orchestration. Use the [Agentic AI Attack Reference](/AGENTIC_AI_ATTACK_REFERENCE.md) alongside the [ATLAS reference's agentic supplement](/ATLAS_REFERENCE.md) for current technique names and those distinctions; the scenario and defensive choices are practitioner curation, not an official MITRE mapping.
+
+**Practice in an isolated lab:** Use synthetic data, mock tools, and a fixed budget to test these controls without real credentials or external targets:
+
+- **Identity:** Give each agent a scoped, short-lived identity; prevent child agents from gaining authority beyond their parent, and keep secrets separate across environments.
+- **Egress and artifacts:** Enforce default-deny network access outside the model, allow only required destinations, and treat shared notes and downloaded artifacts as untrusted inputs rather than permission grants.
+- **Resource limits:** Cap tool calls, retries, delegation depth, concurrency, and spend; verify that an induced loop stops at the boundary.
+- **Act on signals:** Correlate agent, run, identity, tool action, destination, and policy decision. Exercise pre-authorized runbooks that pause execution, revoke identities, and isolate a runtime at machine tempo when scope drift or unauthorized access is detected; preserve evidence and require review before resuming.
+
+This exercise applies the segmentation, authority-expansion, and scope-drift controls described in [ATLAS 2026.09 source data](https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/dist/v6/ATLAS-2026.09.yaml) (AML.M0032, AML.M0037, AML.M0038). Record expected and observed outcomes; a passing exercise does not establish complete protection against agent-enabled attacks.
+
 ---
 
 ## Free Training

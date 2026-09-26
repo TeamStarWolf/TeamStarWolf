@@ -1,0 +1,191 @@
+{
+  "name": "TeamStarWolf - Ransomware TTPs",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view of ransomware intrusion and extortion behaviors, not an official MITRE mapping and not an attribution to any particular group. Sources: the ATT&CK intrusion-chain table in RANSOMWARE_DEFENSE_REFERENCE.md and data/attack/technique_profiles.jsonl. Includes the reference's explicit initial access, execution, credential access, lateral movement, defense impairment, collection, exfiltration, and impact techniques. Scores indicate membership only, not frequency in incidents.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Exploiting exposed applications is an initial-access path in the ransomware intrusion chain. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "External remote services can provide an initial foothold. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "External remote services can provide an initial foothold. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Phishing can establish initial access before ransomware activity. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Compromised valid accounts can support access during an intrusion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Compromised valid accounts can support access during an intrusion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Compromised valid accounts can support access during an intrusion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Compromised valid accounts can support access during an intrusion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Command and scripting interpreters support execution during the intrusion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credential dumping supplies material for expanded access. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Remote Desktop Protocol supports lateral movement between compromised systems. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1562.001",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Disabling or modifying security tools reduces defensive visibility before impact. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Cloud storage collection can precede extortion-related data theft; its ATT&CK tactic is collection. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Web services can transport stolen data for double extortion. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Alternative protocols can carry exfiltrated data. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Data encryption causes the defining availability impact of ransomware. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Recovery inhibition targets backups and restoration mechanisms. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Stopping services can interrupt operations and facilitate encryption. Sources: RANSOMWARE_DEFENSE_REFERENCE.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: included in this practitioner view (not severity or prevalence)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "RANSOMWARE_DEFENSE_REFERENCE.md; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "selection_rule",
+      "value": "Curated selection of explicit technique references in the named library documents; no additional technique relationships inferred."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "14"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "18"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means selected; no severity, prevalence, confidence, or control coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "RANSOMWARE_DEFENSE_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/RANSOMWARE_DEFENSE_REFERENCE.md"
+    },
+    {
+      "label": "data/attack/technique_profiles.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

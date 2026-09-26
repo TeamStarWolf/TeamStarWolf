@@ -1,0 +1,197 @@
+{
+  "name": "TeamStarWolf - OWASP Top 10 (2021)",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "A01:2021 Broken Access Control: the reference associates valid-account abuse with access-control failures; using an account alone does not establish a weakness. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "A01:2021 Broken Access Control: the reference associates valid-account abuse with access-control failures; using an account alone does not establish a weakness. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "A01:2021 Broken Access Control: the reference associates valid-account abuse with access-control failures; using an account alone does not establish a weakness. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "A01:2021 Broken Access Control: the reference associates valid-account abuse with access-control failures; using an account alone does not establish a weakness. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "A01:2021 Broken Access Control: contextual association for abuse of an elevation mechanism; an arbitrary authorization defect is not automatically this technique. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "A01:2021 Broken Access Control: contextual association for abuse of an elevation mechanism; an arbitrary authorization defect is not automatically this technique. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "A02:2021 Cryptographic Failures and A10:2021 SSRF: the reference associates exposed credential material and cloud metadata credential access with these themes. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "A02:2021 Cryptographic Failures: network sniffing can exploit unprotected traffic; the weakness and the act of sniffing are distinct. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "A02:2021 Cryptographic Failures: network sniffing can exploit unprotected traffic; the weakness and the act of sniffing are distinct. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "A03:2021 Injection: injection into a public-facing application can support application exploitation. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "A04:2021 Insecure Design and A07:2021 Identification and Authentication Failures: inadequate authentication defenses can permit brute-force attempts. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "A04:2021 Insecure Design: resource exhaustion can cause endpoint denial of service. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "A05:2021 Security Misconfiguration: exposed host or software information can aid reconnaissance. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "A06:2021 Vulnerable and Outdated Components and A08:2021 Software and Data Integrity Failures: supply-chain compromise is relevant when dependencies or delivery are tampered with; outdated components alone do not establish this technique. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "A06:2021 Vulnerable and Outdated Components: exploiting vulnerable client software can lead to client execution. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "A07:2021 Identification and Authentication Failures: weak session protection can expose web session cookies to theft. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "A08:2021 Software and Data Integrity Failures: unsafe interpreter use can turn untrusted code or data into command execution. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "A09:2021 Security Logging and Monitoring Failures: the reference associates indicator removal with audit visibility; missing logging alone is not indicator removal. Sources: SECURE_CODING_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "A10:2021 SSRF: the reference offers a proxy association. This applies to a command-and-control scenario only when the abused service actually relays that traffic; SSRF alone is not equivalent to ATT&CK Proxy. Sources: SECURE_CODING_REFERENCE.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: included in this practitioner view (not severity or prevalence)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "SECURE_CODING_REFERENCE.md; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "selection_rule",
+      "value": "Curated selection of explicit technique references in the named library documents; no additional technique relationships inferred."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "14"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "19"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means selected; no severity, prevalence, confidence, or control coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "SECURE_CODING_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/SECURE_CODING_REFERENCE.md"
+    },
+    {
+      "label": "data/attack/technique_profiles.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

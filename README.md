@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/starwolf64-banner.jpg" alt="STARWOLF64" width="100%">
+
 # 🐺 TeamStarWolf
 
 ### An open, threat-informed cybersecurity reference library

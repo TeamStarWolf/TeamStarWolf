@@ -29,6 +29,8 @@
 | [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md) | SOP, CORS attacks, CSP bypass, security headers, CSRF, clickjacking, cookie security, extension analysis, prototype pollution |
 | [Career Paths](CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths |
 | [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications — cost, difficulty, DoD 8570, and who should pursue each |
+| [CEH Domain Crosswalk](CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers |
+| [CISSP Domain Crosswalk](CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmarks for AWS, Azure, and GCP with automated remediation and detection queries |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |

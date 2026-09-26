@@ -237,6 +237,8 @@
 - **🎓 Careers & Learning**
   - [Career Paths](/CAREER_PATHS.md)
   - [Certifications](/CERTIFICATIONS.md)
+  - [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
+  - [CEH Domain Crosswalk](/CEH_DOMAIN_CROSSWALK.md)
   - [Interview Prep](/INTERVIEW_PREP.md)
   - [Labs](/LABS.md)
   - [Homelab Setup](/HOMELAB_SETUP.md)

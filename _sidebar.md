@@ -12,6 +12,27 @@
 
 ---
 
+- **🧭 Guides (How-To)**
+  - [All Guides →](/guides/README.md)
+  - [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md)
+  - [Triage a New CVE](/guides/TRIAGE_A_CVE.md)
+  - [Build Your First Detection](/guides/BUILD_YOUR_FIRST_DETECTION.md)
+  - [Coverage Gap Assessment](/guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md)
+  - [Respond to Ransomware](/guides/RESPOND_TO_RANSOMWARE.md)
+  - [Run a Ransomware Tabletop](/guides/RUN_A_RANSOMWARE_TABLETOP.md)
+  - [Investigate a Phishing Report](/guides/INVESTIGATE_A_PHISHING_EMAIL.md)
+  - [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md)
+  - [Harden a macOS Fleet](/guides/HARDEN_A_MACOS_FLEET.md)
+  - [Assess M365 with ScubaGear](/guides/ASSESS_M365_WITH_SCUBAGEAR.md)
+  - [Onboard a Log Source](/guides/ONBOARD_A_LOG_SOURCE.md)
+  - [Hunt for LOTL Activity](/guides/HUNT_FOR_LOTL_ACTIVITY.md)
+  - [Run a Purple-Team Exercise](/guides/RUN_A_PURPLE_TEAM_EXERCISE.md)
+  - [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md)
+  - [Build a Detection Home Lab](/guides/BUILD_A_DETECTION_HOMELAB.md)
+  - [Start a Vuln Mgmt Program](/guides/START_A_VULN_MGMT_PROGRAM.md)
+
+---
+
 - **📚 Disciplines**
   - [All 47 Paths →](/disciplines/README.md)
   - [Threat Intelligence](/disciplines/threat-intelligence.md)
@@ -85,6 +106,7 @@
 
 - **🎯 Threat Intelligence & Adversaries**
   - [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+  - [Threat Report Almanac](/THREAT_REPORT_ALMANAC.md)
   - [Threat Actors](/THREAT_ACTORS.md)
   - [Malware Families](/MALWARE_FAMILIES.md)
   - [Notable Incidents](/NOTABLE_INCIDENTS.md)

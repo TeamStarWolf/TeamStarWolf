@@ -1,6 +1,13 @@
 <!-- _navbar.md -->
 
 - [Index](/INDEX.md)
+- [Guides](/guides/README.md)
+  - [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md)
+  - [Triage a CVE](/guides/TRIAGE_A_CVE.md)
+  - [Build a Detection](/guides/BUILD_YOUR_FIRST_DETECTION.md)
+  - [Respond to Ransomware](/guides/RESPOND_TO_RANSOMWARE.md)
+  - [Harden Windows](/guides/HARDEN_A_WINDOWS_BASELINE.md)
+  - [All Guides →](/guides/README.md)
 - [Frameworks](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
   - [Threat-Informed Defense](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
   - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)

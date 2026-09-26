@@ -2,6 +2,12 @@
 
 > Comprehensive guide to Windows Group Policy hardening, attack surface reduction, service management, and enterprise mitigation strategies.
 
+| | |
+|---|---|
+| **Read this when** | Building or reviewing a GPO security baseline, hardening a new domain or OU, closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest) |
+| **Start at** | [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference) |
+| **Pairs with** | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
+
 ## Table of Contents
 1. [GPO Hardening Fundamentals](#_1-gpo-hardening-fundamentals)
 2. [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo)

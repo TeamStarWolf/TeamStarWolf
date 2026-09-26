@@ -3,6 +3,12 @@
 > Defensive analyst reference for malware analysis, firmware analysis, and vulnerability research.
 > All techniques described are for authorized security research, incident response, and defensive purposes.
 
+| | |
+|---|---|
+| **Read this when** | You are triaging an unknown malware sample, tearing apart router or IoT firmware, or hunting a vulnerability in a compiled binary |
+| **Start at** | [RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging) |
+| **Pairs with** | [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EXPLOIT_DEVELOPMENT_REFERENCE.md](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+
 ---
 
 ## Section 1: RE Fundamentals & Architectures

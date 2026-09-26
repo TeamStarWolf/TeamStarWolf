@@ -1,5 +1,13 @@
 # Zero Trust Reference — Comprehensive Cybersecurity Guide
 
+> **In one minute** — This is a full walkthrough of Zero Trust: the security model that trusts no user, device, or network segment by default and verifies every access request instead. It covers the theory (Kindervag's original model, NIST 800-207, the CISA maturity model), each of the five pillars (identity, device, network, application, data), hands-on tooling (Teleport, HashiCorp Boundary, Cloudflare Zero Trust) with real config examples, and a phased multi-year implementation roadmap. Reach for it whether you need the concepts, the configs, or the migration plan.
+
+| | |
+|---|---|
+| **Read this when** | you are planning or assessing a Zero Trust rollout, you need to replace a VPN or bastion host with identity-aware access, you want config examples for Conditional Access, Istio mTLS, Teleport, Boundary, or Cloudflare |
+| **Start at** | [Zero Trust Fundamentals](#_1-zero-trust-fundamentals), [Identity Pillar](#_2-identity-pillar), [ZTA Implementation Roadmap](#_10-zta-implementation-roadmap) |
+| **Pairs with** | [Zero Trust Architecture discipline](disciplines/zero-trust-architecture.md), [Identity and Access Management](disciplines/identity-access-management.md), [Cloud Network Security](CLOUD_NETWORK_SECURITY.md), [Windows Hardening Reference](WINDOWS_HARDENING_REFERENCE.md) |
+
 > **Version:** 1.0 | **Last Updated:** 2026-04-26 | **Maintained by:** TeamStarWolf
 
 ---

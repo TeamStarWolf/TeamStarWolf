@@ -4,6 +4,12 @@
 > **Purpose:** This reference documents the attack techniques adversaries use against Active Directory environments, explained from the defender's perspective — what each attack looks like on the wire, what telemetry it generates, and how to detect and prevent it.  
 > **Ethics note:** All tool names and command examples are provided for detection-writing and threat-hunting purposes only.
 
+| | |
+|---|---|
+| **Read this when** | Writing detections for an AD attack (Kerberoasting, DCSync, Golden Ticket, NTLM relay, AD CS/ESC), triaging a suspicious Kerberos/LDAP/replication event, or hardening a domain against escalation and persistence |
+| **Start at** | [AD Reconnaissance & Enumeration](#_1-ad-reconnaissance-amp-enumeration-defender-view), [Detection & Hardening Summary](#_10-detection-amp-hardening-summary), [Kerberoasting](#_2-kerberoasting) |
+| **Pairs with** | [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

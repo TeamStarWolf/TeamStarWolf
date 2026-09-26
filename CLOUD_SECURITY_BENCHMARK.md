@@ -1,5 +1,13 @@
 # Cloud Security Benchmark Reference
 
+> **In one minute** — This is a hands-on hardening reference for the three big clouds: CIS Benchmark controls (the industry-standard secure-configuration baselines) for AWS, Azure, and GCP, each with its severity, the exact CLI command or console step to fix it, and ready-to-run audit scripts. It also covers CSPM tools (scanners that continuously check your cloud against these benchmarks) and ends with a per-cloud quickstart checklist. Reach for it when you need to audit or lock down a cloud account without digging through the full CIS PDFs.
+
+| | |
+|---|---|
+| **Read this when** | you inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
+| **Start at** | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
+| **Pairs with** | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [FRAMEWORKS.md](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md) |
+
 CIS Benchmarks and hardening controls for AWS, Azure, and GCP — with specific checks, automated remediation, and detection queries. Complements the [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) with a defensive posture focus.
 
 ---

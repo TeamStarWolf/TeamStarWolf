@@ -1,5 +1,13 @@
 # HackTheBox Learning Tracks
 
+> **In one minute** — A catalog of HackTheBox's 45 learning tracks: curated sequences of hacking machines and challenges grouped by theme, skill, or certification. Completing a track builds depth in one area (Active Directory, blue team, web, cloud) instead of scattered breadth, and many tracks map directly to certification exams like CPTS, CDSA, and CREST. It also covers Pro Labs (full enterprise network simulations) and how to build your own custom track when no official one fits.
+
+| | |
+|---|---|
+| **Read this when** | picking your next structured HTB learning path, prepping for a cert like CPTS/CDSA/OSCP, deciding which Pro Lab matches your skill level |
+| **Start at** | [Recommended Learning Sequences](#recommended-learning-sequences), [Certification Alignment](#certification-alignment), [Pro Labs](#pro-labs) |
+| **Pairs with** | [HTB Machine Index](HTB_MACHINE_INDEX.md), [Labs Reference](../LABS.md), [Certifications](../CERTIFICATIONS.md) |
+
 Curated learning tracks from [HackTheBox](https://app.hackthebox.com/tracks) — structured paths grouping machines and challenges by theme, skill, or certification. Data extracted April 2026.
 
 **45 total tracks** · 1 Very Easy · 21 Easy · 16 Medium · 7 Hard

@@ -6,6 +6,11 @@ The threat is not "a quantum computer might appear someday." It is that encrypte
 
 **Related:** [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) · [Hardware Security](HARDWARE_SECURITY_REFERENCE.md) · [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) · [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) · [GRC & Compliance](GRC_COMPLIANCE_REFERENCE.md) · [Network Protocols](NETWORK_PROTOCOLS_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | scoping or chartering a PQC migration program, prioritizing which systems and data stores move to post-quantum crypto first, answering an auditor or executive about the 2030/2035 deadlines, or writing PQC questions into a vendor questionnaire |
+| **Start at** | [Why this matters now: harvest now, decrypt later](#why-this-matters-now-harvest-now-decrypt-later) · [Step 1 — Cryptographic discovery and the CBOM](#step-1-cryptographic-discovery-and-the-cbom) · [Key dates quick reference](#key-dates-quick-reference) |
+
 ---
 
 ## Why this matters now: harvest now, decrypt later

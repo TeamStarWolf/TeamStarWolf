@@ -1,5 +1,13 @@
 # Network Attacks Reference
 
+> **In one minute** — This is a defender's field guide to how network attacks actually work, layer by layer (ARP/Layer 2, DNS, man-in-the-middle, SMB/Windows, DoS/DDoS, BGP routing, and wireless), written so you can detect and block them. Every attack is paired with the switch config, IDS/SIEM query, or protocol control that stops it, plus real-world incidents and the MITRE ATT&CK techniques involved. Reach for it when you need to understand an attack well enough to hunt for it or engineer a defense, not just name it.
+
+| | |
+|---|---|
+| **Read this when** | You are placing detection controls across the OSI layers, investigating a suspected MitM/relay/DNS-tunnel/BGP-hijack event, or hardening a network segment against Layer 2 and routing attacks |
+| **Start at** | [Network Attack Taxonomy & Threat Landscape](#_1-network-attack-taxonomy-amp-threat-landscape) for the OSI/ATT&CK map, [SMB & Windows Network Attacks](#_5-smb-amp-windows-network-attacks) for the NTLM relay chain, [Network Attack Detection & Hunting](#_10-network-attack-detection-amp-hunting) for the hunting playbook |
+| **Pairs with** | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md) |
+
 **Audience:** Network security engineers, incident responders, SOC analysts  
 **Perspective:** Defensive — attack mechanics explained to enable detection and prevention  
 **Last updated:** 2026-05  

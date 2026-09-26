@@ -8,6 +8,11 @@ This reference is the program layer for the data-security discipline path: taxon
 
 **Related:** [Insider Threat Program](INSIDER_THREAT_REFERENCE.md) · [Privacy Engineering](PRIVACY_ENGINEERING_REFERENCE.md) · [Cryptography](CRYPTOGRAPHY_REFERENCE.md) · [GRC Compliance](GRC_COMPLIANCE_REFERENCE.md) · [Zero Trust](ZERO_TRUST_REFERENCE.md) · [Security Metrics](SECURITY_METRICS_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | standing up or maturing a data protection program, tuning a noisy DLP deployment, choosing between DSPM/DLP/DDR vendor categories, scoping classification tiers or egress controls |
+| **Start at** | [Scope & how to use this reference](#scope-amp-how-to-use-this-reference) to route yourself, [The data security program model](#the-data-security-program-model) for the five-capability loop, [A 90-day program bootstrap](#a-90-day-program-bootstrap) if starting from scratch |
+
 ---
 
 ## Scope & how to use this reference

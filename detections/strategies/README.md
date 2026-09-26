@@ -2,6 +2,12 @@
 
 > **691 MITRE ATT&CK detection strategies** and **1739 analytics** (v18.1) — the authoritative, MITRE-authored guidance for detecting each technique, with concrete log sources, channels, detection logic, and tunable parameters. Complements the [ready-to-run Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md).
 
+| | |
+|---|---|
+| **Read this when** | You need MITRE's official detection guidance for a specific technique ID, you are building or tuning a detection and want log sources and detection logic, you want to jump from a technique to its tactic page |
+| **Start at** | The **By tactic** links below to browse one tactic's strategies, e.g. [Execution](/detections/strategies/execution.md) or [Defense Evasion](/detections/strategies/defense-evasion.md), or the technique table below to look up a specific `T`-number |
+| **Pairs with** | [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) for ready-to-run detections, plus the raw datasets [`detection_strategies.jsonl`](../../data/attack/detection_strategies.jsonl) and [`analytics.jsonl`](../../data/attack/analytics.jsonl) |
+
 **By tactic:** [Reconnaissance](/detections/strategies/reconnaissance.md) · [Resource Development](/detections/strategies/resource-development.md) · [Initial Access](/detections/strategies/initial-access.md) · [Execution](/detections/strategies/execution.md) · [Persistence](/detections/strategies/persistence.md) · [Privilege Escalation](/detections/strategies/privilege-escalation.md) · [Defense Evasion](/detections/strategies/defense-evasion.md) · [Credential Access](/detections/strategies/credential-access.md) · [Discovery](/detections/strategies/discovery.md) · [Lateral Movement](/detections/strategies/lateral-movement.md) · [Collection](/detections/strategies/collection.md) · [Command and Control](/detections/strategies/command-and-control.md) · [Exfiltration](/detections/strategies/exfiltration.md) · [Impact](/detections/strategies/impact.md)
 
 Datasets: [`detection_strategies.jsonl`](../../data/attack/detection_strategies.jsonl) · [`analytics.jsonl`](../../data/attack/analytics.jsonl) · [`data_components.jsonl`](../../data/attack/data_components.jsonl)

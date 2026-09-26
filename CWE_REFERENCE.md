@@ -4,6 +4,11 @@
 
 Machine-readable: [`data/weaknesses/cwe.jsonl`](data/weaknesses/cwe.jsonl). Related: [CAPEC Attack Patterns](CAPEC_REFERENCE.md) · [Secure Coding](SECURE_CODING_REFERENCE.md).
 
+| | |
+|---|---|
+| **Read this when** | a CVE cites a CWE and you need to know what the underlying weakness actually is, you are prioritizing secure-coding or testing work by weakness type, you want to know which weaknesses attackers target most |
+| **Start at** | [Most-attacked weaknesses](#most-attacked-weaknesses) for the CAPEC-ranked hit list, [Pillars](#pillars-the-top-level-weakness-categories) for the top-level taxonomy, [Weakness classes](#weakness-classes) for the practical class-level view |
+
 ### Abstraction levels
 
 CWE is a hierarchy: **10 Pillars** (most abstract) → **114 Classes** → **539 Base** → **299 Variants** (most specific), plus **7 Compound** weaknesses.

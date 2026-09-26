@@ -5,6 +5,12 @@
 > compliance — covering Microsoft Entra ID, Okta, Active Directory, CyberArk,
 > HashiCorp Vault, SailPoint, and more.
 
+| | |
+|---|---|
+| **Read this when** | You're hardening an IdP (Entra, Okta, AD), investigating a credential or MFA-bypass incident, or writing identity detections and CA/PAM/IGA policy |
+| **Start at** | [Identity Attack Surface](#_1-identity-attack-surface), [MFA Bypass Techniques & Defenses](#_3-multi-factor-authentication-bypass-techniques-amp-defenses), [Identity Detection & Response](#_10-identity-detection-amp-response) |
+| **Pairs with** | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

@@ -6,6 +6,11 @@ Two things changed the macOS defense picture in 2025–2026: **macOS 27 "Golden 
 
 **Related:** [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md) · [Windows Hardening](WINDOWS_HARDENING_REFERENCE.md) · [Linux Hardening](LINUX_HARDENING.md) · [Mobile Security](MOBILE_SECURITY_REFERENCE.md) · [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md)
 
+| | |
+|---|---|
+| **Read this when** | you inherit or harden a Mac fleet and need a baseline (mSCP/CIS/STIG), you are evaluating or deploying macOS EDR and telemetry, you are building macOS detections and need to map techniques to event sources |
+| **Start at** | [How macOS defense fits together](#how-macos-defense-fits-together) · [Native telemetry: Endpoint Security, unified log, eslogger](#native-telemetry-endpoint-security-unified-log-eslogger) · [Defender's checklist](#defenders-checklist) |
+
 ---
 
 ## How macOS defense fits together

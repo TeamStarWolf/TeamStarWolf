@@ -3,6 +3,12 @@
 > **Scope**: Password hash formats, cracking tools (Hashcat, John the Ripper), attack techniques, secure storage algorithms, enterprise password policies, LAPS, gMSA, MFA, and detection.
 > Mapped to NIST SP 800-63B, OWASP Password Storage Cheat Sheet, CIS Benchmarks, and MITRE ATT&CK credential-access techniques (T1110.x).
 
+| | |
+|---|---|
+| **Read this when** | You need to identify or crack a captured hash, you are choosing how an application should store passwords, or you are setting enterprise password policy and lockout thresholds |
+| **Start at** | [Password Hash Formats](#password-hash-formats), [Secure Password Storage](#secure-password-storage-developer-reference), [Enterprise Password Policies](#enterprise-password-policies) |
+| **Pairs with** | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [detections/strategies/credential-access.md](detections/strategies/credential-access.md) |
+
 ---
 
 ## Table of Contents

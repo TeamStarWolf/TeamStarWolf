@@ -3,6 +3,12 @@
 > **Scope:** Windows 10/11 endpoints and Windows Server 2019/2022 — from architecture foundations through monitoring pipelines.
 > **Last updated:** 2026-04-26
 
+| | |
+|---|---|
+| **Read this when** | you are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
+| **Start at** | [Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring) |
+| **Pairs with** | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+
 ---
 
 ## Table of Contents

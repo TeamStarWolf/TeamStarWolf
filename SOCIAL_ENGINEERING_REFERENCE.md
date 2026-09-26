@@ -2,6 +2,12 @@
 
 > **Scope:** This document is a cybersecurity reference for defenders, penetration testers, security awareness trainers, and researchers. All techniques are presented in the context of understanding threats so they can be detected, prevented, and defended against. Offensive use against systems or individuals without explicit written authorization is illegal and unethical.
 
+| | |
+|---|---|
+| **Read this when** | Designing a phishing simulation or awareness program, investigating a suspected phishing/BEC/vishing incident, or scoping an authorized social engineering engagement |
+| **Start at** | [Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists) |
+| **Pairs with** | [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

@@ -1,5 +1,13 @@
 ﻿# Browser Security Reference
 
+> **In one minute** — This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
+
+| | |
+|---|---|
+| **Read this when** | Hardening a web app's response headers and cookies, reviewing a CORS or CSP configuration, or explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request |
+| **Start at** | [Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist) |
+| **Pairs with** | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CWE_REFERENCE.md](CWE_REFERENCE.md) |
+
 A comprehensive reference for browser security architecture, web security policies, attack techniques, and defensive configurations for security practitioners, developers, and penetration testers.
 
 ---

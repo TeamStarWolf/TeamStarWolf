@@ -2,6 +2,12 @@
 
 > **Comprehensive cybersecurity reference for API security practitioners, pentesters, developers, and security engineers.**
 
+| | |
+|---|---|
+| **Read this when** | You are pentesting a REST/GraphQL/gRPC API, reviewing an API's authentication and authorization design, or wiring API security tests and linting into a CI/CD pipeline |
+| **Start at** | [OWASP API Security Top 10 2023](#_2-owasp-api-security-top-10-2023), [API Penetration Testing](#_8-api-penetration-testing), [API Security in CI/CD](#_9-api-security-in-cicd) |
+| **Pairs with** | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

@@ -3,6 +3,12 @@
 > **Scope:** Operational reference for security engineers, penetration testers, and blue-teamers.
 > All configuration examples target Linux/Cisco IOS unless noted.
 
+| | |
+|---|---|
+| **Read this when** | Decoding a packet capture in Wireshark/tshark/tcpdump, hardening or reviewing a specific protocol (DNS, TLS, SSH, SNMP, BGP, SMTP, and more), investigating amplification DDoS, spoofing, or C2-over-DNS |
+| **Start at** | [TCP/IP Fundamentals](#_1-tcpip-fundamentals), [Protocol Analysis Tools](#_10-protocol-analysis-tools), [Appendix: Quick Reference Commands](#appendix-quick-reference-commands) |
+| **Pairs with** | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [PACKET_ANALYSIS_REFERENCE.md](PACKET_ANALYSIS_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

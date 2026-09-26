@@ -1,5 +1,13 @@
 # ICS/OT Security Reference
 
+> **In one minute** — This is a field guide to defending the computers that run physical processes: power grids, water plants, pipelines, and factories (collectively OT, operational technology). It walks through how these networks are built (the Purdue model), the industrial protocols and threat actors that target them, deep case studies of real attacks (Stuxnet, TRITON, Industroyer), and the architecture, detection, and incident-response practices that keep them safe. Practitioners reach for it because OT security follows different rules than IT — a scan that crashes a PLC can stop a turbine, and safety comes before containment.
+
+| | |
+|---|---|
+| **Read this when** | You are segmenting or assessing an OT/SCADA network, investigating an ICS intrusion, or need protocol/threat-actor/standards facts (Modbus, IEC 62443, NERC CIP) fast |
+| **Start at** | [ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists) |
+| **Pairs with** | [ICS_ATTACK_ATLAS.md](ICS_ATTACK_ATLAS.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+
 A comprehensive reference for ICS/OT/SCADA security professionals — covering architecture, threat actors, malware analysis, attack methodology, network security, standards, vulnerability management, detection, incident response, and physical security.
 
 ---

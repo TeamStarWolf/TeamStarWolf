@@ -1,5 +1,13 @@
 # Threat Hunting Playbooks
 
+> **In one minute** — Five ready-to-run threat hunting playbooks, each built around a hypothesis (a specific guess about what an attacker might be doing, like dumping credentials from LSASS or beaconing over DNS) and mapped to a MITRE ATT&CK technique. Every playbook hands you the data sources to check, a copy-paste Splunk or KQL query, step-by-step investigation guidance, and concrete response actions. Instead of staring at a SIEM wondering where to start, you pick a playbook and follow the procedure.
+
+| | |
+|---|---|
+| **Read this when** | you want to run a proactive hunt but need a starting hypothesis, an alert or incident suggests credential theft or lateral movement, you are deciding which ATT&CK tactics to hunt first |
+| **Start at** | [How to Use These Playbooks](#how-to-use-these-playbooks), [HP-001: LSASS Credential Dumping](#hp-001-lsass-credential-dumping), [Hunt Prioritization Matrix](#hunt-prioritization-matrix) |
+| **Pairs with** | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Threat Hunting Discipline](disciplines/threat-hunting.md) |
+
 Hypothesis-driven hunting procedures mapped to MITRE ATT&CK. Each playbook includes data sources, detection logic, investigation steps, and response actions.
 
 ---

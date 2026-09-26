@@ -2,6 +2,12 @@
 
 > Comprehensive reference for incident responders and network forensics analysts covering evidence collection, packet analysis, protocol decoding, traffic anomaly detection, malware traffic patterns, incident reconstruction, encrypted traffic analysis, wireless forensics, cloud forensics, and reporting standards.
 
+| | |
+|---|---|
+| **Read this when** | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
+| **Start at** | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
+| **Pairs with** | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

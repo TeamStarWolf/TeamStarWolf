@@ -6,6 +6,12 @@
 > [ATT&CK Navigator layers](navigator/), [control/technique edge tables](data/), and the
 > [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) workbench.
 
+| | |
+|---|---|
+| **Read this when** | turning a long CVE list into root-cause weakness groupings, deciding which detection or mitigation to build next for a technique, wiring ATT&CK to CWE/CAPEC/D3FEND/NIST controls |
+| **Start at** | [The ATT&CK-centric knowledge graph](#_1-the-attampck-centric-knowledge-graph), [The canonical chain](#the-canonical-chain), [Getting started](#_6-getting-started-recommended-order) |
+| **Pairs with** | [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Controls Mapping](CONTROLS_MAPPING.md), [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) |
+
 Threat-informed defense is the discipline of prioritizing security work by what adversaries actually do,
 using a shared model of adversary behavior (ATT&CK) as the organizing spine and enriching it with the
 other public knowledge bases that describe vulnerabilities, weaknesses, affected products, and defensive

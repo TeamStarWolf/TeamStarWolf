@@ -2,6 +2,11 @@
 
 > The **[MITRE Fight Fraud Framework™ (F3)](https://ctid.mitre.org/fraud)** is a behavior-based model of **cyber-enabled financial fraud** — the ATT&CK-style counterpart for fraud actor tradecraft. This reference covers all **123 techniques** (74 techniques + 49 sub-techniques) across F3's **8 tactics** (v1.1).
 
+| | |
+|---|---|
+| **Read this when** | a fraud desk and the SOC are describing the same incident in different words, you need to name a fraud behavior (account takeover, mule cash-out, check fraud) with a standard technique ID, you are mapping fraud coverage onto ATT&CK-based detections |
+| **Start at** | [The F3 kill chain](#the-f3-kill-chain) for the 8-tactic overview, [Monetization](#monetization) for where the money actually leaves, [Using F3 with the rest of this library](#using-f3-with-the-rest-of-this-library) to connect it to detections and CTEM |
+
 F3 was developed by the **MITRE [Center for Threat-Informed Defense](https://ctid.mitre.org/) (CTID)** with FS-ISAC, Citi, JPMorganChase, CrowdStrike, Lloyds Banking Group, Standard Chartered, Verizon Business, RH-ISAC, A-ISAC, Marsh, and the National Retail Federation — derived from real-world fraud incidents. It gives fraud teams and cyber teams **one shared vocabulary**, so an event seen by the SOC and an event seen by the fraud desk can be described as the same behavior chain.
 
 | | |

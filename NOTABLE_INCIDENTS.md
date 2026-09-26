@@ -2,6 +2,12 @@
 
 > A curated reference of significant cyber incidents, nation-state campaigns, ransomware events, and critical vulnerabilities. Maintained as part of the [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) cybersecurity reference library.
 
+| | |
+|---|---|
+| **Read this when** | You need the facts on a specific breach or campaign fast, you are advising an org mid-ransomware-incident, you are briefing leadership on why a vulnerability class or threat actor matters |
+| **Start at** | [Recent Events (2020-2025)](#_3-recent-events-20202025) for current threats, [Ransomware Incident Response - Negotiation Guide](#_5-ransomware-incident-response-negotiation-guide) for an active incident, [Critical Vulnerability Classes to Watch](#_7-critical-vulnerability-classes-to-watch) for patching priorities |
+| **Pairs with** | [THREAT_ACTORS.md](./THREAT_ACTORS.md), [IR_PLAYBOOKS.md](./IR_PLAYBOOKS.md), [MALWARE_FAMILIES.md](./MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](./DETECTION_RULES_REFERENCE.md) |
+
 ---
 
 ## Table of Contents

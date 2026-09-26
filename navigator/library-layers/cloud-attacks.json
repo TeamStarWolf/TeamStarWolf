@@ -1,0 +1,281 @@
+{
+  "name": "TeamStarWolf - Cloud Attacks",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view of cloud intrusion behaviors, not an official MITRE mapping. Selects explicit technique references from CLOUD_ATTACK_REFERENCE.md for account abuse, administrative execution, credential access, discovery, data theft, persistence, and impact. Technique IDs and displayed tactics come from data/attack/technique_profiles.jsonl. This is a selected overview, not an exhaustive cloud matrix. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Public-facing cloud applications provide an exploitation entry point. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Phishing can obtain cloud identities or establish initial access. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Compromised valid credentials can grant access to cloud services. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Compromised valid credentials can grant access to cloud services. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Compromised valid credentials can grant access to cloud services. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Compromised valid credentials can grant access to cloud services. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Cloud account abuse supports unauthorized access and privilege use. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Cloud account abuse supports unauthorized access and privilege use. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Cloud account abuse supports unauthorized access and privilege use. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Cloud account abuse supports unauthorized access and privilege use. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1651",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Cloud administration mechanisms such as SSM Run Command can execute commands. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Command interpreters can execute attacker-controlled scripts in cloud workloads. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Account and IAM identity changes can preserve unauthorized access. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Account and IAM identity changes can preserve unauthorized access. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1546",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Event-driven execution can persist through cloud automation and event triggers. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1546",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Event-driven execution can persist through cloud automation and event triggers. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Abuse of elevation mechanisms is a cloud privilege-escalation theme in the reference. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Abuse of elevation mechanisms is a cloud privilege-escalation theme in the reference. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Cloud audit logging and security controls can be disabled or modified. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Exposed credentials in configuration, repositories, or infrastructure state can be recovered. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Instance metadata services can expose workload credentials. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Application access tokens can be stolen from cloud identity flows. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Cloud identity enumeration discovers accounts and principals. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Permission group enumeration reveals cloud access relationships. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Software discovery can identify applications available in compromised cloud environments. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Remote services can support movement between accessible workloads. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Alternate authentication material can be reused for cloud access and movement. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1550",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Alternate authentication material can be reused for cloud access and movement. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Accessible cloud storage can supply data for collection. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Information repositories can supply enterprise data after cloud compromise. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Data transfer into another cloud account can support exfiltration. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Deleting cloud data and resources can cause destructive impact. Sources: CLOUD_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1496",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Cloud compute can be hijacked for unauthorized resource consumption. Sources: CLOUD_ATTACK_REFERENCE.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: included in this practitioner view (not severity or prevalence)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "CLOUD_ATTACK_REFERENCE.md; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "selection_rule",
+      "value": "Curated selection of explicit technique references in the named library documents; no additional technique relationships inferred."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "23"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "33"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means selected; no severity, prevalence, confidence, or control coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "CLOUD_ATTACK_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CLOUD_ATTACK_REFERENCE.md"
+    },
+    {
+      "label": "data/attack/technique_profiles.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

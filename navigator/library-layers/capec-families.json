@@ -1,0 +1,237 @@
+{
+  "name": "TeamStarWolf - CAPEC Families",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view, not an official MITRE mapping. Families are represented by non-deprecated CAPEC Meta-abstraction patterns with explicit attack_techniques values in data/weaknesses/capec.jsonl. Includes only IDs present in data/attack/technique_profiles.jsonl. Sources: CAPEC_REFERENCE.md and those two data files. Meta patterns with no explicit mapping are omitted; child-pattern mappings and inherited relationships are not inferred. This is a partial family view, not the complete CAPEC catalog. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Rename Legitimate Utilities: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-165 (File Manipulation). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Valid Accounts: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-560 (Use of Known Domain Credentials). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-560 (Use of Known Domain Credentials). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid Accounts: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-560 (Use of Known Domain Credentials). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid Accounts: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-560 (Use of Known Domain Credentials). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Brute Force: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-112 (Brute Force). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Access Token Manipulation: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-21 (Exploitation of Trusted Identifiers). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Access Token Manipulation: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-21 (Exploitation of Trusted Identifiers). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Supply Chain Compromise: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-438 (Modification During Manufacture); CAPEC-439 (Manipulation During Distribution). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1195.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Compromise Hardware Supply Chain: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-440 (Hardware Integrity Attack). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1200",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Hardware Additions: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-440 (Hardware Integrity Attack). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1217",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Browser Information Discovery: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-169 (Footprinting). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1491",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Defacement: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-148 (Content Spoofing). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Direct Network Flood: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-125 (Flooding). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Endpoint Denial of Service: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-125 (Flooding); CAPEC-131 (Resource Leak Exposure); CAPEC-227 (Sustained Client Engagement). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1499.003",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Application Exhaustion Flood: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-130 (Excessive Allocation). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Application or System Exploitation: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-25 (Forced Deadlock). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Steal Application Access Token: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-21 (Exploitation of Trusted Identifiers). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Steal Web Session Cookie: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-21 (Exploitation of Trusted Identifiers). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Abuse Elevation Control Mechanism: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-114 (Authentication Abuse); CAPEC-115 (Authentication Bypass); CAPEC-122 (Privilege Abuse); CAPEC-233 (Privilege Escalation). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Abuse Elevation Control Mechanism: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-114 (Authentication Abuse); CAPEC-115 (Authentication Bypass); CAPEC-122 (Privilege Abuse); CAPEC-233 (Privilege Escalation). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Adversary-in-the-Middle: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-94 (Adversary in the Middle (AiTM)). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Adversary-in-the-Middle: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-94 (Adversary in the Middle (AiTM)). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Gather Victim Host Information: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-169 (Footprinting). The family selection is curated; no descendant mapping is inferred."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Active Scanning: explicitly associated with these Meta-abstraction patterns in data/weaknesses/capec.jsonl: CAPEC-169 (Footprinting). The family selection is curated; no descendant mapping is inferred."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: included in this practitioner view (not severity or prevalence)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "CAPEC_REFERENCE.md; data/weaknesses/capec.jsonl; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "selection_rule",
+      "value": "Non-deprecated CAPEC abstraction=Meta -> explicit attack_techniques; intersect with local technique profiles."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "19"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "25"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means selected; no severity, prevalence, confidence, or control coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "CAPEC_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/CAPEC_REFERENCE.md"
+    },
+    {
+      "label": "data/weaknesses/capec.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/weaknesses/capec.jsonl"
+    },
+    {
+      "label": "data/attack/technique_profiles.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

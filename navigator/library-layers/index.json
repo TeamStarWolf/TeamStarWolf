@@ -1,0 +1,50 @@
+[
+  {
+    "file": "web-application-attacks.json",
+    "name": "TeamStarWolf - Web Application Attacks",
+    "description": "Curated practitioner view of ATT&CK techniques commonly encountered during web application, API, and application-security testing. This is not an official MITRE mapping. Sources: WEB_APPLICATION_SECURITY_REFERENCE.md, WEB_APPLICATION_PENTESTING.md, API_SECURITY_REFERENCE.md, SECURE_CODING_REFERENCE.md, PENETRATION_TESTING_METHODOLOGY.md, and data/attack/technique_profiles.jsonl.",
+    "blurb": "Web and API intrusion paths, including application exploitation, account abuse, session theft, and data access. A curated practitioner view based on the library's application-security references."
+  },
+  {
+    "file": "cwe-weakness-classes.json",
+    "name": "TeamStarWolf - CWE Weakness Classes",
+    "description": "Curated practitioner view, not an official MITRE CWE-to-ATT&CK mapping. Selects CWE records whose abstraction is Class, follows their explicit related_capec links, then the linked CAPEC records' explicit attack_techniques values. Only techniques present in data/attack/technique_profiles.jsonl are included. These indirect associations support exploration, not a claim that a weakness always produces the technique. Sources: CWE_REFERENCE.md, CAPEC_REFERENCE.md, data/weaknesses/cwe.jsonl, data/weaknesses/capec.jsonl, and data/attack/technique_profiles.jsonl. No hierarchy inheritance is inferred. Scores indicate membership only.",
+    "blurb": "Connects CWE weakness classes to ATT&CK behaviors through explicit CAPEC links in the library. These indirect associations support investigation; they do not mean a weakness always produces the behavior."
+  },
+  {
+    "file": "capec-families.json",
+    "name": "TeamStarWolf - CAPEC Families",
+    "description": "Curated practitioner view, not an official MITRE mapping. Families are represented by non-deprecated CAPEC Meta-abstraction patterns with explicit attack_techniques values in data/weaknesses/capec.jsonl. Includes only IDs present in data/attack/technique_profiles.jsonl. Sources: CAPEC_REFERENCE.md and those two data files. Meta patterns with no explicit mapping are omitted; child-pattern mappings and inherited relationships are not inferred. This is a partial family view, not the complete CAPEC catalog. Scores indicate membership only.",
+    "blurb": "Shows techniques explicitly linked to broad CAPEC Meta patterns in the library. This partial family view excludes patterns without direct mappings and does not infer child-pattern relationships."
+  },
+  {
+    "file": "cloud-attacks.json",
+    "name": "TeamStarWolf - Cloud Attacks",
+    "description": "Curated practitioner view of cloud intrusion behaviors, not an official MITRE mapping. Selects explicit technique references from CLOUD_ATTACK_REFERENCE.md for account abuse, administrative execution, credential access, discovery, data theft, persistence, and impact. Technique IDs and displayed tactics come from data/attack/technique_profiles.jsonl. This is a selected overview, not an exhaustive cloud matrix. Scores indicate membership only.",
+    "blurb": "Covers selected cloud intrusion behaviors, from account and token abuse to data theft and destructive impact. A curated overview drawn from the library's cloud attack reference."
+  },
+  {
+    "file": "active-directory.json",
+    "name": "TeamStarWolf - Active Directory",
+    "description": "Curated practitioner view of Active Directory intrusion behaviors, not an official MITRE mapping. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md, and data/attack/technique_profiles.jsonl. Selects explicitly referenced techniques for enumeration, credential access, Kerberos and NTLM abuse, certificate abuse, remote execution, and persistence. Tactics are taken from the technique profiles, not inferred from document section labels. Scores indicate membership only.",
+    "blurb": "Covers domain reconnaissance, credential theft, Kerberos and NTLM abuse, certificate attacks, and remote access. A curated view drawn from the library's Active Directory references."
+  },
+  {
+    "file": "ransomware-ttps.json",
+    "name": "TeamStarWolf - Ransomware TTPs",
+    "description": "Curated practitioner view of ransomware intrusion and extortion behaviors, not an official MITRE mapping and not an attribution to any particular group. Sources: the ATT&CK intrusion-chain table in RANSOMWARE_DEFENSE_REFERENCE.md and data/attack/technique_profiles.jsonl. Includes the reference's explicit initial access, execution, credential access, lateral movement, defense impairment, collection, exfiltration, and impact techniques. Scores indicate membership only, not frequency in incidents.",
+    "blurb": "Follows common ransomware intrusion themes through access, credential theft, movement, exfiltration, encryption, and recovery inhibition. A curated view of behaviors, without attribution to a particular group or claims about incident frequency."
+  },
+  {
+    "file": "container-k8s.json",
+    "name": "TeamStarWolf - Container and Kubernetes Attacks",
+    "description": "Curated practitioner view of container and Kubernetes attack behaviors, not an official MITRE mapping. Sources: the ATT&CK Containers Matrix table in CONTAINER_SECURITY_REFERENCE.md, the shell-execution detection example in KUBERNETES_SECURITY_REFERENCE.md, and data/attack/technique_profiles.jsonl. Selects only explicit technique references from those sources; this is not exhaustive Kubernetes coverage. Scores indicate membership only.",
+    "blurb": "Covers container deployment, image abuse, host escape, workload discovery, and unauthorized compute use. A curated selection from the container and Kubernetes references, with limited coverage."
+  },
+  {
+    "file": "owasp-top-10.json",
+    "name": "TeamStarWolf - OWASP Top 10 (2021)",
+    "description": "Curated practitioner view of the OWASP Top 10 (2021) themes used in SECURE_CODING_REFERENCE.md, not an official OWASP or MITRE mapping. The 2021 edition is intentional and is not a claim to represent the latest Top 10. Sources: that reference's A01-A10 sections and data/attack/technique_profiles.jsonl. Associations describe possible attacker behavior or defensive context, not equivalence between a weakness category and an ATT&CK technique. Scores indicate membership only.",
+    "blurb": "Connects the library's OWASP Top 10 (2021) themes with relevant attacker behaviors. These curated associations are not an official OWASP or MITRE crosswalk."
+  }
+]

@@ -1,0 +1,303 @@
+{
+  "name": "TeamStarWolf - Active Directory",
+  "versions": {
+    "attack": "16",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated practitioner view of Active Directory intrusion behaviors, not an official MITRE mapping. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md, and data/attack/technique_profiles.jsonl. Selects explicitly referenced techniques for enumeration, credential access, Kerberos and NTLM abuse, certificate abuse, remote execution, and persistence. Tactics are taken from the technique profiles, not inferred from document section labels. Scores indicate membership only.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credential dumping exposes authentication material used in domain environments. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "LSASS memory can expose account credentials. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "The SAM database can expose local account password material on domain-joined hosts. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "The NTDS database holds Active Directory credential material. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "DCSync abuses directory replication access to retrieve credential material. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "SMB and administrative shares support remote access between Windows hosts. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1021.003",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "DCOM can support remote access and execution in Windows environments. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Windows Remote Management can enable movement to additional hosts. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "WMI can execute commands on accessible Windows systems. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Permission group discovery reveals domain authorization relationships. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Account discovery enumerates identities in the environment. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Domain account enumeration supports directory reconnaissance. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Password spraying attempts a small set of passwords across many accounts. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1134.005",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "SID-history injection can alter effective domain privileges. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1134.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "SID-history injection can alter effective domain privileges. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1187",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Coercing authentication can expose authentication material or facilitate relay. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1207",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "A rogue domain controller can manipulate directory replication behavior. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "WMI event subscriptions provide persistent event-triggered execution. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1546.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "WMI event subscriptions provide persistent event-triggered execution. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1547.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Malicious security support providers can persist in the authentication process. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1547.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Malicious security support providers can persist in the authentication process. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Pass the Hash reuses password hashes as authentication material. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Pass the Hash reuses password hashes as authentication material. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Pass the Ticket reuses Kerberos tickets for unauthorized access. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Pass the Ticket reuses Kerberos tickets for unauthorized access. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Domain controller authentication modification includes skeleton-key-style tampering. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "defense-evasion",
+      "score": 100,
+      "comment": "Domain controller authentication modification includes skeleton-key-style tampering. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1556.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Domain controller authentication modification includes skeleton-key-style tampering. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "LLMNR/NBT-NS poisoning and SMB relay attack Windows authentication flows. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1557.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "LLMNR/NBT-NS poisoning and SMB relay attack Windows authentication flows. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Kerberos ticket theft or forgery supports domain authentication abuse. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Golden tickets forge domain ticket-granting credentials. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1558.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Silver tickets forge service-specific Kerberos credentials. Sources: ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Kerberoasting targets service-ticket material for password recovery. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1558.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AS-REP roasting targets accounts without required Kerberos pre-authentication. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    },
+    {
+      "techniqueID": "T1649",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Certificate theft or forgery can subvert domain authentication through AD CS. Sources: ACTIVE_DIRECTORY_ATTACK_REFERENCE.md, ACTIVE_DIRECTORY_ATTACKS.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: included in this practitioner view (not severity or prevalence)",
+      "color": "#15803d"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "ACTIVE_DIRECTORY_ATTACK_REFERENCE.md; ACTIVE_DIRECTORY_ATTACKS.md; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "selection_rule",
+      "value": "Curated selection of explicit technique references in the named library documents; no additional technique relationships inferred."
+    },
+    {
+      "name": "techniques_scored",
+      "value": "28"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "36"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 means selected; no severity, prevalence, confidence, or control coverage is measured."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "generated_by",
+      "value": "Codex Task 1 per Claude Code handoff"
+    }
+  ],
+  "links": [
+    {
+      "label": "ACTIVE_DIRECTORY_ATTACK_REFERENCE.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md"
+    },
+    {
+      "label": "ACTIVE_DIRECTORY_ATTACKS.md",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/ACTIVE_DIRECTORY_ATTACKS.md"
+    },
+    {
+      "label": "data/attack/technique_profiles.jsonl",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

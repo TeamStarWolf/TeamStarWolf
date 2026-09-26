@@ -73,6 +73,7 @@
   - [CAPEC Attack Patterns](/CAPEC_REFERENCE.md)
   - [CTEM (Exposure Management)](/CTEM_REFERENCE.md)
   - [MITRE ATLAS (AI Threats)](/ATLAS_REFERENCE.md)
+  - [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md)
   - [MITRE Engage (Deception)](/ENGAGE_REFERENCE.md)
   - [MITRE EMB3D (Embedded Devices)](/EMB3D_REFERENCE.md)
   - [MITRE FiGHT (Telecom & 5G)](/TELECOM_5G_SECURITY_REFERENCE.md)

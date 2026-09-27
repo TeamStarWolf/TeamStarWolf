@@ -4360,3 +4360,104 @@
 {"group_id": "G1053", "group_name": "Storm-0501", "technique_id": "T1588.006", "technique_name": "Vulnerabilities", "tactics": ["resource-development"]}
 {"group_id": "G1053", "group_name": "Storm-0501", "technique_id": "T1614.001", "technique_name": "System Language Discovery", "tactics": ["discovery"]}
 {"group_id": "G1053", "group_name": "Storm-0501", "technique_id": "T1657", "technique_name": "Financial Theft", "tactics": ["impact"]}
+{"group_id": "G0094", "group_name": "Kimsuky", "technique_id": "T1682", "technique_name": "Query Public AI Services", "tactics": ["reconnaissance"]}
+{"group_id": "G1044", "group_name": "APT42", "technique_id": "T1682", "technique_name": "Query Public AI Services", "tactics": ["reconnaissance"]}
+{"group_id": "G0099", "group_name": "APT-C-36", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
+{"group_id": "G1052", "group_name": "Contagious Interview", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
+{"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1683.001", "technique_name": "Written Content", "tactics": ["resource-development"]}
+{"group_id": "G0099", "group_name": "APT-C-36", "technique_id": "T1683.002", "technique_name": "Audio-Visual Content", "tactics": ["resource-development"]}
+{"group_id": "G1052", "group_name": "Contagious Interview", "technique_id": "T1683.002", "technique_name": "Audio-Visual Content", "tactics": ["resource-development"]}
+{"group_id": "G1057", "group_name": "ShinyHunters", "technique_id": "T1684", "technique_name": "Social Engineering", "tactics": ["stealth"]}
+{"group_id": "G0007", "group_name": "APT28", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G0069", "group_name": "MuddyWater", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G0090", "group_name": "WIRTE", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G0094", "group_name": "Kimsuky", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G0096", "group_name": "APT41", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G0099", "group_name": "APT-C-36", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1004", "group_name": "LAPSUS$", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1015", "group_name": "Scattered Spider", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1031", "group_name": "Saint Bear", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1033", "group_name": "Star Blizzard", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1044", "group_name": "APT42", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1046", "group_name": "Storm-1811", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1052", "group_name": "Contagious Interview", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1054", "group_name": "MirrorFace", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1055", "group_name": "VOID MANTICORE", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G1056", "group_name": "TeamPCP", "technique_id": "T1684.001", "technique_name": "Impersonation", "tactics": ["stealth"]}
+{"group_id": "G0010", "group_name": "Turla", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0024", "group_name": "Putter Panda", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0032", "group_name": "Lazarus Group", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0037", "group_name": "FIN6", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0047", "group_name": "Gamaredon Group", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0059", "group_name": "Magic Hound", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0060", "group_name": "BRONZE BUTLER", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0069", "group_name": "MuddyWater", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0078", "group_name": "Gorgon Group", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0092", "group_name": "TA505", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0094", "group_name": "Kimsuky", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0096", "group_name": "APT41", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0102", "group_name": "Wizard Spider", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0106", "group_name": "Rocke", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0119", "group_name": "Indrik Spider", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0139", "group_name": "TeamTNT", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0143", "group_name": "Aquatic Panda", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1015", "group_name": "Scattered Spider", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1018", "group_name": "TA2541", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1023", "group_name": "APT5", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1024", "group_name": "Akira", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1030", "group_name": "Agrius", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1031", "group_name": "Saint Bear", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1032", "group_name": "INC Ransom", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1040", "group_name": "Play", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1043", "group_name": "BlackByte", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1047", "group_name": "Velvet Ant", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1048", "group_name": "UNC3886", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1051", "group_name": "Medusa Group", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1052", "group_name": "Contagious Interview", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G1054", "group_name": "MirrorFace", "technique_id": "T1685", "technique_name": "Disable or Modify Tools", "tactics": ["defense-impairment"]}
+{"group_id": "G0027", "group_name": "Threat Group-3390", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log", "tactics": ["defense-impairment"]}
+{"group_id": "G0059", "group_name": "Magic Hound", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log", "tactics": ["defense-impairment"]}
+{"group_id": "G0016", "group_name": "APT29", "technique_id": "T1685.002", "technique_name": "Disable or Modify Cloud Log", "tactics": ["defense-impairment"]}
+{"group_id": "G0007", "group_name": "APT28", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0035", "group_name": "Dragonfly", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0050", "group_name": "APT32", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0053", "group_name": "FIN5", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0061", "group_name": "FIN8", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0096", "group_name": "APT41", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0114", "group_name": "Chimera", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0119", "group_name": "Indrik Spider", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0125", "group_name": "HAFNIUM", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0143", "group_name": "Aquatic Panda", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G1017", "group_name": "Volt Typhoon", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G1040", "group_name": "Play", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G1054", "group_name": "MirrorFace", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0106", "group_name": "Rocke", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0139", "group_name": "TeamTNT", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G1041", "group_name": "Sea Turtle", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs", "tactics": ["defense-impairment"]}
+{"group_id": "G0008", "group_name": "Carbanak", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0035", "group_name": "Dragonfly", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0046", "group_name": "FIN7", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0094", "group_name": "Kimsuky", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0106", "group_name": "Rocke", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0139", "group_name": "TeamTNT", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1022", "group_name": "ToddyCat", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1043", "group_name": "BlackByte", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1045", "group_name": "Salt Typhoon", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1047", "group_name": "Velvet Ant", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1048", "group_name": "UNC3886", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1051", "group_name": "Medusa Group", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1686.002", "technique_name": "Network Device Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0032", "group_name": "Lazarus Group", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0049", "group_name": "OilRig", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0059", "group_name": "Magic Hound", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1009", "group_name": "Moses Staff", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1054", "group_name": "MirrorFace", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G1055", "group_name": "VOID MANTICORE", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall", "tactics": ["defense-impairment"]}
+{"group_id": "G0082", "group_name": "APT38", "technique_id": "T1690", "technique_name": "Prevent Command History Logging", "tactics": ["defense-impairment"]}
+{"group_id": "G1041", "group_name": "Sea Turtle", "technique_id": "T1690", "technique_name": "Prevent Command History Logging", "tactics": ["defense-impairment"]}
+{"group_id": "G1048", "group_name": "UNC3886", "technique_id": "T1690", "technique_name": "Prevent Command History Logging", "tactics": ["defense-impairment"]}
+{"group_id": "G1051", "group_name": "Medusa Group", "technique_id": "T1690", "technique_name": "Prevent Command History Logging", "tactics": ["defense-impairment"]}

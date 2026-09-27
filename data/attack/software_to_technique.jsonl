@@ -10634,3 +10634,156 @@
 {"software_id": "S1249", "software_name": "HexEval Loader", "software_type": "malware", "technique_id": "T1105", "technique_name": "Ingress Tool Transfer"}
 {"software_id": "S1249", "software_name": "HexEval Loader", "software_type": "malware", "technique_id": "T1140", "technique_name": "Deobfuscate/Decode Files or Information"}
 {"software_id": "S1249", "software_name": "HexEval Loader", "software_type": "malware", "technique_id": "T1614", "technique_name": "System Location Discovery"}
+{"software_id": "S1131", "software_name": "NPPSPY", "software_type": "tool", "technique_id": "T1684.001", "technique_name": "Impersonation"}
+{"software_id": "S0004", "software_name": "TinyZBot", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0058", "software_name": "SslMM", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0061", "software_name": "HDoor", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0130", "software_name": "Unknown Logger", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0132", "software_name": "H1N1", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0144", "software_name": "ChChes", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0154", "software_name": "Cobalt Strike", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0201", "software_name": "JPIN", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0223", "software_name": "POWERSTATS", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0228", "software_name": "NanHaiShu", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0249", "software_name": "Gold Dragon", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0252", "software_name": "Brave Prince", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0253", "software_name": "RunningRAT", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0266", "software_name": "TrickBot", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0279", "software_name": "Proton", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0331", "software_name": "Agent Tesla", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0334", "software_name": "DarkComet", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0336", "software_name": "NanoCore", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0372", "software_name": "LockerGoga", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0377", "software_name": "Ebury", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0400", "software_name": "RobbinHood", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0412", "software_name": "ZxShell", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0434", "software_name": "Imminent Monitor", "software_type": "tool", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0446", "software_name": "Ryuk", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0449", "software_name": "Maze", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0455", "software_name": "Metamorfo", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0457", "software_name": "Netwalker", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0468", "software_name": "Skidmap", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0477", "software_name": "Goopy", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0481", "software_name": "Ragnar Locker", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0482", "software_name": "Bundlore", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0484", "software_name": "Carberp", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0491", "software_name": "StrongPity", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0496", "software_name": "REvil", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0531", "software_name": "Grandoreiro", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0534", "software_name": "Bazar", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0554", "software_name": "Egregor", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0559", "software_name": "SUNBURST", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0576", "software_name": "MegaCortex", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0579", "software_name": "Waterbear", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0583", "software_name": "Pysa", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0595", "software_name": "ThiefQuest", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0601", "software_name": "Hildegard", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0603", "software_name": "Stuxnet", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0605", "software_name": "EKANS", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0608", "software_name": "Conficker", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0611", "software_name": "Clop", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0638", "software_name": "Babuk", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0640", "software_name": "Avaddon", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0650", "software_name": "QakBot", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0659", "software_name": "Diavol", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0669", "software_name": "KOCTOPUS", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0670", "software_name": "WarzoneRAT", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0688", "software_name": "Meteor", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0689", "software_name": "WhisperGate", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0692", "software_name": "SILENTTRINITY", "software_type": "tool", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0695", "software_name": "Donut", "software_type": "tool", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0697", "software_name": "HermeticWiper", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1048", "software_name": "macOS.OSAMiner", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1063", "software_name": "Brute Ratel C4", "software_type": "tool", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1065", "software_name": "Woody RAT", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1097", "software_name": "HUI Loader", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1111", "software_name": "DarkGate", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1114", "software_name": "ZIPLINE", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1130", "software_name": "Raspberry Robin", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1135", "software_name": "MultiLayer Wiper", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1169", "software_name": "Mango", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1178", "software_name": "ShrinkLocker", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1180", "software_name": "BlackByte Ransomware", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1184", "software_name": "BOLDMOVE", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1199", "software_name": "LockBit 2.0", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1200", "software_name": "StealBit", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1202", "software_name": "LockBit 3.0", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1206", "software_name": "JumbledPath", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1207", "software_name": "XLoader", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1213", "software_name": "Lumma Stealer", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1234", "software_name": "SplatCloak", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1240", "software_name": "RedLine Stealer", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1242", "software_name": "Qilin", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S1244", "software_name": "Medusa Ransomware", "software_type": "malware", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"software_id": "S0645", "software_name": "Wevtutil", "software_type": "tool", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log"}
+{"software_id": "S1091", "software_name": "Pacu", "software_type": "tool", "technique_id": "T1685.002", "technique_name": "Disable or Modify Cloud Log"}
+{"software_id": "S0377", "software_name": "Ebury", "software_type": "malware", "technique_id": "T1685.004", "technique_name": "Disable or Modify Linux Audit System Log"}
+{"software_id": "S0032", "software_name": "gh0st RAT", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0089", "software_name": "BlackEnergy", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0182", "software_name": "FinFisher", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0192", "software_name": "Pupy", "software_type": "tool", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0203", "software_name": "Hydraq", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0242", "software_name": "SynAck", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0253", "software_name": "RunningRAT", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0365", "software_name": "Olympic Destroyer", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0368", "software_name": "NotPetya", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0412", "software_name": "ZxShell", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0532", "software_name": "Lucifer", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0607", "software_name": "KillDisk", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0645", "software_name": "Wevtutil", "software_type": "tool", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0688", "software_name": "Meteor", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0697", "software_name": "HermeticWiper", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0698", "software_name": "HermeticWizard", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1060", "software_name": "Mafalda", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1068", "software_name": "BlackCat", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1133", "software_name": "Apostle", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1135", "software_name": "MultiLayer Wiper", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1159", "software_name": "DUSTTRAP", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1178", "software_name": "ShrinkLocker", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1199", "software_name": "LockBit 2.0", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1202", "software_name": "LockBit 3.0", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1212", "software_name": "RansomHub", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S1242", "software_name": "Qilin", "software_type": "malware", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"software_id": "S0279", "software_name": "Proton", "software_type": "malware", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
+{"software_id": "S1016", "software_name": "MacMa", "software_type": "malware", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
+{"software_id": "S1164", "software_name": "UPSTYLE", "software_type": "malware", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
+{"software_id": "S1206", "software_name": "JumbledPath", "software_type": "malware", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
+{"software_id": "S0013", "software_name": "PlugX", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0031", "software_name": "BACKSPACE", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0088", "software_name": "Kasidet", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0108", "software_name": "netsh", "software_type": "tool", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0260", "software_name": "InvisiMole", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0336", "software_name": "NanoCore", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0376", "software_name": "HOPLIGHT", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0412", "software_name": "ZxShell", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0492", "software_name": "CookieMiner", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S0531", "software_name": "Grandoreiro", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S1032", "software_name": "PyDCrypt", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S1161", "software_name": "BPFDoor", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S1178", "software_name": "ShrinkLocker", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S1211", "software_name": "Hannotog", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S1223", "software_name": "THINCRUST", "software_type": "malware", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"software_id": "S1091", "software_name": "Pacu", "software_type": "tool", "technique_id": "T1686.001", "technique_name": "Cloud Firewall"}
+{"software_id": "S0531", "software_name": "Grandoreiro", "software_type": "malware", "technique_id": "T1686.002", "technique_name": "Network Device Firewall"}
+{"software_id": "S0687", "software_name": "Cyclops Blink", "software_type": "malware", "technique_id": "T1686.002", "technique_name": "Network Device Firewall"}
+{"software_id": "S0125", "software_name": "Remsec", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0132", "software_name": "H1N1", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0245", "software_name": "BADCALL", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0246", "software_name": "HARDRAIN", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0263", "software_name": "TYPEFRAME", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0334", "software_name": "DarkComet", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0385", "software_name": "njRAT", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S1181", "software_name": "BlackByte 2.0 Ransomware", "software_type": "malware", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
+{"software_id": "S0496", "software_name": "REvil", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S1053", "software_name": "AvosLocker", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S1070", "software_name": "Black Basta", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S1202", "software_name": "LockBit 3.0", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S1212", "software_name": "RansomHub", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S1242", "software_name": "Qilin", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S1247", "software_name": "Embargo", "software_type": "malware", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"software_id": "S0692", "software_name": "SILENTTRINITY", "software_type": "tool", "technique_id": "T1689", "technique_name": "Downgrade Attack"}
+{"software_id": "S1180", "software_name": "BlackByte Ransomware", "software_type": "malware", "technique_id": "T1689", "technique_name": "Downgrade Attack"}
+{"software_id": "S0692", "software_name": "SILENTTRINITY", "software_type": "tool", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}
+{"software_id": "S1161", "software_name": "BPFDoor", "software_type": "malware", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}
+{"software_id": "S1186", "software_name": "Line Dancer", "software_type": "malware", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}
+{"software_id": "S1217", "software_name": "VIRTUALPITA", "software_type": "malware", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}

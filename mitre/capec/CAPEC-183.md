@@ -1,0 +1,20 @@
+# CAPEC-183 — IMAP/SMTP Command Injection
+
+<a id="capec-183"></a>
+
+**Abstraction:** Standard  
+**Typical severity:** Medium  
+**Likelihood:** 
+
+An adversary exploits weaknesses in input validation on web-mail servers to execute commands on the IMAP/SMTP server. Web-mail servers often sit between the Internet and the IMAP or SMTP mail server. User requests are received by the web-mail servers which then query the back-end mail server for the requested information and return this response to the user. In an IMAP/SMTP command injection attac
+
+## Related CWE (1)
+
+[CWE-77](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::The target environment must consist of a web-mail server that the attacker can query and a back-end mail server. The back-end mail server need not be directly accessible to the attacker.::The web-ma
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

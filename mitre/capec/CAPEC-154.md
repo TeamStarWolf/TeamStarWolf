@@ -1,0 +1,22 @@
+# CAPEC-154 — Resource Location Spoofing
+
+<a id="capec-154"></a>
+
+**Abstraction:** Meta  
+**Typical severity:** Medium  
+**Likelihood:** Medium
+
+An adversary deceives an application or user and convinces them to request a resource from an unintended location. By spoofing the location, the adversary can cause an alternate resource to be used, often one that the adversary controls and can be used to help them achieve their malicious goals.
+
+## Related CWE (1)
+
+[CWE-451](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::None. All applications rely on file paths and therefore, in theory, they or their resources could be affected by this type of attack.::
+
+**Mitigations:** ::Monitor network activity to detect any anomalous or unauthorized communication exchanges.::
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

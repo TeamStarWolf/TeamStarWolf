@@ -1,0 +1,20 @@
+# CAPEC-426 — Influence via Incentives
+
+<a id="capec-426"></a>
+
+**Abstraction:** Standard  
+**Typical severity:** Low  
+**Likelihood:** Low
+
+The adversary incites a behavior from the target by manipulating something of influence. This is commonly associated with financial, social, or ideological incentivization. Examples include monetary fraud, peer pressure, and preying on the target's morals or ethics. The most effective incentive against one target might not be as effective against another, therefore the adversary must gather inform
+
+**Prerequisites:** ::The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the incentives that would influence the actions of the speci
+
+**Skills required:** ::SKILL:The adversary requires strong inter-personal and communication skills.:LEVEL:Low::
+
+**Mitigations:** ::An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.::
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

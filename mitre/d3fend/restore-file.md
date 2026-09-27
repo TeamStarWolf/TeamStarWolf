@@ -1,0 +1,123 @@
+# D3FEND: Restore File
+
+<a id="restore-file"></a>
+
+**D3FEND tactic:** Restore
+**Digital artifacts:** File
+
+## ATT&CK techniques countered (110)
+
+- `DE-0007` — restores
+- `EX-0010.02` — restores
+- `EX-0010.03` — restores
+- `T0851` — restores
+- `T0853` — restores
+- `T0865` — restores
+- `T0871` — restores
+- `T0888` — restores
+- `T0893` — restores
+- `T0894` — restores
+- `T0895` — restores
+- [T1003.007](/mitre/techniques/T1003-007.md) — restores
+- [T1003.008](/mitre/techniques/T1003-008.md) — restores
+- [T1005](/mitre/techniques/T1005.md) — restores
+- [T1014](/mitre/techniques/T1014.md) — restores
+- [T1016](/mitre/techniques/T1016.md) — restores
+- [T1018](/mitre/techniques/T1018.md) — restores
+- [T1027.001](/mitre/techniques/T1027-001.md) — restores
+- [T1027.002](/mitre/techniques/T1027-002.md) — restores
+- [T1027.004](/mitre/techniques/T1027-004.md) — restores
+- [T1033](/mitre/techniques/T1033.md) — restores
+- [T1036.001](/mitre/techniques/T1036-001.md) — restores
+- [T1036.003](/mitre/techniques/T1036-003.md) — restores
+- [T1036.005](/mitre/techniques/T1036-005.md) — restores
+- [T1036.006](/mitre/techniques/T1036-006.md) — restores
+- [T1037.001](/mitre/techniques/T1037-001.md) — restores
+- [T1037.002](/mitre/techniques/T1037-002.md) — restores
+- [T1037.003](/mitre/techniques/T1037-003.md) — restores
+- [T1037.004](/mitre/techniques/T1037-004.md) — restores
+- [T1041](/mitre/techniques/T1041.md) — restores
+- [T1048.002](/mitre/techniques/T1048-002.md) — restores
+- `T1053.004` — restores
+- [T1055.001](/mitre/techniques/T1055-001.md) — restores
+- [T1055.002](/mitre/techniques/T1055-002.md) — restores
+- [T1055.003](/mitre/techniques/T1055-003.md) — restores
+- [T1055.009](/mitre/techniques/T1055-009.md) — restores
+- [T1055.014](/mitre/techniques/T1055-014.md) — restores
+- [T1059](/mitre/techniques/T1059.md) — restores
+- [T1070.002](/mitre/techniques/T1070-002.md) — restores
+- [T1070.004](/mitre/techniques/T1070-004.md) — restores
+- [T1071](/mitre/techniques/T1071.md) — restores
+- [T1071.001](/mitre/techniques/T1071-001.md) — restores
+- [T1072](/mitre/techniques/T1072.md) — restores
+- [T1074.001](/mitre/techniques/T1074-001.md) — restores
+- [T1083](/mitre/techniques/T1083.md) — restores
+- [T1114.001](/mitre/techniques/T1114-001.md) — restores
+- [T1119](/mitre/techniques/T1119.md) — restores
+- [T1127.001](/mitre/techniques/T1127-001.md) — restores
+- [T1137.001](/mitre/techniques/T1137-001.md) — restores
+- [T1137.003](/mitre/techniques/T1137-003.md) — restores
+- [T1140](/mitre/techniques/T1140.md) — restores
+- [T1187](/mitre/techniques/T1187.md) — restores
+- [T1204.002](/mitre/techniques/T1204-002.md) — restores
+- [T1218.005](/mitre/techniques/T1218-005.md) — restores
+- [T1218.011](/mitre/techniques/T1218-011.md) — restores
+- [T1220](/mitre/techniques/T1220.md) — restores
+- [T1486](/mitre/techniques/T1486.md) — restores
+- [T1505.003](/mitre/techniques/T1505-003.md) — restores
+- [T1534](/mitre/techniques/T1534.md) — restores
+- [T1543.001](/mitre/techniques/T1543-001.md) — restores
+- [T1543.002](/mitre/techniques/T1543-002.md) — restores
+- [T1543.004](/mitre/techniques/T1543-004.md) — restores
+- [T1546.002](/mitre/techniques/T1546-002.md) — restores
+- [T1546.004](/mitre/techniques/T1546-004.md) — restores
+- [T1546.005](/mitre/techniques/T1546-005.md) — restores
+- [T1546.006](/mitre/techniques/T1546-006.md) — restores
+- [T1546.008](/mitre/techniques/T1546-008.md) — restores
+- [T1546.009](/mitre/techniques/T1546-009.md) — restores
+- [T1546.010](/mitre/techniques/T1546-010.md) — restores
+- [T1546.013](/mitre/techniques/T1546-013.md) — restores
+- [T1546.014](/mitre/techniques/T1546-014.md) — restores
+- [T1546.015](/mitre/techniques/T1546-015.md) — restores
+- [T1547.001](/mitre/techniques/T1547-001.md) — restores
+- [T1547.006](/mitre/techniques/T1547-006.md) — restores
+- [T1547.007](/mitre/techniques/T1547-007.md) — restores
+- [T1547.008](/mitre/techniques/T1547-008.md) — restores
+- [T1547.009](/mitre/techniques/T1547-009.md) — restores
+- `T1547.011` — restores
+- [T1548.002](/mitre/techniques/T1548-002.md) — restores
+- [T1548.003](/mitre/techniques/T1548-003.md) — restores
+- [T1552.001](/mitre/techniques/T1552-001.md) — restores
+- [T1552.003](/mitre/techniques/T1552-003.md) — restores
+- [T1555](/mitre/techniques/T1555.md) — restores
+- [T1555.003](/mitre/techniques/T1555-003.md) — restores
+- [T1556.002](/mitre/techniques/T1556-002.md) — restores
+- [T1556.003](/mitre/techniques/T1556-003.md) — restores
+- [T1560](/mitre/techniques/T1560.md) — restores
+- [T1560.001](/mitre/techniques/T1560-001.md) — restores
+- [T1560.002](/mitre/techniques/T1560-002.md) — restores
+- [T1560.003](/mitre/techniques/T1560-003.md) — restores
+- [T1562.003](/mitre/techniques/T1562-003.md) — restores
+- [T1564.002](/mitre/techniques/T1564-002.md) — restores
+- [T1564.003](/mitre/techniques/T1564-003.md) — restores
+- [T1564.006](/mitre/techniques/T1564-006.md) — restores
+- [T1564.007](/mitre/techniques/T1564-007.md) — restores
+- [T1565.001](/mitre/techniques/T1565-001.md) — restores
+- [T1565.003](/mitre/techniques/T1565-003.md) — restores
+- [T1566.001](/mitre/techniques/T1566-001.md) — restores
+- [T1566.002](/mitre/techniques/T1566-002.md) — restores
+- [T1566.003](/mitre/techniques/T1566-003.md) — restores
+- [T1573.002](/mitre/techniques/T1573-002.md) — restores
+- [T1574.001](/mitre/techniques/T1574-001.md) — restores
+- `T1574.002` — restores
+- [T1574.004](/mitre/techniques/T1574-004.md) — restores
+- [T1574.006](/mitre/techniques/T1574-006.md) — restores
+- [T1574.007](/mitre/techniques/T1574-007.md) — restores
+- [T1574.008](/mitre/techniques/T1574-008.md) — restores
+- [T1574.009](/mitre/techniques/T1574-009.md) — restores
+- [T1574.012](/mitre/techniques/T1574-012.md) — restores
+- [T1649](/mitre/techniques/T1649.md) — restores
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

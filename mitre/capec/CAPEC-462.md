@@ -1,0 +1,24 @@
+# CAPEC-462 — Cross-Domain Search Timing
+
+<a id="capec-462"></a>
+
+**Abstraction:** Detailed  
+**Typical severity:** Medium  
+**Likelihood:** 
+
+An attacker initiates cross domain HTTP / GET requests and times the server responses. The timing of these responses may leak important information on what is happening on the server. Browser's same origin policy prevents the attacker from directly reading the server responses (in the absence of any other weaknesses), but does not prevent the attacker from timing the responses to requests that the
+
+## Related CWE (3)
+
+[CWE-385](/CWE_REFERENCE.md) [CWE-352](/CWE_REFERENCE.md) [CWE-208](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::Ability to issue GET / POST requests cross domainJava Script is enabled in the victim's browserThe victim has an active session with the site from which the attacker would like to receive informatio
+
+**Skills required:** ::SKILL:Some knowledge of Java Script:LEVEL:Low::
+
+**Mitigations:** ::Design: The victim's site could protect all potentially sensitive functionality (e.g. search functions) with cross site request forgery (CSRF) protection and not perform any work on behalf of forged requests::Design: The browser's security model co
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

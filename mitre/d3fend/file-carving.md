@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1071.002](/mitre/techniques/T1071-002.md) — analyzes
-- [T1570](/mitre/techniques/T1570.md) — analyzes
+- [T1071.002 — File Transfer Protocols](/mitre/techniques/T1071-002.md) — analyzes
+- [T1570 — Lateral Tool Transfer](/mitre/techniques/T1570.md) — analyzes
 
 ---
 

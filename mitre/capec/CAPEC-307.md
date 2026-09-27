@@ -4,18 +4,21 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Stable  
 
 An adversary scans for RPC services listing on a Unix/Linux host.
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::RPC scanning requires no special privileges when it is performed via a native system utility.::
+## Prerequisites
 
-**Mitigations:** ::Typically, an IDS/IPS system is very effective against this type of attack.::
+- RPC scanning requires no special privileges when it is performed via a native system utility.
 
+## Mitigations
+
+- Typically, an IDS/IPS system is very effective against this type of attack.
 
 ---
 

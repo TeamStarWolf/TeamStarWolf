@@ -4,16 +4,20 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An attacker forces the target into a previous state in order to leverage potential weaknesses in the target dependent upon a prior configuration or state-dependent factors. Even in cases where an attacker may not be able to directly control the configuration of the targeted application, they may be able to reset the configuration to a prior state since many applications implement reset functions.
 
 ## Related CWE (3)
 
-[CWE-306](/CWE_REFERENCE.md) [CWE-1221](/CWE_REFERENCE.md) [CWE-1232](/CWE_REFERENCE.md)
+- [CWE-306 — Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html)
+- [CWE-1221 — Incorrect Register Defaults or Module Parameters](https://cwe.mitre.org/data/definitions/1221.html)
+- [CWE-1232 — Improper Lock Behavior After Power State Transition](https://cwe.mitre.org/data/definitions/1232.html)
 
-**Prerequisites:** ::The targeted application must have a reset function that returns the configuration of the application to an earlier state.::The reset functionality must be inadequately protected against use.::
+## Prerequisites
 
+- The targeted application must have a reset function that returns the configuration of the application to an earlier state.
+- The reset functionality must be inadequately protected against use.
 
 ---
 

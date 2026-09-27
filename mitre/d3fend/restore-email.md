@@ -7,11 +7,11 @@
 
 ## ATT&CK techniques countered (5)
 
-- `T0865` — restores
-- [T1114.001](/mitre/techniques/T1114-001.md) — restores
-- [T1534](/mitre/techniques/T1534.md) — restores
-- [T1566.001](/mitre/techniques/T1566-001.md) — restores
-- [T1566.002](/mitre/techniques/T1566-002.md) — restores
+- [T0865](https://attack.mitre.org/techniques/T0865) — restores
+- [T1114.001 — Local Email Collection](/mitre/techniques/T1114-001.md) — restores
+- [T1534 — Internal Spearphishing](/mitre/techniques/T1534.md) — restores
+- [T1566.001 — Spearphishing Attachment](/mitre/techniques/T1566-001.md) — restores
+- [T1566.002 — Spearphishing Link](/mitre/techniques/T1566-002.md) — restores
 
 ---
 

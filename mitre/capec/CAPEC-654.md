@@ -4,25 +4,32 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary, through a previously installed malicious application, impersonates a credential prompt in an attempt to steal a user's credentials.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1056](/mitre/techniques/T1056.md)
-- [T1548.004](/mitre/techniques/T1548-004.md)
+- [T1056 — Input Capture](/mitre/techniques/T1056.md)
+- [T1548.004 — Elevated Execution with Prompt](/mitre/techniques/T1548-004.md)
 
 ## Related CWE (1)
 
-[CWE-1021](/CWE_REFERENCE.md)
+- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html)
 
-**Prerequisites:** ::The adversary must already have access to the target system via some means.::A legitimate task must exist that an adversary can impersonate to glean credentials.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Once an adversary has gained access to the target system, impersonating a credential prompt is not difficult.:LEVEL:Low::
+- The adversary must already have access to the target system via some means.
+- A legitimate task must exist that an adversary can impersonate to glean credentials.
 
-**Mitigations:** ::The only known mitigation to this attack is to avoid installing the malicious application on the device. However, to impersonate a running task the malicious application does need the GET_TASKS permission to be able to query the task list, and bein
+## Skills required
 
+- Once an adversary has gained access to the target system, impersonating a credential prompt is not difficult.:LEVEL:Low
+
+## Mitigations
+
+- The only known mitigation to this attack is to avoid installing the malicious application on the device. However, to impersonate a running task the malicious application does need the GET_TASKS permission to be able to query the task list, and bein
 
 ---
 

@@ -5,16 +5,14 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Firmware
 
-## ATT&CK techniques countered (8)
+## ATT&CK techniques countered (6)
 
-- `DE-0007` — verifies
-- `EX-0010.03` — verifies
-- `T0839` — verifies
-- `T0851` — verifies
-- [T1014](/mitre/techniques/T1014.md) — verifies
-- [T1542.001](/mitre/techniques/T1542-001.md) — verifies
-- [T1542.002](/mitre/techniques/T1542-002.md) — verifies
-- [T1542.004](/mitre/techniques/T1542-004.md) — verifies
+- [T0839](https://attack.mitre.org/techniques/T0839) — verifies
+- [T0851](https://attack.mitre.org/techniques/T0851) — verifies
+- [T1014 — Rootkit](/mitre/techniques/T1014.md) — verifies
+- [T1542.001 — System Firmware](/mitre/techniques/T1542-001.md) — verifies
+- [T1542.002 — Component Firmware](/mitre/techniques/T1542-002.md) — verifies
+- [T1542.004 — ROMMONkit](/mitre/techniques/T1542-004.md) — verifies
 
 ---
 

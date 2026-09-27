@@ -4,24 +4,33 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Very High  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary exploits a weakness in the way an application searches for external libraries to manipulate the execution flow to point to an adversary supplied library or code base. This pattern of attack allows the adversary to compromise the application or server via the execution of unauthorized code. An application typically makes calls to functions that are a part of libraries external to the a
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1574.008](/mitre/techniques/T1574-008.md)
+- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
 
 ## Related CWE (1)
 
-[CWE-706](/CWE_REFERENCE.md)
+- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html)
 
-**Prerequisites:** ::The target must utilize external libraries and must fail to verify the integrity of these libraries before using them.::
+## Prerequisites
 
-**Skills required:** ::SKILL:To modify the entries in the configuration file pointing to malicious libraries:LEVEL:Low::SKILL:To force symlink and timing issues for redire
+- The target must utilize external libraries and must fail to verify the integrity of these libraries before using them.
 
-**Mitigations:** ::Implementation: Restrict the permission to modify the entries in the configuration file.::Implementation: Check the integrity of the dynamically linked libraries before use them.::Implementation: Use obfuscation and other techniques to prevent reve
+## Skills required
 
+- To modify the entries in the configuration file pointing to malicious libraries:LEVEL:Low
+- To force symlink and timing issues for redire
+
+## Mitigations
+
+- Implementation: Restrict the permission to modify the entries in the configuration file.
+- Implementation: Check the integrity of the dynamically linked libraries before use them.
+- Implementation: Use obfuscation and other techniques to prevent reve
 
 ---
 

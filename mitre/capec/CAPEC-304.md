@@ -4,18 +4,21 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Stable  
 
 An adversary uses a TCP NULL scan to determine if ports are closed on the target machine. This scan type is accomplished by sending TCP segments with no flags in the packet header, generating packets that are illegal based on RFC 793. The RFC 793 expected behavior is that any TCP segment with an out-of-state Flag sent to an open port is discarded, whereas segments with out-of-state flags sent to c
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::The adversary requires logical access to the target network. NULL scanning requires the use of raw sockets, and thus cannot be performed from some Windows systems (Windows XP SP 2, for example). On 
+## Prerequisites
 
-**Mitigations:** ::Employ a robust network defensive posture that includes a managed IDS/IPS.::
+- The adversary requires logical access to the target network. NULL scanning requires the use of raw sockets, and thus cannot be performed from some Windows systems (Windows XP SP 2, for example). On
 
+## Mitigations
+
+- Employ a robust network defensive posture that includes a managed IDS/IPS.
 
 ---
 

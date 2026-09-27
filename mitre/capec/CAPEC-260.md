@@ -3,11 +3,9 @@
 <a id="capec-260"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern CAPEC-65 : Sniff Application Code. Please refer to this other CAPEC going forward.
-
 
 ---
 

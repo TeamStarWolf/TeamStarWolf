@@ -4,24 +4,30 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 The adversary exploits an application that allows for the copying of sensitive data or information by collecting information copied to the clipboard. Data copied to the clipboard can be accessed by other applications, such as malware built to exfiltrate or log clipboard contents on a periodic basis. In this way, the adversary aims to garner information to which they are unauthorized.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1115](/mitre/techniques/T1115.md)
+- [T1115 — Clipboard Data](/mitre/techniques/T1115.md)
 
 ## Related CWE (1)
 
-[CWE-267](/CWE_REFERENCE.md)
+- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html)
 
-**Prerequisites:** ::The adversary must have a means (i.e., a pre-installed tool or background process) by which to collect data from the clipboard and store it. That is, when the target copies data to the clipboard (e.
+## Prerequisites
 
-**Skills required:** ::SKILL:To deploy a hidden process or malware on the system to automatically collect clipboard data.:LEVEL:High::
+- The adversary must have a means (i.e., a pre-installed tool or background process) by which to collect data from the clipboard and store it. That is, when the target copies data to the clipboard (e.
 
-**Mitigations:** ::While copying and pasting of data with the clipboard is a legitimate and practical function, certain situations and context may require the disabling of this feature. Just as certain applications disable screenshot capability, applications that han
+## Skills required
 
+- To deploy a hidden process or malware on the system to automatically collect clipboard data.:LEVEL:High
+
+## Mitigations
+
+- While copying and pasting of data with the clipboard is a legitimate and practical function, certain situations and context may require the disabling of this feature. Just as certain applications disable screenshot capability, applications that han
 
 ---
 

@@ -3,16 +3,14 @@
 <a id="capec-542"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary develops targeted malware that takes advantage of a known vulnerability in an organizational information technology environment. The malware crafted for these attacks is based specifically on information gathered about the technology environment. Successfully executing the malware enables an adversary to achieve a wide variety of negative technical impacts.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1027](/mitre/techniques/T1027.md)
-- [T1587.001](/mitre/techniques/T1587-001.md)
-
+- [T1027 — Obfuscated Files or Information](/mitre/techniques/T1027.md)
+- [T1587.001 — Malware](/mitre/techniques/T1587-001.md)
 
 ---
 

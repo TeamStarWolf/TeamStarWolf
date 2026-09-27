@@ -4,20 +4,28 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Draft  
 
 An adversary exploits the inherent functionalities of a web browser, in order to establish an unnoticed remote desktop connection in the victim's browser to the adversary's system. The adversary must deploy a web client with a remote desktop session that the victim can access.
 
 ## Related CWE (2)
 
-[CWE-294](/CWE_REFERENCE.md) [CWE-345](/CWE_REFERENCE.md)
+- [CWE-294 — Authentication Bypass by Capture-replay](https://cwe.mitre.org/data/definitions/294.html)
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
 
-**Prerequisites:** ::The adversary must create a convincing web client to establish the connection. The victim then needs to be lured onto the adversary's webpage. In addition, the victim's machine must not use local au
+## Prerequisites
 
-**Skills required:** ::SKILL::LEVEL:Medium::
+- The adversary must create a convincing web client to establish the connection. The victim then needs to be lured onto the adversary's webpage. In addition, the victim's machine must not use local au
 
-**Mitigations:** ::Implementation: Use strong, mutual authentication to fully authenticate with both ends of any communications channel::
+## Skills required
 
+- SKILL
+- Medium
+
+## Mitigations
+
+- Implementation: Use strong, mutual authentication to fully authenticate with both ends of any communications channel
 
 ---
 

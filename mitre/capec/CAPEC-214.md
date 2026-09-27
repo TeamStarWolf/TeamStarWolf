@@ -3,11 +3,9 @@
 <a id="capec-214"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it was merged into CAPEC-215 : Fuzzing for application mapping. Please refer to this other CAPEC going forward.
-
 
 ---
 

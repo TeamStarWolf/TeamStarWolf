@@ -4,20 +4,29 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An attacker initiates a resource depletion attack where a large number of small XML messages are delivered at a sufficiently rapid rate to cause a denial of service or crash of the target. Transactions such as repetitive SOAP transactions can deplete resources faster than a simple flooding attack because of the additional resources used by the SOAP protocol and the resources necessary to process S
 
 ## Related CWE (2)
 
-[CWE-400](/CWE_REFERENCE.md) [CWE-770](/CWE_REFERENCE.md)
+- [CWE-400 — Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html)
+- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html)
 
-**Prerequisites:** ::The target must receive and process XML transactions.::
+## Prerequisites
 
-**Skills required:** ::SKILL:To send small XML messages:LEVEL:Low::SKILL:To use distributed network to launch the attack:LEVEL:High::
+- The target must receive and process XML transactions.
 
-**Mitigations:** ::Design: Build throttling mechanism into the resource allocation. Provide for a timeout mechanism for allocated resources whose transaction does not complete within a specified interval.::Implementation: Provide for network flow control and traffic 
+## Skills required
 
+- To send small XML messages:LEVEL:Low
+- To use distributed network to launch the attack:LEVEL:High
+
+## Mitigations
+
+- Design: Build throttling mechanism into the resource allocation. Provide for a timeout mechanism for allocated resources whose transaction does not complete within a specified interval.
+- Implementation: Provide for network flow control and traffic
 
 ---
 

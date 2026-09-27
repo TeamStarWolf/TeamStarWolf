@@ -3,11 +3,9 @@
 <a id="capec-205"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-37 : Retrieve Embedded Sensitive Data. Please refer to this other pattern going forward.
-
 
 ---
 

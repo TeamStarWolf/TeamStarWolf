@@ -4,16 +4,21 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Stable  
 
 Adversaries inject data into mobile technology traffic (data flows or signaling data) to disrupt communications or conduct additional surveillance operations.
 
-**Prerequisites:** ::None::
+## Prerequisites
 
-**Skills required:** ::SKILL:Often achieved by nation states in conjunction with commercial cellular providers to conduct cellular traffic intercept and possible traffic i
+- None
 
-**Mitigations:** ::Commercial defensive technology to detect and alert to any attempts to modify mobile technology data flows or to inject new data into existing data flows and signaling data.::
+## Skills required
 
+- Often achieved by nation states in conjunction with commercial cellular providers to conduct cellular traffic intercept and possible traffic i
+
+## Mitigations
+
+- Commercial defensive technology to detect and alert to any attempts to modify mobile technology data flows or to inject new data into existing data flows and signaling data.
 
 ---
 

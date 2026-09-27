@@ -4,20 +4,21 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An attacker gains access to application, service, or device with the privileges of an authorized or privileged user by evading or circumventing an authentication mechanism. The attacker is therefore able to access protected data without authentication ever having taken place.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1548](/mitre/techniques/T1548.md)
+- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md)
 
 ## Related CWE (1)
 
-[CWE-287](/CWE_REFERENCE.md)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
 
-**Prerequisites:** ::An authentication mechanism or subsystem implementing some form of authentication such as passwords, digest authentication, security certificates, etc.::
+## Prerequisites
 
+- An authentication mechanism or subsystem implementing some form of authentication such as passwords, digest authentication, security certificates, etc.
 
 ---
 

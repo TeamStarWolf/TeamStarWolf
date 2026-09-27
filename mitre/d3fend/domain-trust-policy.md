@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1033](/mitre/techniques/T1033.md) — restricts
+- [T1033 — System Owner/User Discovery](/mitre/techniques/T1033.md) — restricts
 
 ---
 

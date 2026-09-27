@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- `T0800` — monitors
-- `T0858` — monitors
+- [T0800](https://attack.mitre.org/techniques/T0800) — monitors
+- [T0858](https://attack.mitre.org/techniques/T0858) — monitors
 
 ---
 

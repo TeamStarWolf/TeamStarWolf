@@ -4,10 +4,7 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
-
-
-
+**Status:** Draft  
 
 ---
 

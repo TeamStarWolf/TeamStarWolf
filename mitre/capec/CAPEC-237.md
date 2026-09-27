@@ -4,18 +4,24 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Very High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 The attacker may submit malicious code of another language to obtain access to privileges that were not intentionally exposed by the sandbox, thus escaping the sandbox. For instance, Java code cannot perform unsafe operations, such as modifying arbitrary memory locations, due to restrictions placed on it by the Byte code Verifier and the JVM. If allowed, Java code can call directly into native C c
 
 ## Related CWE (1)
 
-[CWE-693](/CWE_REFERENCE.md)
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
 
-**Skills required:** ::SKILL:The attacker must have a good knowledge of the platform specific mechanisms of signing and verifying code. Most code signing and verification 
+## Skills required
 
-**Mitigations:** ::Assurance: Sanitize the code of the standard libraries to make sure there is no security weaknesses in them.::Design: Use obfuscation and other techniques to prevent reverse engineering the standard libraries.::Assurance: Use static analysis tool t
+- The attacker must have a good knowledge of the platform specific mechanisms of signing and verifying code. Most code signing and verification
 
+## Mitigations
+
+- Assurance: Sanitize the code of the standard libraries to make sure there is no security weaknesses in them.
+- Design: Use obfuscation and other techniques to prevent reverse engineering the standard libraries.
+- Assurance: Use static analysis tool t
 
 ---
 

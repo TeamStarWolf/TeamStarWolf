@@ -4,18 +4,22 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Draft  
 
 An adversary takes advantage of improper data validation to inject malicious global parameters into a Flash file embedded within an HTML document. Flash files can leverage user-submitted data to configure the Flash document and access the embedding HTML document.
 
 ## Related CWE (1)
 
-[CWE-88](/CWE_REFERENCE.md)
+- [CWE-88 — Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')](https://cwe.mitre.org/data/definitions/88.html)
 
-**Skills required:** ::SKILL:The adversary need inject values into the global parameters to the Flash file and understand the parent HTML document DOM structure. The adver
+## Skills required
 
-**Mitigations:** ::User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving
+- The adversary need inject values into the global parameters to the Flash file and understand the parent HTML document DOM structure. The adver
 
+## Mitigations
+
+- User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving
 
 ---
 

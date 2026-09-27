@@ -4,20 +4,26 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Draft  
 
 The use of cryptanalytic techniques to derive cryptographic keys or otherwise effectively defeat cellular encryption to reveal traffic content. Some cellular encryption algorithms such as A5/1 and A5/2 (specified for GSM use) are known to be vulnerable to such attacks and commercial tools are available to execute these attacks and decrypt mobile phone conversations in real-time. Newer encryption a
 
 ## Related CWE (1)
 
-[CWE-327](/CWE_REFERENCE.md)
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
 
-**Prerequisites:** ::None::
+## Prerequisites
 
-**Skills required:** ::SKILL:Adversaries can rent commercial supercomputer time globally to conduct cryptanalysis on encrypted data captured from mobile devices. Foreign g
+- None
 
-**Mitigations:** ::Use of hardened baseband firmware on retransmission device to detect and prevent the use of weak cellular encryption.::Monitor cellular RF interface to detect the usage of weaker-than-expected cellular encryption.::
+## Skills required
 
+- Adversaries can rent commercial supercomputer time globally to conduct cryptanalysis on encrypted data captured from mobile devices. Foreign g
+
+## Mitigations
+
+- Use of hardened baseband firmware on retransmission device to detect and prevent the use of weak cellular encryption.
+- Monitor cellular RF interface to detect the usage of weaker-than-expected cellular encryption.
 
 ---
 

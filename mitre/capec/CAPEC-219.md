@@ -4,20 +4,28 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Draft  
 
 An attacker subverts an intermediate system used to process XML content and forces the intermediate to modify and/or re-route the processing of the content. XML Routing Detour Attacks are Adversary in the Middle type attacks (CAPEC-94). The attacker compromises or inserts an intermediate system in the processing of the XML message. For example, WS-Routing can be used to specify a series of nodes o
 
 ## Related CWE (2)
 
-[CWE-441](/CWE_REFERENCE.md) [CWE-610](/CWE_REFERENCE.md)
+- [CWE-441 — Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html)
+- [CWE-610 — Externally Controlled Reference to a Resource in Another Sphere](https://cwe.mitre.org/data/definitions/610.html)
 
-**Prerequisites:** ::The targeted system must have multiple stages processing of XML content.::
+## Prerequisites
 
-**Skills required:** ::SKILL:To inject a bogus node in the XML routing table:LEVEL:Low::
+- The targeted system must have multiple stages processing of XML content.
 
-**Mitigations:** ::Design: Specify maximum number intermediate nodes for the request and require SSL connections with mutual authentication.::Implementation: Use SSL for connections between all parties with mutual authentication.::
+## Skills required
 
+- To inject a bogus node in the XML routing table:LEVEL:Low
+
+## Mitigations
+
+- Design: Specify maximum number intermediate nodes for the request and require SSL connections with mutual authentication.
+- Implementation: Use SSL for connections between all parties with mutual authentication.
 
 ---
 

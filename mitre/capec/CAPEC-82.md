@@ -3,11 +3,9 @@
 <a id="capec-82"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it a generalization of CAPEC-230: XML Nested Payloads, CAPEC-231: XML Oversized Payloads, and CAPEC-147: XML Ping of Death. Please refer to these CAPECs going forward.
-
 
 ---
 

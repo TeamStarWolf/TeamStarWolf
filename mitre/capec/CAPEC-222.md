@@ -4,20 +4,27 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Draft  
 
 In an iFrame overlay attack the victim is tricked into unknowingly initiating some action in one system while interacting with the UI from seemingly completely different system.
 
 ## Related CWE (1)
 
-[CWE-1021](/CWE_REFERENCE.md)
+- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html)
 
-**Prerequisites:** ::The victim is communicating with the target application via a web based UI and not a thick client. The victim's browser security policies allow iFrames. The victim uses a modern browser that support
+## Prerequisites
 
-**Skills required:** ::SKILL:Crafting the proper malicious site and luring the victim to this site is not a trivial task.:LEVEL:High::
+- The victim is communicating with the target application via a web based UI and not a thick client. The victim's browser security policies allow iFrames. The victim uses a modern browser that support
 
-**Mitigations:** ::Configuration: Disable iFrames in the Web browser.::Operation: When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities. Finish working with t
+## Skills required
 
+- Crafting the proper malicious site and luring the victim to this site is not a trivial task.:LEVEL:High
+
+## Mitigations
+
+- Configuration: Disable iFrames in the Web browser.
+- Operation: When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities. Finish working with t
 
 ---
 

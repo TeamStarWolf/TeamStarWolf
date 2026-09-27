@@ -4,6 +4,11 @@
 
 The adversary is trying to run malicious code.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1059.001 — PowerShell](/mitre/techniques/T1059-001.md) — 18.5% of machines
+- [T1053.003 — Cron](/mitre/techniques/T1053-003.md) — 10.4% of machines
+
 **46 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1047 — Windows Management Instrumentation](/mitre/techniques/T1047.md)

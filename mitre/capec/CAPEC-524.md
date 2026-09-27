@@ -4,16 +4,25 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An attacker alters or establishes rogue processes in an integration facility in order to insert maliciously altered components into the system. The attacker would then supply the malicious components. This would allow for malicious disruption or additional compromise when the system is deployed.
 
-**Prerequisites:** ::Physical access to an integration facility that prepares the system before it is deployed at the victim location.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Advanced knowledge of the design of the system.:LEVEL:High::SKILL:Hardware creation and manufacture of replacement components.:LEVEL:High::
+- Physical access to an integration facility that prepares the system before it is deployed at the victim location.
 
-**Mitigations:** ::Deploy strong code integrity policies to allow only authorized apps to run.::Use endpoint detection and response solutions that can automaticalkly detect and remediate suspicious activities.::Maintain a highly secure build and update infrastructure
+## Skills required
 
+- Advanced knowledge of the design of the system.:LEVEL:High
+- Hardware creation and manufacture of replacement components.:LEVEL:High
+
+## Mitigations
+
+- Deploy strong code integrity policies to allow only authorized apps to run.
+- Use endpoint detection and response solutions that can automaticalkly detect and remediate suspicious activities.
+- Maintain a highly secure build and update infrastructure
 
 ---
 

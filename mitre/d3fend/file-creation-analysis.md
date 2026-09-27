@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1074.001](/mitre/techniques/T1074-001.md) — analyzes
-- [T1218.001](/mitre/techniques/T1218-001.md) — analyzes
+- [T1074.001 — Local Data Staging](/mitre/techniques/T1074-001.md) — analyzes
+- [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md) — analyzes
 
 ---
 

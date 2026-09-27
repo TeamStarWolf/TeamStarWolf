@@ -4,6 +4,11 @@
 
 The adversary is trying to move through your environment.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1021.004 — SSH](/mitre/techniques/T1021-004.md) — 24.4% of machines
+- [T1021.001 — Remote Desktop Protocol](/mitre/techniques/T1021-001.md) — 6.0% of machines
+
 **23 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1021 — Remote Services](/mitre/techniques/T1021.md)

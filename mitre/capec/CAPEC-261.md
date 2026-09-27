@@ -4,16 +4,17 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary who is authorized to send queries to a target sends variants of expected queries in the hope that these modified queries might return information (directly or indirectly through error logs) beyond what the expected set of queries should provide.
 
 ## Related CWE (1)
 
-[CWE-20](/CWE_REFERENCE.md)
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
 
-**Prerequisites:** ::The server must assume that the queries it receives follow specific templates and/or have fields or attributes that follow specific procedures. The server must process queries that it receives witho
+## Prerequisites
 
+- The server must assume that the queries it receives follow specific templates and/or have fields or attributes that follow specific procedures. The server must process queries that it receives witho
 
 ---
 

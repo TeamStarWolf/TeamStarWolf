@@ -4,16 +4,22 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary uses a social engineering technique to convey a sense of authority that motivates the target to reveal specific information or take specific action. There are various techniques for producing a sense of authority during ordinary modes of communication. One common method is impersonation. By impersonating someone with a position of power within an organization, an adversary may motivat
 
-**Prerequisites:** ::The adversary must have the means and knowledge of how to communicate with the target in some manner.::
+## Prerequisites
 
-**Skills required:** ::SKILL:The adversary requires strong inter-personal and communication skills.:LEVEL:Low::
+- The adversary must have the means and knowledge of how to communicate with the target in some manner.
 
-**Mitigations:** ::An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.::
+## Skills required
 
+- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+
+## Mitigations
+
+- An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.
 
 ---
 

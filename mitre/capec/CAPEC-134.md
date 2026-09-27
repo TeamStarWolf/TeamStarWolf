@@ -4,16 +4,17 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary manipulates the headers and content of an email message by injecting data via the use of delimiter characters native to the protocol.
 
 ## Related CWE (1)
 
-[CWE-150](/CWE_REFERENCE.md)
+- [CWE-150 — Improper Neutralization of Escape, Meta, or Control Sequences](https://cwe.mitre.org/data/definitions/150.html)
 
-**Prerequisites:** ::The target application must allow the user to send email to some recipient, to specify the content at least one header field in the message, and must fail to sanitize against the injection of comman
+## Prerequisites
 
+- The target application must allow the user to send email to some recipient, to specify the content at least one header field in the message, and must fail to sanitize against the injection of comman
 
 ---
 

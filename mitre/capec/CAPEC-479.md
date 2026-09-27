@@ -4,20 +4,22 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary exploits a weakness in authorization and installs a new root certificate on a compromised system. Certificates are commonly used for establishing secure TLS/SSL communications within a web browser. When a user attempts to browse a website that presents a certificate that is not trusted an error message will be displayed to warn the user of the security risk. Depending on the security
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1553.004](/mitre/techniques/T1553-004.md)
+- [T1553.004 — Install Root Certificate](/mitre/techniques/T1553-004.md)
 
 ## Related CWE (1)
 
-[CWE-284](/CWE_REFERENCE.md)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
 
-**Prerequisites:** ::The adversary must have the ability to create a new root certificate.::
+## Prerequisites
 
+- The adversary must have the ability to create a new root certificate.
 
 ---
 

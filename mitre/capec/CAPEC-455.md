@@ -3,11 +3,9 @@
 <a id="capec-455"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-457 : Malicious Logic Insertion into Product Hardware. Please refer to this other pattern going forward.
-
 
 ---
 

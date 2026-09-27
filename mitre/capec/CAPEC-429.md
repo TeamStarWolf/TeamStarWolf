@@ -4,10 +4,9 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 The adversary gains information via non-verbal means from the target through eye movements.
-
 
 ---
 

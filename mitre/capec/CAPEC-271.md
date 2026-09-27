@@ -4,18 +4,25 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An adversary corrupts or modifies the content of a schema for the purpose of undermining the security of the target. Schemas provide the structure and content definitions for resources used by an application. By replacing or modifying a schema, the adversary can affect how the application handles or interprets a resource, often leading to possible denial of service, entering into an unexpected sta
 
 ## Related CWE (1)
 
-[CWE-15](/CWE_REFERENCE.md)
+- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html)
 
-**Prerequisites:** ::Some level of access to modify the target schema.::The schema used by the target application must be improperly secured against unauthorized modification and manipulation.::
+## Prerequisites
 
-**Mitigations:** ::Design: Protect the schema against unauthorized modification.::Implementation: For applications that use a known schema, use a local copy or a known good repository instead of the schema reference supplied in the schema document.::Implementation: F
+- Some level of access to modify the target schema.
+- The schema used by the target application must be improperly secured against unauthorized modification and manipulation.
 
+## Mitigations
+
+- Design: Protect the schema against unauthorized modification.
+- Implementation: For applications that use a known schema, use a local copy or a known good repository instead of the schema reference supplied in the schema document.
+- Implementation: F
 
 ---
 

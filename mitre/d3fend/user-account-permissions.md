@@ -7,25 +7,25 @@
 
 ## ATT&CK techniques countered (19)
 
-- `T0812` — restricts
-- `T0859` — restricts
-- [T1078](/mitre/techniques/T1078.md) — restricts
-- [T1078.001](/mitre/techniques/T1078-001.md) — restricts
-- [T1078.002](/mitre/techniques/T1078-002.md) — restricts
-- [T1078.003](/mitre/techniques/T1078-003.md) — restricts
-- [T1078.004](/mitre/techniques/T1078-004.md) — restricts
-- [T1087.001](/mitre/techniques/T1087-001.md) — restricts
-- [T1087.002](/mitre/techniques/T1087-002.md) — restricts
-- [T1087.004](/mitre/techniques/T1087-004.md) — restricts
-- [T1098](/mitre/techniques/T1098.md) — restricts
-- [T1098.002](/mitre/techniques/T1098-002.md) — restricts
-- [T1098.003](/mitre/techniques/T1098-003.md) — restricts
-- [T1136](/mitre/techniques/T1136.md) — restricts
-- [T1136.001](/mitre/techniques/T1136-001.md) — restricts
-- [T1136.002](/mitre/techniques/T1136-002.md) — restricts
-- [T1136.003](/mitre/techniques/T1136-003.md) — restricts
-- [T1531](/mitre/techniques/T1531.md) — restricts
-- [T1548.005](/mitre/techniques/T1548-005.md) — restricts
+- [T0812](https://attack.mitre.org/techniques/T0812) — restricts
+- [T0859](https://attack.mitre.org/techniques/T0859) — restricts
+- [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — restricts
+- [T1078.001 — Default Accounts](/mitre/techniques/T1078-001.md) — restricts
+- [T1078.002 — Domain Accounts](/mitre/techniques/T1078-002.md) — restricts
+- [T1078.003 — Local Accounts](/mitre/techniques/T1078-003.md) — restricts
+- [T1078.004 — Cloud Accounts](/mitre/techniques/T1078-004.md) — restricts
+- [T1087.001 — Local Account](/mitre/techniques/T1087-001.md) — restricts
+- [T1087.002 — Domain Account](/mitre/techniques/T1087-002.md) — restricts
+- [T1087.004 — Cloud Account](/mitre/techniques/T1087-004.md) — restricts
+- [T1098 — Account Manipulation](/mitre/techniques/T1098.md) — restricts
+- [T1098.002 — Additional Email Delegate Permissions](/mitre/techniques/T1098-002.md) — restricts
+- [T1098.003 — Additional Cloud Roles](/mitre/techniques/T1098-003.md) — restricts
+- [T1136 — Create Account](/mitre/techniques/T1136.md) — restricts
+- [T1136.001 — Local Account](/mitre/techniques/T1136-001.md) — restricts
+- [T1136.002 — Domain Account](/mitre/techniques/T1136-002.md) — restricts
+- [T1136.003 — Cloud Account](/mitre/techniques/T1136-003.md) — restricts
+- [T1531 — Account Access Removal](/mitre/techniques/T1531.md) — restricts
+- [T1548.005 — Temporary Elevated Cloud Access](/mitre/techniques/T1548-005.md) — restricts
 
 ---
 

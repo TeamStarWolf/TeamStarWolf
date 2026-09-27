@@ -3,21 +3,21 @@
 <a id="capec-556"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 When a file is opened, its file handler is checked to determine which program opens the file. File handlers are configuration properties of many operating systems. Applications can modify the file handler for a given file extension to call an arbitrary program when a file with the given extension is opened.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1546.001](/mitre/techniques/T1546-001.md)
+- [T1546.001 — Change Default File Association](/mitre/techniques/T1546-001.md)
 
 ## Related CWE (1)
 
-[CWE-284](/CWE_REFERENCE.md)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
 
-**Mitigations:** ::Inspect registry for changes. Limit privileges of user accounts so changes to default file handlers can only be performed by authorized administrators.::
+## Mitigations
 
+- Inspect registry for changes. Limit privileges of user accounts so changes to default file handlers can only be performed by authorized administrators.
 
 ---
 

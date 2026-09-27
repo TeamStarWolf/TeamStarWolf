@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1125](/mitre/techniques/T1125.md) — monitors
+- [T1125 — Video Capture](/mitre/techniques/T1125.md) — monitors
 
 ---
 

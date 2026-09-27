@@ -4,18 +4,22 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Medium  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary monitors data streams to or from the target for information gathering purposes. This attack may be undertaken to solely gather sensitive information or to support a further attack against the target. This attack pattern can involve sniffing network traffic as well as other types of data streams (e.g. radio). The adversary can attempt to initiate the establishment of a data stream or p
 
 ## Related CWE (1)
 
-[CWE-319](/CWE_REFERENCE.md)
+- [CWE-319 — Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)
 
-**Prerequisites:** ::The target must transmit data over a medium that is accessible to the adversary.::
+## Prerequisites
 
-**Mitigations:** ::Leverage encryption to encode the transmission of data thus making it accessible only to authorized parties.::
+- The target must transmit data over a medium that is accessible to the adversary.
 
+## Mitigations
+
+- Leverage encryption to encode the transmission of data thus making it accessible only to authorized parties.
 
 ---
 

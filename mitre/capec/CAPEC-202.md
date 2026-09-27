@@ -4,16 +4,17 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary creates a client application to interface with a target service where the client violates assumptions the service makes about clients. Services that have designated client applications (as opposed to services that use general client applications, such as IMAP or POP mail servers which can interact with any IMAP or POP client) may assume that the client will follow specific procedures.
 
 ## Related CWE (1)
 
-[CWE-602](/CWE_REFERENCE.md)
+- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html)
 
-**Prerequisites:** ::The targeted service must make assumptions about the behavior of the client application that interacts with it, which can be abused by an adversary.::
+## Prerequisites
 
+- The targeted service must make assumptions about the behavior of the client application that interacts with it, which can be abused by an adversary.
 
 ---
 

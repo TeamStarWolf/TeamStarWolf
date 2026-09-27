@@ -4,26 +4,32 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Stable  
 
 An adversary exploits a weakness in an application's specification of external libraries to exploit the functionality of the loader where the process loading the library searches first in the same directory in which the process binary resides and then in other directories. Exploitation of this preferential search order can allow an attacker to make the loading process load the adversary's rogue li
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1574.001](/mitre/techniques/T1574-001.md)
-- [T1574.004](/mitre/techniques/T1574-004.md)
-- [T1574.008](/mitre/techniques/T1574-008.md)
+- [T1574.001 — DLL](/mitre/techniques/T1574-001.md)
+- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md)
+- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
 
 ## Related CWE (1)
 
-[CWE-427](/CWE_REFERENCE.md)
+- [CWE-427 — Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html)
 
-**Prerequisites:** ::Attacker has a mechanism to place its malicious libraries in the needed location on the file system.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Ability to create a malicious library.:LEVEL:Medium::
+- Attacker has a mechanism to place its malicious libraries in the needed location on the file system.
 
-**Mitigations:** ::Design: Fix the Windows loading process to eliminate the preferential search order by looking for DLLs in the precise location where they are expected::Design: Sign system DLLs so that unauthorized DLLs can be detected.::
+## Skills required
 
+- Ability to create a malicious library.:LEVEL:Medium
+
+## Mitigations
+
+- Design: Fix the Windows loading process to eliminate the preferential search order by looking for DLLs in the precise location where they are expected
+- Design: Sign system DLLs so that unauthorized DLLs can be detected.
 
 ---
 

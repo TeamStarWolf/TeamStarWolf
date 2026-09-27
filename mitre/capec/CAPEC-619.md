@@ -4,16 +4,17 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 In this attack scenario, the attacker passively monitors the signal strength of the target’s cellular RF signal or WiFi RF signal and uses the strength of the signal (with directional antennas and/or from multiple listening points at once) to identify the source location of the signal. Obtaining the signal of the target can be accomplished through multiple techniques such as through Cellular Broad
 
 ## Related CWE (1)
 
-[CWE-201](/CWE_REFERENCE.md)
+- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html)
 
-**Skills required:** ::SKILL:Commercial tools are available.:LEVEL:Low::
+## Skills required
 
+- Commercial tools are available.:LEVEL:Low
 
 ---
 

@@ -4,16 +4,15 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary prevents host-generated logs being delivered to a central location in an attempt to hide indicators of compromise.
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1562.002](/mitre/techniques/T1562-002.md)
-- [T1562.006](/mitre/techniques/T1562-006.md)
-- [T1562.008](/mitre/techniques/T1562-008.md)
-
+- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md)
+- [T1562.006 — Indicator Blocking](/mitre/techniques/T1562-006.md)
+- [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md)
 
 ---
 

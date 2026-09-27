@@ -3,11 +3,9 @@
 <a id="capec-236"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it did not have enough distinction from CAPEC-30 : Hijacking a Privileged Thread of Execution. Please refer to CAPEC-30 moving forward.
-
 
 ---
 

@@ -4,16 +4,17 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Draft  
 
 Adversary creates duplicates of legitimate websites. When users visit a counterfeit site, the site can gather information or upload malware.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.005](/mitre/techniques/T1036-005.md)
+- [T1036.005 — Match Legitimate Resource Name or Location](/mitre/techniques/T1036-005.md)
 
-**Prerequisites:** ::None::
+## Prerequisites
 
+- None
 
 ---
 

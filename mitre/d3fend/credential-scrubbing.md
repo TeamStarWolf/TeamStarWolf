@@ -5,10 +5,9 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Subroutine
 
-## ATT&CK techniques countered (2)
+## ATT&CK techniques countered (1)
 
-- `EX-0012.03` — hardens
-- [T1505.001](/mitre/techniques/T1505-001.md) — hardens
+- [T1505.001 — SQL Stored Procedures](/mitre/techniques/T1505-001.md) — hardens
 
 ---
 

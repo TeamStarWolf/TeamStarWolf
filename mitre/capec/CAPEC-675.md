@@ -4,24 +4,32 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary obtains decommissioned, recycled, or discarded systems and devices that can include an organization’s intellectual property, employee data, and other types of controlled information. Systems and devices that have reached the end of their lifecycles may be subject to recycle or disposal where they can be exposed to adversarial attempts to retrieve information from internal memory chips
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1052](/mitre/techniques/T1052.md)
+- [T1052 — Exfiltration Over Physical Medium](/mitre/techniques/T1052.md)
 
 ## Related CWE (1)
 
-[CWE-1266](/CWE_REFERENCE.md)
+- [CWE-1266 — Improper Scrubbing of Sensitive Data from Decommissioned Device](https://cwe.mitre.org/data/definitions/1266.html)
 
-**Prerequisites:** ::An adversary needs to have access to electronic data processing equipment being recycled or disposed of (e.g., laptops, servers) at a collection location and the ability to take control of it for th
+## Prerequisites
 
-**Skills required:** ::SKILL:An adversary may need the ability to mount printed circuit boards and target individual chips for exploitation.:LEVEL:High::SKILL:An adversary
+- An adversary needs to have access to electronic data processing equipment being recycled or disposed of (e.g., laptops, servers) at a collection location and the ability to take control of it for th
 
-**Mitigations:** ::Backup device data before erasure to retain intellectual property and inside knowledge.::Overwrite data on device rather than deleting. Deleted data can still be recovered, even if the device trash can is emptied. Rewriting data removes any trace o
+## Skills required
 
+- An adversary may need the ability to mount printed circuit boards and target individual chips for exploitation.:LEVEL:High
+- An adversary
+
+## Mitigations
+
+- Backup device data before erasure to retain intellectual property and inside knowledge.
+- Overwrite data on device rather than deleting. Deleted data can still be recovered, even if the device trash can is emptied. Rewriting data removes any trace o
 
 ---
 

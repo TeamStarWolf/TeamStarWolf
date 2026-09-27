@@ -3,11 +3,9 @@
 <a id="capec-411"></a>
 
 **Abstraction:** Meta  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern CAPEC-407 : Social Information Gathering via Pretexting. Please refer to this other CAPEC going forward.
-
 
 ---
 

@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1561.001](/mitre/techniques/T1561-001.md) — creates
-- [T1561.002](/mitre/techniques/T1561-002.md) — creates
+- [T1561.001 — Disk Content Wipe](/mitre/techniques/T1561-001.md) — creates
+- [T1561.002 — Disk Structure Wipe](/mitre/techniques/T1561-002.md) — creates
 
 ---
 

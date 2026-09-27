@@ -3,11 +3,9 @@
 <a id="capec-289"></a>
 
 **Abstraction:** Meta  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it was determined to be an unnecessary layer of abstraction. Please refer to the meta level pattern CAPEC-169 : going forward, or to any of its children patterns.
-
 
 ---
 

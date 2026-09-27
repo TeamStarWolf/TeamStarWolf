@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1558.003](/mitre/techniques/T1558-003.md) — analyzes
+- [T1558.003 — Kerberoasting](/mitre/techniques/T1558-003.md) — analyzes
 
 ---
 

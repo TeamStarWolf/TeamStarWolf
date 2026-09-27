@@ -3,11 +3,9 @@
 <a id="capec-408"></a>
 
 **Abstraction:** Meta  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it was deemed not to be a legitimate attack pattern. Please refer to CAPEC-118 : Collect and Analyze Information.
-
 
 ---
 

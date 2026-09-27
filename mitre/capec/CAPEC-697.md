@@ -4,24 +4,32 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary masquerades as a legitimate Dynamic Host Configuration Protocol (DHCP) server by spoofing DHCP traffic, with the goal of redirecting network traffic or denying service to DHCP.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1557.003](/mitre/techniques/T1557-003.md)
+- [T1557.003 — DHCP Spoofing](/mitre/techniques/T1557-003.md)
 
 ## Related CWE (1)
 
-[CWE-923](/CWE_REFERENCE.md)
+- [CWE-923 — Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html)
 
-**Prerequisites:** ::The adversary must have access to a machine within the target LAN which can send DHCP offers to the target.::
+## Prerequisites
 
-**Skills required:** ::SKILL:The adversary must identify potential targets for DHCP Spoofing and craft network configurations to obtain the desired results.:LEVEL:Medium::
+- The adversary must have access to a machine within the target LAN which can send DHCP offers to the target.
 
-**Mitigations:** ::Design: MAC-Forced Forwarding::Implementation: Port Security and DHCP snooping::Implementation: Network-based Intrusion Detection Systems::
+## Skills required
 
+- The adversary must identify potential targets for DHCP Spoofing and craft network configurations to obtain the desired results.:LEVEL:Medium
+
+## Mitigations
+
+- Design: MAC-Forced Forwarding
+- Implementation: Port Security and DHCP snooping
+- Implementation: Network-based Intrusion Detection Systems
 
 ---
 

@@ -4,18 +4,21 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary deploys a keylogger in an effort to obtain credentials directly from a system's user. After capturing all the keystrokes made by a user, the adversary can analyze the data and determine which string are likely to be passwords or other credential related information.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1056.001](/mitre/techniques/T1056-001.md)
+- [T1056.001 — Keylogging](/mitre/techniques/T1056-001.md)
 
-**Prerequisites:** ::The ability to install the keylogger, either in person or remote.::
+## Prerequisites
 
-**Mitigations:** ::Strong physical security can help reduce the ability of an adversary to install a keylogger.::
+- The ability to install the keylogger, either in person or remote.
 
+## Mitigations
+
+- Strong physical security can help reduce the ability of an adversary to install a keylogger.
 
 ---
 

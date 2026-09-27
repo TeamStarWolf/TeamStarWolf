@@ -4,16 +4,27 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An attacker with access to a manufacturer's documentation alters the descriptions of system capabilities with the intent of causing errors in derived system requirements, impacting the overall effectiveness and capability of the system, allowing an attacker to take advantage of the introduced system capability flaw once the system is deployed.
 
-**Prerequisites:** ::Advanced knowledge of software and hardware capabilities of a manufacturer's product.::Access to the manufacturer's documentation.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Ability to read, interpret, and subsequently alter manufacturer's documentation to misrepresent system capabilities.:LEVEL:High::SKILL:Ability
+- Advanced knowledge of software and hardware capabilities of a manufacturer's product.
+- Access to the manufacturer's documentation.
 
-**Mitigations:** ::Digitize documents and cryptographically sign them to verify authenticity.::Password protect documents and make them read-only for unauthorized users.::Avoid emailing important documents and configurations.::Ensure deleted files are actually delete
+## Skills required
 
+- Ability to read, interpret, and subsequently alter manufacturer's documentation to misrepresent system capabilities.:LEVEL:High
+- Ability
+
+## Mitigations
+
+- Digitize documents and cryptographically sign them to verify authenticity.
+- Password protect documents and make them read-only for unauthorized users.
+- Avoid emailing important documents and configurations.
+- Ensure deleted files are actually delete
 
 ---
 

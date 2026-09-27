@@ -4,18 +4,21 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 In this attack pattern, the adversary intercepts information transmitted between two third parties. The adversary must be able to observe, read, and/or hear the communication traffic, but not necessarily block the communication or change its content. Any transmission medium can theoretically be sniffed if the adversary can examine the contents between the sender and recipient. Sniffing Attacks are
 
 ## Related CWE (1)
 
-[CWE-311](/CWE_REFERENCE.md)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
 
-**Prerequisites:** ::The target data stream must be transmitted on a medium to which the adversary has access.::
+## Prerequisites
 
-**Mitigations:** ::Encrypt sensitive information when transmitted on insecure mediums to prevent interception.::
+- The target data stream must be transmitted on a medium to which the adversary has access.
 
+## Mitigations
+
+- Encrypt sensitive information when transmitted on insecure mediums to prevent interception.
 
 ---
 

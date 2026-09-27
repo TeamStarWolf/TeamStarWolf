@@ -4,16 +4,20 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary creates a file with scripting content but where the specified MIME type of the file is such that scripting is not expected. The adversary tricks the victim into accessing a URL that responds with the script file. Some browsers will detect that the specified MIME type of the file does not match the actual type of its content and will automatically switch to using an interpreter for the
 
 ## Related CWE (3)
 
-[CWE-79](/CWE_REFERENCE.md) [CWE-20](/CWE_REFERENCE.md) [CWE-646](/CWE_REFERENCE.md)
+- [CWE-79 — Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
+- [CWE-646 — Reliance on File Name or Extension of Externally-Supplied File](https://cwe.mitre.org/data/definitions/646.html)
 
-**Prerequisites:** ::The victim must follow a crafted link that references a scripting file that is mis-typed as a non-executable file.::The victim's browser must detect the true type of a mis-labeled scripting file and
+## Prerequisites
 
+- The victim must follow a crafted link that references a scripting file that is mis-typed as a non-executable file.
+- The victim's browser must detect the true type of a mis-labeled scripting file and
 
 ---
 

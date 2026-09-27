@@ -4,16 +4,22 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 The adversary uses social engineering to exploit the target's perception of the relationship between the adversary and themselves. This goal is to persuade the target to unknowingly perform an action or divulge information that is advantageous to the adversary.
 
-**Prerequisites:** ::The adversary must have the means and knowledge of how to communicate with the target in some manner.::
+## Prerequisites
 
-**Skills required:** ::SKILL:The adversary requires strong inter-personal and communication skills.:LEVEL:Low::
+- The adversary must have the means and knowledge of how to communicate with the target in some manner.
 
-**Mitigations:** ::An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.::
+## Skills required
 
+- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+
+## Mitigations
+
+- An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.
 
 ---
 

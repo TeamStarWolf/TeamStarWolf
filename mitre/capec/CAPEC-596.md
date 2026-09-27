@@ -3,17 +3,17 @@
 <a id="capec-596"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary injects one or more TCP RST packets to a target after the target has made a HTTP GET request. The goal of this attack is to have the target and/or destination web server terminate the TCP connection.
 
 ## Related CWE (1)
 
-[CWE-940](/CWE_REFERENCE.md)
+- [CWE-940 — Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html)
 
-**Prerequisites:** ::An On/In Path Device::
+## Prerequisites
 
+- An On/In Path Device
 
 ---
 

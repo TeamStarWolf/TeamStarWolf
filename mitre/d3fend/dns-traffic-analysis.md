@@ -7,10 +7,10 @@
 
 ## ATT&CK techniques countered (4)
 
-- `T0842` — may-contain
-- [T1040](/mitre/techniques/T1040.md) — may-contain
-- [T1071.004](/mitre/techniques/T1071-004.md) — analyzes
-- [T1568](/mitre/techniques/T1568.md) — analyzes
+- [T0842](https://attack.mitre.org/techniques/T0842) — may-contain
+- [T1040 — Network Sniffing](/mitre/techniques/T1040.md) — may-contain
+- [T1071.004 — DNS](/mitre/techniques/T1071-004.md) — analyzes
+- [T1568 — Dynamic Resolution](/mitre/techniques/T1568.md) — analyzes
 
 ---
 

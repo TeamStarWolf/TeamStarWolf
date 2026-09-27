@@ -3,19 +3,21 @@
 <a id="capec-253"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 The attacker forces an application to load arbitrary code files from a remote location. The attacker could use this to try to load old versions of library files that have known vulnerabilities, to load malicious files that the attacker placed on the remote machine, or to otherwise change the functionality of the targeted application in unexpected ways.
 
 ## Related CWE (1)
 
-[CWE-829](/CWE_REFERENCE.md)
+- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)
 
-**Prerequisites:** ::Target application server must allow remote files to be included.The malicious file must be placed on the remote machine previously.::
+## Prerequisites
 
-**Mitigations:** ::Minimize attacks by input validation and sanitization of any user data that will be used by the target application to locate a remote file to be included.::
+- Target application server must allow remote files to be included.The malicious file must be placed on the remote machine previously.
 
+## Mitigations
+
+- Minimize attacks by input validation and sanitization of any user data that will be used by the target application to locate a remote file to be included.
 
 ---
 

@@ -4,24 +4,35 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Draft  
 
 A domain name server translates a domain name (such as www.example.com) into an IP address that Internet hosts use to contact Internet resources. An adversary modifies a public DNS cache to cause certain names to resolve to incorrect addresses that the adversary specifies. The result is that client applications that rely upon the targeted cache for domain name resolution will be directed not to th
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1584.002](/mitre/techniques/T1584-002.md)
+- [T1584.002 — DNS Server](/mitre/techniques/T1584-002.md)
 
 ## Related CWE (5)
 
-[CWE-348](/CWE_REFERENCE.md) [CWE-345](/CWE_REFERENCE.md) [CWE-349](/CWE_REFERENCE.md) [CWE-346](/CWE_REFERENCE.md) [CWE-350](/CWE_REFERENCE.md)
+- [CWE-348 — Use of Less Trusted Source](https://cwe.mitre.org/data/definitions/348.html)
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
+- [CWE-349 — Acceptance of Extraneous Untrusted Data With Trusted Data](https://cwe.mitre.org/data/definitions/349.html)
+- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)
+- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html)
 
-**Prerequisites:** ::A DNS cache must be vulnerable to some attack that allows the adversary to replace addresses in its lookup table.Client applications must trust the corrupted cashed values and utilize them for their
+## Prerequisites
 
-**Skills required:** ::SKILL:To overwrite/modify targeted DNS cache:LEVEL:Medium::
+- A DNS cache must be vulnerable to some attack that allows the adversary to replace addresses in its lookup table.Client applications must trust the corrupted cashed values and utilize them for their
 
-**Mitigations:** ::Configuration: Make sure your DNS servers have been updated to the latest versions::Configuration: UNIX services like rlogin, rsh/rcp, xhost, and nfs are all susceptible to wrong information being held in a cache. Care should be taken with these se
+## Skills required
 
+- To overwrite/modify targeted DNS cache:LEVEL:Medium
+
+## Mitigations
+
+- Configuration: Make sure your DNS servers have been updated to the latest versions
+- Configuration: UNIX services like rlogin, rsh/rcp, xhost, and nfs are all susceptible to wrong information being held in a cache. Care should be taken with these se
 
 ---
 

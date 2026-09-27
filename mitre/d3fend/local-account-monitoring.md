@@ -7,9 +7,9 @@
 
 ## ATT&CK techniques countered (3)
 
-- [T1078.003](/mitre/techniques/T1078-003.md) — analyzes
-- [T1087.001](/mitre/techniques/T1087-001.md) — analyzes
-- [T1136.001](/mitre/techniques/T1136-001.md) — analyzes
+- [T1078.003 — Local Accounts](/mitre/techniques/T1078-003.md) — analyzes
+- [T1087.001 — Local Account](/mitre/techniques/T1087-001.md) — analyzes
+- [T1136.001 — Local Account](/mitre/techniques/T1136-001.md) — analyzes
 
 ---
 

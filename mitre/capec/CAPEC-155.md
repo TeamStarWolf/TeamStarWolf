@@ -4,16 +4,18 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Draft  
 
 An adversary exploits the temporary, insecure storage of information by monitoring the content of files used to store temp data during an application's routine execution flow. Many applications use temporary files to accelerate processing or to provide records of state across multiple executions of the application. Sometimes, however, these temporary files may end up storing sensitive information.
 
 ## Related CWE (1)
 
-[CWE-377](/CWE_REFERENCE.md)
+- [CWE-377 — Insecure Temporary File](https://cwe.mitre.org/data/definitions/377.html)
 
-**Prerequisites:** ::The target application must utilize temporary files and must fail to adequately secure them against other parties reading them.::
+## Prerequisites
 
+- The target application must utilize temporary files and must fail to adequately secure them against other parties reading them.
 
 ---
 

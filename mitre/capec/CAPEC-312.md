@@ -4,20 +4,22 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary engages in activity to detect the operating system or firmware version of a remote target by interrogating a device, server, or platform with a probe designed to solicit behavior that will reveal information about the operating systems or firmware in the environment. Operating System detection is possible because implementations of common protocols (Such as IP or TCP) differ in distin
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1082](/mitre/techniques/T1082.md)
+- [T1082 — System Information Discovery](/mitre/techniques/T1082.md)
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.::
+## Prerequisites
 
+- The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.
 
 ---
 

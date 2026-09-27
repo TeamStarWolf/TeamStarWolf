@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1525](/mitre/techniques/T1525.md) — analyzes
+- [T1525 — Implant Internal Image](/mitre/techniques/T1525.md) — analyzes
 
 ---
 

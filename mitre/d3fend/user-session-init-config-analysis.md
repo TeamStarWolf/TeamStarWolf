@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1546.004](/mitre/techniques/T1546-004.md) — analyzes
-- [T1564.002](/mitre/techniques/T1564-002.md) — analyzes
+- [T1546.004 — Unix Shell Configuration Modification](/mitre/techniques/T1546-004.md) — analyzes
+- [T1564.002 — Hidden Users](/mitre/techniques/T1564-002.md) — analyzes
 
 ---
 

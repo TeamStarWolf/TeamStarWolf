@@ -4,18 +4,25 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 During the system build process, the system is deliberately misconfigured by the alteration of the build data. Access to system configuration data files and build processes is susceptible to deliberate misconfiguration of the system.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.002](/mitre/techniques/T1195-002.md)
+- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md)
 
-**Prerequisites:** ::An adversary has access to the data files and processes used for executing system configuration and performing the build.::
+## Prerequisites
 
-**Mitigations:** ::Implement configuration management security practices that protect the integrity of software and associated data.::Monitor and control access to the configuration management system.::Harden centralized repositories against attack.::Establish accept
+- An adversary has access to the data files and processes used for executing system configuration and performing the build.
 
+## Mitigations
+
+- Implement configuration management security practices that protect the integrity of software and associated data.
+- Monitor and control access to the configuration management system.
+- Harden centralized repositories against attack.
+- Establish accept
 
 ---
 

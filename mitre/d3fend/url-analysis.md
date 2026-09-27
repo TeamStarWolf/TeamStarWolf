@@ -7,11 +7,11 @@
 
 ## ATT&CK techniques countered (5)
 
-- `T0817` — analyzes
-- [T1189](/mitre/techniques/T1189.md) — analyzes
-- [T1204.001](/mitre/techniques/T1204-001.md) — analyzes
-- [T1566.002](/mitre/techniques/T1566-002.md) — analyzes
-- [T1566.003](/mitre/techniques/T1566-003.md) — analyzes
+- [T0817](https://attack.mitre.org/techniques/T0817) — analyzes
+- [T1189 — Drive-by Compromise](/mitre/techniques/T1189.md) — analyzes
+- [T1204.001 — Malicious Link](/mitre/techniques/T1204-001.md) — analyzes
+- [T1566.002 — Spearphishing Link](/mitre/techniques/T1566-002.md) — analyzes
+- [T1566.003 — Spearphishing via Service](/mitre/techniques/T1566-003.md) — analyzes
 
 ---
 

@@ -4,18 +4,24 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Medium  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary actively probes the target in a manner that is designed to solicit information that could be leveraged for malicious purposes.
 
 ## Related CWE (2)
 
-[CWE-200](/CWE_REFERENCE.md) [CWE-1243](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-1243 — Sensitive Non-Volatile Information Not Protected During Debug](https://cwe.mitre.org/data/definitions/1243.html)
 
-**Prerequisites:** ::An adversary requires some way of interacting with the system.::
+## Prerequisites
 
-**Mitigations:** ::Minimize error/response output to only what is necessary for functional use or corrective language.::Remove potentially sensitive information that is not necessary for the application's functionality.::
+- An adversary requires some way of interacting with the system.
 
+## Mitigations
+
+- Minimize error/response output to only what is necessary for functional use or corrective language.
+- Remove potentially sensitive information that is not necessary for the application's functionality.
 
 ---
 

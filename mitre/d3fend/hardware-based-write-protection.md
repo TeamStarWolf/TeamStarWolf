@@ -5,10 +5,9 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Secondary Storage
 
-## ATT&CK techniques countered (2)
+## ATT&CK techniques countered (1)
 
-- `EX-0007` — hardens
-- [T1619](/mitre/techniques/T1619.md) — hardens
+- [T1619 — Cloud Storage Object Discovery](/mitre/techniques/T1619.md) — hardens
 
 ---
 

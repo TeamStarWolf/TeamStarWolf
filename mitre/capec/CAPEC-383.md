@@ -4,22 +4,28 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary hosts an event within an application framework and then monitors the data exchanged during the course of the event for the purpose of harvesting any important data leaked during the transactions. One example could be harvesting lists of usernames or userIDs for the purpose of sending spam messages to those users. One example of this type of attack involves the adversary creating an ev
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1056.004](/mitre/techniques/T1056-004.md)
+- [T1056.004 — Credential API Hooking](/mitre/techniques/T1056-004.md)
 
 ## Related CWE (4)
 
-[CWE-311](/CWE_REFERENCE.md) [CWE-319](/CWE_REFERENCE.md) [CWE-419](/CWE_REFERENCE.md) [CWE-602](/CWE_REFERENCE.md)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
+- [CWE-319 — Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)
+- [CWE-419 — Unprotected Primary Channel](https://cwe.mitre.org/data/definitions/419.html)
+- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html)
 
-**Prerequisites:** ::The target software is utilizing application framework APIs::
+## Prerequisites
 
-**Mitigations:** ::Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.::
+- The target software is utilizing application framework APIs
 
+## Mitigations
+
+- Leverage encryption techniques during information transactions so as to protect them from attack patterns of this kind.
 
 ---
 

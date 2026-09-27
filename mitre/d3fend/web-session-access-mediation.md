@@ -7,20 +7,20 @@
 
 ## ATT&CK techniques countered (14)
 
-- `T0806` — isolates
-- `T0813` — isolates
-- `T0814` — isolates
-- `T0819` — isolates
-- `T0821` — isolates
-- `T0878` — isolates
-- [T1003.001](/mitre/techniques/T1003-001.md) — isolates
-- [T1003.002](/mitre/techniques/T1003-002.md) — isolates
-- [T1033](/mitre/techniques/T1033.md) — isolates
-- [T1212](/mitre/techniques/T1212.md) — isolates
-- [T1505.002](/mitre/techniques/T1505-002.md) — isolates
-- [T1550](/mitre/techniques/T1550.md) — isolates
-- [T1556](/mitre/techniques/T1556.md) — isolates
-- [T1621](/mitre/techniques/T1621.md) — isolates
+- [T0806](https://attack.mitre.org/techniques/T0806) — isolates
+- [T0813](https://attack.mitre.org/techniques/T0813) — isolates
+- [T0814](https://attack.mitre.org/techniques/T0814) — isolates
+- [T0819](https://attack.mitre.org/techniques/T0819) — isolates
+- [T0821](https://attack.mitre.org/techniques/T0821) — isolates
+- [T0878](https://attack.mitre.org/techniques/T0878) — isolates
+- [T1003.001 — LSASS Memory](/mitre/techniques/T1003-001.md) — isolates
+- [T1003.002 — Security Account Manager](/mitre/techniques/T1003-002.md) — isolates
+- [T1033 — System Owner/User Discovery](/mitre/techniques/T1033.md) — isolates
+- [T1212 — Exploitation for Credential Access](/mitre/techniques/T1212.md) — isolates
+- [T1505.002 — Transport Agent](/mitre/techniques/T1505-002.md) — isolates
+- [T1550 — Use Alternate Authentication Material](/mitre/techniques/T1550.md) — isolates
+- [T1556 — Modify Authentication Process](/mitre/techniques/T1556.md) — isolates
+- [T1621 — Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md) — isolates
 
 ---
 

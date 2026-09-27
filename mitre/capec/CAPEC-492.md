@@ -3,19 +3,22 @@
 <a id="capec-492"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary may execute an attack on a program that uses a poor Regular Expression(Regex) implementation by choosing input that results in an extreme situation for the Regex. A typical extreme situation operates at exponential time compared to the input size. This is due to most implementations using a Nondeterministic Finite Automaton(NFA) state machine to be built by the Regex algorithm since N
 
 ## Related CWE (2)
 
-[CWE-400](/CWE_REFERENCE.md) [CWE-1333](/CWE_REFERENCE.md)
+- [CWE-400 — Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html)
+- [CWE-1333 — Inefficient Regular Expression Complexity](https://cwe.mitre.org/data/definitions/1333.html)
 
-**Prerequisites:** ::This type of an attack requires the ability to identify hosts running a poorly implemented Regex, and the ability to send crafted input to exploit the regular expression.::
+## Prerequisites
 
-**Mitigations:** ::Test custom written Regex with fuzzing to determine if the Regex is a poor one. Add timeouts to processes that handle the Regex logic. If an evil Regex is found rewrite it as a good Regex.::
+- This type of an attack requires the ability to identify hosts running a poorly implemented Regex, and the ability to send crafted input to exploit the regular expression.
 
+## Mitigations
+
+- Test custom written Regex with fuzzing to determine if the Regex is a poor one. Add timeouts to processes that handle the Regex logic. If an evil Regex is found rewrite it as a good Regex.
 
 ---
 

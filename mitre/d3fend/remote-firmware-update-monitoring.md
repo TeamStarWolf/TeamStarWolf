@@ -7,9 +7,9 @@
 
 ## ATT&CK techniques countered (3)
 
-- `T0800` — detects
-- `T0814` — monitors
-- `T0839` — detects
+- [T0800](https://attack.mitre.org/techniques/T0800) — detects
+- [T0814](https://attack.mitre.org/techniques/T0814) — monitors
+- [T0839](https://attack.mitre.org/techniques/T0839) — detects
 
 ---
 

@@ -4,6 +4,16 @@
 
 The adversary is trying to gain higher-level permissions.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1548.003 — Sudo and Sudo Caching](/mitre/techniques/T1548-003.md) — 18.7% of machines
+- [T1548.001 — Setuid and Setgid](/mitre/techniques/T1548-001.md) — 17.2% of machines
+- [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — 11.0% of machines
+- [T1053.003 — Cron](/mitre/techniques/T1053-003.md) — 10.4% of machines
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
+- [T1068 — Exploitation for Privilege Escalation](/mitre/techniques/T1068.md) — 1.5% of machines
+- [T1611 — Escape to Host](/mitre/techniques/T1611.md) — 1.3% of machines
+
 **109 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1037 — Boot or Logon Initialization Scripts](/mitre/techniques/T1037.md)

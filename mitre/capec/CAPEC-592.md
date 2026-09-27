@@ -4,20 +4,30 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Very High  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious script is persistently stored within the data storage of a vulnerable web application as valid input.
 
 ## Related CWE (1)
 
-[CWE-79](/CWE_REFERENCE.md)
+- [CWE-79 — Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)
 
-**Prerequisites:** ::An application that leverages a client-side web browser with scripting enabled.::An application that fails to adequately sanitize or encode untrusted input.::An application that stores information p
+## Prerequisites
 
-**Skills required:** ::SKILL:Requires the ability to write scripts of varying complexity and to inject them through user controlled fields within the application.:LEVEL:Me
+- An application that leverages a client-side web browser with scripting enabled.
+- An application that fails to adequately sanitize or encode untrusted input.
+- An application that stores information p
 
-**Mitigations:** ::Use browser technologies that do not allow client-side scripting.::Utilize strict type, character, and encoding enforcement.::Ensure that all user-supplied input is validated before being stored.::
+## Skills required
 
+- Requires the ability to write scripts of varying complexity and to inject them through user controlled fields within the application.:LEVEL:Me
+
+## Mitigations
+
+- Use browser technologies that do not allow client-side scripting.
+- Utilize strict type, character, and encoding enforcement.
+- Ensure that all user-supplied input is validated before being stored.
 
 ---
 

@@ -74,13 +74,13 @@ Good security architecture is not just about controls — it is about making sec
 | Technique ID | Name | Tactic | Relevance |
 |-------------|------|--------|-----------|
 | T1190 | Exploit Public-Facing Application | Initial Access | Flat perimeter architecture allows direct access to internal resources; DMZ/WAF design prevents this |
-| T1078 | Valid Accounts | Defense Evasion / Persistence | Implicit trust architectures make stolen credentials extremely powerful; Zero Trust limits blast radius |
+| T1078 | Valid Accounts | Stealth / Persistence | Implicit trust architectures make stolen credentials extremely powerful; Zero Trust limits blast radius |
 | T1021 | Remote Services | Lateral Movement | Flat networks enable lateral movement; microsegmentation and ZTNA architecturally constrain it |
 | T1133 | External Remote Services | Initial Access | VPN and remote access architectures with no MFA or segmentation are frequent initial access vectors |
 | T1048 | Exfiltration Over Alternative Protocol | Exfiltration | Permissive egress architectures allow DNS/HTTPS/ICMP tunneling; architecture must enforce outbound filtering |
 | T1041 | Exfiltration Over C2 Channel | Exfiltration | Lack of outbound TLS inspection and egress filtering enables C2 data theft |
 | T1071 | Application Layer Protocol | Command and Control | C2 over HTTP/HTTPS blends into allowed traffic; architecture must include SSL inspection and behavioral egress controls |
-| T1550 | Use Alternate Authentication Material | Defense Evasion | Pass-the-hash and pass-the-ticket attacks thrive in networks with implicit Kerberos trust; PAW and tiering prevent credential exposure |
+| T1550 | Use Alternate Authentication Material | Lateral Movement | Pass-the-hash and pass-the-ticket attacks thrive in networks with implicit Kerberos trust; PAW and tiering prevent credential exposure |
 | T1557 | Adversary-in-the-Middle | Credential Access | Unencrypted internal protocols (HTTP, LDAP, SMBv1) in flat networks expose credentials; architecture must encrypt internal traffic |
 | T1530 | Data from Cloud Storage Object | Collection | Overly permissive cloud IAM architecture exposes storage; CSPM and least-privilege IAM guardrails prevent it |
 

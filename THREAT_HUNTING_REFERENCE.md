@@ -1184,7 +1184,7 @@ index=endpoint sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational Ev
 
 ---
 
-### 6.6 TA0005 - Defense Evasion
+### 6.6 TA0005 - Stealth
 
 **Hypothesis:** An adversary cleared Windows event logs to conceal activity.
 

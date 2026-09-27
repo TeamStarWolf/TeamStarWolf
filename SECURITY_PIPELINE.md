@@ -253,7 +253,7 @@ The combined coverage of all six pipeline stages across the TeamStarWolf vendor 
 | Tactic | Coverage | Priority |
 |---|---|---|
 | Discovery | ~3% | 🔴 Critical |
-| Defense Evasion | ~5% | 🔴 Critical |
+| Stealth | ~5% | 🔴 Critical |
 | Collection | ~6% | 🔴 Critical |
 | Lateral Movement | ~18% | 🟠 High |
 | Command & Control | ~22% | 🟠 High |

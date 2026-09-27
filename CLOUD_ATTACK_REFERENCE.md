@@ -38,7 +38,7 @@ ATT&CK for Cloud spans three matrices: **IaaS** (covering AWS, Azure, GCP, OCI),
 | Execution | Lambda invocation, SSM Run Command, cloud console | T1651, T1059 |
 | Persistence | IAM backdoors, resource policy modification | T1098, T1546 |
 | Privilege Escalation | IAM policy manipulation, role chaining | T1078.004, T1548 |
-| Defense Evasion | Disable logging, operate in uncovered region | T1562, T1211 |
+| Stealth | Disable logging, operate in uncovered region | T1562, T1211 |
 | Credential Access | IMDS abuse, secrets manager, stored credentials | T1552.005, T1528 |
 | Discovery | IAM enum, resource listing, org enumeration | T1087, T1069, T1518 |
 | Lateral Movement | Cross-account role assumption, federation abuse | T1021, T1550 |

@@ -1671,10 +1671,10 @@ Set-Acl "C:\Windows\NTDS\NTDS.dit" $sacl
 | **4698** | Security | Scheduled task created | Persistence |
 | **4699** | Security | Scheduled task deleted | Tamper detection |
 | **4700** | Security | Scheduled task enabled | Persistence |
-| **4701** | Security | Scheduled task disabled | Defense evasion |
+| **4701** | Security | Scheduled task disabled | Defense impairment |
 | **4702** | Security | Scheduled task updated | Persistence |
 | **4703** | Security | Token right adjusted | Privilege escalation |
-| **4719** | Security | System audit policy changed | Defense evasion |
+| **4719** | Security | System audit policy changed | Defense impairment |
 | **4720** | Security | User account created | Persistence |
 | **4722** | Security | User account enabled | Persistence |
 | **4723** | Security | Password change attempt | Account control |
@@ -1703,7 +1703,7 @@ Set-Acl "C:\Windows\NTDS\NTDS.dit" $sacl
 | **7034** | System | Service crashed unexpectedly | Process injection / crash |
 | **7036** | System | Service state changed | Service manipulation |
 | **7045** | System | New service installed | Persistence |
-| **1102** | Security | Audit log cleared | Defense evasion — CRITICAL |
+| **1102** | Security | Audit log cleared | Defense impairment — CRITICAL |
 | **4616** | Security | System time changed | Timestamp manipulation |
 | **4907** | Security | Auditing settings on object changed | SACL tamper |
 
@@ -1746,7 +1746,7 @@ wevtutil gl Security
 | Lateral Movement (SMB) | T1021.002 | 5140, 5145, 4624 (Type 3) | Admin share access |
 | Pass the Ticket | T1550.003 | 4768, 4769, 4770 | Unusual TGT/TGS patterns |
 | Token Impersonation | T1134 | 4672, 4674, 4703 | SeImpersonatePrivilege use |
-| Defense Evasion (Log Clear) | T1070.001 | 1102, 104 | Audit log cleared |
+| Defense Impairment (Log Clear) | T1070.001 | 1102, 104 | Audit log cleared |
 | Account Discovery | T1087 | 4798, 4799 | Local group enumeration |
 | Network Scanning | T1046 | 5156, 5157 (WFP) | Port sweep patterns |
 

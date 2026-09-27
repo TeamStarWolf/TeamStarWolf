@@ -1417,7 +1417,7 @@ Revoke-AzureADUserAllRefreshToken -ObjectId "user-object-id"
 | Steal or Forge Kerberos Tickets: AS-REP Roasting | T1558.004 | Credential Access | Rubeus, GetNPUsers.py |
 | Network Sniffing | T1040 | Credential Access | Responder, Inveigh, tcpdump |
 | Adversary-in-the-Middle | T1557 | Credential Access | Responder, MITM6, Evilginx2 |
-| Modify Authentication Process | T1556 | Defense Evasion | Skeleton key, DC Shadow |
+| Modify Authentication Process | T1556 | Stealth | Skeleton key, DC Shadow |
 | Use Alternate Authentication Material: Pass the Hash | T1550.002 | Lateral Movement | Mimikatz, CrackMapExec, Impacket |
 | Use Alternate Authentication Material: Pass the Ticket | T1550.003 | Lateral Movement | Rubeus, Mimikatz |
 

@@ -172,7 +172,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 | T1566.002 | Spearphishing Link | Initial Access | Phishing with malicious or credential-harvesting links |
 | T1598 | Phishing for Information | Reconnaissance | Credential-focused phishing for intelligence gathering, not just access |
 | T1598.001 | Spearphishing Service | Reconnaissance | Phishing through social media, messaging apps, or third-party platforms |
-| T1656 | Impersonation | Defense Evasion | Impersonating trusted entities to bypass suspicion |
+| T1656 | Impersonation | Stealth | Impersonating trusted entities to bypass suspicion |
 | T1534 | Internal Spearphishing | Lateral Movement | Phishing from a compromised internal account to spread further |
 | T1204 | User Execution | Execution | Victim executes malicious file or link delivered via social engineering |
 

@@ -7,6 +7,12 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## 2026-09-26
 
 ### Added
+- **MITRE enriched per-object pages** in `mitre/` — a browsable, ATT&CK-Navigator-style
+  page for each object: 691 technique pages (tactics, platforms, mitigations, D3FEND
+  countermeasures, CAPEC, NIST 800-53, detection strategies, and Team Star Wolf corpus
+  prevalence where observed) and 44 mitigation pages with concrete **how-to-implement**
+  guidance, mapped NIST families, and the techniques each counters. Cross-framework
+  relationships (ATT&CK ↔ Mitigation ↔ D3FEND ↔ CAPEC ↔ NIST) in one place
 - **16 step-by-step how-to guides** in `guides/`, with a grouped hub — start-to-finish
   procedures (triage a CVE, build a detection, respond to ransomware, harden Windows/
   macOS, assess M365 with ScubaGear, run a purple-team exercise, start a vuln-mgmt

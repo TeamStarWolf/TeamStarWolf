@@ -11,7 +11,7 @@ An adversary leverages a firmware weakness within the Thunderbolt protocol, on a
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1211 — Exploitation for Defense Evasion](/mitre/techniques/T1211.md) — Adversaries may exploit a system or application vulnerability to bypass security features.
+- [T1211 — Exploitation for Stealth](/mitre/techniques/T1211.md) — Adversaries may exploit vulnerabilities to evade detection by hiding activity, suppressing logging, or operating within trusted or unmonitored components.
 - [T1542.002 — Component Firmware](/mitre/techniques/T1542-002.md) — Adversaries may modify component firmware to persist on systems.
 - [T1556 — Modify Authentication Process](/mitre/techniques/T1556.md) — Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts.
 

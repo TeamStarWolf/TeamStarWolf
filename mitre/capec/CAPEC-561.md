@@ -9,7 +9,7 @@ An adversary guesses or obtains (i.e. steals or purchases) legitimate Windows ad
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1021.002 — SMB/Windows Admin Shares](/mitre/techniques/T1021-002.md) — Adversaries may use Valid Accounts to interact with a remote network share using Server Message Block (SMB).
+- [T1021.002 — SMB/Windows Admin Shares](/mitre/techniques/T1021-002.md) — Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to interact with a remote network share using Server Message Block (SMB).
 
 ## Related CWE (7)
 

@@ -9,7 +9,7 @@ An adversary exploits a weakness enabling them to elevate their privilege and pe
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md) — Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions.
+- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md) — Adversaries may circumvent mechanisms designed to control privilege elevation to gain higher-level permissions.
 
 ## Related CWE (3)
 

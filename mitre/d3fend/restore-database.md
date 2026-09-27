@@ -19,7 +19,7 @@ Restoring the data in a database.
 - [T1137.006 — Add-ins](/mitre/techniques/T1137-006.md) — restores. Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system.
 - [T1207 — Rogue Domain Controller](/mitre/techniques/T1207.md) — restores. Adversaries may register a rogue Domain Controller to enable manipulation of Active Directory data.
 - [T1213.003 — Code Repositories](/mitre/techniques/T1213-003.md) — restores. Adversaries may leverage code repositories to collect valuable information.
-- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — restores. Adversaries may abuse mmc.exe to proxy execution of malicious .msc files.
+- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — restores. Adversaries may abuse mmc.exe to proxy execution of malicious.msc files.
 - [T1543.003 — Windows Service](/mitre/techniques/T1543-003.md) — restores. Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence.
 - [T1546.012 — Image File Execution Options Injection](/mitre/techniques/T1546-012.md) — restores. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers.
 - [T1546.015 — Component Object Model Hijacking](/mitre/techniques/T1546-015.md) — restores. Adversaries may establish persistence by executing malicious content triggered by hijacked references to Component Object Model (COM) objects.

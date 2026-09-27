@@ -10,7 +10,7 @@ This pattern of attack involves an adversary that uses stolen credentials to lev
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1021 — Remote Services](/mitre/techniques/T1021.md) — Adversaries may use Valid Accounts to log into a service that accepts remote connections, such as telnet, SSH, and VNC.
+- [T1021 — Remote Services](/mitre/techniques/T1021.md) — Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a service that accepts remote connections, such as telnet, SSH, and VNC.
 - [T1114.002 — Remote Email Collection](/mitre/techniques/T1114-002.md) — Adversaries may target an Exchange server, Office 365, or Google Workspace to collect sensitive information.
 - [T1133 — External Remote Services](/mitre/techniques/T1133.md) — Adversaries may leverage external-facing remote services to initially access and/or persist within a network.
 

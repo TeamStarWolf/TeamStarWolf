@@ -302,6 +302,19 @@ def render_technique(db, tid):
                    "](/mitre/techniques/" + tslug(par) + ".md)  ")
     out.append("\n".join(hdr) + "\n")
 
+    if p.get("revoked"):
+        sup = p.get("superseded_by")
+        supname = p.get("superseded_by_name", "")
+        if sup and sup in db.prof:
+            tgt = "[" + sup + " " + DASH + " " + supname + "](/mitre/techniques/" + tslug(sup) + ".md)"
+        elif sup:
+            tgt = "[" + sup + " " + DASH + " " + supname + "](https://attack.mitre.org/techniques/" + sup.replace(".", "/") + ")"
+        else:
+            tgt = ""
+        out.append("> **⚠ Revoked in ATT&CK v19.2**" + ((" " + DASH + " superseded by " + tgt + ".") if tgt else ".") + "\n")
+    elif p.get("deprecated"):
+        out.append("> **⚠ Deprecated in ATT&CK v19.2.**\n")
+
     if p.get("description"):
         out.append(p["description"].strip() + "\n")
 

@@ -38,12 +38,12 @@ Analyzing spawn arguments or attributes of a process to detect processes that ar
 - [T1082 — System Information Discovery](/mitre/techniques/T1082.md) — analyzes. An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
 - [T1124 — System Time Discovery](/mitre/techniques/T1124.md) — analyzes. An adversary may gather the system time and/or time zone settings from a local or remote system.
 - [T1134.004 — Parent PID Spoofing](/mitre/techniques/T1134-004.md) — analyzes. Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges.
-- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — analyzes. Adversaries may use Obfuscated Files or Information to hide artifacts of an intrusion from analysis.
+- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — analyzes. Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis.
 - [T1212 — Exploitation for Credential Access](/mitre/techniques/T1212.md) — analyzes. Adversaries may exploit software vulnerabilities in an attempt to collect credentials.
 - [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md) — analyzes. Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code.
 - [T1218.002 — Control Panel](/mitre/techniques/T1218-002.md) — analyzes. Adversaries may abuse control.exe to proxy execution of malicious payloads.
 - [T1218.003 — CMSTP](/mitre/techniques/T1218-003.md) — analyzes. Adversaries may abuse CMSTP to proxy execution of malicious code.
-- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — analyzes. Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
+- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — analyzes. Adversaries may abuse mshta.exe to proxy execution of malicious.hta files and Javascript or VBScript through a trusted Windows utility.
 - [T1218.011 — Rundll32](/mitre/techniques/T1218-011.md) — analyzes. Adversaries may abuse rundll32.exe to proxy execution of malicious code.
 - [T1220 — XSL Script Processing](/mitre/techniques/T1220.md) — analyzes. Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files.
 - [T1505.001 — SQL Stored Procedures](/mitre/techniques/T1505-001.md) — analyzes. Adversaries may abuse SQL stored procedures to establish persistent access to systems.

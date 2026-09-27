@@ -56,7 +56,7 @@ Configuration inventory identifies and records the configuration of software and
 - [T1562.009 — Safe Mode Boot](/mitre/techniques/T1562-009.md) — inventories. Adversaries may abuse Windows safe mode to disable endpoint defenses.
 - [T1564.008 — Email Hiding Rules](/mitre/techniques/T1564-008.md) — inventories. Adversaries may use email rules to hide inbound emails in a compromised user's mailbox.
 - [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md) — inventories. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
-- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — inventories. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR.
+- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — inventories. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1578.002 — Create Cloud Instance](/mitre/techniques/T1578-002.md) — inventories. An adversary may create a new instance or virtual machine (VM) within the compute service of a cloud account to evade defenses.
 - [T1578.003 — Delete Cloud Instance](/mitre/techniques/T1578-003.md) — inventories. An adversary may delete a cloud instance after they have performed malicious activities in an attempt to evade detection and remove evidence of their presence.
 - [T1578.004 — Revert Cloud Instance](/mitre/techniques/T1578-004.md) — inventories. An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.

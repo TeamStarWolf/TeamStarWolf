@@ -14,7 +14,7 @@ Restricting system configuration modifications to a specific user or group of us
 - [T1112 — Modify Registry](/mitre/techniques/T1112.md) — restricts. Adversaries may interact with the Windows Registry as part of a variety of other techniques to aid in defense evasion, persistence, and execution.
 - [T1137.006 — Add-ins](/mitre/techniques/T1137-006.md) — restricts. Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system.
 - [T1207 — Rogue Domain Controller](/mitre/techniques/T1207.md) — restricts. Adversaries may register a rogue Domain Controller to enable manipulation of Active Directory data.
-- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — restricts. Adversaries may abuse mmc.exe to proxy execution of malicious .msc files.
+- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — restricts. Adversaries may abuse mmc.exe to proxy execution of malicious.msc files.
 - [T1543.003 — Windows Service](/mitre/techniques/T1543-003.md) — restricts. Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence.
 - [T1546.012 — Image File Execution Options Injection](/mitre/techniques/T1546-012.md) — restricts. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers.
 - [T1546.015 — Component Object Model Hijacking](/mitre/techniques/T1546-015.md) — restricts. Adversaries may establish persistence by executing malicious content triggered by hijacked references to Component Object Model (COM) objects.

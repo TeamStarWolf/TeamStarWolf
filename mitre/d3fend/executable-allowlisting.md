@@ -41,12 +41,12 @@ Using a digital signature to authenticate a file before opening.
 - [T1124 — System Time Discovery](/mitre/techniques/T1124.md) — filters. An adversary may gather the system time and/or time zone settings from a local or remote system.
 - [T1134.004 — Parent PID Spoofing](/mitre/techniques/T1134-004.md) — filters. Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges.
 - [T1137.001 — Office Template Macros](/mitre/techniques/T1137-001.md) — blocks. Adversaries may abuse Microsoft Office templates to obtain persistence on a compromised system.
-- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — blocks, filters. Adversaries may use Obfuscated Files or Information to hide artifacts of an intrusion from analysis.
+- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — blocks, filters. Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis.
 - [T1204.002 — Malicious File](/mitre/techniques/T1204-002.md) — blocks. An adversary may rely upon a user opening a malicious file in order to gain execution.
 - [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md) — filters. Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code.
 - [T1218.002 — Control Panel](/mitre/techniques/T1218-002.md) — filters. Adversaries may abuse control.exe to proxy execution of malicious payloads.
 - [T1218.003 — CMSTP](/mitre/techniques/T1218-003.md) — filters. Adversaries may abuse CMSTP to proxy execution of malicious code.
-- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — filters. Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
+- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — filters. Adversaries may abuse mshta.exe to proxy execution of malicious.hta files and Javascript or VBScript through a trusted Windows utility.
 - [T1218.011 — Rundll32](/mitre/techniques/T1218-011.md) — filters. Adversaries may abuse rundll32.exe to proxy execution of malicious code.
 - [T1220 — XSL Script Processing](/mitre/techniques/T1220.md) — blocks, filters. Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files.
 - [T1505.001 — SQL Stored Procedures](/mitre/techniques/T1505-001.md) — filters. Adversaries may abuse SQL stored procedures to establish persistent access to systems.

@@ -22,7 +22,7 @@ Randomizing the base (start) address of one or more segments of memory during th
 - [T1190 — Exploit Public-Facing Application](/mitre/techniques/T1190.md) — obfuscates. Adversaries may attempt to exploit a weakness in an Internet-facing host or system to initially access a network.
 - [T1203 — Exploitation for Client Execution](/mitre/techniques/T1203.md) — obfuscates. Adversaries may exploit software vulnerabilities in client applications to execute code.
 - [T1210 — Exploitation of Remote Services](/mitre/techniques/T1210.md) — obfuscates. Adversaries may exploit remote services to gain unauthorized access to internal systems once inside of a network.
-- [T1211 — Exploitation for Defense Evasion](/mitre/techniques/T1211.md) — obfuscates. Adversaries may exploit a system or application vulnerability to bypass security features.
+- [T1211 — Exploitation for Stealth](/mitre/techniques/T1211.md) — obfuscates. Adversaries may exploit vulnerabilities to evade detection by hiding activity, suppressing logging, or operating within trusted or unmonitored components.
 - [T1212 — Exploitation for Credential Access](/mitre/techniques/T1212.md) — obfuscates. Adversaries may exploit software vulnerabilities in an attempt to collect credentials.
 - [T1218.013 — Mavinject](/mitre/techniques/T1218-013.md) — obfuscates. Adversaries may abuse mavinject.exe to proxy execution of malicious code.
 - [T1620 — Reflective Code Loading](/mitre/techniques/T1620.md) — obfuscates. Adversaries may reflectively load code into a process in order to conceal the execution of malicious payloads.

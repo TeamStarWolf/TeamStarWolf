@@ -11,7 +11,7 @@ An adversary targets the communication between two components (typically client 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1557 — Adversary-in-the-Middle](/mitre/techniques/T1557.md) — Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle (AiTM) technique to support follow-on behaviors such as Network Sniffing, Transmitted Data…
+- [T1557 — Adversary-in-the-Middle](/mitre/techniques/T1557.md) — Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle (AiTM) technique to support follow-on behaviors such as [Network…
 
 ## Related CWE (5)
 

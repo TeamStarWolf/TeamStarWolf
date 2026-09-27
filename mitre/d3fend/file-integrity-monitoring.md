@@ -56,10 +56,10 @@ Detecting any suspicious changes to files in a computer system.
 - [T1127.001 — MSBuild](/mitre/techniques/T1127-001.md) — analyzes. Adversaries may use MSBuild to proxy execution of code through a trusted Windows utility.
 - [T1137.001 — Office Template Macros](/mitre/techniques/T1137-001.md) — analyzes. Adversaries may abuse Microsoft Office templates to obtain persistence on a compromised system.
 - [T1137.003 — Outlook Forms](/mitre/techniques/T1137-003.md) — analyzes. Adversaries may abuse Microsoft Outlook forms to obtain persistence on a compromised system.
-- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — analyzes. Adversaries may use Obfuscated Files or Information to hide artifacts of an intrusion from analysis.
+- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — analyzes. Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis.
 - [T1187 — Forced Authentication](/mitre/techniques/T1187.md) — analyzes. Adversaries may gather credential material by invoking or forcing a user to automatically provide authentication information through a mechanism in which they can intercept.
 - [T1204.002 — Malicious File](/mitre/techniques/T1204-002.md) — analyzes. An adversary may rely upon a user opening a malicious file in order to gain execution.
-- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — analyzes. Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
+- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — analyzes. Adversaries may abuse mshta.exe to proxy execution of malicious.hta files and Javascript or VBScript through a trusted Windows utility.
 - [T1218.011 — Rundll32](/mitre/techniques/T1218-011.md) — analyzes. Adversaries may abuse rundll32.exe to proxy execution of malicious code.
 - [T1220 — XSL Script Processing](/mitre/techniques/T1220.md) — analyzes. Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files.
 - [T1486 — Data Encrypted for Impact](/mitre/techniques/T1486.md) — analyzes. Adversaries may encrypt data on target systems or on large numbers of systems in a network to interrupt availability to system and network resources.
@@ -114,7 +114,7 @@ Detecting any suspicious changes to files in a computer system.
 - [T1574.007 — Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md) — analyzes. Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries.
 - [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md) — analyzes. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 - [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — analyzes. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
-- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — analyzes. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR.
+- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — analyzes. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — analyzes. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 
 ---

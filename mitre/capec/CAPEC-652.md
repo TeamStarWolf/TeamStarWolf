@@ -11,7 +11,7 @@ An adversary obtains (i.e. steals or purchases) legitimate Kerberos credentials 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1558 — Steal or Forge Kerberos Tickets](/mitre/techniques/T1558.md) — Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable Pass the Ticket.
+- [T1558 — Steal or Forge Kerberos Tickets](/mitre/techniques/T1558.md) — Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003).
 
 ## Related CWE (9)
 

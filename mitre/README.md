@@ -12,6 +12,7 @@ ATT&CK-Navigator-style browsable pages: **one page per MITRE object**, cross-lin
 | [D3FEND](/mitre/d3fend/README.md) | 156 | defensive technique, D3FEND tactic, digital artifacts, ATT&CK techniques countered |
 | [CAPEC](/mitre/capec/README.md) | 615 | abstraction, severity, likelihood, mapped ATT&CK, related CWE, prerequisites, mitigations |
 | [ATLAS (AI/ML)](/mitre/atlas/README.md) | 205 | adversarial-AI techniques + mitigations |
+| [F3 (Fight Fraud)](/mitre/f3/README.md) | 123 | CTID fraud-lifecycle techniques; ATT&CK-derived ones cross-link to their technique pages |
 | [Cross-Framework Crosswalk](/mitre/crosswalk.md) | — | technique, mitigation, NIST, D3FEND, CAPEC in one table |
 
 ## Start here

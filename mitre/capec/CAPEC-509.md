@@ -10,7 +10,7 @@ Through the exploitation of how service accounts leverage Kerberos authenticatio
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1558.003 — Kerberoasting](/mitre/techniques/T1558-003.md) — Adversaries may abuse a valid Kerberos ticket-granting ticket (TGT) or sniff network traffic to obtain a ticket-granting service (TGS) ticket that may be vulnerable to Brute Force.
+- [T1558.003 — Kerberoasting](/mitre/techniques/T1558-003.md) — Adversaries may abuse a valid Kerberos ticket-granting ticket (TGT) or sniff network traffic to obtain a ticket-granting service (TGS) ticket that may be vulnerable to [Brute…
 
 ## Related CWE (7)
 

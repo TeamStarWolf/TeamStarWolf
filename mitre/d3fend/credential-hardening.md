@@ -28,7 +28,7 @@ Credential Hardening techniques modify system or network properties in order to 
 - [T1550.001 — Application Access Token](/mitre/techniques/T1550-001.md) — hardens. Adversaries may use stolen application access tokens to bypass the typical authentication process and access restricted accounts, information, or services on remote systems.
 - [T1550.004 — Web Session Cookie](/mitre/techniques/T1550-004.md) — hardens. Adversaries can use stolen session cookies to authenticate to web applications and services.
 - [T1552 — Unsecured Credentials](/mitre/techniques/T1552.md) — hardens. Adversaries may search compromised systems to find and obtain insecurely stored credentials.
-- [T1558 — Steal or Forge Kerberos Tickets](/mitre/techniques/T1558.md) — hardens. Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable Pass the Ticket.
+- [T1558 — Steal or Forge Kerberos Tickets](/mitre/techniques/T1558.md) — hardens. Adversaries may attempt to subvert Kerberos authentication by stealing or forging Kerberos tickets to enable [Pass the Ticket](https://attack.mitre.org/techniques/T1550/003).
 - [T1558.001 — Golden Ticket](/mitre/techniques/T1558-001.md) — hardens. Adversaries who have the KRBTGT account password hash may forge Kerberos ticket-granting tickets (TGT), also known as a golden ticket.
 - [T1606 — Forge Web Credentials](/mitre/techniques/T1606.md) — hardens. Adversaries may forge credential materials that can be used to gain access to web applications or Internet services.
 - [T1606.001 — Web Cookies](/mitre/techniques/T1606-001.md) — hardens. Adversaries may forge web cookies that can be used to gain access to web applications or Internet services.

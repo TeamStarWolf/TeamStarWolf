@@ -22,8 +22,8 @@ Data inventorying identifies and records the schemas, formats, volumes, and loca
 - [T1137.006 — Add-ins](/mitre/techniques/T1137-006.md) — inventories. Adversaries may abuse Microsoft Office add-ins to obtain persistence on a compromised system.
 - [T1207 — Rogue Domain Controller](/mitre/techniques/T1207.md) — inventories. Adversaries may register a rogue Domain Controller to enable manipulation of Active Directory data.
 - [T1213.003 — Code Repositories](/mitre/techniques/T1213-003.md) — inventories. Adversaries may leverage code repositories to collect valuable information.
-- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — inventories. Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
-- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — inventories. Adversaries may abuse mmc.exe to proxy execution of malicious .msc files.
+- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — inventories. Adversaries may abuse mshta.exe to proxy execution of malicious.hta files and Javascript or VBScript through a trusted Windows utility.
+- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — inventories. Adversaries may abuse mmc.exe to proxy execution of malicious.msc files.
 - [T1534 — Internal Spearphishing](/mitre/techniques/T1534.md) — inventories. After they already have access to accounts or systems within the environment, adversaries may use internal spearphishing to gain access to additional information or compromise other users within the same organization.
 - [T1543.003 — Windows Service](/mitre/techniques/T1543-003.md) — inventories. Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence.
 - [T1546.012 — Image File Execution Options Injection](/mitre/techniques/T1546-012.md) — inventories. Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers.

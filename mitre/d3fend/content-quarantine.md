@@ -57,11 +57,11 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1137.001 — Office Template Macros](/mitre/techniques/T1137-001.md) — quarantines. Adversaries may abuse Microsoft Office templates to obtain persistence on a compromised system.
 - [T1137.002 — Office Test](/mitre/techniques/T1137-002.md) — quarantines. Adversaries may abuse the Microsoft Office "Office Test" Registry key to obtain persistence on a compromised system.
 - [T1137.003 — Outlook Forms](/mitre/techniques/T1137-003.md) — quarantines. Adversaries may abuse Microsoft Outlook forms to obtain persistence on a compromised system.
-- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — quarantines. Adversaries may use Obfuscated Files or Information to hide artifacts of an intrusion from analysis.
+- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — quarantines. Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis.
 - [T1187 — Forced Authentication](/mitre/techniques/T1187.md) — quarantines. Adversaries may gather credential material by invoking or forcing a user to automatically provide authentication information through a mechanism in which they can intercept.
 - [T1204.002 — Malicious File](/mitre/techniques/T1204-002.md) — quarantines. An adversary may rely upon a user opening a malicious file in order to gain execution.
 - [T1218.002 — Control Panel](/mitre/techniques/T1218-002.md) — quarantines. Adversaries may abuse control.exe to proxy execution of malicious payloads.
-- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — quarantines. Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
+- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — quarantines. Adversaries may abuse mshta.exe to proxy execution of malicious.hta files and Javascript or VBScript through a trusted Windows utility.
 - [T1218.011 — Rundll32](/mitre/techniques/T1218-011.md) — quarantines. Adversaries may abuse rundll32.exe to proxy execution of malicious code.
 - [T1220 — XSL Script Processing](/mitre/techniques/T1220.md) — quarantines. Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files.
 - [T1486 — Data Encrypted for Impact](/mitre/techniques/T1486.md) — quarantines. Adversaries may encrypt data on target systems or on large numbers of systems in a network to interrupt availability to system and network resources.
@@ -127,7 +127,7 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md) — quarantines. Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 - [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — quarantines. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md) — quarantines. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
-- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — quarantines. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR.
+- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — quarantines. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — quarantines. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 
 ---

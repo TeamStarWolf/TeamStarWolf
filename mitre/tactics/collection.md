@@ -40,7 +40,7 @@ The adversary is trying to gather data of interest to their goal.
 - [T1213.006 — Databases](/mitre/techniques/T1213-006.md)
 - [T1530 — Data from Cloud Storage](/mitre/techniques/T1530.md)
 - [T1557 — Adversary-in-the-Middle](/mitre/techniques/T1557.md)
-- [T1557.001 — LLMNR/NBT-NS Poisoning and SMB Relay](/mitre/techniques/T1557-001.md)
+- [T1557.001 — Name Resolution Poisoning and SMB Relay](/mitre/techniques/T1557-001.md)
 - [T1557.002 — ARP Cache Poisoning](/mitre/techniques/T1557-002.md)
 - [T1557.003 — DHCP Spoofing](/mitre/techniques/T1557-003.md)
 - [T1557.004 — Evil Twin](/mitre/techniques/T1557-004.md)

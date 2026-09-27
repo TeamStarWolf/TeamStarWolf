@@ -2,8 +2,8 @@
 
 <a id="credential-scrubbing"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Subroutine
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Subroutine  
 
 The systematic removal of hard-coded credentials from source code to prevent accidental exposure and unauthorized access.
 

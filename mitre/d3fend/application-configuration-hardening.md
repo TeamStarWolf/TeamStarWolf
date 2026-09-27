@@ -2,8 +2,8 @@
 
 <a id="application-configuration-hardening"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Application Configuration
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Application Configuration  
 
 Modifying an application's configuration to reduce its attack surface.
 

@@ -2,8 +2,8 @@
 
 <a id="network-traffic-signature-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Analyzing network traffic and compares it to known signatures
 

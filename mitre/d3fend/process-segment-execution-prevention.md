@@ -2,8 +2,8 @@
 
 <a id="process-segment-execution-prevention"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Process Segment
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Process Segment  
 
 Preventing execution of any address in a memory region other than the code segment.
 

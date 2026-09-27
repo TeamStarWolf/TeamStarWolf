@@ -2,8 +2,8 @@
 
 <a id="application-based-process-isolation"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Subroutine, Process
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Subroutine, Process  
 
 Application code which prevents its own subroutines from accessing intra-process / internal memory space.
 

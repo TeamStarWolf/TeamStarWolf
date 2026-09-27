@@ -2,8 +2,8 @@
 
 <a id="token-based-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Access Token
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Access Token  
 
 Token-based authentication is an authentication protocol where users verify their identity in exchange for a unique access token. Users can then access the website, application, or resource for the life of the token without having to re-enter their credentials.
 

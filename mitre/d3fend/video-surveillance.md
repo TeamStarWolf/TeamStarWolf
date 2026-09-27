@@ -2,8 +2,8 @@
 
 <a id="video-surveillance"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Digital Camera
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Digital Camera  
 
 Monitoring of physical areas via camera video feeds to deter, detect, and investigate unauthorized access and related security events.
 

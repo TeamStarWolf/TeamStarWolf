@@ -13,10 +13,6 @@ In this attack scenario, the attacker passively listens for WiFi management fram
 - [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html) — The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
 - [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html) — The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or…
 
-## Prerequisites
-
-- None
-
 ## Skills required
 
 - [Low] Open source and commercial software tools are available and open databases of known WiFi SSID addresses are available online.

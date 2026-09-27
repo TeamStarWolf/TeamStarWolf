@@ -2,8 +2,8 @@
 
 <a id="bootloader-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Boot Loader
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Boot Loader  
 
 Cryptographically authenticating the bootloader software before system boot.
 

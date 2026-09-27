@@ -2,8 +2,8 @@
 
 <a id="firmware-embedded-monitoring-code"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Firmware
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Firmware  
 
 Monitoring code is injected into firmware for integrity monitoring of firmware and firmware data.
 

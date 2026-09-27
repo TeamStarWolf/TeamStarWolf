@@ -2,8 +2,8 @@
 
 <a id="executable-denylisting"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Create Process, Executable File
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Create Process, Executable File  
 
 Blocking the execution of files on a host in accordance with defined application policy rules.
 

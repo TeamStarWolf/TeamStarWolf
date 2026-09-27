@@ -2,8 +2,8 @@
 
 <a id="protocol-metadata-anomaly-detection"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Collecting network communication protocol metadata and identifying statistical outliers.
 

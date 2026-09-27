@@ -2,8 +2,8 @@
 
 <a id="dns-denylisting"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** DNS Network Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** DNS Network Traffic  
 
 Blocking DNS Network Traffic based on criteria such as IP address, domain name, or DNS query type.
 

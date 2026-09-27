@@ -2,8 +2,8 @@
 
 <a id="network-resource-access-mediation"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Network Resource
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Network Resource  
 
 Control of access to organizational systems and services by users or processes over a network.
 

@@ -2,8 +2,8 @@
 
 <a id="kernel-based-process-isolation"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Process
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Process  
 
 Using kernel-level capabilities to isolate processes.
 

@@ -2,8 +2,8 @@
 
 <a id="local-file-permissions"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** File, Directory
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** File, Directory  
 
 Local file permissions is the systematic process of defining, implementing, and managing access control policies that dictate user permissions for accessing files on a local system through the configuration of operating system functionality.
 

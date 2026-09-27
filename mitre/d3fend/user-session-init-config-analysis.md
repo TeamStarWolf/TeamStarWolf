@@ -2,8 +2,8 @@
 
 <a id="user-session-init-config-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** User Init Configuration File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** User Init Configuration File  
 
 Analyzing modifications to user session config files such as .bashrc or .bash_profile.
 

@@ -2,8 +2,8 @@
 
 <a id="system-daemon-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Operating System Process
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Operating System Process  
 
 Tracking changes to the state or configuration of critical system level processes.
 

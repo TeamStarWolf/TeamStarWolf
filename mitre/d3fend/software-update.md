@@ -2,8 +2,8 @@
 
 <a id="software-update"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Software
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Software  
 
 Replacing old software on a computer system component.
 

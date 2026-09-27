@@ -2,8 +2,8 @@
 
 <a id="file-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** File  
 
 File Analysis is an analytic process to determine a file's status. For example: virus, trojan, benign, malicious, trusted, unauthorized, sensitive, etc.
 

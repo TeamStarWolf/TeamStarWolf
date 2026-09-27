@@ -2,8 +2,8 @@
 
 <a id="physical-link-mapping"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Physical Link, Network Node
+**D3FEND tactic:** Model  
+**Digital artifacts:** Physical Link, Network Node  
 
 Physical link mapping identifies and models the link connectivity of the network devices within a physical network.
 

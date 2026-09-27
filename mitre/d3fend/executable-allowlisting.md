@@ -2,8 +2,8 @@
 
 <a id="executable-allowlisting"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Create Process, Executable File
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Create Process, Executable File  
 
 Using a digital signature to authenticate a file before opening.
 

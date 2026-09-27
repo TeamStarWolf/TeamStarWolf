@@ -2,8 +2,8 @@
 
 <a id="operating-mode-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** OT Controller Operating Mode
+**D3FEND tactic:** Detect  
+**Digital artifacts:** OT Controller Operating Mode  
 
 Detects operating modes such as Program, Run, Remote, or Stop.
 

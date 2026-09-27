@@ -2,8 +2,8 @@
 
 <a id="relay-pattern-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Outbound Internet Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Outbound Internet Network Traffic  
 
 The detection of an internal host relaying traffic between the internal network and the external network.
 

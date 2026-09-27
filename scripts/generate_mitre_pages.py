@@ -119,6 +119,8 @@ def clean_capec_field(s):
         part = str(part).strip()
         if not part:
             continue
+        if part.rstrip(".").strip().lower() in ("none", "n/a", "na", "unknown", "tbd", "todo"):
+            continue  # MITRE placeholder meaning "no content" — drop the noise bullet
         part = re.sub(r"^[A-Z][A-Z0-9 _-]{1,24}:\s*", "", part).strip()
         if part:
             out.append(part)
@@ -147,15 +149,24 @@ def sstr(v):
     return "" if v is None else str(v)
 
 
+_ABBR = {"e.g", "i.e", "etc", "vs", "cf", "al", "u.s", "a.k.a", "resp", "approx",
+         "fig", "eq", "dr", "mr", "ms", "inc", "ltd", "co", "st", "no", "ie", "eg", "ex"}
+
+
 def summarize(text, max_chars=220):
-    """First sentence (or first ~max_chars) of a description, on one line."""
+    """First sentence (abbreviation-aware) of a description, on one line; else a length clip."""
     if not text:
         return ""
     t = re.sub(r"\s+", " ", str(text)).strip()
-    m = re.match(r"(.+?[.!?])(?:\s|$)", t)
-    s = m.group(1) if m else t
+    s = t
+    for m in re.finditer(r"[.!?]+(?=\s|$)", t):
+        tok = re.sub(r"[^A-Za-z.]", "", t[:m.start()].rsplit(" ", 1)[-1]).rstrip(".").lower()
+        if tok in _ABBR or len(tok) <= 1:
+            continue  # abbreviation ("e.g.") or a single-letter initial — not a real sentence end
+        s = t[:m.end()]
+        break
     if len(s) > max_chars:
-        s = s[:max_chars].rsplit(" ", 1)[0].rstrip(",;:") + "\N{HORIZONTAL ELLIPSIS}"
+        s = s[:max_chars].rsplit(" ", 1)[0].rstrip(",;:(") + "\N{HORIZONTAL ELLIPSIS}"
     return s
 
 
@@ -509,9 +520,9 @@ def render_d3fend(db, slug, existing):
     out = ["# D3FEND: " + name + "\n", '<a id="' + slug + '"></a>\n']
     if page:
         if page["tactic"]:
-            out.append("**D3FEND tactic:** " + page["tactic"])
+            out.append("**D3FEND tactic:** " + page["tactic"] + "  ")
         if page["artifacts"]:
-            out.append("**Digital artifacts:** " + ", ".join(page["artifacts"]))
+            out.append("**Digital artifacts:** " + ", ".join(page["artifacts"]) + "  ")
         out.append("")
         if defrec.get("definition"):
             out.append(str(defrec["definition"]).strip() + "\n")
@@ -601,12 +612,12 @@ def aml_anchor(tid):
 def render_atlas_technique(db, tid):
     r = db.atlas[tid]
     out = ["# " + tid + " " + DASH + " " + r.get("name", "") + "\n", '<a id="' + aml_anchor(tid) + '"></a>\n']
-    hdr = ["**ATLAS tactics:** " + (", ".join(r.get("tactics") or []) or DASH)]
+    hdr = ["**ATLAS tactics:** " + (", ".join(r.get("tactics") or []) or DASH) + "  "]
     if r.get("parent_id"):
         par = r["parent_id"]
         pnm = db.atlas.get(par, {}).get("name", "")
-        hdr.append("**Sub-technique of:** [" + par + " " + DASH + " " + pnm + "](/mitre/atlas/" + aml_slug(par) + ".md)")
-    hdr.append("**ATLAS:** [" + tid + "](" + str(r.get("url")) + ")")
+        hdr.append("**Sub-technique of:** [" + par + " " + DASH + " " + pnm + "](/mitre/atlas/" + aml_slug(par) + ".md)  ")
+    hdr.append("**ATLAS:** [" + tid + "](" + str(r.get("url")) + ")  ")
     out.append("\n".join(hdr) + "\n")
     if r.get("description"):
         out.append(str(r["description"]).strip() + "\n")

@@ -2,8 +2,8 @@
 
 <a id="service-binary-verification"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Service Application
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Service Application  
 
 Analyzing changes in service binary files by comparing to a source of truth.
 

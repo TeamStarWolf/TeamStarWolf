@@ -2,8 +2,8 @@
 
 <a id="system-init-config-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** System Init Configuration
+**D3FEND tactic:** Detect  
+**Digital artifacts:** System Init Configuration  
 
 Analysis of any system process startup configuration.
 

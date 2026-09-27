@@ -2,8 +2,8 @@
 
 <a id="process-suspension"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Process
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Process  
 
 Suspending a running process on a computer system.
 

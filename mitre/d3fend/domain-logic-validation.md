@@ -2,8 +2,8 @@
 
 <a id="domain-logic-validation"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Subroutine
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Subroutine  
 
 Validation of variable state in the context of the domain application.
 

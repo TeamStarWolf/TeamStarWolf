@@ -2,8 +2,8 @@
 
 <a id="restore-network-access"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** Host
+**D3FEND tactic:** Restore  
+**Digital artifacts:** Host  
 
 Restoring a entity's access to a computer network.
 

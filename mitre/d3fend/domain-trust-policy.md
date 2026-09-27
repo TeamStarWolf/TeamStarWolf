@@ -2,8 +2,8 @@
 
 <a id="domain-trust-policy"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Directory Service
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Directory Service  
 
 Restricting inter-domain trust by modifying domain configuration.
 

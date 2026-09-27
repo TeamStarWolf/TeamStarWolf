@@ -2,8 +2,8 @@
 
 <a id="restore-email"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** Email
+**D3FEND tactic:** Restore  
+**Digital artifacts:** Email  
 
 Restoring an email for an entity to access.
 

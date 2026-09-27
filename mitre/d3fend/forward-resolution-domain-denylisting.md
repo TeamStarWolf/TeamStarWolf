@@ -2,8 +2,8 @@
 
 <a id="forward-resolution-domain-denylisting"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Outbound Internet DNS Lookup Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Outbound Internet DNS Lookup Traffic  
 
 Blocking a lookup based on the query's domain name value.
 

@@ -2,8 +2,8 @@
 
 <a id="session-termination"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Session
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Session  
 
 Forcefully end all active sessions associated with compromised accounts or devices.
 

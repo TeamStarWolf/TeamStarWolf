@@ -2,8 +2,8 @@
 
 <a id="outbound-traffic-filtering"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Outbound Network Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Outbound Network Traffic  
 
 Restricting network traffic originating from a private host or enclave destined towards untrusted networks.
 

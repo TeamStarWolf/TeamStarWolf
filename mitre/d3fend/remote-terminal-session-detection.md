@@ -2,8 +2,8 @@
 
 <a id="remote-terminal-session-detection"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Detection of an unauthorized remote live terminal console session by examining network traffic to a network host.
 

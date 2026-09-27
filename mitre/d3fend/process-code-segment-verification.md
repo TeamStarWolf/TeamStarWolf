@@ -2,8 +2,8 @@
 
 <a id="process-code-segment-verification"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Process Code Segment
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Process Code Segment  
 
 Comparing the "text" or "code" memory segments to a source of truth.
 

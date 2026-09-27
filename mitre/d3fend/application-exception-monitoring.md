@@ -2,8 +2,8 @@
 
 <a id="application-exception-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Log
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Log  
 
 Monitoring the failures of system counters and timers.
 

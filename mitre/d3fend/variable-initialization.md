@@ -2,8 +2,8 @@
 
 <a id="variable-initialization"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Subroutine
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Subroutine  
 
 Setting variables to a known value before use.
 

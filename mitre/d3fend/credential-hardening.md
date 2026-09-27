@@ -2,8 +2,8 @@
 
 <a id="credential-hardening"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Credential
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Credential  
 
 Credential Hardening techniques modify system or network properties in order to protect system or network/domain credentials.
 

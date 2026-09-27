@@ -12,6 +12,9 @@ by the date its pull requests merged to `main` rather than by tagged release.
   CAPEC attack-pattern pages (mapped to ATT&CK + CWE, grouped by severity), and 170
   ATLAS AI/ML technique pages + 35 ATLAS mitigations — completing "one page per MITRE
   object" alongside the technique/mitigation pages. All internal links verified (0 broken)
+- **MITRE cross-framework crosswalk** (`mitre/crosswalk.md`) — technique ↔ mitigation ↔
+  NIST 800-53 ↔ D3FEND ↔ CAPEC in one place, including a per-mitigation rollup of NIST
+  families and D3FEND countermeasures (the join not expressed elsewhere)
 - **MITRE enriched per-object pages** in `mitre/` — a browsable, ATT&CK-Navigator-style
   page for each object: 691 technique pages (tactics, platforms, mitigations, D3FEND
   countermeasures, CAPEC, NIST 800-53, detection strategies, and Team Star Wolf corpus

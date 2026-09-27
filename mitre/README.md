@@ -10,6 +10,7 @@ ATT&CK-Navigator-style browsable pages: **one page per MITRE object**, enriched 
 - [D3FEND countermeasures](/mitre/d3fend/README.md) — 156 defensive-technique pages, each with the ATT&CK techniques it counters
 - [CAPEC attack patterns](/mitre/capec/README.md) — 615 pattern pages mapped to ATT&CK techniques + CWE, grouped by severity
 - [ATLAS (AI/ML)](/mitre/atlas/README.md) — 170 AI adversarial technique pages + 35 mitigations
+- [Cross-Framework Crosswalk](/mitre/crosswalk.md) — the join in one place: technique ↔ mitigation ↔ NIST 800-53 ↔ D3FEND ↔ CAPEC, incl. a per-mitigation NIST/D3FEND rollup
 
 ⭐ marks techniques observed in the Team Star Wolf 529-machine training corpus.
 

@@ -220,6 +220,19 @@ class DB:
         ea_p = DATA / "engage/engage_activities.jsonl"
         self.engage_desc = {r["activity_id"]: r.get("description", "") for r in (load_jsonl(ea_p) if ea_p.exists() else [])}
 
+        # F3 — CTID Fight Fraud Framework
+        f3_p = DATA / "fraud/f3_techniques.jsonl"
+        self.f3 = {r["technique_id"]: r for r in (load_jsonl(f3_p) if f3_p.exists() else [])}
+        self.f3_tactics = {r.get("shortname"): r for r in load_jsonl(DATA / "fraud/f3_tactics.jsonl")} if (DATA / "fraud/f3_tactics.jsonl").exists() else {}
+        self.f3_subs = defaultdict(list)
+        for r in self.f3.values():
+            pid = r.get("parent_id")
+            if pid and pid != "None":
+                self.f3_subs[pid].append(r["technique_id"])
+        # ATT&CK techniques that are also present in F3 (attack_derived, id-matched)
+        self.f3_of_attack = {tid for tid, r in self.f3.items()
+                             if str(r.get("attack_derived")).lower() == "true" and tid in self.prof}
+
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
             c, d = r.get("nist_control"), r.get("control_desc")
@@ -417,6 +430,14 @@ def render_technique(db, tid):
                 line += " " + DASH + " " + d
             rows.append(line)
         out.append("\n".join(rows) + "\n")
+
+    # F3 (CTID Fight Fraud Framework) — this technique is also modeled as a fraud technique
+    if tid in db.f3_of_attack:
+        fr = db.f3.get(tid, {})
+        out.append("## Fraud (F3)\n")
+        out.append("Also modeled in the CTID Fight Fraud Framework as [" + tid + " " + DASH + " " +
+                   fr.get("name", "") + "](/mitre/f3/" + tid + ".md) (fraud tactic(s): " +
+                   (", ".join(as_list(fr.get("tactics"))) or DASH) + ").\n")
 
     # Adversary usage (named, replaces bare counts)
     groups = db.groups_by_t.get(tid) or []
@@ -700,6 +721,55 @@ def render_atlas_mitigation(db, mid):
     return "\n".join(out)
 
 
+# ----------------------------------------------------------------------------- F3 (fraud)
+def render_f3_technique(db, fid):
+    r = db.f3[fid]
+    out = ["# " + fid + " " + DASH + " " + r.get("name", "") + "\n", '<a id="f3-' + fid.lower() + '"></a>\n']
+    tacs = as_list(r.get("tactics"))
+    tac_names = ", ".join(db.f3_tactics.get(t, {}).get("name", t) for t in tacs) or DASH
+    hdr = ["**F3 tactics:** " + tac_names + "  ",
+           "**Fight Fraud Framework:** [" + fid + "](" + str(r.get("url")) + ")  "]
+    if fid in db.f3_of_attack:
+        hdr.append("**Also an ATT&CK technique:** [" + fid + " " + DASH + " " + db.prof[fid]["name"] +
+                   "](/mitre/techniques/" + tslug(fid) + ".md)  ")
+    pid = r.get("parent_id")
+    if pid and pid != "None":
+        hdr.append("**Sub-technique of:** [" + pid + " " + DASH + " " + db.f3.get(pid, {}).get("name", "") +
+                   "](/mitre/f3/" + pid + ".md)  ")
+    out.append("\n".join(hdr) + "\n")
+    if r.get("description"):
+        out.append(str(r["description"]).strip() + "\n")
+    kids = sorted(db.f3_subs.get(fid) or [])
+    if kids:
+        out.append("## Sub-techniques (" + str(len(kids)) + ")\n")
+        out.append("\n".join("- [" + k + " " + DASH + " " + db.f3[k].get("name", "") + "](/mitre/f3/" + k + ".md)"
+                             for k in kids) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_f3_landing(db):
+    by_tac = defaultdict(list)
+    for fid, r in db.f3.items():
+        if str(r.get("is_subtechnique")).lower() == "true":
+            continue
+        for t in (as_list(r.get("tactics")) or ["(untagged)"]):
+            by_tac[t].append(fid)
+    lines = ["# F3 " + DASH + " Fight Fraud Framework", "",
+             "The CTID **Fight Fraud Framework (F3)** models the fraud lifecycle as tactics + techniques, "
+             "alongside ATT&CK. " + str(len(db.f3_of_attack)) + " F3 techniques are ATT&CK-derived and cross-link "
+             "to their [technique pages](/mitre/techniques/README.md); the rest are fraud-specific.", ""]
+    for t in sorted(by_tac):
+        tn = db.f3_tactics.get(t, {}).get("name", t.title())
+        lines.append("## " + tn + " (" + str(len(by_tac[t])) + ")\n")
+        for fid in sorted(by_tac[t]):
+            tag = " ⭐ (ATT&CK)" if fid in db.f3_of_attack else ""
+            lines.append("- [" + fid + " " + DASH + " " + db.f3[fid].get("name", "") + "](/mitre/f3/" + fid + ".md)" + tag)
+        lines.append("")
+    lines.append(SHORT_FOOTER)
+    return "\n".join(lines)
+
+
 # ----------------------------------------------------------------------------- landing
 def render_landing(db):
     n_tech = len(list((MITRE / "techniques").glob("T*.md")))
@@ -708,6 +778,7 @@ def render_landing(db):
     n_d3 = len([p for p in (MITRE / "d3fend").glob("*.md") if p.name != "README.md"])
     n_cap = len(list((MITRE / "capec").glob("CAPEC-*.md")))
     n_atl = len(list((MITRE / "atlas").glob("AML-*.md")))
+    n_f3 = len(db.f3)
     corpus_n = len(db.corpus_ids)
     lines = [
         "# MITRE Frameworks " + DASH + " Enriched Knowledge Base",
@@ -733,6 +804,8 @@ def render_landing(db):
         "| [CAPEC](/mitre/capec/README.md) | " + str(n_cap) + " | abstraction, severity, likelihood, mapped "
         "ATT&CK, related CWE, prerequisites, mitigations |",
         "| [ATLAS (AI/ML)](/mitre/atlas/README.md) | " + str(n_atl) + " | adversarial-AI techniques + mitigations |",
+        "| [F3 (Fight Fraud)](/mitre/f3/README.md) | " + str(n_f3) + " | CTID fraud-lifecycle techniques; ATT&CK-derived "
+        "ones cross-link to their technique pages |",
         "| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | " + DASH + " | technique, mitigation, NIST, D3FEND, "
         "CAPEC in one table |",
         "",
@@ -831,6 +904,16 @@ def main():
             (d / (aml_slug(mid) + ".md")).write_text(render_atlas_mitigation(db, mid), encoding="utf-8")
             nm += 1
         print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages")
+
+    if "f3" in only:
+        d = out_root / "f3"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for fid in db.f3:
+            (d / (fid + ".md")).write_text(render_f3_technique(db, fid), encoding="utf-8")
+            n += 1
+        (d / "README.md").write_text(render_f3_landing(db), encoding="utf-8")
+        print("f3: wrote " + str(n) + " technique pages + README")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)

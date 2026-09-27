@@ -21,14 +21,24 @@ An attacker tricks a victim to execute malicious flash content that executes com
 
 ## Skills required
 
-- The attacker needs to have knowledge of Flash, especially how to insert content the executes commands.:LEVEL:Medium
+- [Medium] The attacker needs to have knowledge of Flash, especially how to insert content the executes commands.
+
+## Consequences
+
+- Confidentiality / Other
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 
 - Implementation: remove sensitive information such as user name and password in the SWF file.
 - Implementation: use validation on both client and server side.
 - Implementation: remove debug information.
-- Implementation: use SSL when loading external d
+- Implementation: use SSL when loading external data
+- Implementation: use crossdomain.xml file to allow the application domain to load stuff or the SWF file called by other domain.
 
 ---
 

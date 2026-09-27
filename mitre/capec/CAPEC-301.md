@@ -14,7 +14,11 @@ An adversary uses full TCP connection attempts to determine if a port is open on
 
 ## Prerequisites
 
-- The adversary requires logical access to the target network. The TCP connect Scan requires the ability to connect to an available port and complete a 'three-way-handshake' This scanning technique do
+- The adversary requires logical access to the target network. The TCP connect Scan requires the ability to connect to an available port and complete a 'three-way-handshake' This scanning technique does not require any special privileges in order to perform. This type of scan works against all TCP/IP stack implementations.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

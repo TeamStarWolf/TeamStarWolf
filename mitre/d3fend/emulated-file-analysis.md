@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Executable File, Document File
 
+Emulating instructions in a file looking for specific patterns.
+
 ## ATT&CK techniques countered (43)
 
 - [T0853](https://attack.mitre.org/techniques/T0853) — analyzes

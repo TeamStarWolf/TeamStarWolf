@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** Database
 
+Restoring the data in a database.
+
 ## ATT&CK techniques countered (23)
 
 - [T0894](https://attack.mitre.org/techniques/T0894) — restores

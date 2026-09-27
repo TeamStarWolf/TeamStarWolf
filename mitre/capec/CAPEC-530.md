@@ -15,7 +15,7 @@ An attacker provides a counterfeit component during the procurement process of a
 
 ## Skills required
 
-- Able to develop and manufacture malicious system components that resemble legitimate name-brand components.:LEVEL:High
+- [High] Able to develop and manufacture malicious system components that resemble legitimate name-brand components.
 
 ## Mitigations
 

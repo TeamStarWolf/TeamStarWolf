@@ -16,6 +16,10 @@ This attack pattern combines malicious Javascript and a legitimate webpage loade
 
 - The user's browser must have vulnerabilities in its implementation of the same-origin policy. It allows certain data in a loaded page to originate from different servers/domains.
 
+## Consequences
+
+- Confidentiality / Read Data
+
 ## Mitigations
 
 - Avoid clicking on untrusted links.

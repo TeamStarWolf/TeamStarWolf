@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** Software
 
+Restoring software to a host.
+
 ## ATT&CK techniques countered (35)
 
 - [T0811](https://attack.mitre.org/techniques/T0811) — restores

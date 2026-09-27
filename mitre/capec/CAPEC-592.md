@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Stable  
 
-An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious script is persistently stored within the data storage of a vulnerable web application as valid input.
+An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious script is persistently "stored" within the data storage of a vulnerable web application as valid input.
 
 ## Related CWE (1)
 
@@ -17,11 +17,18 @@ An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious scr
 
 - An application that leverages a client-side web browser with scripting enabled.
 - An application that fails to adequately sanitize or encode untrusted input.
-- An application that stores information p
+- An application that stores information provided by the user in data storage of some kind.
 
 ## Skills required
 
-- Requires the ability to write scripts of varying complexity and to inject them through user controlled fields within the application.:LEVEL:Me
+- [Medium] Requires the ability to write scripts of varying complexity and to inject them through user controlled fields within the application.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Authorization, Access Control / Gain Privileges
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Integrity / Modify Data
 
 ## Mitigations
 

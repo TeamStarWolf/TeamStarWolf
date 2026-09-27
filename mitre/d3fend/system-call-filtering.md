@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Process, System Call
 
+Controlling access to local computer system resources with kernel-level capabilities.
+
 ## ATT&CK techniques countered (66)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — isolates

@@ -19,18 +19,26 @@ An adversary injects oversized serialized data payloads into a parser during dat
 ## Prerequisites
 
 - An application uses an parser for serialized data to perform transformation on user-controllable data.
-- An application does not perform sufficient validation to ensure that user-controllable data is
+- An application does not perform sufficient validation to ensure that user-controllable data is safe for a data parser.
 
 ## Skills required
 
-- Denial of service:LEVEL:Low
-- Arbitrary code execution:LEVEL:High
+- [Low] Denial of service
+- [High] Arbitrary code execution
+
+## Consequences
+
+- Availability / Resource Consumption
+- Confidentiality / Read Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Carefully validate and sanitize all user-controllable serialized data prior to passing it to the parser routine. Ensure that the resultant data is safe to pass to the parser.
 - Perform validation on canonical data.
-- Pick a robust implementation of t
+- Pick a robust implementation of the serialized data parser.
+- Validate data against a valid schema or DTD prior to parsing.
 
 ---
 

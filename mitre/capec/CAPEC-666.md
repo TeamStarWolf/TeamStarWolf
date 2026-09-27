@@ -24,7 +24,11 @@ An adversary uses Bluetooth flooding to transfer large packets to Bluetooth enab
 
 ## Skills required
 
-- An adversary only needs a Linux machine along with a Bluetooth adapter, which is extremely common.:LEVEL:Low
+- [Low] An adversary only needs a Linux machine along with a Bluetooth adapter, which is extremely common.
+
+## Consequences
+
+- Availability / Unreliable Execution, Resource Consumption
 
 ## Mitigations
 

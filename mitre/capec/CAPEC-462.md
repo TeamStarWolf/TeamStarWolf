@@ -6,7 +6,7 @@
 **Typical severity:** Medium  
 **Status:** Draft  
 
-An attacker initiates cross domain HTTP / GET requests and times the server responses. The timing of these responses may leak important information on what is happening on the server. Browser's same origin policy prevents the attacker from directly reading the server responses (in the absence of any other weaknesses), but does not prevent the attacker from timing the responses to requests that the
+An attacker initiates cross domain HTTP / GET requests and times the server responses. The timing of these responses may leak important information on what is happening on the server. Browser's same origin policy prevents the attacker from directly reading the server responses (in the absence of any other weaknesses), but does not prevent the attacker from timing the responses to requests that the attacker issued cross domain.
 
 ## Related CWE (3)
 
@@ -16,16 +16,20 @@ An attacker initiates cross domain HTTP / GET requests and times the server resp
 
 ## Prerequisites
 
-- Ability to issue GET / POST requests cross domainJava Script is enabled in the victim's browserThe victim has an active session with the site from which the attacker would like to receive informatio
+- Ability to issue GET / POST requests cross domainJava Script is enabled in the victim's browserThe victim has an active session with the site from which the attacker would like to receive informationThe victim's site does not protect search functionality with cross site request forgery (CSRF) protection
 
 ## Skills required
 
-- Some knowledge of Java Script:LEVEL:Low
+- [Low] Some knowledge of Java Script
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Design: The victim's site could protect all potentially sensitive functionality (e.g. search functions) with cross site request forgery (CSRF) protection and not perform any work on behalf of forged requests
-- Design: The browser's security model co
+- Design: The browser's security model could be fixed to not leak timing information for cross domain requests
 
 ---
 

@@ -5,7 +5,7 @@
 **Abstraction:** Standard  
 **Status:** Draft  
 
-An attacker may execute a ICMP Fragmentation attack against a target with the intention of consuming resources or causing a crash. The attacker crafts a large number of identical fragmented IP packets containing a portion of a fragmented ICMP message. The attacker these sends these messages to a target host which causes the host to become non-responsive. Another vector may be sending a fragmented
+An attacker may execute a ICMP Fragmentation attack against a target with the intention of consuming resources or causing a crash. The attacker crafts a large number of identical fragmented IP packets containing a portion of a fragmented ICMP message. The attacker these sends these messages to a target host which causes the host to become non-responsive. Another vector may be sending a fragmented ICMP message to a target host with incorrect sizes in the header which causes the host to hang.
 
 ## Related CWE (2)
 
@@ -18,7 +18,7 @@ An attacker may execute a ICMP Fragmentation attack against a target with the in
 
 ## Mitigations
 
-- This attack may be mitigated through egress filtering based on ICMP payload so a network is a good neighbor to other networks. Bad IP implementations become patched, so using the proper version of a browser or OS is recommended.
+- This attack may be mitigated through egress filtering based on ICMP payload so a network is a "good neighbor" to other networks. Bad IP implementations become patched, so using the proper version of a browser or OS is recommended.
 
 ---
 

@@ -15,7 +15,7 @@ An attacker maliciously alters hardware components that will be sold on the gray
 
 ## Skills required
 
-- Able to develop and manufacture malicious hardware components that perform the same functions and processes as their non-malicious counterpart
+- [High] Able to develop and manufacture malicious hardware components that perform the same functions and processes as their non-malicious counterparts.
 
 ## Mitigations
 

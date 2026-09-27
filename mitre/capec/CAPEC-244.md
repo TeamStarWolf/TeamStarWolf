@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type exploits the ability of most browsers to interpret data, javascript or other URI schemes as client-side executable content placeholders. This attack consists of passing a malicious URI in an anchor tag HREF attribute or any other similar attributes in other HTML tags. Such malicious URI contains, for example, a base64 encoded HTML content with an embedded cross-site scriptin
+An attack of this type exploits the ability of most browsers to interpret "data", "javascript" or other URI schemes as client-side executable content placeholders. This attack consists of passing a malicious URI in an anchor tag HREF attribute or any other similar attributes in other HTML tags. Such malicious URI contains, for example, a base64 encoded HTML content with an embedded cross-site scripting payload. The attack is executed when the browser interprets the malicious content i.e., for example, when the victim clicks on the malicious link.
 
 ## Related CWE (1)
 
@@ -19,13 +19,26 @@ An attack of this type exploits the ability of most browsers to interpret data, 
 
 ## Skills required
 
-- To inject the malicious payload in a web page:LEVEL:Medium
+- [Medium] To inject the malicious payload in a web page
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 
 - Design: Use browser technologies that do not allow client side scripting.
 - Design: Utilize strict type, character, and encoding enforcement.
-- Implementation: Ensure all content that is delivered to client is sanitized against an acceptable content
+- Implementation: Ensure all content that is delivered to client is sanitized against an acceptable content specification.
+- Implementation: Ensure all content coming from the client is using the same encoding; if not, the server-side application must canonicalize the data before applying any filtering.
+- Implementation: Perform input validation for all remote content, including remote and user-generated content
+- Implementation: Perform output validation for all remote content.
+- Implementation: Disable scripting languages such as JavaScript in browser
+- Implementation: Patching software. There are many attack vectors for XSS on the client side and the server side. Many vulnerabilities are fixed in service packs for browser, web servers, and plug in technologies, staying current on patch release that deal with XSS countermeasures mitigates this.
 
 ---
 

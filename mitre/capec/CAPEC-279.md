@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-Simple Object Access Protocol (SOAP) is used as a communication protocol between a client and server to invoke web services on the server. It is an XML-based protocol, and therefore suffers from many of the same shortcomings as other XML-based protocols. Adversaries can make use of these shortcomings and manipulate the content of SOAP paramters, leading to undesirable behavior on the server and al
+Simple Object Access Protocol (SOAP) is used as a communication protocol between a client and server to invoke web services on the server. It is an XML-based protocol, and therefore suffers from many of the same shortcomings as other XML-based protocols. Adversaries can make use of these shortcomings and manipulate the content of SOAP paramters, leading to undesirable behavior on the server and allowing the adversary to carry out a number of further attacks.
 
 ## Related CWE (1)
 
@@ -17,7 +17,13 @@ Simple Object Access Protocol (SOAP) is used as a communication protocol between
 
 - An application uses SOAP-based web service api.
 - An application does not perform sufficient input validation to ensure that user-controllable data is safe for an XML parser.
-- The targeted server eit
+- The targeted server either fails to verify that data in SOAP messages conforms to the appropriate XML schema, or it fails to correctly handle the complete range of data allowed by the schema.
+
+## Consequences
+
+- Availability / Resource Consumption
+- Confidentiality / Read Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ---
 

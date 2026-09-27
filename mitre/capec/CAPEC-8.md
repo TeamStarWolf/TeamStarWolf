@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-This attack targets libraries or shared code modules which are vulnerable to buffer overflow attacks. An adversary who has knowledge of known vulnerable libraries or shared code can easily target software that makes use of these libraries. All clients that make use of the code library thus become vulnerable by association. This has a very broad effect on security across a system, usually affecting
+This attack targets libraries or shared code modules which are vulnerable to buffer overflow attacks. An adversary who has knowledge of known vulnerable libraries or shared code can easily target software that makes use of these libraries. All clients that make use of the code library thus become vulnerable by association. This has a very broad effect on security across a system, usually affecting more than one software process.
 
 ## Related CWE (8)
 
@@ -27,14 +27,23 @@ This attack targets libraries or shared code modules which are vulnerable to buf
 
 ## Skills required
 
-- An adversary can simply overflow a buffer by inserting a long string into an adversary-modifiable injection vector. The result can be a DoS.:L
+- [Low] An adversary can simply overflow a buffer by inserting a long string into an adversary-modifiable injection vector. The result can be a DoS.
+- [High] Exploiting a buffer overflow to inject malicious code into the stack of a software system or even the heap can require a higher skill level.
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Use a language or compiler that performs automatic bounds checking.
 - Use secure functions not vulnerable to buffer overflow.
 - If you have to use dangerous functions, make sure that you do boundary checking.
-- Compiler-based canary mechanisms such as
+- Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
+- Use OS-level preventative functionality. Not a complete solution.
 
 ---
 

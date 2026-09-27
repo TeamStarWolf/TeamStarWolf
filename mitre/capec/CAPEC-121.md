@@ -28,7 +28,13 @@ An adversary exploits a sample, demonstration, test, or debug interface that is 
 
 ## Skills required
 
-- Exploiting non-production interfaces requires significant skill and knowledge about the potential non-production interfaces left enabled in pr
+- [High] Exploiting non-production interfaces requires significant skill and knowledge about the potential non-production interfaces left enabled in production.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges, Bypass Protection Mechanism
+- Confidentiality, Access Control, Authorization / Read Data, Execute Unauthorized Commands
+- Access Control, Integrity / Modify Data, Alter Execution Logic
 
 ## Mitigations
 

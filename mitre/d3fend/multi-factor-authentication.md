@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Credential
 
+Requiring proof of two or more pieces of evidence in order to authenticate a user.
+
 ## ATT&CK techniques countered (23)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — uses

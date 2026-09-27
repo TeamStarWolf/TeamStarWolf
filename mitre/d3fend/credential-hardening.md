@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Credential
 
+Credential Hardening techniques modify system or network properties in order to protect system or network/domain credentials.
+
 ## ATT&CK techniques countered (23)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — hardens

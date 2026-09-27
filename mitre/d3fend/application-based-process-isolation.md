@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Subroutine, Process
 
+Application code which prevents its own subroutines from accessing intra-process / internal memory space.
+
 ## ATT&CK techniques countered (22)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — isolates

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Email
 
+Characterizing the reputation of mail transfer agents (MTA) to determine the security risk in emails.
+
 ## ATT&CK techniques countered (5)
 
 - [T0865](https://attack.mitre.org/techniques/T0865) — analyzes

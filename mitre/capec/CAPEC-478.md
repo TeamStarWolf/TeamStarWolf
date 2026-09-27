@@ -11,8 +11,8 @@ An adversary exploits a weakness in access control to modify the execution param
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1543.003 — Windows Service](/mitre/techniques/T1543-003.md) — Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence.
 - [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md) — Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
+- [T1543.003 — Windows Service](/mitre/techniques/T1543-003.md) — Adversaries may create or modify Windows services to repeatedly execute malicious payloads as part of persistence.
 
 ## Related CWE (1)
 
@@ -21,6 +21,10 @@ An adversary exploits a weakness in access control to modify the execution param
 ## Prerequisites
 
 - The adversary must have the capability to write to the Windows Registry on the targeted system.
+
+## Consequences
+
+- Integrity / Execute Unauthorized Commands
 
 ## Mitigations
 

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Hardware Device
 
+Radiation hardening is the process of making electronic components and circuits resistant to damage or malfunction caused by high levels of ionizing radiation.
+
 ## ATT&CK techniques countered (13)
 
 - [T0847](https://attack.mitre.org/techniques/T0847) — hardens

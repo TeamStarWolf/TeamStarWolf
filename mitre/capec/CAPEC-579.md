@@ -17,7 +17,7 @@ Winlogon is a part of Windows that performs logon actions. In Windows systems pr
 
 ## Mitigations
 
-- Changes to registry entries in HKLMSoftwareMicrosoftWindows NTWinlogonNotify that do not correlate with known software, patch cycles, etc are suspicious. New DLLs written to System32 which do not correlate with known good software or patching may b
+- Changes to registry entries in "HKLM\Software\Microsoft\Windows NT\Winlogon\Notify" that do not correlate with known software, patch cycles, etc are suspicious. New DLLs written to System32 which do not correlate with known good software or patching may be suspicious.
 
 ---
 

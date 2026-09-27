@@ -18,6 +18,10 @@ An adversary actively probes the target in a manner that is designed to solicit 
 
 - An adversary requires some way of interacting with the system.
 
+## Consequences
+
+- Confidentiality / Read Data
+
 ## Mitigations
 
 - Minimize error/response output to only what is necessary for functional use or corrective language.

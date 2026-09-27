@@ -23,11 +23,20 @@ In this attack, the target software is given input that the adversary knows will
 
 ## Prerequisites
 
-- The program expands one of the parameters passed to a function with input controlled by the user, but a later function making use of the expanded parameter erroneously considers the original, not th
+- The program expands one of the parameters passed to a function with input controlled by the user, but a later function making use of the expanded parameter erroneously considers the original, not the expanded size of the parameter.
+- The expanded parameter is used in the context where buffer overflow may become possible due to the incorrect understanding of the parameter size (i.e. thinking that it is smaller than it really is).
 
 ## Skills required
 
-- Finding this particular buffer overflow may not be trivial. Also, stack and especially heap based buffer overflows require a lot of knowledge
+- [High] Finding this particular buffer overflow may not be trivial. Also, stack and especially heap based buffer overflows require a lot of knowledge if the intended goal is arbitrary code execution. Not only that the adversary needs to write the shell code to accomplish their goals, but the adversary also needs to find a way to get the program execution to jump to the planted shell code. There also needs to be sufficient room for the payload. So not every buffer overflow will be exploitable, even by a skilled adversary.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Availability / Unreliable Execution
+- Integrity / Modify Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
 
 ## Mitigations
 

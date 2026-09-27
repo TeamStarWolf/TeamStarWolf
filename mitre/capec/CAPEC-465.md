@@ -18,16 +18,16 @@ A transparent proxy serves as an intermediate between the client and the interne
 
 ## Prerequisites
 
-- Transparent proxy is usedVulnerable configuration of network topology involving the transparent proxy (e.g., no NAT happening between the client and the proxy)Execution of malicious Flash or Applet
+- Transparent proxy is usedVulnerable configuration of network topology involving the transparent proxy (e.g., no NAT happening between the client and the proxy)Execution of malicious Flash or Applet in the victim's browser
 
 ## Skills required
 
-- Creating malicious Flash or Applet to open a cross-domain socket connection to a remote system:LEVEL:Medium
+- [Medium] Creating malicious Flash or Applet to open a cross-domain socket connection to a remote system
 
 ## Mitigations
 
 - Design: Ensure that the transparent proxy uses an actual network layer IP address for routing requests. On the transparent proxy, disable the use of routing based on address information in the HTTP host header.
-- Configuration: Disable in the browse
+- Configuration: Disable in the browser the execution of Java Script, Flash, SilverLight, etc.
 
 ---
 

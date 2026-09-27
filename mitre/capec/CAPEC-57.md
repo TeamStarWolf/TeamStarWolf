@@ -22,11 +22,15 @@ This attack utilizes a REST(REpresentational State Transfer)-style applications'
 ## Prerequisites
 
 - Opportunity to intercept must exist beyond the point where SSL is terminated.
-- The adversary must be able to insert a listener actively (proxying the communication) or passively (sniffing the commun
+- The adversary must be able to insert a listener actively (proxying the communication) or passively (sniffing the communication) in the client-server communication path.
 
 ## Skills required
 
-- To insert a network sniffer or other listener into the communication stream:LEVEL:Low
+- [Low] To insert a network sniffer or other listener into the communication stream
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 

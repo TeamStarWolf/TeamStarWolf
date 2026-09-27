@@ -25,8 +25,15 @@ An adversary embeds one or more null bytes in input to the target software. This
 
 ## Skills required
 
-- Directory traversal:LEVEL:Medium
-- Execution of arbitrary code:LEVEL:High
+- [Medium] Directory traversal
+- [High] Execution of arbitrary code
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 

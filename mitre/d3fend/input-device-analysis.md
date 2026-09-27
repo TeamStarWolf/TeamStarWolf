@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Input Device
 
+Operating system level mechanisms to prevent abusive input device exploitation.
+
 ## ATT&CK techniques countered (3)
 
 - [T1056.001 — Keylogging](/mitre/techniques/T1056-001.md) — analyzes. Adversaries may log user keystrokes to intercept credentials as the user types them.

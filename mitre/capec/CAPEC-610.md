@@ -14,7 +14,12 @@ Adversaries inject data into mobile technology traffic (data flows or signaling 
 
 ## Skills required
 
-- Often achieved by nation states in conjunction with commercial cellular providers to conduct cellular traffic intercept and possible traffic i
+- [High] Often achieved by nation states in conjunction with commercial cellular providers to conduct cellular traffic intercept and possible traffic injection.
+
+## Consequences
+
+- Availability / Resource Consumption
+- Availability / Modify Data
 
 ## Mitigations
 

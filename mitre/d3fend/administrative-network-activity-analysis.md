@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Intranet Administrative Network Traffic
 
+Detection of unauthorized use of administrative network protocols by analyzing network activity against a baseline.
+
 ## ATT&CK techniques countered (8)
 
 - [T1003.006 — DCSync](/mitre/techniques/T1003-006.md) — analyzes. Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain…

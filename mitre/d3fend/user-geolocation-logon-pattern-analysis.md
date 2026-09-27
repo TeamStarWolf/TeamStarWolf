@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Network Traffic
 
+Monitoring geolocation data of user logon attempts and comparing it to a baseline user behavior profile to identify anomalies in logon location.
+
 ## ATT&CK techniques countered (90)
 
 - [T0814](https://attack.mitre.org/techniques/T0814) — analyzes

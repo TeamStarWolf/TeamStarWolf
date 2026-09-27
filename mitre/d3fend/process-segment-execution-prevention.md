@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Process Segment
 
+Preventing execution of any address in a memory region other than the code segment.
+
 ## ATT&CK techniques countered (17)
 
 - [T0820](https://attack.mitre.org/techniques/T0820) — neutralizes

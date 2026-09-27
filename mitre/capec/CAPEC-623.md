@@ -6,7 +6,7 @@
 **Typical severity:** Low  
 **Status:** Draft  
 
-Compromising Emanations (CE) are defined as unintentional signals which an attacker may intercept and analyze to disclose the information processed by the targeted equipment. Commercial mobile devices and retransmission devices have displays, buttons, microchips, and radios that emit mechanical emissions in the form of sound or vibrations. Capturing these emissions can help an adversary understand
+Compromising Emanations (CE) are defined as unintentional signals which an attacker may intercept and analyze to disclose the information processed by the targeted equipment. Commercial mobile devices and retransmission devices have displays, buttons, microchips, and radios that emit mechanical emissions in the form of sound or vibrations. Capturing these emissions can help an adversary understand what the device is doing.
 
 ## Related CWE (1)
 
@@ -18,7 +18,11 @@ Compromising Emanations (CE) are defined as unintentional signals which an attac
 
 ## Skills required
 
-- Sophisticated attack.:LEVEL:High
+- [High] Sophisticated attack.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

@@ -20,12 +20,13 @@ An attacker obtains an authoritative or reputable signer's private signature key
 ## Prerequisites
 
 - An authoritative signer is using a weak method of random number generation or weak signing software that causes key leakage or permits key inference.
-- An authoritative signer is using a signature al
+- An authoritative signer is using a signature algorithm with a direct weakness or with poorly chosen parameters that enable the key to be recovered using signatures from that signer.
 
 ## Skills required
 
-- Cryptanalysis of signature generation algorithm:LEVEL:High
-- Reverse engineering and cryptanalysis of signature generation algorithm impl
+- [High] Cryptanalysis of signature generation algorithm
+- [High] Reverse engineering and cryptanalysis of signature generation algorithm implementation and random number generation
+- [High] Ability to create malformed data blobs and know how to present them directly or indirectly to a victim.
 
 ## Mitigations
 

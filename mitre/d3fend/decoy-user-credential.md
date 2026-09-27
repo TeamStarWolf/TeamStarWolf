@@ -5,6 +5,8 @@
 **D3FEND tactic:** Deceive
 **Digital artifacts:** Credential
 
+A Credential created for the purpose of deceiving an adversary.
+
 ## ATT&CK techniques countered (23)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — spoofs

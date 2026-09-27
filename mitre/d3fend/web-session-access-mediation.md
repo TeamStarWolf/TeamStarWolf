@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Service Application Process
 
+Web session access mediation secures user sessions in web applications by employing robust authentication and integrity validation, along with adaptive threat mitigation techniques, to ensure that access to web resources is authorized and protected from session-related attacks.
+
 ## ATT&CK techniques countered (14)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — isolates

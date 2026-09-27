@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Software
 
+Software inventorying identifies and records the software items in the organization's architecture.
+
 ## ATT&CK techniques countered (35)
 
 - [T0811](https://attack.mitre.org/techniques/T0811) — inventories

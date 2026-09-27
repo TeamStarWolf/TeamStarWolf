@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** User Account
 
+The process of temporarily disabling user accounts on a system or domain.
+
 ## ATT&CK techniques countered (19)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — disables

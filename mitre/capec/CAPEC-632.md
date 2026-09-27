@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Draft  
 
-An adversary registers a domain name containing a homoglyph, leading the registered domain to appear the same as a trusted domain. A homograph attack leverages the fact that different characters among various character sets look the same to the user. Homograph attacks must generally be combined with other attacks, such as phishing attacks, in order to direct Internet traffic to the adversary-contr
+An adversary registers a domain name containing a homoglyph, leading the registered domain to appear the same as a trusted domain. A homograph attack leverages the fact that different characters among various character sets look the same to the user. Homograph attacks must generally be combined with other attacks, such as phishing attacks, in order to direct Internet traffic to the adversary-controlled destinations.
 
 ## Related CWE (1)
 
@@ -19,7 +19,11 @@ An adversary registers a domain name containing a homoglyph, leading the registe
 
 ## Skills required
 
-- Adversaries must be able to register DNS hostnames/URL’s.:LEVEL:Low
+- [Low] Adversaries must be able to register DNS hostnames/URL’s.
+
+## Consequences
+
+- Other / Other
 
 ## Mitigations
 

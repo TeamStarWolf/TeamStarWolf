@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Process
 
+Identification of suspicious processes executing on an end-point device by examining the ancestry and siblings of a process, and the associated metadata of each node on the tree, such as process execution, duration, and order relative to siblings and ancestors.
+
 ## ATT&CK techniques countered (21)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — analyzes

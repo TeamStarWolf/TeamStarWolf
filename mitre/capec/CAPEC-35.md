@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type exploits a system's trust in configuration and resource files. When the executable loads the resource (such as an image file or configuration file) the attacker has modified the file to either execute malicious code directly or manipulate the target process (e.g. application server) to execute based on the malicious configuration parameters. Since systems are increasingly in
+An attack of this type exploits a system's trust in configuration and resource files. When the executable loads the resource (such as an image file or configuration file) the attacker has modified the file to either execute malicious code directly or manipulate the target process (e.g. application server) to execute based on the malicious configuration parameters. Since systems are increasingly interrelated mashing up resources from local and remote sources the possibility of this attack occurring is high.
 
 ## Mapped ATT&CK techniques (3)
 
@@ -32,13 +32,21 @@ An attack of this type exploits a system's trust in configuration and resource f
 
 ## Skills required
 
-- To identify and execute against an over-privileged system interface:LEVEL:Low
+- [Low] To identify and execute against an over-privileged system interface
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Design: Enforce principle of least privilege
 - Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands.
-- Imple
+- Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables.
+- Implementation: Implement host integrity monitoring to detect any unwanted altering of configuration files.
+- Implementation: Ensure that files that are not required to execute, such as configuration files, are not over-privileged, i.e. not allowed to execute.
 
 ---
 

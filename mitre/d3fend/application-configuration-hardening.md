@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Application Configuration
 
+Modifying an application's configuration to reduce its attack surface.
+
 ## ATT&CK techniques countered (6)
 
 - [T0858](https://attack.mitre.org/techniques/T0858) — hardens

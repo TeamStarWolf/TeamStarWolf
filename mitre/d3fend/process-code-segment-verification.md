@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Process Code Segment
 
+Comparing the "text" or "code" memory segments to a source of truth.
+
 ## ATT&CK techniques countered (11)
 
 - [T0820](https://attack.mitre.org/techniques/T0820) — verifies

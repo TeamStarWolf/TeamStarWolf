@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Physical Link
 
+Enforce one-way network communication by preventing two-way communication.
+
 ## ATT&CK techniques countered (2)
 
 - [T0860](https://attack.mitre.org/techniques/T0860) — restricts

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Hardware Device
 
+Hardware component inventorying identifies and records the hardware items in the organization's architecture.
+
 ## ATT&CK techniques countered (13)
 
 - [T0847](https://attack.mitre.org/techniques/T0847) — inventories

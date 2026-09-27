@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** System Configuration Database
 
+Restricting system configuration modifications to a specific user or group of users.
+
 ## ATT&CK techniques countered (14)
 
 - [T0894](https://attack.mitre.org/techniques/T0894) — restricts

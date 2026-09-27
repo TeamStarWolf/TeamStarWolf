@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** System Firmware
 
+Cryptographically verifying installed system firmware integrity.
+
 ## ATT&CK techniques countered (2)
 
 - [T1542.001 — System Firmware](/mitre/techniques/T1542-001.md) — verifies. Adversaries may modify system firmware to persist on systems.The BIOS (Basic Input/Output System) and The Unified Extensible Firmware Interface (UEFI) or Extensible Firmware Interface (EFI) are examples of system…

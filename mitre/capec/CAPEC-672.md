@@ -15,16 +15,22 @@ During the programming step of chip manufacture, an adversary with access and ne
 
 ## Prerequisites
 
-- An adversary would need to have access to a foundry’s or chip maker’s development/production environment where programs for specific chips are developed, managed and uploaded into targeted chips pri
+- An adversary would need to have access to a foundry’s or chip maker’s development/production environment where programs for specific chips are developed, managed and uploaded into targeted chips prior to distribution or sale.
 
 ## Skills required
 
-- An adversary needs to be skilled in microprogramming, manipulation of configuration management systems, and in the operation of tools used for
+- [Medium] An adversary needs to be skilled in microprogramming, manipulation of configuration management systems, and in the operation of tools used for the uploading of programs into chips during manufacture. Uploading can be for individual chips or performed on a large scale basis.
+
+## Consequences
+
+- Integrity / Alter Execution Logic
 
 ## Mitigations
 
 - Utilize DMEA’s (Defense Microelectronics Activity) Trusted Foundry Program members for acquisition of microelectronic components.
-- Ensure that each supplier performing hardware development implements comprehensive, security-focused configuration ma
+- Ensure that each supplier performing hardware development implements comprehensive, security-focused configuration management of microcode and microcode generating tools and software.
+- Require that provenance of COTS microelectronic components be known whenever procured.
+- Conduct detailed vendor assessment before acquiring COTS hardware.
 
 ---
 

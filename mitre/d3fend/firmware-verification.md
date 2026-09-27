@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Firmware
 
+Cryptographically verifying firmware integrity.
+
 ## ATT&CK techniques countered (6)
 
 - [T0839](https://attack.mitre.org/techniques/T0839) — verifies

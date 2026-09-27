@@ -29,13 +29,20 @@ An attacker may provide a Unicode string to a system component that is not Unico
 
 ## Skills required
 
-- An attacker needs to understand Unicode encodings and have an idea (or be able to find out) what system components may not be Unicode aware.:L
+- [Medium] An attacker needs to understand Unicode encodings and have an idea (or be able to find out) what system components may not be Unicode aware.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Integrity / Modify Data
+- Availability / Unreliable Execution
 
 ## Mitigations
 
 - Ensure that the system is Unicode aware and can properly process Unicode data. Do not make an assumption that data will be in ASCII.
 - Ensure that filtering or input validation is applied to canonical data.
-- Assume all input is malicious. Create an
+- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system.
 
 ---
 

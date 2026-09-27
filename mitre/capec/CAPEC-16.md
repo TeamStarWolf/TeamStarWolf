@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An attacker tries each of the words in a dictionary as passwords to gain access to the system via some user's account. If the password chosen by the user was a word within the dictionary, this attack will be successful (in the absence of other mitigations). This is a specific instance of the password brute forcing attack pattern. Dictionary Attacks differ from similar attacks such as Password Spra
+An attacker tries each of the words in a dictionary as passwords to gain access to the system via some user's account. If the password chosen by the user was a word within the dictionary, this attack will be successful (in the absence of other mitigations). This is a specific instance of the password brute forcing attack pattern. Dictionary Attacks differ from similar attacks such as Password Spraying (CAPEC-565) and Credential Stuffing (CAPEC-600), since they leverage unknown username/password combinations and don't care about inducing account lockouts.
 
 ## Related CWE (7)
 
@@ -23,16 +23,23 @@ An attacker tries each of the words in a dictionary as passwords to gain access 
 
 - The system uses one factor password based authentication.
 - The system does not have a sound password policy that is being enforced.
-- The system does not implement an effective password throttling me
+- The system does not implement an effective password throttling mechanism.
 
 ## Skills required
 
-- A variety of password cracking tools and dictionaries are available to launch this type of an attack.:LEVEL:Low
+- [Low] A variety of password cracking tools and dictionaries are available to launch this type of an attack.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Create a strong password policy and ensure that your system enforces this policy.
-- Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as
+- Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2.
+- Leverage multi-factor authentication for all authentication services.
 
 ---
 

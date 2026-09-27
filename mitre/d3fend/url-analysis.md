@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** URL
 
+Determining if a URL is benign or malicious by analyzing the URL or its components.
+
 ## ATT&CK techniques countered (5)
 
 - [T0817](https://attack.mitre.org/techniques/T0817) — analyzes

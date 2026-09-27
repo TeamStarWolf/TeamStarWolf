@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-Adversaries may attempt to obtain information about attached peripheral devices and components connected to a computer system. Examples may include discovering the presence of iOS devices by searching for backups, analyzing the Windows registry to determine what USB devices have been connected, or infecting a victim system with malware to report when a USB device has been connected. This may allow
+Adversaries may attempt to obtain information about attached peripheral devices and components connected to a computer system. Examples may include discovering the presence of iOS devices by searching for backups, analyzing the Windows registry to determine what USB devices have been connected, or infecting a victim system with malware to report when a USB device has been connected. This may allow the adversary to gain additional insight about the system or network environment, which may be useful in constructing further attacks.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -23,8 +23,8 @@ Adversaries may attempt to obtain information about attached peripheral devices 
 
 ## Skills required
 
-- The adversary needs to be able to infect the victim system in a manner that gives them remote access.:LEVEL:Medium
-- If analyzing the Win
+- [Medium] The adversary needs to be able to infect the victim system in a manner that gives them remote access.
+- [Medium] If analyzing the Windows registry, the adversary must understand the registry structure to know where to look for devices.
 
 ## Mitigations
 

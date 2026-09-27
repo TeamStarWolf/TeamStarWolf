@@ -19,13 +19,19 @@ An adversary exploits incorrect chaining or granularity of hardware debug compon
 
 ## Skills required
 
-- Ability to identify physical debug interfaces on a device:LEVEL:Medium
-- Ability to operate devices to scan and connect to an exposed deb
+- [Medium] Ability to identify physical debug interfaces on a device
+- [Medium] Ability to operate devices to scan and connect to an exposed debug interface
+
+## Consequences
+
+- Confidentiality / Read Data
+- Integrity / Modify Data
+- Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Implement: Ensure that debug components are properly chained, and their granularity is maintained at different authorization levels
-- Perform Post-silicon validation tests at various authorization levels to ensure that debug components are only acce
+- Perform Post-silicon validation tests at various authorization levels to ensure that debug components are only accessible to authorized users
 
 ---
 

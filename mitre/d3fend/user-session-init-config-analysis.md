@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** User Init Configuration File
 
+Analyzing modifications to user session config files such as .bashrc or .bash_profile.
+
 ## ATT&CK techniques countered (2)
 
 - [T1546.004 — Unix Shell Configuration Modification](/mitre/techniques/T1546-004.md) — analyzes. Adversaries may establish persistence through executing malicious commands triggered by a user’s shell.

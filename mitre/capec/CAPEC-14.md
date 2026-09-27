@@ -27,12 +27,26 @@ This type of attack exploits a buffer overflow vulnerability in targeted client 
 
 ## Skills required
 
-- To achieve a denial of service, an attacker can simply overflow a buffer by inserting a long string into an attacker-modifiable injection vect
+- [Low] To achieve a denial of service, an attacker can simply overflow a buffer by inserting a long string into an attacker-modifiable injection vector.
+- [High] Exploiting a buffer overflow to inject malicious code into the stack of a software system or even the heap requires a more in-depth knowledge and higher skill level.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Integrity / Modify Data
+- Availability / Resource Consumption
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 
 - The client software should not install untrusted code from a non-authenticated server.
-- The client software should have the latest patches and should be audited for vulnerabilities before being used to communicate with potentially hostile servers.:
+- The client software should have the latest patches and should be audited for vulnerabilities before being used to communicate with potentially hostile servers.
+- Perform input validation for length of buffer inputs.
+- Use a language or compiler that performs automatic bounds checking.
+- Use an abstraction library to abstract away risky APIs. Not a complete solution.
+- Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
+- Ensure all buffer uses are consistently bounds-checked.
+- Use OS-level preventative functionality. Not a complete solution.
 
 ---
 

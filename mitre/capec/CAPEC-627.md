@@ -15,7 +15,11 @@ An adversary attempts to deceive a GPS receiver by broadcasting counterfeit GPS 
 
 ## Skills required
 
-- The ability to spoof GPS signals is not trival.:LEVEL:High
+- [High] The ability to spoof GPS signals is not trival.
+
+## Consequences
+
+- Integrity / Modify Data
 
 ---
 

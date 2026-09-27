@@ -25,11 +25,15 @@ This type of attack involves an adversary that exploits weaknesses in an applica
 
 ## Skills required
 
-- Exploiting a poorly protected identity token is a well understood attack with many helpful resources available.:LEVEL:Low
+- [Low] Exploiting a poorly protected identity token is a well understood attack with many helpful resources available.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Gain Privileges
 
 ## Mitigations
 
-- Properly encrypt and sign identity tokens in transit, and use industry standard session key generation mechanisms that utilize high amount of entropy to generate the session key. Many standard web and application servers will perform this task on y
+- Properly encrypt and sign identity tokens in transit, and use industry standard session key generation mechanisms that utilize high amount of entropy to generate the session key. Many standard web and application servers will perform this task on your behalf. Utilize a session timeout for all sessions. If the user does not explicitly logout, terminate their session after this period of inactivity. If the user logs back in then a new session key should be generated.
 
 ---
 

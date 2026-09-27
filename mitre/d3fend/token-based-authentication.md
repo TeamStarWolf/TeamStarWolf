@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Access Token
 
+Token-based authentication is an authentication protocol where users verify their identity in exchange for a unique access token. Users can then access the website, application, or resource for the life of the token without having to re-enter their credentials.
+
 ## ATT&CK techniques countered (7)
 
 - [T1134.001 — Token Impersonation/Theft](/mitre/techniques/T1134-001.md) — uses. Adversaries may duplicate then impersonate another user's existing token to escalate privileges and bypass access controls.

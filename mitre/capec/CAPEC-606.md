@@ -18,7 +18,11 @@ An attacker, with control of a Cellular Rogue Base Station or through cooperatio
 
 ## Skills required
 
-- Adversaries can purchase and implement rogue BTS stations at a cost effective rate, and can push a mobile device to downgrade to a non-secure
+- [Medium] Adversaries can purchase and implement rogue BTS stations at a cost effective rate, and can push a mobile device to downgrade to a non-secure cellular protocol like 2G over GSM or CDMA.
+
+## Consequences
+
+- Confidentiality / Other
 
 ## Mitigations
 

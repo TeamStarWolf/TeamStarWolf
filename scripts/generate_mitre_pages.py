@@ -110,12 +110,13 @@ def as_list(v):
 
 
 def clean_capec_field(s):
-    """CAPEC prose fields use '::' as a record separator and LABEL: prefixes."""
+    """CAPEC prose fields: accept a JSON array (current data) or a '::'-joined string (legacy)."""
     if not s:
         return []
+    parts = s if isinstance(s, list) else str(s).split("::")
     out = []
-    for part in str(s).split("::"):
-        part = part.strip()
+    for part in parts:
+        part = str(part).strip()
         if not part:
             continue
         part = re.sub(r"^[A-Z][A-Z0-9 _-]{1,24}:\s*", "", part).strip()
@@ -579,7 +580,7 @@ def render_capec(db, cid):
         out.append("\n".join(rows) + "\n")
     # prose lists (fix the '::' separators)
     for key, heading in (("prerequisites", "Prerequisites"), ("skills_required", "Skills required"),
-                         ("mitigations", "Mitigations")):
+                         ("consequences", "Consequences"), ("mitigations", "Mitigations")):
         items = clean_capec_field(c.get(key))
         if items:
             out.append("## " + heading + "\n")

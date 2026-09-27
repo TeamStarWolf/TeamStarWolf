@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** File
 
+Remote file access mediation is the process of managing and securing access to file systems over a network to ensure that only authorized users or processes can interact with remote files.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — isolates

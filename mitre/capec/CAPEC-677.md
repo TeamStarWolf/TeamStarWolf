@@ -15,14 +15,20 @@ Malware is inserted in a server motherboard (e.g., in the flash memory) in order
 
 ## Prerequisites
 
-- An adversary with access to hardware/software processes and tools within the development or hardware/software support environment can insert malicious software into hardware components during develo
+- An adversary with access to hardware/software processes and tools within the development or hardware/software support environment can insert malicious software into hardware components during development or update/maintenance.
+
+## Consequences
+
+- Integrity / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Purchase IT systems, components and parts from government approved vendors whenever possible.
 - Establish diversity among suppliers.
 - Conduct rigorous threat assessments of suppliers.
-- Require that Bills of Material (BoM) for critical parts and comp
+- Require that Bills of Material (BoM) for critical parts and components be certified.
+- Utilize contract language requiring contractors and subcontractors to flow down to subcontractors and suppliers SCRM and SCRA (Supply Chain Risk Assessment) requirements.
+- Establish trusted supplier networks.
 
 ---
 

@@ -24,7 +24,7 @@ Adversaries implant malicious code in open source software (OSS) libraries to ha
 
 ## Skills required
 
-- Advanced knowledge about the inclusion and specific usage of an open source code project within system being targeted for infiltration.:LEVEL:
+- [High] Advanced knowledge about the inclusion and specific usage of an open source code project within system being targeted for infiltration.
 
 ---
 

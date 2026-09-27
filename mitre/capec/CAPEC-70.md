@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An adversary may try certain common or default usernames and passwords to gain access into the system and perform unauthorized actions. An adversary may try an intelligent brute force using empty passwords, known vendor default credentials, as well as a dictionary of common usernames and passwords. Many vendor products come preconfigured with default (and thus well-known) usernames and passwords t
+An adversary may try certain common or default usernames and passwords to gain access into the system and perform unauthorized actions. An adversary may try an intelligent brute force using empty passwords, known vendor default credentials, as well as a dictionary of common usernames and passwords. Many vendor products come preconfigured with default (and thus well-known) usernames and passwords that should be deleted prior to usage in a production environment. It is a common mistake to forget to remove these default login credentials. Another problem is that users would pick very simple (common) passwords (e.g. "secret" or "password") that make it easier for the attacker to gain access to the system compared to using a brute force attack or even a dictionary attack using a full dictionary.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -29,13 +29,18 @@ An adversary may try certain common or default usernames and passwords to gain a
 
 ## Skills required
 
-- An adversary just needs to gain access to common default usernames/passwords specific to the technologies used by the system. Additionally, a
+- [Low] An adversary just needs to gain access to common default usernames/passwords specific to the technologies used by the system. Additionally, a brute force attack leveraging common passwords can be easily realized if the user name is known.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Delete all default account credentials that may be put in by the product vendor.
 - Implement a password throttling mechanism. This mechanism should take into account both the IP address and the log in name of the user.
-- Put together a strong passwor
+- Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users.
+- Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen.
 
 ---
 

@@ -17,12 +17,12 @@ An adversary exploits a cryptographic weakness in the signature verification alg
 
 ## Prerequisites
 
-- Recipient is using a weak cryptographic signature verification algorithm or a weak implementation of a cryptographic signature verification algorithm, or the configuration of the recipient's applica
+- Recipient is using a weak cryptographic signature verification algorithm or a weak implementation of a cryptographic signature verification algorithm, or the configuration of the recipient's application accepts the use of keys generated using cryptographically weak signature verification algorithms.
 
 ## Skills required
 
-- Cryptanalysis of signature verification algorithm:LEVEL:High
-- Reverse engineering and cryptanalysis of signature verification algorithm
+- [High] Cryptanalysis of signature verification algorithm
+- [High] Reverse engineering and cryptanalysis of signature verification algorithm implementation
 
 ## Mitigations
 

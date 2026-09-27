@@ -15,7 +15,11 @@ An adversary uses social engineering to convince the target to do minor tasks as
 
 ## Skills required
 
-- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+- [Low] The adversary requires strong inter-personal and communication skills.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Other
 
 ## Mitigations
 

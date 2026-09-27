@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type exploits a system's configuration that allows an adversary to either directly access an executable file, for example through shell access; or in a possible worst case allows an adversary to upload a file and then execute it. Web servers, ftp servers, and message oriented middleware systems which have many integration points are particularly vulnerable, because both the progr
+An attack of this type exploits a system's configuration that allows an adversary to either directly access an executable file, for example through shell access; or in a possible worst case allows an adversary to upload a file and then execute it. Web servers, ftp servers, and message oriented middleware systems which have many integration points are particularly vulnerable, because both the programmers and the administrators must be in synch regarding the interfaces and the correct privileges for each interface.
 
 ## Mapped ATT&CK techniques (2)
 
@@ -26,17 +26,24 @@ An attack of this type exploits a system's configuration that allows an adversar
 
 ## Prerequisites
 
-- System's configuration must allow an attacker to directly access executable files or upload files to execute. This means that any access control system that is supposed to mediate communications bet
+- System's configuration must allow an attacker to directly access executable files or upload files to execute. This means that any access control system that is supposed to mediate communications between the subject and the object is set incorrectly or assumes a benign environment.
 
 ## Skills required
 
-- To identify and execute against an over-privileged system interface:LEVEL:Low
+- [Low] To identify and execute against an over-privileged system interface
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Design: Enforce principle of least privilege
 - Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands.
-- Imple
+- Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables.
 
 ---
 

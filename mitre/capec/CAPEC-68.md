@@ -23,16 +23,20 @@ Many languages use code signing facilities to vouch for code's identity and to t
 
 - A framework-based language that supports code signing (such as, and most commonly, Java or .NET)
 - Deployed code that has been signed by its authoring vendor, or a partner.
-- The attacker will, for mo
+- The attacker will, for most circumstances, also need to be able to place code in the victim container. This does not necessarily mean that they will have to subvert host-level security, except when explicitly indicated.
 
 ## Skills required
 
-- Subverting code signing is not a trivial activity. Most code signing and verification schemes are based on use of cryptography and the attacke
+- [High] Subverting code signing is not a trivial activity. Most code signing and verification schemes are based on use of cryptography and the attacker needs to have an understanding of these cryptographic operations in good detail. Additionally the attacker also needs to be aware of the way memory is assigned and accessed by the container since, often, the only way to subvert code signing would be to patch the code in memory. Finally, a knowledge of the platform specific mechanisms of signing and verifying code is a must.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - A given code signing scheme may be fallible due to improper use of cryptography. Developers must never roll out their own cryptography, nor should existing primitives be modified or ignored.
-- If an attacker cannot attack the scheme directly, they m
+- If an attacker cannot attack the scheme directly, they might try to alter the environment that affects the signing and verification processes. A possible mitigation is to avoid reliance on flags or environment variables that are user-controllable.
 
 ---
 

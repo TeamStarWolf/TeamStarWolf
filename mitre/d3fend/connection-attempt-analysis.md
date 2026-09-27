@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Intranet Network Traffic
 
+Analyzing failed connections in a network to detect unauthorized activity.
+
 ## ATT&CK techniques countered (18)
 
 - [T0866](https://attack.mitre.org/techniques/T0866) — analyzes

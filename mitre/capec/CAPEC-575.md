@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-An adversary exploits functionality meant to identify information about the domain accounts and their permissions on the target system to an authorized user. By knowing what accounts are registered on the target system, the adversary can inform further and more targeted malicious behavior. Example Windows commands which can acquire this information are: net user and dsquery.
+An adversary exploits functionality meant to identify information about the domain accounts and their permissions on the target system to an authorized user. By knowing what accounts are registered on the target system, the adversary can inform further and more targeted malicious behavior. Example Windows commands which can acquire this information are: "net user" and "dsquery".
 
 ## Mapped ATT&CK techniques (1)
 
@@ -20,6 +20,11 @@ An adversary exploits functionality meant to identify information about the doma
 ## Prerequisites
 
 - The adversary must have gained access to the target system via physical or logical means in order to carry out this attack.
+
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ## Mitigations
 

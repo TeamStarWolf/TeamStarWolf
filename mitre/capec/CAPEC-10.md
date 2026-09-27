@@ -27,18 +27,27 @@ This attack pattern involves causing a buffer overflow through manipulation of e
 - The application uses environment variables.
 - An environment variable exposed to the user is vulnerable to a buffer overflow.
 - The vulnerable environment variable uses untrusted data.
-- Tainted data u
+- Tainted data used in the environment variables is not properly validated. For instance boundary checking is not done before copying the input data to a buffer.
 
 ## Skills required
 
-- An attacker can simply overflow a buffer by inserting a long string into an attacker-modifiable injection vector. The result can be a DoS.:LEV
+- [Low] An attacker can simply overflow a buffer by inserting a long string into an attacker-modifiable injection vector. The result can be a DoS.
+- [High] Exploiting a buffer overflow to inject malicious code into the stack of a software system or even the heap can require a higher skill level.
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Do not expose environment variable to the user.
 - Do not use untrusted data in your environment variables.
 - Use a language or compiler that performs automatic bounds checking
-- There are tools such as Sharefuzz [REF-2] which is an environment variabl
+- There are tools such as Sharefuzz [REF-2] which is an environment variable fuzzer for Unix that support loading a shared library. You can use Sharefuzz to determine if you are exposing an environment variable vulnerable to buffer overflow.
 
 ---
 

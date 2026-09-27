@@ -13,7 +13,7 @@ An adversary, through a malicious web page, accesses application specific functi
 
 ## Prerequisites
 
-- This type of an attack requires the adversary to convince the user to load the malicious web page inside the target application. Once loaded, the malicious web page will have the same permissions as
+- This type of an attack requires the adversary to convince the user to load the malicious web page inside the target application. Once loaded, the malicious web page will have the same permissions as the target application and will have access to all registered interfaces. Both the permission and the interface must be in place for the functionality to be exposed.
 
 ## Mitigations
 

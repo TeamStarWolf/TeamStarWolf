@@ -16,11 +16,11 @@ An attacker with access to the development environment process of an application
 ## Prerequisites
 
 - The attacker must have working knowledge of some if not all of the components involved in the target system as well as the infrastructure and development environment of the manufacturer.
-- Advanced k
+- Advanced knowledge about the ASIC installed within the target system.
 
 ## Skills required
 
-- Able to develop and manufacture malicious subroutines for an ASIC environment without degradation of existing functions and processes.:LEVEL:H
+- [High] Able to develop and manufacture malicious subroutines for an ASIC environment without degradation of existing functions and processes.
 
 ---
 

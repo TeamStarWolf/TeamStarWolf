@@ -6,7 +6,7 @@
 **Typical severity:** Medium  
 **Status:** Draft  
 
-An attacker leverages an adversary in the middle attack (CAPEC-94) in order to bypass the same origin policy protection in the victim's browser. This active adversary in the middle attack could be launched, for instance, when the victim is connected to a public WIFI hot spot. An attacker is able to intercept requests and responses between the victim's browser and some non-sensitive website that do
+An attacker leverages an adversary in the middle attack (CAPEC-94) in order to bypass the same origin policy protection in the victim's browser. This active adversary in the middle attack could be launched, for instance, when the victim is connected to a public WIFI hot spot. An attacker is able to intercept requests and responses between the victim's browser and some non-sensitive website that does not use TLS.
 
 ## Related CWE (1)
 
@@ -14,12 +14,18 @@ An attacker leverages an adversary in the middle attack (CAPEC-94) in order to b
 
 ## Prerequisites
 
-- The victim and the attacker are both in an environment where an active adversary in the middle attack is possible (e.g., public WIFI hot spot)The victim visits at least one website that does not use
+- The victim and the attacker are both in an environment where an active adversary in the middle attack is possible (e.g., public WIFI hot spot)The victim visits at least one website that does not use TLS / SSL
 
 ## Skills required
 
-- Ability to intercept and modify requests / responses:LEVEL:Low
-- Ability to create iFrame and JavaScript code that would initiate unautho
+- [Low] Ability to intercept and modify requests / responses
+- [Medium] Ability to create iFrame and JavaScript code that would initiate unauthorized requests to sensitive sites from the victim's browser
+- [Medium] Solid understanding of the HTTP protocol
+
+## Consequences
+
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
 
 ## Mitigations
 

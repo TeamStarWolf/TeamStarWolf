@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-The adversary modifies state information maintained by the target software or causes a state transition in hardware. If successful, the target will use this tainted state and execute in an unintended manner. State management is an important function within a software application. User state maintained by the application can include usernames, payment information, browsing history as well as applic
+The adversary modifies state information maintained by the target software or causes a state transition in hardware. If successful, the target will use this tainted state and execute in an unintended manner. State management is an important function within a software application. User state maintained by the application can include usernames, payment information, browsing history as well as application-specific contents such as items in a shopping cart. Manipulating user state can be employed by an adversary to elevate privilege, conduct fraudulent transactions or otherwise modify the flow of the application to derive certain benefits. If there is a hardware logic error in a finite state machine, the adversary can use this to put the system in an undefined state which could cause a denial of service or exposure of secure data.
 
 ## Related CWE (8)
 
@@ -23,17 +23,24 @@ The adversary modifies state information maintained by the target software or ca
 ## Prerequisites
 
 - User state is maintained at least in some way in user-controllable locations, such as cookies or URL parameters.
-- There is a faulty finite state machine in the hardware logic that can be exploited.:
+- There is a faulty finite state machine in the hardware logic that can be exploited.
 
 ## Skills required
 
-- The adversary needs to have knowledge of state management as employed by the target application, and also the ability to manipulate the state
+- [Medium] The adversary needs to have knowledge of state management as employed by the target application, and also the ability to manipulate the state in a meaningful way.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Integrity / Modify Data
+- Availability / Unreliable Execution
 
 ## Mitigations
 
 - Do not rely solely on user-controllable locations, such as cookies or URL parameters, to maintain user state.
 - Avoid sensitive information, such as usernames or authentication and authorization information, in user-controllable locations.
-- Sensitiv
+- Sensitive information that is part of the user state must be appropriately protected to ensure confidentiality and integrity at each request.
+- All possible states must be handled by hardware finite state machines.
 
 ---
 

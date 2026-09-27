@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-An adversary exploits a configuration management system so that malicious logic is inserted into a software products build, update or deployed environment. If an adversary can control the elements included in a product's configuration management for build they can potentially replace, modify or insert code files containing malicious logic. If an adversary can control elements of a product's ongoin
+An adversary exploits a configuration management system so that malicious logic is inserted into a software products build, update or deployed environment. If an adversary can control the elements included in a product's configuration management for build they can potentially replace, modify or insert code files containing malicious logic. If an adversary can control elements of a product's ongoing operational configuration management baseline they can potentially force clients receiving updates from the system to install insecure software when receiving updates from the server.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -15,7 +15,11 @@ An adversary exploits a configuration management system so that malicious logic 
 
 ## Prerequisites
 
-- Access to the configuration management system during deployment or currently deployed at a victim location. This access is often obtained via insider access or by leveraging another attack pattern t
+- Access to the configuration management system during deployment or currently deployed at a victim location. This access is often obtained via insider access or by leveraging another attack pattern to gain permissions that the adversary wouldn't normally have.
+
+## Consequences
+
+- Authorization / Execute Unauthorized Commands
 
 ## Mitigations
 

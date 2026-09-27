@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** Credential
 
+Issue a new credential to a user which supersedes their old credential.
+
 ## ATT&CK techniques countered (23)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — restores

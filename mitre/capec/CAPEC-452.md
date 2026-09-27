@@ -13,6 +13,10 @@ An adversary inserts malicious logic into hardware, typically in the form of a c
 
 - Access to the hardware currently deployed at a victim location.
 
+## Consequences
+
+- Authorization / Execute Unauthorized Commands
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

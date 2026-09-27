@@ -23,7 +23,7 @@ An adversary adds duplicate HTTP GET/POST parameters by injecting query string d
 - Configuration: If using a Web Application Firewall (WAF), filters should be carefully configured to detect abnormal HTTP requests
 - Design: Perform URL encoding
 - Implementation: Use strict regular expressions in URL rewriting
-- Implementation: Beware
+- Implementation: Beware of multiple occurrences of a parameter in a Query String
 
 ---
 

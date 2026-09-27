@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Access Control Configuration
 
+Network traffic policy mapping identifies and models the allowed pathways of data at the network, transport, and/or application levels.
+
 ## ATT&CK techniques countered (8)
 
 - [T1134.005 — SID-History Injection](/mitre/techniques/T1134-005.md) — maps. Adversaries may use SID-History Injection to escalate privileges and bypass access controls.

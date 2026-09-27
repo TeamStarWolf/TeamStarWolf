@@ -6,7 +6,7 @@
 **Typical severity:** High  
 **Status:** Draft  
 
-SIM cards are the de facto trust anchor of mobile devices worldwide. The cards protect the mobile identity of subscribers, associate devices with phone numbers, and increasingly store payment credentials, for example in NFC-enabled phones with mobile wallets. This attack leverages over-the-air (OTA) updates deployed via cryptographically-secured SMS messages to deliver executable code to the SIM.
+SIM cards are the de facto trust anchor of mobile devices worldwide. The cards protect the mobile identity of subscribers, associate devices with phone numbers, and increasingly store payment credentials, for example in NFC-enabled phones with mobile wallets. This attack leverages over-the-air (OTA) updates deployed via cryptographically-secured SMS messages to deliver executable code to the SIM. By cracking the DES key, an attacker can send properly signed binary SMS messages to a device, which are treated as Java applets and are executed on the SIM. These applets are allowed to send SMS, change voicemail numbers, and query the phone location, among many other predefined functions. These capabilities alone provide plenty of potential for abuse.
 
 ## Related CWE (1)
 
@@ -18,7 +18,11 @@ SIM cards are the de facto trust anchor of mobile devices worldwide. The cards p
 
 ## Skills required
 
-- This is a sophisticated attack, but detailed techniques are published in open literature.:LEVEL:Medium
+- [Medium] This is a sophisticated attack, but detailed techniques are published in open literature.
+
+## Consequences
+
+- Confidentiality, Integrity / Execute Unauthorized Commands
 
 ## Mitigations
 

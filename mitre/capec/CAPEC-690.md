@@ -15,13 +15,19 @@ An adversary alters the metadata of a resource (e.g., file, directory, repositor
 
 ## Skills required
 
-- Ability to spoof a variety of metadata to convince victims the source is trusted:LEVEL:Medium
+- [Medium] Ability to spoof a variety of metadata to convince victims the source is trusted
+
+## Consequences
+
+- Integrity / Modify Data
+- Accountability / Hide Activities
+- Access Control, Authorization / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Validate metadata of resources such as authors, timestamps, and statistics.
 - Confirm the pedigree of open source packages and ensure the code being downloaded does not originate from another source.
-- Even if the metadata is properly checked and a u
+- Even if the metadata is properly checked and a user believes it to be legitimate, there may still be a chance that they've been duped. Therefore, leverage automated testing techniques to determine where malicious areas of the code may exist.
 
 ---
 

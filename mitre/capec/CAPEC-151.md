@@ -17,6 +17,10 @@ Identity Spoofing refers to the action of assuming (i.e., taking on) the identit
 
 - The identity associated with the message or resource must be removable or modifiable in an undetectable way.
 
+## Consequences
+
+- Confidentiality, Integrity, Authentication, Access Control / Gain Privileges
+
 ## Mitigations
 
 - Employ robust authentication processes (e.g., multi-factor authentication).

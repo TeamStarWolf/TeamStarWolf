@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Application Configuration
 
+Limiting access to a computing device which is not required through or from a non-organization-controlled network.
+
 ## ATT&CK techniques countered (6)
 
 - [T0858](https://attack.mitre.org/techniques/T0858) — configures

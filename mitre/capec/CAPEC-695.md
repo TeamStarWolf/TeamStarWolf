@@ -21,18 +21,24 @@ An adversary takes advantage of the redirect property of directly linked Version
 ## Prerequisites
 
 - Identification of a popular repository that may be directly referenced in numerous software applications
-- A repository owner/maintainer who has recently changed their username or deleted their accou
+- A repository owner/maintainer who has recently changed their username or deleted their account
 
 ## Skills required
 
-- Ability to create an account on a VCS hosting site and recreate an existing directory structure.:LEVEL:Low
-- Ability to create malware th
+- [Low] Ability to create an account on a VCS hosting site and recreate an existing directory structure.
+- [Low] Ability to create malware that can exploit various software applications.
+
+## Consequences
+
+- Integrity / Read Data, Modify Data
+- Access Control, Authorization / Execute Unauthorized Commands, Alter Execution Logic, Gain Privileges
 
 ## Mitigations
 
 - Leverage dedicated package managers instead of directly linking to VCS repositories.
 - Utilize version pinning and lock files to prevent use of maliciously modified repositories.
-- Implement vendoring (i.e., including third-party dependencies locally
+- Implement "vendoring" (i.e., including third-party dependencies locally) and leverage automated testing techniques (e.g., static analysis) to determine if the software behaves maliciously.
+- Leverage automated tools, such as Checkmarx's "ChainJacking" tool, to determine susceptibility to Repo Jacking attacks.
 
 ---
 

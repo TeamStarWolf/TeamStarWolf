@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-This attack relies on the adversary using unexpected formats for representing IP addresses. Networked applications may expect network location information in a specific format, such as fully qualified domains names (FQDNs), URL, IP address, or IP Address ranges. If the location information is not validated against a variety of different possible encodings and formats, the adversary can use an alte
+This attack relies on the adversary using unexpected formats for representing IP addresses. Networked applications may expect network location information in a specific format, such as fully qualified domains names (FQDNs), URL, IP address, or IP Address ranges. If the location information is not validated against a variety of different possible encodings and formats, the adversary can use an alternate format to bypass application access control.
 
 ## Related CWE (2)
 
@@ -21,12 +21,17 @@ This attack relies on the adversary using unexpected formats for representing IP
 
 ## Skills required
 
-- The adversary has only to try IP address format combinations.:LEVEL:Low
+- [Low] The adversary has only to try IP address format combinations.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Design: Default deny access control policies
-- Design: Input validation routines should check and enforce both input data types and content against a positive specification. In regards to IP addresses, this should include the authorized manner for t
+- Design: Input validation routines should check and enforce both input data types and content against a positive specification. In regards to IP addresses, this should include the authorized manner for the application to represent IP addresses and not accept user specified IP addresses and IP address formats (such as ranges)
+- Implementation: Perform input validation for all remote content.
 
 ---
 

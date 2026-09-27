@@ -20,6 +20,11 @@ An adversary uses a combination of techniques to determine the state of the port
 
 - The adversary requires logical access to the target's network in order to carry out this type of attack.
 
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

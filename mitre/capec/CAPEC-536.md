@@ -16,11 +16,11 @@ An attacker with access to data files and processes on a victim's system injects
 ## Prerequisites
 
 - The attacker must have previously compromised the victim's systems or have physical access to the victim's systems.
-- Advanced knowledge of software and hardware capabilities of a manufacturer's prod
+- Advanced knowledge of software and hardware capabilities of a manufacturer's product.
 
 ## Skills required
 
-- Ability to generate and inject false data into operational data into a system with the intent of causing the victim to alter the configuration
+- [High] Ability to generate and inject false data into operational data into a system with the intent of causing the victim to alter the configuration of the system.
 
 ## Mitigations
 

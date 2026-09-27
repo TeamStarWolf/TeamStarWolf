@@ -21,11 +21,15 @@ An attacker generates a message or datablock that causes the recipient to believ
 ## Prerequisites
 
 - The victim or victim system is dependent upon a cryptographic signature-based verification system for validation of one or more security events or actions.
-- The validation can be bypassed via an att
+- The validation can be bypassed via an attacker-provided signature that makes it appear that the legitimate authoritative or reputable source provided the signature.
 
 ## Skills required
 
-- Technical understanding of how signature verification algorithms work with data and applications:LEVEL:High
+- [High] Technical understanding of how signature verification algorithms work with data and applications
+
+## Consequences
+
+- Access Control, Authentication / Gain Privileges
 
 ---
 

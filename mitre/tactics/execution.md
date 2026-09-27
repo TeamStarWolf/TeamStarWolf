@@ -8,8 +8,9 @@ The adversary is trying to run malicious code.
 
 - [T1059.001 — PowerShell](/mitre/techniques/T1059-001.md) — 18.5% of machines
 - [T1053.003 — Cron](/mitre/techniques/T1053-003.md) — 10.4% of machines
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
 
-**46 techniques** in this tactic (Team Star Wolf enriched pages):
+**64 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1047 — Windows Management Instrumentation](/mitre/techniques/T1047.md)
 - [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md)
@@ -34,7 +35,12 @@ The adversary is trying to run malicious code.
 - [T1059.013 — Container CLI/API](/mitre/techniques/T1059-013.md)
 - [T1072 — Software Deployment Tools](/mitre/techniques/T1072.md)
 - [T1106 — Native API](/mitre/techniques/T1106.md)
+- [T1127 — Trusted Developer Utilities Proxy Execution](/mitre/techniques/T1127.md)
+- [T1127.001 — MSBuild](/mitre/techniques/T1127-001.md)
+- [T1127.002 — ClickOnce](/mitre/techniques/T1127-002.md)
+- [T1127.003 — JamPlus](/mitre/techniques/T1127-003.md)
 - [T1129 — Shared Modules](/mitre/techniques/T1129.md)
+- [T1197 — BITS Jobs](/mitre/techniques/T1197.md)
 - [T1203 — Exploitation for Client Execution](/mitre/techniques/T1203.md)
 - [T1204 — User Execution](/mitre/techniques/T1204.md)
 - [T1204.001 — Malicious Link](/mitre/techniques/T1204-001.md)
@@ -50,6 +56,19 @@ The adversary is trying to run malicious code.
 - [T1569.001 — Launchctl](/mitre/techniques/T1569-001.md)
 - [T1569.002 — Service Execution](/mitre/techniques/T1569-002.md)
 - [T1569.003 — Systemctl](/mitre/techniques/T1569-003.md)
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) ⭐
+- [T1574.001 — DLL](/mitre/techniques/T1574-001.md)
+- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md)
+- [T1574.005 — Executable Installer File Permissions Weakness](/mitre/techniques/T1574-005.md)
+- [T1574.006 — Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md)
+- [T1574.007 — Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md)
+- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
+- [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md)
+- [T1574.010 — Services File Permissions Weakness](/mitre/techniques/T1574-010.md)
+- [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md)
+- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md)
+- [T1574.013 — KernelCallbackTable](/mitre/techniques/T1574-013.md)
+- [T1574.014 — AppDomainManager](/mitre/techniques/T1574-014.md)
 - [T1609 — Container Administration Command](/mitre/techniques/T1609.md)
 - [T1610 — Deploy Container](/mitre/techniques/T1610.md)
 - [T1648 — Serverless Execution](/mitre/techniques/T1648.md)

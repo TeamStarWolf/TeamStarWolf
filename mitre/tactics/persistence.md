@@ -9,9 +9,8 @@ The adversary is trying to maintain their foothold.
 - [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — 11.0% of machines
 - [T1053.003 — Cron](/mitre/techniques/T1053-003.md) — 10.4% of machines
 - [T1505.003 — Web Shell](/mitre/techniques/T1505-003.md) — 9.6% of machines
-- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
 
-**126 techniques** in this tactic (Team Star Wolf enriched pages):
+**113 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1037 — Boot or Logon Initialization Scripts](/mitre/techniques/T1037.md)
 - [T1037.001 — Logon Script (Windows)](/mitre/techniques/T1037-001.md)
@@ -123,19 +122,6 @@ The adversary is trying to maintain their foothold.
 - [T1556.007 — Hybrid Identity](/mitre/techniques/T1556-007.md)
 - [T1556.008 — Network Provider DLL](/mitre/techniques/T1556-008.md)
 - [T1556.009 — Conditional Access Policies](/mitre/techniques/T1556-009.md)
-- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) ⭐
-- [T1574.001 — DLL](/mitre/techniques/T1574-001.md)
-- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md)
-- [T1574.005 — Executable Installer File Permissions Weakness](/mitre/techniques/T1574-005.md)
-- [T1574.006 — Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md)
-- [T1574.007 — Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md)
-- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
-- [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md)
-- [T1574.010 — Services File Permissions Weakness](/mitre/techniques/T1574-010.md)
-- [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md)
-- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md)
-- [T1574.013 — KernelCallbackTable](/mitre/techniques/T1574-013.md)
-- [T1574.014 — AppDomainManager](/mitre/techniques/T1574-014.md)
 - [T1653 — Power Settings](/mitre/techniques/T1653.md)
 - [T1668 — Exclusive Control](/mitre/techniques/T1668.md)
 - [T1671 — Cloud Application Integration](/mitre/techniques/T1671.md)

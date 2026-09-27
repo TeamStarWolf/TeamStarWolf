@@ -4,7 +4,7 @@
 
 The adversary is trying to establish resources they can use to support operations.
 
-**47 techniques** in this tactic (Team Star Wolf enriched pages):
+**50 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1583 — Acquire Infrastructure](/mitre/techniques/T1583.md)
 - [T1583.001 — Domains](/mitre/techniques/T1583-001.md)
@@ -53,6 +53,9 @@ The adversary is trying to establish resources they can use to support operation
 - [T1608.005 — Link Target](/mitre/techniques/T1608-005.md)
 - [T1608.006 — SEO Poisoning](/mitre/techniques/T1608-006.md)
 - [T1650 — Acquire Access](/mitre/techniques/T1650.md)
+- [T1683 — Generate Content](/mitre/techniques/T1683.md)
+- [T1683.001 — Written Content](/mitre/techniques/T1683-001.md)
+- [T1683.002 — Audio-Visual Content](/mitre/techniques/T1683-002.md)
 
 ---
 

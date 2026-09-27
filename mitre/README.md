@@ -8,7 +8,7 @@ ATT&CK-Navigator-style browsable pages: **one page per MITRE object**, cross-lin
 |---|---|---|
 | [Techniques](/mitre/techniques/README.md) | 714 | tactics, platforms, mitigations, **linked D3FEND**, **detection analytics + log sources**, **data sources**, **CAR analytics**, **MITRE Engage**, **named threat-group & tool usage**, sub-techniques, NIST 800-53 (named), CAPEC, corpus prevalence |
 | [Mitigations](/mitre/mitigations/README.md) | 44 | how-to-implement, NIST mapping, techniques countered, corpus relevance |
-| [Tactics](/mitre/tactics/README.md) | 14 | the "why" of each stage, its techniques, top corpus-observed techniques |
+| [Tactics](/mitre/tactics/README.md) | 16 | the "why" of each stage, its techniques, top corpus-observed techniques |
 | [D3FEND](/mitre/d3fend/README.md) | 156 | defensive technique, D3FEND tactic, digital artifacts, ATT&CK techniques countered |
 | [CAPEC](/mitre/capec/README.md) | 615 | abstraction, severity, likelihood, mapped ATT&CK, related CWE, prerequisites, mitigations |
 | [ATLAS (AI/ML)](/mitre/atlas/README.md) | 205 | adversarial-AI techniques + mitigations |

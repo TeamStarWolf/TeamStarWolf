@@ -142,6 +142,15 @@ def link(text, url):
     return "[" + text + "](" + url + ")" if url else text
 
 
+# Non-canonical ATT&CK software links (the S9NNN emerging/community namespace has no
+# attack.mitre.org page); strip the hyperlink from description prose, keep the name.
+_NONCANON_SW = re.compile(r"\[([^\]]+)\]\(https://attack\.mitre\.org/software/S9\d{3}\)")
+
+
+def canon_desc(text):
+    return _NONCANON_SW.sub(r"\1", text or "")
+
+
 def sstr(v):
     """Stringify a field that may be a list or scalar."""
     if isinstance(v, list):
@@ -237,6 +246,19 @@ class DB:
         gp_p = DATA / "attack/group_profiles.jsonl"
         self.group_prof = {r["group_id"]: r for r in (load_jsonl(gp_p) if gp_p.exists() else [])}
         self.group_name_to_id = {r["name"]: r["group_id"] for r in self.group_prof.values()}
+        # software + campaign per-object pages (from the ATT&CK STIX).
+        # Official ATT&CK software IDs are S0NNN / S1NNN; the bundle also carries a
+        # non-official S9NNN namespace (emerging/community entries with no attack.mitre.org
+        # page). We publish only official objects here so every page has a valid ATT&CK ID
+        # and live external link; S9NNN names left uncited fall back to plain text in
+        # cross-links (see software_link). The community set is tracked separately.
+        sp_p = DATA / "attack/software_profiles.jsonl"
+        _sw_all = load_jsonl(sp_p) if sp_p.exists() else []
+        self.sw_prof = {r["software_id"]: r for r in _sw_all
+                        if re.fullmatch(r"S[01]\d{3}", r["software_id"])}
+        self.sw_name_to_id = {r["name"]: r["software_id"] for r in self.sw_prof.values()}
+        cp_p = DATA / "attack/campaign_profiles.jsonl"
+        self.camp_prof = {r["campaign_id"]: r for r in (load_jsonl(cp_p) if cp_p.exists() else [])}
 
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
@@ -469,7 +491,7 @@ def render_technique(db, tid):
                 out.append("_Notable groups seen using this technique:_\n")
                 out.append("\n".join(notable) + "\n")
         if sw:
-            named = ", ".join(link(s, db.sw_url.get(s)) for s in sw[:CAP_NAMED])
+            named = ", ".join(software_link(db, s) for s in sw[:CAP_NAMED])
             extra = " _+" + str(len(sw) - CAP_NAMED) + " more_" if len(sw) > CAP_NAMED else ""
             out.append("**Software/tools (" + str(sc) + "):** " + named + extra + "\n")
         if cc:
@@ -792,7 +814,7 @@ def render_group(db, gid):
         hdr.append("**Aliases:** " + ", ".join(aliases) + "  ")
     out.append("\n".join(hdr) + "\n")
     if g.get("description"):
-        out.append(g["description"].strip() + "\n")
+        out.append(canon_desc(g["description"]).strip() + "\n")
     techs = [t for t in (g.get("techniques") or []) if t in db.prof]
     if techs:
         out.append("## Techniques used (" + str(len(techs)) + ")\n")
@@ -802,7 +824,7 @@ def render_group(db, gid):
     sw = g.get("software") or []
     if sw:
         out.append("## Software & tools (" + str(len(sw)) + ")\n")
-        out.append(", ".join("**" + s + "**" for s in sw) + "\n")
+        out.append(", ".join(software_link(db, s) for s in sw) + "\n")
     out.append(SHORT_FOOTER)
     return "\n".join(out)
 
@@ -820,6 +842,92 @@ def render_group_landing(db):
     return "\n".join(lines)
 
 
+# ----------------------------------------------------------------------------- software + campaigns
+def software_link(db, name):
+    sid = db.sw_name_to_id.get(name)
+    if sid:
+        return "[" + name + "](/mitre/software/" + sid + ".md)"
+    return link(name, db.sw_url.get(name))
+
+
+def render_software(db, sid):
+    s = db.sw_prof[sid]
+    out = ["# " + sid + " " + DASH + " " + s.get("name", "") + "\n", '<a id="' + sid.lower() + '"></a>\n']
+    aliases = [a for a in (s.get("aliases") or []) if a and a != s.get("name")]
+    hdr = ["**Type:** " + (s.get("type") or "tool") + "  ",
+           "**ATT&CK:** [" + sid + "](https://attack.mitre.org/software/" + sid + ")  "]
+    if s.get("platforms"):
+        hdr.append("**Platforms:** " + ", ".join(s["platforms"]) + "  ")
+    if aliases:
+        hdr.append("**Aliases:** " + ", ".join(aliases) + "  ")
+    out.append("\n".join(hdr) + "\n")
+    if s.get("description"):
+        out.append(canon_desc(s["description"]).strip() + "\n")
+    techs = [t for t in (s.get("techniques") or []) if t in db.prof]
+    if techs:
+        out.append("## Techniques used (" + str(len(techs)) + ")\n")
+        out.append("\n".join(
+            "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)"
+            for t in sorted(techs)) + "\n")
+    grps = s.get("groups") or []
+    if grps:
+        out.append("## Used by groups (" + str(len(grps)) + ")\n")
+        out.append(", ".join(group_link(db, g) for g in grps) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_software_landing(db):
+    lines = ["# Software & Tools (" + str(len(db.sw_prof)) + ")", "",
+             "ATT&CK-tracked software — malware and tools — each with its type, platforms, aliases, the "
+             "techniques it implements (linked), and the groups that wield it. ATT&CK " + ATTACK_VER + ".", ""]
+    for sid in sorted(db.sw_prof):
+        s = db.sw_prof[sid]
+        lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/software/" + sid + ".md) (" +
+                     (s.get("type") or "") + ")")
+    lines.append("\n" + SHORT_FOOTER)
+    return "\n".join(lines)
+
+
+def render_campaign(db, cid):
+    c = db.camp_prof[cid]
+    out = ["# " + cid + " " + DASH + " " + c.get("name", "") + "\n", '<a id="' + cid.lower() + '"></a>\n']
+    hdr = ["**ATT&CK:** [" + cid + "](https://attack.mitre.org/campaigns/" + cid + ")  "]
+    span = " – ".join(x for x in (c.get("first_seen"), c.get("last_seen")) if x)
+    if span:
+        hdr.append("**Active:** " + span + "  ")
+    out.append("\n".join(hdr) + "\n")
+    if c.get("description"):
+        out.append(canon_desc(c["description"]).strip() + "\n")
+    if c.get("groups"):
+        out.append("## Attributed to\n")
+        out.append(", ".join(group_link(db, g) for g in c["groups"]) + "\n")
+    techs = [t for t in (c.get("techniques") or []) if t in db.prof]
+    if techs:
+        out.append("## Techniques used (" + str(len(techs)) + ")\n")
+        out.append("\n".join(
+            "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)"
+            for t in sorted(techs)) + "\n")
+    if c.get("software"):
+        out.append("## Software (" + str(len(c["software"])) + ")\n")
+        out.append(", ".join(software_link(db, s) for s in c["software"]) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_campaign_landing(db):
+    lines = ["# Campaigns (" + str(len(db.camp_prof)) + ")", "",
+             "ATT&CK-tracked intrusion campaigns, each with its active window, the groups it is attributed to, "
+             "the techniques used (linked), and the software deployed. ATT&CK " + ATTACK_VER + ".", ""]
+    for cid in sorted(db.camp_prof):
+        c = db.camp_prof[cid]
+        span = c.get("first_seen", "")
+        lines.append("- [" + cid + " " + DASH + " " + c.get("name", "") + "](/mitre/campaigns/" + cid + ".md)" +
+                     ((" (" + span + ")") if span else ""))
+    lines.append("\n" + SHORT_FOOTER)
+    return "\n".join(lines)
+
+
 # ----------------------------------------------------------------------------- landing
 def render_landing(db):
     n_tech = len(list((MITRE / "techniques").glob("T*.md")))
@@ -830,6 +938,8 @@ def render_landing(db):
     n_atl = len(list((MITRE / "atlas").glob("AML-*.md")))
     n_f3 = len(db.f3)
     n_groups = len(db.group_prof)
+    n_software = len(db.sw_prof)
+    n_campaigns = len(db.camp_prof)
     corpus_n = len(db.corpus_ids)
     lines = [
         "# MITRE Frameworks " + DASH + " Enriched Knowledge Base",
@@ -859,6 +969,10 @@ def render_landing(db):
         "ones cross-link to their technique pages |",
         "| [Threat Groups](/mitre/groups/README.md) | " + str(n_groups) + " | ATT&CK adversary groups (intrusion sets) "
         "— aliases, techniques used (linked), and software wielded |",
+        "| [Software & Tools](/mitre/software/README.md) | " + str(n_software) + " | ATT&CK malware & tools — type, "
+        "platforms, aliases, techniques implemented (linked), and the groups that wield them |",
+        "| [Campaigns](/mitre/campaigns/README.md) | " + str(n_campaigns) + " | ATT&CK intrusion campaigns — active "
+        "window, attributed groups, techniques used (linked), and software deployed |",
         "| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | " + DASH + " | technique, mitigation, NIST, D3FEND, "
         "CAPEC in one table |",
         "",
@@ -977,6 +1091,26 @@ def main():
             n += 1
         (d / "README.md").write_text(render_group_landing(db), encoding="utf-8")
         print("groups: wrote " + str(n) + " pages + README")
+
+    if "software" in only:
+        d = out_root / "software"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for sid in db.sw_prof:
+            (d / (sid + ".md")).write_text(render_software(db, sid), encoding="utf-8")
+            n += 1
+        (d / "README.md").write_text(render_software_landing(db), encoding="utf-8")
+        print("software: wrote " + str(n) + " pages + README")
+
+    if "campaigns" in only:
+        d = out_root / "campaigns"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for cid in db.camp_prof:
+            (d / (cid + ".md")).write_text(render_campaign(db, cid), encoding="utf-8")
+            n += 1
+        (d / "README.md").write_text(render_campaign_landing(db), encoding="utf-8")
+        print("campaigns: wrote " + str(n) + " pages + README")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)

@@ -11,7 +11,7 @@ An adversary attacks a target by providing input that causes an application to r
 
 ## Related CWE (1)
 
-- [CWE-125 — Out-of-bounds Read](https://cwe.mitre.org/data/definitions/125.html)
+- [CWE-125 — Out-of-bounds Read](https://cwe.mitre.org/data/definitions/125.html) — The product reads data past the end, or before the beginning, of the intended buffer.
 
 ## Prerequisites
 

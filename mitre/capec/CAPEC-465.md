@@ -10,11 +10,11 @@ A transparent proxy serves as an intermediate between the client and the interne
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1090.001 — Internal Proxy](/mitre/techniques/T1090-001.md)
+- [T1090.001 — Internal Proxy](/mitre/techniques/T1090-001.md) — Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment.
 
 ## Related CWE (1)
 
-- [CWE-441 — Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html)
+- [CWE-441 — Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html) — The product receives a request, message, or directive from an upstream component, but the product does not sufficiently preserve the original source of the request before forwarding the request to an external actor that…
 
 ## Prerequisites
 

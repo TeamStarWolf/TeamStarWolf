@@ -11,18 +11,18 @@ The adversary targets a race condition occurring when multiple processes access 
 
 ## Related CWE (12)
 
-- [CWE-368 — Context Switching Race Condition](https://cwe.mitre.org/data/definitions/368.html)
-- [CWE-363 — Race Condition Enabling Link Following](https://cwe.mitre.org/data/definitions/363.html)
-- [CWE-366 — Race Condition within a Thread](https://cwe.mitre.org/data/definitions/366.html)
-- [CWE-370 — Missing Check for Certificate Revocation after Initial Check](https://cwe.mitre.org/data/definitions/370.html)
-- [CWE-362 — Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')](https://cwe.mitre.org/data/definitions/362.html)
-- [CWE-662 — Improper Synchronization](https://cwe.mitre.org/data/definitions/662.html)
-- [CWE-689 — Permission Race Condition During Resource Copy](https://cwe.mitre.org/data/definitions/689.html)
-- [CWE-667 — Improper Locking](https://cwe.mitre.org/data/definitions/667.html)
-- [CWE-665 — Improper Initialization](https://cwe.mitre.org/data/definitions/665.html)
-- [CWE-1223 — Race Condition for Write-Once Attributes](https://cwe.mitre.org/data/definitions/1223.html)
-- [CWE-1254 — Incorrect Comparison Logic Granularity](https://cwe.mitre.org/data/definitions/1254.html)
-- [CWE-1298 — Hardware Logic Contains Race Conditions](https://cwe.mitre.org/data/definitions/1298.html)
+- [CWE-368 — Context Switching Race Condition](https://cwe.mitre.org/data/definitions/368.html) — A product performs a series of non-atomic actions to switch between contexts that cross privilege or other security boundaries, but a race condition allows an attacker to modify or misrepresent the product's behavior…
+- [CWE-363 — Race Condition Enabling Link Following](https://cwe.mitre.org/data/definitions/363.html) — The product checks the status of a file or directory before accessing it, which produces a race condition in which the file can be replaced with a link before the access is performed, causing the product to access the…
+- [CWE-366 — Race Condition within a Thread](https://cwe.mitre.org/data/definitions/366.html) — If two threads of execution use a resource simultaneously, there exists the possibility that resources may be used while invalid, in turn making the state of execution undefined.
+- [CWE-370 — Missing Check for Certificate Revocation after Initial Check](https://cwe.mitre.org/data/definitions/370.html) — The product does not check the revocation status of a certificate after its initial revocation check, which can cause the product to perform privileged actions even after the certificate is revoked at a later time.
+- [CWE-362 — Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')](https://cwe.mitre.org/data/definitions/362.html) — The product contains a concurrent code sequence that requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence operating…
+- [CWE-662 — Improper Synchronization](https://cwe.mitre.org/data/definitions/662.html) — The product utilizes multiple threads, processes, components, or systems to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these…
+- [CWE-689 — Permission Race Condition During Resource Copy](https://cwe.mitre.org/data/definitions/689.html) — The product, while copying or cloning a resource, does not set the resource's permissions or access control until the copy is complete, leaving the resource exposed to other spheres while the copy is taking place.
+- [CWE-667 — Improper Locking](https://cwe.mitre.org/data/definitions/667.html) — The product does not properly acquire or release a lock on a resource, leading to unexpected resource state changes and behaviors.
+- [CWE-665 — Improper Initialization](https://cwe.mitre.org/data/definitions/665.html) — The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.
+- [CWE-1223 — Race Condition for Write-Once Attributes](https://cwe.mitre.org/data/definitions/1223.html) — A write-once register in hardware design is programmable by an untrusted software component earlier than the trusted software component, resulting in a race condition issue.
+- [CWE-1254 — Incorrect Comparison Logic Granularity](https://cwe.mitre.org/data/definitions/1254.html) — The product's comparison logic is performed over a series of steps rather than across the entire string in one operation.
+- [CWE-1298 — Hardware Logic Contains Race Conditions](https://cwe.mitre.org/data/definitions/1298.html) — A race condition in the hardware logic results in undermining security guarantees of the system.
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ An adversary monitors data streams to or from the target for information gatheri
 
 ## Related CWE (1)
 
-- [CWE-319 — Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)
+- [CWE-319 — Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html) — The product transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors.
 
 ## Prerequisites
 

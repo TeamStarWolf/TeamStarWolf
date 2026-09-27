@@ -11,8 +11,8 @@ An attacker may take advantage of the application feature to help users recover 
 
 ## Related CWE (2)
 
-- [CWE-522 — Insufficiently Protected Credentials](https://cwe.mitre.org/data/definitions/522.html)
-- [CWE-640 — Weak Password Recovery Mechanism for Forgotten Password](https://cwe.mitre.org/data/definitions/640.html)
+- [CWE-522 — Insufficiently Protected Credentials](https://cwe.mitre.org/data/definitions/522.html) — The product transmits or stores authentication credentials, but it uses an insecure method that is susceptible to unauthorized interception and/or retrieval.
+- [CWE-640 — Weak Password Recovery Mechanism for Forgotten Password](https://cwe.mitre.org/data/definitions/640.html) — The product contains a mechanism for users to recover or change their passwords without knowing the original password, but the mechanism is weak.
 
 ## Prerequisites
 

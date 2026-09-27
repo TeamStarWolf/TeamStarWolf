@@ -11,11 +11,11 @@ An adversary hijacks a privileged thread of execution by injecting malicious cod
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1055.003 — Thread Execution Hijacking](/mitre/techniques/T1055-003.md)
+- [T1055.003 — Thread Execution Hijacking](/mitre/techniques/T1055-003.md) — Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges.
 
 ## Related CWE (1)
 
-- [CWE-270 — Privilege Context Switching Error](https://cwe.mitre.org/data/definitions/270.html)
+- [CWE-270 — Privilege Context Switching Error](https://cwe.mitre.org/data/definitions/270.html) — The product does not properly manage privileges while it is switching between different contexts that have different privileges or spheres of control.
 
 ## Prerequisites
 

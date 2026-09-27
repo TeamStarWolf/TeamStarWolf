@@ -11,9 +11,9 @@ An attacker employs forceful browsing (direct URL entry) to access portions of a
 
 ## Related CWE (3)
 
-- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html)
-- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html)
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html) — The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.
+- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html) — The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Prerequisites
 

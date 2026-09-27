@@ -15,7 +15,7 @@ An adversary places a malicious version of a Dynamic-Link Library (DLL) in the W
 
 ## Related CWE (1)
 
-- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html)
+- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html) — The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.
 
 ## Prerequisites
 

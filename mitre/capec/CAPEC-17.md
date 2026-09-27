@@ -11,18 +11,18 @@ An attack of this type exploits a system's configuration that allows an adversar
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1574.005 — Executable Installer File Permissions Weakness](/mitre/techniques/T1574-005.md)
-- [T1574.010 — Services File Permissions Weakness](/mitre/techniques/T1574-010.md)
+- [T1574.005 — Executable Installer File Permissions Weakness](/mitre/techniques/T1574-005.md) — Adversaries may execute their own malicious payloads by hijacking the binaries used by an installer.
+- [T1574.010 — Services File Permissions Weakness](/mitre/techniques/T1574-010.md) — Adversaries may execute their own malicious payloads by hijacking the binaries used by services.
 
 ## Related CWE (7)
 
-- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html)
-- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html)
-- [CWE-272 — Least Privilege Violation](https://cwe.mitre.org/data/definitions/272.html)
-- [CWE-59 — Improper Link Resolution Before File Access ('Link Following')](https://cwe.mitre.org/data/definitions/59.html)
-- [CWE-282 — Improper Ownership Management](https://cwe.mitre.org/data/definitions/282.html)
-- [CWE-270 — Privilege Context Switching Error](https://cwe.mitre.org/data/definitions/270.html)
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html) — The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
+- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html) — The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
+- [CWE-272 — Least Privilege Violation](https://cwe.mitre.org/data/definitions/272.html) — The elevated privilege level required to perform operations such as chroot() should be dropped immediately after the operation is performed.
+- [CWE-59 — Improper Link Resolution Before File Access ('Link Following')](https://cwe.mitre.org/data/definitions/59.html) — The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.
+- [CWE-282 — Improper Ownership Management](https://cwe.mitre.org/data/definitions/282.html) — The product assigns the wrong ownership, or does not properly verify the ownership, of an object or resource.
+- [CWE-270 — Privilege Context Switching Error](https://cwe.mitre.org/data/definitions/270.html) — The product does not properly manage privileges while it is switching between different contexts that have different privileges or spheres of control.
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Prerequisites
 

@@ -9,7 +9,7 @@ An adversary may execute a flooding attack using the ICMP protocol with the inte
 
 ## Related CWE (1)
 
-- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html)
+- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html) — The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
 
 ## Prerequisites
 

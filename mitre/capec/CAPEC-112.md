@@ -10,13 +10,13 @@ In this attack, some asset (information, functionality, identity, etc.) is prote
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1110 — Brute Force](/mitre/techniques/T1110.md)
+- [T1110 — Brute Force](/mitre/techniques/T1110.md) — Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained.
 
 ## Related CWE (3)
 
-- [CWE-330 — Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html)
-- [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html)
-- [CWE-521 — Weak Password Requirements](https://cwe.mitre.org/data/definitions/521.html)
+- [CWE-330 — Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html) — The product uses insufficiently random numbers or values in a security context that depends on unpredictable numbers.
+- [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html) — The product stores or transmits sensitive data using an encryption scheme that is theoretically sound, but is not strong enough for the level of protection required.
+- [CWE-521 — Weak Password Requirements](https://cwe.mitre.org/data/definitions/521.html) — The product does not require that users should have strong passwords.
 
 ## Prerequisites
 

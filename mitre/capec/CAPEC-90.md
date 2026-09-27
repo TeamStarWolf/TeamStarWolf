@@ -11,8 +11,8 @@ An adversary can abuse an authentication protocol susceptible to reflection atta
 
 ## Related CWE (2)
 
-- [CWE-301 — Reflection Attack in an Authentication Protocol](https://cwe.mitre.org/data/definitions/301.html)
-- [CWE-303 — Incorrect Implementation of Authentication Algorithm](https://cwe.mitre.org/data/definitions/303.html)
+- [CWE-301 — Reflection Attack in an Authentication Protocol](https://cwe.mitre.org/data/definitions/301.html) — Simple authentication protocols are subject to reflection attacks if a malicious user can use the target machine to impersonate a trusted user.
+- [CWE-303 — Incorrect Implementation of Authentication Algorithm](https://cwe.mitre.org/data/definitions/303.html) — The requirements for the product dictate the use of an established authentication algorithm, but the implementation of the algorithm is incorrect.
 
 ## Prerequisites
 

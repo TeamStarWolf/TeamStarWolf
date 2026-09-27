@@ -10,11 +10,11 @@ An attacker gains access to application, service, or device with the privileges 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md)
+- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md) — Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions.
 
 ## Related CWE (1)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
 
 ## Prerequisites
 

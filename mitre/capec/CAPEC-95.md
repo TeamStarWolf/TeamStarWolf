@@ -11,7 +11,7 @@ This attack targets the WSDL interface made available by a web service. The atta
 
 ## Related CWE (1)
 
-- [CWE-538 — Insertion of Sensitive Information into Externally-Accessible File or Directory](https://cwe.mitre.org/data/definitions/538.html)
+- [CWE-538 — Insertion of Sensitive Information into Externally-Accessible File or Directory](https://cwe.mitre.org/data/definitions/538.html) — The product places sensitive information into files or directories that are accessible to actors who are allowed to have access to the files, but not to the sensitive information.
 
 ## Prerequisites
 

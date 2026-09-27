@@ -11,7 +11,7 @@ An adversary exploits incorrect chaining or granularity of hardware debug compon
 
 ## Related CWE (1)
 
-- [CWE-1296 — Incorrect Chaining or Granularity of Debug Components](https://cwe.mitre.org/data/definitions/1296.html)
+- [CWE-1296 — Incorrect Chaining or Granularity of Debug Components](https://cwe.mitre.org/data/definitions/1296.html) — The product's debug components contain incorrect chaining or granularity of debug components.
 
 ## Prerequisites
 

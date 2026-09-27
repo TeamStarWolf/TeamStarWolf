@@ -11,7 +11,7 @@ An adversary exploits a weakness in access control to gain access to currently i
 
 ## Related CWE (1)
 
-- [CWE-1263 — Improper Physical Access Control](https://cwe.mitre.org/data/definitions/1263.html)
+- [CWE-1263 — Improper Physical Access Control](https://cwe.mitre.org/data/definitions/1263.html) — The product is designed with access restricted to certain information, but it does not sufficiently protect against an unauthorized actor with physical access to these areas.
 
 ---
 

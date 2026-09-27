@@ -11,7 +11,7 @@ Software produced by a reputable developer is clandestinely infected with malici
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md)
+- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 

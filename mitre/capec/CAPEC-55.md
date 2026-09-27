@@ -11,18 +11,18 @@ An attacker gets access to the database table where hashes of passwords are stor
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1110.002 — Password Cracking](/mitre/techniques/T1110-002.md)
+- [T1110.002 — Password Cracking](/mitre/techniques/T1110-002.md) — Adversaries may use password cracking to attempt to recover usable credentials, such as plaintext passwords, when credential material such as password hashes are obtained.
 
 ## Related CWE (8)
 
-- [CWE-261 — Weak Encoding for Password](https://cwe.mitre.org/data/definitions/261.html)
-- [CWE-521 — Weak Password Requirements](https://cwe.mitre.org/data/definitions/521.html)
-- [CWE-262 — Not Using Password Aging](https://cwe.mitre.org/data/definitions/262.html)
-- [CWE-263 — Password Aging with Long Expiration](https://cwe.mitre.org/data/definitions/263.html)
-- [CWE-654 — Reliance on a Single Factor in a Security Decision](https://cwe.mitre.org/data/definitions/654.html)
-- [CWE-916 — Use of Password Hash With Insufficient Computational Effort](https://cwe.mitre.org/data/definitions/916.html)
-- [CWE-308 — Use of Single-factor Authentication](https://cwe.mitre.org/data/definitions/308.html)
-- [CWE-309 — Use of Password System for Primary Authentication](https://cwe.mitre.org/data/definitions/309.html)
+- [CWE-261 — Weak Encoding for Password](https://cwe.mitre.org/data/definitions/261.html) — Obscuring a password with a trivial encoding does not protect the password.
+- [CWE-521 — Weak Password Requirements](https://cwe.mitre.org/data/definitions/521.html) — The product does not require that users should have strong passwords.
+- [CWE-262 — Not Using Password Aging](https://cwe.mitre.org/data/definitions/262.html) — The product does not have a mechanism in place for managing password aging.
+- [CWE-263 — Password Aging with Long Expiration](https://cwe.mitre.org/data/definitions/263.html) — The product supports password aging, but the expiration period is too long.
+- [CWE-654 — Reliance on a Single Factor in a Security Decision](https://cwe.mitre.org/data/definitions/654.html) — A protection mechanism relies exclusively, or to a large extent, on the evaluation of a single condition or the integrity of a single object or entity in order to make a decision about granting access to restricted…
+- [CWE-916 — Use of Password Hash With Insufficient Computational Effort](https://cwe.mitre.org/data/definitions/916.html) — The product generates a hash for a password, but it uses a scheme that does not provide a sufficient level of computational effort that would make password cracking attacks infeasible or expensive.
+- [CWE-308 — Use of Single-factor Authentication](https://cwe.mitre.org/data/definitions/308.html) — The product uses an authentication algorithm that uses a single factor (e.g., a password) in a security context that should require more than one factor.
+- [CWE-309 — Use of Password System for Primary Authentication](https://cwe.mitre.org/data/definitions/309.html) — The use of password systems as the primary means of authentication may be subject to several flaws or shortcomings, each reducing the effectiveness of the mechanism.
 
 ## Prerequisites
 

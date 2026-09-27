@@ -11,13 +11,13 @@ An adversary exploits a weakness in authentication to install malware that alter
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1014 — Rootkit](/mitre/techniques/T1014.md)
-- [T1542.003 — Bootkit](/mitre/techniques/T1542-003.md)
-- [T1547.006 — Kernel Modules and Extensions](/mitre/techniques/T1547-006.md)
+- [T1014 — Rootkit](/mitre/techniques/T1014.md) — Adversaries may use rootkits to hide the presence of programs, files, network connections, services, drivers, and other system components.
+- [T1542.003 — Bootkit](/mitre/techniques/T1542-003.md) — Adversaries may use bootkits to persist on systems.
+- [T1547.006 — Kernel Modules and Extensions](/mitre/techniques/T1547-006.md) — Adversaries may modify the kernel to automatically execute programs on system boot.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Mitigations
 

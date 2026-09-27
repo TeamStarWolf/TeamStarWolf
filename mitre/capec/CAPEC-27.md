@@ -11,11 +11,11 @@ This attack leverages the use of symbolic links (Symlinks) in order to write to 
 
 ## Related CWE (5)
 
-- [CWE-367 — Time-of-check Time-of-use (TOCTOU) Race Condition](https://cwe.mitre.org/data/definitions/367.html)
-- [CWE-61 — UNIX Symbolic Link (Symlink) Following](https://cwe.mitre.org/data/definitions/61.html)
-- [CWE-662 — Improper Synchronization](https://cwe.mitre.org/data/definitions/662.html)
-- [CWE-689 — Permission Race Condition During Resource Copy](https://cwe.mitre.org/data/definitions/689.html)
-- [CWE-667 — Improper Locking](https://cwe.mitre.org/data/definitions/667.html)
+- [CWE-367 — Time-of-check Time-of-use (TOCTOU) Race Condition](https://cwe.mitre.org/data/definitions/367.html) — The product checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check.
+- [CWE-61 — UNIX Symbolic Link (Symlink) Following](https://cwe.mitre.org/data/definitions/61.html) — The product, when opening a file or directory, does not sufficiently account for when the file is a symbolic link that resolves to a target outside of the intended control sphere.
+- [CWE-662 — Improper Synchronization](https://cwe.mitre.org/data/definitions/662.html) — The product utilizes multiple threads, processes, components, or systems to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these…
+- [CWE-689 — Permission Race Condition During Resource Copy](https://cwe.mitre.org/data/definitions/689.html) — The product, while copying or cloning a resource, does not set the resource's permissions or access control until the copy is complete, leaving the resource exposed to other spheres while the copy is taking place.
+- [CWE-667 — Improper Locking](https://cwe.mitre.org/data/definitions/667.html) — The product does not properly acquire or release a lock on a resource, leading to unexpected resource state changes and behaviors.
 
 ## Prerequisites
 

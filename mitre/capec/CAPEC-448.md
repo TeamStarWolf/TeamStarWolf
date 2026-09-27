@@ -11,11 +11,11 @@ An adversary tampers with a DLL and embeds a computer virus into gaps between le
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1027.009 — Embedded Payloads](/mitre/techniques/T1027-009.md)
+- [T1027.009 — Embedded Payloads](/mitre/techniques/T1027-009.md) — Adversaries may embed payloads within other files to conceal malicious content from defenses.
 
 ## Related CWE (1)
 
-- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html)
+- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html) — The product contains code that appears to be malicious in nature.
 
 ## Prerequisites
 

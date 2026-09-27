@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1558.003 — Kerberoasting](/mitre/techniques/T1558-003.md) — analyzes
+- [T1558.003 — Kerberoasting](/mitre/techniques/T1558-003.md) — analyzes. Adversaries may abuse a valid Kerberos ticket-granting ticket (TGT) or sniff network traffic to obtain a ticket-granting service (TGS) ticket that may be vulnerable to Brute Force.
 
 ---
 

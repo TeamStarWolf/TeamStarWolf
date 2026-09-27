@@ -10,7 +10,7 @@ Some APIs support scripting instructions as arguments. Methods that take scripte
 
 ## Related CWE (1)
 
-- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)
+- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html) — The product does not properly verify that the source of data or communication is valid.
 
 ## Prerequisites
 

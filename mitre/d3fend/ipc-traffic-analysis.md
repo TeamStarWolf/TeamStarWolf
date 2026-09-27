@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1197 — BITS Jobs](/mitre/techniques/T1197.md) — analyzes
+- [T1197 — BITS Jobs](/mitre/techniques/T1197.md) — analyzes. Adversaries may abuse BITS jobs to persistently execute code and perform various background tasks.
 
 ---
 

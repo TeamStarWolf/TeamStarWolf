@@ -11,17 +11,17 @@ An adversary exploits a weakness in access control to disable security tools so 
 
 ## Mapped ATT&CK techniques (7)
 
-- [T1556.006 — Multi-Factor Authentication](/mitre/techniques/T1556-006.md)
-- [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md)
-- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md)
-- [T1562.004 — Disable or Modify System Firewall](/mitre/techniques/T1562-004.md)
-- [T1562.007 — Disable or Modify Cloud Firewall](/mitre/techniques/T1562-007.md)
-- [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md)
-- [T1562.009 — Safe Mode Boot](/mitre/techniques/T1562-009.md)
+- [T1556.006 — Multi-Factor Authentication](/mitre/techniques/T1556-006.md) — Adversaries may disable or modify multi-factor authentication (MFA) mechanisms to enable persistent access to compromised accounts.
+- [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md) — Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities.
+- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md) — Adversaries may disable Windows event logging to limit data that can be leveraged for detections and audits.
+- [T1562.004 — Disable or Modify System Firewall](/mitre/techniques/T1562-004.md) — Adversaries may disable or modify system firewalls in order to bypass controls limiting network usage.
+- [T1562.007 — Disable or Modify Cloud Firewall](/mitre/techniques/T1562-007.md) — Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.
+- [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md) — An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
+- [T1562.009 — Safe Mode Boot](/mitre/techniques/T1562-009.md) — Adversaries may abuse Windows safe mode to disable endpoint defenses.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Prerequisites
 

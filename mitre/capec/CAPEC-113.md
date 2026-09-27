@@ -11,7 +11,7 @@ An adversary manipulates the use or processing of an interface (e.g. Application
 
 ## Related CWE (1)
 
-- [CWE-1192 — Improper Identifier for IP Block used in System-On-Chip (SOC)](https://cwe.mitre.org/data/definitions/1192.html)
+- [CWE-1192 — Improper Identifier for IP Block used in System-On-Chip (SOC)](https://cwe.mitre.org/data/definitions/1192.html) — The System-on-Chip (SoC) does not have unique, immutable identifiers for each of its components.
 
 ## Prerequisites
 

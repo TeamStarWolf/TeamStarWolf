@@ -10,11 +10,11 @@ An attacker exploits file location algorithms in an operating system or applicat
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036 — Masquerading](/mitre/techniques/T1036.md)
+- [T1036 — Masquerading](/mitre/techniques/T1036.md) — Adversaries may attempt to manipulate features of their artifacts to make them appear legitimate or benign to users and/or security tools.
 
 ## Related CWE (1)
 
-- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html)
+- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html) — The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.
 
 ## Prerequisites
 

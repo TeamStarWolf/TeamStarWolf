@@ -11,12 +11,12 @@ An adversary gathers sensitive information by exploiting the system's screen cap
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1113 — Screen Capture](/mitre/techniques/T1113.md)
+- [T1113 — Screen Capture](/mitre/techniques/T1113.md) — Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation.
 - `T1513`
 
 ## Related CWE (1)
 
-- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html)
+- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html) — A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
 
 ## Prerequisites
 

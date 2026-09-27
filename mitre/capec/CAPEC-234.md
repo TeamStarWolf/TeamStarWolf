@@ -10,8 +10,8 @@ An adversary gains control of a process that is assigned elevated privileges in 
 
 ## Related CWE (2)
 
-- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html)
-- [CWE-648 — Incorrect Use of Privileged APIs](https://cwe.mitre.org/data/definitions/648.html)
+- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html) — The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
+- [CWE-648 — Incorrect Use of Privileged APIs](https://cwe.mitre.org/data/definitions/648.html) — The product does not conform to the API requirements for a function call that requires extra privileges.
 
 ## Prerequisites
 

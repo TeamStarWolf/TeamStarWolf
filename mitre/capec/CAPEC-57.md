@@ -11,13 +11,13 @@ This attack utilizes a REST(REpresentational State Transfer)-style applications'
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1040 — Network Sniffing](/mitre/techniques/T1040.md)
+- [T1040 — Network Sniffing](/mitre/techniques/T1040.md) — Adversaries may passively sniff network traffic to capture information about an environment, including authentication material passed over the network.
 
 ## Related CWE (3)
 
-- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html)
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html) — The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or…
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Prerequisites
 

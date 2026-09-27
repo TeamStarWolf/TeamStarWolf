@@ -9,8 +9,8 @@ An adversary, through a previously installed malicious application, injects code
 
 ## Related CWE (2)
 
-- [CWE-749 — Exposed Dangerous Method or Function](https://cwe.mitre.org/data/definitions/749.html)
-- [CWE-940 — Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html)
+- [CWE-749 — Exposed Dangerous Method or Function](https://cwe.mitre.org/data/definitions/749.html) — The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted.
+- [CWE-940 — Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html) — The product establishes a communication channel to handle an incoming request that has been initiated by an actor, but it does not properly verify that the request is coming from the expected origin.
 
 ## Prerequisites
 

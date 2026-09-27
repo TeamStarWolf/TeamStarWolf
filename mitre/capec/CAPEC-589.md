@@ -9,7 +9,7 @@ An adversary intercepts traffic and intentionally drops DNS requests based on co
 
 ## Related CWE (1)
 
-- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html)
+- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html) — The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or…
 
 ## Prerequisites
 

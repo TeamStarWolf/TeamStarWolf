@@ -9,7 +9,7 @@ In this attack pattern, an adversary injects a connection reset packet to one or
 
 ## Related CWE (1)
 
-- [CWE-940 — Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html)
+- [CWE-940 — Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html) — The product establishes a communication channel to handle an incoming request that has been initiated by an actor, but it does not properly verify that the request is coming from the expected origin.
 
 ## Prerequisites
 

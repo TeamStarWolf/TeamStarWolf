@@ -10,12 +10,12 @@ In this attack pattern, the adversary monitors network traffic between nodes of 
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1040 — Network Sniffing](/mitre/techniques/T1040.md)
-- [T1111 — Multi-Factor Authentication Interception](/mitre/techniques/T1111.md)
+- [T1040 — Network Sniffing](/mitre/techniques/T1040.md) — Adversaries may passively sniff network traffic to capture information about an environment, including authentication material passed over the network.
+- [T1111 — Multi-Factor Authentication Interception](/mitre/techniques/T1111.md) — Adversaries may target multi-factor authentication (MFA) mechanisms, (i.e., smart cards, token generators, etc.) to gain access to credentials that can be used to access systems, services, and network resources.
 
 ## Related CWE (1)
 
-- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
 
 ## Prerequisites
 

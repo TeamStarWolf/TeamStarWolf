@@ -11,15 +11,15 @@ A domain name server translates a domain name (such as www.example.com) into an 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1584.002 — DNS Server](/mitre/techniques/T1584-002.md)
+- [T1584.002 — DNS Server](/mitre/techniques/T1584-002.md) — Adversaries may compromise third-party DNS servers that can be used during targeting.
 
 ## Related CWE (5)
 
-- [CWE-348 — Use of Less Trusted Source](https://cwe.mitre.org/data/definitions/348.html)
-- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
-- [CWE-349 — Acceptance of Extraneous Untrusted Data With Trusted Data](https://cwe.mitre.org/data/definitions/349.html)
-- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)
-- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html)
+- [CWE-348 — Use of Less Trusted Source](https://cwe.mitre.org/data/definitions/348.html) — The product has two different sources of the same data or information, but it uses the source that has less support for verification, is less trusted, or is less resistant to attack.
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html) — The product does not sufficiently verify the origin or authenticity of data, in a way that causes it to accept invalid data.
+- [CWE-349 — Acceptance of Extraneous Untrusted Data With Trusted Data](https://cwe.mitre.org/data/definitions/349.html) — The product, when processing trusted data, accepts any untrusted data that is also included with the trusted data, treating the untrusted data as if it were trusted.
+- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html) — The product does not properly verify that the source of data or communication is valid.
+- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html) — The product performs reverse DNS resolution on an IP address to obtain the hostname and make a security decision, but it does not properly ensure that the IP address is truly associated with the hostname.
 
 ## Prerequisites
 

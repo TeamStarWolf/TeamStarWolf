@@ -10,13 +10,13 @@ An adversary exploits a weakness in an application's specification of external l
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1574.001 — DLL](/mitre/techniques/T1574-001.md)
-- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md)
-- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
+- [T1574.001 — DLL](/mitre/techniques/T1574-001.md) — Adversaries may abuse dynamic-link library files (DLLs) in order to achieve persistence, escalate privileges, and evade defenses.
+- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md) — Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime.
+- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md) — Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 
 ## Related CWE (1)
 
-- [CWE-427 — Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html)
+- [CWE-427 — Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html) — The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.
 
 ## Prerequisites
 

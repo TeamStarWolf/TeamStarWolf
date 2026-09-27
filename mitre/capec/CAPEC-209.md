@@ -10,9 +10,9 @@ An adversary creates a file with scripting content but where the specified MIME 
 
 ## Related CWE (3)
 
-- [CWE-79 — Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
-- [CWE-646 — Reliance on File Name or Extension of Externally-Supplied File](https://cwe.mitre.org/data/definitions/646.html)
+- [CWE-79 — Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html) — The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-646 — Reliance on File Name or Extension of Externally-Supplied File](https://cwe.mitre.org/data/definitions/646.html) — The product allows a file to be uploaded, but it relies on the file name or extension of the file to determine the appropriate behaviors.
 
 ## Prerequisites
 

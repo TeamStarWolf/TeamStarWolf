@@ -10,7 +10,7 @@ An attacker manipulates either egress or ingress data from a client within an ap
 
 ## Related CWE (1)
 
-- [CWE-353 — Missing Support for Integrity Check](https://cwe.mitre.org/data/definitions/353.html)
+- [CWE-353 — Missing Support for Integrity Check](https://cwe.mitre.org/data/definitions/353.html) — The product uses a transmission protocol that does not include a mechanism for verifying the integrity of the data during transmission, such as a checksum.
 
 ## Prerequisites
 

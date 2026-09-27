@@ -11,12 +11,12 @@ An attacker changes the behavior or state of a targeted application through inje
 
 ## Related CWE (6)
 
-- [CWE-74 — Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')](https://cwe.mitre.org/data/definitions/74.html)
-- [CWE-146 — Improper Neutralization of Expression/Command Delimiters](https://cwe.mitre.org/data/definitions/146.html)
-- [CWE-184 — Incomplete List of Disallowed Inputs](https://cwe.mitre.org/data/definitions/184.html)
-- [CWE-78 — Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/78.html)
-- [CWE-185 — Incorrect Regular Expression](https://cwe.mitre.org/data/definitions/185.html)
-- [CWE-697 — Incorrect Comparison](https://cwe.mitre.org/data/definitions/697.html)
+- [CWE-74 — Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')](https://cwe.mitre.org/data/definitions/74.html) — The product constructs all or part of a command, data structure, or record using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could…
+- [CWE-146 — Improper Neutralization of Expression/Command Delimiters](https://cwe.mitre.org/data/definitions/146.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as expression or command delimiters when they are sent to a…
+- [CWE-184 — Incomplete List of Disallowed Inputs](https://cwe.mitre.org/data/definitions/184.html) — The product implements a protection mechanism that relies on a list of inputs (or properties of inputs) that are not allowed by policy or otherwise require other action to neutralize before additional processing takes…
+- [CWE-78 — Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/78.html) — The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS…
+- [CWE-185 — Incorrect Regular Expression](https://cwe.mitre.org/data/definitions/185.html) — The product specifies a regular expression in a way that causes data to be improperly matched or compared.
+- [CWE-697 — Incorrect Comparison](https://cwe.mitre.org/data/definitions/697.html) — The product compares two entities in a security-relevant context, but the comparison is incorrect.
 
 ## Prerequisites
 

@@ -11,11 +11,11 @@ An adversary modifies content to make it contain something other than what the o
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1491 — Defacement](/mitre/techniques/T1491.md)
+- [T1491 — Defacement](/mitre/techniques/T1491.md) — Adversaries may modify visual content available internally or externally to an enterprise network, thus affecting the integrity of the original content.
 
 ## Related CWE (1)
 
-- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html) — The product does not sufficiently verify the origin or authenticity of data, in a way that causes it to accept invalid data.
 
 ## Prerequisites
 

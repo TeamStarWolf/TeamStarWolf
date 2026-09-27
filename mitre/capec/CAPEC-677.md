@@ -11,7 +11,7 @@ Malware is inserted in a server motherboard (e.g., in the flash memory) in order
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md)
+- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md) — Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 

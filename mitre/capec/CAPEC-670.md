@@ -11,8 +11,8 @@ An adversary with the ability to alter tools used in a development environment c
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1127 — Trusted Developer Utilities Proxy Execution](/mitre/techniques/T1127.md)
-- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md)
+- [T1127 — Trusted Developer Utilities Proxy Execution](/mitre/techniques/T1127.md) — Adversaries may take advantage of trusted developer utilities to proxy execution of malicious payloads.
+- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md) — Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 

@@ -9,8 +9,8 @@ An adversary may execute an attack on a program that uses a poor Regular Express
 
 ## Related CWE (2)
 
-- [CWE-400 — Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html)
-- [CWE-1333 — Inefficient Regular Expression Complexity](https://cwe.mitre.org/data/definitions/1333.html)
+- [CWE-400 — Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html) — The product does not properly control the allocation and maintenance of a limited resource.
+- [CWE-1333 — Inefficient Regular Expression Complexity](https://cwe.mitre.org/data/definitions/1333.html) — The product uses a regular expression with a worst-case computational complexity that is inefficient and possibly exponential.
 
 ## Prerequisites
 

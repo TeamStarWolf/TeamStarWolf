@@ -10,7 +10,7 @@ The use of cryptanalytic techniques to derive cryptographic keys or otherwise ef
 
 ## Related CWE (1)
 
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
 
 ## Prerequisites
 

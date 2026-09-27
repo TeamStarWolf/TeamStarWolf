@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1505.001 — SQL Stored Procedures](/mitre/techniques/T1505-001.md) — validates
+- [T1505.001 — SQL Stored Procedures](/mitre/techniques/T1505-001.md) — validates. Adversaries may abuse SQL stored procedures to establish persistent access to systems.
 
 ---
 

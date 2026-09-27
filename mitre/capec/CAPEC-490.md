@@ -9,11 +9,11 @@ An adversary may execute an amplification where the size of a response is far gr
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1498.002 — Reflection Amplification](/mitre/techniques/T1498-002.md)
+- [T1498.002 — Reflection Amplification](/mitre/techniques/T1498-002.md) — Adversaries may attempt to cause a denial of service (DoS) by reflecting a high-volume of network traffic to a target.
 
 ## Related CWE (1)
 
-- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html)
+- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html) — The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
 
 ## Prerequisites
 

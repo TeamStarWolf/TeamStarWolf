@@ -11,7 +11,7 @@ An attacker is able to trick the victim into executing a Flash document that pas
 
 ## Related CWE (1)
 
-- [CWE-601 — URL Redirection to Untrusted Site ('Open Redirect')](https://cwe.mitre.org/data/definitions/601.html)
+- [CWE-601 — URL Redirection to Untrusted Site ('Open Redirect')](https://cwe.mitre.org/data/definitions/601.html) — The web application accepts a user-controlled input that specifies a link to an external site, and uses that link in a redirect.
 
 ## Prerequisites
 

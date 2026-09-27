@@ -10,7 +10,7 @@ SIM cards are the de facto trust anchor of mobile devices worldwide. The cards p
 
 ## Related CWE (1)
 
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
 
 ## Prerequisites
 

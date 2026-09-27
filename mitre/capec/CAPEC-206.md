@@ -10,11 +10,11 @@ The adversary extracts credentials used for code signing from a production envir
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1553.002 — Code Signing](/mitre/techniques/T1553-002.md)
+- [T1553.002 — Code Signing](/mitre/techniques/T1553-002.md) — Adversaries may create, acquire, or steal code signing materials to sign their malware or tools.
 
 ## Related CWE (1)
 
-- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html)
+- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html) — The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ The attacker may submit malicious code of another language to obtain access to p
 
 ## Related CWE (1)
 
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Skills required
 

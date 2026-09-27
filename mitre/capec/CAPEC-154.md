@@ -11,7 +11,7 @@ An adversary deceives an application or user and convinces them to request a res
 
 ## Related CWE (1)
 
-- [CWE-451 — User Interface (UI) Misrepresentation of Critical Information](https://cwe.mitre.org/data/definitions/451.html)
+- [CWE-451 — User Interface (UI) Misrepresentation of Critical Information](https://cwe.mitre.org/data/definitions/451.html) — The user interface (UI) does not properly represent critical information to the user, allowing the information - or its source - to be obscured or spoofed.
 
 ## Prerequisites
 

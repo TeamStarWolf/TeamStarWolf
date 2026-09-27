@@ -11,11 +11,11 @@ An adversary exploits a weakness in authorization and installs a new root certif
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1553.004 — Install Root Certificate](/mitre/techniques/T1553-004.md)
+- [T1553.004 — Install Root Certificate](/mitre/techniques/T1553-004.md) — Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary controlled web servers.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Prerequisites
 

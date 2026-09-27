@@ -10,8 +10,8 @@ An adversary exploits a resource shared between multiple applications, an applic
 
 ## Related CWE (2)
 
-- [CWE-1189 — Improper Isolation of Shared Resources on System-on-a-Chip (SoC)](https://cwe.mitre.org/data/definitions/1189.html)
-- [CWE-1331 — Improper Isolation of Shared Resources in Network On Chip (NoC)](https://cwe.mitre.org/data/definitions/1331.html)
+- [CWE-1189 — Improper Isolation of Shared Resources on System-on-a-Chip (SoC)](https://cwe.mitre.org/data/definitions/1189.html) — The System-On-a-Chip (SoC) does not properly isolate shared resources between trusted and untrusted agents.
+- [CWE-1331 — Improper Isolation of Shared Resources in Network On Chip (NoC)](https://cwe.mitre.org/data/definitions/1331.html) — The Network On Chip (NoC) does not isolate or incorrectly isolates its on-chip-fabric and internal resources such that they are shared between trusted and untrusted agents, creating timing channels.
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ Simple Object Access Protocol (SOAP) is used as a communication protocol between
 
 ## Related CWE (1)
 
-- [CWE-707 — Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html)
+- [CWE-707 — Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html) — The product does not ensure or incorrectly ensures that structured messages or data are well-formed and that certain security properties are met before being read from an upstream component or sent to a downstream…
 
 ## Prerequisites
 

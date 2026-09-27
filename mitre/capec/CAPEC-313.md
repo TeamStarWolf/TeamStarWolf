@@ -11,11 +11,11 @@ An adversary engages in activity to detect the version or type of OS software in
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1082 — System Information Discovery](/mitre/techniques/T1082.md)
+- [T1082 — System Information Discovery](/mitre/techniques/T1082.md) — An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

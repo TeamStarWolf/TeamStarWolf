@@ -11,8 +11,8 @@ An attacker with access to download and update system software sends a malicious
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1495 — Firmware Corruption](/mitre/techniques/T1495.md)
-- [T1542.001 — System Firmware](/mitre/techniques/T1542-001.md)
+- [T1495 — Firmware Corruption](/mitre/techniques/T1495.md) — Adversaries may overwrite or corrupt the flash memory contents of system BIOS or other firmware in devices attached to a system in order to render them inoperable or unable to boot, thus denying the availability to use…
+- [T1542.001 — System Firmware](/mitre/techniques/T1542-001.md) — Adversaries may modify system firmware to persist on systems.The BIOS (Basic Input/Output System) and The Unified Extensible Firmware Interface (UEFI) or Extensible Firmware Interface (EFI) are examples of system…
 
 ## Prerequisites
 

@@ -10,9 +10,9 @@ An adversary prevents host-generated logs being delivered to a central location 
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md)
-- [T1562.006 — Indicator Blocking](/mitre/techniques/T1562-006.md)
-- [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md)
+- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md) — Adversaries may disable Windows event logging to limit data that can be leveraged for detections and audits.
+- [T1562.006 — Indicator Blocking](/mitre/techniques/T1562-006.md) — An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed.
+- [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md) — An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
 
 ---
 

@@ -11,7 +11,7 @@ An adversary sends a UDP packet to a closed port on the target machine to solici
 
 ## Related CWE (1)
 
-- [CWE-204 — Observable Response Discrepancy](https://cwe.mitre.org/data/definitions/204.html)
+- [CWE-204 — Observable Response Discrepancy](https://cwe.mitre.org/data/definitions/204.html) — The product provides different responses to incoming requests in a way that reveals internal state information to an unauthorized actor outside of the intended control sphere.
 
 ## Prerequisites
 

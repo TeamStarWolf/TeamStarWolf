@@ -11,12 +11,12 @@ An adversary adds a new entry to the run keys in the Windows registry so that an
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1547.001 — Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md)
-- [T1547.014 — Active Setup](/mitre/techniques/T1547-014.md)
+- [T1547.001 — Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md) — Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key.
+- [T1547.014 — Active Setup](/mitre/techniques/T1547-014.md) — Adversaries may achieve persistence by adding a Registry key to the Active Setup of the local machine.
 
 ## Related CWE (1)
 
-- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html)
+- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html) — One or more system settings or configuration elements can be externally controlled by a user.
 
 ## Prerequisites
 

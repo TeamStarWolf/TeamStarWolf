@@ -11,8 +11,8 @@ An adversary actively probes the target in a manner that is designed to solicit 
 
 ## Related CWE (2)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
-- [CWE-1243 — Sensitive Non-Volatile Information Not Protected During Debug](https://cwe.mitre.org/data/definitions/1243.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-1243 — Sensitive Non-Volatile Information Not Protected During Debug](https://cwe.mitre.org/data/definitions/1243.html) — Access to security-sensitive information stored in fuses is not limited during debug.
 
 ## Prerequisites
 

@@ -11,8 +11,8 @@ A pharming attack occurs when the victim is fooled into entering sensitive data 
 
 ## Related CWE (2)
 
-- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)
-- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html)
+- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html) — The product does not properly verify that the source of data or communication is valid.
+- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html) — The product performs reverse DNS resolution on an IP address to obtain the hostname and make a security decision, but it does not properly ensure that the IP address is truly associated with the hostname.
 
 ## Prerequisites
 

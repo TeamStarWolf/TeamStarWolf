@@ -9,7 +9,7 @@ An adversary inserts malicious logic into a product or technology via flashing t
 
 ## Related CWE (1)
 
-- [CWE-1282 — Assumed-Immutable Data is Stored in Writable Memory](https://cwe.mitre.org/data/definitions/1282.html)
+- [CWE-1282 — Assumed-Immutable Data is Stored in Writable Memory](https://cwe.mitre.org/data/definitions/1282.html) — Immutable data, such as a first-stage bootloader, device identifiers, and write-once configuration settings are stored in writable memory that can be re-programmed or updated in the field.
 
 ---
 

@@ -11,8 +11,8 @@ An adversary uses their privileged position within an authorized development org
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md)
-- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md)
+- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md) — Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 

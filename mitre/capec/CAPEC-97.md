@@ -11,11 +11,11 @@ Cryptanalysis is a process of finding weaknesses in cryptographic algorithms and
 
 ## Related CWE (5)
 
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
-- [CWE-1204 — Generation of Weak Initialization Vector (IV)](https://cwe.mitre.org/data/definitions/1204.html)
-- [CWE-1240 — Use of a Cryptographic Primitive with a Risky Implementation](https://cwe.mitre.org/data/definitions/1240.html)
-- [CWE-1241 — Use of Predictable Algorithm in Random Number Generator](https://cwe.mitre.org/data/definitions/1241.html)
-- [CWE-1279 — Cryptographic Operations are run Before Supporting Units are Ready](https://cwe.mitre.org/data/definitions/1279.html)
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
+- [CWE-1204 — Generation of Weak Initialization Vector (IV)](https://cwe.mitre.org/data/definitions/1204.html) — The product uses a cryptographic primitive that uses an Initialization Vector (IV), but the product does not generate IVs that are sufficiently unpredictable or unique according to the expected cryptographic…
+- [CWE-1240 — Use of a Cryptographic Primitive with a Risky Implementation](https://cwe.mitre.org/data/definitions/1240.html) — To fulfill the need for a cryptographic primitive, the product implements a cryptographic algorithm using a non-standard, unproven, or disallowed/non-compliant cryptographic implementation.
+- [CWE-1241 — Use of Predictable Algorithm in Random Number Generator](https://cwe.mitre.org/data/definitions/1241.html) — The device uses an algorithm that is predictable and generates a pseudo-random number.
+- [CWE-1279 — Cryptographic Operations are run Before Supporting Units are Ready](https://cwe.mitre.org/data/definitions/1279.html) — Performing cryptographic operations without ensuring that the supporting inputs are ready to supply valid data may compromise the cryptographic result.
 
 ## Prerequisites
 

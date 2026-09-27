@@ -11,11 +11,11 @@ An adversary gains access to an application, service, or device with the privile
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1611 — Escape to Host](/mitre/techniques/T1611.md)
+- [T1611 — Escape to Host](/mitre/techniques/T1611.md) — Adversaries may break out of a container or virtualized environment to gain access to the underlying host.
 
 ## Related CWE (1)
 
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Mitigations
 

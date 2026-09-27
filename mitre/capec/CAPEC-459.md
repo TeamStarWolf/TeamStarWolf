@@ -11,9 +11,9 @@ An adversary exploits a weakness resulting from using a hashing algorithm with w
 
 ## Related CWE (3)
 
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
-- [CWE-295 — Improper Certificate Validation](https://cwe.mitre.org/data/definitions/295.html)
-- [CWE-290 — Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html)
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
+- [CWE-295 — Improper Certificate Validation](https://cwe.mitre.org/data/definitions/295.html) — The product does not validate, or incorrectly validates, a certificate.
+- [CWE-290 — Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html) — This attack-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.
 
 ## Prerequisites
 

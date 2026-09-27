@@ -11,7 +11,7 @@ An adversary engages in pretexting behavior to solicit information from target p
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1589 — Gather Victim Identity Information](/mitre/techniques/T1589.md)
+- [T1589 — Gather Victim Identity Information](/mitre/techniques/T1589.md) — Adversaries may gather information about the victim's identity that can be used during targeting.
 
 ## Prerequisites
 

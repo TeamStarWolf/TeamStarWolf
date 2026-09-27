@@ -11,11 +11,11 @@ An adversary obtains decommissioned, recycled, or discarded systems and devices 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1052 — Exfiltration Over Physical Medium](/mitre/techniques/T1052.md)
+- [T1052 — Exfiltration Over Physical Medium](/mitre/techniques/T1052.md) — Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive.
 
 ## Related CWE (1)
 
-- [CWE-1266 — Improper Scrubbing of Sensitive Data from Decommissioned Device](https://cwe.mitre.org/data/definitions/1266.html)
+- [CWE-1266 — Improper Scrubbing of Sensitive Data from Decommissioned Device](https://cwe.mitre.org/data/definitions/1266.html) — The product does not properly provide a capability for the product administrator to remove sensitive data at the time the product is decommissioned.
 
 ## Prerequisites
 

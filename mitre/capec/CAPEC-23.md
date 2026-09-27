@@ -11,7 +11,7 @@ An adversary poisons files with a malicious payload (targeting the file systems 
 
 ## Related CWE (1)
 
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
 
 ## Prerequisites
 

@@ -11,11 +11,11 @@ An attacker obtains an authoritative or reputable signer's private signature key
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1552.004 — Private Keys](/mitre/techniques/T1552-004.md)
+- [T1552.004 — Private Keys](/mitre/techniques/T1552-004.md) — Adversaries may search for private key certificate files on compromised systems for insecurely stored credentials.
 
 ## Related CWE (1)
 
-- [CWE-522 — Insufficiently Protected Credentials](https://cwe.mitre.org/data/definitions/522.html)
+- [CWE-522 — Insufficiently Protected Credentials](https://cwe.mitre.org/data/definitions/522.html) — The product transmits or stores authentication credentials, but it uses an insecure method that is susceptible to unauthorized interception and/or retrieval.
 
 ## Prerequisites
 

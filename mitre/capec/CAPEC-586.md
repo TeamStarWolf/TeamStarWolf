@@ -11,7 +11,7 @@ An adversary attempts to exploit an application by injecting additional, malicio
 
 ## Related CWE (1)
 
-- [CWE-502 — Deserialization of Untrusted Data](https://cwe.mitre.org/data/definitions/502.html)
+- [CWE-502 — Deserialization of Untrusted Data](https://cwe.mitre.org/data/definitions/502.html) — The product deserializes untrusted data without sufficiently ensuring that the resulting data will be valid.
 
 ## Prerequisites
 

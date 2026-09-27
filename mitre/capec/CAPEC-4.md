@@ -11,8 +11,8 @@ This attack relies on the adversary using unexpected formats for representing IP
 
 ## Related CWE (2)
 
-- [CWE-291 — Reliance on IP Address for Authentication](https://cwe.mitre.org/data/definitions/291.html)
-- [CWE-173 — Improper Handling of Alternate Encoding](https://cwe.mitre.org/data/definitions/173.html)
+- [CWE-291 — Reliance on IP Address for Authentication](https://cwe.mitre.org/data/definitions/291.html) — The product uses an IP address for authentication.
+- [CWE-173 — Improper Handling of Alternate Encoding](https://cwe.mitre.org/data/definitions/173.html) — The product does not properly handle when an input uses an alternate encoding that is valid for the control sphere to which the input is being sent.
 
 ## Prerequisites
 

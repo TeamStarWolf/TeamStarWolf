@@ -10,12 +10,12 @@ An adversary exploits a weakness in authentication to create an access token (or
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1134 — Access Token Manipulation](/mitre/techniques/T1134.md)
+- [T1134 — Access Token Manipulation](/mitre/techniques/T1134.md) — Adversaries may modify access tokens to operate under a different user or system security context to perform actions and bypass access controls.
 
 ## Related CWE (2)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
-- [CWE-1270 — Generation of Incorrect Security Tokens](https://cwe.mitre.org/data/definitions/1270.html)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
+- [CWE-1270 — Generation of Incorrect Security Tokens](https://cwe.mitre.org/data/definitions/1270.html) — The product implements a Security Token mechanism to differentiate what actions are allowed or disallowed when a transaction originates from an entity.
 
 ## Prerequisites
 

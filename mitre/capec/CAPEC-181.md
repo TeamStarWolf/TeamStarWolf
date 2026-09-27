@@ -10,7 +10,7 @@ An attacker creates a transparent overlay using flash in order to intercept user
 
 ## Related CWE (1)
 
-- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html)
+- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html) — The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
 
 ## Prerequisites
 

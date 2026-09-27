@@ -11,7 +11,7 @@ An adversary corrupts or modifies the content of a schema for the purpose of und
 
 ## Related CWE (1)
 
-- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html)
+- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html) — One or more system settings or configuration elements can be externally controlled by a user.
 
 ## Prerequisites
 

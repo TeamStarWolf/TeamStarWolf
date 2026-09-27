@@ -11,11 +11,11 @@ The adversary exploits an application that allows for the copying of sensitive d
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1115 — Clipboard Data](/mitre/techniques/T1115.md)
+- [T1115 — Clipboard Data](/mitre/techniques/T1115.md) — Adversaries may collect data stored in the clipboard from users copying information within or between applications.
 
 ## Related CWE (1)
 
-- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html)
+- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html) — A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
 
 ## Prerequisites
 

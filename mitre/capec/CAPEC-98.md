@@ -11,12 +11,12 @@ Phishing is a social engineering technique where an attacker masquerades as a le
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1566 — Phishing](/mitre/techniques/T1566.md)
-- [T1598 — Phishing for Information](/mitre/techniques/T1598.md)
+- [T1566 — Phishing](/mitre/techniques/T1566.md) — Adversaries may send phishing messages to gain access to victim systems.
+- [T1598 — Phishing for Information](/mitre/techniques/T1598.md) — Adversaries may send phishing messages to elicit sensitive information that can be used during targeting.
 
 ## Related CWE (1)
 
-- [CWE-451 — User Interface (UI) Misrepresentation of Critical Information](https://cwe.mitre.org/data/definitions/451.html)
+- [CWE-451 — User Interface (UI) Misrepresentation of Critical Information](https://cwe.mitre.org/data/definitions/451.html) — The user interface (UI) does not properly represent critical information to the user, allowing the information - or its source - to be obscured or spoofed.
 
 ## Prerequisites
 

@@ -11,11 +11,11 @@ An adversary exploits a weakness in the way an application searches for external
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
+- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md) — Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 
 ## Related CWE (1)
 
-- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html)
+- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html) — The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.
 
 ## Prerequisites
 

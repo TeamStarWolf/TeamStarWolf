@@ -9,7 +9,7 @@ This attack takes advantage of the entity replacement property of certain data s
 
 ## Related CWE (1)
 
-- [CWE-611 — Improper Restriction of XML External Entity Reference](https://cwe.mitre.org/data/definitions/611.html)
+- [CWE-611 — Improper Restriction of XML External Entity Reference](https://cwe.mitre.org/data/definitions/611.html) — The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents into its output.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ An attacker spoofs a UDDI, ebXML, or similar message in order to impersonate a s
 
 ## Related CWE (1)
 
-- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html) — The product does not sufficiently verify the origin or authenticity of data, in a way that causes it to accept invalid data.
 
 ## Prerequisites
 

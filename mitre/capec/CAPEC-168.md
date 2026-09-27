@@ -10,8 +10,8 @@ An attacker exploits the functionality of Microsoft NTFS Alternate Data Streams 
 
 ## Related CWE (2)
 
-- [CWE-212 — Improper Removal of Sensitive Information Before Storage or Transfer](https://cwe.mitre.org/data/definitions/212.html)
-- [CWE-69 — Improper Handling of Windows ::DATA Alternate Data Stream](https://cwe.mitre.org/data/definitions/69.html)
+- [CWE-212 — Improper Removal of Sensitive Information Before Storage or Transfer](https://cwe.mitre.org/data/definitions/212.html) — The product stores, transfers, or shares a resource that contains sensitive information, but it does not properly remove that information before the product makes the resource available to unauthorized actors.
+- [CWE-69 — Improper Handling of Windows ::DATA Alternate Data Stream](https://cwe.mitre.org/data/definitions/69.html) — The product does not properly prevent access to, or detect usage of, alternate data streams (ADS).
 
 ## Prerequisites
 

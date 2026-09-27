@@ -10,7 +10,7 @@ In this attack pattern, the adversary intercepts information transmitted between
 
 ## Related CWE (1)
 
-- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
 
 ## Prerequisites
 

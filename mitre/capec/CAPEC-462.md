@@ -10,9 +10,9 @@ An attacker initiates cross domain HTTP / GET requests and times the server resp
 
 ## Related CWE (3)
 
-- [CWE-385 — Covert Timing Channel](https://cwe.mitre.org/data/definitions/385.html)
-- [CWE-352 — Cross-Site Request Forgery (CSRF)](https://cwe.mitre.org/data/definitions/352.html)
-- [CWE-208 — Observable Timing Discrepancy](https://cwe.mitre.org/data/definitions/208.html)
+- [CWE-385 — Covert Timing Channel](https://cwe.mitre.org/data/definitions/385.html) — Covert timing channels convey information by modulating some aspect of system behavior over time, so that the program receiving the information can observe system behavior and infer protected information.
+- [CWE-352 — Cross-Site Request Forgery (CSRF)](https://cwe.mitre.org/data/definitions/352.html) — The web application does not, or cannot, sufficiently verify whether a request was intentionally provided by the user who sent the request, which could have originated from an unauthorized actor.
+- [CWE-208 — Observable Timing Discrepancy](https://cwe.mitre.org/data/definitions/208.html) — Two separate operations in a product require different amounts of time to complete, in a way that is observable to an actor and reveals security-relevant information about the state of the product, such as whether a…
 
 ## Prerequisites
 

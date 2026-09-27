@@ -10,7 +10,7 @@ An adversary inserts invalid characters in identifiers to bypass application fil
 
 ## Related CWE (1)
 
-- [CWE-86 — Improper Neutralization of Invalid Characters in Identifiers in Web Pages](https://cwe.mitre.org/data/definitions/86.html)
+- [CWE-86 — Improper Neutralization of Invalid Characters in Identifiers in Web Pages](https://cwe.mitre.org/data/definitions/86.html) — The product does not neutralize or incorrectly neutralizes invalid characters or byte sequences in the middle of tag names, URI schemes, and other identifiers.
 
 ## Prerequisites
 

@@ -11,11 +11,11 @@ An adversary exploits functionality meant to identify information about the doma
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1087 — Account Discovery](/mitre/techniques/T1087.md)
+- [T1087 — Account Discovery](/mitre/techniques/T1087.md) — Adversaries may attempt to get a listing of valid accounts, usernames, or email addresses on a system or within a compromised environment.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ An attacker removes or modifies the logic on a client associated with monetary c
 
 ## Related CWE (1)
 
-- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html)
+- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html) — The product is composed of a server that relies on the client to implement a mechanism that is intended to protect the server.
 
 ## Prerequisites
 

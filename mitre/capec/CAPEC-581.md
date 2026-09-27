@@ -9,7 +9,7 @@ Adversaries may attempt to get a listing of security tools that are installed on
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1518.001 — Security Software Discovery](/mitre/techniques/T1518-001.md)
+- [T1518.001 — Security Software Discovery](/mitre/techniques/T1518-001.md) — Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment.
 
 ## Mitigations
 

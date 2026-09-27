@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — reads
+- [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — reads. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
 
 ---
 

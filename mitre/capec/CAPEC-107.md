@@ -11,8 +11,8 @@ Cross Site Tracing (XST) enables an adversary to steal the victim's session cook
 
 ## Related CWE (2)
 
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
-- [CWE-648 — Incorrect Use of Privileged APIs](https://cwe.mitre.org/data/definitions/648.html)
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
+- [CWE-648 — Incorrect Use of Privileged APIs](https://cwe.mitre.org/data/definitions/648.html) — The product does not conform to the API requirements for a function call that requires extra privileges.
 
 ## Prerequisites
 

@@ -11,12 +11,12 @@ An adversary exploits security vulnerabilities or inherent functionalities of a 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1185 — Browser Session Hijacking](/mitre/techniques/T1185.md)
+- [T1185 — Browser Session Hijacking](/mitre/techniques/T1185.md) — Adversaries may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking…
 
 ## Related CWE (2)
 
-- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html)
-- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html)
+- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html) — The product does not adequately verify the identity of actors at both ends of a communication channel, or does not adequately ensure the integrity of the channel, in a way that allows the channel to be accessed or…
+- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html) — The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
 
 ## Prerequisites
 

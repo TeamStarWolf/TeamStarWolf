@@ -96,6 +96,7 @@
 | [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | SIP, Gatekeeper/notarization, XProtect, TCC, FileVault, Endpoint Security framework telemetry, unified log, NIST mSCP/CIS baselines, MDM, ATT&CK macOS coverage |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
+| [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK object — 691 technique + 44 mitigation pages — with cross-framework relationships (mitigations, D3FEND, CAPEC, NIST 800-53) and Team Star Wolf corpus prevalence; mitigation pages add concrete how-to-implement guidance |
 | [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | The full MITRE ATT&CK for Mobile matrix (124 techniques) cross-referenced to groups, software, and mitigations |
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |

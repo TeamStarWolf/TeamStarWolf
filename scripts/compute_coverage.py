@@ -22,86 +22,50 @@ from pathlib import Path
 from collections import defaultdict
 
 
-# ATT&CK Enterprise tactic metadata (technique counts approximate for v13)
+# ATT&CK Enterprise v19.2 tactics (15). v19.2 renamed Defense Evasion (TA0005) -> Stealth
+# and split out Defense Impairment (TA0112). "universe" technique counts are derived from the
+# committed v19.2 technique_profiles (not hardcoded approximations) in load_technique_tactics().
 TACTIC_METADATA = {
-    "initial-access":       {"name": "Initial Access",       "approx_techniques": 9,  "weight": 1.5},
-    "execution":            {"name": "Execution",            "approx_techniques": 14, "weight": 1.3},
-    "persistence":          {"name": "Persistence",          "approx_techniques": 19, "weight": 1.2},
-    "privilege-escalation": {"name": "Privilege Escalation", "approx_techniques": 13, "weight": 1.2},
-    "defense-evasion":      {"name": "Defense Evasion",      "approx_techniques": 42, "weight": 1.4},
-    "credential-access":    {"name": "Credential Access",    "approx_techniques": 17, "weight": 1.4},
-    "discovery":            {"name": "Discovery",            "approx_techniques": 31, "weight": 1.0},
-    "lateral-movement":     {"name": "Lateral Movement",     "approx_techniques": 9,  "weight": 1.3},
-    "collection":           {"name": "Collection",           "approx_techniques": 17, "weight": 1.3},
-    "command-and-control":  {"name": "Command and Control",  "approx_techniques": 16, "weight": 1.2},
-    "exfiltration":         {"name": "Exfiltration",         "approx_techniques": 9,  "weight": 1.2},
-    "impact":               {"name": "Impact",               "approx_techniques": 14, "weight": 1.1},
+    "reconnaissance":       {"name": "Reconnaissance",       "weight": 0.8},
+    "resource-development": {"name": "Resource Development", "weight": 0.8},
+    "initial-access":       {"name": "Initial Access",       "weight": 1.5},
+    "execution":            {"name": "Execution",            "weight": 1.3},
+    "persistence":          {"name": "Persistence",          "weight": 1.2},
+    "privilege-escalation": {"name": "Privilege Escalation", "weight": 1.2},
+    "stealth":              {"name": "Stealth",              "weight": 1.4},
+    "defense-impairment":   {"name": "Defense Impairment",   "weight": 1.4},
+    "credential-access":    {"name": "Credential Access",    "weight": 1.4},
+    "discovery":            {"name": "Discovery",            "weight": 1.0},
+    "lateral-movement":     {"name": "Lateral Movement",     "weight": 1.3},
+    "collection":           {"name": "Collection",           "weight": 1.3},
+    "command-and-control":  {"name": "Command and Control",  "weight": 1.2},
+    "exfiltration":         {"name": "Exfiltration",         "weight": 1.2},
+    "impact":               {"name": "Impact",               "weight": 1.1},
 }
 
-# Known tactic memberships for key techniques (simplified -- full mapping requires ATT&CK STIX data)
-TECHNIQUE_TACTIC_MAP = {
-    # Initial Access
-    "T1190": ["initial-access"], "T1566": ["initial-access"],
-    "T1566.001": ["initial-access"], "T1566.002": ["initial-access"], "T1566.003": ["initial-access"],
-    "T1133": ["initial-access"], "T1195": ["initial-access"], "T1195.002": ["initial-access"],
-    "T1078": ["initial-access", "persistence", "privilege-escalation", "defense-evasion"],
-    "T1078.002": ["initial-access", "persistence", "privilege-escalation", "defense-evasion"],
-    "T1078.003": ["initial-access", "persistence", "privilege-escalation", "defense-evasion"],
-    "T1078.004": ["initial-access", "persistence", "privilege-escalation", "defense-evasion"],
-    # Execution
-    "T1059": ["execution"], "T1059.001": ["execution"], "T1059.002": ["execution"],
-    "T1059.003": ["execution"], "T1059.004": ["execution"], "T1059.005": ["execution"],
-    "T1059.007": ["execution"], "T1059.008": ["execution"],
-    "T1047": ["execution"], "T1053": ["execution", "persistence", "privilege-escalation"],
-    "T1053.005": ["execution", "persistence", "privilege-escalation"],
-    "T1204": ["execution"], "T1204.001": ["execution"], "T1204.002": ["execution"],
-    # Persistence
-    "T1098": ["persistence"], "T1098.001": ["persistence"], "T1098.003": ["persistence"],
-    "T1098.005": ["persistence"], "T1136": ["persistence"], "T1136.002": ["persistence"],
-    "T1136.003": ["persistence"], "T1547": ["persistence", "privilege-escalation"],
-    "T1547.001": ["persistence", "privilege-escalation"],
-    "T1543": ["persistence", "privilege-escalation"],
-    "T1543.003": ["persistence", "privilege-escalation"],
-    "T1525": ["persistence"], "T1611": ["privilege-escalation"],
-    # Privilege Escalation
-    "T1068": ["privilege-escalation"], "T1548": ["privilege-escalation", "defense-evasion"],
-    "T1550.002": ["defense-evasion", "lateral-movement"],
-    "T1558": ["credential-access"], "T1558.003": ["credential-access"],
-    # Defense Evasion
-    "T1562": ["defense-evasion"], "T1562.001": ["defense-evasion"],
-    "T1040": ["credential-access", "discovery"],
-    # Credential Access
-    "T1003": ["credential-access"], "T1003.001": ["credential-access"],
-    "T1110": ["credential-access"], "T1110.001": ["credential-access"],
-    "T1110.003": ["credential-access"], "T1110.004": ["credential-access"],
-    "T1556": ["credential-access", "defense-evasion"],
-    "T1556.001": ["credential-access", "defense-evasion"],
-    "T1556.006": ["credential-access", "defense-evasion"],
-    "T1621": ["credential-access"], "T1552": ["credential-access"],
-    "T1552.001": ["credential-access"], "T1552.005": ["credential-access"],
-    "T1555": ["credential-access"], "T1557": ["credential-access", "collection"],
-    # Discovery
-    "T1046": ["discovery"], "T1580": ["discovery"], "T1619": ["discovery"],
-    # Lateral Movement
-    "T1021": ["lateral-movement"], "T1021.001": ["lateral-movement"],
-    "T1021.002": ["lateral-movement"], "T1021.004": ["lateral-movement"],
-    "T1534": ["lateral-movement"],
-    # Collection
-    "T1114": ["collection"], "T1114.003": ["collection"],
-    "T1213": ["collection"], "T1530": ["collection"],
-    # Command and Control
-    "T1071": ["command-and-control"], "T1071.001": ["command-and-control"],
-    "T1071.004": ["command-and-control"],
-    "T1090": ["command-and-control"], "T1090.003": ["command-and-control"],
-    "T1095": ["command-and-control"], "T1572": ["command-and-control"],
-    "T1571": ["command-and-control"],
-    # Exfiltration
-    "T1048": ["exfiltration"], "T1048.002": ["exfiltration"], "T1048.003": ["exfiltration"],
-    "T1041": ["exfiltration"], "T1537": ["exfiltration"],
-    # Impact
-    "T1486": ["impact"], "T1490": ["impact"], "T1489": ["impact"],
-    "T1491": ["impact"], "T1485": ["impact"], "T1565": ["impact"],
-}
+
+def load_technique_tactics():
+    """Derive the technique -> v19.2 tactics map from the committed technique_profiles
+    (the full non-revoked universe), replacing the old hardcoded v13 approximation."""
+    m = {}
+    p = Path("data/attack/technique_profiles.jsonl")
+    if not p.exists():
+        return m
+    with open(p, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            r = json.loads(line)
+            if r.get("revoked"):
+                continue
+            tacs = [t for t in (r.get("tactics") or []) if t in TACTIC_METADATA]
+            if tacs:
+                m[r["technique_id"]] = tacs
+    return m
+
+
+TECHNIQUE_TACTIC_MAP = load_technique_tactics()
 
 
 def load_jsonl(path: str) -> list[dict]:
@@ -157,17 +121,15 @@ def compute_coverage(args):
     for tactic_id, meta in TACTIC_METADATA.items():
         tactic_techniques = set(technique_to_tactics[tactic_id])
         covered_in_tactic = tactic_techniques & covered_techniques
-        total_known = max(len(tactic_techniques), 1)
-        coverage_pct = round(len(covered_in_tactic) / total_known * 100, 1)
+        total = max(len(tactic_techniques), 1)
+        coverage_pct = round(len(covered_in_tactic) / total * 100, 1)
 
         tactic_coverage[tactic_id] = {
             "name": meta["name"],
             "covered_techniques": sorted(covered_in_tactic),
             "covered_count": len(covered_in_tactic),
-            "known_techniques_in_map": total_known,
-            "approx_total_in_attack": meta["approx_techniques"],
-            "coverage_pct_of_known": coverage_pct,
-            "coverage_pct_of_total": round(len(covered_in_tactic) / meta["approx_techniques"] * 100, 1),
+            "total_in_attack": len(tactic_techniques),
+            "coverage_pct_of_total": coverage_pct,
             "gap_techniques": sorted(tactic_techniques - covered_techniques),
             "weight": meta["weight"],
         }
@@ -220,13 +182,15 @@ def compute_coverage(args):
     gaps.sort(key=lambda x: -x["nist_control_depth"])
 
     gaps_output = {
-        "generated": "2026-04-18",
+        "generated": "2026-09-27",
+        "attack_version": "19.2",
         "total_covered_techniques": len(covered_techniques),
+        "total_technique_universe": len(TECHNIQUE_TACTIC_MAP),
         "total_vendor_stack_vendors": len(vendor_technique_map),
         "tactic_summary": {
             tactic: {
                 "covered": data["covered_count"],
-                "total_approx": data["approx_total_in_attack"],
+                "total": data["total_in_attack"],
                 "pct": data["coverage_pct_of_total"],
             }
             for tactic, data in tactic_coverage.items()
@@ -250,9 +214,9 @@ def compute_coverage(args):
             {
                 "capability": "Endpoint Hardening / Application Control",
                 "example_vendors": ["CrowdStrike App Control", "Carbon Black App Control", "Tanium"],
-                "fills_gap_in_tactics": ["defense-evasion", "execution"],
-                "key_techniques": ["T1218", "T1562", "T1027", "T1574", "T1543"],
-                "rationale": "Defense Evasion tactic is 2% covered -- LOLBAS, obfuscation, and impair-defenses techniques largely uncovered",
+                "fills_gap_in_tactics": ["stealth", "defense-impairment", "execution"],
+                "key_techniques": ["T1218", "T1685", "T1027", "T1574", "T1543"],
+                "rationale": "Stealth and the new Defense Impairment tactics are thinly covered -- LOLBAS, obfuscation, and disable/modify-tools (T1685) techniques largely uncovered",
             },
             {
                 "capability": "NDR (Network Detection & Response)",
@@ -274,7 +238,7 @@ def compute_coverage(args):
     print(f"{'Tactic':<30} {'Covered':>8} {'Total':>8} {'Pct':>8}")
     print("-" * 58)
     for tactic, data in tactic_coverage.items():
-        print(f"{data['name']:<30} {data['covered_count']:>8} {data['approx_total_in_attack']:>8} {data['coverage_pct_of_total']:>7}%")
+        print(f"{data['name']:<30} {data['covered_count']:>8} {data['total_in_attack']:>8} {data['coverage_pct_of_total']:>7}%")
 
 
 def main():

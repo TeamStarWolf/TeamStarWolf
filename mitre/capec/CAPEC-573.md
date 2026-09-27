@@ -11,11 +11,11 @@ An adversary exploits functionality meant to identify information about the curr
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1057 — Process Discovery](/mitre/techniques/T1057.md)
+- [T1057 — Process Discovery](/mitre/techniques/T1057.md) — Adversaries may attempt to get information about running processes on a system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

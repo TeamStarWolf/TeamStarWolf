@@ -11,8 +11,8 @@ An adversary exploits improper input validation by submitting maliciously crafte
 
 ## Related CWE (2)
 
-- [CWE-918 — Server-Side Request Forgery (SSRF)](https://cwe.mitre.org/data/definitions/918.html)
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
+- [CWE-918 — Server-Side Request Forgery (SSRF)](https://cwe.mitre.org/data/definitions/918.html) — The web server receives a URL or similar request from an upstream component and retrieves the contents of this URL, but it does not sufficiently ensure that the request is being sent to the expected destination.
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
 
 ## Prerequisites
 

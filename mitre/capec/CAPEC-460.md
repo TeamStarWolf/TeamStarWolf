@@ -10,9 +10,9 @@ An adversary adds duplicate HTTP GET/POST parameters by injecting query string d
 
 ## Related CWE (3)
 
-- [CWE-88 — Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')](https://cwe.mitre.org/data/definitions/88.html)
-- [CWE-147 — Improper Neutralization of Input Terminators](https://cwe.mitre.org/data/definitions/147.html)
-- [CWE-235 — Improper Handling of Extra Parameters](https://cwe.mitre.org/data/definitions/235.html)
+- [CWE-88 — Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')](https://cwe.mitre.org/data/definitions/88.html) — The product constructs a string for a command to be executed by a separate component in another control sphere, but it does not properly delimit the intended arguments, options, or switches within that command string.
+- [CWE-147 — Improper Neutralization of Input Terminators](https://cwe.mitre.org/data/definitions/147.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as input terminators when they are sent to a downstream component.
+- [CWE-235 — Improper Handling of Extra Parameters](https://cwe.mitre.org/data/definitions/235.html) — The product does not handle or incorrectly handles when the number of parameters, fields, or arguments with the same name exceeds the expected amount.
 
 ## Prerequisites
 

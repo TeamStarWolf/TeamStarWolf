@@ -11,12 +11,12 @@ An adversary adds malicious logic, often in the form of a computer virus, to oth
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md)
-- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md)
+- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md) — Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Related CWE (1)
 
-- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html)
+- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html) — The product contains code that appears to be malicious in nature.
 
 ## Prerequisites
 

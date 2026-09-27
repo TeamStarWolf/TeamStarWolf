@@ -10,7 +10,7 @@ An attacker exploits characteristics of the infrastructure of a network entity i
 
 ## Related CWE (1)
 
-- [CWE-923 — Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html)
+- [CWE-923 — Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html) — The product establishes a communication channel to (or from) an endpoint for privileged or protected operations, but it does not properly ensure that it is communicating with the correct endpoint.
 
 ## Prerequisites
 

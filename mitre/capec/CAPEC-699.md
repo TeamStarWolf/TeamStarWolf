@@ -11,7 +11,7 @@ An Adversary can eavesdrop on the content of an external monitor through the air
 
 ## Related CWE (1)
 
-- [CWE-1300 — Improper Protection of Physical Side Channels](https://cwe.mitre.org/data/definitions/1300.html)
+- [CWE-1300 — Improper Protection of Physical Side Channels](https://cwe.mitre.org/data/definitions/1300.html) — The device does not contain sufficient protection mechanisms to prevent physical side channels from exposing sensitive information due to patterns in physically observable phenomena such as variations in power…
 
 ## Prerequisites
 

@@ -11,11 +11,11 @@ An adversary engages in probing and exploration activities to determine if commo
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1083 — File and Directory Discovery](/mitre/techniques/T1083.md)
+- [T1083 — File and Directory Discovery](/mitre/techniques/T1083.md) — Adversaries may enumerate files and directories or may search in specific locations of a host or network share for certain information within a file system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

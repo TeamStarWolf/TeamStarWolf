@@ -9,11 +9,11 @@ An attacker undermines the integrity of a product, software, or technology at so
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md)
+- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md) — Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Related CWE (1)
 
-- [CWE-1269 — Product Released in Non-Release Configuration](https://cwe.mitre.org/data/definitions/1269.html)
+- [CWE-1269 — Product Released in Non-Release Configuration](https://cwe.mitre.org/data/definitions/1269.html) — The product released to market is released in pre-production or manufacturing configuration.
 
 ---
 

@@ -10,15 +10,15 @@ Files on various operating systems can have a complex format which allows for th
 
 ## Mapped ATT&CK techniques (5)
 
-- [T1001.002 — Steganography](/mitre/techniques/T1001-002.md)
-- [T1027.003 — Steganography](/mitre/techniques/T1027-003.md)
-- [T1027.004 — Compile After Delivery](/mitre/techniques/T1027-004.md)
-- [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md)
-- [T1221 — Template Injection](/mitre/techniques/T1221.md)
+- [T1001.002 — Steganography](/mitre/techniques/T1001-002.md) — Adversaries may use steganographic techniques to hide command and control traffic to make detection efforts more difficult.
+- [T1027.003 — Steganography](/mitre/techniques/T1027-003.md) — Adversaries may use steganography techniques in order to prevent the detection of hidden information.
+- [T1027.004 — Compile After Delivery](/mitre/techniques/T1027-004.md) — Adversaries may attempt to make payloads difficult to discover and analyze by delivering files to victims as uncompiled code.
+- [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md) — Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code.
+- [T1221 — Template Injection](/mitre/techniques/T1221.md) — Adversaries may create or modify references in user document templates to conceal malicious code or force authentication attempts.
 
 ## Related CWE (1)
 
-- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html)
+- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html) — The product contains code that appears to be malicious in nature.
 
 ## Prerequisites
 

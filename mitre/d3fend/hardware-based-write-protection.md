@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1619 — Cloud Storage Object Discovery](/mitre/techniques/T1619.md) — hardens
+- [T1619 — Cloud Storage Object Discovery](/mitre/techniques/T1619.md) — hardens. Adversaries may enumerate objects in cloud storage infrastructure.
 
 ---
 

@@ -10,7 +10,7 @@ An adversary deploys a keylogger in an effort to obtain credentials directly fro
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1056.001 — Keylogging](/mitre/techniques/T1056-001.md)
+- [T1056.001 — Keylogging](/mitre/techniques/T1056-001.md) — Adversaries may log user keystrokes to intercept credentials as the user types them.
 
 ## Prerequisites
 

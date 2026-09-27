@@ -11,8 +11,8 @@ An adversary exploits a weakness in the system maintenance process and causes a 
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md)
-- [T1200 — Hardware Additions](/mitre/techniques/T1200.md)
+- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md) — Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1200 — Hardware Additions](/mitre/techniques/T1200.md) — Adversaries may physically introduce computer accessories, networking hardware, or other computing devices into a system or network that can be used as a vector to gain access.
 
 ## Prerequisites
 

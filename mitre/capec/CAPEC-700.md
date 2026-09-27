@@ -11,7 +11,7 @@ An adversary which has gained elevated access to network boundary devices may us
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1599 — Network Boundary Bridging](/mitre/techniques/T1599.md)
+- [T1599 — Network Boundary Bridging](/mitre/techniques/T1599.md) — Adversaries may bridge network boundaries by compromising perimeter network devices or internal devices responsible for network segmentation.
 
 ## Prerequisites
 

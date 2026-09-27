@@ -11,7 +11,7 @@ An adversary modifies file contents by adding data to files for several reasons.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1027.001 — Binary Padding](/mitre/techniques/T1027-001.md)
+- [T1027.001 — Binary Padding](/mitre/techniques/T1027-001.md) — Adversaries may use binary padding to add junk data and change the on-disk representation of malware.
 
 ---
 

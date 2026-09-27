@@ -10,7 +10,7 @@ The adversary bypasses input validation by using doubled characters in order to 
 
 ## Related CWE (1)
 
-- [CWE-85 — Doubled Character XSS Manipulations](https://cwe.mitre.org/data/definitions/85.html)
+- [CWE-85 — Doubled Character XSS Manipulations](https://cwe.mitre.org/data/definitions/85.html) — The web application does not filter user-controlled input for executable script disguised using doubling of the involved characters.
 
 ## Prerequisites
 

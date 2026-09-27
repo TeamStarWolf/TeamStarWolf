@@ -10,7 +10,7 @@ An adversary searches a targeted web site for web pages that have not been publi
 
 ## Related CWE (1)
 
-- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html)
+- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html) — The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.
 
 ## Prerequisites
 

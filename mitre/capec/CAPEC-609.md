@@ -10,11 +10,11 @@ Cellular traffic for voice and data from mobile devices and retransmission devic
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1111 — Multi-Factor Authentication Interception](/mitre/techniques/T1111.md)
+- [T1111 — Multi-Factor Authentication Interception](/mitre/techniques/T1111.md) — Adversaries may target multi-factor authentication (MFA) mechanisms, (i.e., smart cards, token generators, etc.) to gain access to credentials that can be used to access systems, services, and network resources.
 
 ## Related CWE (1)
 
-- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
 
 ## Prerequisites
 

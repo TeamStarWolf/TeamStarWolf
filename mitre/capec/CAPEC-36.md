@@ -11,10 +11,10 @@ An adversary searches for and invokes interfaces or functionality that the targe
 
 ## Related CWE (4)
 
-- [CWE-306 — Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html)
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
-- [CWE-695 — Use of Low-Level Functionality](https://cwe.mitre.org/data/definitions/695.html)
-- [CWE-1242 — Inclusion of Undocumented Features or Chicken Bits](https://cwe.mitre.org/data/definitions/1242.html)
+- [CWE-306 — Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html) — The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
+- [CWE-695 — Use of Low-Level Functionality](https://cwe.mitre.org/data/definitions/695.html) — The product uses low-level functionality that is explicitly prohibited by the framework or specification under which the product is supposed to operate.
+- [CWE-1242 — Inclusion of Undocumented Features or Chicken Bits](https://cwe.mitre.org/data/definitions/1242.html) — The device includes chicken bits or undocumented features that can create entry points for unauthorized actors.
 
 ## Prerequisites
 

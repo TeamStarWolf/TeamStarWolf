@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1071.004 — DNS](/mitre/techniques/T1071-004.md) — blocks
-- [T1568 — Dynamic Resolution](/mitre/techniques/T1568.md) — blocks
+- [T1071.004 — DNS](/mitre/techniques/T1071-004.md) — blocks. Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic.
+- [T1568 — Dynamic Resolution](/mitre/techniques/T1568.md) — blocks. Adversaries may dynamically establish connections to command and control infrastructure to evade common detections and remediations.
 
 ---
 

@@ -10,12 +10,12 @@ An adversary exploits a weakness in authorization in order to modify content wit
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1112 — Modify Registry](/mitre/techniques/T1112.md)
-- [T1647 — Plist File Modification](/mitre/techniques/T1647.md)
+- [T1112 — Modify Registry](/mitre/techniques/T1112.md) — Adversaries may interact with the Windows Registry as part of a variety of other techniques to aid in defense evasion, persistence, and execution.
+- [T1647 — Plist File Modification](/mitre/techniques/T1647.md) — Adversaries may modify property list files (plist files) to enable other malicious activity, while also potentially evading and bypassing system defenses.
 
 ## Related CWE (1)
 
-- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html)
+- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html) — One or more system settings or configuration elements can be externally controlled by a user.
 
 ## Prerequisites
 

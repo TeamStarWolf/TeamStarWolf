@@ -10,7 +10,7 @@ An adversary spoofs a checksum message for the purpose of making a payload appea
 
 ## Related CWE (1)
 
-- [CWE-354 — Improper Validation of Integrity Check Value](https://cwe.mitre.org/data/definitions/354.html)
+- [CWE-354 — Improper Validation of Integrity Check Value](https://cwe.mitre.org/data/definitions/354.html) — The product does not validate or incorrectly validates the integrity check values or checksums of a message.
 
 ## Prerequisites
 

@@ -146,6 +146,24 @@ def sstr(v):
     return "" if v is None else str(v)
 
 
+def summarize(text, max_chars=220):
+    """First sentence (or first ~max_chars) of a description, on one line."""
+    if not text:
+        return ""
+    t = re.sub(r"\s+", " ", str(text)).strip()
+    m = re.match(r"(.+?[.!?])(?:\s|$)", t)
+    s = m.group(1) if m else t
+    if len(s) > max_chars:
+        s = s[:max_chars].rsplit(" ", 1)[0].rstrip(",;:") + "\N{HORIZONTAL ELLIPSIS}"
+    return s
+
+
+def first_alias_str(aliases, primary_name, cap=4):
+    """'aka X, Y' from an aliases list, excluding the primary name."""
+    al = [a for a in (aliases or []) if a and a != primary_name][:cap]
+    return "aka " + ", ".join(al) if al else ""
+
+
 # ----------------------------------------------------------------------------- data load
 class DB:
     def __init__(self):
@@ -168,8 +186,15 @@ class DB:
         for r in load_jsonl(DATA / "attack/software_to_technique.jsonl"):
             self.sw_by_t[r["technique_id"]].append(r["software_name"])
 
-        self.group_url = {r["name"]: r.get("url") for r in load_jsonl(DATA / "attack/groups.jsonl")}
-        self.sw_url = {r["name"]: r.get("url") for r in load_jsonl(DATA / "attack/software.jsonl")}
+        gj = load_jsonl(DATA / "attack/groups.jsonl")
+        self.group = {r["name"]: r for r in gj}
+        self.group_url = {r["name"]: r.get("url") for r in gj}
+        sj = load_jsonl(DATA / "attack/software.jsonl")
+        self.sw = {r["name"]: r for r in sj}
+        self.sw_url = {r["name"]: r.get("url") for r in sj}
+        # optional deep-enrichment data (present after the data-refresh lane lands)
+        d3c_path = DATA / "attack/d3fend_countermeasures.jsonl"
+        self.d3_defs = {r["name"]: r for r in load_jsonl(d3c_path)} if d3c_path.exists() else {}
 
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
@@ -206,7 +231,8 @@ class DB:
 
         # --- CAPEC + CWE ---
         self.capec = {r["capec_id"]: r for r in load_jsonl(DATA / "weaknesses/capec.jsonl")}
-        self.cwe_name = {r["cwe_id"]: r.get("name", "") for r in load_jsonl(DATA / "weaknesses/cwe.jsonl")}
+        self.cwe = {r["cwe_id"]: r for r in load_jsonl(DATA / "weaknesses/cwe.jsonl")}
+        self.cwe_name = {k: v.get("name", "") for k, v in self.cwe.items()}
 
         # --- ATLAS ---
         self.atlas = {r["technique_id"]: r for r in load_jsonl(DATA / "ai/atlas_techniques.jsonl")}
@@ -262,9 +288,14 @@ def render_technique(db, tid):
     migs = p.get("mitigations") or []
     if migs:
         out.append("## Mitigations (" + str(len(migs)) + ")\n")
-        out.append("\n".join(
-            "- [" + m["id"] + " " + DASH + " " + m["name"] + "](/mitre/mitigations/" + m["id"] + ".md)"
-            for m in migs) + "\n")
+        rows = []
+        for m in migs:
+            line = "- [" + m["id"] + " " + DASH + " " + m["name"] + "](/mitre/mitigations/" + m["id"] + ".md)"
+            desc = summarize((db.mit.get(m["id"], {}) or {}).get("description"))
+            if desc:
+                line += " " + DASH + " " + desc
+            rows.append(line)
+        out.append("\n".join(rows) + "\n")
 
     # D3FEND (now linked to the d3fend pages)
     edges = db.d3.get(tid) or []
@@ -278,7 +309,11 @@ def render_technique(db, tid):
             tac = sstr(e.get("d3fend_tactic"))
             rel = sstr(e.get("relation")) or "maps"
             tac_txt = " (" + tac + ")" if tac else ""
-            rows.append("- [" + name + "](/mitre/d3fend/" + dslug(name) + ".md)" + tac_txt + " " + DASH + " " + rel)
+            drow = "- [" + name + "](/mitre/d3fend/" + dslug(name) + ".md)" + tac_txt + " " + DASH + " " + rel
+            dfn = summarize((db.d3_defs.get(name, {}) or {}).get("definition"))
+            if dfn:
+                drow += ". " + dfn
+            rows.append(drow)
         out.append("## D3FEND countermeasures (" + str(len(rows)) + ")\n")
         out.append("\n".join(rows) + "\n")
 
@@ -336,6 +371,18 @@ def render_technique(db, tid):
             named = ", ".join(link(g, db.group_url.get(g)) for g in groups[:CAP_NAMED])
             extra = " _+" + str(len(groups) - CAP_NAMED) + " more_" if len(groups) > CAP_NAMED else ""
             out.append("**Threat groups (" + str(gc) + "):** " + named + extra + "\n")
+            notable = []
+            for g in groups[:6]:
+                gr = db.group.get(g, {}) or {}
+                d = summarize(gr.get("description"))
+                if not d:
+                    continue
+                al = first_alias_str(gr.get("aliases"), g)
+                al_txt = " (" + al + ")" if al else ""
+                notable.append("- " + link(g, db.group_url.get(g)) + al_txt + " " + DASH + " " + d)
+            if notable:
+                out.append("_Notable groups seen using this technique:_\n")
+                out.append("\n".join(notable) + "\n")
         if sw:
             named = ", ".join(link(s, db.sw_url.get(s)) for s in sw[:CAP_NAMED])
             extra = " _+" + str(len(sw) - CAP_NAMED) + " more_" if len(sw) > CAP_NAMED else ""
@@ -347,9 +394,14 @@ def render_technique(db, tid):
     kids = sorted(db.subs.get(tid) or [])
     if kids:
         out.append("## Sub-techniques (" + str(len(kids)) + ")\n")
-        out.append("\n".join(
-            "- [" + k + " " + DASH + " " + db.prof[k]["name"] + "](/mitre/techniques/" + tslug(k) + ".md)"
-            for k in kids) + "\n")
+        rows = []
+        for k in kids:
+            line = "- [" + k + " " + DASH + " " + db.prof[k]["name"] + "](/mitre/techniques/" + tslug(k) + ".md)"
+            ks = summarize(db.prof[k].get("description"))
+            if ks:
+                line += " " + DASH + " " + ks
+            rows.append(line)
+        out.append("\n".join(rows) + "\n")
 
     # NIST 800-53 (now with control names)
     nist = p.get("nist_800_53_controls") or []
@@ -452,6 +504,7 @@ def render_d3fend(db, slug, existing):
         if first.startswith("# D3FEND:"):
             name = first[len("# D3FEND:"):].strip()
     page = db.d3_pages.get(name)
+    defrec = db.d3_defs.get(name, {}) or {}
     out = ["# D3FEND: " + name + "\n", '<a id="' + slug + '"></a>\n']
     if page:
         if page["tactic"]:
@@ -459,13 +512,22 @@ def render_d3fend(db, slug, existing):
         if page["artifacts"]:
             out.append("**Digital artifacts:** " + ", ".join(page["artifacts"]))
         out.append("")
+        if defrec.get("definition"):
+            out.append(str(defrec["definition"]).strip() + "\n")
+        if defrec.get("how_to"):
+            out.append("## How to deploy\n")
+            out.append(str(defrec["how_to"]).strip() + "\n")
         # ATT&CK techniques countered — link enterprise + ICS, drop non-ATT&CK (DE-) rows
         seen, rows = set(), []
         for tid, rel in page["counters"]:
             if tid in seen:
                 continue
             seen.add(tid)
-            rows.append("- " + link_tech(db, tid) + " " + DASH + " " + rel)
+            line = "- " + link_tech(db, tid) + " " + DASH + " " + rel
+            ts = summarize((db.prof.get(tid, {}) or {}).get("description"))
+            if ts:
+                line += ". " + ts
+            rows.append(line)
         if rows:
             out.append("## ATT&CK techniques countered (" + str(len(rows)) + ")\n")
             out.append("\n".join(rows))
@@ -491,17 +553,29 @@ def render_capec(db, cid):
     techs = as_list(c.get("attack_techniques"))
     if techs:
         out.append("## Mapped ATT&CK techniques (" + str(len(techs)) + ")\n")
-        out.append("\n".join("- " + link_tech(db, t) for t in techs) + "\n")
-    # related CWE — per-CWE links with names (fixes the single-page-link defect)
+        rows = []
+        for t in techs:
+            line = "- " + link_tech(db, t)
+            ts = summarize((db.prof.get(t, {}) or {}).get("description"))
+            if ts:
+                line += " " + DASH + " " + ts
+            rows.append(line)
+        out.append("\n".join(rows) + "\n")
+    # related CWE — per-CWE links with names + inlined weakness detail
     cwes = as_list(c.get("related_cwe"))
     if cwes:
         out.append("## Related CWE (" + str(len(cwes)) + ")\n")
         rows = []
         for w in cwes:
             num = re.sub(r"\D", "", w)
-            nm = db.cwe_name.get(w) or db.cwe_name.get("CWE-" + num)
+            rec = db.cwe.get(w) or db.cwe.get("CWE-" + num) or {}
+            nm = rec.get("name") or db.cwe_name.get(w) or db.cwe_name.get("CWE-" + num)
             label = w + " " + DASH + " " + nm if nm else w
-            rows.append("- [" + label + "](https://cwe.mitre.org/data/definitions/" + num + ".html)")
+            line = "- [" + label + "](https://cwe.mitre.org/data/definitions/" + num + ".html)"
+            d = summarize(rec.get("description"))
+            if d:
+                line += " " + DASH + " " + d
+            rows.append(line)
         out.append("\n".join(rows) + "\n")
     # prose lists (fix the '::' separators)
     for key, heading in (("prerequisites", "Prerequisites"), ("skills_required", "Skills required"),
@@ -538,9 +612,14 @@ def render_atlas_technique(db, tid):
     migs = r.get("mitigations") or []
     if migs:
         out.append("## Mitigations (" + str(len(migs)) + ")\n")
-        out.append("\n".join(
-            "- [" + m["id"] + " " + DASH + " " + m["name"] + "](/mitre/atlas/" + aml_slug(m["id"]) + ".md)"
-            for m in migs) + "\n")
+        rows = []
+        for m in migs:
+            line = "- [" + m["id"] + " " + DASH + " " + m["name"] + "](/mitre/atlas/" + aml_slug(m["id"]) + ".md)"
+            d = summarize((db.atlas_mit.get(m["id"], {}) or {}).get("description"))
+            if d:
+                line += " " + DASH + " " + d
+            rows.append(line)
+        out.append("\n".join(rows) + "\n")
     kids = sorted(db.atlas_subs.get(tid) or [])
     if kids:
         out.append("## Sub-techniques (" + str(len(kids)) + ")\n")

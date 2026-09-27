@@ -11,7 +11,7 @@ An adversary uses alternate forms of keywords or commands that result in the sam
 
 ## Related CWE (1)
 
-- [CWE-87 — Improper Neutralization of Alternate XSS Syntax](https://cwe.mitre.org/data/definitions/87.html)
+- [CWE-87 — Improper Neutralization of Alternate XSS Syntax](https://cwe.mitre.org/data/definitions/87.html) — The product does not neutralize or incorrectly neutralizes user-controlled input for alternate script syntax.
 
 ## Prerequisites
 

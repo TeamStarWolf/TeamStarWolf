@@ -11,7 +11,7 @@ An adversary conducts supply chain attacks by the inclusion of insecure third-pa
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md)
+- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md) — Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 

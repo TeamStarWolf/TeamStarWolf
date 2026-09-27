@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1525 — Implant Internal Image](/mitre/techniques/T1525.md) — analyzes
+- [T1525 — Implant Internal Image](/mitre/techniques/T1525.md) — analyzes. Adversaries may implant cloud or container images with malicious code to establish persistence after gaining access to an environment.
 
 ---
 

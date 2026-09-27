@@ -11,13 +11,13 @@ An adversary exploits a weakness in authorization to gather system-specific data
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1005 — Data from Local System](/mitre/techniques/T1005.md)
-- [T1012 — Query Registry](/mitre/techniques/T1012.md)
-- [T1552.002 — Credentials in Registry](/mitre/techniques/T1552-002.md)
+- [T1005 — Data from Local System](/mitre/techniques/T1005.md) — Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.
+- [T1012 — Query Registry](/mitre/techniques/T1012.md) — Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.
+- [T1552.002 — Credentials in Registry](/mitre/techniques/T1552-002.md) — Adversaries may search the Registry on compromised systems for insecurely stored credentials.
 
 ## Related CWE (1)
 
-- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html)
+- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html) — The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
 
 ## Prerequisites
 

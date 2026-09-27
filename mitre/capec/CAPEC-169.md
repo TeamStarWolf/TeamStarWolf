@@ -11,13 +11,13 @@ An adversary engages in probing and exploration activities to identify constitue
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1217 — Browser Information Discovery](/mitre/techniques/T1217.md)
-- [T1592 — Gather Victim Host Information](/mitre/techniques/T1592.md)
-- [T1595 — Active Scanning](/mitre/techniques/T1595.md)
+- [T1217 — Browser Information Discovery](/mitre/techniques/T1217.md) — Adversaries may enumerate information about browsers to learn more about compromised environments.
+- [T1592 — Gather Victim Host Information](/mitre/techniques/T1592.md) — Adversaries may gather information about the victim's hosts that can be used during targeting.
+- [T1595 — Active Scanning](/mitre/techniques/T1595.md) — Adversaries may execute active reconnaissance scans to gather information that can be used during targeting.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

@@ -9,11 +9,11 @@ An adversary manipulates the files in a shared location by adding malicious prog
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1080 — Taint Shared Content](/mitre/techniques/T1080.md)
+- [T1080 — Taint Shared Content](/mitre/techniques/T1080.md) — Adversaries may deliver payloads to remote systems by adding content to shared storage locations, such as network drives or internal code repositories.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Mitigations
 

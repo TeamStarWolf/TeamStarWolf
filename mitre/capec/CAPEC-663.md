@@ -11,9 +11,9 @@ An adversary exploits a hardware design flaw in a CPU implementation of transien
 
 ## Related CWE (3)
 
-- [CWE-1037 — Processor Optimization Removal or Modification of Security-critical Code](https://cwe.mitre.org/data/definitions/1037.html)
-- [CWE-1303 — Non-Transparent Sharing of Microarchitectural Resources](https://cwe.mitre.org/data/definitions/1303.html)
-- [CWE-1264 — Hardware Logic with Insecure De-Synchronization between Control and Data Channels](https://cwe.mitre.org/data/definitions/1264.html)
+- [CWE-1037 — Processor Optimization Removal or Modification of Security-critical Code](https://cwe.mitre.org/data/definitions/1037.html) — The developer builds a security-critical protection mechanism into the software, but the processor optimizes the execution of the program such that the mechanism is removed or modified.
+- [CWE-1303 — Non-Transparent Sharing of Microarchitectural Resources](https://cwe.mitre.org/data/definitions/1303.html) — Hardware structures shared across execution contexts (e.g., caches and branch predictors) can violate the expected architecture isolation between contexts.
+- [CWE-1264 — Hardware Logic with Insecure De-Synchronization between Control and Data Channels](https://cwe.mitre.org/data/definitions/1264.html) — The hardware logic for error handling and security checks can incorrectly forward data before the security check is complete.
 
 ## Prerequisites
 

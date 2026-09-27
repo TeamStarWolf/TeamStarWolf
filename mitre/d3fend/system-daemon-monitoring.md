@@ -7,9 +7,9 @@
 
 ## ATT&CK techniques countered (3)
 
-- [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md) — monitors
-- [T1053.005 — Scheduled Task](/mitre/techniques/T1053-005.md) — monitors
-- [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md) — monitors
+- [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md) — monitors. Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code.
+- [T1053.005 — Scheduled Task](/mitre/techniques/T1053-005.md) — monitors. Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code.
+- [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md) — monitors. Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities.
 
 ---
 

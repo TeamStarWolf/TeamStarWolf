@@ -9,7 +9,7 @@ An attacker modifies a technology, product, or component during a stage in its m
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md)
+- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md) — Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ---
 

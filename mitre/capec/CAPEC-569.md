@@ -9,7 +9,7 @@ An attacker leverages a tool, device, or program to obtain specific information 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1056 — Input Capture](/mitre/techniques/T1056.md)
+- [T1056 — Input Capture](/mitre/techniques/T1056.md) — Adversaries may use methods of capturing user input to obtain credentials or collect information.
 
 ---
 

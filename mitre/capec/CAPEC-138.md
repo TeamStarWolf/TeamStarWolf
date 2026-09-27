@@ -10,7 +10,7 @@ An adversary supplies a value to the target application which is then used by re
 
 ## Related CWE (1)
 
-- [CWE-470 — Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection')](https://cwe.mitre.org/data/definitions/470.html)
+- [CWE-470 — Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection')](https://cwe.mitre.org/data/definitions/470.html) — The product uses external input with reflection to select which classes or code to use, but it does not sufficiently prevent the input from selecting improper classes or code.
 
 ## Prerequisites
 

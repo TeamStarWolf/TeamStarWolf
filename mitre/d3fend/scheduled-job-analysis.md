@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1036.004 — Masquerade Task or Service](/mitre/techniques/T1036-004.md) — analyzes
-- [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md) — analyzes
+- [T1036.004 — Masquerade Task or Service](/mitre/techniques/T1036-004.md) — analyzes. Adversaries may attempt to manipulate the name of a task or service to make it appear legitimate or benign.
+- [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md) — analyzes. Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code.
 
 ---
 

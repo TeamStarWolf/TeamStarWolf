@@ -10,7 +10,7 @@ In this attack scenario, the attacker passively monitors the signal strength of 
 
 ## Related CWE (1)
 
-- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html)
+- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html) — The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
 
 ## Skills required
 

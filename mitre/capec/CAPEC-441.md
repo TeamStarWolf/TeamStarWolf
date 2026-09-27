@@ -11,7 +11,7 @@ An adversary installs or adds malicious logic (also known as malware) into a see
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Prerequisites
 

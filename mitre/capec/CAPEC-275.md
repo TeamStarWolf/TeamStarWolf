@@ -11,7 +11,7 @@ An adversary serves content whose IP address is resolved by a DNS server that th
 
 ## Related CWE (1)
 
-- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html)
+- [CWE-350 — Reliance on Reverse DNS Resolution for a Security-Critical Action](https://cwe.mitre.org/data/definitions/350.html) — The product performs reverse DNS resolution on an IP address to obtain the hostname and make a security decision, but it does not properly ensure that the IP address is truly associated with the hostname.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ Some web applications require users to submit information through an ordered seq
 
 ## Related CWE (1)
 
-- [CWE-372 — Incomplete Internal State Distinction](https://cwe.mitre.org/data/definitions/372.html)
+- [CWE-372 — Incomplete Internal State Distinction](https://cwe.mitre.org/data/definitions/372.html) — The product does not properly determine which state it is in, causing it to assume it is in state X when in fact it is in state Y, causing it to perform incorrect operations in a security-relevant manner.
 
 ## Prerequisites
 

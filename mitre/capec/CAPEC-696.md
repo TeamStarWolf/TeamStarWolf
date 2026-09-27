@@ -11,7 +11,7 @@ An adversary exploits a hardware design flaw in a CPU implementation of transien
 
 ## Related CWE (1)
 
-- [CWE-1342 — Information Exposure through Microarchitectural State after Transient Execution](https://cwe.mitre.org/data/definitions/1342.html)
+- [CWE-1342 — Information Exposure through Microarchitectural State after Transient Execution](https://cwe.mitre.org/data/definitions/1342.html) — The processor does not properly clear microarchitectural state after incorrect microcode assists or speculative execution, resulting in transient execution.
 
 ## Prerequisites
 

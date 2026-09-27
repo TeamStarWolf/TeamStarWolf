@@ -10,11 +10,11 @@ An attacker creates a very persistent cookie that stays present even after the u
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1606.001 — Web Cookies](/mitre/techniques/T1606-001.md)
+- [T1606.001 — Web Cookies](/mitre/techniques/T1606-001.md) — Adversaries may forge web cookies that can be used to gain access to web applications or Internet services.
 
 ## Related CWE (1)
 
-- [CWE-359 — Exposure of Private Personal Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/359.html)
+- [CWE-359 — Exposure of Private Personal Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/359.html) — The product does not properly prevent a person's private, personal information from being accessed by actors who either (1) are not explicitly authorized to access the information or (2) do not have the implicit consent…
 
 ## Prerequisites
 

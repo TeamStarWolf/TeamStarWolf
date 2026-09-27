@@ -11,9 +11,9 @@ An adversary includes formatting characters in a string input field on the targe
 
 ## Related CWE (3)
 
-- [CWE-134 — Use of Externally-Controlled Format String](https://cwe.mitre.org/data/definitions/134.html)
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
-- [CWE-74 — Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')](https://cwe.mitre.org/data/definitions/74.html)
+- [CWE-134 — Use of Externally-Controlled Format String](https://cwe.mitre.org/data/definitions/134.html) — The product uses a function that accepts a format string as an argument, but the format string originates from an external source.
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-74 — Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')](https://cwe.mitre.org/data/definitions/74.html) — The product constructs all or part of a command, data structure, or record using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could…
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ An adversary inserts a debugger into the program entry point of a mobile applica
 
 ## Related CWE (1)
 
-- [CWE-489 — Active Debug Code](https://cwe.mitre.org/data/definitions/489.html)
+- [CWE-489 — Active Debug Code](https://cwe.mitre.org/data/definitions/489.html) — The product is released with debugging code still enabled or active.
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ An adversary exploits a configuration management system so that malicious logic 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md)
+- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md) — Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 

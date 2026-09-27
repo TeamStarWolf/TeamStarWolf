@@ -7,11 +7,11 @@
 
 ## ATT&CK techniques countered (5)
 
-- [T1037.004 — RC Scripts](/mitre/techniques/T1037-004.md) — analyzes
-- [T1037.005 — Startup Items](/mitre/techniques/T1037-005.md) — analyzes
-- [T1547.001 — Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md) — analyzes
-- [T1562.009 — Safe Mode Boot](/mitre/techniques/T1562-009.md) — analyzes
-- [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md) — analyzes
+- [T1037.004 — RC Scripts](/mitre/techniques/T1037-004.md) — analyzes. Adversaries may establish persistence by modifying RC scripts, which are executed during a Unix-like system’s startup.
+- [T1037.005 — Startup Items](/mitre/techniques/T1037-005.md) — analyzes. Adversaries may use startup items automatically executed at boot initialization to establish persistence.
+- [T1547.001 — Registry Run Keys / Startup Folder](/mitre/techniques/T1547-001.md) — analyzes. Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key.
+- [T1562.009 — Safe Mode Boot](/mitre/techniques/T1562-009.md) — analyzes. Adversaries may abuse Windows safe mode to disable endpoint defenses.
+- [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md) — analyzes. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
 
 ---
 

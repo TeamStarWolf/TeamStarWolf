@@ -11,11 +11,11 @@ An adversary provides a malicious version of a resource at a location that is si
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.005 — Match Legitimate Resource Name or Location](/mitre/techniques/T1036-005.md)
+- [T1036.005 — Match Legitimate Resource Name or Location](/mitre/techniques/T1036-005.md) — Adversaries may match or approximate the name or location of legitimate files, Registry keys, or other resources when naming/placing them.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

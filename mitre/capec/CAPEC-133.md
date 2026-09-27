@@ -10,7 +10,7 @@ An attacker attempts to invoke all common switches and options in the target app
 
 ## Related CWE (1)
 
-- [CWE-912 — Hidden Functionality](https://cwe.mitre.org/data/definitions/912.html)
+- [CWE-912 — Hidden Functionality](https://cwe.mitre.org/data/definitions/912.html) — The product contains functionality that is not documented, not part of the specification, and not accessible through an interface or command sequence that is obvious to the product's users or administrators.
 
 ## Prerequisites
 

@@ -9,7 +9,7 @@ The attacker forces an application to load arbitrary code files from a remote lo
 
 ## Related CWE (1)
 
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)
+- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 

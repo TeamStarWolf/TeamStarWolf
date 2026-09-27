@@ -9,7 +9,7 @@ An adversary, through a previously installed malicious application, intercepts m
 
 ## Related CWE (1)
 
-- [CWE-925 — Improper Verification of Intent by Broadcast Receiver](https://cwe.mitre.org/data/definitions/925.html)
+- [CWE-925 — Improper Verification of Intent by Broadcast Receiver](https://cwe.mitre.org/data/definitions/925.html) — The Android application uses a Broadcast Receiver that receives an Intent but does not properly verify that the Intent came from an authorized source.
 
 ## Prerequisites
 

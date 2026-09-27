@@ -11,9 +11,9 @@ An adversary exploits a cryptographic weakness in the signature verification alg
 
 ## Related CWE (3)
 
-- [CWE-347 — Improper Verification of Cryptographic Signature](https://cwe.mitre.org/data/definitions/347.html)
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
-- [CWE-295 — Improper Certificate Validation](https://cwe.mitre.org/data/definitions/295.html)
+- [CWE-347 — Improper Verification of Cryptographic Signature](https://cwe.mitre.org/data/definitions/347.html) — The product does not verify, or incorrectly verifies, the cryptographic signature for data.
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
+- [CWE-295 — Improper Certificate Validation](https://cwe.mitre.org/data/definitions/295.html) — The product does not validate, or incorrectly validates, a certificate.
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ An adversary exploits weaknesses in input validation by manipulating resource id
 
 ## Related CWE (1)
 
-- [CWE-99 — Improper Control of Resource Identifiers ('Resource Injection')](https://cwe.mitre.org/data/definitions/99.html)
+- [CWE-99 — Improper Control of Resource Identifiers ('Resource Injection')](https://cwe.mitre.org/data/definitions/99.html) — The product receives input from an upstream component, but it does not restrict or incorrectly restricts the input before it is used as an identifier for a resource that may be outside the intended sphere of control.
 
 ## Prerequisites
 

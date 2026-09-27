@@ -11,7 +11,7 @@ An adversary, aware of an application's location (and possibly authorized to use
 
 ## Related CWE (1)
 
-- [CWE-209 — Generation of Error Message Containing Sensitive Information](https://cwe.mitre.org/data/definitions/209.html)
+- [CWE-209 — Generation of Error Message Containing Sensitive Information](https://cwe.mitre.org/data/definitions/209.html) — The product generates an error message that includes sensitive information about its environment, users, or associated data.
 
 ## Prerequisites
 

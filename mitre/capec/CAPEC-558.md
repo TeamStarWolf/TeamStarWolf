@@ -11,12 +11,12 @@ An adversary exploits weaknesses in privilege management or access control to re
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1505.005 — Terminal Services DLL](/mitre/techniques/T1505-005.md)
-- [T1546.008 — Accessibility Features](/mitre/techniques/T1546-008.md)
+- [T1505.005 — Terminal Services DLL](/mitre/techniques/T1505-005.md) — Adversaries may abuse components of Terminal Services to enable persistent access to systems.
+- [T1546.008 — Accessibility Features](/mitre/techniques/T1546-008.md) — Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by accessibility features.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ---
 

@@ -10,7 +10,7 @@ An adversary inserts commands to perform cross-site scripting (XSS) actions in H
 
 ## Related CWE (1)
 
-- [CWE-83 — Improper Neutralization of Script in Attributes in a Web Page](https://cwe.mitre.org/data/definitions/83.html)
+- [CWE-83 — Improper Neutralization of Script in Attributes in a Web Page](https://cwe.mitre.org/data/definitions/83.html) — The product does not neutralize or incorrectly neutralizes javascript: or other URIs from dangerous attributes within tags, such as onmouseover, onload, onerror, or style.
 
 ## Prerequisites
 

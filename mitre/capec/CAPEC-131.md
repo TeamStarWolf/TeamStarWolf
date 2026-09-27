@@ -11,11 +11,11 @@ An adversary utilizes a resource leak on the target to deplete the quantity of t
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1499 — Endpoint Denial of Service](/mitre/techniques/T1499.md)
+- [T1499 — Endpoint Denial of Service](/mitre/techniques/T1499.md) — Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to users.
 
 ## Related CWE (1)
 
-- [CWE-404 — Improper Resource Shutdown or Release](https://cwe.mitre.org/data/definitions/404.html)
+- [CWE-404 — Improper Resource Shutdown or Release](https://cwe.mitre.org/data/definitions/404.html) — The product does not release or incorrectly releases a resource before it is made available for re-use.
 
 ## Prerequisites
 

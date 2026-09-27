@@ -9,11 +9,11 @@ An adversary attempts to deny legitimate users access to a resource by continual
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1499 — Endpoint Denial of Service](/mitre/techniques/T1499.md)
+- [T1499 — Endpoint Denial of Service](/mitre/techniques/T1499.md) — Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to users.
 
 ## Related CWE (1)
 
-- [CWE-400 — Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html)
+- [CWE-400 — Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html) — The product does not properly control the allocation and maintenance of a limited resource.
 
 ## Prerequisites
 

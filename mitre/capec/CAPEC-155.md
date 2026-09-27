@@ -11,7 +11,7 @@ An adversary exploits the temporary, insecure storage of information by monitori
 
 ## Related CWE (1)
 
-- [CWE-377 — Insecure Temporary File](https://cwe.mitre.org/data/definitions/377.html)
+- [CWE-377 — Insecure Temporary File](https://cwe.mitre.org/data/definitions/377.html) — Creating and using insecure temporary files can leave application and system data vulnerable to attack.
 
 ## Prerequisites
 

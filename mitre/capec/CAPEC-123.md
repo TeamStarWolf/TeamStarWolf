@@ -11,7 +11,7 @@ An adversary manipulates an application's interaction with a buffer in an attemp
 
 ## Related CWE (1)
 
-- [CWE-119 — Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)
+- [CWE-119 — Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html) — The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary.
 
 ## Prerequisites
 

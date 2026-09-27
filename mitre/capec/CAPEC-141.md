@@ -11,14 +11,14 @@ An attacker exploits the functionality of cache technologies to cause specific d
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1557.002 — ARP Cache Poisoning](/mitre/techniques/T1557-002.md)
+- [T1557.002 — ARP Cache Poisoning](/mitre/techniques/T1557-002.md) — Adversaries may poison Address Resolution Protocol (ARP) caches to position themselves between the communication of two or more networked devices.
 
 ## Related CWE (4)
 
-- [CWE-348 — Use of Less Trusted Source](https://cwe.mitre.org/data/definitions/348.html)
-- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
-- [CWE-349 — Acceptance of Extraneous Untrusted Data With Trusted Data](https://cwe.mitre.org/data/definitions/349.html)
-- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)
+- [CWE-348 — Use of Less Trusted Source](https://cwe.mitre.org/data/definitions/348.html) — The product has two different sources of the same data or information, but it uses the source that has less support for verification, is less trusted, or is less resistant to attack.
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html) — The product does not sufficiently verify the origin or authenticity of data, in a way that causes it to accept invalid data.
+- [CWE-349 — Acceptance of Extraneous Untrusted Data With Trusted Data](https://cwe.mitre.org/data/definitions/349.html) — The product, when processing trusted data, accepts any untrusted data that is also included with the trusted data, treating the untrusted data as if it were trusted.
+- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html) — The product does not properly verify that the source of data or communication is valid.
 
 ## Prerequisites
 

@@ -10,13 +10,13 @@ An adversary engages in scanning activities to map network nodes, hosts, devices
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1016 — System Network Configuration Discovery](/mitre/techniques/T1016.md)
-- [T1049 — System Network Connections Discovery](/mitre/techniques/T1049.md)
-- [T1590 — Gather Victim Network Information](/mitre/techniques/T1590.md)
+- [T1016 — System Network Configuration Discovery](/mitre/techniques/T1016.md) — Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of systems they access or through information discovery of remote systems.
+- [T1049 — System Network Connections Discovery](/mitre/techniques/T1049.md) — Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network.
+- [T1590 — Gather Victim Network Information](/mitre/techniques/T1590.md) — Adversaries may gather information about the victim's networks that can be used during targeting.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

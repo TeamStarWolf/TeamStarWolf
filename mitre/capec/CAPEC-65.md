@@ -11,14 +11,14 @@ An adversary passively sniffs network communications and captures application co
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1040 — Network Sniffing](/mitre/techniques/T1040.md)
+- [T1040 — Network Sniffing](/mitre/techniques/T1040.md) — Adversaries may passively sniff network traffic to capture information about an environment, including authentication material passed over the network.
 
 ## Related CWE (4)
 
-- [CWE-319 — Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)
-- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
-- [CWE-318 — Cleartext Storage of Sensitive Information in Executable](https://cwe.mitre.org/data/definitions/318.html)
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-319 — Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html) — The product transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors.
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
+- [CWE-318 — Cleartext Storage of Sensitive Information in Executable](https://cwe.mitre.org/data/definitions/318.html) — The product stores sensitive information in cleartext in an executable.
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Prerequisites
 

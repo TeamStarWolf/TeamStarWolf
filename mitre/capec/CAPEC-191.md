@@ -10,11 +10,11 @@ An adversary engages in activities to discover any sensitive constants present w
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1552.001 — Credentials In Files](/mitre/techniques/T1552-001.md)
+- [T1552.001 — Credentials In Files](/mitre/techniques/T1552-001.md) — Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials.
 
 ## Related CWE (1)
 
-- [CWE-798 — Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html)
+- [CWE-798 — Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html) — The product contains hard-coded credentials, such as a password or cryptographic key.
 
 ## Prerequisites
 

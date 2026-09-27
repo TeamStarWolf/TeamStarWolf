@@ -11,12 +11,12 @@ Buffer Overflow attacks target improper or missing bounds checking on buffer ope
 
 ## Related CWE (6)
 
-- [CWE-120 — Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)
-- [CWE-119 — Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)
-- [CWE-131 — Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html)
-- [CWE-129 — Improper Validation of Array Index](https://cwe.mitre.org/data/definitions/129.html)
-- [CWE-805 — Buffer Access with Incorrect Length Value](https://cwe.mitre.org/data/definitions/805.html)
-- [CWE-680 — Integer Overflow to Buffer Overflow](https://cwe.mitre.org/data/definitions/680.html)
+- [CWE-120 — Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html) — The product copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer.
+- [CWE-119 — Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html) — The product performs operations on a memory buffer, but it reads from or writes to a memory location outside the buffer's intended boundary.
+- [CWE-131 — Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html) — The product does not correctly calculate the size to be used when allocating a buffer, which could lead to a buffer overflow.
+- [CWE-129 — Improper Validation of Array Index](https://cwe.mitre.org/data/definitions/129.html) — The product uses untrusted input when calculating or using an array index, but the product does not validate or incorrectly validates the index to ensure the index references a valid position within the array.
+- [CWE-805 — Buffer Access with Incorrect Length Value](https://cwe.mitre.org/data/definitions/805.html) — The product uses a sequential operation to read or write a buffer, but it uses an incorrect length value that causes it to access memory that is outside of the bounds of the buffer.
+- [CWE-680 — Integer Overflow to Buffer Overflow](https://cwe.mitre.org/data/definitions/680.html) — The product performs a calculation to determine how much memory to allocate, but an integer overflow can occur that causes less memory to be allocated than expected, leading to a buffer overflow.
 
 ## Prerequisites
 

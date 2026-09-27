@@ -10,7 +10,7 @@ An adversary distributes a link (or possibly some other query structure) with a 
 
 ## Related CWE (1)
 
-- [CWE-81 — Improper Neutralization of Script in an Error Message Web Page](https://cwe.mitre.org/data/definitions/81.html)
+- [CWE-81 — Improper Neutralization of Script in an Error Message Web Page](https://cwe.mitre.org/data/definitions/81.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special characters that could be interpreted as web-scripting elements when they are sent to an error page.
 
 ## Prerequisites
 

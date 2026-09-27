@@ -10,9 +10,9 @@ This attack pattern involves an adversary manipulating a pointer within a target
 
 ## Related CWE (3)
 
-- [CWE-682 — Incorrect Calculation](https://cwe.mitre.org/data/definitions/682.html)
-- [CWE-822 — Untrusted Pointer Dereference](https://cwe.mitre.org/data/definitions/822.html)
-- [CWE-823 — Use of Out-of-range Pointer Offset](https://cwe.mitre.org/data/definitions/823.html)
+- [CWE-682 — Incorrect Calculation](https://cwe.mitre.org/data/definitions/682.html) — The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.
+- [CWE-822 — Untrusted Pointer Dereference](https://cwe.mitre.org/data/definitions/822.html) — The product obtains a value from an untrusted source, converts this value to a pointer, and dereferences the resulting pointer.
+- [CWE-823 — Use of Out-of-range Pointer Offset](https://cwe.mitre.org/data/definitions/823.html) — The product performs pointer arithmetic on a valid pointer, but it uses an offset that can point outside of the intended range of valid memory locations for the resulting pointer.
 
 ## Prerequisites
 

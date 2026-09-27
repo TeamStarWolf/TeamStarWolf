@@ -11,8 +11,8 @@ An adversary may exploit vulnerable code (i.e., firmware or ROM) that is unpatch
 
 ## Related CWE (2)
 
-- [CWE-1277 — Firmware Not Updateable](https://cwe.mitre.org/data/definitions/1277.html)
-- [CWE-1310 — Missing Ability to Patch ROM Code](https://cwe.mitre.org/data/definitions/1310.html)
+- [CWE-1277 — Firmware Not Updateable](https://cwe.mitre.org/data/definitions/1277.html) — The product does not provide its users with the ability to update or patch its firmware to address any vulnerabilities or weaknesses that may be present.
+- [CWE-1310 — Missing Ability to Patch ROM Code](https://cwe.mitre.org/data/definitions/1310.html) — Missing an ability to patch ROM code may leave a System or System-on-Chip (SoC) in a vulnerable state.
 
 ## Prerequisites
 

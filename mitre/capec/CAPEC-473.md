@@ -9,14 +9,14 @@ An attacker generates a message or datablock that causes the recipient to believ
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1036.001 — Invalid Code Signature](/mitre/techniques/T1036-001.md)
-- [T1553.002 — Code Signing](/mitre/techniques/T1553-002.md)
+- [T1036.001 — Invalid Code Signature](/mitre/techniques/T1036-001.md) — Adversaries may attempt to mimic features of valid code signatures to increase the chance of deceiving a user, analyst, or tool.
+- [T1553.002 — Code Signing](/mitre/techniques/T1553-002.md) — Adversaries may create, acquire, or steal code signing materials to sign their malware or tools.
 
 ## Related CWE (3)
 
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
-- [CWE-290 — Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html)
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
+- [CWE-290 — Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html) — This attack-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.
 
 ## Prerequisites
 

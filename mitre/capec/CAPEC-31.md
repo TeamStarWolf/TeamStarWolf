@@ -11,21 +11,21 @@ This attack relies on the use of HTTP Cookies to store credentials, state inform
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1539 — Steal Web Session Cookie](/mitre/techniques/T1539.md)
+- [T1539 — Steal Web Session Cookie](/mitre/techniques/T1539.md) — An adversary may steal web application or service session cookies and use them to gain access to web applications or Internet services as an authenticated user without needing credentials.
 
 ## Related CWE (11)
 
-- [CWE-565 — Reliance on Cookies without Validation and Integrity Checking](https://cwe.mitre.org/data/definitions/565.html)
-- [CWE-302 — Authentication Bypass by Assumed-Immutable Data](https://cwe.mitre.org/data/definitions/302.html)
-- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
-- [CWE-113 — Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')](https://cwe.mitre.org/data/definitions/113.html)
-- [CWE-539 — Use of Persistent Cookies Containing Sensitive Information](https://cwe.mitre.org/data/definitions/539.html)
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
-- [CWE-315 — Cleartext Storage of Sensitive Information in a Cookie](https://cwe.mitre.org/data/definitions/315.html)
-- [CWE-384 — Session Fixation](https://cwe.mitre.org/data/definitions/384.html)
-- [CWE-472 — External Control of Assumed-Immutable Web Parameter](https://cwe.mitre.org/data/definitions/472.html)
-- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html)
-- [CWE-642 — External Control of Critical State Data](https://cwe.mitre.org/data/definitions/642.html)
+- [CWE-565 — Reliance on Cookies without Validation and Integrity Checking](https://cwe.mitre.org/data/definitions/565.html) — The product relies on the existence or values of cookies when performing security-critical operations, but it does not properly ensure that the setting is valid for the associated user.
+- [CWE-302 — Authentication Bypass by Assumed-Immutable Data](https://cwe.mitre.org/data/definitions/302.html) — The authentication scheme or implementation uses key data elements that are assumed to be immutable, but can be controlled or modified by the attacker.
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
+- [CWE-113 — Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')](https://cwe.mitre.org/data/definitions/113.html) — The product receives data from an HTTP agent/component (e.g., web server, proxy, browser, etc.), but it does not neutralize or incorrectly neutralizes CR and LF characters before the data is included in outgoing HTTP…
+- [CWE-539 — Use of Persistent Cookies Containing Sensitive Information](https://cwe.mitre.org/data/definitions/539.html) — The web application uses persistent cookies, but the cookies contain sensitive information.
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-315 — Cleartext Storage of Sensitive Information in a Cookie](https://cwe.mitre.org/data/definitions/315.html) — The product stores sensitive information in cleartext in a cookie.
+- [CWE-384 — Session Fixation](https://cwe.mitre.org/data/definitions/384.html) — Authenticating a user, or otherwise establishing a new user session, without invalidating any existing session identifier gives an attacker the opportunity to steal authenticated sessions.
+- [CWE-472 — External Control of Assumed-Immutable Web Parameter](https://cwe.mitre.org/data/definitions/472.html) — The web application does not sufficiently verify inputs that are assumed to be immutable but are actually externally controllable, such as hidden form fields.
+- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html) — The product is composed of a server that relies on the client to implement a mechanism that is intended to protect the server.
+- [CWE-642 — External Control of Critical State Data](https://cwe.mitre.org/data/definitions/642.html) — The product stores security-critical state information about its users, or the product itself, in a location that is accessible to unauthorized actors.
 
 ## Prerequisites
 

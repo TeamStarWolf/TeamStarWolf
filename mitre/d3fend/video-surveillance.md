@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1125 — Video Capture](/mitre/techniques/T1125.md) — monitors
+- [T1125 — Video Capture](/mitre/techniques/T1125.md) — monitors. An adversary can leverage a computer's peripheral devices (e.g., integrated cameras or webcams) or applications (e.g., video call services) to capture video recordings for the purpose of gathering information.
 
 ---
 

@@ -11,11 +11,11 @@ An adversary exploits functionality meant to identify information about the serv
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1007 — System Service Discovery](/mitre/techniques/T1007.md)
+- [T1007 — System Service Discovery](/mitre/techniques/T1007.md) — Adversaries may try to gather information about registered local system services.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

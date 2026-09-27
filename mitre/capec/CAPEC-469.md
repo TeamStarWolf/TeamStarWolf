@@ -10,12 +10,12 @@ An attacker performs flooding at the HTTP level to bring down only a particular 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1499.002 — Service Exhaustion Flood](/mitre/techniques/T1499-002.md)
+- [T1499.002 — Service Exhaustion Flood](/mitre/techniques/T1499-002.md) — Adversaries may target the different network services provided by systems to conduct a denial of service (DoS).
 
 ## Related CWE (2)
 
-- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html)
-- [CWE-772 — Missing Release of Resource after Effective Lifetime](https://cwe.mitre.org/data/definitions/772.html)
+- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html) — The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
+- [CWE-772 — Missing Release of Resource after Effective Lifetime](https://cwe.mitre.org/data/definitions/772.html) — The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.
 
 ## Prerequisites
 

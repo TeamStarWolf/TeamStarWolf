@@ -9,7 +9,7 @@ An adversary exploits a weakness in ATA security on a drive to gain access to th
 
 ## Related CWE (1)
 
-- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html)
+- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html) — The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
 
 ## Prerequisites
 

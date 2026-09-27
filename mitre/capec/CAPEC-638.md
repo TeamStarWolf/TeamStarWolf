@@ -11,7 +11,7 @@ An adversary exploits systems features and/or improperly protected firmware of h
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1542.002 — Component Firmware](/mitre/techniques/T1542-002.md)
+- [T1542.002 — Component Firmware](/mitre/techniques/T1542-002.md) — Adversaries may modify component firmware to persist on systems.
 
 ## Prerequisites
 

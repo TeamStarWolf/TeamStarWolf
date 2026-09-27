@@ -10,11 +10,11 @@ This pattern of attack leverages standard requests to learn the exact time assoc
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1124 — System Time Discovery](/mitre/techniques/T1124.md)
+- [T1124 — System Time Discovery](/mitre/techniques/T1124.md) — An adversary may gather the system time and/or time zone settings from a local or remote system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

@@ -11,11 +11,11 @@ Adversaries can provide contradictory destinations when sending messages. Traffi
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1090.004 — Domain Fronting](/mitre/techniques/T1090-004.md)
+- [T1090.004 — Domain Fronting](/mitre/techniques/T1090-004.md) — Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through…
 
 ## Related CWE (1)
 
-- [CWE-923 — Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html)
+- [CWE-923 — Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html) — The product establishes a communication channel to (or from) an endpoint for privileged or protected operations, but it does not properly ensure that it is communicating with the correct endpoint.
 
 ## Prerequisites
 

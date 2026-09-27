@@ -10,7 +10,7 @@ An attacker discovers the structure, function, and composition of a type of comp
 
 ## Related CWE (1)
 
-- [CWE-1323 — Improper Management of Sensitive Trace Data](https://cwe.mitre.org/data/definitions/1323.html)
+- [CWE-1323 — Improper Management of Sensitive Trace Data](https://cwe.mitre.org/data/definitions/1323.html) — Trace data collected from several sources on the System-on-Chip (SoC) is stored in unprotected locations or transported to untrusted agents.
 
 ## Prerequisites
 

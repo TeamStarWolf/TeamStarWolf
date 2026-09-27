@@ -11,11 +11,11 @@ An attacker leverages the security functionality of the system aimed at thwartin
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1531 — Account Access Removal](/mitre/techniques/T1531.md)
+- [T1531 — Account Access Removal](/mitre/techniques/T1531.md) — Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users.
 
 ## Related CWE (1)
 
-- [CWE-645 — Overly Restrictive Account Lockout Mechanism](https://cwe.mitre.org/data/definitions/645.html)
+- [CWE-645 — Overly Restrictive Account Lockout Mechanism](https://cwe.mitre.org/data/definitions/645.html) — The product contains an account lockout protection mechanism, but the mechanism is too restrictive and can be triggered too easily, which allows attackers to deny service to legitimate users by causing their accounts to…
 
 ## Prerequisites
 

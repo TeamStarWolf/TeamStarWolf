@@ -11,12 +11,12 @@ An adversary loads malicious code onto a USB memory stick in order to infect any
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1091 — Replication Through Removable Media](/mitre/techniques/T1091.md)
-- [T1092 — Communication Through Removable Media](/mitre/techniques/T1092.md)
+- [T1091 — Replication Through Removable Media](/mitre/techniques/T1091.md) — Adversaries may move onto systems, possibly those on disconnected or air-gapped networks, by copying malware to removable media and taking advantage of Autorun features when the media is inserted into a system and…
+- [T1092 — Communication Through Removable Media](/mitre/techniques/T1092.md) — Adversaries can perform command and control between compromised hosts on potentially disconnected networks using removable media to transfer commands from system to system.
 
 ## Related CWE (1)
 
-- [CWE-1299 — Missing Protection Mechanism for Alternate Hardware Interface](https://cwe.mitre.org/data/definitions/1299.html)
+- [CWE-1299 — Missing Protection Mechanism for Alternate Hardware Interface](https://cwe.mitre.org/data/definitions/1299.html) — The lack of protections on alternate paths to access control-protected assets (such as unprotected shadow registers and other external facing unguarded interfaces) allows an attacker to bypass existing protections to…
 
 ## Prerequisites
 

@@ -11,8 +11,8 @@ An adversary identifies a Rest HTTP (Get, Put, Delete) style permission method a
 
 ## Related CWE (2)
 
-- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html)
-- [CWE-269 — Improper Privilege Management](https://cwe.mitre.org/data/definitions/269.html)
+- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html) — A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
+- [CWE-269 — Improper Privilege Management](https://cwe.mitre.org/data/definitions/269.html) — The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor.
 
 ## Prerequisites
 

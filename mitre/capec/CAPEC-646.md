@@ -11,11 +11,11 @@ Adversaries may attempt to obtain information about attached peripheral devices 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1120 — Peripheral Device Discovery](/mitre/techniques/T1120.md)
+- [T1120 — Peripheral Device Discovery](/mitre/techniques/T1120.md) — Adversaries may attempt to gather information about attached peripheral devices and components connected to a computer system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

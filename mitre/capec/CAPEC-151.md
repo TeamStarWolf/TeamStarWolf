@@ -11,7 +11,7 @@ Identity Spoofing refers to the action of assuming (i.e., taking on) the identit
 
 ## Related CWE (1)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
 
 ## Prerequisites
 

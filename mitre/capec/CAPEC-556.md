@@ -9,11 +9,11 @@ When a file is opened, its file handler is checked to determine which program op
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1546.001 — Change Default File Association](/mitre/techniques/T1546-001.md)
+- [T1546.001 — Change Default File Association](/mitre/techniques/T1546-001.md) — Adversaries may establish persistence by executing malicious content triggered by a file type association.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Mitigations
 

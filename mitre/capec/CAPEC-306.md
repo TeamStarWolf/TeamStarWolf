@@ -10,7 +10,7 @@ An adversary engages in TCP Window scanning to analyze port status and operating
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

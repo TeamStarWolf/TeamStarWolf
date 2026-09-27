@@ -11,11 +11,11 @@ An adversary exploits functionality meant to identify information about the prim
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1033 — System Owner/User Discovery](/mitre/techniques/T1033.md)
+- [T1033 — System Owner/User Discovery](/mitre/techniques/T1033.md) — Adversaries may attempt to identify the primary user, currently logged in user, set of users that commonly uses a system, or whether a user is actively using the system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

@@ -11,9 +11,9 @@ An attacker tricks a victim to execute malicious flash content that executes com
 
 ## Related CWE (3)
 
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)
-- [CWE-184 — Incomplete List of Disallowed Inputs](https://cwe.mitre.org/data/definitions/184.html)
-- [CWE-697 — Incorrect Comparison](https://cwe.mitre.org/data/definitions/697.html)
+- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-184 — Incomplete List of Disallowed Inputs](https://cwe.mitre.org/data/definitions/184.html) — The product implements a protection mechanism that relies on a list of inputs (or properties of inputs) that are not allowed by policy or otherwise require other action to neutralize before additional processing takes…
+- [CWE-697 — Incorrect Comparison](https://cwe.mitre.org/data/definitions/697.html) — The product compares two entities in a security-relevant context, but the comparison is incorrect.
 
 ## Prerequisites
 

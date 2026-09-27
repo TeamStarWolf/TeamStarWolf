@@ -11,7 +11,7 @@ An adversary exploits a weakness in input validation on the target to inject new
 
 ## Related CWE (1)
 
-- [CWE-94 — Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html)
+- [CWE-94 — Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html) — The product constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or…
 
 ## Prerequisites
 

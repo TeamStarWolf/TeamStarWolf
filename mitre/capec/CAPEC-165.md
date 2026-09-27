@@ -10,7 +10,7 @@ An attacker modifies file contents or attributes (such as extensions or names) o
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.003 — Rename Legitimate Utilities](/mitre/techniques/T1036-003.md)
+- [T1036.003 — Rename Legitimate Utilities](/mitre/techniques/T1036-003.md) — Adversaries may rename legitimate / system utilities to try to evade security mechanisms concerning the usage of those utilities.
 
 ## Prerequisites
 

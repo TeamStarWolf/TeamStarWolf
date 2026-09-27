@@ -10,11 +10,11 @@ An adversary sends a probe to an IP address to determine if the host is alive. H
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1018 — Remote System Discovery](/mitre/techniques/T1018.md)
+- [T1018 — Remote System Discovery](/mitre/techniques/T1018.md) — Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network that may be used for Lateral Movement from the current system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

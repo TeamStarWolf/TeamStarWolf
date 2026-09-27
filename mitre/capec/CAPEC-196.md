@@ -11,14 +11,14 @@ An attacker creates a false but functional session credential in order to gain o
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1134.002 — Create Process with Token](/mitre/techniques/T1134-002.md)
-- [T1134.003 — Make and Impersonate Token](/mitre/techniques/T1134-003.md)
-- [T1606 — Forge Web Credentials](/mitre/techniques/T1606.md)
+- [T1134.002 — Create Process with Token](/mitre/techniques/T1134-002.md) — Adversaries may create a new process with an existing token to escalate privileges and bypass access controls.
+- [T1134.003 — Make and Impersonate Token](/mitre/techniques/T1134-003.md) — Adversaries may make new tokens and impersonate users to escalate privileges and bypass access controls.
+- [T1606 — Forge Web Credentials](/mitre/techniques/T1606.md) — Adversaries may forge credential materials that can be used to gain access to web applications or Internet services.
 
 ## Related CWE (2)
 
-- [CWE-384 — Session Fixation](https://cwe.mitre.org/data/definitions/384.html)
-- [CWE-664 — Improper Control of a Resource Through its Lifetime](https://cwe.mitre.org/data/definitions/664.html)
+- [CWE-384 — Session Fixation](https://cwe.mitre.org/data/definitions/384.html) — Authenticating a user, or otherwise establishing a new user session, without invalidating any existing session identifier gives an attacker the opportunity to steal authenticated sessions.
+- [CWE-664 — Improper Control of a Resource Through its Lifetime](https://cwe.mitre.org/data/definitions/664.html) — The product does not maintain or incorrectly maintains control over a resource throughout its lifetime of creation, use, and release.
 
 ## Prerequisites
 

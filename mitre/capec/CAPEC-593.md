@@ -11,13 +11,13 @@ This type of attack involves an adversary that exploits weaknesses in an applica
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1185 — Browser Session Hijacking](/mitre/techniques/T1185.md)
-- [T1550.001 — Application Access Token](/mitre/techniques/T1550-001.md)
-- [T1563 — Remote Service Session Hijacking](/mitre/techniques/T1563.md)
+- [T1185 — Browser Session Hijacking](/mitre/techniques/T1185.md) — Adversaries may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking…
+- [T1550.001 — Application Access Token](/mitre/techniques/T1550-001.md) — Adversaries may use stolen application access tokens to bypass the typical authentication process and access restricted accounts, information, or services on remote systems.
+- [T1563 — Remote Service Session Hijacking](/mitre/techniques/T1563.md) — Adversaries may take control of preexisting sessions with remote services to move laterally in an environment.
 
 ## Related CWE (1)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
 
 ## Prerequisites
 

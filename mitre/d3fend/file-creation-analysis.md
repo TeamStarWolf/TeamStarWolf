@@ -7,8 +7,8 @@
 
 ## ATT&CK techniques countered (2)
 
-- [T1074.001 — Local Data Staging](/mitre/techniques/T1074-001.md) — analyzes
-- [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md) — analyzes
+- [T1074.001 — Local Data Staging](/mitre/techniques/T1074-001.md) — analyzes. Adversaries may stage collected data in a central location or directory on the local system prior to Exfiltration.
+- [T1218.001 — Compiled HTML File](/mitre/techniques/T1218-001.md) — analyzes. Adversaries may abuse Compiled HTML files (.chm) to conceal malicious code.
 
 ---
 

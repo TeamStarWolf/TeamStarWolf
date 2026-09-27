@@ -10,7 +10,7 @@ An attacker initiates a series of events designed to cause a user, program, serv
 
 ## Related CWE (1)
 
-- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html)
+- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html) — The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
 
 ## Skills required
 

@@ -10,11 +10,11 @@ An attacker manipulates files or settings external to a target application which
 
 ## Related CWE (5)
 
-- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html)
-- [CWE-1233 — Security-Sensitive Hardware Controls with Missing Lock Bit Protection](https://cwe.mitre.org/data/definitions/1233.html)
-- [CWE-1234 — Hardware Internal or Debug Modes Allow Override of Locks](https://cwe.mitre.org/data/definitions/1234.html)
-- [CWE-1304 — Improperly Preserved Integrity of Hardware Configuration State During a Power Save/Restore Operation](https://cwe.mitre.org/data/definitions/1304.html)
-- [CWE-1328 — Security Version Number Mutable to Older Versions](https://cwe.mitre.org/data/definitions/1328.html)
+- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html) — One or more system settings or configuration elements can be externally controlled by a user.
+- [CWE-1233 — Security-Sensitive Hardware Controls with Missing Lock Bit Protection](https://cwe.mitre.org/data/definitions/1233.html) — The product uses a register lock bit protection mechanism, but it does not ensure that the lock bit prevents modification of system registers or controls that perform changes to important hardware system configuration.
+- [CWE-1234 — Hardware Internal or Debug Modes Allow Override of Locks](https://cwe.mitre.org/data/definitions/1234.html) — System configuration protection may be bypassed during debug mode.
+- [CWE-1304 — Improperly Preserved Integrity of Hardware Configuration State During a Power Save/Restore Operation](https://cwe.mitre.org/data/definitions/1304.html) — The product performs a power save/restore operation, but it does not ensure that the integrity of the configuration state is maintained and/or verified between the beginning and ending of the operation.
+- [CWE-1328 — Security Version Number Mutable to Older Versions](https://cwe.mitre.org/data/definitions/1328.html) — Security-version number in hardware is mutable, resulting in the ability to downgrade (roll-back) the boot firmware to vulnerable code versions.
 
 ## Prerequisites
 

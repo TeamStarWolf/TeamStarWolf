@@ -11,12 +11,12 @@ An adversary exploits functionality meant to identify information about user gro
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1069 — Permission Groups Discovery](/mitre/techniques/T1069.md)
-- [T1615 — Group Policy Discovery](/mitre/techniques/T1615.md)
+- [T1069 — Permission Groups Discovery](/mitre/techniques/T1069.md) — Adversaries may attempt to discover group and permission settings.
+- [T1615 — Group Policy Discovery](/mitre/techniques/T1615.md) — Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or…
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

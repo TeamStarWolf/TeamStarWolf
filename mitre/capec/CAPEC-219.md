@@ -11,8 +11,8 @@ An attacker subverts an intermediate system used to process XML content and forc
 
 ## Related CWE (2)
 
-- [CWE-441 — Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html)
-- [CWE-610 — Externally Controlled Reference to a Resource in Another Sphere](https://cwe.mitre.org/data/definitions/610.html)
+- [CWE-441 — Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html) — The product receives a request, message, or directive from an upstream component, but the product does not sufficiently preserve the original source of the request before forwarding the request to an external actor that…
+- [CWE-610 — Externally Controlled Reference to a Resource in Another Sphere](https://cwe.mitre.org/data/definitions/610.html) — The product uses an externally controlled name or reference that resolves to a resource that is outside of the intended control sphere.
 
 ## Prerequisites
 

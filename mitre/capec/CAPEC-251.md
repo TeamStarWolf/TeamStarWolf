@@ -10,11 +10,11 @@ The attacker forces an application to load arbitrary code files from the local m
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1055 — Process Injection](/mitre/techniques/T1055.md)
+- [T1055 — Process Injection](/mitre/techniques/T1055.md) — Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges.
 
 ## Related CWE (1)
 
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)
+- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 

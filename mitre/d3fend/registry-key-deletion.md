@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1562.003 — Impair Command History Logging](/mitre/techniques/T1562-003.md) — deletes
+- [T1562.003 — Impair Command History Logging](/mitre/techniques/T1562-003.md) — deletes. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

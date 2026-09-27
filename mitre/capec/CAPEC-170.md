@@ -11,7 +11,7 @@ An attacker sends a series of probes to a web application in order to elicit ver
 
 ## Related CWE (1)
 
-- [CWE-497 — Exposure of Sensitive System Information to an Unauthorized Control Sphere](https://cwe.mitre.org/data/definitions/497.html)
+- [CWE-497 — Exposure of Sensitive System Information to an Unauthorized Control Sphere](https://cwe.mitre.org/data/definitions/497.html) — The product does not properly prevent sensitive system-level information from being accessed by unauthorized actors who do not have the same level of access to the underlying system as the product does.
 
 ## Prerequisites
 

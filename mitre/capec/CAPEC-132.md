@@ -11,11 +11,11 @@ An adversary positions a symbolic link in such a manner that the targeted user o
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1547.009 — Shortcut Modification](/mitre/techniques/T1547-009.md)
+- [T1547.009 — Shortcut Modification](/mitre/techniques/T1547-009.md) — Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
 
 ## Related CWE (1)
 
-- [CWE-59 — Improper Link Resolution Before File Access ('Link Following')](https://cwe.mitre.org/data/definitions/59.html)
+- [CWE-59 — Improper Link Resolution Before File Access ('Link Following')](https://cwe.mitre.org/data/definitions/59.html) — The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ An attacker takes advantage of the structure of integer variables to cause these
 
 ## Related CWE (1)
 
-- [CWE-682 — Incorrect Calculation](https://cwe.mitre.org/data/definitions/682.html)
+- [CWE-682 — Incorrect Calculation](https://cwe.mitre.org/data/definitions/682.html) — The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.
 
 ## Prerequisites
 

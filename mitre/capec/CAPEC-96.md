@@ -11,7 +11,7 @@ An application typically makes calls to functions that are a part of libraries e
 
 ## Related CWE (1)
 
-- [CWE-589 — Call to Non-ubiquitous API](https://cwe.mitre.org/data/definitions/589.html)
+- [CWE-589 — Call to Non-ubiquitous API](https://cwe.mitre.org/data/definitions/589.html) — The product uses an API function that does not exist on all versions of the target platform.
 
 ## Prerequisites
 

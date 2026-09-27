@@ -11,13 +11,13 @@ An adversary directly installs or tricks a user into installing a malicious exte
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1176 — Software Extensions](/mitre/techniques/T1176.md)
-- [T1505.004 — IIS Components](/mitre/techniques/T1505-004.md)
+- [T1176 — Software Extensions](/mitre/techniques/T1176.md) — Adversaries may abuse software extensions to establish persistent access to victim systems.
+- [T1505.004 — IIS Components](/mitre/techniques/T1505-004.md) — Adversaries may install malicious components that run on Internet Information Services (IIS) web servers to establish persistence.
 
 ## Related CWE (2)
 
-- [CWE-507 — Trojan Horse](https://cwe.mitre.org/data/definitions/507.html)
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)
+- [CWE-507 — Trojan Horse](https://cwe.mitre.org/data/definitions/507.html) — The product appears to contain benign or useful functionality, but it also contains code that is hidden from normal operation that violates the intended security policy of the user or the system administrator.
+- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 

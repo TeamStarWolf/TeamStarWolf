@@ -10,9 +10,9 @@ An attacker forces the target into a previous state in order to leverage potenti
 
 ## Related CWE (3)
 
-- [CWE-306 — Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html)
-- [CWE-1221 — Incorrect Register Defaults or Module Parameters](https://cwe.mitre.org/data/definitions/1221.html)
-- [CWE-1232 — Improper Lock Behavior After Power State Transition](https://cwe.mitre.org/data/definitions/1232.html)
+- [CWE-306 — Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html) — The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
+- [CWE-1221 — Incorrect Register Defaults or Module Parameters](https://cwe.mitre.org/data/definitions/1221.html) — Hardware description language code incorrectly defines register defaults or hardware Intellectual Property (IP) parameters to insecure values.
+- [CWE-1232 — Improper Lock Behavior After Power State Transition](https://cwe.mitre.org/data/definitions/1232.html) — Register lock bit protection disables changes to system configuration once the bit is set.
 
 ## Prerequisites
 

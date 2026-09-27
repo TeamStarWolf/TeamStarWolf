@@ -11,13 +11,13 @@ This pattern of attack sees an adversary load a malicious resource into a progra
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1574.007 — Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md)
-- [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md)
+- [T1574.007 — Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md) — Adversaries may execute their own malicious payloads by hijacking environment variables used to load libraries.
+- [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 
 ## Related CWE (2)
 
-- [CWE-426 — Untrusted Search Path](https://cwe.mitre.org/data/definitions/426.html)
-- [CWE-427 — Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html)
+- [CWE-426 — Untrusted Search Path](https://cwe.mitre.org/data/definitions/426.html) — The product searches for critical resources using an externally-supplied search path that can point to resources that are not under the product's direct control.
+- [CWE-427 — Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html) — The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.
 
 ## Prerequisites
 

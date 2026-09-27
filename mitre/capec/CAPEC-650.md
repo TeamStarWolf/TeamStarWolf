@@ -10,12 +10,12 @@ By exploiting insufficient permissions, it is possible to upload a web shell to 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1505.003 — Web Shell](/mitre/techniques/T1505-003.md)
+- [T1505.003 — Web Shell](/mitre/techniques/T1505-003.md) — Adversaries may backdoor web servers with web shells to establish persistent access to systems.
 
 ## Related CWE (2)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
-- [CWE-553 — Command Shell in Externally Accessible Directory](https://cwe.mitre.org/data/definitions/553.html)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
+- [CWE-553 — Command Shell in Externally Accessible Directory](https://cwe.mitre.org/data/definitions/553.html) — A possible shell file exists in /cgi-bin/ or other accessible directories.
 
 ## Prerequisites
 

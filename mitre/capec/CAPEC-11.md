@@ -11,11 +11,11 @@ An attack of this type exploits a Web server's decision to take action based on 
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.006 — Space after Filename](/mitre/techniques/T1036-006.md)
+- [T1036.006 — Space after Filename](/mitre/techniques/T1036-006.md) — Adversaries can hide a program's true filetype by changing the extension of a file.
 
 ## Related CWE (1)
 
-- [CWE-430 — Deployment of Wrong Handler](https://cwe.mitre.org/data/definitions/430.html)
+- [CWE-430 — Deployment of Wrong Handler](https://cwe.mitre.org/data/definitions/430.html) — The wrong handler is assigned to process an object.
 
 ## Prerequisites
 

@@ -10,11 +10,11 @@ An adversary uses a combination of techniques to determine the state of the port
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1046 — Network Service Discovery](/mitre/techniques/T1046.md)
+- [T1046 — Network Service Discovery](/mitre/techniques/T1046.md) — Adversaries may attempt to get a listing of services running on remote hosts and local network infrastructure devices, including those that may be vulnerable to remote software exploitation.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 

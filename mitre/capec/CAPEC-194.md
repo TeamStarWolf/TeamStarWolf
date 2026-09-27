@@ -10,7 +10,7 @@ An adversary takes advantage of improper authentication to provide data or servi
 
 ## Related CWE (1)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html)
+- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
 
 ## Prerequisites
 

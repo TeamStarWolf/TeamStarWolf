@@ -11,11 +11,11 @@ An adversary collects information about the target system in an attempt to ident
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1614 — System Location Discovery](/mitre/techniques/T1614.md)
+- [T1614 — System Location Discovery](/mitre/techniques/T1614.md) — Adversaries may gather information in an attempt to calculate the geographical location of a victim host.
 
 ## Related CWE (1)
 
-- [CWE-497 — Exposure of Sensitive System Information to an Unauthorized Control Sphere](https://cwe.mitre.org/data/definitions/497.html)
+- [CWE-497 — Exposure of Sensitive System Information to an Unauthorized Control Sphere](https://cwe.mitre.org/data/definitions/497.html) — The product does not properly prevent sensitive system-level information from being accessed by unauthorized actors who do not have the same level of access to the underlying system as the product does.
 
 ## Prerequisites
 

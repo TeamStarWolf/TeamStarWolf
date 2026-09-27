@@ -11,17 +11,17 @@ An adversary crafts a request to a target that results in the target listing/ind
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1083 — File and Directory Discovery](/mitre/techniques/T1083.md)
+- [T1083 — File and Directory Discovery](/mitre/techniques/T1083.md) — Adversaries may enumerate files and directories or may search in specific locations of a host or network share for certain information within a file system.
 
 ## Related CWE (7)
 
-- [CWE-424 — Improper Protection of Alternate Path](https://cwe.mitre.org/data/definitions/424.html)
-- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html)
-- [CWE-288 — Authentication Bypass Using an Alternate Path or Channel](https://cwe.mitre.org/data/definitions/288.html)
-- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html)
-- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html)
-- [CWE-276 — Incorrect Default Permissions](https://cwe.mitre.org/data/definitions/276.html)
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-424 — Improper Protection of Alternate Path](https://cwe.mitre.org/data/definitions/424.html) — The product does not sufficiently protect all possible paths that a user can take to access restricted functionality or resources.
+- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html) — The web application does not adequately enforce appropriate authorization on all restricted URLs, scripts, or files.
+- [CWE-288 — Authentication Bypass Using an Alternate Path or Channel](https://cwe.mitre.org/data/definitions/288.html) — The product requires authentication, but the product has an alternate path or channel that does not require authentication.
+- [CWE-285 — Improper Authorization](https://cwe.mitre.org/data/definitions/285.html) — The product does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.
+- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html) — The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
+- [CWE-276 — Incorrect Default Permissions](https://cwe.mitre.org/data/definitions/276.html) — During installation, installed file permissions are set to allow anyone to modify those files.
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
 
 ## Prerequisites
 

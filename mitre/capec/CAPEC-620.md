@@ -10,11 +10,11 @@ An attacker forces the encryption level to be lowered, thus enabling a successfu
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1600 — Weaken Encryption](/mitre/techniques/T1600.md)
+- [T1600 — Weaken Encryption](/mitre/techniques/T1600.md) — Adversaries may compromise a network device’s encryption capability in order to bypass encryption that would otherwise protect data communications.
 
 ## Related CWE (1)
 
-- [CWE-757 — Selection of Less-Secure Algorithm During Negotiation ('Algorithm Downgrade')](https://cwe.mitre.org/data/definitions/757.html)
+- [CWE-757 — Selection of Less-Secure Algorithm During Negotiation ('Algorithm Downgrade')](https://cwe.mitre.org/data/definitions/757.html) — A protocol or its implementation supports interaction between multiple actors and allows those actors to negotiate which algorithm should be used as a protection mechanism such as encryption or authentication, but it…
 
 ---
 

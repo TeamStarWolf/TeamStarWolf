@@ -11,7 +11,7 @@ An adversary engages in activities to decipher and/or decode protocol informatio
 
 ## Related CWE (1)
 
-- [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html)
+- [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html) — The product stores or transmits sensitive data using an encryption scheme that is theoretically sound, but is not strong enough for the level of protection required.
 
 ## Prerequisites
 

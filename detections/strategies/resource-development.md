@@ -1,6 +1,6 @@
 # Resource Development — Detection Strategies
 
-> MITRE ATT&CK detection strategies and analytics (v18.1) for techniques whose primary tactic is **Resource Development**. Each analytic lists the **log sources / channels** it needs, the **detection logic**, and the **tunable elements** to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
+> MITRE ATT&CK detection strategies and analytics (v19.2) for techniques whose primary tactic is **Resource Development**. Each analytic lists the **log sources / channels** it needs, the **detection logic**, and the **tunable elements** to adapt it to your environment. Authoritative source: the ATT&CK detection-strategy model in the Enterprise STIX.
 
 See also: [all detection strategies index](/detections/strategies/README.md) · [Technique Detection Library](../TECHNIQUE_DETECTION_LIBRARY.md) (ready-to-run SIEM queries) · [Data Components & Log Sources](../../ATTACK_DATA_COMPONENTS.md) · [Technique Detail Pages](../../techniques/README.md)
 
@@ -16,7 +16,7 @@ See also: [all detection strategies index](/detections/strategies/README.md) · 
 - **`AN2027` Analytic 2027** · PRE
   Monitor for contextual data about an Internet-facing resource gathered from a scan, such as running services or ports that may buy, lease, or rent infrastructure that can be used during targeting. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Command and Control.
 Once adversaries have provisioned infrastructure (ex: a server for use in command and control), internet scans may help proactively discover adversary acquired infrastructure. Consider looking for identifiable patterns such as services listening, certificates in use, SSL/TLS negotiation features, or other response artifacts associated with adversary C2 software. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Command and Control.
-Monitor 
+Monitor
   - *Log sources:* `Internet Scan`; `Internet Scan`; `Domain Name`; `Domain Name`; `Domain Name`
 
 ---
@@ -327,7 +327,7 @@ Monitor and analyze traffic patterns and packet inspection associated to protoco
 - **`AN2002` Analytic 2002** · PRE
   Consider monitoring social media activity related to your organization. Suspicious activity may include personas claiming to work for your organization or recently modified accounts making numerous connection requests to accounts affiliated with your organization.
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access (ex: Spearphishing via Service).
-Monitor and analyze traffic patterns and packet inspection associated to protocol(s), leveraging SSL/TLS inspection for encrypted traffic, that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring 
+Monitor and analyze traffic patterns and packet inspection associated to protocol(s), leveraging SSL/TLS inspection for encrypted traffic, that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring
   - *Log sources:* `Persona`; `Network Traffic`
 
 ---
@@ -640,4 +640,3 @@ Much of this activity will take place outside the visibility of the target organ
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
 ---
-

@@ -2,8 +2,8 @@
 
 <a id="remote-file-access-mediation"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** File
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** File  
 
 Remote file access mediation is the process of managing and securing access to file systems over a network to ensure that only authorized users or processes can interact with remote files.
 

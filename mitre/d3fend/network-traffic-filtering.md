@@ -2,8 +2,8 @@
 
 <a id="network-traffic-filtering"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** OT Protocol Message, Network Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** OT Protocol Message, Network Traffic  
 
 Restricting network traffic originating from any location.
 

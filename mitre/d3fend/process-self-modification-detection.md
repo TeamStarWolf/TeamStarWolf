@@ -2,8 +2,8 @@
 
 <a id="process-self-modification-detection"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Process
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Process  
 
 Detects processes that modify, change, or replace their own code at runtime.
 

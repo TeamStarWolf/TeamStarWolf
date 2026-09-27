@@ -2,8 +2,8 @@
 
 <a id="restore-file"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** File
+**D3FEND tactic:** Restore  
+**Digital artifacts:** File  
 
 Restoring a file for an entity to access.
 

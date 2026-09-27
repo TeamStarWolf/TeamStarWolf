@@ -2,8 +2,8 @@
 
 <a id="system-firmware-verification"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** System Firmware
+**D3FEND tactic:** Detect  
+**Digital artifacts:** System Firmware  
 
 Cryptographically verifying installed system firmware integrity.
 

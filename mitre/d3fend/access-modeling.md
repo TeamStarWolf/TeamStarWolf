@@ -2,8 +2,8 @@
 
 <a id="access-modeling"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Access Control Configuration, User Account
+**D3FEND tactic:** Model  
+**Digital artifacts:** Access Control Configuration, User Account  
 
 Access modeling captures and records the access permissions granted to identities (e.g., administrators, users, groups, systems) and optionally includes details on how these identities are stored, managed, and shared across systems.
 

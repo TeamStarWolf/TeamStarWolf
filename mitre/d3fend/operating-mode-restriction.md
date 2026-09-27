@@ -2,8 +2,8 @@
 
 <a id="operating-mode-restriction"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** OT Controller Operating Mode
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** OT Controller Operating Mode  
 
 Restricting unauthorized changes to the operating mode prevents devices from switching into inappropriate or vulnerable states during normal use.
 

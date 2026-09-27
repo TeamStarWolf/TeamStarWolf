@@ -2,8 +2,8 @@
 
 <a id="user-account-permissions"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** User Account
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** User Account  
 
 Restricting a user account's access to resources.
 

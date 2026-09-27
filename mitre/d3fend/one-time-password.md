@@ -2,8 +2,8 @@
 
 <a id="one-time-password"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Password
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Password  
 
 A one-time password is valid for only one user authentication.
 

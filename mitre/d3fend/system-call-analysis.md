@@ -2,8 +2,8 @@
 
 <a id="system-call-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** System Call
+**D3FEND tactic:** Detect  
+**Digital artifacts:** System Call  
 
 Analyzing system calls to determine whether a process is exhibiting unauthorized behavior.
 

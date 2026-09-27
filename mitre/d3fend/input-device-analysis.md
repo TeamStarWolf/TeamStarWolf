@@ -2,8 +2,8 @@
 
 <a id="input-device-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Input Device
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Input Device  
 
 Operating system level mechanisms to prevent abusive input device exploitation.
 

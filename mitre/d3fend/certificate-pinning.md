@@ -2,8 +2,8 @@
 
 <a id="certificate-pinning"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Certificate
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Certificate  
 
 Persisting either a server's X.509 certificate or their public key and comparing that to server's presented identity to allow for greater client confidence in the remote server's identity for SSL connections.
 

@@ -2,8 +2,8 @@
 
 <a id="dynamic-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Executable File, Document File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Executable File, Document File  
 
 Executing or opening a file in a synthetic "sandbox" environment to determine if the file is a malicious program or if the file exploits another program such as a document reader.
 

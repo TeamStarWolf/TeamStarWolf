@@ -2,8 +2,8 @@
 
 <a id="host-shutdown"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Process
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Process  
 
 Initiating a host's shutdown sequence to terminate all running processes.
 

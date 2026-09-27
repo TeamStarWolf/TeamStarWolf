@@ -2,8 +2,8 @@
 
 <a id="restore-configuration"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** Configuration Resource
+**D3FEND tactic:** Restore  
+**Digital artifacts:** Configuration Resource  
 
 Restoring an software configuration.
 

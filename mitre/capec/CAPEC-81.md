@@ -12,7 +12,7 @@ Web Logs Tampering attacks involve an attacker injecting, deleting or otherwise 
 ## Related CWE (10)
 
 - [CWE-117 — Improper Output Neutralization for Logs](https://cwe.mitre.org/data/definitions/117.html) — The product constructs a log message from external input, but it does not neutralize or incorrectly neutralizes special elements when the message is written to a log file.
-- [CWE-93 — Improper Neutralization of CRLF Sequences ('CRLF Injection')](https://cwe.mitre.org/data/definitions/93.html) — The product uses CRLF (carriage return line feeds) as a special element, e.g.
+- [CWE-93 — Improper Neutralization of CRLF Sequences ('CRLF Injection')](https://cwe.mitre.org/data/definitions/93.html) — The product uses CRLF (carriage return line feeds) as a special element, e.g. to separate lines or records, but it does not neutralize or incorrectly neutralizes CRLF sequences from inputs.
 - [CWE-75 — Failure to Sanitize Special Elements into a Different Plane (Special Element Injection)](https://cwe.mitre.org/data/definitions/75.html) — The product does not adequately filter user-controlled input for special elements with control implications.
 - [CWE-221 — Information Loss or Omission](https://cwe.mitre.org/data/definitions/221.html) — The product does not record, or improperly records, security-relevant information that leads to an incorrect decision or hampers later analysis.
 - [CWE-96 — Improper Neutralization of Directives in Statically Saved Code ('Static Code Injection')](https://cwe.mitre.org/data/definitions/96.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes code syntax before inserting the input into an executable resource, such as a library, configuration file, or…

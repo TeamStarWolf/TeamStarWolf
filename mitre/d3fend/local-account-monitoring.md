@@ -2,8 +2,8 @@
 
 <a id="local-account-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Local User Account
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Local User Account  
 
 Analyzing local user accounts to detect unauthorized activity.
 

@@ -2,8 +2,8 @@
 
 <a id="client-server-payload-profiling"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Comparing client-server request and response payloads to a baseline profile to identify outliers.
 

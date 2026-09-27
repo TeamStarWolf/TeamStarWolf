@@ -2,8 +2,8 @@
 
 <a id="memory-boundary-tracking"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Process Code Segment
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Process Code Segment  
 
 Analyzing a call stack for return addresses which point to unexpected memory locations.
 

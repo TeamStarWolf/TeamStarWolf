@@ -2,8 +2,8 @@
 
 <a id="inbound-session-volume-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Inbound Internet Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Inbound Internet Network Traffic  
 
 Analyzing inbound network session or connection attempt volume.
 

@@ -2,8 +2,8 @@
 
 <a id="message-encryption"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Digital Message
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Digital Message  
 
 Encrypting a message body using a cryptographic key.
 

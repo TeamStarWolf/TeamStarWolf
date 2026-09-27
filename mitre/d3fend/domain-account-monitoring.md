@@ -2,8 +2,8 @@
 
 <a id="domain-account-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Domain User Account
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Domain User Account  
 
 Monitoring the existence of or changes to Domain User Accounts.
 

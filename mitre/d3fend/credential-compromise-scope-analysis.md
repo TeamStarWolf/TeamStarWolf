@@ -2,8 +2,8 @@
 
 <a id="credential-compromise-scope-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Credential
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Credential  
 
 Determining which credentials may have been compromised by analyzing the user logon history of a particular system.
 

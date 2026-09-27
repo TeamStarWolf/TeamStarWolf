@@ -2,8 +2,8 @@
 
 <a id="identifier-activity-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Identifier
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Identifier  
 
 Taking known malicious identifiers and determining if they are present in a system.
 

@@ -2,8 +2,8 @@
 
 <a id="restore-database"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** Database
+**D3FEND tactic:** Restore  
+**Digital artifacts:** Database  
 
 Restoring the data in a database.
 

@@ -2,8 +2,8 @@
 
 <a id="file-eviction"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** File
+**D3FEND tactic:** Evict  
+**Digital artifacts:** File  
 
 File eviction techniques delete files from system storage.
 

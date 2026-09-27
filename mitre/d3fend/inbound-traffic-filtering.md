@@ -2,8 +2,8 @@
 
 <a id="inbound-traffic-filtering"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Inbound Network Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Inbound Network Traffic  
 
 Restricting network traffic originating from untrusted networks destined towards a private host or enclave.
 

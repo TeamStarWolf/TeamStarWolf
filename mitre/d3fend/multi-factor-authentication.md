@@ -2,8 +2,8 @@
 
 <a id="multi-factor-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Credential
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Credential  
 
 Requiring proof of two or more pieces of evidence in order to authenticate a user.
 

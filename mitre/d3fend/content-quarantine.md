@@ -2,8 +2,8 @@
 
 <a id="content-quarantine"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** File, Database Record
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** File, Database Record  
 
 Transfer content that does not comply with policy to a quarantine zone.
 

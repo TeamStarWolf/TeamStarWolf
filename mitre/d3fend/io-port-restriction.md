@@ -2,8 +2,8 @@
 
 <a id="io-port-restriction"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Removable Media Device, I/O Module, Input Device
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Removable Media Device, I/O Module, Input Device  
 
 Limiting access to computer input/output (IO) ports to restrict unauthorized devices.
 

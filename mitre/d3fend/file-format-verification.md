@@ -2,8 +2,8 @@
 
 <a id="file-format-verification"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** File Section
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** File Section  
 
 Verifying that a file conforms to its expected format specifications
 

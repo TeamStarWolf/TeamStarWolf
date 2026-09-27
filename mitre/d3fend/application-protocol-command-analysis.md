@@ -2,8 +2,8 @@
 
 <a id="application-protocol-command-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Analyzing application protocol level remote commands to detect unauthorized activity.
 

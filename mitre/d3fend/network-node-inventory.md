@@ -2,8 +2,8 @@
 
 <a id="network-node-inventory"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Network Node
+**D3FEND tactic:** Model  
+**Digital artifacts:** Network Node  
 
 Network node inventorying identifies and records all the network nodes (hosts, routers, switches, firewalls, etc.) in the organization's architecture.
 

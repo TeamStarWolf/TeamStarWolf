@@ -2,8 +2,8 @@
 
 <a id="user-geolocation-logon-pattern-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Monitoring geolocation data of user logon attempts and comparing it to a baseline user behavior profile to identify anomalies in logon location.
 

@@ -208,6 +208,18 @@ class DB:
         d3c_path = DATA / "attack/d3fend_countermeasures.jsonl"
         self.d3_defs = {r["name"]: r for r in load_jsonl(d3c_path)} if d3c_path.exists() else {}
 
+        # cross-framework crosswalks: CAR (analytics) + Engage (adversary engagement)
+        car_p = DATA / "attack/technique_to_car.jsonl"
+        self.car = {r["technique_id"]: r.get("car", []) for r in load_jsonl(car_p)} if car_p.exists() else {}
+        self.engage = {}
+        eng_p = DATA / "engage/attack_to_engage.jsonl"
+        for r in (load_jsonl(eng_p) if eng_p.exists() else []):
+            acts = re.findall(r"'id':\s*'([^']+)',\s*'name':\s*'([^']+)'", str(r.get("engage_activities", "")))
+            if acts:
+                self.engage[r["technique_id"]] = [{"id": i, "name": n} for i, n in acts]
+        ea_p = DATA / "engage/engage_activities.jsonl"
+        self.engage_desc = {r["activity_id"]: r.get("description", "") for r in (load_jsonl(ea_p) if ea_p.exists() else [])}
+
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
             c, d = r.get("nist_control"), r.get("control_desc")
@@ -370,6 +382,28 @@ def render_technique(db, tid):
     if comps:
         out.append("## Data sources & telemetry (" + str(len(comps)) + ")\n")
         out.append(", ".join("**" + c + "**" for c in comps) + "\n")
+
+    # CAR analytics (MITRE Cyber Analytics Repository — detection analytics with pseudocode)
+    car = db.car.get(tid) or []
+    if car:
+        out.append("## CAR analytics (" + str(len(car)) + ")\n")
+        out.append("\n".join(
+            "- [" + c["car_id"] + " " + DASH + " " + c["title"] + "](" + c["url"] + ")" +
+            ((" " + DASH + " coverage: " + c["coverage"]) if c.get("coverage") else "")
+            for c in car) + "\n")
+
+    # MITRE Engage (adversary engagement / deception opportunities)
+    eng = db.engage.get(tid) or []
+    if eng:
+        out.append("## MITRE Engage (" + str(len(eng)) + ")\n")
+        rows = []
+        for a in eng:
+            line = "- **" + a["id"] + " " + DASH + " " + a["name"] + "**"
+            d = summarize(db.engage_desc.get(a["id"]))
+            if d:
+                line += " " + DASH + " " + d
+            rows.append(line)
+        out.append("\n".join(rows) + "\n")
 
     # Adversary usage (named, replaces bare counts)
     groups = db.groups_by_t.get(tid) or []
@@ -674,8 +708,9 @@ def render_landing(db):
         "| Section | Pages | What each page carries |",
         "|---|---|---|",
         "| [Techniques](/mitre/techniques/README.md) | " + str(n_tech) + " | tactics, platforms, mitigations, "
-        "**linked D3FEND**, **detection analytics + log sources**, **data sources**, **named threat-group & tool "
-        "usage**, sub-techniques, NIST 800-53 (named), CAPEC, corpus prevalence |",
+        "**linked D3FEND**, **detection analytics + log sources**, **data sources**, **CAR analytics**, "
+        "**MITRE Engage**, **named threat-group & tool usage**, sub-techniques, NIST 800-53 (named), CAPEC, "
+        "corpus prevalence |",
         "| [Mitigations](/mitre/mitigations/README.md) | " + str(n_mit) + " | how-to-implement, NIST mapping, "
         "techniques countered, corpus relevance |",
         "| [Tactics](/mitre/tactics/README.md) | " + str(n_tac) + " | the \"why\" of each stage, its techniques, "

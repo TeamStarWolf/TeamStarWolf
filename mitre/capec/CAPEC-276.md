@@ -3,15 +3,13 @@
 <a id="capec-276"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 Inter-component protocols are used to communicate between different software and hardware modules within a single computer. Common examples are: interrupt signals and data pipes. Subverting the protocol can allow an adversary to impersonate others, discover sensitive information, control the outcome of a session, or perform other attacks. This type of attack targets invalid assumptions that may be
 
 ## Related CWE (1)
 
-[CWE-707](/CWE_REFERENCE.md)
-
+- [CWE-707 — Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html)
 
 ---
 

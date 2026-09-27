@@ -4,18 +4,24 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary distributes a link (or possibly some other query structure) with a request to a third party web server that is malformed and also contains a block of exploit code in order to have the exploit become live code in the resulting error page.
 
 ## Related CWE (1)
 
-[CWE-81](/CWE_REFERENCE.md)
+- [CWE-81 — Improper Neutralization of Script in an Error Message Web Page](https://cwe.mitre.org/data/definitions/81.html)
 
-**Prerequisites:** ::A third party web server which fails to adequately sanitize messages sent in error pages.::The victim must be made to execute a query crafted by the adversary which results in the infected error rep
+## Prerequisites
 
-**Mitigations:** ::Design: Use libraries and templates that minimize unfiltered input.::Implementation: Normalize, filter and use an allowlist for any input that will be used in error messages.::Implementation: The victim should configure the browser to minimize acti
+- A third party web server which fails to adequately sanitize messages sent in error pages.
+- The victim must be made to execute a query crafted by the adversary which results in the infected error rep
 
+## Mitigations
+
+- Design: Use libraries and templates that minimize unfiltered input.
+- Implementation: Normalize, filter and use an allowlist for any input that will be used in error messages.
+- Implementation: The victim should configure the browser to minimize acti
 
 ---
 

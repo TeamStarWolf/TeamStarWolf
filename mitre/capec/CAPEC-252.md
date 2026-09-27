@@ -4,16 +4,17 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 The attacker loads and executes an arbitrary local PHP file on a target machine. The attacker could use this to try to load old versions of PHP files that have known vulnerabilities, to load PHP files that the attacker placed on the local machine during a prior attack, or to otherwise change the functionality of the targeted application in unexpected ways.
 
 ## Related CWE (1)
 
-[CWE-829](/CWE_REFERENCE.md)
+- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)
 
-**Prerequisites:** ::The targeted PHP application must have a bug that allows an attacker to control which code file is loaded at some juncture.::
+## Prerequisites
 
+- The targeted PHP application must have a bug that allows an attacker to control which code file is loaded at some juncture.
 
 ---
 

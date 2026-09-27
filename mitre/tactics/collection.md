@@ -4,6 +4,10 @@
 
 The adversary is trying to gather data of interest to their goal.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1213 — Data from Information Repositories](/mitre/techniques/T1213.md) — 23.4% of machines
+
 **41 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1005 — Data from Local System](/mitre/techniques/T1005.md)

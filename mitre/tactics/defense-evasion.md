@@ -4,6 +4,13 @@
 
 The adversary is trying to avoid being detected.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1548.003 — Sudo and Sudo Caching](/mitre/techniques/T1548-003.md) — 18.7% of machines
+- [T1548.001 — Setuid and Setgid](/mitre/techniques/T1548-001.md) — 17.2% of machines
+- [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — 11.0% of machines
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
+
 **215 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1006 — Direct Volume Access](/mitre/techniques/T1006.md)

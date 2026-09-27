@@ -3,11 +3,9 @@
 <a id="capec-56"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-207 : Removing Important Client Functionality. Please refer to this other pattern going forward.
-
 
 ---
 

@@ -4,16 +4,21 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 An attacker manipulates either egress or ingress data from a client within an application framework in order to change the content of messages. Performing this attack can allow the attacker to gain unauthorized privileges within the application, or conduct attacks such as phishing, deceptive strategies to spread malware, or traditional web-application attacks. The techniques require use of special
 
 ## Related CWE (5)
 
-[CWE-471](/CWE_REFERENCE.md) [CWE-345](/CWE_REFERENCE.md) [CWE-346](/CWE_REFERENCE.md) [CWE-602](/CWE_REFERENCE.md) [CWE-311](/CWE_REFERENCE.md)
+- [CWE-471 — Modification of Assumed-Immutable Data (MAID)](https://cwe.mitre.org/data/definitions/471.html)
+- [CWE-345 — Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
+- [CWE-346 — Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)
+- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
 
-**Prerequisites:** ::Targeted software is utilizing application framework APIs::
+## Prerequisites
 
+- Targeted software is utilizing application framework APIs
 
 ---
 

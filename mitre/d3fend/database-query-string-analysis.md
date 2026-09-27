@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1190](/mitre/techniques/T1190.md) — analyzes
+- [T1190 — Exploit Public-Facing Application](/mitre/techniques/T1190.md) — analyzes
 
 ---
 

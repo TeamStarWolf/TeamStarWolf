@@ -4,22 +4,26 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Very Low  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Draft  
 
 An adversary engages in probing and exploration activities to determine if common key files exists. Such files often contain configuration and security parameters of the targeted application, system or network. Using this knowledge may often pave the way for more damaging attacks.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1083](/mitre/techniques/T1083.md)
+- [T1083 — File and Directory Discovery](/mitre/techniques/T1083.md)
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::The adversary must know the location of these common key files.::
+## Prerequisites
 
-**Mitigations:** ::Leverage file protection mechanisms to render these files accessible only to authorized parties.::
+- The adversary must know the location of these common key files.
 
+## Mitigations
+
+- Leverage file protection mechanisms to render these files accessible only to authorized parties.
 
 ---
 

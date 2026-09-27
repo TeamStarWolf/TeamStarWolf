@@ -7,9 +7,9 @@
 
 ## ATT&CK techniques countered (3)
 
-- [T1053](/mitre/techniques/T1053.md) — monitors
-- [T1053.005](/mitre/techniques/T1053-005.md) — monitors
-- [T1562.001](/mitre/techniques/T1562-001.md) — monitors
+- [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md) — monitors
+- [T1053.005 — Scheduled Task](/mitre/techniques/T1053-005.md) — monitors
+- [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md) — monitors
 
 ---
 

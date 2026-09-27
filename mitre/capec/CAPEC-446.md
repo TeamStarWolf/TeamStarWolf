@@ -4,18 +4,22 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary conducts supply chain attacks by the inclusion of insecure third-party components into a technology, product, or code-base, possibly packaging a malicious driver or component along with the product before shipping it to the consumer or acquirer.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195](/mitre/techniques/T1195.md)
+- [T1195 — Supply Chain Compromise](/mitre/techniques/T1195.md)
 
-**Prerequisites:** ::Access to the product during the initial or continuous development. This access is often obtained via insider access to include the third-party component after deployment.::
+## Prerequisites
 
-**Mitigations:** ::Assess software and hardware during development and prior to deployment to ensure that it functions as intended and without any malicious functionality. This includes both initial development, as well as updates propagated to the product after depl
+- Access to the product during the initial or continuous development. This access is often obtained via insider access to include the third-party component after deployment.
 
+## Mitigations
+
+- Assess software and hardware during development and prior to deployment to ensure that it functions as intended and without any malicious functionality. This includes both initial development, as well as updates propagated to the product after depl
 
 ---
 

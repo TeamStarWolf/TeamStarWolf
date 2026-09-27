@@ -4,18 +4,22 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An attacker substitutes out a tested and approved hardware component for a maliciously-altered hardware component. This type of attack is carried out directly on the system, enabling the attacker to then cause disruption or additional compromise.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.003](/mitre/techniques/T1195-003.md)
+- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md)
 
-**Prerequisites:** ::Physical access to the system or the integration facility where hardware components are kept.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Able to develop and manufacture malicious system components that perform the same functions and processes as their non-malicious counterparts.
+- Physical access to the system or the integration facility where hardware components are kept.
 
+## Skills required
+
+- Able to develop and manufacture malicious system components that perform the same functions and processes as their non-malicious counterparts.
 
 ---
 

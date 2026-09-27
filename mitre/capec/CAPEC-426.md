@@ -4,16 +4,22 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 The adversary incites a behavior from the target by manipulating something of influence. This is commonly associated with financial, social, or ideological incentivization. Examples include monetary fraud, peer pressure, and preying on the target's morals or ethics. The most effective incentive against one target might not be as effective against another, therefore the adversary must gather inform
 
-**Prerequisites:** ::The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the incentives that would influence the actions of the speci
+## Prerequisites
 
-**Skills required:** ::SKILL:The adversary requires strong inter-personal and communication skills.:LEVEL:Low::
+- The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the incentives that would influence the actions of the speci
 
-**Mitigations:** ::An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.::
+## Skills required
 
+- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+
+## Mitigations
+
+- An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.
 
 ---
 

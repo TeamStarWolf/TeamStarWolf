@@ -3,11 +3,9 @@
 <a id="capec-269"></a>
 
 **Abstraction:** Meta  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This pattern has been deprecated as it was determined to be a duplicate of another pattern. Please refer to the pattern CAPEC-203 : Manipulate Application Registry Values going forward.
-
 
 ---
 

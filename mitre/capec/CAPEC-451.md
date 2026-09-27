@@ -3,11 +3,9 @@
 <a id="capec-451"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of CAPEC-448 : Malware Infection into Product Software. Please refer to this other pattern going forward.
-
 
 ---
 

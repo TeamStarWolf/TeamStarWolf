@@ -4,12 +4,14 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary introduces malicious hardware during an update or replacement procedure, allowing for additional compromise or site disruption at the victim location. After deployment, it is not uncommon for upgrades and replacements to occur involving hardware and various replaceable parts. These upgrades and replacements are intended to correct defects, provide additional features, and to replace b
 
-**Skills required:** ::SKILL:Able to develop and manufacture malicious hardware components that perform the same functions and processes as their non-malicious counterpart
+## Skills required
 
+- Able to develop and manufacture malicious hardware components that perform the same functions and processes as their non-malicious counterpart
 
 ---
 

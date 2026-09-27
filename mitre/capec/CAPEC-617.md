@@ -4,16 +4,21 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 In this attack scenario, the attacker imitates a cellular base station with their own rogue base station equipment. Since cellular devices connect to whatever station has the strongest signal, the attacker can easily convince a targeted cellular device (e.g. the retransmission device) to talk to the rogue base station.
 
-**Prerequisites:** ::None::
+## Prerequisites
 
-**Skills required:** ::SKILL:This technique has been demonstrated by amateur hackers and commercial tools and open source projects are available to automate the attack.:LE
+- None
 
-**Mitigations:** ::Passively monitor cellular network connection for real-time threat detection and logging for manual review.::
+## Skills required
 
+- This technique has been demonstrated by amateur hackers and commercial tools and open source projects are available to automate the attack.:LE
+
+## Mitigations
+
+- Passively monitor cellular network connection for real-time threat detection and logging for manual review.
 
 ---
 

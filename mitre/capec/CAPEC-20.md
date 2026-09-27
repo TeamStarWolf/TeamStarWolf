@@ -4,20 +4,31 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An attacker, armed with the cipher text and the encryption algorithm used, performs an exhaustive (brute force) search on the key space to determine the key that decrypts the cipher text to obtain the plaintext.
 
 ## Related CWE (4)
 
-[CWE-326](/CWE_REFERENCE.md) [CWE-327](/CWE_REFERENCE.md) [CWE-693](/CWE_REFERENCE.md) [CWE-1204](/CWE_REFERENCE.md)
+- [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html)
+- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html)
+- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html)
+- [CWE-1204 — Generation of Weak Initialization Vector (IV)](https://cwe.mitre.org/data/definitions/1204.html)
 
-**Prerequisites:** ::Ciphertext is known.::Encryption algorithm and key size are known.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Brute forcing encryption does not require much skill.:LEVEL:Low::
+- Ciphertext is known.
+- Encryption algorithm and key size are known.
 
-**Mitigations:** ::Use commonly accepted algorithms and recommended key sizes. The key size used will depend on how important it is to keep the data confidential and for how long.::In theory a brute force attack performing an exhaustive key space search will always s
+## Skills required
 
+- Brute forcing encryption does not require much skill.:LEVEL:Low
+
+## Mitigations
+
+- Use commonly accepted algorithms and recommended key sizes. The key size used will depend on how important it is to keep the data confidential and for how long.
+- In theory a brute force attack performing an exhaustive key space search will always s
 
 ---
 

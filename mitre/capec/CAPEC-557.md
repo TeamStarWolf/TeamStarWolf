@@ -3,11 +3,9 @@
 <a id="capec-557"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This CAPEC has been deprecated because it is not directly related to a weakness, social engineering, supply chains, or a physical-based attack.
-
 
 ---
 

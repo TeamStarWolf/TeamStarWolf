@@ -4,20 +4,27 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 In this attack scenario, the attacker passively listens for WiFi messages and logs the associated Media Access Control (MAC) addresses. These addresses are intended to be unique to each wireless device (although they can be configured and changed by software). Once the attacker is able to associate a MAC address with a particular user or set of users (for example, when attending a public event), t
 
 ## Related CWE (2)
 
-[CWE-201](/CWE_REFERENCE.md) [CWE-300](/CWE_REFERENCE.md)
+- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html)
+- [CWE-300 — Channel Accessible by Non-Endpoint](https://cwe.mitre.org/data/definitions/300.html)
 
-**Prerequisites:** ::None::
+## Prerequisites
 
-**Skills required:** ::SKILL:Open source and commercial software tools are available and several commercial advertising companies routinely set up tools to collect and mon
+- None
 
-**Mitigations:** ::Automatic randomization of WiFi MAC addresses::Frequent changing of handset and retransmission device::
+## Skills required
 
+- Open source and commercial software tools are available and several commercial advertising companies routinely set up tools to collect and mon
+
+## Mitigations
+
+- Automatic randomization of WiFi MAC addresses
+- Frequent changing of handset and retransmission device
 
 ---
 

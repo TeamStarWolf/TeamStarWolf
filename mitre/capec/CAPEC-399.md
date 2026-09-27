@@ -3,11 +3,9 @@
 <a id="capec-399"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 An attacker analyzes data returned by an RFID chip and uses this information to duplicate a RFID signal that responds identically to the target chip. In some cases RFID chips are used for building access control, employee identification, or as markers on products being delivered along a supply chain. Some organizations also embed RFID tags inside computer assets to trigger alarms if they are remov
-
 
 ---
 

@@ -4,20 +4,26 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary discovers the structure, function, and composition of an object, resource, or system by using a variety of analysis techniques to effectively determine how the analyzed entity was constructed or operates. The goal of reverse engineering is often to duplicate the function, or a part of the function, of an object in order to duplicate or back engineer some aspect of its functioning. Rev
 
 ## Related CWE (1)
 
-[CWE-1278](/CWE_REFERENCE.md)
+- [CWE-1278 — Missing Protection Against Hardware Reverse Engineering Using Integrated Circuit (IC) Imaging Techniques](https://cwe.mitre.org/data/definitions/1278.html)
 
-**Prerequisites:** ::Access to targeted system, resources, and information.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Understanding of low level programming languages or technologies can be very helpful. For example, when reverse engineering a binary file, an 
+- Access to targeted system, resources, and information.
 
-**Mitigations:** ::Employ code obfuscation techniques to prevent the adversary from reverse engineering the targeted entity.::
+## Skills required
 
+- Understanding of low level programming languages or technologies can be very helpful. For example, when reverse engineering a binary file, an
+
+## Mitigations
+
+- Employ code obfuscation techniques to prevent the adversary from reverse engineering the targeted entity.
 
 ---
 

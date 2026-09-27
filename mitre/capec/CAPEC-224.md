@@ -4,20 +4,26 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Very Low  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary compares output from a target system to known indicators that uniquely identify specific details about the target. Most commonly, fingerprinting is done to determine operating system and application versions. Fingerprinting can be done passively as well as actively. Fingerprinting by itself is not usually detrimental to the target. However, the information gathered through fingerprint
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::A means by which to interact with the target system directly.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Some fingerprinting activity requires very specific knowledge of how different operating systems respond to various TCP/IP requests. Applicati
+- A means by which to interact with the target system directly.
 
-**Mitigations:** ::While some information is shared by systems automatically based on standards and protocols, remove potentially sensitive information that is not necessary for the application's functionality as much as possible.::
+## Skills required
 
+- Some fingerprinting activity requires very specific knowledge of how different operating systems respond to various TCP/IP requests. Applicati
+
+## Mitigations
+
+- While some information is shared by systems automatically based on standards and protocols, remove potentially sensitive information that is not necessary for the application's functionality as much as possible.
 
 ---
 

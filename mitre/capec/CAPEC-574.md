@@ -4,22 +4,26 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary exploits functionality meant to identify information about the services on the target system to an authorized user. By knowing what services are registered on the target system, the adversary can learn about the target environment as a means towards further malicious behavior. Depending on the operating system, commands that can obtain services information include sc and tasklist/svc
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1007](/mitre/techniques/T1007.md)
+- [T1007 — System Service Discovery](/mitre/techniques/T1007.md)
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::The adversary must have gained access to the target system via physical or logical means in order to carry out this attack.::
+## Prerequisites
 
-**Mitigations:** ::Identify programs that may be used to acquire service information and block them by using a software restriction policy or tools that restrict program execution by uaing a process allowlist.::
+- The adversary must have gained access to the target system via physical or logical means in order to carry out this attack.
 
+## Mitigations
+
+- Identify programs that may be used to acquire service information and block them by using a software restriction policy or tools that restrict program execution by uaing a process allowlist.
 
 ---
 

@@ -3,11 +3,9 @@
 <a id="capec-213"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern CAPEC-126 : Path Traversal. Please refer to this other CAPEC going forward.
-
 
 ---
 

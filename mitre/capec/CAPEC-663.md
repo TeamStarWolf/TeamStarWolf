@@ -4,20 +4,29 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Very High  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary exploits a hardware design flaw in a CPU implementation of transient instruction execution to expose sensitive data and bypass/subvert access control over restricted resources. Typically, the adversary conducts a covert channel attack to target non-discarded microarchitectural changes caused by transient executions such as speculative execution, branch prediction, instruction pipelini
 
 ## Related CWE (3)
 
-[CWE-1037](/CWE_REFERENCE.md) [CWE-1303](/CWE_REFERENCE.md) [CWE-1264](/CWE_REFERENCE.md)
+- [CWE-1037 — Processor Optimization Removal or Modification of Security-critical Code](https://cwe.mitre.org/data/definitions/1037.html)
+- [CWE-1303 — Non-Transparent Sharing of Microarchitectural Resources](https://cwe.mitre.org/data/definitions/1303.html)
+- [CWE-1264 — Hardware Logic with Insecure De-Synchronization between Control and Data Channels](https://cwe.mitre.org/data/definitions/1264.html)
 
-**Prerequisites:** ::The adversary needs at least user execution access to a system and a maliciously crafted program/application/process with unprivileged code to misuse transient instruction set execution of the CPU.:
+## Prerequisites
 
-**Skills required:** ::SKILL:Detailed knowledge on how various CPU architectures and microcode perform transient execution for various low-level assembly language code ins
+- The adversary needs at least user execution access to a system and a maliciously crafted program/application/process with unprivileged code to misuse transient instruction set execution of the CPU.:
 
-**Mitigations:** ::Implementation: DAWG (Dynamically Allocated Way Guard) - processor cache properly divided between different programs/processes that don't share resources::Implementation: KPTI (Kernel Page-Table Isolation) to completely separate user-space and kern
+## Skills required
 
+- Detailed knowledge on how various CPU architectures and microcode perform transient execution for various low-level assembly language code ins
+
+## Mitigations
+
+- Implementation: DAWG (Dynamically Allocated Way Guard) - processor cache properly divided between different programs/processes that don't share resources
+- Implementation: KPTI (Kernel Page-Table Isolation) to completely separate user-space and kern
 
 ---
 

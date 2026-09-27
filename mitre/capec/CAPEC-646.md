@@ -4,24 +4,31 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 Adversaries may attempt to obtain information about attached peripheral devices and components connected to a computer system. Examples may include discovering the presence of iOS devices by searching for backups, analyzing the Windows registry to determine what USB devices have been connected, or infecting a victim system with malware to report when a USB device has been connected. This may allow
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1120](/mitre/techniques/T1120.md)
+- [T1120 — Peripheral Device Discovery](/mitre/techniques/T1120.md)
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::The adversary needs either physical or remote access to the victim system.::
+## Prerequisites
 
-**Skills required:** ::SKILL:The adversary needs to be able to infect the victim system in a manner that gives them remote access.:LEVEL:Medium::SKILL:If analyzing the Win
+- The adversary needs either physical or remote access to the victim system.
 
-**Mitigations:** ::Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.::
+## Skills required
 
+- The adversary needs to be able to infect the victim system in a manner that gives them remote access.:LEVEL:Medium
+- If analyzing the Win
+
+## Mitigations
+
+- Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.
 
 ---
 

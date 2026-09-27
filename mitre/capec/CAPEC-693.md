@@ -4,20 +4,27 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary spoofs software popularity metadata to deceive users into believing that a maliciously provided package is widely used and originates from a trusted source.
 
 ## Related CWE (1)
 
-[CWE-494](/CWE_REFERENCE.md)
+- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html)
 
-**Prerequisites:** ::Identification of a popular open-source package whose popularity metadata is to be used for the malicious package.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Ability to provide a package to a package manager and associate a popular package's source code repository URL.:LEVEL:Low::
+- Identification of a popular open-source package whose popularity metadata is to be used for the malicious package.
 
-**Mitigations:** ::Before downloading open-source packages, perform precursory metadata checks to determine the author(s), frequency of updates, when the software was last updated, and if the software is widely leveraged.::Look for conflicting or non-unique repositor
+## Skills required
 
+- Ability to provide a package to a package manager and associate a popular package's source code repository URL.:LEVEL:Low
+
+## Mitigations
+
+- Before downloading open-source packages, perform precursory metadata checks to determine the author(s), frequency of updates, when the software was last updated, and if the software is widely leveraged.
+- Look for conflicting or non-unique repositor
 
 ---
 

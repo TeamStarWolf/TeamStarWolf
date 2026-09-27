@@ -4,20 +4,32 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary abuses the flexibility and discrepancies in the parsing and interpretation of HTTP Request messages by different intermediary HTTP agents (e.g., load balancer, reverse proxy, web caching proxies, application firewalls, etc.) to split a single HTTP request into multiple unauthorized and malicious HTTP requests to a back-end HTTP agent (e.g., web server). See CanPrecede relationships fo
 
 ## Related CWE (4)
 
-[CWE-74](/CWE_REFERENCE.md) [CWE-113](/CWE_REFERENCE.md) [CWE-138](/CWE_REFERENCE.md) [CWE-436](/CWE_REFERENCE.md)
+- [CWE-74 — Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')](https://cwe.mitre.org/data/definitions/74.html)
+- [CWE-113 — Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')](https://cwe.mitre.org/data/definitions/113.html)
+- [CWE-138 — Improper Neutralization of Special Elements](https://cwe.mitre.org/data/definitions/138.html)
+- [CWE-436 — Interpretation Conflict](https://cwe.mitre.org/data/definitions/436.html)
 
-**Prerequisites:** ::An additional intermediary HTTP agent such as an application firewall or a web caching proxy between the adversary and the second agent such as a web server, that sends multiple HTTP messages over s
+## Prerequisites
 
-**Skills required:** ::SKILL:Detailed knowledge on HTTP protocol: request and response messages structure and usage of specific headers.:LEVEL:Medium::SKILL:Detailed knowl
+- An additional intermediary HTTP agent such as an application firewall or a web caching proxy between the adversary and the second agent such as a web server, that sends multiple HTTP messages over s
 
-**Mitigations:** ::Design: evaluate HTTP agents prior to deployment for parsing/interpretation discrepancies.::Configuration: front-end HTTP agents notice ambiguous requests.::Configuration: back-end HTTP agents reject ambiguous requests and close the network connect
+## Skills required
 
+- Detailed knowledge on HTTP protocol: request and response messages structure and usage of specific headers.:LEVEL:Medium
+- Detailed knowl
+
+## Mitigations
+
+- Design: evaluate HTTP agents prior to deployment for parsing/interpretation discrepancies.
+- Configuration: front-end HTTP agents notice ambiguous requests.
+- Configuration: back-end HTTP agents reject ambiguous requests and close the network connect
 
 ---
 

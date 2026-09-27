@@ -4,16 +4,17 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary searches a targeted web site for web services that have not been publicized. This attack can be especially dangerous since unpublished but available services may not have adequate security controls placed upon them given that an administrator may believe they are unreachable.
 
 ## Related CWE (1)
 
-[CWE-425](/CWE_REFERENCE.md)
+- [CWE-425 — Direct Request ('Forced Browsing')](https://cwe.mitre.org/data/definitions/425.html)
 
-**Prerequisites:** ::The targeted web site must include unpublished services within its web tree. The nature of these services determines the severity of this attack.::
+## Prerequisites
 
+- The targeted web site must include unpublished services within its web tree. The nature of these services determines the severity of this attack.
 
 ---
 

@@ -5,7 +5,7 @@
 **Abstraction:** Detailed  
 **Status:** Deprecated  
 
-This attack pattern has been deprecated as it is contained in the existing attack pattern CAPEC-18 : XSS Targeting Non-Script Elements. Please refer to this other CAPEC going forward.
+This attack pattern has been deprecated as it is contained in the existing attack pattern "CAPEC-18 : XSS Targeting Non-Script Elements". Please refer to this other CAPEC going forward.
 
 ---
 

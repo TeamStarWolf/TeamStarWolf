@@ -6,7 +6,7 @@
 **Typical severity:** Medium  
 **Status:** Draft  
 
-An adversary creates a file with scripting content but where the specified MIME type of the file is such that scripting is not expected. The adversary tricks the victim into accessing a URL that responds with the script file. Some browsers will detect that the specified MIME type of the file does not match the actual type of its content and will automatically switch to using an interpreter for the
+An adversary creates a file with scripting content but where the specified MIME type of the file is such that scripting is not expected. The adversary tricks the victim into accessing a URL that responds with the script file. Some browsers will detect that the specified MIME type of the file does not match the actual type of its content and will automatically switch to using an interpreter for the real content type. If the browser does not invoke script filters before doing this, the adversary's script may run on the target unsanitized, possibly revealing the victim's cookies or executing arbitrary script in their browser.
 
 ## Related CWE (3)
 
@@ -17,7 +17,7 @@ An adversary creates a file with scripting content but where the specified MIME 
 ## Prerequisites
 
 - The victim must follow a crafted link that references a scripting file that is mis-typed as a non-executable file.
-- The victim's browser must detect the true type of a mis-labeled scripting file and
+- The victim's browser must detect the true type of a mis-labeled scripting file and invoke the appropriate script interpreter without first performing filtering on the content.
 
 ---
 

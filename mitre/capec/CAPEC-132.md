@@ -19,17 +19,28 @@ An adversary positions a symbolic link in such a manner that the targeted user o
 
 ## Prerequisites
 
-- The targeted application must perform the desired activities on a file without checking whether the file is a symbolic link or not. The adversary must be able to predict the name of the file the tar
+- The targeted application must perform the desired activities on a file without checking whether the file is a symbolic link or not. The adversary must be able to predict the name of the file the target application is modifying and be able to create a new symbolic link where that file would appear.
 
 ## Skills required
 
-- To create symlinks:LEVEL:Low
-- To identify the files and create the symlinks during the file operation time window:LEVEL:High
+- [Low] To create symlinks
+- [High] To identify the files and create the symlinks during the file operation time window
+
+## Consequences
+
+- Confidentiality / Other
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Integrity / Modify Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
+- Availability / Unreliable Execution
 
 ## Mitigations
 
 - Design: Check for the existence of files to be created, if in existence verify they are neither symlinks nor hard links before opening them.
-- Implementation: Use randomly generated file names for temporary files. Give the files restrictive permissi
+- Implementation: Use randomly generated file names for temporary files. Give the files restrictive permissions.
 
 ---
 

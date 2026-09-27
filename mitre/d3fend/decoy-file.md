@@ -5,6 +5,8 @@
 **D3FEND tactic:** Deceive
 **Digital artifacts:** File
 
+A file created for the purposes of deceiving an adversary.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — spoofs

@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-This OS fingerprinting probe sends a number of TCP SYN packets to an open port of a remote machine. The Initial Sequence Number (ISN) in each of the SYN/ACK response packets is analyzed to determine the smallest number that the target host uses when incrementing sequence numbers. This information can be useful for identifying an operating system because particular operating systems and versions in
+This OS fingerprinting probe sends a number of TCP SYN packets to an open port of a remote machine. The Initial Sequence Number (ISN) in each of the SYN/ACK response packets is analyzed to determine the smallest number that the target host uses when incrementing sequence numbers. This information can be useful for identifying an operating system because particular operating systems and versions increment sequence numbers using different values. The result of the analysis is then compared against a database of OS behaviors to determine the OS type and/or version.
 
 ## Related CWE (1)
 
@@ -16,6 +16,11 @@ This OS fingerprinting probe sends a number of TCP SYN packets to an open port o
 ## Prerequisites
 
 - The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ---
 

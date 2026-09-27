@@ -17,6 +17,10 @@ An adversary deceives an application or user and convinces them to request a res
 
 - None. All applications rely on file paths and therefore, in theory, they or their resources could be affected by this type of attack.
 
+## Consequences
+
+- Authorization / Execute Unauthorized Commands
+
 ## Mitigations
 
 - Monitor network activity to detect any anomalous or unauthorized communication exchanges.

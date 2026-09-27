@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Subroutine
 
+Setting variables to a known value before use.
+
 ## ATT&CK techniques countered (1)
 
 - [T1505.001 — SQL Stored Procedures](/mitre/techniques/T1505-001.md) — hardens. Adversaries may abuse SQL stored procedures to establish persistent access to systems.

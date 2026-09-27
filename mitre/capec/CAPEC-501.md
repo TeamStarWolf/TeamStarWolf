@@ -18,11 +18,16 @@ An adversary intercepts an implicit intent sent to launch a Android-based truste
 
 ## Skills required
 
-- The adversary must typically overcome network and host defenses in order to place malware on the system.:LEVEL:High
+- [High] The adversary must typically overcome network and host defenses in order to place malware on the system.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
-- To mitigate this type of an attack, explicit intents should be used whenever sensitive data is being sent. An 'explicit intent' is delivered to a specific application as declared within the intent, whereas an 'implicit intent' is directed to an app
+- To mitigate this type of an attack, explicit intents should be used whenever sensitive data is being sent. An 'explicit intent' is delivered to a specific application as declared within the intent, whereas an 'implicit intent' is directed to an application as defined by the Android operating system. If an implicit intent must be used, then it should be assumed that the intent will be received by an unknown application and any response should be treated accordingly (i.e., with appropriate security controls).
+- Never use implicit intents for inter-application communication.
 
 ---
 

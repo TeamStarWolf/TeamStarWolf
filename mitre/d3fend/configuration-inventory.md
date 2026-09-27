@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Configuration Resource
 
+Configuration inventory identifies and records the configuration of software and hardware and their components throughout the organization.
+
 ## ATT&CK techniques countered (55)
 
 - [T0858](https://attack.mitre.org/techniques/T0858) — inventories

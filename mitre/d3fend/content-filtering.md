@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** File
 
+Content Filtering techniques aid in the process of analyzing an input file for malicious or erroneous content and outputting a sanitized version.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — filters

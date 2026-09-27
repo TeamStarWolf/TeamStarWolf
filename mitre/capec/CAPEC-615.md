@@ -6,7 +6,7 @@
 **Typical severity:** Low  
 **Status:** Draft  
 
-Adversaries install Wi-Fi equipment that acts as a legitimate Wi-Fi network access point. When a device connects to this access point, Wi-Fi data traffic is intercepted, captured, and analyzed. This also allows the adversary to use adversary-in-the-middle (CAPEC-94) for all communications.
+Adversaries install Wi-Fi equipment that acts as a legitimate Wi-Fi network access point. When a device connects to this access point, Wi-Fi data traffic is intercepted, captured, and analyzed. This also allows the adversary to use "adversary-in-the-middle" (CAPEC-94) for all communications.
 
 ## Related CWE (1)
 
@@ -15,6 +15,10 @@ Adversaries install Wi-Fi equipment that acts as a legitimate Wi-Fi network acce
 ## Prerequisites
 
 - None
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

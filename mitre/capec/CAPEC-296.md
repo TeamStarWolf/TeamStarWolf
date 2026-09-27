@@ -18,7 +18,11 @@ An adversary sends an ICMP Information Request to a host to determine if it will
 
 ## Skills required
 
-- The adversary needs to know certain linux commands for this type of attack.:LEVEL:Low
+- [Low] The adversary needs to know certain linux commands for this type of attack.
+
+## Consequences
+
+- Confidentiality / Other
 
 ---
 

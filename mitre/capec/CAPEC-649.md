@@ -21,6 +21,10 @@ An adversary adds a space character to the end of a file extension and takes adv
 
 - The use of the file must be controlled by the file extension.
 
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+
 ## Mitigations
 
 - File extensions should be checked to see if non-visible characters are being included.

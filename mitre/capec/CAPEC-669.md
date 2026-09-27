@@ -15,15 +15,23 @@ An adversary with access to an organization’s software update infrastructure i
 
 ## Prerequisites
 
-- An adversary would need to have penetrated an organization’s software update infrastructure including gaining access to components supporting the configuration management of software versions and up
+- An adversary would need to have penetrated an organization’s software update infrastructure including gaining access to components supporting the configuration management of software versions and updates related to the software maintenance of customer systems.
 
 ## Skills required
 
-- Skills required include the ability to infiltrate the organization’s software update infrastructure either from the Internet or from within th
+- [High] Skills required include the ability to infiltrate the organization’s software update infrastructure either from the Internet or from within the organization, including subcontractors, and be able to change software being delivered to customer/user systems in an undetected manner.
+
+## Consequences
+
+- Access Control / Gain Privileges
+- Authorization / Execute Unauthorized Commands
+- Integrity / Modify Data
+- Confidentiality / Read Data
 
 ## Mitigations
 
-- Have a Software Assurance Plan that includes maintaining strict configuration management control of source code, object code and software development, build and distribution tools; manual code reviews and static code analysis for developmental soft
+- Have a Software Assurance Plan that includes maintaining strict configuration management control of source code, object code and software development, build and distribution tools; manual code reviews and static code analysis for developmental software; and tracking of all storage and movement of code.
+- Require elevated privileges for distribution of software and software updates.
 
 ---
 

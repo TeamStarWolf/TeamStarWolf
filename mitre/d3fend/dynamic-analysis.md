@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Executable File, Document File
 
+Executing or opening a file in a synthetic "sandbox" environment to determine if the file is a malicious program or if the file exploits another program such as a document reader.
+
 ## ATT&CK techniques countered (43)
 
 - [T0853](https://attack.mitre.org/techniques/T0853) — analyzes

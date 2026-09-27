@@ -6,7 +6,7 @@
 **Typical severity:** High  
 **Status:** Stable  
 
-Through the exploitation of how service accounts leverage Kerberos authentication with Service Principal Names (SPNs), the adversary obtains and subsequently cracks the hashed credentials of a service account target to exploit its privileges. The Kerberos authentication protocol centers around a ticketing system which is used to request/grant access to services and to then access the requested ser
+Through the exploitation of how service accounts leverage Kerberos authentication with Service Principal Names (SPNs), the adversary obtains and subsequently cracks the hashed credentials of a service account target to exploit its privileges. The Kerberos authentication protocol centers around a ticketing system which is used to request/grant access to services and to then access the requested services. As an authenticated user, the adversary may request Active Directory and obtain a service ticket with portions encrypted via RC4 with the private key of the authenticated account. By extracting the local ticket and saving it disk, the adversary can brute force the hashed value to reveal the target account credentials.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -25,18 +25,23 @@ Through the exploitation of how service accounts leverage Kerberos authenticatio
 ## Prerequisites
 
 - The adversary requires access as an authenticated user on the system. This attack pattern relates to elevating privileges.
-- The adversary requires use of a third-party credential harvesting tool (e.
+- The adversary requires use of a third-party credential harvesting tool (e.g., Mimikatz).
+- The adversary requires a brute force tool.
 
 ## Skills required
 
-- SKILL
-- Medium
+- [Medium]
+
+## Consequences
+
+- Confidentiality / Gain Privileges
 
 ## Mitigations
 
 - Monitor system and domain logs for abnormal access.
 - Employ a robust password policy for service accounts. Passwords should be of adequate length and complexity, and they should expire after a period of time.
-- Employ the principle of least privileg
+- Employ the principle of least privilege: limit service accounts privileges to what is required for functionality and no more.
+- Enable AES Kerberos encryption (or another stronger encryption algorithm), rather than RC4, where possible.
 
 ---
 

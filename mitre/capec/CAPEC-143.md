@@ -14,7 +14,7 @@ An adversary searches a targeted web site for web pages that have not been publi
 
 ## Prerequisites
 
-- The targeted web site must include pages within its published tree that are not connected to its tree of links. The sensitivity of the content of these pages determines the severity of this attack.:
+- The targeted web site must include pages within its published tree that are not connected to its tree of links. The sensitivity of the content of these pages determines the severity of this attack.
 
 ---
 

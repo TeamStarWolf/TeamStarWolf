@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** File
 
+File eviction techniques delete files from system storage.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — deletes

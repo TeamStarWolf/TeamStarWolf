@@ -13,6 +13,10 @@ An adversary blocks the delivery of an important system resource causing the sys
 
 - This attack pattern requires knowledge of where important system resources are logically located as well as how they operate.
 
+## Consequences
+
+- Availability / Other
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

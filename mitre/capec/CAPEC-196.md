@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An attacker creates a false but functional session credential in order to gain or usurp access to a service. Session credentials allow users to identify themselves to a service after an initial authentication without needing to resend the authentication information (usually a username and password) with every message. If an attacker is able to forge valid session credentials they may be able to by
+An attacker creates a false but functional session credential in order to gain or usurp access to a service. Session credentials allow users to identify themselves to a service after an initial authentication without needing to resend the authentication information (usually a username and password) with every message. If an attacker is able to forge valid session credentials they may be able to bypass authentication or piggy-back off some other authenticated user's session. This attack differs from Reuse of Session IDs and Session Sidejacking attacks in that in the latter attacks an attacker uses a previous or existing credential without modification while, in a forging attack, the attacker must create their own credential, although it may be based on previously observed credentials.
 
 ## Mapped ATT&CK techniques (3)
 
@@ -26,11 +26,20 @@ An attacker creates a false but functional session credential in order to gain o
 
 ## Skills required
 
-- Forge the session credential and reply the request.:LEVEL:Medium
+- [Medium] Forge the session credential and reply the request.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 
-- Implementation: Use session IDs that are difficult to guess or brute-force: One way for the attackers to obtain valid session IDs is by brute-forcing or guessing them. By choosing session identifiers that are sufficiently random, brute-forcing or g
+- Implementation: Use session IDs that are difficult to guess or brute-force: One way for the attackers to obtain valid session IDs is by brute-forcing or guessing them. By choosing session identifiers that are sufficiently random, brute-forcing or guessing becomes very difficult.
+- Implementation: Regenerate and destroy session identifiers when there is a change in the level of privilege: This ensures that even though a potential victim may have followed a link with a fixated identifier, a new one is issued when the level of privilege changes.
 
 ---
 

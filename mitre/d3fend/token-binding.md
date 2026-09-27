@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Access Token
 
+Token binding is a security mechanism used to enhance the protection of tokens, such as cookies or OAuth tokens, by binding them to a specific connection.
+
 ## ATT&CK techniques countered (7)
 
 - [T1134.001 — Token Impersonation/Theft](/mitre/techniques/T1134-001.md) — strengthens. Adversaries may duplicate then impersonate another user's existing token to escalate privileges and bypass access controls.

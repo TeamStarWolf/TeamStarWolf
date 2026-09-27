@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Create Process, Executable File
 
+Blocking the execution of files on a host in accordance with defined application policy rules.
+
 ## ATT&CK techniques countered (58)
 
 - [T0846](https://attack.mitre.org/techniques/T0846) — filters

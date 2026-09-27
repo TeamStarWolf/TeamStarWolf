@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** User Account
 
+Restricting a user account's access to resources.
+
 ## ATT&CK techniques countered (19)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — restricts

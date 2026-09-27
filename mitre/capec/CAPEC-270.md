@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-An adversary adds a new entry to the run keys in the Windows registry so that an application of their choosing is executed when a user logs in. In this way, the adversary can get their executable to operate and run on the target system with the authorized user's level of permissions. This attack is a good way for an adversary to run persistent spyware on a user's machine, such as a keylogger.
+An adversary adds a new entry to the "run keys" in the Windows registry so that an application of their choosing is executed when a user logs in. In this way, the adversary can get their executable to operate and run on the target system with the authorized user's level of permissions. This attack is a good way for an adversary to run persistent spyware on a user's machine, such as a keylogger.
 
 ## Mapped ATT&CK techniques (2)
 
@@ -21,6 +21,10 @@ An adversary adds a new entry to the run keys in the Windows registry so that an
 ## Prerequisites
 
 - The adversary must have gained access to the target system via physical or logical means in order to carry out this attack.
+
+## Consequences
+
+- Integrity / Modify Data, Gain Privileges
 
 ## Mitigations
 

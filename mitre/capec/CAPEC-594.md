@@ -14,7 +14,12 @@ An adversary injects traffic into the target's network connection. The adversary
 ## Prerequisites
 
 - The target application must leverage an open communications channel.
-- The channel on which the target communicates must be vulnerable to interception (e.g., adversary in the middle attack - CAPEC-94
+- The channel on which the target communicates must be vulnerable to interception (e.g., adversary in the middle attack - CAPEC-94).
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Integrity / Other
 
 ---
 

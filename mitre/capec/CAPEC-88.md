@@ -22,12 +22,19 @@ In this type of an attack, an adversary injects operating system commands into e
 
 ## Skills required
 
-- The attacker needs to have knowledge of not only the application to exploit but also the exact nature of commands that pertain to the target o
+- [High] The attacker needs to have knowledge of not only the application to exploit but also the exact nature of commands that pertain to the target operating system. This may involve, though not always, knowledge of specific assembly commands for the platform.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges, Bypass Protection Mechanism
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Use language APIs rather than relying on passing data to the operating system shell or command line. Doing so ensures that the available protection mechanisms in the language are intact and applicable.
-- Filter all incoming data to escape or remove
+- Filter all incoming data to escape or remove characters or strings that can be potentially misinterpreted as operating system or shell commands
+- All application processes should be run with the minimal privileges required. Also, processes must shed privileges as soon as they no longer require them.
 
 ---
 

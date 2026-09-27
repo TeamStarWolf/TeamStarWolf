@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** System Init Configuration
 
+Analysis of any system process startup configuration.
+
 ## ATT&CK techniques countered (5)
 
 - [T1037.004 — RC Scripts](/mitre/techniques/T1037-004.md) — analyzes. Adversaries may establish persistence by modifying RC scripts, which are executed during a Unix-like system’s startup.

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** User Account
 
+Restoring a user account's access to resources by unlocking a locked User Account.
+
 ## ATT&CK techniques countered (19)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — restores

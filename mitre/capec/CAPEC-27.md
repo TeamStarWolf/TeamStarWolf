@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-This attack leverages the use of symbolic links (Symlinks) in order to write to sensitive files. An attacker can create a Symlink link to a target file not otherwise accessible to them. When the privileged program tries to create a temporary file with the same name as the Symlink link, it will actually write to the target file pointed to by the attackers' Symlink link. If the attacker can insert m
+This attack leverages the use of symbolic links (Symlinks) in order to write to sensitive files. An attacker can create a Symlink link to a target file not otherwise accessible to them. When the privileged program tries to create a temporary file with the same name as the Symlink link, it will actually write to the target file pointed to by the attackers' Symlink link. If the attacker can insert malicious content in the temporary file they will be writing to the sensitive file by using the Symlink. The race occurs because the system checks if the temporary file exists, then creates the file. The attacker would typically create the Symlink during the interval between the check and the creation of the temporary file.
 
 ## Related CWE (5)
 
@@ -25,12 +25,20 @@ This attack leverages the use of symbolic links (Symlinks) in order to write to 
 
 ## Skills required
 
-- This attack is sophisticated because the attacker has to overcome a few challenges such as creating symlinks on the target host during a preci
+- [Medium] This attack is sophisticated because the attacker has to overcome a few challenges such as creating symlinks on the target host during a precise timing, inserting malicious data in the temporary file and have knowledge about the temporary files created (file name and function which creates them).
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Availability / Resource Consumption
 
 ## Mitigations
 
 - Use safe libraries when creating temporary files. For instance the standard library function mkstemp can be used to safely create temporary files. For shell scripts, the system utility mktemp does the same thing.
-- Access to the directories should b
+- Access to the directories should be restricted as to prevent attackers from manipulating the files. Denying access to a file can prevent an attacker from replacing that file with a link to a sensitive file.
+- Follow the principle of least privilege when assigning access rights to files.
+- Ensure good compartmentalization in the system to provide protected areas that can be trusted.
 
 ---
 

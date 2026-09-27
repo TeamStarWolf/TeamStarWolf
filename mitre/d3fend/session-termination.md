@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Session
 
+Forcefully end all active sessions associated with compromised accounts or devices.
+
 ## ATT&CK techniques countered (10)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — deletes

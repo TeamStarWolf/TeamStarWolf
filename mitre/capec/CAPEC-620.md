@@ -16,6 +16,10 @@ An attacker forces the encryption level to be lowered, thus enabling a successfu
 
 - [CWE-757 — Selection of Less-Secure Algorithm During Negotiation ('Algorithm Downgrade')](https://cwe.mitre.org/data/definitions/757.html) — A protocol or its implementation supports interaction between multiple actors and allows those actors to negotiate which algorithm should be used as a protection mechanism such as encryption or authentication, but it…
 
+## Consequences
+
+- Access Control / Bypass Protection Mechanism
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-Applications often need to transform data in and out of a data format (e.g., XML and YAML) by using a parser. It may be possible for an adversary to inject data that may have an adverse effect on the parser when it is being processed. Many data format languages allow the definition of macro-like structures that can be used to simplify the creation of complex structures. By nesting these structures
+Applications often need to transform data in and out of a data format (e.g., XML and YAML) by using a parser. It may be possible for an adversary to inject data that may have an adverse effect on the parser when it is being processed. Many data format languages allow the definition of macro-like structures that can be used to simplify the creation of complex structures. By nesting these structures, causing the data to be repeatedly substituted, an adversary can cause the parser to consume more resources while processing, causing excessive memory consumption and CPU utilization.
 
 ## Related CWE (4)
 
@@ -19,13 +19,20 @@ Applications often need to transform data in and out of a data format (e.g., XML
 ## Prerequisites
 
 - An application's user-controllable data is expressed in a language that supports subsitution.
-- An application does not perform sufficient validation to ensure that user-controllable data is not mali
+- An application does not perform sufficient validation to ensure that user-controllable data is not malicious.
+
+## Consequences
+
+- Availability / Resource Consumption
+- Confidentiality / Read Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Carefully validate and sanitize all user-controllable data prior to passing it to the data parser routine. Ensure that the resultant data is safe to pass to the data parser.
 - Perform validation on canonical data.
-- Pick a robust implementation of th
+- Pick a robust implementation of the data parser.
 
 ---
 

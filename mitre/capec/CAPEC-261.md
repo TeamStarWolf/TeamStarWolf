@@ -14,7 +14,7 @@ An adversary who is authorized to send queries to a target sends variants of exp
 
 ## Prerequisites
 
-- The server must assume that the queries it receives follow specific templates and/or have fields or attributes that follow specific procedures. The server must process queries that it receives witho
+- The server must assume that the queries it receives follow specific templates and/or have fields or attributes that follow specific procedures. The server must process queries that it receives without adequately checking or sanitizing queries to ensure they follow these templates.
 
 ---
 

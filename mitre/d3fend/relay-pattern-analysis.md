@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Outbound Internet Network Traffic
 
+The detection of an internal host relaying traffic between the internal network and the external network.
+
 ## ATT&CK techniques countered (31)
 
 - [T0884](https://attack.mitre.org/techniques/T0884) — analyzes

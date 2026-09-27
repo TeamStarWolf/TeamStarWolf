@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-An adversary sends out an ICMP Type 8 Echo Request, commonly known as a 'Ping', in order to determine if a target system is responsive. If the request is not blocked by a firewall or ACL, the target host will respond with an ICMP Type 0 Echo Reply datagram. This type of exchange is usually referred to as a 'Ping' due to the Ping utility present in almost all operating systems. Ping, as commonly im
+An adversary sends out an ICMP Type 8 Echo Request, commonly known as a 'Ping', in order to determine if a target system is responsive. If the request is not blocked by a firewall or ACL, the target host will respond with an ICMP Type 0 Echo Reply datagram. This type of exchange is usually referred to as a 'Ping' due to the Ping utility present in almost all operating systems. Ping, as commonly implemented, allows a user to test for alive hosts, measure round-trip time, and measure the percentage of packet loss.
 
 ## Related CWE (1)
 
@@ -15,11 +15,15 @@ An adversary sends out an ICMP Type 8 Echo Request, commonly known as a 'Ping', 
 
 ## Prerequisites
 
-- The ability to send an ICMP type 8 query (Echo Request) to a remote target and receive an ICMP type 0 message (ICMP Echo Reply) in response. Any firewalls or access control lists between the sender
+- The ability to send an ICMP type 8 query (Echo Request) to a remote target and receive an ICMP type 0 message (ICMP Echo Reply) in response. Any firewalls or access control lists between the sender and receiver must allow ICMP Type 8 and ICMP Type 0 messages in order for a ping operation to succeed.
 
 ## Skills required
 
-- The adversary needs to know certain linux commands for this type of attack.:LEVEL:Low
+- [Low] The adversary needs to know certain linux commands for this type of attack.
+
+## Consequences
+
+- Confidentiality / Other
 
 ## Mitigations
 

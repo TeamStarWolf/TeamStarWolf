@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An attack of this type exploits a Web server's decision to take action based on filename or file extension. Because different file types are handled by different server processes, misclassification may force the Web server to take unexpected action, or expected actions in an unexpected sequence. This may cause the server to exhaust resources, supply debug or system data to the attacker, or bind an
+An attack of this type exploits a Web server's decision to take action based on filename or file extension. Because different file types are handled by different server processes, misclassification may force the Web server to take unexpected action, or expected actions in an unexpected sequence. This may cause the server to exhaust resources, supply debug or system data to the attacker, or bind an attacker to a remote process.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -24,8 +24,13 @@ An attack of this type exploits a Web server's decision to take action based on 
 
 ## Skills required
 
-- To modify file name or file extension:LEVEL:Low
-- To use misclassification to force the Web server to disclose configuration information,
+- [Low] To modify file name or file extension
+- [Medium] To use misclassification to force the Web server to disclose configuration information, source, or binary data
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 

@@ -13,6 +13,10 @@ In this attack pattern, the adversary sends disruptive signals at a target satel
 
 - This attack requires the knowledge of the satellite's coordinates for targeting.
 
+## Consequences
+
+- Availability / Other
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

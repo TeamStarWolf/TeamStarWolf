@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-An adversary uses stolen Kerberos tickets to access systems/resources that leverage the Kerberos authentication protocol. The Kerberos authentication protocol centers around a ticketing system which is used to request/grant access to services and to then access the requested services. An adversary can obtain any one of these tickets (e.g. Service Ticket, Ticket Granting Ticket, Silver Ticket, or G
+An adversary uses stolen Kerberos tickets to access systems/resources that leverage the Kerberos authentication protocol. The Kerberos authentication protocol centers around a ticketing system which is used to request/grant access to services and to then access the requested services. An adversary can obtain any one of these tickets (e.g. Service Ticket, Ticket Granting Ticket, Silver Ticket, or Golden Ticket) to authenticate to a system/resource without needing the account's credentials. Depending on the ticket obtained, the adversary may be able to access a particular resource or generate TGTs for any account within an Active Directory Domain.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -26,8 +26,12 @@ An adversary uses stolen Kerberos tickets to access systems/resources that lever
 
 ## Skills required
 
-- Determine if Kerberos authentication is used on the server.:LEVEL:Low
-- The adversary uses a third-party tool to obtain the necessary tic
+- [Low] Determine if Kerberos authentication is used on the server.
+- [High] The adversary uses a third-party tool to obtain the necessary tickets to execute the attack.
+
+## Consequences
+
+- Integrity / Gain Privileges
 
 ## Mitigations
 

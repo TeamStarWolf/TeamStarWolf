@@ -21,10 +21,15 @@ An adversary utilizes a resource leak on the target to deplete the quantity of t
 
 - The target must have a resource leak that the adversary can repeatedly trigger.
 
+## Consequences
+
+- Availability / Unreliable Execution, Resource Consumption
+
 ## Mitigations
 
 - If possible, leverage coding language(s) that do not allow this weakness to occur (e.g., Java, Ruby, and Python all perform automatic garbage collection that releases memory for objects that have been deallocated).
-- Memory should always be allocate
+- Memory should always be allocated/freed using matching functions (e.g., malloc/free, new/delete, etc.)
+- Implement best practices with respect to memory management, including the freeing of all allocated resources at all exit points and ensuring consistency with how and where memory is freed in a function.
 
 ---
 

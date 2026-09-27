@@ -16,6 +16,11 @@ An adversary uses a SYN scan to determine the status of ports on the remote targ
 
 - This scan type is not possible with some operating systems (Windows XP SP 2). On Linux and Unix systems it requires root privileges to use raw sockets.
 
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

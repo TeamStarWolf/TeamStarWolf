@@ -23,7 +23,11 @@ An adversary provides a malicious version of a resource at a location that is si
 
 ## Skills required
 
-- Adversaries can often purchase low-cost technology to implement rogue access points.:LEVEL:Low
+- [Low] Adversaries can often purchase low-cost technology to implement rogue access points.
+
+## Consequences
+
+- Confidentiality, Integrity / Other
 
 ---
 

@@ -15,12 +15,16 @@ Adversary uses malware or a similarly controlled application installed inside an
 
 ## Skills required
 
-- The adversary must be able to obtain or develop, as well as place malicious software inside the target network/system.:LEVEL:Medium
+- [Medium] The adversary must be able to obtain or develop, as well as place malicious software inside the target network/system.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Keep patches up to date by installing weekly or daily if possible.
-- Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a proce
+- Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.
 
 ---
 

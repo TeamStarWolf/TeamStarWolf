@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Identifier
 
+Taking known malicious identifiers and determining if they are present in a system.
+
 ## ATT&CK techniques countered (5)
 
 - [T0817](https://attack.mitre.org/techniques/T0817) — analyzes

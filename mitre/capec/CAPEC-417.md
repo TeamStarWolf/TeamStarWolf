@@ -15,7 +15,11 @@ The adversary uses social engineering to exploit the target's perception of the 
 
 ## Skills required
 
-- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+- [Low] The adversary requires strong inter-personal and communication skills.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Other
 
 ## Mitigations
 

@@ -20,6 +20,10 @@ This pattern of attack leverages standard requests to learn the exact time assoc
 
 - The ability to send a timestamp request to a remote target and receive a response.
 
+## Consequences
+
+- Confidentiality / Other
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

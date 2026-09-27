@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An adversary submits data to a target application which contains nested exponential data expansion to produce excessively large output. Many data format languages allow the definition of macro-like structures that can be used to simplify the creation of complex structures. However, this capability can be abused to create excessive demands on a processor's CPU and memory. A small number of nested e
+An adversary submits data to a target application which contains nested exponential data expansion to produce excessively large output. Many data format languages allow the definition of macro-like structures that can be used to simplify the creation of complex structures. However, this capability can be abused to create excessive demands on a processor's CPU and memory. A small number of nested expansions can result in an exponential growth in demands on memory.
 
 ## Related CWE (2)
 
@@ -16,16 +16,20 @@ An adversary submits data to a target application which contains nested exponent
 
 ## Prerequisites
 
-- This type of attack requires that the target must receive input but either fail to provide an upper limit for entity expansion or provide a limit that is so large that it does not preclude significa
+- This type of attack requires that the target must receive input but either fail to provide an upper limit for entity expansion or provide a limit that is so large that it does not preclude significant resource consumption.
 
 ## Skills required
 
-- Ability to craft nested data expansion messages.:LEVEL:Low
+- [Low] Ability to craft nested data expansion messages.
+
+## Consequences
+
+- Availability / Unreliable Execution, Resource Consumption
 
 ## Mitigations
 
 - Design: Use libraries and templates that minimize unfiltered input. Use methods that limit entity expansion and throw exceptions on attempted entity expansion.
-- Implementation: For XML based data - disable altogether the use of inline DTD schemas w
+- Implementation: For XML based data - disable altogether the use of inline DTD schemas when parsing XML objects. If a DTD must be used, normalize, filter and use an allowlist and parse with methods and routines that will detect entity expansion from untrusted sources.
 
 ---
 

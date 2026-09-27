@@ -29,16 +29,29 @@ An adversary obtains (i.e. steals or purchases) legitimate Kerberos credentials 
 
 - The system/application leverages Kerberos authentication.
 - The system/application uses one factor password-based authentication, SSO, and/or cloud-based authentication for Kerberos service accounts.
+- The system/application does not have a sound password policy that is being enforced for Kerberos service accounts.
+- The system/application does not implement an effective password throttling mechanism for authenticating to Kerberos service accounts.
+- The targeted network allows for network sniffing attacks to succeed.
 
 ## Skills required
 
-- Once an adversary obtains a known Kerberos credential, leveraging it is trivial.:LEVEL:Low
+- [Low] Once an adversary obtains a known Kerberos credential, leveraging it is trivial.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality, Authorization / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Create a strong password policy and ensure that your system enforces this policy for Kerberos service accounts.
 - Ensure Kerberos service accounts are not reusing username/password combinations for multiple systems, applications, or services.
-- Do no
+- Do not reuse Kerberos service account credentials across systems.
+- Deny remote use of Kerberos service account credentials to log into domain systems.
+- Do not allow Kerberos service accounts to be a local administrator on more than one system.
+- Enable at least AES Kerberos encryption for tickets.
+- Monitor system and domain logs for abnormal credential access.
 
 ---
 

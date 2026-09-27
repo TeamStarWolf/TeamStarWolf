@@ -6,7 +6,7 @@
 **Typical severity:** Low  
 **Status:** Draft  
 
-An attacker harvests identifying information about a victim via an active session that the victim's browser has with a social networking site. A victim may have the social networking site open in one tab or perhaps is simply using the remember me feature to keep their session with the social networking site active. An attacker induces a payload to execute in the victim's browser that transparently
+An attacker harvests identifying information about a victim via an active session that the victim's browser has with a social networking site. A victim may have the social networking site open in one tab or perhaps is simply using the "remember me" feature to keep their session with the social networking site active. An attacker induces a payload to execute in the victim's browser that transparently to the victim initiates a request to the social networking site (e.g., via available social network site APIs) to retrieve identifying information about a victim. While some of this information may be public, the attacker is able to harvest this information in context and may use it for further attacks on the user (e.g., spear phishing).
 
 ## Related CWE (2)
 
@@ -19,8 +19,8 @@ An attacker harvests identifying information about a victim via an active sessio
 
 ## Skills required
 
-- An attacker should be able to create a payload and deliver it to the victim's browser.:LEVEL:High
-- An attacker needs to know how to inte
+- [High] An attacker should be able to create a payload and deliver it to the victim's browser.
+- [Medium] An attacker needs to know how to interact with various social networking sites (e.g., via available APIs) to request information and how to send the harvested data back to the attacker.
 
 ## Mitigations
 

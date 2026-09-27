@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type exploits a programs' vulnerabilities that allows an attacker's commands to be concatenated onto a legitimate command with the intent of targeting other resources such as the file system or database. The system that uses a filter or denylist input validation, as opposed to allowlist validation is vulnerable to an attacker who predicts delimiters (or combinations of delimiters
+An attack of this type exploits a programs' vulnerabilities that allows an attacker's commands to be concatenated onto a legitimate command with the intent of targeting other resources such as the file system or database. The system that uses a filter or denylist input validation, as opposed to allowlist validation is vulnerable to an attacker who predicts delimiters (or combinations of delimiters) not present in the filter or denylist. As with other injection attacks, the attacker uses the command delimiter payload as an entry point to tunnel through the application and activate additional attacks through SQL queries, shell commands, network scanning, and so on.
 
 ## Related CWE (11)
 
@@ -29,12 +29,19 @@ An attack of this type exploits a programs' vulnerabilities that allows an attac
 
 ## Skills required
 
-- The attacker has to identify injection vector, identify the specific commands, and optionally collect the output, i.e. from an interactive ses
+- [Medium] The attacker has to identify injection vector, identify the specific commands, and optionally collect the output, i.e. from an interactive session.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Design: Perform allowlist validation against a positive specification for command length, type, and parameters.
-- Design: Limit program privileges, so if commands circumvent program input validation or filter routines then commands do not running un
+- Design: Limit program privileges, so if commands circumvent program input validation or filter routines then commands do not running under a privileged account
+- Implementation: Perform input validation for all remote content.
+- Implementation: Use type conversions such as JDBC prepared statements.
 
 ---
 

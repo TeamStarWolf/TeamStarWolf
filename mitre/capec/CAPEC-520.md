@@ -19,13 +19,13 @@ An adversary with either direct access to the product assembly process or to the
 
 ## Skills required
 
-- Resources to maliciously construct components used by the manufacturer.:LEVEL:High
-- Resources to physically infiltrate manufacturer or m
+- [High] Resources to maliciously construct components used by the manufacturer.
+- [High] Resources to physically infiltrate manufacturer or manufacturer's supplier.
 
 ## Mitigations
 
 - Hardware attacks are often difficult to detect, as inserted components can be difficult to identify or remain dormant for an extended period of time.
-- Acquire hardware and hardware components from trusted vendors. Additionally, determine where vend
+- Acquire hardware and hardware components from trusted vendors. Additionally, determine where vendors purchase components or if any components are created/acquired via subcontractors to determine where supply chain risks may exist.
 
 ---
 

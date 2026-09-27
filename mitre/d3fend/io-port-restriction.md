@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Removable Media Device, I/O Module, Input Device
 
+Limiting access to computer input/output (IO) ports to restrict unauthorized devices.
+
 ## ATT&CK techniques countered (9)
 
 - [T0847](https://attack.mitre.org/techniques/T0847) — filters

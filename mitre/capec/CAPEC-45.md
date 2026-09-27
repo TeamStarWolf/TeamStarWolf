@@ -28,12 +28,26 @@ This type of attack leverages the use of symbolic links to cause buffer overflow
 
 ## Skills required
 
-- An adversary can simply overflow a buffer by inserting a long string into an adversary-modifiable injection vector. The result can be a DoS.:L
+- [Low] An adversary can simply overflow a buffer by inserting a long string into an adversary-modifiable injection vector. The result can be a DoS.
+- [High] Exploiting a buffer overflow to inject malicious code into the stack of a software system or even the heap can require a higher skill level.
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Pay attention to the fact that the resource you read from can be a replaced by a Symbolic link. You can do a Symlink check before reading the file and decide that this is not a legitimate way of accessing the resource.
-- Because Symlink can be modif
+- Because Symlink can be modified by an adversary, make sure that the ones you read are located in protected directories.
+- Pay attention to the resource pointed to by your symlink links (See attack pattern named "Forced Symlink race"), they can be replaced by malicious resources.
+- Always check the size of the input data before copying to a buffer.
+- Use a language or compiler that performs automatic bounds checking.
+- Use an abstraction library to abstract away risky APIs. Not a complete solution.
+- Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
+- Use OS-level preventative functionality. Not a complete solution.
 
 ---
 

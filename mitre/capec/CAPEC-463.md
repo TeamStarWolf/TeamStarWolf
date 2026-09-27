@@ -6,7 +6,7 @@
 **Typical severity:** High  
 **Status:** Draft  
 
-An adversary is able to efficiently decrypt data without knowing the decryption key if a target system leaks data on whether or not a padding error happened while decrypting the ciphertext. A target system that leaks this type of information becomes the padding oracle and an adversary is able to make use of that oracle to efficiently decrypt data without knowing the decryption key by issuing on av
+An adversary is able to efficiently decrypt data without knowing the decryption key if a target system leaks data on whether or not a padding error happened while decrypting the ciphertext. A target system that leaks this type of information becomes the padding oracle and an adversary is able to make use of that oracle to efficiently decrypt data without knowing the decryption key by issuing on average 128*b calls to the padding oracle (where b is the number of bytes in the ciphertext block). In addition to performing decryption, an adversary is also able to produce valid ciphertexts (i.e., perform encryption) by using the padding oracle, all without knowing the encryption key.
 
 ## Related CWE (6)
 
@@ -20,12 +20,13 @@ An adversary is able to efficiently decrypt data without knowing the decryption 
 ## Prerequisites
 
 - The decryption routine does not properly authenticate the message / does not verify its integrity prior to performing the decryption operation
-- The target system leaks data (in some way) on whether
+- The target system leaks data (in some way) on whether a padding error has occurred when attempting to decrypt the ciphertext.
+- The padding oracle remains available for enough time / for as many requests as needed for the adversary to decrypt the ciphertext.
 
 ## Mitigations
 
 - Design: Use a message authentication code (MAC) or another mechanism to perform verification of message authenticity / integrity prior to decryption
-- Implementation: Do not leak information back to the user as to any cryptography (e.g., padding) en
+- Implementation: Do not leak information back to the user as to any cryptography (e.g., padding) encountered during decryption.
 
 ---
 

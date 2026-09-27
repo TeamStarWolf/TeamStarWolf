@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type exploits vulnerabilities in client/server communication channel authentication and data integrity. It leverages the implicit trust a server places in the client, or more importantly, that which the server believes is the client. An attacker executes this type of attack by communicating directly with the server where the server believes it is communicating only with a valid c
+An attack of this type exploits vulnerabilities in client/server communication channel authentication and data integrity. It leverages the implicit trust a server places in the client, or more importantly, that which the server believes is the client. An attacker executes this type of attack by communicating directly with the server where the server believes it is communicating only with a valid client. There are numerous variations of this type of attack.
 
 ## Related CWE (5)
 
@@ -23,13 +23,21 @@ An attack of this type exploits vulnerabilities in client/server communication c
 
 ## Skills required
 
-- The attacker must have fairly detailed knowledge of the syntax and semantics of client/server communications protocols and grammars:LEVEL:Medi
+- [Medium] The attacker must have fairly detailed knowledge of the syntax and semantics of client/server communications protocols and grammars
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Design: Ensure that client process and/or message is authenticated so that anonymous communications and/or messages are not accepted by the system.
 - Design: Do not rely on client validation or encoding for security purposes.
-- Design: Utilize digita
+- Design: Utilize digital signatures to increase authentication assurance.
+- Design: Utilize two factor authentication to increase authentication assurance.
+- Implementation: Perform input validation for all remote content.
 
 ---
 

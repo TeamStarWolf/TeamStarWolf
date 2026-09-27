@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** System Call
 
+Analyzing system calls to determine whether a process is exhibiting unauthorized behavior.
+
 ## ATT&CK techniques countered (47)
 
 - [T0834](https://attack.mitre.org/techniques/T0834) — analyzes

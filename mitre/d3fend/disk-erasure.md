@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Secondary Storage
 
+Disk Erasure is the process of securely deleting all data on a disk to ensure that it cannot be recovered by any means.
+
 ## ATT&CK techniques countered (1)
 
 - [T1619 — Cloud Storage Object Discovery](/mitre/techniques/T1619.md) — erases. Adversaries may enumerate objects in cloud storage infrastructure.

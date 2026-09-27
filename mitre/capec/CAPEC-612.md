@@ -6,7 +6,7 @@
 **Typical severity:** Low  
 **Status:** Draft  
 
-In this attack scenario, the attacker passively listens for WiFi messages and logs the associated Media Access Control (MAC) addresses. These addresses are intended to be unique to each wireless device (although they can be configured and changed by software). Once the attacker is able to associate a MAC address with a particular user or set of users (for example, when attending a public event), t
+In this attack scenario, the attacker passively listens for WiFi messages and logs the associated Media Access Control (MAC) addresses. These addresses are intended to be unique to each wireless device (although they can be configured and changed by software). Once the attacker is able to associate a MAC address with a particular user or set of users (for example, when attending a public event), the attacker can then scan for that MAC address to track that user in the future.
 
 ## Related CWE (2)
 
@@ -19,7 +19,7 @@ In this attack scenario, the attacker passively listens for WiFi messages and lo
 
 ## Skills required
 
-- Open source and commercial software tools are available and several commercial advertising companies routinely set up tools to collect and mon
+- [Low] Open source and commercial software tools are available and several commercial advertising companies routinely set up tools to collect and monitor MAC addresses.
 
 ## Mitigations
 

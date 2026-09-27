@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attacker sends a series of probes to a web application in order to elicit version-dependent and type-dependent behavior that assists in identifying the target. An attacker could learn information such as software versions, error pages, and response headers, variations in implementations of the HTTP protocol, directory structures, and other similar information about the targeted service. This in
+An attacker sends a series of probes to a web application in order to elicit version-dependent and type-dependent behavior that assists in identifying the target. An attacker could learn information such as software versions, error pages, and response headers, variations in implementations of the HTTP protocol, directory structures, and other similar information about the targeted service. This information can then be used by an attacker to formulate a targeted attack plan. While web application fingerprinting is not intended to be damaging (although certain activities, such as network scans, can sometimes cause disruptions to vulnerable applications inadvertently) it may often pave the way for more damaging attacks.
 
 ## Related CWE (1)
 
@@ -19,7 +19,11 @@ An attacker sends a series of probes to a web application in order to elicit ver
 
 ## Skills required
 
-- Attacker knows how to send HTTP request, SQL query to a web application.:LEVEL:Low
+- [Low] Attacker knows how to send HTTP request, SQL query to a web application.
+
+## Consequences
+
+- Confidentiality / Other
 
 ## Mitigations
 
@@ -27,7 +31,10 @@ An attacker sends a series of probes to a web application in order to elicit ver
 - Implementation: Hide inner ordering of HTTP response header.
 - Implementation: Customizing HTTP error codes such as 404 or 500.
 - Implementation: Hide URL file extension.
-- Implementation: Hid
+- Implementation: Hide HTTP response header software information filed.
+- Implementation: Hide cookie's software information filed.
+- Implementation: Appropriately deal with error messages.
+- Implementation: Obfuscate database type in Database API's error message.
 
 ---
 

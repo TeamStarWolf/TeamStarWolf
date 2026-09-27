@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Process Code Segment
 
+Analyzing a call stack for return addresses which point to unexpected memory locations.
+
 ## ATT&CK techniques countered (11)
 
 - [T0820](https://attack.mitre.org/techniques/T0820) — analyzes

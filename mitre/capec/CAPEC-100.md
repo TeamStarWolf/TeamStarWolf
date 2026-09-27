@@ -22,18 +22,27 @@ Buffer Overflow attacks target improper or missing bounds checking on buffer ope
 
 - Targeted software performs buffer operations.
 - Targeted software inadequately performs bounds-checking on buffer operations.
-- Adversary has the capability to influence the input to buffer operations
+- Adversary has the capability to influence the input to buffer operations.
 
 ## Skills required
 
-- In most cases, overflowing a buffer does not require advanced skills beyond the ability to notice an overflow and stuff an input variable with
+- [Low] In most cases, overflowing a buffer does not require advanced skills beyond the ability to notice an overflow and stuff an input variable with content.
+- [High] In cases of directed overflows, where the motive is to divert the flow of the program or application as per the adversaries' bidding, high level skills are required. This may involve detailed knowledge of the target system architecture and kernel.
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Use a language or compiler that performs automatic bounds checking.
 - Use secure functions not vulnerable to buffer overflow.
 - If you have to use dangerous functions, make sure that you do boundary checking.
-- Compiler-based canary mechanisms such as
+- Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
+- Use OS-level preventative functionality. Not a complete solution.
+- Utilize static source code analysis tools to identify potential buffer overflow weaknesses in the software.
 
 ---
 

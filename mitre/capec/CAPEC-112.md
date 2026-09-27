@@ -20,16 +20,22 @@ In this attack, some asset (information, functionality, identity, etc.) is prote
 
 ## Prerequisites
 
-- The attacker must be able to determine when they have successfully guessed the secret. As such, one-time pads are immune to this type of attack since there is no way to determine when a guess is cor
+- The attacker must be able to determine when they have successfully guessed the secret. As such, one-time pads are immune to this type of attack since there is no way to determine when a guess is correct.
 
 ## Skills required
 
-- The attack simply requires basic scripting ability to automate the exploration of the search space. More sophisticated attackers may be able t
+- [Low] The attack simply requires basic scripting ability to automate the exploration of the search space. More sophisticated attackers may be able to use more advanced methods to reduce the search space and increase the speed with which the secret is located.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Select a provably large secret space for selection of the secret. Provably large means that the procedure by which the secret is selected does not have artifacts that significantly reduce the size of the total secret space.
-- Use a secret space that
+- Use a secret space that is well known and with no known patterns that may reduce functional size.
+- Do not provide the means for an attacker to determine success independently. This forces the attacker to check their guesses against an external authority, which can slow the attack and warn the defender. This mitigation may not be possible if testing material must appear externally, such as with a transmitted cryptotext.
 
 ---
 

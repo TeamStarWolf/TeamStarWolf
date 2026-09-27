@@ -35,14 +35,21 @@ This attack targets the reuse of valid session ID to spoof the target system in 
 
 ## Skills required
 
-- If an attacker can steal a valid session ID, they can then try to be authenticated with that stolen session ID.:LEVEL:Low
-- More sophisti
+- [Low] If an attacker can steal a valid session ID, they can then try to be authenticated with that stolen session ID.
+- [Medium] More sophisticated attack can be used to hijack a valid session from a user and spoof a legitimate user by reusing their valid session ID.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Always invalidate a session ID after the user logout.
 - Setup a session time out for the session IDs.
-- Protect the communication between the client and server. For instance it is best practice to use SSL to mitigate adversary in the middle attacks (
+- Protect the communication between the client and server. For instance it is best practice to use SSL to mitigate adversary in the middle attacks (CAPEC-94).
+- Do not code send session ID with GET method, otherwise the session ID will be copied to the URL. In general avoid writing session IDs in the URLs. URLs can get logged in log files, which are vulnerable to an attacker.
+- Encrypt the session data associated with the session ID.
+- Use multifactor authentication.
 
 ---
 

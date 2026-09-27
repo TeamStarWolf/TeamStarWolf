@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** OT Protocol Message, Network Traffic
 
+Restricting network traffic originating from any location.
+
 ## ATT&CK techniques countered (116)
 
 - [T0800](https://attack.mitre.org/techniques/T0800) — filters

@@ -25,11 +25,17 @@ An adversary guesses or obtains (i.e. steals or purchases) legitimate Windows ad
 
 - The system/application is connected to the Windows domain.
 - The target administrative share allows remote use of local admin credentials to log into domain systems.
-- The adversary possesses a list o
+- The adversary possesses a list of known Windows administrator credentials that exist on the target domain.
 
 ## Skills required
 
-- Once an adversary obtains a known Windows credential, leveraging it is trivial.:LEVEL:Low
+- [Low] Once an adversary obtains a known Windows credential, leveraging it is trivial.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality, Authorization / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 

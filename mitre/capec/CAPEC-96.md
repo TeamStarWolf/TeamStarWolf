@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An application typically makes calls to functions that are a part of libraries external to the application. These libraries may be part of the operating system or they may be third party libraries. It is possible that the application does not handle situations properly where access to these libraries has been blocked. Depending on the error handling within the application, blocked access to librar
+An application typically makes calls to functions that are a part of libraries external to the application. These libraries may be part of the operating system or they may be third party libraries. It is possible that the application does not handle situations properly where access to these libraries has been blocked. Depending on the error handling within the application, blocked access to libraries may leave the system in an insecure state that could be leveraged by an attacker.
 
 ## Related CWE (1)
 
@@ -20,7 +20,13 @@ An application typically makes calls to functions that are a part of libraries e
 
 ## Skills required
 
-- Knowledge of how to block access to libraries, as well as knowledge of how to leverage the resulting state of the application based on the fai
+- [Low] Knowledge of how to block access to libraries, as well as knowledge of how to leverage the resulting state of the application based on the failed call.
+
+## Consequences
+
+- Availability / Alter Execution Logic
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 

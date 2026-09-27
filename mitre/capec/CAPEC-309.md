@@ -22,6 +22,10 @@ An adversary engages in scanning activities to map network nodes, hosts, devices
 
 - None
 
+## Consequences
+
+- Confidentiality / Other
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

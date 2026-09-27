@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Stable  
 
-The adversary targets a race condition occurring when multiple processes access and manipulate the same resource concurrently, and the outcome of the execution depends on the particular order in which the access takes place. The adversary can leverage a race condition by running the race, modifying the resource and modifying the normal execution flow. For instance, a race condition can occur while
+The adversary targets a race condition occurring when multiple processes access and manipulate the same resource concurrently, and the outcome of the execution depends on the particular order in which the access takes place. The adversary can leverage a race condition by "running the race", modifying the resource and modifying the normal execution flow. For instance, a race condition can occur while accessing a file: the adversary can trick the system by replacing the original file with their version and cause the system to read the malicious file.
 
 ## Related CWE (12)
 
@@ -31,14 +31,20 @@ The adversary targets a race condition occurring when multiple processes access 
 
 ## Skills required
 
-- Being able to run the race requires basic knowledge of concurrent processing including synchonization techniques.:LEVEL:Medium
+- [Medium] Being able to "run the race" requires basic knowledge of concurrent processing including synchonization techniques.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Use safe libraries to access resources such as files.
 - Be aware that improper use of access function calls such as chown(), tempfile(), chmod(), etc. can cause a race condition.
 - Use synchronization to control the flow of execution.
-- Use static ana
+- Use static analysis tools to find race conditions.
+- Pay attention to concurrency problems related to the access of resources.
 
 ---
 

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Password
 
+Modifying system configuration to increase password strength.
+
 ## ATT&CK techniques countered (4)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — strengthens

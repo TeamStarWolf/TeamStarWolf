@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Stack Frame
 
+Comparing a call stack in system memory with a shadow call stack maintained by the processor to determine unauthorized shellcode activity.
+
 ## ATT&CK techniques countered (8)
 
 - [T0820](https://attack.mitre.org/techniques/T0820) — analyzes

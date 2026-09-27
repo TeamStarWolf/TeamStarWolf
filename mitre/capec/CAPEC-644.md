@@ -25,16 +25,25 @@ An adversary obtains (i.e. steals or purchases) legitimate Windows domain creden
 
 - The system/application is connected to the Windows domain.
 - The system/application leverages the Lan Man (LM) and/or NT Lan Man (NTLM) authentication protocols.
-- The adversary possesses known Window
+- The adversary possesses known Windows credential hash value pairs that exist on the target domain.
 
 ## Skills required
 
-- Once an adversary obtains a known Windows credential hash value pair, leveraging it is trivial.:LEVEL:Low
+- [Low] Once an adversary obtains a known Windows credential hash value pair, leveraging it is trivial.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality, Authorization / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Prevent the use of Lan Man and NT Lan Man authentication on severs and apply patch KB2871997 to Windows 7 and higher systems.
-- Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain
+- Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network.
+- Monitor system and domain logs for abnormal credential access.
+- Create a strong password policy and ensure that your system enforces this policy.
+- Leverage system penetration testing and other defense in depth methods to determine vulnerable systems within a domain.
 
 ---
 

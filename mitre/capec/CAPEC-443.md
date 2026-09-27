@@ -18,9 +18,13 @@ An adversary uses their privileged position within an authorized development org
 
 - Access to the product during the initial or continuous development.
 
+## Consequences
+
+- Authorization / Execute Unauthorized Commands
+
 ## Mitigations
 
-- Assess software and hardware during development and prior to deployment to ensure that it functions as intended and without any malicious functionality. This includes both initial development, as well as updates propagated to the product after depl
+- Assess software and hardware during development and prior to deployment to ensure that it functions as intended and without any malicious functionality. This includes both initial development, as well as updates propagated to the product after deployment.
 
 ---
 

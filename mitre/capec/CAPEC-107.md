@@ -18,11 +18,18 @@ Cross Site Tracing (XST) enables an adversary to steal the victim's session cook
 
 - HTTP TRACE is enabled on the web server
 - The destination system is susceptible to XSS or an adversary can leverage some other weakness to bypass the same origin policy
-- Scripting is enabled in the c
+- Scripting is enabled in the client's browser
+- HTTP is used as the communication protocol between the server and the client
 
 ## Skills required
 
-- Understanding of the HTTP protocol and an ability to craft a malicious script:LEVEL:Medium
+- [Medium] Understanding of the HTTP protocol and an ability to craft a malicious script
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Integrity / Modify Data
 
 ## Mitigations
 

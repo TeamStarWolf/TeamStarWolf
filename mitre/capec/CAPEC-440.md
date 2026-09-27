@@ -18,6 +18,10 @@ An adversary exploits a weakness in the system maintenance process and causes a 
 
 - Influence over the deployed system at a victim location.
 
+## Consequences
+
+- Integrity / Execute Unauthorized Commands
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

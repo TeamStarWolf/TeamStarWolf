@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Create Process, Executable File
 
+Using a digital signature to authenticate a file before opening.
+
 ## ATT&CK techniques countered (58)
 
 - [T0846](https://attack.mitre.org/techniques/T0846) — filters

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** OT Logic Variable, OT Write Command
 
+Assign read/write access controls on designated registers or data tags to prevent unauthorized writes.
+
 ## ATT&CK techniques countered (7)
 
 - [T0801](https://attack.mitre.org/techniques/T0801) — limits

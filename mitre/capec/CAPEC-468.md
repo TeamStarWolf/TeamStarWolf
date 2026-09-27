@@ -17,11 +17,11 @@ An attacker makes use of Cascading Style Sheets (CSS) injection to steal data cr
 
 ## Prerequisites
 
-- No new lines can be present in the injected CSS stringProper HTML or URL escaping of the and ' characters is not presentThe attacker has control of two injection points: pre-string and post-string
+- No new lines can be present in the injected CSS stringProper HTML or URL escaping of the " and ' characters is not presentThe attacker has control of two injection points: pre-string and post-string
 
 ## Skills required
 
-- Ability to craft a CSS injection:LEVEL:High
+- [High] Ability to craft a CSS injection
 
 ## Mitigations
 

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Event Log, OT Process Data Historian
 
+Monitoring physical parameters and operator actions related to an operational environment.
+
 ## ATT&CK techniques countered (14)
 
 - [T0811](https://attack.mitre.org/techniques/T0811) — uses

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Network Traffic
 
+Comparing client-server request and response payloads to a baseline profile to identify outliers.
+
 ## ATT&CK techniques countered (90)
 
 - [T0814](https://attack.mitre.org/techniques/T0814) — analyzes

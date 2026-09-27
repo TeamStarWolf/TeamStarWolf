@@ -15,7 +15,12 @@ An adversary attacks a target by providing input that causes an application to r
 
 ## Prerequisites
 
-- For this type of attack to be successful, a few prerequisites must be met. First, the targeted software must be written in a language that enables fine grained buffer control. (e.g., c, c++) Second,
+- For this type of attack to be successful, a few prerequisites must be met. First, the targeted software must be written in a language that enables fine grained buffer control. (e.g., c, c++) Second, the targeted software must actually perform buffer operations and inadequately perform bounds-checking on those buffer operations. Finally, the adversary must have the capability to influence the input that guides these buffer operations.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Availability / Unreliable Execution
 
 ---
 

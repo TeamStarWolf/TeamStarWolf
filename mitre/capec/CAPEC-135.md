@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An adversary includes formatting characters in a string input field on the target application. Most applications assume that users will provide static text and may respond unpredictably to the presence of formatting character. For example, in certain functions of the C programming languages such as printf, the formatting character %s will print the contents of a memory location expecting this loca
+An adversary includes formatting characters in a string input field on the target application. Most applications assume that users will provide static text and may respond unpredictably to the presence of formatting character. For example, in certain functions of the C programming languages such as printf, the formatting character %s will print the contents of a memory location expecting this location to identify a string and the formatting character %n prints the number of DWORD written in the memory. An adversary can use this to read or write to memory locations or files, or simply to manipulate the value of the resulting text in unexpected ways. Reading or writing memory may result in program crashes and writing memory could result in the execution of arbitrary code if the adversary can write to the program stack.
 
 ## Related CWE (3)
 
@@ -17,11 +17,19 @@ An adversary includes formatting characters in a string input field on the targe
 
 ## Prerequisites
 
-- The target application must accept a strings as user input, fail to sanitize string formatting characters in the user input, and process this string using functions that interpret string formatting
+- The target application must accept a strings as user input, fail to sanitize string formatting characters in the user input, and process this string using functions that interpret string formatting characters.
 
 ## Skills required
 
-- In order to discover format string vulnerabilities it takes only low skill, however, converting this discovery into a working exploit requires
+- [High] In order to discover format string vulnerabilities it takes only low skill, however, converting this discovery into a working exploit requires advanced knowledge on the part of the adversary.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Access Control / Gain Privileges
+- Integrity / Execute Unauthorized Commands
+- Access Control / Bypass Protection Mechanism
 
 ## Mitigations
 

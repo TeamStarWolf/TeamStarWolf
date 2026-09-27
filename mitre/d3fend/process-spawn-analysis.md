@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Process, Create Process
 
+Analyzing spawn arguments or attributes of a process to detect processes that are unauthorized.
+
 ## ATT&CK techniques countered (48)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — analyzes

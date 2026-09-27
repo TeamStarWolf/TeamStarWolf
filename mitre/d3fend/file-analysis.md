@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** File
 
+File Analysis is an analytic process to determine a file's status. For example: virus, trojan, benign, malicious, trusted, unauthorized, sensitive, etc.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — analyzes

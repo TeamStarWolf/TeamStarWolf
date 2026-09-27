@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-In a shoulder surfing attack, an adversary observes an unaware individual's keystrokes, screen content, or conversations with the goal of obtaining sensitive information. One motive for this attack is to obtain sensitive information about the target for financial, personal, political, or other gains. From an insider threat perspective, an additional motive could be to obtain system/application cre
+In a shoulder surfing attack, an adversary observes an unaware individual's keystrokes, screen content, or conversations with the goal of obtaining sensitive information. One motive for this attack is to obtain sensitive information about the target for financial, personal, political, or other gains. From an insider threat perspective, an additional motive could be to obtain system/application credentials or cryptographic keys. Shoulder surfing attacks are accomplished by observing the content "over the victim's shoulder", as implied by the name of this attack.
 
 ## Related CWE (2)
 
@@ -16,16 +16,20 @@ In a shoulder surfing attack, an adversary observes an unaware individual's keys
 
 ## Prerequisites
 
-- The adversary typically requires physical proximity to the target's environment, in order to observe their screen or conversation. This may not be the case if the adversary is able to record the tar
+- The adversary typically requires physical proximity to the target's environment, in order to observe their screen or conversation. This may not be the case if the adversary is able to record the target and obtain sensitive information upon review of the recording.
 
 ## Skills required
 
-- In most cases, an adversary can simply observe and retain the desired information.:LEVEL:Low
+- [Low] In most cases, an adversary can simply observe and retain the desired information.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Be mindful of your surroundings when discussing or viewing sensitive information in public areas.
-- Pertaining to insider threats, ensure that sensitive information is not displayed to nor discussed around individuals without need-to-know access to
+- Pertaining to insider threats, ensure that sensitive information is not displayed to nor discussed around individuals without need-to-know access to said information.
 
 ---
 

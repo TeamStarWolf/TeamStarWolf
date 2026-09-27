@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Domain User Account
 
+Monitoring the existence of or changes to Domain User Accounts.
+
 ## ATT&CK techniques countered (5)
 
 - [T1078.002 — Domain Accounts](/mitre/techniques/T1078-002.md) — monitors. Adversaries may obtain and abuse credentials of a domain account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.

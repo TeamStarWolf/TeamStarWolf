@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Credential
 
+Deleting a set of credentials permanently to prevent them from being used to authenticate.
+
 ## ATT&CK techniques countered (23)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — deletes

@@ -1,0 +1,19 @@
+# CAPEC-542 — Targeted Malware
+
+<a id="capec-542"></a>
+
+**Abstraction:** Standard  
+**Typical severity:**   
+**Likelihood:** 
+
+An adversary develops targeted malware that takes advantage of a known vulnerability in an organizational information technology environment. The malware crafted for these attacks is based specifically on information gathered about the technology environment. Successfully executing the malware enables an adversary to achieve a wide variety of negative technical impacts.
+
+## Mapped ATT&CK techniques (2)
+
+- [T1027](/mitre/techniques/T1027.md)
+- [T1587.001](/mitre/techniques/T1587-001.md)
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

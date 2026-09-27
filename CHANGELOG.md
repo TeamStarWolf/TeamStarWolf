@@ -7,6 +7,11 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## 2026-09-26
 
 ### Added
+- **MITRE enriched pages — remaining frameworks** in `mitre/`: 14 tactic hub pages,
+  156 D3FEND countermeasure pages (each with the ATT&CK techniques it counters), 615
+  CAPEC attack-pattern pages (mapped to ATT&CK + CWE, grouped by severity), and 170
+  ATLAS AI/ML technique pages + 35 ATLAS mitigations — completing "one page per MITRE
+  object" alongside the technique/mitigation pages. All internal links verified (0 broken)
 - **MITRE enriched per-object pages** in `mitre/` — a browsable, ATT&CK-Navigator-style
   page for each object: 691 technique pages (tactics, platforms, mitigations, D3FEND
   countermeasures, CAPEC, NIST 800-53, detection strategies, and Team Star Wolf corpus

@@ -1,0 +1,24 @@
+# CAPEC-520 — Counterfeit Hardware Component Inserted During Product Assembly
+
+<a id="capec-520"></a>
+
+**Abstraction:** Detailed  
+**Typical severity:** High  
+**Likelihood:** Low
+
+An adversary with either direct access to the product assembly process or to the supply of subcomponents used in the product assembly process introduces counterfeit hardware components into product assembly. The assembly containing the counterfeit components results in a system specifically designed for malicious purposes.
+
+## Mapped ATT&CK techniques (1)
+
+- [T1195.003](/mitre/techniques/T1195-003.md)
+
+**Prerequisites:** ::The adversary will need either physical access or be able to supply malicious hardware components to the product development facility.::
+
+**Skills required:** ::SKILL:Resources to maliciously construct components used by the manufacturer.:LEVEL:High::SKILL:Resources to physically infiltrate manufacturer or m
+
+**Mitigations:** ::Hardware attacks are often difficult to detect, as inserted components can be difficult to identify or remain dormant for an extended period of time.::Acquire hardware and hardware components from trusted vendors. Additionally, determine where vend
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

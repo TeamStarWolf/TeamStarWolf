@@ -1,0 +1,22 @@
+# CAPEC-278 — Web Services Protocol Manipulation
+
+<a id="capec-278"></a>
+
+**Abstraction:** Standard  
+**Typical severity:**   
+**Likelihood:** 
+
+An adversary manipulates a web service related protocol to cause a web application or service to react differently than intended. This can either be performed through the manipulation of call parameters to include unexpected values, or by changing the called function to one that should normally be restricted or limited. By leveraging this pattern of attack, the adversary is able to gain access to
+
+## Related CWE (1)
+
+[CWE-707](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::The targeted application or service must rely on web service protocols in such a way that malicious manipulation of them can alter functionality.::
+
+**Mitigations:** ::Design: Range, size and value and consistency verification for any arguments supplied to applications and services from external sources and devise appropriate error response.::Design: Ensure that function calls that should not be called by an unpr
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

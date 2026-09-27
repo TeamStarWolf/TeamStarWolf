@@ -1,0 +1,15 @@
+# D3FEND: Hardware-based Write Protection
+
+<a id="hardware-based-write-protection"></a>
+
+**D3FEND tactic:** Harden
+**Digital artifacts:** Secondary Storage
+
+## ATT&CK techniques countered (2)
+
+- `EX-0007` — hardens
+- [T1619](/mitre/techniques/T1619.md) — hardens
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

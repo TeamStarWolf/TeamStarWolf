@@ -1,0 +1,124 @@
+# D3FEND: Local File Permissions
+
+<a id="local-file-permissions"></a>
+
+**D3FEND tactic:** Isolate
+**Digital artifacts:** Directory, File
+
+## ATT&CK techniques countered (111)
+
+- `DE-0007` — restricts
+- `EX-0010.02` — restricts
+- `EX-0010.03` — restricts
+- `T0851` — restricts
+- `T0853` — restricts
+- `T0865` — restricts
+- `T0871` — restricts
+- `T0888` — restricts
+- `T0893` — restricts
+- `T0894` — restricts
+- `T0895` — restricts
+- [T1003.007](/mitre/techniques/T1003-007.md) — restricts
+- [T1003.008](/mitre/techniques/T1003-008.md) — restricts
+- [T1005](/mitre/techniques/T1005.md) — restricts
+- [T1014](/mitre/techniques/T1014.md) — restricts
+- [T1016](/mitre/techniques/T1016.md) — restricts
+- [T1018](/mitre/techniques/T1018.md) — restricts
+- [T1027.001](/mitre/techniques/T1027-001.md) — restricts
+- [T1027.002](/mitre/techniques/T1027-002.md) — restricts
+- [T1027.004](/mitre/techniques/T1027-004.md) — restricts
+- [T1033](/mitre/techniques/T1033.md) — restricts
+- [T1036.001](/mitre/techniques/T1036-001.md) — restricts
+- [T1036.003](/mitre/techniques/T1036-003.md) — restricts
+- [T1036.005](/mitre/techniques/T1036-005.md) — restricts
+- [T1036.006](/mitre/techniques/T1036-006.md) — restricts
+- [T1037.001](/mitre/techniques/T1037-001.md) — restricts
+- [T1037.002](/mitre/techniques/T1037-002.md) — restricts
+- [T1037.003](/mitre/techniques/T1037-003.md) — restricts
+- [T1037.004](/mitre/techniques/T1037-004.md) — restricts
+- [T1037.005](/mitre/techniques/T1037-005.md) — restricts
+- [T1041](/mitre/techniques/T1041.md) — restricts
+- [T1048.002](/mitre/techniques/T1048-002.md) — restricts
+- `T1053.004` — restricts
+- [T1055.001](/mitre/techniques/T1055-001.md) — restricts
+- [T1055.002](/mitre/techniques/T1055-002.md) — restricts
+- [T1055.003](/mitre/techniques/T1055-003.md) — restricts
+- [T1055.009](/mitre/techniques/T1055-009.md) — restricts
+- [T1055.014](/mitre/techniques/T1055-014.md) — restricts
+- [T1059](/mitre/techniques/T1059.md) — restricts
+- [T1070.002](/mitre/techniques/T1070-002.md) — restricts
+- [T1070.004](/mitre/techniques/T1070-004.md) — restricts
+- [T1071](/mitre/techniques/T1071.md) — restricts
+- [T1071.001](/mitre/techniques/T1071-001.md) — restricts
+- [T1072](/mitre/techniques/T1072.md) — restricts
+- [T1074.001](/mitre/techniques/T1074-001.md) — restricts
+- [T1083](/mitre/techniques/T1083.md) — restricts
+- [T1114.001](/mitre/techniques/T1114-001.md) — restricts
+- [T1119](/mitre/techniques/T1119.md) — restricts
+- [T1127.001](/mitre/techniques/T1127-001.md) — restricts
+- [T1137.001](/mitre/techniques/T1137-001.md) — restricts
+- [T1137.003](/mitre/techniques/T1137-003.md) — restricts
+- [T1140](/mitre/techniques/T1140.md) — restricts
+- [T1187](/mitre/techniques/T1187.md) — restricts
+- [T1204.002](/mitre/techniques/T1204-002.md) — restricts
+- [T1218.005](/mitre/techniques/T1218-005.md) — restricts
+- [T1218.011](/mitre/techniques/T1218-011.md) — restricts
+- [T1220](/mitre/techniques/T1220.md) — restricts
+- [T1486](/mitre/techniques/T1486.md) — restricts
+- [T1505.003](/mitre/techniques/T1505-003.md) — restricts
+- [T1534](/mitre/techniques/T1534.md) — restricts
+- [T1543.001](/mitre/techniques/T1543-001.md) — restricts
+- [T1543.002](/mitre/techniques/T1543-002.md) — restricts
+- [T1543.004](/mitre/techniques/T1543-004.md) — restricts
+- [T1546.002](/mitre/techniques/T1546-002.md) — restricts
+- [T1546.004](/mitre/techniques/T1546-004.md) — restricts
+- [T1546.005](/mitre/techniques/T1546-005.md) — restricts
+- [T1546.006](/mitre/techniques/T1546-006.md) — restricts
+- [T1546.008](/mitre/techniques/T1546-008.md) — restricts
+- [T1546.009](/mitre/techniques/T1546-009.md) — restricts
+- [T1546.010](/mitre/techniques/T1546-010.md) — restricts
+- [T1546.013](/mitre/techniques/T1546-013.md) — restricts
+- [T1546.014](/mitre/techniques/T1546-014.md) — restricts
+- [T1546.015](/mitre/techniques/T1546-015.md) — restricts
+- [T1547.001](/mitre/techniques/T1547-001.md) — restricts
+- [T1547.006](/mitre/techniques/T1547-006.md) — restricts
+- [T1547.007](/mitre/techniques/T1547-007.md) — restricts
+- [T1547.008](/mitre/techniques/T1547-008.md) — restricts
+- [T1547.009](/mitre/techniques/T1547-009.md) — restricts
+- `T1547.011` — restricts
+- [T1548.002](/mitre/techniques/T1548-002.md) — restricts
+- [T1548.003](/mitre/techniques/T1548-003.md) — restricts
+- [T1552.001](/mitre/techniques/T1552-001.md) — restricts
+- [T1552.003](/mitre/techniques/T1552-003.md) — restricts
+- [T1555](/mitre/techniques/T1555.md) — restricts
+- [T1555.003](/mitre/techniques/T1555-003.md) — restricts
+- [T1556.002](/mitre/techniques/T1556-002.md) — restricts
+- [T1556.003](/mitre/techniques/T1556-003.md) — restricts
+- [T1560](/mitre/techniques/T1560.md) — restricts
+- [T1560.001](/mitre/techniques/T1560-001.md) — restricts
+- [T1560.002](/mitre/techniques/T1560-002.md) — restricts
+- [T1560.003](/mitre/techniques/T1560-003.md) — restricts
+- [T1562.003](/mitre/techniques/T1562-003.md) — restricts
+- [T1564.002](/mitre/techniques/T1564-002.md) — restricts
+- [T1564.003](/mitre/techniques/T1564-003.md) — restricts
+- [T1564.006](/mitre/techniques/T1564-006.md) — restricts
+- [T1564.007](/mitre/techniques/T1564-007.md) — restricts
+- [T1565.001](/mitre/techniques/T1565-001.md) — restricts
+- [T1565.003](/mitre/techniques/T1565-003.md) — restricts
+- [T1566.001](/mitre/techniques/T1566-001.md) — restricts
+- [T1566.002](/mitre/techniques/T1566-002.md) — restricts
+- [T1566.003](/mitre/techniques/T1566-003.md) — restricts
+- [T1573.002](/mitre/techniques/T1573-002.md) — restricts
+- [T1574.001](/mitre/techniques/T1574-001.md) — restricts
+- `T1574.002` — restricts
+- [T1574.004](/mitre/techniques/T1574-004.md) — restricts
+- [T1574.006](/mitre/techniques/T1574-006.md) — restricts
+- [T1574.007](/mitre/techniques/T1574-007.md) — restricts
+- [T1574.008](/mitre/techniques/T1574-008.md) — restricts
+- [T1574.009](/mitre/techniques/T1574-009.md) — restricts
+- [T1574.012](/mitre/techniques/T1574-012.md) — restricts
+- [T1649](/mitre/techniques/T1649.md) — restricts
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

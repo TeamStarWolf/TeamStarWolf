@@ -4,7 +4,7 @@
 
 Tools and malware tracked here for cross-referencing that are **not (yet) in the official MITRE ATT&CK software catalog** — recent/emerging threats and community tooling. Each carries a **local `S9xxx` reference** (no attack.mitre.org page). Techniques still link to the real ATT&CK technique pages. Wherever one of these is referenced elsewhere in the library it is marked with a ⚑ flag.
 
-## Community / emerging threats (39)
+## Community / emerging threats (37)
 
 - [S9001 — SystemBC](/mitre/emerging/S9001.md) (malware)
 - [S9002 — Diskpart](/mitre/emerging/S9002.md) (tool)
@@ -43,13 +43,16 @@ Tools and malware tracked here for cross-referencing that are **not (yet) in the
 - [S9037 — RustyWater](/mitre/emerging/S9037.md) (malware)
 - [S9038 — DynoWiper](/mitre/emerging/S9038.md) (malware)
 - [S9039 — LazyWiper](/mitre/emerging/S9039.md) (malware)
-- [S9042 — CanisterWorm](/mitre/emerging/S9042.md) (malware)
-- [S9043 — Mini Shai-Hulud](/mitre/emerging/S9043.md) (malware)
 
-## Lab / fictional (TeamStarWolf training — not real threats) (2)
+## Lab / fictional (TeamStarWolf training — not real threats) (3)
 
 - [S9041 — TeamPCP Cloud Stealer](/mitre/emerging/S9041.md) 🧪 (malware)
+- [S9042 — CanisterWorm](/mitre/emerging/S9042.md) 🧪 (malware)
 - [S9044 — Kali365](/mitre/emerging/S9044.md) 🧪 (malware)
+
+## Provenance uncertain (real-derived, lab context — unverified) (1)
+
+- [S9043 — Mini Shai-Hulud](/mitre/emerging/S9043.md) ❓ (malware)
 
 ---
 

@@ -1,0 +1,410 @@
+{
+  "generated": "2026-09-27",
+  "attack_version": "19.2",
+  "total_covered_techniques": 465,
+  "total_technique_universe": 697,
+  "total_vendor_stack_vendors": 59,
+  "tactic_summary": {
+    "reconnaissance": {
+      "covered": 6,
+      "total": 46,
+      "pct": 13.0
+    },
+    "resource-development": {
+      "covered": 0,
+      "total": 50,
+      "pct": 0.0
+    },
+    "initial-access": {
+      "covered": 20,
+      "total": 22,
+      "pct": 90.9
+    },
+    "execution": {
+      "covered": 55,
+      "total": 64,
+      "pct": 85.9
+    },
+    "persistence": {
+      "covered": 95,
+      "total": 113,
+      "pct": 84.1
+    },
+    "privilege-escalation": {
+      "covered": 81,
+      "total": 96,
+      "pct": 84.4
+    },
+    "stealth": {
+      "covered": 103,
+      "total": 148,
+      "pct": 69.6
+    },
+    "defense-impairment": {
+      "covered": 32,
+      "total": 56,
+      "pct": 57.1
+    },
+    "credential-access": {
+      "covered": 63,
+      "total": 67,
+      "pct": 94.0
+    },
+    "discovery": {
+      "covered": 15,
+      "total": 49,
+      "pct": 30.6
+    },
+    "lateral-movement": {
+      "covered": 22,
+      "total": 23,
+      "pct": 95.7
+    },
+    "collection": {
+      "covered": 27,
+      "total": 41,
+      "pct": 65.9
+    },
+    "command-and-control": {
+      "covered": 39,
+      "total": 45,
+      "pct": 86.7
+    },
+    "exfiltration": {
+      "covered": 18,
+      "total": 19,
+      "pct": 94.7
+    },
+    "impact": {
+      "covered": 25,
+      "total": 33,
+      "pct": 75.8
+    }
+  },
+  "top_gaps_by_nist_depth": [
+    {
+      "technique_id": "T1589",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1589.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1589.002",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1589.003",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1590",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1590.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1590.003",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1590.004",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1590.005",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1590.006",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1591",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1591.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1591.002",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1591.003",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1591.004",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1592",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1592.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1592.002",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1592.003",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1592.004",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1593",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1593.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1593.002",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1594",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1595",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1595.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1595.002",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1595.003",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1596",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    },
+    {
+      "technique_id": "T1596.001",
+      "tactic": "reconnaissance",
+      "tactic_name": "Reconnaissance",
+      "nist_control_depth": 0,
+      "priority": "low",
+      "covered": false
+    }
+  ],
+  "recommended_additions": [
+    {
+      "capability": "DLP / CASB",
+      "example_vendors": [
+        "Netskope",
+        "Microsoft Purview",
+        "Forcepoint"
+      ],
+      "fills_gap_in_tactics": [
+        "collection",
+        "exfiltration"
+      ],
+      "key_techniques": [
+        "T1213",
+        "T1530",
+        "T1560",
+        "T1074",
+        "T1114"
+      ],
+      "rationale": "Collection tactic is 0% covered -- no DLP or CASB in current stack monitors data access and staging behavior"
+    },
+    {
+      "capability": "UEBA (User and Entity Behavior Analytics)",
+      "example_vendors": [
+        "Microsoft Sentinel Analytics",
+        "Splunk UBA",
+        "Securonix"
+      ],
+      "fills_gap_in_tactics": [
+        "discovery",
+        "credential-access",
+        "lateral-movement"
+      ],
+      "key_techniques": [
+        "T1082",
+        "T1083",
+        "T1087",
+        "T1552",
+        "T1550"
+      ],
+      "rationale": "Discovery tactic is 3% covered -- UEBA identifies reconnaissance behavior patterns from log telemetry already in SIEM"
+    },
+    {
+      "capability": "Endpoint Hardening / Application Control",
+      "example_vendors": [
+        "CrowdStrike App Control",
+        "Carbon Black App Control",
+        "Tanium"
+      ],
+      "fills_gap_in_tactics": [
+        "stealth",
+        "defense-impairment",
+        "execution"
+      ],
+      "key_techniques": [
+        "T1218",
+        "T1685",
+        "T1027",
+        "T1574",
+        "T1543"
+      ],
+      "rationale": "Stealth and the new Defense Impairment tactics are thinly covered -- LOLBAS, obfuscation, and disable/modify-tools (T1685) techniques largely uncovered"
+    },
+    {
+      "capability": "NDR (Network Detection & Response)",
+      "example_vendors": [
+        "Corelight",
+        "Darktrace",
+        "ExtraHop Reveal(x)"
+      ],
+      "fills_gap_in_tactics": [
+        "command-and-control",
+        "lateral-movement"
+      ],
+      "key_techniques": [
+        "T1090",
+        "T1572",
+        "T1095",
+        "T1550",
+        "T1563"
+      ],
+      "rationale": "C2 and lateral movement have shallow coverage -- dedicated NDR adds protocol-level detection beyond NGFW policy"
+    }
+  ]
+}

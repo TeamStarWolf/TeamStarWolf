@@ -20,7 +20,7 @@ import json
 import re
 import argparse
 from pathlib import Path
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -1128,6 +1128,74 @@ def render_landing(db):
     return "\n".join(lines)
 
 
+# ----------------------------------------------------------------------------- crosswalk
+def _d3_count(db, tid):
+    return len({e.get("d3fend_technique") for e in (db.d3.get(tid) or []) if e.get("d3fend_technique")})
+
+
+def render_crosswalk(db):
+    CAP_MIT = 6
+    out = ["# MITRE Cross-Framework Crosswalk\n", '<a id="crosswalk"></a>\n',
+           "[MITRE Hub](/mitre/README.md) · [Techniques](/mitre/techniques/README.md) · "
+           "[Mitigations](/mitre/mitigations/README.md) · [D3FEND](/mitre/d3fend/README.md) · "
+           "[CAPEC](/mitre/capec/README.md)\n",
+           "The join in one place: **ATT&CK technique ↔ Mitigation (M-code) ↔ NIST 800-53 ↔ "
+           "D3FEND ↔ CAPEC**. Two views: a per-mitigation rollup (which NIST families and D3FEND "
+           "countermeasures each mitigation brings), and a per-technique index of counts + links. ATT&CK "
+           + ATTACK_VER + ".\n"]
+
+    # non-revoked techniques only (revoked pages carry banners; the crosswalk is the live join)
+    live = [t for t in db.prof if not db.prof[t].get("revoked")]
+
+    # ---- per-mitigation rollup
+    mit_techs = defaultdict(list)
+    for t in live:
+        for m in (db.prof[t].get("mitigations") or []):
+            mit_techs[m["id"]].append(t)
+    out.append("## Per-mitigation rollup\n")
+    out.append("For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 control "
+               "families most associated with those techniques, and how many distinct D3FEND countermeasures "
+               "they map to. This is the mitigation ↔ control ↔ D3FEND join not expressed elsewhere.\n")
+    out.append("| Mitigation | Techniques | Top NIST 800-53 families | D3FEND countermeasures |")
+    out.append("|---|---:|---|---:|")
+    for mid in sorted(mit_techs, key=lambda m: (-len(mit_techs[m]), m)):
+        ts = mit_techs[mid]
+        fam = Counter()
+        d3 = set()
+        for t in ts:
+            for c in (db.prof[t].get("nist_800_53_controls") or []):
+                fam[c.split("-")[0]] += 1
+            d3 |= {e.get("d3fend_technique") for e in (db.d3.get(t) or []) if e.get("d3fend_technique")}
+        fams = ", ".join(f for f, _ in fam.most_common(8)) or DASH
+        name = (db.mit.get(mid, {}) or {}).get("name", "")
+        out.append("| [" + mid + (" — " + name if name else "") + "](/mitre/mitigations/" + mid +
+                   ".md) | " + str(len(ts)) + " | " + fams + " | " + str(len(d3)) + " |")
+    out.append("")
+
+    # ---- per-technique crosswalk
+    out.append("## Per-technique crosswalk (counts + links)\n")
+    out.append(STAR + " = observed in the Team Star Wolf 529-machine training corpus. Counts link out to "
+               "the per-object pages.\n")
+    out.append("| Technique | Tactic | Mitigations | NIST | D3FEND | CAPEC |")
+    out.append("|---|---|---|---:|---:|---:|")
+    for t in sorted(live):
+        p = db.prof[t]
+        star = " " + STAR if t in db.corpus_ids else ""
+        tac = ", ".join(p.get("tactics") or []) or DASH
+        migs = p.get("mitigations") or []
+        mlinks = " ".join("[" + m["id"] + "](/mitre/mitigations/" + m["id"] + ".md)" for m in migs[:CAP_MIT])
+        if len(migs) > CAP_MIT:
+            mlinks += " +" + str(len(migs) - CAP_MIT)
+        mlinks = mlinks or DASH
+        nist = len(p.get("nist_800_53_controls") or [])
+        capec = len(p.get("capec") or [])
+        out.append("| [" + t + "](/mitre/techniques/" + tslug(t) + ".md) " + p["name"] + star + " | " +
+                   tac + " | " + mlinks + " | " + str(nist) + " | " + str(_d3_count(db, t)) + " | " +
+                   str(capec) + " |")
+    out.append("\n" + FOOTER)
+    return "\n".join(out)
+
+
 # ----------------------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
@@ -1259,6 +1327,11 @@ def main():
             n += 1
         (d / "README.md").write_text(render_emerging_landing(db), encoding="utf-8")
         print("emerging: wrote " + str(n) + " pages + README")
+
+    if "crosswalk" in only:
+        out_root.mkdir(parents=True, exist_ok=True)
+        (out_root / "crosswalk.md").write_text(render_crosswalk(db), encoding="utf-8")
+        print("crosswalk: wrote crosswalk.md")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)

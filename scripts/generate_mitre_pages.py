@@ -271,6 +271,12 @@ class DB:
             if r.get("parent_id"):
                 self.subs[r["parent_id"]].append(r["technique_id"])
 
+        # reverse of superseded_by: successor_id -> [(revoked_id, revoked_name)]
+        self.supersedes = defaultdict(list)
+        for r in tp:
+            if r.get("revoked") and r.get("superseded_by"):
+                self.supersedes[r["superseded_by"]].append((r["technique_id"], r["name"]))
+
         # corpus signal preserved from existing pages (technique_id -> paragraph)
         self.corpus = {}
         tdir = MITRE / "techniques"
@@ -354,6 +360,13 @@ def render_technique(db, tid):
         out.append("> **⚠ Revoked in ATT&CK v19.2**" + ((" " + DASH + " superseded by " + tgt + ".") if tgt else ".") + "\n")
     elif p.get("deprecated"):
         out.append("> **⚠ Deprecated in ATT&CK v19.2.**\n")
+
+    sups = db.supersedes.get(tid) or []
+    if sups:
+        parts = ", ".join("[" + oid + " " + DASH + " " + onm + "](/mitre/techniques/" + tslug(oid) + ".md)"
+                          for oid, onm in sorted(sups))
+        out.append("> **New in ATT&CK v19.2** " + DASH + " supersedes " + parts +
+                   " (revoked; kept for reference).\n")
 
     if p.get("description"):
         out.append(p["description"].strip() + "\n")

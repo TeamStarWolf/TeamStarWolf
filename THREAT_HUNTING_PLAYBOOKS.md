@@ -218,7 +218,7 @@ index=network sourcetype=dns
 | Lateral Movement | Critical | Indicates active intrusion expansion |
 | Command and Control | High | C2 detection can catch post-initial-access activity |
 | Persistence | High | Indicates established foothold |
-| Defense Evasion | High | Indicates sophisticated attacker |
+| Stealth | High | Indicates sophisticated attacker |
 | Execution | Medium | High volume, many FPs; use as supporting data |
 
 ## Related Resources

@@ -90,7 +90,7 @@ STRIDE categorizes threats into six types, each violating a specific security pr
 |--------|---------------------------|----------------|----------------------|
 | **Spoofing** | Authentication | ARP spoofing, JWT tampering, forged sender identity | Initial Access |
 | **Tampering** | Integrity | Man-in-the-middle modification, SQL injection, parameter tampering | Impact |
-| **Repudiation** | Non-repudiation | Log deletion, forging audit trail entries, deniable covert channels | Defense Evasion |
+| **Repudiation** | Non-repudiation | Log deletion, forging audit trail entries, deniable covert channels | Stealth |
 | **Information Disclosure** | Confidentiality | Path traversal, insecure direct object reference, verbose error messages | Collection |
 | **Denial of Service** | Availability | DDoS, resource exhaustion, XML bomb, ReDoS | Impact |
 | **Elevation of Privilege** | Authorization | IDOR, SSRF to IMDS, deserialization gadget chains, JWT algorithm confusion | Privilege Escalation |
@@ -192,7 +192,7 @@ Identify weaknesses that threat actors could exploit:
 
 Construct detailed attack scenarios:
 - **Attack trees**: For each significant threat, build an attack tree showing the paths an attacker could take (see Attack Trees section)
-- **Kill chain analysis**: Map full attack path: Initial Access → Execution → Persistence → Privilege Escalation → Defense Evasion → Credential Access → Discovery → Lateral Movement → Collection → Exfiltration
+- **Kill chain analysis**: Map full attack path: Initial Access → Execution → Persistence → Privilege Escalation → Stealth → Credential Access → Discovery → Lateral Movement → Collection → Exfiltration
 - **Attacker decision logic**: Model attacker cost/benefit at each decision point — would a rational attacker pursue this path given the difficulty and value of the target?
 - **Simulation**: Walk through the attack scenarios against the architecture to validate feasibility
 
@@ -395,7 +395,7 @@ The **ATT&CK Navigator** (https://mitre-attack.github.io/attack-navigator/) is a
 
 **Threat model navigator layers by asset type:**
 - `Enterprise - Windows Workstations`: Focus on Initial Access, Execution, Persistence, Credential Access, Lateral Movement
-- `Enterprise - Linux Servers`: Focus on Execution, Privilege Escalation, Defense Evasion, Persistence
+- `Enterprise - Linux Servers`: Focus on Execution, Privilege Escalation, Stealth, Persistence
 - `Cloud (AWS/Azure/GCP)`: Use ATT&CK Cloud matrix — focus on Initial Access (Valid Accounts), Privilege Escalation (IAM), Exfiltration (Transfer to Cloud Account)
 - `Containers`: Focus on T1610 (Deploy Container), T1611 (Escape to Host), T1525 (Implant Container Image)
 

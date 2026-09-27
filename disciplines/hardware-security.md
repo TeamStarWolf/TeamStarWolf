@@ -148,14 +148,14 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
-| [T1542](https://attack.mitre.org/techniques/T1542/) | Pre-OS Boot | Persistence, Defense Evasion | Secure Boot and TPM attestation detect pre-OS implants |
-| [T1542.001](https://attack.mitre.org/techniques/T1542/001/) | System Firmware | Persistence, Defense Evasion | UEFI rootkits persist in SPI flash; firmware signing prevents |
-| [T1542.003](https://attack.mitre.org/techniques/T1542/003/) | Bootkit | Persistence, Defense Evasion | Bootkits infect MBR/VBR; UEFI Secure Boot enforces chain |
+| [T1542](https://attack.mitre.org/techniques/T1542/) | Pre-OS Boot | Persistence, Stealth | Secure Boot and TPM attestation detect pre-OS implants |
+| [T1542.001](https://attack.mitre.org/techniques/T1542/001/) | System Firmware | Persistence, Stealth | UEFI rootkits persist in SPI flash; firmware signing prevents |
+| [T1542.003](https://attack.mitre.org/techniques/T1542/003/) | Bootkit | Persistence, Stealth | Bootkits infect MBR/VBR; UEFI Secure Boot enforces chain |
 | [T1091](https://attack.mitre.org/techniques/T1091/) | Replication Through Removable Media | Initial Access, Lateral Movement | USB implants (Rubber Ducky, O.MG Cable) deliver payloads |
 | [T1200](https://attack.mitre.org/techniques/T1200/) | Hardware Additions | Initial Access | PCIe DMA cards, LAN Turtles, and Thunderbolt implants gain system access |
-| [T1601](https://attack.mitre.org/techniques/T1601/) | Modify System Image | Defense Evasion | Attackers modify network device firmware to persist |
-| [T1601.001](https://attack.mitre.org/techniques/T1601/001/) | Patch System Image | Defense Evasion | Firmware patching for persistent backdoor access |
-| [T1601.002](https://attack.mitre.org/techniques/T1601/002/) | Downgrade System Image | Defense Evasion | Rollback to vulnerable firmware version to re-exploit |
+| [T1601](https://attack.mitre.org/techniques/T1601/) | Modify System Image | Stealth | Attackers modify network device firmware to persist |
+| [T1601.001](https://attack.mitre.org/techniques/T1601/001/) | Patch System Image | Stealth | Firmware patching for persistent backdoor access |
+| [T1601.002](https://attack.mitre.org/techniques/T1601/002/) | Downgrade System Image | Stealth | Rollback to vulnerable firmware version to re-exploit |
 
 ---
 

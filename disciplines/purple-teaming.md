@@ -144,12 +144,12 @@ Tracking outcomes precisely is critical for measuring program value:
 |---|---|---|---|
 | T1566 | Phishing | Initial Access | Primary initial access vector tested in most purple exercises |
 | T1059 | Command and Scripting Interpreter | Execution | PowerShell, WMI, cmd — commonly used in emulation and frequently missed |
-| T1078 | Valid Accounts | Defense Evasion / Persistence | Credential-based access bypasses many perimeter controls |
+| T1078 | Valid Accounts | Stealth / Persistence | Credential-based access bypasses many perimeter controls |
 | T1003 | OS Credential Dumping | Credential Access | LSASS dump, SAM, NTDS — critical detection gaps identified in most exercises |
 | T1021 | Remote Services | Lateral Movement | PSExec, WMI, RDP, SMB — requires specific rule coverage |
-| T1055 | Process Injection | Defense Evasion | Classic EDR evasion technique; frequently undetected without Sysmon |
-| T1562 | Impair Defenses | Defense Evasion | AV/EDR disable, log tampering — critical to detect before attacker entrenches |
-| T1070 | Indicator Removal | Defense Evasion | Log clearing, timestomping — attacker cleanup that removes forensic evidence |
+| T1055 | Process Injection | Stealth | Classic EDR evasion technique; frequently undetected without Sysmon |
+| T1562 | Impair Defenses | Defense Impairment | AV/EDR disable, log tampering — critical to detect before attacker entrenches |
+| T1070 | Indicator Removal | Stealth | Log clearing, timestomping — attacker cleanup that removes forensic evidence |
 
 ---
 

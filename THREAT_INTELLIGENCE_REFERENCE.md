@@ -2161,7 +2161,7 @@ Enterprise (5+ FTE, $1.5M+ total):
 | Execution | T1059 Command Interpreter, T1203 Exploitation, T1204 User Execution, T1053 Scheduled Task |
 | Persistence | T1053 Scheduled Task, T1543 System Service, T1547 Boot Autostart, T1078 Valid Accounts |
 | Privilege Escalation | T1068 Exploitation, T1055 Process Injection, T1134 Access Token Manipulation |
-| Defense Evasion | T1027 Obfuscation, T1036 Masquerading, T1055 Injection, T1562 Impair Defenses |
+| Stealth | T1027 Obfuscation, T1036 Masquerading, T1055 Injection, T1562 Impair Defenses |
 | Credential Access | T1003 OS Credential Dumping, T1110 Brute Force, T1555 Credentials from Stores |
 | Discovery | T1082 System Info, T1083 File Discovery, T1018 Remote System Discovery |
 | Lateral Movement | T1021 Remote Services, T1550 Pass-the-Hash/Ticket, T1534 Internal Spearphishing |

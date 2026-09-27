@@ -263,7 +263,7 @@ Understanding attack construction is essential for building effective defenses:
 | T1554 | Compromise Host Software Binary | Persistence | Trojanizing installed software binaries post-deployment |
 | T1072 | Software Deployment Tools | Execution | Abusing update mechanisms to distribute malicious payloads |
 | T1059 | Command and Scripting Interpreter | Execution | Malicious package install scripts (setup.py, postinstall) executing payloads |
-| T1078.001 | Default Accounts | Defense Evasion | CI/CD service accounts with default or excessive permissions |
+| T1078.001 | Default Accounts | Stealth | CI/CD service accounts with default or excessive permissions |
 
 ---
 

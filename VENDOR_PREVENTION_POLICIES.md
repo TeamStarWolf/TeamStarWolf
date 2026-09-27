@@ -678,7 +678,7 @@ python -m detection_rules kibana upload-rule rules/ --space default
 - Scheduled Task Created by a Windows Script
 - WMI Permanent Event Subscription
 
-**Defense Evasion:**
+**Stealth:**
 - Potential Process Injection via PowerShell
 - NTDLL Hooking via MapViewOfSection
 - Disabling Windows Defender via PowerShell

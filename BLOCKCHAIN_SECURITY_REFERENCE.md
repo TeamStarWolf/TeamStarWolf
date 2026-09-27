@@ -2825,7 +2825,7 @@ While MITRE has not released an official Blockchain ATT&CK framework, security r
 | Execution | Smart contract exploitation | Reentrancy, flash loan execution |
 | Persistence | Governance takeover | Malicious proposal installation |
 | Privilege Escalation | Access control bypass | Unprotected initializer, tx.origin bypass |
-| Defense Evasion | Fund obfuscation | Tornado Cash, bridge hopping, DEX swaps |
+| Stealth | Fund obfuscation | Tornado Cash, bridge hopping, DEX swaps |
 | Credential Access | Private key theft | Hardware wallet attack, hot wallet compromise |
 | Discovery | On-chain reconnaissance | Smart contract code analysis, TVL mapping |
 | Lateral Movement | Cross-chain attacks | Bridge exploitation, cross-contract reentrancy |

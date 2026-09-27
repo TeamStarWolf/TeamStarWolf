@@ -2279,7 +2279,7 @@ helm install falco falcosecurity/falco \
 | Execution | Cloud admin command, serverless function invocation |
 | Persistence | Account manipulation, implant in cloud image, modify cloud compute infrastructure |
 | Privilege Escalation | Valid accounts, cloud admin roles |
-| Defense Evasion | Unused/unsupported cloud regions, disable cloud logs, modify cloud compute infrastructure |
+| Stealth | Unused/unsupported cloud regions, disable cloud logs, modify cloud compute infrastructure |
 | Credential Access | Unsecured credentials in files/metadata, steal application tokens |
 | Discovery | Cloud infrastructure discovery, cloud storage enumeration, cloud service enumeration |
 | Lateral Movement | Use alternate auth material, internal spearphishing |

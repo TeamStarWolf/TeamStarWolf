@@ -375,7 +375,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 
 ---
 
-### Defense Evasion & Payload Development
+### Stealth & Payload Development
 
 | Tool | Author/Org | Description | GitHub |
 |---|---|---|---|

@@ -199,14 +199,14 @@ A SOAR playbook automates repetitive analyst tasks triggered by specific alert t
 
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
-| T1070 | Indicator Removal | Defense Evasion | Log deletion and timestomping that SOC must detect via integrity monitoring |
-| T1562 | Impair Defenses | Defense Evasion | Disabling logging, AV, or EDR agents; SOC must alert on agent health status |
-| T1036 | Masquerading | Defense Evasion | LOLBAS and renamed binaries detected via process signature and path analysis |
+| T1070 | Indicator Removal | Stealth | Log deletion and timestomping that SOC must detect via integrity monitoring |
+| T1562 | Impair Defenses | Defense Impairment | Disabling logging, AV, or EDR agents; SOC must alert on agent health status |
+| T1036 | Masquerading | Stealth | LOLBAS and renamed binaries detected via process signature and path analysis |
 | T1055 | Process Injection | Privilege Escalation | Injected code in legitimate processes detected via memory anomaly analysis |
 | T1059 | Command and Scripting Interpreter | Execution | PowerShell, WMI, and scripting engine abuse detected via script block logging |
 | T1003 | OS Credential Dumping | Credential Access | LSASS access alerts, Mimikatz signatures, and EDR credential dump detections |
 | T1021 | Remote Services | Lateral Movement | Anomalous RDP, WinRM, and SMB connections between hosts in the environment |
-| T1078 | Valid Accounts | Defense Evasion / Persistence | Behavioral analytics detecting legitimate credentials used anomalously |
+| T1078 | Valid Accounts | Stealth / Persistence | Behavioral analytics detecting legitimate credentials used anomalously |
 
 ---
 

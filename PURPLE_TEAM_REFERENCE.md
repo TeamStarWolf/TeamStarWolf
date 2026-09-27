@@ -102,7 +102,7 @@ Without these foundations, purple team results will be dominated by infrastructu
 
 ### 2.1 Matrix Structure
 
-The ATT&CK Enterprise matrix contains **14 tactics** representing phases or objectives of an adversary operation:
+The ATT&CK Enterprise matrix contains **15 tactics** representing phases or objectives of an adversary operation:
 
 | # | Tactic | ID | Focus |
 |---|---|---|---|
@@ -112,14 +112,15 @@ The ATT&CK Enterprise matrix contains **14 tactics** representing phases or obje
 | 4 | Execution | TA0002 | Run malicious code |
 | 5 | Persistence | TA0003 | Maintain foothold |
 | 6 | Privilege Escalation | TA0004 | Gain higher permissions |
-| 7 | Defense Evasion | TA0005 | Avoid detection |
-| 8 | Credential Access | TA0006 | Steal credentials |
-| 9 | Discovery | TA0007 | Learn environment |
-| 10 | Lateral Movement | TA0008 | Move through network |
-| 11 | Collection | TA0009 | Gather target data |
-| 12 | Command and Control | TA0011 | Communicate with implants |
-| 13 | Exfiltration | TA0010 | Remove data |
-| 14 | Impact | TA0040 | Disrupt / destroy |
+| 7 | Stealth | TA0005 | Avoid detection |
+| 8 | Defense Impairment | TA0112 | Disable or tamper with defenses |
+| 9 | Credential Access | TA0006 | Steal credentials |
+| 10 | Discovery | TA0007 | Learn environment |
+| 11 | Lateral Movement | TA0008 | Move through network |
+| 12 | Collection | TA0009 | Gather target data |
+| 13 | Command and Control | TA0011 | Communicate with implants |
+| 14 | Exfiltration | TA0010 | Remove data |
+| 15 | Impact | TA0040 | Disrupt / destroy |
 
 **Sub-techniques (T1xxx.xxx):** Many techniques have sub-techniques that specify the exact method. For example, T1059 (Command and Scripting Interpreter) has sub-techniques T1059.001 (PowerShell), T1059.003 (Windows Command Shell), T1059.006 (Python), etc. Purple teams should test at the sub-technique level for maximum precision.
 
@@ -617,7 +618,7 @@ When a technique is not detected, categorize the gap to drive the right remediat
 | Priority | Tactics | Target Coverage |
 |---|---|---|
 | Critical | Credential Access, Lateral Movement, Execution | ≥ 80% |
-| High | Persistence, Privilege Escalation, Defense Evasion | ≥ 70% |
+| High | Persistence, Privilege Escalation, Stealth | ≥ 70% |
 | Medium | Discovery, Collection, C2 | ≥ 60% |
 | Lower | Recon, Resource Dev, Exfiltration, Impact | ≥ 50% |
 

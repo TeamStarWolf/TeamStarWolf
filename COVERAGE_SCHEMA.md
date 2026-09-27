@@ -52,7 +52,7 @@ Edge Tables:
   "ctid_framework_mappings": [
     { "framework": "nist800-53", "url": "https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/" }
   ],
-  "coverage_notes": "Covers Initial Access through Impact; strongest on Execution, Defense Evasion, Credential Access, Lateral Movement"
+  "coverage_notes": "Covers Initial Access through Impact; strongest on Execution, Stealth, Credential Access, Lateral Movement"
 }
 ```
 
@@ -78,7 +78,7 @@ Edge Tables:
     {
       "technique_id": "T1055",
       "technique_name": "Process Injection",
-      "tactic": "Defense Evasion",
+      "tactic": "Stealth",
       "mapping_type": "detects",
       "source": "CTID NIST 800-53 v5"
     }

@@ -2632,7 +2632,7 @@ with enterprise security standards.
 | Execution (TA0002) | T1059 Command/Script, T1203 Exploitation | Application whitelisting; EDR; DAST; no-exec mounts |
 | Persistence (TA0003) | T1053 Scheduled Tasks, T1136 Create Account | Immutable infra; IGA lifecycle; FIM; privileged access monitoring |
 | Privilege Escalation (TA0004) | T1068 Exploitation, T1548 Abuse Elevation | PAM; JIT access; EDR; patch management; least privilege |
-| Defense Evasion (TA0005) | T1562 Impair Defenses, T1070 Indicator Removal | Log protection; centralized SIEM; CSPM; cloud audit integrity |
+| Defense Impairment (TA0112) | T1562 Impair Defenses, T1070 Indicator Removal | Log protection; centralized SIEM; CSPM; cloud audit integrity |
 | Credential Access (TA0006) | T1110 Brute Force, T1555 Credentials in Store | MFA; PAM; secrets management; Credential Guard |
 | Discovery (TA0007) | T1046 Network Scan, T1082 System Info | IDS/IPS; network micro-segmentation; least privilege |
 | Lateral Movement (TA0008) | T1021 Remote Services, T1550 Pass-the-Hash | Micro-segmentation; PAW; EDR; disable legacy auth |

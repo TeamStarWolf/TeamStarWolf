@@ -1946,7 +1946,7 @@ Hybrid approach (most enterprises):
 | Execution | TA0002 | T1059 Scripting; T1053 Scheduled Tasks; T1204 User Execution |
 | Persistence | TA0003 | T1547 Boot Autostart; T1543 Services; T1098 Account Manipulation |
 | Privilege Escalation | TA0004 | T1055 Process Injection; T1068 Exploit; T1134 Token Impersonation |
-| Defense Evasion | TA0005 | T1036 Masquerading; T1027 Obfuscation; T1070 Log Clearing |
+| Stealth | TA0005 | T1036 Masquerading; T1027 Obfuscation; T1070 Log Clearing |
 | Credential Access | TA0006 | T1003 OS Credential Dumping; T1110 Brute Force; T1558 Kerberoasting |
 | Discovery | TA0007 | T1082 System Info; T1083 File Discovery; T1018 Remote System Discovery |
 | Lateral Movement | TA0008 | T1021 Remote Services; T1550 Pass-the-Hash; T1534 Internal Spearphishing |

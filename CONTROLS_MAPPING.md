@@ -32,7 +32,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 | **AC** | Access Control | Initial Access, Credential Access, Privilege Escalation, Lateral Movement | 2, 3 |
 | **AU** | Audit & Accountability | Detection across all tactics (data source coverage) | 4, 5 |
 | **CA** | Assessment & Authorization | Program-level risk across all tactics | 1, 9 |
-| **CM** | Configuration Management | Defense Evasion, Persistence, Execution | 3 |
+| **CM** | Configuration Management | Stealth, Persistence, Execution | 3 |
 | **CP** | Contingency Planning | Impact recovery | 9 |
 | **IA** | Identification & Authentication | Initial Access, Credential Access, Privilege Escalation | 2, 3 |
 | **IR** | Incident Response | Response and containment across all active tactics | 6, 7, 8 |
@@ -42,8 +42,8 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 | **PM** | Program Management | Governance across all tactics | 1, 9 |
 | **RA** | Risk Assessment | Exposure context across all tactics | 1, 3, 5 |
 | **SA** | System & Services Acquisition | Supply chain attacks, Execution | 3 |
-| **SC** | System & Communications Protection | C2, Lateral Movement, Exfiltration, Defense Evasion | 2, 3, 7 |
-| **SI** | System & Information Integrity | Execution, Persistence, Defense Evasion, Discovery | 3, 4, 5 |
+| **SC** | System & Communications Protection | C2, Lateral Movement, Exfiltration, Stealth | 2, 3, 7 |
+| **SI** | System & Information Integrity | Execution, Persistence, Stealth, Discovery | 3, 4, 5 |
 
 ---
 
@@ -100,7 +100,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 | Vendor | Market Family | Primary NIST Controls | ATT&CK Coverage via CTID |
 |---|---|---|---|
 | Palo Alto Networks NGFW | Network Security | SC-7, SC-8, AC-17, SI-3 | C2 (T1071), Lateral Movement (T1021), Execution (T1059) |
-| Fortinet FortiGate | Network Security | SC-7, SC-10, AC-17 | C2, Lateral Movement, Defense Evasion |
+| Fortinet FortiGate | Network Security | SC-7, SC-10, AC-17 | C2, Lateral Movement, Stealth |
 | Cisco Secure Firewall | Network Security | SC-7, SC-8, AC-4 | Network-based technique coverage |
 | Corelight | Network Security | AU-2, AU-12, SI-4 | Detection coverage across C2, Lateral Movement, Exfiltration |
 | Darktrace | Network Security | SI-4, AU-6, AU-12 | Behavioral detection across all network-observable tactics |
@@ -157,7 +157,7 @@ For practitioners building coverage maps, these are the most commonly targeted A
 | T1078 Valid Accounts | Initial Access / Persistence | IA-2, AC-2, AC-3 | Identity, Zero Trust |
 | T1566 Phishing | Initial Access | SI-3, SI-8, SC-28 | Email Security |
 | T1059 Command & Scripting | Execution | CM-7, SI-3, SI-4 | EDR/SecOps |
-| T1055 Process Injection | Defense Evasion | SI-3, SI-7, CM-7 | EDR/SecOps |
+| T1055 Process Injection | Stealth | SI-3, SI-7, CM-7 | EDR/SecOps |
 | T1003 OS Credential Dumping | Credential Access | AC-6, IA-5, SI-3 | Identity, EDR |
 | T1021 Remote Services | Lateral Movement | AC-17, SC-7, IA-2 | Network, Zero Trust |
 | T1071 Application Layer Protocol | C2 | SC-7, SC-8, SI-4 | Network Security, Zero Trust |
@@ -251,7 +251,7 @@ See [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md) for the full data model and scoring
 | Execution | T1059 Command-Line Interface | CM-7, SI-4, AU-12 |
 | Persistence | T1053 Scheduled Task | CM-7, SI-4, AU-2 |
 | Privilege Escalation | T1548 Abuse Elevation Control | AC-6, CM-6, AU-12 |
-| Defense Evasion | T1562 Impair Defenses | AU-9, SI-7, SI-4 |
+| Defense Impairment | T1562 Impair Defenses | AU-9, SI-7, SI-4 |
 | Credential Access | T1003 OS Credential Dumping | IA-5, AC-6, SC-28 |
 | Discovery | T1083 File and Directory Discovery | AU-12, SI-4 |
 | Lateral Movement | T1021 Remote Services | AC-17, SC-7, AC-3 |

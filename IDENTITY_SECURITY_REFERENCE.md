@@ -68,17 +68,17 @@ Data Breach Investigations Report (DBIR)**:
 | T1110.001 | Password Guessing | Credential Access |
 | T1110.003 | Password Spraying | Credential Access |
 | T1110.004 | Credential Stuffing | Credential Access |
-| T1556 | Modify Authentication Process | Credential Access, Defense Evasion |
+| T1556 | Modify Authentication Process | Credential Access, Stealth |
 | T1556.006 | Multi-Factor Authentication | Credential Access |
 | T1558 | Steal or Forge Kerberos Tickets | Credential Access |
 | T1558.003 | Kerberoasting | Credential Access |
 | T1558.004 | AS-REP Roasting | Credential Access |
 | T1621 | Multi-Factor Authentication Request Generation | Credential Access |
 | T1539 | Steal Web Session Cookie | Credential Access |
-| T1550 | Use Alternate Authentication Material | Defense Evasion, Lateral Movement |
-| T1550.001 | Application Access Token | Defense Evasion |
-| T1550.002 | Pass the Hash | Defense Evasion, Lateral Movement |
-| T1550.003 | Pass the Ticket | Defense Evasion, Lateral Movement |
+| T1550 | Use Alternate Authentication Material | Stealth, Lateral Movement |
+| T1550.001 | Application Access Token | Stealth |
+| T1550.002 | Pass the Hash | Stealth, Lateral Movement |
+| T1550.003 | Pass the Ticket | Stealth, Lateral Movement |
 
 ---
 

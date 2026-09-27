@@ -1,0 +1,28 @@
+# CAPEC-646 — Peripheral Footprinting
+
+<a id="capec-646"></a>
+
+**Abstraction:** Standard  
+**Typical severity:** Medium  
+**Likelihood:** Low
+
+Adversaries may attempt to obtain information about attached peripheral devices and components connected to a computer system. Examples may include discovering the presence of iOS devices by searching for backups, analyzing the Windows registry to determine what USB devices have been connected, or infecting a victim system with malware to report when a USB device has been connected. This may allow
+
+## Mapped ATT&CK techniques (1)
+
+- [T1120](/mitre/techniques/T1120.md)
+
+## Related CWE (1)
+
+[CWE-200](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::The adversary needs either physical or remote access to the victim system.::
+
+**Skills required:** ::SKILL:The adversary needs to be able to infect the victim system in a manner that gives them remote access.:LEVEL:Medium::SKILL:If analyzing the Win
+
+**Mitigations:** ::Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.::
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

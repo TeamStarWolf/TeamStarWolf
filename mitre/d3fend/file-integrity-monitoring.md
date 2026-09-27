@@ -1,0 +1,123 @@
+# D3FEND: File Integrity Monitoring
+
+<a id="file-integrity-monitoring"></a>
+
+**D3FEND tactic:** Detect
+**Digital artifacts:** File
+
+## ATT&CK techniques countered (110)
+
+- `DE-0007` — analyzes
+- `EX-0010.02` — analyzes
+- `EX-0010.03` — analyzes
+- `T0851` — analyzes
+- `T0853` — analyzes
+- `T0865` — analyzes
+- `T0871` — analyzes
+- `T0888` — analyzes
+- `T0893` — analyzes
+- `T0894` — analyzes
+- `T0895` — analyzes
+- [T1003.007](/mitre/techniques/T1003-007.md) — analyzes
+- [T1003.008](/mitre/techniques/T1003-008.md) — analyzes
+- [T1005](/mitre/techniques/T1005.md) — analyzes
+- [T1014](/mitre/techniques/T1014.md) — analyzes
+- [T1016](/mitre/techniques/T1016.md) — analyzes
+- [T1018](/mitre/techniques/T1018.md) — analyzes
+- [T1027.001](/mitre/techniques/T1027-001.md) — analyzes
+- [T1027.002](/mitre/techniques/T1027-002.md) — analyzes
+- [T1027.004](/mitre/techniques/T1027-004.md) — analyzes
+- [T1033](/mitre/techniques/T1033.md) — analyzes
+- [T1036.001](/mitre/techniques/T1036-001.md) — analyzes
+- [T1036.003](/mitre/techniques/T1036-003.md) — analyzes
+- [T1036.005](/mitre/techniques/T1036-005.md) — analyzes
+- [T1036.006](/mitre/techniques/T1036-006.md) — analyzes
+- [T1037.001](/mitre/techniques/T1037-001.md) — analyzes
+- [T1037.002](/mitre/techniques/T1037-002.md) — analyzes
+- [T1037.003](/mitre/techniques/T1037-003.md) — analyzes
+- [T1037.004](/mitre/techniques/T1037-004.md) — analyzes
+- [T1041](/mitre/techniques/T1041.md) — analyzes
+- [T1048.002](/mitre/techniques/T1048-002.md) — analyzes
+- `T1053.004` — analyzes
+- [T1055.001](/mitre/techniques/T1055-001.md) — analyzes
+- [T1055.002](/mitre/techniques/T1055-002.md) — analyzes
+- [T1055.003](/mitre/techniques/T1055-003.md) — analyzes
+- [T1055.009](/mitre/techniques/T1055-009.md) — analyzes
+- [T1055.014](/mitre/techniques/T1055-014.md) — analyzes
+- [T1059](/mitre/techniques/T1059.md) — analyzes
+- [T1070.002](/mitre/techniques/T1070-002.md) — analyzes
+- [T1070.004](/mitre/techniques/T1070-004.md) — analyzes
+- [T1071](/mitre/techniques/T1071.md) — analyzes
+- [T1071.001](/mitre/techniques/T1071-001.md) — analyzes
+- [T1072](/mitre/techniques/T1072.md) — analyzes
+- [T1074.001](/mitre/techniques/T1074-001.md) — analyzes
+- [T1083](/mitre/techniques/T1083.md) — analyzes
+- [T1114.001](/mitre/techniques/T1114-001.md) — analyzes
+- [T1119](/mitre/techniques/T1119.md) — analyzes
+- [T1127.001](/mitre/techniques/T1127-001.md) — analyzes
+- [T1137.001](/mitre/techniques/T1137-001.md) — analyzes
+- [T1137.003](/mitre/techniques/T1137-003.md) — analyzes
+- [T1140](/mitre/techniques/T1140.md) — analyzes
+- [T1187](/mitre/techniques/T1187.md) — analyzes
+- [T1204.002](/mitre/techniques/T1204-002.md) — analyzes
+- [T1218.005](/mitre/techniques/T1218-005.md) — analyzes
+- [T1218.011](/mitre/techniques/T1218-011.md) — analyzes
+- [T1220](/mitre/techniques/T1220.md) — analyzes
+- [T1486](/mitre/techniques/T1486.md) — analyzes
+- [T1505.003](/mitre/techniques/T1505-003.md) — analyzes
+- [T1534](/mitre/techniques/T1534.md) — analyzes
+- [T1543.001](/mitre/techniques/T1543-001.md) — analyzes
+- [T1543.002](/mitre/techniques/T1543-002.md) — analyzes
+- [T1543.004](/mitre/techniques/T1543-004.md) — analyzes
+- [T1546.002](/mitre/techniques/T1546-002.md) — analyzes
+- [T1546.004](/mitre/techniques/T1546-004.md) — analyzes
+- [T1546.005](/mitre/techniques/T1546-005.md) — analyzes
+- [T1546.006](/mitre/techniques/T1546-006.md) — analyzes
+- [T1546.008](/mitre/techniques/T1546-008.md) — analyzes
+- [T1546.009](/mitre/techniques/T1546-009.md) — analyzes
+- [T1546.010](/mitre/techniques/T1546-010.md) — analyzes
+- [T1546.013](/mitre/techniques/T1546-013.md) — analyzes
+- [T1546.014](/mitre/techniques/T1546-014.md) — analyzes
+- [T1546.015](/mitre/techniques/T1546-015.md) — analyzes
+- [T1547.001](/mitre/techniques/T1547-001.md) — analyzes
+- [T1547.006](/mitre/techniques/T1547-006.md) — analyzes
+- [T1547.007](/mitre/techniques/T1547-007.md) — analyzes
+- [T1547.008](/mitre/techniques/T1547-008.md) — analyzes
+- [T1547.009](/mitre/techniques/T1547-009.md) — analyzes
+- `T1547.011` — analyzes
+- [T1548.002](/mitre/techniques/T1548-002.md) — analyzes
+- [T1548.003](/mitre/techniques/T1548-003.md) — analyzes
+- [T1552.001](/mitre/techniques/T1552-001.md) — analyzes
+- [T1552.003](/mitre/techniques/T1552-003.md) — analyzes
+- [T1555](/mitre/techniques/T1555.md) — analyzes
+- [T1555.003](/mitre/techniques/T1555-003.md) — analyzes
+- [T1556.002](/mitre/techniques/T1556-002.md) — analyzes
+- [T1556.003](/mitre/techniques/T1556-003.md) — analyzes
+- [T1560](/mitre/techniques/T1560.md) — analyzes
+- [T1560.001](/mitre/techniques/T1560-001.md) — analyzes
+- [T1560.002](/mitre/techniques/T1560-002.md) — analyzes
+- [T1560.003](/mitre/techniques/T1560-003.md) — analyzes
+- [T1562.003](/mitre/techniques/T1562-003.md) — analyzes
+- [T1564.002](/mitre/techniques/T1564-002.md) — analyzes
+- [T1564.003](/mitre/techniques/T1564-003.md) — analyzes
+- [T1564.006](/mitre/techniques/T1564-006.md) — analyzes
+- [T1564.007](/mitre/techniques/T1564-007.md) — analyzes
+- [T1565.001](/mitre/techniques/T1565-001.md) — analyzes
+- [T1565.003](/mitre/techniques/T1565-003.md) — analyzes
+- [T1566.001](/mitre/techniques/T1566-001.md) — analyzes
+- [T1566.002](/mitre/techniques/T1566-002.md) — analyzes
+- [T1566.003](/mitre/techniques/T1566-003.md) — analyzes
+- [T1573.002](/mitre/techniques/T1573-002.md) — analyzes
+- [T1574.001](/mitre/techniques/T1574-001.md) — analyzes
+- `T1574.002` — analyzes
+- [T1574.004](/mitre/techniques/T1574-004.md) — analyzes
+- [T1574.006](/mitre/techniques/T1574-006.md) — analyzes
+- [T1574.007](/mitre/techniques/T1574-007.md) — analyzes
+- [T1574.008](/mitre/techniques/T1574-008.md) — analyzes
+- [T1574.009](/mitre/techniques/T1574-009.md) — analyzes
+- [T1574.012](/mitre/techniques/T1574-012.md) — analyzes
+- [T1649](/mitre/techniques/T1649.md) — analyzes
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,0 +1,20 @@
+# CAPEC-610 — Cellular Data Injection
+
+<a id="capec-610"></a>
+
+**Abstraction:** Standard  
+**Typical severity:** High  
+**Likelihood:** 
+
+Adversaries inject data into mobile technology traffic (data flows or signaling data) to disrupt communications or conduct additional surveillance operations.
+
+**Prerequisites:** ::None::
+
+**Skills required:** ::SKILL:Often achieved by nation states in conjunction with commercial cellular providers to conduct cellular traffic intercept and possible traffic i
+
+**Mitigations:** ::Commercial defensive technology to detect and alert to any attempts to modify mobile technology data flows or to inject new data into existing data flows and signaling data.::
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

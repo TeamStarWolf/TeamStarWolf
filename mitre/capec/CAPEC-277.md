@@ -1,0 +1,18 @@
+# CAPEC-277 — Data Interchange Protocol Manipulation
+
+<a id="capec-277"></a>
+
+**Abstraction:** Standard  
+**Typical severity:**   
+**Likelihood:** 
+
+Data Interchange Protocols are used to transmit structured data between entities. These protocols are often specific to a particular domain (B2B: purchase orders, invoices, transport logistics and waybills, medical records). They are often, but not always, XML-based. Subverting the protocol can allow an adversary to impersonate others, discover sensitive information, control the outcome of a sessi
+
+## Related CWE (1)
+
+[CWE-707](/CWE_REFERENCE.md)
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,0 +1,123 @@
+# D3FEND: File Eviction
+
+<a id="file-eviction"></a>
+
+**D3FEND tactic:** Evict
+**Digital artifacts:** File
+
+## ATT&CK techniques countered (110)
+
+- `DE-0007` — deletes
+- `EX-0010.02` — deletes
+- `EX-0010.03` — deletes
+- `T0851` — deletes
+- `T0853` — deletes
+- `T0865` — deletes
+- `T0871` — deletes
+- `T0888` — deletes
+- `T0893` — deletes
+- `T0894` — deletes
+- `T0895` — deletes
+- [T1003.007](/mitre/techniques/T1003-007.md) — deletes
+- [T1003.008](/mitre/techniques/T1003-008.md) — deletes
+- [T1005](/mitre/techniques/T1005.md) — deletes
+- [T1014](/mitre/techniques/T1014.md) — deletes
+- [T1016](/mitre/techniques/T1016.md) — deletes
+- [T1018](/mitre/techniques/T1018.md) — deletes
+- [T1027.001](/mitre/techniques/T1027-001.md) — deletes
+- [T1027.002](/mitre/techniques/T1027-002.md) — deletes
+- [T1027.004](/mitre/techniques/T1027-004.md) — deletes
+- [T1033](/mitre/techniques/T1033.md) — deletes
+- [T1036.001](/mitre/techniques/T1036-001.md) — deletes
+- [T1036.003](/mitre/techniques/T1036-003.md) — deletes
+- [T1036.005](/mitre/techniques/T1036-005.md) — deletes
+- [T1036.006](/mitre/techniques/T1036-006.md) — deletes
+- [T1037.001](/mitre/techniques/T1037-001.md) — deletes
+- [T1037.002](/mitre/techniques/T1037-002.md) — deletes
+- [T1037.003](/mitre/techniques/T1037-003.md) — deletes
+- [T1037.004](/mitre/techniques/T1037-004.md) — deletes
+- [T1041](/mitre/techniques/T1041.md) — deletes
+- [T1048.002](/mitre/techniques/T1048-002.md) — deletes
+- `T1053.004` — deletes
+- [T1055.001](/mitre/techniques/T1055-001.md) — deletes
+- [T1055.002](/mitre/techniques/T1055-002.md) — deletes
+- [T1055.003](/mitre/techniques/T1055-003.md) — deletes
+- [T1055.009](/mitre/techniques/T1055-009.md) — deletes
+- [T1055.014](/mitre/techniques/T1055-014.md) — deletes
+- [T1059](/mitre/techniques/T1059.md) — deletes
+- [T1070.002](/mitre/techniques/T1070-002.md) — deletes
+- [T1070.004](/mitre/techniques/T1070-004.md) — deletes
+- [T1071](/mitre/techniques/T1071.md) — deletes
+- [T1071.001](/mitre/techniques/T1071-001.md) — deletes
+- [T1072](/mitre/techniques/T1072.md) — deletes
+- [T1074.001](/mitre/techniques/T1074-001.md) — deletes
+- [T1083](/mitre/techniques/T1083.md) — deletes
+- [T1114.001](/mitre/techniques/T1114-001.md) — deletes
+- [T1119](/mitre/techniques/T1119.md) — deletes
+- [T1127.001](/mitre/techniques/T1127-001.md) — deletes
+- [T1137.001](/mitre/techniques/T1137-001.md) — deletes
+- [T1137.003](/mitre/techniques/T1137-003.md) — deletes
+- [T1140](/mitre/techniques/T1140.md) — deletes
+- [T1187](/mitre/techniques/T1187.md) — deletes
+- [T1204.002](/mitre/techniques/T1204-002.md) — deletes
+- [T1218.005](/mitre/techniques/T1218-005.md) — deletes
+- [T1218.011](/mitre/techniques/T1218-011.md) — deletes
+- [T1220](/mitre/techniques/T1220.md) — deletes
+- [T1486](/mitre/techniques/T1486.md) — deletes
+- [T1505.003](/mitre/techniques/T1505-003.md) — deletes
+- [T1534](/mitre/techniques/T1534.md) — deletes
+- [T1543.001](/mitre/techniques/T1543-001.md) — deletes
+- [T1543.002](/mitre/techniques/T1543-002.md) — deletes
+- [T1543.004](/mitre/techniques/T1543-004.md) — deletes
+- [T1546.002](/mitre/techniques/T1546-002.md) — deletes
+- [T1546.004](/mitre/techniques/T1546-004.md) — deletes
+- [T1546.005](/mitre/techniques/T1546-005.md) — deletes
+- [T1546.006](/mitre/techniques/T1546-006.md) — deletes
+- [T1546.008](/mitre/techniques/T1546-008.md) — deletes
+- [T1546.009](/mitre/techniques/T1546-009.md) — deletes
+- [T1546.010](/mitre/techniques/T1546-010.md) — deletes
+- [T1546.013](/mitre/techniques/T1546-013.md) — deletes
+- [T1546.014](/mitre/techniques/T1546-014.md) — deletes
+- [T1546.015](/mitre/techniques/T1546-015.md) — deletes
+- [T1547.001](/mitre/techniques/T1547-001.md) — deletes
+- [T1547.006](/mitre/techniques/T1547-006.md) — deletes
+- [T1547.007](/mitre/techniques/T1547-007.md) — deletes
+- [T1547.008](/mitre/techniques/T1547-008.md) — deletes
+- [T1547.009](/mitre/techniques/T1547-009.md) — deletes
+- `T1547.011` — deletes
+- [T1548.002](/mitre/techniques/T1548-002.md) — deletes
+- [T1548.003](/mitre/techniques/T1548-003.md) — deletes
+- [T1552.001](/mitre/techniques/T1552-001.md) — deletes
+- [T1552.003](/mitre/techniques/T1552-003.md) — deletes
+- [T1555](/mitre/techniques/T1555.md) — deletes
+- [T1555.003](/mitre/techniques/T1555-003.md) — deletes
+- [T1556.002](/mitre/techniques/T1556-002.md) — deletes
+- [T1556.003](/mitre/techniques/T1556-003.md) — deletes
+- [T1560](/mitre/techniques/T1560.md) — deletes
+- [T1560.001](/mitre/techniques/T1560-001.md) — deletes
+- [T1560.002](/mitre/techniques/T1560-002.md) — deletes
+- [T1560.003](/mitre/techniques/T1560-003.md) — deletes
+- [T1562.003](/mitre/techniques/T1562-003.md) — deletes
+- [T1564.002](/mitre/techniques/T1564-002.md) — deletes
+- [T1564.003](/mitre/techniques/T1564-003.md) — deletes
+- [T1564.006](/mitre/techniques/T1564-006.md) — deletes
+- [T1564.007](/mitre/techniques/T1564-007.md) — deletes
+- [T1565.001](/mitre/techniques/T1565-001.md) — deletes
+- [T1565.003](/mitre/techniques/T1565-003.md) — deletes
+- [T1566.001](/mitre/techniques/T1566-001.md) — deletes
+- [T1566.002](/mitre/techniques/T1566-002.md) — deletes
+- [T1566.003](/mitre/techniques/T1566-003.md) — deletes
+- [T1573.002](/mitre/techniques/T1573-002.md) — deletes
+- [T1574.001](/mitre/techniques/T1574-001.md) — deletes
+- `T1574.002` — deletes
+- [T1574.004](/mitre/techniques/T1574-004.md) — deletes
+- [T1574.006](/mitre/techniques/T1574-006.md) — deletes
+- [T1574.007](/mitre/techniques/T1574-007.md) — deletes
+- [T1574.008](/mitre/techniques/T1574-008.md) — deletes
+- [T1574.009](/mitre/techniques/T1574-009.md) — deletes
+- [T1574.012](/mitre/techniques/T1574-012.md) — deletes
+- [T1649](/mitre/techniques/T1649.md) — deletes
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

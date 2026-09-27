@@ -1,0 +1,28 @@
+# CAPEC-504 — Task Impersonation
+
+<a id="capec-504"></a>
+
+**Abstraction:** Standard  
+**Typical severity:** High  
+**Likelihood:** Medium
+
+An adversary, through a previously installed malicious application, impersonates an expected or routine task in an attempt to steal sensitive information or leverage a user's privileges.
+
+## Mapped ATT&CK techniques (1)
+
+- [T1036.004](/mitre/techniques/T1036-004.md)
+
+## Related CWE (1)
+
+[CWE-1021](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::The adversary must already have access to the target system via some means.::A legitimate task must exist that an adversary can impersonate to glean credentials.::The user's privileges allow them to
+
+**Skills required:** ::SKILL:Once an adversary has gained access to the target system, impersonating a task is trivial.:LEVEL:Low::
+
+**Mitigations:** ::The only known mitigation to this attack is to avoid installing the malicious application on the device. However, to impersonate a running task the malicious application does need the GET_TASKS permission to be able to query the task list, and bein
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

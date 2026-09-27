@@ -1,0 +1,22 @@
+# CAPEC-495 — UDP Fragmentation
+
+<a id="capec-495"></a>
+
+**Abstraction:** Standard  
+**Typical severity:**   
+**Likelihood:** 
+
+An attacker may execute a UDP Fragmentation attack against a target server in an attempt to consume resources such as bandwidth and CPU. IP fragmentation occurs when an IP datagram is larger than the MTU of the route the datagram has to traverse. Typically the attacker will use large UDP packets over 1500 bytes of data which forces fragmentation as ethernet MTU is 1500 bytes. This attack is a vari
+
+## Related CWE (2)
+
+[CWE-770](/CWE_REFERENCE.md) [CWE-404](/CWE_REFERENCE.md)
+
+**Prerequisites:** ::This type of an attack requires the attacker to be able to generate fragmented IP traffic containing crafted data.::
+
+**Mitigations:** ::This attack may be mitigated by changing default cache sizes to be larger at the OS level. Additionally rules can be enforced to prune the cache with shorter timeouts for packet reassembly as the cache nears capacity.::
+
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

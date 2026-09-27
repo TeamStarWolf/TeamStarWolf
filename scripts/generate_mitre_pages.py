@@ -263,9 +263,15 @@ class DB:
         self.em_prof = {r["software_id"]: r for r in _sw_all
                         if re.fullmatch(r"S9\d{3}", r["software_id"])}
         self.em_name_to_id = {r["name"]: r["software_id"] for r in self.em_prof.values()}
-        # Team-authored / lab-fictional entries (owner-confirmed): mark explicitly, never as
-        # real-world threats. Extend as the owner confirms more.
-        self.lab_fictional = {"S9041", "S9044"}
+        # Team-authored / lab-fictional entries: mark explicitly, never as real-world threats.
+        # Evidence-based (owner could not manually confirm the full set, 2026-09-27): S9041/S9044
+        # owner-named; S9042 CanisterWorm is described as "used by TeamPCP" (the fictional group);
+        # G1056 TeamPCP carries the team's own name/aliases and uses the fiction software. S9043
+        # Mini Shai-Hulud is genuinely ambiguous (derived from the real Shai-Hulud worm) -> an
+        # honest "provenance uncertain" note rather than asserting real or fiction either way.
+        self.lab_fictional = {"S9041", "S9042", "S9044"}
+        self.uncertain_sw = {"S9043"}
+        self.lab_fictional_groups = {"G1056"}
         cp_p = DATA / "attack/campaign_profiles.jsonl"
         self.camp_prof = {r["campaign_id"]: r for r in (load_jsonl(cp_p) if cp_p.exists() else [])}
 
@@ -860,15 +866,26 @@ def render_f3_landing(db):
 def group_link(db, name):
     gid = db.group_name_to_id.get(name)
     if gid:
-        return "[" + name + "](/mitre/groups/" + gid + ".md)"
+        # lab/fictional groups link to their (labeled) page and carry a flag so they never
+        # read as a real ATT&CK attribution wherever they appear.
+        flag = "⚑" if gid in db.lab_fictional_groups else ""
+        return "[" + name + "](/mitre/groups/" + gid + ".md)" + flag
     return link(name, db.group_url.get(name))
 
 
 def render_group(db, gid):
     g = db.group_prof[gid]
+    fic = gid in db.lab_fictional_groups
     out = ["# " + gid + " " + DASH + " " + g.get("name", "") + "\n", '<a id="' + gid.lower() + '"></a>\n']
+    if fic:
+        out.append("> **\U0001f9ea Lab / fictional group — authored for TeamStarWolf training scenarios.** "
+                   "This is **not a real-world adversary** and its `G`-id does **not** correspond to an "
+                   "official MITRE ATT&CK group; it exists only to drive the lab's fictional missions. Do "
+                   "not cite it as real threat intelligence.\n")
     aliases = [a for a in (g.get("aliases") or []) if a and a != g.get("name")]
-    hdr = ["**ATT&CK:** [" + gid + "](https://attack.mitre.org/groups/" + gid + ")  "]
+    hdr = ([] if fic else ["**ATT&CK:** [" + gid + "](https://attack.mitre.org/groups/" + gid + ")  "])
+    if fic:
+        hdr.append("**Classification:** lab / fictional (not official ATT&CK)  ")
     if aliases:
         hdr.append("**Aliases:** " + ", ".join(aliases) + "  ")
     out.append("\n".join(hdr) + "\n")
@@ -1001,15 +1018,22 @@ LAB_DISCLAIMER = (
     "> **\U0001f9ea Lab / fictional — authored for TeamStarWolf training scenarios.** This is "
     "**not a real-world threat**; it exists only to exercise the lab. Do not cite it as real "
     "threat intelligence.")
+UNCERTAIN_DISCLAIMER = (
+    "> **❓ Provenance uncertain.** This entry is derived from a real-world threat but appears in a "
+    "TeamStarWolf lab context; whether this specific variant is real or lab-authored is **not "
+    "established**. Treat it as unverified — do not cite it as confirmed real threat intelligence, "
+    "and it is not an official ATT&CK object.")
 
 
 def render_emerging(db, sid):
     s = db.em_prof[sid]
     fic = sid in db.lab_fictional
+    unc = sid in db.uncertain_sw
     out = ["# " + sid + " " + DASH + " " + s.get("name", "") + "\n", '<a id="' + sid.lower() + '"></a>\n']
-    out.append((LAB_DISCLAIMER if fic else EMERGING_DISCLAIMER) + "\n")
+    out.append((LAB_DISCLAIMER if fic else UNCERTAIN_DISCLAIMER if unc else EMERGING_DISCLAIMER) + "\n")
     aliases = [a for a in (s.get("aliases") or []) if a and a != s.get("name")]
-    hdr = ["**Classification:** " + ("lab / fictional" if fic else "community / emerging") + "  ",
+    cls = "lab / fictional" if fic else "provenance uncertain" if unc else "community / emerging"
+    hdr = ["**Classification:** " + cls + "  ",
            "**Type:** " + (s.get("type") or "tool") + "  ",
            "**Local ref:** `" + sid + "` (not official ATT&CK)  "]
     if s.get("platforms"):
@@ -1035,7 +1059,8 @@ def render_emerging(db, sid):
 
 def render_emerging_landing(db):
     fic = sorted(s for s in db.em_prof if s in db.lab_fictional)
-    real = sorted(s for s in db.em_prof if s not in db.lab_fictional)
+    unc = sorted(s for s in db.em_prof if s in db.uncertain_sw)
+    real = sorted(s for s in db.em_prof if s not in db.lab_fictional and s not in db.uncertain_sw)
     lines = ["# Emerging & Community Tools (" + str(len(db.em_prof)) + ")", "",
              EMERGING_DISCLAIMER, "",
              "Tools and malware tracked here for cross-referencing that are **not (yet) in the "
@@ -1054,6 +1079,12 @@ def render_emerging_landing(db):
             s = db.em_prof[sid]
             lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/emerging/" + sid +
                          ".md) \U0001f9ea (" + (s.get("type") or "") + ")")
+    if unc:
+        lines.append("\n## Provenance uncertain (real-derived, lab context — unverified) (" + str(len(unc)) + ")\n")
+        for sid in unc:
+            s = db.em_prof[sid]
+            lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/emerging/" + sid +
+                         ".md) ❓ (" + (s.get("type") or "") + ")")
     lines.append("\n" + SHORT_FOOTER)
     return "\n".join(lines)
 

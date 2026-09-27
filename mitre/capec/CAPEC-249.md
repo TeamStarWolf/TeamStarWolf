@@ -3,11 +3,9 @@
 <a id="capec-249"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is covered by CAPEC-40 : Manipulating Writeable Terminal Devices. Please refer to this CAPEC going forward.
-
 
 ---
 

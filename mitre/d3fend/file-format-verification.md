@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1564.009](/mitre/techniques/T1564-009.md) — analyzes
+- [T1564.009 — Resource Forking](/mitre/techniques/T1564-009.md) — analyzes
 
 ---
 

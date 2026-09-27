@@ -4,20 +4,29 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Draft  
 
 An adversary removes or disables functionality on the client that the server assumes to be present and trustworthy.
 
 ## Related CWE (1)
 
-[CWE-602](/CWE_REFERENCE.md)
+- [CWE-602 — Client-Side Enforcement of Server-Side Security](https://cwe.mitre.org/data/definitions/602.html)
 
-**Prerequisites:** ::The targeted server must assume the client performs important actions to protect the server or the server functionality. For example, the server may assume the client filters outbound traffic or tha
+## Prerequisites
 
-**Skills required:** ::SKILL:To reverse engineer the client-side code to disable/remove the functionality on the client that the server relies on.:LEVEL:High::SKILL:The ad
+- The targeted server must assume the client performs important actions to protect the server or the server functionality. For example, the server may assume the client filters outbound traffic or tha
 
-**Mitigations:** ::Design: For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side.::Design: Ship client-side application with integrity checks (code signing) when possible.::Design: Use obfuscation an
+## Skills required
 
+- To reverse engineer the client-side code to disable/remove the functionality on the client that the server relies on.:LEVEL:High
+- The ad
+
+## Mitigations
+
+- Design: For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side.
+- Design: Ship client-side application with integrity checks (code signing) when possible.
+- Design: Use obfuscation an
 
 ---
 

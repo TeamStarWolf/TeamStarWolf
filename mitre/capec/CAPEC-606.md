@@ -4,20 +4,26 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Draft  
 
 An attacker, with control of a Cellular Rogue Base Station or through cooperation with a Malicious Mobile Network Operator can force the mobile device (e.g., the retransmission device) to use no encryption (A5/0 mode) or to use easily breakable encryption (A5/1 or A5/2 mode).
 
 ## Related CWE (1)
 
-[CWE-757](/CWE_REFERENCE.md)
+- [CWE-757 — Selection of Less-Secure Algorithm During Negotiation ('Algorithm Downgrade')](https://cwe.mitre.org/data/definitions/757.html)
 
-**Prerequisites:** ::Cellular devices that allow negotiating security modes to facilitate backwards compatibility and roaming on legacy networks.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Adversaries can purchase and implement rogue BTS stations at a cost effective rate, and can push a mobile device to downgrade to a non-secure 
+- Cellular devices that allow negotiating security modes to facilitate backwards compatibility and roaming on legacy networks.
 
-**Mitigations:** ::Use of hardened baseband firmware on retransmission device to detect and prevent the use of weak cellular encryption.::Monitor cellular RF interface to detect the usage of weaker-than-expected cellular encryption.::
+## Skills required
 
+- Adversaries can purchase and implement rogue BTS stations at a cost effective rate, and can push a mobile device to downgrade to a non-secure
+
+## Mitigations
+
+- Use of hardened baseband firmware on retransmission device to detect and prevent the use of weak cellular encryption.
+- Monitor cellular RF interface to detect the usage of weaker-than-expected cellular encryption.
 
 ---
 

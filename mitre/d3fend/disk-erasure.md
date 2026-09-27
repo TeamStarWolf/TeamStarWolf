@@ -5,10 +5,9 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Secondary Storage
 
-## ATT&CK techniques countered (2)
+## ATT&CK techniques countered (1)
 
-- `EX-0007` — erases
-- [T1619](/mitre/techniques/T1619.md) — erases
+- [T1619 — Cloud Storage Object Discovery](/mitre/techniques/T1619.md) — erases
 
 ---
 

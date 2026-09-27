@@ -4,10 +4,9 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it is a duplicate of the existing attack pattern CAPEC-285. Please refer to this other CAPEC going forward.
-
 
 ---
 

@@ -41,9 +41,36 @@ FOOTER = (
     "(lower-bound evidence), not an official MITRE mapping.*\n"
 )
 
+SHORT_FOOTER = (
+    "---\n\n"
+    "*Source: MITRE ATT&CK\N{REGISTERED SIGN} / D3FEND\N{TRADE MARK SIGN} / CAPEC\N{TRADE MARK SIGN} / "
+    "ATLAS\N{TRADE MARK SIGN} " + DASH + " trademarks of The MITRE Corporation. Independent reference "
+    "summary; consult the upstream projects for authoritative content.*\n"
+)
+
 CAP_NAMED = 25          # cap named groups/software listed per technique
 CAP_ANALYTICS = 8       # cap analytics rendered per technique
 CAP_LOGSRC = 6          # cap log sources rendered per analytic
+
+
+def extract_section(md_text, heading):
+    """Return the body of a '## {heading}' section (until the next '## ' or '---'), preserved verbatim."""
+    if not md_text:
+        return None
+    lines = md_text.splitlines()
+    start = None
+    for i, ln in enumerate(lines):
+        if ln.strip() == "## " + heading or ln.strip().startswith("## " + heading + " ("):
+            start = i
+            break
+    if start is None:
+        return None
+    body = []
+    for ln in lines[start + 1:]:
+        if ln.startswith("## ") or ln.strip() == "---":
+            break
+        body.append(ln)
+    return "\n".join(body).strip() or None
 
 
 # ----------------------------------------------------------------------------- helpers
@@ -164,6 +191,46 @@ class DB:
                 if block:
                     self.corpus[tid] = block
         self.corpus_ids = set(self.corpus)
+        # corpus prevalence percent parsed from the block (for tactic "most-observed")
+        self.corpus_pct = {}
+        for tid, blk in self.corpus.items():
+            m = re.search(r"\(([\d.]+)%\)", blk)
+            if m:
+                self.corpus_pct[tid] = float(m.group(1))
+
+        # --- mitigations ---
+        self.mit = {r["mitigation_id"]: r for r in load_jsonl(DATA / "attack/mitigations.jsonl")}
+        self.mit_techs = defaultdict(list)
+        for r in load_jsonl(DATA / "attack/mitigation_to_technique.jsonl"):
+            self.mit_techs[r["mitigation_id"]].append((r["technique_id"], r["technique_name"]))
+
+        # --- CAPEC + CWE ---
+        self.capec = {r["capec_id"]: r for r in load_jsonl(DATA / "weaknesses/capec.jsonl")}
+        self.cwe_name = {r["cwe_id"]: r.get("name", "") for r in load_jsonl(DATA / "weaknesses/cwe.jsonl")}
+
+        # --- ATLAS ---
+        self.atlas = {r["technique_id"]: r for r in load_jsonl(DATA / "ai/atlas_techniques.jsonl")}
+        self.atlas_mit = {r["mitigation_id"]: r for r in load_jsonl(DATA / "ai/atlas_mitigations.jsonl")}
+        self.atlas_subs = defaultdict(list)
+        for r in self.atlas.values():
+            if r.get("parent_id"):
+                self.atlas_subs[r["parent_id"]].append(r["technique_id"])
+
+        # --- D3FEND (reverse map: countermeasure -> tactic, artifacts, ATT&CK techniques it counters) ---
+        self.d3_pages = {}
+        for r in load_jsonl(DATA / "attack/technique_to_d3fend.jsonl"):
+            name = r.get("d3fend_technique")
+            if not name:
+                continue
+            page = self.d3_pages.setdefault(name, {"tactic": "", "artifacts": [], "counters": []})
+            if not page["tactic"] and r.get("d3fend_tactic"):
+                page["tactic"] = sstr(r["d3fend_tactic"])
+            for a in (r.get("digital_artifact") or []):
+                if a not in page["artifacts"]:
+                    page["artifacts"].append(a)
+            tid = r.get("technique_id", "")
+            if tid.startswith("T") and not tid.startswith("TA"):
+                page["counters"].append((tid, sstr(r.get("relation")) or "maps"))
 
 
 # ----------------------------------------------------------------------------- technique
@@ -310,6 +377,191 @@ def render_technique(db, tid):
     return "\n".join(out)
 
 
+# ----------------------------------------------------------------------------- shared
+def link_tech(db, tid, name=None):
+    """Link an ATT&CK technique id: enterprise -> internal page, ICS (T0) -> official, else code."""
+    nm = name or (db.prof.get(tid, {}) or {}).get("name")
+    label = tid + " " + DASH + " " + nm if nm else tid
+    if tid in db.prof:
+        return "[" + label + "](/mitre/techniques/" + tslug(tid) + ".md)"
+    if tid.startswith("T0"):
+        return "[" + label + "](https://attack.mitre.org/techniques/" + tid + ")"
+    return "`" + tid + "`"
+
+
+# ----------------------------------------------------------------------------- mitigation
+def render_mitigation(db, mid, existing):
+    m = db.mit.get(mid, {})
+    out = ["# " + mid + " " + DASH + " " + m.get("name", "") + "\n", '<a id="' + mid.lower() + '"></a>\n']
+    tc = m.get("technique_count", len(db.mit_techs.get(mid, [])))
+    out.append("**ATT&CK:** [" + mid + "](" + str(m.get("url")) + ") \N{MIDDLE DOT} addresses **" + str(tc) + "** techniques\n")
+    if m.get("description"):
+        out.append(m["description"].strip() + "\n")
+    # preserved, non-data sections
+    for h in ("How to implement", "Team Star Wolf corpus relevance"):
+        body = extract_section(existing, h)
+        if body:
+            out.append("## " + h + "\n")
+            out.append(body + "\n")
+    techs = db.mit_techs.get(mid, [])
+    if techs:
+        out.append("## Techniques addressed (" + str(len(techs)) + ")\n")
+        out.append("\n".join("- " + link_tech(db, t, n) for t, n in techs) + "\n")
+    out.append(FOOTER)
+    return "\n".join(out)
+
+
+# ----------------------------------------------------------------------------- tactic
+def render_tactic(db, slug, existing):
+    # preserve title + description from the existing page
+    title, desc = "Tactic: " + slug.replace("-", " ").title(), ""
+    if existing:
+        lines = existing.splitlines()
+        if lines and lines[0].startswith("# "):
+            title = lines[0][2:].strip()
+        m = re.search(r'</a>\s*\n+(.*?)(?:\n\s*\n|\Z)', existing, re.S)
+        if m:
+            desc = m.group(1).strip()
+    techs = [t for t, p in db.prof.items() if slug in (p.get("tactics") or [])]
+    techs.sort()
+    out = ["# " + title + "\n", '<a id="' + slug + '"></a>\n']
+    if desc:
+        out.append(desc + "\n")
+    # most-observed in the corpus (this tactic's techniques that carry a corpus signal)
+    obs = sorted(((db.corpus_pct.get(t, 0), t) for t in techs if t in db.corpus_ids), reverse=True)
+    if obs:
+        out.append("## Most-observed in the Team Star Wolf corpus\n")
+        out.append("\n".join(
+            "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) +
+            ".md) " + DASH + " " + (str(pct) + "% of machines" if pct else "observed")
+            for pct, t in obs) + "\n")
+    out.append("**" + str(len(techs)) + " techniques** in this tactic (Team Star Wolf enriched pages):\n")
+    out.append("\n".join(
+        "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)" +
+        (" " + STAR if t in db.corpus_ids else "") for t in techs) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+# ----------------------------------------------------------------------------- d3fend
+def render_d3fend(db, slug, existing):
+    # find this page's countermeasure name from the existing H1
+    name = ""
+    if existing:
+        first = existing.splitlines()[0] if existing.splitlines() else ""
+        if first.startswith("# D3FEND:"):
+            name = first[len("# D3FEND:"):].strip()
+    page = db.d3_pages.get(name)
+    out = ["# D3FEND: " + name + "\n", '<a id="' + slug + '"></a>\n']
+    if page:
+        if page["tactic"]:
+            out.append("**D3FEND tactic:** " + page["tactic"])
+        if page["artifacts"]:
+            out.append("**Digital artifacts:** " + ", ".join(page["artifacts"]))
+        out.append("")
+        # ATT&CK techniques countered — link enterprise + ICS, drop non-ATT&CK (DE-) rows
+        seen, rows = set(), []
+        for tid, rel in page["counters"]:
+            if tid in seen:
+                continue
+            seen.add(tid)
+            rows.append("- " + link_tech(db, tid) + " " + DASH + " " + rel)
+        if rows:
+            out.append("## ATT&CK techniques countered (" + str(len(rows)) + ")\n")
+            out.append("\n".join(rows))
+    out.append("\n" + SHORT_FOOTER)
+    return "\n".join(out)
+
+
+# ----------------------------------------------------------------------------- capec
+def render_capec(db, cid):
+    c = db.capec[cid]
+    out = ["# " + cid + " " + DASH + " " + c.get("name", "") + "\n",
+           '<a id="' + cid.lower() + '"></a>\n']
+    meta = []
+    for k, label in (("abstraction", "Abstraction"), ("typical_severity", "Typical severity"),
+                     ("likelihood", "Likelihood"), ("status", "Status")):
+        if c.get(k):
+            meta.append("**" + label + ":** " + str(c[k]) + "  ")
+    if meta:
+        out.append("\n".join(meta) + "\n")
+    if c.get("description"):
+        out.append(str(c["description"]).strip() + "\n")
+    # mapped ATT&CK
+    techs = as_list(c.get("attack_techniques"))
+    if techs:
+        out.append("## Mapped ATT&CK techniques (" + str(len(techs)) + ")\n")
+        out.append("\n".join("- " + link_tech(db, t) for t in techs) + "\n")
+    # related CWE — per-CWE links with names (fixes the single-page-link defect)
+    cwes = as_list(c.get("related_cwe"))
+    if cwes:
+        out.append("## Related CWE (" + str(len(cwes)) + ")\n")
+        rows = []
+        for w in cwes:
+            num = re.sub(r"\D", "", w)
+            nm = db.cwe_name.get(w) or db.cwe_name.get("CWE-" + num)
+            label = w + " " + DASH + " " + nm if nm else w
+            rows.append("- [" + label + "](https://cwe.mitre.org/data/definitions/" + num + ".html)")
+        out.append("\n".join(rows) + "\n")
+    # prose lists (fix the '::' separators)
+    for key, heading in (("prerequisites", "Prerequisites"), ("skills_required", "Skills required"),
+                         ("mitigations", "Mitigations")):
+        items = clean_capec_field(c.get(key))
+        if items:
+            out.append("## " + heading + "\n")
+            out.append("\n".join("- " + it for it in items) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+# ----------------------------------------------------------------------------- atlas
+def aml_slug(tid):
+    return tid.replace(".", "-")
+
+
+def aml_anchor(tid):
+    return tid.replace(".", "").lower()
+
+
+def render_atlas_technique(db, tid):
+    r = db.atlas[tid]
+    out = ["# " + tid + " " + DASH + " " + r.get("name", "") + "\n", '<a id="' + aml_anchor(tid) + '"></a>\n']
+    hdr = ["**ATLAS tactics:** " + (", ".join(r.get("tactics") or []) or DASH)]
+    if r.get("parent_id"):
+        par = r["parent_id"]
+        pnm = db.atlas.get(par, {}).get("name", "")
+        hdr.append("**Sub-technique of:** [" + par + " " + DASH + " " + pnm + "](/mitre/atlas/" + aml_slug(par) + ".md)")
+    hdr.append("**ATLAS:** [" + tid + "](" + str(r.get("url")) + ")")
+    out.append("\n".join(hdr) + "\n")
+    if r.get("description"):
+        out.append(str(r["description"]).strip() + "\n")
+    migs = r.get("mitigations") or []
+    if migs:
+        out.append("## Mitigations (" + str(len(migs)) + ")\n")
+        out.append("\n".join(
+            "- [" + m["id"] + " " + DASH + " " + m["name"] + "](/mitre/atlas/" + aml_slug(m["id"]) + ".md)"
+            for m in migs) + "\n")
+    kids = sorted(db.atlas_subs.get(tid) or [])
+    if kids:
+        out.append("## Sub-techniques (" + str(len(kids)) + ")\n")
+        out.append("\n".join(
+            "- [" + k + " " + DASH + " " + db.atlas[k].get("name", "") + "](/mitre/atlas/" + aml_slug(k) + ".md)"
+            for k in kids) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_atlas_mitigation(db, mid):
+    r = db.atlas_mit[mid]
+    out = ["# " + mid + " " + DASH + " " + r.get("name", "") + "\n", '<a id="' + aml_anchor(mid) + '"></a>\n']
+    out.append("**ATLAS:** [" + mid + "](" + str(r.get("url")) + ") \N{MIDDLE DOT} addresses **" +
+               str(r.get("technique_count", 0)) + "** techniques\n")
+    if r.get("description"):
+        out.append(str(r["description"]).strip() + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
 # ----------------------------------------------------------------------------- landing
 def render_landing(db):
     n_tech = len(list((MITRE / "techniques").glob("T*.md")))
@@ -385,6 +637,61 @@ def main():
             (d / (tslug(tid) + ".md")).write_text(render_technique(db, tid), encoding="utf-8")
             n += 1
         print("techniques: wrote " + str(n) + " pages")
+
+    if "mitigations" in only:
+        d = out_root / "mitigations"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for f in sorted((MITRE / "mitigations").glob("M*.md")):
+            mid = f.stem
+            if mid not in db.mit:
+                continue
+            (d / (mid + ".md")).write_text(render_mitigation(db, mid, f.read_text(encoding="utf-8")), encoding="utf-8")
+            n += 1
+        print("mitigations: wrote " + str(n) + " pages")
+
+    if "tactics" in only:
+        d = out_root / "tactics"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for f in sorted((MITRE / "tactics").glob("*.md")):
+            if f.name == "README.md":
+                continue
+            (d / f.name).write_text(render_tactic(db, f.stem, f.read_text(encoding="utf-8")), encoding="utf-8")
+            n += 1
+        print("tactics: wrote " + str(n) + " pages")
+
+    if "d3fend" in only:
+        d = out_root / "d3fend"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for f in sorted((MITRE / "d3fend").glob("*.md")):
+            if f.name == "README.md":
+                continue
+            (d / f.name).write_text(render_d3fend(db, f.stem, f.read_text(encoding="utf-8")), encoding="utf-8")
+            n += 1
+        print("d3fend: wrote " + str(n) + " pages")
+
+    if "capec" in only:
+        d = out_root / "capec"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for cid in db.capec:
+            (d / (cid + ".md")).write_text(render_capec(db, cid), encoding="utf-8")
+            n += 1
+        print("capec: wrote " + str(n) + " pages")
+
+    if "atlas" in only:
+        d = out_root / "atlas"
+        d.mkdir(parents=True, exist_ok=True)
+        nt = nm = 0
+        for tid in db.atlas:
+            (d / (aml_slug(tid) + ".md")).write_text(render_atlas_technique(db, tid), encoding="utf-8")
+            nt += 1
+        for mid in db.atlas_mit:
+            (d / (aml_slug(mid) + ".md")).write_text(render_atlas_mitigation(db, mid), encoding="utf-8")
+            nm += 1
+        print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)

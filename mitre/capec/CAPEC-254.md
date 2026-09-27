@@ -3,11 +3,9 @@
 <a id="capec-254"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This pattern has been deprecated as it was determined to be an unnecessary layer of abstraction. Please refer to the pattern CAPEC-228 : DTD Injection going forward.
-
 
 ---
 

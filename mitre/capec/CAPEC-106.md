@@ -3,11 +3,9 @@
 <a id="capec-106"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it referes to an existing chain relationship between CAPEC-93 : Log Injection-Tampering-Forging and CAPEC-63 : Cross-Site Scripting. Please refer to these CAPECs going forward.
-
 
 ---
 

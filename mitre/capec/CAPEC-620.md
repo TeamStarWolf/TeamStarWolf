@@ -4,18 +4,17 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Draft  
 
 An attacker forces the encryption level to be lowered, thus enabling a successful attack against the encrypted data.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1600](/mitre/techniques/T1600.md)
+- [T1600 — Weaken Encryption](/mitre/techniques/T1600.md)
 
 ## Related CWE (1)
 
-[CWE-757](/CWE_REFERENCE.md)
-
+- [CWE-757 — Selection of Less-Secure Algorithm During Negotiation ('Algorithm Downgrade')](https://cwe.mitre.org/data/definitions/757.html)
 
 ---
 

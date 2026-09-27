@@ -3,11 +3,9 @@
 <a id="capec-266"></a>
 
 **Abstraction:** Meta  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated.
-
 
 ---
 

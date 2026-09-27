@@ -4,20 +4,29 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary targets software that constructs NoSQL statements based on user input or with parameters vulnerable to operator replacement in order to achieve a variety of technical impacts such as escalating privileges, bypassing authentication, and/or executing code.
 
 ## Related CWE (2)
 
-[CWE-943](/CWE_REFERENCE.md) [CWE-1286](/CWE_REFERENCE.md)
+- [CWE-943 — Improper Neutralization of Special Elements in Data Query Logic](https://cwe.mitre.org/data/definitions/943.html)
+- [CWE-1286 — Improper Validation of Syntactic Correctness of Input](https://cwe.mitre.org/data/definitions/1286.html)
 
-**Prerequisites:** ::Awareness of the technology stack being leveraged by the target application.::NoSQL queries used by the application to store, retrieve, or modify data.::User-controllable input that is not properly 
+## Prerequisites
 
-**Skills required:** ::SKILL:For keyword and JavaScript injection attacks, it is fairly simple for someone with basic NoSQL knowledge to perform NoSQL injection, once the 
+- Awareness of the technology stack being leveraged by the target application.
+- NoSQL queries used by the application to store, retrieve, or modify data.
+- User-controllable input that is not properly
 
-**Mitigations:** ::Strong input validation - All user-controllable input must be validated and filtered for illegal characters as well as relevant NoSQL and JavaScript content. NoSQL-specific keywords, such as $ne, $eq or $gt for MongoDB, must be filtered in addition
+## Skills required
 
+- For keyword and JavaScript injection attacks, it is fairly simple for someone with basic NoSQL knowledge to perform NoSQL injection, once the
+
+## Mitigations
+
+- Strong input validation - All user-controllable input must be validated and filtered for illegal characters as well as relevant NoSQL and JavaScript content. NoSQL-specific keywords, such as $ne, $eq or $gt for MongoDB, must be filtered in addition
 
 ---
 

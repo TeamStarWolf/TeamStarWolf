@@ -4,20 +4,25 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary examines a target application's cache, or a browser cache, for sensitive information. Many applications that communicate with remote entities or which perform intensive calculations utilize caches to improve efficiency. However, if the application computes or receives sensitive information and the cache is not appropriately protected, an attacker can browse the cache and retrieve this
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1005](/mitre/techniques/T1005.md)
+- [T1005 — Data from Local System](/mitre/techniques/T1005.md)
 
 ## Related CWE (4)
 
-[CWE-524](/CWE_REFERENCE.md) [CWE-311](/CWE_REFERENCE.md) [CWE-1239](/CWE_REFERENCE.md) [CWE-1258](/CWE_REFERENCE.md)
+- [CWE-524 — Use of Cache Containing Sensitive Information](https://cwe.mitre.org/data/definitions/524.html)
+- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html)
+- [CWE-1239 — Improper Zeroization of Hardware Register](https://cwe.mitre.org/data/definitions/1239.html)
+- [CWE-1258 — Exposure of Sensitive System Information Due to Uncleared Debug Information](https://cwe.mitre.org/data/definitions/1258.html)
 
-**Prerequisites:** ::The target application must store sensitive information in a cache.::The cache must be inadequately protected against attacker access.::
+## Prerequisites
 
+- The target application must store sensitive information in a cache.
+- The cache must be inadequately protected against attacker access.
 
 ---
 

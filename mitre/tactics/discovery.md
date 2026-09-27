@@ -4,6 +4,11 @@
 
 The adversary is trying to figure out your environment.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1046 — Network Service Discovery](/mitre/techniques/T1046.md) — 93.6% of machines
+- [T1083 — File and Directory Discovery](/mitre/techniques/T1083.md) — 28.0% of machines
+
 **49 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1007 — System Service Discovery](/mitre/techniques/T1007.md)

@@ -4,16 +4,23 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Medium  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Draft  
 
 An adversary registers a domain name with at least one character different than a trusted domain. A TypoSquatting attack takes advantage of instances where a user mistypes a URL (e.g. www.goggle.com) or not does visually verify a URL before clicking on it (e.g. phishing attack). As a result, the user is directed to an adversary-controlled destination. TypoSquatting does not require an attack again
 
-**Prerequisites:** ::An adversary requires knowledge of popular or high traffic domains, that could be used to deceive potential targets.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Adversaries must be able to register DNS hostnames/URL’s.:LEVEL:Low::
+- An adversary requires knowledge of popular or high traffic domains, that could be used to deceive potential targets.
 
-**Mitigations:** ::Authenticate all servers and perform redundant checks when using DNS hostnames.::Purchase potential TypoSquatted domains and forward to legitimate domain.::
+## Skills required
 
+- Adversaries must be able to register DNS hostnames/URL’s.:LEVEL:Low
+
+## Mitigations
+
+- Authenticate all servers and perform redundant checks when using DNS hostnames.
+- Purchase potential TypoSquatted domains and forward to legitimate domain.
 
 ---
 

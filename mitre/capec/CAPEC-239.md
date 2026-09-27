@@ -3,11 +3,9 @@
 <a id="capec-239"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as it did not contain any content and did not serve any useful purpose. Please refer to CAPEC-207: removing Important Client Functionality going forward.
-
 
 ---
 

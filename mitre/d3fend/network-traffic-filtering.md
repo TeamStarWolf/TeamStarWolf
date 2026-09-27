@@ -3,129 +3,126 @@
 <a id="network-traffic-filtering"></a>
 
 **D3FEND tactic:** Isolate
-**Digital artifacts:** Network Traffic, OT Protocol Message
+**Digital artifacts:** OT Protocol Message, Network Traffic
 
-## ATT&CK techniques countered (119)
+## ATT&CK techniques countered (116)
 
-- `EX-0001.01` — filters
-- `EX-0005.02` — filters
-- `EX-0013.01` — filters
-- `T0800` — filters
-- `T0801` — filters
-- `T0802` — filters
-- `T0803` — filters
-- `T0805` — filters
-- `T0806` — filters
-- `T0809` — filters
-- `T0811` — filters
-- `T0814` — filters
-- `T0817` — filters
-- `T0819` — filters
-- `T0821` — filters
-- `T0822` — filters
-- `T0830` — filters
-- `T0835` — filters
-- `T0836` — filters
-- `T0838` — filters
-- `T0839` — filters
-- `T0840` — filters
-- `T0842` — filters
-- `T0843` — filters
-- `T0845` — filters
-- `T0846` — filters
-- `T0848` — filters
-- `T0855` — filters
-- `T0856` — filters
-- `T0857` — filters
-- `T0858` — filters
-- `T0861` — filters
-- `T0865` — filters
-- `T0866` — filters
-- `T0868` — filters
-- `T0869` — filters
-- `T0873` — filters
-- `T0877` — filters
-- `T0878` — filters
-- `T0884` — filters
-- `T0885` — filters
-- `T0886` — filters
-- `T0888` — filters
-- `T0889` — filters
-- `T0893` — filters
-- `T0894` — filters
-- `T0895` — filters
-- [T1001](/mitre/techniques/T1001.md) — filters
-- [T1003.006](/mitre/techniques/T1003-006.md) — filters
-- [T1008](/mitre/techniques/T1008.md) — filters
-- [T1011](/mitre/techniques/T1011.md) — filters
-- [T1018](/mitre/techniques/T1018.md) — filters
-- [T1020](/mitre/techniques/T1020.md) — filters
-- [T1021](/mitre/techniques/T1021.md) — filters
-- [T1021.001](/mitre/techniques/T1021-001.md) — filters
-- [T1021.004](/mitre/techniques/T1021-004.md) — filters
-- [T1029](/mitre/techniques/T1029.md) — filters
-- [T1030](/mitre/techniques/T1030.md) — filters
-- [T1041](/mitre/techniques/T1041.md) — filters
-- [T1047](/mitre/techniques/T1047.md) — filters
-- [T1048](/mitre/techniques/T1048.md) — filters
-- [T1048.001](/mitre/techniques/T1048-001.md) — filters
-- [T1048.002](/mitre/techniques/T1048-002.md) — filters
-- [T1048.003](/mitre/techniques/T1048-003.md) — filters
-- [T1071](/mitre/techniques/T1071.md) — filters
-- [T1071.001](/mitre/techniques/T1071-001.md) — filters
-- [T1071.002](/mitre/techniques/T1071-002.md) — filters
-- [T1071.003](/mitre/techniques/T1071-003.md) — filters
-- [T1071.004](/mitre/techniques/T1071-004.md) — filters
-- [T1090.001](/mitre/techniques/T1090-001.md) — filters
-- [T1090.002](/mitre/techniques/T1090-002.md) — filters
-- [T1090.003](/mitre/techniques/T1090-003.md) — filters
-- [T1090.004](/mitre/techniques/T1090-004.md) — filters
-- [T1095](/mitre/techniques/T1095.md) — filters
-- [T1098.001](/mitre/techniques/T1098-001.md) — filters
-- [T1102](/mitre/techniques/T1102.md) — filters
-- [T1104](/mitre/techniques/T1104.md) — filters
-- [T1105](/mitre/techniques/T1105.md) — filters
-- [T1110.003](/mitre/techniques/T1110-003.md) — filters
-- [T1110.004](/mitre/techniques/T1110-004.md) — filters
-- [T1132](/mitre/techniques/T1132.md) — filters
-- [T1185](/mitre/techniques/T1185.md) — filters
-- [T1189](/mitre/techniques/T1189.md) — filters
-- [T1190](/mitre/techniques/T1190.md) — filters
-- [T1197](/mitre/techniques/T1197.md) — filters
-- [T1199](/mitre/techniques/T1199.md) — filters
-- [T1204.001](/mitre/techniques/T1204-001.md) — filters
-- [T1205](/mitre/techniques/T1205.md) — filters
-- [T1205.001](/mitre/techniques/T1205-001.md) — filters
-- [T1207](/mitre/techniques/T1207.md) — filters
-- [T1210](/mitre/techniques/T1210.md) — filters
-- [T1218.003](/mitre/techniques/T1218-003.md) — filters
-- [T1219](/mitre/techniques/T1219.md) — filters
-- [T1498.001](/mitre/techniques/T1498-001.md) — filters
-- [T1498.002](/mitre/techniques/T1498-002.md) — filters
-- [T1499.002](/mitre/techniques/T1499-002.md) — filters
-- [T1542.005](/mitre/techniques/T1542-005.md) — filters
-- [T1546.003](/mitre/techniques/T1546-003.md) — filters
-- [T1546.008](/mitre/techniques/T1546-008.md) — filters
-- [T1550.001](/mitre/techniques/T1550-001.md) — filters
-- [T1550.004](/mitre/techniques/T1550-004.md) — filters
-- [T1557](/mitre/techniques/T1557.md) — filters
-- [T1557.001](/mitre/techniques/T1557-001.md) — filters
-- [T1557.003](/mitre/techniques/T1557-003.md) — filters
-- [T1558.003](/mitre/techniques/T1558-003.md) — filters
-- [T1563](/mitre/techniques/T1563.md) — filters
-- [T1565.002](/mitre/techniques/T1565-002.md) — filters
-- [T1566.001](/mitre/techniques/T1566-001.md) — filters
-- [T1566.002](/mitre/techniques/T1566-002.md) — filters
-- [T1567](/mitre/techniques/T1567.md) — filters
-- [T1567.001](/mitre/techniques/T1567-001.md) — filters
-- [T1567.002](/mitre/techniques/T1567-002.md) — filters
-- [T1568](/mitre/techniques/T1568.md) — filters
-- [T1570](/mitre/techniques/T1570.md) — filters
-- [T1571](/mitre/techniques/T1571.md) — filters
-- [T1572](/mitre/techniques/T1572.md) — filters
-- [T1573](/mitre/techniques/T1573.md) — filters
-- [T1573.001](/mitre/techniques/T1573-001.md) — filters
-- [T1573.002](/mitre/techniques/T1573-002.md) — filters
+- [T0800](https://attack.mitre.org/techniques/T0800) — filters
+- [T0801](https://attack.mitre.org/techniques/T0801) — filters
+- [T0802](https://attack.mitre.org/techniques/T0802) — filters
+- [T0803](https://attack.mitre.org/techniques/T0803) — filters
+- [T0805](https://attack.mitre.org/techniques/T0805) — filters
+- [T0806](https://attack.mitre.org/techniques/T0806) — filters
+- [T0809](https://attack.mitre.org/techniques/T0809) — filters
+- [T0811](https://attack.mitre.org/techniques/T0811) — filters
+- [T0814](https://attack.mitre.org/techniques/T0814) — filters
+- [T0817](https://attack.mitre.org/techniques/T0817) — filters
+- [T0819](https://attack.mitre.org/techniques/T0819) — filters
+- [T0821](https://attack.mitre.org/techniques/T0821) — filters
+- [T0822](https://attack.mitre.org/techniques/T0822) — filters
+- [T0830](https://attack.mitre.org/techniques/T0830) — filters
+- [T0835](https://attack.mitre.org/techniques/T0835) — filters
+- [T0836](https://attack.mitre.org/techniques/T0836) — filters
+- [T0838](https://attack.mitre.org/techniques/T0838) — filters
+- [T0839](https://attack.mitre.org/techniques/T0839) — filters
+- [T0840](https://attack.mitre.org/techniques/T0840) — filters
+- [T0842](https://attack.mitre.org/techniques/T0842) — filters
+- [T0843](https://attack.mitre.org/techniques/T0843) — filters
+- [T0845](https://attack.mitre.org/techniques/T0845) — filters
+- [T0846](https://attack.mitre.org/techniques/T0846) — filters
+- [T0848](https://attack.mitre.org/techniques/T0848) — filters
+- [T0855](https://attack.mitre.org/techniques/T0855) — filters
+- [T0856](https://attack.mitre.org/techniques/T0856) — filters
+- [T0857](https://attack.mitre.org/techniques/T0857) — filters
+- [T0858](https://attack.mitre.org/techniques/T0858) — filters
+- [T0861](https://attack.mitre.org/techniques/T0861) — filters
+- [T0865](https://attack.mitre.org/techniques/T0865) — filters
+- [T0866](https://attack.mitre.org/techniques/T0866) — filters
+- [T0868](https://attack.mitre.org/techniques/T0868) — filters
+- [T0869](https://attack.mitre.org/techniques/T0869) — filters
+- [T0873](https://attack.mitre.org/techniques/T0873) — filters
+- [T0877](https://attack.mitre.org/techniques/T0877) — filters
+- [T0878](https://attack.mitre.org/techniques/T0878) — filters
+- [T0884](https://attack.mitre.org/techniques/T0884) — filters
+- [T0885](https://attack.mitre.org/techniques/T0885) — filters
+- [T0886](https://attack.mitre.org/techniques/T0886) — filters
+- [T0888](https://attack.mitre.org/techniques/T0888) — filters
+- [T0889](https://attack.mitre.org/techniques/T0889) — filters
+- [T0893](https://attack.mitre.org/techniques/T0893) — filters
+- [T0894](https://attack.mitre.org/techniques/T0894) — filters
+- [T0895](https://attack.mitre.org/techniques/T0895) — filters
+- [T1001 — Data Obfuscation](/mitre/techniques/T1001.md) — filters
+- [T1003.006 — DCSync](/mitre/techniques/T1003-006.md) — filters
+- [T1008 — Fallback Channels](/mitre/techniques/T1008.md) — filters
+- [T1011 — Exfiltration Over Other Network Medium](/mitre/techniques/T1011.md) — filters
+- [T1018 — Remote System Discovery](/mitre/techniques/T1018.md) — filters
+- [T1020 — Automated Exfiltration](/mitre/techniques/T1020.md) — filters
+- [T1021 — Remote Services](/mitre/techniques/T1021.md) — filters
+- [T1021.001 — Remote Desktop Protocol](/mitre/techniques/T1021-001.md) — filters
+- [T1021.004 — SSH](/mitre/techniques/T1021-004.md) — filters
+- [T1029 — Scheduled Transfer](/mitre/techniques/T1029.md) — filters
+- [T1030 — Data Transfer Size Limits](/mitre/techniques/T1030.md) — filters
+- [T1041 — Exfiltration Over C2 Channel](/mitre/techniques/T1041.md) — filters
+- [T1047 — Windows Management Instrumentation](/mitre/techniques/T1047.md) — filters
+- [T1048 — Exfiltration Over Alternative Protocol](/mitre/techniques/T1048.md) — filters
+- [T1048.001 — Exfiltration Over Symmetric Encrypted Non-C2 Protocol](/mitre/techniques/T1048-001.md) — filters
+- [T1048.002 — Exfiltration Over Asymmetric Encrypted Non-C2 Protocol](/mitre/techniques/T1048-002.md) — filters
+- [T1048.003 — Exfiltration Over Unencrypted Non-C2 Protocol](/mitre/techniques/T1048-003.md) — filters
+- [T1071 — Application Layer Protocol](/mitre/techniques/T1071.md) — filters
+- [T1071.001 — Web Protocols](/mitre/techniques/T1071-001.md) — filters
+- [T1071.002 — File Transfer Protocols](/mitre/techniques/T1071-002.md) — filters
+- [T1071.003 — Mail Protocols](/mitre/techniques/T1071-003.md) — filters
+- [T1071.004 — DNS](/mitre/techniques/T1071-004.md) — filters
+- [T1090.001 — Internal Proxy](/mitre/techniques/T1090-001.md) — filters
+- [T1090.002 — External Proxy](/mitre/techniques/T1090-002.md) — filters
+- [T1090.003 — Multi-hop Proxy](/mitre/techniques/T1090-003.md) — filters
+- [T1090.004 — Domain Fronting](/mitre/techniques/T1090-004.md) — filters
+- [T1095 — Non-Application Layer Protocol](/mitre/techniques/T1095.md) — filters
+- [T1098.001 — Additional Cloud Credentials](/mitre/techniques/T1098-001.md) — filters
+- [T1102 — Web Service](/mitre/techniques/T1102.md) — filters
+- [T1104 — Multi-Stage Channels](/mitre/techniques/T1104.md) — filters
+- [T1105 — Ingress Tool Transfer](/mitre/techniques/T1105.md) — filters
+- [T1110.003 — Password Spraying](/mitre/techniques/T1110-003.md) — filters
+- [T1110.004 — Credential Stuffing](/mitre/techniques/T1110-004.md) — filters
+- [T1132 — Data Encoding](/mitre/techniques/T1132.md) — filters
+- [T1185 — Browser Session Hijacking](/mitre/techniques/T1185.md) — filters
+- [T1189 — Drive-by Compromise](/mitre/techniques/T1189.md) — filters
+- [T1190 — Exploit Public-Facing Application](/mitre/techniques/T1190.md) — filters
+- [T1197 — BITS Jobs](/mitre/techniques/T1197.md) — filters
+- [T1199 — Trusted Relationship](/mitre/techniques/T1199.md) — filters
+- [T1204.001 — Malicious Link](/mitre/techniques/T1204-001.md) — filters
+- [T1205 — Traffic Signaling](/mitre/techniques/T1205.md) — filters
+- [T1205.001 — Port Knocking](/mitre/techniques/T1205-001.md) — filters
+- [T1207 — Rogue Domain Controller](/mitre/techniques/T1207.md) — filters
+- [T1210 — Exploitation of Remote Services](/mitre/techniques/T1210.md) — filters
+- [T1218.003 — CMSTP](/mitre/techniques/T1218-003.md) — filters
+- [T1219 — Remote Access Tools](/mitre/techniques/T1219.md) — filters
+- [T1498.001 — Direct Network Flood](/mitre/techniques/T1498-001.md) — filters
+- [T1498.002 — Reflection Amplification](/mitre/techniques/T1498-002.md) — filters
+- [T1499.002 — Service Exhaustion Flood](/mitre/techniques/T1499-002.md) — filters
+- [T1542.005 — TFTP Boot](/mitre/techniques/T1542-005.md) — filters
+- [T1546.003 — Windows Management Instrumentation Event Subscription](/mitre/techniques/T1546-003.md) — filters
+- [T1546.008 — Accessibility Features](/mitre/techniques/T1546-008.md) — filters
+- [T1550.001 — Application Access Token](/mitre/techniques/T1550-001.md) — filters
+- [T1550.004 — Web Session Cookie](/mitre/techniques/T1550-004.md) — filters
+- [T1557 — Adversary-in-the-Middle](/mitre/techniques/T1557.md) — filters
+- [T1557.001 — LLMNR/NBT-NS Poisoning and SMB Relay](/mitre/techniques/T1557-001.md) — filters
+- [T1557.003 — DHCP Spoofing](/mitre/techniques/T1557-003.md) — filters
+- [T1558.003 — Kerberoasting](/mitre/techniques/T1558-003.md) — filters
+- [T1563 — Remote Service Session Hijacking](/mitre/techniques/T1563.md) — filters
+- [T1565.002 — Transmitted Data Manipulation](/mitre/techniques/T1565-002.md) — filters
+- [T1566.001 — Spearphishing Attachment](/mitre/techniques/T1566-001.md) — filters
+- [T1566.002 — Spearphishing Link](/mitre/techniques/T1566-002.md) — filters
+- [T1567 — Exfiltration Over Web Service](/mitre/techniques/T1567.md) — filters
+- [T1567.001 — Exfiltration to Code Repository](/mitre/techniques/T1567-001.md) — filters
+- [T1567.002 — Exfiltration to Cloud Storage](/mitre/techniques/T1567-002.md) — filters
+- [T1568 — Dynamic Resolution](/mitre/techniques/T1568.md) — filters
+- [T1570 — Lateral Tool Transfer](/mitre/techniques/T1570.md) — filters
+- [T1571 — Non-Standard Port](/mitre/techniques/T1571.md) — filters
+- [T1572 — Protocol Tunneling](/mitre/techniques/T1572.md) — filters
+- [T1573 — Encrypted Channel](/mitre/techniques/T1573.md) — filters
+- [T1573.001 — Symmetric Cryptography](/mitre/techniques/T1573-001.md) — filters
+- [T1573.002 — Asymmetric Cryptography](/mitre/techniques/T1573-002.md) — filters
 
 ---
 

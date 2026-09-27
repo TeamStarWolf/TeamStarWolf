@@ -3,19 +3,19 @@
 <a id="capec-233"></a>
 
 **Abstraction:** Meta  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary exploits a weakness enabling them to elevate their privilege and perform an action that they are not supposed to be authorized to perform.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1548](/mitre/techniques/T1548.md)
+- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md)
 
 ## Related CWE (3)
 
-[CWE-269](/CWE_REFERENCE.md) [CWE-1264](/CWE_REFERENCE.md) [CWE-1311](/CWE_REFERENCE.md)
-
+- [CWE-269 — Improper Privilege Management](https://cwe.mitre.org/data/definitions/269.html)
+- [CWE-1264 — Hardware Logic with Insecure De-Synchronization between Control and Data Channels](https://cwe.mitre.org/data/definitions/1264.html)
+- [CWE-1311 — Improper Translation of Security Attributes by Fabric Bridge](https://cwe.mitre.org/data/definitions/1311.html)
 
 ---
 

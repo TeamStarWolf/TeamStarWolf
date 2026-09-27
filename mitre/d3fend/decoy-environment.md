@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1082](/mitre/techniques/T1082.md) — manages
+- [T1082 — System Information Discovery](/mitre/techniques/T1082.md) — manages
 
 ---
 

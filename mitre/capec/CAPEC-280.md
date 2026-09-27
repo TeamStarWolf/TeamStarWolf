@@ -3,11 +3,9 @@
 <a id="capec-280"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Deprecated  
 
 This attack pattern has been deprecated as its contents have been included in CAPEC-279 : SOAP Manipulation. Please refer to this other pattern going forward.
-
 
 ---
 

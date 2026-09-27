@@ -4,12 +4,14 @@
 
 **Abstraction:** Standard  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Draft  
 
 An adversary blocks the delivery of an important system resource causing the system to fail or stop working.
 
-**Prerequisites:** ::This attack pattern requires knowledge of where important system resources are logically located as well as how they operate.::
+## Prerequisites
 
+- This attack pattern requires knowledge of where important system resources are logically located as well as how they operate.
 
 ---
 

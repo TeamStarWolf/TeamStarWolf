@@ -4,16 +4,18 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 This OS fingerprinting probe checks the initial TCP Window size. TCP stacks limit the range of sequence numbers allowable within a session to maintain the connected state within TCP protocol logic. The initial window size specifies a range of acceptable sequence numbers that will qualify as a response to an ACK packet within a session. Various operating systems use different Initial window sizes.
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.::
+## Prerequisites
 
+- The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.
 
 ---
 

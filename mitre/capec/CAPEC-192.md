@@ -4,18 +4,23 @@
 
 **Abstraction:** Meta  
 **Typical severity:** Low  
-**Likelihood:** Low
+**Likelihood:** Low  
+**Status:** Stable  
 
 An adversary engages in activities to decipher and/or decode protocol information for a network or application communication protocol used for transmitting information between interconnected nodes or systems on a packet-switched data network. While this type of analysis involves the analysis of a networking protocol inherently, it does not require the presence of an actual or physical network.
 
 ## Related CWE (1)
 
-[CWE-326](/CWE_REFERENCE.md)
+- [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html)
 
-**Prerequisites:** ::Access to a binary executable.::The ability to observe and interact with a communication channel between communicating processes.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Knowlegde of the Open Systems Interconnection model (OSI model), and famililarity with Wireshark or some other packet analyzer.:LEVEL:High::
+- Access to a binary executable.
+- The ability to observe and interact with a communication channel between communicating processes.
 
+## Skills required
+
+- Knowlegde of the Open Systems Interconnection model (OSI model), and famililarity with Wireshark or some other packet analyzer.:LEVEL:High
 
 ---
 

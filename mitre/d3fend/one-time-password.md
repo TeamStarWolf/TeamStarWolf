@@ -7,10 +7,10 @@
 
 ## ATT&CK techniques countered (4)
 
-- `T0812` — use-limits
-- [T1110.001](/mitre/techniques/T1110-001.md) — use-limits
-- [T1110.002](/mitre/techniques/T1110-002.md) — use-limits
-- [T1110.003](/mitre/techniques/T1110-003.md) — use-limits
+- [T0812](https://attack.mitre.org/techniques/T0812) — use-limits
+- [T1110.001 — Password Guessing](/mitre/techniques/T1110-001.md) — use-limits
+- [T1110.002 — Password Cracking](/mitre/techniques/T1110-002.md) — use-limits
+- [T1110.003 — Password Spraying](/mitre/techniques/T1110-003.md) — use-limits
 
 ---
 

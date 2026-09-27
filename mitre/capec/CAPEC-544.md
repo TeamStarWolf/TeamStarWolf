@@ -4,12 +4,13 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary creates a false front organizations with the appearance of a legitimate supplier in the critical life cycle path that then injects corrupted/malicious information system components into the organizational supply chain.
 
-**Prerequisites:** ::None::
+## Prerequisites
 
+- None
 
 ---
 

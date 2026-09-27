@@ -5,13 +5,10 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Physical Link
 
-## ATT&CK techniques countered (5)
+## ATT&CK techniques countered (2)
 
-- `DE-0002` — restricts
-- `EX-0016.01` — restricts
-- `EX-0016.02` — restricts
-- `T0860` — restricts
-- `T0887` — restricts
+- [T0860](https://attack.mitre.org/techniques/T0860) — restricts
+- [T0887](https://attack.mitre.org/techniques/T0887) — restricts
 
 ---
 

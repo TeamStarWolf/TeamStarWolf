@@ -7,9 +7,9 @@
 
 ## ATT&CK techniques countered (3)
 
-- [T1056.001](/mitre/techniques/T1056-001.md) — analyzes
-- [T1123](/mitre/techniques/T1123.md) — analyzes
-- [T1125](/mitre/techniques/T1125.md) — analyzes
+- [T1056.001 — Keylogging](/mitre/techniques/T1056-001.md) — analyzes
+- [T1123 — Audio Capture](/mitre/techniques/T1123.md) — analyzes
+- [T1125 — Video Capture](/mitre/techniques/T1125.md) — analyzes
 
 ---
 

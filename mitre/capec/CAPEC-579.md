@@ -3,21 +3,21 @@
 <a id="capec-579"></a>
 
 **Abstraction:** Detailed  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 Winlogon is a part of Windows that performs logon actions. In Windows systems prior to Windows Vista, a registry key can be modified that causes Winlogon to load a DLL on startup. Adversaries may take advantage of this feature to load adversarial code at startup.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1547.004](/mitre/techniques/T1547-004.md)
+- [T1547.004 — Winlogon Helper DLL](/mitre/techniques/T1547-004.md)
 
 ## Related CWE (1)
 
-[CWE-15](/CWE_REFERENCE.md)
+- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html)
 
-**Mitigations:** ::Changes to registry entries in HKLMSoftwareMicrosoftWindows NTWinlogonNotify that do not correlate with known software, patch cycles, etc are suspicious. New DLLs written to System32 which do not correlate with known good software or patching may b
+## Mitigations
 
+- Changes to registry entries in HKLMSoftwareMicrosoftWindows NTWinlogonNotify that do not correlate with known software, patch cycles, etc are suspicious. New DLLs written to System32 which do not correlate with known good software or patching may b
 
 ---
 

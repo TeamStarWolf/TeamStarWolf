@@ -5,18 +5,14 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Application Configuration
 
-## ATT&CK techniques countered (10)
+## ATT&CK techniques countered (6)
 
-- `EX-0012.02` — configures
-- `EX-0012.04` — configures
-- `EX-0012.05` — configures
-- `EX-0012.10` — configures
-- `T0858` — configures
-- `T0868` — configures
-- [T1114.003](/mitre/techniques/T1114-003.md) — configures
-- [T1562.002](/mitre/techniques/T1562-002.md) — configures
-- [T1562.003](/mitre/techniques/T1562-003.md) — configures
-- [T1564.008](/mitre/techniques/T1564-008.md) — configures
+- [T0858](https://attack.mitre.org/techniques/T0858) — configures
+- [T0868](https://attack.mitre.org/techniques/T0868) — configures
+- [T1114.003 — Email Forwarding Rule](/mitre/techniques/T1114-003.md) — configures
+- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md) — configures
+- [T1562.003 — Impair Command History Logging](/mitre/techniques/T1562-003.md) — configures
+- [T1564.008 — Email Hiding Rules](/mitre/techniques/T1564-008.md) — configures
 
 ---
 

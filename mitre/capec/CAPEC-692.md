@@ -4,20 +4,27 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** High  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary spoofs metadata pertaining to a Version Control System (VCS) (e.g., Git) repository's commits to deceive users into believing that the maliciously provided software is frequently maintained and originates from a trusted source.
 
 ## Related CWE (1)
 
-[CWE-494](/CWE_REFERENCE.md)
+- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html)
 
-**Prerequisites:** ::Identification of a popular open-source repository whose metadata is to be spoofed.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Ability to spoof a variety of repository metadata to convince victims the source is trusted.:LEVEL:Medium::
+- Identification of a popular open-source repository whose metadata is to be spoofed.
 
-**Mitigations:** ::Before downloading open-source software, perform precursory metadata checks to determine the author(s), frequency of updates, when the software was last updated, and if the software is widely leveraged.::Reference vulnerability databases to determi
+## Skills required
 
+- Ability to spoof a variety of repository metadata to convince victims the source is trusted.:LEVEL:Medium
+
+## Mitigations
+
+- Before downloading open-source software, perform precursory metadata checks to determine the author(s), frequency of updates, when the software was last updated, and if the software is widely leveraged.
+- Reference vulnerability databases to determi
 
 ---
 

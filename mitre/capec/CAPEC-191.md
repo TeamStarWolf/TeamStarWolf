@@ -4,20 +4,21 @@
 
 **Abstraction:** Detailed  
 **Typical severity:** Low  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary engages in activities to discover any sensitive constants present within the compiled code of an executable. These constants may include literal ASCII strings within the file itself, or possibly strings hard-coded into particular routines that can be revealed by code refactoring methods including static and dynamic analysis.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1552.001](/mitre/techniques/T1552-001.md)
+- [T1552.001 — Credentials In Files](/mitre/techniques/T1552-001.md)
 
 ## Related CWE (1)
 
-[CWE-798](/CWE_REFERENCE.md)
+- [CWE-798 — Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html)
 
-**Prerequisites:** ::Access to a binary or executable such that it can be analyzed by various utilities.::
+## Prerequisites
 
+- Access to a binary or executable such that it can be analyzed by various utilities.
 
 ---
 

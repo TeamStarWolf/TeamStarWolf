@@ -4,6 +4,13 @@
 
 The adversary is trying to maintain their foothold.
 
+## Most-observed in the Team Star Wolf corpus
+
+- [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — 11.0% of machines
+- [T1053.003 — Cron](/mitre/techniques/T1053-003.md) — 10.4% of machines
+- [T1505.003 — Web Shell](/mitre/techniques/T1505-003.md) — 9.6% of machines
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
+
 **126 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1037 — Boot or Logon Initialization Scripts](/mitre/techniques/T1037.md)

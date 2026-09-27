@@ -4,22 +4,26 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** Medium
+**Likelihood:** Medium  
+**Status:** Stable  
 
 An adversary provides a malicious version of a resource at a location that is similar to the expected location of a legitimate resource. After establishing the rogue location, the adversary waits for a victim to visit the location and access the malicious resource.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.005](/mitre/techniques/T1036-005.md)
+- [T1036.005 — Match Legitimate Resource Name or Location](/mitre/techniques/T1036-005.md)
 
 ## Related CWE (1)
 
-[CWE-200](/CWE_REFERENCE.md)
+- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html)
 
-**Prerequisites:** ::A resource is expected to available to the user.::
+## Prerequisites
 
-**Skills required:** ::SKILL:Adversaries can often purchase low-cost technology to implement rogue access points.:LEVEL:Low::
+- A resource is expected to available to the user.
 
+## Skills required
+
+- Adversaries can often purchase low-cost technology to implement rogue access points.:LEVEL:Low
 
 ---
 

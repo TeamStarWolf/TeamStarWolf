@@ -4,16 +4,17 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Medium  
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary takes advantage of weaknesses in the protocol by which a client and server are communicating to perform unexpected actions. Communication protocols are necessary to transfer messages between client and server applications. Moreover, different protocols may be used for different types of interactions.
 
 ## Related CWE (1)
 
-[CWE-757](/CWE_REFERENCE.md)
+- [CWE-757 — Selection of Less-Secure Algorithm During Negotiation ('Algorithm Downgrade')](https://cwe.mitre.org/data/definitions/757.html)
 
-**Prerequisites:** ::The client and/or server must utilize a protocol that has a weakness allowing manipulation of the interaction.::
+## Prerequisites
 
+- The client and/or server must utilize a protocol that has a weakness allowing manipulation of the interaction.
 
 ---
 

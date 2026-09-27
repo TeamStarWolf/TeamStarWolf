@@ -3,19 +3,21 @@
 <a id="capec-503"></a>
 
 **Abstraction:** Standard  
-**Typical severity:**   
-**Likelihood:** 
+**Status:** Draft  
 
 An adversary, through a malicious web page, accesses application specific functionality by leveraging interfaces registered through WebView's addJavascriptInterface API. Once an interface is registered to WebView through addJavascriptInterface, it becomes global and all pages loaded in the WebView can call this interface.
 
 ## Related CWE (1)
 
-[CWE-284](/CWE_REFERENCE.md)
+- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)
 
-**Prerequisites:** ::This type of an attack requires the adversary to convince the user to load the malicious web page inside the target application. Once loaded, the malicious web page will have the same permissions as
+## Prerequisites
 
-**Mitigations:** ::To mitigate this type of an attack, an application should limit permissions to only those required and should verify the origin of all web content it loads.::
+- This type of an attack requires the adversary to convince the user to load the malicious web page inside the target application. Once loaded, the malicious web page will have the same permissions as
 
+## Mitigations
+
+- To mitigate this type of an attack, an application should limit permissions to only those required and should verify the origin of all web content it loads.
 
 ---
 

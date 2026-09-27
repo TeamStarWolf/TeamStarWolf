@@ -5,12 +5,9 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Boot Loader
 
-## ATT&CK techniques countered (4)
+## ATT&CK techniques countered (1)
 
-- `DE-0008` — authenticates
-- `EX-0004` — authenticates
-- `EX-0010.04` — authenticates
-- [T1542.003](/mitre/techniques/T1542-003.md) — authenticates
+- [T1542.003 — Bootkit](/mitre/techniques/T1542-003.md) — authenticates
 
 ---
 

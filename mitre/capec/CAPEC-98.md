@@ -4,25 +4,32 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Very High  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Draft  
 
 Phishing is a social engineering technique where an attacker masquerades as a legitimate entity with which the victim might do business in order to prompt the user to reveal some confidential information (very frequently authentication credentials) that can later be used by an attacker. Phishing is essentially a form of information gathering or fishing for information.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1566](/mitre/techniques/T1566.md)
-- [T1598](/mitre/techniques/T1598.md)
+- [T1566 — Phishing](/mitre/techniques/T1566.md)
+- [T1598 — Phishing for Information](/mitre/techniques/T1598.md)
 
 ## Related CWE (1)
 
-[CWE-451](/CWE_REFERENCE.md)
+- [CWE-451 — User Interface (UI) Misrepresentation of Critical Information](https://cwe.mitre.org/data/definitions/451.html)
 
-**Prerequisites:** ::An attacker needs to have a way to initiate contact with the victim. Typically that will happen through e-mail.::An attacker needs to correctly guess the entity with which the victim does business a
+## Prerequisites
 
-**Skills required:** ::SKILL:Basic knowledge about websites: obtaining them, designing and implementing them, etc.:LEVEL:Medium::
+- An attacker needs to have a way to initiate contact with the victim. Typically that will happen through e-mail.
+- An attacker needs to correctly guess the entity with which the victim does business a
 
-**Mitigations:** ::Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too. Instead, call your Bank, PayPal, eBay, etc., and inquire about the problem. A safe practice would also
+## Skills required
 
+- Basic knowledge about websites: obtaining them, designing and implementing them, etc.:LEVEL:Medium
+
+## Mitigations
+
+- Do not follow any links that you receive within your e-mails and certainly do not input any login credentials on the page that they take you too. Instead, call your Bank, PayPal, eBay, etc., and inquire about the problem. A safe practice would also
 
 ---
 

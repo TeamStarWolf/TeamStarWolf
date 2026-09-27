@@ -4,24 +4,30 @@
 
 **Abstraction:** Standard  
 **Typical severity:** Very Low  
-**Likelihood:** High
+**Likelihood:** High  
+**Status:** Stable  
 
 An adversary collects information about the target system in an attempt to identify the system's geographical location. Information gathered could include keyboard layout, system language, and timezone. This information may benefit an adversary in confirming the desired target and/or tailoring further attacks.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1614](/mitre/techniques/T1614.md)
+- [T1614 — System Location Discovery](/mitre/techniques/T1614.md)
 
 ## Related CWE (1)
 
-[CWE-497](/CWE_REFERENCE.md)
+- [CWE-497 — Exposure of Sensitive System Information to an Unauthorized Control Sphere](https://cwe.mitre.org/data/definitions/497.html)
 
-**Prerequisites:** ::The adversary must have some level of access to the system and have a basic understanding of the operating system in order to query the appropriate sources for relevant information.::
+## Prerequisites
 
-**Skills required:** ::SKILL:The adversary must know how to query various system sources of information respective of the system's operating system to obtain the relevant 
+- The adversary must have some level of access to the system and have a basic understanding of the operating system in order to query the appropriate sources for relevant information.
 
-**Mitigations:** ::To reduce the amount of information gathered, one could disable various geolocation features of the operating system not required for system operation.::
+## Skills required
 
+- The adversary must know how to query various system sources of information respective of the system's operating system to obtain the relevant
+
+## Mitigations
+
+- To reduce the amount of information gathered, one could disable various geolocation features of the operating system not required for system operation.
 
 ---
 

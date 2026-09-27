@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1197](/mitre/techniques/T1197.md) — analyzes
+- [T1197 — BITS Jobs](/mitre/techniques/T1197.md) — analyzes
 
 ---
 

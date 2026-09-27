@@ -7,7 +7,7 @@
 
 ## ATT&CK techniques countered (1)
 
-- [T1649](/mitre/techniques/T1649.md) — regenerates
+- [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — regenerates
 
 ---
 

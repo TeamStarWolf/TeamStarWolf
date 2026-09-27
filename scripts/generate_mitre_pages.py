@@ -233,6 +233,11 @@ class DB:
         self.f3_of_attack = {tid for tid, r in self.f3.items()
                              if str(r.get("attack_derived")).lower() == "true" and tid in self.prof}
 
+        # Threat-group per-object pages (from the ATT&CK STIX group_profiles)
+        gp_p = DATA / "attack/group_profiles.jsonl"
+        self.group_prof = {r["group_id"]: r for r in (load_jsonl(gp_p) if gp_p.exists() else [])}
+        self.group_name_to_id = {r["name"]: r["group_id"] for r in self.group_prof.values()}
+
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
             c, d = r.get("nist_control"), r.get("control_desc")
@@ -448,7 +453,7 @@ def render_technique(db, tid):
     if groups or sw or cc:
         out.append("## Adversary usage\n")
         if groups:
-            named = ", ".join(link(g, db.group_url.get(g)) for g in groups[:CAP_NAMED])
+            named = ", ".join(group_link(db, g) for g in groups[:CAP_NAMED])
             extra = " _+" + str(len(groups) - CAP_NAMED) + " more_" if len(groups) > CAP_NAMED else ""
             out.append("**Threat groups (" + str(gc) + "):** " + named + extra + "\n")
             notable = []
@@ -459,7 +464,7 @@ def render_technique(db, tid):
                     continue
                 al = first_alias_str(gr.get("aliases"), g)
                 al_txt = " (" + al + ")" if al else ""
-                notable.append("- " + link(g, db.group_url.get(g)) + al_txt + " " + DASH + " " + d)
+                notable.append("- " + group_link(db, g) + al_txt + " " + DASH + " " + d)
             if notable:
                 out.append("_Notable groups seen using this technique:_\n")
                 out.append("\n".join(notable) + "\n")
@@ -770,6 +775,51 @@ def render_f3_landing(db):
     return "\n".join(lines)
 
 
+# ----------------------------------------------------------------------------- threat groups
+def group_link(db, name):
+    gid = db.group_name_to_id.get(name)
+    if gid:
+        return "[" + name + "](/mitre/groups/" + gid + ".md)"
+    return link(name, db.group_url.get(name))
+
+
+def render_group(db, gid):
+    g = db.group_prof[gid]
+    out = ["# " + gid + " " + DASH + " " + g.get("name", "") + "\n", '<a id="' + gid.lower() + '"></a>\n']
+    aliases = [a for a in (g.get("aliases") or []) if a and a != g.get("name")]
+    hdr = ["**ATT&CK:** [" + gid + "](https://attack.mitre.org/groups/" + gid + ")  "]
+    if aliases:
+        hdr.append("**Aliases:** " + ", ".join(aliases) + "  ")
+    out.append("\n".join(hdr) + "\n")
+    if g.get("description"):
+        out.append(g["description"].strip() + "\n")
+    techs = [t for t in (g.get("techniques") or []) if t in db.prof]
+    if techs:
+        out.append("## Techniques used (" + str(len(techs)) + ")\n")
+        out.append("\n".join(
+            "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)"
+            for t in sorted(techs)) + "\n")
+    sw = g.get("software") or []
+    if sw:
+        out.append("## Software & tools (" + str(len(sw)) + ")\n")
+        out.append(", ".join("**" + s + "**" for s in sw) + "\n")
+    out.append(SHORT_FOOTER)
+    return "\n".join(out)
+
+
+def render_group_landing(db):
+    lines = ["# Threat Groups (" + str(len(db.group_prof)) + ")", "",
+             "ATT&CK-tracked adversary groups (intrusion sets), each with its aliases, the techniques it uses "
+             "(linked to their technique pages), and the software it wields. ATT&CK " + ATTACK_VER + ".", ""]
+    for gid in sorted(db.group_prof):
+        g = db.group_prof[gid]
+        al = [a for a in (g.get("aliases") or []) if a and a != g.get("name")][:3]
+        alt = " (aka " + ", ".join(al) + ")" if al else ""
+        lines.append("- [" + gid + " " + DASH + " " + g.get("name", "") + "](/mitre/groups/" + gid + ".md)" + alt)
+    lines.append("\n" + SHORT_FOOTER)
+    return "\n".join(lines)
+
+
 # ----------------------------------------------------------------------------- landing
 def render_landing(db):
     n_tech = len(list((MITRE / "techniques").glob("T*.md")))
@@ -779,6 +829,7 @@ def render_landing(db):
     n_cap = len(list((MITRE / "capec").glob("CAPEC-*.md")))
     n_atl = len(list((MITRE / "atlas").glob("AML-*.md")))
     n_f3 = len(db.f3)
+    n_groups = len(db.group_prof)
     corpus_n = len(db.corpus_ids)
     lines = [
         "# MITRE Frameworks " + DASH + " Enriched Knowledge Base",
@@ -806,6 +857,8 @@ def render_landing(db):
         "| [ATLAS (AI/ML)](/mitre/atlas/README.md) | " + str(n_atl) + " | adversarial-AI techniques + mitigations |",
         "| [F3 (Fight Fraud)](/mitre/f3/README.md) | " + str(n_f3) + " | CTID fraud-lifecycle techniques; ATT&CK-derived "
         "ones cross-link to their technique pages |",
+        "| [Threat Groups](/mitre/groups/README.md) | " + str(n_groups) + " | ATT&CK adversary groups (intrusion sets) "
+        "— aliases, techniques used (linked), and software wielded |",
         "| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | " + DASH + " | technique, mitigation, NIST, D3FEND, "
         "CAPEC in one table |",
         "",
@@ -914,6 +967,16 @@ def main():
             n += 1
         (d / "README.md").write_text(render_f3_landing(db), encoding="utf-8")
         print("f3: wrote " + str(n) + " technique pages + README")
+
+    if "groups" in only:
+        d = out_root / "groups"
+        d.mkdir(parents=True, exist_ok=True)
+        n = 0
+        for gid in db.group_prof:
+            (d / (gid + ".md")).write_text(render_group(db, gid), encoding="utf-8")
+            n += 1
+        (d / "README.md").write_text(render_group_landing(db), encoding="utf-8")
+        print("groups: wrote " + str(n) + " pages + README")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)

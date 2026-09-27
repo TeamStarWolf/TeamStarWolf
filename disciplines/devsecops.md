@@ -163,10 +163,10 @@ An SBOM is a formal, machine-readable inventory of all software components, thei
 | T1195.002 | Supply Chain Compromise: Compromise Software Supply Chain | Initial Access | SLSA provenance and pipeline hardening prevent build-time compromise |
 | T1059 | Command and Scripting Interpreter | Execution | Malicious CI/CD pipeline steps executing arbitrary commands |
 | T1552.001 | Unsecured Credentials: Credentials in Files | Credential Access | Secrets detection (gitleaks, truffleHog) prevents credentials in source |
-| T1078 | Valid Accounts | Defense Evasion | Compromised service accounts and deploy tokens used to access pipelines |
+| T1078 | Valid Accounts | Stealth | Compromised service accounts and deploy tokens used to access pipelines |
 | T1566.001 | Phishing: Spearphishing Attachment | Initial Access | Developer-targeted phishing to compromise CI/CD access credentials |
 | T1190 | Exploit Public-Facing Application | Initial Access | DAST and SAST detect exploitable vulnerabilities before production deployment |
-| T1036 | Masquerading | Defense Evasion | Typosquatted packages masquerading as legitimate dependencies |
+| T1036 | Masquerading | Stealth | Typosquatted packages masquerading as legitimate dependencies |
 
 ---
 

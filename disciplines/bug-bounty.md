@@ -154,7 +154,7 @@ A structured recon pipeline maximizes attack surface coverage before active test
 | T1190 | Exploit Public-Facing Application | Initial Access | Core bug bounty target — web and API RCE, SSRF, SQLi exploitation |
 | T1059.007 | Command and Scripting Interpreter: JavaScript | Execution | XSS payloads executing JavaScript in victim browsers |
 | T1055 | Process Injection | Privilege Escalation | Deserialization and memory corruption bugs enabling injection |
-| T1078 | Valid Accounts | Defense Evasion / Persistence | Account takeover via auth bypass, OAuth flaws, JWT attacks |
+| T1078 | Valid Accounts | Stealth / Persistence | Account takeover via auth bypass, OAuth flaws, JWT attacks |
 | T1134 | Access Token Manipulation | Privilege Escalation | JWT algorithm confusion and OAuth token theft techniques |
 | T1552 | Unsecured Credentials | Credential Access | Exposed API keys in JS files, .env files, and GitHub repositories |
 | T1083 | File and Directory Discovery | Discovery | Path traversal and IDOR enabling enumeration of files and objects |

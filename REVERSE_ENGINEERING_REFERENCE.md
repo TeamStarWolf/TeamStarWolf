@@ -1935,7 +1935,7 @@ Test rules before submission: run against a clean file corpus (should produce ze
 |--------|-----------|------|---------|
 | Execution | T1059.003 | Windows Command Shell | CreateProcess with cmd.exe |
 | Persistence | T1547.001 | Registry Run Keys | RegSetValueEx to HKCU Run |
-| Defense Evasion | T1027 | Obfuscated Files/Info | XOR-encrypted string table |
+| Stealth | T1027 | Obfuscated Files/Info | XOR-encrypted string table |
 | Command & Control | T1071.001 | Web Protocols | HTTP POST to /gate.php |
 | Exfiltration | T1041 | Exfiltration Over C2 Channel | Collected data in beacon POST |
 

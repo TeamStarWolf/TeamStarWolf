@@ -1232,7 +1232,7 @@ tags:
     - attack.t1053.005
 ```
 
-### Defense Evasion (T1070.001 — Clear Windows Event Logs)
+### Stealth (T1070.001 — Clear Windows Event Logs)
 ```yaml
 title: Windows Event Log Cleared
 id: a62b31e2-d8d6-4b29-bf50-e4b4edb9c45a

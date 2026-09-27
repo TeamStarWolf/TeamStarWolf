@@ -77,11 +77,11 @@ Physical security underpins every other security domain. Strong network segmenta
 | T1200 | Hardware Additions | Initial Access | Rogue devices (keyloggers, implants, network taps) plugged in during physical access |
 | T1091 | Replication Through Removable Media | Initial Access / Lateral Movement | Dropping infected USB drives; payload delivery via physical media |
 | T1052 | Exfiltration Over Physical Medium | Exfiltration | Removing data via USB drives, hard drives, or optical media physically carried out |
-| T1078 | Valid Accounts | Defense Evasion / Persistence | Using cloned/stolen badges or credentials obtained through physical access |
+| T1078 | Valid Accounts | Stealth / Persistence | Using cloned/stolen badges or credentials obtained through physical access |
 | T1056.002 | Input Capture: Port Monitors | Collection | Hardware keyloggers installed during brief physical access |
 | T1025 | Data from Removable Media | Collection | Accessing sensitive data from drives removed from systems |
 | T1074.001 | Data Staged: Local Data Staging | Collection | Aggregating data to removable media before physical exfil |
-| T1601 | Modify System Image | Defense Evasion | Firmware or hardware implants installed with direct physical access |
+| T1601 | Modify System Image | Stealth | Firmware or hardware implants installed with direct physical access |
 | T1495 | Firmware Corruption | Impact | Destructive firmware attacks possible only with physical device access |
 | T1485 | Data Destruction | Impact | Physical destruction of drives, systems, or backup media |
 

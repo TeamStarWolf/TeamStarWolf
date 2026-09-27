@@ -2033,7 +2033,7 @@ MITRE has been developing ATT&CK for connected vehicles. Key tactic areas applic
 | Execution | UDS routine control, CAN frame injection |
 | Persistence | Flash modified firmware, install rogue OBD dongle |
 | Privilege Escalation | UDS session escalation (default → extended → programming) |
-| Defense Evasion | Disable security access logging, suppress DTC codes |
+| Defense Impairment | Disable security access logging, suppress DTC codes |
 | Credential Access | Extract seed/key from security access session |
 | Discovery | UDS service enumeration, CAN ID scanning |
 | Lateral Movement | Pivot from infotainment to CAN bus via CGW |

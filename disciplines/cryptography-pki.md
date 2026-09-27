@@ -177,10 +177,10 @@ Understanding how cryptographic systems are attacked is essential for both build
 |---|---|---|---|
 | [T1040](https://attack.mitre.org/techniques/T1040/) | Network Sniffing | Credential Access | Strong TLS 1.3 with ECDHE prevents credential interception |
 | [T1552.004](https://attack.mitre.org/techniques/T1552/004/) | Private Keys | Credential Access | Attackers steal private keys from disk or memory; HSMs prevent this |
-| [T1553.004](https://attack.mitre.org/techniques/T1553/004/) | Install Root Certificate | Defense Evasion | Adversaries install rogue CA certs to enable MITM; CT logs detect mis-issuance |
+| [T1553.004](https://attack.mitre.org/techniques/T1553/004/) | Install Root Certificate | Stealth | Adversaries install rogue CA certs to enable MITM; CT logs detect mis-issuance |
 | [T1588.004](https://attack.mitre.org/techniques/T1588/004/) | Digital Certificates | Resource Development | Attackers obtain fraudulent certificates for phishing infrastructure |
-| [T1600](https://attack.mitre.org/techniques/T1600/) | Weaken Encryption | Defense Evasion | Downgrade attacks (POODLE, FREAK, Logjam) weaken negotiated cipher suites |
-| [T1599](https://attack.mitre.org/techniques/T1599/) | Network Boundary Bridging | Defense Evasion | Attackers exploit weak TLS to bridge network boundaries |
+| [T1600](https://attack.mitre.org/techniques/T1600/) | Weaken Encryption | Stealth | Downgrade attacks (POODLE, FREAK, Logjam) weaken negotiated cipher suites |
+| [T1599](https://attack.mitre.org/techniques/T1599/) | Network Boundary Bridging | Stealth | Attackers exploit weak TLS to bridge network boundaries |
 | [T1557](https://attack.mitre.org/techniques/T1557/) | Adversary-in-the-Middle | Credential Access / Collection | Certificate pinning, HSTS, and HPKP prevent AiTM; Bleichenbacher exploits AiTM position |
 | [T1185](https://attack.mitre.org/techniques/T1185/) | Browser Session Hijacking | Collection | BEAST and CRIME leverage browser TLS sessions to extract cookies/secrets |
 

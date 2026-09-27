@@ -43,7 +43,7 @@ Red team operations map across both the Lockheed Martin Cyber Kill Chain and the
 | **4. Execution** | Installation | Execution (TA0002) |
 | **5. Persistence** | Installation | Persistence (TA0003) |
 | **6. Privilege Escalation** | Installation | Privilege Escalation (TA0004) |
-| **7. Defense Evasion** | C2 | Defense Evasion (TA0005) |
+| **7. Stealth** | C2 | Stealth (TA0005) |
 | **8. Credential Access** | C2 | Credential Access (TA0006) |
 | **9. Discovery** | C2 | Discovery (TA0007) |
 | **10. Lateral Movement** | C2 | Lateral Movement (TA0008) |
@@ -64,7 +64,7 @@ Red team operations map across both the Lockheed Martin Cyber Kill Chain and the
 
 **6. Privilege Escalation** — Local privesc (token impersonation, service misconfiguration, AlwaysInstallElevated), Active Directory escalation (Kerberoasting, AS-REP Roasting, ADCS ESC attacks via Certipy, ACL abuse, DCSync). See: [Active Directory](/disciplines/active-directory.md).
 
-**7. Defense Evasion** — AMSI patching, hardware breakpoint-based bypasses, EDR unhooking via direct/indirect syscalls, sleep obfuscation, process injection into trusted processes, LOLBins for execution proxy, stomping PE headers.
+**7. Stealth** — AMSI patching, hardware breakpoint-based bypasses, EDR unhooking via direct/indirect syscalls, sleep obfuscation, process injection into trusted processes, LOLBins for execution proxy, stomping PE headers.
 
 **8. Credential Access** — LSASS dump (Mimikatz, Nanodump), Kerberoasting, AS-REP Roasting, DPAPI credential extraction, credential hunting in file shares and scripts, DCSync from domain controller.
 

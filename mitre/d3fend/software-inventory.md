@@ -27,7 +27,7 @@ Software inventorying identifies and records the software items in the organizat
 - [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md) — inventories. Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
 - [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — inventories. Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 - [T1212 — Exploitation for Credential Access](/mitre/techniques/T1212.md) — inventories. Adversaries may exploit software vulnerabilities in an attempt to collect credentials.
-- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — inventories. Adversaries may abuse mmc.exe to proxy execution of malicious .msc files.
+- [T1218.014 — MMC](/mitre/techniques/T1218-014.md) — inventories. Adversaries may abuse mmc.exe to proxy execution of malicious.msc files.
 - [T1489 — Service Stop](/mitre/techniques/T1489.md) — inventories. Adversaries may stop or disable services on a system to render those services unavailable to legitimate users.
 - [T1490 — Inhibit System Recovery](/mitre/techniques/T1490.md) — inventories. Adversaries may delete or remove built-in data and turn off services designed to aid in the recovery of a corrupted system to prevent recovery.
 - [T1497.003 — Time Based Checks](/mitre/techniques/T1497-003.md) — inventories. Adversaries may employ various time-based methods to detect virtualization and analysis environments, particularly those that attempt to manipulate time mechanisms to simulate longer elapses of time.

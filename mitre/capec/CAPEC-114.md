@@ -10,7 +10,7 @@ An attacker obtains unauthorized access to an application, service or device eit
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md) — Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions.
+- [T1548 — Abuse Elevation Control Mechanism](/mitre/techniques/T1548.md) — Adversaries may circumvent mechanisms designed to control privilege elevation to gain higher-level permissions.
 
 ## Related CWE (2)
 

@@ -65,7 +65,7 @@ The adversary is trying to steal account names and passwords.
 - [T1556.008 — Network Provider DLL](/mitre/techniques/T1556-008.md)
 - [T1556.009 — Conditional Access Policies](/mitre/techniques/T1556-009.md)
 - [T1557 — Adversary-in-the-Middle](/mitre/techniques/T1557.md)
-- [T1557.001 — LLMNR/NBT-NS Poisoning and SMB Relay](/mitre/techniques/T1557-001.md)
+- [T1557.001 — Name Resolution Poisoning and SMB Relay](/mitre/techniques/T1557-001.md)
 - [T1557.002 — ARP Cache Poisoning](/mitre/techniques/T1557-002.md)
 - [T1557.003 — DHCP Spoofing](/mitre/techniques/T1557-003.md)
 - [T1557.004 — Evil Twin](/mitre/techniques/T1557-004.md)

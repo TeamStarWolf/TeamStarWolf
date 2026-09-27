@@ -9,7 +9,7 @@ The attacker injects, manipulates, deletes, or forges malicious log entries into
 
 ## Mapped ATT&CK techniques (4)
 
-- [T1070 — Indicator Removal](/mitre/techniques/T1070.md) — Adversaries may delete or modify artifacts generated within systems to remove evidence of their presence or hinder defenses.
+- [T1070 — Indicator Removal](/mitre/techniques/T1070.md) — Adversaries may selectively delete or modify artifacts generated to reduce indications of their presence and blend in with legitimate activity.
 - [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md) — Adversaries may disable Windows event logging to limit data that can be leveraged for detections and audits.
 - [T1562.003 — Impair Command History Logging](/mitre/techniques/T1562-003.md) — Adversaries may impair command history logging to hide commands they run on a compromised system.
 - [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md) — An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.

@@ -29,9 +29,9 @@ Executing or opening a file in a synthetic "sandbox" environment to determine if
 - [T1114.001 — Local Email Collection](/mitre/techniques/T1114-001.md) — analyzes. Adversaries may target user email on local systems to collect sensitive information.
 - [T1137.001 — Office Template Macros](/mitre/techniques/T1137-001.md) — analyzes. Adversaries may abuse Microsoft Office templates to obtain persistence on a compromised system.
 - [T1137.003 — Outlook Forms](/mitre/techniques/T1137-003.md) — analyzes. Adversaries may abuse Microsoft Outlook forms to obtain persistence on a compromised system.
-- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — analyzes. Adversaries may use Obfuscated Files or Information to hide artifacts of an intrusion from analysis.
+- [T1140 — Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md) — analyzes. Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis.
 - [T1204.002 — Malicious File](/mitre/techniques/T1204-002.md) — analyzes. An adversary may rely upon a user opening a malicious file in order to gain execution.
-- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — analyzes. Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility.
+- [T1218.005 — Mshta](/mitre/techniques/T1218-005.md) — analyzes. Adversaries may abuse mshta.exe to proxy execution of malicious.hta files and Javascript or VBScript through a trusted Windows utility.
 - [T1220 — XSL Script Processing](/mitre/techniques/T1220.md) — analyzes. Adversaries may bypass application control and obscure execution of code by embedding scripts inside XSL files.
 - [T1505.003 — Web Shell](/mitre/techniques/T1505-003.md) — analyzes. Adversaries may backdoor web servers with web shells to establish persistent access to systems.
 - [T1534 — Internal Spearphishing](/mitre/techniques/T1534.md) — analyzes. After they already have access to accounts or systems within the environment, adversaries may use internal spearphishing to gain access to additional information or compromise other users within the same organization.

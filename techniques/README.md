@@ -1,16 +1,10 @@
 # ATT&CK Technique Detail — Index
 
-> Consolidated detail pages for all **691 MITRE ATT&CK Enterprise techniques** (v18.1), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
+> Consolidated detail pages for all **697 MITRE ATT&CK Enterprise techniques** (v19.2), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
 
-| | |
-|---|---|
-| **Read this when** | you have a technique ID and need its full context in one place, you are pivoting from a detection or CVE to the technique behind it, you want to browse techniques by tactic |
-| **Start at** | [the by-tactic links and lookup table below](#attampck-technique-detail-index) |
-| **Pairs with** | [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](../THREAT_GROUP_PROFILES.md), [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+**By tactic:** [Reconnaissance](/techniques/reconnaissance.md) · [Resource Development](/techniques/resource-development.md) · [Initial Access](/techniques/initial-access.md) · [Execution](/techniques/execution.md) · [Persistence](/techniques/persistence.md) · [Privilege Escalation](/techniques/privilege-escalation.md) · [Stealth](/techniques/stealth.md) · [Defense Impairment](/techniques/defense-impairment.md) · [Credential Access](/techniques/credential-access.md) · [Discovery](/techniques/discovery.md) · [Lateral Movement](/techniques/lateral-movement.md) · [Collection](/techniques/collection.md) · [Command and Control](/techniques/command-and-control.md) · [Exfiltration](/techniques/exfiltration.md) · [Impact](/techniques/impact.md)
 
-**By tactic:** [Reconnaissance](/techniques/reconnaissance.md) · [Resource Development](/techniques/resource-development.md) · [Initial Access](/techniques/initial-access.md) · [Execution](/techniques/execution.md) · [Persistence](/techniques/persistence.md) · [Privilege Escalation](/techniques/privilege-escalation.md) · [Defense Evasion](/techniques/defense-evasion.md) · [Credential Access](/techniques/credential-access.md) · [Discovery](/techniques/discovery.md) · [Lateral Movement](/techniques/lateral-movement.md) · [Collection](/techniques/collection.md) · [Command and Control](/techniques/command-and-control.md) · [Exfiltration](/techniques/exfiltration.md) · [Impact](/techniques/impact.md)
-
-See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Threat Group Profiles](../THREAT_GROUP_PROFILES.md) · [Software Reference](../ATTACK_SOFTWARE_REFERENCE.md) · [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md)
+See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Threat Group Profiles](../THREAT_GROUP_PROFILES.md) · [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md)
 
 | Technique | Name | Detail page |
 |---|---|---|
@@ -28,14 +22,14 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1003.007` | Proc Filesystem | [Credential Access](/techniques/credential-access.md#t1003007) |
 | `T1003.008` | /etc/passwd and /etc/shadow | [Credential Access](/techniques/credential-access.md#t1003008) |
 | `T1005` | Data from Local System | [Collection](/techniques/collection.md#t1005) |
-| `T1006` | Direct Volume Access | [Defense Evasion](/techniques/defense-evasion.md#t1006) |
+| `T1006` | Direct Volume Access | [Stealth](/techniques/stealth.md#t1006) |
 | `T1007` | System Service Discovery | [Discovery](/techniques/discovery.md#t1007) |
 | `T1008` | Fallback Channels | [Command and Control](/techniques/command-and-control.md#t1008) |
 | `T1010` | Application Window Discovery | [Discovery](/techniques/discovery.md#t1010) |
 | `T1011` | Exfiltration Over Other Network Medium | [Exfiltration](/techniques/exfiltration.md#t1011) |
 | `T1011.001` | Exfiltration Over Bluetooth | [Exfiltration](/techniques/exfiltration.md#t1011001) |
 | `T1012` | Query Registry | [Discovery](/techniques/discovery.md#t1012) |
-| `T1014` | Rootkit | [Defense Evasion](/techniques/defense-evasion.md#t1014) |
+| `T1014` | Rootkit | [Stealth](/techniques/stealth.md#t1014) |
 | `T1016` | System Network Configuration Discovery | [Discovery](/techniques/discovery.md#t1016) |
 | `T1016.001` | Internet Connection Discovery | [Discovery](/techniques/discovery.md#t1016001) |
 | `T1016.002` | Wi-Fi Discovery | [Discovery](/techniques/discovery.md#t1016002) |
@@ -52,40 +46,41 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1021.007` | Cloud Services | [Lateral Movement](/techniques/lateral-movement.md#t1021007) |
 | `T1021.008` | Direct Cloud VM Connections | [Lateral Movement](/techniques/lateral-movement.md#t1021008) |
 | `T1025` | Data from Removable Media | [Collection](/techniques/collection.md#t1025) |
-| `T1027` | Obfuscated Files or Information | [Defense Evasion](/techniques/defense-evasion.md#t1027) |
-| `T1027.001` | Binary Padding | [Defense Evasion](/techniques/defense-evasion.md#t1027001) |
-| `T1027.002` | Software Packing | [Defense Evasion](/techniques/defense-evasion.md#t1027002) |
-| `T1027.003` | Steganography | [Defense Evasion](/techniques/defense-evasion.md#t1027003) |
-| `T1027.004` | Compile After Delivery | [Defense Evasion](/techniques/defense-evasion.md#t1027004) |
-| `T1027.005` | Indicator Removal from Tools | [Defense Evasion](/techniques/defense-evasion.md#t1027005) |
-| `T1027.006` | HTML Smuggling | [Defense Evasion](/techniques/defense-evasion.md#t1027006) |
-| `T1027.007` | Dynamic API Resolution | [Defense Evasion](/techniques/defense-evasion.md#t1027007) |
-| `T1027.008` | Stripped Payloads | [Defense Evasion](/techniques/defense-evasion.md#t1027008) |
-| `T1027.009` | Embedded Payloads | [Defense Evasion](/techniques/defense-evasion.md#t1027009) |
-| `T1027.010` | Command Obfuscation | [Defense Evasion](/techniques/defense-evasion.md#t1027010) |
-| `T1027.011` | Fileless Storage | [Defense Evasion](/techniques/defense-evasion.md#t1027011) |
-| `T1027.012` | LNK Icon Smuggling | [Defense Evasion](/techniques/defense-evasion.md#t1027012) |
-| `T1027.013` | Encrypted/Encoded File | [Defense Evasion](/techniques/defense-evasion.md#t1027013) |
-| `T1027.014` | Polymorphic Code | [Defense Evasion](/techniques/defense-evasion.md#t1027014) |
-| `T1027.015` | Compression | [Defense Evasion](/techniques/defense-evasion.md#t1027015) |
-| `T1027.016` | Junk Code Insertion | [Defense Evasion](/techniques/defense-evasion.md#t1027016) |
-| `T1027.017` | SVG Smuggling | [Defense Evasion](/techniques/defense-evasion.md#t1027017) |
+| `T1027` | Obfuscated Files or Information | [Stealth](/techniques/stealth.md#t1027) |
+| `T1027.001` | Binary Padding | [Stealth](/techniques/stealth.md#t1027001) |
+| `T1027.002` | Software Packing | [Stealth](/techniques/stealth.md#t1027002) |
+| `T1027.003` | Steganography | [Stealth](/techniques/stealth.md#t1027003) |
+| `T1027.004` | Compile After Delivery | [Stealth](/techniques/stealth.md#t1027004) |
+| `T1027.005` | Indicator Removal from Tools | [Stealth](/techniques/stealth.md#t1027005) |
+| `T1027.006` | HTML Smuggling | [Stealth](/techniques/stealth.md#t1027006) |
+| `T1027.007` | Dynamic API Resolution | [Stealth](/techniques/stealth.md#t1027007) |
+| `T1027.008` | Stripped Payloads | [Stealth](/techniques/stealth.md#t1027008) |
+| `T1027.009` | Embedded Payloads | [Stealth](/techniques/stealth.md#t1027009) |
+| `T1027.010` | Command Obfuscation | [Stealth](/techniques/stealth.md#t1027010) |
+| `T1027.011` | Fileless Storage | [Stealth](/techniques/stealth.md#t1027011) |
+| `T1027.012` | LNK Icon Smuggling | [Stealth](/techniques/stealth.md#t1027012) |
+| `T1027.013` | Encrypted/Encoded File | [Stealth](/techniques/stealth.md#t1027013) |
+| `T1027.014` | Polymorphic Code | [Stealth](/techniques/stealth.md#t1027014) |
+| `T1027.015` | Compression | [Stealth](/techniques/stealth.md#t1027015) |
+| `T1027.016` | Junk Code Insertion | [Stealth](/techniques/stealth.md#t1027016) |
+| `T1027.017` | SVG Smuggling | [Stealth](/techniques/stealth.md#t1027017) |
+| `T1027.018` | Invisible Unicode | [Stealth](/techniques/stealth.md#t1027018) |
 | `T1029` | Scheduled Transfer | [Exfiltration](/techniques/exfiltration.md#t1029) |
 | `T1030` | Data Transfer Size Limits | [Exfiltration](/techniques/exfiltration.md#t1030) |
 | `T1033` | System Owner/User Discovery | [Discovery](/techniques/discovery.md#t1033) |
-| `T1036` | Masquerading | [Defense Evasion](/techniques/defense-evasion.md#t1036) |
-| `T1036.001` | Invalid Code Signature | [Defense Evasion](/techniques/defense-evasion.md#t1036001) |
-| `T1036.002` | Right-to-Left Override | [Defense Evasion](/techniques/defense-evasion.md#t1036002) |
-| `T1036.003` | Rename Legitimate Utilities | [Defense Evasion](/techniques/defense-evasion.md#t1036003) |
-| `T1036.004` | Masquerade Task or Service | [Defense Evasion](/techniques/defense-evasion.md#t1036004) |
-| `T1036.005` | Match Legitimate Resource Name or Location | [Defense Evasion](/techniques/defense-evasion.md#t1036005) |
-| `T1036.006` | Space after Filename | [Defense Evasion](/techniques/defense-evasion.md#t1036006) |
-| `T1036.007` | Double File Extension | [Defense Evasion](/techniques/defense-evasion.md#t1036007) |
-| `T1036.008` | Masquerade File Type | [Defense Evasion](/techniques/defense-evasion.md#t1036008) |
-| `T1036.009` | Break Process Trees | [Defense Evasion](/techniques/defense-evasion.md#t1036009) |
-| `T1036.010` | Masquerade Account Name | [Defense Evasion](/techniques/defense-evasion.md#t1036010) |
-| `T1036.011` | Overwrite Process Arguments | [Defense Evasion](/techniques/defense-evasion.md#t1036011) |
-| `T1036.012` | Browser Fingerprint | [Defense Evasion](/techniques/defense-evasion.md#t1036012) |
+| `T1036` | Masquerading | [Stealth](/techniques/stealth.md#t1036) |
+| `T1036.001` | Invalid Code Signature | [Stealth](/techniques/stealth.md#t1036001) |
+| `T1036.002` | Right-to-Left Override | [Stealth](/techniques/stealth.md#t1036002) |
+| `T1036.003` | Rename Legitimate Utilities | [Stealth](/techniques/stealth.md#t1036003) |
+| `T1036.004` | Masquerade Task or Service | [Stealth](/techniques/stealth.md#t1036004) |
+| `T1036.005` | Match Legitimate Resource Name or Location | [Stealth](/techniques/stealth.md#t1036005) |
+| `T1036.006` | Space after Filename | [Stealth](/techniques/stealth.md#t1036006) |
+| `T1036.007` | Double File Extension | [Stealth](/techniques/stealth.md#t1036007) |
+| `T1036.008` | Masquerade File Type | [Stealth](/techniques/stealth.md#t1036008) |
+| `T1036.009` | Break Process Trees | [Stealth](/techniques/stealth.md#t1036009) |
+| `T1036.010` | Masquerade Account Name | [Stealth](/techniques/stealth.md#t1036010) |
+| `T1036.011` | Overwrite Process Arguments | [Stealth](/techniques/stealth.md#t1036011) |
+| `T1036.012` | Browser Fingerprint | [Stealth](/techniques/stealth.md#t1036012) |
 | `T1037` | Boot or Logon Initialization Scripts | [Persistence](/techniques/persistence.md#t1037) |
 | `T1037.001` | Logon Script (Windows) | [Persistence](/techniques/persistence.md#t1037001) |
 | `T1037.002` | Login Hook | [Persistence](/techniques/persistence.md#t1037002) |
@@ -110,19 +105,19 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1053.005` | Scheduled Task | [Execution](/techniques/execution.md#t1053005) |
 | `T1053.006` | Systemd Timers | [Execution](/techniques/execution.md#t1053006) |
 | `T1053.007` | Container Orchestration Job | [Execution](/techniques/execution.md#t1053007) |
-| `T1055` | Process Injection | [Defense Evasion](/techniques/defense-evasion.md#t1055) |
-| `T1055.001` | Dynamic-link Library Injection | [Defense Evasion](/techniques/defense-evasion.md#t1055001) |
-| `T1055.002` | Portable Executable Injection | [Defense Evasion](/techniques/defense-evasion.md#t1055002) |
-| `T1055.003` | Thread Execution Hijacking | [Defense Evasion](/techniques/defense-evasion.md#t1055003) |
-| `T1055.004` | Asynchronous Procedure Call | [Defense Evasion](/techniques/defense-evasion.md#t1055004) |
-| `T1055.005` | Thread Local Storage | [Defense Evasion](/techniques/defense-evasion.md#t1055005) |
-| `T1055.008` | Ptrace System Calls | [Defense Evasion](/techniques/defense-evasion.md#t1055008) |
-| `T1055.009` | Proc Memory | [Defense Evasion](/techniques/defense-evasion.md#t1055009) |
-| `T1055.011` | Extra Window Memory Injection | [Defense Evasion](/techniques/defense-evasion.md#t1055011) |
-| `T1055.012` | Process Hollowing | [Defense Evasion](/techniques/defense-evasion.md#t1055012) |
-| `T1055.013` | Process Doppelgänging | [Defense Evasion](/techniques/defense-evasion.md#t1055013) |
-| `T1055.014` | VDSO Hijacking | [Defense Evasion](/techniques/defense-evasion.md#t1055014) |
-| `T1055.015` | ListPlanting | [Defense Evasion](/techniques/defense-evasion.md#t1055015) |
+| `T1055` | Process Injection | [Stealth](/techniques/stealth.md#t1055) |
+| `T1055.001` | Dynamic-link Library Injection | [Stealth](/techniques/stealth.md#t1055001) |
+| `T1055.002` | Portable Executable Injection | [Stealth](/techniques/stealth.md#t1055002) |
+| `T1055.003` | Thread Execution Hijacking | [Stealth](/techniques/stealth.md#t1055003) |
+| `T1055.004` | Asynchronous Procedure Call | [Stealth](/techniques/stealth.md#t1055004) |
+| `T1055.005` | Thread Local Storage | [Stealth](/techniques/stealth.md#t1055005) |
+| `T1055.008` | Ptrace System Calls | [Stealth](/techniques/stealth.md#t1055008) |
+| `T1055.009` | Proc Memory | [Stealth](/techniques/stealth.md#t1055009) |
+| `T1055.011` | Extra Window Memory Injection | [Stealth](/techniques/stealth.md#t1055011) |
+| `T1055.012` | Process Hollowing | [Stealth](/techniques/stealth.md#t1055012) |
+| `T1055.013` | Process Doppelgänging | [Stealth](/techniques/stealth.md#t1055013) |
+| `T1055.014` | VDSO Hijacking | [Stealth](/techniques/stealth.md#t1055014) |
+| `T1055.015` | ListPlanting | [Stealth](/techniques/stealth.md#t1055015) |
 | `T1056` | Input Capture | [Collection](/techniques/collection.md#t1056) |
 | `T1056.001` | Keylogging | [Collection](/techniques/collection.md#t1056001) |
 | `T1056.002` | GUI Input Capture | [Collection](/techniques/collection.md#t1056002) |
@@ -148,17 +143,15 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1069.001` | Local Groups | [Discovery](/techniques/discovery.md#t1069001) |
 | `T1069.002` | Domain Groups | [Discovery](/techniques/discovery.md#t1069002) |
 | `T1069.003` | Cloud Groups | [Discovery](/techniques/discovery.md#t1069003) |
-| `T1070` | Indicator Removal | [Defense Evasion](/techniques/defense-evasion.md#t1070) |
-| `T1070.001` | Clear Windows Event Logs | [Defense Evasion](/techniques/defense-evasion.md#t1070001) |
-| `T1070.002` | Clear Linux or Mac System Logs | [Defense Evasion](/techniques/defense-evasion.md#t1070002) |
-| `T1070.003` | Clear Command History | [Defense Evasion](/techniques/defense-evasion.md#t1070003) |
-| `T1070.004` | File Deletion | [Defense Evasion](/techniques/defense-evasion.md#t1070004) |
-| `T1070.005` | Network Share Connection Removal | [Defense Evasion](/techniques/defense-evasion.md#t1070005) |
-| `T1070.006` | Timestomp | [Defense Evasion](/techniques/defense-evasion.md#t1070006) |
-| `T1070.007` | Clear Network Connection History and Configurations | [Defense Evasion](/techniques/defense-evasion.md#t1070007) |
-| `T1070.008` | Clear Mailbox Data | [Defense Evasion](/techniques/defense-evasion.md#t1070008) |
-| `T1070.009` | Clear Persistence | [Defense Evasion](/techniques/defense-evasion.md#t1070009) |
-| `T1070.010` | Relocate Malware | [Defense Evasion](/techniques/defense-evasion.md#t1070010) |
+| `T1070` | Indicator Removal | [Stealth](/techniques/stealth.md#t1070) |
+| `T1070.003` | Clear Command History | [Stealth](/techniques/stealth.md#t1070003) |
+| `T1070.004` | File Deletion | [Stealth](/techniques/stealth.md#t1070004) |
+| `T1070.005` | Network Share Connection Removal | [Stealth](/techniques/stealth.md#t1070005) |
+| `T1070.006` | Timestomp | [Stealth](/techniques/stealth.md#t1070006) |
+| `T1070.007` | Clear Network Connection History and Configurations | [Stealth](/techniques/stealth.md#t1070007) |
+| `T1070.008` | Clear Mailbox Data | [Stealth](/techniques/stealth.md#t1070008) |
+| `T1070.009` | Clear Persistence | [Stealth](/techniques/stealth.md#t1070009) |
+| `T1070.010` | Relocate Malware | [Stealth](/techniques/stealth.md#t1070010) |
 | `T1071` | Application Layer Protocol | [Command and Control](/techniques/command-and-control.md#t1071) |
 | `T1071.001` | Web Protocols | [Command and Control](/techniques/command-and-control.md#t1071001) |
 | `T1071.002` | File Transfer Protocols | [Command and Control](/techniques/command-and-control.md#t1071002) |
@@ -169,11 +162,11 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1074` | Data Staged | [Collection](/techniques/collection.md#t1074) |
 | `T1074.001` | Local Data Staging | [Collection](/techniques/collection.md#t1074001) |
 | `T1074.002` | Remote Data Staging | [Collection](/techniques/collection.md#t1074002) |
-| `T1078` | Valid Accounts | [Defense Evasion](/techniques/defense-evasion.md#t1078) |
-| `T1078.001` | Default Accounts | [Defense Evasion](/techniques/defense-evasion.md#t1078001) |
-| `T1078.002` | Domain Accounts | [Defense Evasion](/techniques/defense-evasion.md#t1078002) |
-| `T1078.003` | Local Accounts | [Defense Evasion](/techniques/defense-evasion.md#t1078003) |
-| `T1078.004` | Cloud Accounts | [Defense Evasion](/techniques/defense-evasion.md#t1078004) |
+| `T1078` | Valid Accounts | [Stealth](/techniques/stealth.md#t1078) |
+| `T1078.001` | Default Accounts | [Stealth](/techniques/stealth.md#t1078001) |
+| `T1078.002` | Domain Accounts | [Stealth](/techniques/stealth.md#t1078002) |
+| `T1078.003` | Local Accounts | [Stealth](/techniques/stealth.md#t1078003) |
+| `T1078.004` | Cloud Accounts | [Stealth](/techniques/stealth.md#t1078004) |
 | `T1080` | Taint Shared Content | [Lateral Movement](/techniques/lateral-movement.md#t1080) |
 | `T1082` | System Information Discovery | [Discovery](/techniques/discovery.md#t1082) |
 | `T1083` | File and Directory Discovery | [Discovery](/techniques/discovery.md#t1083) |
@@ -211,7 +204,7 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1110.003` | Password Spraying | [Credential Access](/techniques/credential-access.md#t1110003) |
 | `T1110.004` | Credential Stuffing | [Credential Access](/techniques/credential-access.md#t1110004) |
 | `T1111` | Multi-Factor Authentication Interception | [Credential Access](/techniques/credential-access.md#t1111) |
-| `T1112` | Modify Registry | [Defense Evasion](/techniques/defense-evasion.md#t1112) |
+| `T1112` | Modify Registry | [Defense Impairment](/techniques/defense-impairment.md#t1112) |
 | `T1113` | Screen Capture | [Collection](/techniques/collection.md#t1113) |
 | `T1114` | Email Collection | [Collection](/techniques/collection.md#t1114) |
 | `T1114.001` | Local Email Collection | [Collection](/techniques/collection.md#t1114001) |
@@ -223,21 +216,21 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1123` | Audio Capture | [Collection](/techniques/collection.md#t1123) |
 | `T1124` | System Time Discovery | [Discovery](/techniques/discovery.md#t1124) |
 | `T1125` | Video Capture | [Collection](/techniques/collection.md#t1125) |
-| `T1127` | Trusted Developer Utilities Proxy Execution | [Defense Evasion](/techniques/defense-evasion.md#t1127) |
-| `T1127.001` | MSBuild | [Defense Evasion](/techniques/defense-evasion.md#t1127001) |
-| `T1127.002` | ClickOnce | [Defense Evasion](/techniques/defense-evasion.md#t1127002) |
-| `T1127.003` | JamPlus | [Defense Evasion](/techniques/defense-evasion.md#t1127003) |
+| `T1127` | Trusted Developer Utilities Proxy Execution | [Stealth](/techniques/stealth.md#t1127) |
+| `T1127.001` | MSBuild | [Stealth](/techniques/stealth.md#t1127001) |
+| `T1127.002` | ClickOnce | [Stealth](/techniques/stealth.md#t1127002) |
+| `T1127.003` | JamPlus | [Stealth](/techniques/stealth.md#t1127003) |
 | `T1129` | Shared Modules | [Execution](/techniques/execution.md#t1129) |
 | `T1132` | Data Encoding | [Command and Control](/techniques/command-and-control.md#t1132) |
 | `T1132.001` | Standard Encoding | [Command and Control](/techniques/command-and-control.md#t1132001) |
 | `T1132.002` | Non-Standard Encoding | [Command and Control](/techniques/command-and-control.md#t1132002) |
 | `T1133` | External Remote Services | [Persistence](/techniques/persistence.md#t1133) |
-| `T1134` | Access Token Manipulation | [Defense Evasion](/techniques/defense-evasion.md#t1134) |
-| `T1134.001` | Token Impersonation/Theft | [Defense Evasion](/techniques/defense-evasion.md#t1134001) |
-| `T1134.002` | Create Process with Token | [Defense Evasion](/techniques/defense-evasion.md#t1134002) |
-| `T1134.003` | Make and Impersonate Token | [Defense Evasion](/techniques/defense-evasion.md#t1134003) |
-| `T1134.004` | Parent PID Spoofing | [Defense Evasion](/techniques/defense-evasion.md#t1134004) |
-| `T1134.005` | SID-History Injection | [Defense Evasion](/techniques/defense-evasion.md#t1134005) |
+| `T1134` | Access Token Manipulation | [Stealth](/techniques/stealth.md#t1134) |
+| `T1134.001` | Token Impersonation/Theft | [Stealth](/techniques/stealth.md#t1134001) |
+| `T1134.002` | Create Process with Token | [Stealth](/techniques/stealth.md#t1134002) |
+| `T1134.003` | Make and Impersonate Token | [Stealth](/techniques/stealth.md#t1134003) |
+| `T1134.004` | Parent PID Spoofing | [Stealth](/techniques/stealth.md#t1134004) |
+| `T1134.005` | SID-History Injection | [Stealth](/techniques/stealth.md#t1134005) |
 | `T1135` | Network Share Discovery | [Discovery](/techniques/discovery.md#t1135) |
 | `T1136` | Create Account | [Persistence](/techniques/persistence.md#t1136) |
 | `T1136.001` | Local Account | [Persistence](/techniques/persistence.md#t1136001) |
@@ -250,7 +243,7 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1137.004` | Outlook Home Page | [Persistence](/techniques/persistence.md#t1137004) |
 | `T1137.005` | Outlook Rules | [Persistence](/techniques/persistence.md#t1137005) |
 | `T1137.006` | Add-ins | [Persistence](/techniques/persistence.md#t1137006) |
-| `T1140` | Deobfuscate/Decode Files or Information | [Defense Evasion](/techniques/defense-evasion.md#t1140) |
+| `T1140` | Deobfuscate/Decode Files or Information | [Stealth](/techniques/stealth.md#t1140) |
 | `T1176` | Software Extensions | [Persistence](/techniques/persistence.md#t1176) |
 | `T1176.001` | Browser Extensions | [Persistence](/techniques/persistence.md#t1176001) |
 | `T1176.002` | IDE Extensions | [Persistence](/techniques/persistence.md#t1176002) |
@@ -262,11 +255,11 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1195.001` | Compromise Software Dependencies and Development Tools | [Initial Access](/techniques/initial-access.md#t1195001) |
 | `T1195.002` | Compromise Software Supply Chain | [Initial Access](/techniques/initial-access.md#t1195002) |
 | `T1195.003` | Compromise Hardware Supply Chain | [Initial Access](/techniques/initial-access.md#t1195003) |
-| `T1197` | BITS Jobs | [Defense Evasion](/techniques/defense-evasion.md#t1197) |
+| `T1197` | BITS Jobs | [Stealth](/techniques/stealth.md#t1197) |
 | `T1199` | Trusted Relationship | [Initial Access](/techniques/initial-access.md#t1199) |
 | `T1200` | Hardware Additions | [Initial Access](/techniques/initial-access.md#t1200) |
 | `T1201` | Password Policy Discovery | [Discovery](/techniques/discovery.md#t1201) |
-| `T1202` | Indirect Command Execution | [Defense Evasion](/techniques/defense-evasion.md#t1202) |
+| `T1202` | Indirect Command Execution | [Stealth](/techniques/stealth.md#t1202) |
 | `T1203` | Exploitation for Client Execution | [Execution](/techniques/execution.md#t1203) |
 | `T1204` | User Execution | [Execution](/techniques/execution.md#t1204) |
 | `T1204.001` | Malicious Link | [Execution](/techniques/execution.md#t1204001) |
@@ -274,12 +267,12 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1204.003` | Malicious Image | [Execution](/techniques/execution.md#t1204003) |
 | `T1204.004` | Malicious Copy and Paste | [Execution](/techniques/execution.md#t1204004) |
 | `T1204.005` | Malicious Library | [Execution](/techniques/execution.md#t1204005) |
-| `T1205` | Traffic Signaling | [Defense Evasion](/techniques/defense-evasion.md#t1205) |
-| `T1205.001` | Port Knocking | [Defense Evasion](/techniques/defense-evasion.md#t1205001) |
-| `T1205.002` | Socket Filters | [Defense Evasion](/techniques/defense-evasion.md#t1205002) |
-| `T1207` | Rogue Domain Controller | [Defense Evasion](/techniques/defense-evasion.md#t1207) |
+| `T1205` | Traffic Signaling | [Stealth](/techniques/stealth.md#t1205) |
+| `T1205.001` | Port Knocking | [Stealth](/techniques/stealth.md#t1205001) |
+| `T1205.002` | Socket Filters | [Stealth](/techniques/stealth.md#t1205002) |
+| `T1207` | Rogue Domain Controller | [Defense Impairment](/techniques/defense-impairment.md#t1207) |
 | `T1210` | Exploitation of Remote Services | [Lateral Movement](/techniques/lateral-movement.md#t1210) |
-| `T1211` | Exploitation for Defense Evasion | [Defense Evasion](/techniques/defense-evasion.md#t1211) |
+| `T1211` | Exploitation for Stealth | [Stealth](/techniques/stealth.md#t1211) |
 | `T1212` | Exploitation for Credential Access | [Credential Access](/techniques/credential-access.md#t1212) |
 | `T1213` | Data from Information Repositories | [Collection](/techniques/collection.md#t1213) |
 | `T1213.001` | Confluence | [Collection](/techniques/collection.md#t1213001) |
@@ -288,41 +281,41 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1213.004` | Customer Relationship Management Software | [Collection](/techniques/collection.md#t1213004) |
 | `T1213.005` | Messaging Applications | [Collection](/techniques/collection.md#t1213005) |
 | `T1213.006` | Databases | [Collection](/techniques/collection.md#t1213006) |
-| `T1216` | System Script Proxy Execution | [Defense Evasion](/techniques/defense-evasion.md#t1216) |
-| `T1216.001` | PubPrn | [Defense Evasion](/techniques/defense-evasion.md#t1216001) |
-| `T1216.002` | SyncAppvPublishingServer | [Defense Evasion](/techniques/defense-evasion.md#t1216002) |
+| `T1216` | System Script Proxy Execution | [Stealth](/techniques/stealth.md#t1216) |
+| `T1216.001` | PubPrn | [Stealth](/techniques/stealth.md#t1216001) |
+| `T1216.002` | SyncAppvPublishingServer | [Stealth](/techniques/stealth.md#t1216002) |
 | `T1217` | Browser Information Discovery | [Discovery](/techniques/discovery.md#t1217) |
-| `T1218` | System Binary Proxy Execution | [Defense Evasion](/techniques/defense-evasion.md#t1218) |
-| `T1218.001` | Compiled HTML File | [Defense Evasion](/techniques/defense-evasion.md#t1218001) |
-| `T1218.002` | Control Panel | [Defense Evasion](/techniques/defense-evasion.md#t1218002) |
-| `T1218.003` | CMSTP | [Defense Evasion](/techniques/defense-evasion.md#t1218003) |
-| `T1218.004` | InstallUtil | [Defense Evasion](/techniques/defense-evasion.md#t1218004) |
-| `T1218.005` | Mshta | [Defense Evasion](/techniques/defense-evasion.md#t1218005) |
-| `T1218.007` | Msiexec | [Defense Evasion](/techniques/defense-evasion.md#t1218007) |
-| `T1218.008` | Odbcconf | [Defense Evasion](/techniques/defense-evasion.md#t1218008) |
-| `T1218.009` | Regsvcs/Regasm | [Defense Evasion](/techniques/defense-evasion.md#t1218009) |
-| `T1218.010` | Regsvr32 | [Defense Evasion](/techniques/defense-evasion.md#t1218010) |
-| `T1218.011` | Rundll32 | [Defense Evasion](/techniques/defense-evasion.md#t1218011) |
-| `T1218.012` | Verclsid | [Defense Evasion](/techniques/defense-evasion.md#t1218012) |
-| `T1218.013` | Mavinject | [Defense Evasion](/techniques/defense-evasion.md#t1218013) |
-| `T1218.014` | MMC | [Defense Evasion](/techniques/defense-evasion.md#t1218014) |
-| `T1218.015` | Electron Applications | [Defense Evasion](/techniques/defense-evasion.md#t1218015) |
+| `T1218` | System Binary Proxy Execution | [Stealth](/techniques/stealth.md#t1218) |
+| `T1218.001` | Compiled HTML File | [Stealth](/techniques/stealth.md#t1218001) |
+| `T1218.002` | Control Panel | [Stealth](/techniques/stealth.md#t1218002) |
+| `T1218.003` | CMSTP | [Stealth](/techniques/stealth.md#t1218003) |
+| `T1218.004` | InstallUtil | [Stealth](/techniques/stealth.md#t1218004) |
+| `T1218.005` | Mshta | [Stealth](/techniques/stealth.md#t1218005) |
+| `T1218.007` | Msiexec | [Stealth](/techniques/stealth.md#t1218007) |
+| `T1218.008` | Odbcconf | [Stealth](/techniques/stealth.md#t1218008) |
+| `T1218.009` | Regsvcs/Regasm | [Stealth](/techniques/stealth.md#t1218009) |
+| `T1218.010` | Regsvr32 | [Stealth](/techniques/stealth.md#t1218010) |
+| `T1218.011` | Rundll32 | [Stealth](/techniques/stealth.md#t1218011) |
+| `T1218.012` | Verclsid | [Stealth](/techniques/stealth.md#t1218012) |
+| `T1218.013` | Mavinject | [Stealth](/techniques/stealth.md#t1218013) |
+| `T1218.014` | MMC | [Stealth](/techniques/stealth.md#t1218014) |
+| `T1218.015` | Electron Applications | [Stealth](/techniques/stealth.md#t1218015) |
 | `T1219` | Remote Access Tools | [Command and Control](/techniques/command-and-control.md#t1219) |
 | `T1219.001` | IDE Tunneling | [Command and Control](/techniques/command-and-control.md#t1219001) |
 | `T1219.002` | Remote Desktop Software | [Command and Control](/techniques/command-and-control.md#t1219002) |
 | `T1219.003` | Remote Access Hardware | [Command and Control](/techniques/command-and-control.md#t1219003) |
-| `T1220` | XSL Script Processing | [Defense Evasion](/techniques/defense-evasion.md#t1220) |
-| `T1221` | Template Injection | [Defense Evasion](/techniques/defense-evasion.md#t1221) |
-| `T1222` | File and Directory Permissions Modification | [Defense Evasion](/techniques/defense-evasion.md#t1222) |
-| `T1222.001` | Windows File and Directory Permissions Modification | [Defense Evasion](/techniques/defense-evasion.md#t1222001) |
-| `T1222.002` | Linux and Mac File and Directory Permissions Modification | [Defense Evasion](/techniques/defense-evasion.md#t1222002) |
-| `T1480` | Execution Guardrails | [Defense Evasion](/techniques/defense-evasion.md#t1480) |
-| `T1480.001` | Environmental Keying | [Defense Evasion](/techniques/defense-evasion.md#t1480001) |
-| `T1480.002` | Mutual Exclusion | [Defense Evasion](/techniques/defense-evasion.md#t1480002) |
+| `T1220` | XSL Script Processing | [Stealth](/techniques/stealth.md#t1220) |
+| `T1221` | Template Injection | [Stealth](/techniques/stealth.md#t1221) |
+| `T1222` | File and Directory Permissions Modification | [Defense Impairment](/techniques/defense-impairment.md#t1222) |
+| `T1222.001` | Windows Permissions | [Defense Impairment](/techniques/defense-impairment.md#t1222001) |
+| `T1222.002` | Linux and Mac Permissions | [Defense Impairment](/techniques/defense-impairment.md#t1222002) |
+| `T1480` | Execution Guardrails | [Stealth](/techniques/stealth.md#t1480) |
+| `T1480.001` | Environmental Keying | [Stealth](/techniques/stealth.md#t1480001) |
+| `T1480.002` | Mutual Exclusion | [Stealth](/techniques/stealth.md#t1480002) |
 | `T1482` | Domain Trust Discovery | [Discovery](/techniques/discovery.md#t1482) |
-| `T1484` | Domain or Tenant Policy Modification | [Defense Evasion](/techniques/defense-evasion.md#t1484) |
-| `T1484.001` | Group Policy Modification | [Defense Evasion](/techniques/defense-evasion.md#t1484001) |
-| `T1484.002` | Trust Modification | [Defense Evasion](/techniques/defense-evasion.md#t1484002) |
+| `T1484` | Domain or Tenant Policy Modification | [Defense Impairment](/techniques/defense-impairment.md#t1484) |
+| `T1484.001` | Group Policy Modification | [Defense Impairment](/techniques/defense-impairment.md#t1484001) |
+| `T1484.002` | Trust Modification | [Defense Impairment](/techniques/defense-impairment.md#t1484002) |
 | `T1485` | Data Destruction | [Impact](/techniques/impact.md#t1485) |
 | `T1485.001` | Lifecycle-Triggered Deletion | [Impact](/techniques/impact.md#t1485001) |
 | `T1486` | Data Encrypted for Impact | [Impact](/techniques/impact.md#t1486) |
@@ -337,10 +330,10 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1496.002` | Bandwidth Hijacking | [Impact](/techniques/impact.md#t1496002) |
 | `T1496.003` | SMS Pumping | [Impact](/techniques/impact.md#t1496003) |
 | `T1496.004` | Cloud Service Hijacking | [Impact](/techniques/impact.md#t1496004) |
-| `T1497` | Virtualization/Sandbox Evasion | [Defense Evasion](/techniques/defense-evasion.md#t1497) |
-| `T1497.001` | System Checks | [Defense Evasion](/techniques/defense-evasion.md#t1497001) |
-| `T1497.002` | User Activity Based Checks | [Defense Evasion](/techniques/defense-evasion.md#t1497002) |
-| `T1497.003` | Time Based Checks | [Defense Evasion](/techniques/defense-evasion.md#t1497003) |
+| `T1497` | Virtualization/Sandbox Evasion | [Stealth](/techniques/stealth.md#t1497) |
+| `T1497.001` | System Checks | [Stealth](/techniques/stealth.md#t1497001) |
+| `T1497.002` | User Activity Based Checks | [Stealth](/techniques/stealth.md#t1497002) |
+| `T1497.003` | Time Based Checks | [Stealth](/techniques/stealth.md#t1497003) |
 | `T1498` | Network Denial of Service | [Impact](/techniques/impact.md#t1498) |
 | `T1498.001` | Direct Network Flood | [Impact](/techniques/impact.md#t1498001) |
 | `T1498.002` | Reflection Amplification | [Impact](/techniques/impact.md#t1498002) |
@@ -366,16 +359,16 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1530` | Data from Cloud Storage | [Collection](/techniques/collection.md#t1530) |
 | `T1531` | Account Access Removal | [Impact](/techniques/impact.md#t1531) |
 | `T1534` | Internal Spearphishing | [Lateral Movement](/techniques/lateral-movement.md#t1534) |
-| `T1535` | Unused/Unsupported Cloud Regions | [Defense Evasion](/techniques/defense-evasion.md#t1535) |
+| `T1535` | Unused/Unsupported Cloud Regions | [Stealth](/techniques/stealth.md#t1535) |
 | `T1537` | Transfer Data to Cloud Account | [Exfiltration](/techniques/exfiltration.md#t1537) |
 | `T1538` | Cloud Service Dashboard | [Discovery](/techniques/discovery.md#t1538) |
 | `T1539` | Steal Web Session Cookie | [Credential Access](/techniques/credential-access.md#t1539) |
-| `T1542` | Pre-OS Boot | [Defense Evasion](/techniques/defense-evasion.md#t1542) |
-| `T1542.001` | System Firmware | [Persistence](/techniques/persistence.md#t1542001) |
-| `T1542.002` | Component Firmware | [Persistence](/techniques/persistence.md#t1542002) |
-| `T1542.003` | Bootkit | [Persistence](/techniques/persistence.md#t1542003) |
-| `T1542.004` | ROMMONkit | [Defense Evasion](/techniques/defense-evasion.md#t1542004) |
-| `T1542.005` | TFTP Boot | [Defense Evasion](/techniques/defense-evasion.md#t1542005) |
+| `T1542` | Pre-OS Boot | [Stealth](/techniques/stealth.md#t1542) |
+| `T1542.001` | System Firmware | [Stealth](/techniques/stealth.md#t1542001) |
+| `T1542.002` | Component Firmware | [Stealth](/techniques/stealth.md#t1542002) |
+| `T1542.003` | Bootkit | [Stealth](/techniques/stealth.md#t1542003) |
+| `T1542.004` | ROMMONkit | [Stealth](/techniques/stealth.md#t1542004) |
+| `T1542.005` | TFTP Boot | [Stealth](/techniques/stealth.md#t1542005) |
 | `T1543` | Create or Modify System Process | [Persistence](/techniques/persistence.md#t1543) |
 | `T1543.001` | Launch Agent | [Persistence](/techniques/persistence.md#t1543001) |
 | `T1543.002` | Systemd Service | [Persistence](/techniques/persistence.md#t1543002) |
@@ -422,12 +415,12 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1548.003` | Sudo and Sudo Caching | [Privilege Escalation](/techniques/privilege-escalation.md#t1548003) |
 | `T1548.004` | Elevated Execution with Prompt | [Privilege Escalation](/techniques/privilege-escalation.md#t1548004) |
 | `T1548.005` | Temporary Elevated Cloud Access | [Privilege Escalation](/techniques/privilege-escalation.md#t1548005) |
-| `T1548.006` | TCC Manipulation | [Defense Evasion](/techniques/defense-evasion.md#t1548006) |
-| `T1550` | Use Alternate Authentication Material | [Defense Evasion](/techniques/defense-evasion.md#t1550) |
-| `T1550.001` | Application Access Token | [Defense Evasion](/techniques/defense-evasion.md#t1550001) |
-| `T1550.002` | Pass the Hash | [Defense Evasion](/techniques/defense-evasion.md#t1550002) |
-| `T1550.003` | Pass the Ticket | [Defense Evasion](/techniques/defense-evasion.md#t1550003) |
-| `T1550.004` | Web Session Cookie | [Defense Evasion](/techniques/defense-evasion.md#t1550004) |
+| `T1548.006` | TCC Manipulation | [Privilege Escalation](/techniques/privilege-escalation.md#t1548006) |
+| `T1550` | Use Alternate Authentication Material | [Lateral Movement](/techniques/lateral-movement.md#t1550) |
+| `T1550.001` | Application Access Token | [Lateral Movement](/techniques/lateral-movement.md#t1550001) |
+| `T1550.002` | Pass the Hash | [Lateral Movement](/techniques/lateral-movement.md#t1550002) |
+| `T1550.003` | Pass the Ticket | [Lateral Movement](/techniques/lateral-movement.md#t1550003) |
+| `T1550.004` | Web Session Cookie | [Lateral Movement](/techniques/lateral-movement.md#t1550004) |
 | `T1552` | Unsecured Credentials | [Credential Access](/techniques/credential-access.md#t1552) |
 | `T1552.001` | Credentials In Files | [Credential Access](/techniques/credential-access.md#t1552001) |
 | `T1552.002` | Credentials in Registry | [Credential Access](/techniques/credential-access.md#t1552002) |
@@ -437,13 +430,13 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1552.006` | Group Policy Preferences | [Credential Access](/techniques/credential-access.md#t1552006) |
 | `T1552.007` | Container API | [Credential Access](/techniques/credential-access.md#t1552007) |
 | `T1552.008` | Chat Messages | [Credential Access](/techniques/credential-access.md#t1552008) |
-| `T1553` | Subvert Trust Controls | [Defense Evasion](/techniques/defense-evasion.md#t1553) |
-| `T1553.001` | Gatekeeper Bypass | [Defense Evasion](/techniques/defense-evasion.md#t1553001) |
-| `T1553.002` | Code Signing | [Defense Evasion](/techniques/defense-evasion.md#t1553002) |
-| `T1553.003` | SIP and Trust Provider Hijacking | [Defense Evasion](/techniques/defense-evasion.md#t1553003) |
-| `T1553.004` | Install Root Certificate | [Defense Evasion](/techniques/defense-evasion.md#t1553004) |
-| `T1553.005` | Mark-of-the-Web Bypass | [Defense Evasion](/techniques/defense-evasion.md#t1553005) |
-| `T1553.006` | Code Signing Policy Modification | [Defense Evasion](/techniques/defense-evasion.md#t1553006) |
+| `T1553` | Subvert Trust Controls | [Defense Impairment](/techniques/defense-impairment.md#t1553) |
+| `T1553.001` | Gatekeeper Bypass | [Defense Impairment](/techniques/defense-impairment.md#t1553001) |
+| `T1553.002` | Code Signing | [Defense Impairment](/techniques/defense-impairment.md#t1553002) |
+| `T1553.003` | SIP and Trust Provider Hijacking | [Defense Impairment](/techniques/defense-impairment.md#t1553003) |
+| `T1553.004` | Install Root Certificate | [Defense Impairment](/techniques/defense-impairment.md#t1553004) |
+| `T1553.005` | Mark-of-the-Web Bypass | [Defense Impairment](/techniques/defense-impairment.md#t1553005) |
+| `T1553.006` | Code Signing Policy Modification | [Defense Impairment](/techniques/defense-impairment.md#t1553006) |
 | `T1554` | Compromise Host Software Binary | [Persistence](/techniques/persistence.md#t1554) |
 | `T1555` | Credentials from Password Stores | [Credential Access](/techniques/credential-access.md#t1555) |
 | `T1555.001` | Keychain | [Credential Access](/techniques/credential-access.md#t1555001) |
@@ -452,18 +445,18 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1555.004` | Windows Credential Manager | [Credential Access](/techniques/credential-access.md#t1555004) |
 | `T1555.005` | Password Managers | [Credential Access](/techniques/credential-access.md#t1555005) |
 | `T1555.006` | Cloud Secrets Management Stores | [Credential Access](/techniques/credential-access.md#t1555006) |
-| `T1556` | Modify Authentication Process | [Credential Access](/techniques/credential-access.md#t1556) |
-| `T1556.001` | Domain Controller Authentication | [Credential Access](/techniques/credential-access.md#t1556001) |
-| `T1556.002` | Password Filter DLL | [Credential Access](/techniques/credential-access.md#t1556002) |
-| `T1556.003` | Pluggable Authentication Modules | [Credential Access](/techniques/credential-access.md#t1556003) |
-| `T1556.004` | Network Device Authentication | [Credential Access](/techniques/credential-access.md#t1556004) |
-| `T1556.005` | Reversible Encryption | [Credential Access](/techniques/credential-access.md#t1556005) |
-| `T1556.006` | Multi-Factor Authentication | [Credential Access](/techniques/credential-access.md#t1556006) |
-| `T1556.007` | Hybrid Identity | [Credential Access](/techniques/credential-access.md#t1556007) |
-| `T1556.008` | Network Provider DLL | [Credential Access](/techniques/credential-access.md#t1556008) |
-| `T1556.009` | Conditional Access Policies | [Credential Access](/techniques/credential-access.md#t1556009) |
+| `T1556` | Modify Authentication Process | [Defense Impairment](/techniques/defense-impairment.md#t1556) |
+| `T1556.001` | Domain Controller Authentication | [Defense Impairment](/techniques/defense-impairment.md#t1556001) |
+| `T1556.002` | Password Filter DLL | [Defense Impairment](/techniques/defense-impairment.md#t1556002) |
+| `T1556.003` | Pluggable Authentication Modules | [Defense Impairment](/techniques/defense-impairment.md#t1556003) |
+| `T1556.004` | Network Device Authentication | [Defense Impairment](/techniques/defense-impairment.md#t1556004) |
+| `T1556.005` | Reversible Encryption | [Defense Impairment](/techniques/defense-impairment.md#t1556005) |
+| `T1556.006` | Multi-Factor Authentication | [Defense Impairment](/techniques/defense-impairment.md#t1556006) |
+| `T1556.007` | Hybrid Identity | [Defense Impairment](/techniques/defense-impairment.md#t1556007) |
+| `T1556.008` | Network Provider DLL | [Defense Impairment](/techniques/defense-impairment.md#t1556008) |
+| `T1556.009` | Conditional Access Policies | [Defense Impairment](/techniques/defense-impairment.md#t1556009) |
 | `T1557` | Adversary-in-the-Middle | [Credential Access](/techniques/credential-access.md#t1557) |
-| `T1557.001` | LLMNR/NBT-NS Poisoning and SMB Relay | [Credential Access](/techniques/credential-access.md#t1557001) |
+| `T1557.001` | Name Resolution Poisoning and SMB Relay | [Credential Access](/techniques/credential-access.md#t1557001) |
 | `T1557.002` | ARP Cache Poisoning | [Credential Access](/techniques/credential-access.md#t1557002) |
 | `T1557.003` | DHCP Spoofing | [Credential Access](/techniques/credential-access.md#t1557003) |
 | `T1557.004` | Evil Twin | [Credential Access](/techniques/credential-access.md#t1557004) |
@@ -484,37 +477,24 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1561` | Disk Wipe | [Impact](/techniques/impact.md#t1561) |
 | `T1561.001` | Disk Content Wipe | [Impact](/techniques/impact.md#t1561001) |
 | `T1561.002` | Disk Structure Wipe | [Impact](/techniques/impact.md#t1561002) |
-| `T1562` | Impair Defenses | [Defense Evasion](/techniques/defense-evasion.md#t1562) |
-| `T1562.001` | Disable or Modify Tools | [Defense Evasion](/techniques/defense-evasion.md#t1562001) |
-| `T1562.002` | Disable Windows Event Logging | [Defense Evasion](/techniques/defense-evasion.md#t1562002) |
-| `T1562.003` | Impair Command History Logging | [Defense Evasion](/techniques/defense-evasion.md#t1562003) |
-| `T1562.004` | Disable or Modify System Firewall | [Defense Evasion](/techniques/defense-evasion.md#t1562004) |
-| `T1562.006` | Indicator Blocking | [Defense Evasion](/techniques/defense-evasion.md#t1562006) |
-| `T1562.007` | Disable or Modify Cloud Firewall | [Defense Evasion](/techniques/defense-evasion.md#t1562007) |
-| `T1562.008` | Disable or Modify Cloud Logs | [Defense Evasion](/techniques/defense-evasion.md#t1562008) |
-| `T1562.009` | Safe Mode Boot | [Defense Evasion](/techniques/defense-evasion.md#t1562009) |
-| `T1562.010` | Downgrade Attack | [Defense Evasion](/techniques/defense-evasion.md#t1562010) |
-| `T1562.011` | Spoof Security Alerting | [Defense Evasion](/techniques/defense-evasion.md#t1562011) |
-| `T1562.012` | Disable or Modify Linux Audit System | [Defense Evasion](/techniques/defense-evasion.md#t1562012) |
-| `T1562.013` | Disable or Modify Network Device Firewall | [Defense Evasion](/techniques/defense-evasion.md#t1562013) |
 | `T1563` | Remote Service Session Hijacking | [Lateral Movement](/techniques/lateral-movement.md#t1563) |
 | `T1563.001` | SSH Hijacking | [Lateral Movement](/techniques/lateral-movement.md#t1563001) |
 | `T1563.002` | RDP Hijacking | [Lateral Movement](/techniques/lateral-movement.md#t1563002) |
-| `T1564` | Hide Artifacts | [Defense Evasion](/techniques/defense-evasion.md#t1564) |
-| `T1564.001` | Hidden Files and Directories | [Defense Evasion](/techniques/defense-evasion.md#t1564001) |
-| `T1564.002` | Hidden Users | [Defense Evasion](/techniques/defense-evasion.md#t1564002) |
-| `T1564.003` | Hidden Window | [Defense Evasion](/techniques/defense-evasion.md#t1564003) |
-| `T1564.004` | NTFS File Attributes | [Defense Evasion](/techniques/defense-evasion.md#t1564004) |
-| `T1564.005` | Hidden File System | [Defense Evasion](/techniques/defense-evasion.md#t1564005) |
-| `T1564.006` | Run Virtual Instance | [Defense Evasion](/techniques/defense-evasion.md#t1564006) |
-| `T1564.007` | VBA Stomping | [Defense Evasion](/techniques/defense-evasion.md#t1564007) |
-| `T1564.008` | Email Hiding Rules | [Defense Evasion](/techniques/defense-evasion.md#t1564008) |
-| `T1564.009` | Resource Forking | [Defense Evasion](/techniques/defense-evasion.md#t1564009) |
-| `T1564.010` | Process Argument Spoofing | [Defense Evasion](/techniques/defense-evasion.md#t1564010) |
-| `T1564.011` | Ignore Process Interrupts | [Defense Evasion](/techniques/defense-evasion.md#t1564011) |
-| `T1564.012` | File/Path Exclusions | [Defense Evasion](/techniques/defense-evasion.md#t1564012) |
-| `T1564.013` | Bind Mounts | [Defense Evasion](/techniques/defense-evasion.md#t1564013) |
-| `T1564.014` | Extended Attributes | [Defense Evasion](/techniques/defense-evasion.md#t1564014) |
+| `T1564` | Hide Artifacts | [Stealth](/techniques/stealth.md#t1564) |
+| `T1564.001` | Hidden Files and Directories | [Stealth](/techniques/stealth.md#t1564001) |
+| `T1564.002` | Hidden Users | [Stealth](/techniques/stealth.md#t1564002) |
+| `T1564.003` | Hidden Window | [Stealth](/techniques/stealth.md#t1564003) |
+| `T1564.004` | NTFS File Attributes | [Stealth](/techniques/stealth.md#t1564004) |
+| `T1564.005` | Hidden File System | [Stealth](/techniques/stealth.md#t1564005) |
+| `T1564.006` | Run Virtual Instance | [Stealth](/techniques/stealth.md#t1564006) |
+| `T1564.007` | VBA Stomping | [Stealth](/techniques/stealth.md#t1564007) |
+| `T1564.008` | Email Hiding Rules | [Stealth](/techniques/stealth.md#t1564008) |
+| `T1564.009` | Resource Forking | [Stealth](/techniques/stealth.md#t1564009) |
+| `T1564.010` | Process Argument Spoofing | [Stealth](/techniques/stealth.md#t1564010) |
+| `T1564.011` | Ignore Process Interrupts | [Stealth](/techniques/stealth.md#t1564011) |
+| `T1564.012` | File/Path Exclusions | [Stealth](/techniques/stealth.md#t1564012) |
+| `T1564.013` | Bind Mounts | [Stealth](/techniques/stealth.md#t1564013) |
+| `T1564.014` | Extended Attributes | [Stealth](/techniques/stealth.md#t1564014) |
 | `T1565` | Data Manipulation | [Impact](/techniques/impact.md#t1565) |
 | `T1565.001` | Stored Data Manipulation | [Impact](/techniques/impact.md#t1565001) |
 | `T1565.002` | Transmitted Data Manipulation | [Impact](/techniques/impact.md#t1565002) |
@@ -543,25 +523,25 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1573` | Encrypted Channel | [Command and Control](/techniques/command-and-control.md#t1573) |
 | `T1573.001` | Symmetric Cryptography | [Command and Control](/techniques/command-and-control.md#t1573001) |
 | `T1573.002` | Asymmetric Cryptography | [Command and Control](/techniques/command-and-control.md#t1573002) |
-| `T1574` | Hijack Execution Flow | [Persistence](/techniques/persistence.md#t1574) |
-| `T1574.001` | DLL | [Persistence](/techniques/persistence.md#t1574001) |
-| `T1574.004` | Dylib Hijacking | [Persistence](/techniques/persistence.md#t1574004) |
-| `T1574.005` | Executable Installer File Permissions Weakness | [Persistence](/techniques/persistence.md#t1574005) |
-| `T1574.006` | Dynamic Linker Hijacking | [Persistence](/techniques/persistence.md#t1574006) |
-| `T1574.007` | Path Interception by PATH Environment Variable | [Persistence](/techniques/persistence.md#t1574007) |
-| `T1574.008` | Path Interception by Search Order Hijacking | [Persistence](/techniques/persistence.md#t1574008) |
-| `T1574.009` | Path Interception by Unquoted Path | [Persistence](/techniques/persistence.md#t1574009) |
-| `T1574.010` | Services File Permissions Weakness | [Persistence](/techniques/persistence.md#t1574010) |
-| `T1574.011` | Services Registry Permissions Weakness | [Persistence](/techniques/persistence.md#t1574011) |
-| `T1574.012` | COR_PROFILER | [Persistence](/techniques/persistence.md#t1574012) |
-| `T1574.013` | KernelCallbackTable | [Persistence](/techniques/persistence.md#t1574013) |
-| `T1574.014` | AppDomainManager | [Persistence](/techniques/persistence.md#t1574014) |
-| `T1578` | Modify Cloud Compute Infrastructure | [Defense Evasion](/techniques/defense-evasion.md#t1578) |
-| `T1578.001` | Create Snapshot | [Defense Evasion](/techniques/defense-evasion.md#t1578001) |
-| `T1578.002` | Create Cloud Instance | [Defense Evasion](/techniques/defense-evasion.md#t1578002) |
-| `T1578.003` | Delete Cloud Instance | [Defense Evasion](/techniques/defense-evasion.md#t1578003) |
-| `T1578.004` | Revert Cloud Instance | [Defense Evasion](/techniques/defense-evasion.md#t1578004) |
-| `T1578.005` | Modify Cloud Compute Configurations | [Defense Evasion](/techniques/defense-evasion.md#t1578005) |
+| `T1574` | Hijack Execution Flow | [Stealth](/techniques/stealth.md#t1574) |
+| `T1574.001` | DLL | [Stealth](/techniques/stealth.md#t1574001) |
+| `T1574.004` | Dylib Hijacking | [Stealth](/techniques/stealth.md#t1574004) |
+| `T1574.005` | Executable Installer File Permissions Weakness | [Stealth](/techniques/stealth.md#t1574005) |
+| `T1574.006` | Dynamic Linker Hijacking | [Stealth](/techniques/stealth.md#t1574006) |
+| `T1574.007` | Path Interception by PATH Environment Variable | [Stealth](/techniques/stealth.md#t1574007) |
+| `T1574.008` | Path Interception by Search Order Hijacking | [Stealth](/techniques/stealth.md#t1574008) |
+| `T1574.009` | Path Interception by Unquoted Path | [Stealth](/techniques/stealth.md#t1574009) |
+| `T1574.010` | Services File Permissions Weakness | [Stealth](/techniques/stealth.md#t1574010) |
+| `T1574.011` | Services Registry Permissions Weakness | [Stealth](/techniques/stealth.md#t1574011) |
+| `T1574.012` | COR_PROFILER | [Stealth](/techniques/stealth.md#t1574012) |
+| `T1574.013` | KernelCallbackTable | [Stealth](/techniques/stealth.md#t1574013) |
+| `T1574.014` | AppDomainManager | [Stealth](/techniques/stealth.md#t1574014) |
+| `T1578` | Modify Cloud Compute Infrastructure | [Defense Impairment](/techniques/defense-impairment.md#t1578) |
+| `T1578.001` | Create Snapshot | [Defense Impairment](/techniques/defense-impairment.md#t1578001) |
+| `T1578.002` | Create Cloud Instance | [Defense Impairment](/techniques/defense-impairment.md#t1578002) |
+| `T1578.003` | Delete Cloud Instance | [Defense Impairment](/techniques/defense-impairment.md#t1578003) |
+| `T1578.004` | Revert Cloud Instance | [Defense Impairment](/techniques/defense-impairment.md#t1578004) |
+| `T1578.005` | Modify Cloud Compute Configurations | [Defense Impairment](/techniques/defense-impairment.md#t1578005) |
 | `T1580` | Cloud Infrastructure Discovery | [Discovery](/techniques/discovery.md#t1580) |
 | `T1583` | Acquire Infrastructure | [Resource Development](/techniques/resource-development.md#t1583) |
 | `T1583.001` | Domains | [Resource Development](/techniques/resource-development.md#t1583001) |
@@ -646,14 +626,14 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1598.002` | Spearphishing Attachment | [Reconnaissance](/techniques/reconnaissance.md#t1598002) |
 | `T1598.003` | Spearphishing Link | [Reconnaissance](/techniques/reconnaissance.md#t1598003) |
 | `T1598.004` | Spearphishing Voice | [Reconnaissance](/techniques/reconnaissance.md#t1598004) |
-| `T1599` | Network Boundary Bridging | [Defense Evasion](/techniques/defense-evasion.md#t1599) |
-| `T1599.001` | Network Address Translation Traversal | [Defense Evasion](/techniques/defense-evasion.md#t1599001) |
-| `T1600` | Weaken Encryption | [Defense Evasion](/techniques/defense-evasion.md#t1600) |
-| `T1600.001` | Reduce Key Space | [Defense Evasion](/techniques/defense-evasion.md#t1600001) |
-| `T1600.002` | Disable Crypto Hardware | [Defense Evasion](/techniques/defense-evasion.md#t1600002) |
-| `T1601` | Modify System Image | [Defense Evasion](/techniques/defense-evasion.md#t1601) |
-| `T1601.001` | Patch System Image | [Defense Evasion](/techniques/defense-evasion.md#t1601001) |
-| `T1601.002` | Downgrade System Image | [Defense Evasion](/techniques/defense-evasion.md#t1601002) |
+| `T1599` | Network Boundary Bridging | [Defense Impairment](/techniques/defense-impairment.md#t1599) |
+| `T1599.001` | Network Address Translation Traversal | [Defense Impairment](/techniques/defense-impairment.md#t1599001) |
+| `T1600` | Weaken Encryption | [Defense Impairment](/techniques/defense-impairment.md#t1600) |
+| `T1600.001` | Reduce Key Space | [Defense Impairment](/techniques/defense-impairment.md#t1600001) |
+| `T1600.002` | Disable Crypto Hardware | [Defense Impairment](/techniques/defense-impairment.md#t1600002) |
+| `T1601` | Modify System Image | [Defense Impairment](/techniques/defense-impairment.md#t1601) |
+| `T1601.001` | Patch System Image | [Defense Impairment](/techniques/defense-impairment.md#t1601001) |
+| `T1601.002` | Downgrade System Image | [Defense Impairment](/techniques/defense-impairment.md#t1601002) |
 | `T1602` | Data from Configuration Repository | [Collection](/techniques/collection.md#t1602) |
 | `T1602.001` | SNMP (MIB Dump) | [Collection](/techniques/collection.md#t1602001) |
 | `T1602.002` | Network Device Configuration Dump | [Collection](/techniques/collection.md#t1602002) |
@@ -668,18 +648,18 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1608.005` | Link Target | [Resource Development](/techniques/resource-development.md#t1608005) |
 | `T1608.006` | SEO Poisoning | [Resource Development](/techniques/resource-development.md#t1608006) |
 | `T1609` | Container Administration Command | [Execution](/techniques/execution.md#t1609) |
-| `T1610` | Deploy Container | [Defense Evasion](/techniques/defense-evasion.md#t1610) |
+| `T1610` | Deploy Container | [Execution](/techniques/execution.md#t1610) |
 | `T1611` | Escape to Host | [Privilege Escalation](/techniques/privilege-escalation.md#t1611) |
-| `T1612` | Build Image on Host | [Defense Evasion](/techniques/defense-evasion.md#t1612) |
+| `T1612` | Build Image on Host | [Stealth](/techniques/stealth.md#t1612) |
 | `T1613` | Container and Resource Discovery | [Discovery](/techniques/discovery.md#t1613) |
 | `T1614` | System Location Discovery | [Discovery](/techniques/discovery.md#t1614) |
 | `T1614.001` | System Language Discovery | [Discovery](/techniques/discovery.md#t1614001) |
 | `T1615` | Group Policy Discovery | [Discovery](/techniques/discovery.md#t1615) |
 | `T1619` | Cloud Storage Object Discovery | [Discovery](/techniques/discovery.md#t1619) |
-| `T1620` | Reflective Code Loading | [Defense Evasion](/techniques/defense-evasion.md#t1620) |
+| `T1620` | Reflective Code Loading | [Stealth](/techniques/stealth.md#t1620) |
 | `T1621` | Multi-Factor Authentication Request Generation | [Credential Access](/techniques/credential-access.md#t1621) |
-| `T1622` | Debugger Evasion | [Defense Evasion](/techniques/defense-evasion.md#t1622) |
-| `T1647` | Plist File Modification | [Defense Evasion](/techniques/defense-evasion.md#t1647) |
+| `T1622` | Debugger Evasion | [Stealth](/techniques/stealth.md#t1622) |
+| `T1647` | Plist File Modification | [Defense Impairment](/techniques/defense-impairment.md#t1647) |
 | `T1648` | Serverless Execution | [Execution](/techniques/execution.md#t1648) |
 | `T1649` | Steal or Forge Authentication Certificates | [Credential Access](/techniques/credential-access.md#t1649) |
 | `T1650` | Acquire Access | [Resource Development](/techniques/resource-development.md#t1650) |
@@ -687,21 +667,41 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1652` | Device Driver Discovery | [Discovery](/techniques/discovery.md#t1652) |
 | `T1653` | Power Settings | [Persistence](/techniques/persistence.md#t1653) |
 | `T1654` | Log Enumeration | [Discovery](/techniques/discovery.md#t1654) |
-| `T1656` | Impersonation | [Defense Evasion](/techniques/defense-evasion.md#t1656) |
 | `T1657` | Financial Theft | [Impact](/techniques/impact.md#t1657) |
 | `T1659` | Content Injection | [Initial Access](/techniques/initial-access.md#t1659) |
 | `T1665` | Hide Infrastructure | [Command and Control](/techniques/command-and-control.md#t1665) |
-| `T1666` | Modify Cloud Resource Hierarchy | [Defense Evasion](/techniques/defense-evasion.md#t1666) |
+| `T1666` | Modify Cloud Resource Hierarchy | [Defense Impairment](/techniques/defense-impairment.md#t1666) |
 | `T1667` | Email Bombing | [Impact](/techniques/impact.md#t1667) |
 | `T1668` | Exclusive Control | [Persistence](/techniques/persistence.md#t1668) |
 | `T1669` | Wi-Fi Networks | [Initial Access](/techniques/initial-access.md#t1669) |
 | `T1671` | Cloud Application Integration | [Persistence](/techniques/persistence.md#t1671) |
-| `T1672` | Email Spoofing | [Defense Evasion](/techniques/defense-evasion.md#t1672) |
 | `T1673` | Virtual Machine Discovery | [Discovery](/techniques/discovery.md#t1673) |
 | `T1674` | Input Injection | [Execution](/techniques/execution.md#t1674) |
 | `T1675` | ESXi Administration Command | [Execution](/techniques/execution.md#t1675) |
 | `T1677` | Poisoned Pipeline Execution | [Execution](/techniques/execution.md#t1677) |
-| `T1678` | Delay Execution | [Defense Evasion](/techniques/defense-evasion.md#t1678) |
-| `T1679` | Selective Exclusion | [Defense Evasion](/techniques/defense-evasion.md#t1679) |
+| `T1678` | Delay Execution | [Stealth](/techniques/stealth.md#t1678) |
+| `T1679` | Selective Exclusion | [Stealth](/techniques/stealth.md#t1679) |
 | `T1680` | Local Storage Discovery | [Discovery](/techniques/discovery.md#t1680) |
 | `T1681` | Search Threat Vendor Data | [Reconnaissance](/techniques/reconnaissance.md#t1681) |
+| `T1682` | Query Public AI Services | [Reconnaissance](/techniques/reconnaissance.md#t1682) |
+| `T1683` | Generate Content | [Resource Development](/techniques/resource-development.md#t1683) |
+| `T1683.001` | Written Content | [Resource Development](/techniques/resource-development.md#t1683001) |
+| `T1683.002` | Audio-Visual Content | [Resource Development](/techniques/resource-development.md#t1683002) |
+| `T1684` | Social Engineering | [Stealth](/techniques/stealth.md#t1684) |
+| `T1684.001` | Impersonation | [Stealth](/techniques/stealth.md#t1684001) |
+| `T1684.002` | Email Spoofing | [Stealth](/techniques/stealth.md#t1684002) |
+| `T1685` | Disable or Modify Tools | [Defense Impairment](/techniques/defense-impairment.md#t1685) |
+| `T1685.001` | Disable or Modify Windows Event Log | [Defense Impairment](/techniques/defense-impairment.md#t1685001) |
+| `T1685.002` | Disable or Modify Cloud Log | [Defense Impairment](/techniques/defense-impairment.md#t1685002) |
+| `T1685.003` | Modify or Spoof Tool UI | [Defense Impairment](/techniques/defense-impairment.md#t1685003) |
+| `T1685.004` | Disable or Modify Linux Audit System Log | [Defense Impairment](/techniques/defense-impairment.md#t1685004) |
+| `T1685.005` | Clear Windows Event Logs | [Defense Impairment](/techniques/defense-impairment.md#t1685005) |
+| `T1685.006` | Clear Linux or Mac System Logs | [Defense Impairment](/techniques/defense-impairment.md#t1685006) |
+| `T1686` | Disable or Modify System Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686) |
+| `T1686.001` | Cloud Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686001) |
+| `T1686.002` | Network Device Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686002) |
+| `T1686.003` | Windows Host Firewall | [Defense Impairment](/techniques/defense-impairment.md#t1686003) |
+| `T1687` | Exploitation for Defense Impairment | [Defense Impairment](/techniques/defense-impairment.md#t1687) |
+| `T1688` | Safe Mode Boot | [Defense Impairment](/techniques/defense-impairment.md#t1688) |
+| `T1689` | Downgrade Attack | [Defense Impairment](/techniques/defense-impairment.md#t1689) |
+| `T1690` | Prevent Command History Logging | [Defense Impairment](/techniques/defense-impairment.md#t1690) |

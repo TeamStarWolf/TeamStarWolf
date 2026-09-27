@@ -2,8 +2,8 @@
 
 <a id="sender-reputation-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Email
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Email  
 
 Ascertaining sender reputation based on information associated with a message (e.g. email/instant messaging).
 

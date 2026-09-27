@@ -2,8 +2,8 @@
 
 <a id="decoy-file"></a>
 
-**D3FEND tactic:** Deceive
-**Digital artifacts:** File
+**D3FEND tactic:** Deceive  
+**Digital artifacts:** File  
 
 A file created for the purposes of deceiving an adversary.
 

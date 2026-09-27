@@ -18,10 +18,6 @@ An adversary engages in scanning activities to map network nodes, hosts, devices
 
 - [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
-## Prerequisites
-
-- None
-
 ## Consequences
 
 - Confidentiality / Other

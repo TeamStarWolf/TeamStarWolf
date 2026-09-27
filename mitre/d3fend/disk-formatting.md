@@ -2,8 +2,8 @@
 
 <a id="disk-formatting"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Secondary Storage
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Secondary Storage  
 
 Disk Formatting is the process of preparing a data storage device, such as a hard drive, solid-state drive, or USB flash drive, for initial use.
 

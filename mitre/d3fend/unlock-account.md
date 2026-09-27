@@ -2,8 +2,8 @@
 
 <a id="unlock-account"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** User Account
+**D3FEND tactic:** Restore  
+**Digital artifacts:** User Account  
 
 Restoring a user account's access to resources by unlocking a locked User Account.
 

@@ -2,8 +2,8 @@
 
 <a id="operational-process-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Event Log, OT Process Data Historian
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Event Log, OT Process Data Historian  
 
 Monitoring physical parameters and operator actions related to an operational environment.
 

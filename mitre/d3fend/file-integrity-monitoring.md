@@ -2,8 +2,8 @@
 
 <a id="file-integrity-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** File  
 
 Detecting any suspicious changes to files in a computer system.
 

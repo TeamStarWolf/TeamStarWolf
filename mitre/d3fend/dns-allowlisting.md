@@ -2,8 +2,8 @@
 
 <a id="dns-allowlisting"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Outbound Internet DNS Lookup Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Outbound Internet DNS Lookup Traffic  
 
 Permitting only approved domains and their subdomains to be resolved.
 

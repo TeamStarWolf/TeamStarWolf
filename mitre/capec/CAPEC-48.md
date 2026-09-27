@@ -11,7 +11,7 @@ This attack relies on client side code to access local files and resources inste
 
 ## Related CWE (2)
 
-- [CWE-241 — Improper Handling of Unexpected Data Type](https://cwe.mitre.org/data/definitions/241.html) — The product does not handle or incorrectly handles when a particular element is not the expected type, e.g.
+- [CWE-241 — Improper Handling of Unexpected Data Type](https://cwe.mitre.org/data/definitions/241.html) — The product does not handle or incorrectly handles when a particular element is not the expected type, e.g. it expects a digit (0-9) but is provided with a letter (A-Z).
 - [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html) — The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.
 
 ## Prerequisites

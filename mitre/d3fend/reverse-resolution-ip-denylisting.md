@@ -2,8 +2,8 @@
 
 <a id="reverse-resolution-ip-denylisting"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Outbound Internet DNS Lookup Traffic
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Outbound Internet DNS Lookup Traffic  
 
 Blocking a reverse lookup based on the query's IP address value.
 

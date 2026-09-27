@@ -2,8 +2,8 @@
 
 <a id="endpoint-health-beacon"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Node
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Node  
 
 Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised.
 

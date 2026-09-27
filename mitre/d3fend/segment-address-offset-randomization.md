@@ -2,8 +2,8 @@
 
 <a id="segment-address-offset-randomization"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Process Segment
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Process Segment  
 
 Randomizing the base (start) address of one or more segments of memory during the initialization of a process.
 

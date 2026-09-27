@@ -2,8 +2,8 @@
 
 <a id="credential-rotation"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Credential
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Credential  
 
 Credential rotation is a security procedure in which authentication credentials, such as passwords, API keys, or certificates, are regularly changed or replaced to minimize the risk of unauthorized access.
 

@@ -2,8 +2,8 @@
 
 <a id="connection-attempt-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Intranet Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Intranet Network Traffic  
 
 Analyzing failed connections in a network to detect unauthorized activity.
 

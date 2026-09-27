@@ -2,8 +2,8 @@
 
 <a id="remote-firmware-update-monitoring"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** OT Device Firmware Command, OT Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** OT Device Firmware Command, OT Network Traffic  
 
 Monitoring of remote firmware update commands to identify unauthorized software installations.
 

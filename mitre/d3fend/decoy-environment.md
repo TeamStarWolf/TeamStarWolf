@@ -2,8 +2,8 @@
 
 <a id="decoy-environment"></a>
 
-**D3FEND tactic:** Deceive
-**Digital artifacts:** Decoy Artifact
+**D3FEND tactic:** Deceive  
+**Digital artifacts:** Decoy Artifact  
 
 A Decoy Environment comprises hosts and networks for the purposes of deceiving an attacker.
 

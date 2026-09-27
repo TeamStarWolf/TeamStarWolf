@@ -2,8 +2,8 @@
 
 <a id="stack-frame-canary-validation"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Stack Frame
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Stack Frame  
 
 Comparing a value stored in a stack frame with a known good value in order to prevent or detect a memory segment overwrite.
 

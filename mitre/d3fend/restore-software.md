@@ -2,8 +2,8 @@
 
 <a id="restore-software"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** Software
+**D3FEND tactic:** Restore  
+**Digital artifacts:** Software  
 
 Restoring software to a host.
 

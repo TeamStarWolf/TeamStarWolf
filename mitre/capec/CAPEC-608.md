@@ -12,10 +12,6 @@ The use of cryptanalytic techniques to derive cryptographic keys or otherwise ef
 
 - [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
 
-## Prerequisites
-
-- None
-
 ## Skills required
 
 - [Medium] Adversaries can rent commercial supercomputer time globally to conduct cryptanalysis on encrypted data captured from mobile devices. Foreign governments have their own cryptanalysis technology and capabilities. Commercial cellular standards for encryption (GSM and CDMA) are also subject to adversary cryptanalysis.

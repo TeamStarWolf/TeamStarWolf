@@ -2,8 +2,8 @@
 
 <a id="rpc-traffic-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** RPC Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** RPC Network Traffic  
 
 Monitoring the activity of remote procedure calls in communication traffic to establish standard protocol operations and potential attacker activities.
 

@@ -2,8 +2,8 @@
 
 <a id="host-reboot"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Process
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Process  
 
 Initiating a host's reboot sequence to terminate all running processes.
 

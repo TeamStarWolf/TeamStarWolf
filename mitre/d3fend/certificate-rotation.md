@@ -2,8 +2,8 @@
 
 <a id="certificate-rotation"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Certificate
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Certificate  
 
 Certificate rotation involves replacing digital certificates and their private keys to maintain cryptographic integrity and trust, mitigating key compromise risks and ensuring continuous secure communications.
 

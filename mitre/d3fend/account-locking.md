@@ -2,8 +2,8 @@
 
 <a id="account-locking"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** User Account
+**D3FEND tactic:** Evict  
+**Digital artifacts:** User Account  
 
 The process of temporarily disabling user accounts on a system or domain.
 

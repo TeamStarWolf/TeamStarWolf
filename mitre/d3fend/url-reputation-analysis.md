@@ -2,8 +2,8 @@
 
 <a id="url-reputation-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** URL
+**D3FEND tactic:** Detect  
+**Digital artifacts:** URL  
 
 Analyzing the reputation of a URL.
 

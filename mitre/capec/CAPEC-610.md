@@ -8,10 +8,6 @@
 
 Adversaries inject data into mobile technology traffic (data flows or signaling data) to disrupt communications or conduct additional surveillance operations.
 
-## Prerequisites
-
-- None
-
 ## Skills required
 
 - [High] Often achieved by nation states in conjunction with commercial cellular providers to conduct cellular traffic intercept and possible traffic injection.

@@ -2,8 +2,8 @@
 
 <a id="strong-password-policy"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Password
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Password  
 
 Modifying system configuration to increase password strength.
 

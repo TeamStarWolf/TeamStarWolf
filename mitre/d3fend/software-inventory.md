@@ -2,8 +2,8 @@
 
 <a id="software-inventory"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Software
+**D3FEND tactic:** Model  
+**Digital artifacts:** Software  
 
 Software inventorying identifies and records the software items in the organization's architecture.
 

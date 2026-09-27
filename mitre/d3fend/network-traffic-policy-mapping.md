@@ -2,8 +2,8 @@
 
 <a id="network-traffic-policy-mapping"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Access Control Configuration
+**D3FEND tactic:** Model  
+**Digital artifacts:** Access Control Configuration  
 
 Network traffic policy mapping identifies and models the allowed pathways of data at the network, transport, and/or application levels.
 

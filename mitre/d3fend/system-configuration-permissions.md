@@ -2,8 +2,8 @@
 
 <a id="system-configuration-permissions"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** System Configuration Database
+**D3FEND tactic:** Harden  
+**Digital artifacts:** System Configuration Database  
 
 Restricting system configuration modifications to a specific user or group of users.
 

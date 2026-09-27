@@ -2,8 +2,8 @@
 
 <a id="logical-link-mapping"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Network Node
+**D3FEND tactic:** Model  
+**Digital artifacts:** Network Node  
 
 Logical link mapping creates a model of existing or previous node-to-node connections using network-layer data or metadata.
 

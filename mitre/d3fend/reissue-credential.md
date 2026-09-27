@@ -2,8 +2,8 @@
 
 <a id="reissue-credential"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** Credential
+**D3FEND tactic:** Restore  
+**Digital artifacts:** Credential  
 
 Issue a new credential to a user which supersedes their old credential.
 

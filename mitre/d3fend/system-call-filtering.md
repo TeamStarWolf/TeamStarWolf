@@ -2,8 +2,8 @@
 
 <a id="system-call-filtering"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Process, System Call
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Process, System Call  
 
 Controlling access to local computer system resources with kernel-level capabilities.
 

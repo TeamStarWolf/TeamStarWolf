@@ -2,8 +2,8 @@
 
 <a id="trusted-library"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Subroutine
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Subroutine  
 
 A trusted library is a collection of pre-verified and secure code modules or components that are used within software applications to perform specific functions. These libraries are considered reliable and have been vetted for security vulnerabilities, ensuring they do not introduce risks into the application.
 

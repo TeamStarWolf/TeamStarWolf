@@ -2,8 +2,8 @@
 
 <a id="container-image-analysis"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Container Image
+**D3FEND tactic:** Model  
+**Digital artifacts:** Container Image  
 
 Analyzing a Container Image with respect to a set of policies.
 

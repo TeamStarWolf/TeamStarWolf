@@ -2,8 +2,8 @@
 
 <a id="emulated-file-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Executable File, Document File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Executable File, Document File  
 
 Emulating instructions in a file looking for specific patterns.
 

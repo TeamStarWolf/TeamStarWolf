@@ -2,8 +2,8 @@
 
 <a id="file-carving"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** File Transfer Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** File Transfer Network Traffic  
 
 Identifying and extracting files from network application protocols through the use of network stream reassembly software.
 

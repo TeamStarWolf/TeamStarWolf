@@ -2,8 +2,8 @@
 
 <a id="process-spawn-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Process, Create Process
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Process, Create Process  
 
 Analyzing spawn arguments or attributes of a process to detect processes that are unauthorized.
 

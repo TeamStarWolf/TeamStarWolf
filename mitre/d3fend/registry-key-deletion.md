@@ -2,8 +2,8 @@
 
 <a id="registry-key-deletion"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Windows Registry Key
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Windows Registry Key  
 
 Delete a registry key.
 

@@ -2,8 +2,8 @@
 
 <a id="file-creation-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Create File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Create File  
 
 Analyzing the properties of file create system call invocations.
 

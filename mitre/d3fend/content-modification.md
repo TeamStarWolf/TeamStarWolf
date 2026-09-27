@@ -2,8 +2,8 @@
 
 <a id="content-modification"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** File
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** File  
 
 Modify content that does not comply with policy.
 

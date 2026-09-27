@@ -2,8 +2,8 @@
 
 <a id="change-default-password"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Password, User Account, OT Controller
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Password, User Account, OT Controller  
 
 Changing the default password means replacing the factory-set credentials with a strong, unique password before the device is deployed, preventing unauthorized access.
 

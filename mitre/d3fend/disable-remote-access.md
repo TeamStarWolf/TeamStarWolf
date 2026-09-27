@@ -2,8 +2,8 @@
 
 <a id="disable-remote-access"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Application Configuration
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Application Configuration  
 
 Limiting access to a computing device which is not required through or from a non-organization-controlled network.
 

@@ -2,8 +2,8 @@
 
 <a id="shadow-stack-comparisons"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Stack Frame
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Stack Frame  
 
 Comparing a call stack in system memory with a shadow call stack maintained by the processor to determine unauthorized shellcode activity.
 

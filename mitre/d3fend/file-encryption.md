@@ -2,8 +2,8 @@
 
 <a id="file-encryption"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** File
+**D3FEND tactic:** Harden  
+**Digital artifacts:** File  
 
 Encrypting a file using a cryptographic key.
 

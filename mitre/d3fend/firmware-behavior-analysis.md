@@ -2,8 +2,8 @@
 
 <a id="firmware-behavior-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Firmware
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Firmware  
 
 Analyzing the behavior of embedded code in firmware and looking for anomalous behavior and suspicious activity.
 

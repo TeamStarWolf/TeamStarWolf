@@ -2,8 +2,8 @@
 
 <a id="certificate-based-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Certificate
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Certificate  
 
 Requiring a digital certificate in order to authenticate a user.
 

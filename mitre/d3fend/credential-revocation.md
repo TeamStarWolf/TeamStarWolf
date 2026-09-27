@@ -2,8 +2,8 @@
 
 <a id="credential-revocation"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Credential
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Credential  
 
 Deleting a set of credentials permanently to prevent them from being used to authenticate.
 

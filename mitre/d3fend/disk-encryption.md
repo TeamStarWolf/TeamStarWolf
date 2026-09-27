@@ -2,8 +2,8 @@
 
 <a id="disk-encryption"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Storage
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Storage  
 
 Encrypting a hard disk partition to prevent cleartext access to a file system.
 

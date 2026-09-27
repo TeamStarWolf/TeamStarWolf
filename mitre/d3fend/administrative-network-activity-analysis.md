@@ -2,8 +2,8 @@
 
 <a id="administrative-network-activity-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Intranet Administrative Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Intranet Administrative Network Traffic  
 
 Detection of unauthorized use of administrative network protocols by analyzing network activity against a baseline.
 

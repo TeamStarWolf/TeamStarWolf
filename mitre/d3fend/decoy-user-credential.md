@@ -2,8 +2,8 @@
 
 <a id="decoy-user-credential"></a>
 
-**D3FEND tactic:** Deceive
-**Digital artifacts:** Credential
+**D3FEND tactic:** Deceive  
+**Digital artifacts:** Credential  
 
 A Credential created for the purpose of deceiving an adversary.
 

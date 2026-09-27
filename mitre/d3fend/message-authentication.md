@@ -2,8 +2,8 @@
 
 <a id="message-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Digital Message
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Digital Message  
 
 Authenticating the sender of a message and ensuring message integrity.
 

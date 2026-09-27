@@ -2,8 +2,8 @@
 
 <a id="credential-transmission-scoping"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Credential
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Credential  
 
 Limiting the transmission of a credential to a scoped set of relying parties.
 

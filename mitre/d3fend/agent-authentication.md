@@ -2,8 +2,8 @@
 
 <a id="agent-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** User Account
+**D3FEND tactic:** Harden  
+**Digital artifacts:** User Account  
 
 Agent authentication is the process of verifying the identities of agents to ensure they are authorized and trustworthy participants within a system.
 

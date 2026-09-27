@@ -2,8 +2,8 @@
 
 <a id="email-removal"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Email, Mail Server
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Email, Mail Server  
 
 The email removal technique deletes email files from system storage.
 

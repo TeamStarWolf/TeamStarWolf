@@ -2,8 +2,8 @@
 
 <a id="password-rotation"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Password
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Password  
 
 Password rotation is a security policy that mandates the periodic change of user account passwords to mitigate the risk of unauthorized access due to compromised credentials.
 

@@ -11,7 +11,7 @@ An attacker exploits a weakness in input validation on the target by supplying a
 
 ## Related CWE (1)
 
-- [CWE-23 — Relative Path Traversal](https://cwe.mitre.org/data/definitions/23.html) — The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as ..
+- [CWE-23 — Relative Path Traversal](https://cwe.mitre.org/data/definitions/23.html) — The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as .. that can resolve to a location that is outside of that…
 
 ## Prerequisites
 

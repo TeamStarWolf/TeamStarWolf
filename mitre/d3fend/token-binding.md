@@ -2,8 +2,8 @@
 
 <a id="token-binding"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Access Token
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Access Token  
 
 Token binding is a security mechanism used to enhance the protection of tokens, such as cookies or OAuth tokens, by binding them to a specific connection.
 

@@ -2,8 +2,8 @@
 
 <a id="directional-network-link"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Physical Link
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Physical Link  
 
 Enforce one-way network communication by preventing two-way communication.
 

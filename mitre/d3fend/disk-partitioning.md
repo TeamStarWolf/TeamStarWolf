@@ -2,8 +2,8 @@
 
 <a id="disk-partitioning"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Partition Table
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Partition Table  
 
 Disk Partitioning is the process of dividing a disk into multiple distinct sections, known as partitions.
 

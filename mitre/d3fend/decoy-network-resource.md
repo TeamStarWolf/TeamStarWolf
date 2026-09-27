@@ -2,8 +2,8 @@
 
 <a id="decoy-network-resource"></a>
 
-**D3FEND tactic:** Deceive
-**Digital artifacts:** Network Resource
+**D3FEND tactic:** Deceive  
+**Digital artifacts:** Network Resource  
 
 Deploying a network resource for the purposes of deceiving an adversary.
 

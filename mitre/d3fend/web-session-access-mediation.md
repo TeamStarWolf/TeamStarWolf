@@ -2,8 +2,8 @@
 
 <a id="web-session-access-mediation"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Service Application Process
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Service Application Process  
 
 Web session access mediation secures user sessions in web applications by employing robust authentication and integrity validation, along with adaptive threat mitigation techniques, to ensure that access to web resources is authorized and protected from session-related attacks.
 

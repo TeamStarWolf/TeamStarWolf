@@ -2,8 +2,8 @@
 
 <a id="url-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** URL
+**D3FEND tactic:** Detect  
+**Digital artifacts:** URL  
 
 Determining if a URL is benign or malicious by analyzing the URL or its components.
 

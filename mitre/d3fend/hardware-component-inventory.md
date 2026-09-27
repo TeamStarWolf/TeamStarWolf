@@ -2,8 +2,8 @@
 
 <a id="hardware-component-inventory"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Hardware Device
+**D3FEND tactic:** Model  
+**Digital artifacts:** Hardware Device  
 
 Hardware component inventorying identifies and records the hardware items in the organization's architecture.
 

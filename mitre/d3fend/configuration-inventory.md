@@ -2,8 +2,8 @@
 
 <a id="configuration-inventory"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Configuration Resource
+**D3FEND tactic:** Model  
+**Digital artifacts:** Configuration Resource  
 
 Configuration inventory identifies and records the configuration of software and hardware and their components throughout the organization.
 

@@ -2,8 +2,8 @@
 
 <a id="hardware-based-process-isolation"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** Process, Create Process
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** Process, Create Process  
 
 Preventing one process from writing to the memory space of another process through hardware based address manager implementations.
 

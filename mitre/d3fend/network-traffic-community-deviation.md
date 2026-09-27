@@ -2,8 +2,8 @@
 
 <a id="network-traffic-community-deviation"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Establishing baseline communities of network hosts and identifying statistically divergent inter-community communication.
 

@@ -2,8 +2,8 @@
 
 <a id="system-file-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Operating System File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Operating System File  
 
 Monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering.
 

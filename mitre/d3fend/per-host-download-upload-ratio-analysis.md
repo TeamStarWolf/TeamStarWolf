@@ -2,8 +2,8 @@
 
 <a id="per-host-download-upload-ratio-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Network Traffic  
 
 Detecting anomalies that indicate malicious activity by comparing the amount of data downloaded versus data uploaded by a host.
 

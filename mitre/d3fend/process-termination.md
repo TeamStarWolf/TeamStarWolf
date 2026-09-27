@@ -2,8 +2,8 @@
 
 <a id="process-termination"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Process
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Process  
 
 Terminating a running application process on a computer system.
 

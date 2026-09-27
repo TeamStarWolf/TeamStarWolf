@@ -2,8 +2,8 @@
 
 <a id="content-filtering"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** File
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** File  
 
 Content Filtering techniques aid in the process of analyzing an input file for malicious or erroneous content and outputting a sanitized version.
 

@@ -2,8 +2,8 @@
 
 <a id="password-authentication"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Password
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Password  
 
 Password authentication is a security mechanism used to verify the identity of a user or entity attempting to access a system or resource by requiring the input of a secret string of characters, known as a password, that is associated with the user or entity.
 

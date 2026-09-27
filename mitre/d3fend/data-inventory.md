@@ -2,8 +2,8 @@
 
 <a id="data-inventory"></a>
 
-**D3FEND tactic:** Model
-**Digital artifacts:** Document File, Database
+**D3FEND tactic:** Model  
+**Digital artifacts:** Document File, Database  
 
 Data inventorying identifies and records the schemas, formats, volumes, and locations of data stored and used on the organization's architecture.
 

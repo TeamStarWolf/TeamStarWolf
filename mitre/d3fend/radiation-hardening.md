@@ -2,8 +2,8 @@
 
 <a id="radiation-hardening"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Hardware Device
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Hardware Device  
 
 Radiation hardening is the process of making electronic components and circuits resistant to damage or malfunction caused by high levels of ionizing radiation.
 

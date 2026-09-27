@@ -2,8 +2,8 @@
 
 <a id="ipc-traffic-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Intranet IPC Network Traffic
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Intranet IPC Network Traffic  
 
 Analyzing standard inter process communication (IPC) protocols to detect deviations from normal protocol activity.
 

@@ -2,8 +2,8 @@
 
 <a id="homoglyph-detection"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** URL, Email
+**D3FEND tactic:** Detect  
+**Digital artifacts:** URL, Email  
 
 Comparing strings using a variety of techniques to determine if a deceptive or malicious string is being presented to a user.
 

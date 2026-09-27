@@ -2,8 +2,8 @@
 
 <a id="restore-user-account-access"></a>
 
-**D3FEND tactic:** Restore
-**Digital artifacts:** User Account
+**D3FEND tactic:** Restore  
+**Digital artifacts:** User Account  
 
 Restoring a user account's access to resources.
 

@@ -2,8 +2,8 @@
 
 <a id="authentication-cache-invalidation"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Credential
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Credential  
 
 Removing tokens or credentials from an authentication cache to prevent further user associated account accesses.
 

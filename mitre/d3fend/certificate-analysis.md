@@ -2,8 +2,8 @@
 
 <a id="certificate-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Certificate File
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Certificate File  
 
 Analyzing Public Key Infrastructure certificates to detect if they have been misconfigured or spoofed using both network traffic, certificate fields and third-party logs.
 

@@ -2,8 +2,8 @@
 
 <a id="disk-erasure"></a>
 
-**D3FEND tactic:** Evict
-**Digital artifacts:** Secondary Storage
+**D3FEND tactic:** Evict  
+**Digital artifacts:** Secondary Storage  
 
 Disk Erasure is the process of securely deleting all data on a disk to ensure that it cannot be recovered by any means.
 

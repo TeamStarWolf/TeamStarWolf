@@ -2,8 +2,8 @@
 
 <a id="hardware-based-write-protection"></a>
 
-**D3FEND tactic:** Harden
-**Digital artifacts:** Secondary Storage
+**D3FEND tactic:** Harden  
+**Digital artifacts:** Secondary Storage  
 
 Physical methods of preventing data from being written to computer storage.
 

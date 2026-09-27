@@ -2,8 +2,8 @@
 
 <a id="ot-variable-access-restriction"></a>
 
-**D3FEND tactic:** Isolate
-**Digital artifacts:** OT Logic Variable, OT Write Command
+**D3FEND tactic:** Isolate  
+**Digital artifacts:** OT Logic Variable, OT Write Command  
 
 Assign read/write access controls on designated registers or data tags to prevent unauthorized writes.
 

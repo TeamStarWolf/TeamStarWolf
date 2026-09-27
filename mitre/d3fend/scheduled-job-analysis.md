@@ -2,8 +2,8 @@
 
 <a id="scheduled-job-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Job Schedule
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Job Schedule  
 
 Analysis of source files, processes, destination files, or destination servers associated with a scheduled job to detect unauthorized use of job scheduling.
 

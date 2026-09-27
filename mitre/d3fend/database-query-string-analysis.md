@@ -2,8 +2,8 @@
 
 <a id="database-query-string-analysis"></a>
 
-**D3FEND tactic:** Detect
-**Digital artifacts:** Database Query
+**D3FEND tactic:** Detect  
+**Digital artifacts:** Database Query  
 
 Analyzing database queries to detect [SQL Injection](https://capec.mitre.org/data/definitions/66.html).
 

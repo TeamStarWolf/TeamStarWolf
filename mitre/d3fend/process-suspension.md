@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Process
 
+Suspending a running process on a computer system.
+
 ## ATT&CK techniques countered (21)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — suspends

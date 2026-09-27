@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Inbound Network Traffic
 
+Restricting network traffic originating from untrusted networks destined towards a private host or enclave.
+
 ## ATT&CK techniques countered (9)
 
 - [T0819](https://attack.mitre.org/techniques/T0819) — filters

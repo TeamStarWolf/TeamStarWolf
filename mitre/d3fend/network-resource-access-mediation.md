@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Network Resource
 
+Control of access to organizational systems and services by users or processes over a network.
+
 ## ATT&CK techniques countered (8)
 
 - [T1037.003 — Network Logon Script](/mitre/techniques/T1037-003.md) — isolates. Adversaries may use network logon scripts automatically executed at logon initialization to establish persistence.

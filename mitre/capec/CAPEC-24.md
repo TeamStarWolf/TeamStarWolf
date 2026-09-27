@@ -26,12 +26,23 @@ In this attack, the idea is to cause an active filter to fail by causing an over
 
 ## Skills required
 
-- An attacker can simply overflow a buffer by inserting a long string into an attacker-modifiable injection vector. The result can be a DoS.:LEV
+- [Low] An attacker can simply overflow a buffer by inserting a long string into an attacker-modifiable injection vector. The result can be a DoS.
+- [High] Exploiting a buffer overflow to inject malicious code into the stack of a software system or even the heap can require a higher skill level.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism
+- Availability / Unreliable Execution
 
 ## Mitigations
 
 - Make sure that ANY failure occurring in the filtering or input validation routine is properly handled and that offending input is NOT allowed to go through. Basically make sure that the vault is closed when failure occurs.
-- Pre-design: Use a langua
+- Pre-design: Use a language or compiler that performs automatic bounds checking.
+- Pre-design through Build: Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
+- Operational: Use OS-level preventative functionality. Not a complete solution.
+- Design: Use an abstraction library to abstract away risky APIs. Not a complete solution.
 
 ---
 

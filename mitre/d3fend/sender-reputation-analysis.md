@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Email
 
+Ascertaining sender reputation based on information associated with a message (e.g. email/instant messaging).
+
 ## ATT&CK techniques countered (5)
 
 - [T0865](https://attack.mitre.org/techniques/T0865) — analyzes

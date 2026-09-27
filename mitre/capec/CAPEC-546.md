@@ -21,7 +21,11 @@ An adversary obtains unauthorized information due to insecure or incomplete data
 
 ## Skills required
 
-- The adversary requires the ability to traverse directory structure.:LEVEL:Low
+- [Low] The adversary requires the ability to traverse directory structure.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

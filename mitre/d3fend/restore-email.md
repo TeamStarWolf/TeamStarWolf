@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** Email
 
+Restoring an email for an entity to access.
+
 ## ATT&CK techniques countered (5)
 
 - [T0865](https://attack.mitre.org/techniques/T0865) — restores

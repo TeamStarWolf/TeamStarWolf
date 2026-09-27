@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-An adversary leverages a firmware weakness within the Thunderbolt protocol, on a computing device to manipulate Thunderbolt controller firmware in order to exploit vulnerabilities in the implementation of authorization and verification schemes within Thunderbolt protection mechanisms. Upon gaining physical access to a target device, the adversary conducts high-level firmware manipulation of the vi
+An adversary leverages a firmware weakness within the Thunderbolt protocol, on a computing device to manipulate Thunderbolt controller firmware in order to exploit vulnerabilities in the implementation of authorization and verification schemes within Thunderbolt protection mechanisms. Upon gaining physical access to a target device, the adversary conducts high-level firmware manipulation of the victim Thunderbolt controller SPI (Serial Peripheral Interface) flash, through the use of a SPI Programing device and an external Thunderbolt device, typically as the target device is booting up. If successful, this allows the adversary to modify memory, subvert authentication mechanisms, spoof identities and content, and extract data and memory from the target device. Currently 7 major vulnerabilities exist within Thunderbolt protocol with 9 attack vectors as noted in the Execution Flow.
 
 ## Mapped ATT&CK techniques (3)
 
@@ -25,17 +25,30 @@ An adversary leverages a firmware weakness within the Thunderbolt protocol, on a
 
 ## Prerequisites
 
-- The adversary needs at least a few minutes of physical access to a system with an open Thunderbolt port, version 3 or lower, and an external thunderbolt device controlled by the adversary with malic
+- The adversary needs at least a few minutes of physical access to a system with an open Thunderbolt port, version 3 or lower, and an external thunderbolt device controlled by the adversary with maliciously crafted software and firmware, via an SPI Programming device, to exploit weaknesses in security protections.
 
 ## Skills required
 
-- Detailed knowledge on various system motherboards, PCI Express Domain, SPI, and Thunderbolt Protocol in order to interface with internal syste
+- [High] Detailed knowledge on various system motherboards, PCI Express Domain, SPI, and Thunderbolt Protocol in order to interface with internal system components via external devices.
+- [High] Detailed knowledge on OS/Kernel memory address space, Direct Memory Access (DMA) mapping, Input-Output Memory Management Units (IOMMUs), and vendor memory protections for data leakage.
+- [High] Detailed knowledge on scripting and SPI programming in order to configure and modify Thunderbolt controller firmware and software configurations.
+
+## Consequences
+
+- Access Control / Bypass Protection Mechanism
+- Confidentiality / Read Data
+- Integrity / Modify Data
+- Authorization / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Implementation: Kernel Direct Memory Access Protection
 - Configuration: Enable UEFI option USB Passthrough mode - Thunderbolt 3 system port operates as USB 3.1 Type C interface
-- Configuration: Enable UEFI option DisplayPort mode - Thunderbolt 3 syst
+- Configuration: Enable UEFI option DisplayPort mode - Thunderbolt 3 system port operates as video-only DP interface
+- Configuration: Enable UEFI option Mixed USB/DisplayPort mode - Thunderbolt 3 system port operates as USB 3.1 Type C interface with support for DP mode
+- Configuration: Set Security Level to SL3 for Thunderbolt 2 system port
+- Configuration: Disable PCIe tunneling to set Security Level to SL3
+- Configuration: Disable Boot Camp upon MacOS systems
 
 ---
 

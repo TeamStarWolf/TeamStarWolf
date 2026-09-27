@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Email
 
+Filtering incoming email traffic based on specific criteria.
+
 ## ATT&CK techniques countered (5)
 
 - [T0865](https://attack.mitre.org/techniques/T0865) — filters

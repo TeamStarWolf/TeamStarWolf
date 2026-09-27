@@ -34,11 +34,17 @@ An attacker examines a target system to find sensitive data that has been embedd
 ## Prerequisites
 
 - In order to feasibly execute this type of attack, some valuable data must be present in client software.
-- Additionally, this information must be unprotected, or protected in a flawed fashion, or thr
+- Additionally, this information must be unprotected, or protected in a flawed fashion, or through a mechanism that fails to resist reverse engineering, statistical, or other attack.
 
 ## Skills required
 
-- The attacker must possess knowledge of client code structure as well as ability to reverse-engineer or decompile it or probe it in other ways.
+- [Medium] The attacker must possess knowledge of client code structure as well as ability to reverse-engineer or decompile it or probe it in other ways. This knowledge is specific to the technology and language used for the client distribution
+
+## Consequences
+
+- Confidentiality / Read Data
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ---
 

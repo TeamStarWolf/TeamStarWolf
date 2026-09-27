@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Outbound Internet DNS Lookup Traffic
 
+Blocking a reverse lookup based on the query's IP address value.
+
 ## ATT&CK techniques countered (2)
 
 - [T1071.004 — DNS](/mitre/techniques/T1071-004.md) — blocks. Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic.

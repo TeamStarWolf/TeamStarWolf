@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-Adversaries can provide contradictory destinations when sending messages. Traffic is routed in networks using the domain names in various headers available at different levels of the OSI model. In a Content Delivery Network (CDN) multiple domains might be available, and if there are contradictory domain names provided it is possible to route traffic to an inappropriate destination. The technique,
+Adversaries can provide contradictory destinations when sending messages. Traffic is routed in networks using the domain names in various headers available at different levels of the OSI model. In a Content Delivery Network (CDN) multiple domains might be available, and if there are contradictory domain names provided it is possible to route traffic to an inappropriate destination. The technique, called Domain Fronting, involves using different domain names in the SNI field of the TLS header and the Host field of the HTTP header. An alternative technique, called Domainless Fronting, is similar, but the SNI field is left blank.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -20,11 +20,15 @@ Adversaries can provide contradictory destinations when sending messages. Traffi
 ## Prerequisites
 
 - An adversary must be aware that their message will be routed using a CDN, and that both of the contradictory domains are served from that CDN.
-- If the purpose of the Domain Fronting is to hide redir
+- If the purpose of the Domain Fronting is to hide redirected C2 traffic, the C2 server must have been created in the CDN.
 
 ## Skills required
 
-- The adversary must have some knowledge of how messages are routed.:LEVEL:Medium
+- [Medium] The adversary must have some knowledge of how messages are routed.
+
+## Consequences
+
+- Confidentiality / Read Data, Modify Data
 
 ## Mitigations
 

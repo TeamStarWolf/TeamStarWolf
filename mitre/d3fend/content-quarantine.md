@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** File, Database Record
 
+Transfer content that does not comply with policy to a quarantine zone.
+
 ## ATT&CK techniques countered (120)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — quarantines

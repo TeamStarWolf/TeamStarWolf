@@ -6,7 +6,7 @@
 **Typical severity:** Low  
 **Status:** Stable  
 
-An adversary engages in UDP scanning to gather information about UDP port status on the target system. UDP scanning methods involve sending a UDP datagram to the target port and looking for evidence that the port is closed. Open UDP ports usually do not respond to UDP datagrams as there is no stateful mechanism within the protocol that requires building or establishing a session. Responses to UDP
+An adversary engages in UDP scanning to gather information about UDP port status on the target system. UDP scanning methods involve sending a UDP datagram to the target port and looking for evidence that the port is closed. Open UDP ports usually do not respond to UDP datagrams as there is no stateful mechanism within the protocol that requires building or establishing a session. Responses to UDP datagrams are therefore application specific and cannot be relied upon as a method of detecting an open port. UDP scanning relies heavily upon ICMP diagnostic messages in order to determine the status of a remote port.
 
 ## Related CWE (1)
 
@@ -14,7 +14,12 @@ An adversary engages in UDP scanning to gather information about UDP port status
 
 ## Prerequisites
 
-- The ability to send UDP datagrams to a host and receive ICMP error messages from that host. In cases where particular types of ICMP messaging is disallowed, the reliability of UDP scanning drops off
+- The ability to send UDP datagrams to a host and receive ICMP error messages from that host. In cases where particular types of ICMP messaging is disallowed, the reliability of UDP scanning drops off sharply.
+
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ## Mitigations
 

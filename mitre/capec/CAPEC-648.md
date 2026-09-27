@@ -24,12 +24,16 @@ An adversary gathers sensitive information by exploiting the system's screen cap
 
 ## Skills required
 
-- Once the adversary has logical access (which can potentially require high knowledge and skill level), the adversary needs only to leverage the
+- [Low] Once the adversary has logical access (which can potentially require high knowledge and skill level), the adversary needs only to leverage the relevant command for screen capture.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Identify potentially malicious software that may have functionality to acquire screen captures, and audit and/or block it by using allowlist tools.
-- While screen capture is a legitimate and practical function, certain situations and context may req
+- While screen capture is a legitimate and practical function, certain situations and context may require the disabling of this feature.
 
 ---
 

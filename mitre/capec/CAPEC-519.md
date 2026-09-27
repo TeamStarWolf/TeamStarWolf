@@ -16,15 +16,16 @@ An attacker with access to a manufacturer's documentation containing requirement
 
 ## Skills required
 
-- Ability to read, interpret, and subsequently alter manufacturer's documentation to cause errors in system design.:LEVEL:High
-- Ability to
+- [High] Ability to read, interpret, and subsequently alter manufacturer's documentation to cause errors in system design.
+- [High] Ability to stealthly gain access via remote compromise or physical access to the manufacturer's documentation.
 
 ## Mitigations
 
 - Digitize documents and cryptographically sign them to verify authenticity.
 - Password protect documents and make them read-only for unauthorized users.
 - Avoid emailing important documents and configurations.
-- Ensure deleted files are actually delete
+- Ensure deleted files are actually deleted.
+- Maintain multiple instances of the document across different privileged users for recovery and verification.
 
 ---
 

@@ -21,7 +21,13 @@ SOA and Web Services often use a registry to perform look up, get schema informa
 
 ## Skills required
 
-- To identify and execute against an over-privileged system interface:LEVEL:Low
+- [Low] To identify and execute against an over-privileged system interface
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 

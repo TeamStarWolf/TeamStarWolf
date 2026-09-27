@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Partition Table
 
+Disk Partitioning is the process of dividing a disk into multiple distinct sections, known as partitions.
+
 ## ATT&CK techniques countered (2)
 
 - [T1561.001 — Disk Content Wipe](/mitre/techniques/T1561-001.md) — creates. Adversaries may erase the contents of storage devices on specific systems or in large numbers in a network to interrupt availability to system and network resources.

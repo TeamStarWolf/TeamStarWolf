@@ -5,7 +5,7 @@
 **Abstraction:** Detailed  
 **Status:** Deprecated  
 
-This attack pattern has been deprecated as it was merged into CAPEC-215 : Fuzzing for application mapping. Please refer to this other CAPEC going forward.
+This attack pattern has been deprecated as it was merged into "CAPEC-215 : Fuzzing for application mapping". Please refer to this other CAPEC going forward.
 
 ---
 

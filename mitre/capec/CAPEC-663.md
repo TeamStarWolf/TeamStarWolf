@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-An adversary exploits a hardware design flaw in a CPU implementation of transient instruction execution to expose sensitive data and bypass/subvert access control over restricted resources. Typically, the adversary conducts a covert channel attack to target non-discarded microarchitectural changes caused by transient executions such as speculative execution, branch prediction, instruction pipelini
+An adversary exploits a hardware design flaw in a CPU implementation of transient instruction execution to expose sensitive data and bypass/subvert access control over restricted resources. Typically, the adversary conducts a covert channel attack to target non-discarded microarchitectural changes caused by transient executions such as speculative execution, branch prediction, instruction pipelining, and/or out-of-order execution. The transient execution results in a series of instructions (gadgets) which construct covert channel and access/transfer the secret data.
 
 ## Related CWE (3)
 
@@ -17,16 +17,28 @@ An adversary exploits a hardware design flaw in a CPU implementation of transien
 
 ## Prerequisites
 
-- The adversary needs at least user execution access to a system and a maliciously crafted program/application/process with unprivileged code to misuse transient instruction set execution of the CPU.:
+- The adversary needs at least user execution access to a system and a maliciously crafted program/application/process with unprivileged code to misuse transient instruction set execution of the CPU.
 
 ## Skills required
 
-- Detailed knowledge on how various CPU architectures and microcode perform transient execution for various low-level assembly language code ins
+- [High] Detailed knowledge on how various CPU architectures and microcode perform transient execution for various low-level assembly language code instructions/operations.
+- [High] Detailed knowledge on compiled binaries and operating system shared libraries of instruction sequences, and layout of application and OS/Kernel address spaces for data leakage.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Access Control / Bypass Protection Mechanism
+- Authorization / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Implementation: DAWG (Dynamically Allocated Way Guard) - processor cache properly divided between different programs/processes that don't share resources
-- Implementation: KPTI (Kernel Page-Table Isolation) to completely separate user-space and kern
+- Implementation: KPTI (Kernel Page-Table Isolation) to completely separate user-space and kernel space page tables
+- Configuration: Architectural Design of Microcode to limit abuse of speculative execution and out-of-order execution
+- Configuration: Disable SharedArrayBuffer for Web Browsers
+- Configuration: Disable Copy-on-Write between Cloud VMs
+- Configuration: Privilege Checks on Cache Flush Instructions
+- Implementation: Non-inclusive Cache Memories to prevent Flush+Reload Attacks
 
 ---
 

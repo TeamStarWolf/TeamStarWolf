@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attacker leverages the security functionality of the system aimed at thwarting potential attacks to launch a denial of service attack against a legitimate system user. Many systems, for instance, implement a password throttling mechanism that locks an account after a certain number of incorrect log in attempts. An attacker can leverage this throttling mechanism to lock a legitimate user out of
+An attacker leverages the security functionality of the system aimed at thwarting potential attacks to launch a denial of service attack against a legitimate system user. Many systems, for instance, implement a password throttling mechanism that locks an account after a certain number of incorrect log in attempts. An attacker can leverage this throttling mechanism to lock a legitimate user out of their own account. The weakness that is being leveraged by an attacker is the very security feature that has been put in place to counteract attacks.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -24,7 +24,11 @@ An attacker leverages the security functionality of the system aimed at thwartin
 
 ## Skills required
 
-- No programming skills or computer knowledge is needed. An attacker can easily use this attack pattern following the Execution Flow above.:LEVE
+- [Low] No programming skills or computer knowledge is needed. An attacker can easily use this attack pattern following the Execution Flow above.
+
+## Consequences
+
+- Availability / Resource Consumption
 
 ## Mitigations
 

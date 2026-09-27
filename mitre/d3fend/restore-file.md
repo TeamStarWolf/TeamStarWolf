@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** File
 
+Restoring a file for an entity to access.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — restores

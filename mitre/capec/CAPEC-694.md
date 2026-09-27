@@ -23,7 +23,11 @@ An adversary collects information about the target system in an attempt to ident
 
 ## Skills required
 
-- The adversary must know how to query various system sources of information respective of the system's operating system to obtain the relevant
+- [Low] The adversary must know how to query various system sources of information respective of the system's operating system to obtain the relevant information.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

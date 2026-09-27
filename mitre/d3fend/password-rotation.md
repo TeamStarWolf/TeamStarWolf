@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Password
 
+Password rotation is a security policy that mandates the periodic change of user account passwords to mitigate the risk of unauthorized access due to compromised credentials.
+
 ## ATT&CK techniques countered (4)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — regenerates

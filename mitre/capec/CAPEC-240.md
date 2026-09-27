@@ -15,7 +15,12 @@ An adversary exploits weaknesses in input validation by manipulating resource id
 
 ## Prerequisites
 
-- The target application allows the user to both specify the identifier used to access a system resource. Through this permission, the user gains the capability to perform actions on that resource (e.
+- The target application allows the user to both specify the identifier used to access a system resource. Through this permission, the user gains the capability to perform actions on that resource (e.g., overwrite the file)
+
+## Consequences
+
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 

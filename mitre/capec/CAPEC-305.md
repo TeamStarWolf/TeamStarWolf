@@ -14,7 +14,12 @@ An adversary uses TCP ACK segments to gather information about firewall or ACL c
 
 ## Prerequisites
 
-- The adversary requires logical access to the target network. ACK scanning requires the use of raw sockets, and thus cannot be performed from some Windows systems (Windows XP SP 2, for example). On U
+- The adversary requires logical access to the target network. ACK scanning requires the use of raw sockets, and thus cannot be performed from some Windows systems (Windows XP SP 2, for example). On Unix and Linux, raw socket manipulations require root privileges.
+
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ---
 

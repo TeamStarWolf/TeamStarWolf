@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** Configuration Resource
 
+Restoring an software configuration.
+
 ## ATT&CK techniques countered (55)
 
 - [T0858](https://attack.mitre.org/techniques/T0858) — restores

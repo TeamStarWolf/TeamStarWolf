@@ -23,17 +23,29 @@ An adversary guesses or obtains (i.e. steals or purchases) legitimate operating 
 
 - The system/application uses one factor password-based authentication, SSO, and/or cloud-based authentication.
 - The system/application does not have a sound password policy that is being enforced.
-- T
+- The system/application does not implement an effective password throttling mechanism.
+- The adversary possesses a list of known user accounts and corresponding passwords that may exist on the target.
 
 ## Skills required
 
-- Once an adversary obtains a known credential, leveraging it is trivial.:LEVEL:Low
+- [Low] Once an adversary obtains a known credential, leveraging it is trivial.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality, Authorization / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the network.
 - Create a strong password policy and ensure that your system enforces this policy.
-- Ensure users are not reusing username/pa
+- Ensure users are not reusing username/password combinations for multiple systems, applications, or services.
+- Do not reuse local administrator account credentials across systems.
+- Deny remote use of local admin credentials to log into domain systems.
+- Do not allow accounts to be a local administrator on more than one system.
+- Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2.
+- Monitor system and domain logs for abnormal credential access.
 
 ---
 

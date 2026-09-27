@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Process
 
+Initiating a host's reboot sequence to terminate all running processes.
+
 ## ATT&CK techniques countered (21)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — terminates

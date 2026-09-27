@@ -19,8 +19,13 @@ An adversary disguises the MAC address of their Bluetooth enabled device to one 
 
 ## Skills required
 
-- Adversaries must be capable of using command line Linux tools.:LEVEL:Low
-- Adversaries must be in close proximity to Bluetooth devices.:L
+- [Low] Adversaries must be capable of using command line Linux tools.
+- [Low] Adversaries must be in close proximity to Bluetooth devices.
+
+## Consequences
+
+- Integrity
+- Confidentiality
 
 ## Mitigations
 

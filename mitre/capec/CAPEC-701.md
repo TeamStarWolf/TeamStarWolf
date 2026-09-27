@@ -16,12 +16,17 @@ An adversary exploits the inherent functionalities of a web browser, in order to
 
 ## Prerequisites
 
-- The adversary must create a convincing web client to establish the connection. The victim then needs to be lured onto the adversary's webpage. In addition, the victim's machine must not use local au
+- The adversary must create a convincing web client to establish the connection. The victim then needs to be lured onto the adversary's webpage. In addition, the victim's machine must not use local authentication APIs, a hardware token, or a Trusted Platform Module (TPM) to authenticate.
 
 ## Skills required
 
-- SKILL
-- Medium
+- [Medium]
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality, Authorization / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 

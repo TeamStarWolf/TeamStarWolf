@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Process
 
+Detects processes that modify, change, or replace their own code at runtime.
+
 ## ATT&CK techniques countered (21)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — analyzes

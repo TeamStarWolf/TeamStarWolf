@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** File, Directory
 
+Local file permissions is the systematic process of defining, implementing, and managing access control policies that dictate user permissions for accessing files on a local system through the configuration of operating system functionality.
+
 ## ATT&CK techniques countered (108)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — restricts

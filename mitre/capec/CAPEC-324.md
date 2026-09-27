@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-This type of operating system probe attempts to determine an estimate for how predictable the sequence number generation algorithm is for a remote host. Statistical techniques, such as standard deviation, can be used to determine how predictable the sequence number generation is for a system. This result can then be compared to a database of operating system behaviors to determine a likely match f
+This type of operating system probe attempts to determine an estimate for how predictable the sequence number generation algorithm is for a remote host. Statistical techniques, such as standard deviation, can be used to determine how predictable the sequence number generation is for a system. This result can then be compared to a database of operating system behaviors to determine a likely match for operating system and version.
 
 ## Related CWE (1)
 
@@ -16,6 +16,11 @@ This type of operating system probe attempts to determine an estimate for how pr
 ## Prerequisites
 
 - The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ---
 

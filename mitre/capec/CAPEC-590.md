@@ -17,6 +17,10 @@ An adversary performing this type of attack drops packets destined for a target 
 
 - This attack requires the ability to conduct deep packet inspection with an In-Path device that can drop the targeted traffic and/or connection.
 
+## Consequences
+
+- Availability / Other
+
 ## Mitigations
 
 - Have a large pool of backup IPs built into the application and support proxy capability in the application.

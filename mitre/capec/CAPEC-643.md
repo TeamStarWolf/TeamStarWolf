@@ -24,7 +24,11 @@ An adversary discovers connections between systems by exploiting the target syst
 
 ## Skills required
 
-- Once the adversary has logical access (which can potentially require high knowledge and skill level), the adversary needs only the capability
+- [Low] Once the adversary has logical access (which can potentially require high knowledge and skill level), the adversary needs only the capability and facility to navigate the system through the OS graphical user interface or the command line. The adversary, or their malware, can simply employ a set of commands that search for shared drives on the system (e.g., net view \\remote system or net share).
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

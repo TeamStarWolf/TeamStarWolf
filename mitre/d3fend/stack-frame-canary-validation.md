@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Stack Frame
 
+Comparing a value stored in a stack frame with a known good value in order to prevent or detect a memory segment overwrite.
+
 ## ATT&CK techniques countered (8)
 
 - [T0820](https://attack.mitre.org/techniques/T0820) — validates

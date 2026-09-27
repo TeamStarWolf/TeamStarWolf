@@ -6,7 +6,7 @@
 **Typical severity:** Medium  
 **Status:** Draft  
 
-An adversary inserts invalid characters in identifiers to bypass application filtering of input. Filters may not scan beyond invalid characters but during later stages of processing content that follows these invalid characters may still be processed. This allows the adversary to sneak prohibited commands past filters and perform normally prohibited operations. Invalid characters may include null,
+An adversary inserts invalid characters in identifiers to bypass application filtering of input. Filters may not scan beyond invalid characters but during later stages of processing content that follows these invalid characters may still be processed. This allows the adversary to sneak prohibited commands past filters and perform normally prohibited operations. Invalid characters may include null, carriage return, line feed or tab in an identifier. Successful bypassing of the filter can result in a XSS attack, resulting in the disclosure of web cookies or possibly other results.
 
 ## Related CWE (1)
 
@@ -20,7 +20,7 @@ An adversary inserts invalid characters in identifiers to bypass application fil
 
 - Design: Use libraries and templates that minimize unfiltered input.
 - Implementation: Normalize, filter and use an allowlist for any input that will be included in any subsequent web pages or back end operations.
-- Implementation: The victim should c
+- Implementation: The victim should configure the browser to minimize active content from untrusted sources.
 
 ---
 

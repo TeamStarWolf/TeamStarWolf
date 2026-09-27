@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** DNS Network Traffic
 
+Blocking DNS Network Traffic based on criteria such as IP address, domain name, or DNS query type.
+
 ## ATT&CK techniques countered (2)
 
 - [T1071.004 — DNS](/mitre/techniques/T1071-004.md) — blocks. Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic.

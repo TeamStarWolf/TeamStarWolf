@@ -27,6 +27,10 @@ An adversary exploits a weakness in access control to disable security tools so 
 
 - The adversary must have the capability to interact with the configuration of the targeted system.
 
+## Consequences
+
+- Availability / Hide Activities
+
 ## Mitigations
 
 - Ensure proper permissions are in place to prevent adversaries from altering the execution status of security tools.

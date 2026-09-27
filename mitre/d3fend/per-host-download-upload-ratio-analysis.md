@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Network Traffic
 
+Detecting anomalies that indicate malicious activity by comparing the amount of data downloaded versus data uploaded by a host.
+
 ## ATT&CK techniques countered (90)
 
 - [T0814](https://attack.mitre.org/techniques/T0814) — analyzes

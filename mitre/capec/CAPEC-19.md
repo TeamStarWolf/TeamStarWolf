@@ -25,14 +25,26 @@ An adversary leverages the capability to execute their own script by embedding i
 
 ## Skills required
 
-- To load malicious script into open, e.g. world writable directory:LEVEL:Low
-- Executing remote scripts on host and collecting output:LEVE
+- [Low] To load malicious script into open, e.g. world writable directory
+- [Medium] Executing remote scripts on host and collecting output
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Use browser technologies that do not allow client side scripting.
 - Utilize strict type, character, and encoding enforcement.
-- Server side developers should not proxy content via XHR or other means. If a HTTP proxy for remote content is setup on the
+- Server side developers should not proxy content via XHR or other means. If a HTTP proxy for remote content is setup on the server side, the client's browser has no way of discerning where the data is originating from.
+- Ensure all content that is delivered to client is sanitized against an acceptable content specification.
+- Perform input validation for all remote content.
+- Perform output validation for all remote content.
+- Disable scripting languages such as JavaScript in browser
+- Session tokens for specific host
+- Patching software. There are many attack vectors for XSS on the client side and the server side. Many vulnerabilities are fixed in service packs for browser, web servers, and plug in technologies, staying current on patch release that deal with XSS countermeasures mitigates this.
+- Privileges are constrained, if a script is loaded, ensure system runs in chroot jail or other limited authority mode
 
 ---
 

@@ -22,18 +22,27 @@ An adversary directly installs or tricks a user into installing a malicious exte
 ## Prerequisites
 
 - The adversary must craft malware based on the type of software and system(s) they intend to exploit.
-- If the adversary intends to install the malicious extension themself, they must first compromise
+- If the adversary intends to install the malicious extension themself, they must first compromise the target machine via some other means.
 
 ## Skills required
 
-- Ability to create malicious extensions that can exploit specific software applications and systems.:LEVEL:Medium
-- Optional: Ability to e
+- [Medium] Ability to create malicious extensions that can exploit specific software applications and systems.
+- [Medium] Optional: Ability to exploit target system(s) via other means in order to gain entry.
+
+## Consequences
+
+- Confidentiality, Access Control / Read Data
+- Integrity, Access Control / Modify Data
+- Authorization, Access Control / Execute Unauthorized Commands, Alter Execution Logic, Gain Privileges
 
 ## Mitigations
 
 - Only install extensions/plugins from official/verifiable sources.
 - Confirm extensions/plugins are legitimate and not malware masquerading as a legitimate extension/plugin.
-- Ensure the underlying software leveraging the extension/plugin (including o
+- Ensure the underlying software leveraging the extension/plugin (including operating systems) is up-to-date.
+- Implement an extension/plugin allow list, based on the given security policy.
+- If applicable, confirm extensions/plugins are properly signed by the official developers.
+- For web browsers, close sessions when finished to prevent malicious extensions/plugins from executing the the background.
 
 ---
 

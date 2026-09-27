@@ -23,13 +23,22 @@ An attacker is able to cause a victim to load content into their web-browser tha
 
 ## Skills required
 
-- Ability to craft malicious scripts or find them elsewhere and ability to identify functionality that is running web controls in the local zone
+- [Medium] Ability to craft malicious scripts or find them elsewhere and ability to identify functionality that is running web controls in the local zone and to find an injection vector into that functionality
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Disable script execution.
 - Ensure that sufficient input validation is performed for any potentially untrusted data before it is used in any privileged context or zone
-- Limit the flow of untrusted data into the privileged areas of the system that ru
+- Limit the flow of untrusted data into the privileged areas of the system that run in the higher trust zone
+- Limit the sites that are being added to the local machine zone and restrict the privileges of the code running in that zone to the bare minimum
+- Ensure proper HTML output encoding before writing user supplied data to the page
 
 ---
 

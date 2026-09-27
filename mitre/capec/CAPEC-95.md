@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-This attack targets the WSDL interface made available by a web service. The attacker may scan the WSDL interface to reveal sensitive information about invocation patterns, underlying technology implementations and associated vulnerabilities. This type of probing is carried out to perform more serious attacks (e.g. parameter tampering, malicious content injection, command injection, etc.). WSDL fil
+This attack targets the WSDL interface made available by a web service. The attacker may scan the WSDL interface to reveal sensitive information about invocation patterns, underlying technology implementations and associated vulnerabilities. This type of probing is carried out to perform more serious attacks (e.g. parameter tampering, malicious content injection, command injection, etc.). WSDL files provide detailed information about the services ports and bindings available to consumers. For instance, the attacker can submit special characters or malicious content to the Web service and can cause a denial of service condition or illegal access to database records. In addition, the attacker may try to guess other private methods by using the information provided in the WSDL files.
 
 ## Related CWE (1)
 
@@ -20,14 +20,20 @@ This attack targets the WSDL interface made available by a web service. The atta
 
 ## Skills required
 
-- This attack can be as simple as reading WSDL and starting sending invalid request.:LEVEL:Low
-- This attack can be used to perform more so
+- [Low] This attack can be as simple as reading WSDL and starting sending invalid request.
+- [Medium] This attack can be used to perform more sophisticated attacks (SQL injection, etc.)
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - It is important to protect WSDL file or provide limited access to it.
 - Review the functions exposed by the WSDL interface (especially if you have used a tool to generate it). Make sure that none of them is vulnerable to injection.
-- Ensure the WSDL
+- Ensure the WSDL does not expose functions and APIs that were not intended to be exposed.
+- Pay attention to the function naming convention (within the WSDL interface). Easy to guess function name may be an entry point for attack.
+- Validate the received messages against the WSDL Schema. Incomplete solution.
 
 ---
 

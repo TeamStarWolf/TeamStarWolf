@@ -20,13 +20,18 @@ An adversary identifies a Rest HTTP (Get, Put, Delete) style permission method a
 
 ## Skills required
 
-- It is relatively straightforward to identify an HTTP Get method that changes state on the server side and executes against an over-privileged
+- [Low] It is relatively straightforward to identify an HTTP Get method that changes state on the server side and executes against an over-privileged system interface
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Design: Enforce principle of least privilege
 - Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side
-- Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they
+- Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose
 
 ---
 

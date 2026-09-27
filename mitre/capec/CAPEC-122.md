@@ -22,10 +22,19 @@ An adversary is able to exploit features of the target that should be reserved f
 ## Prerequisites
 
 - The target must have misconfigured their access control mechanisms such that sensitive information, which should only be accessible to more trusted users, remains accessible to less trusted users.
+- The adversary must have access to the target, albeit with an account that is less privileged than would be appropriate for the targeted resources.
 
 ## Skills required
 
-- Adversary can leverage privileged features they already have access to without additional effort or skill. Adversary is only required to have
+- [Low] Adversary can leverage privileged features they already have access to without additional effort or skill. Adversary is only required to have access to an account with improper priveleges.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Authorization / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 

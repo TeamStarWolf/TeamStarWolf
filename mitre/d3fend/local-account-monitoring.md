@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Local User Account
 
+Analyzing local user accounts to detect unauthorized activity.
+
 ## ATT&CK techniques countered (3)
 
 - [T1078.003 — Local Accounts](/mitre/techniques/T1078-003.md) — analyzes. Adversaries may obtain and abuse credentials of a local account as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.

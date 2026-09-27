@@ -29,13 +29,25 @@ This attack targets the use of the backslash in alternate encoding. An adversary
 
 ## Skills required
 
-- The adversary can naively try backslash character and discover that the target host uses it as escape character.:LEVEL:Low
-- The adversar
+- [Low] The adversary can naively try backslash character and discover that the target host uses it as escape character.
+- [Medium] The adversary may need deep understanding of the host target in order to exploit the vulnerability. The adversary may also use automated tools to probe for this vulnerability.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Availability / Resource Consumption
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 
 - Verify that the user-supplied data does not use backslash character to escape malicious characters.
-- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. In
+- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system.
+- Be aware of the threat of alternative method of data encoding.
+- Regular expressions can be used to filter out backslash. Make sure you decode before filtering and validating the untrusted input data.
+- In the case of path traversals, use the principle of least privilege when determining access rights to file systems. Do not allow users to access directories/files that they should not access.
+- Any security checks should occur after the data has been decoded and validated as correct data format. Do not repeat decoding process, if bad character are left after decoding process, treat the data as suspicious, and fail the validation process.
+- Avoid making decisions based on names of resources (e.g. files) if those resources can have alternate names.
 
 ---
 

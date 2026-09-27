@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Create File
 
+Analyzing the properties of file create system call invocations.
+
 ## ATT&CK techniques countered (2)
 
 - [T1074.001 — Local Data Staging](/mitre/techniques/T1074-001.md) — analyzes. Adversaries may stage collected data in a central location or directory on the local system prior to Exfiltration.

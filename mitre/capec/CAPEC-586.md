@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An adversary attempts to exploit an application by injecting additional, malicious content during its processing of serialized objects. Developers leverage serialization in order to convert data or state into a static, binary format for saving to disk or transferring over a network. These objects are then deserialized when needed to recover the data/state. By injecting a malformed object into a vu
+An adversary attempts to exploit an application by injecting additional, malicious content during its processing of serialized objects. Developers leverage serialization in order to convert data or state into a static, binary format for saving to disk or transferring over a network. These objects are then deserialized when needed to recover the data/state. By injecting a malformed object into a vulnerable application, an adversary can potentially compromise the application by manipulating the deserialization process. This can result in a number of unwanted outcomes, including remote code execution.
 
 ## Related CWE (1)
 
@@ -17,11 +17,18 @@ An adversary attempts to exploit an application by injecting additional, malicio
 
 - The target application must unserialize data before validation.
 
+## Consequences
+
+- Availability / Resource Consumption
+- Integrity / Modify Data
+- Authorization / Execute Unauthorized Commands
+
 ## Mitigations
 
 - Implementation: Validate object before deserialization process
 - Design: Limit which types can be deserialized.
-- Implementation: Avoid having unnecessary types or gadgets available that can be leveraged for malicious ends. Use an allowlist of accept
+- Implementation: Avoid having unnecessary types or gadgets available that can be leveraged for malicious ends. Use an allowlist of acceptable classes.
+- Implementation: Keep session state on the server, when possible.
 
 ---
 

@@ -24,14 +24,20 @@ An adversary takes advantage of missing or incorrectly configured security ident
 
 ## Skills required
 
-- Ability to execute actions within the SoC.:LEVEL:Medium
-- Intricate knowledge of the identifiers being utilized.:LEVEL:High
+- [Medium] Ability to execute actions within the SoC.
+- [High] Intricate knowledge of the identifiers being utilized.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Review generation of security identifiers for design inconsistencies and common weaknesses.
 - Review security identifier decoders for design inconsistencies and common weaknesses.
-- Test security identifier definition, access, and programming flow in
+- Test security identifier definition, access, and programming flow in both pre-silicon and post-silicon environments.
 
 ---
 

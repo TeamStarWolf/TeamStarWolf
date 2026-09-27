@@ -21,8 +21,14 @@ An adversary may exploit vulnerable code (i.e., firmware or ROM) that is unpatch
 
 ## Skills required
 
-- Knowledge of various wireless protocols to enable remote access to vulnerable devices:LEVEL:Medium
-- Ability to identify physical entry p
+- [Medium] Knowledge of various wireless protocols to enable remote access to vulnerable devices
+- [High] Ability to identify physical entry points such as debug interfaces if the device is not being accessed remotely
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 

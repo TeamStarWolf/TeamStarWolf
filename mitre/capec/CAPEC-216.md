@@ -14,7 +14,12 @@ An adversary manipulates a setting or parameter on communications channel in ord
 ## Prerequisites
 
 - The target application must leverage an open communications channel.
-- The channel on which the target communicates must be vulnerable to interception (e.g., adversary in the middle attack - CAPEC-94
+- The channel on which the target communicates must be vulnerable to interception (e.g., adversary in the middle attack - CAPEC-94).
+
+## Consequences
+
+- Integrity / Read Data, Modify Data, Other
+- Confidentiality / Read Data
 
 ## Mitigations
 

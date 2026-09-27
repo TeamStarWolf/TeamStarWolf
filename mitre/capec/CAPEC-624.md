@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-The adversary uses disruptive signals or events, or alters the physical environment a device operates in, to cause faulty behavior in electronic devices. This can include electromagnetic pulses, laser pulses, clock glitches, ambient temperature extremes, and more. When performed in a controlled manner on devices performing cryptographic operations, this faulty behavior can be exploited to derive s
+The adversary uses disruptive signals or events, or alters the physical environment a device operates in, to cause faulty behavior in electronic devices. This can include electromagnetic pulses, laser pulses, clock glitches, ambient temperature extremes, and more. When performed in a controlled manner on devices performing cryptographic operations, this faulty behavior can be exploited to derive secret key information.
 
 ## Related CWE (8)
 
@@ -27,7 +27,12 @@ The adversary uses disruptive signals or events, or alters the physical environm
 
 ## Skills required
 
-- Adversaries require non-trivial technical skills to create and implement fault injection attacks. Although this style of attack has become eas
+- [High] Adversaries require non-trivial technical skills to create and implement fault injection attacks. Although this style of attack has become easier (commercial equipment and training classes are available to perform these attacks), they usual require significant setup and experimentation time during which physical access to the device is required.
+
+## Consequences
+
+- Confidentiality / Read Data, Bypass Protection Mechanism, Hide Activities
+- Integrity / Execute Unauthorized Commands
 
 ## Mitigations
 

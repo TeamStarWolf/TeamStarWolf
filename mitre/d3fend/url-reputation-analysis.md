@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** URL
 
+Analyzing the reputation of a URL.
+
 ## ATT&CK techniques countered (5)
 
 - [T0817](https://attack.mitre.org/techniques/T0817) — analyzes

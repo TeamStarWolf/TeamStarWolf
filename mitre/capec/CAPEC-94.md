@@ -25,18 +25,26 @@ An adversary targets the communication between two components (typically client 
 
 - There are two components communicating with each other.
 - An attacker is able to identify the nature and mechanism of communication between the two target components.
-- An attacker can eavesdrop on th
+- An attacker can eavesdrop on the communication between the target components.
+- Strong mutual authentication is not used between the two target components yielding opportunity for attacker interposition.
+- The communication occurs in clear (not encrypted) or with insufficient and spoofable encryption.
 
 ## Skills required
 
-- This attack can get sophisticated since the attack may use cryptography.:LEVEL:Medium
+- [Medium] This attack can get sophisticated since the attack may use cryptography.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Ensure Public Keys are signed by a Certificate Authority
 - Encrypt communications using cryptography (e.g., SSL/TLS)
 - Use Strong mutual authentication to always fully authenticate both ends of any communications channel.
-- Exchange public keys using
+- Exchange public keys using a secure channel
 
 ---
 

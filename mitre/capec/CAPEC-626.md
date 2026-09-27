@@ -13,7 +13,11 @@ Attacks that reveal the password/passcode pattern on a touchscreen device by det
 
 ## Skills required
 
-- The attacker must know how to make use of these smudges.:LEVEL:Medium
+- [Medium] The attacker must know how to make use of these smudges.
+
+## Consequences
+
+- Access Control / Bypass Protection Mechanism
 
 ## Mitigations
 

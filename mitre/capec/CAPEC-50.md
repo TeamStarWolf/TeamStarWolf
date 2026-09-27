@@ -18,17 +18,23 @@ An attacker may take advantage of the application feature to help users recover 
 
 - The system allows users to recover their passwords and gain access back into the system.
 - Password recovery mechanism has been designed or implemented insecurely.
-- Password recovery mechanism relies
+- Password recovery mechanism relies only on something the user knows and not something the user has.
+- No third party intervention is required to use the password recovery mechanism.
 
 ## Skills required
 
-- Brute force attack:LEVEL:Low
-- Social engineering and more sophisticated technical attacks.:LEVEL:Medium
+- [Low] Brute force attack
+- [Medium] Social engineering and more sophisticated technical attacks.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Use multiple security questions (e.g. have three and make the user answer two of them correctly). Let the user select their own security questions or provide them with choices of questions that are not generic.
-- E-mail the temporary password to the
+- E-mail the temporary password to the registered e-mail address of the user rather than letting the user reset the password online.
+- Ensure that your password recovery functionality is not vulnerable to an injection style attack.
 
 ---
 

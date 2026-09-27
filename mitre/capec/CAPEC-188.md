@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Stable  
 
-An adversary discovers the structure, function, and composition of an object, resource, or system by using a variety of analysis techniques to effectively determine how the analyzed entity was constructed or operates. The goal of reverse engineering is often to duplicate the function, or a part of the function, of an object in order to duplicate or back engineer some aspect of its functioning. Rev
+An adversary discovers the structure, function, and composition of an object, resource, or system by using a variety of analysis techniques to effectively determine how the analyzed entity was constructed or operates. The goal of reverse engineering is often to duplicate the function, or a part of the function, of an object in order to duplicate or "back engineer" some aspect of its functioning. Reverse engineering techniques can be applied to mechanical objects, electronic devices, or software, although the methodology and techniques involved in each type of analysis differ widely.
 
 ## Related CWE (1)
 
@@ -19,7 +19,7 @@ An adversary discovers the structure, function, and composition of an object, re
 
 ## Skills required
 
-- Understanding of low level programming languages or technologies can be very helpful. For example, when reverse engineering a binary file, an
+- [High] Understanding of low level programming languages or technologies can be very helpful. For example, when reverse engineering a binary file, an understanding of assembly languages can help to determine the purpose and inner-workings of the code. Another example is reverse engineering an application that relies on networking. Here, an understanding networking protocols can provide insight into application details.
 
 ## Mitigations
 

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** URL, Email
 
+Comparing strings using a variety of techniques to determine if a deceptive or malicious string is being presented to a user.
+
 ## ATT&CK techniques countered (9)
 
 - [T0817](https://attack.mitre.org/techniques/T0817) — analyzes

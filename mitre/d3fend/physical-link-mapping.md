@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Physical Link, Network Node
 
+Physical link mapping identifies and models the link connectivity of the network devices within a physical network.
+
 ## ATT&CK techniques countered (17)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — maps

@@ -23,8 +23,8 @@ An attacker obtains an authoritative or reputable signer's private signature key
 
 ## Skills required
 
-- Knowledge of common location methods and access methods to sensitive data:LEVEL:Low
-- Ability to compromise systems containing sensitive
+- [Low] Knowledge of common location methods and access methods to sensitive data
+- [High] Ability to compromise systems containing sensitive data
 
 ## Mitigations
 

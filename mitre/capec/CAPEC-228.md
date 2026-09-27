@@ -20,7 +20,7 @@ An attacker injects malicious content into an application's DTD in an attempt to
 
 - Design: Sanitize incoming DTDs to prevent excessive expansion or other actions that could result in impacts like resource depletion.
 - Implementation: Disallow the inclusion of DTDs as part of incoming messages.
-- Implementation: Use XML parsing tool
+- Implementation: Use XML parsing tools that protect against DTD attacks.
 
 ---
 

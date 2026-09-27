@@ -18,7 +18,11 @@ An adversary uses deceptive methods to cause a user or an automated process to d
 
 ## Skills required
 
-- This attack requires advanced cyber capabilities:LEVEL:High
+- [High] This attack requires advanced cyber capabilities
+
+## Consequences
+
+- Access Control, Availability, Confidentiality / Execute Unauthorized Commands
 
 ## Mitigations
 

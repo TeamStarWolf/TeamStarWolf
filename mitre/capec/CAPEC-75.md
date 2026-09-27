@@ -24,7 +24,11 @@ Generally these are manually edited files that are not in the preview of the sys
 
 ## Skills required
 
-- To identify vulnerable configuration files, and understand how to manipulate servers and erase forensic evidence:LEVEL:Medium
+- [Medium] To identify vulnerable configuration files, and understand how to manipulate servers and erase forensic evidence
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
@@ -32,7 +36,7 @@ Generally these are manually edited files that are not in the preview of the sys
 - Design: Backup copies of all configuration files
 - Implementation: Integrity monitoring for configuration files
 - Implementation: Enforce audit logging on code and configuration promotion procedures.
-- Imp
+- Implementation: Load configuration from separate process and memory space, for example a separate physical device like a CD
 
 ---
 

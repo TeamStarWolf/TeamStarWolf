@@ -18,7 +18,7 @@ An attacker sends a SOAP request with an array whose actual length exceeds the l
 
 ## Mitigations
 
-- If the server either verifies the correctness of the stated array size or if the server stops processing an array once the stated number of elements have been read, regardless of the actual array size, then this attack will fail. The former detects
+- If the server either verifies the correctness of the stated array size or if the server stops processing an array once the stated number of elements have been read, regardless of the actual array size, then this attack will fail. The former detects the malformed SOAP message while the latter ensures that the server does not attempt to load more data than was allocated for.
 
 ---
 

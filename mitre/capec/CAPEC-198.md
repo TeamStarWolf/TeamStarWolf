@@ -15,13 +15,13 @@ An adversary distributes a link (or possibly some other query structure) with a 
 ## Prerequisites
 
 - A third party web server which fails to adequately sanitize messages sent in error pages.
-- The victim must be made to execute a query crafted by the adversary which results in the infected error rep
+- The victim must be made to execute a query crafted by the adversary which results in the infected error report.
 
 ## Mitigations
 
 - Design: Use libraries and templates that minimize unfiltered input.
 - Implementation: Normalize, filter and use an allowlist for any input that will be used in error messages.
-- Implementation: The victim should configure the browser to minimize acti
+- Implementation: The victim should configure the browser to minimize active content from untrusted sources.
 
 ---
 

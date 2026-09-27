@@ -21,6 +21,10 @@ An adversary engages in probing and exploration activities to determine if commo
 
 - The adversary must know the location of these common key files.
 
+## Consequences
+
+- Confidentiality / Read Data
+
 ## Mitigations
 
 - Leverage file protection mechanisms to render these files accessible only to authorized parties.

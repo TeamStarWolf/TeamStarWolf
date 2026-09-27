@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** User Account
 
+Agent authentication is the process of verifying the identities of agents to ensure they are authorized and trustworthy participants within a system.
+
 ## ATT&CK techniques countered (19)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — strengthens

@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Stable  
 
-An adversary guesses, obtains, or rides a trusted identifier (e.g. session ID, resource ID, cookie, etc.) to perform authorized actions under the guise of an authenticated user or service.
+An adversary guesses, obtains, or "rides" a trusted identifier (e.g. session ID, resource ID, cookie, etc.) to perform authorized actions under the guise of an authenticated user or service.
 
 ## Mapped ATT&CK techniques (3)
 
@@ -31,16 +31,27 @@ An adversary guesses, obtains, or rides a trusted identifier (e.g. session ID, r
 
 - Server software must rely on weak identifier proof and/or verification schemes.
 - Identifiers must have long lifetimes and potential for reusability.
-- Server software must allow concurrent sessions t
+- Server software must allow concurrent sessions to exist.
 
 ## Skills required
 
-- To achieve a direct connection with the weak or non-existent server session access control, and pose as an authorized user:LEVEL:Low
+- [Low] To achieve a direct connection with the weak or non-existent server session access control, and pose as an authorized user
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Design: utilize strong federated identity such as SAML to encrypt and sign identity tokens in transit.
-- Implementation: Use industry standards session key generation mechanisms that utilize high amount of entropy to generate the session key. Many s
+- Implementation: Use industry standards session key generation mechanisms that utilize high amount of entropy to generate the session key. Many standard web and application servers will perform this task on your behalf.
+- Implementation: If the identifier is used for authentication, such as in the so-called single sign on use cases, then ensure that it is protected at the same level of assurance as authentication tokens.
+- Implementation: If the web or application server supports it, then encrypting and/or signing the identifier (such as cookie) can protect the ID if intercepted.
+- Design: Use strong session identifiers that are protected in transit and at rest.
+- Implementation: Utilize a session timeout for all sessions, for example 20 minutes. If the user does not explicitly logout, the server terminates their session after this period of inactivity. If the user logs back in then a new session key is generated.
+- Implementation: Verify authenticity of all identifiers at runtime.
 
 ---
 

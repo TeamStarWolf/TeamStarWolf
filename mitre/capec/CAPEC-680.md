@@ -24,12 +24,20 @@ An adversary exploits missing or incorrectly configured access control within re
 
 ## Skills required
 
-- Intricate knowledge of registers.:LEVEL:High
+- [High] Intricate knowledge of registers.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Design proper access control policies for hardware register access from software and ensure these policies are implemented in accordance with the specified design.
-- Ensure security lock bit protections are reviewed for design inconsistencies and co
+- Ensure security lock bit protections are reviewed for design inconsistencies and common weaknesses.
+- Test security lock programming flow in both pre-silicon and post-silicon environments.
+- Leverage automated tools to test that values are not reprogrammable and that write-once fields lock on writing zeros.
+- Ensure that measurement data is stored in registers that are read-only or otherwise have access controls that prevent modification by an untrusted agent.
 
 ---
 

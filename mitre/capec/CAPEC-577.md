@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Draft  
 
-An adversary exploits functionality meant to identify information about the primary users on the target system to an authorized user. They may do this, for example, by reviewing logins or file modification times. By knowing what owners use the target system, the adversary can inform further and more targeted malicious behavior. An example Windows command that may accomplish this is dir /A ntuser.d
+An adversary exploits functionality meant to identify information about the primary users on the target system to an authorized user. They may do this, for example, by reviewing logins or file modification times. By knowing what owners use the target system, the adversary can inform further and more targeted malicious behavior. An example Windows command that may accomplish this is "dir /A ntuser.dat". Which will display the last modified time of a user's ntuser.dat file when run within the root folder of a user. This time is synonymous with the last time that user was logged in.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -20,7 +20,12 @@ An adversary exploits functionality meant to identify information about the prim
 ## Prerequisites
 
 - The adversary must have gained access to the target system via physical or logical means in order to carry out this attack.
-- Administrator permissions are required to view the home folder of other u
+- Administrator permissions are required to view the home folder of other users.
+
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ## Mitigations
 

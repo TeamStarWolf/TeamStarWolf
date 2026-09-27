@@ -24,6 +24,10 @@ An adversary obtains unauthorized information due to improperly protected files.
 
 - An adversary has access to the file system of a system.
 
+## Consequences
+
+- Confidentiality / Read Data
+
 ## Mitigations
 
 - Verify that files have proper access controls set, and reduce the storage of sensitive information to only what is necessary.

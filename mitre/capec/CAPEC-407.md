@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An adversary engages in pretexting behavior to solicit information from target persons, or manipulate the target into performing some action that serves the adversary's interests. During a pretexting attack, the adversary creates an invented scenario, assuming an identity or role to persuade a targeted victim to release information or perform some action. It is more than just creating a lie; in so
+An adversary engages in pretexting behavior to solicit information from target persons, or manipulate the target into performing some action that serves the adversary's interests. During a pretexting attack, the adversary creates an invented scenario, assuming an identity or role to persuade a targeted victim to release information or perform some action. It is more than just creating a lie; in some cases it can be creating a whole new identity and then using that identity to manipulate the receipt of information.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -15,11 +15,15 @@ An adversary engages in pretexting behavior to solicit information from target p
 
 ## Prerequisites
 
-- The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the pretext that would influence the actions of the specific
+- The adversary must have the means and knowledge of how to communicate with the target in some manner.The adversary must have knowledge of the pretext that would influence the actions of the specific target.
 
 ## Skills required
 
-- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+- [Low] The adversary requires strong inter-personal and communication skills.
+
+## Consequences
+
+- Confidentiality / Other
 
 ## Mitigations
 

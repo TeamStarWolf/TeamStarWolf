@@ -27,17 +27,26 @@ An adversary leverages the possibility to encode potentially harmful input or co
 
 ## Prerequisites
 
-- The application's decoder accepts and interprets encoded characters. Data canonicalization, input filtering and validating is not done properly leaving the door open to harmful characters for the ta
+- The application's decoder accepts and interprets encoded characters. Data canonicalization, input filtering and validating is not done properly leaving the door open to harmful characters for the target host.
 
 ## Skills required
 
-- An adversary can inject different representation of a filtered character in a different encoding.:LEVEL:Low
-- An adversary may craft subt
+- [Low] An adversary can inject different representation of a filtered character in a different encoding.
+- [Medium] An adversary may craft subtle encoding of input data by using the knowledge that they have gathered about the target host.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
+- Availability / Unreliable Execution, Resource Consumption
 
 ## Mitigations
 
 - Assume all input might use an improper representation. Use canonicalized data inside the application; all data must be converted into the representation used inside the application (UTF-8, UTF-16, etc.)
-- Assume all input is malicious. Create an all
+- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. Test your decoding process against malicious input.
 
 ---
 

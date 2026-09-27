@@ -23,12 +23,16 @@ An attacker, armed with the cipher text and the encryption algorithm used, perfo
 
 ## Skills required
 
-- Brute forcing encryption does not require much skill.:LEVEL:Low
+- [Low] Brute forcing encryption does not require much skill.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Use commonly accepted algorithms and recommended key sizes. The key size used will depend on how important it is to keep the data confidential and for how long.
-- In theory a brute force attack performing an exhaustive key space search will always s
+- In theory a brute force attack performing an exhaustive key space search will always succeed, so the goal is to have computational security. Moore's law needs to be taken into account that suggests that computing resources double every eighteen months.
 
 ---
 

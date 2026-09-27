@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attacker exploits the functionality of cache technologies to cause specific data to be cached that aids the attackers' objectives. This describes any attack whereby an attacker places incorrect or harmful material in cache. The targeted cache can be an application's cache (e.g. a web browser cache) or a public cache (e.g. a DNS or ARP cache). Until the cache is refreshed, most applications or c
+An attacker exploits the functionality of cache technologies to cause specific data to be cached that aids the attackers' objectives. This describes any attack whereby an attacker places incorrect or harmful material in cache. The targeted cache can be an application's cache (e.g. a web browser cache) or a public cache (e.g. a DNS or ARP cache). Until the cache is refreshed, most applications or clients will treat the corrupted cache value as valid. This can lead to a wide range of exploits including redirecting web browsers towards sites that install malware and repeatedly incorrect calculations based on the incorrect value.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -23,11 +23,11 @@ An attacker exploits the functionality of cache technologies to cause specific d
 ## Prerequisites
 
 - The attacker must be able to modify the value stored in a cache to match a desired value.
-- The targeted application must not be able to detect the illicit modification of the cache and must trust th
+- The targeted application must not be able to detect the illicit modification of the cache and must trust the cache value in its calculations.
 
 ## Skills required
 
-- To overwrite/modify targeted cache:LEVEL:Medium
+- [Medium] To overwrite/modify targeted cache
 
 ## Mitigations
 

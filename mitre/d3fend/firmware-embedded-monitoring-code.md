@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Firmware
 
+Monitoring code is injected into firmware for integrity monitoring of firmware and firmware data.
+
 ## ATT&CK techniques countered (6)
 
 - [T0839](https://attack.mitre.org/techniques/T0839) — analyzes

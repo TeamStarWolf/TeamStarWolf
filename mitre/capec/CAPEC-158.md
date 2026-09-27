@@ -6,7 +6,7 @@
 **Typical severity:** Medium  
 **Status:** Draft  
 
-In this attack pattern, the adversary monitors network traffic between nodes of a public or multicast network in an attempt to capture sensitive information at the protocol level. Network sniffing applications can reveal TCP/IP, DNS, Ethernet, and other low-level network communication information. The adversary takes a passive role in this attack pattern and simply observes and analyzes the traffi
+In this attack pattern, the adversary monitors network traffic between nodes of a public or multicast network in an attempt to capture sensitive information at the protocol level. Network sniffing applications can reveal TCP/IP, DNS, Ethernet, and other low-level network communication information. The adversary takes a passive role in this attack pattern and simply observes and analyzes the traffic. The adversary may precipitate or indirectly influence the content of the observed transaction, but is never the intended recipient of the target information.
 
 ## Mapped ATT&CK techniques (2)
 
@@ -20,11 +20,15 @@ In this attack pattern, the adversary monitors network traffic between nodes of 
 ## Prerequisites
 
 - The target must be communicating on a network protocol visible by a network sniffing application.
-- The adversary must obtain a logical position on the network from intercepting target network traffi
+- The adversary must obtain a logical position on the network from intercepting target network traffic is possible. Depending on the network topology, traffic sniffing may be simple or challenging. If both the target sender and target recipient are members of a single subnet, the adversary must also be on that subnet in order to see their traffic communication.
 
 ## Skills required
 
-- Adversaries can obtain and set up open-source network sniffing tools easily.:LEVEL:Low
+- [Low] Adversaries can obtain and set up open-source network sniffing tools easily.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 

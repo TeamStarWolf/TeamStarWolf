@@ -16,6 +16,11 @@ An adversary scans for RPC services listing on a Unix/Linux host.
 
 - RPC scanning requires no special privileges when it is performed via a native system utility.
 
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
+
 ## Mitigations
 
 - Typically, an IDS/IPS system is very effective against this type of attack.

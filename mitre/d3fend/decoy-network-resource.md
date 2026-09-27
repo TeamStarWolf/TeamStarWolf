@@ -5,6 +5,8 @@
 **D3FEND tactic:** Deceive
 **Digital artifacts:** Network Resource
 
+Deploying a network resource for the purposes of deceiving an adversary.
+
 ## ATT&CK techniques countered (8)
 
 - [T1037.003 — Network Logon Script](/mitre/techniques/T1037-003.md) — spoofs. Adversaries may use network logon scripts automatically executed at logon initialization to establish persistence.

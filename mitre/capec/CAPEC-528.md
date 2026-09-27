@@ -7,12 +7,12 @@
 **Likelihood:** Low  
 **Status:** Draft  
 
-An adversary may execute a flooding attack using XML messages with the intent to deny legitimate users access to a web service. These attacks are accomplished by sending a large number of XML based requests and letting the service attempt to parse each one. In many cases this type of an attack will result in a XML Denial of Service (XDoS) due to an application becoming unstable, freezing, or crash
+An adversary may execute a flooding attack using XML messages with the intent to deny legitimate users access to a web service. These attacks are accomplished by sending a large number of XML based requests and letting the service attempt to parse each one. In many cases this type of an attack will result in a XML Denial of Service (XDoS) due to an application becoming unstable, freezing, or crashing.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1498.001 — Direct Network Flood](/mitre/techniques/T1498-001.md) — Adversaries may attempt to cause a denial of service (DoS) by directly sending a high-volume of network traffic to a target.
 - [T1499.002 — Service Exhaustion Flood](/mitre/techniques/T1499-002.md) — Adversaries may target the different network services provided by systems to conduct a denial of service (DoS).
+- [T1498.001 — Direct Network Flood](/mitre/techniques/T1498-001.md) — Adversaries may attempt to cause a denial of service (DoS) by directly sending a high-volume of network traffic to a target.
 
 ## Related CWE (1)
 
@@ -25,12 +25,16 @@ An adversary may execute a flooding attack using XML messages with the intent to
 
 ## Skills required
 
-- Denial of service:LEVEL:Low
+- [Low] Denial of service
+
+## Consequences
+
+- Availability / Resource Consumption
 
 ## Mitigations
 
 - Design: Build throttling mechanism into the resource allocation. Provide for a timeout mechanism for allocated resources whose transaction does not complete within a specified interval.
-- Implementation: Provide for network flow control and traffic
+- Implementation: Provide for network flow control and traffic shaping to control access to the resources.
 
 ---
 

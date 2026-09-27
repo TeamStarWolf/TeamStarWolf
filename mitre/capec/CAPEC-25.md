@@ -29,7 +29,11 @@ The adversary triggers and exploits a deadlock condition in the target software 
 
 ## Skills required
 
-- This type of attack may be sophisticated and require knowledge about the system's resources and APIs.:LEVEL:Medium
+- [Medium] This type of attack may be sophisticated and require knowledge about the system's resources and APIs.
+
+## Consequences
+
+- Availability / Resource Consumption
 
 ## Mitigations
 

@@ -19,13 +19,14 @@ An adversary replaces legitimate hardware in the system with faulty counterfeit 
 
 ## Skills required
 
-- Advanced knowledge of the design of the system.:LEVEL:High
-- Hardware creation and manufacture of replacement components.:LEVEL:High
+- [High] Advanced knowledge of the design of the system.
+- [High] Hardware creation and manufacture of replacement components.
 
 ## Mitigations
 
 - Ensure that all contractors and sub-suppliers use trusted means of shipping (e.g., bonded/cleared/vetted and insured couriers) to ensure that components, once purchased, are not subject to compromise during their delivery.
-- Prevent or detect tamper
+- Prevent or detect tampering with critical hardware or firmware components while in transit through use of state-of-the-art anti-tamper devices.
+- Use tamper-resistant and tamper-evident packaging when shipping critical components (e.g., plastic coating for circuit boards, tamper tape, paint, sensors, and/or seals for cases and containers) and inspect received system components for evidence of tampering.
 
 ---
 

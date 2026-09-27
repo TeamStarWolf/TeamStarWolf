@@ -5,6 +5,8 @@
 **D3FEND tactic:** Restore
 **Digital artifacts:** Host
 
+Restoring a entity's access to a computer network.
+
 ## ATT&CK techniques countered (14)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — restores

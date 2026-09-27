@@ -15,11 +15,15 @@ An adversary intercepts traffic and intentionally drops DNS requests based on co
 
 - This attack requires the ability to conduct deep packet inspection with an In-Path device that can drop the targeted traffic and/or connection.
 
+## Consequences
+
+- Availability / Other
+
 ## Mitigations
 
 - Hard Coded Alternate DNS server in applications
 - Avoid dependence on DNS
-- Include hosts file/IP address in the application.
+- Include "hosts file"/IP address in the application.
 - Ensure best practices with respect to communications channel protections.
 - Use a .onion domain with Tor support
 

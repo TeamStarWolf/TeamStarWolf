@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Digital Message
 
+Encrypting a message body using a cryptographic key.
+
 ## ATT&CK techniques countered (32)
 
 - [T0800](https://attack.mitre.org/techniques/T0800) — encrypts

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Password, User Account, OT Controller
 
+Changing the default password means replacing the factory-set credentials with a strong, unique password before the device is deployed, preventing unauthorized access.
+
 ## ATT&CK techniques countered (23)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — strengthens

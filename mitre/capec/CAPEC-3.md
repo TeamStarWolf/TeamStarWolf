@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-Some APIs will strip certain leading characters from a string of parameters. An adversary can intentionally introduce leading ghost characters (extra characters that don't affect the validity of the request at the API layer) that enable the input to pass the filters and therefore process the adversary's input. This occurs when the targeted API will accept input data in several syntactic forms and
+Some APIs will strip certain leading characters from a string of parameters. An adversary can intentionally introduce leading "ghost" characters (extra characters that don't affect the validity of the request at the API layer) that enable the input to pass the filters and therefore process the adversary's input. This occurs when the targeted API will accept input data in several syntactic forms and interpret it in the equivalent semantic way, while the filter does not take into account the full spectrum of the syntactic forms acceptable to the targeted API.
 
 ## Related CWE (12)
 
@@ -30,7 +30,12 @@ Some APIs will strip certain leading characters from a string of parameters. An 
 
 ## Skills required
 
-- The ability to make an API request, and knowledge of ghost characters that will not be filtered by any input validation. These ghost character
+- [Medium] The ability to make an API request, and knowledge of "ghost" characters that will not be filtered by any input validation. These "ghost" characters must be known to not affect the way in which the request will be interpreted.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Integrity / Modify Data
 
 ## Mitigations
 

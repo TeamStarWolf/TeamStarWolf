@@ -17,6 +17,11 @@ This OS fingerprinting probe performs a checksum on any ASCII data contained wit
 
 - The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.
 
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

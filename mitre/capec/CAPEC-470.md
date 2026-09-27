@@ -6,7 +6,7 @@
 **Typical severity:** Very High  
 **Status:** Draft  
 
-An attacker is able to leverage access gained to the database to read / write data to the file system, compromise the operating system, create a tunnel for accessing the host machine, and use this access to potentially attack other machines on the same network as the database machine. Traditionally SQL injections attacks are viewed as a way to gain unauthorized read access to the data stored in th
+An attacker is able to leverage access gained to the database to read / write data to the file system, compromise the operating system, create a tunnel for accessing the host machine, and use this access to potentially attack other machines on the same network as the database machine. Traditionally SQL injections attacks are viewed as a way to gain unauthorized read access to the data stored in the database, modify the data in the database, delete the data, etc. However, almost every data base management system (DBMS) system includes facilities that if compromised allow an attacker complete access to the file system, operating system, and full access to the host running the database. The attacker can then use this privileged access to launch subsequent attacks. These facilities include dropping into a command shell, creating user defined functions that can call system level libraries present on the host machine, stored procedures, etc.
 
 ## Related CWE (2)
 
@@ -19,13 +19,18 @@ An attacker is able to leverage access gained to the database to read / write da
 
 ## Skills required
 
-- Low level knowledge of the various facilities available in different DBMS systems for interacting with the file system and operating system:LE
+- [High] Low level knowledge of the various facilities available in different DBMS systems for interacting with the file system and operating system
 
 ## Mitigations
 
 - Design: Follow the defensive programming practices needed to protect an application accessing the database from SQL injection
 - Configuration: Ensure that the DBMS is patched with the latest security patches
-- Design: Ensure that the DBMS login used
+- Design: Ensure that the DBMS login used by the application has the lowest possible level of privileges in the DBMS
+- Design: Ensure that DBMS runs with the lowest possible level of privileges on the host machine and that it runs as a separate user
+- Usage: Do not use the DBMS machine for anything else other than the database
+- Usage: Do not place any trust in the database host on the internal network. Authenticate and validate all network activity originating from the database host.
+- Usage: Use an intrusion detection system to monitor network connections and logs on the database host.
+- Implementation: Remove / disable all unneeded / unused functions of the DBMS system that may allow an attacker to elevate privileges if compromised
 
 ---
 

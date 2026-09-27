@@ -18,12 +18,12 @@ An attacker exploits the underlying complexity of a data structure that allows f
 ## Prerequisites
 
 - Signer and recipient are using complex data storage structures that allow for a mix between signed and unsigned data
-- Recipient is using signature verification software that does not maintain separa
+- Recipient is using signature verification software that does not maintain separation between signed and unsigned data once the signature has been verified.
 
 ## Skills required
 
-- The attacker may need to continuously monitor a stream of signed data, waiting for an exploitable message to appear.:LEVEL:High
-- Attacke
+- [High] The attacker may need to continuously monitor a stream of signed data, waiting for an exploitable message to appear.
+- [High] Attacker must be able to create malformed data blobs and know how to insert them in a location that the recipient will visit.
 
 ## Mitigations
 

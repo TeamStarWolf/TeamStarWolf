@@ -14,7 +14,7 @@ An attacker initiates a series of events designed to cause a user, program, serv
 
 ## Skills required
 
-- Manual or user-assisted attacks require deceptive mechanisms to trick the user into clicking a link or downloading and installing software. Au
+- [Medium] Manual or user-assisted attacks require deceptive mechanisms to trick the user into clicking a link or downloading and installing software. Automated update attacks require the attacker to host a payload and then trigger the installation of the payload code.
 
 ---
 

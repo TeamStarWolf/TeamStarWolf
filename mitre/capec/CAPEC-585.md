@@ -11,6 +11,10 @@ In this attack pattern, an adversary influences a target's web-hosting company t
 
 - This attack pattern requires that the adversary has cooperation from the registrar of the target domain.
 
+## Consequences
+
+- Availability / Other
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

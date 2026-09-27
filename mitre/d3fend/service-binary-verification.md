@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Service Application
 
+Analyzing changes in service binary files by comparing to a source of truth.
+
 ## ATT&CK techniques countered (12)
 
 - [T0843](https://attack.mitre.org/techniques/T0843) — verifies

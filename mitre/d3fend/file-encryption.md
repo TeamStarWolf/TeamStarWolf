@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** File
 
+Encrypting a file using a cryptographic key.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — encrypts

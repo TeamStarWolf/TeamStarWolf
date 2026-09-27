@@ -25,11 +25,15 @@ An adversary, through a previously installed malicious application, impersonates
 
 ## Skills required
 
-- Once an adversary has gained access to the target system, impersonating a credential prompt is not difficult.:LEVEL:Low
+- [Low] Once an adversary has gained access to the target system, impersonating a credential prompt is not difficult.
+
+## Consequences
+
+- Access Control, Authentication / Gain Privileges
 
 ## Mitigations
 
-- The only known mitigation to this attack is to avoid installing the malicious application on the device. However, to impersonate a running task the malicious application does need the GET_TASKS permission to be able to query the task list, and bein
+- The only known mitigation to this attack is to avoid installing the malicious application on the device. However, to impersonate a running task the malicious application does need the GET_TASKS permission to be able to query the task list, and being suspicious of applications with that permission can help.
 
 ---
 

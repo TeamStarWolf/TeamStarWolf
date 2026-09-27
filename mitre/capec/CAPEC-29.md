@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-This attack targets a race condition occurring between the time of check (state) for a resource and the time of use of a resource. A typical example is file access. The adversary can leverage a file access race condition by running the race, meaning that they would modify the resource between the first time the target program accesses the file and the time the target program uses the file. During
+This attack targets a race condition occurring between the time of check (state) for a resource and the time of use of a resource. A typical example is file access. The adversary can leverage a file access race condition by "running the race", meaning that they would modify the resource between the first time the target program accesses the file and the time the target program uses the file. During that period of time, the adversary could replace or modify the file, causing the application to behave unexpectedly.
 
 ## Related CWE (9)
 
@@ -29,14 +29,23 @@ This attack targets a race condition occurring between the time of check (state)
 
 ## Skills required
 
-- This attack can get sophisticated since the attack has to occur within a short interval of time.:LEVEL:Medium
+- [Medium] This attack can get sophisticated since the attack has to occur within a short interval of time.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality, Integrity, Availability / Alter Execution Logic
+- Confidentiality / Read Data
+- Availability / Resource Consumption
 
 ## Mitigations
 
 - Use safe libraries to access resources such as files.
 - Be aware that improper use of access function calls such as chown(), tempfile(), chmod(), etc. can cause a race condition.
 - Use synchronization to control the flow of execution.
-- Use static ana
+- Use static analysis tools to find race conditions.
+- Pay attention to concurrency problems related to the access of resources.
 
 ---
 

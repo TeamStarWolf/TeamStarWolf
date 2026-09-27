@@ -17,6 +17,10 @@ An adversary inserts malicious logic into memory enabling them to achieve a nega
 - [CWE-1312 — Missing Protection for Mirrored Regions in On-Chip Fabric Firewall](https://cwe.mitre.org/data/definitions/1312.html) — The firewall in an on-chip fabric protects the main addressed region, but it does not protect any mirrored memory or memory-mapped-IO (MMIO) regions.
 - [CWE-1316 — Fabric-Address Map Allows Programming of Unwarranted Overlaps of Protected and Unprotected Ranges](https://cwe.mitre.org/data/definitions/1316.html) — The address map of the on-chip fabric has protected and unprotected regions overlapping, allowing an attacker to bypass access control to the overlapping portion of the protected region.
 
+## Consequences
+
+- Authorization / Execute Unauthorized Commands
+
 ## Mitigations
 
 - Leverage anti-virus products to detect stop operations with known virus.

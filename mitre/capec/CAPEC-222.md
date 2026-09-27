@@ -15,16 +15,25 @@ In an iFrame overlay attack the victim is tricked into unknowingly initiating so
 
 ## Prerequisites
 
-- The victim is communicating with the target application via a web based UI and not a thick client. The victim's browser security policies allow iFrames. The victim uses a modern browser that support
+- The victim is communicating with the target application via a web based UI and not a thick client. The victim's browser security policies allow iFrames. The victim uses a modern browser that supports UI elements like clickable buttons (i.e. not using an old text only browser). The victim has an active session with the target system. The target system's interaction window is open in the victim's browser and supports the ability for initiating sensitive actions on behalf of the user in the target system.
 
 ## Skills required
 
-- Crafting the proper malicious site and luring the victim to this site is not a trivial task.:LEVEL:High
+- [High] Crafting the proper malicious site and luring the victim to this site is not a trivial task.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 
 - Configuration: Disable iFrames in the Web browser.
-- Operation: When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities. Finish working with t
+- Operation: When maintaining an authenticated session with a privileged target system, do not use the same browser to navigate to unfamiliar sites to perform other activities. Finish working with the target system and logout first before proceeding to other tasks.
+- Operation: If using the Firefox browser, use the NoScript plug-in that will help forbid iFrames.
 
 ---
 

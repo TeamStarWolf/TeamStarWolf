@@ -5,6 +5,8 @@
 **D3FEND tactic:** Isolate
 **Digital artifacts:** Process, Create Process
 
+Preventing one process from writing to the memory space of another process through hardware based address manager implementations.
+
 ## ATT&CK techniques countered (48)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — isolates

@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-This attack is a form of Cross-Site Scripting (XSS) where malicious scripts are embedded in elements that are not expected to host scripts such as image tags (<img>), comments in XML documents (< !-CDATA->), etc. These tags may not be subject to the same input validation, output validation, and other content filtering and checking routines, so this can create an opportunity for an adversary to tun
+This attack is a form of Cross-Site Scripting (XSS) where malicious scripts are embedded in elements that are not expected to host scripts such as image tags (<img>), comments in XML documents (< !-CDATA->), etc. These tags may not be subject to the same input validation, output validation, and other content filtering and checking routines, so this can create an opportunity for an adversary to tunnel through the application's elements and launch a XSS attack through other elements. As with all remote attacks, it is important to differentiate the ability to launch an attack (such as probing an internal network for unpatched servers) and the ability of the remote adversary to collect and interpret the output of said attack.
 
 ## Related CWE (1)
 
@@ -19,11 +19,18 @@ This attack is a form of Cross-Site Scripting (XSS) where malicious scripts are 
 
 ## Skills required
 
-- To achieve a redirection and use of less trusted source, an adversary can simply edit content such as XML payload or HTML files that are sent
+- [Low] To achieve a redirection and use of less trusted source, an adversary can simply edit content such as XML payload or HTML files that are sent to client machine.
+- [High] Exploiting a client side vulnerability to inject malicious scripts into the browser's executable process.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
 
 ## Mitigations
 
-- In addition to the traditional input fields, all other user controllable inputs, such as image tags within messages or the likes, must also be subjected to input validation. Such validation should ensure that content that can be potentially interpr
+- In addition to the traditional input fields, all other user controllable inputs, such as image tags within messages or the likes, must also be subjected to input validation. Such validation should ensure that content that can be potentially interpreted as script by the browser is appropriately filtered.
+- All output displayed to clients must be properly escaped. Escaping ensures that the browser interprets special scripting characters literally and not as script to be executed.
 
 ---
 

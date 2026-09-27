@@ -23,7 +23,13 @@ An adversary masquerades as a legitimate Dynamic Host Configuration Protocol (DH
 
 ## Skills required
 
-- The adversary must identify potential targets for DHCP Spoofing and craft network configurations to obtain the desired results.:LEVEL:Medium
+- [Medium] The adversary must identify potential targets for DHCP Spoofing and craft network configurations to obtain the desired results.
+
+## Consequences
+
+- Confidentiality, Access Control / Read Data
+- Integrity, Access Control / Modify Data, Execute Unauthorized Commands
+- Availability / Resource Consumption
 
 ## Mitigations
 

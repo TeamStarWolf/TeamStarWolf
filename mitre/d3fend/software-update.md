@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Software
 
+Replacing old software on a computer system component.
+
 ## ATT&CK techniques countered (35)
 
 - [T0811](https://attack.mitre.org/techniques/T0811) — updates

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Network Node
 
+Monitoring the security status of an endpoint by sending periodic messages with health status, where absence of a response may indicate that the endpoint has been compromised.
+
 ## ATT&CK techniques countered (15)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — monitors

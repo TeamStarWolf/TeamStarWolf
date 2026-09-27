@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** OT Controller Operating Mode
 
+Detects operating modes such as Program, Run, Remote, or Stop.
+
 ## ATT&CK techniques countered (2)
 
 - [T0800](https://attack.mitre.org/techniques/T0800) — monitors

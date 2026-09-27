@@ -23,7 +23,7 @@ An adversary may execute a flooding attack using the TCP protocol with the inten
 
 ## Mitigations
 
-- To mitigate this type of an attack, an organization can monitor incoming packets and look for patterns in the TCP traffic to determine if the network is under an attack. The potential target may implement a rate limit on TCP SYN messages which woul
+- To mitigate this type of an attack, an organization can monitor incoming packets and look for patterns in the TCP traffic to determine if the network is under an attack. The potential target may implement a rate limit on TCP SYN messages which would provide limited capabilities while under attack.
 
 ---
 

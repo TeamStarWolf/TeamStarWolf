@@ -19,7 +19,12 @@ The attacker forces an application to load arbitrary code files from the local m
 ## Prerequisites
 
 - The targeted application must have a bug that allows an adversary to control which code file is loaded at some juncture.
-- Some variants of this attack may require that old versions of some code file
+- Some variants of this attack may require that old versions of some code files be present and in predictable locations.
+
+## Consequences
+
+- Integrity / Execute Unauthorized Commands
+- Confidentiality / Read Data
 
 ## Mitigations
 

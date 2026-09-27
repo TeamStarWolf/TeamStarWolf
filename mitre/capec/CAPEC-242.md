@@ -17,12 +17,16 @@ An adversary exploits a weakness in input validation on the target to inject new
 
 - The target software does not validate user-controlled input such that the execution of a process may be altered by sending code in through legitimate data channels, using no other mechanism.
 
+## Consequences
+
+- Confidentiality, Integrity, Availability / Other
+
 ## Mitigations
 
 - Utilize strict type, character, and encoding enforcement
 - Ensure all input content that is delivered to client is sanitized against an acceptable content specification.
 - Perform input validation for all content.
-- Enforce regular patching of softwar
+- Enforce regular patching of software.
 
 ---
 

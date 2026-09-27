@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Stable  
 
-An adversary uses a technique to generate an ICMP Error message (Port Unreachable, Destination Unreachable, Redirect, Source Quench, Time Exceeded, Parameter Problem) from a target and then analyze the integrity of data returned or Quoted from the originating request that generated the error message.
+An adversary uses a technique to generate an ICMP Error message (Port Unreachable, Destination Unreachable, Redirect, Source Quench, Time Exceeded, Parameter Problem) from a target and then analyze the integrity of data returned or "Quoted" from the originating request that generated the error message.
 
 ## Related CWE (1)
 
@@ -16,6 +16,11 @@ An adversary uses a technique to generate an ICMP Error message (Port Unreachabl
 ## Prerequisites
 
 - The ability to monitor and interact with network communications.Access to at least one host, and the privileges to interface with the network interface card.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
 
 ---
 

@@ -28,16 +28,23 @@ An adversary tries every possible value for a password until they succeed. A bru
 
 - An adversary needs to know a username to target.
 - The system uses password based authentication as the one factor authentication mechanism.
-- An application does not have a password throttling mechan
+- An application does not have a password throttling mechanism in place. A good password throttling mechanism will make it almost impossible computationally to brute force a password as it may either lock out the user after a certain number of incorrect attempts or introduce time out periods. Both of these would make a brute force attack impractical.
 
 ## Skills required
 
-- A brute force attack is very straightforward. A variety of password cracking tools are widely available.:LEVEL:Low
+- [Low] A brute force attack is very straightforward. A variety of password cracking tools are widely available.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Implement a password throttling mechanism. This mechanism should take into account both the IP address and the log in name of the user.
-- Put together a strong password policy and make sure that all user created passwords comply with it. Alternative
+- Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users.
+- Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen.
 
 ---
 

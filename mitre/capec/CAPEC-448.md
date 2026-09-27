@@ -21,6 +21,10 @@ An adversary tampers with a DLL and embeds a computer virus into gaps between le
 
 - Access to the software currently deployed at a victim location. This access is often obtained by leveraging another attack pattern to gain permissions that the adversary wouldn't normally have.
 
+## Consequences
+
+- Authorization / Execute Unauthorized Commands
+
 ## Mitigations
 
 - Leverage anti-virus products to detect and quarantine software with known virus.

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** File Transfer Network Traffic
 
+Identifying and extracting files from network application protocols through the use of network stream reassembly software.
+
 ## ATT&CK techniques countered (2)
 
 - [T1071.002 — File Transfer Protocols](/mitre/techniques/T1071-002.md) — analyzes. Adversaries may communicate using application layer protocols associated with transferring files to avoid detection/network filtering by blending in with existing traffic.

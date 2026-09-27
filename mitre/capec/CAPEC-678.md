@@ -17,12 +17,20 @@ During the system build process, the system is deliberately misconfigured by the
 
 - An adversary has access to the data files and processes used for executing system configuration and performing the build.
 
+## Consequences
+
+- Integrity / Execute Unauthorized Commands
+- Access Control / Gain Privileges
+- Confidentiality / Modify Data, Read Data
+
 ## Mitigations
 
 - Implement configuration management security practices that protect the integrity of software and associated data.
 - Monitor and control access to the configuration management system.
 - Harden centralized repositories against attack.
-- Establish accept
+- Establish acceptance criteria for configuration management check-in to assure integrity.
+- Plan for and audit the security of configuration management administration processes.
+- Maintain configuration control over operational systems.
 
 ---
 

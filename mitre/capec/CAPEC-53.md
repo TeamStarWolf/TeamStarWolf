@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-If a string is passed through a filter of some kind, then a terminal NULL may not be valid. Using alternate representation of NULL allows an adversary to embed the NULL mid-string while postfixing the proper data so that the filter is avoided. One example is a filter that looks for a trailing slash character. If a string insertion is possible, but the slash must exist, an alternate encoding of NUL
+If a string is passed through a filter of some kind, then a terminal NULL may not be valid. Using alternate representation of NULL allows an adversary to embed the NULL mid-string while postfixing the proper data so that the filter is avoided. One example is a filter that looks for a trailing slash character. If a string insertion is possible, but the slash must exist, an alternate encoding of NULL in mid-string may be used.
 
 ## Related CWE (7)
 
@@ -25,12 +25,18 @@ If a string is passed through a filter of some kind, then a terminal NULL may no
 
 ## Skills required
 
-- An adversary needs to understand alternate encodings, what the filter looks for and the data format acceptable to the target API:LEVEL:Medium:
+- [Medium] An adversary needs to understand alternate encodings, what the filter looks for and the data format acceptable to the target API
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Properly handle Null characters. Make sure canonicalization is properly applied. Do not pass Null characters to the underlying APIs.
-- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on th
+- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system.
 
 ---
 

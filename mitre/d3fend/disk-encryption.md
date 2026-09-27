@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Storage
 
+Encrypting a hard disk partition to prevent cleartext access to a file system.
+
 ## ATT&CK techniques countered (2)
 
 - [T1564.005 — Hidden File System](/mitre/techniques/T1564-005.md) — encrypts. Adversaries may use a hidden file system to conceal malicious activity from users and security tools.

@@ -15,11 +15,16 @@ An adversary takes advantage of improper data validation to inject malicious glo
 
 ## Skills required
 
-- The adversary need inject values into the global parameters to the Flash file and understand the parent HTML document DOM structure. The adver
+- [Medium] The adversary need inject values into the global parameters to the Flash file and understand the parent HTML document DOM structure. The adversary needs to be smart enough to convince the victim to click on their crafted link.
+
+## Consequences
+
+- Confidentiality / Other
+- Authorization / Execute Unauthorized Commands
 
 ## Mitigations
 
-- User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving
+- User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving user input in Flash cookies. In such cases the Flash file itself will need to be fixed and recompiled, changing the name of the local shared objects (Flash cookies).
 
 ---
 

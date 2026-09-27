@@ -5,6 +5,8 @@
 **D3FEND tactic:** Harden
 **Digital artifacts:** Password
 
+A one-time password is valid for only one user authentication.
+
 ## ATT&CK techniques countered (4)
 
 - [T0812](https://attack.mitre.org/techniques/T0812) — use-limits

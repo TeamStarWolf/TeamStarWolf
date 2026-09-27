@@ -15,7 +15,11 @@ An adversary registers a domain name that sounds the same as a trusted domain, b
 
 ## Skills required
 
-- Adversaries must be able to register DNS hostnames/URL’s.:LEVEL:Low
+- [Low] Adversaries must be able to register DNS hostnames/URL’s.
+
+## Consequences
+
+- Other / Other
 
 ## Mitigations
 

@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-In a Password Spraying attack, an adversary tries a small list (e.g. 3-5) of common or expected passwords, often matching the target's complexity policy, against a known list of user accounts to gain valid credentials. The adversary tries a particular password for each user account, before moving onto the next password in the list. This approach assists the adversary in remaining undetected by avo
+In a Password Spraying attack, an adversary tries a small list (e.g. 3-5) of common or expected passwords, often matching the target's complexity policy, against a known list of user accounts to gain valid credentials. The adversary tries a particular password for each user account, before moving onto the next password in the list. This approach assists the adversary in remaining undetected by avoiding rapid or frequent account lockouts. The adversary may then reattempt the process with additional passwords, once enough time has passed to prevent inducing a lockout.
 
 ## Mapped ATT&CK techniques (1)
 
@@ -27,16 +27,24 @@ In a Password Spraying attack, an adversary tries a small list (e.g. 3-5) of com
 
 - The system/application uses one factor password based authentication.
 - The system/application does not have a sound password policy that is being enforced.
-- The system/application does not implement
+- The system/application does not implement an effective password throttling mechanism.
+- The adversary possesses a list of known user accounts on the target system/application.
 
 ## Skills required
 
-- A Password Spraying attack is very straightforward. A variety of password cracking tools are widely available.:LEVEL:Low
+- [Low] A Password Spraying attack is very straightforward. A variety of password cracking tools are widely available.
+
+## Consequences
+
+- Confidentiality, Access Control, Authentication / Gain Privileges
+- Confidentiality, Authorization / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Create a strong password policy and ensure that your system enforces this policy.
-- Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as
+- Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2.
+- Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network.
 
 ---
 

@@ -19,7 +19,7 @@ An attacker substitutes out a tested and approved hardware component for a malic
 
 ## Skills required
 
-- Able to develop and manufacture malicious system components that perform the same functions and processes as their non-malicious counterparts.
+- [High] Able to develop and manufacture malicious system components that perform the same functions and processes as their non-malicious counterparts.
 
 ---
 

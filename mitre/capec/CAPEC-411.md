@@ -5,7 +5,7 @@
 **Abstraction:** Meta  
 **Status:** Deprecated  
 
-This attack pattern has been deprecated as it is a duplicate of the existing attack pattern CAPEC-407 : Social Information Gathering via Pretexting. Please refer to this other CAPEC going forward.
+This attack pattern has been deprecated as it is a duplicate of the existing attack pattern "CAPEC-407 : Social Information Gathering via Pretexting". Please refer to this other CAPEC going forward.
 
 ---
 

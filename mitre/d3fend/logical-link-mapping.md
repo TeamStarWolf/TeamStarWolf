@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Network Node
 
+Logical link mapping creates a model of existing or previous node-to-node connections using network-layer data or metadata.
+
 ## ATT&CK techniques countered (15)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — maps

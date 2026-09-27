@@ -27,14 +27,22 @@ An adversary takes advantage of missing or incorrectly configured access control
 
 ## Skills required
 
-- Ability to craft malicious code to inject into the memory region.:LEVEL:Medium
-- Intricate knowledge of memory structures.:LEVEL:High
+- [Medium] Ability to craft malicious code to inject into the memory region.
+- [High] Intricate knowledge of memory structures.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Ensure that protected and unprotected memory ranges are isolated and do not overlap.
 - If memory regions must overlap, leverage memory priority schemes if memory regions can overlap.
-- Ensure that original and mirrored memory regions apply the same p
+- Ensure that original and mirrored memory regions apply the same protections.
+- Ensure immutable code or data is programmed into ROM or write-once memory.
 
 ---
 

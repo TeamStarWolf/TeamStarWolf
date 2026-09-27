@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Document File, Database
 
+Data inventorying identifies and records the schemas, formats, volumes, and locations of data stored and used on the organization's architecture.
+
 ## ATT&CK techniques countered (31)
 
 - [T0865](https://attack.mitre.org/techniques/T0865) — inventories

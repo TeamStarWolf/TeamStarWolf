@@ -21,11 +21,15 @@ An adversary engages in probing and exploration activities to identify constitue
 
 ## Prerequisites
 
-- An application must publicize identifiable information about the system or application through voluntary or involuntary means. Certain identification details of information systems are visible on co
+- An application must publicize identifiable information about the system or application through voluntary or involuntary means. Certain identification details of information systems are visible on communication networks (e.g., if an adversary uses a sniffer to inspect the traffic) due to their inherent structure and protocol standards. Any system or network that can be detected can be footprinted. However, some configuration choices may limit the useful information that can be collected during a footprinting attack.
 
 ## Skills required
 
-- The adversary knows how to send HTTP request, run the scan tool.:LEVEL:Low
+- [Low] The adversary knows how to send HTTP request, run the scan tool.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
@@ -34,7 +38,7 @@ An adversary engages in probing and exploration activities to identify constitue
 - Change default passwords by choosing strong passwords.
 - Curtail unexpected input.
 - Encrypt and password-protect sensitive data.
-- Avoid includ
+- Avoid including information that has the potential to identify and compromise your organization's security such as access to business plans, formulas, and proprietary documents.
 
 ---
 

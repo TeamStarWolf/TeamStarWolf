@@ -15,7 +15,11 @@ The adversary shapes the target's actions or behavior by focusing on the ways hu
 
 ## Skills required
 
-- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+- [Low] The adversary requires strong inter-personal and communication skills.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Other
 
 ## Mitigations
 

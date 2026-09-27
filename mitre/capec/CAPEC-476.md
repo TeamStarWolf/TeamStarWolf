@@ -15,12 +15,13 @@ An attacker exploits a weakness in the parsing or display code of the recipient 
 
 ## Prerequisites
 
-- Recipient is using signature verification software that does not clearly indicate potential homographs in the signer identity.Recipient is using signature verification software that contains a parsi
+- Recipient is using signature verification software that does not clearly indicate potential homographs in the signer identity.Recipient is using signature verification software that contains a parsing vulnerability, or allows control characters in the signer identity field, such that a signature is mistakenly displayed as valid and from a known or authoritative signer.
 
 ## Skills required
 
-- Attacker needs to understand the layout and composition of data blobs used by the target application.:LEVEL:High
-- To discover a specific
+- [High] Attacker needs to understand the layout and composition of data blobs used by the target application.
+- [High] To discover a specific vulnerability, attacker needs to reverse engineer signature parsing, signature verification and signer representation code.
+- [High] Attacker may be required to create malformed data blobs and know how to insert them in a location that the recipient will visit.
 
 ## Mitigations
 

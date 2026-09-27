@@ -5,6 +5,8 @@
 **D3FEND tactic:** Model
 **Digital artifacts:** Network Node
 
+Network node inventorying identifies and records all the network nodes (hosts, routers, switches, firewalls, etc.) in the organization's architecture.
+
 ## ATT&CK techniques countered (15)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — inventories

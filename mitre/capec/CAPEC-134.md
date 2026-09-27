@@ -14,7 +14,8 @@ An adversary manipulates the headers and content of an email message by injectin
 
 ## Prerequisites
 
-- The target application must allow the user to send email to some recipient, to specify the content at least one header field in the message, and must fail to sanitize against the injection of comman
+- The target application must allow the user to send email to some recipient, to specify the content at least one header field in the message, and must fail to sanitize against the injection of command separators.
+- The adversary must have the ability to access the target mail application.
 
 ---
 

@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Certificate File
 
+Analyzing Public Key Infrastructure certificates to detect if they have been misconfigured or spoofed using both network traffic, certificate fields and third-party logs.
+
 ## ATT&CK techniques countered (6)
 
 - [T1041 — Exfiltration Over C2 Channel](/mitre/techniques/T1041.md) — analyzes. Adversaries may steal data by exfiltrating it over an existing command and control channel.

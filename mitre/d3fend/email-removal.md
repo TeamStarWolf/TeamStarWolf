@@ -5,6 +5,8 @@
 **D3FEND tactic:** Evict
 **Digital artifacts:** Email, Mail Server
 
+The email removal technique deletes email files from system storage.
+
 ## ATT&CK techniques countered (7)
 
 - [T0865](https://attack.mitre.org/techniques/T0865) — deletes

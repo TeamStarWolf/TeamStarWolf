@@ -5,7 +5,7 @@
 **Abstraction:** Standard  
 **Status:** Draft  
 
-An adversary manipulates a web service related protocol to cause a web application or service to react differently than intended. This can either be performed through the manipulation of call parameters to include unexpected values, or by changing the called function to one that should normally be restricted or limited. By leveraging this pattern of attack, the adversary is able to gain access to
+An adversary manipulates a web service related protocol to cause a web application or service to react differently than intended. This can either be performed through the manipulation of call parameters to include unexpected values, or by changing the called function to one that should normally be restricted or limited. By leveraging this pattern of attack, the adversary is able to gain access to data or resources normally restricted, or to cause the application or service to crash.
 
 ## Related CWE (1)
 
@@ -18,7 +18,7 @@ An adversary manipulates a web service related protocol to cause a web applicati
 ## Mitigations
 
 - Design: Range, size and value and consistency verification for any arguments supplied to applications and services from external sources and devise appropriate error response.
-- Design: Ensure that function calls that should not be called by an unpr
+- Design: Ensure that function calls that should not be called by an unprivileged user are not accessible to them.
 
 ---
 

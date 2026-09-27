@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-Session sidejacking takes advantage of an unencrypted communication channel between a victim and target system. The attacker sniffs traffic on a network looking for session tokens in unencrypted traffic. Once a session token is captured, the attacker performs malicious actions by using the stolen token with the targeted application to impersonate the victim. This attack is a specific method of ses
+Session sidejacking takes advantage of an unencrypted communication channel between a victim and target system. The attacker sniffs traffic on a network looking for session tokens in unencrypted traffic. Once a session token is captured, the attacker performs malicious actions by using the stolen token with the targeted application to impersonate the victim. This attack is a specific method of session hijacking, which is exploiting a valid session token to gain unauthorized access to a target system or information. Other methods to perform a session hijacking are session fixation, cross-site scripting, or compromising a user or server machine and stealing the session token.
 
 ## Related CWE (5)
 
@@ -21,16 +21,24 @@ Session sidejacking takes advantage of an unencrypted communication channel betw
 
 - An attacker and the victim are both using the same WiFi network.
 - The victim has an active session with a target system.
-- The victim is not using a secure channel to communicate with the target syst
+- The victim is not using a secure channel to communicate with the target system (e.g. SSL, VPN, etc.)
+- The victim initiated communication with a target system that requires transfer of the session token or the target application uses AJAX and thereby periodically "rings home" asynchronously using the session token
 
 ## Skills required
 
-- Easy to use tools exist to automate this attack.:LEVEL:Low
+- [Low] Easy to use tools exist to automate this attack.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Availability / Unreliable Execution
 
 ## Mitigations
 
 - Make sure that HTTPS is used to communicate with the target system. Alternatively, use VPN if possible. It is important to ensure that all communication between the client and the server happens via an encrypted secure channel.
-- Modify the session
+- Modify the session token with each transmission and protect it with cryptography. Add the idea of request sequencing that gives the server an ability to detect replay attacks.
 
 ---
 

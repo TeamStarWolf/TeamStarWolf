@@ -20,7 +20,12 @@ An adversary engages in activities to decipher and/or decode protocol informatio
 
 ## Skills required
 
-- Knowlegde of the Open Systems Interconnection model (OSI model), and famililarity with Wireshark or some other packet analyzer.:LEVEL:High
+- [High] Knowlegde of the Open Systems Interconnection model (OSI model), and famililarity with Wireshark or some other packet analyzer.
+
+## Consequences
+
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ---
 

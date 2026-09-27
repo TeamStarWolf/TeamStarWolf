@@ -15,7 +15,11 @@ The adversary influences the target's actions by building a relationship where t
 
 ## Skills required
 
-- The adversary requires strong inter-personal and communication skills.:LEVEL:Low
+- [Low] The adversary requires strong inter-personal and communication skills.
+
+## Consequences
+
+- Confidentiality, Integrity, Availability / Other
 
 ## Mitigations
 

@@ -17,6 +17,11 @@ An adversary installs and executes malicious code on the target system in an eff
 
 - Knowledge of the target system's vulnerabilities that can be capitalized on with malicious code.The adversary must be able to place the malicious code on the target system.
 
+## Consequences
+
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality, Integrity, Availability / Other
+
 ## Mitigations
 
 - Employ robust cybersecurity training for all employees.

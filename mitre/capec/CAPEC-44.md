@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type exploits a buffer overflow vulnerability in the handling of binary resources. Binary resources may include music files like MP3, image files like JPEG files, and any other binary file. These attacks may pass unnoticed to the client machine through normal usage of files, such as a browser loading a seemingly innocent JPEG file. This can allow the adversary access to the execu
+An attack of this type exploits a buffer overflow vulnerability in the handling of binary resources. Binary resources may include music files like MP3, image files like JPEG files, and any other binary file. These attacks may pass unnoticed to the client machine through normal usage of files, such as a browser loading a seemingly innocent JPEG file. This can allow the adversary access to the execution stack and execute arbitrary code in the target process.
 
 ## Related CWE (3)
 
@@ -22,14 +22,20 @@ An attack of this type exploits a buffer overflow vulnerability in the handling 
 
 ## Skills required
 
-- To modify file, deceive client into downloading, locate and exploit remote stack or heap vulnerability:LEVEL:Medium
+- [Medium] To modify file, deceive client into downloading, locate and exploit remote stack or heap vulnerability
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Perform appropriate bounds checking on all buffers.
 - Design: Enforce principle of least privilege
 - Design: Static code analysis
-- Implementation: Execute program in less trusted process space environment, do not allow lower integrity processes to wr
+- Implementation: Execute program in less trusted process space environment, do not allow lower integrity processes to write to higher integrity processes
+- Implementation: Keep software patched to ensure that known vulnerabilities are not available for adversaries to target on host.
 
 ---
 

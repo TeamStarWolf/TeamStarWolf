@@ -21,6 +21,11 @@ An adversary exploits functionality meant to identify information about the curr
 
 - The adversary must have gained access to the target system via physical or logical means in order to carry out this attack.
 
+## Consequences
+
+- Confidentiality / Other
+- Confidentiality, Access Control, Authorization / Bypass Protection Mechanism, Hide Activities
+
 ## Mitigations
 
 - Identify programs that may be used to acquire process information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.

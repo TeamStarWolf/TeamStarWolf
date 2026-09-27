@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-Web Logs Tampering attacks involve an attacker injecting, deleting or otherwise tampering with the contents of web logs typically for the purposes of masking other malicious behavior. Additionally, writing malicious data to log files may target jobs, filters, reports, and other agents that process the logs in an asynchronous attack pattern. This pattern of attack is similar to Log Injection-Tamper
+Web Logs Tampering attacks involve an attacker injecting, deleting or otherwise tampering with the contents of web logs typically for the purposes of masking other malicious behavior. Additionally, writing malicious data to log files may target jobs, filters, reports, and other agents that process the logs in an asynchronous attack pattern. This pattern of attack is similar to "Log Injection-Tampering-Forging" except that in this case, the attack is targeting the logs of the web server and not the application.
 
 ## Related CWE (10)
 
@@ -28,7 +28,11 @@ Web Logs Tampering attacks involve an attacker injecting, deleting or otherwise 
 
 ## Skills required
 
-- To input faked entries into Web logs:LEVEL:Low
+- [Low] To input faked entries into Web logs
+
+## Consequences
+
+- Integrity / Modify Data
 
 ## Mitigations
 

@@ -27,13 +27,23 @@ This type of attack leverages the use of tags or variables from a formatted conf
 
 ## Skills required
 
-- An adversary can simply overflow a buffer by inserting a long string into an adversary-modifiable injection vector. The result can be a DoS.:L
+- [Low] An adversary can simply overflow a buffer by inserting a long string into an adversary-modifiable injection vector. The result can be a DoS.
+- [High] Exploiting a buffer overflow to inject malicious code into the stack of a software system or even the heap can require a higher skill level.
+
+## Consequences
+
+- Availability / Unreliable Execution
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Confidentiality / Read Data
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Use a language or compiler that performs automatic bounds checking.
 - Use an abstraction library to abstract away risky APIs. Not a complete solution.
-- Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /G
+- Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution.
+- Use OS-level preventative functionality. Not a complete solution.
+- Do not trust input data from user. Validate all user input.
 
 ---
 

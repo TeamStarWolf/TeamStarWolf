@@ -19,7 +19,13 @@ This attack exploits terminal devices that allow themselves to be written to by 
 
 ## Skills required
 
-- Ability to discover permissions on terminal devices. Of course, brute force can also be used.:LEVEL:Low
+- [Low] Ability to discover permissions on terminal devices. Of course, brute force can also be used.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality / Read Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 

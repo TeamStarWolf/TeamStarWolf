@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Operating System Process
 
+Tracking changes to the state or configuration of critical system level processes.
+
 ## ATT&CK techniques countered (3)
 
 - [T1053 — Scheduled Task/Job](/mitre/techniques/T1053.md) — monitors. Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code.

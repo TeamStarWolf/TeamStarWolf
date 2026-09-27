@@ -15,15 +15,25 @@ An adversary serves content whose IP address is resolved by a DNS server that th
 
 ## Prerequisites
 
-- The target browser must access content server from the adversary controlled DNS name. Web advertisements are often used for this purpose. The target browser must honor the TTL value returned by the
+- The target browser must access content server from the adversary controlled DNS name. Web advertisements are often used for this purpose. The target browser must honor the TTL value returned by the adversary and re-resolve the adversary's DNS name after initial contact.
 
 ## Skills required
 
-- Setup DNS server and the adversary's web server. Write a malicious script to allow the victim to connect to the web server.:LEVEL:Medium
+- [Medium] Setup DNS server and the adversary's web server. Write a malicious script to allow the victim to connect to the web server.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Authorization / Execute Unauthorized Commands
+- Accountability, Authentication, Authorization, Non-Repudiation / Gain Privileges
+- Access Control, Authorization / Bypass Protection Mechanism
 
 ## Mitigations
 
-- Design: IP Pinning causes browsers to record the IP address to which a given name resolves and continue using this address regardless of the TTL set in the DNS response. Unfortunately, this is incompatible with the design of some legitimate sites.:
+- Design: IP Pinning causes browsers to record the IP address to which a given name resolves and continue using this address regardless of the TTL set in the DNS response. Unfortunately, this is incompatible with the design of some legitimate sites.
+- Implementation: Reject HTTP request with a malicious Host header.
+- Implementation: Employ DNS resolvers that prevent external names from resolving to internal addresses.
 
 ---
 

@@ -7,7 +7,7 @@
 **Likelihood:** Medium  
 **Status:** Draft  
 
-An attacker supplies the target software with input data that contains sequences of special characters designed to bypass input validation logic. This exploit relies on the target making multiples passes over the input data and processing a layer of special characters with each pass. In this manner, the attacker can disguise input that would otherwise be rejected as invalid by concealing it with l
+An attacker supplies the target software with input data that contains sequences of special characters designed to bypass input validation logic. This exploit relies on the target making multiples passes over the input data and processing a "layer" of special characters with each pass. In this manner, the attacker can disguise input that would otherwise be rejected as invalid by concealing it with layers of special/escape characters that are stripped off by subsequent processing steps. The goal is to first discover cases where the input validation layer executes before one or more parsing layers. That is, user input may go through the following logic in an application: <parser1> --> <input validator> --> <parser2>. In such cases, the attacker will need to provide input that will pass through the input validator, but after passing through parser2, will be converted into something that the input validator was supposed to stop.
 
 ## Related CWE (10)
 
@@ -29,11 +29,19 @@ An attacker supplies the target software with input data that contains sequences
 
 ## Skills required
 
-- Knowledge of various escaping schemes, such as URL escape encoding and XML escape characters.:LEVEL:Medium
+- [Medium] Knowledge of various escaping schemes, such as URL escape encoding and XML escape characters.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality / Read Data
 
 ## Mitigations
 
-- An iterative approach to input validation may be required to ensure that no dangerous characters are present. It may be necessary to implement redundant checking across different input validation layers. Ensure that invalid data is rejected as soon
+- An iterative approach to input validation may be required to ensure that no dangerous characters are present. It may be necessary to implement redundant checking across different input validation layers. Ensure that invalid data is rejected as soon as possible and do not continue to work with it.
+- Make sure to perform input validation on canonicalized data (i.e. data that is data in its most standard form). This will help avoid tricky encodings getting past the filters.
+- Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist would not be permitted to enter into the system.
 
 ---
 

@@ -22,12 +22,17 @@ An attacker utilizes crafted XML user-controllable input to probe, attack, and i
 
 ## Skills required
 
-- An attacker must have knowledge of XML syntax and constructs in order to successfully leverage XML Injection:LEVEL:Low
+- [Low] An attacker must have knowledge of XML syntax and constructs in order to successfully leverage XML Injection
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Strong input validation - All user-controllable input must be validated and filtered for illegal characters as well as content that can be interpreted in the context of an XML data or a query.
-- Use of custom error pages - Attackers can glean inform
+- Use of custom error pages - Attackers can glean information about the nature of queries from descriptive error messages. Input validation must be coupled with customized error pages that inform about an error without disclosing information about the database or application.
 
 ---
 

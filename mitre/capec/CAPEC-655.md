@@ -13,6 +13,11 @@ An adversary adds data to a file to increase the file size beyond what security 
 
 - [T1027.001 — Binary Padding](/mitre/techniques/T1027-001.md) — Adversaries may use binary padding to add junk data and change the on-disk representation of malware.
 
+## Consequences
+
+- Accountability / Hide Activities, Bypass Protection Mechanism
+- Integrity / Modify Data
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

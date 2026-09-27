@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** File
 
+Detecting any suspicious changes to files in a computer system.
+
 ## ATT&CK techniques countered (107)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — analyzes

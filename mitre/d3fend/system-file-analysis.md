@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Operating System File
 
+Monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering.
+
 ## ATT&CK techniques countered (10)
 
 - [T0888](https://attack.mitre.org/techniques/T0888) — analyzes

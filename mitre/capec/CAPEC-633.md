@@ -21,6 +21,12 @@ An adversary exploits a weakness in authentication to create an access token (or
 
 - This pattern of attack is only applicable when a downstream user leverages tokens to verify identity, and then takes action based on that identity.
 
+## Consequences
+
+- Integrity / Alter Execution Logic
+- Integrity / Gain Privileges
+- Integrity / Hide Activities
+
 ---
 
 *Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

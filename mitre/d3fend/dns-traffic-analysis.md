@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** DNS Lookup, Outbound Internet DNS Lookup Traffic
 
+Analysis of domain name metadata, including name and DNS records, to determine whether the domain is likely to resolve to an undesirable host.
+
 ## ATT&CK techniques countered (4)
 
 - [T0842](https://attack.mitre.org/techniques/T0842) — may-contain

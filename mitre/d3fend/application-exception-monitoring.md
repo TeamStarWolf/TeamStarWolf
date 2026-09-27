@@ -5,6 +5,8 @@
 **D3FEND tactic:** Detect
 **Digital artifacts:** Log
 
+Monitoring the failures of system counters and timers.
+
 ## ATT&CK techniques countered (14)
 
 - [T1003.005 — Cached Domain Credentials](/mitre/techniques/T1003-005.md) — monitors. Adversaries may attempt to access cached domain credentials used to allow authentication to occur in the event a domain controller is unavailable.

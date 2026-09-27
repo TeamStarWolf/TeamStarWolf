@@ -29,13 +29,20 @@ An attacker manipulates inputs to the target software which the target software 
 
 ## Skills required
 
-- To identify file system entry point and execute against an over-privileged system interface:LEVEL:Low
+- [Low] To identify file system entry point and execute against an over-privileged system interface
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Integrity / Modify Data
 
 ## Mitigations
 
 - Design: Enforce principle of least privilege.
 - Design: Ensure all input is validated, and does not contain file system commands
-- Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to
+- Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands.
+- Design: For interactive user applications, consider if direct file system interface is necessary, instead consider having the application proxy communication.
+- Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables.
 
 ---
 

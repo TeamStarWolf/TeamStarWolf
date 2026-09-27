@@ -27,19 +27,24 @@ This attack targets predictable session ID in order to gain privileges. The atta
 
 - The target host uses session IDs to keep track of the users.
 - Session IDs are used to control access to resources.
-- The session IDs used by the target host are predictable. For example, the session
+- The session IDs used by the target host are predictable. For example, the session IDs are generated using predictable information (e.g., time).
 
 ## Skills required
 
-- There are tools to brute force session ID. Those tools require a low level of knowledge.:LEVEL:Low
-- Predicting Session ID may require mo
+- [Low] There are tools to brute force session ID. Those tools require a low level of knowledge.
+- [Medium] Predicting Session ID may require more computation work which uses advanced analysis such as statistical analysis.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 
 - Use a strong source of randomness to generate a session ID.
 - Use adequate length session IDs
 - Do not use information available to the user in order to generate session ID (e.g., time).
-- Ideas for creating random numbers are offered by Eastlake [RFC
+- Ideas for creating random numbers are offered by Eastlake [RFC1750]
+- Encrypt the session ID if you expose it to the user. For instance session ID can be stored in a cookie in encrypted format.
 
 ---
 

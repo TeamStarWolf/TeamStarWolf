@@ -27,11 +27,16 @@ An attacker gets access to the database table where hashes of passwords are stor
 ## Prerequisites
 
 - Hash of the original password is available to the attacker. For a better chance of success, an attacker should have more than one hash of the original password, and ideally the whole table.
-- Salt wa
+- Salt was not used to create the hash of the original password. Otherwise the rainbow tables have to be re-computed, which is very expensive and will make the attack effectively infeasible (especially if salt was added in iterations).
+- The system uses one factor password based authentication.
 
 ## Skills required
 
-- A variety of password cracking tools are available that can leverage a rainbow table. The more difficult part is to obtain the password hash(e
+- [Low] A variety of password cracking tools are available that can leverage a rainbow table. The more difficult part is to obtain the password hash(es) in the first place.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
 
 ## Mitigations
 

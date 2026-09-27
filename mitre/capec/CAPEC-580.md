@@ -25,12 +25,16 @@ An adversary engages in active probing and exploration activities to determine s
 
 ## Skills required
 
-- The adversary needs to know basic linux commands.:LEVEL:Low
+- [Low] The adversary needs to know basic linux commands.
+
+## Consequences
+
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Keep patches up to date by installing weekly or daily if possible.
-- Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a proce
+- Identify programs that may be used to acquire peripheral information and block them by using a software restriction policy or tools that restrict program execution by using a process allowlist.
 
 ---
 

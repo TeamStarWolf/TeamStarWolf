@@ -6,7 +6,7 @@
 **Typical severity:** Medium  
 **Status:** Draft  
 
-An attacker takes advantage of the structure of integer variables to cause these variables to assume values that are not expected by an application. For example, adding one to the largest positive integer in a signed integer variable results in a negative number. Negative numbers may be illegal in an application and the application may prevent an attacker from providing them directly, but the appl
+An attacker takes advantage of the structure of integer variables to cause these variables to assume values that are not expected by an application. For example, adding one to the largest positive integer in a signed integer variable results in a negative number. Negative numbers may be illegal in an application and the application may prevent an attacker from providing them directly, but the application may not consider that adding two positive numbers can create a negative number do to the structure of integer storage formats.
 
 ## Related CWE (1)
 
@@ -14,7 +14,8 @@ An attacker takes advantage of the structure of integer variables to cause these
 
 ## Prerequisites
 
-- The target application must have an integer variable for which only some of the possible integer values are expected by the application and where there are no checks on the value of the variable bef
+- The target application must have an integer variable for which only some of the possible integer values are expected by the application and where there are no checks on the value of the variable before use.
+- The attacker must be able to manipulate the targeted integer variable such that normal operations result in non-standard values due to the storage structure of integers.
 
 ---
 

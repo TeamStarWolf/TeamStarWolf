@@ -7,7 +7,7 @@
 **Likelihood:** Low  
 **Status:** Draft  
 
-An attacker uses standard SQL injection methods to inject data into the command line for execution. This could be done directly through misuse of directives such as MSSQL_xp_cmdshell or indirectly through injection of data into the database that would be interpreted as shell commands. Sometime later, an unscrupulous backend application (or could be part of the functionality of the same application
+An attacker uses standard SQL injection methods to inject data into the command line for execution. This could be done directly through misuse of directives such as MSSQL_xp_cmdshell or indirectly through injection of data into the database that would be interpreted as shell commands. Sometime later, an unscrupulous backend application (or could be part of the functionality of the same application) fetches the injected data stored in the database and uses this data as command line arguments without performing proper validation. The malicious data escapes that data plane by spawning new commands to be executed on the host.
 
 ## Related CWE (5)
 
@@ -21,17 +21,25 @@ An attacker uses standard SQL injection methods to inject data into the command 
 
 - The application does not properly validate data before storing in the database
 - Backend application implicitly trusts the data stored in the database
-- Malicious data is used on the backend as a comm
+- Malicious data is used on the backend as a command line argument
 
 ## Skills required
 
-- The attacker most likely has to be familiar with the internal functionality of the system to launch this attack. Without that knowledge, there
+- [High] The attacker most likely has to be familiar with the internal functionality of the system to launch this attack. Without that knowledge, there are not many feedback mechanisms to give an attacker the indication of how to perform command injection or whether the attack is succeeding.
+
+## Consequences
+
+- Integrity / Modify Data
+- Confidentiality / Read Data
+- Availability / Unreliable Execution
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Disable MSSQL xp_cmdshell directive on the database
 - Properly validate the data (syntactically and semantically) before writing it to the database.
-- Do not implicitly trust the data stored in the database. Re-validate it prior to usage to make sure
+- Do not implicitly trust the data stored in the database. Re-validate it prior to usage to make sure that it is safe to use in a given context (e.g. as a command line argument).
 
 ---
 

@@ -7,7 +7,7 @@
 **Likelihood:** High  
 **Status:** Draft  
 
-An attack of this type involves an adversary inserting malicious characters (such as a XSS redirection) into a filename, directly or indirectly that is then used by the target software to generate HTML text or other potentially executable content. Many websites rely on user-generated content and dynamically build resources like files, filenames, and URL links directly from user supplied data. In t
+An attack of this type involves an adversary inserting malicious characters (such as a XSS redirection) into a filename, directly or indirectly that is then used by the target software to generate HTML text or other potentially executable content. Many websites rely on user-generated content and dynamically build resources like files, filenames, and URL links directly from user supplied data. In this attack pattern, the attacker uploads code that can execute in the client browser and/or redirect the client browser to a site that the attacker owns. All XSS attack payload variants can be used to pass and exploit these vulnerabilities.
 
 ## Related CWE (8)
 
@@ -26,13 +26,25 @@ An attack of this type involves an adversary inserting malicious characters (suc
 
 ## Skills required
 
-- To achieve a redirection and use of less trusted source, an attacker can simply edit data that the host uses to build the filename:LEVEL:Low
+- [Low] To achieve a redirection and use of less trusted source, an attacker can simply edit data that the host uses to build the filename
+- [Medium] Deploying a malicious "look-a-like" site (such as a site masquerading as a bank or online auction site) that the user enters their authentication data into.
+- [High] Exploiting a client side vulnerability to inject malicious scripts into the browser's executable process.
+
+## Consequences
+
+- Confidentiality, Access Control, Authorization / Gain Privileges
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
+- Availability / Alter Execution Logic
+- Confidentiality / Read Data
 
 ## Mitigations
 
 - Design: Use browser technologies that do not allow client side scripting.
 - Implementation: Ensure all content that is delivered to client is sanitized against an acceptable content specification.
-- Implementation: Perform input validation for all re
+- Implementation: Perform input validation for all remote content.
+- Implementation: Perform output validation for all remote content.
+- Implementation: Disable scripting languages such as JavaScript in browser
+- Implementation: Scan dynamically generated content against validation specification
 
 ---
 

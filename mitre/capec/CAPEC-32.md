@@ -19,14 +19,26 @@ An adversary embeds malicious script code in the parameters of an HTTP query str
 
 ## Skills required
 
-- To place malicious payload on server via HTTP:LEVEL:Low
-- Exploiting any information gathered by HTTP Query on script host:LEVEL:High
+- [Low] To place malicious payload on server via HTTP
+- [High] Exploiting any information gathered by HTTP Query on script host
+
+## Consequences
+
+- Confidentiality / Read Data
+- Confidentiality, Integrity, Availability / Execute Unauthorized Commands
 
 ## Mitigations
 
 - Design: Use browser technologies that do not allow client side scripting.
 - Design: Utilize strict type, character, and encoding enforcement
-- Design: Server side developers should not proxy content via XHR or other means, if a http proxy for remote
+- Design: Server side developers should not proxy content via XHR or other means, if a http proxy for remote content is setup on the server side, the client's browser has no way of discerning where the data is originating from.
+- Implementation: Ensure all content that is delivered to client is sanitized against an acceptable content specification.
+- Implementation: Perform input validation for all remote content, including remote and user-generated content
+- Implementation: Perform output validation for all remote content.
+- Implementation: Disable scripting languages such as JavaScript in browser
+- Implementation: Session tokens for specific host
+- Implementation: Patching software. There are many attack vectors for XSS on the client side and the server side. Many vulnerabilities are fixed in service packs for browser, web servers, and plug in technologies, staying current on patch release that deal with XSS countermeasures mitigates this.
+- Implementation: Privileges are constrained, if a script is loaded, ensure system runs in chroot jail or other limited authority mode
 
 ---
 

@@ -39,6 +39,7 @@
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
+| [CPE Reference](CPE_REFERENCE.md) | Common Platform Enumeration — the CPE 2.3 name, part a/o/h, NVD dictionary, CVE↔CPE applicability/match ranges, and CPE's role in vuln-mgmt / SBOM / CTEM |
 | [CWE Weakness Reference](CWE_REFERENCE.md) | 969 software/hardware weakness types (10 pillars, 114 classes) with consequences, mitigations, and a most-attacked ranking |
 | [CTEM Reference](CTEM_REFERENCE.md) | Continuous Threat Exposure Management — Gartner's 5-stage loop in operational depth, attack-path/choke-point analysis, the EASM/CAASM/BAS→AEV/EAP category taxonomy, validation governance, maturity, failure modes, metrics, and a 90-day plan |
 | [Cyber Resilience & BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md) | NIST SP 800-34 contingency planning, BIA and RTO/RPO/MTD, cyber-broken DR assumptions, ISO 22301, SP 800-160v2 resiliency engineering, AD forest recovery, testing tiers, resilience metrics |

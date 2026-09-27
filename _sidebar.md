@@ -240,6 +240,7 @@
   - [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
   - [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
   - [CVE Reference](/CVE_REFERENCE.md)
+  - [CPE Reference](/CPE_REFERENCE.md)
 
 ---
 

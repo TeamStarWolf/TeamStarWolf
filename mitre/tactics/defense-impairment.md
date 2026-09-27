@@ -1,0 +1,68 @@
+# Tactic: Defense Impairment
+
+<a id="defense-impairment"></a>
+
+**New tactic in ATT&CK v19.2 (TA0112): split out from the former Defense Evasion; see also [Stealth](/mitre/tactics/stealth.md).** The adversary is trying to break security mechanisms, pipelines, and tooling so defenders can’t see or trust what’s happening. Defense Impairment consists of techniques that degrade, disable, or undermine the effectiveness and trustworthiness of security controls and monitoring mechanisms. These techniques are characterized by direct interference with defensive systems. The goal is to reduce defenders’ ability to detect, interpret, or respond to adversary activity.
+
+**56 techniques** in this tactic (Team Star Wolf enriched pages):
+
+- [T1112 — Modify Registry](/mitre/techniques/T1112.md)
+- [T1207 — Rogue Domain Controller](/mitre/techniques/T1207.md)
+- [T1222 — File and Directory Permissions Modification](/mitre/techniques/T1222.md)
+- [T1222.001 — Windows Permissions](/mitre/techniques/T1222-001.md)
+- [T1222.002 — Linux and Mac Permissions](/mitre/techniques/T1222-002.md)
+- [T1484 — Domain or Tenant Policy Modification](/mitre/techniques/T1484.md)
+- [T1484.001 — Group Policy Modification](/mitre/techniques/T1484-001.md)
+- [T1484.002 — Trust Modification](/mitre/techniques/T1484-002.md)
+- [T1553 — Subvert Trust Controls](/mitre/techniques/T1553.md)
+- [T1553.001 — Gatekeeper Bypass](/mitre/techniques/T1553-001.md)
+- [T1553.002 — Code Signing](/mitre/techniques/T1553-002.md)
+- [T1553.003 — SIP and Trust Provider Hijacking](/mitre/techniques/T1553-003.md)
+- [T1553.004 — Install Root Certificate](/mitre/techniques/T1553-004.md)
+- [T1553.005 — Mark-of-the-Web Bypass](/mitre/techniques/T1553-005.md)
+- [T1553.006 — Code Signing Policy Modification](/mitre/techniques/T1553-006.md)
+- [T1556 — Modify Authentication Process](/mitre/techniques/T1556.md)
+- [T1556.001 — Domain Controller Authentication](/mitre/techniques/T1556-001.md)
+- [T1556.002 — Password Filter DLL](/mitre/techniques/T1556-002.md)
+- [T1556.003 — Pluggable Authentication Modules](/mitre/techniques/T1556-003.md)
+- [T1556.004 — Network Device Authentication](/mitre/techniques/T1556-004.md)
+- [T1556.005 — Reversible Encryption](/mitre/techniques/T1556-005.md)
+- [T1556.006 — Multi-Factor Authentication](/mitre/techniques/T1556-006.md)
+- [T1556.007 — Hybrid Identity](/mitre/techniques/T1556-007.md)
+- [T1556.008 — Network Provider DLL](/mitre/techniques/T1556-008.md)
+- [T1556.009 — Conditional Access Policies](/mitre/techniques/T1556-009.md)
+- [T1578 — Modify Cloud Compute Infrastructure](/mitre/techniques/T1578.md)
+- [T1578.001 — Create Snapshot](/mitre/techniques/T1578-001.md)
+- [T1578.002 — Create Cloud Instance](/mitre/techniques/T1578-002.md)
+- [T1578.003 — Delete Cloud Instance](/mitre/techniques/T1578-003.md)
+- [T1578.004 — Revert Cloud Instance](/mitre/techniques/T1578-004.md)
+- [T1578.005 — Modify Cloud Compute Configurations](/mitre/techniques/T1578-005.md)
+- [T1599 — Network Boundary Bridging](/mitre/techniques/T1599.md)
+- [T1599.001 — Network Address Translation Traversal](/mitre/techniques/T1599-001.md)
+- [T1600 — Weaken Encryption](/mitre/techniques/T1600.md)
+- [T1600.001 — Reduce Key Space](/mitre/techniques/T1600-001.md)
+- [T1600.002 — Disable Crypto Hardware](/mitre/techniques/T1600-002.md)
+- [T1601 — Modify System Image](/mitre/techniques/T1601.md)
+- [T1601.001 — Patch System Image](/mitre/techniques/T1601-001.md)
+- [T1601.002 — Downgrade System Image](/mitre/techniques/T1601-002.md)
+- [T1647 — Plist File Modification](/mitre/techniques/T1647.md)
+- [T1666 — Modify Cloud Resource Hierarchy](/mitre/techniques/T1666.md)
+- [T1685 — Disable or Modify Tools](/mitre/techniques/T1685.md)
+- [T1685.001 — Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md)
+- [T1685.002 — Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md)
+- [T1685.003 — Modify or Spoof Tool UI](/mitre/techniques/T1685-003.md)
+- [T1685.004 — Disable or Modify Linux Audit System Log](/mitre/techniques/T1685-004.md)
+- [T1685.005 — Clear Windows Event Logs](/mitre/techniques/T1685-005.md)
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md)
+- [T1686 — Disable or Modify System Firewall](/mitre/techniques/T1686.md)
+- [T1686.001 — Cloud Firewall](/mitre/techniques/T1686-001.md)
+- [T1686.002 — Network Device Firewall](/mitre/techniques/T1686-002.md)
+- [T1686.003 — Windows Host Firewall](/mitre/techniques/T1686-003.md)
+- [T1687 — Exploitation for Defense Impairment](/mitre/techniques/T1687.md)
+- [T1688 — Safe Mode Boot](/mitre/techniques/T1688.md)
+- [T1689 — Downgrade Attack](/mitre/techniques/T1689.md)
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md)
+
+---
+
+*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -624,6 +624,43 @@ def render_tactic(db, slug, existing):
     return "\n".join(out)
 
 
+# v19.2 renamed Defense Evasion (TA0005) -> Stealth and split out Defense Impairment (TA0112).
+RENAMED_TACTICS = {"defense-evasion": ("Defense Evasion", "stealth", "Stealth")}
+TACTIC_ORDER = [
+    ("reconnaissance", "Reconnaissance"), ("resource-development", "Resource Development"),
+    ("initial-access", "Initial Access"), ("execution", "Execution"), ("persistence", "Persistence"),
+    ("privilege-escalation", "Privilege Escalation"), ("stealth", "Stealth"),
+    ("defense-impairment", "Defense Impairment"), ("credential-access", "Credential Access"),
+    ("discovery", "Discovery"), ("lateral-movement", "Lateral Movement"), ("collection", "Collection"),
+    ("command-and-control", "Command and Control"), ("exfiltration", "Exfiltration"), ("impact", "Impact"),
+]
+
+
+def render_tactic_pointer(old_name, new_slug, new_name):
+    return ("# Tactic: " + old_name + " (renamed)\n\n"
+            '<a id="' + new_slug + '-legacy"></a>\n\n'
+            "> **Renamed in ATT&CK v19.2.** _" + old_name + "_ (TA0005) is now **[" + new_name +
+            "](/mitre/tactics/" + new_slug + ".md)**, and the impairment behaviours split into the new "
+            "**[Defense Impairment](/mitre/tactics/defense-impairment.md)** (TA0112). This page is kept as a "
+            "pointer so existing links resolve; see those two tactic pages.\n\n" + SHORT_FOOTER)
+
+
+def render_tactic_landing(db):
+    def count(slug):
+        return sum(1 for p in db.prof.values() if not p.get("revoked") and slug in (p.get("tactics") or []))
+    out = ["# ATT&CK Tactics (" + ATTACK_VER + ")", "",
+           "The 15 Enterprise tactics. In **v19.2**, _Defense Evasion_ (TA0005) was renamed "
+           "[Stealth](/mitre/tactics/stealth.md) and the new "
+           "[Defense Impairment](/mitre/tactics/defense-impairment.md) tactic (TA0112) was split out.", ""]
+    for slug, name in TACTIC_ORDER:
+        out.append("- [" + name + "](/mitre/tactics/" + slug + ".md) " + DASH + " " + str(count(slug)) +
+                    " techniques")
+    out.append("")
+    out.append("_Legacy pointer:_ [Defense Evasion (renamed → Stealth)](/mitre/tactics/defense-evasion.md)")
+    out.append("\n[MITRE Hub](/mitre/README.md)")
+    return "\n".join(out)
+
+
 # ----------------------------------------------------------------------------- d3fend
 def render_d3fend(db, slug, existing):
     # find this page's countermeasure name from the existing H1
@@ -1132,9 +1169,14 @@ def main():
         for f in sorted((MITRE / "tactics").glob("*.md")):
             if f.name == "README.md":
                 continue
-            (d / f.name).write_text(render_tactic(db, f.stem, f.read_text(encoding="utf-8")), encoding="utf-8")
+            if f.stem in RENAMED_TACTICS:
+                on, ns, nn = RENAMED_TACTICS[f.stem]
+                (d / f.name).write_text(render_tactic_pointer(on, ns, nn), encoding="utf-8")
+            else:
+                (d / f.name).write_text(render_tactic(db, f.stem, f.read_text(encoding="utf-8")), encoding="utf-8")
             n += 1
-        print("tactics: wrote " + str(n) + " pages")
+        (d / "README.md").write_text(render_tactic_landing(db), encoding="utf-8")
+        print("tactics: wrote " + str(n) + " pages + README")
 
     if "d3fend" in only:
         d = out_root / "d3fend"

@@ -4,7 +4,7 @@
 
 The adversary is trying to gather information they can use to plan future operations.
 
-**45 techniques** in this tactic (Team Star Wolf enriched pages):
+**46 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1589 — Gather Victim Identity Information](/mitre/techniques/T1589.md)
 - [T1589.001 — Credentials](/mitre/techniques/T1589-001.md)
@@ -51,6 +51,7 @@ The adversary is trying to gather information they can use to plan future operat
 - [T1598.003 — Spearphishing Link](/mitre/techniques/T1598-003.md)
 - [T1598.004 — Spearphishing Voice](/mitre/techniques/T1598-004.md)
 - [T1681 — Search Threat Vendor Data](/mitre/techniques/T1681.md)
+- [T1682 — Query Public AI Services](/mitre/techniques/T1682.md)
 
 ---
 

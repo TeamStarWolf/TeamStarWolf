@@ -21,19 +21,19 @@
       "pct": 90.9
     },
     "execution": {
-      "covered": 55,
-      "total": 64,
-      "pct": 85.9
+      "covered": 38,
+      "total": 46,
+      "pct": 82.6
     },
     "persistence": {
-      "covered": 95,
-      "total": 113,
-      "pct": 84.1
+      "covered": 108,
+      "total": 126,
+      "pct": 85.7
     },
     "privilege-escalation": {
-      "covered": 81,
-      "total": 96,
-      "pct": 84.4
+      "covered": 94,
+      "total": 109,
+      "pct": 86.2
     },
     "stealth": {
       "covered": 103,

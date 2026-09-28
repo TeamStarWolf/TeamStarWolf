@@ -10,10 +10,11 @@ The adversary is trying to gain higher-level permissions.
 - [T1548.001 — Setuid and Setgid](/mitre/techniques/T1548-001.md) — 17.2% of machines
 - [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — 11.0% of machines
 - [T1053.003 — Cron](/mitre/techniques/T1053-003.md) — 10.4% of machines
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
 - [T1068 — Exploitation for Privilege Escalation](/mitre/techniques/T1068.md) — 1.5% of machines
 - [T1611 — Escape to Host](/mitre/techniques/T1611.md) — 1.3% of machines
 
-**96 techniques** in this tactic (Team Star Wolf enriched pages):
+**109 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1037 — Boot or Logon Initialization Scripts](/mitre/techniques/T1037.md)
 - [T1037.001 — Logon Script (Windows)](/mitre/techniques/T1037-001.md)
@@ -110,6 +111,19 @@ The adversary is trying to gain higher-level permissions.
 - [T1548.004 — Elevated Execution with Prompt](/mitre/techniques/T1548-004.md)
 - [T1548.005 — Temporary Elevated Cloud Access](/mitre/techniques/T1548-005.md)
 - [T1548.006 — TCC Manipulation](/mitre/techniques/T1548-006.md)
+- [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) ⭐
+- [T1574.001 — DLL](/mitre/techniques/T1574-001.md)
+- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md)
+- [T1574.005 — Executable Installer File Permissions Weakness](/mitre/techniques/T1574-005.md)
+- [T1574.006 — Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md)
+- [T1574.007 — Path Interception by PATH Environment Variable](/mitre/techniques/T1574-007.md)
+- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md)
+- [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md)
+- [T1574.010 — Services File Permissions Weakness](/mitre/techniques/T1574-010.md)
+- [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md)
+- [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md)
+- [T1574.013 — KernelCallbackTable](/mitre/techniques/T1574-013.md)
+- [T1574.014 — AppDomainManager](/mitre/techniques/T1574-014.md)
 - [T1611 — Escape to Host](/mitre/techniques/T1611.md) ⭐
 
 ---

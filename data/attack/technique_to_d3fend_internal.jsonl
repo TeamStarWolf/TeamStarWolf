@@ -1,0 +1,186 @@
+{"technique_id": "DE-0002", "technique_name": "", "d3fend_technique": "Directional Network Link", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["Physical Link"]}
+{"technique_id": "DE-0002", "technique_name": "", "d3fend_technique": "Physical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Physical Link"]}
+{"technique_id": "DE-0003.08", "technique_name": "", "d3fend_technique": "Application Exception Monitoring", "d3fend_tactic": "Detect", "relation": ["monitors"], "digital_artifact": ["Log"]}
+{"technique_id": "DE-0003.08", "technique_name": "", "d3fend_technique": "Operational Process Monitoring", "d3fend_tactic": "Detect", "relation": ["monitors"], "digital_artifact": ["Event Log"]}
+{"technique_id": "DE-0006", "technique_name": "", "d3fend_technique": "Access Modeling", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Access Control Configuration"]}
+{"technique_id": "DE-0006", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "DE-0006", "technique_name": "", "d3fend_technique": "Network Traffic Policy Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Access Control Configuration"]}
+{"technique_id": "DE-0006", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Content Filtering", "d3fend_tactic": "Isolate", "relation": ["filters"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Content Modification", "d3fend_tactic": "Isolate", "relation": ["modifies"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Content Quarantine", "d3fend_tactic": "Isolate", "relation": ["quarantines"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Decoy File", "d3fend_tactic": "Deceive", "relation": ["spoofs"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "File Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "File Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "File Eviction", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "File Integrity Monitoring", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Firmware Behavior Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["Firmware"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Firmware Embedded Monitoring Code", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["Firmware"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Firmware Verification", "d3fend_tactic": "Detect", "relation": ["verifies"], "digital_artifact": ["Firmware"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Local File Permissions", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Remote File Access Mediation", "d3fend_tactic": "Isolate", "relation": ["isolates"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Restore File", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["File"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0007", "technique_name": "", "d3fend_technique": "System Firmware Verification", "d3fend_tactic": "Detect", "relation": ["verifies"], "digital_artifact": ["System Firmware"]}
+{"technique_id": "DE-0008", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0008", "technique_name": "", "d3fend_technique": "Bootloader Authentication", "d3fend_tactic": "Harden", "relation": ["authenticates"], "digital_artifact": ["Boot Loader"]}
+{"technique_id": "DE-0008", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0008", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0008", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "DE-0010", "technique_name": "", "d3fend_technique": "Application Exception Monitoring", "d3fend_tactic": "Detect", "relation": ["monitors"], "digital_artifact": ["Log"]}
+{"technique_id": "DE-0010", "technique_name": "", "d3fend_technique": "Operational Process Monitoring", "d3fend_tactic": "Detect", "relation": ["monitors"], "digital_artifact": ["Event Log"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Authentication Cache Invalidation", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Credential Compromise Scope Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Credential Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Credential Revocation", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Credential Rotation", "d3fend_tactic": "Harden", "relation": ["regenerates"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Credential Transmission Scoping", "d3fend_tactic": "Isolate", "relation": ["isolates"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Decoy User Credential", "d3fend_tactic": "Deceive", "relation": ["spoofs"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Multi-factor Authentication", "d3fend_tactic": "Harden", "relation": ["uses"], "digital_artifact": ["Credential"]}
+{"technique_id": "DE-0011", "technique_name": "", "d3fend_technique": "Reissue Credential", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Credential"]}
+{"technique_id": "EX-0001.01", "technique_name": "", "d3fend_technique": "Message Authentication", "d3fend_tactic": "Harden", "relation": ["authenticates"], "digital_artifact": ["Digital Message"]}
+{"technique_id": "EX-0001.01", "technique_name": "", "d3fend_technique": "Message Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["Digital Message"]}
+{"technique_id": "EX-0001.01", "technique_name": "", "d3fend_technique": "Network Traffic Filtering", "d3fend_tactic": "Isolate", "relation": ["filters"], "digital_artifact": ["OT Protocol Message"]}
+{"technique_id": "EX-0003", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0003", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0003", "technique_name": "", "d3fend_technique": "Service Binary Verification", "d3fend_tactic": "Detect", "relation": ["verifies"], "digital_artifact": ["Service Application"]}
+{"technique_id": "EX-0003", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0003", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Bootloader Authentication", "d3fend_tactic": "Harden", "relation": ["authenticates"], "digital_artifact": ["Boot Loader"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Disk Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["Storage"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0004", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0005.02", "technique_name": "", "d3fend_technique": "Message Authentication", "d3fend_tactic": "Harden", "relation": ["authenticates"], "digital_artifact": ["Digital Message"]}
+{"technique_id": "EX-0005.02", "technique_name": "", "d3fend_technique": "Message Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["Digital Message"]}
+{"technique_id": "EX-0005.02", "technique_name": "", "d3fend_technique": "Network Traffic Filtering", "d3fend_tactic": "Isolate", "relation": ["filters"], "digital_artifact": ["OT Protocol Message"]}
+{"technique_id": "EX-0007", "technique_name": "", "d3fend_technique": "Disk Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["Storage"]}
+{"technique_id": "EX-0007", "technique_name": "", "d3fend_technique": "Disk Erasure", "d3fend_tactic": "Evict", "relation": ["erases"], "digital_artifact": ["Secondary Storage"]}
+{"technique_id": "EX-0007", "technique_name": "", "d3fend_technique": "Disk Formatting", "d3fend_tactic": "Evict", "relation": ["modifies"], "digital_artifact": ["Secondary Storage"]}
+{"technique_id": "EX-0007", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0007", "technique_name": "", "d3fend_technique": "Hardware-based Write Protection", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Secondary Storage"]}
+{"technique_id": "EX-0007", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0009.01", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0009.01", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0009.01", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0009.01", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Content Filtering", "d3fend_tactic": "Isolate", "relation": ["filters"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Content Modification", "d3fend_tactic": "Isolate", "relation": ["modifies"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Content Quarantine", "d3fend_tactic": "Isolate", "relation": ["quarantines"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Decoy File", "d3fend_tactic": "Deceive", "relation": ["spoofs"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "File Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "File Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "File Eviction", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "File Integrity Monitoring", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Local File Permissions", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Remote File Access Mediation", "d3fend_tactic": "Isolate", "relation": ["isolates"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.02", "technique_name": "", "d3fend_technique": "Restore File", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Content Filtering", "d3fend_tactic": "Isolate", "relation": ["filters"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Content Modification", "d3fend_tactic": "Isolate", "relation": ["modifies"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Content Quarantine", "d3fend_tactic": "Isolate", "relation": ["quarantines"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Decoy File", "d3fend_tactic": "Deceive", "relation": ["spoofs"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "File Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "File Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "File Eviction", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "File Integrity Monitoring", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Firmware Behavior Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["Firmware"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Firmware Embedded Monitoring Code", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["Firmware"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Firmware Verification", "d3fend_tactic": "Detect", "relation": ["verifies"], "digital_artifact": ["Firmware"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Local File Permissions", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Remote File Access Mediation", "d3fend_tactic": "Isolate", "relation": ["isolates"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Restore File", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["File"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.03", "technique_name": "", "d3fend_technique": "System Firmware Verification", "d3fend_tactic": "Detect", "relation": ["verifies"], "digital_artifact": ["System Firmware"]}
+{"technique_id": "EX-0010.04", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.04", "technique_name": "", "d3fend_technique": "Bootloader Authentication", "d3fend_tactic": "Harden", "relation": ["authenticates"], "digital_artifact": ["Boot Loader"]}
+{"technique_id": "EX-0010.04", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.04", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0010.04", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0012.02", "technique_name": "", "d3fend_technique": "Application Configuration Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.02", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.02", "technique_name": "", "d3fend_technique": "Disable Remote Access", "d3fend_tactic": "Harden", "relation": ["configures"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.02", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Application-based Process Isolation", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["Subroutine"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Credential Scrubbing", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Subroutine"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Domain Logic Validation", "d3fend_tactic": "Harden", "relation": ["validates"], "digital_artifact": ["Subroutine"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Trusted Library", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Subroutine"]}
+{"technique_id": "EX-0012.03", "technique_name": "", "d3fend_technique": "Variable Initialization", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Subroutine"]}
+{"technique_id": "EX-0012.04", "technique_name": "", "d3fend_technique": "Application Configuration Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.04", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.04", "technique_name": "", "d3fend_technique": "Disable Remote Access", "d3fend_tactic": "Harden", "relation": ["configures"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.04", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.05", "technique_name": "", "d3fend_technique": "Application Configuration Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.05", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.05", "technique_name": "", "d3fend_technique": "Disable Remote Access", "d3fend_tactic": "Harden", "relation": ["configures"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.05", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.07", "technique_name": "", "d3fend_technique": "OT Variable Access Restriction", "d3fend_tactic": "Isolate", "relation": ["limits"], "digital_artifact": ["OT Logic Variable"]}
+{"technique_id": "EX-0012.08", "technique_name": "", "d3fend_technique": "OT Variable Access Restriction", "d3fend_tactic": "Isolate", "relation": ["limits"], "digital_artifact": ["OT Logic Variable"]}
+{"technique_id": "EX-0012.09", "technique_name": "", "d3fend_technique": "OT Variable Access Restriction", "d3fend_tactic": "Isolate", "relation": ["limits"], "digital_artifact": ["OT Logic Variable"]}
+{"technique_id": "EX-0012.10", "technique_name": "", "d3fend_technique": "Application Configuration Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.10", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0012.10", "technique_name": "", "d3fend_technique": "Disable Remote Access", "d3fend_tactic": "Harden", "relation": ["configures"], "digital_artifact": ["Application Configuration"]}
+{"technique_id": "EX-0012.10", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EX-0013.01", "technique_name": "", "d3fend_technique": "Message Authentication", "d3fend_tactic": "Harden", "relation": ["authenticates"], "digital_artifact": ["Digital Message"]}
+{"technique_id": "EX-0013.01", "technique_name": "", "d3fend_technique": "Message Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["Digital Message"]}
+{"technique_id": "EX-0013.01", "technique_name": "", "d3fend_technique": "Network Traffic Filtering", "d3fend_tactic": "Isolate", "relation": ["filters"], "digital_artifact": ["OT Protocol Message"]}
+{"technique_id": "EX-0015", "technique_name": "", "d3fend_technique": "Endpoint Health Beacon", "d3fend_tactic": "Detect", "relation": ["monitors"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0015", "technique_name": "", "d3fend_technique": "Logical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0015", "technique_name": "", "d3fend_technique": "Network Node Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0015", "technique_name": "", "d3fend_technique": "Physical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0015", "technique_name": "", "d3fend_technique": "Restore Network Access", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Host"]}
+{"technique_id": "EX-0016.01", "technique_name": "", "d3fend_technique": "Directional Network Link", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["Physical Link"]}
+{"technique_id": "EX-0016.01", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0016.01", "technique_name": "", "d3fend_technique": "Physical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Physical Link"]}
+{"technique_id": "EX-0016.01", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0016.02", "technique_name": "", "d3fend_technique": "Directional Network Link", "d3fend_tactic": "Isolate", "relation": ["restricts"], "digital_artifact": ["Physical Link"]}
+{"technique_id": "EX-0016.02", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0016.02", "technique_name": "", "d3fend_technique": "Physical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Physical Link"]}
+{"technique_id": "EX-0016.02", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EX-0018", "technique_name": "", "d3fend_technique": "Endpoint Health Beacon", "d3fend_tactic": "Detect", "relation": ["monitors"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0018", "technique_name": "", "d3fend_technique": "Logical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0018", "technique_name": "", "d3fend_technique": "Network Node Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0018", "technique_name": "", "d3fend_technique": "Physical Link Mapping", "d3fend_tactic": "Model", "relation": ["maps"], "digital_artifact": ["Network Node"]}
+{"technique_id": "EX-0018", "technique_name": "", "d3fend_technique": "Restore Network Access", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Host"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "EXF-0006.01", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "EXF-0006.02", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "EXF-0006.02", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Asset Vulnerability Enumeration", "d3fend_tactic": "Model", "relation": ["evaluates"], "digital_artifact": ["Software"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Configuration Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Restore Configuration", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Configuration Resource"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Restore Software", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Software"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Software Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Software"]}
+{"technique_id": "IA-0002", "technique_name": "", "d3fend_technique": "Software Update", "d3fend_tactic": "Harden", "relation": ["updates"], "digital_artifact": ["Software"]}
+{"technique_id": "PER-0001", "technique_name": "", "d3fend_technique": "Disk Encryption", "d3fend_tactic": "Harden", "relation": ["encrypts"], "digital_artifact": ["Storage"]}
+{"technique_id": "PER-0001", "technique_name": "", "d3fend_technique": "Hardware Component Inventory", "d3fend_tactic": "Model", "relation": ["inventories"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "PER-0001", "technique_name": "", "d3fend_technique": "Radiation Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Hardware Device"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Authentication Cache Invalidation", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Credential Compromise Scope Analysis", "d3fend_tactic": "Detect", "relation": ["analyzes"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Credential Hardening", "d3fend_tactic": "Harden", "relation": ["hardens"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Credential Revocation", "d3fend_tactic": "Evict", "relation": ["deletes"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Credential Rotation", "d3fend_tactic": "Harden", "relation": ["regenerates"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Credential Transmission Scoping", "d3fend_tactic": "Isolate", "relation": ["isolates"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Decoy User Credential", "d3fend_tactic": "Deceive", "relation": ["spoofs"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Multi-factor Authentication", "d3fend_tactic": "Harden", "relation": ["uses"], "digital_artifact": ["Credential"]}
+{"technique_id": "PER-0005", "technique_name": "", "d3fend_technique": "Reissue Credential", "d3fend_tactic": "Restore", "relation": ["restores"], "digital_artifact": ["Credential"]}

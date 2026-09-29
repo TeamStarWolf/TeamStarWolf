@@ -60,6 +60,7 @@ PROVENANCE = [
     ("data/attack/ics/",                       "attack"),
     ("data/attack/mobile/",                    "attack"),
     ("data/attack/technique_to_d3fend.jsonl",  "d3fend"),
+    ("data/attack/technique_to_d3fend_internal.jsonl", "d3fend"),
     ("data/attack/d3fend_countermeasures.jsonl","d3fend"),
     ("data/attack/technique_to_car.jsonl",     "car"),
     ("data/attack/technique_profiles.jsonl",   "tsw_attack"),

@@ -58,6 +58,7 @@ PRIMARY_KEYS = {
     "data/attack/campaigns.jsonl": "campaign_id",
     "data/attack/d3fend_countermeasures.jsonl": "d3fend_id",
     "data/attack/data_components.jsonl": "data_component",
+    "data/attack/superseded_by.jsonl": "old_id",
     "data/attack/group_profiles.jsonl": "group_id",
     "data/attack/groups.jsonl": "group_id",
     "data/attack/ics/groups.jsonl": "group_id",

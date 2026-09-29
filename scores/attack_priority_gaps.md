@@ -29,7 +29,7 @@
 | Exfiltration | 19 | 18 (94%) | 18 (94%) | 19 (100%) |
 | Impact | 33 | 26 (78%) | 27 (81%) | 33 (100%) |
 
-> **223 of 691 techniques have no mapped NIST 800-53 control** — see the [framework blind-spots Navigator layer](../navigator/analytics/no_nist_coverage.json).
+> **223 of 714 techniques have no mapped NIST 800-53 control** — see the [framework blind-spots Navigator layer](../navigator/analytics/no_nist_coverage.json).
 
 ## Top 75 priority techniques
 

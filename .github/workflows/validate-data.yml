@@ -7,11 +7,22 @@ on:
       - 'data/**'
       - 'navigator/**'
       - 'scripts/**'
+      - 'README.md'
+      - 'HOME.md'
+      - 'INDEX.md'
+      - 'CITATION.cff'
+      - 'scores/**'
   pull_request:
     branches: [main]
     paths:
       - 'data/**'
       - 'navigator/**'
+      - 'scripts/**'
+      - 'README.md'
+      - 'HOME.md'
+      - 'INDEX.md'
+      - 'CITATION.cff'
+      - 'scores/**'
   workflow_dispatch:
 
 jobs:
@@ -58,3 +69,27 @@ jobs:
           scores = [t['score'] for t in layer['techniques'] if 'score' in t]
           print(f'OK: Score range {min(scores)}–{max(scores)}')
           "
+
+  stats-drift:
+    name: Headline-number drift guard
+    # Audit Wave 0: headline numbers compute from data, never hand-typed. Regenerate
+    # stats.json from source data, fail if the committed copy is stale, and fail if any
+    # human-facing doc states a number that diverges from the computed value.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate stats.json from data
+        run: python scripts/build_stats.py
+
+      - name: Fail if committed stats.json is stale
+        run: git diff --exit-code -- data/generated/stats.json
+
+      - name: Headline-number drift check (docs vs data)
+        run: python scripts/build_stats.py --check

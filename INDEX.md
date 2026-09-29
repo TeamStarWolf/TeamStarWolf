@@ -70,6 +70,7 @@
 | [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md) | AFL++, libFuzzer, OSS-Fuzz, binary analysis, Ghidra/angr, symbolic execution, CVE process, bug bounty methodology |
 | [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) | NIST CSF 2.0, OSCAL, ComplianceAsCode/OpenSCAP, CIS Controls v8, PCI DSS v4.0, HIPAA/HITECH, SOC 2 Type II, ISO 27001:2022 |
 | [GRC Reference](GRC_REFERENCE.md) | Security governance, risk management (FAIR), SOC 2, ISO 27001, PCI DSS, TPRM, compliance program management |
+| [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md) | Global cyber-regulation & breach-notification map — NIS2, DORA, EU CRA, AI Act, SEC Item 1.05, CIRCIA, NYDFS 500, HIPAA, GDPR — as a jurisdiction × obligation × deadline matrix |
 
 ## H–N
 

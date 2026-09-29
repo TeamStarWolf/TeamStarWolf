@@ -9,7 +9,7 @@ Detection of unauthorized use of administrative network protocols by analyzing n
 
 ## ATT&CK techniques countered (8)
 
-- [T1003.006 — DCSync](/mitre/techniques/T1003-006.md) — analyzes. Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain…
+- [T1003.006 — DCSync](/mitre/techniques/T1003-006.md) — analyzes. Adversaries may attempt to access credentials and other sensitive information by abusing a Windows Domain Controller's application programming interface (API) to simulate the replication process from a remote domain controller using a technique called DCSync.
 - [T1047 — Windows Management Instrumentation](/mitre/techniques/T1047.md) — analyzes. Adversaries may abuse Windows Management Instrumentation (WMI) to execute malicious commands and payloads.
 - [T1098.001 — Additional Cloud Credentials](/mitre/techniques/T1098-001.md) — analyzes. Adversaries may add adversary-controlled credentials to a cloud account to maintain persistent access to victim accounts and instances within the environment.
 - [T1110.003 — Password Spraying](/mitre/techniques/T1110-003.md) — analyzes. Adversaries may use a single or small list of commonly used passwords against many different accounts to attempt to acquire valid account credentials.

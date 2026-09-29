@@ -14,7 +14,7 @@ An attacker, armed with the cipher text and the encryption algorithm used, perfo
 - [CWE-326 — Inadequate Encryption Strength](https://cwe.mitre.org/data/definitions/326.html) — The product stores or transmits sensitive data using an encryption scheme that is theoretically sound, but is not strong enough for the level of protection required.
 - [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
 - [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
-- [CWE-1204 — Generation of Weak Initialization Vector (IV)](https://cwe.mitre.org/data/definitions/1204.html) — The product uses a cryptographic primitive that uses an Initialization Vector (IV), but the product does not generate IVs that are sufficiently unpredictable or unique according to the expected cryptographic…
+- [CWE-1204 — Generation of Weak Initialization Vector (IV)](https://cwe.mitre.org/data/definitions/1204.html) — The product uses a cryptographic primitive that uses an Initialization Vector (IV), but the product does not generate IVs that are sufficiently unpredictable or unique according to the expected cryptographic requirements for that primitive.
 
 ## Prerequisites
 

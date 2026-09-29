@@ -7,7 +7,7 @@
 
 Physical link mapping identifies and models the link connectivity of the network devices within a physical network.
 
-## ATT&CK techniques countered (17)
+## ATT&CK techniques countered (18)
 
 - [T0807](https://attack.mitre.org/techniques/T0807) — maps
 - [T0809](https://attack.mitre.org/techniques/T0809) — maps
@@ -26,6 +26,7 @@ Physical link mapping identifies and models the link connectivity of the network
 - [T1578.002 — Create Cloud Instance](/mitre/techniques/T1578-002.md) — maps. An adversary may create a new instance or virtual machine (VM) within the compute service of a cloud account to evade defenses.
 - [T1578.003 — Delete Cloud Instance](/mitre/techniques/T1578-003.md) — maps. An adversary may delete a cloud instance after they have performed malicious activities in an attempt to evade detection and remove evidence of their presence.
 - [T1578.004 — Revert Cloud Instance](/mitre/techniques/T1578-004.md) — maps. An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.
+- [T1686.002 — Network Device Firewall](/mitre/techniques/T1686-002.md) — maps. Adversaries may disable network device-based firewall mechanisms entirely or add, delete, or modify particular rules in order to bypass controls limiting network usage.
 
 ---
 

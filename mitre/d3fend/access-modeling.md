@@ -34,7 +34,7 @@ Access modeling captures and records the access permissions granted to identitie
 - [T1548.005 — Temporary Elevated Cloud Access](/mitre/techniques/T1548-005.md) — maps. Adversaries may abuse permission configurations that allow them to gain temporarily elevated access to cloud resources.
 - [T1552.006 — Group Policy Preferences](/mitre/techniques/T1552-006.md) — maps. Adversaries may attempt to find unsecured credentials in Group Policy Preferences (GPP).
 - [T1556.009 — Conditional Access Policies](/mitre/techniques/T1556-009.md) — maps. Adversaries may disable or modify conditional access policies to enable persistent access to compromised accounts.
-- [T1615 — Group Policy Discovery](/mitre/techniques/T1615.md) — maps. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or…
+- [T1615 — Group Policy Discovery](/mitre/techniques/T1615.md) — maps. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
 
 ---
 

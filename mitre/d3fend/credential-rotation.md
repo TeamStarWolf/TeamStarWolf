@@ -12,7 +12,7 @@ Credential rotation is a security procedure in which authentication credentials,
 - [T0812](https://attack.mitre.org/techniques/T0812) — regenerates
 - [T0891](https://attack.mitre.org/techniques/T0891) — regenerates
 - [T0892](https://attack.mitre.org/techniques/T0892) — regenerates
-- [T1003.003 — NTDS](/mitre/techniques/T1003-003.md) — regenerates. Adversaries may attempt to access or create a copy of the Active Directory domain database in order to steal credential information, as well as obtain other information about domain members such as devices, users, and…
+- [T1003.003 — NTDS](/mitre/techniques/T1003-003.md) — regenerates. Adversaries may attempt to access or create a copy of the Active Directory domain database in order to steal credential information, as well as obtain other information about domain members such as devices, users, and access rights.
 - [T1003.005 — Cached Domain Credentials](/mitre/techniques/T1003-005.md) — regenerates. Adversaries may attempt to access cached domain credentials used to allow authentication to occur in the event a domain controller is unavailable.
 - [T1003.008 — /etc/passwd and /etc/shadow](/mitre/techniques/T1003-008.md) — regenerates. Adversaries may attempt to dump the contents of <code>/etc/passwd</code> and <code>/etc/shadow</code> to enable offline password cracking.
 - [T1098.001 — Additional Cloud Credentials](/mitre/techniques/T1098-001.md) — regenerates. Adversaries may add adversary-controlled credentials to a cloud account to maintain persistent access to victim accounts and instances within the environment.

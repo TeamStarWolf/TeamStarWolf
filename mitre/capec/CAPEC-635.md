@@ -14,7 +14,7 @@ The extension of a file name is often used in various contexts to determine the 
 
 ## Related CWE (1)
 
-- [CWE-162 — Improper Neutralization of Trailing Special Elements](https://cwe.mitre.org/data/definitions/162.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes trailing special elements that could be interpreted in unexpected ways when they are sent to a downstream…
+- [CWE-162 — Improper Neutralization of Trailing Special Elements](https://cwe.mitre.org/data/definitions/162.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes trailing special elements that could be interpreted in unexpected ways when they are sent to a downstream component.
 
 ## Prerequisites
 

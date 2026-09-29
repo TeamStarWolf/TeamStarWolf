@@ -7,7 +7,7 @@
 
 Detecting any suspicious changes to files in a computer system.
 
-## ATT&CK techniques countered (107)
+## ATT&CK techniques countered (109)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — analyzes
 - [T0853](https://attack.mitre.org/techniques/T0853) — analyzes
@@ -116,6 +116,8 @@ Detecting any suspicious changes to files in a computer system.
 - [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — analyzes. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — analyzes. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — analyzes. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md) — analyzes. Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — analyzes. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

@@ -10,7 +10,7 @@ An attacker makes use of Cascading Style Sheets (CSS) injection to steal data cr
 
 ## Related CWE (4)
 
-- [CWE-707 — Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html) — The product does not ensure or incorrectly ensures that structured messages or data are well-formed and that certain security properties are met before being read from an upstream component or sent to a downstream…
+- [CWE-707 — Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html) — The product does not ensure or incorrectly ensures that structured messages or data are well-formed and that certain security properties are met before being read from an upstream component or sent to a downstream component.
 - [CWE-149 — Improper Neutralization of Quoting Syntax](https://cwe.mitre.org/data/definitions/149.html) — Quotes injected into a product can be used to compromise a system.
 - [CWE-177 — Improper Handling of URL Encoding (Hex Encoding)](https://cwe.mitre.org/data/definitions/177.html) — The product does not properly handle when all or part of an input has been URL encoded.
 - [CWE-838 — Inappropriate Encoding for Output Context](https://cwe.mitre.org/data/definitions/838.html) — The product uses or specifies an encoding when generating output to a downstream component, but the specified encoding is not the same as the encoding that is expected by the downstream component.

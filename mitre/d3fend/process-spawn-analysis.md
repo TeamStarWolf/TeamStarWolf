@@ -7,7 +7,7 @@
 
 Analyzing spawn arguments or attributes of a process to detect processes that are unauthorized.
 
-## ATT&CK techniques countered (48)
+## ATT&CK techniques countered (49)
 
 - [T0806](https://attack.mitre.org/techniques/T0806) — analyzes
 - [T0813](https://attack.mitre.org/techniques/T0813) — analyzes
@@ -57,6 +57,7 @@ Analyzing spawn arguments or attributes of a process to detect processes that ar
 - [T1556 — Modify Authentication Process](/mitre/techniques/T1556.md) — analyzes. Adversaries may modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts.
 - [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md) — analyzes. Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities.
 - [T1621 — Multi-Factor Authentication Request Generation](/mitre/techniques/T1621.md) — analyzes. Adversaries may attempt to bypass multi-factor authentication (MFA) mechanisms and gain access to accounts by generating MFA requests sent to users.
+- [T1685 — Disable or Modify Tools](/mitre/techniques/T1685.md) — analyzes. Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities.
 
 ---
 

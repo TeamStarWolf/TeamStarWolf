@@ -328,9 +328,9 @@ Profile Development Process:
 | CSF Function | CSF Category | CIS Controls v8 | ISO 27001:2022 Annex A |
 |--------------|--------------|-----------------|------------------------|
 | Govern | GV.OC | CIS 1, 2 (inventory context) | A.5.1, A.5.2 (policies) |
-| Govern | GV.RM | — | A.6.1 (org roles) |
+| Govern | GV.RM | — | A.5.2, A.5.3 (org roles & segregation of duties) |
 | Identify | ID.AM | CIS 1 (inventory/control of assets), CIS 2 | A.5.9 (asset inventory) |
-| Identify | ID.RA | CIS 12 (network monitoring), CIS 7 (vuln mgmt) | A.8.8 (vuln mgmt), A.6.1.2 (risk assessment) |
+| Identify | ID.RA | CIS 12 (network monitoring), CIS 7 (vuln mgmt) | A.8.8 (vuln mgmt); risk assessment is ISMS main-body clause 6.1.2, not an Annex A control |
 | Protect | PR.AA | CIS 5 (account mgmt), CIS 6 (access control) | A.8.2 (privileged access), A.8.3 (info access) |
 | Protect | PR.DS | CIS 3 (data protection), CIS 11 (data recovery) | A.8.24 (encryption), A.8.13 (backup) |
 | Protect | PR.PS | CIS 4 (secure config), CIS 7 (vuln mgmt) | A.8.9 (config mgmt), A.8.19 (software install) |

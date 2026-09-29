@@ -255,7 +255,7 @@ Tag = ((m_1 * r^n + m_2 * r^(n-1) + ... + m_n * r) + s) mod (2^130 - 5)
 | Key size | 128 or 256-bit | 256-bit |
 | Used in | TLS, storage | TLS (mobile), WireGuard |
 
-ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration (ARM mobile CPUs without AES-NI). TLS 1.3 mandates both TLS_AES_256_GCM_SHA384 and TLS_CHACHA20_POLY1305_SHA256.
+ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration (ARM mobile CPUs without AES-NI). Per RFC 8446 §9.1, TLS 1.3 makes only **TLS_AES_128_GCM_SHA256** a MUST-implement cipher suite; TLS_AES_256_GCM_SHA384 and TLS_CHACHA20_POLY1305_SHA256 are SHOULD-implement (recommended, not mandatory).
 
 ---
 
@@ -853,8 +853,8 @@ mac = sha256(secret + message)
 mac = hmac.new(secret, message, sha256)
 ```
 
-Affected: SHA-1, SHA-256, SHA-512, MD5 (all MD/SHA-2 variants)
-Not affected: SHA-3, BLAKE2, HMAC-based constructions
+Affected: MD5, SHA-1, SHA-256, SHA-512 — Merkle-Damgård hashes that output their full internal state.
+Not affected: the **truncated** SHA-2 variants **SHA-224, SHA-384, SHA-512/224, SHA-512/256** (they emit only part of the internal state, so the attacker cannot recover the state needed to continue hashing); SHA-3 (sponge construction); BLAKE2/BLAKE3; and HMAC-based constructions.
 
 ---
 

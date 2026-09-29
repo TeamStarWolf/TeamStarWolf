@@ -30,9 +30,16 @@
 
 ## 1. IR Frameworks & Preparation
 
-### 1.1 NIST SP 800-61r2 Incident Response Lifecycle
+### 1.1 NIST SP 800-61 Incident Response Lifecycle
 
-The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response. Each phase has distinct objectives and deliverables.
+The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as **four phases**: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. The popular six-step **PICERL** sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the **SANS** model — not NIST's — and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
+
+> **Revision note:** NIST **SP 800-61 Revision 3** (April 2025) supersedes Revision 2. Rev 3
+> retires the fixed four-phase lifecycle and instead reframes incident response around the **NIST
+> Cybersecurity Framework (CSF) 2.0** Functions (Govern, Identify, Protect, Detect, Respond,
+> Recover), treating IR as a continuous risk-management activity rather than a linear sequence.
+> The four-phase model below remains a useful mental model and is retained for that reason, but
+> Rev 3 is the current authoritative guidance.
 
 **Phase 1 — Preparation**
 Preparation is the most investment-heavy phase and the primary determinant of IR effectiveness. Key activities include:
@@ -53,24 +60,27 @@ Preparation is the most investment-heavy phase and the primary determinant of IR
 - Notifying stakeholders per the escalation matrix
 - Opening an IR ticket and initiating evidence preservation
 
-**Phase 3 — Containment**
+**Phase 3 — Containment, Eradication & Recovery**
+NIST groups these three activities into a single phase because they interleave in practice — you often eradicate and recover system-by-system while still containing others.
+
+*Containment*
 - Short-term containment: isolate affected systems to stop immediate damage spread
 - Long-term containment: apply temporary fixes that allow business operations to continue
 - Evidence preservation before eradication to support forensics and legal proceedings
 - Out-of-band communication if primary channels are compromised
 
-**Phase 4 — Eradication**
+*Eradication*
 - Identify and eliminate all attacker footholds: malware, backdoors, compromised accounts, modified configurations
 - Patch or mitigate exploited vulnerabilities
 - Verify eradication completeness via endpoint scanning and threat hunting
 
-**Phase 5 — Recovery**
+*Recovery*
 - Restore systems from clean backups or rebuild from scratch
 - Validate system integrity before reconnecting to production networks
 - Increase monitoring during the recovery period (elevated alert thresholds)
 - Confirm business operations have returned to normal
 
-**Phase 6 — Post-Incident Activity**
+**Phase 4 — Post-Incident Activity**
 - Conduct lessons-learned meeting within 2 weeks of resolution
 - Produce post-incident report
 - Update IR plan, playbooks, and detection rules based on findings

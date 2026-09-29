@@ -135,17 +135,19 @@ rule t1003_001_lsass_dump {
 
 ### CrowdStrike Falcon LogScale (CQL) — Falcon LogScale â€” LSASS access by uncommon process
 
-- **Data source:** Falcon LogScale events
-- **Confidence:** `high`
-- **Logic:** CrowdStrike LogScale query identifying suspicious LSASS access patterns.
+- **Data source:** Falcon detection telemetry (`DetectionSummaryEvent`) — **not** `ProcessRollup2`
+- **Confidence:** `n/a` — see note
+- **Logic:** LSASS handle-access cannot be expressed as a raw process-execution query in CQL.
 
-```sql
-#event_simpleName=ProcessRollup2
-| TargetProcessId_decimal = LsassProcessId
-| FileName != /(svchost|wininit|csrss|services|lsm|MsMpEng)\.exe/i
-| groupBy([ParentBaseFileName, FileName, ComputerName])
-| count() < 5
-```
+> **No handle telemetry in `ProcessRollup2`.** The Falcon `ProcessRollup2` event records process
+> *execution* only; it carries no cross-process handle semantics (there is no `LsassProcessId`
+> field, and no way to express "opened a handle to lsass.exe"), so the query previously shown
+> here could never fire. CrowdStrike enforces LSASS credential-theft protection in the sensor's
+> kernel object-callback layer and surfaces hits as its own detections rather than as queryable
+> open-handle telemetry. On LogScale, alert on the built-in credential-access detections via
+> `#event_simpleName=DetectionSummaryEvent` filtered to the relevant Tactic/Technique (Credential
+> Access / Credential Dumping). For host-level `GrantedAccess`-mask handle logic, use the Sysmon
+> EventCode 10 (`ProcessAccess`) and Elastic EQL queries shown above.
 
 ---
 

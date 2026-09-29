@@ -8,7 +8,7 @@
 |---|---|
 | **Read this when** | Writing detections for an AD attack (Kerberoasting, DCSync, Golden Ticket, NTLM relay, AD CS/ESC), triaging a suspicious Kerberos/LDAP/replication event, or hardening a domain against escalation and persistence |
 | **Start at** | [AD Reconnaissance & Enumeration](#_1-ad-reconnaissance-amp-enumeration-defender-view), [Detection & Hardening Summary](#_10-detection-amp-hardening-summary), [Kerberoasting](#_2-kerberoasting) |
-| **Pairs with** | [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) |
+| **Pairs with** | [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md) (red-team offensive playbook: exact exploit chains, trust attacks, tool table), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) |
 
 ---
 

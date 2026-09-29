@@ -31,6 +31,7 @@ Every guide follows the same shape: a promise and a "who this is for" up top, an
 | [Build and Deploy Your First Detection](BUILD_YOUR_FIRST_DETECTION.md) | A tuned Sigma rule live in your SIEM, from telemetry choice to promotion |
 | [Onboard a Log Source the Right Way](ONBOARD_A_LOG_SOURCE.md) | A log source that actually powers detections — use-case-first, normalized, retention-planned |
 | [Hunt for Living-off-the-Land Activity](HUNT_FOR_LOTL_ACTIVITY.md) | A hypothesis-driven hunt for abused built-in tools, converted into detections |
+| [Produce an Intelligence Product](PRODUCE_AN_INTELLIGENCE_PRODUCT.md) | A CTI product from requirements (PIRs) to a BLUF-first report using structured tradecraft, with a detection-engineering handoff |
 
 ## Incident response & resilience
 
@@ -39,6 +40,8 @@ Every guide follows the same shape: a promise and a "who this is for" up top, an
 | [Respond to a Ransomware Incident](RESPOND_TO_RANSOMWARE.md) | The first 24–72 hours as a numbered procedure, keyed to the CISA #StopRansomware Guide |
 | [Run a Ransomware Tabletop Exercise](RUN_A_RANSOMWARE_TABLETOP.md) | A facilitated CISA CTEP tabletop and a corrective-action plan with owners and dates |
 | [Investigate a Phishing Report](INVESTIGATE_A_PHISHING_EMAIL.md) | A verdict and containment action on a reported email, from headers to purge |
+| [Acquire & Triage an Endpoint](ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | Forensically sound memory + disk images, a super-timeline, and a findings report — from 'we think it's compromised' to defensible evidence |
+| [Investigate a Cloud Compromise](INVESTIGATE_A_CLOUD_COMPROMISE.md) | Scope, contain, and reconstruct a cloud/identity compromise (AWS/Azure/M365/GCP) from the audit logs, with a first-hour containment checklist |
 
 ## Hardening & assessment
 
@@ -47,6 +50,8 @@ Every guide follows the same shape: a promise and a "who this is for" up top, an
 | [Harden a Windows Baseline](HARDEN_A_WINDOWS_BASELINE.md) | A hardened Windows baseline via CIS/Microsoft policy, ASR, and audited command-line logging |
 | [Harden a macOS Fleet with mSCP](HARDEN_A_MACOS_FLEET.md) | A compliant macOS fleet built with the NIST macOS Security Compliance Project |
 | [Assess Your M365 Tenant with ScubaGear](ASSESS_M365_WITH_SCUBAGEAR.md) | A scored M365 tenant against CISA SCuBA baselines with a safe remediation plan |
+| [Harden a Kubernetes Cluster](HARDEN_A_KUBERNETES_CLUSTER.md) | A K8s cluster hardened to a defensible baseline: kube-bench, Pod Security Standards, default-deny NetworkPolicy, RBAC, admission control |
+| [Roll Out Phishing-Resistant MFA](ROLL_OUT_PHISHING_RESISTANT_MFA.md) | Phishing-resistant MFA (FIDO2/passkeys) + conditional access rolled out safely, with break-glass and help-desk hardening |
 
 ## Offense-informed defense
 

@@ -556,6 +556,7 @@ Access Control, Awareness & Training, Audit & Accountability, Configuration Mana
 ---
 
 ## Related Resources
+- [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md) — breach-notification & incident-reporting clocks (NIS2, DORA, EU CRA, EU AI Act, SEC, NYDFS, CIRCIA, GDPR)
 - [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — controls mapped to pipeline stages and vendors
 - [Controls Mapping](CONTROLS_MAPPING.md) — NIST 800-53 → ATT&CK technique chain
 - [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) — GRC discipline page

@@ -233,6 +233,7 @@
   - [GRC Reference](/GRC_REFERENCE.md)
   - [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
   - [Frameworks Reference](/FRAMEWORKS.md)
+  - [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md)
   - [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
   - [Enterprise Infrastructure](/ENTERPRISE_INFRASTRUCTURE.md)
   - [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md)

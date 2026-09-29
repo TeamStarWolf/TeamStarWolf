@@ -61,7 +61,7 @@ Incident response demands operating system internals knowledge before the forens
 - [OISF/suricata](https://github.com/OISF/suricata) — IDS/IPS/NSM engine; run post-incident against stored pcap to identify malicious traffic patterns using community and custom rule sets
 
 ### SOAR & Case Management
-- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive) — Open-source Security Incident Response Platform; case management, task tracking, MISP integration, and collaborative investigation workspace; the most deployed open-source IR case management tool
+- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive) — Security Incident Response Platform; case management, task tracking, MISP integration, collaborative investigation workspace. NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see [DFIR-IRIS](https://github.com/dfir-iris/iris-web)
 - [Shuffle/Shuffle](https://github.com/Shuffle/Shuffle) — Open-source SOAR platform with drag-and-drop playbook builder; workflow automation for repetitive IR tasks without commercial SOAR licensing costs
 - [ansible/ansible](https://github.com/ansible/ansible) — Automation platform widely used for IR runbook automation; SSH-based, agentless, and excellent for writing repeatable containment and remediation playbooks
 
@@ -139,7 +139,8 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 | Type | Resource | Notes |
 |---|---|---|
-| Standard | [NIST SP 800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) | The federal IR standard defining the four-phase lifecycle (Preparation, Detection & Analysis, Containment/Eradication/Recovery, Post-Incident Activity); free and authoritative |
+| Standard | [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf) | Current federal IR guidance (April 2025): *Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile* — reframes IR around the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover) rather than a fixed lifecycle |
+| Standard | [NIST SP 800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) | Superseded by r3 (2012 *Computer Security Incident Handling Guide*); still a useful reference for the four-phase lifecycle (Preparation, Detection & Analysis, Containment/Eradication/Recovery, Post-Incident Activity); free and authoritative |
 | Framework | [MITRE ATT&CK](https://attack.mitre.org) | Adversary behavior taxonomy; mapping observed TTPs to ATT&CK during an investigation produces structured threat intelligence and reveals attacker intent |
 | Playbooks | [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks) | Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable templates for non-government organizations |
 | Tool | [Velociraptor Documentation](https://docs.velociraptor.app) | The most capable free IR platform; covers deployment, VQL artifact queries, and remote forensic collection at enterprise scale |
@@ -190,7 +191,7 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 - [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) — During active incidents, pivot from observed indicators and behaviors to ATT&CK techniques, identify the probable tactic sequence, and map detection gaps to close before the next incident
 - [The DFIR Report](https://thedfirreport.com) — Real-world IR case studies with full TTP timelines; the most valuable free resource for understanding actual intrusion patterns
-- [NIST SP 800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) — Free federal incident handling guide; the governance foundation for IR program design and the compliance baseline for regulated industries
+- [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf) — Current federal IR guidance (April 2025), reframing incident response around the CSF 2.0 Functions; supersedes SP 800-61r2 (2012, still a useful four-phase lifecycle reference: <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf>)
 - [SANS DFIR Posters](https://www.sans.org/posters/?focus-area=digital-forensics) — Free reference posters covering Windows artifact locations, memory forensics workflow, and evidence collection procedures
 - [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks) — Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable for non-government organizations
 - [Eric Zimmerman Tools](https://ericzimmerman.github.io) — The complete collection of Windows forensic tools; required bookmark for every Windows DFIR analyst
@@ -203,6 +204,8 @@ Incident response is most effective when analysts can map observed behaviors to 
 ## IR Framework and Lifecycle
 
 ### NIST SP 800-61 Rev 2 Lifecycle
+
+> **NIST SP 800-61 Rev 3** (April 2025) supersedes Rev 2 and reframes incident response around the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover) rather than a fixed lifecycle. The Rev 2 four-phase model below is retained as a widely used mental model.
 
 Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity
 

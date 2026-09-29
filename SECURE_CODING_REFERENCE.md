@@ -30,6 +30,8 @@ A comprehensive reference for writing secure code, covering OWASP Top 10 (2021),
 
 ## OWASP Top 10 (2021)
 
+> **Currency note:** The current edition is **OWASP Top 10:2025** (published 2025). Key changes from 2021: SSRF (the 2021 A10) is folded into **A01 Broken Access Control**; a new **A03 Software Supply Chain Failures** expands the 2021 A06 Vulnerable and Outdated Components; and a new **A10 Mishandling of Exceptional Conditions** replaces the 2021 SSRF slot. 2025 order: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions. The A01–A10 detail below is retained as the **2021 edition** for crosswalk/history.
+
 ### A01 — Broken Access Control
 
 **Description**: Access control enforces policy so users cannot act outside their intended permissions. Failures lead to unauthorized information disclosure, modification, or destruction of all data, or performing a business function outside the user's limits. Includes IDOR (Insecure Direct Object Reference), privilege escalation, and missing function-level access control. CWE-284, CWE-285, CWE-639. ATT&CK: T1078 (Valid Accounts), T1548 (Abuse Elevation Control Mechanism).
@@ -1539,4 +1541,4 @@ def add_security_headers(response):
 
 ---
 
-*Mapped to OWASP SAMM v2.0, NIST SSDF SP 800-218, CWE Top 25 (2023), and MITRE ATT&CK Enterprise v15. See also [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), and [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md).*
+*Mapped to OWASP SAMM v2.0, NIST SSDF SP 800-218, CWE Top 25 (2025), and MITRE ATT&CK Enterprise v19.2. See also [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), and [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md).*

@@ -65,7 +65,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 |---|---|---|
 | [Splunk SOAR (Phantom)](https://www.splunk.com/en_us/products/splunk-security-orchestration-and-automation.html) | COM | Enterprise SOAR, playbook automation |
 | [Palo Alto XSOAR (Cortex)](https://www.paloaltonetworks.com/cortex/cortex-xsoar) | COM | SOAR, case management, threat intelligence |
-| [TheHive](https://thehive-project.org/) | OSS | Case management and IR coordination |
+| [TheHive](https://strangebee.com/) | COM | Case management and IR coordination; TheHive 5 is now commercial (StrangeBee), OSS v4 archived since 2023 (OSS alt: DFIR-IRIS) |
 | [Shuffle](https://shuffler.io/) | OSS | Workflow automation, SOAR-lite |
 
 ---
@@ -113,14 +113,15 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Nmap](https://nmap.org/) | OSS | Port scanning, service detection, OS fingerprinting |
 | [Masscan](https://github.com/robertdavidgraham/masscan) | OSS | High-speed port scanning |
 | [Nessus (attack mode)](https://www.tenable.com/) | COM | Credentialed network enumeration |
-| [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) | OSS | SMB/AD/LDAP enumeration and lateral movement |
+| [NetExec (nxc)](https://github.com/Pennyw0rth/NetExec) | OSS | SMB/AD/LDAP enumeration and lateral movement; maintained CrackMapExec successor |
+| [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) | OSS | Deprecated/archived (Dec 2023) — superseded by NetExec (nxc) |
 | [Impacket](https://github.com/fortra/impacket) | OSS | Python network protocol toolkit (SMB, Kerberos, NTLM) |
 
 ### Active Directory Attack Tools
 | Tool | Type | Primary Use |
 |---|---|---|
 | [BloodHound / BloodHound CE](https://bloodhoundenterprise.io/) | OSS/COM | AD attack path mapping |
-| [SharpHound](https://github.com/BloodHoundAD/SharpHound) | OSS | BloodHound data collection agent |
+| [SharpHound](https://github.com/SpecterOps/SharpHound) | OSS | BloodHound data collection agent (now under SpecterOps) |
 | [Mimikatz](https://github.com/gentilkiwi/mimikatz) | OSS | Credential extraction (LSASS, Kerberos) |
 | [Rubeus](https://github.com/GhostPack/Rubeus) | OSS | Kerberos attack toolkit |
 | [Responder](https://github.com/lgandx/Responder) | OSS | LLMNR/NBNS/mDNS poisoning, credential capture |

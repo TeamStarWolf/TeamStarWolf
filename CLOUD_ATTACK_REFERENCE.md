@@ -1646,7 +1646,7 @@ aws securityhub get-findings \
 | Wiz | Graph-based attack path analysis, runtime context | AWS, Azure, GCP, OCI, K8s |
 | Orca Cloud | Agentless SideScanning, data classification | AWS, Azure, GCP, OCI |
 | Prisma Cloud (Palo Alto) | CNAPP, full lifecycle, code to cloud | All major clouds |
-| Lacework | Behavioral anomaly detection, ML-based | AWS, Azure, GCP, K8s |
+| Lacework FortiCNAPP | Behavioral anomaly detection, ML-based | AWS, Azure, GCP, K8s |
 | Orca Security | Vulnerability prioritization, SBOM | AWS, Azure, GCP |
 | Prowler | Open-source, CIS benchmarks, CLI | AWS, Azure, GCP |
 

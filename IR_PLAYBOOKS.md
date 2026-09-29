@@ -8,7 +8,7 @@
 | **Start at** | [Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines) |
 | **Pairs with** | [Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md) |
 
-Structured response procedures for the most common incident types. Each playbook follows the NIST SP 800-61 lifecycle: Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity.
+Structured response procedures for the most common incident types. Each playbook follows the NIST SP 800-61 lifecycle: Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity. (NIST SP 800-61 Rev 3, April 2025, reframes this around the CSF 2.0 Functions; the phased flow is retained here as a practical mental model.)
 
 These are generic templates. Adapt them to your environment, tools, and escalation paths.
 
@@ -272,7 +272,7 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 ### Investigation
 | Step | Activity | Tool |
 |---|---|---|
-| Malware analysis | Static + dynamic analysis, family identification | Ghidra, Cuckoo, Any.run |
+| Malware analysis | Static + dynamic analysis, family identification | Ghidra, CAPEv2 (maintained Cuckoo successor), Any.run |
 | IOC extraction | Hashes, C2 IPs/domains, mutex, registry keys | Volatility, YARA |
 | Lateral movement | Check for credential theft, network scanning | EDR, SIEM |
 | Persistence | Registry, scheduled tasks, services, startup | Autoruns, EDR |

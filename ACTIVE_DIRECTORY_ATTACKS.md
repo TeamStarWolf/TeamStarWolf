@@ -1201,7 +1201,7 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 | **Mimikatz** | Credential extraction, ticket attacks | Windows | github.com/gentilkiwi/mimikatz |
 | **Impacket** | Full AD attack suite (Python) | Linux | github.com/fortra/impacket |
 | **NetExec (nxc)** | AD pentesting automation | Linux/Windows | github.com/Pennyw0rth/NetExec |
-| **CrackMapExec** | AD pentesting (older, nxc fork) | Linux | github.com/byt3bl33d3r/CrackMapExec |
+| **CrackMapExec** | AD pentesting; deprecated original (archived Dec 2023) — NetExec (nxc) is the maintained fork/successor | Linux | github.com/byt3bl33d3r/CrackMapExec |
 | **Certipy** | ADCS attack and enumeration | Linux | github.com/ly4k/Certipy |
 | **Responder** | LLMNR/NBT-NS/mDNS/WPAD poisoning | Linux | github.com/lgandx/Responder |
 | **Evil-WinRM** | WinRM shell with upload/download | Linux | github.com/Hackplayers/evil-winrm |

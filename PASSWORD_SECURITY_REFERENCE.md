@@ -1428,7 +1428,7 @@ Revoke-AzureADUserAllRefreshToken -ObjectId "user-object-id"
 | Standard | Password/Auth Requirements |
 |----------|--------------------------|
 | NIST SP 800-63B Rev. 4 | Argon2id/PBKDF2/bcrypt/scrypt for storage; 8-char min; ban breached passwords; no forced rotation |
-| OWASP ASVS 2.1 | Argon2id preferred; bcrypt/scrypt/PBKDF2 acceptable; 12-char min recommended; MFA required for sensitive |
+| OWASP ASVS 5.0 (V6 Authentication; was v4.0 §V2.1) | Argon2id preferred; bcrypt/scrypt/PBKDF2 acceptable; 12-char min recommended; MFA required for sensitive |
 | PCI DSS 4.0 | MFA for all non-console admin access; min 12 characters; 90-day rotation (or behavioral controls) |
 | HIPAA | Strong authentication; unique user IDs; automatic logoff; encryption of credentials |
 | SOC 2 CC6.1 | Logical access controls; MFA for remote access; credential management |
@@ -1438,4 +1438,4 @@ Revoke-AzureADUserAllRefreshToken -ObjectId "user-object-id"
 
 ---
 
-*Reference compiled from OWASP Password Storage Cheat Sheet (2023), NIST SP 800-63B Rev. 4, CIS Benchmark v8, Microsoft Security Documentation, Hashcat documentation, MITRE ATT&CK v14, and community research on password security.*
+*Reference compiled from OWASP Password Storage Cheat Sheet (2023), NIST SP 800-63B Rev. 4, CIS Benchmark v8, Microsoft Security Documentation, Hashcat documentation, MITRE ATT&CK v19.2, and community research on password security.*

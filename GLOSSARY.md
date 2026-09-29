@@ -248,7 +248,7 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 |---|---|
 | **TI** | Threat Intelligence — evidence-based knowledge about adversaries enabling informed defensive decisions |
 | **TLS** | Transport Layer Security — cryptographic protocol providing secure communications over networks (successor to SSL) |
-| **TLP** | Traffic Light Protocol — information sharing classification: TLP:RED (very limited), TLP:AMBER, TLP:GREEN, TLP:WHITE/CLEAR |
+| **TLP** | Traffic Light Protocol — information sharing classification (TLP 2.0, FIRST, Aug 2022): TLP:RED (very limited), TLP:AMBER, TLP:AMBER+STRICT, TLP:GREEN, TLP:CLEAR (TLP:CLEAR replaced the retired TLP:WHITE) |
 | **TTP** | Tactics, Techniques, and Procedures — describes how a threat actor operates (see MITRE ATT&CK) |
 | **TPM** | Trusted Platform Module — hardware chip storing cryptographic keys and providing hardware root of trust |
 | **Threat Hunting** | Proactive search through networks and data to detect threats evading automated controls |

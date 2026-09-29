@@ -74,7 +74,7 @@
 | hashcat | [hashcat.net](https://hashcat.net/) | World's fastest GPU-based password recovery and hash cracking tool |
 | John the Ripper | [github.com/openwall/john](https://github.com/openwall/john) | Versatile password cracker supporting hundreds of hash types |
 | Hydra | [github.com/vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra) | Parallelized login cracker supporting 50+ protocols |
-| CrackMapExec | [github.com/byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) | Swiss army knife for Windows/AD network pentesting |
+| CrackMapExec | [github.com/byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) | Swiss army knife for Windows/AD network pentesting; deprecated/archived (Dec 2023) — use NetExec (nxc) |
 | Responder | [github.com/lgandx/Responder](https://github.com/lgandx/Responder) | LLMNR, NBT-NS, and MDNS poisoner for credential capture |
 | Impacket | [github.com/fortra/impacket](https://github.com/fortra/impacket) | Python library and toolset for Windows network protocol interactions |
 | sprayhound | [github.com/Hackndo/sprayhound](https://github.com/Hackndo/sprayhound) | Password spraying tool with BloodHound integration |
@@ -100,12 +100,12 @@
 
 | Tool | Repo / Link | Purpose |
 |------|-------------|---------|
-| BloodHound | [github.com/BloodHoundAD/BloodHound](https://github.com/BloodHoundAD/BloodHound) | Graph-based Active Directory attack path analysis |
-| SharpHound | [github.com/BloodHoundAD/SharpHound](https://github.com/BloodHoundAD/SharpHound) | C# data collector (ingestor) for BloodHound |
+| BloodHound CE | [github.com/SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) | Graph-based Active Directory attack path analysis (SpecterOps Community Edition; legacy BloodHoundAD repo → SpecterOps/BloodHound-Legacy, unmaintained) |
+| SharpHound | [github.com/SpecterOps/SharpHound](https://github.com/SpecterOps/SharpHound) | C# data collector (ingestor) for BloodHound (now under SpecterOps) |
 | Mimikatz | [github.com/gentilkiwi/mimikatz](https://github.com/gentilkiwi/mimikatz) | Windows credential extraction — LSASS, Kerberos, hashes |
 | Rubeus | [github.com/GhostPack/Rubeus](https://github.com/GhostPack/Rubeus) | C# Kerberos abuse toolkit for Windows environments |
 | evil-winrm | [github.com/Hackplayers/evil-winrm](https://github.com/Hackplayers/evil-winrm) | WinRM shell for pentesting with upload/download and script loading |
-| PowerSploit | [github.com/PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit) | PowerShell post-exploitation framework (legacy, widely referenced) |
+| PowerSploit | [github.com/PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit) | PowerShell post-exploitation framework (archived 2021-01-21, read-only/unmaintained; still widely referenced) |
 | PEASS-ng | [github.com/carlospolop/PEASS-ng](https://github.com/carlospolop/PEASS-ng) | Privilege escalation scripts for Windows, Linux, and macOS |
 | Seatbelt | [github.com/GhostPack/Seatbelt](https://github.com/GhostPack/Seatbelt) | Windows host security checks and situational awareness tool |
 | LaZagne | [github.com/AlessandroZ/LaZagne](https://github.com/AlessandroZ/LaZagne) | Retrieve locally stored credentials from dozens of applications |
@@ -117,7 +117,7 @@
 
 | Tool | Repo / Link | Purpose |
 |------|-------------|---------|
-| BloodHound / AzureHound | [github.com/BloodHoundAD/AzureHound](https://github.com/BloodHoundAD/AzureHound) | Graph-based AD and Azure attack path discovery |
+| BloodHound / AzureHound | [github.com/SpecterOps/AzureHound](https://github.com/SpecterOps/AzureHound) | Graph-based AD and Azure attack path discovery (now under SpecterOps) |
 | Impacket suite | [github.com/fortra/impacket](https://github.com/fortra/impacket) | Python tools for SMB, Kerberos, DCSync, secretsdump, and more |
 | CrackMapExec | [github.com/byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) | Network-wide AD enumeration and lateral movement toolset |
 | Kerbrute | [github.com/ropnop/kerbrute](https://github.com/ropnop/kerbrute) | Brute-force and enumerate valid AD accounts via Kerberos |
@@ -135,7 +135,7 @@
 | Pacu | [github.com/RhinoSecurityLabs/pacu](https://github.com/RhinoSecurityLabs/pacu) | AWS exploitation framework for offensive security testing |
 | ScoutSuite | [github.com/nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | Multi-cloud security auditing and misconfiguration assessment |
 | Prowler | [github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS, Azure, and GCP security best practices and compliance checks |
-| AzureHound | [github.com/BloodHoundAD/AzureHound](https://github.com/BloodHoundAD/AzureHound) | Azure AD and resource attack path data collection for BloodHound |
+| AzureHound | [github.com/SpecterOps/AzureHound](https://github.com/SpecterOps/AzureHound) | Azure AD and resource attack path data collection for BloodHound (now under SpecterOps) |
 | ROADtools | [github.com/dirkjanm/ROADtools](https://github.com/dirkjanm/ROADtools) | Azure AD enumeration, token manipulation, and graph exploration |
 | Trivy | [github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy) | All-in-one scanner for containers, IaC, OS packages, and secrets |
 | checkov | [github.com/bridgecrewio/checkov](https://github.com/bridgecrewio/checkov) | Static analysis of IaC (Terraform, CloudFormation, K8s, etc.) |

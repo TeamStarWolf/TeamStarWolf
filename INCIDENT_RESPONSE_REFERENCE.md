@@ -351,7 +351,7 @@ Every piece of evidence must have documented chain of custody from collection th
 ### 2.6 IR Ticketing Platforms
 
 **TheHive**
-- Open-source SIRP (Security Incident Response Platform)
+- SIRP (Security Incident Response Platform) — NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see DFIR-IRIS (github.com/dfir-iris/iris-web)
 - Integrates with MISP for IOC sharing and Cortex for automated enrichment
 - Case templates for incident types; task management within cases
 - Observable tracking: IP, domain, hash, email, URL with automatic enrichment

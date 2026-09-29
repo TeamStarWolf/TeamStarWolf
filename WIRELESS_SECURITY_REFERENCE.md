@@ -1461,7 +1461,7 @@ The WiFi Pineapple (Hak5 MK7) is a purpose-built Wi-Fi pentesting platform:
 - `DNSSpoof` — DNS poisoning for captive portal.
 - `SSLsplit` — SSL MITM (limited to non-HSTS/non-pinned sites).
 - `Responder` — LLMNR/NBT-NS/WPAD poisoning.
-- `Veil` — payload generation.
+- `Veil` — payload generation (archived Jan 2024, unmaintained).
 - `RandomRoll` — randomize BSSID/channel.
 
 **Setup:**

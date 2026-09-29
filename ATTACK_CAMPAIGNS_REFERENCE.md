@@ -1,6 +1,6 @@
 # ATT&CK Campaigns Reference
 
-> The **52 intrusion campaigns** tracked in MITRE ATT&CK Enterprise (v18.1) — time-bounded sets of adversary activity with a shared objective. Each lists its active window, the techniques observed, the software used, and the threat group(s) it is attributed to. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md) and [Notable Incidents](NOTABLE_INCIDENTS.md).
+> The **51 intrusion campaigns** tracked in MITRE ATT&CK Enterprise (v19.2) — time-bounded sets of adversary activity with a shared objective. Each lists its active window, the techniques observed, the software used, and the threat group(s) it is attributed to. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md) and [Notable Incidents](NOTABLE_INCIDENTS.md).
 
 | | |
 |---|---|

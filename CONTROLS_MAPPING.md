@@ -231,7 +231,7 @@ See [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md) for the full data model and scoring
 | Rapid7 InsightVM | RA-5, SI-2, CM-6 | Vulnerability management with risk scoring |
 | Wiz | RA-5, CM-6, AC-3, SC-7 | Cloud-native CSPM/CNAPP |
 | Orca Security | RA-5, CM-6, SC-7 | Agentless cloud security posture |
-| Lacework | AU-2, RA-5, CM-6, IR-4 | Cloud security + behavioral detection |
+| Lacework FortiCNAPP | AU-2, RA-5, CM-6, IR-4 | Cloud security + behavioral detection |
 
 **Email Security**
 | Vendor / Solution | NIST 800-53 Controls | Description |

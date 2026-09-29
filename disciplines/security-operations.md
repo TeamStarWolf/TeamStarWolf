@@ -66,7 +66,7 @@ Security Operations is the continuous practice of monitoring, detecting, analyzi
 
 | Tool | Purpose | Link |
 |---|---|---|
-| TheHive | Open-source incident response and case management platform | https://github.com/TheHive-Project/TheHive |
+| TheHive | Incident response and case management platform — TheHive 5 now commercial (StrangeBee); OSS v4 archived/unmaintained since 2023 (OSS alternative: DFIR-IRIS) | https://github.com/TheHive-Project/TheHive |
 | Cortex | Automated analysis and active response with 100+ analyzers | https://github.com/TheHive-Project/Cortex |
 | Shuffle | Open-source SOAR platform with workflow automation | https://github.com/Shuffle/Shuffle |
 | MISP | Threat intelligence platform and IOC sharing | https://github.com/MISP/MISP |
@@ -337,7 +337,7 @@ index=ticketing
 | Mandiant Advantage | Commercial | APT tracking; actor profiles; malware intel |
 | ThreatConnect | Commercial | Risk scoring; team workflow; STIX/TAXII |
 | Anomali | Commercial | ThreatStream; IOC management; integration platform |
-| AlienVault OTX | Free/Commercial | Community threat intel; STIX/TAXII export; AT&T owned |
+| AlienVault OTX | Free/Commercial | Community threat intel; STIX/TAXII export; LevelBlue owned (formerly AT&T Cybersecurity / AlienVault) |
 
 ### Threat Intel Feed Integration
 

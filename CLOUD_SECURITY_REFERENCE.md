@@ -233,7 +233,7 @@ Aggregates findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, Firew
 
 **Supported standards**:
 - **AWS Foundational Security Best Practices (FSBP)**: AWS-specific controls
-- **CIS AWS Foundations Benchmark**: v1.2, v1.4, v3.0
+- **CIS AWS Foundations Benchmark**: v1.2, v1.4, v3.0, v5.0 (Security Hub added v5.0 support Oct 2025; CIS's latest published release is v7.0.0)
 - **PCI DSS**: v3.2.1, v4.0
 - **NIST SP 800-53**: Rev 5
 - **SOC 2**
@@ -1376,7 +1376,7 @@ defaultAdmissionRule:
 
 ---
 
-### 5.8 Chronicle SIEM
+### 5.8 Google Security Operations (formerly Chronicle SIEM)
 
 Google's cloud-native SIEM with petabyte-scale, sub-second search.
 
@@ -1638,7 +1638,7 @@ s3scanner scan --bucket-file buckets.txt
 | Wiz | Agentless, attack path analysis, toxic combinations (multi-factor risk) |
 | Orca Security | SideScanning (no agents), complete asset inventory |
 | Prisma Cloud (Palo Alto) | Broad coverage, CWPP+CSPM+CIEM+CNAPP |
-| Lacework | Anomaly detection, behavioral analysis |
+| Lacework FortiCNAPP | Anomaly detection, behavioral analysis |
 | Aqua Security | Container/serverless focus, supply chain |
 | Sysdig | Falco-based runtime, eBPF agent |
 | Tenable Cloud Security (Ermetic) | CIEM focus, net-effective permissions |
@@ -2290,14 +2290,14 @@ helm install falco falcosecurity/falco \
 
 ### 9.6 CIS Benchmarks for Cloud
 
-**CIS AWS Foundations Benchmark** (current: v3.0):
+**CIS AWS Foundations Benchmark** (current: v7.0.0, Apr 2026; section list below reflects the v3.0 structure):
 - Section 1: IAM (MFA, access keys, password policy, support role)
 - Section 2: Storage (S3 encryption, public access block, CloudTrail log encryption)
 - Section 3: Logging (CloudTrail multi-region, log validation, CloudWatch metrics/alarms)
 - Section 4: Monitoring (unauthorized API calls, console login without MFA, root usage, IAM changes, etc.)
 - Section 5: Networking (default SG blocks all, no VPC peering to 0.0.0.0/0)
 
-**CIS Azure Foundations Benchmark** (current: v2.0.0):
+**CIS Azure Foundations Benchmark** (current: v6.0.0, Apr 2026; section list below reflects the v2.0 structure):
 - Section 1: IAM (MFA, no guest users, no custom subscriptions with admin, privileged roles review)
 - Section 2: Defender for Cloud (plans, email notifications, auto-provisioning)
 - Section 3: Storage (secure transfer, public access, encryption)
@@ -2307,7 +2307,7 @@ helm install falco falcosecurity/falco \
 - Section 7: VM (endpoint protection, OS disk encryption)
 - Section 8: Key Vault (purge protection, soft delete, logging, key/secret/cert expiry)
 
-**CIS GCP Foundations Benchmark** (current: v3.0.0):
+**CIS GCP Foundation Benchmark** (current: v5.0.0, May 2026; section list below reflects the v3.0 structure):
 - Section 1: IAM (service account keys, SA admin, SA account user, KMS separation)
 - Section 2: Logging (audit logs all services, log metric filters + alerts)
 - Section 3: Networking (default firewall, SSH/RDP from internet, no default network)

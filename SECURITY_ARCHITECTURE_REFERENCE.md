@@ -1109,7 +1109,7 @@ CWPP (Cloud Workload Protection Platform):
   ├─ Agent or eBPF-based; deployed on VMs, containers, serverless
   ├─ Runtime threat detection: process execution, network connections
   ├─ Vulnerability scanning: OS and application packages
-  ├─ Tools: CrowdStrike Falcon Cloud, Sysdig Secure, Aqua, Lacework
+  ├─ Tools: CrowdStrike Falcon Cloud, Sysdig Secure, Aqua, Lacework FortiCNAPP
   └─ Placement: All compute workloads via agent or DaemonSet
 
 CNAPP = CSPM + CWPP + CIEM (Cloud Infrastructure Entitlement Management)
@@ -1127,7 +1127,7 @@ CNAPP = CSPM + CWPP + CIEM (Cloud Infrastructure Entitlement Management)
 | Identity risk | IAM Access Analyzer | Entra ID Protection | Cloud IAM recommender |
 | WAF | WAF + Shield | Front Door WAF | Cloud Armor |
 | Secrets management | Secrets Manager / SSM | Key Vault | Secret Manager |
-| SIEM integration | Security Hub → SIEM | Sentinel | Chronicle SIEM |
+| SIEM integration | Security Hub → SIEM | Sentinel | Google SecOps (formerly Chronicle SIEM) |
 | CASB | N/A (partner) | Defender for Cloud Apps | N/A (partner) |
 
 ### 4.8 Hybrid Cloud Connectivity Security

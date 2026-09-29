@@ -25,7 +25,7 @@ IAM has two distinct learning tracks that eventually converge: the defensive/eng
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
-| Foundation | Active Directory fundamentals, authentication protocols (Kerberos, NTLM, SAML, OAuth 2.0/OIDC), MFA concepts, RBAC vs ABAC, Joiner-Mover-Leaver lifecycle | [Microsoft Learn — Identity fundamentals](https://learn.microsoft.com/en-us/training/paths/m365-identity-associate/), [TryHackMe Active Directory Basics](https://tryhackme.com/room/winadbasics), [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html), [BHIS IAM webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) |
+| Foundation | Active Directory fundamentals, authentication protocols (Kerberos, NTLM, SAML, OAuth 2.0/OIDC), MFA concepts, RBAC vs ABAC, Joiner-Mover-Leaver lifecycle | [Microsoft Learn — Identity fundamentals](https://learn.microsoft.com/en-us/training/paths/m365-identity-associate/), [TryHackMe Active Directory Basics](https://tryhackme.com/room/winadbasics), [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html), [BHIS IAM webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) |
 | Practitioner | Cloud IAM (AWS IAM, Entra ID Conditional Access), PAM deployment, BloodHound AD attack path analysis, SSO federation, SCIM provisioning, access certification programs | [BloodHound CE](https://github.com/SpecterOps/BloodHound), [SC-300 learning path (free)](https://learn.microsoft.com/en-us/certifications/identity-and-access-administrator/), [SpecterOps blog](https://specterops.io/blog/), [The Hacker Recipes — AD](https://www.thehacker.recipes/ad/) |
 | Advanced | Zero trust architecture design, CIEM, non-human identity (NHI) governance, cross-cloud identity federation, identity threat detection engineering, IGA program design | [NIST SP 800-207](https://csrc.nist.gov/publications/detail/sp/800-207/final), [SANS SEC542 AD/IAM content](https://www.sans.org/cyber-security-courses/web-app-penetration-testing-ethical-hacking/), [SailPoint identity program design](https://www.sailpoint.com/identity-library/), [CyberArk Blueprint](https://www.cyberark.com/resources/blueprint/) |
 
@@ -37,7 +37,7 @@ IAM has two distinct learning tracks that eventually converge: the defensive/eng
 - [TryHackMe Active Directory](https://tryhackme.com/room/winadbasics) — Free introductory rooms covering AD structure, users/groups, GPOs, and domain trusts; essential foundational knowledge before studying AD attack techniques
 - [SpecterOps Blog and Talks](https://specterops.io/blog/) — Free deep-dive research on AD/Azure attack techniques, BloodHound development, and identity-based attack paths; some of the most technically rigorous IAM security content published anywhere
 - [The Hacker Recipes — Active Directory](https://www.thehacker.recipes/ad/) — Free comprehensive reference for AD attack techniques (for defensive awareness); covers NTLM relay, Kerberoasting, AS-REP roasting, DCSync, and domain privilege escalation paths
-- [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-3/) — Free government standard defining identity assurance levels, authenticator assurance levels, and federation assurance levels; the authoritative reference for identity program design
+- [NIST SP 800-63 Digital Identity Guidelines](https://pages.nist.gov/800-63-4/) — Free government standard defining identity assurance levels, authenticator assurance levels, and federation assurance levels; the authoritative reference for identity program design. Revision 4 (final July 2025) is current: it recognizes syncable passkeys as AAL2 authenticators, integrates phishing-resistance into AAL2/AAL3, and adopts a risk-based Digital Identity Risk Management (DIRM) model. The prior Revision 3 remains at <https://pages.nist.gov/800-63-3/>
 - [BloodHound Community Edition Documentation](https://support.bloodhoundenterprise.io/) — Free documentation explaining attack path concepts, AD relationships, and how attackers chain privileges; reading the docs teaches you the attack paths even without running the tool
 - [HashiCorp Vault Learn](https://developer.hashicorp.com/vault/tutorials) — Free tutorials covering secrets management, dynamic credentials, PKI, and encryption as a service; the most important PAM-adjacent open-source skill for cloud practitioners
 - [Okta Developer Documentation](https://developer.okta.com/docs/) — Free documentation covering OAuth 2.0, OIDC, SAML, and modern identity federation implementation; excellent for understanding how enterprise SSO actually works
@@ -50,7 +50,7 @@ IAM has two distinct learning tracks that eventually converge: the defensive/eng
 
 | Framework | Purpose |
 |---|---|
-| [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) | Digital Identity Guidelines — Authentication |
+| [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html) | Digital Identity Guidelines — Authentication and Authenticator Management (Rev 4, July 2025) |
 | [NIST SP 800-207](https://csrc.nist.gov/publications/detail/sp/800-207/final) | Zero Trust Architecture |
 | [NIST SP 800-53 AC/IA families](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) | Access Control and Identification/Authentication controls |
 | [OAuth 2.0 / OIDC](https://oauth.net/2/) | Delegated authorization and federated identity |

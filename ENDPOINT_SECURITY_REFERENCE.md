@@ -904,4 +904,4 @@ Default indicators (operators should change these):
 
 ---
 
-*Last updated: 2026-04-24 | Category: Endpoint Security | Framework: MITRE ATT&CK v15*
+*Last updated: 2026-04-24 | Category: Endpoint Security | Framework: MITRE ATT&CK v19.2*

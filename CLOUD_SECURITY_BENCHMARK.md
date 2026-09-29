@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Read this when** | you inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
-| **Start at** | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
+| **Start at** | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
 | **Pairs with** | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [FRAMEWORKS.md](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md) |
 
 CIS Benchmarks and hardening controls for AWS, Azure, and GCP — with specific checks, automated remediation, and detection queries. Complements the [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) with a defensive posture focus.
@@ -13,6 +13,8 @@ CIS Benchmarks and hardening controls for AWS, Azure, and GCP — with specific 
 ---
 
 ## AWS CIS Benchmark (v3.0)
+
+> **Currency note (2026-09):** the control IDs in this section follow CIS AWS Foundations Benchmark v3.0. The current release is **v7.0.0** (published Apr 2026); controls were renumbered and added across v4.0–v7.0, so re-map these IDs before using them as audit evidence.
 
 ### Identity and Access Management
 
@@ -107,6 +109,8 @@ aws ec2 describe-security-groups \
 
 ## Azure CIS Benchmark (v2.0)
 
+> **Currency note (2026-09):** the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. The current release is **v6.0.0** (published Apr 2026); v5.0.0/v6.0.0 moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
+
 ### Identity and Access (Entra ID / Azure AD)
 
 | CIS Control | Check | Severity | Remediation |
@@ -185,6 +189,8 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 ---
 
 ## GCP CIS Benchmark (v3.0)
+
+> **Currency note (2026-09):** the control IDs in this section follow CIS Google Cloud Platform Foundation Benchmark v3.0. The current release is **v5.0.0** (published May 2026; v4.0.0 was May 2025); controls were renumbered/added, so re-map these IDs before using them as audit evidence.
 
 ### IAM and Organization
 
@@ -271,7 +277,7 @@ Cloud Security Posture Management tools continuously check cloud environments ag
 | Wiz | AWS, Azure, GCP, OCI, K8s | Commercial (agentless) | Full attack path visualization, CIEM, secret detection, IaC scanning |
 | Orca Security | AWS, Azure, GCP | Commercial (agentless) | SideScanning, risk prioritization, shift-left |
 | Prisma Cloud | AWS, Azure, GCP, OCI | Commercial | Comprehensive: CSPM + CWPP + CIEM + CNAPP |
-| Lacework | AWS, Azure, GCP | Commercial | Behavioral anomaly detection, polygraph visualization |
+| Lacework FortiCNAPP | AWS, Azure, GCP | Commercial | Behavioral anomaly detection, polygraph visualization (acquired by Fortinet 2024; now FortiCNAPP) |
 | Aqua Security | AWS, Azure, GCP | Commercial | CNAPP focused on containers and Kubernetes |
 | Prowler | AWS | Open-source | CIS Benchmark checks; 900+ controls; CLI and web |
 | ScoutSuite | AWS, Azure, GCP | Open-source | Multi-cloud security audit; Python-based |

@@ -146,7 +146,7 @@ Threat intelligence is shared under the **Traffic Light Protocol (TLP)**:
 | TLP:AMBER | Limited to the organization and need-to-know clients |
 | TLP:AMBER+STRICT | Limited to the organization only |
 | TLP:GREEN | Community sharing; not publicly posted |
-| TLP:WHITE / TLP:CLEAR | Unrestricted public sharing |
+| TLP:CLEAR (formerly TLP:WHITE, renamed in TLP 2.0) | Unrestricted public sharing |
 
 **Intelligence sharing platforms**: ISACs (sector-specific), MISP communities, FS-ISAC, MS-ISAC, CISA AIS (Automated Indicator Sharing)
 

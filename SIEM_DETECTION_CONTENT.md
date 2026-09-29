@@ -374,7 +374,7 @@ CAT I findings that are commonly failed:
 
 ---
 
-## Google Chronicle / YARA-L Rules
+## Google Security Operations (formerly Chronicle) / YARA-L Rules
 *Source: cloud.google.com/chronicle/docs/detection/yara-l-2-0-syntax*
 
 ### YARA-L 2.0 Rule Format

@@ -1381,7 +1381,7 @@ rule APT29_SUNBURST_Backdoor
         date = "2024-01-15"
         hash = "019085a76ba7126fff22770d71bd901c325fc68ac55aa743327984e89f4b0134"
         mitre_attack = "T1195.002, T1078, T1071.001"
-        tlp = "TLP:WHITE"
+        tlp = "TLP:CLEAR"
 
     strings:
         $s1 = "SolarWinds.Orion.Core.BusinessLayer.dll" ascii wide
@@ -1553,7 +1553,7 @@ FBI InfraGard:
 
 ### 8.2 TLP v2.0 Markings
 
-Traffic Light Protocol (TLP) standardizes sharing restrictions. Version 2.0 (October 2022) added TLP:AMBER+STRICT:
+Traffic Light Protocol (TLP) standardizes sharing restrictions. Version 2.0 (FIRST, August 5, 2022; CISA adopted effective November 1, 2022) renamed TLP:WHITE to TLP:CLEAR and added TLP:AMBER+STRICT:
 
 ```
 TLP:RED

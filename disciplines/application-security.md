@@ -122,7 +122,7 @@ Enterprise AppSec programs layer commercial tools on top of open-source for scal
 
 ## OWASP Web Security Top 10 (2021)
 
-The OWASP Top 10 is the most widely referenced framework for classifying web application security risks. It is updated roughly every three to four years based on data from hundreds of organizations and tens of thousands of applications. The 2021 edition reflects the current state of web application risk — including the shift from classic injection dominance toward broken access control and misconfiguration as the top issues.
+The OWASP Top 10 is the most widely referenced framework for classifying web application security risks. It is updated roughly every three to four years based on data from hundreds of organizations and tens of thousands of applications. **The current edition is OWASP Top 10:2025** (published 2025). Its ranking, in order, is: A01 Broken Access Control (which now absorbs SSRF, the standalone 2021 A10), A02 Security Misconfiguration, A03 Software Supply Chain Failures (new — expands 2021's A06 Vulnerable and Outdated Components), A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, and A10 Mishandling of Exceptional Conditions (new). The A01–A10 table below is retained as the **2021 edition** for crosswalk and history.
 
 Every AppSec practitioner should be able to explain each category, recognize it in code and traffic, and describe both how to test for it and how to remediate it.
 

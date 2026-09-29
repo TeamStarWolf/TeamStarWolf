@@ -475,7 +475,7 @@ _dmarc.example.com TXT "v=DMARC1; p=reject; rua=mailto:dmarc-rua@example.com; ru
 
 **ZIA Bandwidth Control**
 - Throttle streaming/social media during business hours
-- Guarantee bandwidth for critical business apps (Office 365, Zoom, SAP)
+- Guarantee bandwidth for critical business apps (Microsoft 365, Zoom, SAP)
 
 ### Zscaler Private Access (ZPA)
 

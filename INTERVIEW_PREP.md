@@ -127,7 +127,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 | Walk me through responding to a ransomware incident | Isolate → preserve forensics → identify blast radius → check backups → contain → eradicate (rebuild, reset creds) → restore → post-incident |
 | What is the NIST IR lifecycle? | Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity |
 | What volatile evidence should you collect first? | Memory dump, running processes, network connections, logged-on users, open files — collected before shutdown. Then disk image |
-| What tools do you use for memory forensics? | Volatility (pslist, netscan, dumpfiles, malfind), WinPmem for acquisition, Rekall |
+| What tools do you use for memory forensics? | Volatility 3 (pslist, netscan, dumpfiles, malfind), WinPmem for acquisition; Rekall (archived, superseded by Volatility 3) |
 | How do you determine if a binary is malicious? | Static: hash lookup (VirusTotal), strings analysis, PE header inspection. Dynamic: sandbox (Any.run, Triage), behavioral analysis |
 | What are common persistence mechanisms? | Registry run keys, scheduled tasks, services, startup folder, DLL hijacking, WMI subscriptions, browser extensions |
 | Explain a timeline analysis | Correlate file system (MFT, $UsnJrnl), event logs, prefetch, registry hives, browser history to reconstruct attacker activity |

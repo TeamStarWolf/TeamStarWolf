@@ -162,7 +162,7 @@ A comprehensive reference for cybersecurity certifications — organized by doma
 |---|---|
 | Issuer | Altered Security |
 | Cost | ~$400 |
-| Focus | Advanced AD, Azure AD, cross-forest attacks |
+| Focus | Advanced AD, Microsoft Entra ID (formerly Azure AD), cross-forest attacks |
 | Prerequisite | CRTP recommended |
 | Best for | Advanced AD red team operators |
 

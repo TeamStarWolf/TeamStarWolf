@@ -146,7 +146,7 @@ trigger:
 Analyst-initiated playbook execution against a specific case, artifact, or indicator. Manual triggers are essential for ad-hoc investigation workflows, re-investigation of closed cases, or running enrichment on newly discovered IOCs. Most SOAR UIs expose a "Run Playbook" button with a selection dialog.
 
 **Webhook Triggers**
-Inbound HTTP POST requests from external systems fire playbooks in real time. Common sources: vulnerability scanners (Tenable, Qualys), cloud security posture tools (Wiz, Orca), identity providers (Okta, Azure AD), or custom in-house tools. Webhook endpoints require authentication via HMAC signature validation, API key headers, or mTLS.
+Inbound HTTP POST requests from external systems fire playbooks in real time. Common sources: vulnerability scanners (Tenable, Qualys), cloud security posture tools (Wiz, Orca), identity providers (Okta, Microsoft Entra ID), or custom in-house tools. Webhook endpoints require authentication via HMAC signature validation, API key headers, or mTLS.
 
 ```python
 # Webhook validation example (Splunk SOAR)
@@ -850,7 +850,7 @@ Sentinel playbooks leverage the Azure Logic Apps connector ecosystem (200+ built
 | **Microsoft Sentinel** | Get incident, update incident, add comment, add entity | Incident manipulation |
 | **Microsoft Defender for Endpoint** | Isolate machine, run AV scan, get machine actions | Endpoint response |
 | **Microsoft Teams** | Post message, post adaptive card, create channel | Analyst notification |
-| **Azure AD** | Get user, revoke sign-in sessions, disable user, reset password | Identity response |
+| **Microsoft Entra ID** (formerly Azure AD) | Get user, revoke sign-in sessions, disable user, reset password | Identity response |
 | **Office 365 Outlook** | Send email, get email, delete email | Email response |
 | **Slack** | Post message, post interactive message | Analyst notification |
 | **ServiceNow** | Create/update incident, get record | ITSM integration |

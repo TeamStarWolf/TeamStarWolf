@@ -287,7 +287,7 @@ Cybersecurity careers fall into five broad domains. Most practitioners start in 
 
 **Recommended HTB tracks:** [Cloud Security Track](research/HTB_TRACKS.md), [Penetration Tester Path](research/HTB_TRACKS.md)
 
-**Tools commonly used:** AWS GuardDuty, Microsoft Defender for Cloud, Prisma Cloud, Wiz, Orca Security, Terraform, Checkov, Trivy, Falco, Lacework, CloudSploit, ScoutSuite, Prowler
+**Tools commonly used:** AWS GuardDuty, Microsoft Defender for Cloud, Prisma Cloud, Wiz, Orca Security, Terraform, Checkov, Trivy, Falco, Lacework FortiCNAPP, CloudSploit, ScoutSuite, Prowler
 
 ---
 

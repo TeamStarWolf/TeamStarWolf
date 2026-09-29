@@ -132,7 +132,7 @@ Get-MpPreference | Select-Object `
 |---|---|---|
 | Block legacy authentication (Conditional Access) | +10 | CA policy: block when client app = Exchange ActiveSync / other legacy |
 | Require MFA for all users | +9 | CA policy: require MFA for all cloud apps, all users |
-| Enable SSPR (Self-Service Password Reset) | +3 | Azure AD > Password reset |
+| Enable SSPR (Self-Service Password Reset) | +3 | Microsoft Entra admin center > Password reset |
 | Require MFA for Azure management | +3 | CA policy: target Azure Management app |
 | Sign-in risk policy (Identity Protection P2) | +5 | CA policy: block high-risk, require MFA for medium |
 | User risk policy | +4 | CA policy: require password change on high user risk |

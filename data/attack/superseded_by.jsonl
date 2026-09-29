@@ -1,0 +1,248 @@
+{"old_id": "T0803", "old_name": "Block Command Message", "new_id": "T1691.001", "new_name": "Command Message", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0804", "old_name": "Block Reporting Message", "new_id": "T1691.002", "new_name": "Reporting Message", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0805", "old_name": "Block Serial COM", "new_id": "T1695.001", "new_name": "Serial COM", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0808", "old_name": "Control Device Identification", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0810", "old_name": "Data Historian Compromise", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0812", "old_name": "Default Credentials", "new_id": "T1694.001", "new_name": "Default Credentials", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0818", "old_name": "Engineering Workstation Compromise", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0824", "old_name": "I/O Module Discovery", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0825", "old_name": "Location Identification", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0833", "old_name": "Modify Control Logic", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0839", "old_name": "Module Firmware", "new_id": "T1693.002", "new_name": "Module Firmware", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0841", "old_name": "Network Service Scanning", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0844", "old_name": "Program Organization Units", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0850", "old_name": "Role Identification", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0854", "old_name": "Serial Connection Enumeration", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0855", "old_name": "Unauthorized Command Message", "new_id": "T1692.001", "new_name": "Command Message", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0856", "old_name": "Spoof Reporting Message", "new_id": "T1692.002", "new_name": "Reporting Message", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0857", "old_name": "System Firmware", "new_id": "T1693.001", "new_name": "System Firmware", "domain": "ics", "reason": "revoked"}
+{"old_id": "T0870", "old_name": "Detect Program State", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0875", "old_name": "Change Program State", "new_id": null, "new_name": null, "domain": "ics", "reason": "deprecated"}
+{"old_id": "T0891", "old_name": "Hardcoded Credentials", "new_id": "T1694.002", "new_name": "Hardcoded Credentials", "domain": "ics", "reason": "revoked"}
+{"old_id": "T1002", "old_name": "Data Compressed", "new_id": "T1560", "new_name": "Archive Collected Data", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1004", "old_name": "Winlogon Helper DLL", "new_id": "T1547.004", "new_name": "Winlogon Helper DLL", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1009", "old_name": "Binary Padding", "new_id": "T1027.001", "new_name": "Binary Padding", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1013", "old_name": "Port Monitors", "new_id": "T1547.010", "new_name": "Port Monitors", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1015", "old_name": "Accessibility Features", "new_id": "T1546.008", "new_name": "Accessibility Features", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1017", "old_name": "Application Deployment Software", "new_id": "T1072", "new_name": "Software Deployment Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1019", "old_name": "System Firmware", "new_id": "T1542.001", "new_name": "System Firmware", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1022", "old_name": "Data Encrypted", "new_id": "T1560", "new_name": "Archive Collected Data", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1023", "old_name": "Shortcut Modification", "new_id": "T1547.009", "new_name": "Shortcut Modification", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1024", "old_name": "Custom Cryptographic Protocol", "new_id": "T1573", "new_name": "Encrypted Channel", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1026", "old_name": "Multiband Communication", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1028", "old_name": "Windows Remote Management", "new_id": "T1021.006", "new_name": "Windows Remote Management", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1031", "old_name": "Modify Existing Service", "new_id": "T1543.003", "new_name": "Windows Service", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1032", "old_name": "Standard Cryptographic Protocol", "new_id": "T1573", "new_name": "Encrypted Channel", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1034", "old_name": "Path Interception", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1035", "old_name": "Service Execution", "new_id": "T1569.002", "new_name": "Service Execution", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1038", "old_name": "DLL Search Order Hijacking", "new_id": "T1574.001", "new_name": "DLL", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1042", "old_name": "Change Default File Association", "new_id": "T1546.001", "new_name": "Change Default File Association", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1043", "old_name": "Commonly Used Port", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1044", "old_name": "File System Permissions Weakness", "new_id": "T1574.010", "new_name": "Services File Permissions Weakness", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1045", "old_name": "Software Packing", "new_id": "T1027.002", "new_name": "Software Packing", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1050", "old_name": "New Service", "new_id": "T1543.003", "new_name": "Windows Service", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1051", "old_name": "Shared Webroot", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1053.001", "old_name": "At (Linux)", "new_id": "T1053.002", "new_name": "At", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1053.004", "old_name": "Launchd", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1054", "old_name": "Indicator Blocking", "new_id": "T1685", "new_name": "Disable or Modify Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1058", "old_name": "Service Registry Permissions Weakness", "new_id": "T1574.011", "new_name": "Services Registry Permissions Weakness", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1060", "old_name": "Registry Run Keys / Startup Folder", "new_id": "T1547.001", "new_name": "Registry Run Keys / Startup Folder", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1061", "old_name": "Graphical User Interface", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1062", "old_name": "Hypervisor", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1063", "old_name": "Security Software Discovery", "new_id": "T1518.001", "new_name": "Security Software Discovery", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1064", "old_name": "Scripting", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1065", "old_name": "Uncommonly Used Port", "new_id": "T1571", "new_name": "Non-Standard Port", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1066", "old_name": "Indicator Removal from Tools", "new_id": "T1027.005", "new_name": "Indicator Removal from Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1067", "old_name": "Bootkit", "new_id": "T1542.003", "new_name": "Bootkit", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1070.001", "old_name": "Clear Windows Event Logs", "new_id": "T1685.005", "new_name": "Clear Windows Event Logs", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1070.002", "old_name": "Clear Linux or Mac System Logs", "new_id": "T1685.006", "new_name": "Clear Linux or Mac System Logs", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1073", "old_name": "DLL Side-Loading", "new_id": "T1574.001", "new_name": "DLL", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1075", "old_name": "Pass the Hash", "new_id": "T1550.002", "new_name": "Pass the Hash", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1076", "old_name": "Remote Desktop Protocol", "new_id": "T1021.001", "new_name": "Remote Desktop Protocol", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1077", "old_name": "Windows Admin Shares", "new_id": "T1021.002", "new_name": "SMB/Windows Admin Shares", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1079", "old_name": "Multilayer Encryption", "new_id": "T1573", "new_name": "Encrypted Channel", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1081", "old_name": "Credentials in Files", "new_id": "T1552.001", "new_name": "Credentials In Files", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1084", "old_name": "Windows Management Instrumentation Event Subscription", "new_id": "T1546.003", "new_name": "Windows Management Instrumentation Event Subscription", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1085", "old_name": "Rundll32", "new_id": "T1218.011", "new_name": "Rundll32", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1086", "old_name": "PowerShell", "new_id": "T1059.001", "new_name": "PowerShell", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1088", "old_name": "Bypass User Account Control", "new_id": "T1548.002", "new_name": "Bypass User Account Control", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1089", "old_name": "Disabling Security Tools", "new_id": "T1685", "new_name": "Disable or Modify Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1093", "old_name": "Process Hollowing", "new_id": "T1055.012", "new_name": "Process Hollowing", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1094", "old_name": "Custom Command and Control Protocol", "new_id": "T1095", "new_name": "Non-Application Layer Protocol", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1096", "old_name": "NTFS File Attributes", "new_id": "T1564.004", "new_name": "NTFS File Attributes", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1097", "old_name": "Pass the Ticket", "new_id": "T1550.003", "new_name": "Pass the Ticket", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1099", "old_name": "Timestomp", "new_id": "T1070.006", "new_name": "Timestomp", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1100", "old_name": "Web Shell", "new_id": "T1505.003", "new_name": "Web Shell", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1101", "old_name": "Security Support Provider", "new_id": "T1547.005", "new_name": "Security Support Provider", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1103", "old_name": "AppInit DLLs", "new_id": "T1546.010", "new_name": "AppInit DLLs", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1107", "old_name": "File Deletion", "new_id": "T1070.004", "new_name": "File Deletion", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1108", "old_name": "Redundant Access", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1109", "old_name": "Component Firmware", "new_id": "T1542.002", "new_name": "Component Firmware", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1116", "old_name": "Code Signing", "new_id": "T1553.002", "new_name": "Code Signing", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1117", "old_name": "Regsvr32", "new_id": "T1218.010", "new_name": "Regsvr32", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1118", "old_name": "InstallUtil", "new_id": "T1218.004", "new_name": "InstallUtil", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1121", "old_name": "Regsvcs/Regasm", "new_id": "T1218.009", "new_name": "Regsvcs/Regasm", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1122", "old_name": "Component Object Model Hijacking", "new_id": "T1546.015", "new_name": "Component Object Model Hijacking", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1126", "old_name": "Network Share Connection Removal", "new_id": "T1070.005", "new_name": "Network Share Connection Removal", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1128", "old_name": "Netsh Helper DLL", "new_id": "T1546.007", "new_name": "Netsh Helper DLL", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1130", "old_name": "Install Root Certificate", "new_id": "T1553.004", "new_name": "Install Root Certificate", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1131", "old_name": "Authentication Package", "new_id": "T1547.002", "new_name": "Authentication Package", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1138", "old_name": "Application Shimming", "new_id": "T1546.011", "new_name": "Application Shimming", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1139", "old_name": "Bash History", "new_id": "T1552.003", "new_name": "Shell History", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1141", "old_name": "Input Prompt", "new_id": "T1056.002", "new_name": "GUI Input Capture", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1142", "old_name": "Keychain", "new_id": "T1555.001", "new_name": "Keychain", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1143", "old_name": "Hidden Window", "new_id": "T1564.003", "new_name": "Hidden Window", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1144", "old_name": "Gatekeeper Bypass", "new_id": "T1553.001", "new_name": "Gatekeeper Bypass", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1145", "old_name": "Private Keys", "new_id": "T1552.004", "new_name": "Private Keys", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1146", "old_name": "Clear Command History", "new_id": "T1070.003", "new_name": "Clear Command History", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1147", "old_name": "Hidden Users", "new_id": "T1564.002", "new_name": "Hidden Users", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1148", "old_name": "HISTCONTROL", "new_id": "T1690", "new_name": "Prevent Command History Logging", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1149", "old_name": "LC_MAIN Hijacking", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1150", "old_name": "Plist Modification", "new_id": "T1647", "new_name": "Plist File Modification", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1151", "old_name": "Space after Filename", "new_id": "T1036.006", "new_name": "Space after Filename", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1152", "old_name": "Launchctl", "new_id": "T1569.001", "new_name": "Launchctl", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1153", "old_name": "Source", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1154", "old_name": "Trap", "new_id": "T1546.005", "new_name": "Trap", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1155", "old_name": "AppleScript", "new_id": "T1059.002", "new_name": "AppleScript", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1156", "old_name": "Malicious Shell Modification", "new_id": "T1546.004", "new_name": "Unix Shell Configuration Modification", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1157", "old_name": "Dylib Hijacking", "new_id": "T1574.004", "new_name": "Dylib Hijacking", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1158", "old_name": "Hidden Files and Directories", "new_id": "T1564.001", "new_name": "Hidden Files and Directories", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1159", "old_name": "Launch Agent", "new_id": "T1543.001", "new_name": "Launch Agent", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1160", "old_name": "Launch Daemon", "new_id": "T1543.004", "new_name": "Launch Daemon", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1161", "old_name": "LC_LOAD_DYLIB Addition", "new_id": "T1546.006", "new_name": "LC_LOAD_DYLIB Addition", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1162", "old_name": "Login Item", "new_id": "T1647", "new_name": "Plist File Modification", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1163", "old_name": "Rc.common", "new_id": "T1037.004", "new_name": "RC Scripts", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1164", "old_name": "Re-opened Applications", "new_id": "T1547.007", "new_name": "Re-opened Applications", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1165", "old_name": "Startup Items", "new_id": "T1037.005", "new_name": "Startup Items", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1166", "old_name": "Setuid and Setgid", "new_id": "T1548.001", "new_name": "Setuid and Setgid", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1167", "old_name": "Securityd Memory", "new_id": "T1555.002", "new_name": "Securityd Memory", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1168", "old_name": "Local Job Scheduling", "new_id": "T1053", "new_name": "Scheduled Task/Job", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1169", "old_name": "Sudo", "new_id": "T1548.003", "new_name": "Sudo and Sudo Caching", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1170", "old_name": "Mshta", "new_id": "T1218.005", "new_name": "Mshta", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1171", "old_name": "LLMNR/NBT-NS Poisoning and Relay", "new_id": "T1557.001", "new_name": "Name Resolution Poisoning and SMB Relay", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1172", "old_name": "Domain Fronting", "new_id": "T1090.004", "new_name": "Domain Fronting", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1173", "old_name": "Dynamic Data Exchange", "new_id": "T1559.002", "new_name": "Dynamic Data Exchange", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1174", "old_name": "Password Filter DLL", "new_id": "T1556.002", "new_name": "Password Filter DLL", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1175", "old_name": "Component Object Model and Distributed COM", "new_id": null, "new_name": null, "domain": "enterprise", "reason": "deprecated"}
+{"old_id": "T1177", "old_name": "LSASS Driver", "new_id": "T1547.008", "new_name": "LSASS Driver", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1178", "old_name": "SID-History Injection", "new_id": "T1134.005", "new_name": "SID-History Injection", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1179", "old_name": "Hooking", "new_id": "T1056.004", "new_name": "Credential API Hooking", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1180", "old_name": "Screensaver", "new_id": "T1546.002", "new_name": "Screensaver", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1181", "old_name": "Extra Window Memory Injection", "new_id": "T1055.011", "new_name": "Extra Window Memory Injection", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1182", "old_name": "AppCert DLLs", "new_id": "T1546.009", "new_name": "AppCert DLLs", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1183", "old_name": "Image File Execution Options Injection", "new_id": "T1546.012", "new_name": "Image File Execution Options Injection", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1184", "old_name": "SSH Hijacking", "new_id": "T1563.001", "new_name": "SSH Hijacking", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1186", "old_name": "Process Doppelgänging", "new_id": "T1055.013", "new_name": "Process Doppelgänging", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1188", "old_name": "Multi-hop Proxy", "new_id": "T1090.003", "new_name": "Multi-hop Proxy", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1191", "old_name": "CMSTP", "new_id": "T1218.003", "new_name": "CMSTP", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1192", "old_name": "Spearphishing Link", "new_id": "T1566.002", "new_name": "Spearphishing Link", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1193", "old_name": "Spearphishing Attachment", "new_id": "T1566.001", "new_name": "Spearphishing Attachment", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1194", "old_name": "Spearphishing via Service", "new_id": "T1566.003", "new_name": "Spearphishing via Service", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1196", "old_name": "Control Panel Items", "new_id": "T1218.002", "new_name": "Control Panel", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1198", "old_name": "SIP and Trust Provider Hijacking", "new_id": "T1553.003", "new_name": "SIP and Trust Provider Hijacking", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1206", "old_name": "Sudo Caching", "new_id": "T1548.003", "new_name": "Sudo and Sudo Caching", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1208", "old_name": "Kerberoasting", "new_id": "T1558.003", "new_name": "Kerberoasting", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1209", "old_name": "Time Providers", "new_id": "T1547.003", "new_name": "Time Providers", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1214", "old_name": "Credentials in Registry", "new_id": "T1552.002", "new_name": "Credentials in Registry", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1215", "old_name": "Kernel Modules and Extensions", "new_id": "T1547.006", "new_name": "Kernel Modules and Extensions", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1223", "old_name": "Compiled HTML File", "new_id": "T1218.001", "new_name": "Compiled HTML File", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1399", "old_name": "Modify Trusted Execution Environment", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1400", "old_name": "Modify System Partition", "new_id": "T1625.001", "new_name": "System Runtime API Hijacking", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1401", "old_name": "Device Administrator Permissions", "new_id": "T1626.001", "new_name": "Device Administrator Permissions", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1402", "old_name": "Broadcast Receivers", "new_id": "T1624.001", "new_name": "Broadcast Receivers", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1403", "old_name": "Modify Cached Executable Code", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1405", "old_name": "Exploit TEE Vulnerability", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1408", "old_name": "Disguise Root/Jailbreak Indicators", "new_id": "T1630.003", "new_name": "Disguise Root/Jailbreak Indicators", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1410", "old_name": "Network Traffic Capture or Redirection", "new_id": "T1638", "new_name": "Adversary-in-the-Middle", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1411", "old_name": "Input Prompt", "new_id": "T1417.002", "new_name": "GUI Input Capture", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1412", "old_name": "Capture SMS Messages", "new_id": "T1636.004", "new_name": "SMS Messages", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1413", "old_name": "Access Sensitive Data in Device Logs", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1415", "old_name": "URL Scheme Hijacking", "new_id": "T1635.001", "new_name": "URI Hijacking", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1416", "old_name": "URI Hijacking", "new_id": "T1635.001", "new_name": "URI Hijacking", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1419", "old_name": "Device Type Discovery", "new_id": "T1426", "new_name": "System Information Discovery", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1425", "old_name": "Insecure Third-Party Libraries", "new_id": "T1474", "new_name": "Supply Chain Compromise", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1427", "old_name": "Attack PC via USB Connection", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1431", "old_name": "App Delivered via Web Download", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1432", "old_name": "Access Contact List", "new_id": "T1636.003", "new_name": "Contact List", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1433", "old_name": "Access Call Log", "new_id": "T1636.002", "new_name": "Call Log", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1434", "old_name": "App Delivered via Email Attachment", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1435", "old_name": "Access Calendar Entries", "new_id": "T1636.001", "new_name": "Calendar Entries", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1436", "old_name": "Commonly Used Port", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1438", "old_name": "Exfiltration Over Other Network Medium", "new_id": "T1644", "new_name": "Out of Band Data", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1439", "old_name": "Eavesdrop on Insecure Network Communication", "new_id": "T1638", "new_name": "Adversary-in-the-Middle", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1440", "old_name": "Detect App Analysis Environment", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1441", "old_name": "Stolen Developer Credentials or Signing Keys", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1442", "old_name": "Fake Developer Accounts", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1443", "old_name": "Remotely Install Application", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1444", "old_name": "Masquerade as Legitimate Application", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1445", "old_name": "Abuse of iOS Enterprise App Signing Key", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1446", "old_name": "Device Lockout", "new_id": "T1629.002", "new_name": "Device Lockout", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1447", "old_name": "Delete Device Data", "new_id": "T1630.002", "new_name": "File Deletion", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1448", "old_name": "Carrier Billing Fraud", "new_id": "T1643", "new_name": "Generate Traffic from Victim", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1449", "old_name": "Exploit SS7 to Redirect Phone Calls/SMS", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1450", "old_name": "Exploit SS7 to Track Device Location", "new_id": "T1430.002", "new_name": "Impersonate SS7 Nodes", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1452", "old_name": "Manipulate App Store Rankings or Ratings", "new_id": "T1643", "new_name": "Generate Traffic from Victim", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1454", "old_name": "Malicious SMS Message", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1455", "old_name": "Exploit Baseband Vulnerability", "new_id": null, "new_name": null, "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1457", "old_name": "Malicious Media Content", "new_id": "T1456", "new_name": "Drive-By Compromise", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1459", "old_name": "Device Unlock Code Guessing or Brute Force", "new_id": "T1461", "new_name": "Lockscreen Bypass", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1460", "old_name": "Biometric Spoofing", "new_id": "T1461", "new_name": "Lockscreen Bypass", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1462", "old_name": "Malicious Software Development Tools", "new_id": "T1474", "new_name": "Supply Chain Compromise", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1463", "old_name": "Manipulate Device Communication", "new_id": "T1638", "new_name": "Adversary-in-the-Middle", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1465", "old_name": "Rogue Wi-Fi Access Points", "new_id": "T1638", "new_name": "Adversary-in-the-Middle", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1466", "old_name": "Downgrade to Insecure Protocols", "new_id": "T1638", "new_name": "Adversary-in-the-Middle", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1467", "old_name": "Rogue Cellular Base Station", "new_id": "T1638", "new_name": "Adversary-in-the-Middle", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1468", "old_name": "Remotely Track Device Without Authorization", "new_id": "T1430.001", "new_name": "Remote Device Management Services", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1469", "old_name": "Remotely Wipe Data Without Authorization", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1470", "old_name": "Obtain Device Cloud Backups", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1472", "old_name": "Generate Fraudulent Advertising Revenue", "new_id": "T1643", "new_name": "Generate Traffic from Victim", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1473", "old_name": "Malicious or Vulnerable Built-in Device Functionality", "new_id": "T1474", "new_name": "Supply Chain Compromise", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1475", "old_name": "Deliver Malicious App via Authorized App Store", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1476", "old_name": "Deliver Malicious App via Other Means", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1477", "old_name": "Exploit via Radio Interfaces", "new_id": null, "new_name": null, "domain": "mobile", "reason": "deprecated"}
+{"old_id": "T1478", "old_name": "Install Insecure or Malicious Configuration", "new_id": "T1632.001", "new_name": "Code Signing Policy Modification", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1483", "old_name": "Domain Generation Algorithms", "new_id": "T1568.002", "new_name": "Domain Generation Algorithms", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1487", "old_name": "Disk Structure Wipe", "new_id": "T1561.002", "new_name": "Disk Structure Wipe", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1488", "old_name": "Disk Content Wipe", "new_id": "T1561.001", "new_name": "Disk Content Wipe", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1492", "old_name": "Stored Data Manipulation", "new_id": "T1565.001", "new_name": "Stored Data Manipulation", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1493", "old_name": "Transmitted Data Manipulation", "new_id": "T1565.002", "new_name": "Transmitted Data Manipulation", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1494", "old_name": "Runtime Data Manipulation", "new_id": "T1565.003", "new_name": "Runtime Data Manipulation", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1500", "old_name": "Compile After Delivery", "new_id": "T1027.004", "new_name": "Compile After Delivery", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1501", "old_name": "Systemd Service", "new_id": "T1543.002", "new_name": "Systemd Service", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1502", "old_name": "Parent PID Spoofing", "new_id": "T1134.004", "new_name": "Parent PID Spoofing", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1503", "old_name": "Credentials from Web Browsers", "new_id": "T1555.003", "new_name": "Credentials from Web Browsers", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1504", "old_name": "PowerShell Profile", "new_id": "T1546.013", "new_name": "PowerShell Profile", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1506", "old_name": "Web Session Cookie", "new_id": "T1550.004", "new_name": "Web Session Cookie", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1507", "old_name": "Network Information Discovery", "new_id": "T1421", "new_name": "System Network Connections Discovery", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1508", "old_name": "Suppress Application Icon", "new_id": "T1628.001", "new_name": "Suppress Application Icon", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1510", "old_name": "Clipboard Modification", "new_id": "T1641.001", "new_name": "Transmitted Data Manipulation", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1514", "old_name": "Elevated Execution with Prompt", "new_id": "T1548.004", "new_name": "Elevated Execution with Prompt", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1519", "old_name": "Emond", "new_id": "T1546.014", "new_name": "Emond", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1520", "old_name": "Domain Generation Algorithms", "new_id": "T1637.001", "new_name": "Domain Generation Algorithms", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1522", "old_name": "Cloud Instance Metadata API", "new_id": "T1552.005", "new_name": "Cloud Instance Metadata API", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1523", "old_name": "Evade Analysis Environment", "new_id": "T1633.001", "new_name": "System Checks", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1527", "old_name": "Application Access Token", "new_id": "T1550.001", "new_name": "Application Access Token", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1536", "old_name": "Revert Cloud Instance", "new_id": "T1578.004", "new_name": "Revert Cloud Instance", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1540", "old_name": "Code Injection", "new_id": "T1631.001", "new_name": "Ptrace System Calls", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1547.011", "old_name": "Plist Modification", "new_id": "T1647", "new_name": "Plist File Modification", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562", "old_name": "Impair Defenses", "new_id": "T1685", "new_name": "Disable or Modify Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.001", "old_name": "Disable or Modify Tools", "new_id": "T1685", "new_name": "Disable or Modify Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.002", "old_name": "Disable Windows Event Logging", "new_id": "T1685.001", "new_name": "Disable or Modify Windows Event Log", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.003", "old_name": "Impair Command History Logging", "new_id": "T1690", "new_name": "Prevent Command History Logging", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.004", "old_name": "Disable or Modify System Firewall", "new_id": "T1686", "new_name": "Disable or Modify System Firewall", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.006", "old_name": "Indicator Blocking", "new_id": "T1685", "new_name": "Disable or Modify Tools", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.007", "old_name": "Disable or Modify Cloud Firewall", "new_id": "T1686.001", "new_name": "Cloud Firewall", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.008", "old_name": "Disable or Modify Cloud Logs", "new_id": "T1685.002", "new_name": "Disable or Modify Cloud Log", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.009", "old_name": "Safe Mode Boot", "new_id": "T1688", "new_name": "Safe Mode Boot", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.010", "old_name": "Downgrade Attack", "new_id": "T1689", "new_name": "Downgrade Attack", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.011", "old_name": "Spoof Security Alerting", "new_id": "T1685.003", "new_name": "Modify or Spoof Tool UI", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.012", "old_name": "Disable or Modify Linux Audit System", "new_id": "T1685.004", "new_name": "Disable or Modify Linux Audit System Log", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1562.013", "old_name": "Disable or Modify Network Device Firewall", "new_id": "T1686.002", "new_name": "Network Device Firewall", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1574.002", "old_name": "DLL Side-Loading", "new_id": "T1574.001", "new_name": "DLL", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1576", "old_name": "Uninstall Malicious Application", "new_id": "T1630.001", "new_name": "Uninstall Malicious Application", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1579", "old_name": "Keychain", "new_id": "T1634.001", "new_name": "Keychain", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1581", "old_name": "Geofencing", "new_id": "T1627.001", "new_name": "Geofencing", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1605", "old_name": "Command-Line Interface", "new_id": "T1623.001", "new_name": "Unix Shell", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1618", "old_name": "User Evasion", "new_id": "T1628.002", "new_name": "User Evasion", "domain": "mobile", "reason": "revoked"}
+{"old_id": "T1656", "old_name": "Impersonation", "new_id": "T1684.001", "new_name": "Impersonation", "domain": "enterprise", "reason": "revoked"}
+{"old_id": "T1672", "old_name": "Email Spoofing", "new_id": "T1684.002", "new_name": "Email Spoofing", "domain": "enterprise", "reason": "revoked"}

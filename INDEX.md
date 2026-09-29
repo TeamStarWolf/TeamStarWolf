@@ -71,6 +71,14 @@
 | [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) | NIST CSF 2.0, OSCAL, ComplianceAsCode/OpenSCAP, CIS Controls v8, PCI DSS v4.0, HIPAA/HITECH, SOC 2 Type II, ISO 27001:2022 |
 | [GRC Reference](GRC_REFERENCE.md) | Security governance, risk management (FAIR), SOC 2, ISO 27001, PCI DSS, TPRM, compliance program management |
 | [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md) | Global cyber-regulation & breach-notification map — NIS2, DORA, EU CRA, AI Act, SEC Item 1.05, CIRCIA, NYDFS 500, HIPAA, GDPR — as a jurisdiction × obligation × deadline matrix |
+| [Hypervisor & Virtualization Hardening](HYPERVISOR_SECURITY_REFERENCE.md) | ESXi/vCenter/Hyper-V/Proxmox hardening; the ESXi ransomware kill chain; exploited hypervisor CVEs; management-plane isolation & immutable backups |
+| [Database Security](DATABASE_SECURITY_REFERENCE.md) | DBMS hardening (SQL Server/PostgreSQL/MySQL/Oracle/MongoDB/Redis/Elasticsearch), Database Activity Monitoring, privileged DB access, encryption, audit |
+| [Cloud, SaaS & Mobile Forensics](CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md) | CloudTrail/GuardDuty/EBS-snapshot acquisition, M365 UAL & Graph, Google Workspace logs, SaaS logs, iLEAPP/ALEAPP-class mobile workflows |
+| [AI Infrastructure & MLOps Security](AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | Model registries & artifact provenance, unsafe model deserialization, RAG/training-data poisoning, vector stores, ML pipeline supply chain, GPU/inference hardening |
+| [Deepfake & Synthetic-Media Defense](DEEPFAKE_DEFENSE_REFERENCE.md) | Voice-clone & video-call ('finance-approval') fraud defense, verification callbacks, liveness, C2PA/Content Credentials provenance, detection and its limits |
+| [Healthcare & Medical-Device Security](HEALTHCARE_SECURITY_REFERENCE.md) | HL7/FHIR/DICOM security, IoMT segmentation & lifecycle, FDA premarket/postmarket cybersecurity, IEC 80001, HIPAA Security Rule |
+| [Security-Program Management / CISO Handbook](SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md) | Building & running a security program: first-90-days, org design, budget & headcount, risk prioritization, board reporting, metrics, strategy |
+| [Security Awareness Program](SECURITY_AWARENESS_REFERENCE.md) | Program design & maturity, phishing simulation (methodology/metrics/ethics), human-risk measurement, culture change, role-based training |
 
 ## H–N
 

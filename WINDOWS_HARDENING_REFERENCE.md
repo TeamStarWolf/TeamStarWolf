@@ -1082,7 +1082,7 @@ ASR rules block specific behaviors commonly used in attacks. Each rule has a GUI
 | Block JavaScript/VBScript from launching executables | D3E037E1-3EB8-44C8-A917-57927947596D | Block |
 | Block execution of potentially obfuscated scripts | 5BEB7EFE-FD9A-4556-801D-275E5FFC04CC | Block |
 | Block Win32 API calls from Office macro | 92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B | Block |
-| Block credential stealing from LSASS | 9E6C4E1F-7D60-472F-BA1A-A39EF669E4B0 | Block |
+| Block credential stealing from LSASS | 9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2 | Block |
 | Block process creations from PSExec/WMI | D1E49AAC-8F56-4280-B9BA-993A6D77406C | Audit first |
 | Block untrusted/unsigned USB processes | B2B3F03D-6A65-4F7B-A9C7-1C7EF74A9BA4 | Block |
 | Block persistence through WMI event subscription | E6DB77E5-3DF2-4CF1-B95A-636979351E5B | Block |
@@ -1090,7 +1090,7 @@ ASR rules block specific behaviors commonly used in attacks. Each rule has a GUI
 | Block Adobe Reader from creating child processes | 7674BA52-37EB-4A4F-A9A1-F0F9A1619A2C | Block |
 | Block abuse of exploited vulnerable signed drivers | 56A863A9-875E-4185-98A7-B882C64B5CE5 | Block |
 | Use advanced protection against ransomware | C1DB55AB-C21A-4637-BB3F-A12568109D35 | Block |
-| Block credential stealing via LSASS | 9E6C4E1F-7D60-472F-BA1A-A39EF669E4B0 | Block |
+| Block credential stealing via LSASS | 9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2 | Block |
 
 ```powershell
 # Enable ASR rules via PowerShell
@@ -1102,7 +1102,7 @@ $asrRules = @(
     "D3E037E1-3EB8-44C8-A917-57927947596D",
     "5BEB7EFE-FD9A-4556-801D-275E5FFC04CC",
     "92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B",
-    "9E6C4E1F-7D60-472F-BA1A-A39EF669E4B0",
+    "9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2",
     "E6DB77E5-3DF2-4CF1-B95A-636979351E5B",
     "26190899-1602-49E8-8B27-EB1D0A1CE869",
     "7674BA52-37EB-4A4F-A9A1-F0F9A1619A2C",

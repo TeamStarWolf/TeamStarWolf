@@ -2,6 +2,8 @@
 
 > **How attackers exploit every major protocol — mechanics, TTPs, detection, and defenses.**
 > ATT&CK technique IDs are noted throughout. All tool commands are for authorized use only.
+>
+> **Pairs with** [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md) — the engineering/defender companion: protocol internals, hardening configs (Cisco IOS / sshd_config), the TLS/OAuth/SAML chapters, OT-ICS / VoIP / MQTT coverage, and the packet-analysis tooling chapter (Wireshark, tshark, Zeek). This file is the attacker view; that one is the engineering view.
 
 ---
 

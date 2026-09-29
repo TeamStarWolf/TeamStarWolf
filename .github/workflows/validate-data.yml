@@ -41,6 +41,9 @@ jobs:
       - name: Validate JSONL files
         run: python scripts/validate_jsonl.py
 
+      - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
+        run: python scripts/backfill_capec_edges.py --check
+
   validate-navigator:
     name: Validate ATT&CK Navigator layer
     runs-on: ubuntu-latest

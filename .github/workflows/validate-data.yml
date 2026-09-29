@@ -105,3 +105,12 @@ jobs:
 
       - name: Manifest provenance/integrity check
         run: python scripts/build_manifest.py --check
+
+      - name: Regenerate technique control rollup
+        run: python scripts/build_control_rollup.py
+
+      - name: Fail if committed technique_profiles.jsonl is stale
+        run: git diff --exit-code -- data/attack/technique_profiles.jsonl
+
+      - name: Control-rollup consistency check
+        run: python scripts/build_control_rollup.py --check

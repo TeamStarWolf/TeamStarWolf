@@ -234,7 +234,7 @@ Aggregates findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, Firew
 **Supported standards**:
 - **AWS Foundational Security Best Practices (FSBP)**: AWS-specific controls
 - **CIS AWS Foundations Benchmark**: v1.2, v1.4, v3.0, v5.0 (Security Hub added v5.0 support Oct 2025; CIS's latest published release is v7.0.0)
-- **PCI DSS**: v3.2.1, v4.0
+- **PCI DSS**: v3.2.1, v4.0.1 (v4.0 retired Dec 2024; v4.0.1 is the only active version)
 - **NIST SP 800-53**: Rev 5
 - **SOC 2**
 

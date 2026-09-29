@@ -626,10 +626,10 @@ Get-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
 
 *Source: https://www.cisa.gov/known-exploited-vulnerabilities-catalog*
 
-CISA BOD 22-01 requires federal agencies to remediate KEV entries within defined timelines. Non-federal organizations should treat KEV as a priority patching signal.
+CISA BOD 26-04 (issued June 10, 2026, superseding and revoking BOD 22-01) requires federal agencies to remediate KEV entries within risk-based timelines. Non-federal organizations should treat KEV as a priority patching signal.
 
 **Patch timelines:**
-- KEV-listed CVEs: 2 weeks for federal agencies under BOD 22-01
+- KEV-listed CVEs (federal agencies): risk-based deadlines under BOD 26-04 (June 10, 2026) — from 3 days (publicly exposed + KEV + automatable + total impact, with mandatory forensic triage) down to fix-on-upgrade; this replaced the flat 2-week deadline of the now-revoked BOD 22-01
 - Critical/exploited CVEs not in KEV: 30 days (CISA recommendation)
 - High CVEs: 60 days
 
@@ -886,7 +886,8 @@ az rest --method PUT \
 | Zscaler | ZIA policy reference | help.zscaler.com/zia |
 | CISA | Known Exploited Vulnerabilities Catalog | cisa.gov/known-exploited-vulnerabilities-catalog |
 | CISA | SCuBA / ScubaGear tool | github.com/cisagov/ScubaGear |
-| CISA | BOD 22-01 | cisa.gov/binding-operational-directive-22-01 |
+| CISA | BOD 26-04 (current; supersedes 22-01) | cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk |
+| CISA | BOD 22-01 (revoked June 2026) | cisa.gov/binding-operational-directive-22-01 |
 | NSA | Cybersecurity Technical Reports | media.defense.gov |
 | NSA | PowerShell Security guidance | media.defense.gov/2022/Jun/22/2003021689 |
 | Elastic | Detection Rules repository | github.com/elastic/detection-rules |

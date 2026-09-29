@@ -1532,7 +1532,9 @@ New provisions for large foundation models (Articles 51-55):
 | August 1, 2024 | EU AI Act entered into force |
 | February 2, 2025 | Prohibited practices (Article 5) apply |
 | August 2, 2025 | GPAI rules and governance provisions apply |
-| August 2, 2026 | High-risk AI obligations fully apply |
+| August 2, 2026 | Transparency obligations (Article 50) apply. High-risk obligations were originally due on this date but were deferred by the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force 27 July 2026) — see below |
+| December 2, 2027 | High-risk AI obligations for stand-alone Annex III systems apply (deferred from 2 August 2026 by Regulation (EU) 2026/1744) |
+| August 2, 2028 | High-risk AI obligations for Annex I products with embedded AI apply (deferred by Regulation (EU) 2026/1744) |
 | August 2, 2027 | Some biometric systems provisions |
 
 ---

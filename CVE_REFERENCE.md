@@ -364,9 +364,12 @@ Only **5-7% of all published CVEs** are ever exploited. EPSS identifies which.
 ## 5. CISA KEV Catalog
 
 ### Legal Authority
-**BOD 22-01** (November 3, 2021): Federal Civilian Executive Branch (FCEB)
-agencies must remediate KEV entries within deadlines set per entry (typically
-14 days). CISA recommends all organizations use KEV for prioritization.
+**BOD 26-04** (June 10, 2026): Federal Civilian Executive Branch (FCEB)
+agencies must remediate KEV entries within risk-based deadlines (from 3 days
+with mandatory forensic triage down to fix-on-upgrade, set by four risk
+factors). It superseded and revoked **BOD 22-01** (November 3, 2021), which
+had set a flat per-entry deadline (typically 14 days); the KEV catalog and its
+criteria carry forward. CISA recommends all organizations use KEV for prioritization.
 
 ### KEV Entry Criteria
 ALL THREE must be met for a CVE to enter KEV:

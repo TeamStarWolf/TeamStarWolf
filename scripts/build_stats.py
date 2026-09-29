@@ -74,7 +74,7 @@ CHECKS = [
     (r"([\d,]+)\s+analytics", "analytics"),
     (r"([\d,]+)\s+deception activities", "engage_activities"),
     (r"([\d,]+)\s+mappings? to ATT", "engage_mappings"),
-    (r"([\d,]+)\s+campaigns", "campaigns"),
+    (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:intrusion\s+)?campaigns", "campaigns"),
     (r"([\d,]+)\s+(?:workbench\s+|navigator\s+)?layers", "navigator_layers"),
 ]
 DOCS = ["README.md", "HOME.md", "INDEX.md", "CITATION.cff"] + \

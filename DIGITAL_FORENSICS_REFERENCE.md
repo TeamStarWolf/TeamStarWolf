@@ -321,7 +321,7 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.pdf
 ```
 
-**ShimCache / AppCompatCache** — Application compatibility cache; records every executable run (path, last modified time, executed flag on Win8+):
+**ShimCache / AppCompatCache** — Application compatibility cache. Proves a file was **present / known to the system** (records path + the file's `$StandardInformation` last-modified time), **not** that it executed: an entry is created when the shim engine becomes aware of a file (for example, the file appears in a directory that gets enumerated), whether or not it ran. An "executed" flag exists **only on Windows 7 / Server 2008 R2**; Windows 8 and later have **no execution indicator** in ShimCache. For actual execution evidence, corroborate with **Amcache** and **Prefetch** (below):
 ```
 HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
 ```
@@ -2574,7 +2574,7 @@ Download: https://ericzimmerman.github.io/#!index.md
 | **JLECmd** | Parse Jump Lists | Recently/frequently used files per app |
 | **PECmd** | Parse Prefetch files | Execution history, accessed files |
 | **RECmd** | Registry Command-line parser | Key/value extraction with batch maps |
-| **AppCompatCacheParser** | Parse ShimCache/AppCompatCache | Execution history from SYSTEM hive |
+| **AppCompatCacheParser** | Parse ShimCache/AppCompatCache | File presence/awareness (path + last-modified) from SYSTEM hive — NOT proof of execution |
 | **AmcacheParser** | Parse Amcache.hve | SHA1, execution history, publisher |
 | **SrumECmd** | Parse SRUM database | Network usage, app resource usage |
 | **WxTCmd** | Parse Windows Timeline | App usage, file opens |

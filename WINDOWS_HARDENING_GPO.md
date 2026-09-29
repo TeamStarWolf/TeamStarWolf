@@ -6,7 +6,7 @@
 |---|---|
 | **Read this when** | Building or reviewing a GPO security baseline, hardening a new domain or OU, closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest) |
 | **Start at** | [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference) |
-| **Pairs with** | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
+| **Pairs with** | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
 
 ## Table of Contents
 1. [GPO Hardening Fundamentals](#_1-gpo-hardening-fundamentals)

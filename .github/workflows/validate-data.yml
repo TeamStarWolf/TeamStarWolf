@@ -96,3 +96,12 @@ jobs:
 
       - name: Headline-number drift check (docs vs data)
         run: python scripts/build_stats.py --check
+
+      - name: Regenerate data/MANIFEST.json
+        run: python scripts/build_manifest.py
+
+      - name: Fail if committed MANIFEST.json is stale
+        run: git diff --exit-code -- data/MANIFEST.json
+
+      - name: Manifest provenance/integrity check
+        run: python scripts/build_manifest.py --check

@@ -124,6 +124,7 @@
 ---
 
 - **🚨 Incident Response & Forensics**
+  - [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md)
   - [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
   - [IR Playbooks](/IR_PLAYBOOKS.md)
   - [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md)
@@ -165,6 +166,7 @@
 ---
 
 - **☁️ Cloud & Infrastructure**
+  - [Hypervisor & Virtualization Hardening](/HYPERVISOR_SECURITY_REFERENCE.md)
   - [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
   - [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
   - [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md)
@@ -199,6 +201,7 @@
 ---
 
 - **🔐 Identity & Data Protection**
+  - [Database Security](/DATABASE_SECURITY_REFERENCE.md)
   - [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
   - [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
   - [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
@@ -212,6 +215,8 @@
 ---
 
 - **🤖 AI & Emerging Tech**
+  - [Deepfake & Synthetic-Media Defense](/DEEPFAKE_DEFENSE_REFERENCE.md)
+  - [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
   - [AI Security Reference](/AI_SECURITY_REFERENCE.md)
   - [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
   - [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
@@ -230,6 +235,9 @@
 ---
 
 - **📋 GRC & Security Program**
+  - [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
+  - [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
+  - [Healthcare & Medical-Device Security](/HEALTHCARE_SECURITY_REFERENCE.md)
   - [GRC Reference](/GRC_REFERENCE.md)
   - [GRC Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)
   - [Frameworks Reference](/FRAMEWORKS.md)

@@ -188,7 +188,7 @@ LM = Primary Loss + Secondary Loss
 | Framework | Primary Use | Controls Count | Prescriptiveness | Certifiable? | Best For |
 |-----------|------------|----------------|-----------------|--------------|----------|
 | **NIST CSF 2.0** | Risk-based cybersecurity program | ~100 subcategories | Low (outcome-based) | No | Most organizations; flexible starting point |
-| **NIST SP 800-53 r5** | Federal/FedRAMP compliance | 1,189 controls | High (very detailed) | Via FedRAMP/FISMA | Federal agencies; FedRAMP cloud providers |
+| **NIST SP 800-53 r5** (release 5.2.0, Aug 2025) | Federal/FedRAMP compliance | 1,189 controls | High (very detailed) | Via FedRAMP/FISMA | Federal agencies; FedRAMP cloud providers |
 | **CIS Controls v8** | Prioritized cyber hygiene | 153 safeguards across 18 controls | Medium | Via CIS CSAT | SMBs and enterprises wanting prioritized approach |
 | **ISO 27001:2022** | ISMS certification | 93 Annex A controls | Medium | Yes (formal cert) | Global enterprises; customer-facing trust |
 | **SOC 2** | Service organization trust | ~60 Trust Service Criteria points | Medium | Yes (audit report) | SaaS companies; vendor assessment |
@@ -402,7 +402,7 @@ Plan of Action and Milestones (POA&M)
     "uuid": "74c8ba1e-5cd4-4ad1-bbfd-d888e2f6c724",
     "metadata": {
       "title": "NIST Special Publication 800-53 Revision 5",
-      "version": "5.1.1"
+      "version": "5.2.0"
     },
     "groups": [
       {
@@ -794,7 +794,7 @@ scap_scan:
 
 ### 5.1 Overview
 
-CIS Controls v8 (released May 2021) is a prioritized set of 18 controls with 153 safeguards organized into three Implementation Groups (IGs) based on organizational risk profile and resources.
+CIS Controls v8 (released May 2021; iteratively updated to v8.1 in June 2024) is a prioritized set of 18 controls with 153 safeguards organized into three Implementation Groups (IGs) based on organizational risk profile and resources. v8.1 retained the 18 controls and 153 safeguards, adding a 'Govern' security function and a 'Documentation' asset class and realigning mappings to NIST CSF 2.0.
 
 **Key Resources:**
 - Controls document: `https://www.cisecurity.org/controls/v8`
@@ -859,7 +859,7 @@ CIS-CAT (CIS Configuration Assessment Tool) automates benchmark assessment.
 
 ```bash
 # CIS-CAT Lite (free) — limited benchmarks
-java -jar CIS-CAT-Lite-Assessor.jar   --benchmark CIS_Ubuntu_Linux_22.04_LTS_Benchmark_v1.0.0.xml   --profile "Level 1 - Server"   --report-dir /reports
+java -jar CIS-CAT-Lite-Assessor.jar   --benchmark CIS_Ubuntu_Linux_22.04_LTS_Benchmark_v3.0.0.xml   --profile "Level 1 - Server"   --report-dir /reports
 
 # CIS-CAT Pro (licensed) — full benchmark library + remote scanning
 java -jar CIS-CAT-Pro-Assessor-CLI.jar   --benchmark /benchmarks/CIS_RHEL9_Benchmark.xml   --profile "Level 2"   --report-dir /reports   --report-name rhel9-cis-scan

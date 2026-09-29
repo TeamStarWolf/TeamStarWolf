@@ -2703,4 +2703,4 @@ T0884: Used legitimate Siemens STEP 7 software for persistence
 
 ---
 
-*Last updated: 2026-04-26 | Framework versions: OWASP IoT Top 10 (2018), ATT&CK for ICS v14, ETSI EN 303 645 v2.1.1, NIST IR 8259A*
+*Last updated: 2026-04-26 | Framework versions: OWASP IoT Top 10 (2018), ATT&CK for ICS v19.2, ETSI EN 303 645 v2.1.1, NIST IR 8259A*

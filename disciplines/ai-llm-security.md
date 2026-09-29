@@ -232,7 +232,9 @@ Note: AI security is an emerging field and formal certification infrastructure i
   - Real-world: Bing Chat (now Copilot) was manipulated via indirect injection in search results (2023)
   - Agent context: Most dangerous in agentic systems where LLM reads external content and takes actions
 
-**OWASP Top 10 for LLM Applications (2023)**
+**OWASP Top 10 for LLM Applications (2023 — legacy taxonomy; see currency note)**
+
+> **Currency note:** The current edition is the **2026** OWASP Top 10 for LLM Applications (OWASP GenAI Security Project, published August 2026). It re-ranks the 2025 list and renames **System Prompt Leakage** to **Hidden Context Exposure** (now LLM08). 2026 order: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. The table below uses the older 2023 taxonomy and is retained for history.
 
 | Vulnerability | Description | Attack Example | Mitigation |
 |---------------|-------------|----------------|------------|

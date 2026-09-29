@@ -29,7 +29,7 @@ A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/S
 
 | Format | What It Detects | Primary Use Case | Output / Query Format | Conversion Tools |
 |--------|----------------|------------------|-----------------------|-----------------|
-| **Sigma** | Log-based host/network events | SIEM rule authoring (vendor-agnostic) | YAML → SPL, KQL, Lucene, etc. | sigmac, pySigma |
+| **Sigma** | Log-based host/network events | SIEM rule authoring (vendor-agnostic) | YAML → SPL, KQL, Lucene, etc. | pySigma, sigma-cli (sigmac EOL) |
 | **YARA** | File/memory byte patterns | Malware identification & triage | Boolean match (hit/no-hit) | yarGen, YARA-X |
 | **Suricata/Snort** | Network traffic patterns | IDS/IPS packet inspection | Alert, drop, or pass actions | Pulled Pork, suricata-update |
 | **Splunk SPL** | Indexed log events | Threat hunting & SIEM detection | Search results / dashboards | N/A (native) |
@@ -298,7 +298,9 @@ sigma convert -t splunk /path/to/sigma/rules/windows/
 sigma convert -t splunk -p sysmon rule.yml
 ```
 
-#### Using sigmac (legacy)
+#### Using sigmac (legacy — deprecated, EOL)
+
+> **Tooling/spec note (verified 2026-09-29):** `sigmac` (the original `sigmatools` package) is **end-of-life and no longer maintained** — it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by **pySigma** (library) and **sigma-cli** (the `sigma` command shown above). The current rule format is the **[Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification)** (released August 8, 2024), which formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
 
 ```bash
 # Install

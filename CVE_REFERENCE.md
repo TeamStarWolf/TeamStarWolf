@@ -219,7 +219,7 @@ CR/IR/AR (Requirement modifiers): Low 0.50 | Medium 1.00 | High 1.50
 
 ## 3. CVSS v4.0
 
-Released by FIRST, October 2023. Significant structural changes from v3.1.
+Officially published by FIRST on November 1, 2023 (previewed June 2023 at the 35th FIRST Conference; two rounds of public comment followed). Significant structural changes from v3.1.
 
 ### Score Nomenclature
 
@@ -296,9 +296,10 @@ be exploited in the wild in the next 30 days?"**
 
 - Score: 0.000001 to 1.0 (probability)
 - Updated **daily** at api.first.org
-- EPSS v3 (current, Feb 2023): ~1,500 features, best accuracy to date
+- **EPSS v4 (current, March 2025)**: developed by Jay Jacobs / Empirical Security with the Cyentia Institute, published by FIRST. Vastly improved data ingestion and monitoring; expands exploitation tracking to malware activity + endpoint detections (~12K vulnerabilities/month). Not directly comparable to v3.
+- EPSS v3 (Feb 2023, superseded): ~1,500 features; accuracy degraded slightly over 2023-2024, prompting v4
 
-### EPSS v3 Model Features
+### EPSS Model Features (v3 signals, expanded in v4)
 - NVD metadata: CVSS score, CWE, CPE vendor/product
 - Reference patterns: exploit-db.com URL = strong positive signal
 - Exploit-DB listing and Metasploit module existence
@@ -544,25 +545,39 @@ GraphQL:
     searchsploit --nmap scan.xml          # Check Nmap output against Exploit-DB
     searchsploit -u                       # Update local database
 
-### CWE Top 25 Most Dangerous (2023)
+### CWE Top 25 Most Dangerous (2025)
+
+Released by CISA and MITRE on December 11, 2025 (analysis of ~39,000 CVEs disclosed June 2024-June 2025). The ranking shifted markedly from 2023: XSS rose to #1, CSRF and Missing Authorization entered the top 4, and hardcoded credentials (CWE-798), integer overflow (CWE-190), and improper authentication (CWE-287) dropped out of the Top 25.
 
 | Rank | CWE-ID | Name |
 |------|--------|------|
-| 1 | CWE-787 | Out-of-bounds Write |
-| 2 | CWE-79 | Cross-site Scripting (XSS) |
-| 3 | CWE-89 | SQL Injection |
-| 4 | CWE-416 | Use After Free |
-| 5 | CWE-78 | OS Command Injection |
-| 6 | CWE-20 | Improper Input Validation |
-| 7 | CWE-125 | Out-of-bounds Read |
-| 8 | CWE-22 | Path Traversal |
-| 9 | CWE-352 | CSRF |
-| 10 | CWE-434 | Unrestricted File Upload |
-| 11 | CWE-502 | Deserialization of Untrusted Data |
-| 12 | CWE-306 | Missing Authentication |
-| 13 | CWE-190 | Integer Overflow |
-| 14 | CWE-476 | NULL Pointer Dereference |
-| 15 | CWE-798 | Hard-coded Credentials |
+| 1 | CWE-79 | Cross-site Scripting (XSS) |
+| 2 | CWE-89 | SQL Injection |
+| 3 | CWE-352 | Cross-Site Request Forgery (CSRF) |
+| 4 | CWE-862 | Missing Authorization |
+| 5 | CWE-787 | Out-of-bounds Write |
+| 6 | CWE-22 | Path Traversal |
+| 7 | CWE-416 | Use After Free |
+| 8 | CWE-125 | Out-of-bounds Read |
+| 9 | CWE-78 | OS Command Injection |
+| 10 | CWE-94 | Code Injection |
+| 11 | CWE-120 | Classic Buffer Overflow |
+| 12 | CWE-434 | Unrestricted File Upload |
+| 13 | CWE-476 | NULL Pointer Dereference |
+| 14 | CWE-121 | Stack-based Buffer Overflow |
+| 15 | CWE-502 | Deserialization of Untrusted Data |
+| 16 | CWE-122 | Heap-based Buffer Overflow |
+| 17 | CWE-863 | Incorrect Authorization |
+| 18 | CWE-20 | Improper Input Validation |
+| 19 | CWE-284 | Improper Access Control |
+| 20 | CWE-200 | Exposure of Sensitive Information |
+| 21 | CWE-306 | Missing Authentication for Critical Function |
+| 22 | CWE-918 | Server-Side Request Forgery (SSRF) |
+| 23 | CWE-77 | Command Injection |
+| 24 | CWE-639 | Authorization Bypass Through User-Controlled Key |
+| 25 | CWE-770 | Allocation of Resources Without Limits |
+
+_Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #4 CWE-416, #5 CWE-78, #6 CWE-20, #7 CWE-125, #8 CWE-22, #9 CWE-352, #10 CWE-434, #11 CWE-502, #12 CWE-306, #13 CWE-190, #14 CWE-476, #15 CWE-798._
 
 ### Vendor Advisory Feeds
 

@@ -1,6 +1,6 @@
 # ATT&CK Software Reference
 
-> The **784 software entries** in MITRE ATT&CK Enterprise (v18.1) — **693 malware** families and **91 tools** — that adversaries use to carry out techniques. Each entry lists the number of ATT&CK techniques it implements and the threat groups known to use it. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md), the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), and [Malware Families](MALWARE_FAMILIES.md).
+> The **784 software entries** in MITRE ATT&CK Enterprise (v19.2) — **693 malware** families and **91 tools** — that adversaries use to carry out techniques. Each entry lists the number of ATT&CK techniques it implements and the threat groups known to use it. Pair with [Threat Group Profiles](THREAT_GROUP_PROFILES.md), the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), and [Malware Families](MALWARE_FAMILIES.md).
 
 | | |
 |---|---|

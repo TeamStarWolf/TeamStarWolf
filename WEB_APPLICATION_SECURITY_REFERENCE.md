@@ -27,6 +27,8 @@
 
 ## 1. OWASP Top 10 2021
 
+> **Currency note:** The current edition is **OWASP Top 10:2025** (published 2025). Key changes from 2021: SSRF (the 2021 A10) is folded into **A01 Broken Access Control**; a new **A03 Software Supply Chain Failures** expands the 2021 A06 Vulnerable and Outdated Components; and a new **A10 Mishandling of Exceptional Conditions** is added. 2025 order: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions. The A01–A10 detail below is retained as the **2021 edition** for crosswalk/history.
+
 ### A01 Broken Access Control
 
 Broken Access Control is the number one web application risk. It occurs when users can act outside of their intended permissions.

@@ -1134,7 +1134,7 @@ The EU AI Act (effective August 2024, high-risk AI obligations applying from Aug
 
 ## 8. OWASP Top 10 for LLMs 2025
 
-The OWASP Top 10 for Large Language Model Applications identifies the most critical security risks for LLM-based applications. The 2025 edition reflects the evolution of the threat landscape as LLMs are increasingly deployed in agentic and production settings.
+The OWASP Top 10 for Large Language Model Applications identifies the most critical security risks for LLM-based applications. **The current edition is 2026** (OWASP GenAI Security Project, published August 2026): it re-ranks the list (Excessive Agency rises to LLM03; Unbounded Consumption to LLM06; Improper Output Handling falls to LLM10) and renames **System Prompt Leakage** to **Hidden Context Exposure** (now LLM08). 2026 order: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. The 2025-edition detail below is retained as a crosswalk.
 
 **Reference:** [https://owasp.org/www-project-top-10-for-large-language-model-applications/](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 

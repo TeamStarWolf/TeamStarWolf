@@ -38,7 +38,7 @@ Anchor on the intelligence cycle before anything else — it provides the framew
 ### Threat Intelligence Platforms
 - [MISP/MISP](https://github.com/MISP/MISP) — The world's most deployed open-source threat intelligence platform; event-based sharing, indicator correlation, galaxy taxonomies, and STIX/TAXII export; the community standard for structured threat sharing across ISACs and government agencies
 - [OpenCTI-Platform/opencti](https://github.com/OpenCTI-Platform/opencti) — Graph-based open-source TI platform built natively on STIX 2.1; superior for tracking adversary infrastructure, campaign timelines, and relationship mapping; the modern platform of choice for new TI program deployments
-- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive) — Open-source SIRP tightly integrated with MISP; bridges threat intelligence platform and case management for operationalizing intelligence during live incidents
+- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive) — SIRP tightly integrated with MISP; bridges threat intelligence platform and case management for operationalizing intelligence during live incidents. NOTE: TheHive 5 is now commercial (StrangeBee); OSS v4 archived/unmaintained since 2023 (OSS alternative: DFIR-IRIS)
 - [TheHive-Project/Cortex](https://github.com/TheHive-Project/Cortex) — Analysis and response engine companion to TheHive; runs automated enrichment analyzers against observables across 100+ intelligence sources
 
 ### Feeds & Indicator Management

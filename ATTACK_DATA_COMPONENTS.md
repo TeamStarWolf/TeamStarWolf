@@ -1,6 +1,6 @@
 # ATT&CK Data Components & Log Sources
 
-> The **106 MITRE ATT&CK data components** (v18.1) — the telemetry categories that feed detection — each with the concrete **log sources and channels** that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
+> The **106 MITRE ATT&CK data components** (v19.2) — the telemetry categories that feed detection — each with the concrete **log sources and channels** that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
 
 | | |
 |---|---|

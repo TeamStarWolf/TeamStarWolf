@@ -40,6 +40,7 @@
 | [NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final) | Technical Guide to Information Security Testing | csrc.nist.gov |
 | [OSSTMM](https://www.isecom.org/OSSTMM.3.pdf) (Open Source Security Testing Methodology Manual) | Metrics-driven security testing across all channels | isecom.org |
 | [CVSS v3.1](https://www.first.org/cvss/v3.1/specification-document) | Vulnerability severity scoring | first.org |
+| [CVSS v4.0](https://www.first.org/cvss/v4.0/specification-document) | Current CVSS version (FIRST, Nov 1 2023); adds AT metric + two-system impact | first.org |
 
 ---
 
@@ -228,7 +229,7 @@ Before any testing begins, confirm the following in writing:
 
 ## Vulnerability Scoring — CVSS v3.1
 
-CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to rate vulnerability severity. The base score is calculated from the following metrics:
+CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to rate vulnerability severity. CVSS v4.0 (published by FIRST on November 1, 2023) is the current version — it adds Attack Requirements (AT), a finer-grained User Interaction metric, and a two-system (Vulnerable/Subsequent) impact model in place of Scope; NVD still assigns v3.1 base scores to most CVEs, so both appear in reports. The v3.1 base score is calculated from the following metrics:
 
 | Metric | Options | Description |
 |---|---|---|

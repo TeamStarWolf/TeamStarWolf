@@ -362,7 +362,7 @@ The technical work fails without a program wrapper. M-23-02 (federal) and P.L. 1
 **Vendor questionnaire — the six questions that matter**
 
 1. Which products/services use quantum-vulnerable public-key cryptography, and where (key exchange, signatures, firmware signing)?
-2. Can you provide a **CBOM** (CycloneDX 1.6/ECMA-424) or equivalent cryptographic disclosure?
+2. Can you provide a **CBOM** (CycloneDX 1.7/ECMA-424) or equivalent cryptographic disclosure?
 3. What is your dated roadmap for FIPS 203/204/205 support, and is hybrid key establishment supported today?
 4. Are algorithm choices **configurable by the customer**, or fixed in the product?
 5. For hardware/HSM products: what is the FIPS 140-3 validation status and timeline for PQC algorithms?
@@ -450,7 +450,7 @@ A starting cadence for an enterprise program, in the spirit of the [CTEM 90-day 
 | **Hybrid** | Combining a classical exchange and a PQC KEM so the session secret survives a break of either component |
 | **Composite** | A single X.509 signature object binding classical + PQC signatures together (still an Internet-Draft) |
 | **Dual chain** | Operating parallel classical and PQC certificate hierarchies during the transition |
-| **CBOM** | Cryptographic bill of materials — machine-readable crypto inventory (CycloneDX 1.6 / ECMA-424) |
+| **CBOM** | Cryptographic bill of materials — machine-readable crypto inventory (CycloneDX 1.7 / ECMA-424) |
 | **Crypto-agility** | Architecture property: the cost of swapping algorithms, parameters, or certificates without redesign |
 | **Stateful HBS** | Stateful hash-based signatures (LMS/XMSS, SP 800-208) — secure only if one-time-signature state is never reused |
 | **Mosca's inequality** | X + Y > Z ⇒ already exposed: secrecy lifetime + migration time vs. time to a CRQC |
@@ -474,7 +474,7 @@ A starting cadence for an enterprise program, in the spirit of the [CTEM 90-day 
 - ML-DSA in X.509 (RFC 9881) — <https://datatracker.ietf.org/doc/draft-ietf-lamps-dilithium-certificates/> · ML-KEM in X.509 (RFC 9935) — <https://datatracker.ietf.org/doc/draft-ietf-lamps-kyber-certificates/>
 - OpenSSH post-quantum cryptography — <https://www.openssh.org/pq.html>
 - Signal SPQR — <https://signal.org/blog/spqr/> · Apple iMessage PQ3 — <https://security.apple.com/blog/imessage-pq3/>
-- CycloneDX CBOM (v1.6 / ECMA-424) — <https://cyclonedx.org/capabilities/cbom/>
+- CycloneDX CBOM (v1.7 / ECMA-424) — <https://cyclonedx.org/capabilities/cbom/>
 
 ---
 

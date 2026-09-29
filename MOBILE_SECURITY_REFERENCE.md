@@ -1242,10 +1242,10 @@ MDM compliance signal --> Azure AD / Okta / Google Workspace
      |
 Conditional Access Policy: Block access if device not compliant
      |
-App (Office 365 / GSuite) blocks until device enrolled and compliant
+App (Microsoft 365 / Google Workspace) blocks until device enrolled and compliant
 ```
 
-Tools: Microsoft Intune + Azure AD Conditional Access, Jamf Pro + Okta, Google Workspace MDM + BeyondCorp
+Tools: Microsoft Intune + Microsoft Entra Conditional Access, Jamf Pro + Okta, Google Workspace MDM + BeyondCorp
 
 ---
 

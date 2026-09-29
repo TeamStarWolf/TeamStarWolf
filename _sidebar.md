@@ -30,6 +30,11 @@
   - [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md)
   - [Build a Detection Home Lab](/guides/BUILD_A_DETECTION_HOMELAB.md)
   - [Start a Vuln Mgmt Program](/guides/START_A_VULN_MGMT_PROGRAM.md)
+  - [Acquire & Triage an Endpoint](/guides/ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md)
+  - [Investigate a Cloud Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)
+  - [Produce an Intelligence Product](/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md)
+  - [Harden a Kubernetes Cluster](/guides/HARDEN_A_KUBERNETES_CLUSTER.md)
+  - [Roll Out Phishing-Resistant MFA](/guides/ROLL_OUT_PHISHING_RESISTANT_MFA.md)
 
 ---
 

@@ -84,21 +84,21 @@ machine-readable so you can query them, not just read them.
 
 | Resource | What you get |
 |---|---|
-| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **691 Enterprise techniques** scored by group usage, software, mitigations, NIST controls, and detection availability |
+| [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **714 Enterprise techniques** (MITRE v19.2 lists 697 active; this set retains a few superseded records) scored by group usage, software, mitigations, NIST controls, and detection availability |
 | [Technique Detail Pages](techniques/README.md) | A full consolidated write-up per technique |
 | [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | **168 adversary groups** with aliases, attributed techniques, and tooling |
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | **784 malware families & tools** and the techniques they implement |
-| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **52 intrusion campaigns** with active windows, techniques, and attribution |
+| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **51 intrusion campaigns** with active windows, techniques, and attribution |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All **44 mitigations** (M-codes) and the techniques each one addresses |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | The most-used, least-covered techniques |
 | [ICS](ICS_ATTACK_ATLAS.md) [&] [Mobile](MOBILE_ATTACK_ATLAS.md) Atlases | The **83-technique ICS** and **124-technique Mobile** matrices, same treatment |
-| [ATT&CK Detection Strategies](detections/strategies/README.md) | **691 strategies** and **1,739 analytics** with log sources and tunable logic |
+| [ATT&CK Detection Strategies](detections/strategies/README.md) | **706 strategies** and **1,739 analytics** with log sources and tunable logic |
 | [Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | **106 telemetry categories** mapped to the techniques they detect |
 | [CWE Weakness Reference](CWE_REFERENCE.md) | **969 weakness types** with consequences and mitigations |
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | **615 attack patterns**, 177 bridging directly to ATT&CK |
 | [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md) | **156 countermeasures** mapped to the **426 techniques** they counter |
 | [MITRE ATLAS Reference](ATLAS_REFERENCE.md) | **170 AI-attack techniques** across 16 tactics, plus 35 mitigations |
-| [MITRE Engage Reference](ENGAGE_REFERENCE.md) | **31 deception activities** with **793 mappings** to ATT&CK techniques |
+| [MITRE Engage Reference](ENGAGE_REFERENCE.md) | **31 deception activities** with **175 mappings** to ATT&CK techniques |
 | [CTEM Reference](CTEM_REFERENCE.md) | Gartner's 5-stage exposure loop, the tool landscape, and a 90-day plan |
 | [MITRE F3 Fraud Framework](FRAUD_FRAMEWORK_REFERENCE.md) | **123 fraud-actor techniques** across 8 tactics, through to Monetization |
 

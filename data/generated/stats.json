@@ -1,0 +1,23 @@
+{
+  "analytics": 1739,
+  "campaigns": 51,
+  "control_to_technique_edges": 5314,
+  "data_components": 106,
+  "detection_strategies": 706,
+  "engage_activities": 31,
+  "engage_approaches": 9,
+  "engage_goals": 5,
+  "engage_mappings": 175,
+  "groups": 168,
+  "mitigations": 44,
+  "mitre_active_enterprise_techniques_ref": 697,
+  "navigator_layers": 37,
+  "reference_docs": 152,
+  "software": 784,
+  "technique_parent": 225,
+  "technique_sub": 489,
+  "technique_to_d3fend_edges": 4178,
+  "technique_total": 714,
+  "techniques_with_d3fend": 403,
+  "vendor_to_technique_edges": 17250
+}

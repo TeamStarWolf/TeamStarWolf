@@ -183,7 +183,7 @@ One knowledge graph runs through the whole library — from a vulnerability to t
   </div>
   <div class="tsw-card tsw-flag">
     <a class="tsw-flag-t" href="#/detections/strategies/README">Detection Engineering</a>
-    <p class="tsw-flag-sub">MITRE's own detection guidance made operational: 691 strategies, 1,739 analytics, and ready-to-adapt queries for Splunk, Elastic, Microsoft, Chronicle, and CrowdStrike.</p>
+    <p class="tsw-flag-sub">MITRE's own detection guidance made operational: 706 strategies, 1,739 analytics, and ready-to-adapt queries for Splunk, Elastic, Microsoft, Chronicle, and CrowdStrike.</p>
     <div class="tsw-flag-links">
       <a class="tsw-flag-cta" href="#/detections/strategies/README">Open the strategies →</a>
       <a class="tsw-flag-2nd" href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Technique Detection Library →</a>
@@ -440,7 +440,7 @@ One knowledge graph runs through the whole library — from a vulnerability to t
   </div>
   <div class="tsw-swb-group">
     <div class="tsw-swb-h">Layers</div>
-    <a class="tsw-swb-l" href="#/navigator/">Navigator layers index (28 layers)</a>
+    <a class="tsw-swb-l" href="#/navigator/">Navigator layers index (37 layers)</a>
     <a class="tsw-swb-l" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json" target="_blank" rel="noopener">Load master coverage layer ↗</a>
     <a class="tsw-swb-l" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/no_nist_coverage.json" target="_blank" rel="noopener">Framework blind spots (223 unmapped techniques) ↗</a>
     <a class="tsw-swb-l" href="https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/group_frequency.json" target="_blank" rel="noopener">Group frequency ↗</a>

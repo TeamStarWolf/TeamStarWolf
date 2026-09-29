@@ -816,11 +816,17 @@ Splunk Search Processing Language (SPL) is the native query language for Splunk 
 
 ### PowerShell Encoded Commands (T1059.001)
 
+> **Log source note:** Windows Security event 4688 populates the command line
+> (`Process_Command_Line`) only when *Audit Process Creation* **and** the "Include command line
+> in process creation events" GPO are both enabled. 4688 has **no** parent command line — only
+> the parent image path in `Creator_Process_Name` (surfaced by some SIEMs as `ParentProcessName`).
+> For parent command-line context, source from Sysmon event 1 instead.
+
 ```spl
 index=windows EventCode=4688
-(CommandLine="*-enc*" OR CommandLine="*-EncodedCommand*" OR CommandLine="*-ec *")
-CommandLine="*powershell*"
-| table _time, ComputerName, Account_Name, CommandLine, ParentCommandLine
+(Process_Command_Line="*-enc*" OR Process_Command_Line="*-EncodedCommand*" OR Process_Command_Line="*-ec *")
+Process_Command_Line="*powershell*"
+| table _time, ComputerName, Account_Name, Process_Command_Line, Creator_Process_Name
 | sort -_time
 ```
 
@@ -837,10 +843,15 @@ index=windows EventCode=4625
 
 ### Lateral Movement via PsExec (T1021.002)
 
+> **Log source note:** Event 7045 ("a service was installed in the system") is written to the
+> **System** log and 4697 to the Security log; in both, the service binary path is the **Service
+> File Name** field (`Service_File_Name`), rendered from the raw XML element `ImagePath`. Match
+> on `Service_File_Name`, not a bare `ImagePath`, unless you ingest the raw event XML.
+
 ```spl
 index=windows (EventCode=7045 OR EventCode=4697)
-(Service_Name="PSEXESVC" OR Service_Name="*PSEXEC*" OR ImagePath="*PSEXESVC*")
-| table _time, ComputerName, Service_Name, ImagePath, Account_Name
+(Service_Name="PSEXESVC" OR Service_Name="*PSEXEC*" OR Service_File_Name="*PSEXESVC*")
+| table _time, ComputerName, Service_Name, Service_File_Name, Account_Name
 | sort -_time
 ```
 
@@ -855,23 +866,40 @@ index=proxy bytes_out > 10000000
 | table src_ip, dest_host, total_MB, requests
 ```
 
-### New Local Administrator Account (T1098)
+### New / Escalated Local Administrator Account (T1098 / T1136.001)
+
+> **Event semantics:** 4732 = a member was added to a security-enabled **local** group — use
+> this for the local `Administrators` group (4728 is for **global** groups and never applies to
+> local admin). 4720 = a **user account was created**. Adding an existing account to
+> Administrators (4732) is a *membership change*, not account creation, so pair 4732 with 4720
+> to also catch a freshly created account. The account field differs by event: 4732 carries the
+> added member in `Member_Name`, 4720 carries the new account in `Target_Account_Name`.
 
 ```spl
-index=windows (EventCode=4728 OR EventCode=4732)
-Group_Name="Administrators"
-| table _time, ComputerName, Account_Name, Subject_Account_Name, Group_Name
+index=windows ((EventCode=4732 Group_Name="Administrators") OR EventCode=4720)
+| eval account=coalesce(Member_Name, Target_Account_Name)
+| table _time, ComputerName, EventCode, account, Subject_Account_Name, Group_Name
 | sort -_time
 ```
 
-### Pass-the-Hash Detection (T1550.002)
+### Pass-the-Hash Hunt (T1550.002)
+
+> **Hunt, not a production alert.** NTLM network logons are ubiquitous, so a bare
+> `Logon_Type=3` + `NTLM` rule fires on normal traffic. The discriminators below
+> (`Logon_Process="NtLmSsp"`, `Key_Length=0`) narrow the field but do not confirm PtH — OWA,
+> some proxies, and legacy apps also produce `Key_Length=0` NTLM logons. Use it as a starting
+> point: pivot on the source host, exclude machine accounts, and correlate
+> workstation-to-workstation with the matching event 4776 (credential validation) on the
+> authenticating system. Confirmation needs corroboration, not this signal alone.
 
 ```spl
 index=windows EventCode=4624
-Logon_Type=3 NOT Account_Name="*$"
+Logon_Type=3
 Authentication_Package="NTLM"
-| stats count by Account_Name, Source_Network_Address, ComputerName
-| where count > 3
+Logon_Process="NtLmSsp"
+Key_Length=0
+NOT Account_Name="*$"
+| stats count values(Workstation_Name) as src_workstations by Account_Name, Source_Network_Address, ComputerName
 | sort -count
 ```
 
@@ -888,12 +916,18 @@ Service_Name!="*$"
 
 ### Suspicious Process Spawned from Office (T1566.001)
 
+> **Log source note:** Windows Security event 4688 has no `ParentImage` field (its parent is
+> the image path in `Creator_Process_Name`, and it carries no parent command line). This query
+> therefore uses **Sysmon event 1**, which provides `ParentImage`, `Image`, and `CommandLine`
+> directly. To keep 4688, swap `ParentImage`→`Creator_Process_Name` and
+> `NewProcessName`→`New_Process_Name`, and enable the command-line GPO for `Process_Command_Line`.
+
 ```spl
-index=windows EventCode=4688
-(ParentImage="*\\winword.exe" OR ParentImage="*\\excel.exe" OR ParentImage="*\\powerpnt.exe")
-(NewProcessName="*\\cmd.exe" OR NewProcessName="*\\powershell.exe" OR NewProcessName="*\\wscript.exe"
- OR NewProcessName="*\\cscript.exe" OR NewProcessName="*\\mshta.exe")
-| table _time, ComputerName, Account_Name, ParentImage, NewProcessName, CommandLine
+index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+(ParentImage="*\\winword.exe" OR ParentImage="*\\excel.exe" OR ParentImage="*\\powerpnt.exe" OR ParentImage="*\\outlook.exe")
+(Image="*\\cmd.exe" OR Image="*\\powershell.exe" OR Image="*\\wscript.exe"
+ OR Image="*\\cscript.exe" OR Image="*\\mshta.exe")
+| table _time, ComputerName, User, ParentImage, Image, CommandLine
 | sort -_time
 ```
 
@@ -982,22 +1016,27 @@ CloudAppEvents
 | order by TimeGenerated desc
 ```
 
-### Azure Resource Creation in New Region (T1578)
+### Azure Resource Creation in New Resource Group (T1578)
+
+> **Field note:** the `AzureActivity` table has no reliable region/location column, so this
+> query baselines by **resource group** (`ResourceGroup`), not by Azure region — the previous
+> "Regions" labels were grouping on `ResourceGroup`. For true region analysis, parse the region
+> out of `_ResourceId`/`Properties` or query Azure Resource Graph.
 
 ```kql
 AzureActivity
 | where TimeGenerated > ago(30d)
 | where OperationNameValue contains "Microsoft.Resources/deployments/write"
 | where ActivityStatusValue == "Success"
-| summarize ResourcesCreated=count(), Regions=make_set(ResourceGroup) by Caller, _ResourceId
+| summarize ResourcesCreated=count(), ResourceGroups=make_set(ResourceGroup) by Caller, _ResourceId
 | join kind=inner (
     AzureActivity
     | where TimeGenerated between (ago(90d) .. ago(30d))
-    | summarize HistoricalRegions=make_set(ResourceGroup) by Caller
+    | summarize HistoricalResourceGroups=make_set(ResourceGroup) by Caller
 ) on Caller
-| extend NewRegions = set_difference(Regions, HistoricalRegions)
-| where array_length(NewRegions) > 0
-| project Caller, NewRegions, ResourcesCreated
+| extend NewResourceGroups = set_difference(ResourceGroups, HistoricalResourceGroups)
+| where array_length(NewResourceGroups) > 0
+| project Caller, NewResourceGroups, ResourcesCreated
 ```
 
 ### MFA Disabled for a User (T1556)
@@ -1745,15 +1784,21 @@ index=windows sourcetype="WinEventLog:Security"
 | sort -count
 ```
 
-### Pass-the-Hash Detection (Splunk)
+### Pass-the-Hash Hunt — After-Hours NTLM (Splunk)
+
+> **Hunt, not a production alert** (see the Pass-the-Hash Hunt above). The after-hours window is
+> only a prioritization aid layered on the same NTLM/`Key_Length=0` discriminators; it does not
+> confirm PtH. Correlate suspects workstation-to-workstation with event 4776 on the
+> authenticating system and pivot on the source host.
 
 ```spl
 index=windows sourcetype="WinEventLog:Security" EventCode=4624
-LogonType=3 AuthPackage=NTLM
+Logon_Type=3 Authentication_Package="NTLM" Logon_Process="NtLmSsp" Key_Length=0
+NOT Account_Name="*$"
 | eval hour=strftime(_time, "%H")
-| stats count by src_ip, user, host, hour
-| where count > 5 AND (hour < 7 OR hour > 19)
-| eval alert="PtH Candidate - NTLM Network Logon After Hours"
+| stats count by Source_Network_Address, Account_Name, ComputerName, hour
+| where (hour < 7 OR hour > 19)
+| eval alert="PtH candidate - NTLM Key_Length=0 network logon, after hours"
 ```
 
 ### Data Exfiltration via DNS (Splunk)

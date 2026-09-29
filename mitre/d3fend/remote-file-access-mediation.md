@@ -7,7 +7,7 @@
 
 Remote file access mediation is the process of managing and securing access to file systems over a network to ensure that only authorized users or processes can interact with remote files.
 
-## ATT&CK techniques countered (107)
+## ATT&CK techniques countered (109)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — isolates
 - [T0853](https://attack.mitre.org/techniques/T0853) — isolates
@@ -116,6 +116,8 @@ Remote file access mediation is the process of managing and securing access to f
 - [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — isolates. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — isolates. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — isolates. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md) — isolates. Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — isolates. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

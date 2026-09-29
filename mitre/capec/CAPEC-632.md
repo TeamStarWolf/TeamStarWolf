@@ -11,7 +11,7 @@ An adversary registers a domain name containing a homoglyph, leading the registe
 
 ## Related CWE (1)
 
-- [CWE-1007 — Insufficient Visual Distinction of Homoglyphs Presented to User](https://cwe.mitre.org/data/definitions/1007.html) — The product displays information or identifiers to a user, but the display mechanism does not make it easy for the user to distinguish between visually similar or identical glyphs (homoglyphs), which may cause the user…
+- [CWE-1007 — Insufficient Visual Distinction of Homoglyphs Presented to User](https://cwe.mitre.org/data/definitions/1007.html) — The product displays information or identifiers to a user, but the display mechanism does not make it easy for the user to distinguish between visually similar or identical glyphs (homoglyphs), which may cause the user to misinterpret a glyph and perform an unintended, insecure action.
 
 ## Prerequisites
 

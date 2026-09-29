@@ -15,7 +15,7 @@ An attacker obtains unauthorized access to an application, service or device eit
 ## Related CWE (2)
 
 - [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
-- [CWE-1244 — Internal Asset Exposed to Unsafe Debug Access Level or State](https://cwe.mitre.org/data/definitions/1244.html) — The product uses physical debug or test interfaces with support for multiple access levels, but it assigns the wrong debug access level to an internal asset, providing unintended access to the asset from untrusted debug…
+- [CWE-1244 — Internal Asset Exposed to Unsafe Debug Access Level or State](https://cwe.mitre.org/data/definitions/1244.html) — The product uses physical debug or test interfaces with support for multiple access levels, but it assigns the wrong debug access level to an internal asset, providing unintended access to the asset from untrusted debug agents.
 
 ## Prerequisites
 

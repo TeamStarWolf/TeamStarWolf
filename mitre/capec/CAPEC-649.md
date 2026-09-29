@@ -15,7 +15,7 @@ An adversary adds a space character to the end of a file extension and takes adv
 
 ## Related CWE (1)
 
-- [CWE-46 — Path Equivalence: 'filename ' (Trailing Space)](https://cwe.mitre.org/data/definitions/46.html) — The product accepts path input in the form of trailing space ('filedir ') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended…
+- [CWE-46 — Path Equivalence: 'filename ' (Trailing Space)](https://cwe.mitre.org/data/definitions/46.html) — The product accepts path input in the form of trailing space ('filedir ') without appropriate validation, which can lead to ambiguous path resolution and allow an attacker to traverse the file system to unintended locations or access arbitrary files.
 
 ## Prerequisites
 

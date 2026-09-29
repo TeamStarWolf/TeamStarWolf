@@ -7,9 +7,10 @@
 
 Delete a registry key.
 
-## ATT&CK techniques countered (1)
+## ATT&CK techniques countered (2)
 
 - [T1562.003 — Impair Command History Logging](/mitre/techniques/T1562-003.md) — deletes. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — deletes. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

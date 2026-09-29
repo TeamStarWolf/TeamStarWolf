@@ -11,7 +11,7 @@ An adversary targets software that constructs NoSQL statements based on user inp
 
 ## Related CWE (2)
 
-- [CWE-943 — Improper Neutralization of Special Elements in Data Query Logic](https://cwe.mitre.org/data/definitions/943.html) — The product generates a query intended to access or manipulate data in a data store such as a database, but it does not neutralize or incorrectly neutralizes special elements that can modify the intended logic of the…
+- [CWE-943 — Improper Neutralization of Special Elements in Data Query Logic](https://cwe.mitre.org/data/definitions/943.html) — The product generates a query intended to access or manipulate data in a data store such as a database, but it does not neutralize or incorrectly neutralizes special elements that can modify the intended logic of the query.
 - [CWE-1286 — Improper Validation of Syntactic Correctness of Input](https://cwe.mitre.org/data/definitions/1286.html) — The product receives input that is expected to be well-formed - i.e., to comply with a certain syntax - but it does not validate or incorrectly validates that the input complies with the syntax.
 
 ## Prerequisites

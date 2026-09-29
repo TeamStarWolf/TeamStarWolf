@@ -11,7 +11,7 @@ Adversaries can provide contradictory destinations when sending messages. Traffi
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1090.004 — Domain Fronting](/mitre/techniques/T1090-004.md) — Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through…
+- [T1090.004 — Domain Fronting](/mitre/techniques/T1090-004.md) — Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through HTTPS.
 
 ## Related CWE (1)
 

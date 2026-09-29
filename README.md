@@ -91,7 +91,7 @@ machine-readable so you can query them, not just read them.
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **52 intrusion campaigns** with active windows, techniques, and attribution |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All **44 mitigations** (M-codes) and the techniques each one addresses |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | The most-used, least-covered techniques |
-| [ICS](ICS_ATTACK_ATLAS.md) & [Mobile](MOBILE_ATTACK_ATLAS.md) Atlases | The **83-technique ICS** and **124-technique Mobile** matrices, same treatment |
+| [ICS](ICS_ATTACK_ATLAS.md) [&] [Mobile](MOBILE_ATTACK_ATLAS.md) Atlases | The **83-technique ICS** and **124-technique Mobile** matrices, same treatment |
 | [ATT&CK Detection Strategies](detections/strategies/README.md) | **691 strategies** and **1,739 analytics** with log sources and tunable logic |
 | [Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | **106 telemetry categories** mapped to the techniques they detect |
 | [CWE Weakness Reference](CWE_REFERENCE.md) | **969 weakness types** with consequences and mitigations |

@@ -29,6 +29,7 @@ SCHEMAS = {
         "required": ["vendor", "vendor_normalized", "market_family", "pipeline_stage", "nist_control", "control_desc", "confidence"],
         "field_values": {
             "confidence": ["high", "medium", "low"],
+            "edge_type": ["vendor_satisfies_control"],
         }
     },
     "data/control_to_technique.jsonl": {
@@ -36,6 +37,8 @@ SCHEMAS = {
         "field_values": {
             "ctid_source": ["nist800-53-r5"],
             "confidence": ["high", "medium", "low"],
+            "mapping_type": ["mitigates"],
+            "edge_type": ["control_mitigates_technique"],
         }
     },
     "data/vendor_to_technique.jsonl": {
@@ -43,6 +46,13 @@ SCHEMAS = {
         "field_values": {
             "coverage_type": ["prevent", "detect", "respond", "identify", "prevent_detect"],
             "confidence": ["high", "medium", "low"],
+            "edge_type": ["vendor_covers_technique"],
+        }
+    },
+    "data/attack/superseded_by.jsonl": {
+        "required": ["old_id", "reason"],
+        "field_values": {
+            "reason": ["revoked", "deprecated"],
         }
     },
 }

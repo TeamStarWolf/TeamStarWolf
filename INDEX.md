@@ -59,7 +59,7 @@
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
 | [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md) | MITRE EMB3D threat model — device properties → threats → tiered Foundational/Intermediate/Leading mitigations, IEC 62443-4-2 alignment, device threat-exposure reviews |
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
-| [Engage Reference (deception)](ENGAGE_REFERENCE.md) | MITRE Engage — denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 793 mappings to ATT&CK techniques |
+| [Engage Reference (deception)](ENGAGE_REFERENCE.md) | MITRE Engage — denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 175 mappings to ATT&CK techniques |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |

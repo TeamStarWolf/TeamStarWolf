@@ -33,6 +33,7 @@ def compute():
     sub = sum(1 for t in tp if t.get("is_subtechnique"))
     d3 = _rows("data/attack/technique_to_d3fend.jsonl") or []
     d3_tech = len({r.get("technique_id") for r in d3 if r.get("technique_id", "").startswith("T")})
+    ds = _rows("data/attack/detection_strategies.jsonl") or []
     stats = {
         # --- ATT&CK core (project's own data = source of truth) ---
         "technique_total": len(tp),
@@ -47,7 +48,11 @@ def compute():
         "campaigns": _count("data/attack/campaigns.jsonl"),
         "mitigations": _count("data/attack/mitigations.jsonl"),
         "data_components": _count("data/attack/data_components.jsonl"),
-        "detection_strategies": _count("data/attack/detection_strategies.jsonl"),
+        # Count DISTINCT strategies, not rows: 15 strategies are listed against
+        # both a technique's superseded and current v19.2 id (e.g. DET0532 under
+        # T1070.001 and T1685.005), so the file has more rows than strategies.
+        "detection_strategies": (len({r.get("strategy_id") for r in ds}) if ds else None),
+        "detection_strategy_technique_rows": (len(ds) if ds else None),
         "analytics": _count("data/attack/analytics.jsonl"),
         # --- Engage ---
         "engage_activities": _count("data/engage/engage_activities.jsonl"),

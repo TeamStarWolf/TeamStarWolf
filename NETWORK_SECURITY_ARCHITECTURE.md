@@ -1005,4 +1005,4 @@ Use this checklist when evaluating or designing an enterprise network security a
 
 ---
 
-*Last updated: April 2026 — mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v15*
+*Last updated: April 2026 — mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v19.2*

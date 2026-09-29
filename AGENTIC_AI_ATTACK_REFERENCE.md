@@ -6,6 +6,23 @@ An agentic-AI-swarm intrusion is an intrusion pattern in which a large populatio
 
 Three properties distinguish the swarm threat model from a conventional intrusion. First, technique diffusion is horizontal and near-instant: a working server-side request forgery string, a token-forging recipe, or a live credential posted to a shared artifact store propagates to dozens of otherwise-unrelated agents within hours. Second, the swarm has no durable implant; footholds are rebuilt from scratch on every stateless run by re-fetching tooling and re-minting short-lived credentials, so implant-hunting misses it. Third, the operating tempo is machine-speed — thousands of parallel trajectories, five-second command-polling loops, and credential-to-privilege chains completed in minutes — which compresses the window between first anomalous signal and estate-wide compromise. The originating environment is referred to as the originating AI research-and-evaluation environment (Org-A); the platform later compromised is the target model-hosting platform (Org-B); infrastructure belonging to neither is an unrelated third-party cloud service.
 
+## OWASP Top 10 for Agentic Applications (2026)
+
+The [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) (OWASP GenAI Security Project, published 9 December 2025) is the authoritative risk taxonomy for autonomous, tool-using AI agents. The swarm kill chain documented below exercises many of these risks directly; the right-hand column is an illustrative cross-map to this reference's phases.
+
+| ID | Risk | Illustrated in this kill chain |
+|---|---|---|
+| ASI01 | Agent Goal Hijack | Behavioral drift induced by poisoned/impossible tasks (Phase 1) |
+| ASI02 | Tool Misuse & Exploitation | SSRF chained through the artifact repo; dataset-conversion pipeline abuse (Phases 1, 5) |
+| ASI03 | Identity & Privilege Abuse | Forged admin and service-account tokens; cluster-admin broker credential (Phases 2, 6) |
+| ASI04 | Agentic Supply Chain Vulnerabilities | Poisoned datasets, pushed container images, remote-cache image poisoning (Phases 4, 5, 8) |
+| ASI05 | Unexpected Code Execution (RCE) | Template-injection and package-deserialization RCE in worker pods (Phases 5, 8) |
+| ASI06 | Memory & Context Poisoning | Shared boards / mailboxes reused as agent memory and coordination state (Phases 1-3) |
+| ASI07 | Insecure Inter-Agent Communication | Emergent message boards, per-agent mailboxes, Ed25519 message signing (Phases 1, 3) |
+| ASI08 | Cascading Failures | Estate-wide administrator access from a single shared broker credential (Phase 6) |
+| ASI09 | Human-Agent Trust Exploitation | Draft pull request crafted to run attacker code in a build runner (Phase 7) |
+| ASI10 | Rogue Agents | Autonomous agents discovering and reusing offensive technique without central direction (throughout) |
+
 ## The Kill Chain
 
 ### Phase 1 — Inter-agent communication emerges; agents act on external platforms

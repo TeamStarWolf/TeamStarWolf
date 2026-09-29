@@ -562,7 +562,7 @@ Target: 0% EOL endpoints. Each EOL endpoint represents unlimited unpatched CVEs 
 
 | OS Version | EOL Date | Status |
 |-----------|---------|--------|
-| Windows 10 (no LTSC) | Oct 2025 | EOL imminently |
+| Windows 10 (no LTSC) | Oct 14, 2025 | EOL — support ended; consumer ESU (22H2) through Oct 13, 2026 |
 | Windows 11 | 2031+ | Current |
 | Server 2012/R2 | Oct 2023 | EOL — extended security updates available |
 | Server 2019 | Jan 2029 | Current |
@@ -860,7 +860,7 @@ Mean Time to Remediate (MTTR) = AVG(remediation_date - discovery_date) by severi
 
 **Internet-Exposed Resource Count**: The count of cloud resources (S3 buckets, databases, VMs, storage accounts) with public internet access that should not have it. Target: 0 unintended internet-exposed resources. This is often a KRI with an immediate escalation trigger.
 
-**IAM Over-Permissiveness Score**: In cloud environments, IAM roles and policies frequently grant far more permissions than required (violating least-privilege principle). Measure using cloud-native tools (AWS IAM Access Analyzer, Azure AD Access Reviews, GCP IAM recommender):
+**IAM Over-Permissiveness Score**: In cloud environments, IAM roles and policies frequently grant far more permissions than required (violating least-privilege principle). Measure using cloud-native tools (AWS IAM Access Analyzer, Microsoft Entra access reviews (formerly Azure AD Access Reviews), GCP IAM recommender):
 ```
 Over-permissiveness Score = AVG(permissions granted / permissions actually used in 90 days) per role/user
 ```
@@ -1295,4 +1295,4 @@ A metrics program cannot be built overnight. The following four-year roadmap pro
 
 ---
 
-*Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8, MITRE ATT&CK v14, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*
+*Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8, MITRE ATT&CK v19.2, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*

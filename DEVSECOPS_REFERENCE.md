@@ -2570,7 +2570,7 @@ Evidence collection hours per audit cycle:
 
 ## Quick Reference
 
-### CVSS v3.1 Severity Ratings
+### CVSS Severity Ratings (v3.1 / v4.0)
 
 | Score | Severity |
 |-------|----------|

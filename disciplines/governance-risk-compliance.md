@@ -69,7 +69,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 | Framework | Use Case | Link |
 |---|---|---|
 | **NIST CSF 2.0** | Universal risk-based cybersecurity framework | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) |
-| **NIST SP 800-53 Rev 5** | Federal and enterprise security controls catalog | [csrc.nist.gov](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) |
+| **NIST SP 800-53 Rev 5** (current release 5.2.0, Aug 2025) | Federal and enterprise security controls catalog | [csrc.nist.gov](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) |
 | **NIST RMF** | Risk Management Framework — categorize through monitor | [csrc.nist.gov/projects/risk-management](https://csrc.nist.gov/projects/risk-management) |
 | **ISO/IEC 27001:2022** | ISMS certification standard — global | [iso.org/standard/27001](https://www.iso.org/standard/27001) |
 | **SOC 2 (AICPA)** | Trust Service Criteria for SaaS and cloud | [aicpa.org](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/sorhome.html) |
@@ -149,7 +149,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 | Framework | Type | Certifiable? | Who Needs It | Key Controls |
 |---|---|---|---|---|
 | NIST CSF 2.0 | Voluntary | No (but widely assessed) | US organizations, critical infrastructure | 6 functions: Govern, Identify, Protect, Detect, Respond, Recover |
-| NIST SP 800-53 R5 | Federal standard | Yes (FedRAMP, FISMA) | Federal agencies and contractors | 20 control families, 1,000+ controls |
+| NIST SP 800-53 R5 (release 5.2.0, Aug 2025) | Federal standard | Yes (FedRAMP, FISMA) | Federal agencies and contractors | 20 control families, 1,000+ controls |
 | ISO 27001:2022 | International standard | Yes (third-party audit) | Global organizations seeking trust/compliance | 93 controls in Annex A, 4 new for cloud/DevSecOps |
 | SOC 2 Type II | AICPA audit | Yes (CPA firm) | SaaS, cloud providers | 5 Trust Services Criteria (Security mandatory + Privacy/Availability/Confidentiality/Processing Integrity) |
 | PCI DSS v4.0 | Payment standard | Yes (QSA) | Any entity storing/processing card data | 12 requirements, 64 objectives |

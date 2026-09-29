@@ -24,7 +24,7 @@ Privacy engineering is the discipline of making data protection a structural pro
 |---|---|
 | [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework/privacy-framework) | Identify-Govern-Control-Communicate-Protect |
 | [ISO/IEC 29101](https://www.iso.org/standard/45269.html) | Privacy Architecture Framework |
-| [ISO/IEC 27701](https://www.iso.org/standard/71670.html) | Privacy Information Management (extends ISO 27001) |
+| [ISO/IEC 27701:2025](https://www.iso.org/standard/27701) | Privacy Information Management System (PIMS); standalone since 2025 (2019 ed. extended ISO 27001) |
 | [GDPR (EU 2016/679)](https://gdpr.eu/) | EU General Data Protection Regulation |
 | [CCPA/CPRA](https://oag.ca.gov/privacy/ccpa) | California Consumer Privacy Act |
 | [NIST SP 800-188](https://csrc.nist.gov/publications/detail/sp/800-188/final) | De-Identification of Government Datasets |

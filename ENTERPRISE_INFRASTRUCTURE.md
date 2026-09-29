@@ -52,7 +52,7 @@ Windows workstations represent the most common end-user computing platform in en
 | Version | Notes |
 |---|---|
 | **Windows 11** | Current consumer and enterprise desktop; hardware TPM 2.0 required; Credential Guard enabled by default on supported hardware |
-| **Windows 10** | Most widely deployed enterprise desktop; long-term support variants (LTSC) in specialized environments; mainstream support ended October 2025 |
+| **Windows 10** | Most widely deployed enterprise desktop; long-term support variants (LTSC) in specialized environments; support ended October 14, 2025 (final version 22H2), with consumer Extended Security Updates (ESU) available through October 13, 2026 |
 | **Windows 7** | End of life January 2020; still present in kiosk, industrial, and legacy environments; no security patches without ESU |
 
 ---

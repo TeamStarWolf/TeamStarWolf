@@ -1543,6 +1543,8 @@ In a Zero Trust architecture, the identity provider IS the security boundary:
 
 ### NIST SP 800-63B — Authenticator Assurance Levels
 
+> Reflects **NIST SP 800-63B-4** (Digital Identity Guidelines, final July 2025), which supersedes Rev 3: it recognizes syncable passkeys as AAL2 authenticators and integrates phishing-resistant authentication into the AAL2/AAL3 requirements.
+
 | AAL | Requirements | Examples |
 |---|---|---|
 | AAL1 | Single factor: memorized secret OR single-factor OTP | Password, TOTP |
@@ -1614,4 +1616,4 @@ SMS OTP and push notifications do NOT meet phishing resistance requirement.
 
 ---
 
-*Last updated: 2026-04-24 | MITRE ATT&CK v15 | NIST SP 800-63B Rev 3*
+*Last updated: 2026-04-24 | MITRE ATT&CK v19.2 | NIST SP 800-63B-4 (Digital Identity Guidelines, Rev 4, July 2025)*

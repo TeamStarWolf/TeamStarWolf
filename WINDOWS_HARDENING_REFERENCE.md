@@ -340,6 +340,8 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
 
 ### 3.1 CIS Benchmark v3.0 — Windows Server 2022 Key Settings
 
+> **Currency note (2026-09):** the current CIS Microsoft Windows Server 2022 Benchmark is **v5.0.0** (Mar 2026; v4.0.0 was Jun 2025). Settings below follow v3.0; v4/v5 renamed, moved, added, and removed settings per updated ADMX templates, so verify against v5.0.0 before applying.
+
 Critical registry-backed settings with full paths:
 
 **Account Policies:**

@@ -787,16 +787,18 @@ detection:
   condition: selection and not filter_dc
 falsepositives:
   - Domain Controllers performing legitimate replication
-  - Azure AD Connect accounts (MSOL_*)
+  - Microsoft Entra Connect (formerly Azure AD Connect) accounts (MSOL_*)
   - Backup solutions with replication rights
 level: high
 ```
 
 ---
 
-### 4.4 Sigma Compiler: sigmac and pySigma
+### 4.4 Sigma Compiler: sigma-cli (pySigma) — sigmac is deprecated
 
-**Using sigmac (legacy):**
+> **Note (verified 2026-09-29):** The current Sigma rule format is the **[Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification)** (August 8, 2024). The legacy `sigmac`/`sigmatools` converter is **end-of-life** (archived as `SigmaHQ/legacy-sigmatools`) and has been replaced by **pySigma** + **sigma-cli**; prefer the `sigma-cli` workflow shown below. The `sigmac` block is kept for reference only.
+
+**Using sigmac (legacy — deprecated/EOL, retained for reference):**
 ```bash
 pip install sigmatools
 sigmac -t splunk -c splunk-windows rules/windows/credential_access/lsass_access.yml

@@ -2264,7 +2264,7 @@ The Center for Internet Security publishes free benchmarks (PDF) at https://www.
 | Benchmark | Current Version | Key Controls |
 |-----------|----------------|-------------|
 | RHEL 9 | 2.0+ | 300+ recommendations |
-| Ubuntu 22.04 | 1.0+ | 280+ recommendations |
+| Ubuntu 22.04 | 3.0.0 | 280+ recommendations |
 | Debian 12 | 1.0+ | 270+ recommendations |
 | Amazon Linux 2023 | 1.0+ | 250+ recommendations |
 | SUSE Linux 15 | 1.1+ | 260+ recommendations |

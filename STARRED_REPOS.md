@@ -1150,7 +1150,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [splunk/splunk-ansible](https://github.com/splunk/splunk-ansible)
 
-### Vendor - AlienVault (1)
+### Vendor - AlienVault / LevelBlue (1)
 
 - [jpalanco/alienvault-ossim](https://github.com/jpalanco/alienvault-ossim)
 

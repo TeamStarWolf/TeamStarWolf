@@ -255,7 +255,7 @@ kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
 | [Certipy](https://github.com/ly4k/Certipy) | Python | ADCS enumeration and exploitation (ESC1–ESC13) |
 | [ADExplorer](https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer) | GUI browser | Browse and snapshot AD objects interactively |
 | [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) | LDAP dump | Dump users, groups, computers to readable HTML/JSON |
-| [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) | Multi-protocol | SMB/LDAP/WinRM Swiss army knife; spray, exec, dump |
+| [NetExec (nxc)](https://github.com/Pennyw0rth/NetExec) | Multi-protocol | SMB/LDAP/WinRM Swiss army knife; spray, exec, dump; maintained successor to CrackMapExec (CME archived Dec 2023) |
 | [Impacket](https://github.com/fortra/impacket) | Python suite | Low-level Kerberos, LDAP, SMB, RPC interaction |
 | [kerbrute](https://github.com/ropnop/kerbrute) | Kerberos | User enumeration and password spraying via Kerberos |
 | [PingCastle](https://www.pingcastle.com/) | Risk assessment | AD health and security risk scoring |

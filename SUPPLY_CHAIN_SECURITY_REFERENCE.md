@@ -106,9 +106,11 @@ The SLSA threat model defines attack surfaces across four categories:
 
 ## 2. Software Bill of Materials (SBOM)
 
-### SBOM Format Comparison: CycloneDX 1.6 vs SPDX 2.3
+### SBOM Format Comparison: CycloneDX 1.7 vs SPDX 2.3
 
-| Feature | CycloneDX 1.6 | SPDX 2.3 |
+> **Version note (verified 2026-09-29):** Current spec releases are **CycloneDX 1.7** (October 21, 2025; final of the 1.x line, ratified as ECMA-424 2nd Edition) and **SPDX 3.0.1** (December 2024). CycloneDX 1.7 is backward compatible with 1.4–1.6, and **SPDX 2.3 remains the most widely deployed SPDX version**, so the comparison below tracks the still-common CycloneDX 1.x / SPDX 2.3 feature baselines. Sources: <https://cyclonedx.org/news/cyclonedx-v1.7-released/>, <https://spdx.github.io/spdx-spec/v3.0.1/>.
+
+| Feature | CycloneDX 1.7 | SPDX 2.3 |
 |---------|---------------|----------|
 | Governing Body | OWASP | Linux Foundation / SPDX Workgroup |
 | Primary Formats | JSON, XML, Protobuf | Tag-Value, JSON, YAML, RDF, XLS |
@@ -856,6 +858,8 @@ updater.find_cached_target(updater.get_targetinfo("myapp-v1.2.3.tar.gz"))
 ### SLSA Levels Requirements Table
 
 SLSA (Supply chain Levels for Software Artifacts) defines a graduated set of requirements for build integrity:
+
+> **Version note (verified 2026-09-29):** The current specification is **SLSA v1.2** (approved November 12, 2025), which promotes the **Source track** from experimental to approved — covering source-history integrity and tamper protection alongside the stable Build track (the L0–L3 build levels below). The Build-track requirements are unchanged from v1.0 (where the old L4 was merged into L3+). See <https://slsa.dev/spec/v1.2/>.
 
 | Requirement | L0 | L1 | L2 | L3 |
 |-------------|----|----|----|----|

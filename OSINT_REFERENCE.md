@@ -1217,7 +1217,7 @@ curl -H "Authorization: Bearer $OPENCTI_KEY" \
 | H-ISAC | Healthcare Sector | Member organization required |
 | MS-ISAC | Multi-State (US Gov) | cisecurity.org |
 | CIRCL MISP | Luxembourg CERT | Free public MISP feeds |
-| AlienVault OTX | AT&T / OTX community | Free; broad coverage |
+| AlienVault OTX (LevelBlue) | LevelBlue / OTX community | Free; broad coverage |
 
 ### 8.4 Brand Monitoring and Typosquat Detection
 
@@ -1650,7 +1650,7 @@ When attributing threat actor infrastructure or activity:
 
 ## 12. ATT&CK Reconnaissance Mapping
 
-MITRE ATT&CK v14 Reconnaissance (TA0043) techniques and OSINT tool mapping:
+MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 
 | Technique ID | Technique Name | OSINT Approach | Tools |
 |-------------|----------------|---------------|-------|

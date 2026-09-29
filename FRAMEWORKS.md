@@ -26,7 +26,7 @@ A quick-reference guide to major cybersecurity and privacy frameworks — what t
 | [CMMC 2.0](#cmmc-20) | DoD | Supply chain security | US DoD contractors | Yes (contracts) |
 | [CIS Controls v8](#cis-controls-v8) | CIS | Control prioritization | All sectors | No (best practice) |
 | [NIST CSF / MITRE ATT&CK](#nist-csf-mitre-attampck) | NIST/MITRE | Threat-informed defense | All sectors | No |
-| [ISO 27701](#iso-27701) | ISO/IEC | Privacy extension to 27001 | Privacy programs | No (certification) |
+| [ISO 27701](#iso-27701) | ISO/IEC | Privacy (PIMS); standalone since 2025 | Privacy programs | No (certification) |
 | [GDPR](#gdpr) | EU | Privacy regulation | EU data processors | Yes (EU law) |
 | [CCPA / CPRA](#ccpacpra) | California | Privacy regulation | CA consumer data | Yes (CA law) |
 | [NIST AI RMF](#nist-ai-rmf) | NIST | AI risk management | AI system developers | No |
@@ -83,7 +83,7 @@ The RMF is the US federal authorization process. Every federal system must go th
 
 ## NIST SP 800-53 R5
 
-**Published**: 2020 (R5) | **Org**: NIST | **Mandatory**: US federal systems (FISMA)
+**Published**: 2020 (Rev 5); current maintenance release **5.2.0** (August 27, 2025 — adds secure software-update and patch controls in response to EO 14306; no change to the SP 800-53B baselines) | **Org**: NIST | **Mandatory**: US federal systems (FISMA)
 
 The most comprehensive security and privacy control catalog available. Maps to CSF, ISO 27001, CMMC, and ATT&CK. Used as the baseline for FedRAMP, DoD, and civilian agency ATOs.
 
@@ -226,7 +226,7 @@ Cybersecurity Maturity Model Certification — required for defense industrial b
 
 ## CIS Controls v8
 
-**Published**: May 2021 | **Org**: Center for Internet Security | **Cost**: Free
+**Published**: May 2021 (v8.0); iteratively updated to v8.1 in June 2024 | **Org**: Center for Internet Security | **Cost**: Free
 
 18 prioritized controls mapped to Implementation Groups (IG1/IG2/IG3) for organizations of different sizes. Excellent starting point for smaller organizations or those without formal frameworks.
 
@@ -276,11 +276,11 @@ The [CTID (Center for Threat-Informed Defense)](https://ctid.mitre-engenuity.org
 
 ## ISO 27701
 
-**Published**: 2019 | **Org**: ISO/IEC
+**Published**: 2025 (2nd ed., 14 Oct 2025; supersedes 2019) | **Org**: ISO/IEC
 
-Privacy Information Management System (PIMS) — an extension to ISO 27001 for organizations acting as PII controllers or processors. Provides a structured path to GDPR accountability.
+Privacy Information Management System (PIMS) for organizations acting as PII controllers or processors; provides a structured path to GDPR accountability. The 2019 first edition was an extension to ISO 27001; the 2025 second edition is a standalone standard, certifiable on its own without an ISO 27001 ISMS.
 
-**Resources**: [ISO 27701](https://www.iso.org/standard/71670.html)
+**Resources**: [ISO/IEC 27701:2025](https://www.iso.org/standard/27701)
 
 ---
 

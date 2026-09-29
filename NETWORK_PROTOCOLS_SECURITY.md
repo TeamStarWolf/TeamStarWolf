@@ -697,7 +697,7 @@ Network: Port 3389 connections from internet-facing IPs; multiple failed auth at
 ### Defensive Controls
 
 - **Require NLA**: `Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Require NLA`.
-- **MFA for RDP**: Azure AD MFA, Duo RDP Gateway, YubiKey smart card.
+- **MFA for RDP**: Microsoft Entra multifactor authentication (formerly Azure AD MFA), Duo RDP Gateway, YubiKey smart card.
 - **Restrict source IPs**: Firewall allow-list; only RDP Gateway or bastion host should reach 3389.
 - **RDP Gateway**: Centralize RDP access through an RDP Gateway (formerly TS Gateway) that enforces policies.
 - **Disable Restricted Admin Mode**: `HKLM\System\CurrentControlSet\Control\Lsa\DisableRestrictedAdmin = 1`.
@@ -1262,4 +1262,4 @@ Tools: BGPmon, RIPE BGPlay, Cloudflare Radar BGP, Team Cymru BGP routing securit
 
 ---
 
-*Part of the [TeamStarWolf Security Reference](README.md) | ATT&CK technique IDs reference [MITRE ATT&CK v15](https://attack.mitre.org/) | All tool commands for authorized security testing only*
+*Part of the [TeamStarWolf Security Reference](README.md) | ATT&CK technique IDs reference [MITRE ATT&CK v19.2](https://attack.mitre.org/) | All tool commands for authorized security testing only*

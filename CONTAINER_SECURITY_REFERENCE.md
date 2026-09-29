@@ -340,6 +340,8 @@ augenrules --load
 }
 ```
 
+> **Currency note (verified 2026-09-29):** CIS checks 2.14 and 4.5 (and the hardening checklist below) call for **Docker Content Trust**, which depends on the upstream **Notary v1** server (`notary.docker.io`). Notary v1 is no longer maintained, and Docker Content Trust is being **fully retired by December 8, 2026** (phased brownouts begin July 2026). For new work, sign and verify images with **Sigstore Cosign** or the **Notary Project's Notation (Notary v2)** — both store OCI-native signatures in the registry with no separate trust server (see the Notation workflow later in this reference). Source: <https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/>.
+
 #### Section 4: Container Images and Build Files
 
 | Check | ID | Description | Remediation |
@@ -1864,6 +1866,8 @@ services:
 
 ### CIS Docker Benchmark v1.6 Compliance Checklist
 
+> **Currency note (2026-09):** the current CIS Docker Benchmark is **v1.8.0** (Jul 2025). The checklist below tracks v1.6 section IDs; verify against v1.8.0 before using as audit evidence.
+
 | Section | Check | Status |
 |---------|-------|--------|
 | 1.1 | Separate partition for /var/lib/docker | [ ] |
@@ -2063,7 +2067,7 @@ jobs:
 
 ## References
 
-- [CIS Docker Benchmark v1.6](https://www.cisecurity.org/benchmark/docker)
+- [CIS Docker Benchmark v1.8.0](https://www.cisecurity.org/benchmark/docker)
 - [NIST SP 800-190: Application Container Security Guide](https://csrc.nist.gov/publications/detail/sp/800-190/final)
 - [OCI Specifications](https://opencontainers.org/release-notices/v1-0-0/)
 - [Falco Documentation](https://falco.org/docs/)

@@ -7,7 +7,7 @@
 
 Configuration inventory identifies and records the configuration of software and hardware and their components throughout the organization.
 
-## ATT&CK techniques countered (55)
+## ATT&CK techniques countered (61)
 
 - [T0858](https://attack.mitre.org/techniques/T0858) — inventories
 - [T0868](https://attack.mitre.org/techniques/T0868) — inventories
@@ -62,8 +62,14 @@ Configuration inventory identifies and records the configuration of software and
 - [T1578.004 — Revert Cloud Instance](/mitre/techniques/T1578-004.md) — inventories. An adversary may revert changes made to a cloud instance after they have performed malicious activities in attempt to evade detection and remove evidence of their presence.
 - [T1578.005 — Modify Cloud Compute Configurations](/mitre/techniques/T1578-005.md) — inventories. Adversaries may modify settings that directly affect the size, locations, and resources available to cloud compute infrastructure in order to evade defenses.
 - [T1614 — System Location Discovery](/mitre/techniques/T1614.md) — inventories. Adversaries may gather information in an attempt to calculate the geographical location of a victim host.
-- [T1615 — Group Policy Discovery](/mitre/techniques/T1615.md) — inventories. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or…
+- [T1615 — Group Policy Discovery](/mitre/techniques/T1615.md) — inventories. Adversaries may gather information on Group Policy settings to identify paths for privilege escalation, security measures applied within a domain, and to discover patterns in domain objects that can be manipulated or used to blend in the environment.
 - [T1666 — Modify Cloud Resource Hierarchy](/mitre/techniques/T1666.md) — inventories. Adversaries may attempt to modify hierarchical structures in infrastructure-as-a-service (IaaS) environments in order to evade defenses.
+- [T1685.001 — Disable or Modify Windows Event Log](/mitre/techniques/T1685-001.md) — inventories. Adversaries may disable or modify the Windows Event Log to limit data that can be leveraged for detections and audits.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — inventories. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1686 — Disable or Modify System Firewall](/mitre/techniques/T1686.md) — inventories. Adversaries may disable or modify host-based or network firewalls to impair defensive mechanisms and enable further action.
+- [T1686.001 — Cloud Firewall](/mitre/techniques/T1686-001.md) — inventories. Adversaries may disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.
+- [T1685.002 — Disable or Modify Cloud Log](/mitre/techniques/T1685-002.md) — inventories. An adversary may disable or modify cloud logging capabilities and integrations to limit what data is collected on their activities and avoid detection.
+- [T1688 — Safe Mode Boot](/mitre/techniques/T1688.md) — inventories. Adversaries may abuse Windows safe mode to disable endpoint defenses.
 
 ---
 

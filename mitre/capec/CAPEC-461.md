@@ -10,7 +10,7 @@ An adversary utilizes a hash function extension/padding weakness, to modify the 
 
 ## Related CWE (2)
 
-- [CWE-328 — Use of Weak Hash](https://cwe.mitre.org/data/definitions/328.html) — The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack)…
+- [CWE-328 — Use of Weak Hash](https://cwe.mitre.org/data/definitions/328.html) — The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (2nd preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack).
 - [CWE-290 — Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html) — This attack-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.
 
 ## Prerequisites

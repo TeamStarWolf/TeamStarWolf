@@ -7,7 +7,7 @@
 
 Transfer content that does not comply with policy to a quarantine zone.
 
-## ATT&CK techniques countered (120)
+## ATT&CK techniques countered (123)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — quarantines
 - [T0853](https://attack.mitre.org/techniques/T0853) — quarantines
@@ -129,6 +129,9 @@ Transfer content that does not comply with policy to a quarantine zone.
 - [T1574.011 — Services Registry Permissions Weakness](/mitre/techniques/T1574-011.md) — quarantines. Adversaries may execute their own malicious payloads by hijacking the Registry entries used by services.
 - [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — quarantines. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — quarantines. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md) — quarantines. Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — quarantines. Adversaries may impair command history logging to hide commands they run on a compromised system.
+- [T1688 — Safe Mode Boot](/mitre/techniques/T1688.md) — quarantines. Adversaries may abuse Windows safe mode to disable endpoint defenses.
 
 ---
 

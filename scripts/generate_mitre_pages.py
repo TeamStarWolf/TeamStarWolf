@@ -163,20 +163,28 @@ _ABBR = {"e.g", "i.e", "etc", "vs", "cf", "al", "u.s", "a.k.a", "resp", "approx"
 
 
 def summarize(text, max_chars=220):
-    """First sentence (abbreviation-aware) of a description, on one line; else a length clip."""
+    """First full sentence (abbreviation-aware) of a description, on one line.
+    Never cut a complete sentence mid-word — a returned sentence always ends on
+    its own terminal punctuation. Only text with NO sentence terminator at all
+    (a run-on) is clipped at a word boundary with an ellipsis. max_chars only
+    bounds that run-on fallback; a complete first sentence is returned in full
+    even if longer, so guidance never reads as a fragment."""
     if not text:
         return ""
     t = re.sub(r"\s+", " ", str(text)).strip()
-    s = t
     for m in re.finditer(r"[.!?]+(?=\s|$)", t):
-        tok = re.sub(r"[^A-Za-z.]", "", t[:m.start()].rsplit(" ", 1)[-1]).rstrip(".").lower()
-        if tok in _ABBR or len(tok) <= 1:
-            continue  # abbreviation ("e.g.") or a single-letter initial — not a real sentence end
-        s = t[:m.end()]
-        break
-    if len(s) > max_chars:
-        s = s[:max_chars].rsplit(" ", 1)[0].rstrip(",;:(") + "\N{HORIZONTAL ELLIPSIS}"
-    return s
+        raw = t[:m.start()].rsplit(" ", 1)[-1].rstrip(".")
+        tok = re.sub(r"[^A-Za-z.]", "", raw).rstrip(".").lower()
+        # Skip only known abbreviations ("e.g.") and single-LETTER initials ("J." in
+        # "J. Smith"). A word ending in a digit ("unit 74455.") or any normal word is
+        # a real sentence end — don't treat it as an initial just because it has no letters.
+        if tok in _ABBR or (len(raw) == 1 and raw.isalpha()):
+            continue
+        return t[:m.end()]  # first complete sentence, in full — never truncated
+    # No sentence terminator anywhere: clip the run-on at a word boundary.
+    if len(t) > max_chars:
+        return t[:max_chars].rsplit(" ", 1)[0].rstrip(",;:(") + "\N{HORIZONTAL ELLIPSIS}"
+    return t
 
 
 def first_alias_str(aliases, primary_name, cap=4):

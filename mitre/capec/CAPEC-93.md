@@ -13,7 +13,7 @@ This attack targets the log files of the target host. The attacker injects, mani
 
 - [CWE-117 — Improper Output Neutralization for Logs](https://cwe.mitre.org/data/definitions/117.html) — The product constructs a log message from external input, but it does not neutralize or incorrectly neutralizes special elements when the message is written to a log file.
 - [CWE-75 — Failure to Sanitize Special Elements into a Different Plane (Special Element Injection)](https://cwe.mitre.org/data/definitions/75.html) — The product does not adequately filter user-controlled input for special elements with control implications.
-- [CWE-150 — Improper Neutralization of Escape, Meta, or Control Sequences](https://cwe.mitre.org/data/definitions/150.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as escape, meta, or control character sequences when they are sent…
+- [CWE-150 — Improper Neutralization of Escape, Meta, or Control Sequences](https://cwe.mitre.org/data/definitions/150.html) — The product receives input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could be interpreted as escape, meta, or control character sequences when they are sent to a downstream component.
 
 ## Prerequisites
 

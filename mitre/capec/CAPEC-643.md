@@ -11,7 +11,7 @@ An adversary discovers connections between systems by exploiting the target syst
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1135 — Network Share Discovery](/mitre/techniques/T1135.md) — Adversaries may look for folders and drives shared on remote systems as a means of identifying sources of information to gather as a precursor for Collection and to identify potential systems of interest for Lateral…
+- [T1135 — Network Share Discovery](/mitre/techniques/T1135.md) — Adversaries may look for folders and drives shared on remote systems as a means of identifying sources of information to gather as a precursor for Collection and to identify potential systems of interest for Lateral Movement.
 
 ## Related CWE (2)
 

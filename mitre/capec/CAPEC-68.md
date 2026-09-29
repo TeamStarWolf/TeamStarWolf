@@ -16,7 +16,7 @@ Many languages use code signing facilities to vouch for code's identity and to t
 ## Related CWE (3)
 
 - [CWE-325 — Missing Cryptographic Step](https://cwe.mitre.org/data/definitions/325.html) — The product does not implement a required step in a cryptographic algorithm, resulting in weaker encryption than advertised by the algorithm.
-- [CWE-328 — Use of Weak Hash](https://cwe.mitre.org/data/definitions/328.html) — The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack)…
+- [CWE-328 — Use of Weak Hash](https://cwe.mitre.org/data/definitions/328.html) — The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (2nd preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack).
 - [CWE-1326 — Missing Immutable Root of Trust in Hardware](https://cwe.mitre.org/data/definitions/1326.html) — A missing immutable root of trust in the hardware results in the ability to bypass secure boot or execute untrusted or adversarial boot code.
 
 ## Prerequisites

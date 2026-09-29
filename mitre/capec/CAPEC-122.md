@@ -17,7 +17,7 @@ An adversary is able to exploit features of the target that should be reserved f
 
 - [CWE-269 — Improper Privilege Management](https://cwe.mitre.org/data/definitions/269.html) — The product does not properly assign, modify, track, or check privileges for an actor, creating an unintended sphere of control for that actor.
 - [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html) — The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
-- [CWE-1317 — Improper Access Control in Fabric Bridge](https://cwe.mitre.org/data/definitions/1317.html) — The product uses a fabric bridge for transactions between two Intellectual Property (IP) blocks, but the bridge does not properly perform the expected privilege, identity, or other access control checks between those IP…
+- [CWE-1317 — Improper Access Control in Fabric Bridge](https://cwe.mitre.org/data/definitions/1317.html) — The product uses a fabric bridge for transactions between two Intellectual Property (IP) blocks, but the bridge does not properly perform the expected privilege, identity, or other access control checks between those IP blocks.
 
 ## Prerequisites
 

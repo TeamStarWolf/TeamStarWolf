@@ -10,7 +10,7 @@ Disk Partitioning is the process of dividing a disk into multiple distinct secti
 ## ATT&CK techniques countered (2)
 
 - [T1561.001 — Disk Content Wipe](/mitre/techniques/T1561-001.md) — creates. Adversaries may erase the contents of storage devices on specific systems or in large numbers in a network to interrupt availability to system and network resources.
-- [T1561.002 — Disk Structure Wipe](/mitre/techniques/T1561-002.md) — creates. Adversaries may corrupt or wipe the disk data structures on a hard drive necessary to boot a system; targeting specific critical systems or in large numbers in a network to interrupt availability to system and network…
+- [T1561.002 — Disk Structure Wipe](/mitre/techniques/T1561-002.md) — creates. Adversaries may corrupt or wipe the disk data structures on a hard drive necessary to boot a system; targeting specific critical systems or in large numbers in a network to interrupt availability to system and network resources.
 
 ---
 

@@ -7,7 +7,7 @@
 
 Restoring a file for an entity to access.
 
-## ATT&CK techniques countered (107)
+## ATT&CK techniques countered (109)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — restores
 - [T0853](https://attack.mitre.org/techniques/T0853) — restores
@@ -116,6 +116,8 @@ Restoring a file for an entity to access.
 - [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — restores. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — restores. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — restores. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md) — restores. Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — restores. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

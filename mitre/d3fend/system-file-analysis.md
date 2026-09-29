@@ -7,7 +7,7 @@
 
 Monitoring system files such as authentication databases, configuration files, system logs, and system executables for modification or tampering.
 
-## ATT&CK techniques countered (10)
+## ATT&CK techniques countered (11)
 
 - [T0888](https://attack.mitre.org/techniques/T0888) — analyzes
 - [T1003.007 — Proc Filesystem](/mitre/techniques/T1003-007.md) — analyzes. Adversaries may gather credentials from the proc filesystem or `/proc`.
@@ -19,6 +19,7 @@ Monitoring system files such as authentication databases, configuration files, s
 - [T1548.003 — Sudo and Sudo Caching](/mitre/techniques/T1548-003.md) — analyzes. Adversaries may perform sudo caching and/or use the sudoers file to elevate privileges.
 - [T1556.003 — Pluggable Authentication Modules](/mitre/techniques/T1556-003.md) — analyzes. Adversaries may modify pluggable authentication modules (PAM) to access user credentials or enable otherwise unwarranted access to accounts.
 - [T1574.006 — Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md) — analyzes. Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md) — analyzes. Adversaries may clear system logs to hide evidence of an intrusion.
 
 ---
 

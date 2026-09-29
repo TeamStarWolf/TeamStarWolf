@@ -9,7 +9,7 @@ An adversary with access to file system resources, either directly or via applic
 
 ## Related CWE (1)
 
-- [CWE-36 — Absolute Path Traversal](https://cwe.mitre.org/data/definitions/36.html) — The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is…
+- [CWE-36 — Absolute Path Traversal](https://cwe.mitre.org/data/definitions/36.html) — The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as /abs/path that can resolve to a location that is outside of that directory.
 
 ## Prerequisites
 

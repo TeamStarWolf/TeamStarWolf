@@ -15,7 +15,7 @@ An attacker leverages the security functionality of the system aimed at thwartin
 
 ## Related CWE (1)
 
-- [CWE-645 — Overly Restrictive Account Lockout Mechanism](https://cwe.mitre.org/data/definitions/645.html) — The product contains an account lockout protection mechanism, but the mechanism is too restrictive and can be triggered too easily, which allows attackers to deny service to legitimate users by causing their accounts to…
+- [CWE-645 — Overly Restrictive Account Lockout Mechanism](https://cwe.mitre.org/data/definitions/645.html) — The product contains an account lockout protection mechanism, but the mechanism is too restrictive and can be triggered too easily, which allows attackers to deny service to legitimate users by causing their accounts to be locked out.
 
 ## Prerequisites
 

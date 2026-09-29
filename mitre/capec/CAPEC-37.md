@@ -16,7 +16,7 @@ An attacker examines a target system to find sensitive data that has been embedd
 
 ## Related CWE (14)
 
-- [CWE-226 — Sensitive Information in Resource Not Removed Before Reuse](https://cwe.mitre.org/data/definitions/226.html) — The product releases a resource such as memory or a file so that it can be made available for reuse, but it does not clear or zeroize the information contained in the resource before the product performs a critical…
+- [CWE-226 — Sensitive Information in Resource Not Removed Before Reuse](https://cwe.mitre.org/data/definitions/226.html) — The product releases a resource such as memory or a file so that it can be made available for reuse, but it does not clear or zeroize the information contained in the resource before the product performs a critical state transition or makes the resource available for reuse by other entities.
 - [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
 - [CWE-525 — Use of Web Browser Cache Containing Sensitive Information](https://cwe.mitre.org/data/definitions/525.html) — The web application does not use an appropriate caching policy that specifies the extent to which each web page and associated form fields should be cached.
 - [CWE-312 — Cleartext Storage of Sensitive Information](https://cwe.mitre.org/data/definitions/312.html) — The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere.

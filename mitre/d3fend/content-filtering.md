@@ -7,7 +7,7 @@
 
 Content Filtering techniques aid in the process of analyzing an input file for malicious or erroneous content and outputting a sanitized version.
 
-## ATT&CK techniques countered (107)
+## ATT&CK techniques countered (109)
 
 - [T0851](https://attack.mitre.org/techniques/T0851) — filters
 - [T0853](https://attack.mitre.org/techniques/T0853) — filters
@@ -116,6 +116,8 @@ Content Filtering techniques aid in the process of analyzing an input file for m
 - [T1574.009 — Path Interception by Unquoted Path](/mitre/techniques/T1574-009.md) — filters. Adversaries may execute their own malicious payloads by hijacking vulnerable file path references.
 - [T1574.012 — COR_PROFILER](/mitre/techniques/T1574-012.md) — filters. Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the.NET CLR.
 - [T1649 — Steal or Forge Authentication Certificates](/mitre/techniques/T1649.md) — filters. Adversaries may steal or forge certificates used for authentication to access remote systems or resources.
+- [T1685.006 — Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md) — filters. Adversaries may clear system logs to hide evidence of an intrusion.
+- [T1690 — Prevent Command History Logging](/mitre/techniques/T1690.md) — filters. Adversaries may impair command history logging to hide commands they run on a compromised system.
 
 ---
 

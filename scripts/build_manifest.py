@@ -92,11 +92,15 @@ def _source_for(rel: str):
 def _file_entry(path: str, rel: str):
     with open(path, "rb") as f:
         raw = f.read()
-    sha = hashlib.sha256(raw).hexdigest()
-    entry = {"path": rel, "bytes": len(raw), "sha256": sha}
+    # Hash/size the LF-normalized content so the manifest is identical on every
+    # platform (git stores text as LF; a Windows working tree checks out CRLF).
+    # These are all UTF-8 text datasets, so CRLF->LF normalization is lossless.
+    norm = raw.replace(b"\r\n", b"\n")
+    sha = hashlib.sha256(norm).hexdigest()
+    entry = {"path": rel, "bytes": len(norm), "sha256": sha}
     if rel.endswith(".jsonl"):
-        text = raw.decode("utf-8")
-        lines = [l for l in text.replace("\r\n", "\n").split("\n") if l.strip()]
+        text = norm.decode("utf-8")
+        lines = [l for l in text.split("\n") if l.strip()]
         entry["rows"] = len(lines)
         # data-declared version/source, if the rows carry one (informational)
         try:

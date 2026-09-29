@@ -58,3 +58,4 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 Desktop.ini
+__pycache__/

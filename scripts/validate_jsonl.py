@@ -99,6 +99,28 @@ COMPOSITE_KEYS = {
     "data/attack/detection_strategies.jsonl": ("strategy_id", "technique_id"),
 }
 
+# Layer 4 — edge contract (see data/EDGES.md). Each edge dataset asserts a
+# relationship from a source id to a target id; every row must carry a non-empty
+# source and a non-empty target (adjacency rows: a non-empty target list whose
+# items carry the declared id key). The normalized (source_type, target_type,
+# edge_type) interpretation is documented in data/EDGES.md; here we enforce the
+# structural half of that contract so a consumer can join these edges reliably.
+EDGES = {
+    "data/control_to_technique.jsonl":             {"source": "nist_control",      "target": "attack_technique"},
+    "data/vendor_to_control.jsonl":                {"source": "vendor_normalized", "target": "nist_control"},
+    "data/vendor_to_technique.jsonl":              {"source": "vendor_normalized", "target": "attack_technique"},
+    "data/attack/mitigation_to_technique.jsonl":   {"source": "mitigation_id",     "target": "technique_id"},
+    "data/attack/software_to_technique.jsonl":     {"source": "software_id",       "target": "technique_id"},
+    "data/attack/group_to_technique.jsonl":        {"source": "group_id",          "target": "technique_id"},
+    "data/attack/ics/group_to_technique.jsonl":    {"source": "group_id",          "target": "technique_id"},
+    "data/attack/mobile/group_to_technique.jsonl": {"source": "group_id",          "target": "technique_id"},
+    "data/attack/technique_to_d3fend.jsonl":          {"source": "technique_id", "target": "d3fend_technique"},
+    "data/attack/technique_to_d3fend_internal.jsonl": {"source": "technique_id", "target": "d3fend_technique"},
+    "data/attack/superseded_by.jsonl":             {"source": "old_id", "target": "new_id", "target_nullable": True},
+    "data/engage/attack_to_engage.jsonl":          {"source": "technique_id", "target": "engage_activities", "target_list_key": "id"},
+    "data/attack/technique_to_car.jsonl":          {"source": "technique_id", "target": "car", "target_list_key": "car_id"},
+}
+
 
 def validate_file(rel: str):
     """Return (line_count, errors, checks) for one JSONL file."""
@@ -111,6 +133,7 @@ def validate_file(rel: str):
     schema = SCHEMAS.get(rel)
     pk = PRIMARY_KEYS.get(rel)
     ck = COMPOSITE_KEYS.get(rel)
+    edge = EDGES.get(rel)
     seen_ids = {}
     checks = ["json-object"]
     if pk:
@@ -119,6 +142,8 @@ def validate_file(rel: str):
         checks.append("unique:(" + "+".join(ck) + ")")
     if schema:
         checks.append("field-schema")
+    if edge:
+        checks.append("edge-contract")
 
     with open(p, encoding="utf-8") as f:
         for lineno, raw in enumerate(f, start=1):
@@ -169,6 +194,27 @@ def validate_file(rel: str):
                     if not (isinstance(val, str) and val.startswith("T") and len(val) >= 5):
                         errors.append(f"  Line {lineno}: 'attack_technique' = '{val}' doesn't look like an ATT&CK technique ID")
 
+            # Layer 4 — edge contract (source/target presence; see data/EDGES.md)
+            if edge:
+                src = record.get(edge["source"])
+                if src in (None, ""):
+                    errors.append(f"  Line {lineno}: edge missing/empty source '{edge['source']}'")
+                tkey = edge.get("target_list_key")
+                if edge["target"] not in record:
+                    errors.append(f"  Line {lineno}: edge missing target field '{edge['target']}'")
+                else:
+                    tgt = record[edge["target"]]
+                    if tkey:
+                        if not isinstance(tgt, list) or not tgt:
+                            errors.append(f"  Line {lineno}: edge target '{edge['target']}' must be a non-empty list")
+                        elif any(not isinstance(it, dict) or it.get(tkey) in (None, "") for it in tgt):
+                            errors.append(f"  Line {lineno}: edge target list item missing '{tkey}'")
+                    elif tgt is None:
+                        if not edge.get("target_nullable"):
+                            errors.append(f"  Line {lineno}: edge empty target '{edge['target']}'")
+                    elif tgt == "":
+                        errors.append(f"  Line {lineno}: edge empty target '{edge['target']}'")
+
     return line_count, errors, checks
 
 
@@ -185,7 +231,8 @@ def main():
         line_count, errors, checks = validate_file(rel)
         total_lines += line_count
         if (rel not in PRIMARY_KEYS and rel not in SCHEMAS
-                and rel not in COMPOSITE_KEYS and "_to_" not in rel):
+                and rel not in COMPOSITE_KEYS and rel not in EDGES
+                and "_to_" not in rel):
             no_pk.append(rel)
         if errors:
             print(f"FAIL  {rel}  ({len(errors)} error(s) in {line_count} records)")

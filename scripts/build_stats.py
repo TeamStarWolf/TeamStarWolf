@@ -43,9 +43,15 @@ def compute():
         # small number of superseded records on purpose (no revoked flag in-file), so
         # technique_total (file) legitimately exceeds MITRE-active. See docs footnote.
         "mitre_active_enterprise_techniques_ref": 697,
-        "groups": _count("data/attack/groups.jsonl"),
-        "software": _count("data/attack/software.jsonl"),
-        "campaigns": _count("data/attack/campaigns.jsonl"),
+        # Authoritative entity counts come from the *_profiles files (the complete,
+        # v19.2-current sets). The base groups/software/campaigns.jsonl files are a
+        # stale subset (e.g. groups.jsonl = 168, missing 7 current groups), so they
+        # must NOT drive the headlines. A small number of team-authored/labeled
+        # entities (e.g. group G1056) are included pending the owner's definitive
+        # fictional-entity list; see the "Counts" note in README.md.
+        "groups": _count("data/attack/group_profiles.jsonl"),
+        "software": _count("data/attack/software_profiles.jsonl"),
+        "campaigns": _count("data/attack/campaign_profiles.jsonl"),
         "mitigations": _count("data/attack/mitigations.jsonl"),
         "data_components": _count("data/attack/data_components.jsonl"),
         # Count DISTINCT strategies, not rows: 15 strategies are listed against
@@ -71,11 +77,15 @@ def compute():
     return {k: v for k, v in stats.items() if v is not None}
 
 # (regex on the doc, group(1) = the number)  ->  stats key it must equal
+# technique_total (714) = the technique RECORDS/pages the library publishes; 697 are
+# active per MITRE v19.2 (17 superseded records retained for lineage — see docs footnote).
 CHECKS = [
-    (r"([\d,]+)\s+Enterprise techniques", "technique_total"),
-    (r"([\d,]+)\s+(?:adversary\s+)?groups", "groups"),
-    (r"([\d,]+)\s+malware", "software"),
-    (r"([\d,]+)\s+strategies", "detection_strategies"),
+    # Skip relational subset claims like "the 426 ATT&CK techniques they counter"
+    # (a cross-reference count, not the technique total) via the trailing lookahead.
+    (r"([\d,]+)\s+(?:MITRE\s+)?ATT&CK\s+(?:Enterprise\s+)?techniques\b(?! they counter)", "technique_total"),
+    (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?(?:adversary\s+)?groups\b", "groups"),
+    (r"([\d,]+)\s+(?:MITRE ATT&CK\s+)?malware", "software"),
+    (r"([\d,]+)\s+(?:MITRE\s+)?detection strategies", "detection_strategies"),
     (r"([\d,]+)\s+analytics", "analytics"),
     (r"([\d,]+)\s+deception activities", "engage_activities"),
     (r"([\d,]+)\s+mappings? to ATT", "engage_mappings"),

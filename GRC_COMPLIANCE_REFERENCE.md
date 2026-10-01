@@ -663,7 +663,7 @@ build/
 | `cis_server_l1` | CIS Benchmark Level 1 (Server) | RHEL, Ubuntu | Less disruptive |
 | `stig` | DISA STIG | RHEL, Ubuntu, Windows | DoD requirement |
 | `stig_gui` | DISA STIG with GUI | RHEL | For workstations |
-| `pci-dss` | PCI DSS v3.2.1/v4.0 | RHEL, Ubuntu | Payment card requirements |
+| `pci-dss` | PCI DSS v4.0.1 | RHEL, Ubuntu | Payment card requirements |
 | `hipaa` | HIPAA Security Rule | RHEL | Healthcare safeguards |
 | `e8` | Essential Eight | RHEL, Ubuntu | Australian ASD framework |
 | `ospp` | OSPP / Common Criteria | RHEL | Evaluated configuration |
@@ -907,7 +907,7 @@ CIS RAM is a methodology for conducting risk assessments aligned to CIS Controls
 
 ### 6.1 Overview
 
-PCI DSS (Payment Card Industry Data Security Standard) v4.0 was released March 2022 by the PCI Security Standards Council. Organizations had until March 2024 to adopt v4.0 (v3.2.1 retired). New "future-dated" requirements in v4.0 are mandatory as of March 31, 2025.
+PCI DSS (Payment Card Industry Data Security Standard) v4.0 was released March 2022 by the PCI Security Standards Council. Organizations had until March 2024 to adopt v4.0 (v3.2.1 retired). The limited-revision v4.0.1 was published June 2024; v4.0 was then retired on December 31, 2024, making v4.0.1 the only active version of the standard. New "future-dated" requirements introduced in v4.x became mandatory as of March 31, 2025.
 
 **Governing Body:** PCI Security Standards Council (PCI SSC)
 **Applies to:** Any entity that stores, processes, or transmits cardholder data (CHD) or sensitive authentication data (SAD)
@@ -1054,7 +1054,9 @@ Daily log review:
 |------|-----------|
 | March 2022 | PCI DSS v4.0 published |
 | March 2024 | v3.2.1 retired; v4.0 mandatory for all assessments |
-| March 31, 2025 | All "future-dated" v4.0 requirements become mandatory |
+| June 2024 | PCI DSS v4.0.1 published (limited revision; no new/removed requirements) |
+| December 31, 2024 | v4.0 retired; v4.0.1 becomes the sole active version |
+| March 31, 2025 | All "future-dated" v4.x requirements become mandatory |
 
 ---
 

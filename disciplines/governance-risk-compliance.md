@@ -153,7 +153,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 | ISO 27001:2022 | International standard | Yes (third-party audit) | Global organizations seeking trust/compliance | 93 controls in Annex A, 4 new for cloud/DevSecOps |
 | SOC 2 Type II | AICPA audit | Yes (CPA firm) | SaaS, cloud providers | 5 Trust Services Criteria (Security mandatory + Privacy/Availability/Confidentiality/Processing Integrity) |
 | PCI DSS v4.0 | Payment standard | Yes (QSA) | Any entity storing/processing card data | 12 requirements, 64 objectives |
-| CMMC 2.0 | US DoD standard | Yes (C3PAO for L2/L3) | Defense contractors (DIB) | L1:17 practices, L2:110 (NIST 800-171), L3:+24 (NIST 800-172) |
+| CMMC 2.0 | US DoD standard | Yes (C3PAO for L2/L3) | Defense contractors (DIB) | L1:15 requirements (FAR 52.204-21; formerly 17), L2:110 (NIST 800-171), L3:+24 (NIST 800-172) |
 | HIPAA Security Rule | US law | No certification, but auditable | Healthcare covered entities and BAs | Administrative, Physical, Technical safeguards |
 | GDPR | EU law | No certification, but fines | Any org processing EU residents' data | Data minimization, consent, DSAR, 72hr breach notification |
 

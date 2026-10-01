@@ -156,7 +156,7 @@ President Biden's Executive Order on Improving the Nation's Cybersecurity (May 2
 
 ### EU Cyber Resilience Act (CRA) — Article 13 Requirements
 
-The EU CRA (effective 2024, compliance required by 2027) requires manufacturers of products with digital elements to:
+The EU CRA (in force since 10 December 2024) phases in its obligations: the Article 14 vulnerability/incident reporting duties (below) apply from 11 September 2026, and the main manufacturer obligations apply in full from 11 December 2027. It requires manufacturers of products with digital elements to:
 - Generate and maintain SBOM for the lifetime of the product plus 10 years
 - Provide SBOM to market surveillance authorities on request
 - Publish VEX (Vulnerability Exploitability eXchange) documents when vulnerabilities are discovered

@@ -91,9 +91,10 @@
 {"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1598.003", "technique_name": "Spearphishing Link"}
 {"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1598.004", "technique_name": "Spearphishing Voice"}
 {"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1621", "technique_name": "Multi-Factor Authentication Request Generation"}
-{"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1656", "technique_name": "Impersonation"}
 {"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1657", "technique_name": "Financial Theft"}
 {"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1667", "technique_name": "Email Bombing"}
+{"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1684", "technique_name": "Social Engineering"}
+{"mitigation_id": "M1017", "mitigation_name": "User Training", "technique_id": "T1684.001", "technique_name": "Impersonation"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1006", "technique_name": "Direct Volume Access"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1020.001", "technique_name": "Traffic Duplication"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1021", "technique_name": "Remote Services"}
@@ -175,15 +176,6 @@
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1556", "technique_name": "Modify Authentication Process"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1556.006", "technique_name": "Multi-Factor Authentication"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1556.009", "technique_name": "Conditional Access Policies"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.001", "technique_name": "Disable or Modify Tools"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.002", "technique_name": "Disable Windows Event Logging"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.004", "technique_name": "Disable or Modify System Firewall"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.006", "technique_name": "Indicator Blocking"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.007", "technique_name": "Disable or Modify Cloud Firewall"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.008", "technique_name": "Disable or Modify Cloud Logs"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.012", "technique_name": "Disable or Modify Linux Audit System"}
-{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1562.013", "technique_name": "Disable or Modify Network Device Firewall"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1563", "technique_name": "Remote Service Session Hijacking"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1563.002", "technique_name": "RDP Hijacking"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1566.001", "technique_name": "Spearphishing Attachment"}
@@ -214,11 +206,19 @@
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1666", "technique_name": "Modify Cloud Resource Hierarchy"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1675", "technique_name": "ESXi Administration Command"}
 {"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1677", "technique_name": "Poisoned Pipeline Execution"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1685.002", "technique_name": "Disable or Modify Cloud Log"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1685.004", "technique_name": "Disable or Modify Linux Audit System Log"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1686.001", "technique_name": "Cloud Firewall"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1686.002", "technique_name": "Network Device Firewall"}
+{"mitigation_id": "M1018", "mitigation_name": "User Account Management", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
 {"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1068", "technique_name": "Exploitation for Privilege Escalation"}
 {"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1210", "technique_name": "Exploitation of Remote Services"}
-{"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1211", "technique_name": "Exploitation for Defense Evasion"}
+{"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1211", "technique_name": "Exploitation for Stealth"}
 {"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1212", "technique_name": "Exploitation for Credential Access"}
-{"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1656", "technique_name": "Impersonation"}
+{"mitigation_id": "M1019", "mitigation_name": "Threat Intelligence Program", "technique_id": "T1684.001", "technique_name": "Impersonation"}
 {"mitigation_id": "M1020", "mitigation_name": "SSL/TLS Inspection", "technique_id": "T1090", "technique_name": "Proxy"}
 {"mitigation_id": "M1020", "mitigation_name": "SSL/TLS Inspection", "technique_id": "T1090.004", "technique_name": "Domain Fronting"}
 {"mitigation_id": "M1020", "mitigation_name": "SSL/TLS Inspection", "technique_id": "T1573", "technique_name": "Encrypted Channel"}
@@ -267,8 +267,6 @@
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1053.006", "technique_name": "Systemd Timers"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1055.009", "technique_name": "Proc Memory"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1070", "technique_name": "Indicator Removal"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1070.001", "technique_name": "Clear Windows Event Logs"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1070.002", "technique_name": "Clear Linux or Mac System Logs"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1070.003", "technique_name": "Clear Command History"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1070.008", "technique_name": "Clear Mailbox Data"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1070.009", "technique_name": "Clear Persistence"}
@@ -277,8 +275,8 @@
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1098.004", "technique_name": "SSH Authorized Keys"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1218.002", "technique_name": "Control Panel"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1222", "technique_name": "File and Directory Permissions Modification"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1222.001", "technique_name": "Windows File and Directory Permissions Modification"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1222.002", "technique_name": "Linux and Mac File and Directory Permissions Modification"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1222.001", "technique_name": "Windows Permissions"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1222.002", "technique_name": "Linux and Mac Permissions"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1489", "technique_name": "Service Stop"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1530", "technique_name": "Data from Cloud Storage"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1543", "technique_name": "Create or Modify System Process"}
@@ -297,11 +295,6 @@
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1552.004", "technique_name": "Private Keys"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1553.003", "technique_name": "SIP and Trust Provider Hijacking"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1556", "technique_name": "Modify Authentication Process"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1562.001", "technique_name": "Disable or Modify Tools"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1562.002", "technique_name": "Disable Windows Event Logging"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1562.004", "technique_name": "Disable or Modify System Firewall"}
-{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1562.006", "technique_name": "Indicator Blocking"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1563.001", "technique_name": "SSH Hijacking"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1564.004", "technique_name": "NTFS File Attributes"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1565", "technique_name": "Data Manipulation"}
@@ -315,6 +308,12 @@
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1574.008", "technique_name": "Path Interception by Search Order Hijacking"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1574.009", "technique_name": "Path Interception by Unquoted Path"}
 {"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1574.014", "technique_name": "AppDomainManager"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"mitigation_id": "M1022", "mitigation_name": "Restrict File and Directory Permissions", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1037", "technique_name": "Boot or Logon Initialization Scripts"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1037.001", "technique_name": "Logon Script (Windows)"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1070.007", "technique_name": "Clear Network Connection History and Configurations"}
@@ -328,13 +327,13 @@
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1553.006", "technique_name": "Code Signing Policy Modification"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1556", "technique_name": "Modify Authentication Process"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1556.008", "technique_name": "Network Provider DLL"}
-{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1562.001", "technique_name": "Disable or Modify Tools"}
-{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1562.002", "technique_name": "Disable Windows Event Logging"}
-{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1562.004", "technique_name": "Disable or Modify System Firewall"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1574", "technique_name": "Hijack Execution Flow"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1574.011", "technique_name": "Services Registry Permissions Weakness"}
 {"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1574.012", "technique_name": "COR_PROFILER"}
+{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log"}
+{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"mitigation_id": "M1024", "mitigation_name": "Restrict Registry Permissions", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
 {"mitigation_id": "M1025", "mitigation_name": "Privileged Process Integrity", "technique_id": "T1003", "technique_name": "OS Credential Dumping"}
 {"mitigation_id": "M1025", "mitigation_name": "Privileged Process Integrity", "technique_id": "T1003.001", "technique_name": "LSASS Memory"}
 {"mitigation_id": "M1025", "mitigation_name": "Privileged Process Integrity", "technique_id": "T1547.002", "technique_name": "Authentication Package"}
@@ -392,8 +391,8 @@
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1218", "technique_name": "System Binary Proxy Execution"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1218.007", "technique_name": "Msiexec"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1222", "technique_name": "File and Directory Permissions Modification"}
-{"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1222.001", "technique_name": "Windows File and Directory Permissions Modification"}
-{"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1222.002", "technique_name": "Linux and Mac File and Directory Permissions Modification"}
+{"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1222.001", "technique_name": "Windows Permissions"}
+{"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1222.002", "technique_name": "Linux and Mac Permissions"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1484", "technique_name": "Domain or Tenant Policy Modification"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1484.002", "technique_name": "Trust Modification"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1495", "technique_name": "Firmware Corruption"}
@@ -437,7 +436,6 @@
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1558.003", "technique_name": "Kerberoasting"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1559", "technique_name": "Inter-Process Communication"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1559.001", "technique_name": "Component Object Model"}
-{"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1562.009", "technique_name": "Safe Mode Boot"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1563", "technique_name": "Remote Service Session Hijacking"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1563.001", "technique_name": "SSH Hijacking"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1563.002", "technique_name": "RDP Hijacking"}
@@ -454,6 +452,7 @@
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1611", "technique_name": "Escape to Host"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1612", "technique_name": "Build Image on Host"}
 {"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1651", "technique_name": "Cloud Administration Command"}
+{"mitigation_id": "M1026", "mitigation_name": "Privileged Account Management", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
 {"mitigation_id": "M1027", "mitigation_name": "Password Policies", "technique_id": "T1003", "technique_name": "OS Credential Dumping"}
 {"mitigation_id": "M1027", "mitigation_name": "Password Policies", "technique_id": "T1003.001", "technique_name": "LSASS Memory"}
 {"mitigation_id": "M1027", "mitigation_name": "Password Policies", "technique_id": "T1003.002", "technique_name": "Security Account Manager"}
@@ -536,13 +535,11 @@
 {"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1556", "technique_name": "Modify Authentication Process"}
 {"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1556.002", "technique_name": "Password Filter DLL"}
 {"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1556.008", "technique_name": "Network Provider DLL"}
-{"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1562.003", "technique_name": "Impair Command History Logging"}
 {"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1563.002", "technique_name": "RDP Hijacking"}
 {"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1564.002", "technique_name": "Hidden Users"}
 {"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1574.006", "technique_name": "Dynamic Linker Hijacking"}
+{"mitigation_id": "M1028", "mitigation_name": "Operating System Configuration", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1070", "technique_name": "Indicator Removal"}
-{"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1070.001", "technique_name": "Clear Windows Event Logs"}
-{"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1070.002", "technique_name": "Clear Linux or Mac System Logs"}
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1070.003", "technique_name": "Clear Command History"}
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1070.007", "technique_name": "Clear Network Connection History and Configurations"}
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1070.008", "technique_name": "Clear Mailbox Data"}
@@ -551,6 +548,8 @@
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1119", "technique_name": "Automated Collection"}
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1565", "technique_name": "Data Manipulation"}
 {"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1565.001", "technique_name": "Stored Data Manipulation"}
+{"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"mitigation_id": "M1029", "mitigation_name": "Remote Data Storage", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1021.001", "technique_name": "Remote Desktop Protocol"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1021.003", "technique_name": "Distributed Component Object Model"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1021.006", "technique_name": "Windows Remote Management"}
@@ -575,7 +574,7 @@
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1489", "technique_name": "Service Stop"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1552.007", "technique_name": "Container API"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1557", "technique_name": "Adversary-in-the-Middle"}
-{"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1557.001", "technique_name": "LLMNR/NBT-NS Poisoning and SMB Relay"}
+{"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1557.001", "technique_name": "Name Resolution Poisoning and SMB Relay"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1563", "technique_name": "Remote Service Session Hijacking"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1563.002", "technique_name": "RDP Hijacking"}
 {"mitigation_id": "M1030", "mitigation_name": "Network Segmentation", "technique_id": "T1565", "technique_name": "Data Manipulation"}
@@ -630,7 +629,7 @@
 {"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1542.004", "technique_name": "ROMMONkit"}
 {"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1542.005", "technique_name": "TFTP Boot"}
 {"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1557", "technique_name": "Adversary-in-the-Middle"}
-{"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1557.001", "technique_name": "LLMNR/NBT-NS Poisoning and SMB Relay"}
+{"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1557.001", "technique_name": "Name Resolution Poisoning and SMB Relay"}
 {"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1557.002", "technique_name": "ARP Cache Poisoning"}
 {"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1557.003", "technique_name": "DHCP Spoofing"}
 {"mitigation_id": "M1031", "mitigation_name": "Network Intrusion Prevention", "technique_id": "T1557.004", "technique_name": "Evil Twin"}
@@ -748,6 +747,7 @@
 {"mitigation_id": "M1036", "mitigation_name": "Account Use Policies", "technique_id": "T1550.001", "technique_name": "Application Access Token"}
 {"mitigation_id": "M1036", "mitigation_name": "Account Use Policies", "technique_id": "T1621", "technique_name": "Multi-Factor Authentication Request Generation"}
 {"mitigation_id": "M1036", "mitigation_name": "Account Use Policies", "technique_id": "T1648", "technique_name": "Serverless Execution"}
+{"mitigation_id": "M1036", "mitigation_name": "Account Use Policies", "technique_id": "T1684", "technique_name": "Social Engineering"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1021.002", "technique_name": "SMB/Windows Admin Shares"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1021.005", "technique_name": "VNC"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1048", "technique_name": "Exfiltration Over Alternative Protocol"}
@@ -787,7 +787,7 @@
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1552", "technique_name": "Unsecured Credentials"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1552.005", "technique_name": "Cloud Instance Metadata API"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1557", "technique_name": "Adversary-in-the-Middle"}
-{"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1557.001", "technique_name": "LLMNR/NBT-NS Poisoning and SMB Relay"}
+{"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1557.001", "technique_name": "Name Resolution Poisoning and SMB Relay"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1557.002", "technique_name": "ARP Cache Poisoning"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1557.003", "technique_name": "DHCP Spoofing"}
 {"mitigation_id": "M1037", "mitigation_name": "Filter Network Traffic", "technique_id": "T1570", "technique_name": "Lateral Tool Transfer"}
@@ -862,9 +862,6 @@
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1553.001", "technique_name": "Gatekeeper Bypass"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1553.003", "technique_name": "SIP and Trust Provider Hijacking"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1553.005", "technique_name": "Mark-of-the-Web Bypass"}
-{"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1562.001", "technique_name": "Disable or Modify Tools"}
-{"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1562.011", "technique_name": "Spoof Security Alerting"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1564.003", "technique_name": "Hidden Window"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1564.006", "technique_name": "Run Virtual Instance"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1574", "technique_name": "Hijack Execution Flow"}
@@ -877,8 +874,10 @@
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1609", "technique_name": "Container Administration Command"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1611", "technique_name": "Escape to Host"}
 {"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1674", "technique_name": "Input Injection"}
+{"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1038", "mitigation_name": "Execution Prevention", "technique_id": "T1685.003", "technique_name": "Modify or Spoof Tool UI"}
 {"mitigation_id": "M1039", "mitigation_name": "Environment Variable Permissions", "technique_id": "T1070.003", "technique_name": "Clear Command History"}
-{"mitigation_id": "M1039", "mitigation_name": "Environment Variable Permissions", "technique_id": "T1562.003", "technique_name": "Impair Command History Logging"}
+{"mitigation_id": "M1039", "mitigation_name": "Environment Variable Permissions", "technique_id": "T1690", "technique_name": "Prevent Command History Logging"}
 {"mitigation_id": "M1040", "mitigation_name": "Behavior Prevention on Endpoint", "technique_id": "T1003", "technique_name": "OS Credential Dumping"}
 {"mitigation_id": "M1040", "mitigation_name": "Behavior Prevention on Endpoint", "technique_id": "T1003.001", "technique_name": "LSASS Memory"}
 {"mitigation_id": "M1040", "mitigation_name": "Behavior Prevention on Endpoint", "technique_id": "T1006", "technique_name": "Direct Volume Access"}
@@ -935,8 +934,6 @@
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1020.001", "technique_name": "Traffic Duplication"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1040", "technique_name": "Network Sniffing"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1070", "technique_name": "Indicator Removal"}
-{"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1070.001", "technique_name": "Clear Windows Event Logs"}
-{"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1070.002", "technique_name": "Clear Linux or Mac System Logs"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1114", "technique_name": "Email Collection"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1114.001", "technique_name": "Local Email Collection"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1114.002", "technique_name": "Remote Email Collection"}
@@ -963,6 +960,8 @@
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1649", "technique_name": "Steal or Forge Authentication Certificates"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1659", "technique_name": "Content Injection"}
 {"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1669", "technique_name": "Wi-Fi Networks"}
+{"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1685.005", "technique_name": "Clear Windows Event Logs"}
+{"mitigation_id": "M1041", "mitigation_name": "Encrypt Sensitive Information", "technique_id": "T1685.006", "technique_name": "Clear Linux or Mac System Logs"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1011", "technique_name": "Exfiltration Over Other Network Medium"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1011.001", "technique_name": "Exfiltration Over Bluetooth"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1021", "technique_name": "Remote Services"}
@@ -1018,12 +1017,10 @@
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1553.005", "technique_name": "Mark-of-the-Web Bypass"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1555.004", "technique_name": "Windows Credential Manager"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1557", "technique_name": "Adversary-in-the-Middle"}
-{"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1557.001", "technique_name": "LLMNR/NBT-NS Poisoning and SMB Relay"}
+{"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1557.001", "technique_name": "Name Resolution Poisoning and SMB Relay"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1557.002", "technique_name": "ARP Cache Poisoning"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1559", "technique_name": "Inter-Process Communication"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1559.002", "technique_name": "Dynamic Data Exchange"}
-{"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1562.010", "technique_name": "Downgrade Attack"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1563", "technique_name": "Remote Service Session Hijacking"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1563.001", "technique_name": "SSH Hijacking"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1563.002", "technique_name": "RDP Hijacking"}
@@ -1034,6 +1031,8 @@
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1611", "technique_name": "Escape to Host"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1649", "technique_name": "Steal or Forge Authentication Certificates"}
 {"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1671", "technique_name": "Cloud Application Integration"}
+{"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1042", "mitigation_name": "Disable or Remove Feature or Program", "technique_id": "T1689", "technique_name": "Downgrade Attack"}
 {"mitigation_id": "M1043", "mitigation_name": "Credential Access Protection", "technique_id": "T1003", "technique_name": "OS Credential Dumping"}
 {"mitigation_id": "M1043", "mitigation_name": "Credential Access Protection", "technique_id": "T1003.001", "technique_name": "LSASS Memory"}
 {"mitigation_id": "M1043", "mitigation_name": "Credential Access Protection", "technique_id": "T1547.008", "technique_name": "LSASS Driver"}
@@ -1154,13 +1153,6 @@
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1558.005", "technique_name": "Ccache Files"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1560", "technique_name": "Archive Collected Data"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1560.001", "technique_name": "Archive via Utility"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562.001", "technique_name": "Disable or Modify Tools"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562.002", "technique_name": "Disable Windows Event Logging"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562.004", "technique_name": "Disable or Modify System Firewall"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562.007", "technique_name": "Disable or Modify Cloud Firewall"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562.012", "technique_name": "Disable or Modify Linux Audit System"}
-{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1562.013", "technique_name": "Disable or Modify Network Device Firewall"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1563.002", "technique_name": "RDP Hijacking"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1564", "technique_name": "Hide Artifacts"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1564.006", "technique_name": "Run Virtual Instance"}
@@ -1192,6 +1184,14 @@
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1653", "technique_name": "Power Settings"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1666", "technique_name": "Modify Cloud Resource Hierarchy"}
 {"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1671", "technique_name": "Cloud Application Integration"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1684", "technique_name": "Social Engineering"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1685.001", "technique_name": "Disable or Modify Windows Event Log"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1685.004", "technique_name": "Disable or Modify Linux Audit System Log"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1686", "technique_name": "Disable or Modify System Firewall"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1686.001", "technique_name": "Cloud Firewall"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1686.002", "technique_name": "Network Device Firewall"}
+{"mitigation_id": "M1047", "mitigation_name": "Audit", "technique_id": "T1686.003", "technique_name": "Windows Host Firewall"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1021.003", "technique_name": "Distributed Component Object Model"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1027.006", "technique_name": "HTML Smuggling"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1027.017", "technique_name": "SVG Smuggling"}
@@ -1200,7 +1200,7 @@
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1190", "technique_name": "Exploit Public-Facing Application"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1203", "technique_name": "Exploitation for Client Execution"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1210", "technique_name": "Exploitation of Remote Services"}
-{"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1211", "technique_name": "Exploitation for Defense Evasion"}
+{"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1211", "technique_name": "Exploitation for Stealth"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1212", "technique_name": "Exploitation for Credential Access"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1559", "technique_name": "Inter-Process Communication"}
 {"mitigation_id": "M1048", "mitigation_name": "Application Isolation and Sandboxing", "technique_id": "T1559.001", "technique_name": "Component Object Model"}
@@ -1235,7 +1235,7 @@
 {"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1190", "technique_name": "Exploit Public-Facing Application"}
 {"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1203", "technique_name": "Exploitation for Client Execution"}
 {"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1210", "technique_name": "Exploitation of Remote Services"}
-{"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1211", "technique_name": "Exploitation for Defense Evasion"}
+{"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1211", "technique_name": "Exploitation for Stealth"}
 {"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1212", "technique_name": "Exploitation for Credential Access"}
 {"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1218", "technique_name": "System Binary Proxy Execution"}
 {"mitigation_id": "M1050", "mitigation_name": "Exploit Protection", "technique_id": "T1218.010", "technique_name": "Regsvr32"}
@@ -1258,7 +1258,7 @@
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1195.002", "technique_name": "Compromise Software Supply Chain"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1203", "technique_name": "Exploitation for Client Execution"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1210", "technique_name": "Exploitation of Remote Services"}
-{"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1211", "technique_name": "Exploitation for Defense Evasion"}
+{"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1211", "technique_name": "Exploitation for Stealth"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1212", "technique_name": "Exploitation for Credential Access"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1495", "technique_name": "Firmware Corruption"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1539", "technique_name": "Steal Web Session Cookie"}
@@ -1276,13 +1276,13 @@
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1555", "technique_name": "Credentials from Password Stores"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1555.003", "technique_name": "Credentials from Web Browsers"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1555.005", "technique_name": "Password Managers"}
-{"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1562.013", "technique_name": "Disable or Modify Network Device Firewall"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1574", "technique_name": "Hijack Execution Flow"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1574.001", "technique_name": "DLL"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1602", "technique_name": "Data from Configuration Repository"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1602.001", "technique_name": "SNMP (MIB Dump)"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1602.002", "technique_name": "Network Device Configuration Dump"}
 {"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1611", "technique_name": "Escape to Host"}
+{"mitigation_id": "M1051", "mitigation_name": "Update Software", "technique_id": "T1686.002", "technique_name": "Network Device Firewall"}
 {"mitigation_id": "M1052", "mitigation_name": "User Account Control", "technique_id": "T1546.011", "technique_name": "Application Shimming"}
 {"mitigation_id": "M1052", "mitigation_name": "User Account Control", "technique_id": "T1548", "technique_name": "Abuse Elevation Control Mechanism"}
 {"mitigation_id": "M1052", "mitigation_name": "User Account Control", "technique_id": "T1548.002", "technique_name": "Bypass User Account Control"}
@@ -1317,10 +1317,6 @@
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1555.005", "technique_name": "Password Managers"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1559", "technique_name": "Inter-Process Communication"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1559.002", "technique_name": "Dynamic Data Exchange"}
-{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1562", "technique_name": "Impair Defenses"}
-{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1562.006", "technique_name": "Indicator Blocking"}
-{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1562.009", "technique_name": "Safe Mode Boot"}
-{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1562.010", "technique_name": "Downgrade Attack"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1566", "technique_name": "Phishing"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1566.001", "technique_name": "Spearphishing Attachment"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1566.002", "technique_name": "Spearphishing Link"}
@@ -1335,8 +1331,11 @@
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1606.001", "technique_name": "Web Cookies"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1666", "technique_name": "Modify Cloud Resource Hierarchy"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1667", "technique_name": "Email Bombing"}
-{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1672", "technique_name": "Email Spoofing"}
 {"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1677", "technique_name": "Poisoned Pipeline Execution"}
+{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1684.002", "technique_name": "Email Spoofing"}
+{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1685", "technique_name": "Disable or Modify Tools"}
+{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1688", "technique_name": "Safe Mode Boot"}
+{"mitigation_id": "M1054", "mitigation_name": "Software Configuration", "technique_id": "T1689", "technique_name": "Downgrade Attack"}
 {"mitigation_id": "M1055", "mitigation_name": "Do Not Mitigate", "technique_id": "T1480", "technique_name": "Execution Guardrails"}
 {"mitigation_id": "M1055", "mitigation_name": "Do Not Mitigate", "technique_id": "T1480.001", "technique_name": "Environmental Keying"}
 {"mitigation_id": "M1055", "mitigation_name": "Do Not Mitigate", "technique_id": "T1480.002", "technique_name": "Mutual Exclusion"}
@@ -1424,6 +1423,10 @@
 {"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1608.006", "technique_name": "SEO Poisoning"}
 {"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1650", "technique_name": "Acquire Access"}
 {"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1681", "technique_name": "Search Threat Vendor Data"}
+{"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1682", "technique_name": "Query Public AI Services"}
+{"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1683", "technique_name": "Generate Content"}
+{"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1683.001", "technique_name": "Written Content"}
+{"mitigation_id": "M1056", "mitigation_name": "Pre-compromise", "technique_id": "T1683.002", "technique_name": "Audio-Visual Content"}
 {"mitigation_id": "M1057", "mitigation_name": "Data Loss Prevention", "technique_id": "T1005", "technique_name": "Data from Local System"}
 {"mitigation_id": "M1057", "mitigation_name": "Data Loss Prevention", "technique_id": "T1020.001", "technique_name": "Traffic Duplication"}
 {"mitigation_id": "M1057", "mitigation_name": "Data Loss Prevention", "technique_id": "T1025", "technique_name": "Data from Removable Media"}

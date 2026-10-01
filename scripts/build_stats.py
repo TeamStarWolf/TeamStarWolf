@@ -44,11 +44,9 @@ def compute():
         # technique_total (file) legitimately exceeds MITRE-active. See docs footnote.
         "mitre_active_enterprise_techniques_ref": 697,
         # Authoritative entity counts come from the *_profiles files (the complete,
-        # v19.2-current sets). The base groups/software/campaigns.jsonl files are a
-        # stale subset (e.g. groups.jsonl = 168, missing 7 current groups), so they
-        # must NOT drive the headlines. A small number of team-authored/labeled
-        # entities (e.g. group G1056) are included pending the owner's definitive
-        # fictional-entity list; see the "Counts" note in README.md.
+        # v19.2-current sets). All entities are official MITRE ATT&CK v19.2 — including
+        # the S9xxx software block and group G1056 (TeamPCP), which are genuine v19.2
+        # additions (verified on attack.mitre.org), not lab/fictional entries.
         "groups": _count("data/attack/group_profiles.jsonl"),
         "software": _count("data/attack/software_profiles.jsonl"),
         "campaigns": _count("data/attack/campaign_profiles.jsonl"),

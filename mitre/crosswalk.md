@@ -271,10 +271,10 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1123](/mitre/techniques/T1123.md) Audio Capture | collection | — | 0 | 4 | 1 |
 | [T1124](/mitre/techniques/T1124.md) System Time Discovery | discovery | — | 0 | 6 | 1 |
 | [T1125](/mitre/techniques/T1125.md) Video Capture | collection | — | 0 | 5 | 1 |
-| [T1127](/mitre/techniques/T1127.md) Trusted Developer Utilities Proxy Execution | stealth | [M1021](/mitre/mitigations/M1021.md) [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) | 8 | 0 | 1 |
-| [T1127.001](/mitre/techniques/T1127-001.md) MSBuild | stealth | [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) | 5 | 15 | 0 |
-| [T1127.002](/mitre/techniques/T1127-002.md) ClickOnce | stealth | [M1021](/mitre/mitigations/M1021.md) [M1042](/mitre/mitigations/M1042.md) [M1045](/mitre/mitigations/M1045.md) | 10 | 0 | 0 |
-| [T1127.003](/mitre/techniques/T1127-003.md) JamPlus | stealth | [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) | 0 | 0 | 0 |
+| [T1127](/mitre/techniques/T1127.md) Trusted Developer Utilities Proxy Execution | stealth, execution | [M1021](/mitre/mitigations/M1021.md) [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) | 8 | 0 | 1 |
+| [T1127.001](/mitre/techniques/T1127-001.md) MSBuild | stealth, execution | [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) | 5 | 15 | 0 |
+| [T1127.002](/mitre/techniques/T1127-002.md) ClickOnce | stealth, execution | [M1021](/mitre/mitigations/M1021.md) [M1042](/mitre/mitigations/M1042.md) [M1045](/mitre/mitigations/M1045.md) | 10 | 0 | 0 |
+| [T1127.003](/mitre/techniques/T1127-003.md) JamPlus | stealth, execution | [M1038](/mitre/mitigations/M1038.md) [M1042](/mitre/mitigations/M1042.md) | 0 | 0 | 0 |
 | [T1129](/mitre/techniques/T1129.md) Shared Modules | execution | [M1038](/mitre/mitigations/M1038.md) | 6 | 0 | 0 |
 | [T1132](/mitre/techniques/T1132.md) Data Encoding | command-and-control | [M1031](/mitre/mitigations/M1031.md) | 7 | 11 | 0 |
 | [T1132.001](/mitre/techniques/T1132-001.md) Standard Encoding | command-and-control | [M1031](/mitre/mitigations/M1031.md) | 7 | 0 | 0 |
@@ -310,7 +310,7 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1195.001](/mitre/techniques/T1195-001.md) Compromise Software Dependencies and Development Tools | initial-access | [M1013](/mitre/mitigations/M1013.md) [M1016](/mitre/mitigations/M1016.md) [M1033](/mitre/mitigations/M1033.md) [M1051](/mitre/mitigations/M1051.md) | 18 | 4 | 7 |
 | [T1195.002](/mitre/techniques/T1195-002.md) Compromise Software Supply Chain | initial-access | [M1016](/mitre/mitigations/M1016.md) [M1051](/mitre/mitigations/M1051.md) | 11 | 4 | 8 |
 | [T1195.003](/mitre/techniques/T1195-003.md) Compromise Hardware Supply Chain | initial-access | [M1046](/mitre/mitigations/M1046.md) | 14 | 2 | 12 |
-| [T1197](/mitre/techniques/T1197.md) BITS Jobs | stealth, persistence | [M1018](/mitre/mitigations/M1018.md) [M1028](/mitre/mitigations/M1028.md) [M1037](/mitre/mitigations/M1037.md) | 14 | 13 | 0 |
+| [T1197](/mitre/techniques/T1197.md) BITS Jobs | stealth, persistence, execution | [M1018](/mitre/mitigations/M1018.md) [M1028](/mitre/mitigations/M1028.md) [M1037](/mitre/mitigations/M1037.md) | 14 | 13 | 0 |
 | [T1199](/mitre/techniques/T1199.md) Trusted Relationship | initial-access | [M1018](/mitre/mitigations/M1018.md) [M1030](/mitre/mitigations/M1030.md) [M1032](/mitre/mitigations/M1032.md) | 8 | 11 | 0 |
 | [T1200](/mitre/techniques/T1200.md) Hardware Additions | initial-access | [M1034](/mitre/mitigations/M1034.md) [M1035](/mitre/mitigations/M1035.md) | 5 | 2 | 1 |
 | [T1201](/mitre/techniques/T1201.md) Password Policy Discovery | discovery | [M1027](/mitre/mitigations/M1027.md) | 5 | 0 | 0 |
@@ -578,19 +578,19 @@ For each ATT&CK mitigation: how many techniques it addresses, the NIST 800-53 co
 | [T1573](/mitre/techniques/T1573.md) Encrypted Channel | command-and-control | [M1020](/mitre/mitigations/M1020.md) [M1031](/mitre/mitigations/M1031.md) | 11 | 11 | 0 |
 | [T1573.001](/mitre/techniques/T1573-001.md) Symmetric Cryptography | command-and-control | [M1031](/mitre/mitigations/M1031.md) | 11 | 11 | 0 |
 | [T1573.002](/mitre/techniques/T1573-002.md) Asymmetric Cryptography | command-and-control | [M1020](/mitre/mitigations/M1020.md) [M1031](/mitre/mitigations/M1031.md) | 11 | 23 | 0 |
-| [T1574](/mitre/techniques/T1574.md) Hijack Execution Flow ⭐ | persistence, privilege-escalation, stealth | [M1013](/mitre/mitigations/M1013.md) [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) [M1040](/mitre/mitigations/M1040.md) +4 | 18 | 0 | 0 |
-| [T1574.001](/mitre/techniques/T1574-001.md) DLL | persistence, privilege-escalation, stealth | [M1013](/mitre/mitigations/M1013.md) [M1038](/mitre/mitigations/M1038.md) [M1044](/mitre/mitigations/M1044.md) [M1047](/mitre/mitigations/M1047.md) [M1051](/mitre/mitigations/M1051.md) | 8 | 11 | 1 |
-| [T1574.004](/mitre/techniques/T1574-004.md) Dylib Hijacking | persistence, privilege-escalation, stealth | [M1022](/mitre/mitigations/M1022.md) | 13 | 11 | 1 |
-| [T1574.005](/mitre/techniques/T1574-005.md) Executable Installer File Permissions Weakness | persistence, privilege-escalation, stealth | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) [M1052](/mitre/mitigations/M1052.md) | 11 | 5 | 2 |
-| [T1574.006](/mitre/techniques/T1574-006.md) Dynamic Linker Hijacking | persistence, privilege-escalation, stealth | [M1028](/mitre/mitigations/M1028.md) [M1038](/mitre/mitigations/M1038.md) | 4 | 12 | 2 |
-| [T1574.007](/mitre/techniques/T1574-007.md) Path Interception by PATH Environment Variable | persistence, privilege-escalation, stealth | [M1022](/mitre/mitigations/M1022.md) [M1038](/mitre/mitigations/M1038.md) [M1047](/mitre/mitigations/M1047.md) | 15 | 15 | 2 |
-| [T1574.008](/mitre/techniques/T1574-008.md) Path Interception by Search Order Hijacking | persistence, privilege-escalation, stealth | [M1022](/mitre/mitigations/M1022.md) [M1038](/mitre/mitigations/M1038.md) [M1047](/mitre/mitigations/M1047.md) | 15 | 15 | 2 |
-| [T1574.009](/mitre/techniques/T1574-009.md) Path Interception by Unquoted Path | persistence, privilege-escalation, stealth | [M1022](/mitre/mitigations/M1022.md) [M1038](/mitre/mitigations/M1038.md) [M1047](/mitre/mitigations/M1047.md) | 15 | 15 | 1 |
-| [T1574.010](/mitre/techniques/T1574-010.md) Services File Permissions Weakness | persistence, privilege-escalation, stealth | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) [M1052](/mitre/mitigations/M1052.md) | 11 | 5 | 3 |
-| [T1574.011](/mitre/techniques/T1574-011.md) Services Registry Permissions Weakness | persistence, privilege-escalation, stealth | [M1024](/mitre/mitigations/M1024.md) | 2 | 4 | 1 |
-| [T1574.012](/mitre/techniques/T1574-012.md) COR_PROFILER | persistence, privilege-escalation, stealth | [M1018](/mitre/mitigations/M1018.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) | 9 | 13 | 0 |
-| [T1574.013](/mitre/techniques/T1574-013.md) KernelCallbackTable | persistence, privilege-escalation, stealth | [M1040](/mitre/mitigations/M1040.md) | 7 | 0 | 1 |
-| [T1574.014](/mitre/techniques/T1574-014.md) AppDomainManager | persistence, privilege-escalation, stealth | [M1022](/mitre/mitigations/M1022.md) | 10 | 0 | 0 |
+| [T1574](/mitre/techniques/T1574.md) Hijack Execution Flow ⭐ | stealth, execution | [M1013](/mitre/mitigations/M1013.md) [M1018](/mitre/mitigations/M1018.md) [M1022](/mitre/mitigations/M1022.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) [M1040](/mitre/mitigations/M1040.md) +4 | 18 | 0 | 0 |
+| [T1574.001](/mitre/techniques/T1574-001.md) DLL | stealth, execution | [M1013](/mitre/mitigations/M1013.md) [M1038](/mitre/mitigations/M1038.md) [M1044](/mitre/mitigations/M1044.md) [M1047](/mitre/mitigations/M1047.md) [M1051](/mitre/mitigations/M1051.md) | 8 | 11 | 1 |
+| [T1574.004](/mitre/techniques/T1574-004.md) Dylib Hijacking | stealth, execution | [M1022](/mitre/mitigations/M1022.md) | 13 | 11 | 1 |
+| [T1574.005](/mitre/techniques/T1574-005.md) Executable Installer File Permissions Weakness | stealth, execution | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) [M1052](/mitre/mitigations/M1052.md) | 11 | 5 | 2 |
+| [T1574.006](/mitre/techniques/T1574-006.md) Dynamic Linker Hijacking | stealth, execution | [M1028](/mitre/mitigations/M1028.md) [M1038](/mitre/mitigations/M1038.md) | 4 | 12 | 2 |
+| [T1574.007](/mitre/techniques/T1574-007.md) Path Interception by PATH Environment Variable | stealth, execution | [M1022](/mitre/mitigations/M1022.md) [M1038](/mitre/mitigations/M1038.md) [M1047](/mitre/mitigations/M1047.md) | 15 | 15 | 2 |
+| [T1574.008](/mitre/techniques/T1574-008.md) Path Interception by Search Order Hijacking | stealth, execution | [M1022](/mitre/mitigations/M1022.md) [M1038](/mitre/mitigations/M1038.md) [M1047](/mitre/mitigations/M1047.md) | 15 | 15 | 2 |
+| [T1574.009](/mitre/techniques/T1574-009.md) Path Interception by Unquoted Path | stealth, execution | [M1022](/mitre/mitigations/M1022.md) [M1038](/mitre/mitigations/M1038.md) [M1047](/mitre/mitigations/M1047.md) | 15 | 15 | 1 |
+| [T1574.010](/mitre/techniques/T1574-010.md) Services File Permissions Weakness | stealth, execution | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) [M1052](/mitre/mitigations/M1052.md) | 11 | 5 | 3 |
+| [T1574.011](/mitre/techniques/T1574-011.md) Services Registry Permissions Weakness | stealth, execution | [M1024](/mitre/mitigations/M1024.md) | 2 | 4 | 1 |
+| [T1574.012](/mitre/techniques/T1574-012.md) COR_PROFILER | stealth, execution | [M1018](/mitre/mitigations/M1018.md) [M1024](/mitre/mitigations/M1024.md) [M1038](/mitre/mitigations/M1038.md) | 9 | 13 | 0 |
+| [T1574.013](/mitre/techniques/T1574-013.md) KernelCallbackTable | stealth, execution | [M1040](/mitre/mitigations/M1040.md) | 7 | 0 | 1 |
+| [T1574.014](/mitre/techniques/T1574-014.md) AppDomainManager | stealth, execution | [M1022](/mitre/mitigations/M1022.md) | 10 | 0 | 0 |
 | [T1578](/mitre/techniques/T1578.md) Modify Cloud Compute Infrastructure | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 11 | 0 | 0 |
 | [T1578.001](/mitre/techniques/T1578-001.md) Create Snapshot | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 11 | 0 | 0 |
 | [T1578.002](/mitre/techniques/T1578-002.md) Create Cloud Instance | defense-impairment | [M1018](/mitre/mitigations/M1018.md) [M1047](/mitre/mitigations/M1047.md) | 11 | 7 | 0 |

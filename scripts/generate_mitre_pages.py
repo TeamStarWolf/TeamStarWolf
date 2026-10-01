@@ -142,13 +142,10 @@ def link(text, url):
     return "[" + text + "](" + url + ")" if url else text
 
 
-# Non-canonical ATT&CK software links (the S9NNN emerging/community namespace has no
-# attack.mitre.org page); strip the hyperlink from description prose, keep the name.
-_NONCANON_SW = re.compile(r"\[([^\]]+)\]\(https://attack\.mitre\.org/software/S9\d{3}\)")
-
-
+# All ATT&CK software (official S0/S1 and the v19.2 S9xxx block) has a live
+# attack.mitre.org page, so inline description links are kept as-is.
 def canon_desc(text):
-    return _NONCANON_SW.sub(r"\1", text or "")
+    return text or ""
 
 
 def sstr(v):
@@ -255,31 +252,16 @@ class DB:
         self.group_prof = {r["group_id"]: r for r in (load_jsonl(gp_p) if gp_p.exists() else [])}
         self.group_name_to_id = {r["name"]: r["group_id"] for r in self.group_prof.values()}
         # software + campaign per-object pages (from the ATT&CK STIX).
-        # Official ATT&CK software IDs are S0NNN / S1NNN; the bundle also carries a
-        # non-official S9NNN namespace (emerging/community entries with no attack.mitre.org
-        # page). We publish only official objects here so every page has a valid ATT&CK ID
-        # and live external link; S9NNN names left uncited fall back to plain text in
-        # cross-links (see software_link). The community set is tracked separately.
+        # All ATT&CK software IDs — official S0/S1 and the v19.2 S9xxx block (e.g. G1056
+        # TeamPCP's S9041-44, verified live on attack.mitre.org) — are first-class objects
+        # with a valid ATT&CK ID and a live attack.mitre.org page.
         sp_p = DATA / "attack/software_profiles.jsonl"
         _sw_all = load_jsonl(sp_p) if sp_p.exists() else []
         self.sw_prof = {r["software_id"]: r for r in _sw_all
-                        if re.fullmatch(r"S[01]\d{3}", r["software_id"])}
+                        if re.fullmatch(r"S\d{4}", r["software_id"])}
         self.sw_name_to_id = {r["name"]: r["software_id"] for r in self.sw_prof.values()}
-        # Emerging & Community Tools: the non-official S9NNN namespace (no attack.mitre.org
-        # page). Published in a clearly-labeled section; referenced by name elsewhere via
-        # software_link (routes to /mitre/emerging/ with a community marker).
-        self.em_prof = {r["software_id"]: r for r in _sw_all
-                        if re.fullmatch(r"S9\d{3}", r["software_id"])}
-        self.em_name_to_id = {r["name"]: r["software_id"] for r in self.em_prof.values()}
-        # Team-authored / lab-fictional entries: mark explicitly, never as real-world threats.
-        # Evidence-based (owner could not manually confirm the full set, 2026-09-27): S9041/S9044
-        # owner-named; S9042 CanisterWorm is described as "used by TeamPCP" (the fictional group);
-        # G1056 TeamPCP carries the team's own name/aliases and uses the fiction software. S9043
-        # Mini Shai-Hulud is genuinely ambiguous (derived from the real Shai-Hulud worm) -> an
-        # honest "provenance uncertain" note rather than asserting real or fiction either way.
-        self.lab_fictional = {"S9041", "S9042", "S9044"}
-        self.uncertain_sw = {"S9043"}
-        self.lab_fictional_groups = {"G1056"}
+        # (The earlier S9xxx "emerging/community" and "lab/fictional" carve-outs were
+        # removed — those entities are official MITRE ATT&CK v19.2, verified live.)
         cp_p = DATA / "attack/campaign_profiles.jsonl"
         self.camp_prof = {r["campaign_id"]: r for r in (load_jsonl(cp_p) if cp_p.exists() else [])}
 
@@ -874,26 +856,15 @@ def render_f3_landing(db):
 def group_link(db, name):
     gid = db.group_name_to_id.get(name)
     if gid:
-        # lab/fictional groups link to their (labeled) page and carry a flag so they never
-        # read as a real ATT&CK attribution wherever they appear.
-        flag = "⚑" if gid in db.lab_fictional_groups else ""
-        return "[" + name + "](/mitre/groups/" + gid + ".md)" + flag
+        return "[" + name + "](/mitre/groups/" + gid + ".md)"
     return link(name, db.group_url.get(name))
 
 
 def render_group(db, gid):
     g = db.group_prof[gid]
-    fic = gid in db.lab_fictional_groups
     out = ["# " + gid + " " + DASH + " " + g.get("name", "") + "\n", '<a id="' + gid.lower() + '"></a>\n']
-    if fic:
-        out.append("> **\U0001f9ea Lab / fictional group — authored for TeamStarWolf training scenarios.** "
-                   "This is **not a real-world adversary** and its `G`-id does **not** correspond to an "
-                   "official MITRE ATT&CK group; it exists only to drive the lab's fictional missions. Do "
-                   "not cite it as real threat intelligence.\n")
     aliases = [a for a in (g.get("aliases") or []) if a and a != g.get("name")]
-    hdr = ([] if fic else ["**ATT&CK:** [" + gid + "](https://attack.mitre.org/groups/" + gid + ")  "])
-    if fic:
-        hdr.append("**Classification:** lab / fictional (not official ATT&CK)  ")
+    hdr = ["**ATT&CK:** [" + gid + "](https://attack.mitre.org/groups/" + gid + ")  "]
     if aliases:
         hdr.append("**Aliases:** " + ", ".join(aliases) + "  ")
     out.append("\n".join(hdr) + "\n")
@@ -931,10 +902,6 @@ def software_link(db, name):
     sid = db.sw_name_to_id.get(name)
     if sid:
         return "[" + name + "](/mitre/software/" + sid + ".md)"
-    esid = db.em_name_to_id.get(name)
-    if esid:
-        # community/emerging tool: link to the labeled section, mark with a flag glyph
-        return "[" + name + "](/mitre/emerging/" + esid + ".md)⚑"
     return link(name, db.sw_url.get(name))
 
 
@@ -1016,85 +983,9 @@ def render_campaign_landing(db):
     return "\n".join(lines)
 
 
-# ----------------------------------------------------------------------------- emerging & community tools
-EMERGING_DISCLAIMER = (
-    "> **⚠ Community / Emerging — NOT official MITRE ATT&CK.** This entry is not in "
-    "the official ATT&CK catalog. Its `S9xxx` identifier is a **local reference only** for "
-    "cross-linking within this library and does **not** resolve on attack.mitre.org. Mapped "
-    "techniques link to the real ATT&CK technique pages.")
-LAB_DISCLAIMER = (
-    "> **\U0001f9ea Lab / fictional — authored for TeamStarWolf training scenarios.** This is "
-    "**not a real-world threat**; it exists only to exercise the lab. Do not cite it as real "
-    "threat intelligence.")
-UNCERTAIN_DISCLAIMER = (
-    "> **❓ Provenance uncertain.** This entry is derived from a real-world threat but appears in a "
-    "TeamStarWolf lab context; whether this specific variant is real or lab-authored is **not "
-    "established**. Treat it as unverified — do not cite it as confirmed real threat intelligence, "
-    "and it is not an official ATT&CK object.")
-
-
-def render_emerging(db, sid):
-    s = db.em_prof[sid]
-    fic = sid in db.lab_fictional
-    unc = sid in db.uncertain_sw
-    out = ["# " + sid + " " + DASH + " " + s.get("name", "") + "\n", '<a id="' + sid.lower() + '"></a>\n']
-    out.append((LAB_DISCLAIMER if fic else UNCERTAIN_DISCLAIMER if unc else EMERGING_DISCLAIMER) + "\n")
-    aliases = [a for a in (s.get("aliases") or []) if a and a != s.get("name")]
-    cls = "lab / fictional" if fic else "provenance uncertain" if unc else "community / emerging"
-    hdr = ["**Classification:** " + cls + "  ",
-           "**Type:** " + (s.get("type") or "tool") + "  ",
-           "**Local ref:** `" + sid + "` (not official ATT&CK)  "]
-    if s.get("platforms"):
-        hdr.append("**Platforms:** " + ", ".join(s["platforms"]) + "  ")
-    if aliases:
-        hdr.append("**Aliases:** " + ", ".join(aliases) + "  ")
-    out.append("\n".join(hdr) + "\n")
-    if s.get("description"):
-        out.append(canon_desc(s["description"]).strip() + "\n")
-    techs = [t for t in (s.get("techniques") or []) if t in db.prof]
-    if techs:
-        out.append("## Techniques used (" + str(len(techs)) + ")\n")
-        out.append("\n".join(
-            "- [" + t + " " + DASH + " " + db.prof[t]["name"] + "](/mitre/techniques/" + tslug(t) + ".md)"
-            for t in sorted(techs)) + "\n")
-    grps = s.get("groups") or []
-    if grps:
-        out.append("## Associated groups (" + str(len(grps)) + ")\n")
-        out.append(", ".join(group_link(db, g) for g in grps) + "\n")
-    out.append(SHORT_FOOTER)
-    return "\n".join(out)
-
-
-def render_emerging_landing(db):
-    fic = sorted(s for s in db.em_prof if s in db.lab_fictional)
-    unc = sorted(s for s in db.em_prof if s in db.uncertain_sw)
-    real = sorted(s for s in db.em_prof if s not in db.lab_fictional and s not in db.uncertain_sw)
-    lines = ["# Emerging & Community Tools (" + str(len(db.em_prof)) + ")", "",
-             EMERGING_DISCLAIMER, "",
-             "Tools and malware tracked here for cross-referencing that are **not (yet) in the "
-             "official MITRE ATT&CK software catalog** — recent/emerging threats and community "
-             "tooling. Each carries a **local `S9xxx` reference** (no attack.mitre.org page). "
-             "Techniques still link to the real ATT&CK technique pages. Wherever one of these is "
-             "referenced elsewhere in the library it is marked with a ⚑ flag.", ""]
-    lines.append("## Community / emerging threats (" + str(len(real)) + ")\n")
-    for sid in real:
-        s = db.em_prof[sid]
-        lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/emerging/" + sid +
-                     ".md) (" + (s.get("type") or "") + ")")
-    if fic:
-        lines.append("\n## Lab / fictional (TeamStarWolf training — not real threats) (" + str(len(fic)) + ")\n")
-        for sid in fic:
-            s = db.em_prof[sid]
-            lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/emerging/" + sid +
-                         ".md) \U0001f9ea (" + (s.get("type") or "") + ")")
-    if unc:
-        lines.append("\n## Provenance uncertain (real-derived, lab context — unverified) (" + str(len(unc)) + ")\n")
-        for sid in unc:
-            s = db.em_prof[sid]
-            lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/emerging/" + sid +
-                         ".md) ❓ (" + (s.get("type") or "") + ")")
-    lines.append("\n" + SHORT_FOOTER)
-    return "\n".join(lines)
+# (The former "emerging & community tools" / lab-fictional subsystem was removed:
+#  all S9xxx are official MITRE ATT&CK v19.2 software, rendered as first-class
+#  objects under /mitre/software/ with live attack.mitre.org links.)
 
 
 # ----------------------------------------------------------------------------- landing
@@ -1109,7 +1000,6 @@ def render_landing(db):
     n_groups = len(db.group_prof)
     n_software = len(db.sw_prof)
     n_campaigns = len(db.camp_prof)
-    n_emerging = len(db.em_prof)
     corpus_n = len(db.corpus_ids)
     lines = [
         "# MITRE Frameworks " + DASH + " Enriched Knowledge Base",
@@ -1143,8 +1033,6 @@ def render_landing(db):
         "platforms, aliases, techniques implemented (linked), and the groups that wield them |",
         "| [Campaigns](/mitre/campaigns/README.md) | " + str(n_campaigns) + " | ATT&CK intrusion campaigns — active "
         "window, attributed groups, techniques used (linked), and software deployed |",
-        "| [Emerging & Community Tools](/mitre/emerging/README.md) | " + str(n_emerging) + " | non-official (S9xxx) "
-        "emerging threats & community tooling, clearly labeled; techniques link to real ATT&CK pages |",
         "| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | " + DASH + " | technique, mitigation, NIST, D3FEND, "
         "CAPEC in one table |",
         "",
@@ -1356,16 +1244,6 @@ def main():
             n += 1
         (d / "README.md").write_text(render_campaign_landing(db), encoding="utf-8")
         print("campaigns: wrote " + str(n) + " pages + README")
-
-    if "emerging" in only:
-        d = out_root / "emerging"
-        d.mkdir(parents=True, exist_ok=True)
-        n = 0
-        for sid in db.em_prof:
-            (d / (sid + ".md")).write_text(render_emerging(db, sid), encoding="utf-8")
-            n += 1
-        (d / "README.md").write_text(render_emerging_landing(db), encoding="utf-8")
-        print("emerging: wrote " + str(n) + " pages + README")
 
     if "crosswalk" in only:
         out_root.mkdir(parents=True, exist_ok=True)

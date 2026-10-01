@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/starwolf64-banner.jpg" alt="STARWOLF64" width="100%">
+<img src="assets/StarWolf64BannerTransparent.png" alt="STARWOLF64" width="100%">
 
 # 🐺 TeamStarWolf
 

@@ -15,7 +15,7 @@
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |
-| [ATT&CK Detection Strategies](detections/strategies/README.md) | 691 MITRE detection strategies + 1,739 analytics — log sources, detection logic, and tunable parameters per technique |
+| [ATT&CK Detection Strategies](detections/strategies/README.md) | 697 MITRE detection strategies + 1,758 analytics — log sources, detection logic, and tunable parameters per technique |
 | [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, compliance, and composite risk |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses |
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 825 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |

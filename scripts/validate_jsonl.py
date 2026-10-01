@@ -74,6 +74,58 @@ def validate_file(path: str, schema: dict) -> tuple[int, list[str]]:
     return line_count, errors
 
 
+# --- Enterprise ATT&CK v19.2 tactic vocabulary guard ----------------------
+# v19.2 renamed Defense Evasion (TA0005) -> Stealth and split out Defense
+# Impairment (TA0112). The retired "defense-evasion" shortname must never
+# reappear in the Enterprise tactic-keyed tables. These 15 shortnames are the
+# complete v19.2 Enterprise set (x_mitre_shortname); the list is stable, so the
+# check needs no STIX bundle at CI time. (ATLAS, Mobile 18.1, ICS and F3 carry
+# their own tactic vocabularies and are intentionally out of scope here.)
+V19_2_ENTERPRISE_TACTICS = {
+    "reconnaissance", "resource-development", "initial-access", "execution",
+    "persistence", "privilege-escalation", "stealth", "defense-impairment",
+    "credential-access", "discovery", "lateral-movement", "collection",
+    "command-and-control", "exfiltration", "impact",
+}
+
+ENTERPRISE_TACTIC_FILES = [
+    "data/attack/technique_profiles.jsonl",
+    "data/attack/group_to_technique.jsonl",
+    "data/attack/detection_strategies.jsonl",
+]
+
+
+def validate_enterprise_tactics(path: str) -> tuple[int, list[str]]:
+    """Every `tactics` value in an Enterprise tactic-keyed table must be a
+    v19.2 shortname. Returns (rows_checked, errors)."""
+    errors = []
+    checked = 0
+    p = Path(path)
+    if not p.exists():
+        return 0, [f"File not found: {path}"]
+    with open(p, encoding="utf-8") as f:
+        for lineno, raw in enumerate(f, start=1):
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                record = json.loads(raw)
+            except json.JSONDecodeError as e:
+                errors.append(f"  Line {lineno}: Invalid JSON — {e}")
+                continue
+            if "tactics" not in record:
+                continue
+            checked += 1
+            for t in record.get("tactics") or []:
+                if t not in V19_2_ENTERPRISE_TACTICS:
+                    tid = record.get("technique_id") or record.get("strategy_id") or "?"
+                    errors.append(
+                        f"  Line {lineno} ({tid}): tactic '{t}' is not a v19.2 "
+                        f"Enterprise shortname (Defense Evasion became 'stealth' / 'defense-impairment')"
+                    )
+    return checked, errors
+
+
 def main():
     total_errors = 0
     total_lines = 0
@@ -90,6 +142,19 @@ def main():
             total_errors += len(errors)
         else:
             print(f"  OK — {line_count} records valid")
+
+    for path in ENTERPRISE_TACTIC_FILES:
+        print(f"\nValidating Enterprise v19.2 tactics in {path}...")
+        checked, errors = validate_enterprise_tactics(path)
+        if errors:
+            print(f"  FAIL — {len(errors)} tactic error(s) in {checked} records:")
+            for e in errors[:50]:
+                print(e)
+            if len(errors) > 50:
+                print(f"  … and {len(errors) - 50} more")
+            total_errors += len(errors)
+        else:
+            print(f"  OK — {checked} records carry only v19.2 Enterprise tactics")
 
     print(f"\n{'='*50}")
     print(f"Total records validated: {total_lines}")

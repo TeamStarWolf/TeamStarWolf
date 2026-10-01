@@ -49,6 +49,11 @@ yarn-error.log*
 *.sqlite3
 *.db
 
+# Staged MITRE ATT&CK STIX cache — a ~53 MB offline copy used by
+# scripts/build_attack_core.py via --stix/ATTACK_STIX_PATH. The generator fetches
+# the pinned immutable URL by default, so this local bundle is never committed.
+.stix-cache-*.json
+
 # OS cruft
 .DS_Store
 .DS_Store?

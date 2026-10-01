@@ -2,8 +2,6 @@
 
 <img src="assets/StarWolf64Version2Banner.png" alt="STARWOLF64" width="100%">
 
-# 🐺 TeamStarWolf
-
 ### An open, threat-informed cybersecurity reference library
 
 *Practitioner-built references for offense, defense, cloud, identity, GRC, and specialized security — anchored to MITRE ATT&CK and mapped to real controls, detections, and tooling.*

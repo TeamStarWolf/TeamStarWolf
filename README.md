@@ -86,9 +86,9 @@ machine-readable so you can query them, not just read them.
 |---|---|
 | [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) | All **714 Enterprise techniques** (MITRE v19.2 lists 697 active; this set retains a few superseded records) scored by group usage, software, mitigations, NIST controls, and detection availability |
 | [Technique Detail Pages](techniques/README.md) | A full consolidated write-up per technique |
-| [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | **168 adversary groups** with aliases, attributed techniques, and tooling |
-| [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | **784 malware families & tools** and the techniques they implement |
-| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **51 intrusion campaigns** with active windows, techniques, and attribution |
+| [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | **176 adversary groups** with aliases, attributed techniques, and tooling |
+| [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | **825 malware families & tools** and the techniques they implement |
+| [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | **56 intrusion campaigns** with active windows, techniques, and attribution |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All **44 mitigations** (M-codes) and the techniques each one addresses |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | The most-used, least-covered techniques |
 | [ICS](ICS_ATTACK_ATLAS.md) [&] [Mobile](MOBILE_ATTACK_ATLAS.md) Atlases | The **83-technique ICS** and **124-technique Mobile** matrices, same treatment |
@@ -101,6 +101,8 @@ machine-readable so you can query them, not just read them.
 | [MITRE Engage Reference](ENGAGE_REFERENCE.md) | **31 deception activities** with **175 mappings** to ATT&CK techniques |
 | [CTEM Reference](CTEM_REFERENCE.md) | Gartner's 5-stage exposure loop, the tool landscape, and a 90-day plan |
 | [MITRE F3 Fraud Framework](FRAUD_FRAMEWORK_REFERENCE.md) | **123 fraud-actor techniques** across 8 tactics, through to Monetization |
+
+> **Counts** — entity totals (176 groups · 825 software · 56 campaigns · 714 technique records, of which 697 are active per MITRE v19.2) are computed from the authoritative `*_profiles` datasets by [`scripts/build_stats.py`](scripts/build_stats.py) and enforced in CI. Two caveats: a small number of team-authored/labeled entities (e.g. group `G1056`) are counted pending a definitive fictional-entity list, and 784 of the 825 software currently have published per-object pages.
 
 **Machine-readable datasets** &nbsp;·&nbsp; [Technique profiles](data/attack/technique_profiles.jsonl) &nbsp;·&nbsp; [Group → Technique](data/attack/group_to_technique.jsonl) &nbsp;·&nbsp; [Software → Technique](data/attack/software_to_technique.jsonl) &nbsp;·&nbsp; [Mitigation → Technique](data/attack/mitigation_to_technique.jsonl) &nbsp;·&nbsp; [Groups](data/attack/groups.jsonl) &nbsp;·&nbsp; [Software](data/attack/software.jsonl) &nbsp;·&nbsp; [Mitigations](data/attack/mitigations.jsonl) &nbsp;·&nbsp; [Campaigns](data/attack/campaigns.jsonl) &nbsp;·&nbsp; [Detection strategies](data/attack/detection_strategies.jsonl) &nbsp;·&nbsp; [Analytics](data/attack/analytics.jsonl) &nbsp;·&nbsp; [Data components](data/attack/data_components.jsonl) &nbsp;·&nbsp; [Technique → D3FEND](data/attack/technique_to_d3fend.jsonl) &nbsp;·&nbsp; [CWE](data/weaknesses/cwe.jsonl) &nbsp;·&nbsp; [CAPEC](data/weaknesses/capec.jsonl)
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/starwolf64-banner.jpg" alt="STARWOLF64" width="100%">
+<img src="assets/ChatGPT Image Sep 30, 2026, 10_51_21 PM.png" alt="STARWOLF64" width="100%">
 
 # 🐺 TeamStarWolf
 

@@ -495,7 +495,7 @@ Required before any vendor receives, creates, or transmits ePHI on behalf of a c
 
 | Level | Practices | Assessment | Who Needs It |
 |---|---|---|---|
-| **Level 1 (Foundational)** | 17 practices (FAR 52.204-21) | Annual self-assessment | Contractors handling FCI (Federal Contract Information) |
+| **Level 1 (Foundational)** | 15 requirements (FAR 52.204-21; formerly 17 practices) | Annual self-assessment | Contractors handling FCI (Federal Contract Information) |
 | **Level 2 (Advanced)** | 110 practices (NIST SP 800-171) | Triennial C3PAO assessment (or self-assess for non-prioritized) | Contractors handling CUI (Controlled Unclassified Information) |
 | **Level 3 (Expert)** | 110+ practices (NIST SP 800-172 subset) | DIBCAC-led government assessment | Critical programs with highest-value CUI |
 

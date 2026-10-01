@@ -21,7 +21,7 @@ A quick-reference guide to major cybersecurity and privacy frameworks — what t
 | [NIST 800-53 R5](#nist-sp-800-53-r5) | NIST | Control catalog | US federal & contractors | Yes (federal systems) |
 | [ISO/IEC 27001:2022](#isoiec-270012022) | ISO/IEC | ISMS certification | Global, all sectors | No (certification-based) |
 | [SOC 2 Type II](#soc-2) | AICPA | Audit report | SaaS/cloud providers | No (customer-driven) |
-| [PCI DSS v4.0](#pci-dss-v40) | PCI SSC | Payment card security | Card processors/merchants | Yes (for card data) |
+| [PCI DSS v4.0.1](#pci-dss-v401) | PCI SSC | Payment card security | Card processors/merchants | Yes (for card data) |
 | [HIPAA Security Rule](#hipaa-security-rule) | HHS | Healthcare data | US healthcare entities | Yes (US law) |
 | [CMMC 2.0](#cmmc-20) | DoD | Supply chain security | US DoD contractors | Yes (contracts) |
 | [CIS Controls v8](#cis-controls-v8) | CIS | Control prioritization | All sectors | No (best practice) |
@@ -164,11 +164,11 @@ An audit framework for service organizations (SaaS, cloud, managed services). Cu
 
 ---
 
-## PCI DSS v4.0
+## PCI DSS v4.0.1
 
-**Published**: March 2022 | **Org**: PCI SSC | **Mandatory**: Card brands (Visa, Mastercard, etc.)
+**Published**: v4.0 March 2022; v4.0.1 (limited revision) June 2024 | **Org**: PCI SSC | **Mandatory**: Card brands (Visa, Mastercard, etc.)
 
-Required for any entity that stores, processes, or transmits payment card data. Version 4.0 introduces customized implementation and multi-factor authentication expansion.
+Required for any entity that stores, processes, or transmits payment card data. Version 4.0 introduced customized implementation and multi-factor authentication expansion; v4.0.1 clarified wording and added no new requirements. v4.0 was retired on 31 December 2024, so v4.0.1 is the only active version of the standard.
 
 ### 12 Requirements
 | Req | Focus |
@@ -209,14 +209,14 @@ Requires administrative, physical, and technical safeguards to protect electroni
 
 ## CMMC 2.0
 
-**Published**: November 2021 | **Org**: DoD | **Mandatory**: DoD contractors handling CUI or FCI
+**Published**: November 2021 (model); codified in 32 CFR Part 170 (effective Dec 16, 2024) with the DFARS/48 CFR acquisition rule 252.204-7021 (effective Nov 10, 2025) | **Org**: DoD | **Mandatory**: DoD contractors handling CUI or FCI
 
 Cybersecurity Maturity Model Certification — required for defense industrial base (DIB) contractors. Streamlined from CMMC 1.0 (5 levels) to 3 levels.
 
 ### Three Levels
 | Level | Requirements | Assessment |
 |---|---|---|
-| Level 1 (Foundational) | 17 practices (NIST 800-171 subset) | Annual self-assessment |
+| Level 1 (Foundational) | 15 requirements (FAR 52.204-21; formerly 17 practices) | Annual self-assessment |
 | Level 2 (Advanced) | 110 practices (full NIST 800-171) | Triennial C3PAO assessment |
 | Level 3 (Expert) | 110 + NIST 800-172 | Government-led assessment |
 
@@ -492,7 +492,7 @@ ISO 27001 was updated in October 2022 with significant changes to Annex A contro
 
 ## PCI DSS v4.0 Key Changes (Effective March 2024)
 
-PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024.
+PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024. The limited-revision v4.0.1 (June 2024) then superseded v4.0 on 31 December 2024 and is now the only active version; it made clarifications only, with no added or removed requirements.
 
 **Key Changes**
 
@@ -526,7 +526,7 @@ PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024.
 
 | Level | Name | Practice Count | Assessment | Who Needs It |
 |---|---|---|---|---|
-| Level 1 | Foundational | 17 (FAR 52.204-21) | Annual self-assessment | FCI (Federal Contract Information) only |
+| Level 1 | Foundational | 15 (FAR 52.204-21; formerly 17) | Annual self-assessment | FCI (Federal Contract Information) only |
 | Level 2 | Advanced | 110 (NIST SP 800-171) | Annual self-assessment OR triennial C3PAO | Contractors handling CUI |
 | Level 3 | Expert | 110 + 24 (NIST SP 800-172) | Triennial DCSA-led government assessment | High-value/priority programs, advanced APT risk |
 

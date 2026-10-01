@@ -523,19 +523,19 @@ See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Thre
 | `T1573` | Encrypted Channel | [Command and Control](/techniques/command-and-control.md#t1573) |
 | `T1573.001` | Symmetric Cryptography | [Command and Control](/techniques/command-and-control.md#t1573001) |
 | `T1573.002` | Asymmetric Cryptography | [Command and Control](/techniques/command-and-control.md#t1573002) |
-| `T1574` | Hijack Execution Flow | [Persistence](/techniques/persistence.md#t1574) |
-| `T1574.001` | DLL | [Persistence](/techniques/persistence.md#t1574001) |
-| `T1574.004` | Dylib Hijacking | [Persistence](/techniques/persistence.md#t1574004) |
-| `T1574.005` | Executable Installer File Permissions Weakness | [Persistence](/techniques/persistence.md#t1574005) |
-| `T1574.006` | Dynamic Linker Hijacking | [Persistence](/techniques/persistence.md#t1574006) |
-| `T1574.007` | Path Interception by PATH Environment Variable | [Persistence](/techniques/persistence.md#t1574007) |
-| `T1574.008` | Path Interception by Search Order Hijacking | [Persistence](/techniques/persistence.md#t1574008) |
-| `T1574.009` | Path Interception by Unquoted Path | [Persistence](/techniques/persistence.md#t1574009) |
-| `T1574.010` | Services File Permissions Weakness | [Persistence](/techniques/persistence.md#t1574010) |
-| `T1574.011` | Services Registry Permissions Weakness | [Persistence](/techniques/persistence.md#t1574011) |
-| `T1574.012` | COR_PROFILER | [Persistence](/techniques/persistence.md#t1574012) |
-| `T1574.013` | KernelCallbackTable | [Persistence](/techniques/persistence.md#t1574013) |
-| `T1574.014` | AppDomainManager | [Persistence](/techniques/persistence.md#t1574014) |
+| `T1574` | Hijack Execution Flow | [Stealth](/techniques/stealth.md#t1574) |
+| `T1574.001` | DLL | [Stealth](/techniques/stealth.md#t1574001) |
+| `T1574.004` | Dylib Hijacking | [Stealth](/techniques/stealth.md#t1574004) |
+| `T1574.005` | Executable Installer File Permissions Weakness | [Stealth](/techniques/stealth.md#t1574005) |
+| `T1574.006` | Dynamic Linker Hijacking | [Stealth](/techniques/stealth.md#t1574006) |
+| `T1574.007` | Path Interception by PATH Environment Variable | [Stealth](/techniques/stealth.md#t1574007) |
+| `T1574.008` | Path Interception by Search Order Hijacking | [Stealth](/techniques/stealth.md#t1574008) |
+| `T1574.009` | Path Interception by Unquoted Path | [Stealth](/techniques/stealth.md#t1574009) |
+| `T1574.010` | Services File Permissions Weakness | [Stealth](/techniques/stealth.md#t1574010) |
+| `T1574.011` | Services Registry Permissions Weakness | [Stealth](/techniques/stealth.md#t1574011) |
+| `T1574.012` | COR_PROFILER | [Stealth](/techniques/stealth.md#t1574012) |
+| `T1574.013` | KernelCallbackTable | [Stealth](/techniques/stealth.md#t1574013) |
+| `T1574.014` | AppDomainManager | [Stealth](/techniques/stealth.md#t1574014) |
 | `T1578` | Modify Cloud Compute Infrastructure | [Defense Impairment](/techniques/defense-impairment.md#t1578) |
 | `T1578.001` | Create Snapshot | [Defense Impairment](/techniques/defense-impairment.md#t1578001) |
 | `T1578.002` | Create Cloud Instance | [Defense Impairment](/techniques/defense-impairment.md#t1578002) |

@@ -5,9 +5,9 @@ The 15 Enterprise tactics. In **v19.2**, _Defense Evasion_ (TA0005) was renamed 
 - [Reconnaissance](/mitre/tactics/reconnaissance.md) — 46 techniques
 - [Resource Development](/mitre/tactics/resource-development.md) — 50 techniques
 - [Initial Access](/mitre/tactics/initial-access.md) — 22 techniques
-- [Execution](/mitre/tactics/execution.md) — 46 techniques
-- [Persistence](/mitre/tactics/persistence.md) — 126 techniques
-- [Privilege Escalation](/mitre/tactics/privilege-escalation.md) — 109 techniques
+- [Execution](/mitre/tactics/execution.md) — 64 techniques
+- [Persistence](/mitre/tactics/persistence.md) — 113 techniques
+- [Privilege Escalation](/mitre/tactics/privilege-escalation.md) — 96 techniques
 - [Stealth](/mitre/tactics/stealth.md) — 148 techniques
 - [Defense Impairment](/mitre/tactics/defense-impairment.md) — 56 techniques
 - [Credential Access](/mitre/tactics/credential-access.md) — 67 techniques

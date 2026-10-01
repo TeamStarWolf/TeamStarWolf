@@ -9,7 +9,7 @@
 - [T1078 — Valid Accounts](/mitre/techniques/T1078.md) — 11.0% of machines
 - [T1574 — Hijack Execution Flow](/mitre/techniques/T1574.md) — 2.5% of machines
 
-**148 techniques** in this tactic (Team Star Wolf enriched pages):
+**165 techniques** in this tactic (Team Star Wolf enriched pages):
 
 - [T1006 — Direct Volume Access](/mitre/techniques/T1006.md)
 - [T1014 — Rootkit](/mitre/techniques/T1014.md)
@@ -59,6 +59,8 @@
 - [T1055.014 — VDSO Hijacking](/mitre/techniques/T1055-014.md)
 - [T1055.015 — ListPlanting](/mitre/techniques/T1055-015.md)
 - [T1070 — Indicator Removal](/mitre/techniques/T1070.md)
+- [T1070.001 — Clear Windows Event Logs](/mitre/techniques/T1070-001.md)
+- [T1070.002 — Clear Linux or Mac System Logs](/mitre/techniques/T1070-002.md)
 - [T1070.003 — Clear Command History](/mitre/techniques/T1070-003.md)
 - [T1070.004 — File Deletion](/mitre/techniques/T1070-004.md)
 - [T1070.005 — Network Share Connection Removal](/mitre/techniques/T1070-005.md)
@@ -123,6 +125,19 @@
 - [T1542.003 — Bootkit](/mitre/techniques/T1542-003.md)
 - [T1542.004 — ROMMONkit](/mitre/techniques/T1542-004.md)
 - [T1542.005 — TFTP Boot](/mitre/techniques/T1542-005.md)
+- [T1562 — Impair Defenses](/mitre/techniques/T1562.md)
+- [T1562.001 — Disable or Modify Tools](/mitre/techniques/T1562-001.md)
+- [T1562.002 — Disable Windows Event Logging](/mitre/techniques/T1562-002.md)
+- [T1562.003 — Impair Command History Logging](/mitre/techniques/T1562-003.md)
+- [T1562.004 — Disable or Modify System Firewall](/mitre/techniques/T1562-004.md)
+- [T1562.006 — Indicator Blocking](/mitre/techniques/T1562-006.md)
+- [T1562.007 — Disable or Modify Cloud Firewall](/mitre/techniques/T1562-007.md)
+- [T1562.008 — Disable or Modify Cloud Logs](/mitre/techniques/T1562-008.md)
+- [T1562.009 — Safe Mode Boot](/mitre/techniques/T1562-009.md)
+- [T1562.010 — Downgrade Attack](/mitre/techniques/T1562-010.md)
+- [T1562.011 — Spoof Security Alerting](/mitre/techniques/T1562-011.md)
+- [T1562.012 — Disable or Modify Linux Audit System](/mitre/techniques/T1562-012.md)
+- [T1562.013 — Disable or Modify Network Device Firewall](/mitre/techniques/T1562-013.md)
 - [T1564 — Hide Artifacts](/mitre/techniques/T1564.md)
 - [T1564.001 — Hidden Files and Directories](/mitre/techniques/T1564-001.md)
 - [T1564.002 — Hidden Users](/mitre/techniques/T1564-002.md)
@@ -154,6 +169,8 @@
 - [T1612 — Build Image on Host](/mitre/techniques/T1612.md)
 - [T1620 — Reflective Code Loading](/mitre/techniques/T1620.md)
 - [T1622 — Debugger Evasion](/mitre/techniques/T1622.md)
+- [T1656 — Impersonation](/mitre/techniques/T1656.md)
+- [T1672 — Email Spoofing](/mitre/techniques/T1672.md)
 - [T1678 — Delay Execution](/mitre/techniques/T1678.md)
 - [T1679 — Selective Exclusion](/mitre/techniques/T1679.md)
 - [T1684 — Social Engineering](/mitre/techniques/T1684.md)

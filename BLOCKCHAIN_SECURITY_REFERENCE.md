@@ -2844,7 +2844,7 @@ Community resources for blockchain threat modeling:
 
 ---
 
-## Quick Reference: Vulnerability -> Tool Mapping
+## Quick Reference: Vulnerability to Tool Mapping
 
 | Vulnerability Class | Slither | Mythril | Echidna | Certora |
 |---|---|---|---|---|

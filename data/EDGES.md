@@ -20,7 +20,7 @@ Node id conventions: `technique` = ATT&CK `T####[.###]` (Enterprise/Mobile) or I
 D3FEND technique name; `car_analytic` = `CAR-YYYY-MM-NNN`; `engage_activity` =
 `EAC####`; `vendor` = normalized vendor name.
 
-## Flat edges (one row = one source -> one target)
+## Flat edges (one row = one source to one target)
 
 | Dataset | Source (field, type) | Target (field, type) | Edge type | Confidence | Provenance |
 |---|---|---|---|---|---|
@@ -38,7 +38,7 @@ D3FEND technique name; `car_analytic` = `CAR-YYYY-MM-NNN`; `engage_activity` =
 
 ¹ `new_id` is nullable: a `deprecated` retirement (or a revoked-to-dead-end) has `new_id: null`. See [VOCABULARIES.md](VOCABULARIES.md) `reason`.
 
-## Adjacency edges (one row = one source -> a list of targets)
+## Adjacency edges (one row = one source to a list of targets)
 
 | Dataset | Source (field, type) | Target (field, item id, type) | Edge type | Provenance |
 |---|---|---|---|---|

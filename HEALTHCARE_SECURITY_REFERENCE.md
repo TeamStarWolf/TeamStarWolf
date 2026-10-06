@@ -126,7 +126,7 @@ Micro/segmentation is the single highest-leverage control for unpatchable device
 
 Where patching, EDR, or hardening is blocked by FDA validation or EOL firmware: virtual-patch at the network layer (IPS signatures, segmentation), disable unused services/ports, change default credentials where permitted, restrict physical/USB access, and require the vendor's remediation timeline in writing.
 
-### 4. Lifecycle: procurement -> decommission
+### 4. Lifecycle: procurement to decommission
 
 | Stage | Security action |
 |---|---|

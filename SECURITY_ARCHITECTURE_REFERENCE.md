@@ -1672,7 +1672,7 @@ Encryption in Use (Emerging):
 | Confidential Computing | Hardware-isolated execution (Intel SGX, AMD SEV) | Trusted execution environment for secrets processing |
 | Tokenization | Replace sensitive value with non-reversible token | PCI DSS card number storage |
 
-### 6.4 Key Management Hierarchy (HSM -> KEK -> DEK)
+### 6.4 Key Management Hierarchy (HSM to KEK to DEK)
 
 ```
 HARDWARE SECURITY MODULE (HSM)

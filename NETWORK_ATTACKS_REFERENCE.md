@@ -1698,7 +1698,7 @@ The following table maps this reference to ATT&CK techniques and recommended det
 
 ---
 
-## Quick Reference: Attack -> Detection -> Prevention
+## Quick Reference: Attack to Detection to Prevention
 
 | Attack | Immediate Detection | Prevention |
 |---|---|---|

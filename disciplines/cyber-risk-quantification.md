@@ -39,7 +39,7 @@ FAIR (Factor Analysis of Information Risk) is an open standard for cyber risk qu
 
 FAIR solves a fundamental problem with traditional risk assessment: ordinal scales (High/Medium/Low, 1-10 scores) are not additive, not comparable across programs, and cannot answer the questions executives actually need answered: "How much could this cost us?" and "How much risk reduction does this control provide for the investment?" FAIR replaces these scales with probability distributions of financial loss, expressed in dollars, which can be directly compared, aggregated, and used in financial decision-making.
 
-### The Core Formula: LEF × LM -> ALE
+### The Core Formula: LEF × LM to ALE
 
 The FAIR model decomposes risk into two top-level factors that combine to produce Annualized Loss Expectancy (ALE):
 

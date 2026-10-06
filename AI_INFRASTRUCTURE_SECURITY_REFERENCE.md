@@ -23,7 +23,7 @@ Prompt injection gets the headlines, but most *real* AI compromises reported in 
 | Training data & RAG corpus | Data lakes, DVC, LakeFS, web-scraped sets, RAG document stores | Poisoning, backdoor triggers, split-view/frontrunning | [§4](#4-training-data--rag-corpus-poisoning) |
 | Vector store | Chroma, Pinecone, Weaviate, Milvus, Qdrant, pgvector | Broken tenant isolation, corpus poisoning, embedding inversion | [§5](#5-vector-store--embedding-security) |
 | Feature store | Feast, Tecton, SageMaker/Vertex/Databricks feature stores | Integrity/skew, PII exposure, weak access control | [§6](#6-feature-stores) |
-| ML pipeline / CI-CD | Kubeflow, Airflow, Argo, MLflow Pipelines, GitHub Actions | Supply-chain injection, secrets in notebooks, weak provenance | [§7](#7-ml-pipeline--cicd-supply-chain) |
+| ML pipeline / CI-CD | Kubeflow, Airflow, Argo, MLflow Pipelines, GitHub Actions | Supply-chain injection, secrets in notebooks, weak provenance | [§7](#_7-ml-pipeline-ci-cd-supply-chain) |
 | Serving / GPU tier | Triton, TorchServe, vLLM, Ray Serve, Ollama, KServe | Unauth RCE, model theft, resource exhaustion, tenant escape | [§8](#8-gpu--inference-server-hardening) |
 | Access & governance | API gateways, IAM, quotas, audit logs | Missing authn/authz, no rate limits, no audit trail | [§9](#9-model-access-control--rate-limiting) |
 

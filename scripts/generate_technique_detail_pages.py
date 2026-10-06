@@ -18,6 +18,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from plain_markdown import plain
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "attack" if (ROOT / "attack").exists() else ROOT / "data" / "attack"
 VER = "v19.2"
@@ -255,10 +257,10 @@ def main():
         if old.exists():
             old.unlink()
     for slug, _, _ in TACTIC_ORDER:
-        (tdir / (slug + ".md")).write_text(render_tech_tactic(slug), encoding="utf-8")
-        (ddir / (slug + ".md")).write_text(render_det_tactic(slug), encoding="utf-8")
-    (tdir / "README.md").write_text(render_tech_readme(), encoding="utf-8")
-    (ddir / "README.md").write_text(render_det_readme(), encoding="utf-8")
+        (tdir / (slug + ".md")).write_text(plain(render_tech_tactic(slug)), encoding="utf-8")
+        (ddir / (slug + ".md")).write_text(plain(render_det_tactic(slug)), encoding="utf-8")
+    (tdir / "README.md").write_text(plain(render_tech_readme()), encoding="utf-8")
+    (ddir / "README.md").write_text(plain(render_det_readme()), encoding="utf-8")
     print("techniques/: wrote 15 tactic pages + README (" + str(len(primary)) + " techniques)")
     print("detections/strategies/: wrote 15 tactic pages + README")
 

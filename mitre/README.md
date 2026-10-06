@@ -21,8 +21,8 @@ ATT&CK-Navigator-style browsable pages: one page per MITRE object, cross-linked 
 ## Start here
 
 - Investigating a technique? Open its Technique page. Mitigations, detection analytics (with the exact log sources), and the groups and tools that use it are all on one page.
-- Building a control set? open a Mitigation page for how-to-implement + NIST mapping, or the Crosswalk for the full join.
-- Engineering detections? the Detection + Data-sources sections on each technique name the analytics and telemetry to collect.
+- Building a control set? Open a Mitigation page for implementation guidance and the NIST mapping, or the Crosswalk for the full join.
+- Engineering detections? The Detection and Data sources sections on each technique name the analytics and telemetry to collect.
 - Prioritising? Techniques marked (observed) are the 21 seen in the Team Star Wolf 529-machine training corpus, a real-world lower bound on prevalence.
 
 Coverage: every ATT&CK object cross-links to its related mitigations, D3FEND countermeasures, CAPEC patterns, and NIST 800-53 controls, so the cross-framework relationships can be browsed in one place.

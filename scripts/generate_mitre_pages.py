@@ -20,6 +20,8 @@ import json
 import re
 import argparse
 from pathlib import Path
+
+from plain_markdown import plain
 from collections import defaultdict, Counter
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -934,8 +936,8 @@ def render_software(db, sid):
 
 def render_software_landing(db):
     lines = ["# Software & Tools (" + str(len(db.sw_prof)) + ")", "",
-             "ATT&CK-tracked software — malware and tools — each with its type, platforms, aliases, the "
-             "techniques it implements (linked), and the groups that wield it. ATT&CK " + ATTACK_VER + ".", ""]
+             "ATT&CK-tracked software (malware and tools), each with its type, platforms, aliases, the "
+             "techniques it implements (linked), and the groups that use it. ATT&CK " + ATTACK_VER + ".", ""]
     for sid in sorted(db.sw_prof):
         s = db.sw_prof[sid]
         lines.append("- [" + sid + " " + DASH + " " + s.get("name", "") + "](/mitre/software/" + sid + ".md) (" +
@@ -1038,17 +1040,17 @@ def render_landing(db):
         "",
         "## Start here",
         "",
-        "- **Investigating a technique?** open its Technique page " + DASH + " mitigations, detection analytics "
-        "(with the exact log sources), and which groups/tools use it are all on one page.",
-        "- **Building a control set?** open a Mitigation page for how-to-implement + NIST mapping, or the "
-        "Crosswalk for the full join.",
-        "- **Engineering detections?** the Detection + Data-sources sections on each technique name the "
+        "- Investigating a technique? Open its Technique page. Mitigations, detection analytics (with the "
+        "exact log sources), and the groups and tools that use it are all on one page.",
+        "- Building a control set? Open a Mitigation page for implementation guidance and the NIST mapping, "
+        "or the Crosswalk for the full join.",
+        "- Engineering detections? The Detection and Data sources sections on each technique name the "
         "analytics and telemetry to collect.",
-        "- **Prioritising?** " + STAR + " marks the " + str(corpus_n) + " techniques observed in the Team Star "
-        "Wolf 529-machine training corpus " + DASH + " real-world lower-bound prevalence.",
+        "- Prioritising? Techniques marked (observed) are the " + str(corpus_n) + " seen in the Team Star "
+        "Wolf 529-machine training corpus, a real-world lower bound on prevalence.",
         "",
-        "**Coverage:** every ATT&CK object cross-links to its related mitigations, D3FEND countermeasures, "
-        "CAPEC patterns, and NIST 800-53 controls " + DASH + " the cross-framework relationships in one browsable place.",
+        "Coverage: every ATT&CK object cross-links to its related mitigations, D3FEND countermeasures, "
+        "CAPEC patterns, and NIST 800-53 controls, so the cross-framework relationships can be browsed in one place.",
         "",
         FOOTER,
     ]
@@ -1101,8 +1103,8 @@ def render_crosswalk(db):
 
     # ---- per-technique crosswalk
     out.append("## Per-technique crosswalk (counts + links)\n")
-    out.append(STAR + " = observed in the Team Star Wolf 529-machine training corpus. Counts link out to "
-               "the per-object pages.\n")
+    out.append('"(observed)" marks techniques seen in the Team Star Wolf 529-machine training corpus. '
+               "Counts link out to the per-object pages.\n")
     out.append("| Technique | Tactic | Mitigations | NIST | D3FEND | CAPEC |")
     out.append("|---|---|---|---:|---:|---:|")
     for t in sorted(live):
@@ -1141,7 +1143,7 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for tid in db.prof:
-            (d / (tslug(tid) + ".md")).write_text(render_technique(db, tid), encoding="utf-8")
+            (d / (tslug(tid) + ".md")).write_text(plain(render_technique(db, tid)), encoding="utf-8")
             n += 1
         print("techniques: wrote " + str(n) + " pages")
 
@@ -1153,7 +1155,7 @@ def main():
             mid = f.stem
             if mid not in db.mit:
                 continue
-            (d / (mid + ".md")).write_text(render_mitigation(db, mid, f.read_text(encoding="utf-8")), encoding="utf-8")
+            (d / (mid + ".md")).write_text(plain(render_mitigation(db, mid, f.read_text(encoding="utf-8"))), encoding="utf-8")
             n += 1
         print("mitigations: wrote " + str(n) + " pages")
 
@@ -1166,11 +1168,11 @@ def main():
                 continue
             if f.stem in RENAMED_TACTICS:
                 on, ns, nn = RENAMED_TACTICS[f.stem]
-                (d / f.name).write_text(render_tactic_pointer(on, ns, nn), encoding="utf-8")
+                (d / f.name).write_text(plain(render_tactic_pointer(on, ns, nn)), encoding="utf-8")
             else:
-                (d / f.name).write_text(render_tactic(db, f.stem, f.read_text(encoding="utf-8")), encoding="utf-8")
+                (d / f.name).write_text(plain(render_tactic(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8")
             n += 1
-        (d / "README.md").write_text(render_tactic_landing(db), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_tactic_landing(db)), encoding="utf-8")
         print("tactics: wrote " + str(n) + " pages + README")
 
     if "d3fend" in only:
@@ -1180,7 +1182,7 @@ def main():
         for f in sorted((MITRE / "d3fend").glob("*.md")):
             if f.name == "README.md":
                 continue
-            (d / f.name).write_text(render_d3fend(db, f.stem, f.read_text(encoding="utf-8")), encoding="utf-8")
+            (d / f.name).write_text(plain(render_d3fend(db, f.stem, f.read_text(encoding="utf-8"))), encoding="utf-8")
             n += 1
         print("d3fend: wrote " + str(n) + " pages")
 
@@ -1189,7 +1191,7 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for cid in db.capec:
-            (d / (cid + ".md")).write_text(render_capec(db, cid), encoding="utf-8")
+            (d / (cid + ".md")).write_text(plain(render_capec(db, cid)), encoding="utf-8")
             n += 1
         print("capec: wrote " + str(n) + " pages")
 
@@ -1198,10 +1200,10 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         nt = nm = 0
         for tid in db.atlas:
-            (d / (aml_slug(tid) + ".md")).write_text(render_atlas_technique(db, tid), encoding="utf-8")
+            (d / (aml_slug(tid) + ".md")).write_text(plain(render_atlas_technique(db, tid)), encoding="utf-8")
             nt += 1
         for mid in db.atlas_mit:
-            (d / (aml_slug(mid) + ".md")).write_text(render_atlas_mitigation(db, mid), encoding="utf-8")
+            (d / (aml_slug(mid) + ".md")).write_text(plain(render_atlas_mitigation(db, mid)), encoding="utf-8")
             nm += 1
         print("atlas: wrote " + str(nt) + " technique + " + str(nm) + " mitigation pages")
 
@@ -1210,9 +1212,9 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for fid in db.f3:
-            (d / (fid + ".md")).write_text(render_f3_technique(db, fid), encoding="utf-8")
+            (d / (fid + ".md")).write_text(plain(render_f3_technique(db, fid)), encoding="utf-8")
             n += 1
-        (d / "README.md").write_text(render_f3_landing(db), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_f3_landing(db)), encoding="utf-8")
         print("f3: wrote " + str(n) + " technique pages + README")
 
     if "groups" in only:
@@ -1220,9 +1222,9 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for gid in db.group_prof:
-            (d / (gid + ".md")).write_text(render_group(db, gid), encoding="utf-8")
+            (d / (gid + ".md")).write_text(plain(render_group(db, gid)), encoding="utf-8")
             n += 1
-        (d / "README.md").write_text(render_group_landing(db), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_group_landing(db)), encoding="utf-8")
         print("groups: wrote " + str(n) + " pages + README")
 
     if "software" in only:
@@ -1230,9 +1232,9 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for sid in db.sw_prof:
-            (d / (sid + ".md")).write_text(render_software(db, sid), encoding="utf-8")
+            (d / (sid + ".md")).write_text(plain(render_software(db, sid)), encoding="utf-8")
             n += 1
-        (d / "README.md").write_text(render_software_landing(db), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_software_landing(db)), encoding="utf-8")
         print("software: wrote " + str(n) + " pages + README")
 
     if "campaigns" in only:
@@ -1240,19 +1242,19 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         n = 0
         for cid in db.camp_prof:
-            (d / (cid + ".md")).write_text(render_campaign(db, cid), encoding="utf-8")
+            (d / (cid + ".md")).write_text(plain(render_campaign(db, cid)), encoding="utf-8")
             n += 1
-        (d / "README.md").write_text(render_campaign_landing(db), encoding="utf-8")
+        (d / "README.md").write_text(plain(render_campaign_landing(db)), encoding="utf-8")
         print("campaigns: wrote " + str(n) + " pages + README")
 
     if "crosswalk" in only:
         out_root.mkdir(parents=True, exist_ok=True)
-        (out_root / "crosswalk.md").write_text(render_crosswalk(db), encoding="utf-8")
+        (out_root / "crosswalk.md").write_text(plain(render_crosswalk(db)), encoding="utf-8")
         print("crosswalk: wrote crosswalk.md")
 
     if "landing" in only:
         out_root.mkdir(parents=True, exist_ok=True)
-        (out_root / "README.md").write_text(render_landing(db), encoding="utf-8")
+        (out_root / "README.md").write_text(plain(render_landing(db)), encoding="utf-8")
         print("landing: wrote README.md")
 
 

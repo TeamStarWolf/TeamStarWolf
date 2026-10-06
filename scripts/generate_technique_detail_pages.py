@@ -208,7 +208,7 @@ def det_block(tid):
                 out.append("  - *Log sources:* " + "; ".join(parts))
             tune = a.get("mutable_elements") or []
             if tune:
-                out.append("  - *Tune:* " + "; ".join("`" + m.get("field", "") + "` — " + (m.get("description", "") or "")
+                out.append("  - *Tune:* " + "; ".join("`" + m.get("field", "") + "`: " + (m.get("description", "") or "")
                                                        for m in tune))
         out.append("")
     out.append("---")

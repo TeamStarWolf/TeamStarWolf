@@ -1,6 +1,6 @@
 # TeamStarWolf
 
-A cybersecurity reference library cross-referenced to MITRE ATT&CK.
+A cybersecurity reference library
 
 ## About
 

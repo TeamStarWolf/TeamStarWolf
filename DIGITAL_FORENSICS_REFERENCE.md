@@ -964,7 +964,7 @@ aureport --login --failed --summary
 
 #### Key Filesystem Concepts
 - Inodes: Metadata structures storing file permissions, timestamps, ownership, and data block pointers
-- Timestamps: atime (access), mtime (modification), ctime (inode change), crtime (creation -- ext4 only)
+- Timestamps: atime (access), mtime (modification), ctime (inode change), crtime (creation: ext4 only)
 - Deleted files: When a file is deleted, the inode is marked free but data blocks may persist until overwritten
 
 ```bash

@@ -60,9 +60,9 @@ Mitigation:
 Description: LLM-generated output passed directly to downstream systems without sanitization enables classic injection attacks via LLM intermediary.
 
 Attack Examples:
-- LLM generates `<script>alert(document.cookie)</script>` rendered in browser -- stored XSS
-- LLM output interpolated directly into SQL query -- SQL injection
-- LLM-generated code executed in subprocess without review -- arbitrary code execution
+- LLM generates `<script>alert(document.cookie)</script>` rendered in browser: stored XSS
+- LLM output interpolated directly into SQL query: SQL injection
+- LLM-generated code executed in subprocess without review: arbitrary code execution
 
 Detection Approach:
 - Log all LLM outputs before downstream processing
@@ -89,7 +89,7 @@ Attack Examples:
 
 Detection Approach:
 - Anomaly detection on training data distribution before ingestion
-- Canary token injection in training data -- monitor if LLM reproduces canaries
+- Canary token injection in training data: monitor if LLM reproduces canaries
 - Behavioral testing with known-bad trigger phrases post-training
 - Differential privacy accounting to bound memorization
 
@@ -113,7 +113,7 @@ Attack Examples:
 
 Detection Approach:
 - Token usage monitoring per session/user
-- Latency anomaly detection -- unusually slow responses may indicate DoS inputs
+- Latency anomaly detection: unusually slow responses may indicate DoS inputs
 - Rate limiting dashboards with per-key usage graphs
 
 Mitigation:
@@ -191,7 +191,7 @@ Mitigation:
 - Scope to read-only where possible
 - Human-in-the-loop confirmation for write/delete/send operations
 - Input validation on plugin parameters independent of LLM output
-- Plugin API authentication -- plugins should not implicitly trust LLM-originated requests
+- Plugin API authentication: plugins should not implicitly trust LLM-originated requests
 - Sandboxed plugin execution environment
 
 ---
@@ -314,8 +314,8 @@ Dear customer, please find your invoice attached...
 ```
 
 Real-world incidents:
-- Bing Chat / Microsoft Copilot indirect injection via search results (2023) -- researcher Kevin Beaumont demonstrated data exfiltration via crafted webpage
-- ChatGPT plugin prompt injection (2023) -- plugins processing untrusted web content executed injected instructions
+- Bing Chat / Microsoft Copilot indirect injection via search results (2023): researcher Kevin Beaumont demonstrated data exfiltration via crafted webpage
+- ChatGPT plugin prompt injection (2023): plugins processing untrusted web content executed injected instructions
 - Google Bard exfiltration proof-of-concept via indirect injection in documents (2023)
 
 ### Prompt Injection Detection and Defense
@@ -438,7 +438,7 @@ Carlini and Wagner (C&W) -- optimization-based attack:
 Antivirus / EDR evasion:
 - ML-based PE file classifiers (MalConv, EMBER models) vulnerable to adversarial PE modifications
 - Techniques: append benign byte sections, modify non-executable header fields, padding attacks
-- Tool: gym-malware -- RL agent that iteratively modifies PE files to evade ML classifiers
+- Tool: gym-malware: RL agent that iteratively modifies PE files to evade ML classifiers
 - Defense: ensemble models, adversarial training, behavior-based detection (harder to evade than static ML)
 
 Spam / phishing filter evasion:
@@ -448,13 +448,13 @@ Spam / phishing filter evasion:
 
 Intrusion detection evasion:
 - Network traffic manipulation to evade ML-based IDS (packet fragmentation, timing manipulation)
-- Feature space attacks vs problem space attacks -- manipulating actual network traffic, not just features
+- Feature space attacks vs problem space attacks: manipulating actual network traffic, not just features
 
 ### Adversarial ML Research Tools
 
 | Tool | Purpose | Link |
 |---|---|---|
-| Adversarial Robustness Toolbox (ART) | IBM -- unified framework for attacks and defenses | github.com/Trusted-AI/adversarial-robustness-toolbox |
+| Adversarial Robustness Toolbox (ART) | IBM: unified framework for attacks and defenses | github.com/Trusted-AI/adversarial-robustness-toolbox |
 | CleverHans | TF/PyTorch adversarial example library | github.com/cleverhans-lab/cleverhans |
 | Foolbox | Fast adversarial attacks library | github.com/bethgelab/foolbox |
 | TextAttack | NLP adversarial attacks and augmentation | github.com/QData/TextAttack |
@@ -557,7 +557,7 @@ def anonymize_pii(text: str) -> str:
 
 - Never hardcode API keys in prompts, source code, or configuration files
 - Use secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault) for all LLM provider keys
-- Implement key rotation schedules -- OpenAI, Anthropic, Azure OpenAI all support key rotation
+- Implement key rotation schedules: OpenAI, Anthropic, Azure OpenAI all support key rotation
 - Monitor API key usage: alert on sudden usage spikes (extraction attempts) or off-hours queries
 - Rate limit per user/session to limit model extraction attack surface
 - Use separate API keys per environment (dev/staging/prod) with different permission scopes
@@ -800,9 +800,9 @@ Risk categories:
 
 High-risk AI system requirements:
 - Risk management system documented throughout lifecycle
-- Data governance -- training data quality, bias assessment
+- Data governance: training data quality, bias assessment
 - Technical documentation and record-keeping
-- Human oversight mechanisms -- ability to override, monitor, and shut down
+- Human oversight mechanisms: ability to override, monitor, and shut down
 - Accuracy, robustness, and cybersecurity requirements
 - Conformity assessment before market placement
 
@@ -814,7 +814,7 @@ Four core functions:
 |---|---|
 | GOVERN | Organizational policies, accountability structures, workforce training, risk tolerance definition |
 | MAP | Categorize AI system purpose, context, risk tolerance, and relevant stakeholders |
-| MEASURE | Quantify, evaluate, and track AI risks -- bias, accuracy, reliability, security |
+| MEASURE | Quantify, evaluate, and track AI risks: bias, accuracy, reliability, security |
 | MANAGE | Prioritize and treat identified risks; incident response for AI systems |
 
 Key AI RMF security outcomes:
@@ -828,12 +828,12 @@ Key AI RMF security outcomes:
 Adversarial threat landscape for AI-enabled systems -- the ATT&CK framework equivalent for ML attacks.
 
 Selected ATLAS tactics (see the [ATLAS reference](/ATLAS_REFERENCE.md) for the pinned 2026.09 source and snapshot limits):
-- Reconnaissance -- gather information about target ML system
-- Resource Development -- acquire tools, datasets, accounts
-- Initial Access -- gain access to ML system or its infrastructure
-- AI Attack Adaptation -- tailor capabilities or observations to a target or operational objective
-- Exfiltration -- extract model weights, training data, or sensitive outputs
-- Impact -- degrade accuracy, cause misclassification, corrupt model
+- Reconnaissance: gather information about target ML system
+- Resource Development: acquire tools, datasets, accounts
+- Initial Access: gain access to ML system or its infrastructure
+- AI Attack Adaptation: tailor capabilities or observations to a target or operational objective
+- Exfiltration: extract model weights, training data, or sensitive outputs
+- Impact: degrade accuracy, cause misclassification, corrupt model
 
 Key ATLAS Techniques:
 

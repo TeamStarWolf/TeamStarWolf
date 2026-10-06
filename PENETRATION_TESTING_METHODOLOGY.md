@@ -131,13 +131,13 @@ The authorization letter must be carried during all testing:
 
 ### 1.3 Relevant Legal Frameworks
 
-#### United States -- Computer Fraud and Abuse Act (CFAA), 18 U.S.C. 1030
+#### United States: Computer Fraud and Abuse Act (CFAA), 18 U.S.C. 1030
 
 - Prohibits unauthorized access to protected computers
-- Authorization must be explicit and documented -- implied authorization is not a defense
+- Authorization must be explicit and documented: implied authorization is not a defense
 - Penalties: up to 10 years imprisonment per violation; civil liability available to victims
 
-#### United Kingdom -- Computer Misuse Act 1990 (as amended)
+#### United Kingdom: Computer Misuse Act 1990 (as amended)
 
 - Section 1: Unauthorized access to computer material
 - Section 2: Unauthorized access with intent to commit further offences
@@ -145,17 +145,17 @@ The authorization letter must be carried during all testing:
 - Section 3ZA (Serious Crime Act 2015): Unauthorized acts causing serious damage
 - Penalties range from 12 months to life imprisonment depending on section
 
-#### European Union -- Directive 2013/40/EU
+#### European Union: Directive 2013/40/EU
 
 - Requires member states to criminalize unauthorized access and data interference
 - Implemented via national law: UK CMA, German StGB 202a-c, French LCEN
 
-#### Australia -- Criminal Code Act 1995, Part 10.7
+#### Australia: Criminal Code Act 1995, Part 10.7
 
-- Division 477: Serious computer offences -- up to 10 years imprisonment
+- Division 477: Serious computer offences: up to 10 years imprisonment
 - Division 478: Other computer offences
 
-#### Canada -- Criminal Code, Sections 342.1 and 430
+#### Canada: Criminal Code, Sections 342.1 and 430
 
 - Section 342.1: Unauthorized use of computer
 - Section 430(1.1): Mischief in relation to computer data
@@ -189,7 +189,7 @@ Kill Switch Conditions -- Testing stops immediately upon:
 
 Emergency Contact Chain
 
-1. Call client technical POC immediately -- do not send email
+1. Call client technical POC immediately: do not send email
 2. Record exact timestamp, systems affected, and nature of the incident
 3. Preserve all logs and evidence without modification
 4. Do not attempt remediation unless explicitly directed by the client
@@ -1333,13 +1333,13 @@ Prioritization Matrix:
 
 | CVSS Score | EPSS Score | CISA KEV | Priority |
 |------------|------------|----------|----------|
-| >= 9.0 | >= 0.7 | Yes | P0 -- Immediate (24h) |
-| >= 7.0 | >= 0.4 | Yes | P1 -- Critical (72h) |
-| >= 9.0 | < 0.1 | No | P2 -- High (1 week) |
-| >= 7.0 | >= 0.2 | No | P2 -- High (1 week) |
-| 4.0-6.9 | Any | Yes | P2 -- High (1 week) |
-| 4.0-6.9 | >= 0.1 | No | P3 -- Medium (30 days) |
-| < 4.0 | Any | No | P4 -- Low (90 days) |
+| >= 9.0 | >= 0.7 | Yes | P0: Immediate (24h) |
+| >= 7.0 | >= 0.4 | Yes | P1: Critical (72h) |
+| >= 9.0 | < 0.1 | No | P2: High (1 week) |
+| >= 7.0 | >= 0.2 | No | P2: High (1 week) |
+| 4.0-6.9 | Any | Yes | P2: High (1 week) |
+| 4.0-6.9 | >= 0.1 | No | P3: Medium (30 days) |
+| < 4.0 | Any | No | P4: Low (90 days) |
 
 ### 8.5 Retesting Procedures
 

@@ -22,7 +22,7 @@ Repurposed desktops and old laptops are the cheapest starting point. A machine w
 | Repurposed desktop/tower | Core i5/i7, upgrade RAM to 16 GB, add an SSD |
 | Old laptop | Useful for a dedicated Kali machine or network sensor |
 | Raspberry Pi 4 (8 GB) | Great for network tap, Pi-hole DNS sinkhole, or lightweight Zeek sensor |
-| Old workstation (eBay) | Dell OptiPlex / HP EliteDesk -- often under $100 |
+| Old workstation (eBay) | Dell OptiPlex / HP EliteDesk: often under $100 |
 
 ### Mid Tier ($300-$800)
 Sufficient for a full VLAN-segmented lab with an AD domain, attack machine, and a basic SIEM.

@@ -133,7 +133,7 @@ A physical penetration test follows a structured kill chain:
 - OSDP Protocol: Open Supervised Device Protocol (RS-485) is the modern standard for reader-to-controller communication. Unlike Wiegand (no encryption, no authentication), OSDP v2 supports AES-128 encryption, but many deployments leave it unconfigured.
 
 
-## Physical Penetration Testing Methodology -- Extended
+## Physical Penetration Testing Methodology: Extended
 
 ### Legal and Authorization
 
@@ -164,18 +164,18 @@ A physical penetration test follows a structured kill chain:
 - Raking: Fast, less controlled; serrated rakes; effective against low-security locks
 - Bumping: Modified key + mallet; resonance defeats spring-loaded pins
 - Bypass tools: Credit card shimming, loiding, jiggler keys for wafer locks
-- High-security locks: Medeco, Abloy, Mul-T-Lock -- require specialist bypass or alternative attack path
+- High-security locks: Medeco, Abloy, Mul-T-Lock: require specialist bypass or alternative attack path
 - Resources: Deviant Ollam (Practical Lock Picking), LockPickingLawyer YouTube
 
 ### Wireless Security Testing
 
-- RFID/NFC attacks: Flipper Zero, Proxmark3 -- read, save, replay, emulate badges
+- RFID/NFC attacks: Flipper Zero, Proxmark3: read, save, replay, emulate badges
 - 125kHz (HID, EM4100): No encryption; fully clonable; most common in older buildings
 - 13.56 MHz (MIFARE Classic): Weakly encrypted; Crypto-1 cipher broken; clonable with mfoc/mfcuk
 - 13.56 MHz (MIFARE DESFire, ICODE): AES/3DES encryption; much harder to clone
 - WiFi survey: Detect rogue APs, probe for WPA2-Enterprise networks
 
-### Social Engineering -- Physical Component
+### Social Engineering: Physical Component
 
 - Pretext scenarios: IT support, vendor/contractor, facilities maintenance, auditor, delivery person
 - Vishing before visit: Call ahead to name-drop, set up pretext with receptionist

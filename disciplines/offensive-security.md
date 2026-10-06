@@ -232,5 +232,5 @@ Windows-native binaries that can be abused offensively. Essential for EDR evasio
 
 - CVE monitoring: NVD, CISA KEV, Vulncheck, Packet Storm, ExploitDB
 - PoC development workflow: Reproduce locally in lab -> understand root cause -> weaponize
-- Bug bounty programs: HackerOne, Bugcrowd, Intigriti -- scoped responsible disclosure
+- Bug bounty programs: HackerOne, Bugcrowd, Intigriti: scoped responsible disclosure
 - Resources: LiveOverflow YouTube, pwn.college, exploit.education VMs

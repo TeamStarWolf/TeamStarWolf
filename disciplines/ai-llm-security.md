@@ -79,6 +79,7 @@ This exercise applies the segmentation, authority-expansion, and scope-drift con
 
 ### Research & Reference
 - [Trusted-AI/AIX360](https://github.com/Trusted-AI/AIX360) — IBM's AI Explainability 360; explainability is a prerequisite for auditing model behavior and detecting backdoored or manipulated models
+- [Continuum-AI-Corp/Orca-AI-Incident-Archive](https://github.com/Continuum-AI-Corp/Orca-AI-Incident-Archive) — Orca AI Incident Archive: open database of real-world AI agent security events from 2025 on (prompt injection, MCP, agent supply chain, destructive agent actions); each record source-linked, graded for source quality and labelled for confirmed harm, with JSON/CSV exports
 
 ---
 

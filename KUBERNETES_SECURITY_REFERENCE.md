@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Hardening a production cluster, investigating a suspected container escape or stolen SA token, or auditing RBAC and Pod Security before a deployment goes live |
-| **Start at** | [Kubernetes Attack Surface](#_1-kubernetes-attack-surface), [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist), [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools) |
-| **Pairs with** | [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
+| Read this when | Hardening a production cluster, investigating a suspected container escape or stolen SA token, or auditing RBAC and Pod Security before a deployment goes live |
+| Start at | [Kubernetes Attack Surface](#_1-kubernetes-attack-surface), [K8s Security Hardening Checklist](#_10-k8s-security-hardening-checklist), [Kubernetes Security Scanning Tools](#_4-kubernetes-security-scanning-tools) |
+| Pairs with | [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) |
 
 ---
 
@@ -33,9 +33,9 @@
 
 | Component | Default Port | Role | Attack Risk |
 |-----------|-------------|------|------------|
-| API Server | 6443 | Central control plane — all kubectl commands go through it | Exposed credentials, misconfigured RBAC |
+| API Server | 6443 | Central control plane: all kubectl commands go through it | Exposed credentials, misconfigured RBAC |
 | etcd | 2379/2380 | Stores all cluster state including Secrets in base64 (NOT encrypted by default) | Unencrypted secrets, direct access bypasses auth |
-| kubelet | 10250 | Agent on each node — handles pod lifecycle, exposes node API | Anonymous auth allows exec in containers |
+| kubelet | 10250 | Agent on each node: handles pod lifecycle, exposes node API | Anonymous auth allows exec in containers |
 | kube-proxy | N/A | Maintains iptables/ipvs rules for Service routing | Lateral movement via service mesh abuse |
 | Controller Manager | 10257 | Reconciles desired vs actual state | Privilege escalation via SA token management |
 | Scheduler | 10259 | Assigns pods to nodes | Malicious pod scheduling via schedule manipulation |
@@ -43,9 +43,9 @@
 | Dashboard | 8001 (proxy) | Web UI for cluster management | Admin access without auth if misconfigured |
 | NodePort | 30000-32767 | Exposes services externally | Direct service exposure bypassing ingress |
 
-### etcd — The Crown Jewel
+### etcd: The Crown Jewel
 
-etcd stores **all cluster state**: Secrets, ConfigMaps, pod specs, RBAC rules, certificates.
+etcd stores all cluster state: Secrets, ConfigMaps, pod specs, RBAC rules, certificates.
 
 ```bash
 # Check if etcd is exposed (should fail without client cert)
@@ -58,7 +58,7 @@ etcdctl --endpoints=https://127.0.0.1:2379   --cacert=/etc/kubernetes/pki/etcd/c
 # With AES-CBC, value starts with: k8s:enc:aescbc:v1:key1:
 ```
 
-**Defenses:**
+Defenses:
 - Encrypt etcd at rest (see Section 7)
 - mTLS for all etcd client-to-peer and peer-to-peer communication
 - etcd should only be reachable from API server (firewall/network policy)
@@ -95,14 +95,14 @@ Service accounts are the identity for pods — they receive a JWT token automati
 
 | Permission | Risk |
 |-----------|------|
-| `*` on `*` (wildcard) | Full cluster admin — equivalent to root |
-| `pods/exec` | Execute commands in any pod — interactive shell access |
+| `*` on `*` (wildcard) | Full cluster admin: equivalent to root |
+| `pods/exec` | Execute commands in any pod: interactive shell access |
 | `secrets` get/list | Read all secrets including credentials and API tokens |
 | `create pods` | Escape via privileged container, hostPath mount, or token theft |
 | `create deployments` | Launch privileged workload with any spec |
 | `update configmaps` | Modify ConfigMaps used as config by other pods |
-| `impersonate` | Impersonate any user/serviceaccount — full identity theft |
-| `nodes/proxy` | Proxy to kubelet — enables exec in pods on that node |
+| `impersonate` | Impersonate any user/serviceaccount: full identity theft |
+| `nodes/proxy` | Proxy to kubelet: enables exec in pods on that node |
 | `bind clusterroles` | Escalate own privileges by binding cluster-admin |
 | `create tokenrequests` | Generate arbitrary SA tokens for any service account |
 | `patch nodes` | Taint/drain nodes or modify node labels |
@@ -201,7 +201,7 @@ mount /dev/sda1 /mnt/
 chroot /mnt/ /bin/bash   # Full host root shell
 ```
 
-**Detection:** Falco rule `Launch Privileged Container`; API server audit log shows `privileged: true` in pod spec.
+Detection: Falco rule `Launch Privileged Container`; API server audit log shows `privileged: true` in pod spec.
 
 ### hostPath Volume Escape
 
@@ -220,7 +220,7 @@ containers:
     command: ["chroot", "/host", "/bin/bash"]
 ```
 
-**Prevention:** OPA Gatekeeper/Kyverno policy blocking `hostPath` volumes, or PSS Restricted profile.
+Prevention: OPA Gatekeeper/Kyverno policy blocking `hostPath` volumes, or PSS Restricted profile.
 
 ### docker.sock Escape
 
@@ -265,8 +265,8 @@ curl -s --cacert $CACERT   -H "Authorization: Bearer $TOKEN"   https://kubernete
 
 | CVE | Severity | Description |
 |-----|----------|-------------|
-| CVE-2022-0185 | Critical (CVSS 8.4) | Linux kernel heap overflow in file system context — container escape to host |
-| CVE-2021-25741 | High | symlink exchange attack via hostPath volume — read arbitrary host files |
+| CVE-2022-0185 | Critical (CVSS 8.4) | Linux kernel heap overflow in file system context: container escape to host |
+| CVE-2021-25741 | High | symlink exchange attack via hostPath volume: read arbitrary host files |
 | CVE-2019-5736 | Critical | runc container breakout via /proc/self/exe overwrite |
 | CVE-2018-1002105 | Critical | API server privilege escalation via websocket upgrade request |
 | CVE-2020-8558 | Medium | Route propagation bug allows access to localhost services on node |
@@ -411,9 +411,9 @@ namespace admission controller labels.
 
 | Profile | Restrictions | Use Case |
 |---------|-------------|----------|
-| **Privileged** | None — unrestricted | Infrastructure workloads (CNI plugins, CSI drivers, node agents) |
-| **Baseline** | Prevents known privilege escalations | General application workloads (minimum sensible default) |
-| **Restricted** | Heavily restricted, follows security best practices | High-security production workloads |
+| Privileged | None: unrestricted | Infrastructure workloads (CNI plugins, CSI drivers, node agents) |
+| Baseline | Prevents known privilege escalations | General application workloads (minimum sensible default) |
+| Restricted | Heavily restricted, follows security best practices | High-security production workloads |
 
 ### Apply via Namespace Labels
 
@@ -476,7 +476,7 @@ network segmentation. NetworkPolicy resources require a CNI plugin that enforces
 | Calico | Full + GlobalNetworkPolicy | Yes | Limited | Widely deployed, mature |
 | Cilium | Full + CiliumNetworkPolicy | Native | Yes (HTTP/gRPC) | Best observability (Hubble UI) |
 | Weave Net | Full | No | No | No longer actively maintained |
-| Flannel | None | No | No | Simple overlay — does NOT enforce NetworkPolicy |
+| Flannel | None | No | No | Simple overlay: does NOT enforce NetworkPolicy |
 | AWS VPC CNI | Full (with Calico) | No | No | Use Calico for NetworkPolicy on EKS |
 
 ### Default Deny All Ingress
@@ -706,7 +706,7 @@ kubectl apply -f sealed-secret.yaml
 
 ## 8. Supply Chain Security for K8s
 
-### Kyverno — Image Signature Verification Policy
+### Kyverno: Image Signature Verification Policy
 
 ```yaml
 apiVersion: kyverno.io/v1

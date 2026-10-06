@@ -1,12 +1,12 @@
 # Cybersecurity Certifications Reference
 
-> **In one minute** — A catalog of cybersecurity certifications organized by domain (entry-level, offensive, blue team, DFIR, cloud, management, and more), with each cert's cost, difficulty, exam format, renewal rules, and who it's best for. Use it to pick the right cert for your goal and budget without wading through vendor marketing. It also maps progressions from entry to senior level and flags which certs satisfy DoD 8570 (the US Department of Defense's baseline certification requirement).
+> In one minute — A catalog of cybersecurity certifications organized by domain (entry-level, offensive, blue team, DFIR, cloud, management, and more), with each cert's cost, difficulty, exam format, renewal rules, and who it's best for. Use it to pick the right cert for your goal and budget without wading through vendor marketing. It also maps progressions from entry to senior level and flags which certs satisfy DoD 8570 (the US Department of Defense's baseline certification requirement).
 
 | | |
 |---|---|
-| **Read this when** | Choosing your first or next security cert, comparing costs before asking for training budget, checking a cert's renewal or DoD 8570 status |
-| **Start at** | [Quick Selection Guide](#quick-selection-guide), [Certification Progression Map](#certification-progression-map), [Exam Preparation Tips](#exam-preparation-tips) |
-| **Pairs with** | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md) |
+| Read this when | Choosing your first or next security cert, comparing costs before asking for training budget, checking a cert's renewal or DoD 8570 status |
+| Start at | [Quick Selection Guide](#quick-selection-guide), [Certification Progression Map](#certification-progression-map), [Exam Preparation Tips](#exam-preparation-tips) |
+| Pairs with | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Hands-On Labs](LABS.md), [Security Tools Reference](TOOLS.md) |
 
 A comprehensive reference for cybersecurity certifications — organized by domain, with cost, difficulty, renewal requirements, and who should pursue each. For career-progression roadmaps, see [Career Paths & Cert Roadmap](CAREER_PATHS.md).
 
@@ -64,7 +64,7 @@ A comprehensive reference for cybersecurity certifications — organized by doma
 |---|---|
 | Issuer | CompTIA |
 | Cost | ~$338 |
-| Focus | Networking fundamentals — prerequisite knowledge for security |
+| Focus | Networking fundamentals: prerequisite knowledge for security |
 | Best for | Before Security+ if no networking background |
 
 ### CompTIA A+
@@ -134,7 +134,7 @@ A comprehensive reference for cybersecurity certifications — organized by doma
 |---|---|
 | Issuer | Offensive Security |
 | Cost | $1,499 (90-day lab access + exam) |
-| Format | 24-hour hands-on exam — compromise 3 standalone machines + Active Directory set |
+| Format | 24-hour hands-on exam: compromise 3 standalone machines + Active Directory set |
 | Difficulty | High; industry gold standard |
 | Renewal | None (lifetime) |
 | Best for | Penetration testers; highly respected by employers |
@@ -358,7 +358,7 @@ A comprehensive reference for cybersecurity certifications — organized by doma
 | Issuer | ISC2 |
 | Cost | $749 |
 | Experience required | 5 years in 2+ of 8 domains (or Associate path with 0 years) |
-| Exam format | CAT (125–175 questions) or linear (250 questions) |
+| Exam format | CAT (125-175 questions) or linear (250 questions) |
 | Renewal | 120 CPEs in 3 years, annual AMF |
 | DoD 8570 | Yes (IAM Level I/II/III) |
 | Best for | Security managers, architects, CISOs; the industry's top credential |
@@ -509,20 +509,20 @@ Senior / Specialist (5+ years)
 
 | Tier | Certifications | Typical Cost Range |
 |---|---|---|
-| Free / Low cost | ISC2 CC, BTL1, eJPT, PortSwigger | Free – $250 |
-| Mid-range | Security+, CySA+, CEH, SC-200, AZ-500 | $165 – $750 |
-| Premium | CISSP, CISM, OSCP, CCSP, AWS Security | $300 – $1,500 |
-| High (with training) | GIAC certs with SANS courses | $7,000 – $9,000 |
+| Free / Low cost | ISC2 CC, BTL1, eJPT, PortSwigger | Free: $250 |
+| Mid-range | Security+, CySA+, CEH, SC-200, AZ-500 | $165: $750 |
+| Premium | CISSP, CISM, OSCP, CCSP, AWS Security | $300: $1,500 |
+| High (with training) | GIAC certs with SANS courses | $7,000: $9,000 |
 
 > SANS frequently offers Work Study programs (free if you help with event logistics) and OnDemand bundles. Many employers reimburse for GIAC exams taken after SANS courses.
 
 ---
 
 ## Related Resources
-- [Career Paths & Cert Roadmap](CAREER_PATHS.md) — progression guides by career track
-- [Hands-On Labs](LABS.md) — practice environments to prepare for exams
-- [Security Tools Reference](TOOLS.md) — tools covered in certification curricula
-- [Disciplines](disciplines/threat-intelligence.md) — discipline pages with cert recommendations
+- [Career Paths & Cert Roadmap](CAREER_PATHS.md): progression guides by career track
+- [Hands-On Labs](LABS.md): practice environments to prepare for exams
+- [Security Tools Reference](TOOLS.md): tools covered in certification curricula
+- [Disciplines](disciplines/threat-intelligence.md): discipline pages with cert recommendations
 ---
 
 ## Quick-Reference Summary Tables
@@ -531,7 +531,7 @@ Senior / Specialist (5+ years)
 
 | Certification | Issuer | Level | Cost (USD) | Validity | DoD 8570? |
 |---|---|---|---|---|---|
-| AWS Certified Security — Specialty | Amazon | Advanced | $300 | 3 years | No |
+| AWS Certified Security: Specialty | Amazon | Advanced | $300 | 3 years | No |
 | Azure Security Engineer Associate (AZ-500) | Microsoft | Mid | $165 | Perpetual | No |
 | Microsoft Security Operations Analyst (SC-200) | Microsoft | Mid | $165 | Perpetual | No |
 | Google Professional Cloud Security Engineer | Google | Advanced | $200 | 2 years | No |
@@ -575,24 +575,24 @@ Senior / Specialist (5+ years)
 
 ## Exam Preparation Tips
 
-**General Strategy**
+General Strategy
 - Read the exam guide before studying: Every cert has an official exam guide listing domains and weightings
 - Prioritize high-weight domains: 20% domain = 20% of exam questions; focus time accordingly
 - Practice exams before scheduling: Score 85%+ consistently before booking; ExamTopics, Boson, MeasureUp
 - Flashcards for terminology-heavy certs: Security+, CISSP have many acronyms; Anki + Quizlet
-- Lab practice for technical certs: OSCP, BTL1, CRTO — no amount of reading substitutes for hands-on
+- Lab practice for technical certs: OSCP, BTL1, CRTO: no amount of reading substitutes for hands-on
 
-**Budget Certification Path (< $500 Total)**
-1. CompTIA Security+ (~$369) — foundation, DoD 8570 compliant, 3-year validity
-2. BTL1 (~$530 all-in with exam) — practical blue team; great ROI
-3. PNPT (~$399) — practical offensive; cheaper than OSCP; accepted by many employers
+Budget Certification Path (< $500 Total)
+1. CompTIA Security+ (~$369): foundation, DoD 8570 compliant, 3-year validity
+2. BTL1 (~$530 all-in with exam): practical blue team; great ROI
+3. PNPT (~$399): practical offensive; cheaper than OSCP; accepted by many employers
 
-**Mid-Range Path (~$1,000-$2,000)**
+Mid-Range Path (~$1,000-$2,000)
 1. CompTIA Security+ + CySA+
 2. PNPT or eWPT for offensive
 3. GCIH or BTL2 for defensive
 
-**Premium Path (Industry Standard)**
-1. OSCP — offensive gold standard
-2. CISSP — management/architecture
-3. GREM or GCFA — specialization
+Premium Path (Industry Standard)
+1. OSCP: offensive gold standard
+2. CISSP: management/architecture
+3. GREM or GCFA: specialization

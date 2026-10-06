@@ -1,12 +1,12 @@
 # Linux Hardening Reference Library
 
-> **A comprehensive professional reference for Linux system hardening, compliance, and security operations.**
+> A comprehensive professional reference for Linux system hardening, compliance, and security operations.
 
 | | |
 |---|---|
-| **Read this when** | Building or auditing a Linux server against CIS/STIG baselines, locking down SSH/sudo/PAM before exposing a host, chasing an SELinux denial or standing up auditd/FIM monitoring |
-| **Start at** | [Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist) |
-| **Pairs with** | [LINUX_HARDENING.md](LINUX_HARDENING.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
+| Read this when | Building or auditing a Linux server against CIS/STIG baselines, locking down SSH/sudo/PAM before exposing a host, chasing an SELinux denial or standing up auditd/FIM monitoring |
+| Start at | [Hardening Fundamentals & CIS Benchmarks](#_1-linux-hardening-fundamentals-amp-cis-benchmarks), [User & Authentication Hardening](#_2-user-amp-authentication-hardening), [Hardening Verification Checklist](#_104-hardening-verification-checklist) |
+| Pairs with | [LINUX_HARDENING.md](LINUX_HARDENING.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
 
 ---
 
@@ -33,8 +33,8 @@ The Center for Internet Security (CIS) publishes benchmarks for all major Linux 
 
 | Profile | Description | Target |
 |---------|-------------|--------|
-| **Level 1** | Essential, practical controls with minimal performance impact | All systems |
-| **Level 2** | Defense-in-depth controls that may impact functionality | High-security environments |
+| Level 1 | Essential, practical controls with minimal performance impact | All systems |
+| Level 2 | Defense-in-depth controls that may impact functionality | High-security environments |
 
 Key CIS Benchmark publications:
 - CIS Red Hat Enterprise Linux 9 Benchmark
@@ -45,13 +45,13 @@ Key CIS Benchmark publications:
 
 ### 1.2 Automated Compliance Scoring
 
-**CIS-CAT Pro** (commercial, requires membership):
+CIS-CAT Pro (commercial, requires membership):
 ```
 # Run CIS-CAT Pro against local system
 ./Assessor-CLI.sh -i -rd /var/reports -rp ciscat_report
 ```
 
-**OpenSCAP** (open source, fully functional):
+OpenSCAP (open source, fully functional):
 ```bash
 # Install on RHEL/CentOS/Fedora
 dnf install openscap-scanner scap-security-guide
@@ -84,9 +84,9 @@ oscap xccdf generate fix \
 
 DISA STIGs are mandatory for U.S. Department of Defense systems and represent the gold standard for government Linux hardening.
 
-- **Source**: https://public.cyber.mil/stigs/
-- **STIG Viewer**: GUI tool for reviewing STIG checklists
-- **SCAP Content**: Downloadable XCCDF/OVAL content for automated scanning
+- Source: https://public.cyber.mil/stigs/
+- STIG Viewer: GUI tool for reviewing STIG checklists
+- SCAP Content: Downloadable XCCDF/OVAL content for automated scanning
 
 ```bash
 # Run DISA STIG profile assessment
@@ -134,7 +134,7 @@ deborphan   # Debian/Ubuntu
 
 ### 1.6 OS Update Management
 
-**RHEL/CentOS -- dnf-automatic:**
+RHEL/CentOS -- dnf-automatic:
 ```bash
 # Install
 dnf install dnf-automatic
@@ -151,7 +151,7 @@ systemctl enable --now dnf-automatic-install.timer
 systemctl status dnf-automatic-install.timer
 ```
 
-**Debian/Ubuntu -- unattended-upgrades:**
+Debian/Ubuntu -- unattended-upgrades:
 ```bash
 apt-get install unattended-upgrades apt-listchanges
 
@@ -172,7 +172,7 @@ unattended-upgrades --dry-run --debug
 
 ### 1.7 Hardening Automation
 
-**Ansible Hardening Roles:**
+Ansible Hardening Roles:
 
 ```bash
 # dev-sec/linux-baseline -- comprehensive baseline
@@ -198,7 +198,7 @@ dnf install rhel-system-roles
 # /usr/share/ansible/roles/rhel-system-roles.security_profiles
 ```
 
-**Quick Hardening Check:**
+Quick Hardening Check:
 ```bash
 # Lynis -- comprehensive security audit
 apt-get install lynis   # or: dnf install lynis
@@ -217,7 +217,7 @@ grep "hardening_index" /var/log/lynis-report.dat
 
 PAM provides a flexible framework for authentication. Configuration files live in `/etc/pam.d/`.
 
-**Key PAM config files:**
+Key PAM config files:
 
 | File | System | Purpose |
 |------|--------|---------|
@@ -226,7 +226,7 @@ PAM provides a flexible framework for authentication. Configuration files live i
 | `/etc/pam.d/common-auth` | Debian/Ubuntu | System-wide auth |
 | `/etc/pam.d/common-password` | Debian/Ubuntu | Password policies |
 
-**PAM module stack order:**
+PAM module stack order:
 ```
 auth     required   pam_faillock.so preauth
 auth     required   pam_unix.so
@@ -241,7 +241,7 @@ session  required   pam_unix.so
 
 ### 2.2 Password Policy Enforcement
 
-**pam_pwquality configuration** (`/etc/security/pwquality.conf`):
+pam_pwquality configuration (`/etc/security/pwquality.conf`):
 ```ini
 # Minimum password length
 minlen = 14
@@ -268,12 +268,12 @@ difok = 8
 # Note: Actual enforcement is in pam_unix: remember=24
 ```
 
-**PAM password module line:**
+PAM password module line:
 ```
 password requisite pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
 ```
 
-**Password aging via chage:**
+Password aging via chage:
 ```bash
 # Set password maximum age (90 days), minimum age (7 days), warning (14 days)
 chage -M 90 -m 7 -W 14 username
@@ -296,7 +296,7 @@ chage -d 0 username
 
 ### 2.3 Account Lockout Policy
 
-**pam_faillock (RHEL 8+/modern systems):**
+pam_faillock (RHEL 8+/modern systems):
 
 `/etc/security/faillock.conf`:
 ```ini
@@ -316,14 +316,14 @@ fail_interval = 900
 audit
 ```
 
-**PAM lines for faillock:**
+PAM lines for faillock:
 ```
 auth  required   pam_faillock.so preauth
 auth  [default=die] pam_faillock.so authfail
 account required pam_faillock.so
 ```
 
-**Faillock management commands:**
+Faillock management commands:
 ```bash
 # View failed attempts for a user
 faillock --user username
@@ -363,7 +363,7 @@ awk -F: '($3 == 0) {print $1}' /etc/passwd
 
 ### 2.5 Privileged Access Management (sudo)
 
-**Best practices for `/etc/sudoers` (edit with `visudo`):**
+Best practices for `/etc/sudoers` (edit with `visudo`):
 ```bash
 # Good: Specific command restrictions
 username ALL=(ALL) /usr/bin/systemctl restart nginx, /usr/bin/tail -f /var/log/nginx/error.log
@@ -391,7 +391,7 @@ Defaults timestamp_timeout=5
 
 ### 2.6 SSH Hardening
 
-**`/etc/ssh/sshd_config` hardened configuration:**
+`/etc/ssh/sshd_config` hardened configuration:
 ```bash
 # Protocol and identity
 Protocol 2
@@ -440,7 +440,7 @@ SyslogFacility AUTHPRIV
 Banner /etc/issue.net
 ```
 
-**SSH key management:**
+SSH key management:
 ```bash
 # Generate ed25519 key (preferred -- smaller, faster, more secure than RSA)
 ssh-keygen -t ed25519 -C "user@hostname" -f ~/.ssh/id_ed25519
@@ -464,7 +464,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub user@remotehost
 
 ### 2.7 MFA for SSH
 
-**Google Authenticator PAM:**
+Google Authenticator PAM:
 ```bash
 # Install
 dnf install google-authenticator    # RHEL
@@ -481,7 +481,7 @@ ChallengeResponseAuthentication yes
 AuthenticationMethods publickey,keyboard-interactive
 ```
 
-**Duo Security PAM:**
+Duo Security PAM:
 ```bash
 # Install duo_unix
 # Configure /etc/duo/pam_duo.conf with ikey, skey, host
@@ -497,7 +497,7 @@ auth required pam_duo.so
 
 Separate partitions with restrictive mount options are a core CIS Benchmark requirement.
 
-**Recommended partition layout:**
+Recommended partition layout:
 ```
 /boot           -- separate partition
 /               -- root
@@ -509,7 +509,7 @@ Separate partitions with restrictive mount options are a core CIS Benchmark requ
 /var/tmp        -- nodev,nosuid,noexec
 ```
 
-**`/etc/fstab` hardened entries:**
+`/etc/fstab` hardened entries:
 ```fstab
 # /tmp with hardening flags
 tmpfs  /tmp  tmpfs  defaults,nodev,nosuid,noexec,size=2G  0 0
@@ -524,7 +524,7 @@ tmpfs  /tmp  tmpfs  defaults,nodev,nosuid,noexec,size=2G  0 0
 tmpfs  /dev/shm  tmpfs  defaults,nodev,nosuid,noexec  0 0
 ```
 
-**systemd override for /tmp:**
+systemd override for /tmp:
 ```bash
 # Create override
 mkdir -p /etc/systemd/system/tmp.mount.d/
@@ -536,7 +536,7 @@ systemctl daemon-reload
 systemctl restart tmp.mount
 ```
 
-**Verify mount options:**
+Verify mount options:
 ```bash
 # Check current mount options
 findmnt -n -o OPTIONS /tmp
@@ -596,7 +596,7 @@ find / -xdev -nogroup -ls 2>/dev/null
 
 ### 3.4 File Integrity Monitoring (FIM)
 
-**AIDE (Advanced Intrusion Detection Environment):**
+AIDE (Advanced Intrusion Detection Environment):
 ```bash
 # Install
 dnf install aide    # RHEL
@@ -623,7 +623,7 @@ EOF
 chmod 755 /etc/cron.daily/aide-check
 ```
 
-**AIDE configuration** (`/etc/aide.conf`):
+AIDE configuration (`/etc/aide.conf`):
 ```
 # Watch critical system files
 /etc/passwd CONTENT_EX
@@ -638,7 +638,7 @@ chmod 755 /etc/cron.daily/aide-check
 /usr/sbin FIPSR
 ```
 
-**Tripwire:**
+Tripwire:
 ```bash
 # Initialize Tripwire policy
 twadmin --create-polfile /etc/tripwire/twpol.txt
@@ -651,7 +651,7 @@ tripwire --check
 twprint --print-report --twrfile /var/lib/tripwire/report/$(ls /var/lib/tripwire/report/ | tail -1)
 ```
 
-**Wazuh FIM (syscheck module):**
+Wazuh FIM (syscheck module):
 ```xml
 <!-- /var/ossec/etc/ossec.conf -->
 <syscheck>
@@ -834,7 +834,7 @@ kernel.sysrq = 0
 kernel.pid_max = 65536
 ```
 
-**Apply sysctl settings:**
+Apply sysctl settings:
 ```bash
 # Apply immediately
 sysctl --system
@@ -943,14 +943,14 @@ modprobe cramfs 2>&1
 
 | Feature | SELinux | AppArmor |
 |---------|---------|----------|
-| **Default on** | RHEL, Fedora, CentOS | Ubuntu, Debian, SUSE |
-| **Policy model** | Label-based (inode labels) | Path-based profiles |
-| **Complexity** | Higher -- steep learning curve | Lower -- easier to write profiles |
-| **Granularity** | Very fine-grained | Profile-level |
-| **Learning mode** | Permissive mode | Complain mode |
-| **Tooling** | audit2allow, semanage, sealert | aa-genprof, aa-logprof |
-| **MLS/MCS** | Yes (Multi-Level Security) | Limited |
-| **DoD/STIG** | Required for STIG compliance | Not STIG compliant |
+| Default on | RHEL, Fedora, CentOS | Ubuntu, Debian, SUSE |
+| Policy model | Label-based (inode labels) | Path-based profiles |
+| Complexity | Higher -- steep learning curve | Lower -- easier to write profiles |
+| Granularity | Very fine-grained | Profile-level |
+| Learning mode | Permissive mode | Complain mode |
+| Tooling | audit2allow, semanage, sealert | aa-genprof, aa-logprof |
+| MLS/MCS | Yes (Multi-Level Security) | Limited |
+| DoD/STIG | Required for STIG compliance | Not STIG compliant |
 
 ```bash
 # AppArmor status and management
@@ -973,7 +973,7 @@ aa-logprof   # Review and update profile from logs
 
 SELinux implements Mandatory Access Control (MAC) using security labels attached to every process, file, and network socket.
 
-**Security context format:**
+Security context format:
 ```
 user:role:type:level
 system_u:system_r:httpd_t:s0
@@ -981,24 +981,24 @@ system_u:system_r:httpd_t:s0
 
 | Component | Description | Example |
 |-----------|-------------|---------|
-| **user** | SELinux user identity | system_u, unconfined_u |
-| **role** | What roles a user can assume | system_r, unconfined_r |
-| **type** | The primary enforcement mechanism | httpd_t, sshd_t |
-| **level** | MLS sensitivity level | s0, s0:c0.c1023 |
+| user | SELinux user identity | system_u, unconfined_u |
+| role | What roles a user can assume | system_r, unconfined_r |
+| type | The primary enforcement mechanism | httpd_t, sshd_t |
+| level | MLS sensitivity level | s0, s0:c0.c1023 |
 
-**Enforcement modes:**
+Enforcement modes:
 | Mode | Description |
 |------|-------------|
-| **Enforcing** | Active enforcement -- violations are blocked and logged |
-| **Permissive** | Logging only -- violations logged but NOT blocked |
-| **Disabled** | SELinux completely off (requires reboot to change) |
+| Enforcing | Active enforcement -- violations are blocked and logged |
+| Permissive | Logging only -- violations logged but NOT blocked |
+| Disabled | SELinux completely off (requires reboot to change) |
 
-**Policy types:**
+Policy types:
 | Policy | Description |
 |--------|-------------|
-| **targeted** | Default -- enforces on specific targeted daemons |
-| **minimum** | Minimal set of processes confined |
-| **mls** | Multi-Level Security -- required for government classified |
+| targeted | Default -- enforces on specific targeted daemons |
+| minimum | Minimal set of processes confined |
+| mls | Multi-Level Security -- required for government classified |
 
 ### 5.2 SELinux Status Commands
 
@@ -1193,15 +1193,15 @@ runcon -t guest_t -r guest_r /bin/bash
 
 iptables is the traditional Linux packet filtering framework (still widely used, though nftables is the modern replacement).
 
-**Tables and Chains:**
+Tables and Chains:
 | Table | Chains | Purpose |
 |-------|--------|---------|
-| **filter** | INPUT, OUTPUT, FORWARD | Default -- packet filtering |
-| **nat** | PREROUTING, OUTPUT, POSTROUTING | Network address translation |
-| **mangle** | All five chains | Packet header modification |
-| **raw** | PREROUTING, OUTPUT | Connection tracking bypass |
+| filter | INPUT, OUTPUT, FORWARD | Default -- packet filtering |
+| nat | PREROUTING, OUTPUT, POSTROUTING | Network address translation |
+| mangle | All five chains | Packet header modification |
+| raw | PREROUTING, OUTPUT | Connection tracking bypass |
 
-**Essential iptables commands:**
+Essential iptables commands:
 ```bash
 # View current rules
 iptables -L -n -v
@@ -1464,7 +1464,7 @@ iptables -L f2b-sshd -n
 
 The Linux Audit System records system calls and file access events for security monitoring and compliance.
 
-**`/etc/audit/auditd.conf`:**
+`/etc/audit/auditd.conf`:
 ```ini
 # Log location and format
 log_file = /var/log/audit/audit.log
@@ -1496,7 +1496,7 @@ name_format = HOSTNAME
 
 ### 7.2 Audit Rules
 
-**`/etc/audit/rules.d/hardening.rules`** (CIS Benchmark comprehensive ruleset):
+`/etc/audit/rules.d/hardening.rules` (CIS Benchmark comprehensive ruleset):
 
 ```bash
 # Delete all previous rules
@@ -1576,7 +1576,7 @@ name_format = HOSTNAME
 # -e 2
 ```
 
-**Load audit rules:**
+Load audit rules:
 ```bash
 # Load rules immediately
 augenrules --load
@@ -1626,7 +1626,7 @@ aureport --auth -i --failed -ts this-week
 
 ### 7.4 rsyslog Forwarding to SIEM
 
-**`/etc/rsyslog.conf`** and `/etc/rsyslog.d/`:
+`/etc/rsyslog.conf` and `/etc/rsyslog.d/`:
 ```bash
 # Load TLS module
 module(load="imtls")
@@ -1654,7 +1654,7 @@ global(
 *.* /var/log/messages
 ```
 
-**Log rotation `/etc/logrotate.d/syslog`:**
+Log rotation `/etc/logrotate.d/syslog`:
 ```
 /var/log/messages {
     weekly
@@ -1714,7 +1714,7 @@ journalctl --vacuum-time=1year   # Clean old entries
 
 systemd provides powerful sandboxing capabilities for services. Add these to service unit files:
 
-**`/etc/systemd/system/myapp.service.d/hardening.conf`:**
+`/etc/systemd/system/myapp.service.d/hardening.conf`:
 ```ini
 [Service]
 # Run as dedicated non-root user
@@ -1781,7 +1781,7 @@ LockPersonality=true
 RemoveIPC=true
 ```
 
-**Analyze service security:**
+Analyze service security:
 ```bash
 # Score a service's security hardening
 systemd-analyze security myapp.service
@@ -1839,7 +1839,7 @@ chmod 640 /etc/at.allow /etc/at.deny
 
 Accurate time is critical for log correlation, Kerberos authentication, and audit integrity.
 
-**`/etc/chrony.conf`:**
+`/etc/chrony.conf`:
 ```ini
 # Use pool of NTP servers
 pool pool.ntp.org iburst minpoll 6 maxpoll 10
@@ -1979,7 +1979,7 @@ showmount -e localhost
 
 ### 9.1 Host-Based IDS
 
-**Wazuh (OSSEC fork -- most actively maintained):**
+Wazuh (OSSEC fork -- most actively maintained):
 ```bash
 # Install Wazuh agent (connects to central manager)
 # RHEL/CentOS
@@ -2000,7 +2000,7 @@ systemctl enable wazuh-agent
 systemctl start wazuh-agent
 ```
 
-**Wazuh syscheck (FIM) configuration:**
+Wazuh syscheck (FIM) configuration:
 ```xml
 <!-- /var/ossec/etc/ossec.conf -->
 <syscheck>
@@ -2019,7 +2019,7 @@ systemctl start wazuh-agent
 </rootcheck>
 ```
 
-**rkhunter (rootkit detection):**
+rkhunter (rootkit detection):
 ```bash
 # Install
 dnf install rkhunter
@@ -2045,7 +2045,7 @@ EOF
 chmod 755 /etc/cron.daily/rkhunter
 ```
 
-**chkrootkit:**
+chkrootkit:
 ```bash
 # Install
 apt-get install chkrootkit
@@ -2202,15 +2202,15 @@ chmod 755 /etc/cron.monthly/lynis
 
 | Frequency | Tool | Task |
 |-----------|------|------|
-| **Real-time** | auditd, Falco, Wazuh | Continuous event monitoring |
-| **Hourly** | fail2ban | Auto-block brute force |
-| **Daily** | AIDE, rkhunter | File integrity and rootkit check |
-| **Daily** | OpenSCAP | CIS Benchmark compliance scan |
-| **Weekly** | Lynis | Comprehensive security audit |
-| **Weekly** | chkrootkit | Secondary rootkit scan |
-| **Monthly** | Manual review | Review all alerts and findings |
-| **Monthly** | Nessus/OpenVAS | Vulnerability scan |
-| **Quarterly** | Penetration test | Manual security assessment |
+| Real-time | auditd, Falco, Wazuh | Continuous event monitoring |
+| Hourly | fail2ban | Auto-block brute force |
+| Daily | AIDE, rkhunter | File integrity and rootkit check |
+| Daily | OpenSCAP | CIS Benchmark compliance scan |
+| Weekly | Lynis | Comprehensive security audit |
+| Weekly | chkrootkit | Secondary rootkit scan |
+| Monthly | Manual review | Review all alerts and findings |
+| Monthly | Nessus/OpenVAS | Vulnerability scan |
+| Quarterly | Penetration test | Manual security assessment |
 
 ### 9.7 Log Monitoring for Security Events
 
@@ -2269,7 +2269,7 @@ The Center for Internet Security publishes free benchmarks (PDF) at https://www.
 | Amazon Linux 2023 | 1.0+ | 250+ recommendations |
 | SUSE Linux 15 | 1.1+ | 260+ recommendations |
 
-**CIS Level 1 vs Level 2 summary:**
+CIS Level 1 vs Level 2 summary:
 | Area | Level 1 | Level 2 |
 |------|---------|---------|
 | Password policy | 14 char, complexity | 14 char + MFA |
@@ -2327,7 +2327,7 @@ oscap xccdf generate fix \
 
 ### 10.2 Hardening Automation Tools
 
-**OpenSCAP -- Remediation Playbook Generation:**
+OpenSCAP -- Remediation Playbook Generation:
 ```bash
 # Generate Ansible remediation playbook from scan results
 oscap xccdf generate fix \
@@ -2348,7 +2348,7 @@ oscap xccdf eval \
   /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 ```
 
-**Ansible dev-sec linux-hardening role:**
+Ansible dev-sec linux-hardening role:
 ```bash
 # Install
 ansible-galaxy role install dev-sec.os-hardening
@@ -2385,7 +2385,7 @@ ansible-playbook -i inventory.ini harden.yml --check   # Dry run
 ansible-playbook -i inventory.ini harden.yml           # Apply
 ```
 
-**Chef InSpec -- Compliance Testing:**
+Chef InSpec -- Compliance Testing:
 ```bash
 # Install InSpec
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
@@ -2400,7 +2400,7 @@ inspec exec dev-sec/linux-baseline -t ssh://user@hostname
 inspec exec linux-baseline --reporter html:/tmp/report.html json:/tmp/report.json
 ```
 
-**Puppet Hardening Module:**
+Puppet Hardening Module:
 ```puppet
 class { 'os_hardening':
   password_max_age => 90,
@@ -2428,7 +2428,7 @@ USER nonroot:nonroot
 EXPOSE 8080
 ```
 
-**Kubernetes Pod Security Context:**
+Kubernetes Pod Security Context:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -2497,13 +2497,13 @@ firewall-cmd --state   # Should be: running
 
 | Certification | Organization | Focus Area |
 |--------------|-------------|------------|
-| **LFCS** | Linux Foundation | Linux system administration |
-| **RHCSA** | Red Hat | RHEL system administration |
-| **RHCE** | Red Hat | Ansible automation |
-| **LPIC-3 303 Security** | LPI | Linux enterprise security |
-| **GIAC GCUX** | GIAC/SANS | Unix/Linux security |
-| **CompTIA Linux+** | CompTIA | Linux fundamentals |
-| **GIAC GPEN** | GIAC/SANS | Penetration testing (Linux focus) |
+| LFCS | Linux Foundation | Linux system administration |
+| RHCSA | Red Hat | RHEL system administration |
+| RHCE | Red Hat | Ansible automation |
+| LPIC-3 303 Security | LPI | Linux enterprise security |
+| GIAC GCUX | GIAC/SANS | Unix/Linux security |
+| CompTIA Linux+ | CompTIA | Linux fundamentals |
+| GIAC GPEN | GIAC/SANS | Penetration testing (Linux focus) |
 
 ### 10.6 Key References & Resources
 

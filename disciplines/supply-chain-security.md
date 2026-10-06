@@ -41,7 +41,7 @@ Understanding real-world supply chain attacks shapes defensive priorities:
 | event-stream npm compromise | 2018 | Malicious maintainer added backdoor targeting Copay Bitcoin wallet | Targeted financial application via transitive npm dependency |
 | PyPI malicious packages (ongoing) | 2022+ | Typosquatting and dependency confusion packages | Credential theft, reverse shells deployed to developer machines |
 
-**Key lesson**: Sophisticated adversaries target the weakest link in the software delivery chain — often a less-scrutinized open source maintainer, a CI/CD credential, or a transitive dependency — rather than attacking the hardened target directly.
+Key lesson: Sophisticated adversaries target the weakest link in the software delivery chain — often a less-scrutinized open source maintainer, a CI/CD credential, or a transitive dependency — rather than attacking the hardened target directly.
 
 ---
 
@@ -63,16 +63,16 @@ Understanding real-world supply chain attacks shapes defensive priorities:
 
 An SBOM is a machine-readable inventory of all software components in an application or container — analogous to an ingredient list for software. SBOMs enable vulnerability correlation (match components against CVE databases), license compliance, and incident response (instantly identify which products contain a vulnerable library).
 
-**SBOM formats**:
-- **CycloneDX** — OWASP standard; JSON/XML; rich vulnerability and license metadata; widely tooled
-- **SPDX** — Linux Foundation standard; designed for license compliance; also supports security use cases
+SBOM formats:
+- CycloneDX: OWASP standard; JSON/XML; rich vulnerability and license metadata; widely tooled
+- SPDX: Linux Foundation standard; designed for license compliance; also supports security use cases
 
-**Generation tools**:
-- **syft** — Fast SBOM generator for containers and filesystems; outputs CycloneDX and SPDX
-- **cdxgen** — CycloneDX generator with deep multi-language dependency analysis
-- **Microsoft SBOM Tool** — SPDX generator; Azure DevOps integration
+Generation tools:
+- syft: Fast SBOM generator for containers and filesystems; outputs CycloneDX and SPDX
+- cdxgen: CycloneDX generator with deep multi-language dependency analysis
+- Microsoft SBOM Tool: SPDX generator; Azure DevOps integration
 
-**Vulnerability correlation**:
+Vulnerability correlation:
 - Generate SBOM at build time, store alongside artifact
 - Scan SBOM against OSV, NVD, or GitHub Advisory Database using Grype or Trivy
 - Alert when new CVEs are published matching SBOM components (continuous monitoring)
@@ -83,23 +83,23 @@ An SBOM is a machine-readable inventory of all software components in an applica
 
 Signing and provenance attestation creates a cryptographic chain of custody from source code to deployed artifact:
 
-**Sigstore ecosystem**:
-- **cosign** — Signs container images and arbitrary files; supports keyless signing via OIDC identity
-- **Fulcio** — Short-lived certificate CA that issues certificates bound to OIDC identity (GitHub Actions, Google, Microsoft)
-- **Rekor** — Immutable, append-only transparency log that records all signatures; enables audit and discovery
+Sigstore ecosystem:
+- cosign: Signs container images and arbitrary files; supports keyless signing via OIDC identity
+- Fulcio: Short-lived certificate CA that issues certificates bound to OIDC identity (GitHub Actions, Google, Microsoft)
+- Rekor: Immutable, append-only transparency log that records all signatures; enables audit and discovery
 
-**Keyless signing flow** (GitHub Actions example):
+Keyless signing flow (GitHub Actions example):
 1. Build step triggers cosign sign in CI
 2. cosign requests short-lived certificate from Fulcio using GitHub OIDC token
 3. Signature and certificate recorded in Rekor transparency log
 4. Verifier confirms: certificate was issued to the expected workflow; signature is valid; entry exists in Rekor
 
-**in-toto framework**:
+in-toto framework:
 - Defines a supply chain layout (policy) specifying what steps must run and who must sign them
 - Each step generates a link metadata file (signed attestation of inputs and outputs)
 - Final product verification confirms the entire pipeline ran as expected
 
-**SLSA (Supply chain Levels for Software Artifacts)**:
+SLSA (Supply chain Levels for Software Artifacts):
 - Level 0: No guarantees
 - Level 1: Build process documented; provenance generated (but unsigned)
 - Level 2: Hosted build platform; provenance signed by build service
@@ -127,17 +127,17 @@ Signing and provenance attestation creates a cryptographic chain of custody from
 
 Securing the build system prevents SolarWinds-style attacks where the output artifact is trojanized:
 
-**Hermetic builds**: The build environment is fully isolated — no network access, no access to secrets or the host file system beyond explicitly declared inputs. Output depends only on declared inputs.
+Hermetic builds: The build environment is fully isolated — no network access, no access to secrets or the host file system beyond explicitly declared inputs. Output depends only on declared inputs.
 
-**Reproducible builds**: Given the same source code and build environment, the build produces bit-for-bit identical output. Enables independent verification by multiple parties.
+Reproducible builds: Given the same source code and build environment, the build produces bit-for-bit identical output. Enables independent verification by multiple parties.
 
-**SLSA build requirements (Level 3)**:
+SLSA build requirements (Level 3):
 - Hosted build platform (GitHub Actions, Google Cloud Build, etc.)
 - Build definition and source are version controlled
 - Build is isolated; cannot access other builds or credentials beyond scope
 - Provenance is generated by the build platform, not the build script
 
-**Pinning GitHub Actions to commit SHA** (critical hygiene):
+Pinning GitHub Actions to commit SHA (critical hygiene):
 ```yaml
 # Insecure: tag can be moved by attacker
 - uses: actions/checkout@v4
@@ -152,7 +152,7 @@ Securing the build system prevents SolarWinds-style attacks where the output art
 
 | Control | Description | Tools |
 |---|---|---|
-| Base image selection | Use minimal, maintained base images — prefer distroless or scratch | Chainguard Images, Google distroless |
+| Base image selection | Use minimal, maintained base images: prefer distroless or scratch | Chainguard Images, Google distroless |
 | Distroless images | Remove shell, package managers, and unnecessary binaries from final image | gcr.io/distroless, cgr.dev/chainguard |
 | Signed images | Sign all container images and verify signatures at deployment | cosign, Notation |
 | Image scanning in CI | Scan for CVEs and misconfigurations before pushing to registry | Trivy, Grype, Snyk Container |
@@ -165,10 +165,10 @@ Securing the build system prevents SolarWinds-style attacks where the output art
 
 Hardware supply chain risks involve counterfeit components, firmware implants, and interdiction during shipping:
 
-- **Counterfeit components**: Fake chips or modules substituted into the supply chain; may malfunction under stress or contain surveillance capability
-- **Firmware implants**: Malicious firmware installed at the factory, during transit, or by a compromised vendor update process
-- **SCRM (Supply Chain Risk Management)**: NIST SP 800-161r1 provides a comprehensive framework for identifying, assessing, and mitigating hardware supply chain risks
-- **Trusted suppliers**: Maintain approved supplier lists, require certificates of conformance, and verify provenance for critical hardware
+- Counterfeit components: Fake chips or modules substituted into the supply chain; may malfunction under stress or contain surveillance capability
+- Firmware implants: Malicious firmware installed at the factory, during transit, or by a compromised vendor update process
+- SCRM (Supply Chain Risk Management): NIST SP 800-161r1 provides a comprehensive framework for identifying, assessing, and mitigating hardware supply chain risks
+- Trusted suppliers: Maintain approved supplier lists, require certificates of conformance, and verify provenance for critical hardware
 
 ---
 
@@ -176,24 +176,24 @@ Hardware supply chain risks involve counterfeit components, firmware implants, a
 
 Understanding attack construction is essential for building effective defenses:
 
-**Dependency confusion attack construction**:
+Dependency confusion attack construction:
 1. Enumerate internal package names via OSINT (job postings, GitHub leaks, error messages)
 2. Publish a public package with the same name at a higher version number on PyPI/npm
 3. Package managers that check public registries first will download the malicious package
 4. Payload executes in the CI/CD environment or on developer machines
 
-**Typosquatting PyPI/npm**:
+Typosquatting PyPI/npm:
 - Register packages with common typos of popular packages (e.g., `requets`, `colourama`, `setuptool`)
 - Inject credential stealers, reverse shells, or cryptominers into the package code
 - Legitimate developers install the package when mistyping the real package name
 
-**Build system pivot via CI token theft**:
+Build system pivot via CI token theft:
 1. Gain write access to a repository via a compromised contributor account or PR injection
 2. Craft a malicious workflow that exfiltrates `GITHUB_TOKEN` or cloud provider credentials
 3. Use stolen credentials to push malicious code to the main branch or tamper with release artifacts
 
-**SolarWinds-style DLL injection**:
-1. Compromise the build environment (not source code) — insert malicious build step
+SolarWinds-style DLL injection:
+1. Compromise the build environment (not source code): insert malicious build step
 2. Build system injects malicious code into compiled binaries post-compilation
 3. Signed artifacts pass code signing checks because the signing step runs after injection
 4. Mitigated by: build provenance, reproducible builds, monitoring build environment access
@@ -247,7 +247,7 @@ Understanding attack construction is essential for building effective defenses:
 | SA-3 | System Development Life Cycle | Integrating supply chain security into the SDLC |
 | CM-7 | Least Functionality | Limiting software to approved components reduces supply chain attack surface |
 | SI-7 | Software, Firmware, and Information Integrity | Hash verification, integrity checking, and signing validation |
-| SA-15 | Development Process, Standards, and Tools | Secure development environment requirements — relevant to build system integrity |
+| SA-15 | Development Process, Standards, and Tools | Secure development environment requirements: relevant to build system integrity |
 | SA-9 | External System Services | Security requirements for third-party software and service providers |
 
 ---
@@ -256,7 +256,7 @@ Understanding attack construction is essential for building effective defenses:
 
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
-| T1195 | Supply Chain Compromise | Initial Access | Parent technique — all supply chain attack vectors |
+| T1195 | Supply Chain Compromise | Initial Access | Parent technique: all supply chain attack vectors |
 | T1195.001 | Compromise Software Dependencies | Initial Access | Malicious packages, dependency confusion, typosquatting |
 | T1195.002 | Compromise Software Supply Chain | Initial Access | Build system compromise (SolarWinds-style), poisoned CI |
 | T1195.003 | Compromise Hardware Supply Chain | Initial Access | Counterfeit hardware, firmware implants |
@@ -284,52 +284,52 @@ Understanding attack construction is essential for building effective defenses:
 | Resource | Type | Notes |
 |---|---|---|
 | [NIST SP 800-161r1](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final) | Standard | Comprehensive C-SCRM (Cyber Supply Chain Risk Management) framework |
-| [SLSA Specification](https://slsa.dev/spec/v1.0/) | Framework | Build integrity levels and requirements — essential reading |
+| [SLSA Specification](https://slsa.dev/spec/v1.0/) | Framework | Build integrity levels and requirements: essential reading |
 | [OpenSSF Guides](https://openssf.org/resources/guides/) | Free guides | Supply chain best practices for open source projects |
-| [Sigstore Documentation](https://docs.sigstore.dev/) | Reference | Keyless signing ecosystem — cosign, Rekor, Fulcio |
-| [OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/) | Reference | Pipeline attack surface — poisoned pipeline injection, credential theft |
+| [Sigstore Documentation](https://docs.sigstore.dev/) | Reference | Keyless signing ecosystem: cosign, Rekor, Fulcio |
+| [OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/) | Reference | Pipeline attack surface: poisoned pipeline injection, credential theft |
 | [Securing the Software Supply Chain (CISA/NSA)](https://www.cisa.gov/resources-tools/resources/securing-software-supply-chain-recommended-practices-guide-developers) | Guide | CISA/NSA joint guidance for developers, suppliers, and customers |
 | [Dependency Confusion: Alex Birsan (2021)](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610) | Research | Original research paper demonstrating the dependency confusion attack |
-| [The Update Framework (TUF)](https://theupdateframework.io/) | Framework | Securing software update systems — used by PyPI, Docker, Conda |
+| [The Update Framework (TUF)](https://theupdateframework.io/) | Framework | Securing software update systems: used by PyPI, Docker, Conda |
 
 ---
 
 ## Software Supply Chain Attacks
 
-**Attack Vectors**
+Attack Vectors
 
 | Attack Type | Example | Description |
 |---|---|---|
-| Dependency confusion | Alex Birsan (2021) — uploaded packages with same name as internal packages to public registries; auto-installed by build systems at 35 companies | Public package namespace squatting overrides internal package |
+| Dependency confusion | Alex Birsan (2021): uploaded packages with same name as internal packages to public registries; auto-installed by build systems at 35 companies | Public package namespace squatting overrides internal package |
 | Typosquatting | `colourama` vs `colorama`; multiple npm/PyPI attacks | Misspelled package name tricks developers into installing malicious version |
-| Compromised maintainer | event-stream (2018) — new maintainer added crypto-stealing code | Legitimate maintainer account compromised or package donated to malicious actor |
-| Build system compromise | SolarWinds (2020) — Orion build pipeline injected with SUNBURST backdoor | CI/CD or build server compromised; malicious code inserted before signing |
-| Repository compromise | Codecov (2021) — bash uploader script modified to exfiltrate env vars | Dependency script fetched from compromised CDN/repo |
+| Compromised maintainer | event-stream (2018): new maintainer added crypto-stealing code | Legitimate maintainer account compromised or package donated to malicious actor |
+| Build system compromise | SolarWinds (2020): Orion build pipeline injected with SUNBURST backdoor | CI/CD or build server compromised; malicious code inserted before signing |
+| Repository compromise | Codecov (2021): bash uploader script modified to exfiltrate env vars | Dependency script fetched from compromised CDN/repo |
 | Malicious container | Cryptomining images on Docker Hub | Poisoned base images distributed via official registries |
 
-**Dependency Security Management**
+Dependency Security Management
 - Lock files: `package-lock.json`, `Gemfile.lock`, `requirements.txt` with pinned versions + hashes
 - Dependency pinning to hash: `pip install 'requests==2.31.0 --hash=sha256:...'`
-- Private package registry mirroring: Artifactory, Nexus — proxy public registries; scan before serving
-- Automated PRs: Dependabot, Renovate Bot — auto-update deps with PRs including security advisories
+- Private package registry mirroring: Artifactory, Nexus: proxy public registries; scan before serving
+- Automated PRs: Dependabot, Renovate Bot: auto-update deps with PRs including security advisories
 - OSS audit: `npm audit`, `pip-audit`, `cargo audit`, `bundle-audit`
 
 ## SBOM (Software Bill of Materials)
 
-**What is an SBOM?**
+What is an SBOM?
 A machine-readable inventory of all components in a software artifact — libraries, OS packages, transitive dependencies — with versions, licenses, and provenance.
 
-**Regulatory Mandate**
+Regulatory Mandate
 - US Executive Order 14028 (May 2021): Federal agencies must obtain SBOM for all software they purchase
 - FDA cybersecurity guidance: Medical device makers must submit SBOM before device approval
 - EU Cyber Resilience Act: SBOM requirements for products with digital elements
 
-**SBOM Formats**
+SBOM Formats
 - SPDX: Linux Foundation standard; ISO/IEC 5962:2021; XML, JSON, YAML, tag-value formats
 - CycloneDX: OWASP standard; designed for security use cases; supports VEX (vulnerability exploitability exchange)
 - SWID: Software Identification Tags; US government/enterprise focus
 
-**SBOM Generation Tools**
+SBOM Generation Tools
 
 | Tool | Language | Format | Notes |
 |---|---|---|---|
@@ -341,13 +341,13 @@ A machine-readable inventory of all components in a software artifact — librar
 
 ## SLSA Framework (Supply-chain Levels for Software Artifacts)
 
-**SLSA Levels**
+SLSA Levels
 - L1: Provenance exists; build scripted; documentation
 - L2: Hosted build platform; signed provenance; two-person review
 - L3: Hardened build platform; non-falsifiable provenance; isolated build environment
 - (L4 was retired in v1.0)
 
-**Provenance and Attestation**
+Provenance and Attestation
 - `cosign attest`: Attach SLSA provenance as OCI artifact attestation
 - GitHub Actions SLSA generator: `slsa-framework/slsa-github-generator`
 - Sigstore policy-controller: Enforce SLSA level requirements in Kubernetes admission
@@ -368,9 +368,9 @@ A machine-readable inventory of all components in a software artifact — librar
 
 ## Related Disciplines
 
-- [DevSecOps](/disciplines/devsecops.md) — Pipeline security, SAST/SCA integration, and shift-left supply chain controls
-- [Cryptography & PKI](/disciplines/cryptography-pki.md) — Artifact signing, key management, and certificate transparency
-- [Cloud Security](/disciplines/cloud-security.md) — Registry security, container hardening, and cloud build platform controls
-- [Vulnerability Management](/disciplines/vulnerability-management.md) — CVE triage from SBOM findings and dependency scanner output
-- [Offensive Security](/disciplines/offensive-security.md) — Understanding attack construction (dependency confusion, CI token theft) to build better defenses
-- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md) — NIST SP 800-161, EO 14028, and contractual SBOM requirements
+- [DevSecOps](/disciplines/devsecops.md): Pipeline security, SAST/SCA integration, and shift-left supply chain controls
+- [Cryptography & PKI](/disciplines/cryptography-pki.md): Artifact signing, key management, and certificate transparency
+- [Cloud Security](/disciplines/cloud-security.md): Registry security, container hardening, and cloud build platform controls
+- [Vulnerability Management](/disciplines/vulnerability-management.md): CVE triage from SBOM findings and dependency scanner output
+- [Offensive Security](/disciplines/offensive-security.md): Understanding attack construction (dependency confusion, CI token theft) to build better defenses
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md): NIST SP 800-161, EO 14028, and contractual SBOM requirements

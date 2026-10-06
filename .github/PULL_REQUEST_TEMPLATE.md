@@ -4,11 +4,11 @@
 
 ## Type of change
 
-- [ ] 🔧 Fix — broken link, wrong URL, incorrect cert name, duplicate removal
-- [ ] ➕ Addition — new tool, resource, book, cert, channel, vendor, or person
-- [ ] 📄 New page — new discipline page or reference document
-- [ ] 📊 Data — JSONL edge table addition or correction
-- [ ] 🏗️ Infrastructure — workflow, site config, templates
+- [ ] Fix: broken link, wrong URL, incorrect cert name, duplicate removal
+- [ ] Addition: new tool, resource, book, cert, channel, vendor, or person
+- [ ] New page: new discipline page or reference document
+- [ ] Data: JSONL edge table addition or correction
+- [ ] Infrastructure: workflow, site config, templates
 
 ## Checklist
 

@@ -9,7 +9,7 @@ by [`scripts/build_manifest.py`](scripts/build_manifest.py).
 
 Nothing here modifies the license of the upstream material; it remains under the
 terms of its respective owner. Where this library derives new records (for
-example the technique/group/software/campaign profiles, or the vendor→technique
+example the technique/group/software/campaign profiles, or the vendor->technique
 crosswalk), the derivation is MIT-licensed but the underlying facts remain under
 the upstream terms noted below.
 
@@ -71,10 +71,10 @@ Datasets under `data/ai/`.
 
 ## Center for Threat-Informed Defense (CTID)
 
-`data/control_to_technique.jsonl` (Mappings Explorer, ATT&CK ↔ NIST SP 800-53
+`data/control_to_technique.jsonl` (Mappings Explorer, ATT&CK <-> NIST SP 800-53
 Rev 5) and the fraud framework datasets under `data/fraud/`. The
 `data/vendor_to_technique.jsonl` crosswalk is derived in part from the CTID
-control→technique mappings.
+control->technique mappings.
 
 > Licensed under the Apache License, Version 2.0.
 > Copyright © The MITRE Corporation. The Center for Threat-Informed Defense is a

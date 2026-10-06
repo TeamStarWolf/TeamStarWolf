@@ -1,14 +1,14 @@
 # SIEM Reference Library
 
-> **Professional Cybersecurity Reference** | SIEM · Detection Engineering · SOC Operations · Threat Hunting
+> Professional Cybersecurity Reference | SIEM, Detection Engineering, SOC Operations, Threat Hunting
 
-> **In one minute** — This is a working reference for SIEM platforms (Security Information and Event Management: the systems that collect logs from across an environment, correlate them, and raise alerts). It covers the fundamentals — architecture, sizing, and vendor landscape — then goes deep on the query languages and detection workflows of Splunk, Microsoft Sentinel, QRadar, and Elastic, plus log collection, detection engineering, SOC triage, threat hunting, and performance tuning. Its value is copy-ready queries (SPL, KQL, AQL, EQL) and concrete numbers: EPS estimates, storage tiers, magnitude formulas, and quality targets.
+> In one minute — This is a working reference for SIEM platforms (Security Information and Event Management: the systems that collect logs from across an environment, correlate them, and raise alerts). It covers the fundamentals — architecture, sizing, and vendor landscape — then goes deep on the query languages and detection workflows of Splunk, Microsoft Sentinel, QRadar, and Elastic, plus log collection, detection engineering, SOC triage, threat hunting, and performance tuning. Its value is copy-ready queries (SPL, KQL, AQL, EQL) and concrete numbers: EPS estimates, storage tiers, magnitude formulas, and quality targets.
 
 | | |
 |---|---|
-| **Read this when** | writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
-| **Start at** | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
-| **Pairs with** | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
+| Read this when | writing or converting a detection query for Splunk/Sentinel/QRadar/Elastic, sizing or tuning a SIEM deployment, standing up a detection engineering or triage process, deciding which Windows/Sysmon events to collect |
+| Start at | [SIEM Fundamentals](#_1-siem-fundamentals) for architecture and sizing, [Detection Engineering](#_7-detection-engineering) for the rule lifecycle and Sigma, [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet) for common SPL/KQL patterns |
+| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SOAR_AUTOMATION_REFERENCE.md](SOAR_AUTOMATION_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/strategies/README.md](detections/strategies/README.md) |
 
 ---
 
@@ -33,23 +33,23 @@
 
 | Function | Description |
 |---|---|
-| **Log Aggregation** | Collect events from heterogeneous sources (firewalls, endpoints, cloud, apps) into a central repository |
-| **Normalization** | Map vendor-specific fields to a common schema (CEF, ECS, CIM) enabling cross-source correlation |
-| **Correlation** | Apply logic rules across multiple events/sources to detect multi-step attack patterns |
-| **Alerting** | Generate actionable notifications when correlation rules or ML thresholds are met |
-| **Dashboards** | Real-time visualizations of security posture, alert queues, and KPIs |
-| **Reporting** | Scheduled and on-demand compliance and executive reports (PCI DSS, HIPAA, SOX, ISO 27001) |
-| **Retention** | Policy-driven log storage with tiered hot/warm/cold lifecycle management |
-| **Compliance** | Demonstrate audit trails, access logs, and policy enforcement for regulatory frameworks |
+| Log Aggregation | Collect events from heterogeneous sources (firewalls, endpoints, cloud, apps) into a central repository |
+| Normalization | Map vendor-specific fields to a common schema (CEF, ECS, CIM) enabling cross-source correlation |
+| Correlation | Apply logic rules across multiple events/sources to detect multi-step attack patterns |
+| Alerting | Generate actionable notifications when correlation rules or ML thresholds are met |
+| Dashboards | Real-time visualizations of security posture, alert queues, and KPIs |
+| Reporting | Scheduled and on-demand compliance and executive reports (PCI DSS, HIPAA, SOX, ISO 27001) |
+| Retention | Policy-driven log storage with tiered hot/warm/cold lifecycle management |
+| Compliance | Demonstrate audit trails, access logs, and policy enforcement for regulatory frameworks |
 
 ### SIEM vs SOAR vs XDR vs MDR
 
 | Platform | Primary Function | Key Differentiator |
 |---|---|---|
-| **SIEM** | Log aggregation, correlation, alerting | Centralized visibility across all log sources; compliance reporting |
-| **SOAR** | Orchestration and automated response | Playbook-driven automation; integrates with 300+ tools; reduces MTTR |
-| **XDR** | Cross-layer detection and response | Native integration across endpoint+network+cloud+email; vendor-managed detections |
-| **MDR** | Managed detection and response service | 24/7 SOC-as-a-service; human analysts + tooling delivered as a subscription |
+| SIEM | Log aggregation, correlation, alerting | Centralized visibility across all log sources; compliance reporting |
+| SOAR | Orchestration and automated response | Playbook-driven automation; integrates with 300+ tools; reduces MTTR |
+| XDR | Cross-layer detection and response | Native integration across endpoint+network+cloud+email; vendor-managed detections |
+| MDR | Managed detection and response service | 24/7 SOC-as-a-service; human analysts + tooling delivered as a subscription |
 
 ### Architecture Components
 
@@ -80,14 +80,14 @@
 
 | Model | Pros | Cons | Best For |
 |---|---|---|---|
-| **On-Premises** | Full data sovereignty; no egress costs; air-gap capable | High CapEx; maintenance burden; scaling complexity | Regulated industries; classified environments |
-| **Cloud-Native** | Elastic scaling; auto-updates; no hardware | Data residency concerns; egress costs; internet dependency | SaaS-first orgs; fast deployment needs |
-| **SaaS** | Zero infrastructure; subscription pricing | Limited customization; shared tenancy risks | SMBs; limited security staff |
-| **Hybrid** | On-prem sensitive data + cloud burst capacity | Complex data routing; dual-management overhead | Large enterprises with mixed requirements |
+| On-Premises | Full data sovereignty; no egress costs; air-gap capable | High CapEx; maintenance burden; scaling complexity | Regulated industries; classified environments |
+| Cloud-Native | Elastic scaling; auto-updates; no hardware | Data residency concerns; egress costs; internet dependency | SaaS-first orgs; fast deployment needs |
+| SaaS | Zero infrastructure; subscription pricing | Limited customization; shared tenancy risks | SMBs; limited security staff |
+| Hybrid | On-prem sensitive data + cloud burst capacity | Complex data routing; dual-management overhead | Large enterprises with mixed requirements |
 
 ### Capacity Planning
 
-**EPS (Events Per Second) Calculation:**
+EPS (Events Per Second) Calculation:
 ```
 Total EPS = Sum(source_count x avg_eps_per_source)
 
@@ -100,51 +100,51 @@ Typical EPS estimates:
   Cloud (AWS CloudTrail): 20-500 EPS per account
 ```
 
-**GB/Day Sizing:**
+GB/Day Sizing:
 ```
 GB/day = (EPS x avg_event_size_bytes x 86400) / 1,073,741,824
 Compression ratio: raw / 6-10x (typical gzip compression)
 Rule of thumb: 1,000 EPS ~ 50-150 GB/day uncompressed
 ```
 
-**Storage Tiering:**
+Storage Tiering:
 | Tier | Duration | Storage Type | Use Case |
 |---|---|---|---|
-| **Hot** | 0-90 days | NVMe/SSD | Active investigation, real-time search |
-| **Warm** | 91-365 days | SAS HDD / cloud standard | Incident review, compliance queries |
-| **Cold** | 1-7 years | Object storage (S3/Blob/GCS) | Legal hold, regulatory audit, forensics |
+| Hot | 0-90 days | NVMe/SSD | Active investigation, real-time search |
+| Warm | 91-365 days | SAS HDD / cloud standard | Incident review, compliance queries |
+| Cold | 1-7 years | Object storage (S3/Blob/GCS) | Legal hold, regulatory audit, forensics |
 
 ### Vendor Landscape
 
 | Vendor | Product | Licensing Model | Strengths |
 |---|---|---|---|
-| **Splunk** | Enterprise Security | GB/day ingested | Ecosystem depth; SPL power; app marketplace |
-| **Microsoft** | Sentinel | GB/day ingested | Azure-native; free Microsoft 365 connector |
-| **IBM** | QRadar | EPS + flow rate | Network visibility; offense management |
-| **Elastic** | Security / SIEM | Endpoint count or GB | Open ecosystem; EQL; free tier available |
-| **Exabeam** | Fusion SIEM | User/entity count | UEBA-first; timeline-based investigation |
-| **LogRhythm** | SIEM | EPS | Strong compliance reporting; NDDR included |
-| **ArcSight** | ESM / Recon | EPS | Legacy enterprise; deep CEF support |
-| **Securonix** | SNYPR | User/entity count | Cloud-native UEBA; long-term analytics |
-| **Devo** | Platform | GB/day | Streaming architecture; sub-second search |
-| **Sumo Logic** | Cloud SIEM | Credits/GB | Cloud-native; multi-tenant; CIP |
+| Splunk | Enterprise Security | GB/day ingested | Ecosystem depth; SPL power; app marketplace |
+| Microsoft | Sentinel | GB/day ingested | Azure-native; free Microsoft 365 connector |
+| IBM | QRadar | EPS + flow rate | Network visibility; offense management |
+| Elastic | Security / SIEM | Endpoint count or GB | Open ecosystem; EQL; free tier available |
+| Exabeam | Fusion SIEM | User/entity count | UEBA-first; timeline-based investigation |
+| LogRhythm | SIEM | EPS | Strong compliance reporting; NDDR included |
+| ArcSight | ESM / Recon | EPS | Legacy enterprise; deep CEF support |
+| Securonix | SNYPR | User/entity count | Cloud-native UEBA; long-term analytics |
+| Devo | Platform | GB/day | Streaming architecture; sub-second search |
+| Sumo Logic | Cloud SIEM | Credits/GB | Cloud-native; multi-tenant; CIP |
 
 ### SIEM Maturity Model
 
 | Level | Description | Capabilities |
 |---|---|---|
-| **L1 - Initial** | Log collection only; manual review | Syslog aggregation; basic dashboards; no correlation |
-| **L2 - Managed** | Basic correlation rules active | Rule-based alerting; compliance reporting; 8x5 monitoring |
-| **L3 - Defined** | Tuned detections; documented processes | ATT&CK-mapped rules; playbooks; case management; SOC tier model |
-| **L4 - Quantified** | Metrics-driven operations | MTTD/MTTR tracked; FP rate monitored; coverage gap analysis |
-| **L5 - Optimizing** | Continuous improvement loop | Detection-as-code; automated tuning; threat-hunting program; ML anomaly detection |
+| L1 - Initial | Log collection only; manual review | Syslog aggregation; basic dashboards; no correlation |
+| L2 - Managed | Basic correlation rules active | Rule-based alerting; compliance reporting; 8x5 monitoring |
+| L3 - Defined | Tuned detections; documented processes | ATT&CK-mapped rules; playbooks; case management; SOC tier model |
+| L4 - Quantified | Metrics-driven operations | MTTD/MTTR tracked; FP rate monitored; coverage gap analysis |
+| L5 - Optimizing | Continuous improvement loop | Detection-as-code; automated tuning; threat-hunting program; ML anomaly detection |
 
 ---
 ## 2. Splunk Enterprise Security
 
 ### Architecture
 
-**Indexer Cluster:**
+Indexer Cluster:
 ```
 Cluster Manager (Master)
   +-- Indexer Peer 1  (replication_factor=2, search_factor=2)
@@ -156,7 +156,7 @@ Search Factor (SF): number of searchable copies (SF <= RF)
 Recommended production: RF=3, SF=2 (tolerates 1 peer loss)
 ```
 
-**Search Head Cluster (SHC):**
+Search Head Cluster (SHC):
 ```
 Deployer -> pushes apps to all SH members
 Captain Election: Raft consensus among SH members; captain coordinates jobs
@@ -164,18 +164,18 @@ SH Members: each can accept user searches; dispatch to indexers
 KV Store replication: shared across members for lookups/collections
 ```
 
-**Forwarder Types:**
+Forwarder Types:
 | Type | Parsing | Port | Use Case |
 |---|---|---|---|
-| **Universal Forwarder (UF)** | None (raw forwarding) | 9997 | Endpoint log collection; minimal footprint |
-| **Heavy Forwarder (HF)** | Full parsing + filtering | 9997 | DMZ collection; protocol conversion; data masking |
-| **Intermediate Forwarder** | Routing/load balancing | 9997 | Aggregation tier for large deployments |
+| Universal Forwarder (UF) | None (raw forwarding) | 9997 | Endpoint log collection; minimal footprint |
+| Heavy Forwarder (HF) | Full parsing + filtering | 9997 | DMZ collection; protocol conversion; data masking |
+| Intermediate Forwarder | Routing/load balancing | 9997 | Aggregation tier for large deployments |
 
-**Deployment Server:** Manages forwarder configuration at scale via deployment apps pushed to forwarder classes (serverclasses.conf).
+Deployment Server: Manages forwarder configuration at scale via deployment apps pushed to forwarder classes (serverclasses.conf).
 
 ### SPL Security Reference
 
-**tstats (accelerated search over data models):**
+tstats (accelerated search over data models):
 ```spl
 | tstats count min(_time) as firstTime max(_time) as lastTime
     from datamodel=Authentication
@@ -187,7 +187,7 @@ KV Store replication: shared across members for lookups/collections
 | sort -count
 ```
 
-**stats / eval / rex patterns:**
+stats / eval / rex patterns:
 ```spl
 | stats count dc(src_ip) as unique_sources values(signature) as signatures
     by dest_ip, dest_port
@@ -196,7 +196,7 @@ KV Store replication: shared across members for lookups/collections
 | where isnotnull(extracted_user)
 ```
 
-**lookup / join / append:**
+lookup / join / append:
 ```spl
 | lookup threat_intel_ips ip as src_ip OUTPUT threat_category confidence
 | where isnotnull(threat_category)
@@ -206,7 +206,7 @@ KV Store replication: shared across members for lookups/collections
 | append [search index=firewall earliest=-24h | stats count by src_ip]
 ```
 
-**transaction (session reconstruction):**
+transaction (session reconstruction):
 ```spl
 index=proxy
 | transaction src_ip maxspan=30m maxpause=5m keepevicted=true
@@ -214,27 +214,27 @@ index=proxy
 | table src_ip, duration, eventcount, uri_domain
 ```
 
-**streamstats / eventstats:**
+streamstats / eventstats:
 ```spl
 | streamstats time_window=1h count as rolling_count by src_ip
 | eventstats avg(bytes_out) as avg_bytes stdev(bytes_out) as stdev_bytes by dest_ip
 | where bytes_out > avg_bytes + (3 * stdev_bytes)
 ```
 
-**Time modifiers:**
+Time modifiers:
 ```spl
 earliest=-24h@h latest=now
 earliest=-7d@d latest=@d
 earliest="2024-01-01T00:00:00" latest="2024-01-31T23:59:59"
 ```
 
-**Field extractions (rex at search time):**
+Field extractions (rex at search time):
 ```spl
 | rex field=_raw "process_name=(?<proc_name>[^\s]+)\s+pid=(?<pid>\d+)"
 | rex mode=sed field=CommandLine "s/\s+/ /g"
 ```
 
-**Summary indexes:**
+Summary indexes:
 ```spl
 | sitimechart span=1h count by src_ip limit=0
 | collect index=summary_auth marker="report=failed_auth_hourly"
@@ -244,13 +244,13 @@ earliest="2024-01-01T00:00:00" latest="2024-01-31T23:59:59"
 
 | Data Model | Key Fields | Primary Sources |
 |---|---|---|
-| **Authentication** | user, src, dest, action, app | AD, LDAP, VPN, SSH, Office 365 |
-| **Network_Traffic** | src_ip, dest_ip, src_port, dest_port, bytes_in/out, transport | Firewall, NetFlow, proxy |
-| **Endpoint** | process_name, parent_process, user, file_path, registry_path | Sysmon, CrowdStrike, Carbon Black |
-| **Web** | uri_path, http_method, status, bytes, referrer, user_agent | Proxy, WAF, web server logs |
-| **Email** | src_user, recipient, subject, attachment_name, direction | O365, Exchange, Proofpoint |
-| **Intrusion_Detection** | signature, severity, category, src, dest | IDS/IPS, WAF, threat platform |
-| **Change** | object, action, user, change_type | AD changes, config management |
+| Authentication | user, src, dest, action, app | AD, LDAP, VPN, SSH, Office 365 |
+| Network_Traffic | src_ip, dest_ip, src_port, dest_port, bytes_in/out, transport | Firewall, NetFlow, proxy |
+| Endpoint | process_name, parent_process, user, file_path, registry_path | Sysmon, CrowdStrike, Carbon Black |
+| Web | uri_path, http_method, status, bytes, referrer, user_agent | Proxy, WAF, web server logs |
+| Email | src_user, recipient, subject, attachment_name, direction | O365, Exchange, Proofpoint |
+| Intrusion_Detection | signature, severity, category, src, dest | IDS/IPS, WAF, threat platform |
+| Change | object, action, user, change_type | AD changes, config management |
 
 ### Correlation Searches & Notable Events
 
@@ -292,16 +292,16 @@ index=risk_index
 
 | Dashboard | Purpose | Key Panels |
 |---|---|---|
-| **Security Posture** | C-suite overview | Active notable count by severity; MTTD/MTTR trend |
-| **Incident Review** | Analyst queue | Notable events table; status filter; owner assignment |
-| **Risk Analysis** | RBA investigation | Top risk objects; risk score timeline; contributing events |
-| **Executive Summary** | Weekly report | Incident trends; top threats; coverage metrics |
+| Security Posture | C-suite overview | Active notable count by severity; MTTD/MTTR trend |
+| Incident Review | Analyst queue | Notable events table; status filter; owner assignment |
+| Risk Analysis | RBA investigation | Top risk objects; risk score timeline; contributing events |
+| Executive Summary | Weekly report | Incident trends; top threats; coverage metrics |
 
 ### MITRE ATT&CK & UEBA
 
-- **MITRE ATT&CK App:** Maps correlation searches to techniques; provides coverage heatmap by tactic
-- **Splunk UBA:** Separate ML platform ingesting from Splunk; generates anomaly events back into ES; entity timelines per user/device
-- **Notable Event Workflow:** New -> In Progress -> Pending -> Resolved (with closing classification: true_positive / false_positive / duplicate / other)
+- MITRE ATT&CK App: Maps correlation searches to techniques; provides coverage heatmap by tactic
+- Splunk UBA: Separate ML platform ingesting from Splunk; generates anomaly events back into ES; entity timelines per user/device
+- Notable Event Workflow: New -> In Progress -> Pending -> Resolved (with closing classification: true_positive / false_positive / duplicate / other)
 
 ---
 ## 3. Microsoft Sentinel
@@ -320,14 +320,14 @@ Microsoft Sentinel
   +-- Threat Intelligence (TAXII/STIX feeds; MDTI integration)
 ```
 
-**Workspace Design:**
+Workspace Design:
 - Single workspace (recommended for most): unified query plane; cross-table KQL
 - Multi-workspace: regulatory data sovereignty; MSSP multi-tenant; use workspace() KQL function
 - Data retention: interactive 90 days (free) + archive up to 7 years; Basic Logs tier for verbose/cheap sources
 
 ### KQL Security Reference
 
-**Core filtering and projection:**
+Core filtering and projection:
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(24h)
@@ -337,7 +337,7 @@ SecurityEvent
 | sort by TimeGenerated desc
 ```
 
-**Summarize and bin:**
+Summarize and bin:
 ```kql
 SecurityEvent
 | where EventID == 4625
@@ -347,7 +347,7 @@ SecurityEvent
 | sort by FailureCount desc
 ```
 
-**Join kinds:**
+Join kinds:
 ```kql
 let FailedLogins = SecurityEvent
     | where EventID == 4625 and TimeGenerated > ago(1h)
@@ -361,7 +361,7 @@ FailedLogins
 | project Account, IpAddress, Failures, Successes
 ```
 
-**Parse with regex:**
+Parse with regex:
 ```kql
 Syslog
 | where SyslogMessage has "Failed password"
@@ -370,14 +370,14 @@ Syslog
 | summarize count() by username, src_ip
 ```
 
-**between and ago:**
+between and ago:
 ```kql
 AzureActivity
 | where TimeGenerated between(ago(7d) .. ago(1d))
 | where OperationNameValue has "delete" and ActivityStatusValue == "Success"
 ```
 
-**make_series and anomaly detection:**
+make_series and anomaly detection:
 ```kql
 SecurityEvent
 | where EventID == 4688
@@ -388,7 +388,7 @@ SecurityEvent
 | where anomalies == 1
 ```
 
-**scan operator (stateful sequence detection):**
+scan operator (stateful sequence detection):
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(1h)
@@ -403,7 +403,7 @@ SecurityEvent
 | where success_after_fail == true
 ```
 
-**let statements and stored functions:**
+let statements and stored functions:
 ```kql
 let RareProcessThreshold = 5;
 let KnownSafePaths = dynamic(["C:\\Windows\\System32", "C:\\Program Files"]);
@@ -431,7 +431,7 @@ GetRareProcesses(7d)
 
 ### Custom Data Ingestion
 
-**DCR-based Custom Logs (v2):**
+DCR-based Custom Logs (v2):
 ```json
 {
   "dataCollectionRuleId": "/subscriptions/.../dcr-custom-app",
@@ -440,7 +440,7 @@ GetRareProcesses(7d)
 }
 ```
 
-**REST Log Ingestion API:**
+REST Log Ingestion API:
 ```
 POST https://{DCE-endpoint}/dataCollectionRules/{DCR-immutableId}/streams/{stream}?api-version=2023-01-01
 Authorization: Bearer {token}
@@ -452,17 +452,17 @@ Content-Type: application/json
 
 | Type | Trigger | Latency | Best For |
 |---|---|---|---|
-| **Scheduled KQL** | KQL query on schedule | 5 min+ | Custom correlation; threshold-based |
-| **NRT (Near Real-Time)** | Continuous micro-batch | ~1 min | High-priority detections |
-| **Microsoft Security** | Ingest alerts from M365D/Defender | Real-time | Escalate MSFT alerts to incidents |
-| **Fusion (ML)** | ML correlation across signals | Hours | Multi-stage attacks; low-volume APT |
-| **Anomaly** | Built-in ML baseline deviation | Hours | UEBA; rare events |
+| Scheduled KQL | KQL query on schedule | 5 min+ | Custom correlation; threshold-based |
+| NRT (Near Real-Time) | Continuous micro-batch | ~1 min | High-priority detections |
+| Microsoft Security | Ingest alerts from M365D/Defender | Real-time | Escalate MSFT alerts to incidents |
+| Fusion (ML) | ML correlation across signals | Hours | Multi-stage attacks; low-volume APT |
+| Anomaly | Built-in ML baseline deviation | Hours | UEBA; rare events |
 
 ### UEBA Entity Pages
 
-- **User entity:** Sign-in timeline, peer group comparison, anomaly score history, related alerts, associated hosts
-- **Host entity:** Process tree, network connections, alerts, logged-on users, CVE exposure
-- **IP entity:** Geolocation, threat intel hits, associated users/hosts, traffic volume
+- User entity: Sign-in timeline, peer group comparison, anomaly score history, related alerts, associated hosts
+- Host entity: Process tree, network connections, alerts, logged-on users, CVE exposure
+- IP entity: Geolocation, threat intel hits, associated users/hosts, traffic volume
 
 ### Threat Intelligence Integration
 
@@ -478,7 +478,7 @@ ThreatIntelligenceIndicator
 | project DestinationIP, ConfidenceScore, ThreatType, Description
 ```
 
-**Sources:** MDTI (Microsoft Defender Threat Intelligence), TAXII 2.0/2.1 servers, custom CSV upload via API, Logic App TI import
+Sources: MDTI (Microsoft Defender Threat Intelligence), TAXII 2.0/2.1 servers, custom CSV upload via API, Logic App TI import
 
 ### Hunting with Notebooks (MSTICPy)
 
@@ -513,18 +513,18 @@ Event Processor (EP)          Flow Collector (FC) -> Flow Processor (FP)
             Ariel Database (events/flows indexed storage)
 ```
 
-**Component Roles:**
+Component Roles:
 | Component | Function |
 |---|---|
-| **Event Collector** | Receives raw events; DSM parsing; normalization |
-| **Event Processor** | Applies rules; generates offenses; stores events |
-| **Flow Collector** | Captures and deduplicates network flow data |
-| **Flow Processor** | Enriches flows; applies flow rules |
-| **Console** | Magistrate (correlation); UI; reporting; AQL query engine |
+| Event Collector | Receives raw events; DSM parsing; normalization |
+| Event Processor | Applies rules; generates offenses; stores events |
+| Flow Collector | Captures and deduplicates network flow data |
+| Flow Processor | Enriches flows; applies flow rules |
+| Console | Magistrate (correlation); UI; reporting; AQL query engine |
 
 ### AQL (Ariel Query Language) Reference
 
-**Basic event query:**
+Basic event query:
 ```aql
 SELECT sourceip, destinationip, username, eventcount, starttime, endtime
 FROM events
@@ -536,7 +536,7 @@ ORDER BY eventcount DESC
 LIMIT 100
 ```
 
-**Group By and aggregation:**
+Group By and aggregation:
 ```aql
 SELECT sourceip,
        COUNT(*) AS event_count,
@@ -552,7 +552,7 @@ LAST 1 HOURS
 ORDER BY event_count DESC
 ```
 
-**Flow query:**
+Flow query:
 ```aql
 SELECT sourceip, destinationip, sourceport, destinationport,
        SUM(sourcebytes) AS bytes_out,
@@ -568,7 +568,7 @@ ORDER BY bytes_out DESC
 LIMIT 50
 ```
 
-**Reference set membership:**
+Reference set membership:
 ```aql
 SELECT sourceip, username, eventcount, starttime
 FROM events
@@ -577,7 +577,7 @@ WHERE sourceip IN (SELECT value FROM referenceset('Known_Bad_IPs'))
 LAST 24 HOURS
 ```
 
-**Custom properties in AQL:**
+Custom properties in AQL:
 ```aql
 SELECT sourceip, destinationip,
        "Process Name" AS process_name,
@@ -590,12 +590,12 @@ LAST 1 HOURS
 
 ### Log Source Management
 
-**DSM (Device Support Module):**
+DSM (Device Support Module):
 - DSM Editor: GUI to create/modify parsing rules for custom log sources
 - Universal DSM: Fallback parser; accepts any syslog; custom field extraction via regex
 - Automatic DSM Detection: QRadar auto-identifies log sources by pattern matching
 
-**WinCollect Agent:**
+WinCollect Agent:
 ```xml
 <!-- WinCollect configuration for Windows Event Forwarding -->
 <destination type="syslog" host="qradar-ec-01" port="514" protocol="UDP"/>
@@ -604,13 +604,13 @@ LAST 1 HOURS
 </event-source>
 ```
 
-**Bulk Log Source Import:**
+Bulk Log Source Import:
 - CSV format: `name,type_id,hostname,protocol_type,enabled`
 - API endpoint: `POST /api/config/event_sources/log_source_management/log_sources`
 
 ### Offense Management Lifecycle
 
-**Offense Magnitude Formula:**
+Offense Magnitude Formula:
 ```
 Magnitude = (Severity x 0.4) + (Credibility x 0.3) + (Relevance x 0.3)
 
@@ -619,14 +619,14 @@ Credibility: 0-10, based on log source credibility rating
 Relevance:   0-10, based on whether destination is a local/watched asset
 ```
 
-**Offense States:**
+Offense States:
 ```
 Active -> In Progress (analyst assigned) -> Closed
 Closing reasons: False Positive / Non-Issue / Policy Violation /
                  User Error / System Change / Resolved / Other
 ```
 
-**Offense Workflow:**
+Offense Workflow:
 1. Rule match -> Offense created or updated
 2. Magnitude calculated; notifications sent if threshold met
 3. Analyst assigns offense; adds notes; runs AQL for investigation
@@ -635,7 +635,7 @@ Closing reasons: False Positive / Non-Issue / Policy Violation /
 
 ### Rule Types
 
-**Event Rules:**
+Event Rules:
 ```
 Building Block (BB): Reusable logic component; not a standalone rule
 Test: AND/OR logic on event fields, reference sets, custom properties
@@ -648,12 +648,12 @@ Example BB: BB:NetworkScan
   AND when these events are seen more than 50 times in 5 minutes
 ```
 
-**Anomaly Detection Rules:**
+Anomaly Detection Rules:
 - Statistical deviation from 7-day/30-day baseline
 - Flow-based volume anomalies (bytes, packets, connections)
 - NEW rule type: fires when value not seen in past N days (new external IP, new user-agent)
 
-**Reference Set Population via API:**
+Reference Set Population via API:
 ```python
 import requests
 HEADERS = {'SEC': 'admin-token', 'Content-Type': 'application/json', 'Version': '14.0'}
@@ -663,7 +663,7 @@ requests.post(f'{BASE}/reference_data/sets/bulk_load/Known_Bad_IPs',
               headers=HEADERS, json=["203.0.113.1", "198.51.100.5"])
 ```
 
-**ATT&CK Tagging (QRadar 7.5+):**
+ATT&CK Tagging (QRadar 7.5+):
 - Rules can be tagged with MITRE ATT&CK technique IDs
 - Coverage dashboard shows heatmap by tactic/technique
 - Offense detail shows associated ATT&CK techniques
@@ -692,14 +692,14 @@ Fleet: centralized agent policy management (Kibana UI + API)
 
 | Category | Key Fields |
 |---|---|
-| **Event** | event.category, event.type, event.action, event.outcome, event.severity |
-| **Network** | source.ip, source.port, destination.ip, destination.port, network.protocol |
-| **Process** | process.name, process.pid, process.parent.name, process.command_line, process.hash.sha256 |
-| **File** | file.path, file.name, file.extension, file.hash.md5, file.hash.sha256 |
-| **User** | user.name, user.domain, user.id, user.email |
-| **Host** | host.name, host.hostname, host.ip, host.os.type, host.os.version |
-| **DNS** | dns.question.name, dns.question.type, dns.resolved_ip |
-| **Registry** | registry.key, registry.value.name, registry.value.data |
+| Event | event.category, event.type, event.action, event.outcome, event.severity |
+| Network | source.ip, source.port, destination.ip, destination.port, network.protocol |
+| Process | process.name, process.pid, process.parent.name, process.command_line, process.hash.sha256 |
+| File | file.path, file.name, file.extension, file.hash.md5, file.hash.sha256 |
+| User | user.name, user.domain, user.id, user.email |
+| Host | host.name, host.hostname, host.ip, host.os.type, host.os.version |
+| DNS | dns.question.name, dns.question.type, dns.resolved_ip |
+| Registry | registry.key, registry.value.name, registry.value.data |
 
 ### Elastic Detection Rules (TOML Format)
 
@@ -802,9 +802,9 @@ FROM logs-endpoint.events.process-*
 
 ### Wazuh (Open Source SIEM/XDR)
 
-**Architecture:** Manager (analysis + rules) + Indexer (OpenSearch) + Dashboard + Agents (cross-platform)
+Architecture: Manager (analysis + rules) + Indexer (OpenSearch) + Dashboard + Agents (cross-platform)
 
-**Rule XML Format:**
+Rule XML Format:
 ```xml
 <group name="syscheck,pci_dss_11.5,">
   <rule id="100100" level="12">
@@ -827,7 +827,7 @@ FROM logs-endpoint.events.process-*
 </active-response>
 ```
 
-**Decoder XML:**
+Decoder XML:
 ```xml
 <decoder name="custom-app">
   <prematch>CustomApp:</prematch>
@@ -838,54 +838,54 @@ FROM logs-endpoint.events.process-*
 
 ### OpenSearch Security Analytics
 
-- **Sigma Rule Import:** Upload `.yml` Sigma rules via API or UI; auto-converted to OpenSearch DSL
-- **Detection Rules Engine:** Runs Sigma rules against OpenSearch indices on schedule
-- **Findings:** Matched events grouped by rule; severity mapped from Sigma level
-- **Correlation Rules:** Chain multiple findings across rules for complex detection
+- Sigma Rule Import: Upload `.yml` Sigma rules via API or UI; auto-converted to OpenSearch DSL
+- Detection Rules Engine: Runs Sigma rules against OpenSearch indices on schedule
+- Findings: Matched events grouped by rule; severity mapped from Sigma level
+- Correlation Rules: Chain multiple findings across rules for complex detection
 
 ---
 ## 6. Log Collection & Normalization
 
 ### Critical Windows Event IDs
 
-**Security Log (Microsoft-Windows-Security-Auditing):**
+Security Log (Microsoft-Windows-Security-Auditing):
 
 | Event ID | Description | Key Fields | Detection Value |
 |---|---|---|---|
-| **4624** | Successful logon | Account, LogonType (2=Interactive, 3=Network, 10=RemoteInteractive), IpAddress | Baseline for anomaly; Type 10 = RDP |
-| **4625** | Failed logon | Account, FailureReason, SubStatus, IpAddress | Brute force; credential stuffing |
-| **4648** | Explicit credential logon (RunAs) | SubjectAccount, TargetAccount, TargetServer | Pass-the-hash; lateral movement |
-| **4663** | Object access attempt | ObjectName, ObjectType, AccessMask, SubjectAccount | File access; sensitive data exfil |
-| **4688** | Process creation | NewProcessName, ParentProcessName, CommandLine*, Creator | T1059 execution; LOLBins |
-| **4698** | Scheduled task created | TaskName, TaskContent, SubjectAccount | T1053 persistence |
-| **4720** | User account created | NewAccount, SubjectAccount | Backdoor account creation |
-| **4726** | User account deleted | TargetAccount, SubjectAccount | Account tampering; covering tracks |
-| **4732** | Member added to security group | MemberName, TargetGroup | Privilege escalation; T1098 |
-| **7045** | New service installed | ServiceName, ServiceFileName, ServiceType | T1543 service persistence |
+| 4624 | Successful logon | Account, LogonType (2=Interactive, 3=Network, 10=RemoteInteractive), IpAddress | Baseline for anomaly; Type 10 = RDP |
+| 4625 | Failed logon | Account, FailureReason, SubStatus, IpAddress | Brute force; credential stuffing |
+| 4648 | Explicit credential logon (RunAs) | SubjectAccount, TargetAccount, TargetServer | Pass-the-hash; lateral movement |
+| 4663 | Object access attempt | ObjectName, ObjectType, AccessMask, SubjectAccount | File access; sensitive data exfil |
+| 4688 | Process creation | NewProcessName, ParentProcessName, CommandLine*, Creator | T1059 execution; LOLBins |
+| 4698 | Scheduled task created | TaskName, TaskContent, SubjectAccount | T1053 persistence |
+| 4720 | User account created | NewAccount, SubjectAccount | Backdoor account creation |
+| 4726 | User account deleted | TargetAccount, SubjectAccount | Account tampering; covering tracks |
+| 4732 | Member added to security group | MemberName, TargetGroup | Privilege escalation; T1098 |
+| 7045 | New service installed | ServiceName, ServiceFileName, ServiceType | T1543 service persistence |
 
 *Requires "Audit Process Creation" + "Include Command Line in Process Creation Events" GPO
 
-**System Log:**
+System Log:
 | Event ID | Description | Detection Value |
 |---|---|---|
-| **7036** | Service state changed | Service stopped/started; detect critical service kills |
+| 7036 | Service state changed | Service stopped/started; detect critical service kills |
 
-**Sysmon Event IDs (Microsoft-Windows-Sysmon/Operational):**
+Sysmon Event IDs (Microsoft-Windows-Sysmon/Operational):
 
 | Event ID | Description | Key Fields |
 |---|---|---|
-| **1** | Process Create | Image, CommandLine, ParentImage, ParentCommandLine, Hashes, User |
-| **3** | Network Connection | Image, DestinationIp, DestinationPort, Protocol, User |
-| **7** | Image Loaded (DLL) | Image, ImageLoaded, Hashes, Signed, Signature |
-| **8** | CreateRemoteThread | SourceImage, TargetImage -> LSASS injection |
-| **10** | ProcessAccess (LSASS) | SourceImage, TargetImage=lsass.exe, CallTrace |
-| **11** | FileCreate | TargetFilename, Image -> dropper activity |
-| **13** | RegistryEvent (Set) | TargetObject (HKLM Run keys), Details -> T1547 |
-| **22** | DNS Query | QueryName, QueryResults, Image -> C2 domain resolution |
+| 1 | Process Create | Image, CommandLine, ParentImage, ParentCommandLine, Hashes, User |
+| 3 | Network Connection | Image, DestinationIp, DestinationPort, Protocol, User |
+| 7 | Image Loaded (DLL) | Image, ImageLoaded, Hashes, Signed, Signature |
+| 8 | CreateRemoteThread | SourceImage, TargetImage -> LSASS injection |
+| 10 | ProcessAccess (LSASS) | SourceImage, TargetImage=lsass.exe, CallTrace |
+| 11 | FileCreate | TargetFilename, Image -> dropper activity |
+| 13 | RegistryEvent (Set) | TargetObject (HKLM Run keys), Details -> T1547 |
+| 22 | DNS Query | QueryName, QueryResults, Image -> C2 domain resolution |
 
 ### Windows Event Forwarding (WEF)
 
-**GPO Configuration:**
+GPO Configuration:
 ```
 Computer Configuration -> Administrative Templates -> Windows Components
   -> Event Forwarding -> Configure target Subscription Manager:
@@ -896,13 +896,13 @@ Computer Configuration -> Administrative Templates -> Windows Components
 Windows Remote Management -> Allow automatic configuration of listeners: Enabled
 ```
 
-**WEC Subscription Types:**
+WEC Subscription Types:
 | Type | Description | Use Case |
 |---|---|---|
-| **Source-Initiated (Push)** | Endpoints push events to WEC | Domain-joined; GPO-configured |
-| **Collector-Initiated (Pull)** | WEC polls endpoints | Non-domain; explicit subscription list |
+| Source-Initiated (Push) | Endpoints push events to WEC | Domain-joined; GPO-configured |
+| Collector-Initiated (Pull) | WEC polls endpoints | Non-domain; explicit subscription list |
 
-**XPath Filter (high-value events only):**
+XPath Filter (high-value events only):
 ```xml
 <QueryList>
   <Query Id="0" Path="Security">
@@ -922,7 +922,7 @@ Windows Remote Management -> Allow automatic configuration of listeners: Enabled
 
 ### Linux Log Forwarding
 
-**rsyslog (TLS-encrypted remote forwarding):**
+rsyslog (TLS-encrypted remote forwarding):
 ```conf
 # /etc/rsyslog.conf
 module(load="imjournal")        # systemd journal
@@ -946,7 +946,7 @@ action(type="omfwd" target="siem.corp.local" port="6514"
        template="CEF")
 ```
 
-**Filebeat modules for Linux:**
+Filebeat modules for Linux:
 ```yaml
 # /etc/filebeat/filebeat.yml
 filebeat.modules:
@@ -966,7 +966,7 @@ output.logstash:
 
 ### Log Format Specifications
 
-**CEF (Common Event Format):**
+CEF (Common Event Format):
 ```
 CEF:Version|Device Vendor|Device Product|Device Version|Signature ID|Name|Severity|Extension
 
@@ -977,16 +977,16 @@ CEF:0|Palo Alto Networks|PAN-OS|10.1|threat|Threat Detected|7|
   msg=Malware detected in HTTPS traffic
 ```
 
-**CEF Severity Scale:** 0=Unknown, 1-3=Low, 4-6=Medium, 7-8=High, 9-10=Very-High
+CEF Severity Scale: 0=Unknown, 1-3=Low, 4-6=Medium, 7-8=High, 9-10=Very-High
 
-**Syslog RFC 5424 Structured Data:**
+Syslog RFC 5424 Structured Data:
 ```
 <165>1 2024-01-15T10:30:00.123Z host1 myapp 1234 ID47
   [exampleSDID@32473 iut="3" eventSource="Application" eventID="1011"]
   User logged in successfully
 ```
 
-**Grok Patterns (Logstash):**
+Grok Patterns (Logstash):
 ```ruby
 filter {
   grok {
@@ -1063,13 +1063,13 @@ Enriched Event -> SIEM Indexing
 
 ### ATT&CK Coverage Mapping
 
-**ATT&CK Navigator Workflow:**
+ATT&CK Navigator Workflow:
 1. Export current detection rules -> extract technique IDs
 2. Import technique list into Navigator (JSON layer format)
 3. Color-code by coverage level: No Coverage / Partial / Full
 4. Identify gaps: prioritize by threat actor TTPs targeting your sector
 
-**Coverage by Data Source Priority:**
+Coverage by Data Source Priority:
 | Data Source | ATT&CK Techniques Covered | Collection Priority |
 |---|---|---|
 | Process creation (Sysmon 1 / EDR) | T1059, T1055, T1543, T1053, T1218 | CRITICAL |
@@ -1130,7 +1130,7 @@ falsepositives:
 level: high
 ```
 
-**pySigma Backend Conversion:**
+pySigma Backend Conversion:
 ```bash
 # Install sigma CLI and backends
 pip install sigma-cli pySigma-backend-splunk pySigma-backend-elasticsearch
@@ -1148,17 +1148,17 @@ sigma convert -t microsoft365defender -p microsoft365defender sigma/rules/window
 sigma convert -t qradar sigma/rules/windows/ -o output_rules/
 ```
 
-**SigmaHQ Community Repo:** `github.com/SigmaHQ/sigma` -- 3,000+ community rules
+SigmaHQ Community Repo: `github.com/SigmaHQ/sigma` -- 3,000+ community rules
 
 ### Detection Quality Criteria
 
 | Criterion | Definition | Target |
 |---|---|---|
-| **Precision** | True Positives / (True Positives + False Positives) | > 70% |
-| **Recall** | True Positives / (True Positives + False Negatives) | > 80% |
-| **Specificity** | True Negatives / (True Negatives + False Positives) | > 95% |
-| **Data Source Availability** | Is required log source collected? | 100% |
-| **Performance Impact** | Search time; EPS overhead | < 5% cluster load |
+| Precision | True Positives / (True Positives + False Positives) | > 70% |
+| Recall | True Positives / (True Positives + False Negatives) | > 80% |
+| Specificity | True Negatives / (True Negatives + False Positives) | > 95% |
+| Data Source Availability | Is required log source collected? | 100% |
+| Performance Impact | Search time; EPS overhead | < 5% cluster load |
 
 ### Testing with Atomic Red Team
 
@@ -1183,7 +1183,7 @@ Invoke-AtomicTest T1003 -GetPrereqs
 Invoke-AtomicTest T1003
 ```
 
-**Validation Checklist:**
+Validation Checklist:
 - [ ] Alert fires within expected detection window
 - [ ] Alert contains required fields (src, dest, process, user)
 - [ ] Severity and risk score are appropriate
@@ -1222,12 +1222,12 @@ CI/CD Pipeline (GitHub Actions):
 
 ### Alert Fatigue Management
 
-1. **Baseline establishment:** Run new rules in "report only" mode for 2 weeks; measure FP rate
-2. **Exception conditions:** Build exclusion lookup tables for known-good (IT admin IPs, service accounts, automation)
-3. **Score-based prioritization:** Combine rule severity + asset criticality + threat intel hit -> unified risk score
-4. **Dynamic thresholds:** Tune thresholds via lookup table (updated weekly from rolling 30-day average)
-5. **Rule retirement:** Auto-disable rules with >95% FP rate over 30 days; requires re-review before re-enable
-6. **Documentation:** Every tuning decision recorded in rule comments with date, analyst, and justification
+1. Baseline establishment: Run new rules in "report only" mode for 2 weeks; measure FP rate
+2. Exception conditions: Build exclusion lookup tables for known-good (IT admin IPs, service accounts, automation)
+3. Score-based prioritization: Combine rule severity + asset criticality + threat intel hit -> unified risk score
+4. Dynamic thresholds: Tune thresholds via lookup table (updated weekly from rolling 30-day average)
+5. Rule retirement: Auto-disable rules with >95% FP rate over 30 days; requires re-review before re-enable
+6. Documentation: Every tuning decision recorded in rule comments with date, analyst, and justification
 
 ---
 ## 8. SOC Operations & Triage
@@ -1236,10 +1236,10 @@ CI/CD Pipeline (GitHub Actions):
 
 | Tier | Role | Responsibilities | Typical Shift |
 |---|---|---|---|
-| **T1** | Alert Analyst / Security Analyst | Alert monitoring; initial triage; enrichment; escalation decision; ticket creation | 24x7 rotating |
-| **T2** | Senior Analyst / Incident Responder | Deep investigation; containment actions; playbook execution; T1 escalation review | Business hours + on-call |
-| **T3** | Threat Hunter / Detection Engineer | Proactive threat hunting; rule development; purple team; DFIR leadership; tool tuning | Business hours |
-| **Management** | SOC Manager / CISO | KPI reporting; resource allocation; vendor management; executive communication | Business hours |
+| T1 | Alert Analyst / Security Analyst | Alert monitoring; initial triage; enrichment; escalation decision; ticket creation | 24x7 rotating |
+| T2 | Senior Analyst / Incident Responder | Deep investigation; containment actions; playbook execution; T1 escalation review | Business hours + on-call |
+| T3 | Threat Hunter / Detection Engineer | Proactive threat hunting; rule development; purple team; DFIR leadership; tool tuning | Business hours |
+| Management | SOC Manager / CISO | KPI reporting; resource allocation; vendor management; executive communication | Business hours |
 
 ### 5-Step Triage Process
 
@@ -1276,7 +1276,7 @@ Step 5: RESPOND
 
 ### Enrichment Automation
 
-**VirusTotal API:**
+VirusTotal API:
 ```python
 import requests
 
@@ -1318,7 +1318,7 @@ def abuseipdb_check(ip: str) -> dict:
     }
 ```
 
-**Shodan Context:**
+Shodan Context:
 ```python
 import shodan
 api = shodan.Shodan("your_shodan_key")
@@ -1357,12 +1357,12 @@ Primary SOC Dashboard Panels:
 
 | Platform | Integration Method | Use Case |
 |---|---|---|
-| **TheHive** | API: POST /api/case | SOC-native case management; observable tracking; task assignment |
-| **ServiceNow** | REST Table API or webhook | Enterprise ITSM; SLA tracking; change management integration |
-| **Jira** | Jira API: POST /rest/api/2/issue | Vulnerability management; dev-sec collaboration |
-| **PagerDuty** | Events API v2 | On-call alerting; escalation routing |
+| TheHive | API: POST /api/case | SOC-native case management; observable tracking; task assignment |
+| ServiceNow | REST Table API or webhook | Enterprise ITSM; SLA tracking; change management integration |
+| Jira | Jira API: POST /rest/api/2/issue | Vulnerability management; dev-sec collaboration |
+| PagerDuty | Events API v2 | On-call alerting; escalation routing |
 
-**Auto-Case Creation (Python):**
+Auto-Case Creation (Python):
 ```python
 import requests
 
@@ -1409,15 +1409,15 @@ ESCALATION CONTACTS:
 
 | Category | Subcategory | Examples |
 |---|---|---|
-| **Intrusion** | Network | Port scan, exploit attempt, C2 callback |
-| **Intrusion** | Endpoint | Malware execution, code injection, persistence |
-| **Account** | Authentication | Brute force, credential stuffing, account takeover |
-| **Account** | Privilege | Privilege escalation, admin account creation |
-| **Data** | Exfiltration | Large upload, DLP trigger, cloud storage anomaly |
-| **Data** | Access | Unauthorized file access, sensitive DB query |
-| **Insider** | Policy Violation | USB usage, prohibited software, off-hours access |
-| **Vulnerability** | Exploitation | CVE exploit, unpatched system targeted |
-| **Compliance** | Regulatory | PCI DSS violation, HIPAA log gap, audit failure |
+| Intrusion | Network | Port scan, exploit attempt, C2 callback |
+| Intrusion | Endpoint | Malware execution, code injection, persistence |
+| Account | Authentication | Brute force, credential stuffing, account takeover |
+| Account | Privilege | Privilege escalation, admin account creation |
+| Data | Exfiltration | Large upload, DLP trigger, cloud storage anomaly |
+| Data | Access | Unauthorized file access, sensitive DB query |
+| Insider | Policy Violation | USB usage, prohibited software, off-hours access |
+| Vulnerability | Exploitation | CVE exploit, unpatched system targeted |
+| Compliance | Regulatory | PCI DSS violation, HIPAA log gap, audit failure |
 
 ---
 ## 9. Threat Hunting with SIEM
@@ -1449,7 +1449,7 @@ Situational Awareness Hunting:
 
 ### KQL Hunting Queries (Microsoft Sentinel)
 
-**PowerShell Obfuscation Detection:**
+PowerShell Obfuscation Detection:
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(7d)
@@ -1464,7 +1464,7 @@ SecurityEvent
 | sort by TimeGenerated desc
 ```
 
-**LSASS Access Anomalies:**
+LSASS Access Anomalies:
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(24h)
@@ -1481,7 +1481,7 @@ SecurityEvent
           AccessMask, FileName, SHA256
 ```
 
-**Scheduled Task Creation Spike:**
+Scheduled Task Creation Spike:
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(7d)
@@ -1498,7 +1498,7 @@ SecurityEvent
 | sort by TaskCreations desc
 ```
 
-**Beaconing Pattern Detection (KQL):**
+Beaconing Pattern Detection (KQL):
 ```kql
 let lookback = 24h;
 let min_requests = 20;
@@ -1519,7 +1519,7 @@ CommonSecurityLog
 | sort by jitter_ratio asc
 ```
 
-**New Admin Account Detection:**
+New Admin Account Detection:
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(30d)
@@ -1538,7 +1538,7 @@ SecurityEvent
 
 ### SPL Hunting Queries (Splunk)
 
-**Beaconing Detection via Standard Deviation:**
+Beaconing Detection via Standard Deviation:
 ```spl
 | tstats count dc(dest_port) as port_diversity
     values(dest_ip) as dest_ips
@@ -1553,7 +1553,7 @@ SecurityEvent
 | sort -count
 ```
 
-**Rare Parent-Child Process Combinations:**
+Rare Parent-Child Process Combinations:
 ```spl
 | tstats count
     from datamodel=Endpoint.Processes
@@ -1566,7 +1566,7 @@ SecurityEvent
 | table parent_process_name, process_name, count
 ```
 
-**DNS Tunneling Detection:**
+DNS Tunneling Detection:
 ```spl
 index=dns OR sourcetype=stream:dns
 | eval query_length=len(query)
@@ -1580,7 +1580,7 @@ index=dns OR sourcetype=stream:dns
 | head 20
 ```
 
-**Lateral Movement via SMB:**
+Lateral Movement via SMB:
 ```spl
 | tstats count values(Authentication.dest) as targets dc(Authentication.dest) as target_count
     from datamodel=Authentication
@@ -1597,14 +1597,14 @@ index=dns OR sourcetype=stream:dns
 
 | ATT&CK Technique | Hunt Name | Key Data Source | Sigma Rule Exists |
 |---|---|---|---|
-| **T1059.001** | PowerShell Obfuscation | Sysmon 1, Event 4688 | Yes |
-| **T1071.001** | HTTP C2 Beaconing | Proxy/Firewall logs | Yes |
-| **T1053.005** | Scheduled Task Persistence | Event 4698, Sysmon | Yes |
-| **T1003.001** | LSASS Memory Dump | Sysmon 10, Event 4656 | Yes |
-| **T1055** | Process Injection | Sysmon 8, EDR events | Partial |
-| **T1078** | Valid Account Abuse | Auth events, VPN logs | Partial |
-| **T1547.001** | Registry Run Key | Sysmon 13 | Yes |
-| **T1021.002** | SMB Lateral Movement | Event 4624 Type 3 | Yes |
+| T1059.001 | PowerShell Obfuscation | Sysmon 1, Event 4688 | Yes |
+| T1071.001 | HTTP C2 Beaconing | Proxy/Firewall logs | Yes |
+| T1053.005 | Scheduled Task Persistence | Event 4698, Sysmon | Yes |
+| T1003.001 | LSASS Memory Dump | Sysmon 10, Event 4656 | Yes |
+| T1055 | Process Injection | Sysmon 8, EDR events | Partial |
+| T1078 | Valid Account Abuse | Auth events, VPN logs | Partial |
+| T1547.001 | Registry Run Key | Sysmon 13 | Yes |
+| T1021.002 | SMB Lateral Movement | Event 4624 Type 3 | Yes |
 
 ### Hunt Documentation Template
 
@@ -1645,18 +1645,18 @@ index=dns OR sourcetype=stream:dns
 
 | Level | Description | Capabilities |
 |---|---|---|
-| **HM0** | Initial | Relies entirely on automated alerting; no proactive hunting |
-| **HM1** | Minimal | Occasional hunts based on IOCs; no structured methodology |
-| **HM2** | Procedural | Regular hunts using documented procedures; ATT&CK-mapped |
-| **HM3** | Innovative | Hypothesis-driven; analytics-based; ML-assisted; custom tooling |
-| **HM4** | Leading | Automated hunt pipelines; full ATT&CK coverage; purple team cadence |
+| HM0 | Initial | Relies entirely on automated alerting; no proactive hunting |
+| HM1 | Minimal | Occasional hunts based on IOCs; no structured methodology |
+| HM2 | Procedural | Regular hunts using documented procedures; ATT&CK-mapped |
+| HM3 | Innovative | Hypothesis-driven; analytics-based; ML-assisted; custom tooling |
+| HM4 | Leading | Automated hunt pipelines; full ATT&CK coverage; purple team cadence |
 
 ---
 ## 10. SIEM Performance, Tuning & Operations
 
 ### Splunk Optimization
 
-**Summary Indexes (pre-computed aggregations):**
+Summary Indexes (pre-computed aggregations):
 ```spl
 -- Scheduled search: runs hourly, populates summary index
 | tstats count from datamodel=Authentication.Failed_Authentication
@@ -1670,7 +1670,7 @@ index=summary_auth_hourly source=auth_summary
 | timechart span=1d sum(count) by user limit=20
 ```
 
-**Data Model Acceleration:**
+Data Model Acceleration:
 ```conf
 # datamodels.conf -- enable acceleration
 [Authentication]
@@ -1685,13 +1685,13 @@ acceleration.max_time = 3600
     by _time span=1h
 ```
 
-**Index-time vs Search-time Extractions:**
+Index-time vs Search-time Extractions:
 | Type | When | Performance | Use For |
 |---|---|---|---|
 | Index-time (SEDCMD/transforms) | At ingestion | Fastest search; increases index size | High-frequency, always-needed fields |
 | Search-time (KV_MODE/rex) | At query | Flexible; no index bloat | Rarely-needed; dynamic extractions |
 
-**Peer Node Sizing Guidelines:**
+Peer Node Sizing Guidelines:
 ```
 Indexer (per 200 GB/day workload):
   CPU: 16+ cores
@@ -1744,7 +1744,7 @@ Search Head:
 }
 ```
 
-**Shard Sizing:**
+Shard Sizing:
 - Target: 10-50 GB per shard (optimal search performance)
 - Too small shards: overhead; too large: slow recovery and search
 - Formula: `shard_count = ceil(daily_GB / 30)`
@@ -1752,7 +1752,7 @@ Search Head:
 
 ### QRadar Performance Tuning
 
-**ARP Caching:**
+ARP Caching:
 ```bash
 # Increase ARP cache to reduce network lookups
 sysctl -w net.ipv4.neigh.default.gc_thresh3=32768
@@ -1760,7 +1760,7 @@ sysctl -w net.ipv4.neigh.default.gc_thresh2=16384
 echo "net.ipv4.neigh.default.gc_thresh3 = 32768" >> /etc/sysctl.conf
 ```
 
-**Magistrate Thread Tuning:**
+Magistrate Thread Tuning:
 ```xml
 <!-- /opt/qradar/conf/ecs-ec-ingress.conf -->
 <configuration>
@@ -1774,7 +1774,7 @@ echo "net.ipv4.neigh.default.gc_thresh3 = 32768" >> /etc/sysctl.conf
 
 ### License Optimization
 
-**Filtering Noisy Sources (Splunk):**
+Filtering Noisy Sources (Splunk):
 ```conf
 # transforms.conf -- null queue high-volume low-value events
 [setnull]
@@ -1787,7 +1787,7 @@ FORMAT = nullQueue
 TRANSFORMS-setnull = setnull
 ```
 
-**Normalization to reduce field count:**
+Normalization to reduce field count:
 - Keep only fields used in correlation rules or reports
 - Avoid extracting all vendor-specific fields
 - Use lookup tables instead of inline field explosion
@@ -1814,7 +1814,7 @@ index=notable
 
 ### SIEM Health Monitoring
 
-**Splunk Health Checks:**
+Splunk Health Checks:
 ```spl
 -- Index lag (how far behind is indexing)
 index=_internal source=*metrics.log group=pipeline
@@ -1836,7 +1836,7 @@ index=_internal source=*scheduler.log status=completed
 | sort -p95_runtime
 ```
 
-**Elastic Cluster Health:**
+Elastic Cluster Health:
 ```bash
 # Cluster health overview
 curl -s "https://elastic:9200/_cluster/health?pretty"
@@ -1855,11 +1855,11 @@ curl -s "https://elastic:9200/_nodes/hot_threads"
 
 | Platform | HA/DR Mechanism | RPO | RTO |
 |---|---|---|---|
-| **Splunk** | Indexer cluster (RF=2+); SHC; SmartStore on S3 | Minutes | < 1 hour |
-| **Elastic** | Cross-cluster replication (CCR); searchable snapshots | Minutes | < 30 min |
-| **QRadar** | HA pair (active/passive); tape archive for cold | Minutes | 1-4 hours |
+| Splunk | Indexer cluster (RF=2+); SHC; SmartStore on S3 | Minutes | < 1 hour |
+| Elastic | Cross-cluster replication (CCR); searchable snapshots | Minutes | < 30 min |
+| QRadar | HA pair (active/passive); tape archive for cold | Minutes | 1-4 hours |
 
-**Splunk SmartStore (S3 hot/warm tiering):**
+Splunk SmartStore (S3 hot/warm tiering):
 ```conf
 # indexes.conf
 [security_events]
@@ -1880,13 +1880,13 @@ Modern XDR platforms are consolidating capabilities that previously required sep
 
 | Platform | Vendor | Key Strengths |
 |---|---|---|
-| **Microsoft Defender XDR** | Microsoft | Native M365/Azure integration; Fusion ML correlation; KQL hunting |
-| **CrowdStrike Falcon** | CrowdStrike | NG-SIEM with Humio; EDR-first; Threat Graph; Charlotte AI |
-| **Palo Alto Cortex XDR** | Palo Alto Networks | Causality-based analysis; XSIAM for SOAR+SIEM+TIP; ML analytics |
-| **SentinelOne Singularity** | SentinelOne | eBPF-based endpoint telemetry; Purple AI; autonomous response |
-| **Trend Micro Vision One** | Trend Micro | Multi-layer XDR; Attack Surface Risk Management; threat intelligence |
+| Microsoft Defender XDR | Microsoft | Native M365/Azure integration; Fusion ML correlation; KQL hunting |
+| CrowdStrike Falcon | CrowdStrike | NG-SIEM with Humio; EDR-first; Threat Graph; Charlotte AI |
+| Palo Alto Cortex XDR | Palo Alto Networks | Causality-based analysis; XSIAM for SOAR+SIEM+TIP; ML analytics |
+| SentinelOne Singularity | SentinelOne | eBPF-based endpoint telemetry; Purple AI; autonomous response |
+| Trend Micro Vision One | Trend Micro | Multi-layer XDR; Attack Surface Risk Management; threat intelligence |
 
-**SIEM vs XDR Decision Framework:**
+SIEM vs XDR Decision Framework:
 ```
 Choose SIEM when:
   - Compliance requires centralized log retention (PCI, HIPAA, SOX)

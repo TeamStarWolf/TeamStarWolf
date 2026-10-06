@@ -1,12 +1,12 @@
 # ICS/OT Security Reference
 
-> **In one minute** — This is a field guide to defending the computers that run physical processes: power grids, water plants, pipelines, and factories (collectively OT, operational technology). It walks through how these networks are built (the Purdue model), the industrial protocols and threat actors that target them, deep case studies of real attacks (Stuxnet, TRITON, Industroyer), and the architecture, detection, and incident-response practices that keep them safe. Practitioners reach for it because OT security follows different rules than IT — a scan that crashes a PLC can stop a turbine, and safety comes before containment.
+> In one minute — This is a field guide to defending the computers that run physical processes: power grids, water plants, pipelines, and factories (collectively OT, operational technology). It walks through how these networks are built (the Purdue model), the industrial protocols and threat actors that target them, deep case studies of real attacks (Stuxnet, TRITON, Industroyer), and the architecture, detection, and incident-response practices that keep them safe. Practitioners reach for it because OT security follows different rules than IT — a scan that crashes a PLC can stop a turbine, and safety comes before containment.
 
 | | |
 |---|---|
-| **Read this when** | You are segmenting or assessing an OT/SCADA network, investigating an ICS intrusion, or need protocol/threat-actor/standards facts (Modbus, IEC 62443, NERC CIP) fast |
-| **Start at** | [ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists) |
-| **Pairs with** | [ICS_ATTACK_ATLAS.md](ICS_ATTACK_ATLAS.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md) |
+| Read this when | You are segmenting or assessing an OT/SCADA network, investigating an ICS intrusion, or need protocol/threat-actor/standards facts (Modbus, IEC 62443, NERC CIP) fast |
+| Start at | [ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists) |
+| Pairs with | [ICS_ATTACK_ATLAS.md](ICS_ATTACK_ATLAS.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 
 A comprehensive reference for ICS/OT/SCADA security professionals — covering architecture, threat actors, malware analysis, attack methodology, network security, standards, vulnerability management, detection, incident response, and physical security.
 
@@ -67,9 +67,9 @@ The Purdue Enterprise Reference Architecture (PERA) and ISA-95 standard define a
 | Level 4 | Business Logistics | ERP systems, IT network | Standard IT security controls |
 | Level 5 | Enterprise | Corporate IT, internet-facing systems | All enterprise security controls |
 
-**Key principle:** Traffic should never flow directly from Level 4/5 into Level 2/1/0 without explicit authorization through the DMZ. Unidirectional gateways (data diodes) enforce one-way data flow from OT to IT.
+Key principle: Traffic should never flow directly from Level 4/5 into Level 2/1/0 without explicit authorization through the DMZ. Unidirectional gateways (data diodes) enforce one-way data flow from OT to IT.
 
-**Common segmentation failures that lead to breaches:**
+Common segmentation failures that lead to breaches:
 - Direct VPN termination into OT network (Oldsmar water treatment, Colonial Pipeline pivot)
 - IT/OT firewall rules permitting RDP/SMB across the boundary
 - Shared credentials between IT and OT domains
@@ -93,7 +93,7 @@ The Purdue Enterprise Reference Architecture (PERA) and ISA-95 standard define a
 | ICCP (IEC 60870-6) | Application | Control center-to-control center | Various | Authentication optional; historically weak |
 | Modbus RTU | Data Link | Serial PLC/RTU | RS-485/232 | No security; physical access to serial bus = full access |
 
-**Protocol security assessment checklist:**
+Protocol security assessment checklist:
 - Are Modbus write function codes (FC05, FC06, FC15, FC16) restricted to authorized engineering stations?
 - Is DNP3 Secure Authentication v5 (SAv5) enabled?
 - Are OPC-UA certificates validated (not using NoSecurity endpoint)?
@@ -106,65 +106,65 @@ The Purdue Enterprise Reference Architecture (PERA) and ISA-95 standard define a
 
 ### Nation-State Actors
 
-**XENOTIME / TRITON Group (attributed: Russian CNIIHM)**
+XENOTIME / TRITON Group (attributed: Russian CNIIHM)
 - Most dangerous ICS threat actor; specifically targeted safety systems
 - 2017: TRISIS/TRITON malware against Schneider Electric Triconex SIS at Saudi Aramco facility
 - Objective: disable safety systems to enable physical destruction during concurrent cyber attack
 - An accidental safety system trip revealed the intrusion before physical impact occurred
 - Expanded targeting observed beyond Middle East to global energy and critical infrastructure
 
-**Sandworm (Russia / GRU Unit 74455)**
+Sandworm (Russia / GRU Unit 74455)
 - Ukraine power grid 2015 (BlackEnergy3): 225,000 customers lost power; operators locked out of HMIs
 - Ukraine power grid 2016 (Industroyer/CrashOverride): automated ICS-protocol attack, first-of-its-kind
 - 2022 (Industroyer2 + CaddyWiper): targeted Ukrenergo during ongoing conflict; partially thwarted by CERT-UA
-- NotPetya 2017: collateral ICS/OT damage at Maersk, Merck, Mondelez — $10B+ total damages
+- NotPetya 2017: collateral ICS/OT damage at Maersk, Merck, Mondelez: $10B+ total damages
 - Also responsible for VPNFilter (500K+ routers compromised, including ICS-adjacent devices)
 
-**ELECTRUM / Dragonfly 2.0 (attributed: Russia FSB)**
+ELECTRUM / Dragonfly 2.0 (attributed: Russia FSB)
 - Targeted US and European energy sector 2014-2017
 - Phase 1: watering hole attacks and spear-phishing for initial access
 - Phase 2: supply chain compromise of ICS vendor software updates (Havex RAT trojanized)
 - Phase 3: direct OT network access; screenshot collection from HMI screens
 - Goal: reconnaissance and pre-positioning for potential sabotage
 
-**Volt Typhoon (China / MSS)**
+Volt Typhoon (China / MSS)
 - US critical infrastructure pre-positioning discovered 2023
 - Living-off-the-land (LOTL) techniques; minimal malware footprint
 - Targeted: water/wastewater, power, communications, transportation sectors
 - Goal: disruption capability in event of armed conflict over Taiwan
 - Key TTPs: SOHO router compromise for proxy infrastructure, Mimikatz-free credential harvesting
 
-**Lazarus / HIDDEN COBRA (North Korea)**
+Lazarus / HIDDEN COBRA (North Korea)
 - Energy sector targeting for revenue generation and geopolitical leverage
 - Electric utility intrusions in India, Bangladesh
 - Cryptocurrency theft from energy company contractors
 
-**COSMICENERGY (Russia, discovered 2023)**
+COSMICENERGY (Russia, discovered 2023)
 - Kaspersky-discovered tool targeting IEC 60870-5-104 RTUNET devices
 - Capable of controlling electrical substation switches and circuit breakers
 - Likely used for testing or red team exercises; no confirmed deployment
 
 ### Attack Categories
 
-**Espionage**
+Espionage
 - Stealing operational data: process diagrams (P&IDs), network diagrams, vendor lists
 - Understanding production capacity and schedules for economic intelligence
 - Identifying safety system configurations for future sabotage planning
 - Example: Havex RAT collecting OPC server data and sending to C2
 
-**Sabotage**
+Sabotage
 - Direct manipulation of process setpoints (temperature, pressure, flow)
 - Disabling safety instrumented systems (SIS) to allow runaway processes
 - Opening/closing circuit breakers to cause power outages
 - Example: Stuxnet centrifuge speed manipulation; Industroyer substation control
 
-**Ransomware (IT → OT Impact)**
+Ransomware (IT -> OT Impact)
 - Colonial Pipeline (DarkSide, May 2021): IT ransomware, OT proactively shut down; $4.4M ransom
 - Oldsmar Water Treatment (2021): attacker attempted to raise NaOH to 111x normal via TeamViewer
 - JBS Foods: ransomware forced shutdown of beef processing plants
 - Critical distinction: ransomware typically hits IT, but OT shutdown as precaution causes physical/economic impact
 
-**Physical Destruction**
+Physical Destruction
 - Stuxnet: first confirmed cyber attack causing physical destruction of centrifuges
 - TRISIS/TRITON: attempted to cause physical destruction via SIS bypass
 - Aurora Generator Test (NERC/INL 2007): demonstrated that cyber commands can physically destroy a generator
@@ -193,7 +193,7 @@ Stuxnet used four zero-day vulnerabilities — an unprecedented number for a sin
 | MS08-067 / CVE-2008-4250 | Server Service | Remote code execution (also used by Conficker) |
 | MS10-073 / CVE-2010-2743 | Win32k.sys | Privilege escalation via keyboard layout file |
 
-**Propagation methods:**
+Propagation methods:
 1. USB drive infection (primary initial vector targeting air-gapped Natanz)
 2. Network shares (WNet enumeration)
 3. Print spooler vulnerability (MS10-061)
@@ -201,7 +201,7 @@ Stuxnet used four zero-day vulnerabilities — an unprecedented number for a sin
 5. WinCC database infection
 6. Peer-to-peer update mechanism between infected machines
 
-**Rootkit components:**
+Rootkit components:
 - `MrxCls.sys` and `MrxNet.sys`: Kernel-mode rootkit signed with stolen Realtek/JMicron certificates
 - Concealed Stuxnet files, registry keys, and PLC modifications from OS
 - Blocked antivirus enumeration of infected files
@@ -210,13 +210,13 @@ Stuxnet used four zero-day vulnerabilities — an unprecedented number for a sin
 
 The PLC attack component was the most sophisticated aspect. It targeted a very specific configuration:
 
-**Targeting criteria (all must match to activate payload):**
+Targeting criteria (all must match to activate payload):
 1. Siemens WinCC/Step 7 software installed
 2. Siemens S7-315-2 or S7-417 PLCs connected
 3. Specific frequency converters from Fararo Paya (Iran) or Vacon (Finland) connected
 4. Frequency converters operating in 807-1210 Hz range (indicating uranium centrifuges)
 
-**Attack sequence:**
+Attack sequence:
 1. Inject malicious code blocks (OB35, FC1, FC2) into Step 7 project
 2. Monitor centrifuge speed; record normal operating data
 3. Phase 1 (Speed Attack): Increase rotor speed from 1064 Hz to 1410 Hz for 15 minutes, then reduce to 2 Hz
@@ -224,7 +224,7 @@ The PLC attack component was the most sophisticated aspect. It targeted a very s
 5. Replay recorded normal readings to HMI so operators see no anomalies (rootkit function)
 6. Physical damage accumulates: rotor stress fractures, bearing wear, process contamination
 
-**MITRE ATT&CK for ICS techniques used:**
+MITRE ATT&CK for ICS techniques used:
 - T0862 (Supply Chain Compromise): Siemens software update delivery
 - T0843 (Program Download to Controller): Malicious PLC code injection
 - T0836 (Modify Parameter): Frequency setpoint manipulation
@@ -252,7 +252,7 @@ TRITON (also known as TRISIS or HatMan) represents the most dangerous ICS malwar
 - Discovered by: FireEye/Mandiant (TRITON name), Dragos (TRISIS name), ICS-CERT (HatMan)
 - Attribution: TEMP.Veles (FireEye) = XENOTIME (Dragos) = Russian Central Scientific Research Institute of Chemistry and Mechanics (CNIIHM / TsNIIkhM)
 
-### Safety Instrumented Systems — Why They Matter
+### Safety Instrumented Systems: Why They Matter
 
 A SIS is an independent control system designed to bring a process to a safe state when dangerous conditions are detected. It operates on IEC 61511 / IEC 61508 standards.
 
@@ -271,18 +271,18 @@ TRITON Goal:
 
 ### Malware Architecture
 
-**TRITON Framework (Python-based):**
+TRITON Framework (Python-based):
 - `triton.py`: Main controller and C2 communication
 - `library/`: Triconex-specific protocol implementations
 - `inject.bin` / `imain.bin`: Shellcode and payload for Triconex controller
 - Custom implementation of the undocumented TriStation protocol (UDP port 1502)
 
-**Attack Components:**
+Attack Components:
 1. `TRITON.exe`: Framework launcher; communicates with SIS via TriStation protocol
 2. `TRISIS` implant: Compiled C payload that runs on the Triconex controller itself
 3. HatMan: Persistent implant maintaining access to SIS controller
 
-**TriStation Protocol:**
+TriStation Protocol:
 - Proprietary Schneider Electric protocol (UDP 1502)
 - Not normally monitored by ICS security tools
 - TRITON reverse-engineered the protocol to send arbitrary commands
@@ -328,7 +328,7 @@ Phase 6: Accidental Discovery
 1. Air-gapping SIS from engineering network is insufficient if EWS is compromised
 2. TriStation protocol monitoring was absent in most ICS security deployments
 3. Unidirectional gateways between EWS and SIS would have prevented attack
-4. TRITON deliberately failed safe (accidental) — a more sophisticated version would not
+4. TRITON deliberately failed safe (accidental): a more sophisticated version would not
 5. SIS firmware integrity checking was not implemented
 
 ---
@@ -339,11 +339,11 @@ Phase 6: Accidental Discovery
 
 Industroyer (named by ESET) / CrashOverride (named by Dragos) was the first malware specifically designed to attack power grid infrastructure using native ICS protocols.
 
-**Target:** Ukrainian power transmission system; Ukrenergo 330kV substations
-**Date:** December 17, 2016
-**Impact:** ~1 hour blackout in Kiev; 200MW load interrupted
+Target: Ukrainian power transmission system; Ukrenergo 330kV substations
+Date: December 17, 2016
+Impact: ~1 hour blackout in Kiev; 200MW load interrupted
 
-**Architecture (modular):**
+Architecture (modular):
 
 ```
 Launcher
@@ -358,14 +358,14 @@ Launcher
   └── Wiper Module (covers tracks, destroys configuration)
 ```
 
-**IEC-104 Attack Sequence:**
+IEC-104 Attack Sequence:
 1. Enumerate ICS devices using protocol-native discovery
 2. Connect to RTUs/protection relays using standard IEC-104 sessions
 3. Issue `C_DC_NA_1` (Double Command) ASDU commands to open circuit breakers
 4. Disable automatic reclosers (prevent self-healing)
 5. SIPROTEC relay DoS prevents manual remote recovery
 
-**MITRE ATT&CK for ICS:**
+MITRE ATT&CK for ICS:
 - T0855 (Unauthorized Command Message): IEC-104 commands to circuit breakers
 - T0831 (Manipulation of Control): Opening circuit breakers
 - T0813 (Denial of Control): SIPROTEC DoS preventing operator control
@@ -373,11 +373,11 @@ Launcher
 
 ### Ukraine 2022: Industroyer2
 
-**Target:** Ukrenergo high-voltage substations (110kV and 330kV)
-**Date:** April 8, 2022 (prevented by CERT-UA and Eset intervention)
-**Deployed alongside:** CaddyWiper (data destruction malware)
+Target: Ukrenergo high-voltage substations (110kV and 330kV)
+Date: April 8, 2022 (prevented by CERT-UA and Eset intervention)
+Deployed alongside: CaddyWiper (data destruction malware)
 
-**Key differences from v1:**
+Key differences from v1:
 
 | Aspect | Industroyer v1 | Industroyer2 |
 |---|---|---|
@@ -387,7 +387,7 @@ Launcher
 | Sophistication | Higher | Simpler, more targeted |
 | Companion malware | Wiper module | CaddyWiper (separate) |
 
-**IEC-104 attack in Industroyer2:**
+IEC-104 attack in Industroyer2:
 ```
 For each hardcoded substation IP:
   1. Establish IEC-104 TCP session (port 2404)
@@ -490,7 +490,7 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 
 ## ICS Network Reconnaissance & Tools
 
-### Passive Reconnaissance (Preferred — No Controller Impact)
+### Passive Reconnaissance (Preferred: No Controller Impact)
 
 Passive monitoring should always be the first choice. Active scanning can crash PLCs, corrupt process states, or trigger safety shutdowns.
 
@@ -676,14 +676,14 @@ Data diodes enforce one-way data flow using hardware or near-hardware mechanisms
 | Fox-IT DataDiode | DataDiode | Software-defined with hardware backing |
 | Nexor | Sentinel | Government/defense grade |
 
-**Use cases for data diodes:**
-- Historian replication: OSIsoft PI to PI mirror, OT→IT
+Use cases for data diodes:
+- Historian replication: OSIsoft PI to PI mirror, OT->IT
 - SIEM log forwarding: OT events to IT SIEM without return channel
 - Firmware distribution: from IT update server to OT network (requires reverse diode or separate channel)
 
 ### OT Remote Access
 
-**Secure remote access requirements:**
+Secure remote access requirements:
 - No persistent VPN into OT network (terminated in DMZ only)
 - Vendor access: time-limited, monitored sessions through jump server
 - MFA required for all remote access
@@ -691,7 +691,7 @@ Data diodes enforce one-way data flow using hardware or near-hardware mechanisms
 - Allowlisted commands/applications (deny all unless explicitly permitted)
 - Dual-control for high-risk operations (four-eyes principle)
 
-**Vendor access options:**
+Vendor access options:
 1. Jump server in DMZ with vendor connecting to jump server (OT access proxied)
 2. Dedicated vendor access network (separate from operations network)
 3. Hardware-based vendor portal (e.g., eWon, Secomea) with policy enforcement
@@ -737,7 +737,7 @@ Passive asset discovery is mandatory — active scanning can disrupt OT operatio
 
 The primary international standard series for industrial cybersecurity. Developed by ISA and adopted by IEC.
 
-**Standard series structure:**
+Standard series structure:
 
 | Standard | Title | Key Content |
 |---|---|---|
@@ -750,7 +750,7 @@ The primary international standard series for industrial cybersecurity. Develope
 | IEC 62443-4-1 | Product security development | Secure development lifecycle for ICS vendors |
 | IEC 62443-4-2 | Component security requirements | Technical requirements for IACS components |
 
-**Security Levels (SL):**
+Security Levels (SL):
 
 | Level | Threat Profile | Description |
 |---|---|---|
@@ -759,7 +759,7 @@ The primary international standard series for industrial cybersecurity. Develope
 | SL 3 | Intentional, Sophisticated | Protection against sophisticated attack with moderate resources |
 | SL 4 | Nation-State | Protection against nation-state-level attacks with extended resources |
 
-**Zone and Conduit Model:**
+Zone and Conduit Model:
 - Zones: groups of assets with common security requirements
 - Conduits: communication channels between zones; must be explicitly defined and controlled
 - Every connection between zones must traverse a conduit (firewall, data diode)
@@ -769,18 +769,18 @@ The primary international standard series for industrial cybersecurity. Develope
 
 Published September 2023. Guide to Operational Technology (OT) Security.
 
-**Key changes in Rev 3:**
+Key changes in Rev 3:
 - Updated threat landscape including ransomware, cloud OT, and remote access risks
 - Expanded OT security program guidance
 - ICS-specific control overlays for NIST SP 800-53 Rev 5
 - Cloud, virtualization, and remote access considerations
 - Supply chain risk management for OT
 
-**Security program elements:**
+Security program elements:
 1. Establish OT security governance and policy
 2. Asset inventory (passive discovery mandatory)
 3. Network architecture review and segmentation
-4. Risk assessment (system characterization → threat identification → vulnerability identification → likelihood determination → impact analysis → risk determination)
+4. Risk assessment (system characterization -> threat identification -> vulnerability identification -> likelihood determination -> impact analysis -> risk determination)
 5. Security controls implementation (800-53 Rev 5 OT overlay)
 6. Configuration management
 7. Incident response planning
@@ -805,7 +805,7 @@ Mandatory cybersecurity standards for North American bulk electric system (BES) 
 | CIP-013 | Supply Chain Risk Management | Vendor risk management for high/medium-impact BES systems |
 | CIP-014 | Physical Security of Transmission Stations | Risk assessment of transmission substations |
 
-**NERC CIP enforcement:**
+NERC CIP enforcement:
 - FERC (Federal Energy Regulatory Commission) has enforcement authority
 - Violations can result in fines up to $1M per day per violation
 - Registered entities must report violations to ERO/E-ISAC
@@ -885,20 +885,20 @@ alert tcp $EXTERNAL_NET any -> $OT_PLCS 502 (
 
 ### Notable ICS Vulnerability Classes
 
-**Siemens SIMATIC S7:**
+Siemens SIMATIC S7:
 - CVE-2019-13945 / CVE-2019-18340: Unauthenticated access to S7-1500 series
 - CVE-2019-10929: S7comm-Plus vulnerability allowing unauthorized access
 - Replay attack vulnerabilities in S7-300/400 due to lack of session authentication
 
-**Schneider Electric:**
+Schneider Electric:
 - CVE-2018-7844 to CVE-2018-7853: EcoStruxure remote code execution vulnerabilities
 - Multiple Modicon M340 vulnerabilities (authentication bypass, DoS)
 
-**Rockwell Automation FactoryTalk:**
+Rockwell Automation FactoryTalk:
 - CVE-2012-6435 to CVE-2012-6437: FactoryTalk RCE via CIP protocol
 - Multiple Studio 5000/RSLogix vulnerabilities
 
-**General/Cross-Platform:**
+General/Cross-Platform:
 - OPC DA running on unpatched Windows XP/2003 (extremely common)
 - Default/hardcoded credentials in HMI software
 - Unencrypted firmware updates via USB or FTP
@@ -917,7 +917,7 @@ OT detection differs fundamentally from IT because:
 
 ### Network-Based Detection Approaches
 
-**Baseline deviation detection:**
+Baseline deviation detection:
 ```
 Normal: Modbus Read (FC03) from HMI to PLC every 500ms
 Alert: Modbus Write (FC06) from any source — should be extremely rare
@@ -925,7 +925,7 @@ Alert: Any Modbus traffic outside scheduled maintenance window from EWS
 Alert: Unknown source IP communicating on port 502
 ```
 
-**Protocol anomaly detection:**
+Protocol anomaly detection:
 ```
 Alert: Malformed Modbus packet (invalid function code >127 without error bit)
 Alert: DNP3 unsolicited response flooding (could indicate compromised RTU)
@@ -934,7 +934,7 @@ Alert: IEC-104 ASDU type 45 (Single Command) or 46 (Double Command) from non-SCA
 Alert: OPC UA anonymous authentication (NoSecurity endpoint) connection
 ```
 
-**Asset behavior anomaly detection:**
+Asset behavior anomaly detection:
 - PLC transitions from RUN to PROG mode outside maintenance windows
 - EWS connecting to PLC outside scheduled change windows
 - New device appearing on OT network (unauthorized asset)
@@ -945,7 +945,7 @@ Alert: OPC UA anonymous authentication (NoSecurity endpoint) connection
 
 Dragos is purpose-built for OT threat detection with the deepest ICS protocol support.
 
-**Key capabilities:**
+Key capabilities:
 - Asset identification via passive protocol parsing (300+ protocols)
 - Vulnerability assessment mapped to discovered assets
 - Threat behavior detection (TBs) mapped to ATT&CK for ICS
@@ -953,7 +953,7 @@ Dragos is purpose-built for OT threat detection with the deepest ICS protocol su
 - Playbook-driven analyst workflow
 - Protocol and asset context preserved in investigations
 
-**Detection coverage for major threat groups:**
+Detection coverage for major threat groups:
 - TRIDENT (TRITON-related): SIS access pattern detection
 - CHERNOVITE (Industroyer2-related): IEC-104 command anomalies
 - ELECTRUM: Engineering station access patterns
@@ -961,7 +961,7 @@ Dragos is purpose-built for OT threat detection with the deepest ICS protocol su
 
 ### Nozomi Networks Guardian
 
-**Key capabilities:**
+Key capabilities:
 - Passive DPI for 100+ ICS/IoT protocols
 - Machine learning-based behavioral anomaly detection
 - Process data monitoring (correlate network with process variable changes)
@@ -985,7 +985,7 @@ index=ics sourcetype=modbus_tcp
 | sort -risk
 ```
 
-**Key log sources to integrate:**
+Key log sources to integrate:
 - Historian: process variable data (baseline deviations)
 - EWS: PLC programming software access logs
 - HMI: operator login/logout, alarm acknowledgments, setpoint changes
@@ -1000,7 +1000,7 @@ index=ics sourcetype=modbus_tcp
 
 | IT IR | OT IR |
 |---|---|
-| Contain → Eradicate → Recover | Safety assessment → Contain → Notify OEM → Recover |
+| Contain -> Eradicate -> Recover | Safety assessment -> Contain -> Notify OEM -> Recover |
 | Take system offline immediately | Cannot shut down power plant / water treatment arbitrarily |
 | Standard forensic tools (FTK, Volatility) | Limited agents; PLC forensics requires OEM tools |
 | OS-level visibility | PLCs have no OS logging; forensics from network captures |
@@ -1009,41 +1009,41 @@ index=ics sourcetype=modbus_tcp
 
 ### Incident Response Phases for ICS
 
-**Phase 1: Safety First**
+Phase 1: Safety First
 - Assess if process is in safe state before any IR actions
 - Notify plant/site management and safety officer
 - Determine if manual operation is possible if systems are taken offline
 - Identify which systems are safety-critical vs. non-critical
 
-**Phase 2: Containment (without disrupting safe process)**
+Phase 2: Containment (without disrupting safe process)
 - Network isolation: remove compromised EWS from network (not from process)
 - Block lateral movement paths at IT/OT boundary
 - Disable compromised accounts at AD level
 - Do NOT take PLC offline unless process can be safely halted
 
-**Phase 3: Evidence Collection**
-- Network packet captures (out-of-band TAP — not inline — to avoid disruption)
+Phase 3: Evidence Collection
+- Network packet captures (out-of-band TAP: not inline — to avoid disruption)
 - Historian data export (process variable timeline)
 - HMI screenshots and alarm logs
 - EWS forensic image (can be taken offline for imaging)
 - Log collection from jump servers, firewalls, SCADA servers
-- PLC logic dump (with OEM support) — compare against known-good backup
+- PLC logic dump (with OEM support): compare against known-good backup
 
-**Phase 4: Analysis**
+Phase 4: Analysis
 - Timeline reconstruction using network captures and historian data
 - Identify unauthorized Modbus/S7/IEC-104 commands in packet captures
 - Compare current PLC logic to approved baseline
 - Analyze EWS for malicious code, unauthorized project files
 - Identify initial access vector (VPN logs, email, USB)
 
-**Phase 5: Recovery**
+Phase 5: Recovery
 - Restore PLC logic from verified backup (stored offline, hash-verified)
 - Test restored logic before returning to production
 - Apply emergency patches or configuration hardening
 - Verify process values are within normal range before restart
 - Confirm SIS functionality before starting process
 
-**Phase 6: Post-Incident**
+Phase 6: Post-Incident
 - Root cause analysis
 - Regulatory notification (NERC CIP-008 requires 1-hour notification for high-impact; CISA reporting)
 - Update playbooks and detection rules
@@ -1061,21 +1061,21 @@ index=ics sourcetype=modbus_tcp
 
 ### Lessons from Major ICS Incidents
 
-**Colonial Pipeline (May 2021):**
+Colonial Pipeline (May 2021):
 - DarkSide ransomware hit IT network via compromised VPN account (no MFA)
 - OT was proactively shut down as a precaution (not directly attacked)
 - 5,500-mile pipeline offline for 6 days; $4.4M ransom paid
 - Key lesson: MFA on all remote access; OT and IT recovery plans must be integrated
 - Fuel shortages across southeastern US demonstrated cascading physical impact
 
-**Oldsmar Water Treatment (February 2021):**
+Oldsmar Water Treatment (February 2021):
 - Attacker accessed HMI via TeamViewer; attempted to raise NaOH to 111x normal
 - Operator observed cursor moving and reversed change; no harm resulted
 - Key lesson: remote access to HMI requires logging, MFA, and session recording; remove TeamViewer
 
-**Ukraine Power Grid 2015:**
+Ukraine Power Grid 2015:
 - BlackEnergy malware; attackers observed for 6 months before attack
-- Spear-phishing → IT → OT pivot → HMI takeover → breakers opened
+- Spear-phishing -> IT -> OT pivot -> HMI takeover -> breakers opened
 - Operators locked out; 225,000 customers lost power for 1-6 hours
 - Key lesson: IT/OT boundary monitoring; HMI workstation hardening; operator lockout detection
 
@@ -1087,15 +1087,15 @@ Physical security is an integral layer of ICS defense. Sophisticated nation-stat
 
 ### Control Room and Substation Security
 
-**Physical access controls:**
+Physical access controls:
 - Perimeter fencing with anti-climb features around substations and plants
-- Multi-layer badge access: perimeter → building → control room → server room
+- Multi-layer badge access: perimeter -> building -> control room -> server room
 - Video surveillance with minimum 90-day retention
 - Mantrap / airlock entry for high-security areas
 - 24/7 security monitoring for unmanned substations
 - Motion detection with alarm integration
 
-**Tailgating and social engineering:**
+Tailgating and social engineering:
 - Two-person integrity rule: no single person left alone with critical equipment
 - Visitor escorted at all times in OT areas
 - Vendor access tied to specific systems with supervisor approval
@@ -1117,7 +1117,7 @@ Computer Configuration > Administrative Templates > System > Removable Storage A
 4. Document chain of custody for each USB device
 ```
 
-**Honeywell Secure Media Exchange (SMX):**
+Honeywell Secure Media Exchange (SMX):
 - Hardware kiosk for scanning and approving USB devices
 - Blocks unapproved devices from entering OT environment
 - Logs all media access attempts
@@ -1134,12 +1134,12 @@ Computer Configuration > Administrative Templates > System > Removable Storage A
 
 Insider threats in ICS environments are particularly dangerous due to authorized physical and logical access to critical systems.
 
-**High-risk scenarios:**
+High-risk scenarios:
 - Disgruntled employee with PLC programming access (EWS access + process knowledge)
 - Contractor with remote access credentials (hard to revoke; often persist after project)
 - Supply chain insider: compromised vendor with support access
 
-**Controls:**
+Controls:
 - Separation of duties: no single individual should be able to modify PLC logic and approve the change
 - Dual control for critical operations: two-person sign-off for setpoint changes above threshold
 - User activity monitoring on EWS: record all PLC project opens, compiles, downloads
@@ -1153,15 +1153,15 @@ Insider threats in ICS environments are particularly dangerous due to authorized
 
 ### ICS Security Assessment Checklist
 
-**Network Architecture:**
+Network Architecture:
 - [ ] IT/OT firewall in place with documented ruleset
 - [ ] No direct connectivity from Level 4 to Level 2 or lower
 - [ ] DMZ with historian replication and jump server
-- [ ] Data diode for historian OT→IT data flow
+- [ ] Data diode for historian OT->IT data flow
 - [ ] Remote access terminates in DMZ (not directly to OT)
 - [ ] Protocol-aware firewall with ICS DPI capability
 
-**Access Control:**
+Access Control:
 - [ ] Unique accounts for all OT users (no shared credentials)
 - [ ] MFA on all remote access
 - [ ] Privileged access management with session recording
@@ -1169,21 +1169,21 @@ Insider threats in ICS environments are particularly dangerous due to authorized
 - [ ] EWS access restricted to authorized engineers
 - [ ] Default credentials changed on all ICS devices
 
-**Endpoint Security:**
+Endpoint Security:
 - [ ] Application whitelisting on all HMI/EWS (no internet browsing)
 - [ ] USB media controls (block or managed via SMX)
 - [ ] Patch management process with risk-based scheduling
 - [ ] Host-based monitoring (where agent deployment is feasible)
 - [ ] Antivirus with offline signature updates
 
-**Detection and Monitoring:**
+Detection and Monitoring:
 - [ ] Passive ICS network monitoring (Dragos/Claroty/Nozomi)
 - [ ] ICS protocol anomaly detection configured
 - [ ] OT events forwarded to SIEM with ICS context
 - [ ] Alert on PLC mode changes outside maintenance windows
 - [ ] Alert on write operations from non-EWS sources
 
-**Incident Response:**
+Incident Response:
 - [ ] OT-specific IR plan documented and tested
 - [ ] PLC logic backups stored offline with hash verification
 - [ ] OEM support contacts current

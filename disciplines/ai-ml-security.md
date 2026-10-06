@@ -16,12 +16,12 @@ AI/ML security practitioners must understand both how to attack ML systems (pois
 
 | Platform | URL | What You Learn |
 |----------|-----|----------------|
-| MITRE ATLAS | https://atlas.mitre.org | Adversarial ML tactics, techniques, case studies — the AI security equivalent of ATT&CK |
+| MITRE ATLAS | https://atlas.mitre.org | Adversarial ML tactics, techniques, case studies: the AI security equivalent of ATT&CK |
 | NIST AI RMF | https://www.nist.gov/artificial-intelligence | Govern, Map, Measure, Manage functions for AI risk; free playbook and framework |
 | Google Responsible AI Practices | https://ai.google/responsibilities/responsible-ai-practices/ | Fairness, interpretability, and security in ML system design |
 | Microsoft Responsible AI Resources | https://www.microsoft.com/en-us/ai/responsible-ai | Azure AI security architecture and responsible AI tooling |
 | Adversarial Robustness Toolbox Tutorials | https://github.com/Trusted-AI/adversarial-robustness-toolbox/tree/main/notebooks | Hands-on Jupyter notebooks for ART attacks and defenses |
-| garak Documentation | https://github.com/leondz/garak | LLM vulnerability scanner — probing models for harmful outputs, prompt injection, and leakage |
+| garak Documentation | https://github.com/leondz/garak | LLM vulnerability scanner: probing models for harmful outputs, prompt injection, and leakage |
 | CleverHans Tutorials | https://github.com/cleverhans-lab/cleverhans | Adversarial example generation and defense implementation tutorials |
 
 ## Tools & Repositories
@@ -32,9 +32,9 @@ AI/ML security practitioners must understand both how to attack ML systems (pois
 | Foolbox | Fast and flexible adversarial attack library supporting 40+ attack methods; works with PyTorch, TensorFlow, and JAX | https://github.com/bethgelab/foolbox |
 | CleverHans | Reference implementation of adversarial example attacks and defenses; originally from Google Brain and OpenAI | https://github.com/cleverhans-lab/cleverhans |
 | TextAttack | Adversarial attacks, data augmentation, and adversarial training for NLP models | https://github.com/QData/TextAttack |
-| garak | LLM vulnerability scanner — probes language models for prompt injection, data leakage, hallucination, harmful outputs, and jailbreak susceptibility | https://github.com/leondz/garak |
+| garak | LLM vulnerability scanner: probes language models for prompt injection, data leakage, hallucination, harmful outputs, and jailbreak susceptibility | https://github.com/leondz/garak |
 | ModelScan | Scans ML model files (pickle, ONNX, TensorFlow SavedModel) for malicious serialization payloads and supply chain attacks | https://github.com/protectai/modelscan |
-| Counterfit | Microsoft's CLI for security testing of AI systems — supports black-box and white-box attacks across multiple frameworks | https://github.com/Azure/counterfit |
+| Counterfit | Microsoft's CLI for security testing of AI systems: supports black-box and white-box attacks across multiple frameworks | https://github.com/Azure/counterfit |
 | PrivacyMeter | Membership inference attack framework for evaluating training data privacy leakage from deployed models | https://github.com/privacytrustlab/ml_privacy_meter |
 | Audit-AI | Fairness and bias auditing toolkit with security implications for discriminatory model behavior | https://github.com/pymetrics/audit-ai |
 | TensorFlow Privacy / Opacus | Libraries for differentially private training of TensorFlow and PyTorch models respectively | https://github.com/tensorflow/privacy |
@@ -58,23 +58,23 @@ AI/ML security practitioners must understand both how to attack ML systems (pois
 
 | Control | Family | Relevance |
 |---------|--------|-----------|
-| SA-11 | System and Services Acquisition | Developer Testing and Evaluation — mandates adversarial testing of ML systems before deployment |
-| SA-15 | System and Services Acquisition | Development Process Standards — requires security requirements in ML development, including data lineage and model validation |
-| RA-3 | Risk Assessment | Risk Assessment — AI-specific risk assessment including adversarial threats, model failure modes, and data privacy risks |
-| SI-3 | System and Information Integrity | Malicious Code Protection — analogous to model scanning for backdoors and trojaned model artifacts |
-| SC-28 | System and Communications Protection | Protection of Information at Rest — encryption of training datasets, model weights, and feature stores |
-| AU-6 | Audit and Accountability | Audit Record Review — monitoring inference API logs for extraction attack patterns (unusual query volumes, boundary exploration) |
-| CA-2 | Assessment, Authorization, and Monitoring | Control Assessments — includes red-teaming ML systems as part of system authorization |
+| SA-11 | System and Services Acquisition | Developer Testing and Evaluation: mandates adversarial testing of ML systems before deployment |
+| SA-15 | System and Services Acquisition | Development Process Standards: requires security requirements in ML development, including data lineage and model validation |
+| RA-3 | Risk Assessment | Risk Assessment: AI-specific risk assessment including adversarial threats, model failure modes, and data privacy risks |
+| SI-3 | System and Information Integrity | Malicious Code Protection: analogous to model scanning for backdoors and trojaned model artifacts |
+| SC-28 | System and Communications Protection | Protection of Information at Rest: encryption of training datasets, model weights, and feature stores |
+| AU-6 | Audit and Accountability | Audit Record Review: monitoring inference API logs for extraction attack patterns (unusual query volumes, boundary exploration) |
+| CA-2 | Assessment, Authorization, and Monitoring | Control Assessments: includes red-teaming ML systems as part of system authorization |
 
 ## ATT&CK and MITRE ATLAS Coverage
 
 | Technique ID | Name | Tactic / Source | Relevance |
 |-------------|------|-----------------|-----------|
-| AML.T0043 | Craft Adversarial Data | MITRE ATLAS — ML Attack | Generating adversarial examples that cause misclassification in deployed models |
-| AML.T0006 | Active Scanning of ML Infrastructure | MITRE ATLAS — Reconnaissance | Probing ML APIs to enumerate model type, architecture, and boundaries |
-| AML.T0024 | Exfiltration via ML Inference API | MITRE ATLAS — Exfiltration | Using repeated API queries to extract training data or reconstruct model parameters (model extraction / membership inference) |
-| AML.T0020 | Poison Training Data | MITRE ATLAS — Persistence | Corrupting training datasets to introduce backdoors or degrade model performance |
-| AML.T0031 | Erode ML Model Integrity | MITRE ATLAS — Impact | Systematic degradation of model accuracy through adversarial data injection |
+| AML.T0043 | Craft Adversarial Data | MITRE ATLAS: ML Attack | Generating adversarial examples that cause misclassification in deployed models |
+| AML.T0006 | Active Scanning of ML Infrastructure | MITRE ATLAS: Reconnaissance | Probing ML APIs to enumerate model type, architecture, and boundaries |
+| AML.T0024 | Exfiltration via ML Inference API | MITRE ATLAS: Exfiltration | Using repeated API queries to extract training data or reconstruct model parameters (model extraction / membership inference) |
+| AML.T0020 | Poison Training Data | MITRE ATLAS: Persistence | Corrupting training datasets to introduce backdoors or degrade model performance |
+| AML.T0031 | Erode ML Model Integrity | MITRE ATLAS: Impact | Systematic degradation of model accuracy through adversarial data injection |
 | T1588.001 | Obtain Capabilities: Malware | Resource Development | Acquiring or building adversarial example generators targeting specific production models |
 | T1059 | Command and Scripting Interpreter | Execution | Compromising MLOps CI/CD pipelines to inject malicious training code or poisoned data |
 | T1190 | Exploit Public-Facing Application | Initial Access | Exploiting insecure ML serving endpoints (unauthenticated Jupyter notebooks, MLflow, Kubeflow) for initial access |
@@ -98,10 +98,10 @@ Each phase of the ML lifecycle presents distinct security threats:
 ## LLM-Specific Threats
 
 For Large Language Model security, see the related disciplines below. Key LLM-specific attack categories not covered in classical ML security include:
-- **Prompt Injection**: Adversarial inputs that override system instructions or hijack model behavior
-- **Jailbreaking**: Bypassing safety filters and content policies through crafted prompts
-- **Training Data Memorization**: Models that regurgitate verbatim training data including PII and credentials
-- **Indirect Prompt Injection**: Malicious instructions embedded in documents, web pages, or tool outputs that the LLM processes
+- Prompt Injection: Adversarial inputs that override system instructions or hijack model behavior
+- Jailbreaking: Bypassing safety filters and content policies through crafted prompts
+- Training Data Memorization: Models that regurgitate verbatim training data including PII and credentials
+- Indirect Prompt Injection: Malicious instructions embedded in documents, web pages, or tool outputs that the LLM processes
 
 See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM Security](/disciplines/ai-llm-security.md) for detailed LLM threat coverage.
 
@@ -110,10 +110,10 @@ See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM
 | Certification | Issuer | Level | Notes |
 |--------------|--------|-------|-------|
 | CISSP (AI/ML Governance Domain) | (ISC)² | Advanced | Covers AI governance, ML system risk, and ethical considerations in security programs |
-| Google Professional ML Engineer | Google | Intermediate | ML pipeline design, model deployment, and MLOps — foundational for ML security understanding |
-| AWS Certified Machine Learning — Specialty | AWS | Intermediate | SageMaker, ML pipelines, and data security controls in AWS ML environments |
+| Google Professional ML Engineer | Google | Intermediate | ML pipeline design, model deployment, and MLOps: foundational for ML security understanding |
+| AWS Certified Machine Learning: Specialty | AWS | Intermediate | SageMaker, ML pipelines, and data security controls in AWS ML environments |
 | Stanford AI Professional Certificate | Stanford Online | Intermediate | Broad AI/ML foundations with modules on AI ethics and responsible deployment |
-| CDMP (Certified Data Management Professional) | DAMA | Intermediate | Data governance and quality — foundational for training data security |
+| CDMP (Certified Data Management Professional) | DAMA | Intermediate | Data governance and quality: foundational for training data security |
 | CompTIA AI Essentials | CompTIA | Entry | Entry-level AI concepts including basic security and ethical considerations |
 
 *Note: No dedicated ML security certification exists as of 2025. Practitioners typically combine a security credential (CISSP, OSCP) with ML engineering credentials and MITRE ATLAS expertise.*
@@ -122,20 +122,20 @@ See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM
 
 | Resource | Type | Notes |
 |----------|------|-------|
-| *Adversarial Machine Learning* — Battista Biggio & Fabio Roli | Paper/Book | Foundational academic work defining the field; comprehensive taxonomy of attacks |
-| *Trustworthy Machine Learning* — Goodfellow, Papernot et al. | Online Book | Free resource covering robustness, privacy, fairness, and interpretability in ML | 
+| *Adversarial Machine Learning*: Battista Biggio & Fabio Roli | Paper/Book | Foundational academic work defining the field; comprehensive taxonomy of attacks |
+| *Trustworthy Machine Learning*: Goodfellow, Papernot et al. | Online Book | Free resource covering robustness, privacy, fairness, and interpretability in ML | 
 | MITRE ATLAS Case Studies | Online | Real-world documented adversarial ML attacks against production systems |
-| NIST AI RMF 1.0 and Playbook | Standard | US government framework for AI risk — Govern, Map, Measure, Manage functions |
-| *Security and Machine Learning* — Nicolas Papernot (Google) | Talks/Papers | Seminal research on adversarial examples, distillation as defense, and membership inference |
+| NIST AI RMF 1.0 and Playbook | Standard | US government framework for AI risk: Govern, Map, Measure, Manage functions |
+| *Security and Machine Learning*: Nicolas Papernot (Google) | Talks/Papers | Seminal research on adversarial examples, distillation as defense, and membership inference |
 | Adversarial Robustness Toolbox Notebooks | Jupyter | Hands-on implementation of 40+ attack and defense methods |
-| *The Malicious Use of Artificial Intelligence* — Brundage et al. | Paper | Comprehensive survey of AI security threats; free PDF |
+| *The Malicious Use of Artificial Intelligence*: Brundage et al. | Paper | Comprehensive survey of AI security threats; free PDF |
 | HiddenLayer ML Threat Intelligence Blog | Blog | Practical ML security research including model scanning and supply chain attacks |
 | OWASP Top 10 for Machine Learning | Standard | Emerging OWASP project covering the top ML security risks |
-| *Stealing Machine Learning Models via Prediction APIs* — Tramèr et al. | Paper | Foundational model extraction attack paper |
+| *Stealing Machine Learning Models via Prediction APIs*: Tramèr et al. | Paper | Foundational model extraction attack paper |
 
 ## MLOps Security
 
-**ML Pipeline Attack Surface**
+ML Pipeline Attack Surface
 
 | Pipeline Stage | Attack Surface | Threat | Defense |
 |---------------|---------------|--------|---------|
@@ -146,7 +146,7 @@ See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM
 | Model serving | REST API, gRPC endpoints | Adversarial inputs; model extraction; DoS | Rate limiting; input validation; anomaly detection; authentication |
 | Model monitoring | Feedback loops | Concept drift exploitation; label manipulation | Drift detection; human review of edge cases |
 
-**MLOps Security Tooling**
+MLOps Security Tooling
 
 | Tool | Purpose |
 |------|---------|
@@ -159,22 +159,22 @@ See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM
 | ML Privacy Meter | Audit ML model privacy risks |
 | TFX (TensorFlow Extended) | ML pipeline with built-in data validation |
 
-**Supply Chain Security for AI**
+Supply Chain Security for AI
 - Model provenance: Who trained the model? On what data? With what code?
-- Hugging Face model scanning: ModelScan (`modelscan -p model.pkl`) — detects malicious code in serialized models
+- Hugging Face model scanning: ModelScan (`modelscan -p model.pkl`): detects malicious code in serialized models
 - Serialization security: PyTorch saves in formats that can embed executable code; only load from trusted sources
-- Safe serialization: SafeTensors format (Hugging Face) — safe alternative for model weights storage
+- Safe serialization: SafeTensors format (Hugging Face): safe alternative for model weights storage
 - Dataset auditing: Check for duplicates, label errors (Cleanlab), PII in training data, copyright issues
 
 ## AI Security Governance
 
-**NIST AI Risk Management Framework (AI RMF)**
+NIST AI Risk Management Framework (AI RMF)
 - Govern: Policies, accountability, organizational practices for AI risk
 - Map: Categorize AI risks in context of application
 - Measure: Analyze, assess, and track identified risks
 - Manage: Prioritize and implement risk treatments
 
-**EU AI Act (2024) — Risk Tiers**
+EU AI Act (2024) — Risk Tiers
 
 | Risk Level | Examples | Requirements |
 |-----------|---------|-------------|
@@ -183,14 +183,14 @@ See [Adversarial AI Attacks](/disciplines/adversarial-ai-attacks.md) and [AI LLM
 | Limited Risk | Chatbots, deepfakes | Transparency obligations (disclose AI nature) |
 | Minimal Risk | Spam filters, recommendations | No specific requirements |
 
-**Responsible AI Principles**
+Responsible AI Principles
 - Fairness: Detect and mitigate algorithmic bias (demographic parity, equalized odds)
 - Transparency: Model cards, datasheets for datasets, explainable AI (SHAP, LIME)
 - Privacy: Differential privacy, federated learning, data minimization
 - Robustness: Adversarial testing; certified defenses; redundancy
 - Accountability: Human oversight; audit trails; clear ownership of AI decisions
 
-**Bias and Fairness Testing**
+Bias and Fairness Testing
 ```python
 # Fairlearn — fairness metrics and mitigation
 from fairlearn.metrics import demographic_parity_difference, equalized_odds_difference

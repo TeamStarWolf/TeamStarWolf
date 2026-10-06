@@ -77,7 +77,7 @@ Understanding the methodology differences prevents confusion when scoping engage
 | Breach & Attack Simulation (BAS) | Automated agents | Continuous, no humans required | Coverage metrics over time |
 | Adversary Emulation | Red team using CTI profiles | Post-exercise | Realistic threat actor behavior replication |
 
-**Key distinction**: Purple teaming is the structured methodology where detection validation happens in the same session as the attack. BAS tools (Atomic Red Team, CALDERA, Infection Monkey, Stratus Red Team for cloud) automate this at scale but lack the human judgment of a joint exercise.
+Key distinction: Purple teaming is the structured methodology where detection validation happens in the same session as the attack. BAS tools (Atomic Red Team, CALDERA, Infection Monkey, Stratus Red Team for cloud) automate this at scale but lack the human judgment of a joint exercise.
 
 ---
 
@@ -125,16 +125,16 @@ Tracking outcomes precisely is critical for measuring program value:
 | Outcome | Definition | Priority |
 |---|---|---|
 | Alert Fired (True Positive) | Correct detection, correct attribution | Baseline; maintain |
-| No Alert (False Negative) | Technique executed, nothing fired | P1 — write detection rule |
-| Wrong Alert (Misattribution) | Alert fired but wrong technique/context | P2 — tune rule logic |
+| No Alert (False Negative) | Technique executed, nothing fired | P1: write detection rule |
+| Wrong Alert (Misattribution) | Alert fired but wrong technique/context | P2: tune rule logic |
 | Blocked (Prevention) | Endpoint or network control stopped execution | Validate; ensure detection also exists |
-| Noisy Alert (False Positive flood) | Too many alerts to be actionable | P2 — tune to reduce noise |
+| Noisy Alert (False Positive flood) | Too many alerts to be actionable | P2: tune to reduce noise |
 
-**Key metrics**:
-- **Technique coverage %** — percentage of tested ATT&CK techniques with at least one validated detection
-- **MTTD per technique** — mean time to detect from execution timestamp to SIEM alert timestamp
-- **Detection confidence level** — alert fires reliably across variations of the same technique
-- **False negative rate by tactic** — identify which ATT&CK tactics have the weakest detection coverage
+Key metrics:
+- Technique coverage %: percentage of tested ATT&CK techniques with at least one validated detection
+- MTTD per technique: mean time to detect from execution timestamp to SIEM alert timestamp
+- Detection confidence level: alert fires reliably across variations of the same technique
+- False negative rate by tactic: identify which ATT&CK tactics have the weakest detection coverage
 
 ---
 
@@ -143,13 +143,13 @@ Tracking outcomes precisely is critical for measuring program value:
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
 | T1566 | Phishing | Initial Access | Primary initial access vector tested in most purple exercises |
-| T1059 | Command and Scripting Interpreter | Execution | PowerShell, WMI, cmd — commonly used in emulation and frequently missed |
+| T1059 | Command and Scripting Interpreter | Execution | PowerShell, WMI, cmd: commonly used in emulation and frequently missed |
 | T1078 | Valid Accounts | Stealth / Persistence | Credential-based access bypasses many perimeter controls |
-| T1003 | OS Credential Dumping | Credential Access | LSASS dump, SAM, NTDS — critical detection gaps identified in most exercises |
-| T1021 | Remote Services | Lateral Movement | PSExec, WMI, RDP, SMB — requires specific rule coverage |
+| T1003 | OS Credential Dumping | Credential Access | LSASS dump, SAM, NTDS: critical detection gaps identified in most exercises |
+| T1021 | Remote Services | Lateral Movement | PSExec, WMI, RDP, SMB: requires specific rule coverage |
 | T1055 | Process Injection | Stealth | Classic EDR evasion technique; frequently undetected without Sysmon |
-| T1562 | Impair Defenses | Defense Impairment | AV/EDR disable, log tampering — critical to detect before attacker entrenches |
-| T1070 | Indicator Removal | Stealth | Log clearing, timestomping — attacker cleanup that removes forensic evidence |
+| T1562 | Impair Defenses | Defense Impairment | AV/EDR disable, log tampering: critical to detect before attacker entrenches |
+| T1070 | Indicator Removal | Stealth | Log clearing, timestomping: attacker cleanup that removes forensic evidence |
 
 ---
 
@@ -157,7 +157,7 @@ Tracking outcomes precisely is critical for measuring program value:
 
 | Control | Family | Relevance |
 |---|---|---|
-| CA-2 | Security Assessment | Mandates periodic security control testing — purple exercises fulfill this requirement |
+| CA-2 | Security Assessment | Mandates periodic security control testing: purple exercises fulfill this requirement |
 | CA-8 | Penetration Testing | Explicit requirement for adversary simulation and pen testing |
 | RA-3 | Risk Assessment | Threat-actor-based exercise scope aligns risk assessment with realistic threats |
 | SI-4 | System Monitoring | Purple exercises validate that SI-4 monitoring controls detect adversary techniques |
@@ -178,7 +178,7 @@ Tracking outcomes precisely is critical for measuring program value:
 | [CRTO (Certified Red Team Operator)](https://training.zeropointsecurity.co.uk/courses/red-team-ops) | Zero Point Security | C2 operations, adversary TTPs for emulation |
 | [CRTL (Certified Red Team Lead)](https://training.zeropointsecurity.co.uk/courses/red-team-ops-ii) | Zero Point Security | Red team leadership and advanced TTPs |
 | [GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Penetration testing fundamentals |
-| [GDAT](https://www.giac.org/certifications/defending-advanced-threats-gdat/) | GIAC | Defending Advanced Threats — blue team side |
+| [GDAT](https://www.giac.org/certifications/defending-advanced-threats-gdat/) | GIAC | Defending Advanced Threats: blue team side |
 | [GRTP (GIAC Red Team Professional)](https://www.giac.org/certifications/red-team-professional-grtp/) | GIAC | Advanced red team operations and adversary emulation |
 | [ATT&CK Fundamentals Badge](https://mad20.io/course-library/) | MAD20 | MITRE ATT&CK fundamentals |
 
@@ -188,12 +188,12 @@ Tracking outcomes precisely is critical for measuring program value:
 
 | Resource | Type | Notes |
 |---|---|---|
-| [The Hacker Playbook 3 (Peter Kim)](https://www.thehackerplaybook.com/) | Book | Red team TTPs, C2 ops, lateral movement — essential for exercise design |
+| [The Hacker Playbook 3 (Peter Kim)](https://www.thehackerplaybook.com/) | Book | Red team TTPs, C2 ops, lateral movement: essential for exercise design |
 | [Purple Team Exercise Framework (PTEF)](https://github.com/scythe-io/purple-team-exercise-framework) | Framework | Scythe-published methodology for running structured exercises |
 | [MITRE CTID Adversary Emulation Library](https://github.com/center-for-threat-informed-defense/adversary_emulation_library) | Free | Full emulation plans for APT3, APT29, FIN6, and others |
 | [Atomic Red Team Documentation](https://atomicredteam.io/) | Reference | 900+ ATT&CK-mapped test procedures |
 | [Red Team Development & Operations (Joe Vest)](https://redteam.guide/) | Book | Comprehensive red team operations guide |
-| [The C2 Matrix](https://www.thec2matrix.com/) | Reference | Compare C2 frameworks by feature — essential for tool selection |
+| [The C2 Matrix](https://www.thec2matrix.com/) | Reference | Compare C2 frameworks by feature: essential for tool selection |
 | [Detection Engineering Weekly](https://www.detectionengineering.net/) | Newsletter | Detection validation and purple team news |
 | [SCYTHE Purple Team Resources](https://www.scythe.io/purple-team) | Blog | Purple team methodology and case studies |
 | [AttackIQ Academy](https://www.academy.attackiq.com/) | Free Course | BAS and ATT&CK-driven security validation |
@@ -206,7 +206,7 @@ Tracking outcomes precisely is critical for measuring program value:
 | Attribute | Red Team | Blue Team | Purple Team |
 |---|---|---|---|
 | Objective | Find weaknesses | Detect attacks | Improve detection coverage |
-| Deconfliction | No (usually) | No | Core feature — fully informed |
+| Deconfliction | No (usually) | No | Core feature: fully informed |
 | Mode | Adversarial | Defensive | Collaborative |
 | Duration | Weeks-months | Ongoing | Hours-days per technique |
 | Output | Findings report | Incident reports | Detection coverage improvements |
@@ -216,22 +216,22 @@ Tracking outcomes precisely is critical for measuring program value:
 
 ## Adversary Emulation Planning
 
-**ATT&CK-Based Emulation Plan**
+ATT&CK-Based Emulation Plan
 1. Select adversary profile: Choose threat actor relevant to your sector (e.g., APT29 for government, FIN7 for retail)
 2. Extract TTPs: Use MITRE ATT&CK Evaluations for structured technique lists
 3. Prioritize: Focus on techniques with detection gaps first
-4. Plan execution order: Follow realistic kill chain (Initial Access → Execution → Persistence → Privilege Escalation → Lateral Movement → Exfiltration)
+4. Plan execution order: Follow realistic kill chain (Initial Access -> Execution -> Persistence -> Privilege Escalation -> Lateral Movement -> Exfiltration)
 5. Execute and observe: Red executes TTP; Blue observes whether detection fires
 6. Document outcome: True positive / True negative / False positive / Missed detection
 7. Create/tune detection: If missed, create new detection rule; tune if noisy
 
-**MITRE ATT&CK Evaluations**
+MITRE ATT&CK Evaluations
 - MITRE independently tests EDR vendors against real APT TTPs annually
 - APT29 Round 1, Carbanak+FIN7 Round 2, Wizard Spider + Sandworm Round 3, Turla Round 4
-- Results at `attackevals.mitre-engenuity.org` — see which vendors detect which techniques
+- Results at `attackevals.mitre-engenuity.org`: see which vendors detect which techniques
 - Use to validate vendor claims and guide purchase decisions
 
-**Atomic Red Team Testing**
+Atomic Red Team Testing
 ```powershell
 # Install Invoke-AtomicRedTeam
 Install-Module -Name invoke-atomicredteam, powershell-yaml -Scope CurrentUser
@@ -252,7 +252,7 @@ Invoke-AtomicTest T1003.001 -Cleanup
 
 ## Breach and Attack Simulation (BAS)
 
-**BAS Platforms**
+BAS Platforms
 
 | Product | Approach | ATT&CK Coverage | Notes |
 |---|---|---|---|
@@ -263,7 +263,7 @@ Invoke-AtomicTest T1003.001 -Cleanup
 | SCYTHE | Custom emulation | High | More technical; used by red teams |
 | Vectr | Tracking + reporting | N/A | Free tracking tool for purple team exercises; pairs with Atomic Red Team |
 
-**What BAS Tests**
+What BAS Tests
 - Email gateway: Can malicious attachments/URLs get through?
 - Web proxy/firewall: Can C2 traffic egress the network?
 - Endpoint detection: Do EDR/AV tools detect known malicious behaviors?
@@ -274,13 +274,13 @@ Invoke-AtomicTest T1003.001 -Cleanup
 
 ## Detection Coverage Measurement
 
-**Coverage Matrix Approach**
+Coverage Matrix Approach
 - Map each ATT&CK technique to existing detection rules (Sigma, SIEM correlation rules)
 - Score each: Detected (alerting) / Logged (visible in data but no alert) / Blind (no visibility)
 - Heatmap in ATT&CK Navigator: Red = blind, yellow = logged, green = detected
 - Prioritize: Techniques used by your threat actors that are currently blind
 
-**ATT&CK Navigator Usage**
+ATT&CK Navigator Usage
 ```
 # Import vendor coverage layer
 # Load TeamStarWolf layer:
@@ -294,21 +294,21 @@ Invoke-AtomicTest T1003.001 -Cleanup
 # 5. Export and share with leadership
 ```
 
-**Purple Team Exercise Structure (1-Day Sprint)**
-- 0800-0900: Briefing — agree on 5-10 techniques to test; confirm tooling; establish comms channel
-- 0900-1200: Morning execution — Red executes techniques; Blue observes + documents detection results
-- 1200-1300: Lunch + review — compare notes; identify what was detected vs missed
-- 1300-1500: Detection improvement — Blue creates/tunes rules for missed detections
-- 1500-1600: Retest — Red re-executes techniques to validate new detections
-- 1600-1700: Documentation + debrief — update coverage matrix, write improvement tickets
+Purple Team Exercise Structure (1-Day Sprint)
+- 0800-0900: Briefing: agree on 5-10 techniques to test; confirm tooling; establish comms channel
+- 0900-1200: Morning execution: Red executes techniques; Blue observes + documents detection results
+- 1200-1300: Lunch + review: compare notes; identify what was detected vs missed
+- 1300-1500: Detection improvement: Blue creates/tunes rules for missed detections
+- 1500-1600: Retest: Red re-executes techniques to validate new detections
+- 1600-1700: Documentation + debrief: update coverage matrix, write improvement tickets
 
 ---
 
 ## Related Disciplines
 
-- [Detection Engineering](/disciplines/detection-engineering.md) — Building the detections purple team validates; writing Sigma rules for identified gaps
-- [Security Operations](/disciplines/security-operations.md) — Blue team side of purple exercises; SIEM/EDR operators who confirm alert firing
-- [Offensive Security](/disciplines/offensive-security.md) — Red team techniques and C2 operations used in emulation campaigns
-- [Threat Intelligence](/disciplines/threat-intelligence.md) — Drives threat-actor-based emulation scenarios and technique selection
-- [Active Defense & Deception](/disciplines/active-defense-deception.md) — Testing deception efficacy and honeypot triggers in purple exercises
-- [Incident Response](/disciplines/incident-response.md) — Purple exercises test whether IR playbooks activate correctly on detection
+- [Detection Engineering](/disciplines/detection-engineering.md): Building the detections purple team validates; writing Sigma rules for identified gaps
+- [Security Operations](/disciplines/security-operations.md): Blue team side of purple exercises; SIEM/EDR operators who confirm alert firing
+- [Offensive Security](/disciplines/offensive-security.md): Red team techniques and C2 operations used in emulation campaigns
+- [Threat Intelligence](/disciplines/threat-intelligence.md): Drives threat-actor-based emulation scenarios and technique selection
+- [Active Defense & Deception](/disciplines/active-defense-deception.md): Testing deception efficacy and honeypot triggers in purple exercises
+- [Incident Response](/disciplines/incident-response.md): Purple exercises test whether IR playbooks activate correctly on detection

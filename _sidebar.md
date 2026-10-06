@@ -8,11 +8,11 @@
     wraps every sidebar item in a <p>.
 -->
 
-- [**Home**](/)
+- [Home](/)
 
 ---
 
-- **Guides (How-To)**
+- Guides (How-To)
   - [All Guides](/guides/README.md)
   - [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md)
   - [Triage a New CVE](/guides/TRIAGE_A_CVE.md)
@@ -38,7 +38,7 @@
 
 ---
 
-- **Disciplines**
+- Disciplines
   - [All Paths](/disciplines/README.md)
   - [Threat Intelligence](/disciplines/threat-intelligence.md)
   - [Detection Engineering](/disciplines/detection-engineering.md)
@@ -57,7 +57,7 @@
 
 ---
 
-- **Coverage & Data**
+- Coverage & Data
   - [Threat-Informed Defense](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
   - [ATT&CK Matrix Analysis](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md)
   - [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md)
@@ -99,7 +99,7 @@
 
 ---
 
-- **Defense & Detection**
+- Defense & Detection
   - [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
   - [SIEM Reference Library](/SIEM_REFERENCE.md)
   - [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
@@ -118,7 +118,7 @@
 
 ---
 
-- **Threat Intelligence & Adversaries**
+- Threat Intelligence & Adversaries
   - [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
   - [Threat Report Almanac](/THREAT_REPORT_ALMANAC.md)
   - [Threat Actors](/THREAT_ACTORS.md)
@@ -128,7 +128,7 @@
 
 ---
 
-- **Incident Response & Forensics**
+- Incident Response & Forensics
   - [Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md)
   - [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
   - [IR Playbooks](/IR_PLAYBOOKS.md)
@@ -141,7 +141,7 @@
 
 ---
 
-- **Offensive Security**
+- Offensive Security
   - [Red Team Reference](/RED_TEAM_REFERENCE.md)
   - [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md)
   - [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md)
@@ -158,7 +158,7 @@
 
 ---
 
-- **Network Security**
+- Network Security
   - [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)
   - [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)
   - [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md)
@@ -170,7 +170,7 @@
 
 ---
 
-- **Cloud & Infrastructure**
+- Cloud & Infrastructure
   - [Hypervisor & Virtualization Hardening](/HYPERVISOR_SECURITY_REFERENCE.md)
   - [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md)
   - [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md)
@@ -185,7 +185,7 @@
 
 ---
 
-- **Application Security**
+- Application Security
   - [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
   - [Web Application Security](/WEB_APPLICATION_SECURITY_REFERENCE.md)
   - [API Security Reference](/API_SECURITY_REFERENCE.md)
@@ -194,7 +194,7 @@
 
 ---
 
-- **Platform Hardening**
+- Platform Hardening
   - [Windows Hardening](/WINDOWS_HARDENING.md)
   - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
   - [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
@@ -205,7 +205,7 @@
 
 ---
 
-- **Identity & Data Protection**
+- Identity & Data Protection
   - [Database Security](/DATABASE_SECURITY_REFERENCE.md)
   - [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
   - [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
@@ -219,7 +219,7 @@
 
 ---
 
-- **AI & Emerging Tech**
+- AI & Emerging Tech
   - [Deepfake & Synthetic-Media Defense](/DEEPFAKE_DEFENSE_REFERENCE.md)
   - [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
   - [AI Security Reference](/AI_SECURITY_REFERENCE.md)
@@ -229,7 +229,7 @@
 
 ---
 
-- **ICS, OT & Hardware**
+- ICS, OT & Hardware
   - [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md)
   - [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md)
   - [Firmware & IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
@@ -239,7 +239,7 @@
 
 ---
 
-- **GRC & Security Program**
+- GRC & Security Program
   - [Security Awareness Program](/SECURITY_AWARENESS_REFERENCE.md)
   - [Security-Program Management / CISO Handbook](/SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md)
   - [Healthcare & Medical-Device Security](/HEALTHCARE_SECURITY_REFERENCE.md)
@@ -258,7 +258,7 @@
 
 ---
 
-- **Careers & Learning**
+- Careers & Learning
   - [Career Paths](/CAREER_PATHS.md)
   - [Certifications](/CERTIFICATIONS.md)
   - [CISSP Domain Crosswalk](/CISSP_DOMAIN_CROSSWALK.md)
@@ -271,7 +271,7 @@
 
 ---
 
-- **Resources**
+- Resources
   - [Starred Repositories](/STARRED_REPOS.md)
   - [Book List](/CYBERSECURITY_BOOK_LIST.md)
   - [YouTube Channels](/YOUTUBE_CHANNELS.md)

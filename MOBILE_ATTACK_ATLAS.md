@@ -1,37 +1,37 @@
 # Mobile ATT&CK Technique Atlas
 
-> The complete **MITRE ATT&CK for Mobile** matrix (v18.1) — **124 techniques** across 12 tactics — cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/mobile/technique_profiles.jsonl`](data/attack/mobile/technique_profiles.jsonl).
+> The complete MITRE ATT&CK for Mobile matrix (v18.1) — 124 techniques across 12 tactics — cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/mobile/technique_profiles.jsonl`](data/attack/mobile/technique_profiles.jsonl).
 
-**Legend** — **Grp** = threat groups · **SW** = software · **Mit** = ATT&CK mitigations · **Det** = ATT&CK detection guidance exists.
+Legend — Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists.
 
-Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Threat Group Profiles](THREAT_GROUP_PROFILES.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)
+Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)
 
 | | |
 |---|---|
-| **Read this when** | Assessing Android/iOS threat coverage, mapping a mobile malware finding to ATT&CK, checking which mitigations address a mobile technique |
-| **Start at** | [Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests |
+| Read this when | Assessing Android/iOS threat coverage, mapping a mobile malware finding to ATT&CK, checking which mitigations address a mobile technique |
+| Start at | [Tactics](#tactics) for the 12-tactic index, [Initial Access](#initial-access) for how devices get compromised, [Collection](#collection) for what spyware harvests |
 
 ## Tactics
 
-- [Initial Access](#initial-access) — 11 techniques
-- [Execution](#execution) — 5 techniques
-- [Persistence](#persistence) — 10 techniques
-- [Privilege Escalation](#privilege-escalation) — 5 techniques
-- [Defense Evasion](#defense-evasion) — 33 techniques
-- [Credential Access](#credential-access) — 10 techniques
-- [Discovery](#discovery) — 13 techniques
-- [Lateral Movement](#lateral-movement) — 2 techniques
-- [Collection](#collection) — 24 techniques
-- [Command and Control](#command-and-control) — 17 techniques
-- [Exfiltration](#exfiltration) — 3 techniques
-- [Impact](#impact) — 11 techniques
+- [Initial Access](#initial-access): 11 techniques
+- [Execution](#execution): 5 techniques
+- [Persistence](#persistence): 10 techniques
+- [Privilege Escalation](#privilege-escalation): 5 techniques
+- [Defense Evasion](#defense-evasion): 33 techniques
+- [Credential Access](#credential-access): 10 techniques
+- [Discovery](#discovery): 13 techniques
+- [Lateral Movement](#lateral-movement): 2 techniques
+- [Collection](#collection): 24 techniques
+- [Command and Control](#command-and-control): 17 techniques
+- [Exfiltration](#exfiltration): 3 techniques
+- [Impact](#impact): 11 techniques
 
 ---
 
 ## Initial Access
 <a id="initial-access"></a>
 
-[`TA0027`](https://attack.mitre.org/tactics/TA0027/) · 11 techniques
+[`TA0027`](https://attack.mitre.org/tactics/TA0027/), 11 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -50,7 +50,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Execution
 <a id="execution"></a>
 
-[`TA0041`](https://attack.mitre.org/tactics/TA0041/) · 5 techniques
+[`TA0041`](https://attack.mitre.org/tactics/TA0041/), 5 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -63,7 +63,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Persistence
 <a id="persistence"></a>
 
-[`TA0028`](https://attack.mitre.org/tactics/TA0028/) · 10 techniques
+[`TA0028`](https://attack.mitre.org/tactics/TA0028/), 10 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -81,7 +81,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Privilege Escalation
 <a id="privilege-escalation"></a>
 
-[`TA0029`](https://attack.mitre.org/tactics/TA0029/) · 5 techniques
+[`TA0029`](https://attack.mitre.org/tactics/TA0029/), 5 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -94,7 +94,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Defense Evasion
 <a id="defense-evasion"></a>
 
-[`TA0030`](https://attack.mitre.org/tactics/TA0030/) · 33 techniques
+[`TA0030`](https://attack.mitre.org/tactics/TA0030/), 33 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -135,7 +135,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Credential Access
 <a id="credential-access"></a>
 
-[`TA0031`](https://attack.mitre.org/tactics/TA0031/) · 10 techniques
+[`TA0031`](https://attack.mitre.org/tactics/TA0031/), 10 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -153,7 +153,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Discovery
 <a id="discovery"></a>
 
-[`TA0032`](https://attack.mitre.org/tactics/TA0032/) · 13 techniques
+[`TA0032`](https://attack.mitre.org/tactics/TA0032/), 13 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -174,7 +174,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Lateral Movement
 <a id="lateral-movement"></a>
 
-[`TA0033`](https://attack.mitre.org/tactics/TA0033/) · 2 techniques
+[`TA0033`](https://attack.mitre.org/tactics/TA0033/), 2 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -184,7 +184,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Collection
 <a id="collection"></a>
 
-[`TA0035`](https://attack.mitre.org/tactics/TA0035/) · 24 techniques
+[`TA0035`](https://attack.mitre.org/tactics/TA0035/), 24 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -216,7 +216,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Command and Control
 <a id="command-and-control"></a>
 
-[`TA0037`](https://attack.mitre.org/tactics/TA0037/) · 17 techniques
+[`TA0037`](https://attack.mitre.org/tactics/TA0037/), 17 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -241,7 +241,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Exfiltration
 <a id="exfiltration"></a>
 
-[`TA0036`](https://attack.mitre.org/tactics/TA0036/) · 3 techniques
+[`TA0036`](https://attack.mitre.org/tactics/TA0036/), 3 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -252,7 +252,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Impact
 <a id="impact"></a>
 
-[`TA0034`](https://attack.mitre.org/tactics/TA0034/) · 11 techniques
+[`TA0034`](https://attack.mitre.org/tactics/TA0034/), 11 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|

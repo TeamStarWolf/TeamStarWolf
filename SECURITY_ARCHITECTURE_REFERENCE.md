@@ -1,12 +1,12 @@
 # Security Architecture Reference
 
-> **In one minute** — A practitioner's handbook for designing and reviewing security architectures: layered frameworks (SABSA, TOGAF, defense-in-depth), Zero Trust, network, cloud, application, data, identity, operations, and resilience architecture. It matters because it turns abstract security principles into concrete designs — diagrams, policy examples, migration roadmaps, and review checklists you can apply directly. Each section pairs the "why" (threat-driven design) with the "how" (reference architectures and tool examples).
+> In one minute — A practitioner's handbook for designing and reviewing security architectures: layered frameworks (SABSA, TOGAF, defense-in-depth), Zero Trust, network, cloud, application, data, identity, operations, and resilience architecture. It matters because it turns abstract security principles into concrete designs — diagrams, policy examples, migration roadmaps, and review checklists you can apply directly. Each section pairs the "why" (threat-driven design) with the "how" (reference architectures and tool examples).
 
 | | |
 |---|---|
-| **Read this when** | designing or reviewing a system's security architecture, planning a Zero Trust migration, preparing for or running an architecture review board (SARB) |
-| **Start at** | [Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide) |
-| **Pairs with** | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md) |
+| Read this when | designing or reviewing a system's security architecture, planning a Zero Trust migration, preparing for or running an architecture review board (SARB) |
+| Start at | [Security Architecture Fundamentals](#_1-security-architecture-fundamentals), [Architecture Review Process](#_10-architecture-review-process), [Quick Reference: Framework Decision Guide](#quick-reference-architecture-framework-decision-guide) |
+| Pairs with | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Threat Modeling](disciplines/threat-modeling.md), [Cloud Security](disciplines/cloud-security.md), [GRC Reference](GRC_REFERENCE.md) |
 
 A comprehensive reference for security architects, covering frameworks, design
 patterns, cloud security, application security, identity, operations, and
@@ -61,7 +61,7 @@ reduces the attack surface that a threat actor must traverse.
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Layer Responsibilities:**
+Layer Responsibilities:
 
 | Layer | Primary Controls | Example Technologies |
 |---|---|---|
@@ -83,7 +83,7 @@ SABSA is a risk-driven enterprise security architecture framework. It uses a
 layered matrix (the SABSA matrix) adapted from the Zachman Framework for
 enterprise architecture, applying it to security concerns.
 
-**SABSA Matrix Layers:**
+SABSA Matrix Layers:
 
 | Layer | Perspective | What it answers |
 |---|---|---|
@@ -99,7 +99,7 @@ Motivation, Process, People, Location, and Time. SABSA is particularly
 well-suited for large enterprise and government programs requiring rigorous
 traceability from business risk to security control.
 
-**SABSA Architecture Process:**
+SABSA Architecture Process:
 1. Establish business context and risk appetite (Contextual)
 2. Define security principles and conceptual architecture (Conceptual)
 3. Design security services and information flows (Logical)
@@ -112,7 +112,7 @@ traceability from business risk to security control.
 TOGAF provides a generic enterprise architecture method (ADM — Architecture
 Development Method) that can be extended with a security overlay.
 
-**Security in the TOGAF ADM Phases:**
+Security in the TOGAF ADM Phases:
 
 | ADM Phase | Security Activity |
 |---|---|
@@ -131,10 +131,10 @@ Development Method) that can be extended with a security overlay.
 
 The Open Group's O-ESA provides a framework for describing enterprise security
 architectures using a consistent taxonomy. Key components:
-- **Security Domain Model**: Defines trust domains and their boundaries
-- **Security Services Taxonomy**: Authentication, authorization, audit, privacy, availability
-- **Architecture Patterns Catalog**: Reusable security design patterns
-- **Control Objectives Catalog**: Technology-neutral control objectives
+- Security Domain Model: Defines trust domains and their boundaries
+- Security Services Taxonomy: Authentication, authorization, audit, privacy, availability
+- Architecture Patterns Catalog: Reusable security design patterns
+- Control Objectives Catalog: Technology-neutral control objectives
 
 ### 1.3 Threat-Driven Architecture Design Process
 
@@ -142,7 +142,7 @@ A threat-driven approach starts with adversary capabilities and designs
 controls that specifically address identified threats, rather than applying
 generic checklists.
 
-**Process Steps:**
+Process Steps:
 
 ```
 1. ASSET IDENTIFICATION
@@ -180,7 +180,7 @@ generic checklists.
 
 Converting threat model output into actionable security requirements:
 
-**STRIDE to Security Requirement Mapping:**
+STRIDE to Security Requirement Mapping:
 
 | STRIDE Category | Threat Example | Security Requirement |
 |---|---|---|
@@ -191,15 +191,15 @@ Converting threat model output into actionable security requirements:
 | Denial of Service | API flooded with requests | REQ-AVAIL-01: Rate limiting applied at API gateway |
 | Elevation of Privilege | User exploits misconfigured RBAC | REQ-AUTHZ-01: Least-privilege RBAC with quarterly review |
 
-**Requirements Attributes:**
+Requirements Attributes:
 
 Each derived requirement should include:
-- **Unique ID**: Traceable to source threat scenario
-- **Statement**: Clear, testable requirement statement
-- **Threat Source**: STRIDE category and specific threat scenario
-- **Priority**: Critical / High / Medium / Low
-- **Verification Method**: Test, inspection, or analysis
-- **Owner**: System/component owner responsible for implementation
+- Unique ID: Traceable to source threat scenario
+- Statement: Clear, testable requirement statement
+- Threat Source: STRIDE category and specific threat scenario
+- Priority: Critical / High / Medium / Low
+- Verification Method: Test, inspection, or analysis
+- Owner: System/component owner responsible for implementation
 
 ### 1.5 Architecture Decision Records (ADR) for Security
 
@@ -207,7 +207,7 @@ ADRs document the context, options considered, and rationale for significant
 architectural decisions. Security ADRs are especially important for decisions
 that affect the attack surface or control effectiveness.
 
-**Security ADR Template:**
+Security ADR Template:
 
 ```markdown
 # ADR-SEC-NNN: [Short Title]
@@ -265,31 +265,31 @@ NIST SP 800-207 defines Zero Trust Architecture (ZTA) as a collection of
 concepts and ideas designed to minimize uncertainty in enforcing accurate,
 least privilege per-request access decisions. The seven tenets:
 
-1. **All data sources and computing services are considered resources.**
+1. All data sources and computing services are considered resources.
    Personal devices, IoT, SaaS, and cloud services are all resources regardless
    of network location.
 
-2. **All communication is secured regardless of network location.**
+2. All communication is secured regardless of network location.
    Trust is not derived from being on the corporate network. TLS between all
    services, even internal.
 
-3. **Access to individual enterprise resources is granted on a per-session basis.**
+3. Access to individual enterprise resources is granted on a per-session basis.
    Prior to granting access, trust is evaluated for each session, not assumed
    from previous sessions.
 
-4. **Access to resources is determined by dynamic policy.**
+4. Access to resources is determined by dynamic policy.
    Policy includes observable client identity attributes, application/service,
    and the requesting asset's security posture.
 
-5. **The enterprise monitors and measures the integrity and security posture of all assets.**
+5. The enterprise monitors and measures the integrity and security posture of all assets.
    Continuous monitoring of asset health — patch level, EDR status, MDM
    compliance, vulnerability scan results.
 
-6. **All resource authentication and authorization is dynamic and strictly enforced before access is allowed.**
+6. All resource authentication and authorization is dynamic and strictly enforced before access is allowed.
    Continuous re-evaluation. Anomalous behavior triggers step-up authentication
    or session termination.
 
-7. **The enterprise collects as much information as possible about the current state of assets, network infrastructure, and communications and uses it to improve its security posture.**
+7. The enterprise collects as much information as possible about the current state of assets, network infrastructure, and communications and uses it to improve its security posture.
    Telemetry from all sources feeds the Policy Engine to refine access decisions.
 
 ### 2.2 ZTA Logical Components
@@ -324,16 +324,16 @@ SUPPORTING SERVICES (feed PE):                                    │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**Policy Engine (PE)**: The brain. Evaluates all available signals and
+Policy Engine (PE): The brain. Evaluates all available signals and
 computes a trust score. Makes allow/deny/step-up decisions. Implemented as:
 - Cloud IdP with Conditional Access (Azure AD CA, Okta, Ping)
 - PAM solution for privileged sessions
 - API gateway with policy engine
 
-**Policy Administrator (PA)**: Executes PE decisions. Establishes or shuts
+Policy Administrator (PA): Executes PE decisions. Establishes or shuts
 down communication paths. Creates session tokens, configures PEP.
 
-**Policy Enforcement Point (PEP)**: The data plane gatekeeper. Forwards
+Policy Enforcement Point (PEP): The data plane gatekeeper. Forwards
 allowed sessions to resources; drops denied sessions. Implemented as:
 - ZTNA gateway (Zscaler ZPA, Cloudflare Access, Prisma Access)
 - Next-gen firewall with user identity integration
@@ -342,7 +342,7 @@ allowed sessions to resources; drops denied sessions. Implemented as:
 
 ### 2.3 Identity Pillar
 
-**Device Trust:**
+Device Trust:
 
 | Trust Level | Requirements | Controls |
 |---|---|---|
@@ -354,7 +354,7 @@ allowed sessions to resources; drops denied sessions. Implemented as:
 Device trust signals: MDM compliance state, OS version, patch level, EDR
 agent health, disk encryption status, certificate presence.
 
-**User Trust Factors:**
+User Trust Factors:
 
 - Identity verification: Primary credential (password) + MFA factor
 - Location context: Known geography vs. unusual country/ASN
@@ -362,18 +362,18 @@ agent health, disk encryption status, certificate presence.
 - Role-based access: Least-privilege RBAC/ABAC claims in identity token
 - Risk score: IdP risk engine (AAD Identity Protection, Okta ThreatInsight)
 
-**Workload Identity:**
+Workload Identity:
 
 Modern ZTA extends identity to non-human workloads:
-- **SPIFFE/SPIRE**: Standard for workload identity in Kubernetes; issues
+- SPIFFE/SPIRE: Standard for workload identity in Kubernetes; issues
   X.509 SVIDs (SPIFFE Verifiable Identity Documents)
-- **Service accounts**: Short-lived credentials (IRSA in AWS, Workload Identity
+- Service accounts: Short-lived credentials (IRSA in AWS, Workload Identity
   in GCP) replacing static keys
-- **mTLS**: Mutual TLS between microservices provides workload authentication
+- mTLS: Mutual TLS between microservices provides workload authentication
 
 ### 2.4 Network Micro-Segmentation with BeyondCorp Model
 
-**Traditional Perimeter vs. BeyondCorp:**
+Traditional Perimeter vs. BeyondCorp:
 
 ```
 TRADITIONAL:
@@ -386,7 +386,7 @@ Internet → [Identity-Aware Proxy] → Resources
            Network location: Irrelevant
 ```
 
-**BeyondCorp Architecture Components:**
+BeyondCorp Architecture Components:
 
 | Component | Function |
 |---|---|
@@ -398,7 +398,7 @@ Internet → [Identity-Aware Proxy] → Resources
 | Single Sign-On (SSO) | Federated IdP for user authentication |
 | Pipeline / Trust Engine | Continuously recalculates device trust; feeds Access Control Engine |
 
-**Micro-segmentation Implementation:**
+Micro-segmentation Implementation:
 
 Software-defined micro-segmentation decouples network policy from physical
 infrastructure using identity-based policies:
@@ -431,15 +431,15 @@ ruleset:
 
 Microsoft's ZTMM defines three stages of Zero Trust maturity across six pillars:
 
-**Pillars:** Identity · Endpoints · Applications · Data · Infrastructure · Network
+Pillars: Identity, Endpoints, Applications, Data, Infrastructure, Network
 
 | Stage | Characteristics |
 |---|---|
-| **Traditional** | Static policies, perimeter-based trust, manual identity management, limited telemetry |
-| **Advanced** | Risk-based conditional access, integrated telemetry, automated policy enforcement, JIT/JEA for privileged access |
-| **Optimal** | Continuous validation, automated threat response, ML-driven anomaly detection, comprehensive coverage across all pillars |
+| Traditional | Static policies, perimeter-based trust, manual identity management, limited telemetry |
+| Advanced | Risk-based conditional access, integrated telemetry, automated policy enforcement, JIT/JEA for privileged access |
+| Optimal | Continuous validation, automated threat response, ML-driven anomaly detection, comprehensive coverage across all pillars |
 
-**Identity Pillar Example:**
+Identity Pillar Example:
 
 | Traditional | Advanced | Optimal |
 |---|---|---|
@@ -451,30 +451,30 @@ Microsoft's ZTMM defines three stages of Zero Trust maturity across six pillars:
 ### 2.6 Google BeyondCorp Implementation Details
 
 Google's production BeyondCorp deployment (described in a series of papers
-from 2014–2020) provides a blueprint for ZTA implementation at scale.
+from 2014-2020) provides a blueprint for ZTA implementation at scale.
 
-**Key Implementation Choices:**
+Key Implementation Choices:
 
-1. **Device certificates**: Every managed device receives a certificate from
+1. Device certificates: Every managed device receives a certificate from
    the corporate CA. The certificate is the basis for device authentication at
    the access proxy. Certificate issuance is automated via the device enrollment
    pipeline.
 
-2. **Device inventory service**: A near-real-time database of all devices with
+2. Device inventory service: A near-real-time database of all devices with
    attributes: ownership (corporate/BYOD), OS, patch level, disk encryption,
    screen lock. The trust tier is computed from these attributes.
 
-3. **Access proxy (BeyondCorp Enterprise / Identity-Aware Proxy)**: All
+3. Access proxy (BeyondCorp Enterprise / Identity-Aware Proxy): All
    application traffic passes through the IAP. The IAP validates:
    - User identity via SSO cookie (OAuth 2.0)
    - Device certificate (mTLS with the access proxy)
    - Access control list (ACL) for the requested resource
 
-4. **No VPN**: Internal resources are not accessible from the corporate
+4. No VPN: Internal resources are not accessible from the corporate
    network without authentication. The internal network is treated as hostile.
    VPN was removed entirely for most workloads.
 
-5. **Continuous pipeline**: Device and user attributes are continuously
+5. Continuous pipeline: Device and user attributes are continuously
    re-evaluated. Trust tier changes propagate to the access proxy within
    minutes, revoking access if trust drops.
 
@@ -573,7 +573,7 @@ INTERNET
 └──────────────────────────────────┘
 ```
 
-**Design Principles:**
+Design Principles:
 - DMZ hosts should not initiate connections to the internal network
 - Application server tier (if separate) sits between DMZ and database tier
 - Firewall rules are whitelist-based; default deny
@@ -602,7 +602,7 @@ ZONE STRUCTURE (Palo Alto example):
   guest-wifi               │  Guest network (internet only)
 ```
 
-**App-ID Based Policy Example:**
+App-ID Based Policy Example:
 
 ```
 Security Policy: Allow web application traffic
@@ -616,7 +616,7 @@ Profile: strict-antivirus + url-filtering + threat-prevention
 
 ### 3.3 Hub-Spoke vs. Mesh Topologies for Enterprise WAN
 
-**Hub-Spoke (Star) Topology:**
+Hub-Spoke (Star) Topology:
 
 ```
      Branch A
@@ -632,7 +632,7 @@ Profile: strict-antivirus + url-filtering + threat-prevention
 - Hub is a single point of failure (mitigated by redundant hubs)
 - Latency added for branch-to-branch communication
 
-**Mesh Topology:**
+Mesh Topology:
 
 ```
 Branch A ————— Branch B
@@ -646,7 +646,7 @@ Branch A ————— Branch B
 - Harder to enforce centralized security inspection
 - SD-WAN with cloud security stack (SASE) enables mesh with security
 
-**Security Implications:**
+Security Implications:
 
 | Topology | Inspection Point | Best For |
 |---|---|---|
@@ -672,20 +672,20 @@ Branch Office          Cloud Security Stack          Cloud/SaaS
                       └────────────────────┘
 ```
 
-**SD-WAN Security Controls:**
+SD-WAN Security Controls:
 
-- **Encryption**: IPsec tunnels between edge devices; key rotation automated
-- **Application-aware routing**: Critical apps (VoIP) take MPLS; best-effort takes internet
-- **Zone-based firewall**: NGFW policies enforced at the edge
-- **Cloud breakout**: SaaS traffic breaks out locally (not backhauled to DC)
-- **Centralized management**: All policy changes via controller; no manual device config
+- Encryption: IPsec tunnels between edge devices; key rotation automated
+- Application-aware routing: Critical apps (VoIP) take MPLS; best-effort takes internet
+- Zone-based firewall: NGFW policies enforced at the edge
+- Cloud breakout: SaaS traffic breaks out locally (not backhauled to DC)
+- Centralized management: All policy changes via controller; no manual device config
 
 ### 3.5 DNS Security Architecture
 
 DNS is exploited for C2, data exfiltration, and lateral movement. DNS security
 operates at multiple layers:
 
-**DNS Security Architecture Stack:**
+DNS Security Architecture Stack:
 
 ```
 User/Endpoint
@@ -708,7 +708,7 @@ Authoritative DNS (signed zones)
 Root / TLD Resolvers
 ```
 
-**DNS Security Controls:**
+DNS Security Controls:
 
 | Control | Description | Tool Examples |
 |---|---|---|
@@ -722,12 +722,12 @@ Root / TLD Resolvers
 
 ### 3.6 BGP Security (RPKI, Route Filtering, Peer Authentication)
 
-**BGP Route Hijacking Threat:**
+BGP Route Hijacking Threat:
 - Attacker announces more specific prefix to divert traffic
 - Route leaks expose internal routing topology
 - BGP session hijacking allows injecting malicious routes
 
-**RPKI (Resource Public Key Infrastructure):**
+RPKI (Resource Public Key Infrastructure):
 
 ```
 RPKI Certificate Hierarchy:
@@ -741,7 +741,7 @@ RPKI Certificate Hierarchy:
                         Max length: /24
 ```
 
-**BGP Security Controls:**
+BGP Security Controls:
 
 | Control | Description | Coverage |
 |---|---|---|
@@ -755,7 +755,7 @@ RPKI Certificate Hierarchy:
 
 ### 3.7 DDoS Protection Architecture
 
-**DDoS Protection Tiers:**
+DDoS Protection Tiers:
 
 ```
 TIER 1: UPSTREAM / TRANSIT
@@ -779,7 +779,7 @@ TIER 4: APPLICATION LAYER
   Adaptive resource limits (connection table, bandwidth)
 ```
 
-**Attack Type to Mitigation Mapping:**
+Attack Type to Mitigation Mapping:
 
 | Attack Type | Example | Primary Mitigation |
 |---|---|---|
@@ -792,7 +792,7 @@ TIER 4: APPLICATION LAYER
 
 ### 3.8 Network Access Control (NAC): 802.1X, RADIUS, MAB
 
-**802.1X Port-Based NAC Architecture:**
+802.1X Port-Based NAC Architecture:
 
 ```
 Supplicant          Authenticator          Authentication Server
@@ -811,7 +811,7 @@ Supplicant          Authenticator          Authentication Server
     │◄══════════════════ Network Access ═══════════►│
 ```
 
-**NAC Enforcement Modes:**
+NAC Enforcement Modes:
 
 | Mode | Description | Use Case |
 |---|---|---|
@@ -821,7 +821,7 @@ Supplicant          Authenticator          Authentication Server
 | Guest VLAN | Unauthenticated devices get internet-only VLAN | Guest/BYOD |
 | Restricted VLAN | Failed auth gets remediation VLAN | Non-compliant devices |
 
-**RADIUS Infrastructure:**
+RADIUS Infrastructure:
 
 ```
 NAC Controller (Cisco ISE / Aruba ClearPass / FreeRADIUS)
@@ -839,7 +839,7 @@ NAC Controller (Cisco ISE / Aruba ClearPass / FreeRADIUS)
 
 ### 3.9 Firewall Rule Base Architecture Best Practices
 
-**Rule Order Principles (Top-Down Evaluation):**
+Rule Order Principles (Top-Down Evaluation):
 
 ```
 1. MANAGEMENT ACCESS RULES (first)
@@ -863,7 +863,7 @@ NAC Controller (Cisco ISE / Aruba ClearPass / FreeRADIUS)
    └─ Catch-all deny with logging
 ```
 
-**Rule Base Hygiene:**
+Rule Base Hygiene:
 
 | Practice | Description |
 |---|---|
@@ -883,42 +883,42 @@ NAC Controller (Cisco ISE / Aruba ClearPass / FreeRADIUS)
 
 The AWS Well-Architected Framework Security Pillar defines six best practice areas:
 
-**Best Practice Area 1: Security Foundations**
+Best Practice Area 1: Security Foundations
 - Separate workloads using AWS accounts (account = security boundary)
 - Enable AWS Organizations for centralized governance
 - Deploy AWS Control Tower for automated account vending
 - Define and enforce SCPs (Service Control Policies)
 - Enable CloudTrail in all regions; centralize to security account
 
-**Best Practice Area 2: Identity and Access Management**
+Best Practice Area 2: Identity and Access Management
 - Use IAM roles; never use long-term IAM user access keys for workloads
 - Apply least privilege; regularly review and remove unused permissions
 - Use AWS IAM Identity Center (SSO) for human access
 - Enable MFA for root and all IAM users
 - Use permission boundaries to delegate IAM administration safely
 
-**Best Practice Area 3: Detection**
+Best Practice Area 3: Detection
 - Enable AWS Config for compliance evaluation
 - Deploy GuardDuty in all accounts/regions
 - Enable SecurityHub for aggregated findings
 - Stream findings to centralized SIEM
 - Enable VPC Flow Logs, DNS query logs, S3 access logs
 
-**Best Practice Area 4: Infrastructure Protection**
+Best Practice Area 4: Infrastructure Protection
 - Use security groups as stateful host-based firewalls
 - Deploy NACLs for subnet-level stateless filtering
 - Use WAF for internet-facing applications
 - Enable AWS Shield Advanced for DDoS protection
 - Restrict SSH/RDP: use SSM Session Manager; no inbound 22/3389
 
-**Best Practice Area 5: Data Protection**
+Best Practice Area 5: Data Protection
 - Classify data and apply controls based on sensitivity
 - Encrypt all data at rest (KMS-managed keys); enforce via SCPs
 - Enable S3 Block Public Access at organization level
 - Use TLS for all in-transit data
 - Deploy Macie for sensitive data discovery in S3
 
-**Best Practice Area 6: Incident Response**
+Best Practice Area 6: Incident Response
 - Pre-stage IR tooling in accounts (forensic subnets, IR IAM roles)
 - Practice incident response via game days
 - Automate containment (Lambda-based isolation of compromised instances)
@@ -927,7 +927,7 @@ The AWS Well-Architected Framework Security Pillar defines six best practice are
 
 ### 4.2 Multi-Account Strategy: Control Tower, Landing Zones, SCPs
 
-**AWS Organization Structure:**
+AWS Organization Structure:
 
 ```
 Management Account (root)
@@ -951,7 +951,7 @@ Management Account (root)
        └─ Individual sandbox accounts (developers)
 ```
 
-**Key SCPs (Service Control Policies):**
+Key SCPs (Service Control Policies):
 
 ```json
 // Deny disabling GuardDuty
@@ -996,7 +996,7 @@ Management Account (root)
 
 ### 4.3 Azure Landing Zone Architecture
 
-**Azure Management Group Hierarchy:**
+Azure Management Group Hierarchy:
 
 ```
 Tenant Root Group
@@ -1016,10 +1016,10 @@ Tenant Root Group
        └─ Subscription: Dev-Sandbox-001
 ```
 
-**Azure Security Baseline (per subscription):**
+Azure Security Baseline (per subscription):
 - Microsoft Defender for Cloud enabled (Standard tier)
 - Azure Policy initiatives assigned (CIS, NIST 800-53, ISO 27001)
-- Diagnostic settings enabled for all resource types → Log Analytics
+- Diagnostic settings enabled for all resource types -> Log Analytics
 - Azure Firewall deployed in hub vNet
 - DDoS Standard enabled for production vNets
 - Private Endpoints for PaaS services (Storage, SQL, Key Vault)
@@ -1037,7 +1037,7 @@ Organization
   └─ Projects (direct)
 ```
 
-**GCP Security Controls by Level:**
+GCP Security Controls by Level:
 
 | Level | Controls Applied |
 |---|---|
@@ -1046,7 +1046,7 @@ Organization
 | Project | Service account management, API enablement, VPC, GKE config |
 | Resource | IAM conditions, labels for DSPM, encryption keys |
 
-**VPC Service Controls (data exfiltration prevention):**
+VPC Service Controls (data exfiltration prevention):
 ```
 Service Perimeter:
   Projects inside perimeter: [prod-data, prod-analytics]
@@ -1057,7 +1057,7 @@ Service Perimeter:
 
 ### 4.5 Cloud Network Security: VPC Design, Transit Gateway, PrivateLink
 
-**AWS VPC Security Architecture:**
+AWS VPC Security Architecture:
 
 ```
 VPC (10.0.0.0/16)
@@ -1074,7 +1074,7 @@ VPC (10.0.0.0/16)
        └─ RDS Multi-AZ (isolated subnet, no internet route)
 ```
 
-**Transit Gateway (TGW) Hub-and-Spoke:**
+Transit Gateway (TGW) Hub-and-Spoke:
 
 ```
 Transit Gateway
@@ -1089,7 +1089,7 @@ Route Tables:
   Firewall VPC → Routes distributed to spokes after inspection
 ```
 
-**AWS PrivateLink:**
+AWS PrivateLink:
 - Exposes service in provider VPC via Network Load Balancer
 - Consumer VPC creates VPC Endpoint; traffic stays on AWS backbone
 - No VPC peering required; no route propagation; no firewall holes needed
@@ -1127,7 +1127,7 @@ CNAPP = CSPM + CWPP + CIEM (Cloud Infrastructure Entitlement Management)
 | Identity risk | IAM Access Analyzer | Entra ID Protection | Cloud IAM recommender |
 | WAF | WAF + Shield | Front Door WAF | Cloud Armor |
 | Secrets management | Secrets Manager / SSM | Key Vault | Secret Manager |
-| SIEM integration | Security Hub → SIEM | Sentinel | Google SecOps (formerly Chronicle SIEM) |
+| SIEM integration | Security Hub -> SIEM | Sentinel | Google SecOps (formerly Chronicle SIEM) |
 | CASB | N/A (partner) | Defender for Cloud Apps | N/A (partner) |
 
 ### 4.8 Hybrid Cloud Connectivity Security
@@ -1198,7 +1198,7 @@ OPERATE
 
 ### 5.2 API Gateway Security Patterns
 
-**API Gateway Security Architecture:**
+API Gateway Security Architecture:
 
 ```
 Client
@@ -1228,7 +1228,7 @@ API Gateway (Kong / AWS API GW / Apigee)
        └─ Distributed tracing (OpenTelemetry)
 ```
 
-**mTLS Configuration (Nginx example):**
+mTLS Configuration (Nginx example):
 
 ```nginx
 server {
@@ -1251,7 +1251,7 @@ server {
 
 ### 5.3 Service Mesh Security (Istio/Envoy)
 
-**Istio Security Architecture:**
+Istio Security Architecture:
 
 ```
                    Istiod (Control Plane)
@@ -1269,7 +1269,7 @@ server {
                     └─────────────────────────────────┘
 ```
 
-**Istio mTLS Policy (PeerAuthentication):**
+Istio mTLS Policy (PeerAuthentication):
 
 ```yaml
 apiVersion: security.istio.io/v1beta1
@@ -1295,7 +1295,7 @@ spec:
     mode: PERMISSIVE  # Accept both mTLS and plaintext during migration
 ```
 
-**Istio Authorization Policy (RBAC):**
+Istio Authorization Policy (RBAC):
 
 ```yaml
 apiVersion: security.istio.io/v1beta1
@@ -1318,7 +1318,7 @@ spec:
   # Implicit deny for everything not matched
 ```
 
-**Istio Traffic Policy (Circuit Breaker):**
+Istio Traffic Policy (Circuit Breaker):
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -1343,7 +1343,7 @@ spec:
 
 ### 5.4 Microservices Security Patterns
 
-**Secrets Injection Pattern:**
+Secrets Injection Pattern:
 
 ```
 Bad practice:
@@ -1356,7 +1356,7 @@ Good practice (Vault Agent Injector):
   Secret rotation → Vault signals agent → secret updated without pod restart
 ```
 
-**Vault Agent Annotation Example:**
+Vault Agent Annotation Example:
 
 ```yaml
 annotations:
@@ -1370,7 +1370,7 @@ annotations:
     {{- end }}
 ```
 
-**Sidecar Proxy Pattern:**
+Sidecar Proxy Pattern:
 
 All service-to-service traffic routes through a sidecar proxy (Envoy):
 - Encryption: mTLS between all services without application code changes
@@ -1380,7 +1380,7 @@ All service-to-service traffic routes through a sidecar proxy (Envoy):
 
 ### 5.5 Authentication Architecture
 
-**Federation Architecture:**
+Federation Architecture:
 
 ```
 User Browser
@@ -1399,7 +1399,7 @@ Service Provider
     └─ Grants access
 ```
 
-**OIDC Authorization Code + PKCE Flow:**
+OIDC Authorization Code + PKCE Flow:
 
 ```
 1. User clicks "Login"
@@ -1427,7 +1427,7 @@ Service Provider
 8. IdP returns: access_token, id_token, refresh_token
 ```
 
-**SAML Assertion Structure:**
+SAML Assertion Structure:
 
 ```xml
 <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
@@ -1454,7 +1454,7 @@ Service Provider
 
 ### 5.6 OAuth 2.0 Architecture Patterns
 
-**Grant Type Selection Matrix:**
+Grant Type Selection Matrix:
 
 | Use Case | Grant Type | Reasoning |
 |---|---|---|
@@ -1463,12 +1463,12 @@ Service Provider
 | Mobile app | Authorization Code + PKCE | Same as SPA; use system browser for auth |
 | Service-to-service (API) | Client Credentials | No user context; machine identity |
 | Legacy / CLI (avoid if possible) | Device Authorization | For input-constrained devices |
-| Deprecated — DO NOT USE | Implicit | Token exposed in URL fragment; no PKCE support |
-| Deprecated — DO NOT USE | Resource Owner Password | Credentials sent to app; bypasses IdP security |
+| Deprecated: DO NOT USE | Implicit | Token exposed in URL fragment; no PKCE support |
+| Deprecated: DO NOT USE | Resource Owner Password | Credentials sent to app; bypasses IdP security |
 
 ### 5.7 Secrets Management Architecture (Vault HA)
 
-**HashiCorp Vault HA Architecture:**
+HashiCorp Vault HA Architecture:
 
 ```
                     Load Balancer (Active node routing)
@@ -1495,7 +1495,7 @@ Service Provider
               AWS KMS / Azure Key Vault / CloudHSM
 ```
 
-**Vault Transit Encryption (Encryption-as-a-Service):**
+Vault Transit Encryption (Encryption-as-a-Service):
 
 ```bash
 # Application encrypts data using Vault's transit engine
@@ -1517,7 +1517,7 @@ curl -X POST https://vault.example.com/v1/transit/encrypt/payment-data   -H "X-V
 
 ### 5.8 Container Security Architecture
 
-**Admission Controller Stack:**
+Admission Controller Stack:
 
 ```
 kubectl apply / CI/CD Pipeline
@@ -1548,7 +1548,7 @@ Kubernetes API Server
 Scheduled to Node (if policies pass)
 ```
 
-**OPA Gatekeeper Policy (No Privileged Containers):**
+OPA Gatekeeper Policy (No Privileged Containers):
 
 ```yaml
 apiVersion: constraints.gatekeeper.sh/v1beta1
@@ -1588,16 +1588,16 @@ spec:
 
 ### 6.1 Data Classification Taxonomy
 
-**Four-Tier Classification Model:**
+Four-Tier Classification Model:
 
 | Classification | Description | Examples | Controls |
 |---|---|---|---|
-| **Public** | Intentionally public; no harm if disclosed | Marketing materials, public website content | No special controls |
-| **Internal** | Not public but not sensitive; low harm if leaked | Internal memos, org charts | Basic access control, no encryption at rest required |
-| **Confidential** | Sensitive business data; significant harm if disclosed | Customer PII, financial data, source code, M&A plans | Encryption at rest and in transit, DLP, access logging, NDA |
-| **Restricted** | Highly sensitive; severe harm if disclosed | PHI, payment card data, government classified, trade secrets | Encryption (HSM-managed keys), strict access (need-to-know), audit logging, DLP, IRM |
+| Public | Intentionally public; no harm if disclosed | Marketing materials, public website content | No special controls |
+| Internal | Not public but not sensitive; low harm if leaked | Internal memos, org charts | Basic access control, no encryption at rest required |
+| Confidential | Sensitive business data; significant harm if disclosed | Customer PII, financial data, source code, M&A plans | Encryption at rest and in transit, DLP, access logging, NDA |
+| Restricted | Highly sensitive; severe harm if disclosed | PHI, payment card data, government classified, trade secrets | Encryption (HSM-managed keys), strict access (need-to-know), audit logging, DLP, IRM |
 
-**Classification Labels in Practice:**
+Classification Labels in Practice:
 
 ```
 Document header: [RESTRICTED] or [CONFIDENTIAL - DO NOT FORWARD]
@@ -1608,7 +1608,7 @@ S3 object: Tag key=classification, value=restricted
 
 ### 6.2 Data Flow Diagramming (DFD) for Security Analysis
 
-**DFD Elements:**
+DFD Elements:
 
 ```
 External Entity (rectangle): Originates or terminates data (users, systems)
@@ -1618,7 +1618,7 @@ Data Flow (arrow):            Movement of data between elements
 Trust Boundary (dashed line): Where data crosses a security boundary
 ```
 
-**Example DFD (Payment Processing):**
+Example DFD (Payment Processing):
 
 ```
 [Customer Browser]──HTTPS──►(Web App)──SQL──►‖ Orders DB ‖
@@ -1643,7 +1643,7 @@ Security analysis at trust boundaries:
 
 ### 6.3 Encryption Architecture
 
-**Encryption at Rest:**
+Encryption at Rest:
 
 | Tier | Mechanism | Key Management |
 |---|---|---|
@@ -1653,7 +1653,7 @@ Security analysis at trust boundaries:
 | Backups | AES-256 with separate backup key | Backup solution key management |
 | File shares | EFFS (Windows) / eCryptfs (Linux) | AD-integrated or GPG |
 
-**Encryption in Transit:**
+Encryption in Transit:
 
 | Connection Type | Protocol | Minimum Version | Cipher Suites |
 |---|---|---|---|
@@ -1663,7 +1663,7 @@ Security analysis at trust boundaries:
 | Email (MTA-to-MTA) | STARTTLS + MTA-STS | TLS 1.2 | ECDHE ciphers |
 | VPN tunnels | IPsec IKEv2 | — | AES-256-GCM, SHA-384, DH group 20+ |
 
-**Encryption in Use (Emerging):**
+Encryption in Use (Emerging):
 
 | Technique | Description | Use Case |
 |---|---|---|
@@ -1672,7 +1672,7 @@ Security analysis at trust boundaries:
 | Confidential Computing | Hardware-isolated execution (Intel SGX, AMD SEV) | Trusted execution environment for secrets processing |
 | Tokenization | Replace sensitive value with non-reversible token | PCI DSS card number storage |
 
-### 6.4 Key Management Hierarchy (HSM → KEK → DEK)
+### 6.4 Key Management Hierarchy (HSM -> KEK -> DEK)
 
 ```
 HARDWARE SECURITY MODULE (HSM)
@@ -1694,7 +1694,7 @@ DATA ENCRYPTION KEY (DEK)
   └─ Unwrapped by KEK only when needed for decryption
 ```
 
-**Envelope Encryption (AWS KMS Pattern):**
+Envelope Encryption (AWS KMS Pattern):
 
 ```python
 # 1. Request data key from KMS
@@ -1719,7 +1719,7 @@ plaintext_data = aes_256_gcm_decrypt(ciphertext, plaintext_key)
 
 ### 6.5 DLP Architecture
 
-**DLP Deployment Points:**
+DLP Deployment Points:
 
 ```
 NETWORK DLP
@@ -1740,7 +1740,7 @@ CLOUD DLP
   └─ Inline CASB: Real-time inspection of cloud app traffic
 ```
 
-**DLP Policy Design:**
+DLP Policy Design:
 
 ```
 Policy: Detect and block PII in outbound email
@@ -1789,19 +1789,19 @@ is easier to disable by someone with DBA rights.
 
 ### 6.7 Data Masking and Tokenization Patterns
 
-**Static Data Masking (SDM):**
+Static Data Masking (SDM):
 - One-time transformation of production data for non-production environments
 - Replaces sensitive values with realistic but fictional data
 - Non-reversible (for non-prod use cases)
 - Tools: Informatica IDQ, Delphix, IBM Optim
 
-**Dynamic Data Masking (DDM):**
+Dynamic Data Masking (DDM):
 - Masks data at query time based on user role
 - Original data unchanged in database
-- DBA sees full PAN; customer service rep sees "****-****-****-4242"
+- DBA sees full PAN; customer service rep sees "**--**-4242"
 - Tools: Satori, BigID DDM, SQL Server DDM, Oracle DDM
 
-**Tokenization:**
+Tokenization:
 - Replaces sensitive value with a non-sensitive placeholder (token)
 - Token-to-value mapping stored in secure token vault
 - Detokenization requires access to vault + authorization
@@ -1834,7 +1834,7 @@ Token Vault:  {token: 9876... → PAN: 4111...}  ← protected separately
 
 ### 7.1 IAM Architecture: Directory Services, Federation, PAM
 
-**Enterprise IAM Stack:**
+Enterprise IAM Stack:
 
 ```
 AUTHORITATIVE IDENTITY SOURCES
@@ -1860,7 +1860,7 @@ IDENTITY GOVERNANCE (IGA)
 
 ### 7.2 Identity Governance Architecture (Joiner/Mover/Leaver)
 
-**Lifecycle Automation:**
+Lifecycle Automation:
 
 ```
 JOINER (New Employee):
@@ -1895,7 +1895,7 @@ LEAVER (Termination):
     └─ Archive mailbox per retention policy
 ```
 
-**Separation of Duties (SOD) Controls:**
+Separation of Duties (SOD) Controls:
 
 ```
 SOD Rule Examples:
@@ -1911,7 +1911,7 @@ Enforcement:
 
 ### 7.3 Privileged Access Management Architecture
 
-**PAM Architecture (CyberArk reference):**
+PAM Architecture (CyberArk reference):
 
 ```
 Digital Vault (Credential Store)
@@ -1936,7 +1936,7 @@ PSM (Privileged Session Manager)
 Target Systems (Windows/Linux/DB/Network devices)
 ```
 
-**JIT Access Workflow:**
+JIT Access Workflow:
 
 ```
 1. User requests privileged access via ticketing system (ServiceNow)
@@ -1950,7 +1950,7 @@ Target Systems (Windows/Linux/DB/Network devices)
 
 ### 7.4 Certificate Authority Hierarchy
 
-**PKI Hierarchy:**
+PKI Hierarchy:
 
 ```
 OFFLINE ROOT CA (air-gapped HSM)
@@ -1983,12 +1983,12 @@ REVOCATION
 
 ### 7.5 PKI Architecture for Enterprise and IoT
 
-**IoT PKI Special Considerations:**
+IoT PKI Special Considerations:
 
 | Challenge | Solution |
 |---|---|
 | Scale: millions of devices | Automated certificate enrollment (EST, SCEP, ACME) |
-| Constrained devices | EC key pairs (P-256) — smaller keys, faster operations |
+| Constrained devices | EC key pairs (P-256): smaller keys, faster operations |
 | Certificate lifecycle | Short validity (90 days) with auto-renewal |
 | Device identity | Unique cert per device; burned in at manufacturing (IDevID) |
 | Revocation at scale | OCSP over CoAP; CRL too large for constrained devices |
@@ -1996,7 +1996,7 @@ REVOCATION
 
 ### 7.6 FIDO2/WebAuthn Architecture
 
-**WebAuthn Registration Flow:**
+WebAuthn Registration Flow:
 
 ```
 1. Server generates challenge (random, base64url)
@@ -2071,7 +2071,7 @@ FIDO2 Authentication Flow:
 
 ### 8.2 SIEM Architecture
 
-**SIEM Data Pipeline:**
+SIEM Data Pipeline:
 
 ```
 LOG SOURCES
@@ -2119,7 +2119,7 @@ ALERT MANAGEMENT
 
 ### 8.3 SOAR Placement and Playbook Integration
 
-**SOAR Architecture:**
+SOAR Architecture:
 
 ```
 SIEM (Alert source)
@@ -2144,7 +2144,7 @@ SOAR Platform (Palo Alto XSOAR / Splunk SOAR / IBM SOAR)
   └─ Reporting: MTTR, automation rate, playbook coverage
 ```
 
-**Phishing Response Playbook (SOAR):**
+Phishing Response Playbook (SOAR):
 
 ```
 Trigger: Phishing email reported via "Report Phishing" button
@@ -2165,7 +2165,7 @@ Trigger: Phishing email reported via "Report Phishing" button
 
 ### 8.4 XDR Architecture vs. Point Solutions
 
-**Point Solution Architecture (Legacy):**
+Point Solution Architecture (Legacy):
 
 ```
 EDR (endpoint telemetry) → SIEM
@@ -2175,7 +2175,7 @@ Email Security (email telemetry) → SIEM
 SIEM correlates across siloed telemetry (complex, delayed)
 ```
 
-**XDR Architecture:**
+XDR Architecture:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -2195,7 +2195,7 @@ SIEM correlates across siloed telemetry (complex, delayed)
 └──────────────────────────────────────────────────────────┘
 ```
 
-**XDR vs. SIEM+SOAR:**
+XDR vs. SIEM+SOAR:
 
 | Capability | XDR | SIEM + SOAR |
 |---|---|---|
@@ -2208,7 +2208,7 @@ SIEM correlates across siloed telemetry (complex, delayed)
 
 ### 8.5 Threat Intelligence Platform (TIP) Architecture
 
-**TIP Architecture:**
+TIP Architecture:
 
 ```
 EXTERNAL INTEL FEEDS                    INTERNAL INTEL
@@ -2236,7 +2236,7 @@ STIX/TAXII integration:
 
 ### 8.6 UEBA Data Flow and Baseline Modeling
 
-**UEBA Architecture:**
+UEBA Architecture:
 
 ```
 DATA SOURCES → UEBA PLATFORM → RISK SCORES → SIEM / SOC
@@ -2262,7 +2262,7 @@ UEBA Processing:
 
 ### 8.7 Log Retention Architecture
 
-**Tiered Retention:**
+Tiered Retention:
 
 | Tier | Storage Type | Latency | Retention | Use Case |
 |---|---|---|---|---|
@@ -2270,7 +2270,7 @@ UEBA Processing:
 | Warm | HDD index or tiered (S3 Intelligent-Tiering) | Minutes | 30-90 days | Recent investigations, trend analysis |
 | Cold | Object storage (S3 Glacier, Azure Archive) | Hours | 90 days - 7 years | Compliance, forensic investigation, legal hold |
 
-**Compliance Retention Requirements:**
+Compliance Retention Requirements:
 
 | Regulation | Log Type | Minimum Retention |
 |---|---|---|
@@ -2287,7 +2287,7 @@ UEBA Processing:
 
 ### 9.1 Business Continuity Planning (BCP) Architecture
 
-**BCP Scope:**
+BCP Scope:
 
 ```
 BCP Framework Components:
@@ -2319,7 +2319,7 @@ BCP Framework Components:
 
 ### 9.2 Disaster Recovery: RTO/RPO, Active-Active vs. Active-Passive
 
-**RTO and RPO Definitions:**
+RTO and RPO Definitions:
 
 ```
 INCIDENT OCCURS
@@ -2336,16 +2336,16 @@ INCIDENT OCCURS
   (IT restores service)                     (system back online)
 ```
 
-**DR Architecture Patterns:**
+DR Architecture Patterns:
 
 | Pattern | Description | RTO | RPO | Cost |
 |---|---|---|---|---|
-| **Backup & Restore** | Restore from backup to new environment | Hours-days | Hours-days | Lowest |
-| **Pilot Light** | Minimal always-on infra; scale up on disaster | Hours | Minutes | Low |
-| **Warm Standby** | Scaled-down replica always running; scale up on disaster | Minutes | Seconds-minutes | Medium |
-| **Active-Active (Multi-site)** | Full capacity in multiple sites; traffic load balanced | Near-zero | Near-zero | Highest |
+| Backup & Restore | Restore from backup to new environment | Hours-days | Hours-days | Lowest |
+| Pilot Light | Minimal always-on infra; scale up on disaster | Hours | Minutes | Low |
+| Warm Standby | Scaled-down replica always running; scale up on disaster | Minutes | Seconds-minutes | Medium |
+| Active-Active (Multi-site) | Full capacity in multiple sites; traffic load balanced | Near-zero | Near-zero | Highest |
 
-**Active-Active Architecture (AWS Multi-Region):**
+Active-Active Architecture (AWS Multi-Region):
 
 ```
 Route 53 (latency-based or geolocation routing)
@@ -2361,17 +2361,17 @@ us-east-1 Region                           eu-west-1 Region
 
 ### 9.3 Backup Architecture: 3-2-1-1-0 Rule
 
-**3-2-1-1-0 Rule:**
+3-2-1-1-0 Rule:
 
 | Digit | Meaning |
 |---|---|
-| **3** | Three copies of data |
-| **2** | Two different storage media types |
-| **1** | One copy off-site |
-| **1** | One copy offline or air-gapped (immutable) |
-| **0** | Zero backup errors (verified restoration) |
+| 3 | Three copies of data |
+| 2 | Two different storage media types |
+| 1 | One copy off-site |
+| 1 | One copy offline or air-gapped (immutable) |
+| 0 | Zero backup errors (verified restoration) |
 
-**Immutable Backup Architecture:**
+Immutable Backup Architecture:
 
 ```
 PRIMARY DATA
@@ -2397,7 +2397,7 @@ AIR-GAPPED OFFLINE COPY
 
 ### 9.4 Resilience Testing: Chaos Engineering for Security
 
-**Chaos Engineering Principles Applied to Security:**
+Chaos Engineering Principles Applied to Security:
 
 ```
 HYPOTHESIS: "Our incident response playbook can contain a compromised EC2
@@ -2428,7 +2428,7 @@ TOOLS:
 
 ### 9.5 Incident Response Architecture
 
-**Detection Pipeline → Triage → Containment → Eradication:**
+Detection Pipeline -> Triage -> Containment -> Eradication:
 
 ```
 DETECTION PIPELINE
@@ -2480,7 +2480,7 @@ POST-INCIDENT REVIEW
 
 ### 10.1 Threat Model-Driven Architecture Review Checklist
 
-**Pre-Review Artifacts Required:**
+Pre-Review Artifacts Required:
 
 - [ ] Architecture diagram (component, data flow, deployment)
 - [ ] Data Flow Diagram with trust boundaries marked
@@ -2489,44 +2489,44 @@ POST-INCIDENT REVIEW
 - [ ] Previous architecture review findings and remediation status
 - [ ] Compliance requirements applicable to this system
 
-**Architecture Review Checklist:**
+Architecture Review Checklist:
 
-**Identity and Access:**
+Identity and Access:
 - [ ] All authentication mechanisms identified and reviewed
 - [ ] MFA enforced for privileged access and internet-facing applications
 - [ ] Service accounts use least privilege; no shared credentials
 - [ ] Secrets not hardcoded; secrets management system in use
 - [ ] Session management: timeout, revocation, token rotation
 
-**Network Security:**
+Network Security:
 - [ ] Network segmentation appropriate for data sensitivity
 - [ ] All data flows documented; unnecessary flows blocked
 - [ ] Ingress/egress filtering in place
 - [ ] Management interfaces on separate network segment
 - [ ] TLS version and cipher suite requirements met
 
-**Data Protection:**
+Data Protection:
 - [ ] Data classification applied to all data stores
 - [ ] Encryption at rest for Confidential and above
 - [ ] Encryption in transit for all data flows
 - [ ] Key management hierarchy documented; HSM or KMS in use
 - [ ] Backup and recovery tested
 
-**Application Security:**
+Application Security:
 - [ ] Input validation on all user-controlled inputs
 - [ ] Output encoding to prevent injection
 - [ ] Authentication and authorization reviewed for all endpoints
 - [ ] Secrets management for API keys and credentials
 - [ ] Dependency scanning results reviewed; critical CVEs addressed
 
-**Logging and Monitoring:**
+Logging and Monitoring:
 - [ ] Security-relevant events logged (auth events, admin actions, errors)
 - [ ] Logs forwarded to SIEM; not stored only locally
 - [ ] Log tampering protection (append-only, remote storage)
 - [ ] Alerting in place for critical security events
 - [ ] Retention meets compliance requirements
 
-**Resilience:**
+Resilience:
 - [ ] RTO and RPO defined and achievable with current architecture
 - [ ] DR plan documented and tested within 12 months
 - [ ] Backup strategy meets 3-2-1-1-0 rule
@@ -2534,13 +2534,13 @@ POST-INCIDENT REVIEW
 
 ### 10.2 Security Architecture Review Board (SARB) Process
 
-**SARB Charter:**
+SARB Charter:
 
 The Security Architecture Review Board is a governance body responsible for
 reviewing security architectures of significant systems and ensuring alignment
 with enterprise security standards.
 
-**SARB Membership:**
+SARB Membership:
 - Chief Information Security Officer (CISO) or delegate (Chair)
 - Enterprise Security Architect
 - Cloud Security Architect
@@ -2549,7 +2549,7 @@ with enterprise security standards.
 - Privacy Officer (for data-handling systems)
 - Business stakeholder representative
 
-**SARB Review Process:**
+SARB Review Process:
 
 ```
 1. SUBMISSION (2 weeks before review)
@@ -2578,7 +2578,7 @@ with enterprise security standards.
 
 ### 10.3 Risk Acceptance Criteria and Formal Sign-Off
 
-**Risk Acceptance Framework:**
+Risk Acceptance Framework:
 
 | Risk Level | Criteria | Sign-Off Authority | Review Frequency |
 |---|---|---|---|
@@ -2587,7 +2587,7 @@ with enterprise security standards.
 | Medium | CVSS 4.0-6.9 or limited impact | Security Architect | Semi-annual |
 | Low | CVSS <4.0 or minimal impact | Security Team Lead | Annual |
 
-**Formal Risk Acceptance Process:**
+Formal Risk Acceptance Process:
 
 ```
 1. Risk identified and documented (severity, likelihood, impact, affected assets)
@@ -2624,7 +2624,7 @@ with enterprise security standards.
 
 ### 10.5 MITRE ATT&CK Mapping to Architectural Controls
 
-**Tactical Layer Controls:**
+Tactical Layer Controls:
 
 | ATT&CK Tactic | Representative Techniques | Architectural Control |
 |---|---|---|
@@ -2641,7 +2641,7 @@ with enterprise security standards.
 | Exfiltration (TA0010) | T1041 Exfil over C2, T1567 Web Service | DLP; CASB; egress filtering; bandwidth anomaly detection |
 | Impact (TA0040) | T1486 Ransomware, T1490 Inhibit Recovery | Immutable backups; air-gapped copies; EDR; network segmentation |
 
-**ATT&CK Coverage Heatmap (by architectural control layer):**
+ATT&CK Coverage Heatmap (by architectural control layer):
 
 ```
 Control Layer          Tactics Covered

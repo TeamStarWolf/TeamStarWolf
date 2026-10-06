@@ -8,18 +8,18 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 
 | Contribution Type | Welcome? | Notes |
 |---|---|---|
-| Adding a tool or repository | ✅ Yes | Must be publicly accessible; include GitHub link |
-| Fixing a broken link or wrong URL | ✅ Yes | Please include the correct link in your PR |
-| Correcting a certification name, issuer, or scope | ✅ Yes | Include a source link confirming the correction |
-| Adding a commercial platform | ✅ Yes | Note the market category and key capability |
-| Adding a book or learning resource | ✅ Yes | Must be publicly available or widely accessible |
-| Adding a certification | ✅ Yes | Must be a real, currently active credential with a verifiable issuer |
-| Adding a YouTube channel or Twitter/X handle | ✅ Yes | Must actively post security content |
-| Nominating a new discipline page | ✅ Yes | Open an issue first to discuss scope |
-| Adding data to JSONL edge tables | ✅ Yes | Follow the schema in COVERAGE_SCHEMA.md |
-| Removing deprecated or archived tools | ✅ Yes | Note the reason (archived, deprecated, acquired) |
-| Promotional content or vendor marketing | ❌ No | Vendors are listed on merit, not sponsorship |
-| Unverifiable claims | ❌ No | All facts must be checkable against a public source |
+| Adding a tool or repository | Yes | Must be publicly accessible; include GitHub link |
+| Fixing a broken link or wrong URL | Yes | Please include the correct link in your PR |
+| Correcting a certification name, issuer, or scope | Yes | Include a source link confirming the correction |
+| Adding a commercial platform | Yes | Note the market category and key capability |
+| Adding a book or learning resource | Yes | Must be publicly available or widely accessible |
+| Adding a certification | Yes | Must be a real, currently active credential with a verifiable issuer |
+| Adding a YouTube channel or Twitter/X handle | Yes | Must actively post security content |
+| Nominating a new discipline page | Yes | Open an issue first to discuss scope |
+| Adding data to JSONL edge tables | Yes | Follow the schema in COVERAGE_SCHEMA.md |
+| Removing deprecated or archived tools | Yes | Note the reason (archived, deprecated, acquired) |
+| Promotional content or vendor marketing | No | Vendors are listed on merit, not sponsorship |
+| Unverifiable claims | No | All facts must be checkable against a public source |
 
 ---
 
@@ -27,7 +27,7 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 
 ### Quick Fix (Broken Link, Typo, Wrong Cert Name)
 
-1. Click **"Edit this page on GitHub"** at the top of any page on the site
+1. Click "Edit this page on GitHub" at the top of any page on the site
 2. Make your change directly in the GitHub editor
 3. Submit a pull request with a short description of what you fixed
 
@@ -37,16 +37,16 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 2. Find the appropriate discipline page in `disciplines/`
 3. Add your entry to the relevant table section
 4. Follow the existing table format exactly (pipe-delimited markdown table)
-5. Submit a pull request — use the **"Add Tool or Resource"** PR template
+5. Submit a pull request: use the "Add Tool or Resource" PR template
 
 ### Fixing a Factual Error
 
-1. Open an issue using the **"Fix Factual Error"** template
+1. Open an issue using the "Fix Factual Error" template
 2. Or submit a PR directly with a source link in the PR description
 
 ### Nominating a New Discipline Page
 
-1. Open an issue using the **"New Discipline Page"** template
+1. Open an issue using the "New Discipline Page" template
 2. The page will be created if the discipline has sufficient depth for a full learning path
 
 ---
@@ -55,13 +55,13 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 
 ### Tools and Repositories
 - Must have a working public URL (GitHub, official site, or documentation)
-- Archived repos should be noted as `(archived)` — not removed, since they may still be useful
+- Archived repos should be noted as `(archived)`: not removed, since they may still be useful
 - Include a one-line description of what the tool does, not its marketing tagline
 
 ### Certifications
 - Must be a real credential with a verifiable issuer (GIAC, ISC², ISACA, CREST, EC-Council, INE, Offensive Security, etc.)
 - Include the full certification name and abbreviation
-- Note the issuer accurately — especially for certifications that have changed hands (e.g., eLearnSecurity → INE Security)
+- Note the issuer accurately: especially for certifications that have changed hands (e.g., eLearnSecurity -> INE Security)
 - Do not include courses as certifications (e.g., SANS SEC courses are not certs — GIAC exams are)
 
 ### Commercial Platforms

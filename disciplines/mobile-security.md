@@ -20,10 +20,10 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 
 | Platform | URL | What You Learn |
 |---|---|---|
-| OWASP MASTG | https://mas.owasp.org/MASTG/ | Definitive mobile app security testing guide — iOS and Android, static and dynamic |
-| OWASP MASVS | https://mas.owasp.org/MASVS/ | Security verification standard for mobile apps — requirements and control mapping |
+| OWASP MASTG | https://mas.owasp.org/MASTG/ | Definitive mobile app security testing guide: iOS and Android, static and dynamic |
+| OWASP MASVS | https://mas.owasp.org/MASVS/ | Security verification standard for mobile apps: requirements and control mapping |
 | Frida Documentation | https://frida.re/docs/ | Dynamic instrumentation: method hooking, class enumeration, native tracing |
-| TryHackMe — Android rooms | https://tryhackme.com/ | Guided Android static/dynamic analysis labs |
+| TryHackMe: Android rooms | https://tryhackme.com/ | Guided Android static/dynamic analysis labs |
 | HackTricks Mobile | https://book.hacktricks.xyz/mobile-pentesting/ | Mobile pentesting techniques reference |
 | TCM Security (free resources) | https://academy.tcm-sec.com/ | Practical mobile security fundamentals (free tier available) |
 
@@ -46,12 +46,12 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 
 | Tool | Purpose | Platform | Link |
 |---|---|---|---|
-| Frida | Dynamic instrumentation framework — hook methods, bypass controls at runtime | iOS + Android | https://frida.re/ |
-| Objection | Frida-based exploration toolkit — certificate pinning bypass, keychain dump, root detection bypass | iOS + Android | https://github.com/sensepost/objection |
-| Shadow | iOS jailbreak detection bypass — works without jailbreak on some scenarios | iOS | https://github.com/jjolano/shadow |
+| Frida | Dynamic instrumentation framework: hook methods, bypass controls at runtime | iOS + Android | https://frida.re/ |
+| Objection | Frida-based exploration toolkit: certificate pinning bypass, keychain dump, root detection bypass | iOS + Android | https://github.com/sensepost/objection |
+| Shadow | iOS jailbreak detection bypass: works without jailbreak on some scenarios | iOS | https://github.com/jjolano/shadow |
 | SSL Kill Switch 2 | Disable iOS NSURLSession certificate validation (requires jailbreak) | iOS | https://github.com/nabla-c0d3/ssl-kill-switch2 |
 | apk-mitm | Automatically patches APKs to trust user-installed CA certificates | Android | https://github.com/shroudedcode/apk-mitm |
-| drozer | Android attack surface analysis — exported components, content providers, IPC | Android | https://github.com/WithSecureLabs/drozer |
+| drozer | Android attack surface analysis: exported components, content providers, IPC | Android | https://github.com/WithSecureLabs/drozer |
 | ADB (Android Debug Bridge) | Shell access, app install/uninstall, logcat, screenshot, file transfer | Android | https://developer.android.com/studio/command-line/adb |
 
 ### Traffic Interception
@@ -108,11 +108,11 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 Android applications are distributed as APKs (ZIP archives containing DEX bytecode, resources, native libraries). The `AndroidManifest.xml` declares components — Activities, Services, Broadcast Receivers, and Content Providers — and their exported status. Exported components accessible without permissions are a common attack surface.
 
 Key attack techniques:
-- **Intent hijacking**: Malicious apps intercept implicit intents from exported components
-- **Exported content providers**: Unprotected content providers expose data without authentication
-- **Broadcast receiver abuse**: Exported receivers can be triggered by any app to invoke functionality
-- **Deep link abuse**: Malformed deep links trigger unintended application behavior (M4/M8)
-- **Frida for hooking**: Attach to running app, hook Java methods, bypass root detection, dump decrypted traffic
+- Intent hijacking: Malicious apps intercept implicit intents from exported components
+- Exported content providers: Unprotected content providers expose data without authentication
+- Broadcast receiver abuse: Exported receivers can be triggered by any app to invoke functionality
+- Deep link abuse: Malformed deep links trigger unintended application behavior (M4/M8)
+- Frida for hooking: Attach to running app, hook Java methods, bypass root detection, dump decrypted traffic
 
 ---
 
@@ -121,15 +121,15 @@ Key attack techniques:
 iOS applications are distributed as IPAs (ZIP archives with Mach-O binaries, plists, and assets). Key security mechanisms include the keychain for credential storage, code signing (App Store + enterprise profiles), and the Secure Enclave for biometric key storage.
 
 Key attack techniques:
-- **Jailbreak detection bypass**: Objection and Shadow automate bypass of common detection checks
-- **SSL Kill Switch**: Disable NSURLSession certificate validation to intercept pinned traffic
-- **Keychain extraction**: On jailbroken devices, dump keychain items with Objection or Frida
-- **class-dump analysis**: Extract Objective-C class headers from stripped binaries
-- **Plist analysis**: `Info.plist`, `Entitlements.plist`, and app data plists often contain sensitive configuration
+- Jailbreak detection bypass: Objection and Shadow automate bypass of common detection checks
+- SSL Kill Switch: Disable NSURLSession certificate validation to intercept pinned traffic
+- Keychain extraction: On jailbroken devices, dump keychain items with Objection or Frida
+- class-dump analysis: Extract Objective-C class headers from stripped binaries
+- Plist analysis: `Info.plist`, `Entitlements.plist`, and app data plists often contain sensitive configuration
 
 ---
 
-## Offensive Perspective — Mobile Attack Techniques
+## Offensive Perspective: Mobile Attack Techniques
 
 | Technique | Description | Target |
 |---|---|---|
@@ -147,15 +147,15 @@ Key attack techniques:
 
 | Control | Family | Relevance |
 |---|---|---|
-| SC-28 | System & Communications Protection | Encryption of data at rest — device encryption, encrypted app storage |
-| IA-2 | Identification & Authentication | Multi-factor authentication — biometric + PIN enforcement via MDM |
-| IA-5 | Identification & Authentication | Authenticator management — prevent hardcoded credentials (M1) |
-| CM-7 | Configuration Management | Least functionality — MDM policy restricting app installs, camera, USB |
-| SC-7 | System & Communications Protection | Boundary protection — MDM VPN enforcement, split tunneling controls |
-| AC-19 | Access Control | Access control for mobile devices — BYOD policy, device registration |
-| SC-12 | System & Communications Protection | Cryptographic key management — keychain security, certificate pinning |
-| SI-3 | System & Information Integrity | Malicious code protection — MTD deployment on managed devices |
-| AC-17 | Access Control | Remote access — MDM-enforced VPN, conditional access for mobile |
+| SC-28 | System & Communications Protection | Encryption of data at rest: device encryption, encrypted app storage |
+| IA-2 | Identification & Authentication | Multi-factor authentication: biometric + PIN enforcement via MDM |
+| IA-5 | Identification & Authentication | Authenticator management: prevent hardcoded credentials (M1) |
+| CM-7 | Configuration Management | Least functionality: MDM policy restricting app installs, camera, USB |
+| SC-7 | System & Communications Protection | Boundary protection: MDM VPN enforcement, split tunneling controls |
+| AC-19 | Access Control | Access control for mobile devices: BYOD policy, device registration |
+| SC-12 | System & Communications Protection | Cryptographic key management: keychain security, certificate pinning |
+| SI-3 | System & Information Integrity | Malicious code protection: MTD deployment on managed devices |
+| AC-17 | Access Control | Remote access: MDM-enforced VPN, conditional access for mobile |
 
 ---
 
@@ -178,9 +178,9 @@ Key attack techniques:
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| [GMOB](https://www.giac.org/certifications/mobile-device-security-analyst-gmob/) | GIAC | Mobile Device Security Analyst — device management and mobile threat defense |
-| [eMAPT](https://elearnsecurity.com/product/emapt-certification/) | eLearnSecurity | Mobile Application Penetration Tester — practical iOS and Android testing |
-| [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing — foundational skills applicable to mobile exploitation |
+| [GMOB](https://www.giac.org/certifications/mobile-device-security-analyst-gmob/) | GIAC | Mobile Device Security Analyst: device management and mobile threat defense |
+| [eMAPT](https://elearnsecurity.com/product/emapt-certification/) | eLearnSecurity | Mobile Application Penetration Tester: practical iOS and Android testing |
+| [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing: foundational skills applicable to mobile exploitation |
 | [eWPTXv2](https://elearnsecurity.com/product/ewptxv2-certification/) | eLearnSecurity | Web + mobile pentesting, API security |
 | [MAPT (TCM Security)](https://www.tcm-sec.com/mapt/) | TCM Security | Practical mobile application pentesting (Android + iOS) |
 
@@ -190,10 +190,10 @@ Key attack techniques:
 
 | Resource | Type | Notes |
 |---|---|---|
-| [OWASP MASTG](https://mas.owasp.org/MASTG/) | Free guide | Definitive mobile application security testing guide — iOS and Android |
+| [OWASP MASTG](https://mas.owasp.org/MASTG/) | Free guide | Definitive mobile application security testing guide: iOS and Android |
 | [Android Security Internals (Elenkov)](https://nostarch.com/androidsecurity) | Book | Deep Android security architecture: permissions, cryptography, secure storage |
 | [iOS App Security (Charlie Miller)](https://www.amazon.com/iOS-App-Security-Charlie-Miller/dp/0470639520) | Book | iOS security internals and vulnerability research |
-| [HackTricks — Mobile Pentesting](https://book.hacktricks.xyz/mobile-pentesting/) | Reference | Extensive mobile pentesting techniques for Android and iOS |
+| [HackTricks: Mobile Pentesting](https://book.hacktricks.xyz/mobile-pentesting/) | Reference | Extensive mobile pentesting techniques for Android and iOS |
 | [TCM Security Mobile Course](https://academy.tcm-sec.com/p/mobile-application-penetration-testing) | Course | Practical Android + iOS pentesting from scratch |
 | [Frida Handbook / Snippets](https://github.com/iddoeldor/frida-snippets) | Reference | Frida snippet collection for common mobile hooking scenarios |
 | [NSO Group Pegasus Technical Analysis (Amnesty Tech)](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/) | Research | Forensic methodology for detecting mobile spyware; zero-click exploit indicators |
@@ -205,26 +205,26 @@ Key attack techniques:
 
 ### iOS Attack Surface
 
-- **Safari/WebKit**: Browser vulnerabilities; web content parsing flaws exploited remotely
-- **iMessage**: Zero-click exploits — FORCEDENTRY (CVE-2021-30860) used by NSO Pegasus; no user interaction required
-- **AirDrop**: BTLE/WiFi proximity exploitation
-- **Kernel**: Privilege escalation to gain code execution at kernel level
-- **Jailbreaking**: Checkra1n (checkm8 BootROM), Unc0ver, Palera1n — bypass iOS security model
+- Safari/WebKit: Browser vulnerabilities; web content parsing flaws exploited remotely
+- iMessage: Zero-click exploits: FORCEDENTRY (CVE-2021-30860) used by NSO Pegasus; no user interaction required
+- AirDrop: BTLE/WiFi proximity exploitation
+- Kernel: Privilege escalation to gain code execution at kernel level
+- Jailbreaking: Checkra1n (checkm8 BootROM), Unc0ver, Palera1n: bypass iOS security model
 
 ### Android Attack Surface
 
-- **APK sideloading**: Install apps from unknown sources bypasses Play Protect
-- **Stagefright (2015)**: MMS video parsing heap overflow — remote code execution
-- **MediaTek backdoor**: Undocumented factory mode access on chipsets
-- **Intent hijacking**: Intercept implicit intents; steal data from exported activities
-- **Rooting**: Magisk (most popular), KernelSU — root without modifying /system partition
+- APK sideloading: Install apps from unknown sources bypasses Play Protect
+- Stagefright (2015): MMS video parsing heap overflow: remote code execution
+- MediaTek backdoor: Undocumented factory mode access on chipsets
+- Intent hijacking: Intercept implicit intents; steal data from exported activities
+- Rooting: Magisk (most popular), KernelSU: root without modifying /system partition
 
 ### Network Attacks on Mobile
 
-- **Evil twin WiFi**: Force device to connect to rogue AP; SSL stripping/MitM
-- **Stingray/IMSI Catcher**: Fake cell tower; intercept calls/SMS; identify device location
-- **SS7 attacks**: Signaling System 7 vulnerabilities; intercept SMS 2FA codes; track location
-- **Bluetooth attacks**: BlueBorne (2017) — remote code execution over Bluetooth without pairing
+- Evil twin WiFi: Force device to connect to rogue AP; SSL stripping/MitM
+- Stingray/IMSI Catcher: Fake cell tower; intercept calls/SMS; identify device location
+- SS7 attacks: Signaling System 7 vulnerabilities; intercept SMS 2FA codes; track location
+- Bluetooth attacks: BlueBorne (2017): remote code execution over Bluetooth without pairing
 
 ---
 
@@ -232,12 +232,12 @@ Key attack techniques:
 
 ### OWASP Mobile Application Security Verification Standard (MASVS)
 
-- **MASVS-RESILIENCE**: Anti-tampering, anti-debugging, certificate pinning, jailbreak/root detection
-- **MASVS-CRYPTO**: Key management, algorithm choices, random number generation
-- **MASVS-NETWORK**: Certificate validation, TLS configuration, certificate pinning
-- **MASVS-AUTH**: Authentication, session management
-- **MASVS-STORAGE**: Local storage security, keychain/keystore usage, log data
-- **MASVS-CODE**: Code quality, injection prevention, third-party library security
+- MASVS-RESILIENCE: Anti-tampering, anti-debugging, certificate pinning, jailbreak/root detection
+- MASVS-CRYPTO: Key management, algorithm choices, random number generation
+- MASVS-NETWORK: Certificate validation, TLS configuration, certificate pinning
+- MASVS-AUTH: Authentication, session management
+- MASVS-STORAGE: Local storage security, keychain/keystore usage, log data
+- MASVS-CODE: Code quality, injection prevention, third-party library security
 
 ### Android Penetration Testing
 
@@ -284,10 +284,10 @@ cycript -p com.target.app
 
 ### Certificate Pinning Bypass Techniques
 
-- **Objection**: `ios sslpinning disable` / `android sslpinning disable` (hooks TrustManager/SSLContext)
-- **Frida scripts**: Universal bypass scripts for iOS (ssl_kill_switch2) and Android
-- **APK patching**: Decompile with apktool, modify network_security_config.xml, repackage and sign
-- **Proxy approach**: Charles Proxy or Burp with mitmproxy for traffic interception
+- Objection: `ios sslpinning disable` / `android sslpinning disable` (hooks TrustManager/SSLContext)
+- Frida scripts: Universal bypass scripts for iOS (ssl_kill_switch2) and Android
+- APK patching: Decompile with apktool, modify network_security_config.xml, repackage and sign
+- Proxy approach: Charles Proxy or Burp with mitmproxy for traffic interception
 
 ---
 
@@ -300,7 +300,7 @@ cycript -p com.target.app
 | Objection | Both | Runtime mobile exploration built on Frida |
 | jadx | Android | APK decompiler to Java/Kotlin |
 | apktool | Android | APK disassembly/reassembly |
-| adb | Android | Android Debug Bridge — device control |
+| adb | Android | Android Debug Bridge: device control |
 | Drozer | Android | Android app attack framework |
 | idb | iOS | iOS app investigation tool |
 | class-dump | iOS | Objective-C header extraction |
@@ -312,9 +312,9 @@ cycript -p com.target.app
 
 ## Related Disciplines
 
-- [Application Security](/disciplines/application-security.md) — Mobile API and backend security, OWASP alignment
-- [Malware Analysis](/disciplines/malware-analysis.md) — Mobile malware analysis — APK/IPA reverse engineering
-- [Penetration Testing / Offensive Security](/disciplines/offensive-security.md) — Mobile pentesting methodology, red team techniques
-- [DevSecOps](/disciplines/devsecops.md) — Mobile SAST/DAST integration in CI/CD pipelines
-- [Privacy Engineering](/disciplines/privacy-engineering.md) — Mobile data collection, consent, and GDPR/CCPA compliance
-- [Identity & Access Management](/disciplines/identity-access-management.md) — MDM conditional access, mobile certificate-based auth
+- [Application Security](/disciplines/application-security.md): Mobile API and backend security, OWASP alignment
+- [Malware Analysis](/disciplines/malware-analysis.md): Mobile malware analysis — APK/IPA reverse engineering
+- [Penetration Testing / Offensive Security](/disciplines/offensive-security.md): Mobile pentesting methodology, red team techniques
+- [DevSecOps](/disciplines/devsecops.md): Mobile SAST/DAST integration in CI/CD pipelines
+- [Privacy Engineering](/disciplines/privacy-engineering.md): Mobile data collection, consent, and GDPR/CCPA compliance
+- [Identity & Access Management](/disciplines/identity-access-management.md): MDM conditional access, mobile certificate-based auth

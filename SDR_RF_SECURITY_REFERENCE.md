@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Choosing SDR hardware for a job, capturing or replaying an unknown RF signal, or decoding a wireless protocol (GSM, P25, Zigbee, BLE, ADS-B) |
-| **Start at** | [SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware), [Replay & Signal Injection](#_7-replay-amp-signal-injection), [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework) |
-| **Pairs with** | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [AUTOMOTIVE_SECURITY_REFERENCE.md](AUTOMOTIVE_SECURITY_REFERENCE.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
+| Read this when | Choosing SDR hardware for a job, capturing or replaying an unknown RF signal, or decoding a wireless protocol (GSM, P25, Zigbee, BLE, ADS-B) |
+| Start at | [SDR Fundamentals & Hardware](#_1-sdr-fundamentals-amp-hardware), [Replay & Signal Injection](#_7-replay-amp-signal-injection), [Defensive RF & Legal Framework](#_10-defensive-rf-amp-legal-framework) |
+| Pairs with | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [AUTOMOTIVE_SECURITY_REFERENCE.md](AUTOMOTIVE_SECURITY_REFERENCE.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
 
 ---
 
@@ -31,18 +31,18 @@
 
 Software-Defined Radio (SDR) is a radio communication system where components traditionally implemented in hardware (mixers, filters, amplifiers, modulators/demodulators, detectors) are instead implemented by means of software on a personal computer or embedded system. An SDR system typically consists of:
 
-- **RF Front-end**: Antenna, low-noise amplifier (LNA), bandpass filter, and analog-to-digital converter (ADC)
-- **Digital Back-end**: Software running on a CPU/FPGA that performs signal processing
-- **Host Interface**: USB, PCIe, Ethernet, or direct FPGA I/O
+- RF Front-end: Antenna, low-noise amplifier (LNA), bandpass filter, and analog-to-digital converter (ADC)
+- Digital Back-end: Software running on a CPU/FPGA that performs signal processing
+- Host Interface: USB, PCIe, Ethernet, or direct FPGA I/O
 
 ### RF Fundamentals
 
-**Frequency & Wavelength**
+Frequency & Wavelength
 - Wavelength (lambda) = Speed of Light (c) / Frequency (f): lambda = 3x10^8 / f
 - HF: 3-30 MHz | VHF: 30-300 MHz | UHF: 300 MHz-3 GHz | SHF: 3-30 GHz
 - Propagation varies: HF bounces off ionosphere; VHF/UHF line-of-sight; SHF requires dishes
 
-**Modulation Types**
+Modulation Types
 
 | Type | Full Name | Description | Common Use |
 |------|-----------|-------------|------------|
@@ -55,7 +55,7 @@ Software-Defined Radio (SDR) is a radio communication system where components tr
 | QAM | Quadrature Amplitude Modulation | Combines AM + PM for high data rates | LTE, WiFi, cable TV |
 | OFDM | Orthogonal FDM | Multiple subcarriers simultaneously | LTE, 802.11 WiFi, DAB |
 
-**IQ (In-Phase / Quadrature) Sampling**
+IQ (In-Phase / Quadrature) Sampling
 
 IQ samples represent the full complex baseband signal:
 - I = In-phase component (real)
@@ -64,12 +64,12 @@ IQ samples represent the full complex baseband signal:
 - Enables capture of both amplitude and phase information
 - Most SDR hardware outputs 8-bit or 16-bit IQ pairs at a configurable sample rate
 
-**Nyquist-Shannon Sampling Theorem**
+Nyquist-Shannon Sampling Theorem
 - Minimum sample rate must be at least 2x the highest frequency of interest
 - RTL-SDR samples at 2.4 MSPS captures up to 1.2 MHz of instantaneous bandwidth
 - Aliasing occurs when signals exceed Nyquist limit; use anti-aliasing filters
 
-**Bandwidth vs. Sample Rate**
+Bandwidth vs. Sample Rate
 - Instantaneous bandwidth = sample rate (Hz)
 - Wider bandwidth captures more spectrum simultaneously at the cost of more CPU load
 - Typical trade-off: HackRF at 20 MSPS captures 20 MHz bandwidth at once
@@ -98,23 +98,23 @@ IQ samples represent the full complex baseband signal:
 | 2.4 / 5 GHz | Panel, parabolic dish, biquad | WiFi; high gain for long range |
 | 1090 MHz ADS-B | Coaxial collinear (CoCo), 1/4 wave ground plane | Vertical polarization for omnidirectional aircraft coverage |
 
-**Log-Periodic Dipole Array (LPDA)**: Covers wide frequency range (e.g., 100 MHz-3 GHz) with consistent gain; ideal for EMC and general-purpose scanning.
+Log-Periodic Dipole Array (LPDA): Covers wide frequency range (e.g., 100 MHz-3 GHz) with consistent gain; ideal for EMC and general-purpose scanning.
 
-**Impedance Matching**: Most SDR inputs are 50 ohm; antennas must match or use a balun/unun transformer.
+Impedance Matching: Most SDR inputs are 50 ohm; antennas must match or use a balun/unun transformer.
 
 ### RF Safety & Legal Framework
 
-**FCC Regulatory Framework (CFR Title 47)**
-- **Part 15**: Unlicensed intentional and unintentional radiators; governs consumer electronics
+FCC Regulatory Framework (CFR Title 47)
+- Part 15: Unlicensed intentional and unintentional radiators; governs consumer electronics
   - 15.247: Spread spectrum devices (WiFi, Bluetooth, Zigbee) in ISM bands
   - 15.249: Intentional radiators in ISM bands with field strength limits
-- **Part 97**: Amateur Radio Service - requires license (Technician, General, Extra)
+- Part 97: Amateur Radio Service - requires license (Technician, General, Extra)
   - Permits operation across HF/VHF/UHF/SHF bands with power up to 1,500W PEP
   - Prohibits encryption of messages except for control of satellites; no commercial use
-- **Part 90**: Private Land Mobile Radio; covers public safety, business, industrial
-- **Part 22/24/25/27**: Commercial cellular, PCS, satellite services - TRANSMIT PROHIBITED without license
+- Part 90: Private Land Mobile Radio; covers public safety, business, industrial
+- Part 22/24/25/27: Commercial cellular, PCS, satellite services - TRANSMIT PROHIBITED without license
 
-**Legal Considerations for SDR Security Research**
+Legal Considerations for SDR Security Research
 - Receiving (passive monitoring) of most signals is legal under 47 U.S.C. ss 705 with exceptions
 - ECPA (18 U.S.C. ss 2511) prohibits interception of electronic communications; cellular is covered
 - P25, cellular, and APCO-protected transmissions may not be retransmitted
@@ -123,7 +123,7 @@ IQ samples represent the full complex baseband signal:
 
 ### Calibration & Configuration
 
-**PPM Calibration with kalibrate-rtl**
+PPM Calibration with kalibrate-rtl
 ```bash
 # Scan for GSM base stations to use as frequency references
 kal -s GSM900 -g 40
@@ -133,14 +133,14 @@ kal -c 52 -g 40 -e 0
 # Apply correction: rtl_sdr -p 3 (rounds to nearest integer)
 ```
 
-**Gain Staging**
+Gain Staging
 - RF Gain: Applied at the antenna port; increases sensitivity but also noise
 - IF Gain: Applied to intermediate frequency stage
 - BB (Baseband) Gain: Applied in digital domain
 - Optimal: Set RF gain just high enough to lift desired signals above noise floor; avoid ADC clipping
 - AGC (Automatic Gain Control): Available on some devices; useful for unknown signal environments
 
-**Connector Types**
+Connector Types
 - SMA (SubMiniature version A): 50 ohm; common on RTL-SDR, HackRF, USRP; M/F pairs
 - BNC (Bayonet Neill-Concelman): 50 ohm or 75 ohm; quick-connect; common on test equipment
 - N-type: Weatherproof; larger; used on high-power and outdoor antennas
@@ -155,10 +155,10 @@ kal -c 52 -g 40 -e 0
 
 GNU Radio is a free and open-source software development toolkit that provides signal processing blocks to implement software radios. It is used heavily in hobbyist, academic, and professional RF security research.
 
-- **Language**: Primarily Python (blocks can be C++ for performance)
-- **Version**: GNU Radio 3.10.x (current); 3.9.x widely deployed
-- **Website**: https://www.gnuradio.org
-- **Installation**: `sudo apt install gnuradio` (Ubuntu/Debian)
+- Language: Primarily Python (blocks can be C++ for performance)
+- Version: GNU Radio 3.10.x (current); 3.9.x widely deployed
+- Website: https://www.gnuradio.org
+- Installation: `sudo apt install gnuradio` (Ubuntu/Debian)
 
 ### GNU Radio Companion (GRC)
 
@@ -168,7 +168,7 @@ GRC is the graphical flow graph editor for GNU Radio:
 - Generates Python script from flow graph (.grc -> .py)
 - Supports hierarchical blocks (sub-flow-graphs)
 
-**Essential Blocks**
+Essential Blocks
 
 | Block | Category | Description |
 |-------|----------|-------------|
@@ -272,30 +272,30 @@ sudo ldconfig
 
 ### Key OOT Module Ecosystem for Security
 
-**gr-osmosdr**
+gr-osmosdr
 - Universal hardware abstraction layer for GNU Radio
 - Supports: RTL-SDR, HackRF, USRP, LimeSDR, Airspy, bladeRF, SoapySDR
 - Usage: `osmosdr.source(args="rtl=0,gain=40")` or `osmosdr.source(args="hackrf=0")`
 - SoapySDR backend enables even broader hardware support
 
-**gr-satellites**
+gr-satellites
 - Decodes 40+ satellite beacon protocols
 - Supports FUNcube, AO-73, FUNCUBE-1, Tianwang-1, and many CubeSats
 - Installation: `pip install gr-satellites` or build from source
 - Usage: `gr_satellites <satellite_name> --wavfile input.wav`
 
-**gr-gsm**
+gr-gsm
 - GSM downlink capture and analysis
 - `grgsm_livemon` - real-time GSM channel monitor with Wireshark integration
 - `grgsm_decode` - offline GSM burst decoding
 - Captures BCCH, SDCCH, TCH channels; useful for base station analysis
 
-**gr-ais**
+gr-ais
 - AIS (Automatic Identification System) decoding for ship tracking
 - Decodes NMEA sentences from 161.975 MHz and 162.025 MHz
 - Feeds into OpenCPN or online AIS aggregators
 
-**gr-ieee802-11**
+gr-ieee802-11
 - IEEE 802.11a/g/p (WiFi) physical layer implementation in GNU Radio
 - Enables packet injection and reception research at PHY level
 - Useful for studying OFDM-based protocols and custom frame injection
@@ -320,7 +320,7 @@ iq.astype(np.complex64).tofile('capture_433.cf32')
 # -> osmocom Sink (hackrf=0, Freq=433.92MHz, Samp Rate=2.4MSPS)
 ```
 
-**gr-iqrecorder**
+gr-iqrecorder
 - Supports threshold-based recording (squelch trigger)
 - Configurable segment duration, file naming by timestamp
 - Useful for automated capture of intermittent transmissions
@@ -333,7 +333,7 @@ iq.astype(np.complex64).tofile('capture_433.cf32')
 
 The RTL-SDR is based on the Realtek RTL2832U DVB-T chipset combined with a tuner IC (most commonly Rafael Micro R820T2). Originally designed for digital TV reception, the raw IQ output mode was discovered by Eric Fry in 2012, spawning the RTL-SDR community.
 
-**RTL-SDR v3 (rtl-sdr.com)**
+RTL-SDR v3 (rtl-sdr.com)
 - Frequency: 500 kHz-1.75 GHz (direct sampling for HF below 24 MHz)
 - Sample rate: 225001-300000 or 900001-3200000 samples/sec (2.4 MSPS stable)
 - ADC: 8-bit (limited dynamic range ~48 dB)
@@ -342,7 +342,7 @@ The RTL-SDR is based on the Realtek RTL2832U DVB-T chipset combined with a tuner
 
 ### Core RTL-SDR Command-Line Tools
 
-**rtl_sdr - Basic IQ Capture**
+rtl_sdr - Basic IQ Capture
 ```bash
 # Capture 10 seconds of IQ at 433.92 MHz, 2.4 MSPS, gain 40 dB
 rtl_sdr -f 433920000 -s 2400000 -g 40 -n 24000000 output.cu8
@@ -354,7 +354,7 @@ rtl_sdr -f 162400000 -s 250000 -p 3 -g 0 noaa_wx.cu8
 rtl_sdr -f 433920000 -s 2400000 - | some_decoder
 ```
 
-**rtl_fm - FM Demodulation**
+rtl_fm - FM Demodulation
 ```bash
 # NOAA Weather Radio (NFM)
 rtl_fm -f 162.400M -M fm -s 22050 | aplay -r 22050 -f S16_LE
@@ -372,7 +372,7 @@ rtl_fm -f 154.8M -f 155.3M -f 156.8M -M fm -s 22050 | aplay -r 22050 -f S16_LE
 rtl_fm -f 121.5M -M am -s 12000 | aplay -r 12000 -f S16_LE
 ```
 
-**rtl_tcp - Network SDR Server**
+rtl_tcp - Network SDR Server
 ```bash
 # Start server on all interfaces, port 1234
 rtl_tcp -a 0.0.0.0 -p 1234 -f 100000000 -g 40
@@ -382,7 +382,7 @@ rtl_tcp -a 0.0.0.0 -p 1234 -f 100000000 -g 40
 # Multiple clients NOT supported - single connection only
 ```
 
-**rtl_power - Frequency Sweep / Spectrum Survey**
+rtl_power - Frequency Sweep / Spectrum Survey
 ```bash
 # Sweep FM broadcast band, 125kHz steps, 10-second intervals, run once
 rtl_power -f 88M:108M:125k -i 10 -1 fm_band.csv
@@ -397,7 +397,7 @@ python3 heatmap.py output.csv heatmap.png
 rtl_power -f 24M:1800M:1M -i 10 fullband.csv
 ```
 
-**rtl_433 - 433 MHz ISM Band Sensor Decoder**
+rtl_433 - 433 MHz ISM Band Sensor Decoder
 ```bash
 # Auto-detect all supported protocols, JSON output
 rtl_433 -F json -G
@@ -417,19 +417,19 @@ rtl_433 -F "mqtt://localhost:1883,retain=0,devices=rtl433/[MODEL]/[ID]" -G
 
 ### GUI Applications
 
-**SDR# (SDRSharp) - Windows**
+SDR# (SDRSharp) - Windows
 - URL: https://airspy.com/download/
 - Architecture: Plugin-based (.NET); supports RTL-SDR, Airspy, HackRF via plugins
 - Features: Real-time spectrum, waterfall, AM/FM/SSB/CW demodulation
 - Key Plugins:
-  - **Frequency Manager**: Save and organize bookmarks
-  - **DSD+ Integration**: Real-time P25/DMR/NXDN decoding via virtual audio cable
-  - **FreqEdit**: Frequency list editor
-  - **Scanner Plugin**: Automatic scanning of frequency lists
+  - Frequency Manager: Save and organize bookmarks
+  - DSD+ Integration: Real-time P25/DMR/NXDN decoding via virtual audio cable
+  - FreqEdit: Frequency list editor
+  - Scanner Plugin: Automatic scanning of frequency lists
 - Configuration: SDRSharp.exe.Config sets sample rate, audio device, and plugins
 - Set bufferSize and frontendPlugin for stability
 
-**GQRX - Linux/macOS**
+GQRX - Linux/macOS
 ```bash
 sudo apt install gqrx-sdr
 
@@ -443,14 +443,14 @@ gqrx
 - Features: Recording (wav/raw IQ), bookmarks, remote control via TCP port 7356
 - Remote control: `echo "F 145800000" | nc localhost 7356` (set frequency to 145.8 MHz)
 
-**CubicSDR - Cross-platform**
+CubicSDR - Cross-platform
 - Based on SoapySDR/liquid-dsp
 - Supports Windows/Linux/macOS
 - Features: Bookmark manager, band plans, audio streaming server
 
 ### ADS-B Aircraft Tracking
 
-**dump1090**
+dump1090
 ```bash
 # Install
 sudo apt install dump1090-mutability
@@ -470,7 +470,7 @@ piaware-config flightaware-password YOUR_PASS
 sudo systemctl start piaware
 ```
 
-**dump978 - UAT 978 MHz (US Only)**
+dump978 - UAT 978 MHz (US Only)
 ```bash
 # Capture raw UAT
 rtl_sdr -f 978000000 -s 2083334 -g 48 - | dump978-fa | uat2esnt | nc 127.0.0.1 30005
@@ -478,7 +478,7 @@ rtl_sdr -f 978000000 -s 2083334 -g 48 - | dump978-fa | uat2esnt | nc 127.0.0.1 3
 
 ### Pager & APRS Decoding
 
-**multimon-ng**
+multimon-ng
 ```bash
 # POCSAG pager decoding (152.24 MHz example)
 rtl_fm -f 152.24M -M fm -s 22050 -g 40 | multimon-ng -t raw -a POCSAG512 -a POCSAG1200 -a POCSAG2400 /dev/stdin
@@ -504,7 +504,7 @@ rtl_fm -f 162.400M -M fm -s 22050 | multimon-ng -t raw -a EAS /dev/stdin
 
 HackRF One is an open-source software-defined radio peripheral capable of transmission and reception from 1 MHz to 6 GHz. Designed and released as open source hardware by Great Scott Gadgets, it is a widely used platform for RF security research.
 
-**Key Specifications**
+Key Specifications
 - Frequency: 1 MHz - 6 GHz
 - Sample rate: 2-20 MSPS (complex IQ)
 - ADC/DAC: 8-bit
@@ -516,7 +516,7 @@ HackRF One is an open-source software-defined radio peripheral capable of transm
 
 ### Command-Line Tools
 
-**hackrf_info - Device Information**
+hackrf_info - Device Information
 ```bash
 hackrf_info
 # Output:
@@ -529,7 +529,7 @@ hackrf_info
 # Hardware Revision: r9
 ```
 
-**hackrf_transfer - RX and TX**
+hackrf_transfer - RX and TX
 ```bash
 # RECEIVE: Capture at 433.92 MHz, 2 MSPS
 hackrf_transfer -r capture.bin -f 433920000 -s 2000000 -l 40 -g 24 -n 20000000
@@ -552,7 +552,7 @@ hackrf_transfer -t signal.bin -f 915000000 -s 2000000 -x 47 -a 1
 #   -n : number of samples to transfer
 ```
 
-**hackrf_sweep - Wideband Spectrum Analysis**
+hackrf_sweep - Wideband Spectrum Analysis
 ```bash
 # Sweep 2400-2500 MHz (2.4 GHz WiFi band)
 hackrf_sweep -f 2400:2500 -l 40 -g 20 -w 100000 -B -N 10
@@ -593,11 +593,11 @@ hackrf_info | grep Firmware
 
 The Portapack H2 is a companion board that attaches to HackRF One, adding a screen, controls, speaker, and microSD card for fully standalone operation.
 
-**Mayhem Firmware** - community firmware with extensive security features:
+Mayhem Firmware - community firmware with extensive security features:
 - URL: https://github.com/portapack-mayhem/mayhem-firmware
 - Flash: Copy .bin to SD card root, or use hackrf_update
 
-**Mayhem Features**
+Mayhem Features
 
 | Mode | Description |
 |------|-------------|
@@ -676,7 +676,7 @@ tx_sink.set_bandwidth(2e6)
 
 ### GSM / 2G Analysis
 
-**gr-gsm**
+gr-gsm
 ```bash
 # Install
 sudo apt install gr-gsm
@@ -698,13 +698,13 @@ grgsm_decode -c gsm_capture.cfile -a BCCH -m GSM900
 grgsm_livemon_headless -f 939.4M
 ```
 
-**Understanding GSM Channels**
+Understanding GSM Channels
 - BCCH (Broadcast Control Channel): Cell identity, LAC (Location Area Code), CID (Cell ID)
 - SDCCH (Standalone Dedicated Control Channel): SMS, location updates
 - TCH (Traffic Channel): Voice calls
 - PCH (Paging Channel): Device paging (IMSI/TMSI visible)
 
-**IMSI Catcher Detection**
+IMSI Catcher Detection
 ```bash
 # Record LAC/CID mappings over time and look for anomalies
 # Legitimate cells: consistent LAC/CID, proper timing advance
@@ -722,7 +722,7 @@ kal -s GSM900 -g 40 2>&1 | grep "chan:"
 
 ### LTE / 4G Analysis
 
-**srsRAN (formerly srsLTE)**
+srsRAN (formerly srsLTE)
 ```bash
 # Install
 sudo apt install srslte   # or build from source
@@ -743,7 +743,7 @@ sudo srsue --rf.device_name=soapy --rf.device_args="hackrf"
 
 ### Bluetooth Analysis
 
-**Ubertooth One**
+Ubertooth One
 ```bash
 # Install tools
 sudo apt install ubertooth
@@ -765,7 +765,7 @@ ubertooth-specan   # Real-time spectrum analyzer mode
 ubertooth-follow -l <LAP> -u <UAP>
 ```
 
-**crackle - BLE Key Cracking**
+crackle - BLE Key Cracking
 ```bash
 # If LE Legacy pairing (Just Works or Passkey) was captured
 crackle -i capture.pcap -o decrypted.pcap
@@ -774,7 +774,7 @@ crackle -i capture.pcap -o decrypted.pcap
 # LE Secure Connections (LESC) using ECDH is NOT vulnerable to crackle
 ```
 
-**BtleJuice - BLE MITM Framework**
+BtleJuice - BLE MITM Framework
 ```bash
 # Node.js based BLE MITM proxy
 npm install -g btlejuice
@@ -785,7 +785,7 @@ btlejuice --target AA:BB:CC:DD:EE:FF   # On interceptor
 
 ### Zigbee / IEEE 802.15.4
 
-**KillerBee Framework**
+KillerBee Framework
 ```bash
 # Install
 pip install killerbee
@@ -809,7 +809,7 @@ wireshark -r zigbee_cap.pcap
 # 5A:69:67:42:65:65:41:6C:6C:69:61:6E:63:65:30:39
 ```
 
-**Zigbee Security Notes**
+Zigbee Security Notes
 - Network encryption: AES-128-CCM* (IEEE 802.15.4 security suite)
 - Default/hardcoded network keys common in consumer devices
 - Over-the-air key transport (Trust Center link key) can be sniffed at join time
@@ -847,12 +847,12 @@ wireshark -r zigbee_cap.pcap
 
 ### NB-IoT & Sigfox
 
-**Sigfox**
+Sigfox
 - 868 MHz (EU), 902 MHz (US); ultra-narrowband (100 Hz UNB)
 - DBPSK uplink, GFSK downlink; 12 bytes payload max
 - No end-to-end encryption by default in early devices
 
-**NB-IoT**
+NB-IoT
 - Subset of LTE; operates in-band, guard-band, or standalone
 - Encrypted (LTE security: AES, SNOW 3G, ZUC)
 - Analysis requires LTE-capable SDR (USRP/LimeSDR) and srsRAN
@@ -860,10 +860,10 @@ wireshark -r zigbee_cap.pcap
 ### RF Fingerprinting
 
 RF fingerprinting identifies specific hardware devices based on subtle RF characteristics:
-- **Clock offsets**: Crystal oscillator variations create frequency offsets unique per device
-- **Transient analysis**: Power-on/off transients are hardware-specific
-- **IQ imbalance**: Manufacturing variations create measurable I/Q offset patterns
-- **Phase noise**: Oscillator quality differences are fingerprint-able
+- Clock offsets: Crystal oscillator variations create frequency offsets unique per device
+- Transient analysis: Power-on/off transients are hardware-specific
+- IQ imbalance: Manufacturing variations create measurable I/Q offset patterns
+- Phase noise: Oscillator quality differences are fingerprint-able
 
 ```python
 # Simple clock offset fingerprinting using RTL-433 TPMS data
@@ -879,7 +879,7 @@ RF fingerprinting identifies specific hardware devices based on subtle RF charac
 
 APCO Project 25 (P25) is a suite of standards for digital radio communications for public safety agencies developed by the Association of Public-Safety Communications Officials International (APCO).
 
-**P25 Phase 1 vs Phase 2**
+P25 Phase 1 vs Phase 2
 
 | Feature | Phase 1 | Phase 2 |
 |---------|---------|---------|
@@ -890,7 +890,7 @@ APCO Project 25 (P25) is a suite of standards for digital radio communications f
 | Adoption | Widespread (legacy) | Growing (new deployments) |
 | Trunking | FDMA-based | TDMA-based |
 
-**P25 Trunking Systems**
+P25 Trunking Systems
 - Control channel broadcasts system information; subscriber radios monitor it
 - When call initiated: control channel assigns a voice channel (grant)
 - Multi-site trunking: RFSS (RF Subsystem) links multiple sites via IP
@@ -916,7 +916,7 @@ python3 rx.py --args "rtl=0" -N "LNA:40" -T site1.tsv &
 python3 rx.py --args "rtl=1" -N "LNA:40" -T site2.tsv &
 ```
 
-**Control Channel Message Types (TSDU)**
+Control Channel Message Types (TSDU)
 - RFSS Status Broadcast: site ID, RFSS ID
 - Network Status Broadcast: NAC, system ID
 - Group Voice Channel Grant: assigns voice frequency to TGID
@@ -937,27 +937,27 @@ python3 rx.py --args "rtl=1" -N "LNA:40" -T site2.tsv &
 
 These vulnerabilities have been publicly documented by academic researchers (Temple University, SIT, EFF):
 
-1. **Unencrypted Inter-Site Links (ISSI/CSSI)**
+1. Unencrypted Inter-Site Links (ISSI/CSSI)
    - Inter-RF Subsystem Interface (ISSI) and Console Subsystem Interface (CSSI)
    - Many deployments route these over unencrypted IP
    - An attacker with backhaul network access can passively monitor all calls
 
-2. **OTAR (Over-The-Air Rekeying) Weaknesses**
+2. OTAR (Over-The-Air Rekeying) Weaknesses
    - P25 OTAR designed for key delivery over RF
    - If encryption key management is flawed, keys may be interceptable
    - Requires listening on control/dedicated channels during key update cycles
 
-3. **Unencrypted Emergency Alerts**
+3. Unencrypted Emergency Alerts
    - P25 standard does NOT require encryption of emergency alert messages
    - Subscriber UNIT IDs (equivalent to IMSI) visible in emergency traffic
    - Enables tracking of individual radios in emergency situations
 
-4. **Rogue Transmitter Risk**
+4. Rogue Transmitter Risk
    - P25 Phase 1 has no cryptographic authentication of control channel
    - Spoofed control channel can redirect radios to attacker-controlled frequency
    - Proof-of-concept demonstrated in academic settings
 
-5. **Voice Quality Fingerprinting**
+5. Voice Quality Fingerprinting
    - Even without key, IMBE vocoder parameters can statistically identify speakers
    - Applicable to encrypted traffic analysis
 
@@ -978,7 +978,7 @@ java -jar sdrtrunk.jar
 
 ### Digital Voice Codecs
 
-**DMR (Digital Mobile Radio) - ETSI TS 102 361**
+DMR (Digital Mobile Radio) - ETSI TS 102 361
 ```bash
 # DSD+ (Digital Speech Decoder Plus) - Windows
 dsd -i /dev/dsp -o /dev/dsp1 -fp   # P25 decode from audio
@@ -988,7 +988,7 @@ dsd -i /dev/dsp -o /dev/dsp1 -fp   # P25 decode from audio
 # Used in amateur and commercial infrastructure
 ```
 
-**Other Digital Voice Protocols**
+Other Digital Voice Protocols
 
 | Protocol | Modulation | Codec | Notes |
 |----------|-----------|-------|-------|
@@ -1000,20 +1000,20 @@ dsd -i /dev/dsp -o /dev/dsp1 -fp   # P25 decode from audio
 
 ### Scanner Programming
 
-**Uniden HomePatrol 2**
+Uniden HomePatrol 2
 - Built-in database of US/Canada systems; GPS-based auto-programming
 - P25 Phase 1 and Phase 2 with optional upgrade
 
-**Uniden SDS100 / SDS200**
+Uniden SDS100 / SDS200
 - P25 Phase 1 and Phase 2 digital trunking
 - Analog/Digital mixed; conventional and trunked
 - RSS (Radio System Software) programming
 
-**Whistler TRX-2**
+Whistler TRX-2
 - Supports P25 P1/P2, DMR, NXDN, ProVoice
 - Discrim output jack for DSD+ integration
 
-**Programming with RadioReference**
+Programming with RadioReference
 - Export system data, import to Sentinel (Uniden) or EZ-Scan (Whistler)
 - Include all site frequencies, NAC values, TGID lists
 
@@ -1025,7 +1025,7 @@ dsd -i /dev/dsp -o /dev/dsp1 -fp   # P25 decode from audio
 
 A replay attack captures a legitimate RF transmission and re-transmits it verbatim to trigger the same action. This is effective against systems that use fixed codes without challenge-response mechanisms.
 
-**General Workflow**
+General Workflow
 1. Identify target: determine frequency, modulation, protocol
 2. Capture IQ: record raw IQ data including target transmission
 3. Analyze: demodulate, decode, identify packet boundaries
@@ -1055,25 +1055,25 @@ hackrf_transfer -t keyfob_capture.bin -f 315000000 -s 2000000 -x 40
 
 Many older consumer devices use fixed codes with no replay protection:
 
-- **Garage door openers** (pre-2000 era): 8-12 bit DIP switch codes; 512-4096 possibilities
+- Garage door openers (pre-2000 era): 8-12 bit DIP switch codes; 512-4096 possibilities
   - Code-grabbing: capture transmissions to decode
   - Brute force: transmit all codes sequentially with HackRF
-- **Simple car remotes** (pre-1995): Fixed code OOK transmissions
-- **RF power switches** (433 MHz ISM): Nearly all use fixed OOK codes
-- **Wireless doorbells**: Fixed code; typically no consequences beyond nuisance
-- **Remote keyless entry (old)**: Princeton TP521x and similar fixed-code ICs
+- Simple car remotes (pre-1995): Fixed code OOK transmissions
+- RF power switches (433 MHz ISM): Nearly all use fixed OOK codes
+- Wireless doorbells: Fixed code; typically no consequences beyond nuisance
+- Remote keyless entry (old): Princeton TP521x and similar fixed-code ICs
 
 ### Rolling Code Systems (KeeLoq)
 
 Rolling codes (also called "hopping codes") change with each transmission to prevent simple replay.
 
-**KeeLoq Algorithm**
+KeeLoq Algorithm
 - Developed by Microchip Technology; used in many car remotes, garage doors
 - Each press generates a new 64-bit codeword using a proprietary NLFSR cipher
 - Manufacturer seed key + serial number = per-device key
 - Both sides maintain synchronized counter; receiver accepts window of ~256 future codes
 
-**RollJam Attack (Samy Kamkar, DEF CON 23)**
+RollJam Attack (Samy Kamkar, DEF CON 23)
 1. Attacker device continuously jams the target frequency
 2. Victim presses button: signal is jammed AND captured
 3. Victim presses button again (thinking first press failed): second signal captured
@@ -1086,7 +1086,7 @@ RollJam hardware: 2x RTL-SDR (RX), 2x CC1101 (jam + replay)
 Kamkar's PoC: https://github.com/samyk/opensesame
 ```
 
-**KeeLoq Cryptanalysis**
+KeeLoq Cryptanalysis
 - Academic break (Bono et al., 2007): 2^50 complexity with 2^16 known plaintexts
 - Side-channel attacks: power analysis on keyfob during transmission
 - Practical implication: with enough captures + computation, key recovery is possible
@@ -1115,7 +1115,7 @@ urh
 urh_cli --device RTL-SDR --frequency 433920000 --sample-rate 2000000   --bandwidth 2000000 --gain 40 record keyfob.complex
 ```
 
-**URH Protocol Analysis Features**
+URH Protocol Analysis Features
 - Auto-interpretation of OOK/ASK/FSK/PSK signals
 - Preamble, sync word, length field auto-detection
 - Hexadecimal and binary bit views
@@ -1155,7 +1155,7 @@ rtl_433 -R 59 -F json 2>&1 | grep -i tpms
 
 ### GPS Spoofing
 
-**GPS-SDR-SIM + HackRF**
+GPS-SDR-SIM + HackRF
 ```bash
 # GPS-SDR-SIM generates GPS satellite signals
 git clone https://github.com/osqzss/gps-sdr-sim
@@ -1202,10 +1202,10 @@ ADS-B (1090 MHz) has no authentication in legacy Mode S/ADS-B Out. Aircraft iden
 
 Kismet is an open-source wireless network detector, packet sniffer, wardriver, and intrusion detection system. It supports multiple RF protocols through a modular data source architecture.
 
-- **Website**: https://www.kismetwireless.net
-- **GitHub**: https://github.com/kismetwireless/kismet
-- **Architecture**: Server/client split; web UI or CLI clients; REST API
-- **Installation**: `sudo apt install kismet` or build from source
+- Website: https://www.kismetwireless.net
+- GitHub: https://github.com/kismetwireless/kismet
+- Architecture: Server/client split; web UI or CLI clients; REST API
+- Installation: `sudo apt install kismet` or build from source
 
 ### Architecture
 
@@ -1220,7 +1220,7 @@ Kismet is an open-source wireless network detector, packet sniffer, wardriver, a
 
 ### Configuration
 
-**Main Config: /etc/kismet/kismet.conf**
+Main Config: /etc/kismet/kismet.conf
 ```conf
 # Log settings
 log_prefix=/var/log/kismet/
@@ -1239,7 +1239,7 @@ httpd_port=2501
 httpd_bind_address=127.0.0.1
 ```
 
-**Data Source Configuration (/etc/kismet/kismet_site.conf)**
+Data Source Configuration (/etc/kismet/kismet_site.conf)
 ```conf
 # WiFi monitor mode interface
 source=wlan0:name=wifi0,channel=6,ht_channels=true
@@ -1376,11 +1376,11 @@ wireshark -k -i TCP@localhost:3002
 ### Device Fingerprinting
 
 Kismet's fingerprinting engine uses:
-- **OUI (Organizationally Unique Identifier)**: First 3 octets of MAC identifies manufacturer
-- **Probe request SSIDs**: List of known network names reveals device history
-- **IE (Information Element) fingerprinting**: Vendor-specific IE ordering is OS-specific
-- **Timing patterns**: Beacon intervals, power save patterns
-- **Protocol behavior**: EAPOL timing, association request capabilities
+- OUI (Organizationally Unique Identifier): First 3 octets of MAC identifies manufacturer
+- Probe request SSIDs: List of known network names reveals device history
+- IE (Information Element) fingerprinting: Vendor-specific IE ordering is OS-specific
+- Timing patterns: Beacon intervals, power save patterns
+- Protocol behavior: EAPOL timing, association request capabilities
 
 Cross-protocol correlation: Kismet correlates Bluetooth and WiFi devices seen at the same time and location. Same manufacturer OUI prefix on both Bluetooth and WiFi MACs often indicates same physical device.
 
@@ -1466,7 +1466,7 @@ hf legic info
 hf legic read
 ```
 
-**Proxmark3 Emulation**
+Proxmark3 Emulation
 ```bash
 # Emulate an EM4100 tag
 lf em 4100 sim --id 0x123456789A
@@ -1506,7 +1506,7 @@ LOGDOWNLOAD                    # Download log data
 
 ### NFC Tools & Libraries
 
-**libnfc (Linux)**
+libnfc (Linux)
 ```bash
 sudo apt install libnfc-bin libnfc-dev
 
@@ -1525,7 +1525,7 @@ nfc-mfclassic W a dump.mfd FFFFFFFFFFFF   # write including UID block (magic car
 nfc-poll
 ```
 
-**nfcpy (Python)**
+nfcpy (Python)
 ```python
 import nfc
 import binascii
@@ -1543,7 +1543,7 @@ with nfc.ContactlessFrontend('usb') as clf:
 
 ### Mifare Classic Vulnerabilities
 
-**CRYPTO1 Cipher Weaknesses**
+CRYPTO1 Cipher Weaknesses
 - Proprietary stream cipher; specifications reverse-engineered in 2008
 - 48-bit key; ~2^48 brute force space is infeasible without attacks
 - Nested Authentication Attack (Nohl et al.):
@@ -1558,7 +1558,7 @@ with nfc.ContactlessFrontend('usb') as clf:
   - Many deployments use: FFFFFFFFFFFF, A0A1A2A3A4A5, D3F7D3F7D3F7
   - Dictionary attack covers most real-world deployments
 
-**Mifare DESFire Security**
+Mifare DESFire Security
 - DES/3DES/AES encryption (DESFire EV1: 3DES; EV2/EV3: AES-128)
 - Mutual authentication before access to application data
 - EV3 includes Transaction MAC for cryptographic transaction integrity
@@ -1590,7 +1590,7 @@ rtl_433 -R 59 -R 60 -R 61 -R 62 -R 63 -R 64 -F json 2>&1
 
 Non-sensitive data is readable without PIN: card number, expiry, recent transaction metadata.
 
-**NFC Relay Attack Concept**
+NFC Relay Attack Concept
 - Attacker device near victim's card (relay point 1)
 - Another attacker device at point-of-sale terminal (relay point 2)
 - Data relayed in real-time via internet/LAN
@@ -1611,7 +1611,7 @@ Non-sensitive data is readable without PIN: card number, expiry, recent transact
 
 ### RF Monitoring for Security Operations
 
-**Establishing a Spectrum Baseline**
+Establishing a Spectrum Baseline
 
 ```bash
 # Capture 24-hour baseline at all facilities
@@ -1646,7 +1646,7 @@ for freq, power in current.items():
 EOF
 ```
 
-**Rogue Access Point Detection with Kismet**
+Rogue Access Point Detection with Kismet
 ```bash
 # Kismet WIDS configuration
 alert=CRYPTODROP,5/min,1/sec        # Encryption downgrade
@@ -1667,7 +1667,7 @@ mqtt_topic=kismet/alerts
 
 ### IMSI Catcher Detection
 
-**Software Tools**
+Software Tools
 
 ```
 Android: IMSI-Catcher Detector (AIMSICD)
@@ -1686,7 +1686,7 @@ ESD America Overwatch / Cryptophone
   - Used by high-value targets, government officials
 ```
 
-**IMSI Catcher Indicators**
+IMSI Catcher Indicators
 ```
 1. Signal Strength Anomaly: Tower appears much stronger than expected for location
 2. Missing Neighbor Cells: Legitimate towers advertise neighbors; catchers often do not
@@ -1697,7 +1697,7 @@ ESD America Overwatch / Cryptophone
 7. TMSI Reuse: Temporary Mobile Subscriber Identity reuse patterns
 ```
 
-**Mapping with kalibrate-rtl + gr-gsm**
+Mapping with kalibrate-rtl + gr-gsm
 ```bash
 # Build GSM cell map of area before investigation
 kal -s GSM900 -g 40 2>&1 | tee gsm_cells.txt
@@ -1710,7 +1710,7 @@ curl "https://opencellid.org/cell/get?key=API_KEY&radio=GSM&mcc=310&mnc=410&lac=
 
 ### RF Shielding
 
-**Faraday Cage Construction**
+Faraday Cage Construction
 
 | Material | Attenuation | Frequency Range | Notes |
 |----------|------------|-----------------|-------|
@@ -1731,7 +1731,7 @@ curl "https://opencellid.org/cell/get?key=API_KEY&radio=GSM&mcc=310&mnc=410&lac=
 # Compare against free-space measurement at same distance
 ```
 
-**RF Gasket and Sealing**
+RF Gasket and Sealing
 - All seams and penetrations reduce cage effectiveness
 - Cable penetrations: use RF filters or waveguide-below-cutoff tubes
 - Ventilation: copper honeycomb (EMC shielding panels)
@@ -1739,13 +1739,13 @@ curl "https://opencellid.org/cell/get?key=API_KEY&radio=GSM&mcc=310&mnc=410&lac=
 
 ### TEMPEST / EMSEC
 
-**Van Eck Phreaking**
+Van Eck Phreaking
 - Unintentional RF emissions from computer monitors, keyboards, CPUs
 - Video signals from CRT monitors historically reconstructed at 100+ meters
 - Modern LCD/LED: reduced but still measurable emanations
 - Keyboard emanations: PS/2 and USB keyboards emit detectable RF per keystroke
 
-**TEMPEST Standards**
+TEMPEST Standards
 
 | Standard | Type | Description |
 |----------|------|-------------|
@@ -1754,7 +1754,7 @@ curl "https://opencellid.org/cell/get?key=API_KEY&radio=GSM&mcc=310&mnc=410&lac=
 | NSA CSS EPL | US | Evaluated Products List for TEMPEST equipment |
 | CNSS Instruction 7000 | US | TEMPEST countermeasures policy |
 
-**Practical EMSEC Countermeasures**
+Practical EMSEC Countermeasures
 - Physical separation (RED/BLACK installation)
 - Shielded enclosures for sensitive equipment
 - Power line filtering (TEMPEST power conditioners)
@@ -1764,7 +1764,7 @@ curl "https://opencellid.org/cell/get?key=API_KEY&radio=GSM&mcc=310&mnc=410&lac=
 
 ### Legal Framework (United States)
 
-**Federal Statutes**
+Federal Statutes
 ```
 47 U.S.C. ss 333 - Willful or malicious interference with radio communications
   - Felony; up to $100,000 fine + 1 year imprisonment per violation
@@ -1789,12 +1789,12 @@ State Wiretapping Laws
   - Active monitoring vs. passive reception distinction varies by jurisdiction
 ```
 
-**Amateur Radio Testing Authorization (Part 97)**
+Amateur Radio Testing Authorization (Part 97)
 - License holders may test transmitter performance on amateur frequencies
 - Cannot test on cellular, satellite, public safety, or licensed commercial bands
 - Must identify transmissions with callsign (47 C.F.R. ss 97.119)
 
-**FCC Enforcement**
+FCC Enforcement
 - Enforcement Bureau investigates complaints; issues Notice of Apparent Liability (NAL)
 - Civil forfeiture penalties up to $100,000/day for continuing violations
 - Criminal referral to DOJ for willful violations
@@ -1863,14 +1863,14 @@ Bug Bounty Programs with RF Scope
 | IoT Security Engineer | RFID, Bluetooth, Zigbee, embedded firmware | IoT vendors, startups |
 | Telecom Security Analyst | GSM/LTE/5G protocols, core network security | MNOs, telecom security firms |
 
-**Certifications & Training**
+Certifications & Training
 - GIAC GAWN: Assessing and Auditing Wireless Networks
 - Offensive Security OSWP: practical WiFi penetration testing
 - GNU Radio Academy: online courses for GNU Radio DSP
 - DEF CON RF Village: annual training workshops
 - FCC Amateur Radio License: Technician -> General -> Extra (legal TX platform)
 
-**Key Resources**
+Key Resources
 ```
 Books:
   - "Software Defined Radio using MATLAB & Simulink and the RTL-SDR" - Stewart

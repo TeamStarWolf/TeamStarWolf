@@ -13,7 +13,7 @@ Begin with the foundational understanding that completion rates are a proxy metr
 | Stage | Focus | Where to Begin |
 |---|---|---|
 | Foundation | Adult learning principles (ADDIE model, spaced repetition, microlearning), how phishing simulations work, NIST SP 800-50 awareness fundamentals, the difference between completion metrics and behavior metrics, GoPhish setup | [NIST SP 800-50](https://csrc.nist.gov/publications/detail/sp/800-50/final) (free), GoPhish documentation, CISA awareness resources, Perry Carpenter's "Transformational Security Awareness" |
-| Practitioner | Program design for role-based training, phishing simulation campaign methodology (baseline → template → analysis → retrain → trend tracking), security champions programs, human risk metrics, KPI dashboards | SANS MGT433, KnowBe4 blog, ENISA awareness guidelines, Hoxhunt methodology content |
+| Practitioner | Program design for role-based training, phishing simulation campaign methodology (baseline -> template -> analysis -> retrain -> trend tracking), security champions programs, human risk metrics, KPI dashboards | SANS MGT433, KnowBe4 blog, ENISA awareness guidelines, Hoxhunt methodology content |
 | Advanced | Human risk scoring models, BJ Fogg Tiny Habits / nudge theory applied to security behavior, SBCC frameworks, enterprise-scale phishing simulation design, gamification, board-level security culture reporting | Perry Carpenter research, SANS Security Awareness Summit talks, academic behavioral economics literature |
 
 ---
@@ -23,20 +23,20 @@ Begin with the foundational understanding that completion rates are a proxy metr
 Security awareness programs fail when they treat training as information delivery. Behavior change science provides evidence-based frameworks for actually changing what people do.
 
 ### BJ Fogg Tiny Habits
-Fogg's Behavior Model: **B = MAP** (Behavior = Motivation × Ability × Prompt). A behavior occurs when motivation and ability are both sufficient *at the moment of a prompt*. Security implications:
-- Don't ask employees to do things they find difficult (low ability) — simplify the secure action (one-click MFA approval, pre-configured password manager)
+Fogg's Behavior Model: B = MAP (Behavior = Motivation × Ability × Prompt). A behavior occurs when motivation and ability are both sufficient *at the moment of a prompt*. Security implications:
+- Don't ask employees to do things they find difficult (low ability): simplify the secure action (one-click MFA approval, pre-configured password manager)
 - Deliver the security prompt at the moment of risk (just-in-time training when an employee clicks a suspicious link — not during annual training)
 - Celebrate tiny behaviors (reporting a phish) to build the habit through positive reinforcement
-- **Tiny Habits**: Attach security behaviors to existing habits ("After I open my email, I will look at the sender domain before clicking any links")
+- Tiny Habits: Attach security behaviors to existing habits ("After I open my email, I will look at the sender domain before clicking any links")
 
 ### Nudge Theory
 Thaler and Sunstein's nudge theory: design choice architectures that make the secure option the default or easiest choice.
-- **Defaults**: Opt-out MFA rather than opt-in; pre-populated secure settings; secure defaults in software
-- **Friction**: Add friction to risky actions (confirmation dialogs for large wire transfers, email banners on external messages)
-- **Social proof**: "87% of your colleagues reported this phishing email" — normative messaging changes behavior
+- Defaults: Opt-out MFA rather than opt-in; pre-populated secure settings; secure defaults in software
+- Friction: Add friction to risky actions (confirmation dialogs for large wire transfers, email banners on external messages)
+- Social proof: "87% of your colleagues reported this phishing email": normative messaging changes behavior
 
 ### Just-in-Time Training
-Traditional annual training is ineffective because it is temporally disconnected from risk moments. Just-in-time (JIT) training delivers a micro-lesson immediately after a risky behavior (clicking a simulated phish, downloading an unsafe file). JIT training produces 2–5x better retention than equivalent annual module content because it occurs in the moment of relevance.
+Traditional annual training is ineffective because it is temporally disconnected from risk moments. Just-in-time (JIT) training delivers a micro-lesson immediately after a risky behavior (clicking a simulated phish, downloading an unsafe file). JIT training produces 2-5x better retention than equivalent annual module content because it occurs in the moment of relevance.
 
 ---
 
@@ -82,40 +82,40 @@ Effective security awareness programs track behavioral metrics, not just trainin
 
 | Metric | Definition | Target Direction |
 |---|---|---|
-| **Click Rate** | % of simulation recipients who clicked the phishing link | Decrease over time; industry median ~10%, well-run programs target <5% |
-| **Credential Submission Rate** | % who entered credentials after clicking | Decrease; more dangerous than click-only; target near zero |
-| **Reporting Rate** | % of phishing simulations (and real phish) reported via security button | Increase; high reporting rate is a stronger positive signal than low click rate |
-| **Time-to-Report** | Average time from receipt to security team notification | Decrease; faster reporting reduces dwell time when real attacks occur |
-| **Training Completion Rate** | % of assigned training modules completed on time | Maintain above compliance threshold (typically 95%+); not a primary effectiveness metric |
-| **Repeat Offender Rate** | % of employees who click across multiple simulation campaigns | Decrease; persistent repeat offenders require targeted intervention |
-| **Human Risk Score (HRS)** | Composite score weighting all behavioral metrics (KnowBe4 model) | Decrease; enables prioritized risk-based intervention |
+| Click Rate | % of simulation recipients who clicked the phishing link | Decrease over time; industry median ~10%, well-run programs target <5% |
+| Credential Submission Rate | % who entered credentials after clicking | Decrease; more dangerous than click-only; target near zero |
+| Reporting Rate | % of phishing simulations (and real phish) reported via security button | Increase; high reporting rate is a stronger positive signal than low click rate |
+| Time-to-Report | Average time from receipt to security team notification | Decrease; faster reporting reduces dwell time when real attacks occur |
+| Training Completion Rate | % of assigned training modules completed on time | Maintain above compliance threshold (typically 95%+); not a primary effectiveness metric |
+| Repeat Offender Rate | % of employees who click across multiple simulation campaigns | Decrease; persistent repeat offenders require targeted intervention |
+| Human Risk Score (HRS) | Composite score weighting all behavioral metrics (KnowBe4 model) | Decrease; enables prioritized risk-based intervention |
 
 ---
 
 ## Free Training
 
-- [NIST SP 800-50: Building an IT Security Awareness and Training Program](https://csrc.nist.gov/publications/detail/sp/800-50/final) — Authoritative NIST guidance for designing federal and enterprise security awareness programs; covers program structure, role-based training, and evaluation; free and foundational
-- [NIST SP 800-16: IT Security Training Requirements](https://csrc.nist.gov/publications/detail/sp/800-16/final) — NIST role-based training guidance; maps training requirements to job functions and responsibility levels
-- [CISA Secure Our World](https://www.cisa.gov/secure-our-world) — Free awareness materials, posters, and campaign kits from CISA; phishing, password hygiene, and MFA awareness content
-- [GoPhish Documentation and Quickstart](https://getgophish.com/) — Open-source phishing simulation framework; complete documentation for building in-house simulation capability
-- [ENISA Awareness Raising Handbook](https://www.enisa.europa.eu/topics/cybersecurity-education/awareness-raising) — EU Agency guidance on security awareness campaign design, targeting, and measurement; vendor-neutral
+- [NIST SP 800-50: Building an IT Security Awareness and Training Program](https://csrc.nist.gov/publications/detail/sp/800-50/final): Authoritative NIST guidance for designing federal and enterprise security awareness programs; covers program structure, role-based training, and evaluation; free and foundational
+- [NIST SP 800-16: IT Security Training Requirements](https://csrc.nist.gov/publications/detail/sp/800-16/final): NIST role-based training guidance; maps training requirements to job functions and responsibility levels
+- [CISA Secure Our World](https://www.cisa.gov/secure-our-world): Free awareness materials, posters, and campaign kits from CISA; phishing, password hygiene, and MFA awareness content
+- [GoPhish Documentation and Quickstart](https://getgophish.com/): Open-source phishing simulation framework; complete documentation for building in-house simulation capability
+- [ENISA Awareness Raising Handbook](https://www.enisa.europa.eu/topics/cybersecurity-education/awareness-raising): EU Agency guidance on security awareness campaign design, targeting, and measurement; vendor-neutral
 - [SANS Ouch! Newsletter](https://www.sans.org/newsletters/ouch/) — Free monthly security awareness newsletter for end users; covers current threats in accessible language
-- [MITRE ATT&CK M1017: User Training](https://attack.mitre.org/mitigations/M1017/) — MITRE's documentation of User Training as mitigation; connects awareness content to specific ATT&CK techniques
+- [MITRE ATT&CK M1017: User Training](https://attack.mitre.org/mitigations/M1017/): MITRE's documentation of User Training as mitigation; connects awareness content to specific ATT&CK techniques
 
 ---
 
 ## Tools & Repositories
 
 ### Phishing Simulation
-- [gophish/gophish](https://github.com/gophish/gophish) — Most widely deployed open-source phishing simulation framework; campaign management, email template editor, landing page cloning, click and credential capture tracking, and results reporting
-- [PhishingFrenzy](https://github.com/pentestgeek/phishing-frenzy) — Open-source phishing framework built on Metasploit; campaign management, template library, and reporting
+- [gophish/gophish](https://github.com/gophish/gophish): Most widely deployed open-source phishing simulation framework; campaign management, email template editor, landing page cloning, click and credential capture tracking, and results reporting
+- [PhishingFrenzy](https://github.com/pentestgeek/phishing-frenzy): Open-source phishing framework built on Metasploit; campaign management, template library, and reporting
 
 ### Awareness Content & Program Resources
-- [CISA Phishing Guidance](https://www.cisa.gov/phishing) — Free phishing awareness materials, infographics, and campaign resources
-- [SANS Security Awareness](https://www.sans.org/security-awareness-training/) — SANS awareness resources including the monthly OUCH! newsletter, awareness posters, and program design guidance
+- [CISA Phishing Guidance](https://www.cisa.gov/phishing): Free phishing awareness materials, infographics, and campaign resources
+- [SANS Security Awareness](https://www.sans.org/security-awareness-training/): SANS awareness resources including the monthly OUCH! newsletter, awareness posters, and program design guidance
 
 ### Metrics & Measurement
-- [OWASP Human Factor Security Awareness](https://owasp.org/www-project-human-factor-security-awareness/) — Awareness program metrics, KPI frameworks, and measurement methodologies; useful for building defensible program metrics
+- [OWASP Human Factor Security Awareness](https://owasp.org/www-project-human-factor-security-awareness/): Awareness program metrics, KPI frameworks, and measurement methodologies; useful for building defensible program metrics
 
 ---
 
@@ -123,14 +123,14 @@ Effective security awareness programs track behavioral metrics, not just trainin
 
 | Platform | Strength |
 |---|---|
-| **KnowBe4** | Market-leading security awareness and phishing simulation platform; largest template library, Human Risk Score (HRS) metric, automated training assignments based on phishing performance |
-| **Proofpoint Security Awareness Training (PSAT)** | Integrated with Proofpoint email security; awareness training correlated with real threat intelligence from the email gateway |
-| **Cofense PhishMe** | Phishing simulation specialist with focus on training users to report phishing; Reporter button integration and threat intelligence from the Cofense network |
-| **Hoxhunt** | Gamified phishing simulation with adaptive difficulty; Human Risk Score tracking and spaced reinforcement learning; strong engagement metrics and European market presence |
-| **SANS Security Awareness** | SANS-developed awareness content; role-based training library used by government and enterprise; high credibility with security teams |
-| **Ninjio** | Short-form animated awareness training (3-4 minute episodes); high engagement rates compared to traditional e-learning |
-| **Curricula** | Narrative-driven awareness training with story-based content and short module format; focused on making security training engaging |
-| **Infosec IQ** | Awareness training platform with phishing simulation, policy acknowledgment, and role-based training; competitive pricing for mid-market |
+| KnowBe4 | Market-leading security awareness and phishing simulation platform; largest template library, Human Risk Score (HRS) metric, automated training assignments based on phishing performance |
+| Proofpoint Security Awareness Training (PSAT) | Integrated with Proofpoint email security; awareness training correlated with real threat intelligence from the email gateway |
+| Cofense PhishMe | Phishing simulation specialist with focus on training users to report phishing; Reporter button integration and threat intelligence from the Cofense network |
+| Hoxhunt | Gamified phishing simulation with adaptive difficulty; Human Risk Score tracking and spaced reinforcement learning; strong engagement metrics and European market presence |
+| SANS Security Awareness | SANS-developed awareness content; role-based training library used by government and enterprise; high credibility with security teams |
+| Ninjio | Short-form animated awareness training (3-4 minute episodes); high engagement rates compared to traditional e-learning |
+| Curricula | Narrative-driven awareness training with story-based content and short module format; focused on making security training engaging |
+| Infosec IQ | Awareness training platform with phishing simulation, policy acknowledgment, and role-based training; competitive pricing for mid-market |
 
 ---
 
@@ -162,11 +162,11 @@ Security awareness directly mitigates initial access and execution techniques by
 
 ## Certifications
 
-- **SSAP** (Security Sensibilities Awareness Professional — SANS/ISACA) — The most recognized dedicated security awareness certification; covers program design, adult learning principles, phishing simulation methodology, and behavior change measurement; the credential for practitioners building awareness as a career specialty
-- **Security+** (CompTIA) — Covers social engineering attack types and awareness fundamentals; useful foundation for practitioners entering the awareness discipline from a general security background; widely recognized as a baseline credential
-- **CISSP** (ISC2) — Domain 1 (Security and Risk Management) covers security awareness and training program requirements; the credential for senior practitioners who need to align awareness programs with enterprise risk management and compliance
-- **CISM** (ISACA) — Information security management credential covering security awareness as a risk management control; appropriate for practitioners in governance and program management roles
-- **GSLC** (GIAC Security Leadership Certificate) — Security leadership and management credential with coverage of awareness program governance, metrics reporting, and organizational security culture
+- SSAP (Security Sensibilities Awareness Professional: SANS/ISACA) — The most recognized dedicated security awareness certification; covers program design, adult learning principles, phishing simulation methodology, and behavior change measurement; the credential for practitioners building awareness as a career specialty
+- Security+ (CompTIA): Covers social engineering attack types and awareness fundamentals; useful foundation for practitioners entering the awareness discipline from a general security background; widely recognized as a baseline credential
+- CISSP (ISC2): Domain 1 (Security and Risk Management) covers security awareness and training program requirements; the credential for senior practitioners who need to align awareness programs with enterprise risk management and compliance
+- CISM (ISACA): Information security management credential covering security awareness as a risk management control; appropriate for practitioners in governance and program management roles
+- GSLC (GIAC Security Leadership Certificate): Security leadership and management credential with coverage of awareness program governance, metrics reporting, and organizational security culture
 
 ---
 

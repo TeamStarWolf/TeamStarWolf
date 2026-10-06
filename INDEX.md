@@ -2,7 +2,7 @@
 
 > Full alphabetical listing of all resources in this library. For a categorized overview, see the [README](README.md). For step-by-step how-to procedures, see the [Guides](guides/README.md).
 
-## A–C
+## A-C
 
 | Resource | Description |
 |---|---|
@@ -15,8 +15,8 @@
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |
-| [ATT&CK Detection Strategies](detections/strategies/README.md) | 697 MITRE detection strategies + 1,758 analytics — log sources, detection logic, and tunable parameters per technique |
-| [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix — mitigation, threat activity, exposure, detection, compliance, and composite risk |
+| [ATT&CK Detection Strategies](detections/strategies/README.md) | 697 MITRE detection strategies + 1,758 analytics: log sources, detection logic, and tunable parameters per technique |
+| [ATT&CK Matrix Analysis Reference](ATTACK_MATRIX_ANALYSIS_REFERENCE.md) | 24 analytic lenses for reading an ATT&CK matrix: mitigation, threat activity, exposure, detection, compliance, and composite risk |
 | [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md) | All 44 ATT&CK Enterprise mitigations (M-codes) and the techniques each one addresses |
 | [ATT&CK Software Reference](ATTACK_SOFTWARE_REFERENCE.md) | 825 MITRE ATT&CK malware families and tools with the techniques they implement and the groups that use them |
 | [ATT&CK Priority Gap Analysis](scores/attack_priority_gaps.md) | Most-used, least-covered ATT&CK techniques ranked for detection/mitigation focus |
@@ -28,7 +28,7 @@
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
 | [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md) | SOP, CORS attacks, CSP bypass, security headers, CSRF, clickjacking, cookie security, extension analysis, prototype pollution |
 | [Career Paths](CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths |
-| [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications — cost, difficulty, DoD 8570, and who should pursue each |
+| [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each |
 | [CEH Domain Crosswalk](CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers |
 | [CISSP Domain Crosswalk](CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps |
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
@@ -39,13 +39,13 @@
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
 | [CVE Reference](CVE_REFERENCE.md) | CVE program, CVSS v3.1/v4.0, EPSS scoring, CISA KEV catalog, vulnerability databases, patch prioritization |
-| [CPE Reference](CPE_REFERENCE.md) | Common Platform Enumeration — the CPE 2.3 name, part a/o/h, NVD dictionary, CVE↔CPE applicability/match ranges, and CPE's role in vuln-mgmt / SBOM / CTEM |
+| [CPE Reference](CPE_REFERENCE.md) | Common Platform Enumeration: the CPE 2.3 name, part a/o/h, NVD dictionary, CVE<->CPE applicability/match ranges, and CPE's role in vuln-mgmt / SBOM / CTEM |
 | [CWE Weakness Reference](CWE_REFERENCE.md) | 969 software/hardware weakness types (10 pillars, 114 classes) with consequences, mitigations, and a most-attacked ranking |
-| [CTEM Reference](CTEM_REFERENCE.md) | Continuous Threat Exposure Management — Gartner's 5-stage loop in operational depth, attack-path/choke-point analysis, the EASM/CAASM/BAS→AEV/EAP category taxonomy, validation governance, maturity, failure modes, metrics, and a 90-day plan |
+| [CTEM Reference](CTEM_REFERENCE.md) | Continuous Threat Exposure Management: Gartner's 5-stage loop in operational depth, attack-path/choke-point analysis, the EASM/CAASM/BAS->AEV/EAP category taxonomy, validation governance, maturity, failure modes, metrics, and a 90-day plan |
 | [Cyber Resilience & BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md) | NIST SP 800-34 contingency planning, BIA and RTO/RPO/MTD, cyber-broken DR assumptions, ISO 22301, SP 800-160v2 resiliency engineering, AD forest recovery, testing tiers, resilience metrics |
 | [Cybersecurity Book List](CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths |
 
-## D–G
+## D-G
 
 | Resource | Description |
 |---|---|
@@ -55,11 +55,11 @@
 | [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) | Sigma, YARA, and Suricata rule writing with examples and conversion to Splunk, Elastic, and Sentinel |
 | [DevSecOps Reference](DEVSECOPS_REFERENCE.md) | SAST/DAST/SCA tools, GitHub Actions security, Semgrep/CodeQL/Trivy/Snyk, secrets detection, IaC scanning, pipeline security gates |
 | [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md) | Order of volatility, chain of custody, disk acquisition, Windows/Linux artifacts, Volatility 3 memory forensics, and log analysis |
-| [Edge & Network Device Security Reference](EDGE_DEVICE_SECURITY_REFERENCE.md) | BOD 23-02 management-interface isolation, BOD 26-04 KEV patch tiers, 2023–2026 edge exploitation record, Feb 2025 joint edge-device guidance, appliance integrity checking and forensic readiness, egress monitoring |
+| [Edge & Network Device Security Reference](EDGE_DEVICE_SECURITY_REFERENCE.md) | BOD 23-02 management-interface isolation, BOD 26-04 KEV patch tiers, 2023-2026 edge exploitation record, Feb 2025 joint edge-device guidance, appliance integrity checking and forensic readiness, egress monitoring |
 | [Email Security Reference](EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics |
-| [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md) | MITRE EMB3D threat model — device properties → threats → tiered Foundational/Intermediate/Leading mitigations, IEC 62443-4-2 alignment, device threat-exposure reviews |
+| [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md) | MITRE EMB3D threat model: device properties -> threats -> tiered Foundational/Intermediate/Leading mitigations, IEC 62443-4-2 alignment, device threat-exposure reviews |
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
-| [Engage Reference (deception)](ENGAGE_REFERENCE.md) | MITRE Engage — denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 175 mappings to ATT&CK techniques |
+| [Engage Reference (deception)](ENGAGE_REFERENCE.md) | MITRE Engage: denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 175 mappings to ATT&CK techniques |
 | [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
@@ -80,7 +80,7 @@
 | [Security-Program Management / CISO Handbook](SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md) | Building & running a security program: first-90-days, org design, budget & headcount, risk prioritization, board reporting, metrics, strategy |
 | [Security Awareness Program](SECURITY_AWARENESS_REFERENCE.md) | Program design & maturity, phishing simulation (methodology/metrics/ethics), human-risk measurement, culture change, role-based training |
 
-## H–N
+## H-N
 
 | Resource | Description |
 |---|---|
@@ -96,10 +96,10 @@
 | [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md) | IAM, PAM, MFA bypass techniques, AD attacks, Okta/Entra/CyberArk/Vault vendor controls, identity detection |
 | [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md) | NIST/SANS IR frameworks, live response commands, Velociraptor/KAPE, ransomware playbook, BEC response, AD compromise |
 | [Insider Threat Program Reference](INSIDER_THREAT_REFERENCE.md) | MITRE CTID Insider Threat TTP Knowledge Base v2.0, EO 13587/NITTF/NISPOM foundations, CISA mitigation guide, UAM detection, HR/legal/privacy guardrails, program metrics |
-| [Interview Prep](INTERVIEW_PREP.md) | Common interview questions by role — SOC analyst, pentester, DFIR, cloud security, AppSec |
+| [Interview Prep](INTERVIEW_PREP.md) | Common interview questions by role: SOC analyst, pentester, DFIR, cloud security, AppSec |
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for ransomware, BEC, data exfiltration, DDoS, cloud incidents, and more |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
-| [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio — download, analysis, editing, stem separation, and batch processing |
+| [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio: download, analysis, editing, stem separation, and batch processing |
 | [Linux Hardening](LINUX_HARDENING.md) | CIS Benchmark, STIG, kernel hardening (sysctl), SELinux/AppArmor, auditd rules, SSH hardening, service sandboxing |
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall configuration, compliance |
 | [LOTL Detection Reference](LOTL_DETECTION_REFERENCE.md) | LOLBAS/GTFOBins/LOOBins/LOLDrivers/LOLRMM/LOTS as defensive inventories, CISA/NSA joint LOTL guidance, per-platform telemetry (4688, auditd, ESF), detection patterns, WDAC/AppLocker/fapolicyd, Volt Typhoon case study |
@@ -118,7 +118,7 @@
 | [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md) | OSI model, TCP/IP deep dive, subnetting, ARP/VLANs/STP, routing protocols (OSPF/BGP), DNS, and essential troubleshooting commands for security practitioners |
 | [Notable Incidents](NOTABLE_INCIDENTS.md) | Curated reference of significant cyber incidents, nation-state campaigns, ransomware events, and critical vulnerabilities |
 
-## O–S
+## O-S
 
 | Resource | Description |
 |---|---|
@@ -156,7 +156,7 @@
 | [Starred Repositories](STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology |
 | [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md) | SBOM (CycloneDX/SPDX), Sigstore/cosign, SLSA framework, dependency security, CI/CD pipeline hardening, malicious package detection, OSS risk management |
 
-## T–Z
+## T-Z
 
 | Resource | Description |
 |---|---|
@@ -164,7 +164,7 @@
 | [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md) | MITRE FiGHT framework, SS7/Diameter signaling defense, GSMA FS.11/FS.19, 5G SBA/SUCI/SEPP, network slicing, O-RAN WG11, Salt Typhoon advisories and CISA hardening guidance |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs, ransomware groups, and eCrime actors mapped to ATT&CK TTPs |
 | [Threat Group Profiles](THREAT_GROUP_PROFILES.md) | 176 MITRE ATT&CK adversary groups with aliases, attributed techniques, and tooling (authoritative STIX-derived) |
-| [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | ATT&CK-centric knowledge graph (CVE → CWE → CAPEC → ATT&CK → D3FEND), open-source data-source stack, and per-technique coverage-stack model |
+| [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) | ATT&CK-centric knowledge graph (CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND), open-source data-source stack, and per-technique coverage-stack model |
 | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md) | Hypothesis-driven hunting procedures mapped to MITRE ATT&CK with data sources, detection logic, and response actions |
 | [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) | KQL, SPL, Sigma, YARA, ATT&CK playbooks, Velociraptor, osquery, TI integration, hunt tracking |
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
@@ -172,7 +172,7 @@
 | [Threat Report Almanac](THREAT_REPORT_ALMANAC.md) | Annotated index of the 15 major annual threat reports (DBIR, M-Trends, CrowdStrike GTR, MDDR, X-Force, ENISA, IC3, Dragos, etc.) organized by methodology basis, with a critical-reading method and a quarterly reading calendar |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |
-| [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV→ATT&CK mappings, SLA policy design |
+| [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design |
 | [Web App Pentesting](WEB_APPLICATION_PENTESTING.md) | Testing methodology, SQLi/XSS/SSRF/SSTI payloads, JWT attacks, auth bypass, business logic testing, Burp Suite and ffuf reference |
 | [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md) | OWASP Top 10, SQL injection, XSS, authentication attacks, SSRF/XXE, API security, WAF bypass, secure coding, bug bounty methodology |
 | [Windows Hardening](WINDOWS_HARDENING.md) | CIS benchmarks, GPO hardening, ASR rules, Defender for Endpoint, AppLocker/WDAC, and compliance scanning |

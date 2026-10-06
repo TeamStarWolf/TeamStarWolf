@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule |
-| **Start at** | [Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting) |
-| **Pairs with** | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md) |
+| Read this when | You are planning or running a hypothesis-driven hunt, you need a ready KQL/SPL query for a technique like LSASS access or Kerberoasting, or you are turning a hunt finding into a Sigma or YARA rule |
+| Start at | [Threat Hunting Fundamentals](#_1-threat-hunting-fundamentals), [ATT&CK-Aligned Hunting Playbooks](#_6-attampck-aligned-hunting-playbooks), [Hunt Tracking and Reporting](#_10-hunt-tracking-and-reporting) |
+| Pairs with | [Threat Hunting Playbooks](THREAT_HUNTING_PLAYBOOKS.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md), [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md) |
 
 ---
 
@@ -29,9 +29,9 @@
 
 ### 1.1 Definition: Threat Hunting vs. Detection Engineering
 
-**Threat Hunting** is the proactive, human-led search for adversary activity that has evaded existing automated detections. It is iterative, hypothesis-driven, and relies on analyst expertise to explore data that rules have not yet classified as malicious.
+Threat Hunting is the proactive, human-led search for adversary activity that has evaded existing automated detections. It is iterative, hypothesis-driven, and relies on analyst expertise to explore data that rules have not yet classified as malicious.
 
-**Detection Engineering** is the systematic process of building, testing, and deploying automated detection logic (SIEM rules, EDR policies, IDS signatures) based on known TTPs and prior hunt findings. The two disciplines are complementary: hunts discover novel attacker behavior; detection engineering operationalizes those discoveries at scale.
+Detection Engineering is the systematic process of building, testing, and deploying automated detection logic (SIEM rules, EDR policies, IDS signatures) based on known TTPs and prior hunt findings. The two disciplines are complementary: hunts discover novel attacker behavior; detection engineering operationalizes those discoveries at scale.
 
 | Dimension | Threat Hunting | Detection Engineering |
 |---|---|---|
@@ -48,15 +48,15 @@
 
 The Hunting Maturity Model (HMM), originally articulated by Sqrrl (now part of Amazon), defines five progressive capability levels for a hunting program.
 
-**Level 0 - Initial (Reliant):** The organization relies entirely on automated alerts. Data collection is inconsistent; logs may not be centralized. Hunts, if any, are unstructured and reactive. Action: Centralize logging (SIEM), establish baseline endpoint telemetry.
+Level 0 - Initial (Reliant): The organization relies entirely on automated alerts. Data collection is inconsistent; logs may not be centralized. Hunts, if any, are unstructured and reactive. Action: Centralize logging (SIEM), establish baseline endpoint telemetry.
 
-**Level 1 - Minimal:** Basic IOC searching: IP/domain/hash lookups against log sources. Hunts triggered by external intelligence (ISAC feeds, vendor advisories). No formal hypothesis framework. Action: Standardize on a query language; introduce Sigma rules; begin documenting findings.
+Level 1 - Minimal: Basic IOC searching: IP/domain/hash lookups against log sources. Hunts triggered by external intelligence (ISAC feeds, vendor advisories). No formal hypothesis framework. Action: Standardize on a query language; introduce Sigma rules; begin documenting findings.
 
-**Level 2 - Procedural:** Adopts community-developed hunting procedures and playbooks. Hunts documented in a repeatable format (hypothesis, scope, queries, findings). Basic TTP-based hunting using ATT&CK as a guide. Action: Build a hunt library; track ATT&CK coverage; establish MTTD baseline.
+Level 2 - Procedural: Adopts community-developed hunting procedures and playbooks. Hunts documented in a repeatable format (hypothesis, scope, queries, findings). Basic TTP-based hunting using ATT&CK as a guide. Action: Build a hunt library; track ATT&CK coverage; establish MTTD baseline.
 
-**Level 3 - Innovative:** Team creates custom hunting procedures from internal data analysis. Statistical and behavioral baselines used to surface anomalies. Machine learning-assisted clustering to identify outliers. Action: Formalize feedback loop to detection engineering; instrument custom telemetry.
+Level 3 - Innovative: Team creates custom hunting procedures from internal data analysis. Statistical and behavioral baselines used to surface anomalies. Machine learning-assisted clustering to identify outliers. Action: Formalize feedback loop to detection engineering; instrument custom telemetry.
 
-**Level 4 - Leading:** Hunting program automates data collection, hypothesis suggestion, and initial analysis. Comprehensive ATT&CK coverage across all data sources. Hunts inform threat intelligence production and purple team exercises. Action: Publish internal research; contribute to community (Sigma, YARA, blog posts).
+Level 4 - Leading: Hunting program automates data collection, hypothesis suggestion, and initial analysis. Comprehensive ATT&CK coverage across all data sources. Hunts inform threat intelligence production and purple team exercises. Action: Publish internal research; contribute to community (Sigma, YARA, blog posts).
 
 ---
 
@@ -66,7 +66,7 @@ The Hunting Maturity Model (HMM), originally articulated by Sqrrl (now part of A
 
 Start with a structured "if an attacker did X, we would expect to see Y" statement.
 
-**Hypothesis template:**
+Hypothesis template:
 ```
 Given that [threat actor / technique],
 an adversary may [specific action],
@@ -76,13 +76,13 @@ We will look for [specific indicator / statistical anomaly]
 using [query / tool] to confirm or refute this hypothesis.
 ```
 
-**Example:** Given that APT29 uses spearphishing with macro-enabled Office documents, an adversary may spawn PowerShell or WScript from WINWORD.EXE. We will search process creation events for child processes of Office applications that execute script interpreters.
+Example: Given that APT29 uses spearphishing with macro-enabled Office documents, an adversary may spawn PowerShell or WScript from WINWORD.EXE. We will search process creation events for child processes of Office applications that execute script interpreters.
 
 #### IOC-Based Hunting
 
 Search for known indicators of compromise: IP addresses, domain names, file hashes, registry keys, mutex names. Source IOCs from MISP, TAXII feeds, vendor reports, and ISAC sharing. Limitations: IOCs are ephemeral; sophisticated actors rotate infrastructure frequently.
 
-**IOC pivot methodology:**
+IOC pivot methodology:
 1. Match IOC against logs to confirm presence
 2. Identify affected hosts and accounts
 3. Reconstruct timeline around first IOC contact
@@ -125,13 +125,13 @@ The Sqrrl hunting loop defines four iterative phases:
 +-------------------+     +----------------------+
 ```
 
-**Phase 1 - Hypothesis:** Generate from ATT&CK, threat intel, vulnerability disclosures, or internal anomalies. Document in a standardized template.
+Phase 1 - Hypothesis: Generate from ATT&CK, threat intel, vulnerability disclosures, or internal anomalies. Document in a standardized template.
 
-**Phase 2 - Investigate:** Query logs, EDR telemetry, network flows. Apply statistics (frequency analysis, clustering, regression). Enrich with external context.
+Phase 2 - Investigate: Query logs, EDR telemetry, network flows. Apply statistics (frequency analysis, clustering, regression). Enrich with external context.
 
-**Phase 3 - Uncover:** Determine if the hypothesis is confirmed (true positive), refuted (true negative), or inconclusive. Document all findings regardless of outcome.
+Phase 3 - Uncover: Determine if the hypothesis is confirmed (true positive), refuted (true negative), or inconclusive. Document all findings regardless of outcome.
 
-**Phase 4 - Inform:** Produce hunt report. Convert confirmed findings to detection rules. Update threat model. Brief stakeholders. Archive hunt in tracking system.
+Phase 4 - Inform: Produce hunt report. Convert confirmed findings to detection rules. Update threat model. Brief stakeholders. Archive hunt in tracking system.
 
 ---
 
@@ -147,7 +147,7 @@ The Sqrrl hunting loop defines four iterative phases:
 | False positive rate | Percentage of alerts from hunt-generated rules that are non-malicious | <20% at 30 days |
 | Hunt conversion rate | Percentage of hypotheses yielding at least one actionable finding | Track for improvement |
 
-**Reporting cadence:** Weekly status to team lead; Monthly dashboard to security manager; Quarterly ATT&CK coverage map update; Annually full program review, staffing and tooling recommendations.
+Reporting cadence: Weekly status to team lead; Monthly dashboard to security manager; Quarterly ATT&CK coverage map update; Annually full program review, staffing and tooling recommendations.
 
 ---
 
@@ -155,9 +155,9 @@ The Sqrrl hunting loop defines four iterative phases:
 
 DetectionLab (by Chris Long / clong) provides a pre-configured Windows AD environment with logging and security tools.
 
-**Components:** DC01 (Windows Server 2019 DC), WEF (Windows Event Forwarding), WIN10 (Windows 10 with Sysmon, Osquery, Splunk UF), Logger (Ubuntu 18.04 with Splunk, Fleet, Zeek, Suricata).
+Components: DC01 (Windows Server 2019 DC), WEF (Windows Event Forwarding), WIN10 (Windows 10 with Sysmon, Osquery, Splunk UF), Logger (Ubuntu 18.04 with Splunk, Fleet, Zeek, Suricata).
 
-**Setup:**
+Setup:
 ```bash
 git clone https://github.com/clong/DetectionLab
 cd DetectionLab/Vagrant
@@ -166,7 +166,7 @@ vagrant up --provider virtualbox
 # Fleet: https://192.168.56.105:8412 (admin@detectionlab.network/admin123#)
 ```
 
-**Sysmon events covered (SwiftOnSecurity/sysmon-config):**
+Sysmon events covered (SwiftOnSecurity/sysmon-config):
 - Event ID 1: Process Create
 - Event ID 3: Network Connection
 - Event ID 7: Image Loaded
@@ -176,7 +176,7 @@ vagrant up --provider virtualbox
 - Event ID 13: RegistryEvent (Value Set)
 - Event ID 22: DNSEvent
 
-**Test activity generation:**
+Test activity generation:
 ```powershell
 Invoke-Mimikatz -DumpCreds
 Enter-PSSession -ComputerName DC01 -Credential $creds
@@ -191,7 +191,7 @@ schtasks /create /tn "WindowsUpdate" /tr "powershell.exe -enc <base64>" /sc dail
 
 Kusto Query Language (KQL) is used in Microsoft Sentinel, Defender XDR, Azure Monitor, and Azure Data Explorer.
 
-**Core operators:**
+Core operators:
 ```kql
 // project - select columns
 SecurityEvent | project TimeGenerated, Account, EventID, Computer, Activity
@@ -228,7 +228,7 @@ SecurityEvent
 | where FailCount > 5
 ```
 
-**Key functions:** tolower(), toupper(), strlen(), ago(), now(), bin(), datetime_diff(), hourofday(), dayofweek(), log(), round(), percentile(), bag_keys(), array_length(), set_union(), tostring(), toint(), todatetime()
+Key functions: tolower(), toupper(), strlen(), ago(), now(), bin(), datetime_diff(), hourofday(), dayofweek(), log(), round(), percentile(), bag_keys(), array_length(), set_union(), tostring(), toint(), todatetime()
 
 ---
 
@@ -456,12 +456,12 @@ union smbLateral, rdpLateral, wmiLateral
 
 ### 2.8 KQL Hunting Query Repositories
 
-- **SlimKQL/Hunting-Queries-Detection-Rules:** https://github.com/SlimKQL/Hunting-Queries-Detection-Rules
-- **f-bader/AzSentinelQueries:** https://github.com/f-bader/AzSentinelQueries
-- **reprise99/Sentinel-Queries:** https://github.com/reprise99/Sentinel-Queries
-- **Azure-Sentinel (official):** https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries
-- **Microsoft-365-Defender-Hunting-Queries:** https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries
-- **KQL Search:** https://www.kqlsearch.com/
+- SlimKQL/Hunting-Queries-Detection-Rules: https://github.com/SlimKQL/Hunting-Queries-Detection-Rules
+- f-bader/AzSentinelQueries: https://github.com/f-bader/AzSentinelQueries
+- reprise99/Sentinel-Queries: https://github.com/reprise99/Sentinel-Queries
+- Azure-Sentinel (official): https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries
+- Microsoft-365-Defender-Hunting-Queries: https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries
+- KQL Search: https://www.kqlsearch.com/
 
 ---
 
@@ -486,7 +486,7 @@ union smbLateral, rdpLateral, wmiLateral
 | inputlookup baseline_processes.csv
 ```
 
-**SPL functions:**
+SPL functions:
 ```splunk
 | eval len = len(field)
 | eval hour = strftime(_time, "%H")
@@ -667,7 +667,7 @@ index=endpoint
 | sort -count
 ```
 
-**Reference:** https://github.com/mthcht/ThreatHunting-Keywords
+Reference: https://github.com/mthcht/ThreatHunting-Keywords
 
 ---
 
@@ -677,7 +677,7 @@ index=endpoint
 
 Sigma is a generic, vendor-agnostic signature format for SIEM detection rules. Rules are written in YAML and compiled to platform-specific query languages.
 
-**Full Sigma rule structure:**
+Full Sigma rule structure:
 ```yaml
 title: Suspicious PowerShell Encoded Command Execution
 id: 7f93d3b2-1a4c-4e9d-b8c6-2e5f1234abcd
@@ -721,7 +721,7 @@ level: medium
 
 ### 4.2 Sigma Detection Logic
 
-**Field modifiers:**
+Field modifiers:
 - `contains` - substring match
 - `startswith` / `endswith` - prefix/suffix match
 - `contains|all` - AND logic: all items in list must match
@@ -731,7 +731,7 @@ level: medium
 - `windash` - handles Windows dash/slash flag variations (-enc and /enc)
 - `nocase` - case-insensitive match
 
-**Condition operators:**
+Condition operators:
 ```yaml
 # AND, OR, NOT
 condition: selection1 and selection2
@@ -750,13 +750,13 @@ condition: (selection_a or selection_b) and not filter_legitimate
 
 ### 4.3 Writing Rules from Scratch
 
-**Step 1:** Identify the technique - reference ATT&CK for sub-technique details; review malware analysis reports and tool documentation.
+Step 1: Identify the technique - reference ATT&CK for sub-technique details; review malware analysis reports and tool documentation.
 
-**Step 2:** Identify the data source - what log type captures this activity? Map to Sigma logsource categories: `process_creation`, `network_connection`, `file_event`, `registry_event`, `dns_query`.
+Step 2: Identify the data source - what log type captures this activity? Map to Sigma logsource categories: `process_creation`, `network_connection`, `file_event`, `registry_event`, `dns_query`.
 
-**Step 3:** Define the signature - what fields and values uniquely identify the behavior? Add filter conditions for known-good processes/paths to reduce false positives.
+Step 3: Define the signature - what fields and values uniquely identify the behavior? Add filter conditions for known-good processes/paths to reduce false positives.
 
-**DCSync detection example:**
+DCSync detection example:
 ```yaml
 title: DCSync Attack - Replication Privilege Abuse
 id: a0b1c2d3-e4f5-6789-abcd-ef0123456789
@@ -794,11 +794,11 @@ level: high
 
 ---
 
-### 4.4 Sigma Compiler: sigma-cli (pySigma) — sigmac is deprecated
+### 4.4 Sigma Compiler: sigma-cli (pySigma): sigmac is deprecated
 
-> **Note (verified 2026-09-29):** The current Sigma rule format is the **[Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification)** (August 8, 2024). The legacy `sigmac`/`sigmatools` converter is **end-of-life** (archived as `SigmaHQ/legacy-sigmatools`) and has been replaced by **pySigma** + **sigma-cli**; prefer the `sigma-cli` workflow shown below. The `sigmac` block is kept for reference only.
+> Note (verified 2026-09-29): The current Sigma rule format is the [Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification) (August 8, 2024). The legacy `sigmac`/`sigmatools` converter is end-of-life (archived as `SigmaHQ/legacy-sigmatools`) and has been replaced by pySigma + sigma-cli; prefer the `sigma-cli` workflow shown below. The `sigmac` block is kept for reference only.
 
-**Using sigmac (legacy — deprecated/EOL, retained for reference):**
+Using sigmac (legacy — deprecated/EOL, retained for reference):
 ```bash
 pip install sigmatools
 sigmac -t splunk -c splunk-windows rules/windows/credential_access/lsass_access.yml
@@ -807,7 +807,7 @@ sigmac -t es-qs -c ecs-windows rules/windows/credential_access/lsass_access.yml
 sigmac -t splunk -c splunk-windows rules/windows/credential_access/*.yml -r
 ```
 
-**Using sigma-cli (pySigma - recommended):**
+Using sigma-cli (pySigma - recommended):
 ```bash
 pip install sigma-cli
 sigma list backends
@@ -854,11 +854,11 @@ tags:
 
 ### 4.6 Community Rule Repositories
 
-- **SigmaHQ/sigma (official):** https://github.com/SigmaHQ/sigma - 3000+ rules
-- **detection.fyi:** https://detection.fyi - Sigma rule search engine
-- **Sigma Rule Explorer:** https://sigmasearchengine.com/
-- **Elastic Detection Rules:** https://github.com/elastic/detection-rules
-- **Panther-Labs:** https://github.com/panther-labs/panther-analysis
+- SigmaHQ/sigma (official): https://github.com/SigmaHQ/sigma - 3000+ rules
+- detection.fyi: https://detection.fyi - Sigma rule search engine
+- Sigma Rule Explorer: https://sigmasearchengine.com/
+- Elastic Detection Rules: https://github.com/elastic/detection-rules
+- Panther-Labs: https://github.com/panther-labs/panther-analysis
 
 ---
 
@@ -950,7 +950,7 @@ condition:
 
 ### 5.4 YARA Module Usage
 
-**PE module:**
+PE module:
 ```yara
 import "pe"
 
@@ -968,7 +968,7 @@ rule Suspicious_PE_Characteristics
 }
 ```
 
-**Math module (entropy for packed/encrypted sections):**
+Math module (entropy for packed/encrypted sections):
 ```yara
 import "math"
 
@@ -994,7 +994,7 @@ rule High_Entropy_Section
 
 yarGen (by Florian Roth / Neo23x0) generates YARA rules automatically from malware samples by extracting unique strings not found in goodware databases.
 
-**Installation:**
+Installation:
 ```bash
 pip install yara-python
 git clone https://github.com/Neo23x0/yarGen
@@ -1003,7 +1003,7 @@ pip install -r requirements.txt
 python yarGen.py --update   # Download goodware string databases (~1.5GB)
 ```
 
-**Usage:**
+Usage:
 ```bash
 python yarGen.py -m /path/to/malware/sample.exe -o output_rule.yar
 python yarGen.py -m /malware/samples/ -o rules/new_malware_family.yar
@@ -1012,7 +1012,7 @@ python yarGen.py -m /malware/ --score 75 -o output.yar
 python yarGen.py -m /malware/ -v -o output.yar
 ```
 
-**Quality improvement tips:**
+Quality improvement tips:
 1. Test against clean system32 before deploying (should have zero hits)
 2. Remove generic Windows API strings from selected strings
 3. Add PE module conditions (imphash, section count, import checks)
@@ -1057,7 +1057,7 @@ matches = rules.match(pid=pid)
 
 ### 5.7 Integration with Velociraptor and THOR
 
-**Velociraptor YARA artifact:**
+Velociraptor YARA artifact:
 ```yaml
 name: Custom.YARA.FileScan
 description: Scan files with custom YARA rules
@@ -1084,16 +1084,16 @@ parameters:
       }
 ```
 
-**THOR (Nextron Systems) CLI:**
+THOR (Nextron Systems) CLI:
 ```bash
 thor64.exe --yara /custom/yara/rules/ --outputfile report.txt
 thor-lite-win.exe --quick --outputfile scan_results.txt
 ```
 
-**Key YARA repositories:**
-- **Neo23x0/signature-base:** https://github.com/Neo23x0/signature-base
-- **CAPE Sandbox YARA:** https://github.com/kevoreilly/CAPEv2/tree/master/data/yara
-- **YARAify:** https://yaraify.abuse.ch/
+Key YARA repositories:
+- Neo23x0/signature-base: https://github.com/Neo23x0/signature-base
+- CAPE Sandbox YARA: https://github.com/kevoreilly/CAPEv2/tree/master/data/yara
+- YARAify: https://yaraify.abuse.ch/
 
 ---
 
@@ -1107,9 +1107,9 @@ For each ATT&CK tactic, specific hunt hypotheses, key observables, and represent
 
 ### 6.2 TA0001 - Initial Access
 
-**Hypothesis:** An adversary sent a spearphishing email with a macro-enabled Office attachment that executed a payload upon opening.
+Hypothesis: An adversary sent a spearphishing email with a macro-enabled Office attachment that executed a payload upon opening.
 
-**Key observables:** Office applications spawning scripting hosts; WINWORD.EXE creating executables in %TEMP%; network connections from Office processes.
+Key observables: Office applications spawning scripting hosts; WINWORD.EXE creating executables in %TEMP%; network connections from Office processes.
 
 ```splunk
 // Splunk: Office spawning script interpreters
@@ -1131,9 +1131,9 @@ DeviceProcessEvents
 
 ### 6.3 TA0002 - Execution
 
-**Hypothesis:** An adversary used LOLBins to execute malicious code while evading signature detection.
+Hypothesis: An adversary used LOLBins to execute malicious code while evading signature detection.
 
-**Key LOLBins:** `mshta.exe` (HTA/VBScript execution), `regsvr32.exe` (Squiblydoo/COM scripts), `certutil.exe` (download/decode), `rundll32.exe` (DLL exports), `wmic.exe` (remote process execution), `msiexec.exe` (MSI from URL), `forfiles.exe` (per-file command execution).
+Key LOLBins: `mshta.exe` (HTA/VBScript execution), `regsvr32.exe` (Squiblydoo/COM scripts), `certutil.exe` (download/decode), `rundll32.exe` (DLL exports), `wmic.exe` (remote process execution), `msiexec.exe` (MSI from URL), `forfiles.exe` (per-file command execution).
 
 ```splunk
 index=endpoint sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational EventCode=1
@@ -1148,7 +1148,7 @@ index=endpoint sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational Ev
 
 ### 6.4 TA0003 - Persistence
 
-**Hypothesis:** An adversary established persistence via registry Run keys pointing to user-writable paths.
+Hypothesis: An adversary established persistence via registry Run keys pointing to user-writable paths.
 
 ```kql
 // Registry Run key additions to non-standard paths
@@ -1165,7 +1165,7 @@ DeviceRegistryEvents
 | project Timestamp, DeviceName, AccountName, RegistryKey, RegistryValueName, RegistryValueData
 ```
 
-**WMI event subscription persistence (Sysmon EventIDs 19/20/21):**
+WMI event subscription persistence (Sysmon EventIDs 19/20/21):
 ```splunk
 index=endpoint sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational EventCode IN (19, 20, 21)
 | table _time, Computer, User, EventCode, Name, Type, Destination, Query, Consumer
@@ -1175,7 +1175,7 @@ index=endpoint sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational Ev
 
 ### 6.5 TA0004 - Privilege Escalation
 
-**Hypothesis:** An adversary exploited a UAC bypass via fodhelper or eventvwr registry hijacking.
+Hypothesis: An adversary exploited a UAC bypass via fodhelper or eventvwr registry hijacking.
 
 ```splunk
 // UAC bypass via ms-settings registry key hijack
@@ -1188,7 +1188,7 @@ index=endpoint sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational Ev
 
 ### 6.6 TA0005 - Stealth
 
-**Hypothesis:** An adversary cleared Windows event logs to conceal activity.
+Hypothesis: An adversary cleared Windows event logs to conceal activity.
 
 ```kql
 // Event log clearing
@@ -1202,7 +1202,7 @@ SecurityEvent
 
 ### 6.7 TA0006 - Credential Access
 
-**Hypothesis:** An adversary performed a DCSync attack from a non-Domain-Controller workstation.
+Hypothesis: An adversary performed a DCSync attack from a non-Domain-Controller workstation.
 
 ```splunk
 // DCSync via replication rights abuse (Event 4662)
@@ -1213,7 +1213,7 @@ index=wineventlog EventCode=4662
 | table _time, SubjectUserName, SubjectDomainName, Properties, Computer
 ```
 
-**Kerberoasting + LSASS dump correlation:**
+Kerberoasting + LSASS dump correlation:
 ```kql
 let kerberoasting = SecurityEvent
 | where EventID == 4769 and TicketEncryptionType == "0x17"
@@ -1233,7 +1233,7 @@ kerberoasting
 
 ### 6.8 TA0007 - Discovery
 
-**Hypothesis:** An adversary ran BloodHound/SharpHound to enumerate Active Directory via high-volume LDAP queries.
+Hypothesis: An adversary ran BloodHound/SharpHound to enumerate Active Directory via high-volume LDAP queries.
 
 ```splunk
 // BloodHound LDAP enumeration via Zeek LDAP logs
@@ -1251,7 +1251,7 @@ index=network sourcetype=zeek_ldap
 
 ### 6.9 TA0008 - Lateral Movement
 
-**Hypothesis:** An adversary moved laterally via WMI remote execution, spawning processes through WmiPrvSE.exe.
+Hypothesis: An adversary moved laterally via WMI remote execution, spawning processes through WmiPrvSE.exe.
 
 ```kql
 // WMI remote process execution
@@ -1263,7 +1263,7 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, FileName, ProcessCommandLine, AccountName
 ```
 
-**Pass-the-Hash (NTLM network logon from unusual source):**
+Pass-the-Hash (NTLM network logon from unusual source):
 ```splunk
 index=wineventlog EventCode=4624 LogonType=3 AuthenticationPackageName=NTLM
 | where NOT match(AccountName, "\\$$")
@@ -1278,7 +1278,7 @@ index=wineventlog EventCode=4624 LogonType=3 AuthenticationPackageName=NTLM
 
 ### 6.10 TA0011 - Command and Control
 
-**Hypothesis:** An adversary used DNS tunneling to exfiltrate data and receive commands via long subdomain queries.
+Hypothesis: An adversary used DNS tunneling to exfiltrate data and receive commands via long subdomain queries.
 
 ```splunk
 // Long DNS subdomain queries (DNS tunneling indicator)
@@ -1295,7 +1295,7 @@ index=network sourcetype=zeek_dns
 
 ### 6.11 TA0010 - Exfiltration
 
-**Hypothesis:** An adversary exfiltrated data by uploading to cloud storage services.
+Hypothesis: An adversary exfiltrated data by uploading to cloud storage services.
 
 ```kql
 // Large outbound transfers to cloud storage
@@ -1341,7 +1341,7 @@ Velociraptor is an open-source DFIR and threat hunting platform using a server/c
 +-------+  +-------+  +-------+
 ```
 
-**Server setup:**
+Server setup:
 ```bash
 wget https://github.com/Velocidex/velociraptor/releases/download/v0.7.0/velociraptor-v0.7.0-linux-amd64
 ./velociraptor config generate -i
@@ -1484,7 +1484,7 @@ ORDER BY System.TimeCreated.SystemTime ASC
 
 osquery exposes the operating system as a relational database, allowing SQL queries against system state in real-time.
 
-**Installation:**
+Installation:
 ```bash
 # macOS
 brew install osquery
@@ -1641,7 +1641,7 @@ ORDER BY u.username;
 
 ### 8.7 osquery Packs and Fleet Integration
 
-**Security pack excerpt:**
+Security pack excerpt:
 ```json
 {
   "queries": {
@@ -1664,7 +1664,7 @@ ORDER BY u.username;
 }
 ```
 
-**Fleet (osquery management):**
+Fleet (osquery management):
 ```bash
 docker run -p 8080:8080 \
   -e DATABASE_ADDRESS=db:3306 \
@@ -1674,7 +1674,7 @@ docker run -p 8080:8080 \
   fleetdm/fleet:latest
 ```
 
-**Reference:** https://github.com/osquery/osquery | DetectionLab includes pre-configured osquery with security packs.
+Reference: https://github.com/osquery/osquery | DetectionLab includes pre-configured osquery with security packs.
 
 ---
 
@@ -1684,7 +1684,7 @@ docker run -p 8080:8080 \
 
 MISP (Malware Information Sharing Platform) is an open-source threat intelligence platform supporting IOC ingestion, correlation, and sharing.
 
-**Docker setup:**
+Docker setup:
 ```bash
 git clone https://github.com/MISP/misp-docker
 cd misp-docker && cp template.env .env
@@ -1692,7 +1692,7 @@ docker-compose up -d
 # Access: https://localhost, admin@admin.test / admin
 ```
 
-**MISP API for hunt IOC extraction:**
+MISP API for hunt IOC extraction:
 ```python
 from pymisp import PyMISP
 
@@ -1724,7 +1724,7 @@ with open('threat_intel.csv', 'w') as f:
             f.write(f"{attr['value']},{attr['type']},{event['threat_level_id']},{event['id']}\n")
 ```
 
-**MISP taxonomy and galaxy clusters:**
+MISP taxonomy and galaxy clusters:
 - Threat actor tracking: `misp-galaxy:threat-actor="APT28"`
 - TLP taxonomy: `tlp:white`, `tlp:green`, `tlp:amber`, `tlp:red`
 - ATT&CK tagging: `misp-galaxy:mitre-attack-pattern="T1059.001"`
@@ -1736,7 +1736,7 @@ with open('threat_intel.csv', 'w') as f:
 
 OpenCTI is an open-source threat intelligence platform using STIX 2.1 as its native format.
 
-**STIX 2.1 intrusion-set object example:**
+STIX 2.1 intrusion-set object example:
 ```json
 {
   "type": "intrusion-set",
@@ -1750,14 +1750,14 @@ OpenCTI is an open-source threat intelligence platform using STIX 2.1 as its nat
 }
 ```
 
-**Key STIX relationships for hunting pivots:**
+Key STIX relationships for hunting pivots:
 - `Indicator` --[indicates]--> `Malware`
 - `Malware` --[uses]--> `Attack-Pattern` (TTP)
 - `Intrusion-Set` --[uses]--> `Malware`
 - `Intrusion-Set` --[attributed-to]--> `Threat-Actor`
 - `Indicator` --[based-on]--> `Observable` (IP, domain, hash)
 
-**OpenCTI API:**
+OpenCTI API:
 ```python
 from pycti import OpenCTIApiClient
 
@@ -1779,7 +1779,7 @@ indicators = opencti.indicator.list(
 
 TAXII (Trusted Automated eXchange of Indicator Information) is the transport protocol for STIX threat intelligence.
 
-**Key public feeds:**
+Key public feeds:
 ```python
 from taxii2client.v21 import Server
 
@@ -1857,17 +1857,17 @@ Step 8: Convert to detection rules
                Victim
 ```
 
-**Application to hunting:**
-- **Adversary:** Threat actor attribution, TTPs, motivation - informs who you are hunting
-- **Capability:** Malware families, exploits, custom tools - map to YARA and Sigma rules
-- **Infrastructure:** C2 IPs, domains, ASNs, hosting providers - map to network IOCs
-- **Victim:** Targeted industries, geographies, software versions - focus hunt scope
+Application to hunting:
+- Adversary: Threat actor attribution, TTPs, motivation - informs who you are hunting
+- Capability: Malware families, exploits, custom tools - map to YARA and Sigma rules
+- Infrastructure: C2 IPs, domains, ASNs, hosting providers - map to network IOCs
+- Victim: Targeted industries, geographies, software versions - focus hunt scope
 
 ---
 
 ### 9.6 Threat Actor Infrastructure Reuse
 
-**Pivoting via Shodan for infrastructure clustering:**
+Pivoting via Shodan for infrastructure clustering:
 ```python
 import shodan
 api = shodan.Shodan("your_shodan_api_key")
@@ -1884,7 +1884,7 @@ for result in results['matches']:
 # - Common open port/banner combinations
 ```
 
-**mthcht/awesome-lists:** https://github.com/mthcht/awesome-lists - Comprehensive curated list of threat intelligence sources, tools, and communities.
+mthcht/awesome-lists: https://github.com/mthcht/awesome-lists - Comprehensive curated list of threat intelligence sources, tools, and communities.
 
 ---
 
@@ -1894,7 +1894,7 @@ for result in results['matches']:
 
 VECTR (by SecurityRiskAdvisors) is an open-source platform for tracking purple team and threat hunting activities against ATT&CK.
 
-**Deployment:**
+Deployment:
 ```bash
 git clone https://github.com/SecurityRiskAdvisors/VECTR
 cd VECTR
@@ -1903,10 +1903,10 @@ docker-compose up -d
 # Access at http://localhost:8081
 ```
 
-**VECTR workflow:**
-1. Create **Campaign** representing a hunt sprint (e.g., "Q1 2024 Credential Access Hunt")
-2. Create **Test Cases** for individual hunt hypotheses
-3. Record **Results** per test case: Detected / Not Detected / Inconclusive
+VECTR workflow:
+1. Create Campaign representing a hunt sprint (e.g., "Q1 2024 Credential Access Hunt")
+2. Create Test Cases for individual hunt hypotheses
+3. Record Results per test case: Detected / Not Detected / Inconclusive
 4. Tag each test case with the corresponding ATT&CK technique
 5. Export campaign report for stakeholder communication
 
@@ -1967,7 +1967,7 @@ and suspicious access rights (0x1010, 0x1410, 0x1fffff).
 
 ATT&CK Navigator provides visual representation of technique coverage.
 
-**Generate heatmap layer file:**
+Generate heatmap layer file:
 ```python
 import json
 
@@ -2041,7 +2041,7 @@ Hunt Finding -----------------------------------------> Detection Rule
            (mark hypothesis as "Detection Active")
 ```
 
-**Hunt-to-rule conversion checklist:**
+Hunt-to-rule conversion checklist:
 - [ ] Observable specific enough to avoid alert fatigue
 - [ ] False positive cases documented in Sigma `falsepositives` field
 - [ ] ATT&CK tags applied (tactic and technique)
@@ -2100,30 +2100,30 @@ for gap in sorted(coverage_gaps, key=lambda x: x['technique'])[:20]:
 
 ### 10.6 Hunting Program Maturity Assessment
 
-**Annual assessment checklist:**
+Annual assessment checklist:
 
-**Data Foundation:**
+Data Foundation:
 - [ ] Endpoint telemetry (Sysmon/EDR) on >= 95% of Windows assets
 - [ ] DNS query logging centralized
 - [ ] Network flow data (NetFlow/Zeek) at all egress points
 - [ ] Cloud API logs (CloudTrail, Azure Monitor, GCP Audit) ingested
 - [ ] Log retention >= 90 days for all sources
 
-**Process Maturity:**
+Process Maturity:
 - [ ] Formal hunt hypothesis template in use
 - [ ] Hunt calendar with at least monthly cadence
 - [ ] All hunts tracked in VECTR or equivalent
 - [ ] Hunt-to-detection feedback loop documented and measured
 - [ ] ATT&CK coverage map updated at least quarterly
 
-**Technical Capability:**
+Technical Capability:
 - [ ] SIEM with KQL or SPL capability
 - [ ] Sigma rule pipeline: authoring, compilation, deployment
 - [ ] YARA scanning capability (Velociraptor or THOR)
 - [ ] Threat intelligence platform (MISP or OpenCTI) with active feeds
 - [ ] DetectionLab or equivalent hunt practice environment
 
-**Team Capability:**
+Team Capability:
 - [ ] At least one analyst with ATT&CK practitioner certification (ACP)
 - [ ] Regular threat intelligence read-outs to hunting team
 - [ ] Participation in community (Sigma contributions, blog posts)

@@ -14,11 +14,11 @@ Effective threat hunting follows a repeatable cycle. Ad hoc investigations can s
 
 Every hunt starts with a hypothesis — a falsifiable statement about adversary behavior in the environment. Strong hypotheses come from:
 
-- **Threat intelligence** — current campaigns, TTPs, and IOCs relevant to the organization's industry or technology stack
-- **ATT&CK matrix** — technique-based hypotheses derived from the tactics and techniques most likely to be used against the environment
-- **Past incidents** — techniques observed in previous investigations that may have broader presence than the confirmed scope
-- **Hunt catalogs** — documented hypotheses from the security community (e.g., ThreatHunter-Playbook, Sigma rule library)
-- **Red team findings** — techniques demonstrated as viable in the environment during penetration tests or purple team exercises
+- Threat intelligence: current campaigns, TTPs, and IOCs relevant to the organization's industry or technology stack
+- ATT&CK matrix: technique-based hypotheses derived from the tactics and techniques most likely to be used against the environment
+- Past incidents: techniques observed in previous investigations that may have broader presence than the confirmed scope
+- Hunt catalogs: documented hypotheses from the security community (e.g., ThreatHunter-Playbook, Sigma rule library)
+- Red team findings: techniques demonstrated as viable in the environment during penetration tests or purple team exercises
 
 A hypothesis takes the form: *"If technique X is being used, we should see behavioral pattern Y in data source Z."*
 
@@ -50,11 +50,11 @@ The Hunting Maturity Model (HMM), developed by David Bianco, describes five leve
 
 | Level | Name | Description | Primary Data Sources | Automation Level | Hunt Frequency |
 |---|---|---|---|---|---|
-| **HMM-0** | Initial | Relies entirely on automated alerting; no proactive hunting occurs; threat hunting as a discipline does not exist | Firewall logs, AV alerts, SIEM alerts | None — alert-driven only | No hunting; reactive only |
-| **HMM-1** | Minimal | Occasional hunts driven by external threat intel (IOC feeds); IOC-based searches only; no hypothesis-driven hunting | Log aggregation, basic SIEM, IOC feeds | IOC matching automated; no behavioral automation | Ad hoc, intel-triggered |
-| **HMM-2** | Procedural | Follows documented hunt procedures from external sources (playbooks, vendor reports); can execute predefined hunts but cannot develop novel hypotheses independently | EDR telemetry, Sysmon, SIEM with behavioral rules | Some hunt procedures scripted; detection rule authorship beginning | Regular cadence following external playbooks |
-| **HMM-3** | Innovative | Develops original hypotheses based on internal knowledge of the environment and threat landscape; writes novel queries; contributes back to community | Full EDR coverage, network flow data, DNS logging, authentication telemetry, cloud audit logs | Successful hunts systematically converted to detection rules | Continuous; multiple active hunts at any time |
-| **HMM-4** | Leading | Automates hypothesis generation using ML/behavioral analytics; data science-driven hunting; contributes novel research and tooling to the broader community | Full telemetry stack plus custom collection; enriched with threat intel and asset context | High — ML models surface anomalies for analyst investigation; human-in-the-loop for confirmation | Continuous; automated anomaly triage feeds analyst queue |
+| HMM-0 | Initial | Relies entirely on automated alerting; no proactive hunting occurs; threat hunting as a discipline does not exist | Firewall logs, AV alerts, SIEM alerts | None: alert-driven only | No hunting; reactive only |
+| HMM-1 | Minimal | Occasional hunts driven by external threat intel (IOC feeds); IOC-based searches only; no hypothesis-driven hunting | Log aggregation, basic SIEM, IOC feeds | IOC matching automated; no behavioral automation | Ad hoc, intel-triggered |
+| HMM-2 | Procedural | Follows documented hunt procedures from external sources (playbooks, vendor reports); can execute predefined hunts but cannot develop novel hypotheses independently | EDR telemetry, Sysmon, SIEM with behavioral rules | Some hunt procedures scripted; detection rule authorship beginning | Regular cadence following external playbooks |
+| HMM-3 | Innovative | Develops original hypotheses based on internal knowledge of the environment and threat landscape; writes novel queries; contributes back to community | Full EDR coverage, network flow data, DNS logging, authentication telemetry, cloud audit logs | Successful hunts systematically converted to detection rules | Continuous; multiple active hunts at any time |
+| HMM-4 | Leading | Automates hypothesis generation using ML/behavioral analytics; data science-driven hunting; contributes novel research and tooling to the broader community | Full telemetry stack plus custom collection; enriched with threat intel and asset context | High: ML models surface anomalies for analyst investigation; human-in-the-loop for confirmation | Continuous; automated anomaly triage feeds analyst queue |
 
 ---
 
@@ -64,14 +64,14 @@ Threat hunting is constrained by available telemetry. The following data sources
 
 | Source | What It Provides | Tool / Platform |
 |---|---|---|
-| **Process creation logs** (Event ID 4688, Sysmon EID 1) | Parent-child process relationships, full command lines, user context, process hashes | Windows Security log (4688 requires audit policy), Sysmon, EDR (CrowdStrike, Defender for Endpoint, SentinelOne) |
-| **Network connections** (Sysmon EID 3, Zeek conn.log, NetFlow) | Outbound connections with process context, C2 detection, lateral movement patterns, port and protocol anomalies | Sysmon (process-to-socket), Zeek, Corelight, network TAPs, NSG/VPC flow logs |
-| **DNS logs** (Zeek dns.log, Sysmon EID 22, Windows DNS debug log) | DNS tunneling detection, DGA domain identification, C2 domain resolution, internal DNS recon | Zeek dns.log, Sysmon DNS query logging, Windows DNS Server analytical log, passive DNS platforms |
-| **Authentication logs** (Event IDs 4624/4625/4768/4769/4776) | Credential attacks (brute force, spray, stuffing), lateral movement (pass-the-hash, pass-the-ticket), Kerberoasting, AS-REP roasting, impossible travel | Windows Security log, domain controller event logs, Active Directory |
-| **PowerShell logs** (Event IDs 4103/4104, module logging) | Script block logging reveals encoded commands and obfuscated execution; module logging captures loaded modules and executed cmdlets | Windows PowerShell event log, Windows Security log, EDR script monitoring |
-| **WMI activity** (Sysmon EIDs 19/20/21) | WMI subscriptions for persistence, WMI lateral movement (wmic /node), WMI-based remote execution without creating new processes | Sysmon WMI event consumers/filters/bindings, Microsoft-Windows-WMI-Activity/Operational log |
-| **File creation** (Sysmon EID 11) | Dropper activity, staged payload delivery, script drops to temp or startup directories, DLL side-loading setup | Sysmon file create, EDR file telemetry, Windows Security object access auditing |
-| **Registry modifications** (Sysmon EIDs 12/13/14) | Persistence mechanisms (Run keys, services, COM hijacking), defense evasion (disabling security tools via registry), credential storage | Sysmon registry events, EDR registry telemetry, Windows Security log (object access on registry keys) |
+| Process creation logs (Event ID 4688, Sysmon EID 1) | Parent-child process relationships, full command lines, user context, process hashes | Windows Security log (4688 requires audit policy), Sysmon, EDR (CrowdStrike, Defender for Endpoint, SentinelOne) |
+| Network connections (Sysmon EID 3, Zeek conn.log, NetFlow) | Outbound connections with process context, C2 detection, lateral movement patterns, port and protocol anomalies | Sysmon (process-to-socket), Zeek, Corelight, network TAPs, NSG/VPC flow logs |
+| DNS logs (Zeek dns.log, Sysmon EID 22, Windows DNS debug log) | DNS tunneling detection, DGA domain identification, C2 domain resolution, internal DNS recon | Zeek dns.log, Sysmon DNS query logging, Windows DNS Server analytical log, passive DNS platforms |
+| Authentication logs (Event IDs 4624/4625/4768/4769/4776) | Credential attacks (brute force, spray, stuffing), lateral movement (pass-the-hash, pass-the-ticket), Kerberoasting, AS-REP roasting, impossible travel | Windows Security log, domain controller event logs, Active Directory |
+| PowerShell logs (Event IDs 4103/4104, module logging) | Script block logging reveals encoded commands and obfuscated execution; module logging captures loaded modules and executed cmdlets | Windows PowerShell event log, Windows Security log, EDR script monitoring |
+| WMI activity (Sysmon EIDs 19/20/21) | WMI subscriptions for persistence, WMI lateral movement (wmic /node), WMI-based remote execution without creating new processes | Sysmon WMI event consumers/filters/bindings, Microsoft-Windows-WMI-Activity/Operational log |
+| File creation (Sysmon EID 11) | Dropper activity, staged payload delivery, script drops to temp or startup directories, DLL side-loading setup | Sysmon file create, EDR file telemetry, Windows Security object access auditing |
+| Registry modifications (Sysmon EIDs 12/13/14) | Persistence mechanisms (Run keys, services, COM hijacking), defense evasion (disabling security tools via registry), credential storage | Sysmon registry events, EDR registry telemetry, Windows Security log (object access on registry keys) |
 
 ---
 
@@ -79,14 +79,14 @@ Threat hunting is constrained by available telemetry. The following data sources
 
 ATT&CK is the most effective tool for generating structured hunting hypotheses. Each technique entry provides adversary behavior descriptions, procedure examples, and data source requirements — the raw material for a hunt hypothesis.
 
-**Prioritization criteria:**
+Prioritization criteria:
 
-- **Threat intel relevance** — techniques actively used by threat actors targeting the organization's sector or technology stack
-- **Environment exposure** — techniques viable given the organization's actual technology (PowerShell everywhere means T1059.001 is high priority; no macOS endpoints makes T1059.002 low priority)
-- **Dwell time potential** — techniques associated with persistence or long-term access (scheduled tasks, WMI subscriptions, registry run keys) are high value because they may be present but undetected for months
-- **Detection gap** — techniques known to be poorly covered by existing detection rules
+- Threat intel relevance: techniques actively used by threat actors targeting the organization's sector or technology stack
+- Environment exposure: techniques viable given the organization's actual technology (PowerShell everywhere means T1059.001 is high priority; no macOS endpoints makes T1059.002 low priority)
+- Dwell time potential: techniques associated with persistence or long-term access (scheduled tasks, WMI subscriptions, registry run keys) are high value because they may be present but undetected for months
+- Detection gap: techniques known to be poorly covered by existing detection rules
 
-**High-value hunting techniques:**
+High-value hunting techniques:
 
 | Technique | ID | Why It Matters |
 |---|---|---|
@@ -103,91 +103,91 @@ ATT&CK is the most effective tool for generating structured hunting hypotheses. 
 
 ## Hunt Procedures
 
-Each hunt below follows the structure: **Hypothesis → Data Source → Query Approach → Expected Findings.**
+Each hunt below follows the structure: Hypothesis -> Data Source -> Query Approach -> Expected Findings.
 
 ---
 
 ### Beaconing Detection
 
-**Hypothesis:** A compromised host is making periodic outbound connections to a C2 server. Beaconing is characterized by regular connection intervals, consistent byte sizes, and connections to low-reputation or newly registered domains.
+Hypothesis: A compromised host is making periodic outbound connections to a C2 server. Beaconing is characterized by regular connection intervals, consistent byte sizes, and connections to low-reputation or newly registered domains.
 
-**Data Source:** Network flow data (Zeek conn.log, NetFlow), DNS logs, proxy logs.
+Data Source: Network flow data (Zeek conn.log, NetFlow), DNS logs, proxy logs.
 
-**Query Approach:** Calculate connection frequency, inter-arrival time standard deviation, and bytes transferred per destination IP/domain. Low standard deviation in connection timing combined with high volume to a single external destination is indicative of automated beaconing. Filter out known CDNs and update services.
+Query Approach: Calculate connection frequency, inter-arrival time standard deviation, and bytes transferred per destination IP/domain. Low standard deviation in connection timing combined with high volume to a single external destination is indicative of automated beaconing. Filter out known CDNs and update services.
 
-**Expected Findings:** Compromised endpoints connecting to attacker-controlled infrastructure on regular intervals (e.g., every 60 seconds ±2 seconds). Payloads are often small and consistent in size. DNS queries for the same domain at regular intervals are another signal.
+Expected Findings: Compromised endpoints connecting to attacker-controlled infrastructure on regular intervals (e.g., every 60 seconds ±2 seconds). Payloads are often small and consistent in size. DNS queries for the same domain at regular intervals are another signal.
 
 ---
 
 ### Rare Parent-Child Process Relationships
 
-**Hypothesis:** Adversaries exploiting vulnerabilities or abusing legitimate processes will spawn child processes from unusual parents. For example, `svchost.exe` spawning `cmd.exe` or `powershell.exe`, or `winword.exe` spawning `wscript.exe`, indicate malicious execution.
+Hypothesis: Adversaries exploiting vulnerabilities or abusing legitimate processes will spawn child processes from unusual parents. For example, `svchost.exe` spawning `cmd.exe` or `powershell.exe`, or `winword.exe` spawning `wscript.exe`, indicate malicious execution.
 
-**Data Source:** Process creation logs (Windows Security 4688, Sysmon EID 1), EDR process telemetry.
+Data Source: Process creation logs (Windows Security 4688, Sysmon EID 1), EDR process telemetry.
 
-**Query Approach:** Aggregate parent-child process name pairs and count occurrences. Filter to pairs with very low frequency (count < 5 over a 30-day period). Cross-reference with known-legitimate software baselines. Focus on high-value parents: `svchost.exe`, `services.exe`, `lsass.exe`, `winlogon.exe`, `explorer.exe`, and Office application processes.
+Query Approach: Aggregate parent-child process name pairs and count occurrences. Filter to pairs with very low frequency (count < 5 over a 30-day period). Cross-reference with known-legitimate software baselines. Focus on high-value parents: `svchost.exe`, `services.exe`, `lsass.exe`, `winlogon.exe`, `explorer.exe`, and Office application processes.
 
-**Expected Findings:** Macro-enabled documents spawning `cmd.exe` or `wscript.exe`, browser processes spawning `powershell.exe`, or system services launching interactive shells. These patterns indicate code execution via document macros, browser exploits, or service abuse.
+Expected Findings: Macro-enabled documents spawning `cmd.exe` or `wscript.exe`, browser processes spawning `powershell.exe`, or system services launching interactive shells. These patterns indicate code execution via document macros, browser exploits, or service abuse.
 
 ---
 
 ### PowerShell Encoded Command Execution
 
-**Hypothesis:** Attackers use Base64-encoded PowerShell commands (`-EncodedCommand` / `-enc`) to obfuscate malicious scripts from string-based detection and logging at the command line level.
+Hypothesis: Attackers use Base64-encoded PowerShell commands (`-EncodedCommand` / `-enc`) to obfuscate malicious scripts from string-based detection and logging at the command line level.
 
-**Data Source:** Process creation logs (Windows Security 4688, Sysmon EID 1), PowerShell script block logging (Event ID 4104).
+Data Source: Process creation logs (Windows Security 4688, Sysmon EID 1), PowerShell script block logging (Event ID 4104).
 
-**Query Approach:** Search process creation logs for PowerShell invocations containing `-EncodedCommand`, `-enc`, `-e ` with a trailing Base64 string, or command lines with unusual character distributions (high entropy). For script block logs (4104), look for `Invoke-Expression`, `IEX`, `DownloadString`, `WebClient`, and `FromBase64String` within the same decoded script.
+Query Approach: Search process creation logs for PowerShell invocations containing `-EncodedCommand`, `-enc`, `-e ` with a trailing Base64 string, or command lines with unusual character distributions (high entropy). For script block logs (4104), look for `Invoke-Expression`, `IEX`, `DownloadString`, `WebClient`, and `FromBase64String` within the same decoded script.
 
-**Expected Findings:** Encoded commands that decode to download-and-execute cradles, in-memory .NET assembly loading, AMSI bypass attempts, or credential harvesting scripts. The encoding itself is not malicious, but it is a high-fidelity signal for obfuscation intent when combined with suspicious decoded content.
+Expected Findings: Encoded commands that decode to download-and-execute cradles, in-memory .NET assembly loading, AMSI bypass attempts, or credential harvesting scripts. The encoding itself is not malicious, but it is a high-fidelity signal for obfuscation intent when combined with suspicious decoded content.
 
 ---
 
 ### LSASS Memory Access (Credential Dumping)
 
-**Hypothesis:** Adversaries are accessing LSASS memory to extract credential hashes or plaintext passwords using tools such as Mimikatz, ProcDump, or Task Manager. LSASS access from non-system processes with high privilege is anomalous.
+Hypothesis: Adversaries are accessing LSASS memory to extract credential hashes or plaintext passwords using tools such as Mimikatz, ProcDump, or Task Manager. LSASS access from non-system processes with high privilege is anomalous.
 
-**Data Source:** Sysmon EID 10 (ProcessAccess targeting lsass.exe), Windows Security Event ID 4656 (handle request to lsass.exe), EDR credential access telemetry.
+Data Source: Sysmon EID 10 (ProcessAccess targeting lsass.exe), Windows Security Event ID 4656 (handle request to lsass.exe), EDR credential access telemetry.
 
-**Query Approach:** Filter Sysmon EID 10 events where `TargetImage` ends in `lsass.exe`. Aggregate by `SourceImage` and filter out known-legitimate callers (AV engines, EDR agents, Windows system processes). Flag any user-space application requesting `PROCESS_VM_READ` or `PROCESS_ALL_ACCESS` on lsass.
+Query Approach: Filter Sysmon EID 10 events where `TargetImage` ends in `lsass.exe`. Aggregate by `SourceImage` and filter out known-legitimate callers (AV engines, EDR agents, Windows system processes). Flag any user-space application requesting `PROCESS_VM_READ` or `PROCESS_ALL_ACCESS` on lsass.
 
-**Expected Findings:** `procdump.exe`, `taskmgr.exe` run by non-admin users, `rundll32.exe` with suspicious arguments, or renamed Mimikatz binaries accessing LSASS. Also look for credential dumping via comsvcs.dll: `rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump`.
+Expected Findings: `procdump.exe`, `taskmgr.exe` run by non-admin users, `rundll32.exe` with suspicious arguments, or renamed Mimikatz binaries accessing LSASS. Also look for credential dumping via comsvcs.dll: `rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump`.
 
 ---
 
 ### Lateral Movement via SMB
 
-**Hypothesis:** Adversaries are using PsExec-style lateral movement or direct admin share access (`\\target\ADMIN$`, `\\target\C$`) from endpoints that are not designated administrative jump hosts.
+Hypothesis: Adversaries are using PsExec-style lateral movement or direct admin share access (`\\target\ADMIN$`, `\\target\C$`) from endpoints that are not designated administrative jump hosts.
 
-**Data Source:** Windows Security logs (Event ID 4648 — explicit credential logon, 4624 Type 3 network logon, 5140 — network share access), Sysmon EID 3 (network connections on port 445).
+Data Source: Windows Security logs (Event ID 4648 — explicit credential logon, 4624 Type 3 network logon, 5140 — network share access), Sysmon EID 3 (network connections on port 445).
 
-**Query Approach:** Identify source IPs making SMB connections to multiple targets within a short time window. Cross-reference against known admin/jump hosts. Look for ADMIN$ and IPC$ share access from workstation-class machines. Correlate with service creation events (7045) on the destination — PsExec creates and starts a service on the remote host.
+Query Approach: Identify source IPs making SMB connections to multiple targets within a short time window. Cross-reference against known admin/jump hosts. Look for ADMIN$ and IPC$ share access from workstation-class machines. Correlate with service creation events (7045) on the destination — PsExec creates and starts a service on the remote host.
 
-**Expected Findings:** Workstation-to-workstation SMB lateral movement using stolen credentials, PsExec execution establishing reverse shells on target hosts, or worm-style propagation touching many hosts in rapid succession. Impacket's `psexec.py` generates a distinctive service name pattern (random 8-character alphanumeric string).
+Expected Findings: Workstation-to-workstation SMB lateral movement using stolen credentials, PsExec execution establishing reverse shells on target hosts, or worm-style propagation touching many hosts in rapid succession. Impacket's `psexec.py` generates a distinctive service name pattern (random 8-character alphanumeric string).
 
 ---
 
 ### DNS Tunneling
 
-**Hypothesis:** An adversary is exfiltrating data or maintaining C2 communications by encoding information in DNS query subdomains and using a DNS server they control as the receiver.
+Hypothesis: An adversary is exfiltrating data or maintaining C2 communications by encoding information in DNS query subdomains and using a DNS server they control as the receiver.
 
-**Data Source:** DNS logs (Zeek dns.log, Windows DNS Server analytical log, Sysmon EID 22), network flow data.
+Data Source: DNS logs (Zeek dns.log, Windows DNS Server analytical log, Sysmon EID 22), network flow data.
 
-**Query Approach:** Calculate the average subdomain length per queried domain. Flag domains where the mean subdomain length exceeds 40 characters — legitimate DNS queries rarely use subdomains longer than 20-25 characters. Count unique subdomain query volume per apex domain. Flag apex domains receiving more than 100 unique subdomain queries per hour from a single host. Also look for high-entropy subdomain strings (Base32, Base64 encoded payloads).
+Query Approach: Calculate the average subdomain length per queried domain. Flag domains where the mean subdomain length exceeds 40 characters — legitimate DNS queries rarely use subdomains longer than 20-25 characters. Count unique subdomain query volume per apex domain. Flag apex domains receiving more than 100 unique subdomain queries per hour from a single host. Also look for high-entropy subdomain strings (Base32, Base64 encoded payloads).
 
-**Expected Findings:** Internal hosts querying `<64-char-base32-blob>.c2domain.com` at high frequency. The apex domain is often registered recently, has no web presence, and resolves to the same IP as other attacker infrastructure. Tools like `iodine`, `dnscat2`, and DNS-tunneling features in frameworks like Cobalt Strike exhibit this pattern.
+Expected Findings: Internal hosts querying `<64-char-base32-blob>.c2domain.com` at high frequency. The apex domain is often registered recently, has no web presence, and resolves to the same IP as other attacker infrastructure. Tools like `iodine`, `dnscat2`, and DNS-tunneling features in frameworks like Cobalt Strike exhibit this pattern.
 
 ---
 
 ### Kerberoasting
 
-**Hypothesis:** An adversary with a valid domain account is requesting Kerberos service tickets (TGS) for service accounts with SPNs in order to extract and offline-crack their NTLM hashes. Kerberoasting produces a distinctive spike in TGS requests, particularly using RC4 encryption (etype 23) rather than AES.
+Hypothesis: An adversary with a valid domain account is requesting Kerberos service tickets (TGS) for service accounts with SPNs in order to extract and offline-crack their NTLM hashes. Kerberoasting produces a distinctive spike in TGS requests, particularly using RC4 encryption (etype 23) rather than AES.
 
-**Data Source:** Domain controller Windows Security logs (Event ID 4769 — Kerberos Service Ticket Operations).
+Data Source: Domain controller Windows Security logs (Event ID 4769 — Kerberos Service Ticket Operations).
 
-**Query Approach:** Filter Event ID 4769 for `Ticket Encryption Type = 0x17` (RC4_HMAC — etype 23) while excluding computer accounts (`$` suffix). Aggregate by requesting account and count TGS requests. A single user account requesting TGS tickets for more than 5 distinct service accounts within an hour is anomalous. Also flag service account SPN requests from accounts that have no operational reason to access those services.
+Query Approach: Filter Event ID 4769 for `Ticket Encryption Type = 0x17` (RC4_HMAC — etype 23) while excluding computer accounts (`$` suffix). Aggregate by requesting account and count TGS requests. A single user account requesting TGS tickets for more than 5 distinct service accounts within an hour is anomalous. Also flag service account SPN requests from accounts that have no operational reason to access those services.
 
-**Expected Findings:** A low-privileged domain user requesting RC4-encrypted service tickets for SQL Server, IIS, or custom service accounts. Impacket's `GetUserSPNs.py` and Rubeus `kerberoast` both generate this pattern. AES-only environments will not show RC4 requests; in those environments, look for volumetric TGS requests regardless of encryption type.
+Expected Findings: A low-privileged domain user requesting RC4-encrypted service tickets for SQL Server, IIS, or custom service accounts. Impacket's `GetUserSPNs.py` and Rubeus `kerberoast` both generate this pattern. AES-only environments will not show RC4 requests; in those environments, look for volumetric TGS requests regardless of encryption type.
 
 ---
 
@@ -195,20 +195,20 @@ Each hunt below follows the structure: **Hypothesis → Data Source → Query Ap
 
 | Tool | Type | Primary Use |
 |---|---|---|
-| **Velociraptor** | OSS EDR / hunting platform | VQL (Velociraptor Query Language) for live endpoint forensics; artifact collection; scalable to thousands of endpoints simultaneously; built-in hunt management |
-| **Elastic / OpenSearch** | SIEM / analytics | EQL (Event Query Language) for sequence detection; ES|QL for analytics; ECS-normalized data model; integrates with Elastic Agent for unified telemetry |
-| **Splunk** | SIEM / analytics | SPL (Search Processing Language) for hunting; Splunk Security Essentials and Hunting app provide pre-built hunt content; powerful stats and transaction commands for behavioral analysis |
-| **Microsoft Sentinel** | Cloud SIEM | KQL (Kusto Query Language) for hunting; built-in hunting query library; UEBA (User and Entity Behavior Analytics) for anomaly detection; native integration with Defender XDR telemetry |
-| **Timesketch** | Timeline analysis | Collaborative forensic timeline analysis; integrates with Plaso for log2timeline parsing; essential for multi-source event correlation in complex investigations |
-| **Jupyter Notebooks + HELK** | Data science hunting | Python-based data science environment with Spark, Elasticsearch, and Kibana; enables ML-driven anomaly detection and statistical analysis of security telemetry |
-| **SIGMA** | Detection rule format | Vendor-agnostic rule format for detection and hunt automation; SIGMA rules can be converted to SPL, KQL, EQL, Lucene, and 30+ other query languages; the lingua franca of detection sharing |
-| **Atomic Red Team** | Adversary simulation | Library of ATT&CK-mapped test cases to validate hunt hypotheses; execute a technique in a controlled manner, then verify the hunt detects it; essential for hypothesis validation |
+| Velociraptor | OSS EDR / hunting platform | VQL (Velociraptor Query Language) for live endpoint forensics; artifact collection; scalable to thousands of endpoints simultaneously; built-in hunt management |
+| Elastic / OpenSearch | SIEM / analytics | EQL (Event Query Language) for sequence detection; ES|QL for analytics; ECS-normalized data model; integrates with Elastic Agent for unified telemetry |
+| Splunk | SIEM / analytics | SPL (Search Processing Language) for hunting; Splunk Security Essentials and Hunting app provide pre-built hunt content; powerful stats and transaction commands for behavioral analysis |
+| Microsoft Sentinel | Cloud SIEM | KQL (Kusto Query Language) for hunting; built-in hunting query library; UEBA (User and Entity Behavior Analytics) for anomaly detection; native integration with Defender XDR telemetry |
+| Timesketch | Timeline analysis | Collaborative forensic timeline analysis; integrates with Plaso for log2timeline parsing; essential for multi-source event correlation in complex investigations |
+| Jupyter Notebooks + HELK | Data science hunting | Python-based data science environment with Spark, Elasticsearch, and Kibana; enables ML-driven anomaly detection and statistical analysis of security telemetry |
+| SIGMA | Detection rule format | Vendor-agnostic rule format for detection and hunt automation; SIGMA rules can be converted to SPL, KQL, EQL, Lucene, and 30+ other query languages; the lingua franca of detection sharing |
+| Atomic Red Team | Adversary simulation | Library of ATT&CK-mapped test cases to validate hunt hypotheses; execute a technique in a controlled manner, then verify the hunt detects it; essential for hypothesis validation |
 
 ---
 
 ## Splunk SPL Hunting Queries
 
-**Rare parent-child process relationships (Event ID 4688):**
+Rare parent-child process relationships (Event ID 4688):
 ```spl
 index=windows EventCode=4688
 | stats count by ParentProcessName, NewProcessName
@@ -216,7 +216,7 @@ index=windows EventCode=4688
 | sort count
 ```
 
-**Encoded PowerShell execution:**
+Encoded PowerShell execution:
 ```spl
 index=windows EventCode=4688
     (CommandLine="*-EncodedCommand*" OR CommandLine="*-enc *" OR CommandLine="*-e *")
@@ -224,7 +224,7 @@ index=windows EventCode=4688
 | table _time, ComputerName, SubjectUserName, CommandLine
 ```
 
-**LSASS memory access (Sysmon EID 10):**
+LSASS memory access (Sysmon EID 10):
 ```spl
 index=sysmon EventCode=10 TargetImage="*\\lsass.exe"
 | stats count by SourceImage, GrantedAccess
@@ -232,7 +232,7 @@ index=sysmon EventCode=10 TargetImage="*\\lsass.exe"
 | sort count
 ```
 
-**DNS beaconing detection:**
+DNS beaconing detection:
 ```spl
 index=dns
 | stats count avg(bytes) as avg_bytes stdev(bytes) as stdev_bytes by query
@@ -240,7 +240,7 @@ index=dns
 | sort -count
 ```
 
-**Kerberoasting (RC4 TGS requests):**
+Kerberoasting (RC4 TGS requests):
 ```spl
 index=windows EventCode=4769 TicketEncryptionType=0x17
     NOT ServiceName="*$"
@@ -253,7 +253,7 @@ index=windows EventCode=4769 TicketEncryptionType=0x17
 
 ## KQL Hunting Queries (Microsoft Sentinel)
 
-**Encoded PowerShell execution:**
+Encoded PowerShell execution:
 ```kql
 SecurityEvent
 | where EventID == 4688
@@ -263,7 +263,7 @@ SecurityEvent
 | order by TimeGenerated desc
 ```
 
-**Impossible travel / anomalous sign-in location:**
+Impossible travel / anomalous sign-in location:
 ```kql
 SigninLogs
 | where ResultType == 0
@@ -277,7 +277,7 @@ SigninLogs
 | order by TimeGenerated desc
 ```
 
-**Anomalous LDAP queries (BloodHound / AD recon pattern):**
+Anomalous LDAP queries (BloodHound / AD recon pattern):
 ```kql
 IdentityQueryEvents
 | where Protocol == "LDAP"
@@ -290,7 +290,7 @@ IdentityQueryEvents
 | order by QueryCount desc
 ```
 
-**Kerberoasting detection:**
+Kerberoasting detection:
 ```kql
 SecurityEvent
 | where EventID == 4769
@@ -310,34 +310,34 @@ SecurityEvent
 
 | Cert / Resource | Focus | Provider |
 |---|---|---|
-| **GCTI** (GIAC Cyber Threat Intelligence) | Threat intelligence analysis, threat hunting hypothesis generation, intelligence-driven detection | SANS Institute |
-| **GDAT** (GIAC Defending Advanced Threats) | Advanced threat hunting, adversary tradecraft, detection of nation-state TTPs | SANS Institute |
-| **GCFE** (GIAC Certified Forensic Examiner) | Host forensics underpinning hunting workflows; evidence acquisition, artifact analysis, timeline construction | SANS Institute |
-| **HTB CDSA** (Certified Defensive Security Analyst) | Blue team operations including threat hunting, SIEM investigation, and malware triage in realistic lab environments | Hack The Box |
-| **Threat Hunting Academy** | Structured threat hunting curriculum with practical labs, hypothesis frameworks, and query development | [threathunting.net](https://www.threathunting.net) |
-| **ThreatHunter-Playbook** | Community-maintained ATT&CK-mapped hunt playbooks with data source mappings and query examples | [GitHub — OTRF/ThreatHunter-Playbook](https://github.com/OTRF/ThreatHunter-Playbook) |
-| **HELK** (Hunting ELK) | Data science-powered threat hunting lab with Kafka, Spark, Elasticsearch, and Jupyter | [GitHub — Cyb3rWard0g/HELK](https://github.com/Cyb3rWard0g/HELK) |
-| **Sigma Rule Repository** | Community detection rules in vendor-agnostic format; direct source for hunt query development | [GitHub — SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
+| GCTI (GIAC Cyber Threat Intelligence) | Threat intelligence analysis, threat hunting hypothesis generation, intelligence-driven detection | SANS Institute |
+| GDAT (GIAC Defending Advanced Threats) | Advanced threat hunting, adversary tradecraft, detection of nation-state TTPs | SANS Institute |
+| GCFE (GIAC Certified Forensic Examiner) | Host forensics underpinning hunting workflows; evidence acquisition, artifact analysis, timeline construction | SANS Institute |
+| HTB CDSA (Certified Defensive Security Analyst) | Blue team operations including threat hunting, SIEM investigation, and malware triage in realistic lab environments | Hack The Box |
+| Threat Hunting Academy | Structured threat hunting curriculum with practical labs, hypothesis frameworks, and query development | [threathunting.net](https://www.threathunting.net) |
+| ThreatHunter-Playbook | Community-maintained ATT&CK-mapped hunt playbooks with data source mappings and query examples | [GitHub: OTRF/ThreatHunter-Playbook](https://github.com/OTRF/ThreatHunter-Playbook) |
+| HELK (Hunting ELK) | Data science-powered threat hunting lab with Kafka, Spark, Elasticsearch, and Jupyter | [GitHub: Cyb3rWard0g/HELK](https://github.com/Cyb3rWard0g/HELK) |
+| Sigma Rule Repository | Community detection rules in vendor-agnostic format; direct source for hunt query development | [GitHub: SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
 
 ---
 
 ## Threat Hunting Hypothesis Development
 
-**Hypothesis Sources**
+Hypothesis Sources
 - ATT&CK techniques not covered by existing detections
 - Threat intelligence reports about active campaigns targeting your sector
 - Anomaly in telemetry or SIEM data suggesting unexplained behavior
 - Red team findings showing detection gaps
 - Industry ISAC alerts (FS-ISAC, H-ISAC, E-ISAC, etc.)
 
-**Hypothesis Structure**
+Hypothesis Structure
 Template: "I believe [threat actor type] may be [ATT&CK technique] via [specific mechanism] targeting [asset type], which would be visible in [data source] as [observable behavior]"
 
 Example: "I believe a lateral movement threat may be using Pass-the-Hash via CrackMapExec targeting Windows servers, which would be visible in Windows Security Event Logs (Event 4624 Type 3, 4648) as NTLM authentication from workstation IPs to server IPs without corresponding interactive logon."
 
 ## Threat Hunting Procedures (ATT&CK-Mapped)
 
-**Hunt 1: Kerberoasting Detection**
+Hunt 1: Kerberoasting Detection
 - Hypothesis: Adversary requesting service tickets for offline cracking
 - Data source: Windows Security Event Log 4769
 - Query (Splunk SPL):
@@ -357,7 +357,7 @@ SecurityEvent
 ```
 - True positive signals: Multiple RC4 (0x17) tickets requested in short time from same source; service accounts that shouldn't be authenticated from workstations
 
-**Hunt 2: C2 Beaconing Detection (Statistical)**
+Hunt 2: C2 Beaconing Detection (Statistical)
 - Hypothesis: Beaconing malware making regular outbound connections
 - Data source: Proxy/firewall logs, DNS logs
 - Logic: Group connections by (src_ip, dst_ip, port), measure inter-arrival time variance
@@ -369,7 +369,7 @@ index=proxy
 | sort count desc
 ```
 
-**Hunt 3: LSASS Memory Access**
+Hunt 3: LSASS Memory Access
 - Hypothesis: Credential dumping tool accessing LSASS
 - Data source: Sysmon Event 10 (ProcessAccess)
 - Query:
@@ -379,11 +379,11 @@ index=sysmon EventCode=10 TargetImage="*lsass.exe"
 | table _time, SourceImage, GrantedAccess, CallTrace
 ```
 
-**Hunt 4: Lateral Movement via WMI/PsExec**
+Hunt 4: Lateral Movement via WMI/PsExec
 - Data sources: Sysmon Event 1 (process create), Security Event 7045/4697 (service install), Security Event 4624 Type 3
 - Indicator: wmiprvse.exe or services.exe spawning cmd.exe, powershell.exe, or unusual binaries
 
-**Hunt 5: Domain Fronting / Unusual HTTPS**
+Hunt 5: Domain Fronting / Unusual HTTPS
 - Data source: Proxy logs with SSL inspection, JA3 hashes
 - Hunt for: Known malicious JA3 hashes, HTTPS to CDN providers with unusual URI patterns, high-frequency small HTTPS posts with consistent byte sizes
 
@@ -399,14 +399,14 @@ index=sysmon EventCode=10 TargetImage="*lsass.exe"
 | Splunk Enterprise Security | Commercial | Threat hunting workbench, risk-based alerting |
 | ThreatHunter-Playbook | OSS | Open-source playbook library mapping ATT&CK to hunting procedures |
 | Jupyter Notebooks | OSS | Data science-style threat hunting; pandas + matplotlib for statistical hunting |
-| OSSEM | OSS | Open Source Security Events Metadata — data model for cross-platform hunting |
+| OSSEM | OSS | Open Source Security Events Metadata: data model for cross-platform hunting |
 
 ---
 
 ## Related Disciplines
 
-- [Detection Engineering](/disciplines/detection-engineering.md) — Converting successful hunt findings into automated detection rules; SIGMA rule authoring; detection lifecycle management
-- [Threat Intelligence](/disciplines/threat-intelligence.md) — Intelligence-driven hypothesis generation; threat actor TTP mapping; IOC enrichment for hunt data
-- [Incident Response](/disciplines/incident-response.md) — Response handoff from confirmed hunt findings; containment, eradication, and recovery
-- [Security Operations](/disciplines/security-operations.md) — SOC context for hunt programs; alert triage, SIEM operations, and escalation workflows
-- [DETECTION_RULES_REFERENCE.md](/DETECTION_RULES_REFERENCE.md) — Repository detection rule library and SIGMA conversion reference
+- [Detection Engineering](/disciplines/detection-engineering.md): Converting successful hunt findings into automated detection rules; SIGMA rule authoring; detection lifecycle management
+- [Threat Intelligence](/disciplines/threat-intelligence.md): Intelligence-driven hypothesis generation; threat actor TTP mapping; IOC enrichment for hunt data
+- [Incident Response](/disciplines/incident-response.md): Response handoff from confirmed hunt findings; containment, eradication, and recovery
+- [Security Operations](/disciplines/security-operations.md): SOC context for hunt programs; alert triage, SIEM operations, and escalation workflows
+- [DETECTION_RULES_REFERENCE.md](/DETECTION_RULES_REFERENCE.md): Repository detection rule library and SIGMA conversion reference

@@ -2,14 +2,14 @@
 
 The controlled vocabularies used by the crosswalk / edge datasets. These are the
 allowed value sets a consumer (e.g. ATTACK-Navi's cross-framework graph) can rely
-on. **Library-defined** vocabularies are stable and owned here; **MITRE-derived**
+on. Library-defined vocabularies are stable and owned here; MITRE-derived
 vocabularies track the upstream framework and are updated when it changes. The
 `confidence`, `coverage_type`, `mapping_type`, `edge_type`, `relation`, and
 `reason` values below are enforced in CI by `scripts/validate_jsonl.py`; a value
 outside the locked set fails the build. See [MANIFEST.json](MANIFEST.json) for
 per-file provenance and [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 
-## Edge / crosswalk vocabularies (library-defined — locked)
+## Edge / crosswalk vocabularies (library-defined: locked)
 
 | Field | Files | Allowed values | Meaning |
 |---|---|---|---|
@@ -20,7 +20,7 @@ per-file provenance and [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 | `ctid_source` | control_to_technique | `nist800-53-r5` | The CTID Mappings Explorer source dataset. |
 | `reason` | superseded_by | `revoked`, `deprecated` | Why an ATT&CK id was retired: `revoked` (replaced by `new_id`; may be null if the replacement is itself a dead-end) vs `deprecated` (removed, `new_id` null). |
 
-> **Known gap:** `vendor_to_control.pipeline_stage` is present in the schema but empty in every row — populate or drop it in a future pass. Not currently consumed.
+> Known gap: `vendor_to_control.pipeline_stage` is present in the schema but empty in every row — populate or drop it in a future pass. Not currently consumed.
 
 ## Framework-derived vocabularies (track upstream)
 

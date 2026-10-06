@@ -1,14 +1,14 @@
 # Incident Response Playbooks
 
-> **In one minute** — Step-by-step response procedures for ten common incident types, from ransomware to supply chain compromise, each organized around the NIST SP 800-61 lifecycle (the standard prepare-detect-contain-recover model for handling security incidents). When an incident hits, you look up the matching playbook and follow its timed immediate actions, investigation steps, and recovery guidance instead of improvising. It also carries the reference tables you need under pressure: escalation timing, regulatory notification deadlines, and how to contact the FBI, CISA, and international authorities.
+> In one minute — Step-by-step response procedures for ten common incident types, from ransomware to supply chain compromise, each organized around the NIST SP 800-61 lifecycle (the standard prepare-detect-contain-recover model for handling security incidents). When an incident hits, you look up the matching playbook and follow its timed immediate actions, investigation steps, and recovery guidance instead of improvising. It also carries the reference tables you need under pressure: escalation timing, regulatory notification deadlines, and how to contact the FBI, CISA, and international authorities.
 
 | | |
 |---|---|
-| **Read this when** | an active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, you need regulatory notification deadlines or law-enforcement contacts fast |
-| **Start at** | [Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines) |
-| **Pairs with** | [Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md) |
+| Read this when | an active incident needs a structured response right now, you are drafting or adapting IR runbooks for your environment, you need regulatory notification deadlines or law-enforcement contacts fast |
+| Start at | [Playbook Index](#playbook-index), [Ransomware Response Playbook (Detailed)](#ransomware-response-playbook-detailed), [Regulatory Notification Deadlines](#regulatory-notification-deadlines) |
+| Pairs with | [Incident Response](disciplines/incident-response.md), [Digital Forensics](disciplines/digital-forensics.md), [Detection Engineering](disciplines/detection-engineering.md) |
 
-Structured response procedures for the most common incident types. Each playbook follows the NIST SP 800-61 lifecycle: Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity. (NIST SP 800-61 Rev 3, April 2025, reframes this around the CSF 2.0 Functions; the phased flow is retained here as a practical mental model.)
+Structured response procedures for the most common incident types. Each playbook follows the NIST SP 800-61 lifecycle: Preparation -> Detection & Analysis -> Containment -> Eradication -> Recovery -> Post-Incident Activity. (NIST SP 800-61 Rev 3, April 2025, reframes this around the CSF 2.0 Functions; the phased flow is retained here as a practical mental model.)
 
 These are generic templates. Adapt them to your environment, tools, and escalation paths.
 
@@ -18,16 +18,16 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 
 | Incident Type | Severity Baseline | Estimated MTTR |
 |---|---|---|
-| [Ransomware](#ransomware) | Critical | 1–4 weeks |
-| [Business Email Compromise (BEC)](#business-email-compromise-bec) | High | 24–72 hours |
-| [Account Compromise / Credential Theft](#account-compromise-credential-theft) | High | 2–8 hours |
-| [Data Exfiltration](#data-exfiltration) | High–Critical | 4–24 hours |
-| [Phishing](#phishing) | Medium | 1–4 hours |
-| [Malware / Trojan Infection](#malware-trojan-infection) | Medium–High | 4–12 hours |
-| [Insider Threat](#insider-threat) | High | 1–5 days |
-| [DDoS Attack](#ddos-attack) | High | 2–6 hours |
-| [Cloud Security Incident](#cloud-security-incident) | High–Critical | 4–24 hours |
-| [Supply Chain Compromise](#supply-chain-compromise) | Critical | 1–4 weeks |
+| [Ransomware](#ransomware) | Critical | 1-4 weeks |
+| [Business Email Compromise (BEC)](#business-email-compromise-bec) | High | 24-72 hours |
+| [Account Compromise / Credential Theft](#account-compromise-credential-theft) | High | 2-8 hours |
+| [Data Exfiltration](#data-exfiltration) | High-Critical | 4-24 hours |
+| [Phishing](#phishing) | Medium | 1-4 hours |
+| [Malware / Trojan Infection](#malware-trojan-infection) | Medium-High | 4-12 hours |
+| [Insider Threat](#insider-threat) | High | 1-5 days |
+| [DDoS Attack](#ddos-attack) | High | 2-6 hours |
+| [Cloud Security Incident](#cloud-security-incident) | High-Critical | 4-24 hours |
+| [Supply Chain Compromise](#supply-chain-compromise) | Critical | 1-4 weeks |
 
 ---
 
@@ -42,14 +42,14 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Unusual outbound data transfer before encryption (double extortion)
 - C2 beacon to known ransomware infrastructure
 
-### Immediate Actions (0–1 hour)
-1. **Isolate** affected systems immediately — disconnect from network (do not power off; preserve forensic state)
-2. **Identify** blast radius — which systems/shares are encrypted? Use EDR telemetry
-3. **Activate** IR team and escalate to CISO / legal / executive leadership
-4. **Preserve** forensic artifacts — memory dump on key systems before any action
-5. **Identify** patient zero — first infected system; check EDR for initial access vector
-6. **Disable** compromised accounts used in lateral movement
-7. **Check** backup integrity — verify backups are clean and offline/immutable before relying on them
+### Immediate Actions (0-1 hour)
+1. Isolate affected systems immediately: disconnect from network (do not power off; preserve forensic state)
+2. Identify blast radius: which systems/shares are encrypted? Use EDR telemetry
+3. Activate IR team and escalate to CISO / legal / executive leadership
+4. Preserve forensic artifacts: memory dump on key systems before any action
+5. Identify patient zero: first infected system; check EDR for initial access vector
+6. Disable compromised accounts used in lateral movement
+7. Check backup integrity: verify backups are clean and offline/immutable before relying on them
 
 ### Containment
 - Segment affected network zones
@@ -76,7 +76,7 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 
 ### Recovery
 - Restore from clean, offline backups (verify integrity first)
-- Bring systems online in isolated environment — monitor for re-infection
+- Bring systems online in isolated environment: monitor for re-infection
 - Staged production restoration with enhanced monitoring
 
 ### Post-Incident
@@ -103,13 +103,13 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - DMARC failures or lookalike domain emails
 - Finance team reports suspicious payment request
 
-### Immediate Actions (0–2 hours)
-1. **Preserve** all email evidence before any mailbox changes
-2. **Identify** scope — which mailboxes compromised? Review sign-in logs (Entra ID, Google Workspace)
-3. **Revoke** active sessions for compromised accounts
-4. **Block** attacker-created forwarding rules
-5. **Notify** finance team — halt any pending wire transfers immediately
-6. **Contact bank** if wire transfer was initiated — request recall (time-critical, <24h window)
+### Immediate Actions (0-2 hours)
+1. Preserve all email evidence before any mailbox changes
+2. Identify scope: which mailboxes compromised? Review sign-in logs (Entra ID, Google Workspace)
+3. Revoke active sessions for compromised accounts
+4. Block attacker-created forwarding rules
+5. Notify finance team: halt any pending wire transfers immediately
+6. Contact bank if wire transfer was initiated: request recall (time-critical, <24h window)
 
 ### Investigation
 | Step | Activity |
@@ -154,12 +154,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Failed MFA push flood (MFA fatigue attack)
 - Lateral movement from user workstation
 
-### Immediate Actions (0–1 hour)
-1. **Disable** account or force session revocation
-2. **Identify** all active sessions — terminate all
-3. **Check** for privilege escalation — did attacker elevate to admin?
-4. **Review** recent activity — what did attacker access?
-5. **Notify** user through out-of-band channel
+### Immediate Actions (0-1 hour)
+1. Disable account or force session revocation
+2. Identify all active sessions: terminate all
+3. Check for privilege escalation: did attacker elevate to admin?
+4. Review recent activity: what did attacker access?
+5. Notify user through out-of-band channel
 
 ### Investigation
 | Step | Activity | Tool |
@@ -193,12 +193,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - DNS tunneling detection
 - USB/removable media data copy alert
 
-### Immediate Actions (0–2 hours)
-1. **Block** egress path (IP/domain at firewall, cloud app at CASB)
-2. **Preserve** network flow data and proxy logs
-3. **Identify** data involved — classify sensitivity, determine regulatory notification requirements
-4. **Identify** actor — insider, external attacker, or compromised account?
-5. **Engage** legal and privacy team if PII/PHI/PCI data involved
+### Immediate Actions (0-2 hours)
+1. Block egress path (IP/domain at firewall, cloud app at CASB)
+2. Preserve network flow data and proxy logs
+3. Identify data involved: classify sensitivity, determine regulatory notification requirements
+4. Identify actor: insider, external attacker, or compromised account?
+5. Engage legal and privacy team if PII/PHI/PCI data involved
 
 ### Investigation
 | Step | Questions to Answer |
@@ -232,12 +232,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Credential submission to unknown site (proxy log)
 - Sandbox detonation of attachment
 
-### Immediate Actions (0–30 minutes)
-1. **Collect** phishing email headers, URLs, attachments
-2. **Search and purge** — find all mailboxes that received the email, delete
-3. **Block** sender domain/IP and malicious URLs at email gateway and proxy
-4. **Identify** users who clicked or submitted credentials — prioritize response
-5. **Sandbox** attachments and URLs for IOC extraction
+### Immediate Actions (0-30 minutes)
+1. Collect phishing email headers, URLs, attachments
+2. Search and purge: find all mailboxes that received the email, delete
+3. Block sender domain/IP and malicious URLs at email gateway and proxy
+4. Identify users who clicked or submitted credentials: prioritize response
+5. Sandbox attachments and URLs for IOC extraction
 
 ### Investigation
 - For credential harvest: treat as Account Compromise (see above)
@@ -262,12 +262,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Antivirus detection (treat as confirmed if EDR behavioral)
 - Unusual process execution from document/email
 
-### Immediate Actions (0–1 hour)
-1. **Isolate** infected host (network isolation via EDR policy)
-2. **Preserve** memory dump and disk image if threat severity warrants
-3. **Identify** malware family — submit to sandbox (Any.run, Triage)
-4. **Check** for lateral movement — has infection spread?
-5. **Block** C2 infrastructure at firewall and DNS
+### Immediate Actions (0-1 hour)
+1. Isolate infected host (network isolation via EDR policy)
+2. Preserve memory dump and disk image if threat severity warrants
+3. Identify malware family: submit to sandbox (Any.run, Triage)
+4. Check for lateral movement: has infection spread?
+5. Block C2 infrastructure at firewall and DNS
 
 ### Investigation
 | Step | Activity | Tool |
@@ -292,7 +292,7 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 
 ### Severity: High
 
-> **Important**: Coordinate with HR and Legal before taking investigative actions against employees. Premature account disabling may trigger legal complications or destroy evidence.
+> Important: Coordinate with HR and Legal before taking investigative actions against employees. Premature account disabling may trigger legal complications or destroy evidence.
 
 ### Detection Signals
 - UEBA alert: unusual data access patterns for role
@@ -302,15 +302,15 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Access to systems outside role scope
 
 ### Response Principles
-- **Legal hold** all evidence before any action
-- **Need-to-know**: limit investigation team; avoid HR disclosure until legal review
-- **Document everything**: chain of custody for all evidence
-- **No confrontation** without HR/Legal alignment
+- Legal hold all evidence before any action
+- Need-to-know: limit investigation team; avoid HR disclosure until legal review
+- Document everything: chain of custody for all evidence
+- No confrontation without HR/Legal alignment
 
 ### Investigation
 | Step | Activity |
 |---|---|
-| Activity audit | Full access log review for 30–90 days prior |
+| Activity audit | Full access log review for 30-90 days prior |
 | Data inventory | What was accessed, copied, or exfiltrated? |
 | Communications review | Email, Slack, Teams (per legal authorization) |
 | Timeline reconstruction | Correlate badge access, system access, network activity |
@@ -336,12 +336,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Upstream ISP notification
 - CDN/WAF DDoS mitigation alert
 
-### Immediate Actions (0–30 minutes)
-1. **Confirm** DDoS vs. legitimate traffic surge — check traffic patterns
-2. **Engage** upstream ISP / CDN DDoS mitigation scrubbing
-3. **Enable** rate limiting and geo-blocking if not already active
-4. **Activate** DDoS mitigation provider (Cloudflare, Akamai, AWS Shield)
-5. **Assess** whether attack is cover for simultaneous intrusion attempt
+### Immediate Actions (0-30 minutes)
+1. Confirm DDoS vs. legitimate traffic surge — check traffic patterns
+2. Engage upstream ISP / CDN DDoS mitigation scrubbing
+3. Enable rate limiting and geo-blocking if not already active
+4. Activate DDoS mitigation provider (Cloudflare, Akamai, AWS Shield)
+5. Assess whether attack is cover for simultaneous intrusion attempt
 
 ### Mitigation
 - Cloudflare Magic Transit or similar ISP-level scrubbing
@@ -367,12 +367,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - Cryptomining detected (GPU/CPU spike, unusual egress)
 - Cloud storage bucket publicly exposed
 
-### Immediate Actions (0–1 hour)
-1. **Identify** affected cloud account(s), region(s), resources
-2. **Preserve** CloudTrail / Activity Logs (export before attacker deletes)
-3. **Revoke** compromised IAM credentials / service account keys
-4. **Isolate** affected resources (security group deny-all, resource isolation)
-5. **Check** for persistence: new IAM users, roles, access keys, Lambda/EC2 backdoors
+### Immediate Actions (0-1 hour)
+1. Identify affected cloud account(s), region(s), resources
+2. Preserve CloudTrail / Activity Logs (export before attacker deletes)
+3. Revoke compromised IAM credentials / service account keys
+4. Isolate affected resources (security group deny-all, resource isolation)
+5. Check for persistence: new IAM users, roles, access keys, Lambda/EC2 backdoors
 
 ### Investigation
 | Step | Activity | Tool |
@@ -406,12 +406,12 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - SBOM / SCA tool flags modified dependency
 - Threat intelligence report on compromised package/vendor
 
-### Immediate Actions (0–2 hours)
-1. **Identify** all systems running the compromised component
-2. **Assess** blast radius — what access did the compromised component have?
-3. **Isolate** or disable affected software (balance risk of disabling vs. leaving active)
-4. **Preserve** forensic evidence — memory, disk, logs
-5. **Engage** vendor for guidance, IOCs, and clean version
+### Immediate Actions (0-2 hours)
+1. Identify all systems running the compromised component
+2. Assess blast radius: what access did the compromised component have?
+3. Isolate or disable affected software (balance risk of disabling vs. leaving active)
+4. Preserve forensic evidence: memory, disk, logs
+5. Engage vendor for guidance, IOCs, and clean version
 
 ### Investigation
 | Step | Activity |
@@ -460,43 +460,43 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 
 ## Ransomware Response Playbook (Detailed)
 
-### Phase 1: Initial Detection and Triage (0–2 Hours)
+### Phase 1: Initial Detection and Triage (0-2 Hours)
 
-**Immediate Actions (first 15 minutes)**
-1. **Do NOT reboot affected systems** — volatile memory contains forensic artifacts (encryption keys, running processes, network connections)
-2. **Isolate affected systems** — disconnect from network (pull cable or disable NIC via management interface) but keep powered on
-3. **Preserve evidence** — take memory snapshot if possible (WinPmem, DumpIt, or EDR live response)
-4. **Identify patient zero** — review logs for earliest encryption activity, anomalous process creation, lateral movement indicators
-5. **Activate Incident Response team** — engage internal IR, cyber insurance, and legal counsel simultaneously
+Immediate Actions (first 15 minutes)
+1. Do NOT reboot affected systems: volatile memory contains forensic artifacts (encryption keys, running processes, network connections)
+2. Isolate affected systems: disconnect from network (pull cable or disable NIC via management interface) but keep powered on
+3. Preserve evidence: take memory snapshot if possible (WinPmem, DumpIt, or EDR live response)
+4. Identify patient zero: review logs for earliest encryption activity, anomalous process creation, lateral movement indicators
+5. Activate Incident Response team: engage internal IR, cyber insurance, and legal counsel simultaneously
 
-**Scope Assessment (15–60 minutes)**
+Scope Assessment (15-60 minutes)
 - Query EDR for any host executing ransomware binary hash or exhibiting encryption behavior (high I/O, file extension changes)
 - Search SIEM for shadow copy deletion (vssadmin, wmic, wbadmin), backup deletion, and mass file modification
 - Identify affected file shares, databases, and backup systems
 - Check cloud environments (AWS/Azure/GCP) for any encrypted cloud storage or compromised credentials
 
-**Communication (first hour)**
+Communication (first hour)
 - Notify: CISO, Legal, Communications, Executive Leadership
-- Do NOT communicate via email if compromised — use out-of-band channel (personal phones, Signal, Teams on separate tenant)
-- Engage cyber insurance carrier immediately — most policies require notification within 24-72 hours
+- Do NOT communicate via email if compromised: use out-of-band channel (personal phones, Signal, Teams on separate tenant)
+- Engage cyber insurance carrier immediately: most policies require notification within 24-72 hours
 - Do not make public statements until legal counsel approves
 
-### Phase 2: Investigation (2–12 Hours)
+### Phase 2: Investigation (2-12 Hours)
 
-**Initial Access Analysis**
+Initial Access Analysis
 - Review VPN/RDP access logs for the 30-60 days prior to encryption
 - Check for phishing emails or malicious attachments in email security gateway
 - Examine Active Directory for new accounts, group changes, GPO modifications
 - Review firewall logs for unusual inbound connections or beaconing patterns
 - Identify if credentials were sold on dark web (SpyCloud, Flare, or manual dark web search)
 
-**Attacker Timeline Reconstruction**
-1. Identify earliest attacker foothold (initial access date — often weeks before encryption)
+Attacker Timeline Reconstruction
+1. Identify earliest attacker foothold (initial access date: often weeks before encryption)
 2. Map lateral movement: BloodHound AD enumeration, PsExec/WMI/WinRM activity in event logs
 3. Identify data exfiltration: large outbound transfers (firewall/proxy logs), cloud storage uploads, Rclone/MEGAsync/FTP activity
 4. Confirm scope of encrypted systems and backup status
 
-**Backup Integrity Assessment**
+Backup Integrity Assessment
 - Are offline/air-gapped backups intact and clean?
 - Were backup credentials compromised and backups deleted?
 - Was Veeam/Backup Exec/Azure Backup targeted?
@@ -504,62 +504,62 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 
 ### Phase 3: Ransomware Negotiation Guidance
 
-**Engage Professional Negotiators**
+Engage Professional Negotiators
 Do not negotiate directly without expertise. Engage:
 - Coveware (leading ransomware negotiation and recovery firm)
 - Mandiant/Google, CrowdStrike Incident Response, Palo Alto Unit 42
 - Your cyber insurer's preferred IR/negotiation partner
 
-**OFAC Sanctions Check (Mandatory)**
+OFAC Sanctions Check (Mandatory)
 Before any payment consideration, verify the group is NOT on the OFAC SDN list:
 - [ofac.treasury.gov/sanctions-programs-and-country-information](https://ofac.treasury.gov/sanctions-programs-and-country-information)
 - Paying sanctioned entities (LockBit after certain dates, EVIL CORP) violates US law regardless of victimhood
 - Professional negotiators maintain current sanctions status; this is another reason to use them
 
-**Negotiation Principles**
-- Ransomware operators run this as a business — they negotiate
+Negotiation Principles
+- Ransomware operators run this as a business: they negotiate
 - Common starting position: full ransom demand. Common settlement: 20-70% of initial demand
 - Demonstrate financial distress to justify lower payment: audited financials, attorney letter
-- Request test decryption of 2-5 non-critical files BEFORE paying — verify decryptor actually works
-- Get technical support commitment in writing — decryptors sometimes break on certain file types
+- Request test decryption of 2-5 non-critical files BEFORE paying: verify decryptor actually works
+- Get technical support commitment in writing: decryptors sometimes break on certain file types
 
-**Free Decryption Keys**
+Free Decryption Keys
 ALWAYS check before paying:
-- **No More Ransom Project**: [nomoreransom.org](https://www.nomoreransom.org/) — free keys for 150+ ransomware strains (Hive, REvil, GandCrab, Maze, Dharma, and many others)
-- **ID Ransomware**: [id-ransomware.malwarehunterteam.com](https://id-ransomware.malwarehunterteam.com/) — identify ransomware family from ransom note or encrypted file
-- **Europol No More Ransom partners**: law enforcement regularly seizes keys during group takedowns
+- No More Ransom Project: [nomoreransom.org](https://www.nomoreransom.org/): free keys for 150+ ransomware strains (Hive, REvil, GandCrab, Maze, Dharma, and many others)
+- ID Ransomware: [id-ransomware.malwarehunterteam.com](https://id-ransomware.malwarehunterteam.com/): identify ransomware family from ransom note or encrypted file
+- Europol No More Ransom partners: law enforcement regularly seizes keys during group takedowns
 
-**Payment Decision Framework**
+Payment Decision Framework
 | Scenario | Recommended Decision |
 |---|---|
-| Clean offline backups available, RTO acceptable | Do not pay — restore from backup |
+| Clean offline backups available, RTO acceptable | Do not pay: restore from backup |
 | Partial backups, data exfiltration confirmed | Consider paying for decryptor; also must address extortion threat |
 | No backups, critical operations down | Engage professional negotiators; payment may be necessary |
-| Group is OFAC sanctioned | Do NOT pay — seek legal counsel and FBI engagement |
-| Group has history of not providing working decryptors | Do not pay — prioritize rebuild and data loss acceptance |
+| Group is OFAC sanctioned | Do NOT pay: seek legal counsel and FBI engagement |
+| Group has history of not providing working decryptors | Do not pay: prioritize rebuild and data loss acceptance |
 
 ### Phase 4: Containment and Eradication
 
-**Eradication Steps**
+Eradication Steps
 1. Identify and remove all persistence mechanisms (registry run keys, scheduled tasks, services, WMI subscriptions)
-2. Reset ALL credentials — assume all AD accounts are compromised: service accounts, domain admins, local admins
+2. Reset ALL credentials: assume all AD accounts are compromised: service accounts, domain admins, local admins
 3. Revoke and reissue all certificates if ADCS was targeted (check for ADCS ESC attacks)
-4. Rebuild compromised systems from clean images — do not remediate in place
+4. Rebuild compromised systems from clean images: do not remediate in place
 5. Patch the initial access vector before returning to production
 6. Verify backup systems are clean before connecting to production
 
-**Active Directory Rebuild Considerations**
-- If NTDS.dit was stolen: all password hashes are compromised — force password reset for all users
+Active Directory Rebuild Considerations
+- If NTDS.dit was stolen: all password hashes are compromised: force password reset for all users
 - If KRBTGT hash was obtained: Golden Tickets can persist; reset KRBTGT password TWICE (24 hours apart)
 - Review all GPOs for backdoors, all admin group memberships for unauthorized accounts
 - Deploy Microsoft's ESAE/Enhanced Security Admin Environment or Tier Model going forward
 
 ### Phase 5: Recovery and Post-Incident
 
-**Restore Sequencing**
-Priority order: 1) Identity infrastructure (AD/AAD) → 2) Critical business systems → 3) Secondary systems → 4) User workstations
+Restore Sequencing
+Priority order: 1) Identity infrastructure (AD/AAD) -> 2) Critical business systems -> 3) Secondary systems -> 4) User workstations
 
-**Post-Incident Review (within 30 days)**
+Post-Incident Review (within 30 days)
 - Root cause analysis: how did attacker get in? How did they move laterally? How long were they present?
 - What controls failed? (MFA absent on VPN? Unpatched vulnerability? Weak password policy?)
 - What controls worked? (What did EDR catch? What SIEM alerts fired?)
@@ -571,7 +571,7 @@ Priority order: 1) Identity infrastructure (AD/AAD) → 2) Critical business sys
 
 ### AWS Incident Response
 
-**Immediate Triage**
+Immediate Triage
 ```bash
 # Identify compromised IAM entities
 aws iam get-account-authorization-details --output json > iam_snapshot.json
@@ -588,7 +588,7 @@ aws iam list-users --query 'Users[*].UserName' --output text | \
   xargs -I{} aws iam list-access-keys --user-name {}
 ```
 
-**Containment**
+Containment
 ```bash
 # Immediately deactivate suspected compromised access key
 aws iam update-access-key --access-key-id AKIAXXXXXXXXXXXXXXXX --status Inactive --user-name victim-user
@@ -602,7 +602,7 @@ aws iam put-role-policy --role-name compromised-role --policy-name RevokeOldSess
   --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Deny","Action":"*","Resource":"*","Condition":{"DateLessThan":{"aws:TokenIssueTime":"2024-01-01T12:00:00Z"}}}]}'
 ```
 
-**Investigation**
+Investigation
 - Enable GuardDuty if not already active
 - Export CloudTrail logs to S3 and analyze with Athena or a SIEM
 - Look for: CreateUser, CreateAccessKey, AttachUserPolicy, CreateLoginProfile, PutRolePolicy
@@ -611,7 +611,7 @@ aws iam put-role-policy --role-name compromised-role --policy-name RevokeOldSess
 
 ### Azure Incident Response
 
-**Immediate Triage**
+Immediate Triage
 ```powershell
 # Review recent Entra ID sign-in activity
 Get-AzureADAuditSignInLogs -Filter "createdDateTime gt 2024-01-01" |
@@ -628,7 +628,7 @@ Get-AzureADApplication -All $true |
   Select-Object displayName, appId, createdDateTime
 ```
 
-**Containment**
+Containment
 - Revoke all refresh tokens for compromised user: `Revoke-AzureADUserAllRefreshToken -ObjectId <userid>`
 - Disable compromised account: `Set-AzureADUser -ObjectId <userid> -AccountEnabled $false`
 - Remove unauthorized App Registrations and Service Principals
@@ -636,7 +636,7 @@ Get-AzureADApplication -All $true |
 
 ---
 
-## Contacting Authorities — Complete Reference
+## Contacting Authorities: Complete Reference
 
 ### United States
 | Agency | Contact | When to Use |
@@ -646,7 +646,7 @@ Get-AzureADApplication -All $true |
 | US Secret Service | [secretservice.gov/investigation/cyber](https://www.secretservice.gov/investigation/cyber) | Financial cybercrime, BEC, payment card fraud |
 | DHS | Via CISA for most cyber incidents | |
 | NSA (CNMF) | For cleared defense contractors | Nation-state intrusions on defense networks |
-| OFAC | [ofac.treasury.gov](https://ofac.treasury.gov/) | Ransomware payment compliance — report if paying or seeking license |
+| OFAC | [ofac.treasury.gov](https://ofac.treasury.gov/) | Ransomware payment compliance: report if paying or seeking license |
 
 ### International
 | Country | Agency | Contact |
@@ -657,15 +657,15 @@ Get-AzureADApplication -All $true |
 | Canada | CCCS | [cyber.gc.ca](https://www.cyber.gc.ca/) |
 | Germany | BSI | [bsi.bund.de](https://www.bsi.bund.de/) |
 | Global | INTERPOL | Via national contact; for multi-country attacks |
-| Global | No More Ransom | [nomoreransom.org](https://www.nomoreransom.org/) — free decryption keys |
+| Global | No More Ransom | [nomoreransom.org](https://www.nomoreransom.org/): free decryption keys |
 
-**Reporting ransomware to the FBI does NOT mean you cannot pay the ransom.** However, the FBI may have decryption keys for the specific ransomware variant. They will not share keys without engagement. Engaging early maximizes your options.
+Reporting ransomware to the FBI does NOT mean you cannot pay the ransom. However, the FBI may have decryption keys for the specific ransomware variant. They will not share keys without engagement. Engaging early maximizes your options.
 
 ---
 
 ## Related Resources
-- [Incident Response](disciplines/incident-response.md) — full IR discipline page with tools and methodology
-- [Digital Forensics](disciplines/digital-forensics.md) — forensic investigation techniques
-- [Threat Intelligence](disciplines/threat-intelligence.md) — IOC collection and actor tracking
-- [Security Operations](disciplines/security-operations.md) — SOC procedures and SOAR playbooks
-- [Detection Engineering](disciplines/detection-engineering.md) — detection rules for each incident type
+- [Incident Response](disciplines/incident-response.md): full IR discipline page with tools and methodology
+- [Digital Forensics](disciplines/digital-forensics.md): forensic investigation techniques
+- [Threat Intelligence](disciplines/threat-intelligence.md): IOC collection and actor tracking
+- [Security Operations](disciplines/security-operations.md): SOC procedures and SOAR playbooks
+- [Detection Engineering](disciplines/detection-engineering.md): detection rules for each incident type

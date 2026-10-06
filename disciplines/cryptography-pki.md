@@ -12,7 +12,7 @@ Cryptography and Public Key Infrastructure (PKI) underpin nearly every security 
 |---|---|---|
 | Beginner | Understand symmetric vs. asymmetric encryption, hashing, digital signatures, and TLS fundamentals. Learn what certificates are and how a CA hierarchy works. | [Crypto 101 (free book)](https://www.crypto101.io/) |
 | Intermediate | Work through the Cryptopals challenges to understand real-world attacks (padding oracles, CBC bit-flipping, hash length extension). Learn to configure TLS correctly and analyze certificates with OpenSSL. | [Cryptopals Challenges](https://cryptopals.com/) |
-| Advanced | Study post-quantum cryptography (ML-KEM, ML-DSA), AD CS attack paths (ESC1–ESC13 via Certipy/Certify), and protocol-level attacks (POODLE, BEAST, Bleichenbacher). Audit full PKI deployments. | [Dan Boneh's Cryptography Course (Stanford/Coursera)](https://www.coursera.org/learn/crypto) |
+| Advanced | Study post-quantum cryptography (ML-KEM, ML-DSA), AD CS attack paths (ESC1-ESC13 via Certipy/Certify), and protocol-level attacks (POODLE, BEAST, Bleichenbacher). Audit full PKI deployments. | [Dan Boneh's Cryptography Course (Stanford/Coursera)](https://www.coursera.org/learn/crypto) |
 
 ---
 
@@ -24,8 +24,8 @@ Cryptography and Public Key Infrastructure (PKI) underpin nearly every security 
 | Dan Boneh's Cryptography (Coursera) | https://www.coursera.org/learn/crypto | Rigorous math-based introduction to symmetric/asymmetric cryptography |
 | Crypto 101 | https://www.crypto101.io/ | Beginner-friendly cryptography; free PDF download |
 | NIST PQC Project | https://csrc.nist.gov/projects/post-quantum-cryptography | Post-quantum algorithm standards and background reading |
-| TryHackMe — Cryptography rooms | https://tryhackme.com/ | Guided labs: RSA, hashing, TLS |
-| PentesterLab — Crypto challenges | https://pentesterlab.com/ | Practical attacks including padding oracles and hash collisions |
+| TryHackMe: Cryptography rooms | https://tryhackme.com/ | Guided labs: RSA, hashing, TLS |
+| PentesterLab: Crypto challenges | https://pentesterlab.com/ | Practical attacks including padding oracles and hash collisions |
 | PortSwigger Web Academy | https://portswigger.net/web-security | Includes padding oracle and JWT attacks in the crypto sections |
 
 ---
@@ -41,7 +41,7 @@ Cryptography and Public Key Infrastructure (PKI) underpin nearly every security 
 | cert-manager | Kubernetes-native certificate automation (Let's Encrypt, Vault) | https://github.com/cert-manager/cert-manager |
 | HashiCorp Vault PKI | Secrets engine for internal PKI; dynamic certificate issuance | https://github.com/hashicorp/vault |
 | step-ca | Private ACME CA with SSH certificate support | https://github.com/smallstep/certificates |
-| CFSSL | Cloudflare PKI toolkit — CA server, CLI, JSON-based | https://github.com/cloudflare/cfssl |
+| CFSSL | Cloudflare PKI toolkit: CA server, CLI, JSON-based | https://github.com/cloudflare/cfssl |
 | EJBCA | Full-featured open-source enterprise Java CA | https://github.com/Keyfactor/ejbca-ce |
 
 ### TLS Analysis & Offensive Testing
@@ -129,26 +129,26 @@ Certificate pinning restricts trust to specific certificates or public key hashe
 
 ### PKI Architecture
 
-A CA hierarchy consists of a **root CA** (offline, air-gapped), **intermediate CAs** (online but restricted), and **issuing CAs** that sign end-entity certificates. Revocation is handled by CRLs (Certificate Revocation Lists, batch-published) or OCSP (Online Certificate Status Protocol, real-time). Certificate Transparency (CT) logs provide public, append-only audit trails of all issued certificates, enabling detection of mis-issuance.
+A CA hierarchy consists of a root CA (offline, air-gapped), intermediate CAs (online but restricted), and issuing CAs that sign end-entity certificates. Revocation is handled by CRLs (Certificate Revocation Lists, batch-published) or OCSP (Online Certificate Status Protocol, real-time). Certificate Transparency (CT) logs provide public, append-only audit trails of all issued certificates, enabling detection of mis-issuance.
 
 ---
 
-## Offensive Perspective — Attacks on Cryptography
+## Offensive Perspective: Attacks on Cryptography
 
 Understanding how cryptographic systems are attacked is essential for both building robust systems and conducting security assessments.
 
 | Attack | Description | Affected Systems |
 |---|---|---|
-| POODLE | Padding Oracle On Downgraded Legacy Encryption — exploits CBC padding in SSL 3.0 | SSL 3.0, TLS with CBC padding |
-| BEAST | Browser Exploit Against SSL/TLS — IV prediction in TLS 1.0 CBC | TLS 1.0 with CBC cipher suites |
+| POODLE | Padding Oracle On Downgraded Legacy Encryption: exploits CBC padding in SSL 3.0 | SSL 3.0, TLS with CBC padding |
+| BEAST | Browser Exploit Against SSL/TLS: IV prediction in TLS 1.0 CBC | TLS 1.0 with CBC cipher suites |
 | CRIME / BREACH | Compression ratio side-channel leaks plaintext secrets | TLS compression (CRIME), HTTP compression (BREACH) |
 | DROWN | Cross-protocol attack using weak SSLv2 to decrypt TLS | Servers sharing keys across SSLv2 and TLS |
 | Downgrade attacks | Force negotiation of weaker protocol/cipher; FREAK, Logjam | Any TLS deployment without min-version enforcement |
 | Padding oracle | Distinguish valid/invalid padding reveals plaintext byte-by-byte | CBC-mode symmetric encryption |
-| Bleichenbacher attack | RSA PKCS#1 v1.5 oracle — adaptive chosen ciphertext on RSA | RSA-based TLS key exchange (PKCS#1 v1.5) |
+| Bleichenbacher attack | RSA PKCS#1 v1.5 oracle: adaptive chosen ciphertext on RSA | RSA-based TLS key exchange (PKCS#1 v1.5) |
 | Certificate forgery | Exploit weak CA controls or MD5/SHA-1 collisions to forge certificates | Public PKI trust chains |
 | CA compromise | Compromising an intermediate or root CA allows issuing fraudulent certs | Entire CA's trust hierarchy |
-| AD CS ESC1–ESC8 | Active Directory Certificate Services misconfigurations enabling privilege escalation | On-premises PKI in Windows AD environments |
+| AD CS ESC1-ESC8 | Active Directory Certificate Services misconfigurations enabling privilege escalation | On-premises PKI in Windows AD environments |
 | Key theft | Extracting private keys from memory, unencrypted key stores, or weak HSM access | Any system storing keys outside an HSM |
 | Weak PRNG | Predictable randomness in key/nonce generation | Any cryptographic key generation without proper entropy |
 
@@ -158,16 +158,16 @@ Understanding how cryptographic systems are attacked is essential for both build
 
 | Control | Family | Relevance |
 |---|---|---|
-| SC-8 | System & Communications Protection | Transmission confidentiality and integrity — mandate TLS 1.2+ |
+| SC-8 | System & Communications Protection | Transmission confidentiality and integrity: mandate TLS 1.2+ |
 | SC-12 | System & Communications Protection | Cryptographic key establishment and management policies |
 | SC-13 | System & Communications Protection | Approved cryptographic algorithms (AES, SHA-2, approved PQC) |
-| SC-17 | System & Communications Protection | Public key infrastructure certificates — CA hierarchy and certificate issuance |
-| SC-28 | System & Communications Protection | Protection of information at rest — AES-256 encryption of stored data |
-| SC-23 | System & Communications Protection | Session authenticity — TLS session establishment and certificate validation |
-| SC-5 | System & Communications Protection | Denial-of-service protection — TLS renegotiation controls |
-| IA-5 | Identification & Authentication | Authenticator management — certificate-based authentication, key rotation |
-| IA-7 | Identification & Authentication | Cryptographic module authentication — FIPS 140-3 validated modules |
-| SI-7 | System & Information Integrity | Software, firmware, and information integrity — code signing verification |
+| SC-17 | System & Communications Protection | Public key infrastructure certificates: CA hierarchy and certificate issuance |
+| SC-28 | System & Communications Protection | Protection of information at rest: AES-256 encryption of stored data |
+| SC-23 | System & Communications Protection | Session authenticity: TLS session establishment and certificate validation |
+| SC-5 | System & Communications Protection | Denial-of-service protection: TLS renegotiation controls |
+| IA-5 | Identification & Authentication | Authenticator management: certificate-based authentication, key rotation |
+| IA-7 | Identification & Authentication | Cryptographic module authentication: FIPS 140-3 validated modules |
+| SI-7 | System & Information Integrity | Software, firmware, and information integrity: code signing verification |
 
 ---
 
@@ -190,9 +190,9 @@ Understanding how cryptographic systems are attacked is essential for both build
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| [CISSP](https://www.isc2.org/Certifications/CISSP) | ISC² | Domain 3: Security Architecture & Engineering — deep cryptography coverage |
+| [CISSP](https://www.isc2.org/Certifications/CISSP) | ISC² | Domain 3: Security Architecture & Engineering: deep cryptography coverage |
 | [CCSP](https://www.isc2.org/Certifications/CCSP) | ISC² | Cloud security including cloud key management, HSMs, certificate management |
-| [SSCP](https://www.isc2.org/Certifications/SSCP) | ISC² | Systems Security Certified Practitioner — cryptography fundamentals |
+| [SSCP](https://www.isc2.org/Certifications/SSCP) | ISC² | Systems Security Certified Practitioner: cryptography fundamentals |
 | [GCED](https://www.giac.org/certifications/enterprise-defense-gced/) | GIAC | Enterprise defense including PKI operations |
 | [CEH](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/) | EC-Council | Includes cryptanalysis and cryptographic attack techniques |
 | [CompTIA Security+](https://www.comptia.org/certifications/security) | CompTIA | Broad security including cryptography fundamentals |
@@ -211,7 +211,7 @@ Understanding how cryptographic systems are attacked is essential for both build
 | [SSL/TLS Deployment Best Practices](https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices) | Reference | Qualys SSL Labs guide to TLS configuration |
 | [NIST SP 800-57 Key Management](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final) | Standard | Key management recommendations; algorithm lifetimes |
 | [Everything About Certificates (Smallstep)](https://smallstep.com/blog/everything-pki/) | Blog series | Deep-dive PKI from a practitioner perspective |
-| [AD CS Attack Guide (SpecterOps)](https://posts.specterops.io/certified-pre-owned-d95910965cd2) | Research paper | ESC1–ESC8 AD Certificate Services attack paths |
+| [AD CS Attack Guide (SpecterOps)](https://posts.specterops.io/certified-pre-owned-d95910965cd2) | Research paper | ESC1-ESC8 AD Certificate Services attack paths |
 
 ---
 
@@ -219,7 +219,7 @@ Understanding how cryptographic systems are attacked is essential for both build
 
 ## Cryptography Fundamentals
 
-**Symmetric Encryption**
+Symmetric Encryption
 
 | Algorithm | Key Size | Mode | Use Case | Notes |
 |---|---|---|---|---|
@@ -230,7 +230,7 @@ Understanding how cryptographic systems are attacked is essential for both build
 | 3DES | 168-bit effective | CBC | Legacy mainframe, some payment HSMs | Deprecated; Sweet32 attack; avoid in new systems |
 | DES | 56-bit | CBC | Do not use | Trivially broken (56-bit key) |
 
-**Asymmetric Encryption**
+Asymmetric Encryption
 
 | Algorithm | Key Size | Use Case | Post-Quantum Safe? |
 |---|---|---|---|
@@ -242,7 +242,7 @@ Understanding how cryptographic systems are attacked is essential for both build
 | ML-KEM (CRYSTALS-Kyber) | Various | Post-quantum key encapsulation | YES (NIST FIPS 203) |
 | ML-DSA (CRYSTALS-Dilithium) | Various | Post-quantum digital signatures | YES (NIST FIPS 204) |
 
-**Hash Functions**
+Hash Functions
 
 | Function | Output | Use | Status |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Understanding how cryptographic systems are attacked is essential for both build
 | MD5 | 128-bit | Checksums only (not security) | Cryptographically broken for signatures |
 | SHA-1 | 160-bit | Deprecated legacy | Broken (SHAttered attack 2017); do not use |
 
-**Common Crypto Mistakes**
+Common Crypto Mistakes
 
 | Mistake | Correct Approach | Vulnerability |
 |---|---|---|
@@ -269,7 +269,7 @@ Understanding how cryptographic systems are attacked is essential for both build
 
 ## PKI and Certificate Lifecycle
 
-**Certificate Authority Hierarchy**
+Certificate Authority Hierarchy
 ```
 Root CA (offline, air-gapped, HSM-backed)
 └── Intermediate CA 1 (online, issues TLS certificates)
@@ -279,7 +279,7 @@ Root CA (offline, air-gapped, HSM-backed)
     └── user@example.com (client auth cert)
 ```
 
-**Certificate Profiles**
+Certificate Profiles
 
 | Type | Key Usage | Extended Key Usage | Common Use |
 |---|---|---|---|
@@ -289,13 +289,13 @@ Root CA (offline, air-gapped, HSM-backed)
 | Email (S/MIME) | Digital Signature, Key Encipherment | Email Protection (1.3.6.1.5.5.7.3.4) | Encrypted/signed email |
 | Document Signing | Non-Repudiation | Document Signing | PDF signing |
 
-**Certificate Transparency (CT)**
+Certificate Transparency (CT)
 - All public TLS certs must be logged in CT logs (since 2018)
 - CT log: Public append-only ledger; anyone can query
-- crt.sh: Query CT logs for certificates issued for a domain — attackers use for recon!
+- crt.sh: Query CT logs for certificates issued for a domain: attackers use for recon!
 - Defense: Monitor CT logs for unauthorized certificates for your domain (crt.sh, Facebook CT Monitor)
 
-**ACME Protocol (Let's Encrypt)**
+ACME Protocol (Let's Encrypt)
 ```bash
 # Certbot — automated certificate management
 certbot --nginx -d example.com -d www.example.com
@@ -310,7 +310,7 @@ certbot certonly --manual --preferred-challenges dns -d "*.example.com"
 certbot --staging --nginx -d example.com
 ```
 
-**Certificate Pinning**
+Certificate Pinning
 - HPKP (deprecated): HTTP header pinning; catastrophic if pin changed incorrectly; removed from browsers
 - Application-level pinning: Mobile apps pin expected cert hash; bypass requires repackaging
 - CAA (Certification Authority Authorization) DNS record:
@@ -324,7 +324,7 @@ example.com. CAA 0 iodef "mailto:security@example.com"
 
 ## TLS Hardening Reference
 
-**TLS Configuration Best Practices (Nginx)**
+TLS Configuration Best Practices (Nginx)
 ```nginx
 ssl_protocols TLSv1.2 TLSv1.3;
 ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305;
@@ -337,7 +337,7 @@ ssl_stapling_verify on;
 add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";
 ```
 
-**Testing TLS Configuration**
+Testing TLS Configuration
 ```bash
 # SSLyze (Python)
 sslyze target.com:443 --regular
@@ -355,22 +355,22 @@ nmap --script ssl-enum-ciphers -p 443 target.com
 
 ## Post-Quantum Cryptography
 
-**NIST Post-Quantum Standards (2024)**
+NIST Post-Quantum Standards (2024)
 - FIPS 203 (ML-KEM / Kyber): Key encapsulation; replace RSA/ECDH in key exchange
 - FIPS 204 (ML-DSA / Dilithium): Digital signatures; replace RSA/ECDSA
 - FIPS 205 (SLH-DSA / SPHINCS+): Hash-based signatures; backup when lattice math broken
 
-**Migration Strategy**
+Migration Strategy
 - Crypto-agile architecture: Cipher suites parameterized; swap without rewriting system
-- Hybrid mode: Combine classical + post-quantum key exchange (X25519 + Kyber) — defeats both attacks
+- Hybrid mode: Combine classical + post-quantum key exchange (X25519 + Kyber): defeats both attacks
 - Timeline: "Store now, decrypt later" attacks happening now; migrate sensitive data within 5 years
 - TLS 1.3 + Kyber: Chrome and major browsers experimenting with hybrid X25519Kyber768
 
 ## Related Disciplines
 
-- [Supply Chain Security](/disciplines/supply-chain-security.md) — Code signing, SBOM, artifact provenance
-- [DevSecOps](/disciplines/devsecops.md) — Secrets scanning, certificate management in pipelines
-- [Security Architecture](/disciplines/security-architecture.md) — TLS design, zero trust mutual auth
-- [Cloud Security](/disciplines/cloud-security.md) — KMS, cloud certificate management, CloudHSM
-- [Hardware Security](/disciplines/hardware-security.md) — HSMs, TPMs, hardware-backed key storage
-- [Identity & Access Management](/disciplines/identity-access-management.md) — Certificate-based authentication, PKI-backed MFA
+- [Supply Chain Security](/disciplines/supply-chain-security.md): Code signing, SBOM, artifact provenance
+- [DevSecOps](/disciplines/devsecops.md): Secrets scanning, certificate management in pipelines
+- [Security Architecture](/disciplines/security-architecture.md): TLS design, zero trust mutual auth
+- [Cloud Security](/disciplines/cloud-security.md): KMS, cloud certificate management, CloudHSM
+- [Hardware Security](/disciplines/hardware-security.md): HSMs, TPMs, hardware-backed key storage
+- [Identity & Access Management](/disciplines/identity-access-management.md): Certificate-based authentication, PKI-backed MFA

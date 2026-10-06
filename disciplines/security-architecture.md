@@ -58,16 +58,16 @@ Good security architecture is not just about controls — it is about making sec
 
 | Control | Family | Relevance |
 |---------|--------|-----------|
-| PL-8 | Planning | Security and Privacy Architectures — requires documented security architecture aligned to organizational mission |
-| SA-8 | System and Services Acquisition | Security Engineering Principles — mandates applying security design principles (fail secure, least privilege, minimization) |
-| SA-14 | System and Services Acquisition | Criticality Analysis — identifying critical architecture components and their supply chain dependencies |
-| SA-15 | System and Services Acquisition | Development Process, Standards, and Tools — security requirements in the SDLC including threat modeling |
-| SA-17 | System and Services Acquisition | Developer Security and Privacy Architecture and Design — requiring vendors to produce formal security architecture documentation |
-| SC-2 | System and Communications Protection | Separation of System and User Functionality — architectural separation of privileged and unprivileged processing |
-| SC-3 | System and Communications Protection | Security Function Isolation — isolating security-enforcing functions from non-security functions at architectural level |
-| SC-7 | System and Communications Protection | Boundary Protection — DMZ design, network segmentation, and inter-zone traffic control |
-| SC-28 | System and Communications Protection | Protection of Information at Rest — data-layer encryption as an architectural control |
-| CA-3 | Assessment, Authorization, and Monitoring | Information Exchange — documenting and approving system interconnections through architecture review |
+| PL-8 | Planning | Security and Privacy Architectures: requires documented security architecture aligned to organizational mission |
+| SA-8 | System and Services Acquisition | Security Engineering Principles: mandates applying security design principles (fail secure, least privilege, minimization) |
+| SA-14 | System and Services Acquisition | Criticality Analysis: identifying critical architecture components and their supply chain dependencies |
+| SA-15 | System and Services Acquisition | Development Process, Standards, and Tools: security requirements in the SDLC including threat modeling |
+| SA-17 | System and Services Acquisition | Developer Security and Privacy Architecture and Design: requiring vendors to produce formal security architecture documentation |
+| SC-2 | System and Communications Protection | Separation of System and User Functionality: architectural separation of privileged and unprivileged processing |
+| SC-3 | System and Communications Protection | Security Function Isolation: isolating security-enforcing functions from non-security functions at architectural level |
+| SC-7 | System and Communications Protection | Boundary Protection: DMZ design, network segmentation, and inter-zone traffic control |
+| SC-28 | System and Communications Protection | Protection of Information at Rest: data-layer encryption as an architectural control |
+| CA-3 | Assessment, Authorization, and Monitoring | Information Exchange: documenting and approving system interconnections through architecture review |
 
 ## ATT&CK Coverage
 
@@ -86,22 +86,22 @@ Good security architecture is not just about controls — it is about making sec
 
 ## Security Architecture Patterns
 
-**Defense-in-Depth Layers** (outer to inner):
-1. **Perimeter** — Firewalls, IPS, DDoS scrubbing, WAF
-2. **Network** — VLANs, microsegmentation, NAC, encrypted transit
-3. **Endpoint** — EDR, application control, secure baseline, patch management
-4. **Application** — Input validation, authentication, RBAC, SAST/DAST in CI/CD
-5. **Data** — Encryption at rest and in transit, DLP, data classification
-6. **Identity** — MFA, PAM, SSO, Zero Trust identity-centric access
+Defense-in-Depth Layers (outer to inner):
+1. Perimeter: Firewalls, IPS, DDoS scrubbing, WAF
+2. Network: VLANs, microsegmentation, NAC, encrypted transit
+3. Endpoint: EDR, application control, secure baseline, patch management
+4. Application: Input validation, authentication, RBAC, SAST/DAST in CI/CD
+5. Data: Encryption at rest and in transit, DLP, data classification
+6. Identity: MFA, PAM, SSO, Zero Trust identity-centric access
 
-**Key Design Patterns**:
-- **Bastion Host / Jump Server**: Single hardened entry point into a protected network segment, with full logging
-- **Privileged Access Workstation (PAW)**: Dedicated hardened workstation for administrative tasks, isolated from standard user browsing
-- **DMZ Architecture**: Semi-trusted zone separating public-facing services from internal networks
-- **Break-Glass Accounts**: Emergency standing-privilege accounts with alerting, MFA, and automated audit
-- **API Gateway**: Centralized policy enforcement for all API traffic — authentication, rate limiting, logging
-- **Reverse Proxy**: Hides internal application topology; provides WAF and TLS termination
-- **Zero Trust Microsegmentation**: Deny-by-default workload-to-workload policy, identity-verified per session
+Key Design Patterns:
+- Bastion Host / Jump Server: Single hardened entry point into a protected network segment, with full logging
+- Privileged Access Workstation (PAW): Dedicated hardened workstation for administrative tasks, isolated from standard user browsing
+- DMZ Architecture: Semi-trusted zone separating public-facing services from internal networks
+- Break-Glass Accounts: Emergency standing-privilege accounts with alerting, MFA, and automated audit
+- API Gateway: Centralized policy enforcement for all API traffic: authentication, rate limiting, logging
+- Reverse Proxy: Hides internal application topology; provides WAF and TLS termination
+- Zero Trust Microsegmentation: Deny-by-default workload-to-workload policy, identity-verified per session
 
 ## Certifications
 
@@ -111,7 +111,7 @@ Good security architecture is not just about controls — it is about making sec
 | CCSP | (ISC)² | Advanced | Cloud security architecture focused; aligns with shared responsibility model and cloud-native security design |
 | SABSA Chartered Security Architect (SCF) | SABSA Institute | Advanced | Premier enterprise security architecture credential using the SABSA framework |
 | TOGAF 9 Certified | The Open Group | Intermediate | Enterprise architecture framework with security extensions; widely required for architecture roles |
-| AWS Solutions Architect — Professional | AWS | Advanced | Cloud architecture with security specialization tracks |
+| AWS Solutions Architect: Professional | AWS | Advanced | Cloud architecture with security specialization tracks |
 | Google Professional Cloud Architect | Google | Advanced | GCP architecture including security controls and landing zone design |
 | CISSP-ISSAP | (ISC)² | Advanced | Architecture concentration within CISSP for those specializing in security architecture |
 
@@ -119,19 +119,19 @@ Good security architecture is not just about controls — it is about making sec
 
 | Resource | Type | Notes |
 |----------|------|-------|
-| *Security Engineering* — Ross Anderson (3rd ed.) | Book | Foundational textbook covering security architecture theory, protocols, and design — free online |
-| *The TOGAF Standard* — The Open Group | Standard | Enterprise architecture framework with security extension; free registration download |
+| *Security Engineering*: Ross Anderson (3rd ed.) | Book | Foundational textbook covering security architecture theory, protocols, and design — free online |
+| *The TOGAF Standard*: The Open Group | Standard | Enterprise architecture framework with security extension; free registration download |
 | NIST SP 800-207: Zero Trust Architecture | Standard | Definitive US government guidance on Zero Trust design principles and deployment models |
-| SABSA Foundation Guide | Framework | SABSA enterprise security architecture methodology — risk-driven, business-aligned architecture |
-| *Threat Modeling: Designing for Security* — Adam Shostack | Book | Authoritative guide to threat modeling methodology from the creator of the STRIDE process at Microsoft |
-| *Designing Distributed Systems* — Brendan Burns | Book | Patterns and principles for distributed systems with security implications |
+| SABSA Foundation Guide | Framework | SABSA enterprise security architecture methodology: risk-driven, business-aligned architecture |
+| *Threat Modeling: Designing for Security*: Adam Shostack | Book | Authoritative guide to threat modeling methodology from the creator of the STRIDE process at Microsoft |
+| *Designing Distributed Systems*: Brendan Burns | Book | Patterns and principles for distributed systems with security implications |
 | CISA Zero Trust Maturity Model v2.0 | Guidance | Five-pillar ZTMM with maturity stages across identity, devices, networks, applications, and data |
-| Microsoft Security Architecture Documentation | Online | PAW design, ESAE (red forest), tiered Active Directory model — directly applicable reference architectures |
+| Microsoft Security Architecture Documentation | Online | PAW design, ESAE (red forest), tiered Active Directory model: directly applicable reference architectures |
 | O-ESA: Open Enterprise Security Architecture | Framework | The Open Group's enterprise security architecture reference model |
 
 #### Zero Trust Architecture (Deep Reference)
 
-**CISA Zero Trust Maturity Model (ZTMM) — 5 Pillars**
+CISA Zero Trust Maturity Model (ZTMM) — 5 Pillars
 
 | Pillar | Traditional | Advanced | Optimal |
 |---|---|---|---|
@@ -141,7 +141,7 @@ Good security architecture is not just about controls — it is about making sec
 | Applications | Monolithic firewall rules | Application-layer access controls | Zero implicit trust, continuous validation per session |
 | Data | Perimeter protection | Data classification, DLP at perimeter | Data-centric controls, automated classification, encryption everywhere |
 
-**Zero Trust Architecture Principles (NIST SP 800-207)**
+Zero Trust Architecture Principles (NIST SP 800-207)
 1. All data sources and computing services are treated as resources
 2. All communication is secured regardless of network location
 3. Access to individual resources is granted per-session
@@ -149,7 +149,7 @@ Good security architecture is not just about controls — it is about making sec
 5. Monitor all assets and communications for integrity and security posture
 6. Authentication and authorization are dynamic and strictly enforced before access
 
-**Reference Architecture — ZTNA Implementation**
+Reference Architecture — ZTNA Implementation
 - Identity Provider (IdP): Okta, Azure AD / Entra ID, Ping Identity
 - Device trust: Intune, Jamf, CrowdStrike Falcon Device Control
 - ZTNA gateway: Zscaler Private Access, Cloudflare Access, Palo Alto Prisma Access
@@ -158,7 +158,7 @@ Good security architecture is not just about controls — it is about making sec
 
 #### Threat Modeling
 
-**STRIDE Methodology**
+STRIDE Methodology
 
 | Threat | Description | Mitigation |
 |---|---|---|
@@ -169,11 +169,11 @@ Good security architecture is not just about controls — it is about making sec
 | Denial of Service | Preventing legitimate access | Rate limiting, redundancy, DDoS protection |
 | Elevation of Privilege | Gaining unauthorized permissions | Least privilege, authorization enforcement |
 
-**PASTA (Process for Attack Simulation and Threat Analysis)**
+PASTA (Process for Attack Simulation and Threat Analysis)
 
-7-stage methodology: Define objectives → Define technical scope → Decompose application → Analyze threats → Identify vulnerabilities → Enumerate attacks → Risk/impact analysis
+7-stage methodology: Define objectives -> Define technical scope -> Decompose application -> Analyze threats -> Identify vulnerabilities -> Enumerate attacks -> Risk/impact analysis
 
-**Threat Modeling Tools**
+Threat Modeling Tools
 - Microsoft Threat Modeling Tool (free): DFD-based, STRIDE auto-generation
 - OWASP Threat Dragon (free): Cross-platform, DFD + STRIDE
 - IriusRisk: Commercial, integrates with Jira/CI pipeline
@@ -182,7 +182,7 @@ Good security architecture is not just about controls — it is about making sec
 
 #### Security Architecture Patterns (Extended)
 
-**Defense in Depth Layers**
+Defense in Depth Layers
 1. Perimeter: NGFW, WAF, DDoS protection, IPS
 2. Network: Segmentation, VLAN, microsegmentation, IDS/IPS sensors
 3. Identity: MFA, PAM, JIT access, directory services
@@ -191,17 +191,17 @@ Good security architecture is not just about controls — it is about making sec
 6. Data: Encryption at rest/in transit, DLP, data classification
 7. Detection/Response: SIEM, SOAR, MDR/XDR
 
-**Reference Architectures**
+Reference Architectures
 - NIST SP 800-207: Zero Trust Architecture
 - CIS Critical Security Controls v8: 18 controls with implementation groups
 - SABSA (Sherwood Applied Business Security Architecture): Business-driven layered model
 - TOGAF: Enterprise architecture with security as domain
 - Google BeyondCorp: Original zero trust implementation, white papers available
 
-**Secure-by-Design Principles**
+Secure-by-Design Principles
 - Least privilege: Minimum access required for function
 - Separation of duties: No single person can complete sensitive task alone
-- Defense in depth: Multiple independent controls — failure of one doesn't compromise system
+- Defense in depth: Multiple independent controls: failure of one doesn't compromise system
 - Economy of mechanism: Simple designs are easier to analyze and trust
 - Fail secure: Failures deny access rather than grant it
 - Open design: Security through obscurity is not security
@@ -212,7 +212,7 @@ Good security architecture is not just about controls — it is about making sec
 | Cert | Body | Focus | Level |
 |---|---|---|---|
 | SABSA Foundation/Practitioner | SABSA Institute | Business-driven security architecture | Practitioner |
-| CISSP — Architecture domain | ISC2 | Broad with architecture emphasis | Senior |
+| CISSP: Architecture domain | ISC2 | Broad with architecture emphasis | Senior |
 | CISA | ISACA | IS audit/control systems | Mid-senior |
 | AWS/Azure/GCP Security specialty | Cloud providers | Cloud-native architecture | Mid |
 | Google ZTNA certification | Google | Zero Trust implementation | Specialist |

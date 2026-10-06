@@ -14,7 +14,7 @@ Start with Ghidra on beginner crackmes from Crackmes.one. Crackmes are small bin
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
-| Foundation | File identification, string extraction, import analysis, basic disassembly in Ghidra, x86/x64 register model and common instructions, beginner crackmes | Ghidra beginner tutorials, Crackmes.one easy challenges, pwn.college RE module, "Hacking: The Art of Exploitation" ch. 1–2 |
+| Foundation | File identification, string extraction, import analysis, basic disassembly in Ghidra, x86/x64 register model and common instructions, beginner crackmes | Ghidra beginner tutorials, Crackmes.one easy challenges, pwn.college RE module, "Hacking: The Art of Exploitation" ch. 1-2 |
 | Practitioner | Calling conventions, stack frames, dynamic debugging with x64dbg or GDB+pwndbg, anti-analysis bypass, .NET/Java decompilation, script deobfuscation | OALabs YouTube, HackTheBox RE challenges, x64dbg tutorials, reversing.kr |
 | Advanced | Custom unpacking, firmware extraction and analysis, kernel debugging, WinDbg, exploit RE, malware family reversals, scripting Ghidra/IDAPython | SANS SEC503/FOR610 content, OffSec OSED, FLARE-ON challenge archives, binary ninja BNIL deep dives |
 
@@ -28,24 +28,24 @@ Understanding CPU registers, calling conventions, and stack frame layout is mand
 
 | Register (64-bit) | Register (32-bit) | Role |
 |---|---|---|
-| RAX | EAX | Accumulator — holds return values, arithmetic results |
-| RBX | EBX | Base — general purpose, preserved across calls (callee-saved) |
-| RCX | ECX | Counter — loop counters; 1st argument on Windows x64 |
-| RDX | EDX | Data — I/O, multiply/divide; 2nd argument on Windows x64 |
-| RSI | ESI | Source Index — string/memory source; 2nd argument on Linux x64 |
-| RDI | EDI | Destination Index — string/memory destination; 1st argument on Linux x64 |
-| RSP | ESP | Stack Pointer — top of stack; never clobber casually |
-| RBP | EBP | Base Pointer — stack frame base reference |
-| RIP | EIP | Instruction Pointer — current execution address |
+| RAX | EAX | Accumulator: holds return values, arithmetic results |
+| RBX | EBX | Base: general purpose, preserved across calls (callee-saved) |
+| RCX | ECX | Counter: loop counters; 1st argument on Windows x64 |
+| RDX | EDX | Data: I/O, multiply/divide; 2nd argument on Windows x64 |
+| RSI | ESI | Source Index: string/memory source; 2nd argument on Linux x64 |
+| RDI | EDI | Destination Index: string/memory destination; 1st argument on Linux x64 |
+| RSP | ESP | Stack Pointer: top of stack; never clobber casually |
+| RBP | EBP | Base Pointer: stack frame base reference |
+| RIP | EIP | Instruction Pointer: current execution address |
 | — | EFLAGS | Status flags: ZF (zero), SF (sign), CF (carry), OF (overflow) |
-| R8–R15 | — | Extended registers (x64 only); R8/R9 are 5th/6th args on Windows x64 |
+| R8-R15 | — | Extended registers (x64 only); R8/R9 are 5th/6th args on Windows x64 |
 
 ### Calling Conventions
 
 | Convention | Platform | Argument Order | Stack Cleanup |
 |---|---|---|---|
-| System V AMD64 ABI | Linux/macOS x64 | RDI, RSI, RDX, RCX, R8, R9 → stack | Caller |
-| Microsoft x64 ABI | Windows x64 | RCX, RDX, R8, R9 → stack (+ 32-byte shadow space) | Caller |
+| System V AMD64 ABI | Linux/macOS x64 | RDI, RSI, RDX, RCX, R8, R9 -> stack | Caller |
+| Microsoft x64 ABI | Windows x64 | RCX, RDX, R8, R9 -> stack (+ 32-byte shadow space) | Caller |
 | cdecl | x86 32-bit (C default) | All args pushed right-to-left on stack | Caller |
 | stdcall | x86 32-bit Windows API | Args pushed right-to-left on stack | Callee |
 | fastcall | x86 32-bit (MSVC) | First two args in ECX/EDX, rest on stack | Callee |
@@ -66,7 +66,7 @@ High addresses
 Low addresses (ESP)
 ```
 
-**Function prologue / epilogue:**
+Function prologue / epilogue:
 ```asm
 ; Prologue
 push rbp
@@ -79,7 +79,7 @@ pop  rbp
 ret
 ```
 
-**Common patterns to recognize:**
+Common patterns to recognize:
 - Stack canary: value loaded from `fs:[0x28]` (Linux) stored between locals and return address, checked before `ret`
 - ASLR awareness: binaries compiled with PIE will have position-independent code; addresses change each run
 - Anti-debug telltale: early `IsDebuggerPresent` call or `RDTSC` pair near entry point
@@ -93,9 +93,9 @@ ret
 | Windows PE binaries (EXE, DLL) | PE/PE32+ | Import/export tables, sections (.text/.data/.rsrc), TLS callbacks, PE headers reveal packer/compiler |
 | Linux ELF binaries | ELF | Dynamic/static linking, symbol tables, DWARF debug info, PLT/GOT for import resolution |
 | macOS Mach-O binaries | Mach-O | Fat binaries (multi-arch), load commands, Objective-C runtime metadata |
-| .NET assemblies | CIL/MSIL | Managed bytecode — decompiles to near-original C#; dnSpy gives you debuggable source |
-| Java / Android (APK) | JVM bytecode / DEX | JAR → near-original Java via JADX; APK = ZIP containing DEX + resources + manifest |
-| Python bytecode | .pyc / PyInstaller | uncompyle6/.pyc → Python source; pyinstxtractor unpacks PyInstaller bundles |
+| .NET assemblies | CIL/MSIL | Managed bytecode: decompiles to near-original C#; dnSpy gives you debuggable source |
+| Java / Android (APK) | JVM bytecode / DEX | JAR -> near-original Java via JADX; APK = ZIP containing DEX + resources + manifest |
+| Python bytecode | .pyc / PyInstaller | uncompyle6/.pyc -> Python source; pyinstxtractor unpacks PyInstaller bundles |
 | Firmware | SquashFS, CramFS, JFFS2, raw | binwalk extraction, architecture identification (ARM/MIPS/x86), hardcoded credentials |
 | Obfuscated scripts | JS, PowerShell, VBScript | de4js, js-beautify, PowerShell -Decode; browser DevTools for JS deobfuscation |
 | iOS IPA | Mach-O + ObjC/Swift | Class-dump for ObjC metadata, Hopper or Ghidra for ARM64, Frida for dynamic hooking |
@@ -106,21 +106,21 @@ ret
 
 Static analysis examines the binary without executing it. It is safer (no malware detonation risk) and often reveals strings, imports, and high-level logic quickly. Use it first on every unknown binary.
 
-1. **File identification** — `file binary`, `xxd binary | head` (check magic bytes), `binwalk binary`. Know what you have before spending time in a disassembler.
-2. **Hash and VT lookup** — `sha256sum binary`, submit hash to VirusTotal. Known malware saves hours of analysis time.
-3. **Entropy analysis** — Detect-It-Easy (DIE), PEiD, or `binwalk -E`. Entropy > 7.0 in a section strongly suggests packing or encryption. High entropy in `.text` = packed executable; high entropy in `.data` = encrypted config or payload.
-4. **String extraction** — `strings -n 8 binary` for quick pass; then **FLOSS** (Mandiant's FireEye Labs Obfuscated String Solver) for stack strings and tight-loop strings that `strings` misses. Look for: URLs, IP addresses, registry keys, mutex names, error messages, file paths.
-5. **Import/export analysis** — `dumpbin /imports` (Windows), `readelf -d`, `nm`, `objdump -d`. Imports reveal capability:
+1. File identification: `file binary`, `xxd binary | head` (check magic bytes), `binwalk binary`. Know what you have before spending time in a disassembler.
+2. Hash and VT lookup: `sha256sum binary`, submit hash to VirusTotal. Known malware saves hours of analysis time.
+3. Entropy analysis: Detect-It-Easy (DIE), PEiD, or `binwalk -E`. Entropy > 7.0 in a section strongly suggests packing or encryption. High entropy in `.text` = packed executable; high entropy in `.data` = encrypted config or payload.
+4. String extraction: `strings -n 8 binary` for quick pass; then FLOSS (Mandiant's FireEye Labs Obfuscated String Solver) for stack strings and tight-loop strings that `strings` misses. Look for: URLs, IP addresses, registry keys, mutex names, error messages, file paths.
+5. Import/export analysis: `dumpbin /imports` (Windows), `readelf -d`, `nm`, `objdump -d`. Imports reveal capability:
    - `CreateRemoteThread` / `WriteProcessMemory` = process injection
    - `VirtualAllocEx` = shellcode staging
    - `InternetOpenUrl` / `WinInet` functions = C2 or download
    - `RegSetValueEx` / `RegOpenKey` = registry persistence
    - `CryptEncrypt` / `BCryptEncrypt` = ransomware candidate
-6. **Open in disassembler/decompiler** — Ghidra (free), IDA Pro (commercial), Binary Ninja. Let auto-analysis run.
-7. **Find main()** — follow entry point → `__libc_start_main` → `main` (Linux ELF), or search symbol list. Windows: EP → CRT startup → `WinMain`/`main`.
-8. **Trace logic** — follow input validation paths, key comparisons, interesting API call chains. **Rename functions** and variables as you understand them (`sub_401000` → `decrypt_config`). The decompiler output improves with every annotation.
-9. **Cross-reference tracing** — use `F` (Ghidra) or `X` (IDA) to find all callers of interesting functions. Trace data flow from suspicious imports back to where attacker-controlled input enters.
-10. **Document findings** — function purpose, data structures, external connections, notable strings. Export annotated project before closing.
+6. Open in disassembler/decompiler: Ghidra (free), IDA Pro (commercial), Binary Ninja. Let auto-analysis run.
+7. Find main(): follow entry point -> `__libc_start_main` -> `main` (Linux ELF), or search symbol list. Windows: EP -> CRT startup -> `WinMain`/`main`.
+8. Trace logic: follow input validation paths, key comparisons, interesting API call chains. Rename functions and variables as you understand them (`sub_401000` -> `decrypt_config`). The decompiler output improves with every annotation.
+9. Cross-reference tracing: use `F` (Ghidra) or `X` (IDA) to find all callers of interesting functions. Trace data flow from suspicious imports back to where attacker-controlled input enters.
+10. Document findings: function purpose, data structures, external connections, notable strings. Export annotated project before closing.
 
 ### Key Ghidra Shortcuts
 
@@ -141,17 +141,17 @@ Window → Function Graph → visual control flow
 
 Dynamic analysis runs the binary in a controlled environment under observation. It catches behavior that static analysis misses: unpacking routines, encrypted config decryption, runtime API resolution, and anti-analysis evasion.
 
-1. **Prepare isolated lab** — FlareVM (Windows analysis toolkit) or REMnux (Linux), host-only network adapter, snapshot before detonation. Never run malware on a host you care about.
-2. **Baseline the system** — capture process list, open network connections, registry state, and file system state before running the sample.
-3. **Attach monitoring tools** — ProcMon (file/registry/process), Process Hacker (memory, threads, handles), Wireshark (network), RegShot (registry diff before/after).
-4. **Network simulation** — FakeNet-NG (Windows) or INetSim (Linux) simulate DNS/HTTP/FTP/IRC responses. Keep malware "happy" so it proceeds past C2 check-in and reveals more behavior.
-5. **Run with debugger** — x64dbg (Windows), GDB + pwndbg/peda/GEF (Linux). Attach or launch with debugger.
-6. **Set breakpoints** — at `main`, key API calls (`CreateFile`, `WriteFile`, `connect`, `RegOpenKey`, `VirtualAlloc`, `CreateRemoteThread`), and suspicious functions identified in static analysis.
-7. **Use API Monitor** — intercept and log every Win32 API call with full arguments; invaluable for tracing config decryption and C2 protocol construction.
-8. **Step through and observe** — watch register values, memory writes, arguments to API calls. Use memory view to watch buffers being constructed.
-9. **Bypass anti-analysis** — NOP out `IsDebuggerPresent` checks, patch `jne` → `je` to bypass license checks, use ScyllaHide plugin to hide the debugger from detection.
-10. **Unpacking** — if packed, run until OEP (Original Entry Point), dump memory with PE-sieve or OllyDumpEx, fix IAT with Scylla, re-analyze the unpacked PE in a disassembler.
-11. **Document runtime behavior** — file writes, network connections, registry changes, process spawning, injected DLLs. Map observed behavior to ATT&CK techniques.
+1. Prepare isolated lab: FlareVM (Windows analysis toolkit) or REMnux (Linux), host-only network adapter, snapshot before detonation. Never run malware on a host you care about.
+2. Baseline the system: capture process list, open network connections, registry state, and file system state before running the sample.
+3. Attach monitoring tools: ProcMon (file/registry/process), Process Hacker (memory, threads, handles), Wireshark (network), RegShot (registry diff before/after).
+4. Network simulation: FakeNet-NG (Windows) or INetSim (Linux) simulate DNS/HTTP/FTP/IRC responses. Keep malware "happy" so it proceeds past C2 check-in and reveals more behavior.
+5. Run with debugger: x64dbg (Windows), GDB + pwndbg/peda/GEF (Linux). Attach or launch with debugger.
+6. Set breakpoints: at `main`, key API calls (`CreateFile`, `WriteFile`, `connect`, `RegOpenKey`, `VirtualAlloc`, `CreateRemoteThread`), and suspicious functions identified in static analysis.
+7. Use API Monitor: intercept and log every Win32 API call with full arguments; invaluable for tracing config decryption and C2 protocol construction.
+8. Step through and observe: watch register values, memory writes, arguments to API calls. Use memory view to watch buffers being constructed.
+9. Bypass anti-analysis: NOP out `IsDebuggerPresent` checks, patch `jne` -> `je` to bypass license checks, use ScyllaHide plugin to hide the debugger from detection.
+10. Unpacking: if packed, run until OEP (Original Entry Point), dump memory with PE-sieve or OllyDumpEx, fix IAT with Scylla, re-analyze the unpacked PE in a disassembler.
+11. Document runtime behavior: file writes, network connections, registry changes, process spawning, injected DLLs. Map observed behavior to ATT&CK techniques.
 
 ---
 
@@ -161,7 +161,7 @@ Dynamic analysis runs the binary in a controlled environment under observation. 
 |---|---|---|
 | Anti-debugging: IsDebuggerPresent | Checks `PEB.BeingDebugged` flag; exits or alters behavior if debugger detected | Patch call to NOP or always return 0; ScyllaHide plugin patches PEB automatically |
 | Anti-debugging: CheckRemoteDebuggerPresent | Detects remote debugger attachment via NtQueryInformationProcess | ScyllaHide; patch return value in debugger |
-| Timing checks (RDTSC) | Measures CPU cycles between two RDTSC calls — large gap = debugger present | Hardware breakpoints (no clock delay); ScyllaHide timing patches; patch RDTSC to return fixed values |
+| Timing checks (RDTSC) | Measures CPU cycles between two RDTSC calls: large gap = debugger present | Hardware breakpoints (no clock delay); ScyllaHide timing patches; patch RDTSC to return fixed values |
 | VM / sandbox detection: CPUID | Checks CPUID output for hypervisor bit or VMware/VirtualBox strings | Custom VM with hypervisor bit cleared; patch CPUID result in debugger |
 | VM detection: registry / file artifacts | Checks for VMware/VirtualBox registry keys, driver names, MAC prefix (00:50:56) | Remove VM artifacts using hardening scripts; patch check locations to NOP |
 | Code obfuscation: control flow flattening | Replaces natural control flow with a dispatcher switch; every block routes through a central state variable | Symbolic execution (angr) to recover original CFG; manual trace in debugger |
@@ -176,10 +176,10 @@ Dynamic analysis runs the binary in a controlled environment under observation. 
 
 ## Key CTF Reverse Engineering Techniques
 
-- **License key validation** — typically compares transformed input to hardcoded value; trace comparison instruction, patch `jne` → `je` (nop the conditional jump) or extract the expected value directly
-- **Custom encoding** — identify encoding loops (XOR, rotate, base64 variant); extract the key/table from constants in the decompiler output; replicate in Python
-- **Flag format hunting** — search for flag format string (`CTF{`, `FLAG{`, `picoCTF{`) in strings output or memory dump after running the binary
-- **angr symbolic execution** — automate path exploration to find inputs that trigger a specific code path (e.g., print "Correct"):
+- License key validation: typically compares transformed input to hardcoded value; trace comparison instruction, patch `jne` -> `je` (nop the conditional jump) or extract the expected value directly
+- Custom encoding: identify encoding loops (XOR, rotate, base64 variant); extract the key/table from constants in the decompiler output; replicate in Python
+- Flag format hunting: search for flag format string (`CTF{`, `FLAG{`, `picoCTF{`) in strings output or memory dump after running the binary
+- angr symbolic execution: automate path exploration to find inputs that trigger a specific code path (e.g., print "Correct"):
   ```python
   import angr
   proj = angr.Project('./crackme', auto_load_libs=False)
@@ -188,7 +188,7 @@ Dynamic analysis runs the binary in a controlled environment under observation. 
   if simgr.found:
       print(simgr.found[0].posix.dumps(0))  # dump stdin that reaches success
   ```
-- **Scripting Ghidra** — use the Script Manager (Java or Python) to automate bulk renaming, decrypt embedded strings, or identify all calls to a specific import
+- Scripting Ghidra: use the Script Manager (Java or Python) to automate bulk renaming, decrypt embedded strings, or identify all calls to a specific import
 
 ---
 
@@ -199,12 +199,12 @@ Dynamic analysis runs the binary in a controlled environment under observation. 
 | Instruction | Operation | Notes |
 |---|---|---|
 | MOV dst, src | Copy value | Most common instruction; `MOV eax, [ebp-8]` loads local variable |
-| LEA dst, [addr] | Load effective address | Pointer arithmetic — does **not** dereference; used for `&var` |
+| LEA dst, [addr] | Load effective address | Pointer arithmetic: does not dereference; used for `&var` |
 | PUSH / POP | Stack operations | `PUSH rax` decrements RSP by 8, stores RAX |
 | ADD / SUB | Arithmetic | Sets ZF, SF, CF, OF based on result |
 | XOR reg, reg | Zero a register | Faster than `MOV reg, 0`; also the dominant crypto primitive in malware |
 | AND / OR | Bitwise logic | Flag masking, bit testing |
-| CMP a, b | Compute a−b, set flags | Does not store result — only updates flags |
+| CMP a, b | Compute a−b, set flags | Does not store result: only updates flags |
 | TEST a, b | Compute a AND b, set flags | `TEST eax, eax` + `JZ` = null check pattern |
 | JMP / JE / JNE / JG / JL | Conditional jumps | Based on flags from preceding CMP/TEST |
 | CALL addr | Push RIP/EIP, jump | Saves return address; the `ret` address you overwrite in exploits |
@@ -228,25 +228,25 @@ Dynamic analysis runs the binary in a controlled environment under observation. 
 Managed languages compile to intermediate bytecode rather than native machine code, making decompilation dramatically more effective than with native binaries. Expect near-original source quality.
 
 ### .NET
-- **dnSpy** — decompile CIL/MSIL to C# and debug live; edit IL and recompile — the most powerful .NET RE tool
-- **ILSpy** — lightweight .NET decompiler; good for quick reads without a full debug environment
-- **dotPeek** (JetBrains) — free .NET decompiler with Visual Studio integration
-- CIL is typed and structured — class names, method names, and variable types are preserved unless obfuscated with ConfuserEx or similar
+- dnSpy: decompile CIL/MSIL to C# and debug live; edit IL and recompile — the most powerful .NET RE tool
+- ILSpy: lightweight .NET decompiler; good for quick reads without a full debug environment
+- dotPeek (JetBrains): free .NET decompiler with Visual Studio integration
+- CIL is typed and structured: class names, method names, and variable types are preserved unless obfuscated with ConfuserEx or similar
 
 ### Java / Android
-- **JADX** — best APK and JAR decompiler; produces navigable Java source with cross-references
+- JADX: best APK and JAR decompiler; produces navigable Java source with cross-references
 - APK analysis: unzip the APK, run `jadx -d output/ app.apk`, read the Java source like any other codebase
 - Check `AndroidManifest.xml` for permissions, exported activities, and attack surface before diving into code
 
 ### Python
-- **pyinstxtractor** — extract embedded .pyc files from a PyInstaller-packaged EXE
-- **uncompyle6 / decompile3** — decompile .pyc bytecode to Python source (version-dependent)
-- **dis module** — Python's built-in bytecode disassembler for cases where decompilers fail
+- pyinstxtractor: extract embedded .pyc files from a PyInstaller-packaged EXE
+- uncompyle6 / decompile3: decompile .pyc bytecode to Python source (version-dependent)
+- dis module: Python's built-in bytecode disassembler for cases where decompilers fail
 
 ### JavaScript
-- **de4js** — automated deobfuscator for common obfuscation patterns
-- **js-beautify** — reformats minified JS to readable form
-- **Browser DevTools** — set breakpoints in Sources tab; most effective for live web app analysis
+- de4js: automated deobfuscator for common obfuscation patterns
+- js-beautify: reformats minified JS to readable form
+- Browser DevTools: set breakpoints in Sources tab; most effective for live web app analysis
 
 ---
 
@@ -254,12 +254,12 @@ Managed languages compile to intermediate bytecode rather than native machine co
 
 Firmware reversing extracts and analyzes the software running on embedded devices — routers, IoT sensors, PLCs, and similar hardware.
 
-1. **Obtain firmware** — download from vendor site, extract via JTAG/UART, or capture from device update traffic
-2. **Extract file system** — `binwalk -e firmware.bin` auto-extracts known file system types
-3. **Identify architecture** — `file` on extracted binaries; `binwalk -A` for opcode scanning; common: ARM (little/big endian), MIPS, x86
-4. **Mount and explore** — mount SquashFS/CramFS, review `/etc/passwd`, web interface code, startup scripts
-5. **Search for weaknesses** — `grep -r "password\|admin\|secret\|key" .` on extracted filesystem; check for hardcoded credentials, command injection in CGI handlers
-6. **Emulate** — QEMU for full-system emulation of ARM/MIPS firmware; allows dynamic analysis without the physical device
+1. Obtain firmware: download from vendor site, extract via JTAG/UART, or capture from device update traffic
+2. Extract file system: `binwalk -e firmware.bin` auto-extracts known file system types
+3. Identify architecture: `file` on extracted binaries; `binwalk -A` for opcode scanning; common: ARM (little/big endian), MIPS, x86
+4. Mount and explore: mount SquashFS/CramFS, review `/etc/passwd`, web interface code, startup scripts
+5. Search for weaknesses: `grep -r "password\|admin\|secret\|key" .` on extracted filesystem; check for hardcoded credentials, command injection in CGI handlers
+6. Emulate: QEMU for full-system emulation of ARM/MIPS firmware; allows dynamic analysis without the physical device
 
 | Tool | Purpose |
 |---|---|
@@ -315,7 +315,7 @@ Firmware reversing extracts and analyzes the software running on embedded device
 | Platform | Focus | Difficulty |
 |---|---|---|
 | [pwn.college](https://pwn.college) | Structured RE + binary exploitation curriculum | Beginner to advanced |
-| [Crackmes.one](https://crackmes.one) | Community crackme challenges — serial keygens, license bypass | All levels |
+| [Crackmes.one](https://crackmes.one) | Community crackme challenges: serial keygens, license bypass | All levels |
 | [HackTheBox RE Challenges](https://hackthebox.com) | Varied RE challenges across platforms and file types | Easy to Insane |
 | [PicoCTF](https://picoctf.org) | Beginner-friendly RE and forensics challenges with hints | Beginner |
 | [reversing.kr](http://reversing.kr) | Korean RE challenge site; intermediate puzzles | Intermediate and up |
@@ -325,13 +325,13 @@ Firmware reversing extracts and analyzes the software running on embedded device
 
 ## Free Training
 
-- [pwn.college RE Module](https://pwn.college) — structured reverse engineering curriculum; the most complete free RE learning path from beginner to advanced
-- [OALabs YouTube](https://www.youtube.com/@OALabs) — real-world malware and crackme walkthroughs covering unpacking, anti-analysis bypass, and decompiler use
-- [LiveOverflow Binary Exploitation](https://www.youtube.com/@LiveOverflow) — binary exploitation and reverse engineering tutorials from first principles
-- [Ghidra Official Training](https://github.com/NationalSecurityAgency/ghidra) — NSA's official Ghidra course materials included in the repo
-- [OpenSecurityTraining2](https://p.ost2.fyi) — free university-quality RE courses including "Intro to x86" and "Intermediate x86"; the most thorough free assembly fundamentals course available
-- [FLARE-ON Archives](https://flare-on.com) — all previous FLARE-ON challenge binaries and official writeups
-- [Malware Unicorn Workshops](https://malwareunicorn.org) — free RE and malware analysis workshops with complete lab materials; RE101 and RE102 are excellent starting points
+- [pwn.college RE Module](https://pwn.college): structured reverse engineering curriculum; the most complete free RE learning path from beginner to advanced
+- [OALabs YouTube](https://www.youtube.com/@OALabs): real-world malware and crackme walkthroughs covering unpacking, anti-analysis bypass, and decompiler use
+- [LiveOverflow Binary Exploitation](https://www.youtube.com/@LiveOverflow): binary exploitation and reverse engineering tutorials from first principles
+- [Ghidra Official Training](https://github.com/NationalSecurityAgency/ghidra): NSA's official Ghidra course materials included in the repo
+- [OpenSecurityTraining2](https://p.ost2.fyi): free university-quality RE courses including "Intro to x86" and "Intermediate x86"; the most thorough free assembly fundamentals course available
+- [FLARE-ON Archives](https://flare-on.com): all previous FLARE-ON challenge binaries and official writeups
+- [Malware Unicorn Workshops](https://malwareunicorn.org): free RE and malware analysis workshops with complete lab materials; RE101 and RE102 are excellent starting points
 
 ---
 
@@ -339,14 +339,14 @@ Firmware reversing extracts and analyzes the software running on embedded device
 
 | Control | Family | RE Relevance |
 |---|---|---|
-| SA-11 | System and Services Acquisition | Developer security testing — RE validates whether security testing identified real weaknesses |
+| SA-11 | System and Services Acquisition | Developer security testing: RE validates whether security testing identified real weaknesses |
 | SA-12 | Supply Chain Protection | Firmware and third-party library RE to identify supply chain implants or backdoors |
-| SI-7 | Software, Firmware, and Information Integrity | Integrity verification of software and firmware — RE detects tampering |
+| SI-7 | Software, Firmware, and Information Integrity | Integrity verification of software and firmware: RE detects tampering |
 | SI-3 | Malicious Code Protection | RE is the core technique for analyzing malicious code to derive signatures and IOCs |
 | RA-5 | Vulnerability Scanning | RE supports vulnerability discovery that feeds into the scanning/patching cycle |
 | CA-8 | Penetration Testing | RE is a required skill for thorough penetration testing of binary applications |
 | IR-4 | Incident Handling | RE of malware found during incidents drives containment and eradication decisions |
-| AU-2 | Event Logging | RE reveals what events malware disables or evades — informs logging coverage decisions |
+| AU-2 | Event Logging | RE reveals what events malware disables or evades: informs logging coverage decisions |
 
 ---
 
@@ -372,11 +372,11 @@ Firmware reversing extracts and analyzes the software running on embedded device
 
 | Certification | Provider | Focus |
 |---|---|---|
-| **GREM** (GIAC Reverse Engineering Malware) | SANS / GIAC | Gold standard malware RE certification; static/dynamic analysis, code reversing, anti-analysis |
-| **OSED** (Offensive Security Exploit Developer) | OffSec | RE, vulnerability discovery, Windows exploit development; 72-hour practical exam |
-| **eCMAP** (Certified Malware Analysis Professional) | eLearnSecurity | Malware analysis and RE using real-world samples |
-| **CRTO** (Certified Red Team Operator) | Zero-Point Security | Red team ops including binary analysis and tradecraft |
-| **Certified RE Professional** | Various vendors | Quality varies; evaluate based on practical exam component |
+| GREM (GIAC Reverse Engineering Malware) | SANS / GIAC | Gold standard malware RE certification; static/dynamic analysis, code reversing, anti-analysis |
+| OSED (Offensive Security Exploit Developer) | OffSec | RE, vulnerability discovery, Windows exploit development; 72-hour practical exam |
+| eCMAP (Certified Malware Analysis Professional) | eLearnSecurity | Malware analysis and RE using real-world samples |
+| CRTO (Certified Red Team Operator) | Zero-Point Security | Red team ops including binary analysis and tradecraft |
+| Certified RE Professional | Various vendors | Quality varies; evaluate based on practical exam component |
 
 ---
 
@@ -397,7 +397,7 @@ Firmware reversing extracts and analyzes the software running on embedded device
 
 ## Related Disciplines
 
-- [malware-analysis.md](/disciplines/malware-analysis.md) — RE is the core technical skill in malware analysis; everything in that discipline builds on reading disassembly and tracing binary logic
-- [exploit-development.md](/disciplines/exploit-development.md) — finding and weaponizing vulnerabilities requires RE to locate the vulnerable code path and understand memory layout
-- [Fuzzing & Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md) — RE of patch diffs and target binaries is how vulnerability researchers identify exploitable bugs
-- [Digital Forensics](/disciplines/digital-forensics.md) — memory forensics and artifact analysis frequently require RE skills to interpret recovered code and data structures
+- [malware-analysis.md](/disciplines/malware-analysis.md): RE is the core technical skill in malware analysis; everything in that discipline builds on reading disassembly and tracing binary logic
+- [exploit-development.md](/disciplines/exploit-development.md): finding and weaponizing vulnerabilities requires RE to locate the vulnerable code path and understand memory layout
+- [Fuzzing & Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md): RE of patch diffs and target binaries is how vulnerability researchers identify exploitable bugs
+- [Digital Forensics](/disciplines/digital-forensics.md): memory forensics and artifact analysis frequently require RE skills to interpret recovered code and data structures

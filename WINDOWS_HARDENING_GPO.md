@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Building or reviewing a GPO security baseline, hardening a new domain or OU, closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest) |
-| **Start at** | [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference) |
-| **Pairs with** | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
+| Read this when | Building or reviewing a GPO security baseline, hardening a new domain or OU, closing a finding tied to a Windows misconfiguration (LLMNR, SMBv1, WDigest) |
+| Start at | [Disabling Dangerous Services via GPO](#_2-disabling-dangerous-services-via-gpo), [Common Attack Techniques Enabled by GPO Misconfigurations](#_7-common-attack-techniques-enabled-by-gpo-misconfigurations), [Mitigation Strategy Reference](#_9-mitigation-strategy-reference) |
+| Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md) (hands-on apply/verify commands), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) (architecture + Sysmon/WEF monitoring), [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md), [Active Directory Security](disciplines/active-directory.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) |
 
 ## Table of Contents
 1. [GPO Hardening Fundamentals](#_1-gpo-hardening-fundamentals)
@@ -24,18 +24,18 @@
 ## 1. GPO Hardening Fundamentals
 
 ### GPO Processing Order (LSDOU)
-Local → Site → Domain → OU (last writer wins for conflicts)
-- **Computer Configuration:** Applied at boot regardless of who logs in
-- **User Configuration:** Applied at logon for the user object
-- **Loopback processing:** Force computer policies to apply to user settings (use for kiosk/RDS/VDI environments)
-- `gpupdate /force` — Apply GPO changes immediately
-- `gpresult /r` — Show resultant set of policy for current user/computer
-- `gpresult /h report.html` — Full HTML RSoP report
+Local -> Site -> Domain -> OU (last writer wins for conflicts)
+- Computer Configuration: Applied at boot regardless of who logs in
+- User Configuration: Applied at logon for the user object
+- Loopback processing: Force computer policies to apply to user settings (use for kiosk/RDS/VDI environments)
+- `gpupdate /force`: Apply GPO changes immediately
+- `gpresult /r`: Show resultant set of policy for current user/computer
+- `gpresult /h report.html`: Full HTML RSoP report
 
 ### GPO Security Filtering
 - Default: Applies to Authenticated Users
-- Best practice: Use security group filtering — `Remove Authenticated Users`, add specific target group
-- WMI filtering: Target by OS version, hardware, domain join status — powerful but slows processing
+- Best practice: Use security group filtering: `Remove Authenticated Users`, add specific target group
+- WMI filtering: Target by OS version, hardware, domain join status: powerful but slows processing
 
 ### GPO Hierarchy for Security
 ```
@@ -86,7 +86,7 @@ Computer Configuration >
 
 ### Disabling LLMNR and NetBIOS (Critical)
 
-**LLMNR Disable via GPO:**
+LLMNR Disable via GPO:
 ```
 Computer Configuration >
   Administrative Templates >
@@ -95,7 +95,7 @@ Computer Configuration >
         Turn off multicast name resolution = Enabled
 ```
 
-**NetBIOS Disable (DHCP option or registry):**
+NetBIOS Disable (DHCP option or registry):
 ```
 Computer Configuration >
   Preferences >
@@ -143,7 +143,7 @@ Computer Configuration > Windows Settings > Security Settings > Account Policies
 
 ### LSASS Protection
 
-**Credential Guard (virtualization-based)**
+Credential Guard (virtualization-based)
 ```
 Computer Configuration >
   Administrative Templates >
@@ -154,7 +154,7 @@ Computer Configuration >
 ```
 Effect: Isolates LSASS secrets in hypervisor-protected region; Mimikatz cannot extract them
 
-**LSA Protection (PPL — Protected Process Light)**
+LSA Protection (PPL — Protected Process Light)
 ```
 Computer Configuration >
   Windows Settings >
@@ -169,7 +169,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa
 RunAsPPL = 1
 ```
 
-**WDigest Disable (prevent cleartext password storage)**
+WDigest Disable (prevent cleartext password storage)
 ```
 Computer Configuration >
   Preferences >
@@ -211,7 +211,7 @@ Computer Configuration >
       Windows Defender Firewall with Advanced Security
 ```
 
-**Baseline Rules to Create:**
+Baseline Rules to Create:
 ```
 Inbound Block Rules (add to Domain, Private, Public profiles):
 - Block SMB from internet (445, 139): Source = Any, Destination = Local, Action = Block (for internet-facing)
@@ -223,7 +223,7 @@ Outbound Block Rules (high-value):
 - Block Tor port ranges: 9001, 9030, 9050, 9051
 ```
 
-**Firewall Default Actions:**
+Firewall Default Actions:
 ```
 Domain Profile:  Inbound = Block, Outbound = Allow
 Private Profile: Inbound = Block, Outbound = Allow
@@ -232,7 +232,7 @@ Public Profile:  Inbound = Block, Outbound = Block (locked-down; explicit allows
 
 ### SMB Hardening
 
-**Disable SMBv1 (critical — WannaCry/EternalBlue uses SMBv1):**
+Disable SMBv1 (critical — WannaCry/EternalBlue uses SMBv1):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -245,7 +245,7 @@ Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force
 Set-SmbClientConfiguration -EnableSMB1Protocol $false -Force
 ```
 
-**SMB Signing (required — prevents relay attacks):**
+SMB Signing (required — prevents relay attacks):
 ```
 Computer Configuration >
   Windows Settings >
@@ -260,10 +260,10 @@ Computer Configuration >
 ```
 Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services
 ```
-- **Require NLA (Network Level Authentication):** Enabled — prevents unauthenticated RDP access, reduces attack surface
-- **Set encryption level:** High (128-bit)
-- **Limit RDP to specific security layer:** SSL/TLS only (not Classic RDP)
-- **Session timeout:** 15 minutes idle disconnect
+- Require NLA (Network Level Authentication): Enabled: prevents unauthenticated RDP access, reduces attack surface
+- Set encryption level: High (128-bit)
+- Limit RDP to specific security layer: SSL/TLS only (not Classic RDP)
+- Session timeout: 15 minutes idle disconnect
 
 ---
 
@@ -276,7 +276,7 @@ Via AppLocker or WDAC (Windows Defender Application Control):
 # Forces Constrained Language Mode for non-administrators
 ```
 
-**PowerShell Execution Policy via GPO (insufficient alone — not a security boundary):**
+PowerShell Execution Policy via GPO (insufficient alone — not a security boundary):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -285,11 +285,11 @@ Computer Configuration >
         Turn on Script Execution = Enabled
         Execution Policy: RemoteSigned or AllSigned
 ```
-> **Warning:** Execution policy can be bypassed with `-ExecutionPolicy Bypass` flag; use AppLocker/WDAC for real enforcement
+> Warning: Execution policy can be bypassed with `-ExecutionPolicy Bypass` flag; use AppLocker/WDAC for real enforcement
 
 ### PowerShell Logging (Critical for Detection)
 
-**Module Logging (logs all PowerShell activity):**
+Module Logging (logs all PowerShell activity):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -298,9 +298,9 @@ Computer Configuration >
         Turn on Module Logging = Enabled
         Module Names = * (all modules)
 ```
-Event ID **4103** in `Microsoft-Windows-PowerShell/Operational`
+Event ID 4103 in `Microsoft-Windows-PowerShell/Operational`
 
-**Script Block Logging (logs full script content including decoded blocks — critical for AMSI bypass detection):**
+Script Block Logging (logs full script content including decoded blocks — critical for AMSI bypass detection):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -309,9 +309,9 @@ Computer Configuration >
         Turn on PowerShell Script Block Logging = Enabled
         Log script block invocation start/stop events = Enabled
 ```
-Event ID **4104** in `Microsoft-Windows-PowerShell/Operational`
+Event ID 4104 in `Microsoft-Windows-PowerShell/Operational`
 
-**PowerShell Transcription:**
+PowerShell Transcription:
 ```
 Computer Configuration >
   Administrative Templates >
@@ -324,7 +324,7 @@ Computer Configuration >
 
 ### AppLocker / WDAC
 
-**AppLocker Basic Rules:**
+AppLocker Basic Rules:
 ```
 Computer Configuration >
   Windows Settings >
@@ -336,10 +336,10 @@ Computer Configuration >
 - Block rules: `C:\Temp\`, `C:\Users\*\Downloads\`, `C:\Users\*\AppData\`
 - Script rules: Block `.ps1`, `.vbs`, `.js` except from Program Files
 
-**WDAC (Windows Defender Application Control) — stronger than AppLocker:**
+WDAC (Windows Defender Application Control) — stronger than AppLocker:
 - Kernel-level enforcement; cannot be bypassed by admin (AppLocker can)
-- WDAC Wizard: `https://aka.ms/wdacwizard` — GUI for policy creation
-- Policy modes: Audit → Enforce
+- WDAC Wizard: `https://aka.ms/wdacwizard`: GUI for policy creation
+- Policy modes: Audit -> Enforce
 - Supplement policies for Line of Business apps
 
 ---
@@ -354,7 +354,7 @@ Computer Configuration >
       Advanced Audit Policy Configuration
 ```
 
-**Critical Subcategories to Enable:**
+Critical Subcategories to Enable:
 
 | Category | Subcategory | Setting | Key Event IDs |
 |---|---|---|---|
@@ -364,21 +364,21 @@ Computer Configuration >
 | Account Management | User Account Management | Success, Failure | 4720 (create), 4722 (enable), 4725 (disable), 4726 (delete), 4738 (change) |
 | Account Management | Security Group Management | Success | 4728, 4732 (add to group) |
 | Account Management | Computer Account Management | Success | 4741, 4742 (computer account changes) |
-| DS Access | Directory Service Changes | Success | 5136 (AD object modified — DCSync detection) |
+| DS Access | Directory Service Changes | Success | 5136 (AD object modified: DCSync detection) |
 | Logon/Logoff | Logon | Success, Failure | 4624, 4625 |
 | Logon/Logoff | Logoff | Success | 4634, 4647 |
-| Logon/Logoff | Special Logon | Success | 4672 (admin logon — sensitive privilege use) |
-| Object Access | File System | Success, Failure | 4663 (file access — enable for sensitive paths only) |
+| Logon/Logoff | Special Logon | Success | 4672 (admin logon: sensitive privilege use) |
+| Object Access | File System | Success, Failure | 4663 (file access: enable for sensitive paths only) |
 | Object Access | Registry | Success, Failure | 4657 (registry modification) |
 | Object Access | Handle Manipulation | Failure | 4658 |
-| Policy Change | Audit Policy Change | Success | 4719 (audit policy changed — tamper detection) |
-| Privilege Use | Sensitive Privilege Use | Success, Failure | 4673 (SeDebugPrivilege — Mimikatz indicator) |
-| Process Creation | Process Creation | Success | 4688 — enable command line logging! |
+| Policy Change | Audit Policy Change | Success | 4719 (audit policy changed: tamper detection) |
+| Privilege Use | Sensitive Privilege Use | Success, Failure | 4673 (SeDebugPrivilege: Mimikatz indicator) |
+| Process Creation | Process Creation | Success | 4688: enable command line logging! |
 | System | Security State Change | Success | 4608, 4609 |
-| System | Security System Extension | Success | 7045 (new service — persistence) |
+| System | Security System Extension | Success | 7045 (new service: persistence) |
 | System | System Integrity | Success, Failure | 4612, 4615 |
 
-**Enable Process Command Line in 4688:**
+Enable Process Command Line in 4688:
 ```
 Computer Configuration >
   Administrative Templates >
@@ -414,22 +414,22 @@ Computer Configuration >
 | PowerShell v2 available | T1059.001 | PowerShell v2 bypasses AMSI/logging | Disable PowerShell v2: `Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root` |
 | No AppLocker/WDAC | T1059 | Run arbitrary scripts from user-writable locations | Deploy AppLocker blocking scripts in user dirs |
 | AlwaysInstallElevated = 1 | T1548.002 | Install malicious MSI with SYSTEM privileges | Never enable; GPO: Computer+User both must be 1 — set both to Disabled |
-| Unconstrained delegation | T1558 | SpoolSample + TGT capture → impersonate any user | Enable Protected Users group; set delegation to None on sensitive accounts |
+| Unconstrained delegation | T1558 | SpoolSample + TGT capture -> impersonate any user | Enable Protected Users group; set delegation to None on sensitive accounts |
 | Guest account enabled | T1078.001 | Anonymous access to shares | Disable via Computer > Security Settings > Local Policies > Security Options |
 | AutoRun enabled | T1091 | USB autorun malware | Disable via Computer > Admin Templates > Windows Components > AutoPlay Policies |
 
 ---
 
-## 8. CIS Benchmark Key Controls (Level 1 — Windows 10/11 Enterprise)
+## 8. CIS Benchmark Key Controls (Level 1: Windows 10/11 Enterprise)
 
-**Section 1 — Account Policies**
+Section 1 — Account Policies
 - 1.1.1: Enforce password history = 24 passwords
 - 1.1.2: Maximum password age = 365 days or less
 - 1.1.4: Minimum password length = 14 characters
 - 1.2.1: Account lockout duration = 15+ minutes
-- 1.2.2: Account lockout threshold = 5–10 invalid attempts
+- 1.2.2: Account lockout threshold = 5-10 invalid attempts
 
-**Section 2 — Local Policies**
+Section 2 — Local Policies
 - 2.2.1: Access this computer from the network = Administrators, Authenticated Users only
 - 2.2.4: Allow log on through Remote Desktop = Administrators only (not generic RDP group)
 - 2.2.11: Deny log on locally for service accounts = service accounts should NOT be in this list (they should not have interactive logon)
@@ -438,7 +438,7 @@ Computer Configuration >
 - 2.3.11.2: Network security: Allow anonymous SID enumeration = Disabled
 - 2.3.15.1: System objects: Strengthen default permissions = Enabled
 
-**Section 18 — Administrative Templates**
+Section 18 — Administrative Templates
 - 18.3.5: MSS: Disable NetBIOS = Enabled
 - 18.4.3: Enable Font Providers = Disabled (prevents remote font loading C2 technique)
 - 18.5.11.3: Network connections: Prohibit use of Internet Connection Sharing = Enabled
@@ -456,26 +456,26 @@ Computer Configuration >
 
 ### Defense-in-Depth GPO Layers
 
-**Layer 1 — Prevent Initial Compromise:**
+Layer 1 — Prevent Initial Compromise:
 - SmartScreen enabled
 - AppLocker blocking untrusted script locations
 - Attack Surface Reduction rules in Block mode
 - Email filtering (Proofpoint TAP, EOP)
 
-**Layer 2 — Prevent Lateral Movement:**
+Layer 2 — Prevent Lateral Movement:
 - SMB signing required
 - LLMNR/NetBIOS disabled
 - Local admin account disabled or unique per machine (LAPS)
 - Tiered AD model (Tier 0/1/2 separation)
 
-**Layer 3 — Prevent Credential Theft:**
+Layer 3 — Prevent Credential Theft:
 - Credential Guard enabled
 - LSA Protection (PPL) enabled
 - WDigest disabled
 - No unconstrained delegation
 - Protected Users group for all privileged accounts
 
-**Layer 4 — Contain Blast Radius:**
+Layer 4 — Contain Blast Radius:
 - Windows Firewall blocking unnecessary inbound/outbound
 - No lateral movement from workstation to workstation (deny TCP 445/139 between workstations)
 - Service account lockdown (deny interactive logon, restrict to specific computers)
@@ -503,12 +503,12 @@ Computer Configuration >
 - DES/RC4 encryption for Kerberos not allowed (AES only)
 - Cannot be delegated (unconstrained or constrained)
 - TGT lifetime: 4 hours (cannot be renewed)
-- **Recommendation:** Add all Tier 0 accounts (Domain Admins, Enterprise Admins, Schema Admins) to Protected Users
+- Recommendation: Add all Tier 0 accounts (Domain Admins, Enterprise Admins, Schema Admins) to Protected Users
 
 ### Tiered Administration Model
-- **Tier 0:** Domain Controllers, AD Connect, PKI infrastructure — accounts ONLY log into Tier 0 assets
-- **Tier 1:** Member servers (apps, file servers, SQL) — accounts ONLY log into Tier 1 or Tier 0 assets via PAW
-- **Tier 2:** Workstations and user devices — standard user accounts
+- Tier 0: Domain Controllers, AD Connect, PKI infrastructure: accounts ONLY log into Tier 0 assets
+- Tier 1: Member servers (apps, file servers, SQL): accounts ONLY log into Tier 1 or Tier 0 assets via PAW
+- Tier 2: Workstations and user devices: standard user accounts
 
 GPO enforcement:
 ```
@@ -526,8 +526,8 @@ Workstations — GPO Deny Logon:
 ---
 
 ## Related Resources
-- [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) — WAF, ASR, CrowdStrike, Tanium, Proofpoint, Zscaler
-- [Active Directory Security](disciplines/active-directory.md) — AD attack paths and defense
-- [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) — Sigma and SIEM rules for Windows events
-- [Malware Families](MALWARE_FAMILIES.md) — malware that GPO hardening prevents
-- [Vulnerability Management](disciplines/vulnerability-management.md) — patch and configuration management
+- [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md): WAF, ASR, CrowdStrike, Tanium, Proofpoint, Zscaler
+- [Active Directory Security](disciplines/active-directory.md): AD attack paths and defense
+- [Detection Rules Reference](DETECTION_RULES_REFERENCE.md): Sigma and SIEM rules for Windows events
+- [Malware Families](MALWARE_FAMILIES.md): malware that GPO hardening prevents
+- [Vulnerability Management](disciplines/vulnerability-management.md): patch and configuration management

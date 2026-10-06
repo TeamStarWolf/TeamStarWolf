@@ -10,22 +10,22 @@
 
 | Component | Description |
 |---|---|
-| **Forest** | Top-level security boundary; one or more domains sharing a schema and global catalog |
-| **Domain** | Administrative boundary within a forest; contains users, computers, groups, and policies |
-| **Domain Controller (DC)** | Hosts AD DS; handles Kerberos/NTLM authentication, LDAP queries, replication, policy enforcement |
-| **NTDS.dit** | The AD database on every DC — stores all domain objects including hashed credentials; primary attack target |
-| **Global Catalog (GC)** | Partial replica of all objects in the forest; required for cross-domain logon and universal group resolution |
-| **FSMO Roles** | Five single-master operation roles: Schema Master, Domain Naming Master, PDC Emulator, RID Master, Infrastructure Master |
-| **SYSVOL** | Shared folder on every DC; stores GPO files and logon scripts; replicated via DFSR |
-| **Trust** | Relationship allowing cross-domain/forest authentication; types: parent-child (transitive), forest trust, external trust, shortcut trust — each has different security implications |
-| **Organizational Unit (OU)** | Container for grouping objects; primary target for GPO application and delegation of control |
-| **Group Policy Object (GPO)** | Policy container linked to sites, domains, or OUs; enforces security settings and software deployment |
+| Forest | Top-level security boundary; one or more domains sharing a schema and global catalog |
+| Domain | Administrative boundary within a forest; contains users, computers, groups, and policies |
+| Domain Controller (DC) | Hosts AD DS; handles Kerberos/NTLM authentication, LDAP queries, replication, policy enforcement |
+| NTDS.dit | The AD database on every DC: stores all domain objects including hashed credentials; primary attack target |
+| Global Catalog (GC) | Partial replica of all objects in the forest; required for cross-domain logon and universal group resolution |
+| FSMO Roles | Five single-master operation roles: Schema Master, Domain Naming Master, PDC Emulator, RID Master, Infrastructure Master |
+| SYSVOL | Shared folder on every DC; stores GPO files and logon scripts; replicated via DFSR |
+| Trust | Relationship allowing cross-domain/forest authentication; types: parent-child (transitive), forest trust, external trust, shortcut trust — each has different security implications |
+| Organizational Unit (OU) | Container for grouping objects; primary target for GPO application and delegation of control |
+| Group Policy Object (GPO) | Policy container linked to sites, domains, or OUs; enforces security settings and software deployment |
 
 ### Key Services and Ports
 
 | Protocol | Port | Use |
 |---|---|---|
-| Kerberos | 88 (TCP/UDP) | Authentication ticket exchange — the primary AD auth protocol |
+| Kerberos | 88 (TCP/UDP) | Authentication ticket exchange: the primary AD auth protocol |
 | LDAP | 389 (TCP/UDP) | Directory queries and modifications (cleartext) |
 | LDAPS | 636 (TCP) | LDAP over TLS |
 | DNS | 53 (TCP/UDP) | Name resolution; SRV records for DC/GC discovery |
@@ -37,11 +37,11 @@
 ### Authentication Protocols
 
 #### Kerberos TGT/TGS Flow
-1. **AS-REQ**: Client requests a Ticket Granting Ticket (TGT) from the KDC; includes pre-authentication (timestamp encrypted with user's NT hash)
-2. **AS-REP**: KDC issues TGT encrypted with the `krbtgt` account hash
-3. **TGS-REQ**: Client presents TGT and requests a Service Ticket for a target SPN
-4. **TGS-REP**: KDC issues service ticket encrypted with the target service account's NT hash
-5. **AP-REQ**: Client presents service ticket to the target service
+1. AS-REQ: Client requests a Ticket Granting Ticket (TGT) from the KDC; includes pre-authentication (timestamp encrypted with user's NT hash)
+2. AS-REP: KDC issues TGT encrypted with the `krbtgt` account hash
+3. TGS-REQ: Client presents TGT and requests a Service Ticket for a target SPN
+4. TGS-REP: KDC issues service ticket encrypted with the target service account's NT hash
+5. AP-REQ: Client presents service ticket to the target service
 
 #### NTLM Challenge-Response
 1. Client sends username to server
@@ -56,11 +56,11 @@
 
 | Technique | Description | Tools |
 |---|---|---|
-| **Password Spraying** | Try one password against all accounts — stays below lockout threshold | [Kerbrute](https://github.com/ropnop/kerbrute), [DomainPasswordSpray](https://github.com/dafthack/DomainPasswordSpray), [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) |
-| **LLMNR/NBT-NS Poisoning** | Responder responds to broadcast name resolution requests, captures NTLMv2 hashes for offline cracking | [Responder](https://github.com/lgandx/Responder), [Inveigh](https://github.com/Kevin-Robertson/Inveigh) |
-| **AS-REP Roasting (no creds)** | Accounts with "do not require Kerberos pre-authentication" return crackable encrypted TGT segment | [Rubeus](https://github.com/GhostPack/Rubeus), [impacket-GetNPUsers](https://github.com/fortra/impacket) |
-| **LDAP Anonymous Bind** | Enumerate users, groups, and computers on misconfigured DCs without credentials | `ldapsearch`, [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) |
-| **SMB Null Session** | Enumerate shares and user lists on legacy systems without credentials | [enum4linux](https://github.com/CiscoCXSecurity/enum4linux), `rpcclient -U "" -N` |
+| Password Spraying | Try one password against all accounts: stays below lockout threshold | [Kerbrute](https://github.com/ropnop/kerbrute), [DomainPasswordSpray](https://github.com/dafthack/DomainPasswordSpray), [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) |
+| LLMNR/NBT-NS Poisoning | Responder responds to broadcast name resolution requests, captures NTLMv2 hashes for offline cracking | [Responder](https://github.com/lgandx/Responder), [Inveigh](https://github.com/Kevin-Robertson/Inveigh) |
+| AS-REP Roasting (no creds) | Accounts with "do not require Kerberos pre-authentication" return crackable encrypted TGT segment | [Rubeus](https://github.com/GhostPack/Rubeus), [impacket-GetNPUsers](https://github.com/fortra/impacket) |
+| LDAP Anonymous Bind | Enumerate users, groups, and computers on misconfigured DCs without credentials | `ldapsearch`, [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) |
+| SMB Null Session | Enumerate shares and user lists on legacy systems without credentials | [enum4linux](https://github.com/CiscoCXSecurity/enum4linux), `rpcclient -U "" -N` |
 
 ---
 
@@ -132,14 +132,14 @@ BloodHound reveals ACL relationships that attackers can exploit to escalate priv
 
 | ACL Right | What It Allows | Example Attack |
 |---|---|---|
-| **GenericAll** | Full control over object | Add yourself to privileged group, reset password, write SPN for Kerberoasting, configure RBCD |
-| **GenericWrite** | Write any non-protected attribute | Add SPN for Kerberoasting, write logon script, set `msDS-AllowedToActOnBehalfOfOtherIdentity` |
-| **WriteOwner** | Change object ownership | Take ownership, then grant yourself GenericAll |
-| **WriteDACL** | Modify ACL of object | Grant yourself GenericAll or DCSync rights |
-| **ForceChangePassword** | Reset password without knowing current | Reset password of any privileged account |
-| **AddMember** | Add members to group | Add yourself to Domain Admins or other privileged groups |
-| **AllExtendedRights** | All extended rights including DS-Replication | DCSync from any machine with this right on the domain object |
-| **Self-Membership** | Add self to group | Add your own account to a privileged group |
+| GenericAll | Full control over object | Add yourself to privileged group, reset password, write SPN for Kerberoasting, configure RBCD |
+| GenericWrite | Write any non-protected attribute | Add SPN for Kerberoasting, write logon script, set `msDS-AllowedToActOnBehalfOfOtherIdentity` |
+| WriteOwner | Change object ownership | Take ownership, then grant yourself GenericAll |
+| WriteDACL | Modify ACL of object | Grant yourself GenericAll or DCSync rights |
+| ForceChangePassword | Reset password without knowing current | Reset password of any privileged account |
+| AddMember | Add members to group | Add yourself to Domain Admins or other privileged groups |
+| AllExtendedRights | All extended rights including DS-Replication | DCSync from any machine with this right on the domain object |
+| Self-Membership | Add self to group | Add your own account to a privileged group |
 
 ```powershell
 # Identify ACL misconfigurations with PowerView
@@ -162,11 +162,11 @@ ADCS misconfigurations are among the most impactful modern AD attack vectors —
 
 | ESC | Vulnerability | Impact |
 |---|---|---|
-| **ESC1** | Certificate template allows Subject Alternative Name (SAN) | Request cert for any user including DA; authenticate as DA |
-| **ESC2** | Certificate usable for any purpose including authentication | Request cert for any user |
-| **ESC4** | Write permission on certificate template | Modify template to allow ESC1, then exploit |
-| **ESC6** | `EDITF_ATTRIBUTESUBJECTALTNAME2` flag on CA | Any template allows SAN; authenticate as any user |
-| **ESC8** | AD CS web enrollment over HTTP | NTLM relay to obtain certificate as DC machine account → Golden Ticket equivalent |
+| ESC1 | Certificate template allows Subject Alternative Name (SAN) | Request cert for any user including DA; authenticate as DA |
+| ESC2 | Certificate usable for any purpose including authentication | Request cert for any user |
+| ESC4 | Write permission on certificate template | Modify template to allow ESC1, then exploit |
+| ESC6 | `EDITF_ATTRIBUTESUBJECTALTNAME2` flag on CA | Any template allows SAN; authenticate as any user |
+| ESC8 | AD CS web enrollment over HTTP | NTLM relay to obtain certificate as DC machine account -> Golden Ticket equivalent |
 
 ```bash
 # Find vulnerable templates with Certipy
@@ -240,9 +240,9 @@ kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
 
 | Delegation Type | Risk | Attack Path |
 |---|---|---|
-| **Unconstrained Delegation** | Highest — stores all TGTs that authenticate to the service | Compromise host, coerce DC auth (PrinterBug/PetitPotam), capture DC TGT, DCSync |
-| **Constrained Delegation** | High — can impersonate any user to specific services | S4U2Self + S4U2Proxy to get service ticket as any user including DA |
-| **Resource-Based Constrained Delegation (RBCD)** | High — requires only write access to target object | Write `msDS-AllowedToActOnBehalfOfOtherIdentity`, create machine account, S4U2 for impersonation |
+| Unconstrained Delegation | Highest: stores all TGTs that authenticate to the service | Compromise host, coerce DC auth (PrinterBug/PetitPotam), capture DC TGT, DCSync |
+| Constrained Delegation | High: can impersonate any user to specific services | S4U2Self + S4U2Proxy to get service ticket as any user including DA |
+| Resource-Based Constrained Delegation (RBCD) | High: requires only write access to target object | Write `msDS-AllowedToActOnBehalfOfOtherIdentity`, create machine account, S4U2 for impersonation |
 
 ---
 
@@ -252,14 +252,14 @@ kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
 |---|---|---|
 | [BloodHound CE](https://github.com/SpecterOps/BloodHound) + [SharpHound](https://github.com/BloodHoundAD/SharpHound) | Graph analysis | Visualize attack paths, find shortest path to Domain Admin |
 | [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) | PowerShell module | Enumerate users, groups, ACLs, GPOs, trusts, shares |
-| [Certipy](https://github.com/ly4k/Certipy) | Python | ADCS enumeration and exploitation (ESC1–ESC13) |
+| [Certipy](https://github.com/ly4k/Certipy) | Python | ADCS enumeration and exploitation (ESC1-ESC13) |
 | [ADExplorer](https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer) | GUI browser | Browse and snapshot AD objects interactively |
 | [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) | LDAP dump | Dump users, groups, computers to readable HTML/JSON |
 | [NetExec (nxc)](https://github.com/Pennyw0rth/NetExec) | Multi-protocol | SMB/LDAP/WinRM Swiss army knife; spray, exec, dump; maintained successor to CrackMapExec (CME archived Dec 2023) |
 | [Impacket](https://github.com/fortra/impacket) | Python suite | Low-level Kerberos, LDAP, SMB, RPC interaction |
 | [kerbrute](https://github.com/ropnop/kerbrute) | Kerberos | User enumeration and password spraying via Kerberos |
 | [PingCastle](https://www.pingcastle.com/) | Risk assessment | AD health and security risk scoring |
-| [WADComs](https://wadcoms.github.io/) | Interactive cheatsheet | Interactive AD attack cheatsheet — filter by technique and tool |
+| [WADComs](https://wadcoms.github.io/) | Interactive cheatsheet | Interactive AD attack cheatsheet: filter by technique and tool |
 
 ---
 
@@ -267,18 +267,18 @@ kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
 
 | Control | Implementation | Techniques Mitigated |
 |---|---|---|
-| **Microsoft Defender for Identity (MDI)** | Deploy sensors on all DCs; connect to Azure portal | Detects Kerberoasting, PtH, DCSync, BloodHound scanning in real-time |
-| **Protected Users Security Group** | Add privileged accounts to the group | Members cannot use NTLM auth, cannot cache credentials, cannot use DES/RC4 Kerberos — kills PtH and Kerberoasting |
-| **Privileged Access Workstations (PAW)** | Dedicated hardened workstations for admin tasks; no internet access | Reduces phishing and credential theft from admin workstations |
-| **LAPS** | [Local Admin Password Solution](https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview) — randomizes local admin passwords per machine | Eliminates lateral movement via reused local admin credentials |
-| **Tiered Administration (Tier 0/1/2)** | Tier 0: DCs only; Tier 1: servers; Tier 2: workstations; no cross-tier admin logon | Limits lateral movement scope; compromise of Tier 2 cannot reach Tier 0 |
-| **Credential Guard** | Enable via VBS in Windows Security settings | Protects LSASS credentials using virtualization-based security; prevents NTLM hash extraction |
-| **AD Recycle Bin** | Enable via Active Directory Administrative Center | Enables recovery from accidental or malicious deletion of AD objects |
-| **SMB Signing Enforcement** | GPO: `Microsoft network server: Digitally sign communications (always)` | Blocks NTLM relay over SMB |
-| **Disable LLMNR / NBT-NS** | GPO: Turn off multicast name resolution; disable NetBIOS over TCP/IP | Removes Responder poisoning targets |
-| **ADCS Hardening** | Patch ESC1–ESC8 misconfigurations; disable SAN-based enrollment where not required | Prevents certificate-based privilege escalation |
-| **Disable Print Spooler on DCs** | `Stop-Service Spooler; Set-Service Spooler -StartupType Disabled` on all DCs | Eliminates PrinterBug coercion vector |
-| **Audit Policy Hardening** | Enable advanced audit subcategories via `auditpol` | Required for detection coverage via event log monitoring |
+| Microsoft Defender for Identity (MDI) | Deploy sensors on all DCs; connect to Azure portal | Detects Kerberoasting, PtH, DCSync, BloodHound scanning in real-time |
+| Protected Users Security Group | Add privileged accounts to the group | Members cannot use NTLM auth, cannot cache credentials, cannot use DES/RC4 Kerberos — kills PtH and Kerberoasting |
+| Privileged Access Workstations (PAW) | Dedicated hardened workstations for admin tasks; no internet access | Reduces phishing and credential theft from admin workstations |
+| LAPS | [Local Admin Password Solution](https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview): randomizes local admin passwords per machine | Eliminates lateral movement via reused local admin credentials |
+| Tiered Administration (Tier 0/1/2) | Tier 0: DCs only; Tier 1: servers; Tier 2: workstations; no cross-tier admin logon | Limits lateral movement scope; compromise of Tier 2 cannot reach Tier 0 |
+| Credential Guard | Enable via VBS in Windows Security settings | Protects LSASS credentials using virtualization-based security; prevents NTLM hash extraction |
+| AD Recycle Bin | Enable via Active Directory Administrative Center | Enables recovery from accidental or malicious deletion of AD objects |
+| SMB Signing Enforcement | GPO: `Microsoft network server: Digitally sign communications (always)` | Blocks NTLM relay over SMB |
+| Disable LLMNR / NBT-NS | GPO: Turn off multicast name resolution; disable NetBIOS over TCP/IP | Removes Responder poisoning targets |
+| ADCS Hardening | Patch ESC1-ESC8 misconfigurations; disable SAN-based enrollment where not required | Prevents certificate-based privilege escalation |
+| Disable Print Spooler on DCs | `Stop-Service Spooler; Set-Service Spooler -StartupType Disabled` on all DCs | Eliminates PrinterBug coercion vector |
+| Audit Policy Hardening | Enable advanced audit subcategories via `auditpol` | Required for detection coverage via event log monitoring |
 
 ---
 
@@ -288,17 +288,17 @@ kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
 
 | Event ID | Source | Meaning |
 |---|---|---|
-| **4768** | Security | Kerberos TGT requested — check for pre-auth disabled; unusual encryption type |
-| **4769** | Security | Kerberos service ticket requested — **RC4 (0x17) encryption type from non-DC = Kerberoasting indicator** |
-| **4771** | Security | Kerberos pre-auth failed — brute force or enumeration |
-| **4624** | Security | Logon success — Type 3 (NTLM) from unusual sources = PtH indicator |
-| **4625** | Security | Logon failure — brute force, spray |
-| **4662** | Security | AD object access — **DS-Replication-Get-Changes-All GUID from non-DC = DCSync alert** |
-| **4728 / 4732** | Security | Member added to global/local security group — privilege escalation monitoring |
-| **4738** | Security | User account changed — monitor for `userAccountControl` changes disabling pre-auth |
-| **4776** | Security | NTLM credential validation attempt — detect spray and PtH patterns |
-| **5136** | Security | AD object modified — ACL changes, delegation changes, SPN additions |
-| **7045** | System | New service installed — lateral movement persistence |
+| 4768 | Security | Kerberos TGT requested: check for pre-auth disabled; unusual encryption type |
+| 4769 | Security | Kerberos service ticket requested: RC4 (0x17) encryption type from non-DC = Kerberoasting indicator |
+| 4771 | Security | Kerberos pre-auth failed: brute force or enumeration |
+| 4624 | Security | Logon success: Type 3 (NTLM) from unusual sources = PtH indicator |
+| 4625 | Security | Logon failure: brute force, spray |
+| 4662 | Security | AD object access: DS-Replication-Get-Changes-All GUID from non-DC = DCSync alert |
+| 4728 / 4732 | Security | Member added to global/local security group: privilege escalation monitoring |
+| 4738 | Security | User account changed: monitor for `userAccountControl` changes disabling pre-auth |
+| 4776 | Security | NTLM credential validation attempt: detect spray and PtH patterns |
+| 5136 | Security | AD object modified: ACL changes, delegation changes, SPN additions |
+| 7045 | System | New service installed: lateral movement persistence |
 
 ### Kerberoasting Detection (KQL)
 
@@ -362,12 +362,12 @@ SecurityEvent
 
 | Certification | Provider | Focus |
 |---|---|---|
-| **CRTE** (Certified Red Team Expert) | Altered Security | Advanced AD attack chains, multi-forest, Azure AD hybrid attacks |
-| **CRTP** (Certified Red Team Professional) | Altered Security | AD exploitation fundamentals, lateral movement, privilege escalation |
-| **CRTO** (Certified Red Team Operator) | Zero-Point Security | AD red team ops using Cobalt Strike |
-| **PNPT** (Practical Network Penetration Tester) | TCM Security | Practical AD exploitation assessment including full attack chain |
-| **OSCP** | OffSec | General penetration testing with significant AD machine coverage |
-| **eCPPT** | eLearnSecurity | Network penetration testing with AD exploitation |
+| CRTE (Certified Red Team Expert) | Altered Security | Advanced AD attack chains, multi-forest, Azure AD hybrid attacks |
+| CRTP (Certified Red Team Professional) | Altered Security | AD exploitation fundamentals, lateral movement, privilege escalation |
+| CRTO (Certified Red Team Operator) | Zero-Point Security | AD red team ops using Cobalt Strike |
+| PNPT (Practical Network Penetration Tester) | TCM Security | Practical AD exploitation assessment including full attack chain |
+| OSCP | OffSec | General penetration testing with significant AD machine coverage |
+| eCPPT | eLearnSecurity | Network penetration testing with AD exploitation |
 
 ---
 
@@ -375,21 +375,21 @@ SecurityEvent
 
 | Resource | Type | Notes |
 |---|---|---|
-| [The Hacker Recipes — AD](https://www.thehacker.recipes/ad/) | Reference | Comprehensive AD attack technique walkthroughs with commands; best free reference |
+| [The Hacker Recipes: AD](https://www.thehacker.recipes/ad/) | Reference | Comprehensive AD attack technique walkthroughs with commands; best free reference |
 | [SpecterOps BloodHound Documentation](https://bloodhound.readthedocs.io/) | Reference | BloodHound attack path methodology and edge type explanations |
 | [harmj0y Blog](https://blog.harmj0y.net/) | Blog | Foundational Kerberos, delegation, and PowerView research |
 | [adsecurity.org (Sean Metcalf)](https://adsecurity.org/) | Blog | Comprehensive AD security resource; Golden Ticket, Silver Ticket, DCSync |
 | [dirkjanm Blog](https://dirkjanm.io/) | Blog | NTLM relay, Kerberos, ADCS (ESC attacks) original research |
 | [WADComs](https://wadcoms.github.io/) | Interactive cheatsheet | Filter by attack/tool; immediate command reference for every AD technique |
 | [Microsoft Defender for Identity Docs](https://learn.microsoft.com/en-us/defender-for-identity/) | Reference | MDI sensor deployment and alert tuning for AD attack detection |
-| [TCM Security — Practical Ethical Hacking](https://academy.tcm-sec.com/) | Course | Practical AD enumeration and exploitation course; great for PNPT prep |
+| [TCM Security: Practical Ethical Hacking](https://academy.tcm-sec.com/) | Course | Practical AD enumeration and exploitation course; great for PNPT prep |
 
 ---
 
 ## Related Disciplines
 
-- [identity-access-management.md](/disciplines/identity-access-management.md) — IAM architecture, PAM, MFA, Credential Guard
-- [red-teaming.md](/disciplines/red-teaming.md) — adversary simulation, C2 frameworks, full AD exploitation chains
-- [penetration-testing.md](/disciplines/penetration-testing.md) — scoped AD assessments, methodology, reporting
-- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md) — deep dive into Kerberos protocol attacks: delegation, ticket forging, roasting
-- [cloud-security.md](/disciplines/cloud-security.md) — Azure AD / Entra ID hybrid attack paths extending from on-prem AD compromise
+- [identity-access-management.md](/disciplines/identity-access-management.md): IAM architecture, PAM, MFA, Credential Guard
+- [red-teaming.md](/disciplines/red-teaming.md): adversary simulation, C2 frameworks, full AD exploitation chains
+- [penetration-testing.md](/disciplines/penetration-testing.md): scoped AD assessments, methodology, reporting
+- [Active Directory Attack Reference](/ACTIVE_DIRECTORY_ATTACK_REFERENCE.md): deep dive into Kerberos protocol attacks: delegation, ticket forging, roasting
+- [cloud-security.md](/disciplines/cloud-security.md): Azure AD / Entra ID hybrid attack paths extending from on-prem AD compromise

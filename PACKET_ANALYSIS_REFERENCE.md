@@ -1,12 +1,12 @@
 # Packet Analysis Reference
 
-> **In one minute** — This is a hands-on reference for reading raw network traffic: decoding packets field by field, driving Wireshark, tcpdump, and Zeek, and spotting attacks (scans, C2 beaconing, DNS tunneling, ARP spoofing, exfiltration) directly in packet captures. Every section pairs the concept with copy-paste filters and queries, so you can go from "here's a pcap" to "here's what happened" without hunting through vendor docs. It also covers TLS decryption with session keys, JA3 fingerprinting of malware TLS clients, and a step-by-step pcap investigation workflow.
+> In one minute — This is a hands-on reference for reading raw network traffic: decoding packets field by field, driving Wireshark, tcpdump, and Zeek, and spotting attacks (scans, C2 beaconing, DNS tunneling, ARP spoofing, exfiltration) directly in packet captures. Every section pairs the concept with copy-paste filters and queries, so you can go from "here's a pcap" to "here's what happened" without hunting through vendor docs. It also covers TLS decryption with session keys, JA3 fingerprinting of malware TLS clients, and a step-by-step pcap investigation workflow.
 
 | | |
 |---|---|
-| **Read this when** | you have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
-| **Start at** | [Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow) |
-| **Pairs with** | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) |
+| Read this when | you have a pcap to investigate and need a repeatable workflow, you need the exact Wireshark/tcpdump/zq filter for a suspicious behavior, you are learning to read TCP handshakes and packet fields at the byte level |
+| Start at | [Reading Network Packets](#reading-network-packets), [Detecting Attacks in PCAPs](#detecting-attacks-in-pcaps), [PCAP Investigation Workflow](#pcap-investigation-workflow) |
+| Pairs with | [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md), [Network Protocols Reference](NETWORK_PROTOCOLS_REFERENCE.md), [Threat Hunting Reference](THREAT_HUNTING_REFERENCE.md) |
 
 A practitioner-level reference for reading raw network traffic, mastering Wireshark, tcpdump, and Zeek, and detecting attacks directly in packet captures.
 
@@ -75,7 +75,7 @@ Transmission Control Protocol
     Timestamps: TSval 1234567, TSecr 0              ← Timestamp present = uptime fingerprinting possible
 ```
 
-**Security notes on key fields:**
+Security notes on key fields:
 
 | Field | Attack Relevance |
 |---|---|
@@ -91,7 +91,7 @@ Transmission Control Protocol
 
 ### TCP Handshake Dissection
 
-**Frame 1 — SYN (Client → Server)**
+Frame 1 — SYN (Client -> Server)
 ```
 TCP  49152 → 443  [SYN]  Seq=0  Win=64240
   Options: MSS=1460, SACK_PERM, Timestamps, NOP, WS=256
@@ -99,9 +99,9 @@ TCP  49152 → 443  [SYN]  Seq=0  Win=64240
 ```
 - `Seq=0` is Wireshark's relative sequence number (actual ISN is random)
 - Client advertises capabilities: SACK, timestamps, window scaling
-- Only SYN flag set — this is what Nmap SYN scan sends and expects RST back
+- Only SYN flag set: this is what Nmap SYN scan sends and expects RST back
 
-**Frame 2 — SYN-ACK (Server → Client)**
+Frame 2 — SYN-ACK (Server -> Client)
 ```
 TCP  443 → 49152  [SYN, ACK]  Seq=0  Ack=1  Win=65535
   Options: MSS=1452, SACK_PERM, Timestamps, NOP, WS=128
@@ -109,18 +109,18 @@ TCP  443 → 49152  [SYN, ACK]  Seq=0  Ack=1  Win=65535
 - Server acknowledges client ISN: `Ack = client_ISN + 1`
 - Server advertises its own capabilities (may differ from client)
 - MSS 1452 vs 1460 = server is behind a VPN/tunnel (extra header bytes)
-- If SYN-ACK never arrives → filtered port; if RST arrives → closed port
+- If SYN-ACK never arrives -> filtered port; if RST arrives -> closed port
 
-**Frame 3 — ACK (Client → Server)**
+Frame 3 — ACK (Client -> Server)
 ```
 TCP  49152 → 443  [ACK]  Seq=1  Ack=1  Win=131072 (after scaling)
 ```
 - `Seq=1` because SYN consumed one sequence number
 - `Ack=1` = client acknowledges server ISN
-- No data yet — three-way handshake complete
+- No data yet: three-way handshake complete
 - Window is now scaled: `64240 × 256 = 16,445,440 bytes` effective receive buffer
 
-**Absolute vs relative sequence numbers:**
+Absolute vs relative sequence numbers:
 ```
 Wireshark default: relative (starts at 0 for readability)
 Edit → Preferences → Protocols → TCP → uncheck "Relative sequence numbers"
@@ -134,41 +134,41 @@ Useful for: correlating with IDS alerts that log raw sequence numbers
 
 ### Statistics and Expert Analysis
 
-**Statistics → Conversations**
+Statistics -> Conversations
 Shows all unique IP pairs, packet counts, bytes, and duration. Use to:
 - Identify top talkers (potential data exfil from internal host to single external IP)
 - Find unusual pairs (workstation talking directly to a domain controller over unusual ports)
 - Sort by bytes to spot large transfers
-- Right-click any conversation → Apply as Filter → drill down
+- Right-click any conversation -> Apply as Filter -> drill down
 
-**Statistics → Protocol Hierarchy**
+Statistics -> Protocol Hierarchy
 Percentage breakdown of all protocols in the capture. Key indicators:
 - Low HTTPS% with high HTTP% = cleartext traffic
 - High DNS% with low HTTP% = potential DNS tunneling
 - Unknown/custom protocols at top level = potential encapsulation
 - `data` protocol = unrecognized application layer (look closer)
 
-**Statistics → IO Graphs**
+Statistics -> IO Graphs
 Traffic rate over time (packets/sec or bytes/sec). Use to:
 - Spot traffic bursts indicating scans or exfil
 - Identify beaconing (regular peaks at consistent intervals)
 - Add multiple filters as separate graph lines for comparison
 - Compare `tcp.analysis.retransmission` vs total traffic to find congestion
 
-**Statistics → Flow Graph**
+Statistics -> Flow Graph
 Visual ladder diagram of TCP exchanges. Essential for:
 - Verifying handshake completion
 - Seeing RST injection timing
 - Understanding request/response patterns
 
-**Analyze → Expert Information**
+Analyze -> Expert Information
 Categorized list of anomalies Wireshark detected:
-- **Errors**: Malformed packets, bad checksums
-- **Warnings**: Retransmissions, out-of-order segments, window issues
-- **Notes**: Keepalives, ACK to unseen segments
-- **Chats**: Normal connection events (SYN, FIN, RST)
+- Errors: Malformed packets, bad checksums
+- Warnings: Retransmissions, out-of-order segments, window issues
+- Notes: Keepalives, ACK to unseen segments
+- Chats: Normal connection events (SYN, FIN, RST)
 
-**Edit → Find Packet (Ctrl+F)**
+Edit -> Find Packet (Ctrl+F)
 Search by:
 - Display filter: `http.request.uri contains "admin"`
 - Hex value: find a specific byte sequence
@@ -282,21 +282,21 @@ http.authbasic                        # HTTP basic auth
 
 Modern TLS is unreadable without session keys. Browsers support exporting them.
 
-**Setup (Linux/macOS):**
+Setup (Linux/macOS):
 ```bash
 export SSLKEYLOGFILE=~/tlskeys.log
 google-chrome &       # or firefox, curl with --tls-keylog
 # Browse, then capture traffic
 ```
 
-**Setup (Windows):**
+Setup (Windows):
 ```cmd
 set SSLKEYLOGFILE=C:\tlskeys.log
 start chrome
 ```
 
-**Load keys in Wireshark:**
-Edit → Preferences → Protocols → TLS → (Pre-)Master-Secret log filename → browse to `tlskeys.log`
+Load keys in Wireshark:
+Edit -> Preferences -> Protocols -> TLS -> (Pre-)Master-Secret log filename -> browse to `tlskeys.log`
 
 The `tlskeys.log` format:
 ```
@@ -304,7 +304,7 @@ The `tlskeys.log` format:
 CLIENT_RANDOM <client_random_hex> <master_secret_hex>
 ```
 
-**With curl:**
+With curl:
 ```bash
 curl --tls-keylog /tmp/keys.log https://target.com -v
 ```
@@ -315,30 +315,30 @@ After loading keys, HTTP/2 and HTTP/1.1 traffic decrypts automatically. Filters 
 
 ### Following Streams and Extracting Data
 
-**Follow TCP Stream:** Right-click any TCP packet → Follow → TCP Stream
+Follow TCP Stream: Right-click any TCP packet -> Follow -> TCP Stream
 - Red = client to server, blue = server to client
 - Displays reassembled application data
 - Can save as raw binary or ASCII
 - Use "Find" within stream dialog for quick string search
 
-**Follow HTTP Stream:** Right-click → Follow → HTTP Stream
+Follow HTTP Stream: Right-click -> Follow -> HTTP Stream
 - Shows HTTP headers + body (if uncompressed)
 - Useful for seeing POST body, cookies, auth tokens
 
-**Follow TLS Stream (after key loading):**
-Right-click decrypted TLS packet → Follow → TLS Stream
+Follow TLS Stream (after key loading):
+Right-click decrypted TLS packet -> Follow -> TLS Stream
 
-**Export HTTP objects:**
-File → Export Objects → HTTP → saves all transferred files to a directory
+Export HTTP objects:
+File -> Export Objects -> HTTP -> saves all transferred files to a directory
 Works for images, executables, documents, scripts
 
-**Export SMB objects:**
-File → Export Objects → SMB → extracts files transferred over SMB
+Export SMB objects:
+File -> Export Objects -> SMB -> extracts files transferred over SMB
 
-**Export DICOM / IMF objects:**
-File → Export Objects → (format)
+Export DICOM / IMF objects:
+File -> Export Objects -> (format)
 
-**Command line with tshark:**
+Command line with tshark:
 ```bash
 tshark -r capture.pcap --export-objects http,./http_objects/
 tshark -r capture.pcap --export-objects smb,./smb_objects/
@@ -507,7 +507,7 @@ ls *.log
 
 ### Key Log Files (Field Reference)
 
-**conn.log** — Every network connection
+conn.log — Every network connection
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -527,7 +527,7 @@ ls *.log
 | local_orig | Source is local | Internal pivot detection |
 | local_resp | Dest is local | Inbound connection |
 
-**conn_state values:**
+conn_state values:
 ```
 S0    SYN sent, no SYN-ACK (filtered/closed, scan indicator)
 S1    SYN+SYN-ACK, no final ACK (half-open)
@@ -541,7 +541,7 @@ SH    SYN→SYN-ACK→originator RST (common in SYN scans)
 OTH   Mid-stream traffic (no handshake seen)
 ```
 
-**dns.log** — DNS queries and responses
+dns.log — DNS queries and responses
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -554,7 +554,7 @@ OTH   Mid-stream traffic (no handshake seen)
 | TTLs | Response TTLs | Low TTL = fast flux |
 | rejected | Query rejected | DNS firewall activity |
 
-**http.log** — HTTP/1.x requests
+http.log — HTTP/1.x requests
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -568,7 +568,7 @@ OTH   Mid-stream traffic (no handshake seen)
 | resp_mime_types | MIME type returned | Executable delivered over HTTP |
 | referrer | Referrer header | Phishing chain tracking |
 
-**ssl.log** — TLS/SSL connections
+ssl.log — TLS/SSL connections
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -582,7 +582,7 @@ OTH   Mid-stream traffic (no handshake seen)
 | resumed | Session resumed | Beaconing pattern |
 | cert_chain_fuids | Cert UIDs | Link to x509.log |
 
-**files.log** — Transferred files
+files.log — Transferred files
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -595,7 +595,7 @@ OTH   Mid-stream traffic (no handshake seen)
 | sha256 | SHA256 hash | VirusTotal lookup |
 | extracted | Path if extracted | Automated extraction |
 
-**x509.log** — TLS Certificates
+x509.log — TLS Certificates
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -735,7 +735,7 @@ event dns_request(c: connection, msg: dns_msg, query: string, qtype: count, qcla
     }
 ```
 
-**Running the script:**
+Running the script:
 ```bash
 zeek -r capture.pcap dns_tunnel_detect.zeek
 cat notice.log | zeek-cut ts note msg
@@ -763,7 +763,7 @@ JA3S fingerprints the ServerHello:
 SSLVersion + Cipher + Extensions
 ```
 
-**Why it matters:** Malware often uses consistent TLS libraries/configurations even when domains and IPs change. JA3 hashes are stable across C2 infrastructure changes.
+Why it matters: Malware often uses consistent TLS libraries/configurations even when domains and IPs change. JA3 hashes are stable across C2 infrastructure changes.
 
 ---
 
@@ -780,7 +780,7 @@ SSLVersion + Cipher + Extensions
 | 4d7a28d6f2263ed61de88ca66eb011e3 | Cobalt Strike Malleable C2 | Custom profile variant |
 | c12f54a3f91dc7bafd92cb59fe009a35 | QakBot (Qbot) | Banking trojan family |
 
-**Lookup databases:**
+Lookup databases:
 - [https://ja3er.com/search/<hash>](https://ja3er.com/search/)
 - [https://sslbl.abuse.ch/ja3-fingerprints/](https://sslbl.abuse.ch/ja3-fingerprints/)
 
@@ -803,7 +803,7 @@ cat ssl.log | zeek-cut ts id.orig_h id.resp_h server_name ja3 | \
 
 ### Nmap SYN Scan (-sS)
 
-**Pattern:** Single source sends SYN to many ports on one or more targets; receives RST for closed ports (REJ in Zeek), no response for filtered ports (S0 in Zeek), SYN-ACK for open ports.
+Pattern: Single source sends SYN to many ports on one or more targets; receives RST for closed ports (REJ in Zeek), no response for filtered ports (S0 in Zeek), SYN-ACK for open ports.
 
 ```wireshark
 # Wireshark: SYN flood from single source
@@ -830,7 +830,7 @@ zq 'where conn_state == "S0" | count() by id.orig_h | where count > 50' conn.log
 
 ### Cobalt Strike Beacon
 
-**Pattern:** Regular interval callbacks (15-60 second default sleep), HTTP/HTTPS to specific URI patterns (`/jquery-3.3.1.slim.min.js`, `/updates`, malleable C2 paths), JA3 hash match, small request bodies, larger response bodies (tasking).
+Pattern: Regular interval callbacks (15-60 second default sleep), HTTP/HTTPS to specific URI patterns (`/jquery-3.3.1.slim.min.js`, `/updates`, malleable C2 paths), JA3 hash match, small request bodies, larger response bodies (tasking).
 
 ```wireshark
 # Wireshark: Cobalt Strike default URI patterns
@@ -856,7 +856,7 @@ zq 'where orig_bytes > 0 and orig_bytes < 500 and resp_bytes > 0 | count() by id
 
 ### DNS Tunneling (Iodine, dnscat2, DNSExfiltrator)
 
-**Pattern:** High query volume from single host, unusually long subdomains (base32/base64 encoded data), TXT/NULL/CNAME record types, consistent timing, queries to same parent domain.
+Pattern: High query volume from single host, unusually long subdomains (base32/base64 encoded data), TXT/NULL/CNAME record types, consistent timing, queries to same parent domain.
 
 ```wireshark
 # Wireshark: Long DNS queries (data encoded in subdomains)
@@ -889,7 +889,7 @@ zq 'where qtype_name == "NULL"' dns.log
 
 ### LLMNR Poisoning (Responder)
 
-**Pattern:** Host sends LLMNR/NBT-NS query (broadcast); attacker immediately replies claiming to be the queried name; victim sends NTLMv2 hash to attacker's IP.
+Pattern: Host sends LLMNR/NBT-NS query (broadcast); attacker immediately replies claiming to be the queried name; victim sends NTLMv2 hash to attacker's IP.
 
 ```wireshark
 # Wireshark: LLMNR queries (UDP 5355)
@@ -922,7 +922,7 @@ zq 'where id.resp_p == 445 | join on id.orig_h' conn.log
 
 ### ARP Poisoning / ARP Spoofing
 
-**Pattern:** Gratuitous ARP replies mapping a legitimate IP to attacker's MAC; duplicate IP warnings; victim traffic redirected through attacker (MITM).
+Pattern: Gratuitous ARP replies mapping a legitimate IP to attacker's MAC; duplicate IP warnings; victim traffic redirected through attacker (MITM).
 
 ```wireshark
 # Wireshark: Duplicate IP detection (Wireshark expert info)
@@ -955,7 +955,7 @@ zq 'count() by resp_h, resp_mac | count() by resp_h | where count > 1' arp.log
 
 ### Data Exfiltration
 
-**Pattern:** Sustained high outbound bytes from internal host to single external IP; large file transfers over HTTP/HTTPS/DNS/ICMP; transfer size inconsistent with normal business traffic.
+Pattern: Sustained high outbound bytes from internal host to single external IP; large file transfers over HTTP/HTTPS/DNS/ICMP; transfer size inconsistent with normal business traffic.
 
 ```wireshark
 # Wireshark: Top talkers by bytes
@@ -985,56 +985,56 @@ zq 'sum(len(query)) by id.orig_h | sort -r sum | head 10' dns.log
 
 ### Step-by-Step Investigation Process
 
-**1. Overview — Conversations**
-Statistics → Conversations (IPv4 tab). Sort by Bytes. Note top 5-10 pairs.
+1. Overview: Conversations
+Statistics -> Conversations (IPv4 tab). Sort by Bytes. Note top 5-10 pairs.
 Questions: Any internal host sending large volume to single external IP? Unusual port numbers?
 
-**2. Protocol Breakdown**
-Statistics → Protocol Hierarchy. Note:
+2. Protocol Breakdown
+Statistics -> Protocol Hierarchy. Note:
 - Is HTTP high relative to HTTPS? (cleartext risk)
 - Any protocols you don't expect? (tunneling, legacy protocols)
 - Data% high? (unrecognized encapsulation)
 
-**3. Timeline — IO Graph**
-Statistics → IO Graphs. Look for:
+3. Timeline: IO Graph
+Statistics -> IO Graphs. Look for:
 - Sustained regular peaks (beaconing)
 - Single large burst (exfil event)
 - Correlation with known event times
 
-**4. Expert Information Review**
-Analyze → Expert Information. Check:
+4. Expert Information Review
+Analyze -> Expert Information. Check:
 - Many retransmissions (congestion, IDS evasion attempt, or normal)
 - RST packets mid-stream (injected RSTs, session hijacking)
 - Malformed packets (exploit attempts, fuzzing)
 
-**5. Pivot on Suspicious IP**
+5. Pivot on Suspicious IP
 Apply display filter: `ip.addr == <suspect>`. Review all activity.
-Right-click → Apply as Column for interesting fields.
+Right-click -> Apply as Column for interesting fields.
 
-**6. Follow Streams**
-Right-click interesting packet → Follow → TCP/HTTP/TLS Stream.
+6. Follow Streams
+Right-click interesting packet -> Follow -> TCP/HTTP/TLS Stream.
 Look for: credentials, commands, file content, C2 protocol.
 
-**7. DNS Review**
+7. DNS Review
 Filter: `dns`. Look for:
 - High-entropy subdomains
 - NXDOMAIN responses (DGA)
 - Unusual record types (TXT, NULL, ANY)
 - Non-standard DNS servers (not 8.8.8.8, 1.1.1.1, or corporate DNS)
 
-**8. TLS/SNI Review**
+8. TLS/SNI Review
 Filter: `tls.handshake.type == 1`. Look at server_name column for:
 - Newly registered domains
 - DGA-like patterns
 - IP addresses as SNI (malware)
 - Missing SNI (scanner or non-browser client)
 
-**9. Credential Search**
-Edit → Find Packet → String → search for: `password`, `Authorization`, `PASS`, `login`
+9. Credential Search
+Edit -> Find Packet -> String -> search for: `password`, `Authorization`, `PASS`, `login`
 Filter: `http.authbasic || ftp.request.command == "PASS" || telnet`
 
-**10. C2 Pattern Identification**
-Statistics → IO Graph → add filter for suspect IP.
+10. C2 Pattern Identification
+Statistics -> IO Graph -> add filter for suspect IP.
 Consistent peaks at regular intervals = beaconing.
 Cross-reference JA3 hash against threat intel databases.
 
@@ -1075,18 +1075,18 @@ find ./http_files/ -name "*.exe" -o -name "*.dll" -o -name "*.ps1"
 
 | Tool | Purpose | Key Command | Notes |
 |---|---|---|---|
-| **Wireshark** | GUI packet analysis, deep protocol decode | `wireshark capture.pcap` | Best for interactive investigation |
-| **tshark** | CLI Wireshark, scriptable | `tshark -r cap.pcap -Y 'dns' -T fields -e dns.qry.name` | Use for automation and parsing |
-| **tcpdump** | Capture and quick filter | `tcpdump -i eth0 -w out.pcap 'tcp[13]==0x02'` | Best for live capture on servers |
-| **Zeek** | Protocol analysis, log generation | `zeek -r cap.pcap local` | Best for structured data at scale |
-| **zq / zed** | Query Zeek logs | `zq 'where duration > 3600' conn.log` | SQL-like pipeline for log analysis |
-| **Arkime (Moloch)** | Full packet capture at scale | Web UI + API | Enterprise PCAP storage and search |
-| **NetworkMiner** | Passive file extraction, OS fingerprinting | GUI, drag-and-drop pcap | Fast artifact extraction |
-| **tcpflow** | Reconstruct TCP streams to files | `tcpflow -r cap.pcap -o ./streams/` | Better stream reassembly than tshark |
-| **Scapy** | Craft and parse packets in Python | `from scapy.all import *; rdpcap('cap.pcap')` | Custom analysis scripts |
-| **ja3** | Extract JA3 fingerprints from pcap | `ja3 -a capture.pcap` | Requires `ja3` pip package |
-| **p0f** | Passive OS fingerprinting | `p0f -r capture.pcap -o output.log` | No active probing needed |
-| **ngrep** | Grep for patterns in packet payloads | `ngrep -I cap.pcap 'password'` | Fast content search |
-| **strings** | Extract printable strings from binary | `strings capture.pcap \| grep -i 'http\|pass'` | Quick dirty search |
-| **Suricata** | IDS/IPS with PCAP replay | `suricata -r capture.pcap -l ./logs/` | Rule-based detection on pcap |
-| **RITA** | Detect beaconing, long connections | `rita analyze --pcap capture.pcap` | Automated C2 detection from Zeek logs |
+| Wireshark | GUI packet analysis, deep protocol decode | `wireshark capture.pcap` | Best for interactive investigation |
+| tshark | CLI Wireshark, scriptable | `tshark -r cap.pcap -Y 'dns' -T fields -e dns.qry.name` | Use for automation and parsing |
+| tcpdump | Capture and quick filter | `tcpdump -i eth0 -w out.pcap 'tcp[13]==0x02'` | Best for live capture on servers |
+| Zeek | Protocol analysis, log generation | `zeek -r cap.pcap local` | Best for structured data at scale |
+| zq / zed | Query Zeek logs | `zq 'where duration > 3600' conn.log` | SQL-like pipeline for log analysis |
+| Arkime (Moloch) | Full packet capture at scale | Web UI + API | Enterprise PCAP storage and search |
+| NetworkMiner | Passive file extraction, OS fingerprinting | GUI, drag-and-drop pcap | Fast artifact extraction |
+| tcpflow | Reconstruct TCP streams to files | `tcpflow -r cap.pcap -o ./streams/` | Better stream reassembly than tshark |
+| Scapy | Craft and parse packets in Python | `from scapy.all import *; rdpcap('cap.pcap')` | Custom analysis scripts |
+| ja3 | Extract JA3 fingerprints from pcap | `ja3 -a capture.pcap` | Requires `ja3` pip package |
+| p0f | Passive OS fingerprinting | `p0f -r capture.pcap -o output.log` | No active probing needed |
+| ngrep | Grep for patterns in packet payloads | `ngrep -I cap.pcap 'password'` | Fast content search |
+| strings | Extract printable strings from binary | `strings capture.pcap \| grep -i 'http\|pass'` | Quick dirty search |
+| Suricata | IDS/IPS with PCAP replay | `suricata -r capture.pcap -l ./logs/` | Rule-based detection on pcap |
+| RITA | Detect beaconing, long connections | `rita analyze --pcap capture.pcap` | Automated C2 detection from Zeek logs |

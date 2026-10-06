@@ -4,20 +4,20 @@
 
 | | |
 |---|---|
-| **Read this when** | You need the original talk/paper/PoC behind a technique, you are hunting a speaker's tool repo after a conference, you want free archives of DEF CON/Black Hat/CCC/USENIX content |
-| **Start at** | [How to Get the Most From Conference Talks](#how-to-get-the-most-from-conference-talks), [Landmark Talks by Topic](#landmark-talks-by-topic), [Finding Speaker Repositories](#finding-speaker-repositories) |
-| **Pairs with** | [STARRED_REPOS.md](/STARRED_REPOS.md), [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](/research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+| Read this when | You need the original talk/paper/PoC behind a technique, you are hunting a speaker's tool repo after a conference, you want free archives of DEF CON/Black Hat/CCC/USENIX content |
+| Start at | [How to Get the Most From Conference Talks](#how-to-get-the-most-from-conference-talks), [Landmark Talks by Topic](#landmark-talks-by-topic), [Finding Speaker Repositories](#finding-speaker-repositories) |
+| Pairs with | [STARRED_REPOS.md](/STARRED_REPOS.md), [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](/research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
 
 ---
 
 ## How to Get the Most From Conference Talks
 
-Conference talks are most valuable when you follow the full chain: **watch the talk → read the paper or whitepaper → find the speaker's GitHub repository → run the tool or reproduce the technique**. Most significant talks come with one or more of the following:
+Conference talks are most valuable when you follow the full chain: watch the talk -> read the paper or whitepaper -> find the speaker's GitHub repository -> run the tool or reproduce the technique. Most significant talks come with one or more of the following:
 
-- A **whitepaper** or extended abstract linked from the conference program
-- **Slides** in PDF format, typically linked from the speaker bio or published post-conference
-- A **GitHub repository** with proof-of-concept code, tools, or datasets
-- A **CVE** or coordinated disclosure if a vulnerability was identified
+- A whitepaper or extended abstract linked from the conference program
+- Slides in PDF format, typically linked from the speaker bio or published post-conference
+- A GitHub repository with proof-of-concept code, tools, or datasets
+- A CVE or coordinated disclosure if a vulnerability was identified
 
 Search for speaker repositories by name on GitHub, or check the conference Arsenal or demo track for tool releases. Twitter/X searches for `#DEFCON` or `#BlackHat` during conference week surface speaker-posted content before official archives are published.
 
@@ -29,13 +29,13 @@ Search for speaker repositories by name on GitHub, or check the conference Arsen
 
 | Resource | URL | Notes |
 |---|---|---|
-| **Archives (All Years)** | [blackhat.com/html/archives.html](https://www.blackhat.com/html/archives.html) | Complete slides and whitepaper archive from Black Hat USA, Europe, and Asia |
-| **YouTube Channel** | [youtube.com/@BlackHatOfficialYT](https://www.youtube.com/@BlackHatOfficialYT) | Recorded Briefings talks; most sessions available within weeks of the conference |
-| **Arsenal Tool Demos** | [blackhat.com/us-24/arsenal/](https://www.blackhat.com/us-24/arsenal/) | Tool demonstration schedule; presenters typically publish to GitHub around the event |
-| **BH USA 2024 Schedule** | [blackhat.com/us-24/briefings/schedule/](https://www.blackhat.com/us-24/briefings/schedule/) | Current year program with speaker bios and abstract links |
-| **Community Arsenal Index** | [github.com/KINGSABRI/blackhat-arsenal-tools](https://github.com/KINGSABRI/blackhat-arsenal-tools) | Community-curated archive of Black Hat Arsenal tool submissions with GitHub links |
+| Archives (All Years) | [blackhat.com/html/archives.html](https://www.blackhat.com/html/archives.html) | Complete slides and whitepaper archive from Black Hat USA, Europe, and Asia |
+| YouTube Channel | [youtube.com/@BlackHatOfficialYT](https://www.youtube.com/@BlackHatOfficialYT) | Recorded Briefings talks; most sessions available within weeks of the conference |
+| Arsenal Tool Demos | [blackhat.com/us-24/arsenal/](https://www.blackhat.com/us-24/arsenal/) | Tool demonstration schedule; presenters typically publish to GitHub around the event |
+| BH USA 2024 Schedule | [blackhat.com/us-24/briefings/schedule/](https://www.blackhat.com/us-24/briefings/schedule/) | Current year program with speaker bios and abstract links |
+| Community Arsenal Index | [github.com/KINGSABRI/blackhat-arsenal-tools](https://github.com/KINGSABRI/blackhat-arsenal-tools) | Community-curated archive of Black Hat Arsenal tool submissions with GitHub links |
 
-**Finding Black Hat repositories:** Most presenters link their GitHub from the speaker bio or abstract page. For Arsenal tools, search GitHub for the tool name combined with "blackhat" or the year of presentation.
+Finding Black Hat repositories: Most presenters link their GitHub from the speaker bio or abstract page. For Arsenal tools, search GitHub for the tool name combined with "blackhat" or the year of presentation.
 
 ---
 
@@ -45,12 +45,12 @@ Search for speaker repositories by name on GitHub, or check the conference Arsen
 
 | Resource | URL | Notes |
 |---|---|---|
-| **DEF CON Media Server** | [media.defcon.org](https://media.defcon.org/) | Complete free video and slide archive dating back to DEF CON 1; organized by year |
-| **YouTube Channel** | [youtube.com/@DEFCONConference](https://www.youtube.com/@DEFCONConference) | Recorded talks from recent conferences |
-| **Talk Archives** | [defcon.org/html/links/dc-archives.html](https://defcon.org/html/links/dc-archives.html) | Official DEF CON archives page linking all prior years |
-| **Village Talks** | [villageatdefcon.org](https://www.villageatdefcon.org/) | Each village (Car Hacking, Hardware, RF, AI, etc.) records and publishes its own talks separately |
+| DEF CON Media Server | [media.defcon.org](https://media.defcon.org/) | Complete free video and slide archive dating back to DEF CON 1; organized by year |
+| YouTube Channel | [youtube.com/@DEFCONConference](https://www.youtube.com/@DEFCONConference) | Recorded talks from recent conferences |
+| Talk Archives | [defcon.org/html/links/dc-archives.html](https://defcon.org/html/links/dc-archives.html) | Official DEF CON archives page linking all prior years |
+| Village Talks | [villageatdefcon.org](https://www.villageatdefcon.org/) | Each village (Car Hacking, Hardware, RF, AI, etc.) records and publishes its own talks separately |
 
-**DEF CON numbering:** DEF CON uses numeric designations — DEF CON 32 = 2024, DEF CON 31 = 2023. The first DEF CON was held in 1993 (DC 1).
+DEF CON numbering: DEF CON uses numeric designations — DEF CON 32 = 2024, DEF CON 31 = 2023. The first DEF CON was held in 1993 (DC 1).
 
 ---
 
@@ -60,12 +60,12 @@ Security BSides events are community-organized conferences that emerged from pre
 
 | Resource | URL | Notes |
 |---|---|---|
-| **BSides Las Vegas** | [bsideslv.org](https://www.bsideslv.org/) | The original BSides event; free to attend; talks recorded annually |
-| **Iron Geek BSides Archive** | [irongeek.com](https://www.irongeek.com/) | Adrian Crenshaw's extensive recording archive for BSides and smaller conference talks — one of the most comprehensive free security video archives available |
-| **BSides Global Calendar** | [securitybsides.com](https://www.securitybsides.com/) | Directory of BSides events worldwide |
-| **BSides San Francisco** | [bsidessf.org](https://bsidessf.org/) | Recorded talks published on YouTube post-conference |
-| **BSides London** | [securitybsides.org.uk](https://www.securitybsides.org.uk/) | UK edition; talks published after the event |
-| **BSides Charm (Baltimore)** | [bsidescharm.org](https://www.bsidescharm.org/) | Mid-Atlantic regional BSides with consistently strong technical content |
+| BSides Las Vegas | [bsideslv.org](https://www.bsideslv.org/) | The original BSides event; free to attend; talks recorded annually |
+| Iron Geek BSides Archive | [irongeek.com](https://www.irongeek.com/) | Adrian Crenshaw's extensive recording archive for BSides and smaller conference talks — one of the most comprehensive free security video archives available |
+| BSides Global Calendar | [securitybsides.com](https://www.securitybsides.com/) | Directory of BSides events worldwide |
+| BSides San Francisco | [bsidessf.org](https://bsidessf.org/) | Recorded talks published on YouTube post-conference |
+| BSides London | [securitybsides.org.uk](https://www.securitybsides.org.uk/) | UK edition; talks published after the event |
+| BSides Charm (Baltimore) | [bsidescharm.org](https://www.bsidescharm.org/) | Mid-Atlantic regional BSides with consistently strong technical content |
 
 ---
 
@@ -75,11 +75,11 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 
 | Resource | URL | Notes |
 |---|---|---|
-| **Complete Media Archive** | [media.ccc.de](https://media.ccc.de/) | Every CCC talk ever recorded; free; organized by event year |
-| **YouTube Mirror** | [youtube.com/@MediaCCC](https://www.youtube.com/@MediaCCC) | YouTube mirror of the media.ccc.de archive |
-| **CCC Events Calendar** | [events.ccc.de](https://events.ccc.de/) | Upcoming CCC events including Chaos Camp (held every four years) |
+| Complete Media Archive | [media.ccc.de](https://media.ccc.de/) | Every CCC talk ever recorded; free; organized by event year |
+| YouTube Mirror | [youtube.com/@MediaCCC](https://www.youtube.com/@MediaCCC) | YouTube mirror of the media.ccc.de archive |
+| CCC Events Calendar | [events.ccc.de](https://events.ccc.de/) | Upcoming CCC events including Chaos Camp (held every four years) |
 
-**CCC naming convention:** Annual Congress events use the format `[number]C3` — 38C3 = 38th Chaos Communication Congress (2024). Chaos Camp is a separate outdoor event held every four years.
+CCC naming convention: Annual Congress events use the format `[number]C3` — 38C3 = 38th Chaos Communication Congress (2024). Chaos Camp is a separate outdoor event held every four years.
 
 ---
 
@@ -89,9 +89,9 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 
 | Resource | URL | Notes |
 |---|---|---|
-| **All Proceedings (Open Access)** | [usenix.org/conferences/byname/108](https://www.usenix.org/conferences/byname/108) | All USENIX Security papers freely available as PDF |
-| **USENIX Security 2024** | [usenix.org/conference/usenixsecurity24](https://www.usenix.org/conference/usenixsecurity24) | 2024 papers, slides, and talk recordings |
-| **USENIX YouTube** | [youtube.com/@USENIXAssociation](https://www.youtube.com/@USENIXAssociation) | Recorded talks from USENIX Security and USENIX Enigma |
+| All Proceedings (Open Access) | [usenix.org/conferences/byname/108](https://www.usenix.org/conferences/byname/108) | All USENIX Security papers freely available as PDF |
+| USENIX Security 2024 | [usenix.org/conference/usenixsecurity24](https://www.usenix.org/conference/usenixsecurity24) | 2024 papers, slides, and talk recordings |
+| USENIX YouTube | [youtube.com/@USENIXAssociation](https://www.youtube.com/@USENIXAssociation) | Recorded talks from USENIX Security and USENIX Enigma |
 
 ---
 
@@ -101,8 +101,8 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 
 | Resource | URL | Notes |
 |---|---|---|
-| **IEEE S&P Proceedings** | [ieee-security.org/TC/SP-Index.html](https://www.ieee-security.org/TC/SP-Index.html) | Index of all IEEE S&P proceedings; many papers available open access |
-| **IEEE Xplore** | [ieeexplore.ieee.org](https://ieeexplore.ieee.org/) | Complete proceedings; institutional access required for some papers |
+| IEEE S&P Proceedings | [ieee-security.org/TC/SP-Index.html](https://www.ieee-security.org/TC/SP-Index.html) | Index of all IEEE S&P proceedings; many papers available open access |
+| IEEE Xplore | [ieeexplore.ieee.org](https://ieeexplore.ieee.org/) | Complete proceedings; institutional access required for some papers |
 
 ---
 
@@ -118,7 +118,7 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 
 | Resource | URL | Notes |
 |---|---|---|
-| **NDSS Proceedings (Free)** | [ndss-symposium.org](https://www.ndss-symposium.org/ndss-program/) | All NDSS papers available free as PDF |
+| NDSS Proceedings (Free) | [ndss-symposium.org](https://www.ndss-symposium.org/ndss-program/) | All NDSS papers available free as PDF |
 
 ---
 
@@ -128,8 +128,8 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 
 | Resource | URL | Notes |
 |---|---|---|
-| **RSA YouTube** | [youtube.com/@RSAConference](https://www.youtube.com/@RSAConference) | Recorded sessions from RSA USA and Europe |
-| **RSA Library** | [rsaconference.com/library](https://www.rsaconference.com/library) | Slides and papers from RSA sessions organized by topic |
+| RSA YouTube | [youtube.com/@RSAConference](https://www.youtube.com/@RSAConference) | Recorded sessions from RSA USA and Europe |
+| RSA Library | [rsaconference.com/library](https://www.rsaconference.com/library) | Slides and papers from RSA sessions organized by topic |
 
 ---
 
@@ -139,7 +139,7 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 
 | Resource | URL | Notes |
 |---|---|---|
-| **ShmooCon Recordings** | [shmoocon.org/watch/](https://www.shmoocon.org/watch/) | Recorded talks from all prior ShmooCon events |
+| ShmooCon Recordings | [shmoocon.org/watch/](https://www.shmoocon.org/watch/) | Recorded talks from all prior ShmooCon events |
 
 ---
 
@@ -160,7 +160,7 @@ A selection of historically significant and practically essential conference pre
 
 | Year | Conference | Title | Speaker(s) | Key Contribution |
 |---|---|---|---|---|
-| 2014 | Black Hat USA | Abusing Microsoft Kerberos — Sorry You Guys Don't Get It | Benjamin Delpy, Jean-Baptiste Galet | Introduced the Golden Ticket attack technique |
+| 2014 | Black Hat USA | Abusing Microsoft Kerberos: Sorry You Guys Don't Get It | Benjamin Delpy, Jean-Baptiste Galet | Introduced the Golden Ticket attack technique |
 | 2016 | DEF CON 24 | BloodHound: Six Degrees of Domain Admin | Rohan Vazarkar, Will Schroeder, Andy Robbins | Introduced graph-based Active Directory attack path analysis |
 | 2017 | Black Hat USA | Active Directory Kill Chain | Sean Metcalf | Comprehensive AD attack and defense lifecycle |
 | 2022 | Black Hat USA | Not A Security Boundary: Breaking Forest Trusts | Will Schroeder, Lee Christensen | Cross-forest trust attacks and escalation methodology |
@@ -211,11 +211,11 @@ A selection of historically significant and practically essential conference pre
 
 Most presenters release code, tools, or datasets alongside their research. Reliable methods for locating associated repositories:
 
-1. **Speaker bio pages** on the conference website — most presenters link their GitHub directly in their bio
-2. **GitHub search**: `topic:security "BlackHat 2024"` or `topic:defcon` surfaces conference-tagged repositories
-3. **Twitter/X during conference week**: Presenters post repositories, slides, and supplementary content using the conference hashtag (`#BlackHat2024`, `#DEFCON32`, `#BSidesLV2024`)
-4. **CVE cross-reference**: If the talk involves a vulnerability disclosure, searching the CVE number on GitHub often surfaces the associated proof-of-concept
-5. **Conference program links**: Many conference abstract pages link directly to the supplementary materials repository
+1. Speaker bio pages on the conference website: most presenters link their GitHub directly in their bio
+2. GitHub search: `topic:security "BlackHat 2024"` or `topic:defcon` surfaces conference-tagged repositories
+3. Twitter/X during conference week: Presenters post repositories, slides, and supplementary content using the conference hashtag (`#BlackHat2024`, `#DEFCON32`, `#BSidesLV2024`)
+4. CVE cross-reference: If the talk involves a vulnerability disclosure, searching the CVE number on GitHub often surfaces the associated proof-of-concept
+5. Conference program links: Many conference abstract pages link directly to the supplementary materials repository
 
 ### Aggregated Community Lists
 
@@ -257,8 +257,8 @@ Most presenters release code, tools, or datasets alongside their research. Relia
 | Year | Event | Talk | Speaker | Significance |
 |---|---|---|---|---|
 | 2013 | 30C3 | "To Protect and Infect: The Militarization of the Internet" | Jacob Appelbaum | NSA TAO catalog leak; QUANTUM INSERT; DROPOUT JEEP |
-| 2014 | 31C3 | "SS7: Locate. Track. Manipulate." | Tobias Engel | SS7 cellular protocol attacks — track anyone with a phone number |
-| 2017 | 34C3 | "Postquantum Cryptography: State-of-the-Art" | Daniel Bernstein | PQC landscape and timeline — prescient given NIST selections |
+| 2014 | 31C3 | "SS7: Locate. Track. Manipulate." | Tobias Engel | SS7 cellular protocol attacks: track anyone with a phone number |
+| 2017 | 34C3 | "Postquantum Cryptography: State-of-the-Art" | Daniel Bernstein | PQC landscape and timeline: prescient given NIST selections |
 
 ## USENIX Security Landmark Papers
 
@@ -271,18 +271,18 @@ Most presenters release code, tools, or datasets alongside their research. Relia
 
 ## Finding Conference Research Materials
 
-- **DEF CON**: [media.defcon.org](https://media.defcon.org/) — slides and videos for every year
-- **Black Hat**: blackhat.com/us-XX/briefings/ — slides for all briefings
-- **CCC**: [media.ccc.de](https://media.ccc.de/) — full video archive
-- **USENIX Security**: [usenix.org/publications/proceedings](https://www.usenix.org/publications/proceedings) — full papers open access
-- **Black Hat Arsenal**: Tool demos with associated GitHub repos — search `site:github.com blackhat <year> <tool>`
+- DEF CON: [media.defcon.org](https://media.defcon.org/): slides and videos for every year
+- Black Hat: blackhat.com/us-XX/briefings/: slides for all briefings
+- CCC: [media.ccc.de](https://media.ccc.de/): full video archive
+- USENIX Security: [usenix.org/publications/proceedings](https://www.usenix.org/publications/proceedings): full papers open access
+- Black Hat Arsenal: Tool demos with associated GitHub repos: search `site:github.com blackhat <year> <tool>`
 
 ---
 
 ## Related Resources
 
-- [STARRED_REPOS.md](/STARRED_REPOS.md) — GitHub repositories referenced by conference speakers and security researchers
-- [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md) — Channels that aggregate conference talk recordings
-- [CYBERSECURITY_BOOK_LIST.md](/CYBERSECURITY_BOOK_LIST.md) — Books that expand on foundational conference research
-- [RESOURCES.md](/RESOURCES.md) — Broader security resource reference
-- [research/BLACK_HAT_ARSENAL_CROSSWALK.md](/research/BLACK_HAT_ARSENAL_CROSSWALK.md) — Black Hat Arsenal tool crosswalk
+- [STARRED_REPOS.md](/STARRED_REPOS.md): GitHub repositories referenced by conference speakers and security researchers
+- [YOUTUBE_CHANNELS.md](/YOUTUBE_CHANNELS.md): Channels that aggregate conference talk recordings
+- [CYBERSECURITY_BOOK_LIST.md](/CYBERSECURITY_BOOK_LIST.md): Books that expand on foundational conference research
+- [RESOURCES.md](/RESOURCES.md): Broader security resource reference
+- [research/BLACK_HAT_ARSENAL_CROSSWALK.md](/research/BLACK_HAT_ARSENAL_CROSSWALK.md): Black Hat Arsenal tool crosswalk

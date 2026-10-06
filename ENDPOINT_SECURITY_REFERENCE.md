@@ -1,12 +1,12 @@
 # Endpoint Security Reference
 
-> **In one minute** — This is a hands-on field guide to defending endpoints: choosing and tuning EDR (endpoint detection and response) platforms like Microsoft Defender, CrowdStrike, and SentinelOne, deploying Sysmon and Windows audit logging, and hunting for attacker behavior in the resulting telemetry. Practitioners care because most intrusions land on an endpoint first, and this doc gives the exact settings, commands, and queries to prevent, detect, and investigate them. It pairs ready-to-paste configuration (PowerShell, ASR rules, Sysmon XML) with KQL, S1QL, and Splunk hunting queries mapped to MITRE ATT&CK.
+> In one minute — This is a hands-on field guide to defending endpoints: choosing and tuning EDR (endpoint detection and response) platforms like Microsoft Defender, CrowdStrike, and SentinelOne, deploying Sysmon and Windows audit logging, and hunting for attacker behavior in the resulting telemetry. Practitioners care because most intrusions land on an endpoint first, and this doc gives the exact settings, commands, and queries to prevent, detect, and investigate them. It pairs ready-to-paste configuration (PowerShell, ASR rules, Sysmon XML) with KQL, S1QL, and Splunk hunting queries mapped to MITRE ATT&CK.
 
 | | |
 |---|---|
-| **Read this when** | you are configuring or hardening Defender/CrowdStrike/SentinelOne, deploying Sysmon or Windows audit policy, or hunting for LSASS access, LOLBin abuse, or persistence on hosts |
-| **Start at** | [Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist) |
-| **Pairs with** | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [LOTL_DETECTION_REFERENCE.md](LOTL_DETECTION_REFERENCE.md), [VENDOR_PREVENTION_POLICIES.md](VENDOR_PREVENTION_POLICIES.md) |
+| Read this when | you are configuring or hardening Defender/CrowdStrike/SentinelOne, deploying Sysmon or Windows audit policy, or hunting for LSASS access, LOLBin abuse, or persistence on hosts |
+| Start at | [Endpoint Security Architecture](#_1-endpoint-security-architecture), [Sysmon deployment](#_5-sysmon-windows-system-monitor), [Endpoint Hardening Checklist](#_8-endpoint-hardening-checklist) |
+| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [LOTL_DETECTION_REFERENCE.md](LOTL_DETECTION_REFERENCE.md), [VENDOR_PREVENTION_POLICIES.md](VENDOR_PREVENTION_POLICIES.md) |
 
 A comprehensive reference covering EDR platforms, AV/next-gen AV, Windows Defender
 configuration, Sysmon deployment, and endpoint threat hunting. Aligned with MITRE
@@ -37,7 +37,7 @@ User Endpoint
 | XDR | EDR + network + cloud + email telemetry | Palo Alto Cortex XDR, Microsoft 365 Defender |
 | MDR | Managed detection & response service | CrowdStrike Falcon Complete, SentinelOne Vigilance |
 
-**Key selection criteria:**
+Key selection criteria:
 - Telemetry richness (process tree, file, network, registry)
 - Query language capability for threat hunting
 - Automated response actions (contain, kill, rollback)
@@ -49,13 +49,13 @@ User Endpoint
 ## 2. Microsoft Defender for Endpoint (MDE)
 
 ### Deployment Methods
-- **Intune** (cloud-managed): Device Configuration profiles, MDE connector
-- **SCCM/MEM**: Onboarding package deployed via software distribution
-- **Group Policy**: `WindowsDefenderATP.admx` template
-- **Local script**: `WindowsDefenderATPOnboardingScript.cmd`
-- **VDI**: Non-persistent onboarding package
+- Intune (cloud-managed): Device Configuration profiles, MDE connector
+- SCCM/MEM: Onboarding package deployed via software distribution
+- Group Policy: `WindowsDefenderATP.admx` template
+- Local script: `WindowsDefenderATPOnboardingScript.cmd`
+- VDI: Non-persistent onboarding package
 
-### Attack Surface Reduction (ASR) Rules — All 19
+### Attack Surface Reduction (ASR) Rules: All 19
 
 | Rule Name | GUID | Recommended Mode |
 |-----------|------|-----------------|
@@ -79,7 +79,7 @@ User Endpoint
 | Block Win32 API calls from Office macros | 92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b | Block |
 | Use advanced protection against ransomware | c1db55ab-c21a-4637-bb3f-a12568109d35 | Block |
 
-**Deployment strategy:** Start all rules in **Audit** mode, monitor for false positives for 2-4 weeks, then promote to **Block** one rule at a time.
+Deployment strategy: Start all rules in Audit mode, monitor for false positives for 2-4 weeks, then promote to Block one rule at a time.
 
 ### Tamper Protection
 
@@ -93,7 +93,7 @@ Set-MpPreference -DisableTamperProtection $false
 Get-MpComputerStatus | Select TamperProtectionSource
 ```
 
-In Intune: Endpoint Security → Antivirus → Windows Security experience → Tamper Protection = On
+In Intune: Endpoint Security -> Antivirus -> Windows Security experience -> Tamper Protection = On
 
 ### Cloud Protection (MAPS) and Sample Submission
 
@@ -222,10 +222,10 @@ runscript -Raw=```schtasks /query /fo LIST /v | findstr /i "task name\|status\|r
 
 ### Falcon Fusion (SOAR) Workflow Examples
 
-- Detection severity >= High → Auto-contain host → Notify IR team via PagerDuty
-- New IoA (Indicator of Attack) detection → Enrich with threat intel → Create ServiceNow ticket
-- USB device insertion → Log + alert if outside approved device list
-- New admin account created → Alert + disable pending review
+- Detection severity >= High -> Auto-contain host -> Notify IR team via PagerDuty
+- New IoA (Indicator of Attack) detection -> Enrich with threat intel -> Create ServiceNow ticket
+- USB device insertion -> Log + alert if outside approved device list
+- New admin account created -> Alert + disable pending review
 
 ### Custom IOA (Indicator of Attack) Rules
 
@@ -251,10 +251,10 @@ Custom IOAs detect behaviors not covered by default detections. Example patterns
 
 ### Protection Policies
 
-- **Static AI**: Pre-execution ML model assessment — catches known malware families
-- **Behavioral AI**: Runtime behavior monitoring — catches novel/custom malware
-- **Anti-Exploitation**: KASLR enforcement, heap spray protection, SEH overwrite detection
-- **Ransomware Protection**: Honeypot files, shadow copy protection, automatic rollback
+- Static AI: Pre-execution ML model assessment: catches known malware families
+- Behavioral AI: Runtime behavior monitoring: catches novel/custom malware
+- Anti-Exploitation: KASLR enforcement, heap spray protection, SEH overwrite detection
+- Ransomware Protection: Honeypot files, shadow copy protection, automatic rollback
 
 ### Storyline™ Technology
 
@@ -308,7 +308,7 @@ When ransomware behavior is detected (mass file encryption):
 
 ---
 
-## 5. Sysmon — Windows System Monitor
+## 5. Sysmon: Windows System Monitor
 
 ### Deployment
 
@@ -331,9 +331,9 @@ sysmon64.exe -u force
 
 ### Recommended Configurations
 
-- **SwiftOnSecurity**: `github.com/SwiftOnSecurity/sysmon-config` — well-tuned baseline
-- **Olaf Hartong modular**: `github.com/olafhartong/sysmon-modular` — modular, tag-based
-- **Neo23x0**: `github.com/Neo23x0/sysmon-config` — threat-hunting focused
+- SwiftOnSecurity: `github.com/SwiftOnSecurity/sysmon-config`: well-tuned baseline
+- Olaf Hartong modular: `github.com/olafhartong/sysmon-modular`: modular, tag-based
+- Neo23x0: `github.com/Neo23x0/sysmon-config`: threat-hunting focused
 
 ### Sysmon Event IDs Reference
 
@@ -431,7 +431,7 @@ sysmon64.exe -u force
 
 ---
 
-## 6. Windows Event Log — Security Monitoring
+## 6. Windows Event Log: Security Monitoring
 
 ### Critical Security Event IDs
 
@@ -781,14 +781,14 @@ Defenders must understand common bypass techniques to build effective detections
 
 ### AMSI Bypass
 
-**Technique:** Patch `amsiInitFailed` in-memory to make AMSI report initialization failure.
+Technique: Patch `amsiInitFailed` in-memory to make AMSI report initialization failure.
 
 ```powershell
 # Classic bypass (commonly detected now, but concept remains)
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
 
-**Detection improvements:**
+Detection improvements:
 - Monitor for memory writes to AMSI process space
 - Alert on PowerShell processes that crash or report AMSI errors
 - Behavioral alerts for `amsiInitFailed` pattern in ScriptBlock logs (obfuscated variants)
@@ -796,20 +796,20 @@ Defenders must understand common bypass techniques to build effective detections
 
 ### ETW (Event Tracing for Windows) Bypass
 
-**Technique:** Patch `EtwEventWrite` in ntdll.dll to `ret` — disables ETW-based telemetry.
+Technique: Patch `EtwEventWrite` in ntdll.dll to `ret` — disables ETW-based telemetry.
 
-**Detection:** Memory integrity checks, Kernel Patch Protection (KPP), EDR driver-level hooks.
+Detection: Memory integrity checks, Kernel Patch Protection (KPP), EDR driver-level hooks.
 
 ### Process Injection
 
-**Techniques:**
-- `CreateRemoteThread` + `VirtualAllocEx` → classic injection
-- `QueueUserAPC` → APC injection
-- `SetWindowsHookEx` → hook injection
-- Reflective DLL injection → no disk writes
-- Process hollowing → hollow legitimate process, inject shellcode
+Techniques:
+- `CreateRemoteThread` + `VirtualAllocEx` -> classic injection
+- `QueueUserAPC` -> APC injection
+- `SetWindowsHookEx` -> hook injection
+- Reflective DLL injection -> no disk writes
+- Process hollowing -> hollow legitimate process, inject shellcode
 
-**Detection:**
+Detection:
 - Sysmon Event 8 (CreateRemoteThread)
 - Sysmon Event 10 (ProcessAccess with suspicious access masks)
 - EDR memory scanning for shellcode patterns
@@ -832,7 +832,7 @@ Common signed Microsoft binaries abused for execution:
 | `cmstp.exe` | UAC bypass + code execution |
 | `odbcconf.exe` | Execute DLLs via ODBC config |
 
-**Detection:** Behavioral rules for unusual parent processes, network connections from signed binaries, command-line parameters inconsistent with legitimate use.
+Detection: Behavioral rules for unusual parent processes, network connections from signed binaries, command-line parameters inconsistent with legitimate use.
 
 ### Credential Theft Techniques
 
@@ -847,7 +847,7 @@ Common signed Microsoft binaries abused for execution:
 | Pass-the-Ticket | Use stolen Kerberos ticket | T1550.003 |
 | Golden Ticket | Forge TGT with krbtgt hash | T1558.001 |
 
-**Detection:**
+Detection:
 - LSASS access: Sysmon Event 10, Windows Defender Credential Guard
 - Kerberoasting: 4769 with RC4 encryption + high volume from single account
 - DCSync: 4662 with replication rights from non-DC machine
@@ -882,17 +882,17 @@ Default indicators (operators should change these):
 
 ### MITRE ATT&CK Resources
 
-- **ATT&CK Navigator**: `attack.mitre.org/matrices/enterprise/`
-- **MITRE Evaluations**: `attackevals.mitre-engenuity.org` — annual APT simulation testing of EDR products
-- **Atomic Red Team**: `github.com/redcanaryco/atomic-red-team` — ATT&CK-mapped test cases
-- **CALDERA**: `github.com/mitre/caldera` — automated adversary emulation
-- **Sigma Rules**: `github.com/SigmaHQ/sigma` — generic SIEM detection rules
+- ATT&CK Navigator: `attack.mitre.org/matrices/enterprise/`
+- MITRE Evaluations: `attackevals.mitre-engenuity.org`: annual APT simulation testing of EDR products
+- Atomic Red Team: `github.com/redcanaryco/atomic-red-team`: ATT&CK-mapped test cases
+- CALDERA: `github.com/mitre/caldera`: automated adversary emulation
+- Sigma Rules: `github.com/SigmaHQ/sigma`: generic SIEM detection rules
 
 ### Threat Hunting Frameworks
 
-- **TaHiTI**: Threat-Hunting methodology
-- **PEAK**: Prepare, Execute, Act with Knowledge hunting framework
-- **SANS Hunting Maturity Model**: Levels 0-4, structured maturity assessment
+- TaHiTI: Threat-Hunting methodology
+- PEAK: Prepare, Execute, Act with Knowledge hunting framework
+- SANS Hunting Maturity Model: Levels 0-4, structured maturity assessment
 
 ### Key References
 

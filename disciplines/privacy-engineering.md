@@ -36,24 +36,24 @@ Privacy engineering is the discipline of making data protection a structural pro
 
 | Stage | Focus | Resources |
 |---|---|---|
-| **Foundation** | Understand the privacy principles — data minimization, purpose limitation, storage limitation, integrity/confidentiality — and why each exists. Read GDPR Articles 5-6 to understand lawful bases. Learn the difference between anonymization, pseudonymization, and encryption. Understand what a DPIA is and when it is required. | [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework), [GDPR full text at gdpr.eu](https://gdpr.eu/), [IAPP Introduction to Privacy](https://iapp.org/resources/), [LINDDUN Go threat modeling cards](https://linddun.org/go/) |
-| **Practitioner** | Build a data map for a real or practice system. Write a DPIA for a hypothetical data processing activity. Implement Microsoft Presidio to detect PII in a dataset. Design a DSR workflow end-to-end. Use ARX to apply k-anonymity to a sample dataset. Write an OPA policy to enforce data access controls. | [Microsoft Presidio quickstart](https://microsoft.github.io/presidio/), [ARX Data Anonymization Tool](https://arx.deidentifier.org/), [Open Policy Agent docs](https://www.openpolicyagent.org/docs/latest/), [Privacypatterns.eu pattern library](https://privacypatterns.eu/) |
-| **Advanced** | Design enterprise-wide consent management architectures. Implement differential privacy in analytics pipelines. Build automated DSR systems that span multiple data stores. Lead privacy threat modeling workshops using LINDDUN. Evaluate and integrate commercial privacy platforms. Advise on cross-border data transfer mechanisms (SCCs, adequacy decisions, BCRs). | [Google Differential Privacy library](https://github.com/google/differential-privacy), [OpenDP toolkit](https://opendp.org/), [IAPP CIPT certification materials](https://iapp.org/certify/cipt/), [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design) |
+| Foundation | Understand the privacy principles — data minimization, purpose limitation, storage limitation, integrity/confidentiality — and why each exists. Read GDPR Articles 5-6 to understand lawful bases. Learn the difference between anonymization, pseudonymization, and encryption. Understand what a DPIA is and when it is required. | [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework), [GDPR full text at gdpr.eu](https://gdpr.eu/), [IAPP Introduction to Privacy](https://iapp.org/resources/), [LINDDUN Go threat modeling cards](https://linddun.org/go/) |
+| Practitioner | Build a data map for a real or practice system. Write a DPIA for a hypothetical data processing activity. Implement Microsoft Presidio to detect PII in a dataset. Design a DSR workflow end-to-end. Use ARX to apply k-anonymity to a sample dataset. Write an OPA policy to enforce data access controls. | [Microsoft Presidio quickstart](https://microsoft.github.io/presidio/), [ARX Data Anonymization Tool](https://arx.deidentifier.org/), [Open Policy Agent docs](https://www.openpolicyagent.org/docs/latest/), [Privacypatterns.eu pattern library](https://privacypatterns.eu/) |
+| Advanced | Design enterprise-wide consent management architectures. Implement differential privacy in analytics pipelines. Build automated DSR systems that span multiple data stores. Lead privacy threat modeling workshops using LINDDUN. Evaluate and integrate commercial privacy platforms. Advise on cross-border data transfer mechanisms (SCCs, adequacy decisions, BCRs). | [Google Differential Privacy library](https://github.com/google/differential-privacy), [OpenDP toolkit](https://opendp.org/), [IAPP CIPT certification materials](https://iapp.org/certify/cipt/), [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design) |
 
 ---
 
 ## Free Training
 
-- [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework/privacy-framework) — The U.S. federal privacy risk management framework; organizes privacy capabilities into Identify, Govern, Control, Communicate, and Protect functions; free to download and the closest thing to a neutral technical standard for enterprise privacy programs; essential reading before working on any privacy architecture
-- [LINDDUN Privacy Threat Modeling](https://linddun.org/) — Free privacy threat modeling methodology from KU Leuven; the privacy equivalent of STRIDE for security; provides threat trees, worked examples, and the LINDDUN Go card deck for lightweight workshops; teaches practitioners to reason systematically about privacy threats in system designs
-- [IAPP Foundation of Privacy Certificate](https://iapp.org/certify/fip/) — Free introductory resources available on the IAPP website; the IAPP is the professional association for privacy practitioners and publishes free articles, whitepapers, and regulatory summaries that are authoritative and practitioner-oriented
-- [Google Differential Privacy Library Documentation](https://github.com/google/differential-privacy) — Free documentation and code examples for Google's differential privacy libraries (C++, Go, Java, Python); teaches the mathematical foundations of DP through working implementations; the best hands-on introduction to privacy-preserving analytics
-- [OpenDP Documentation](https://docs.opendp.org/) — Free Python library and documentation for differential privacy from Harvard's OpenDP project; designed to be accessible to practitioners without deep mathematical backgrounds; includes tutorials on building DP queries and understanding privacy budgets (epsilon)
-- [Privacypatterns.eu](https://privacypatterns.eu/) — Free library of privacy design patterns analogous to software design patterns; each pattern describes a recurring privacy problem and a reusable solution; useful for privacy engineers integrating privacy into system design decisions
-- [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design) — Free technical guide from the EU Agency for Cybersecurity; covers privacy-by-design implementation in software development, data management, and system architecture; directly applicable to GDPR Article 25 compliance requirements
-- [GDPR Full Text at gdpr.eu](https://gdpr.eu/) — Free, annotated version of the GDPR regulation; reading Recitals 26 (anonymization), 39 (transparency), and 78 (data protection by design) alongside the articles provides essential regulatory context for privacy engineering decisions
-- [Differential Privacy: A Primer for a Non-Technical Audience](https://privacytools.seas.harvard.edu/files/privacytools/files/pedagogical-document-dp_0.pdf) — Free Harvard paper explaining differential privacy without advanced mathematics; explains the epsilon budget, sensitivity, and noise mechanisms (Laplace, Gaussian) in accessible terms; the best starting point before diving into implementation
-- [IAPP CIPT Body of Knowledge](https://iapp.org/certify/cipt/) — The study outline for the Certified Information Privacy Technologist exam is publicly available; it maps the full scope of technical privacy engineering knowledge including data flows, PETs (Privacy Enhancing Technologies), and system design; useful as a curriculum even without pursuing the certification
+- [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework/privacy-framework): The U.S. federal privacy risk management framework; organizes privacy capabilities into Identify, Govern, Control, Communicate, and Protect functions; free to download and the closest thing to a neutral technical standard for enterprise privacy programs; essential reading before working on any privacy architecture
+- [LINDDUN Privacy Threat Modeling](https://linddun.org/): Free privacy threat modeling methodology from KU Leuven; the privacy equivalent of STRIDE for security; provides threat trees, worked examples, and the LINDDUN Go card deck for lightweight workshops; teaches practitioners to reason systematically about privacy threats in system designs
+- [IAPP Foundation of Privacy Certificate](https://iapp.org/certify/fip/): Free introductory resources available on the IAPP website; the IAPP is the professional association for privacy practitioners and publishes free articles, whitepapers, and regulatory summaries that are authoritative and practitioner-oriented
+- [Google Differential Privacy Library Documentation](https://github.com/google/differential-privacy): Free documentation and code examples for Google's differential privacy libraries (C++, Go, Java, Python); teaches the mathematical foundations of DP through working implementations; the best hands-on introduction to privacy-preserving analytics
+- [OpenDP Documentation](https://docs.opendp.org/): Free Python library and documentation for differential privacy from Harvard's OpenDP project; designed to be accessible to practitioners without deep mathematical backgrounds; includes tutorials on building DP queries and understanding privacy budgets (epsilon)
+- [Privacypatterns.eu](https://privacypatterns.eu/): Free library of privacy design patterns analogous to software design patterns; each pattern describes a recurring privacy problem and a reusable solution; useful for privacy engineers integrating privacy into system design decisions
+- [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design): Free technical guide from the EU Agency for Cybersecurity; covers privacy-by-design implementation in software development, data management, and system architecture; directly applicable to GDPR Article 25 compliance requirements
+- [GDPR Full Text at gdpr.eu](https://gdpr.eu/): Free, annotated version of the GDPR regulation; reading Recitals 26 (anonymization), 39 (transparency), and 78 (data protection by design) alongside the articles provides essential regulatory context for privacy engineering decisions
+- [Differential Privacy: A Primer for a Non-Technical Audience](https://privacytools.seas.harvard.edu/files/privacytools/files/pedagogical-document-dp_0.pdf): Free Harvard paper explaining differential privacy without advanced mathematics; explains the epsilon budget, sensitivity, and noise mechanisms (Laplace, Gaussian) in accessible terms; the best starting point before diving into implementation
+- [IAPP CIPT Body of Knowledge](https://iapp.org/certify/cipt/): The study outline for the Certified Information Privacy Technologist exam is publicly available; it maps the full scope of technical privacy engineering knowledge including data flows, PETs (Privacy Enhancing Technologies), and system design; useful as a curriculum even without pursuing the certification
 
 ---
 
@@ -129,13 +129,13 @@ Privacy engineering is the discipline of making data protection a structural pro
 
 | Threat | Description | Mitigation |
 |---|---|---|
-| **L**inkability | Linking records across contexts | k-anonymity, differential privacy |
-| **I**dentifiability | Identifying individuals from data | De-identification, pseudonymization |
-| **N**on-repudiation | Users can't deny actions | Minimize audit logging of PII |
-| **D**etectability | Inferring existence of data | Traffic analysis countermeasures |
-| **D**isclosure | Unauthorized data exposure | Encryption, access controls |
-| **U**nawareness | Users unaware of data use | Consent notices, transparency |
-| **N**on-compliance | Regulatory violations | PIAs, DPIAs, policy automation |
+| Linkability | Linking records across contexts | k-anonymity, differential privacy |
+| Identifiability | Identifying individuals from data | De-identification, pseudonymization |
+| Non-repudiation | Users can't deny actions | Minimize audit logging of PII |
+| Detectability | Inferring existence of data | Traffic analysis countermeasures |
+| Disclosure | Unauthorized data exposure | Encryption, access controls |
+| Unawareness | Users unaware of data use | Consent notices, transparency |
+| Non-compliance | Regulatory violations | PIAs, DPIAs, policy automation |
 
 ---
 
@@ -216,7 +216,7 @@ Privacy engineering controls address adversary techniques that exploit data coll
 
 #### Privacy Frameworks and Regulations
 
-**GDPR (General Data Protection Regulation)**
+GDPR (General Data Protection Regulation)
 - Scope: Any organization processing EU residents' personal data, regardless of location
 - Key principles: Lawfulness, fairness, transparency; purpose limitation; data minimization; accuracy; storage limitation; integrity and confidentiality; accountability
 - Lawful bases: Consent, contract, legal obligation, vital interests, public task, legitimate interests
@@ -224,12 +224,12 @@ Privacy engineering controls address adversary techniques that exploit data coll
 - Breach notification: 72 hours to supervisory authority (DPA), "without undue delay" to data subjects if high risk
 - Penalties: Up to €20M or 4% of global annual turnover (whichever higher)
 
-**CCPA/CPRA (California)**
+CCPA/CPRA (California)
 - Consumer rights: Know, delete, opt-out of sale, non-discrimination, correct, limit use of sensitive PI
 - Sensitive PI categories: SSN, financial account numbers, health data, precise geolocation, biometric identifiers
 - Enforcement: California Privacy Protection Agency (CPPA), $2,500/violation or $7,500/intentional violation
 
-**HIPAA (US Healthcare)**
+HIPAA (US Healthcare)
 - PHI (Protected Health Information): Any individually identifiable health information
 - Safe harbor de-identification: Remove 18 specific identifiers OR statistical verification that re-identification risk is very small
 - BAAs (Business Associate Agreements): Required for all vendors processing PHI
@@ -237,16 +237,16 @@ Privacy engineering controls address adversary techniques that exploit data coll
 
 #### Privacy Engineering Techniques
 
-**Privacy by Design (PbD) — 7 Foundational Principles**
-1. Proactive, not reactive — embed privacy before the fact
+Privacy by Design (PbD) — 7 Foundational Principles
+1. Proactive, not reactive: embed privacy before the fact
 2. Privacy as the default setting
 3. Privacy embedded into design
-4. Full functionality — positive-sum (privacy + security, not either/or)
-5. End-to-end security — full lifecycle protection
+4. Full functionality: positive-sum (privacy + security, not either/or)
+5. End-to-end security: full lifecycle protection
 6. Visibility and transparency
-7. Respect for user privacy — keep it user-centric
+7. Respect for user privacy: keep it user-centric
 
-**Data Minimization Techniques**
+Data Minimization Techniques
 - K-anonymity: Each record indistinguishable from k-1 others on quasi-identifiers
 - L-diversity: Each equivalence class has at least l different sensitive values
 - T-closeness: Distribution of sensitive attribute in group similar to overall distribution
@@ -254,28 +254,28 @@ Privacy engineering controls address adversary techniques that exploit data coll
 - Pseudonymization: Replace direct identifiers with tokens; reversible (different from anonymization)
 - Tokenization: Replace with cryptographically random tokens; PCI DSS card data protection
 
-**Consent Management**
+Consent Management
 - Consent Management Platforms (CMPs): OneTrust, Didomi, TrustArc, Cookiebot
 - IAB TCF v2.2: Industry framework for programmatic advertising consent
 - Double opt-in: Confirmation via email for marketing consent (GDPR best practice)
 - Granular consent: Separate consent per purpose; bundled consent not valid under GDPR
 
-**Data Subject Access Requests (DSAR)**
+Data Subject Access Requests (DSAR)
 - Identity verification workflow before releasing data
 - 30-day response window (GDPR); 45 days (CCPA)
 - DSAR automation: OneTrust DSAR, WireWheel, Securiti.ai
 
 #### PII Discovery and Data Mapping
 
-**Technical Discovery Tools**
+Technical Discovery Tools
 - AWS Macie: ML-based PII detection in S3 buckets
 - Microsoft Purview: Data catalog, classification, and governance across Azure
 - Google Cloud DLP: API-based PII detection in text, images, Cloud Storage
 - Open Policy Agent (OPA): Policy-as-code for data access enforcement
 - Apache Atlas: Metadata management and data lineage
 
-**Data Flow Mapping**
-- Data Processing Inventory (ROPA — Records of Processing Activities): Required by GDPR Article 30
+Data Flow Mapping
+- Data Processing Inventory (ROPA: Records of Processing Activities): Required by GDPR Article 30
 - ROPA fields: Processing purpose, data categories, subject categories, recipients, retention period, transfers to third countries
 - Tools: OneTrust Data Mapping, Spirion, BigID, Securiti.ai
 
@@ -288,8 +288,8 @@ Privacy engineering controls address adversary techniques that exploit data coll
 | DPO (Data Protection Officer) | Regulatory compliance, supervisory authority liaison | CIPM, CIPP/E |
 | Privacy Architect | System design with privacy controls, PbD integration | CIPT + architecture background |
 
-**IAPP Certifications**
-- CIPP/E (European): EU GDPR specialist — most in-demand globally
+IAPP Certifications
+- CIPP/E (European): EU GDPR specialist: most in-demand globally
 - CIPP/US (US privacy law): CCPA, HIPAA, sector-specific laws
 - CIPM (Privacy management): Running privacy programs
 - CIPT (Privacy technology): Technical implementation
@@ -298,7 +298,7 @@ Privacy engineering controls address adversary techniques that exploit data coll
 
 ## Related Disciplines
 
-- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md) — GRC programs define the regulatory requirements (GDPR, CCPA, HIPAA) that privacy engineers translate into technical controls; privacy engineering without GRC context produces compliant-looking systems that miss the regulatory intent
-- [Data Security](/disciplines/data-security.md) — Encryption, DLP, and access controls are the foundational technical mechanisms that privacy engineering depends on to enforce minimization and consent; the two disciplines share tooling but privacy engineering adds the regulatory and ethical layer on top of data security controls
-- [Security Architecture](/disciplines/security-architecture.md) — Privacy-by-design requires architecture-level decisions; privacy engineers work with security architects to embed minimization, pseudonymization, and consent enforcement into system designs before implementation rather than retrofitting them later
-- [Cloud Security](/disciplines/cloud-security.md) — Cloud data residency, sovereignty requirements, and cross-border transfer restrictions (GDPR Chapter V) make cloud security and privacy engineering tightly coupled; data localization and encryption key control in cloud environments are shared responsibilities
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md): GRC programs define the regulatory requirements (GDPR, CCPA, HIPAA) that privacy engineers translate into technical controls; privacy engineering without GRC context produces compliant-looking systems that miss the regulatory intent
+- [Data Security](/disciplines/data-security.md): Encryption, DLP, and access controls are the foundational technical mechanisms that privacy engineering depends on to enforce minimization and consent; the two disciplines share tooling but privacy engineering adds the regulatory and ethical layer on top of data security controls
+- [Security Architecture](/disciplines/security-architecture.md): Privacy-by-design requires architecture-level decisions; privacy engineers work with security architects to embed minimization, pseudonymization, and consent enforcement into system designs before implementation rather than retrofitting them later
+- [Cloud Security](/disciplines/cloud-security.md): Cloud data residency, sovereignty requirements, and cross-border transfer restrictions (GDPR Chapter V) make cloud security and privacy engineering tightly coupled; data localization and encryption key control in cloud environments are shared responsibilities

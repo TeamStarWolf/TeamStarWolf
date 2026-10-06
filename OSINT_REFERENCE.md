@@ -1,14 +1,14 @@
 # OSINT Reference
 
-> **Scope**: This reference is for defensive security practitioners, authorized
+> Scope: This reference is for defensive security practitioners, authorized
 > penetration testers, and threat intelligence analysts. All techniques are for
 > use only within explicitly authorized engagements and legal frameworks.
 
 | | |
 |---|---|
-| **Read this when** | Scoping an authorized reconnaissance engagement, mapping a target's external attack surface before a pentest, running passive collection without touching target systems |
-| **Start at** | [OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table) |
-| **Pairs with** | [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md) |
+| Read this when | Scoping an authorized reconnaissance engagement, mapping a target's external attack surface before a pentest, running passive collection without touching target systems |
+| Start at | [OSINT Fundamentals and Legal Framework](#_1-osint-fundamentals-and-legal-framework), [OSINT Investigation Methodology](#_10-osint-investigation-methodology), [OSINT Tools Reference Table](#_11-osint-tools-reference-table) |
+| Pairs with | [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md) |
 
 ---
 
@@ -33,15 +33,15 @@
 
 ### 1.1 Definition and Reconnaissance Spectrum
 
-**Open Source Intelligence (OSINT)** is intelligence collected from publicly
+Open Source Intelligence (OSINT) is intelligence collected from publicly
 available sources without requiring covert access or unauthorized interaction
 with target systems.
 
 | Reconnaissance Type | Description | Target Awareness | Examples |
 |---------------------|-------------|-----------------|----------|
-| **Passive** | No direct contact with target infrastructure | None | WHOIS, Shodan, crt.sh, archive.org, Google dorks |
-| **Semi-passive** | Minimal interaction indistinguishable from normal internet traffic | Very low | Resolving DNS records, fetching robots.txt |
-| **Active** | Direct interaction with target (probes, scans, port sweeps) | Possible | Nmap, nikto, directory brute-force -- **requires explicit authorization** |
+| Passive | No direct contact with target infrastructure | None | WHOIS, Shodan, crt.sh, archive.org, Google dorks |
+| Semi-passive | Minimal interaction indistinguishable from normal internet traffic | Very low | Resolving DNS records, fetching robots.txt |
+| Active | Direct interaction with target (probes, scans, port sweeps) | Possible | Nmap, nikto, directory brute-force -- requires explicit authorization |
 
 > Rule of thumb: Exhaust passive and semi-passive sources before touching the
 > target. Active techniques may trigger IDS/WAF alerts and legal exposure.
@@ -89,14 +89,14 @@ with target systems.
 
 | Framework | Key Implication |
 |-----------|----------------|
-| **CFAA** (US) | Accessing a computer without authorization -- or exceeding authorized access -- is criminal even if data is technically visible |
-| **GDPR** (EU) | Processing personal data of EU residents requires a lawful basis; security research exemptions are narrow; data minimization mandatory |
-| **CCPA** (California) | Similar consent/data-minimization obligations for California residents |
-| **Terms of Service** | LinkedIn, Twitter, GitHub prohibit automated scraping; civil liability and account termination risk; use official APIs |
-| **Wiretap Act** | Intercepting communications in transit is illegal; cached/public content is different |
-| **Computer Misuse Act** (UK) | Similar to CFAA; unauthorized access to data is criminal |
+| CFAA (US) | Accessing a computer without authorization -- or exceeding authorized access -- is criminal even if data is technically visible |
+| GDPR (EU) | Processing personal data of EU residents requires a lawful basis; security research exemptions are narrow; data minimization mandatory |
+| CCPA (California) | Similar consent/data-minimization obligations for California residents |
+| Terms of Service | LinkedIn, Twitter, GitHub prohibit automated scraping; civil liability and account termination risk; use official APIs |
+| Wiretap Act | Intercepting communications in transit is illegal; cached/public content is different |
+| Computer Misuse Act (UK) | Similar to CFAA; unauthorized access to data is criminal |
 
-**Checklist before starting any OSINT engagement:**
+Checklist before starting any OSINT engagement:
 - [ ] Written authorization (scope document, statement of work, bug-bounty rules)
 - [ ] Defined in-scope and out-of-scope assets
 - [ ] Data handling and retention agreement
@@ -105,7 +105,7 @@ with target systems.
 
 ### 1.5 Operational Security During OSINT
 
-**Tiered OpSec Model**
+Tiered OpSec Model
 
 | Tier | Infrastructure | Use Case |
 |------|---------------|---------|
@@ -113,14 +113,14 @@ with target systems.
 | 2 -- Medium | VPN + Tor + hardened VM (Whonix / Tails) | Sensitive passive collection |
 | 3 -- High | Dedicated VPS + residential proxy + aged sock-puppet accounts | Active enum, social engineering scenarios |
 
-**Sock puppet account hygiene:**
+Sock puppet account hygiene:
 - Separate email, phone, device fingerprint per persona
 - Age accounts weeks/months with organic activity before operational use
 - Consistent backstory: location, employer, interests, writing style
 - Never cross-contaminate personas (no shared IPs, no linked accounts)
 - Rotate and retire personas after engagement
 
-**Burner VM checklist:**
+Burner VM checklist:
 - Fresh snapshot per engagement; revert or destroy after
 - DNS over HTTPS / Tor to a neutral resolver (not ISP)
 - No browser autofill, sync, or cloud backups
@@ -140,8 +140,8 @@ Every piece of collected evidence should be recorded with:
 | Processing notes | Extracted 47 subdomains; 12 resolved |
 | Confidence level | High / Medium / Low |
 
-Tools: **Hunchly** (browser extension), **OSINT Combine WebCapture**,
-**CyberChef** (data transformation + hashing), plain git-committed markdown.
+Tools: Hunchly (browser extension), OSINT Combine WebCapture,
+CyberChef (data transformation + hashing), plain git-committed markdown.
 
 ---
 
@@ -234,7 +234,7 @@ catalogs dorks by category:
 
 ### 2.2 Other Search Engines
 
-**Bing Dorks**
+Bing Dorks
 
 | Operator | Description |
 |----------|-------------|
@@ -245,19 +245,19 @@ catalogs dorks by category:
 | `intitle:` | Keyword in title |
 | `feed:` | Search RSS/Atom feeds |
 
-**DuckDuckGo Operators**
+DuckDuckGo Operators
 
 DuckDuckGo supports `site:`, `filetype:`, `inurl:`, `intitle:`, and
 bang-redirects (`!g` for Google, `!s` for Shodan, `!w` for Wikipedia).
 
-**Yandex**
+Yandex
 
 Yandex indexes some Eastern European infrastructure not in Google.
 Supports `site:`, `url:`, `inurl:`, `mime:` (filetype equivalent).
 Yandex reverse image search often outperforms Google for facial recognition
 style lookups due to its own neural net indexing.
 
-**Baidu**
+Baidu
 
 Useful for Chinese-hosted infrastructure.
 Operators: `site:`, `filetype:`, `inurl:`, `intitle:`.
@@ -282,7 +282,7 @@ curl "https://web.archive.org/web/20230101000000/https://target.com/login"
 curl "https://web.archive.org/cdx/search/cdx?url=target.com/admin&output=json&fl=timestamp,statuscode"
 ```
 
-**Other archive sources:**
+Other archive sources:
 - `https://cachedview.nl/` -- multi-engine cached page viewer
 - `https://archive.ph/` (formerly archive.is) -- on-demand snapshots
 - `https://CommonCrawl.org` -- petabyte-scale web crawl index
@@ -323,7 +323,7 @@ whois -h whois.iana.org target.com
 # SecurityTrails: securitytrails.com/domain/target.com/history/whois
 ```
 
-**Bypassing WHOIS privacy services:**
+Bypassing WHOIS privacy services:
 - Check WHOIS records before privacy service was applied (DomainTools history)
 - Look for SSL certificate email leakage (crt.sh shows registration emails for some CAs)
 - Historical DNS records may show original registrant IP
@@ -365,7 +365,7 @@ dnsx -d target.com -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top
 gobuster dns -d target.com -w /path/to/wordlist.txt -t 50
 ```
 
-**DNS record types to enumerate:**
+DNS record types to enumerate:
 
 | Record | Information Value |
 |--------|-----------------|
@@ -378,7 +378,7 @@ gobuster dns -d target.com -w /path/to/wordlist.txt -t 50
 | SRV | Service records -- VoIP, XMPP, LDAP, Kerberos presence |
 | PTR | Reverse DNS -- hostname-to-IP mapping |
 
-**TXT record intelligence:**
+TXT record intelligence:
 
 ```bash
 # Get all TXT records
@@ -399,7 +399,7 @@ dig TXT target.com +short
 
 Shodan indexes internet-connected devices by crawling banners on common ports.
 
-**Key search operators:**
+Key search operators:
 
 | Operator | Description | Example |
 |----------|-------------|---------|
@@ -470,13 +470,13 @@ censys view 1.2.3.4 --index-type hosts
 
 | Platform | Strength | Notes |
 |----------|---------|-------|
-| **FOFA** | Chinese infrastructure, IoT, ICS | Syntax: `domain="target.com"`, `ip="1.2.3.4"`, `app="Nginx"` |
-| **ZoomEye** | Chinese platform, broad coverage | `site:target.com`, `app:nginx`, `service:ssh` |
-| **GreyNoise** | Context on mass-internet scanners | Differentiates benign scanners (Shodan, Censys) from malicious ones |
-| **BinaryEdge** | Real-time scanning, vulnerability data | Subscription-based API; good for certificate data |
-| **LeakIX** | Exposed services, data leaks | Free tier; focuses on sensitive exposures |
-| **Netlas** | Modern Shodan alternative | WHOIS + DNS + port data; newer index |
-| **Criminal IP** | Korean platform | Strong on IoT and credential exposure |
+| FOFA | Chinese infrastructure, IoT, ICS | Syntax: `domain="target.com"`, `ip="1.2.3.4"`, `app="Nginx"` |
+| ZoomEye | Chinese platform, broad coverage | `site:target.com`, `app:nginx`, `service:ssh` |
+| GreyNoise | Context on mass-internet scanners | Differentiates benign scanners (Shodan, Censys) from malicious ones |
+| BinaryEdge | Real-time scanning, vulnerability data | Subscription-based API; good for certificate data |
+| LeakIX | Exposed services, data leaks | Free tier; focuses on sensitive exposures |
+| Netlas | Modern Shodan alternative | WHOIS + DNS + port data; newer index |
+| Criminal IP | Korean platform | Strong on IoT and credential exposure |
 
 ### 3.6 ASN Enumeration
 
@@ -520,7 +520,7 @@ curl "https://api.hackertarget.com/reverseiplookup/?q=203.0.113.1"
 # viewdns.info/reverseip/?host=203.0.113.1
 ```
 
-**Accuracy limitations:**
+Accuracy limitations:
 - CDN IPs (Cloudflare, Akamai, Fastly) geo-locate to CDN PoP, not origin server
 - Cloud IPs (AWS, Azure, GCP) resolve to data-center regions, not company HQ
 - VPN/proxy IPs show VPN server location
@@ -548,7 +548,7 @@ site:linkedin.com/in "former" "Target Company"
 site:linkedin.com/in "Target Company" "CISO" OR "VP of Engineering"
 ```
 
-**Manual techniques:**
+Manual techniques:
 - Org chart reconstruction via "People" tab on company page
 - Skills endorsements -> infer technology stack
 - Post history -> project announcements, technology migrations
@@ -556,9 +556,9 @@ site:linkedin.com/in "Target Company" "CISO" OR "VP of Engineering"
 - Connection count -- low count may indicate fake/monitoring account
 - "Open to work" tags on employees -> potential disgruntled staff
 
-**Tools:**
-- **linkedin2username** -- generates likely username combinations from LinkedIn
-- **CrossLinked** -- name-format enumeration for email generation
+Tools:
+- linkedin2username -- generates likely username combinations from LinkedIn
+- CrossLinked -- name-format enumeration for email generation
 
 ### 4.2 Twitter / X
 
@@ -599,7 +599,7 @@ Remaining OSINT vectors:
 - Business pages: about section, team members tagged in posts
 - Facebook Marketplace for employee personal listings tied to work location
 
-**Graph URL patterns (manual exploration):**
+Graph URL patterns (manual exploration):
 ```
 https://www.facebook.com/search/people/?q=John%20Smith&filters={"employee_of":[{"name":"employer","args":"Target Corp"}]}
 ```
@@ -747,12 +747,12 @@ python3 -m maigret username --html --pdf
 
 ### 5.4 Phone Number OSINT
 
-- **Truecaller** -- crowdsourced phone book; names linked to numbers
-- **Carrier lookup APIs** -- identify carrier, line type (mobile/VoIP/landline)
-- **GetContact** -- similar to Truecaller; community-sourced labels
-- **OpenCNAM** -- CNAM (Caller ID Name) lookup
-- **Reverse lookup:** whitepages.com, spokeo.com (US focus)
-- **Numverify API** -- line type, carrier, country validation
+- Truecaller -- crowdsourced phone book; names linked to numbers
+- Carrier lookup APIs -- identify carrier, line type (mobile/VoIP/landline)
+- GetContact -- similar to Truecaller; community-sourced labels
+- OpenCNAM -- CNAM (Caller ID Name) lookup
+- Reverse lookup: whitepages.com, spokeo.com (US focus)
+- Numverify API -- line type, carrier, country validation
 
 ```bash
 # Carrier and line type lookup
@@ -830,17 +830,17 @@ exiftool -all= -overwrite_original output.jpg
 exiftool -all= -overwrite_original /path/to/images/
 ```
 
-**Reverse image search:**
+Reverse image search:
 - Google Images: upload or paste URL (`images.google.com`)
 - Yandex Images: best for facial recognition style lookups
 - TinEye: exact duplicate tracking, first-seen dating (`tineye.com`)
 - PimEyes: face-based reverse search (subscription for full features)
 - Bing Visual Search: good general alternative
 
-**Image analysis tools:**
-- **Jeffrey's Exif Viewer**: online EXIF display with map integration
-- **GeoSetter**: batch GPS data editor/viewer
-- **Pic2Map**: GPS coordinates to map visualization
+Image analysis tools:
+- Jeffrey's Exif Viewer: online EXIF display with map integration
+- GeoSetter: batch GPS data editor/viewer
+- Pic2Map: GPS coordinates to map visualization
 
 ---
 
@@ -862,12 +862,12 @@ exiftool -all= -overwrite_original /path/to/images/
 
 ### 6.2 Photo Timestamp Verification
 
-**SunCalc** (https://suncalc.org):
+SunCalc (https://suncalc.org):
 - Input location + date -> generates sun position arc
 - Compare shadow direction/length in photo to calculated sun position
 - Validates or falsifies claimed timestamp and location
 
-**Chronolocation workflow:**
+Chronolocation workflow:
 1. Identify distinctive landmarks in photo (buildings, mountains, street signs)
 2. Reverse image search to find location (Google, Yandex, TinEye)
 3. Cross-validate with street view and satellite imagery
@@ -875,7 +875,7 @@ exiftool -all= -overwrite_original /path/to/images/
 5. Cross-reference with weather records (cloud cover, snow depth) for date validation
 6. Check local astronomical data (moon phase if visible)
 
-**Tools for chronolocation:**
+Tools for chronolocation:
 - SunCalc.org -- sun position calculator
 - Timeanddate.com/sun -- sun/moon position and shadows
 - Wolfram Alpha -- astronomical queries
@@ -907,14 +907,14 @@ data = json.load(sys.stdin)
 
 ### 6.4 Transportation Tracking
 
-**Maritime (AIS):**
+Maritime (AIS):
 - MarineTraffic (https://marinetraffic.com) -- live vessel tracking
 - VesselFinder -- alternative AIS viewer
 - AIS Hub -- raw AIS data feeds
 - ShipFinder -- mobile-focused AIS app
 - Search by: vessel name, IMO number, MMSI, company
 
-**Aviation (ADS-B):**
+Aviation (ADS-B):
 - Flightradar24 -- live commercial flight tracking
 - FlightAware -- historical flight data, delays
 - ADSB Exchange -- unfiltered (includes military, private)
@@ -930,7 +930,7 @@ for f in flights:
     print(f["callsign"], f["estDepartureAirport"], f["estArrivalAirport"])
 ```
 
-**Ground transport:**
+Ground transport:
 - Waze real-time alerts (crowd-sourced incidents)
 - Apple Maps / Google Maps -- congestion patterns
 - Transit APIs (GTFS feeds) -- public transit schedule data
@@ -979,7 +979,7 @@ curl "https://data.sec.gov/submissions/CIK0000320193.json"
 curl "https://data.sec.gov/submissions/CIK0000320193.json" | jq '.filings.recent.form'
 ```
 
-**What to look for in SEC filings:**
+What to look for in SEC filings:
 - 10-K: "Risk Factors" section for cybersecurity disclosures
 - 8-K: Material cybersecurity incidents (required post-SEC rule 2023)
 - Proxy statements: executive names, compensation, board composition
@@ -1017,7 +1017,7 @@ curl -I https://target.com
 # X-Cache: HIT from Varnish -> Varnish cache
 ```
 
-**Inferences from job postings:**
+Inferences from job postings:
 - Search LinkedIn Jobs / Indeed / Greenhouse / Lever for "target company"
 - Required skills -> current tech stack
 - "Migrating from X to Y" -> in-progress infrastructure projects
@@ -1161,15 +1161,15 @@ curl "https://pulsedive.com/api/?indicator=1.2.3.4&pretty=1&key=$PD_KEY"
 
 | Platform | Focus | Access |
 |---------|-------|--------|
-| **MalwareBazaar** | Malware samples (upload/download) | Free API |
-| **Threatfox** | IoCs (IPs, domains, URLs, hashes) | Free API |
-| **OpenPhish** | Phishing URLs feed | Free feed |
-| **PhishTank** | Community-verified phishing | Free API |
-| **VirusTotal** | Multi-AV scan results + relationship graph | Free + paid |
-| **CAPE Sandbox** | Dynamic analysis reports | Free (capefiles.net) |
-| **ANY.RUN** | Interactive sandbox | Free tier |
-| **Joe Sandbox** | Deep static/dynamic analysis | Subscription |
-| **Triage** | Cloud malware sandbox | Free community tier |
+| MalwareBazaar | Malware samples (upload/download) | Free API |
+| Threatfox | IoCs (IPs, domains, URLs, hashes) | Free API |
+| OpenPhish | Phishing URLs feed | Free feed |
+| PhishTank | Community-verified phishing | Free API |
+| VirusTotal | Multi-AV scan results + relationship graph | Free + paid |
+| CAPE Sandbox | Dynamic analysis reports | Free (capefiles.net) |
+| ANY.RUN | Interactive sandbox | Free tier |
+| Joe Sandbox | Deep static/dynamic analysis | Subscription |
+| Triage | Cloud malware sandbox | Free community tier |
 
 ```bash
 # MalwareBazaar API -- search by hash
@@ -1208,7 +1208,7 @@ curl -H "Authorization: Bearer $OPENCTI_KEY" \
 # https://misp.circl.lu -- public demo instance
 ```
 
-**STIX/TAXII Feeds:**
+STIX/TAXII Feeds:
 
 | Feed | Provider | Notes |
 |------|---------|-------|
@@ -1273,13 +1273,13 @@ trufflehog github --org=TargetOrg --token=$GITHUB_TOKEN --since-commit HEAD~100
 Maltego is a graphical link analysis platform that visualizes relationships
 between OSINT entities.
 
-**Entity types:**
+Entity types:
 - Domain, DNS Name, IP Address, Netblock
 - Person, Phone Number, Email Address
 - Organization, Location
 - Social media profiles, Website, Document
 
-**Key transforms (Community Edition):**
+Key transforms (Community Edition):
 - DNS to IP, IP to ASN
 - Domain to WHOIS registrant
 - Email to social profiles (via Pipl, PeekYou)
@@ -1372,7 +1372,7 @@ recon-ng
 > run
 ```
 
-**Key module categories:**
+Key module categories:
 - `recon/domains-hosts/` -- subdomain enumeration
 - `recon/hosts-ports/` -- port discovery
 - `recon/domains-contacts/` -- email/contact discovery
@@ -1405,19 +1405,19 @@ theHarvester -d target.com -b all -f output  # generates output.html and output.
 
 | Tool | Function | Install |
 |------|---------|---------|
-| **Amass** | Subdomain enumeration + ASN mapping | `go install github.com/owasp-amass/amass/v4/...@latest` |
-| **Subfinder** | Fast passive subdomain discovery | `go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest` |
-| **httpx** | HTTP probing + tech fingerprint | `go install github.com/projectdiscovery/httpx/cmd/httpx@latest` |
-| **dnsx** | DNS toolkit | `go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest` |
-| **nuclei** | Template-based scanner | `go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest` |
-| **Sherlock** | Username enumeration | `pip3 install sherlock-project` |
-| **Holehe** | Account existence by email | `pip3 install holehe` |
-| **Maigret** | Username OSINT (Sherlock fork) | `pip3 install maigret` |
-| **Sn0int** | Semi-automatic OSINT framework (Rust) | `cargo install sn0int` |
-| **IVRE** | Network recon database | `pip3 install ivre` |
-| **Lampyre** | Visual OSINT platform (Windows) | Installer from lampyre.io |
-| **OSINT Framework** | Tool directory/categorization | https://osintframework.com |
-| **Mitaka** | Browser extension, IoC lookup | Chrome/Firefox extension |
+| Amass | Subdomain enumeration + ASN mapping | `go install github.com/owasp-amass/amass/v4/...@latest` |
+| Subfinder | Fast passive subdomain discovery | `go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest` |
+| httpx | HTTP probing + tech fingerprint | `go install github.com/projectdiscovery/httpx/cmd/httpx@latest` |
+| dnsx | DNS toolkit | `go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest` |
+| nuclei | Template-based scanner | `go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest` |
+| Sherlock | Username enumeration | `pip3 install sherlock-project` |
+| Holehe | Account existence by email | `pip3 install holehe` |
+| Maigret | Username OSINT (Sherlock fork) | `pip3 install maigret` |
+| Sn0int | Semi-automatic OSINT framework (Rust) | `cargo install sn0int` |
+| IVRE | Network recon database | `pip3 install ivre` |
+| Lampyre | Visual OSINT platform (Windows) | Installer from lampyre.io |
+| OSINT Framework | Tool directory/categorization | https://osintframework.com |
+| Mitaka | Browser extension, IoC lookup | Chrome/Firefox extension |
 
 ---
 
@@ -1517,29 +1517,29 @@ Organization
 
 When attributing threat actor infrastructure or activity:
 
-**Level 1 -- Technical Indicators (Low confidence alone):**
+Level 1 -- Technical Indicators (Low confidence alone):
 - Shared IP/ASN
 - Reused SSL certificate fingerprint
 - Same registrar/registration pattern (WHOIS similarity)
 - Common hosting provider
 
-**Level 2 -- Behavioral Indicators (Medium confidence):**
+Level 2 -- Behavioral Indicators (Medium confidence):
 - Same malware family with similar configuration
 - Same C2 communication protocol and URIs
 - Operational schedule overlaps (timezone inference from commit/activity times)
 - Similar victimology (same sectors targeted)
 
-**Level 3 -- Strategic Indicators (High confidence when combined):**
+Level 3 -- Strategic Indicators (High confidence when combined):
 - Overlapping TTPs matching known actor profile (MITRE ATT&CK)
 - Victimology consistent with known actor geopolitical interests
 - Intelligence community corroboration
 - Code reuse with distinctive artifacts (unique strings, function naming, compiler flags)
 - Infrastructure reuse across multiple campaigns over time
 
-**Confidence levels:**
-- **High**: Multiple independent corroborating sources; verifiable by third party
-- **Medium**: Consistent with hypothesis; limited independent corroboration
-- **Low**: Single source; circumstantial; requires further investigation before attribution
+Confidence levels:
+- High: Multiple independent corroborating sources; verifiable by third party
+- Medium: Consistent with hypothesis; limited independent corroboration
+- Low: Single source; circumstantial; requires further investigation before attribution
 
 ### 10.4 Report Format
 
@@ -1595,15 +1595,15 @@ When attributing threat actor infrastructure or activity:
 
 | Tool | Description | Platform |
 |------|-------------|---------|
-| **Hunchly** | Browser extension; auto-captures every visited page with metadata | Chrome |
-| **OSINT Combine WebCapture** | Online screenshot + PDF archiving with timestamping | Web |
-| **SingleFile** | Browser extension; saves complete page as single HTML file | Chrome/Firefox |
-| **Waybackpy** | Python library for Wayback Machine interaction and archiving | Python |
-| **HTTrack** | Website mirroring tool for offline analysis | Linux/Windows |
-| **CyberChef** | Data encoding/hashing/transformation + evidence fingerprinting | Web/local |
-| **FOCA** | Document metadata extraction and analysis | Windows |
-| **ExifTool** | Universal metadata extraction for all file types | Cross-platform |
-| **ScreenshotGo** | Mobile screenshot organization | Android |
+| Hunchly | Browser extension; auto-captures every visited page with metadata | Chrome |
+| OSINT Combine WebCapture | Online screenshot + PDF archiving with timestamping | Web |
+| SingleFile | Browser extension; saves complete page as single HTML file | Chrome/Firefox |
+| Waybackpy | Python library for Wayback Machine interaction and archiving | Python |
+| HTTrack | Website mirroring tool for offline analysis | Linux/Windows |
+| CyberChef | Data encoding/hashing/transformation + evidence fingerprinting | Web/local |
+| FOCA | Document metadata extraction and analysis | Windows |
+| ExifTool | Universal metadata extraction for all file types | Cross-platform |
+| ScreenshotGo | Mobile screenshot organization | Android |
 
 ---
 
@@ -1676,7 +1676,7 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 | T1593.002 | Search Engines | Dorks, GHDB queries | Google, Bing, Yandex, DuckDuckGo |
 | T1593.003 | Code Repositories | GitHub/GitLab secret scanning | TruffleHog, Gitleaks, GitDorker |
 | T1594 | Search Victim-Owned Websites | robots.txt, sitemap, JS analysis | GoSpider, Katana |
-| T1595 | Active Scanning | Port scanning, vuln scanning | **Requires explicit authorization** |
+| T1595 | Active Scanning | Port scanning, vuln scanning | Requires explicit authorization |
 | T1595.001 | Scanning IP Blocks | Network sweep | nmap (authorized only) |
 | T1595.002 | Vulnerability Scanning | CVE detection, nuclei | nuclei, Nessus (authorized only) |
 | T1595.003 | Wordlist Scanning | Directory/file brute force | ffuf, feroxbuster (authorized only) |

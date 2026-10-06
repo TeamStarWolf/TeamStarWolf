@@ -1,12 +1,12 @@
 # API Security Reference Library
 
-> **Comprehensive cybersecurity reference for API security practitioners, pentesters, developers, and security engineers.**
+> Comprehensive cybersecurity reference for API security practitioners, pentesters, developers, and security engineers.
 
 | | |
 |---|---|
-| **Read this when** | You are pentesting a REST/GraphQL/gRPC API, reviewing an API's authentication and authorization design, or wiring API security tests and linting into a CI/CD pipeline |
-| **Start at** | [OWASP API Security Top 10 2023](#_2-owasp-api-security-top-10-2023), [API Penetration Testing](#_8-api-penetration-testing), [API Security in CI/CD](#_9-api-security-in-cicd) |
-| **Pairs with** | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md) |
+| Read this when | You are pentesting a REST/GraphQL/gRPC API, reviewing an API's authentication and authorization design, or wiring API security tests and linting into a CI/CD pipeline |
+| Start at | [OWASP API Security Top 10 2023](#_2-owasp-api-security-top-10-2023), [API Penetration Testing](#_8-api-penetration-testing), [API Security in CI/CD](#_9-api-security-in-cicd) |
+| Pairs with | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md) |
 
 ---
 
@@ -29,19 +29,19 @@
 
 ### The API Attack Surface Explosion
 
-APIs have become the dominant interface for modern software. Gartner has projected that APIs will be the **#1 attack vector** for enterprise applications, surpassing traditional web application attacks. This prediction is borne out by breach data: Optus (2022), T-Mobile (2023), Twitter (2022), Peloton (2021), and hundreds of smaller organizations suffered major data exposures through API vulnerabilities — not through SQL injection or XSS on web frontends.
+APIs have become the dominant interface for modern software. Gartner has projected that APIs will be the #1 attack vector for enterprise applications, surpassing traditional web application attacks. This prediction is borne out by breach data: Optus (2022), T-Mobile (2023), Twitter (2022), Peloton (2021), and hundreds of smaller organizations suffered major data exposures through API vulnerabilities — not through SQL injection or XSS on web frontends.
 
-**Why APIs are the primary target:**
+Why APIs are the primary target:
 
-- **Volume:** The average enterprise now manages 613 APIs (Postman State of the API 2023), up from 362 in 2020. Large enterprises commonly exceed 10,000 internal and external API endpoints.
-- **Speed:** APIs are deployed faster than web UI — developers push new endpoints with every sprint, often outpacing security review cycles.
-- **Direct data access:** APIs return structured data (JSON, XML, Protobuf) that is immediately machine-parseable and exfiltrable at scale. A single vulnerable API endpoint can expose millions of records in minutes.
-- **Implicit trust:** Internal microservice APIs often carry no authentication between services, assuming network-level trust that evaporates in a breach.
-- **Incomplete visibility:** Security teams rarely have a complete inventory of APIs in production. Shadow APIs and zombie APIs (forgotten but live endpoints) create persistent blind spots.
+- Volume: The average enterprise now manages 613 APIs (Postman State of the API 2023), up from 362 in 2020. Large enterprises commonly exceed 10,000 internal and external API endpoints.
+- Speed: APIs are deployed faster than web UI: developers push new endpoints with every sprint, often outpacing security review cycles.
+- Direct data access: APIs return structured data (JSON, XML, Protobuf) that is immediately machine-parseable and exfiltrable at scale. A single vulnerable API endpoint can expose millions of records in minutes.
+- Implicit trust: Internal microservice APIs often carry no authentication between services, assuming network-level trust that evaporates in a breach.
+- Incomplete visibility: Security teams rarely have a complete inventory of APIs in production. Shadow APIs and zombie APIs (forgotten but live endpoints) create persistent blind spots.
 
 ### The API Sprawl Problem
 
-**API sprawl** refers to the uncontrolled proliferation of APIs across an organization without adequate governance, documentation, or security oversight.
+API sprawl refers to the uncontrolled proliferation of APIs across an organization without adequate governance, documentation, or security oversight.
 
 Root causes:
 - Microservices architectures spawn hundreds of internal APIs per application
@@ -57,18 +57,18 @@ Consequences of sprawl:
 - Data exposure through deprecated but functional endpoints
 - Compliance gaps (GDPR, HIPAA, PCI DSS) when personal data flows through untracked APIs
 
-**Quantifying the risk:** Akamai reports that 83% of internet traffic is now API traffic. Salt Security reports that 94% of organizations experienced API security problems in production in 2023.
+Quantifying the risk: Akamai reports that 83% of internet traffic is now API traffic. Salt Security reports that 94% of organizations experienced API security problems in production in 2023.
 
 ### API Types and Security Implications
 
 | API Type | Protocol | Data Format | Auth Pattern | Key Security Considerations |
 |----------|----------|-------------|--------------|----------------------------|
-| **REST** | HTTP/1.1, HTTP/2 | JSON, XML | Bearer token, API key, OAuth 2.0, mTLS | BOLA, mass assignment, CORS misconfiguration |
-| **GraphQL** | HTTP/1.1 | JSON | Bearer token, API key | Introspection leakage, query depth attacks, batching abuse |
-| **gRPC** | HTTP/2 | Protobuf (binary) | mTLS, token metadata | Reflection leakage, insecure channel, schema exposure |
-| **SOAP** | HTTP, SMTP | XML | WS-Security, API key | XXE injection, WSDL enumeration, verbose SOAP faults |
-| **WebSocket** | WS/WSS | Any (JSON common) | Cookie, token at handshake | Missing auth on upgrade, missing message validation, DoS |
-| **Async/Event** | AMQP, Kafka, MQTT | JSON, Avro, Protobuf | SASL, mTLS, API key | Topic authorization, message injection, consumer group hijack |
+| REST | HTTP/1.1, HTTP/2 | JSON, XML | Bearer token, API key, OAuth 2.0, mTLS | BOLA, mass assignment, CORS misconfiguration |
+| GraphQL | HTTP/1.1 | JSON | Bearer token, API key | Introspection leakage, query depth attacks, batching abuse |
+| gRPC | HTTP/2 | Protobuf (binary) | mTLS, token metadata | Reflection leakage, insecure channel, schema exposure |
+| SOAP | HTTP, SMTP | XML | WS-Security, API key | XXE injection, WSDL enumeration, verbose SOAP faults |
+| WebSocket | WS/WSS | Any (JSON common) | Cookie, token at handshake | Missing auth on upgrade, missing message validation, DoS |
+| Async/Event | AMQP, Kafka, MQTT | JSON, Avro, Protobuf | SASL, mTLS, API key | Topic authorization, message injection, consumer group hijack |
 
 ### API Security vs. Web Application Security
 
@@ -76,45 +76,45 @@ Traditional web application security focuses on browser-rendered HTML and the hu
 
 | Dimension | Web App Security | API Security |
 |-----------|-----------------|--------------|
-| **Client** | Browser (human) | Machine (app, script, mobile) |
-| **Attack scale** | One request per click | Thousands of requests per second |
-| **Data exposure** | Partial (rendered HTML) | Complete (raw structured data) |
-| **Auth state** | Cookie-based session | Stateless tokens (JWT, API key) |
-| **Error handling** | User-facing HTML errors | Machine-parseable JSON errors |
-| **Discovery** | Crawl HTML links | Fuzzing, spec analysis, traffic analysis |
-| **Primary vulns** | XSS, CSRF, SQLi in forms | BOLA, mass assignment, broken auth |
-| **WAF effectiveness** | High (HTML patterns known) | Lower (JSON payloads require API-aware WAF) |
+| Client | Browser (human) | Machine (app, script, mobile) |
+| Attack scale | One request per click | Thousands of requests per second |
+| Data exposure | Partial (rendered HTML) | Complete (raw structured data) |
+| Auth state | Cookie-based session | Stateless tokens (JWT, API key) |
+| Error handling | User-facing HTML errors | Machine-parseable JSON errors |
+| Discovery | Crawl HTML links | Fuzzing, spec analysis, traffic analysis |
+| Primary vulns | XSS, CSRF, SQLi in forms | BOLA, mass assignment, broken auth |
+| WAF effectiveness | High (HTML patterns known) | Lower (JSON payloads require API-aware WAF) |
 
 ### OWASP API Security Top 10 2023 Overview
 
 The OWASP API Security Top 10 2023 replaced the 2019 edition with updated terminology reflecting evolved attack patterns. Key changes from 2019:
 
-- **API3** renamed from "Excessive Data Exposure" and "Mass Assignment" (merged) to "Broken Object Property Level Authorization"
-- **API6** is new: "Unrestricted Access to Sensitive Business Flows" — addressing bot-driven abuse
-- **API10** is new: "Unsafe Consumption of APIs" — addressing supply chain risk via third-party APIs
-- **API7** (SSRF) elevated from a note to a standalone category
+- API3 renamed from "Excessive Data Exposure" and "Mass Assignment" (merged) to "Broken Object Property Level Authorization"
+- API6 is new: "Unrestricted Access to Sensitive Business Flows": addressing bot-driven abuse
+- API10 is new: "Unsafe Consumption of APIs": addressing supply chain risk via third-party APIs
+- API7 (SSRF) elevated from a note to a standalone category
 
 The Top 10 addresses authorization failures (API1, API3, API5), authentication issues (API2), resource abuse (API4, API6), injection/misconfiguration (API7, API8), inventory failures (API9), and supply chain (API10).
 
 ### API Discovery Challenge
 
-**Shadow APIs** are endpoints that exist in production but are unknown to the security team. They arise when:
+Shadow APIs are endpoints that exist in production but are unknown to the security team. They arise when:
 - Developers deploy APIs without going through a formal API gateway or registration process
 - Legacy systems expose APIs that were documented only in now-lost wikis
 - Third-party SaaS integrations create API endpoints on the organization's subdomain
 - Microservices expose health check endpoints (`/actuator`, `/metrics`, `/debug`) without security review
 
-**Zombie APIs** are endpoints that have been intentionally deprecated but remain accessible in production. They are dangerous because:
+Zombie APIs are endpoints that have been intentionally deprecated but remain accessible in production. They are dangerous because:
 - They often run older, unpatched code
 - Security patches applied to the current version may not have been backported
 - They may lack modern authentication (e.g., no JWT validation, accepts legacy API keys)
 - They are not monitored by alerting systems watching the "current" API
 
-**Deprecated endpoint risks:** A 2022 Salt Security study found that 44% of organizations have zombie APIs in production, and these are 3x more likely to contain critical vulnerabilities than current API versions.
+Deprecated endpoint risks: A 2022 Salt Security study found that 44% of organizations have zombie APIs in production, and these are 3x more likely to contain critical vulnerabilities than current API versions.
 
 ### API Testing Tools
 
-**Postman** (https://postman.com):
+Postman (https://postman.com):
 - Industry-standard API testing and documentation platform
 - Collections: group related API requests for systematic testing
 - Environments: manage auth tokens, base URLs, test variables
@@ -122,7 +122,7 @@ The Top 10 addresses authorization failures (API1, API3, API5), authentication i
 - Monitor: scheduled automated API tests
 - Security relevance: manual auth testing, response inspection, collection sharing for team pentests
 
-**Insomnia** (https://insomnia.rest):
+Insomnia (https://insomnia.rest):
 - Open-source REST/GraphQL/gRPC client
 - Plugin ecosystem including security-focused plugins
 - Environment templating for multi-environment testing
@@ -179,15 +179,15 @@ OAS documents enable:
 
 ## 2. OWASP API Security Top 10 2023
 
-### API1:2023 — Broken Object Level Authorization (BOLA)
+### API1:2023: Broken Object Level Authorization (BOLA)
 
-**Description:**
+Description:
 BOLA (formerly called IDOR — Insecure Direct Object Reference in the OWASP Web Top 10) is the most prevalent and impactful API vulnerability. It occurs when an API endpoint accepts a user-supplied object identifier (ID) and returns the corresponding object without verifying that the requesting user is authorized to access that specific object. The API validates *authentication* (the user is logged in) but not *authorization* (the user is allowed to see *this* object).
 
-**Why it dominates API vulnerabilities:**
+Why it dominates API vulnerabilities:
 APIs return raw data objects — unlike web UIs that render only the data the server decides to show, APIs return the complete object. Developers often assume that clients "can only see their own data" without enforcing this at the API layer.
 
-**Attack Example:**
+Attack Example:
 ```
 # Victim user has account ID 1042
 GET /api/v1/accounts/1042/statements HTTP/1.1
@@ -203,20 +203,20 @@ Authorization: Bearer <attacker_token>
 Sequential ID enumeration: If IDs are integers, attacker iterates 1, 2, 3... to harvest all user data.
 UUID enumeration: If IDs are UUIDs, attacker harvests IDs from other API responses (e.g., public profile endpoints) then uses them to access private endpoints.
 
-**Horizontal vs. Vertical Privilege Escalation:**
+Horizontal vs. Vertical Privilege Escalation:
 - *Horizontal*: User A accesses User B's data (same privilege level)
 - *Vertical*: Regular user accesses admin-level objects (different privilege level)
 
 BOLA typically enables horizontal privilege escalation; Broken Function Level Authorization (API5) enables vertical.
 
-**Detection:**
+Detection:
 - Intercept authenticated requests and swap object IDs
 - Look for integer IDs in URL paths, query parameters, and request bodies
 - Test whether IDs from one user account are accessible with another user's token
 - Automate with Burp Intruder or custom scripts iterating ID ranges
-- Check nested resources: `/api/orders/{orderId}/items/{itemId}` — test each level
+- Check nested resources: `/api/orders/{orderId}/items/{itemId}`: test each level
 
-**Mitigation:**
+Mitigation:
 ```python
 # BAD: No authorization check
 def get_account(account_id, current_user):
@@ -237,22 +237,22 @@ Use indirect references: map internal IDs to user-specific tokens. Implement cen
 
 ---
 
-### API2:2023 — Broken Authentication
+### API2:2023: Broken Authentication
 
-**Description:**
+Description:
 Authentication mechanisms for APIs are frequently implemented incorrectly or incompletely. Unlike web applications that can rely on battle-tested session management frameworks, APIs often implement custom authentication logic — JWT validation, API key checking, token introspection — that contains subtle flaws.
 
-**Common Authentication Weaknesses:**
+Common Authentication Weaknesses:
 
-1. **Weak token secrets:** JWT signed with `HS256` using `secret`, `password`, `123456`
-2. **Missing token expiry:** JWTs issued without `exp` claim, valid forever
-3. **No token revocation:** No mechanism to invalidate compromised tokens
-4. **Credential stuffing exposure:** Login endpoint without rate limiting or lockout
-5. **Insecure token transmission:** Tokens passed in URL query parameters (logged in access logs)
-6. **Missing authentication on some endpoints:** `/api/v1/users` requires auth, `/api/v2/users` does not
-7. **Weak password reset flows:** API reset tokens are short, predictable, or not single-use
+1. Weak token secrets: JWT signed with `HS256` using `secret`, `password`, `123456`
+2. Missing token expiry: JWTs issued without `exp` claim, valid forever
+3. No token revocation: No mechanism to invalidate compromised tokens
+4. Credential stuffing exposure: Login endpoint without rate limiting or lockout
+5. Insecure token transmission: Tokens passed in URL query parameters (logged in access logs)
+6. Missing authentication on some endpoints: `/api/v1/users` requires auth, `/api/v2/users` does not
+7. Weak password reset flows: API reset tokens are short, predictable, or not single-use
 
-**Attack Examples:**
+Attack Examples:
 
 *Credential stuffing:*
 ```bash
@@ -269,14 +269,14 @@ payload = base64.b64encode(json.dumps({"sub":"admin","role":"admin"}).encode()).
 forged_token = f"{header}.{payload}."
 ```
 
-**Detection:**
+Detection:
 - Test login endpoints for rate limiting (send 100+ requests per minute)
 - Decode JWTs at jwt.io, check `exp`, `alg`, signature algorithm
-- Test token after logout — is it still accepted?
+- Test token after logout: is it still accepted?
 - Fuzz password reset tokens for length and randomness
 - Check if tokens appear in server access logs (URL parameter transmission)
 
-**Mitigation:**
+Mitigation:
 - Enforce `exp` claim on all JWTs; max lifetime 15 minutes for access tokens
 - Use refresh token rotation with single-use refresh tokens
 - Implement rate limiting on all authentication endpoints (5 attempts/minute per IP)
@@ -287,12 +287,12 @@ forged_token = f"{header}.{payload}."
 
 ---
 
-### API3:2023 — Broken Object Property Level Authorization
+### API3:2023: Broken Object Property Level Authorization
 
-**Description:**
+Description:
 This category merges two 2019 categories: "Excessive Data Exposure" and "Mass Assignment." Both involve failing to properly control which object properties a user can read or write.
 
-**Excessive Data Exposure (read side):**
+Excessive Data Exposure (read side):
 The API returns complete object representations including sensitive fields that the client doesn't need. Developers rely on the frontend to "hide" sensitive fields rather than filtering them at the API layer.
 
 ```json
@@ -310,7 +310,7 @@ GET /api/v1/users/profile
 }
 ```
 
-**Mass Assignment (write side):**
+Mass Assignment (write side):
 The API automatically binds request body fields to database model fields without an allowlist. An attacker can supply extra fields to modify properties they shouldn't control.
 
 ```bash
@@ -323,14 +323,14 @@ POST /api/v1/users/register
 {"email": "attacker@evil.com", "password": "pass123", "admin": true, "balance": 99999}
 ```
 
-**Detection:**
+Detection:
 - Review API responses for sensitive fields (passwords, internal IDs, PII beyond what's needed)
 - Compare response fields to what the UI actually displays
 - Add extra fields to PUT/PATCH/POST requests and check if they're accepted
 - Test `role`, `admin`, `is_admin`, `permissions`, `balance`, `credit` fields in registration/update payloads
 - Use Param Miner (Burp extension) to discover hidden writable parameters
 
-**Mitigation:**
+Mitigation:
 ```python
 # BAD: Return entire database model
 @app.route('/api/user/profile')
@@ -370,21 +370,21 @@ Use Pydantic (Python), Joi (Node.js), or Jackson `@JsonIgnoreProperties` (Java) 
 
 ---
 
-### API4:2023 — Unrestricted Resource Consumption
+### API4:2023: Unrestricted Resource Consumption
 
-**Description:**
+Description:
 APIs that do not limit the volume or frequency of requests allow attackers to exhaust server resources (CPU, memory, bandwidth, database connections, third-party API quotas) through automated abuse. This category covers traditional rate limiting failures as well as resource-intensive operations that can be triggered without cost to the attacker.
 
-**Attack Vectors:**
+Attack Vectors:
 
-- **Request flooding:** Send thousands of requests per second to overwhelm server
-- **Large payload attacks:** Submit multi-megabyte JSON payloads that consume parser memory
-- **Expensive query attacks:** GraphQL queries requesting deeply nested objects; search endpoints with wildcard queries
-- **Bulk operation abuse:** `/api/v1/emails/send` called 10,000 times to abuse sending quota and incur cost
-- **File upload abuse:** Upload thousands of large files to exhaust storage
-- **Third-party cost exploitation:** Trigger API calls to paid services (SMS, email, payment) repeatedly
+- Request flooding: Send thousands of requests per second to overwhelm server
+- Large payload attacks: Submit multi-megabyte JSON payloads that consume parser memory
+- Expensive query attacks: GraphQL queries requesting deeply nested objects; search endpoints with wildcard queries
+- Bulk operation abuse: `/api/v1/emails/send` called 10,000 times to abuse sending quota and incur cost
+- File upload abuse: Upload thousands of large files to exhaust storage
+- Third-party cost exploitation: Trigger API calls to paid services (SMS, email, payment) repeatedly
 
-**Example — SMS verification abuse:**
+Example — SMS verification abuse:
 ```
 POST /api/v1/auth/send-sms-otp
 {"phone": "+15551234567"}
@@ -392,7 +392,7 @@ POST /api/v1/auth/send-sms-otp
 # Attacker sends 10,000 requests → $500 in SMS charges + DoS of legitimate users
 ```
 
-**Rate Limiting Algorithms:**
+Rate Limiting Algorithms:
 
 *Token Bucket:* Bucket holds N tokens, refills at R tokens/second. Each request consumes 1 token. Allows bursts up to bucket size.
 
@@ -402,13 +402,13 @@ POST /api/v1/auth/send-sms-otp
 
 *Sliding Window Log:* Track timestamp of each request. Count requests in last N seconds. Most accurate, highest memory.
 
-**Detection:**
-- Test without rate limiting — can you send 1000 requests/minute without throttling?
-- Send oversized request bodies — does the server accept 100MB JSON?
+Detection:
+- Test without rate limiting: can you send 1000 requests/minute without throttling?
+- Send oversized request bodies: does the server accept 100MB JSON?
 - Trigger expensive operations (password reset emails, SMS) repeatedly
-- Monitor response times under load — does latency increase indicating resource exhaustion?
+- Monitor response times under load: does latency increase indicating resource exhaustion?
 
-**Mitigation:**
+Mitigation:
 ```nginx
 # Nginx rate limiting
 limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
@@ -425,65 +425,65 @@ Implement tiered rate limits: per-IP, per-user, per-API-key, per-endpoint. Apply
 
 ---
 
-### API5:2023 — Broken Function Level Authorization (BFLA)
+### API5:2023: Broken Function Level Authorization (BFLA)
 
-**Description:**
+Description:
 While BOLA (API1) is about accessing *other users' data objects*, BFLA is about accessing *administrative or privileged functions* that a lower-privileged user should not be able to invoke. APIs often expose admin endpoints alongside regular user endpoints, with authorization checked inconsistently.
 
-**Attack Patterns:**
+Attack Patterns:
 
-1. **HTTP method switching:** API allows `GET /api/users/{id}` for users, `DELETE /api/users/{id}` only for admins — but the DELETE authorization check is missing.
+1. HTTP method switching: API allows `GET /api/users/{id}` for users, `DELETE /api/users/{id}` only for admins: but the DELETE authorization check is missing.
 
-2. **Admin endpoint discovery:**
+2. Admin endpoint discovery:
 ```
 /api/v1/users/1042         ← user endpoint (authorized)
 /api/v1/admin/users/1042   ← admin endpoint (should be restricted)
 /api/v1/users/1042/admin   ← alternative admin path
 ```
 
-3. **Privilege escalation via role parameter:**
+3. Privilege escalation via role parameter:
 ```
 PUT /api/v1/users/profile
 {"name": "Alice", "role": "admin"}  ← role field accepted without auth check
 ```
 
-**Detection:**
+Detection:
 - Map all API endpoints from OpenAPI spec, JS source, mobile app APK analysis
 - Identify admin vs. user endpoint patterns (`/admin/`, `/manage/`, `/internal/`)
 - Test each HTTP method on each endpoint with a regular user token
 - Look for endpoints that return 403 for GET but 200 for POST/DELETE/PUT
 - Use kiterunner to brute-force API routes: `kr scan https://target.com -w routes-large.kite`
 
-**Mitigation:**
+Mitigation:
 - Implement a centralized authorization framework (not per-endpoint checks)
 - Default-deny: all endpoints require explicit permission grants
 - Separate admin API surfaces (different subdomain, separate auth system)
 - Use RBAC or ABAC enforced at the gateway or middleware layer
-- Audit HTTP method permissions separately — GET and DELETE have different risk profiles
+- Audit HTTP method permissions separately: GET and DELETE have different risk profiles
 
 ---
 
-### API6:2023 — Unrestricted Access to Sensitive Business Flows
+### API6:2023: Unrestricted Access to Sensitive Business Flows
 
-**Description:**
+Description:
 New in 2023, this category addresses automated abuse of legitimate business flows. The API endpoints themselves are working as designed, but attackers use automation to exploit business logic at scale. This is distinguished from API4 (resource exhaustion) by targeting business outcomes rather than server resources.
 
-**Examples:**
+Examples:
 
-- **Scalper bots:** Automated purchase of limited-availability items (sneakers, concert tickets, PS5s) faster than human users
-- **Account takeover flows:** Automated credential stuffing → password reset → account capture
-- **Referral/bonus abuse:** Automated creation of fake accounts to claim referral bonuses
-- **Voting/rating manipulation:** Automated upvotes, fake reviews, poll manipulation
-- **Inventory hoarding:** Add-to-cart automation that locks inventory without purchasing
-- **Free tier abuse:** Automated creation of free accounts to exceed free tier limits
+- Scalper bots: Automated purchase of limited-availability items (sneakers, concert tickets, PS5s) faster than human users
+- Account takeover flows: Automated credential stuffing -> password reset -> account capture
+- Referral/bonus abuse: Automated creation of fake accounts to claim referral bonuses
+- Voting/rating manipulation: Automated upvotes, fake reviews, poll manipulation
+- Inventory hoarding: Add-to-cart automation that locks inventory without purchasing
+- Free tier abuse: Automated creation of free accounts to exceed free tier limits
 
-**Detection:**
+Detection:
 - Analyze traffic patterns for non-human behavior (uniform timing, missing browser fingerprints)
 - Monitor business KPIs for anomalies (unusual purchase velocity, signup spikes from single IP ranges)
 - Track device fingerprints, browser characteristics, mouse movement patterns
 - Alert on: >N account creations from same IP, >N password resets for same account in 1 hour
 
-**Mitigation:**
+Mitigation:
 - CAPTCHA on sensitive flows (account creation, checkout, password reset)
 - Device fingerprinting (browser fingerprint, TLS JA3 fingerprint)
 - Behavioral analytics (request timing, user journey analysis)
@@ -493,12 +493,12 @@ New in 2023, this category addresses automated abuse of legitimate business flow
 
 ---
 
-### API7:2023 — Server Side Request Forgery (SSRF)
+### API7:2023: Server Side Request Forgery (SSRF)
 
-**Description:**
+Description:
 SSRF occurs when an API accepts a URL or hostname as input and makes a server-side HTTP request to that URL without validating the destination. An attacker can cause the API server to make requests to internal services, cloud metadata endpoints, or other restricted resources.
 
-**High-Value SSRF Targets:**
+High-Value SSRF Targets:
 
 ```
 # AWS EC2 metadata
@@ -519,7 +519,7 @@ http://192.168.1.1/  (router admin panel)
 http://kubernetes.default.svc/api/v1/namespaces/default/secrets
 ```
 
-**Common API Parameters Vulnerable to SSRF:**
+Common API Parameters Vulnerable to SSRF:
 ```
 ?url=https://attacker.com/
 ?webhook=https://attacker.com/
@@ -530,14 +530,14 @@ http://kubernetes.default.svc/api/v1/namespaces/default/secrets
 ?import=https://attacker.com/data.json
 ```
 
-**Detection:**
+Detection:
 - Identify API parameters that accept URLs, hostnames, or IP addresses
 - Use Burp Collaborator or interactsh to detect blind SSRF (DNS callbacks)
 - Test with `http://127.0.0.1/`, `http://localhost/`, cloud metadata IPs
 - Try URL scheme variations: `file://`, `dict://`, `gopher://`, `ftp://`
 - Test URL redirectors that might bypass IP allowlists
 
-**Mitigation:**
+Mitigation:
 - Validate URL schemes (allow only `https://`)
 - Enforce allowlist of permitted external domains
 - Block private IP ranges (RFC 1918) and metadata IPs at the network layer
@@ -546,12 +546,12 @@ http://kubernetes.default.svc/api/v1/namespaces/default/secrets
 
 ---
 
-### API8:2023 — Security Misconfiguration
+### API8:2023: Security Misconfiguration
 
-**Description:**
+Description:
 APIs are misconfigured at multiple layers: HTTP security headers, CORS policies, HTTP methods, TLS configuration, error messages, and cloud storage backing the API.
 
-**Common Misconfigurations:**
+Common Misconfigurations:
 
 *CORS misconfiguration:*
 ```
@@ -577,18 +577,18 @@ Allow: GET, POST, PUT, DELETE, TRACE, TRACK
 ```
 
 *Default/sample endpoints exposed:*
-- `/api/swagger-ui.html` — Swagger UI in production leaks full API spec
-- `/actuator/env` — Spring Boot actuator exposes environment variables
-- `/api/graphql/playground` — GraphQL playground enabled in production
+- `/api/swagger-ui.html`: Swagger UI in production leaks full API spec
+- `/actuator/env`: Spring Boot actuator exposes environment variables
+- `/api/graphql/playground`: GraphQL playground enabled in production
 
-**Detection:**
+Detection:
 - Run `nuclei -t misconfiguration/ -u https://api.target.com`
 - Test CORS with `Origin: https://evil.com` header
 - Request OPTIONS on all endpoints; audit allowed methods
 - Check for debug endpoints: `/debug`, `/test`, `/admin`, `/internal`
 - Scan TLS configuration with `testssl.sh` or `sslyze`
 
-**Mitigation:**
+Mitigation:
 ```python
 # Flask-CORS proper configuration
 from flask_cors import CORS
@@ -606,32 +606,32 @@ CORS(app, origins=['https://app.example.com'],
 
 ---
 
-### API9:2023 — Improper Inventory Management
+### API9:2023: Improper Inventory Management
 
-**Description:**
+Description:
 Organizations fail to maintain an accurate, up-to-date inventory of their API endpoints. This allows shadow APIs (unknown to security) and zombie APIs (deprecated but active) to persist in production without security controls.
 
-**Shadow API Discovery Techniques (attacker perspective):**
-- JavaScript source analysis — mobile/web apps reference API endpoints in JS bundles
-- APK decompilation — Android apps contain hardcoded API endpoints
+Shadow API Discovery Techniques (attacker perspective):
+- JavaScript source analysis: mobile/web apps reference API endpoints in JS bundles
+- APK decompilation: Android apps contain hardcoded API endpoints
 - Google dorking: `site:target.com inurl:/api/`
 - Shodan/Censys for IP ranges associated with the target
 - Git repository analysis for hardcoded endpoints
 - DNS enumeration: `api.`, `api-v2.`, `api-internal.`, `api-staging.`
 
-**Zombie API Indicators:**
+Zombie API Indicators:
 - API versions deprecated in documentation but still responding to requests
 - Endpoints that return 200 for requests to `v1/` when `v3/` is current
 - Endpoints with `debug`, `test`, `old`, `legacy` in path
 - Services running on non-standard ports discovered through network scanning
 
-**Detection:**
+Detection:
 - Continuously crawl/monitor all subdomains for API endpoints
 - Track API versions deployed in each environment
 - Compare API gateway routing table to actual deployed endpoints
 - Monitor for endpoints that receive traffic but aren't in the API catalog
 
-**Mitigation:**
+Mitigation:
 - Implement an API catalog/registry (e.g., Backstage, Akto, Kong Dev Portal)
 - Enforce API gateway as the single entry point (block direct service access)
 - Sunset policy: hard-delete zombie API versions after deprecation window
@@ -639,12 +639,12 @@ Organizations fail to maintain an accurate, up-to-date inventory of their API en
 
 ---
 
-### API10:2023 — Unsafe Consumption of APIs
+### API10:2023: Unsafe Consumption of APIs
 
-**Description:**
+Description:
 New in 2023, this category addresses the supply chain risk of APIs consuming data from third-party or partner APIs. When an application trusts data from external APIs without validation, attackers who compromise those external APIs can inject malicious data into the consuming application.
 
-**Attack Scenario:**
+Attack Scenario:
 ```
 1. Application uses third-party geocoding API to convert addresses to coordinates
 2. Attacker compromises geocoding API (or performs BGP hijack/DNS poisoning)
@@ -653,19 +653,19 @@ New in 2023, this category addresses the supply chain risk of APIs consuming dat
 5. SQL injection via third-party API data
 ```
 
-**Common Third-Party API Trust Issues:**
+Common Third-Party API Trust Issues:
 - OAuth providers returning user data that's injected into queries without sanitization
 - Payment gateway webhooks trusted without signature verification
 - Shipping API responses containing HTML stored and rendered without escaping
 - AI/ML API outputs used in code execution or file operations
 
-**Detection:**
+Detection:
 - Inventory all third-party API integrations
 - Test third-party API data handling: can you inject payloads via data the app fetches?
 - Review webhook handlers for signature verification
 - Check if third-party API failures cause cascading failures
 
-**Mitigation:**
+Mitigation:
 - Validate and sanitize ALL external API responses as untrusted input
 - Verify webhook signatures (HMAC-SHA256) before processing
 - Implement circuit breakers for third-party API failures
@@ -706,13 +706,13 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...
 
 JSON Web Tokens are ubiquitous in API authentication and are a rich source of vulnerabilities.
 
-**JWT Structure:**
+JWT Structure:
 ```
 header.payload.signature
 eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxMDQyIiwiZXhwIjoxNzA5MDAwMDAwfQ.signature
 ```
 
-**Algorithm Confusion Attacks:**
+Algorithm Confusion Attacks:
 
 *None Algorithm (CVE-class):*
 ```python
@@ -723,7 +723,7 @@ malicious_payload = {"sub": "admin", "role": "superuser"}
 malicious_token = jwt.encode(malicious_payload, "", algorithm="none")
 ```
 
-*RS256 → HS256 Confusion:*
+*RS256 -> HS256 Confusion:*
 If a server uses RS256 (asymmetric), the public key is often obtainable. If the server can be tricked into accepting HS256, the attacker signs the token with the public key as the HMAC secret.
 
 ```python
@@ -756,7 +756,7 @@ Attacker embeds their own JWK in the token header; vulnerable servers use this e
 // SQL injection via kid parameter
 ```
 
-**JWT Validation Checklist:**
+JWT Validation Checklist:
 ```python
 import jwt
 from jwt.exceptions import InvalidTokenError
@@ -783,7 +783,7 @@ def validate_jwt(token: str, expected_audience: str) -> dict:
         raise HTTPException(401, f"Invalid token: {e}")
 ```
 
-**JWT Attack Tool — jwt_tool:**
+JWT Attack Tool — jwt_tool:
 ```bash
 # Install
 git clone https://github.com/ticarpi/jwt_tool
@@ -803,7 +803,7 @@ python3 jwt_tool.py <token> -T -S hs256 -p secret
 
 ### OAuth 2.0 Flows for APIs
 
-**Client Credentials Flow** (machine-to-machine, no user context):
+Client Credentials Flow (machine-to-machine, no user context):
 ```http
 POST /oauth/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
@@ -816,7 +816,7 @@ grant_type=client_credentials
 → {"access_token": "...", "token_type": "bearer", "expires_in": 3600}
 ```
 
-**Authorization Code + PKCE Flow** (user-delegated access):
+Authorization Code + PKCE Flow (user-delegated access):
 ```python
 import secrets, hashlib, base64
 
@@ -848,11 +848,11 @@ token_response = requests.post("https://auth.example.com/oauth/token", data={
 })
 ```
 
-**OAuth 2.0 Attack Surface:**
-- **Open redirect in redirect_uri:** `redirect_uri=https://attacker.com/` steals auth code
-- **State parameter CSRF:** Missing/unpredictable state enables CSRF on OAuth flow
-- **Token leakage via Referer:** Authorization code in URL leaks in Referer header
-- **Token substitution:** Reuse access token from one client at another client's API
+OAuth 2.0 Attack Surface:
+- Open redirect in redirect_uri: `redirect_uri=https://attacker.com/` steals auth code
+- State parameter CSRF: Missing/unpredictable state enables CSRF on OAuth flow
+- Token leakage via Referer: Authorization code in URL leaks in Referer header
+- Token substitution: Reuse access token from one client at another client's API
 
 ### HTTPS Enforcement
 
@@ -923,7 +923,7 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         return response
 ```
 
-**CORS Policy for APIs:**
+CORS Policy for APIs:
 ```python
 # Express.js API CORS
 const cors = require('cors');
@@ -970,13 +970,13 @@ GraphQL's introspection system allows clients to query the schema itself — dis
 }
 ```
 
-**Why introspection is dangerous in production:**
+Why introspection is dangerous in production:
 - Reveals all available queries, mutations, and subscriptions
 - Exposes field names that may reveal sensitive business logic
 - Allows automated attack tool generation (InQL, GraphQL Voyager)
 - Shows deprecated fields (potential zombie API paths)
 
-**Disabling introspection:**
+Disabling introspection:
 ```javascript
 // Apollo Server
 const server = new ApolloServer({
@@ -993,7 +993,7 @@ const isIntrospectionAllowed = rule()(async (parent, args, ctx) => {
 });
 ```
 
-**Note:** Even with introspection disabled, attackers can use field suggestion responses (GraphQL returns "Did you mean X?" for typos) to enumerate field names. Disable these too.
+Note: Even with introspection disabled, attackers can use field suggestion responses (GraphQL returns "Did you mean X?" for typos) to enumerate field names. Disable these too.
 
 ### Query Depth Limiting
 
@@ -1111,7 +1111,7 @@ GraphQL allows multiple operations in a single request via batching and aliases:
 }
 ```
 
-**Mitigations:**
+Mitigations:
 ```javascript
 // Disable batching
 const server = new ApolloServer({
@@ -1146,21 +1146,21 @@ if (!persistedQueries[req.body.extensions?.persistedQuery?.sha256Hash]) {
 
 ### GraphQL Security Tools
 
-**GraphQL Voyager:** Visual schema explorer — converts introspection results into interactive graph diagram, ideal for understanding attack surface.
+GraphQL Voyager: Visual schema explorer — converts introspection results into interactive graph diagram, ideal for understanding attack surface.
 
-**graphql-cop:**
+graphql-cop:
 ```bash
 pip install graphql-cop
 graphql-cop -t https://api.target.com/graphql
 # Tests: introspection, field suggestions, batching, query depth, aliases
 ```
 
-**InQL (Burp Suite Extension):**
+InQL (Burp Suite Extension):
 - Generates GraphQL query templates from introspection
 - Integrates with Burp Scanner for automated testing
 - Supports custom authentication headers
 
-**Altair GraphQL Client:**
+Altair GraphQL Client:
 - Open-source alternative to GraphQL Playground
 - Supports auth headers, environments, query history
 - Plugin system for security testing extensions
@@ -1194,14 +1194,14 @@ gRPC uses Protocol Buffers (Protobuf) — a binary serialization format defined 
 
 | Aspect | JSON | Protobuf/gRPC |
 |--------|------|---------------|
-| **Format** | Human-readable text | Binary (not human-readable) |
-| **Schema** | Optional (OAS) | Mandatory (`.proto`) |
-| **Type safety** | Loose | Strict |
-| **Size** | Larger (verbose) | 3-10x smaller |
-| **Speed** | Slower parsing | Faster parsing |
-| **Security** | Schema-less = mass assignment risk | Schema enforces field types |
+| Format | Human-readable text | Binary (not human-readable) |
+| Schema | Optional (OAS) | Mandatory (`.proto`) |
+| Type safety | Loose | Strict |
+| Size | Larger (verbose) | 3-10x smaller |
+| Speed | Slower parsing | Faster parsing |
+| Security | Schema-less = mass assignment risk | Schema enforces field types |
 
-**`.proto` schema example:**
+`.proto` schema example:
 ```protobuf
 syntax = "proto3";
 package user.v1;
@@ -1326,7 +1326,7 @@ server = grpc.server(
 )
 ```
 
-### gRPC Reflection — Disable in Production
+### gRPC Reflection: Disable in Production
 
 gRPC reflection is the equivalent of GraphQL introspection — it exposes service definitions to any client:
 
@@ -1341,7 +1341,7 @@ grpcurl -plaintext api.target.com:50051 list
 grpcurl -plaintext api.target.com:50051 describe user.v1.UserService
 ```
 
-**Disabling reflection:**
+Disabling reflection:
 ```python
 # Python: Only register reflection in development
 from grpc_reflection.v1alpha import reflection
@@ -1377,7 +1377,7 @@ go install github.com/AdamKorcz/go-fuzz-headers/...
 python3 grpc_fuzzer.py --target api.example.com:50051   --service user.v1.UserService   --method GetUser   --proto user.proto
 ```
 
-**Protobuf-specific fuzz targets:**
+Protobuf-specific fuzz targets:
 - Integer overflow in `int32`/`int64` fields
 - Very long strings in `string` fields
 - Deeply nested `message` types (parser recursion)
@@ -1390,7 +1390,7 @@ python3 grpc_fuzzer.py --target api.example.com:50051   --service user.v1.UserSe
 
 ### Rate Limiting Algorithms
 
-**Token Bucket:**
+Token Bucket:
 ```
 Capacity: 100 tokens
 Refill rate: 10 tokens/second
@@ -1399,7 +1399,7 @@ Burst: Yes (up to 100 requests instantly)
 ```
 Best for: APIs that need to allow legitimate bursts (search, batch operations)
 
-**Leaky Bucket:**
+Leaky Bucket:
 ```
 Queue capacity: 100 requests
 Drain rate: 10 requests/second
@@ -1408,7 +1408,7 @@ Burst: No (smoothed to constant rate)
 ```
 Best for: Backend protection against thundering herd
 
-**Sliding Window Counter:**
+Sliding Window Counter:
 ```python
 import redis
 from datetime import datetime
@@ -1425,7 +1425,7 @@ def check_rate_limit(user_id: str, limit: int = 100, window: int = 60) -> bool:
     return result[0] <= limit
 ```
 
-**Multi-Tier Rate Limiting:**
+Multi-Tier Rate Limiting:
 ```yaml
 # Kong rate limiting plugin configuration
 plugins:
@@ -1461,7 +1461,7 @@ plugins:
       anonymous: null  # Reject unauthenticated requests
 ```
 
-**Token Revocation via Redis Blocklist:**
+Token Revocation via Redis Blocklist:
 ```python
 import redis
 
@@ -1539,10 +1539,10 @@ class IPFilterMiddleware:
 
 Modern API-aware WAFs go beyond OWASP Core Rule Set (CRS) signature matching:
 
-- **Positive security model:** Only allow requests matching the OpenAPI schema (block anything else)
-- **JSON/XML parsing:** Inspect request bodies for injection patterns
-- **API schema validation:** Reject requests with unexpected parameters or formats
-- **Bot detection:** JavaScript challenges, TLS fingerprinting (JA3), behavioral analysis
+- Positive security model: Only allow requests matching the OpenAPI schema (block anything else)
+- JSON/XML parsing: Inspect request bodies for injection patterns
+- API schema validation: Reject requests with unexpected parameters or formats
+- Bot detection: JavaScript challenges, TLS fingerprinting (JA3), behavioral analysis
 
 ```yaml
 # AWS API Gateway + WAF integration
@@ -1612,7 +1612,7 @@ class APILoggingMiddleware:
 
 ### Gateway Configuration Examples
 
-**Kong (open-source):**
+Kong (open-source):
 ```bash
 # Install plugins
 kubectl apply -f https://bit.ly/kong-ingress-controller
@@ -1634,7 +1634,7 @@ config:
   policy: redis
 ```
 
-**AWS API Gateway:**
+AWS API Gateway:
 ```python
 # CDK: API Gateway with Lambda authorizer + throttling
 api = apigateway.RestApi(self, "SecureApi",
@@ -1651,7 +1651,7 @@ api = apigateway.RestApi(self, "SecureApi",
 )
 ```
 
-**Azure API Management:**
+Azure API Management:
 ```xml
 <!-- APIM Policy: JWT validation + rate limiting -->
 <policies>
@@ -1674,15 +1674,15 @@ api = apigateway.RestApi(self, "SecureApi",
 
 ### Overview
 
-**Akto** (https://github.com/akto-api-security/akto) is an open-source API security testing platform that provides:
+Akto (https://github.com/akto-api-security/akto) is an open-source API security testing platform that provides:
 
-- **Automatic API discovery** from production traffic
-- **Security posture assessment** with 150+ built-in test templates
-- **CI/CD integration** for shift-left API security testing
-- **Sensitive data detection** in API request/response traffic
-- **Runtime API discovery** via eBPF kernel-level traffic capture
+- Automatic API discovery from production traffic
+- Security posture assessment with 150+ built-in test templates
+- CI/CD integration for shift-left API security testing
+- Sensitive data detection in API request/response traffic
+- Runtime API discovery via eBPF kernel-level traffic capture
 
-**Architecture:**
+Architecture:
 ```
 Traffic Sources → Akto Traffic Processor → API Inventory
                                         ↓
@@ -1708,12 +1708,12 @@ docker-compose up -d
 aws ec2 create-traffic-mirror-session   --network-interface-id eni-xxx   --traffic-mirror-target-id tmt-yyy   --traffic-mirror-filter-id tmf-zzz
 ```
 
-**Discovery Sources:**
-- **AWS/GCP/Azure traffic mirroring:** Copy packets from production without impacting traffic
-- **Nginx/HAProxy access logs:** Parse logs to reconstruct API inventory
-- **Burp Suite integration:** Forward Burp proxy traffic to Akto
-- **eBPF agents:** Kernel-level packet capture for any service without proxy insertion
-- **OpenAPI import:** Seed inventory from existing API specs
+Discovery Sources:
+- AWS/GCP/Azure traffic mirroring: Copy packets from production without impacting traffic
+- Nginx/HAProxy access logs: Parse logs to reconstruct API inventory
+- Burp Suite integration: Forward Burp proxy traffic to Akto
+- eBPF agents: Kernel-level packet capture for any service without proxy insertion
+- OpenAPI import: Seed inventory from existing API specs
 
 ### Security Test Templates
 
@@ -1721,14 +1721,14 @@ Akto's 150+ built-in test templates cover:
 
 | Category | Test Examples |
 |----------|---------------|
-| **BOLA/IDOR** | Object ID substitution, horizontal privilege escalation |
-| **Authentication bypass** | Remove auth header, expired token, malformed JWT |
-| **Injection** | SQL injection in API params, XSS via API, command injection |
-| **Rate limiting** | Send 500 requests/minute, test for 429 response |
-| **Mass assignment** | Add `role`, `admin`, `is_staff` to update requests |
-| **Sensitive data** | SSN, credit card, password in responses |
-| **Security headers** | CORS, HSTS, CSP presence |
-| **Broken object property** | Access fields beyond user's scope |
+| BOLA/IDOR | Object ID substitution, horizontal privilege escalation |
+| Authentication bypass | Remove auth header, expired token, malformed JWT |
+| Injection | SQL injection in API params, XSS via API, command injection |
+| Rate limiting | Send 500 requests/minute, test for 429 response |
+| Mass assignment | Add `role`, `admin`, `is_staff` to update requests |
+| Sensitive data | SSN, credit card, password in responses |
+| Security headers | CORS, HSTS, CSP presence |
+| Broken object property | Access fields beyond user's scope |
 
 ### CI/CD Integration
 
@@ -1773,9 +1773,9 @@ Burp Proxy → Akto Extension → Akto Dashboard
                      Automated Test Triggers
 ```
 
-**Setup:**
+Setup:
 1. Download `akto-burp-plugin.jar` from GitHub releases
-2. Install in Burp: Extender → Extensions → Add → Select JAR
+2. Install in Burp: Extender -> Extensions -> Add -> Select JAR
 3. Configure Akto dashboard URL and API key in extension settings
 4. All Burp proxy traffic automatically populates Akto API inventory
 
@@ -1812,14 +1812,14 @@ validate:
 
 Akto scans API responses for PII and sensitive data patterns:
 
-- **Credit card numbers** (Luhn algorithm validation)
-- **Social Security Numbers** (XXX-XX-XXXX pattern)
-- **JWT tokens** in responses (potential token leakage)
-- **Private keys** (BEGIN RSA PRIVATE KEY)
-- **AWS credentials** (AKIA... pattern)
-- **Password fields** in API responses
-- **Email addresses** in unexpected contexts
-- **Phone numbers** (multiple international formats)
+- Credit card numbers (Luhn algorithm validation)
+- Social Security Numbers (XXX-XX-XXXX pattern)
+- JWT tokens in responses (potential token leakage)
+- Private keys (BEGIN RSA PRIVATE KEY)
+- AWS credentials (AKIA... pattern)
+- Password fields in API responses
+- Email addresses in unexpected contexts
+- Phone numbers (multiple international formats)
 
 ### Runtime Discovery via eBPF
 
@@ -1851,9 +1851,9 @@ Phase 6: BUSINESS LOGIC → Test rate limits, abuse flows, chaining
 Phase 7: REPORT        → Document findings with PoC
 ```
 
-### Phase 1: Discover — Find API Endpoints
+### Phase 1: Discover: Find API Endpoints
 
-**Google Dorks:**
+Google Dorks:
 ```
 site:target.com inurl:"/api/"
 site:target.com inurl:"/v1/" OR inurl:"/v2/"
@@ -1862,7 +1862,7 @@ site:target.com "swagger.json" OR "openapi.json"
 "api.target.com" site:github.com  # Leaked API references
 ```
 
-**Shodan/Censys:**
+Shodan/Censys:
 ```bash
 # Shodan: Find API servers for organization
 shodan search 'org:"Target Corp" http.title:"API"'
@@ -1872,7 +1872,7 @@ shodan search 'ssl:"target.com" http.component:"swagger"'
 censys search 'parsed.subject.common_name: "*.target.com"'
 ```
 
-**JavaScript Source Analysis:**
+JavaScript Source Analysis:
 ```bash
 # Extract API endpoints from minified JS bundles
 # Using LinkFinder
@@ -1885,7 +1885,7 @@ gf endpoints js_files.txt
 # Chrome DevTools → Network → Filter XHR/Fetch → Export HAR
 ```
 
-**APK Analysis:**
+APK Analysis:
 ```bash
 # Decompile Android APK for hardcoded API endpoints
 apktool d target-app.apk
@@ -1897,7 +1897,7 @@ frida-ps -Ua  # List running apps on connected device
 objection -g com.target.app explore
 ```
 
-**DNS Enumeration:**
+DNS Enumeration:
 ```bash
 # Subfinder for subdomain discovery
 subfinder -d target.com | grep -E "^api|^api-|^apis"
@@ -1910,9 +1910,9 @@ staging-api.target.com
 dev-api.target.com
 ```
 
-### Phase 2: Enumerate — API Surface Mapping
+### Phase 2: Enumerate: API Surface Mapping
 
-**OpenAPI Spec Locations:**
+OpenAPI Spec Locations:
 ```
 /swagger.json
 /swagger.yaml
@@ -1925,7 +1925,7 @@ dev-api.target.com
 /.well-known/openid-configuration  (OAuth/OIDC)
 ```
 
-**kiterunner — API Route Brute Force:**
+kiterunner — API Route Brute Force:
 ```bash
 # Install kiterunner
 go install github.com/assetnote/kiterunner@latest
@@ -1938,7 +1938,7 @@ kr kb convert swagger.json -o swagger.kite
 kr scan https://api.target.com -w swagger.kite
 ```
 
-**Arjun — Parameter Discovery:**
+Arjun — Parameter Discovery:
 ```bash
 # Discover hidden GET/POST parameters
 arjun -u https://api.target.com/v1/search
@@ -1947,7 +1947,7 @@ arjun -u https://api.target.com/v1/users -m POST   -H "Authorization: Bearer $TO
 # Arjun output: discovered params like ?admin=, ?debug=, ?internal=
 ```
 
-**ffuf — Endpoint Fuzzing:**
+ffuf — Endpoint Fuzzing:
 ```bash
 # Fuzz API version numbers
 ffuf -u https://api.target.com/FUZZ/users   -w versions.txt \  # v1, v2, v3, alpha, beta, internal
@@ -1958,9 +1958,9 @@ ffuf -u https://api.target.com/api/FUZZ   -w api_wordlist.txt   -H "Authorizatio
   -fc 404 -t 50
 ```
 
-### Phase 3: Authenticate — Token Analysis
+### Phase 3: Authenticate: Token Analysis
 
-**JWT Analysis:**
+JWT Analysis:
 ```bash
 # Decode and analyze JWT without verification
 jwt_tool eyJhbGc... -d  # Decode
@@ -1979,7 +1979,7 @@ jwt_tool eyJhbGc... -T -S hs256 -p "crackedsecret"
 # Modify {"role": "user"} → {"role": "admin"} in interactive editor
 ```
 
-**API Key Discovery:**
+API Key Discovery:
 ```bash
 # Check common API key locations
 curl -i https://api.target.com/  # Headers: X-API-Key?
@@ -1990,9 +1990,9 @@ curl -I https://api.target.com/swagger.json  # API key in spec?
 trufflehog github --org=targetcorp --only-verified
 ```
 
-### Phase 4: Authorize — BOLA and BFLA Testing
+### Phase 4: Authorize: BOLA and BFLA Testing
 
-**BOLA Testing Methodology:**
+BOLA Testing Methodology:
 ```python
 # Automated BOLA testing script
 import requests
@@ -2015,7 +2015,7 @@ for order_id in victim_order_ids:
         print(r.json())
 ```
 
-**BFLA Testing:**
+BFLA Testing:
 ```bash
 # Test HTTP methods on all discovered endpoints
 for endpoint in $(cat endpoints.txt); do
@@ -2026,9 +2026,9 @@ for endpoint in $(cat endpoints.txt); do
 done | grep -v "404\|405"  # Show only interesting responses
 ```
 
-### Phase 5: Fuzz — Input Validation Testing
+### Phase 5: Fuzz: Input Validation Testing
 
-**Burp Intruder for Mass Assignment:**
+Burp Intruder for Mass Assignment:
 ```
 1. Capture API update request in Burp
 2. Send to Intruder
@@ -2037,7 +2037,7 @@ done | grep -v "404\|405"  # Show only interesting responses
 5. Check which fields are accepted (200 response vs. ignored)
 ```
 
-**wfuzz for Parameter Fuzzing:**
+wfuzz for Parameter Fuzzing:
 ```bash
 # Fuzz parameter values for injection
 wfuzz -c -z file,/usr/share/wordlists/injection.txt   -H "Authorization: Bearer $TOKEN"   -H "Content-Type: application/json"   -d '{"user_id": "FUZZ"}'   --sc 200   https://api.target.com/v1/users/lookup
@@ -2045,11 +2045,11 @@ wfuzz -c -z file,/usr/share/wordlists/injection.txt   -H "Authorization: Bearer 
 
 ### Mass Assignment Testing Methodology
 
-1. **Identify updatable endpoints:** `PUT /api/users/profile`, `PATCH /api/account`
-2. **Get the object via GET** to see all field names in the response
-3. **Add each field to the update request** (especially role, admin, permissions, balance)
-4. **Check if extra fields are silently accepted** (200 OK with modified data) vs. rejected (400/422)
-5. **Compare field values** before and after update request
+1. Identify updatable endpoints: `PUT /api/users/profile`, `PATCH /api/account`
+2. Get the object via GET to see all field names in the response
+3. Add each field to the update request (especially role, admin, permissions, balance)
+4. Check if extra fields are silently accepted (200 OK with modified data) vs. rejected (400/422)
+5. Compare field values before and after update request
 
 ```bash
 # Step 1: Get current user object
@@ -2104,7 +2104,7 @@ nettacker -i api.target.com   -m api_vuln,http_options,cors_vuln,jwt_weak   --ti
 
 ### OpenAPI Spec Linting with Spectral
 
-**Spectral** (by Stoplight) is a JSON/YAML linter for OpenAPI specs with security-focused rule sets.
+Spectral (by Stoplight) is a JSON/YAML linter for OpenAPI specs with security-focused rule sets.
 
 ```bash
 # Install Spectral
@@ -2114,7 +2114,7 @@ npm install -g @stoplight/spectral-cli
 spectral lint openapi.yaml --ruleset @stoplight/spectral-owasp-rules
 ```
 
-**Custom security ruleset (`.spectral.yaml`):**
+Custom security ruleset (`.spectral.yaml`):
 ```yaml
 extends: ["spectral:oas", "@stoplight/spectral-owasp-rules"]
 rules:
@@ -2169,7 +2169,7 @@ api-audit audit openapi.yaml --output results.json
 # - Proper HTTP method usage
 ```
 
-**42Crunch Audit Score:** Endpoints are scored 0-100; scores below 75 indicate critical issues. Common failures:
+42Crunch Audit Score: Endpoints are scored 0-100; scores below 75 indicate critical issues. Common failures:
 - Missing `minLength`/`maxLength` on string parameters
 - No schema defined for request bodies
 - Missing authentication on endpoints
@@ -2177,7 +2177,7 @@ api-audit audit openapi.yaml --output results.json
 
 ### DAST for APIs in Pipeline
 
-**OWASP ZAP API Scan:**
+OWASP ZAP API Scan:
 ```yaml
 # GitHub Actions: ZAP API scan
 - name: ZAP API Scan
@@ -2195,7 +2195,7 @@ api-audit audit openapi.yaml --output results.json
 docker run -v $(pwd):/zap/wrk/:rw   -t ghcr.io/zaproxy/zaproxy:stable   zap-api-scan.py   -t https://staging-api.example.com   -f openapi   -I   -r api_scan_report.html   -J api_scan_report.json
 ```
 
-**Akto CI Integration:**
+Akto CI Integration:
 ```yaml
 # Akto security scan in GitHub Actions
 - name: Akto API Security Scan
@@ -2252,15 +2252,15 @@ describe('User API', () => {
 });
 ```
 
-**Security value of contract testing:**
+Security value of contract testing:
 - Documents which fields are expected in API responses
 - Detects when sensitive fields are accidentally added to responses
 - Catches breaking changes to authentication requirements
 - Validates error response formats
 
-### RESTler — Stateful REST API Fuzzing
+### RESTler: Stateful REST API Fuzzing
 
-**RESTler** (Microsoft Research) is the first stateful REST API fuzzer. It analyzes OpenAPI specs and generates test sequences that chain multiple API calls:
+RESTler (Microsoft Research) is the first stateful REST API fuzzer. It analyzes OpenAPI specs and generates test sequences that chain multiple API calls:
 
 ```bash
 # Install RESTler
@@ -2279,7 +2279,7 @@ docker run -v $(pwd):/src mcr.microsoft.com/restler:latest   dotnet /RESTler/res
 # - Tests invalid state transitions
 ```
 
-**RESTler finds:**
+RESTler finds:
 - Use-after-delete (zombie object access)
 - Race conditions in resource creation
 - Inconsistent state handling
@@ -2306,12 +2306,12 @@ docker run -v $(pwd):/src mcr.microsoft.com/restler:latest   dotnet /RESTler/res
 
 | Versioning Strategy | Security Risk | Mitigation |
 |--------------------|---------------|------------|
-| **URL versioning** (`/v1/`, `/v2/`) | Zombie endpoints (v1 still live) | Hard sunset v1 after 6 months; gate v1 access |
-| **Header versioning** (`API-Version: 2`) | Version stripping attacks (omit header → old behavior) | Default to most secure version, not oldest |
-| **Query param versioning** (`?version=2`) | Parameter logged in access logs | Prefer header or URL versioning |
-| **Subdomain versioning** (`v2.api.example.com`) | Certificate/WAF config drift between subdomains | Unified gateway for all versions |
+| URL versioning (`/v1/`, `/v2/`) | Zombie endpoints (v1 still live) | Hard sunset v1 after 6 months; gate v1 access |
+| Header versioning (`API-Version: 2`) | Version stripping attacks (omit header -> old behavior) | Default to most secure version, not oldest |
+| Query param versioning (`?version=2`) | Parameter logged in access logs | Prefer header or URL versioning |
+| Subdomain versioning (`v2.api.example.com`) | Certificate/WAF config drift between subdomains | Unified gateway for all versions |
 
-**Security rule:** New API versions must be at least as secure as deprecated versions. Never relax security constraints in a new version to maintain backward compatibility.
+Security rule: New API versions must be at least as secure as deprecated versions. Never relax security constraints in a new version to maintain backward compatibility.
 
 ---
 
@@ -2321,22 +2321,22 @@ docker run -v $(pwd):/src mcr.microsoft.com/restler:latest   dotnet /RESTler/res
 
 NIST Special Publication 800-204 covers security for microservice-based applications, with significant API-specific guidance:
 
-**SP 800-204A:** Building Secure Microservices-based Applications Using Service-Mesh Architecture
+SP 800-204A: Building Secure Microservices-based Applications Using Service-Mesh Architecture
 - Service mesh as security enforcement layer (Istio, Linkerd)
 - mTLS between all services by default
 - Authorization policies at sidecar proxy level
 
-**SP 800-204B:** Attribute-based Access Control for Microservices-based Applications Using a Service Mesh
+SP 800-204B: Attribute-based Access Control for Microservices-based Applications Using a Service Mesh
 - ABAC (Attribute-Based Access Control) implementation
 - Policy decision point (PDP) vs. policy enforcement point (PEP) separation
 - JWT claim-based authorization in service mesh
 
-**SP 800-204C:** Implementation of DevSecOps for a Microservices-based Application with Service Mesh
+SP 800-204C: Implementation of DevSecOps for a Microservices-based Application with Service Mesh
 - Security pipeline integration requirements
 - SAST, DAST, SCA for API services
 - Container image scanning, Kubernetes admission control
 
-**SP 800-204D:** Strategies and Guidance for Securing Application Programming Interfaces (APIs)
+SP 800-204D: Strategies and Guidance for Securing Application Programming Interfaces (APIs)
 - API inventory and governance requirements
 - Authentication and authorization patterns
 - API gateway as security control plane
@@ -2346,17 +2346,17 @@ NIST Special Publication 800-204 covers security for microservice-based applicat
 
 RFC 9700 (2024, updates RFC 6749) documents current OAuth 2.0 security best practices:
 
-**Key requirements:**
-- **PKCE mandatory** for all authorization code flows (including confidential clients)
-- **Exact redirect URI matching** — no pattern matching, wildcards prohibited
-- **State parameter** required for CSRF protection in all flows
-- **Access token binding** — sender-constrained tokens (mTLS certificate binding, DPoP)
-- **Refresh token rotation** — each use issues new refresh token, old one invalidated
-- **Token lifetime limits** — access tokens: max 5 minutes for high-value operations
-- **Implicit grant flow deprecated** — do not use
-- **Resource Owner Password Credentials flow deprecated** — do not use
+Key requirements:
+- PKCE mandatory for all authorization code flows (including confidential clients)
+- Exact redirect URI matching: no pattern matching, wildcards prohibited
+- State parameter required for CSRF protection in all flows
+- Access token binding: sender-constrained tokens (mTLS certificate binding, DPoP)
+- Refresh token rotation: each use issues new refresh token, old one invalidated
+- Token lifetime limits: access tokens: max 5 minutes for high-value operations
+- Implicit grant flow deprecated: do not use
+- Resource Owner Password Credentials flow deprecated: do not use
 
-**DPoP (Demonstrating Proof of Possession) — RFC 9449:**
+DPoP (Demonstrating Proof of Possession) — RFC 9449:
 ```http
 POST /token HTTP/1.1
 DPoP: eyJhbGciOiJFUzI1NiIsInR5cCI6ImRwb3Arand...
@@ -2406,9 +2406,9 @@ components:
       type: mutualTLS
 ```
 
-### API Runtime Monitoring — Anomaly Detection
+### API Runtime Monitoring: Anomaly Detection
 
-**Metrics to monitor:**
+Metrics to monitor:
 ```yaml
 # Prometheus metrics for API anomaly detection
 api_requests_total{method, endpoint, status_code, user_id}
@@ -2418,7 +2418,7 @@ api_rate_limit_hits_total{endpoint, user_id, limit_type}
 api_data_volume_bytes{endpoint, direction}  # Unusual data exfiltration
 ```
 
-**Alert rules:**
+Alert rules:
 ```yaml
 # Grafana/Prometheus alerting rules
 groups:
@@ -2463,50 +2463,50 @@ groups:
         summary: "Request to unregistered API endpoint — shadow API detected"
 ```
 
-### API Threat Modeling — STRIDE for APIs
+### API Threat Modeling: STRIDE for APIs
 
 Applying STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) to API endpoints:
 
 | STRIDE Threat | API Manifestation | Control |
 |--------------|-------------------|---------|
-| **Spoofing** | Token theft, JWT forgery, API key leakage | Strong auth, token binding, key rotation |
-| **Tampering** | Request body modification, parameter injection | Input validation, request signing (HMAC) |
-| **Repudiation** | Missing audit trail for sensitive operations | Comprehensive audit logging with user ID |
-| **Information Disclosure** | BOLA, excessive data exposure, verbose errors | Object-level authz, response filtering, generic errors |
-| **Denial of Service** | Resource exhaustion, large payloads, expensive queries | Rate limiting, payload limits, query complexity limits |
-| **Elevation of Privilege** | BFLA, mass assignment, JWT claim manipulation | RBAC enforcement, explicit allowlists, JWT validation |
+| Spoofing | Token theft, JWT forgery, API key leakage | Strong auth, token binding, key rotation |
+| Tampering | Request body modification, parameter injection | Input validation, request signing (HMAC) |
+| Repudiation | Missing audit trail for sensitive operations | Comprehensive audit logging with user ID |
+| Information Disclosure | BOLA, excessive data exposure, verbose errors | Object-level authz, response filtering, generic errors |
+| Denial of Service | Resource exhaustion, large payloads, expensive queries | Rate limiting, payload limits, query complexity limits |
+| Elevation of Privilege | BFLA, mass assignment, JWT claim manipulation | RBAC enforcement, explicit allowlists, JWT validation |
 
-**API threat model data flow diagram elements:**
-1. **External API Consumer** (mobile app, web SPA, third-party)
-2. **API Gateway** (rate limiting, auth validation, WAF)
-3. **API Service** (business logic, authorization)
-4. **Data Store** (database, cache, object storage)
-5. **External Service** (third-party API, payment processor)
+API threat model data flow diagram elements:
+1. External API Consumer (mobile app, web SPA, third-party)
+2. API Gateway (rate limiting, auth validation, WAF)
+3. API Service (business logic, authorization)
+4. Data Store (database, cache, object storage)
+5. External Service (third-party API, payment processor)
 
-Trust boundaries: External→Gateway, Gateway→Service, Service→DataStore
+Trust boundaries: External->Gateway, Gateway->Service, Service->DataStore
 
 ### Audit Logging Requirements
 
-**PCI DSS v4.0 — API Audit Requirements:**
+PCI DSS v4.0 — API Audit Requirements:
 - Log all access to cardholder data via APIs (Requirement 10.2)
 - Capture: user ID, date/time, action type, object accessed, originating IP
 - Log failures: failed authentication, privilege escalation attempts
 - Tamper-evident logs: write-once storage, integrity monitoring
 - Retention: 12 months minimum, 3 months immediately available
 
-**HIPAA — API Audit for PHI:**
+HIPAA — API Audit for PHI:
 - Audit controls for all ePHI access via APIs (§164.312(b))
 - Log who accessed what PHI, when, and from where
 - Activity review: regularly review API logs for suspicious access patterns
 - Retention: 6 years minimum
 
-**SOC 2 Type II — API Logging for CC7:**
+SOC 2 Type II — API Logging for CC7:
 - Log authentication events (success/failure) for all API calls
 - Monitor for unauthorized access attempts
 - Alert on anomalous access patterns
 - Evidence of log review for audit
 
-**Structured audit log format:**
+Structured audit log format:
 ```json
 {
   "timestamp": "2025-04-26T14:23:01.234Z",
@@ -2528,18 +2528,18 @@ Trust boundaries: External→Gateway, Gateway→Service, Service→DataStore
 }
 ```
 
-### MITRE ATT&CK — API-Relevant Techniques
+### MITRE ATT&CK: API-Relevant Techniques
 
 | Technique | ID | API Context | Detection Query |
 |-----------|-----|------------|-----------------|
-| **Exploit Public-Facing Application** | T1190 | OWASP API Top 10 exploitation | `status_code:500 AND endpoint:/api/ count > 10/min` |
-| **Network Service Discovery** | T1046 | API endpoint enumeration, port scanning | `status_code:404 AND unique_endpoints > 100/min/ip` |
-| **Valid Accounts** | T1078 | Credential stuffing, stolen JWT reuse | `auth_failures > 50/min OR token_reuse_different_ip` |
-| **Unsecured Credentials** | T1552 | API keys in git, environment variable exposure | `response_body contains /AKIA[A-Z0-9]{16}/` |
-| **Data from Cloud Storage** | T1530 | Misconfigured API exposing cloud storage | `endpoint:/presigned-url OR /s3/ AND data_bytes > 1MB` |
-| **Exfiltration Over Web Service** | T1567 | Large data export via API | `outbound_bytes > 10MB AND endpoint:/export/` |
+| Exploit Public-Facing Application | T1190 | OWASP API Top 10 exploitation | `status_code:500 AND endpoint:/api/ count > 10/min` |
+| Network Service Discovery | T1046 | API endpoint enumeration, port scanning | `status_code:404 AND unique_endpoints > 100/min/ip` |
+| Valid Accounts | T1078 | Credential stuffing, stolen JWT reuse | `auth_failures > 50/min OR token_reuse_different_ip` |
+| Unsecured Credentials | T1552 | API keys in git, environment variable exposure | `response_body contains /AKIA[A-Z0-9]{16}/` |
+| Data from Cloud Storage | T1530 | Misconfigured API exposing cloud storage | `endpoint:/presigned-url OR /s3/ AND data_bytes > 1MB` |
+| Exfiltration Over Web Service | T1567 | Large data export via API | `outbound_bytes > 10MB AND endpoint:/export/` |
 
-**API-Specific ATT&CK Detection Queries (Elasticsearch/Splunk):**
+API-Specific ATT&CK Detection Queries (Elasticsearch/Splunk):
 
 ```
 # Credential stuffing detection (Splunk)
@@ -2586,23 +2586,23 @@ api_requests
 
 | Tool | Category | Key Use Case |
 |------|----------|--------------|
-| **Postman** | Testing client | Manual API testing, collection-based automation |
-| **Insomnia** | Testing client | Open-source REST/GraphQL/gRPC testing |
-| **Burp Suite Pro** | Proxy/scanner | Intercept, modify, replay API requests; active scanning |
-| **ZAP** | DAST | Open-source automated API vulnerability scanning |
-| **jwt_tool** | JWT | JWT vulnerability testing (none alg, confusion, brute force) |
-| **Arjun** | Discovery | Hidden parameter discovery for API endpoints |
-| **kiterunner** | Discovery | API route brute forcing with curated wordlists |
-| **ffuf** | Fuzzing | Fast web fuzzer for endpoint and parameter discovery |
-| **RESTler** | Fuzzing | Stateful REST API fuzzing from OpenAPI spec |
-| **graphql-cop** | GraphQL | GraphQL security audit (introspection, batching, depth) |
-| **InQL** | GraphQL | GraphQL query generation and Burp integration |
-| **grpcurl** | gRPC | gRPC service enumeration and reflection testing |
-| **Akto** | Platform | Full API security platform: discovery, testing, CI/CD |
-| **42Crunch** | Linting | OpenAPI spec security audit and scoring |
-| **Spectral** | Linting | OpenAPI/AsyncAPI security rule linting |
-| **truffleHog** | Secrets | API key and secret scanning in git history |
-| **nuclei** | Scanner | Template-based API vulnerability scanning |
+| Postman | Testing client | Manual API testing, collection-based automation |
+| Insomnia | Testing client | Open-source REST/GraphQL/gRPC testing |
+| Burp Suite Pro | Proxy/scanner | Intercept, modify, replay API requests; active scanning |
+| ZAP | DAST | Open-source automated API vulnerability scanning |
+| jwt_tool | JWT | JWT vulnerability testing (none alg, confusion, brute force) |
+| Arjun | Discovery | Hidden parameter discovery for API endpoints |
+| kiterunner | Discovery | API route brute forcing with curated wordlists |
+| ffuf | Fuzzing | Fast web fuzzer for endpoint and parameter discovery |
+| RESTler | Fuzzing | Stateful REST API fuzzing from OpenAPI spec |
+| graphql-cop | GraphQL | GraphQL security audit (introspection, batching, depth) |
+| InQL | GraphQL | GraphQL query generation and Burp integration |
+| grpcurl | gRPC | gRPC service enumeration and reflection testing |
+| Akto | Platform | Full API security platform: discovery, testing, CI/CD |
+| 42Crunch | Linting | OpenAPI spec security audit and scoring |
+| Spectral | Linting | OpenAPI/AsyncAPI security rule linting |
+| truffleHog | Secrets | API key and secret scanning in git history |
+| nuclei | Scanner | Template-based API vulnerability scanning |
 
 ---
 

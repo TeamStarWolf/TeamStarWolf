@@ -1,12 +1,12 @@
 # AI Offensive Security Reference
 
-> **In one minute** — This is a field guide to how AI (large language models) has turned exploit writing from a specialist craft into something a moderately skilled attacker can direct at scale, and what defenders should do about it. It walks through the tools (Anthropic's internal Glasswing, the open-source Clearwing, EscalateGPT, PentestGPT and more), the benchmarks proving AI can exploit most known 1-day CVEs, and a concrete defensive playbook of patch SLAs, detection rules, and containment controls. Read it to understand the new attacker economics and to borrow the specific defenses and safe-use rules it lays out.
+> In one minute — This is a field guide to how AI (large language models) has turned exploit writing from a specialist craft into something a moderately skilled attacker can direct at scale, and what defenders should do about it. It walks through the tools (Anthropic's internal Glasswing, the open-source Clearwing, EscalateGPT, PentestGPT and more), the benchmarks proving AI can exploit most known 1-day CVEs, and a concrete defensive playbook of patch SLAs, detection rules, and containment controls. Read it to understand the new attacker economics and to borrow the specific defenses and safe-use rules it lays out.
 
 | | |
 |---|---|
-| **Read this when** | You are sizing up AI-assisted attack risk, tightening patch SLAs to match AI exploitation speed, or planning an authorized AI red team engagement |
-| **Start at** | [The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment) |
-| **Pairs with** | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+| Read this when | You are sizing up AI-assisted attack risk, tightening patch SLAs to match AI exploitation speed, or planning an authorized AI red team engagement |
+| Start at | [The AI Security Revolution](#section-1-the-ai-security-revolution), [Defending Against AI Attackers](#section-6-defending-against-ai-attackers), [Getting Started: Safe AI Security Assessment](#getting-started-safe-ai-security-assessment) |
+| Pairs with | [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md), [AI_MCP_SECURITY_REFERENCE.md](AI_MCP_SECURITY_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 
 ## Section 1: The AI Security Revolution
 
@@ -14,25 +14,25 @@
 
 The integration of large language models into offensive security workflows represents one of the most significant shifts in the threat landscape since the advent of automated vulnerability scanners. What began as speculative research has rapidly evolved into demonstrated capability, commercial products, and open-source tooling that places sophisticated exploit development within reach of a much broader range of actors.
 
-**2023 — GPT-4 and the CTF Baseline**
+2023 — GPT-4 and the CTF Baseline
 
 The first systematic public evidence emerged in 2023 when GPT-4 was evaluated against Capture-the-Flag challenges. Researchers found that GPT-4 could solve beginner-to-intermediate CTF challenges autonomously, including web exploitation, binary exploitation, and cryptographic challenges that previously required domain expertise. While success rates varied widely by challenge difficulty, the directional signal was clear: LLMs could reason about vulnerabilities, generate payloads, and adapt their approach based on error feedback. The key capability unlocked was the ability to combine background knowledge (CVE databases, exploit patterns, tool syntax) with dynamic reasoning in a feedback loop — the core loop of a human pentester.
 
-**April 2024 — UIUC Study: GPT-4 at 87% on 1-Day CVEs**
+April 2024 — UIUC Study: GPT-4 at 87% on 1-Day CVEs
 
 The landmark paper by Fang et al. from the University of Illinois Urbana-Champaign published in April 2024 quantified what many in the security community had suspected. Testing GPT-4 against a curated set of real-world 1-day CVEs (vulnerabilities with published patches but not yet widely patched in production), the researchers found an 87% exploitation success rate when GPT-4 was provided with the CVE description and access to a tool-augmented agent framework. GPT-3.5 achieved 0% on the same benchmark. The gap between model generations was not incremental — it was categorical. This study demonstrated that the capability threshold had been crossed: frontier AI models could reliably operationalize published vulnerability intelligence into working exploits without human assistance.
 
 The tested CVEs spanned web application vulnerabilities, privilege escalation chains, and service-level exploits. The methodology involved providing the model with the CVE identifier, a brief description, and access to a shell environment with common security tools. The model would then reason through the exploitation steps, execute commands, observe output, and iterate. The 87% figure represents end-to-end exploitation success: the model not only identified the correct exploitation technique but produced a working proof-of-concept.
 
-**2024 — Anthropic Glasswing**
+2024 — Anthropic Glasswing
 
 In 2024, Anthropic developed Glasswing, an internal autonomous penetration testing system built on Claude. Glasswing represented Anthropic's own exploration of AI-powered offensive security capabilities, designed to assess Anthropic's own infrastructure and provide a practical understanding of how frontier AI models could be applied to vulnerability discovery and exploitation. The system incorporated a multi-stage reasoning pipeline and human-in-the-loop guardrails to ensure containment and responsible operation. Glasswing's development signaled that leading AI labs were taking seriously the dual-use nature of their technology and investing in understanding its offensive applications.
 
-**2025 — Clearwing Open-Source Release**
+2025 — Clearwing Open-Source Release
 
 In 2025, Eric Hartford and the Lazarus AI team released Clearwing as an open-source autonomous penetration testing framework. Clearwing operationalized many of the concepts demonstrated in academic research and the Glasswing internal project, making them available to the broader security community. Built on a Rust LLM runtime and supporting over a dozen AI providers, Clearwing offered four distinct operational modes covering network penetration testing, source code vulnerability hunting, N-day exploit development, and reverse engineering. Its release democratized access to AI-powered security tooling in a manner comparable to how Metasploit democratized exploit frameworks two decades earlier.
 
-**2025–2026 — Commercial Autonomous Agent Products**
+2025-2026 — Commercial Autonomous Agent Products
 
 The commercial security market rapidly incorporated AI capabilities. CrowdStrike Charlotte AI, Microsoft Security Copilot, Splunk AI, Darktrace, and Vectra AI all introduced autonomous or semi-autonomous capabilities for both offensive (red team) and defensive (detection/response) applications. Specialized tools like EscalateGPT (Tenable) for cloud privilege escalation and cve-mcp-server for standardized vulnerability intelligence querying emerged as components in larger security automation workflows.
 
@@ -40,21 +40,21 @@ The commercial security market rapidly incorporated AI capabilities. CrowdStrike
 
 The significance of AI-powered offensive security tools lies not merely in their capability at the frontier, but in what they do to the economics and scaling dynamics of attacks.
 
-**Democratization of Exploit Development**
+Democratization of Exploit Development
 
 Prior to AI-assisted tooling, developing a working exploit for a complex vulnerability required deep domain expertise: understanding of memory layout, calling conventions, mitigation bypass techniques, and application-specific behavior. This expertise took years to develop and was concentrated in a small number of specialists. AI models trained on vast corpora of security research, exploit code, and tool documentation effectively compress this learning. A practitioner with moderate security knowledge can now direct an AI system to develop exploits that would previously have required senior-level expertise. This does not eliminate the need for expertise — it shifts it from exploit mechanics to higher-level direction and validation.
 
-**Infinite Scaling for Attackers**
+Infinite Scaling for Attackers
 
 Human attackers are rate-limited by time and attention. A skilled red teamer might assess one target thoroughly per week. An AI-powered attack system can run assessments against hundreds of targets simultaneously, 24 hours a day, without fatigue. Each instance maintains the same level of systematic thoroughness. When combined with cloud computing resources, this creates an asymmetry: the cost of scaling attacks approaches zero while the cost of defending each individual asset remains fixed.
 
-**The Defender's Dilemma**
+The Defender's Dilemma
 
 Defenders face a structural disadvantage that AI amplifies. A defender must protect every entry point; an attacker needs only one. AI tools make attackers more effective at the discovery phase (identifying all potential entry points) and the exploitation phase (rapidly developing working exploits after discovery). The window between vulnerability disclosure and exploitation, historically measured in days to weeks, is compressing toward hours. Organizations that cannot patch at machine speed face a period of exposure that AI-powered attackers can exploit with high probability of success.
 
 The defender's response must incorporate the same technologies: AI-powered patch prioritization, automated detection of AI-driven attack patterns, and authorized deployment of AI red team tools to discover vulnerabilities before attackers do. The security community's challenge is to ensure that defensive applications of AI develop at least as rapidly as offensive ones.
 
-## Section 2: Glasswing — Anthropic's Internal Penetration Testing AI
+## Section 2: Glasswing: Anthropic's Internal Penetration Testing AI
 
 ### What Glasswing Is
 
@@ -64,25 +64,25 @@ Unlike commercial security tools that add AI as a feature layer on top of existi
 
 ### Multi-Stage Reasoning Pipeline
 
-**Stage 1: Reconnaissance**
+Stage 1: Reconnaissance
 
 Glasswing begins with structured reconnaissance, querying available information sources about the target environment. In network penetration testing contexts, this includes service enumeration, banner grabbing, certificate inspection, and DNS analysis. In source code review contexts, it includes dependency analysis, entry point identification, and data flow mapping. The reconnaissance stage builds a structured model of the target that informs subsequent stages.
 
 The AI's advantage in reconnaissance is not speed (automated scanners can enumerate faster) but comprehension: Glasswing interprets reconnaissance results in context, identifying which findings are significant, which suggest specific vulnerability classes, and how different findings relate to each other. A human analyst reading scan output applies similar contextual reasoning; Glasswing applies it systematically at scale.
 
-**Stage 2: Vulnerability Identification**
+Stage 2: Vulnerability Identification
 
 Given the reconnaissance model, Glasswing reasons about potential vulnerability classes present in the target. This stage draws on Claude's training on security research, CVE databases, exploit writeups, and defensive documentation. The model generates hypotheses about vulnerabilities and prioritizes them by exploitability and impact.
 
 This stage benefits from Claude's broad knowledge base. When Glasswing identifies a specific software version, it can recall known vulnerabilities, patch history, and exploitation techniques associated with that version. When it identifies a code pattern, it can recognize vulnerability signatures that match known classes of flaws. The result is a vulnerability hypothesis set that reflects both current CVE intelligence and pattern-matched code analysis.
 
-**Stage 3: Exploitation**
+Stage 3: Exploitation
 
 For each prioritized vulnerability hypothesis, Glasswing develops an exploitation approach. This involves selecting appropriate tools, crafting payloads, and reasoning about the steps required to move from initial access to the defined objective. The exploitation stage is where Glasswing's agentic capabilities are most prominent: it executes tools, observes outputs, adapts its approach based on results, and maintains context across multiple steps.
 
 Glasswing's exploitation reasoning includes awareness of common mitigations (ASLR, DEP, stack canaries, WAF rules) and techniques to address them. It can reason about multi-step exploitation chains where initial access through one vulnerability enables exploitation of a second vulnerability that would otherwise be inaccessible.
 
-**Stage 4: Reporting**
+Stage 4: Reporting
 
 Glasswing generates structured reports documenting findings, exploitation paths, evidence, and remediation recommendations. Reports are formatted for both technical audiences (detailed exploitation steps, proof-of-concept code, root cause analysis) and management audiences (risk ratings, business impact, remediation priority). The reporting stage includes mapping findings to MITRE ATT&CK techniques and CWE categories.
 
@@ -106,7 +106,7 @@ The conceptual architecture of Glasswing — multi-stage pipeline, tool-augmente
 
 The broader ecosystem of AI security tools has converged on similar architectural patterns, suggesting that this design space has been well-explored and that the core patterns are both functional and practical for real-world deployment.
 
-## Section 3: Clearwing — Deep Technical Reference
+## Section 3: Clearwing: Deep Technical Reference
 
 ### Overview
 
@@ -118,16 +118,16 @@ The project is built on genai-pyo3, a Rust-based LLM runtime that provides high-
 
 Clearwing supports an extensive range of AI providers and deployment configurations:
 
-- **Anthropic** (Claude Opus, Sonnet, Haiku via API)
-- **OpenAI** (GPT-4o, GPT-4-turbo, GPT-3.5-turbo via API)
-- **OpenRouter** (aggregated access to 100+ models)
-- **Ollama** (local model deployment, privacy-preserving)
-- **LM Studio** (local model deployment with GUI)
-- **Together AI** (open-source model hosting)
-- **Groq** (ultra-low-latency inference)
-- **DeepSeek** (cost-effective reasoning models)
-- **Google Gemini** (multimodal capabilities)
-- **Any OpenAI-compatible endpoint** (self-hosted, fine-tuned models)
+- Anthropic (Claude Opus, Sonnet, Haiku via API)
+- OpenAI (GPT-4o, GPT-4-turbo, GPT-3.5-turbo via API)
+- OpenRouter (aggregated access to 100+ models)
+- Ollama (local model deployment, privacy-preserving)
+- LM Studio (local model deployment with GUI)
+- Together AI (open-source model hosting)
+- Groq (ultra-low-latency inference)
+- DeepSeek (cost-effective reasoning models)
+- Google Gemini (multimodal capabilities)
+- Any OpenAI-compatible endpoint (self-hosted, fine-tuned models)
 
 This provider flexibility allows practitioners to select models based on capability requirements, cost constraints, privacy requirements, and latency needs. For sensitive engagements, local Ollama or LM Studio deployments ensure no assessment data leaves the practitioner's infrastructure.
 
@@ -158,11 +158,11 @@ clearwing config set base_url http://localhost:11434
 
 The network penetration testing mode implements a full ReAct (Reasoning + Acting) loop for autonomous network security assessment. The agent operates against defined targets within explicit scope boundaries.
 
-**Architecture**
+Architecture
 
 The ReAct loop consists of alternating reasoning steps (the model thinks about what to do next based on current state) and action steps (the model executes a tool and observes the result). This loop continues until the agent reaches a defined objective, exhausts its approach space, or encounters a human approval checkpoint.
 
-**Tool Inventory (63 bound tools)**
+Tool Inventory (63 bound tools)
 
 Clearwing binds 63 security tools organized by function:
 
@@ -180,21 +180,21 @@ Clearwing binds 63 security tools organized by function:
 
 *Analysis Tools*: strings, binwalk, foremost, volatility (memory forensics), yara
 
-**Sandboxed Kali Execution**
+Sandboxed Kali Execution
 
 All tool execution occurs within a sandboxed Kali Linux environment. The sandbox provides isolation between the agent's execution environment and the practitioner's host system, preventing accidental scope expansion and ensuring consistent tool availability. The Kali environment includes the full Kali Linux tool repository, ensuring all 63 bound tools are available without additional installation.
 
-**Human Approval Guardrail**
+Human Approval Guardrail
 
 Before executing any tool classified as potentially exploitative or destructive, Clearwing presents the proposed action to the human operator for approval. The approval prompt includes the tool name, arguments, expected behavior, and the agent's reasoning for why this action is appropriate. The operator can approve, deny, or modify the action.
 
 This guardrail is architecturally enforced: exploitation-class tools cannot be executed without explicit approval. The distinction between reconnaissance tools (generally auto-approved based on configuration) and exploitation tools (always requiring approval) is defined in the tool registry and cannot be bypassed through prompt injection or other manipulation.
 
-**Knowledge Graph Persistence**
+Knowledge Graph Persistence
 
 Clearwing maintains a knowledge graph throughout the assessment, storing discovered hosts, services, vulnerabilities, credentials, relationships, and exploitation paths. This persistent state enables the agent to reason about multi-hop attack chains (e.g., "credential discovered on host A enables access to service on host B which has a known vulnerability leading to host C") and to resume interrupted assessments without losing context.
 
-**Report Generation**
+Report Generation
 
 At assessment completion, Clearwing generates structured reports in multiple formats: markdown (human-readable), JSON (machine-readable for integration with ticketing systems), and SARIF (Static Analysis Results Interchange Format for integration with CI/CD pipelines and IDE plugins). Reports include executive summary, technical findings, exploitation evidence, MITRE ATT&CK mapping, CVSS scores, and prioritized remediation recommendations.
 
@@ -202,53 +202,53 @@ At assessment completion, Clearwing generates structured reports in multiple for
 
 The source code hunting mode performs autonomous vulnerability discovery in source code repositories, combining static analysis with dynamic validation.
 
-**File-Parallel Agent Fan-Out**
+File-Parallel Agent Fan-Out
 
 For large codebases, Clearwing fans out analysis agents across files in parallel. Each agent instance analyzes a subset of files, maintaining awareness of the overall codebase structure through the shared knowledge graph. Results from parallel agents are aggregated and cross-referenced to identify cross-component vulnerabilities.
 
-**ASan/UBSan Crashes as Ground Truth**
+ASan/UBSan Crashes as Ground Truth
 
 Clearwing integrates with AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan) to validate hypothesized vulnerabilities dynamically. When the agent identifies a potential memory safety issue or undefined behavior, it generates test cases designed to trigger the condition and compiles the target with sanitizer instrumentation. Sanitizer crashes provide definitive ground truth: if the crash occurs, the vulnerability is real and triggerable.
 
-**Four-Axis Validator**
+Four-Axis Validator
 
 Each candidate vulnerability is evaluated on four axes before being included in the final report:
 
-1. **REAL**: Does the vulnerability exist in the codebase? (Static analysis confirmation)
-2. **TRIGGERABLE**: Can the vulnerability be triggered by an attacker? (Reachability analysis, input validation review)
-3. **IMPACTFUL**: Does successful exploitation have meaningful security impact? (Confidentiality/integrity/availability assessment)
-4. **GENERAL**: Is the vulnerability broadly exploitable or limited to narrow conditions? (Input space analysis)
+1. REAL: Does the vulnerability exist in the codebase? (Static analysis confirmation)
+2. TRIGGERABLE: Can the vulnerability be triggered by an attacker? (Reachability analysis, input validation review)
+3. IMPACTFUL: Does successful exploitation have meaningful security impact? (Confidentiality/integrity/availability assessment)
+4. GENERAL: Is the vulnerability broadly exploitable or limited to narrow conditions? (Input space analysis)
 
 Only vulnerabilities scoring positively on all four axes are classified as confirmed findings. Partial scores generate candidate findings requiring additional investigation.
 
-**Evidence Ladder**
+Evidence Ladder
 
 Clearwing tracks the evidence quality for each finding through a six-rung ladder:
 
-1. **suspicion**: Pattern match suggests potential vulnerability
-2. **static_corroboration**: Multiple static analysis indicators confirm the pattern
-3. **crash_reproduced**: Dynamic testing produces a sanitizer crash
-4. **root_cause_explained**: LLM analysis identifies the exact root cause and exploitation path
-5. **exploit_demonstrated**: Working proof-of-concept exploit developed and tested
-6. **patch_validated**: Proposed patch eliminates the vulnerability without regression
+1. suspicion: Pattern match suggests potential vulnerability
+2. static_corroboration: Multiple static analysis indicators confirm the pattern
+3. crash_reproduced: Dynamic testing produces a sanitizer crash
+4. root_cause_explained: LLM analysis identifies the exact root cause and exploitation path
+5. exploit_demonstrated: Working proof-of-concept exploit developed and tested
+6. patch_validated: Proposed patch eliminates the vulnerability without regression
 
 Findings are reported with their evidence ladder position, enabling triage teams to prioritize by confidence level.
 
-**Three-Band Budget Promotion**
+Three-Band Budget Promotion
 
 Clearwing manages computational budget across three bands:
 
-- **Fast band**: Static analysis, pattern matching, quick validation (seconds per finding)
-- **Standard band**: Dynamic testing, automated exploit development (minutes per finding)
-- **Deep band**: Manual-equivalent analysis, complex exploit chains, edge case validation (hours per finding)
+- Fast band: Static analysis, pattern matching, quick validation (seconds per finding)
+- Standard band: Dynamic testing, automated exploit development (minutes per finding)
+- Deep band: Manual-equivalent analysis, complex exploit chains, edge case validation (hours per finding)
 
 The system automatically promotes findings to higher bands based on initial evidence quality, ensuring that high-confidence findings receive thorough validation while not wasting budget on low-probability hypotheses.
 
-**SARIF/Markdown/JSON Output**
+SARIF/Markdown/JSON Output
 
 All source code hunting results are available in SARIF format for integration with GitHub Advanced Security, GitLab SAST, and other CI/CD security tooling. SARIF output includes finding location (file, line, column), severity, rule identifier, related locations (for multi-file vulnerabilities), and fix suggestions.
 
-**Cross-Subsystem Hunting**
+Cross-Subsystem Hunting
 
 Clearwing performs cross-subsystem vulnerability analysis, tracking data flows across module and component boundaries. This enables discovery of vulnerabilities that span multiple components: data entering through a web API layer, passing through a business logic layer, and triggering a memory safety issue in a low-level utility library.
 
@@ -256,18 +256,18 @@ Clearwing performs cross-subsystem vulnerability analysis, tracking data flows a
 
 The N-day exploit pipeline automates the development of working exploits for known CVEs, compressing the time from vulnerability publication to working exploit.
 
-**Pipeline Stages**
+Pipeline Stages
 
-1. **CVE Input**: Operator provides CVE identifier
-2. **Intelligence Gathering**: Clearwing queries NVD, MITRE, and vendor advisories for vulnerability details, affected versions, and patch information
-3. **Vulnerable Version Build**: Automatically constructs a Docker container running the vulnerable version of the affected software
-4. **Patch Diff Analysis**: Retrieves the patch commit and analyzes the diff to identify the exact code change addressing the vulnerability
-5. **Vulnerability Condition Reconstruction**: Reverse-engineers the vulnerable condition from the patch diff and CVE description
-6. **Exploit Development**: Develops a working exploit targeting the reconstructed vulnerable condition
-7. **Container Testing**: Tests the exploit against the containerized vulnerable version
-8. **Patch Validation**: Verifies the exploit fails against the patched version, confirming the exploit targets the correct vulnerability
+1. CVE Input: Operator provides CVE identifier
+2. Intelligence Gathering: Clearwing queries NVD, MITRE, and vendor advisories for vulnerability details, affected versions, and patch information
+3. Vulnerable Version Build: Automatically constructs a Docker container running the vulnerable version of the affected software
+4. Patch Diff Analysis: Retrieves the patch commit and analyzes the diff to identify the exact code change addressing the vulnerability
+5. Vulnerability Condition Reconstruction: Reverse-engineers the vulnerable condition from the patch diff and CVE description
+6. Exploit Development: Develops a working exploit targeting the reconstructed vulnerable condition
+7. Container Testing: Tests the exploit against the containerized vulnerable version
+8. Patch Validation: Verifies the exploit fails against the patched version, confirming the exploit targets the correct vulnerability
 
-**Timeline Compression**
+Timeline Compression
 
 This pipeline compresses what previously required days of expert effort into hours of automated processing. For common vulnerability classes (SQL injection, command injection, path traversal, simple buffer overflows), the pipeline achieves high success rates. For complex memory corruption vulnerabilities requiring advanced mitigation bypass, the pipeline generates a strong starting point requiring expert refinement.
 
@@ -275,11 +275,11 @@ This pipeline compresses what previously required days of expert effort into hou
 
 The reverse engineering mode combines static binary analysis with LLM-powered code reconstruction for vulnerability hunting in compiled binaries.
 
-**Ghidra Headless Integration**
+Ghidra Headless Integration
 
 Clearwing integrates with Ghidra's headless analyzer to decompile binary targets without requiring the Ghidra GUI. The decompiled output is fed to the LLM for source reconstruction and vulnerability analysis.
 
-**Hybrid Source+Binary Analysis**
+Hybrid Source+Binary Analysis
 
 When partial source code is available (e.g., open-source projects with binary distributions), Clearwing performs hybrid analysis combining source-level understanding with binary-level observation. This enables detection of vulnerabilities introduced during compilation or configuration that are not visible in the source alone.
 
@@ -313,11 +313,11 @@ Campaign runs support checkpoint and resume: if a run is interrupted, it restart
 
 Clearwing includes a complete responsible disclosure workflow:
 
-**SHA-3 Cryptographic Commitments**: When a vulnerability is discovered, Clearwing generates a SHA-3 hash commitment of the finding details and timestamps it. This provides cryptographic proof of discovery date for disputes about independent discovery.
+SHA-3 Cryptographic Commitments: When a vulnerability is discovered, Clearwing generates a SHA-3 hash commitment of the finding details and timestamps it. This provides cryptographic proof of discovery date for disputes about independent discovery.
 
-**MITRE/HackerOne Templates**: Clearwing generates pre-formatted vulnerability reports for MITRE CVE submission and HackerOne/Bugcrowd bug bounty platforms, reducing the friction of responsible disclosure.
+MITRE/HackerOne Templates: Clearwing generates pre-formatted vulnerability reports for MITRE CVE submission and HackerOne/Bugcrowd bug bounty platforms, reducing the friction of responsible disclosure.
 
-**Timeline Tracking**: The system tracks disclosure timeline milestones (discovery, vendor notification, vendor acknowledgment, patch release, public disclosure) and generates reminders for standard disclosure windows (typically 90 days).
+Timeline Tracking: The system tracks disclosure timeline milestones (discovery, vendor notification, vendor acknowledgment, patch release, public disclosure) and generates reminders for standard disclosure windows (typically 90 days).
 
 ## Section 4: Other AI Security Tools
 
@@ -325,15 +325,15 @@ Clearwing includes a complete responsible disclosure workflow:
 
 EscalateGPT is Tenable's AI-powered privilege escalation discovery tool for AWS Identity and Access Management (IAM) environments. It addresses one of the most practically significant attack surfaces in cloud infrastructure: the complex web of IAM permissions that, through non-obvious chains of policy applications and role assumptions, can enable unauthorized access escalation.
 
-**Core Capability**
+Core Capability
 
 EscalateGPT analyzes AWS IAM configurations, CloudFormation templates, and Terraform state files to identify privilege escalation paths. The AI component reasons about multi-hop escalation chains: sequences of permission grants that individually appear benign but collectively enable an attacker with limited initial access to achieve administrative-level control.
 
-**Why AI Is Necessary**
+Why AI Is Necessary
 
 IAM privilege escalation analysis requires reasoning about combinations of permissions across services, roles, policies, and conditions. The number of possible permission combinations in a real-world AWS environment is too large for exhaustive enumeration, and many escalation paths involve service-specific behaviors (e.g., iam:PassRole combined with specific service capabilities) that require contextual knowledge. LLMs trained on AWS documentation, IAM reference material, and known escalation technique databases can reason about these combinations effectively.
 
-**Integration**
+Integration
 
 EscalateGPT integrates with Tenable's broader cloud security posture management platform, correlating IAM findings with other misconfigurations and providing prioritized remediation recommendations in the context of the overall cloud security posture.
 
@@ -341,25 +341,25 @@ EscalateGPT integrates with Tenable's broader cloud security posture management 
 
 PentestGPT, developed by GreyDGL, is an LLM-powered penetration testing guidance system that augments human pentesters with AI reasoning assistance. Unlike fully autonomous tools, PentestGPT is designed as a collaborative tool: the human drives the assessment while the AI provides guidance, interpretation, and suggestions.
 
-**Task Tree Architecture**
+Task Tree Architecture
 
 PentestGPT maintains a dynamic task tree representing the current assessment state. Each node represents a task (e.g., "enumerate subdomains", "exploit discovered SQL injection", "escalate privileges on host X"). The AI reasons about the task tree to suggest next steps, identify gaps in coverage, and prioritize effort.
 
-**Context Management**
+Context Management
 
 A key challenge in AI-assisted penetration testing is context window management: assessments generate large volumes of output that quickly exceed model context limits. PentestGPT implements structured context summarization, maintaining a compressed representation of assessment state that preserves key findings while fitting within model context limits.
 
-**Use Cases**
+Use Cases
 
 PentestGPT is particularly useful for practitioners who have solid security knowledge but want AI assistance for: interpreting ambiguous tool output, suggesting exploitation approaches for unfamiliar vulnerability classes, reasoning about privilege escalation paths, and ensuring comprehensive coverage of assessment areas.
 
-**GitHub**: github.com/GreyDGL/PentestGPT
+GitHub: github.com/GreyDGL/PentestGPT
 
 ### cve-mcp-server (mukul975)
 
 cve-mcp-server is an MCP (Model Context Protocol) server that exposes 27 security tools to any MCP-compatible AI assistant, enabling direct integration of vulnerability intelligence and threat data into AI workflows.
 
-**Installation**
+Installation
 
 ```bash
 # Install via npm
@@ -378,7 +378,7 @@ npx cve-mcp-server
 }
 ```
 
-**Available Tools (27 total)**
+Available Tools (27 total)
 
 *CVE Intelligence*: search_cve (NVD full-text search), get_cve_details (complete CVE record), get_cve_by_product (product-specific CVE listing), get_recent_cves (recent disclosures), get_cve_statistics (trend analysis)
 
@@ -394,67 +394,67 @@ npx cve-mcp-server
 
 *Threat Intelligence*: get_threat_actors (threat actor database), get_malware_families (malware analysis), correlate_iocs (indicator correlation)
 
-**GitHub**: github.com/mukul975/cve-mcp-server
+GitHub: github.com/mukul975/cve-mcp-server
 
 ### Clawdstrike (backbay-labs)
 
 Clawdstrike is a runtime security enforcement framework for autonomous AI agent fleets, developed by backbay-labs. As AI agents are increasingly deployed in security-sensitive contexts, ensuring that these agents operate within authorized boundaries becomes critical.
 
-**Swarm Detection and Response**
+Swarm Detection and Response
 
 Clawdstrike monitors fleets of AI agents at runtime, detecting anomalous behavior patterns that suggest an agent has been compromised, manipulated through prompt injection, or has exceeded its authorized scope. Detection capabilities include: unusual tool call sequences, attempts to access resources outside defined scope, anomalous network connections, and behavioral patterns inconsistent with the agent's assigned task.
 
-**Enforcement Mechanisms**
+Enforcement Mechanisms
 
 When anomalous behavior is detected, Clawdstrike can: issue warnings to the operator, suspend the affected agent pending review, terminate the agent, or quarantine the agent's execution environment to prevent lateral spread. The enforcement response is configurable based on confidence level and severity.
 
-**Integration with AI Security Workflows**
+Integration with AI Security Workflows
 
 Clawdstrike is designed to wrap around AI agent frameworks (LangChain, CrewAI, AutoGPT, custom implementations) with minimal integration effort. A monitoring layer is inserted between the agent's action execution layer and the underlying tool/resource access layer, providing visibility into all agent actions without modifying agent behavior under normal conditions.
 
-**GitHub**: github.com/backbay-labs/clawdstrike
+GitHub: github.com/backbay-labs/clawdstrike
 
 ### THOR Skill (Nextron Systems)
 
 THOR is Nextron Systems' compromise assessment scanner, designed to detect indicators of compromise (IoCs) and anomalous patterns on endpoints. THOR Skill extends this capability with LLM-powered analysis.
 
-**LLM Skills Integration**
+LLM Skills Integration
 
 THOR Skill adds an LLM reasoning layer to THOR's detection engine. When THOR detects suspicious patterns, THOR Skill queries an LLM to: interpret the finding in context, assess whether it represents actual compromise or a false positive, identify related indicators that should be checked, and generate a narrative explanation of the finding for security analysts.
 
-**APT Detection Enhancement**
+APT Detection Enhancement
 
 Advanced Persistent Threat detection is particularly challenging because APTs intentionally use legitimate tools and behaviors to blend into normal activity. THOR Skill's LLM layer can reason about behavioral patterns that individually appear legitimate but collectively suggest malicious activity — a capability that aligns well with the pattern-matching strengths of large language models.
 
 ### AI-Powered SIEM and Detection Tools
 
-**Microsoft Security Copilot**
+Microsoft Security Copilot
 
 Security Copilot integrates GPT-4 directly into Microsoft's security product ecosystem (Microsoft Sentinel, Defender XDR, Intune, Purview). It provides: natural language query of security data, automated incident investigation, threat intelligence correlation, and guided response playbooks. Security analysts can describe a threat scenario in plain language and receive structured queries, relevant data, and recommended response actions.
 
-**CrowdStrike Charlotte AI**
+CrowdStrike Charlotte AI
 
 Charlotte AI is CrowdStrike's generative AI assistant integrated throughout the Falcon platform. Capabilities include: natural language threat hunting (query security data in plain English), automated alert triage (AI-generated severity assessments and context), guided incident response (step-by-step remediation assistance), and proactive threat intelligence synthesis (summaries of relevant threat actor activity).
 
-**Splunk AI**
+Splunk AI
 
 Splunk's AI capabilities, including Splunk AI Assistant and integrated ML models, provide: anomaly detection in security telemetry, natural language search (SPL query generation from plain language), automated alert prioritization, and predictive threat modeling. Splunk's approach emphasizes augmenting analyst capabilities rather than replacing analyst judgment.
 
-**Darktrace**
+Darktrace
 
 Darktrace's Enterprise Immune System uses unsupervised machine learning to model normal behavior for every device, user, and network component, then detects deviations from that model. Darktrace Cyber AI Analyst autonomously investigates alerts, correlating related events across the environment and producing human-readable incident reports. The system can autonomously respond to threats (Darktrace Antigena) while preserving normal business operations.
 
-**Vectra AI**
+Vectra AI
 
 Vectra's Attack Signal Intelligence platform uses AI to detect attacker behaviors across hybrid cloud, network, identity, and SaaS environments. The system focuses on post-compromise attacker behaviors (lateral movement, privilege escalation, data staging) rather than signature-based malware detection, making it effective against sophisticated threats that evade traditional security tools.
 
-## Section 5: Automated CVE Exploitation — Threat Landscape
+## Section 5: Automated CVE Exploitation: Threat Landscape
 
 ### The UIUC 2024 Study: Definitive Benchmark
 
 The April 2024 study by Richard Fang, Rohan Bindu, Akul Gupta, Qiusi Zhan, and Daniel Kang at the University of Illinois Urbana-Champaign (paper title: "LLM Agents Can Autonomously Exploit One-Day Vulnerabilities") established the definitive benchmark for AI-powered CVE exploitation capability.
 
-**Methodology**
+Methodology
 
 The researchers assembled a dataset of 15 real-world 1-day CVEs selected to represent a range of vulnerability classes and complexity levels. The term "1-day" refers to vulnerabilities where a patch has been published (the vulnerability is known) but deployment of the patch is not yet universal. This represents the most practically significant window: the period when attackers can exploit publicly-known vulnerabilities against organizations that have not yet patched.
 
@@ -466,7 +466,7 @@ Each CVE was presented to the AI agent with:
 
 The agent was tasked with developing a working exploit and demonstrating successful exploitation against a vulnerable instance.
 
-**Results**
+Results
 
 GPT-4 achieved 87% success (13/15 CVEs), exploiting vulnerabilities in categories including:
 - Web application injection (SQL injection, command injection, SSTI)
@@ -477,22 +477,22 @@ GPT-4 achieved 87% success (13/15 CVEs), exploiting vulnerabilities in categorie
 
 GPT-3.5 achieved 0% success on the same benchmark, demonstrating the categorical capability gap between model generations.
 
-**Tested CVE Categories**
+Tested CVE Categories
 
 The benchmark included CVEs affecting popular web frameworks, content management systems, API endpoints, and service-level software. Specific vulnerability types represented included: SQL injection via unsanitized parameters, server-side template injection in Python/Jinja2 contexts, path traversal via URL manipulation, authentication bypass through JWT forgery, and command injection through unvalidated shell metacharacters.
 
-**Implications for Defenders**
+Implications for Defenders
 
 The 87% success rate at GPT-4 quality means that any organization running software with known unpatched CVEs faces a near-certain probability of exploitation if a motivated attacker deploys AI-assisted exploit development. The traditional assumption — that the window between CVE publication and widespread exploitation provides time for patching — no longer holds at the frontier of AI capability.
 
 ### InterCode-CTF Benchmark
 
 InterCode-CTF is a benchmark for evaluating AI performance on Capture-the-Flag challenges, covering categories including:
-- **Cryptography**: Classical ciphers, RSA attacks, hash length extension
-- **Reverse Engineering**: Binary analysis, obfuscated code, license key bypasses
-- **Pwn**: Buffer overflows, format strings, heap exploitation
-- **Web**: SQL injection, XSS, SSRF, deserialization
-- **Forensics**: Steganography, network capture analysis, file carving
+- Cryptography: Classical ciphers, RSA attacks, hash length extension
+- Reverse Engineering: Binary analysis, obfuscated code, license key bypasses
+- Pwn: Buffer overflows, format strings, heap exploitation
+- Web: SQL injection, XSS, SSRF, deserialization
+- Forensics: Steganography, network capture analysis, file carving
 
 Performance on InterCode-CTF has tracked closely with model capability. GPT-4 class models solve approximately 40-60% of beginner/intermediate challenges autonomously; frontier models in 2025-2026 have shown improvements toward 70-80% on the same benchmark, with the primary remaining barrier being multi-step binary exploitation challenges requiring deep memory safety understanding.
 
@@ -500,14 +500,14 @@ Performance on InterCode-CTF has tracked closely with model capability. GPT-4 cl
 
 CyberSecEval, developed by NYU's security research group in collaboration with Meta, is a comprehensive evaluation framework for measuring both the offensive capability and responsible behavior of AI models in security contexts. It evaluates:
 
-- **Insecure code generation**: Does the model generate code with known vulnerability patterns?
-- **Vulnerability exploitation**: Can the model develop working exploits given vulnerability descriptions?
-- **Prompt injection resistance**: Is the model susceptible to adversarial prompts attempting to redirect its behavior?
-- **Harmful information threshold**: Does the model refuse requests for clearly harmful security content?
+- Insecure code generation: Does the model generate code with known vulnerability patterns?
+- Vulnerability exploitation: Can the model develop working exploits given vulnerability descriptions?
+- Prompt injection resistance: Is the model susceptible to adversarial prompts attempting to redirect its behavior?
+- Harmful information threshold: Does the model refuse requests for clearly harmful security content?
 
 ### Current Capability Levels
 
-**What AI Can Reliably Do (as of 2026)**
+What AI Can Reliably Do (as of 2026)
 
 | Capability | Success Rate | Notes |
 |------------|--------------|-------|
@@ -520,7 +520,7 @@ CyberSecEval, developed by NYU's security research group in collaboration with M
 | Interpret scan output and suggest next steps | >95% | Core AI strength |
 | Generate obfuscated shellcode | 80-85% | Technique-dependent |
 
-**What AI Cannot Reliably Do (as of 2026)**
+What AI Cannot Reliably Do (as of 2026)
 
 | Capability | Notes |
 |------------|-------|
@@ -576,10 +576,10 @@ This timeline compression means that the "patch window" — the period between C
 
 The capability trajectory suggests continued improvement in AI offensive capabilities:
 
-- **2023**: AI solves ~30% of beginner CTF challenges, fails at most real CVEs
-- **2024**: AI solves 87% of tested 1-day CVEs (UIUC), ~50% of intermediate CTF
-- **2025**: Commercial tools achieve >90% on 1-day CVEs, 0-day assistance improves
-- **2026**: Sustained multi-stage campaigns become reliable with human oversight
+- 2023: AI solves ~30% of beginner CTF challenges, fails at most real CVEs
+- 2024: AI solves 87% of tested 1-day CVEs (UIUC), ~50% of intermediate CTF
+- 2025: Commercial tools achieve >90% on 1-day CVEs, 0-day assistance improves
+- 2026: Sustained multi-stage campaigns become reliable with human oversight
 
 The rate of improvement has been roughly consistent with overall LLM capability improvements, suggesting that offensive security performance tracks general reasoning capability. As models improve, offensive capability improves proportionally.
 
@@ -606,7 +606,7 @@ The fundamental response to reduced exploitation timelines is reduced patch time
 
 EPSS (Exploit Prediction Scoring System) provides machine learning-based predictions of exploitation probability within 30 days. Integrating EPSS scores into patch prioritization workflows enables risk-based prioritization that accounts for actual exploitation likelihood rather than theoretical severity.
 
-**EPSS API Query**
+EPSS API Query
 
 ```python
 import requests
@@ -660,7 +660,7 @@ curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabi
 
 ### Attack Surface Reduction
 
-**Software Bill of Materials (SBOM)**
+Software Bill of Materials (SBOM)
 
 Maintaining current SBOMs for all deployed software enables rapid identification of affected assets when new CVEs are published. When a CVE is disclosed for a specific library version, SBOM data enables immediate enumeration of all systems running that version, enabling prioritized patching rather than manual inventory.
 
@@ -673,11 +673,11 @@ syft packages image:myapp:latest -o cyclonedx-json=sbom.cdx.json
 grype sbom:./sbom.spdx.json --fail-on critical
 ```
 
-**Automated Dependency Updates (Dependabot)**
+Automated Dependency Updates (Dependabot)
 
 GitHub Dependabot and similar tools (Renovate, Snyk) automate pull request generation for dependency updates. In the context of AI-powered attackers, these tools should be configured with aggressive update schedules and automatic merge policies for security updates on non-breaking dependency changes.
 
-**Runtime Application Self-Protection (RASP)**
+Runtime Application Self-Protection (RASP)
 
 RASP instruments applications at runtime to detect and block exploitation attempts. Unlike perimeter-based defenses, RASP operates within the application context, enabling detection of attacks that bypass network-level controls. RASP solutions include: Contrast Security, Imperva, Sqreen (acquired by Datadog), and open-source alternatives like OpenRASP.
 
@@ -685,16 +685,16 @@ RASP instruments applications at runtime to detect and block exploitation attemp
 
 AI-driven attacks exhibit characteristic behavioral patterns that differ from both human attackers and simple automated scanners:
 
-**Systematic Timing**
+Systematic Timing
 AI agents execute tool calls at consistent, rapid intervals without the irregular timing characteristic of human attackers. The inter-request timing is more regular than human attackers (who pause to think) but less random than simple automated scanners.
 
-**Tool User-Agent Signatures**
+Tool User-Agent Signatures
 Many security tools used by AI agents (nmap, sqlmap, nuclei, nikto, gobuster) include distinctive User-Agent strings or behavioral signatures. Monitoring for these signatures indicates automated security tool usage that may be unauthorized.
 
-**Rapid Scan→Exploit Sequence**
+Rapid Scan->Exploit Sequence
 AI-driven attacks compress the time between reconnaissance and exploitation. Traditional attack patterns show reconnaissance activity well in advance of exploitation attempts; AI-driven patterns show exploitation attempts within minutes of completing reconnaissance.
 
-**KQL Detection Rules (Microsoft Sentinel)**
+KQL Detection Rules (Microsoft Sentinel)
 
 ```kusto
 // Detect automated security tool user agents
@@ -725,7 +725,7 @@ scan_activity
 | project SourceIP, ScanStart, ExploitTime, MinutesFromScanToExploit=datetime_diff('minute', ExploitTime, ScanStart)
 ```
 
-**SPL Detection Rules (Splunk)**
+SPL Detection Rules (Splunk)
 
 ```splunk
 # Detect nuclei/sqlmap/dirb tool signatures in web logs
@@ -756,13 +756,13 @@ index=web_logs OR index=endpoint
 
 The most effective defense against AI-powered attackers is to deploy AI red team tools against your own assets before attackers do. This requires:
 
-**Authorization Framework**
+Authorization Framework
 - Written scope definition specifying all authorized targets, excluded systems, and permitted actions
 - Legal review of engagement contract language for AI-specific considerations
 - Incident response notification to prevent defensive teams from responding to authorized testing
 - Data handling procedures for findings containing sensitive system information
 
-**Clearwing Authorized Deployment**
+Clearwing Authorized Deployment
 ```bash
 # Create scope-limited configuration
 cat > engagement.yaml << 'EOF'
@@ -783,19 +783,19 @@ EOF
 clearwing run --config engagement.yaml --mode network_pentest
 ```
 
-**VECTR Tracking**
+VECTR Tracking
 VECTR (vectr.io) provides a platform for tracking purple team and red team exercises, correlating attacker actions (from AI red team tools) with defensive detections. This enables measurement of detection coverage and identification of gaps.
 
 ### Zero Trust as AI Defense Layer
 
 Zero trust architecture provides structural defense against AI-powered attackers by eliminating the assumption of trust based on network location.
 
-**Key Zero Trust Principles Against AI Attackers**
+Key Zero Trust Principles Against AI Attackers
 
-- **Verify explicitly**: AI attackers can move laterally using legitimate credentials. Continuous verification (MFA, conditional access, device health) raises the bar beyond what AI tools can easily automate.
-- **Least privilege access**: Constrain the blast radius of any single compromised account. AI privilege escalation tools are highly effective when starting permissions are broad; they are more constrained when initial access is minimal.
-- **Assume breach**: Design for detection and response, not just prevention. AI attackers are systematic; systematic defenders who monitor behavior can detect AI attack patterns.
-- **Microsegmentation**: Network microsegmentation prevents AI agents from freely enumerating the internal network after initial access.
+- Verify explicitly: AI attackers can move laterally using legitimate credentials. Continuous verification (MFA, conditional access, device health) raises the bar beyond what AI tools can easily automate.
+- Least privilege access: Constrain the blast radius of any single compromised account. AI privilege escalation tools are highly effective when starting permissions are broad; they are more constrained when initial access is minimal.
+- Assume breach: Design for detection and response, not just prevention. AI attackers are systematic; systematic defenders who monitor behavior can detect AI attack patterns.
+- Microsegmentation: Network microsegmentation prevents AI agents from freely enumerating the internal network after initial access.
 
 ## Section 7: MITRE ATT&CK Mapping for AI-Amplified Techniques
 
@@ -820,13 +820,13 @@ MITRE ATT&CK provides a standardized taxonomy for describing adversary technique
 
 ### Extended Technique Analysis
 
-**T1595 — Active Scanning: AI Amplification Deep Dive**
+T1595 — Active Scanning: AI Amplification Deep Dive
 
 Traditional automated scanners execute predefined scan sequences against targets. AI-powered scanners reason about scan results in context: when a port is found open, the AI considers what services are likely running, what vulnerabilities affect those services, and how to probe further. This contextual reasoning transforms scanning from a data collection exercise into an intelligence-gathering process.
 
 AI scanners also adapt their scan intensity and technique based on observed defensive responses. If aggressive scanning triggers rate limiting or IP blocking, the AI can switch to slower, more evasive techniques. If a target appears unmonitored, the AI can increase scan speed to reduce total assessment time.
 
-**T1190 — Exploit Public-Facing Application: The Critical Technique**
+T1190 — Exploit Public-Facing Application: The Critical Technique
 
 This is the technique most directly amplified by the UIUC 2024 findings. Web applications are the most common attack surface in modern enterprise environments, and AI tools can develop working exploits for web application CVEs faster than organizations can deploy patches. The convergence of AI-powered exploitation and continuously expanding web application attack surface makes T1190 the highest-priority technique for defensive investment.
 
@@ -836,7 +836,7 @@ Key mitigations beyond patching:
 - Regular authenticated vulnerability scanning to identify unpatched instances before attackers do
 - API gateway with rate limiting and anomaly detection
 
-**T1068 — Privilege Escalation: Cloud Dimension**
+T1068 — Privilege Escalation: Cloud Dimension
 
 In cloud environments, privilege escalation often involves IAM permissions rather than operating system vulnerabilities. AI tools like EscalateGPT are specifically designed to identify IAM privilege escalation paths that human analysts might miss due to the complexity of permission interactions.
 
@@ -846,7 +846,7 @@ Defense requires:
 - JIT (Just-In-Time) access provisioning to eliminate standing privileges
 - Cloud Security Posture Management (CSPM) with continuous privilege analysis
 
-**T1059 — Command and Scripting: AI-Generated Obfuscation**
+T1059 — Command and Scripting: AI-Generated Obfuscation
 
 AI models have extensive knowledge of script obfuscation techniques and can generate novel obfuscation variations that evade signature-based detection. This makes behavioral detection (looking for what the script does rather than how it looks) essential.
 
@@ -856,23 +856,23 @@ PowerShell logging must be comprehensive: module logging, script block logging, 
 
 For organizations tracking AI-amplified techniques, the following ATT&CK techniques warrant elevated monitoring and defensive investment beyond their standard risk ratings:
 
-**Tier 1 (Highest AI Amplification)**
+Tier 1 (Highest AI Amplification)
 - T1190 (Exploit Public-Facing Application)
 - T1595 (Active Scanning)
 - T1068 (Privilege Escalation)
 - T1059 (Command and Scripting)
 
-**Tier 2 (Significant AI Amplification)**
+Tier 2 (Significant AI Amplification)
 - T1021 (Remote Services)
 - T1055 (Process Injection)
 - T1592 (Gather Victim Host Info)
 - T1203 (Client Execution)
 
-**Tier 3 (Moderate AI Amplification)**
+Tier 3 (Moderate AI Amplification)
 - T1505 (Server Software Component)
 - T1486 (Data Encrypted for Impact)
-- T1078 (Valid Accounts — AI enhances credential stuffing)
-- T1110 (Brute Force — AI generates context-aware wordlists)
+- T1078 (Valid Accounts: AI enhances credential stuffing)
+- T1110 (Brute Force: AI generates context-aware wordlists)
 
 ## Section 8: Responsible Use Framework and Complete Tools Reference
 
@@ -880,7 +880,7 @@ For organizations tracking AI-amplified techniques, the following ATT&CK techniq
 
 The use of offensive security tools — AI-powered or otherwise — is strictly regulated by law. Unauthorized computer access is a criminal offense in virtually all jurisdictions. The following framework establishes the legal and ethical requirements for responsible deployment of AI offensive security tools.
 
-**Computer Fraud and Abuse Act (CFAA) — United States**
+Computer Fraud and Abuse Act (CFAA) — United States
 
 The CFAA prohibits unauthorized access to protected computer systems. "Authorization" is defined broadly and includes both explicit permission and implied permission within a defined scope. For AI penetration testing tools, authorization requirements are heightened because:
 
@@ -888,21 +888,21 @@ The CFAA prohibits unauthorized access to protected computer systems. "Authoriza
 - AI tools can generate large volumes of activity that may affect non-target systems
 - The speed and scale of AI tools magnifies the impact of scope violations
 
-**Explicit Written Authorization Requirements**
+Explicit Written Authorization Requirements
 
 Every AI-powered security assessment must be preceded by written authorization that specifies:
 
-1. **Authorized targets**: Explicit listing of all systems, IP ranges, domains, and applications that may be tested. The authorization should specify both what is included and what is excluded.
+1. Authorized targets: Explicit listing of all systems, IP ranges, domains, and applications that may be tested. The authorization should specify both what is included and what is excluded.
 
-2. **Authorized techniques**: Categories of permitted actions (reconnaissance, vulnerability scanning, exploitation, post-exploitation) and explicit exclusions (denial of service, data exfiltration, production system modification).
+2. Authorized techniques: Categories of permitted actions (reconnaissance, vulnerability scanning, exploitation, post-exploitation) and explicit exclusions (denial of service, data exfiltration, production system modification).
 
-3. **Testing window**: Authorized time period for testing activities, enabling defensive teams to correlate alerts with authorized testing.
+3. Testing window: Authorized time period for testing activities, enabling defensive teams to correlate alerts with authorized testing.
 
-4. **Emergency contacts**: Contact information for both parties to enable immediate suspension of testing if issues arise.
+4. Emergency contacts: Contact information for both parties to enable immediate suspension of testing if issues arise.
 
-5. **Data handling**: Procedures for handling sensitive data discovered during testing (credentials, PII, confidential business information).
+5. Data handling: Procedures for handling sensitive data discovered during testing (credentials, PII, confidential business information).
 
-**Scope Definition to Prevent AI Escape**
+Scope Definition to Prevent AI Escape
 
 AI tools, unlike manual techniques, can autonomously follow attack paths beyond intended scope. Engagement documentation must include:
 
@@ -930,7 +930,7 @@ AI TOOL CONTAINMENT REQUIREMENTS:
 - Kill-switch mechanism must be tested before assessment begins
 ```
 
-**Engagement Contract Language**
+Engagement Contract Language
 
 For commercial engagements, contracts should include AI-specific provisions:
 
@@ -954,7 +954,7 @@ will be used in this engagement. Consultant warrants that:
 
 ### Containment Mechanisms for AI Security Tools
 
-**Network Isolation**
+Network Isolation
 
 AI security tools must operate within network segments that prevent direct access to out-of-scope systems. Implementation options:
 
@@ -962,7 +962,7 @@ AI security tools must operate within network segments that prevent direct acces
 - Cloud-based isolation (separate VPC/subscription with specific peering)
 - Air-gapped environment for highest-sensitivity assessments
 
-**Tool Allowlisting**
+Tool Allowlisting
 
 Rather than relying on the AI to respect scope boundaries for tool selection, configure the execution environment to only permit authorized tools:
 
@@ -983,14 +983,14 @@ BLOCKED_DESTINATIONS="10.0.3.0/24,0.0.0.0/0"
 EOF
 ```
 
-**Rate Limiting**
+Rate Limiting
 
 AI tools can generate request volumes that impact system availability. Rate limiting at multiple layers:
 - Tool-level rate limiting (configurable in Clearwing and most AI security tools)
 - Network-level rate limiting via QoS or firewall policies
 - Application-level rate limiting in WAF/API gateway
 
-**Kill-Switch Mechanisms**
+Kill-Switch Mechanisms
 
 Every AI security tool deployment must have a tested kill-switch: a mechanism to immediately terminate all AI activity. Options:
 - Process termination scripts (tested before each engagement)
@@ -999,17 +999,17 @@ Every AI security tool deployment must have a tested kill-switch: a mechanism to
 
 ### Responsible Disclosure Pipeline
 
-**Standard 90-Day Timeline**
+Standard 90-Day Timeline
 
-1. **Day 0**: Vulnerability discovered, SHA-3 commitment generated
-2. **Day 1**: Vendor security contact identified and notified (initial notification with vulnerability summary, no full details)
-3. **Day 7**: Full technical details provided to vendor (if secure communication channel established)
-4. **Day 30**: Vendor acknowledgment expected
-5. **Day 45**: Patch timeline requested from vendor
-6. **Day 75**: Final reminder if no patch available
-7. **Day 90**: Public disclosure regardless of patch status (with 7-day advance notice to vendor)
+1. Day 0: Vulnerability discovered, SHA-3 commitment generated
+2. Day 1: Vendor security contact identified and notified (initial notification with vulnerability summary, no full details)
+3. Day 7: Full technical details provided to vendor (if secure communication channel established)
+4. Day 30: Vendor acknowledgment expected
+5. Day 45: Patch timeline requested from vendor
+6. Day 75: Final reminder if no patch available
+7. Day 90: Public disclosure regardless of patch status (with 7-day advance notice to vendor)
 
-**Exceptions to 90-Day Timeline**
+Exceptions to 90-Day Timeline
 - Active exploitation in the wild: Accelerated timeline (30 days or coordinated with CISA)
 - Critical infrastructure (power, water, healthcare): Extended timeline (120 days) with CISA coordination
 - Patch available: Disclose 30 days after patch availability to allow deployment time
@@ -1032,7 +1032,7 @@ Every AI security tool deployment must have a tested kill-switch: a mechanism to
 
 ### Getting Started: Safe AI Security Assessment
 
-**For Security Practitioners**
+For Security Practitioners
 
 1. Review and obtain explicit written authorization for all target systems
 2. Set up isolated assessment environment (dedicated VM or network segment)
@@ -1044,7 +1044,7 @@ Every AI security tool deployment must have a tested kill-switch: a mechanism to
 8. Document all findings and generate formal report
 9. Follow responsible disclosure procedures for any critical findings
 
-**For Defenders**
+For Defenders
 
 1. Deploy cve-mcp-server to integrate vulnerability intelligence into your AI assistant workflows
 2. Implement EPSS-based patch prioritization using the API code in Section 6
@@ -1054,7 +1054,7 @@ Every AI security tool deployment must have a tested kill-switch: a mechanism to
 6. Integrate SBOM into vulnerability management workflows
 7. Review and update zero trust policies with AI threat scenarios in mind
 
-**For Security Managers**
+For Security Managers
 
 1. Update incident response playbooks to address AI-powered attack scenarios
 2. Revise patch SLAs to reflect compressed exploitation timelines

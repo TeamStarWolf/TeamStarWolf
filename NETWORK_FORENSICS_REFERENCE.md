@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
-| **Start at** | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
-| **Pairs with** | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) |
+| Read this when | you need to capture or preserve network evidence that may end up in court, you are reconstructing an incident timeline from PCAP/flow/log data, you suspect C2 beaconing or data exfiltration and need to prove it from traffic |
+| Start at | [Network Forensics Fundamentals & Evidence Collection](#_1-network-forensics-fundamentals-amp-evidence-collection), [Malware Traffic Analysis](#_5-malware-traffic-analysis), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
+| Pairs with | [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](INCIDENT_RESPONSE_REFERENCE.md), [Network Monitoring Reference](NETWORK_MONITORING_REFERENCE.md) |
 
 ---
 
@@ -31,11 +31,11 @@
 
 Network forensics is the capture, recording, and analysis of network events for the purpose of discovering the source of security attacks or other problem incidents. Primary objectives include:
 
-- **Incident Reconstruction**: Establishing an accurate timeline of attacker actions — initial access vector, lateral movement, privilege escalation, data staging, and exfiltration — by correlating packet captures, flow records, and log sources.
-- **Attribution**: Identifying threat actors through IP addresses, ASN ownership, infrastructure reuse (C2 hostnames, TLS certificates), behavioral TTPs, and threat intelligence correlation. Attribution is probabilistic, not deterministic.
-- **Evidence for Legal Proceedings**: Producing forensically sound evidence packages that can withstand scrutiny in civil litigation or criminal prosecution, including chain-of-custody documentation, authenticated hash values, and examiner logs.
-- **Threat Intelligence Production**: Extracting IOCs (IP addresses, domains, JA3 hashes, YARA-matchable patterns) from network captures to improve detection across the enterprise.
-- **Damage Assessment**: Quantifying data exfiltration volume, scope of lateral movement, and number of compromised hosts from network evidence.
+- Incident Reconstruction: Establishing an accurate timeline of attacker actions: initial access vector, lateral movement, privilege escalation, data staging, and exfiltration — by correlating packet captures, flow records, and log sources.
+- Attribution: Identifying threat actors through IP addresses, ASN ownership, infrastructure reuse (C2 hostnames, TLS certificates), behavioral TTPs, and threat intelligence correlation. Attribution is probabilistic, not deterministic.
+- Evidence for Legal Proceedings: Producing forensically sound evidence packages that can withstand scrutiny in civil litigation or criminal prosecution, including chain-of-custody documentation, authenticated hash values, and examiner logs.
+- Threat Intelligence Production: Extracting IOCs (IP addresses, domains, JA3 hashes, YARA-matchable patterns) from network captures to improve detection across the enterprise.
+- Damage Assessment: Quantifying data exfiltration volume, scope of lateral movement, and number of compromised hosts from network evidence.
 
 ### Evidence Types
 
@@ -54,23 +54,23 @@ Network forensics is the capture, recording, and analysis of network events for 
 
 ### Collection Points
 
-**Network TAPs (Test Access Points)**
+Network TAPs (Test Access Points)
 - Passive, out-of-band copper or fiber tap that copies all traffic without introducing latency or failure points.
 - Aggregation TAPs combine both directions of a full-duplex link into a single capture stream.
 - Best practice for forensic-grade evidence collection; TAP failure does not affect the production link.
 - Vendors: Gigamon, IXIA, Cubro, Garland Technology.
 
-**SPAN / Mirror Ports**
+SPAN / Mirror Ports
 - Switch-configured port that copies traffic to a designated monitoring port.
 - Introduces risk of dropped packets under high load (switch CPU/ASIC oversubscription).
 - Remote SPAN (RSPAN) tunnels mirrored traffic across VLANs; ERSPAN encapsulates in GRE for IP delivery.
 - Sufficient for incident response in most environments where TAP deployment is not feasible.
 
-**Inline vs. Passive**
-- **Inline**: Device sits in the traffic path (IPS, SSL inspection proxy). Can decrypt TLS, modify or block traffic. Introduces latency and becomes a failure point.
-- **Passive**: Device receives a copy of traffic (IDS, full-packet capture appliance). No impact on production traffic. Cannot decrypt TLS without a copy of the private key or a pre-shared session key.
+Inline vs. Passive
+- Inline: Device sits in the traffic path (IPS, SSL inspection proxy). Can decrypt TLS, modify or block traffic. Introduces latency and becomes a failure point.
+- Passive: Device receives a copy of traffic (IDS, full-packet capture appliance). No impact on production traffic. Cannot decrypt TLS without a copy of the private key or a pre-shared session key.
 
-**Cloud VPC Flow Logs**
+Cloud VPC Flow Logs
 - AWS VPC Flow Logs capture at the ENI level; do not capture all packet headers, only flow metadata.
 - Enable at VPC or subnet level; deliver to CloudWatch Logs or S3.
 - Azure NSG Flow Logs: captured at the NSG level, JSON format, version 2 adds throughput data.
@@ -78,30 +78,30 @@ Network forensics is the capture, recording, and analysis of network events for 
 
 ### Legal Considerations
 
-**Chain of Custody for Network Evidence**
+Chain of Custody for Network Evidence
 - Document every person who handles the evidence: name, role, date/time of access, purpose.
 - Evidence bags, tamper-evident seals, and hash verification at each transfer point.
 - Maintain a custody log that travels with the evidence from collection through courtroom.
 
-**Wiretapping Laws — ECPA (Electronic Communications Privacy Act)**
+Wiretapping Laws — ECPA (Electronic Communications Privacy Act)
 - Title I (Wiretap Act): prohibits real-time interception of wire, oral, or electronic communications without consent or court order.
 - Title II (Stored Communications Act): governs access to stored electronic communications.
 - Business exception: employers may monitor their own networks if employees have been given notice (acceptable use policy).
 - Law enforcement must obtain a Title III court order for real-time network interception.
 
-**GDPR Article 32 (EU)**
+GDPR Article 32 (EU)
 - Requires appropriate technical and organizational measures to ensure data security, including the ability to detect security incidents.
 - Network monitoring logs may contain personal data (IP addresses are PII under GDPR); data minimization and retention limits apply.
 - Data Protection Impact Assessment (DPIA) required before deploying pervasive packet capture.
 
-**Sector-Specific Requirements**
+Sector-Specific Requirements
 - HIPAA: PHI in network captures must be protected; audit logs required for access.
 - PCI-DSS Requirement 10: log all access to network resources and cardholder data.
 - FISMA/FedRAMP: continuous monitoring mandated; NIST SP 800-137 guidance.
 
 ### Evidence Integrity
 
-**PCAP SHA-256 Hashing**
+PCAP SHA-256 Hashing
 ```bash
 # Hash immediately after capture
 sha256sum capture.pcap > capture.pcap.sha256
@@ -111,13 +111,13 @@ sha256sum -c capture.pcap.sha256
 md5sum capture.pcap
 ```
 
-**Write-Blocking for Stored Captures**
+Write-Blocking for Stored Captures
 - Software write-blockers (e.g., `blockdev --setro` on Linux) prevent modification of capture files on storage media.
 - Hardware write-blockers (Tableau, WiebeTech) are preferred for legal proceedings.
 - Mount evidence storage read-only before analysis: `mount -o ro /dev/sdb1 /mnt/evidence`
 
-**RFC 3227 — Guidelines for Evidence Collection and Archiving**
-- Order of volatility: network state → running processes → memory → swap → disk → archival media.
+RFC 3227 — Guidelines for Evidence Collection and Archiving
+- Order of volatility: network state -> running processes -> memory -> swap -> disk -> archival media.
 - For network evidence, capture volatile data first (ARP table, routing table, active connections).
 - Minimize footprint: use known-good binaries, document every command executed.
 - Timestamp synchronization: ensure all collection systems are NTP-synced to UTC; document clock skew.
@@ -134,7 +134,7 @@ Detection ──► Triage ──► Evidence Preservation ──► Analysis �
                               Freeze log rotation     Document findings
 ```
 
-**Key Timestamps to Preserve**
+Key Timestamps to Preserve
 1. First indicator timestamp (SIEM alert, analyst report, threat intel hit)
 2. Earliest network evidence of attacker activity (earliest PCAP/flow record)
 3. Initial access event (first external connection to compromised host)
@@ -146,11 +146,11 @@ Detection ──► Triage ──► Evidence Preservation ──► Analysis �
 
 ## 2. Packet Capture Tools & Infrastructure
 
-### tcpdump — Deep Reference
+### tcpdump: Deep Reference
 
 tcpdump is the de facto standard CLI packet capture utility, available on all UNIX-like systems.
 
-**Core BPF Filter Syntax**
+Core BPF Filter Syntax
 
 ```bash
 # Capture by host
@@ -186,7 +186,7 @@ tcpdump 'tcp[13] = 18'
 tcpdump 'tcp[13] & 4 != 0'
 ```
 
-**Key Flags**
+Key Flags
 
 | Flag | Purpose |
 |---|---|
@@ -206,7 +206,7 @@ tcpdump 'tcp[13] & 4 != 0'
 | `-A` | Print ASCII payload |
 | `-X` | Print hex + ASCII payload |
 
-**Ring Buffer for Continuous Capture**
+Ring Buffer for Continuous Capture
 ```bash
 # Rotate every 100MB, keep 50 files = ~5GB rolling capture
 tcpdump -i eth0 -w /capture/dump-%Y%m%d-%H%M%S.pcap -C 100 -W 50 -z gzip
@@ -217,7 +217,7 @@ tcpdump -i eth0 -w /capture/dump-%Y%m%d-%H%M%S.pcap -G 3600 -W 24
 
 ### Wireshark
 
-**Display Filters (applied after capture)**
+Display Filters (applied after capture)
 ```
 # Filter by IP
 ip.addr == 192.168.1.100
@@ -245,7 +245,7 @@ tls.record.version == 0x0303   # TLS 1.2
 # Follow stream: right-click → Follow → TCP/UDP/TLS Stream
 ```
 
-**tshark CLI Equivalent**
+tshark CLI Equivalent
 ```bash
 # Read pcap and filter
 tshark -r capture.pcap -Y "http.request" -T fields -e frame.time -e ip.src -e http.host -e http.request.uri
@@ -261,7 +261,7 @@ tshark -r capture.pcap -Y "tls.handshake.certificate" -T fields \
   -e tls.handshake.certificate -e x509af.rdnSequence
 ```
 
-**Companion Utilities**
+Companion Utilities
 - `editcap`: Split, trim, and convert pcap files. `editcap -c 10000 large.pcap split/chunk.pcap` splits into 10k-packet files.
 - `mergecap`: Merge multiple pcap files sorted by timestamp. `mergecap -w merged.pcap a.pcap b.pcap`
 - `capinfos`: Summarize pcap metadata (start/end time, packet count, data rate). `capinfos capture.pcap`
@@ -294,22 +294,22 @@ zeek-cut id.resp_h < conn.log | sort | uniq -c | sort -rn | head -20
 
 ### Additional Capture Tools
 
-**tcpflow** — Reconstructs TCP sessions from pcap, writing each flow as a file named by 4-tuple. `tcpflow -r capture.pcap -o sessions/`
+tcpflow — Reconstructs TCP sessions from pcap, writing each flow as a file named by 4-tuple. `tcpflow -r capture.pcap -o sessions/`
 
-**NetworkMiner** — Windows-based passive network forensics tool. Auto-extracts files, images, credentials, and messages from pcap. Performs passive OS fingerprinting using TCP/IP stack behavior (TTL, window size, options).
+NetworkMiner — Windows-based passive network forensics tool. Auto-extracts files, images, credentials, and messages from pcap. Performs passive OS fingerprinting using TCP/IP stack behavior (TTL, window size, options).
 
-**Security Onion** — Integrated Linux distribution for network security monitoring:
+Security Onion — Integrated Linux distribution for network security monitoring:
 - Zeek for protocol logs
 - Suricata for signature-based detection
 - Elasticsearch + Kibana for log analysis
 - TheHive for case management
 - Useful for rapid deployment of full packet capture + detection + analysis stack.
 
-**Arkime (formerly Moloch)** — Full PCAP capture, indexing, and search platform. Indexes sessions in Elasticsearch; enables search by any protocol field. Supports PCAP download for any session. Scales to 100+ Gbps with clustered deployment.
+Arkime (formerly Moloch) — Full PCAP capture, indexing, and search platform. Indexes sessions in Elasticsearch; enables search by any protocol field. Supports PCAP download for any session. Scales to 100+ Gbps with clustered deployment.
 
 ### Cloud Provider Flow Logs
 
-**AWS VPC Flow Logs**
+AWS VPC Flow Logs
 ```
 # Default v2 format:
 version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status
@@ -324,9 +324,9 @@ WHERE action = 'REJECT' AND dstaddr NOT LIKE '10.%' AND dstaddr NOT LIKE '172.%'
 GROUP BY dstaddr ORDER BY count DESC LIMIT 20;
 ```
 
-**Azure NSG Flow Logs** — JSON format, delivered to Storage Account, analyzed in Sentinel via `AzureNetworkAnalytics_CL` table.
+Azure NSG Flow Logs — JSON format, delivered to Storage Account, analyzed in Sentinel via `AzureNetworkAnalytics_CL` table.
 
-**GCP VPC Flow Logs** — Ingested via Cloud Logging; query with Logs Explorer or BigQuery.
+GCP VPC Flow Logs — Ingested via Cloud Logging; query with Logs Explorer or BigQuery.
 
 ---
 
@@ -334,7 +334,7 @@ GROUP BY dstaddr ORDER BY count DESC LIMIT 20;
 
 ### HTTP/HTTPS Analysis
 
-**Request/Response Parsing in Wireshark**
+Request/Response Parsing in Wireshark
 ```
 # Display filter for all HTTP traffic
 http
@@ -348,20 +348,20 @@ http.request.method == "POST" and http.request_body_len > 0
 # Export HTTP objects: File → Export Objects → HTTP
 ```
 
-**User-Agent Anomalies**
+User-Agent Anomalies
 - Default OS user-agents (no browser) may indicate scripted access or C2 traffic.
-- Empty user-agent: `http.user_agent == ""` — common in simple implants.
-- Known-bad UAs: `python-requests`, `Go-http-client`, `curl/7.68`, `libwww-perl` — flag for investigation.
+- Empty user-agent: `http.user_agent == ""`: common in simple implants.
+- Known-bad UAs: `python-requests`, `Go-http-client`, `curl/7.68`, `libwww-perl`: flag for investigation.
 - Browser UA on non-browser port (e.g., port 8080, 4444) suggests C2 over alternate port.
 
-**Header Fingerprinting**
+Header Fingerprinting
 - Header order and presence are characteristic of specific HTTP implementations.
 - Legitimate browsers send Accept, Accept-Encoding, Accept-Language; C2 frameworks often omit these.
 - HTTP/2 HPACK static table indices can fingerprint client libraries (ALPN negotiation).
 
 ### DNS Analysis
 
-**Query/Response Pattern Analysis**
+Query/Response Pattern Analysis
 ```bash
 # Using tshark to extract DNS queries with client IP
 tshark -r capture.pcap -Y "dns.flags.response == 0" \
@@ -376,24 +376,24 @@ tshark -r capture.pcap -Y "dns.qry.type == 16" \
   -T fields -e ip.src -e dns.qry.name
 ```
 
-**TTL Anomalies**
+TTL Anomalies
 - Legitimate CDN domains use TTL of 60-300 seconds; unusually low TTLs (< 30s) on non-CDN domains suggest fast-flux C2 infrastructure.
 - High TTL on rarely-queried domains (sinkhole confirmation).
 - DNS tunneling indicators: long subdomain labels (> 50 characters), high query rate to same domain, entropy in subdomain.
 
-**EDNS0 Extensions**
+EDNS0 Extensions
 - EDNS0 (Extension Mechanisms for DNS) adds UDP payload size advertisement and DNSSEC support.
 - `OPT` record in DNS queries enables EDNS0; absence may indicate legacy resolver or custom implementation.
 - DNS Cookie (EDNS0 option 10) helps detect DNS cache poisoning.
 
-**DNS-over-HTTPS in PCAP**
+DNS-over-HTTPS in PCAP
 - DoH sends DNS queries as HTTPS POST/GET to port 443 resolvers (1.1.1.1, 8.8.8.8, 9.9.9.9).
 - Detect by identifying HTTPS connections to known DoH resolver IPs with Content-Type: `application/dns-message`.
 - Use SNI extraction: `cloudflare-dns.com`, `dns.google`, `dns.quad9.net` in TLS SNI field.
 
 ### TLS/SSL Forensics
 
-**JA3 Client Fingerprinting**
+JA3 Client Fingerprinting
 JA3 generates an MD5 hash from the TLS ClientHello fields: SSLVersion, Ciphers, Extensions, EllipticCurves, EllipticCurvePointFormats.
 
 ```bash
@@ -408,10 +408,10 @@ python3 ja3.py -j capture.pcap
 curl -s "https://ja3er.com/search/b70de2e22a17a7ddd01c9beae47a8cc9"
 ```
 
-**JA3S Server Fingerprinting**
+JA3S Server Fingerprinting
 JA3S fingerprints the ServerHello response (SSLVersion, Ciphers, Extensions). Together, JA3 + JA3S identify specific client-server pairs regardless of IP/domain rotation.
 
-**TLS Certificate Extraction**
+TLS Certificate Extraction
 ```bash
 # Extract certificate from pcap with openssl
 openssl s_client -connect target.com:443 -showcerts < /dev/null 2>/dev/null | \
@@ -425,7 +425,7 @@ tshark -r capture.pcap -Y "tls.handshake.certificate" \
 echo "308203..." | xxd -r -p | openssl x509 -inform DER -text -noout
 ```
 
-**JARM Active Fingerprinting**
+JARM Active Fingerprinting
 JARM probes a TLS server with 10 specially crafted ClientHellos and hashes the server responses to produce a 62-character fingerprint identifying the TLS server implementation.
 ```bash
 python3 jarm.py target.com 443
@@ -447,7 +447,7 @@ smb2.tree contains "\\\\10.0.0.1\\"  # Tree connect to remote share
 
 ### Email Protocol Forensics
 
-**SMTP Transaction Analysis**
+SMTP Transaction Analysis
 ```
 # Track SMTP session
 smtp
@@ -460,7 +460,7 @@ smtp.response.code == 250      # Message accepted
 tshark -r capture.pcap -Y smtp -T fields -e smtp.req.parameter | grep "Message-ID"
 ```
 
-**MIME Extraction**
+MIME Extraction
 - Use `munpack` or NetworkMiner to extract MIME attachments from SMTP captures.
 - Hash extracted files for VirusTotal lookup: `sha256sum extracted_file.exe`
 
@@ -529,9 +529,9 @@ tcp_port:add(4444, myproto)
 | Variable-length | No | No | Yes |
 | Extensibility | None | High | Very high (enterprise IEs) |
 
-**NetFlow v5 Record Fields**: srcaddr, dstaddr, nexthop, input (SNMP ifIndex), output, dPkts, dOctets, first (SysUpTime ms), last, srcport, dstport, tcp_flags, prot, tos, src_as, dst_as, src_mask, dst_mask
+NetFlow v5 Record Fields: srcaddr, dstaddr, nexthop, input (SNMP ifIndex), output, dPkts, dOctets, first (SysUpTime ms), last, srcport, dstport, tcp_flags, prot, tos, src_as, dst_as, src_mask, dst_mask
 
-**NetFlow v9 Template Flexibility**: Exporters send template flowsets before data flowsets. Common fields: PROTOCOL, L4_SRC_PORT, L4_DST_PORT, IPV4_SRC_ADDR, IPV4_DST_ADDR, IN_BYTES, IN_PKTS, DIRECTION, INPUT_SNMP, OUTPUT_SNMP, FIRST_SWITCHED, LAST_SWITCHED.
+NetFlow v9 Template Flexibility: Exporters send template flowsets before data flowsets. Common fields: PROTOCOL, L4_SRC_PORT, L4_DST_PORT, IPV4_SRC_ADDR, IPV4_DST_ADDR, IN_BYTES, IN_PKTS, DIRECTION, INPUT_SNMP, OUTPUT_SNMP, FIRST_SWITCHED, LAST_SWITCHED.
 
 ### Collector/Exporter Architecture
 
@@ -619,7 +619,7 @@ ra -r capture.argus -s saddr daddr proto dur totpkts totbytes -c ','
 
 ### Baseline Creation & Anomaly Detection
 
-**Daily/Weekly Traffic Baseline Metrics**
+Daily/Weekly Traffic Baseline Metrics
 - Total bytes per hour by direction (in/out)
 - Top 20 external IP destinations by bytes and flows
 - Port usage distribution (unique dst ports per hour)
@@ -627,19 +627,19 @@ ra -r capture.argus -s saddr daddr proto dur totpkts totbytes -c ','
 - DNS query volume per hour
 - SMTP relay volume (messages and bytes)
 
-**Anomaly Detection Criteria**
+Anomaly Detection Criteria
 
 | Anomaly | Detection Method |
 |---|---|
 | New external IP | Compare dst IPs against 30-day whitelist |
-| Unusual port | Port not seen in baseline → alert |
+| Unusual port | Port not seen in baseline -> alert |
 | Data volume spike | Z-score > 3 on hourly bytes outbound |
 | Long-duration low-rate connection | Duration > 4h AND bytes/hour < 10KB |
 | Beaconing | StdDev of inter-connection intervals < 5% of mean |
 | Non-business-hours traffic | Outbound flows 2:00-5:00 local time |
 | DNS exfiltration | Query name length > 100 chars or > 1000 queries/min to single domain |
 
-**Automated Beaconing Detection**
+Automated Beaconing Detection
 ```python
 import statistics
 from collections import defaultdict
@@ -672,29 +672,29 @@ def detect_beaconing(flows, threshold_cv=0.1):
 
 ### C2 Communication Patterns
 
-**Periodic Beaconing**
+Periodic Beaconing
 - Most implants check in at regular intervals (15s to 1h) to receive commands.
 - Jitter (randomization of ±10-30%) is added by sophisticated frameworks to evade simple interval-based detection.
 - Detection: analyze connection intervals for coefficient of variation; legitimate applications rarely beacon.
 
-**HTTP GET/POST Patterns**
+HTTP GET/POST Patterns
 - GET-based beaconing: implant sends check-in as HTTP GET with encoded data in URI or custom headers.
 - POST-based: task results exfiltrated in POST body (often base64 or XOR encoded).
 - Look for: consistent URI length with variable data, unusual HTTP verbs (OPTIONS, PUT), missing standard headers.
 
-**DNS Beaconing**
+DNS Beaconing
 - Implant encodes data in DNS subdomain labels; resolver delivers to attacker-controlled authoritative DNS.
 - Query pattern: `<base64_data>.<session_id>.c2domain.com`
 - Detection: high query rate to same parent domain, long subdomains, high entropy in subdomain labels, no corresponding HTTP traffic.
 
-**ICMP Tunneling**
+ICMP Tunneling
 - Data encoded in ICMP echo (ping) payload; unusual payload size or content.
 - Legitimate ping payloads are 32-64 bytes; tunneled ICMP may carry 1400+ byte payloads.
 - `icmp.data.len > 64` in Wireshark to identify suspicious ICMP.
 
 ### Identifying Malware Families by Traffic Pattern
 
-**Cobalt Strike Beacon**
+Cobalt Strike Beacon
 - Default beacon interval: 60 seconds (configurable via Malleable C2 profile).
 - Default staging: GET to `/updates` or random URI specified in profile.
 - Default JA3 (HTTPS beacon): `b70de2e22a17a7ddd01c9beae47a8cc9`
@@ -702,12 +702,12 @@ def detect_beaconing(flows, threshold_cv=0.1):
 - Malleable C2 profiles transform HTTP headers, URI, and body; behavioral analysis needed to identify non-default profiles.
 - Look for: jitter around 60s intervals, consistent User-Agent from profile, base64 response body.
 
-**Emotet/Qakbot/IcedID Loader Traffic**
+Emotet/Qakbot/IcedID Loader Traffic
 - Emotet: C2 over HTTPS to multiple IPs in rapid succession (module download); uses TLS with self-signed certs; fast-flux C2 IP rotation.
 - Qakbot: uses HTTPS to compromised websites for C2; characteristic Accept-Language header variations; also uses SMB for lateral movement.
 - IcedID: HTTPS C2 with legitimate-looking server certificates; uses GOZIv2 network protocol; often delivered via compromised legitimate sites.
 
-**Ransomware Pre-Encryption Staging**
+Ransomware Pre-Encryption Staging
 1. Credential harvesting: Mimikatz output via SMB to attacker C2 or RDP-accessible drop server.
 2. Reconnaissance: SMB scanning (`\\target\ADMIN$` enumeration), network share discovery.
 3. Data staging: large outbound transfers to cloud storage (Mega, Rclone, SFTP) before encryption.
@@ -797,7 +797,7 @@ find extracted/ -type f -exec sha256sum {} \; > hashes.txt
 
 Effective incident reconstruction requires correlating evidence across multiple data sources with accurate timestamps. All sources must be verified against NTP-synchronized UTC.
 
-**Evidence Source Correlation Matrix**
+Evidence Source Correlation Matrix
 
 | Evidence Source | Timestamp Field | Key Identifier | Linked To |
 |---|---|---|---|
@@ -810,7 +810,7 @@ Effective incident reconstruction requires correlating evidence across multiple 
 | Proxy logs | timestamp | client IP + URL | HTTP session |
 | SIEM alert | event time | alert ID + IOC | Triggering log |
 
-**DHCP → IP → Hostname → User Mapping Chain**
+DHCP -> IP -> Hostname -> User Mapping Chain
 ```bash
 # Step 1: Find IP from DHCP logs at time of event
 grep "192.168.1.142" /var/log/dhcp.log | awk '{print $1, $2, $5, $6}'
@@ -825,7 +825,7 @@ snmpwalk -v2c -c public switch.corp.local BRIDGE-MIB::dot1dTpFdbPort | grep "33:
 
 ### Session Reconstruction
 
-**TCP Stream Reconstruction**
+TCP Stream Reconstruction
 ```bash
 # tcpflow: reconstruct application-layer data per session
 tcpflow -r capture.pcap -o sessions/ -a
@@ -840,7 +840,7 @@ tcpflow -r capture.pcap -o single/ host 10.0.0.1 and host 203.0.113.5 and port 4
 
 ### Reconstructing Web Sessions
 
-**HTTP Request/Response Sequence**
+HTTP Request/Response Sequence
 ```
 1. DNS query: resolve target.com → 203.0.113.5 (timestamp T1)
 2. TCP SYN to 203.0.113.5:443 (timestamp T2, ~T1+1ms)
@@ -853,7 +853,7 @@ tcpflow -r capture.pcap -o single/ host 10.0.0.1 and host 203.0.113.5 and port 4
 # Timeline shows: DNS pre-resolution, TLS establishment, authentication, command execution
 ```
 
-**Cookie Tracking for Session Attribution**
+Cookie Tracking for Session Attribution
 ```
 # Extract cookies from HTTP stream
 tshark -r capture.pcap -Y "http.cookie" -T fields -e frame.time -e ip.src -e http.cookie -e http.request.uri
@@ -864,7 +864,7 @@ tshark -r capture.pcap -Y "http.set_cookie" -T fields -e frame.time -e ip.src -e
 
 ### Email Incident Reconstruction
 
-**SMTP Log Analysis**
+SMTP Log Analysis
 ```
 # Reconstruct email relay chain from SMTP logs (Postfix format)
 grep "message-id=<attack@evil.com>" /var/log/mail.log
@@ -883,7 +883,7 @@ tshark -r capture.pcap -Y "smtp.req.command == \"DATA\"" -T fields -e smtp.req.p
 
 ### Lateral Movement Reconstruction
 
-**SMB + Authentication Timing Analysis**
+SMB + Authentication Timing Analysis
 ```
 # Correlate: Windows Event 4624 (Logon Type 3 = Network) with SMB connection in PCAP
 
@@ -961,15 +961,15 @@ ORDER BY eventTime;
 
 TLS 1.3 (RFC 8446) encrypts the Certificate message and removes many previously-visible handshake fields, significantly reducing metadata available for inspection. Key challenges:
 
-- **No plaintext SNI in TLS 1.3 with ECH** (Encrypted Client Hello, draft RFC): destination hostname is encrypted.
-- **Forward secrecy**: ECDHE key exchange means private key compromise does not enable retrospective decryption of captured traffic.
-- **QUIC/HTTP3**: UDP-based, encrypted at the transport layer; QUIC Initial packets are cleartext for CRYPTO frames but subsequent records are encrypted.
-- **Certificate pinning**: prevents MITM inspection by client applications.
-- **SSL inspection proxies**: effective but legally complex, technically intrusive, and ineffective against certificate-pinned apps.
+- No plaintext SNI in TLS 1.3 with ECH (Encrypted Client Hello, draft RFC): destination hostname is encrypted.
+- Forward secrecy: ECDHE key exchange means private key compromise does not enable retrospective decryption of captured traffic.
+- QUIC/HTTP3: UDP-based, encrypted at the transport layer; QUIC Initial packets are cleartext for CRYPTO frames but subsequent records are encrypted.
+- Certificate pinning: prevents MITM inspection by client applications.
+- SSL inspection proxies: effective but legally complex, technically intrusive, and ineffective against certificate-pinned apps.
 
 ### JA3/JA3S Fingerprinting Methodology
 
-**JA3 Construction**
+JA3 Construction
 ```
 SSLVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats
 → concatenate with dashes within groups, commas between groups
@@ -980,13 +980,13 @@ Example:
 → MD5 = "aaa" (browser-specific fingerprint)
 ```
 
-**JA3 Databases and Feeds**
-- **ja3er.com**: community database mapping JA3 hashes to user-agent strings.
-- **abuse.ch JA3 Fingerprint Feed**: malicious JA3 hashes associated with malware families.
-- **Salesforce/Joe Security**: JA3 research publications with known-bad hash lists.
+JA3 Databases and Feeds
+- ja3er.com: community database mapping JA3 hashes to user-agent strings.
+- abuse.ch JA3 Fingerprint Feed: malicious JA3 hashes associated with malware families.
+- Salesforce/Joe Security: JA3 research publications with known-bad hash lists.
 - Local detection: maintain a whitelist of expected JA3 hashes for your environment.
 
-**JARM Active Fingerprinting**
+JARM Active Fingerprinting
 ```bash
 # Probe target TLS server
 python3 jarm.py 203.0.113.42 443
@@ -1003,16 +1003,16 @@ python3 jarm.py 203.0.113.42 443
 
 Even without decryption, metadata reveals significant information:
 
-**Packet Timing Analysis**
+Packet Timing Analysis
 - TLS record sizes leak application-layer protocol details (e.g., consistent 1400-byte TLS records may indicate file transfer vs. interactive sessions with small variable-size records).
 - Inter-packet timing fingerprints interactive protocols (SSH keystrokes: < 20ms inter-packet gaps) vs. bulk transfer.
 
-**Flow Duration Patterns**
+Flow Duration Patterns
 - Beaconing C2: many short flows with regular timing, small data volume per session.
 - Legitimate HTTPS: varied flow durations, larger data volumes (page loads: 50KB-5MB).
 - Tunneled protocols: extremely long-duration flows with low data rate (e.g., ICMP/DNS tunnel).
 
-**Size Distribution Analysis**
+Size Distribution Analysis
 ```python
 # Compare packet size distributions between flows
 import collections
@@ -1030,13 +1030,13 @@ def packet_size_distribution(packets):
 
 ### ML-Based Encrypted Traffic Classification
 
-**ACSAC / Cisco ETA Approach (Encrypted Traffic Analytics)**
+ACSAC / Cisco ETA Approach (Encrypted Traffic Analytics)
 - Feature vector: Sequence of first N packet lengths + inter-arrival times (SPLT)
 - Also uses: byte distribution, TLS record lengths, initial data packet (IDP) analysis
 - Models: Random Forest, Gradient Boosting, Neural Networks trained on labeled flow data
 - Cisco ETA: embedded in switches, uses telemetry exported to Stealthwatch; no decryption required
 
-**Implementation Approach**
+Implementation Approach
 ```python
 # Feature extraction from flow for ML classification
 def extract_flow_features(flow_packets):
@@ -1103,7 +1103,7 @@ quic.tls.handshake.extensions_server_name
 
 ### 802.11 Frame Forensics
 
-**Capture Setup**
+Capture Setup
 ```bash
 # Enable monitor mode
 airmon-ng start wlan0
@@ -1117,7 +1117,7 @@ airodump-ng --write capture --output-format pcap wlan0mon
 tcpdump -i wlan0mon -w ap_capture.pcap 'ether host AA:BB:CC:DD:EE:FF'
 ```
 
-**802.11 Frame Types in Wireshark**
+802.11 Frame Types in Wireshark
 ```
 # Management frames (type = 0)
 wlan.fc.type == 0
@@ -1140,7 +1140,7 @@ wlan.fc.type == 2
 wlan.bssid, wlan.ssid, radiotap.channel.freq, radiotap.dbm_antsignal
 ```
 
-**Deauthentication Flood Detection**
+Deauthentication Flood Detection
 ```
 # Filter for deauth frames
 wlan.fc.type_subtype == 0x000c
@@ -1153,7 +1153,7 @@ wlan.fc.type_subtype == 0x000c and wlan.sa == "AA:BB:CC:DD:EE:FF"
 # 7 = Class 3 frame received from nonassociated station
 ```
 
-**WPA2 4-Way Handshake Analysis**
+WPA2 4-Way Handshake Analysis
 ```
 # Filter for EAPOL (WPA2 handshake key exchange)
 eapol
@@ -1169,7 +1169,7 @@ eapol
 hcxpcapngtool -o hash.hc22000 wireless.pcap
 ```
 
-**Evil Twin Detection**
+Evil Twin Detection
 ```bash
 # Identify multiple APs with same SSID but different BSSID
 tshark -r wireless.pcap -Y "wlan.fc.subtype == 8" \
@@ -1182,7 +1182,7 @@ tshark -r wireless.pcap -Y "wlan.fc.subtype == 8" \
 
 ### VPN Forensics
 
-**OpenVPN**
+OpenVPN
 ```
 # OpenVPN over UDP 1194
 udp.port == 1194
@@ -1197,7 +1197,7 @@ tcp.port == 443 and data.len > 0 and not tls
 # 0x70 = DATA_V1
 ```
 
-**WireGuard**
+WireGuard
 ```
 # WireGuard uses UDP (default port 51820 but configurable)
 # Handshake Initiation: 148-byte UDP packet with message type = 1
@@ -1210,7 +1210,7 @@ udp and frame.len == 92
 # Data packets are variable-length encrypted UDP datagrams
 ```
 
-**IPsec IKEv2**
+IPsec IKEv2
 ```
 # IKE/ISAKMP phase 1 (UDP 500 or UDP 4500 for NAT-T)
 isakmp
@@ -1227,13 +1227,13 @@ udp.port == 4500
 
 ### RADIUS Authentication Forensics
 
-**802.1X RADIUS Accounting Fields**
+802.1X RADIUS Accounting Fields
 
 | RADIUS Attribute | Description | Forensic Value |
 |---|---|---|
 | Acct-Session-Id | Unique session identifier | Correlates auth log with network traffic |
 | NAS-IP-Address | Network Access Server IP (switch/AP) | Physical location of access point |
-| NAS-Port-Id | Interface/port identifier | Switch port → physical location |
+| NAS-Port-Id | Interface/port identifier | Switch port -> physical location |
 | Framed-IP-Address | IP assigned to client | Maps to all subsequent traffic |
 | User-Name | Authenticated username | Ties network activity to person |
 | Acct-Session-Time | Session duration | Determines access window |
@@ -1280,7 +1280,7 @@ tcp and tcp.payload[0:3] == 03:00:00 and frame.len < 100
 
 ### AWS VPC Flow Logs
 
-**Log Format (v2)**
+Log Format (v2)
 ```
 # Fields: version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status
 2 123456789010 eni-0a12b34c d56e7f89 10.0.1.15 52.84.12.99 54231 443 6 14 7340 1620000000 1620000060 ACCEPT OK
@@ -1289,7 +1289,7 @@ tcp and tcp.payload[0:3] == 03:00:00 and frame.len < 100
 # Protocol numbers: 6=TCP, 17=UDP, 1=ICMP, 50=ESP, 51=AH
 ```
 
-**Athena Queries for Incident Response**
+Athena Queries for Incident Response
 
 ```sql
 -- Top external destinations by bytes (potential exfiltration)
@@ -1343,7 +1343,7 @@ ORDER BY timing_stddev;
 
 ### Azure NSG Flow Logs
 
-**v2 JSON Format**
+v2 JSON Format
 ```json
 {
   "time": "2024-01-15T14:32:00Z",
@@ -1361,7 +1361,7 @@ ORDER BY timing_stddev;
 }
 ```
 
-**Sentinel KQL Query**
+Sentinel KQL Query
 ```kql
 // Top external destinations from NSG flow logs
 AzureNetworkAnalytics_CL
@@ -1375,7 +1375,7 @@ AzureNetworkAnalytics_CL
 
 ### Container Network Forensics
 
-**Docker Bridge Network**
+Docker Bridge Network
 ```bash
 # Inspect Docker network
 docker network inspect bridge
@@ -1391,7 +1391,7 @@ nsenter -t $PID -n tcpdump -i eth0 -w /tmp/container.pcap
 tcpdump -i docker0 -w /tmp/docker-bridge.pcap
 ```
 
-**Cilium Hubble (eBPF-based observability)**
+Cilium Hubble (eBPF-based observability)
 ```bash
 # List recent flows
 hubble observe --last 100
@@ -1489,26 +1489,26 @@ aws logs filter-log-events \
 
 | Tool | Category | Key Use Cases | Platform |
 |---|---|---|---|
-| **tcpdump** | Capture | CLI capture, BPF filtering, ring buffer | Linux/macOS/Windows (via WinPcap) |
-| **Wireshark** | Capture + Analysis | GUI pcap analysis, protocol dissection, stream following | Windows/Linux/macOS |
-| **tshark** | Capture + Analysis | CLI Wireshark, field extraction, scriptable | Linux/macOS/Windows |
-| **Zeek** | Analysis | Protocol logs, scripted analysis, file extraction | Linux/macOS |
-| **Suricata** | Detection | Signature IDS/IPS, protocol analysis, pcap replay | Linux/macOS/Windows |
-| **Arkime** | PCAP Platform | Full packet capture, session indexing, web UI search | Linux |
-| **NetworkMiner** | Analysis | Passive OS fingerprinting, file/credential extraction | Windows (Mono: Linux) |
-| **nfdump/nfcapd** | Flow Analysis | NetFlow v5/v9/IPFIX capture, CLI analysis | Linux |
-| **SiLK** | Flow Analysis | Large-scale flow analysis, beaconing detection | Linux |
-| **ntopng** | Flow Visualization | Real-time flow dashboard, historical analysis | Linux/Windows |
-| **CapLoader** | PCAP Analysis | Fast pcap indexing, protocol identification, geolocation | Windows |
-| **xplico** | Reconstruction | Network content reconstruction (email, web, VoIP) | Linux |
-| **tcpflow** | Reconstruction | TCP session file extraction | Linux/macOS |
-| **ja3** | Fingerprinting | JA3 hash extraction from pcap | Python (cross-platform) |
-| **JARM** | Fingerprinting | TLS server active fingerprinting | Python (cross-platform) |
-| **editcap/mergecap/capinfos** | PCAP Utilities | Pcap manipulation and metadata | Cross-platform (with Wireshark) |
+| tcpdump | Capture | CLI capture, BPF filtering, ring buffer | Linux/macOS/Windows (via WinPcap) |
+| Wireshark | Capture + Analysis | GUI pcap analysis, protocol dissection, stream following | Windows/Linux/macOS |
+| tshark | Capture + Analysis | CLI Wireshark, field extraction, scriptable | Linux/macOS/Windows |
+| Zeek | Analysis | Protocol logs, scripted analysis, file extraction | Linux/macOS |
+| Suricata | Detection | Signature IDS/IPS, protocol analysis, pcap replay | Linux/macOS/Windows |
+| Arkime | PCAP Platform | Full packet capture, session indexing, web UI search | Linux |
+| NetworkMiner | Analysis | Passive OS fingerprinting, file/credential extraction | Windows (Mono: Linux) |
+| nfdump/nfcapd | Flow Analysis | NetFlow v5/v9/IPFIX capture, CLI analysis | Linux |
+| SiLK | Flow Analysis | Large-scale flow analysis, beaconing detection | Linux |
+| ntopng | Flow Visualization | Real-time flow dashboard, historical analysis | Linux/Windows |
+| CapLoader | PCAP Analysis | Fast pcap indexing, protocol identification, geolocation | Windows |
+| xplico | Reconstruction | Network content reconstruction (email, web, VoIP) | Linux |
+| tcpflow | Reconstruction | TCP session file extraction | Linux/macOS |
+| ja3 | Fingerprinting | JA3 hash extraction from pcap | Python (cross-platform) |
+| JARM | Fingerprinting | TLS server active fingerprinting | Python (cross-platform) |
+| editcap/mergecap/capinfos | PCAP Utilities | Pcap manipulation and metadata | Cross-platform (with Wireshark) |
 
 ### Case Documentation Standards
 
-**Chain of Custody Form — Required Fields**
+Chain of Custody Form — Required Fields
 
 ```
 EVIDENCE CHAIN OF CUSTODY
@@ -1533,7 +1533,7 @@ Purpose: _______________
 (Repeat for each transfer)
 ```
 
-**Evidence Hash Log**
+Evidence Hash Log
 ```
 # Create and maintain hash log for all evidence files
 # Format: SHA256HASH  FILENAME  SIZE_BYTES  COLLECTION_TIMESTAMP  EXAMINER
@@ -1545,25 +1545,25 @@ echo "# Examiner: J. Smith (GCFE #12345)" >> evidence_manifest.txt
 cat evidence_hashes.txt >> evidence_manifest.txt
 ```
 
-**Examination Log (required per NIST SP 800-86)**
+Examination Log (required per NIST SP 800-86)
 - Log every command executed during analysis with timestamp and examiner ID.
 - Use `script` command to capture all terminal output: `script -t 2>timing.log analysis_session.log`
 - Note: any changes to evidence (even read errors that modify access times).
 
 ### NIST SP 800-86 and Related Standards
 
-**NIST SP 800-86 — Guide to Integrating Forensic Techniques**
-- Four-phase forensics process: Collection → Examination → Analysis → Reporting.
-- Network forensics–specific guidance in Section 4.
+NIST SP 800-86 — Guide to Integrating Forensic Techniques
+- Four-phase forensics process: Collection -> Examination -> Analysis -> Reporting.
+- Network forensics-specific guidance in Section 4.
 - Key principle: use forensic tools that do not alter the original evidence.
 - Maintain toolset validation log: version, known limitations, test results.
 
-**RFC 4810 — Long-Term Archive and Notary Services**
+RFC 4810 — Long-Term Archive and Notary Services
 - Addresses long-term integrity verification of digital evidence.
 - Timestamp evidence files using a trusted timestamping authority at time of collection.
 - Renew timestamps before hash algorithm becomes computationally broken.
 
-**Expert Witness Testimony Preparation**
+Expert Witness Testimony Preparation
 1. Maintain clear separation between facts (what the evidence shows) and conclusions (analyst interpretation).
 2. Document tool versions, validation procedures, and known limitations.
 3. Be prepared to explain tcpdump BPF syntax, pcap file format, and chain of custody to a non-technical jury.
@@ -1698,7 +1698,7 @@ collection.push(bundle)
 
 ### SIEM Integration
 
-**Splunk TA for PCAP Analysis**
+Splunk TA for PCAP Analysis
 ```
 # Splunk TA: TA-pcap
 # Extracts Zeek logs, Suricata alerts, and packet metadata
@@ -1711,7 +1711,7 @@ index=network sourcetype="zeek:conn"
 | head 20
 ```
 
-**Elastic Network Packet Capture**
+Elastic Network Packet Capture
 ```yaml
 # filebeat.yml for Zeek logs
 filebeat.inputs:

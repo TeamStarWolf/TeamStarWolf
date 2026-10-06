@@ -66,7 +66,7 @@ Security Operations is the continuous practice of monitoring, detecting, analyzi
 
 | Tool | Purpose | Link |
 |---|---|---|
-| TheHive | Incident response and case management platform — TheHive 5 now commercial (StrangeBee); OSS v4 archived/unmaintained since 2023 (OSS alternative: DFIR-IRIS) | https://github.com/TheHive-Project/TheHive |
+| TheHive | Incident response and case management platform: TheHive 5 now commercial (StrangeBee); OSS v4 archived/unmaintained since 2023 (OSS alternative: DFIR-IRIS) | https://github.com/TheHive-Project/TheHive |
 | Cortex | Automated analysis and active response with 100+ analyzers | https://github.com/TheHive-Project/Cortex |
 | Shuffle | Open-source SOAR platform with workflow automation | https://github.com/Shuffle/Shuffle |
 | MISP | Threat intelligence platform and IOC sharing | https://github.com/MISP/MISP |
@@ -76,7 +76,7 @@ Security Operations is the continuous practice of monitoring, detecting, analyzi
 
 | Tool | Purpose | Link |
 |---|---|---|
-| Sigma | Generic SIEM rule format — write once, deploy anywhere | https://github.com/SigmaHQ/sigma |
+| Sigma | Generic SIEM rule format: write once, deploy anywhere | https://github.com/SigmaHQ/sigma |
 | YARA | Pattern matching for malware identification | https://github.com/VirusTotal/yara |
 | Zeek | Network traffic analysis and protocol dissection | https://github.com/zeek/zeek |
 | Suricata | High-performance IDS/IPS with rule-based detection | https://github.com/OISF/suricata |
@@ -103,12 +103,12 @@ Security Operations is the continuous practice of monitoring, detecting, analyzi
 
 A SIEM ingests logs from across the environment, normalizes them into a common schema, and applies correlation rules to surface suspicious activity:
 
-1. **Log Ingestion** — Forward Windows Event Logs, syslog (Linux), DNS, proxy, firewall, EDR, and cloud logs to the SIEM
-2. **Normalization** — Parse raw log formats into structured fields (timestamp, source IP, user, action, outcome)
-3. **Correlation Rules** — Multi-event logic: "4 failed logins followed by a successful login from the same IP within 5 minutes"
-4. **Alert Triage** — Analysts classify alerts as true positive (TP), false positive (FP), or benign true positive
-5. **Enrichment** — Add context: IP reputation (VirusTotal, Shodan), user identity (AD), asset criticality
-6. **Escalation** — Confirmed TPs become incidents; complex cases escalate from Tier 1 to Tier 2/3
+1. Log Ingestion: Forward Windows Event Logs, syslog (Linux), DNS, proxy, firewall, EDR, and cloud logs to the SIEM
+2. Normalization: Parse raw log formats into structured fields (timestamp, source IP, user, action, outcome)
+3. Correlation Rules: Multi-event logic: "4 failed logins followed by a successful login from the same IP within 5 minutes"
+4. Alert Triage: Analysts classify alerts as true positive (TP), false positive (FP), or benign true positive
+5. Enrichment: Add context: IP reputation (VirusTotal, Shodan), user identity (AD), asset criticality
+6. Escalation: Confirmed TPs become incidents; complex cases escalate from Tier 1 to Tier 2/3
 
 ---
 
@@ -129,10 +129,10 @@ A SIEM ingests logs from across the environment, normalizes them into a common s
 
 Threat hunting is the proactive, hypothesis-driven search for adversaries that have evaded automated detections:
 
-- **Hypothesis-Driven** — Start with an ATT&CK technique: "Assume T1078 (Valid Accounts) — look for logins at unusual hours from new geolocations"
-- **Data-Driven** — Analyze baseline behavior anomalies: "Find processes making outbound connections that have never done so before"
-- **IOC-Driven** — Hunt for known indicators from threat intelligence feeds across historical logs
-- **Hunt Tools**: Splunk SPL, Elastic EQL, KQL (Sentinel), OSQuery, Velociraptor VQL
+- Hypothesis-Driven: Start with an ATT&CK technique: "Assume T1078 (Valid Accounts) — look for logins at unusual hours from new geolocations"
+- Data-Driven: Analyze baseline behavior anomalies: "Find processes making outbound connections that have never done so before"
+- IOC-Driven: Hunt for known indicators from threat intelligence feeds across historical logs
+- Hunt Tools: Splunk SPL, Elastic EQL, KQL (Sentinel), OSQuery, Velociraptor VQL
 
 ---
 
@@ -168,12 +168,12 @@ Threat hunting is the proactive, hypothesis-driven search for adversaries that h
 
 A SOAR playbook automates repetitive analyst tasks triggered by specific alert types:
 
-**Example: Phishing Triage Playbook**
+Example: Phishing Triage Playbook
 1. Trigger: Email security alert on suspicious message
 2. Extract IOCs: sender domain, URLs, attachment hashes
 3. Enrich: Query VirusTotal API for URL and hash reputation
 4. Check: Has the recipient clicked the link? (proxy logs)
-5. Decision: If VT score > 50 and link clicked → isolate endpoint, block domain, open P1 incident
+5. Decision: If VT score > 50 and link clicked -> isolate endpoint, block domain, open P1 incident
 6. Notify: Alert Tier 2 via Slack/Teams; auto-create ServiceNow or Jira ticket
 
 ---
@@ -234,8 +234,8 @@ A SOAR playbook automates repetitive analyst tasks triggered by specific alert t
 | [Splunk Boss of the SOC](https://bots.splunk.com/) | Free CTF | Splunk-based investigation CTF with real attack data sets |
 | [TryHackMe SOC Level 1](https://tryhackme.com/path/outline/soclevel1) | Guided path | Structured Tier 1 SOC analyst curriculum with hands-on labs |
 | [SANS FOR508: Advanced Incident Response](https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/) | Paid course | Gold standard for enterprise incident response and threat hunting |
-| [The Practice of Network Security Monitoring — Richard Bejtlich](https://nostarch.com/nsm) | Book | Foundational reference for NSM methodology and SOC workflows |
-| [Blue Team Handbook — Don Murdoch](https://www.amazon.com/Blue-Team-Handbook-Condensed-Operations/dp/1726273989) | Book | Quick-reference SOC playbook for incident response and triage |
+| [The Practice of Network Security Monitoring: Richard Bejtlich](https://nostarch.com/nsm) | Book | Foundational reference for NSM methodology and SOC workflows |
+| [Blue Team Handbook: Don Murdoch](https://www.amazon.com/Blue-Team-Handbook-Condensed-Operations/dp/1726273989) | Book | Quick-reference SOC playbook for incident response and triage |
 | [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) | Free tool | Visualize detection coverage against ATT&CK techniques |
 | [Sigma Rules Repository](https://github.com/SigmaHQ/sigma) | Free | Community SIEM detection rules mapped to ATT&CK techniques |
 | [Elastic Detection Rules](https://github.com/elastic/detection-rules) | Free | Production-ready Elastic SIEM rules with ATT&CK mappings |
@@ -273,12 +273,12 @@ A SOAR playbook automates repetitive analyst tasks triggered by specific alert t
 
 ### Alert Triage Workflow
 
-1. Alert fires → T1 analyst receives in queue
+1. Alert fires -> T1 analyst receives in queue
 2. Context enrichment: Lookup user in HR/CMDB; lookup IP in threat intel; check asset criticality
 3. Initial determination: True positive / false positive / needs investigation
 4. If TP or unclear: Create incident ticket; collect evidence (logs, memory, artifacts)
 5. Escalate to T2 if: Activity ongoing, privileged account involved, multiple systems, unknown malware
-6. T2 investigates → contains → documents → hands to T3 if APT-level
+6. T2 investigates -> contains -> documents -> hands to T3 if APT-level
 7. Post-incident: Update detection rules to reduce FP or improve TP capture
 
 ### Splunk SPL for SOC Operations
@@ -325,7 +325,7 @@ index=ticketing
 
 - Strategic: Brief leadership on threat landscape; inform security program investment
 - Operational: Track active campaigns targeting your sector; IOC watchlists in SIEM
-- Tactical: Real-time IOC feeds → SIEM correlation rules; block lists for firewall/proxy
+- Tactical: Real-time IOC feeds -> SIEM correlation rules; block lists for firewall/proxy
 
 ### Intel Platforms
 

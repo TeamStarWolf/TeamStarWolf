@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | reviewing or auditing a smart contract before deployment, investigating a DeFi exploit or suspicious on-chain activity, hardening exchange or wallet operations |
-| **Start at** | [Smart Contract Vulnerabilities](#_2-smart-contract-vulnerabilities), [DeFi Attack Case Studies](#_3-defi-attack-case-studies), [Incident Response for Blockchain](#_10-incident-response-for-blockchain) |
-| **Pairs with** | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md) |
+| Read this when | reviewing or auditing a smart contract before deployment, investigating a DeFi exploit or suspicious on-chain activity, hardening exchange or wallet operations |
+| Start at | [Smart Contract Vulnerabilities](#_2-smart-contract-vulnerabilities), [DeFi Attack Case Studies](#_3-defi-attack-case-studies), [Incident Response for Blockchain](#_10-incident-response-for-blockchain) |
+| Pairs with | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md) |
 
 ---
 
@@ -29,17 +29,17 @@
 
 ### 1.1 Consensus Mechanism Security
 
-#### Proof of Work (PoW) — 51% Attack Mathematics
+#### Proof of Work (PoW): 51% Attack Mathematics
 
 A 51% attack occurs when a single entity controls the majority of a network's hash rate, enabling double-spend attacks and chain reorganizations.
 
-**Attack feasibility formula:**
+Attack feasibility formula:
 
 ```
 Attack cost (USD/hr) = (Network hashrate × 51%) / Attacker ASIC efficiency × Electricity cost per kWh
 ```
 
-**Double-spend probability:**
+Double-spend probability:
 ```
 P(attacker catches up) = 1 - Σ(k=0 to z) [ (λ^k × e^-λ) / k! × (1 - (q/p)^(z-k)) ]
 
@@ -50,12 +50,12 @@ Where:
   λ = z × (q/p)
 ```
 
-**Bitcoin 51% attack cost estimates (2024):**
+Bitcoin 51% attack cost estimates (2024):
 - 1-hour attack: ~$1.4 billion in hardware + operational cost
 - Requires sustained >500 EH/s hashrate
 - Major exchanges require 6+ confirmations (~60 min)
 
-**Historical 51% attacks:**
+Historical 51% attacks:
 | Network | Date | Hashrate Rented | Blocks Reorged | Estimated Loss |
 |---|---|---|---|---|
 | Ethereum Classic | Jan 2019 | NiceHash GPU miners | 400 blocks | $1.1M |
@@ -63,7 +63,7 @@ Where:
 | Bitcoin Gold | May 2018 | Rented hashrate | 22 blocks | $18M |
 | Vertcoin | Dec 2018 | Rented hashrate | 310 blocks | Unknown |
 
-**Defenses against PoW 51% attacks:**
+Defenses against PoW 51% attacks:
 - Delayed finality (more confirmations)
 - Checkpointing (PoA hybrid)
 - Merge mining with larger chain (auxiliary PoW)
@@ -71,36 +71,36 @@ Where:
 
 ---
 
-#### Proof of Stake (PoS) — Long-Range Attacks
+#### Proof of Stake (PoS): Long-Range Attacks
 
 Long-range attacks (also called "history revision attacks") exploit the fact that private keys from the genesis era remain valid.
 
-**Attack types:**
+Attack types:
 
-**1. Simple Long-Range Attack:**
+1. Simple Long-Range Attack:
 - Attacker acquires old private keys (purchased, stolen, or from validators who exited)
 - Uses them to rewrite history from genesis
-- Countermeasure: **Weak subjectivity checkpoints** — new nodes must obtain a recent trusted state from a known-good source
+- Countermeasure: Weak subjectivity checkpoints: new nodes must obtain a recent trusted state from a known-good source
 
-**2. Stake Bleeding Attack:**
+2. Stake Bleeding Attack:
 - Attacker forks from a past point when they held significant stake
 - Collects block rewards on the fork to grow their stake share
 - Eventually overtakes the honest chain
-- Countermeasure: **Forward-secure key derivation** (keys are deleted after signing)
+- Countermeasure: Forward-secure key derivation (keys are deleted after signing)
 
-**3. Nothing-at-Stake Problem:**
+3. Nothing-at-Stake Problem:
 - Validators have no economic cost to sign on multiple forks
 - Pure PoS without slashing conditions: rational validators sign all forks
-- Countermeasure: **Slashing conditions** (Ethereum Casper FFG slashes equivocating validators)
+- Countermeasure: Slashing conditions (Ethereum Casper FFG slashes equivocating validators)
 
-**Ethereum Casper FFG Slashing Conditions:**
+Ethereum Casper FFG Slashing Conditions:
 ```
 Condition 1 (Double vote): A validator signs two different checkpoints at the same epoch
 Condition 2 (Surround vote): A validator signs checkpoint A→B surrounding existing vote C→D
 Penalty: Full 32 ETH stake burned + forced exit
 ```
 
-**Long-range attack mitigation in Ethereum:**
+Long-range attack mitigation in Ethereum:
 ```python
 # Weak subjectivity period calculation (approximate)
 # Source: Ethereum research
@@ -119,23 +119,23 @@ def weak_subjectivity_period(validator_count, eth_staked):
 
 ---
 
-#### PBFT — Byzantine Fault Tolerance
+#### PBFT: Byzantine Fault Tolerance
 
 Practical Byzantine Fault Tolerance (PBFT) is used in permissioned blockchains (Hyperledger Fabric, Tendermint).
 
-**BFT Theorem:** A system with `n` nodes can tolerate at most `f` Byzantine (malicious) nodes where:
+BFT Theorem: A system with `n` nodes can tolerate at most `f` Byzantine (malicious) nodes where:
 ```
 n ≥ 3f + 1
 ```
 
 This means:
-- 4 nodes → tolerates 1 Byzantine node
-- 7 nodes → tolerates 2 Byzantine nodes
-- 10 nodes → tolerates 3 Byzantine nodes
+- 4 nodes -> tolerates 1 Byzantine node
+- 7 nodes -> tolerates 2 Byzantine nodes
+- 10 nodes -> tolerates 3 Byzantine nodes
 
-**PBFT message complexity:** O(n²) — scales poorly, impractical beyond ~100 validators
+PBFT message complexity: O(n²) — scales poorly, impractical beyond ~100 validators
 
-**PBFT protocol phases:**
+PBFT protocol phases:
 ```
 1. REQUEST:    Client → Leader (request)
 2. PRE-PREPARE: Leader → All replicas (propose block)
@@ -147,7 +147,7 @@ Requires 2f+1 matching PREPARE messages to advance
 Requires 2f+1 matching COMMIT messages to finalize
 ```
 
-**Tendermint vs. PBFT differences:**
+Tendermint vs. PBFT differences:
 | Property | PBFT | Tendermint |
 |---|---|---|
 | Safety | Guaranteed with f < n/3 | Guaranteed with f < n/3 |
@@ -164,7 +164,7 @@ Requires 2f+1 matching COMMIT messages to finalize
 
 Bitcoin and Ethereum both use the `secp256k1` elliptic curve for key generation and signing.
 
-**Curve parameters:**
+Curve parameters:
 ```
 p  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F
      (prime defining the field)
@@ -176,7 +176,7 @@ n  = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
      (order of the generator point G)
 ```
 
-**Key generation:**
+Key generation:
 ```python
 import secrets
 from cryptography.hazmat.primitives.asymmetric import ec
@@ -191,7 +191,7 @@ public_point = public_key.public_numbers()
 public_bytes_uncompressed = bytes([0x04]) + public_point.x.to_bytes(32,'big') + public_point.y.to_bytes(32,'big')
 ```
 
-**ECDSA signature generation:**
+ECDSA signature generation:
 ```
 1. Generate random nonce k ∈ [1, n-1]  ← CRITICAL: must be truly random
 2. Compute R = k × G
@@ -200,16 +200,16 @@ public_bytes_uncompressed = bytes([0x04]) + public_point.x.to_bytes(32,'big') + 
 5. Signature = (r, s)
 ```
 
-**CRITICAL VULNERABILITY — Nonce reuse:**
+CRITICAL VULNERABILITY — Nonce reuse:
 If the same `k` is used for two different messages, the private key can be recovered:
 ```
 k_recovered = (hash1 - hash2) × (s1 - s2)⁻¹ mod n
 private_key = (s1 × k - hash1) × r⁻¹ mod n
 ```
 
-**Real-world nonce reuse attack:** PlayStation 3 (2010) — Sony used constant k=0 for firmware signing, allowing full key extraction.
+Real-world nonce reuse attack: PlayStation 3 (2010) — Sony used constant k=0 for firmware signing, allowing full key extraction.
 
-**Bitcoin/Ethereum signing mitigation:**
+Bitcoin/Ethereum signing mitigation:
 - RFC 6979: Deterministic k generation using HMAC-DRBG with private key + message hash
 - Prevents both weak-RNG and nonce-reuse attacks
 
@@ -233,7 +233,7 @@ def eth_address(public_key_bytes_64: bytes) -> str:
     return '0x' + hash_bytes[-20:].hex()
 ```
 
-**Keccak-256 vs SHA-3-256:**
+Keccak-256 vs SHA-3-256:
 ```
 Input: "" (empty string)
 Keccak-256: c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
@@ -246,7 +246,7 @@ SHA3-256:   a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a
 
 Merkle trees enable efficient, cryptographically-verified inclusion proofs.
 
-**Structure:**
+Structure:
 ```
               Root Hash
              /         \
@@ -257,7 +257,7 @@ Merkle trees enable efficient, cryptographically-verified inclusion proofs.
      Tx_A    Tx_B    Tx_C    Tx_D
 ```
 
-**Proof of inclusion for Tx_C:**
+Proof of inclusion for Tx_C:
 ```python
 proof = [Hash(D), Hash(AB)]  # sibling hashes from leaf to root
 
@@ -272,13 +272,13 @@ def verify_merkle_proof(leaf_hash, proof, root):
     return current == root
 ```
 
-**Merkle proof complexity:** O(log n) proof size, O(log n) verification
+Merkle proof complexity: O(log n) proof size, O(log n) verification
 
-**Merkle tree vulnerabilities:**
-- **Second preimage attack on naive implementations:** Concatenating leaf-level and internal nodes using same hash without domain separation allows forging proofs. Mitigation: prefix leaf nodes with `0x00` and internal nodes with `0x01` before hashing (Bitcoin approach).
-- **CVE-2012-2459 (Bitcoin):** Duplicate transaction in coinbase allowed creating two blocks with the same Merkle root.
+Merkle tree vulnerabilities:
+- Second preimage attack on naive implementations: Concatenating leaf-level and internal nodes using same hash without domain separation allows forging proofs. Mitigation: prefix leaf nodes with `0x00` and internal nodes with `0x01` before hashing (Bitcoin approach).
+- CVE-2012-2459 (Bitcoin): Duplicate transaction in coinbase allowed creating two blocks with the same Merkle root.
 
-**Merkle Sum Trees (proof of reserves):**
+Merkle Sum Trees (proof of reserves):
 ```
 Each node stores: (hash, balance_sum)
 Proves: total user balances ≤ exchange holdings
@@ -290,9 +290,9 @@ Used by: Binance, OKX, Kraken post-FTX collapse
 
 ### 1.3 Key Management
 
-#### HD Wallets — BIP32/39/44
+#### HD Wallets: BIP32/39/44
 
-**BIP39 — Mnemonic Generation:**
+BIP39 — Mnemonic Generation:
 ```
 1. Generate 128–256 bits of entropy (CSPRNG)
 2. Append SHA-256 checksum (entropy_bits/32 bits)
@@ -304,7 +304,7 @@ Security: 128-bit entropy = 2^128 guesses to brute force
 BIP39 wordlist: https://github.com/trezor/python-mnemonic/blob/master/src/mnemonic/wordlist/english.txt
 ```
 
-**BIP39 seed derivation:**
+BIP39 seed derivation:
 ```python
 import hashlib, hmac
 
@@ -316,7 +316,7 @@ def mnemonic_to_seed(mnemonic: str, passphrase: str = "") -> bytes:
 # Returns 512-bit (64-byte) seed
 ```
 
-**BIP32 — Hierarchical Deterministic Key Derivation:**
+BIP32 — Hierarchical Deterministic Key Derivation:
 ```python
 def derive_child_key(parent_key: bytes, parent_chain_code: bytes, index: int) -> tuple:
     if index >= 0x80000000:  # hardened derivation
@@ -330,7 +330,7 @@ def derive_child_key(parent_key: bytes, parent_chain_code: bytes, index: int) ->
     return child_key.to_bytes(32, 'big'), child_chain_code
 ```
 
-**BIP44 — Multi-Account Hierarchy:**
+BIP44 — Multi-Account Hierarchy:
 ```
 m / purpose' / coin_type' / account' / change / address_index
 
@@ -343,7 +343,7 @@ Apostrophe (') = hardened derivation (index + 2^31)
 Hardened derivation: child private key CANNOT be derived from parent public key alone
 ```
 
-**BIP44 coin type registry (partial):**
+BIP44 coin type registry (partial):
 | Coin Type | Symbol | Network |
 |---|---|---|
 | 0' | BTC | Bitcoin |
@@ -358,7 +358,7 @@ Hardened derivation: child private key CANNOT be derived from parent public key 
 
 Hardware wallets store private keys in a secure element or microcontroller that never exposes keys to the host machine.
 
-**Ledger architecture:**
+Ledger architecture:
 ```
 Host (PC/phone)
      ↕ USB/BT (APDU commands)
@@ -367,7 +367,7 @@ Ledger Secure Element (ST33 — CC EAL5+ certified)
 STM32 MCU (manages display, buttons)
 ```
 
-**Trezor architecture:**
+Trezor architecture:
 ```
 Host (PC/phone)
      ↕ USB/WebUSB
@@ -376,7 +376,7 @@ STM32 MCU (open-source firmware, no secure element)
 OLED display + buttons
 ```
 
-**Security comparison:**
+Security comparison:
 | Property | Ledger | Trezor |
 |---|---|---|
 | Secure Element | Yes (ST33, CC EAL5+) | No |
@@ -385,15 +385,15 @@ OLED display + buttons
 | Physical extraction | Harder | Possible with expertise |
 | PIN brute-force | Wipes after 3 attempts (Ledger) | Increasing delays |
 
-**Known hardware wallet attacks:**
-- **Ledger data breach (2020):** ~272,000 customer shipping addresses leaked from e-commerce database (not key compromise, but enabled targeted physical attacks)
-- **Trezor One voltage glitching:** Physical attacks can bypass PIN protection by injecting voltage glitches during verification — requires hands-on access
-- **Supply chain interdiction:** Evil maid attacks via malicious firmware pre-flash
-- **Malicious companion app:** Fake Ledger Live apps have stolen seeds by prompting "recovery" phrases
+Known hardware wallet attacks:
+- Ledger data breach (2020): ~272,000 customer shipping addresses leaked from e-commerce database (not key compromise, but enabled targeted physical attacks)
+- Trezor One voltage glitching: Physical attacks can bypass PIN protection by injecting voltage glitches during verification — requires hands-on access
+- Supply chain interdiction: Evil maid attacks via malicious firmware pre-flash
+- Malicious companion app: Fake Ledger Live apps have stolen seeds by prompting "recovery" phrases
 
-**Ledger Recover (2023 controversy):**
+Ledger Recover (2023 controversy):
 - Optional service to shard and back up seed phrase using identity verification
-- Architecture: Seed → 3 encrypted shards → Coincover, EscrowTech, Ledger
+- Architecture: Seed -> 3 encrypted shards -> Coincover, EscrowTech, Ledger
 - Security concern: Demonstrates seed can leave device, eroding trust model
 
 ---
@@ -402,7 +402,7 @@ OLED display + buttons
 
 Multi-Party Computation (MPC) wallets split the private key into shares across multiple parties. No single share reveals the key.
 
-**Threshold Signature Scheme (TSS):**
+Threshold Signature Scheme (TSS):
 ```
 t-of-n setup: any t parties can sign; fewer than t learn nothing about the key
 
@@ -412,19 +412,19 @@ Protocols:
   - Schnorr MPC: More efficient; used in BIP340 (Bitcoin Taproot)
 ```
 
-**MPC vs. Multisig:**
+MPC vs. Multisig:
 | Property | MPC/TSS | On-chain Multisig |
 |---|---|---|
 | On-chain footprint | Single signature | Multiple signatures on chain |
 | Gas cost | Lower (1 sig) | Higher (n sigs) |
-| Privacy | Private — looks like single sig | Public threshold visible |
+| Privacy | Private: looks like single sig | Public threshold visible |
 | Key reconstruction | Never required | N/A |
 | Auditability | Off-chain | On-chain |
 | Protocol complexity | High | Low |
 
-**MPC wallet providers:**
-- Fireblocks (institutional — most deployed in crypto exchanges)
-- ZenGo (consumer — keyless wallet using MPC + biometrics)
+MPC wallet providers:
+- Fireblocks (institutional: most deployed in crypto exchanges)
+- ZenGo (consumer: keyless wallet using MPC + biometrics)
 - Coinbase Prime (enterprise MPC custody)
 - Qredo (decentralized MPC custody network)
 
@@ -436,7 +436,7 @@ Protocols:
 
 Private key security is only as strong as the entropy used to generate it.
 
-**CSPRNG sources by platform:**
+CSPRNG sources by platform:
 ```python
 # Python — uses OS CSPRNG
 import secrets
@@ -451,20 +451,20 @@ const privateKey = crypto.randomBytes(32);
 # Use Chainlink VRF for on-chain randomness
 ```
 
-**Weak entropy sources (NEVER use for key generation):**
+Weak entropy sources (NEVER use for key generation):
 - `Math.random()` (not cryptographically secure)
 - `time.time()` as seed
 - Predictable sequences (consecutive integers, patterns)
 - Low-entropy PRNG seeds
 
-**Real-world weak entropy attack:**
-- **Blockchain.info Android bug (2013):** Java SecureRandom improperly seeded on Android, leading to k-value reuse in ECDSA signatures. ~55 BTC stolen. Root cause: `SecureRandom` not properly seeded before use.
+Real-world weak entropy attack:
+- Blockchain.info Android bug (2013): Java SecureRandom improperly seeded on Android, leading to k-value reuse in ECDSA signatures. ~55 BTC stolen. Root cause: `SecureRandom` not properly seeded before use.
 
 ---
 
 #### Seed Phrase Storage
 
-**Best practices for seed phrase storage:**
+Best practices for seed phrase storage:
 
 ```
 1. WRITE IT DOWN (paper/metal) — never type into a computer
@@ -494,7 +494,7 @@ const privateKey = crypto.randomBytes(32);
 
 Shamir's Secret Sharing splits a secret (e.g., seed phrase) into `n` shares where any `t` shares can reconstruct the secret.
 
-**Mathematical basis (Lagrange interpolation):**
+Mathematical basis (Lagrange interpolation):
 ```
 Secret S is encoded as f(0) where f is a degree t-1 polynomial:
 f(x) = S + a1*x + a2*x² + ... + a(t-1)*x^(t-1)  (mod prime p)
@@ -509,7 +509,7 @@ Properties:
   - Fewer than t shares provide ZERO information about S (information-theoretic security)
 ```
 
-**Implementation: SLIP39 (Trezor's Shamir backup standard):**
+Implementation: SLIP39 (Trezor's Shamir backup standard):
 ```
 SLIP39 encodes shares as mnemonic words
 Example: 3-of-5 scheme
@@ -519,7 +519,7 @@ Example: 3-of-5 scheme
   Any 3 of 5 shares reconstruct the master secret
 ```
 
-**SSSS vs. multisig:**
+SSSS vs. multisig:
 - SSS: Secret must be reconstructed at a single point (temporary key exposure)
 - Multisig: Secret is never reconstructed; each party signs independently (preferred for operational security)
 
@@ -536,14 +536,14 @@ Example: 3-of-5 scheme
 | Native SegWit | bc1q... | P2WPKH/P2WSH | Bech32 | BIP84 (2017) |
 | Taproot | bc1p... | P2TR | Bech32m | BIP341 (2021) |
 
-**P2PKH (Pay to Public Key Hash):**
+P2PKH (Pay to Public Key Hash):
 ```
 ScriptPubKey: OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG
 ScriptSig:    <sig> <pubKey>
 Address:      Base58Check(0x00 || RIPEMD160(SHA256(pubKey)))
 ```
 
-**P2SH (Pay to Script Hash):**
+P2SH (Pay to Script Hash):
 ```
 ScriptPubKey: OP_HASH160 <scriptHash> OP_EQUAL
 RedeemScript: <m> <pubKey1> <pubKey2> ... <pubKeyN> <n> OP_CHECKMULTISIG
@@ -551,7 +551,7 @@ ScriptSig:    OP_0 <sig1> <sig2> <redeemScript>
 Address:      Base58Check(0x05 || RIPEMD160(SHA256(redeemScript)))
 ```
 
-**Bech32 / Bech32m error detection:**
+Bech32 / Bech32m error detection:
 ```
 Bech32 can detect:
   - All 1-char substitution errors
@@ -565,7 +565,7 @@ Format: bc1 <version> <witness program>
 
 #### Ethereum Address Types
 
-**EOA (Externally Owned Account):**
+EOA (Externally Owned Account):
 ```
 Controlled by private key
 No code
@@ -575,7 +575,7 @@ EIP-55 checksum: Mixed-case hex where each nibble > 8 sets uppercase
   Valid: 0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed
 ```
 
-**Contract Address:**
+Contract Address:
 ```
 Deterministic: keccak256(RLP([deployer_address, nonce]))[-20:]
 CREATE2:        keccak256(0xff || deployer || salt || keccak256(initcode))[-20:]
@@ -583,7 +583,7 @@ No private key — controlled by code
 Can receive ETH but cannot initiate transactions alone
 ```
 
-**EIP-1167 Minimal Proxy (Clone) Contracts:**
+EIP-1167 Minimal Proxy (Clone) Contracts:
 ```
 Bytecode: 3d602d80600a3d3981f3 363d3d373d3d3d363d73 <implementation_address> 5af43d82803e903d91602b57fd5bf3
 Delegates all calls to implementation
@@ -602,7 +602,7 @@ Reentrancy is the most famous smart contract vulnerability class. It occurs when
 
 The DAO was an Ethereum-based venture fund. A reentrancy vulnerability allowed an attacker to drain ~3.6M ETH (~$60M at the time).
 
-**Vulnerable code pattern (simplified):**
+Vulnerable code pattern (simplified):
 ```solidity
 // VULNERABLE — Classic reentrancy
 contract VulnerableBank {
@@ -647,7 +647,7 @@ contract Attacker {
 }
 ```
 
-**Fixed version using Checks-Effects-Interactions + ReentrancyGuard:**
+Fixed version using Checks-Effects-Interactions + ReentrancyGuard:
 ```solidity
 // SAFE — OpenZeppelin ReentrancyGuard
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -723,7 +723,7 @@ Occurs when multiple contracts share state and an attacker can manipulate that s
 
 Prior to Solidity 0.8.0, all arithmetic was unchecked. Values would silently wrap around.
 
-**Classic overflow example:**
+Classic overflow example:
 ```solidity
 // Solidity < 0.8.0 — VULNERABLE
 contract OverflowVulnerable {
@@ -739,7 +739,7 @@ contract OverflowVulnerable {
 }
 ```
 
-**Safe Math library (pre-0.8.0):**
+Safe Math library (pre-0.8.0):
 ```solidity
 library SafeMath {
     function add(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -762,7 +762,7 @@ library SafeMath {
 }
 ```
 
-**Solidity 0.8+ built-in overflow protection:**
+Solidity 0.8+ built-in overflow protection:
 ```solidity
 // Solidity >= 0.8.0 — Safe by default
 contract SafeByDefault {
@@ -780,7 +780,7 @@ contract SafeByDefault {
 }
 ```
 
-**BEANstalk finance (April 2022):** Integer arithmetic manipulation via governance flash loan enabled attacker to pass a malicious proposal and drain $182M.
+BEANstalk finance (April 2022): Integer arithmetic manipulation via governance flash loan enabled attacker to pass a malicious proposal and drain $182M.
 
 ---
 
@@ -823,7 +823,7 @@ function transfer(address payable to, uint256 amount) external {
 }
 ```
 
-#### Unprotected Initializers — Parity Wallet Hack (July 2017)
+#### Unprotected Initializers: Parity Wallet Hack (July 2017)
 
 The Parity multi-signature wallet library contract had an unprotected `initWallet` function:
 ```solidity
@@ -846,7 +846,7 @@ contract WalletLibrary {
 // ~$280M of ETH locked in wallets using that library became permanently inaccessible.
 ```
 
-**Fix — use OpenZeppelin Initializable:**
+Fix — use OpenZeppelin Initializable:
 ```solidity
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
@@ -879,7 +879,7 @@ Attacker profit = victim's slippage loss - gas costs
 MEV bots extract ~$1M+ per day from Ethereum mainnet
 ```
 
-**Time-Bandit Attacks:**
+Time-Bandit Attacks:
 ```
 Scenario: Block N contains a profitable transaction (e.g., $10M arbitrage)
 Time-bandit attacker: Reorg back to N-1, include their version of N with the profit captured
@@ -888,7 +888,7 @@ Profitable when: reorg reward > block rewards given up
 Ethereum defense: Finality via Casper FFG — finalized blocks cannot be reorganized
 ```
 
-**Commit-Reveal Scheme (front-running mitigation):**
+Commit-Reveal Scheme (front-running mitigation):
 ```solidity
 contract CommitRevealAuction {
     mapping(address => bytes32) public commitments;
@@ -914,7 +914,7 @@ contract CommitRevealAuction {
 
 Price oracles are critical infrastructure in DeFi. On-chain spot price oracles (reading directly from AMM reserves) are manipulable within a single transaction.
 
-**Harvest Finance Attack (October 2020, ~$34M):**
+Harvest Finance Attack (October 2020, ~$34M):
 ```
 1. Attacker takes flash loan of USDC/USDT
 2. Manipulates Curve.fi stablecoin pool price (depeg USDC)
@@ -925,7 +925,7 @@ Price oracles are critical infrastructure in DeFi. On-chain spot price oracles (
 Root cause: Harvest used spot price from single AMM pool as oracle
 ```
 
-**Mango Markets Attack (October 2022, ~$116M):**
+Mango Markets Attack (October 2022, ~$116M):
 ```
 1. Attacker opens large MNGO perpetual long position
 2. Simultaneously manipulates MNGO spot price on thin Serum DEX
@@ -935,7 +935,7 @@ Root cause: Harvest used spot price from single AMM pool as oracle
 Root cause: Used manipulable spot oracle for collateral valuation
 ```
 
-**Oracle security best practices:**
+Oracle security best practices:
 ```solidity
 // Use time-weighted average price (TWAP) instead of spot
 interface IUniswapV3Pool {
@@ -967,7 +967,7 @@ require(block.timestamp - updatedAt < 1 hours, "Stale price");
 
 Flash loans allow borrowing arbitrary amounts with zero collateral, provided the loan is repaid within the same transaction. This amplifies economic attacks.
 
-**Euler Finance Hack (March 2023, $197M):**
+Euler Finance Hack (March 2023, $197M):
 ```
 Root cause: Flawed donation mechanism in eToken contract
 1. Attacker takes flash loan of 30M DAI
@@ -980,7 +980,7 @@ Root cause: Flawed donation mechanism in eToken contract
 Notable: Euler received $200M in fund returns after attacker communicated with team
 ```
 
-**bZx Protocol Attacks (February 2020, $1M + $600K):**
+bZx Protocol Attacks (February 2020, $1M + $600K):
 ```
 Attack 1 (Feb 14):
 1. Flash loan 10,000 ETH from dYdX
@@ -997,7 +997,7 @@ Attack 2 (Feb 18):
 4. Profit ~$600K
 ```
 
-**Flash loan attack mitigation:**
+Flash loan attack mitigation:
 ```solidity
 // 1. Use TWAP instead of spot prices
 // 2. Add slippage guards
@@ -1044,7 +1044,7 @@ import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 
 `delegatecall` executes external code in the calling contract's storage context. Storage slot collisions between proxy and implementation contracts can lead to critical vulnerabilities.
 
-**Parity Multisig Wallet Hack #1 (July 2017, $30M):**
+Parity Multisig Wallet Hack #1 (July 2017, $30M):
 ```solidity
 // Simplified vulnerable proxy pattern
 contract WalletProxy {
@@ -1067,7 +1067,7 @@ contract WalletLibrary {
 // Attack: Call proxy.initWallet(attacker) → sets proxy.owner = attacker
 ```
 
-**Storage collision in upgradeable proxies:**
+Storage collision in upgradeable proxies:
 ```solidity
 // BAD: Implementation variable at slot 0 collides with proxy's admin at slot 0
 contract BadProxy {
@@ -1094,7 +1094,7 @@ bytes32 constant IMPLEMENTATION_SLOT =
 
 Without proper domain separation and nonce management, valid signatures can be replayed on different contracts or chains.
 
-**EIP-712 Structured Data Signing:**
+EIP-712 Structured Data Signing:
 ```solidity
 // Domain separator binds signature to specific contract + chain
 bytes32 DOMAIN_SEPARATOR = keccak256(abi.encode(
@@ -1135,7 +1135,7 @@ function permit(
 
 ### 2.10 Gas Griefing and Denial of Service
 
-**DoS via unbounded loops:**
+DoS via unbounded loops:
 ```solidity
 // VULNERABLE — gas cost grows unbounded
 contract VulnerableDistribution {
@@ -1161,7 +1161,7 @@ contract SafeDistribution {
 }
 ```
 
-**DoS via external call revert:**
+DoS via external call revert:
 ```solidity
 // VULNERABLE — one recipient can block all withdrawals
 function distribute(address[] calldata recipients) external {
@@ -1173,7 +1173,7 @@ function distribute(address[] calldata recipients) external {
 // FIX: Use call() and track failures instead of reverting
 ```
 
-**Return bomb / gas griefing:**
+Return bomb / gas griefing:
 ```solidity
 // VULNERABLE — malicious contract returns huge return data, wasting caller gas
 (bool success, bytes memory returnData) = target.call(data);
@@ -1225,7 +1225,7 @@ Encoded:      [4-byte selector] [31-byte address][1 zero byte from amount] [31-b
 Effect:       amount = 100 << 8 = 25600 (amount × 256)
 ```
 
-**Mitigation:**
+Mitigation:
 ```solidity
 // Check calldata length at contract level (historical pattern)
 modifier validPayload(uint size) {
@@ -1243,9 +1243,9 @@ modifier validPayload(uint size) {
 
 ### 3.1 Poly Network Hack ($611M, August 2021)
 
-**Largest DeFi hack at time of occurrence. Attacker returned most funds.**
+Largest DeFi hack at time of occurrence. Attacker returned most funds.
 
-**Root cause:** The cross-chain bridge's `EthCrossChainManager` contract had a `verifyHeaderAndExecuteTx` function that could be tricked into calling arbitrary contract methods.
+Root cause: The cross-chain bridge's `EthCrossChainManager` contract had a `verifyHeaderAndExecuteTx` function that could be tricked into calling arbitrary contract methods.
 
 ```
 Attack chain:
@@ -1260,27 +1260,27 @@ Key flaw: _executeCrossChainTx() called a user-supplied _toContract.call(_method
 without restricting which contracts or methods could be called
 ```
 
-**Recovery:**
+Recovery:
 - Attacker communicated via on-chain transaction messages
 - Claimed hack was "for fun" and to expose vulnerability
 - Returned ~$610M over several weeks
 - $33M of USDT was frozen by Tether before return
 
-**Bridge security lesson:** Cross-chain message execution must strictly whitelist allowed target contracts and methods.
+Bridge security lesson: Cross-chain message execution must strictly whitelist allowed target contracts and methods.
 
 ---
 
 ### 3.2 Ronin Network Bridge ($625M, March 2022)
 
-**Largest crypto hack in history at time of occurrence.**
+Largest crypto hack in history at time of occurrence.
 
-**Architecture:**
+Architecture:
 ```
 Ronin is an Ethereum sidechain for Axie Infinity (Sky Mavis)
 Bridge uses 9 validator nodes: requires 5-of-9 signatures to authorize withdrawals
 ```
 
-**Attack:**
+Attack:
 ```
 1. Attacker (Lazarus Group / DPRK) compromised 4 Sky Mavis validator nodes
    via spear-phishing (fake job offer PDF with malware)
@@ -1292,12 +1292,12 @@ Bridge uses 9 validator nodes: requires 5-of-9 signatures to authorize withdrawa
 6. Not detected for 6 days (only discovered when user tried to withdraw)
 ```
 
-**Key failures:**
+Key failures:
 - No monitoring for large unauthorized withdrawals
 - Stale access permissions never revoked
 - Insufficient validator decentralization (4 nodes controlled by one entity)
 
-**Post-hack:**
+Post-hack:
 - Sky Mavis raised $150M to reimburse users
 - U.S. Treasury sanctioned attacker addresses
 - Upgraded to 9-of-9 validator requirement
@@ -1306,9 +1306,9 @@ Bridge uses 9 validator nodes: requires 5-of-9 signatures to authorize withdrawa
 
 ### 3.3 Wormhole Bridge ($320M, February 2022)
 
-**Wormhole bridges assets between Solana, Ethereum, BSC, and other chains.**
+Wormhole bridges assets between Solana, Ethereum, BSC, and other chains.
 
-**Root cause:** Signature verification bypass in Solana program.
+Root cause: Signature verification bypass in Solana program.
 
 ```solidity
 // Vulnerable Solana program (simplified concept)
@@ -1331,20 +1331,20 @@ Bridge uses 9 validator nodes: requires 5-of-9 signatures to authorize withdrawa
 //   5. Bridged wETH back to Ethereum as real ETH
 ```
 
-**Root cause technical detail:**
+Root cause technical detail:
 - Wormhole used `load_current_index` from an account that should have been a known sysvar
 - The program did not verify the account was the actual sysvar program address
 - Attacker passed an attacker-controlled account with crafted data
 
-**Jump Trading (Wormhole backer) replenished the 120,000 ETH within 24 hours.**
+Jump Trading (Wormhole backer) replenished the 120,000 ETH within 24 hours.
 
 ---
 
 ### 3.4 Nomad Bridge ($190M, August 2022)
 
-**Unusual hack: Open to anyone. Became a "free-for-all" copy-paste attack.**
+Unusual hack: Open to anyone. Became a "free-for-all" copy-paste attack.
 
-**Root cause:** A routine upgrade introduced a critical bug.
+Root cause: A routine upgrade introduced a critical bug.
 
 ```
 During upgrade, the trusted root was initialized to 0x00 (zero hash)
@@ -1380,7 +1380,7 @@ copying and modifying the original exploit transaction.
 | Unlimited minting | No supply cap enforcement on wrapped tokens | Multiple incidents |
 | Oracle/price manipulation | Bridge using manipulable prices for asset valuation | Smaller exploits |
 
-**Bridge security best practices:**
+Bridge security best practices:
 ```
 1. Decentralize validator set (20+ validators across independent organizations)
 2. Require time-locks on large withdrawals (1-3 day delay above threshold)
@@ -1396,11 +1396,11 @@ copying and modifying the original exploit transaction.
 
 ## 4. Smart Contract Auditing Tools
 
-### 4.1 Slither — Static Analyzer
+### 4.1 Slither: Static Analyzer
 
 Slither is a Python-based static analysis framework for Solidity. It detects ~80+ vulnerability classes.
 
-**Installation:**
+Installation:
 ```bash
 pip install slither-analyzer
 # or with solc-select for version management
@@ -1408,7 +1408,7 @@ pip install solc-select slither-analyzer
 solc-select install 0.8.19 && solc-select use 0.8.19
 ```
 
-**Basic usage:**
+Basic usage:
 ```bash
 # Analyze a single contract
 slither contracts/Vault.sol
@@ -1432,7 +1432,7 @@ slither . --print call-graph
 slither . --list-detectors
 ```
 
-**Detector categories:**
+Detector categories:
 | Category | Examples | Severity |
 |---|---|---|
 | Reentrancy | reentrancy-eth, reentrancy-no-eth, reentrancy-benign | High/Medium |
@@ -1442,7 +1442,7 @@ slither . --list-detectors
 | Optimization | costly-loop, cache-array-length | Optimization |
 | ERC compliance | erc20-interface, erc721-interface | Informational |
 
-**Slither CI integration:**
+Slither CI integration:
 ```yaml
 # .github/workflows/slither.yml
 name: Slither Analysis
@@ -1464,7 +1464,7 @@ jobs:
           fail-on: high
 ```
 
-**Slither output JSON structure:**
+Slither output JSON structure:
 ```json
 {
   "success": true,
@@ -1490,18 +1490,18 @@ jobs:
 
 ---
 
-### 4.2 Mythril — Symbolic Execution
+### 4.2 Mythril: Symbolic Execution
 
 Mythril analyzes EVM bytecode using symbolic execution to find security vulnerabilities.
 
-**Installation:**
+Installation:
 ```bash
 pip install mythril
 # Or via Docker
 docker pull mythril/myth
 ```
 
-**Usage:**
+Usage:
 ```bash
 # Analyze a Solidity file
 myth analyze contracts/Vault.sol --solv 0.8.19 -o json
@@ -1519,7 +1519,7 @@ myth analyze contracts/Vault.sol --solv 0.8.19 -o json > mythril-results.json
 docker run mythril/myth analyze /path/to/contract.sol
 ```
 
-**Mythril vulnerability classes detected:**
+Mythril vulnerability classes detected:
 - Integer overflow/underflow (SWC-101)
 - Reentrancy (SWC-107)
 - Unprotected Ether withdrawal (SWC-105)
@@ -1528,15 +1528,15 @@ docker run mythril/myth analyze /path/to/contract.sol
 - Unprotected selfdestruct (SWC-106)
 - State change after external call (SWC-107)
 
-**SWC Registry:** https://swcregistry.io — standardized vulnerability classification for smart contracts
+SWC Registry: https://swcregistry.io — standardized vulnerability classification for smart contracts
 
 ---
 
-### 4.3 Echidna — Property-Based Fuzzer
+### 4.3 Echidna: Property-Based Fuzzer
 
 Echidna is a Haskell-based fuzzer for EVM smart contracts using property-based testing.
 
-**Installation:**
+Installation:
 ```bash
 # Binary release
 wget https://github.com/crytic/echidna/releases/latest/download/echidna-test-linux-x86_64.tar.gz
@@ -1546,7 +1546,7 @@ tar xvf echidna*.tar.gz && mv echidna /usr/local/bin/
 docker pull ghcr.io/crytic/echidna/echidna
 ```
 
-**Writing Echidna properties:**
+Writing Echidna properties:
 ```solidity
 // EchidnaTest.sol
 contract EchidnaVaultTest is Vault {
@@ -1570,7 +1570,7 @@ contract EchidnaVaultTest is Vault {
 }
 ```
 
-**Running Echidna:**
+Running Echidna:
 ```bash
 # Basic fuzzing
 echidna-test contracts/EchidnaVaultTest.sol --contract EchidnaVaultTest
@@ -1588,17 +1588,17 @@ echidna-test . --contract EchidnaVaultTest --config echidna.yaml
 
 ---
 
-### 4.4 Foundry Forge — Fuzzing and Fork Testing
+### 4.4 Foundry Forge: Fuzzing and Fork Testing
 
 Foundry is the modern smart contract development framework with built-in fuzzing, fork testing, and invariant testing.
 
-**Installation:**
+Installation:
 ```bash
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 ```
 
-**Fuzz testing:**
+Fuzz testing:
 ```solidity
 // test/VaultFuzz.t.sol
 pragma solidity ^0.8.19;
@@ -1635,7 +1635,7 @@ contract VaultFuzzTest is Test {
 }
 ```
 
-**Fork testing against mainnet:**
+Fork testing against mainnet:
 ```solidity
 function testFork_existingProtocol() public {
     // Fork mainnet at specific block
@@ -1651,7 +1651,7 @@ function testFork_existingProtocol() public {
 }
 ```
 
-**Invariant testing:**
+Invariant testing:
 ```solidity
 contract VaultInvariantTest is Test {
     Vault vault;
@@ -1673,7 +1673,7 @@ contract VaultInvariantTest is Test {
 }
 ```
 
-**Running Foundry tests:**
+Running Foundry tests:
 ```bash
 forge test                           # All tests
 forge test --match-test testFuzz_    # Only fuzz tests
@@ -1685,11 +1685,11 @@ forge snapshot                       # Gas snapshots
 
 ---
 
-### 4.5 Certora Prover — Formal Verification
+### 4.5 Certora Prover: Formal Verification
 
 Certora Prover uses formal verification to mathematically prove or disprove properties of smart contracts. Rules are written in CVL (Certora Verification Language).
 
-**CVL specification example:**
+CVL specification example:
 ```javascript
 // Vault.spec
 methods {
@@ -1717,7 +1717,7 @@ invariant totalBalancesMatchContractBalance()
     totalDeposits() == nativeBalances[currentContract];
 ```
 
-**Running Certora:**
+Running Certora:
 ```bash
 certoraRun contracts/Vault.sol --verify Vault:specs/Vault.spec   --solc solc-0.8.19 --msg "Initial vault verification"
 ```
@@ -1728,7 +1728,7 @@ certoraRun contracts/Vault.sol --verify Vault:specs/Vault.spec   --solc solc-0.8
 
 OpenZeppelin Defender provides automated security monitoring, relayers, and incident response for smart contracts.
 
-**Key capabilities:**
+Key capabilities:
 ```
 Monitor:    Alert on specific on-chain events, unusual transaction patterns
 Relayer:    Managed transaction signing with key rotation
@@ -1736,7 +1736,7 @@ Autotask:   Serverless functions triggered by monitor alerts or schedule
 Sentinel:   Automated response — pause contract, notify team
 ```
 
-**Example Defender Autotask (emergency pause):**
+Example Defender Autotask (emergency pause):
 ```javascript
 const { ethers } = require("ethers");
 const { DefenderRelayProvider, DefenderRelaySigner } = require("defender-relay-client/lib/ethers");
@@ -1884,7 +1884,7 @@ contract PausableVault is Pausable, AccessControl {
 
 ### 5.5 Upgradeable Contract Security
 
-**Transparent Proxy Pattern:**
+Transparent Proxy Pattern:
 ```solidity
 // Admin calls go to proxy, user calls delegatecall to implementation
 // ProxyAdmin.sol controls upgrades
@@ -1901,7 +1901,7 @@ abstract contract VersionB is VersionA {
 }
 ```
 
-**UUPS (Universal Upgradeable Proxy Standard, EIP-1822):**
+UUPS (Universal Upgradeable Proxy Standard, EIP-1822):
 ```solidity
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
@@ -1921,7 +1921,7 @@ contract VaultV1 is UUPSUpgradeable, OwnableUpgradeable {
 }
 ```
 
-**UUPS vs. Transparent Proxy:**
+UUPS vs. Transparent Proxy:
 | Property | Transparent Proxy | UUPS |
 |---|---|---|
 | Upgrade logic location | ProxyAdmin contract | Implementation contract |
@@ -2009,7 +2009,7 @@ TimelockController timelock = new TimelockController(
 
 ### 6.1 Node Security
 
-**Ethereum node attack surface:**
+Ethereum node attack surface:
 
 ```
 Exposed services (default ports):
@@ -2020,7 +2020,7 @@ Exposed services (default ports):
   9000 TCP/UDP   — Lighthouse/Prysm P2P — must be public
 ```
 
-**Geth hardening:**
+Geth hardening:
 ```bash
 # Never expose RPC to 0.0.0.0 without authentication
 geth --http.addr 127.0.0.1      --http.port 8545      --http.api eth,net,web3 \           # Minimal API exposure
@@ -2031,7 +2031,7 @@ geth --http.addr 127.0.0.1      --http.port 8545      --http.api eth,net,web3 \ 
      --nat extip:YOUR_STATIC_IP      --metrics      --pprof.addr 127.0.0.1             # Profiling localhost only
 ```
 
-**API key management for node providers:**
+API key management for node providers:
 ```
 Infura / Alchemy / QuickNode best practices:
   1. Create separate API keys per application
@@ -2074,7 +2074,7 @@ Defenses (Bitcoin/Ethereum):
 
 BGP (Border Gateway Protocol) route hijacking allows ASes to announce false routes, redirecting internet traffic.
 
-**Impact on crypto exchanges:**
+Impact on crypto exchanges:
 ```
 2018 Amazon Route 53 BGP Hijack:
   - Attacker hijacked MyEtherWallet's DNS traffic via BGP
@@ -2250,7 +2250,7 @@ Tools: Summa (a16z), Chainalysis PoR, custom implementations (Binance)
 
 ### 7.5 Exchange Hack Case Studies
 
-**Mt. Gox ($450M BTC, 2011-2014):**
+Mt. Gox ($450M BTC, 2011-2014):
 ```
 Multiple incidents:
   2011: Auditor accidentally set BTC price to $0.01 → 2,000 BTC stolen
@@ -2265,7 +2265,7 @@ Root causes:
   - No multi-signature for any wallets
 ```
 
-**FTX Collapse ($8B, 2022):**
+FTX Collapse ($8B, 2022):
 ```
 Not a hack — fraud/mismanagement:
   - Customer funds commingled with Alameda Research
@@ -2280,7 +2280,7 @@ Security failures:
   - Single employee had admin access to entire infrastructure
 ```
 
-**Binance Bridge Hack ($570M, October 2022):**
+Binance Bridge Hack ($570M, October 2022):
 ```
 BSC Token Hub bridge exploit:
   Attacker forged proof of deposit on Binance Chain
@@ -2298,7 +2298,7 @@ Key lesson: Bridge proof verification must be formally verified
 
 ### 8.1 ERC-20 Token Vulnerabilities
 
-**Approval attack / infinite approval phishing:**
+Approval attack / infinite approval phishing:
 ```solidity
 // Victim approves malicious contract for unlimited spending
 IERC20(tokenAddress).approve(maliciousContract, type(uint256).max);
@@ -2308,7 +2308,7 @@ IERC20(tokenAddress).approve(maliciousContract, type(uint256).max);
 // Or: Approve only exact amount needed per transaction
 ```
 
-**ERC-20 Permit phishing (EIP-2612):**
+ERC-20 Permit phishing (EIP-2612):
 ```
 Attack flow:
 1. Victim signs a "gasless approval" permit message (off-chain)
@@ -2322,7 +2322,7 @@ Defense:
   - Hardware wallet prompts show permit details
 ```
 
-**Common ERC-20 implementation bugs:**
+Common ERC-20 implementation bugs:
 ```solidity
 // Rebasing tokens (AMPL, stETH) — balance changes every block
 // Direct balance caching breaks DeFi integrations
@@ -2408,7 +2408,7 @@ Best practices:
 
 The FATF Travel Rule (Recommendation 16) requires Virtual Asset Service Providers (VASPs) to share originator and beneficiary information for transfers above $1,000/€1,000.
 
-**IVMS 101 (InterVASP Messaging Standard):**
+IVMS 101 (InterVASP Messaging Standard):
 ```json
 {
   "originator": {
@@ -2448,14 +2448,14 @@ The FATF Travel Rule (Recommendation 16) requires Virtual Asset Service Provider
 }
 ```
 
-**Travel Rule technology vendors:**
+Travel Rule technology vendors:
 - Notabene (most widely deployed)
 - Sygna Bridge (used in Asia)
-- TRP (Travel Rule Protocol — HSBC, Standard Chartered)
+- TRP (Travel Rule Protocol: HSBC, Standard Chartered)
 - VerifyVASP
 - Shyft Network
 
-**Unhosted wallet (self-hosted wallet) challenges:**
+Unhosted wallet (self-hosted wallet) challenges:
 - Travel Rule typically only applies VASP-to-VASP
 - EBA/FATF guidance varies by jurisdiction for unhosted wallet transfers
 - MiCA (EU): Enhanced due diligence for transfers to unhosted wallets > €1,000
@@ -2464,7 +2464,7 @@ The FATF Travel Rule (Recommendation 16) requires Virtual Asset Service Provider
 
 ### 9.2 Blockchain Analytics for AML
 
-**Leading platforms:**
+Leading platforms:
 | Platform | Owned By | Specialties |
 |---|---|---|
 | Chainalysis | Private | Investigations, compliance, KYT |
@@ -2473,7 +2473,7 @@ The FATF Travel Rule (Recommendation 16) requires Virtual Asset Service Provider
 | TRM Labs | Private | Fraud, compliance, sanctions |
 | Merkle Science | Private | APAC focus, DeFi coverage |
 
-**Transaction monitoring concepts:**
+Transaction monitoring concepts:
 ```
 Risk scoring factors:
   - Direct exposure: funds came directly from flagged address
@@ -2528,7 +2528,7 @@ OFAC SDN List screening for blockchain:
 
 Markets in Crypto-Assets Regulation (MiCA) — effective June 2024 for stablecoins, December 2024 for CASPs.
 
-**Key security requirements:**
+Key security requirements:
 ```
 Crypto-Asset Service Providers (CASPs):
   1. Custody requirements:
@@ -2578,7 +2578,7 @@ Qualified Custodian definition (Investment Advisers Act):
 
 ### 10.1 On-Chain Transaction Monitoring
 
-**Setting up real-time monitoring:**
+Setting up real-time monitoring:
 ```python
 # Using web3.py to monitor for suspicious transactions
 from web3 import Web3
@@ -2605,14 +2605,14 @@ def handle_new_block(block_hash):
 w3.eth.subscribe('newBlockHeaders', handle_new_block)
 ```
 
-**Monitoring services:**
+Monitoring services:
 - OpenZeppelin Defender Sentinel
 - Tenderly Alerts
 - Forta Network (decentralized threat detection)
 - Chainalysis KYT (Know Your Transaction)
 - Nansen Smart Alerts
 
-**Forta threat detection bots:**
+Forta threat detection bots:
 ```javascript
 // Example Forta bot for reentrancy detection
 function handleTransaction(txEvent) {
@@ -2748,7 +2748,7 @@ Timeline of typical large hack:
 
 ### 10.4 Bug Bounty Programs
 
-**Immunefi Platform:**
+Immunefi Platform:
 ```
 Largest blockchain bug bounty platform
 Total payouts: $100M+ to researchers
@@ -2782,7 +2782,7 @@ Notable bounties paid:
   - $1M: Optimism (Jay Freeman/@saurik, 2022)
 ```
 
-**Running a bug bounty program:**
+Running a bug bounty program:
 ```yaml
 # Sample Immunefi bug bounty scope definition
 
@@ -2817,7 +2817,7 @@ rules:
 
 While MITRE has not released an official Blockchain ATT&CK framework, security researchers have mapped common attack patterns.
 
-**Blockchain attack pattern mapping:**
+Blockchain attack pattern mapping:
 
 | ATT&CK Tactic | Blockchain Equivalent | Example Technique |
 |---|---|---|
@@ -2833,7 +2833,7 @@ While MITRE has not released an official Blockchain ATT&CK framework, security r
 | Exfiltration | Fund withdrawal | Rapid withdrawal, exchange cash-out |
 | Impact | Protocol damage | Oracle manipulation, governance attack |
 
-**Community resources for blockchain threat modeling:**
+Community resources for blockchain threat modeling:
 - OWASP Smart Contract Top 10: https://owasp.org/www-project-smart-contract-top-10/
 - SWC Registry: https://swcregistry.io
 - DeFiHackLabs: https://github.com/SunWeb3Sec/DeFiHackLabs (PoC exploits for 300+ hacks)
@@ -2844,18 +2844,18 @@ While MITRE has not released an official Blockchain ATT&CK framework, security r
 
 ---
 
-## Quick Reference: Vulnerability → Tool Mapping
+## Quick Reference: Vulnerability -> Tool Mapping
 
 | Vulnerability Class | Slither | Mythril | Echidna | Certora |
 |---|---|---|---|---|
-| Reentrancy | ✓ (reentrancy-eth) | ✓ | ✓ (invariant) | ✓ (rule) |
-| Integer overflow | ✓ | ✓ | ✓ | ✓ |
-| Access control | ✓ | ✓ | Limited | ✓ |
-| Unprotected initializer | ✓ | Limited | Limited | ✓ |
-| Flash loan economic | ✗ | ✗ | ✓ (with setup) | ✓ (rules) |
-| Oracle manipulation | ✗ | ✗ | ✓ (fork mode) | ✓ |
-| Storage collision | ✓ | Limited | ✗ | ✓ |
-| Signature replay | Limited | Limited | ✗ | ✓ |
+| Reentrancy | Yes (reentrancy-eth) | Yes | Yes (invariant) | Yes (rule) |
+| Integer overflow | Yes | Yes | Yes | Yes |
+| Access control | Yes | Yes | Limited | Yes |
+| Unprotected initializer | Yes | Limited | Limited | Yes |
+| Flash loan economic | No | No | Yes (with setup) | Yes (rules) |
+| Oracle manipulation | No | No | Yes (fork mode) | Yes |
+| Storage collision | Yes | Limited | No | Yes |
+| Signature replay | Limited | Limited | No | Yes |
 
 ## Essential Audit Checklist
 

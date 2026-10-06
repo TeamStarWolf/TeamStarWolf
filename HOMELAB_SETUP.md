@@ -1,12 +1,12 @@
 # Home Lab Setup Guide
 
-> **In one minute** — This is a build guide for a personal cybersecurity practice lab: which hardware and hypervisor to buy, which virtual machines to spin up, how to segment them into safe VLANs, and how to stand up attack targets, logging, Active Directory, malware sandboxes, and free cloud environments. A practitioner cares because you cannot safely learn offense or detection on production systems, and this doc lets you break things freely and reset to a snapshot. It is useful because every section is concrete: copy-paste PowerShell/CLI commands, dollar-cost tiers, and a beginner-to-expert progression.
+> In one minute — This is a build guide for a personal cybersecurity practice lab: which hardware and hypervisor to buy, which virtual machines to spin up, how to segment them into safe VLANs, and how to stand up attack targets, logging, Active Directory, malware sandboxes, and free cloud environments. A practitioner cares because you cannot safely learn offense or detection on production systems, and this doc lets you break things freely and reset to a snapshot. It is useful because every section is concrete: copy-paste PowerShell/CLI commands, dollar-cost tiers, and a beginner-to-expert progression.
 
 | | |
 |---|---|
-| **Read this when** | You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect |
-| **Start at** | [Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options) |
-| **Pairs with** | [LABS.md](LABS.md), [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md) |
+| Read this when | You are setting up your first lab from scratch, you need to choose a hypervisor or size hardware, or you want a ready-made vulnerable AD/cloud target to attack and detect |
+| Start at | [Suggested Progression](#suggested-progression), [Hardware Options](#_1-hardware-options), [Hypervisor Options](#_2-hypervisor-options) |
+| Pairs with | [LABS.md](LABS.md), [ACTIVE_DIRECTORY_ATTACKS.md](ACTIVE_DIRECTORY_ATTACKS.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md) |
 
 A practical guide to building a cybersecurity home lab for hands-on learning across penetration testing, detection engineering, malware analysis, incident response, and Active Directory security.
 
@@ -63,17 +63,17 @@ Use cloud free tiers to practice without hardware. Good for learning specific sk
 
 | Hypervisor | Type | Cost | Best For |
 |---|---|---|---|
-| **Proxmox VE** | Bare metal (Type 1) | Free | Dedicated home lab server; web UI, LXC + KVM, ZFS, VLANs |
-| **VMware ESXi (free)** | Bare metal (Type 1) | Free (limited) | Home lab on spare hardware; limited vCPU/RAM on free tier |
-| **VMware Workstation / Fusion** | Hosted (Type 2) | Commercial | Desktop VM management; best hardware compatibility |
-| **VirtualBox** | Hosted (Type 2) | Free | Beginners; cross-platform; some performance overhead |
-| **KVM/QEMU** | Bare metal / hosted | Free | Linux-native; powerful; CLI-heavy; use `virt-manager` for GUI |
-| **Hyper-V** | Bare metal (Type 1) | Free (Windows Pro/Ent) | Windows-first labs; nested virtualization for AD |
+| Proxmox VE | Bare metal (Type 1) | Free | Dedicated home lab server; web UI, LXC + KVM, ZFS, VLANs |
+| VMware ESXi (free) | Bare metal (Type 1) | Free (limited) | Home lab on spare hardware; limited vCPU/RAM on free tier |
+| VMware Workstation / Fusion | Hosted (Type 2) | Commercial | Desktop VM management; best hardware compatibility |
+| VirtualBox | Hosted (Type 2) | Free | Beginners; cross-platform; some performance overhead |
+| KVM/QEMU | Bare metal / hosted | Free | Linux-native; powerful; CLI-heavy; use `virt-manager` for GUI |
+| Hyper-V | Bare metal (Type 1) | Free (Windows Pro/Ent) | Windows-first labs; nested virtualization for AD |
 
-**Recommendation:**
-- Dedicated server -> **Proxmox VE** (best balance of features, cost, and community support)
-- Desktop/laptop -> **VMware Workstation** (Windows/Linux) or **VMware Fusion** (macOS) for performance, or **VirtualBox** for free option
-- Windows-only host -> **Hyper-V** is built in and capable
+Recommendation:
+- Dedicated server -> Proxmox VE (best balance of features, cost, and community support)
+- Desktop/laptop -> VMware Workstation (Windows/Linux) or VMware Fusion (macOS) for performance, or VirtualBox for free option
+- Windows-only host -> Hyper-V is built in and capable
 
 ---
 
@@ -113,11 +113,11 @@ Use cloud free tiers to practice without hardware. Good for learning specific sk
 | 99 | Internet Uplink | pfSense WAN | NAT gateway to physical network / internet |
 
 ### Segmentation Setup
-1. Use a **managed switch** that supports 802.1Q VLANs (TP-Link TL-SG108E ~$30, or Cisco SG series).
-2. Configure **trunk ports** between the switch and the hypervisor host (carries all VLANs tagged).
-3. In **Proxmox/ESXi**, create a virtual switch (vSwitch/Linux bridge) per VLAN, or use a single trunk bridge with VLAN-aware VMs.
-4. **pfSense/OPNsense** handles inter-VLAN routing. Assign one interface (or sub-interface) per VLAN.
-5. Write **firewall rules** in pfSense to enforce segmentation:
+1. Use a managed switch that supports 802.1Q VLANs (TP-Link TL-SG108E ~$30, or Cisco SG series).
+2. Configure trunk ports between the switch and the hypervisor host (carries all VLANs tagged).
+3. In Proxmox/ESXi, create a virtual switch (vSwitch/Linux bridge) per VLAN, or use a single trunk bridge with VLAN-aware VMs.
+4. pfSense/OPNsense handles inter-VLAN routing. Assign one interface (or sub-interface) per VLAN.
+5. Write firewall rules in pfSense to enforce segmentation:
    - Attack VLAN -> Victim/AD VLAN: Allow
    - Attack VLAN -> Management VLAN: Block
    - Victim VLAN -> Management VLAN: Block
@@ -145,22 +145,22 @@ Attack Victim  AD     DMZ   Monitoring
 
 | Tool | Role | Notes |
 |---|---|---|
-| **Security Onion 2.x** | All-in-one NSM/IDS/SIEM | Bundles Zeek, Suricata, Elastic Stack, SOC tools; best for full lab SIEM |
-| **Wazuh** | SIEM + EDR | Agent-based; monitors Windows/Linux endpoints; integrates with Elastic |
-| **Elastic Stack (ELF)** | Log aggregation and visualization | Elasticsearch + Logstash + Filebeat + Kibana; build custom pipelines |
-| **Velociraptor** | Endpoint forensics and threat hunting | Deploys agents; VQL query language; live response and artifact collection |
-| **Graylog** | Log aggregation (alternative to Elastic) | Lighter on resources; uses MongoDB + OpenSearch |
-| **HELK** | Pre-configured threat hunting ELK | Adds Jupyter notebooks and pre-built dashboards for hunt workflows |
-| **Zeek** | Network protocol analysis / metadata | Generates rich logs from PCAP or live traffic; integrates with all SIEMs |
-| **Suricata** | IDS/IPS with rule-based alerting | ET Open / ET Pro rulesets; integrates with Security Onion and Wazuh |
-| **Sysmon** | Windows endpoint telemetry | Deploy via GPO; use SwiftOnSecurity or Olaf Hartong config |
+| Security Onion 2.x | All-in-one NSM/IDS/SIEM | Bundles Zeek, Suricata, Elastic Stack, SOC tools; best for full lab SIEM |
+| Wazuh | SIEM + EDR | Agent-based; monitors Windows/Linux endpoints; integrates with Elastic |
+| Elastic Stack (ELF) | Log aggregation and visualization | Elasticsearch + Logstash + Filebeat + Kibana; build custom pipelines |
+| Velociraptor | Endpoint forensics and threat hunting | Deploys agents; VQL query language; live response and artifact collection |
+| Graylog | Log aggregation (alternative to Elastic) | Lighter on resources; uses MongoDB + OpenSearch |
+| HELK | Pre-configured threat hunting ELK | Adds Jupyter notebooks and pre-built dashboards for hunt workflows |
+| Zeek | Network protocol analysis / metadata | Generates rich logs from PCAP or live traffic; integrates with all SIEMs |
+| Suricata | IDS/IPS with rule-based alerting | ET Open / ET Pro rulesets; integrates with Security Onion and Wazuh |
+| Sysmon | Windows endpoint telemetry | Deploy via GPO; use SwiftOnSecurity or Olaf Hartong config |
 
 ### Recommended Minimal Stack for Beginners
-1. Deploy **Wazuh all-in-one** VM (handles ingestion, search, and dashboard).
-2. Install the **Wazuh agent** on every Windows/Linux target.
-3. Deploy **Sysmon** on Windows hosts with a community config.
+1. Deploy Wazuh all-in-one VM (handles ingestion, search, and dashboard).
+2. Install the Wazuh agent on every Windows/Linux target.
+3. Deploy Sysmon on Windows hosts with a community config.
 4. Forward pfSense logs (syslog) to Wazuh.
-5. Graduate to **Security Onion** when you want full packet capture and NSM.
+5. Graduate to Security Onion when you want full packet capture and NSM.
 
 ---
 
@@ -168,18 +168,18 @@ Attack Victim  AD     DMZ   Monitoring
 
 | Environment | Type | Notes |
 |---|---|---|
-| **Metasploitable 2** | VM (Linux) | Download from SourceForge; classic intentionally vulnerable |
-| **Metasploitable 3** | VM (Linux + Windows) | Build via Vagrant; more services and CVEs |
-| **DVWA** | Web app (Docker/VM) | PHP/MySQL; SQL injection, XSS, CSRF, file upload, and more |
-| **VulnHub** | VM library | Hundreds of free `.ova` machines at vulnhub.com |
-| **HackTheBox** | Remote (VPN) | Structured labs; no local hosting needed |
-| **TryHackMe** | Remote (VPN/browser) | Beginner-friendly guided rooms |
-| **FLAWS.cloud** | AWS misconfig | Level-based AWS misconfiguration challenges (free) |
-| **FLAWS2.cloud** | AWS misconfig | Attacker + defender perspectives |
-| **CloudGoat** | AWS (Terraform) | Rhino Security Labs; deploy a vulnerable AWS environment |
-| **VulnAD** | Windows AD (PowerShell) | Quickly builds a vulnerable Active Directory |
-| **BadBlood** | Windows AD population | Fills AD with realistic users, groups, and ACL misconfigs |
-| **DetectionLab** | Full AD + logging (Vagrant) | Windows Server + Win10 + Splunk/ELK + Sysmon pre-configured |
+| Metasploitable 2 | VM (Linux) | Download from SourceForge; classic intentionally vulnerable |
+| Metasploitable 3 | VM (Linux + Windows) | Build via Vagrant; more services and CVEs |
+| DVWA | Web app (Docker/VM) | PHP/MySQL; SQL injection, XSS, CSRF, file upload, and more |
+| VulnHub | VM library | Hundreds of free `.ova` machines at vulnhub.com |
+| HackTheBox | Remote (VPN) | Structured labs; no local hosting needed |
+| TryHackMe | Remote (VPN/browser) | Beginner-friendly guided rooms |
+| FLAWS.cloud | AWS misconfig | Level-based AWS misconfiguration challenges (free) |
+| FLAWS2.cloud | AWS misconfig | Attacker + defender perspectives |
+| CloudGoat | AWS (Terraform) | Rhino Security Labs; deploy a vulnerable AWS environment |
+| VulnAD | Windows AD (PowerShell) | Quickly builds a vulnerable Active Directory |
+| BadBlood | Windows AD population | Fills AD with realistic users, groups, and ACL misconfigs |
+| DetectionLab | Full AD + logging (Vagrant) | Windows Server + Win10 + Splunk/ELK + Sysmon pre-configured |
 
 ---
 
@@ -260,7 +260,7 @@ cd BadBlood
 .\Invoke-BadBlood.ps1
 ```
 
-After running, use **BloodHound + SharpHound** to enumerate attack paths:
+After running, use BloodHound + SharpHound to enumerate attack paths:
 
 ```powershell
 # Run SharpHound collector on a domain-joined machine
@@ -289,34 +289,34 @@ auditpol /set /subcategory:"Process Creation" /success:enable
 
 ### Safety Rules (Read First)
 
-- **Never** run malware on your host OS.
-- **Always** use a dedicated, isolated VM. Take a snapshot before analysis and revert after.
-- **Disable** shared clipboard and shared folders between host and analysis VM.
-- **Never** allow the analysis VM unrestricted internet access. Route through INetSim or FakeNet-NG.
+- Never run malware on your host OS.
+- Always use a dedicated, isolated VM. Take a snapshot before analysis and revert after.
+- Disable shared clipboard and shared folders between host and analysis VM.
+- Never allow the analysis VM unrestricted internet access. Route through INetSim or FakeNet-NG.
 
 ### Network Isolation Setup
 
 | Option | How |
 |---|---|
-| **No internet** | Set VM network to "Host-only" or "Isolated" with no gateway |
-| **INetSim** | Run on REMnux; simulates DNS, HTTP, SMTP, etc. for malware callbacks |
-| **FakeNet-NG** | Run on Windows (FlareVM); intercepts and simulates network services |
-| **INetSim + Wireshark** | REMnux as gateway; FlareVM routes through REMnux for full capture |
+| No internet | Set VM network to "Host-only" or "Isolated" with no gateway |
+| INetSim | Run on REMnux; simulates DNS, HTTP, SMTP, etc. for malware callbacks |
+| FakeNet-NG | Run on Windows (FlareVM); intercepts and simulates network services |
+| INetSim + Wireshark | REMnux as gateway; FlareVM routes through REMnux for full capture |
 
 ### Recommended Analysis VMs
 
 | VM | OS | Key Tools |
 |---|---|---|
-| **FlareVM** | Windows 10 | x64dbg, OllyDbg, Ghidra, PE-bear, CFF Explorer, PEiD, FakeNet-NG, ProcMon, Wireshark |
-| **REMnux** | Ubuntu (custom) | YARA, Ghidra, Volatility, radare2, INetSim, Zeek, oledump, pdfid, Cutter |
+| FlareVM | Windows 10 | x64dbg, OllyDbg, Ghidra, PE-bear, CFF Explorer, PEiD, FakeNet-NG, ProcMon, Wireshark |
+| REMnux | Ubuntu (custom) | YARA, Ghidra, Volatility, radare2, INetSim, Zeek, oledump, pdfid, Cutter |
 
 ### Analysis Workflow
 
 1. Snapshot the clean VM state before touching the sample.
-2. **(Static)** Examine the file: hashes, strings, PE headers, imports, packer detection.
-3. **(Dynamic)** Run the sample inside the VM; monitor with ProcMon, Process Hacker, Wireshark.
-4. **(Network)** Capture traffic through FakeNet-NG / INetSim to identify C2 patterns.
-5. **(Disassembly/Decompilation)** Load into Ghidra or x64dbg for deeper analysis.
+2. (Static) Examine the file: hashes, strings, PE headers, imports, packer detection.
+3. (Dynamic) Run the sample inside the VM; monitor with ProcMon, Process Hacker, Wireshark.
+4. (Network) Capture traffic through FakeNet-NG / INetSim to identify C2 patterns.
+5. (Disassembly/Decompilation) Load into Ghidra or x64dbg for deeper analysis.
 6. Document IOCs: file hashes, registry keys, mutex names, network indicators.
 7. Revert VM to clean snapshot when finished.
 
@@ -324,10 +324,10 @@ auditpol /set /subcategory:"Process Creation" /success:enable
 
 | Sandbox | Notes |
 |---|---|
-| **CAPE Sandbox** | Open source; automated detonation with memory dumps and config extraction |
-| **Cuckoo Sandbox** | Classic; largely superseded by CAPE but still widely referenced |
-| **Any.run** | Cloud-based interactive sandbox (free tier available) |
-| **Hybrid Analysis** | Free cloud sandbox by CrowdStrike |
+| CAPE Sandbox | Open source; automated detonation with memory dumps and config extraction |
+| Cuckoo Sandbox | Classic; largely superseded by CAPE but still widely referenced |
+| Any.run | Cloud-based interactive sandbox (free tier available) |
+| Hybrid Analysis | Free cloud sandbox by CrowdStrike |
 
 ---
 
@@ -361,27 +361,27 @@ The home lab is the foundation for every practical cybersecurity discipline. Use
 
 | Discipline | What to Practice in the Lab |
 |---|---|
-| **Penetration Testing** | Attack Kali -> Metasploitable/Windows targets; exploit, post-exploit, pivot |
-| **Active Directory Security** | Enumerate with BloodHound; perform Kerberoasting, AS-REP roasting, DCSync, ADCS abuse |
-| **Detection Engineering** | Write Sigma rules, Suricata rules, Wazuh decoders triggered by your own attacks |
-| **Incident Response** | Simulate attacks, then triage alerts in Security Onion/Wazuh; build runbooks |
-| **Threat Hunting** | Use HELK / Velociraptor to hunt through Sysmon and Zeek logs for anomalies |
-| **Malware Analysis** | Analyze samples in FlareVM/REMnux; document IOCs; write YARA rules |
-| **Digital Forensics** | Image VM disks, analyze with Autopsy/Volatility; practice memory forensics |
-| **Cloud Security** | Use CloudGoat / FLAWS.cloud to practice AWS privilege escalation and misconfig exploitation |
+| Penetration Testing | Attack Kali -> Metasploitable/Windows targets; exploit, post-exploit, pivot |
+| Active Directory Security | Enumerate with BloodHound; perform Kerberoasting, AS-REP roasting, DCSync, ADCS abuse |
+| Detection Engineering | Write Sigma rules, Suricata rules, Wazuh decoders triggered by your own attacks |
+| Incident Response | Simulate attacks, then triage alerts in Security Onion/Wazuh; build runbooks |
+| Threat Hunting | Use HELK / Velociraptor to hunt through Sysmon and Zeek logs for anomalies |
+| Malware Analysis | Analyze samples in FlareVM/REMnux; document IOCs; write YARA rules |
+| Digital Forensics | Image VM disks, analyze with Autopsy/Volatility; practice memory forensics |
+| Cloud Security | Use CloudGoat / FLAWS.cloud to practice AWS privilege escalation and misconfig exploitation |
 
 ### Suggested Progression
 
-1. **Start**: VirtualBox + Kali + Metasploitable 2. Run basic Nmap scans, use Metasploit.
-2. **Intermediate**: Add pfSense + Windows Server DC + Windows 10. Practice AD attacks and defense.
-3. **Advanced**: Add Security Onion or Wazuh. Attack your own lab, detect your own attacks.
-4. **Expert**: Automate with DetectionLab, add CAPE sandbox, build custom Sigma/Suricata rules.
+1. Start: VirtualBox + Kali + Metasploitable 2. Run basic Nmap scans, use Metasploit.
+2. Intermediate: Add pfSense + Windows Server DC + Windows 10. Practice AD attacks and defense.
+3. Advanced: Add Security Onion or Wazuh. Attack your own lab, detect your own attacks.
+4. Expert: Automate with DetectionLab, add CAPE sandbox, build custom Sigma/Suricata rules.
 
 ---
 
 ## Active Directory Lab (Windows Domain)
 
-This section is a deep-dive into building a **deliberately vulnerable Active Directory environment** â€” the closest thing to a real enterprise target you can build at home. Most real-world breaches involve AD at some stage, so this lab is essential for both attackers and defenders.
+This section is a deep-dive into building a deliberately vulnerable Active Directory environment â€” the closest thing to a real enterprise target you can build at home. Most real-world breaches involve AD at some stage, so this lab is essential for both attackers and defenders.
 
 ### Why Build a Vulnerable AD Lab?
 
@@ -395,19 +395,19 @@ By building your own AD lab, you can attack it freely, break things, reset to a 
 
 ### Hypervisor Requirements
 
-**VMware (recommended for AD labs)**
+VMware (recommended for AD labs)
 
 VMware Workstation Pro (Windows/Linux) or VMware Fusion Pro (macOS) offer the best performance for Windows VMs and stable nested virtualization. As of 2024, VMware Workstation Pro and Fusion Pro are free for personal use.
 
 - Download: https://www.vmware.com/products/workstation-pro.html
 
-**VirtualBox (free alternative)**
+VirtualBox (free alternative)
 
 VirtualBox works but has slightly higher overhead on Windows VMs and can be finicky with audio/USB. It is fully adequate for an AD lab.
 
 - Download: https://www.virtualbox.org/
 
-**Minimum host resources for a basic AD lab:**
+Minimum host resources for a basic AD lab:
 
 | Component | Minimum | Recommended |
 |---|---|---|
@@ -417,7 +417,7 @@ VirtualBox works but has slightly higher overhead on Windows VMs and can be fini
 
 ### Getting Free Windows ISOs
 
-Microsoft provides **180-day evaluation versions** of Windows Server and Windows 10/11 Enterprise â€” completely free, no license key needed. Evaluations can be extended with `slmgr /rearm` for additional time.
+Microsoft provides 180-day evaluation versions of Windows Server and Windows 10/11 Enterprise â€” completely free, no license key needed. Evaluations can be extended with `slmgr /rearm` for additional time.
 
 | Download | URL |
 |---|---|
@@ -426,7 +426,7 @@ Microsoft provides **180-day evaluation versions** of Windows Server and Windows
 | Windows 11 Enterprise Evaluation | https://www.microsoft.com/en-us/evalcenter/evaluate-windows-11-enterprise |
 | Windows 10 Enterprise Evaluation | https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise |
 
-> **Tip:** Always choose "Desktop Experience" (GUI) for Windows Server if you want the familiar interface. "Server Core" is CLI-only and harder to work with when first learning AD.
+> Tip: Always choose "Desktop Experience" (GUI) for Windows Server if you want the familiar interface. "Server Core" is CLI-only and harder to work with when first learning AD.
 
 ### Building the Lab: Manual Step-by-Step
 
@@ -440,7 +440,7 @@ Create three VMs:
 | `WRK01` | Workstation (Windows 10/11) | 4 GB | 60 GB | 192.168.40.20 |
 | `WRK02` | Second workstation (optional) | 4 GB | 60 GB | 192.168.40.21 |
 
-Place all three VMs on the same **Host-Only** or **Internal** network (no internet access for the AD segment). This isolates the domain from your real network.
+Place all three VMs on the same Host-Only or Internal network (no internet access for the AD segment). This isolates the domain from your real network.
 
 #### Domain Controller Setup
 
@@ -472,7 +472,7 @@ Install-ADDSForest `
 # Server reboots automatically. Log back in as CORP\Administrator
 ```
 
-> **Why it matters:** The `-InstallDns` flag installs DNS on the DC itself. In AD, DNS is critical â€” domain-joined machines use the DC as their DNS server to find domain resources via SRV records.
+> Why it matters: The `-InstallDns` flag installs DNS on the DC itself. In AD, DNS is critical â€” domain-joined machines use the DC as their DNS server to find domain resources via SRV records.
 
 #### Creating Users, Groups, and OUs
 
@@ -539,7 +539,7 @@ $gpo2 = New-GPO -Name "Lab - Deploy Sysmon"
 New-GPLink -Name "Lab - Deploy Sysmon" -Target "OU=Corp Computers,DC=corp,DC=local"
 ```
 
-> **Why GPOs matter for attackers:** Misconfigured GPOs are a goldmine. If a low-privileged user has write permissions on a GPO linked to Domain Controllers, they can achieve Domain Admin. Tools like BloodHound specifically enumerate GPO misconfigurations.
+> Why GPOs matter for attackers: Misconfigured GPOs are a goldmine. If a low-privileged user has write permissions on a GPO linked to Domain Controllers, they can achieve Domain Admin. Tools like BloodHound specifically enumerate GPO misconfigurations.
 
 #### Joining Workstations to the Domain
 
@@ -584,7 +584,7 @@ GOAD includes: Kerberoastable accounts, AS-REP roastable users, unconstrained de
 
 #### DetectionLab
 
-DetectionLab builds a complete AD lab **plus** a full logging stack (Splunk, Fleet, Zeek, Sysmon) in one automated deployment. Ideal for practicing attack AND detection simultaneously.
+DetectionLab builds a complete AD lab plus a full logging stack (Splunk, Fleet, Zeek, Sysmon) in one automated deployment. Ideal for practicing attack AND detection simultaneously.
 
 ```bash
 git clone https://github.com/clong/DetectionLab
@@ -623,7 +623,7 @@ impacket-GetUserSPNs corp.local/bjones:Summer2024! -dc-ip 192.168.40.10 -request
 hashcat -m 13100 kerberoast_hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
-> **Why it matters:** Kerberoasting doesn't require elevated privileges â€” any domain user can request a service ticket. Service accounts often have weak passwords and high privileges, making this a high-value technique.
+> Why it matters: Kerberoasting doesn't require elevated privileges â€” any domain user can request a service ticket. Service accounts often have weak passwords and high privileges, making this a high-value technique.
 
 #### AS-REP Roasting
 
@@ -674,7 +674,7 @@ bloodhound &
 
 Cloud security is one of the fastest-growing areas of offensive and defensive security. AWS is the dominant cloud provider and the most common target in bug bounty programs and real-world breaches. This section walks you through building a practical cloud attack lab at zero cost (with careful management).
 
-> **Cost Warning:** AWS can generate unexpected charges if resources are left running. Set up billing alerts (covered below) BEFORE deploying anything. The free tier has specific limits â€” exceeding them results in charges. Always destroy resources when done.
+> Cost Warning: AWS can generate unexpected charges if resources are left running. Set up billing alerts (covered below) BEFORE deploying anything. The free tier has specific limits â€” exceeding them results in charges. Always destroy resources when done.
 
 ### AWS Free Tier â€” What You Actually Get
 
@@ -682,17 +682,17 @@ The free tier has three categories:
 
 | Category | Details | Key Services |
 |---|---|---|
-| **Always Free** | Never expires | Lambda (1M requests/mo), DynamoDB (25 GB), SNS (1M publishes) |
-| **12-Month Free** | From account creation date | EC2 t2.micro (750 hrs/mo), S3 (5 GB), RDS (750 hrs/mo), CloudTrail (1 trail) |
-| **Trials** | Short-term trials | GuardDuty (30 days), Macie (30 days), Security Hub (30 days) |
+| Always Free | Never expires | Lambda (1M requests/mo), DynamoDB (25 GB), SNS (1M publishes) |
+| 12-Month Free | From account creation date | EC2 t2.micro (750 hrs/mo), S3 (5 GB), RDS (750 hrs/mo), CloudTrail (1 trail) |
+| Trials | Short-term trials | GuardDuty (30 days), Macie (30 days), Security Hub (30 days) |
 
-> **Key free tier caveat:** The 750 EC2 hours covers ONE t2.micro running 24/7 for a month. If you run two t2.micros simultaneously, you burn through the free hours in 15 days and get charged for the second instance.
+> Key free tier caveat: The 750 EC2 hours covers ONE t2.micro running 24/7 for a month. If you run two t2.micros simultaneously, you burn through the free hours in 15 days and get charged for the second instance.
 
 ### Step 1 â€” Create an AWS Account
 
 1. Go to https://aws.amazon.com and create an account (credit card required for verification, but you won't be charged if you stay in free tier).
-2. Immediately enable **MFA** on the root account: IAM Console â†’ Security Credentials â†’ Assign MFA device.
-3. **Create an IAM admin user** â€” never use the root account for daily work:
+2. Immediately enable MFA on the root account: IAM Console â†’ Security Credentials â†’ Assign MFA device.
+3. Create an IAM admin user â€” never use the root account for daily work:
 
 ```bash
 # Using AWS CLI (after installing: https://aws.amazon.com/cli/)
@@ -702,7 +702,7 @@ aws iam attach-user-policy --user-name lab-admin \
 aws iam create-login-profile --user-name lab-admin --password 'LabAdmin@2024!' --password-reset-required
 ```
 
-> **Why create a separate IAM user?** The root account has unrestricted access to everything, including billing and account closure. If you accidentally expose root credentials (e.g., push them to GitHub), an attacker could do irreversible damage. IAM users can have permissions scoped to only what you need.
+> Why create a separate IAM user? The root account has unrestricted access to everything, including billing and account closure. If you accidentally expose root credentials (e.g., push them to GitHub), an attacker could do irreversible damage. IAM users can have permissions scoped to only what you need.
 
 ### Step 2 â€” Set Up Billing Alerts (Do This First)
 
@@ -727,7 +727,7 @@ aws cloudwatch put-metric-alarm \
 
 Or via the console: Billing Dashboard â†’ Billing Preferences â†’ Enable "Receive Billing Alerts" â†’ CloudWatch â†’ Alarms â†’ Create Alarm â†’ Billing.
 
-Also enable **AWS Budgets** (free for 2 budgets/month):
+Also enable AWS Budgets (free for 2 budgets/month):
 - Billing Console â†’ Budgets â†’ Create Budget â†’ Zero spend budget (alerts at $0.01)
 
 ### Step 3 â€” Basic VPC and EC2 Setup
@@ -760,7 +760,7 @@ aws ec2 run-instances \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=lab-target}]'
 ```
 
-> **Why understand VPCs?** Most cloud attack scenarios involve exploiting misconfigured security groups, exposed S3 buckets, or SSRF vulnerabilities that let you reach the EC2 metadata service. Understanding how VPCs, subnets, and routing work makes these attacks comprehensible.
+> Why understand VPCs? Most cloud attack scenarios involve exploiting misconfigured security groups, exposed S3 buckets, or SSRF vulnerabilities that let you reach the EC2 metadata service. Understanding how VPCs, subnets, and routing work makes these attacks comprehensible.
 
 ### Step 4 â€” IAM Configuration for Practice
 
@@ -810,7 +810,7 @@ aws cloudtrail create-trail \
 aws cloudtrail start-logging --name lab-trail
 ```
 
-> **Why CloudTrail matters:** Every attacker action in AWS generates a CloudTrail event. Understanding what actions leave traces (and which don't) is essential for both red and blue team work. Practice by attacking your lab environment, then reviewing CloudTrail logs to see exactly what was recorded.
+> Why CloudTrail matters: Every attacker action in AWS generates a CloudTrail event. Understanding what actions leave traces (and which don't) is essential for both red and blue team work. Practice by attacking your lab environment, then reviewing CloudTrail logs to see exactly what was recorded.
 
 ### Step 6 â€” Deploy CloudGoat (Intentionally Vulnerable AWS)
 
@@ -844,7 +844,7 @@ Key CloudGoat scenarios:
 | `codebuild_secrets` | Secret extraction from CodeBuild environment | Intermediate |
 | `cicd` | CI/CD pipeline attack chain | Advanced |
 
-> **Always destroy CloudGoat environments when done.** Even small deployments can incur charges if left running. `cloudgoat destroy <scenario>` tears down all Terraform-managed resources.
+> Always destroy CloudGoat environments when done. Even small deployments can incur charges if left running. `cloudgoat destroy <scenario>` tears down all Terraform-managed resources.
 
 ### Free Alternatives and Supplementary Resources
 
@@ -862,16 +862,16 @@ Key CloudGoat scenarios:
 
 Azure is the second-largest cloud provider and the dominant platform for enterprise Microsoft environments. Entra ID (formerly Azure Active Directory) is deeply integrated with Microsoft 365, making it a critical target in enterprise attacks and a required skill for modern red and blue teamers.
 
-> **Cost Warning:** Azure's free account is generous but has limits. The $200 credit expires after 30 days. After that, only "Always Free" services remain. Services like Azure VMs are NOT free after the credit is used. Set up cost alerts before deploying anything beyond free-tier services.
+> Cost Warning: Azure's free account is generous but has limits. The $200 credit expires after 30 days. After that, only "Always Free" services remain. Services like Azure VMs are NOT free after the credit is used. Set up cost alerts before deploying anything beyond free-tier services.
 
 ### Azure Free Account â€” What You Get
 
 | Tier | What's Included | Duration |
 |---|---|---|
-| **$200 credit** | Any Azure service | 30 days from signup |
-| **Always Free** | 750 hrs B1s VM, 5 GB Blob Storage, Azure Functions (1M executions), Cosmos DB (1,000 RUs) | Permanent |
-| **12-Month Free** | B1s VMs, 64 GB managed disk, SQL Database (250 GB) | 12 months from signup |
-| **Entra ID Free Tier** | User management, SSO, MFA (up to 50,000 objects) | Permanent |
+| $200 credit | Any Azure service | 30 days from signup |
+| Always Free | 750 hrs B1s VM, 5 GB Blob Storage, Azure Functions (1M executions), Cosmos DB (1,000 RUs) | Permanent |
+| 12-Month Free | B1s VMs, 64 GB managed disk, SQL Database (250 GB) | 12 months from signup |
+| Entra ID Free Tier | User management, SSO, MFA (up to 50,000 objects) | Permanent |
 
 Sign up at: https://azure.microsoft.com/en-us/free/
 
@@ -936,7 +936,7 @@ az role assignment create \
   --scope /subscriptions/YOUR_SUBSCRIPTION_ID
 ```
 
-> **Why Entra ID matters:** Entra ID is the identity backbone for all Microsoft 365 services (Teams, SharePoint, Exchange, Defender). In a real enterprise attack, compromising an Entra ID account can grant access to email, files, and enterprise applications â€” not just Azure resources.
+> Why Entra ID matters: Entra ID is the identity backbone for all Microsoft 365 services (Teams, SharePoint, Exchange, Defender). In a real enterprise attack, compromising an Entra ID account can grant access to email, files, and enterprise applications â€” not just Azure resources.
 
 ### Step 3 â€” Deploy AzureGoat (Intentionally Vulnerable Azure)
 
@@ -966,9 +966,9 @@ AzureGoat includes scenarios for:
 
 ### Step 4 â€” Microsoft 365 Developer Program (Free E5 License)
 
-This is one of the best-kept secrets in cybersecurity education. Microsoft offers a **free Microsoft 365 E5 developer subscription** (normally ~$57/user/month) for 90 days, renewable if you actively use it for development/learning.
+This is one of the best-kept secrets in cybersecurity education. Microsoft offers a free Microsoft 365 E5 developer subscription (normally ~$57/user/month) for 90 days, renewable if you actively use it for development/learning.
 
-**What's included (25 user licenses):**
+What's included (25 user licenses):
 - Microsoft 365 E5 (Word, Excel, Teams, SharePoint, Exchange, etc.)
 - Microsoft Defender for Office 365 (P2)
 - Microsoft Defender for Endpoint (P2)
@@ -976,7 +976,7 @@ This is one of the best-kept secrets in cybersecurity education. Microsoft offer
 - Microsoft Purview (eDiscovery, Compliance)
 - Entra ID P2 (Conditional Access, PIM, Identity Protection)
 
-**Sign up:** https://developer.microsoft.com/en-us/microsoft-365/dev-program
+Sign up: https://developer.microsoft.com/en-us/microsoft-365/dev-program
 
 ```
 1. Click "Join now" and sign in with a Microsoft account
@@ -986,7 +986,7 @@ This is one of the best-kept secrets in cybersecurity education. Microsoft offer
 5. Note the admin credentials provided â€” these are your E5 tenant credentials
 ```
 
-> **Why this is valuable:** Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. The developer program gives you a full enterprise security stack for free.
+> Why this is valuable: Practicing with Sentinel, Defender XDR, and Entra ID P2 features normally costs hundreds of dollars per month. The developer program gives you a full enterprise security stack for free.
 
 ### Step 5 â€” Microsoft Sentinel Lab Setup
 
@@ -1019,7 +1019,7 @@ Key things to practice in Sentinel:
 
 ### Step 6 â€” AzureHound and ROADtools for Enumeration Practice
 
-Just as BloodHound enumerates on-premises AD, **AzureHound** and **ROADtools** map Entra ID attack paths:
+Just as BloodHound enumerates on-premises AD, AzureHound and ROADtools map Entra ID attack paths:
 
 ```bash
 # Install AzureHound
@@ -1041,7 +1041,7 @@ roadrecon gather
 roadrecon gui  # Launches a web interface for exploring the data
 ```
 
-> **Why these tools matter:** AzureHound reveals the same type of attack paths that BloodHound does for on-prem AD â€” but in the cloud. You can find paths like "User A can reset User B's password â†’ User B is a Global Admin" and practice exploiting them in your own tenant.
+> Why these tools matter: AzureHound reveals the same type of attack paths that BloodHound does for on-prem AD â€” but in the cloud. You can find paths like "User A can reset User B's password â†’ User B is a Global Admin" and practice exploiting them in your own tenant.
 
 ---
 
@@ -1053,15 +1053,15 @@ Running your own VPS is a practical skill that bridges web security, Linux admin
 
 | Provider | Cheapest Plan | Notes |
 |---|---|---|
-| **DigitalOcean** | $4/mo (512 MB RAM, 10 GB SSD) | Excellent docs; $200 credit for 60 days via referral links |
-| **Linode / Akamai** | $5/mo (1 GB RAM, 25 GB SSD) | Solid performance; good free credit offers |
-| **Vultr** | $2.50/mo (512 MB RAM, 10 GB SSD) | Cheapest option; many datacenter locations |
-| **Hetzner** | â‚¬3.79/mo (2 vCPU, 4 GB RAM) | Exceptional value; EU-based |
-| **Oracle Cloud Free Tier** | Free permanently | 2 AMD VMs (1 GB RAM each) + 4 ARM cores + 24 GB RAM (Ampere A1); genuinely free |
+| DigitalOcean | $4/mo (512 MB RAM, 10 GB SSD) | Excellent docs; $200 credit for 60 days via referral links |
+| Linode / Akamai | $5/mo (1 GB RAM, 25 GB SSD) | Solid performance; good free credit offers |
+| Vultr | $2.50/mo (512 MB RAM, 10 GB SSD) | Cheapest option; many datacenter locations |
+| Hetzner | â‚¬3.79/mo (2 vCPU, 4 GB RAM) | Exceptional value; EU-based |
+| Oracle Cloud Free Tier | Free permanently | 2 AMD VMs (1 GB RAM each) + 4 ARM cores + 24 GB RAM (Ampere A1); genuinely free |
 
-> **Free option:** Oracle Cloud's Always Free tier is remarkably generous â€” you get ARM-based VMs with 4 cores and 24 GB RAM total at no cost. The catch: account creation can be difficult, and support is limited. See: https://www.oracle.com/cloud/free/
+> Free option: Oracle Cloud's Always Free tier is remarkably generous â€” you get ARM-based VMs with 4 cores and 24 GB RAM total at no cost. The catch: account creation can be difficult, and support is limited. See: https://www.oracle.com/cloud/free/
 
-**Recommended for beginners:** DigitalOcean or Vultr â€” both have clean interfaces, good documentation, and hourly billing so you only pay for what you use.
+Recommended for beginners: DigitalOcean or Vultr â€” both have clean interfaces, good documentation, and hourly billing so you only pay for what you use.
 
 ### Step 1 â€” Initial Server Setup
 
@@ -1082,7 +1082,7 @@ usermod -aG sudo labuser
 su - labuser
 ```
 
-> **Why not use root?** Running as root means a single misconfiguration or exploited vulnerability gives an attacker full control immediately. A non-root user with sudo requires an extra step, limiting blast radius.
+> Why not use root? Running as root means a single misconfiguration or exploited vulnerability gives an attacker full control immediately. A non-root user with sudo requires an extra step, limiting blast radius.
 
 ### Step 2 â€” SSH Key Authentication
 
@@ -1138,7 +1138,7 @@ sudo ufw enable
 sudo ufw status verbose
 ```
 
-> **Critical:** Always `ufw allow ssh` before `ufw enable`. Forgetting this locks you out of your own server. Most cloud providers have a web-based console as a fallback, but it's still a headache.
+> Critical: Always `ufw allow ssh` before `ufw enable`. Forgetting this locks you out of your own server. Most cloud providers have a web-based console as a fallback, but it's still a headache.
 
 ### Step 4 â€” Fail2ban (Brute Force Protection)
 
@@ -1164,7 +1164,7 @@ sudo systemctl start fail2ban
 sudo fail2ban-client status sshd
 ```
 
-> **Why fail2ban matters for learning:** It's a practical example of a detection and response system â€” it reads logs, identifies patterns, and takes automated action. This is conceptually identical to how a SIEM + SOAR works at enterprise scale.
+> Why fail2ban matters for learning: It's a practical example of a detection and response system â€” it reads logs, identifies patterns, and takes automated action. This is conceptually identical to how a SIEM + SOAR works at enterprise scale.
 
 ### Step 5 â€” Install Docker and Docker Compose
 
@@ -1287,14 +1287,14 @@ docker compose up -d
 docker compose ps  # Verify all are running
 ```
 
-> **Security note:** If you expose these apps to the internet (not just localhost), anyone can access them. Either restrict access with UFW (`ufw allow from YOUR_HOME_IP to any port 8080`) or use a VPN to access your VPS privately.
+> Security note: If you expose these apps to the internet (not just localhost), anyone can access them. Either restrict access with UFW (`ufw allow from YOUR_HOME_IP to any port 8080`) or use a VPN to access your VPS privately.
 
 ### Step 7 â€” Domain Setup with Cloudflare
 
 If you want a real domain name (useful for bug bounty practice and SSL certificates):
 
 1. Buy a cheap domain from Namecheap, Porkbun (~$1-$10/year for `.xyz`, `.io` domains).
-2. Add the domain to **Cloudflare** (free): https://dash.cloudflare.com â€” Cloudflare provides free DNS, DDoS protection, and SSL.
+2. Add the domain to Cloudflare (free): https://dash.cloudflare.com â€” Cloudflare provides free DNS, DDoS protection, and SSL.
 3. In Cloudflare, create DNS A records pointing to your VPS IP.
 
 ```
@@ -1377,19 +1377,19 @@ sudo certbot --nginx -d yourdomain.com
 
 Detection engineering and blue team skills are built by practicing detection on your own attacks. This section covers tools and setups specifically designed for defenders: log analysis, alerting, threat hunting, and endpoint forensics.
 
-> **The key principle of defensive lab work:** Attack your own environment, then go looking for what you generated. Seeing the log output of a specific attack technique is far more educational than reading about it.
+> The key principle of defensive lab work: Attack your own environment, then go looking for what you generated. Seeing the log output of a specific attack technique is far more educational than reading about it.
 
 ### Option 1: DetectionLab (Fastest Full-Stack Setup)
 
 [DetectionLab](https://github.com/clong/DetectionLab) is the most complete pre-built lab for detection engineering. It automatically provisions a full Windows AD domain with enterprise logging infrastructure.
 
-**What it includes:**
+What it includes:
 - `dc.windomain.local` â€” Windows Server 2019 Domain Controller
 - `wef.windomain.local` â€” Windows Event Forwarding server
 - `win10.windomain.local` â€” Windows 10 workstation (domain-joined)
 - `logger` â€” Ubuntu VM running Splunk, Fleet (osquery), Zeek, Suricata, and Velociraptor
 
-**Prerequisites:** Vagrant + VirtualBox or VMware (see Section 2), ~24 GB RAM.
+Prerequisites: Vagrant + VirtualBox or VMware (see Section 2), ~24 GB RAM.
 
 ```bash
 git clone https://github.com/clong/DetectionLab
@@ -1416,7 +1416,7 @@ Once up, practice detection by:
 
 [Security Onion](https://securityonionsolutions.com) is a Linux distro purpose-built for network security monitoring, IDS, and SIEM. It bundles Zeek, Suricata, Elastic Stack, and a custom SOC interface (Security Onion Console).
 
-**Deployment options:**
+Deployment options:
 
 | Mode | RAM | Use Case |
 |---|---|---|
@@ -1441,10 +1441,10 @@ sudo so-setup
 ```
 
 Key things to practice in Security Onion:
-- Visualize network connections in the **Hunt** interface
-- Review **Suricata IDS alerts** triggered by attack traffic
-- Analyze **Zeek logs** (dns.log, http.log, conn.log, ssl.log) to understand what was happening on the wire
-- Use **PCAP replay** to analyze captured traffic from HackTheBox or CTF challenges
+- Visualize network connections in the Hunt interface
+- Review Suricata IDS alerts triggered by attack traffic
+- Analyze Zeek logs (dns.log, http.log, conn.log, ssl.log) to understand what was happening on the wire
+- Use PCAP replay to analyze captured traffic from HackTheBox or CTF challenges
 
 ### Option 3: Elastic SIEM (Free Tier) with Sysmon
 
@@ -1488,7 +1488,7 @@ docker compose up -d
 # Kibana: http://localhost:5601 (elastic / ChangeMe123!)
 ```
 
-**Install Elastic Agent on Windows targets (forwards Sysmon + Windows Event Logs):**
+Install Elastic Agent on Windows targets (forwards Sysmon + Windows Event Logs):
 
 ```powershell
 # Download Elastic Agent on your Windows VM
@@ -1502,7 +1502,7 @@ docker compose up -d
 # The Elastic Agent will automatically pick up Sysmon events (EventID 1, 3, 7, 8, etc.)
 ```
 
-**Enable pre-built detection rules in Kibana:**
+Enable pre-built detection rules in Kibana:
 
 ```
 Security -> Rules -> Detection Rules (SIEM) -> Load Elastic prebuilt rules and timeline templates
@@ -1530,7 +1530,7 @@ chmod +x velociraptor-linux-amd64
 # Web UI at https://YOUR_SERVER_IP:8889
 ```
 
-**Deploy the Windows client:**
+Deploy the Windows client:
 
 ```powershell
 # Generate a client config from the server (download from Velociraptor UI: Clients -> Add client)
@@ -1538,7 +1538,7 @@ chmod +x velociraptor-linux-amd64
 .\velociraptor-windows-amd64.exe --config client.config.yaml service install
 ```
 
-**Key Velociraptor capabilities to practice:**
+Key Velociraptor capabilities to practice:
 
 ```vql
 -- Hunt for persistence mechanisms across all endpoints
@@ -1556,7 +1556,7 @@ WHERE Mtime > now() - 86400  -- Last 24 hours
 SELECT * FROM Artifact.Windows.Detection.Amcache()
 ```
 
-> **Why Velociraptor for beginners:** Unlike full SIEMs, Velociraptor has a gentle learning curve while teaching fundamental EDR concepts. You can immediately run forensic artifacts against live endpoints and see results â€” no complex ingestion pipeline required.
+> Why Velociraptor for beginners: Unlike full SIEMs, Velociraptor has a gentle learning curve while teaching fundamental EDR concepts. You can immediately run forensic artifacts against live endpoints and see results â€” no complex ingestion pipeline required.
 
 ### Building a Detection Engineering Workflow
 
@@ -1571,7 +1571,7 @@ Combine the above tools into a repeatable workflow for developing detections:
 6. SHARE   â†’ Convert Sigma rules to platform-specific formats and share on GitHub
 ```
 
-**Sigma rule example** (generic format, converts to Splunk/Elastic/QRadar):
+Sigma rule example (generic format, converts to Splunk/Elastic/QRadar):
 
 ```yaml
 title: Suspicious LSASS Access (Credential Dumping)

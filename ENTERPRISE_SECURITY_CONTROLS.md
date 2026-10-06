@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
-| **Start at** | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
-| **Pairs with** | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
+| Read this when | tuning WAF rules that are throwing false positives, rolling out Defender ASR or CrowdStrike prevention policies to a fleet, configuring Proofpoint email defenses or SPF/DKIM/DMARC, building Zscaler ZIA/ZPA policies |
+| Start at | [WAF rules](#_1-web-application-firewall-waf-rules), [Defender ASR rules](#_2-microsoft-defender-attack-surface-reduction-asr-rules), [CrowdStrike prevention policies](#_3-crowdstrike-falcon-prevention-policies) |
+| Pairs with | [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md), [Detection Rules Reference](DETECTION_RULES_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Security Operations](disciplines/security-operations.md) |
 
 ## Table of Contents
 - [1. Web Application Firewall (WAF) Rules](#_1-web-application-firewall-waf-rules)
@@ -21,12 +21,12 @@
 ## 1. Web Application Firewall (WAF) Rules
 
 ### WAF Architecture and Modes
-- **Detection mode**: Log only (no blocking); use to baseline false positives before enabling block mode
-- **Prevention/Block mode**: Block matching requests; requires tuning to avoid false positives
-- **Anomaly scoring (ModSecurity/OWASP CRS)**: Accumulate score per request; block if score exceeds threshold (default 5)
-- **Deployment**: Reverse proxy in front of web app; CDN-integrated (Cloudflare, Akamai, AWS CloudFront)
+- Detection mode: Log only (no blocking); use to baseline false positives before enabling block mode
+- Prevention/Block mode: Block matching requests; requires tuning to avoid false positives
+- Anomaly scoring (ModSecurity/OWASP CRS): Accumulate score per request; block if score exceeds threshold (default 5)
+- Deployment: Reverse proxy in front of web app; CDN-integrated (Cloudflare, Akamai, AWS CloudFront)
 
-### OWASP Core Rule Set (CRS) — Key Rule Groups
+### OWASP Core Rule Set (CRS): Key Rule Groups
 
 | Rule Group | ID Range | Protects Against | Tuning Notes |
 |---|---|---|---|
@@ -41,12 +41,12 @@
 
 ### Cloudflare WAF Rules
 
-**Managed Rulesets**
-- **Cloudflare OWASP Core Ruleset**: Sensitivity levels (Low/Medium/High); start with Low and increase
-- **Cloudflare Managed Ruleset**: Cloudflare-proprietary rules for zero-days and emerging threats (auto-updated)
-- **Exposed Credentials Check**: Block known breached credential pairs (credential stuffing defense)
+Managed Rulesets
+- Cloudflare OWASP Core Ruleset: Sensitivity levels (Low/Medium/High); start with Low and increase
+- Cloudflare Managed Ruleset: Cloudflare-proprietary rules for zero-days and emerging threats (auto-updated)
+- Exposed Credentials Check: Block known breached credential pairs (credential stuffing defense)
 
-**Custom WAF Rules (Expressions)**
+Custom WAF Rules (Expressions)
 ```
 # Block Log4j JNDI injection (all fields)
 (http.request.uri.query contains "${jndi:" or http.request.headers["user-agent"] contains "${jndi:" or http.request.body contains "${jndi:")
@@ -67,15 +67,15 @@
 (not http.user_agent exists or http.user_agent eq "")
 ```
 
-**Bot Fight Mode / Super Bot Fight Mode**
-- **Verified bots**: Allow Googlebot, Bingbot, etc.
-- **Likely automated**: Challenge
-- **Definitely automated**: Block
-- **JS challenge**: Transparent to real users; blocks headless browsers
+Bot Fight Mode / Super Bot Fight Mode
+- Verified bots: Allow Googlebot, Bingbot, etc.
+- Likely automated: Challenge
+- Definitely automated: Block
+- JS challenge: Transparent to real users; blocks headless browsers
 
 ### AWS WAF Rules
 
-**AWS Managed Rule Groups (use all for production)**
+AWS Managed Rule Groups (use all for production)
 
 | Rule Group | ARN | Protects Against |
 |---|---|---|
@@ -86,7 +86,7 @@
 | AWSManagedRulesAnonymousIpList | aws:managed:anonymous-ip | VPN, proxy, Tor anonymizers |
 | AWSManagedRulesLinuxRuleSet | aws:managed:linux | Linux-specific LFI and command injection |
 
-**Custom AWS WAF Rules (JSON)**
+Custom AWS WAF Rules (JSON)
 ```json
 {
   "Name": "BlockSQLInjectionBody",
@@ -111,12 +111,12 @@
 
 ### Azure WAF (Front Door / Application Gateway)
 
-**OWASP 3.2 Rule Sets**
+OWASP 3.2 Rule Sets
 - Enable all rule sets; start in Detection mode; review logs for 2 weeks; switch to Prevention
 - Custom exclusions: Exclude specific parameters from specific rules when false positives confirmed
 - Bot Manager: Block known bad bots; challenge unknown; allow verified search engine bots
 
-**Azure WAF Custom Rules**
+Azure WAF Custom Rules
 ```hcl
 # Block by IP range (Terraform)
 resource "azurerm_web_application_firewall_policy" "example" {
@@ -141,7 +141,7 @@ resource "azurerm_web_application_firewall_policy" "example" {
 
 ## 2. Microsoft Defender Attack Surface Reduction (ASR) Rules
 
-ASR rules block specific behaviors commonly used by malware — independent of signature detection. Each rule has three modes: **Off**, **Audit** (log only), **Block**.
+ASR rules block specific behaviors commonly used by malware — independent of signature detection. Each rule has three modes: Off, Audit (log only), Block.
 
 ### All ASR Rules Reference
 
@@ -187,7 +187,7 @@ Value: 0 (Off), 1 (Block), 2 (Audit)
 }
 ```
 
-### ASR Monitoring (KQL — Microsoft Defender for Endpoint)
+### ASR Monitoring (KQL: Microsoft Defender for Endpoint)
 ```kusto
 DeviceEvents
 | where ActionType startswith "AsrBlocked"
@@ -201,16 +201,16 @@ DeviceEvents
 
 ### Prevention Policy Categories
 
-**Sensor-Based Machine Learning (ML)**
-- **Sensor ML (on-sensor)**: Real-time ML scoring of executables before execution; works offline
+Sensor-Based Machine Learning (ML)
+- Sensor ML (on-sensor): Real-time ML scoring of executables before execution; works offline
   - Settings: Off / Cautious / Moderate / Aggressive / Extra Aggressive
   - Recommended: Aggressive for most environments; Extra Aggressive for high-security environments
   - Caveat: Extra Aggressive may flag custom internal tooling
-- **Cloud ML (cloud-assisted)**: Upload unknown files to CrowdStrike cloud for deeper analysis
+- Cloud ML (cloud-assisted): Upload unknown files to CrowdStrike cloud for deeper analysis
   - Settings: Off / Cautious / Moderate / Aggressive
   - Recommended: Aggressive; requires internet connectivity to CrowdStrike cloud
 
-**Behavioral Protection (Indicators of Attack — IOA)**
+Behavioral Protection (Indicators of Attack — IOA)
 
 IOAs are behavior-based detections independent of file signatures. Key prevention categories:
 
@@ -227,20 +227,20 @@ IOAs are behavior-based detections independent of file signatures. Key preventio
 | Command and control | Known C2 framework IOAs (Cobalt Strike, Sliver, Havoc patterns) | Yes | High confidence |
 | Privilege escalation | SeImpersonatePrivilege abuse, token manipulation, UAC bypass | Yes | Low false positives |
 
-**Endpoint Detection (EDR vs. Prevention)**
-- **Prevention (Block)**: Kills process, quarantines file, blocks execution — real-time
-- **Detection only**: Generates alert but does not stop execution — use to tune before blocking
-- **Sensor tamper protection**: Prevent disabling/uninstalling sensor (requires maintenance token to disable)
-- **Reduced functionality mode (RFM)**: Sensor enters degraded mode if OS unsupported; alert on RFM endpoints
+Endpoint Detection (EDR vs. Prevention)
+- Prevention (Block): Kills process, quarantines file, blocks execution: real-time
+- Detection only: Generates alert but does not stop execution: use to tune before blocking
+- Sensor tamper protection: Prevent disabling/uninstalling sensor (requires maintenance token to disable)
+- Reduced functionality mode (RFM): Sensor enters degraded mode if OS unsupported; alert on RFM endpoints
 
 ### CrowdStrike Exclusions (Best Practices)
 
-**Process Exclusions (use sparingly)**
+Process Exclusions (use sparingly)
 - Only exclude specific paths, not broad wildcard exclusions like `C:\*`
 - Document business justification for every exclusion
 - Prefer IOA exclusions over ML exclusions where possible
 
-**Common Legitimate Exclusions Needed**
+Common Legitimate Exclusions Needed
 
 | Application | Recommended Exclusion Type | Path/Hash |
 |---|---|---|
@@ -276,63 +276,63 @@ run "investigate.ps1"
 ```
 
 ### Fusion SOAR Automation (CrowdStrike Workflows)
-- **Trigger** on High/Critical detection → auto-contain host (network isolation) → create ServiceNow ticket → notify SOC Slack channel
-- **Auto-escalate** ransomware IOAs → immediate contain + page on-call → pull memory dump via RTR
-- **Hash-based response**: Unknown hash with ML score >80 + network connection → automated sandbox detonation → update verdict → auto-close or escalate
+- Trigger on High/Critical detection -> auto-contain host (network isolation) -> create ServiceNow ticket -> notify SOC Slack channel
+- Auto-escalate ransomware IOAs -> immediate contain + page on-call -> pull memory dump via RTR
+- Hash-based response: Unknown hash with ML score >80 + network connection -> automated sandbox detonation -> update verdict -> auto-close or escalate
 
 ---
 
 ## 4. Tanium Modules
 
 ### Core Tanium Platform Architecture
-- **Tanium Client**: Lightweight agent on every endpoint; linear chain topology for bandwidth efficiency
-- **Tanium Server**: Aggregates results; processes questions; manages modules
-- **Question syntax**: `Get [sensor] from all machines with [condition]` — real-time inventory across 100K+ endpoints in seconds
+- Tanium Client: Lightweight agent on every endpoint; linear chain topology for bandwidth efficiency
+- Tanium Server: Aggregates results; processes questions; manages modules
+- Question syntax: `Get [sensor] from all machines with [condition]`: real-time inventory across 100K+ endpoints in seconds
 
 ### Tanium Modules Reference
 
-**Tanium Core (Free with Platform)**
-- Ask questions: `Get Operating System from all machines` — real-time OS inventory
+Tanium Core (Free with Platform)
+- Ask questions: `Get Operating System from all machines`: real-time OS inventory
 - Deployed software: `Get Installed Applications containing "Adobe" from all machines where Is Windows equals true`
-- Running processes: `Get Process Name[powershell.exe] from all machines` — find all running PowerShell instances
-- Logged-in users: `Get Logged In Users from all machines` — useful during incident triage
+- Running processes: `Get Process Name[powershell.exe] from all machines`: find all running PowerShell instances
+- Logged-in users: `Get Logged In Users from all machines`: useful during incident triage
 
-**Tanium Patch**
+Tanium Patch
 - Scan for missing patches (Windows/Linux/macOS)
 - Deploy patches in maintenance windows with rollback capability
 - Reports: Patch compliance rate by OS, severity, criticality
 - Integration: ServiceNow change management for patch deployment tickets
 
-**Tanium Comply**
+Tanium Comply
 - CIS Benchmark compliance assessment (Windows, Linux, network devices)
 - Custom SCAP/XCCDF/OVAL content support
 - Gap reporting: Which benchmarks are failing across which endpoints?
 - Remediation: Automated script deployment to fix common compliance failures
 
-**Tanium Discover**
+Tanium Discover
 - Identify unmanaged assets on the network (no Tanium agent)
-- Network scanning from managed endpoints — no need for central scanner infrastructure
+- Network scanning from managed endpoints: no need for central scanner infrastructure
 - Asset fingerprinting: OS, open ports, services
 - Integration with CMDB: Push discovered assets to ServiceNow
 
-**Tanium Impact**
+Tanium Impact
 - Credential and privilege exposure mapping
 - Identify endpoints with local admin credentials shared across multiple machines (lateral movement risk)
 - Service account exposure: Which accounts have logged in to many endpoints? (PtH risk surface)
 - Shadow admins: Identify non-obvious administrative access paths in AD
 
-**Tanium Threat Response (EDR)**
+Tanium Threat Response (EDR)
 - Real-time IOC scanning: Push YARA rules or hash lists; scan all endpoints in minutes
 - Evidence collection: Collect memory dumps, event logs, file artifacts from remote hosts
 - Timeline: Process execution history, network connections, file events per endpoint
 - Signal/Detection: Alert on behavioral patterns; correlate with CrowdStrike or Microsoft Defender telemetry
 
-**Tanium Protect**
+Tanium Protect
 - Application allowlisting (Windows): Block unapproved executables; BYOP (bring your own policy)
 - Firewall management: Push host-based firewall rules across all endpoints
 - BitLocker management: Report encryption status; enforce and recover keys
 
-**Tanium Live Response (Incident Response)**
+Tanium Live Response (Incident Response)
 - Real-time file system navigation across remote endpoints
 - Hash check: Run hash of suspicious file against VirusTotal via Tanium Connect integration
 - Remediation playbooks: Automated response actions (delete file, kill process, isolate NIC)
@@ -360,13 +360,13 @@ Deploy YARA Rule "Cobalt_Strike_Beacon" to all machines where Is Windows equals 
 ## 5. Proofpoint Email Security
 
 ### Proofpoint Essentials / Enterprise Architecture
-- MX record points to Proofpoint smart host → Proofpoint scans → delivers clean mail to Exchange/O365
+- MX record points to Proofpoint smart host -> Proofpoint scans -> delivers clean mail to Exchange/O365
 - Outbound: Route through Proofpoint for DLP, encryption, IP reputation management
 - Continuity: Emergency inbox when primary mail server down
 
 ### Spam and Phishing Detection
 
-**Spam Confidence Levels (SCL)**
+Spam Confidence Levels (SCL)
 
 | Score | Action | Meaning |
 |---|---|---|
@@ -375,12 +375,12 @@ Deploy YARA Rule "Cobalt_Strike_Beacon" to all machines where Is Windows equals 
 | 75-89 | Quarantine (user accessible) | Likely spam |
 | 90-100 | Quarantine (admin only) or Block | High-confidence spam |
 
-**URL Defense (URL Rewriting)**
+URL Defense (URL Rewriting)
 - Rewrites all URLs in email to Proofpoint proxy; clicks checked at time of delivery
 - Time-of-click analysis: Block if URL changed to malicious after delivery (delayed weaponization)
 - Sandbox: Automatically detonate suspicious URLs in isolated browser
 
-**Attachment Defense**
+Attachment Defense
 - Sandbox all attachments: Office docs, PDFs, executables, archives
 - Dynamic analysis: Detonate in isolated VM; behavioral analysis for macro execution, network connections, file drops
 - Suspicious PDF: Auto-convert to safe PDF rendering (remove active content)
@@ -388,14 +388,14 @@ Deploy YARA Rule "Cobalt_Strike_Beacon" to all machines where Is Windows equals 
 
 ### DMARC / DKIM / SPF Configuration
 
-**SPF Record**
+SPF Record
 ```dns
 v=spf1 include:_spf.google.com include:spf.protection.outlook.com ip4:203.0.113.10 -all
 ```
 - `-all` = hard fail (reject); `~all` = soft fail (mark); `?all` = neutral (no action — avoid)
-- Maximum 10 DNS lookups per SPF evaluation — flattening required for complex setups
+- Maximum 10 DNS lookups per SPF evaluation: flattening required for complex setups
 
-**DKIM Configuration**
+DKIM Configuration
 ```dns
 # DNS TXT record (selector._domainkey.example.com)
 v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GN...
@@ -403,22 +403,22 @@ v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GN...
 - 2048-bit RSA key minimum; rotate annually
 - Sign all outbound email; enable DKIM verification for inbound
 
-**DMARC Record**
+DMARC Record
 ```dns
 _dmarc.example.com TXT "v=DMARC1; p=reject; rua=mailto:dmarc-rua@example.com; ruf=mailto:dmarc-ruf@example.com; pct=100; adkim=s; aspf=s"
 ```
-- `p=reject`: Fail DMARC = reject; start with `p=none` → `p=quarantine` → `p=reject`
+- `p=reject`: Fail DMARC = reject; start with `p=none` -> `p=quarantine` -> `p=reject`
 - `rua`: Aggregate reports (Valimail, Dmarcian, PowerDMARC for analysis)
 - `adkim=s`, `aspf=s`: Strict alignment
 
 ### Proofpoint Targeted Attack Protection (TAP)
 
-**Very Attacked People (VAP)**
+Very Attacked People (VAP)
 - Identifies employees receiving the most sophisticated targeted attacks
 - Use to prioritize security awareness training and additional controls (hardware MFA, additional scrutiny)
 - Integrate with CrowdStrike: VAPs get stricter EDR prevention policies
 
-**BEC Defense**
+BEC Defense
 - Impostor email detection: AI/ML detecting display name spoofing, lookalike domains, executive impersonation
 - Domain lookalike detection: `paypa1.com`, `microsof.com`, `target-corp.com` alerting
 - Business Relationship Intelligence: Maps communication patterns; anomalous senders flagged
@@ -435,19 +435,19 @@ _dmarc.example.com TXT "v=DMARC1; p=reject; rua=mailto:dmarc-rua@example.com; ru
 
 ### Zscaler Internet Access (ZIA)
 
-**Traffic Forwarding Methods**
-- **PAC file**: Browser proxy configuration; suitable for managed devices
-- **Zscaler Client Connector (ZCC)**: Agent-based; all traffic; recommended for full coverage
-- **IPSec/GRE tunnel**: Site-to-site from branch routers; for non-agent deployments
-- **NSS (Nanolog Streaming Service)**: Stream logs to SIEM (Splunk, Sentinel, QRadar)
+Traffic Forwarding Methods
+- PAC file: Browser proxy configuration; suitable for managed devices
+- Zscaler Client Connector (ZCC): Agent-based; all traffic; recommended for full coverage
+- IPSec/GRE tunnel: Site-to-site from branch routers; for non-agent deployments
+- NSS (Nanolog Streaming Service): Stream logs to SIEM (Splunk, Sentinel, QRadar)
 
-**ZIA SSL Inspection**
+ZIA SSL Inspection
 - Decrypt HTTPS traffic for full content inspection; re-encrypt to destination
-- Certificate pinning bypass: Apps with pinned certs bypass SSL inspection — add to bypass list
+- Certificate pinning bypass: Apps with pinned certs bypass SSL inspection: add to bypass list
 - SSL bypass categories: Banking, healthcare (HIPAA), government (regulated data)
 - SSL bypass by URL: `*.internal-app.com` for internal CA-signed apps
 
-**ZIA URL Filtering Policy**
+ZIA URL Filtering Policy
 
 | Category | Default Action | Recommended Action |
 |---|---|---|
@@ -462,29 +462,29 @@ _dmarc.example.com TXT "v=DMARC1; p=reject; rua=mailto:dmarc-rua@example.com; ru
 | Streaming media | Allow | Allow (bandwidth management optional) |
 | Hacking/proxy avoidance | Block | Block |
 
-**ZIA Advanced Threat Protection**
-- **Intrusion Prevention (IPS)**: Signatures for exploits, port scans, protocol anomalies
-- **DNS security**: Block malicious domains; DNS tunneling detection
-- **Cloud Sandbox**: Detonate unknown files; integrate with CrowdStrike Threat Intelligence
-- **Firewall**: App-aware, user-aware policy enforcement (e.g., block Tor for all users except security team)
+ZIA Advanced Threat Protection
+- Intrusion Prevention (IPS): Signatures for exploits, port scans, protocol anomalies
+- DNS security: Block malicious domains; DNS tunneling detection
+- Cloud Sandbox: Detonate unknown files; integrate with CrowdStrike Threat Intelligence
+- Firewall: App-aware, user-aware policy enforcement (e.g., block Tor for all users except security team)
 
-**ZIA DLP (Data Loss Prevention)**
+ZIA DLP (Data Loss Prevention)
 - ICAP integration: Inspect web traffic for sensitive data patterns
 - Exact Data Match (EDM): Fingerprint specific customer/employee data
 - Policies: Block upload of SSN/PCI data to personal cloud storage; allow to corporate OneDrive
 
-**ZIA Bandwidth Control**
+ZIA Bandwidth Control
 - Throttle streaming/social media during business hours
 - Guarantee bandwidth for critical business apps (Microsoft 365, Zoom, SAP)
 
 ### Zscaler Private Access (ZPA)
 
-**ZPA Architecture**
-- **App Connector**: Lightweight VM deployed in data center/cloud; outbound-only connections to Zscaler cloud
-- **Zscaler Enforcement Node**: Zscaler cloud proxies user → app (no VPN concentrator needed)
-- **Access Policy**: User/group + device posture → specific application (not network-level access)
+ZPA Architecture
+- App Connector: Lightweight VM deployed in data center/cloud; outbound-only connections to Zscaler cloud
+- Zscaler Enforcement Node: Zscaler cloud proxies user -> app (no VPN concentrator needed)
+- Access Policy: User/group + device posture -> specific application (not network-level access)
 
-**ZPA Access Policies**
+ZPA Access Policies
 ```
 Policy: "Contractors can access Web App Portal only"
 - Source: User group = "Contractors" AND device posture = "Managed device enrolled in MDM"
@@ -497,12 +497,12 @@ Policy: "Deny All except explicitly permitted"
 - Action: Deny (default deny at bottom of policy list)
 ```
 
-**ZPA App Segments vs Application Groups**
-- **App Segment**: Defines a specific application (FQDN + port + protocol); mapped to App Connectors
-- **Application Group**: Group of App Segments for easier policy management
-- **Server Group**: Collection of App Connectors that serve a group of apps
+ZPA App Segments vs Application Groups
+- App Segment: Defines a specific application (FQDN + port + protocol); mapped to App Connectors
+- Application Group: Group of App Segments for easier policy management
+- Server Group: Collection of App Connectors that serve a group of apps
 
-**ZPA Device Trust (Posture)**
+ZPA Device Trust (Posture)
 
 | Posture Check | What It Verifies | Use Case |
 |---|---|---|
@@ -512,21 +512,21 @@ Policy: "Deny All except explicitly permitted"
 | Disk encryption enabled | BitLocker/FileVault on | Ensure data-at-rest protection |
 | Screen lock configured | Lock screen timeout <= 5 min | Basic physical security |
 
-**ZPA Integration with IdP**
+ZPA Integration with IdP
 - SAML 2.0 + SCIM: Sync groups from Okta/Azure AD for policy targeting
 - Conditional Access: Require ZPA app session for Entra ID Conditional Access policy
-- User risk: Entra ID Identity Protection risk signal → ZPA auto-block high-risk users
+- User risk: Entra ID Identity Protection risk signal -> ZPA auto-block high-risk users
 
 ### Zscaler Posture Control (CNAPP)
-- **Cloud Security Posture Management (CSPM)**: Continuous AWS/Azure/GCP misconfiguration detection
-- **Cloud Infrastructure Entitlement Management (CIEM)**: Overpermissive IAM analysis
-- **Kubernetes Security Posture Management (KSPM)**: K8s misconfiguration scanning
+- Cloud Security Posture Management (CSPM): Continuous AWS/Azure/GCP misconfiguration detection
+- Cloud Infrastructure Entitlement Management (CIEM): Overpermissive IAM analysis
+- Kubernetes Security Posture Management (KSPM): K8s misconfiguration scanning
 
 ---
 
 ## Related Resources
-- [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md) — GPO-based hardening, attack surface reduction, service disabling
-- [Detection Rules Reference](DETECTION_RULES_REFERENCE.md) — Sigma, YARA, and Suricata detection rules
-- [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) — enterprise environment components
-- [Security Operations](disciplines/security-operations.md) — SOC operations and tooling
-- [Zero Trust Architecture](disciplines/zero-trust-architecture.md) — ZT principles and vendor implementation
+- [Windows Hardening and GPO Reference](WINDOWS_HARDENING_GPO.md): GPO-based hardening, attack surface reduction, service disabling
+- [Detection Rules Reference](DETECTION_RULES_REFERENCE.md): Sigma, YARA, and Suricata detection rules
+- [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md): enterprise environment components
+- [Security Operations](disciplines/security-operations.md): SOC operations and tooling
+- [Zero Trust Architecture](disciplines/zero-trust-architecture.md): ZT principles and vendor implementation

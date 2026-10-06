@@ -1,12 +1,12 @@
 # Social Engineering Reference
 
-> **Scope:** This document is a cybersecurity reference for defenders, penetration testers, security awareness trainers, and researchers. All techniques are presented in the context of understanding threats so they can be detected, prevented, and defended against. Offensive use against systems or individuals without explicit written authorization is illegal and unethical.
+> Scope: This document is a cybersecurity reference for defenders, penetration testers, security awareness trainers, and researchers. All techniques are presented in the context of understanding threats so they can be detected, prevented, and defended against. Offensive use against systems or individuals without explicit written authorization is illegal and unethical.
 
 | | |
 |---|---|
-| **Read this when** | Designing a phishing simulation or awareness program, investigating a suspected phishing/BEC/vishing incident, or scoping an authorized social engineering engagement |
-| **Start at** | [Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists) |
-| **Pairs with** | [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+| Read this when | Designing a phishing simulation or awareness program, investigating a suspected phishing/BEC/vishing incident, or scoping an authorized social engineering engagement |
+| Start at | [Psychology of Social Engineering](#_1-psychology-of-social-engineering), [Phishing Attack Types](#_2-phishing-attack-types), [Quick Reference Checklists](#_12-quick-reference-checklists) |
+| Pairs with | [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 
 ---
 
@@ -39,12 +39,12 @@ Robert Cialdini's seminal research in *Influence: The Psychology of Persuasion* 
 
 Humans feel obligated to return favors. When someone does something for us — even something we did not ask for — we feel psychological pressure to reciprocate.
 
-**Attack application:**
+Attack application:
 - An attacker posing as IT support "helps" a user reset their password or resolve a ticket, then later calls back and asks the user to confirm a code they just received by SMS. The user, feeling indebted, complies — handing over an OTP.
 - "Free" USB drives left in parking lots as gifts. Recipients plug them in out of curiosity and gratitude.
 - Phishing emails that begin with genuinely useful information (e.g., a real industry report attachment) before embedding a credential-harvesting link.
 
-**Defensive awareness:**
+Defensive awareness:
 - Recognize that unsolicited help is not neutral. Establish formal processes for IT support interactions.
 - Out-of-band verification: if someone calls you and helps you, call them back on a known-good number before sharing any sensitive information.
 
@@ -52,12 +52,12 @@ Humans feel obligated to return favors. When someone does something for us — e
 
 Once people commit to a position — especially publicly — they feel pressure to remain consistent with that commitment. Small initial agreements pave the way for larger requests (foot-in-the-door technique).
 
-**Attack application:**
+Attack application:
 - Pretexting calls begin with innocuous confirmation ("Can you confirm your first name and department?") before escalating ("And the last four of your employee ID?").
 - Spear phishing emails reference a LinkedIn post the target made, asking them to "follow up on the commitment you made about [topic]."
 - Attackers build rapport over weeks via LinkedIn before launching a credential-theft attack.
 
-**Defensive awareness:**
+Defensive awareness:
 - Recognize escalating commitment patterns in requests.
 - Train employees that it is always acceptable to stop mid-interaction and escalate to a supervisor or security team.
 
@@ -65,13 +65,13 @@ Once people commit to a position — especially publicly — they feel pressure 
 
 People look to others' behavior to determine the correct course of action, especially in uncertain situations.
 
-**Attack application:**
-- Phishing emails: "Over 300 of your colleagues have already updated their credentials — please click here to complete your profile update."
+Attack application:
+- Phishing emails: "Over 300 of your colleagues have already updated their credentials: please click here to complete your profile update."
 - Fake review campaigns to legitimize malicious software ("4.8 stars, 12,000 downloads").
 - Fabricated urgency indicators: "47 other people are viewing this document right now."
 - Vishing callers claim "we already verified this with your manager."
 
-**Defensive awareness:**
+Defensive awareness:
 - Question claims about what "everyone else" is doing when they are used to pressure action.
 - Verify claimed actions with named individuals through independent channels.
 
@@ -79,13 +79,13 @@ People look to others' behavior to determine the correct course of action, espec
 
 People defer to perceived authority figures, titles, and symbols of expertise or rank.
 
-**Attack application:**
+Attack application:
 - CEO fraud / Business Email Compromise: impersonating the CEO or CFO to pressure a finance employee into an unauthorized wire transfer.
 - Vishing calls: "This is Agent Thompson from the IRS fraud division."
 - Phishing emails with forged law firm letterhead, FBI logos, or Microsoft branding.
 - Physical impersonation: uniforms (delivery, IT, fire marshal), clipboards, lanyards with fake ID badges.
 
-**Defensive awareness:**
+Defensive awareness:
 - Establish and enforce verification procedures that apply equally regardless of claimed authority.
 - Senior executives should explicitly communicate that they will never demand employees bypass security controls.
 - Caller verification: "I'll need to call you back on our directory number for that department."
@@ -94,13 +94,13 @@ People defer to perceived authority figures, titles, and symbols of expertise or
 
 We are more easily persuaded by people we like. Factors that increase liking: physical attractiveness, similarity, compliments, familiarity, and association with positive things.
 
-**Attack application:**
+Attack application:
 - Attackers mirror language, interests, and cultural references found on social media to appear similar to the target.
 - LinkedIn connection followed by flattery ("I've been following your work on X and really admire your expertise") before a spear-phishing message.
 - Physical attackers dress in clothing that matches the target company's culture.
 - Pretexting using mutual connections: "Sarah from your team gave me your name."
 
-**Defensive awareness:**
+Defensive awareness:
 - Being liked is not a credential. Apply the same verification standards to friendly callers as to hostile ones.
 - Train staff to recognize when unusual requests are being softened by excessive friendliness.
 
@@ -108,13 +108,13 @@ We are more easily persuaded by people we like. Factors that increase liking: ph
 
 People assign more value to opportunities that are rare or diminishing. Fear of missing out (FOMO) is a powerful motivator.
 
-**Attack application:**
+Attack application:
 - Urgency phishing: "Your account will be suspended in 24 hours if you do not verify your information."
-- Invoice fraud: "Final notice — payment overdue, legal action commences tomorrow."
+- Invoice fraud: "Final notice: payment overdue, legal action commences tomorrow."
 - Limited-time credential harvesting: "Only the first 10 employees to re-authenticate get the upgraded account."
 - "Act now" overlays on phishing landing pages.
 
-**Defensive awareness:**
+Defensive awareness:
 - Artificial urgency is a major red flag. Legitimate systems rarely require immediate irreversible action.
 - Establish cooling-off procedures: financial requests over a threshold require a 24-hour verification window.
 
@@ -128,19 +128,19 @@ Cognitive biases are systematic patterns of deviation from rational judgment. So
 
 The tendency to rely too heavily on the first piece of information encountered when making decisions.
 
-**Attack application:** An attacker presents a seemingly high initial request ("We need full admin credentials") before backing off to the real ask ("Okay, just read access to the finance share"). The target, relieved to avoid the larger ask, grants what they would not have otherwise.
+Attack application: An attacker presents a seemingly high initial request ("We need full admin credentials") before backing off to the real ask ("Okay, just read access to the finance share"). The target, relieved to avoid the larger ask, grants what they would not have otherwise.
 
 #### 1.2.2 Availability Heuristic
 
 Overestimating the likelihood of events that come easily to mind, often due to recent exposure or emotional impact.
 
-**Attack application:** After a real data breach announcement in the news, attackers launch a phishing campaign impersonating the breached company: "Due to the recent incident, please re-verify your credentials immediately." Victims are primed to find this plausible.
+Attack application: After a real data breach announcement in the news, attackers launch a phishing campaign impersonating the breached company: "Due to the recent incident, please re-verify your credentials immediately." Victims are primed to find this plausible.
 
 #### 1.2.3 Framing Effect
 
 Decisions are influenced by how information is presented, not just its content.
 
-**Attack application:**
+Attack application:
 - "Your account shows suspicious activity" (threat frame) vs. "Please confirm your details to keep your account secure" (positive frame) — both lead to the same credential submission page, but the second feels safer.
 - Financial fraud: "Approve this payment to avoid a $5,000 late fee" is more effective than "Approve this payment."
 
@@ -148,13 +148,13 @@ Decisions are influenced by how information is presented, not just its content.
 
 The tendency to search for, interpret, and recall information that confirms pre-existing beliefs.
 
-**Attack application:** Attackers research a target's known concerns or interests and frame their pretext around them. If a company is known to be undergoing an audit, an attacker posing as an auditor's assistant will be readily believed.
+Attack application: Attackers research a target's known concerns or interests and frame their pretext around them. If a company is known to be undergoing an audit, an attacker posing as an auditor's assistant will be readily believed.
 
 #### 1.2.5 Optimism Bias
 
 The belief that negative events are less likely to happen to oneself than to others.
 
-**Attack application:** Most employees believe they are too savvy to fall for phishing — making them less vigilant. Security awareness programs must address this directly.
+Attack application: Most employees believe they are too savvy to fall for phishing — making them less vigilant. Security awareness programs must address this directly.
 
 #### 1.2.6 Authority Bias (see Cialdini above)
 
@@ -166,26 +166,26 @@ People tend to believe authority figures are correct, even when they have no ind
 
 Pretexting is the practice of creating a fabricated scenario (pretext) to extract information or gain access. It is the narrative layer of social engineering.
 
-**Elements of a successful pretext:**
+Elements of a successful pretext:
 
 | Element | Description | Example |
 |---------|-------------|---------|
 | Role | Plausible identity with legitimate need for the information | IT auditor, HR representative, vendor account manager |
-| Backstory | Coherent history that supports the role | "We're migrating from the old ticketing system — I was assigned your account to verify" |
+| Backstory | Coherent history that supports the role | "We're migrating from the old ticketing system: I was assigned your account to verify" |
 | Knowledge | Insider details that build credibility | Employee names, project names, recent events gleaned from OSINT |
 | Hook | The specific reason for the ask | "Without your verification, your account gets locked out of the new system tonight" |
-| Exit | How to end the interaction gracefully | "Perfect, that's all I needed — you're all set in the new system" |
+| Exit | How to end the interaction gracefully | "Perfect, that's all I needed: you're all set in the new system" |
 
-**Common pretext scenarios:**
+Common pretext scenarios:
 
-- **IT helpdesk:** "We detected unusual login activity on your account. I need to verify a few things to prevent a lockout."
-- **HR department:** "We're updating employee records for the new benefits portal. I need to confirm your SSN and home address."
-- **Vendor support:** "I'm calling from [SaaS vendor]. We're migrating your account data and need to verify the admin credentials."
-- **Executive assistant:** "Mr. [CEO name] asked me to reach you directly. He needs this wire processed today before his flight."
-- **Auditor/compliance:** "I'm conducting the annual security audit. I'll need to review your workstation briefly."
-- **New employee:** Uses naivety as cover — asking for "help" performing actions that reveal system information.
+- IT helpdesk: "We detected unusual login activity on your account. I need to verify a few things to prevent a lockout."
+- HR department: "We're updating employee records for the new benefits portal. I need to confirm your SSN and home address."
+- Vendor support: "I'm calling from [SaaS vendor]. We're migrating your account data and need to verify the admin credentials."
+- Executive assistant: "Mr. [CEO name] asked me to reach you directly. He needs this wire processed today before his flight."
+- Auditor/compliance: "I'm conducting the annual security audit. I'll need to review your workstation briefly."
+- New employee: Uses naivety as cover: asking for "help" performing actions that reveal system information.
 
-**Research sources for pretexts (OSINT):**
+Research sources for pretexts (OSINT):
 - LinkedIn: employee names, org chart, job titles, projects, technologies used
 - Company website: press releases, executive names, recent acquisitions
 - Job postings: technology stack, processes, vendors
@@ -198,20 +198,20 @@ Pretexting is the practice of creating a fabricated scenario (pretext) to extrac
 
 Rapport is the foundation of effective social engineering. It reduces target skepticism and increases compliance.
 
-**Rapport techniques:**
+Rapport techniques:
 
-- **Active mirroring:** Subtly mimicking the target's tone, vocabulary, and pace.
-- **Commonality discovery:** Referencing shared experiences, colleagues, or interests discovered via OSINT.
-- **Vulnerability signaling:** Appearing slightly uncertain or in need of help disarms defensive instincts.
-- **Name use:** Using the target's first name naturally creates false familiarity.
-- **Validation:** "That's a great question" or "You're absolutely right about that" before pivoting.
+- Active mirroring: Subtly mimicking the target's tone, vocabulary, and pace.
+- Commonality discovery: Referencing shared experiences, colleagues, or interests discovered via OSINT.
+- Vulnerability signaling: Appearing slightly uncertain or in need of help disarms defensive instincts.
+- Name use: Using the target's first name naturally creates false familiarity.
+- Validation: "That's a great question" or "You're absolutely right about that" before pivoting.
 
-**Defensive awareness for employees:**
-1. **Verify before trusting:** Friendliness is not a credential. Apply verification procedures consistently.
-2. **Recognize the escalation pattern:** Small talk → credibility building → the ask. Recognize when a conversation follows this arc.
-3. **Pause before acting:** Social engineers rely on momentum. Breaking the flow to "check on something" kills the attack.
-4. **It is okay to say no:** Employees should be empowered to decline requests and escalate to security without fear.
-5. **Document and report:** Even failed social engineering attempts are valuable threat intelligence.
+Defensive awareness for employees:
+1. Verify before trusting: Friendliness is not a credential. Apply verification procedures consistently.
+2. Recognize the escalation pattern: Small talk -> credibility building -> the ask. Recognize when a conversation follows this arc.
+3. Pause before acting: Social engineers rely on momentum. Breaking the flow to "check on something" kills the attack.
+4. It is okay to say no: Employees should be empowered to decline requests and escalate to security without fear.
+5. Document and report: Even failed social engineering attempts are valuable threat intelligence.
 
 ---
 
@@ -223,28 +223,28 @@ Phishing is the use of fraudulent electronic communications to trick recipients 
 
 Unlike bulk phishing (spray-and-pray), spear phishing is highly targeted and personalized.
 
-**Target research methodology:**
+Target research methodology:
 1. Identify target via LinkedIn, company directory, or breach data
 2. Harvest email format (e.g., `first.last@company.com`) using hunter.io, email permutation, or breach databases
 3. Collect context: current projects, reporting structure, recent news, vendor relationships
 4. Craft a pretext aligned with the target's role and current activities
 5. Personalize the email: reference real names, project names, locations
 
-**Personalization techniques:**
+Personalization techniques:
 - Use the target's manager's name in the salutation
 - Reference a real ongoing project or initiative
 - Match the writing style of internal communications (gleaned from public sources)
 - Include partial information the target would assume only an insider could know
 - Use the target's actual email signature format
 
-**OSINT sources for spear phishing:**
+OSINT sources for spear phishing:
 - LinkedIn: role, connections, skills, recent activity
 - Twitter/X, Facebook: interests, travel, events attended
 - GitHub: technical stack, coding patterns, personal projects
 - Company blog/press releases: project names, partnerships
 - Conference speaker bios: expertise, speaking topics
 
-**Example spear phishing email structure:**
+Example spear phishing email structure:
 
 ```
 From: sarah.chen@[lookalike-domain].com
@@ -270,15 +270,15 @@ Direct: (555) 012-3456
 
 Whaling targets C-suite and senior executives who have access to high-value systems, financial authority, and sensitive data.
 
-**Characteristics:**
-- Highly personalized — often researched for weeks or months
+Characteristics:
+- Highly personalized: often researched for weeks or months
 - Leverages public information (earnings calls, press releases, LinkedIn)
 - Targets not just the executive but also their assistants and direct reports
 - Often culminates in Business Email Compromise (BEC) attempts
 
-**BEC (Business Email Compromise)** is a category of fraud in which attackers impersonate executives or trusted parties to authorize fraudulent financial transactions.
+BEC (Business Email Compromise) is a category of fraud in which attackers impersonate executives or trusted parties to authorize fraudulent financial transactions.
 
-**BEC variants:**
+BEC variants:
 
 | Variant | Description | Target |
 |---------|-------------|--------|
@@ -295,19 +295,19 @@ Whaling targets C-suite and senior executives who have access to high-value syst
 
 Vishing uses telephone calls to extract information or persuade targets to take action.
 
-**Common vishing scenarios:**
+Common vishing scenarios:
 - Bank fraud alert: "We detected suspicious activity on your account"
 - IRS impersonation: threat of arrest unless immediate payment
-- IT helpdesk: "Your account has been locked — I need to verify your identity"
+- IT helpdesk: "Your account has been locked: I need to verify your identity"
 - Microsoft/Apple Support: "We detected a virus on your computer"
 - Medicare/Social Security: "Your number has been suspended"
 
-**Technical enablers:**
-- **Caller ID spoofing:** Free and commercial services allow any number to be displayed
-- **VoIP infrastructure:** Low-cost calls from anywhere globally
-- **Voice cloning:** AI tools can clone a voice from as little as 3-5 seconds of audio
+Technical enablers:
+- Caller ID spoofing: Free and commercial services allow any number to be displayed
+- VoIP infrastructure: Low-cost calls from anywhere globally
+- Voice cloning: AI tools can clone a voice from as little as 3-5 seconds of audio
 
-**Real-time phishing coordination:**
+Real-time phishing coordination:
 Some vishing attacks operate in concert with phishing emails. The attacker sends a phishing email, then calls the target claiming to be from the same organization, creating a multi-channel attack that is more convincing.
 
 ---
@@ -316,21 +316,21 @@ Some vishing attacks operate in concert with phishing emails. The attacker sends
 
 Smishing uses SMS/text messages to deliver phishing content.
 
-**Why smishing works:**
+Why smishing works:
 - SMS open rates are ~98% vs ~20% for email
 - Mobile users are less likely to scrutinize URLs
 - SMS lacks the spam filtering infrastructure of email
 - Legitimate organizations increasingly communicate via SMS (banks, delivery companies)
 - Shortened URLs hide true destinations
 
-**Common smishing pretexts:**
+Common smishing pretexts:
 - Package delivery notifications (FedEx, UPS, USPS, DHL)
 - Bank security alerts
 - Two-factor authentication "verification" (fake OTP capture pages)
 - Prize/sweepstakes notifications
 - COVID-era: health authority notifications
 
-**Technical tactics:**
+Technical tactics:
 - URL shorteners (bit.ly, t.co, tinyurl) to hide destination
 - Mobile-optimized phishing pages
 - Legitimate-looking subdomain abuse (e.g., `fedex.tracking-update[.]com`)
@@ -342,19 +342,19 @@ Smishing uses SMS/text messages to deliver phishing content.
 
 QR code phishing embeds malicious URLs in QR codes, bypassing email security scanners that analyze text and URLs but not image content.
 
-**Why quishing evades defenses:**
+Why quishing evades defenses:
 - Email gateways perform URL analysis on text links, not image-embedded URLs
 - QR codes appear legitimate and are widely used for menus, payments, documents
 - Users scan QR codes on mobile devices where protections are weaker
 - No hover-preview equivalent exists for QR codes
 
-**Common quishing scenarios:**
+Common quishing scenarios:
 - Email attachments with "scan this QR code to verify your identity"
 - QR codes on physical stickers placed over legitimate QR codes (parking meters, restaurant menus)
 - QR codes in PDF attachments that bypass attachment scanning
 - Fake DocuSign/Adobe Sign requests with QR verification
 
-**Defenses:**
+Defenses:
 - Email security solutions with QR code URL extraction and analysis
 - User training: treat QR code URLs with the same scrutiny as text links
 - Physical security: regularly inspect physical QR codes in public-facing areas
@@ -365,13 +365,13 @@ QR code phishing embeds malicious URLs in QR codes, bypassing email security sca
 
 Clone phishing replicates a legitimate email — including formatting, branding, and sender details — replacing benign attachments or links with malicious ones.
 
-**Process:**
+Process:
 1. Attacker obtains a copy of a legitimate email (via breach, public exposure, or by being on a mailing list)
 2. Creates a near-identical replica using a spoofed or lookalike sender address
 3. Replaces legitimate links/attachments with malicious versions
-4. Sends to original recipients with a plausible re-send reason ("resending — the attachment was corrupted")
+4. Sends to original recipients with a plausible re-send reason ("resending: the attachment was corrupted")
 
-**Why it works:**
+Why it works:
 - Targets have seen the legitimate version and recognize it
 - Branding, formatting, and content match expectations
 - The re-send pretext is plausible
@@ -382,14 +382,14 @@ Clone phishing replicates a legitimate email — including formatting, branding,
 
 AiTM phishing defeats MFA by sitting as a transparent proxy between the victim and the legitimate service, capturing session cookies in real time.
 
-**How AiTM works:**
+How AiTM works:
 1. Victim receives phishing link to attacker-controlled reverse proxy
 2. Proxy forwards all traffic to the legitimate site
 3. Victim authenticates (including MFA) to what appears to be the real site
 4. Proxy captures the post-authentication session cookie
-5. Attacker replays the cookie for authenticated access — bypassing MFA entirely
+5. Attacker replays the cookie for authenticated access: bypassing MFA entirely
 
-**Tools used in AiTM attacks:**
+Tools used in AiTM attacks:
 
 | Tool | Description |
 |------|-------------|
@@ -398,10 +398,10 @@ AiTM phishing defeats MFA by sitting as a transparent proxy between the victim a
 | Muraena | Modular reverse proxy phishing framework |
 | EvilnoVNC | VNC-based AiTM for visual phishing sessions |
 
-**Targets:** Microsoft 365, Google Workspace, any service using cookie-based sessions after MFA.
+Targets: Microsoft 365, Google Workspace, any service using cookie-based sessions after MFA.
 
-**Defenses:**
-- FIDO2/hardware security keys (phishing-resistant MFA — session cannot be proxied)
+Defenses:
+- FIDO2/hardware security keys (phishing-resistant MFA: session cannot be proxied)
 - Conditional Access policies requiring compliant/joined devices
 - Continuous Access Evaluation (CAE) in Microsoft 365
 - Token binding where supported
@@ -414,7 +414,7 @@ AiTM phishing defeats MFA by sitting as a transparent proxy between the victim a
 
 GoPhish is the de facto standard for security awareness phishing simulations. It provides campaign management, email sending, landing page hosting, and result tracking.
 
-**Deployment:**
+Deployment:
 
 ```bash
 # Download latest release from https://github.com/gophish/gophish/releases
@@ -426,7 +426,7 @@ chmod +x gophish
 # Default credentials: admin / (printed to terminal on first run)
 ```
 
-**Configuration components:**
+Configuration components:
 
 | Component | Description |
 |-----------|-------------|
@@ -436,7 +436,7 @@ chmod +x gophish
 | User Group | Target email list (CSV import supported) |
 | Campaign | Ties all components together with schedule and URL |
 
-**GoPhish template variables:**
+GoPhish template variables:
 
 ```
 {{.FirstName}}    - Recipient first name
@@ -447,14 +447,14 @@ chmod +x gophish
 {{.URL}}          - Unique phishing URL for this recipient
 ```
 
-**Tracking metrics:**
-- **Emails Sent:** Total delivery count
-- **Opens:** Tracking pixel loads (indicates email was opened)
-- **Clicks:** Landing page visits
-- **Submitted Data:** Credential form submissions
-- **Email Reported:** Reported via PhishAlert button integration
+Tracking metrics:
+- Emails Sent: Total delivery count
+- Opens: Tracking pixel loads (indicates email was opened)
+- Clicks: Landing page visits
+- Submitted Data: Credential form submissions
+- Email Reported: Reported via PhishAlert button integration
 
-**API usage (automation):**
+API usage (automation):
 
 ```python
 import requests
@@ -485,11 +485,11 @@ requests.post(f'{BASE}/campaigns/', headers=HEADERS, json=campaign)
 
 Choosing the right phishing domain is critical for campaign success and operational security.
 
-**Typosquatting techniques:**
+Typosquatting techniques:
 
 | Technique | Example (target: company.com) |
 |-----------|-------------------------------|
-| Character substitution | cornpany.com (rn → m) |
+| Character substitution | cornpany.com (rn -> m) |
 | Character transposition | comapny.com |
 | Homograph attack | соmpany.com (Cyrillic "о") |
 | Subdomain abuse | company.com.attacker.net |
@@ -498,15 +498,15 @@ Choosing the right phishing domain is critical for campaign success and operatio
 | Prefix/suffix | securecompany.com, company-portal.com |
 | Lookalike TLD | company.corn (new TLD) |
 
-**Homograph attacks** exploit Unicode characters that look identical to ASCII. For example, the Cyrillic letter "а" (U+0430) is visually identical to the Latin "a" (U+0061).
+Homograph attacks exploit Unicode characters that look identical to ASCII. For example, the Cyrillic letter "а" (U+0430) is visually identical to the Latin "a" (U+0061).
 
-**Domain categorization evasion:**
+Domain categorization evasion:
 - Age the domain 30-60 days before use (new domains are high-risk)
 - Configure the domain as a benign category site initially (travel blog, recipe site)
 - Submit to Bluecoat, Webroot, and Fortinet category requests as legitimate
 - Use domains with established reputation (expired domains with clean history)
 
-**Operational security:**
+Operational security:
 - Register through a privacy-preserving registrar or use a reseller
 - Use different registrars and hosting for each campaign
 - Implement geofencing to only serve malicious content to target IP ranges
@@ -531,29 +531,29 @@ certbot certonly --manual --preferred-challenges dns \
 certbot renew --pre-hook "nginx -s stop" --post-hook "nginx"
 ```
 
-**Note for defenders:** The presence of HTTPS (padlock) does NOT indicate a site is legitimate — only that the connection is encrypted. Certificate Transparency logs (crt.sh) can be monitored for newly issued certificates for lookalike domains.
+Note for defenders: The presence of HTTPS (padlock) does NOT indicate a site is legitimate — only that the connection is encrypted. Certificate Transparency logs (crt.sh) can be monitored for newly issued certificates for lookalike domains.
 
 ---
 
 ### 3.4 Email Header Spoofing and SPF/DKIM/DMARC Bypass
 
-**SPF (Sender Policy Framework)** specifies which IP addresses are authorized to send email for a domain.
+SPF (Sender Policy Framework) specifies which IP addresses are authorized to send email for a domain.
 
-**DKIM (DomainKeys Identified Mail)** provides a cryptographic signature verifying the email was sent by the domain and not modified in transit.
+DKIM (DomainKeys Identified Mail) provides a cryptographic signature verifying the email was sent by the domain and not modified in transit.
 
-**DMARC (Domain-based Message Authentication, Reporting & Conformance)** ties SPF and DKIM together and specifies what to do with failing messages.
+DMARC (Domain-based Message Authentication, Reporting & Conformance) ties SPF and DKIM together and specifies what to do with failing messages.
 
-**Bypass techniques (for authorized testing):**
+Bypass techniques (for authorized testing):
 
 | Technique | Description |
 |-----------|-------------|
-| Lookalike domain | Register similar domain, set up valid SPF/DKIM/DMARC — passes all checks |
+| Lookalike domain | Register similar domain, set up valid SPF/DKIM/DMARC: passes all checks |
 | Display name spoofing | Set display name to "CEO Name" with any sending address |
 | Subdomain spoofing | Subdomain may not inherit parent DMARC policy |
 | Header injection | Inject additional From headers in some legacy mail servers |
 | Email provider abuse | Use legitimate provider (Gmail, Outlook) with target's display name |
 
-**Checking email authentication:**
+Checking email authentication:
 
 ```bash
 # Check SPF record
@@ -605,7 +605,7 @@ sessions
 sessions 1    # View session details including cookies
 ```
 
-**Phishlet structure (YAML):**
+Phishlet structure (YAML):
 
 ```yaml
 name: 'Office 365'
@@ -641,7 +641,7 @@ credentials:
 
 ### 3.6 Phishing Email HTML Crafting and Tracking
 
-**HTML email structure for phishing simulations:**
+HTML email structure for phishing simulations:
 
 ```html
 <!DOCTYPE html>
@@ -684,7 +684,7 @@ credentials:
 </html>
 ```
 
-**Tracking pixels:** A 1x1 transparent image loaded from the attacker's server. Each load includes a unique token, enabling per-recipient open tracking.
+Tracking pixels: A 1x1 transparent image loaded from the attacker's server. Each load includes a unique token, enabling per-recipient open tracking.
 
 ---
 
@@ -692,7 +692,7 @@ credentials:
 
 ### 4.1 Vishing Call Scripts
 
-**IT Helpdesk Impersonation Script:**
+IT Helpdesk Impersonation Script:
 
 ```
 Attacker: "Hi, this is Marcus from the IT Help Desk. Am I speaking with [target name]?"
@@ -712,7 +712,7 @@ Attacker: "Perfect, you're all set. We've blocked that session. You may want to
            help you with today?"
 ```
 
-**Bank Fraud Alert Script:**
+Bank Fraud Alert Script:
 
 ```
 Attacker: "This is an automated fraud alert from [Bank Name] security. We've placed
@@ -731,10 +731,10 @@ Attacker: "Thank you for calling the fraud line. I have your account here. For
 
 Caller ID spoofing allows attackers to display any phone number to the recipient.
 
-**Methods:**
-- **Commercial spoofing services:** SpoofCard, SpoofTel, Caller ID Faker — web/app interfaces
-- **VoIP platforms:** Asterisk, FreeSWITCH — configure arbitrary CallerID in SIP headers
-- **SIP INVITE manipulation:** Set the "From" header in SIP INVITE to any number
+Methods:
+- Commercial spoofing services: SpoofCard, SpoofTel, Caller ID Faker: web/app interfaces
+- VoIP platforms: Asterisk, FreeSWITCH: configure arbitrary CallerID in SIP headers
+- SIP INVITE manipulation: Set the "From" header in SIP INVITE to any number
 
 ```
 # Asterisk dialplan (extensions.conf)
@@ -743,9 +743,9 @@ exten => _X.,2,Set(CALLERID(name)=Microsoft Support)
 exten => _X.,3,Dial(SIP/provider/${EXTEN})
 ```
 
-**Defenses:**
+Defenses:
 - STIR/SHAKEN (Secure Telephone Identity Revisited / Signature-based Handling of Asserted information using toKENs): FCC-mandated framework for caller ID attestation
-- Never trust caller ID alone — call back on a verified number
+- Never trust caller ID alone: call back on a verified number
 - Train employees that caller ID can be faked
 
 ---
@@ -754,26 +754,26 @@ exten => _X.,3,Dial(SIP/provider/${EXTEN})
 
 AI-powered voice cloning can replicate a person's voice from a short audio sample.
 
-**Commercial tools:**
+Commercial tools:
 - ElevenLabs: high-fidelity voice cloning from ~1 minute of audio
 - Resemble AI: voice cloning API for developers
 - PlayHT: text-to-speech with voice cloning
 
-**Open-source tools:**
+Open-source tools:
 - Coqui TTS: open-source text-to-speech with voice cloning
 - Real-Time-Voice-Cloning: one-shot voice cloning GitHub project
-- Whisper + TTS pipeline: transcribe → synthesize in target's voice
+- Whisper + TTS pipeline: transcribe -> synthesize in target's voice
 
-**Attack scenarios:**
+Attack scenarios:
 - Clone a CEO's voice, call CFO with urgent wire transfer request
 - Clone an employee's voice to authorize access with a helpdesk
 - Create fake audio evidence in social engineering scenarios
 
-**Real-world incidents:**
+Real-world incidents:
 - 2019: UK energy company CEO was tricked into transferring €220,000 after a call using AI-cloned voice of the parent company's CEO
 - 2020: Dubai bank manager deceived by deepfake voice into approving $35M transfer
 
-**Defenses:**
+Defenses:
 - Establish voice-based transaction code words (safe words) for high-value actions
 - Out-of-band verification for financial requests regardless of voice recognition
 - Employee awareness that voice cloning is technically feasible
@@ -782,19 +782,19 @@ AI-powered voice cloning can replicate a person's voice from a short audio sampl
 
 ### 4.4 OTP Interception Attacks (Real-Time Phishing)
 
-**How it works:**
+How it works:
 1. Attacker sends target to a reverse proxy phishing page (Evilginx, custom)
 2. Target enters credentials, which are forwarded in real time to the legitimate site
 3. Legitimate site triggers MFA (SMS OTP, email OTP, push notification)
 4. Target enters OTP on the phishing page, which is immediately forwarded
-5. Attacker gains authenticated session — the OTP is valid for only a short window, requiring real-time coordination
+5. Attacker gains authenticated session: the OTP is valid for only a short window, requiring real-time coordination
 
-**Coordination tools:**
+Coordination tools:
 - Telegram bots for real-time operator notification
 - Custom phishing kits with WebSocket-based live feed to attacker dashboard
-- "OTP bot" services on cybercriminal forums — automate the callback
+- "OTP bot" services on cybercriminal forums: automate the callback
 
-**Defenses:**
+Defenses:
 - FIDO2/WebAuthn hardware keys: origin-bound, cannot be relayed to a different domain
 - Passkeys: same protection as FIDO2 with consumer UX
 - Number matching for push MFA (Microsoft Authenticator, Duo)
@@ -818,20 +818,20 @@ AI-powered voice cloning can replicate a person's voice from a short audio sampl
 
 ### 5.1 Tailgating and Piggybacking
 
-**Tailgating:** Following an authorized person through a secure door without their knowledge.
-**Piggybacking:** Following through with the authorized person's knowledge (and often consent).
+Tailgating: Following an authorized person through a secure door without their knowledge.
+Piggybacking: Following through with the authorized person's knowledge (and often consent).
 
-**Techniques:**
+Techniques:
 - Approach door while an authorized employee is entering, appear to be searching for badge
 - Carry boxes, equipment, or a coffee tray to make holding the door seem polite
 - Dress in a uniform that suggests legitimate access (IT, maintenance, delivery)
 - Time entry during high-traffic periods (shift change, morning rush) when badge checking is less rigorous
 - Create a diversion to draw attention away from the access point
 
-**Success rate data (security assessments):**
+Success rate data (security assessments):
 Studies and red team assessments consistently find tailgating success rates of 70-90% in facilities without anti-tailgating procedures, even when employees are aware of the risk.
 
-**Physical Access Control System (PACS) weaknesses:**
+Physical Access Control System (PACS) weaknesses:
 - Request-to-exit (REX) sensors can be triggered remotely with IR or magnets
 - Doors with delayed closing or "door held" alarms that are routinely ignored
 - Mantrap/airlock bypass through social engineering
@@ -841,19 +841,19 @@ Studies and red team assessments consistently find tailgating success rates of 7
 
 ### 5.2 Impersonation
 
-**Cover identities used in physical assessments:**
+Cover identities used in physical assessments:
 
 | Identity | Props Needed | Access Level Typically Gained |
 |----------|--------------|-------------------------------|
 | IT contractor | Laptop bag, fake badge, polo shirt | Server rooms, workstations |
 | Delivery person | Uniform, package, clipboard | Reception, sometimes back areas |
-| Fire marshal / Safety auditor | Clipboard, hi-vis vest, fake ID | Most areas — people defer to safety |
+| Fire marshal / Safety auditor | Clipboard, hi-vis vest, fake ID | Most areas: people defer to safety |
 | HVAC / Maintenance | Toolbox, work order (fake), uniform | Mechanical rooms, crawlspaces |
 | Job candidate | Business clothes, interview confirmation email | Reception, sometimes escorted into offices |
 | New employee | Employee handbook (fake), badge (real company's format) | General office areas |
 
-**Fake credential materials:**
-- Badge printers: Zebra, Matica — create convincing ID badges from template research
+Fake credential materials:
+- Badge printers: Zebra, Matica: create convincing ID badges from template research
 - Company logo: available from press kits, brochures, job postings
 - Template research: look at employee LinkedIn profile photos for badge design clues
 - Lanyards: company colors/branding often obtainable inexpensively
@@ -864,7 +864,7 @@ Studies and red team assessments consistently find tailgating success rates of 7
 
 Malicious USB devices left in parking lots, lobbies, or mailed to targets exploit human curiosity.
 
-**Types of malicious USB devices:**
+Types of malicious USB devices:
 
 | Device | Description | Capability |
 |--------|-------------|------------|
@@ -875,7 +875,7 @@ Malicious USB devices left in parking lots, lobbies, or mailed to targets exploi
 | Teensy | Programmable microcontroller | Custom HID attacks |
 | Poisoned USB storage | Standard flash drive with malware | AutoRun (older Windows), LNK file attacks |
 
-**AutoRun/LNK payload:**
+AutoRun/LNK payload:
 
 ```
 ; autorun.inf (Windows XP/Vista era - deprecated but still used in some environments)
@@ -890,9 +890,9 @@ label=USB Drive
 ' Icon: matching the expected file type icon
 ```
 
-**Research findings:** A 2016 University of Illinois study found that 45-98% of dropped USB drives were plugged in by finders, with many also opening files.
+Research findings: A 2016 University of Illinois study found that 45-98% of dropped USB drives were plugged in by finders, with many also opening files.
 
-**Defenses:**
+Defenses:
 - USB port blocking via Group Policy or endpoint DLP (block unauthorized storage)
 - Physical USB port locks
 - Employee training: never plug in found USB drives
@@ -905,7 +905,7 @@ label=USB Drive
 
 Recovering sensitive information from discarded materials.
 
-**Valuable discarded materials:**
+Valuable discarded materials:
 - Printed emails, reports, org charts
 - Old access badges (contain format information for cloning/replication)
 - Network diagrams, IP address lists, system documentation
@@ -914,9 +914,9 @@ Recovering sensitive information from discarded materials.
 - Post-it notes (often contain passwords)
 - Printouts of internal directory listings
 
-**Legal note:** In the US, items in public trash may generally be recovered without legal restriction (California v. Greenwood, 486 U.S. 35, 1988), but laws vary by jurisdiction. Physical trespass to access private dumpsters is illegal.
+Legal note: In the US, items in public trash may generally be recovered without legal restriction (California v. Greenwood, 486 U.S. 35, 1988), but laws vary by jurisdiction. Physical trespass to access private dumpsters is illegal.
 
-**Defenses:**
+Defenses:
 - Cross-cut or micro-cut shredder mandatory for all documents
 - Clear desk policy
 - Secure document destruction bins with locked collection
@@ -929,19 +929,19 @@ Recovering sensitive information from discarded materials.
 
 Observing someone's screen, keyboard, or device to capture sensitive information.
 
-**Scenarios:**
+Scenarios:
 - ATM PIN observation in public
 - Password entry at coffee shops
 - Confidential email/document viewing on planes or trains
 - Badge code entry observation
 
-**Techniques:**
+Techniques:
 - Direct observation
 - Camera positioned to capture keystrokes or screen
 - Binoculars or telephoto lens for distant observation
 - Screen capture via nearby webcam
 
-**Defenses:**
+Defenses:
 - Privacy screen filters on laptops and monitors
 - Screen lock policies (auto-lock after 5 minutes idle)
 - Physical awareness training
@@ -953,26 +953,26 @@ Observing someone's screen, keyboard, or device to capture sensitive information
 
 A structured approach to assessing physical security controls:
 
-**Phase 1: Reconnaissance**
+Phase 1: Reconnaissance
 - Google Street View / Satellite imaging of facility
 - Job postings (reveal security technologies in use)
 - LinkedIn: identify security staff, cleaning crews, parking arrangements
 - Social media: employee posts showing interior, access areas, ID badge format
 - Public permits: fire safety reports, building permits
 
-**Phase 2: Observation**
+Phase 2: Observation
 - Site visit as a plausible visitor (job candidate, vendor meeting)
 - Observe: entry procedures, badge formats, guard rotations, delivery procedures
 - Note: camera positions, security desk location, emergency exits
 
-**Phase 3: Entry Attempts**
+Phase 3: Entry Attempts
 - Multiple entry methods tested: tailgating, impersonation, pretext entry
 - Each attempt documented with time, method, outcome
 
-**Phase 4: Objective Completion**
+Phase 4: Objective Completion
 - Document what a real attacker could achieve: data access, device implantation, photography
 
-**Phase 5: Reporting**
+Phase 5: Reporting
 - Narrative description of each successful entry
 - Evidence (photos, video if authorized)
 - Risk rating and remediation recommendations
@@ -983,7 +983,7 @@ A structured approach to assessing physical security controls:
 
 ### 6.1 OSINT Target Research
 
-**Email format discovery:**
+Email format discovery:
 
 ```bash
 # hunter.io API
@@ -1014,7 +1014,7 @@ theHarvester -d targetcompany.com -b linkedin -l 100
 # Use tools like email-verifier, NeverBounce API (for authorized testing)
 ```
 
-**OSINT tools for target research:**
+OSINT tools for target research:
 
 | Tool | Use Case |
 |------|----------|
@@ -1031,7 +1031,7 @@ theHarvester -d targetcompany.com -b linkedin -l 100
 
 ### 6.2 Pretext Development
 
-**Aligning pretext with current events:**
+Aligning pretext with current events:
 
 ```
 Research → Current Trigger → Pretext
@@ -1049,7 +1049,7 @@ Trade show/conference → "Attendee list and session materials from [conference 
 
 ### 6.3 Payload Delivery Techniques
 
-**Malicious macro documents:**
+Malicious macro documents:
 
 ```vba
 ' VBA macro in Office document (for authorized testing / awareness)
@@ -1062,7 +1062,7 @@ Private Sub Document_Open()
 End Sub
 ```
 
-**HTML Smuggling:**
+HTML Smuggling:
 
 HTML smuggling uses JavaScript to assemble a file in the browser, bypassing email gateway file scanning (gateways scan the email body and attachments, not dynamically assembled browser content).
 
@@ -1100,7 +1100,7 @@ window.URL.revokeObjectURL(url);
 </html>
 ```
 
-**ISO/IMG file delivery:**
+ISO/IMG file delivery:
 
 ```
 # Attackers use disk image files (.iso, .img, .vhd) to bypass Mark-of-the-Web (MOTW)
@@ -1112,7 +1112,7 @@ malicious.iso
 └── decoy_document.pdf   # Opens to not arouse suspicion
 ```
 
-**LOLBAS (Living Off the Land Binaries and Scripts):**
+LOLBAS (Living Off the Land Binaries and Scripts):
 
 | Binary | Technique |
 |--------|-----------|
@@ -1127,7 +1127,7 @@ malicious.iso
 
 ### 6.4 Campaign Tracking and Metrics
 
-**Key metrics for phishing simulations:**
+Key metrics for phishing simulations:
 
 | Metric | Formula | Benchmark Target |
 |--------|---------|-----------------|
@@ -1139,7 +1139,7 @@ malicious.iso
 | Time to Report | Avg minutes to report | < 15 minutes |
 | Repeat Clicker Rate | Users clicking 2+ campaigns | Track for targeted training |
 
-**Baseline → Training → Retest cycle:**
+Baseline -> Training -> Retest cycle:
 1. Run baseline campaign with no prior warning
 2. Provide targeted training to clickers immediately (teachable moment)
 3. Re-run similar campaign 30/60/90 days later
@@ -1151,18 +1151,18 @@ malicious.iso
 
 ### 7.1 Phishing Simulation Program Design
 
-**Program components:**
+Program components:
 
-1. **Executive sponsorship:** CISO and C-suite visible endorsement
-2. **Policy foundation:** Acceptable use policy, security awareness policy
-3. **Baseline assessment:** Initial phishing simulation to establish click rate
-4. **Training curriculum:** Role-based training modules
-5. **Simulation schedule:** Quarterly simulations minimum, monthly for high-risk roles
-6. **Just-in-time training:** Automatic training triggered by clicking simulation
-7. **Metrics and reporting:** Dashboard for leadership and departmental metrics
-8. **Culture program:** Recognition for reporters, no punishment for clickers
+1. Executive sponsorship: CISO and C-suite visible endorsement
+2. Policy foundation: Acceptable use policy, security awareness policy
+3. Baseline assessment: Initial phishing simulation to establish click rate
+4. Training curriculum: Role-based training modules
+5. Simulation schedule: Quarterly simulations minimum, monthly for high-risk roles
+6. Just-in-time training: Automatic training triggered by clicking simulation
+7. Metrics and reporting: Dashboard for leadership and departmental metrics
+8. Culture program: Recognition for reporters, no punishment for clickers
 
-**Simulation difficulty ladder:**
+Simulation difficulty ladder:
 
 | Level | Characteristics | Target Click Rate |
 |-------|----------------|-------------------|
@@ -1192,19 +1192,19 @@ malicious.iso
 
 NIST Special Publication 800-50 provides guidance for building and maintaining IT security awareness and training programs.
 
-**Key NIST 800-50 elements:**
+Key NIST 800-50 elements:
 
-1. **Establish a program:** Assign a security awareness program manager; obtain executive sponsorship
-2. **Awareness vs. training distinction:**
+1. Establish a program: Assign a security awareness program manager; obtain executive sponsorship
+2. Awareness vs. training distinction:
    - *Awareness* = broad exposure to security concepts for all employees
    - *Training* = skills development for specific roles (IT staff, admins)
    - *Education* = in-depth expertise for security professionals
-3. **Needs assessment:** Identify what employees need to know by role
-4. **Content development:** Mix of formats — video, CBT, in-person, simulations
-5. **Implementation:** LMS integration, mandatory completion tracking
-6. **Program evaluation:** Pre/post assessments, simulation metrics, incident correlation
+3. Needs assessment: Identify what employees need to know by role
+4. Content development: Mix of formats: video, CBT, in-person, simulations
+5. Implementation: LMS integration, mandatory completion tracking
+6. Program evaluation: Pre/post assessments, simulation metrics, incident correlation
 
-**Recommended training cadence (NIST 800-50):**
+Recommended training cadence (NIST 800-50):
 - Annual security awareness training for all personnel
 - Role-specific training for privileged users (quarterly)
 - New employee training within first week of employment
@@ -1248,13 +1248,13 @@ WHEN IN DOUBT
 
 A security champions program embeds security advocates in each business unit or development team.
 
-**Structure:**
+Structure:
 - 1 security champion per team/department (10-20 employees per champion)
 - Champions receive additional training and direct access to security team
 - Champions serve as first responders for security questions and incidents
 - Monthly champions meetup with security team for threat briefings
 
-**Benefits:**
+Benefits:
 - Scales security awareness without scaling the security team
 - Reduces ticket volume to the security team
 - Creates local accountability and peer influence
@@ -1266,14 +1266,14 @@ A security champions program embeds security advocates in each business unit or 
 
 A healthy reporting culture is the single most impactful defense against social engineering. An employee who reports a suspicious email stops not just one phishing attempt but potentially exposes an active campaign.
 
-**Enabling reporting:**
+Enabling reporting:
 - Physical PhishAlert button (Cofense, KnowBe4) integrated into email client
 - Single-click reporting: minimize friction to near zero
 - Acknowledge every report with an automated or manual response
 - Never punish employees for clicking; reward employees for reporting
 - Share anonymized threat intelligence from reports back with employees: "Your colleagues reported 47 phishing attempts this week — here's what they looked like"
 
-**SIEM integration for phishing reports:**
+SIEM integration for phishing reports:
 ```
 # Example: Splunk ingestion of PhishAlert reports
 # Configure PhishAlert to forward reports to SIEM via email or API
@@ -1291,7 +1291,7 @@ index=phishing_reports earliest=-1h
 
 ### 8.1 Email Authentication: SPF, DKIM, DMARC
 
-**Complete SPF configuration:**
+Complete SPF configuration:
 
 ```dns
 ; DNS TXT record for company.com
@@ -1308,7 +1308,7 @@ company.com.  IN  TXT  "v=spf1 ip4:203.0.113.0/24 include:_spf.google.com includ
 ; ?all — neutral — avoid in production
 ```
 
-**DKIM configuration:**
+DKIM configuration:
 
 ```bash
 # Generate DKIM key pair
@@ -1326,7 +1326,7 @@ Selector        selector1
 Socket          inet:8891@localhost
 ```
 
-**DMARC configuration (full deployment):**
+DMARC configuration (full deployment):
 
 ```dns
 ; Start with monitoring policy (p=none), graduate to p=reject
@@ -1350,7 +1350,7 @@ _dmarc.company.com.  IN  TXT  "v=DMARC1; p=reject; rua=mailto:dmarc-agg@company.
 ; fo=    — forensic reporting: 0=failure, 1=any auth failure, d=DKIM fail, s=SPF fail
 ```
 
-**DMARC deployment timeline:**
+DMARC deployment timeline:
 
 | Week | Action |
 |------|--------|
@@ -1401,7 +1401,7 @@ X-Mailer / X-Originating-IP:
   □ Does the mailer string match the claimed organization's mail platform?
 ```
 
-**Tools for header analysis:**
+Tools for header analysis:
 - Google Admin Toolbox Message Header Analyzer
 - MXToolbox Email Header Analyzer
 - Mail Header Analyzer (mailheader.org)
@@ -1418,7 +1418,7 @@ X-Mailer / X-Originating-IP:
 | Cisco Secure Email (IronPort) | Anti-spam, anti-malware, Cisco Talos threat intelligence integration |
 | Barracuda Email Security | Inbound/outbound filtering, link protection, AI-based BEC detection |
 
-**Microsoft Defender for Office 365 — Safe Links configuration:**
+Microsoft Defender for Office 365 — Safe Links configuration:
 
 ```powershell
 # PowerShell: Configure Safe Links policy
@@ -1444,12 +1444,12 @@ New-SafeLinksRule -Name "CompanyWideSafeLinksRule" `
 
 FIDO2 is a W3C/FIDO Alliance standard that provides cryptographic, phishing-resistant authentication. Unlike TOTP or push MFA, FIDO2 keys are origin-bound — the credential is tied to the exact domain. A phishing proxy cannot relay authentication to a different domain.
 
-**Why FIDO2 defeats AiTM:**
+Why FIDO2 defeats AiTM:
 - During registration, the authenticator stores the relying party ID (domain)
 - During authentication, the authenticator verifies the origin matches the registered domain
 - If a reverse proxy redirects to a different domain, the authentication fails silently from the user's perspective — the credential simply will not work
 
-**FIDO2 hardware authenticators:**
+FIDO2 hardware authenticators:
 
 | Device | Form Factor | Price |
 |--------|-------------|-------|
@@ -1458,7 +1458,7 @@ FIDO2 is a W3C/FIDO Alliance standard that provides cryptographic, phishing-resi
 | Feitian BioPass | USB with fingerprint | $40-80 |
 | Thetis | USB-A with rotating cover | $25 |
 
-**Azure AD / Microsoft Entra FIDO2 deployment:**
+Azure AD / Microsoft Entra FIDO2 deployment:
 
 ```powershell
 # Enable FIDO2 authentication method policy
@@ -1475,22 +1475,22 @@ Update-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
     -BodyParameter $params
 ```
 
-**Passkeys** (FIDO2 synced credentials): Consumer-friendly FIDO2 implementation that syncs across devices via iCloud Keychain, Google Password Manager, or 1Password. Provides the same phishing resistance as hardware keys with improved usability.
+Passkeys (FIDO2 synced credentials): Consumer-friendly FIDO2 implementation that syncs across devices via iCloud Keychain, Google Password Manager, or 1Password. Provides the same phishing resistance as hardware keys with improved usability.
 
 ---
 
 ### 8.5 Conditional Access and MFA Fatigue Countermeasures
 
-**MFA fatigue attacks** bombard a user with push notifications until they approve out of frustration. Countermeasures:
+MFA fatigue attacks bombard a user with push notifications until they approve out of frustration. Countermeasures:
 
-**Number matching (Microsoft Authenticator):**
+Number matching (Microsoft Authenticator):
 ```
 When MFA push is sent, user must enter the 2-digit number displayed on the
 login screen into the Authenticator app. An attacker sending pushes without
 the user actively logging in cannot know the number.
 ```
 
-**Additional context:**
+Additional context:
 ```
 Authenticator app shows:
 - Location of the sign-in attempt (city/country)
@@ -1499,7 +1499,7 @@ Authenticator app shows:
 Users can identify unexpected sign-ins before approving
 ```
 
-**Microsoft Entra Conditional Access policy (block non-compliant devices):**
+Microsoft Entra Conditional Access policy (block non-compliant devices):
 
 ```json
 {
@@ -1536,7 +1536,7 @@ Users can identify unexpected sign-ins before approving
 
 ### 8.7 Domain Monitoring
 
-**Certificate Transparency (CT) monitoring:**
+Certificate Transparency (CT) monitoring:
 
 All publicly trusted TLS certificates must be logged to CT logs. Monitoring CT logs for certificates issued to lookalike domains provides early warning of phishing infrastructure.
 
@@ -1561,7 +1561,7 @@ def check_ct_for_lookalike(domain_keyword):
 results = check_ct_for_lookalike("companynam")  # catches typos
 ```
 
-**Automated domain monitoring services:**
+Automated domain monitoring services:
 - DomainTools Iris Detect: lookalike domain discovery
 - PhishLabs: phishing infrastructure takedown service
 - Bolster: AI-based domain and phishing detection
@@ -1574,18 +1574,18 @@ results = check_ct_for_lookalike("companynam")  # catches typos
 
 ### 9.1 BEC Financial Controls
 
-**Process controls to prevent BEC fraud:**
+Process controls to prevent BEC fraud:
 
 | Control | Description |
 |---------|-------------|
 | Dual approval | All wire transfers above threshold require two authorized approvers |
 | Callback verification | Before processing any payment change, call the vendor/employee on a number from the official directory (NOT from the email itself) |
 | Payment change freeze | Any change to payment details triggers a 24-72 hour hold and independent verification |
-| Dollar thresholds | Escalating approval requirements: $10K → manager, $50K → VP, $100K → CFO |
+| Dollar thresholds | Escalating approval requirements: $10K -> manager, $50K -> VP, $100K -> CFO |
 | Out-of-band verification | Email requests for wire transfers must be confirmed via phone call to known number |
 | Vendor ACH change policy | Written policy requiring multi-step verification for any ACH/wire change request |
 
-**Red flags for wire fraud requests:**
+Red flags for wire fraud requests:
 - Urgency and secrecy ("don't mention this to anyone else")
 - Request to bypass normal procedures ("just this once")
 - Email from external domain impersonating internal executive
@@ -1599,16 +1599,16 @@ results = check_ct_for_lookalike("companynam")  # catches typos
 
 Attackers compromise a vendor's actual email account and use it to intercept legitimate payment communication, redirecting payments to attacker-controlled accounts.
 
-**Detection signals:**
+Detection signals:
 - Payment details change request from a vendor contact
 - New banking information in an invoice
 - Request to update ACH information via email
 - Domain age of vendor's email domain (if recently changed)
 - Email received outside normal business hours or from unusual IP
 
-**Verification procedure:**
+Verification procedure:
 1. Receive payment change request via email
-2. Pull vendor contact information from your internal CRM/ERP — NOT from the email
+2. Pull vendor contact information from your internal CRM/ERP: NOT from the email
 3. Call the vendor's main switchboard or a known individual
 4. Verbally confirm the change with a named individual
 5. Document the verification (who, when, what was confirmed)
@@ -1618,13 +1618,13 @@ Attackers compromise a vendor's actual email account and use it to intercept leg
 
 ### 9.3 W-2 and Payroll Redirect Fraud
 
-**W-2 scam:** Attacker impersonates CEO or HR director, emails payroll/HR requesting all employee W-2 forms — used for identity theft and fraudulent tax returns.
+W-2 scam: Attacker impersonates CEO or HR director, emails payroll/HR requesting all employee W-2 forms — used for identity theft and fraudulent tax returns.
 
-**Payroll redirect:** Attacker impersonates an employee, contacts HR/payroll to redirect direct deposit to a new account.
+Payroll redirect: Attacker impersonates an employee, contacts HR/payroll to redirect direct deposit to a new account.
 
-**Controls:**
+Controls:
 - Payroll changes require in-person or video verification with photo ID
-- Direct deposit changes go through HR portal with MFA — not email requests
+- Direct deposit changes go through HR portal with MFA: not email requests
 - W-2 requests require documented approval process; bulk W-2 data never sent by email
 - Train HR and payroll staff specifically on these attack patterns
 - Employee notification: any payroll change triggers an email notification to the employee's current email address on file
@@ -1633,19 +1633,19 @@ Attackers compromise a vendor's actual email account and use it to intercept leg
 
 ### 9.4 BEC Case Studies
 
-**Ubiquiti Networks (2015) — $46.7 million**
+Ubiquiti Networks (2015) — $46.7 million
 Attackers impersonated the company's finance department and requests from a vendor it used in Hong Kong, persuading employees to wire $46.7M over 17 transactions. The company recovered approximately $15M.
 
-**Toyota Boshoku Corporation (2019) — $37 million**
+Toyota Boshoku Corporation (2019) — $37 million
 Attackers convinced a finance executive to change the account information for a wire transfer, resulting in a $37M loss. Highlights the need for dual approval and callback verification.
 
-**Puerto Rico Government (2020) — $2.6 million**
+Puerto Rico Government (2020) — $2.6 million
 Attackers impersonating a government contractor convinced the Puerto Rico Industrial Development Company to change bank account information for an existing vendor. Three separate fraudulent transfers occurred.
 
-**Barbara Corcoran (2020) — $388,000**
+Barbara Corcoran (2020) — $388,000
 An attacker spoofed an email from Barbara Corcoran's assistant to her bookkeeper, requesting payment of invoices totaling $388,000. The bookkeeper sent the wire before verification was sought. The funds were recovered in this case.
 
-**Key lessons from BEC cases:**
+Key lessons from BEC cases:
 1. The email address can always be spoofed or compromised
 2. Senior executive requests bypass psychological security checks
 3. Urgency and secrecy framing is used in virtually every case
@@ -1655,17 +1655,17 @@ An attacker spoofed an email from Barbara Corcoran's assistant to her bookkeeper
 
 ### 9.5 FBI IC3 BEC Reporting
 
-The FBI's Internet Crime Complaint Center (IC3) operates the **BEC Financial Fraud Kill Chain** — a process to attempt recovery of fraudulently transferred funds.
+The FBI's Internet Crime Complaint Center (IC3) operates the BEC Financial Fraud Kill Chain — a process to attempt recovery of fraudulently transferred funds.
 
-**If a BEC wire transfer occurs:**
+If a BEC wire transfer occurs:
 1. Contact your financial institution immediately to request a SWIFT recall
-2. File a complaint at **ic3.gov** within 24-48 hours for best recovery chances
+2. File a complaint at ic3.gov within 24-48 hours for best recovery chances
 3. Contact the FBI field office in your jurisdiction
 4. Preserve all email evidence (full headers, not just screenshots)
 5. Contact your cyber insurance carrier
 6. Engage outside counsel if regulatory reporting is required
 
-**Recovery statistics:** IC3 reports that when organizations report within 72 hours, recovery rates are significantly higher. After 72 hours, wired funds are typically dispersed across multiple accounts, making recovery nearly impossible.
+Recovery statistics: IC3 reports that when organizations report within 72 hours, recovery rates are significantly higher. After 72 hours, wired funds are typically dispersed across multiple accounts, making recovery nearly impossible.
 
 ---
 
@@ -1675,13 +1675,13 @@ The FBI's Internet Crime Complaint Center (IC3) operates the **BEC Financial Fra
 
 NIST Special Publication 800-177 (Trustworthy Email) provides guidance on email authentication standards.
 
-**Key recommendations:**
+Key recommendations:
 - All federal agencies (and recommended for all organizations) should implement SPF, DKIM, and DMARC
 - DMARC policy should progress to p=reject
 - STARTTLS should be enforced for server-to-server email transport
 - Organizations should implement MTA-STS and DANE for transport security
 
-**BOD 18-01 (DHS Binding Operational Directive):** Requires all federal agencies to implement DMARC with p=reject, STARTTLS, and web security standards. Has become a de facto benchmark for enterprise email security.
+BOD 18-01 (DHS Binding Operational Directive): Requires all federal agencies to implement DMARC with p=reject, STARTTLS, and web security standards. Has become a de facto benchmark for enterprise email security.
 
 ---
 
@@ -1704,10 +1704,10 @@ PCI DSS v4.0 addresses social engineering in several requirements:
 
 HIPAA does not prescribe specific technical standards but requires covered entities to protect PHI from social engineering threats:
 
-- **Administrative Safeguards (§164.308):** Security awareness and training required; must address malware and phishing threats
-- **Workforce Training (§164.308(a)(5)):** Procedures for guarding against unauthorized access to ePHI from social engineering
-- **Security Incident Procedures (§164.308(a)(6)):** Must include response to social engineering-based breaches
-- **Breach Notification (§164.400):** BEC attacks resulting in PHI disclosure require breach notification to HHS and affected individuals
+- Administrative Safeguards (§164.308): Security awareness and training required; must address malware and phishing threats
+- Workforce Training (§164.308(a)(5)): Procedures for guarding against unauthorized access to ePHI from social engineering
+- Security Incident Procedures (§164.308(a)(6)): Must include response to social engineering-based breaches
+- Breach Notification (§164.400): BEC attacks resulting in PHI disclosure require breach notification to HHS and affected individuals
 
 ---
 
@@ -1715,9 +1715,9 @@ HIPAA does not prescribe specific technical standards but requires covered entit
 
 The SEC's 2023 cybersecurity disclosure rules (Release No. 33-11216) require:
 
-- **Material incident disclosure:** BEC or phishing incidents resulting in material financial impact must be disclosed within 4 business days on Form 8-K (Item 1.05)
-- **Annual disclosure (10-K):** Material aspects of cybersecurity risk management, strategy, and governance
-- **Board oversight disclosure:** How the board oversees cybersecurity risk
+- Material incident disclosure: BEC or phishing incidents resulting in material financial impact must be disclosed within 4 business days on Form 8-K (Item 1.05)
+- Annual disclosure (10-K): Material aspects of cybersecurity risk management, strategy, and governance
+- Board oversight disclosure: How the board oversees cybersecurity risk
 
 The $46.7M Ubiquiti BEC incident triggered SEC disclosure requirements and demonstrates that BEC is within the scope of material cybersecurity incidents.
 
@@ -1725,7 +1725,7 @@ The $46.7M Ubiquiti BEC incident triggered SEC disclosure requirements and demon
 
 ### 10.5 Social Engineering in Penetration Testing Scope
 
-**Scope document considerations for social engineering engagements:**
+Scope document considerations for social engineering engagements:
 
 ```
 SOCIAL ENGINEERING ENGAGEMENT SCOPE DOCUMENT (template)
@@ -1766,7 +1766,7 @@ SOCIAL ENGINEERING ENGAGEMENT SCOPE DOCUMENT (template)
 
 MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) provides a structured taxonomy of adversary behaviors.
 
-**Initial Access — Phishing (T1566) and sub-techniques:**
+Initial Access — Phishing (T1566) and sub-techniques:
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1774,9 +1774,9 @@ MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) provides a 
 | T1566.001 | Spearphishing Attachment | Malicious file attachment in targeted email |
 | T1566.002 | Spearphishing Link | Malicious URL in targeted email |
 | T1566.003 | Spearphishing via Service | Phishing via third-party services (LinkedIn, Slack, social media) |
-| T1566.004 | Spearphishing Voice | Vishing — voice call-based phishing |
+| T1566.004 | Spearphishing Voice | Vishing: voice call-based phishing |
 
-**Reconnaissance — Gather Victim Identity Information (T1589):**
+Reconnaissance — Gather Victim Identity Information (T1589):
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1785,7 +1785,7 @@ MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) provides a 
 | T1589.002 | Email Addresses | Enumerate valid email addresses |
 | T1589.003 | Employee Names | Collect employee names for pretexting |
 
-**Resource Development (T1598) — Phishing for Information:**
+Resource Development (T1598) — Phishing for Information:
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1795,7 +1795,7 @@ MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) provides a 
 | T1598.003 | Spearphishing Link | Credential phishing via link |
 | T1598.004 | Spearphishing Voice | Credential phishing via voice |
 
-**Additional relevant techniques:**
+Additional relevant techniques:
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1808,11 +1808,11 @@ MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) provides a 
 | T1078 | Valid Accounts | Use of stolen credentials |
 | T1550.004 | Use Alternate Authentication Material: Web Session Cookie | Replay stolen cookies |
 
-**Detection and mitigation mappings:**
+Detection and mitigation mappings:
 
 For T1566 (Phishing):
-- **Mitigations:** M1049 (Anti-virus/Malware), M1031 (Network Intrusion Prevention), M1054 (Software Configuration — email filtering), M1017 (User Training), M1032 (Multi-factor Authentication)
-- **Detections:** DS0015 (Application Log — email gateway logs), DS0029 (Network Traffic), DS0022 (File — malicious attachment creation/execution)
+- Mitigations: M1049 (Anti-virus/Malware), M1031 (Network Intrusion Prevention), M1054 (Software Configuration — email filtering), M1017 (User Training), M1032 (Multi-factor Authentication)
+- Detections: DS0015 (Application Log: email gateway logs), DS0029 (Network Traffic), DS0022 (File — malicious attachment creation/execution)
 
 ---
 
@@ -1899,10 +1899,10 @@ ALWAYS VERIFY BEFORE ACTING
 - FIDO Alliance FIDO2 Specifications: https://fidoalliance.org/fido2/
 
 ### Books
-- *The Art of Deception* — Kevin D. Mitnick and William L. Simon
-- *Social Engineering: The Science of Human Hacking* — Christopher Hadnagy
-- *Influence: The Psychology of Persuasion* — Robert B. Cialdini
-- *The Art of Intrusion* — Kevin D. Mitnick
+- *The Art of Deception*: Kevin D. Mitnick and William L. Simon
+- *Social Engineering: The Science of Human Hacking*: Christopher Hadnagy
+- *Influence: The Psychology of Persuasion*: Robert B. Cialdini
+- *The Art of Intrusion*: Kevin D. Mitnick
 
 ### Tools Reference
 - GoPhish: https://github.com/gophish/gophish

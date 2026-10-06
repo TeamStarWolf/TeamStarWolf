@@ -1,13 +1,13 @@
 # Password Security Reference
 
-> **Scope**: Password hash formats, cracking tools (Hashcat, John the Ripper), attack techniques, secure storage algorithms, enterprise password policies, LAPS, gMSA, MFA, and detection.
+> Scope: Password hash formats, cracking tools (Hashcat, John the Ripper), attack techniques, secure storage algorithms, enterprise password policies, LAPS, gMSA, MFA, and detection.
 > Mapped to NIST SP 800-63B, OWASP Password Storage Cheat Sheet, CIS Benchmarks, and MITRE ATT&CK credential-access techniques (T1110.x).
 
 | | |
 |---|---|
-| **Read this when** | You need to identify or crack a captured hash, you are choosing how an application should store passwords, or you are setting enterprise password policy and lockout thresholds |
-| **Start at** | [Password Hash Formats](#password-hash-formats), [Secure Password Storage](#secure-password-storage-developer-reference), [Enterprise Password Policies](#enterprise-password-policies) |
-| **Pairs with** | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [detections/strategies/credential-access.md](detections/strategies/credential-access.md) |
+| Read this when | You need to identify or crack a captured hash, you are choosing how an application should store passwords, or you are setting enterprise password policy and lockout thresholds |
+| Start at | [Password Hash Formats](#password-hash-formats), [Secure Password Storage](#secure-password-storage-developer-reference), [Enterprise Password Policies](#enterprise-password-policies) |
+| Pairs with | [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [disciplines/active-directory.md](disciplines/active-directory.md), [detections/strategies/credential-access.md](detections/strategies/credential-access.md) |
 
 ---
 
@@ -18,7 +18,7 @@
 - [John the Ripper](#john-the-ripper)
 - [Password Attack Types](#password-attack-types)
 - [Password Generation and Wordlist Creation](#password-generation-and-wordlist-creation)
-- [Secure Password Storage — Developer Reference](#secure-password-storage-developer-reference)
+- [Secure Password Storage: Developer Reference](#secure-password-storage-developer-reference)
 - [Enterprise Password Policies](#enterprise-password-policies)
 - [Privileged Account Password Management](#privileged-account-password-management)
 - [MFA as Password Supplement](#mfa-as-password-supplement)
@@ -133,7 +133,7 @@ mysql -u root -p -e "SELECT user, authentication_string FROM mysql.user;"
 
 Hashcat is GPU-accelerated using NVIDIA CUDA or AMD OpenCL/ROCm, achieving massively parallel hash computations. CPU-only cracking is feasible only for slow hashes (bcrypt, Argon2id) where GPU advantages diminish.
 
-**Performance benchmarks (approximate):**
+Performance benchmarks (approximate):
 
 | Hardware | MD5 (mode 0) | NTLM (mode 1000) | bcrypt w=12 (mode 3200) |
 |----------|-------------|------------------|------------------------|
@@ -143,7 +143,7 @@ Hashcat is GPU-accelerated using NVIDIA CUDA or AMD OpenCL/ROCm, achieving massi
 | Intel i9-13900K (CPU) | ~1.5 GH/s | ~3 GH/s | ~5 kH/s |
 | AMD EPYC 7742 (CPU) | ~800 MH/s | ~1.5 GH/s | ~3 kH/s |
 
-**Key implication**: RTX 4090 cracks 8-character NTLM passwords with full ASCII charset (`?a?a?a?a?a?a?a?a`) in approximately 2 hours. Argon2id/bcrypt make GPU cracking impractical even with modern hardware.
+Key implication: RTX 4090 cracks 8-character NTLM passwords with full ASCII charset (`?a?a?a?a?a?a?a?a`) in approximately 2 hours. Argon2id/bcrypt make GPU cracking impractical even with modern hardware.
 
 ### Attack Modes Reference
 
@@ -467,26 +467,26 @@ john --pot=/dev/null hashes.txt  # Don't save results (testing)
 
 Credential stuffing uses previously breached username/password pairs from public breach databases to authenticate against other services, exploiting password reuse.
 
-**Attack flow:**
+Attack flow:
 1. Obtain breach database (email:password pairs)
 2. Identify target service login endpoint
 3. Automate authentication attempts at scale (often via residential proxy networks to evade rate limiting)
-4. Collect successful logins (typically 0.5–2% success rate against non-MFA accounts)
+4. Collect successful logins (typically 0.5-2% success rate against non-MFA accounts)
 
-**Common tools:**
-- **Snipr** — commercial credential stuffing tool with combo list support
-- **Storm** — community tool for credential testing
-- **OpenBullet / SilverBullet** — configurable credential testing framework (config files per target site)
-- **Patator** — multi-purpose brute force tool supporting HTTP, SSH, FTP, MySQL, etc.
-- **Burp Suite Intruder** — manual/semi-automated testing
+Common tools:
+- Snipr: commercial credential stuffing tool with combo list support
+- Storm: community tool for credential testing
+- OpenBullet / SilverBullet: configurable credential testing framework (config files per target site)
+- Patator: multi-purpose brute force tool supporting HTTP, SSH, FTP, MySQL, etc.
+- Burp Suite Intruder: manual/semi-automated testing
 
-**Breach data sources:**
+Breach data sources:
 - Have I Been Pwned (HIBP): `https://haveibeenpwned.com`
 - Breach compilation datasets (DeHashed, IntelX, COMB)
 - Dark web credential markets
 
-**Defense:**
-- MFA — eliminates most credential stuffing risk
+Defense:
+- MFA: eliminates most credential stuffing risk
 - Breached password detection (HIBP API during login / password change)
 - Rate limiting per IP, per account, per ASN
 - CAPTCHA / bot detection (reCAPTCHA v3, hCaptcha)
@@ -511,9 +511,9 @@ def is_password_breached(password):
 
 ### Password Spraying (T1110.003)
 
-Password spraying tests one or a few common passwords across many accounts to avoid account lockout thresholds (typically 5–10 failed attempts).
+Password spraying tests one or a few common passwords across many accounts to avoid account lockout thresholds (typically 5-10 failed attempts).
 
-**Common spray passwords (in order of effectiveness):**
+Common spray passwords (in order of effectiveness):
 
 | Password | Reason Effective |
 |----------|-----------------|
@@ -526,7 +526,7 @@ Password spraying tests one or a few common passwords across many accounts to av
 | `Passw0rd` / `P@ssw0rd` | Common leet substitution |
 | `[sport team][year]!` | Local sports team reference |
 
-**Tools:**
+Tools:
 
 ```bash
 # Kerbrute — Kerberos-based spray (no lockout risk on misconfigured DCs)
@@ -555,9 +555,9 @@ set PASS_FILE passwords.txt
 set STOP_ON_SUCCESS false
 ```
 
-**Defense:**
+Defense:
 - Microsoft Entra Password Protection: ban `Spring2024!`, `Company123!`, seasonal patterns
-- Smart lockout: Entra default 10 failed attempts → 60-second lockout (exponentially grows)
+- Smart lockout: Entra default 10 failed attempts -> 60-second lockout (exponentially grows)
 - Conditional Access: require MFA; block legacy authentication protocols (which bypass MFA)
 - Monitor for Event ID 4625 (failed logon) spikes across multiple accounts from single IP
 - Alert on >50 4625 events in 5 minutes with same password across different accounts
@@ -589,28 +589,28 @@ medusa -h 192.168.1.10 -u admin -P rockyou.txt -M ssh -t 4
 ncrack -U users.txt -P rockyou.txt ssh://192.168.1.10
 ```
 
-**Defense:**
+Defense:
 - Enforce long minimum length (≥12 characters): dramatically expands search space
-- Account lockout: 5-10 failed attempts → 30+ minute lockout (on-premises)
+- Account lockout: 5-10 failed attempts -> 30+ minute lockout (on-premises)
 - Network-level rate limiting: fail2ban, iptables, nginx limit_req
 - MFA: renders brute force useless for live services
 
 ### Rainbow Tables (T1110)
 
-Pre-computed hash chains mapping plaintext → hash for fast lookup. Defeated by salting.
+Pre-computed hash chains mapping plaintext -> hash for fast lookup. Defeated by salting.
 
-**How they work:**
+How they work:
 1. Pre-compute chains: `plaintext → hash → reduce → hash → reduce → ...` (chain)
 2. Store only chain start and end
 3. To crack: run hash through reduction function chain until endpoint found in table
 4. Trace chain from start to find plaintext
 
-**Defeated by salting:**
+Defeated by salting:
 - Each password stored as `hash(salt + password)` where salt is random and unique per account
 - Even if two users have identical passwords, their hashes differ due to unique salts
 - Attacker would need a separate rainbow table for every possible salt value
 
-**Relevant tools:**
+Relevant tools:
 ```bash
 # Ophcrack — Windows SAM/NTLM rainbow table cracker (GUI)
 ophcrack -g              # GUI mode
@@ -721,7 +721,7 @@ crunch 10 10 -t Company@@## -o company_pattern.txt # Company + 2 alpha + 2 digit
 
 ---
 
-## Secure Password Storage — Developer Reference
+## Secure Password Storage: Developer Reference
 
 ### Algorithms to NEVER Use for Passwords
 
@@ -737,11 +737,11 @@ The following algorithms are cryptographically fast — designed for speed, whic
 | DES crypt | Weak 56-bit key; legacy | Near-instant |
 | bcrypt cost < 10 | Too fast on modern hardware | Minutes for short passwords |
 
-**Rule**: If an algorithm was designed for speed (checksums, data integrity), do not use it for passwords.
+Rule: If an algorithm was designed for speed (checksums, data integrity), do not use it for passwords.
 
 ### Recommended Algorithms (OWASP + NIST SP 800-63B)
 
-#### Argon2id — First Choice (OWASP Primary Recommendation)
+#### Argon2id: First Choice (OWASP Primary Recommendation)
 
 Winner of the Password Hashing Competition (PHC) 2015. Memory-hard algorithm that maximizes resistance to GPU/ASIC cracking.
 
@@ -783,12 +783,12 @@ $hash = password_hash($password, PASSWORD_ARGON2ID, [
 $valid = password_verify($password, $hash);
 ```
 
-**OWASP 2023 minimum parameters:**
-- `m=19456` (19 MiB), `t=2`, `p=1` — absolute minimum
-- `m=65536` (64 MiB), `t=3`, `p=4` — recommended
-- `m=262144` (256 MiB), `t=4`, `p=8` — high-security contexts
+OWASP 2023 minimum parameters:
+- `m=19456` (19 MiB), `t=2`, `p=1`: absolute minimum
+- `m=65536` (64 MiB), `t=3`, `p=4`: recommended
+- `m=262144` (256 MiB), `t=4`, `p=8`: high-security contexts
 
-#### bcrypt — Second Choice (Wide Compatibility)
+#### bcrypt: Second Choice (Wide Compatibility)
 
 Battle-tested algorithm with excellent library support. Note 72-byte input limit.
 
@@ -828,13 +828,13 @@ if (password_needs_rehash($hash, PASSWORD_BCRYPT, ['cost' => 14])) {
 }
 ```
 
-**Work factor guidance:**
+Work factor guidance:
 - Minimum: 10 (OWASP 2023 minimum; deprecated)
 - Recommended: 12 (hash takes ~0.3 seconds; good balance)
 - High security: 14 (hash takes ~1.5 seconds; privileged accounts)
 - Target ~1 second hash time on target hardware; adjust rounds accordingly
 
-#### PBKDF2-HMAC-SHA256 — FIPS/Compliance Environments
+#### PBKDF2-HMAC-SHA256: FIPS/Compliance Environments
 
 NIST-approved and FIPS-compliant. Not memory-hard (GPU can parallelize), but acceptable with high iteration counts.
 
@@ -871,12 +871,12 @@ String encoded = encoder.encode(rawPassword);
 boolean matches = encoder.matches(rawPassword, encoded);
 ```
 
-**Iteration count guidance (OWASP 2023):**
+Iteration count guidance (OWASP 2023):
 - PBKDF2-SHA1: 1,300,000 iterations
 - PBKDF2-SHA256: 600,000 iterations
 - PBKDF2-SHA512: 210,000 iterations
 
-#### scrypt — Memory-Hard Alternative
+#### scrypt: Memory-Hard Alternative
 
 Memory-hard algorithm; excellent GPU resistance. Harder to configure correctly than Argon2id.
 
@@ -940,21 +940,21 @@ def hash_with_pepper(password: str) -> str:
 
 NIST guidance has dramatically changed from legacy complexity rules. The 2024 revision codifies these modern recommendations:
 
-**What to REQUIRE:**
+What to REQUIRE:
 - Minimum 8 characters for memorized secrets (longer strongly encouraged)
 - Allow up to at least 64 characters
-- Accept all printable ASCII and Unicode (including spaces — enables passphrases)
+- Accept all printable ASCII and Unicode (including spaces: enables passphrases)
 - Check against breached password lists at creation and change
 - Offer strength meter feedback (optional but recommended)
 
-**What to PROHIBIT (from the standard itself):**
-- DO NOT require periodic rotation unless compromise is suspected — rotation reduces security by causing predictable patterns (`Spring2024!` → `Summer2024!`)
-- DO NOT impose complexity rules (uppercase/digit/special requirements) — complexity rules reduce security by causing predictable patterns and reducing passphrase use
+What to PROHIBIT (from the standard itself):
+- DO NOT require periodic rotation unless compromise is suspected: rotation reduces security by causing predictable patterns (`Spring2024!` -> `Summer2024!`)
+- DO NOT impose complexity rules (uppercase/digit/special requirements): complexity rules reduce security by causing predictable patterns and reducing passphrase use
 - DO NOT use knowledge-based authentication (KBA/security questions) as a primary or additional factor
 - DO NOT truncate passwords
 - DO NOT allow paste to be disabled (disabling paste blocks password manager use)
 
-**Breached password check implementation:**
+Breached password check implementation:
 ```python
 # Check at registration and password change
 def validate_password_not_breached(password: str) -> bool:
@@ -974,11 +974,11 @@ def validate_password_not_breached(password: str) -> bool:
 
 Microsoft Entra Password Protection prevents use of common and organization-specific weak passwords in both cloud (Azure AD) and on-premises (Windows Server AD) environments.
 
-**Components:**
-- **Global banned password list**: Microsoft-maintained; continuously updated; includes seasonal patterns, common substitutions (P@ssw0rd, Passw0rd, etc.)
-- **Custom banned password list**: Organization-specific terms (company name, products, locations, mascots)
-- **DC Agent**: Windows Server AD component; enforces policy at domain controllers
-- **Proxy Service**: Forwards DC Agent policy requests to cloud API
+Components:
+- Global banned password list: Microsoft-maintained; continuously updated; includes seasonal patterns, common substitutions (P@ssw0rd, Passw0rd, etc.)
+- Custom banned password list: Organization-specific terms (company name, products, locations, mascots)
+- DC Agent: Windows Server AD component; enforces policy at domain controllers
+- Proxy Service: Forwards DC Agent policy requests to cloud API
 
 ```powershell
 # View Entra Password Protection configuration
@@ -1089,7 +1089,7 @@ Get-ADComputer -Filter * -Properties "msLAPS-PasswordExpirationTime" |
   Where-Object { $_."msLAPS-PasswordExpirationTime" -lt (Get-Date) }
 ```
 
-**Security controls:**
+Security controls:
 - Only authorized security groups can read LAPS passwords
 - Each workstation has a unique, random local admin password
 - Automatic rotation prevents pass-the-hash attacks using harvested admin credentials
@@ -1126,8 +1126,8 @@ sc.exe config "MyService" obj="corp\svc_webapp$" password=""
 Remove-ADServiceAccount -Identity "svc_webapp" -Confirm:$false
 ```
 
-**Advantages over traditional service accounts:**
-- Automatic password rotation — no maintenance required
+Advantages over traditional service accounts:
+- Automatic password rotation: no maintenance required
 - Password is 240-character random value; resistant to brute force
 - Multiple servers share same gMSA identity; eliminates credential sync issues
 - Cannot be used interactively (no human password)
@@ -1175,7 +1175,7 @@ vault read ad/creds/sql-admin
 | Brute force (online) | Yes | Can't bruteforce the second factor |
 | Brute force (offline hash) | No | Attacker already has hash; MFA not in play |
 | Phishing (standard) | Partial | TOTP codes can be phished in real-time (AiTM) |
-| Phishing (AiTM proxy) | No — unless phishing-resistant | Evilginx2 bypasses TOTP |
+| Phishing (AiTM proxy) | No: unless phishing-resistant | Evilginx2 bypasses TOTP |
 | SIM swap | No | Defeats SMS OTP; not TOTP/hardware keys |
 
 ### NIST AAL Levels (SP 800-63B)
@@ -1188,23 +1188,23 @@ vault read ad/creds/sql-admin
 
 ### MFA Types by Phishing Resistance
 
-**Phishing-resistant MFA (AAL3 / FIDO2):**
-- **FIDO2/WebAuthn hardware keys**: YubiKey, Google Titan Key, Feitian keys
-  - Binds authentication to origin domain — cannot be phished by fake sites
+Phishing-resistant MFA (AAL3 / FIDO2):
+- FIDO2/WebAuthn hardware keys: YubiKey, Google Titan Key, Feitian keys
+  - Binds authentication to origin domain: cannot be phished by fake sites
   - Passkeys: same cryptography as hardware keys but stored in device TPM/iCloud/Google
-- **PIV/CAC smart cards**: US government standard; certificate-based; phishing-resistant
-- **Windows Hello for Business**: Hardware-backed key stored in TPM; tied to device+user identity
+- PIV/CAC smart cards: US government standard; certificate-based; phishing-resistant
+- Windows Hello for Business: Hardware-backed key stored in TPM; tied to device+user identity
 
-**Phishing-susceptible but generally sufficient (AAL2):**
-- **TOTP apps**: Google Authenticator, Microsoft Authenticator, Authy, 1Password TOTP
+Phishing-susceptible but generally sufficient (AAL2):
+- TOTP apps: Google Authenticator, Microsoft Authenticator, Authy, 1Password TOTP
   - Vulnerable to real-time phishing (AiTM): attacker relays OTP code in real-time
   - Mitigate AiTM: Conditional Access policies, token binding
-- **Push notification with number matching**: Approve/Deny prompt + verify displayed number
+- Push notification with number matching: Approve/Deny prompt + verify displayed number
   - Number matching prevents MFA fatigue attacks
   - Microsoft Authenticator, Duo, Okta Verify
-- **Hardware TOTP tokens**: RSA SecurID, Yubico OTP (not FIDO2 mode)
+- Hardware TOTP tokens: RSA SecurID, Yubico OTP (not FIDO2 mode)
 
-**Weak/Avoid for sensitive systems:**
+Weak/Avoid for sensitive systems:
 - SMS OTP: vulnerable to SIM swap, SS7 attacks, malware interception
 - Email OTP: dependent on email account security; same attack surface as account itself
 - Security questions: not MFA; knowledge-based; phishable; do not use
@@ -1266,8 +1266,8 @@ New-MgIdentityConditionalAccessPolicy -DisplayName "Block Legacy Authentication"
 | 4656 | Handle to object requested | SAM/NTDS.dit access attempts |
 | 4657 | Registry value modified | SAM database access via registry |
 
-**Sysmon Events (if deployed):**
-- Event ID 10 (ProcessAccess): LSASS access → credential dumping (Mimikatz, ProcDump)
+Sysmon Events (if deployed):
+- Event ID 10 (ProcessAccess): LSASS access -> credential dumping (Mimikatz, ProcDump)
 - Event ID 1 (ProcessCreate): hashcat.exe, john.exe, mimikatz.exe, pwdump.exe process creation
 
 #### Linux / Unix Detection
@@ -1358,7 +1358,7 @@ ALERT: Large outbound file transfer (.hccapx, shadow, ntds.dit files)
   Followed by: Large compute instance spin-up in cloud account
 ```
 
-### Incident Response — Credential Compromise
+### Incident Response: Credential Compromise
 
 ```
 Playbook: Suspected Credential Compromise

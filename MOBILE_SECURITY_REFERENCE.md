@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You are testing or hardening an Android/iOS app, triaging suspected mobile malware or spyware, or designing MDM/enterprise mobile controls |
-| **Start at** | [Mobile Security Landscape](#_1-mobile-security-landscape), [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast), [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities) |
-| **Pairs with** | [MOBILE_ATTACK_ATLAS.md](MOBILE_ATTACK_ATLAS.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
+| Read this when | You are testing or hardening an Android/iOS app, triaging suspected mobile malware or spyware, or designing MDM/enterprise mobile controls |
+| Start at | [Mobile Security Landscape](#_1-mobile-security-landscape), [Mobile Application Security Testing (MAST)](#_4-mobile-application-security-testing-mast), [Common Mobile Vulnerabilities](#_5-common-mobile-vulnerabilities) |
+| Pairs with | [MOBILE_ATTACK_ATLAS.md](MOBILE_ATTACK_ATLAS.md), [TELECOM_5G_SECURITY_REFERENCE.md](TELECOM_5G_SECURITY_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
 
 ---
 
@@ -31,21 +31,21 @@
 
 | Feature | Android | iOS |
 |---|---|---|
-| **Kernel** | Linux (monolithic) | XNU hybrid (Mach + BSD) |
-| **Sandbox model** | UID-based, SELinux mandatory access control | App sandbox + entitlements enforced by kernel |
-| **Code signing** | APK signing (v1-v4 schemes); Google Play signing | Enforced at all times; no unsigned code runs |
-| **App distribution** | Google Play + sideloading (APK) | App Store only; TestFlight/ADP for testing |
-| **Sideloading risk** | High; USB debugging and unknown sources common | Low; requires developer cert or enterprise profile |
-| **Root/Jailbreak** | Root via Magisk, KernelSU; varies by OEM | Jailbreak (checkra1n, unc0ver, Dopamine); kernel exploits |
-| **Permissions model** | Manifest + runtime dangerous permissions | TCC (Transparency, Consent, Control) per-resource |
-| **Encryption** | File-Based Encryption (FBE) default since Android 7 | Data Protection classes (hardware-backed) |
-| **Secure hardware** | Trusted Execution Environment (TEE); StrongBox (optional) | Secure Enclave (dedicated ARM processor, every device since A7) |
-| **Bootchain security** | Verified Boot / AVB 2.0; dm-verity | Secure Boot ROM to LLB to iBoot to XNU kernel |
-| **Update model** | OEM-dependent; Project Treble separates vendor/framework | OTA via Apple; fast adoption rate |
-| **Exploit mitigations** | ASLR, PIE, stack canaries, CFI, ShadowCallStack | PAC (Pointer Authentication Codes), ASLR, stack canaries, LLVM CFI |
-| **Browser engine** | Chromium (V8) | WebKit enforced for all browsers by policy |
-| **USB attack surface** | ADB enabled on developer devices; fastboot mode | Limited; lockdown mode disables USB accessories |
-| **Forensic acquisition** | Varies widely by OEM/version; ADB backup (deprecated) | GrayKey/Cellebrite physical; iCloud logical |
+| Kernel | Linux (monolithic) | XNU hybrid (Mach + BSD) |
+| Sandbox model | UID-based, SELinux mandatory access control | App sandbox + entitlements enforced by kernel |
+| Code signing | APK signing (v1-v4 schemes); Google Play signing | Enforced at all times; no unsigned code runs |
+| App distribution | Google Play + sideloading (APK) | App Store only; TestFlight/ADP for testing |
+| Sideloading risk | High; USB debugging and unknown sources common | Low; requires developer cert or enterprise profile |
+| Root/Jailbreak | Root via Magisk, KernelSU; varies by OEM | Jailbreak (checkra1n, unc0ver, Dopamine); kernel exploits |
+| Permissions model | Manifest + runtime dangerous permissions | TCC (Transparency, Consent, Control) per-resource |
+| Encryption | File-Based Encryption (FBE) default since Android 7 | Data Protection classes (hardware-backed) |
+| Secure hardware | Trusted Execution Environment (TEE); StrongBox (optional) | Secure Enclave (dedicated ARM processor, every device since A7) |
+| Bootchain security | Verified Boot / AVB 2.0; dm-verity | Secure Boot ROM to LLB to iBoot to XNU kernel |
+| Update model | OEM-dependent; Project Treble separates vendor/framework | OTA via Apple; fast adoption rate |
+| Exploit mitigations | ASLR, PIE, stack canaries, CFI, ShadowCallStack | PAC (Pointer Authentication Codes), ASLR, stack canaries, LLVM CFI |
+| Browser engine | Chromium (V8) | WebKit enforced for all browsers by policy |
+| USB attack surface | ADB enabled on developer devices; fastboot mode | Limited; lockdown mode disables USB accessories |
+| Forensic acquisition | Varies widely by OEM/version; ADB backup (deprecated) | GrayKey/Cellebrite physical; iCloud logical |
 
 ---
 
@@ -68,22 +68,22 @@
 
 ### Mobile Threat Categories
 
-**Malware**
+Malware
 - Trojans disguised as legitimate apps (banking trojans, RATs, adware droppers)
 - Drive-by downloads via malicious web pages targeting mobile browsers
 - Repackaged apps with embedded malicious code uploaded to third-party stores
 
-**Spyware**
+Spyware
 - Commercial spyware (Pegasus, Predator, FinFisher) targeting activists, journalists, government officials
 - Consumer-grade monitoring apps marketed as parental controls
 - Keyloggers, screenshot capturers, and mic/camera access without consent
 
-**Stalkerware**
+Stalkerware
 - Apps designed to covertly monitor a victim; often requires physical device access to install
 - Hide from launcher/app list; blend in as system apps
 - Indicators: increased battery/data drain, new unknown contacts/apps, device behaving unexpectedly
 
-**Potentially Harmful Apps (PHA)**
+Potentially Harmful Apps (PHA)
 - Google classification: apps that can harm users, data, or devices
 - Subcategories: backdoors, fraud, hostile downloaders, privilege escalation, ransomware, rooting, spam, spyware, trojans
 - Detected by Google Play Protect on-device scanner
@@ -94,11 +94,11 @@
 
 | Surface | Examples |
 |---|---|
-| **Application** | Insecure storage, WebView XSS, exported components, hardcoded secrets, broken crypto |
-| **Operating System** | Kernel vulnerabilities, privilege escalation, bootchain attacks, OEM customization flaws |
-| **Network** | MITM via rogue APs, SS7 attacks, IMSI catchers, Bluetooth/NFC attacks, cleartext protocols |
-| **Hardware** | Secure Enclave/TEE attacks, side-channel (power analysis), JTAG debug access, physical extraction |
-| **Supply Chain** | Malicious SDKs, compromised build environments, counterfeit devices with pre-installed malware |
+| Application | Insecure storage, WebView XSS, exported components, hardcoded secrets, broken crypto |
+| Operating System | Kernel vulnerabilities, privilege escalation, bootchain attacks, OEM customization flaws |
+| Network | MITM via rogue APs, SS7 attacks, IMSI catchers, Bluetooth/NFC attacks, cleartext protocols |
+| Hardware | Secure Enclave/TEE attacks, side-channel (power analysis), JTAG debug access, physical extraction |
+| Supply Chain | Malicious SDKs, compromised build environments, counterfeit devices with pre-installed malware |
 
 ---
 
@@ -106,7 +106,7 @@
 
 ### Linux Kernel Security
 
-**SELinux (Security-Enhanced Linux)**
+SELinux (Security-Enhanced Linux)
 - Mandatory Access Control (MAC) enforced since Android 5.0 (Lollipop)
 - Every process and file is labeled; policy rules define allowed interactions
 - Enforcing mode default; `getenforce` shows current mode
@@ -114,13 +114,13 @@
 - Android-specific domains: `untrusted_app`, `platform_app`, `system_server`, `zygote`
 - Sepolicy source: `external/sepolicy/` in AOSP; device-specific in `device/<oem>/<board>/sepolicy/`
 
-**Linux Namespaces**
+Linux Namespaces
 - Mount namespace: isolates filesystem view per process
 - PID namespace: isolates process ID space (used by Work Profile containers)
 - Network namespace: each Android user can have isolated network stack
 - User namespace: supports UID remapping for rootless containers
 
-**seccomp-bpf**
+seccomp-bpf
 - System call filtering via Berkeley Packet Filter (BPF) programs attached to processes
 - Renderer/GPU processes use strict seccomp profiles
 - Chrome on Android restricts renderer to approximately 70 system calls
@@ -139,18 +139,18 @@ struct sock_filter filter[] = {
 
 ### Application Sandbox
 
-**UID Isolation**
+UID Isolation
 - Each installed app receives a unique Linux UID (10000-19999 range)
 - Shared UID possible via `android:sharedUserId` manifest attribute (deprecated API 29+)
 - App data directories (`/data/data/<package>/`) owned by app UID; other apps cannot read
 
-**Zygote**
+Zygote
 - Pre-forked process containing initialized Dalvik/ART runtime
 - Every new app forks from Zygote via `fork()` + `exec()` pattern
 - COW (copy-on-write) memory sharing of pre-loaded classes
 - Security implication: zygote compromise means all subsequent app processes are compromised
 
-**Binder IPC**
+Binder IPC
 - Primary inter-process communication mechanism in Android
 - Kernel driver at `/dev/binder`; provides reference counting, thread pooling, death notifications
 - Security enforced via UID/GID checks at the driver level
@@ -164,13 +164,13 @@ struct sock_filter filter[] = {
 
 | Permission Type | Description | Examples |
 |---|---|---|
-| **Normal** | Granted automatically at install; no user prompt | `INTERNET`, `ACCESS_NETWORK_STATE`, `VIBRATE` |
-| **Dangerous** | Runtime prompt required since Android 6.0 | `READ_CONTACTS`, `CAMERA`, `ACCESS_FINE_LOCATION` |
-| **Signature** | Granted only to apps signed with same certificate | `INTERACT_ACROSS_USERS`, `READ_FRAME_BUFFER` |
-| **Privileged** | System apps on `/system/priv-app/` whitelist | `INSTALL_PACKAGES`, `CHANGE_COMPONENT_ENABLED_STATE` |
-| **Development** | Granted via `pm grant` (debugging only) | `READ_LOGS`, `WRITE_SECURE_SETTINGS` |
+| Normal | Granted automatically at install; no user prompt | `INTERNET`, `ACCESS_NETWORK_STATE`, `VIBRATE` |
+| Dangerous | Runtime prompt required since Android 6.0 | `READ_CONTACTS`, `CAMERA`, `ACCESS_FINE_LOCATION` |
+| Signature | Granted only to apps signed with same certificate | `INTERACT_ACROSS_USERS`, `READ_FRAME_BUFFER` |
+| Privileged | System apps on `/system/priv-app/` whitelist | `INSTALL_PACKAGES`, `CHANGE_COMPONENT_ENABLED_STATE` |
+| Development | Granted via `pm grant` (debugging only) | `READ_LOGS`, `WRITE_SECURE_SETTINGS` |
 
-**Dangerous Permissions by Group (Android 14)**
+Dangerous Permissions by Group (Android 14)
 
 ```
 CALENDAR: READ_CALENDAR, WRITE_CALENDAR
@@ -209,7 +209,7 @@ app.apk (ZIP archive)
     CERT.RSA
 ```
 
-**AndroidManifest.xml key security fields:**
+AndroidManifest.xml key security fields:
 
 ```xml
 <uses-permission android:name="android.permission.CAMERA" />
@@ -233,14 +233,14 @@ app.apk (ZIP archive)
 
 ### Android Security Features
 
-**Verified Boot / AVB 2.0**
+Verified Boot / AVB 2.0
 - Android Verified Boot (AVB) ensures all code executed at boot is signed
 - Boot states: GREEN (fully verified), YELLOW (custom key), ORANGE (unlocked), RED (failed verification)
 - `dm-verity` provides block-level integrity checking of the system partition
 - Vbmeta chain: `vbmeta.img` signs `boot.img`, `system.img`, `vendor.img`
 - Hash tree stored at end of each partition; root hash in vbmeta
 
-**SafetyNet / Play Integrity API**
+SafetyNet / Play Integrity API
 
 SafetyNet (deprecated; replaced by Play Integrity API):
 ```
@@ -291,10 +291,10 @@ Key attestation allows remote verification that a key lives in hardware. The lea
 
 | Scheme | Android Version | Description | Security Notes |
 |---|---|---|---|
-| **v1** (JAR signing) | All versions | Signs individual files in ZIP; MANIFEST.MF + .SF + .RSA | Vulnerable to Janus attack (CVE-2017-13156) |
-| **v2** (APK signing) | 7.0+ | Signs entire APK as byte stream; block in ZIP central directory | Resistant to Janus; faster verification |
-| **v3** (Rotation) | 9.0+ | Adds signing certificate rotation; proof-of-rotation struct | Allows key rotation without app reinstall |
-| **v4** (Streaming) | 11+ | Merkle hash tree over APK; required for incremental install | Enables fast ADB incremental push |
+| v1 (JAR signing) | All versions | Signs individual files in ZIP; MANIFEST.MF + .SF + .RSA | Vulnerable to Janus attack (CVE-2017-13156) |
+| v2 (APK signing) | 7.0+ | Signs entire APK as byte stream; block in ZIP central directory | Resistant to Janus; faster verification |
+| v3 (Rotation) | 9.0+ | Adds signing certificate rotation; proof-of-rotation struct | Allows key rotation without app reinstall |
+| v4 (Streaming) | 11+ | Merkle hash tree over APK; required for incremental install | Enables fast ADB incremental push |
 
 Google Play requires v2 or higher. Use `apksigner verify --verbose app.apk` to inspect.
 
@@ -302,7 +302,7 @@ Google Play requires v2 or higher. Use `apksigner verify --verbose app.apk` to i
 
 ### Intent Security
 
-**Exported Activities Attack**
+Exported Activities Attack
 
 ```bash
 # Find exported activities with no permission protection
@@ -313,13 +313,13 @@ adb shell am start -n com.example.app/.SecretActivity
 adb shell am start -n com.example.app/.LoginActivity --es "username" "admin" --es "bypass" "true"
 ```
 
-**Intent Sniffing**
+Intent Sniffing
 - Implicit intents broadcast to all apps with matching intent filters
 - Sensitive data in implicit intent extras can be read by any app
 - Sticky broadcasts (deprecated) remain in system; any app can retrieve last value
 - Fix: use explicit intents; avoid sticky broadcasts
 
-**Pending Intent Security**
+Pending Intent Security
 
 ```java
 // Insecure: mutable PendingIntent with implicit base intent
@@ -337,7 +337,7 @@ PendingIntent pi = PendingIntent.getActivity(ctx, 0,
 
 ### Content Provider Security
 
-**SQL Injection via URI**
+SQL Injection via URI
 
 ```java
 // Vulnerable provider implementation
@@ -350,7 +350,7 @@ public Cursor query(Uri uri, String[] projection, String selection,
 // Attacker passes UNION SELECT payload via selection parameter
 ```
 
-**Path Traversal in FileProvider**
+Path Traversal in FileProvider
 
 A malicious URI such as `content://com.example.app.fileprovider/../../../data/data/com.example.app/shared_prefs/creds.xml` can escape the FileProvider root. Always validate the canonicalized path stays within the authorized root directory.
 
@@ -399,7 +399,7 @@ Boot ROM (immutable, Apple root CA burned in silicon)
 - Provisioning profiles bind app ID, device UDIDs, entitlements, and certificate
 - Trust cache: OS-level cache of known-good CDHashes; speeds up verification
 
-**Key entitlements:**
+Key entitlements:
 
 ```xml
 <key>com.apple.security.app-sandbox</key><true/>
@@ -485,7 +485,7 @@ let query: [String: Any] = [
 SecItemAdd(query as CFDictionary, nil)
 ```
 
-**kSecAttrAccessible values (ordered most to least secure):**
+kSecAttrAccessible values (ordered most to least secure):
 1. `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly` - requires device passcode; not backed up
 2. `kSecAttrAccessibleWhenUnlockedThisDeviceOnly` - only when unlocked; not backed up
 3. `kSecAttrAccessibleWhenUnlocked` - only when unlocked; backed up to iCloud
@@ -505,7 +505,7 @@ ATS enforces HTTPS-only connections with strong TLS requirements by default (iOS
 - No SHA-1 certificates
 - Certificate validity 825 days maximum
 
-**Risky NSAllowsArbitraryLoads exceptions:**
+Risky NSAllowsArbitraryLoads exceptions:
 
 ```xml
 <!-- DANGEROUS: disables ATS globally -->
@@ -556,11 +556,11 @@ Hardening rationale: removes most complex parsers (JIT, font rendering, image de
 
 The Mobile Application Security Testing Guide (MASTG) defines a repeatable testing methodology aligned with MASVS.
 
-**Engagement phases:**
-1. **Reconnaissance**: app metadata, permissions, SDK inventory, backend URLs
-2. **Static analysis**: decompile and review source/bytecode
-3. **Dynamic analysis**: runtime instrumentation, network interception, API fuzzing
-4. **Reporting**: MASVS level compliance, CVSSv3 scoring, PoC evidence
+Engagement phases:
+1. Reconnaissance: app metadata, permissions, SDK inventory, backend URLs
+2. Static analysis: decompile and review source/bytecode
+3. Dynamic analysis: runtime instrumentation, network interception, API fuzzing
+4. Reporting: MASVS level compliance, CVSSv3 scoring, PoC evidence
 
 ---
 
@@ -594,7 +594,7 @@ docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:la
 curl -F "file=@target.apk" http://localhost:8000/api/v1/upload -H "Authorization: <mobsf_api_key>"
 ```
 
-**Key files to review in decoded APK:**
+Key files to review in decoded APK:
 - `AndroidManifest.xml` - exported components, permissions, debuggable flag
 - `res/xml/network_security_config.xml` - cleartext traffic exceptions, certificate pinning
 - `assets/` - hardcoded configs, JS bundles, SQLite databases
@@ -648,7 +648,7 @@ frida-ps -U
 frida -U -n "com.example.app"
 ```
 
-**Frida Android instrumentation:**
+Frida Android instrumentation:
 
 ```javascript
 // Hook Activity lifecycle
@@ -689,7 +689,7 @@ Java.perform(function() {
 });
 ```
 
-**Frida iOS instrumentation:**
+Frida iOS instrumentation:
 
 ```javascript
 // Hook iOS Objective-C method
@@ -710,7 +710,7 @@ if (ObjC.available) {
 
 ### SSL Pinning Bypass
 
-**Method 1: Objection (automated)**
+Method 1: Objection (automated)
 
 ```bash
 objection -g com.example.app explore
@@ -719,7 +719,7 @@ android sslpinning disable
 ios sslpinning disable
 ```
 
-**Method 2: apk-mitm (patch APK)**
+Method 2: apk-mitm (patch APK)
 
 ```bash
 npm install -g apk-mitm
@@ -727,7 +727,7 @@ apk-mitm app.apk
 # Installs patched APK with pinning removed and Burp CA trusted
 ```
 
-**Method 3: Frida script (manual OkHttp3)**
+Method 3: Frida script (manual OkHttp3)
 
 ```javascript
 Java.perform(function() {
@@ -747,7 +747,7 @@ Java.perform(function() {
 
 ### Burp Suite Mobile Proxy Setup
 
-**Android:**
+Android:
 
 ```bash
 # Export Burp CA certificate as DER
@@ -762,7 +762,7 @@ adb shell "chmod 644 /system/etc/security/cacerts/9a5ba575.0"
 # <certificates src="user" />
 ```
 
-**iOS:**
+iOS:
 
 ```
 1. Export Burp CA as DER: Proxy > Options > CA Certificate
@@ -782,7 +782,7 @@ adb shell "chmod 644 /system/etc/security/cacerts/9a5ba575.0"
 | L2 | Defense in Depth | Additional controls for high-value apps (banking, health) |
 | R | Resilience | Anti-tampering, obfuscation, anti-debugging for DRM/payment apps |
 
-**Key MASVS-STORAGE requirements:**
+Key MASVS-STORAGE requirements:
 - MSTG-STORAGE-1: No sensitive data in system logs
 - MSTG-STORAGE-2: No sensitive data in app container unless necessary and encrypted
 - MSTG-STORAGE-3: No sensitive data in auto-generated screenshots
@@ -795,7 +795,7 @@ adb shell "chmod 644 /system/etc/security/cacerts/9a5ba575.0"
 
 ### Insecure Data Storage
 
-**Android SharedPreferences (insecure):**
+Android SharedPreferences (insecure):
 
 ```xml
 <!-- Stored in /data/data/<package>/shared_prefs/<filename>.xml -->
@@ -806,7 +806,7 @@ adb shell "chmod 644 /system/etc/security/cacerts/9a5ba575.0"
 </map>
 ```
 
-**SQLite on Android:**
+SQLite on Android:
 
 ```java
 // Unencrypted DB in app directory -- readable via ADB backup or root
@@ -817,7 +817,7 @@ SQLiteDatabase db = openOrCreateDatabase("users.db", MODE_PRIVATE, null);
 SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbFile, "passphrase", null);
 ```
 
-**External Storage:**
+External Storage:
 
 ```java
 // BAD: sensitive data on external storage
@@ -826,7 +826,7 @@ File file = new File(Environment.getExternalStorageDirectory(), "sensitive.txt")
 // Use internal storage or MediaStore API instead
 ```
 
-**iOS Insecure Storage:**
+iOS Insecure Storage:
 
 ```swift
 // BAD: NSUserDefaults for sensitive data
@@ -841,7 +841,7 @@ SecItemAdd([kSecClass: kSecClassGenericPassword, ...] as CFDictionary, nil)
 
 ### Hardcoded Credentials and API Keys
 
-**Detection techniques:**
+Detection techniques:
 
 ```bash
 # Search decompiled APK
@@ -853,7 +853,7 @@ grep -rE "AIza[0-9A-Za-z\-_]{35}" output/   # Google API Key
 trufflehog filesystem --directory output/ --json
 ```
 
-**Common locations in APKs:**
+Common locations in APKs:
 - `res/values/strings.xml` - API keys, base URLs
 - `assets/config.json` / `assets/google-services.json`
 - `classes.dex` - constants in code
@@ -863,7 +863,7 @@ trufflehog filesystem --directory output/ --json
 
 ### Improper Authentication
 
-**Biometric Bypass (Android):**
+Biometric Bypass (Android):
 
 ```java
 // Insecure: biometric result not tied to crypto operation
@@ -884,7 +884,7 @@ CryptoObject cryptoObject = new CryptoObject(cipher);
 
 ### Client-Side Injection
 
-**WebView XSS / JavaScript Injection:**
+WebView XSS / JavaScript Injection:
 
 ```java
 // VULNERABLE: JavaScript enabled + addJavascriptInterface exposed
@@ -899,7 +899,7 @@ wv.getSettings().setAllowUniversalAccessFromFileURLs(false);
 // Use shouldOverrideUrlLoading to validate URLs before loading
 ```
 
-**iOS UIWebView / WKWebView:**
+iOS UIWebView / WKWebView:
 
 ```swift
 // VULNERABLE: UIWebView (deprecated) evaluates JavaScript on load
@@ -959,7 +959,7 @@ getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
 <!-- Both victim and attacker can receive myapp://callback?token=xxx OAuth redirect -->
 ```
 
-**Defense:** Use App Links (HTTPS + `assetlinks.json`) instead of custom schemes:
+Defense: Use App Links (HTTPS + `assetlinks.json`) instead of custom schemes:
 
 ```json
 [{
@@ -1015,39 +1015,39 @@ protected boolean isValidFragment(String fragmentName) {
 
 | Family | Type | Key Behaviors | C2 / Persistence |
 |---|---|---|---|
-| **BankBot** | Banking trojan | Overlay attacks on banking apps; SMS interception for OTP; keylogging | Firebase C2 |
-| **Cerberus** | Banking RAT | Screen capture, keylogging, overlay, 2FA bypass, Google Authenticator stealing | HTTP C2 |
-| **FluBot** | SMS worm | Spreads via smishing; installs via APK link; banking overlay; contact harvesting | DGA-based C2 |
-| **Joker** | Fleeceware/spyware | Subscribes to premium SMS without user consent; repeatedly found on Google Play | Embedded payload dropper |
-| **SpyNote** | RAT | Remote access, camera/mic access, keylogging, location tracking | TCP reverse shell |
-| **Anubis** | Banking trojan | Screen reader abuse; motion sensor anti-sandbox; overlay; ransomware module | Telegram/Twitter as C2 |
-| **Ginp** | Banking trojan | Injects fake cards in banking apps; SMS intercept; contact stealer | HTTP |
-| **Sharkbot** | Banking RAT | Keylogging, overlay, ATS (Automatic Transfer System), Google Play dropper | HTTP |
+| BankBot | Banking trojan | Overlay attacks on banking apps; SMS interception for OTP; keylogging | Firebase C2 |
+| Cerberus | Banking RAT | Screen capture, keylogging, overlay, 2FA bypass, Google Authenticator stealing | HTTP C2 |
+| FluBot | SMS worm | Spreads via smishing; installs via APK link; banking overlay; contact harvesting | DGA-based C2 |
+| Joker | Fleeceware/spyware | Subscribes to premium SMS without user consent; repeatedly found on Google Play | Embedded payload dropper |
+| SpyNote | RAT | Remote access, camera/mic access, keylogging, location tracking | TCP reverse shell |
+| Anubis | Banking trojan | Screen reader abuse; motion sensor anti-sandbox; overlay; ransomware module | Telegram/Twitter as C2 |
+| Ginp | Banking trojan | Injects fake cards in banking apps; SMS intercept; contact stealer | HTTP |
+| Sharkbot | Banking RAT | Keylogging, overlay, ATS (Automatic Transfer System), Google Play dropper | HTTP |
 
 ---
 
 ### iOS Malware: Pegasus (NSO Group) Technical Analysis
 
-**Infection Vectors:**
+Infection Vectors:
 - Zero-click: no user interaction required
   - FORCEDENTRY (CVE-2021-30860): Integer overflow in CoreGraphics PDF parser; sent via iMessage
   - BlastDoor sandbox bypass (iOS 14 iMessage protection circumvented)
   - Pre-2021 zero-click chain: `IMTranscoderAgent` exploitation
 - One-click: malicious link triggers Safari/WebKit exploit chain
 
-**Persistence:**
+Persistence:
 - Kernel exploit for unsandboxing and persistence across reboots
 - Hides as system process; modifies kernel data structures to remove from process list
 - Survives iTunes backup/restore at kernel level
 
-**Capabilities:**
+Capabilities:
 - Encrypted message extraction (Signal, WhatsApp, iMessage) by reading plaintext in memory after decryption
 - Microphone and camera capture without activation indicator (pre-iOS 14)
 - Real-time GPS tracking
 - Keylogging, call recording
 - Email and contact extraction
 
-**Indicators (Amnesty International / MVT methodology):**
+Indicators (Amnesty International / MVT methodology):
 
 ```bash
 pip install mvt
@@ -1060,7 +1060,7 @@ mvt-android check-adb --iocs indicators.stix2 --output report/
 
 ### Dynamic Analysis Sandbox
 
-**Android:**
+Android:
 
 ```bash
 # Create AVD for analysis
@@ -1079,7 +1079,7 @@ adb shell strace -p <pid> -e trace=network,file
 frida-trace -U -n com.malware.sample -i "open" -i "connect" -i "send"
 ```
 
-**Joe Sandbox Mobile:**
+Joe Sandbox Mobile:
 - Commercial cloud sandbox for Android and iOS
 - Behavioral report: network connections, file operations, SMS/calls, permissions used
 - API: submit APK/IPA and receive JSON report with IOCs
@@ -1090,20 +1090,20 @@ frida-trace -U -n com.malware.sample -i "open" -i "connect" -i "send"
 
 | Category | Indicator |
 |---|---|
-| **Network** | Connections to DGA-generated domains, unusual ports (4444, 5555, 8888), periodic beacon intervals |
-| **Process** | Unfamiliar processes with root privileges, processes mimicking system app names |
-| **File system** | New files in `/data/local/tmp/`, modified `/system/` files, hidden `.` prefix files |
-| **Battery/Data** | Unexplained battery drain, high background data usage by unknown apps |
-| **SMS/Calls** | Outgoing SMS to premium numbers, calls to unknown numbers |
-| **Permissions** | Apps with RECEIVE_SMS, READ_CALL_LOG, BIND_ACCESSIBILITY_SERVICE without explanation |
-| **Android-specific** | Unrecognized device admin apps, accessibility services enabled without consent |
-| **iOS-specific** | Unexpected enterprise profiles, TCC database modifications, unsigned processes |
+| Network | Connections to DGA-generated domains, unusual ports (4444, 5555, 8888), periodic beacon intervals |
+| Process | Unfamiliar processes with root privileges, processes mimicking system app names |
+| File system | New files in `/data/local/tmp/`, modified `/system/` files, hidden `.` prefix files |
+| Battery/Data | Unexplained battery drain, high background data usage by unknown apps |
+| SMS/Calls | Outgoing SMS to premium numbers, calls to unknown numbers |
+| Permissions | Apps with RECEIVE_SMS, READ_CALL_LOG, BIND_ACCESSIBILITY_SERVICE without explanation |
+| Android-specific | Unrecognized device admin apps, accessibility services enabled without consent |
+| iOS-specific | Unexpected enterprise profiles, TCC database modifications, unsigned processes |
 
 ---
 
 ### APK Obfuscation and Deobfuscation
 
-**Obfuscation techniques:**
+Obfuscation techniques:
 
 ```
 ProGuard:     Renames classes/methods to a, b, c; removes dead code
@@ -1114,7 +1114,7 @@ Native packing: DEX loaded from native .so; defeats DEX-level analysis
 Multi-stage loading: dropper downloads main payload in stages
 ```
 
-**Deobfuscation techniques:**
+Deobfuscation techniques:
 
 ```bash
 # jadx with deobfuscation
@@ -1149,7 +1149,7 @@ Compliance:   MDM queries device compliance state (OS version, encryption, passc
 Action:       Wipe, lock, revoke certificates, remove managed apps
 ```
 
-**MDM Profile contents (mobileconfig):**
+MDM Profile contents (mobileconfig):
 
 ```xml
 <dict>
@@ -1175,7 +1175,7 @@ iPhone --> MDM Server: PUT /mdm/checkin (command result)
 
 MDM commands include: `DeviceLock`, `EraseDevice`, `InstallApplication`, `RemoveApplication`, `ProfileList`, `SecurityInfo`, `DeviceInformation`, `ScheduleOSUpdateScan`, `InstallProfile`, `RemoveProfile`
 
-**Supervision (Apple Configurator 2 / DEP):**
+Supervision (Apple Configurator 2 / DEP):
 - Supervised devices allow: silent app installation/removal, restrictions not dismissible by user, deeper MDM controls
 - DEP (Device Enrollment Program / ADE): device automatically enrolls in MDM on activation; user cannot remove MDM
 
@@ -1183,11 +1183,11 @@ MDM commands include: `DeviceLock`, `EraseDevice`, `InstallApplication`, `Remove
 
 ### Android Enterprise (EMM API)
 
-**Work Profile (BYOD):** Separate container with work apps/data; personal apps in primary profile; cross-profile restrictions configurable.
+Work Profile (BYOD): Separate container with work apps/data; personal apps in primary profile; cross-profile restrictions configurable.
 
-**Fully Managed Device (corporate-owned):** DPC (Device Policy Controller) installed as device owner; full control of device.
+Fully Managed Device (corporate-owned): DPC (Device Policy Controller) installed as device owner; full control of device.
 
-**Dedicated Device:** Locked to single purpose; kiosk mode; no user accounts.
+Dedicated Device: Locked to single purpose; kiosk mode; no user accounts.
 
 ```kotlin
 // Setting device-wide policy (requires DEVICE_OWNER or PROFILE_OWNER)
@@ -1206,9 +1206,9 @@ dpm.wipeData(0)  // Remote wipe
 
 | Solution | Control Scope | Data Separation | User Privacy | Best For |
 |---|---|---|---|---|
-| **MAM** (Mobile Application Management) | Per-app policies only | App-level containers | High (personal data untouched) | BYOD with specific app control |
-| **MDM** (Mobile Device Management) | Full device | OS-level enforcement | Lower (sees device info) | Corporate-owned devices |
-| **UEM** (Unified Endpoint Management) | MDM + PC + IoT in single console | Cross-platform | Varies by policy | Enterprise with diverse device fleet |
+| MAM (Mobile Application Management) | Per-app policies only | App-level containers | High (personal data untouched) | BYOD with specific app control |
+| MDM (Mobile Device Management) | Full device | OS-level enforcement | Lower (sees device info) | Corporate-owned devices |
+| UEM (Unified Endpoint Management) | MDM + PC + IoT in single console | Cross-platform | Varies by policy | Enterprise with diverse device fleet |
 
 ---
 
@@ -1257,18 +1257,18 @@ SS7 (Signaling System 7) is the protocol suite for telephone network signaling, 
 
 | Attack | Description | Impact |
 |---|---|---|
-| **Location tracking** | Send SRI-SM to get HLR/VLR/IMSI; then ProvideSubscriberInfo for precise location | Real-time tracking without victim awareness |
-| **Call interception** | Register attacker as roaming partner; redirect calls to attacker switch | Full call recording |
-| **SMS redirection** | Update HLR with rogue VLR; SMS OTPs delivered to attacker | 2FA bypass; account takeover |
-| **IMSI harvesting** | SendIdentification requests across interconnect | Building subscriber database for targeted attacks |
-| **DoS** | CancelLocation removes subscriber from HLR | Service disruption |
+| Location tracking | Send SRI-SM to get HLR/VLR/IMSI; then ProvideSubscriberInfo for precise location | Real-time tracking without victim awareness |
+| Call interception | Register attacker as roaming partner; redirect calls to attacker switch | Full call recording |
+| SMS redirection | Update HLR with rogue VLR; SMS OTPs delivered to attacker | 2FA bypass; account takeover |
+| IMSI harvesting | SendIdentification requests across interconnect | Building subscriber database for targeted attacks |
+| DoS | CancelLocation removes subscriber from HLR | Service disruption |
 
-**Diameter (4G/LTE equivalent):**
+Diameter (4G/LTE equivalent):
 - Same conceptual attacks but over Diameter protocol
 - Better potential for access control but still widely misconfigured
 - Operators must implement Diameter Edge Agents (DEA) with firewall rules
 
-**Defense:** GSMA FS.11/FS.19 recommendations; SS7 firewall deployment; SMS home routing; monitoring for anomalous roaming queries
+Defense: GSMA FS.11/FS.19 recommendations; SS7 firewall deployment; SMS home routing; monitoring for anomalous roaming queries
 
 ---
 
@@ -1278,12 +1278,12 @@ SS7 (Signaling System 7) is the protocol suite for telephone network signaling, 
 - Capture IMSI, IMEI, location; may intercept calls/SMS (2G downgrade attacks)
 - Downgrade attack: force 2G (no encryption or A5/0 null cipher) for interception
 
-**Detection techniques:**
+Detection techniques:
 - AIMSICD (Android IMSI-Catcher Detector): anomalous base station parameters
 - SnoopSnitch: analyze baseband AT commands for IMSI catcher indicators
 - CryptoPhone (GSMK): baseband traffic monitoring for cipher downgrades
 
-**Indicators:**
+Indicators:
 - Sudden drop to 2G/EDGE in area with strong 4G coverage
 - Tower with unusually strong signal not in carrier published database
 - Network rejects encryption (A5/0 cipher selected)
@@ -1306,7 +1306,7 @@ SS7 (Signaling System 7) is the protocol suite for telephone network signaling, 
 
 ### Wi-Fi Attacks on Mobile
 
-**KARMA / MANA Attack:**
+KARMA / MANA Attack:
 
 ```bash
 # hostapd-mana: responds to all Wi-Fi probe requests with matching SSID
@@ -1315,7 +1315,7 @@ hostapd-mana mana.conf
 # Capture WPA2 handshakes; serve evil twin with captive portal
 ```
 
-**Deauthentication Attack:**
+Deauthentication Attack:
 
 ```bash
 # Aireplay-ng: send deauth frames to disconnect victim from legitimate AP
@@ -1323,13 +1323,13 @@ aireplay-ng --deauth 10 -a <AP_BSSID> -c <victim_MAC> wlan0mon
 # Victim reconnects to strongest AP -- evil twin
 ```
 
-**Protection:** WPA3 with PMF (Protected Management Frames); 802.11w; always-on VPN; avoid auto-connect to open networks.
+Protection: WPA3 with PMF (Protected Management Frames); 802.11w; always-on VPN; avoid auto-connect to open networks.
 
 ---
 
 ### Bluetooth Security
 
-**BLE Pairing Modes:**
+BLE Pairing Modes:
 
 | Mode | Security | Attack Surface |
 |---|---|---|
@@ -1339,7 +1339,7 @@ aireplay-ng --deauth 10 -a <AP_BSSID> -c <victim_MAC> wlan0mon
 | Out of Band (OOB) | NFC/QR pre-shared key | Depends on OOB channel |
 | LE Secure Connections | ECDH + numeric comparison | Secure; attack is protocol downgrade |
 
-**BlueBorne (CVE-2017-0781, CVE-2017-0782, CVE-2017-0785, CVE-2017-0786):**
+BlueBorne (CVE-2017-0781, CVE-2017-0782, CVE-2017-0785, CVE-2017-0786):
 - Critical Bluetooth stack vulnerabilities in Android, Linux, iOS, Windows (2017)
 - Remote code execution without pairing or user interaction over Bluetooth
 - Android: SDP overflow in `android.hardware.bluetooth@1.0`; remote heap overflow
@@ -1349,7 +1349,7 @@ aireplay-ng --deauth 10 -a <AP_BSSID> -c <victim_MAC> wlan0mon
 
 ### NFC Security
 
-**Relay Attack (NFC):**
+Relay Attack (NFC):
 
 ```
 Victim card --> Reader Proxy (attacker near victim)
@@ -1360,7 +1360,7 @@ Victim card --> Reader Proxy (attacker near victim)
 - Allows payment fraud using victim contactless card
 - Defense: EMV transaction counters; distance bounding protocols; NFC shielding wallets
 
-**NDEF Injection:**
+NDEF Injection:
 - Malicious NFC tag triggers URL, phone call, or app launch when scanned
 - Auto-open NDEF could trigger drive-by download or phishing page
 - Android NFC Beam (deprecated) vulnerabilities: auto-accept files in older Android versions
@@ -1372,12 +1372,12 @@ Victim card --> Reader Proxy (attacker near victim)
 
 ### Samsung Knox Security Architecture
 
-**Hardware Security:**
+Hardware Security:
 - Arm TrustZone-based Trusted Execution Environment (TEE)
 - Samsung eSE (embedded Secure Element) on flagship devices
 - Hardware-backed keystore with Knox attestation
 
-**Software Security Layers:**
+Software Security Layers:
 
 ```
 Application Layer: Knox Workspace (isolated container)
@@ -1389,7 +1389,7 @@ Kernel Layer:      Verified Boot + dm-verity
 TrustZone Layer:   Secure World OS
 ```
 
-**Knox Attestation:** Hardware-backed certificate chain verifiable by MDM; detects Knox compromised status if device is rooted or modified.
+Knox Attestation: Hardware-backed certificate chain verifiable by MDM; detects Knox compromised status if device is rooted or modified.
 
 ---
 
@@ -1423,7 +1423,7 @@ Cross-profile policies (IT-configurable):
 
 ### Microsoft Intune + Conditional Access
 
-**Compliance policy example (Intune):**
+Compliance policy example (Intune):
 
 ```json
 {
@@ -1439,7 +1439,7 @@ Cross-profile policies (IT-configurable):
 }
 ```
 
-**Conditional Access policy flow:**
+Conditional Access policy flow:
 
 ```
 User authenticates --> Azure AD checks:
@@ -1456,14 +1456,14 @@ User authenticates --> Azure AD checks:
 
 | Vendor | Product | Key Capabilities |
 |---|---|---|
-| **Zimperium** | zIPS, z3A | On-device ML detection; network, app, OS, phishing threat detection; no-cloud option |
-| **Lookout** | Mobile Endpoint Security | App risk analysis; network protection; cloud-based detection; Intune integration |
-| **CrowdStrike** | Falcon for Mobile | EDR for iOS/Android; unified with Falcon console; IOA-based detection |
-| **Microsoft** | Defender for Endpoint Mobile | Android + iOS; web protection, jailbreak/root detection, MTD integration with Intune |
-| **Check Point** | Harmony Mobile | Network threat prevention; anti-phishing; app risk; sandbox |
-| **Jamf** | Jamf Protect (iOS) | Native iOS security; zero-trust network access; behavioral analytics |
+| Zimperium | zIPS, z3A | On-device ML detection; network, app, OS, phishing threat detection; no-cloud option |
+| Lookout | Mobile Endpoint Security | App risk analysis; network protection; cloud-based detection; Intune integration |
+| CrowdStrike | Falcon for Mobile | EDR for iOS/Android; unified with Falcon console; IOA-based detection |
+| Microsoft | Defender for Endpoint Mobile | Android + iOS; web protection, jailbreak/root detection, MTD integration with Intune |
+| Check Point | Harmony Mobile | Network threat prevention; anti-phishing; app risk; sandbox |
+| Jamf | Jamf Protect (iOS) | Native iOS security; zero-trust network access; behavioral analytics |
 
-**MTD integration with MDM:**
+MTD integration with MDM:
 
 ```
 MTD agent on device --> risk assessment --> signal to MDM
@@ -1494,13 +1494,13 @@ Tools: AppDome, NowSecure Platform, Veracode Mobile, NTT Application Security
 
 | Program | Scope | Payout Range |
 |---|---|---|
-| **Android VRP** (Google) | Android OS, AOSP, Pixel firmware, Android apps | $1K to $1M+ (critical Pixel exploits) |
-| **Google Play Security Rewards** | Apps on Google Play with 100M+ installs | $1K to $30K |
-| **Samsung Mobile** | Samsung Galaxy firmware, Knox, One UI | $200 to $1M (Samsung Mobile Security Rewards) |
-| **Meta** | Messenger, WhatsApp, Instagram on Android/iOS | $500 to $500K+ |
-| **HackerOne / Bugcrowd** | Various mobile apps in scope | Program-dependent |
+| Android VRP (Google) | Android OS, AOSP, Pixel firmware, Android apps | $1K to $1M+ (critical Pixel exploits) |
+| Google Play Security Rewards | Apps on Google Play with 100M+ installs | $1K to $30K |
+| Samsung Mobile | Samsung Galaxy firmware, Knox, One UI | $200 to $1M (Samsung Mobile Security Rewards) |
+| Meta | Messenger, WhatsApp, Instagram on Android/iOS | $500 to $500K+ |
+| HackerOne / Bugcrowd | Various mobile apps in scope | Program-dependent |
 
-**Android VRP high-value categories:**
+Android VRP high-value categories:
 - Remote code execution in Android OS/Pixel (no interaction): up to $1M
 - TEE/Secure Element compromise: $500K+
 - Bootloader/TrustZone: $250K+
@@ -1516,7 +1516,7 @@ Tools: AppDome, NowSecure Platform, Veracode Mobile, NTT Application Security
 - Eligible researchers: security community members with track record
 - Terms: findings must be reported to Apple before publication
 
-**Apple Security Bounty payouts:**
+Apple Security Bounty payouts:
 - iCloud account compromise (no interaction): up to $1M
 - Network attack without user interaction (kernel RCE): $500K
 - Lock screen bypass: $100K
@@ -1544,12 +1544,12 @@ Tools: AppDome, NowSecure Platform, Veracode Mobile, NTT Application Security
 
 | Platform | Challenge Types | Notes |
 |---|---|---|
-| **HackTheBox** | Android APK reversing, Frida challenges, iOS binary analysis | Mobile category in main challenge section |
-| **MOBISEC CTF** | Mobile-specific CTF; Android + iOS | Dedicated mobile security CTF archive |
-| **OWASP UnCrackable Apps** | Android: 3 levels of reverse engineering; iOS: 2 levels | Deliberately insecure apps for practice |
-| **DIVA (Damn Insecure Vulnerable App)** | Android app with 13 insecure scenarios | Local practice |
-| **iGoat** | iOS vulnerable app | OWASP sponsored |
-| **InsecureShop** | Android e-commerce app with intentional vulnerabilities | Covers OWASP Mobile Top 10 |
+| HackTheBox | Android APK reversing, Frida challenges, iOS binary analysis | Mobile category in main challenge section |
+| MOBISEC CTF | Mobile-specific CTF; Android + iOS | Dedicated mobile security CTF archive |
+| OWASP UnCrackable Apps | Android: 3 levels of reverse engineering; iOS: 2 levels | Deliberately insecure apps for practice |
+| DIVA (Damn Insecure Vulnerable App) | Android app with 13 insecure scenarios | Local practice |
+| iGoat | iOS vulnerable app | OWASP sponsored |
+| InsecureShop | Android e-commerce app with intentional vulnerabilities | Covers OWASP Mobile Top 10 |
 
 ```bash
 # OWASP UnCrackable Level 1 approach
@@ -1591,26 +1591,26 @@ frida -U -f owasp.mstg.uncrackable1 --no-pause -l uncrackable1_solve.js
 
 | Tool | Platform | Category | Usage |
 |---|---|---|---|
-| **jadx** | Android | Static analysis | Decompile APK to Java |
-| **apktool** | Android | Static analysis | Decode/rebuild APK; Smali analysis |
-| **MobSF** | Android + iOS | Static + Dynamic | Automated scan suite |
-| **Frida** | Android + iOS | Dynamic analysis | Runtime instrumentation |
-| **Objection** | Android + iOS | Dynamic analysis | Automated Frida-based exploration |
-| **apk-mitm** | Android | Network | Patch APK for MITM proxy |
-| **Drozer** | Android | Attack surface | Module-based app attack framework |
-| **Burp Suite** | Android + iOS | Network | HTTP/S proxy interception |
-| **class-dump** | iOS | Static analysis | Dump Objective-C headers |
-| **jtool2** | iOS | Static analysis | Binary analysis, entitlements |
-| **Hopper Disassembler** | iOS + Android | RE | GUI disassembler/decompiler |
-| **Ghidra** | Android + iOS | RE | NSA-developed; ARM/ARM64 support |
-| **r2frida** | Android + iOS | RE + Dynamic | radare2 + Frida combined |
-| **MVT** | Android + iOS | Forensics | Pegasus/spyware detection |
-| **Cellebrite UFED** | All | Forensics | Physical/logical acquisition |
-| **ADB** | Android | All | Android Debug Bridge; core tool |
-| **iMazing** | iOS | Forensics | iOS backup and analysis |
-| **checkra1n** | iOS | Jailbreak | Hardware exploit (A5-A11) |
-| **Magisk** | Android | Root | Systemless root; hide from attestation |
-| **SnoopSnitch** | Android | Network | SS7 / IMSI catcher detection |
+| jadx | Android | Static analysis | Decompile APK to Java |
+| apktool | Android | Static analysis | Decode/rebuild APK; Smali analysis |
+| MobSF | Android + iOS | Static + Dynamic | Automated scan suite |
+| Frida | Android + iOS | Dynamic analysis | Runtime instrumentation |
+| Objection | Android + iOS | Dynamic analysis | Automated Frida-based exploration |
+| apk-mitm | Android | Network | Patch APK for MITM proxy |
+| Drozer | Android | Attack surface | Module-based app attack framework |
+| Burp Suite | Android + iOS | Network | HTTP/S proxy interception |
+| class-dump | iOS | Static analysis | Dump Objective-C headers |
+| jtool2 | iOS | Static analysis | Binary analysis, entitlements |
+| Hopper Disassembler | iOS + Android | RE | GUI disassembler/decompiler |
+| Ghidra | Android + iOS | RE | NSA-developed; ARM/ARM64 support |
+| r2frida | Android + iOS | RE + Dynamic | radare2 + Frida combined |
+| MVT | Android + iOS | Forensics | Pegasus/spyware detection |
+| Cellebrite UFED | All | Forensics | Physical/logical acquisition |
+| ADB | Android | All | Android Debug Bridge; core tool |
+| iMazing | iOS | Forensics | iOS backup and analysis |
+| checkra1n | iOS | Jailbreak | Hardware exploit (A5-A11) |
+| Magisk | Android | Root | Systemless root; hide from attestation |
+| SnoopSnitch | Android | Network | SS7 / IMSI catcher detection |
 
 ---
 

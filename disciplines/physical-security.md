@@ -58,17 +58,17 @@ Physical security underpins every other security domain. Strong network segmenta
 | Control | Family | Relevance |
 |---------|--------|-----------|
 | PE-1 | Physical and Environmental Protection | Policy and procedures governing physical access to facilities |
-| PE-2 | Physical and Environmental Protection | Physical access authorizations — who is permitted where |
-| PE-3 | Physical and Environmental Protection | Physical access control enforcement at entry points — locks, card readers, guards |
-| PE-4 | Physical and Environmental Protection | Access control for transmission medium — physical protection of cable runs and patch panels |
-| PE-5 | Physical and Environmental Protection | Access control for output devices — printers, fax, displays with sensitive data |
-| PE-6 | Physical and Environmental Protection | Monitoring physical access — CCTV, guard logs, access logs reviewed regularly |
-| PE-8 | Physical and Environmental Protection | Visitor access records — maintaining and reviewing visitor logs |
-| PE-9 | Physical and Environmental Protection | Power equipment and cabling — protecting utility infrastructure from tampering |
-| PE-11 | Physical and Environmental Protection | Emergency power — UPS and generator controls |
-| PE-13 | Physical and Environmental Protection | Fire protection systems — suppression and detection |
+| PE-2 | Physical and Environmental Protection | Physical access authorizations: who is permitted where |
+| PE-3 | Physical and Environmental Protection | Physical access control enforcement at entry points: locks, card readers, guards |
+| PE-4 | Physical and Environmental Protection | Access control for transmission medium: physical protection of cable runs and patch panels |
+| PE-5 | Physical and Environmental Protection | Access control for output devices: printers, fax, displays with sensitive data |
+| PE-6 | Physical and Environmental Protection | Monitoring physical access: CCTV, guard logs, access logs reviewed regularly |
+| PE-8 | Physical and Environmental Protection | Visitor access records: maintaining and reviewing visitor logs |
+| PE-9 | Physical and Environmental Protection | Power equipment and cabling: protecting utility infrastructure from tampering |
+| PE-11 | Physical and Environmental Protection | Emergency power: UPS and generator controls |
+| PE-13 | Physical and Environmental Protection | Fire protection systems: suppression and detection |
 | PE-17 | Physical and Environmental Protection | Alternate work site physical protection requirements |
-| PE-20 | Physical and Environmental Protection | Asset monitoring and tracking — asset tags, RF-based inventory systems |
+| PE-20 | Physical and Environmental Protection | Asset monitoring and tracking: asset tags, RF-based inventory systems |
 
 ## ATT&CK Coverage
 
@@ -89,25 +89,25 @@ Physical security underpins every other security domain. Strong network segmenta
 
 | Certification | Issuer | Level | Notes |
 |--------------|--------|-------|-------|
-| CPP — Certified Protection Professional | ASIS International | Advanced | Gold standard for physical security management; covers risk, threat assessment, and program management |
-| PSP — Physical Security Professional | ASIS International | Intermediate | Focused on physical security surveys, design, and implementation |
-| APP — Associate Protection Professional | ASIS International | Entry | Entry-level ASIS credential for those new to physical security |
-| CPOI — Certified Protection Officer Instructor | IFPO | Intermediate | Instructor-level credential for security officer programs |
-| CPO — Certified Protection Officer | IFPO | Entry | Foundational credential for security officers |
-| CPTED Certification | CPTED Security | Intermediate | Crime Prevention Through Environmental Design — architectural security |
+| CPP: Certified Protection Professional | ASIS International | Advanced | Gold standard for physical security management; covers risk, threat assessment, and program management |
+| PSP: Physical Security Professional | ASIS International | Intermediate | Focused on physical security surveys, design, and implementation |
+| APP: Associate Protection Professional | ASIS International | Entry | Entry-level ASIS credential for those new to physical security |
+| CPOI: Certified Protection Officer Instructor | IFPO | Intermediate | Instructor-level credential for security officer programs |
+| CPO: Certified Protection Officer | IFPO | Entry | Foundational credential for security officers |
+| CPTED Certification | CPTED Security | Intermediate | Crime Prevention Through Environmental Design: architectural security |
 | CompTIA Security+ (Physical Domain) | CompTIA | Entry | Covers physical controls as part of broader security+ objectives |
 
 ## Learning Resources
 
 | Resource | Type | Notes |
 |----------|------|-------|
-| *Practical Lock Picking* — Deviant Ollam | Book | The definitive guide to lock picking; covers theory, tools, and technique |
-| *The Art of Intrusion* — Kevin Mitnick | Book | Real-world case studies of physical intrusions, social engineering, and access bypass |
-| *The Art of Deception* — Kevin Mitnick | Book | Social engineering and physical pretexting methodology |
-| *Low Tech Hacking* — Jack Wiles | Book | Physical security threats in enterprise environments |
+| *Practical Lock Picking*: Deviant Ollam | Book | The definitive guide to lock picking; covers theory, tools, and technique |
+| *The Art of Intrusion*: Kevin Mitnick | Book | Real-world case studies of physical intrusions, social engineering, and access bypass |
+| *The Art of Deception*: Kevin Mitnick | Book | Social engineering and physical pretexting methodology |
+| *Low Tech Hacking*: Jack Wiles | Book | Physical security threats in enterprise environments |
 | *ASIS Physical Security Handbook* | Reference | Comprehensive reference aligned to CPP/PSP exam content |
 | DEF CON Physical Security Village Talks | Video | Annual conference talks on badge cloning, lock bypass, and facility pentesting |
-| Deviant Ollam — "It's the Little Things" Series | Video | Deep dives into door hardware vulnerabilities |
+| Deviant Ollam: "It's the Little Things" Series | Video | Deep dives into door hardware vulnerabilities |
 | NIST SP 800-116 | Standard | PIV card and reader deployment guidance for federal facilities |
 | OSDP (SIA Open Supervised Device Protocol) | Standard | Modern access control wiring protocol; review for replay and manipulation vulnerabilities |
 | Proxmark3 RDV4 Documentation | Documentation | Official docs for the most capable open-source RFID research tool |
@@ -116,71 +116,71 @@ Physical security underpins every other security domain. Strong network segmenta
 
 A physical penetration test follows a structured kill chain:
 
-1. **Reconnaissance** — Open-source intelligence: Google Maps satellite/Street View, Shodan for exposed cameras (search `has_screenshot:true`), LinkedIn for employee names and badge photos, company website for office locations and photos that reveal badge designs, access reader models, and security posture.
-2. **Pretext Development** — Building a believable cover story (IT contractor, vendor, delivery, fire marshal inspection) with supporting props (uniforms, ID holders, lanyards, clipboards, fake work orders).
-3. **Badge Cloning** — Using Proxmark3 or Flipper Zero at close range (e.g., in a crowded elevator) to read a victim's HID Prox, HID iCLASS, or EM4100 card and write a clone. iCLASS SE and SEOS cards require additional credential attacks.
-4. **Lock Bypass** — Single pin picking (SPP), raking, bump keys, shims on padlocks, under-door tools (UDT) to manipulate lever handles, door gap tools (latch shims), loiding (credit card shimming), and REX (Request to Exit) sensor manipulation by sliding tools under doors to trigger motion-based door releases.
-5. **Entry and Objective** — Tailgating/piggybacking through mantrap or turnstile, accessing server rooms, network closets, or executive offices, installing hardware implants or retrieving sensitive material.
-6. **Evidence Collection and Exfiltration** — Photographing evidence, copying data to USB, and physically removing items per scope.
-7. **Reporting** — Documenting each bypass method with photos, timestamps, and video; mapping findings to NIST PE controls and business risk; recommending specific remediations.
+1. Reconnaissance: Open-source intelligence: Google Maps satellite/Street View, Shodan for exposed cameras (search `has_screenshot:true`), LinkedIn for employee names and badge photos, company website for office locations and photos that reveal badge designs, access reader models, and security posture.
+2. Pretext Development: Building a believable cover story (IT contractor, vendor, delivery, fire marshal inspection) with supporting props (uniforms, ID holders, lanyards, clipboards, fake work orders).
+3. Badge Cloning: Using Proxmark3 or Flipper Zero at close range (e.g., in a crowded elevator) to read a victim's HID Prox, HID iCLASS, or EM4100 card and write a clone. iCLASS SE and SEOS cards require additional credential attacks.
+4. Lock Bypass: Single pin picking (SPP), raking, bump keys, shims on padlocks, under-door tools (UDT) to manipulate lever handles, door gap tools (latch shims), loiding (credit card shimming), and REX (Request to Exit) sensor manipulation by sliding tools under doors to trigger motion-based door releases.
+5. Entry and Objective: Tailgating/piggybacking through mantrap or turnstile, accessing server rooms, network closets, or executive offices, installing hardware implants or retrieving sensitive material.
+6. Evidence Collection and Exfiltration: Photographing evidence, copying data to USB, and physically removing items per scope.
+7. Reporting: Documenting each bypass method with photos, timestamps, and video; mapping findings to NIST PE controls and business risk; recommending specific remediations.
 
 ## RFID/NFC Attack Detail
 
-- **HID Prox (125 kHz LF)**: No authentication; trivially cloned with Proxmark3 or Flipper Zero at 5–10 cm range. Extremely common in older deployments.
-- **HID iCLASS (13.56 MHz HF)**: Early versions cracked using the iCLASS master key (publicly known since 2012). iCLASS SE and iCLASS Seos offer genuine cryptographic protection but are more expensive.
-- **MIFARE Classic**: Uses the broken Crypto1 stream cipher. Vulnerable to nested authentication attacks and offline cracking with Crapto1. Widely deployed in parking, transit, and some enterprise PACS.
-- **NFC Relay Attacks**: Using two devices (one near victim, one near reader) to relay an authentication session in real time — bypasses distance-based security assumptions.
-- **OSDP Protocol**: Open Supervised Device Protocol (RS-485) is the modern standard for reader-to-controller communication. Unlike Wiegand (no encryption, no authentication), OSDP v2 supports AES-128 encryption, but many deployments leave it unconfigured.
+- HID Prox (125 kHz LF): No authentication; trivially cloned with Proxmark3 or Flipper Zero at 5-10 cm range. Extremely common in older deployments.
+- HID iCLASS (13.56 MHz HF): Early versions cracked using the iCLASS master key (publicly known since 2012). iCLASS SE and iCLASS Seos offer genuine cryptographic protection but are more expensive.
+- MIFARE Classic: Uses the broken Crypto1 stream cipher. Vulnerable to nested authentication attacks and offline cracking with Crapto1. Widely deployed in parking, transit, and some enterprise PACS.
+- NFC Relay Attacks: Using two devices (one near victim, one near reader) to relay an authentication session in real time — bypasses distance-based security assumptions.
+- OSDP Protocol: Open Supervised Device Protocol (RS-485) is the modern standard for reader-to-controller communication. Unlike Wiegand (no encryption, no authentication), OSDP v2 supports AES-128 encryption, but many deployments leave it unconfigured.
 
 
 ## Physical Penetration Testing Methodology -- Extended
 
 ### Legal and Authorization
 
-- **Scope document**: Explicit authorization letter from authorized decision-maker (not just IT director; facilities and legal leadership may also need to authorize)
-- **Emergency contact list**: 24/7 numbers to call if caught by security or law enforcement
-- **Get out of jail letter**: Physical letter on company letterhead authorizing the test; includes tester description, vehicle, equipment
-- **Rules of engagement**: What constitutes success? Building access only? Executive floor? Server room? Data center? Safe combinations?
+- Scope document: Explicit authorization letter from authorized decision-maker (not just IT director; facilities and legal leadership may also need to authorize)
+- Emergency contact list: 24/7 numbers to call if caught by security or law enforcement
+- Get out of jail letter: Physical letter on company letterhead authorizing the test; includes tester description, vehicle, equipment
+- Rules of engagement: What constitutes success? Building access only? Executive floor? Server room? Data center? Safe combinations?
 
 ### Reconnaissance
 
-- **OSINT**: Google Street View, Google Earth, building permit records, LinkedIn for security team names and schedules
-- **Physical observation**: Note guard patrol patterns, shift changes, smoking areas (tailgate opportunities), delivery schedules
-- **Social media**: Employees posting badge photos reveal badge design, color, and format
+- OSINT: Google Street View, Google Earth, building permit records, LinkedIn for security team names and schedules
+- Physical observation: Note guard patrol patterns, shift changes, smoking areas (tailgate opportunities), delivery schedules
+- Social media: Employees posting badge photos reveal badge design, color, and format
 
 ### Entry Techniques
 
-- **Tailgating**: Following authorized personnel through door; asking them to hold it
-- **Piggybacking**: Social engineering the holder to actively hold door
-- **Shoulder surfing**: Observing PINs and access codes
-- **Badge cloning**: Proxmark3 or ACR122U for 125kHz (HID Prox, EM4100) cloning; Flipper Zero for low-frequency RFID
-- **Shimming**: Thin plastic card to slip door latch on improperly fitted door frames
-- **Under-door tool**: Hook to pull down lever handles from underside of door
-- **Rex sensor defeat**: Motion sensor above door triggers release from inside; use lever/thin rod under door
+- Tailgating: Following authorized personnel through door; asking them to hold it
+- Piggybacking: Social engineering the holder to actively hold door
+- Shoulder surfing: Observing PINs and access codes
+- Badge cloning: Proxmark3 or ACR122U for 125kHz (HID Prox, EM4100) cloning; Flipper Zero for low-frequency RFID
+- Shimming: Thin plastic card to slip door latch on improperly fitted door frames
+- Under-door tool: Hook to pull down lever handles from underside of door
+- Rex sensor defeat: Motion sensor above door triggers release from inside; use lever/thin rod under door
 
 ### Lock Picking
 
-- **Single Pin Picking (SPP)**: Most controlled technique; feedback-driven; tension wrench + pick
-- **Raking**: Fast, less controlled; serrated rakes; effective against low-security locks
-- **Bumping**: Modified key + mallet; resonance defeats spring-loaded pins
-- **Bypass tools**: Credit card shimming, loiding, jiggler keys for wafer locks
-- **High-security locks**: Medeco, Abloy, Mul-T-Lock -- require specialist bypass or alternative attack path
-- **Resources**: Deviant Ollam (Practical Lock Picking), LockPickingLawyer YouTube
+- Single Pin Picking (SPP): Most controlled technique; feedback-driven; tension wrench + pick
+- Raking: Fast, less controlled; serrated rakes; effective against low-security locks
+- Bumping: Modified key + mallet; resonance defeats spring-loaded pins
+- Bypass tools: Credit card shimming, loiding, jiggler keys for wafer locks
+- High-security locks: Medeco, Abloy, Mul-T-Lock -- require specialist bypass or alternative attack path
+- Resources: Deviant Ollam (Practical Lock Picking), LockPickingLawyer YouTube
 
 ### Wireless Security Testing
 
-- **RFID/NFC attacks**: Flipper Zero, Proxmark3 -- read, save, replay, emulate badges
-- **125kHz (HID, EM4100)**: No encryption; fully clonable; most common in older buildings
-- **13.56 MHz (MIFARE Classic)**: Weakly encrypted; Crypto-1 cipher broken; clonable with mfoc/mfcuk
-- **13.56 MHz (MIFARE DESFire, ICODE)**: AES/3DES encryption; much harder to clone
-- **WiFi survey**: Detect rogue APs, probe for WPA2-Enterprise networks
+- RFID/NFC attacks: Flipper Zero, Proxmark3 -- read, save, replay, emulate badges
+- 125kHz (HID, EM4100): No encryption; fully clonable; most common in older buildings
+- 13.56 MHz (MIFARE Classic): Weakly encrypted; Crypto-1 cipher broken; clonable with mfoc/mfcuk
+- 13.56 MHz (MIFARE DESFire, ICODE): AES/3DES encryption; much harder to clone
+- WiFi survey: Detect rogue APs, probe for WPA2-Enterprise networks
 
 ### Social Engineering -- Physical Component
 
-- **Pretext scenarios**: IT support, vendor/contractor, facilities maintenance, auditor, delivery person
-- **Vishing before visit**: Call ahead to name-drop, set up pretext with receptionist
-- **Physical props**: Hard hat, safety vest, clipboard, ID badge holder
-- **Visual impersonation**: Dress like the target's typical contractors or visitors
+- Pretext scenarios: IT support, vendor/contractor, facilities maintenance, auditor, delivery person
+- Vishing before visit: Call ahead to name-drop, set up pretext with receptionist
+- Physical props: Hard hat, safety vest, clipboard, ID badge holder
+- Visual impersonation: Dress like the target's typical contractors or visitors
 
 ---
 
@@ -203,11 +203,11 @@ A physical penetration test follows a structured kill chain:
 
 ### Finding Format
 
-- **Finding title**: e.g., Badge cloning enables unauthorized facility access
-- **Risk rating**: Critical/High/Medium/Low
-- **Evidence**: Photos (redacted if containing sensitive info), description of entry method used
-- **Remediation**: Specific technical and procedural recommendations
-- **Detection**: Were guards/security systems triggered? If not, detection gap noted
+- Finding title: e.g., Badge cloning enables unauthorized facility access
+- Risk rating: Critical/High/Medium/Low
+- Evidence: Photos (redacted if containing sensitive info), description of entry method used
+- Remediation: Specific technical and procedural recommendations
+- Detection: Were guards/security systems triggered? If not, detection gap noted
 
 ### Common Physical Security Findings
 

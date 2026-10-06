@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
-| **Start at** | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
-| **Pairs with** | [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) |
+| Read this when | choosing or hardening MFA and passwordless auth, designing RBAC/ABAC or PAM controls, building IAM detections (credential stuffing, MFA fatigue, impossible travel), mapping IAM to SOC 2 / PCI / NIST / HIPAA |
+| Start at | [IAM Fundamentals](#_1-iam-fundamentals), [Authentication Technologies](#_2-authentication-technologies), [IAM Security Monitoring](#_9-iam-security-monitoring) |
+| Pairs with | [Identity Security](IDENTITY_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md), [Active Directory Security](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md) |
 
 ---
 
@@ -31,10 +31,10 @@
 
 | Pillar | Definition | Example Controls |
 |--------|-----------|-----------------|
-| **Identification** | Claiming an identity (who are you?) | Username, employee ID, email address, certificate CN |
-| **Authentication** | Proving the claimed identity | Password, MFA token, biometric, smart card, FIDO2 key |
-| **Authorization** | Determining what the authenticated identity may do | RBAC roles, ABAC policies, ACLs, OAuth scopes |
-| **Accounting** | Recording what was done | Audit logs, SIEM events, session recording, access reviews |
+| Identification | Claiming an identity (who are you?) | Username, employee ID, email address, certificate CN |
+| Authentication | Proving the claimed identity | Password, MFA token, biometric, smart card, FIDO2 key |
+| Authorization | Determining what the authenticated identity may do | RBAC roles, ABAC policies, ACLs, OAuth scopes |
+| Accounting | Recording what was done | Audit logs, SIEM events, session recording, access reviews |
 
 ### IAM Maturity Model
 
@@ -63,10 +63,10 @@ Level 4 – Optimized
 
 | Type | Description | Key Risks |
 |------|-------------|-----------|
-| **Human Users** | Employees, contractors, partners, customers | Credential theft, phishing, insider threat |
-| **Service Accounts** | Non-interactive accounts for applications/services | Password never rotates, over-privileged, orphaned |
-| **Machine Identities** | Servers, devices, IoT, certificates | Certificate expiry, stolen private key, sprawl |
-| **Workload Identities** | Pods, functions, pipelines, containers | Overly broad IAM roles, token exfiltration |
+| Human Users | Employees, contractors, partners, customers | Credential theft, phishing, insider threat |
+| Service Accounts | Non-interactive accounts for applications/services | Password never rotates, over-privileged, orphaned |
+| Machine Identities | Servers, devices, IoT, certificates | Certificate expiry, stolen private key, sprawl |
+| Workload Identities | Pods, functions, pipelines, containers | Overly broad IAM roles, token exfiltration |
 
 ### Governance vs Management vs PAM
 
@@ -91,61 +91,61 @@ PAM                   → WHO gets elevated privilege and WHEN (vaulting, JIT)
 
 | Standard | Version | Purpose |
 |----------|---------|---------|
-| **SCIM** | 2.0 (RFC 7643/7644) | Automated user provisioning across systems |
-| **LDAP** | v3 (RFC 4511) | Directory access protocol; Active Directory transport |
-| **OAuth** | 2.1 (draft) | Delegated authorization framework |
-| **OpenID Connect** | 1.0 | Identity layer on top of OAuth 2.0 |
-| **SAML** | 2.0 | XML-based SSO federation standard |
-| **FIDO2** | 1.0 | Passwordless authentication specification |
-| **WebAuthn** | Level 2 | W3C API implementing FIDO2 in browsers |
-| **XACML** | 3.0 | Policy language for ABAC/PBAC |
-| **SPIFFE** | 1.0 | Workload identity framework |
+| SCIM | 2.0 (RFC 7643/7644) | Automated user provisioning across systems |
+| LDAP | v3 (RFC 4511) | Directory access protocol; Active Directory transport |
+| OAuth | 2.1 (draft) | Delegated authorization framework |
+| OpenID Connect | 1.0 | Identity layer on top of OAuth 2.0 |
+| SAML | 2.0 | XML-based SSO federation standard |
+| FIDO2 | 1.0 | Passwordless authentication specification |
+| WebAuthn | Level 2 | W3C API implementing FIDO2 in browsers |
+| XACML | 3.0 | Policy language for ABAC/PBAC |
+| SPIFFE | 1.0 | Workload identity framework |
 
 ### IAM Failure Modes
 
-- **Verizon DBIR 2024**: 74% of breaches involve the human element; credential-based attacks remain the top initial access vector.
-- **Credential stuffing**: Automated use of leaked credential pairs against other services. Countered by MFA, breached password lists, rate limiting, CAPTCHA.
-- **Privilege abuse**: Legitimate users exceeding authorized access scope. Detected via UEBA, access reviews, JIT enforcement.
-- **Account takeover (ATO)**: Adversary authenticates as a legitimate user. Attack surface includes SIM swap, phishing, adversary-in-the-middle (AiTM), MFA bypass.
-- **Orphaned accounts**: Accounts not disabled after offboarding. Exploited for re-entry months after departure.
-- **Service account sprawl**: Accumulation of static credentials for applications; rarely rotated or inventoried.
+- Verizon DBIR 2024: 74% of breaches involve the human element; credential-based attacks remain the top initial access vector.
+- Credential stuffing: Automated use of leaked credential pairs against other services. Countered by MFA, breached password lists, rate limiting, CAPTCHA.
+- Privilege abuse: Legitimate users exceeding authorized access scope. Detected via UEBA, access reviews, JIT enforcement.
+- Account takeover (ATO): Adversary authenticates as a legitimate user. Attack surface includes SIM swap, phishing, adversary-in-the-middle (AiTM), MFA bypass.
+- Orphaned accounts: Accounts not disabled after offboarding. Exploited for re-entry months after departure.
+- Service account sprawl: Accumulation of static credentials for applications; rarely rotated or inventoried.
 
-### MITRE ATT&CK — IAM-Relevant Techniques
+### MITRE ATT&CK: IAM-Relevant Techniques
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
-| **T1078** | Valid Accounts | Use of legitimate credentials (local, domain, cloud, default) |
-| **T1078.001** | Default Accounts | Factory default credentials on devices |
-| **T1078.002** | Domain Accounts | AD domain credentials via password spray, kerberoasting |
-| **T1078.004** | Cloud Accounts | Cloud IAM account compromise |
-| **T1110** | Brute Force | Password spraying, stuffing, dictionary attacks |
-| **T1110.001** | Password Guessing | Targeted credential guessing |
-| **T1110.003** | Password Spraying | Low-and-slow to avoid lockout |
-| **T1556** | Modify Authentication Process | Skeleton key, DCShadow, AAD backdoor |
-| **T1606** | Forge Web Credentials | SAML golden ticket, OAuth token abuse |
-| **T1528** | Steal Application Access Token | OAuth token theft from browser/app storage |
-| **T1539** | Steal Web Session Cookie | Session hijacking post-authentication |
-| **T1621** | Multi-Factor Authentication Request Generation | MFA fatigue/push bombing |
+| T1078 | Valid Accounts | Use of legitimate credentials (local, domain, cloud, default) |
+| T1078.001 | Default Accounts | Factory default credentials on devices |
+| T1078.002 | Domain Accounts | AD domain credentials via password spray, kerberoasting |
+| T1078.004 | Cloud Accounts | Cloud IAM account compromise |
+| T1110 | Brute Force | Password spraying, stuffing, dictionary attacks |
+| T1110.001 | Password Guessing | Targeted credential guessing |
+| T1110.003 | Password Spraying | Low-and-slow to avoid lockout |
+| T1556 | Modify Authentication Process | Skeleton key, DCShadow, AAD backdoor |
+| T1606 | Forge Web Credentials | SAML golden ticket, OAuth token abuse |
+| T1528 | Steal Application Access Token | OAuth token theft from browser/app storage |
+| T1539 | Steal Web Session Cookie | Session hijacking post-authentication |
+| T1621 | Multi-Factor Authentication Request Generation | MFA fatigue/push bombing |
 
 ---
 ---
 
 ## 2. Authentication Technologies
 
-### Password Security — NIST SP 800-63B Guidelines
+### Password Security: NIST SP 800-63B Guidelines
 
 | Requirement | NIST SP 800-63B Guidance |
 |------------|--------------------------|
-| **Minimum length** | 8 characters (memorized secrets); 6-digit OTPs |
-| **Maximum length** | At least 64 characters must be supported |
-| **Complexity rules** | NOT mandated — remove composition requirements |
-| **Periodic rotation** | NOT required unless compromise is suspected |
-| **Breached password check** | REQUIRED — check against known-compromised lists |
-| **Password hints/questions** | NOT permitted |
-| **Password managers** | ENCOURAGED — do not prevent paste |
-| **Lockout** | Implement rate limiting, not hard lockout (allows DoS) |
+| Minimum length | 8 characters (memorized secrets); 6-digit OTPs |
+| Maximum length | At least 64 characters must be supported |
+| Complexity rules | NOT mandated: remove composition requirements |
+| Periodic rotation | NOT required unless compromise is suspected |
+| Breached password check | REQUIRED: check against known-compromised lists |
+| Password hints/questions | NOT permitted |
+| Password managers | ENCOURAGED: do not prevent paste |
+| Lockout | Implement rate limiting, not hard lockout (allows DoS) |
 
-**Breached Password Check Implementation:**
+Breached Password Check Implementation:
 ```python
 import hashlib, requests
 
@@ -157,21 +157,21 @@ def is_pwned(password: str) -> int:
     return int(hashes.get(suffix, 0))
 ```
 
-### MFA Types — Security Comparison
+### MFA Types: Security Comparison
 
 | MFA Type | Protocol/Spec | Security Level | Phishing Resistant | Notes |
 |---------|--------------|---------------|-------------------|-------|
-| **TOTP** | RFC 6238 / HOTP+time | Medium | No | 30-second window, SHA-1 HMAC; apps: Google Authenticator, Authy, 1Password |
-| **HOTP** | RFC 4226 | Medium | No | Counter-based; synchronization drift issues |
-| **SMS OTP** | Telco SS7 | Low | No | SIM swap vulnerable, SS7 interception, number porting |
-| **Push Notification** | Vendor | Medium-High | Partial | Duo/Microsoft Authenticator; add number matching + geo context |
-| **FIDO2/WebAuthn** | FIDO Alliance / W3C | Very High | Yes | Hardware key or platform authenticator; phishing-proof via rpId |
-| **Smart Card / PIV** | PKCS#11 / FIPS 201 | Very High | Yes | DoD CAC, PIV card; requires card reader infrastructure |
-| **Biometric** | Platform-specific | Medium-High | Yes | Attack surface: spoof with synthetic fingerprint/face; liveness detection critical |
+| TOTP | RFC 6238 / HOTP+time | Medium | No | 30-second window, SHA-1 HMAC; apps: Google Authenticator, Authy, 1Password |
+| HOTP | RFC 4226 | Medium | No | Counter-based; synchronization drift issues |
+| SMS OTP | Telco SS7 | Low | No | SIM swap vulnerable, SS7 interception, number porting |
+| Push Notification | Vendor | Medium-High | Partial | Duo/Microsoft Authenticator; add number matching + geo context |
+| FIDO2/WebAuthn | FIDO Alliance / W3C | Very High | Yes | Hardware key or platform authenticator; phishing-proof via rpId |
+| Smart Card / PIV | PKCS#11 / FIPS 201 | Very High | Yes | DoD CAC, PIV card; requires card reader infrastructure |
+| Biometric | Platform-specific | Medium-High | Yes | Attack surface: spoof with synthetic fingerprint/face; liveness detection critical |
 
 ### FIDO2 / WebAuthn Deep Dive
 
-**Architecture:**
+Architecture:
 ```
 Browser (Client)  ←→  Relying Party (Website)  ←→  FIDO Server
       ↕
@@ -179,14 +179,14 @@ Browser (Client)  ←→  Relying Party (Website)  ←→  FIDO Server
   (Platform/Roaming)
 ```
 
-**Authenticator Types:**
+Authenticator Types:
 
 | Type | Examples | Transport |
 |------|---------|-----------|
-| **Platform** | Windows Hello, Touch ID, Face ID | Built-in (USB internal, NFC internal) |
-| **Roaming** | YubiKey, Titan Key, Feitian | USB-A, USB-C, NFC, BLE |
+| Platform | Windows Hello, Touch ID, Face ID | Built-in (USB internal, NFC internal) |
+| Roaming | YubiKey, Titan Key, Feitian | USB-A, USB-C, NFC, BLE |
 
-**Attestation Types:**
+Attestation Types:
 
 | Type | Description | Trust Level |
 |------|-------------|------------|
@@ -197,7 +197,7 @@ Browser (Client)  ←→  Relying Party (Website)  ←→  FIDO Server
 | `android-key` | Android Keystore attestation | High |
 | `fido-u2f` | Legacy U2F format | Medium |
 
-**Key Concepts:**
+Key Concepts:
 ```
 rpId          → Relying Party ID (domain); prevents cross-origin phishing
                 Registration: rpId = "example.com"
@@ -212,7 +212,7 @@ Credentials     (formerly "resident keys")
 Conditional UI → Browser autofill for passkeys (WebAuthn with mediation:conditional)
 ```
 
-**Registration Flow:**
+Registration Flow:
 ```
 1. RP sends challenge + rpId + user info
 2. Browser calls navigator.credentials.create()
@@ -221,7 +221,7 @@ Conditional UI → Browser autofill for passkeys (WebAuthn with mediation:condit
 5. RP stores public key mapped to user
 ```
 
-**Authentication Flow:**
+Authentication Flow:
 ```
 1. RP sends challenge
 2. Browser calls navigator.credentials.get()
@@ -234,13 +234,13 @@ Conditional UI → Browser autofill for passkeys (WebAuthn with mediation:condit
 
 | Platform | Storage Backend | Cross-Device Sync |
 |---------|----------------|-------------------|
-| **Apple** | iCloud Keychain | Yes (Apple devices) |
-| **Google** | Google Password Manager | Yes (Android/Chrome) |
-| **Microsoft** | Windows Hello / Microsoft Authenticator | Yes (Entra ID joined) |
-| **1Password** | Encrypted vault | Yes (cross-platform) |
-| **Bitwarden** | Self-hosted or cloud vault | Yes |
+| Apple | iCloud Keychain | Yes (Apple devices) |
+| Google | Google Password Manager | Yes (Android/Chrome) |
+| Microsoft | Windows Hello / Microsoft Authenticator | Yes (Entra ID joined) |
+| 1Password | Encrypted vault | Yes (cross-platform) |
+| Bitwarden | Self-hosted or cloud vault | Yes |
 
-**Passkey vs Traditional FIDO2:**
+Passkey vs Traditional FIDO2:
 ```
 Traditional FIDO2:  Credential stored ON device only (not synced)
 Passkey:            Credential synced across trusted devices via cloud keychain
@@ -262,7 +262,7 @@ def totp(secret_b32: str, t: int = None, step: int = 30, digits: int = 6) -> str
     return str(code % (10 ** digits)).zfill(digits)
 ```
 
-### Push Notification MFA — Security Controls
+### Push Notification MFA: Security Controls
 
 ```
 Number Matching:   User must enter code shown on login screen into push prompt
@@ -293,7 +293,7 @@ Velocity Limiting: Block/alert on >3 push requests in 1 minute to same user
 
 ### Role-Based Access Control (RBAC)
 
-**Core Concepts:**
+Core Concepts:
 ```
 User → Role → Permission
 
@@ -303,15 +303,15 @@ Example:
                                    approve:escalations]
 ```
 
-**Role Engineering Approaches:**
+Role Engineering Approaches:
 
 | Approach | Method | Best For |
 |---------|--------|---------|
-| **Top-Down** | Start from business functions, derive roles | Greenfield IAM programs |
-| **Bottom-Up** | Mine existing entitlements, cluster into roles | Legacy system cleanup |
-| **Hybrid** | Top-down structure, bottom-up validation | Enterprise IGA projects |
+| Top-Down | Start from business functions, derive roles | Greenfield IAM programs |
+| Bottom-Up | Mine existing entitlements, cluster into roles | Legacy system cleanup |
+| Hybrid | Top-down structure, bottom-up validation | Enterprise IGA projects |
 
-**Role Mining (Bottom-Up):**
+Role Mining (Bottom-Up):
 ```python
 # Conceptual clustering approach
 from sklearn.cluster import KMeans
@@ -323,7 +323,7 @@ kmeans = KMeans(n_clusters=10)  # 10 candidate roles
 role_assignments = kmeans.fit_predict(access_matrix)
 ```
 
-**Role Hierarchy:**
+Role Hierarchy:
 ```
 Admin
  └── Manager
@@ -331,7 +331,7 @@ Admin
            └── Read-Only
 ```
 
-**Separation of Duties (SoD) Matrix:**
+Separation of Duties (SoD) Matrix:
 
 | | Create PO | Approve PO | Pay Invoice | Create Vendor | Approve Vendor |
 |--|:---------:|:----------:|:-----------:|:-------------:|:--------------:|
@@ -341,7 +341,7 @@ Admin
 | Create Vendor | OK | OK | OK | — | CONFLICT |
 | Approve Vendor | OK | OK | OK | CONFLICT | — |
 
-**Role Explosion Problem:**
+Role Explosion Problem:
 ```
 Symptoms:  Thousands of fine-grained roles; roles for every combination
            of department × location × seniority
@@ -352,17 +352,17 @@ Solutions:
   3. ABAC layer:          Base role + attribute-based conditions
 ```
 
-**RBAC in Cloud Platforms:**
+RBAC in Cloud Platforms:
 
 | Platform | Implementation |
 |---------|---------------|
-| **AWS IAM** | IAM Roles with attached policies; trust policies for cross-account |
-| **Azure RBAC** | Built-in and custom roles; scope: subscription/RG/resource |
-| **GCP IAM** | Predefined/custom roles; binding: member + role + resource |
+| AWS IAM | IAM Roles with attached policies; trust policies for cross-account |
+| Azure RBAC | Built-in and custom roles; scope: subscription/RG/resource |
+| GCP IAM | Predefined/custom roles; binding: member + role + resource |
 
 ### Attribute-Based Access Control (ABAC)
 
-**Attribute Categories:**
+Attribute Categories:
 ```
 Subject Attributes:   user.department, user.clearance, user.location, user.role
 Resource Attributes:  document.classification, file.owner, db.environment
@@ -370,7 +370,7 @@ Environment Attrs:    time.hour, network.zone, session.mfaCompleted, threat.risk
 Action:               read, write, delete, execute, approve
 ```
 
-**ABAC Policy Example (XACML Conceptual):**
+ABAC Policy Example (XACML Conceptual):
 ```xml
 <Policy>
   <Target>
@@ -393,7 +393,7 @@ Action:               read, write, delete, execute, approve
 </Policy>
 ```
 
-**OPA/Rego as ABAC Policy Engine:**
+OPA/Rego as ABAC Policy Engine:
 ```rego
 package authz
 
@@ -413,13 +413,13 @@ is_business_hours {
 }
 ```
 
-**ABAC in Cloud:**
+ABAC in Cloud:
 
 | Platform | Implementation |
 |---------|---------------|
-| **AWS** | Condition keys in IAM policies (`aws:PrincipalTag`, `s3:prefix`) |
-| **Azure** | ABAC on Storage (blob index tags); Conditional Access for identity |
-| **GCP** | IAM Conditions with CEL expressions |
+| AWS | Condition keys in IAM policies (`aws:PrincipalTag`, `s3:prefix`) |
+| Azure | ABAC on Storage (blob index tags); Conditional Access for identity |
+| GCP | IAM Conditions with CEL expressions |
 
 ### Policy-Based Access Control (PBAC)
 
@@ -436,7 +436,7 @@ Platforms:
   Access (Cedar)
 ```
 
-**Cedar Policy Example (AWS Verified Permissions):**
+Cedar Policy Example (AWS Verified Permissions):
 ```
 permit (
   principal in Group::"finance",
@@ -451,7 +451,7 @@ when {
 
 ### Relationship-Based Access Control (ReBAC)
 
-**Google Zanzibar Model:**
+Google Zanzibar Model:
 ```
 Tuple format:  <object>#<relation>@<subject>
 
@@ -463,16 +463,16 @@ Examples:
 Derived: bob can edit budget (via group membership → editor relation)
 ```
 
-**Open Source ReBAC Implementations:**
+Open Source ReBAC Implementations:
 
 | System | Language | Notes |
 |--------|---------|-------|
-| **OpenFGA** | Go | CNCF sandbox; Okta-backed; FGA modeling language |
-| **Ory Keto** | Go | Zanzibar-compatible REST/gRPC API |
-| **SpiceDB** | Go | Production-grade Zanzibar; AuthZed commercial |
-| **Warrant** | Go/TypeScript | SaaS and self-hosted |
+| OpenFGA | Go | CNCF sandbox; Okta-backed; FGA modeling language |
+| Ory Keto | Go | Zanzibar-compatible REST/gRPC API |
+| SpiceDB | Go | Production-grade Zanzibar; AuthZed commercial |
+| Warrant | Go/TypeScript | SaaS and self-hosted |
 
-**OpenFGA Model Example:**
+OpenFGA Model Example:
 ```
 model
   schema 1.1
@@ -517,20 +517,20 @@ Standing Privilege Reduction:
 
 ### Active Directory / Microsoft Entra ID
 
-**Active Directory Domain Services (AD DS):**
+Active Directory Domain Services (AD DS):
 
 | Component | Description |
 |-----------|-------------|
-| **Domain** | Administrative boundary; DNS namespace |
-| **Forest** | Security boundary; collection of domains |
-| **Trust** | Cross-domain/forest authentication path (one-way, two-way, transitive) |
-| **Kerberos** | Default auth protocol (RFC 4120); AS-REQ/TGT/TGS flow |
-| **NTLM** | Legacy challenge-response; vulnerable to pass-the-hash/relay |
-| **Group Policy** | Centralized config management via GPOs linked to OUs/domains |
-| **AD CS** | PKI: certificate templates, CAs, OCSP, CRL |
-| **AD Tiering** | T0 (forest root/DC), T1 (server admin), T2 (workstation admin) |
+| Domain | Administrative boundary; DNS namespace |
+| Forest | Security boundary; collection of domains |
+| Trust | Cross-domain/forest authentication path (one-way, two-way, transitive) |
+| Kerberos | Default auth protocol (RFC 4120); AS-REQ/TGT/TGS flow |
+| NTLM | Legacy challenge-response; vulnerable to pass-the-hash/relay |
+| Group Policy | Centralized config management via GPOs linked to OUs/domains |
+| AD CS | PKI: certificate templates, CAs, OCSP, CRL |
+| AD Tiering | T0 (forest root/DC), T1 (server admin), T2 (workstation admin) |
 
-**AD LDAP Query Examples:**
+AD LDAP Query Examples:
 ```ldap
 # Find all Domain Admins
 (&(objectClass=user)(memberOf=CN=Domain Admins,CN=Users,DC=corp,DC=local))
@@ -545,9 +545,9 @@ Standing Privilege Reduction:
 (&(adminCount=1)(objectClass=user))
 ```
 
-**Entra ID (Azure AD) Components:**
+Entra ID (Azure AD) Components:
 
-**Conditional Access Policy Structure:**
+Conditional Access Policy Structure:
 ```
 Conditions:
   Users/Groups     → Who
@@ -574,7 +574,7 @@ Session Controls:
   Token binding        → Prevent token theft replay
 ```
 
-**Entra ID PIM (Privileged Identity Management):**
+Entra ID PIM (Privileged Identity Management):
 ```
 Eligible Assignments:    Role assigned but not active; activation required
 Active Assignments:      Immediately usable; limited duration
@@ -584,7 +584,7 @@ Time-Bound:              Assignments expire automatically
 Access Reviews:          Periodic review of active/eligible assignments
 ```
 
-**Entra ID Connect (Hybrid Sync):**
+Entra ID Connect (Hybrid Sync):
 ```
 Security Considerations:
   - Sync account has DCSync rights in AD — protect it like a Tier 0 asset
@@ -596,7 +596,7 @@ Security Considerations:
 
 ### Okta
 
-**Core Components:**
+Core Components:
 
 | Component | Function |
 |-----------|---------|
@@ -609,7 +609,7 @@ Security Considerations:
 | Identity Governance | Access certifications, entitlement management |
 | SSPM | SaaS Security Posture Management for Okta configuration |
 
-**Okta 2022-2023 Breach Lessons:**
+Okta 2022-2023 Breach Lessons:
 ```
 2022 Lapsus$:  Support contractor access compromised;
                lesson: restrict support tool access, monitor contractor sessions
@@ -628,11 +628,11 @@ Mitigations:
 
 | Product | Function |
 |---------|---------|
-| **PingFederate** | Enterprise federation server (SAML, OAuth, OIDC) |
-| **PingOne** | Cloud IDaaS platform |
-| **PingAccess** | Access management with centralized policy |
-| **PingDirectory** | High-performance LDAP directory |
-| **PingAuthorize** | Fine-grained authorization (ABAC/PBAC) |
+| PingFederate | Enterprise federation server (SAML, OAuth, OIDC) |
+| PingOne | Cloud IDaaS platform |
+| PingAccess | Access management with centralized policy |
+| PingDirectory | High-performance LDAP directory |
+| PingAuthorize | Fine-grained authorization (ABAC/PBAC) |
 
 ### Auth0 by Okta
 
@@ -720,13 +720,13 @@ Token Types:
 
 | Account Type | Description | Risk Profile |
 |-------------|-------------|-------------|
-| **Local Administrator** | Built-in/created local admin on workstations | Lateral movement via pass-the-hash |
-| **Domain Administrator** | AD Domain Admin group membership | Complete domain compromise if stolen |
-| **Schema Admin** | Can modify AD schema | Catastrophic — persistent backdoor possible |
-| **Service Accounts** | Runs services/applications; often over-privileged | Rarely rotated; often SPNs — Kerberoastable |
-| **Application Accounts** | Hardcoded in apps/configs | Shared across teams; never expire |
-| **Emergency (Break-Glass)** | Last-resort admin access; rarely used | Must be monitored; requires dual custody |
-| **Cloud Root/Owner** | AWS root, Azure Owner, GCP project Owner | Disable root access keys; use only for recovery |
+| Local Administrator | Built-in/created local admin on workstations | Lateral movement via pass-the-hash |
+| Domain Administrator | AD Domain Admin group membership | Complete domain compromise if stolen |
+| Schema Admin | Can modify AD schema | Catastrophic: persistent backdoor possible |
+| Service Accounts | Runs services/applications; often over-privileged | Rarely rotated; often SPNs — Kerberoastable |
+| Application Accounts | Hardcoded in apps/configs | Shared across teams; never expire |
+| Emergency (Break-Glass) | Last-resort admin access; rarely used | Must be monitored; requires dual custody |
+| Cloud Root/Owner | AWS root, Azure Owner, GCP project Owner | Disable root access keys; use only for recovery |
 
 ### Privileged Account Risks
 
@@ -741,7 +741,7 @@ AS-REP Roasting:      Accounts with pre-auth disabled — crack hash offline
 
 ### Enterprise PAM Platforms
 
-**CyberArk:**
+CyberArk:
 ```
 Digital Vault:       Encrypted credential repository (AES-256); air-gapped option
 CPM (Central Policy Manager):
@@ -769,7 +769,7 @@ REST API Example:
   Body: {"reason":"Incident INC-12345","ticketingSystemName":"ServiceNow"}
 ```
 
-**BeyondTrust:**
+BeyondTrust:
 ```
 Password Safe:          Credential vaulting and session management
 Privileged Remote Access (PRA): Secure vendor/contractor remote access
@@ -779,7 +779,7 @@ Endpoint Privilege Management (EPM):
                         Elevate specific apps without giving local admin
 ```
 
-**Delinea (formerly Thycotic/Centrify):**
+Delinea (formerly Thycotic/Centrify):
 ```
 Secret Server:          On-prem or cloud credential vault
                         Web UI + API; role-based access to secrets
@@ -787,7 +787,7 @@ Privilege Manager:      Endpoint least privilege; application whitelisting
 Connection Manager:     Session recording and management
 ```
 
-**One Identity Safeguard:**
+One Identity Safeguard:
 ```
 Safeguard for Privileged Passwords:  Vault and rotation
 Safeguard for Privileged Sessions:   Session proxy and recording
@@ -798,17 +798,17 @@ Safeguard for Privileged Analytics:  Behavioral analytics
 
 | Capability | Description | Key Metric |
 |-----------|-------------|-----------|
-| **Credential Vaulting** | Encrypted storage; no plaintext credential exposure | % privileged accounts vaulted |
-| **Password Rotation** | Automatic rotation post-checkout or on schedule | Rotation compliance % |
-| **Session Recording** | Keystroke + screen capture; tamper-evident storage | Session recording coverage % |
-| **JIT Ephemeral Accounts** | Create temp account; delete after session | Standing privilege reduction % |
-| **Dual Control** | Second approver required for sensitive systems | Coverage of critical systems |
-| **Break-Glass** | Emergency access with immediate notification | Alert within 5 minutes |
-| **Secrets Injection** | Inject creds into CI/CD without human exposure | Hardcoded secret count |
+| Credential Vaulting | Encrypted storage; no plaintext credential exposure | % privileged accounts vaulted |
+| Password Rotation | Automatic rotation post-checkout or on schedule | Rotation compliance % |
+| Session Recording | Keystroke + screen capture; tamper-evident storage | Session recording coverage % |
+| JIT Ephemeral Accounts | Create temp account; delete after session | Standing privilege reduction % |
+| Dual Control | Second approver required for sensitive systems | Coverage of critical systems |
+| Break-Glass | Emergency access with immediate notification | Alert within 5 minutes |
+| Secrets Injection | Inject creds into CI/CD without human exposure | Hardcoded secret count |
 
 ### Cloud PAM
 
-**AWS:**
+AWS:
 ```bash
 # STS — Short-Lived Credentials
 aws sts assume-role   --role-arn arn:aws:iam::123456789:role/SecurityAudit   --role-session-name incident-response-alice   --duration-seconds 3600
@@ -821,7 +821,7 @@ aws sts assume-role   --role-arn arn:aws:iam::123456789:role/SecurityAudit   --r
 aws secretsmanager rotate-secret   --secret-id prod/database/admin   --rotation-lambda-arn arn:aws:lambda:...:RotateSecret
 ```
 
-**Azure:**
+Azure:
 ```
 Entra ID PIM:
   - Eligible assignments require activation (MFA + justification)
@@ -835,7 +835,7 @@ Managed Identities:
   - No credential management; token from IMDS endpoint
 ```
 
-**HashiCorp Vault — Dynamic Secrets:**
+HashiCorp Vault — Dynamic Secrets:
 ```bash
 # Enable database secrets engine
 vault secrets enable database
@@ -852,7 +852,7 @@ vault read database/creds/analyst-role
 # Vault auto-revokes at TTL expiry; full audit trail
 ```
 
-**GCP PAM (Preview):**
+GCP PAM (Preview):
 ```
 Just-in-time access to Google Cloud resources
 Entitlement: defines who can request what role on which resource
@@ -864,13 +864,13 @@ Audit: all requests, approvals, and grants logged to Cloud Audit Logs
 
 | Metric | Target | Measurement |
 |--------|--------|------------|
-| **Standing Privilege Reduction %** | >80% reduction | Privileged accounts without standing access / total |
-| **Session Recording Coverage %** | 100% of PAM-managed sessions | Recorded sessions / total privileged sessions |
-| **Credential Rotation Compliance %** | >95% | Accounts rotated on schedule / total vaulted |
-| **Mean Time to Provision (MTTP)** | <2 hours | Time from request to access grant |
-| **Mean Time to Deprovision (MTTD)** | <4 hours from termination | Time from HR event to access removal |
-| **Break-Glass Events** | <2/month | Track frequency; each requires incident report |
-| **Orphaned Service Account %** | <5% | Accounts with no login in 90+ days |
+| Standing Privilege Reduction % | >80% reduction | Privileged accounts without standing access / total |
+| Session Recording Coverage % | 100% of PAM-managed sessions | Recorded sessions / total privileged sessions |
+| Credential Rotation Compliance % | >95% | Accounts rotated on schedule / total vaulted |
+| Mean Time to Provision (MTTP) | <2 hours | Time from request to access grant |
+| Mean Time to Deprovision (MTTD) | <4 hours from termination | Time from HR event to access removal |
+| Break-Glass Events | <2/month | Track frequency; each requires incident report |
+| Orphaned Service Account % | <5% | Accounts with no login in 90+ days |
 
 ---
 ---
@@ -881,27 +881,27 @@ Audit: all requests, approvals, and grants logged to Cloud Audit Logs
 
 | Platform | Deployment | Key Strengths |
 |---------|-----------|--------------|
-| **SailPoint IdentityNow** | SaaS/cloud | AI-powered role management, certifications, access requests, SoD |
-| **SailPoint IIQ** | On-prem | Mature, highly customizable, large enterprise |
-| **Saviynt** | Cloud-native | Converged IGA+PAM+SSPM; strong cloud coverage |
-| **IBM Security Verify Governance** | Hybrid | Deep SAP integration, compliance reporting |
-| **One Identity Manager** | On-prem/cloud | Strong AD/Exchange integration, attestation |
-| **Omada Identity** | SaaS | European compliance focus, GDPR alignment |
-| **Sailpoint IdentityAI** | SaaS | AI-driven peer group analysis for access recommendations |
+| SailPoint IdentityNow | SaaS/cloud | AI-powered role management, certifications, access requests, SoD |
+| SailPoint IIQ | On-prem | Mature, highly customizable, large enterprise |
+| Saviynt | Cloud-native | Converged IGA+PAM+SSPM; strong cloud coverage |
+| IBM Security Verify Governance | Hybrid | Deep SAP integration, compliance reporting |
+| One Identity Manager | On-prem/cloud | Strong AD/Exchange integration, attestation |
+| Omada Identity | SaaS | European compliance focus, GDPR alignment |
+| Sailpoint IdentityAI | SaaS | AI-driven peer group analysis for access recommendations |
 
 ### Access Certification Campaigns
 
-**Campaign Types:**
+Campaign Types:
 
 | Type | Reviewer | Scope | Frequency |
 |------|---------|-------|-----------|
-| **Manager Certification** | Direct manager | All direct reports' access | Quarterly |
-| **Role Owner Certification** | Business role owner | All members of their role | Semi-annual |
-| **Application Owner Certification** | App owner | All accounts with access | Annual or on change |
-| **Entitlement Certification** | Entitlement owner | Who has specific permission | Triggered by risk event |
-| **Service Account Certification** | IT owner | All service accounts | Annual |
+| Manager Certification | Direct manager | All direct reports' access | Quarterly |
+| Role Owner Certification | Business role owner | All members of their role | Semi-annual |
+| Application Owner Certification | App owner | All accounts with access | Annual or on change |
+| Entitlement Certification | Entitlement owner | Who has specific permission | Triggered by risk event |
+| Service Account Certification | IT owner | All service accounts | Annual |
 
-**Certification Fatigue Mitigation:**
+Certification Fatigue Mitigation:
 ```
 Risk-Based Filtering:
   - Highlight accounts flagged by UEBA as anomalous
@@ -922,7 +922,7 @@ Automated Revocation:
 
 ### Joiner-Mover-Leaver (JML) Lifecycle
 
-**Joiner Process:**
+Joiner Process:
 ```
 Trigger:  HR system event (new hire record created)
 Step 1:   IGA receives HR event (real-time via API or daily feed)
@@ -935,7 +935,7 @@ Step 7:   Day-1: Manager completes access request for additional apps
 SLA:      Account ready before first day of work
 ```
 
-**Mover Process:**
+Mover Process:
 ```
 Trigger:  HR position change event (transfer, promotion, org change)
 Step 1:   IGA detects delta in HR role/department
@@ -947,7 +947,7 @@ Step 6:   Provision new apps; de-provision apps no longer needed
 Risk:     "Accumulation of access" — roles accumulate across multiple moves
 ```
 
-**Leaver Process:**
+Leaver Process:
 ```
 Trigger:  HR termination event (voluntary/involuntary)
 SLA:      Involuntary: disable within 1 hour; Voluntary: end of last day
@@ -966,7 +966,7 @@ Step 10:  Archive mailbox per retention policy
 
 ### Separation of Duties (SoD)
 
-**SoD Design Principles:**
+SoD Design Principles:
 ```
 1. Identify all business-critical transactions
 2. For each transaction: identify create/approve/execute steps
@@ -977,7 +977,7 @@ Step 10:  Archive mailbox per retention policy
 7. For approved violations: document compensating control + review quarterly
 ```
 
-**Common SoD Conflicts:**
+Common SoD Conflicts:
 
 | Domain | Conflict Pair | Risk |
 |--------|-------------|------|
@@ -991,7 +991,7 @@ Step 10:  Archive mailbox per retention policy
 
 ### SCIM 2.0 Implementation
 
-**RFC 7644 API Endpoints:**
+RFC 7644 API Endpoints:
 ```http
 # List users
 GET /scim/v2/Users
@@ -1029,7 +1029,7 @@ POST /scim/v2/Bulk
 }
 ```
 
-**SCIM Group Provisioning:**
+SCIM Group Provisioning:
 ```http
 POST /scim/v2/Groups
 {
@@ -1071,7 +1071,7 @@ def find_orphans(hr_employees: set, idp_users: list) -> list:
 
 ## 7. Zero Trust Identity
 
-### NIST SP 800-207 — Zero Trust Architecture Principles
+### NIST SP 800-207: Zero Trust Architecture Principles
 
 ```
 1. All data sources and computing services are considered resources
@@ -1110,7 +1110,7 @@ Result:   VPN eliminated; access granted per-application per-session
 
 ### Conditional Access as Zero Trust Enforcement
 
-**Entra ID Conditional Access — Full Policy Structure:**
+Entra ID Conditional Access — Full Policy Structure:
 
 ```
 Policy: "Require MFA and Compliant Device for Sensitive Apps"
@@ -1133,7 +1133,7 @@ Session Controls:
   Persistent browser session: Disabled
 ```
 
-**Conditional Access Gap Analysis — What If Tool:**
+Conditional Access Gap Analysis — What If Tool:
 ```
 Purpose:  Simulate policy evaluation for specific user/app/condition scenarios
           Identify gaps before deploying restrictive policies
@@ -1146,7 +1146,7 @@ Questions to answer:
 Entra portal: Azure AD → Security → Conditional Access → What If
 ```
 
-**Named Locations Configuration:**
+Named Locations Configuration:
 ```json
 {
   "displayName": "Corporate Network",
@@ -1160,32 +1160,32 @@ Entra portal: Azure AD → Security → Conditional Access → What If
 
 ### Identity Security Posture Management (ISPM) / ITDR
 
-**Emerging Tools:**
+Emerging Tools:
 
 | Tool | Focus | Key Capabilities |
 |------|-------|----------------|
-| **Silverfort** | Agentless MFA extension | MFA for legacy protocols (NTLM, Kerberos, RADIUS, WMI) |
-| **Ermetic / Tenable CIEM** | Cloud identity risks | Unused permissions, privilege escalation paths, toxic combos |
-| **CrowdStrike Falcon Identity** | Identity threat detection | AD + ITDR; real-time attack detection |
-| **Varonis** | Data + identity | Data access governance; identity-based data exposure |
-| **Oort (Cisco)** | Identity posture | SaaS identity risk, MFA gap detection |
-| **Push Security** | Browser-based ISPM | SaaS discovery, shadow IT, identity risk in browser |
+| Silverfort | Agentless MFA extension | MFA for legacy protocols (NTLM, Kerberos, RADIUS, WMI) |
+| Ermetic / Tenable CIEM | Cloud identity risks | Unused permissions, privilege escalation paths, toxic combos |
+| CrowdStrike Falcon Identity | Identity threat detection | AD + ITDR; real-time attack detection |
+| Varonis | Data + identity | Data access governance; identity-based data exposure |
+| Oort (Cisco) | Identity posture | SaaS identity risk, MFA gap detection |
+| Push Security | Browser-based ISPM | SaaS discovery, shadow IT, identity risk in browser |
 
-### Entra ID Protection — Risk Detections
+### Entra ID Protection: Risk Detections
 
 | Detection | Category | Description |
 |-----------|---------|-------------|
-| **Leaked Credentials** | Offline | Credentials found in dark web/breach dumps |
-| **Anonymous IP Address** | Real-time | Tor, VPN, known anonymizer |
-| **Atypical Travel** | Offline | Auth from geographically impossible locations |
-| **Malware-Linked IP** | Real-time | IP associated with botnet/malware C2 |
-| **Unfamiliar Sign-in Properties** | Real-time | New device, location, or browser fingerprint |
-| **Suspicious Inbox Rules** | Offline | Rules forwarding to external; BEC indicator |
-| **Password Spray** | Offline | Low-and-slow pattern across many accounts |
-| **Token Issuer Anomaly** | Real-time | SAML/OIDC token anomalies |
-| **Admin Confirmed Compromised** | Manual | Security team marks account compromised |
+| Leaked Credentials | Offline | Credentials found in dark web/breach dumps |
+| Anonymous IP Address | Real-time | Tor, VPN, known anonymizer |
+| Atypical Travel | Offline | Auth from geographically impossible locations |
+| Malware-Linked IP | Real-time | IP associated with botnet/malware C2 |
+| Unfamiliar Sign-in Properties | Real-time | New device, location, or browser fingerprint |
+| Suspicious Inbox Rules | Offline | Rules forwarding to external; BEC indicator |
+| Password Spray | Offline | Low-and-slow pattern across many accounts |
+| Token Issuer Anomaly | Real-time | SAML/OIDC token anomalies |
+| Admin Confirmed Compromised | Manual | Security team marks account compromised |
 
-**Risk-Based Policy Responses:**
+Risk-Based Policy Responses:
 ```
 Sign-in risk policy:
   Low risk    → Allow (log)
@@ -1250,7 +1250,7 @@ Stage 4 – Optimal
 
 ### Machine Identity Management
 
-**Certificate Lifecycle:**
+Certificate Lifecycle:
 ```
 Issue → Install → Monitor → Rotate → Revoke
 
@@ -1264,7 +1264,7 @@ ZeroSSL:        Free; 90-day certs; ACME compatible
 Internal CA:    On-prem PKI (AD CS, EJBCA, Vault PKI) for internal services
 ```
 
-**Certificate Sprawl Problem:**
+Certificate Sprawl Problem:
 ```
 Symptoms:
   - No central inventory of certificates
@@ -1280,7 +1280,7 @@ Solution Stack:
   Policy:       Max 1-year validity; no SHA-1; RSA 2048 minimum / P-256 preferred
 ```
 
-**Venafi Enterprise Certificate Management:**
+Venafi Enterprise Certificate Management:
 ```
 Trust Protection Platform:
   - Discovers all certificates (network scan, CA integration, cloud)
@@ -1313,7 +1313,7 @@ Managed Identities (Azure) / Instance Profiles (AWS):
 
 ### Workload Identity Federation
 
-**GitHub Actions → AWS:**
+GitHub Actions -> AWS:
 ```yaml
 # GitHub Actions workflow with OIDC (no static credentials)
 jobs:
@@ -1329,7 +1329,7 @@ jobs:
           # No access keys needed — OIDC token exchanged for STS credentials
 ```
 
-**AWS IAM Trust Policy for GitHub OIDC:**
+AWS IAM Trust Policy for GitHub OIDC:
 ```json
 {
   "Statement": [{
@@ -1346,7 +1346,7 @@ jobs:
 }
 ```
 
-**Azure Federated Credentials:**
+Azure Federated Credentials:
 ```bash
 az ad app federated-credential create   --id <app-object-id>   --parameters '{
     "name": "github-actions-prod",
@@ -1356,7 +1356,7 @@ az ad app federated-credential create   --id <app-object-id>   --parameters '{
   }'
 ```
 
-**GCP Workload Identity Federation:**
+GCP Workload Identity Federation:
 ```bash
 gcloud iam workload-identity-pools create github-pool   --location=global --display-name="GitHub Actions Pool"
 
@@ -1366,7 +1366,7 @@ gcloud iam workload-identity-pools providers create-oidc github-provider   --loc
 gcloud iam service-accounts add-iam-policy-binding deploy-sa@project.iam.gserviceaccount.com   --role="roles/iam.workloadIdentityUser"   --member="principalSet://iam.googleapis.com/projects/.../locations/global/workloadIdentityPools/github-pool/attribute.repository/MyOrg/MyRepo"
 ```
 
-### SPIFFE / SPIRE — Workload Identity
+### SPIFFE / SPIRE: Workload Identity
 
 ```
 SPIFFE (Secure Production Identity Framework For Everyone):
@@ -1389,7 +1389,7 @@ Attestation Methods:
 
 ### Secrets Rotation Automation
 
-**AWS Secrets Manager:**
+AWS Secrets Manager:
 ```python
 # Lambda rotation function template
 import boto3, json
@@ -1419,7 +1419,7 @@ def lambda_handler(event, context):
             VersionStage='AWSCURRENT', MoveToVersionId=token)
 ```
 
-**Detecting Hardcoded Secrets in CI/CD:**
+Detecting Hardcoded Secrets in CI/CD:
 ```yaml
 # GitHub Actions — Secret Scanning with Gitleaks
 - name: Scan for hardcoded secrets
@@ -1437,7 +1437,7 @@ def lambda_handler(event, context):
 
 ### Service Mesh mTLS (Mutual TLS)
 
-**Istio mTLS:**
+Istio mTLS:
 ```yaml
 # Enforce strict mTLS across namespace
 apiVersion: security.istio.io/v1beta1
@@ -1469,7 +1469,7 @@ spec:
         paths: ["/api/v1/charge"]
 ```
 
-**Certificate Rotation in Mesh:**
+Certificate Rotation in Mesh:
 ```
 Istio:   Citadel (istiod) issues workload certs; 24h TTL by default
          Automatic rotation before expiry
@@ -1487,7 +1487,7 @@ Linkerd: Built-in certificate rotation; 24h leaf certs
 
 ### Threat Detection Use Cases
 
-**1. Credential Stuffing**
+1. Credential Stuffing
 ```
 Indicators:
   - High volume failed logins from distributed source IPs
@@ -1510,7 +1510,7 @@ Mitigations: Smart lockout, CAPTCHA after N failures, IP-based rate limiting,
              MFA enforcement, breached password blocking
 ```
 
-**2. Impossible Travel**
+2. Impossible Travel
 ```
 Logic:
   Successful auth from Location A, then successful auth from Location B
@@ -1535,7 +1535,7 @@ KQL:
             DistKm, SpeedKmH, IPAddress
 ```
 
-**3. MFA Fatigue / Push Bombing**
+3. MFA Fatigue / Push Bombing
 ```
 Indicators:
   - High volume of MFA push requests to single user in short window
@@ -1555,7 +1555,7 @@ Mitigations:
   - Okta: FastPass (FIDO2) — no push; phishing resistant
 ```
 
-**4. Service Account Interactive Login**
+4. Service Account Interactive Login
 ```
 KQL:
   SigninLogs
@@ -1568,7 +1568,7 @@ KQL:
   | where ResultType == 0
 ```
 
-**5. Privilege Escalation Events**
+5. Privilege Escalation Events
 ```
 KQL (Azure RBAC changes):
   AzureActivity
@@ -1580,7 +1580,7 @@ KQL (Azure RBAC changes):
   | where Caller !in (known_privileged_admins)
 ```
 
-**6. Dormant Account Sudden Activity**
+6. Dormant Account Sudden Activity
 ```
 Logic:
   Account with no sign-in in past 90 days suddenly authenticates
@@ -1601,17 +1601,17 @@ KQL:
 
 ### UEBA for IAM
 
-**Core UEBA Capabilities:**
+Core UEBA Capabilities:
 
 | Capability | Description |
 |-----------|-------------|
-| **Behavioral Baseline** | ML model of normal behavior per user/entity over 30-90 days |
-| **Peer Group Comparison** | Compare user to peers in same role/department/location |
-| **Risk Score Accumulation** | Multiple low-risk signals combine into high-risk alert |
-| **Entity Timeline** | Unified view of all events for a user across all data sources |
-| **Anomaly Detection** | Statistical deviation from historical baseline |
+| Behavioral Baseline | ML model of normal behavior per user/entity over 30-90 days |
+| Peer Group Comparison | Compare user to peers in same role/department/location |
+| Risk Score Accumulation | Multiple low-risk signals combine into high-risk alert |
+| Entity Timeline | Unified view of all events for a user across all data sources |
+| Anomaly Detection | Statistical deviation from historical baseline |
 
-**Exabeam / Securonix — Risk Signals:**
+Exabeam / Securonix — Risk Signals:
 ```
 Session risk:     Login from new country (+30 points)
                   New device (+20 points)
@@ -1623,7 +1623,7 @@ Threshold:        Risk score > 90 → automated alert to SOC
                   Risk score > 75 → watchlist; enhanced logging
 ```
 
-**Microsoft Sentinel UEBA:**
+Microsoft Sentinel UEBA:
 ```kql
 // Entity behavior anomaly for users
 BehaviorAnalytics
@@ -1637,19 +1637,19 @@ BehaviorAnalytics
 
 ### IAM Audit Logging Requirements
 
-**Events to Log (Mandatory):**
+Events to Log (Mandatory):
 
 | Category | Events |
 |---------|-------|
-| **Authentication** | Success/failure for all auth methods, MFA success/failure, session creation/termination |
-| **Authorization** | Access denied events, policy evaluation outcomes (for sensitive resources) |
-| **Privileged Operations** | Role assignments, policy changes, permission grants/revocations |
-| **Provisioning** | Account created/modified/disabled/deleted, group membership changes |
-| **Credential Operations** | Password changes/resets, MFA enrollment/removal, API key creation/rotation |
-| **Federation** | SAML assertions, OAuth token issuance, federation config changes |
-| **Administrative** | Admin console access, configuration changes, export/bulk operations |
+| Authentication | Success/failure for all auth methods, MFA success/failure, session creation/termination |
+| Authorization | Access denied events, policy evaluation outcomes (for sensitive resources) |
+| Privileged Operations | Role assignments, policy changes, permission grants/revocations |
+| Provisioning | Account created/modified/disabled/deleted, group membership changes |
+| Credential Operations | Password changes/resets, MFA enrollment/removal, API key creation/rotation |
+| Federation | SAML assertions, OAuth token issuance, federation config changes |
+| Administrative | Admin console access, configuration changes, export/bulk operations |
 
-**Log Retention:**
+Log Retention:
 ```
 SOC 2:      Retain audit logs for audit period + 1 year (typically 2 years)
 PCI DSS:    Retain for 12 months; 3 months immediately available
@@ -1658,9 +1658,9 @@ NIST 800-53: Retain per AU-11 organizational requirement (typically 3 years)
 ISO 27001:  Retain per documented policy (typically 1-3 years)
 ```
 
-### Detection Engineering — IAM Query Examples
+### Detection Engineering: IAM Query Examples
 
-**Entra ID Conditional Access Failure (Blocked by Policy):**
+Entra ID Conditional Access Failure (Blocked by Policy):
 ```kql
 SigninLogs
 | where TimeGenerated > ago(24h)
@@ -1673,7 +1673,7 @@ SigninLogs
 | order by count_ desc
 ```
 
-**OAuth Application Consent Granted:**
+OAuth Application Consent Granted:
 ```kql
 AuditLogs
 | where TimeGenerated > ago(24h)
@@ -1692,7 +1692,7 @@ AuditLogs
 
 ### Regulatory Requirements Mapping
 
-**SOC 2 — Common Criteria 6 (Logical and Physical Access Controls):**
+SOC 2 — Common Criteria 6 (Logical and Physical Access Controls):
 ```
 CC6.1:  Logical access security software, infrastructure, and architectures
         → MFA, RBAC, least privilege, access reviews
@@ -1708,7 +1708,7 @@ CC6.8:  Unauthorized or malicious software prevented
         → Endpoint controls (related to identity)
 ```
 
-**ISO 27001:2022 — Annex A.8 (Technological Controls) — Identity:**
+ISO 27001:2022 — Annex A.8 (Technological Controls) — Identity:
 ```
 A.8.2  Privileged access rights          → PAM, JIT, PIM
 A.8.3  Information access restriction    → RBAC, least privilege
@@ -1718,21 +1718,21 @@ A.8.18 Use of privileged utility programs → Privileged access controls
 A.8.35 Secure development lifecycle      → Service account governance in SDLC
 ```
 
-**PCI DSS v4.0 — Requirements 7 & 8:**
+PCI DSS v4.0 — Requirements 7 & 8:
 
 | Requirement | Description | IAM Control |
 |------------|-------------|------------|
-| **7.1** | Access control system implemented | IGA, RBAC implementation |
-| **7.2** | Least privilege access | Minimum necessary access |
-| **7.3** | All access assigned to accounts, not shared | Unique user IDs mandatory |
-| **8.2** | Unique IDs for all users | No shared accounts |
-| **8.3** | Strong authentication for all users and admins | MFA required |
-| **8.4** | MFA for non-console admin access | FIDO2/TOTP for admin |
-| **8.5** | Secure individual non-consumer authentication | Service account controls |
-| **8.6** | System/application accounts managed by policy | Service account governance |
-| **8.7** | Database access controlled | PAM for database access |
+| 7.1 | Access control system implemented | IGA, RBAC implementation |
+| 7.2 | Least privilege access | Minimum necessary access |
+| 7.3 | All access assigned to accounts, not shared | Unique user IDs mandatory |
+| 8.2 | Unique IDs for all users | No shared accounts |
+| 8.3 | Strong authentication for all users and admins | MFA required |
+| 8.4 | MFA for non-console admin access | FIDO2/TOTP for admin |
+| 8.5 | Secure individual non-consumer authentication | Service account controls |
+| 8.6 | System/application accounts managed by policy | Service account governance |
+| 8.7 | Database access controlled | PAM for database access |
 
-**HIPAA — §164.312(a)(1) — Technical Safeguards:**
+HIPAA — §164.312(a)(1) — Technical Safeguards:
 ```
 §164.312(a)(2)(i):  Unique user identification — assign unique name/number
 §164.312(a)(2)(ii): Emergency access procedure — break-glass documented
@@ -1742,7 +1742,7 @@ A.8.35 Secure development lifecycle      → Service account governance in SDLC
 §164.312(d):         Person or entity authentication — verify user identity
 ```
 
-**NIST SP 800-53 — AC Control Family:**
+NIST SP 800-53 — AC Control Family:
 
 | Control | Title | Implementation |
 |---------|-------|---------------|
@@ -1758,7 +1758,7 @@ A.8.35 Secure development lifecycle      → Service account governance in SDLC
 | AC-20 | Use of External Systems | BYOD policy; CA for unmanaged |
 | AC-25 | Reference Monitor | PEP cannot be bypassed |
 
-**GDPR — Article 25 (Data Protection by Design):**
+GDPR — Article 25 (Data Protection by Design):
 ```
 Access Minimization:
   Only the data strictly necessary for the purpose should be accessible
@@ -1779,22 +1779,22 @@ IAM relevance:
 
 | KPI | Target | Frequency | Owner |
 |-----|--------|-----------|-------|
-| **Orphan Account Trend** | Decreasing; <2% of active | Monthly | IGA team |
-| **Privileged Account Ratio** | <5% of workforce | Monthly | PAM team |
-| **MFA Enrollment Rate** | >98% of users | Monthly | IAM team |
-| **Certification Completion Rate** | >95% | Per campaign | IGA team |
-| **Mean Time to Provision** | <4 hours for standard | Monthly | IGA team |
-| **Mean Time to Deprovision** | <2 hours (involuntary) | Monthly | IGA team |
-| **SoD Violation Count** | <10 unapproved | Monthly | GRC team |
-| **Standing Privilege Reduction** | >80% YoY | Quarterly | PAM team |
-| **Password Reset Volume** | Decreasing (MFA adoption) | Monthly | Help desk |
-| **Conditional Access Block Rate** | Trending stable or down | Weekly | Identity team |
-| **Identity Secure Score (Entra)** | >80% | Monthly | IAM team |
-| **Service Account with Static Creds** | Decreasing toward 0 | Quarterly | Platform team |
+| Orphan Account Trend | Decreasing; <2% of active | Monthly | IGA team |
+| Privileged Account Ratio | <5% of workforce | Monthly | PAM team |
+| MFA Enrollment Rate | >98% of users | Monthly | IAM team |
+| Certification Completion Rate | >95% | Per campaign | IGA team |
+| Mean Time to Provision | <4 hours for standard | Monthly | IGA team |
+| Mean Time to Deprovision | <2 hours (involuntary) | Monthly | IGA team |
+| SoD Violation Count | <10 unapproved | Monthly | GRC team |
+| Standing Privilege Reduction | >80% YoY | Quarterly | PAM team |
+| Password Reset Volume | Decreasing (MFA adoption) | Monthly | Help desk |
+| Conditional Access Block Rate | Trending stable or down | Weekly | Identity team |
+| Identity Secure Score (Entra) | >80% | Monthly | IAM team |
+| Service Account with Static Creds | Decreasing toward 0 | Quarterly | Platform team |
 
 ### IAM Architecture Patterns
 
-**Centralized vs Federated Identity:**
+Centralized vs Federated Identity:
 ```
 Centralized:
   Single IdP for all apps; all users in one directory
@@ -1822,7 +1822,7 @@ CIAM vs Workforce IAM:
 
 ### Emerging IAM Trends
 
-**Decentralized Identity (W3C DID / Verifiable Credentials):**
+Decentralized Identity (W3C DID / Verifiable Credentials):
 ```
 DID (Decentralized Identifier):
   did:web:example.com / did:ion:EiC... / did:key:z6Mk...
@@ -1837,7 +1837,7 @@ Verifiable Credentials (VC):
 Status: Emerging — limited enterprise adoption; government-led (EU Digital Identity Wallet)
 ```
 
-**CAEP — Continuous Access Evaluation Protocol:**
+CAEP — Continuous Access Evaluation Protocol:
 ```
 Problem:  OAuth access tokens valid for hours; revocation not immediate
 Solution: CAEP allows IdPs to push revocation events to resource servers
@@ -1853,7 +1853,7 @@ SSE (Shared Signals and Events) framework from OpenID Foundation
 Implementations: Entra ID (CAE), Cisco Duo, Ping Identity
 ```
 
-**Non-Human Identity (NHI) as Discipline:**
+Non-Human Identity (NHI) as Discipline:
 ```
 NHI encompasses:
   Service accounts, API keys, OAuth clients, certificates, secrets,
@@ -1869,7 +1869,7 @@ Discipline maturity:
 Tools: Astrix Security, Entro, Aembit, Clutch Security
 ```
 
-**AI-Assisted Access Reviews:**
+AI-Assisted Access Reviews:
 ```
 Traditional:     Reviewer clicks "approve" 95% of the time (rubber stamp)
 AI-assisted:
@@ -1886,11 +1886,11 @@ Platforms: SailPoint AI, Saviynt, Omada, Oort, ConductorOne
 
 | Dimension | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
 |-----------|---------|---------|---------|---------|---------|
-| **People** | No dedicated IAM team | IAM role assigned part-time | Dedicated IAM team | IAM + IGA + PAM specialists | IAM CoE with automation engineers |
-| **Process** | Ad-hoc, undocumented | Documented; partially followed | Standardized; enforced | Continuously improved | Automated; metrics-driven |
-| **Technology** | Spreadsheets, manual | Basic IdP; some SSO | IGA + PAM + MFA | ZT enforcement; ITDR | AI-driven; fully automated |
-| **Governance** | None | Annual audit only | Quarterly certifications | Risk-based continuous review | Real-time governance |
-| **Compliance** | Reactive | Basic controls | Audit-ready | Proactive monitoring | Predictive risk management |
+| People | No dedicated IAM team | IAM role assigned part-time | Dedicated IAM team | IAM + IGA + PAM specialists | IAM CoE with automation engineers |
+| Process | Ad-hoc, undocumented | Documented; partially followed | Standardized; enforced | Continuously improved | Automated; metrics-driven |
+| Technology | Spreadsheets, manual | Basic IdP; some SSO | IGA + PAM + MFA | ZT enforcement; ITDR | AI-driven; fully automated |
+| Governance | None | Annual audit only | Quarterly certifications | Risk-based continuous review | Real-time governance |
+| Compliance | Reactive | Basic controls | Audit-ready | Proactive monitoring | Predictive risk management |
 
 ### Tool Evaluation Criteria (IGA RFP Template)
 

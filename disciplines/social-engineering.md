@@ -36,7 +36,7 @@ Social engineering is the practice of exploiting human psychology rather than te
 | Spear Phishing | Targeted phishing tailored to a specific individual using personal context and OSINT | Highly effective initial access; used by APTs |
 | Whaling | Spear phishing aimed at executives or high-value targets (CFO, CEO, CISO) | BEC fraud, wire transfer authorization, credential theft |
 | Smishing | Phishing delivered via SMS text messages | Credential harvesting, malware delivery to mobile devices |
-| Vishing | Voice-based phishing — phone calls using pretexting or urgency | MFA reset fraud, credential extraction from helpdesks |
+| Vishing | Voice-based phishing: phone calls using pretexting or urgency | MFA reset fraud, credential extraction from helpdesks |
 | Pretexting | Fabricating a believable scenario to manipulate a target into action | Foundation for most SE attacks; impersonation basis |
 | Baiting | Leaving physical media (USB drives) or digital lures to entice victims | Malware delivery via autorun, credential harvesting pages |
 | Quid Pro Quo | Offering something (IT help, gift cards) in exchange for information or access | IT support impersonation, credential theft |
@@ -51,26 +51,26 @@ Social engineering is the practice of exploiting human psychology rather than te
 
 Building realistic phishing infrastructure requires several components working together:
 
-**GoPhish walkthrough**:
+GoPhish walkthrough:
 - Campaign setup: define SMTP relay, sending profile, target group, and schedule
 - Template creation: clone legitimate login pages, add tracking pixels for open rates
 - Landing pages: credential capture forms or redirect to legitimate site post-capture
 - Tracking: per-user click, open, credential submission, and report metrics
 - OPSEC: use aged domains, match legitimate email headers, configure DKIM/SPF on attack domain
 
-**Adversary-in-the-Middle (AiTM) phishing**:
+Adversary-in-the-Middle (AiTM) phishing:
 - Evilginx2 and Modlishka act as reverse proxies between the victim and the legitimate service
-- The victim authenticates to the real service through the proxy — the session cookie is captured
+- The victim authenticates to the real service through the proxy: the session cookie is captured
 - This technique bypasses TOTP and push-notification MFA because the session is live
 - Defeated by: FIDO2/passkeys (phishing-resistant MFA), conditional access policies, CAE (Continuous Access Evaluation)
 
-**Domain categorization tricks**:
+Domain categorization tricks:
 - Register lookalike domains well in advance to age them past spam filters
 - Use domain generation that mimics legitimate SaaS (e.g., microsoft-helpdesk[.]com)
 - Apply for URL categorization with web filtering vendors before launching campaigns
 - Use redirectors (Cloudflare Pages, legitimate cloud services) to mask C2 infrastructure
 
-**TOAD (Telephone-Oriented Attack Delivery)** attacks:
+TOAD (Telephone-Oriented Attack Delivery) attacks:
 - Callback phishing: email delivers no malicious payload; victim is instructed to call a number
 - Attacker controls the phone number and impersonates IT support or a financial institution
 - Once on the call, attacker guides victim through installing remote access tools (RAT)
@@ -128,7 +128,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 |---|---|---|---|
 | GoPhish | Open Source | Self-hosted phishing simulation framework | https://github.com/gophish/gophish |
 | Evilginx2 | Open Source | AiTM reverse proxy for credential + session token capture | https://github.com/kgretzky/evilginx2 |
-| Modlishka | Open Source | AiTM phishing reverse proxy — alternative to Evilginx2 | https://github.com/drk1wi/Modlishka |
+| Modlishka | Open Source | AiTM phishing reverse proxy: alternative to Evilginx2 | https://github.com/drk1wi/Modlishka |
 | SET (Social-Engineer Toolkit) | Open Source | Framework for phishing, credential harvesting, and SE attacks | https://github.com/trustedsec/social-engineer-toolkit |
 | King Phisher | Open Source | Phishing campaign toolkit with server and client components | https://github.com/rsmusllp/king-phisher |
 | CredSniper | Open Source | Phishing framework with 2FA bypass support | https://github.com/ustayready/CredSniper |
@@ -167,7 +167,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 | Technique ID | Name | Tactic | Relevance |
 |---|---|---|---|
-| T1566 | Phishing | Initial Access | Parent technique — email-based phishing for initial access |
+| T1566 | Phishing | Initial Access | Parent technique: email-based phishing for initial access |
 | T1566.001 | Spearphishing Attachment | Initial Access | Phishing with malicious attachments (macros, LNK, ISO) |
 | T1566.002 | Spearphishing Link | Initial Access | Phishing with malicious or credential-harvesting links |
 | T1598 | Phishing for Information | Reconnaissance | Credential-focused phishing for intelligence gathering, not just access |
@@ -183,10 +183,10 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 | Certification | Issuer | Relevance |
 |---|---|---|
 | [SEPP (Social Engineering Pentest Professional)](https://www.social-engineer.com/sepp/) | Social-Engineer LLC | Dedicated social engineering penetration testing certification |
-| [OSCP](https://www.offsec.com/courses/pen-200/) | Offensive Security | Practical offensive cert — social engineering supports initial access |
+| [OSCP](https://www.offsec.com/courses/pen-200/) | Offensive Security | Practical offensive cert: social engineering supports initial access |
 | [GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Penetration testing including social engineering vectors |
 | [CEH (Certified Ethical Hacker)](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/) | EC-Council | Includes social engineering techniques and tools |
-| [SANS SEC467](https://www.sans.org/cyber-security-courses/social-engineering-for-penetration-testers/) | SANS / GIAC | Social Engineering for Penetration Testers — dedicated course |
+| [SANS SEC467](https://www.sans.org/cyber-security-courses/social-engineering-for-penetration-testers/) | SANS / GIAC | Social Engineering for Penetration Testers: dedicated course |
 | [Security+](https://www.comptia.org/certifications/security) | CompTIA | Covers social engineering awareness and defensive controls |
 
 ---
@@ -195,7 +195,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 | Resource | Type | Notes |
 |---|---|---|
-| [Social Engineering: The Science of Human Hacking (Hadnagy)](https://www.wiley.com/en-us/Social+Engineering%3A+The+Science+of+Human+Hacking%2C+2nd+Edition-p-9781119433385) | Book | The foundational reference — psychology, techniques, and defense |
+| [Social Engineering: The Science of Human Hacking (Hadnagy)](https://www.wiley.com/en-us/Social+Engineering%3A+The+Science+of+Human+Hacking%2C+2nd+Edition-p-9781119433385) | Book | The foundational reference: psychology, techniques, and defense |
 | [The Art of Deception (Mitnick)](https://www.wiley.com/en-us/The+Art+of+Deception-p-9780764542800) | Book | Classic case studies of SE attacks from the world's most famous social engineer |
 | [Phishing Dark Waters (Hadnagy & Fincher)](https://www.wiley.com/en-us/Phishing+Dark+Waters-p-9781118958476) | Book | Deep dive on phishing psychology and enterprise defense |
 | [DEF CON SE Village](https://www.sevillage.org/) | Conference | Live SE competitions (SECTF) and practitioner talks |
@@ -207,7 +207,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ## Social Engineering Attack Taxonomy
 
-**Phishing Types**
+Phishing Types
 
 | Type | Target | Medium | Sophistication |
 |------|--------|--------|----------------|
@@ -218,7 +218,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 | Spearphishing via LinkedIn | Professionals | LinkedIn message | High |
 | Business Email Compromise (BEC) | Finance/HR/executives | Email | Very high (no malware) |
 
-**Pretexting Scenarios (Real-World Examples)**
+Pretexting Scenarios (Real-World Examples)
 - IT helpdesk impersonation: "Hi, this is Bob from IT. We detected unusual activity on your account. I need to verify your credentials."
 - Vendor impersonation: Fake invoice from "known" vendor with updated payment details
 - Executive impersonation (CEO fraud): Urgency + authority -> "I need a wire transfer done today, don't tell anyone"
@@ -229,17 +229,17 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ## Phishing Infrastructure Setup
 
-**Technical Setup**
+Technical Setup
 - Domain selection: Typosquatting (targetcorp.com -> target-corp.com), homoglyph (paypa1.com), combo-squatting (secure-microsoft-login.com)
 - Email infrastructure: VPS + Postfix + SPF/DKIM/DMARC records for deliverability
 - GoPhish: Open-source phishing framework; campaigns, templates, tracking
-- Evilginx3: AiTM proxy — captures session tokens + credentials even with MFA; targets Office 365, Google, GitHub
+- Evilginx3: AiTM proxy: captures session tokens + credentials even with MFA; targets Office 365, Google, GitHub
 - Modlishka: Similar AiTM tool; more customizable
 - EvilnoVNC: Browser-in-browser phishing via VNC; bypasses most MFA
 
-**Email Delivery Bypass Techniques**
+Email Delivery Bypass Techniques
 - Authenticated sending infrastructure: SPF/DKIM/DMARC alignment from purchased lookalike domain
-- Relay through compromised accounts: Use compromised email account to send — passes reputation filters
+- Relay through compromised accounts: Use compromised email account to send: passes reputation filters
 - HTML obfuscation: Zero-width characters, hidden text, CSS manipulation to bypass content filters
 - URL shorteners/redirectors: Multi-hop redirectors (Google -> bit.ly -> target) to bypass URL scanners
 
@@ -247,15 +247,15 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ## Vishing (Voice Phishing)
 
-**Vishing Technique Guide**
+Vishing Technique Guide
 - Research phase: LinkedIn for target's name/role/org, company website for vendor/HR contact names
 - Caller ID spoofing: Burner SIM, SpoofCard, Google Voice; spoof to appear as internal number
 - Tone and pace: Confident, slightly rushed (urgency without panic), professional vocabulary
 - Information elicitation: Use what you know to unlock what you don't know ("I'm calling about the ServiceNow ticket for John in Finance...")
-- Dual pretext: Two callers working together — one gets partial info, second call uses that as verification
+- Dual pretext: Two callers working together: one gets partial info, second call uses that as verification
 - Recording and analysis: Review calls for improvement; Scattered Spider was recorded and studied
 
-**Scattered Spider Case Study (2022-2023)**
+Scattered Spider Case Study (2022-2023)
 - English-speaking native English group (MGM, Caesars, Riot Games, Reddit, Twilio)
 - Primary TTPs: Vishing IT helpdesks to initiate MFA reset; "I've lost my phone, can you reset my Okta?"
 - MFA fatigue: Bombarding user with push notifications at 2am until they approve
@@ -266,7 +266,7 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ## Security Awareness Program Design
 
-**Human Risk Metrics**
+Human Risk Metrics
 
 | Metric | Benchmark | How to Measure |
 |--------|-----------|----------------|
@@ -277,20 +277,20 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 | Training completion rate | Target >95% within 30 days | LMS reporting |
 | MTTA (Mean Time to Acknowledge alert) | Target <30min for P1 phish | SOC metrics |
 
-**Phishing Simulation Vendors**
+Phishing Simulation Vendors
 - KnowBe4: Largest awareness platform; 35,000+ template library; PhishER triage tool
 - Proofpoint Security Awareness: Behavioral science-based; Targeted Attack Protection integration
 - Cofense: Phishing simulation + threat intelligence from clicked links
 - Hoxhunt: Gamified simulation; AI-adaptive difficulty
 - GoPhish (OSS): Self-hosted; flexible; used for red team internal phishing campaigns
 
-**Behavior Change Framework**
+Behavior Change Framework
 - BJ Fogg Tiny Habits Model: Behavior = Motivation + Ability + Prompt. Lower barriers (increase ability) not just motivate
 - Feedback loops: Immediate feedback when phishing link clicked -> training before bad habits form
 - Positive reinforcement: Reward reporting; recognize security champions publicly
 - Micro-learning: 3-5 minute modules better than annual 2-hour compliance training
 
-**Building a Security Champions Program**
+Building a Security Champions Program
 - 1 security champion per department/team (dev, HR, finance, ops)
 - Responsibilities: Report suspicious activity, be local security contact, attend monthly security briefings
 - Recognition: Champions get early threat intel, exclusive content, visible program participation
@@ -300,9 +300,9 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 ## Related Disciplines
 
-- [Offensive Security](/disciplines/offensive-security.md) — SE is a primary initial access vector in red team and pen test engagements
-- [Incident Response](/disciplines/incident-response.md) — SE incidents trigger IR processes; phishing is a leading initial access method
-- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md) — SAT programs are compliance requirements (NIST, ISO 27001, PCI DSS, HIPAA)
-- [Identity & Access Management](/disciplines/identity-access-management.md) — MFA and privileged access management limit the blast radius of credential harvesting
-- [Network Security](/disciplines/network-security.md) — Email security gateways, DNS filtering, and proxy controls defend against phishing delivery
-- [Purple Teaming](/disciplines/purple-teaming.md) — Social engineering techniques are included in adversary emulation campaigns to test detection
+- [Offensive Security](/disciplines/offensive-security.md): SE is a primary initial access vector in red team and pen test engagements
+- [Incident Response](/disciplines/incident-response.md): SE incidents trigger IR processes; phishing is a leading initial access method
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md): SAT programs are compliance requirements (NIST, ISO 27001, PCI DSS, HIPAA)
+- [Identity & Access Management](/disciplines/identity-access-management.md): MFA and privileged access management limit the blast radius of credential harvesting
+- [Network Security](/disciplines/network-security.md): Email security gateways, DNS filtering, and proxy controls defend against phishing delivery
+- [Purple Teaming](/disciplines/purple-teaming.md): Social engineering techniques are included in adversary emulation campaigns to test detection

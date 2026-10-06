@@ -393,7 +393,7 @@ A simple structure: `Date | IP | Ports | Findings | Exploits tried | Root path`
 
 - Try the machine for at least 2 hours with genuine effort
 - Check the HTB Discord `#<machine-name>` channel for nudges (spoiler-free hints)
-- Read community writeups only after the machine retires -- this is the rule that separates learners from flag collectors
+- Read community writeups only after the machine retires: this is the rule that separates learners from flag collectors
 - When you do read a writeup, study *why* each step works, not just what commands to run
 
 ### 4. Essential Tools
@@ -433,20 +433,20 @@ These machines are consistently recommended by the community as the best startin
 
 | Machine | OS | Why Learn It |
 |---|---|---|
-| Lame | Linux | Classic first root -- FTP and Samba exploit, covers the full workflow from scan to shell. The most common "first machine" recommendation. |
+| Lame | Linux | Classic first root: FTP and Samba exploit, covers the full workflow from scan to shell. The most common "first machine" recommendation. |
 | Legacy | Windows | Introduces MS08-067 (NetAPI buffer overflow) and basic Windows SMB exploitation. Essential historical context. |
-| Blue | Windows | EternalBlue (MS17-010) -- the most famous HTB machine and one of the most impactful CVEs in history. Teaches patch management importance. |
+| Blue | Windows | EternalBlue (MS17-010): the most famous HTB machine and one of the most impactful CVEs in history. Teaches patch management importance. |
 | Jerry | Windows | Apache Tomcat manager interface exploitation via WAR file upload webshell. Covers default credential hunting. |
 | Beep | Linux | Multi-service enumeration across ~12 open ports and LFI exploitation via Elastix/Asterisk. Teaches methodical enumeration discipline. |
 | Bashed | Linux | Pre-existing webshell discovery, limited shell upgrade, and sudo exploitation. Great for scripting and command injection basics. |
-| Shocker | Linux | Shellshock (CVE-2014-6271) via CGI -- teaches how server-side script execution via HTTP headers works. |
-| Netmon | Windows | PRTG Network Monitor credential harvesting from config files -- introduces credential hunting in backup and config files. |
+| Shocker | Linux | Shellshock (CVE-2014-6271) via CGI: teaches how server-side script execution via HTTP headers works. |
+| Netmon | Windows | PRTG Network Monitor credential harvesting from config files: introduces credential hunting in backup and config files. |
 | Bank | Linux | DNS-based virtual host enumeration and PHP file extension bypass for upload. Covers vhost recon and web filter bypass. |
-| Bounty | Windows | IIS misconfiguration and web.config abuse for RCE -- teaches how server config files can execute code. |
-| Grandpa/Granny | Windows | WebDAV exploitation on old IIS -- two machines teaching the same technique; great for learning patching timelines. |
+| Bounty | Windows | IIS misconfiguration and web.config abuse for RCE: teaches how server config files can execute code. |
+| Grandpa/Granny | Windows | WebDAV exploitation on old IIS: two machines teaching the same technique; great for learning patching timelines. |
 | Nibbles | Linux | Custom web application enumeration, guessing weak credentials, and bypassing basic upload filters. |
 | Optimum | Windows | HttpFileServer (HFS) exploit introduces searching for service-specific CVEs and Windows kernel exploits for privesc. |
-| Devel | Windows | FTP write access to IIS web root and known exploit -- teaches service interaction and chaining multiple weaknesses. |
+| Devel | Windows | FTP write access to IIS web root and known exploit: teaches service interaction and chaining multiple weaknesses. |
 
 Recommended order for complete beginners: Lame -> Blue -> Legacy -> Jerry -> Shocker -> Bashed -> Netmon -> Bounty -> Nibbles -> Beep
 

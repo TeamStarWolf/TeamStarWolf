@@ -6,7 +6,7 @@
 | | |
 |---|---|
 | Read this when | Deciding which vulnerabilities to patch first, scoring a new CVE with CVSS v3.1 or v4.0, building automated CVE/EPSS/KEV enrichment pipelines |
-| Start at | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS -- Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
+| Start at | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS: Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
 | Pairs with | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
 
 ---
@@ -15,7 +15,7 @@
 1. [CVE Program & NVD Architecture](#_1-cve-program-amp-nvd-architecture)
 2. [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive)
 3. [CVSS v4.0](#_3-cvss-v40)
-4. [EPSS -- Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system)
+4. [EPSS: Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system)
 5. [CISA KEV Catalog](#_5-cisa-kev-catalog)
 6. [Vulnerability Databases & Feeds](#_6-vulnerability-databases-amp-feeds)
 7. [Vulnerability Research & Disclosure](#_7-vulnerability-research-amp-disclosure)
@@ -42,14 +42,14 @@ MITRE (Root CNA) -- ultimate authority; assigns CVEs when no other CNA
 covers the scope; operates cve.mitre.org and the CVE Services API.
 
 Top-Level Root CNAs (TL-Root):
-- CISA-ADP -- U.S. government systems; Authorized Data Publisher for SSVC enrichment
-- GitHub -- GitHub-hosted open source projects and ecosystems
-- Microsoft -- all Microsoft products, Azure, Microsoft 365
-- Google -- Google/Alphabet products, Android, ChromeOS, Chrome
-- Red Hat -- RHEL, Fedora, CentOS Stream, OpenShift
-- Apple -- macOS, iOS, iPadOS, watchOS, tvOS, Safari, XNU kernel
-- Oracle -- Oracle Database, Java SE/JDK, MySQL, WebLogic
-- Cisco -- Cisco IOS, NX-OS, ASA, network hardware, Webex
+- CISA-ADP: U.S. government systems; Authorized Data Publisher for SSVC enrichment
+- GitHub: GitHub-hosted open source projects and ecosystems
+- Microsoft: all Microsoft products, Azure, Microsoft 365
+- Google: Google/Alphabet products, Android, ChromeOS, Chrome
+- Red Hat: RHEL, Fedora, CentOS Stream, OpenShift
+- Apple: macOS, iOS, iPadOS, watchOS, tvOS, Safari, XNU kernel
+- Oracle: Oracle Database, Java SE/JDK, MySQL, WebLogic
+- Cisco: Cisco IOS, NX-OS, ASA, network hardware, Webex
 
 CNA-LR (CNA of Last Resort) -- MITRE fills gaps for products outside any
 CNA scope: novel products, independent researchers, EOL software.
@@ -99,17 +99,17 @@ exploitation status; other ADPs add CPE/CVSS data.
     }
 
 ### CVE States
-- RESERVED -- ID assigned; details embargoed while patch is developed
-- PUBLISHED -- full details public in NVD/CVE.org (description, versions, CVSS)
-- REJECTED -- duplicate or erroneous; record retained with rejection note
+- RESERVED: ID assigned; details embargoed while patch is developed
+- PUBLISHED: full details public in NVD/CVE.org (description, versions, CVSS)
+- REJECTED: duplicate or erroneous; record retained with rejection note
 
 ### NVD Enrichment Pipeline
 NVD (nvd.nist.gov) independently adds to each published CVE record:
-1. CVSS Scoring -- v2.0, v3.1, and increasingly v4.0 base scores
-2. CPE Matching -- e.g. `cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*`
-3. CWE Mapping -- weakness taxonomy classification
-4. Keyword Indexing -- full-text search
-5. ADP Enrichment -- CISA-ADP SSVC data (exploitation/automatable/technicalImpact)
+1. CVSS Scoring: v2.0, v3.1, and increasingly v4.0 base scores
+2. CPE Matching: e.g. `cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*`
+3. CWE Mapping: weakness taxonomy classification
+4. Keyword Indexing: full-text search
+5. ADP Enrichment: CISA-ADP SSVC data (exploitation/automatable/technicalImpact)
 
 ### CNA Workflow & Disclosure Timelines
 1. Researcher finds bug, contacts vendor (security@vendor.com or bug bounty platform)
@@ -250,7 +250,7 @@ Scope removed -- Replaced by two-system impact model:
 
 Each: None / Low / High
 
-### Supplemental Metrics (informational only -- do not affect score)
+### Supplemental Metrics (informational only: do not affect score)
 
 | Metric | Values | Purpose |
 |--------|--------|---------|
@@ -288,7 +288,7 @@ Calculator: https://www.first.org/cvss/calculator/4-0
 
 ---
 
-## 4. EPSS -- Exploit Prediction Scoring System
+## 4. EPSS: Exploit Prediction Scoring System
 
 ### What EPSS Measures
 EPSS (maintained by FIRST) answers: "What is the probability this CVE will
@@ -433,11 +433,11 @@ Feed structure:
 - Oldest entries: early 2000s legacy CVEs still actively exploited
 
 ### Prioritization Tier Model
-1. CISA KEV -- confirmed exploitation; mandatory for FCEB (14-day SLA)
-2. EPSS > 0.70 -- very likely to be exploited; treat as pre-KEV
-3. CVSS Critical (9.0+) -- high theoretical impact
-4. CVSS High (7.0-8.9) -- significant impact
-5. Medium/Low -- standard cycle
+1. CISA KEV: confirmed exploitation; mandatory for FCEB (14-day SLA)
+2. EPSS > 0.70: very likely to be exploited; treat as pre-KEV
+3. CVSS Critical (9.0+): high theoretical impact
+4. CVSS High (7.0-8.9): significant impact
+5. Medium/Low: standard cycle
 
 ---
 
@@ -763,7 +763,7 @@ Approval matrix:
 | Medium | Security Manager | 180 days |
 | Low | Security Analyst | 365 days |
 
-### SCAP -- Security Content Automation Protocol
+### SCAP: Security Content Automation Protocol
 
 - OVAL: XML-based check definitions; verify patch status without exploitation
 - XCCDF: Benchmark format (DISA STIGs, CIS Benchmarks)
@@ -787,7 +787,7 @@ Commands:
 
 ## 9. Notable CVEs & Case Studies
 
-### CVE-2021-44228 -- Log4Shell
+### CVE-2021-44228: Log4Shell
 
 Affected: Apache Log4j 2.x (2.0-beta9 through 2.14.1)
 CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
@@ -817,7 +817,7 @@ nation-state APTs (Hafnium, APT41), ransomware groups, and cryptominers.
 
 ---
 
-### CVE-2017-0144 -- EternalBlue (MS17-010)
+### CVE-2017-0144: EternalBlue (MS17-010)
 
 Affected: Windows XP through Server 2016 (SMBv1)
 CVSS v2: 8.1 HIGH (practical severity ~10.0; wormable)
@@ -841,7 +841,7 @@ Commands:
 
 ---
 
-### CVE-2023-34362 -- MOVEit Transfer SQL Injection
+### CVE-2023-34362: MOVEit Transfer SQL Injection
 
 Affected: Progress MOVEit Transfer (all versions, pre-June 2023 patches)
 CVSS: 9.8 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
@@ -859,7 +859,7 @@ Pure data-theft extortion model (no encryption). Supply chain via file transfer 
 
 ---
 
-### CVE-2014-0160 -- Heartbleed
+### CVE-2014-0160: Heartbleed
 
 Affected: OpenSSL 1.0.1 through 1.0.1f, 1.0.2-beta
 CVSS v2: 5.0 MEDIUM (severely understated impact)
@@ -878,7 +878,7 @@ certificate revocation and reissuance.
 
 ---
 
-### CVE-2020-1472 -- ZeroLogon
+### CVE-2020-1472: ZeroLogon
 
 Affected: Windows Server (Netlogon / MS-NRPC)
 CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
@@ -895,7 +895,7 @@ mandatory. Microsoft delayed 6 months for legacy device compatibility.
 
 ---
 
-### CVE-2023-4966 -- CitrixBleed
+### CVE-2023-4966: CitrixBleed
 
 Affected: Citrix NetScaler ADC and Gateway
 CVSS: 9.4 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N

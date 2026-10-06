@@ -945,7 +945,7 @@ modprobe cramfs 2>&1
 |---------|---------|----------|
 | Default on | RHEL, Fedora, CentOS | Ubuntu, Debian, SUSE |
 | Policy model | Label-based (inode labels) | Path-based profiles |
-| Complexity | Higher -- steep learning curve | Lower -- easier to write profiles |
+| Complexity | Higher: steep learning curve | Lower: easier to write profiles |
 | Granularity | Very fine-grained | Profile-level |
 | Learning mode | Permissive mode | Complain mode |
 | Tooling | audit2allow, semanage, sealert | aa-genprof, aa-logprof |
@@ -989,16 +989,16 @@ system_u:system_r:httpd_t:s0
 Enforcement modes:
 | Mode | Description |
 |------|-------------|
-| Enforcing | Active enforcement -- violations are blocked and logged |
-| Permissive | Logging only -- violations logged but NOT blocked |
+| Enforcing | Active enforcement: violations are blocked and logged |
+| Permissive | Logging only: violations logged but NOT blocked |
 | Disabled | SELinux completely off (requires reboot to change) |
 
 Policy types:
 | Policy | Description |
 |--------|-------------|
-| targeted | Default -- enforces on specific targeted daemons |
+| targeted | Default: enforces on specific targeted daemons |
 | minimum | Minimal set of processes confined |
-| mls | Multi-Level Security -- required for government classified |
+| mls | Multi-Level Security: required for government classified |
 
 ### 5.2 SELinux Status Commands
 
@@ -1196,7 +1196,7 @@ iptables is the traditional Linux packet filtering framework (still widely used,
 Tables and Chains:
 | Table | Chains | Purpose |
 |-------|--------|---------|
-| filter | INPUT, OUTPUT, FORWARD | Default -- packet filtering |
+| filter | INPUT, OUTPUT, FORWARD | Default: packet filtering |
 | nat | PREROUTING, OUTPUT, POSTROUTING | Network address translation |
 | mangle | All five chains | Packet header modification |
 | raw | PREROUTING, OUTPUT | Connection tracking bypass |
@@ -1701,7 +1701,7 @@ journalctl --vacuum-time=1year   # Clean old entries
 | PCI DSS 4.0 | 12 months (3 months immediately available) |
 | HIPAA | 6 years |
 | SOX | 7 years |
-| GDPR | Depends on data category -- minimize |
+| GDPR | Depends on data category: minimize |
 | NIST 800-53 | AU-11: organization-defined period |
 | FISMA | 3 years |
 | CIS Benchmark | 90 days minimum |
@@ -2127,7 +2127,7 @@ systemctl enable --now falco
 journalctl -u falco -f   # Monitor alerts
 ```
 
-### 9.4 osquery -- SQL-Based Host Security Queries
+### 9.4 osquery: SQL-Based Host Security Queries
 
 ```bash
 # Install
@@ -2317,13 +2317,13 @@ oscap xccdf generate fix \
 
 | PCI DSS Requirement | Linux Controls |
 |--------------------|---------------|
-| Req 1 -- Network controls | iptables/nftables/firewalld |
-| Req 2 -- Secure defaults | Minimal install, service disable |
-| Req 5 -- Malware protection | ClamAV, Wazuh, rkhunter |
-| Req 6 -- Secure development | Patch management, dnf-automatic |
-| Req 8 -- Identity | PAM, MFA, password policy |
-| Req 10 -- Logging | auditd, rsyslog, SIEM |
-| Req 11 -- Testing | OpenSCAP, Nessus, pen testing |
+| Req 1: Network controls | iptables/nftables/firewalld |
+| Req 2: Secure defaults | Minimal install, service disable |
+| Req 5: Malware protection | ClamAV, Wazuh, rkhunter |
+| Req 6: Secure development | Patch management, dnf-automatic |
+| Req 8: Identity | PAM, MFA, password policy |
+| Req 10: Logging | auditd, rsyslog, SIEM |
+| Req 11: Testing | OpenSCAP, Nessus, pen testing |
 
 ### 10.2 Hardening Automation Tools
 

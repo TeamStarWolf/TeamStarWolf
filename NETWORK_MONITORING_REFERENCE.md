@@ -33,8 +33,8 @@
 | Attribute | Network TAP (Hardware) | SPAN Port (Switch Mirror) |
 |---|---|---|
 | Type | Passive inline hardware device | Software-configured port mirror |
-| Traffic fidelity | 100% -- captures all frames including errors | May drop frames under high load; no CRC errors |
-| Impact on network | None -- fully passive | CPU/memory overhead on switch |
+| Traffic fidelity | 100%: captures all frames including errors | May drop frames under high load; no CRC errors |
+| Impact on network | None: fully passive | CPU/memory overhead on switch |
 | Duplex handling | Full duplex: requires two monitor ports (or aggregation TAP) | Single port, may need aggregation |
 | Cost | Higher upfront ($200-$5,000+) | Free (built into managed switches) |
 | Deployment complexity | Requires physical inline installation | CLI config only |
@@ -64,11 +64,11 @@ Rule of thumb: Use hardware TAPs for critical perimeter monitoring where you can
 
 Key deployment locations:
 
-1. Internet perimeter -- Catches inbound exploitation, outbound C2, and data exfiltration. Highest signal-to-noise ratio for external threats.
-2. DMZ -- Monitors services exposed to the internet. Look for web shell activity, unauthorized outbound from DMZ hosts.
-3. Core backbone -- East-west traffic between VLANs. Critical for detecting lateral movement that bypasses perimeter controls.
-4. Domain controller VLAN -- High-value: Kerberoasting (AS-REP, TGS requests), DCSync (DRSUAPI), LDAP enumeration.
-5. Critical asset segments -- Finance, HR, R&D VLANs. Data exfiltration detection.
+1. Internet perimeter: Catches inbound exploitation, outbound C2, and data exfiltration. Highest signal-to-noise ratio for external threats.
+2. DMZ: Monitors services exposed to the internet. Look for web shell activity, unauthorized outbound from DMZ hosts.
+3. Core backbone: East-west traffic between VLANs. Critical for detecting lateral movement that bypasses perimeter controls.
+4. Domain controller VLAN: High-value: Kerberoasting (AS-REP, TGS requests), DCSync (DRSUAPI), LDAP enumeration.
+5. Critical asset segments: Finance, HR, R&D VLANs. Data exfiltration detection.
 
 ---
 
@@ -280,8 +280,8 @@ zeek-cut ts id.orig_h id.resp_h seen.indicator seen.indicator_type matched sourc
 
 | Mode | Description | Use Case |
 |---|---|---|
-| Passive IDS | af-packet or pcap -- read-only, no blocking | Monitoring, alerting, NSM |
-| Inline IPS | NFQueue or netmap -- can drop/reject packets | Enforcement, automated blocking |
+| Passive IDS | af-packet or pcap: read-only, no blocking | Monitoring, alerting, NSM |
+| Inline IPS | NFQueue or netmap: can drop/reject packets | Enforcement, automated blocking |
 | Offline (PCAP) | Analyze stored PCAP file | Incident response, hunt |
 
 ```bash
@@ -473,11 +473,11 @@ suricata -T -c /etc/suricata/suricata.yaml
 ### How JA3 Works
 
 JA3 creates an MD5 fingerprint of a TLS ClientHello message using five fields:
-- SSLVersion -- TLS version offered by client
-- Ciphers -- cipher suites listed (comma-separated, excluding GREASE values)
-- Extensions -- extension type numbers
-- EllipticCurves -- supported groups (named curves)
-- EllipticCurvePointFormats -- point format values
+- SSLVersion: TLS version offered by client
+- Ciphers: cipher suites listed (comma-separated, excluding GREASE values)
+- Extensions: extension type numbers
+- EllipticCurves: supported groups (named curves)
+- EllipticCurvePointFormats: point format values
 
 The five values are concatenated with dashes, then MD5-hashed:
 ```
@@ -487,9 +487,9 @@ SSLVersion,Ciphers,Extensions,EllipticCurves,EllipticCurveFormats -> MD5 hash
 ### How JA3S Works
 
 JA3S fingerprints the TLS ServerHello response:
-- SSLVersion -- negotiated TLS version
-- Cipher -- single selected cipher suite
-- Extensions -- server extension types
+- SSLVersion: negotiated TLS version
+- Cipher: single selected cipher suite
+- Extensions: server extension types
 
 JA3S identifies the server-side TLS stack -- useful for detecting C2 frameworks by their server configuration regardless of IP address or certificate.
 
@@ -1268,10 +1268,10 @@ event.dataset: "zeek.conn"
 ### RITA (Real Intelligence Threat Analytics)
 
 RITA is an open-source behavioral analytics framework built on Zeek for automated detection of:
-- Beaconing C2 -- statistical analysis of connection timing intervals
-- Long connections -- persistent sessions exceeding configurable threshold
-- DNS tunneling -- query length, entropy, and FQDN anomaly scoring
-- Threat intelligence -- automatic IOC matching against imported feeds
+- Beaconing C2: statistical analysis of connection timing intervals
+- Long connections: persistent sessions exceeding configurable threshold
+- DNS tunneling: query length, entropy, and FQDN anomaly scoring
+- Threat intelligence: automatic IOC matching against imported feeds
 
 Reference: https://github.com/activecm/rita
 
@@ -1307,12 +1307,12 @@ rita html-report incident-2024-01 --open-browser
 | Security Onion | NSM Platform | Integrated: Zeek + Suricata + Elastic + Kibana + Strelka + FleetDM | https://securityonion.net |
 | Arkime | Full Packet Capture | Indexed PCAP storage and session search (Moloch successor) | https://arkime.com |
 | Wireshark | Packet Analysis | GUI-based PCAP analysis, protocol dissection, 2000+ dissectors | https://wireshark.org |
-| tshark | Packet Analysis | CLI Wireshark -- scriptable PCAP analysis, field extraction | https://wireshark.org/docs/man-pages/tshark.html |
+| tshark | Packet Analysis | CLI Wireshark: scriptable PCAP analysis, field extraction | https://wireshark.org/docs/man-pages/tshark.html |
 | tcpdump | Packet Capture | Lightweight CLI capture, ring buffer support, BPF filtering | https://www.tcpdump.org |
 | ntopng | Flow / Traffic Analytics | Real-time traffic monitoring, flow visualization, anomaly scoring | https://www.ntop.org |
 | Strelka | File Analysis | Real-time file analysis: YARA, PE, macros, scripts, archives | https://github.com/target/strelka |
 | RITA | Behavioral Analytics | Zeek-based beacon/DNS-tunnel/C2 detection and reporting | https://github.com/activecm/rita |
-| SiLK | Flow Analysis | Query NetFlow/IPFIX/sFlow -- rwfilter, rwstats, rwcount, rwcut | https://tools.netsa.cert.org/silk |
+| SiLK | Flow Analysis | Query NetFlow/IPFIX/sFlow: rwfilter, rwstats, rwcount, rwcut | https://tools.netsa.cert.org/silk |
 | nfdump | Flow Analysis | NetFlow collector (nfcapd) and query tool with aggregation support | https://github.com/phaag/nfdump |
 | JARM | TLS Fingerprinting | Active server-side TLS fingerprinting (Salesforce open-source) | https://github.com/salesforce/jarm |
 | Scapy | Packet Crafting | Python library for packet construction, capture, replay, and fuzzing | https://scapy.net |

@@ -152,12 +152,12 @@ David Bianco's Pyramid of Pain (2013) describes the relative difficulty for adve
 
 | Level | IOC Type | Adversary Cost to Change | Defender Value |
 |-------|----------|--------------------------|----------------|
-| 1 | Hash Values (MD5, SHA1, SHA256) | Trivial -- recompile or repack | Low -- trivially bypassed |
-| 2 | IP Addresses | Easy -- rotate C2, use VPS/bulletproof | Low-medium |
-| 3 | Domain Names | Easy -- register new domains, use DGA | Medium |
-| 4 | Network/Host Artifacts | Moderate -- change tool configs, strings | Medium-high |
-| 5 | Tools | Hard -- retool, rewrite, acquire new implant | High |
-| 6 | TTPs | Very Hard -- change tradecraft, retrain operators | Highest |
+| 1 | Hash Values (MD5, SHA1, SHA256) | Trivial: recompile or repack | Low: trivially bypassed |
+| 2 | IP Addresses | Easy: rotate C2, use VPS/bulletproof | Low-medium |
+| 3 | Domain Names | Easy: register new domains, use DGA | Medium |
+| 4 | Network/Host Artifacts | Moderate: change tool configs, strings | Medium-high |
+| 5 | Tools | Hard: retool, rewrite, acquire new implant | High |
+| 6 | TTPs | Very Hard: change tradecraft, retrain operators | Highest |
 
 Operational Implication: CTI programs should prioritize detection at the Tools and TTPs levels via behavioral detection (ATT&CK-mapped rules) rather than relying primarily on hash and IP blocklists.
 
@@ -189,7 +189,7 @@ Four Core Features:
 Meta-Features (extend the model for analytical depth):
 - Timestamp: When the event occurred
 - Phase: Which phase of the kill chain or ATT&CK the event maps to
-- Result: Success/fail/unknown -- what the adversary achieved
+- Result: Success/fail/unknown: what the adversary achieved
 - Direction: Victim-to-infrastructure vs. infrastructure-to-victim
 - Methodology: Spearphishing, watering hole, supply chain, etc.
 - Resources: External infrastructure, capabilities, and funding
@@ -788,8 +788,8 @@ Recommended TTLs by IOC Type:
 | IPv6 Addresses | 7 days | 30 days | Same as IPv4 |
 | Domain Names | 30 days | 90 days | Registration cost creates delay in rotation |
 | URLs | 14 days | 45 days | Often short-lived phishing/payload delivery |
-| File Hashes (MD5/SHA) | 365 days | Indefinite | Immutable -- file does not change |
-| YARA Rules | Indefinite | N/A | Behavioral -- update when actor retools |
+| File Hashes (MD5/SHA) | 365 days | Indefinite | Immutable: file does not change |
+| YARA Rules | Indefinite | N/A | Behavioral: update when actor retools |
 | Network Signatures | Indefinite | N/A | Update when protocol changes |
 | Email Addresses | 90 days | 365 days | Depends on campaign activity |
 
@@ -844,7 +844,7 @@ class IOCEnricher:
 
 ---
 
-### 4.4 IOC Scoring -- Admiralty Code
+### 4.4 IOC Scoring: Admiralty Code
 
 The Admiralty Code (NATO standardized) provides a structured way to rate source reliability and information credibility:
 
@@ -992,7 +992,7 @@ Attribution accelerators when actors make mistakes:
 
 ### 5.3 Major Actor Profiles
 
-#### APT29 / Cozy Bear / Midnight Blizzard (Russia -- SVR)
+#### APT29 / Cozy Bear / Midnight Blizzard (Russia: SVR)
 | Attribute | Detail |
 |-----------|--------|
 | Attribution | Russian Foreign Intelligence Service (SVR) |
@@ -1003,7 +1003,7 @@ Attribution accelerators when actors make mistakes:
 | Signature TTPs | Spearphishing -> OAuth token theft -> lateral movement via living-off-the-land -> slow data exfiltration |
 | Key Malware | SUNBURST, BOOMBOX, WINGMAN, EnvyScout, ROOTSAW (HTML smuggling), MagicWeb (ADFS), HALFRIG |
 
-#### APT41 / Winnti (China -- Dual Nexus)
+#### APT41 / Winnti (China: Dual Nexus)
 | Attribute | Detail |
 |-----------|--------|
 | Attribution | Chinese Ministry of State Security (MSS) + eCrime |
@@ -1025,7 +1025,7 @@ Attribution accelerators when actors make mistakes:
 | Signature TTPs | Job-themed spearphishing, custom tooling, SWIFT exploitation, crypto mixing |
 | Key Malware | BLINDINGCAN, HOPLIGHT, AppleJeus, TraderTraitor toolset |
 
-#### APT34 / OilRig (Iran -- MOIS)
+#### APT34 / OilRig (Iran: MOIS)
 | Attribute | Detail |
 |-----------|--------|
 | Attribution | Iranian Ministry of Intelligence and Security (MOIS) |
@@ -1042,7 +1042,7 @@ Attribution accelerators when actors make mistakes:
 | Attribution | Eastern European criminal organization |
 | Naming | FIN7 (Mandiant), Carbon Spider (CrowdStrike), Sangria Tempest (Microsoft) |
 | Targeting | Retail, hospitality, restaurant POS systems; later ransomware |
-| Motivation | Financial -- card theft, banking fraud, ransomware |
+| Motivation | Financial: card theft, banking fraud, ransomware |
 | Notable Campaigns | Carbanak banking trojan ($1B+ stolen), Cl0p ransomware affiliation |
 | Signature TTPs | Spearphishing with malicious DOCX, JScript, PowerShell fileless |
 | Key Malware | Carbanak, Griffon, LOADOUT, PILLOWMINT, Cl0p ransomware |
@@ -1077,7 +1077,7 @@ Campaign Record Structure:
 
 ### 6.1 Technical OSINT
 
-#### Shodan -- Internet-Wide Scanner
+#### Shodan: Internet-Wide Scanner
 ```bash
 # Search for Cobalt Strike C2 servers
 shodan search 'product:"Cobalt Strike Beacon"' --fields ip_str,port,org,hostnames
@@ -1130,7 +1130,7 @@ for host in c.search(query, fields=['ip', 'services.port', 'services.service_nam
     print(host)
 ```
 
-#### GreyNoise -- Separating Signal from Noise
+#### GreyNoise: Separating Signal from Noise
 ```bash
 # IP context: Is this internet background noise or targeted?
 curl "https://api.greynoise.io/v3/community/203.0.113.1" \
@@ -1148,7 +1148,7 @@ curl -X POST "https://api.greynoise.io/v1/noise/multi/quick" \
   -d '{"ips": ["203.0.113.1", "198.51.100.1", "192.0.2.1"]}'
 ```
 
-#### SecurityTrails -- DNS & WHOIS History
+#### SecurityTrails: DNS & WHOIS History
 ```bash
 # DNS history for a domain
 curl "https://api.securitytrails.com/v1/history/evil-domain.com/dns/a" \
@@ -1758,7 +1758,7 @@ filebeat.inputs:
       target: body.response.Attribute
 ```
 
-#### QRadar -- IBM X-Force Integration
+#### QRadar: IBM X-Force Integration
 ```bash
 # QRadar Reference Set bulk upload via REST API
 curl -X POST "https://qradar.example.com/api/reference_data/sets/bulk_load/MaliciousIPs" \
@@ -1867,7 +1867,7 @@ Invoke-RestMethod -Uri "https://api.securitycenter.microsoft.com/api/indicators"
 
 ### 9.4 Firewall and DNS Integration
 
-#### Palo Alto Networks -- MineMeld / Dynamic Address Groups
+#### Palo Alto Networks: MineMeld / Dynamic Address Groups
 ```xml
 <!-- MineMeld node config for dynamic blocklist from MISP -->
 <node>
@@ -1882,7 +1882,7 @@ Invoke-RestMethod -Uri "https://api.securitycenter.microsoft.com/api/indicators"
 </node>
 ```
 
-#### DNS Response Policy Zones (RPZ) -- BIND
+#### DNS Response Policy Zones (RPZ): BIND
 ```bind
 ; /etc/named/rpz.db -- DNS RPZ for IOC blocking
 $TTL 300
@@ -2153,7 +2153,7 @@ Enterprise (5+ FTE, $1.5M+ total):
 | Malpedia | https://malpedia.caad.fkie.fraunhofer.de |
 | TLP Standard | https://www.cisa.gov/tlp |
 
-### ATT&CK Quick Reference -- Common Techniques by Phase
+### ATT&CK Quick Reference: Common Techniques by Phase
 
 | ATT&CK Tactic | Common Techniques (IDs) |
 |---|---|

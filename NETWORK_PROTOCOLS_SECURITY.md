@@ -1070,7 +1070,7 @@ Detection: Sudden large time jumps in NTP sync (>step threshold), multiple NTP s
 - BCP38: ISP-level ingress filtering prevents UDP source spoofing used in amplification.
 - NTPv4 symmetric key or autokey authentication: Prevents rogue NTP server attacks.
 - Multiple NTP sources: Minimum 4 sources for fault tolerance and anomaly detection.
-- Network Time Security (NTS): RFC 8915 -- TLS-authenticated NTP for public servers.
+- Network Time Security (NTS): RFC 8915: TLS-authenticated NTP for public servers.
 - Firewall NTP: Allow only to/from trusted NTP servers; block external UDP/123 to internal hosts.
 - Monitor time skew: Alert on >1-minute drift from authoritative sources.
 
@@ -1251,16 +1251,16 @@ Tools: BGPmon, RIPE BGPlay, Cloudflare Radar BGP, Team Cymru BGP routing securit
 ## Additional References
 
 - [MITRE ATT&CK Network-Based Techniques](https://attack.mitre.org/matrices/enterprise/network/)
-- [RFC 7858 -- DNS over TLS](https://datatracker.ietf.org/doc/html/rfc7858)
-- [RFC 8484 -- DNS Queries over HTTPS](https://datatracker.ietf.org/doc/html/rfc8484)
-- [MS17-010 -- EternalBlue Advisory](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010)
-- [CVE-2019-0708 -- BlueKeep](https://nvd.nist.gov/vuln/detail/CVE-2019-0708)
-- [RPKI Resource Center -- RIPE NCC](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/)
-- [MANRS -- Mutually Agreed Norms for Routing Security](https://www.manrs.org/)
+- [RFC 7858: DNS over TLS](https://datatracker.ietf.org/doc/html/rfc7858)
+- [RFC 8484: DNS Queries over HTTPS](https://datatracker.ietf.org/doc/html/rfc8484)
+- [MS17-010: EternalBlue Advisory](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2017/ms17-010)
+- [CVE-2019-0708: BlueKeep](https://nvd.nist.gov/vuln/detail/CVE-2019-0708)
+- [RPKI Resource Center: RIPE NCC](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/)
+- [MANRS: Mutually Agreed Norms for Routing Security](https://www.manrs.org/)
 - [Let's Encrypt Multi-Perspective Validation](https://letsencrypt.org/2020/02/19/multi-perspective-validation.html)
-- [impacket -- Python network protocols library](https://github.com/SecureAuthCorp/impacket)
-- [Responder -- LLMNR/NBT-NS/MDNS Poisoner](https://github.com/lgandx/Responder)
-- [BloodHound -- AD Attack Path Analysis](https://github.com/BloodHoundAD/BloodHound)
+- [impacket: Python network protocols library](https://github.com/SecureAuthCorp/impacket)
+- [Responder: LLMNR/NBT-NS/MDNS Poisoner](https://github.com/lgandx/Responder)
+- [BloodHound: AD Attack Path Analysis](https://github.com/BloodHoundAD/BloodHound)
 
 ---
 

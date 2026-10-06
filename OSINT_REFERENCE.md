@@ -41,7 +41,7 @@ with target systems.
 |---------------------|-------------|-----------------|----------|
 | Passive | No direct contact with target infrastructure | None | WHOIS, Shodan, crt.sh, archive.org, Google dorks |
 | Semi-passive | Minimal interaction indistinguishable from normal internet traffic | Very low | Resolving DNS records, fetching robots.txt |
-| Active | Direct interaction with target (probes, scans, port sweeps) | Possible | Nmap, nikto, directory brute-force -- requires explicit authorization |
+| Active | Direct interaction with target (probes, scans, port sweeps) | Possible | Nmap, nikto, directory brute-force: requires explicit authorization |
 
 > Rule of thumb: Exhaust passive and semi-passive sources before touching the
 > target. Active techniques may trigger IDS/WAF alerts and legal exposure.
@@ -109,9 +109,9 @@ Tiered OpSec Model
 
 | Tier | Infrastructure | Use Case |
 |------|---------------|---------|
-| 1 -- Low | VPN + clean browser profile + private browsing | Casual research |
-| 2 -- Medium | VPN + Tor + hardened VM (Whonix / Tails) | Sensitive passive collection |
-| 3 -- High | Dedicated VPS + residential proxy + aged sock-puppet accounts | Active enum, social engineering scenarios |
+| 1: Low | VPN + clean browser profile + private browsing | Casual research |
+| 2: Medium | VPN + Tor + hardened VM (Whonix / Tails) | Sensitive passive collection |
+| 3: High | Dedicated VPS + residential proxy + aged sock-puppet accounts | Active enum, social engineering scenarios |
 
 Sock puppet account hygiene:
 - Separate email, phone, device fingerprint per persona
@@ -124,7 +124,7 @@ Burner VM checklist:
 - Fresh snapshot per engagement; revert or destroy after
 - DNS over HTTPS / Tor to a neutral resolver (not ISP)
 - No browser autofill, sync, or cloud backups
-- Clipboard isolation -- never paste real credentials into burner VM
+- Clipboard isolation: never paste real credentials into burner VM
 - Disable WebRTC leaks in browser
 
 ### 1.6 Documentation and Chain of Custody
@@ -284,7 +284,7 @@ curl "https://web.archive.org/cdx/search/cdx?url=target.com/admin&output=json&fl
 
 Other archive sources:
 - `https://cachedview.nl/` -- multi-engine cached page viewer
-- `https://archive.ph/` (formerly archive.is) -- on-demand snapshots
+- `https://archive.ph/` (formerly archive.is): on-demand snapshots
 - `https://CommonCrawl.org` -- petabyte-scale web crawl index
 - `https://timetravel.mementoweb.org/api/` -- unified Memento API
 
@@ -328,7 +328,7 @@ Bypassing WHOIS privacy services:
 - Look for SSL certificate email leakage (crt.sh shows registration emails for some CAs)
 - Historical DNS records may show original registrant IP
 - Breach databases sometimes contain domain registration emails
-- Reverse WHOIS: viewdns.info/reversewhois -- find all domains by same registrant email
+- Reverse WHOIS: viewdns.info/reversewhois: find all domains by same registrant email
 
 ### 3.2 DNS Enumeration
 
@@ -369,14 +369,14 @@ DNS record types to enumerate:
 
 | Record | Information Value |
 |--------|-----------------|
-| A / AAAA | IPv4/IPv6 addresses -- IP infrastructure mapping |
-| MX | Mail servers -- email provider, potential email spoofing intel |
+| A / AAAA | IPv4/IPv6 addresses: IP infrastructure mapping |
+| MX | Mail servers: email provider, potential email spoofing intel |
 | TXT | SPF, DKIM, DMARC, domain verification tokens (Google, AWS, Stripe) |
-| NS | Nameservers -- DNS hosting provider |
-| CNAME | Aliases -- may reveal cloud providers (s3.amazonaws.com, *.azurewebsites.net) |
+| NS | Nameservers: DNS hosting provider |
+| CNAME | Aliases: may reveal cloud providers (s3.amazonaws.com, *.azurewebsites.net) |
 | SOA | Zone admin contact, serial (update frequency indicator) |
-| SRV | Service records -- VoIP, XMPP, LDAP, Kerberos presence |
-| PTR | Reverse DNS -- hostname-to-IP mapping |
+| SRV | Service records: VoIP, XMPP, LDAP, Kerberos presence |
+| PTR | Reverse DNS: hostname-to-IP mapping |
 
 TXT record intelligence:
 
@@ -553,12 +553,12 @@ Manual techniques:
 - Skills endorsements -> infer technology stack
 - Post history -> project announcements, technology migrations
 - Education -> likely alma mater, security conference attendance
-- Connection count -- low count may indicate fake/monitoring account
+- Connection count: low count may indicate fake/monitoring account
 - "Open to work" tags on employees -> potential disgruntled staff
 
 Tools:
-- linkedin2username -- generates likely username combinations from LinkedIn
-- CrossLinked -- name-format enumeration for email generation
+- linkedin2username: generates likely username combinations from LinkedIn
+- CrossLinked: name-format enumeration for email generation
 
 ### 4.2 Twitter / X
 
@@ -747,12 +747,12 @@ python3 -m maigret username --html --pdf
 
 ### 5.4 Phone Number OSINT
 
-- Truecaller -- crowdsourced phone book; names linked to numbers
-- Carrier lookup APIs -- identify carrier, line type (mobile/VoIP/landline)
-- GetContact -- similar to Truecaller; community-sourced labels
-- OpenCNAM -- CNAM (Caller ID Name) lookup
+- Truecaller: crowdsourced phone book; names linked to numbers
+- Carrier lookup APIs: identify carrier, line type (mobile/VoIP/landline)
+- GetContact: similar to Truecaller; community-sourced labels
+- OpenCNAM: CNAM (Caller ID Name) lookup
 - Reverse lookup: whitepages.com, spokeo.com (US focus)
-- Numverify API -- line type, carrier, country validation
+- Numverify API: line type, carrier, country validation
 
 ```bash
 # Carrier and line type lookup
@@ -876,10 +876,10 @@ Chronolocation workflow:
 6. Check local astronomical data (moon phase if visible)
 
 Tools for chronolocation:
-- SunCalc.org -- sun position calculator
-- Timeanddate.com/sun -- sun/moon position and shadows
-- Wolfram Alpha -- astronomical queries
-- Weather Underground historical -- cloud cover, precipitation, snow
+- SunCalc.org: sun position calculator
+- Timeanddate.com/sun: sun/moon position and shadows
+- Wolfram Alpha: astronomical queries
+- Weather Underground historical: cloud cover, precipitation, snow
 
 ### 6.3 OpenStreetMap / Overpass API
 
@@ -908,17 +908,17 @@ data = json.load(sys.stdin)
 ### 6.4 Transportation Tracking
 
 Maritime (AIS):
-- MarineTraffic (https://marinetraffic.com) -- live vessel tracking
-- VesselFinder -- alternative AIS viewer
-- AIS Hub -- raw AIS data feeds
-- ShipFinder -- mobile-focused AIS app
+- MarineTraffic (https://marinetraffic.com): live vessel tracking
+- VesselFinder: alternative AIS viewer
+- AIS Hub: raw AIS data feeds
+- ShipFinder: mobile-focused AIS app
 - Search by: vessel name, IMO number, MMSI, company
 
 Aviation (ADS-B):
-- Flightradar24 -- live commercial flight tracking
-- FlightAware -- historical flight data, delays
-- ADSB Exchange -- unfiltered (includes military, private)
-- OpenSky Network -- free API for historical ADS-B data
+- Flightradar24: live commercial flight tracking
+- FlightAware: historical flight data, delays
+- ADSB Exchange: unfiltered (includes military, private)
+- OpenSky Network: free API for historical ADS-B data
 
 ```python
 # OpenSky Network API -- historical flight data
@@ -932,8 +932,8 @@ for f in flights:
 
 Ground transport:
 - Waze real-time alerts (crowd-sourced incidents)
-- Apple Maps / Google Maps -- congestion patterns
-- Transit APIs (GTFS feeds) -- public transit schedule data
+- Apple Maps / Google Maps: congestion patterns
+- Transit APIs (GTFS feeds): public transit schedule data
 
 ### 6.5 Cell Tower and Wi-Fi Geolocation
 
@@ -1688,7 +1688,7 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 | T1596.005 | Scan Databases | Shodan/Censys/FOFA historical data | Shodan, Censys, FOFA, ZoomEye |
 | T1597 | Search Closed Sources | Paid threat intel, dark web | IntelX, Recorded Future |
 | T1597.001 | Threat Intel Vendors | Commercial feeds | Mandiant, CrowdStrike, Recorded Future |
-| T1597.002 | Purchase Technical Data | Credential markets (monitor only) | (monitor only -- never purchase) |
+| T1597.002 | Purchase Technical Data | Credential markets (monitor only) | (monitor only: never purchase) |
 | T1598 | Phishing for Information | Pretext calls/emails for information | Social engineering (authorized only) |
 | T1598.001 | Spearphishing Service | Via third-party messaging service | -- |
 | T1598.002 | Spearphishing Attachment | Weaponized document with tracking | -- |

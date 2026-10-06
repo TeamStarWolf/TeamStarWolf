@@ -257,7 +257,7 @@ See [Certifications Reference](CERTIFICATIONS.md) for full details on each cert.
 | How do you assess confidence in a report? | Evaluate source reliability (track record and access level), information credibility (corroboration, timeliness, internal consistency), and analysis quality. Apply the Admiralty Scale or ACH methodology |
 | IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability -- adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
 | What is STIX/TAXII? | STIX: structured JSON format for threat intelligence objects (indicators, campaigns, malware, TTPs, threat actors). TAXII: transport protocol for automated STIX data sharing between platforms |
-| Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR) -- targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
+| Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR): targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
 
 ---
 
@@ -340,7 +340,7 @@ Research compensation thoroughly before any negotiation. Key sources:
 | How do you assess confidence in a report? | Evaluate source reliability (track record and access level), information credibility (corroboration, timeliness, internal consistency), and analysis quality. Apply the Admiralty Scale or ACH methodology |
 | IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability -- adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
 | What is STIX/TAXII? | STIX: structured JSON format for threat intelligence objects (indicators, campaigns, malware, TTPs, threat actors). TAXII: transport protocol for automated STIX data sharing between platforms |
-| Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR) -- targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
+| Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR): targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
 
 ---
 

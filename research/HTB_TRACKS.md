@@ -195,15 +195,15 @@ Note: For OSCP (OffSec Certified Professional), no single HTB track covers every
 
 Not all valuable learning machines are in official tracks, and official tracks sometimes include machines outside your current skill range. Building a custom track:
 
-1. Browse machine tags on HTB -- every machine is tagged with techniques (e.g., "Active Directory", "Web", "Buffer Overflow", "Kerberoasting"). Filter by tags relevant to your current learning goal.
+1. Browse machine tags on HTB: every machine is tagged with techniques (e.g., "Active Directory", "Web", "Buffer Overflow", "Kerberoasting"). Filter by tags relevant to your current learning goal.
 
-2. Follow community-curated lists -- see the TJnull section below. The community has done significant work mapping machines to skill areas and certification prep.
+2. Follow community-curated lists: see the TJnull section below. The community has done significant work mapping machines to skill areas and certification prep.
 
-3. Sort by user ratings and difficulty ratings -- within a tag, sort by user rating to surface the machines most appreciated for teaching that technique. Avoid unrated or low-rated machines when starting a new topic.
+3. Sort by user ratings and difficulty ratings: within a tag, sort by user rating to surface the machines most appreciated for teaching that technique. Avoid unrated or low-rated machines when starting a new topic.
 
-4. Sequence by difficulty -- within a technique area, start with Easy machines to understand the concept, then progress to Medium machines that add complexity and chaining.
+4. Sequence by difficulty: within a technique area, start with Easy machines to understand the concept, then progress to Medium machines that add complexity and chaining.
 
-5. Cross-reference IppSec -- use https://www.ippsec.rocks/ to search machines by technique name. The search index covers all retired machines and lets you build a playlist from technique searches.
+5. Cross-reference IppSec: use https://www.ippsec.rocks/ to search machines by technique name. The search index covers all retired machines and lets you build a playlist from technique searches.
 
 ---
 

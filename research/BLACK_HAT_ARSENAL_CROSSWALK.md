@@ -355,7 +355,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 
 | Tool | Author/Org | Description | GitHub |
 |---|---|---|---|
-| Mimikatz | gentilkiwi | Windows credential extraction -- the gold standard for LSASS dumping, pass-the-hash, and Kerberos attacks | github.com/gentilkiwi/mimikatz |
+| Mimikatz | gentilkiwi | Windows credential extraction: the gold standard for LSASS dumping, pass-the-hash, and Kerberos attacks | github.com/gentilkiwi/mimikatz |
 | Impacket | fortra (SecureAuth) | Python suite for Windows network protocol interaction; includes secretsdump, psexec, wmiexec, and more | github.com/fortra/impacket |
 | Rubeus | GhostPack | C# Kerberos abuse toolkit; supports AS-REP roasting, Kerberoasting, ticket manipulation, and S4U abuse | github.com/GhostPack/Rubeus |
 | CrackMapExec | mpgn (now byt3bl33d3r) | Swiss army knife for Active Directory environments: enumeration, spraying, execution, and lateral movement | github.com/mpgn/CrackMapExec |
@@ -457,7 +457,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | BloodHound | T1087, T1482, T1069 | AD Attack Paths | Graph-based AD attack path analysis; SharpHound collector; Community Edition (CE) is free |
 | SharpHound | T1087, T1069, T1482 | AD Enumeration | .NET BloodHound data collector; also available as PowerShell |
 | PowerView | T1069, T1087, T1482 | AD Enumeration | PowerShell AD recon: Get-NetUser, Get-ObjectAcl, Find-DomainShare |
-| ADRecon | T1087, T1069 | AD Enumeration | Comprehensive AD snapshot in Excel -- users, groups, GPOs, trusts, SPNs |
+| ADRecon | T1087, T1069 | AD Enumeration | Comprehensive AD snapshot in Excel: users, groups, GPOs, trusts, SPNs |
 | PingCastle | T1087, T1069 | AD Risk Assessment | Domain risk scoring and attack path visualization; produces health report |
 | Ldapdomaindump | T1087, T1069 | AD Enumeration | LDAP data dump to JSON/CSV/HTML; users, groups, computers, GPOs, trusts |
 

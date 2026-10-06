@@ -4,17 +4,17 @@
 
 | | |
 |---|---|
-| **Read this when** | You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline |
-| **Start at** | [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
-| **Pairs with** | [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
+| Read this when | You are acquiring or examining evidence from a compromised or seized system, you need the right artifact (prefetch, ShimCache, SRUM, $UsnJrnl) to prove a file ran or existed after deletion, or you are writing a court-ready forensic report or timeline |
+| Start at | [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals), [Windows Forensics - Artifacts](#_2-windows-forensics-artifacts), [Forensic Reporting & Tools Reference](#_10-forensic-reporting-amp-tools-reference) |
+| Pairs with | [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md) |
 
 ---
 
 ## Table of Contents
 
 1. [Digital Forensics Fundamentals](#_1-digital-forensics-fundamentals)
-2. [Windows Forensics — Artifacts](#_2-windows-forensics-artifacts)
-3. [Windows Forensics — Advanced](#_3-windows-forensics-advanced)
+2. [Windows Forensics: Artifacts](#_2-windows-forensics-artifacts)
+3. [Windows Forensics: Advanced](#_3-windows-forensics-advanced)
 4. [Linux & macOS Forensics](#_4-linux-amp-macos-forensics)
 5. [Memory Forensics](#_5-memory-forensics)
 6. [Disk & File System Forensics](#_6-disk-amp-file-system-forensics)
@@ -29,11 +29,11 @@
 
 ### Locard's Exchange Principle
 
-Edmond Locard (1877–1966) formulated the foundational axiom of forensic science: **every contact leaves a trace**. In digital forensics this manifests as:
+Edmond Locard (1877-1966) formulated the foundational axiom of forensic science: every contact leaves a trace. In digital forensics this manifests as:
 
 - Every user action modifies timestamps, log entries, memory, or registry keys
 - Malware execution leaves artifacts in prefetch, Amcache, event logs, and network flows
-- Investigator actions themselves alter evidence — hence the primacy of write protection and imaging before examination
+- Investigator actions themselves alter evidence: hence the primacy of write protection and imaging before examination
 - Even viewing a file changes the Last Accessed timestamp (though NTFS last-access updates are often disabled by default on modern Windows)
 
 The principle drives every procedural decision: acquire before examine, image before analyze, verify before testify.
@@ -44,41 +44,41 @@ The principle drives every procedural decision: acquire before examine, image be
 
 The SWGDE/NIST framework defines six ordered phases:
 
-#### Phase 1 — Identification
+#### Phase 1: Identification
 - Define the scope: which devices, accounts, cloud services, and time ranges are in scope
 - Assess the legal authority: search warrant, consent form, corporate policy, or exigent circumstances
 - Document the scene: photographs, network diagrams, device inventory (make, model, serial, MAC/IP)
 - Identify all potential evidence sources: endpoints, servers, mobile devices, cloud storage, backup media, IoT devices
 
-#### Phase 2 — Preservation
+#### Phase 2: Preservation
 - Apply write blockers before connecting media
 - Photograph device state (powered on/off, screen content, running processes)
 - Maintain chain of custody from first contact
 - Power considerations: powered-on systems contain volatile evidence (RAM, active network connections) — decide live acquisition vs. immediate shutdown based on case needs
 - Evidence bags, tamper-evident seals, anti-static packaging for storage media
 
-#### Phase 3 — Collection
+#### Phase 3: Collection
 - Follow order of volatility (see below)
 - Document collection methodology including tool versions and hash values
 - Capture volatile data first: RAM, running processes, network connections, logged-on users
 - Create forensic images of storage media with hash verification
 - Collect system artifacts: event logs, prefetch files, registry hives
 
-#### Phase 4 — Examination
+#### Phase 4: Examination
 - Parse collected data using forensic tools
 - Identify relevant artifacts among the volume of data
 - Recover deleted files and hidden data
 - Decode encoded/compressed data
 - Convert timestamps across timezones and formats
 
-#### Phase 5 — Analysis
+#### Phase 5: Analysis
 - Correlate artifacts across data sources to build a timeline
 - Identify indicators of compromise (IOCs): malicious files, C2 domains, lateral movement
 - Reconstruct attacker actions from evidence
 - Apply investigative hypotheses and test against evidence
 - Distinguish between user actions and automated/malware actions
 
-#### Phase 6 — Presentation
+#### Phase 6: Presentation
 - Document findings in a structured forensic report
 - Create a forensic timeline (see Section 10)
 - Prepare court-ready exhibits with proper attribution
@@ -101,22 +101,22 @@ The chain of custody is a chronological record documenting every person who had 
 A broken chain of custody may render evidence inadmissible or subject to challenge in court.
 
 #### Admissibility Standards
-**Federal Rules of Evidence (FRE) Rule 702** governs expert witness testimony in US federal courts. An expert may testify if:
+Federal Rules of Evidence (FRE) Rule 702 governs expert witness testimony in US federal courts. An expert may testify if:
 1. The expert's scientific, technical, or specialized knowledge will help the trier of fact
 2. The testimony is based on sufficient facts or data
 3. The testimony is the product of reliable principles and methods
 4. The expert has reliably applied the principles and methods to the facts of the case
 
-**Daubert Standard** (Daubert v. Merrell Dow Pharmaceuticals, 1993) establishes criteria for scientific evidence admissibility:
+Daubert Standard (Daubert v. Merrell Dow Pharmaceuticals, 1993) establishes criteria for scientific evidence admissibility:
 - Whether the theory or technique can be (and has been) tested
 - Whether it has been subjected to peer review and publication
 - The known or potential error rate of the technique
 - The existence and maintenance of standards controlling the technique's operation
 - Whether the technique has been generally accepted in the relevant scientific community
 
-**Best Evidence Rule (FRE 1002):** An original document is required to prove its content. Forensic images satisfy this requirement when properly authenticated with hash values.
+Best Evidence Rule (FRE 1002): An original document is required to prove its content. Forensic images satisfy this requirement when properly authenticated with hash values.
 
-**Fourth Amendment Considerations:** Warrantless searches require one of the recognized exceptions (consent, exigent circumstances, plain view, search incident to arrest). Always verify legal authority before acquisition.
+Fourth Amendment Considerations: Warrantless searches require one of the recognized exceptions (consent, exigent circumstances, plain view, search incident to arrest). Always verify legal authority before acquisition.
 
 ---
 
@@ -131,8 +131,8 @@ Evidence must be collected from most volatile (shortest-lived) to least volatile
 | 3 | Swap / paging file | Hours | pagefile.sys (Windows), swap partition (Linux) |
 | 4 | Network state | Hours | Active connections, ARP cache, routing table |
 | 5 | Running processes | Hours | Process list, open files, loaded modules |
-| 6 | Disk storage | Days–Years | NTFS, ext4, APFS — survives power cycles |
-| 7 | System logs | Days–Months | Event logs, syslog, auth.log — often rotate |
+| 6 | Disk storage | Days-Years | NTFS, ext4, APFS: survives power cycles |
+| 7 | System logs | Days-Months | Event logs, syslog, auth.log: often rotate |
 | 8 | Remote logging | Months | SIEM, cloud logs, CDN logs |
 | 9 | Archive/backup | Years | Tape, S3 Glacier, backup appliances |
 
@@ -161,38 +161,38 @@ Write blockers prevent any writes to evidence media during acquisition, preservi
 
 #### Hardware Write Blockers
 
-**Tableau T35es (Guidance Software)**
+Tableau T35es (Guidance Software)
 - Supports SATA, SAS, IDE, USB
 - Hardware write-block for forensic imaging
 - Pass-through speeds up to 14 GB/min
 - LCD display shows drive information and status
 - Used with FTK Imager, EnCase, dd
 
-**WiebeTech Forensic UltraDock v5**
+WiebeTech Forensic UltraDock v5
 - USB 3.0, eSATA, FireWire 800/400 connectivity
 - Write-protect switch with LED indicator
 - Supports 2.5" and 3.5" SATA drives
 - Bridge-based hardware write protection
 
-**Logicube Falcon**
+Logicube Falcon
 - Standalone forensic imager and write blocker
 - Can image to multiple destinations simultaneously
 - Built-in hash verification (MD5/SHA-1/SHA-256)
 
 #### Software Write Blockers
 
-**dc3dd** (DoD Cyber Crime Center fork of GNU dd):
+dc3dd (DoD Cyber Crime Center fork of GNU dd):
 ```bash
 # Image with hashing and logging
 dc3dd if=/dev/sdb hash=sha256 hlog=hash.log log=acquisition.log of=evidence.dd
 ```
 
-**dcfldd** (DoD fork with progress and hashing):
+dcfldd (DoD fork with progress and hashing):
 ```bash
 dcfldd if=/dev/sdb of=evidence.img hash=sha256 hashlog=sha256.txt statusinterval=100
 ```
 
-**Linux kernel write-protect** via udev rule:
+Linux kernel write-protect via udev rule:
 ```bash
 # /etc/udev/rules.d/80-write-protect.rules
 ACTION=="add", KERNEL=="sd*", ATTR{removable}=="1", RUN+="/sbin/blockdev --setro /dev/%k"
@@ -249,14 +249,14 @@ ewfverify evidence.E01
 
 ### Forensic Lab Setup
 
-**Physical Requirements:**
+Physical Requirements:
 - Dedicated air-gapped network segment for malware analysis
 - Anti-static flooring and workstations with ESD mats
 - Faraday cage or RF-shielded room for mobile device acquisition
 - Temperature and humidity-controlled evidence storage
 - Locking evidence lockers with access logs
 
-**Software Platform Options:**
+Software Platform Options:
 
 | Platform | Type | Notes |
 |----------|------|-------|
@@ -266,14 +266,14 @@ ewfverify evidence.E01
 | Autopsy / Sleuth Kit | Open-source | Full-featured; extensible via plugins; SIFT-included |
 | SIFT Workstation | Open-source | Ubuntu-based distro with 40+ forensic tools pre-installed |
 
-**SIFT Workstation Installation:**
+SIFT Workstation Installation:
 ```bash
 # Install via SANS DFIR script
 curl -o sift.sh https://raw.githubusercontent.com/teamdfir/sift-saltstack/master/install/install.sh
 sudo bash sift.sh
 ```
 
-**Autopsy + Sleuth Kit:**
+Autopsy + Sleuth Kit:
 ```bash
 # Debian/Ubuntu
 sudo apt install autopsy sleuthkit
@@ -283,7 +283,7 @@ autopsy  # Opens at http://localhost:9999/autopsy
 ```
 
 ---
-## 2. Windows Forensics — Artifacts
+## 2. Windows Forensics: Artifacts
 
 ### Registry Hive Files
 
@@ -302,7 +302,7 @@ The Windows Registry is a hierarchical database storing system and user configur
 
 #### Key Forensic Registry Keys
 
-**UserAssist** — GUI program execution history with timestamps and run count:
+UserAssist — GUI program execution history with timestamps and run count:
 ```
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\
 {CEBFF5CD-...}\Count  <- Applications
@@ -310,37 +310,37 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\
 ```
 Values are ROT-13 encoded. Use RegRipper or Eric Zimmerman's RECmd to decode.
 
-**MuiCache** — Recently executed programs (persists even after deletion):
+MuiCache — Recently executed programs (persists even after deletion):
 ```
 HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
 ```
 
-**RecentDocs** — Recently opened files by extension:
+RecentDocs — Recently opened files by extension:
 ```
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.pdf
 ```
 
-**ShimCache / AppCompatCache** — Application compatibility cache. Proves a file was **present / known to the system** (records path + the file's `$StandardInformation` last-modified time), **not** that it executed: an entry is created when the shim engine becomes aware of a file (for example, the file appears in a directory that gets enumerated), whether or not it ran. An "executed" flag exists **only on Windows 7 / Server 2008 R2**; Windows 8 and later have **no execution indicator** in ShimCache. For actual execution evidence, corroborate with **Amcache** and **Prefetch** (below):
+ShimCache / AppCompatCache — Application compatibility cache. Proves a file was present / known to the system (records path + the file's `$StandardInformation` last-modified time), not that it executed: an entry is created when the shim engine becomes aware of a file (for example, the file appears in a directory that gets enumerated), whether or not it ran. An "executed" flag exists only on Windows 7 / Server 2008 R2; Windows 8 and later have no execution indicator in ShimCache. For actual execution evidence, corroborate with Amcache and Prefetch (below):
 ```
 HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
 ```
 Parse with: `AppCompatCacheParser.exe -f SYSTEM --csv output\`
 
-**Amcache.hve** (`C:\\Windows\\AppCompat\\Programs\\Amcache.hve`) — Detailed program execution artifacts including SHA-1 hash, file path, install date, publisher:
+Amcache.hve (`C:\\Windows\\AppCompat\\Programs\\Amcache.hve`) — Detailed program execution artifacts including SHA-1 hash, file path, install date, publisher:
 ```powershell
 # Parse Amcache
 AmcacheParser.exe -f Amcache.hve --csv output\
 ```
 
-**BAM/DAM** (Background Activity Moderator / Desktop Activity Moderator):
+BAM/DAM (Background Activity Moderator / Desktop Activity Moderator):
 ```
 HKLM\SYSTEM\CurrentControlSet\Services\bam\State\UserSettings\<SID>
 HKLM\SYSTEM\CurrentControlSet\Services\dam\State\UserSettings\<SID>
 ```
 Records last execution time for each executable per user. Windows 10 1709+.
 
-**USB Device History:**
+USB Device History:
 ```
 HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR          <- Device class, serial number
 HKLM\SYSTEM\CurrentControlSet\Enum\USB              <- VID/PID
@@ -348,7 +348,7 @@ HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\EMDMgmt  <- Drive letters assi
 HKLM\SYSTEM\MountedDevices                          <- Volume GUIDs
 ```
 
-**Run / RunOnce Keys** (persistence mechanisms):
+Run / RunOnce Keys (persistence mechanisms):
 ```
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
@@ -356,7 +356,7 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Run
 HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
 ```
 
-**Network History:**
+Network History:
 ```
 HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
 HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
@@ -371,7 +371,7 @@ Event logs are stored as `.evtx` files in `C:\\Windows\\System32\\winevt\\Logs\\
 
 Parse with: `EvtxECmd.exe -d "C:\Windows\System32\winevt\Logs" --csv output\ --csvf all_events.csv`
 
-#### Security Log (Security.evtx) — Key Event IDs
+#### Security Log (Security.evtx): Key Event IDs
 
 | Event ID | Description | Key Fields |
 |----------|-------------|-----------|
@@ -396,7 +396,7 @@ Parse with: `EvtxECmd.exe -d "C:\Windows\System32\winevt\Logs" --csv output\ --c
 | 4776 | NTLM credential validation | TargetUserName, Workstation |
 | 7045 | Service installed (System log) | ServiceName, ImagePath |
 
-**Logon Types:**
+Logon Types:
 - Type 2: Interactive (local keyboard/mouse)
 - Type 3: Network (SMB, mapped drives)
 - Type 4: Batch (scheduled tasks)
@@ -424,20 +424,20 @@ Enable script block logging via GPO:
 
 Windows Prefetch records program execution to speed subsequent launches. Located at `C:\\Windows\\Prefetch\\` (`.pf` extension).
 
-**What prefetch captures:**
+What prefetch captures:
 - Executable name and path
 - Run count (number of executions)
 - Last run time (up to 8 timestamps on Win8+)
 - Files and directories accessed during execution (evidence of file access)
 - Volume information
 
-**Parsing with PECmd.exe (Eric Zimmerman):**
+Parsing with PECmd.exe (Eric Zimmerman):
 ```cmd
 PECmd.exe -d "C:\Windows\Prefetch" --csv output\ -q
 PECmd.exe -f "C:\Windows\Prefetch\MALWARE.EXE-AB12CD34.pf" --json output\
 ```
 
-**Key forensic value:** Even if a malicious executable was deleted, its prefetch file may remain, proving it was executed. The accessed file list reveals what the malware touched.
+Key forensic value: Even if a malicious executable was deleted, its prefetch file may remain, proving it was executed. The accessed file list reveals what the malware touched.
 
 Prefetch is enabled by default on workstations; often disabled on servers. Check:
 ```
@@ -459,8 +459,8 @@ LECmd.exe -d "C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Recent" --csv ou
 
 #### Jump Lists
 Reveal recently and frequently accessed files per application. Two types:
-- **AutomaticDestinations** (`*.automaticDestinations-ms`): auto-populated by OS
-- **CustomDestinations** (`*.customDestinations-ms`): app-defined pinned items
+- AutomaticDestinations (`*.automaticDestinations-ms`): auto-populated by OS
+- CustomDestinations (`*.customDestinations-ms`): app-defined pinned items
 
 Location: `C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\AutomaticDestinations\\`
 
@@ -473,7 +473,7 @@ Jump lists can reveal files accessed from USB or network locations even after th
 
 ### Shellbags
 
-Shellbags store user Explorer window preferences (folder view settings) but forensically reveal **folder browsing history** — even for deleted folders, network shares, and removable media.
+Shellbags store user Explorer window preferences (folder view settings) but forensically reveal folder browsing history — even for deleted folders, network shares, and removable media.
 
 Located in `UsrClass.dat`:
 ```
@@ -507,8 +507,8 @@ WxTCmd.exe parses this artifact into CSV for timeline analysis.
 ### Recycle Bin
 
 Deleted files moved to `C:\\$Recycle.Bin\\<SID>\\`. Each deletion creates two files:
-- `$I<random>.<ext>` — Metadata: original path, file size, deletion timestamp
-- `$R<random>.<ext>` — Actual file content
+- `$I<random>.<ext>`: Metadata: original path, file size, deletion timestamp
+- `$R<random>.<ext>`: Actual file content
 
 ```cmd
 # Parse $I files with RBCmd (Eric Zimmerman)
@@ -539,9 +539,9 @@ robocopy C:\VSS\Users\Administrator\Documents C:\Recovery\
 
 ### $MFT and $UsnJrnl
 
-**$MFT (Master File Table):** Every NTFS file/directory has an MFT entry. Contains: timestamps (Created, Modified, MFT Modified, Accessed), file size, parent directory reference, attribute list including $DATA (content) and $FILE_NAME.
+$MFT (Master File Table): Every NTFS file/directory has an MFT entry. Contains: timestamps (Created, Modified, MFT Modified, Accessed), file size, parent directory reference, attribute list including $DATA (content) and $FILE_NAME.
 
-**$UsnJrnl (Update Sequence Number Journal):** Change journal recording every file create, modify, delete, rename operation on the volume. Located at `C:\\$Extend\\$UsnJrnl:$J`.
+$UsnJrnl (Update Sequence Number Journal): Change journal recording every file create, modify, delete, rename operation on the volume. Located at `C:\\$Extend\\$UsnJrnl:$J`.
 
 ```cmd
 MFTECmd.exe -f "C:\$MFT" --csv output\ --csvf mft.csv
@@ -551,7 +551,7 @@ MFTECmd.exe -f "C:\$Extend\$UsnJrnl:$J" --csv output\ --csvf usnjrnl.csv
 Forensic value: $UsnJrnl can reveal files that were created and deleted within the journal's retention window, proving a file existed even after deletion.
 
 ---
-## 3. Windows Forensics — Advanced
+## 3. Windows Forensics: Advanced
 
 ### Browser Artifacts
 
@@ -579,7 +579,7 @@ sqlite3 History "SELECT datetime(last_visit_time/1000000-11644473600,'unixepoch'
 
 Note: Chrome timestamps use Windows FILETIME format — microseconds since Jan 1, 1601.
 
-**Chrome Password Decryption:**
+Chrome Password Decryption:
 Passwords are encrypted with DPAPI (user context). Decrypt offline with DPAPI master key and user password, or on a live system:
 ```python
 import win32crypt, sqlite3
@@ -614,11 +614,11 @@ Same SQLite structure as Chrome. Additional Edge-specific artifacts:
 
 ### Email Artifacts
 
-#### Microsoft Outlook — PST/OST Files
-- **PST (Personal Storage Table):** Local mail archive, stored anywhere the user configured
-- **OST (Offline Storage Table):** Local cache of Exchange/M365 mailbox, at `C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Outlook\\`
+#### Microsoft Outlook: PST/OST Files
+- PST (Personal Storage Table): Local mail archive, stored anywhere the user configured
+- OST (Offline Storage Table): Local cache of Exchange/M365 mailbox, at `C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Outlook\\`
 
-**Parsing with libpff / pffexport:**
+Parsing with libpff / pffexport:
 ```bash
 # Install
 sudo apt install libpff-dev pff-tools
@@ -628,7 +628,7 @@ pffexport -t all suspect.pst
 # Creates directory with email/.msg files, attachments, calendar items
 ```
 
-**Key items to examine:**
+Key items to examine:
 - Deleted Items folder (deleted emails)
 - Recoverable Items / Purges folder (double-deleted)
 - Rules (malicious auto-forward rules)
@@ -636,9 +636,9 @@ pffexport -t all suspect.pst
 - Calendar entries (meeting times, locations)
 - Contacts exported to/from external services
 
-**EnCase / FTK** can parse PST/OST natively and search across email content.
+EnCase / FTK can parse PST/OST natively and search across email content.
 
-#### Mozilla Thunderbird — MBOX
+#### Mozilla Thunderbird: MBOX
 Profile location: `C:\\Users\\<user>\\AppData\\Roaming\\Thunderbird\\Profiles\\<profile>\\Mail\\`
 Each folder is a plain MBOX file (text format — one email per record separated by `From ` lines).
 
@@ -667,7 +667,7 @@ This JET/ESE database can reveal:
 - Email content from Outlook
 - Content of Office documents, PDFs, text files
 
-**Parse with ESEDatabaseView** or:
+Parse with ESEDatabaseView or:
 ```bash
 # On Linux with libesedb
 esedbexport Windows.edb
@@ -677,7 +677,7 @@ esedbexport Windows.edb
 
 ### SRUM Database
 
-**SRUM (System Resource Usage Monitor)** records detailed system activity at `C:\\Windows\\System32\\sru\\SRUDB.dat` (ESE database).
+SRUM (System Resource Usage Monitor) records detailed system activity at `C:\\Windows\\System32\\sru\\SRUDB.dat` (ESE database).
 
 Tables of forensic interest:
 
@@ -688,7 +688,7 @@ Tables of forensic interest:
 | `{FEE4E14F-...}` Energy Estimator | Battery drain per app |
 | `{DD6636C4-...}` Network Connections | Interface, profile, connected/disconnected times |
 
-**Parse with SrumECmd.exe:**
+Parse with SrumECmd.exe:
 ```cmd
 SrumECmd.exe -f "C:\Windows\System32\sru\SRUDB.dat" -r "C:\Windows\System32\config\SOFTWARE" --csv output\
 ```
@@ -703,11 +703,11 @@ Attackers use WMI event subscriptions for fileless persistence. WMI repository:
 `C:\\Windows\\System32\\wbem\\Repository\\`
 
 Three components of a WMI subscription:
-1. **EventFilter** — The trigger condition (e.g., every 60 seconds)
-2. **EventConsumer** — The action (ActiveScriptEventConsumer runs VBScript/PowerShell; CommandLineEventConsumer runs a process)
-3. **FilterToConsumerBinding** — Links filter to consumer
+1. EventFilter: The trigger condition (e.g., every 60 seconds)
+2. EventConsumer: The action (ActiveScriptEventConsumer runs VBScript/PowerShell; CommandLineEventConsumer runs a process)
+3. FilterToConsumerBinding: Links filter to consumer
 
-**Parse WMI subscriptions:**
+Parse WMI subscriptions:
 ```powershell
 # Live system enumeration
 Get-WMIObject -Namespace root\subscription -Class __EventFilter
@@ -715,7 +715,7 @@ Get-WMIObject -Namespace root\subscription -Class __EventConsumer
 Get-WMIObject -Namespace root\subscription -Class __FilterToConsumerBinding
 ```
 
-**Offline analysis with PyWMIPersistenceFinder:**
+Offline analysis with PyWMIPersistenceFinder:
 ```bash
 python3 PyWMIPersistenceFinder.py --help
 ```
@@ -746,22 +746,22 @@ Event logs for task execution:
 
 ### PowerShell History
 
-**PSReadLine history** (persistent across sessions):
+PSReadLine history (persistent across sessions):
 ```
 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
-**Script block logging** (requires GPO enablement) — Event ID 4104 in:
+Script block logging (requires GPO enablement) — Event ID 4104 in:
 `Microsoft-Windows-PowerShell/Operational.evtx`
 
-**Transcripts:** If transcript logging is enabled:
+Transcripts: If transcript logging is enabled:
 ```powershell
 Start-Transcript -Path "C:\Logs\transcript.txt"
 ```
 
-**WMI-based PowerShell execution** may not appear in PSReadLine but will appear in script block logs.
+WMI-based PowerShell execution may not appear in PSReadLine but will appear in script block logs.
 
-**AMSI (Antimalware Scan Interface):** AMSI logs in Application event log can reveal decoded malicious PowerShell even when obfuscated.
+AMSI (Antimalware Scan Interface): AMSI logs in Application event log can reveal decoded malicious PowerShell even when obfuscated.
 
 ---
 
@@ -785,7 +785,7 @@ Windows caches thumbnails of images/videos/documents viewed in Explorer:
 
 Multiple resolution caches: thumbcache_32.db, thumbcache_96.db, thumbcache_256.db, thumbcache_1024.db, thumbcache_sr.db
 
-**Parse with Thumbcache Viewer** or:
+Parse with Thumbcache Viewer or:
 ```cmd
 ThumbCache_Viewer.exe
 ```
@@ -852,13 +852,13 @@ journalctl -k -p err..emerg
 | fish | `~/.local/share/fish/fish_history` |
 | sh | Varies by implementation |
 
-**Timestamp preservation in zsh_history:**
+Timestamp preservation in zsh_history:
 ```
 : 1699000000:0;sudo apt install malware
 ```
 Format: `: <unix_epoch>:<elapsed_seconds>;<command>`
 
-**Detect cleared history:**
+Detect cleared history:
 ```bash
 # Check if history file was recently truncated (small size, recent mtime)
 ls -la ~/.bash_history
@@ -963,9 +963,9 @@ aureport --login --failed --summary
 ### ext4 Filesystem Forensics
 
 #### Key Filesystem Concepts
-- **Inodes:** Metadata structures storing file permissions, timestamps, ownership, and data block pointers
-- **Timestamps:** atime (access), mtime (modification), ctime (inode change), crtime (creation -- ext4 only)
-- **Deleted files:** When a file is deleted, the inode is marked free but data blocks may persist until overwritten
+- Inodes: Metadata structures storing file permissions, timestamps, ownership, and data block pointers
+- Timestamps: atime (access), mtime (modification), ctime (inode change), crtime (creation -- ext4 only)
+- Deleted files: When a file is deleted, the inode is marked free but data blocks may persist until overwritten
 
 ```bash
 # Mount evidence image read-only
@@ -1087,34 +1087,34 @@ RAM acquisition must occur before system shutdown. All acquisition tools should 
 
 #### Windows Memory Acquisition
 
-**WinPmem:**
+WinPmem:
 ```cmd
 winpmem_mini_x64.exe -o memdump.raw
 winpmem_mini_x64.exe --format raw -o memdump.raw
 ```
 
-**DumpIt (Comae/Magnet):**
+DumpIt (Comae/Magnet):
 ```cmd
 DumpIt.exe /O memdump.raw /T RAW
 DumpIt.exe /O memdump.dmp /T DMP   :: Crash dump format
 ```
 
-**Magnet RAM Capture:**
+Magnet RAM Capture:
 - GUI-based, free tool from Magnet Forensics
 - Outputs to DMP or RAW format
 - Shows estimated acquisition time
 
-**Belkasoft RAM Capturer:**
+Belkasoft RAM Capturer:
 ```cmd
 RamCapture64.exe "output.mem"
 ```
 
-**FTK Imager:**
+FTK Imager:
 File > Capture Memory > select output path > include pagefile option
 
 #### Linux Memory Acquisition
 
-**LiME (Linux Memory Extractor)** — Kernel module approach:
+LiME (Linux Memory Extractor) — Kernel module approach:
 ```bash
 # Build LiME for target kernel
 sudo apt install linux-headers-$(uname -r) build-essential
@@ -1132,7 +1132,7 @@ nc <suspect_IP> 4444 > memdump.lime
 
 #### macOS Memory Acquisition
 
-**osxpmem:**
+osxpmem:
 ```bash
 sudo ./osxpmem.app/osxpmem -o memdump.aff4
 sudo ./osxpmem.app/osxpmem -o memdump.raw --format raw
@@ -1146,7 +1146,7 @@ Note: SIP (System Integrity Protection) and Apple Silicon restrict memory acquis
 
 Volatility 3 removed profiles (Volatility 2 requirement) in favor of automatic symbol resolution.
 
-**Installation:**
+Installation:
 ```bash
 pip3 install volatility3
 # Or from source
@@ -1157,7 +1157,7 @@ pip3 install -r requirements.txt
 # https://downloads.volatilityfoundation.org/volatility3/symbols/
 ```
 
-**Basic Usage:**
+Basic Usage:
 ```bash
 vol3 -f memdump.raw windows.info
 vol3 -f memdump.raw -r pretty <plugin>
@@ -1166,7 +1166,7 @@ vol3 -f memdump.raw --output-file output.csv --output csv <plugin>
 
 #### Core Windows Plugins
 
-**Process Analysis:**
+Process Analysis:
 ```bash
 # List all processes (flat list)
 vol3 -f memdump.raw windows.pslist
@@ -1187,7 +1187,7 @@ vol3 -f memdump.raw windows.envars --pid <PID>
 vol3 -f memdump.raw windows.privileges --pid <PID>
 ```
 
-**Network Analysis:**
+Network Analysis:
 ```bash
 # Network connections (active and recently closed)
 vol3 -f memdump.raw windows.netscan
@@ -1197,7 +1197,7 @@ vol3 -f memdump.raw windows.netstat  # Similar to netstat -ano
 vol3 -f memdump.raw windows.netscan | sort -k5
 ```
 
-**DLL and Module Analysis:**
+DLL and Module Analysis:
 ```bash
 # List DLLs per process
 vol3 -f memdump.raw windows.dlllist --pid <PID>
@@ -1210,7 +1210,7 @@ vol3 -f memdump.raw windows.modules
 vol3 -f memdump.raw windows.modscan  # Pool tag scan for hidden modules
 ```
 
-**File and Handle Analysis:**
+File and Handle Analysis:
 ```bash
 # Open handles for a process
 vol3 -f memdump.raw windows.handles --pid <PID>
@@ -1223,7 +1223,7 @@ vol3 -f memdump.raw windows.dumpfiles --virtaddr <address>
 vol3 -f memdump.raw windows.dumpfiles --physaddr <address>
 ```
 
-**Memory Region Analysis:**
+Memory Region Analysis:
 ```bash
 # Virtual address descriptor (VAD) tree -- all memory regions per process
 vol3 -f memdump.raw windows.vadinfo --pid <PID>
@@ -1238,7 +1238,7 @@ vol3 -f memdump.raw windows.malfind --pid <PID> --dump
 vol3 -f memdump.raw windows.malfind --dump --output-dir injected_code/
 ```
 
-**Registry Forensics from Memory:**
+Registry Forensics from Memory:
 ```bash
 # List registry hives loaded in memory
 vol3 -f memdump.raw windows.registry.hivelist
@@ -1256,7 +1256,7 @@ vol3 -f memdump.raw windows.cachedump
 vol3 -f memdump.raw windows.lsadump
 ```
 
-**MFT and Filesystem from Memory:**
+MFT and Filesystem from Memory:
 ```bash
 # Parse $MFT from memory
 vol3 -f memdump.raw windows.mftscan.MFTScan
@@ -1271,14 +1271,14 @@ Process injection techniques hide malicious code inside legitimate processes. Ke
 
 #### Malfind Analysis
 Malfind output columns:
-- **PID / Process:** Target process
-- **Start VPN / End VPN:** Virtual memory range
-- **Tag:** VAD tag (usually "VadS" for suspicious private allocations)
-- **Protection:** PAGE_EXECUTE_READWRITE (RWX) is highly suspicious
-- **Commit Charge / PrivateMemory:** Private, uncommitted memory
+- PID / Process: Target process
+- Start VPN / End VPN: Virtual memory range
+- Tag: VAD tag (usually "VadS" for suspicious private allocations)
+- Protection: PAGE_EXECUTE_READWRITE (RWX) is highly suspicious
+- Commit Charge / PrivateMemory: Private, uncommitted memory
 - Hexdump showing MZ header or shellcode bytes
 
-**Indicators of process injection:**
+Indicators of process injection:
 ```
 Protection: PAGE_EXECUTE_READWRITE
 No mapped file (VadS instead of Vad)
@@ -1390,7 +1390,7 @@ grep -boa "MZ" pagefile.sys | awk -F: '{print $1}' | head -20
 ---
 ## 6. Disk & File System Forensics
 
-### Partition Analysis — MBR vs GPT
+### Partition Analysis: MBR vs GPT
 
 #### MBR (Master Boot Record)
 - Located in the first 512 bytes (sector 0) of the disk
@@ -1435,44 +1435,44 @@ gdisk -l evidence.dd  # View GPT structure
 
 ### The Sleuth Kit (TSK) Commands
 
-**mmls — Partition Layout:**
+mmls — Partition Layout:
 ```bash
 mmls evidence.dd
 # Output shows: slot, start sector, end sector, length, description
 ```
 
-**fsstat — Filesystem Statistics:**
+fsstat — Filesystem Statistics:
 ```bash
 fsstat -o <sector_offset> evidence.dd
 # Shows: filesystem type, volume label, block size, cluster count, metadata range
 ```
 
-**fls — File Listing:**
+fls — File Listing:
 ```bash
 fls -r -o <offset> evidence.dd           # Recursive file listing
 fls -r -d -o <offset> evidence.dd        # Show only deleted files
 fls -r -o <offset> evidence.dd | grep -i "\.pdf$"  # Filter by extension
 ```
 
-**istat — Inode/MFT Entry Statistics:**
+istat — Inode/MFT Entry Statistics:
 ```bash
 istat -o <offset> evidence.dd <inode>
 # Shows: allocated/deleted, MFT entry details, timestamps, attributes
 ```
 
-**icat — Extract File Content by Inode:**
+icat — Extract File Content by Inode:
 ```bash
 icat -o <offset> evidence.dd <inode> > recovered_file.pdf
 # Works even for deleted files if blocks not overwritten
 ```
 
-**tsk_recover — Automated File Recovery:**
+tsk_recover — Automated File Recovery:
 ```bash
 tsk_recover -e -o <offset> evidence.dd recovered_files/
 # -e flag recovers allocated + unallocated files
 ```
 
-**blkcat / blkls — Block Analysis:**
+blkcat / blkls — Block Analysis:
 ```bash
 blkcat -o <offset> evidence.dd <block_number> | xxd  # Hex dump of block
 blkls -o <offset> evidence.dd > unallocated.bin      # Extract unallocated space
@@ -1484,7 +1484,7 @@ blkls -o <offset> evidence.dd > unallocated.bin      # Extract unallocated space
 
 Autopsy provides a GUI front-end for Sleuth Kit with additional analysis modules.
 
-**Creating a New Case:**
+Creating a New Case:
 1. File > New Case > enter case name and directory
 2. Add Data Source > select image file or local disk
 3. Configure ingest modules:
@@ -1497,19 +1497,19 @@ Autopsy provides a GUI front-end for Sleuth Kit with additional analysis modules
    - Email Parser
    - Correlation Engine
 
-**Timeline Analysis:**
+Timeline Analysis:
 Tools > Timeline > select time range > filter by event type
 - File system events (MAC times)
 - Web activity
 - Log events
 - Registry events
 
-**Keyword Search:**
+Keyword Search:
 - Add keyword lists (regex or literal)
 - Search across all extracted text
 - GREP-compatible regular expressions
 
-**Hash Lookup:**
+Hash Lookup:
 ```bash
 # Generate hashset from known good files
 md5sum /Windows/System32/*.dll > known_good.txt
@@ -1600,13 +1600,13 @@ more < downloaded_file.exe:Zone.Identifier
 
 ### Deleted File Recovery Methodology
 
-1. **Check Recycle Bin** — Many users send files to Recycle Bin rather than permanent delete
-2. **Check $UsnJrnl** — Records file deletion events with original path
-3. **Carve unallocated space** — Use Scalpel/PhotoRec if filesystem metadata is overwritten
-4. **Check Volume Shadow Copies** — Previous versions of files
-5. **Check prefetch/Amcache** — Proves execution even if file deleted
-6. **Check thumbnail caches** — Proves images were viewed
-7. **Check backup locations** — %LOCALAPPDATA%\Temp, OneDrive, backup shares
+1. Check Recycle Bin: Many users send files to Recycle Bin rather than permanent delete
+2. Check $UsnJrnl: Records file deletion events with original path
+3. Carve unallocated space: Use Scalpel/PhotoRec if filesystem metadata is overwritten
+4. Check Volume Shadow Copies: Previous versions of files
+5. Check prefetch/Amcache: Proves execution even if file deleted
+6. Check thumbnail caches: Proves images were viewed
+7. Check backup locations: %LOCALAPPDATA%\Temp, OneDrive, backup shares
 
 ---
 
@@ -1630,7 +1630,7 @@ robocopy "C:\VSS\Users\Suspect" "C:\Evidence\PreviousVersion" /E
 rmdir C:\VSS
 ```
 
-**vshadowmount (Linux/SIFT):**
+vshadowmount (Linux/SIFT):
 ```bash
 vshadowinfo evidence.E01   # List shadow copies in image
 vshadowmount evidence.E01 /mnt/vss/
@@ -1766,7 +1766,7 @@ mono NetworkMiner.exe capture.pcap
 # DNS/      -- DNS queries with responses
 ```
 
-**Key NetworkMiner features:**
+Key NetworkMiner features:
 - Hostname resolution from DNS traffic in PCAP (no external DNS lookups)
 - OS fingerprinting via TCP/IP stack behavior
 - PCAP session reassembly with file extraction
@@ -1816,7 +1816,7 @@ zeek-cut ts id.orig_h id.resp_h server_name validation_status < ssl.log | grep "
 
 NetFlow/IPFIX provides lightweight traffic metadata without payload capture.
 
-**nfdump Analysis:**
+nfdump Analysis:
 ```bash
 # Read flow files
 nfdump -r flows/2024/01/01/nfcapd.202401010000
@@ -1837,7 +1837,7 @@ nfdump -r flows/ -s dstip/flows -n 20 -o "fmt: %ts %te %sap %dap %pr %flg %byt %
 nfdump -r flows/ "proto tcp and port 4444" -o long
 ```
 
-**SiLK (System for Internet-Level Knowledge):**
+SiLK (System for Internet-Level Knowledge):
 ```bash
 rwfilter /data/silk/in/2024/01/01/in-2024010100 --start-date=2024/01/01 --end-date=2024/01/02 --daddress=1.2.3.4 --pass=stdout | rwcut --fields=sip,dip,sport,dport,proto,bytes,starttime
 
@@ -1981,11 +1981,11 @@ backup.extract_file(relative_path=RelativePath.SMS, FileName='3d0d7e5fb2ce288813
 "
 ```
 
-**iTunes Backup Location:**
+iTunes Backup Location:
 - Windows: `C:\\Users\\<user>\\AppData\\Roaming\\Apple Computer\\MobileSync\\Backup\\`
 - macOS: `~/Library/Application Support/MobileSync/Backup/`
 
-**Backup structure:** `Manifest.db` (SQLite) maps file domains/relative paths to hash filenames. Files stored as 2-level hash directory structure (first 2 chars of SHA1 hash).
+Backup structure: `Manifest.db` (SQLite) maps file domains/relative paths to hash filenames. Files stored as 2-level hash directory structure (first 2 chars of SHA1 hash).
 
 ```bash
 sqlite3 Manifest.db "SELECT fileID, domain, relativePath FROM Files WHERE relativePath LIKE '%sms%';"
@@ -2007,7 +2007,7 @@ sqlite3 Manifest.db "SELECT fileID, domain, relativePath FROM Files WHERE relati
 | Notes | `HomeDomain/Library/Notes/` | Apple Notes content |
 | Keychain | `KeychainDomain/keychain-backup.plist` | Credentials (encrypted) |
 
-**Parse sms.db:**
+Parse sms.db:
 ```bash
 sqlite3 sms.db "SELECT datetime(date/1000000000 + 978307200, 'unixepoch', 'localtime') as time, is_from_me, text FROM message ORDER BY date DESC LIMIT 50;"
 ```
@@ -2081,7 +2081,7 @@ adb pull /sdcard/full_image.img .
 | Photos | `/sdcard/DCIM/` and `/sdcard/Pictures/` | Photos with EXIF |
 | App Data | `/data/data/<package_name>/` | All app sandboxed storage |
 
-**Parse mmssms.db:**
+Parse mmssms.db:
 ```bash
 sqlite3 mmssms.db "SELECT datetime(date/1000,'unixepoch','localtime'), address, body, type FROM sms ORDER BY date DESC LIMIT 50;"
 # type: 1=Received, 2=Sent
@@ -2099,7 +2099,7 @@ sqlite3 mmssms.db "SELECT datetime(date/1000,'unixepoch','localtime'), address, 
 - Generates court-ready reports
 - UFEDReader for free report viewing (no license required)
 
-**UFED Cloud Analyzer:** Extracts data from cloud services (Google, Apple iCloud, Samsung, social media) using credentials or tokens extracted from device.
+UFED Cloud Analyzer: Extracts data from cloud services (Google, Apple iCloud, Samsung, social media) using credentials or tokens extracted from device.
 
 #### Magnet AXIOM
 - Unified platform: computer, mobile, cloud, and vehicle forensics
@@ -2120,7 +2120,7 @@ sqlite3 mmssms.db "SELECT datetime(date/1000,'unixepoch','localtime'), address, 
 
 Mobile Device Management (MDM) platforms present forensic opportunities and challenges:
 
-**MDM Evidence Sources:**
+MDM Evidence Sources:
 - Device inventory (installed apps, OS version, serial number)
 - Compliance status history (was encryption enabled? passcode set?)
 - Remote wipe commands issued (and timestamp if executed)
@@ -2128,12 +2128,12 @@ Mobile Device Management (MDM) platforms present forensic opportunities and chal
 - App installation/removal logs
 - VPN connection logs
 
-**Common MDM Platforms:**
+Common MDM Platforms:
 - Microsoft Intune: Azure portal > Devices > Device history
 - Jamf Pro (Apple): Jamf console > Inventory > Computer/Mobile history
 - VMware Workspace ONE: UEM console > Device logs
 
-**If device was remotely wiped:** MDM logs prove the wipe command was issued, by whom, and when — potentially relevant to destruction of evidence analysis.
+If device was remotely wiped: MDM logs prove the wipe command was issued, by whom, and when — potentially relevant to destruction of evidence analysis.
 
 ---
 ## 9. Cloud & Email Forensics
@@ -2142,8 +2142,8 @@ Mobile Device Management (MDM) platforms present forensic opportunities and chal
 
 #### Unified Audit Log (UAL)
 The UAL records user and admin activity across Microsoft 365 services. Key details:
-- **Retention:** 90 days (standard), 1 year (E3/E5 with audit log retention policy), up to 10 years (with Advanced Audit add-on)
-- **Requires:** Audit logging enabled (verify with `Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled`)
+- Retention: 90 days (standard), 1 year (E3/E5 with audit log retention policy), up to 10 years (with Advanced Audit add-on)
+- Requires: Audit logging enabled (verify with `Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled`)
 
 ```powershell
 # Connect to Exchange Online
@@ -2175,7 +2175,7 @@ $results | ForEach-Object {
 } | Export-Csv email_access.csv
 ```
 
-**Critical Audit Operations for IR:**
+Critical Audit Operations for IR:
 
 | Operation | Service | Meaning |
 |-----------|---------|---------|
@@ -2220,11 +2220,11 @@ Get-InboxRule -Mailbox "suspect@company.com" | Select-Object Name, Enabled, Forw
 ```
 
 #### Microsoft 365 eDiscovery
-1. **Content Search:** Compliance portal > Content Search > New Search
+1. Content Search: Compliance portal > Content Search > New Search
    - Keywords, date ranges, locations (mailboxes, SharePoint, Teams)
    - Export results or preview
-2. **Core eDiscovery:** Case management with legal holds and exports
-3. **Advanced eDiscovery:** AI-powered relevance scoring, custodian management, native redactions
+2. Core eDiscovery: Case management with legal holds and exports
+3. Advanced eDiscovery: AI-powered relevance scoring, custodian management, native redactions
 
 ```powershell
 # PowerShell eDiscovery
@@ -2244,11 +2244,11 @@ New-ComplianceSearchAction -SearchName "IR_Investigation" -Export -ExchangeArchi
 #### Admin Console Audit Logs
 Available at: admin.google.com > Reports > Audit
 
-- **Admin audit:** Changes to Google Workspace settings
-- **Login audit:** User sign-ins, 2FA events, suspicious logins
-- **Drive audit:** File sharing, downloads, external sharing
-- **Gmail audit:** Send, receive, delete events
-- **Meet audit:** Conference creation, participant joins
+- Admin audit: Changes to Google Workspace settings
+- Login audit: User sign-ins, 2FA events, suspicious logins
+- Drive audit: File sharing, downloads, external sharing
+- Gmail audit: Send, receive, delete events
+- Meet audit: Conference creation, participant joins
 
 #### Gmail Log Search and Google Vault
 ```
@@ -2289,7 +2289,7 @@ LIMIT 1000;
 
 CloudTrail records API calls across AWS services.
 
-**Log Locations:**
+Log Locations:
 - S3 bucket configured at CloudTrail creation (typically `s3://company-cloudtrail-logs/AWSLogs/`)
 - Log format: JSON, gzipped, one file per 5-minute period per region
 
@@ -2312,7 +2312,7 @@ for line in sys.stdin:
 jq '.Records[] | select(.userIdentity.userName == \"suspect_user\") | {time: .eventTime, event: .eventName, source: .eventSource, ip: .sourceIPAddress, region: .awsRegion, resource: .requestParameters}' cloudtrail_logs/*.json
 ```
 
-**Querying CloudTrail with Athena:**
+Querying CloudTrail with Athena:
 ```sql
 -- Find IAM changes
 SELECT * FROM cloudtrail_logs
@@ -2383,13 +2383,13 @@ Search-UnifiedAuditLog -Operations "MessageCreatedHasLink,MessageDeleted,Meeting
 
 ### SaaS Application Forensics
 
-**General Approach:**
+General Approach:
 1. Identify all SaaS applications used (check Azure AD Enterprise Applications, SSO configs)
 2. Determine log retention periods per application
 3. Issue legal hold or log export requests before retention expires
 4. Request logs via admin console, API, or legal process to vendor
 
-**Common SaaS Log Sources:**
+Common SaaS Log Sources:
 
 | Platform | Log Access Method |
 |----------|------------------|
@@ -2464,9 +2464,9 @@ A forensic report must be clear, defensible, reproducible, and accessible to non
 
 ### Timeline Creation with log2timeline / Plaso
 
-**Plaso** is the Python processing engine for log2timeline, converting artifacts into a unified timeline.
+Plaso is the Python processing engine for log2timeline, converting artifacts into a unified timeline.
 
-**Installation:**
+Installation:
 ```bash
 pip3 install plaso
 # Or use Docker
@@ -2474,7 +2474,7 @@ docker pull log2timeline/plaso
 docker run -v /evidence:/evidence log2timeline/plaso log2timeline.py /evidence/output.plaso /evidence/image.dd
 ```
 
-**Phase 1 — Processing (log2timeline):**
+Phase 1 — Processing (log2timeline):
 ```bash
 # Process a disk image
 log2timeline.py --parsers all output.plaso evidence.dd
@@ -2492,7 +2492,7 @@ log2timeline.py --timezone UTC output.plaso evidence.dd
 log2timeline.py --parsers win_evt,win_prefetch,winevtx,winreg,chrome_history,firefox_history output.plaso /evidence/
 ```
 
-**Phase 2 — Filtering and Output (psort):**
+Phase 2 — Filtering and Output (psort):
 ```bash
 # Filter by date range and output to CSV
 psort.py -o l2tcsv -w timeline.csv output.plaso "date > '2024-01-01 00:00:00' AND date < '2024-01-31 23:59:59'"
@@ -2508,7 +2508,7 @@ psort.py -o json -w output.json output.plaso
 psort.py -o xlsx -w timeline.xlsx output.plaso
 ```
 
-**Timeline Explorer (Eric Zimmerman -- Windows GUI):**
+Timeline Explorer (Eric Zimmerman -- Windows GUI):
 ```cmd
 TimelineExplorer.exe timeline.csv
 :: Features: filter, search, highlight, group by source type
@@ -2519,7 +2519,7 @@ TimelineExplorer.exe timeline.csv
 
 ### Chain of Custody Documentation
 
-**Essential Fields:**
+Essential Fields:
 ```
 CHAIN OF CUSTODY FORM
 Case Number: ___________________
@@ -2539,7 +2539,7 @@ Verified intact: Yes / No
 Signature: _________________________
 ```
 
-**Digital CoC -- Hash-Based Verification:**
+Digital CoC -- Hash-Based Verification:
 ```bash
 # At each transfer point, generate and record hashes
 sha256sum evidence.dd > evidence.dd.sha256
@@ -2553,12 +2553,12 @@ sha256sum -c evidence.dd.sha256
 
 ### Court-Ready Exhibit Preparation
 
-1. **Label exhibits** with case number, exhibit number, item description, and examiner initials
-2. **Authenticate evidence:** Verify hash matches original; include hash in exhibit notes
-3. **Screenshots:** Include timestamp (UTC), tool name and version, case reference
-4. **Metadata:** Export metadata alongside content; document timezone conversions
-5. **Redaction:** Ensure PII not relevant to case is redacted (use Adobe Acrobat or Relativity)
-6. **Bates numbering:** Sequential page numbering across all exhibits for cross-reference
+1. Label exhibits with case number, exhibit number, item description, and examiner initials
+2. Authenticate evidence: Verify hash matches original; include hash in exhibit notes
+3. Screenshots: Include timestamp (UTC), tool name and version, case reference
+4. Metadata: Export metadata alongside content; document timezone conversions
+5. Redaction: Ensure PII not relevant to case is redacted (use Adobe Acrobat or Relativity)
+6. Bates numbering: Sequential page numbering across all exhibits for cross-reference
 
 ---
 
@@ -2569,24 +2569,24 @@ Download: https://ericzimmerman.github.io/#!index.md
 
 | Tool | Purpose | Key Output |
 |------|---------|-----------|
-| **MFTECmd** | Parse $MFT, $UsnJrnl, $Boot, $J | File metadata, timeline |
-| **LECmd** | Parse LNK shortcut files | Target paths, timestamps, volume info |
-| **JLECmd** | Parse Jump Lists | Recently/frequently used files per app |
-| **PECmd** | Parse Prefetch files | Execution history, accessed files |
-| **RECmd** | Registry Command-line parser | Key/value extraction with batch maps |
-| **AppCompatCacheParser** | Parse ShimCache/AppCompatCache | File presence/awareness (path + last-modified) from SYSTEM hive — NOT proof of execution |
-| **AmcacheParser** | Parse Amcache.hve | SHA1, execution history, publisher |
-| **SrumECmd** | Parse SRUM database | Network usage, app resource usage |
-| **WxTCmd** | Parse Windows Timeline | App usage, file opens |
-| **EvtxECmd** | Parse EVTX event logs | All event fields, timeline integration |
-| **SQLECmd** | Parse SQLite databases | Browser history, Jumplist DBs |
-| **RBCmd** | Parse Recycle Bin $I files | Original path, size, deletion time |
-| **SBECmd** | Parse Shellbag artifacts | Folder browsing history |
-| **TimelineExplorer** | View/filter CSV timelines | Unified timeline analysis |
-| **Registry Explorer** | GUI registry hive viewer | Browse offline hives |
-| **ShellBags Explorer** | GUI shellbag viewer | Visual folder tree |
+| MFTECmd | Parse $MFT, $UsnJrnl, $Boot, $J | File metadata, timeline |
+| LECmd | Parse LNK shortcut files | Target paths, timestamps, volume info |
+| JLECmd | Parse Jump Lists | Recently/frequently used files per app |
+| PECmd | Parse Prefetch files | Execution history, accessed files |
+| RECmd | Registry Command-line parser | Key/value extraction with batch maps |
+| AppCompatCacheParser | Parse ShimCache/AppCompatCache | File presence/awareness (path + last-modified) from SYSTEM hive — NOT proof of execution |
+| AmcacheParser | Parse Amcache.hve | SHA1, execution history, publisher |
+| SrumECmd | Parse SRUM database | Network usage, app resource usage |
+| WxTCmd | Parse Windows Timeline | App usage, file opens |
+| EvtxECmd | Parse EVTX event logs | All event fields, timeline integration |
+| SQLECmd | Parse SQLite databases | Browser history, Jumplist DBs |
+| RBCmd | Parse Recycle Bin $I files | Original path, size, deletion time |
+| SBECmd | Parse Shellbag artifacts | Folder browsing history |
+| TimelineExplorer | View/filter CSV timelines | Unified timeline analysis |
+| Registry Explorer | GUI registry hive viewer | Browse offline hives |
+| ShellBags Explorer | GUI shellbag viewer | Visual folder tree |
 
-**Batch processing example:**
+Batch processing example:
 ```cmd
 :: Process all prefetch files
 PECmd.exe -d "C:\Windows\Prefetch" --csv C:\Output\ -q
@@ -2609,28 +2609,28 @@ Ubuntu-based forensic workstation from SANS DFIR:
 
 | Category | Tools |
 |----------|-------|
-| **Disk Imaging** | Guymager, dc3dd, dcfldd, ddrescue |
-| **File System** | The Sleuth Kit, Autopsy, TestDisk, PhotoRec |
-| **Memory** | Volatility 3, LiME, MemProcFS |
-| **Timeline** | log2timeline/Plaso, Timeline Explorer |
-| **Registry** | RegRipper, Registry Explorer |
-| **Network** | Wireshark, NetworkMiner, Zeek, tcpflow |
-| **Mobile** | libimobiledevice, adb |
-| **macOS** | mac_apt |
-| **VSS** | libvshadow (vshadowmount) |
-| **E01/EWF** | libewf (ewfmount, ewfinfo, ewfverify) |
-| **AFF** | afflib (affcat, affinfo) |
-| **Hashing** | md5deep, sha1deep, hashdeep |
-| **Search/Carving** | Scalpel, bulk_extractor, foremost |
-| **Hex Analysis** | wxHexEditor, xxd, hexedit |
-| **PDF Analysis** | PDFid, pdf-parser |
-| **Office Docs** | oletools (olevba, oleid, mraptor) |
+| Disk Imaging | Guymager, dc3dd, dcfldd, ddrescue |
+| File System | The Sleuth Kit, Autopsy, TestDisk, PhotoRec |
+| Memory | Volatility 3, LiME, MemProcFS |
+| Timeline | log2timeline/Plaso, Timeline Explorer |
+| Registry | RegRipper, Registry Explorer |
+| Network | Wireshark, NetworkMiner, Zeek, tcpflow |
+| Mobile | libimobiledevice, adb |
+| macOS | mac_apt |
+| VSS | libvshadow (vshadowmount) |
+| E01/EWF | libewf (ewfmount, ewfinfo, ewfverify) |
+| AFF | afflib (affcat, affinfo) |
+| Hashing | md5deep, sha1deep, hashdeep |
+| Search/Carving | Scalpel, bulk_extractor, foremost |
+| Hex Analysis | wxHexEditor, xxd, hexedit |
+| PDF Analysis | PDFid, pdf-parser |
+| Office Docs | oletools (olevba, oleid, mraptor) |
 
 ---
 
 ### IOC Extraction and Sharing Post-Investigation
 
-**Extract IOCs from investigation artifacts:**
+Extract IOCs from investigation artifacts:
 ```bash
 # Bulk extractor: extract IPs, emails, URLs, MAC addresses from binary data
 bulk_extractor -o bulk_output/ evidence.dd
@@ -2642,7 +2642,7 @@ zeek-cut host < http.log | sort -u > http_hosts.txt
 zeek-cut sha256 < files.log | grep -v "^-$" > file_hashes.txt
 ```
 
-**STIX/TAXII IOC Sharing:**
+STIX/TAXII IOC Sharing:
 ```python
 from stix2 import Indicator, Bundle, Malware, Relationship
 
@@ -2658,7 +2658,7 @@ bundle = Bundle(objects=[indicator])
 print(bundle.serialize(pretty=True))
 ```
 
-**MISP (Malware Information Sharing Platform):**
+MISP (Malware Information Sharing Platform):
 ```bash
 pip install pymisp
 python3 -c "
@@ -2704,16 +2704,16 @@ curl -XPOST -H 'Content-Type: application/json' http://localhost:9000/api/alert 
 
 | Certification | Issuing Body | Focus Area |
 |--------------|-------------|-----------|
-| **GCFE** (GIAC Certified Forensic Examiner) | GIAC/SANS | Windows forensics, evidence handling |
-| **GCFA** (GIAC Certified Forensic Analyst) | GIAC/SANS | Advanced forensics, memory, IR |
-| **GNFA** (GIAC Network Forensic Analyst) | GIAC/SANS | Network forensics, PCAP analysis |
-| **GASF** (GIAC Advanced Smartphone Forensics) | GIAC/SANS | Mobile device forensics |
-| **EnCE** (EnCase Certified Examiner) | OpenText | EnCase platform expertise |
-| **CHFI** (Computer Hacking Forensic Investigator) | EC-Council | Broad forensics methodology |
-| **CCE** (Certified Computer Examiner) | ISFCE | Vendor-neutral forensics |
-| **ACE** (AccessData Certified Examiner) | Exterro | FTK platform expertise |
-| **CFCE** (Certified Forensic Computer Examiner) | IACIS | Law enforcement focused |
-| **CISA** (Certified Information Systems Auditor) | ISACA | Audit and investigation |
+| GCFE (GIAC Certified Forensic Examiner) | GIAC/SANS | Windows forensics, evidence handling |
+| GCFA (GIAC Certified Forensic Analyst) | GIAC/SANS | Advanced forensics, memory, IR |
+| GNFA (GIAC Network Forensic Analyst) | GIAC/SANS | Network forensics, PCAP analysis |
+| GASF (GIAC Advanced Smartphone Forensics) | GIAC/SANS | Mobile device forensics |
+| EnCE (EnCase Certified Examiner) | OpenText | EnCase platform expertise |
+| CHFI (Computer Hacking Forensic Investigator) | EC-Council | Broad forensics methodology |
+| CCE (Certified Computer Examiner) | ISFCE | Vendor-neutral forensics |
+| ACE (AccessData Certified Examiner) | Exterro | FTK platform expertise |
+| CFCE (Certified Forensic Computer Examiner) | IACIS | Law enforcement focused |
+| CISA (Certified Information Systems Auditor) | ISACA | Audit and investigation |
 
 ---
 
@@ -2728,7 +2728,7 @@ curl -XPOST -H 'Content-Type: application/json' http://localhost:9000/api/alert 
 | Mac Absolute Time (seconds since 2001-01-01) | 725846400 | iOS backups, macOS CoreData |
 | ISO 8601 | 2024-01-01T00:00:00Z | Modern APIs, logs |
 
-**Conversion examples:**
+Conversion examples:
 ```python
 import datetime
 

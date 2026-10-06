@@ -1,13 +1,13 @@
 # Email Security Reference
 
-> **Scope**: Email authentication protocols (SPF/DKIM/DMARC), email encryption, phishing analysis, email-based attack techniques, Microsoft 365 Defender configuration, Email Security Gateway (SEG) configuration, SMTP protocol security, and email forensics.
+> Scope: Email authentication protocols (SPF/DKIM/DMARC), email encryption, phishing analysis, email-based attack techniques, Microsoft 365 Defender configuration, Email Security Gateway (SEG) configuration, SMTP protocol security, and email forensics.
 > Mapped to MITRE ATT&CK T1566 (Phishing), T1566.001 (Spear Phishing Attachment), T1027.006 (HTML Smuggling), and NIST SP 800-177 (Trustworthy Email).
 
 | | |
 |---|---|
-| **Read this when** | Standing up or hardening SPF/DKIM/DMARC for a domain, triaging a suspicious email or phishing report, or tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting |
-| **Start at** | [Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques) |
-| **Pairs with** | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
+| Read this when | Standing up or hardening SPF/DKIM/DMARC for a domain, triaging a suspicious email or phishing report, or tuning M365/Proofpoint/Mimecast defenses against BEC and credential harvesting |
+| Start at | [Email Authentication Protocols](#email-authentication-protocols), [Phishing Analysis](#phishing-analysis), [Email-Based Attack Techniques](#email-based-attack-techniques) |
+| Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) |
 
 ---
 
@@ -36,22 +36,22 @@
   ```
 - Mechanisms: `ip4`, `ip6`, `a`, `mx`, `include`, `exists`, `redirect`
 - Qualifiers: `+` (Pass), `-` (Fail), `~` (SoftFail), `?` (Neutral)
-- **SPF limitations**:
-  - 10 DNS lookup limit — exceeding causes `permerror`
+- SPF limitations:
+  - 10 DNS lookup limit: exceeding causes `permerror`
   - Does not protect display name spoofing
   - Breaks with email forwarding (envelope `From` changes)
-- **SPF alignment**: envelope `From` domain must match authenticated domain (required for DMARC pass)
+- SPF alignment: envelope `From` domain must match authenticated domain (required for DMARC pass)
 
-**SPF Qualifier Reference**
+SPF Qualifier Reference
 
 | Qualifier | Name | Action if matched |
 |-----------|------|-------------------|
 | `+` | Pass | Accept the email |
 | `-` | Fail | Reject the email |
 | `~` | SoftFail | Accept but mark (spam folder) |
-| `?` | Neutral | No policy — treat normally |
+| `?` | Neutral | No policy: treat normally |
 
-**SPF Mechanism Reference**
+SPF Mechanism Reference
 
 | Mechanism | Description |
 |-----------|-------------|
@@ -64,7 +64,7 @@
 | `redirect=domain` | Substitute entire SPF record from this domain |
 | `all` | Catch-all; always matches |
 
-**SPF Troubleshooting**
+SPF Troubleshooting
 
 ```bash
 # Check SPF record
@@ -83,24 +83,24 @@ dig TXT domain.com | grep spf
 ### DKIM (DomainKeys Identified Mail)
 
 - Cryptographic signature added to email headers by the sending MTA
-- DNS TXT record at `selector._domainkey.domain.com` contains the **public key**
+- DNS TXT record at `selector._domainkey.domain.com` contains the public key
 - Receiving MTA uses public key to verify the signature in the `DKIM-Signature` header
 
-**Signed headers (typical):** `From`, `To`, `Subject`, `Date`, `Message-ID`, `MIME-Version`
+Signed headers (typical): `From`, `To`, `Subject`, `Date`, `Message-ID`, `MIME-Version`
 
-**Example DKIM DNS record:**
+Example DKIM DNS record:
 ```
 selector1._domainkey.example.com. IN TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQ..."
 ```
 
-**DKIM-Signature header in email:**
+DKIM-Signature header in email:
 ```
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=example.com;
   s=selector1; h=from:to:subject:date:message-id;
   bh=BASE64_BODY_HASH; b=BASE64_SIGNATURE
 ```
 
-**DKIM tag reference:**
+DKIM tag reference:
 
 | Tag | Description |
 |-----|-------------|
@@ -113,11 +113,11 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=example.com;
 | `bh=` | Body hash (base64) |
 | `b=` | Signature (base64) |
 
-**Canonicalization:**
-- `relaxed/relaxed`: normalizes whitespace in headers and body — recommended for forwarding tolerance
-- `simple/simple`: strict — any whitespace change breaks signature
+Canonicalization:
+- `relaxed/relaxed`: normalizes whitespace in headers and body: recommended for forwarding tolerance
+- `simple/simple`: strict: any whitespace change breaks signature
 
-**DKIM key generation:**
+DKIM key generation:
 ```bash
 # Generate RSA-2048 private key
 openssl genrsa -out dkim_private.pem 2048
@@ -129,16 +129,16 @@ openssl rsa -in dkim_private.pem -pubout -out dkim_public.pem
 openssl rsa -in dkim_private.pem -pubout -outform DER | openssl base64 -A
 ```
 
-**DKIM key rotation:**
-- Rotate every 6–12 months
+DKIM key rotation:
+- Rotate every 6-12 months
 - Create new selector with new keypair, update MTA config
-- Keep old selector valid for 30–60 days (in-flight emails still reference it)
+- Keep old selector valid for 30-60 days (in-flight emails still reference it)
 - Then remove old selector from DNS
 
-**DKIM weaknesses:**
-- **DKIM replay attack**: valid DKIM signature can be reused by copying the email to new recipients — DMARC mitigates by checking `From` domain alignment
-- **DKIM body length (`l=`) tag**: allows partial body signing — avoid; attackers can append malicious content
-- Signing algorithm `rsa-sha1` is deprecated — require `rsa-sha256` or `ed25519-sha256`
+DKIM weaknesses:
+- DKIM replay attack: valid DKIM signature can be reused by copying the email to new recipients — DMARC mitigates by checking `From` domain alignment
+- DKIM body length (`l=`) tag: allows partial body signing: avoid; attackers can append malicious content
+- Signing algorithm `rsa-sha1` is deprecated: require `rsa-sha256` or `ed25519-sha256`
 
 ---
 
@@ -147,12 +147,12 @@ openssl rsa -in dkim_private.pem -pubout -outform DER | openssl base64 -A
 - Policy: tells receiving mail servers what to do when SPF/DKIM alignment fails
 - DNS TXT record at `_dmarc.domain.com`
 
-**Full example DMARC record:**
+Full example DMARC record:
 ```
 v=DMARC1; p=reject; rua=mailto:dmarc-reports@domain.com; ruf=mailto:forensics@domain.com; sp=reject; adkim=s; aspf=s; pct=100; fo=1
 ```
 
-**DMARC tag reference:**
+DMARC tag reference:
 
 | Tag | Values | Description |
 |-----|--------|-------------|
@@ -163,21 +163,21 @@ v=DMARC1; p=reject; rua=mailto:dmarc-reports@domain.com; ruf=mailto:forensics@do
 | `ruf=` | `mailto:addr` | Forensic report destination |
 | `adkim=` | `s` (strict), `r` (relaxed) | DKIM alignment mode |
 | `aspf=` | `s` (strict), `r` (relaxed) | SPF alignment mode |
-| `pct=` | 1–100 | Percentage of mail to apply policy to |
+| `pct=` | 1-100 | Percentage of mail to apply policy to |
 | `fo=` | `0`,`1`,`d`,`s` | Forensic report generation options |
 
-**Policy values:**
-- `none`: monitor only — no rejection; aggregate reports sent; use to audit before enforcing
+Policy values:
+- `none`: monitor only: no rejection; aggregate reports sent; use to audit before enforcing
 - `quarantine`: deliver to spam/junk folder
-- `reject`: do not deliver — bounce
+- `reject`: do not deliver: bounce
 
-**DMARC alignment:**
-- **SPF alignment**: envelope `From` (MAIL FROM) domain must match `From:` header domain
+DMARC alignment:
+- SPF alignment: envelope `From` (MAIL FROM) domain must match `From:` header domain
   - Strict (`aspf=s`): exact match
   - Relaxed (`aspf=r`): organizational domain match (e.g., `mail.example.com` aligns with `example.com`)
-- **DKIM alignment**: `d=` tag in DKIM-Signature must align with `From:` header domain
+- DKIM alignment: `d=` tag in DKIM-Signature must align with `From:` header domain
 
-**DMARC deployment progression (recommended):**
+DMARC deployment progression (recommended):
 ```
 Phase 1: p=none  rua=mailto:reports@domain.com          # Observe, gather data (2–4 weeks)
 Phase 2: p=quarantine  pct=10                            # Start quarantining 10% (1–2 weeks)
@@ -185,7 +185,7 @@ Phase 3: p=quarantine  pct=100                           # Quarantine all (1–2
 Phase 4: p=reject  pct=100                               # Full enforcement
 ```
 
-**DMARC report parsing:**
+DMARC report parsing:
 ```bash
 # Install parsedmarc
 pip install parsedmarc
@@ -200,21 +200,21 @@ parsedmarc -c parsedmarc.ini aggregate_report.xml.gz
 # hosts = localhost:9200
 ```
 
-**DMARC aggregate report (XML) — key fields:**
+DMARC aggregate report (XML) — key fields:
 - `<source_ip>`: sending IP
 - `<count>`: number of messages
 - `<policy_evaluated>`: DMARC pass/fail
 - `<spf>`: SPF result
 - `<dkim>`: DKIM result
 
-**DMARC gaps (what it does NOT protect):**
-- **Display name spoofing**: `From: "CEO Name" <attacker@evil.com>` — DMARC passes if evil.com has valid DMARC
-- **Cousin domains**: `d0main.com` (zero instead of O), `domain.co` instead of `domain.com`
-- **Unicode homoglyph attacks**: Cyrillic characters that look like Latin letters
-- **Subdomain attacks**: if `sp=` is not set, subdomain policy defaults to `p=` value
-- **Forwarding**: SPF often fails through mailing lists; DKIM is more robust here
+DMARC gaps (what it does NOT protect):
+- Display name spoofing: `From: "CEO Name" <attacker@evil.com>`: DMARC passes if evil.com has valid DMARC
+- Cousin domains: `d0main.com` (zero instead of O), `domain.co` instead of `domain.com`
+- Unicode homoglyph attacks: Cyrillic characters that look like Latin letters
+- Subdomain attacks: if `sp=` is not set, subdomain policy defaults to `p=` value
+- Forwarding: SPF often fails through mailing lists; DKIM is more robust here
 
-**BIMI (Brand Indicators for Message Identification):**
+BIMI (Brand Indicators for Message Identification):
 - Display brand logo in inbox for participating mail clients (Gmail, Yahoo, Outlook)
 - Requirements: DMARC `p=reject` or `p=quarantine` + Verified Mark Certificate (VMC) from DigiCert or Entrust
 - DNS TXT record: `default._bimi.domain.com IN TXT "v=BIMI1; l=https://domain.com/logo.svg; a=https://domain.com/vmc.pem"`
@@ -236,43 +236,43 @@ parsedmarc -c parsedmarc.ini aggregate_report.xml.gz
 
 ### S/MIME (Secure/Multipurpose Internet Mail Extensions)
 
-- X.509 certificate-based **signing** and **encryption**
+- X.509 certificate-based signing and encryption
 - Requires per-user certificate issued by a CA (e.g., Sectigo Personal Email, GlobalSign, internal PKI via ADCS)
 
-**Two distinct operations:**
+Two distinct operations:
 
 | Operation | What it does | Certificate required |
 |-----------|--------------|----------------------|
-| **Signing** | Proves sender identity; detects tampering | Sender's private key (signing cert) |
-| **Encryption** | Encrypts body to recipient | Recipient's **public key** must be obtained in advance |
+| Signing | Proves sender identity; detects tampering | Sender's private key (signing cert) |
+| Encryption | Encrypts body to recipient | Recipient's public key must be obtained in advance |
 
-**Key exchange challenge:** Encryption requires sender to have recipient's cert in advance — often exchanged via a signed email first, or through a certificate directory (LDAP/GAL).
+Key exchange challenge: Encryption requires sender to have recipient's cert in advance — often exchanged via a signed email first, or through a certificate directory (LDAP/GAL).
 
-**Client support:**
+Client support:
 - Outlook (Windows, Mac): native support
 - Apple Mail: native support
 - Thunderbird: via Enigmail or native (Thunderbird 78+)
 - Gmail: G Suite/Workspace only (S/MIME must be enabled by admin)
 
-**Enterprise deployment:**
+Enterprise deployment:
 - GPO: push user certificates from internal CA to certificate store
 - MDM (Intune, Jamf): deploy S/MIME certificates to mobile devices
 - Auto-enrollment via ADCS + Group Policy for domain users
 
-**S/MIME common pitfalls:**
+S/MIME common pitfalls:
 - Certificate expiry breaks decryption of archived encrypted email if private key not backed up
-- Encrypted email cannot be scanned by SEG/DLP — some organizations block S/MIME encryption
+- Encrypted email cannot be scanned by SEG/DLP: some organizations block S/MIME encryption
 - Certificate revocation (CRL/OCSP) must be reachable; stale CRL causes validation failures
 
 ---
 
 ### PGP/GPG (Pretty Good Privacy / GNU Privacy Guard)
 
-- **Web of Trust model** (vs. PKI hierarchy in S/MIME)
-- No central CA required — trust established through direct key signing or key signing parties
+- Web of Trust model (vs. PKI hierarchy in S/MIME)
+- No central CA required: trust established through direct key signing or key signing parties
 - OpenPGP standard: RFC 4880
 
-**Key management commands:**
+Key management commands:
 ```bash
 # Generate key pair (interactive)
 gpg --full-gen-key
@@ -302,7 +302,7 @@ gpg --clearsign document.txt
 gpg --verify document.txt.asc
 ```
 
-**Key servers:**
+Key servers:
 ```bash
 # Upload public key
 gpg --keyserver keys.openpgp.org --send-keys KEYID
@@ -314,12 +314,12 @@ gpg --keyserver keys.openpgp.org --search-keys user@example.com
 gpg --keyserver hkps://keys.openpgp.org --recv-keys FINGERPRINT
 ```
 
-**Key fingerprint best practice:**
+Key fingerprint best practice:
 - Always verify fingerprint out-of-band (phone, in-person, official website)
 - Never trust a public key server key without independent fingerprint verification
 - Example: `gpg --fingerprint user@example.com`
 
-**Proton Mail:**
+Proton Mail:
 - Uses PGP internally; keys are managed server-side per user
 - End-to-end encrypted between Proton Mail users automatically
 - External PGP: recipients can import their PGP public key into Proton; Proton will encrypt to it
@@ -332,12 +332,12 @@ gpg --keyserver hkps://keys.openpgp.org --recv-keys FINGERPRINT
 - Enforces TLS (and certificate validation) for SMTP connections to your domain
 - Without MTA-STS: STARTTLS is opportunistic and subject to STARTTLS downgrade attacks
 
-**How it works:**
+How it works:
 1. Sending MTA fetches policy from `https://mta-sts.domain.com/.well-known/mta-sts.txt`
 2. DNS TXT `_mta-sts.domain.com` signals the policy ID (invalidates cached policy when changed)
 3. Sending MTA must use TLS with valid cert; if TLS fails, email is not delivered (in `enforce` mode)
 
-**Policy file (`/.well-known/mta-sts.txt`):**
+Policy file (`/.well-known/mta-sts.txt`):
 ```
 version: STSv1
 mode: enforce
@@ -346,17 +346,17 @@ mx: mail2.domain.com
 max_age: 604800
 ```
 
-**Mode values:**
+Mode values:
 - `testing`: violations reported but delivery not blocked
 - `enforce`: TLS required; block delivery on failure
 - `none`: disable policy
 
-**DNS TXT record:**
+DNS TXT record:
 ```
 _mta-sts.domain.com. IN TXT "v=STSv1; id=20240101000000Z"
 ```
 
-**TLS-RPT (TLS Reporting):** Reports STARTTLS/MTA-STS failures to operators:
+TLS-RPT (TLS Reporting): Reports STARTTLS/MTA-STS failures to operators:
 ```
 _smtp._tls.domain.com. IN TXT "v=TLSRPTv1; rua=mailto:tls-reports@domain.com"
 ```
@@ -365,29 +365,29 @@ _smtp._tls.domain.com. IN TXT "v=TLSRPTv1; rua=mailto:tls-reports@domain.com"
 
 ### DANE (DNS-Based Authentication of Named Entities)
 
-- Publishes TLS certificate fingerprint in DNS (TLSA record) — requires **DNSSEC**
-- Pins the expected certificate without CA involvement — eliminates rogue CA risk
+- Publishes TLS certificate fingerprint in DNS (TLSA record): requires DNSSEC
+- Pins the expected certificate without CA involvement: eliminates rogue CA risk
 
-**TLSA record syntax:**
+TLSA record syntax:
 ```
 _25._tcp.mail.domain.com. IN TLSA <usage> <selector> <matching-type> <cert-hash>
 ```
 
-**TLSA field values:**
+TLSA field values:
 
 | Field | Value | Meaning |
 |-------|-------|---------|
 | Usage | `0` | PKIX-TA: CA constraint |
 | Usage | `1` | PKIX-EE: End-entity constraint |
 | Usage | `2` | DANE-TA: Trust anchor (no PKIX) |
-| Usage | `3` | DANE-EE: End-entity only (no PKIX) — most common for SMTP |
+| Usage | `3` | DANE-EE: End-entity only (no PKIX): most common for SMTP |
 | Selector | `0` | Full certificate |
 | Selector | `1` | SubjectPublicKeyInfo only |
 | Matching | `0` | Full content (no hash) |
 | Matching | `1` | SHA-256 hash |
 | Matching | `2` | SHA-512 hash |
 
-**Generating TLSA record:**
+Generating TLSA record:
 ```bash
 # Hash of certificate for DANE-EE (3 1 1)
 openssl x509 -in cert.pem -noout -pubkey | \
@@ -414,7 +414,7 @@ Headers to examine (read `Received:` chain bottom to top = actual delivery path)
 | `MIME-Version:` | MIME structure | Check for unusual multipart nesting |
 | `X-Mailer:` / `User-Agent:` | Mail client | Inconsistent with claimed sender |
 
-**Reading the `Received:` chain:**
+Reading the `Received:` chain:
 ```
 Received: from evil-server.com (1.2.3.4) by mx.victim.com    ← hop 2 (read last = sender)
 Received: from mail.evil.com (evil-server.com [1.2.3.4])      ← hop 1 (read first = final)
@@ -480,7 +480,7 @@ import encodings.idna
 
 ### Phishing Kit Analysis
 
-**HTML source indicators:**
+HTML source indicators:
 - Copied assets from legitimate site (CDN URLs, same CSS structure)
 - POST action pointing to attacker-controlled endpoint (e.g., `action="https://evil.com/submit.php"`)
 - JavaScript that redirects after credentials submitted
@@ -490,7 +490,7 @@ import encodings.idna
   - User-agent restrictions (mobile-only, specific browsers)
   - Time-gated (only valid for 24 hours)
 
-**OSINT on phishing domain:**
+OSINT on phishing domain:
 ```bash
 # WHOIS
 whois phishing-domain.com
@@ -512,10 +512,10 @@ whois phishing-domain.com
 shodan host 1.2.3.4
 ```
 
-**Phishing infrastructure TTPs:**
+Phishing infrastructure TTPs:
 - Domain registered within past 30 days
 - Bulletproof hosting (AS numbers associated with abuse)
-- Let's Encrypt certificate (free — common in phishing kits)
+- Let's Encrypt certificate (free: common in phishing kits)
 - Same IP hosting multiple lookalike domains
 - Open directories exposing phishing kit `.zip` archives
 
@@ -526,9 +526,9 @@ shodan host 1.2.3.4
 ### Spear Phishing (MITRE T1566.001)
 
 - Targeted, researched emails to specific individuals or organizations
-- **Reconnaissance sources**: LinkedIn (role, connections, direct reports), company website (org chart, press releases), social media, domain WHOIS, Hunter.io (email format), breach databases
+- Reconnaissance sources: LinkedIn (role, connections, direct reports), company website (org chart, press releases), social media, domain WHOIS, Hunter.io (email format), breach databases
 
-**Common lure types:**
+Common lure types:
 
 | Lure | Description |
 |------|-------------|
@@ -540,13 +540,13 @@ shodan host 1.2.3.4
 | Job offer | Malicious attachment in "job offer" document |
 | Package delivery | FedEx/UPS notification with malicious link |
 
-**AiTM (Adversary-in-the-Middle) phishing:**
-- Tools: **EvilGinx2**, **Modlishka**, **Muraena**
+AiTM (Adversary-in-the-Middle) phishing:
+- Tools: EvilGinx2, Modlishka, Muraena
 - Reverse proxy sits between victim and real site; captures session cookies after MFA
-- Bypasses TOTP/push MFA — session token replayed to authenticate as victim
-- **Defense:**
-  - Azure Conditional Access with **Token Protection** (bind token to device)
-  - **FIDO2 hardware keys** (phishing-resistant MFA — cryptographically bound to origin URL)
+- Bypasses TOTP/push MFA: session token replayed to authenticate as victim
+- Defense:
+  - Azure Conditional Access with Token Protection (bind token to device)
+  - FIDO2 hardware keys (phishing-resistant MFA: cryptographically bound to origin URL)
   - Continuous Access Evaluation (CAE)
 
 ---
@@ -554,9 +554,9 @@ shodan host 1.2.3.4
 ### HTML Smuggling (MITRE T1027.006)
 
 - Embeds malicious file as base64 inside HTML; assembled client-side in browser memory via JavaScript Blob API
-- Bypasses email attachment scanning — the HTML attachment itself is not a recognized malicious file type
+- Bypasses email attachment scanning: the HTML attachment itself is not a recognized malicious file type
 
-**Technique example:**
+Technique example:
 ```html
 <script>
   var b64 = "TVqQAAMAAAAEAAAA...";  // Base64-encoded PE or ZIP
@@ -570,12 +570,12 @@ shodan host 1.2.3.4
 </script>
 ```
 
-**Variations:**
+Variations:
 - SVG-based smuggling: malicious script inside `.svg` file (treated as image)
-- ISO/IMG container: embed LNK → PowerShell in ISO file linked from HTML
-- Nested archives: HTML → ZIP → password-protected ZIP → malware
+- ISO/IMG container: embed LNK -> PowerShell in ISO file linked from HTML
+- Nested archives: HTML -> ZIP -> password-protected ZIP -> malware
 
-**Detection:**
+Detection:
 ```
 Alert: HTML attachment containing all of:
   - <script> tags
@@ -589,7 +589,7 @@ Alert: HTML attachment containing all of:
 
 ### Business Email Compromise (BEC) (MITRE T1566)
 
-**BEC categories:**
+BEC categories:
 
 | Type | Description |
 |------|-------------|
@@ -600,14 +600,14 @@ Alert: HTML attachment containing all of:
 | Attorney impersonation | Fake legal counsel requesting confidential transaction |
 | Data theft | Request W-2s, employee PII under pretext of audit |
 
-**BEC detection signals:**
-- New inbox rules created (forwarding/redirect) — exfiltrates email silently
+BEC detection signals:
+- New inbox rules created (forwarding/redirect): exfiltrates email silently
 - Login from unusual country/IP shortly before suspicious email
 - Wire transfer or payment change request sent exclusively via email
 - Email chain anomaly: reply thread that doesn't match original conversation
 - Sender IP/domain inconsistent with previous emails from that contact
 
-**PowerShell — audit suspicious forwarding rules (BEC indicator):**
+PowerShell — audit suspicious forwarding rules (BEC indicator):
 ```powershell
 # Check all mailboxes for forwarding rules
 Get-Mailbox -ResultSize Unlimited | ForEach-Object {
@@ -625,12 +625,12 @@ Select-Object DisplayName, ForwardingAddress, ForwardingSmtpAddress
 
 ### Email Credential Harvesting
 
-**Credential phishing page TTPs:**
+Credential phishing page TTPs:
 - Cloned login pages: Microsoft 365, Gmail, VPN portals, Citrix, DocuSign
 - URL structure: `login-microsoft365.com`, `secure-dropbox.net`, `mail.victim-corp.co`
-- Transparent reverse proxy: user actually authenticates to real site — captures session
+- Transparent reverse proxy: user actually authenticates to real site: captures session
 
-**EvilGinx2:**
+EvilGinx2:
 ```bash
 # Start EvilGinx2
 evilginx2 -p /usr/share/evilginx/phishlets/
@@ -648,12 +648,12 @@ sessions
 sessions 1
 ```
 
-**Captured data:**
+Captured data:
 - Username/password
 - Session cookie (`ESTSAUTH`, `ESTSAUTHPERSISTENT` for Microsoft 365)
 - Cookie replay bypasses MFA entirely
 
-**Indicators of AiTM phishing:**
+Indicators of AiTM phishing:
 - Login from two geographic locations in short succession (legitimate login + attacker replay)
 - Multiple sign-ins from same user in seconds
 - Token theft followed by MFA registration (attacker registers their own MFA device)
@@ -662,19 +662,19 @@ sessions 1
 
 ## Microsoft 365 Email Security Configuration
 
-### Exchange Online Protection (EOP) — Built-in for all M365 tenants
+### Exchange Online Protection (EOP): Built-in for all M365 tenants
 
-**Anti-spam:**
-- **SCL (Spam Confidence Level)**: -1 (allow list) to 9 (high confidence spam)
-- **BCL (Bulk Complaint Level)**: 0–9; bulk email threshold configurable
-- `SCL >= 5` → Junk folder; `SCL = 9` → Spam quarantine
+Anti-spam:
+- SCL (Spam Confidence Level): -1 (allow list) to 9 (high confidence spam)
+- BCL (Bulk Complaint Level): 0-9; bulk email threshold configurable
+- `SCL >= 5` -> Junk folder; `SCL = 9` -> Spam quarantine
 
-**Anti-malware:**
+Anti-malware:
 - Double-tap scanning engine
 - Block common malware file types by default
 - Zero-hour Auto Purge (ZAP) for malware
 
-**Anti-phishing (EOP baseline):**
+Anti-phishing (EOP baseline):
 - Spoof intelligence: detects spoofed sender domains
 - Composite Authentication (`compauth`): combination of SPF, DKIM, DMARC + Microsoft ML
 
@@ -682,7 +682,7 @@ sessions 1
 
 ### Microsoft Defender for Office 365 (MDO) Plan 1
 
-**Safe Attachments:**
+Safe Attachments:
 - Detonates unknown attachments in a sandbox (Azure Sandbox)
 - Policies:
   - `Off`: no detonation (not recommended)
@@ -699,10 +699,10 @@ New-SafeAttachmentPolicy -Name "Block-Malware" -Action Block -Enable $true
 New-SafeAttachmentRule -Name "Block-Malware-Rule" -SafeAttachmentPolicy "Block-Malware" -RecipientDomainIs "corp.com"
 ```
 
-**Safe Links:**
+Safe Links:
 - Rewrites URLs in email and Office documents
 - Checks URL at time-of-click (detects late-stage malicious redirect)
-- "Do not track user clicks" — disable this; tracking is needed for IR
+- "Do not track user clicks": disable this; tracking is needed for IR
 - Block the following URLs: add custom block list
 
 ```powershell
@@ -717,22 +717,22 @@ Set-SafeLinksPolicy -Identity "Default" -EnableSafeLinksForEmail $true -TrackCli
 
 ### Microsoft Defender for Office 365 (MDO) Plan 2
 
-**Threat Explorer:**
+Threat Explorer:
 - Hunt for malicious emails; filter by sender, subject, URL, file hash
 - Actions: soft delete, hard delete, move to junk, trigger investigation
 - Useful query: emails with `compauth=fail` + `SCL >= 5` delivered to inbox
 
-**Attack Simulation Training:**
+Attack Simulation Training:
 - Launch phishing simulations targeting users
 - Simulation types: credential harvest, attachment, link in attachment, drive-by-URL, OAuth consent grant
 - Auto-assign training to users who click
 
-**Zero-hour Auto Purge (ZAP):**
+Zero-hour Auto Purge (ZAP):
 - Retroactively removes emails already delivered to inbox
-- Triggers when: email classified as spam/malware **after** delivery (reputation update lag)
+- Triggers when: email classified as spam/malware after delivery (reputation update lag)
 - Works for Exchange Online; not for on-premise mailboxes
 
-**Advanced Hunting (Microsoft 365 Defender):**
+Advanced Hunting (Microsoft 365 Defender):
 ```kusto
 // Find emails with failed DMARC that reached inbox
 EmailEvents
@@ -783,25 +783,25 @@ Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) `
 
 ### Proofpoint TAP (Targeted Attack Protection)
 
-**URL Defense:**
+URL Defense:
 - Rewrites all URLs in inbound email to route through Proofpoint scanning
 - Checks URL reputation at time of click
 - URL format: `https://urldefense.proofpoint.com/v3/__https://original-url__;...`
 
-**Attachment Defense:**
+Attachment Defense:
 - Sandboxes unknown attachments (Type-0 payload analysis)
 - Supported file types: Office, PDF, executables, archives, scripts
 
-**Impostor Defense:**
+Impostor Defense:
 - Display name spoofing detection
 - Lookalike domain detection
 - DMARC enforcement integration
 
-**TRAP (Threat Response Auto-Pull):**
+TRAP (Threat Response Auto-Pull):
 - Retroactively removes malicious emails from all inboxes after delivery
 - Integrates with Proofpoint SIEM connector for automated response
 
-**Proofpoint useful queries:**
+Proofpoint useful queries:
 ```
 # Search for specific sender in Message Trace
 # Admin Console → Email Protection → Message Trace
@@ -814,25 +814,25 @@ Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) `
 
 ### Mimecast
 
-- **Targeted Threat Protection (TTP):** URL scanning, attachment sandboxing, impersonation protection
-- **Internal Email Protect:** scans emails between internal users (insider threat, compromised mailbox)
-- **Secure Messaging:** portal-based encrypted email delivery for sensitive messages
-- **Continuity:** MX failover — maintains email access during outages
-- **DMARC Analyzer:** built-in DMARC aggregate report parsing and deployment guidance
+- Targeted Threat Protection (TTP): URL scanning, attachment sandboxing, impersonation protection
+- Internal Email Protect: scans emails between internal users (insider threat, compromised mailbox)
+- Secure Messaging: portal-based encrypted email delivery for sensitive messages
+- Continuity: MX failover: maintains email access during outages
+- DMARC Analyzer: built-in DMARC aggregate report parsing and deployment guidance
 
-**Mimecast DKIM/SPF auto-update:**
+Mimecast DKIM/SPF auto-update:
 - Mimecast can auto-update SPF/DKIM records via API integration with DNS providers
 
 ---
 
 ### Cisco Secure Email (formerly ESA)
 
-- **AMP (Advanced Malware Protection):** file reputation + sandboxing
-- **Outbreak Filters:** proactive protection based on Talos threat intelligence
-- **Graymail Management:** bulk mail classification and unsubscribe
-- **Content Filters:** regex-based policy enforcement; block SSNs, credit cards in outbound
+- AMP (Advanced Malware Protection): file reputation + sandboxing
+- Outbreak Filters: proactive protection based on Talos threat intelligence
+- Graymail Management: bulk mail classification and unsubscribe
+- Content Filters: regex-based policy enforcement; block SSNs, credit cards in outbound
 
-**Cisco ESA CLI examples:**
+Cisco ESA CLI examples:
 ```bash
 # Check quarantine
 quarantineconfig
@@ -899,12 +899,12 @@ swaks --to victim@corp.com --from ceo@corp.com --server mail.corp.com \
 
 ### SMTP Security Hardening
 
-**Authentication:**
-- Disable SMTP AUTH on port 25 (inbound MX) — only allow for port 587 (submission)
+Authentication:
+- Disable SMTP AUTH on port 25 (inbound MX): only allow for port 587 (submission)
 - Require TLS for SMTP AUTH: `smtpd_tls_auth_only = yes` (Postfix)
 - Implement rate limiting on SMTP AUTH attempts
 
-**Reconnaissance prevention:**
+Reconnaissance prevention:
 ```bash
 # Postfix — disable VRFY and EXPN
 disable_vrfy_command = yes
@@ -914,7 +914,7 @@ FEATURE(`noexpn')dnl
 FEATURE(`novrfy')dnl
 ```
 
-**TLS configuration (Postfix):**
+TLS configuration (Postfix):
 ```bash
 # Enforce TLS 1.2+ only
 smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
@@ -931,7 +931,7 @@ smtpd_tls_cert_file = /etc/ssl/certs/mail.pem
 smtpd_tls_key_file = /etc/ssl/private/mail.key
 ```
 
-**HELO/EHLO validation:**
+HELO/EHLO validation:
 ```bash
 # Reject invalid HELO hostnames
 smtpd_helo_required = yes
@@ -942,7 +942,7 @@ smtpd_helo_restrictions =
     permit
 ```
 
-**Outbound DKIM signing (Postfix + OpenDKIM):**
+Outbound DKIM signing (Postfix + OpenDKIM):
 ```bash
 # /etc/opendkim.conf
 Domain                  example.com
@@ -1046,9 +1046,9 @@ analyze_email('suspicious.eml')
 ### Timestamp Analysis
 
 Each `Received:` header includes a timestamp; compare to detect:
-- **Unusual delays**: email held for hours before delivery (possible spam retry)
-- **Backdated timestamps**: sender's clock misconfigured or spoofed
-- **Geographic inconsistency**: timestamp timezone vs. claimed origin location
+- Unusual delays: email held for hours before delivery (possible spam retry)
+- Backdated timestamps: sender's clock misconfigured or spoofed
+- Geographic inconsistency: timestamp timezone vs. claimed origin location
 
 ```python
 from email.utils import parsedate_to_datetime

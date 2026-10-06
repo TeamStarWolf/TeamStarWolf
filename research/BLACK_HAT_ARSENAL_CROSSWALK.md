@@ -302,11 +302,11 @@ Use this table to find Arsenal tools by discipline and ATT&CK technique coverage
 
 
 
-- [Black Hat Arsenal](https://www.blackhat.com/arsenal.html) — Official Arsenal archive
+- [Black Hat Arsenal](https://www.blackhat.com/arsenal.html): Official Arsenal archive
 
-- [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools) — Community-maintained Arsenal tool list
+- [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools): Community-maintained Arsenal tool list
 
-- [MITRE ATT&CK](https://attack.mitre.org/) — Technique references
+- [MITRE ATT&CK](https://attack.mitre.org/): Technique references
 ---
 
 ## Arsenal Tools by ATT&CK Tactic

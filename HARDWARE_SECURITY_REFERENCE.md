@@ -1,12 +1,12 @@
 # Hardware Security Reference
 
-> **In one minute** — This is the practitioner's field manual for the security that lives below the operating system: the chips, boot firmware, and debug ports that decide whether a machine can be trusted at all. It walks through TPMs and HSMs (dedicated crypto chips that guard keys), Secure Boot and UEFI, the side-channel and fault-injection attacks that pull secrets out of silicon, JTAG/debug-port access, and confidential-computing enclaves. Reach for it when the threat model includes someone who can touch the hardware, tamper with the boot chain, or measure a chip's power and timing.
+> In one minute — This is the practitioner's field manual for the security that lives below the operating system: the chips, boot firmware, and debug ports that decide whether a machine can be trusted at all. It walks through TPMs and HSMs (dedicated crypto chips that guard keys), Secure Boot and UEFI, the side-channel and fault-injection attacks that pull secrets out of silicon, JTAG/debug-port access, and confidential-computing enclaves. Reach for it when the threat model includes someone who can touch the hardware, tamper with the boot chain, or measure a chip's power and timing.
 
 | | |
 |---|---|
-| **Read this when** | hardening a device's boot chain or disk encryption, standing up or auditing an HSM and its key ceremony, assessing side-channel, fault-injection, or debug-port exposure on embedded hardware |
-| **Start at** | [TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools) |
-| **Pairs with** | [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
+| Read this when | hardening a device's boot chain or disk encryption, standing up or auditing an HSM and its key ceremony, assessing side-channel, fault-injection, or debug-port exposure on embedded hardware |
+| Start at | [TPM 2.0 Deep Dive](#_1-tpm-20-deep-dive), [HSM & FIPS 140-3](#_2-hsm-amp-fips-140-3), [Hardware Security Testing Tools](#_9-hardware-security-testing-tools) |
+| Pairs with | [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [PHYSICAL_SECURITY_REFERENCE.md](PHYSICAL_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
 
 ## 1. TPM 2.0 Deep Dive
 
@@ -14,17 +14,17 @@
 
 The Trusted Platform Module (TPM) 2.0 is a hardware-based security coprocessor defined by TCG (Trusted Computing Group) specification. Unlike TPM 1.2, TPM 2.0 supports multiple cryptographic algorithms simultaneously, uses a hierarchical key structure, and provides more flexible policy-based authorization.
 
-**Key Components:**
-- **Platform Hierarchy** – Used during manufacturing; primary seeds change at provisioning
-- **Storage Hierarchy** – Persistent storage for user keys (SRK = Storage Root Key)
-- **Endorsement Hierarchy** – Privacy-sensitive; contains the EK (Endorsement Key) used for attestation
-- **Null Hierarchy** – Ephemeral; cleared on every boot
+Key Components:
+- Platform Hierarchy: Used during manufacturing; primary seeds change at provisioning
+- Storage Hierarchy: Persistent storage for user keys (SRK = Storage Root Key)
+- Endorsement Hierarchy: Privacy-sensitive; contains the EK (Endorsement Key) used for attestation
+- Null Hierarchy: Ephemeral; cleared on every boot
 
 ### PCR Banks
 
 Platform Configuration Registers (PCRs) are hash accumulators. TPM 2.0 maintains multiple PCR banks (SHA-1, SHA-256, SHA-384, SHA-512). Each bank has 24 registers (PCR[0]-PCR[23]).
 
-**Standard PCR Allocation (UEFI):**
+Standard PCR Allocation (UEFI):
 | PCR | Content |
 |-----|---------|
 | 0   | SRTM, BIOS, Host Platform Extensions |
@@ -40,7 +40,7 @@ Platform Configuration Registers (PCRs) are hash accumulators. TPM 2.0 maintains
 | 11-13 | Reserved for OS |
 | 14  | MOK (Machine Owner Key) |
 
-**PCR Extension Mechanics:**
+PCR Extension Mechanics:
 ```
 PCR[n] = H(PCR[n] || new_value)
 ```
@@ -124,7 +124,7 @@ CRTM (Core Root of Trust for Measurement)
   → Linux kernel extends PCR[10] via IMA
 ```
 
-**IMA (Integrity Measurement Architecture) setup:**
+IMA (Integrity Measurement Architecture) setup:
 ```bash
 # /etc/kernel/cmdline
 ima_policy=tcb ima_template=ima-ng ima_hash=sha256
@@ -215,12 +215,12 @@ ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so user@host
 ### HSM Architecture
 
 Hardware Security Modules are tamper-resistant cryptographic processors that protect key material. They provide:
-- **Key Generation** inside tamper boundary (keys never leave in plaintext)
-- **Cryptographic Operations** (sign, decrypt, derive) performed inside HSM
-- **Tamper Detection/Response** (zeroize keys on physical attack)
-- **Audit Logging** (cryptographically signed event logs)
+- Key Generation inside tamper boundary (keys never leave in plaintext)
+- Cryptographic Operations (sign, decrypt, derive) performed inside HSM
+- Tamper Detection/Response (zeroize keys on physical attack)
+- Audit Logging (cryptographically signed event logs)
 
-**Physical Security Layers:**
+Physical Security Layers:
 1. Epoxy encapsulation of die
 2. Active mesh (detects probing)
 3. Environmental sensors (voltage, temperature, light)
@@ -232,12 +232,12 @@ FIPS 140-3 (aligned with ISO/IEC 19790:2012) defines four security levels:
 
 | Level | Physical Requirements | Use Case |
 |-------|----------------------|----------|
-| **1** | Production-grade components, no physical security | Software HSM, cloud VM |
-| **2** | Tamper-evident coatings/seals, role-based auth | Enterprise HSM, USB tokens |
-| **3** | Tamper-resistant, identity-based auth, zeroize on tamper | Network HSM, payment terminals |
-| **4** | Complete physical envelope, environmental attack protection | Military, air-gapped PKI |
+| 1 | Production-grade components, no physical security | Software HSM, cloud VM |
+| 2 | Tamper-evident coatings/seals, role-based auth | Enterprise HSM, USB tokens |
+| 3 | Tamper-resistant, identity-based auth, zeroize on tamper | Network HSM, payment terminals |
+| 4 | Complete physical envelope, environmental attack protection | Military, air-gapped PKI |
 
-**FIPS 140-3 vs 140-2 Key Differences:**
+FIPS 140-3 vs 140-2 Key Differences:
 - 140-3 uses ISO/IEC 19790 + 24759 as base standards
 - Adds Software/Firmware security requirements
 - Non-invasive attack resistance (side-channel) at Level 3+
@@ -246,7 +246,7 @@ FIPS 140-3 (aligned with ISO/IEC 19790:2012) defines four security levels:
 
 ### Vendor Comparison
 
-**Thales Luna Network HSM (formerly SafeNet)**
+Thales Luna Network HSM (formerly SafeNet)
 ```
 Models: Luna 7 (FIPS 140-3 L3), Luna 7 PCIe (L3), Luna Cloud (SaaS)
 Throughput: 10,000–20,000 RSA-2048 ops/sec
@@ -256,7 +256,7 @@ HA: Active-active clustering, automatic failover
 Client: Luna Client software, PKCS#11, JCE, CNG
 ```
 
-**Entrust nShield (formerly Thales e-Security)**
+Entrust nShield (formerly Thales e-Security)
 ```
 Models: nShield Connect XC (FIPS 140-3 L3), nShield Solo PCIe
 Security World: proprietary cluster key management
@@ -265,7 +265,7 @@ Unique: CodeSafe (run app code inside HSM boundary)
 OCS: Operator Card Set for key recovery
 ```
 
-**AWS CloudHSM**
+AWS CloudHSM
 ```
 Hardware: Cavium Nitrox (FIPS 140-2 L3 certified)
 Access: PKCS#11, JCE, OpenSSL Dynamic Engine
@@ -275,7 +275,7 @@ Limitation: You manage keys; AWS has no access
 Backup: Encrypted cluster backup to S3
 ```
 
-**Azure Dedicated HSM**
+Azure Dedicated HSM
 ```
 Hardware: Thales Luna Network HSM 7 (FIPS 140-2 L3)
 Model: Customer-managed, single-tenant
@@ -283,7 +283,7 @@ SLA: 99.9% availability
 Networking: Injected into customer VNet
 ```
 
-**Azure Managed HSM**
+Azure Managed HSM
 ```
 FIPS 140-2 L3, HSM-protected key vault
 Backed by Marvell LiquidSecurity HSMs
@@ -291,7 +291,7 @@ Role-based access (RBAC)
 Key: az keyvault key create --hsm-name <name> --kty RSA-HSM
 ```
 
-**YubiHSM 2** (low-cost, developer-friendly)
+YubiHSM 2 (low-cost, developer-friendly)
 ```
 FIPS 140-2 L3, USB-A form factor
 2M key operations/sec (AES-128)
@@ -382,7 +382,7 @@ Post-ceremony:
 
 ### HSM High Availability & Clustering
 
-**Thales Luna HA:**
+Thales Luna HA:
 ```bash
 # On primary HSM
 lunash:> ha register -haLabel MyHA -serialNum <hsm2-serial>   -passwd <partition-password>
@@ -398,7 +398,7 @@ lunacm:> ha synchronize
 lunacm:> ha listmembers
 ```
 
-**AWS CloudHSM Cluster:**
+AWS CloudHSM Cluster:
 ```bash
 # Initialize cluster with first HSM
 aws cloudhsmv2 initialize-cluster --cluster-id <id>   --signed-cert file://customerCA.crt   --trust-anchor file://customerCA.crt
@@ -435,7 +435,7 @@ PK  (Platform Key)      — One key; controls KEK updates; OEM-held
        └── dbx (Forbidden Signature Database) — Revocation list
 ```
 
-**Secure Boot Verification Flow:**
+Secure Boot Verification Flow:
 ```
 Power On
   → UEFI Firmware (verified by ROM/fuse)
@@ -502,7 +502,7 @@ modinfo mymodule.ko | grep sig
 
 ### Notable Secure Boot Bypasses
 
-**CVE-2020-10713 — BootHole (GRUB2)**
+CVE-2020-10713 — BootHole (GRUB2)
 - Severity: CVSS 8.2
 - Root Cause: Buffer overflow in GRUB2's config file parser (`grub.cfg`)
 - Impact: Arbitrary code execution in bootloader context, bypass Secure Boot
@@ -511,17 +511,17 @@ modinfo mymodule.ko | grep sig
 - Affected: All distros using GRUB2 + shim prior to 2020-07-29 patch
 - Detection: `sbverify` against updated db/dbx; check GRUB2 version ≥ 2.06
 
-**CVE-2023-21894 — BlackLotus UEFI Bootkit**
+CVE-2023-21894 — BlackLotus UEFI Bootkit
 - Severity: CVSS 6.7 (requires physical or admin access)
 - Root Cause: Exploited CVE-2022-21894 (Secure Boot bypass via Windows Boot Manager)
 - Impact: First in-the-wild UEFI bootkit bypassing Secure Boot on fully-patched Win11
 - Technique: Installs vulnerable signed bootmgr, then boots into malicious UEFI app
 - Persistence: Writes to EFI System Partition, survives OS reinstall
 - Detection: Check for suspicious files in \EFI\Microsoft\Boot\; unusual MokList entries
-- Fix: KB5025885 — revocation via dbx; enable Secure Boot CVE-2023-21894 mitigation
+- Fix: KB5025885: revocation via dbx; enable Secure Boot CVE-2023-21894 mitigation
 - Indicators: `bootmgr.efi` with hash matching revoked list, unexpected SbPolicy changes
 
-**CVE-2022-21894 — "Baton Drop"**
+CVE-2022-21894 — "Baton Drop"
 - Allows enrolling attacker-controlled Secure Boot policy
 - Affects Windows boot manager versions before Jan 2022 patch
 - BlackLotus uses this to downgrade to vulnerable bootmgr
@@ -550,7 +550,7 @@ binwalk -e firmware.rom
 binwalk --signature firmware.rom
 ```
 
-### DRTM — Dynamic Root of Trust for Measurement
+### DRTM: Dynamic Root of Trust for Measurement
 
 Unlike SRTM (Static, starts at power-on), DRTM establishes a new trust chain at runtime:
 
@@ -599,10 +599,10 @@ Runtime Security:
 
 ### Spectre & Meltdown Variants
 
-**Meltdown (CVE-2017-5754) — Rogue Data Cache Load**
+Meltdown (CVE-2017-5754) — Rogue Data Cache Load
 - Mechanism: Out-of-order execution reads kernel memory into CPU cache before privilege check completes; Flush+Reload leaks cached value
 - Affected: Intel (primarily); some ARM; not AMD
-- Mitigation: KPTI (Kernel Page Table Isolation) — separates kernel/user page tables
+- Mitigation: KPTI (Kernel Page Table Isolation): separates kernel/user page tables
 ```bash
 # Check KPTI status
 cat /sys/devices/system/cpu/vulnerabilities/meltdown
@@ -610,7 +610,7 @@ cat /sys/devices/system/cpu/vulnerabilities/meltdown
 # Verify kernel boot: grep pti /proc/cmdline (nopti disables it)
 ```
 
-**Spectre v1 (CVE-2017-5753) — Bounds Check Bypass**
+Spectre v1 (CVE-2017-5753) — Bounds Check Bypass
 - Mechanism: Speculative execution bypasses array bounds check; side-channel leaks
 - Mitigation: Compiler retpoline (`__builtin_load_no_speculate`); lfence barriers
 ```c
@@ -622,7 +622,7 @@ if (index < array1_size) {
 }
 ```
 
-**Spectre v2 (CVE-2017-5715) — Branch Target Injection**
+Spectre v2 (CVE-2017-5715) — Branch Target Injection
 - Mechanism: Poison indirect branch predictor to redirect speculative execution
 - Mitigation: Retpoline (thunk-based indirect call replacement); microcode IBRS/IBPB/STIBP
 
@@ -636,7 +636,7 @@ spectre_v2=retpoline   # Software mitigation
 spectre_v2=ibrs        # Hardware IBRS (slower)
 ```
 
-**Spectre v4 (CVE-2018-3639) — Speculative Store Bypass**
+Spectre v4 (CVE-2018-3639) — Speculative Store Bypass
 ```bash
 cat /sys/devices/system/cpu/vulnerabilities/spec_store_bypass
 # "Mitigation: Speculative Store Bypass disabled via prctl"
@@ -644,7 +644,7 @@ cat /sys/devices/system/cpu/vulnerabilities/spec_store_bypass
 prctl(PR_SET_SPECULATION_CTRL, PR_SPEC_STORE_BYPASS, PR_SPEC_DISABLE, 0, 0);
 ```
 
-**MDS Attacks (Microarchitectural Data Sampling):**
+MDS Attacks (Microarchitectural Data Sampling):
 - RIDL (CVE-2018-12127): Leak from Line Fill Buffers
 - Fallout (CVE-2018-12126): Leak from Store Buffers
 - ZombieLoad (CVE-2018-12130): Leak from Fill Buffers
@@ -657,7 +657,7 @@ cat /sys/devices/system/cpu/vulnerabilities/mds
 
 ### Cache-Based Attacks
 
-**Flush+Reload:**
+Flush+Reload:
 ```
 1. Attacker flushes target cache line (clflush)
 2. Victim accesses secret-dependent memory address
@@ -665,7 +665,7 @@ cat /sys/devices/system/cpu/vulnerabilities/mds
 4. Threshold: ~200 cycles = cached; >300 cycles = not cached (LLC miss)
 ```
 
-**Prime+Probe:**
+Prime+Probe:
 ```
 1. Attacker "primes" cache sets by filling with own data
 2. Victim runs and accesses its data, evicting attacker's data
@@ -673,7 +673,7 @@ cat /sys/devices/system/cpu/vulnerabilities/mds
 4. Infers victim's memory access pattern without shared memory
 ```
 
-**Rowhammer (CVE-2014-3122, CVE-2015-0573):**
+Rowhammer (CVE-2014-3122, CVE-2015-0573):
 ```c
 // Classic rowhammer loop
 void hammer(volatile uint64_t *addr1, volatile uint64_t *addr2) {
@@ -689,8 +689,8 @@ void hammer(volatile uint64_t *addr1, volatile uint64_t *addr2) {
 // Exploited for privilege escalation: flip bit in page table entry
 ```
 
-**Rowhammer Defenses:**
-- Target Row Refresh (TRR) — vendor-specific, bypassable
+Rowhammer Defenses:
+- Target Row Refresh (TRR): vendor-specific, bypassable
 - ECC memory (corrects 1-bit errors, detects 2-bit)
 - LPDDR4X with higher refresh rate
 - Guard rows in memory allocators
@@ -698,10 +698,10 @@ void hammer(volatile uint64_t *addr1, volatile uint64_t *addr2) {
 
 ### Power Analysis Against AES
 
-**Simple Power Analysis (SPA):**
+Simple Power Analysis (SPA):
 Direct visual inspection of power trace to identify operations
 
-**Differential Power Analysis (DPA) — Kocher et al. 1999:**
+Differential Power Analysis (DPA) — Kocher et al. 1999:
 ```python
 # DPA attack skeleton against AES first round
 import numpy as np
@@ -723,7 +723,7 @@ for kg in range(256):
     # Highest correlation peak = correct key byte
 ```
 
-**ChipWhisperer Toolchain:**
+ChipWhisperer Toolchain:
 ```python
 # ChipWhisperer-Lite AES capture
 import chipwhisperer as cw
@@ -752,11 +752,11 @@ print(results.find_maximums())
 
 ### Timing Attacks on RSA
 
-**Kocher's Timing Attack on RSA (1996):**
+Kocher's Timing Attack on RSA (1996):
 - Square-and-multiply exponentiation leaks bit pattern of private exponent via timing
 - Longer time = multiply operation (bit=1); shorter = just square (bit=0)
 
-**Countermeasures:**
+Countermeasures:
 ```c
 // RSA blinding (OpenSSL's approach)
 // Before: m' = m * r^e mod n  (r = random blinding factor)
@@ -784,7 +784,7 @@ AES T-table attack:
 3. Multiple encryptions with known plaintext reveal key bytes
 ```
 
-**Countermeasure:** Bit-sliced AES (no table lookups; processes 128 blocks in parallel using bitwise ops):
+Countermeasure: Bit-sliced AES (no table lookups; processes 128 blocks in parallel using bitwise ops):
 ```c
 // AES-NI hardware instruction (cache-timing immune)
 #include <wmmintrin.h>
@@ -801,7 +801,7 @@ __m128i aes_encrypt(__m128i plaintext, __m128i key) {
 Genkin et al. (2014) extracted 4096-bit RSA keys from laptop sounds:
 - GnuPG's RSA square-and-multiply emits acoustic signatures
 - Microphone placed near laptop or phone call recording sufficient
-- **Countermeasure:** GnuPG 2.1+ uses blinding by default; constant-time exponentiation
+- Countermeasure: GnuPG 2.1+ uses blinding by default; constant-time exponentiation
 
 ### EM Analysis
 
@@ -829,7 +829,7 @@ Countermeasures:
 
 Voltage glitching introduces brief power supply disturbances to cause CPU/MCU to skip instructions, mis-execute conditionals, or corrupt registers.
 
-**Attack Mechanism:**
+Attack Mechanism:
 ```
 Normal: VCC = 3.3V stable
 Glitch:  VCC drops to 0V for 50-200ns
@@ -837,7 +837,7 @@ Effect:  CPU misses memory read, skips instruction, or reads wrong value
 Target:  Security checks, CRC verifications, loop counters, key derivations
 ```
 
-**ChipWhisperer Glitch Parameters:**
+ChipWhisperer Glitch Parameters:
 ```python
 import chipwhisperer as cw
 
@@ -885,7 +885,7 @@ scope.glitch.offset = 1234  # Tuned to align with CRP read instruction
 
 ### Laser/EMFI Fault Injection
 
-**Laser Fault Injection:**
+Laser Fault Injection:
 - Focused laser beam induces transient faults in transistors
 - Requires decapping (removing IC package)
 - Precision: Can target single transistors on 28nm process
@@ -900,7 +900,7 @@ Procedure:
 5. Observe fault effect (UART output, debug port response)
 ```
 
-**EMFI (Electromagnetic Fault Injection):**
+EMFI (Electromagnetic Fault Injection):
 - Near-field EM pulse coil placed near chip
 - Induces current in die without decapping
 - Less precise than laser but non-invasive (no decap needed)
@@ -929,20 +929,20 @@ for x in range(0, 100, 5):    # mm
 
 | Model | Glitch Type | ADC | Max Sample Rate | Best For |
 |-------|------------|-----|-----------------|----------|
-| **CW-Nano** | Voltage | 20MS/s | 20 MS/s | Learning, Arduino |
-| **CW-Lite** | Voltage + Clock | 105 MS/s | 105 MS/s | 8/32-bit MCUs |
-| **CW-Pro** | Voltage + Clock | 200 MS/s | 200 MS/s | Complex SoCs, FPGA |
-| **CW305 (FPGA target)** | External glitch | N/A | N/A | FPGA crypto research |
-| **CW308 UFO** | Swappable targets | N/A | N/A | Multi-target testing |
+| CW-Nano | Voltage | 20MS/s | 20 MS/s | Learning, Arduino |
+| CW-Lite | Voltage + Clock | 105 MS/s | 105 MS/s | 8/32-bit MCUs |
+| CW-Pro | Voltage + Clock | 200 MS/s | 200 MS/s | Complex SoCs, FPGA |
+| CW305 (FPGA target) | External glitch | N/A | N/A | FPGA crypto research |
+| CW308 UFO | Swappable targets | N/A | N/A | Multi-target testing |
 
 ### Bypassing Secure Boot on STM32
 
-**STM32 RDP (Read-out Protection) Levels:**
-- **RDP 0:** No protection; flash readable over SWD
-- **RDP 1:** Flash read-protected; SRAM readable; debug functional
-- **RDP 2:** Full protection; jtag/SWD locked; permanent (no downgrade without erase)
+STM32 RDP (Read-out Protection) Levels:
+- RDP 0: No protection; flash readable over SWD
+- RDP 1: Flash read-protected; SRAM readable; debug functional
+- RDP 2: Full protection; jtag/SWD locked; permanent (no downgrade without erase)
 
-**STM32 RDP1→RDP0 Voltage Glitch:**
+STM32 RDP1->RDP0 Voltage Glitch:
 ```
 Vulnerability: Downgrade from RDP1 to RDP0 is supposed to erase flash
                but a glitch can abort the erase during the protection change
@@ -958,7 +958,7 @@ Patch: STM32H7 series fixed this; use H7 for security-critical applications
 
 ### NXP CRP (Code Read Protection) Bypass
 
-**LPC1343/LPC2148 CRP Bypass:**
+LPC1343/LPC2148 CRP Bypass:
 ```
 Magic Word: 0x87654321 at flash offset 0x02FC enables CRP2
 CRP1 (0x4E697370): Disables flash read; SWD functional
@@ -989,7 +989,7 @@ Defense (RP2040):
 
 ### Defense Mechanisms
 
-**Voltage/Clock Monitor Circuits:**
+Voltage/Clock Monitor Circuits:
 ```
 On-chip countermeasures:
   - Voltage detector (brown-out detector): Reset if VCC < threshold
@@ -1006,7 +1006,7 @@ Typical secure microcontroller (e.g., STSAFE-A, SE050):
   - Memory scrambling (address and data XOR with random seed)
 ```
 
-**Software Countermeasures:**
+Software Countermeasures:
 ```c
 // Double-check critical security decisions
 bool authenticate_user(const uint8_t *pin, size_t len) {
@@ -1039,7 +1039,7 @@ if (canary != CANARY_VALUE) {
 
 ### TI CC2640 Bluetooth SoC Case Study
 
-**Attack: Firmware Extraction via Voltage Glitching**
+Attack: Firmware Extraction via Voltage Glitching
 ```
 Target: Texas Instruments CC2640 (BLE SoC)
 Protection: JTAG debug port locked via CCFG (Customer Config)
@@ -1058,7 +1058,7 @@ Countermeasure:
   - Implement software glitch detection (voltage measurement via ADC)
 ```
 
-**Defense: Glitch Detection via On-chip ADC:**
+Defense: Glitch Detection via On-chip ADC:
 ```c
 // Monitor VCC via ADC on TI CC2640
 void init_vcc_monitor(void) {
@@ -1108,25 +1108,25 @@ JTAG (IEEE 1149.1) defines a 16-state TAP (Test Access Port) controller driven b
               └─────┬─────┘               └──────┬──────┘
 ```
 
-**Key Signals:**
-- **TCK** — Test Clock (drives state machine)
-- **TMS** — Test Mode Select (navigates states)
-- **TDI** — Test Data In (serial input)
-- **TDO** — Test Data Out (serial output)
-- **TRST** — Test Reset (optional, async reset)
+Key Signals:
+- TCK: Test Clock (drives state machine)
+- TMS: Test Mode Select (navigates states)
+- TDI: Test Data In (serial input)
+- TDO: Test Data Out (serial output)
+- TRST: Test Reset (optional, async reset)
 
 ### IR/DR Registers
 
-**Instruction Register (IR):**
+Instruction Register (IR):
 - Selects active DR register and operation mode
 - Common instructions:
-  - `BYPASS` (all 1s) — single-bit bypass DR
-  - `IDCODE` (device-specific) — reads 32-bit device ID
-  - `EXTEST` — test board-level interconnects
-  - `SAMPLE/PRELOAD` — capture/drive boundary scan
-  - `DEBUG` (ARM-specific) — enable debug access port
+  - `BYPASS` (all 1s): single-bit bypass DR
+  - `IDCODE` (device-specific): reads 32-bit device ID
+  - `EXTEST`: test board-level interconnects
+  - `SAMPLE/PRELOAD`: capture/drive boundary scan
+  - `DEBUG` (ARM-specific): enable debug access port
 
-**Device ID Format (IDCODE, 32-bit):**
+Device ID Format (IDCODE, 32-bit):
 ```
 Bit 31-28: Version
 Bit 27-12: Part Number
@@ -1137,7 +1137,7 @@ Example: STM32F4 IDCODE = 0x10016413
   Version=1, Part=0x0641, Mfr=0x020 (ST Microelectronics)
 ```
 
-### OpenOCD — Open On-Chip Debugger
+### OpenOCD: Open On-Chip Debugger
 
 ```bash
 # Start OpenOCD with ST-Link and STM32F4 target
@@ -1158,7 +1158,7 @@ telnet localhost 4444
 > mem2array data 32 0x20000000 256  # Read SRAM
 ```
 
-**OpenOCD config for Raspberry Pi RP2040 SWD:**
+OpenOCD config for Raspberry Pi RP2040 SWD:
 ```tcl
 # rp2040.cfg
 source [find interface/raspberrypi-swd.cfg]
@@ -1243,7 +1243,7 @@ Authentication Interface (AUTHSTATUS register):
   Bits [7:6] = SNID — Secure non-invasive debug
 ```
 
-**Disabling Debug in Production (STM32 example):**
+Disabling Debug in Production (STM32 example):
 ```c
 // Permanently disable JTAG (OTP-equivalent via option bytes)
 // WARNING: Irreversible on some devices
@@ -1321,9 +1321,9 @@ screen /dev/ttyUSB0 115200
 
 ### Intel SGX (Software Guard Extensions)
 
-SGX provides hardware-enforced memory encryption and isolation for user-mode code called **enclaves**. The Enclave Page Cache (EPC) is encrypted with a processor-managed key (MEK); host OS cannot read enclave memory.
+SGX provides hardware-enforced memory encryption and isolation for user-mode code called enclaves. The Enclave Page Cache (EPC) is encrypted with a processor-managed key (MEK); host OS cannot read enclave memory.
 
-**SGX Architecture:**
+SGX Architecture:
 ```
 Host Application (untrusted)
   │
@@ -1339,7 +1339,7 @@ MRSIGNER: Hash of enclave signing key
 MRENCLAVE: Hash of enclave measurement (code + data layout)
 ```
 
-**Writing SGX Enclaves (Intel SGX SDK):**
+Writing SGX Enclaves (Intel SGX SDK):
 ```c
 // enclave.edl — Interface definition
 enclave {
@@ -1372,7 +1372,7 @@ int seal_secret(const uint8_t *data, size_t len,
 }
 ```
 
-**SGX Remote Attestation (DCAP — Data Center Attestation Primitives):**
+SGX Remote Attestation (DCAP — Data Center Attestation Primitives):
 ```
 1. Enclave generates RSA/ECDSA attestation key pair
 2. Enclave calls sgx_get_quote() → produces SGX Quote (signed by PCK)
@@ -1420,9 +1420,9 @@ TD Attestation:
 
 ### AMD SEV (Secure Encrypted Virtualization)
 
-**SEV:** Each VM encrypted with unique VM Encryption Key (VEK); hypervisor sees ciphertext
-**SEV-ES (Encrypted State):** Also encrypts CPU register state on VM exit
-**SEV-SNP (Secure Nested Paging):** Adds memory integrity protection + RMP (Reverse Map Table)
+SEV: Each VM encrypted with unique VM Encryption Key (VEK); hypervisor sees ciphertext
+SEV-ES (Encrypted State): Also encrypts CPU register state on VM exit
+SEV-SNP (Secure Nested Paging): Adds memory integrity protection + RMP (Reverse Map Table)
 
 ```bash
 # Check SEV support
@@ -1441,7 +1441,7 @@ qemu-system-x86_64   -machine q35,memory-encryption=sev0,vmport=off   -object se
 
 ### ARM CCA (Confidential Compute Architecture)
 
-ARM CCA introduces **Realms** — hardware-isolated VMs protected from hypervisor:
+ARM CCA introduces Realms — hardware-isolated VMs protected from hypervisor:
 
 ```
 Exception Levels:
@@ -1497,7 +1497,7 @@ EOF
 | Azure MAA (Microsoft Azure Attestation) | SGX, SEV-SNP, TDX | JWT/JWK | 99.9% |
 | Veraison | Generic | EAT/CBOR | Open source |
 
-**Azure MAA Example:**
+Azure MAA Example:
 ```bash
 # Get attestation token from inside SGX enclave
 az attestation attest-sgx-enclave   --attestation-provider-name myattest   --resource-group myRG   --quote "$(cat sgx_quote.b64)"   --enclave-held-data "$(echo -n 'nonce' | base64)"
@@ -1508,7 +1508,7 @@ az attestation attest-sgx-enclave   --attestation-provider-name myattest   --res
 # x-ms-sgx-product-id, x-ms-sgx-svn
 ```
 
-**AWS Nitro Enclave Attestation:**
+AWS Nitro Enclave Attestation:
 ```python
 import boto3
 import json
@@ -1547,7 +1547,7 @@ Thread execution:
   Transitions via SG instruction → veneer → Secure function
 ```
 
-**TF-M (Trusted Firmware-M) PSA Architecture:**
+TF-M (Trusted Firmware-M) PSA Architecture:
 ```c
 // Secure service definition (PSA API)
 #include "psa/client.h"
@@ -1579,7 +1579,7 @@ void crypto_main(void) {
 
 ### Flash RDP (Read-out Protection) Levels
 
-**STM32 Option Bytes:**
+STM32 Option Bytes:
 ```
 RDP Level 0 (0xAA): No protection
   - JTAG/SWD: Full access to flash, SRAM, debug
@@ -1623,7 +1623,7 @@ openssl dgst -sha256 -verify signing_key_pub.pem   -signature firmware.bin.sig f
 xxd -i signing_key_pub.pem > pub_key.h
 ```
 
-**MCUboot Secure Bootloader:**
+MCUboot Secure Bootloader:
 ```yaml
 # mcuboot.yaml
 boot:
@@ -1642,7 +1642,7 @@ imgtool verify --key signing_key_pub.pem firmware_signed.bin
 
 ### RTOS Security
 
-**FreeRTOS with MPU (Memory Protection Unit):**
+FreeRTOS with MPU (Memory Protection Unit):
 ```c
 // Create task with restricted memory access
 static StackType_t ucTaskStack[256] __attribute__((aligned(256)));
@@ -1692,7 +1692,7 @@ bus.send(can.Message(
 # Requires shared key and freshness counter (anti-replay)
 ```
 
-**CANalyzer / Wireshark for CAN:**
+CANalyzer / Wireshark for CAN:
 ```bash
 # Linux SocketCAN setup
 ip link set can0 type can bitrate 500000
@@ -1776,7 +1776,7 @@ Compliance assessment:
 
 ### Test Bench Equipment
 
-**Saleae Logic Analyzer:**
+Saleae Logic Analyzer:
 ```
 Models: Logic 8 (8-ch, 100MHz digital / 10MHz analog)
         Logic Pro 8 (100MHz analog)
@@ -1796,7 +1796,7 @@ Usage:
 ./Logic2_cli --capture --duration 5 --output capture.sal   --channels 0,1,2,3 --sample-rate 24000000
 ```
 
-**Oscilloscope Requirements for Side-Channel:**
+Oscilloscope Requirements for Side-Channel:
 ```
 Minimum for SCA:
   - Bandwidth: 1 GHz (to capture nanosecond power spikes)
@@ -1814,7 +1814,7 @@ Professional:
   - Tektronix MSO6B: 10GHz, ~$50k
 ```
 
-**Current Probe (for power analysis):**
+Current Probe (for power analysis):
 ```
 Method 1: Shunt resistor (10Ω in VCC line → voltage ∝ current)
   Resolution: ΔV = I × R; 1mA → 10mV across 10Ω
@@ -2053,7 +2053,7 @@ Phase 5: Runtime Testing
 
 Counterfeit electronic components are a major supply chain risk, estimated at $169B/year globally.
 
-**Visual Inspection Techniques:**
+Visual Inspection Techniques:
 ```
 Marking irregularities:
   - Font inconsistencies (compare to genuine datasheet photos)
@@ -2072,7 +2072,7 @@ X-ray inspection:
   - Missing or incorrect internal metallization
 ```
 
-**Electrical Testing:**
+Electrical Testing:
 ```python
 # Automated test using boundary scan (ICT — In-Circuit Test)
 # JTAG boundary scan verifies IO cell behavior
@@ -2097,12 +2097,12 @@ def verify_aes_ic(port):
 
 ### Supply Chain Attack Vectors
 
-**Hardware Implant Attacks:**
-- **Interception attacks:** Package interception during shipping; add implant IC
-- **Insider threats:** Malicious component substitution at contract manufacturer
-- **Rogue supplier:** Counterfeit IC with added functionality (hardware trojan)
+Hardware Implant Attacks:
+- Interception attacks: Package interception during shipping; add implant IC
+- Insider threats: Malicious component substitution at contract manufacturer
+- Rogue supplier: Counterfeit IC with added functionality (hardware trojan)
 
-**Notable Case Studies:**
+Notable Case Studies:
 ```
 Bloomberg "Big Hack" (2018) — disputed but informative:
   - Alleged: Tiny IC (~pencil tip) added to server motherboards at Supermicro's
@@ -2148,7 +2148,7 @@ Hardware SBOM (Software Bill of Materials → Hardware Bill of Materials):
   Format: emerging standards include CycloneDX (supports hardware)
 ```
 
-### NIST SP 800-161r1 — C-SCRM (Cybersecurity Supply Chain Risk Management)
+### NIST SP 800-161r1: C-SCRM (Cybersecurity Supply Chain Risk Management)
 
 ```
 Core SCRM practices (aligned to NIST CSF):

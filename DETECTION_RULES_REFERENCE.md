@@ -1,12 +1,12 @@
 # Detection Rule Writing Reference
 
-> **In one minute** — This is a hands-on guide to writing detection rules in the five languages defenders actually use: Sigma (write once, convert to any SIEM), YARA (file and memory patterns for malware), Suricata/Snort (network traffic), Splunk SPL, and Microsoft Sentinel KQL. Every format gets a structure breakdown, copy-ready example rules mapped to MITRE ATT&CK techniques, and the tooling to convert, run, and tune them. It closes with detection engineering practice: testing rules with Atomic Red Team, managing false positives, and tracking coverage.
+> In one minute — This is a hands-on guide to writing detection rules in the five languages defenders actually use: Sigma (write once, convert to any SIEM), YARA (file and memory patterns for malware), Suricata/Snort (network traffic), Splunk SPL, and Microsoft Sentinel KQL. Every format gets a structure breakdown, copy-ready example rules mapped to MITRE ATT&CK techniques, and the tooling to convert, run, and tune them. It closes with detection engineering practice: testing rules with Atomic Red Team, managing false positives, and tracking coverage.
 
 | | |
 |---|---|
-| **Read this when** | you need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
-| **Start at** | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
-| **Pairs with** | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
+| Read this when | you need to author a detection for a new technique or CVE, you are converting Sigma rules to your SIEM's query language, you are tuning a noisy rule or validating that a deployed rule actually fires |
+| Start at | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
+| Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
 
 A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/Snort, Splunk SPL, and Microsoft Sentinel KQL — covering rule structure, example detections, conversion workflows, and detection engineering best practices.
 
@@ -29,11 +29,11 @@ A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/S
 
 | Format | What It Detects | Primary Use Case | Output / Query Format | Conversion Tools |
 |--------|----------------|------------------|-----------------------|-----------------|
-| **Sigma** | Log-based host/network events | SIEM rule authoring (vendor-agnostic) | YAML → SPL, KQL, Lucene, etc. | pySigma, sigma-cli (sigmac EOL) |
-| **YARA** | File/memory byte patterns | Malware identification & triage | Boolean match (hit/no-hit) | yarGen, YARA-X |
-| **Suricata/Snort** | Network traffic patterns | IDS/IPS packet inspection | Alert, drop, or pass actions | Pulled Pork, suricata-update |
-| **Splunk SPL** | Indexed log events | Threat hunting & SIEM detection | Search results / dashboards | N/A (native) |
-| **KQL (Sentinel)** | Azure / M365 log events | Cloud SIEM detection & hunting | Table results / incidents | N/A (native) |
+| Sigma | Log-based host/network events | SIEM rule authoring (vendor-agnostic) | YAML -> SPL, KQL, Lucene, etc. | pySigma, sigma-cli (sigmac EOL) |
+| YARA | File/memory byte patterns | Malware identification & triage | Boolean match (hit/no-hit) | yarGen, YARA-X |
+| Suricata/Snort | Network traffic patterns | IDS/IPS packet inspection | Alert, drop, or pass actions | Pulled Pork, suricata-update |
+| Splunk SPL | Indexed log events | Threat hunting & SIEM detection | Search results / dashboards | N/A (native) |
+| KQL (Sentinel) | Azure / M365 log events | Cloud SIEM detection & hunting | Table results / incidents | N/A (native) |
 
 ---
 
@@ -75,13 +75,13 @@ falsepositives:
 level: high    # informational | low | medium | high | critical
 ```
 
-**Key field explanations:**
+Key field explanations:
 
 | Field | Purpose |
 |-------|---------|
 | `title` | Short, descriptive name shown in SIEM |
 | `id` | UUID for tracking across repositories |
-| `status` | Maturity level — only deploy `stable` to production |
+| `status` | Maturity level: only deploy `stable` to production |
 | `tags` | MITRE ATT&CK tactic/technique IDs (e.g., `attack.t1059.001`) |
 | `logsource` | Tells converters which log type to query |
 | `detection` | Named selection blocks + condition logic |
@@ -107,7 +107,7 @@ ParentImage|contains:
 
 ### Example Rules
 
-#### Rule 1 — PowerShell Encoded Command (T1059.001)
+#### Rule 1: PowerShell Encoded Command (T1059.001)
 
 ```yaml
 title: PowerShell Encoded Command Execution
@@ -146,7 +146,7 @@ falsepositives:
 level: high
 ```
 
-#### Rule 2 — Mimikatz via Command Line (T1003.001)
+#### Rule 2: Mimikatz via Command Line (T1003.001)
 
 ```yaml
 title: Mimikatz Credential Dumping via Command Line
@@ -183,7 +183,7 @@ falsepositives:
 level: critical
 ```
 
-#### Rule 3 — Scheduled Task Creation (T1053.005)
+#### Rule 3: Scheduled Task Creation (T1053.005)
 
 ```yaml
 title: Suspicious Scheduled Task Creation via schtasks.exe
@@ -224,7 +224,7 @@ falsepositives:
 level: high
 ```
 
-#### Rule 4 — Suspicious Network Connection from Office Application (T1566.001 Post-Execution)
+#### Rule 4: Suspicious Network Connection from Office Application (T1566.001 Post-Execution)
 
 ```yaml
 title: Office Application Initiating Suspicious Network Connection
@@ -298,9 +298,9 @@ sigma convert -t splunk /path/to/sigma/rules/windows/
 sigma convert -t splunk -p sysmon rule.yml
 ```
 
-#### Using sigmac (legacy — deprecated, EOL)
+#### Using sigmac (legacy: deprecated, EOL)
 
-> **Tooling/spec note (verified 2026-09-29):** `sigmac` (the original `sigmatools` package) is **end-of-life and no longer maintained** — it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by **pySigma** (library) and **sigma-cli** (the `sigma` command shown above). The current rule format is the **[Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification)** (released August 8, 2024), which formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
+> Tooling/spec note (verified 2026-09-29): `sigmac` (the original `sigmatools` package) is end-of-life and no longer maintained — it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by pySigma (library) and sigma-cli (the `sigma` command shown above). The current rule format is the [Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification) (released August 8, 2024), which formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
 
 ```bash
 # Install
@@ -318,18 +318,18 @@ sigmac --list-backends
 
 ### Best Practices
 
-- **Use specific fields**: Broad `CommandLine|contains` matches generate false positives. Prefer matching on `Image` + specific `CommandLine` combos.
-- **Tag every rule with ATT&CK IDs**: Enables coverage mapping and prioritization.
-- **Use `status: experimental` until validated**: Only promote to `stable` after testing against production logs.
-- **Write filter blocks**: Use negated filter blocks (`not filter_legitimate`) rather than complex conditions — improves readability and maintainability.
-- **Test against known-good**: Run the rule against 30 days of baseline data before deploying to reduce alert fatigue.
-- **Version with `modified` field**: Track every change with an updated `modified` date.
+- Use specific fields: Broad `CommandLine|contains` matches generate false positives. Prefer matching on `Image` + specific `CommandLine` combos.
+- Tag every rule with ATT&CK IDs: Enables coverage mapping and prioritization.
+- Use `status: experimental` until validated: Only promote to `stable` after testing against production logs.
+- Write filter blocks: Use negated filter blocks (`not filter_legitimate`) rather than complex conditions: improves readability and maintainability.
+- Test against known-good: Run the rule against 30 days of baseline data before deploying to reduce alert fatigue.
+- Version with `modified` field: Track every change with an updated `modified` date.
 
 ### Sigma Rule Repositories
 
 | Repository | Description |
 |-----------|-------------|
-| [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) | Main community repository — thousands of rules |
+| [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) | Main community repository: thousands of rules |
 | [Florian Roth's rules](https://github.com/Neo23x0/sigma) | High-quality rules from the creator of Sigma |
 | [MDATP Sigma Rules](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries) | Microsoft's own Defender hunting queries |
 | [Elastic Detection Rules](https://github.com/elastic/detection-rules) | Elastic SIEM rules (many Sigma-compatible) |
@@ -393,7 +393,7 @@ rule RuleName : tag1 tag2
 | `wide` | Match as 2-byte Unicode (UTF-16LE) |
 | `ascii` | Match as ASCII (default if `wide` not specified) |
 | `fullword` | Only match if delimited by non-alphanumeric characters |
-| `xor` | Match with any single-byte XOR key (0x00–0xFF) |
+| `xor` | Match with any single-byte XOR key (0x00-0xFF) |
 | `xor(0x01-0xff)` | XOR with a specific key range |
 | `base64` | Match Base64-encoded variants |
 | `base64wide` | Match wide Base64-encoded variants |
@@ -443,7 +443,7 @@ rule SuspiciousPE
 
 ### Example Rules
 
-#### Rule 1 — Mimikatz String Detection
+#### Rule 1: Mimikatz String Detection
 
 ```yara
 rule Mimikatz_Strings
@@ -471,7 +471,7 @@ rule Mimikatz_Strings
 }
 ```
 
-#### Rule 2 — Packed / Suspicious PE
+#### Rule 2: Packed / Suspicious PE
 
 ```yara
 import "pe"
@@ -499,7 +499,7 @@ rule SuspiciousPE_Packed
 }
 ```
 
-#### Rule 3 — Webshell Detection
+#### Rule 3: Webshell Detection
 
 ```yara
 rule Webshell_PHP_Eval_Base64
@@ -532,7 +532,7 @@ rule Webshell_PHP_Eval_Base64
 }
 ```
 
-#### Rule 4 — Ransomware Note Pattern
+#### Rule 4: Ransomware Note Pattern
 
 ```yara
 rule Ransomware_Note_Generic
@@ -598,7 +598,7 @@ yara compiled.yarc /path/to/scan/
 | Tool | Purpose |
 |------|---------|
 | [yarGen](https://github.com/Neo23x0/yarGen) | Auto-generate YARA rules from malware samples |
-| [YARA-X](https://github.com/VirusTotal/yara-x) | Rust rewrite of YARA — faster, safer |
+| [YARA-X](https://github.com/VirusTotal/yara-x) | Rust rewrite of YARA: faster, safer |
 | [CAPE Sandbox](https://github.com/kevoreilly/CAPEv2) | Automated malware analysis with YARA extraction |
 | [Valhalla](https://valhalla.nextron-systems.com/) | Commercial YARA rule feed from Florian Roth |
 | [Malpedia](https://malpedia.caad.fkie.fraunhofer.de/) | Malware corpus with associated YARA rules |
@@ -620,7 +620,7 @@ action  proto  src_ip  src_port  direction  dst_ip  dst_port  (options)
 alert tcp any any -> $HOME_NET 443 (msg:"Suspicious TLS Connection"; content:"evil.c2.com"; sid:1000001; rev:1;)
 ```
 
-**Full annotated example:**
+Full annotated example:
 
 ```
 alert http $HOME_NET any -> $EXTERNAL_NET any (
@@ -658,7 +658,7 @@ alert http $HOME_NET any -> $EXTERNAL_NET any (
 | `pcre` | Perl-compatible regex pattern |
 | `flow` | Connection state and direction filter |
 | `flags` | TCP flag matching (S, A, F, R, P, U) |
-| `sid` | Unique rule ID (1–999999 reserved, 1000000+ user) |
+| `sid` | Unique rule ID (1-999999 reserved, 1000000+ user) |
 | `rev` | Rule revision number |
 | `reference` | External reference URL or CVE |
 | `classtype` | Alert classification category |
@@ -710,7 +710,7 @@ pcre:"/\?[a-z]{1,3}=[A-Za-z0-9]{16,32}(&[a-z]{1,3}=[A-Za-z0-9]{16,32}){2,}/";
 
 ### Example Rules
 
-#### Rule 1 — Cobalt Strike Default HTTPS C2 Beacon
+#### Rule 1: Cobalt Strike Default HTTPS C2 Beacon
 
 ```
 alert tls $HOME_NET any -> $EXTERNAL_NET 443 (
@@ -728,7 +728,7 @@ alert tls $HOME_NET any -> $EXTERNAL_NET 443 (
 )
 ```
 
-#### Rule 2 — Suspicious DNS Tunneling (Long Subdomain)
+#### Rule 2: Suspicious DNS Tunneling (Long Subdomain)
 
 ```
 alert dns $HOME_NET any -> any 53 (
@@ -744,7 +744,7 @@ alert dns $HOME_NET any -> any 53 (
 )
 ```
 
-#### Rule 3 — Log4Shell Exploit Attempt (T1190 / CVE-2021-44228)
+#### Rule 3: Log4Shell Exploit Attempt (T1190 / CVE-2021-44228)
 
 ```
 alert http any any -> $HTTP_SERVERS any (
@@ -759,7 +759,7 @@ alert http any any -> $HTTP_SERVERS any (
 )
 ```
 
-#### Rule 4 — PowerShell Download Cradle in HTTP
+#### Rule 4: PowerShell Download Cradle in HTTP
 
 ```
 alert http $HOME_NET any -> $EXTERNAL_NET any (
@@ -818,9 +818,9 @@ Splunk Search Processing Language (SPL) is the native query language for Splunk 
 
 ### PowerShell Encoded Commands (T1059.001)
 
-> **Log source note:** Windows Security event 4688 populates the command line
-> (`Process_Command_Line`) only when *Audit Process Creation* **and** the "Include command line
-> in process creation events" GPO are both enabled. 4688 has **no** parent command line — only
+> Log source note: Windows Security event 4688 populates the command line
+> (`Process_Command_Line`) only when *Audit Process Creation* and the "Include command line
+> in process creation events" GPO are both enabled. 4688 has no parent command line — only
 > the parent image path in `Creator_Process_Name` (surfaced by some SIEMs as `ParentProcessName`).
 > For parent command-line context, source from Sysmon event 1 instead.
 
@@ -845,8 +845,8 @@ index=windows EventCode=4625
 
 ### Lateral Movement via PsExec (T1021.002)
 
-> **Log source note:** Event 7045 ("a service was installed in the system") is written to the
-> **System** log and 4697 to the Security log; in both, the service binary path is the **Service
+> Log source note: Event 7045 ("a service was installed in the system") is written to the
+> System log and 4697 to the Security log; in both, the service binary path is the **Service
 > File Name** field (`Service_File_Name`), rendered from the raw XML element `ImagePath`. Match
 > on `Service_File_Name`, not a bare `ImagePath`, unless you ingest the raw event XML.
 
@@ -870,9 +870,9 @@ index=proxy bytes_out > 10000000
 
 ### New / Escalated Local Administrator Account (T1098 / T1136.001)
 
-> **Event semantics:** 4732 = a member was added to a security-enabled **local** group — use
-> this for the local `Administrators` group (4728 is for **global** groups and never applies to
-> local admin). 4720 = a **user account was created**. Adding an existing account to
+> Event semantics: 4732 = a member was added to a security-enabled local group — use
+> this for the local `Administrators` group (4728 is for global groups and never applies to
+> local admin). 4720 = a user account was created. Adding an existing account to
 > Administrators (4732) is a *membership change*, not account creation, so pair 4732 with 4720
 > to also catch a freshly created account. The account field differs by event: 4732 carries the
 > added member in `Member_Name`, 4720 carries the new account in `Target_Account_Name`.
@@ -886,7 +886,7 @@ index=windows ((EventCode=4732 Group_Name="Administrators") OR EventCode=4720)
 
 ### Pass-the-Hash Hunt (T1550.002)
 
-> **Hunt, not a production alert.** NTLM network logons are ubiquitous, so a bare
+> Hunt, not a production alert. NTLM network logons are ubiquitous, so a bare
 > `Logon_Type=3` + `NTLM` rule fires on normal traffic. The discriminators below
 > (`Logon_Process="NtLmSsp"`, `Key_Length=0`) narrow the field but do not confirm PtH — OWA,
 > some proxies, and legacy apps also produce `Key_Length=0` NTLM logons. Use it as a starting
@@ -918,11 +918,11 @@ Service_Name!="*$"
 
 ### Suspicious Process Spawned from Office (T1566.001)
 
-> **Log source note:** Windows Security event 4688 has no `ParentImage` field (its parent is
+> Log source note: Windows Security event 4688 has no `ParentImage` field (its parent is
 > the image path in `Creator_Process_Name`, and it carries no parent command line). This query
-> therefore uses **Sysmon event 1**, which provides `ParentImage`, `Image`, and `CommandLine`
-> directly. To keep 4688, swap `ParentImage`→`Creator_Process_Name` and
-> `NewProcessName`→`New_Process_Name`, and enable the command-line GPO for `Process_Command_Line`.
+> therefore uses Sysmon event 1, which provides `ParentImage`, `Image`, and `CommandLine`
+> directly. To keep 4688, swap `ParentImage`->`Creator_Process_Name` and
+> `NewProcessName`->`New_Process_Name`, and enable the command-line GPO for `Process_Command_Line`.
 
 ```spl
 index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
@@ -1020,8 +1020,8 @@ CloudAppEvents
 
 ### Azure Resource Creation in New Resource Group (T1578)
 
-> **Field note:** the `AzureActivity` table has no reliable region/location column, so this
-> query baselines by **resource group** (`ResourceGroup`), not by Azure region — the previous
+> Field note: the `AzureActivity` table has no reliable region/location column, so this
+> query baselines by resource group (`ResourceGroup`), not by Azure region — the previous
 > "Regions" labels were grouping on `ResourceGroup`. For true region analysis, parse the region
 > out of `_ResourceId`/`Properties` or query Azure Resource Graph.
 
@@ -1107,13 +1107,13 @@ Focus detection investment on TTP-based behavioral rules rather than hash or IP 
 
 ### Detection Lifecycle
 
-1. **Identify** — threat intel, red team findings, or CVE triggers a detection need
-2. **Author** — write the rule with ATT&CK tags and `status: experimental`
-3. **Test** — validate against known-bad samples and known-good baselines
-4. **Deploy** — push to SIEM/IDS in monitoring mode
-5. **Tune** — address false positives aggressively in the first 30 days
-6. **Promote** — update to `status: stable` after tuning
-7. **Review** — quarterly review of all stable rules for continued relevance
+1. Identify: threat intel, red team findings, or CVE triggers a detection need
+2. Author: write the rule with ATT&CK tags and `status: experimental`
+3. Test: validate against known-bad samples and known-good baselines
+4. Deploy: push to SIEM/IDS in monitoring mode
+5. Tune: address false positives aggressively in the first 30 days
+6. Promote: update to `status: stable` after tuning
+7. Review: quarterly review of all stable rules for continued relevance
 
 ### Atomic Red Team Testing
 
@@ -1176,9 +1176,9 @@ Maintain a changelog alongside rules:
 
 ---
 
-## 9. Sigma Rules — Practical Examples by ATT&CK Tactic
+## 9. Sigma Rules: Practical Examples by ATT&CK Tactic
 
-### Initial Access (T1566 — Phishing)
+### Initial Access (T1566: Phishing)
 ```yaml
 title: Suspicious Office Child Process
 id: 438025f9-5856-4663-83f7-52f878a70a50
@@ -1214,7 +1214,7 @@ tags:
     - attack.t1204.002
 ```
 
-### Execution (T1059.001 — PowerShell)
+### Execution (T1059.001: PowerShell)
 ```yaml
 title: Suspicious PowerShell Encoded Command
 id: ca2092a1-c273-4878-9b4b-a3f2a4f0a6b7
@@ -1246,7 +1246,7 @@ tags:
     - attack.t1027
 ```
 
-### Persistence (T1053.005 — Scheduled Task)
+### Persistence (T1053.005: Scheduled Task)
 ```yaml
 title: Scheduled Task Created via Schtasks
 id: 92a65ab3-4078-4d5b-89eb-4e01f2a28bab
@@ -1273,7 +1273,7 @@ tags:
     - attack.t1053.005
 ```
 
-### Stealth (T1070.001 — Clear Windows Event Logs)
+### Stealth (T1070.001: Clear Windows Event Logs)
 ```yaml
 title: Windows Event Log Cleared
 id: a62b31e2-d8d6-4b29-bf50-e4b4edb9c45a
@@ -1298,7 +1298,7 @@ tags:
     - attack.t1070.001
 ```
 
-### Credential Access (T1003.001 — LSASS Memory Dump)
+### Credential Access (T1003.001: LSASS Memory Dump)
 ```yaml
 title: LSASS Memory Access by Non-System Process
 id: 32d0d3e2-e58d-4d41-a703-4b59b8d18901
@@ -1330,7 +1330,7 @@ tags:
     - attack.t1003.001
 ```
 
-### Lateral Movement (T1021.002 — SMB/Windows Admin Shares)
+### Lateral Movement (T1021.002: SMB/Windows Admin Shares)
 ```yaml
 title: Remote Service Installation via Admin Shares
 id: 4e0a78ef-7d53-4f4e-b1b2-8d9f5e62a1bc
@@ -1360,7 +1360,7 @@ tags:
 
 ---
 
-## 10. KQL — Microsoft Sentinel Queries
+## 10. KQL: Microsoft Sentinel Queries
 
 ### Detect Suspicious PowerShell Network Connections
 ```kql
@@ -1579,15 +1579,15 @@ Invoke-AtomicTest T1003.001 -TestNumbers 1
 Invoke-AtomicTest T1003.001 -TestNumbers 1 -Cleanup
 ```
 
-**Detection validation workflow**:
+Detection validation workflow:
 1. Pick the ATT&CK technique your rule targets (e.g., T1059.001)
 2. Run `Invoke-AtomicTest T1059.001 -ShowDetailsBrief` to see available tests
 3. Execute the test in your lab environment
 4. Confirm your SIEM/EDR fires the expected alert
-5. If no alert: investigate log coverage → tune data source → update rule
+5. If no alert: investigate log coverage -> tune data source -> update rule
 6. Document: technique, test number, expected alert, confirmed firing, false positive rate
 
-**Key Atomic Red Team resources**:
+Key Atomic Red Team resources:
 - Repository: [github.com/redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team)
 - ATT&CK technique index: [atomicredteam.io/atomics](https://atomicredteam.io/atomics)
 - Windows test prerequisites: Windows Defender exclusions on lab VM required for many tests
@@ -1666,7 +1666,7 @@ level: medium
 | `\|endswith` | String ends with value | `Image\|endswith: '\powershell.exe'` |
 | `\|re` | Regex match | `CommandLine\|re: '(?i)invoke'` |
 
-### Sigma for T1003 — LSASS Memory Access
+### Sigma for T1003: LSASS Memory Access
 
 ```yaml
 title: LSASS Memory Access
@@ -1692,7 +1692,7 @@ tags:
     - attack.t1003.001
 ```
 
-### Sigma for T1059.003 — Cmd Spawned by Office
+### Sigma for T1059.003: Cmd Spawned by Office
 
 ```yaml
 title: Cmd.exe Spawned by Office Application
@@ -1786,9 +1786,9 @@ index=windows sourcetype="WinEventLog:Security"
 | sort -count
 ```
 
-### Pass-the-Hash Hunt — After-Hours NTLM (Splunk)
+### Pass-the-Hash Hunt: After-Hours NTLM (Splunk)
 
-> **Hunt, not a production alert** (see the Pass-the-Hash Hunt above). The after-hours window is
+> Hunt, not a production alert (see the Pass-the-Hash Hunt above). The after-hours window is
 > only a prioritization aid layered on the same NTLM/`Key_Length=0` discriminators; it does not
 > confirm PtH. Correlate suspects workstation-to-workstation with event 4776 on the
 > authenticating system and pivot on the source host.
@@ -1905,10 +1905,10 @@ alert http any any -> any any (
 
 ### Detection Lifecycle
 
-1. **Hypothesis** — ATT&CK technique, threat intel, incident retrospective
-2. **Data Sources** — Which logs capture this behavior?
-3. **Logic** — Write detection using required fields
-4. **Test** — Validate against attack simulation and benign data
-5. **Tune** — Reduce FPs via allow-listing, thresholds
-6. **Deploy** — Push to SIEM with severity and response runbook
-7. **Review** — Measure FP rate, detection rate, MTTD
+1. Hypothesis: ATT&CK technique, threat intel, incident retrospective
+2. Data Sources: Which logs capture this behavior?
+3. Logic: Write detection using required fields
+4. Test: Validate against attack simulation and benign data
+5. Tune: Reduce FPs via allow-listing, thresholds
+6. Deploy: Push to SIEM with severity and response runbook
+7. Review: Measure FP rate, detection rate, MTTD

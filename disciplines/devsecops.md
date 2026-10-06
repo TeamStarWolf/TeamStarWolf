@@ -119,11 +119,11 @@ DevSecOps is the practice of integrating security controls, testing, and culture
 
 An SBOM is a formal, machine-readable inventory of all software components, their versions, and their licenses. It is foundational to supply chain security:
 
-- **CycloneDX** — OWASP-hosted standard; widely supported by tooling (syft, Trivy, Snyk)
-- **SPDX** — Linux Foundation standard; used by CISA and US federal requirements
-- **Generation**: `syft image:latest -o cyclonedx-json > sbom.json`
-- **Vulnerability Matching**: Feed SBOM to Grype — `grype sbom:sbom.json`
-- **Attestation**: Sign SBOMs with cosign and store in OCI registries as attestations
+- CycloneDX: OWASP-hosted standard; widely supported by tooling (syft, Trivy, Snyk)
+- SPDX: Linux Foundation standard; used by CISA and US federal requirements
+- Generation: `syft image:latest -o cyclonedx-json > sbom.json`
+- Vulnerability Matching: Feed SBOM to Grype: `grype sbom:sbom.json`
+- Attestation: Sign SBOMs with cosign and store in OCI registries as attestations
 
 ---
 
@@ -194,26 +194,26 @@ An SBOM is a formal, machine-readable inventory of all software components, thei
 | [GitHub Actions Security Hardening](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions) | Free | Official guide to securing GitHub Actions pipelines |
 | [Practical DevSecOps Courses](https://www.practical-devsecops.com/) | Paid | Hands-on SAST, DAST, SCA, and pipeline security labs |
 | [Kubernetes Security Best Practices (CNCF)](https://kubernetes.io/docs/concepts/security/) | Free | Container and orchestration security hardening |
-| [Securing DevOps — Julien Vehent](https://www.manning.com/books/securing-devops) | Book | Practical DevSecOps from a Mozilla security engineer |
+| [Securing DevOps: Julien Vehent](https://www.manning.com/books/securing-devops) | Book | Practical DevSecOps from a Mozilla security engineer |
 | [The Phoenix Project](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/1942788290) | Book | Foundational DevOps culture narrative; context for DevSecOps integration |
 
 ---
 
 ## Shift-Left Security Principles
 
-- Shift left: Move security earlier in the SDLC (design → code → build vs. deployment → production)
+- Shift left: Move security earlier in the SDLC (design -> code -> build vs. deployment -> production)
 - Cost of fixing a bug: ~6x more expensive in production vs. development phase (IBM Systems Sciences Institute)
 - Developer ownership: Security is everyone's responsibility; "you build it, you secure it"
 - Security guardrails: Make secure patterns the path of least resistance (pre-approved libraries, templates, IaC modules)
 
 ## CI/CD Pipeline Security Controls
 
-**Pre-Commit (Developer Workstation)**
-- Pre-commit hooks: `pre-commit` framework — run secrets scanning, linting before `git commit`
-- Secrets detection: `detect-secrets`, `git-secrets`, `gitleaks` — block API keys, passwords, tokens
+Pre-Commit (Developer Workstation)
+- Pre-commit hooks: `pre-commit` framework: run secrets scanning, linting before `git commit`
+- Secrets detection: `detect-secrets`, `git-secrets`, `gitleaks`: block API keys, passwords, tokens
 - SAST local: IDE plugins (Semgrep VSCode, SonarLint)
 
-**Build Phase (CI/CD Pipeline)**
+Build Phase (CI/CD Pipeline)
 - SAST (Static Analysis):
   - Semgrep: Fast, pattern-based; free for OSS; excellent for custom rules
   - SonarQube/SonarCloud: Broad language support; technical debt tracking
@@ -232,14 +232,14 @@ An SBOM is a formal, machine-readable inventory of all software components, thei
   - tfsec: Terraform-specific; fast
   - KICS: Broad IaC support (Terraform, Ansible, Docker, CloudFormation)
 
-**Secrets Management**
+Secrets Management
 - Never commit secrets: Use environment variables, secrets managers
 - HashiCorp Vault: Dynamic secrets, PKI, encryption as a service; self-hosted
 - AWS Secrets Manager / Azure Key Vault / GCP Secret Manager: Cloud-native
 - SOPS (Mozilla): Encrypt secrets files in git; supports KMS + PGP
 - Doppler / 1Password Secrets Automation: Developer-friendly SaaS
 
-**Artifact Signing and Integrity**
+Artifact Signing and Integrity
 - Sigstore / Cosign: Sign container images with keyless signing (OIDC-based); `cosign sign`
 - SLSA (Supply-chain Levels for Software Artifacts): Framework for supply chain integrity
 - SBOM generation: Syft (`syft image:tag -o spdx-json > sbom.json`), CycloneDX Maven/Gradle plugins
@@ -247,22 +247,22 @@ An SBOM is a formal, machine-readable inventory of all software components, thei
 
 ## Kubernetes and Container Security
 
-**Container Image Hardening**
-- Use minimal base images: `distroless`, `alpine`, `scratch` — reduce attack surface
+Container Image Hardening
+- Use minimal base images: `distroless`, `alpine`, `scratch`: reduce attack surface
 - Run as non-root: `USER 1001` in Dockerfile
 - Read-only root filesystem: `securityContext.readOnlyRootFilesystem: true` in pod spec
 - No privileged containers: `privileged: false`, drop all capabilities then add only needed
 - No latest tags: Pin to digest (`image@sha256:...`) for reproducibility
 
-**Kubernetes Security Controls**
+Kubernetes Security Controls
 - Pod Security Standards (PSS): Privileged, Baseline, Restricted profiles (K8s 1.25+)
 - Network Policies: Default deny-all ingress/egress; explicitly allow needed traffic
 - RBAC: Principle of least privilege; avoid `ClusterAdmin`; use namespaced roles
 - Admission controllers: OPA Gatekeeper or Kyverno for policy enforcement
 - Secrets encryption: Enable etcd encryption at rest for K8s Secrets
-- Runtime security: Falco (CNCF) — anomaly detection based on syscall patterns
+- Runtime security: Falco (CNCF): anomaly detection based on syscall patterns
 
-**DevSecOps Toolchain Reference**
+DevSecOps Toolchain Reference
 
 | Stage | Tool | Type | Use Case |
 |---|---|---|---|

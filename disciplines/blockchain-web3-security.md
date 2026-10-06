@@ -23,9 +23,9 @@ Begin with Solidity and smart contract fundamentals before studying vulnerabilit
 ### Reentrancy
 The most famous smart contract vulnerability class. When a contract sends ETH (or calls an external contract) before updating its own state, the receiving contract can call back into the sender and withdraw again before the balance is decremented.
 
-**The DAO (2016, $60M)**: The DAO's `splitDAO()` function sent ETH to a "child DAO" before updating the balance. An attacker deployed a malicious contract whose fallback function recursively called back into `splitDAO()`, draining 3.6M ETH before the balance ever decreased. This led to the Ethereum hard fork.
+The DAO (2016, $60M): The DAO's `splitDAO()` function sent ETH to a "child DAO" before updating the balance. An attacker deployed a malicious contract whose fallback function recursively called back into `splitDAO()`, draining 3.6M ETH before the balance ever decreased. This led to the Ethereum hard fork.
 
-**Reentrancy pattern**:
+Reentrancy pattern:
 ```
 1. Victim contract checks balance (OK)
 2. Victim sends ETH to attacker
@@ -34,7 +34,7 @@ The most famous smart contract vulnerability class. When a contract sends ETH (o
 5. Victim sends ETH again → repeat until drained
 6. Victim finally updates balance (too late)
 ```
-**Fix**: Checks-Effects-Interactions pattern (update state before external calls) or ReentrancyGuard mutex.
+Fix: Checks-Effects-Interactions pattern (update state before external calls) or ReentrancyGuard mutex.
 
 ### Integer Overflow / Underflow
 Solidity <0.8.0 arithmetic wraps silently. A `uint256` at 0 minus 1 becomes `2^256 - 1`. Attackers exploit this to bypass balance checks or manufacture large token balances. Fixed in Solidity 0.8+ with built-in overflow reversion; older contracts should use SafeMath.
@@ -48,7 +48,7 @@ Miners and MEV bots can observe pending transactions in the mempool and insert t
 ### Flash Loan Attacks
 Flash loans allow borrowing millions of tokens within a single transaction at zero cost — the loan must be repaid by the end of the transaction or everything reverts. Attackers use flash loans to manipulate DeFi protocol state temporarily: borrow enormous sums, manipulate an oracle or liquidity pool, exploit the manipulated state in another protocol, repay the loan, keep the profit — all in one transaction.
 
-**Cream Finance (2021, $130M)**: Attacker used a flash loan to borrow large amounts, manipulate the price oracle used by Cream Finance's lending market, and drain the protocol's reserves by borrowing against artificially inflated collateral.
+Cream Finance (2021, $130M): Attacker used a flash loan to borrow large amounts, manipulate the price oracle used by Cream Finance's lending market, and drain the protocol's reserves by borrowing against artificially inflated collateral.
 
 ### Oracle Manipulation
 DeFi protocols rely on price oracles to determine asset values. On-chain oracles derived from DEX spot prices can be manipulated by large trades. When a protocol uses a spot price as a collateral value, an attacker can temporarily manipulate that price to borrow far more than they should be able to, then let the price return to normal.
@@ -56,8 +56,8 @@ DeFi protocols rely on price oracles to determine asset values. On-chain oracles
 ### Bridge Vulnerabilities
 Cross-chain bridges lock assets on one chain and mint representations on another. The locking/minting logic represents one of the highest-value attack surfaces in crypto.
 
-- **Ronin Bridge ($625M, March 2022)**: Lazarus Group (North Korea) compromised 5 of 9 Ronin validator keys (4 via a single entity running multiple validators), enabling them to forge withdrawal approvals and drain the bridge over several days before discovery.
-- **Wormhole Bridge ($320M, February 2022)**: A signature verification flaw in the Solana side of the bridge allowed an attacker to mint 120,000 wETH without depositing any ETH — a pure arithmetic/logic exploit in the verification code.
+- Ronin Bridge ($625M, March 2022): Lazarus Group (North Korea) compromised 5 of 9 Ronin validator keys (4 via a single entity running multiple validators), enabling them to forge withdrawal approvals and drain the bridge over several days before discovery.
+- Wormhole Bridge ($320M, February 2022): A signature verification flaw in the Solana side of the bridge allowed an attacker to mint 120,000 wETH without depositing any ETH — a pure arithmetic/logic exploit in the verification code.
 
 ### Rug Pulls
 Malicious project developers retain privileged contract functions (unlimited mint, drain liquidity, upgrade proxy) and use them to steal funds after building up significant liquidity and community trust. Unlike exploits, rug pulls are intentional fraud by the deployers.
@@ -66,40 +66,40 @@ Malicious project developers retain privileged contract functions (unlimited min
 
 ## Free Training
 
-- [Ethernaut CTF (OpenZeppelin)](https://ethernaut.openzeppelin.com/) — The foundational smart contract security CTF; 20+ progressively difficult challenges covering reentrancy, delegatecall abuse, storage layout, and access control
-- [Damn Vulnerable DeFi](https://www.damnvulnerabledefi.xyz/) — DeFi-focused CTF covering flash loan attacks, oracle manipulation, lending protocol exploits, and governance attacks; the practical complement to Ethernaut
-- [Capture the Ether](https://capturetheether.com/) — Smart contract security challenges covering integer overflow, lotteries, accounts, and math vulnerabilities
-- [Secureum Epoch 0](https://secureum.substack.com/) — Comprehensive free smart contract security curriculum covering Solidity, EVM, security pitfalls, and audit methodology
-- [Trail of Bits Blog](https://blog.trailofbits.com/) — Free technical blog from one of the top smart contract audit firms
-- [rekt.news](https://rekt.news/) — Postmortem analysis of major DeFi exploits; one of the fastest ways to understand real-world attack patterns
-- [Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/) — Community-maintained reference covering known vulnerability classes and secure development patterns
-- [DeFiHackLabs](https://github.com/SunWeb3Sec/DeFiHackLabs) — Foundry-based reproductions of major DeFi hacks; learn attack mechanics hands-on
+- [Ethernaut CTF (OpenZeppelin)](https://ethernaut.openzeppelin.com/): The foundational smart contract security CTF; 20+ progressively difficult challenges covering reentrancy, delegatecall abuse, storage layout, and access control
+- [Damn Vulnerable DeFi](https://www.damnvulnerabledefi.xyz/): DeFi-focused CTF covering flash loan attacks, oracle manipulation, lending protocol exploits, and governance attacks; the practical complement to Ethernaut
+- [Capture the Ether](https://capturetheether.com/): Smart contract security challenges covering integer overflow, lotteries, accounts, and math vulnerabilities
+- [Secureum Epoch 0](https://secureum.substack.com/): Comprehensive free smart contract security curriculum covering Solidity, EVM, security pitfalls, and audit methodology
+- [Trail of Bits Blog](https://blog.trailofbits.com/): Free technical blog from one of the top smart contract audit firms
+- [rekt.news](https://rekt.news/): Postmortem analysis of major DeFi exploits; one of the fastest ways to understand real-world attack patterns
+- [Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/): Community-maintained reference covering known vulnerability classes and secure development patterns
+- [DeFiHackLabs](https://github.com/SunWeb3Sec/DeFiHackLabs): Foundry-based reproductions of major DeFi hacks; learn attack mechanics hands-on
 
 ---
 
 ## Tools & Repositories
 
 ### Static Analysis
-- [crytic/slither](https://github.com/crytic/slither) — Most widely used open-source Solidity static analyzer from Trail of Bits; detects reentrancy, access control issues, and 80+ other vulnerability classes; fast and CI/CD-ready
-- [ConsenSys/mythril](https://github.com/ConsenSys/mythril) — Symbolic execution tool for EVM bytecode; detects integer overflows, reentrancy, and other vulnerabilities by exploring all code paths; operates on bytecode without source
-- [Certora Prover](https://www.certora.com/) — Formal verification platform; proves correctness properties hold for all possible inputs; used by Aave, Compound, and other major protocols
-- [trailofbits/manticore](https://github.com/trailofbits/manticore) — Symbolic execution tool for EVM and native binaries; supports complex multi-contract analysis
+- [crytic/slither](https://github.com/crytic/slither): Most widely used open-source Solidity static analyzer from Trail of Bits; detects reentrancy, access control issues, and 80+ other vulnerability classes; fast and CI/CD-ready
+- [ConsenSys/mythril](https://github.com/ConsenSys/mythril): Symbolic execution tool for EVM bytecode; detects integer overflows, reentrancy, and other vulnerabilities by exploring all code paths; operates on bytecode without source
+- [Certora Prover](https://www.certora.com/): Formal verification platform; proves correctness properties hold for all possible inputs; used by Aave, Compound, and other major protocols
+- [trailofbits/manticore](https://github.com/trailofbits/manticore): Symbolic execution tool for EVM and native binaries; supports complex multi-contract analysis
 
 ### Fuzzing & Testing
-- [crytic/echidna](https://github.com/crytic/echidna) — Property-based fuzzer for Ethereum smart contracts from Trail of Bits; tests user-defined invariants by generating random transaction sequences; the standard for smart contract fuzzing
-- [foundry-rs/foundry](https://github.com/foundry-rs/foundry) — Modern smart contract development and testing framework; Forge (testing + fuzz), Cast (chain interaction), Anvil (local node); fastest test execution for Solidity
-- [trufflesuite/hardhat](https://github.com/NomicFoundation/hardhat) — Ethereum development environment; task runner, testing framework, and network forking for security testing; widely used in existing audit workflows alongside Foundry
-- [OpenZeppelin/openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) — The standard audited base library for Solidity; secure implementations of ERC tokens, access control, and proxy patterns; using it reduces custom vulnerability surface
+- [crytic/echidna](https://github.com/crytic/echidna): Property-based fuzzer for Ethereum smart contracts from Trail of Bits; tests user-defined invariants by generating random transaction sequences; the standard for smart contract fuzzing
+- [foundry-rs/foundry](https://github.com/foundry-rs/foundry): Modern smart contract development and testing framework; Forge (testing + fuzz), Cast (chain interaction), Anvil (local node); fastest test execution for Solidity
+- [trufflesuite/hardhat](https://github.com/NomicFoundation/hardhat): Ethereum development environment; task runner, testing framework, and network forking for security testing; widely used in existing audit workflows alongside Foundry
+- [OpenZeppelin/openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts): The standard audited base library for Solidity; secure implementations of ERC tokens, access control, and proxy patterns; using it reduces custom vulnerability surface
 
 ### Runtime Monitoring
-- [forta-network/forta-core-go](https://github.com/forta-network/forta-core-go) — Decentralized threat detection network; community-run bots monitoring on-chain activity for exploits and anomalous transactions
-- [OpenZeppelin Defender](https://www.openzeppelin.com/defender) — Smart contract operations platform with automated monitoring, incident response, and upgrade management
-- [Tenderly](https://tenderly.co/) — Smart contract monitoring, alerting, and simulation platform; transaction simulation before on-chain execution
+- [forta-network/forta-core-go](https://github.com/forta-network/forta-core-go): Decentralized threat detection network; community-run bots monitoring on-chain activity for exploits and anomalous transactions
+- [OpenZeppelin Defender](https://www.openzeppelin.com/defender): Smart contract operations platform with automated monitoring, incident response, and upgrade management
+- [Tenderly](https://tenderly.co/): Smart contract monitoring, alerting, and simulation platform; transaction simulation before on-chain execution
 
 ### Blockchain Analytics
-- [Etherscan](https://etherscan.io/) — Primary Ethereum block explorer; essential for investigating transactions, tracing fund flows, reading verified contract source
-- [SunWeb3Sec/DeFiHackLabs](https://github.com/SunWeb3Sec/DeFiHackLabs) — PoC exploit reproductions for major DeFi hacks in Foundry; study real attack implementations
-- [Breadcrumbs](https://www.breadcrumbs.app/) — Blockchain address tracking and visualization; maps fund flows across addresses for attribution
+- [Etherscan](https://etherscan.io/): Primary Ethereum block explorer; essential for investigating transactions, tracing fund flows, reading verified contract source
+- [SunWeb3Sec/DeFiHackLabs](https://github.com/SunWeb3Sec/DeFiHackLabs): PoC exploit reproductions for major DeFi hacks in Foundry; study real attack implementations
+- [Breadcrumbs](https://www.breadcrumbs.app/): Blockchain address tracking and visualization; maps fund flows across addresses for attribution
 
 ---
 
@@ -107,13 +107,13 @@ Malicious project developers retain privileged contract functions (unlimited min
 
 | Platform | Strength |
 |---|---|
-| **Trail of Bits** | Most technically rigorous smart contract audit firm; deep expertise in formal verification, fuzzing, and custom tooling; public reports are valuable free learning resources |
-| **OpenZeppelin** | Smart contract audits plus the standard secure base library; Defender platform for operational security |
-| **CertiK** | High-volume audit firm with on-chain security score tracking; broad coverage across EVM-compatible chains |
-| **Halborn** | Blockchain security covering smart contract audits, Web3 infrastructure pentesting, and protocol advisory |
-| **Immunefi** | Dominant bug bounty platform for Web3; bounty programs with payouts reaching $10M+; primary market for white-hat smart contract researchers |
-| **Chainalysis** | Blockchain analytics and investigation; transaction tracing, compliance screening used by exchanges and law enforcement |
-| **Elliptic** | Blockchain analytics competitor; crypto asset risk scoring, transaction monitoring, and sanctions screening |
+| Trail of Bits | Most technically rigorous smart contract audit firm; deep expertise in formal verification, fuzzing, and custom tooling; public reports are valuable free learning resources |
+| OpenZeppelin | Smart contract audits plus the standard secure base library; Defender platform for operational security |
+| CertiK | High-volume audit firm with on-chain security score tracking; broad coverage across EVM-compatible chains |
+| Halborn | Blockchain security covering smart contract audits, Web3 infrastructure pentesting, and protocol advisory |
+| Immunefi | Dominant bug bounty platform for Web3; bounty programs with payouts reaching $10M+; primary market for white-hat smart contract researchers |
+| Chainalysis | Blockchain analytics and investigation; transaction tracing, compliance screening used by exchanges and law enforcement |
+| Elliptic | Blockchain analytics competitor; crypto asset risk scoring, transaction monitoring, and sanctions screening |
 
 ---
 
@@ -151,11 +151,11 @@ Malicious project developers retain privileged contract functions (unlimited min
 
 There is no single dominant certification for smart contract security — the discipline is young enough that demonstrated skills outweigh credentials. The recognized pathway is:
 
-- **Portfolio-Based Recognition** — The Web3 security community weights demonstrated audit findings, public CTF results (Ethernaut, Damn Vulnerable DeFi), Immunefi bug bounty payouts, and Code4rena audit competition rankings above formal certifications
-- **Smart Contract Auditor Pathway**: Ethernaut → Damn Vulnerable DeFi → Secureum Epoch 0 → real audit contest participation (Code4rena, Sherlock, Cantina) → private engagements or internal audit roles
-- **CBSP** (Certified Blockchain Security Professional — EC-Council) — The most recognized formal blockchain security certification; covers blockchain fundamentals, smart contract vulnerabilities, and DeFi security
-- **CSSLP** (Certified Secure Software Lifecycle Professional — ISC2) — Secure SDLC credential applicable to smart contract development practices
-- **OSCP** (Offensive Security Certified Professional) — Offensive methodology provides the attacker mindset essential for smart contract auditing; many top auditors hold OSCP for its offensive reasoning foundation
+- Portfolio-Based Recognition: The Web3 security community weights demonstrated audit findings, public CTF results (Ethernaut, Damn Vulnerable DeFi), Immunefi bug bounty payouts, and Code4rena audit competition rankings above formal certifications
+- Smart Contract Auditor Pathway: Ethernaut -> Damn Vulnerable DeFi -> Secureum Epoch 0 -> real audit contest participation (Code4rena, Sherlock, Cantina) -> private engagements or internal audit roles
+- CBSP (Certified Blockchain Security Professional: EC-Council) — The most recognized formal blockchain security certification; covers blockchain fundamentals, smart contract vulnerabilities, and DeFi security
+- CSSLP (Certified Secure Software Lifecycle Professional: ISC2) — Secure SDLC credential applicable to smart contract development practices
+- OSCP (Offensive Security Certified Professional): Offensive methodology provides the attacker mindset essential for smart contract auditing; many top auditors hold OSCP for its offensive reasoning foundation
 
 ---
 

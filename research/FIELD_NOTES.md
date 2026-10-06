@@ -15,17 +15,17 @@ Writeups and lessons learned from building, reviewing, and hardening projects in
 | # | Entry | Topic |
 |---|---|---|
 | 2 | [Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api) | Web reverse engineering, rate-limit handling |
-| 1 | [Hardening LimeWire v4 — 32 vulnerabilities, 3 audit rounds](#_1-hardening-limewire-v4) | Application security, secure coding patterns |
+| 1 | [Hardening LimeWire v4: 32 vulnerabilities, 3 audit rounds](#_1-hardening-limewire-v4) | Application security, secure coding patterns |
 
 ---
 
 ## 1. Hardening LimeWire v4
 
-**Project:** [TeamStarWolf/LimeWire](https://github.com/TeamStarWolf/LimeWire) — a Python desktop audio production studio (~100 source files, Tkinter GUI, ffmpeg/yt-dlp subprocess heavy).
+Project: [TeamStarWolf/LimeWire](https://github.com/TeamStarWolf/LimeWire) — a Python desktop audio production studio (~100 source files, Tkinter GUI, ffmpeg/yt-dlp subprocess heavy).
 
-**Method:** Three iterative rounds of `code-reviewer` agent audits with manual triage, `pytest` regression coverage on the security module after each fix, and a hard "fix-introduces-regression" check before every commit.
+Method: Three iterative rounds of `code-reviewer` agent audits with manual triage, `pytest` regression coverage on the security module after each fix, and a hard "fix-introduces-regression" check before every commit.
 
-**Outcome:** 32 confirmed vulnerabilities patched across 9 files. The complete diff is committed in the LimeWire main branch under tags `v4.0.0`–`v4.0.3`. Commit messages include the CWE family for each fix.
+Outcome: 32 confirmed vulnerabilities patched across 9 files. The complete diff is committed in the LimeWire main branch under tags `v4.0.0`–`v4.0.3`. Commit messages include the CWE family for each fix.
 
 ### Findings by class
 
@@ -44,27 +44,27 @@ Writeups and lessons learned from building, reviewing, and hardening projects in
 
 ### Recurring patterns
 
-1. **The fix-introduces-regression problem.** Two rounds of audit produced fixes that themselves needed fixing. Examples: `_safe_float` accidentally returning `int` strings that ffmpeg interpreted differently; the path-policy initialiser not being called from `app.py` startup despite the policy being defined. The lesson: every security fix needs both a positive test (the policy *blocks* the bad case) and a negative test (the policy *allows* the legitimate case).
-2. **The "permissive default" anti-pattern.** Three of the bypasses (`require_allowed_write`, `_ALLOWED_BINARIES` skip on uninitialised state, the non-Windows fallback) were "fail open" defaults that silently degraded security. Replaced with "fail closed and log warn" patterns throughout.
-3. **`subprocess` is the perimeter.** The biggest cluster of issues was in subprocess invocations. The `safe_subprocess` module — a binary allowlist plus mandatory timeouts plus structured `CommandResult` — paid for itself across 9 separate fix sites once it was the sole entry point.
+1. The fix-introduces-regression problem. Two rounds of audit produced fixes that themselves needed fixing. Examples: `_safe_float` accidentally returning `int` strings that ffmpeg interpreted differently; the path-policy initialiser not being called from `app.py` startup despite the policy being defined. The lesson: every security fix needs both a positive test (the policy *blocks* the bad case) and a negative test (the policy *allows* the legitimate case).
+2. The "permissive default" anti-pattern. Three of the bypasses (`require_allowed_write`, `_ALLOWED_BINARIES` skip on uninitialised state, the non-Windows fallback) were "fail open" defaults that silently degraded security. Replaced with "fail closed and log warn" patterns throughout.
+3. `subprocess` is the perimeter. The biggest cluster of issues was in subprocess invocations. The `safe_subprocess` module — a binary allowlist plus mandatory timeouts plus structured `CommandResult` — paid for itself across 9 separate fix sites once it was the sole entry point.
 
 ### What stays in the codebase
 
-- `limewire/security/safe_subprocess.py` — `_ALLOWED_BINARIES = {ffmpeg, ffprobe, yt-dlp, open, xdg-open}`, `shell=False`, mandatory timeout
-- `limewire/security/safe_paths.py` — `init_allowed_roots()` called from `app.py:__init__`, fail-closed default, scoped roots
-- `limewire/security/safe_json.py` — size limits (5 MB), depth checks (10 levels), key allowlists for themes/settings
-- `limewire/security/network.py` — `is_public_http_url` SSRF guard now applied at every URL ingress
+- `limewire/security/safe_subprocess.py`: `_ALLOWED_BINARIES = {ffmpeg, ffprobe, yt-dlp, open, xdg-open}`, `shell=False`, mandatory timeout
+- `limewire/security/safe_paths.py`: `init_allowed_roots()` called from `app.py:__init__`, fail-closed default, scoped roots
+- `limewire/security/safe_json.py`: size limits (5 MB), depth checks (10 levels), key allowlists for themes/settings
+- `limewire/security/network.py`: `is_public_http_url` SSRF guard now applied at every URL ingress
 - 195+ `pytest` cases under `tests/test_safe_*.py` covering each of the above
 
 ---
 
 ## 2. Bulk-bookkeeping the GitHub Stars API
 
-**Project:** [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) — the meta-repository hosting the curation catalogues.
+Project: [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) — the meta-repository hosting the curation catalogues.
 
-**Problem:** A library of ~1,000 starred repositories that needed to be sorted into 30 GitHub Stars Lists, each with curated names and descriptions. The official `gh` CLI does not expose Lists; the public REST API does not document them; the GraphQL `createUserList` mutation requires the `user` OAuth scope which the standard `gh` token does not hold.
+Problem: A library of ~1,000 starred repositories that needed to be sorted into 30 GitHub Stars Lists, each with curated names and descriptions. The official `gh` CLI does not expose Lists; the public REST API does not document them; the GraphQL `createUserList` mutation requires the `user` OAuth scope which the standard `gh` token does not hold.
 
-**Approach:** Reverse-engineer the per-repo `/{owner}/{repo}/lists?experimental=1` UJS endpoint that the GitHub web UI uses for the "Add to list" dropdown, drive it through an authenticated browser session.
+Approach: Reverse-engineer the per-repo `/{owner}/{repo}/lists?experimental=1` UJS endpoint that the GitHub web UI uses for the "Add to list" dropdown, drive it through an authenticated browser session.
 
 ### Endpoint shape
 
@@ -84,12 +84,12 @@ Headers:
 
 ### Practical notes
 
-1. **`Accept: application/json` is mandatory.** The endpoint returns `406 Not Acceptable` for `text/html`, `text/javascript`, `application/vnd.github+json`, and `text/fragment+html`. Only `application/json` works, despite the response body being HTML in some cases.
-2. **The PUT is destructive.** `list_ids[]` *replaces* the entire set of memberships for that repository. Adding a repo to one list while preserving its existing memberships requires fetching the current state from `/{repo}/lists?experimental=1`, parsing the `data-value` attributes of `aria-selected="true"` items, and unioning before submission.
-3. **Rate limit kicks in around ~250 requests in a short window.** The endpoint returns 429 with no `Retry-After` header. A 1.5-second per-request delay was sufficient to avoid throttling for the remainder of the session. A 90-second backoff cleared the rate-limit state when it did engage.
-4. **Description body has a server-side length limit.** Empirically two of the longer descriptions (~600 chars) returned 500. Trimming below ~400 chars resolved it. The error response is opaque HTML, not a JSON validation error.
-5. **List slugs are derived from the name and change on rename.** Renaming "Daily Driver Toolkit" to "Daily Operational Toolkit" silently changed the canonical URL from `/lists/daily-driver-toolkit` to `/lists/daily-operational-toolkit`. The numeric list ID is stable across renames; cache that, not the slug.
-6. **Topics are starrable too** — via the GraphQL `addStar` mutation against the topic node ID. 200 cybersecurity topics were starred this way without invoking the unstable Stars-list endpoint.
+1. `Accept: application/json` is mandatory. The endpoint returns `406 Not Acceptable` for `text/html`, `text/javascript`, `application/vnd.github+json`, and `text/fragment+html`. Only `application/json` works, despite the response body being HTML in some cases.
+2. The PUT is destructive. `list_ids[]` *replaces* the entire set of memberships for that repository. Adding a repo to one list while preserving its existing memberships requires fetching the current state from `/{repo}/lists?experimental=1`, parsing the `data-value` attributes of `aria-selected="true"` items, and unioning before submission.
+3. Rate limit kicks in around ~250 requests in a short window. The endpoint returns 429 with no `Retry-After` header. A 1.5-second per-request delay was sufficient to avoid throttling for the remainder of the session. A 90-second backoff cleared the rate-limit state when it did engage.
+4. Description body has a server-side length limit. Empirically two of the longer descriptions (~600 chars) returned 500. Trimming below ~400 chars resolved it. The error response is opaque HTML, not a JSON validation error.
+5. List slugs are derived from the name and change on rename. Renaming "Daily Driver Toolkit" to "Daily Operational Toolkit" silently changed the canonical URL from `/lists/daily-driver-toolkit` to `/lists/daily-operational-toolkit`. The numeric list ID is stable across renames; cache that, not the slug.
+6. Topics are starrable too: via the GraphQL `addStar` mutation against the topic node ID. 200 cybersecurity topics were starred this way without invoking the unstable Stars-list endpoint.
 
 ### What was built
 
@@ -103,4 +103,4 @@ The end result: 30 Stars Lists, ~872 list-memberships, 0 destructive overwrites 
 
 ## Contributing future entries
 
-Each entry should answer: **what was being built, what did the work surface, what changed in the code or process as a result.** Entries are short on prose and heavy on specifics — file paths, commit ranges, error codes, kept patterns. Numbered sequentially, never edited after publication except to fix factual errors (with a note).
+Each entry should answer: what was being built, what did the work surface, what changed in the code or process as a result. Entries are short on prose and heavy on specifics — file paths, commit ranges, error codes, kept patterns. Numbered sequentially, never edited after publication except to fix factual errors (with a note).

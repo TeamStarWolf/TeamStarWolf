@@ -1,12 +1,12 @@
 # Security Tools Reference
 
-> **In one minute** — This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
+> In one minute — This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
 
 | | |
 |---|---|
-| **Read this when** | you need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
-| **Start at** | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
-| **Pairs with** | [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md) |
+| Read this when | you need to shortlist tools for a security function, you are comparing open source vs commercial options in a category, you saw a tool name and want to know what it does |
+| Start at | [Endpoint & Detection](#endpoint-amp-detection), [Threat Intelligence](#threat-intelligence), [Offensive Security & Red Teaming](#offensive-security-amp-red-teaming) |
+| Pairs with | [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Controls Mapping](CONTROLS_MAPPING.md), [Hands-On Labs](LABS.md), [Starred Repositories](STARRED_REPOS.md) |
 
 A quick-reference matrix of commonly used security tools organized by function. Each entry links to the project homepage. OSS = open source; COM = commercial.
 
@@ -114,7 +114,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Masscan](https://github.com/robertdavidgraham/masscan) | OSS | High-speed port scanning |
 | [Nessus (attack mode)](https://www.tenable.com/) | COM | Credentialed network enumeration |
 | [NetExec (nxc)](https://github.com/Pennyw0rth/NetExec) | OSS | SMB/AD/LDAP enumeration and lateral movement; maintained CrackMapExec successor |
-| [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) | OSS | Deprecated/archived (Dec 2023) — superseded by NetExec (nxc) |
+| [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) | OSS | Deprecated/archived (Dec 2023): superseded by NetExec (nxc) |
 | [Impacket](https://github.com/fortra/impacket) | OSS | Python network protocol toolkit (SMB, Kerberos, NTLM) |
 
 ### Active Directory Attack Tools
@@ -400,7 +400,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Aperi'Solve](https://aperisolve.fr/) | Python | OSS | Steganalysis web platform with layer, zsteg, steghide and exiftool analysis |
 | [Audacity](http://www.audacityteam.org/) |  | OSS | Tool to edit and analyze audio tracks |
 | [Depix](https://github.com/spipm/Depix) | Python | OSS | Recover plaintext from pixelized screenshots |
-| [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/) | Perl | OSS | Library and CLI tool to read and write meta information (EXIF, GPS, IPTC, XMP, JFIF, …) in file |
+| [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/) | Perl | OSS | Library and CLI tool to read and write meta information (EXIF, GPS, IPTC, XMP, JFIF, ...) in file |
 | [Exiv2](http://www.exiv2.org/index.html) | CPlusPlus | OSS | Library and CLI tool to read and write meta information (Exif, IPTC & XMP metadata and ICC Prof |
 | [ImageMagick](http://www.imagemagick.org) | C | OSS | Software suite and library to create, edit, compose, or convert images |
 | Outguess |  | OSS | Tool to hide messages in files (website down since 2004) |
@@ -472,11 +472,11 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Redirect Tracker](https://www.redirecttracker.com/) |  | OSS | Track the HTTP redirect chains; 301 and 302, JavaScript and Meta fresh redirects |
 | [ThreatIngestor](https://inquest.readthedocs.io/projects/threatingestor/) | Python | OSS | Extract and aggregate threat intelligence (IOCs from threat feeds) |
 ## Related Resources
-- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — tools mapped to NIST controls and pipeline stages
-- [Controls Mapping](CONTROLS_MAPPING.md) — full vendor → NIST 800-53 → ATT&CK chain
-- [ATT&CK Navigator](navigator/) — technique coverage visualization
-- [Starred Repositories](STARRED_REPOS.md) — curated GitHub tool repositories
-- [Hands-On Labs](LABS.md) — practice environments for each category
+- [Enterprise Security Pipeline](SECURITY_PIPELINE.md): tools mapped to NIST controls and pipeline stages
+- [Controls Mapping](CONTROLS_MAPPING.md): full vendor -> NIST 800-53 -> ATT&CK chain
+- [ATT&CK Navigator](navigator/): technique coverage visualization
+- [Starred Repositories](STARRED_REPOS.md): curated GitHub tool repositories
+- [Hands-On Labs](LABS.md): practice environments for each category
 
 ---
 

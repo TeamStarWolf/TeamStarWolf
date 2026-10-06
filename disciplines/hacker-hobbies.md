@@ -1,6 +1,6 @@
 # Hacker Culture Hobbies
 
-Hacker culture extends far beyond professional security work. At its core, hacking is a mindset — curiosity, creativity, and a drive to understand how things work at a fundamental level. DEF CON, the world's largest hacker conference, organizes this curiosity into **villages**: dedicated spaces where practitioners teach hands-on skills in everything from lockpicking to car hacking to radio communications. These hobbies are not just fun — they build the foundational intuition that separates a skilled security practitioner from someone who only knows tool syntax. Understanding *why* a lock pin sets, *why* a radio signal leaks information, or *why* a CAN bus has no authentication directly informs how you think about attack surfaces and defenses.
+Hacker culture extends far beyond professional security work. At its core, hacking is a mindset — curiosity, creativity, and a drive to understand how things work at a fundamental level. DEF CON, the world's largest hacker conference, organizes this curiosity into villages: dedicated spaces where practitioners teach hands-on skills in everything from lockpicking to car hacking to radio communications. These hobbies are not just fun — they build the foundational intuition that separates a skilled security practitioner from someone who only knows tool syntax. Understanding *why* a lock pin sets, *why* a radio signal leaks information, or *why* a CAN bus has no authentication directly informs how you think about attack surfaces and defenses.
 
 ---
 
@@ -16,7 +16,7 @@ Most buildings rely on pin tumbler locks that were designed in the 1800s. Unders
 
 | Technique | Description | Skill Level |
 |-----------|-------------|-------------|
-| Single Pin Picking (SPP) | Setting each pin individually using tension and a pick | Beginner → Advanced |
+| Single Pin Picking (SPP) | Setting each pin individually using tension and a pick | Beginner -> Advanced |
 | Raking | Rapid back-and-forth movement to randomly set pins | Beginner |
 | Bump Key | Percussive attack that momentarily floats all pins | Beginner (requires bump key) |
 | Bypass Attacks | Exploiting design flaws (shimming, loiding, impressioning) | Intermediate |
@@ -24,18 +24,18 @@ Most buildings rely on pin tumbler locks that were designed in the 1800s. Unders
 
 ### Tools & Manufacturers
 
-- **[Southord](https://www.southord.com/)** — affordable beginner sets, good for learning
-- **[Peterson](https://www.thinkpeterson.com/)** — high-quality steel picks preferred by serious practitioners
-- **[Sparrows](https://www.sparrowslockpicks.com/)** — excellent value, wide variety including specialty tools
-- **[Proxmark3](https://proxmark.com/)** — the gold standard for RFID/NFC research and credential cloning (also used professionally for access control assessments)
-- **[Flipper Zero](https://flipperzero.one/)** — portable multi-tool with RFID/NFC reader/writer, Sub-GHz radio, and more
+- [Southord](https://www.southord.com/): affordable beginner sets, good for learning
+- [Peterson](https://www.thinkpeterson.com/): high-quality steel picks preferred by serious practitioners
+- [Sparrows](https://www.sparrowslockpicks.com/): excellent value, wide variety including specialty tools
+- [Proxmark3](https://proxmark.com/): the gold standard for RFID/NFC research and credential cloning (also used professionally for access control assessments)
+- [Flipper Zero](https://flipperzero.one/): portable multi-tool with RFID/NFC reader/writer, Sub-GHz radio, and more
 
 ### Community & Learning
 
-- **[TOOOL](https://toool.us/)** (The Open Organisation Of Lockpickers) — organizes Locksport International and runs villages at DEF CON and other conferences
-- **[LockPickingLawyer](https://www.youtube.com/@LockPickingLawyer)** (YouTube) — ~5 million subscribers; concise, educational teardowns of virtually every consumer lock
-- **[BosnianBill](https://www.youtube.com/@BosnianBill)** (YouTube) — deeper dives, often with LPL; explains *why* locks fail
-- **Belt Ranking System** — Locksport International uses a colored belt system (white through black) to rank picking skill, gamifying progression
+- [TOOOL](https://toool.us/) (The Open Organisation Of Lockpickers): organizes Locksport International and runs villages at DEF CON and other conferences
+- [LockPickingLawyer](https://www.youtube.com/@LockPickingLawyer) (YouTube): ~5 million subscribers; concise, educational teardowns of virtually every consumer lock
+- [BosnianBill](https://www.youtube.com/@BosnianBill) (YouTube): deeper dives, often with LPL; explains *why* locks fail
+- Belt Ranking System: Locksport International uses a colored belt system (white through black) to rank picking skill, gamifying progression
 
 ### Legal Note
 
@@ -53,17 +53,17 @@ Modern attacks increasingly target the boundary between hardware and software: b
 
 ### Essential Skills & Tools
 
-**Soldering** is the gateway skill. Being able to solder gives you access to:
+Soldering is the gateway skill. Being able to solder gives you access to:
 - Attaching UART/JTAG headers to devices for firmware extraction
 - Modifying hardware (glitching attacks, hardware implants)
 - Building custom tools and adapters
 
-**Test Equipment**
-- **Multimeter** — voltage, continuity, resistance; essential for tracing circuits and identifying power rails
-- **Logic Analyzer** — captures digital signals (UART, SPI, I2C, JTAG); [Saleae Logic](https://www.saleae.com/) is the professional standard; [cheap clones](https://sigrok.org/wiki/Supported_hardware) work with sigrok/PulseView
-- **Oscilloscope** — visualizes analog signals; critical for side-channel attacks (power analysis); entry-level: Rigol DS1054Z
+Test Equipment
+- Multimeter: voltage, continuity, resistance; essential for tracing circuits and identifying power rails
+- Logic Analyzer: captures digital signals (UART, SPI, I2C, JTAG); [Saleae Logic](https://www.saleae.com/) is the professional standard; [cheap clones](https://sigrok.org/wiki/Supported_hardware) work with sigrok/PulseView
+- Oscilloscope: visualizes analog signals; critical for side-channel attacks (power analysis); entry-level: Rigol DS1054Z
 
-**Development Platforms**
+Development Platforms
 | Platform | Use Cases |
 |----------|-----------|
 | Arduino Uno/Nano | Learning embedded C, basic attack prototypes |
@@ -72,19 +72,19 @@ Modern attacks increasingly target the boundary between hardware and software: b
 | Pi Zero W | Ultra-small form factor: BadUSB attacks, drop implants, covert monitoring |
 | Raspberry Pi Pico | Microcontroller-class, cheap, RP2040 chip |
 
-**Notable Security Projects**
-- **[Pi-hole](https://pi-hole.net/)** — network-level ad/tracker blocking via DNS; teaches DNS architecture
-- **[Kali on Raspberry Pi](https://www.kali.org/docs/arm/raspberry-pi-full-fat/)** — portable pentesting platform
-- **BadUSB with Pi Zero** — emulates HID devices (keyboard/mouse) to deliver payloads; teaches USB attack surfaces
-- **Wireless monitoring** — capture 802.11 probe requests, passive WiFi reconnaissance
+Notable Security Projects
+- [Pi-hole](https://pi-hole.net/): network-level ad/tracker blocking via DNS; teaches DNS architecture
+- [Kali on Raspberry Pi](https://www.kali.org/docs/arm/raspberry-pi-full-fat/): portable pentesting platform
+- BadUSB with Pi Zero: emulates HID devices (keyboard/mouse) to deliver payloads; teaches USB attack surfaces
+- Wireless monitoring: capture 802.11 probe requests, passive WiFi reconnaissance
 
-**[Flipper Zero](https://flipperzero.one/)**
+[Flipper Zero](https://flipperzero.one/)
 The Flipper Zero deserves special mention as a purpose-built hacker multi-tool. It combines: Sub-GHz radio (315/433/868/915 MHz), RFID/NFC reader/writer, infrared transceiver, iButton reader, GPIO pins, and a Bad USB mode. It is educational precisely because it makes previously complex attacks tangible and observable.
 
 ### Learning Resources
-- **[Hackaday](https://hackaday.com/)** — daily hardware/electronics news and project writeups
-- **[MAKE Magazine](https://makezine.com/)** — maker culture, project ideas
-- **[Adafruit Learning System](https://learn.adafruit.com/)** — high quality beginner tutorials
+- [Hackaday](https://hackaday.com/): daily hardware/electronics news and project writeups
+- [MAKE Magazine](https://makezine.com/): maker culture, project ideas
+- [Adafruit Learning System](https://learn.adafruit.com/): high quality beginner tutorials
 
 ---
 
@@ -102,9 +102,9 @@ Modern infrastructure communicates wirelessly. RFID access cards, garage doors, 
 
 ### Getting Started: The RTL-SDR
 
-The **[RTL-SDR Blog V4 dongle](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/)** (~$30) is the entry point. Originally designed as a cheap DVB-T TV tuner, a researcher discovered the chip could be put into a raw data streaming mode, birthing the RTL-SDR ecosystem. It covers approximately 500 kHz to 1.75 GHz.
+The [RTL-SDR Blog V4 dongle](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/) (~$30) is the entry point. Originally designed as a cheap DVB-T TV tuner, a researcher discovered the chip could be put into a raw data streaming mode, birthing the RTL-SDR ecosystem. It covers approximately 500 kHz to 1.75 GHz.
 
-**Software**
+Software
 | Tool | Platform | Use Case |
 |------|----------|----------|
 | [GQRX](https://gqrx.dk/) | Linux/macOS | General-purpose SDR receiver, spectrum analyzer |
@@ -116,21 +116,21 @@ The **[RTL-SDR Blog V4 dongle](https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles
 
 ### Beginner Projects
 
-**ADS-B Aircraft Tracking** — Commercial aircraft broadcast their position, altitude, speed, and callsign on 1090 MHz using ADS-B (Automatic Dependent Surveillance-Broadcast). With an RTL-SDR and [dump1090](https://github.com/flightaware/dump1090) or [ADS-B Exchange](https://www.adsbexchange.com/), you can build your own radar display. This project teaches signal reception, decoding, and data visualization — and illustrates that aircraft broadcast identifying information to anyone who listens.
+ADS-B Aircraft Tracking — Commercial aircraft broadcast their position, altitude, speed, and callsign on 1090 MHz using ADS-B (Automatic Dependent Surveillance-Broadcast). With an RTL-SDR and [dump1090](https://github.com/flightaware/dump1090) or [ADS-B Exchange](https://www.adsbexchange.com/), you can build your own radar display. This project teaches signal reception, decoding, and data visualization — and illustrates that aircraft broadcast identifying information to anyone who listens.
 
-**NOAA Weather Satellites** — NOAA 15/18/19 broadcast APT (Automatic Picture Transmission) weather images at 137 MHz. A V-dipole antenna and [WXtoImg](https://wxtoimgrestored.xyz/) lets you receive real-time satellite images. Teaches orbital mechanics, antenna theory, and FM demodulation.
+NOAA Weather Satellites — NOAA 15/18/19 broadcast APT (Automatic Picture Transmission) weather images at 137 MHz. A V-dipole antenna and [WXtoImg](https://wxtoimgrestored.xyz/) lets you receive real-time satellite images. Teaches orbital mechanics, antenna theory, and FM demodulation.
 
-**Pager Decoding** — POCSAG and FLEX pager protocols transmit on VHF/UHF. Many hospital, emergency service, and commercial pager systems still broadcast plaintext messages. Tools: [PDW](http://www.discriminator.nl/pdw/index-en.html) (Windows), [multimon-ng](https://github.com/EliasOenal/multimon-ng). Teaches that legacy protocols often have zero security.
+Pager Decoding — POCSAG and FLEX pager protocols transmit on VHF/UHF. Many hospital, emergency service, and commercial pager systems still broadcast plaintext messages. Tools: [PDW](http://www.discriminator.nl/pdw/index-en.html) (Windows), [multimon-ng](https://github.com/EliasOenal/multimon-ng). Teaches that legacy protocols often have zero security.
 
-**433 MHz IoT Sensor Capture** — Cheap weather stations, door/window sensors, temperature sensors, and tire pressure monitors transmit on 433 MHz or 315 MHz with no authentication. URH can decode these signals and identify the protocol. Replay attacks against garage doors, gate openers, and remote controls often work because manufacturers use simple fixed codes.
+433 MHz IoT Sensor Capture — Cheap weather stations, door/window sensors, temperature sensors, and tire pressure monitors transmit on 433 MHz or 315 MHz with no authentication. URH can decode these signals and identify the protocol. Replay attacks against garage doors, gate openers, and remote controls often work because manufacturers use simple fixed codes.
 
 ### Going Further: HackRF One
 
-The **[HackRF One](https://greatscottgadgets.com/hackrf/)** (~$340) by Great Scott Gadgets adds *transmit* capability: 1 MHz to 6 GHz, half-duplex. This enables:
-- **Replay attacks** — capture a key fob signal, replay it to unlock the target
-- **GPS spoofing** (research, controlled environments only)
-- **Jamming research** (subject to strict legal restrictions)
-- **Cellular protocol research**
+The [HackRF One](https://greatscottgadgets.com/hackrf/) (~$340) by Great Scott Gadgets adds *transmit* capability: 1 MHz to 6 GHz, half-duplex. This enables:
+- Replay attacks: capture a key fob signal, replay it to unlock the target
+- GPS spoofing (research, controlled environments only)
+- Jamming research (subject to strict legal restrictions)
+- Cellular protocol research
 
 ### Legal Warning
 
@@ -148,16 +148,16 @@ Ham radio is the original hacker radio culture. The FCC Technician license exam 
 
 ### Getting Licensed
 
-- **FCC Technician License** — entry level; covers VHF/UHF; costs $15 exam fee (2023+); no Morse code required
-- **Study resources**: [hamstudy.org](https://hamstudy.org/) (free, adaptive flashcards), [ARRL Ham Radio License Manual](http://www.arrl.org/ham-radio-license-manual)
-- **[ARRL](https://www.arrl.org/)** (American Radio Relay League) — the US amateur radio organization; publishes the Handbook, organizes exams
+- FCC Technician License: entry level; covers VHF/UHF; costs $15 exam fee (2023+); no Morse code required
+- Study resources: [hamstudy.org](https://hamstudy.org/) (free, adaptive flashcards), [ARRL Ham Radio License Manual](http://www.arrl.org/ham-radio-license-manual)
+- [ARRL](https://www.arrl.org/) (American Radio Relay League): the US amateur radio organization; publishes the Handbook, organizes exams
 
 ### What You Learn
 
-- **Antenna theory** — gain, directivity, impedance matching; directly applies to understanding WiFi/cellular signal propagation
-- **Propagation** — how signals travel; relevant to understanding attack range and geographic targeting
-- **Modulation** — AM, FM, SSB, digital modes; foundation for understanding all wireless protocols
-- **RF safety** — power limits, exposure calculations; relevant to SAR and legal compliance
+- Antenna theory: gain, directivity, impedance matching; directly applies to understanding WiFi/cellular signal propagation
+- Propagation: how signals travel; relevant to understanding attack range and geographic targeting
+- Modulation: AM, FM, SSB, digital modes; foundation for understanding all wireless protocols
+- RF safety: power limits, exposure calculations; relevant to SAR and legal compliance
 
 ---
 
@@ -168,23 +168,23 @@ DEF CON has issued custom electronic badges since 1998, with badges growing prog
 ### Why It Matters for Security
 
 Badge hacking is a microcosm of real hardware security research. Solving a DEF CON badge typically involves:
-- **PCB analysis** — identifying components, tracing circuits
-- **JTAG/SWD debugging** — attaching a debugger to read firmware
-- **Firmware reverse engineering** — disassembling extracted binaries
-- **Protocol reverse engineering** — badges often communicate with each other
-- **Cryptographic challenges** — ciphers embedded in artwork, audio, or RF signals
+- PCB analysis: identifying components, tracing circuits
+- JTAG/SWD debugging: attaching a debugger to read firmware
+- Firmware reverse engineering: disassembling extracted binaries
+- Protocol reverse engineering: badges often communicate with each other
+- Cryptographic challenges: ciphers embedded in artwork, audio, or RF signals
 
 ### Resources
 
-- **[Hackaday DEF CON Badge coverage](https://hackaday.com/tag/defcon-badge/)** — detailed annual teardowns
-- **[Joe Grand](https://www.youtube.com/@JoeGrand)** (YouTube / Grand Idea Studio) — hardware hacker who designed several DEF CON badges; excellent hardware RE content
-- **[DEF CON Badge Forums](https://forum.defcon.org/)** — community solving efforts
+- [Hackaday DEF CON Badge coverage](https://hackaday.com/tag/defcon-badge/): detailed annual teardowns
+- [Joe Grand](https://www.youtube.com/@JoeGrand) (YouTube / Grand Idea Studio): hardware hacker who designed several DEF CON badges; excellent hardware RE content
+- [DEF CON Badge Forums](https://forum.defcon.org/): community solving efforts
 
 ---
 
 ## Car Hacking
 
-Modern vehicles are rolling networks. A typical car contains 50–150 Electronic Control Units (ECUs) communicating over multiple networks, most notably the **Controller Area Network (CAN bus)**. CAN was designed in the 1980s for reliability, not security — there is no authentication, no encryption, and any node on the bus can send messages to any other node.
+Modern vehicles are rolling networks. A typical car contains 50-150 Electronic Control Units (ECUs) communicating over multiple networks, most notably the Controller Area Network (CAN bus). CAN was designed in the 1980s for reliability, not security — there is no authentication, no encryption, and any node on the bus can send messages to any other node.
 
 ### Why It Matters for Security
 
@@ -192,15 +192,15 @@ Car hacking illustrates a broader truth: safety-critical systems were often desi
 
 ### Core Concepts
 
-**CAN Bus** — A two-wire differential bus where every node receives every message. Messages have an 11-bit or 29-bit arbitration ID but no source address or authentication. An attacker with physical access to the OBD-II port (or wireless access via a compromised head unit/TCU) can inject arbitrary CAN frames.
+CAN Bus — A two-wire differential bus where every node receives every message. Messages have an 11-bit or 29-bit arbitration ID but no source address or authentication. An attacker with physical access to the OBD-II port (or wireless access via a compromised head unit/TCU) can inject arbitrary CAN frames.
 
-**OBD-II** — Standardized diagnostic port present in all US vehicles since 1996. Located under the dashboard. Provides direct access to the CAN bus.
+OBD-II — Standardized diagnostic port present in all US vehicles since 1996. Located under the dashboard. Provides direct access to the CAN bus.
 
-**Attacks**
-- **Spoofing** — inject CAN frames with forged arbitration IDs to control ECUs (lock/unlock doors, disable brakes in research settings)
-- **Fuzzing** — send random CAN frames to discover undocumented behavior
-- **Replay** — capture and replay legitimate CAN sequences
-- **Remote attack surface** — infotainment systems, Bluetooth, cellular TCUs can provide remote entry to the CAN bus
+Attacks
+- Spoofing: inject CAN frames with forged arbitration IDs to control ECUs (lock/unlock doors, disable brakes in research settings)
+- Fuzzing: send random CAN frames to discover undocumented behavior
+- Replay: capture and replay legitimate CAN sequences
+- Remote attack surface: infotainment systems, Bluetooth, cellular TCUs can provide remote entry to the CAN bus
 
 ### Learning Tools
 
@@ -214,9 +214,9 @@ Car hacking illustrates a broader truth: safety-critical systems were often desi
 
 ### Resources
 
-- **[The Car Hacker's Handbook](https://nostarch.com/carhacking)** — Craig Smith; [free PDF available](http://opengarages.org/handbook/)
-- **[Car Hacking Village](https://www.carhackingvillage.com/)** — DEF CON village with hands-on car hacking labs
-- **[Open Garages](http://opengarages.org/)** — open community for vehicle security research
+- [The Car Hacker's Handbook](https://nostarch.com/carhacking): Craig Smith; [free PDF available](http://opengarages.org/handbook/)
+- [Car Hacking Village](https://www.carhackingvillage.com/): DEF CON village with hands-on car hacking labs
+- [Open Garages](http://opengarages.org/): open community for vehicle security research
 
 ---
 
@@ -230,20 +230,20 @@ Drone threats range from corporate espionage (optical surveillance, WiFi/cellula
 
 ### Protocol Analysis
 
-Most consumer drones use proprietary protocols in the 2.4 GHz and 5.8 GHz ISM bands. Some use standard RC protocols (SBUS, CRSF, ExpressLRS). DJI drones use **OcuSync** and **O3** — partially reverse engineered by the community.
+Most consumer drones use proprietary protocols in the 2.4 GHz and 5.8 GHz ISM bands. Some use standard RC protocols (SBUS, CRSF, ExpressLRS). DJI drones use OcuSync and O3 — partially reverse engineered by the community.
 
-**Tools & Techniques**
-- **HackRF One / USRP** — wideband capture of drone control and video link signals
-- **[DroneID](https://github.com/proto17/dji_droneid)** — decoding DJI's DroneID broadcast (Remote ID)
-- **[OpenDroneID](https://github.com/opendroneid/opendroneid-core-c)** — FAA Remote ID implementation
-- **Wireshark + 802.11** — many drones use WiFi-based control links that can be analyzed with standard tools
-- **Deauth attacks** — WiFi-controlled drones are vulnerable to 802.11 deauthentication (note: illegal against drones you don't own)
-- **GPS spoofing** — consumer GPS receivers can be tricked; demonstrated to redirect drones
+Tools & Techniques
+- HackRF One / USRP: wideband capture of drone control and video link signals
+- [DroneID](https://github.com/proto17/dji_droneid): decoding DJI's DroneID broadcast (Remote ID)
+- [OpenDroneID](https://github.com/opendroneid/opendroneid-core-c): FAA Remote ID implementation
+- Wireshark + 802.11: many drones use WiFi-based control links that can be analyzed with standard tools
+- Deauth attacks: WiFi-controlled drones are vulnerable to 802.11 deauthentication (note: illegal against drones you don't own)
+- GPS spoofing: consumer GPS receivers can be tricked; demonstrated to redirect drones
 
 ### Resources
 
-- **[Drone Hacking Village](https://villagefoundation.com/)** — DEF CON village (check current year's villages)
-- **[Samy Kamkar's SkyJack](https://samy.pl/skyjack/)** — classic 2013 drone hijacking proof-of-concept
+- [Drone Hacking Village](https://villagefoundation.com/): DEF CON village (check current year's villages)
+- [Samy Kamkar's SkyJack](https://samy.pl/skyjack/): classic 2013 drone hijacking proof-of-concept
 
 ---
 
@@ -294,7 +294,7 @@ DEF CON villages are semi-independent spaces within the conference where specifi
 | [GrrCON](https://grrcon.com/) | Grand Rapids, MI | Midwest; corporate/enterprise security |
 | [DerbyCon](https://twitter.com/derbycon) | Louisville, KY (retired 2019) | Well-loved community con; legacy content on YouTube |
 
-**Tip**: Start with your local BSides. Tickets are free or very cheap, talks are community-submitted, and the hallway track (conversations outside scheduled talks) is often more valuable than the sessions.
+Tip: Start with your local BSides. Tickets are free or very cheap, talks are community-submitted, and the hallway track (conversations outside scheduled talks) is often more valuable than the sessions.
 
 ---
 
@@ -320,7 +320,7 @@ DEF CON villages are semi-independent spaces within the conference where specifi
 
 ## Hacker Culture and History
 
-**The Hacker Ethic (Steven Levy, 1984)**
+The Hacker Ethic (Steven Levy, 1984)
 Core tenets from Hackers: Heroes of the Computer Revolution:
 - Sharing: Information should be free; share knowledge openly
 - Decentralization: Bureaucratic structures impede the flow of information
@@ -329,36 +329,36 @@ Core tenets from Hackers: Heroes of the Computer Revolution:
 - Beauty: Elegant code is inherently beautiful; an appreciation for craftsmanship
 - Computers change the world: The potential for computers to improve life is vast and mostly untapped
 
-**The Hacker Manifesto (The Mentor, 1986)**
+The Hacker Manifesto (The Mentor, 1986)
 Written by Loyd Blankenship after his arrest. Published in Phrack Issue 7. One of the defining texts of hacker identity — "This is our world now, the world of the electron and the switch..." Articulates the alienation of intellectually curious youth within rigid educational systems, and the joy of finding community and freedom in networks. Essential cultural reading.
 
-**Phone Phreaking Era (1960s–1990s)**
+Phone Phreaking Era (1960s-1990s)
 - 2600 Hz tone: Discovered that AT&T's long-distance signaling used a 2600 Hz tone; could be replicated with a toy whistle (Cap'n Crunch whistle — John Draper "Captain Crunch" discovered this)
 - Blue boxes: Electronic devices generating the exact signaling tones to seize long-distance phone circuits, enabling free calls anywhere in the world
-- Key figures: Captain Crunch (John Draper), Joybubbles (Joe Engressia — blind phone phreak), Mark Bernay
-- Steve Wozniak and Steve Jobs built and sold blue boxes in college — formative experience in their partnership
-- 2600: The Hacker Quarterly — still published, named after the 2600 Hz phreaking tone
+- Key figures: Captain Crunch (John Draper), Joybubbles (Joe Engressia: blind phone phreak), Mark Bernay
+- Steve Wozniak and Steve Jobs built and sold blue boxes in college: formative experience in their partnership
+- 2600: The Hacker Quarterly: still published, named after the 2600 Hz phreaking tone
 - Underground BBS culture: Bulletin Board Systems in the 1980s as the internet before the internet — where hackers shared knowledge, tools, and culture
 
-**Phrack Magazine**
+Phrack Magazine
 - Published since 1985; the oldest and most respected underground technical journal
 - Notable issues: #49 (Smashing the Stack for Fun and Profit by Aleph One — defined a generation of security research), #7 (Hacker Manifesto), #57 (The Art of Exploitation)
 - Still published at phrack.org; a rite of passage to be published in Phrack
 - Shaped offensive security research more than any other publication
 
-**2600 Magazine**
+2600 Magazine
 - Founded 1984 by Emmanuel Goldstein (Eric Corley)
 - Quarterly print magazine covering hacker culture, phone phreaking, civil liberties, and technology
 - Famous cover stories: Operation Sundevil aftermath, free speech/DMCA battles, hacking culture anthropology
 - 2600 meetings: First Friday of every month at shopping malls in cities worldwide — a community institution
 
-**Famous Hackers and Their Stories**
+Famous Hackers and Their Stories
 
 | Hacker | Era | Claim to Fame | Outcome |
 |--------|-----|---------------|---------|
 | Kevin Mitnick | 1980s-90s | Most wanted hacker; social engineering master; hacked Motorola, Nokia, Pacific Bell; featured in "Takedown" | Arrested 1995, served 5 years; became legendary security consultant |
 | Kevin Poulsen (Dark Dante) | 1980s-90s | Took over Los Angeles radio station phone lines to guarantee winning caller spot; hacked FBI databases | Arrested 1991; became senior editor at WIRED |
-| Robert Tappan Morris | 1988 | Created the Morris Worm — first major internet worm; first person convicted under CFAA | Community service; became MIT professor |
+| Robert Tappan Morris | 1988 | Created the Morris Worm: first major internet worm; first person convicted under CFAA | Community service; became MIT professor |
 | Adrian Lamo | 2000s | Hacked NYT, Microsoft, MCI; used corporate network access; reported Chelsea Manning to authorities | Controversial figure; died 2018 |
 | Gary McKinnon | 2001-02 | Hacked 97 US military and NASA systems looking for UFO evidence; solo UK hacker | Long extradition battle; UK blocked US extradition due to mental health (Asperger's) |
 | LulzSec | 2011 | 50-day rampage: Sony, PBS, CIA website, US Senate, News International | Core members arrested; FBI informant (Sabu) turned; most served prison time |
@@ -368,16 +368,16 @@ Written by Loyd Blankenship after his arrest. Published in Phrack Issue 7. One o
 
 ## DEF CON Culture
 
-**Conference Overview**
+Conference Overview
 - Founded 1993 by Jeff Moss (Dark Tangent) in Las Vegas; world's largest hacker conference (~30,000 attendees)
-- Unofficial rule: No suits (they're probably feds) — or wear them ironically
+- Unofficial rule: No suits (they're probably feds): or wear them ironically
 - Goon: Volunteer staff (recognizable by staff badge); respected community role
 - Badge: Custom cryptographic/hardware challenge badge; solving it is a community event
 
-**DEF CON Villages**
+DEF CON Villages
 The village system lets specialized communities run their own mini-conferences within DEF CON:
 - Car Hacking Village: CAN bus exploitation, OBD-II hacking, autonomous vehicle security
-- ICS Village: SCADA/PLC/OT live equipment — hands-on industrial control system hacking
+- ICS Village: SCADA/PLC/OT live equipment: hands-on industrial control system hacking
 - Aerospace Village: Aviation security, ADS-B spoofing, drone hacking
 - BioHacking Village: Medical device security, wearable hacking, synthetic biology
 - Packet Hacking Village: Forensics challenges, wireless attacks, network analysis
@@ -386,8 +386,8 @@ The village system lets specialized communities run their own mini-conferences w
 - AI Village: Adversarial ML, prompt injection competitions, LLM security
 - Crypto & Privacy Village: Applied cryptography, surveillance resistance, Tor/privacy tools
 
-**Hacker Jargon and Culture**
-- 31337 (elite/leet): Origin of "leet speak" — 3->E, 1->L, 3->E, 7->T
+Hacker Jargon and Culture
+- 31337 (elite/leet): Origin of "leet speak": 3->E, 1->L, 3->E, 7->T
 - 0-day: Unknown/unpatched vulnerability
 - Script kiddie: Someone who uses others' tools without understanding them (pejorative)
 - pwned: From gaming (owned -> typo -> pwned); to completely compromise a system
@@ -401,7 +401,7 @@ The village system lets specialized communities run their own mini-conferences w
 
 ## Hacking in Media and Literature
 
-**Essential Books**
+Essential Books
 
 | Book | Author | Type | Why Essential |
 |------|--------|------|---------------|
@@ -416,7 +416,7 @@ The village system lets specialized communities run their own mini-conferences w
 | The Tangled Web | Michal Zalewski | Technical | Web browser security deep dive |
 | Hacking: The Art of Exploitation | Jon Erickson | Technical | Buffer overflows, shellcoding, network hacking |
 
-**Essential Films and Shows**
+Essential Films and Shows
 
 | Title | Year | Why Notable |
 |-------|------|-------------|
@@ -433,7 +433,7 @@ The village system lets specialized communities run their own mini-conferences w
 
 ## Hardware Hacking and Maker Culture
 
-**Hacker Hardware**
+Hacker Hardware
 
 | Device | Use Case | Skill Level |
 |--------|----------|-------------|
@@ -448,16 +448,16 @@ The village system lets specialized communities run their own mini-conferences w
 | USB Rubber Ducky | HID keystroke injection device | Beginner |
 | WiFi Pineapple | WiFi MitM and pentesting | Intermediate |
 
-**Locksport**
+Locksport
 - The art and sport of picking locks non-destructively
 - TOOOL (The Open Organisation Of Lockpickers): Global community, chapters worldwide
 - LockPickingLawyer: Most popular locksport YouTube channel (18M+ subscribers)
 - ALOA (Associated Locksmiths of America): Professional organization
 - Locksport International (LSI): Competitive picking community
-- Security pin sets, spool pins, serrated pins — progressive difficulty
+- Security pin sets, spool pins, serrated pins: progressive difficulty
 - Resources: Deviant Ollam (physical security), r/lockpicking (subreddit with belt ranking system)
 
-**Ham Radio (Amateur Radio)**
+Ham Radio (Amateur Radio)
 - Security relevance: Signal analysis, SDR, protocol reverse engineering background
 - License path (US): Technician -> General -> Amateur Extra (FCC exams)
 - Community: ARRL (American Radio Relay League), Hamvention (world's largest ham convention)
@@ -468,13 +468,13 @@ The village system lets specialized communities run their own mini-conferences w
 
 ## CTF Culture and Competitions
 
-**CTF Types**
-- Jeopardy style: Individual challenge categories (web, pwn, crypto, forensics, RE, misc) — most common format
-- Attack/Defense: Each team has a server to defend and attack others' — dynamic, stressful, exciting
+CTF Types
+- Jeopardy style: Individual challenge categories (web, pwn, crypto, forensics, RE, misc): most common format
+- Attack/Defense: Each team has a server to defend and attack others': dynamic, stressful, exciting
 - King of the Hill: Own a server and maintain control while others try to take it
 - Mixed: Some competitions combine elements
 
-**Top CTF Competitions**
+Top CTF Competitions
 
 | Competition | Format | Difficulty | Why Notable |
 |-------------|--------|------------|-------------|
@@ -490,8 +490,8 @@ The village system lets specialized communities run their own mini-conferences w
 
 ## Related Disciplines
 
-- [physical-security.md](/disciplines/physical-security.md) — Physical penetration testing, social engineering, access control assessments
-- [hardware-security.md](/disciplines/hardware-security.md) — PCB analysis, firmware extraction, JTAG/UART, embedded RE
-- [iot-security.md](/disciplines/iot-security.md) — IoT device security, embedded Linux, consumer device research
-- [radio-frequency-security.md](/disciplines/radio-frequency-security.md) — Professional RF security work, wireless protocol analysis
-- [social-engineering.md](/disciplines/social-engineering.md) — Human-layer attacks, pretexting, physical social engineering
+- [physical-security.md](/disciplines/physical-security.md): Physical penetration testing, social engineering, access control assessments
+- [hardware-security.md](/disciplines/hardware-security.md): PCB analysis, firmware extraction, JTAG/UART, embedded RE
+- [iot-security.md](/disciplines/iot-security.md): IoT device security, embedded Linux, consumer device research
+- [radio-frequency-security.md](/disciplines/radio-frequency-security.md): Professional RF security work, wireless protocol analysis
+- [social-engineering.md](/disciplines/social-engineering.md): Human-layer attacks, pretexting, physical social engineering

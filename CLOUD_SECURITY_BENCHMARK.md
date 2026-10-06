@@ -1,12 +1,12 @@
 # Cloud Security Benchmark Reference
 
-> **In one minute** — This is a hands-on hardening reference for the three big clouds: CIS Benchmark controls (the industry-standard secure-configuration baselines) for AWS, Azure, and GCP, each with its severity, the exact CLI command or console step to fix it, and ready-to-run audit scripts. It also covers CSPM tools (scanners that continuously check your cloud against these benchmarks) and ends with a per-cloud quickstart checklist. Reach for it when you need to audit or lock down a cloud account without digging through the full CIS PDFs.
+> In one minute — This is a hands-on hardening reference for the three big clouds: CIS Benchmark controls (the industry-standard secure-configuration baselines) for AWS, Azure, and GCP, each with its severity, the exact CLI command or console step to fix it, and ready-to-run audit scripts. It also covers CSPM tools (scanners that continuously check your cloud against these benchmarks) and ends with a per-cloud quickstart checklist. Reach for it when you need to audit or lock down a cloud account without digging through the full CIS PDFs.
 
 | | |
 |---|---|
-| **Read this when** | you inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
-| **Start at** | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
-| **Pairs with** | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [FRAMEWORKS.md](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md) |
+| Read this when | you inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, you are picking or running a CSPM scanner like Prowler or ScoutSuite |
+| Start at | [Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference) |
+| Pairs with | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [FRAMEWORKS.md](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md) |
 
 CIS Benchmarks and hardening controls for AWS, Azure, and GCP — with specific checks, automated remediation, and detection queries. Complements the [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) with a defensive posture focus.
 
@@ -14,26 +14,26 @@ CIS Benchmarks and hardening controls for AWS, Azure, and GCP — with specific 
 
 ## AWS CIS Benchmark (v3.0)
 
-> **Currency note (2026-09):** the control IDs in this section follow CIS AWS Foundations Benchmark v3.0. The current release is **v7.0.0** (published Apr 2026); controls were renumbered and added across v4.0–v7.0, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-09): the control IDs in this section follow CIS AWS Foundations Benchmark v3.0. The current release is v7.0.0 (published Apr 2026); controls were renumbered and added across v4.0-v7.0, so re-map these IDs before using them as audit evidence.
 
 ### Identity and Access Management
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 1.1 | Root account MFA enabled | Critical | `aws iam get-account-summary` → `AccountMFAEnabled` must be 1 |
-| 1.2 | No root account access keys | Critical | `aws iam get-account-summary` → `AccountAccessKeysPresent` must be 0 |
+| 1.1 | Root account MFA enabled | Critical | `aws iam get-account-summary` -> `AccountMFAEnabled` must be 1 |
+| 1.2 | No root account access keys | Critical | `aws iam get-account-summary` -> `AccountAccessKeysPresent` must be 0 |
 | 1.3 | MFA enabled for all IAM users with console access | High | `aws iam list-users` + `aws iam list-mfa-devices --user-name USERNAME` |
-| 1.4 | No access keys for root | Critical | Console: Security Credentials → delete access keys |
+| 1.4 | No access keys for root | Critical | Console: Security Credentials -> delete access keys |
 | 1.5 | IAM password policy: min length 14 | Medium | `aws iam update-account-password-policy --minimum-password-length 14` |
 | 1.6 | IAM password policy: prevent reuse (24) | Medium | `aws iam update-account-password-policy --password-reuse-prevention 24` |
 | 1.7 | MFA enabled for all IAM users | High | Enforce via IAM policy requiring MFA for all API calls |
-| 1.8 | No unused credentials older than 45 days | Medium | `aws iam generate-credential-report` → review LastUsed |
+| 1.8 | No unused credentials older than 45 days | Medium | `aws iam generate-credential-report` -> review LastUsed |
 | 1.9 | Credential unused in 45 days: disable | Medium | `aws iam update-access-key --access-key-id KEY --status Inactive` |
-| 1.10 | MFA on root account | Critical | Console only — enable hardware or virtual MFA |
-| 1.11 | No inline policies attached to users | Low | `aws iam list-user-policies` — move to managed policies |
+| 1.10 | MFA on root account | Critical | Console only: enable hardware or virtual MFA |
+| 1.11 | No inline policies attached to users | Low | `aws iam list-user-policies`: move to managed policies |
 | 1.12 | IAM Access Analyzer enabled | Medium | `aws accessanalyzer create-analyzer --analyzer-name AccessAnalyzer --type ACCOUNT` |
 
-**Automated IAM Check Script**:
+Automated IAM Check Script:
 ```bash
 # Check for users without MFA (console access)
 aws iam generate-credential-report --output text > /dev/null
@@ -60,7 +60,7 @@ done
 | 2.6 | CloudTrail S3 bucket not publicly accessible | Critical | Check bucket ACL and policy |
 | 2.7 | CloudWatch alarms for root account usage | High | Create metric filter + alarm on CloudTrail log group |
 
-**CloudWatch Alarm for Root Usage**:
+CloudWatch Alarm for Root Usage:
 ```bash
 # Create metric filter
 aws logs put-metric-filter \
@@ -109,7 +109,7 @@ aws ec2 describe-security-groups \
 
 ## Azure CIS Benchmark (v2.0)
 
-> **Currency note (2026-09):** the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. The current release is **v6.0.0** (published Apr 2026); v5.0.0/v6.0.0 moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-09): the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. The current release is v6.0.0 (published Apr 2026); v5.0.0/v6.0.0 moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
 
 ### Identity and Access (Entra ID / Azure AD)
 
@@ -117,15 +117,15 @@ aws ec2 describe-security-groups \
 |---|---|---|---|
 | 1.1.1 | MFA required for all users | Critical | Conditional Access Policy requiring MFA for all users |
 | 1.1.2 | MFA required for privileged users | Critical | Enforce via PIM + Conditional Access |
-| 1.1.3 | No guest users with privileged roles | High | `az ad user list --filter "userType eq 'Guest'"` → check role assignments |
+| 1.1.3 | No guest users with privileged roles | High | `az ad user list --filter "userType eq 'Guest'"` -> check role assignments |
 | 1.1.4 | Legacy authentication blocked | High | Conditional Access: block legacy auth protocols |
 | 1.2.1 | Global Admin limited to < 5 users | High | `az role assignment list --role "Global Administrator" --all` |
-| 1.2.2 | PIM used for privileged roles | High | Azure PIM — just-in-time activation for GA, Owner, Contributor |
+| 1.2.2 | PIM used for privileged roles | High | Azure PIM: just-in-time activation for GA, Owner, Contributor |
 | 1.2.3 | Security defaults or Conditional Access enabled | Critical | Security defaults provide baseline; CA provides more control |
 | 1.3.1 | Password hash sync or PTA (not ADFS only) | Medium | Enables leaked credential detection |
 | 1.3.2 | SSPR registration required | Medium | Self-Service Password Reset reduces help desk load |
 
-**Azure Privileged Role Check**:
+Azure Privileged Role Check:
 ```powershell
 # Find all Global Administrators
 Connect-AzureAD
@@ -152,7 +152,7 @@ Get-AzureADDirectoryRole | ForEach-Object {
 | 2.1.3 | Defender for SQL | High | Enable for Azure SQL and SQL on VMs |
 | 2.1.4 | Defender for Containers | High | Enable for AKS and ACR scanning |
 | 2.1.5 | Auto-provisioning of agents | Medium | Enable MMA/AMA auto-provisioning in Defender for Cloud |
-| 2.1.6 | Email notifications for high severity alerts | Medium | Security Center Settings → Email notifications |
+| 2.1.6 | Email notifications for high severity alerts | Medium | Security Center Settings -> Email notifications |
 | 2.1.7 | Microsoft Defender for Cloud Apps connected | Medium | MCAS integration for anomaly detection |
 
 ### Storage Accounts
@@ -184,20 +184,20 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 | 8.3 | Secret expiry date set | Medium | Set expiry on all secrets |
 | 8.4 | Certificate auto-rotation | High | Configure certificate contacts and auto-renewal |
 | 8.5 | Key Vault firewall and virtual network | High | Restrict access to specific VNets/IPs |
-| 8.6 | Key Vault logging enabled | High | Enable Diagnostic Settings → send to Log Analytics |
+| 8.6 | Key Vault logging enabled | High | Enable Diagnostic Settings -> send to Log Analytics |
 
 ---
 
 ## GCP CIS Benchmark (v3.0)
 
-> **Currency note (2026-09):** the control IDs in this section follow CIS Google Cloud Platform Foundation Benchmark v3.0. The current release is **v5.0.0** (published May 2026; v4.0.0 was May 2025); controls were renumbered/added, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-09): the control IDs in this section follow CIS Google Cloud Platform Foundation Benchmark v3.0. The current release is v5.0.0 (published May 2026; v4.0.0 was May 2025); controls were renumbered/added, so re-map these IDs before using them as audit evidence.
 
 ### IAM and Organization
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
 | 1.1 | No legacy basic roles (Owner/Editor/Viewer) | High | Replace with fine-grained IAM roles |
-| 1.2 | No service accounts with admin privileges | Critical | `gcloud iam service-accounts list` → review roles |
+| 1.2 | No service accounts with admin privileges | Critical | `gcloud iam service-accounts list` -> review roles |
 | 1.3 | No user-managed service account keys | High | Use Workload Identity Federation instead |
 | 1.4 | Organization policy: restrict domain login | High | `constraints/iam.allowedPolicyMemberDomains` |
 | 1.5 | Separation of duties: no user owns and manages SAs | Medium | Review SA key creators vs users |
@@ -205,7 +205,7 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 | 1.7 | Pub/Sub subscriptions use push endpoints with HTTPS | Low | Use authenticated push endpoints |
 | 1.8 | Secret Manager used for secrets (not env vars) | High | Audit Cloud Run/Functions for hardcoded secrets in env |
 
-**GCP IAM Policy Review**:
+GCP IAM Policy Review:
 ```bash
 # List all primitive roles assigned to any user
 gcloud projects get-iam-policy PROJECT_ID \
@@ -224,14 +224,14 @@ gcloud projects get-iam-policy PROJECT_ID \
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 2.1 | Cloud Audit Logs: admin activity enabled | Critical | Cannot be disabled — verify data access logs enabled |
+| 2.1 | Cloud Audit Logs: admin activity enabled | Critical | Cannot be disabled: verify data access logs enabled |
 | 2.2 | Cloud Audit Logs: data access for all services | High | `gcloud logging sinks list` + enable data access logs |
 | 2.3 | Log sinks configured for all log entries | Medium | Create org-level sink to Cloud Storage/BigQuery |
 | 2.4 | Log metric + alert for project ownership changes | High | Create log-based metric + alerting policy |
 | 2.5 | Log metric + alert for audit config changes | High | Monitor `SetIamPolicy` changes to audit log config |
 | 2.6 | Log metric + alert for custom role changes | Medium | Alert on `CreateRole`, `UpdateRole`, `DeleteRole` |
 
-**GCP Log Metric + Alert for Admin Changes**:
+GCP Log Metric + Alert for Admin Changes:
 ```bash
 # Create log metric for IAM changes
 gcloud logging metrics create iam-policy-changes \
@@ -284,7 +284,7 @@ Cloud Security Posture Management tools continuously check cloud environments ag
 | CloudSploit | AWS, Azure, GCP | Open-source (Aqua OSS) | Automated vulnerability scanning |
 | Steampipe | AWS, Azure, GCP | Open-source | SQL queries over cloud APIs; CIS Benchmark mods |
 
-**Prowler Example**:
+Prowler Example:
 ```bash
 # Install
 pip install prowler
@@ -299,7 +299,7 @@ prowler aws --check iam_root_mfa_enabled
 prowler aws --output-formats html --output-directory /tmp/prowler-output/
 ```
 
-**ScoutSuite Example**:
+ScoutSuite Example:
 ```bash
 # Install
 pip install scoutsuite
@@ -355,9 +355,9 @@ scout gcp --user-account --report-dir /tmp/scoutsuite-report/
 - [ ] No user-managed service account keys
 
 ## Related Resources
-- [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) — Offensive techniques and escalation paths
-- [Cloud Security Discipline](disciplines/cloud-security.md) — Learning path and tooling
-- [FRAMEWORKS.md](FRAMEWORKS.md) — CSA CCM and ISO 27017 for cloud
-- [Controls Mapping](CONTROLS_MAPPING.md) — Wiz, Orca, Lacework → NIST 800-53 controls
+- [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md): Offensive techniques and escalation paths
+- [Cloud Security Discipline](disciplines/cloud-security.md): Learning path and tooling
+- [FRAMEWORKS.md](FRAMEWORKS.md): CSA CCM and ISO 27017 for cloud
+- [Controls Mapping](CONTROLS_MAPPING.md): Wiz, Orca, Lacework -> NIST 800-53 controls
 
 ---

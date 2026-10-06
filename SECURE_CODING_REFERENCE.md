@@ -1,12 +1,12 @@
 # Secure Coding Reference
 
-> **In one minute** — This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
+> In one minute — This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
 
 | | |
 |---|---|
-| **Read this when** | reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
-| **Start at** | [OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist) |
-| **Pairs with** | [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) |
+| Read this when | reviewing a pull request for security flaws, fixing a scanner finding (SQL injection, weak hashing, unsafe deserialization, SSRF), or setting up SAST/SCA/secrets scanning in CI |
+| Start at | [OWASP Top 10 (2021)](#owasp-top-10-2021), [Security Testing in SDLC](#security-testing-in-sdlc), [Quick Reference Checklist](#quick-reference-checklist) |
+| Pairs with | [API Security Reference](API_SECURITY_REFERENCE.md), [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md) |
 
 A comprehensive reference for writing secure code, covering OWASP Top 10 (2021), input validation, authentication, cryptography, secure SDLC tooling, and supply chain security. Mapped to OWASP SAMM, NIST SSDF (SP 800-218), CWE Top 25, and MITRE ATT&CK.
 
@@ -30,13 +30,13 @@ A comprehensive reference for writing secure code, covering OWASP Top 10 (2021),
 
 ## OWASP Top 10 (2021)
 
-> **Currency note:** The current edition is **OWASP Top 10:2025** (published 2025). Key changes from 2021: SSRF (the 2021 A10) is folded into **A01 Broken Access Control**; a new **A03 Software Supply Chain Failures** expands the 2021 A06 Vulnerable and Outdated Components; and a new **A10 Mishandling of Exceptional Conditions** replaces the 2021 SSRF slot. 2025 order: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions. The A01–A10 detail below is retained as the **2021 edition** for crosswalk/history.
+> Currency note: The current edition is OWASP Top 10:2025 (published 2025). Key changes from 2021: SSRF (the 2021 A10) is folded into A01 Broken Access Control; a new A03 Software Supply Chain Failures expands the 2021 A06 Vulnerable and Outdated Components; and a new A10 Mishandling of Exceptional Conditions replaces the 2021 SSRF slot. 2025 order: A01 Broken Access Control, A02 Security Misconfiguration, A03 Software Supply Chain Failures, A04 Cryptographic Failures, A05 Injection, A06 Insecure Design, A07 Authentication Failures, A08 Software or Data Integrity Failures, A09 Security Logging and Alerting Failures, A10 Mishandling of Exceptional Conditions. The A01-A10 detail below is retained as the 2021 edition for crosswalk/history.
 
-### A01 — Broken Access Control
+### A01: Broken Access Control
 
-**Description**: Access control enforces policy so users cannot act outside their intended permissions. Failures lead to unauthorized information disclosure, modification, or destruction of all data, or performing a business function outside the user's limits. Includes IDOR (Insecure Direct Object Reference), privilege escalation, and missing function-level access control. CWE-284, CWE-285, CWE-639. ATT&CK: T1078 (Valid Accounts), T1548 (Abuse Elevation Control Mechanism).
+Description: Access control enforces policy so users cannot act outside their intended permissions. Failures lead to unauthorized information disclosure, modification, or destruction of all data, or performing a business function outside the user's limits. Includes IDOR (Insecure Direct Object Reference), privilege escalation, and missing function-level access control. CWE-284, CWE-285, CWE-639. ATT&CK: T1078 (Valid Accounts), T1548 (Abuse Elevation Control Mechanism).
 
-**Vulnerable — IDOR example (Python/Flask):**
+Vulnerable — IDOR example (Python/Flask):
 ```python
 # BAD: User can access any invoice by changing the ID
 @app.route("/invoice/<int:invoice_id>")
@@ -45,7 +45,7 @@ def get_invoice(invoice_id):
     return jsonify(invoice.to_dict())  # No ownership check!
 ```
 
-**Secure — Object-level authorization:**
+Secure — Object-level authorization:
 ```python
 from flask_login import login_required, current_user
 
@@ -60,15 +60,15 @@ def get_invoice(invoice_id):
     return jsonify(invoice.to_dict())
 ```
 
-**Detection**: Code review for missing `owner_id`/`user_id` filters; fuzz object IDs (sequential integers, UUIDs); use BOLA/BFLA automated scanners. Add authorization middleware centrally rather than per-route.
+Detection: Code review for missing `owner_id`/`user_id` filters; fuzz object IDs (sequential integers, UUIDs); use BOLA/BFLA automated scanners. Add authorization middleware centrally rather than per-route.
 
 ---
 
-### A02 — Cryptographic Failures
+### A02: Cryptographic Failures
 
-**Description**: Formerly "Sensitive Data Exposure." Root cause is weak or missing cryptography protecting data in transit or at rest. Includes use of deprecated algorithms (MD5, SHA-1, DES, RC4), weak key lengths, missing TLS, hardcoded keys, and ECB mode. CWE-326, CWE-327, CWE-328. ATT&CK: T1552 (Unsecured Credentials), T1040 (Network Sniffing).
+Description: Formerly "Sensitive Data Exposure." Root cause is weak or missing cryptography protecting data in transit or at rest. Includes use of deprecated algorithms (MD5, SHA-1, DES, RC4), weak key lengths, missing TLS, hardcoded keys, and ECB mode. CWE-326, CWE-327, CWE-328. ATT&CK: T1552 (Unsecured Credentials), T1040 (Network Sniffing).
 
-**Vulnerable — MD5 password hashing:**
+Vulnerable — MD5 password hashing:
 ```python
 import hashlib
 # BAD: MD5 is a fast hash — billions of attempts/second with GPU
@@ -76,7 +76,7 @@ def store_password(password):
     return hashlib.md5(password.encode()).hexdigest()
 ```
 
-**Secure — bcrypt (cost ≥12):**
+Secure — bcrypt (cost ≥12):
 ```python
 import bcrypt
 
@@ -88,7 +88,7 @@ def verify_password(password: str, hashed: bytes) -> bool:
     return bcrypt.checkpw(password.encode("utf-8"), hashed)
 ```
 
-**Secure — Argon2id (NIST SP 800-63B recommended):**
+Secure — Argon2id (NIST SP 800-63B recommended):
 ```python
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
@@ -111,15 +111,15 @@ def verify_password(password: str, hashed: str) -> bool:
         return False
 ```
 
-**Detection**: Grep codebase for `md5`, `sha1`, `DES`, `RC4`; use Semgrep rule `python.cryptography.security.insecure-hash-algorithms`; check TLS config with `testssl.sh`.
+Detection: Grep codebase for `md5`, `sha1`, `DES`, `RC4`; use Semgrep rule `python.cryptography.security.insecure-hash-algorithms`; check TLS config with `testssl.sh`.
 
 ---
 
-### A03 — Injection
+### A03: Injection
 
-**Description**: User-supplied data is sent to an interpreter without validation or escaping. Includes SQL, OS command, LDAP, XPath, NoSQL, and template injection. CWE-89 (SQL), CWE-78 (OS Command), CWE-90 (LDAP). ATT&CK: T1190 (Exploit Public-Facing Application).
+Description: User-supplied data is sent to an interpreter without validation or escaping. Includes SQL, OS command, LDAP, XPath, NoSQL, and template injection. CWE-89 (SQL), CWE-78 (OS Command), CWE-90 (LDAP). ATT&CK: T1190 (Exploit Public-Facing Application).
 
-**Vulnerable — SQL Injection:**
+Vulnerable — SQL Injection:
 ```python
 # BAD: String concatenation — classic SQLi
 def get_user(username):
@@ -128,7 +128,7 @@ def get_user(username):
 # Payload: username = "' OR '1'='1" -- dumps entire table
 ```
 
-**Secure — Parameterized query (Python sqlite3/SQLAlchemy):**
+Secure — Parameterized query (Python sqlite3/SQLAlchemy):
 ```python
 # sqlite3 — use ? placeholders
 import sqlite3
@@ -146,7 +146,7 @@ def get_user_orm(session: Session, username: str):
     return session.query(User).filter(User.username == username).first()
 ```
 
-**Vulnerable — OS Command Injection:**
+Vulnerable — OS Command Injection:
 ```python
 import os
 # BAD: shell=True with user input
@@ -155,7 +155,7 @@ def ping_host(host):
 # Payload: host = "127.0.0.1; cat /etc/passwd"
 ```
 
-**Secure — subprocess with shell=False:**
+Secure — subprocess with shell=False:
 ```python
 import subprocess, re
 
@@ -170,7 +170,7 @@ def ping_host(host: str) -> str:
     return result.stdout
 ```
 
-**LDAP Injection — Secure escaping (Python ldap3):**
+LDAP Injection — Secure escaping (Python ldap3):
 ```python
 from ldap3.utils.conv import escape_filter_chars
 
@@ -180,36 +180,36 @@ def authenticate_user(username: str, password: str) -> bool:
     # ... perform LDAP bind
 ```
 
-**Detection**: `bandit -r . -t B608` (SQL); `semgrep --config=p/sql-injection`; taint analysis in CodeQL; DAST fuzzing with ZAP active scan.
+Detection: `bandit -r . -t B608` (SQL); `semgrep --config=p/sql-injection`; taint analysis in CodeQL; DAST fuzzing with ZAP active scan.
 
 ---
 
-### A04 — Insecure Design
+### A04: Insecure Design
 
-**Description**: Missing or ineffective security controls at the design level — no threat modeling, no rate limiting by design, unsafe business logic. Cannot be fixed by implementation alone. CWE-73, CWE-183, CWE-209. ATT&CK: T1110 (Brute Force), T1499 (Endpoint Denial of Service).
+Description: Missing or ineffective security controls at the design level — no threat modeling, no rate limiting by design, unsafe business logic. Cannot be fixed by implementation alone. CWE-73, CWE-183, CWE-209. ATT&CK: T1110 (Brute Force), T1499 (Endpoint Denial of Service).
 
-**STRIDE Threat Modeling:**
+STRIDE Threat Modeling:
 
 | Threat | Description | Example | Mitigations |
 |--------|-------------|---------|-------------|
-| **S**poofing | Impersonating something or someone | Forged JWT, ARP spoofing | Authentication, MFA |
-| **T**ampering | Modifying data or code | MITM modifying API requests | HMAC signing, TLS, integrity checks |
-| **R**epudiation | Denying an action occurred | User denies placing order | Audit logging, digital signatures |
-| **I**nformation Disclosure | Exposing data to unauthorized parties | Verbose error messages, IDOR | Access control, data minimization |
-| **D**enial of Service | Making system unavailable | API without rate limits | Rate limiting, input size limits |
-| **E**levation of Privilege | Gaining higher permissions | Path traversal to admin config | Least privilege, input validation |
+| Spoofing | Impersonating something or someone | Forged JWT, ARP spoofing | Authentication, MFA |
+| Tampering | Modifying data or code | MITM modifying API requests | HMAC signing, TLS, integrity checks |
+| Repudiation | Denying an action occurred | User denies placing order | Audit logging, digital signatures |
+| Information Disclosure | Exposing data to unauthorized parties | Verbose error messages, IDOR | Access control, data minimization |
+| Denial of Service | Making system unavailable | API without rate limits | Rate limiting, input size limits |
+| Elevation of Privilege | Gaining higher permissions | Path traversal to admin config | Least privilege, input validation |
 
-**Design controls**: Rate limiting on all authentication endpoints (e.g., 5 attempts per 15 min); account lockout with backoff; anti-automation (CAPTCHA for high-risk flows); separate admin functionality to different host/port; model data flows in architecture diagrams before coding.
+Design controls: Rate limiting on all authentication endpoints (e.g., 5 attempts per 15 min); account lockout with backoff; anti-automation (CAPTCHA for high-risk flows); separate admin functionality to different host/port; model data flows in architecture diagrams before coding.
 
-**Detection**: Threat model review during design phase; security stories in sprint planning; OWASP SAMM assessment; architecture review gate before production.
+Detection: Threat model review during design phase; security stories in sprint planning; OWASP SAMM assessment; architecture review gate before production.
 
 ---
 
-### A05 — Security Misconfiguration
+### A05: Security Misconfiguration
 
-**Description**: Insecure default configurations, incomplete configurations, open cloud storage, verbose error messages, unnecessary features enabled. CWE-16, CWE-611. ATT&CK: T1592 (Gather Victim Host Information).
+Description: Insecure default configurations, incomplete configurations, open cloud storage, verbose error messages, unnecessary features enabled. CWE-16, CWE-611. ATT&CK: T1592 (Gather Victim Host Information).
 
-**Vulnerable configurations:**
+Vulnerable configurations:
 ```python
 # BAD: Flask debug mode in production
 app = Flask(__name__)
@@ -223,7 +223,7 @@ def internal_error(e):
     return str(e), 500  # Sends full traceback to client
 ```
 
-**Secure configuration:**
+Secure configuration:
 ```python
 import os, secrets
 
@@ -244,15 +244,15 @@ def internal_error(e):
     return jsonify({"error": "Internal server error"}), 500  # Generic message
 ```
 
-**Detection**: CIS Benchmarks automated scanning; `checkov` for IaC; `docker-bench-security`; review security headers with `securityheaders.com`; Nessus/OpenVAS configuration audits.
+Detection: CIS Benchmarks automated scanning; `checkov` for IaC; `docker-bench-security`; review security headers with `securityheaders.com`; Nessus/OpenVAS configuration audits.
 
 ---
 
-### A06 — Vulnerable and Outdated Components
+### A06: Vulnerable and Outdated Components
 
-**Description**: Using components with known vulnerabilities — libraries, frameworks, OS packages. CWE-1035, CWE-937. ATT&CK: T1195 (Supply Chain Compromise), T1203 (Exploitation for Client Execution).
+Description: Using components with known vulnerabilities — libraries, frameworks, OS packages. CWE-1035, CWE-937. ATT&CK: T1195 (Supply Chain Compromise), T1203 (Exploitation for Client Execution).
 
-**SCA (Software Composition Analysis) tools:**
+SCA (Software Composition Analysis) tools:
 ```bash
 # Python — pip-audit (NIST NVD + PyPA advisory database)
 pip install pip-audit
@@ -274,7 +274,7 @@ cargo audit
 dependency-check --project myapp --scan ./target --format JSON
 ```
 
-**Lock file with hash verification (Python):**
+Lock file with hash verification (Python):
 ```
 # requirements.txt — pin exact versions with hashes
 bcrypt==4.1.3 \
@@ -285,15 +285,15 @@ cryptography==42.0.8 \
 # Install: pip install --require-hashes -r requirements.txt
 ```
 
-**Detection**: Integrate SCA into CI pipeline as a blocking gate; subscribe to GitHub Dependabot alerts; monitor CVE feeds (NVD, OSV.dev); set CVSS threshold for blocking (e.g., fail build on HIGH/CRITICAL).
+Detection: Integrate SCA into CI pipeline as a blocking gate; subscribe to GitHub Dependabot alerts; monitor CVE feeds (NVD, OSV.dev); set CVSS threshold for blocking (e.g., fail build on HIGH/CRITICAL).
 
 ---
 
-### A07 — Identification and Authentication Failures
+### A07: Identification and Authentication Failures
 
-**Description**: Confirms the user's identity, authentication, and session management. Weaknesses include credential stuffing, brute force, session fixation, weak tokens, missing MFA. CWE-287, CWE-384, CWE-307. ATT&CK: T1110 (Brute Force), T1539 (Steal Web Session Cookie).
+Description: Confirms the user's identity, authentication, and session management. Weaknesses include credential stuffing, brute force, session fixation, weak tokens, missing MFA. CWE-287, CWE-384, CWE-307. ATT&CK: T1110 (Brute Force), T1539 (Steal Web Session Cookie).
 
-**Session Fixation — Vulnerable:**
+Session Fixation — Vulnerable:
 ```python
 # BAD: Session ID not regenerated after login
 @app.route("/login", methods=["POST"])
@@ -304,7 +304,7 @@ def login():
         return redirect("/dashboard")
 ```
 
-**Secure — Regenerate session ID on privilege change:**
+Secure — Regenerate session ID on privilege change:
 ```python
 from flask import session
 from flask_login import login_user
@@ -323,7 +323,7 @@ def login():
     return render_template("login.html", error="Invalid credentials"), 401
 ```
 
-**Cryptographically secure token generation:**
+Cryptographically secure token generation:
 ```python
 import secrets
 
@@ -335,15 +335,15 @@ const crypto = require('crypto');
 const token = crypto.randomBytes(32).toString('hex');
 ```
 
-**Detection**: Automated credential stuffing testing; verify session cookie attributes (HttpOnly, Secure, SameSite); test for session fixation; check for missing account lockout.
+Detection: Automated credential stuffing testing; verify session cookie attributes (HttpOnly, Secure, SameSite); test for session fixation; check for missing account lockout.
 
 ---
 
-### A08 — Software and Data Integrity Failures
+### A08: Software and Data Integrity Failures
 
-**Description**: Code and infrastructure not protected against integrity violations. Includes insecure deserialization, unsigned updates, and malicious CI/CD pipeline code. CWE-502, CWE-345, CWE-494. ATT&CK: T1195 (Supply Chain Compromise), T1059 (Command and Scripting Interpreter).
+Description: Code and infrastructure not protected against integrity violations. Includes insecure deserialization, unsigned updates, and malicious CI/CD pipeline code. CWE-502, CWE-345, CWE-494. ATT&CK: T1195 (Supply Chain Compromise), T1059 (Command and Scripting Interpreter).
 
-**Vulnerable — Python pickle deserialization:**
+Vulnerable — Python pickle deserialization:
 ```python
 import pickle
 # BAD: Deserializing untrusted data — arbitrary code execution
@@ -359,7 +359,7 @@ def load_session():
 # pickle.dumps(Exploit())
 ```
 
-**Secure alternatives:**
+Secure alternatives:
 ```python
 import json
 
@@ -380,7 +380,7 @@ def load_session():
 # - protobuf / thrift with strict schemas
 ```
 
-**Supply chain integrity:**
+Supply chain integrity:
 ```bash
 # Verify package signatures with Sigstore/Cosign
 cosign verify-blob --certificate cert.pem --signature sig.sig artifact.tar.gz
@@ -389,15 +389,15 @@ cosign verify-blob --certificate cert.pem --signature sig.sig artifact.tar.gz
 - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 ```
 
-**Detection**: Ban `pickle.loads(untrusted)` via Semgrep; require signed commits; enable branch protection with required reviews; scan CI pipelines with `zizmor` or `actionlint`.
+Detection: Ban `pickle.loads(untrusted)` via Semgrep; require signed commits; enable branch protection with required reviews; scan CI pipelines with `zizmor` or `actionlint`.
 
 ---
 
-### A09 — Security Logging and Monitoring Failures
+### A09: Security Logging and Monitoring Failures
 
-**Description**: Insufficient logging, detection, monitoring, and active response. Breaches go undetected for an average of 207 days (IBM Cost of a Data Breach 2023). CWE-223, CWE-778. ATT&CK: T1070 (Indicator Removal).
+Description: Insufficient logging, detection, monitoring, and active response. Breaches go undetected for an average of 207 days (IBM Cost of a Data Breach 2023). CWE-223, CWE-778. ATT&CK: T1070 (Indicator Removal).
 
-**What to log (security events):**
+What to log (security events):
 ```python
 import logging, json
 from datetime import datetime, timezone
@@ -421,7 +421,7 @@ def log_security_event(event_type: str, user_id: str, ip: str, details: dict):
 #       admin actions, data exports, session events
 ```
 
-**What NOT to log:**
+What NOT to log:
 ```python
 # BAD — PII and secrets in logs
 logger.info(f"User {username} logged in with password {password}")
@@ -434,15 +434,15 @@ logger.info(f"Login attempt for user_id={user_id} from ip={ip} result=success")
 logger.info(f"Payment processed for order_id={order_id} amount_cents={amount}")
 ```
 
-**Detection**: Deploy SIEM with alert rules for: 10+ failed logins in 5 min; after-hours admin access; privilege escalation events; mass data export; impossible travel. Use structured logging (JSON) for easy parsing. Test logging completeness with OWASP Testing Guide.
+Detection: Deploy SIEM with alert rules for: 10+ failed logins in 5 min; after-hours admin access; privilege escalation events; mass data export; impossible travel. Use structured logging (JSON) for easy parsing. Test logging completeness with OWASP Testing Guide.
 
 ---
 
-### A10 — Server-Side Request Forgery (SSRF)
+### A10: Server-Side Request Forgery (SSRF)
 
-**Description**: Web app fetches a remote resource without validating the user-supplied URL. Allows attackers to access internal services, cloud metadata, and bypass firewalls. CWE-918. ATT&CK: T1090 (Proxy), T1552 (Unsecured Credentials — cloud IMDS).
+Description: Web app fetches a remote resource without validating the user-supplied URL. Allows attackers to access internal services, cloud metadata, and bypass firewalls. CWE-918. ATT&CK: T1090 (Proxy), T1552 (Unsecured Credentials — cloud IMDS).
 
-**Vulnerable — SSRF to internal/cloud metadata:**
+Vulnerable — SSRF to internal/cloud metadata:
 ```python
 import requests
 # BAD: User controls the URL — accesses internal services
@@ -458,7 +458,7 @@ def fetch_url():
 # ?url=file:///etc/passwd
 ```
 
-**Secure — Allow-list with DNS rebinding protection:**
+Secure — Allow-list with DNS rebinding protection:
 ```python
 import ipaddress, socket
 from urllib.parse import urlparse
@@ -491,9 +491,9 @@ def fetch_url():
     return resp.content
 ```
 
-**Cloud IMDS context**: AWS EC2 metadata at `169.254.169.254`, Azure at `169.254.169.254` (same), GCP at `metadata.google.internal`. All return IAM credentials. Mitigate with IMDSv2 (AWS), IMDS access disabled at the workload level, and network-layer egress filtering.
+Cloud IMDS context: AWS EC2 metadata at `169.254.169.254`, Azure at `169.254.169.254` (same), GCP at `metadata.google.internal`. All return IAM credentials. Mitigate with IMDSv2 (AWS), IMDS access disabled at the workload level, and network-layer egress filtering.
 
-**Detection**: ZAP active scan SSRF rules; Burp Collaborator for out-of-band detection; block `169.254.0.0/16`, `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` in egress WAF/firewall rules.
+Detection: ZAP active scan SSRF rules; Burp Collaborator for out-of-band detection; block `169.254.0.0/16`, `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` in egress WAF/firewall rules.
 
 ---
 
@@ -501,7 +501,7 @@ def fetch_url():
 
 ### Validation Principles
 
-**Allow-list over deny-list**: Define exactly what is permitted; reject everything else. Deny-lists are incomplete by definition — there is always a bypass.
+Allow-list over deny-list: Define exactly what is permitted; reject everything else. Deny-lists are incomplete by definition — there is always a bypass.
 
 ```python
 import re
@@ -530,7 +530,7 @@ def validate_integer_range(value: str, min_val: int, max_val: int) -> Optional[i
 # Validate at the INPUT boundary — before any processing
 ```
 
-**Pydantic for structured validation (Python):**
+Pydantic for structured validation (Python):
 ```python
 from pydantic import BaseModel, Field, validator
 import re
@@ -644,7 +644,7 @@ def add_csp_header(response):
 
 ### Password Hashing
 
-**PBKDF2-HMAC-SHA256 (NIST SP 800-132, ≥600,000 iterations per NIST 2023):**
+PBKDF2-HMAC-SHA256 (NIST SP 800-132, ≥600,000 iterations per NIST 2023):
 ```python
 import hashlib, os, base64
 
@@ -669,7 +669,7 @@ def verify_password(password: str, stored: str) -> bool:
 
 ### JWT Security
 
-**Algorithm confusion vulnerability and secure configuration:**
+Algorithm confusion vulnerability and secure configuration:
 ```python
 import jwt  # PyJWT
 
@@ -880,10 +880,10 @@ crypto.getRandomValues(array);
 
 | Avoid | Use Instead | Reason |
 |-------|-------------|--------|
-| MD5, SHA-1 (passwords) | bcrypt, Argon2id | Fast hashes — trivially brute-forced |
+| MD5, SHA-1 (passwords) | bcrypt, Argon2id | Fast hashes: trivially brute-forced |
 | ECB mode | GCM or CBC+HMAC | ECB leaks patterns (penguin attack) |
 | PKCS1v15 padding | OAEP | Padding oracle attacks |
-| DES, 3DES, RC4 | AES-256-GCM | Broken — key length or stream cipher weaknesses |
+| DES, 3DES, RC4 | AES-256-GCM | Broken: key length or stream cipher weaknesses |
 | Hardcoded keys | KMS, HSM, Vault | Key rotation impossible; exposed in repos |
 | Custom crypto | Standard libraries | Subtle timing/implementation flaws |
 | `random` module | `secrets` module | MT19937 is predictable with 624 outputs |
@@ -1069,7 +1069,7 @@ cosign verify-blob artifact.tar.gz \
 
 ### SAST (Static Application Security Testing)
 
-**Semgrep:**
+Semgrep:
 ```bash
 # OWASP Top 10 rules
 semgrep --config=p/owasp-top-ten .
@@ -1091,7 +1091,7 @@ semgrep --config=p/java .
 semgrep --config=rules/ --output=results.json --json .
 ```
 
-**Bandit (Python):**
+Bandit (Python):
 ```bash
 # Recursive scan with JSON output
 bandit -r ./src -f json -o bandit-report.json -l -i
@@ -1108,7 +1108,7 @@ bandit -r . --severity-level medium --confidence-level medium -f json -o bandit.
 # Exit code 1 if issues found
 ```
 
-**CodeQL (GitHub Actions):**
+CodeQL (GitHub Actions):
 ```yaml
 name: CodeQL Analysis
 on: [push, pull_request]
@@ -1132,7 +1132,7 @@ jobs:
 
 ### DAST (Dynamic Application Security Testing)
 
-**OWASP ZAP:**
+OWASP ZAP:
 ```bash
 # Baseline scan — passive scan only, no active attacks
 docker run --rm owasp/zap2docker-stable zap-baseline.py \
@@ -1219,15 +1219,15 @@ Prod   → Runtime WAF + monitoring + alerting
 
 | Principle | Description | Example |
 |-----------|-------------|---------|
-| **Defense in Depth** | Multiple overlapping controls — failure of one does not compromise the system | WAF + input validation + parameterized queries + least privilege |
-| **Least Privilege** | Processes and users should have the minimum access needed | DB user with only SELECT on needed tables; containers with read-only filesystem |
-| **Fail Secure** | On error, default to the more secure state | Auth failure → deny access; crypto error → abort, never proceed |
-| **Separation of Concerns** | Isolate security-sensitive components | Separate auth service; dedicated secrets store |
-| **Economy of Mechanism** | Keep design simple — complexity increases attack surface | Simple allowlists over complex deny-lists; avoid feature creep in security code |
-| **Secure Defaults** | Out-of-the-box configuration is the secure one | Password complexity enforced by default; MFA opt-out not opt-in |
-| **Complete Mediation** | Every access to every resource must be checked | Per-request authorization checks; no caching of access decisions across privilege changes |
-| **Open Design** | Security should not depend on secrecy of design | Kerckhoffs's principle — assume attackers know the algorithm |
-| **Psychological Acceptability** | Security controls should not make legitimate access significantly harder | SSO over per-app passwords; password managers over complex rotation policies |
+| Defense in Depth | Multiple overlapping controls: failure of one does not compromise the system | WAF + input validation + parameterized queries + least privilege |
+| Least Privilege | Processes and users should have the minimum access needed | DB user with only SELECT on needed tables; containers with read-only filesystem |
+| Fail Secure | On error, default to the more secure state | Auth failure -> deny access; crypto error -> abort, never proceed |
+| Separation of Concerns | Isolate security-sensitive components | Separate auth service; dedicated secrets store |
+| Economy of Mechanism | Keep design simple: complexity increases attack surface | Simple allowlists over complex deny-lists; avoid feature creep in security code |
+| Secure Defaults | Out-of-the-box configuration is the secure one | Password complexity enforced by default; MFA opt-out not opt-in |
+| Complete Mediation | Every access to every resource must be checked | Per-request authorization checks; no caching of access decisions across privilege changes |
+| Open Design | Security should not depend on secrecy of design | Kerckhoffs's principle: assume attackers know the algorithm |
+| Psychological Acceptability | Security controls should not make legitimate access significantly harder | SSO over per-app passwords; password managers over complex rotation policies |
 
 ### STRIDE Threat Modeling Process
 
@@ -1425,7 +1425,7 @@ func safeJoin(base, rel string) (string, error) {
 |--------|-------------------|---------|-------|
 | `Content-Security-Policy` | `default-src 'none'; script-src 'nonce-{n}' 'strict-dynamic'; style-src 'nonce-{n}'; img-src 'self' https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'` | Prevents XSS, clickjacking, data injection | Use `report-uri` to collect violations; start with Report-Only |
 | `X-Frame-Options` | `DENY` | Prevents clickjacking (legacy) | Superseded by CSP `frame-ancestors`; keep for older browsers |
-| `X-Content-Type-Options` | `nosniff` | Prevents MIME-type sniffing | Required — stops browser from executing files as wrong type |
+| `X-Content-Type-Options` | `nosniff` | Prevents MIME-type sniffing | Required: stops browser from executing files as wrong type |
 | `Referrer-Policy` | `strict-origin-when-cross-origin` | Controls Referer header leakage | Use `no-referrer` for highest privacy; `strict-origin` for analytics compatibility |
 | `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), payment=()` | Disable browser features not used | Formerly Feature-Policy; disable all APIs not needed |
 | `Strict-Transport-Security` | `max-age=31536000; includeSubDomains; preload` | Forces HTTPS for 1 year | Only set over HTTPS; submit to HSTS preload list for highest assurance |
@@ -1433,9 +1433,9 @@ func safeJoin(base, rel string) (string, error) {
 | `Cross-Origin-Embedder-Policy` | `require-corp` | Prevents cross-origin resource loading unless explicitly permitted | Required alongside COOP for high-performance features |
 | `Cross-Origin-Resource-Policy` | `same-origin` | Prevents resources being included by other origins | Use `cross-origin` for CDN assets that should be publicly embeddable |
 | `Cache-Control` (sensitive pages) | `no-store` | Prevents sensitive data caching | Apply to all authenticated/sensitive responses |
-| `X-XSS-Protection` | `0` (disabled) | Legacy XSS filter — now disabled | Modern browsers deprecated; CSP is the replacement |
+| `X-XSS-Protection` | `0` (disabled) | Legacy XSS filter: now disabled | Modern browsers deprecated; CSP is the replacement |
 
-**Quick-add Flask middleware:**
+Quick-add Flask middleware:
 ```python
 @app.after_request
 def add_security_headers(response):
@@ -1460,23 +1460,23 @@ def add_security_headers(response):
 
 | Section | SAMM Practice | SAMM Level |
 |---------|---------------|------------|
-| Input Validation | Implementation — Secure Build | Level 1 |
-| SAST/DAST | Verification — Security Testing | Level 2 |
-| Threat Modeling | Design — Threat Assessment | Level 2 |
-| Dependency Management | Implementation — Secure Build | Level 1 |
-| Crypto | Implementation — Secure Architecture | Level 2 |
-| Logging | Operations — Incident Management | Level 1 |
+| Input Validation | Implementation: Secure Build | Level 1 |
+| SAST/DAST | Verification: Security Testing | Level 2 |
+| Threat Modeling | Design: Threat Assessment | Level 2 |
+| Dependency Management | Implementation: Secure Build | Level 1 |
+| Crypto | Implementation: Secure Architecture | Level 2 |
+| Logging | Operations: Incident Management | Level 1 |
 
 ### NIST SSDF (SP 800-218) Mapping
 
 | Section | SSDF Practice | Task |
 |---------|---------------|------|
-| Input Validation | PW.5 | PW.5.1 — Use vetted modules and services |
-| Authentication | PW.6 | PW.6.1 — Follow secure coding practices |
-| SAST | PW.7 | PW.7.1 — Automated source code review |
-| DAST | PW.8 | PW.8.1 — Dynamic test of executables |
-| Dependency Security | PW.4 | PW.4.1 — Acquire and maintain well-secured software |
-| Incident Logging | RV.1 | RV.1.2 — Manage vulnerabilities |
+| Input Validation | PW.5 | PW.5.1: Use vetted modules and services |
+| Authentication | PW.6 | PW.6.1: Follow secure coding practices |
+| SAST | PW.7 | PW.7.1: Automated source code review |
+| DAST | PW.8 | PW.8.1: Dynamic test of executables |
+| Dependency Security | PW.4 | PW.4.1: Acquire and maintain well-secured software |
+| Incident Logging | RV.1 | RV.1.2: Manage vulnerabilities |
 
 ### CWE Top 25 Cross-Reference
 
@@ -1520,20 +1520,20 @@ def add_security_headers(response):
 
 - [ ] All user input validated against an allow-list (type, length, range, format)
 - [ ] Output encoded for the correct context (HTML, JS, URL, CSS)
-- [ ] No string concatenation in SQL queries — parameterized only
+- [ ] No string concatenation in SQL queries: parameterized only
 - [ ] No `shell=True` in subprocess calls with user-controlled input
 - [ ] No `eval()`, `exec()`, `pickle.loads()` with untrusted data
-- [ ] Password hashing uses bcrypt (cost ≥12) or Argon2id — not MD5/SHA-1
+- [ ] Password hashing uses bcrypt (cost ≥12) or Argon2id: not MD5/SHA-1
 - [ ] Session ID regenerated on login (prevent fixation)
 - [ ] Session cookies have HttpOnly, Secure, SameSite=Strict
-- [ ] JWT algorithm pinned explicitly — `alg:none` rejected
+- [ ] JWT algorithm pinned explicitly: `alg:none` rejected
 - [ ] No hardcoded credentials, API keys, or secrets in source code
 - [ ] File uploads validated by magic bytes, not Content-Type header
 - [ ] Upload storage is outside web root with random filenames
 - [ ] AES-256-GCM or equivalent authenticated encryption used (not ECB)
 - [ ] `secrets` module used for token generation (not `random`)
 - [ ] Dependencies pinned with hash verification; SCA scan in CI
-- [ ] Security events logged (auth failures, access violations) — no PII/passwords in logs
+- [ ] Security events logged (auth failures, access violations): no PII/passwords in logs
 - [ ] Error responses do not leak stack traces or internal details
 - [ ] All authenticated endpoints have authorization checks (not just authentication)
 - [ ] SSRF protection: URL allow-list, no fetch to internal/169.254.x.x ranges

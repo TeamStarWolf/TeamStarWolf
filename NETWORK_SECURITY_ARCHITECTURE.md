@@ -1,12 +1,12 @@
 # Network Security Architecture Reference
 
-> **In one minute** — This document shows how to build an enterprise network that limits the damage of a breach: split the network into zones (DMZ, user, server, database, management), put firewalls and intrusion prevention at the right choke points, and control who gets on the wire with 802.1X port authentication. It pairs each pattern with real configuration examples (Cisco IOS-XE, Suricata, Calico, IKEv2 VPN) so you can implement rather than just read, and maps every control to NIST 800-53, CIS Controls 12-13, and MITRE ATT&CK.
+> In one minute — This document shows how to build an enterprise network that limits the damage of a breach: split the network into zones (DMZ, user, server, database, management), put firewalls and intrusion prevention at the right choke points, and control who gets on the wire with 802.1X port authentication. It pairs each pattern with real configuration examples (Cisco IOS-XE, Suricata, Calico, IKEv2 VPN) so you can implement rather than just read, and maps every control to NIST 800-53, CIS Controls 12-13, and MITRE ATT&CK.
 
 | | |
 |---|---|
-| **Read this when** | designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
-| **Start at** | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
-| **Pairs with** | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
+| Read this when | designing or reviewing network segmentation and firewall policy, deploying IDS/IPS or 802.1X/NAC, hardening VPNs or planning DDoS protection |
+| Start at | [Defense-in-Depth Network Architecture](#defense-in-depth-network-architecture), [Network Segmentation Implementation](#network-segmentation-implementation), [Architecture Evaluation Checklist](#architecture-evaluation-checklist) |
+| Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [CLOUD_NETWORK_SECURITY.md](CLOUD_NETWORK_SECURITY.md) |
 
 A practitioner reference for designing, evaluating, and defending enterprise networks.
 Covers defense-in-depth architecture patterns with real configuration examples, mapped to
@@ -35,27 +35,27 @@ Internet
 [Core / Data Tier] ── Databases, domain controllers, sensitive servers
 ```
 
-**DMZ purpose**: expose services to the Internet while preventing direct Internet-to-internal
+DMZ purpose: expose services to the Internet while preventing direct Internet-to-internal
 reachability. A compromise of a DMZ host does not automatically yield internal access.
 
-**Services placed in the DMZ**:
-- Web servers (reverse-proxy to internal application servers — DMZ host never runs the app itself)
+Services placed in the DMZ:
+- Web servers (reverse-proxy to internal application servers: DMZ host never runs the app itself)
 - Email gateways (MTA relay, spam/malware filtering, DKIM signing)
 - Public-facing DNS resolvers (authoritative or recursive with split-DNS)
 - VPN concentrators (terminate remote access tunnels here, not internally)
 - Web Application Firewall (WAF) appliances or virtual instances
 - SMTP, SFTP, and other partner-facing services
 
-**Communication rules**:
+Communication rules:
 | Source | Destination | Verdict | Notes |
 |---|---|---|---|
-| Internet | DMZ | Restricted ports only | TCP/443, TCP/25, etc. — deny all others |
+| Internet | DMZ | Restricted ports only | TCP/443, TCP/25, etc.: deny all others |
 | DMZ | Internal LAN | Only required flows | Proxy-to-app-server, LDAP auth, DB queries via app tier |
 | Internal LAN | DMZ | Admin access, monitoring | SSH/RDP from jump server, SNMP, syslog |
-| Internet | Internal LAN | NEVER | Default deny — no direct path |
+| Internet | Internal LAN | NEVER | Default deny: no direct path |
 | DMZ | Internet | Egress-filtered | Only required (SMTP out, NTP, cert validation) |
 
-**ATT&CK relevance**: T1190 Exploit Public-Facing Application is mitigated by limiting blast
+ATT&CK relevance: T1190 Exploit Public-Facing Application is mitigated by limiting blast
 radius of DMZ compromises. T1021 (lateral movement) is slowed by internal firewall between zones.
 
 ---
@@ -87,11 +87,11 @@ Internet
 ```
 
 Key differences from classic DMZ:
-- **DDoS scrubbing** upstream of perimeter firewall (on-prem or cloud-based)
-- **HA firewall cluster** — no single point of failure at perimeter
-- **Layer 3 core switching** — routing between VLANs enforced with ACLs at the distribution layer
-- **Management VLAN** — completely separate path for device administration (out-of-band)
-- **East-west firewall** — micro-segmentation between server workloads, not just north-south
+- DDoS scrubbing upstream of perimeter firewall (on-prem or cloud-based)
+- HA firewall cluster: no single point of failure at perimeter
+- Layer 3 core switching: routing between VLANs enforced with ACLs at the distribution layer
+- Management VLAN: completely separate path for device administration (out-of-band)
+- East-west firewall: micro-segmentation between server workloads, not just north-south
 
 ---
 
@@ -109,8 +109,8 @@ Key differences from classic DMZ:
 | OT / IoT | Industrial / IoT devices | 3 | Specific control protocols only | Very restricted |
 | Security | SIEM, security tools | 5 | Log/event collection from all zones | Threat intel, updates |
 
-**NIST 800-53**: SC-7 (Boundary Protection), SC-32 (Information System Partitioning)
-**CIS Control 12**: Network Infrastructure Management, **CIS Control 13**: Network Monitoring
+NIST 800-53: SC-7 (Boundary Protection), SC-32 (Information System Partitioning)
+CIS Control 12: Network Infrastructure Management, CIS Control 13: Network Monitoring
 
 ---
 
@@ -121,22 +121,22 @@ Key differences from classic DMZ:
 Next-generation firewalls add application awareness, user identity, and threat prevention
 on top of traditional stateful packet inspection.
 
-**Zone-based policy**: traffic classified by source/destination security zone, not just
+Zone-based policy: traffic classified by source/destination security zone, not just
 IP address and port number. A policy entry reads as:
 "Allow users in the User zone to reach servers in the Server zone on application HTTPS."
 
-**Application-ID (App-ID)**: Palo Alto's App-ID identifies the actual application
+Application-ID (App-ID): Palo Alto's App-ID identifies the actual application
 regardless of the port it runs on, detecting evasion techniques (e.g., malware tunneling
 over TCP/80). Cisco's NBAR performs similar classification.
 
-**Policy hierarchy**: security zones → address groups → application groups → user groups
+Policy hierarchy: security zones -> address groups -> application groups -> user groups
 (via User-ID / AD integration). Policies evaluated top-down; first match wins.
 
-**Default deny**: an implicit deny-all rule at the bottom of the ruleset catches all
+Default deny: an implicit deny-all rule at the bottom of the ruleset catches all
 unmatched traffic. Log all denied traffic — denied connections are a key detection signal
 (ATT&CK T1046 Network Service Scanning, T1571 Non-Standard Port).
 
-**Rule naming convention**:
+Rule naming convention:
 ```
 [Action]-[SourceZone]-[DestZone]-[App/Service]-[Purpose]
 ```
@@ -169,33 +169,33 @@ ALLOW   MGMT_JUMP       ANY             TCP/22,3389     Admin access (MFA requir
 DENY    ANY             ANY             ANY             Default deny — log all
 ```
 
-**Operational notes**:
-- Audit rules quarterly — remove rules that have not matched in 90+ days
+Operational notes:
+- Audit rules quarterly: remove rules that have not matched in 90+ days
 - Document business justification for every allow rule (change control)
-- Log all traffic including allowed — not just denies — for full visibility
+- Log all traffic including allowed: not just denies — for full visibility
 - Separate management access rules into their own policy section
 
 ---
 
 ### High Availability Firewall Design
 
-**Active/Passive failover**:
+Active/Passive failover:
 - Primary processes all traffic; standby syncs state but does not forward
 - On failure: standby takes over within seconds (sub-second with preemption disabled)
 - State sync includes: session table, NAT translation table, routing table
 - VRRP or proprietary HA protocol used for gateway IP failover
 
-**Active/Active**:
+Active/Active:
 - Both units process traffic simultaneously (higher throughput)
 - Requires careful handling of asymmetric routing or full session sync
-- More complex to troubleshoot — each unit must handle sessions it did not initiate
+- More complex to troubleshoot: each unit must handle sessions it did not initiate
 
-**First Hop Redundancy Protocols (FHRP)**:
-- **HSRP** (Cisco proprietary): one active gateway, one standby, virtual IP shared
-- **VRRP** (RFC 5798): open standard equivalent to HSRP, supported across vendors
-- **GLBP** (Cisco): load-balancing FHRP — multiple routers share gateway load
+First Hop Redundancy Protocols (FHRP):
+- HSRP (Cisco proprietary): one active gateway, one standby, virtual IP shared
+- VRRP (RFC 5798): open standard equivalent to HSRP, supported across vendors
+- GLBP (Cisco): load-balancing FHRP: multiple routers share gateway load
 
-**State synchronization checklist**:
+State synchronization checklist:
 - [ ] Session table synced between HA peers
 - [ ] NAT/PAT translation table synced
 - [ ] Routing table (adjacencies re-established or synced)
@@ -222,20 +222,20 @@ Internet
           [East-West IDS/IPS]
 ```
 
-**Perimeter IPS (inline / blocking)**:
+Perimeter IPS (inline / blocking):
 - Positioned between edge router and DMZ
 - High-confidence signature rules in block mode (known exploit signatures, CVE-matched rules)
 - Signature update frequency: daily minimum, emergency updates on critical CVEs
 - Integrated into NGFW (Palo Alto Threat Prevention, Cisco Firepower / TALOS, Fortinet IPS)
 
-**Internal IDS (passive tap / detection only)**:
+Internal IDS (passive tap / detection only):
 - Monitoring east-west traffic for lateral movement (ATT&CK TA0008)
-- Passive — receives a copy of traffic via SPAN port or hardware TAP
-- Higher false-positive rate initially — tune for 30-60 days before any blocking
+- Passive: receives a copy of traffic via SPAN port or hardware TAP
+- Higher false-positive rate initially: tune for 30-60 days before any blocking
 - Particularly valuable for detecting: credential dumping across network, SMB exploitation,
   LDAP reconnaissance (BloodHound), Kerberoasting traffic
 
-**Cloud-based IPS**:
+Cloud-based IPS:
 - AWS: GuardDuty (anomaly detection) + AWS Network Firewall (stateful IPS rules)
 - Azure: Azure Firewall Premium (IDPS), Microsoft Defender for Cloud
 - GCP: Cloud IDS (Palo Alto-powered), Cloud Armor (perimeter)
@@ -285,17 +285,17 @@ detect:
   inspection-recursion-limit: 3000
 ```
 
-**Key Suricata rule categories and deployment mode**:
+Key Suricata rule categories and deployment mode:
 | Category | Recommended Mode | Rationale |
 |---|---|---|
 | ET EXPLOIT | Block | High confidence, known CVE exploits |
 | ET MALWARE | Block | C2 communications, malware downloads |
 | ET TROJAN | Block | Specific trojan signatures, high specificity |
-| ET HUNTING | Detect/Alert | Suspicious patterns — tune before blocking |
+| ET HUNTING | Detect/Alert | Suspicious patterns: tune before blocking |
 | ET SCAN | Detect/Alert | Scanning is not always malicious; context needed |
-| ET POLICY | Detect/Alert | Policy violations — depends on org policy |
+| ET POLICY | Detect/Alert | Policy violations: depends on org policy |
 
-**Suricata rule example (custom)**:
+Suricata rule example (custom):
 ```
 # Detect Cobalt Strike default HTTPS certificate CN
 alert tls any any -> $HOME_NET any (
@@ -316,7 +316,7 @@ Recommended VLAN numbering scheme for a medium-to-large enterprise:
 
 | VLAN | Name | Subnet | Purpose |
 |---|---|---|---|
-| 1 | Native | N/A | Never use — change native VLAN to 999 |
+| 1 | Native | N/A | Never use: change native VLAN to 999 |
 | 10 | Management | 10.10.10.0/24 | Network device management (OOB) |
 | 20 | Servers | 10.20.0.0/22 | Server farm (1,022 hosts) |
 | 30 | Users | 10.30.0.0/21 | Workstations (2,046 hosts) |
@@ -329,7 +329,7 @@ Recommended VLAN numbering scheme for a medium-to-large enterprise:
 | 99 | Blackhole | N/A | Unused switch ports |
 | 999 | Native Trunk | N/A | Non-routable native VLAN (trunk ports) |
 
-**Cisco IOS-XE switch configuration**:
+Cisco IOS-XE switch configuration:
 
 ```
 ! Create VLANs
@@ -377,12 +377,12 @@ interface GigabitEthernet1/0/49
  spanning-tree guard root           ! Protect root bridge position
 ```
 
-**Layer 2 attack mitigations built into this config**:
-- **VLAN hopping prevention**: `switchport nonegotiate` disables DTP; native VLAN changed from 1
-- **Rogue DHCP server prevention**: DHCP snooping (only trust uplink ports)
-- **ARP spoofing prevention**: Dynamic ARP Inspection (DAI) validates ARP against DHCP bindings
-- **STP manipulation prevention**: PortFast + BPDUGuard; Root Guard on trunk ports
-- **MAC flooding prevention**: port security or 802.1X (see NAC section)
+Layer 2 attack mitigations built into this config:
+- VLAN hopping prevention: `switchport nonegotiate` disables DTP; native VLAN changed from 1
+- Rogue DHCP server prevention: DHCP snooping (only trust uplink ports)
+- ARP spoofing prevention: Dynamic ARP Inspection (DAI) validates ARP against DHCP bindings
+- STP manipulation prevention: PortFast + BPDUGuard; Root Guard on trunk ports
+- MAC flooding prevention: port security or 802.1X (see NAC section)
 
 ---
 
@@ -392,7 +392,7 @@ Micro-segmentation enforces per-workload or per-application east-west traffic po
 reducing the blast radius of a compromised host to a single workload rather than an
 entire VLAN.
 
-**Implementation approaches**:
+Implementation approaches:
 
 | Approach | Tool | Enforcement Point | Best For |
 |---|---|---|---|
@@ -402,14 +402,14 @@ entire VLAN.
 | NGFW-based | Palo Alto Panorama + DAGs | Physical/virtual NGFW | Legacy environments |
 | Cloud-native | AWS Security Groups, Azure NSGs | SDN layer | Cloud workloads |
 
-**Micro-segmentation implementation workflow**:
-1. **Discover**: map all application dependencies (Illumio illumination, NSX Network Insight)
-2. **Model**: build allow-list based on observed flows — 30-day learning period
-3. **Test**: simulate policy enforcement in test mode, validate applications still function
-4. **Enforce**: switch to enforcement mode, enable default-deny east-west
-5. **Monitor**: alert on denied flows, investigate anomalies, update policy for new applications
+Micro-segmentation implementation workflow:
+1. Discover: map all application dependencies (Illumio illumination, NSX Network Insight)
+2. Model: build allow-list based on observed flows: 30-day learning period
+3. Test: simulate policy enforcement in test mode, validate applications still function
+4. Enforce: switch to enforcement mode, enable default-deny east-west
+5. Monitor: alert on denied flows, investigate anomalies, update policy for new applications
 
-**Calico NetworkPolicy example (Kubernetes)**:
+Calico NetworkPolicy example (Kubernetes):
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -438,26 +438,26 @@ spec:
 
 ### Software-Defined Networking (SDN) Security
 
-**Control plane separation**:
+Control plane separation:
 - SDN controller (OpenFlow, ONOS, OpenDaylight) manages the control plane centrally
 - Data plane (forwarding ASICs) executes flow rules pushed by the controller
-- Controller is the single point of failure and highest-value target — harden aggressively
+- Controller is the single point of failure and highest-value target: harden aggressively
 - Controller hardening: dedicated management network, MFA, audit logging, HA deployment
 
-**OpenFlow protocol security**:
+OpenFlow protocol security:
 - TLS 1.2+ required between controller and all switches (OpenFlow 1.3+)
-- Certificate pinning on switch side — reject controller cert changes without reconfig
+- Certificate pinning on switch side: reject controller cert changes without reconfig
 - Separate management plane for controller API (HTTPS/REST) from data plane (OpenFlow)
 
-**SD-WAN security considerations**:
+SD-WAN security considerations:
 - Traffic steering policy controls which applications use which WAN transport (MPLS vs Internet)
 - WAN link encryption: IPsec with IKEv2 between SD-WAN edge nodes
 - Security service chaining: route traffic through cloud-hosted SSE/ZTNA before reaching apps
 - SD-WAN vendors and security posture:
-  - **Cisco Catalyst SD-WAN (Viptela)**: Umbrella integration, Snort IPS, Secure Internet Gateway
-  - **VMware SD-WAN (VeloCloud)**: third-party SSE integration via Cloud Security Service
-  - **Palo Alto Prisma SD-WAN**: native integration with Prisma Access (SSE/ZTNA)
-  - **Fortinet Secure SD-WAN**: NGFW capabilities built into SD-WAN edge (FortiGate)
+  - Cisco Catalyst SD-WAN (Viptela): Umbrella integration, Snort IPS, Secure Internet Gateway
+  - VMware SD-WAN (VeloCloud): third-party SSE integration via Cloud Security Service
+  - Palo Alto Prisma SD-WAN: native integration with Prisma Access (SSE/ZTNA)
+  - Fortinet Secure SD-WAN: NGFW capabilities built into SD-WAN edge (FortiGate)
 
 ---
 
@@ -473,7 +473,7 @@ Supplicant (endpoint)  →  Authenticator (switch/AP)  →  Authentication Serve
      EAP-TLS                    RADIUS                      AD / Certificate Authority
 ```
 
-**EAP method comparison**:
+EAP method comparison:
 | EAP Method | Auth Factor | Certificate Required | Security Level | Recommended Use |
 |---|---|---|---|---|
 | EAP-TLS | Certificate | Both sides | Highest | Corporate devices (PKI) |
@@ -481,7 +481,7 @@ Supplicant (endpoint)  →  Authenticator (switch/AP)  →  Authentication Serve
 | EAP-TTLS | Password + server cert | Server only | Medium | Non-Windows devices |
 | MAB | MAC address | No | Low | Printers, IoT (fallback) |
 
-**Cisco IOS-XE 802.1X configuration**:
+Cisco IOS-XE 802.1X configuration:
 
 ```
 ! AAA configuration
@@ -541,17 +541,17 @@ Cisco ISE assigns VLAN dynamically based on device identity, user identity, and 
 | VoIP phone (CDP/LLDP identified) | 50 (VoIP) | Call manager only |
 | IoT / OT device (profiled) | 80 (IoT) | Specific protocol, specific server |
 
-**ISE posture checks (pre-admission)**:
+ISE posture checks (pre-admission):
 - Antivirus signature age < 7 days
 - OS patches: Windows Update within 30 days or latest cumulative applied
 - Disk encryption (BitLocker / FileVault) enabled
 - Host-based firewall active
 - Corporate EDR agent running and reporting
 
-**Post-admission (continuous)**:
+Post-admission (continuous):
 - ISE Change of Authorization (CoA): dynamically reassign VLAN on policy violation
 - MDM/EMM integration (Intune, Jamf): compliance state updated in real time
-- Quarantine trigger: EDR alert → SOAR → ISE CoA → endpoint isolated to VLAN 88
+- Quarantine trigger: EDR alert -> SOAR -> ISE CoA -> endpoint isolated to VLAN 88
 
 ---
 
@@ -559,7 +559,7 @@ Cisco ISE assigns VLAN dynamically based on device identity, user identity, and 
 
 ### VPN Architecture
 
-**Site-to-Site VPN (IPsec)**:
+Site-to-Site VPN (IPsec):
 
 ```
 Site A                          Site B
@@ -576,21 +576,21 @@ Phase 1 (IKE_SA — protect control channel):
 - PRF/Integrity: SHA-384 or SHA-512
 
 Phase 2 (Child_SA — protect data traffic):
-- Protocol: ESP (Encapsulating Security Payload) — provides confidentiality + integrity
-- Encryption: AES-256-GCM (AEAD — no separate integrity algorithm needed)
-- PFS: Enabled (DH Group 20) — new key for each Child_SA
-- Lifetime: 1 hour (3600 seconds) / 1 GB — whichever comes first
+- Protocol: ESP (Encapsulating Security Payload): provides confidentiality + integrity
+- Encryption: AES-256-GCM (AEAD: no separate integrity algorithm needed)
+- PFS: Enabled (DH Group 20): new key for each Child_SA
+- Lifetime: 1 hour (3600 seconds) / 1 GB: whichever comes first
 
-**Remote Access VPN**:
-- **Full tunnel**: all endpoint traffic routed through VPN — maximum visibility, higher bandwidth
-- **Split tunnel**: only RFC1918/corporate traffic through VPN; Internet traffic goes direct
+Remote Access VPN:
+- Full tunnel: all endpoint traffic routed through VPN: maximum visibility, higher bandwidth
+- Split tunnel: only RFC1918/corporate traffic through VPN; Internet traffic goes direct
   - Split tunnel risk: compromised endpoint has simultaneous access to corporate and Internet,
     increasing C2/exfiltration surface (ATT&CK T1572, T1048)
-- **Always-on VPN**: enforce VPN connection before any network access (GlobalProtect, Cisco AnyConnect
+- Always-on VPN: enforce VPN connection before any network access (GlobalProtect, Cisco AnyConnect
   with pre-logon, Intune + MDE integration)
 
-**ZTNA replacing traditional VPN**:
-- Application-level access — endpoint connects to a specific application, not a network segment
+ZTNA replacing traditional VPN:
+- Application-level access: endpoint connects to a specific application, not a network segment
 - Device posture evaluated before every access decision (not just at connection time)
 - Least-privilege: endpoint can reach the app, not adjacent hosts on the same segment
 - Vendors: Zscaler ZPA, Palo Alto Prisma Access, Cloudflare Access, CrowdStrike Falcon ZTNA
@@ -599,7 +599,7 @@ Phase 2 (Child_SA — protect data traffic):
 
 ### VPN Security Hardening
 
-**Cisco IOS-XE IKEv2 hardened configuration**:
+Cisco IOS-XE IKEv2 hardened configuration:
 
 ```
 ! Strong IKEv2 proposal
@@ -646,7 +646,7 @@ interface Tunnel0
  tunnel protection ipsec profile STRONG_PROFILE
 ```
 
-**VPN hardening checklist**:
+VPN hardening checklist:
 - [ ] IKEv2 only (disable IKEv1)
 - [ ] DH Group 20+ (ECC 384-bit)
 - [ ] AES-256-GCM for all encryption
@@ -654,7 +654,7 @@ interface Tunnel0
 - [ ] PFS enabled on all tunnels
 - [ ] MFA required for remote access VPN
 - [ ] Split tunnel policy documented and approved, or full tunnel enforced
-- [ ] VPN gateway patched — track CVEs for vendor (Ivanti, Cisco, Palo Alto have had critical ones)
+- [ ] VPN gateway patched: track CVEs for vendor (Ivanti, Cisco, Palo Alto have had critical ones)
 
 ---
 
@@ -662,23 +662,23 @@ interface Tunnel0
 
 ### Load Balancer Security
 
-**TLS termination models**:
+TLS termination models:
 | Model | Description | Inspection | Backend Encryption |
 |---|---|---|---|
 | SSL Offloading | TLS terminated at LB, plaintext to backend | Full | No (trusted internal segment) |
 | SSL Bridging | TLS terminated at LB, re-encrypted to backend | Full | Yes |
 | SSL Passthrough | TLS passes through to backend unchanged | None | Yes (backend handles) |
 
-**Security recommendation**: SSL Bridging — decrypt at load balancer, inspect (WAF, DLP),
+Security recommendation: SSL Bridging — decrypt at load balancer, inspect (WAF, DLP),
 re-encrypt to backend. SSL Passthrough prevents security inspection.
 
-**WAF integration**:
-- Deploy WAF on or before the load balancer — reverse proxy architecture
+WAF integration:
+- Deploy WAF on or before the load balancer: reverse proxy architecture
 - WAF inspects decrypted HTTP/S traffic for OWASP Top 10 attacks
 - WAF products: F5 AWAF, Imperva, Cloudflare WAF, AWS WAF, ModSecurity (open source)
-- OWASP CRS: Core Rule Set for ModSecurity — 90+ rules covering SQLi, XSS, RFI, LFI
+- OWASP CRS: Core Rule Set for ModSecurity: 90+ rules covering SQLi, XSS, RFI, LFI
 
-**Health check configuration (F5 BIG-IP example)**:
+Health check configuration (F5 BIG-IP example):
 ```
 ltm monitor http WEBAPP_MONITOR {
     defaults-from http
@@ -711,18 +711,18 @@ Internet
 [Application Servers]
 ```
 
-**Protection layers**:
-1. **Upstream scrubbing** (cloud): absorbs volumetric attacks before they reach your pipe
+Protection layers:
+1. Upstream scrubbing (cloud): absorbs volumetric attacks before they reach your pipe
    - Cloudflare Magic Transit, Akamai Prolexic, AWS Shield Advanced (BGP anycast)
-   - Effective against 100+ Gbps attacks — pipe saturation avoided
-2. **ISP-level**: request null routing (blackhole) of attack source CIDRs from your ISP
+   - Effective against 100+ Gbps attacks: pipe saturation avoided
+2. ISP-level: request null routing (blackhole) of attack source CIDRs from your ISP
    - BGP blackhole communities: RFC 7999 (`BLACKHOLE` community 65535:666)
    - Remote Triggered Black Hole (RTBH): advertise victim prefix with no-export community
-3. **On-premises appliance**: Radware DefensePro, Netscout/Arbor APS
+3. On-premises appliance: Radware DefensePro, Netscout/Arbor APS
    - Volumetric: rate limiting, geo-blocking, RTBH triggers
    - Protocol: SYN proxy, challenge-response (SYN cookies)
    - Application: HTTP rate limiting, bot detection, behavioral analysis
-4. **Edge CDN**: Cloudflare, CloudFront — absorb application-layer floods, cache static content
+4. Edge CDN: Cloudflare, CloudFront: absorb application-layer floods, cache static content
 
 ---
 
@@ -737,11 +737,11 @@ Internet
 | SSL/TLS | L6 | SSL renegotiation flood, handshake flood | Session rate limiting, SSL hardware offload, DTLS protection |
 | DNS | L7 | NXDOMAIN flood, random subdomain (water torture) | Response rate limiting (DNS RRL), anycast DNS, query filtering |
 
-**BCP38 (Network Ingress Filtering)**: ISPs should filter traffic from customer-facing interfaces
+BCP38 (Network Ingress Filtering): ISPs should filter traffic from customer-facing interfaces
 where source IP does not match the allocated prefix — prevents spoofed-source amplification attacks.
 Internal implementation: filter outbound traffic where source IP is not within your allocated ranges.
 
-**SYN cookie implementation** (Linux kernel):
+SYN cookie implementation (Linux kernel):
 ```bash
 # Enable SYN cookies globally
 echo 1 > /proc/sys/net/ipv4/tcp_syncookies
@@ -765,7 +765,7 @@ NetFlow captures metadata about network flows (not full packets): source/destina
 ports, protocol, bytes, packets, start/end time. Enables traffic analysis, capacity
 planning, and threat detection without full packet storage cost.
 
-**Cisco IOS-XE NetFlow v9 configuration**:
+Cisco IOS-XE NetFlow v9 configuration:
 
 ```
 ! Define exporter
@@ -786,12 +786,12 @@ interface GigabitEthernet0/0/1
  ip flow egress
 ```
 
-**IPFIX (NetFlow v10 — IETF standard)**:
+IPFIX (NetFlow v10 — IETF standard):
 - Recommended over proprietary NetFlow v9 for multi-vendor environments
-- Flexible template system — export custom fields
+- Flexible template system: export custom fields
 - Supported by most modern routers/switches and cloud providers (VPC Flow Logs, Azure NSG Flow)
 
-**Flow analysis tools**:
+Flow analysis tools:
 | Tool | Type | Strengths |
 |---|---|---|
 | ntopng | OSS | Real-time flow visualization, protocol analysis |
@@ -801,7 +801,7 @@ interface GigabitEthernet0/0/1
 | Kentik | SaaS | Cloud-scale flow analysis, DDoS detection |
 | Darktrace | Commercial | AI anomaly detection on flow data |
 
-**ATT&CK detection via NetFlow**:
+ATT&CK detection via NetFlow:
 - T1046 Network Service Scanning: high connection count to many destination ports from single source
 - T1071.001 Web Protocols (C2): unusual persistent HTTP/S beaconing at regular intervals
 - T1048 Exfiltration over alternative protocol: large outbound flows on non-standard ports
@@ -814,7 +814,7 @@ interface GigabitEthernet0/0/1
 A dedicated management network (OOB) provides access to network devices even when
 production network is unreachable (DDoS, misconfiguration, network outage).
 
-**OOB network architecture**:
+OOB network architecture:
 ```
 [Management Workstation]
         |
@@ -825,20 +825,20 @@ production network is unreachable (DDoS, misconfiguration, network outage).
   FW1   SW1   SW2   Router1    (console cables to each device)
 ```
 
-**Components**:
-- **Console server**: provides serial console access (RS-232) to all network devices
+Components:
+- Console server: provides serial console access (RS-232) to all network devices
   - Vendors: Opengear CM7100, Lantronix SLB, Cisco Terminal Server
-  - Access via SSH to console server → select device console port
+  - Access via SSH to console server -> select device console port
   - Cellular backup modem for access when Internet link is down
-- **Jump server (bastion host)**:
+- Jump server (bastion host):
   - Hardened OS (minimal packages, CIS hardened)
   - MFA required for all sessions (hardware key preferred)
   - Session recording (CyberArk PSM, Teleport, StrongDM)
-  - No Internet access from jump server — air-gapped from production traffic
-- **Management ACLs**: all device management interfaces (SSH, HTTPS, SNMP) only accept
+  - No Internet access from jump server: air-gapped from production traffic
+- Management ACLs: all device management interfaces (SSH, HTTPS, SNMP) only accept
   connections from the management subnet — deny all other sources
 
-**Cisco IOS management ACL**:
+Cisco IOS management ACL:
 ```
 ip access-list standard MGMT_HOSTS
  permit 10.10.10.0 0.0.0.255
@@ -862,13 +862,13 @@ ip http access-class MGMT_HOSTS
 
 ### Network Security Monitoring Tools
 
-**Full Packet Capture**:
-- **Moloch / Arkime**: index full packets, searchable by IP, port, protocol, community ID
+Full Packet Capture:
+- Moloch / Arkime: index full packets, searchable by IP, port, protocol, community ID
   - Storage requirement: 1 Gbps sustained = ~400 GB/day uncompressed
   - Retention depends on budget; typically 7-30 days at perimeter
   - PCAP-based: enables retrospective analysis of alerts
 
-**Network Detection and Response (NDR)**:
+Network Detection and Response (NDR):
 | Tool | Detection Approach | Key Capability |
 |---|---|---|
 | Darktrace | Unsupervised ML (self-learning) | Detects novel threats without signatures |
@@ -877,7 +877,7 @@ ip http access-class MGMT_HOSTS
 | Vectra AI | ML behavioral detection | Attacker behavior modeling, ATT&CK mapped |
 | Stamus Networks | Suricata + ML | Signature + ML, open source foundation |
 
-**Zeek (formerly Bro)**:
+Zeek (formerly Bro):
 Zeek generates structured log files from network traffic — not signatures, but protocol state.
 Key log files for threat detection:
 
@@ -892,7 +892,7 @@ Key log files for threat detection:
 | smb_files.log | SMB file operations | Lateral movement, ransomware file writes |
 | kerberos.log | Kerberos authentication events | Kerberoasting, AS-REP roasting |
 
-**Zeek deployment for C2 detection**:
+Zeek deployment for C2 detection:
 ```zeek
 # zeek/scripts/detect-c2-beaconing.zeek
 # Flag connections with regular intervals (beaconing behavior)
@@ -911,12 +911,12 @@ event connection_state_remove(c: connection)
     }
 ```
 
-**SPAN ports vs hardware TAPs**:
+SPAN ports vs hardware TAPs:
 | Characteristic | SPAN Port | Hardware TAP |
 |---|---|---|
 | Cost | Free (built into switch) | $500-$5,000 per link |
-| Reliability | May drop packets under load | Always captures — passive |
-| Injection risk | Can inject traffic | Cannot — physically passive |
+| Reliability | May drop packets under load | Always captures: passive |
+| Injection risk | Can inject traffic | Cannot: physically passive |
 | Duplex | May merge TX/RX | Separate TX/RX streams |
 | Recommended for | Low-traffic links, budget constrained | Critical links, compliance |
 
@@ -928,7 +928,7 @@ Use this checklist when evaluating or designing an enterprise network security a
 
 ### Segmentation
 - [ ] Network divided into security zones with defined trust levels
-- [ ] DMZ hosts isolated from internal LAN — no direct Internet-to-internal paths
+- [ ] DMZ hosts isolated from internal LAN: no direct Internet-to-internal paths
 - [ ] VLAN native VLAN changed from 1; DTP disabled on all access ports
 - [ ] DHCP snooping and Dynamic ARP Inspection enabled on all user VLANs
 - [ ] Management plane separated from production traffic (OOB management)
@@ -972,7 +972,7 @@ Use this checklist when evaluating or designing an enterprise network security a
 
 ## Framework Mappings
 
-### NIST 800-53 (SC Family — System and Communications Protection)
+### NIST 800-53 (SC Family: System and Communications Protection)
 | Control | Description | Architecture Element |
 |---|---|---|
 | SC-5 | Denial of Service Protection | DDoS scrubbing, rate limiting, SYN cookies |

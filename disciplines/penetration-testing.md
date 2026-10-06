@@ -19,15 +19,15 @@
 
 | Type | Target | Typical Duration | Deliverable |
 |---|---|---|---|
-| External Network | Internet-facing systems | 1–2 weeks | Technical report + executive summary |
-| Internal Network | Systems inside the perimeter | 2–4 weeks | Technical report + executive summary |
-| Web Application | Single web application | 1–2 weeks | Technical report + OWASP-mapped findings |
-| Mobile Application | iOS / Android application | 1–2 weeks | Technical report + API findings |
-| Social Engineering / Phishing | Employees | 1–3 weeks | Click/credential capture metrics + awareness recommendations |
-| Wireless | Wi-Fi infrastructure | 2–5 days | Technical report + rogue AP / encryption findings |
-| Physical | Building access, locks, cameras | 1–3 days | Narrative report + photographic evidence |
-| Red Team | Full simulation of threat actor | 4–12 weeks | Attack narrative, TTPs used, detection gap analysis |
-| Cloud | AWS / Azure / GCP environment | 1–2 weeks | Technical report + IAM / misconfiguration findings |
+| External Network | Internet-facing systems | 1-2 weeks | Technical report + executive summary |
+| Internal Network | Systems inside the perimeter | 2-4 weeks | Technical report + executive summary |
+| Web Application | Single web application | 1-2 weeks | Technical report + OWASP-mapped findings |
+| Mobile Application | iOS / Android application | 1-2 weeks | Technical report + API findings |
+| Social Engineering / Phishing | Employees | 1-3 weeks | Click/credential capture metrics + awareness recommendations |
+| Wireless | Wi-Fi infrastructure | 2-5 days | Technical report + rogue AP / encryption findings |
+| Physical | Building access, locks, cameras | 1-3 days | Narrative report + photographic evidence |
+| Red Team | Full simulation of threat actor | 4-12 weeks | Attack narrative, TTPs used, detection gap analysis |
+| Cloud | AWS / Azure / GCP environment | 1-2 weeks | Technical report + IAM / misconfiguration findings |
 
 ---
 
@@ -35,7 +35,7 @@
 
 | Framework | Focus | Reference |
 |---|---|---|
-| [PTES](http://www.pentest-standard.org/) (Penetration Testing Execution Standard) | End-to-end pentest lifecycle — 7 phases | pentest-standard.org |
+| [PTES](http://www.pentest-standard.org/) (Penetration Testing Execution Standard) | End-to-end pentest lifecycle: 7 phases | pentest-standard.org |
 | [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (Web Security Testing Guide) | Web application testing | owasp.org |
 | [NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final) | Technical Guide to Information Security Testing | csrc.nist.gov |
 | [OSSTMM](https://www.isecom.org/OSSTMM.3.pdf) (Open Source Security Testing Methodology Manual) | Metrics-driven security testing across all channels | isecom.org |
@@ -44,20 +44,20 @@
 
 ---
 
-## Testing Methodology — Phases
+## Testing Methodology: Phases
 
 ### Phase 1: Pre-Engagement
 
 Define the boundaries, authorization, and objectives before any testing begins.
 
-**Key Activities**
+Key Activities
 - Draft and sign the Statement of Work (SoW) and Rules of Engagement (RoE)
 - Identify in-scope and out-of-scope targets (IP ranges, domains, applications)
 - Define testing windows, emergency contact procedures, and escalation paths
-- Perform threat modeling — understand the client's crown jewels and likely adversaries
+- Perform threat modeling: understand the client's crown jewels and likely adversaries
 - Provision credentials (for authenticated tests) and testing infrastructure
 
-**Tools / Artifacts**
+Tools / Artifacts
 - Scope agreement templates, threat model worksheets, kick-off meeting notes
 
 ---
@@ -66,11 +66,11 @@ Define the boundaries, authorization, and objectives before any testing begins.
 
 Gather intelligence about the target without necessarily touching their infrastructure.
 
-**Key Activities**
-- **Passive (OSINT):** Enumerate domains, subdomains, email addresses, employee names, job postings, leaked credentials, SSL certificates, public code repos
-- **Active:** DNS brute-force, zone transfers, web crawling, shodan/censys queries, direct banner grabbing
+Key Activities
+- Passive (OSINT): Enumerate domains, subdomains, email addresses, employee names, job postings, leaked credentials, SSL certificates, public code repos
+- Active: DNS brute-force, zone transfers, web crawling, shodan/censys queries, direct banner grabbing
 
-**Tools**
+Tools
 
 | Tool | Purpose |
 |---|---|
@@ -87,21 +87,21 @@ Gather intelligence about the target without necessarily touching their infrastr
 
 Actively probe the target to identify open ports, running services, software versions, and known vulnerabilities.
 
-**Key Activities**
+Key Activities
 - TCP/UDP port scanning across in-scope IP ranges
 - Service fingerprinting and version identification
 - Vulnerability scanning to enumerate known CVEs
 - Web application crawling and directory brute-force
 - Authentication mechanism enumeration (login pages, API endpoints)
 
-**Tools**
+Tools
 
 | Tool | Purpose |
 |---|---|
 | [Nmap](https://nmap.org/) | TCP/UDP port scanning, scripting engine (NSE) |
 | [Masscan](https://github.com/robertdavidgraham/masscan) | Fast internet-speed port scanning |
 | [Nessus](https://www.tenable.com/products/nessus) / [OpenVAS](https://www.openvas.org/) | Credentialed and uncredentialed vulnerability scanning |
-| [FFUF](https://github.com/ffuf/ffuf) | Web fuzzing — directories, parameters, vhosts |
+| [FFUF](https://github.com/ffuf/ffuf) | Web fuzzing: directories, parameters, vhosts |
 | [Gobuster](https://github.com/OJ/gobuster) / [dirb](https://sourceforge.net/projects/dirb/) | Web content and directory enumeration |
 
 ---
@@ -110,14 +110,14 @@ Actively probe the target to identify open ports, running services, software ver
 
 Attempt to exploit identified vulnerabilities to demonstrate real-world access.
 
-**Key Activities**
+Key Activities
 - Weaponize findings: select or adapt proof-of-concept exploits
 - Attempt initial access via service exploits, credential attacks, or social engineering
 - Bypass authentication, authorization, and input validation controls
 - Exploit web vulnerabilities: SQL injection, XSS, SSRF, XXE, deserialization, etc.
 - Document every action taken with timestamps, commands, and screenshots
 
-**Tools**
+Tools
 
 | Tool | Purpose |
 |---|---|
@@ -133,7 +133,7 @@ Attempt to exploit identified vulnerabilities to demonstrate real-world access.
 
 Determine the full impact of initial access — what an attacker could do once inside.
 
-**Key Activities**
+Key Activities
 - Privilege escalation (local and domain)
 - Persistence mechanisms (for scoped red team engagements only, with explicit permission)
 - Lateral movement to other systems and network segments
@@ -141,7 +141,7 @@ Determine the full impact of initial access — what an attacker could do once i
 - Data exfiltration simulation (demonstrate access to sensitive data)
 - Active Directory enumeration and attack path mapping
 
-**Tools**
+Tools
 
 | Tool | Purpose |
 |---|---|
@@ -157,14 +157,14 @@ Determine the full impact of initial access — what an attacker could do once i
 
 Communicate findings clearly to both technical teams and business stakeholders.
 
-**Key Activities**
+Key Activities
 - Write an executive summary: business risk, top findings, overall risk rating
 - Document each finding with ID, title, severity (CVSS), evidence, impact, and remediation
 - Map findings to relevant standards (OWASP, NIST, CIS)
 - Deliver both PDF and editable formats; conduct debrief call with client
 - Archive and encrypt all engagement data per agreed data handling requirements
 
-**Tools**
+Tools
 
 | Tool | Purpose |
 |---|---|
@@ -227,7 +227,7 @@ Before any testing begins, confirm the following in writing:
 
 ---
 
-## Vulnerability Scoring — CVSS v3.1
+## Vulnerability Scoring: CVSS v3.1
 
 CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to rate vulnerability severity. CVSS v4.0 (published by FIRST on November 1, 2023) is the current version — it adds Attack Requirements (AT), a finer-grained User Interaction metric, and a two-system (Vulnerable/Subsequent) impact model in place of Scope; NVD still assigns v3.1 base scores to most CVEs, so both appear in reports. The v3.1 base score is calculated from the following metrics:
 
@@ -241,17 +241,17 @@ CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to r
 | Integrity Impact (I) | None / Low / High | Impact on data integrity |
 | Availability Impact (A) | None / Low / High | Impact on system availability |
 
-**Score Ranges**
+Score Ranges
 
 | Score | Severity |
 |---|---|
 | 0.0 | None |
-| 0.1–3.9 | Low |
-| 4.0–6.9 | Medium |
-| 7.0–8.9 | High |
-| 9.0–10.0 | Critical |
+| 0.1-3.9 | Low |
+| 4.0-6.9 | Medium |
+| 7.0-8.9 | High |
+| 9.0-10.0 | Critical |
 
-**EPSS (Exploit Prediction Scoring System)** is a complementary metric from FIRST that estimates the probability a given CVE will be exploited in the wild within 30 days. Use CVSS for severity and EPSS for prioritization.
+EPSS (Exploit Prediction Scoring System) is a complementary metric from FIRST that estimates the probability a given CVE will be exploited in the wild within 30 days. Use CVSS for severity and EPSS for prioritization.
 
 ---
 
@@ -259,8 +259,8 @@ CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to r
 
 A professional penetration test report contains the following sections:
 
-### 1. Executive Summary (1–2 pages)
-- Written in business language — no technical jargon
+### 1. Executive Summary (1-2 pages)
+- Written in business language: no technical jargon
 - Overall risk rating (Critical / High / Medium / Low)
 - Top findings summarized with business impact
 - High-level remediation priorities
@@ -280,11 +280,11 @@ A professional penetration test report contains the following sections:
 
 ### 4. Per-Finding Detail
 Each finding contains:
-- **Description** — What the vulnerability is and where it was found
-- **Evidence** — Screenshots, request/response captures, tool output
-- **Impact** — What an attacker could achieve by exploiting this
-- **Remediation** — Specific, actionable fix guidance
-- **References** — CVE, CWE, OWASP, vendor advisory
+- Description: What the vulnerability is and where it was found
+- Evidence: Screenshots, request/response captures, tool output
+- Impact: What an attacker could achieve by exploiting this
+- Remediation: Specific, actionable fix guidance
+- References: CVE, CWE, OWASP, vendor advisory
 
 ### 5. Appendix
 - Raw tool output (Nmap scans, Nessus exports)
@@ -327,11 +327,11 @@ Each finding contains:
 
 ## Related Disciplines & Resources
 
-- [Red Teaming](/disciplines/red-teaming.md) — Adversarial simulation beyond the structured pentest methodology
-- [Active Directory Security](/disciplines/active-directory.md) — In-depth coverage of AD attack and defense techniques
-- [PENTEST_CHECKLISTS.md](../PENTEST_CHECKLISTS.md) — Phase-by-phase testing checklists
-- [CERTIFICATIONS.md](../CERTIFICATIONS.md) — Full certification roadmap across all disciplines
-- [HTB Tracks](../research/HTB_TRACKS.md) — HackTheBox learning paths aligned to penetration testing
+- [Red Teaming](/disciplines/red-teaming.md): Adversarial simulation beyond the structured pentest methodology
+- [Active Directory Security](/disciplines/active-directory.md): In-depth coverage of AD attack and defense techniques
+- [PENTEST_CHECKLISTS.md](../PENTEST_CHECKLISTS.md): Phase-by-phase testing checklists
+- [CERTIFICATIONS.md](../CERTIFICATIONS.md): Full certification roadmap across all disciplines
+- [HTB Tracks](../research/HTB_TRACKS.md): HackTheBox learning paths aligned to penetration testing
 
 ---
 
@@ -354,7 +354,7 @@ Each finding contains:
 ### Phase 3: Vulnerability Analysis
 
 - Automated: Nessus, OpenVAS, Nuclei (`nuclei -u https://target.com -t cves/ -severity critical,high`)
-- Manual web app: Burp Suite Pro — active scan, intruder, repeater workflow
+- Manual web app: Burp Suite Pro: active scan, intruder, repeater workflow
 - Service enumeration: enum4linux-ng (SMB), smbclient, rpcclient, ldapsearch
 
 ### Phase 4: Exploitation
@@ -376,7 +376,7 @@ Each finding contains:
 - Enumeration: BloodHound + SharpHound, PowerView (`Get-NetUser`, `Get-DomainGroupMember "Domain Admins"`)
 - Kerberoasting: `GetUserSPNs.py domain/user:pass@DC -request -outputfile hashes.txt`
 - AS-REP Roasting: `GetNPUsers.py domain/ -no-pass -usersfile users.txt`
-- ACL abuse: GenericAll/GenericWrite/WriteDACL — targeted Kerberoast or DCSync via rights escalation
+- ACL abuse: GenericAll/GenericWrite/WriteDACL: targeted Kerberoast or DCSync via rights escalation
 - ADCS attacks: Certipy (`certipy find -u user@domain -p pass -dc-ip IP -vulnerable`), ESC1-ESC8 exploitation
 - DCSync: `secretsdump.py -just-dc domain/DA:pass@DC`
 - Domain persistence: Golden ticket, Silver ticket, DSRM abuse, AdminSDHolder
@@ -385,7 +385,7 @@ Each finding contains:
 
 - Executive summary: Business impact focus, no technical jargon
 - Technical findings: CVSS score, CVE reference (if applicable), evidence (redacted screenshots), reproduction steps
-- Remediation guidance: Specific, actionable — not just "patch the system"
+- Remediation guidance: Specific, actionable: not just "patch the system"
 - Risk ratings: Critical/High/Medium/Low with CVSS v3.1 vector strings
 - Retest: Include in scope for proper pentest engagements
 
@@ -395,16 +395,16 @@ Each finding contains:
 
 Full OWASP Top 10 2021 testing methodology:
 
-- **A01 Broken Access Control:** IDOR testing, privilege escalation, forced browsing
-- **A02 Cryptographic Failures:** SSL/TLS scanning (testssl.sh), weak cipher detection
-- **A03 Injection:** SQL injection (manual + sqlmap), SSTI (`{{7*7}}`), command injection (`; id`, `| whoami`)
-- **A04 Insecure Design:** Business logic flaws, price manipulation, race conditions
-- **A05 Security Misconfiguration:** Default creds, debug modes, exposed admin panels
-- **A06 Vulnerable Components:** Retire.js, OWASP Dependency Check
-- **A07 Auth Failures:** Session token analysis, password policy, MFA bypass techniques
-- **A08 Software Integrity Failures:** CSRF, subresource integrity
-- **A09 Logging Failures:** Verify logging exists, test log injection
-- **A10 SSRF:** AWS metadata (`http://169.254.169.254/latest/meta-data/`), internal port scanning
+- A01 Broken Access Control: IDOR testing, privilege escalation, forced browsing
+- A02 Cryptographic Failures: SSL/TLS scanning (testssl.sh), weak cipher detection
+- A03 Injection: SQL injection (manual + sqlmap), SSTI (`{{7*7}}`), command injection (`; id`, `| whoami`)
+- A04 Insecure Design: Business logic flaws, price manipulation, race conditions
+- A05 Security Misconfiguration: Default creds, debug modes, exposed admin panels
+- A06 Vulnerable Components: Retire.js, OWASP Dependency Check
+- A07 Auth Failures: Session token analysis, password policy, MFA bypass techniques
+- A08 Software Integrity Failures: CSRF, subresource integrity
+- A09 Logging Failures: Verify logging exists, test log injection
+- A10 SSRF: AWS metadata (`http://169.254.169.254/latest/meta-data/`), internal port scanning
 
 ---
 
@@ -414,7 +414,7 @@ Full OWASP Top 10 2021 testing methodology:
 
 - Enumeration: `aws sts get-caller-identity`, `aws iam list-users`, `aws s3 ls`, enumerate attached policies
 - Common misconfigs: Overly permissive IAM roles, public S3 buckets (`aws s3 ls s3://bucket --no-sign-request`), IMDSv1 SSRF
-- Privilege escalation: `iam:CreatePolicyVersion`, `iam:AttachUserPolicy`, `sts:AssumeRole` abuse — see Rhino Security Labs AWS PrivEsc arsenal
+- Privilege escalation: `iam:CreatePolicyVersion`, `iam:AttachUserPolicy`, `sts:AssumeRole` abuse: see Rhino Security Labs AWS PrivEsc arsenal
 - Tools: Pacu (AWS exploitation framework), ScoutSuite (multi-cloud auditing), Prowler
 
 ### Azure

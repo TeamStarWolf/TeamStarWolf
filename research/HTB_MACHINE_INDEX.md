@@ -1,12 +1,12 @@
 # HackTheBox Machine Index
 
-> **In one minute** — An index of 127 retired Hack The Box machines with official writeups, organized by difficulty (Easy through Insane) with each machine's OS and the key skills it teaches. It doubles as a progressive learning roadmap: pick machines by the technique you want to learn, follow the enumeration and note-taking workflow, and use writeups only after genuine effort. Useful whenever you want deliberate hands-on practice instead of random machine grinding.
+> In one minute — An index of 127 retired Hack The Box machines with official writeups, organized by difficulty (Easy through Insane) with each machine's OS and the key skills it teaches. It doubles as a progressive learning roadmap: pick machines by the technique you want to learn, follow the enumeration and note-taking workflow, and use writeups only after genuine effort. Useful whenever you want deliberate hands-on practice instead of random machine grinding.
 
 | | |
 |---|---|
-| **Read this when** | picking your next HTB machine at your skill level, looking for machines that teach a specific technique, starting HTB from scratch and wanting a proven beginner order |
-| **Start at** | [How to Use This Index](#how-to-use-this-index), [Recommended Easy Machines for Beginners](#recommended-easy-machines-for-beginners), [How to Approach a Machine](#how-to-approach-a-machine) |
-| **Pairs with** | [Hands-On Labs](/LABS.md), [Offensive Security](/disciplines/offensive-security.md), [Certifications Reference](/CERTIFICATIONS.md) |
+| Read this when | picking your next HTB machine at your skill level, looking for machines that teach a specific technique, starting HTB from scratch and wanting a proven beginner order |
+| Start at | [How to Use This Index](#how-to-use-this-index), [Recommended Easy Machines for Beginners](#recommended-easy-machines-for-beginners), [How to Approach a Machine](#how-to-approach-a-machine) |
+| Pairs with | [Hands-On Labs](/LABS.md), [Offensive Security](/disciplines/offensive-security.md), [Certifications Reference](/CERTIFICATIONS.md) |
 
 
 
@@ -22,7 +22,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 
 
-## 🟢 Easy
+## Easy
 
 
 
@@ -94,7 +94,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Writeup | Linux | Path hijacking; Process |
 
-## 🟡 Medium
+## Medium
 
 
 
@@ -192,7 +192,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Zipper | Linux | Zabbix API |
 
-## 🟠 Hard
+## Hard
 
 
 
@@ -256,7 +256,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Tally | Windows | Enumerating Sharepoint |
 
-## 🔴 Insane
+## Insane
 
 
 
@@ -302,7 +302,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Smasher2 | Linux | — |
 
-## ⚪ Unknown
+## Unknown
 
 
 
@@ -348,18 +348,18 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 ## Related Resources
 
-- [Hands-On Labs](/LABS.md) — practice platforms including Hack The Box, TryHackMe, VulnHub
+- [Hands-On Labs](/LABS.md): practice platforms including Hack The Box, TryHackMe, VulnHub
 
-- [Offensive Security](/disciplines/offensive-security.md) — pentesting methodology and tools
+- [Offensive Security](/disciplines/offensive-security.md): pentesting methodology and tools
 
-- [Certifications Reference](/CERTIFICATIONS.md) — OSCP and other offensive certs
+- [Certifications Reference](/CERTIFICATIONS.md): OSCP and other offensive certs
 
-- [Career Paths & Cert Roadmap](/CAREER_PATHS.md) — HTB Pro Labs in career progression
+- [Career Paths & Cert Roadmap](/CAREER_PATHS.md): HTB Pro Labs in career progression
 ---
 
 ## How to Use This Index
 
-This index is designed as a progressive learning roadmap. Start with **Easy** machines to build confidence and core skills: Linux file system navigation, basic web fuzzing, service enumeration, and simple privilege escalation. Once you can consistently root Easy machines without hints, move to **Medium**, where exploitation chains become multi-step and rabbit holes are intentional. Approach **Hard** machines only after you have solid Linux and Windows enumeration skills and understand common attack patterns. **Insane** machines demand deep expertise in one or more domains and often involve chained vulnerabilities across multiple services.
+This index is designed as a progressive learning roadmap. Start with Easy machines to build confidence and core skills: Linux file system navigation, basic web fuzzing, service enumeration, and simple privilege escalation. Once you can consistently root Easy machines without hints, move to Medium, where exploitation chains become multi-step and rabbit holes are intentional. Approach Hard machines only after you have solid Linux and Windows enumeration skills and understand common attack patterns. Insane machines demand deep expertise in one or more domains and often involve chained vulnerabilities across multiple services.
 
 Every machine in this index teaches specific techniques. The goal is not to collect rooted machines -- it is to internalize the mindset: enumerate thoroughly, research every service version, take notes on what you tried, and understand *why* an exploit works before moving on.
 
@@ -391,9 +391,9 @@ A simple structure: `Date | IP | Ports | Findings | Exploits tried | Root path`
 
 ### 3. Use HTB Writeups Only After
 
-- Try the machine for at least **2 hours** with genuine effort
-- Check the **HTB Discord** `#<machine-name>` channel for nudges (spoiler-free hints)
-- Read **community writeups only after the machine retires** -- this is the rule that separates learners from flag collectors
+- Try the machine for at least 2 hours with genuine effort
+- Check the HTB Discord `#<machine-name>` channel for nudges (spoiler-free hints)
+- Read community writeups only after the machine retires -- this is the rule that separates learners from flag collectors
 - When you do read a writeup, study *why* each step works, not just what commands to run
 
 ### 4. Essential Tools
@@ -448,15 +448,15 @@ These machines are consistently recommended by the community as the best startin
 | Optimum | Windows | HttpFileServer (HFS) exploit introduces searching for service-specific CVEs and Windows kernel exploits for privesc. |
 | Devel | Windows | FTP write access to IIS web root and known exploit -- teaches service interaction and chaining multiple weaknesses. |
 
-**Recommended order for complete beginners:** Lame -> Blue -> Legacy -> Jerry -> Shocker -> Bashed -> Netmon -> Bounty -> Nibbles -> Beep
+Recommended order for complete beginners: Lame -> Blue -> Legacy -> Jerry -> Shocker -> Bashed -> Netmon -> Bounty -> Nibbles -> Beep
 
 ---
 
 ## IppSec Machine Video Index
 
-[IppSec](https://www.ippsec.rocks/) maintains a searchable index of video walkthroughs for **every retired HTB machine**. This is the single most valuable free learning resource for HTB.
+[IppSec](https://www.ippsec.rocks/) maintains a searchable index of video walkthroughs for every retired HTB machine. This is the single most valuable free learning resource for HTB.
 
-**Key usage tip:** Search by *technique*, not machine name. For example:
+Key usage tip: Search by *technique*, not machine name. For example:
 - Search "kerberoasting" to find all machines where Kerberoasting is the attack path
 - Search "SUID" to find privilege escalation examples
 - Search "deserialization" to find all deserialization chains

@@ -1,23 +1,23 @@
-# MITRE Engage Reference — Denial, Deception & Adversary Engagement
+# MITRE Engage Reference: Denial, Deception & Adversary Engagement
 
-> **[MITRE Engage™](https://engage.mitre.org/)** is the framework for planning and running **adversary engagement, denial, and deception** operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment — **5 goals**, **9 approaches**, and **31 activities**, with **793 mappings** to ATT&CK techniques.
-
-| | |
-|---|---|
-| **Goals** | 5 — Expose, Affect, Elicit, Prepare, Understand |
-| **Approaches** | 9 |
-| **Activities** | 31 |
-| **ATT&CK mappings** | 793 across 175 techniques |
-| **Datasets** | [goals](data/engage/engage_goals.jsonl) · [approaches](data/engage/engage_approaches.jsonl) · [activities](data/engage/engage_activities.jsonl) · [ATT&CK → Engage](data/engage/attack_to_engage.jsonl) |
-
-> **Deception is a detection strategy, not a trap for its own sake.** Engage's value is that every activity ties back to an adversary behavior (ATT&CK technique) and a defensive outcome — so a honeypot becomes a measurable control rather than a science project.
-
-**Related:** [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md) · [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) · [D3FEND](D3FEND_REFERENCE.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [Purple Team](PURPLE_TEAM_REFERENCE.md)
+> [MITRE Engage™](https://engage.mitre.org/) is the framework for planning and running adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment — 5 goals, 9 approaches, and 31 activities, with 793 mappings to ATT&CK techniques.
 
 | | |
 |---|---|
-| **Read this when** | planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
-| **Start at** | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
+| Goals | 5: Expose, Affect, Elicit, Prepare, Understand |
+| Approaches | 9 |
+| Activities | 31 |
+| ATT&CK mappings | 793 across 175 techniques |
+| Datasets | [goals](data/engage/engage_goals.jsonl), [approaches](data/engage/engage_approaches.jsonl), [activities](data/engage/engage_activities.jsonl), [ATT&CK -> Engage](data/engage/attack_to_engage.jsonl) |
+
+> Deception is a detection strategy, not a trap for its own sake. Engage's value is that every activity ties back to an adversary behavior (ATT&CK technique) and a defensive outcome — so a honeypot becomes a measurable control rather than a science project.
+
+Related: [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md), [D3FEND](D3FEND_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Purple Team](PURPLE_TEAM_REFERENCE.md)
+
+| | |
+|---|---|
+| Read this when | planning a deception or adversary engagement operation, deciding which honeypot/lure activities cover the most ATT&CK techniques, picking a denial/deception response for a specific adversary technique |
+| Start at | [The Engage matrix](#the-engage-matrix), [Activities by ATT&CK coverage](#activities-by-attampck-coverage), [ATT&CK techniques with the most engagement options](#attampck-techniques-with-the-most-engagement-options) |
 
 ---
 
@@ -25,11 +25,11 @@
 
 Goals set intent, approaches group tactics, activities are what you actually deploy.
 
-### EGO0001 — Expose
+### EGO0001: Expose
 
 Reveal the presence of ongoing adversary operations.
 
-**EAP0001 · Collect** — Gather adversary tools, observe tactics, and collect other raw intelligence about the adversary’s activity.
+EAP0001, Collect — Gather adversary tools, observe tactics, and collect other raw intelligence about the adversary’s activity.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -38,7 +38,7 @@ Reveal the presence of ongoing adversary operations.
 | [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
 | [EAC0003 System Activity Monitoring](https://engage.mitre.org/matrix/) | 22 | Collect system activity logs that can reveal adversary activity. |
 
-**EAP0002 · Detect** — Establish or maintain awareness regarding adversary activity.
+EAP0002, Detect — Establish or maintain awareness regarding adversary activity.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -49,11 +49,11 @@ Reveal the presence of ongoing adversary operations.
 
 ---
 
-### EGO0002 — Affect
+### EGO0002: Affect
 
 Negatively impact the adversaries operations.
 
-**EAP0003 · Prevent** — Stop all or part of the adversary’s ability to conduct their operation as intended.
+EAP0003, Prevent — Stop all or part of the adversary’s ability to conduct their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -63,7 +63,7 @@ Negatively impact the adversaries operations.
 | [EAC0016 Network Manipulation](https://engage.mitre.org/matrix/) | 45 | Make changes to network properties and functions to achieve a desired effect. |
 | [EAC0018 Security Controls](https://engage.mitre.org/matrix/) | 66 | Alter security controls to make the system more or less vulnerable to attack. |
 
-**EAP0004 · Direct** — Encourage or discourage the adversary from conducting their operation as intended.
+EAP0004, Direct — Encourage or discourage the adversary from conducting their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -77,7 +77,7 @@ Negatively impact the adversaries operations.
 | [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
 | [EAC0023 Introduced Vulnerabilities](https://engage.mitre.org/matrix/) | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
 
-**EAP0005 · Disrupt** — Impair an adversary’s ability to conduct their operation as intended.
+EAP0005, Disrupt — Impair an adversary’s ability to conduct their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -88,11 +88,11 @@ Negatively impact the adversaries operations.
 
 ---
 
-### EGO0003 — Elicit
+### EGO0003: Elicit
 
 Learn about adversaries tactics, techniques, and procedures (TTPs).
 
-**EAP0006 · Reassure** — Add authenticity to deceptive components to convince an adversary that an environment is real.
+EAP0006, Reassure — Add authenticity to deceptive components to convince an adversary that an environment is real.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -105,7 +105,7 @@ Learn about adversaries tactics, techniques, and procedures (TTPs).
 | [EAC0010 Peripheral Management](https://engage.mitre.org/matrix/) | 8 | Manage peripheral devices used on systems within the network for engagement purposes. |
 | [EAC0011 Pocket Litter](https://engage.mitre.org/matrix/) | 58 | Data used to support the engagement narrative. |
 
-**EAP0007 · Motivate** — Encourage an adversary to conduct part or all of their mission.
+EAP0007, Motivate — Encourage an adversary to conduct part or all of their mission.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -119,15 +119,15 @@ Learn about adversaries tactics, techniques, and procedures (TTPs).
 
 ---
 
-### SGO0001 — Prepare
+### SGO0001: Prepare
 
 Help the defender think about what they want to accomplish with operations.
 
-**SAP0001 · Plan** — Identify and align an operation with a desired end-state.
+SAP0001, Plan — Identify and align an operation with a desired end-state.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
-| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h… |
+| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h... |
 | [SAC0012 Engagement Environment](https://engage.mitre.org/matrix/) | 0 | Design the systems and network for the operation. |
 | [SAC0005 Gating Criteria](https://engage.mitre.org/matrix/) | 0 | Define the set of events that would lead to the unnegotiable pause or conclusion to the operation. |
 | [SAC0001 Operational Objective](https://engage.mitre.org/matrix/) | 0 | Define the objective of the desired end-state of your adversary engagement operations. |
@@ -137,16 +137,16 @@ Help the defender think about what they want to accomplish with operations.
 
 ---
 
-### SGO0002 — Understand
+### SGO0002: Understand
 
 Make sure that the defender is capturing, utilizing, and refining knowledge learned to improve the defender’s posture.
 
-**SAP0002 · Analyze** — Retrospective review of information gained from an operation .
+SAP0002, Analyze — Retrospective review of information gained from an operation .
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
 | [SAC0006 After-Action Review](https://engage.mitre.org/matrix/) | 0 | Review of operational activities. |
-| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h… |
+| [SAC0004 Cyber Threat Intelligence](https://engage.mitre.org/matrix/) | 0 | The process of analyzing actionable knowledge about adversaries and their malicious activities, enabling defenders and their organizations to reduce h... |
 | [SAC0009 Threat Model](https://engage.mitre.org/matrix/) | 0 | A risk assessment that models organizational strengths and weaknesses |
 
 ---

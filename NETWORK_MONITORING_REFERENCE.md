@@ -1,12 +1,12 @@
 # Network Monitoring Reference
 
-> **Audience**: Security practitioners — SOC analysts, detection engineers, and network defenders. This reference covers the full NSM (Network Security Monitoring) stack: sensors, log sources, detection logic, and threat hunting workflows.
+> Audience: Security practitioners — SOC analysts, detection engineers, and network defenders. This reference covers the full NSM (Network Security Monitoring) stack: sensors, log sources, detection logic, and threat hunting workflows.
 
 | | |
 |---|---|
-| **Read this when** | standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
-| **Start at** | [Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting) |
-| **Pairs with** | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) |
+| Read this when | standing up or placing network sensors (TAP vs SPAN), hunting C2 beaconing or DNS tunneling in Zeek/flow logs, writing or tuning Suricata rules, triaging an NSM alert down to the packet |
+| Start at | [Network Monitoring Architecture](#_1-network-monitoring-architecture), [Zeek (formerly Bro)](#_2-zeek-formerly-bro), [Network Threat Hunting](#_6-network-threat-hunting) |
+| Pairs with | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md), [Packet Analysis Reference](PACKET_ANALYSIS_REFERENCE.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) |
 
 ---
 
@@ -32,17 +32,17 @@
 
 | Attribute | Network TAP (Hardware) | SPAN Port (Switch Mirror) |
 |---|---|---|
-| **Type** | Passive inline hardware device | Software-configured port mirror |
-| **Traffic fidelity** | 100% -- captures all frames including errors | May drop frames under high load; no CRC errors |
-| **Impact on network** | None -- fully passive | CPU/memory overhead on switch |
-| **Duplex handling** | Full duplex: requires two monitor ports (or aggregation TAP) | Single port, may need aggregation |
-| **Cost** | Higher upfront ($200-$5,000+) | Free (built into managed switches) |
-| **Deployment complexity** | Requires physical inline installation | CLI config only |
-| **Failure mode** | Fail-open (traffic passes if TAP loses power) | Port mirror disabled if switch reboots |
-| **Use case** | Production perimeter, compliance recording | Lab, low-budget, quick deployment |
-| **Vendors** | Garland Technology, Ixia, Gigamon | Cisco RSPAN, Juniper port mirroring |
+| Type | Passive inline hardware device | Software-configured port mirror |
+| Traffic fidelity | 100% -- captures all frames including errors | May drop frames under high load; no CRC errors |
+| Impact on network | None -- fully passive | CPU/memory overhead on switch |
+| Duplex handling | Full duplex: requires two monitor ports (or aggregation TAP) | Single port, may need aggregation |
+| Cost | Higher upfront ($200-$5,000+) | Free (built into managed switches) |
+| Deployment complexity | Requires physical inline installation | CLI config only |
+| Failure mode | Fail-open (traffic passes if TAP loses power) | Port mirror disabled if switch reboots |
+| Use case | Production perimeter, compliance recording | Lab, low-budget, quick deployment |
+| Vendors | Garland Technology, Ixia, Gigamon | Cisco RSPAN, Juniper port mirroring |
 
-**Rule of thumb**: Use hardware TAPs for critical perimeter monitoring where you cannot afford to drop packets. Use SPAN for internal segments and lateral movement detection where cost matters more than absolute fidelity.
+Rule of thumb: Use hardware TAPs for critical perimeter monitoring where you cannot afford to drop packets. Use SPAN for internal segments and lateral movement detection where cost matters more than absolute fidelity.
 
 ---
 
@@ -62,13 +62,13 @@
 [DC VLAN] -------> [SPAN] ---> [DC Sensor]            (AD replication, Kerberoasting, DCSync)
 ```
 
-**Key deployment locations**:
+Key deployment locations:
 
-1. **Internet perimeter** -- Catches inbound exploitation, outbound C2, and data exfiltration. Highest signal-to-noise ratio for external threats.
-2. **DMZ** -- Monitors services exposed to the internet. Look for web shell activity, unauthorized outbound from DMZ hosts.
-3. **Core backbone** -- East-west traffic between VLANs. Critical for detecting lateral movement that bypasses perimeter controls.
-4. **Domain controller VLAN** -- High-value: Kerberoasting (AS-REP, TGS requests), DCSync (DRSUAPI), LDAP enumeration.
-5. **Critical asset segments** -- Finance, HR, R&D VLANs. Data exfiltration detection.
+1. Internet perimeter -- Catches inbound exploitation, outbound C2, and data exfiltration. Highest signal-to-noise ratio for external threats.
+2. DMZ -- Monitors services exposed to the internet. Look for web shell activity, unauthorized outbound from DMZ hosts.
+3. Core backbone -- East-west traffic between VLANs. Critical for detecting lateral movement that bypasses perimeter controls.
+4. Domain controller VLAN -- High-value: Kerberoasting (AS-REP, TGS requests), DCSync (DRSUAPI), LDAP enumeration.
+5. Critical asset segments -- Finance, HR, R&D VLANs. Data exfiltration detection.
 
 ---
 
@@ -76,14 +76,14 @@
 
 | Component | Tool | Purpose |
 |---|---|---|
-| **Full Packet Capture** | Arkime (Moloch) | Indexed PCAP storage and search, session reconstruction |
-| **Metadata / Protocol Logs** | Zeek (Bro) | Parsed application-layer logs: conn, DNS, HTTP, SSL, SMTP |
-| **IDS / IPS** | Suricata, Snort | Signature-based detection, rule-driven alerting |
-| **Flow Data** | NetFlow v9/IPFIX, sFlow | 5-tuple flow records from routers/switches, long-term retention |
-| **Flow Analysis** | SiLK, nfdump, Elastic | Query flow records for beaconing, exfil, scanning |
-| **Platform** | Security Onion | Integrated NSM stack: Zeek + Suricata + Elasticsearch + Kibana |
-| **File Extraction** | Strelka, Zeek files.log | Extract files from network sessions, scan with YARA/AV |
-| **TLS Fingerprinting** | JA3/JA3S, JARM | Identify malicious TLS clients/servers by fingerprint |
+| Full Packet Capture | Arkime (Moloch) | Indexed PCAP storage and search, session reconstruction |
+| Metadata / Protocol Logs | Zeek (Bro) | Parsed application-layer logs: conn, DNS, HTTP, SSL, SMTP |
+| IDS / IPS | Suricata, Snort | Signature-based detection, rule-driven alerting |
+| Flow Data | NetFlow v9/IPFIX, sFlow | 5-tuple flow records from routers/switches, long-term retention |
+| Flow Analysis | SiLK, nfdump, Elastic | Query flow records for beaconing, exfil, scanning |
+| Platform | Security Onion | Integrated NSM stack: Zeek + Suricata + Elasticsearch + Kibana |
+| File Extraction | Strelka, Zeek files.log | Extract files from network sessions, scan with YARA/AV |
+| TLS Fingerprinting | JA3/JA3S, JARM | Identify malicious TLS clients/servers by fingerprint |
 
 ---
 
@@ -246,7 +246,7 @@ event connection_state_remove(c: connection) {
 
 ### Zeek Intel Framework
 
-**intel.dat format** (tab-separated):
+intel.dat format (tab-separated):
 ```
 #fields indicator  indicator_type   meta.source     meta.desc                   meta.url
 evil.example.com   Intel::DOMAIN    ThreatFeed-v1   Known C2 domain             https://ti.example.com/ioc/123
@@ -255,7 +255,7 @@ d41d8cd98f00b204e9800998ecf8427e  Intel::FILE_HASH  YARA-Hits  Malware dropper M
 a0e9f5d64349fb13191bc781f81f42e1  Intel::CERT_HASH  JA3-List   Cobalt Strike JA3
 ```
 
-**Loading intel in local.zeek**:
+Loading intel in local.zeek:
 ```zeek
 @load policy/frameworks/intel/seen
 @load policy/frameworks/intel/do_notice
@@ -280,9 +280,9 @@ zeek-cut ts id.orig_h id.resp_h seen.indicator seen.indicator_type matched sourc
 
 | Mode | Description | Use Case |
 |---|---|---|
-| **Passive IDS** | af-packet or pcap -- read-only, no blocking | Monitoring, alerting, NSM |
-| **Inline IPS** | NFQueue or netmap -- can drop/reject packets | Enforcement, automated blocking |
-| **Offline (PCAP)** | Analyze stored PCAP file | Incident response, hunt |
+| Passive IDS | af-packet or pcap -- read-only, no blocking | Monitoring, alerting, NSM |
+| Inline IPS | NFQueue or netmap -- can drop/reject packets | Enforcement, automated blocking |
+| Offline (PCAP) | Analyze stored PCAP file | Incident response, hunt |
 
 ```bash
 # IDS mode (passive, high-performance af-packet)
@@ -304,9 +304,9 @@ suricata -c /etc/suricata/suricata.yaml -r capture.pcap -l /tmp/suricata-logs/
 action proto src_ip src_port direction dst_ip dst_port (option:value; option:value; ...)
 ```
 
-- **Actions**: `alert` | `drop` | `reject` | `pass`
-- **Directions**: `->` (one-way) | `<>` (bidirectional)
-- **Variables**: `$HOME_NET`, `$EXTERNAL_NET`, `$HTTP_SERVERS`, `$SQL_SERVERS`, `$DNS_SERVERS`, `any`
+- Actions: `alert` | `drop` | `reject` | `pass`
+- Directions: `->` (one-way) | `<>` (bidirectional)
+- Variables: `$HOME_NET`, `$EXTERNAL_NET`, `$HTTP_SERVERS`, `$SQL_SERVERS`, `$DNS_SERVERS`, `any`
 
 ---
 
@@ -473,11 +473,11 @@ suricata -T -c /etc/suricata/suricata.yaml
 ### How JA3 Works
 
 JA3 creates an MD5 fingerprint of a TLS ClientHello message using five fields:
-- **SSLVersion** -- TLS version offered by client
-- **Ciphers** -- cipher suites listed (comma-separated, excluding GREASE values)
-- **Extensions** -- extension type numbers
-- **EllipticCurves** -- supported groups (named curves)
-- **EllipticCurvePointFormats** -- point format values
+- SSLVersion -- TLS version offered by client
+- Ciphers -- cipher suites listed (comma-separated, excluding GREASE values)
+- Extensions -- extension type numbers
+- EllipticCurves -- supported groups (named curves)
+- EllipticCurvePointFormats -- point format values
 
 The five values are concatenated with dashes, then MD5-hashed:
 ```
@@ -487,9 +487,9 @@ SSLVersion,Ciphers,Extensions,EllipticCurves,EllipticCurveFormats -> MD5 hash
 ### How JA3S Works
 
 JA3S fingerprints the TLS ServerHello response:
-- **SSLVersion** -- negotiated TLS version
-- **Cipher** -- single selected cipher suite
-- **Extensions** -- server extension types
+- SSLVersion -- negotiated TLS version
+- Cipher -- single selected cipher suite
+- Extensions -- server extension types
 
 JA3S identifies the server-side TLS stack -- useful for detecting C2 frameworks by their server configuration regardless of IP address or certificate.
 
@@ -507,7 +507,7 @@ JA3S identifies the server-side TLS stack -- useful for detecting C2 frameworks 
 | `72a589da586844d7f0818ce684948eea` | Empire PowerShell C2 | |
 | `7dd80d593b8f87e32a3d56e96c57fc2e` | AsyncRAT | Open-source remote access trojan |
 
-**Reference**: https://sslbl.abuse.ch/ja3-fingerprints/ -- live database of malicious JA3 hashes with context and campaign attribution.
+Reference: https://sslbl.abuse.ch/ja3-fingerprints/ -- live database of malicious JA3 hashes with context and campaign attribution.
 
 ---
 
@@ -556,13 +556,13 @@ zeek-cut id.orig_h ja3 < ssl.log | \
 
 | Feature | NetFlow v5 | NetFlow v9 | IPFIX | sFlow |
 |---|---|---|---|---|
-| **Standard** | Cisco proprietary | Cisco proprietary | IETF RFC 7011 | RFC 3176 |
-| **Template-based** | No (fixed format) | Yes | Yes | Yes (sampling) |
-| **IPv6 support** | No | Yes | Yes | Yes |
-| **MPLS support** | No | Yes | Yes | Yes |
-| **Sampling** | No | Optional | Optional | Built-in |
-| **Vendor support** | Cisco only | Cisco, Juniper | Universal | Universal |
-| **Granularity** | 5-tuple flow | Extensible | RFC fields | Packet samples |
+| Standard | Cisco proprietary | Cisco proprietary | IETF RFC 7011 | RFC 3176 |
+| Template-based | No (fixed format) | Yes | Yes | Yes (sampling) |
+| IPv6 support | No | Yes | Yes | Yes |
+| MPLS support | No | Yes | Yes | Yes |
+| Sampling | No | Optional | Optional | Built-in |
+| Vendor support | Cisco only | Cisco, Juniper | Universal | Universal |
+| Granularity | 5-tuple flow | Extensible | RFC fields | Packet samples |
 
 ### Flow Record Fields
 
@@ -882,15 +882,15 @@ zeek-cut ts id.orig_h id.resp_h id.resp_p service < conn.log | \
 
 | Anomaly | Indicator | Detection Method |
 |---|---|---|
-| **DGA traffic** | High NXDOMAIN rate per source | NXDOMAIN count > 50/min per src |
-| **DNS tunneling** | Long subdomain labels (>50 chars) | Label length check in dns.log |
-| **DNS tunneling** | High entropy subdomains | Shannon entropy > 3.5 bits |
-| **DNS tunneling** | High query rate to single apex | >100 queries/min to one domain |
-| **Data exfil via DNS** | TXT record queries with large content | TXT queries with payloads |
-| **C2 via DNS** | DNS on non-standard ports | Port != 53 with DNS traffic |
-| **Reconnaissance** | ANY/AXFR record queries | qtype = ANY or AXFR |
-| **Homograph attacks** | Unicode look-alike domains | IDN/punycode in query |
-| **Fast flux** | Rapidly changing A record IPs | TTL < 60s + many unique answers |
+| DGA traffic | High NXDOMAIN rate per source | NXDOMAIN count > 50/min per src |
+| DNS tunneling | Long subdomain labels (>50 chars) | Label length check in dns.log |
+| DNS tunneling | High entropy subdomains | Shannon entropy > 3.5 bits |
+| DNS tunneling | High query rate to single apex | >100 queries/min to one domain |
+| Data exfil via DNS | TXT record queries with large content | TXT queries with payloads |
+| C2 via DNS | DNS on non-standard ports | Port != 53 with DNS traffic |
+| Reconnaissance | ANY/AXFR record queries | qtype = ANY or AXFR |
+| Homograph attacks | Unicode look-alike domains | IDN/punycode in query |
+| Fast flux | Rapidly changing A record IPs | TTL < 60s + many unique answers |
 
 ---
 
@@ -991,7 +991,7 @@ malware-c2.xyz.rpz.blocklist.    IN A 192.168.1.254
 
 Arkime is an open-source large-scale full packet capture and indexed session analysis platform. It stores PCAP to disk and indexes sessions into Elasticsearch for fast field-level queries.
 
-**Key Arkime search fields**:
+Key Arkime search fields:
 
 ```
 # IP addressing
@@ -1110,18 +1110,18 @@ Security Onion integrates the full NSM stack into a single deployable platform:
 
 | Component | Role |
 |---|---|
-| **Zeek** | Application-layer log generation |
-| **Suricata** | Signature-based IDS alerting |
-| **Strelka** | Real-time file analysis (YARA + PE + scripts) |
-| **Elasticsearch** | Log indexing and search backend |
-| **Kibana** | Visualization and dashboards |
-| **Hunt UI** | Alert triage with ATT&CK mapping |
-| **Arkime** | Full PCAP storage and session replay |
-| **FleetDM** | Endpoint agent management (osquery) |
+| Zeek | Application-layer log generation |
+| Suricata | Signature-based IDS alerting |
+| Strelka | Real-time file analysis (YARA + PE + scripts) |
+| Elasticsearch | Log indexing and search backend |
+| Kibana | Visualization and dashboards |
+| Hunt UI | Alert triage with ATT&CK mapping |
+| Arkime | Full PCAP storage and session replay |
+| FleetDM | Endpoint agent management (osquery) |
 
-**Deployment modes**:
-- **Single-node (standalone)**: All components on one server. Minimum: 4 CPU, 16GB RAM, 200GB storage.
-- **Distributed**: Manager node + forward sensors. Sensors run Zeek + Suricata + Arkime; manager handles Elasticsearch/Kibana.
+Deployment modes:
+- Single-node (standalone): All components on one server. Minimum: 4 CPU, 16GB RAM, 200GB storage.
+- Distributed: Manager node + forward sensors. Sensors run Zeek + Suricata + Arkime; manager handles Elasticsearch/Kibana.
 
 ---
 
@@ -1268,12 +1268,12 @@ event.dataset: "zeek.conn"
 ### RITA (Real Intelligence Threat Analytics)
 
 RITA is an open-source behavioral analytics framework built on Zeek for automated detection of:
-- **Beaconing C2** -- statistical analysis of connection timing intervals
-- **Long connections** -- persistent sessions exceeding configurable threshold
-- **DNS tunneling** -- query length, entropy, and FQDN anomaly scoring
-- **Threat intelligence** -- automatic IOC matching against imported feeds
+- Beaconing C2 -- statistical analysis of connection timing intervals
+- Long connections -- persistent sessions exceeding configurable threshold
+- DNS tunneling -- query length, entropy, and FQDN anomaly scoring
+- Threat intelligence -- automatic IOC matching against imported feeds
 
-**Reference**: https://github.com/activecm/rita
+Reference: https://github.com/activecm/rita
 
 ```bash
 # Install RITA
@@ -1301,22 +1301,22 @@ rita html-report incident-2024-01 --open-browser
 
 | Tool | Category | Purpose | URL |
 |---|---|---|---|
-| **Zeek** | NSM / Protocol Logging | Application-layer log generation: conn, dns, http, ssl, smtp, files | https://zeek.org |
-| **Suricata** | IDS/IPS | Signature detection, EVE JSON output, inline IPS mode | https://suricata.io |
-| **Snort** | IDS/IPS | Oldest open-source IDS, large community ruleset, DAQ library | https://snort.org |
-| **Security Onion** | NSM Platform | Integrated: Zeek + Suricata + Elastic + Kibana + Strelka + FleetDM | https://securityonion.net |
-| **Arkime** | Full Packet Capture | Indexed PCAP storage and session search (Moloch successor) | https://arkime.com |
-| **Wireshark** | Packet Analysis | GUI-based PCAP analysis, protocol dissection, 2000+ dissectors | https://wireshark.org |
-| **tshark** | Packet Analysis | CLI Wireshark -- scriptable PCAP analysis, field extraction | https://wireshark.org/docs/man-pages/tshark.html |
-| **tcpdump** | Packet Capture | Lightweight CLI capture, ring buffer support, BPF filtering | https://www.tcpdump.org |
-| **ntopng** | Flow / Traffic Analytics | Real-time traffic monitoring, flow visualization, anomaly scoring | https://www.ntop.org |
-| **Strelka** | File Analysis | Real-time file analysis: YARA, PE, macros, scripts, archives | https://github.com/target/strelka |
-| **RITA** | Behavioral Analytics | Zeek-based beacon/DNS-tunnel/C2 detection and reporting | https://github.com/activecm/rita |
-| **SiLK** | Flow Analysis | Query NetFlow/IPFIX/sFlow -- rwfilter, rwstats, rwcount, rwcut | https://tools.netsa.cert.org/silk |
-| **nfdump** | Flow Analysis | NetFlow collector (nfcapd) and query tool with aggregation support | https://github.com/phaag/nfdump |
-| **JARM** | TLS Fingerprinting | Active server-side TLS fingerprinting (Salesforce open-source) | https://github.com/salesforce/jarm |
-| **Scapy** | Packet Crafting | Python library for packet construction, capture, replay, and fuzzing | https://scapy.net |
-| **FlowBAT** | Flow Visualization | Browser-based SiLK / NetFlow analysis frontend | https://www.flowbat.com |
+| Zeek | NSM / Protocol Logging | Application-layer log generation: conn, dns, http, ssl, smtp, files | https://zeek.org |
+| Suricata | IDS/IPS | Signature detection, EVE JSON output, inline IPS mode | https://suricata.io |
+| Snort | IDS/IPS | Oldest open-source IDS, large community ruleset, DAQ library | https://snort.org |
+| Security Onion | NSM Platform | Integrated: Zeek + Suricata + Elastic + Kibana + Strelka + FleetDM | https://securityonion.net |
+| Arkime | Full Packet Capture | Indexed PCAP storage and session search (Moloch successor) | https://arkime.com |
+| Wireshark | Packet Analysis | GUI-based PCAP analysis, protocol dissection, 2000+ dissectors | https://wireshark.org |
+| tshark | Packet Analysis | CLI Wireshark -- scriptable PCAP analysis, field extraction | https://wireshark.org/docs/man-pages/tshark.html |
+| tcpdump | Packet Capture | Lightweight CLI capture, ring buffer support, BPF filtering | https://www.tcpdump.org |
+| ntopng | Flow / Traffic Analytics | Real-time traffic monitoring, flow visualization, anomaly scoring | https://www.ntop.org |
+| Strelka | File Analysis | Real-time file analysis: YARA, PE, macros, scripts, archives | https://github.com/target/strelka |
+| RITA | Behavioral Analytics | Zeek-based beacon/DNS-tunnel/C2 detection and reporting | https://github.com/activecm/rita |
+| SiLK | Flow Analysis | Query NetFlow/IPFIX/sFlow -- rwfilter, rwstats, rwcount, rwcut | https://tools.netsa.cert.org/silk |
+| nfdump | Flow Analysis | NetFlow collector (nfcapd) and query tool with aggregation support | https://github.com/phaag/nfdump |
+| JARM | TLS Fingerprinting | Active server-side TLS fingerprinting (Salesforce open-source) | https://github.com/salesforce/jarm |
+| Scapy | Packet Crafting | Python library for packet construction, capture, replay, and fuzzing | https://scapy.net |
+| FlowBAT | Flow Visualization | Browser-based SiLK / NetFlow analysis frontend | https://www.flowbat.com |
 
 ---
 

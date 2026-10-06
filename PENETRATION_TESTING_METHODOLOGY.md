@@ -1,16 +1,16 @@
 # Penetration Testing Methodology Reference
 
-> **In one minute** — This is the end-to-end playbook for running an authorized penetration test, from the signed legal paperwork through recon, scanning, exploitation, post-exploitation, and the final client report. A practitioner cares because it puts the RoE templates, the exact tool commands (nmap, nuclei, sqlmap, impacket, cloud CLIs), and the reporting/CVSS/ATT&CK scaffolding in one place. What makes it useful is that every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK, so your work stays defensible and traceable.
+> In one minute — This is the end-to-end playbook for running an authorized penetration test, from the signed legal paperwork through recon, scanning, exploitation, post-exploitation, and the final client report. A practitioner cares because it puts the RoE templates, the exact tool commands (nmap, nuclei, sqlmap, impacket, cloud CLIs), and the reporting/CVSS/ATT&CK scaffolding in one place. What makes it useful is that every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK, so your work stays defensible and traceable.
 
 | | |
 |---|---|
-| **Read this when** | Kicking off a new engagement and drafting the Rules of Engagement, mid-test and needing the right command for recon/scanning/exploitation, writing up findings with CVSS/EPSS/ATT&CK mappings |
-| **Start at** | [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting) |
-| **Pairs with** | [PENTEST_CHECKLISTS.md](PENTEST_CHECKLISTS.md), [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
+| Read this when | Kicking off a new engagement and drafting the Rules of Engagement, mid-test and needing the right command for recon/scanning/exploitation, writing up findings with CVSS/EPSS/ATT&CK mappings |
+| Start at | [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting) |
+| Pairs with | [PENTEST_CHECKLISTS.md](PENTEST_CHECKLISTS.md), [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 
-> **Classification:** Internal Use -- Authorized Security Personnel Only
-> **Standard:** PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v19.2
-> **Last Updated:** 2026-04-26
+> Classification: Internal Use -- Authorized Security Personnel Only
+> Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v19.2
+> Last Updated: 2026-04-26
 
 ---
 
@@ -121,13 +121,13 @@ Date:                    ___________________________________
 
 The authorization letter must be carried during all testing:
 
-- **Client letterhead** with company name and address
-- **Explicit statement** naming the authorized testers and their employer
-- **Specific IP ranges, domains, and systems** in scope
-- **Date range** of the authorized engagement
-- **Emergency contact** with 24/7 mobile availability
-- **Wet signature** of authorized executive (CISO, CTO, CEO, or legal counsel)
-- **Tester identification** (full name, employer, contact information)
+- Client letterhead with company name and address
+- Explicit statement naming the authorized testers and their employer
+- Specific IP ranges, domains, and systems in scope
+- Date range of the authorized engagement
+- Emergency contact with 24/7 mobile availability
+- Wet signature of authorized executive (CISO, CTO, CEO, or legal counsel)
+- Tester identification (full name, employer, contact information)
 
 ### 1.3 Relevant Legal Frameworks
 
@@ -162,24 +162,24 @@ The authorization letter must be carried during all testing:
 
 ### 1.4 NDA and Data Handling Requirements
 
-**Data Classification**
+Data Classification
 - All findings classified at the client highest data sensitivity tier
 - Screenshots, logs, packet captures, and credentials treated as confidential
 - No client data stored on personal devices or unencrypted media
 
-**Data Retention Policy**
+Data Retention Policy
 - Raw findings retained only for duration needed to produce the report
 - Standard retention: 30-90 days post-report delivery
 - Secure deletion required after retention period (DoD 5220.22-M or cryptographic erasure)
 - Written deletion confirmation available on client request
 
-**Transmission Security**
+Transmission Security
 - Reports transmitted via PGP-encrypted email or agreed secure file sharing only
 - No findings discussed via unencrypted email, SMS, or public voice channels
 
 ### 1.5 Emergency Procedures and Kill Switch
 
-**Kill Switch Conditions -- Testing stops immediately upon:**
+Kill Switch Conditions -- Testing stops immediately upon:
 
 1. Production systems becoming unresponsive, degraded, or reporting anomalies
 2. Inadvertent access to or exfiltration of real user or customer data
@@ -187,7 +187,7 @@ The authorization letter must be carried during all testing:
 4. Client requesting immediate halt via any communication channel
 5. Discovery that an active unauthorized breach is underway in the environment
 
-**Emergency Contact Chain**
+Emergency Contact Chain
 
 1. Call client technical POC immediately -- do not send email
 2. Record exact timestamp, systems affected, and nature of the incident
@@ -195,7 +195,7 @@ The authorization letter must be carried during all testing:
 4. Do not attempt remediation unless explicitly directed by the client
 5. Escalate to client management and legal if POC unreachable within 15 minutes
 
-**Communication Protocol**
+Communication Protocol
 
 - Pre-agreed passphrase to halt all testing activity immediately
 - Out-of-band communication channel (separate from all tested infrastructure)
@@ -1271,7 +1271,7 @@ Each finding must include all of the following fields:
 
 CVSS v3.1 uses the following metrics:
 
-**Base Score Metrics:**
+Base Score Metrics:
 
 | Metric | Options |
 |--------|---------|
@@ -1284,7 +1284,7 @@ CVSS v3.1 uses the following metrics:
 | Integrity (I) | None (N), Low (L), High (H) |
 | Availability (A) | None (N), Low (L), High (H) |
 
-**Score Ranges:**
+Score Ranges:
 
 | Score | Severity |
 |-------|----------|
@@ -1294,7 +1294,7 @@ CVSS v3.1 uses the following metrics:
 | 7.0-8.9 | High |
 | 9.0-10.0 | Critical |
 
-**Example CVSS Calculation:**
+Example CVSS Calculation:
 
 ```
 CVE-2021-44228 (Log4Shell)
@@ -1329,7 +1329,7 @@ curl -s "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerab
   | jq -r '.vulnerabilities[] | select(.cveID == "CVE-2021-44228") | .dueDate'
 ```
 
-**Prioritization Matrix:**
+Prioritization Matrix:
 
 | CVSS Score | EPSS Score | CISA KEV | Priority |
 |------------|------------|----------|----------|

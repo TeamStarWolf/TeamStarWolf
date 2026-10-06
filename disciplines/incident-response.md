@@ -20,54 +20,54 @@ Incident response demands operating system internals knowledge before the forens
 
 ## Free Training
 
-- [SANS Incident Response Summit Talks](https://www.youtube.com/@SansInstitute) — Annual summit recordings covering advanced IR methodology, cloud forensics, threat hunting during incidents, and major breach case studies; free YouTube archive is essential viewing
-- [Black Hills Information Security IR Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) — Free webcasts covering IR methodology, memory forensics, threat hunting, and detection during active incidents from working practitioners
-- [Hack The Box Academy DFIR Path](https://academy.hackthebox.com) — Free Student tier covering Windows and Linux forensics, memory analysis, and network forensics with hands-on labs
-- [Blue Team Labs Online](https://blueteamlabs.online) — Free investigation challenges covering log analysis, memory forensics, network pcap analysis, and realistic threat hunting scenarios
-- [Volatility Foundation Documentation](https://volatilityfoundation.org) — Free documentation and community resources for the leading open-source memory forensics framework; plugin reference and training materials
-- [CISA Incident Response Resources](https://www.cisa.gov/resources-tools/resources/incident-response) — Free federal guidance including the CISA Incident Response Playbook, ransomware guides, and cloud forensics guidance for critical infrastructure operators
-- [13Cubed YouTube Channel](https://www.youtube.com/@13Cubed) — Exceptional free Windows forensics content covering artifact analysis, Volatility plugin walkthroughs, and incident investigation methodology; among the best free DFIR content available
-- [TryHackMe DFIR Path](https://tryhackme.com) — Browser-based incident response and forensics labs with guided paths covering Windows forensics, memory analysis, and network investigation
-- [The DFIR Report](https://thedfirreport.com) — Real-world IR case studies with detailed TTP timelines published from actual intrusions; the best source for understanding what ransomware and APT intrusions look like from first access through impact
-- [Eric Zimmerman Tools Documentation](https://ericzimmerman.github.io) — Free documentation for the definitive Windows forensic tool suite; KAPE, MFTECmd, and 20+ other tools with usage guides and artifact reference
+- [SANS Incident Response Summit Talks](https://www.youtube.com/@SansInstitute): Annual summit recordings covering advanced IR methodology, cloud forensics, threat hunting during incidents, and major breach case studies; free YouTube archive is essential viewing
+- [Black Hills Information Security IR Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/): Free webcasts covering IR methodology, memory forensics, threat hunting, and detection during active incidents from working practitioners
+- [Hack The Box Academy DFIR Path](https://academy.hackthebox.com): Free Student tier covering Windows and Linux forensics, memory analysis, and network forensics with hands-on labs
+- [Blue Team Labs Online](https://blueteamlabs.online): Free investigation challenges covering log analysis, memory forensics, network pcap analysis, and realistic threat hunting scenarios
+- [Volatility Foundation Documentation](https://volatilityfoundation.org): Free documentation and community resources for the leading open-source memory forensics framework; plugin reference and training materials
+- [CISA Incident Response Resources](https://www.cisa.gov/resources-tools/resources/incident-response): Free federal guidance including the CISA Incident Response Playbook, ransomware guides, and cloud forensics guidance for critical infrastructure operators
+- [13Cubed YouTube Channel](https://www.youtube.com/@13Cubed): Exceptional free Windows forensics content covering artifact analysis, Volatility plugin walkthroughs, and incident investigation methodology; among the best free DFIR content available
+- [TryHackMe DFIR Path](https://tryhackme.com): Browser-based incident response and forensics labs with guided paths covering Windows forensics, memory analysis, and network investigation
+- [The DFIR Report](https://thedfirreport.com): Real-world IR case studies with detailed TTP timelines published from actual intrusions; the best source for understanding what ransomware and APT intrusions look like from first access through impact
+- [Eric Zimmerman Tools Documentation](https://ericzimmerman.github.io): Free documentation for the definitive Windows forensic tool suite; KAPE, MFTECmd, and 20+ other tools with usage guides and artifact reference
 
 ---
 
 ## Tools & Repositories
 
 ### Live Forensics & Triage
-- [tclahr/uac](https://github.com/tclahr/uac) — Unix-like Artifacts Collector; shell script for live forensic artifact collection from Linux, macOS, AIX, and Solaris without installing tools on the target system; essential for cloud VM triage where you cannot install agents
-- [Velocidex/velociraptor](https://github.com/Velocidex/velociraptor) — The modern enterprise IR platform; agent-based remote forensics at scale using the VQL query language; collect live artifacts from thousands of endpoints simultaneously; rapidly displacing older enterprise IR tooling
-- [google/grr](https://github.com/google/grr) — Google's Rapid Response remote live forensics framework; agent-based remote acquisition and analysis at enterprise scale
-- [CrowdStrike/Forensics](https://github.com/CrowdStrike/Forensics) — CrowdStrike open-source forensics scripts and utilities for Windows artifact collection and IR triage
+- [tclahr/uac](https://github.com/tclahr/uac): Unix-like Artifacts Collector; shell script for live forensic artifact collection from Linux, macOS, AIX, and Solaris without installing tools on the target system; essential for cloud VM triage where you cannot install agents
+- [Velocidex/velociraptor](https://github.com/Velocidex/velociraptor): The modern enterprise IR platform; agent-based remote forensics at scale using the VQL query language; collect live artifacts from thousands of endpoints simultaneously; rapidly displacing older enterprise IR tooling
+- [google/grr](https://github.com/google/grr): Google's Rapid Response remote live forensics framework; agent-based remote acquisition and analysis at enterprise scale
+- [CrowdStrike/Forensics](https://github.com/CrowdStrike/Forensics): CrowdStrike open-source forensics scripts and utilities for Windows artifact collection and IR triage
 
 ### Memory Forensics
-- [volatilityfoundation/volatility3](https://github.com/volatilityfoundation/volatility3) — The current production memory forensics framework; Python 3, symbol-based analysis, support for Windows, Linux, and macOS; the standard for offline memory dump analysis
-- [volatilityfoundation/volatility](https://github.com/volatilityfoundation/volatility) — Volatility 2; still relevant for older Windows systems and an established plugin ecosystem; understand both versions for production IR work
-- [ufrisk/MemProcFS](https://github.com/ufrisk/MemProcFS) — Memory Process File System; mounts a memory dump as a browsable virtual file system; reduces the barrier to exploring memory artifacts without requiring Volatility command fluency
+- [volatilityfoundation/volatility3](https://github.com/volatilityfoundation/volatility3): The current production memory forensics framework; Python 3, symbol-based analysis, support for Windows, Linux, and macOS; the standard for offline memory dump analysis
+- [volatilityfoundation/volatility](https://github.com/volatilityfoundation/volatility): Volatility 2; still relevant for older Windows systems and an established plugin ecosystem; understand both versions for production IR work
+- [ufrisk/MemProcFS](https://github.com/ufrisk/MemProcFS): Memory Process File System; mounts a memory dump as a browsable virtual file system; reduces the barrier to exploring memory artifacts without requiring Volatility command fluency
 
 ### Disk & File System Forensics
-- [sleuthkit/sleuthkit](https://github.com/sleuthkit/sleuthkit) — The foundational open-source digital forensics toolkit; file system analysis, deleted file recovery, and timeline generation; the engine underlying Autopsy
-- [sleuthkit/autopsy](https://github.com/sleuthkit/autopsy) — GUI digital forensics platform built on The Sleuth Kit; the most accessible open-source forensic investigation platform for disk analysis and case management
-- [EricZimmerman](https://github.com/EricZimmerman) — Eric Zimmerman's complete Windows forensic tool suite: KAPE for artifact collection, MFTECmd for MFT parsing, JLECmd for jump list analysis, ShellBagsExplorer, AppCompatCacheParser, and 20+ more; the gold-standard Windows IR toolkit
+- [sleuthkit/sleuthkit](https://github.com/sleuthkit/sleuthkit): The foundational open-source digital forensics toolkit; file system analysis, deleted file recovery, and timeline generation; the engine underlying Autopsy
+- [sleuthkit/autopsy](https://github.com/sleuthkit/autopsy): GUI digital forensics platform built on The Sleuth Kit; the most accessible open-source forensic investigation platform for disk analysis and case management
+- [EricZimmerman](https://github.com/EricZimmerman): Eric Zimmerman's complete Windows forensic tool suite: KAPE for artifact collection, MFTECmd for MFT parsing, JLECmd for jump list analysis, ShellBagsExplorer, AppCompatCacheParser, and 20+ more; the gold-standard Windows IR toolkit
 
 ### Timeline Analysis
-- [log2timeline/plaso](https://github.com/log2timeline/plaso) — Plaso super-timeline generator; aggregates hundreds of artifact types into a unified chronological timeline for event reconstruction; essential for complex multi-source incident timelines
-- [google/timesketch](https://github.com/google/timesketch) — Collaborative timeline analysis platform built on Elasticsearch; the visualization layer that makes Plaso timelines usable during active investigations
+- [log2timeline/plaso](https://github.com/log2timeline/plaso): Plaso super-timeline generator; aggregates hundreds of artifact types into a unified chronological timeline for event reconstruction; essential for complex multi-source incident timelines
+- [google/timesketch](https://github.com/google/timesketch): Collaborative timeline analysis platform built on Elasticsearch; the visualization layer that makes Plaso timelines usable during active investigations
 
 ### Network Forensics
-- [wireshark/wireshark](https://github.com/wireshark/wireshark) — The universal packet analysis tool; essential for C2 traffic identification, lateral movement evidence, and data exfiltration reconstruction during network forensics
-- [zeek/zeek](https://github.com/zeek/zeek) — Network analysis framework generating structured logs from pcap or live traffic; the backbone of NSM-based network forensics and the source for most network-based IR evidence
-- [OISF/suricata](https://github.com/OISF/suricata) — IDS/IPS/NSM engine; run post-incident against stored pcap to identify malicious traffic patterns using community and custom rule sets
+- [wireshark/wireshark](https://github.com/wireshark/wireshark): The universal packet analysis tool; essential for C2 traffic identification, lateral movement evidence, and data exfiltration reconstruction during network forensics
+- [zeek/zeek](https://github.com/zeek/zeek): Network analysis framework generating structured logs from pcap or live traffic; the backbone of NSM-based network forensics and the source for most network-based IR evidence
+- [OISF/suricata](https://github.com/OISF/suricata): IDS/IPS/NSM engine; run post-incident against stored pcap to identify malicious traffic patterns using community and custom rule sets
 
 ### SOAR & Case Management
-- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive) — Security Incident Response Platform; case management, task tracking, MISP integration, collaborative investigation workspace. NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see [DFIR-IRIS](https://github.com/dfir-iris/iris-web)
-- [Shuffle/Shuffle](https://github.com/Shuffle/Shuffle) — Open-source SOAR platform with drag-and-drop playbook builder; workflow automation for repetitive IR tasks without commercial SOAR licensing costs
-- [ansible/ansible](https://github.com/ansible/ansible) — Automation platform widely used for IR runbook automation; SSH-based, agentless, and excellent for writing repeatable containment and remediation playbooks
+- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive): Security Incident Response Platform; case management, task tracking, MISP integration, collaborative investigation workspace. NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see [DFIR-IRIS](https://github.com/dfir-iris/iris-web)
+- [Shuffle/Shuffle](https://github.com/Shuffle/Shuffle): Open-source SOAR platform with drag-and-drop playbook builder; workflow automation for repetitive IR tasks without commercial SOAR licensing costs
+- [ansible/ansible](https://github.com/ansible/ansible): Automation platform widely used for IR runbook automation; SSH-based, agentless, and excellent for writing repeatable containment and remediation playbooks
 
 ### Honeypots & Deception
-- [cowrie/cowrie](https://github.com/cowrie/cowrie) — Medium-to-high interaction SSH/Telnet honeypot logging attacker commands, credentials, and file uploads; valuable for early warning and TTP collection against threat actors targeting your environment
-- [telekom-security/tpotce](https://github.com/telekom-security/tpotce) — T-Pot all-in-one honeypot platform deploying 20+ honeypot daemons with ELK visualization; the fastest way to stand up a comprehensive honeypot environment for threat collection
+- [cowrie/cowrie](https://github.com/cowrie/cowrie): Medium-to-high interaction SSH/Telnet honeypot logging attacker commands, credentials, and file uploads; valuable for early warning and TTP collection against threat actors targeting your environment
+- [telekom-security/tpotce](https://github.com/telekom-security/tpotce): T-Pot all-in-one honeypot platform deploying 20+ honeypot daemons with ELK visualization; the fastest way to stand up a comprehensive honeypot environment for threat collection
 
 ---
 
@@ -75,15 +75,15 @@ Incident response demands operating system internals knowledge before the forens
 
 | Platform | Role |
 |---|---|
-| **CrowdStrike Falcon** | Market-leading EDR with fastest response capability; Falcon Forensics for endpoint triage, Falcon OverWatch for 24/7 managed threat hunting, Falcon Complete for fully managed detection and response; the most commonly encountered platform in enterprise IR engagements |
-| **SentinelOne Singularity** | EDR and XDR with autonomous response; Storyline reconstructs full attack chains; strong for rapid containment with minimal analyst intervention; Remote Shell for live response |
-| **Palo Alto Cortex XSOAR** | The dominant enterprise SOAR platform; playbook automation, case management, and 700+ integration packs; the standard workflow automation platform in mature SOC environments |
-| **Splunk SOAR (formerly Phantom)** | SOAR tightly integrated with Splunk SIEM; powerful for organizations already in the Splunk ecosystem; extensive community playbook library |
-| **Microsoft Defender XDR** | Integrated XDR across endpoint, identity, email, and cloud; incident correlation across all Microsoft signal sources; strong ROI for Microsoft-heavy environments |
-| **Mandiant Managed Defense** | Google-owned MDR service; the gold standard for organizations needing expert IR support without building in-house capability; extensive incident forensics and threat hunting |
-| **Velociraptor (open-source, enterprise-ready)** | The fastest-growing open-source IR platform; enterprise-grade remote forensics without licensing costs; increasingly the preferred alternative for sophisticated teams |
-| **IBM QRadar SOAR** | Mature SOAR platform from IBM; strong in regulated industries with existing QRadar SIEM investments |
-| **Cado Security** | Cloud-native IR platform purpose-built for cloud forensics across AWS, Azure, and GCP; fills the gap left by traditional forensic tools in cloud environments |
+| CrowdStrike Falcon | Market-leading EDR with fastest response capability; Falcon Forensics for endpoint triage, Falcon OverWatch for 24/7 managed threat hunting, Falcon Complete for fully managed detection and response; the most commonly encountered platform in enterprise IR engagements |
+| SentinelOne Singularity | EDR and XDR with autonomous response; Storyline reconstructs full attack chains; strong for rapid containment with minimal analyst intervention; Remote Shell for live response |
+| Palo Alto Cortex XSOAR | The dominant enterprise SOAR platform; playbook automation, case management, and 700+ integration packs; the standard workflow automation platform in mature SOC environments |
+| Splunk SOAR (formerly Phantom) | SOAR tightly integrated with Splunk SIEM; powerful for organizations already in the Splunk ecosystem; extensive community playbook library |
+| Microsoft Defender XDR | Integrated XDR across endpoint, identity, email, and cloud; incident correlation across all Microsoft signal sources; strong ROI for Microsoft-heavy environments |
+| Mandiant Managed Defense | Google-owned MDR service; the gold standard for organizations needing expert IR support without building in-house capability; extensive incident forensics and threat hunting |
+| Velociraptor (open-source, enterprise-ready) | The fastest-growing open-source IR platform; enterprise-grade remote forensics without licensing costs; increasingly the preferred alternative for sophisticated teams |
+| IBM QRadar SOAR | Mature SOAR platform from IBM; strong in regulated industries with existing QRadar SIEM investments |
+| Cado Security | Cloud-native IR platform purpose-built for cloud forensics across AWS, Azure, and GCP; fills the gap left by traditional forensic tools in cloud environments |
 
 ---
 
@@ -156,46 +156,46 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 ## Certifications
 
-- **GCFE** (GIAC Certified Forensic Examiner) — Windows and browser forensics; digital evidence acquisition and analysis methodology; strong entry-level DFIR credential for practitioners starting in host forensics
-- **GCFA** (GIAC Certified Forensic Analyst) — Advanced incident investigation, memory forensics, and threat hunting; one of the most respected DFIR credentials available; pairs with SANS FOR508
-- **GCIH** (GIAC Certified Incident Handler) — Incident handling methodology, detection, and response; the broadest IR certification covering the full incident lifecycle
-- **eCIR** (eLearnSecurity Certified Incident Responder — INE Security, formerly eLearnSecurity) — Practical hands-on IR certification assessed via simulated incident investigation; strong entry-level credential from INE Security
-- **BTL1** (Blue Team Labs Level 1 — Security Blue Team) — Practical SOC and IR certification covering six domain areas; lab-based assessment; strong validation for analysts entering IR roles
+- GCFE (GIAC Certified Forensic Examiner): Windows and browser forensics; digital evidence acquisition and analysis methodology; strong entry-level DFIR credential for practitioners starting in host forensics
+- GCFA (GIAC Certified Forensic Analyst): Advanced incident investigation, memory forensics, and threat hunting; one of the most respected DFIR credentials available; pairs with SANS FOR508
+- GCIH (GIAC Certified Incident Handler): Incident handling methodology, detection, and response; the broadest IR certification covering the full incident lifecycle
+- eCIR (eLearnSecurity Certified Incident Responder: INE Security, formerly eLearnSecurity) — Practical hands-on IR certification assessed via simulated incident investigation; strong entry-level credential from INE Security
+- BTL1 (Blue Team Labs Level 1: Security Blue Team) — Practical SOC and IR certification covering six domain areas; lab-based assessment; strong validation for analysts entering IR roles
 
 ---
 
 ## Channels
 
-- [13Cubed](https://www.youtube.com/@13Cubed) — The best free Windows forensics and DFIR content on YouTube; deeply technical artifact analysis, Volatility walkthroughs, and investigation methodology
-- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity) — IR methodology, threat hunting, and active defense; hundreds of free hours covering the full incident response lifecycle
-- [SANS DFIR](https://www.youtube.com/@SansInstitute) — Summit recordings, FOR508/FOR572 previews, and forensics methodology from SANS DFIR course instructors
-- [CrowdStrike](https://www.youtube.com/@CrowdStrike) — IR case studies, threat intelligence briefings, and Adversary Universe breakdowns showing real intrusion timelines
-- [CISA](https://www.youtube.com/@cisagov) — Federal IR guidance, breach analysis publications, and critical infrastructure incident response advisories
+- [13Cubed](https://www.youtube.com/@13Cubed): The best free Windows forensics and DFIR content on YouTube; deeply technical artifact analysis, Volatility walkthroughs, and investigation methodology
+- [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity): IR methodology, threat hunting, and active defense; hundreds of free hours covering the full incident response lifecycle
+- [SANS DFIR](https://www.youtube.com/@SansInstitute): Summit recordings, FOR508/FOR572 previews, and forensics methodology from SANS DFIR course instructors
+- [CrowdStrike](https://www.youtube.com/@CrowdStrike): IR case studies, threat intelligence briefings, and Adversary Universe breakdowns showing real intrusion timelines
+- [CISA](https://www.youtube.com/@cisagov): Federal IR guidance, breach analysis publications, and critical infrastructure incident response advisories
 
 ---
 
 ## Who to Follow
 
-- [@EricRZimmerman](https://x.com/EricRZimmerman) — Author of the definitive Windows forensic tool suite; Windows artifact analysis depth
-- [@attrc](https://x.com/attrc) — Andrew Case; Volatility core developer; memory forensics expertise
-- [@iamevltwin](https://x.com/iamevltwin) — Sarah Edwards; macOS forensics and APOLLO artifact analysis
-- [@jackcr](https://x.com/jackcr) — Jack Crook; threat hunting methodology and detection-driven IR
-- [@jaredcatkinson](https://x.com/jaredcatkinson) — PowerShell forensics and ATT&CK-driven detection and response
-- [@MandiantIntel](https://x.com/MandiantIntel) — APT incident findings and IR methodology from the most active IR consulting firm
-- [@CrowdStrike](https://x.com/CrowdStrike) — Adversary intelligence and IR case study publications
-- [@dfirwizard](https://x.com/dfirwizard) — DFIR practitioner content, investigation methodology, and community challenges
+- [@EricRZimmerman](https://x.com/EricRZimmerman): Author of the definitive Windows forensic tool suite; Windows artifact analysis depth
+- [@attrc](https://x.com/attrc): Andrew Case; Volatility core developer; memory forensics expertise
+- [@iamevltwin](https://x.com/iamevltwin): Sarah Edwards; macOS forensics and APOLLO artifact analysis
+- [@jackcr](https://x.com/jackcr): Jack Crook; threat hunting methodology and detection-driven IR
+- [@jaredcatkinson](https://x.com/jaredcatkinson): PowerShell forensics and ATT&CK-driven detection and response
+- [@MandiantIntel](https://x.com/MandiantIntel): APT incident findings and IR methodology from the most active IR consulting firm
+- [@CrowdStrike](https://x.com/CrowdStrike): Adversary intelligence and IR case study publications
+- [@dfirwizard](https://x.com/dfirwizard): DFIR practitioner content, investigation methodology, and community challenges
 
 ---
 
 ## Key Resources
 
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) — During active incidents, pivot from observed indicators and behaviors to ATT&CK techniques, identify the probable tactic sequence, and map detection gaps to close before the next incident
-- [The DFIR Report](https://thedfirreport.com) — Real-world IR case studies with full TTP timelines; the most valuable free resource for understanding actual intrusion patterns
-- [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf) — Current federal IR guidance (April 2025), reframing incident response around the CSF 2.0 Functions; supersedes SP 800-61r2 (2012, still a useful four-phase lifecycle reference: <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf>)
-- [SANS DFIR Posters](https://www.sans.org/posters/?focus-area=digital-forensics) — Free reference posters covering Windows artifact locations, memory forensics workflow, and evidence collection procedures
-- [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks) — Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable for non-government organizations
-- [Eric Zimmerman Tools](https://ericzimmerman.github.io) — The complete collection of Windows forensic tools; required bookmark for every Windows DFIR analyst
-- [Velociraptor Documentation](https://docs.velociraptor.app) — The most capable free IR platform; documentation covers deployment, VQL queries, and IR artifact collection at scale
+- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): During active incidents, pivot from observed indicators and behaviors to ATT&CK techniques, identify the probable tactic sequence, and map detection gaps to close before the next incident
+- [The DFIR Report](https://thedfirreport.com): Real-world IR case studies with full TTP timelines; the most valuable free resource for understanding actual intrusion patterns
+- [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf): Current federal IR guidance (April 2025), reframing incident response around the CSF 2.0 Functions; supersedes SP 800-61r2 (2012, still a useful four-phase lifecycle reference: <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf>)
+- [SANS DFIR Posters](https://www.sans.org/posters/?focus-area=digital-forensics): Free reference posters covering Windows artifact locations, memory forensics workflow, and evidence collection procedures
+- [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks): Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable for non-government organizations
+- [Eric Zimmerman Tools](https://ericzimmerman.github.io): The complete collection of Windows forensic tools; required bookmark for every Windows DFIR analyst
+- [Velociraptor Documentation](https://docs.velociraptor.app): The most capable free IR platform; documentation covers deployment, VQL queries, and IR artifact collection at scale
 
 ---
 
@@ -205,13 +205,13 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 ### NIST SP 800-61 Rev 2 Lifecycle
 
-> **NIST SP 800-61 Rev 3** (April 2025) supersedes Rev 2 and reframes incident response around the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover) rather than a fixed lifecycle. The Rev 2 four-phase model below is retained as a widely used mental model.
+> NIST SP 800-61 Rev 3 (April 2025) supersedes Rev 2 and reframes incident response around the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover) rather than a fixed lifecycle. The Rev 2 four-phase model below is retained as a widely used mental model.
 
-Preparation → Detection & Analysis → Containment → Eradication → Recovery → Post-Incident Activity
+Preparation -> Detection & Analysis -> Containment -> Eradication -> Recovery -> Post-Incident Activity
 
 ### PICERL Model (alternative widely used)
 
-Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned
+Preparation -> Identification -> Containment -> Eradication -> Recovery -> Lessons Learned
 
 ---
 
@@ -219,10 +219,10 @@ Preparation → Identification → Containment → Eradication → Recovery → 
 
 ### Triage Severity Scoring (P1-P4 framework)
 
-- **P1 (Critical, <1hr response):** Active ransomware spreading, confirmed data exfiltration, ICS/OT compromise, nation-state APT
-- **P2 (High, <4hr):** Compromised privileged account, malware on endpoint, suspicious lateral movement
-- **P3 (Medium, <24hr):** Phishing email opened, suspicious login, policy violation
-- **P4 (Low, <72hr):** Scanning/probe with no evidence of compromise, informational alerts
+- P1 (Critical, <1hr response): Active ransomware spreading, confirmed data exfiltration, ICS/OT compromise, nation-state APT
+- P2 (High, <4hr): Compromised privileged account, malware on endpoint, suspicious lateral movement
+- P3 (Medium, <24hr): Phishing email opened, suspicious login, policy violation
+- P4 (Low, <72hr): Scanning/probe with no evidence of compromise, informational alerts
 
 ### Initial Triage Questions
 
@@ -239,8 +239,8 @@ Preparation → Identification → Containment → Eradication → Recovery → 
 ### Short-term containment (preserve evidence)
 
 - Network isolation: Block source/destination at firewall, VLAN segregation
-- Account action: Disable compromised accounts (do NOT change password yet — preserve for attribution)
-- Do NOT immediately wipe endpoint — forensic evidence
+- Account action: Disable compromised accounts (do NOT change password yet: preserve for attribution)
+- Do NOT immediately wipe endpoint: forensic evidence
 - Enable verbose logging on affected systems immediately
 
 ### Evidence Collection Checklist
@@ -309,10 +309,10 @@ cat /proc/modules
 
 Incident response sits at the intersection of nearly every security discipline. During an active incident, IR teams call on capabilities across the entire security program — and every other team should feed context into the investigation.
 
-- [threat-intelligence.md](/disciplines/threat-intelligence.md) — Threat intelligence transforms raw IOCs into structured adversary context during an investigation; knowing that a C2 IP belongs to a specific threat actor group immediately expands the scope of investigation to include that actor's known TTPs; post-incident, the findings feed back as new threat intelligence
-- [security-operations.md](/disciplines/security-operations.md) — SOC analysts are the first line of detection that triggers IR; the quality of detection content (SIEM rules, EDR detections, alert tuning) directly determines dwell time before an incident is declared; the SOC and IR team operate as a continuous loop where IR findings drive new detection logic
-- [vulnerability-management.md](/disciplines/vulnerability-management.md) — Post-incident root cause analysis almost always reveals an unpatched vulnerability or misconfiguration as the initial access vector; IR findings should automatically feed VM remediation priorities; VM data (which hosts have critical unpatched CVEs) helps IR teams scope the blast radius during an active investigation
-- [digital-forensics.md](/disciplines/digital-forensics.md) — Forensics is the technical core of incident investigation; IR defines the process and coordination while DFIR practitioners provide the artifact acquisition, analysis, and evidence preservation skills that make investigations defensible in legal proceedings
-- [malware-analysis.md](/disciplines/malware-analysis.md) — Malware encountered during incidents (ransomware encryptors, backdoors, loaders, credential stealers) must be analyzed to understand capabilities, persistence mechanisms, and C2 protocols; malware analysis findings directly improve detection signatures and inform the scope of compromise
-- [cloud-security.md](/disciplines/cloud-security.md) — Cloud IR requires fundamentally different skills and tools from on-premises IR; cloud providers (AWS, Azure, GCP) have specific forensic capabilities (CloudTrail, Azure Activity Logs, Cloud Audit Logs) and limitations (ephemeral compute, shared responsibility boundaries) that IR practitioners must understand before an incident occurs
-- [devsecops.md](/disciplines/devsecops.md) — Software supply chain incidents (compromised CI/CD pipelines, malicious dependencies, build system breaches) require IR teams to investigate developer infrastructure that traditional IR playbooks do not cover; DevSecOps practitioners provide critical context about pipeline architecture, artifact provenance, and deployment processes during these investigations
+- [threat-intelligence.md](/disciplines/threat-intelligence.md): Threat intelligence transforms raw IOCs into structured adversary context during an investigation; knowing that a C2 IP belongs to a specific threat actor group immediately expands the scope of investigation to include that actor's known TTPs; post-incident, the findings feed back as new threat intelligence
+- [security-operations.md](/disciplines/security-operations.md): SOC analysts are the first line of detection that triggers IR; the quality of detection content (SIEM rules, EDR detections, alert tuning) directly determines dwell time before an incident is declared; the SOC and IR team operate as a continuous loop where IR findings drive new detection logic
+- [vulnerability-management.md](/disciplines/vulnerability-management.md): Post-incident root cause analysis almost always reveals an unpatched vulnerability or misconfiguration as the initial access vector; IR findings should automatically feed VM remediation priorities; VM data (which hosts have critical unpatched CVEs) helps IR teams scope the blast radius during an active investigation
+- [digital-forensics.md](/disciplines/digital-forensics.md): Forensics is the technical core of incident investigation; IR defines the process and coordination while DFIR practitioners provide the artifact acquisition, analysis, and evidence preservation skills that make investigations defensible in legal proceedings
+- [malware-analysis.md](/disciplines/malware-analysis.md): Malware encountered during incidents (ransomware encryptors, backdoors, loaders, credential stealers) must be analyzed to understand capabilities, persistence mechanisms, and C2 protocols; malware analysis findings directly improve detection signatures and inform the scope of compromise
+- [cloud-security.md](/disciplines/cloud-security.md): Cloud IR requires fundamentally different skills and tools from on-premises IR; cloud providers (AWS, Azure, GCP) have specific forensic capabilities (CloudTrail, Azure Activity Logs, Cloud Audit Logs) and limitations (ephemeral compute, shared responsibility boundaries) that IR practitioners must understand before an incident occurs
+- [devsecops.md](/disciplines/devsecops.md): Software supply chain incidents (compromised CI/CD pipelines, malicious dependencies, build system breaches) require IR teams to investigate developer infrastructure that traditional IR playbooks do not cover; DevSecOps practitioners provide critical context about pipeline architecture, artifact provenance, and deployment processes during these investigations

@@ -1,12 +1,12 @@
 # Windows Hardening Reference
 
-> **In one minute** — This is a hands-on hardening guide for Windows endpoints and servers, built from CIS Benchmarks, Microsoft Security Baselines, and DISA STIGs. Every control comes with the exact registry path, GPO path, or PowerShell command to apply and verify it, so you can go from "we should harden that" to a working setting in one pass. Sections also tag the ATT&CK techniques and NIST 800-53 controls each setting counters, which makes justifying the change to auditors or leadership easy.
+> In one minute — This is a hands-on hardening guide for Windows endpoints and servers, built from CIS Benchmarks, Microsoft Security Baselines, and DISA STIGs. Every control comes with the exact registry path, GPO path, or PowerShell command to apply and verify it, so you can go from "we should harden that" to a working setting in one pass. Sections also tag the ATT&CK techniques and NIST 800-53 controls each setting counters, which makes justifying the change to auditors or leadership easy.
 
 | | |
 |---|---|
-| **Read this when** | you are standing up or locking down a Windows server or fleet, an audit or compliance scan flagged missing CIS/STIG controls, or you need the PowerShell/GPO commands for a specific control like ASR rules or SMB signing |
-| **Start at** | [Quick Hardening Checklist](#quick-hardening-checklist) for the 20 highest-priority controls, [CIS Windows Server 2022 Benchmark](#cis-windows-server-2022-benchmark) for server policy details, [Compliance Scanning Tools](#compliance-scanning-tools) to measure where you stand |
-| **Pairs with** | [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [LINUX_HARDENING.md](LINUX_HARDENING.md), [ENDPOINT_SECURITY_REFERENCE.md](ENDPOINT_SECURITY_REFERENCE.md) |
+| Read this when | you are standing up or locking down a Windows server or fleet, an audit or compliance scan flagged missing CIS/STIG controls, or you need the PowerShell/GPO commands for a specific control like ASR rules or SMB signing |
+| Start at | [Quick Hardening Checklist](#quick-hardening-checklist) for the 20 highest-priority controls, [CIS Windows Server 2022 Benchmark](#cis-windows-server-2022-benchmark) for server policy details, [Compliance Scanning Tools](#compliance-scanning-tools) to measure where you stand |
+| Pairs with | [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md), [LINUX_HARDENING.md](LINUX_HARDENING.md), [ENDPOINT_SECURITY_REFERENCE.md](ENDPOINT_SECURITY_REFERENCE.md) |
 
 Hardening guidance for Windows endpoints and servers based on CIS Benchmarks, Microsoft Security Baselines, and DISA STIGs.
 
@@ -34,9 +34,9 @@ Hardening guidance for Windows endpoints and servers based on CIS Benchmarks, Mi
 
 The CIS Benchmark for Windows Server 2022 is organized into Level 1 (basic hygiene, minimal impact) and Level 2 (defense-in-depth, may affect functionality). Below are the most impactful controls with registry paths and PowerShell commands.
 
-### Account Policies — Password Policy
+### Account Policies: Password Policy
 
-**CIS 1.1 — Password Policy**
+CIS 1.1 — Password Policy
 
 | Setting | Recommended Value | GPO Path |
 |---|---|---|
@@ -62,9 +62,9 @@ net accounts
 
 Registry for password complexity is managed through SAM — use GPO or secedit, not direct registry edits.
 
-### Account Policies — Account Lockout
+### Account Policies: Account Lockout
 
-**CIS 1.2 — Account Lockout Policy**
+CIS 1.2 — Account Lockout Policy
 
 | Setting | Recommended Value | CIS Ref |
 |---|---|---|
@@ -84,9 +84,9 @@ New-ADFineGrainedPasswordPolicy -Name "StrictPolicy" -Precedence 10 `
   -ComplexityEnabled $true -ReversibleEncryptionEnabled $false
 ```
 
-### Local Policies — User Rights Assignment
+### Local Policies: User Rights Assignment
 
-**CIS 2.2 — User Rights Assignment**
+CIS 2.2 — User Rights Assignment
 
 | Right | Recommended | GPO Path |
 |---|---|---|
@@ -114,7 +114,7 @@ Get-Content C:\Temp\userrights.cfg | Select-String "Se"
 
 ### Security Options
 
-**CIS 2.3 — Security Options**
+CIS 2.3 — Security Options
 
 Key registry values under `HKLM\SYSTEM\CurrentControlSet\Control\Lsa` and related hives:
 
@@ -171,7 +171,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
   -Name "EnableVirtualization" -Value 1 -Type DWord
 ```
 
-**ATT&CK relevance**: T1078 (Valid Accounts), T1110 (Brute Force), T1021 (Remote Services)
+ATT&CK relevance: T1078 (Valid Accounts), T1110 (Brute Force), T1021 (Remote Services)
 
 ---
 
@@ -224,7 +224,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\M
   -Name "MoveImages" -Value 0xFFFFFFFF -Type DWord
 ```
 
-**ATT&CK relevance**: T1187 (Forced Authentication/LLMNR Poisoning), T1566 (Phishing), T1204 (User Execution)
+ATT&CK relevance: T1187 (Forced Authentication/LLMNR Poisoning), T1566 (Phishing), T1204 (User Execution)
 
 ---
 
@@ -291,8 +291,8 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
   -Name "LocalAccountTokenFilterPolicy" -Value 0 -Type DWord
 ```
 
-**NIST 800-53**: AC-2, AC-3, CM-6, CM-7  
-**ATT&CK**: T1550.002 (Pass the Hash), T1003.001 (LSASS Memory)
+NIST 800-53: AC-2, AC-3, CM-6, CM-7  
+ATT&CK: T1550.002 (Pass the Hash), T1003.001 (LSASS Memory)
 
 ---
 
@@ -341,7 +341,7 @@ Get-MpComputerStatus | Select-Object IsTamperProtected
 # TamperProtection = 5 (enabled), 4 (disabled)
 ```
 
-**GPO Path** (for non-MDE managed): `Computer Configuration > Administrative Templates > Windows Components > Microsoft Defender Antivirus`
+GPO Path (for non-MDE managed): `Computer Configuration > Administrative Templates > Windows Components > Microsoft Defender Antivirus`
 
 ```powershell
 # Registry equivalents for GPO settings
@@ -354,7 +354,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windo
   -Name "EnableControlledFolderAccess" -Value 1 -Type DWord
 ```
 
-### Defender for Endpoint — Exclusions Best Practice
+### Defender for Endpoint: Exclusions Best Practice
 
 - Never exclude entire drives or `C:\Windows\Temp` globally
 - Scope exclusions to specific process + path combinations
@@ -369,7 +369,7 @@ Get-MpPreference | Select-Object ExclusionPath, ExclusionExtension, ExclusionPro
 Add-MpPreference -ExclusionProcess "C:\Program Files\BackupAgent\agent.exe"
 ```
 
-**ATT&CK**: T1562.001 (Disable or Modify Tools)
+ATT&CK: T1562.001 (Disable or Modify Tools)
 
 ---
 
@@ -378,10 +378,10 @@ Add-MpPreference -ExclusionProcess "C:\Program Files\BackupAgent\agent.exe"
 ASR rules are enforced by Windows Defender and require Microsoft Defender Antivirus in active mode. They are supported on Windows 10 1709+ and Windows Server 2019+.
 
 ### Modes
-- **0** = Disabled  
-- **1** = Block  
-- **2** = Audit  
-- **6** = Warn (user can bypass)
+- 0 = Disabled  
+- 1 = Block  
+- 2 = Audit  
+- 6 = Warn (user can bypass)
 
 ### Full ASR Rule Table
 
@@ -460,7 +460,7 @@ Add-MpPreference -AttackSurfaceReductionOnlyExclusions "C:\SpecificApp\trusted.e
 Get-MpPreference | Select-Object AttackSurfaceReductionOnlyExclusions
 ```
 
-**ATT&CK coverage**: T1059 (Command and Scripting Interpreter), T1566 (Phishing), T1003 (Credential Dumping), T1547 (Boot/Logon Autostart), T1021 (Remote Services)
+ATT&CK coverage: T1059 (Command and Scripting Interpreter), T1566 (Phishing), T1003 (Credential Dumping), T1547 (Boot/Logon Autostart), T1021 (Remote Services)
 
 ---
 
@@ -468,14 +468,14 @@ Get-MpPreference | Select-Object AttackSurfaceReductionOnlyExclusions
 
 ### AppLocker
 
-AppLocker controls which applications users can run. It supports four rule types: **Executable**, **Windows Installer**, **Script**, and **Packaged App**.
+AppLocker controls which applications users can run. It supports four rule types: Executable, Windows Installer, Script, and Packaged App.
 
-**Rule Types by Priority**:
-1. Publisher rules (certificate-based — most maintainable)
-2. Hash rules (file-specific — break on updates)
-3. Path rules (location-based — easiest to bypass)
+Rule Types by Priority:
+1. Publisher rules (certificate-based: most maintainable)
+2. Hash rules (file-specific: break on updates)
+3. Path rules (location-based: easiest to bypass)
 
-**Default Rule Sets** (always create these to avoid lockout):
+Default Rule Sets (always create these to avoid lockout):
 
 ```powershell
 # Generate default rules for all rule collections
@@ -485,7 +485,7 @@ Get-AppLockerPolicy -Effective | Set-AppLockerPolicy -Merge
 # Local Security Policy > Application Control Policies > AppLocker > right-click > Create Default Rules
 ```
 
-**PowerShell Deployment**:
+PowerShell Deployment:
 
 ```powershell
 # Export current policy to XML
@@ -502,7 +502,7 @@ Set-Service -Name AppIDSvc -StartupType Automatic
 Start-Service -Name AppIDSvc
 ```
 
-**Sample AppLocker XML Policy (Executable Rules)**:
+Sample AppLocker XML Policy (Executable Rules):
 
 ```xml
 <AppLockerPolicy Version="1">
@@ -539,7 +539,7 @@ Start-Service -Name AppIDSvc
 
 WDAC (formerly Device Guard Code Integrity) is the preferred application control solution for modern Windows. Unlike AppLocker, WDAC is enforced at the kernel level and cannot be bypassed by local administrators.
 
-**WDAC Policy Creation**:
+WDAC Policy Creation:
 
 ```powershell
 # Create a base policy from an existing "golden" machine
@@ -563,7 +563,7 @@ ConvertFrom-CIPolicy -XmlFilePath C:\MergedPolicy.xml -BinaryFilePath C:\SiPolic
 Copy-Item -Path C:\SiPolicy.p7b -Destination "C:\Windows\System32\CodeIntegrity\SiPolicy.p7b"
 ```
 
-**WDAC Supplemental Policies** (for exceptions without touching base policy):
+WDAC Supplemental Policies (for exceptions without touching base policy):
 
 ```powershell
 # Create supplemental policy for a specific application
@@ -579,7 +579,7 @@ ConvertFrom-CIPolicy -XmlFilePath C:\SupplementalApp.xml `
   -BinaryFilePath C:\Windows\System32\CodeIntegrity\CiPolicies\Active\{SupplementalGUID}.cip
 ```
 
-**Audit vs Enforce Mode**:
+Audit vs Enforce Mode:
 
 ```powershell
 # Check current mode
@@ -592,8 +592,8 @@ Get-WinEvent -LogName "Microsoft-Windows-CodeIntegrity/Operational" |
   Select-Object TimeCreated, Message
 ```
 
-**NIST 800-53**: CM-7, CM-14, SI-7  
-**ATT&CK**: T1204 (User Execution), T1059 (Command and Scripting Interpreter)
+NIST 800-53: CM-7, CM-14, SI-7  
+ATT&CK: T1204 (User Execution), T1059 (Command and Scripting Interpreter)
 
 ---
 
@@ -603,14 +603,14 @@ Get-WinEvent -LogName "Microsoft-Windows-CodeIntegrity/Operational" |
 
 Credential Guard uses Virtualization Based Security (VBS) to isolate credential secrets from the OS. Domain-joined machines store Kerberos tickets and NTLM hashes in a secure, hypervisor-protected enclave.
 
-**Requirements**:
+Requirements:
 - 64-bit CPU with virtualization extensions (Intel VT-x / AMD-V)
 - UEFI firmware with Secure Boot enabled
 - TPM 2.0 (recommended; 1.2 supported)
 - Windows 10 Enterprise/Education or Windows Server 2016+
 - Not a Hyper-V guest (unless nested virtualization is enabled)
 
-**Enable via GPO**:
+Enable via GPO:
 
 ```
 GPO Path: Computer Configuration > Administrative Templates > System > Device Guard
@@ -620,7 +620,7 @@ Setting: Turn On Virtualization Based Security
   Secure Launch Configuration: Enabled
 ```
 
-**Enable via Registry**:
+Enable via Registry:
 
 ```powershell
 # Enable VBS
@@ -637,7 +637,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
 # Value 2 = enabled without UEFI lock (can be disabled without UEFI config change)
 ```
 
-**Verify Credential Guard**:
+Verify Credential Guard:
 
 ```powershell
 # Via PowerShell
@@ -649,7 +649,7 @@ Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\D
 # System Summary > Virtualization-based security Services Running
 ```
 
-**Note**: Credential Guard is on by default on eligible Windows 11 22H2+ domain-joined devices.
+Note: Credential Guard is on by default on eligible Windows 11 22H2+ domain-joined devices.
 
 ### LSA Protection (Protected Process Light)
 
@@ -667,8 +667,8 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "RunAs
 Get-WinEvent -LogName "System" | Where-Object { $_.Id -eq 12 } | Select-Object -First 5
 ```
 
-**ATT&CK**: T1003.001 (LSASS Memory), T1550.002 (Pass the Hash)  
-**NIST 800-53**: IA-5, SC-28
+ATT&CK: T1003.001 (LSASS Memory), T1550.002 (Pass the Hash)  
+NIST 800-53: IA-5, SC-28
 
 ---
 
@@ -710,7 +710,7 @@ Add-BitLockerKeyProtector -MountPoint "C:" -RecoveryPasswordProtector
 
 ### Recovery Key Escrow
 
-**Backup to Active Directory**:
+Backup to Active Directory:
 
 ```powershell
 # Get the recovery key protector ID
@@ -725,7 +725,7 @@ Backup-BitLockerKeyProtector -MountPoint "C:" -KeyProtectorId $keyID
 manage-bde -protectors -adbackup C: -id $keyID
 ```
 
-**Backup to Azure Active Directory (Intune)**:
+Backup to Azure Active Directory (Intune):
 Configure via Intune endpoint protection policy: `BitLocker > OS drive settings > Recovery key backup to Azure AD: Required`
 
 ### Status and Management
@@ -745,10 +745,10 @@ Suspend-BitLocker -MountPoint "C:" -RebootCount 1
 Resume-BitLocker -MountPoint "C:"
 ```
 
-**GPO Path**: `Computer Configuration > Administrative Templates > Windows Components > BitLocker Drive Encryption`
+GPO Path: `Computer Configuration > Administrative Templates > Windows Components > BitLocker Drive Encryption`
 
-**NIST 800-53**: SC-28, MP-5  
-**CIS**: CIS Control 3 (Data Protection)
+NIST 800-53: SC-28, MP-5  
+CIS: CIS Control 3 (Data Protection)
 
 ---
 
@@ -821,8 +821,8 @@ netsh advfirewall export "C:\FirewallBackup.wfw"
 netsh advfirewall import "C:\FirewallBackup.wfw"
 ```
 
-**NIST 800-53**: SC-7, CA-9  
-**CIS**: CIS Control 12 (Network Infrastructure Management)
+NIST 800-53: SC-7, CA-9  
+CIS: CIS Control 12 (Network Infrastructure Management)
 
 ---
 
@@ -920,8 +920,8 @@ auditpol /restore /file:C:\AuditPolicy.csv
 | 4776 | NTLM authentication | PtH / NTLM relay detection |
 | 7045 | New service installed | Persistence |
 
-**ATT&CK**: T1562.002 (Disable Windows Event Logging)  
-**NIST 800-53**: AU-2, AU-3, AU-8, AU-12
+ATT&CK: T1562.002 (Disable Windows Event Logging)  
+NIST 800-53: AU-2, AU-3, AU-8, AU-12
 
 ---
 
@@ -957,7 +957,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Scr
   -Name "EnableScriptBlockInvocationLogging" -Value 1 -Type DWord
 ```
 
-**GPO Path**: `Computer Configuration > Administrative Templates > Windows Components > Windows PowerShell > Turn on PowerShell Script Block Logging`
+GPO Path: `Computer Configuration > Administrative Templates > Windows Components > Windows PowerShell > Turn on PowerShell Script Block Logging`
 
 ### Module Logging
 
@@ -1032,8 +1032,8 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" |
   Select-Object TimeCreated, Message
 ```
 
-**ATT&CK**: T1059.001 (PowerShell), T1562.001 (Disable Security Tools)  
-**NIST 800-53**: AU-2, CM-7, SI-3
+ATT&CK: T1059.001 (PowerShell), T1562.001 (Disable Security Tools)  
+NIST 800-53: AU-2, CM-7, SI-3
 
 ---
 
@@ -1053,7 +1053,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" 
   -Name "fDenyTSConnections" -Value 1 -Type DWord
 ```
 
-**GPO Path**: `Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Security > Require user authentication for remote connections by using NLA`
+GPO Path: `Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Security > Require user authentication for remote connections by using NLA`
 
 ### Cipher Suite Restriction
 
@@ -1106,7 +1106,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
 mstsc /restrictedAdmin /v:server.domain.com
 ```
 
-### Firewall Rule — Restrict RDP to Management Network
+### Firewall Rule: Restrict RDP to Management Network
 
 ```powershell
 # Remove default allow-any RDP rule
@@ -1118,8 +1118,8 @@ New-NetFirewallRule -DisplayName "RDP - Management Network Only" `
   -RemoteAddress "10.10.10.0/24" -Action Allow -Profile Domain -Enabled True
 ```
 
-**ATT&CK**: T1021.001 (Remote Desktop Protocol)  
-**NIST 800-53**: AC-17, SC-8
+ATT&CK: T1021.001 (Remote Desktop Protocol)  
+NIST 800-53: AC-17, SC-8
 
 ---
 
@@ -1162,7 +1162,7 @@ Get-SmbServerConfiguration | Select-Object RequireSecuritySignature, EnableSecur
 Get-SmbClientConfiguration | Select-Object RequireSecuritySignature
 ```
 
-**GPO Path**: 
+GPO Path: 
 - Server: `Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options > Microsoft network server: Digitally sign communications (always)`
 - Client: `Microsoft network client: Digitally sign communications (always)`
 
@@ -1206,18 +1206,18 @@ Get-SmbOpenFile | Select-Object FileId, SessionId, Path, ShareRelativePath
 # Get-SmbSession | Close-SmbSession -Force
 ```
 
-**ATT&CK**: T1021.002 (SMB/Windows Admin Shares), T1557.001 (LLMNR/NBT-NS Poisoning)  
-**NIST 800-53**: CM-7, SC-8
+ATT&CK: T1021.002 (SMB/Windows Admin Shares), T1557.001 (LLMNR/NBT-NS Poisoning)  
+NIST 800-53: CM-7, SC-8
 
 ---
 
 ## LAPS (Local Administrator Password Solution)
 
-### Windows LAPS (Built-in — Preferred)
+### Windows LAPS (Built-in: Preferred)
 
 Windows LAPS is built into Windows since April 2023 (KB5025228 for older systems). It stores randomized local admin passwords in Active Directory or Azure AD.
 
-**Enable Windows LAPS**:
+Enable Windows LAPS:
 
 ```powershell
 # Check current LAPS status
@@ -1233,7 +1233,7 @@ Get-LapsAADPassword -DeviceIds (Get-AzureADDevice -SearchString $env:COMPUTERNAM
 #   - Name of administrator account to manage: (leave blank for default admin)
 ```
 
-**Active Directory Schema Update** (for Windows LAPS with AD):
+Active Directory Schema Update (for Windows LAPS with AD):
 
 ```powershell
 # Update AD schema for Windows LAPS (run as Schema Admin)
@@ -1251,7 +1251,7 @@ Set-LapsADResetPasswordPermission -Identity "OU=Workstations,DC=contoso,DC=com" 
   -AllowedPrincipals "CONTOSO\LAPS-Admins"
 ```
 
-**Retrieve LAPS Password**:
+Retrieve LAPS Password:
 
 ```powershell
 # Retrieve local admin password from AD
@@ -1286,8 +1286,8 @@ Set-AdmPwdReadPasswordPermission -OrgUnit "OU=Workstations,DC=contoso,DC=com" `
 Get-AdmPwdPassword -ComputerName "WORKSTATION01"
 ```
 
-**NIST 800-53**: AC-2, IA-5  
-**ATT&CK**: T1078.003 (Local Accounts), T1110 (Brute Force)
+NIST 800-53: AC-2, IA-5  
+ATT&CK: T1078.003 (Local Accounts), T1110 (Brute Force)
 
 ---
 
@@ -1452,11 +1452,11 @@ Test-WindowsHardening
 
 - [CIS Benchmarks (free registration)](https://www.cisecurity.org/cis-benchmarks/)
 - [Microsoft Security Compliance Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
-- [DISA STIGs — Windows](https://public.cyber.mil/stigs/downloads/)
+- [DISA STIGs: Windows](https://public.cyber.mil/stigs/downloads/)
 - [Microsoft Defender for Endpoint ASR documentation](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction)
 - [Windows LAPS documentation](https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview)
 - [WDAC policy creation guide](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/design/wdac-policy-design-guide)
 - [CIS-CAT Pro](https://www.cisecurity.org/cybersecurity-tools/cis-cat-pro/)
-- [Microsoft Baseline Security Analyzer (deprecated — use SCT)](https://learn.microsoft.com/en-us/security-updates/mbsa/)
+- [Microsoft Baseline Security Analyzer (deprecated: use SCT)](https://learn.microsoft.com/en-us/security-updates/mbsa/)
 - [ATT&CK Mitigations index](https://attack.mitre.org/mitigations/enterprise/)
 - [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)

@@ -1,12 +1,12 @@
 # Cybersecurity Book and Resource List
 
-> **In one minute** — A curated reading and lab guide for every major cybersecurity specialty, from pentesting and malware analysis to blue team, cloud, and OSINT. Each section pairs the best books with the repos, YouTube channels, certifications, and practice platforms that let you apply them, so you read and lab in parallel instead of just collecting titles. Six role-based learning paths give you a starting sequence when you don't know where to begin.
+> In one minute — A curated reading and lab guide for every major cybersecurity specialty, from pentesting and malware analysis to blue team, cloud, and OSINT. Each section pairs the best books with the repos, YouTube channels, certifications, and practice platforms that let you apply them, so you read and lab in parallel instead of just collecting titles. Six role-based learning paths give you a starting sequence when you don't know where to begin.
 
 | | |
 |---|---|
-| **Read this when** | you are choosing what to study next for a role or skill area, building a lab-first study plan, or looking for the standard book plus hands-on repos in a domain |
-| **Start at** | [Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal) |
-| **Pairs with** | [RESOURCES.md](RESOURCES.md), [LABS.md](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+| Read this when | you are choosing what to study next for a role or skill area, building a lab-first study plan, or looking for the standard book plus hands-on repos in a domain |
+| Start at | [Learning Paths](#learning-paths), [How To Use This File](#how-to-use-this-file), [Core / Must-Read](#core-must-read-high-signal) |
+| Pairs with | [RESOURCES.md](RESOURCES.md), [LABS.md](LABS.md), [Black Hat Arsenal crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
 
 A practical reading and lab guide for people learning or working in cybersecurity. Each section pairs books with repositories, channels, certifications, and practice environments so the material is easier to apply.
 
@@ -147,7 +147,7 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [AttackerKB](https://attackerkb.com) - Community-rated CVE exploitability assessments
 - [Vulners](https://vulners.com) - Aggregated vulnerability database with API access
 
-> **Practical note:** Subscribe to the CISA KEV RSS feed and set up a Google Alert for your organization's tech stack. The KEV catalog is the most actionable threat list available - if a CVE is on it, patch immediately.
+> Practical note: Subscribe to the CISA KEV RSS feed and set up a Google Alert for your organization's tech stack. The KEV catalog is the most actionable threat list available - if a CVE is on it, patch immediately.
 
 ---
 
@@ -157,21 +157,21 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **The Web Application Hacker's Handbook** | Stuttard & Pinto | Intermediate | Still the most complete web vuln reference ever written |
-| **Penetration Testing** | Georgia Weidman | Beginner | Best hands-on intro to pentesting - covers lab setup to exploitation |
-| **The Hacker Playbook 3** | Peter Kim | Intermediate | Real engagement TTPs, AD attacks, red team tradecraft |
-| **Practical Malware Analysis** | Sikorski & Honig | Intermediate | The definitive malware RE textbook - still unmatched |
-| **Serious Cryptography** | Jean-Philippe Aumasson | Intermediate | Applied crypto for practitioners - no PhD required |
-| **Security Engineering** | Ross Anderson | Intermediate | Broadest view of security as a systems problem - free online |
+| The Web Application Hacker's Handbook | Stuttard & Pinto | Intermediate | Still the most complete web vuln reference ever written |
+| Penetration Testing | Georgia Weidman | Beginner | Best hands-on intro to pentesting - covers lab setup to exploitation |
+| The Hacker Playbook 3 | Peter Kim | Intermediate | Real engagement TTPs, AD attacks, red team tradecraft |
+| Practical Malware Analysis | Sikorski & Honig | Intermediate | The definitive malware RE textbook - still unmatched |
+| Serious Cryptography | Jean-Philippe Aumasson | Intermediate | Applied crypto for practitioners - no PhD required |
+| Security Engineering | Ross Anderson | Intermediate | Broadest view of security as a systems problem - free online |
 
-> **Practical note:** Ross Anderson's *Security Engineering* (3rd ed.) is [free on his website](https://www.cl.cam.ac.uk/~rja14/book.html). Read it.
+> Practical note: Ross Anderson's *Security Engineering* (3rd ed.) is [free on his website](https://www.cl.cam.ac.uk/~rja14/book.html). Read it.
 
-**Hands-on repos:**
+Hands-on repos:
 - [HackTricks](https://github.com/HackTricks-wiki/hacktricks) - The living reference for every technique across all core books
 - [awesome-security](https://github.com/sbilly/awesome-security) - Curated megalist of tools, papers, and resources
 - [Awesome-Hacking-Resources](https://github.com/vitalysim/Awesome-Hacking-Resources) - Broad hacking resource collection
 
-**YouTube channels to pair:**
+YouTube channels to pair:
 - [John Hammond](https://www.youtube.com/@_JohnHammond) - CTF walkthroughs, malware analysis, everything
 - [LiveOverflow](https://www.youtube.com/@LiveOverflow) - Deep technical security content
 - [NetworkChuck](https://www.youtube.com/@NetworkChuck) - Entry-level networking + hacking fun
@@ -182,20 +182,20 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Metasploit: The Penetration Tester's Guide** | Kennedy et al. | Beginner | Framework bible - understand the tool you'll use on every engagement |
-| **Black Hat Python** | Justin Seitz | Intermediate | Build your own offensive tools - pairs perfectly with OSCP |
-| **Hacking: The Art of Exploitation** | Jon Erickson | Advanced | The only book that teaches C, assembly, shellcode AND exploitation together |
-| **Attacking Network Protocols** | James Forshaw | Advanced | Deep protocol analysis and custom exploit dev for network services |
-| **Real-World Bug Hunting** | Peter Yaworski | Beginner | 35 real disclosed vulnerabilities with full methodology - great starter |
-| **Advanced Penetration Testing** | Wil Allsopp | Advanced | Nation-state tradecraft, APT simulation, custom C2 concepts |
-| **Red Team Field Manual (RTFM)** | Ben Clark | Intermediate | On-engagement command reference - print this, keep it on your desk |
-| **Bug Bounty Bootcamp** | Vickie Li | Beginner | Modern web bug bounty methodology A-Z |
-| **Web Hacking 101** | Peter Yaworski | Beginner | Free on Leanpub - 30 real bug reports, great first bug bounty book |
-| **Penetration Testing: A Hands-On Introduction** | Georgia Weidman | Beginner | The lab-first approach to learning pentesting |
+| Metasploit: The Penetration Tester's Guide | Kennedy et al. | Beginner | Framework bible - understand the tool you'll use on every engagement |
+| Black Hat Python | Justin Seitz | Intermediate | Build your own offensive tools - pairs perfectly with OSCP |
+| Hacking: The Art of Exploitation | Jon Erickson | Advanced | The only book that teaches C, assembly, shellcode AND exploitation together |
+| Attacking Network Protocols | James Forshaw | Advanced | Deep protocol analysis and custom exploit dev for network services |
+| Real-World Bug Hunting | Peter Yaworski | Beginner | 35 real disclosed vulnerabilities with full methodology - great starter |
+| Advanced Penetration Testing | Wil Allsopp | Advanced | Nation-state tradecraft, APT simulation, custom C2 concepts |
+| Red Team Field Manual (RTFM) | Ben Clark | Intermediate | On-engagement command reference - print this, keep it on your desk |
+| Bug Bounty Bootcamp | Vickie Li | Beginner | Modern web bug bounty methodology A-Z |
+| Web Hacking 101 | Peter Yaworski | Beginner | Free on Leanpub - 30 real bug reports, great first bug bounty book |
+| Penetration Testing: A Hands-On Introduction | Georgia Weidman | Beginner | The lab-first approach to learning pentesting |
 
-> **Practical note:** Pair **RTFM + HackTricks + InternalAllTheThings** as your three-tab reference during any engagement. They cover Windows, Linux, and web respectively.
+> Practical note: Pair RTFM + HackTricks + InternalAllTheThings as your three-tab reference during any engagement. They cover Windows, Linux, and web respectively.
 
-**Hands-on repos:**
+Hands-on repos:
 - [metasploit-payloads](https://github.com/rapid7/metasploit-payloads) - Official Metasploit payloads (pairs directly with Metasploit book)
 - [NetExec](https://github.com/Pennyw0rth/NetExec) - Modern network pentesting Swiss army knife (nxc)
 - [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) - Classic SMB/WinRM/LDAP pentesting framework
@@ -222,7 +222,7 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [ParamSpider](https://github.com/devanshbatham/ParamSpider) - Mine URLs from web archives for parameter fuzzing
 - [wapiti](https://github.com/wapiti-scanner/wapiti) - Web vulnerability scanner - command injection, SQLi, XSS, and more
 
-**Essential cheat sheet URLs (bookmark these):**
+Essential cheat sheet URLs (bookmark these):
 - [revshells.com](https://www.revshells.com) - Reverse shell generator for every language - instant copy/paste
 - [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed/) - Free comprehensive Metasploit guide from OffSec
 - [ropnop - Upgrading Shells to TTY](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/) - The definitive TTY upgrade guide
@@ -232,9 +232,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [Nmap Cheat Sheet (highon.coffee)](https://highon.coffee/blog/nmap-cheat-sheet/) - Quick flag and scan type reference
 - [LOLBAS Project](https://lolbas-project.github.io) - Windows Living Off The Land binary abuse
 
-**Certifications:** OSCP  | PNPT  | eCPPT  | GPEN  | GCIH
-**YouTube:** [TCM Security](https://www.youtube.com/@TCMSecurityAcademy)  | [IppSec](https://www.youtube.com/@ippsec)  | [HackerSploit](https://www.youtube.com/@HackerSploit)
-**Practice:** [Hack The Box](https://hackthebox.com)  | [TryHackMe](https://tryhackme.com)  | [PentesterLab](https://pentesterlab.com)
+Certifications: OSCP | PNPT | eCPPT | GPEN | GCIH
+YouTube: [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) | [IppSec](https://www.youtube.com/@ippsec) | [HackerSploit](https://www.youtube.com/@HackerSploit)
+Practice: [Hack The Box](https://hackthebox.com) | [TryHackMe](https://tryhackme.com) | [PentesterLab](https://pentesterlab.com)
 
 ---
 
@@ -242,15 +242,15 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **The Web Application Hacker's Handbook** | Stuttard & Pinto | Intermediate | Encyclopedic - every web vuln class explained with attack and defense |
-| **Bug Bounty Bootcamp** | Vickie Li | Beginner | Modern methodology, recon to report, focused on HackerOne/Bugcrowd |
-| **Web Hacking 101** | Peter Yaworski | Beginner | Real bug disclosures - learn what actually gets paid |
-| **Browser Hackers Handbook** | Wade Alcorn | Advanced | Browser internals, XSS to client-side exploitation depth |
-| **The Tangled Web** | Michal Zalewski | Advanced | How browsers work - essential for understanding client-side attacks |
+| The Web Application Hacker's Handbook | Stuttard & Pinto | Intermediate | Encyclopedic - every web vuln class explained with attack and defense |
+| Bug Bounty Bootcamp | Vickie Li | Beginner | Modern methodology, recon to report, focused on HackerOne/Bugcrowd |
+| Web Hacking 101 | Peter Yaworski | Beginner | Real bug disclosures - learn what actually gets paid |
+| Browser Hackers Handbook | Wade Alcorn | Advanced | Browser internals, XSS to client-side exploitation depth |
+| The Tangled Web | Michal Zalewski | Advanced | How browsers work - essential for understanding client-side attacks |
 
-> **Practical note:** Subscribe to [portswigger.net/research](https://portswigger.net/research) and [HackerOne Hacktivity](https://hackerone.com/hacktivity). Real disclosed reports teach more than any book chapter.
+> Practical note: Subscribe to [portswigger.net/research](https://portswigger.net/research) and [HackerOne Hacktivity](https://hackerone.com/hacktivity). Real disclosed reports teach more than any book chapter.
 
-**Hands-on repos:**
+Hands-on repos:
 - [zaproxy](https://github.com/zaproxy/zaproxy) - OWASP ZAP web app scanner
 - [nuclei](https://github.com/projectdiscovery/nuclei) - Fast vulnerability scanner with 9000+ community templates
 - [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) - Community CVE/vuln detection templates
@@ -275,9 +275,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [caido](https://github.com/caido/caido) - Modern Burp alternative for web pentesting
 - [dalfox](https://github.com/hahwul/dalfox) - XSS scanning and parameter analysis
 
-**Certifications:** BSCP (PortSwigger)  | eWPT  | GWEB  | OSWE
-**YouTube:** [Rana Khalil](https://www.youtube.com/@RanaKhalil101) | [NahamSec](https://www.youtube.com/@NahamSec) | [STOK](https://www.youtube.com/@STOKfredrik)
-**Practice:** [PortSwigger Web Academy](https://portswigger.net/web-security) (free)  | [HackerOne](https://hackerone.com)  | [Bugcrowd](https://bugcrowd.com)  | [DVWA](https://github.com/digininja/DVWA)
+Certifications: BSCP (PortSwigger) | eWPT | GWEB | OSWE
+YouTube: [Rana Khalil](https://www.youtube.com/@RanaKhalil101) | [NahamSec](https://www.youtube.com/@NahamSec) | [STOK](https://www.youtube.com/@STOKfredrik)
+Practice: [PortSwigger Web Academy](https://portswigger.net/web-security) (free) | [HackerOne](https://hackerone.com) | [Bugcrowd](https://bugcrowd.com) | [DVWA](https://github.com/digininja/DVWA)
 
 ---
 
@@ -287,33 +287,33 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Building Secure Software** | Viega & McGraw | Intermediate | Still the foundational text on writing secure code — threat models, design principles, common flaws |
-| **The Art of Software Security Assessment** | Dowd, McDonald & Schuh | Advanced | Deep source code review methodology — finding vulns by reading code, not running exploits |
-| **Writing Secure Code (2nd ed.)** | Howard & LeBlanc | Intermediate | Microsoft SDL origins — threat modelling, input validation, buffer overflows from a dev perspective |
-| **The DevSecOps Handbook** | Kim et al. | Intermediate | How to integrate security into CI/CD pipelines without slowing delivery |
-| **Alice and Bob Learn Application Security** | Tanya Janca | Beginner | Approachable intro to AppSec concepts for developers — OWASP Top 10, secure design, threat modelling |
-| **Threat Modeling: Designing for Security** | Adam Shostack | Intermediate | The definitive threat modelling book — STRIDE, data flow diagrams, systematic risk identification |
-| **Iron-Clad Java** | Manico & Detlefsen | Intermediate | Java-specific secure coding — injection, auth, session management, crypto, covering OWASP controls |
-| **Agile Application Security** | Bell et al. | Intermediate | Security in agile teams — security champions, lightweight threat modelling, DevSecOps culture |
+| Building Secure Software | Viega & McGraw | Intermediate | Still the foundational text on writing secure code: threat models, design principles, common flaws |
+| The Art of Software Security Assessment | Dowd, McDonald & Schuh | Advanced | Deep source code review methodology: finding vulns by reading code, not running exploits |
+| Writing Secure Code (2nd ed.) | Howard & LeBlanc | Intermediate | Microsoft SDL origins: threat modelling, input validation, buffer overflows from a dev perspective |
+| The DevSecOps Handbook | Kim et al. | Intermediate | How to integrate security into CI/CD pipelines without slowing delivery |
+| Alice and Bob Learn Application Security | Tanya Janca | Beginner | Approachable intro to AppSec concepts for developers: OWASP Top 10, secure design, threat modelling |
+| Threat Modeling: Designing for Security | Adam Shostack | Intermediate | The definitive threat modelling book: STRIDE, data flow diagrams, systematic risk identification |
+| Iron-Clad Java | Manico & Detlefsen | Intermediate | Java-specific secure coding: injection, auth, session management, crypto, covering OWASP controls |
+| Agile Application Security | Bell et al. | Intermediate | Security in agile teams: security champions, lightweight threat modelling, DevSecOps culture |
 
-> **Practical note:** [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) is the most actionable free AppSec reference. Pair it with the [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) as your verification framework.
+> Practical note: [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) is the most actionable free AppSec reference. Pair it with the [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) as your verification framework.
 
-**Hands-on repos:**
+Hands-on repos:
 - [semgrep](https://github.com/semgrep/semgrep) - Fast SAST engine with 2000+ rules across 30+ languages
 - [codeql](https://github.com/github/codeql) - GitHub's semantic code analysis engine (variant analysis)
-- [bandit](https://github.com/PyCQA/bandit) - Python SAST — finds common security issues in Python code
-- [gosec](https://github.com/securego/gosec) - Go security checker — rules for common Go vulnerability patterns
+- [bandit](https://github.com/PyCQA/bandit) - Python SAST: finds common security issues in Python code
+- [gosec](https://github.com/securego/gosec) - Go security checker: rules for common Go vulnerability patterns
 - [brakeman](https://github.com/presidentbeef/brakeman) - Static analysis for Ruby on Rails applications
 - [trufflehog](https://github.com/trufflesecurity/trufflehog) - Secret scanning in git history and CI pipelines
 - [gitleaks](https://github.com/gitleaks/gitleaks) - Detect and prevent secrets in git repos
 - [detect-secrets](https://github.com/Yelp/detect-secrets) - Lightweight secret detection to use as a git hook
 - [OWASP Cheat Sheet Series](https://github.com/OWASP/CheatSheetSeries) - Developer-facing secure coding cheat sheets
 - [OWASP ASVS](https://github.com/OWASP/ASVS) - Application Security Verification Standard
-- [OWASP SAMM](https://github.com/owaspsamm/core) - Software Assurance Maturity Model — AppSec program maturity framework
+- [OWASP SAMM](https://github.com/owaspsamm/core) - Software Assurance Maturity Model: AppSec program maturity framework
 - [WebGoat](https://github.com/WebGoat/WebGoat) - Deliberately insecure Java web app for hands-on AppSec training
 - [NodeGoat](https://github.com/OWASP/NodeGoat) - Intentionally vulnerable Node.js app for OWASP Top 10 practice
-- [DVWA](https://github.com/digininja/DVWA) - Damn Vulnerable Web App — classic training target
-- [juice-shop](https://github.com/juice-shop/juice-shop) - OWASP Juice Shop — the modern intentionally vulnerable web app
+- [DVWA](https://github.com/digininja/DVWA) - Damn Vulnerable Web App: classic training target
+- [juice-shop](https://github.com/juice-shop/juice-shop) - OWASP Juice Shop: the modern intentionally vulnerable web app
 - [cdxgen](https://github.com/CycloneDX/cdxgen) - Generate CycloneDX SBOM from source code and containers
 - [syft](https://github.com/anchore/syft) - CLI and Go library for generating SBOMs from containers and filesystems
 - [grype](https://github.com/anchore/grype) - Vulnerability scanner for container images and filesystems
@@ -325,14 +325,14 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **The Hacker Playbook 3** | Peter Kim | Intermediate | Best practical AD attack coverage in book form |
-| **Windows Internals (Part 1 & 2)** | Russinovich et al. | Advanced | The definitive Windows OS internals reference - understand what you're attacking |
-| **Attacking and Defending Active Directory** | Nikhil Mittal | Intermediate | Focused entirely on AD attack paths, Kerberos, and defense |
-| **The Art of Invisibility** | Kevin Mitnick | Beginner | Operational security and evasion mindset |
+| The Hacker Playbook 3 | Peter Kim | Intermediate | Best practical AD attack coverage in book form |
+| Windows Internals (Part 1 & 2) | Russinovich et al. | Advanced | The definitive Windows OS internals reference - understand what you're attacking |
+| Attacking and Defending Active Directory | Nikhil Mittal | Intermediate | Focused entirely on AD attack paths, Kerberos, and defense |
+| The Art of Invisibility | Kevin Mitnick | Beginner | Operational security and evasion mindset |
 
-> **Practical note:** You don't need a book for AD attacks - [SpecterOps' blog](https://posts.specterops.io) and the BloodHound docs are more current than any book. Combine with labs.
+> Practical note: You don't need a book for AD attacks - [SpecterOps' blog](https://posts.specterops.io) and the BloodHound docs are more current than any book. Combine with labs.
 
-**Hands-on repos:**
+Hands-on repos:
 - [BloodHound](https://github.com/SpecterOps/BloodHound) - The definitive AD attack path mapping tool
 - [SharpHound](https://github.com/BloodHoundAD/SharpHound) - BloodHound data collector
 - [impacket](https://github.com/fortra/impacket) - Python library for AD/Windows network protocols (GetTGT, secretsdump, etc.)
@@ -358,9 +358,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [pyGPOAbuse](https://github.com/Hackndo/pyGPOAbuse) - GPO abuse for privilege escalation
 - [ADFSDump](https://github.com/mandiant/ADFSDump) - Extract ADFS configuration (token signing certs)
 
-**Certifications:** CRTO  | CRTE  | PNPT  | OSEP  | GXPN
-**YouTube:** [IppSec](https://www.youtube.com/@ippsec)  | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy)  | [Orange Cyberdefense](https://www.youtube.com/@OrangeCyberdefense)
-**Practice:** [Hack The Box Pro Labs (RastaLabs, Offshore)](https://hackthebox.com)  | [TCM AD Labs](https://tcm-sec.com)  | [VulnLab](https://vulnlab.com)
+Certifications: CRTO | CRTE | PNPT | OSEP | GXPN
+YouTube: [IppSec](https://www.youtube.com/@ippsec) | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) | [Orange Cyberdefense](https://www.youtube.com/@OrangeCyberdefense)
+Practice: [Hack The Box Pro Labs (RastaLabs, Offshore)](https://hackthebox.com) | [TCM AD Labs](https://tcm-sec.com) | [VulnLab](https://vulnlab.com)
 
 ---
 
@@ -368,17 +368,17 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Practical Malware Analysis** | Sikorski & Honig | Intermediate | Gold standard - every DFIR/malware analyst has read this |
-| **Practical Binary Analysis** | Dennis Andriesse | Advanced | Goes deeper on ELF, disassembly, and dynamic analysis |
-| **The Ghidra Book** | Eagle & Nance | Intermediate | The only comprehensive Ghidra RE guide |
-| **Malware Analyst's Cookbook** | Ligh et al. | Intermediate | 70+ recipes for analyzing malware samples |
-| **Rootkits and Bootkits** | Matrosov et al. | Advanced | Deep dive into UEFI/MBR-level malware - advanced |
-| **Reversing: Secrets of RE** | Eldad Eilam | Advanced | Classic - covers x86 RE techniques in depth |
-| **Learning Malware Analysis** | Monnappa K A | Intermediate | Modern malware analysis walkthrough, Windows internals included |
+| Practical Malware Analysis | Sikorski & Honig | Intermediate | Gold standard - every DFIR/malware analyst has read this |
+| Practical Binary Analysis | Dennis Andriesse | Advanced | Goes deeper on ELF, disassembly, and dynamic analysis |
+| The Ghidra Book | Eagle & Nance | Intermediate | The only comprehensive Ghidra RE guide |
+| Malware Analyst's Cookbook | Ligh et al. | Intermediate | 70+ recipes for analyzing malware samples |
+| Rootkits and Bootkits | Matrosov et al. | Advanced | Deep dive into UEFI/MBR-level malware - advanced |
+| Reversing: Secrets of RE | Eldad Eilam | Advanced | Classic - covers x86 RE techniques in depth |
+| Learning Malware Analysis | Monnappa K A | Intermediate | Modern malware analysis walkthrough, Windows internals included |
 
-> **Practical note:** Build your own [FlareVM](https://github.com/mandiant/flare-vm) box. Run every sample you study in it. Reading about malware without running it is half the education.
+> Practical note: Build your own [FlareVM](https://github.com/mandiant/flare-vm) box. Run every sample you study in it. Reading about malware without running it is half the education.
 
-**Hands-on repos:**
+Hands-on repos:
 - [pe-bear](https://github.com/hasherezade/pe-bear) - PE file reversing GUI tool by @hasherezade
 - [pe-sieve](https://github.com/hasherezade/pe-sieve) - Scan running processes for injected/hollow implants
 - [hollows_hunter](https://github.com/hasherezade/hollows_hunter) - Detect and dump process hollowing
@@ -412,9 +412,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [blackhat-python3](https://github.com/EONRaider/blackhat-python3) - Black Hat Python source code ported to Python 3 - run the book examples
 - [efiXplorer](https://github.com/REhints/efiXplorer) - IDA/Ghidra plugin for UEFI firmware analysis and RE automation
 
-**Certifications:** GREM  | eCMAP  | GCFE  | GCFA  | CREA
-**YouTube:** [OALabs](https://www.youtube.com/@OALABS)  | [MalwareAnalysisForHedgehogs](https://www.youtube.com/@MalwareAnalysisForHedgehogs)  | [hasherezade](https://www.youtube.com/@hasherezade)
-**Practice:** [MalwareBazaar](https://bazaar.abuse.ch)  | [ANY.RUN](https://any.run)  | [Hybrid Analysis](https://hybrid-analysis.com)  | [VirusTotal](https://virustotal.com)
+Certifications: GREM | eCMAP | GCFE | GCFA | CREA
+YouTube: [OALabs](https://www.youtube.com/@OALABS) | [MalwareAnalysisForHedgehogs](https://www.youtube.com/@MalwareAnalysisForHedgehogs) | [hasherezade](https://www.youtube.com/@hasherezade)
+Practice: [MalwareBazaar](https://bazaar.abuse.ch) | [ANY.RUN](https://any.run) | [Hybrid Analysis](https://hybrid-analysis.com) | [VirusTotal](https://virustotal.com)
 
 ---
 
@@ -422,15 +422,15 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Serious Cryptography** | Jean-Philippe Aumasson | Intermediate | Best applied crypto book - real implementations, not just theory |
-| **Cryptography Engineering** | Ferguson, Schneier, Kohno | Intermediate | Practical crypto engineering - how to build it correctly |
-| **Understanding Cryptography** | Paar & Pelzl | Intermediate | Textbook quality - excellent for understanding primitives |
-| **Real-World Cryptography** | David Wong | Intermediate | Modern crypto protocols - TLS 1.3, Signal, Noise framework |
-| **An Introduction to Mathematical Cryptography** | Hoffstein et al. | Advanced | The math behind it - for researchers who want depth |
+| Serious Cryptography | Jean-Philippe Aumasson | Intermediate | Best applied crypto book - real implementations, not just theory |
+| Cryptography Engineering | Ferguson, Schneier, Kohno | Intermediate | Practical crypto engineering - how to build it correctly |
+| Understanding Cryptography | Paar & Pelzl | Intermediate | Textbook quality - excellent for understanding primitives |
+| Real-World Cryptography | David Wong | Intermediate | Modern crypto protocols - TLS 1.3, Signal, Noise framework |
+| An Introduction to Mathematical Cryptography | Hoffstein et al. | Advanced | The math behind it - for researchers who want depth |
 
-> **Practical note:** [CryptoHack](https://cryptohack.org) is the best free hands-on crypto learning platform. Pair every chapter of Serious Cryptography with the relevant CryptoHack challenges.
+> Practical note: [CryptoHack](https://cryptohack.org) is the best free hands-on crypto learning platform. Pair every chapter of Serious Cryptography with the relevant CryptoHack challenges.
 
-**Hands-on repos:**
+Hands-on repos:
 - [sigstore](https://github.com/sigstore/sigstore) - Code signing and supply chain security (applied crypto)
 - [cosign](https://github.com/sigstore/cosign) - Container and binary signing
 - [getsops/sops](https://github.com/getsops/sops) - Secrets management with envelope encryption (AGE/KMS)
@@ -441,9 +441,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [awesome-ethereum-security](https://github.com/crytic/awesome-ethereum-security) - Blockchain/smart contract crypto security
 - [CryptoHack challenges](https://github.com/cryptohack/cryptohack-blog) - Platform for learning practical crypto through challenges
 
-**Certifications:** GCFE (crypto section)  | CISSP (domain 3)  | CEH (cryptography module)
-**YouTube:** [Christof Paar Lectures](https://www.youtube.com/@introductiontocryptography4223)  | [David Wong](https://www.youtube.com/@cryptologie)
-**Practice:** [CryptoHack](https://cryptohack.org)  | [Cryptopals Challenges](https://cryptopals.com)
+Certifications: GCFE (crypto section) | CISSP (domain 3) | CEH (cryptography module)
+YouTube: [Christof Paar Lectures](https://www.youtube.com/@introductiontocryptography4223) | [David Wong](https://www.youtube.com/@cryptologie)
+Practice: [CryptoHack](https://cryptohack.org) | [Cryptopals Challenges](https://cryptopals.com)
 
 ---
 
@@ -451,17 +451,17 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Blue Team Field Manual (BTFM)** | Clark & Robertson | Beginner | The defender's desk reference - commands for every IR task |
-| **Incident Response & Computer Forensics** | Luttgens et al. | Intermediate | Structured IR methodology - what to do when the alarm fires |
-| **The Practice of Network Security Monitoring** | Richard Bejtlich | Intermediate | NSM fundamentals - how to build a detection program |
-| **Security Operations Center** | Joseph Muniz | Beginner | SOC design, staffing, tools, and metrics - good for SOC leads |
-| **Applied Network Security Monitoring** | Sanders & Smith | Intermediate | Practical NSM with Bro/Zeek and Snort - lab-first |
-| **Crafting the InfoSec Playbook** | Bollinger et al. | Intermediate | Building detection strategies and security analytics |
-| **The DFIR Report** | Various | Intermediate | Not a book - [thedfirreport.com](https://thedfirreport.com) - real intrusion analysis reports |
+| Blue Team Field Manual (BTFM) | Clark & Robertson | Beginner | The defender's desk reference - commands for every IR task |
+| Incident Response & Computer Forensics | Luttgens et al. | Intermediate | Structured IR methodology - what to do when the alarm fires |
+| The Practice of Network Security Monitoring | Richard Bejtlich | Intermediate | NSM fundamentals - how to build a detection program |
+| Security Operations Center | Joseph Muniz | Beginner | SOC design, staffing, tools, and metrics - good for SOC leads |
+| Applied Network Security Monitoring | Sanders & Smith | Intermediate | Practical NSM with Bro/Zeek and Snort - lab-first |
+| Crafting the InfoSec Playbook | Bollinger et al. | Intermediate | Building detection strategies and security analytics |
+| The DFIR Report | Various | Intermediate | Not a book - [thedfirreport.com](https://thedfirreport.com) - real intrusion analysis reports |
 
-> **Practical note:** The [DFIR Report](https://thedfirreport.com) publishes real intrusion case studies. Read every report - they're more valuable than most books on defense.
+> Practical note: The [DFIR Report](https://thedfirreport.com) publishes real intrusion case studies. Read every report - they're more valuable than most books on defense.
 
-**Hands-on repos:**
+Hands-on repos:
 - [sigma](https://github.com/SigmaHQ/sigma) - Generic SIEM detection rule format - the Rosetta Stone of detections
 - [pySigma](https://github.com/SigmaHQ/pySigma) - Convert Sigma rules to any SIEM query language
 - [hayabusa](https://github.com/Yamato-Security/hayabusa) - Sigma-based Windows event log threat hunting (fast)
@@ -496,9 +496,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) - Wazuh SIEM detection rules - covers 3000+ attack scenarios
 - [scirius](https://github.com/StamusNetworks/scirius) - Suricata ruleset management and threat hunting UI
 
-**Certifications:** BTL1  | GCIH  | GCFE  | GCFA  | CySA+  | BlueTeamLabs
-**YouTube:** [Eric Capuano](https://www.youtube.com/@reginald254)  | [SANS DFIR](https://www.youtube.com/@SANSForensics)  | [13Cubed](https://www.youtube.com/@13Cubed)
-**Practice:** [Blue Team Labs Online](https://blueteamlabs.online)  | [CyberDefenders](https://cyberdefenders.org)  | [LetsDefend](https://letsdefend.io)
+Certifications: BTL1 | GCIH | GCFE | GCFA | CySA+ | BlueTeamLabs
+YouTube: [Eric Capuano](https://www.youtube.com/@reginald254) | [SANS DFIR](https://www.youtube.com/@SANSForensics) | [13Cubed](https://www.youtube.com/@13Cubed)
+Practice: [Blue Team Labs Online](https://blueteamlabs.online) | [CyberDefenders](https://cyberdefenders.org) | [LetsDefend](https://letsdefend.io)
 
 ---
 
@@ -506,14 +506,14 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **The Threat Intelligence Handbook** | CyberEdge Group | Beginner | Free PDF - SOC-focused TI fundamentals |
-| **Intelligence-Driven Incident Response** | Rebekah Brown & Scott Roberts | Intermediate | F3EAD and Diamond Model applied to IR |
-| **Hacking the Hacker** | Roger Grimes | Beginner | Profiles of 26 top security researchers and their methods |
-| **Applied Incident Response** | Steve Anson | Intermediate | Practical IR with Windows forensics and TI context |
+| The Threat Intelligence Handbook | CyberEdge Group | Beginner | Free PDF - SOC-focused TI fundamentals |
+| Intelligence-Driven Incident Response | Rebekah Brown & Scott Roberts | Intermediate | F3EAD and Diamond Model applied to IR |
+| Hacking the Hacker | Roger Grimes | Beginner | Profiles of 26 top security researchers and their methods |
+| Applied Incident Response | Steve Anson | Intermediate | Practical IR with Windows forensics and TI context |
 
-> **Practical note:** Follow [MITRE ATT&CK](https://attack.mitre.org) updates religiously. Every new technique published is a gap you can fill with a detection. Subscribe to CISA advisories and Mandiant threat reports.
+> Practical note: Follow [MITRE ATT&CK](https://attack.mitre.org) updates religiously. Every new technique published is a gap you can fill with a detection. Subscribe to CISA advisories and Mandiant threat reports.
 
-**Hands-on repos:**
+Hands-on repos:
 - [MITRE ATT&CK Navigator](https://github.com/mitre-attack/attack-navigator) - Map detections and coverage against ATT&CK
 - [OpenCTI](https://github.com/OpenCTI-Platform/opencti) - Open source threat intelligence platform
 - [MISP](https://github.com/MISP/MISP) - Malware Information Sharing Platform (the standard for TI sharing)
@@ -530,9 +530,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [vt-cli](https://github.com/VirusTotal/vt-cli) - VirusTotal CLI for automated lookups
 - [Cortex-Analyzers](https://github.com/TheHive-Project/Cortex-Analyzers) - 100+ analyzers for TI enrichment
 
-**Certifications:** GCTI  | CREST CPSA  | FOR578 (SANS TI)  | eCTHP
-**YouTube:** [Recorded Future](https://www.youtube.com/@RecordedFuture)  | [SANS Threat Hunting](https://www.youtube.com/@SANSForensics)
-**Practice:** [MITRE ATT&CK Evaluations](https://attackevals.mitre-engenuity.org)  | [RangeForce](https://rangeforce.com)
+Certifications: GCTI | CREST CPSA | FOR578 (SANS TI) | eCTHP
+YouTube: [Recorded Future](https://www.youtube.com/@RecordedFuture) | [SANS Threat Hunting](https://www.youtube.com/@SANSForensics)
+Practice: [MITRE ATT&CK Evaluations](https://attackevals.mitre-engenuity.org) | [RangeForce](https://rangeforce.com)
 
 ---
 
@@ -540,16 +540,16 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **OSINT Techniques** | Michael Bazzell | Beginner | The definitive OSINT methodology book - updated annually |
-| **Extreme Privacy** | Michael Bazzell | Beginner | How to disappear from data brokers and the internet |
-| **Open Source Intelligence Techniques** (older ed.) | Michael Bazzell | Beginner | Earlier edition - still valuable for foundational methods |
-| **Social Engineering: The Science of Human Hacking** | Christopher Hadnagy | Beginner | Psychological manipulation for security purposes |
-| **People Hacker** | Jenny Radcliffe | Beginner | Real-world physical and social engineering stories |
-| **The Art of Deception** | Kevin Mitnick | Beginner | Classic - social engineering case studies from the master |
+| OSINT Techniques | Michael Bazzell | Beginner | The definitive OSINT methodology book - updated annually |
+| Extreme Privacy | Michael Bazzell | Beginner | How to disappear from data brokers and the internet |
+| Open Source Intelligence Techniques (older ed.) | Michael Bazzell | Beginner | Earlier edition - still valuable for foundational methods |
+| Social Engineering: The Science of Human Hacking | Christopher Hadnagy | Beginner | Psychological manipulation for security purposes |
+| People Hacker | Jenny Radcliffe | Beginner | Real-world physical and social engineering stories |
+| The Art of Deception | Kevin Mitnick | Beginner | Classic - social engineering case studies from the master |
 
-> **Practical note:** Michael Bazzell's [Privacy, Security & OSINT Show](https://inteltechniques.com/podcast.html) podcast covers updates that keep the book current. Subscribe and listen while commuting.
+> Practical note: Michael Bazzell's [Privacy, Security & OSINT Show](https://inteltechniques.com/podcast.html) podcast covers updates that keep the book current. Subscribe and listen while commuting.
 
-**Hands-on repos:**
+Hands-on repos:
 - [awesome-osint](https://github.com/jivoi/awesome-osint) - Comprehensive curated OSINT resource list
 - [osint_stuff_tool_collection](https://github.com/cipher387/osint_stuff_tool_collection) - 300+ online OSINT tools and services
 - [spiderfoot](https://github.com/smicallef/spiderfoot) - Automated OSINT and attack surface mapping
@@ -577,9 +577,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) - Network-wide DNS ad/tracker blocking
 - [pi-hole](https://github.com/pi-hole/pi-hole) - DNS-level ad blocking for your entire network
 
-**Certifications:** OSINT Curious  | GOSI  | CREST  | Trace Labs OSINT CTF
-**YouTube:** [Michael Bazzell](https://www.youtube.com/@IntelTechniques)  | [OSINT Dojo](https://www.youtube.com/@OSINTDojo)  | [Bendobrown](https://www.youtube.com/@Bendobrown)
-**Practice:** [TraceLabs Missing Persons CTF](https://tracelabs.org)  | [Bellingcat Online Investigations](https://www.bellingcat.com)
+Certifications: OSINT Curious | GOSI | CREST | Trace Labs OSINT CTF
+YouTube: [Michael Bazzell](https://www.youtube.com/@IntelTechniques) | [OSINT Dojo](https://www.youtube.com/@OSINTDojo) | [Bendobrown](https://www.youtube.com/@Bendobrown)
+Practice: [TraceLabs Missing Persons CTF](https://tracelabs.org) | [Bellingcat Online Investigations](https://www.bellingcat.com)
 
 ---
 
@@ -587,16 +587,16 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **CCSP Official Study Guide** | Chapple & Seidl | Intermediate | Broad cloud security foundations - covers AWS/Azure/GCP concepts |
-| **Hacking the Cloud** | Various (online) | Intermediate | [hackingthe.cloud](https://hackingthe.cloud) - free, updated constantly |
-| **AWS Security Handbook** | Marzia Kjell | Intermediate | Practical AWS security from misconfig to exploitation |
-| **Cloud Security and Privacy** | Tim Mather | Beginner | Executive/architect level cloud security overview |
-| **Kubernetes Security and Observability** | Liz Rice | Intermediate | Container and K8s security depth |
-| **Hacking Kubernetes** | Rice & Hausenblas | Advanced | Attack and defense for Kubernetes environments |
+| CCSP Official Study Guide | Chapple & Seidl | Intermediate | Broad cloud security foundations - covers AWS/Azure/GCP concepts |
+| Hacking the Cloud | Various (online) | Intermediate | [hackingthe.cloud](https://hackingthe.cloud) - free, updated constantly |
+| AWS Security Handbook | Marzia Kjell | Intermediate | Practical AWS security from misconfig to exploitation |
+| Cloud Security and Privacy | Tim Mather | Beginner | Executive/architect level cloud security overview |
+| Kubernetes Security and Observability | Liz Rice | Intermediate | Container and K8s security depth |
+| Hacking Kubernetes | Rice & Hausenblas | Advanced | Attack and defense for Kubernetes environments |
 
-> **Practical note:** Cloud attack paths change fast - [HackingThe.Cloud](https://hackingthe.cloud) and [CloudSecDocs](https://cloudsecdocs.com) are more current than any book. Pair with hands-on labs in a personal AWS/Azure free tier account.
+> Practical note: Cloud attack paths change fast - [HackingThe.Cloud](https://hackingthe.cloud) and [CloudSecDocs](https://cloudsecdocs.com) are more current than any book. Pair with hands-on labs in a personal AWS/Azure free tier account.
 
-**Hands-on repos:**
+Hands-on repos:
 - [pacu](https://github.com/RhinoSecurityLabs/pacu) - AWS exploitation framework
 - [prowler](https://github.com/prowler-cloud/prowler) - Cloud security posture assessment (AWS/Azure/GCP)
 - [ScoutSuite](https://github.com/nccgroup/ScoutSuite) - Multi-cloud security auditing tool
@@ -626,9 +626,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [ggshield](https://github.com/GitGuardian/ggshield) - GitGuardian CLI - detect 500+ secret types in pre-commit hooks and CI
 - [scirius](https://github.com/StamusNetworks/scirius) - Suricata NDR ruleset management
 
-**Certifications:** CCSP  | AWS Security Specialty  | CCSK  | KCSA  | GCP Security Engineer
-**YouTube:** [CloudSecurityPodcast](https://www.youtube.com/@CloudSecurityPodcast)  | [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec)  | [Nick Jones (NCC)](https://www.youtube.com/@nickjones)
-**Practice:** [CloudGoat (Rhino)](https://github.com/RhinoSecurityLabs/cloudgoat)  | [flaws.cloud](http://flaws.cloud)  | [flaws2.cloud](http://flaws2.cloud)  | [AWSGoat](https://github.com/ine-labs/AWSGoat)
+Certifications: CCSP | AWS Security Specialty | CCSK | KCSA | GCP Security Engineer
+YouTube: [CloudSecurityPodcast](https://www.youtube.com/@CloudSecurityPodcast) | [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec) | [Nick Jones (NCC)](https://www.youtube.com/@nickjones)
+Practice: [CloudGoat (Rhino)](https://github.com/RhinoSecurityLabs/cloudgoat) | [flaws.cloud](http://flaws.cloud) | [flaws2.cloud](http://flaws2.cloud) | [AWSGoat](https://github.com/ine-labs/AWSGoat)
 
 ---
 
@@ -636,14 +636,14 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **The Mobile Application Hacker's Handbook** | Lodge et al. | Intermediate | Comprehensive iOS and Android attack surface coverage |
-| **Android Security Internals** | Nikolay Elenkov | Advanced | Deep Android security architecture - for serious analysts |
-| **iOS Application Security** | David Thiel | Intermediate | Practical iOS app testing and reverse engineering |
-| **Hacking and Securing iOS Applications** | Jonathan Zdziarski | Intermediate | Classic - covers iOS forensics and security research |
+| The Mobile Application Hacker's Handbook | Lodge et al. | Intermediate | Comprehensive iOS and Android attack surface coverage |
+| Android Security Internals | Nikolay Elenkov | Advanced | Deep Android security architecture - for serious analysts |
+| iOS Application Security | David Thiel | Intermediate | Practical iOS app testing and reverse engineering |
+| Hacking and Securing iOS Applications | Jonathan Zdziarski | Intermediate | Classic - covers iOS forensics and security research |
 
-> **Practical note:** [OWASP Mobile Security Testing Guide (MSTG)](https://mas.owasp.org/MASTG/) is free and more current than any book. Use it as your primary reference alongside these books.
+> Practical note: [OWASP Mobile Security Testing Guide (MSTG)](https://mas.owasp.org/MASTG/) is free and more current than any book. Use it as your primary reference alongside these books.
 
-**Hands-on repos:**
+Hands-on repos:
 - [Mobile Security Testing Guide](https://github.com/OWASP/owasp-mstg) - OWASP MSTG - the mobile security bible
 - [Mobile Application Security Checklist](https://github.com/OWASP/owasp-masvs) - OWASP MASVS verification standard
 - [objection](https://github.com/sensepost/objection) - Mobile runtime exploration powered by Frida
@@ -659,9 +659,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [idb](https://github.com/dmayer/idb) - iOS app security assessment tool
 - [iphonebackupanalyzer](https://github.com/PicciMario/iPhone-Backup-Analyzer) - Parse iOS backups for DFIR
 
-**Certifications:** eMAPT  | GMOB (GIAC)  | eWMD
-**YouTube:** [B3nac](https://www.youtube.com/@B3nacSec)  | [HackerOne mobile track](https://www.youtube.com/@HackerOneTV)
-**Practice:** [DIVA Android](https://github.com/payatu/diva-android)  | [iGoat](https://github.com/OWASP/iGoat-Swift)  | [HpAndro Android Security](https://github.com/RavikumarRamesh/hpAndro1337)
+Certifications: eMAPT | GMOB (GIAC) | eWMD
+YouTube: [B3nac](https://www.youtube.com/@B3nacSec) | [HackerOne mobile track](https://www.youtube.com/@HackerOneTV)
+Practice: [DIVA Android](https://github.com/payatu/diva-android) | [iGoat](https://github.com/OWASP/iGoat-Swift) | [HpAndro Android Security](https://github.com/RavikumarRamesh/hpAndro1337)
 
 ---
 
@@ -669,16 +669,16 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **The Hardware Hacker** | Andrew "bunnie" Huang | Intermediate | Hardware reverse engineering and supply chain attacks - fascinating |
-| **Practical IoT Hacking** | Fotios Chantzis et al. | Intermediate | Protocol attacks, firmware extraction, radio hacking |
-| **Hacking Embedded Linux** | Craig Smith | Intermediate | Embedded system security from firmware to exploitation |
-| **The Car Hacker's Handbook** | Craig Smith | Intermediate | CAN bus, OBD-II, and automotive security |
-| **Industrial Network Security** | Knapp & Langill | Intermediate | ICS/SCADA security fundamentals and defense |
-| **Hacking the Xbox** | Andrew "bunnie" Huang | Beginner | Classic hardware hacking - still relevant for methodology |
+| The Hardware Hacker | Andrew "bunnie" Huang | Intermediate | Hardware reverse engineering and supply chain attacks - fascinating |
+| Practical IoT Hacking | Fotios Chantzis et al. | Intermediate | Protocol attacks, firmware extraction, radio hacking |
+| Hacking Embedded Linux | Craig Smith | Intermediate | Embedded system security from firmware to exploitation |
+| The Car Hacker's Handbook | Craig Smith | Intermediate | CAN bus, OBD-II, and automotive security |
+| Industrial Network Security | Knapp & Langill | Intermediate | ICS/SCADA security fundamentals and defense |
+| Hacking the Xbox | Andrew "bunnie" Huang | Beginner | Classic hardware hacking - still relevant for methodology |
 
-> **Practical note:** A $20 RTL-SDR dongle and [GQRX](https://gqrx.dk) gets you into RF analysis. A $50 Flipper Zero gets you into sub-GHz, NFC, and infrared. Hardware hacking is cheaper to start than most people think.
+> Practical note: A $20 RTL-SDR dongle and [GQRX](https://gqrx.dk) gets you into RF analysis. A $50 Flipper Zero gets you into sub-GHz, NFC, and infrared. Hardware hacking is cheaper to start than most people think.
 
-**Hands-on repos:**
+Hands-on repos:
 - [firmwalker](https://github.com/craigz28/firmwalker) - Search extracted firmware for interesting files
 - [binwalk](https://github.com/ReFirmLabs/binwalk) - Firmware analysis, extraction, and reverse engineering
 - [firmae](https://github.com/pr0v3rbs/FirmAE) - Emulate firmware for dynamic analysis
@@ -700,9 +700,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [ICS-pcap](https://github.com/automayt/ICS-pcap) - ICS/SCADA protocol PCAP collection for analysis practice
 - [pymodbus](https://github.com/pymodbus-dev/pymodbus) - Full Modbus protocol in Python - read/write PLC registers
 
-**Certifications:** GICSP (ICS Security)  | ICS-CERT training  | CSSA
-**YouTube:** [Joe Grand (Kingpin)](https://www.youtube.com/@JoeGrand)  | [Phil's Lab](https://www.youtube.com/@PhilsLab)  | [LiveOverflow Hardware](https://www.youtube.com/@LiveOverflow)
-**Practice:** [Hack The Box IoT challenges](https://hackthebox.com)  | [DVID](https://github.com/Vulcainreo/DVID)  | [Damn Vulnerable Router Firmware](https://github.com/threat9/dvrf)
+Certifications: GICSP (ICS Security) | ICS-CERT training | CSSA
+YouTube: [Joe Grand (Kingpin)](https://www.youtube.com/@JoeGrand) | [Phil's Lab](https://www.youtube.com/@PhilsLab) | [LiveOverflow Hardware](https://www.youtube.com/@LiveOverflow)
+Practice: [Hack The Box IoT challenges](https://hackthebox.com) | [DVID](https://github.com/Vulcainreo/DVID) | [Damn Vulnerable Router Firmware](https://github.com/threat9/dvrf)
 
 ---
 
@@ -710,16 +710,16 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Hacking: The Art of Exploitation** | Jon Erickson | Advanced | Teaches C, assembly, buffer overflows, shellcode all in one |
-| **The Shellcoder's Handbook** | Koziol et al. | Advanced | Deep shellcode and exploit technique reference |
-| **Linux Hardening in Hostile Networks** | Kyle Rankin | Intermediate | Practical Linux defense - kernel hardening to network security |
-| **Windows Internals (Part 1 & 2)** | Russinovich et al. | Advanced | If you exploit Windows, you must understand it first |
-| **The Art of Memory Forensics** | Ligh et al. | Advanced | Memory forensics in depth - Windows/Linux/Mac internals |
-| **Rootkits and Bootkits** | Matrosov et al. | Advanced | Persistence at the deepest level - UEFI, MBR, bootkit analysis |
+| Hacking: The Art of Exploitation | Jon Erickson | Advanced | Teaches C, assembly, buffer overflows, shellcode all in one |
+| The Shellcoder's Handbook | Koziol et al. | Advanced | Deep shellcode and exploit technique reference |
+| Linux Hardening in Hostile Networks | Kyle Rankin | Intermediate | Practical Linux defense - kernel hardening to network security |
+| Windows Internals (Part 1 & 2) | Russinovich et al. | Advanced | If you exploit Windows, you must understand it first |
+| The Art of Memory Forensics | Ligh et al. | Advanced | Memory forensics in depth - Windows/Linux/Mac internals |
+| Rootkits and Bootkits | Matrosov et al. | Advanced | Persistence at the deepest level - UEFI, MBR, bootkit analysis |
 
-> **Practical note:** [pwn.college](https://pwn.college) from Arizona State University is the best free platform for learning binary exploitation from zero to hero. Do it before the books - they'll make more sense after.
+> Practical note: [pwn.college](https://pwn.college) from Arizona State University is the best free platform for learning binary exploitation from zero to hero. Do it before the books - they'll make more sense after.
 
-**Hands-on repos:**
+Hands-on repos:
 - [pwndbg](https://github.com/pwndbg/pwndbg) - GDB plugin for exploit dev and RE (most popular)
 - [pwntools](https://github.com/Gallopsled/pwntools) - CTF framework and exploit development library in Python
 - [gef](https://github.com/hugsy/gef) - GDB Enhanced Features - alternative to pwndbg
@@ -739,9 +739,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [ropper](https://github.com/sashs/Ropper) - ROP gadget finder and chain builder
 - [heap-exploitation](https://github.com/DhavalKapil/heap-exploitation) - Heap exploitation techniques guide
 
-**Certifications:** OSED  | OSCE3  | GXPN  | eCXD
-**YouTube:** [pwn.college](https://www.youtube.com/@pwncollege)  | [LiveOverflow](https://www.youtube.com/@LiveOverflow)  | [ir0nstone](https://www.youtube.com/@ir0nstone)
-**Practice:** [pwn.college](https://pwn.college)  | [exploit.education](https://exploit.education)  | [ROP Emporium](https://ropemporium.com)  | [pwnable.kr](https://pwnable.kr)
+Certifications: OSED | OSCE3 | GXPN | eCXD
+YouTube: [pwn.college](https://www.youtube.com/@pwncollege) | [LiveOverflow](https://www.youtube.com/@LiveOverflow) | [ir0nstone](https://www.youtube.com/@ir0nstone)
+Practice: [pwn.college](https://pwn.college) | [exploit.education](https://exploit.education) | [ROP Emporium](https://ropemporium.com) | [pwnable.kr](https://pwnable.kr)
 
 ---
 
@@ -749,15 +749,15 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **POC \|\| GTFO** | Manul Laphroaig (ed.) | Advanced | The hacker magazine - culture, craftsmanship, and chaos |
-| **POC \|\| GTFO II** | Manul Laphroaig (ed.) | Advanced | Second volume - mandatory for the researcher mindset |
-| **The Art of Software Security Assessment** | Dowd, McDonald, Schuh | Advanced | The bible of source code auditing - still unmatched |
-| **Fuzzing for Software Security Testing** | Sutton, Greene, Amini | Intermediate | Classic fuzzing fundamentals - structure-aware to black-box |
-| **The Fuzzing Book** | Zeller et al. | Intermediate | [Free online](https://www.fuzzingbook.org) - modern fuzzing from greybox to symbolic |
+| POC \|\| GTFO | Manul Laphroaig (ed.) | Advanced | The hacker magazine - culture, craftsmanship, and chaos |
+| POC \|\| GTFO II | Manul Laphroaig (ed.) | Advanced | Second volume - mandatory for the researcher mindset |
+| The Art of Software Security Assessment | Dowd, McDonald, Schuh | Advanced | The bible of source code auditing - still unmatched |
+| Fuzzing for Software Security Testing | Sutton, Greene, Amini | Intermediate | Classic fuzzing fundamentals - structure-aware to black-box |
+| The Fuzzing Book | Zeller et al. | Intermediate | [Free online](https://www.fuzzingbook.org) - modern fuzzing from greybox to symbolic |
 
-> **Practical note:** Google Project Zero's [blog](https://googleprojectzero.blogspot.com) and [research repo](https://github.com/google/security-research) are the highest-signal free content in vulnerability research. Read every post.
+> Practical note: Google Project Zero's [blog](https://googleprojectzero.blogspot.com) and [research repo](https://github.com/google/security-research) are the highest-signal free content in vulnerability research. Read every post.
 
-**Hands-on repos:**
+Hands-on repos:
 - [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus) - AFL++ coverage-guided fuzzer - the standard
 - [honggfuzz](https://github.com/google/honggfuzz) - Security-oriented, multi-process fuzzer from Google
 - [oss-fuzz](https://github.com/google/oss-fuzz) - Continuous fuzzing for open source projects
@@ -772,9 +772,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [pwnautomate](https://github.com/n0mi1k/apkleaks) - Scanning for secrets in decompiled APKs
 - [semgrep](https://github.com/semgrep/semgrep) - Static analysis for finding bugs at scale
 
-**Certifications:** OSED  | OSCE  | CVE credits are better than any cert here
-**YouTube:** [Google Project Zero](https://www.youtube.com/@GoogleProjectZero)  | [Trail of Bits](https://www.youtube.com/@trailofbits)  | [USENIX Security](https://www.youtube.com/@USENIXSecurity)
-**Practice:** [Fuzzbench](https://github.com/google/fuzzbench)  | Google VRP  | HackerOne bounties
+Certifications: OSED | OSCE | CVE credits are better than any cert here
+YouTube: [Google Project Zero](https://www.youtube.com/@GoogleProjectZero) | [Trail of Bits](https://www.youtube.com/@trailofbits) | [USENIX Security](https://www.youtube.com/@USENIXSecurity)
+Practice: [Fuzzbench](https://github.com/google/fuzzbench) | Google VRP | HackerOne bounties
 
 ---
 
@@ -782,15 +782,15 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Computer Networking: A Top-Down Approach** | Kurose & Ross | Beginner | The university standard - if you don't know TCP/IP deeply, start here |
-| **TCP/IP Illustrated (Vol 1)** | W. Richard Stevens | Intermediate | The deep reference - every protocol dissected with packet traces |
-| **Network+ Certification All-in-One** | Mike Meyers | Beginner | Hands-on cert prep with good conceptual coverage |
-| **The Practice of Network Security Monitoring** | Richard Bejtlich | Intermediate | NSM methodology - tools, visibility, and program building |
-| **Attacking Network Protocols** | James Forshaw | Advanced | Protocol RE and custom exploit dev for network services |
+| Computer Networking: A Top-Down Approach | Kurose & Ross | Beginner | The university standard - if you don't know TCP/IP deeply, start here |
+| TCP/IP Illustrated (Vol 1) | W. Richard Stevens | Intermediate | The deep reference - every protocol dissected with packet traces |
+| Network+ Certification All-in-One | Mike Meyers | Beginner | Hands-on cert prep with good conceptual coverage |
+| The Practice of Network Security Monitoring | Richard Bejtlich | Intermediate | NSM methodology - tools, visibility, and program building |
+| Attacking Network Protocols | James Forshaw | Advanced | Protocol RE and custom exploit dev for network services |
 
-> **Practical note:** Spin up a home lab with a pfSense router and a managed switch. Capture your own traffic, build your own Zeek/Suricata instance. You'll learn more in a week than in a month of reading.
+> Practical note: Spin up a home lab with a pfSense router and a managed switch. Capture your own traffic, build your own Zeek/Suricata instance. You'll learn more in a week than in a month of reading.
 
-**Hands-on repos:**
+Hands-on repos:
 - [wireshark](https://github.com/wireshark/wireshark) - The standard packet capture and analysis tool
 - [zeek](https://github.com/zeek/zeek) - Network analysis framework - turn pcaps into structured logs
 - [suricata](https://github.com/OISF/suricata) - Network IDS/IPS/NSM engine
@@ -807,9 +807,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [p0f](https://github.com/p0f/p0f) - Passive OS fingerprinting from network traffic
 - [stenographer](https://github.com/google/stenographer) - Full-packet capture indexing at Google scale
 
-**Certifications:** CompTIA Network+  | CCNA  | GCIA  | GNFA
-**YouTube:** [David Bombal](https://www.youtube.com/@davidbombal)  | [Professor Messer](https://www.youtube.com/@professormesser)  | [Chris Greer (Wireshark)](https://www.youtube.com/@ChrisGreer)
-**Practice:** [Wireshark sample captures](https://wiki.wireshark.org/SampleCaptures)  | [PacketLife pcap library](https://packetlife.net/captures/)
+Certifications: CompTIA Network+ | CCNA | GCIA | GNFA
+YouTube: [David Bombal](https://www.youtube.com/@davidbombal) | [Professor Messer](https://www.youtube.com/@professormesser) | [Chris Greer (Wireshark)](https://www.youtube.com/@ChrisGreer)
+Practice: [Wireshark sample captures](https://wiki.wireshark.org/SampleCaptures) | [PacketLife pcap library](https://packetlife.net/captures/)
 
 ---
 
@@ -817,15 +817,15 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Black Hat Python** | Justin Seitz | Intermediate | Build network scanners, keyloggers, C2 channels in Python |
-| **Violent Python** | TJ O'Connor | Beginner | Shorter, faster intro to offensive Python - forensics to exploitation |
-| **Gray Hat Python** | Justin Seitz | Advanced | Python for reverse engineering and binary analysis |
-| **Black Hat Go** | Steele, Patten, Branden | Intermediate | Go for offensive security - faster, cross-compiled, stealthy |
-| **Rust for Rustaceans** | Jon Gjengset | Advanced | Advanced Rust for building low-level security tools |
+| Black Hat Python | Justin Seitz | Intermediate | Build network scanners, keyloggers, C2 channels in Python |
+| Violent Python | TJ O'Connor | Beginner | Shorter, faster intro to offensive Python - forensics to exploitation |
+| Gray Hat Python | Justin Seitz | Advanced | Python for reverse engineering and binary analysis |
+| Black Hat Go | Steele, Patten, Branden | Intermediate | Go for offensive security - faster, cross-compiled, stealthy |
+| Rust for Rustaceans | Jon Gjengset | Advanced | Advanced Rust for building low-level security tools |
 
-> **Practical note:** Learn Go. The modern offensive tooling ecosystem (Sliver, Havoc, Nuclei, Subfinder) is all written in Go. Being able to read and modify offensive tools is a massive skill multiplier.
+> Practical note: Learn Go. The modern offensive tooling ecosystem (Sliver, Havoc, Nuclei, Subfinder) is all written in Go. Being able to read and modify offensive tools is a massive skill multiplier.
 
-**Hands-on repos:**
+Hands-on repos:
 - [red-python-scripts](https://github.com/davidbombal/red-python-scripts) - Python red team scripts collection
 - [pwntools](https://github.com/Gallopsled/pwntools) - Python exploit development framework
 - [PyExfil](https://github.com/ytisf/PyExfil) - Python data exfiltration channel implementations
@@ -843,9 +843,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [hacking](https://github.com/intere/hacking) - Source code from Hacking: The Art of Exploitation 2nd Edition
 - [Hands-On-Penetration-Testing-with-Python](https://github.com/PacktPublishing/Hands-On-Penetration-Testing-with-Python) - Packt book companion repo - Python for pentesting
 
-**Certifications:** PCEP (Python)  | PNPT (applied scripting)  | OSCP (custom tools)
-**YouTube:** [TCM Security Python](https://www.youtube.com/@TCMSecurityAcademy)  | [Seitz Black Hat Python series](https://www.youtube.com/)
-**Practice:** [HackTheBox machines that require custom scripts](https://hackthebox.com)  | [SANS Holiday Hack](https://holidayhackchallenge.com)
+Certifications: PCEP (Python) | PNPT (applied scripting) | OSCP (custom tools)
+YouTube: [TCM Security Python](https://www.youtube.com/@TCMSecurityAcademy) | [Seitz Black Hat Python series](https://www.youtube.com/)
+Practice: [HackTheBox machines that require custom scripts](https://hackthebox.com) | [SANS Holiday Hack](https://holidayhackchallenge.com)
 
 ---
 
@@ -853,28 +853,28 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Ghost in the Wires** | Kevin Mitnick | Beginner | The most entertaining hacking memoir ever written |
-| **The Art of Invisibility** | Kevin Mitnick | Beginner | Privacy and OpSec - practical and readable |
-| **The Art of Intrusion** | Kevin Mitnick | Beginner | Real intrusion case studies with technical detail |
-| **The Cuckoo's Egg** | Clifford Stoll | Beginner | The original cyber investigation story - still gripping |
-| **Sandworm** | Andy Greenberg | Beginner | The definitive account of Russian offensive cyber operations |
-| **This Is How They Tell Me the World Ends** | Nicole Perlroth | Beginner | The global zero-day market, NSA, and cyber warfare |
-| **Permanent Record** | Edward Snowden | Beginner | NSA surveillance programs from the inside |
-| **Kingpin** | Kevin Poulsen | Beginner | The Max Butler story - carding, dark markets, and opsec failures |
-| **Countdown to Zero Day** | Kim Zetter | Beginner | Stuxnet - the most detailed account of the first cyber weapon |
-| **The Fifth Domain** | Clarke & Knake | Beginner | Cyber warfare policy and the US defense posture |
+| Ghost in the Wires | Kevin Mitnick | Beginner | The most entertaining hacking memoir ever written |
+| The Art of Invisibility | Kevin Mitnick | Beginner | Privacy and OpSec - practical and readable |
+| The Art of Intrusion | Kevin Mitnick | Beginner | Real intrusion case studies with technical detail |
+| The Cuckoo's Egg | Clifford Stoll | Beginner | The original cyber investigation story - still gripping |
+| Sandworm | Andy Greenberg | Beginner | The definitive account of Russian offensive cyber operations |
+| This Is How They Tell Me the World Ends | Nicole Perlroth | Beginner | The global zero-day market, NSA, and cyber warfare |
+| Permanent Record | Edward Snowden | Beginner | NSA surveillance programs from the inside |
+| Kingpin | Kevin Poulsen | Beginner | The Max Butler story - carding, dark markets, and opsec failures |
+| Countdown to Zero Day | Kim Zetter | Beginner | Stuxnet - the most detailed account of the first cyber weapon |
+| The Fifth Domain | Clarke & Knake | Beginner | Cyber warfare policy and the US defense posture |
 
-> **Practical note:** These books are not just entertainment - they reveal *why* people do this, how adversaries think, and what real operational security failure looks like. They build threat modeling intuition that no technical book can.
+> Practical note: These books are not just entertainment - they reveal *why* people do this, how adversaries think, and what real operational security failure looks like. They build threat modeling intuition that no technical book can.
 
-**Hands-on repos:**
+Hands-on repos:
 - [APTnotes](https://github.com/kbandla/APTnotes) - Public APT campaign documents (real-world ops context)
 - [red_team_tool_countermeasures](https://github.com/mandiant/red_team_tool_countermeasures) - Detection rules for real red team tools
 - [malware-indicators](https://github.com/citizenlab/malware-indicators) - Citizen Lab spyware IOCs (context for Perlroth/Sandworm)
 - [the-catch](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks
 - [KrebsOnSecurity](https://github.com/jivoi/awesome-osint) - Context for Kingpin/cybercrime journalism
 
-**YouTube:** [Darknet Diaries Podcast](https://darknetdiaries.com) - 180+ real-world hacking stories in audio form
-**Read next:** [Risky.biz podcast](https://risky.biz)  | [Smashing Security](https://smashingsecurity.com)  | The DFIR Report
+YouTube: [Darknet Diaries Podcast](https://darknetdiaries.com) - 180+ real-world hacking stories in audio form
+Read next: [Risky.biz podcast](https://risky.biz) | [Smashing Security](https://smashingsecurity.com) | The DFIR Report
 
 ---
 
@@ -884,13 +884,13 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **Hacking AI** | Various | Intermediate | Emerging - adversarial ML, model theft, data poisoning |
-| **Adversarial Machine Learning** | Biggio & Roli | Advanced | Academic foundation for adversarial attacks on ML |
-| **AI and the Future of Cybersecurity** | Various | Beginner | Framework-level thinking on AI in security operations |
+| Hacking AI | Various | Intermediate | Emerging - adversarial ML, model theft, data poisoning |
+| Adversarial Machine Learning | Biggio & Roli | Advanced | Academic foundation for adversarial attacks on ML |
+| AI and the Future of Cybersecurity | Various | Beginner | Framework-level thinking on AI in security operations |
 
-> **Practical note:** [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) and [MITRE ATLAS](https://atlas.mitre.org) are the current reference standards. Both are free.
+> Practical note: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) and [MITRE ATLAS](https://atlas.mitre.org) are the current reference standards. Both are free.
 
-**Hands-on repos:**
+Hands-on repos:
 - [garak](https://github.com/leondz/garak) - LLM vulnerability scanner (prompt injection, jailbreaks)
 - [promptmap](https://github.com/utkusen/promptmap) - Automated prompt injection testing
 - [PyRIT](https://github.com/Azure/PyRIT) - Microsoft's Python Risk Identification Toolkit for LLMs
@@ -900,9 +900,9 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [cleverhans](https://github.com/cleverhans-lab/cleverhans) - Adversarial example library for ML security research
 - [alibi-detect](https://github.com/SeldonIO/alibi-detect) - ML data drift and outlier detection
 
-**Certifications:** AWS ML Security  | MITRE ATLAS practitioner (emerging)
-**YouTube:** [Simon Willison](https://www.youtube.com/@simonw)  | [Yannic Kilcher](https://www.youtube.com/@YannicKilcher) (adversarial ML papers)
-**Practice:** [Gandalf prompt injection game](https://gandalf.lakera.ai)  | HuggingFace CTFs
+Certifications: AWS ML Security | MITRE ATLAS practitioner (emerging)
+YouTube: [Simon Willison](https://www.youtube.com/@simonw) | [Yannic Kilcher](https://www.youtube.com/@YannicKilcher) (adversarial ML papers)
+Practice: [Gandalf prompt injection game](https://gandalf.lakera.ai) | HuggingFace CTFs
 
 ---
 
@@ -910,16 +910,16 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| **CISSP Official Study Guide** | Chapple & Stewart | Intermediate | The management-level cert - required for senior roles |
-| **CISSP Official Practice Tests** | Chapple & Stewart | Intermediate | 2000+ practice questions - required for passing |
-| **CompTIA Security+ Study Guide** | Chapple & Seidl | Beginner | Entry-level cert - the industry minimum baseline |
-| **CompTIA Network+ Guide** | Mike Meyers | Beginner | Networking foundation - do this before Security+ |
-| **CompTIA PenTest+ Guide** | Various | Intermediate | Mid-level pentest cert - lighter than OSCP |
-| **CEH Certified Ethical Hacker** | Various | Beginner | Broad survey - better for resume than for skills |
+| CISSP Official Study Guide | Chapple & Stewart | Intermediate | The management-level cert - required for senior roles |
+| CISSP Official Practice Tests | Chapple & Stewart | Intermediate | 2000+ practice questions - required for passing |
+| CompTIA Security+ Study Guide | Chapple & Seidl | Beginner | Entry-level cert - the industry minimum baseline |
+| CompTIA Network+ Guide | Mike Meyers | Beginner | Networking foundation - do this before Security+ |
+| CompTIA PenTest+ Guide | Various | Intermediate | Mid-level pentest cert - lighter than OSCP |
+| CEH Certified Ethical Hacker | Various | Beginner | Broad survey - better for resume than for skills |
 
-> **Practical note:** Cert priority order for offense: **Net+ â†’ Sec+ â†’ PNPT â†’ OSCP â†’ CRTO**. For defense: **Net+ â†’ Sec+ â†’ BTL1 â†’ CySA+ â†’ GCIH**. Don't get CISSP until you have 5 years experience - it won't help you before then.
+> Practical note: Cert priority order for offense: Net+ â†’ Sec+ â†’ PNPT â†’ OSCP â†’ CRTO. For defense: Net+ â†’ Sec+ â†’ BTL1 â†’ CySA+ â†’ GCIH. Don't get CISSP until you have 5 years experience - it won't help you before then.
 
-**Hands-on repos:**
+Hands-on repos:
 - [Free-Certifications](https://github.com/cloudcommunity/Free-Certifications) - Free courses with certs to supplement paid study
 - [Security-101](https://github.com/microsoft/Security-101) - Microsoft's 8-lesson cybersecurity curriculum (free)
 - [awesome-hacking](https://github.com/carpedm20/awesome-hacking) - Hacking tutorials and resources for foundations
@@ -929,8 +929,8 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [security-study-plan](https://github.com/jassics/security-study-plan) - Complete study plans for pentest, AppSec, cloud security, and DevSecOps roles
 - [Infosec_Reference](https://github.com/rmusser01/Infosec_Reference) - Massive information security reference - doesn't suck
 
-**YouTube:** [Professor Messer (Sec+, Net+)](https://www.youtube.com/@professormesser)  | [Pete Zerger (CISSP)](https://www.youtube.com/@insidecloudandsecurity)
-**Free study:** [Professor Messer free course notes](https://professormesser.com)  | [CyberSeek](https://cyberseek.org/pathway.html)
+YouTube: [Professor Messer (Sec+, Net+)](https://www.youtube.com/@professormesser) | [Pete Zerger (CISSP)](https://www.youtube.com/@insidecloudandsecurity)
+Free study: [Professor Messer free course notes](https://professormesser.com) | [CyberSeek](https://cyberseek.org/pathway.html)
 
 ---
 
@@ -940,13 +940,13 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Resource | Why It Matters |
 |----------|---------------|
-| **"Cybersecurity Career Master Plan"** - Lim, Grayson, Donahue | Roadmap from beginner to employed - practical, not fluffy |
-| **"The Art of the Job Hunt"** (Cyber-focused) | Resume, portfolio, and interview prep for security roles |
-| **Resume tips from r/netsec and r/cybersecurity** | Real hiring feedback from practitioners |
+| "Cybersecurity Career Master Plan" - Lim, Grayson, Donahue | Roadmap from beginner to employed - practical, not fluffy |
+| "The Art of the Job Hunt" (Cyber-focused) | Resume, portfolio, and interview prep for security roles |
+| Resume tips from r/netsec and r/cybersecurity | Real hiring feedback from practitioners |
 
-> **Practical note:** Your GitHub profile IS your resume in this field. Public CTF writeups, tools you built, and blog posts about vulnerabilities you found beat any certification on paper.
+> Practical note: Your GitHub profile IS your resume in this field. Public CTF writeups, tools you built, and blog posts about vulnerabilities you found beat any certification on paper.
 
-**Career-boosting repos:**
+Career-boosting repos:
 - [HackTheBox writeups](https://github.com/Hackplayers/hackthebox-writeups) - Model your writeup format here
 - [awesome-ctf](https://github.com/apsdehal/awesome-ctf) - CTF tools, writeups, and learning resources
 - [ctf-katana](https://github.com/JohnHammond/ctf-katana) - CTF challenge hints and solver techniques
@@ -955,8 +955,8 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [PortSwigger Web Academy](https://portswigger.net/web-security) - Free, world-class web security training
 - [pwn.college](https://pwn.college) - Free binary exploitation from zero to advanced
 
-**YouTube:** [Gerald Auger (SimplyCyber)](https://www.youtube.com/@SimplyCyber)  | [TCM Security career advice](https://www.youtube.com/@TCMSecurityAcademy)
-**Portfolio builders:** Start a blog  | Do HTB/THM writeups  | Submit a CVE  | Contribute to an open source security tool  | Win a CTF
+YouTube: [Gerald Auger (SimplyCyber)](https://www.youtube.com/@SimplyCyber) | [TCM Security career advice](https://www.youtube.com/@TCMSecurityAcademy)
+Portfolio builders: Start a blog | Do HTB/THM writeups | Submit a CVE | Contribute to an open source security tool | Win a CTF
 
 ---
 
@@ -994,7 +994,7 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 | 14 | [pWnOS 2.0](https://www.vulnhub.com/entry/pwnos-20-pre-release,34/) | Web app exploitation focus |
 | 15 | [Lord Of The Root 1.0.1](https://www.vulnhub.com/entry/lord-of-the-root-101,129/) | Port knocking, SQLi, kernel exploit |
 
-> **Practical note:** After VulnHub basics, move to [Hack The Box retired machines](https://hackthebox.com). Watch [IppSec's walkthroughs](https://www.youtube.com/@ippsec) after each attempt - the best free OSCP prep available.
+> Practical note: After VulnHub basics, move to [Hack The Box retired machines](https://hackthebox.com). Watch [IppSec's walkthroughs](https://www.youtube.com/@ippsec) after each attempt - the best free OSCP prep available.
 
 ### Traffic Analysis Labs
 - [Malware Traffic Analysis Training](https://www.malware-traffic-analysis.net/training-exercises.html) - Real PCAP exercises - identify C2, malware, and intrusions from packet captures
@@ -1032,14 +1032,14 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 |----------|---------|------|
 | [Hack The Box](https://hackthebox.com) | Pentesting, AD, reversing | Free + VIP |
 | [TryHackMe](https://tryhackme.com) | Beginners â†’ intermediate | Free + premium |
-| [PortSwigger Web Academy](https://portswigger.net/web-security) | Web security mastery | **Free** |
-| [pwn.college](https://pwn.college) | Binary exploitation | **Free** |
-| [CryptoHack](https://cryptohack.org) | Cryptography | **Free** |
+| [PortSwigger Web Academy](https://portswigger.net/web-security) | Web security mastery | Free |
+| [pwn.college](https://pwn.college) | Binary exploitation | Free |
+| [CryptoHack](https://cryptohack.org) | Cryptography | Free |
 | [PentesterLab](https://pentesterlab.com) | Web + code review | Free + pro |
 | [Blue Team Labs Online](https://blueteamlabs.online) | SOC/DFIR | Free + premium |
 | [CyberDefenders](https://cyberdefenders.org) | DFIR, forensics | Free |
-| [VulnHub](https://vulnhub.com) | Offline VM labs | **Free** |
-| [CTFtime](https://ctftime.org) | Upcoming CTF events | **Free** |
+| [VulnHub](https://vulnhub.com) | Offline VM labs | Free |
+| [CTFtime](https://ctftime.org) | Upcoming CTF events | Free |
 
 ---
 
@@ -1049,19 +1049,19 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Year | Level | Why Read |
 |---|---|---|---|---|
-| **The Practice of Network Security Monitoring** | Richard Bejtlich | 2013 | Beginner-Mid | NSM methodology; Sguil/Bro/Snort; foundational for blue team |
-| **Applied Network Security Monitoring** | Chris Sanders & Jason Smith | 2013 | Intermediate | Collection, detection, analysis lifecycle; practical NSM |
-| **The Art of Memory Forensics** | Ligh, Case, Levy, Walters | 2014 | Intermediate-Advanced | Definitive Volatility reference; memory forensics for Windows/Linux/Mac |
-| **Digital Forensics with Open Source Tools** | Cory Altheide & Harlan Carvey | 2011 | Intermediate | Open-source forensic toolchain; Sleuth Kit, Autopsy, Volatility |
-| **Windows Forensics Analysis Toolkit** | Harlan Carvey | Various editions | Intermediate | Windows registry/artifact forensics; deep Windows internals |
-| **The Rootkit Arsenal** | Bill Blunden | 2009 | Advanced | Rootkit design and detection; deep kernel internals |
-| **Incident Response & Computer Forensics** | Luttgens, Pepe, Mandia | 2014 | Intermediate | End-to-end IR methodology; evidence collection; from Mandiant |
-| **Blue Team Handbook: Incident Response** | Don Murdoch | 2019 | Intermediate | Concise reference card format; excellent on-the-job companion |
-| **Intelligence-Driven Incident Response** | Rebekah Brown & Scott Roberts | 2017 | Intermediate | Threat intelligence + IR integration; F3EAD methodology |
+| The Practice of Network Security Monitoring | Richard Bejtlich | 2013 | Beginner-Mid | NSM methodology; Sguil/Bro/Snort; foundational for blue team |
+| Applied Network Security Monitoring | Chris Sanders & Jason Smith | 2013 | Intermediate | Collection, detection, analysis lifecycle; practical NSM |
+| The Art of Memory Forensics | Ligh, Case, Levy, Walters | 2014 | Intermediate-Advanced | Definitive Volatility reference; memory forensics for Windows/Linux/Mac |
+| Digital Forensics with Open Source Tools | Cory Altheide & Harlan Carvey | 2011 | Intermediate | Open-source forensic toolchain; Sleuth Kit, Autopsy, Volatility |
+| Windows Forensics Analysis Toolkit | Harlan Carvey | Various editions | Intermediate | Windows registry/artifact forensics; deep Windows internals |
+| The Rootkit Arsenal | Bill Blunden | 2009 | Advanced | Rootkit design and detection; deep kernel internals |
+| Incident Response & Computer Forensics | Luttgens, Pepe, Mandia | 2014 | Intermediate | End-to-end IR methodology; evidence collection; from Mandiant |
+| Blue Team Handbook: Incident Response | Don Murdoch | 2019 | Intermediate | Concise reference card format; excellent on-the-job companion |
+| Intelligence-Driven Incident Response | Rebekah Brown & Scott Roberts | 2017 | Intermediate | Threat intelligence + IR integration; F3EAD methodology |
 
-> **Practical note:** Pair these books with the [DFIR Report](https://thedfirreport.com) for real-world intrusion case studies. Volatility3 + memory samples from MalwareBazaar are the best free practice environment.
+> Practical note: Pair these books with the [DFIR Report](https://thedfirreport.com) for real-world intrusion case studies. Volatility3 + memory samples from MalwareBazaar are the best free practice environment.
 
-**Hands-on repos:**
+Hands-on repos:
 - [volatility3](https://github.com/volatilityfoundation/volatility3) - Memory forensics framework (pairs with Art of Memory Forensics)
 - [sleuthkit](https://github.com/sleuthkit/sleuthkit) - Digital forensics toolkit (pairs with Digital Forensics with Open Source Tools)
 - [autopsy](https://github.com/sleuthkit/autopsy) - GUI forensics platform built on Sleuth Kit
@@ -1071,8 +1071,8 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 - [timesketch](https://github.com/google/timesketch) - Timeline analysis and collaboration for DFIR
 - [awesome-incident-response](https://github.com/meirwah/awesome-incident-response) - Curated IR tools and resources
 
-**Certifications:** GCFE  | GCFA  | GCFR  | GCIH  | EnCE  | CFCE
-**Practice:** [CyberDefenders](https://cyberdefenders.org)  | [Blue Team Labs Online](https://blueteamlabs.online)  | [DFIR.training](https://dfir.training)
+Certifications: GCFE | GCFA | GCFR | GCIH | EnCE | CFCE
+Practice: [CyberDefenders](https://cyberdefenders.org) | [Blue Team Labs Online](https://blueteamlabs.online) | [DFIR.training](https://dfir.training)
 
 ---
 
@@ -1083,27 +1083,27 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Year | Level | Why Read |
 |---|---|---|---|---|
-| **Fancy Bear Goes Phishing** | Scott Shapiro | 2023 | Non-fiction | History of famous hacks through a cultural lens; very accessible; great for security awareness |
-| **The Art of Cyberwarfare** | Jon DiMaggio | 2022 | Intermediate | Threat intelligence practitioner guide; APT tracking methodology; attribution techniques |
-| **Hacking APIs** | Corey Ball | 2022 | Intermediate | API security testing; Postman, Burp, REST/GraphQL attacks; essential for bug bounty |
-| **Practical Threat Intelligence and Data-Driven Threat Hunting** | Valentina Palacin | 2021 | Intermediate | Threat intelligence lifecycle; data-driven hunting with Python; actionable methodology |
-| **Cybersecurity Ops with bash** | Paul Troncone & Carl Albing | 2019 | Beginner-Mid | Command-line security tools in bash; useful for SOC analysts and defenders |
-| **Bug Bounty Bootcamp** | Vickie Li | 2021 | Beginner-Mid | Web security from attacker perspective; great for bug bounty hunters starting out |
-| **Black Hat Python, 2nd Edition** | Justin Seitz & Tim Arnold | 2021 | Intermediate | Python for security tooling; network tools, exploits, trojans; updated for Python 3 |
-| **The Hacker and the State** | Ben Buchanan | 2020 | Non-fiction | Cyber operations as statecraft; NSA, GCHQ, China, Russia; essential policy context |
-| **Sandworm** | Andy Greenberg | 2019/2022 | Non-fiction | Definitive account of Russia's Sandworm team; NotPetya; Ukraine cyberwar |
-| **This Is How They Tell Me the World Ends** | Nicole Perlroth | 2021 | Non-fiction | Global zero-day market; NSA, Vupen, Zerodium; cyberweapon arms race |
+| Fancy Bear Goes Phishing | Scott Shapiro | 2023 | Non-fiction | History of famous hacks through a cultural lens; very accessible; great for security awareness |
+| The Art of Cyberwarfare | Jon DiMaggio | 2022 | Intermediate | Threat intelligence practitioner guide; APT tracking methodology; attribution techniques |
+| Hacking APIs | Corey Ball | 2022 | Intermediate | API security testing; Postman, Burp, REST/GraphQL attacks; essential for bug bounty |
+| Practical Threat Intelligence and Data-Driven Threat Hunting | Valentina Palacin | 2021 | Intermediate | Threat intelligence lifecycle; data-driven hunting with Python; actionable methodology |
+| Cybersecurity Ops with bash | Paul Troncone & Carl Albing | 2019 | Beginner-Mid | Command-line security tools in bash; useful for SOC analysts and defenders |
+| Bug Bounty Bootcamp | Vickie Li | 2021 | Beginner-Mid | Web security from attacker perspective; great for bug bounty hunters starting out |
+| Black Hat Python, 2nd Edition | Justin Seitz & Tim Arnold | 2021 | Intermediate | Python for security tooling; network tools, exploits, trojans; updated for Python 3 |
+| The Hacker and the State | Ben Buchanan | 2020 | Non-fiction | Cyber operations as statecraft; NSA, GCHQ, China, Russia; essential policy context |
+| Sandworm | Andy Greenberg | 2019/2022 | Non-fiction | Definitive account of Russia's Sandworm team; NotPetya; Ukraine cyberwar |
+| This Is How They Tell Me the World Ends | Nicole Perlroth | 2021 | Non-fiction | Global zero-day market; NSA, Vupen, Zerodium; cyberweapon arms race |
 
-> **Practical note:** API security is now one of the highest-signal areas for bug bounty. *Hacking APIs* pairs directly with PortSwigger's Web Security Academy API labs. *The Art of Cyberwarfare* is the best practitioner-level TI book since Intelligence-Driven IR.
+> Practical note: API security is now one of the highest-signal areas for bug bounty. *Hacking APIs* pairs directly with PortSwigger's Web Security Academy API labs. *The Art of Cyberwarfare* is the best practitioner-level TI book since Intelligence-Driven IR.
 
-**Hands-on repos:**
+Hands-on repos:
 - [crAPI](https://github.com/OWASP/crAPI) - Completely Ridiculous API: vulnerable API app for practice (pairs with Hacking APIs)
 - [vapi](https://github.com/roottusk/vapi) - Vulnerable API for API security testing practice
 - [APTnotes](https://github.com/kbandla/APTnotes) - Public APT reports for TI methodology practice (pairs with Art of Cyberwarfare)
 - [MISP](https://github.com/MISP/MISP) - Threat intelligence sharing platform (pairs with Practical Threat Intelligence)
 
-**Certifications:** GCTI  | CREST CRT  | eCTHP  | HTB CPTS
-**YouTube:** [John Hammond](https://www.youtube.com/@_JohnHammond)  | [IppSec](https://www.youtube.com/@ippsec)  | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy)
+Certifications: GCTI | CREST CRT | eCTHP | HTB CPTS
+YouTube: [John Hammond](https://www.youtube.com/@_JohnHammond) | [IppSec](https://www.youtube.com/@ippsec) | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy)
 
 ---
 
@@ -1114,19 +1114,19 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 
 | Book | Author | Year | Level | Why Read |
 |---|---|---|---|---|
-| **Hackers: Heroes of the Computer Revolution** | Steven Levy | 1984 | Anyone | Origin of hacker culture; hacker ethic; MIT AI Lab; Homebrew Computer Club; essential cultural literacy |
-| **The Hacker Crackdown** | Bruce Sterling | 1992 | Anyone | 1990 federal crackdown; Operation Sundevil; civil liberties; available free online; prescient |
-| **Fatal System Error** | Joseph Menn | 2010 | Anyone | Cybercrime, FBI, Russian mafia; investigative journalism; underground economy origins |
-| **We Are Anonymous** | Parmy Olson | 2012 | Anyone | Inside Anonymous; LulzSec; hacktivism; social dynamics of online collectives; IRC culture |
-| **Zero Day** | Mark Russinovich | 2011 | Fiction | Techno-thriller by the Sysinternals creator; surprisingly technically accurate; good gateway fiction |
+| Hackers: Heroes of the Computer Revolution | Steven Levy | 1984 | Anyone | Origin of hacker culture; hacker ethic; MIT AI Lab; Homebrew Computer Club; essential cultural literacy |
+| The Hacker Crackdown | Bruce Sterling | 1992 | Anyone | 1990 federal crackdown; Operation Sundevil; civil liberties; available free online; prescient |
+| Fatal System Error | Joseph Menn | 2010 | Anyone | Cybercrime, FBI, Russian mafia; investigative journalism; underground economy origins |
+| We Are Anonymous | Parmy Olson | 2012 | Anyone | Inside Anonymous; LulzSec; hacktivism; social dynamics of online collectives; IRC culture |
+| Zero Day | Mark Russinovich | 2011 | Fiction | Techno-thriller by the Sysinternals creator; surprisingly technically accurate; good gateway fiction |
 
-> **Note:** *The Hacker Crackdown* is freely available online (Bruce Sterling released it). *Hackers: Heroes* explains why the hacker ethic exists -- understanding it makes you a better defender and more ethical practitioner.
+> Note: *The Hacker Crackdown* is freely available online (Bruce Sterling released it). *Hackers: Heroes* explains why the hacker ethic exists -- understanding it makes you a better defender and more ethical practitioner.
 
-**Hands-on repos:**
+Hands-on repos:
 - [APTnotes](https://github.com/kbandla/APTnotes) - Real APT campaign reports (modern equivalent of the stories in these books)
 - [the-catch](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks covering culture and history
 
-**Read next:** [Darknet Diaries Podcast](https://darknetdiaries.com)  | [2600: The Hacker Quarterly](https://www.2600.com)  | [Phrack Magazine](http://phrack.org) (archive)
+Read next: [Darknet Diaries Podcast](https://darknetdiaries.com) | [2600: The Hacker Quarterly](https://www.2600.com) | [Phrack Magazine](http://phrack.org) (archive)
 
 ---
 

@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | a credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), you need to kill secrets sprawl in code, Kubernetes, or pipelines |
-| **Start at** | [Secrets Management Fundamentals](#_1-secrets-management-fundamentals), [Secret Detection in Code](#_4-secret-detection-in-code), [Quick Reference](#quick-reference) |
-| **Pairs with** | [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md) |
+| Read this when | a credential just leaked in a repo or CI log, you are choosing or deploying a secrets manager (Vault, Conjur, cloud-native), you need to kill secrets sprawl in code, Kubernetes, or pipelines |
+| Start at | [Secrets Management Fundamentals](#_1-secrets-management-fundamentals), [Secret Detection in Code](#_4-secret-detection-in-code), [Quick Reference](#quick-reference) |
+| Pairs with | [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md) |
 
 ---
 
@@ -29,7 +29,7 @@
 
 ### What Counts as a Secret
 
-A **secret** is any piece of sensitive data that grants access to a system, resource, or encrypted artifact. Secrets require strict lifecycle controls and must never be stored in plaintext.
+A secret is any piece of sensitive data that grants access to a system, resource, or encrypted artifact. Secrets require strict lifecycle controls and must never be stored in plaintext.
 
 | Secret Type | Examples | Risk if Exposed |
 |---|---|---|
@@ -46,20 +46,20 @@ A **secret** is any piece of sensitive data that grants access to a system, reso
 
 ### The Secrets Sprawl Problem
 
-**Secrets sprawl** occurs when secrets are duplicated and distributed across multiple locations without central governance. This is endemic in organizations that rely on manual secret distribution.
+Secrets sprawl occurs when secrets are duplicated and distributed across multiple locations without central governance. This is endemic in organizations that rely on manual secret distribution.
 
-**Common sprawl locations:**
+Common sprawl locations:
 
-- **Hardcoded in source code** — The worst form. Secrets committed to git travel in history forever. Even a single commit with an exposed key can be scanned by automated bots within seconds of a public push.
-- **Configuration files (.env, application.properties, config.yaml)** — Often not in .gitignore, accidentally committed, or stored insecurely on servers.
-- **CI/CD pipeline scripts** — Inline in Jenkinsfiles, GitHub Actions YAML, or GitLab CI YAML as unmasked variables.
-- **Log files** — Connection strings, JWT tokens, or API keys logged during startup, errors, or debug sessions.
-- **Environment variables** — Visible to all processes on the host; dumped in /proc, crash reports, or debugging tools.
-- **Container images** — Baked into Docker layers during build; discoverable via `docker history`.
-- **Chat/ticketing systems** — Slack messages, Jira tickets, email chains sharing secrets for "quick fixes."
-- **Documentation/wikis** — Confluence pages, Notion docs, Google Docs with example values using real credentials.
-- **Backup files** — Database dumps, configuration backups containing plaintext secrets.
-- **Infrastructure-as-Code** — Terraform state files, Ansible playbooks, CloudFormation templates.
+- Hardcoded in source code: The worst form. Secrets committed to git travel in history forever. Even a single commit with an exposed key can be scanned by automated bots within seconds of a public push.
+- Configuration files (.env, application.properties, config.yaml): Often not in .gitignore, accidentally committed, or stored insecurely on servers.
+- CI/CD pipeline scripts: Inline in Jenkinsfiles, GitHub Actions YAML, or GitLab CI YAML as unmasked variables.
+- Log files: Connection strings, JWT tokens, or API keys logged during startup, errors, or debug sessions.
+- Environment variables: Visible to all processes on the host; dumped in /proc, crash reports, or debugging tools.
+- Container images: Baked into Docker layers during build; discoverable via `docker history`.
+- Chat/ticketing systems: Slack messages, Jira tickets, email chains sharing secrets for "quick fixes."
+- Documentation/wikis: Confluence pages, Notion docs, Google Docs with example values using real credentials.
+- Backup files: Database dumps, configuration backups containing plaintext secrets.
+- Infrastructure-as-Code: Terraform state files, Ansible playbooks, CloudFormation templates.
 
 ### Secrets Lifecycle
 
@@ -71,61 +71,61 @@ Creation → Distribution → Storage → Usage → Rotation → Revocation → 
 
 | Phase | Controls | Tools |
 |---|---|---|
-| **Creation** | Strong randomness (CSPRNG), minimum length/complexity, least privilege scope | OpenSSL, AWS Secrets Manager generation, Vault |
-| **Distribution** | Encrypted channels only, pull-not-push model, no email/Slack | Vault Agent, K8s CSI driver, SSM Parameter Store |
-| **Storage** | Encrypted at rest, HSM-backed where possible, access-controlled | Vault, AWS KMS, Azure Key Vault, GCP Secret Manager |
-| **Usage** | Audit every access, short-lived where possible, scope-limited | Vault leases, IAM conditions, OIDC |
-| **Rotation** | Automated rotation, zero-downtime blue-green, TTL enforcement | Vault dynamic secrets, AWS automatic rotation |
-| **Revocation** | Immediate revocation on compromise, lease revocation, key deactivation | Vault `vault lease revoke`, AWS disable access key |
-| **Auditing** | Immutable access logs, SIEM integration, anomaly detection | Vault audit log, CloudTrail, Azure Monitor |
+| Creation | Strong randomness (CSPRNG), minimum length/complexity, least privilege scope | OpenSSL, AWS Secrets Manager generation, Vault |
+| Distribution | Encrypted channels only, pull-not-push model, no email/Slack | Vault Agent, K8s CSI driver, SSM Parameter Store |
+| Storage | Encrypted at rest, HSM-backed where possible, access-controlled | Vault, AWS KMS, Azure Key Vault, GCP Secret Manager |
+| Usage | Audit every access, short-lived where possible, scope-limited | Vault leases, IAM conditions, OIDC |
+| Rotation | Automated rotation, zero-downtime blue-green, TTL enforcement | Vault dynamic secrets, AWS automatic rotation |
+| Revocation | Immediate revocation on compromise, lease revocation, key deactivation | Vault `vault lease revoke`, AWS disable access key |
+| Auditing | Immutable access logs, SIEM integration, anomaly detection | Vault audit log, CloudTrail, Azure Monitor |
 
 ### Principle of Least Privilege for Secrets
 
-Each application, service, or user should access **only the secrets it needs**, with **only the permissions it requires**, for **only the duration it needs them**.
+Each application, service, or user should access only the secrets it needs, with only the permissions it requires, for only the duration it needs them.
 
-- **Scope restriction**: A payment service should only read the Stripe API key, not the database master password.
-- **Time restriction**: Dynamic credentials with TTLs of minutes/hours rather than static passwords valid indefinitely.
-- **Path restriction**: Vault policies restrict access to specific paths (`secret/data/payments/*`).
-- **Context restriction**: AWS IAM conditions (`aws:SourceIp`, `aws:RequestedRegion`) limit where secrets can be fetched.
-- **Audit accountability**: Each access must be attributable to a specific identity.
+- Scope restriction: A payment service should only read the Stripe API key, not the database master password.
+- Time restriction: Dynamic credentials with TTLs of minutes/hours rather than static passwords valid indefinitely.
+- Path restriction: Vault policies restrict access to specific paths (`secret/data/payments/*`).
+- Context restriction: AWS IAM conditions (`aws:SourceIp`, `aws:RequestedRegion`) limit where secrets can be fetched.
+- Audit accountability: Each access must be attributable to a specific identity.
 
 ### Secrets as the #1 Initial Access Vector
 
 Credential theft and abuse account for the majority of breaches. MITRE ATT&CK T1552 (Unsecured Credentials) and its sub-techniques are among the most exploited:
 
-- **T1552.001** — Credentials in Files (hardcoded configs, .env files)
-- **T1552.004** — Private Keys (exposed SSH/TLS private keys)
-- **T1552.007** — Container API (Docker socket, container environment variables)
-- **T1528** — Steal Application Access Token (OAuth token theft)
-- **T1539** — Steal Web Session Cookie
+- T1552.001: Credentials in Files (hardcoded configs, .env files)
+- T1552.004: Private Keys (exposed SSH/TLS private keys)
+- T1552.007: Container API (Docker socket, container environment variables)
+- T1528: Steal Application Access Token (OAuth token theft)
+- T1539: Steal Web Session Cookie
 
-Threat actors actively scan GitHub, GitLab, npm packages, Docker Hub, and public S3 buckets for exposed credentials within minutes of exposure. Tools like **truffleHog**, **GitGuardian**, and custom bots perform continuous scanning.
+Threat actors actively scan GitHub, GitLab, npm packages, Docker Hub, and public S3 buckets for exposed credentials within minutes of exposure. Tools like truffleHog, GitGuardian, and custom bots perform continuous scanning.
 
 ### Why .env Files Are Dangerous
 
 `.env` files were designed as developer convenience tools for local development, not as secrets management solutions:
 
-1. **Accidentally committed** — Developers forget to add `.env` to `.gitignore`; CI runners clone repos and may log contents.
-2. **No encryption** — Plaintext secrets readable by any process with filesystem access.
-3. **Shared across environments** — The same `.env` pattern used for dev gets copied to production with production secrets.
-4. **No audit trail** — No record of who read the file, when, or why.
-5. **No rotation support** — Rotating a secret requires manually updating every `.env` file on every host.
-6. **Container leakage** — `docker inspect` reveals environment variables; process listing shows `/proc/<pid>/environ`.
+1. Accidentally committed: Developers forget to add `.env` to `.gitignore`; CI runners clone repos and may log contents.
+2. No encryption: Plaintext secrets readable by any process with filesystem access.
+3. Shared across environments: The same `.env` pattern used for dev gets copied to production with production secrets.
+4. No audit trail: No record of who read the file, when, or why.
+5. No rotation support: Rotating a secret requires manually updating every `.env` file on every host.
+6. Container leakage: `docker inspect` reveals environment variables; process listing shows `/proc/<pid>/environ`.
 
-**Mitigation**: Use `.env.example` (no real values) committed to git; fetch real secrets at runtime from a secrets manager.
+Mitigation: Use `.env.example` (no real values) committed to git; fetch real secrets at runtime from a secrets manager.
 
 ### Common Exposure Vectors
 
 | Vector | Description | Detection |
 |---|---|---|
-| **Git history** | Secrets committed and "removed" still exist in git history; `git log -p` or `git show` reveals them | BFG Repo Cleaner scan, gitleaks --no-git |
-| **CI/CD logs** | `echo $SECRET` or failed command output prints secrets in build logs | Log masking, ggshield CI integration |
-| **Docker layers** | `RUN cp secret.txt /app/` creates an image layer containing the file; `docker history --no-trunc` or layer extraction reveals it | Trivy secret scanning, Hadolint |
-| **S3 buckets** | Misconfigured public bucket exposes backup files, config files, or terraform state with embedded secrets | S3 bucket policy audit, Macie sensitive data discovery |
-| **npm packages** | Developers accidentally publish `.env` files or private keys inside npm packages | npm audit, Socket.dev, Snyk |
-| **API responses** | Verbose error responses or debug endpoints return internal configuration including secrets | DAST scanning, API security testing |
-| **Memory dumps** | Crash dumps, core files, and heap snapshots may contain in-memory secrets | Secure memory handling, immediate dump deletion |
-| **Kubernetes secrets** | Default base64 encoding (not encryption) means etcd access or RBAC misconfiguration exposes secrets | etcd encryption, RBAC audit |
+| Git history | Secrets committed and "removed" still exist in git history; `git log -p` or `git show` reveals them | BFG Repo Cleaner scan, gitleaks --no-git |
+| CI/CD logs | `echo $SECRET` or failed command output prints secrets in build logs | Log masking, ggshield CI integration |
+| Docker layers | `RUN cp secret.txt /app/` creates an image layer containing the file; `docker history --no-trunc` or layer extraction reveals it | Trivy secret scanning, Hadolint |
+| S3 buckets | Misconfigured public bucket exposes backup files, config files, or terraform state with embedded secrets | S3 bucket policy audit, Macie sensitive data discovery |
+| npm packages | Developers accidentally publish `.env` files or private keys inside npm packages | npm audit, Socket.dev, Snyk |
+| API responses | Verbose error responses or debug endpoints return internal configuration including secrets | DAST scanning, API security testing |
+| Memory dumps | Crash dumps, core files, and heap snapshots may contain in-memory secrets | Secure memory handling, immediate dump deletion |
+| Kubernetes secrets | Default base64 encoding (not encryption) means etcd access or RBAC misconfiguration exposes secrets | etcd encryption, RBAC audit |
 
 ---
 
@@ -135,7 +135,7 @@ Threat actors actively scan GitHub, GitLab, npm packages, Docker Hub, and public
 
 HashiCorp Vault is the industry-standard open-source secrets management platform. It provides a unified interface for secrets, encryption-as-a-service, and privileged access management.
 
-**High Availability Architecture:**
+High Availability Architecture:
 
 ```
                     ┌─────────────────┐
@@ -157,26 +157,26 @@ HashiCorp Vault is the industry-standard open-source secrets management platform
                     └─────────────────┘
 ```
 
-- **Active node**: Handles all reads and writes; holds unsealed state.
-- **Standby nodes**: Forward requests to active node; take over via leader election if active fails.
-- **Integrated Raft storage**: Built-in consensus storage (recommended since Vault 1.4); eliminates Consul dependency.
-- **Performance Replication**: Vault Enterprise feature; read-capable secondary clusters for geo-distributed deployments.
-- **DR Replication**: Vault Enterprise disaster recovery secondaries.
+- Active node: Handles all reads and writes; holds unsealed state.
+- Standby nodes: Forward requests to active node; take over via leader election if active fails.
+- Integrated Raft storage: Built-in consensus storage (recommended since Vault 1.4); eliminates Consul dependency.
+- Performance Replication: Vault Enterprise feature; read-capable secondary clusters for geo-distributed deployments.
+- DR Replication: Vault Enterprise disaster recovery secondaries.
 
 ### Seal/Unseal Mechanics
 
-When Vault starts, it is **sealed** — it knows the storage location but cannot decrypt any data. Unsealing decrypts the master key.
+When Vault starts, it is sealed — it knows the storage location but cannot decrypt any data. Unsealing decrypts the master key.
 
-**Shamir's Secret Sharing (default):**
+Shamir's Secret Sharing (default):
 - Master encryption key is split into `N` shares using Shamir's algorithm.
 - `K` of `N` shares (threshold) must be provided to reconstruct the master key.
-- Example: 5 shares, 3 required — any 3 key holders can unseal.
+- Example: 5 shares, 3 required: any 3 key holders can unseal.
 - Shares are distributed to trusted operators; no single person holds the full key.
-- **Risk**: Manual unsealing required on every Vault restart (node reboot, upgrade).
+- Risk: Manual unsealing required on every Vault restart (node reboot, upgrade).
 
-**Auto-Unseal (recommended for production):**
+Auto-Unseal (recommended for production):
 - Vault wraps the master key using an external KMS.
-- On startup, Vault calls the KMS to unwrap — no human intervention required.
+- On startup, Vault calls the KMS to unwrap: no human intervention required.
 
 | Auto-Unseal Provider | Configuration |
 |---|---|
@@ -189,7 +189,7 @@ When Vault starts, it is **sealed** — it knows the storage location but cannot
 
 Secret engines are plugins that store, generate, or encrypt data. Each is mounted at a path.
 
-**KV v2 (Key-Value store):**
+KV v2 (Key-Value store):
 ```bash
 vault secrets enable -path=secret kv-v2
 vault kv put secret/myapp/config db_password=s3cr3t api_key=abc123
@@ -201,7 +201,7 @@ vault kv destroy -versions=1,2 secret/myapp/config  # permanent destroy
 vault kv metadata get secret/myapp/config    # version history
 ```
 
-**Database Secret Engine (dynamic credentials):**
+Database Secret Engine (dynamic credentials):
 ```bash
 vault secrets enable database
 vault write database/config/my-postgres \
@@ -221,7 +221,7 @@ vault read database/creds/app-role
 # Returns: username=v-app-AbCdEf, password=A1B2C3..., lease_duration=1h
 ```
 
-**PKI Secret Engine:**
+PKI Secret Engine:
 ```bash
 vault secrets enable pki
 vault secrets tune -max-lease-ttl=87600h pki
@@ -235,7 +235,7 @@ vault write pki/roles/example-dot-com \
 vault write pki/issue/example-dot-com common_name=app.example.com
 ```
 
-**SSH Secret Engine:**
+SSH Secret Engine:
 ```bash
 vault secrets enable ssh
 # OTP mode
@@ -247,7 +247,7 @@ vault write ssh/roles/signed-cert key_type=ca allowed_users="*" \
     ttl=1m
 ```
 
-**Transit Secret Engine (Encryption as a Service):**
+Transit Secret Engine (Encryption as a Service):
 ```bash
 vault secrets enable transit
 vault write -f transit/keys/my-key
@@ -261,15 +261,15 @@ vault write transit/keys/my-key/config min_decryption_version=2  # force re-encr
 
 | Auth Method | Use Case | Configuration |
 |---|---|---|
-| **AppRole** | Machine-to-machine auth; applications | `vault auth enable approle` |
-| **Kubernetes** | Pods authenticating via service account JWT | `vault auth enable kubernetes` |
-| **AWS IAM** | EC2 instances, Lambda, ECS tasks | `vault auth enable aws` |
-| **OIDC** | SSO via Okta, Azure AD, Google | `vault auth enable oidc` |
-| **LDAP** | Active Directory authentication | `vault auth enable ldap` |
-| **Token** | Direct token-based (for humans/bootstrapping) | Built-in |
-| **GitHub** | Developer auth via GitHub token | `vault auth enable github` |
+| AppRole | Machine-to-machine auth; applications | `vault auth enable approle` |
+| Kubernetes | Pods authenticating via service account JWT | `vault auth enable kubernetes` |
+| AWS IAM | EC2 instances, Lambda, ECS tasks | `vault auth enable aws` |
+| OIDC | SSO via Okta, Azure AD, Google | `vault auth enable oidc` |
+| LDAP | Active Directory authentication | `vault auth enable ldap` |
+| Token | Direct token-based (for humans/bootstrapping) | Built-in |
+| GitHub | Developer auth via GitHub token | `vault auth enable github` |
 
-**AppRole configuration:**
+AppRole configuration:
 ```bash
 vault auth enable approle
 vault write auth/approle/role/myapp \
@@ -285,7 +285,7 @@ vault write -f auth/approle/role/myapp/secret-id  # dynamic; inject at deploy ti
 vault write auth/approle/login role_id="..." secret_id="..."
 ```
 
-**Kubernetes auth:**
+Kubernetes auth:
 ```bash
 vault auth enable kubernetes
 vault write auth/kubernetes/config \
@@ -343,18 +343,18 @@ vault policy list
 
 Dynamic secrets are generated on-demand with a TTL. They are unique per request and automatically expire.
 
-**Benefits:**
+Benefits:
 - No long-lived shared credentials
 - If leaked, expire quickly
 - Full audit trail per credential
 - Automatic cleanup
 
-**Supported backends for dynamic secrets:**
+Supported backends for dynamic secrets:
 - Databases: PostgreSQL, MySQL/MariaDB, MSSQL, Oracle, MongoDB, Cassandra, Elasticsearch
 - Cloud: AWS (IAM users/assumed roles/federation tokens), Azure (service principals), GCP (service accounts)
 - SSH (OTP and CA-signed certificates)
 
-**Lease management:**
+Lease management:
 ```bash
 vault lease renew database/creds/app-role/abc123
 vault lease revoke database/creds/app-role/abc123
@@ -463,15 +463,15 @@ vault audit disable file/
 
 ### Overview
 
-**CyberArk Conjur** (open-source: `cyberark/conjur`) is a secrets management solution purpose-built for machine identity and DevOps pipelines. Unlike Vault's imperative configuration, Conjur uses **policy-as-code** (declarative YAML policies).
+CyberArk Conjur (open-source: `cyberark/conjur`) is a secrets management solution purpose-built for machine identity and DevOps pipelines. Unlike Vault's imperative configuration, Conjur uses policy-as-code (declarative YAML policies).
 
-**Key differentiators:**
-- Policy-as-code model — all access control defined in version-controlled YAML
-- Strong machine identity focus — built for workloads, containers, CI/CD
-- CyberArk Vault integration — bridges DevOps secrets with enterprise PAM
-- Conjur Cloud — hosted SaaS offering
+Key differentiators:
+- Policy-as-code model: all access control defined in version-controlled YAML
+- Strong machine identity focus: built for workloads, containers, CI/CD
+- CyberArk Vault integration: bridges DevOps secrets with enterprise PAM
+- Conjur Cloud: hosted SaaS offering
 
-**Architecture:**
+Architecture:
 ```
 ┌──────────────────────────────────────────────────────┐
 │                  Conjur Server                       │
@@ -553,7 +553,7 @@ curl -s -H "Authorization: Token token=\"$CONJUR_TOKEN\"" \
 
 ### Conjur Kubernetes Integration
 
-**Secrets Provider Init Container** (recommended pattern):
+Secrets Provider Init Container (recommended pattern):
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -607,7 +607,7 @@ spec:
 
 ggshield uses GitGuardian's detection engine (300+ secret types) to scan code for exposed secrets.
 
-**Installation and pre-commit setup:**
+Installation and pre-commit setup:
 ```bash
 pip install ggshield
 ggshield auth login                          # authenticate with GitGuardian account
@@ -624,7 +624,7 @@ repos:
 pre-commit install
 ```
 
-**Scanning:**
+Scanning:
 ```bash
 ggshield secret scan path ./src/             # scan directory
 ggshield secret scan repo .                  # full historical scan
@@ -634,7 +634,7 @@ ggshield secret scan commit HEAD             # scan latest commit
 ggshield secret scan range HEAD~5..HEAD      # scan commit range
 ```
 
-**GitHub Actions integration:**
+GitHub Actions integration:
 ```yaml
 - name: GitGuardian scan
   uses: GitGuardian/ggshield/actions/secret@v1
@@ -646,7 +646,7 @@ ggshield secret scan range HEAD~5..HEAD      # scan commit range
     GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 ```
 
-**Incident remediation workflow:**
+Incident remediation workflow:
 1. Receive alert from GitGuardian dashboard or webhook.
 2. Immediately rotate the exposed secret in its source system.
 3. Assess blast radius: when was it exposed? Was the repository public? Are there forks?
@@ -657,7 +657,7 @@ ggshield secret scan range HEAD~5..HEAD      # scan commit range
 
 ### detect-secrets (Yelp)
 
-`detect-secrets` works by maintaining a **baseline file** of known false positives, enabling teams to gradually eliminate secrets without alert fatigue.
+`detect-secrets` works by maintaining a baseline file of known false positives, enabling teams to gradually eliminate secrets without alert fatigue.
 
 ```bash
 pip install detect-secrets
@@ -724,7 +724,7 @@ gitleaks protect --staged                          # pre-commit: scan staged fil
 gitleaks report --report-format=json               # output JSON report
 ```
 
-**GitHub Actions:**
+GitHub Actions:
 ```yaml
 - name: Run Gitleaks
   uses: gitleaks/gitleaks-action@v2
@@ -735,7 +735,7 @@ gitleaks report --report-format=json               # output JSON report
 
 ### TruffleHog
 
-TruffleHog uses both regex patterns and **Shannon entropy** analysis to find secrets that may evade pattern-only tools.
+TruffleHog uses both regex patterns and Shannon entropy analysis to find secrets that may evade pattern-only tools.
 
 ```bash
 pip install trufflehog3
@@ -750,25 +750,25 @@ trufflehog s3 --bucket=my-bucket
 trufflehog github --org=myorg --token=$GITHUB_TOKEN --only-verified
 ```
 
-**Entropy-based detection**: TruffleHog measures the Shannon entropy of strings. High entropy (> 4.5 bits/char) in contexts like variable assignments or config values indicates likely secrets.
+Entropy-based detection: TruffleHog measures the Shannon entropy of strings. High entropy (> 4.5 bits/char) in contexts like variable assignments or config values indicates likely secrets.
 
 ### GitHub Secret Scanning
 
 GitHub's native secret scanning automatically detects known secret formats in repositories.
 
-**Push Protection** (blocks pushes containing secrets):
-- Enable: Repository Settings → Security → Secret scanning → Push protection
+Push Protection (blocks pushes containing secrets):
+- Enable: Repository Settings -> Security -> Secret scanning -> Push protection
 - Supports 200+ secret types from GitHub's partner program
 - Developers can bypass with justification (auditable)
 
-**Custom patterns:**
+Custom patterns:
 ```
 # Repository Settings → Security → Secret scanning → Custom patterns
 Pattern name: Internal Auth Token
 Secret format regex: MYCOMPANY-[A-Za-z0-9]{40}
 ```
 
-**Partner program**: GitHub notifies service providers (AWS, Stripe, Twilio, etc.) when their token formats are detected, enabling automatic revocation.
+Partner program: GitHub notifies service providers (AWS, Stripe, Twilio, etc.) when their token formats are detected, enabling automatic revocation.
 
 ### Remediation: Git History Rewriting
 
@@ -797,7 +797,7 @@ git push
 # All collaborators must re-clone; origin is now clean
 ```
 
-**CRITICAL**: Rotate the secret BEFORE rewriting history. History rewriting removes the secret from the repository but it may already be cached by GitHub, mirrors, forks, or scanners.
+CRITICAL: Rotate the secret BEFORE rewriting history. History rewriting removes the secret from the repository but it may already be cached by GitHub, mirrors, forks, or scanners.
 
 ---
 
@@ -807,7 +807,7 @@ git push
 
 AWS Secrets Manager provides fully managed secrets storage with built-in rotation.
 
-**Core operations:**
+Core operations:
 ```bash
 # Create secret
 aws secretsmanager create-secret \
@@ -835,7 +835,7 @@ aws secretsmanager tag-resource \
   --tags Key=Environment,Value=production Key=Team,Value=payments
 ```
 
-**Automatic rotation for RDS:**
+Automatic rotation for RDS:
 ```json
 {
   "RotationRules": {
@@ -849,7 +849,7 @@ AWS provides pre-built Lambda rotation functions for:
 - Amazon DocumentDB
 - Amazon ElastiCache
 
-**Cross-account access (resource policy):**
+Cross-account access (resource policy):
 ```json
 {
   "Version": "2012-10-17",
@@ -866,19 +866,19 @@ AWS provides pre-built Lambda rotation functions for:
 
 | Capability | Secrets Manager | SSM Parameter Store |
 |---|---|---|
-| **Cost** | ~$0.40/secret/month + API calls | Free (Standard); $0.05/10k API calls (Advanced) |
-| **Automatic rotation** | Built-in with Lambda | Manual only |
-| **Cross-account** | Native resource policy | Via IAM only (complex) |
-| **Versioning** | Yes (with staging labels: AWSCURRENT/AWSPENDING) | Yes (with version numbers) |
-| **Secret size** | Up to 65,536 bytes | 4KB (Standard), 8KB (Advanced) |
-| **Replication** | Cross-region replication | No native replication |
-| **Use case** | Database credentials, API keys needing rotation | Configuration, non-sensitive params, small secrets |
+| Cost | ~$0.40/secret/month + API calls | Free (Standard); $0.05/10k API calls (Advanced) |
+| Automatic rotation | Built-in with Lambda | Manual only |
+| Cross-account | Native resource policy | Via IAM only (complex) |
+| Versioning | Yes (with staging labels: AWSCURRENT/AWSPENDING) | Yes (with version numbers) |
+| Secret size | Up to 65,536 bytes | 4KB (Standard), 8KB (Advanced) |
+| Replication | Cross-region replication | No native replication |
+| Use case | Database credentials, API keys needing rotation | Configuration, non-sensitive params, small secrets |
 
 ### Azure Key Vault
 
-**Access models:**
-- **Access Policies** (legacy): Vault-level permissions per identity.
-- **Azure RBAC** (recommended): Standard Azure role assignments on the vault or individual secrets.
+Access models:
+- Access Policies (legacy): Vault-level permissions per identity.
+- Azure RBAC (recommended): Standard Azure role assignments on the vault or individual secrets.
 
 ```bash
 # Create Key Vault
@@ -904,7 +904,7 @@ az keyvault secret set-attributes --vault-name mykeyvault --name "DbPassword" \
 az keyvault update --name mykeyvault --enable-purge-protection true
 ```
 
-**Managed Identity integration:**
+Managed Identity integration:
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
@@ -915,7 +915,7 @@ secret = client.get_secret("DbPassword")
 print(secret.value)
 ```
 
-**Soft delete + purge protection**: Deleted secrets are retained for the retention period (7-90 days). With purge protection enabled, even vault administrators cannot permanently delete secrets until the retention period expires — critical protection against ransomware.
+Soft delete + purge protection: Deleted secrets are retained for the retention period (7-90 days). With purge protection enabled, even vault administrators cannot permanently delete secrets until the retention period expires — critical protection against ransomware.
 
 ### GCP Secret Manager
 
@@ -943,7 +943,7 @@ gcloud secrets update my-db-password \
   --rotation-period="2592000s"  # 30 days
 ```
 
-**Workload Identity for GKE access:**
+Workload Identity for GKE access:
 ```yaml
 # Kubernetes ServiceAccount
 apiVersion: v1
@@ -968,7 +968,7 @@ gcloud secrets add-iam-policy-binding my-db-password \
   --member "serviceAccount:myapp@my-project.iam.gserviceaccount.com"
 ```
 
-**CMEK (Customer-Managed Encryption Keys):**
+CMEK (Customer-Managed Encryption Keys):
 ```bash
 gcloud secrets create my-secret \
   --replication-policy user-managed \
@@ -982,7 +982,7 @@ gcloud secrets create my-secret \
 
 ### Native Secret Problems
 
-Kubernetes Secrets are only base64-encoded, **not encrypted** by default:
+Kubernetes Secrets are only base64-encoded, not encrypted by default:
 
 ```bash
 kubectl get secret my-secret -o yaml
@@ -990,11 +990,11 @@ kubectl get secret my-secret -o yaml
 kubectl get secret my-secret -o jsonpath='{.data.password}' | base64 -d
 ```
 
-**Attack surface:**
-1. **etcd access**: Anyone with etcd access reads all secrets in plaintext (unless encryption configured).
-2. **Overly permissive RBAC**: `get`/`list`/`watch` on `secrets` resource exposes all secrets in namespace.
-3. **Node compromise**: Pods mounting secrets expose files at `/var/run/secrets/` — node-level access reads all mounted secrets.
-4. **Container environment variables**: `kubectl exec -- env` reveals all environment-variable secrets.
+Attack surface:
+1. etcd access: Anyone with etcd access reads all secrets in plaintext (unless encryption configured).
+2. Overly permissive RBAC: `get`/`list`/`watch` on `secrets` resource exposes all secrets in namespace.
+3. Node compromise: Pods mounting secrets expose files at `/var/run/secrets/`: node-level access reads all mounted secrets.
+4. Container environment variables: `kubectl exec -- env` reveals all environment-variable secrets.
 
 ### etcd Encryption at Rest
 
@@ -1065,7 +1065,7 @@ spec:
         property: password       # JSON field
 ```
 
-**Supported providers**: AWS Secrets Manager, AWS SSM Parameter Store, Azure Key Vault, GCP Secret Manager, HashiCorp Vault, CyberArk Conjur, Doppler, Infisical, 1Password.
+Supported providers: AWS Secrets Manager, AWS SSM Parameter Store, Azure Key Vault, GCP Secret Manager, HashiCorp Vault, CyberArk Conjur, Doppler, Infisical, 1Password.
 
 ### Vault Agent Injector
 
@@ -1315,7 +1315,7 @@ seal "pkcs11" {
 }
 ```
 
-**Production HSM vendors**: Thales Luna, AWS CloudHSM, Azure Dedicated HSM, Utimaco, nCipher.
+Production HSM vendors: Thales Luna, AWS CloudHSM, Azure Dedicated HSM, Utimaco, nCipher.
 
 ### mTLS Certificate Management for Microservices
 
@@ -1339,7 +1339,7 @@ metadata:
     linkerd.io/inject: enabled   # automatic mTLS injection
 ```
 
-**Certificate pinning**: Applications verify certificate fingerprints rather than relying solely on CA chain validation. Mitigates compromised CA attacks but increases operational burden (must update pins before certificate expiry).
+Certificate pinning: Applications verify certificate fingerprints rather than relying solely on CA chain validation. Mitigates compromised CA attacks but increases operational burden (must update pins before certificate expiry).
 
 ### CRL and OCSP
 
@@ -1373,7 +1373,7 @@ SSH keys face the same sprawl problems as passwords, compounded by:
 
 ### Vault SSH Secrets Engine
 
-**CA signing mode (recommended)** — short-lived certificates replace static authorized_keys:
+CA signing mode (recommended) — short-lived certificates replace static authorized_keys:
 
 ```bash
 vault secrets enable ssh
@@ -1404,7 +1404,7 @@ vault write -field=signed_key ssh/sign/user-role public_key=@~/.ssh/id_ed25519.p
 ssh -i ~/.ssh/id_ed25519 -i ~/.ssh/id_ed25519-cert.pub ubuntu@server
 ```
 
-**OTP mode** (one-time password, no client cert needed):
+OTP mode (one-time password, no client cert needed):
 ```bash
 vault write ssh/roles/otp-role key_type=otp default_user=ubuntu cidr_list=10.0.0.0/8
 vault ssh -role=otp-role -mode=otp ubuntu@10.0.0.5
@@ -1484,7 +1484,7 @@ last -n 50
       register: keys_content
 ```
 
-**Key rotation procedure:**
+Key rotation procedure:
 1. Generate new key pairs for all service accounts.
 2. Add new public keys to authorized_keys on all target systems.
 3. Update CI/CD systems, automation tools with new private keys.
@@ -1498,9 +1498,9 @@ last -n 50
 
 ### GitHub Actions Secrets
 
-**Repository secrets**: Available to all workflows in the repository.
-**Environment secrets**: Scoped to specific environments (require environment protection rules).
-**Organization secrets**: Shared across multiple repositories; repository access list controlled.
+Repository secrets: Available to all workflows in the repository.
+Environment secrets: Scoped to specific environments (require environment protection rules).
+Organization secrets: Shared across multiple repositories; repository access list controlled.
 
 ```yaml
 # Using secrets in GitHub Actions
@@ -1516,7 +1516,7 @@ jobs:
         run: ./deploy.sh
 ```
 
-**GitHub Actions OIDC Federation** (eliminates stored credentials):
+GitHub Actions OIDC Federation (eliminates stored credentials):
 ```yaml
 jobs:
   deploy-aws:
@@ -1535,7 +1535,7 @@ jobs:
         run: aws s3 sync ./dist s3://my-bucket/
 ```
 
-**AWS IAM trust policy for GitHub OIDC:**
+AWS IAM trust policy for GitHub OIDC:
 ```json
 {
   "Version": "2012-10-17",
@@ -1568,10 +1568,10 @@ deploy:
     # - Environment-scoped: available only to matching environments
 ```
 
-**Variable types:**
-- **Protected**: Only available on protected branches/tags.
-- **Masked**: Automatically redacted from job logs (must be base64-safe single-line value).
-- **Hidden** (GitLab 17.4+): Cannot be revealed in UI after creation.
+Variable types:
+- Protected: Only available on protected branches/tags.
+- Masked: Automatically redacted from job logs (must be base64-safe single-line value).
+- Hidden (GitLab 17.4+): Cannot be revealed in UI after creation.
 
 ### Jenkins Credentials Store
 
@@ -1600,9 +1600,9 @@ pipeline {
 }
 ```
 
-**Jenkins credential types**: Username/Password, Secret Text, SSH Username with Private Key, Certificate, Docker Host Certificate Authentication.
+Jenkins credential types: Username/Password, Secret Text, SSH Username with Private Key, Certificate, Docker Host Certificate Authentication.
 
-**HashiCorp Vault Jenkins plugin:**
+HashiCorp Vault Jenkins plugin:
 ```groovy
 withVault(vaultSecrets: [[path: 'secret/myapp/config', secretValues: [
   [envVar: 'DB_PASSWORD', vaultKey: 'db_password'],
@@ -1628,7 +1628,7 @@ echo "Deploying to ${ENVIRONMENT}"   # not secrets
 { set +x; echo "Password length: ${#DB_PASSWORD}"; } 2>/dev/null
 ```
 
-**Log masking in GitHub Actions:**
+Log masking in GitHub Actions:
 ```bash
 # Add value to masked list at runtime
 echo "::add-mask::$DYNAMIC_SECRET"
@@ -1643,10 +1643,10 @@ OIDC federation eliminates long-lived credentials in CI/CD:
 | AWS access key stored in GitHub secret | No stored credentials |
 | Key never rotates (or rotates rarely) | Token valid 1 hour max |
 | If secret leaked, attacker has long-lived access | If token leaked, expires quickly |
-| Key requires manual rotation | Automatic — no rotation needed |
+| Key requires manual rotation | Automatic: no rotation needed |
 | Audit: "GitHub Actions key used" | Audit: "Actions for repo/branch/workflow" |
 
-**OIDC supported platforms**: GitHub Actions → AWS/Azure/GCP/Vault/Terraform Cloud; GitLab CI → AWS/Azure/GCP; CircleCI → AWS/GCP.
+OIDC supported platforms: GitHub Actions -> AWS/Azure/GCP/Vault/Terraform Cloud; GitLab CI -> AWS/Azure/GCP; CircleCI -> AWS/GCP.
 
 ---
 
@@ -1654,37 +1654,37 @@ OIDC federation eliminates long-lived credentials in CI/CD:
 
 ### Rotation Strategies
 
-**Blue-green rotation** (zero downtime):
+Blue-green rotation (zero downtime):
 1. Generate new secret (v2) alongside existing (v1).
 2. Add v2 to secrets manager as AWSPENDING (AWS) or new version.
-3. Update application to read new secret — verify functionality.
+3. Update application to read new secret: verify functionality.
 4. Promote v2 to AWSCURRENT.
 5. Deprecate v1 (keep briefly for rollback).
 6. Revoke v1 after confirmation period.
 
-**Gradual rollout rotation:**
+Gradual rollout rotation:
 - Deploy new secret to a canary instance first.
 - Monitor error rates before rolling out fleet-wide.
 - Automated rollback if errors spike.
 
-**Rotation frequency targets:**
+Rotation frequency targets:
 
 | Secret Type | Target Rotation | Automated? |
 |---|---|---|
 | Database credentials | 30-90 days | Yes (Vault dynamic / AWS rotation Lambda) |
 | API keys | 90 days | Partially (depends on vendor API) |
-| SSH keys (static) | 180 days → migrate to certificates | Yes (Vault SSH CA) |
+| SSH keys (static) | 180 days -> migrate to certificates | Yes (Vault SSH CA) |
 | TLS certificates | Auto-renew before expiry (cert-manager) | Yes |
-| Cloud IAM keys | Eliminate → use OIDC/instance profiles | N/A |
+| Cloud IAM keys | Eliminate -> use OIDC/instance profiles | N/A |
 | Service account passwords | 90 days | Vault dynamic AD plugin |
 
 ### Break-Glass Emergency Access
 
 Procedures for emergency access when normal access controls are unavailable:
 
-1. **Vault recovery keys**: Shamir shares stored in physical safe or HSM. Requires quorum of key holders.
-2. **Break-glass accounts**: Dedicated accounts with elevated access; credentials in sealed envelopes in physical safe; access triggers alerts.
-3. **Emergency access workflow**:
+1. Vault recovery keys: Shamir shares stored in physical safe or HSM. Requires quorum of key holders.
+2. Break-glass accounts: Dedicated accounts with elevated access; credentials in sealed envelopes in physical safe; access triggers alerts.
+3. Emergency access workflow:
    - Two-person rule: Requires two authorized individuals.
    - Immediate notification to security team.
    - All actions recorded (screen recording, session logging).
@@ -1716,7 +1716,7 @@ az monitor log-analytics query \
 
 ### Detecting Secrets Abuse
 
-**Indicators of compromise:**
+Indicators of compromise:
 - Access from unexpected IP geolocation or ASN
 - Access outside business hours
 - High-volume secret reads in short time window (bulk exfiltration)
@@ -1724,7 +1724,7 @@ az monitor log-analytics query \
 - API calls from unexpected user agents
 - Multiple failed authentication attempts followed by success
 
-**Detection rules (Vault + SIEM):**
+Detection rules (Vault + SIEM):
 ```
 # Bulk secret access — Sigma-style
 title: Vault Bulk Secret Read
@@ -1739,20 +1739,20 @@ detection:
 
 ### Incident Response for Exposed Secrets
 
-**Immediate response (< 30 minutes):**
+Immediate response (< 30 minutes):
 1. Rotate/revoke the exposed secret immediately in the target system.
 2. Identify when exposure occurred (git log, CI log timestamps).
 3. Determine if the repository was public during exposure.
 4. Check for forks, clones, or mirrors.
 5. Search for evidence of exploitation (CloudTrail, access logs, WAF logs).
 
-**Assessment phase (< 4 hours):**
+Assessment phase (< 4 hours):
 6. Identify blast radius: what systems did the credential grant access to?
 7. Review access logs for unauthorized activity using the compromised credential.
 8. Notify affected system owners.
 9. If PII/PHI involved, initiate breach notification process.
 
-**Remediation:**
+Remediation:
 10. Rewrite git history (BFG Repo Cleaner) if public exposure.
 11. Enable push protection to prevent recurrence.
 12. Update secrets manager; audit secrets access policies.
@@ -1762,48 +1762,48 @@ detection:
 
 | Level | Description | Characteristics |
 |---|---|---|
-| **Level 0: Ad-hoc** | No formal secrets management | Hardcoded in code, shared via Slack/email, no rotation, no audit |
-| **Level 1: Centralized** | Secrets stored in a vault | Secrets manager deployed, applications pull from vault, basic RBAC |
-| **Level 2: Automated Distribution** | Secrets injected automatically | Vault Agent/CSI driver, no manual secret handling, environment secrets |
-| **Level 3: Automated Rotation** | Secrets rotate without downtime | Dynamic credentials, auto-rotation for static secrets, regular audits |
-| **Level 4: Zero Standing Secrets** | No long-lived credentials exist | OIDC federation for CI/CD, short-lived certs for SSH, dynamic DB creds everywhere |
+| Level 0: Ad-hoc | No formal secrets management | Hardcoded in code, shared via Slack/email, no rotation, no audit |
+| Level 1: Centralized | Secrets stored in a vault | Secrets manager deployed, applications pull from vault, basic RBAC |
+| Level 2: Automated Distribution | Secrets injected automatically | Vault Agent/CSI driver, no manual secret handling, environment secrets |
+| Level 3: Automated Rotation | Secrets rotate without downtime | Dynamic credentials, auto-rotation for static secrets, regular audits |
+| Level 4: Zero Standing Secrets | No long-lived credentials exist | OIDC federation for CI/CD, short-lived certs for SSH, dynamic DB creds everywhere |
 
 ### Vendor Comparison
 
 | Feature | HashiCorp Vault | CyberArk Conjur | AWS Secrets Manager | Azure Key Vault | GCP Secret Manager | Doppler | Infisical |
 |---|---|---|---|---|---|---|---|
-| **License** | BUSL 1.1 / Enterprise | Apache 2.0 / Enterprise | Proprietary | Proprietary | Proprietary | Proprietary | MIT / Enterprise |
-| **Dynamic Secrets** | Excellent | No | Rotation only | No | No | No | No |
-| **K8s Integration** | Excellent (Agent, CSI, ESO) | Good (init container) | ESO | ESO | ESO | ESO | Native |
-| **PKI/CA** | Yes (full PKI engine) | No | ACM | Yes | No | No | No |
-| **SSH Certificates** | Yes | No | No | No | No | No | No |
-| **Encryption-as-Service** | Yes (Transit engine) | No | No | Yes (Key Vault) | Yes (Cloud KMS) | No | No |
-| **Policy model** | HCL policies | YAML policy-as-code | IAM policies | Azure RBAC | IAM policies | UI/YAML | UI/YAML |
-| **Audit logging** | Comprehensive | Good | CloudTrail | Azure Monitor | Cloud Audit Logs | Good | Good |
-| **Open source** | Partial (BUSL) | Yes (OSS core) | No | No | No | No | Yes |
-| **SaaS option** | HCP Vault | Conjur Cloud | Native | Native | Native | Native | Yes |
-| **Self-hosted** | Yes | Yes | No | No | No | No | Yes |
-| **Price model** | Free OSS / per-node Enterprise | Free OSS / Enterprise | Per secret/month | Per operation | Per access/month | Per seat/month | Free / per seat |
+| License | BUSL 1.1 / Enterprise | Apache 2.0 / Enterprise | Proprietary | Proprietary | Proprietary | Proprietary | MIT / Enterprise |
+| Dynamic Secrets | Excellent | No | Rotation only | No | No | No | No |
+| K8s Integration | Excellent (Agent, CSI, ESO) | Good (init container) | ESO | ESO | ESO | ESO | Native |
+| PKI/CA | Yes (full PKI engine) | No | ACM | Yes | No | No | No |
+| SSH Certificates | Yes | No | No | No | No | No | No |
+| Encryption-as-Service | Yes (Transit engine) | No | No | Yes (Key Vault) | Yes (Cloud KMS) | No | No |
+| Policy model | HCL policies | YAML policy-as-code | IAM policies | Azure RBAC | IAM policies | UI/YAML | UI/YAML |
+| Audit logging | Comprehensive | Good | CloudTrail | Azure Monitor | Cloud Audit Logs | Good | Good |
+| Open source | Partial (BUSL) | Yes (OSS core) | No | No | No | No | Yes |
+| SaaS option | HCP Vault | Conjur Cloud | Native | Native | Native | Native | Yes |
+| Self-hosted | Yes | Yes | No | No | No | No | Yes |
+| Price model | Free OSS / per-node Enterprise | Free OSS / Enterprise | Per secret/month | Per operation | Per access/month | Per seat/month | Free / per seat |
 
 ### MITRE ATT&CK Credential Access Techniques Mitigated
 
 | ATT&CK ID | Technique | Mitigation |
 |---|---|---|
-| **T1552** | Unsecured Credentials | Secrets manager, secret scanning, no hardcoded credentials |
-| **T1552.001** | Credentials in Files | Pre-commit hooks (gitleaks, detect-secrets), .env file elimination |
-| **T1552.004** | Private Keys | Vault SSH CA (ephemeral certs), key rotation, HSM storage |
-| **T1552.007** | Container API | Docker security, no secrets in image layers, runtime secret injection |
-| **T1528** | Steal Application Access Token | Token rotation, short TTL, OIDC federation (no stored tokens) |
-| **T1550** | Use Alternate Authentication Material | mTLS, certificate pinning, CA-signed SSH certs |
-| **T1539** | Steal Web Session Cookie | HttpOnly/Secure cookies, short session TTL, session binding |
-| **T1555** | Credentials from Password Stores | Vault RBAC, audit logging, HSM-backed key storage |
-| **T1606** | Forge Web Credentials | Short-lived JWTs, asymmetric signing keys in HSM, key rotation |
-| **T1040** | Network Sniffing (credential capture) | TLS everywhere, mTLS for service-to-service, certificate validation |
+| T1552 | Unsecured Credentials | Secrets manager, secret scanning, no hardcoded credentials |
+| T1552.001 | Credentials in Files | Pre-commit hooks (gitleaks, detect-secrets), .env file elimination |
+| T1552.004 | Private Keys | Vault SSH CA (ephemeral certs), key rotation, HSM storage |
+| T1552.007 | Container API | Docker security, no secrets in image layers, runtime secret injection |
+| T1528 | Steal Application Access Token | Token rotation, short TTL, OIDC federation (no stored tokens) |
+| T1550 | Use Alternate Authentication Material | mTLS, certificate pinning, CA-signed SSH certs |
+| T1539 | Steal Web Session Cookie | HttpOnly/Secure cookies, short session TTL, session binding |
+| T1555 | Credentials from Password Stores | Vault RBAC, audit logging, HSM-backed key storage |
+| T1606 | Forge Web Credentials | Short-lived JWTs, asymmetric signing keys in HSM, key rotation |
+| T1040 | Network Sniffing (credential capture) | TLS everywhere, mTLS for service-to-service, certificate validation |
 
-**Detection opportunities:**
-- **T1552 detection**: Alert on secrets scanning tool findings, monitor for Base64-encoded strings in CI logs.
-- **T1528 detection**: OAuth token usage from unexpected geolocation or user agent.
-- **Vault-specific**: Monitor for lease revocation spikes (attacker revoking to cover tracks), bulk secret reads, auth from unexpected namespaces.
+Detection opportunities:
+- T1552 detection: Alert on secrets scanning tool findings, monitor for Base64-encoded strings in CI logs.
+- T1528 detection: OAuth token usage from unexpected geolocation or user agent.
+- Vault-specific: Monitor for lease revocation spikes (attacker revoking to cover tracks), bulk secret reads, auth from unexpected namespaces.
 
 ---
 

@@ -1,10 +1,10 @@
-# 🧭 Guides — Step-by-Step How-To's
+# Guides: Step-by-Step How-To's
 
-> **The references tell you *what*; the guides tell you *how*.** Each guide is a self-contained, start-to-finish procedure with prerequisites, numbered steps, checkpoints you can verify, and links back into the library's reference docs for the depth behind each move. Pick the task you need to do today.
+> The references tell you *what*; the guides tell you *how*. Each guide is a self-contained, start-to-finish procedure with prerequisites, numbered steps, checkpoints you can verify, and links back into the library's reference docs for the depth behind each move. Pick the task you need to do today.
 
-Every guide follows the same shape: a promise and a "who this is for" up top, an **at-a-glance** table (time, difficulty, what you need, what you'll produce), a **before you start** checklist, numbered steps with a **Checkpoint** after each, a **what good looks like** section, and a **go deeper** list of references. Commands are verified against current official documentation — still confirm them against the live docs before production use.
+Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. Commands are verified against current official documentation — still confirm them against the live docs before production use.
 
-**Related:** [How to Use This Library](HOW_TO_USE_THIS_LIBRARY.md) · [Reference Index](../INDEX.md) · [Discipline Paths](../disciplines/README.md)
+Related: [How to Use This Library](HOW_TO_USE_THIS_LIBRARY.md), [Reference Index](../INDEX.md), [Discipline Paths](../disciplines/README.md)
 
 ---
 
@@ -29,7 +29,7 @@ Every guide follows the same shape: a promise and a "who this is for" up top, an
 | Guide | You'll walk away with |
 |---|---|
 | [Build and Deploy Your First Detection](BUILD_YOUR_FIRST_DETECTION.md) | A tuned Sigma rule live in your SIEM, from telemetry choice to promotion |
-| [Onboard a Log Source the Right Way](ONBOARD_A_LOG_SOURCE.md) | A log source that actually powers detections — use-case-first, normalized, retention-planned |
+| [Onboard a Log Source the Right Way](ONBOARD_A_LOG_SOURCE.md) | A log source that actually powers detections: use-case-first, normalized, retention-planned |
 | [Hunt for Living-off-the-Land Activity](HUNT_FOR_LOTL_ACTIVITY.md) | A hypothesis-driven hunt for abused built-in tools, converted into detections |
 | [Produce an Intelligence Product](PRODUCE_AN_INTELLIGENCE_PRODUCT.md) | A CTI product from requirements (PIRs) to a BLUF-first report using structured tradecraft, with a detection-engineering handoff |
 
@@ -37,7 +37,7 @@ Every guide follows the same shape: a promise and a "who this is for" up top, an
 
 | Guide | You'll walk away with |
 |---|---|
-| [Respond to a Ransomware Incident](RESPOND_TO_RANSOMWARE.md) | The first 24–72 hours as a numbered procedure, keyed to the CISA #StopRansomware Guide |
+| [Respond to a Ransomware Incident](RESPOND_TO_RANSOMWARE.md) | The first 24-72 hours as a numbered procedure, keyed to the CISA #StopRansomware Guide |
 | [Run a Ransomware Tabletop Exercise](RUN_A_RANSOMWARE_TABLETOP.md) | A facilitated CISA CTEP tabletop and a corrective-action plan with owners and dates |
 | [Investigate a Phishing Report](INVESTIGATE_A_PHISHING_EMAIL.md) | A verdict and containment action on a reported email, from headers to purge |
 | [Acquire & Triage an Endpoint](ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | Forensically sound memory + disk images, a super-timeline, and a findings report — from 'we think it's compromised' to defensible evidence |

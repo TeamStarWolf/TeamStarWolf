@@ -26,7 +26,7 @@ Symmetric cryptography uses the same key for both encryption and decryption. It 
 
 ### 1.1 AES (Advanced Encryption Standard)
 
-AES (FIPS 197) is the most widely deployed symmetric cipher today. It replaced DES in 2001 after a public competition run by NIST. AES is a substitution-permutation network (SPN) operating on a 4x4 matrix of bytes called the **state**.
+AES (FIPS 197) is the most widely deployed symmetric cipher today. It replaced DES in 2001 after a public competition run by NIST. AES is a substitution-permutation network (SPN) operating on a 4x4 matrix of bytes called the state.
 
 #### Key Sizes and Round Counts
 
@@ -42,7 +42,7 @@ AES-128 is sufficient for most purposes. AES-256 is recommended when long-term s
 
 Each AES round (except the last) consists of four transformations applied to the state:
 
-**1. SubBytes (S-Box substitution)**
+1. SubBytes (S-Box substitution)
 Each byte in the 4x4 state is replaced by a corresponding byte from a fixed 16x16 substitution table (the S-box). The S-box is constructed from the multiplicative inverse in GF(2^8) followed by an affine transformation, providing non-linearity to resist linear and differential cryptanalysis.
 
 ```
@@ -53,7 +53,7 @@ e3 e2 8d 48               11 98 5d 52
 be 2b 2a 08               ae f1 e5 30
 ```
 
-**2. ShiftRows**
+2. ShiftRows
 Each row of the state is cyclically shifted left by a different offset:
 - Row 0: no shift
 - Row 1: shift left by 1
@@ -62,10 +62,10 @@ Each row of the state is cyclically shifted left by a different offset:
 
 This ensures that bytes from each column are spread across different columns in subsequent rounds, providing diffusion.
 
-**3. MixColumns**
+3. MixColumns
 Each column of the state is treated as a polynomial over GF(2^8) and multiplied by a fixed polynomial `c(x) = 3x^3 + x^2 + x + 2`. This mixes bytes within each column, ensuring that changes in one byte affect the entire column. MixColumns is skipped in the final round.
 
-**4. AddRoundKey**
+4. AddRoundKey
 Each byte of the state is XORed with the corresponding byte of the round key (derived from the key schedule). This is the only step that uses the secret key.
 
 #### Key Schedule
@@ -93,9 +93,9 @@ Each block is encrypted independently with the same key.
 C_i = E_K(P_i)
 ```
 
-**The Penguin Problem:** ECB reveals patterns in plaintext. Identical plaintext blocks produce identical ciphertext blocks. The classic demonstration is encrypting a bitmap image of Tux the Linux penguin — the outline remains visible in the ciphertext because identical pixel blocks encrypt to identical ciphertext blocks.
+The Penguin Problem: ECB reveals patterns in plaintext. Identical plaintext blocks produce identical ciphertext blocks. The classic demonstration is encrypting a bitmap image of Tux the Linux penguin — the outline remains visible in the ciphertext because identical pixel blocks encrypt to identical ciphertext blocks.
 
-ECB should **never** be used for encrypting more than one block of data.
+ECB should never be used for encrypting more than one block of data.
 
 #### CBC (Cipher Block Chaining)
 
@@ -107,19 +107,19 @@ P_i = D_K(C_i) XOR C_{i-1}
 C_0 = IV (Initialization Vector)
 ```
 
-**IV Requirements:**
+IV Requirements:
 - Must be unpredictable (random) for each message
 - Does not need to be secret, but must be unique
 - Using a predictable IV (e.g., incrementing counter) allows chosen-plaintext attacks (BEAST)
 
-**Padding:**
+Padding:
 CBC requires input to be a multiple of the block size. PKCS#7 padding is typically used.
 
-**CBC Decryption Parallelism:** CBC decryption can be parallelized (each block decrypts independently using the ciphertext), but CBC encryption is sequential.
+CBC Decryption Parallelism: CBC decryption can be parallelized (each block decrypts independently using the ciphertext), but CBC encryption is sequential.
 
-**Error Propagation:** A single-bit error in a ciphertext block corrupts the corresponding plaintext block and flips one bit in the next plaintext block.
+Error Propagation: A single-bit error in a ciphertext block corrupts the corresponding plaintext block and flips one bit in the next plaintext block.
 
-**Padding Oracle Attack (see Section 1.8)**
+Padding Oracle Attack (see Section 1.8)
 
 #### CTR (Counter Mode)
 
@@ -132,7 +132,7 @@ C_i = P_i XOR E_K(Nonce || Counter_i)
 - Encryption and decryption are identical
 - Fully parallelizable (both encryption and decryption)
 - Random access to any block
-- **Critical:** Counter values must never repeat with the same key. Reuse leads to two-time pad attacks.
+- Critical: Counter values must never repeat with the same key. Reuse leads to two-time pad attacks.
 - No padding required
 
 #### GCM (Galois/Counter Mode)
@@ -174,7 +174,7 @@ Tag = E_K(J_0) XOR S  # J_0 = nonce || 0^31 || 1
 
 If the same nonce is ever used with the same key in AES-GCM, confidentiality AND integrity are completely broken:
 
-**What an attacker can recover with two messages using the same (Key, Nonce):**
+What an attacker can recover with two messages using the same (Key, Nonce):
 
 ```
 C1 = P1 XOR Keystream
@@ -183,19 +183,19 @@ C2 = P2 XOR Keystream
 C1 XOR C2 = P1 XOR P2  (plaintext XOR, completely breaks confidentiality)
 ```
 
-**Authentication Tag Forgery (Forbidden Attack):**
+Authentication Tag Forgery (Forbidden Attack):
 Since the same H = E_K(0^128) and the same E_K(J_0) are used:
 ```
 T1 XOR T2 = GHASH(H, A1, C1) XOR GHASH(H, A2, C2)
 ```
 This allows solving for H (the GHASH key), and once H is known, arbitrary messages can be forged.
 
-**Real-World Nonce Reuse Incidents:**
+Real-World Nonce Reuse Incidents:
 - WPA2 KRACK attack (2017): replay of nonce in 4-way handshake
 - TLS: historically IV reuse issues in some implementations
 - AWS S3 encryption bugs in older client libraries
 
-**Mitigations:**
+Mitigations:
 - Use random 96-bit nonces with key rotation when message count approaches 2^32
 - Use deterministic nonce construction (e.g., message counter) with strict uniqueness guarantees
 - Prefer AES-GCM-SIV (nonce-misuse resistant) for high-risk contexts
@@ -218,7 +218,7 @@ Key[4]  Key[5]  Key[6]  Key[7]
 Count   Nonce0  Nonce1  Nonce2
 ```
 
-The core operation is the **quarter round**, applied 20 times (10 column rounds + 10 diagonal rounds):
+The core operation is the quarter round, applied 20 times (10 column rounds + 10 diagonal rounds):
 
 ```python
 def quarter_round(a, b, c, d):
@@ -255,7 +255,7 @@ Tag = ((m_1 * r^n + m_2 * r^(n-1) + ... + m_n * r) + s) mod (2^130 - 5)
 | Key size | 128 or 256-bit | 256-bit |
 | Used in | TLS, storage | TLS (mobile), WireGuard |
 
-ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration (ARM mobile CPUs without AES-NI). Per RFC 8446 §9.1, TLS 1.3 makes only **TLS_AES_128_GCM_SHA256** a MUST-implement cipher suite; TLS_AES_256_GCM_SHA384 and TLS_CHACHA20_POLY1305_SHA256 are SHOULD-implement (recommended, not mandatory).
+ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration (ARM mobile CPUs without AES-NI). Per RFC 8446 §9.1, TLS 1.3 makes only TLS_AES_128_GCM_SHA256 a MUST-implement cipher suite; TLS_AES_256_GCM_SHA384 and TLS_CHACHA20_POLY1305_SHA256 are SHOULD-implement (recommended, not mandatory).
 
 ---
 
@@ -263,28 +263,28 @@ ChaCha20-Poly1305 is preferred on devices without AES hardware acceleration (ARM
 
 3DES applies DES three times with different keys: `C = E_K3(D_K2(E_K1(P)))` (EDE mode).
 
-**Key options:**
+Key options:
 - 3TDEA (3-key): K1 ≠ K2 ≠ K3, effective security ~112 bits
 - 2TDEA (2-key): K1 = K3 ≠ K2, effective security ~80 bits (deprecated)
 
 #### Meet-in-the-Middle Attack
 
 Double-DES (2DES) was rejected because of the meet-in-the-middle attack:
-1. Encrypt all plaintext with all 2^56 possible K1 values → store in table
+1. Encrypt all plaintext with all 2^56 possible K1 values -> store in table
 2. Decrypt all ciphertext with all 2^56 possible K2 values
-3. Find matches → reduces effective security from 112 to ~57 bits
+3. Find matches -> reduces effective security from 112 to ~57 bits
 
 3DES with 3 independent keys resists this but 2-key 3DES is still theoretically vulnerable at ~2^112 effort.
 
 #### SWEET32 Attack (CVE-2016-2183)
 
-3DES uses a 64-bit block size. With a 64-bit block cipher, the **birthday bound** is 2^32 blocks (~32 GB). After this volume:
+3DES uses a 64-bit block size. With a 64-bit block cipher, the birthday bound is 2^32 blocks (~32 GB). After this volume:
 - Collisions in ciphertext blocks become likely
 - In CBC mode, an attacker observing ~32 GB of traffic can recover plaintext blocks
 
-**Impact:** HTTPS sessions with long-lived connections (keep-alive) could leak session cookies.
+Impact: HTTPS sessions with long-lived connections (keep-alive) could leak session cookies.
 
-**Mitigation:**
+Mitigation:
 - Limit 3DES connections to 2^20 blocks per session key
 - Migrate to AES (TLS 1.3 dropped 3DES entirely)
 - NIST deprecated 3DES in 2017, disallowed after 2023
@@ -302,14 +302,14 @@ Defined in RFC 8018. Applies an HMAC iteratively:
 DK = PRF(Password, Salt || INT(i))  [repeated c iterations]
 ```
 
-**Parameters:**
+Parameters:
 - Salt: 16+ bytes, random, stored alongside hash
 - Iterations: NIST SP 800-132 recommends ≥600,000 for HMAC-SHA256 (2023)
 - Output length: configurable
 
-**Weakness:** Memory-hard (not). PBKDF2 can be efficiently parallelized on GPUs. An attacker with a GPU cluster can test billions of passwords/second.
+Weakness: Memory-hard (not). PBKDF2 can be efficiently parallelized on GPUs. An attacker with a GPU cluster can test billions of passwords/second.
 
-**Still required for:** FIPS-compliant systems (FIPS 140-3 approved)
+Still required for: FIPS-compliant systems (FIPS 140-3 approved)
 
 #### bcrypt
 
@@ -321,12 +321,12 @@ salt = bcrypt.gensalt(rounds=12)  # cost factor 2^12 = 4096 iterations
 hashed = bcrypt.hashpw(password.encode(), salt)
 ```
 
-**Parameters:**
+Parameters:
 - Cost factor: 10-12 recommended for interactive logins (adjustable over time)
 - Output: 60-character string including salt and cost factor
 - Maximum password length: 72 bytes (silently truncates)
 
-**Weakness:** 72-byte password limit; limited parallelism resistance on GPU vs. Argon2.
+Weakness: 72-byte password limit; limited parallelism resistance on GPU vs. Argon2.
 
 #### scrypt
 
@@ -339,18 +339,18 @@ scrypt(N, r, p, dkLen):
   p = parallelization parameter (1)
 ```
 
-**Recommended parameters (2024):**
+Recommended parameters (2024):
 - Interactive: N=2^14, r=8, p=1 (16 MB RAM, ~100ms)
 - Sensitive: N=2^20, r=8, p=1 (1 GB RAM, ~5s)
 
 #### Argon2id (Recommended)
 
 Winner of the Password Hashing Competition (2015). Three variants:
-- **Argon2d:** Data-dependent memory access (resist GPU/ASIC, vulnerable to side-channel)
-- **Argon2i:** Data-independent memory access (resist side-channel, less GPU-resistant)
-- **Argon2id:** Hybrid of both (recommended for general use)
+- Argon2d: Data-dependent memory access (resist GPU/ASIC, vulnerable to side-channel)
+- Argon2i: Data-independent memory access (resist side-channel, less GPU-resistant)
+- Argon2id: Hybrid of both (recommended for general use)
 
-**OWASP Recommended Parameters (2024):**
+OWASP Recommended Parameters (2024):
 ```
 # Minimum (interactive login):
 Argon2id, m=19456 (19 MB), t=2 iterations, p=1
@@ -362,7 +362,7 @@ Argon2id, m=65536 (64 MB), t=3 iterations, p=4
 Argon2id, m=262144 (256 MB), t=4 iterations, p=4
 ```
 
-**Python example:**
+Python example:
 ```python
 import argon2
 ph = argon2.PasswordHasher(
@@ -376,7 +376,7 @@ hash = ph.hash("password")
 ph.verify(hash, "password")
 ```
 
-**Comparison Table:**
+Comparison Table:
 
 | KDF | Memory-Hard | GPU-Resistant | FIPS Approved | Recommended Use |
 |-----|-------------|---------------|---------------|-----------------|
@@ -425,9 +425,9 @@ Used with RSA signatures (PKCS#1 v2.1). Adds randomness and a salt to resist exi
 
 #### CBC Padding Oracle
 
-A **padding oracle** is any system that reveals whether decrypted data has valid PKCS#7 padding — even just through different error messages or timing.
+A padding oracle is any system that reveals whether decrypted data has valid PKCS#7 padding — even just through different error messages or timing.
 
-**Attack mechanism (Vaudenay, 2002):**
+Attack mechanism (Vaudenay, 2002):
 
 Given ciphertext block C_i, the attacker wants to recover P_i. They know:
 ```
@@ -442,9 +442,9 @@ The attacker modifies the last byte of C_{i-1} and sends modified ciphertext to 
 
 This can decrypt any CBC-encrypted message with ~128 oracle calls per byte.
 
-**Real-world examples:** ASP.NET (MS10-070), Apache XML Security, numerous Java web frameworks.
+Real-world examples: ASP.NET (MS10-070), Apache XML Security, numerous Java web frameworks.
 
-**Mitigation:**
+Mitigation:
 - Use AEAD (GCM) instead of CBC
 - Encrypt-then-MAC (always verify MAC before decryption)
 - Use constant-time comparison for padding checks
@@ -455,12 +455,12 @@ CVE-2014-3566. A protocol downgrade attack against SSL 3.0's CBC implementation.
 
 SSL 3.0's padding is only partially specified: the last byte gives padding length, but intermediate padding bytes can be anything. This allows a padding oracle even without implementation errors.
 
-**Attack steps:**
+Attack steps:
 1. Attacker forces downgrade to SSL 3.0 (via connection failures)
 2. Uses MITM to inject chosen-boundary requests
 3. Exploits the padding oracle to decrypt session cookies
 
-**Mitigation:** Disable SSL 3.0. TLS_FALLBACK_SCSV prevents downgrade attacks.
+Mitigation: Disable SSL 3.0. TLS_FALLBACK_SCSV prevents downgrade attacks.
 
 ---
 
@@ -517,7 +517,7 @@ h = qInv * (m1 - m2) mod p
 m = m2 + h * q
 ```
 
-**CRT Fault Attack:** If fault injection causes an error in m1 or m2, gcd(faulty_signature - correct_signature, n) = p or q, completely breaking the key. Implementations must verify the result before returning.
+CRT Fault Attack: If fault injection causes an error in m1 or m2, gcd(faulty_signature - correct_signature, n) = p or q, completely breaking the key. Implementations must verify the result before returning.
 
 #### Recommended RSA Key Sizes (NIST SP 800-57)
 
@@ -564,11 +564,11 @@ RSA encryption with PKCS#1 v1.5 padding:
 EM = 0x00 || 0x02 || PS || 0x00 || M
 ```
 
-A **PKCS oracle** that reveals whether decryption produces a message starting with 0x00 0x02 allows adaptive chosen-ciphertext attack. Using ~1 million queries, the attacker can decrypt arbitrary messages.
+A PKCS oracle that reveals whether decryption produces a message starting with 0x00 0x02 allows adaptive chosen-ciphertext attack. Using ~1 million queries, the attacker can decrypt arbitrary messages.
 
-**ROBOT Attack (2017):** Discovered that 8 of the top 100 HTTPS sites were vulnerable to variants of this 19-year-old attack.
+ROBOT Attack (2017): Discovered that 8 of the top 100 HTTPS sites were vulnerable to variants of this 19-year-old attack.
 
-**Mitigation:** Use OAEP for encryption. Never use PKCS#1 v1.5 for new code.
+Mitigation: Use OAEP for encryption. Never use PKCS#1 v1.5 for new code.
 
 #### RSA Timing Attacks
 
@@ -605,10 +605,10 @@ Standard DH uses static keys, providing no forward secrecy. DHE generates fresh 
 #### Parameter Selection
 
 For DH in TLS, parameter choice matters:
-- **Minimum:** 2048-bit prime (1024-bit was broken by Logjam)
-- **Recommended:** Use RFC 3526 or RFC 7919 well-known groups (ffdhe2048, ffdhe3072, ffdhe4096)
-- **Avoid:** Custom DH parameters, especially 512/768/1024-bit parameters
-- **Prefer:** ECDHE over DHE (smaller keys, faster operations, same security)
+- Minimum: 2048-bit prime (1024-bit was broken by Logjam)
+- Recommended: Use RFC 3526 or RFC 7919 well-known groups (ffdhe2048, ffdhe3072, ffdhe4096)
+- Avoid: Custom DH parameters, especially 512/768/1024-bit parameters
+- Prefer: ECDHE over DHE (smaller keys, faster operations, same security)
 
 ---
 
@@ -618,9 +618,9 @@ For DH in TLS, parameter choice matters:
 
 A downgrade attack on TLS that forced DHE to use 512-bit "export-grade" DH parameters. An offline precomputation against common 512-bit primes (shared by ~80% of TLS servers using export DH) allowed decryption of ~8.4% of HTTPS traffic.
 
-**Extended impact:** The NSA may have precomputed discrete logs for the most common 1024-bit DH primes, potentially enabling mass surveillance of SSH and IPsec traffic.
+Extended impact: The NSA may have precomputed discrete logs for the most common 1024-bit DH primes, potentially enabling mass surveillance of SSH and IPsec traffic.
 
-**Mitigation:**
+Mitigation:
 - Disable export cipher suites
 - Use 2048-bit minimum DH parameters
 - Prefer ECDHE
@@ -629,7 +629,7 @@ A downgrade attack on TLS that forced DHE to use 512-bit "export-grade" DH param
 
 In groups with composite order, an attacker can send a public key from a small subgroup to force the shared secret to be in that subgroup. With a small subgroup of order q, only q possible shared secrets exist (easily brute-forced).
 
-**Mitigation:** Validate that received public keys have the correct order. Use safe primes (where p = 2q + 1, so the group has prime order q). ECDH over prime-order curves is naturally resistant.
+Mitigation: Validate that received public keys have the correct order. Use safe primes (where p = 2q + 1, so the group has prime order q). ECDH over prime-order curves is naturally resistant.
 
 ---
 
@@ -646,11 +646,11 @@ y^2 = x^3 + ax + b  (mod p)
 
 The set of points (x, y) satisfying this equation, plus a "point at infinity" O, forms an abelian group under a special addition operation.
 
-**Point addition:** Given points P and Q, the line through P and Q intersects the curve at a third point R; the sum P+Q = -R (reflection over x-axis).
+Point addition: Given points P and Q, the line through P and Q intersects the curve at a third point R; the sum P+Q = -R (reflection over x-axis).
 
-**Scalar multiplication:** kP = P + P + ... + P (k times). This is done efficiently with double-and-add.
+Scalar multiplication: kP = P + P + ... + P (k times). This is done efficiently with double-and-add.
 
-**ECDLP:** Given P and kP, finding k is hard. This is the basis of ECC security.
+ECDLP: Given P and kP, finding k is hard. This is the basis of ECC security.
 
 #### ECDH (Elliptic Curve Diffie-Hellman)
 
@@ -664,7 +664,7 @@ Shared: Alice computes aB = a(bG) = abG
 
 #### ECDSA (Elliptic Curve Digital Signature Algorithm)
 
-**Sign:**
+Sign:
 ```
 1. Generate random k (nonce)
 2. Compute (x, y) = kG
@@ -673,7 +673,7 @@ Shared: Alice computes aB = a(bG) = abG
 Signature: (r, s)
 ```
 
-**Verify:**
+Verify:
 ```
 1. w = s^(-1) mod n
 2. u1 = H(m) * w mod n
@@ -686,7 +686,7 @@ Signature: (r, s)
 
 Edwards-curve Digital Signature Algorithm using Curve25519. Designed by Bernstein et al. to avoid subtle implementation issues.
 
-**Advantages:**
+Advantages:
 - Deterministic signatures (no random k needed, avoids nonce reuse)
 - Fast (batch verification possible)
 - Small keys and signatures (32-byte public key, 64-byte signature)
@@ -710,9 +710,9 @@ Edwards-curve Digital Signature Algorithm using Curve25519. Designed by Bernstei
 
 *P-256 uses unexplained "random-looking" constants (seed = c49d3608 86e70493 6a6678e1...) chosen by NSA, raising concerns about potential backdoors. No vulnerability has been demonstrated.
 
-**secp256k1** has a=0, making it slightly faster for some operations. Used exclusively in cryptocurrencies.
+secp256k1 has a=0, making it slightly faster for some operations. Used exclusively in cryptocurrencies.
 
-**Curve25519** was designed to maximize security and implementation simplicity. Every implementation detail is justified with security reasoning. Recommended for new applications.
+Curve25519 was designed to maximize security and implementation simplicity. Every implementation detail is justified with security reasoning. Recommended for new applications.
 
 ---
 
@@ -732,9 +732,9 @@ k = (H(m1) - H(m2)) * (s1 - s2)^(-1) mod n
 d = (s1 * k - H(m1)) * r^(-1) mod n
 ```
 
-**PlayStation 3 (2010):** Sony used a constant k for all firmware signing. Researchers extracted the private signing key from two signatures, enabling arbitrary PS3 code signing. This broke the entire PS3 security model.
+PlayStation 3 (2010): Sony used a constant k for all firmware signing. Researchers extracted the private signing key from two signatures, enabling arbitrary PS3 code signing. This broke the entire PS3 security model.
 
-**Mitigation:** Use RFC 6979 deterministic ECDSA (k derived from private key and message via HMAC-DRBG). Or use Ed25519 which avoids the nonce entirely.
+Mitigation: Use RFC 6979 deterministic ECDSA (k derived from private key and message via HMAC-DRBG). Or use Ed25519 which avoids the nonce entirely.
 
 ---
 
@@ -742,19 +742,19 @@ d = (s1 * k - H(m1)) * r^(-1) mod n
 
 ElGamal is based on the DLP and has useful homomorphic properties.
 
-**Encryption:**
+Encryption:
 ```
 Public key: (p, g, h = g^x mod p)  where x is private key
 Random r: c1 = g^r mod p, c2 = m * h^r mod p
 Ciphertext: (c1, c2)
 ```
 
-**Decryption:**
+Decryption:
 ```
 m = c2 * c1^(-x) mod p = c2 / h^r mod p
 ```
 
-**Multiplicative homomorphism:**
+Multiplicative homomorphism:
 ```
 Enc(m1) * Enc(m2) = (g^r1 * g^r2, m1*h^r1 * m2*h^r2)
                   = Enc(m1 * m2)  (with fresh randomness)
@@ -767,15 +767,15 @@ This allows computing the product of two encrypted values without decryption. Us
 ## 3. Hash Functions
 
 A cryptographic hash function H maps arbitrary-length input to a fixed-length digest with three security properties:
-- **Preimage resistance:** Given h, hard to find m such that H(m) = h
-- **Second preimage resistance:** Given m1, hard to find m2 ≠ m1 such that H(m1) = H(m2)
-- **Collision resistance:** Hard to find any m1 ≠ m2 such that H(m1) = H(m2)
+- Preimage resistance: Given h, hard to find m such that H(m) = h
+- Second preimage resistance: Given m1, hard to find m2 ≠ m1 such that H(m1) = H(m2)
+- Collision resistance: Hard to find any m1 ≠ m2 such that H(m1) = H(m2)
 
 ### 3.1 MD5
 
 MD5 produces a 128-bit digest. Completely broken for collision resistance.
 
-**Collision attacks:**
+Collision attacks:
 - Wang and Yu (2004): found MD5 collisions in hours on a laptop
 - Identical-prefix collisions: construct two files sharing a prefix with the same MD5
 - Chosen-prefix collisions: construct a collision with arbitrary chosen prefixes
@@ -787,7 +787,7 @@ Flame used a chosen-prefix MD5 collision to forge a Microsoft code-signing certi
 2. Constructed a malicious CA certificate that had the same MD5 as the legitimate cert
 3. Used the forged CA certificate to sign Flame as a legitimate Microsoft update
 
-**Impact:** Flame propagated as an authentic Windows Update on fully-patched Windows systems.
+Impact: Flame propagated as an authentic Windows Update on fully-patched Windows systems.
 
 MD5 must never be used for:
 - Digital signatures
@@ -802,14 +802,14 @@ MD5 may still be used for non-security checksums (file deduplication, hash table
 
 SHA-1 produces a 160-bit digest. Collision resistance broken.
 
-**Timeline:**
+Timeline:
 - 2004: Wang et al. theoretical attack, 2^69 operations
 - 2005: Attack improved to 2^63 operations
-- 2017: **SHAttered** — first practical identical-prefix SHA-1 collision (Google/CWI Amsterdam)
+- 2017: SHAttered: first practical identical-prefix SHA-1 collision (Google/CWI Amsterdam)
   - Cost: ~$75,000 in cloud compute
   - Produced two different PDF files with identical SHA-1
 
-**Migration urgency:** Chrome/Firefox dropped SHA-1 certificate support in 2017. All code signing systems should have migrated by now. Git announced SHA-1 to SHA-256 transition (ongoing).
+Migration urgency: Chrome/Firefox dropped SHA-1 certificate support in 2017. All code signing systems should have migrated by now. Git announced SHA-1 to SHA-256 transition (ongoing).
 
 Git's internal use of SHA-1 (for object naming, not security) was a separate concern — git uses SHA-1 in a hash-ID context where second preimage resistance matters more than collision resistance.
 
@@ -817,7 +817,7 @@ Git's internal use of SHA-1 (for object naming, not security) was a separate con
 
 ### 3.3 SHA-256/384/512 (SHA-2)
 
-SHA-2 family uses the **Merkle-Damgård construction**.
+SHA-2 family uses the Merkle-Damgård construction.
 
 #### Merkle-Damgård Construction
 
@@ -830,7 +830,7 @@ Output = Hn
 
 The compression function is the core — SHA-256 uses 64 rounds of a complex mixing function.
 
-**SHA-2 variants:**
+SHA-2 variants:
 
 | Algorithm | Digest | Block | State | Rounds |
 |-----------|--------|-------|-------|--------|
@@ -844,7 +844,7 @@ The compression function is the core — SHA-256 uses 64 rounds of a complex mix
 
 Merkle-Damgård construction is vulnerable to length extension attacks. Given H(secret || message), an attacker can compute H(secret || message || padding || extension) without knowing `secret`.
 
-**Vulnerable patterns:**
+Vulnerable patterns:
 ```python
 # WRONG - vulnerable to length extension
 mac = sha256(secret + message)
@@ -854,13 +854,13 @@ mac = hmac.new(secret, message, sha256)
 ```
 
 Affected: MD5, SHA-1, SHA-256, SHA-512 — Merkle-Damgård hashes that output their full internal state.
-Not affected: the **truncated** SHA-2 variants **SHA-224, SHA-384, SHA-512/224, SHA-512/256** (they emit only part of the internal state, so the attacker cannot recover the state needed to continue hashing); SHA-3 (sponge construction); BLAKE2/BLAKE3; and HMAC-based constructions.
+Not affected: the truncated SHA-2 variants SHA-224, SHA-384, SHA-512/224, SHA-512/256 (they emit only part of the internal state, so the attacker cannot recover the state needed to continue hashing); SHA-3 (sponge construction); BLAKE2/BLAKE3; and HMAC-based constructions.
 
 ---
 
 ### 3.4 SHA-3 (Keccak)
 
-SHA-3 won the NIST hash competition in 2012. Uses the **sponge construction** instead of Merkle-Damgård.
+SHA-3 won the NIST hash competition in 2012. Uses the sponge construction instead of Merkle-Damgård.
 
 #### Sponge Construction
 
@@ -872,14 +872,14 @@ Squeezing phase: Output rate portion, apply permutation f, repeat
 SHA3-256: r=1088, c=512, output=256 bits
 ```
 
-The permutation f is **Keccak-f[1600]** — 24 rounds of 5 steps (θ, ρ, π, χ, ι) over a 5x5x64 bit array.
+The permutation f is Keccak-f[1600] — 24 rounds of 5 steps (θ, ρ, π, χ, ι) over a 5x5x64 bit array.
 
-**Key properties:**
+Key properties:
 - Inherently resistant to length extension attacks (capacity c is never exposed)
 - Different internal structure from SHA-2 (independent security assurance)
-- SHAKE128/SHAKE256: variable-length output (XOFs — extendable output functions)
+- SHAKE128/SHAKE256: variable-length output (XOFs: extendable output functions)
 
-**SHA-3 performance:** Slower than SHA-256 in software on x86 without dedicated hardware. SHA-3 shines on hardware and constrained devices.
+SHA-3 performance: Slower than SHA-256 in software on x86 without dedicated hardware. SHA-3 shines on hardware and constrained devices.
 
 ---
 
@@ -890,8 +890,8 @@ BLAKE2 (2012) and BLAKE3 (2020) offer excellent performance with strong security
 #### BLAKE2
 
 Derived from BLAKE (SHA-3 finalist). Uses ChaCha-like design.
-- **BLAKE2b:** Optimized for 64-bit platforms, 1-64 byte output
-- **BLAKE2s:** Optimized for 32-bit/embedded, 1-32 byte output
+- BLAKE2b: Optimized for 64-bit platforms, 1-64 byte output
+- BLAKE2s: Optimized for 32-bit/embedded, 1-32 byte output
 
 Performance: 2-3x faster than SHA-256 on modern CPUs without hardware acceleration.
 
@@ -927,7 +927,7 @@ h = blake3.blake3(b"data", key=b"k"*32).hexdigest()
 | PRF/KDF | HMAC-SHA256, HKDF | Direct hash |
 | Merkle trees | SHA-256, BLAKE3 | MD5, SHA-1 |
 
-**Why not use SHA-256 for passwords?** SHA-256 is designed to be fast (billions of hashes/second on GPUs). Password hashing requires intentional slowness and memory-hardness. Always use Argon2id, bcrypt, or scrypt for passwords.
+Why not use SHA-256 for passwords? SHA-256 is designed to be fast (billions of hashes/second on GPUs). Password hashing requires intentional slowness and memory-hardness. Always use Argon2id, bcrypt, or scrypt for passwords.
 
 ---
 
@@ -955,11 +955,11 @@ Proof size: O(log n) hashes for n leaves.
 
 #### Applications
 
-- **Git:** Each commit references a Merkle tree of the repository state
-- **Bitcoin/Ethereum:** Transaction Merkle trees in block headers enable SPV (Simplified Payment Verification)
-- **Certificate Transparency (CT):** Merkle trees of certificate logs enable efficient inclusion proofs
-- **IPFS:** Content-addressed DAG using SHA-256
-- **ZFS/Btrfs:** Filesystem integrity via Merkle trees
+- Git: Each commit references a Merkle tree of the repository state
+- Bitcoin/Ethereum: Transaction Merkle trees in block headers enable SPV (Simplified Payment Verification)
+- Certificate Transparency (CT): Merkle trees of certificate logs enable efficient inclusion proofs
+- IPFS: Content-addressed DAG using SHA-256
+- ZFS/Btrfs: Filesystem integrity via Merkle trees
 
 ---
 
@@ -975,7 +975,7 @@ ipad = 0x36 repeated to block size
 
 If key > block size, it is first hashed. If key < block size, it is zero-padded.
 
-**Security:** HMAC is a PRF even if the underlying hash has length extension vulnerabilities, because the inner hash is double-processed.
+Security: HMAC is a PRF even if the underlying hash has length extension vulnerabilities, because the inner hash is double-processed.
 
 #### Timing-Safe Comparison
 
@@ -993,7 +993,7 @@ if hmac.compare_digest(computed_mac, received_mac):
     ...
 ```
 
-**HKDF (HMAC-based Key Derivation Function):**
+HKDF (HMAC-based Key Derivation Function):
 ```
 HKDF-Extract(salt, IKM) = HMAC-Hash(salt, IKM)  → PRK
 HKDF-Expand(PRK, info, L) = T1 || T2 || ...      → OKM
@@ -1066,17 +1066,17 @@ stored securely                                         ↓
                                          Renew (before expiry) or Revoke
 ```
 
-**Certificate Signing Request (CSR):**
+Certificate Signing Request (CSR):
 ```bash
 openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr \
   -subj "/C=US/ST=CA/L=SF/O=Example Inc/CN=example.com" \
   -addext "subjectAltName=DNS:example.com,DNS:www.example.com"
 ```
 
-**Validation levels:**
-- **DV (Domain Validation):** Proves control of domain. Automated, minutes. No identity info.
-- **OV (Organization Validation):** Proves domain + organization identity. 1-3 days.
-- **EV (Extended Validation):** Strict identity verification. Browser used to show green bar (removed in 2019).
+Validation levels:
+- DV (Domain Validation): Proves control of domain. Automated, minutes. No identity info.
+- OV (Organization Validation): Proves domain + organization identity. 1-3 days.
+- EV (Extended Validation): Strict identity verification. Browser used to show green bar (removed in 2019).
 
 ---
 
@@ -1091,13 +1091,13 @@ Root CA (self-signed, offline in HSM)
         └── Issuing CA C
 ```
 
-**Root CA:** Kept offline in HSMs in secure facilities. Signs intermediate CA certificates and CRLs only. Long validity (20+ years).
+Root CA: Kept offline in HSMs in secure facilities. Signs intermediate CA certificates and CRLs only. Long validity (20+ years).
 
-**Intermediate CA:** Online, issues end-entity certificates. If compromised, can be revoked without invalidating root. Typically 5-10 year validity.
+Intermediate CA: Online, issues end-entity certificates. If compromised, can be revoked without invalidating root. Typically 5-10 year validity.
 
-**Cross-certification:** Two root CAs can cross-certify each other, extending trust paths.
+Cross-certification: Two root CAs can cross-certify each other, extending trust paths.
 
-**Certificate Pinning (in CA context):** Browsers have built-in root stores. Mozilla NSS, Chrome Root Store, Apple Root Store, Microsoft Root Program — each with different inclusion requirements.
+Certificate Pinning (in CA context): Browsers have built-in root stores. Mozilla NSS, Chrome Root Store, Apple Root Store, Microsoft Root Program — each with different inclusion requirements.
 
 ---
 
@@ -1114,7 +1114,7 @@ CRL fields:
     serialNumber, revocationDate, reasonCode
 ```
 
-**Problems:**
+Problems:
 - Large files (major CAs have multi-MB CRLs)
 - Stale data (updated every 24-72 hours)
 - Soft-fail: browsers often ignore CRL fetch failures
@@ -1129,7 +1129,7 @@ Response: good / revoked / unknown
 Status validity: typically 7-14 days
 ```
 
-**OCSP Stapling:** Server includes pre-fetched OCSP response in TLS handshake. Solves privacy and performance issues. Browser verifies the stapled response. Must-Staple extension requires browsers to reject certificates without a valid staple.
+OCSP Stapling: Server includes pre-fetched OCSP response in TLS handshake. Solves privacy and performance issues. Browser verifies the stapled response. Must-Staple extension requires browsers to reject certificates without a valid staple.
 
 #### CRLite / CRLSets
 
@@ -1145,7 +1145,7 @@ CT (RFC 9162) is a public, append-only log of all issued certificates, designed 
 
 CT logs are Merkle hash trees. All certificates from participating CAs are submitted to CT logs before issuance.
 
-**Signed Certificate Timestamp (SCT):** Proof that a certificate was submitted to a CT log. Required by Chrome since 2018.
+Signed Certificate Timestamp (SCT): Proof that a certificate was submitted to a CT log. Required by Chrome since 2018.
 
 #### Inclusion Proof
 
@@ -1154,7 +1154,7 @@ To verify a certificate is in a CT log:
 2. Log provides a Merkle audit proof (sibling hashes along the path)
 3. Client recomputes the root hash and compares with STH
 
-**Monitoring:** Anyone can monitor CT logs for certificates issued for their domains. Services like crt.sh provide CT log search.
+Monitoring: Anyone can monitor CT logs for certificates issued for their domains. Services like crt.sh provide CT log search.
 
 ---
 
@@ -1174,26 +1174,26 @@ ACME (RFC 8555) automates certificate issuance and renewal.
 
 #### Challenge Types
 
-**HTTP-01:** Place a token at `http://domain/.well-known/acme-challenge/TOKEN`. Requires port 80 access. Cannot be used for wildcards.
+HTTP-01: Place a token at `http://domain/.well-known/acme-challenge/TOKEN`. Requires port 80 access. Cannot be used for wildcards.
 
-**DNS-01:** Add a TXT record `_acme-challenge.domain` with a key authorization hash. Can validate wildcards (`*.example.com`). Requires DNS API access.
+DNS-01: Add a TXT record `_acme-challenge.domain` with a key authorization hash. Can validate wildcards (`*.example.com`). Requires DNS API access.
 
-**TLS-ALPN-01:** Present a special self-signed certificate during a TLS handshake with ALPN protocol "acme-tls/1". Good for servers without HTTP.
+TLS-ALPN-01: Present a special self-signed certificate during a TLS handshake with ALPN protocol "acme-tls/1". Good for servers without HTTP.
 
 ---
 
 ### 4.7 Code Signing
 
-**Authenticode (Windows):**
+Authenticode (Windows):
 ```
 signtool sign /fd sha256 /tr http://timestamp.digicert.com /td sha256
               /f cert.pfx /p password app.exe
 ```
 Timestamp countersignatures extend validity past certificate expiration.
 
-**Apple Notarization:** macOS Gatekeeper requires code signing + notarization (Apple scans for malware). Notarization ticket is stapled to the binary.
+Apple Notarization: macOS Gatekeeper requires code signing + notarization (Apple scans for malware). Notarization ticket is stapled to the binary.
 
-**Sigstore / cosign:** Open-source code signing using ephemeral certificates tied to OIDC identity (GitHub Actions, Google accounts). Keyless signing — private keys are generated in memory and discarded; the certificate is logged in Rekor (transparency log).
+Sigstore / cosign: Open-source code signing using ephemeral certificates tied to OIDC identity (GitHub Actions, Google accounts). Keyless signing — private keys are generated in memory and discarded; the certificate is logged in Rekor (transparency log).
 
 ```bash
 cosign sign --key cosign.key image:tag
@@ -1206,11 +1206,11 @@ cosign verify --key cosign.pub image:tag
 
 S/MIME (Secure/Multipurpose Internet Mail Extensions) provides email signing and encryption.
 
-**Email signing:** SHA-256 signature over email content, attached as PKCS#7 (CMS) structure. Provides authenticity and non-repudiation.
+Email signing: SHA-256 signature over email content, attached as PKCS#7 (CMS) structure. Provides authenticity and non-repudiation.
 
-**Email encryption:** Recipient's public key encrypts a symmetric key; symmetric key encrypts email body. Encrypted with CMS EnvelopedData.
+Email encryption: Recipient's public key encrypts a symmetric key; symmetric key encrypts email body. Encrypted with CMS EnvelopedData.
 
-**WKD (Web Key Directory):** OpenPGP key distribution standard. Keys hosted at `https://openpgpkey.domain/.well-known/openpgpkey/domain/hu/[hash of email local part]`. Allows automatic key discovery.
+WKD (Web Key Directory): OpenPGP key distribution standard. Keys hosted at `https://openpgpkey.domain/.well-known/openpgpkey/domain/hu/[hash of email local part]`. Allows automatic key discovery.
 
 ---
 
@@ -1249,9 +1249,9 @@ Client → Server: {Finished}
 --- Handshake complete: 1 round trip ---
 ```
 
-**Key improvements in TLS 1.3:**
+Key improvements in TLS 1.3:
 - 1-RTT handshake (vs 2-RTT in TLS 1.2)
-- 0-RTT resumption (with caveats — see below)
+- 0-RTT resumption (with caveats: see below)
 - All handshake messages after ServerHello are encrypted
 - Removed: RSA key exchange, static DH, non-AEAD ciphers, compression, renegotiation
 - Mandatory forward secrecy (ECDHE only)
@@ -1261,9 +1261,9 @@ Client → Server: {Finished}
 
 0-RTT allows sending application data in the first flight (before handshake completes) using a Pre-Shared Key (PSK) from a previous session.
 
-**Risks:**
-- **Replay attacks:** 0-RTT data can be replayed by a network attacker. Only idempotent requests (GET) should be sent in 0-RTT.
-- **No forward secrecy for 0-RTT:** If the PSK is compromised, 0-RTT data is decryptable.
+Risks:
+- Replay attacks: 0-RTT data can be replayed by a network attacker. Only idempotent requests (GET) should be sent in 0-RTT.
+- No forward secrecy for 0-RTT: If the PSK is compromised, 0-RTT data is decryptable.
 - Single-use tickets mitigate replay but require state on the server.
 
 #### Removed in TLS 1.3
@@ -1281,7 +1281,7 @@ Client → Server: {Finished}
 
 ### 5.2 Cipher Suite Naming
 
-**TLS 1.2 cipher suite:** `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+TLS 1.2 cipher suite: `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 
 | Component | Meaning |
 |-----------|---------|
@@ -1291,7 +1291,7 @@ Client → Server: {Finished}
 | AES_256_GCM | Bulk cipher (AES-256 in GCM mode) |
 | SHA384 | PRF/MAC algorithm |
 
-**TLS 1.3 cipher suite:** `TLS_AES_256_GCM_SHA384`
+TLS 1.3 cipher suite: `TLS_AES_256_GCM_SHA384`
 
 TLS 1.3 decouples authentication from cipher suites (auth is in the certificate, not the cipher suite):
 | Component | Meaning |
@@ -1300,7 +1300,7 @@ TLS 1.3 decouples authentication from cipher suites (auth is in the certificate,
 | AES_256_GCM | AEAD cipher |
 | SHA384 | Hash for HKDF |
 
-**TLS 1.3 cipher suites:**
+TLS 1.3 cipher suites:
 - `TLS_AES_128_GCM_SHA256` (mandatory)
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_CHACHA20_POLY1305_SHA256`
@@ -1328,22 +1328,22 @@ TLS 1.3 decouples authentication from cipher suites (auth is in the certificate,
 
 Certificate pinning restricts which certificates are trusted for a specific connection, beyond the normal CA validation.
 
-#### HTTP Public Key Pinning (HPKP) — Deprecated
+#### HTTP Public Key Pinning (HPKP): Deprecated
 
 HPKP (RFC 7469) allowed servers to specify via HTTP header which public keys to trust:
 ```
 Public-Key-Pins: pin-sha256="base64=="; pin-sha256="backup=="; max-age=2592000
 ```
 
-**Why it was deprecated:** Multiple sites locked themselves out permanently after key rotation without backup pins. Chrome removed support in 2018.
+Why it was deprecated: Multiple sites locked themselves out permanently after key rotation without backup pins. Chrome removed support in 2018.
 
 #### Current Pinning Approaches
 
-**Leaf certificate pin:** Pin the exact certificate. Requires updating pins with every certificate renewal.
+Leaf certificate pin: Pin the exact certificate. Requires updating pins with every certificate renewal.
 
-**CA/Intermediate pin:** Pin the intermediate or root CA. More flexible but less specific.
+CA/Intermediate pin: Pin the intermediate or root CA. More flexible but less specific.
 
-**Implementation (Android):**
+Implementation (Android):
 ```xml
 <network-security-config>
     <domain-config>
@@ -1362,22 +1362,22 @@ Public-Key-Pins: pin-sha256="base64=="; pin-sha256="backup=="; max-age=2592000
 
 PFS ensures that session keys are not compromised even if the server's long-term private key is later exposed.
 
-**Without PFS (RSA key exchange):**
+Without PFS (RSA key exchange):
 - Client encrypts pre-master secret with server's RSA public key
 - If server's RSA private key is compromised later, all past sessions can be decrypted
 
-**With PFS (ECDHE):**
+With PFS (ECDHE):
 - Client and server generate ephemeral ECDH key pairs for each session
 - Ephemeral keys are discarded after the session
 - Compromise of long-term key does not reveal past sessions
 
 #### Session Resumption
 
-**Session IDs (TLS 1.2):** Server stores session state keyed by ID. Stateful, limits scalability.
+Session IDs (TLS 1.2): Server stores session state keyed by ID. Stateful, limits scalability.
 
-**Session Tickets (TLS 1.2):** Server encrypts session state with a ticket key and sends to client. Stateless but ticket keys must be rotated regularly (STEK rotation). If ticket keys are compromised, past sessions using those tickets can be decrypted (breaks PFS!).
+Session Tickets (TLS 1.2): Server encrypts session state with a ticket key and sends to client. Stateless but ticket keys must be rotated regularly (STEK rotation). If ticket keys are compromised, past sessions using those tickets can be decrypted (breaks PFS!).
 
-**PSK (TLS 1.3):** Session tickets encrypted with per-ticket keys. Single-use to prevent replay.
+PSK (TLS 1.3): Session tickets encrypted with per-ticket keys. Single-use to prevent replay.
 
 ---
 
@@ -1391,12 +1391,12 @@ Client ← Server: ServerHello + Certificate + CertificateRequest
 Client → Server: Certificate (client cert) + ClientKeyExchange + CertificateVerify
 ```
 
-**Enterprise use cases:**
+Enterprise use cases:
 - Service-to-service authentication (zero-trust microservices)
 - VPN client authentication
 - API authentication (replacing API keys)
 
-**Deployment challenges:**
+Deployment challenges:
 - Certificate lifecycle management at scale (SPIFFE/SPIRE automates this)
 - Client certificate distribution and revocation
 - Load balancer certificate forwarding (X-Client-Cert header)
@@ -1425,7 +1425,7 @@ ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:
 ssl_prefer_server_ciphers off;
 ```
 
-**Additional headers:**
+Additional headers:
 ```
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 ```
@@ -1436,16 +1436,16 @@ Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
 TLS fingerprinting identifies client implementations by their TLS ClientHello characteristics.
 
-**JA3 (TLS Client Fingerprint):**
+JA3 (TLS Client Fingerprint):
 MD5 hash of: `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats`
 
-**JA3S (TLS Server Fingerprint):**
+JA3S (TLS Server Fingerprint):
 MD5 hash of server's ServerHello: `TLSVersion,Cipher,Extensions`
 
-**JARM (Active Server Fingerprint):**
+JARM (Active Server Fingerprint):
 Sends 10 specially crafted ClientHello packets with different parameters, hashes the server's responses. Identifies server implementations (TLS libraries, versions, configs).
 
-**Applications:**
+Applications:
 - Malware C2 detection (malware has distinctive JA3 signatures)
 - Bot detection (automated crawlers have consistent fingerprints)
 - Asset inventory (identify TLS library versions across infrastructure)
@@ -1458,11 +1458,11 @@ Cryptographic security depends critically on unpredictable random numbers. Weak 
 
 ### 6.1 RNG Types
 
-**True RNG (TRNG):** Uses physical entropy sources (radioactive decay, thermal noise, photon timing). Non-deterministic. Used to seed CSPRNGs.
+True RNG (TRNG): Uses physical entropy sources (radioactive decay, thermal noise, photon timing). Non-deterministic. Used to seed CSPRNGs.
 
-**PRNG (Pseudo-Random Number Generator):** Deterministic algorithm producing a sequence from an initial seed. Fast but predictable if seed is known. Examples: MT19937 (Mersenne Twister), LCG. Not suitable for cryptography.
+PRNG (Pseudo-Random Number Generator): Deterministic algorithm producing a sequence from an initial seed. Fast but predictable if seed is known. Examples: MT19937 (Mersenne Twister), LCG. Not suitable for cryptography.
 
-**CSPRNG (Cryptographically Secure PRNG):** PRNG with properties required for cryptography:
+CSPRNG (Cryptographically Secure PRNG): PRNG with properties required for cryptography:
 1. Statistical randomness (passes all statistical tests)
 2. Forward secrecy: knowledge of current state doesn't reveal past output
 3. Backward secrecy: knowledge of current state doesn't predict future output (if reseeded)
@@ -1479,7 +1479,7 @@ Non-blocking CSPRNG. Suitable for all cryptographic use cases. Output may not ha
 
 Historically blocked when estimated entropy ran low. This behavior was based on flawed entropy estimation. In Linux 5.6+, /dev/random behavior is identical to /dev/urandom (no blocking after initial seeding).
 
-**Recommendation:** Use `getrandom()` syscall or `/dev/urandom`. The historical advice to use `/dev/random` was incorrect.
+Recommendation: Use `getrandom()` syscall or `/dev/urandom`. The historical advice to use `/dev/random` was incorrect.
 
 #### getrandom() Syscall
 
@@ -1495,19 +1495,19 @@ ssize_t getrandom(void *buf, size_t buflen, unsigned int flags);
 
 ### 6.3 Entropy Sources
 
-**Hardware entropy:**
-- **RDRAND (Intel/AMD):** CPU instruction returning hardware random numbers from on-chip TRNG. Fast (GB/s). Used to seed the OS CSPRNG.
-- **RDSEED:** Returns raw entropy from hardware source (lower throughput, higher quality)
-- **ARM TrngRng:** ARMv8.5-A TRNG instruction
+Hardware entropy:
+- RDRAND (Intel/AMD): CPU instruction returning hardware random numbers from on-chip TRNG. Fast (GB/s). Used to seed the OS CSPRNG.
+- RDSEED: Returns raw entropy from hardware source (lower throughput, higher quality)
+- ARM TrngRng: ARMv8.5-A TRNG instruction
 
-**Environmental entropy:**
+Environmental entropy:
 - Disk I/O timing
 - Network packet timing
 - Mouse/keyboard event timing
 - Interrupt timing
 - CPU performance counter variations
 
-**Virtualization concern:** VMs have reduced entropy sources. Cloud instances using snapshots may share entropy state. Use `virtio-rng` (VM-to-host entropy bridge) in virtualized environments.
+Virtualization concern: VMs have reduced entropy sources. Cloud instances using snapshots may share entropy state. Use `virtio-rng` (VM-to-host entropy bridge) in virtualized environments.
 
 ---
 
@@ -1515,7 +1515,7 @@ ssize_t getrandom(void *buf, size_t buflen, unsigned int flags);
 
 Dual_EC_DRBG (Dual Elliptic Curve Deterministic Random Bit Generator) was standardized by NIST in SP 800-90A (2006) with suspected NSA involvement.
 
-**The backdoor mechanism:**
+The backdoor mechanism:
 The algorithm uses two elliptic curve points P and Q. If Q = dP for some secret d (the "backdoor key"), an observer watching 32 bytes of output can predict all future output:
 
 ```
@@ -1524,18 +1524,18 @@ Next state: s_{i+1} = (r_i * P).x
 With backdoor d: s_{i+1} = d * r_i * P = (s_i * P).x ... recoverable
 ```
 
-**Timeline:**
+Timeline:
 - 2007: Cryptographers Shumow and Ferguson publicly identified the potential backdoor
 - 2013: Snowden documents confirmed NSA paid RSA Security $10M to make Dual_EC the default in BSAFE library
 - 2013: NIST withdrew Dual_EC_DRBG from SP 800-90A
 
-**Lesson:** Do not use random number generators with unexplained constants. Prefer algorithms with justified parameter choices (ChaCha20, Curve25519).
+Lesson: Do not use random number generators with unexplained constants. Prefer algorithms with justified parameter choices (ChaCha20, Curve25519).
 
 ---
 
 ### 6.5 Common PRNG Misuse
 
-**Seeding with time:**
+Seeding with time:
 ```python
 # WRONG - time has only ~1 second resolution = very few possible seeds
 import random, time
@@ -1543,7 +1543,7 @@ random.seed(int(time.time()))
 session_token = random.randint(0, 2**32)  # Predictable!
 ```
 
-**Using language math.random() / rand():**
+Using language math.random() / rand():
 ```javascript
 // WRONG - Math.random() is not cryptographically secure
 const token = Math.random().toString(36).substring(2);
@@ -1552,13 +1552,13 @@ const token = Math.random().toString(36).substring(2);
 const token = crypto.randomUUID();
 ```
 
-**Short seeds:**
+Short seeds:
 ```python
 # WRONG - 32-bit seed has only 2^32 possible states
 random.seed(os.getpid())  # PID is often predictable (max ~32768)
 ```
 
-**Predictable seed from observable state:**
+Predictable seed from observable state:
 Real-world examples: early SSL session tokens derived from process info, PHP mt_rand() seeded with time (widely exploited 2009-2012).
 
 ---
@@ -1604,26 +1604,26 @@ The birthday paradox states that in a group of 23 people, there's a >50% chance 
 
 For a hash function with n-bit output, after ~2^(n/2) random inputs, a collision is expected with ~50% probability.
 
-**Collision probability formula:**
+Collision probability formula:
 ```
 P(collision) ≈ 1 - e^(-k²/2n)
 ```
 Where k = number of messages, n = number of possible hash values (2^bits)
 
-**Impact on hash function security:**
+Impact on hash function security:
 - MD5 (128-bit): Collision after ~2^64 operations (broken much earlier in practice)
 - SHA-1 (160-bit): Collision after ~2^80 operations (broken in 2017 at ~2^63)
 - SHA-256 (256-bit): Collision after ~2^128 operations (secure)
 
-**Birthday bound for block ciphers:** With 64-bit block (3DES, Blowfish), collisions occur after ~2^32 = 4 billion blocks. SWEET32 exploited this.
+Birthday bound for block ciphers: With 64-bit block (3DES, Blowfish), collisions occur after ~2^32 = 4 billion blocks. SWEET32 exploited this.
 
 ---
 
 ### 7.2 Brute Force vs. Rainbow Tables
 
-**Brute force:** Exhaustively try all possible inputs. Time complexity: O(N) for N possibilities.
+Brute force: Exhaustively try all possible inputs. Time complexity: O(N) for N possibilities.
 
-**Rainbow tables:** Precomputed time-memory trade-off. Hash chains stored with endpoints:
+Rainbow tables: Precomputed time-memory trade-off. Hash chains stored with endpoints:
 ```
 p0 → h0 → p1 → h1 → p2 → h2 → ... → hk  (chain)
 Store: (p0, hk)
@@ -1633,16 +1633,16 @@ To crack hash h:
 1. Apply reduction function repeatedly to h, checking if any intermediate equals a stored endpoint
 2. If match found, regenerate chain from stored start to find the plaintext
 
-**Size:** Rainbow tables for all 8-character passwords (all printable): ~200 GB
+Size: Rainbow tables for all 8-character passwords (all printable): ~200 GB
 
-**Defeating rainbow tables:** Salt! Add a unique per-password salt to the hash input:
+Defeating rainbow tables: Salt! Add a unique per-password salt to the hash input:
 ```
 stored = salt || hash(salt || password)
 ```
 
 A rainbow table must be recomputed for each unique salt, making precomputation infeasible.
 
-**Why salting defeats rainbow tables but not brute force:** Salting adds no significant cost to individual password attempts. Bcrypt/Argon2 add computational cost per attempt, making brute force slow.
+Why salting defeats rainbow tables but not brute force: Salting adds no significant cost to individual password attempts. Bcrypt/Argon2 add computational cost per attempt, making brute force slow.
 
 ---
 
@@ -1654,7 +1654,7 @@ Side-channel attacks exploit information leaked by the physical implementation, 
 
 Execution time varies based on secret data.
 
-**Classic example — RSA square-and-multiply:**
+Classic example — RSA square-and-multiply:
 ```
 For each bit b in exponent d:
   state = state^2 mod n  (always)
@@ -1664,7 +1664,7 @@ For each bit b in exponent d:
 
 Measuring timing across many decryptions allows bit-by-bit exponent recovery.
 
-**String comparison timing:**
+String comparison timing:
 ```python
 # Vulnerable - returns as soon as mismatch found
 if provided_mac == expected_mac:
@@ -1676,22 +1676,22 @@ if hmac.compare_digest(provided_mac, expected_mac):
 
 #### Power Analysis
 
-**SPA (Simple Power Analysis):** Single trace analysis. Different operations (multiply vs. square) have different power signatures.
+SPA (Simple Power Analysis): Single trace analysis. Different operations (multiply vs. square) have different power signatures.
 
-**DPA (Differential Power Analysis):** Statistical analysis of many power traces to extract key bits. Used to break hardware implementations of AES, DES.
+DPA (Differential Power Analysis): Statistical analysis of many power traces to extract key bits. Used to break hardware implementations of AES, DES.
 
-**Countermeasures:** Masking (XOR state with random values before operations, remove mask after), shuffling (randomize operation order), hardware countermeasures.
+Countermeasures: Masking (XOR state with random values before operations, remove mask after), shuffling (randomize operation order), hardware countermeasures.
 
 #### Cache Attacks
 
-**Flush+Reload:** Attacker and victim share memory (VMs on same host):
+Flush+Reload: Attacker and victim share memory (VMs on same host):
 1. Attacker flushes cache line of AES S-box entry
 2. Victim encrypts something
-3. Attacker measures reload time — fast = victim accessed that cache line = reveals key bits
+3. Attacker measures reload time: fast = victim accessed that cache line = reveals key bits
 
-**Spectre / Meltdown:** Microarchitectural timing attacks exploiting speculative execution. Spectre variant 1 can be used for S-box leakage at the microarchitectural level.
+Spectre / Meltdown: Microarchitectural timing attacks exploiting speculative execution. Spectre variant 1 can be used for S-box leakage at the microarchitectural level.
 
-**Mitigations:** Constant-time implementations (avoid secret-dependent memory accesses), process isolation, AESNI instruction (avoids S-box table lookups entirely).
+Mitigations: Constant-time implementations (avoid secret-dependent memory accesses), process isolation, AESNI instruction (avoids S-box table lookups entirely).
 
 ---
 
@@ -1699,20 +1699,20 @@ if hmac.compare_digest(provided_mac, expected_mac):
 
 Physical attacks that induce computation errors to extract secrets.
 
-**Voltage glitching:** Brief voltage supply dip causes CPU to skip instructions or corrupt registers. Can bypass secure boot checks or induce CRT faults in RSA.
+Voltage glitching: Brief voltage supply dip causes CPU to skip instructions or corrupt registers. Can bypass secure boot checks or induce CRT faults in RSA.
 
-**Clock glitching:** Inject extra clock pulse during critical computation.
+Clock glitching: Inject extra clock pulse during critical computation.
 
-**Laser fault injection:** Focused laser hits die to flip individual bits. Used in lab settings to break smart card security.
+Laser fault injection: Focused laser hits die to flip individual bits. Used in lab settings to break smart card security.
 
-**EM fault injection:** Electromagnetic pulse induces faults without physical contact.
+EM fault injection: Electromagnetic pulse induces faults without physical contact.
 
-**Bellcore attack on RSA-CRT:** A single fault during CRT computation leaks the factorization of n:
+Bellcore attack on RSA-CRT: A single fault during CRT computation leaks the factorization of n:
 ```
 Faulty signature f': gcd(f' - correct, n) = p  (one prime factor)
 ```
 
-**Countermeasures:**
+Countermeasures:
 - Verify signature before returning (RSA)
 - Environmental sensors (detect voltage/temperature anomalies)
 - Redundant computation with comparison
@@ -1722,25 +1722,25 @@ Faulty signature f': gcd(f' - correct, n) = p  (one prime factor)
 
 ### 7.5 Quantum Threats
 
-**Shor's Algorithm (1994):** Polynomial-time quantum algorithm for:
-- Integer factorization → breaks RSA
-- Discrete logarithm → breaks DH, DSA, ECDH, ECDSA
+Shor's Algorithm (1994): Polynomial-time quantum algorithm for:
+- Integer factorization -> breaks RSA
+- Discrete logarithm -> breaks DH, DSA, ECDH, ECDSA
 - Runs in O(n^3) on a quantum computer with ~4000 logical qubits for 2048-bit RSA
 
-**Impact on asymmetric cryptography:**
-- RSA-2048: ~4000 logical qubits → completely broken
-- ECDH/ECDSA P-256: ~2000 logical qubits → completely broken
+Impact on asymmetric cryptography:
+- RSA-2048: ~4000 logical qubits -> completely broken
+- ECDH/ECDSA P-256: ~2000 logical qubits -> completely broken
 - All current public-key cryptography is broken by sufficiently large quantum computers
 
-**Grover's Algorithm (1996):** Quantum search algorithm providing quadratic speedup for unstructured search.
+Grover's Algorithm (1996): Quantum search algorithm providing quadratic speedup for unstructured search.
 
-**Impact on symmetric cryptography:**
-- AES-128: Security reduced to 64-bit (insecure) → use AES-256
+Impact on symmetric cryptography:
+- AES-128: Security reduced to 64-bit (insecure) -> use AES-256
 - AES-256: Security reduced to 128-bit (acceptable)
 - SHA-256: Collision resistance reduced from 128-bit to 85-bit (still acceptable)
 - SHA-3: Similar impact to SHA-2
 
-**Current state (2024):** Best quantum computers have ~1000-2000 noisy physical qubits. Cryptographically relevant attacks require millions of logical qubits (after error correction). Timeline estimates vary: 10-30 years for relevant quantum computers.
+Current state (2024): Best quantum computers have ~1000-2000 noisy physical qubits. Cryptographically relevant attacks require millions of logical qubits (after error correction). Timeline estimates vary: 10-30 years for relevant quantum computers.
 
 ---
 
@@ -1802,16 +1802,16 @@ Used in: TLS 1.3 hybrid key exchange (X25519+ML-KEM-768), Signal Protocol, Googl
 
 Nation-state adversaries may be recording encrypted traffic today to decrypt once quantum computers become available.
 
-**Timeline concern:** Data with 10+ year sensitivity (state secrets, long-term contracts, medical records) is at risk if encrypted with classical algorithms today.
+Timeline concern: Data with 10+ year sensitivity (state secrets, long-term contracts, medical records) is at risk if encrypted with classical algorithms today.
 
-**Affected algorithms:** RSA, ECDH (key exchange) — compromise of past sessions is possible. AES-256 is quantum-resistant (symmetric).
+Affected algorithms: RSA, ECDH (key exchange) — compromise of past sessions is possible. AES-256 is quantum-resistant (symmetric).
 
-**Mitigation:**
+Mitigation:
 - Deploy post-quantum key exchange (ML-KEM) NOW for key agreement
 - Classical symmetric ciphers (AES-256) remain safe
 - Certificate/signature algorithms (RSA, ECDSA) are less urgent (forward secrecy mitigates)
 
-**Timeline:**
+Timeline:
 - 2022: NIST announced PQC finalists
 - 2024: FIPS 203/204/205 published
 - 2025+: TLS, SSH, and PKI ecosystems adopt PQC
@@ -1833,7 +1833,7 @@ If a JWT library accepts `"alg":"none"` (unsigned token), an attacker can:
 
 Produce an admin token without knowing any secret. Many early libraries were vulnerable.
 
-**Mitigation:** Always explicitly specify allowed algorithms in JWT verification. Never accept "none".
+Mitigation: Always explicitly specify allowed algorithms in JWT verification. Never accept "none".
 
 #### RSA to HS256 Confusion Attack
 
@@ -1845,7 +1845,7 @@ Attack: Header={"alg":"HS256"} → verify with HMAC-SHA256(public key)
 
 The public key is known to the attacker. They sign a forged token with HMAC-SHA256 using the RSA public key, and the library verifies it successfully.
 
-**Mitigation:** Explicitly specify the algorithm, not just the key. Libraries must not allow alg confusion.
+Mitigation: Explicitly specify the algorithm, not just the key. Libraries must not allow alg confusion.
 
 #### Weak JWT Secrets
 
@@ -1855,13 +1855,13 @@ HS256 JWTs signed with weak secrets can be brute-forced:
 hashcat -a 0 -m 16500 token.jwt wordlist.txt
 ```
 
-**Mitigation:** Use minimum 256-bit random secrets for HS256. Or prefer RS256/ES256 with proper key management.
+Mitigation: Use minimum 256-bit random secrets for HS256. Or prefer RS256/ES256 with proper key management.
 
 ---
 
 ### 8.2 OAuth/OIDC Cryptographic Components
 
-**JWK (JSON Web Key):** JSON representation of cryptographic keys.
+JWK (JSON Web Key): JSON representation of cryptographic keys.
 ```json
 {
   "kty": "EC",
@@ -1872,9 +1872,9 @@ hashcat -a 0 -m 16500 token.jwt wordlist.txt
 }
 ```
 
-**JWE (JSON Web Encryption):** Encrypted JWT. Uses hybrid encryption: randomly generated CEK (Content Encryption Key) encrypted with recipient's public key, payload encrypted with CEK using AES-GCM or ChaCha20-Poly1305.
+JWE (JSON Web Encryption): Encrypted JWT. Uses hybrid encryption: randomly generated CEK (Content Encryption Key) encrypted with recipient's public key, payload encrypted with CEK using AES-GCM or ChaCha20-Poly1305.
 
-**PKCE (Proof Key for Code Exchange):** For public OAuth clients (mobile apps, SPAs):
+PKCE (Proof Key for Code Exchange): For public OAuth clients (mobile apps, SPAs):
 ```
 code_verifier = random 32+ byte string
 code_challenge = BASE64URL(SHA256(code_verifier))
@@ -1885,9 +1885,9 @@ Sent with authorization request; verifier sent with token request. Prevents auth
 
 ### 8.3 Disk Encryption
 
-**LUKS (Linux Unified Key Setup):**
+LUKS (Linux Unified Key Setup):
 - Header stores encrypted master key (MK) slots (up to 8 passphrases/keyfiles)
-- Each slot: PBKDF2/Argon2 derivation → AES key → encrypted MK
+- Each slot: PBKDF2/Argon2 derivation -> AES key -> encrypted MK
 - Payload: AES-XTS encrypted data (XTS mode provides sector-level encryption)
 - LUKS2: Argon2id for key derivation, integrity support (dm-integrity)
 
@@ -1900,13 +1900,13 @@ cryptsetup luksOpen /dev/sdX encrypted_disk
 cryptsetup luksDump /dev/sdX
 ```
 
-**BitLocker:**
+BitLocker:
 - Windows disk encryption using AES-XTS 256-bit
 - Key stored in TPM (with optional PIN/USB key)
 - Recovery key: 48-digit number (backed up to AD or Microsoft account)
-- VMK (Volume Master Key) → FVEK (Full Volume Encryption Key)
+- VMK (Volume Master Key) -> FVEK (Full Volume Encryption Key)
 
-**VeraCrypt:**
+VeraCrypt:
 - Open-source, TrueCrypt successor
 - Hidden volumes (plausible deniability)
 - Cascade encryption: AES-Twofish-Serpent
@@ -1916,7 +1916,7 @@ cryptsetup luksDump /dev/sdX
 
 ### 8.4 File Encryption
 
-**age (Actually Good Encryption):**
+age (Actually Good Encryption):
 Simple, modern file encryption tool by Filippo Valsorda.
 ```bash
 # Encrypt to recipient's public key
@@ -1928,7 +1928,7 @@ age -p plaintext.txt > encrypted.age
 ```
 Uses X25519 key exchange + ChaCha20-Poly1305 encryption.
 
-**GPG Best Practices:**
+GPG Best Practices:
 ```bash
 # Generate key (Ed25519 + X25519)
 gpg --full-gen-key  # choose Ed25519
@@ -1971,9 +1971,9 @@ Master secret = KDF(DH1 || DH2 || DH3 || DH4)
 
 Combines two ratchets for forward secrecy (past messages) and break-in recovery (future messages):
 
-**Diffie-Hellman Ratchet:** Advances when new DH public keys are exchanged (each message roundtrip).
+Diffie-Hellman Ratchet: Advances when new DH public keys are exchanged (each message roundtrip).
 
-**Symmetric-Key Ratchet (KDF chains):** Derives message keys from chain keys:
+Symmetric-Key Ratchet (KDF chains): Derives message keys from chain keys:
 ```
 chain_key, message_key = KDF_CK(chain_key)
 ```
@@ -1988,19 +1988,19 @@ Break-in recovery: New DH values are exchanged frequently, providing healing fro
 
 Homomorphic encryption (HE) allows computation on encrypted data without decryption.
 
-**Types:**
-- **PHE (Partially HE):** One operation type (e.g., RSA for multiplication, Paillier for addition)
-- **SHE (Somewhat HE):** Both addition and multiplication, but limited circuit depth
-- **FHE (Fully HE):** Arbitrary computations. Bootstrapping re-encrypts ciphertext to reset noise.
+Types:
+- PHE (Partially HE): One operation type (e.g., RSA for multiplication, Paillier for addition)
+- SHE (Somewhat HE): Both addition and multiplication, but limited circuit depth
+- FHE (Fully HE): Arbitrary computations. Bootstrapping re-encrypts ciphertext to reset noise.
 
-**Popular FHE schemes:**
-- **BFV/BGV:** Integer arithmetic, batch operations via SIMD (Microsoft SEAL, HElib)
-- **CKKS:** Approximate floating-point arithmetic, ML workloads (OpenFHE)
-- **TFHE:** Fast bootstrapping (~13ms), bit-by-bit operations
+Popular FHE schemes:
+- BFV/BGV: Integer arithmetic, batch operations via SIMD (Microsoft SEAL, HElib)
+- CKKS: Approximate floating-point arithmetic, ML workloads (OpenFHE)
+- TFHE: Fast bootstrapping (~13ms), bit-by-bit operations
 
-**Current performance:** 100x - 10000x slower than plaintext computation. Improving rapidly.
+Current performance: 100x - 10000x slower than plaintext computation. Improving rapidly.
 
-**Use cases:**
+Use cases:
 - Privacy-preserving ML inference (model on server, data remains encrypted)
 - Secure multiparty computation
 - Private information retrieval (query database without revealing query)
@@ -2014,7 +2014,7 @@ Homomorphic encryption (HE) allows computation on encrypted data without decrypt
 
 Split a secret S into n shares such that any k shares can reconstruct S, but k-1 shares reveal nothing.
 
-**Construction:** Choose a random polynomial of degree k-1:
+Construction: Choose a random polynomial of degree k-1:
 ```
 f(x) = S + a1*x + a2*x^2 + ... + a_{k-1}*x^{k-1}  (mod prime p)
 Share_i = (i, f(i))
@@ -2025,19 +2025,19 @@ Reconstruct with k shares using Lagrange interpolation:
 S = f(0) = sum over i of (y_i * product over j≠i of (x_j / (x_j - x_i)))
 ```
 
-**Applications:** Master key splitting, HSM quorum, disaster recovery keys.
+Applications: Master key splitting, HSM quorum, disaster recovery keys.
 
 #### Multi-Party Computation (MPC)
 
 Allows multiple parties to jointly compute a function over their private inputs without revealing those inputs.
 
-**Applications:**
+Applications:
 - Threshold signatures (k-of-n parties must cooperate to sign)
 - Private set intersection (find common elements without revealing sets)
 - Secure auctions (winner determination without revealing bids)
 - Distributed key generation (no single party has the full key)
 
-**Protocols:** Garbled circuits (Yao), secret sharing-based MPC (SPDZ, MASCOT), homomorphic encryption-based.
+Protocols: Garbled circuits (Yao), secret sharing-based MPC (SPDZ, MASCOT), homomorphic encryption-based.
 
 ---
 
@@ -2149,21 +2149,21 @@ if (crypto_pwhash_str_verify(hash, password, pwd_len) == 0) {
 }
 ```
 
-**NaCl compatibility:** libsodium is based on NaCl (Networking and Cryptography library) by Bernstein. Same algorithms, compatible API.
+NaCl compatibility: libsodium is based on NaCl (Networking and Cryptography library) by Bernstein. Same algorithms, compatible API.
 
-**Key design principle:** The default choices are always secure. You can't accidentally choose a broken algorithm.
+Key design principle: The default choices are always secure. You can't accidentally choose a broken algorithm.
 
 ---
 
 ### 9.3 Other Libraries
 
-**Bouncy Castle (Java/C#):**
+Bouncy Castle (Java/C#):
 - Comprehensive, low-level crypto library
 - Full X.509 and CMS/PKCS support
 - JCE provider for Java applications
 - Used in Android, many enterprise applications
 
-**PyCryptodome (Python):**
+PyCryptodome (Python):
 ```python
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
@@ -2174,7 +2174,7 @@ cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)
 ciphertext, tag = cipher.encrypt_and_digest(plaintext)
 ```
 
-**cryptography.io (Python):**
+cryptography.io (Python):
 ```python
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 import os
@@ -2199,7 +2199,7 @@ Preferred over PyCryptodome for new Python code (hazmat layer + high-level recip
 | MD5 for passwords | `hashlib.md5(password)` | Crackable in seconds | Argon2id, bcrypt, scrypt |
 | No MAC | Encrypt-only with CBC | Padding oracle, bit-flipping | Use AEAD (GCM) |
 | Hardcoded key | `KEY = b"mysecretkey12345"` | Trivially extracted | Key management system, env vars |
-| Non-random nonce | `nonce = counter` | Nonce reuse in GCM → catastrophic | Cryptographic random per message |
+| Non-random nonce | `nonce = counter` | Nonce reuse in GCM -> catastrophic | Cryptographic random per message |
 | Weak KDF | `key = SHA256(password)` | Fast brute-force | Argon2id with high cost |
 | PRNG for keys | `random.randbytes(32)` | Predictable keys | `secrets.token_bytes(32)` |
 | Not checking return values | Ignoring `verify()` errors | Silent authentication bypass | Always check auth results |
@@ -2226,7 +2226,7 @@ Federal Information Processing Standard 140 defines security requirements for cr
 
 FIPS 140-3 (2019) is based on ISO/IEC 19790 and ISO/IEC 24759.
 
-**FIPS 140-3 Approved Algorithms (selected):**
+FIPS 140-3 Approved Algorithms (selected):
 
 | Category | Approved Algorithms |
 |----------|---------------------|
@@ -2238,7 +2238,7 @@ FIPS 140-3 (2019) is based on ISO/IEC 19790 and ISO/IEC 24759.
 | KDFs | PBKDF2, HKDF, SP 800-108 KDF, SP 800-132 |
 | RNGs | DRBG (CTR, Hash, HMAC based) |
 
-**Not approved:** AES-GCM-SIV (no FIPS validation as of 2024), ChaCha20-Poly1305, Argon2id, Blake2, Curve25519 (though Ed25519 is now approved in FIPS 186-5).
+Not approved: AES-GCM-SIV (no FIPS validation as of 2024), ChaCha20-Poly1305, Argon2id, Blake2, Curve25519 (though Ed25519 is now approved in FIPS 186-5).
 
 ---
 
@@ -2258,12 +2258,12 @@ SP 800-57 Part 1 Rev 5 (2020) provides key management recommendations.
 
 #### Key Types
 
-- **KEK (Key Encryption Key):** Encrypts other keys
-- **DEK (Data Encryption Key):** Encrypts data
-- **Private signature key:** RSA/EC signing key
-- **Public key certificate:** Binding of public key to identity
-- **Symmetric authentication key:** HMAC key
-- **RNG seed:** Input to DRBG
+- KEK (Key Encryption Key): Encrypts other keys
+- DEK (Data Encryption Key): Encrypts data
+- Private signature key: RSA/EC signing key
+- Public key certificate: Binding of public key to identity
+- Symmetric authentication key: HMAC key
+- RNG seed: Input to DRBG
 
 #### Key Usage Periods
 
@@ -2277,21 +2277,21 @@ NIST recommends limiting key usage:
 
 Rev 2 (2019) defines algorithm transition requirements.
 
-**Deprecated (acceptable through 2023):**
+Deprecated (acceptable through 2023):
 - 2TDEA (2-key 3DES): Encryption limited to 2^20 blocks
 - SHA-1 for digital signatures: Only for verification of legacy data
 
-**Disallowed (after 2023):**
+Disallowed (after 2023):
 - 1-key TDEA (single DES)
 - 112-bit RSA (< 2048-bit)
 - SHA-1 for new signatures
 
-**Acceptable through 2030:**
+Acceptable through 2030:
 - RSA-2048 with SHA-256
 - ECDSA P-256 with SHA-256
 - ECDH P-256
 
-**Recommended for post-2030:**
+Recommended for post-2030:
 - RSA-3072 or larger
 - ECDSA P-384 or larger
 - Add post-quantum algorithms
@@ -2302,7 +2302,7 @@ Rev 2 (2019) defines algorithm transition requirements.
 
 Published by NSA (September 2022). Requirements for NSS (National Security Systems).
 
-**CNSA 2.0 Timeline:**
+CNSA 2.0 Timeline:
 
 | System Type | Transition Start | Exclusively PQC |
 |-------------|-----------------|-----------------|
@@ -2312,7 +2312,7 @@ Published by NSA (September 2022). Requirements for NSS (National Security Syste
 | Network equipment | 2026 | 2030 |
 | Custom applications | 2026 | 2033 |
 
-**CNSA 2.0 Required Algorithms:**
+CNSA 2.0 Required Algorithms:
 
 | Use | Algorithm |
 |-----|-----------|
@@ -2329,22 +2329,22 @@ Published by NSA (September 2022). Requirements for NSS (National Security Syste
 
 PCI DSS v4.0 (2022) includes specific cryptographic requirements.
 
-**Requirement 3: Protect stored account data**
+Requirement 3: Protect stored account data
 - Render PAN (Primary Account Number) unreadable using strong cryptography
 - Accepted methods: one-way hash, truncation, index token, strong encryption
 - Disk-level or volume-level encryption: only acceptable with additional access controls
 - Key management: separate key from encrypted data, protect keys with key-encrypting keys, split knowledge/dual control for key custodians
 
-**Requirement 4: Protect cardholder data with strong cryptography during transmission**
+Requirement 4: Protect cardholder data with strong cryptography during transmission
 - Use strong cryptography (TLS 1.2 minimum, TLS 1.3 preferred) for cardholder data in transit
 - Disable SSL/early TLS entirely
 - PAN unreadable in transit
 - TLS for all public-facing web applications
 
-**PCI-defined "strong cryptography":**
+PCI-defined "strong cryptography":
 Industry-proven, accepted algorithms with key lengths meeting minimum lengths per algorithm type. Must not be breakable in a commercially reasonable timeframe. Reference: NIST, ISO standards.
 
-**Key management requirements (3.7):**
+Key management requirements (3.7):
 - Key generation: secure location, approved algorithms
 - Key distribution: secure, documented process
 - Key storage: encrypted, minimum access
@@ -2358,7 +2358,7 @@ Industry-proven, accepted algorithms with key lengths meeting minimum lengths pe
 
 International standard (ISO/IEC 15408) for evaluating security properties of IT products.
 
-**Evaluation Assurance Levels (EAL):**
+Evaluation Assurance Levels (EAL):
 
 | Level | Description | Typical Use |
 |-------|-------------|-------------|
@@ -2370,47 +2370,47 @@ International standard (ISO/IEC 15408) for evaluating security properties of IT 
 | EAL6 | Semi-formally verified | Very high security |
 | EAL7 | Formally verified | Military, specialized |
 
-**Protection Profiles for crypto:**
+Protection Profiles for crypto:
 - EN 419 211: Security requirements for trustworthy systems
 - FIPS 140 evaluation is separate (CMVP program), often combined with CC evaluation for HSMs
 
-**HSM certifications:** Hardware Security Modules (HSMs) used for key storage typically hold both FIPS 140-3 Level 3+ and CC EAL4+ certifications. Examples: Thales Luna HSM, Utimaco, AWS CloudHSM.
+HSM certifications: Hardware Security Modules (HSMs) used for key storage typically hold both FIPS 140-3 Level 3+ and CC EAL4+ certifications. Examples: Thales Luna HSM, Utimaco, AWS CloudHSM.
 
 ---
 
 ## Quick Reference: Algorithm Recommendations (2024)
 
 ### Symmetric Encryption
-- **Use:** AES-256-GCM or ChaCha20-Poly1305
-- **Avoid:** AES-ECB, AES-CBC without authentication, DES, 3DES, RC4
+- Use: AES-256-GCM or ChaCha20-Poly1305
+- Avoid: AES-ECB, AES-CBC without authentication, DES, 3DES, RC4
 
 ### Asymmetric Encryption
-- **Use:** RSA-4096 with OAEP, ECIES with P-256/X25519
-- **Avoid:** RSA-1024/2048 PKCS#1 v1.5, raw RSA
+- Use: RSA-4096 with OAEP, ECIES with P-256/X25519
+- Avoid: RSA-1024/2048 PKCS#1 v1.5, raw RSA
 
 ### Key Exchange
-- **Use:** ECDHE (X25519 preferred, P-256 acceptable), ML-KEM-768 (PQC)
-- **Avoid:** RSA key transport, DHE < 2048-bit, static DH
+- Use: ECDHE (X25519 preferred, P-256 acceptable), ML-KEM-768 (PQC)
+- Avoid: RSA key transport, DHE < 2048-bit, static DH
 
 ### Digital Signatures
-- **Use:** Ed25519, ECDSA P-256, RSA-PSS 4096
-- **Avoid:** ECDSA without deterministic nonce, RSA-PKCS1v1.5 signing, DSA
+- Use: Ed25519, ECDSA P-256, RSA-PSS 4096
+- Avoid: ECDSA without deterministic nonce, RSA-PKCS1v1.5 signing, DSA
 
 ### Hash Functions
-- **Use:** SHA-256, SHA-384, SHA-512, SHA-3, BLAKE3
-- **Avoid:** MD5, SHA-1 (for new applications)
+- Use: SHA-256, SHA-384, SHA-512, SHA-3, BLAKE3
+- Avoid: MD5, SHA-1 (for new applications)
 
 ### Password Hashing
-- **Use:** Argon2id (preferred), bcrypt (cost 12+), scrypt
-- **Avoid:** Plain SHA, MD5, SHA-256 without KDF, PBKDF2 with < 600,000 iterations
+- Use: Argon2id (preferred), bcrypt (cost 12+), scrypt
+- Avoid: Plain SHA, MD5, SHA-256 without KDF, PBKDF2 with < 600,000 iterations
 
 ### Random Numbers
-- **Use:** OS CSPRNG (`os.urandom`, `crypto.getRandomValues`, `SecureRandom`)
-- **Avoid:** `rand()`, `Math.random()`, time-based seeds
+- Use: OS CSPRNG (`os.urandom`, `crypto.getRandomValues`, `SecureRandom`)
+- Avoid: `rand()`, `Math.random()`, time-based seeds
 
 ### TLS Configuration
-- **Use:** TLS 1.3 (TLS 1.2 minimum), ECDHE, AES-256-GCM or ChaCha20-Poly1305
-- **Avoid:** SSLv3, TLS 1.0/1.1, RC4, DES, MD5, export ciphers, NULL ciphers
+- Use: TLS 1.3 (TLS 1.2 minimum), ECDHE, AES-256-GCM or ChaCha20-Poly1305
+- Avoid: SSLv3, TLS 1.0/1.1, RC4, DES, MD5, export ciphers, NULL ciphers
 
 ---
 

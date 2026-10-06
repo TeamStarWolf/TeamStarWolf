@@ -1,13 +1,13 @@
 # Windows Hardening Reference
 
-> **Scope:** Windows 10/11 endpoints and Windows Server 2019/2022 — from architecture foundations through monitoring pipelines.
-> **Last updated:** 2026-04-26
+> Scope: Windows 10/11 endpoints and Windows Server 2019/2022 — from architecture foundations through monitoring pipelines.
+> Last updated: 2026-04-26
 
 | | |
 |---|---|
-| **Read this when** | you are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
-| **Start at** | [Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring) |
-| **Pairs with** | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Read this when | you are locking down a new Windows fleet or server build, you need the exact GPO/registry paths for a CIS/STIG/Microsoft-baseline setting, or you are standing up Sysmon/WEF and need the event IDs to watch |
+| Start at | [Windows Security Architecture](#_1-windows-security-architecture), [Sysmon Deployment and Configuration](#_4-sysmon-deployment-and-configuration), [Audit Policy and Monitoring](#_10-audit-policy-and-monitoring) |
+| Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 
 ---
 
@@ -33,38 +33,38 @@ Windows implements a mandatory access-control model built on four primitives:
 
 | Primitive | Description |
 |-----------|-------------|
-| **SID** (Security Identifier) | Unique binary identifier for every security principal (user, group, computer). Format: `S-1-5-21-<domain>-<RID>`. Well-known SIDs: `S-1-5-18` (SYSTEM), `S-1-1-0` (Everyone), `S-1-5-32-544` (Administrators). |
-| **ACL** (Access Control List) | Attached to every securable object. A **DACL** lists ACEs granting/denying access; a **SACL** triggers audit events. |
-| **Access Token** | Created at logon by LSASS; contains user SID, group SIDs, privileges, integrity level, session ID, and impersonation level. Copied into every process the user spawns. |
-| **Privilege** | Named rights independent of object DACLs (e.g., `SeDebugPrivilege`, `SeTcbPrivilege`, `SeImpersonatePrivilege`). Privileges must be **enabled** in the token before use; holding them is not sufficient. |
+| SID (Security Identifier) | Unique binary identifier for every security principal (user, group, computer). Format: `S-1-5-21-<domain>-<RID>`. Well-known SIDs: `S-1-5-18` (SYSTEM), `S-1-1-0` (Everyone), `S-1-5-32-544` (Administrators). |
+| ACL (Access Control List) | Attached to every securable object. A DACL lists ACEs granting/denying access; a SACL triggers audit events. |
+| Access Token | Created at logon by LSASS; contains user SID, group SIDs, privileges, integrity level, session ID, and impersonation level. Copied into every process the user spawns. |
+| Privilege | Named rights independent of object DACLs (e.g., `SeDebugPrivilege`, `SeTcbPrivilege`, `SeImpersonatePrivilege`). Privileges must be enabled in the token before use; holding them is not sufficient. |
 
-**Object access flow:**
-`Thread requests access` → `SRM compares token SIDs against DACL ACEs` → `Granted/Denied` → `If SACL present, audit event generated`
+Object access flow:
+`Thread requests access` -> `SRM compares token SIDs against DACL ACEs` -> `Granted/Denied` -> `If SACL present, audit event generated`
 
-**Integrity Levels (Mandatory Integrity Control):**
+Integrity Levels (Mandatory Integrity Control):
 `Untrusted (0)` < `Low (0x1000)` < `Medium (0x2000)` < `High (0x3000)` < `System (0x4000)` < `Protected Process (0x5000)`
 
 UAC elevation transitions a token from Medium to High. Protected Processes (e.g., Antimalware) run at a level that blocks even Administrator access.
 
 ### 1.2 Authentication Stores
 
-**SAM (Security Account Manager)**
+SAM (Security Account Manager)
 - Stores local account credentials in `HKLM\SAM` (ACL-protected, inaccessible at runtime without SYSTEM or debug privilege).
 - Credential format: NT hash (MD4 of Unicode password). LM hashes disabled by default since Vista.
-- Registry hive file: `%SystemRoot%\System32\config\SAM` — always locked by the OS; requires VSS shadow copy or offline access.
+- Registry hive file: `%SystemRoot%\System32\config\SAM`: always locked by the OS; requires VSS shadow copy or offline access.
 - Syskey (Boot Key) encrypts the SAM; stored in `HKLM\SYSTEM\CurrentControlSet\Control\Lsa` boot key material across four registry values.
 
-**LSA (Local Security Authority)**
-- `lsass.exe` — the authentication broker. Hosts SSP/AP packages: `msv1_0.dll` (NTLM), `kerberos.dll`, `wdigest.dll`, `tspkg.dll`, `livessp.dll`.
-- LSA Secrets stored in `HKLM\SECURITY\Policy\Secrets` — service account credentials, domain machine account hash, cached domain credentials (DCC2).
-- **Cached Domain Credentials:** Up to 10 by default (`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\CachedLogonsCount`). Uses PBKDF2-based DCC2 hash. Set to `0` on non-mobile domain workstations.
+LSA (Local Security Authority)
+- `lsass.exe`: the authentication broker. Hosts SSP/AP packages: `msv1_0.dll` (NTLM), `kerberos.dll`, `wdigest.dll`, `tspkg.dll`, `livessp.dll`.
+- LSA Secrets stored in `HKLM\SECURITY\Policy\Secrets`: service account credentials, domain machine account hash, cached domain credentials (DCC2).
+- Cached Domain Credentials: Up to 10 by default (`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\CachedLogonsCount`). Uses PBKDF2-based DCC2 hash. Set to `0` on non-mobile domain workstations.
 
-**NTDS.dit (Active Directory Database)**
+NTDS.dit (Active Directory Database)
 - Located at `%SystemRoot%\NTDS\NTDS.dit` on domain controllers.
 - Jet Blue database containing all AD objects including `unicodePwd` attribute (NT hash, encrypted with PEK — Password Encryption Key).
 - PEK itself encrypted with the BOOTKEY (same derivation as SAM Syskey).
 - Extraction requires: DC replication rights (DCSync), VSS shadow copy, or physical access + offline tools.
-- **DCSync attack mitigations:** Remove `Replicating Directory Changes All` from non-DC accounts; alert on Event ID 4662 with GUID `{1131f6ad-9c07-11d1-f79f-00c04fc2dcd2}`.
+- DCSync attack mitigations: Remove `Replicating Directory Changes All` from non-DC accounts; alert on Event ID 4662 with GUID `{1131f6ad-9c07-11d1-f79f-00c04fc2dcd2}`.
 
 ### 1.3 Security Subsystem Components
 
@@ -86,7 +86,7 @@ Kernel mode:
   KPP (Kernel Patch Protection / PatchGuard)
 ```
 
-**Key hardening:** Protect LSASS as a PPL (Protected Process Light):
+Key hardening: Protect LSASS as a PPL (Protected Process Light):
 `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\RunAsPPL = 1 (DWORD)`
 Requires UEFI Secure Boot to prevent pre-boot bypass.
 
@@ -113,9 +113,9 @@ Requires UEFI Secure Boot to prevent pre-boot bypass.
 
 ### 1.5 Credential Guard (VBS-Based LSASS Isolation)
 
-Credential Guard moves NTLM hashes and Kerberos TGTs into **VSM (Virtual Secure Mode)**, a separate VTL1 virtual machine managed by the hypervisor. Even a kernel-mode attacker cannot extract these secrets.
+Credential Guard moves NTLM hashes and Kerberos TGTs into VSM (Virtual Secure Mode), a separate VTL1 virtual machine managed by the hypervisor. Even a kernel-mode attacker cannot extract these secrets.
 
-**Architecture:**
+Architecture:
 ```
 VTL1 (Isolated User Mode — Secure World):
   LsaIso.exe  ──  stores NT hashes, Kerberos keys, DPAPI keys
@@ -125,14 +125,14 @@ VTL0 (Normal World — Kernel + User):
                ──  only receives derived credentials, never raw secrets
 ```
 
-**Requirements:** UEFI 2.3.1+, Secure Boot, 64-bit CPU with virtualization (VT-x/AMD-V), IOMMU (VT-d/AMD-Vi), TPM 2.0 recommended.
+Requirements: UEFI 2.3.1+, Secure Boot, 64-bit CPU with virtualization (VT-x/AMD-V), IOMMU (VT-d/AMD-Vi), TPM 2.0 recommended.
 
-**Enable via GPO:**
+Enable via GPO:
 `Computer Configuration > Administrative Templates > System > Device Guard`
-→ "Turn On Virtualization Based Security": **Enabled**
-→ "Credential Guard Configuration": **Enabled with UEFI lock**
+-> "Turn On Virtualization Based Security": Enabled
+-> "Credential Guard Configuration": Enabled with UEFI lock
 
-**Enable via Registry:**
+Enable via Registry:
 ```registry
 HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard
   EnableVirtualizationBasedSecurity = 1 (DWORD)
@@ -142,11 +142,11 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa
   LsaCfgFlags = 1 (DWORD)  ; 1=enabled, 2=enabled+UEFI lock
 ```
 
-**Verify:** `msinfo32.exe` → "Virtualization-based security Services Running" shows "Credential Guard".
+Verify: `msinfo32.exe` -> "Virtualization-based security Services Running" shows "Credential Guard".
 PowerShell: `(Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\DeviceGuard).SecurityServicesRunning`
 Returns `2` when Credential Guard active.
 
-**Limitations:** Breaks NTLMv1, RC4 Kerberos, unconstrained delegation, explicit credential storage by some legacy apps. DCs cannot run Credential Guard (they need direct NTDS access).
+Limitations: Breaks NTLMv1, RC4 Kerberos, unconstrained delegation, explicit credential storage by some legacy apps. DCs cannot run Credential Guard (they need direct NTDS access).
 
 ### 1.6 TPM 2.0 in Windows 11
 
@@ -154,16 +154,16 @@ Windows 11 mandates TPM 2.0 as a baseline requirement. The TPM provides:
 
 | Function | Mechanism |
 |----------|-----------|
-| **Measured Boot** | PCR banks (0–23) log SHA-256 hashes of each boot component; attestable remotely |
-| **BitLocker key sealing** | SRK seals VMK to PCR values; unseals only if measurements match expected values |
-| **Credential Guard** | VBS requires TPM for UEFI lock binding |
-| **Windows Hello for Business** | Asymmetric key pair generated and stored in TPM; private key never leaves TPM |
-| **Device Health Attestation** | MDM servers can verify PCR values via attestation service |
-| **Virtual Smart Card** | Software smart card backed by TPM keys |
+| Measured Boot | PCR banks (0-23) log SHA-256 hashes of each boot component; attestable remotely |
+| BitLocker key sealing | SRK seals VMK to PCR values; unseals only if measurements match expected values |
+| Credential Guard | VBS requires TPM for UEFI lock binding |
+| Windows Hello for Business | Asymmetric key pair generated and stored in TPM; private key never leaves TPM |
+| Device Health Attestation | MDM servers can verify PCR values via attestation service |
+| Virtual Smart Card | Software smart card backed by TPM keys |
 
-**Verify TPM status:** `tpm.msc` or `Get-Tpm`
-**Check PCR values:** `certutil -v -scinfo` or third-party tools
-**TPM reset risk:** Clearing TPM destroys BitLocker VMK — ensure recovery key is backed up.
+Verify TPM status: `tpm.msc` or `Get-Tpm`
+Check PCR values: `certutil -v -scinfo` or third-party tools
+TPM reset risk: Clearing TPM destroys BitLocker VMK — ensure recovery key is backed up.
 
 ---
 
@@ -171,11 +171,11 @@ Windows 11 mandates TPM 2.0 as a baseline requirement. The TPM provides:
 
 ### 2.1 Local Administrator Password Solution (LAPS v2)
 
-**Legacy LAPS vs. LAPS v2:**
+Legacy LAPS vs. LAPS v2:
 - Legacy (2015): Stores plaintext password in `ms-Mcs-AdmPwd` AD attribute.
 - LAPS v2 (Windows LAPS, built into Win 11 22H2 / Server 2022 Oct 2023 CU): Encrypted storage in `msLAPS-EncryptedPassword`, supports Azure AD, passphrase option, history.
 
-**Schema Extension (on-prem AD):**
+Schema Extension (on-prem AD):
 ```powershell
 # Extend AD schema for Windows LAPS
 Update-LapsADSchema -Verbose
@@ -191,28 +191,28 @@ Set-LapsADReadPasswordPermission -Identity "OU=Workstations,DC=corp,DC=local" `
 Get-LapsADSchema
 ```
 
-**GPO Settings (Computer Configuration > Admin Templates > System > LAPS):**
+GPO Settings (Computer Configuration > Admin Templates > System > LAPS):
 
 | Setting | Recommended Value |
 |---------|------------------|
 | Enable password backup directory | Active Directory (or Azure AD) |
 | Administrator account name | Custom account name (not built-in) |
-| Password Settings – Complexity | Large letters + small letters + numbers + specials |
-| Password Settings – Length | 20 |
-| Password Settings – Age (days) | 30 |
+| Password Settings: Complexity | Large letters + small letters + numbers + specials |
+| Password Settings: Length | 20 |
+| Password Settings: Age (days) | 30 |
 | Enable password encryption | Enabled |
 | Authorized decryptors | LAPS Admins group |
 | Post-authentication actions | Reset password + logoff managed account |
 | Post-authentication reset delay (hours) | 8 |
 
-**Retrieve password (authorized users):**
+Retrieve password (authorized users):
 ```powershell
 Get-LapsADPassword -Identity "WORKSTATION01" -AsPlainText
 # Azure AD:
 Get-LapsAADPassword -DeviceId "device-guid" -AsPlainText
 ```
 
-**Event IDs for LAPS monitoring:** 10018 (password updated), 10020 (password read), 10022 (policy applied) — source: `Microsoft-Windows-LAPS`.
+Event IDs for LAPS monitoring: 10018 (password updated), 10020 (password read), 10022 (policy applied) — source: `Microsoft-Windows-LAPS`.
 
 ### 2.2 Built-in Administrator Account (SID 500)
 
@@ -233,11 +233,11 @@ New-LocalUser -Name "CorpAdmin" -NoPassword
 Add-LocalGroupMember -Group "Administrators" -Member "CorpAdmin"
 ```
 
-**GPO path:** `Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options`
-- "Accounts: Administrator account status" → **Disabled**
-- "Accounts: Rename administrator account" → `<random-name>`
+GPO path: `Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options`
+- "Accounts: Administrator account status" -> Disabled
+- "Accounts: Rename administrator account" -> `<random-name>`
 
-**Note:** Even when disabled, SID 500 can be enabled via WinPE/offline tools. Complement with BitLocker + Secure Boot + TPM PIN.
+Note: Even when disabled, SID 500 can be enabled via WinPE/offline tools. Complement with BitLocker + Secure Boot + TPM PIN.
 
 ### 2.3 Protected Users Security Group
 
@@ -263,13 +263,13 @@ Get-ADGroupMember -Identity "Protected Users" | Select-Object Name, SamAccountNa
 # Check: nltest /query
 ```
 
-**Caution:** Do NOT add service accounts that need NTLM or accounts used on pre-2012R2 DCs. Test in pilot OU first. Local accounts are unaffected (Protected Users only applies to domain accounts).
+Caution: Do NOT add service accounts that need NTLM or accounts used on pre-2012R2 DCs. Test in pilot OU first. Local accounts are unaffected (Protected Users only applies to domain accounts).
 
 ### 2.4 Windows Hello for Business (WHfB)
 
 WHfB replaces password-based authentication with asymmetric key pairs tied to the TPM.
 
-**Deployment Models:**
+Deployment Models:
 
 | Model | Description | Requirements |
 |-------|-------------|--------------|
@@ -277,21 +277,21 @@ WHfB replaces password-based authentication with asymmetric key pairs tied to th
 | Certificate-based | WHfB enrolls a certificate; supports Kerberos | PKI (CA), AD CS, NDES/CES |
 | Cloud Kerberos Trust | New hybrid model using AzureAD Kerberos | Azure AD + DCs running 2016+ |
 
-**Key Trust GPO (Hybrid AAD):**
+Key Trust GPO (Hybrid AAD):
 `Computer Configuration > Admin Templates > Windows Components > Windows Hello for Business`
-- Use Windows Hello for Business: **Enabled**
-- Use certificate for on-premises authentication: **Disabled** (key trust)
-- Use a hardware security device: **Enabled** (require TPM)
-- Enable PIN Recovery: **Enabled** (if using Microsoft PIN Reset Service)
+- Use Windows Hello for Business: Enabled
+- Use certificate for on-premises authentication: Disabled (key trust)
+- Use a hardware security device: Enabled (require TPM)
+- Enable PIN Recovery: Enabled (if using Microsoft PIN Reset Service)
 
-**Registry verification:**
+Registry verification:
 ```registry
 HKLM\SOFTWARE\Policies\Microsoft\PassportForWork
   Enabled = 1
   RequireSecurityDevice = 1
 ```
 
-**Verify enrollment:**
+Verify enrollment:
 `certutil -scinfo` (certificate trust)
 `dsregcmd /status` — look for `AzureAdJoined: YES` and `NgcSet: YES`
 
@@ -299,9 +299,9 @@ HKLM\SOFTWARE\Policies\Microsoft\PassportForWork
 
 NTLM is a legacy authentication protocol vulnerable to pass-the-hash, relay attacks, and brute-force offline cracking.
 
-**Disable NTLMv1, require NTLMv2:**
+Disable NTLMv1, require NTLMv2:
 `Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options`
-- "Network security: LAN Manager authentication level" → **Send NTLMv2 response only. Refuse LM & NTLM** (value 5)
+- "Network security: LAN Manager authentication level" -> Send NTLMv2 response only. Refuse LM & NTLM (value 5)
 
 Registry:
 ```registry
@@ -309,7 +309,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa
   LmCompatibilityLevel = 5 (DWORD)
 ```
 
-**NTLM Auditing (before blocking):**
+NTLM Auditing (before blocking):
 ```registry
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
   AuditReceivingNTLMTraffic = 2   ; Audit all NTLM
@@ -317,9 +317,9 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
   RestrictReceivingNTLMTraffic = 0  ; Audit only initially
 ```
 
-Event IDs generated: **8001** (NTLM authentication to remote server), **8002** (NTLM pass-through), **8003** (NTLM blocked) — source: `Microsoft-Windows-NTLM`.
+Event IDs generated: 8001 (NTLM authentication to remote server), 8002 (NTLM pass-through), 8003 (NTLM blocked) — source: `Microsoft-Windows-NTLM`.
 
-**Restrict NTLM to specific servers (phased approach):**
+Restrict NTLM to specific servers (phased approach):
 ```registry
 ; Phase 1: Audit incoming NTLM
 HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
@@ -338,13 +338,13 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
 
 ## 3. Group Policy Hardening
 
-### 3.1 CIS Benchmark v3.0 — Windows Server 2022 Key Settings
+### 3.1 CIS Benchmark v3.0: Windows Server 2022 Key Settings
 
-> **Currency note (2026-09):** the current CIS Microsoft Windows Server 2022 Benchmark is **v5.0.0** (Mar 2026; v4.0.0 was Jun 2025). Settings below follow v3.0; v4/v5 renamed, moved, added, and removed settings per updated ADMX templates, so verify against v5.0.0 before applying.
+> Currency note (2026-09): the current CIS Microsoft Windows Server 2022 Benchmark is v5.0.0 (Mar 2026; v4.0.0 was Jun 2025). Settings below follow v3.0; v4/v5 renamed, moved, added, and removed settings per updated ADMX templates, so verify against v5.0.0 before applying.
 
 Critical registry-backed settings with full paths:
 
-**Account Policies:**
+Account Policies:
 ```
 HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
   MaximumPasswordAge         = 60  (days)
@@ -354,7 +354,7 @@ HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
   CachedLogonsCount          = 0  (non-mobile domain members)
 ```
 
-**Interactive Logon:**
+Interactive Logon:
 ```
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
   DontDisplayLastUserName    = 1
@@ -364,7 +364,7 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
   ScForceOption              = 0  ; don't force smart card (unless required)
 ```
 
-**Network Access:**
+Network Access:
 ```
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa
   LmCompatibilityLevel       = 5
@@ -378,7 +378,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\SecurePipeServers\Winreg
   (restrict remote registry access via ACL on this key)
 ```
 
-**SMB / Network:**
+SMB / Network:
 ```
 HKLM\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters
   RequireSecuritySignature   = 1  ; SMB server signing required
@@ -390,7 +390,7 @@ HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters
   EnableSecuritySignature    = 1
 ```
 
-**Audit Settings:**
+Audit Settings:
 ```
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa
   AuditBaseObjects           = 1
@@ -398,7 +398,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa
   CrashOnAuditFail           = 0  ; keep 0 — CrashOnAuditFail=1 is DoS risk
 ```
 
-**Remote Desktop:**
+Remote Desktop:
 ```
 HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
   fAllowToGetHelp            = 0   ; disable Remote Assistance
@@ -409,7 +409,7 @@ HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
   MinEncryptionLevel         = 3
 ```
 
-**Windows Defender Firewall:**
+Windows Defender Firewall:
 ```
 HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
   EnableFirewall             = 1
@@ -432,14 +432,14 @@ Download via: Microsoft Security Compliance Toolkit (SCT) — `https://www.micro
 
 Key baselines available: Windows 11, Windows Server 2022, Microsoft 365 Apps, Edge.
 
-**Import baseline GPO:**
+Import baseline GPO:
 ```powershell
 # Extract SCT, then:
 .\LGPO.exe /g ".\GPOs\{GUID-of-baseline}"  # apply locally
 # Or import into GPMC via Backup/Restore
 ```
 
-**Notable Microsoft Security Baseline additions over CIS:**
+Notable Microsoft Security Baseline additions over CIS:
 - Disables Xbox Game Bar, GameDVR
 - Enables "Virtualization Based Security" with UEFI lock
 - Configures WDAC audit mode baseline
@@ -486,7 +486,7 @@ HKLM\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
 net accounts
 ```
 
-**Fine-Grained Password Policies (PSO) for privileged accounts:**
+Fine-Grained Password Policies (PSO) for privileged accounts:
 ```powershell
 New-ADFineGrainedPasswordPolicy -Name "PrivilegedAccounts-PSO" `
     -Precedence 10 `
@@ -581,15 +581,15 @@ New-NetFirewallRule -Name "WinRM-HTTPS" -DisplayName "WinRM HTTPS" `
 
 Sysmon (System Monitor) is a Windows system service and kernel driver that logs detailed process and network activity to the Windows Event Log.
 
-**Components:**
-- `Sysmon64.exe` — userspace service
-- `SysmonDrv.sys` — kernel filter driver (operates at PASSIVE_LEVEL, IRQL 0)
+Components:
+- `Sysmon64.exe`: userspace service
+- `SysmonDrv.sys`: kernel filter driver (operates at PASSIVE_LEVEL, IRQL 0)
 - Events written to: `Microsoft-Windows-Sysmon/Operational` (Channel)
 - Default log path: `%SystemRoot%\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx`
 
-**Driver behavior:** The kernel driver hooks via ETW (Event Tracing for Windows) and kernel callbacks (`PsSetCreateProcessNotifyRoutineEx`, `PsSetLoadImageNotifyRoutine`, object callbacks). It cannot be bypassed by userspace code alone when properly protected.
+Driver behavior: The kernel driver hooks via ETW (Event Tracing for Windows) and kernel callbacks (`PsSetCreateProcessNotifyRoutineEx`, `PsSetLoadImageNotifyRoutine`, object callbacks). It cannot be bypassed by userspace code alone when properly protected.
 
-**Protect Sysmon driver from tampering:**
+Protect Sysmon driver from tampering:
 ```powershell
 # Protect the service via ACL
 sc sdset sysmon D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)S:(AU;FA;CCDCLCSWRPWPDTLOSDRCWDWO;;;WD)
@@ -682,7 +682,7 @@ Install-Module -Name PSYaml -Force
 .\Sysmon64.exe -c sysmonconfig-custom.xml
 ```
 
-**Module directory structure:**
+Module directory structure:
 ```
 sysmon-modular/
 ├── 1_process_creation/       # EID 1 filters
@@ -697,7 +697,7 @@ sysmon-modular/
 
 ### 4.5 Key Detection-Focused Event IDs
 
-**EID 10 — ProcessAccess (LSASS Credential Dumping):**
+EID 10 — ProcessAccess (LSASS Credential Dumping):
 ```xml
 <ProcessAccess onmatch="include">
   <TargetImage condition="is">C:\Windows\system32\lsass.exe</TargetImage>
@@ -705,20 +705,20 @@ sysmon-modular/
 ```
 Alert when: `GrantedAccess` contains `0x1010`, `0x1038`, `0x1fffff` targeting lsass.exe.
 
-**EID 8 — CreateRemoteThread (Process Injection):**
+EID 8 — CreateRemoteThread (Process Injection):
 ```xml
 <CreateRemoteThread onmatch="exclude">
   <SourceImage condition="is">C:\Windows\System32\svchost.exe</SourceImage>
 </CreateRemoteThread>
 ```
 
-**EID 3 — NetworkConnect (C2 Beaconing):**
+EID 3 — NetworkConnect (C2 Beaconing):
 Alert on: `svchost.exe`, `powershell.exe`, `mshta.exe`, `wscript.exe`, `cscript.exe` initiating outbound connections on non-standard ports.
 
-**EID 25 — ProcessTampering:**
+EID 25 — ProcessTampering:
 Detects process hollowing, process herpaderping, process doppelganging. No filter needed — all are suspicious.
 
-**EID 15 — FileCreateStreamHash (ADS):**
+EID 15 — FileCreateStreamHash (ADS):
 Alerts on creation of Alternate Data Streams — common malware persistence technique.
 
 ### 4.6 Updating Sysmon Config Without Service Restart
@@ -762,9 +762,9 @@ Source Computers (1..N)
         SIEM / Log Aggregator (Splunk, Elastic, Sentinel)
 ```
 
-**Transport:** WS-Management over HTTP (5985) or HTTPS (5986).
-**Authentication:** Kerberos (domain) or Certificate (workgroup).
-**Scalability:** Single collector can handle ~100,000 source endpoints (Microsoft guidance); use multiple collectors with load distribution for larger environments.
+Transport: WS-Management over HTTP (5985) or HTTPS (5986).
+Authentication: Kerberos (domain) or Certificate (workgroup).
+Scalability: Single collector can handle ~100,000 source endpoints (Microsoft guidance); use multiple collectors with load distribution for larger environments.
 
 ### 5.2 Collector Configuration
 
@@ -784,7 +784,7 @@ wevtutil sl ForwardedEvents /rt:true         # retain old events
 
 ### 5.3 GPO Configuration for WEF
 
-**On source computers (via GPO):**
+On source computers (via GPO):
 
 ```
 Computer Configuration > Administrative Templates > Windows Components > Event Forwarding
@@ -822,7 +822,7 @@ wecutil es
 wecutil gr "Microsoft-Windows-Sysmon-Operational"
 ```
 
-**Recommended subscription channels:**
+Recommended subscription channels:
 
 | Channel | Events | Priority |
 |---------|--------|----------|
@@ -841,12 +841,12 @@ wecutil gr "Microsoft-Windows-Sysmon-Operational"
 
 | Type | Direction | Use Case | Scalability |
 |------|-----------|----------|-------------|
-| **Source-Initiated** | Source pushes to collector | Workgroup, large deployments, DMZ | Very High — sources self-register |
-| **Collector-Initiated** | Collector pulls from sources | Small environments, easier debugging | Lower — collector maintains connection list |
+| Source-Initiated | Source pushes to collector | Workgroup, large deployments, DMZ | Very High: sources self-register |
+| Collector-Initiated | Collector pulls from sources | Small environments, easier debugging | Lower: collector maintains connection list |
 
-**Source-initiated requires:** GPO to configure subscription manager URL; collector must have `Network Service` in local Administrators on each source (or use certificate auth).
+Source-initiated requires: GPO to configure subscription manager URL; collector must have `Network Service` in local Administrators on each source (or use certificate auth).
 
-**Collector-initiated requires:** Each source listed in subscription XML; WinRM must accept connections from collector computer account.
+Collector-initiated requires: Each source listed in subscription XML; WinRM must accept connections from collector computer account.
 
 ### 5.6 Network Ports and Firewall Rules
 
@@ -887,23 +887,23 @@ $ExecutionContext.SessionState.LanguageMode
 Add-Type -TypeDefinition "public class T{}"  # Blocked in CLM
 ```
 
-**CLM bypass mitigations:**
-- Use WDAC (not AppLocker) for CLM enforcement — AppLocker CLM can be bypassed via `powershell_ise.exe`, `powershell -version 2`, or loading alternate runspaces.
+CLM bypass mitigations:
+- Use WDAC (not AppLocker) for CLM enforcement: AppLocker CLM can be bypassed via `powershell_ise.exe`, `powershell -version 2`, or loading alternate runspaces.
 - Disable PowerShell v2: `Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root`
 
 ### 6.2 PowerShell Logging (ScriptBlock, Module, Transcription)
 
-**ScriptBlock Logging** (captures all executed script content including deobfuscated code):
+ScriptBlock Logging (captures all executed script content including deobfuscated code):
 ```registry
 HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging
   EnableScriptBlockLogging         = 1
   EnableScriptBlockInvocationLogging = 1  ; also log script start/stop (verbose)
 ```
 
-Events: **4104** (script block contents), **4105** (script block start), **4106** (script block stop)
+Events: 4104 (script block contents), 4105 (script block start), 4106 (script block stop)
 Log: `Microsoft-Windows-PowerShell/Operational`
 
-**Query ScriptBlock logs:**
+Query ScriptBlock logs:
 ```powershell
 Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" |
     Where-Object { $_.Id -eq 4104 } |
@@ -911,7 +911,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" |
     Where-Object { $_.Script -match "Invoke-Mimikatz|AMSI|bypass|EncodedCommand" }
 ```
 
-**Module Logging** (logs pipeline execution of module members):
+Module Logging (logs pipeline execution of module members):
 ```registry
 HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging
   EnableModuleLogging = 1
@@ -920,9 +920,9 @@ HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging\ModuleNames
   * = *  ; log all modules
 ```
 
-Events: **4103** (module member invocation)
+Events: 4103 (module member invocation)
 
-**Transcription Logging** (full session transcript to text file):
+Transcription Logging (full session transcript to text file):
 ```registry
 HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription
   EnableTranscripting       = 1
@@ -930,13 +930,13 @@ HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription
   OutputDirectory           = \\logserver\PStranscripts$\%COMPUTERNAME%
 ```
 
-**Important:** Transcripts are plaintext files — secure the output directory with restricted ACLs.
+Important: Transcripts are plaintext files — secure the output directory with restricted ACLs.
 
 ### 6.3 AMSI (Antimalware Scan Interface)
 
 AMSI hooks into PowerShell, VBScript, JScript, Office macros, and other script engines to submit content to registered antimalware before execution.
 
-**AMSI scan flow:**
+AMSI scan flow:
 ```
 Script content → AmsiScanBuffer() API → Registered AV engine → Scan result
                                                                     │
@@ -944,15 +944,15 @@ Script content → AmsiScanBuffer() API → Registered AV engine → Scan result
                                                             AMSI_RESULT_DETECTED (32768)
 ```
 
-**AMSI providers query:**
+AMSI providers query:
 ```powershell
 Get-ChildItem "HKLM:\SOFTWARE\Microsoft\AMSI\Providers"
 # Shows registered AMSI providers (Windows Defender = {2781761E-28E0-4109-99FE-B9D127C57AFE})
 ```
 
-**Detecting AMSI bypass attempts:** Look for EID 4104 containing: `AmsiUtils`, `amsiInitFailed`, `[Ref].Assembly.GetType`, `amsi.dll`, `AmsiScanBuffer`.
+Detecting AMSI bypass attempts: Look for EID 4104 containing: `AmsiUtils`, `amsiInitFailed`, `[Ref].Assembly.GetType`, `amsi.dll`, `AmsiScanBuffer`.
 
-**AMSI in PowerShell 7:** Available when running on Windows with a registered AMSI provider. Ensure PS7 is covered by endpoint protection.
+AMSI in PowerShell 7: Available when running on Windows with a registered AMSI provider. Ensure PS7 is covered by endpoint protection.
 
 ### 6.4 Just Enough Administration (JEA)
 
@@ -1004,11 +1004,11 @@ Get-PSSessionConfiguration -Name "HelpDeskEndpoint"
 | Secure string handling | Win32 API | Cross-platform |
 | WinRM remoting | Yes | Yes |
 
-**Key recommendation:** Deploy PS7 alongside PS5.1; audit both. Disable PS2 (`MicrosoftWindowsPowerShellV2Root` optional feature).
+Key recommendation: Deploy PS7 alongside PS5.1; audit both. Disable PS2 (`MicrosoftWindowsPowerShellV2Root` optional feature).
 
 ### 6.6 Execution Policy vs. AppLocker/WDAC
 
-**Execution Policy is NOT a security boundary:**
+Execution Policy is NOT a security boundary:
 ```powershell
 # Trivially bypassed:
 powershell -ExecutionPolicy Bypass -File malicious.ps1
@@ -1017,7 +1017,7 @@ powershell -ep bypass
 Get-Content script.ps1 | Invoke-Expression    # bypasses EP
 ```
 
-**Actual script enforcement — WDAC Publisher rules:**
+Actual script enforcement — WDAC Publisher rules:
 ```xml
 <!-- In WDAC policy XML -->
 <FileRules>
@@ -1030,7 +1030,7 @@ Get-Content script.ps1 | Invoke-Expression    # bypasses EP
 </FileRules>
 ```
 
-**AppLocker for PowerShell:**
+AppLocker for PowerShell:
 ```powershell
 # Create AppLocker rule to allow only signed scripts
 $rule = New-AppLockerPolicy -RuleType Script -Action Allow `
@@ -1045,7 +1045,7 @@ $rule = New-AppLockerPolicy -RuleType Script -Action Allow `
 
 ### 7.1 Microsoft Defender Antivirus Configuration
 
-**Cloud-Delivered Protection:**
+Cloud-Delivered Protection:
 ```powershell
 # Enable cloud protection and automatic sample submission
 Set-MpPreference -MAPSReporting Advanced
@@ -1057,7 +1057,7 @@ Set-MpPreference -CloudExtendedTimeout 50  # seconds to block pending cloud verd
 Get-MpPreference | Select-Object MAPSReporting, CloudBlockLevel, CloudExtendedTimeout
 ```
 
-**Tamper Protection:**
+Tamper Protection:
 Tamper Protection prevents local changes to Defender settings — must be managed via Intune if enrolled.
 
 ```powershell
@@ -1066,8 +1066,8 @@ Get-MpComputerStatus | Select-Object IsTamperProtected, TamperProtectionSource
 # TamperProtectionSource: 0=not protected, 1=GP, 4=MDM, 5=MDM+GP, 6=Intune
 ```
 
-Enable via: Windows Security app > Virus & Threat Protection > Manage Settings > Tamper Protection: **On**
-Or via Intune: Device Configuration > Endpoint Security > Microsoft Defender > Tamper Protection: **Enabled**
+Enable via: Windows Security app > Virus & Threat Protection > Manage Settings > Tamper Protection: On
+Or via Intune: Device Configuration > Endpoint Security > Microsoft Defender > Tamper Protection: Enabled
 
 ### 7.2 Attack Surface Reduction (ASR) Rules
 
@@ -1119,7 +1119,7 @@ Set-MpPreference -AttackSurfaceReductionRules_Ids $asrRules `
 Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 ```
 
-**ASR audit events:** EID **1121** (Block), **1122** (Audit) — source: `Microsoft-Windows-Windows Defender`
+ASR audit events: EID 1121 (Block), 1122 (Audit) — source: `Microsoft-Windows-Windows Defender`
 
 ### 7.3 Exploit Guard Settings
 
@@ -1150,16 +1150,16 @@ Get-ProcessMitigation -RegistryConfigFilePath "C:\exploit-protection.xml"
 # Windows Defender Exploit Guard > Exploit Protection > Use a common set of exploit protection settings
 ```
 
-**Key mitigations:**
-- **DEP (Data Execution Prevention):** Marks non-code pages as non-executable; hardware NX bit enforcement.
-- **CFG (Control Flow Guard):** Validates indirect function call targets; compiler + OS feature.
-- **SEHOP (Structured Exception Handler Overwrite Protection):** Validates SEH chain before dispatch.
-- **Heap Spray Allocation:** Reserves common heap spray addresses.
-- **Import Address Filter (IAF):** Blocks suspicious use of sensitive APIs from shellcode.
+Key mitigations:
+- DEP (Data Execution Prevention): Marks non-code pages as non-executable; hardware NX bit enforcement.
+- CFG (Control Flow Guard): Validates indirect function call targets; compiler + OS feature.
+- SEHOP (Structured Exception Handler Overwrite Protection): Validates SEH chain before dispatch.
+- Heap Spray Allocation: Reserves common heap spray addresses.
+- Import Address Filter (IAF): Blocks suspicious use of sensitive APIs from shellcode.
 
 ### 7.4 Microsoft Defender for Endpoint (MDE)
 
-**Onboarding:**
+Onboarding:
 ```powershell
 # Deploy onboarding script (from MDE portal > Settings > Endpoints > Onboarding)
 # WindowsDefenderATPOnboardingPackage.zip contains:
@@ -1175,7 +1175,7 @@ Get-MpComputerStatus | Select-Object DefenderEnabled, RealTimeProtectionEnabled
 Get-Service -Name "sense"  # Windows Defender Advanced Threat Protection Service
 ```
 
-**Advanced Hunting KQL — Common Attacks:**
+Advanced Hunting KQL — Common Attacks:
 
 ```kql
 // Credential Dumping — LSASS Access
@@ -1209,7 +1209,7 @@ DeviceFileEvents
 | where renames > 100
 ```
 
-**Live Response commands:**
+Live Response commands:
 ```
 > run GetRunningProcesses.ps1  # execute PS script on endpoint
 > getfile C:\path\to\suspicious.exe  # download file for analysis
@@ -1225,21 +1225,21 @@ DeviceFileEvents
 
 AppLocker enforces application execution policy via GPO rules. Operates in user mode.
 
-**Rule Types:**
+Rule Types:
 
 | Type | Identifies By | Use Case |
 |------|--------------|----------|
-| **Publisher** | Code signing certificate + filename + version | Commercial software with consistent signing |
-| **Path** | File/folder path with wildcards | Location-based control (C:\Windows\*) |
-| **Hash** | SHA-256 file hash | Unsigned software, specific versions |
+| Publisher | Code signing certificate + filename + version | Commercial software with consistent signing |
+| Path | File/folder path with wildcards | Location-based control (C:\Windows\*) |
+| Hash | SHA-256 file hash | Unsigned software, specific versions |
 
-**Default Rules (always create these first):**
+Default Rules (always create these first):
 - Executable: Allow `%WINDIR%\*`, Allow `%PROGRAMFILES%\*`, Allow Administrators (all)
 - Script: Allow `%WINDIR%\*`, Allow `%PROGRAMFILES%\*`
 - Windows Installer: Allow digitally signed, Allow `%WINDIR%\Installer\*`
-- DLL: (Optional — high impact, test thoroughly)
+- DLL: (Optional: high impact, test thoroughly)
 
-**Configure AppLocker via PowerShell:**
+Configure AppLocker via PowerShell:
 ```powershell
 # Get current effective policy
 Get-AppLockerPolicy -Effective -Xml | Out-File C:\AppLockerPolicy.xml
@@ -1260,29 +1260,29 @@ Set-Service AppIDSvc -StartupType Automatic
 Start-Service AppIDSvc
 ```
 
-**AppLocker Event Log:** `Microsoft-Windows-AppLocker/EXE and DLL`
-- EID **8003**: Block (Audit mode — would have blocked)
-- EID **8004**: Block (Enforcement mode — blocked)
-- EID **8005**: Allow (Audit mode)
-- EID **8006**: Allow (Enforcement mode — DLL)
-- EID **8007**: Allow (Enforcement mode — EXE)
+AppLocker Event Log: `Microsoft-Windows-AppLocker/EXE and DLL`
+- EID 8003: Block (Audit mode: would have blocked)
+- EID 8004: Block (Enforcement mode: blocked)
+- EID 8005: Allow (Audit mode)
+- EID 8006: Allow (Enforcement mode: DLL)
+- EID 8007: Allow (Enforcement mode: EXE)
 
-**Limitations:** AppLocker can be bypassed via alternate execution environments (`msbuild.exe`, `regsvr32.exe`, `InstallUtil.exe`, `rundll32.exe`, `mshta.exe`) — these LOLBins may be whitelisted by default. Supplement with WDAC.
+Limitations: AppLocker can be bypassed via alternate execution environments (`msbuild.exe`, `regsvr32.exe`, `InstallUtil.exe`, `rundll32.exe`, `mshta.exe`) — these LOLBins may be whitelisted by default. Supplement with WDAC.
 
 ### 8.2 Windows Defender Application Control (WDAC)
 
 WDAC enforces code integrity at the kernel level — superior to AppLocker because bypassing it requires a kernel exploit.
 
-**Policy Types:**
+Policy Types:
 
 | Type | Description |
 |------|-------------|
-| **Base policy** | Primary policy; single base per system |
-| **Supplemental policy** | Extends base policy (allow additional apps); multiple allowed |
-| **Audit mode** | Logs what would be blocked — no enforcement |
-| **Enforcement mode** | Blocks unauthorized code execution |
+| Base policy | Primary policy; single base per system |
+| Supplemental policy | Extends base policy (allow additional apps); multiple allowed |
+| Audit mode | Logs what would be blocked: no enforcement |
+| Enforcement mode | Blocks unauthorized code execution |
 
-**Create WDAC Policy (WDAC Wizard or PowerShell):**
+Create WDAC Policy (WDAC Wizard or PowerShell):
 ```powershell
 # Create default policy (allow Windows + WHQL signed + MSIT signed)
 $policyPath = "C:\WDAC\BasePolicy.xml"
@@ -1304,7 +1304,7 @@ Invoke-CimMethod -Namespace root\Microsoft\Windows\CI `
     -Arguments @{FilePath = "C:\WDAC\BasePolicy.p7b"}
 ```
 
-**Audit → Enforcement Pipeline:**
+Audit -> Enforcement Pipeline:
 ```powershell
 # Step 1: Deploy in audit mode
 Set-RuleOption -FilePath $policyPath -Option 3  # Audit Mode
@@ -1324,11 +1324,11 @@ Remove-RuleOption -FilePath $policyPath -Option 3
 # Use signtool.exe with code signing cert
 ```
 
-**WDAC Event IDs:**
-- **3076**: Audit mode — file would have been blocked
-- **3077**: Enforcement mode — file blocked
-- **3089**: Signer information for blocked file
-- **3099**: Policy activated
+WDAC Event IDs:
+- 3076: Audit mode: file would have been blocked
+- 3077: Enforcement mode: file blocked
+- 3089: Signer information for blocked file
+- 3099: Policy activated
 
 ### 8.3 HVCI (Hypervisor-Protected Code Integrity)
 
@@ -1346,16 +1346,16 @@ HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCo
 # 2 = HVCI enforced
 ```
 
-**Requirements:** VT-x/AMD-V with SLAT, IOMMU, Secure Boot, no legacy mode drivers.
-**Impact:** Incompatible with many legacy/unsigned kernel drivers — audit driver compatibility before enabling.
+Requirements: VT-x/AMD-V with SLAT, IOMMU, Secure Boot, no legacy mode drivers.
+Impact: Incompatible with many legacy/unsigned kernel drivers — audit driver compatibility before enabling.
 
 ### 8.4 Smart App Control (Windows 11)
 
 Smart App Control (SAC) blocks apps that lack valid signatures or are not trusted by Microsoft's cloud service.
 
-- **On:** Blocks unsigned/untrusted apps — strictest mode.
-- **Evaluation:** Microsoft evaluates each app and determines trust over time.
-- **Off:** Disabled (permanent — cannot re-enable without OS reset).
+- On: Blocks unsigned/untrusted apps: strictest mode.
+- Evaluation: Microsoft evaluates each app and determines trust over time.
+- Off: Disabled (permanent: cannot re-enable without OS reset).
 
 SAC integrates with WDAC; disabling SAC is irreversible without reinstalling Windows. Available only on fresh Windows 11 22H2+ installs (not upgrades).
 
@@ -1365,7 +1365,7 @@ SAC integrates with WDAC; disabling SAC is irreversible without reinstalling Win
 
 ### 9.1 SMB Hardening
 
-**Disable SMBv1:**
+Disable SMBv1:
 ```powershell
 # Server-side
 Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force
@@ -1382,7 +1382,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol-Server -NoResta
 Get-SmbServerConfiguration | Select-Object EnableSMB1Protocol, EnableSMB2Protocol
 ```
 
-**Require SMB Signing:**
+Require SMB Signing:
 ```powershell
 # Server: require signing (clients must sign)
 Set-SmbServerConfiguration -RequireSecuritySignature $true -Force
@@ -1397,7 +1397,7 @@ Set-SmbClientConfiguration -RequireSecuritySignature $true -Force
 # "Microsoft network client: Digitally sign communications (always)" -> Enabled
 ```
 
-**SMB Encryption (SMBv3):**
+SMB Encryption (SMBv3):
 ```powershell
 # Require encryption for all SMB connections
 Set-SmbServerConfiguration -EncryptData $true -Force
@@ -1409,7 +1409,7 @@ Set-SmbShare -Name "SensitiveData" -EncryptData $true
 Get-SmbSession | Select-Object ClientComputerName, Encrypted
 ```
 
-**Disable NetBIOS over TCP/IP:**
+Disable NetBIOS over TCP/IP:
 ```powershell
 # Via registry (all adapters)
 $adapters = Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { $_.IPEnabled }
@@ -1426,20 +1426,20 @@ foreach ($adapter in $adapters) {
 
 These protocols are abused for credential capture (Responder attacks).
 
-**Disable LLMNR (Link-Local Multicast Name Resolution):**
+Disable LLMNR (Link-Local Multicast Name Resolution):
 ```registry
 HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient
   EnableMulticast = 0 (DWORD)
 ```
-GPO: `Computer Config > Admin Templates > Network > DNS Client > Turn off multicast name resolution` → **Enabled**
+GPO: `Computer Config > Admin Templates > Network > DNS Client > Turn off multicast name resolution` -> Enabled
 
-**Disable mDNS:**
+Disable mDNS:
 ```registry
 HKLM\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters
   EnableMDNS = 0 (DWORD)
 ```
 
-**Disable WPAD (Web Proxy Auto-Discovery):**
+Disable WPAD (Web Proxy Auto-Discovery):
 ```powershell
 # Via registry
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp" `
@@ -1654,60 +1654,60 @@ Set-Acl "C:\Windows\NTDS\NTDS.dit" $sacl
 
 | Event ID | Source | Description | Detection Value |
 |----------|--------|-------------|-----------------|
-| **4624** | Security | Successful logon | Baseline; correlate LogonType |
-| **4625** | Security | Failed logon | Brute force detection |
-| **4634** | Security | Logoff | Session tracking |
-| **4647** | Security | User-initiated logoff | Session tracking |
-| **4648** | Security | Logon with explicit credentials (runas) | Lateral movement |
-| **4649** | Security | Replay attack detected | Critical |
-| **4657** | Security | Registry value modified | Configuration tampering |
-| **4661** | Security | Handle to SAM object requested | Credential access |
-| **4662** | Security | Operation on AD object | DCSync (GUID filter) |
-| **4663** | Security | File/object access attempt | Data exfil (with SACL) |
-| **4670** | Security | Permissions on object changed | Privilege escalation |
-| **4672** | Security | Special privileges assigned to new logon | Admin/privileged logon |
-| **4673** | Security | Privileged service called | Privilege abuse |
-| **4674** | Security | Privileged object operation | Privilege abuse |
-| **4688** | Security | Process created (with command line if enabled) | Execution tracking |
-| **4697** | Security | Service installed | Persistence |
-| **4698** | Security | Scheduled task created | Persistence |
-| **4699** | Security | Scheduled task deleted | Tamper detection |
-| **4700** | Security | Scheduled task enabled | Persistence |
-| **4701** | Security | Scheduled task disabled | Defense impairment |
-| **4702** | Security | Scheduled task updated | Persistence |
-| **4703** | Security | Token right adjusted | Privilege escalation |
-| **4719** | Security | System audit policy changed | Defense impairment |
-| **4720** | Security | User account created | Persistence |
-| **4722** | Security | User account enabled | Persistence |
-| **4723** | Security | Password change attempt | Account control |
-| **4724** | Security | Password reset attempt | Account control |
-| **4725** | Security | User account disabled | Tamper |
-| **4726** | Security | User account deleted | Tamper |
-| **4728** | Security | Member added to global security group | Privilege escalation |
-| **4732** | Security | Member added to local security group | Privilege escalation |
-| **4740** | Security | User account locked out | Brute force |
-| **4743** | Security | Computer account deleted | Tamper |
-| **4756** | Security | Member added to universal security group | Privilege escalation |
-| **4768** | Security | Kerberos TGT requested | Auth tracking |
-| **4769** | Security | Kerberos service ticket requested | Auth tracking |
-| **4771** | Security | Kerberos pre-auth failed | Brute force / AS-REP roasting |
-| **4776** | Security | NTLM auth attempt (local) | Credential validation |
-| **4778** | Security | Session reconnected | RDP tracking |
-| **4779** | Security | Session disconnected | RDP tracking |
-| **4798** | Security | Local group membership enumerated | Discovery |
-| **4799** | Security | Security-enabled local group enumerated | Discovery |
-| **4964** | Security | Special groups assigned to new logon | Privileged access |
-| **5140** | Security | Network share accessed | Data access |
-| **5145** | Security | Network share object access check | Data access |
-| **5156** | Security | Windows Filtering Platform allowed connection | Network tracking |
-| **5158** | Security | WFP allowed bind to local port | Network tracking |
-| **5379** | Security | Credential Manager credentials read | Credential access |
-| **7034** | System | Service crashed unexpectedly | Process injection / crash |
-| **7036** | System | Service state changed | Service manipulation |
-| **7045** | System | New service installed | Persistence |
-| **1102** | Security | Audit log cleared | Defense impairment — CRITICAL |
-| **4616** | Security | System time changed | Timestamp manipulation |
-| **4907** | Security | Auditing settings on object changed | SACL tamper |
+| 4624 | Security | Successful logon | Baseline; correlate LogonType |
+| 4625 | Security | Failed logon | Brute force detection |
+| 4634 | Security | Logoff | Session tracking |
+| 4647 | Security | User-initiated logoff | Session tracking |
+| 4648 | Security | Logon with explicit credentials (runas) | Lateral movement |
+| 4649 | Security | Replay attack detected | Critical |
+| 4657 | Security | Registry value modified | Configuration tampering |
+| 4661 | Security | Handle to SAM object requested | Credential access |
+| 4662 | Security | Operation on AD object | DCSync (GUID filter) |
+| 4663 | Security | File/object access attempt | Data exfil (with SACL) |
+| 4670 | Security | Permissions on object changed | Privilege escalation |
+| 4672 | Security | Special privileges assigned to new logon | Admin/privileged logon |
+| 4673 | Security | Privileged service called | Privilege abuse |
+| 4674 | Security | Privileged object operation | Privilege abuse |
+| 4688 | Security | Process created (with command line if enabled) | Execution tracking |
+| 4697 | Security | Service installed | Persistence |
+| 4698 | Security | Scheduled task created | Persistence |
+| 4699 | Security | Scheduled task deleted | Tamper detection |
+| 4700 | Security | Scheduled task enabled | Persistence |
+| 4701 | Security | Scheduled task disabled | Defense impairment |
+| 4702 | Security | Scheduled task updated | Persistence |
+| 4703 | Security | Token right adjusted | Privilege escalation |
+| 4719 | Security | System audit policy changed | Defense impairment |
+| 4720 | Security | User account created | Persistence |
+| 4722 | Security | User account enabled | Persistence |
+| 4723 | Security | Password change attempt | Account control |
+| 4724 | Security | Password reset attempt | Account control |
+| 4725 | Security | User account disabled | Tamper |
+| 4726 | Security | User account deleted | Tamper |
+| 4728 | Security | Member added to global security group | Privilege escalation |
+| 4732 | Security | Member added to local security group | Privilege escalation |
+| 4740 | Security | User account locked out | Brute force |
+| 4743 | Security | Computer account deleted | Tamper |
+| 4756 | Security | Member added to universal security group | Privilege escalation |
+| 4768 | Security | Kerberos TGT requested | Auth tracking |
+| 4769 | Security | Kerberos service ticket requested | Auth tracking |
+| 4771 | Security | Kerberos pre-auth failed | Brute force / AS-REP roasting |
+| 4776 | Security | NTLM auth attempt (local) | Credential validation |
+| 4778 | Security | Session reconnected | RDP tracking |
+| 4779 | Security | Session disconnected | RDP tracking |
+| 4798 | Security | Local group membership enumerated | Discovery |
+| 4799 | Security | Security-enabled local group enumerated | Discovery |
+| 4964 | Security | Special groups assigned to new logon | Privileged access |
+| 5140 | Security | Network share accessed | Data access |
+| 5145 | Security | Network share object access check | Data access |
+| 5156 | Security | Windows Filtering Platform allowed connection | Network tracking |
+| 5158 | Security | WFP allowed bind to local port | Network tracking |
+| 5379 | Security | Credential Manager credentials read | Credential access |
+| 7034 | System | Service crashed unexpectedly | Process injection / crash |
+| 7036 | System | Service state changed | Service manipulation |
+| 7045 | System | New service installed | Persistence |
+| 1102 | Security | Audit log cleared | Defense impairment: CRITICAL |
+| 4616 | Security | System time changed | Timestamp manipulation |
+| 4907 | Security | Auditing settings on object changed | SACL tamper |
 
 ### 10.4 Event Log Sizing Recommendations
 
@@ -1752,7 +1752,7 @@ wevtutil gl Security
 | Account Discovery | T1087 | 4798, 4799 | Local group enumeration |
 | Network Scanning | T1046 | 5156, 5157 (WFP) | Port sweep patterns |
 
-### 10.6 Windows Security Event Log — Microsoft Benchmark Audit Policy Summary
+### 10.6 Windows Security Event Log: Microsoft Benchmark Audit Policy Summary
 
 The following represents the Microsoft-recommended advanced audit policy baseline (matches MSSecurityBaseline):
 
@@ -1801,10 +1801,10 @@ System:
 
 ## References and Further Reading
 
-- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks/) — Windows 10/11, Server 2022
+- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks/): Windows 10/11, Server 2022
 - [Microsoft Security Compliance Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
 - [DISA STIG Viewer](https://public.cyber.mil/stigs/srg-stig-tools/)
-- [NSA Cybersecurity Guidance — Windows 10](https://media.defense.gov/2021/Sep/07/2002840795/-1/-1/0/CSI_WINDOWS-10-TLSSECURITY-SETTINGS_UOO12173421.PDF)
+- [NSA Cybersecurity Guidance: Windows 10](https://media.defense.gov/2021/Sep/07/2002840795/-1/-1/0/CSI_WINDOWS-10-TLSSECURITY-SETTINGS_UOO12173421.PDF)
 - [MITRE ATT&CK for Enterprise](https://attack.mitre.org/matrices/enterprise/windows/)
 - [SwiftOnSecurity sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config)
 - [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)

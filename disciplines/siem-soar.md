@@ -8,23 +8,23 @@ Together, they reduce mean time to detect (MTTD) and mean time to respond (MTTR)
 
 ## Where to Start
 
-1. **Deploy a free/open-source SIEM first** — Elastic SIEM (ELK Stack) or Wazuh to learn the concepts without cost
-2. **Learn log sources** — Windows Event Logs, Syslog, firewall logs, DNS logs are the most universal
-3. **Master one query language** — SPL (Splunk) or KQL (Elastic/Sentinel) before branching out
-4. **Build 5–10 detection rules** — brute force, impossible travel, process injection, large outbound transfer
-5. **Practice with real data** — Splunk BOTS (Boss of the SOC) CTF dataset is free and excellent
-6. **Understand the alert lifecycle** — triage, enrichment, investigation, containment, closure
+1. Deploy a free/open-source SIEM first: Elastic SIEM (ELK Stack) or Wazuh to learn the concepts without cost
+2. Learn log sources: Windows Event Logs, Syslog, firewall logs, DNS logs are the most universal
+3. Master one query language: SPL (Splunk) or KQL (Elastic/Sentinel) before branching out
+4. Build 5-10 detection rules: brute force, impossible travel, process injection, large outbound transfer
+5. Practice with real data: Splunk BOTS (Boss of the SOC) CTF dataset is free and excellent
+6. Understand the alert lifecycle: triage, enrichment, investigation, containment, closure
 
 ## Free Training
 
-- [Splunk Boss of the SOC (BOTS)](https://bots.splunk.com/) — free CTF dataset with guided exercises
-- [Splunk Free Training](https://www.splunk.com/en_us/training/free-courses/overview.html) — Splunk Fundamentals 1 is free
-- [Elastic SIEM Documentation](https://www.elastic.co/guide/en/security/current/index.html) — free; covers detection rules, EQL
-- [Microsoft Sentinel Ninja Training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) — free; Level 400 content
-- [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel) — free detection rules, workbooks, playbooks
-- [SANS SEC555 Syllabus](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/) — paid course; free syllabus as study guide
-- [TryHackMe SOC Level 1 Path](https://tryhackme.com/path/outline/soclevel1) — affordable, hands-on SIEM labs
-- [LetsDefend Platform](https://letsdefend.io/) — SOC analyst simulation platform; free tier
+- [Splunk Boss of the SOC (BOTS)](https://bots.splunk.com/): free CTF dataset with guided exercises
+- [Splunk Free Training](https://www.splunk.com/en_us/training/free-courses/overview.html): Splunk Fundamentals 1 is free
+- [Elastic SIEM Documentation](https://www.elastic.co/guide/en/security/current/index.html): free; covers detection rules, EQL
+- [Microsoft Sentinel Ninja Training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310): free; Level 400 content
+- [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel): free detection rules, workbooks, playbooks
+- [SANS SEC555 Syllabus](https://www.sans.org/cyber-security-courses/siem-with-tactical-analytics/): paid course; free syllabus as study guide
+- [TryHackMe SOC Level 1 Path](https://tryhackme.com/path/outline/soclevel1): affordable, hands-on SIEM labs
+- [LetsDefend Platform](https://letsdefend.io/): SOC analyst simulation platform; free tier
 
 ## Tools & Repositories
 
@@ -67,51 +67,51 @@ Together, they reduce mean time to detect (MTTD) and mean time to respond (MTTR)
 
 | Platform | Query Language | Strengths | Weaknesses |
 |---|---|---|---|
-| **Splunk Enterprise / Cloud** | SPL | Most powerful; largest ecosystem; Phantom SOAR; UEBA | Very expensive at scale; complex licensing |
-| **Microsoft Sentinel** | KQL | Azure-native; threat intel integration; UEBA; Logic Apps SOAR | KQL learning curve; Azure dependency |
-| **Elastic SIEM / Security** | EQL / KQL | Open-source core; fast search; ECS standard; ML anomaly | Complex to self-manage at scale |
-| **IBM QRadar** | AQL | Network-centric; strong large enterprise; built-in SOAR | Dated UI; complex administration; expensive |
-| **Google Chronicle / SecOps** | YARA-L | Petabyte retention; Google threat intel; massive scale | Proprietary; Google Cloud lock-in |
-| **LogRhythm NextGen SIEM** | LEQL | Compliance-focused; UEBA built-in; good workflow | Expensive; complex; slower innovation |
-| **Sumo Logic** | SumoQL | Cloud-native SaaS; easy setup; good for cloud logs | Less powerful correlation than Splunk |
-| **Exabeam Fusion SIEM** | Search DSL | UEBA-first; behavioral analytics; timeline view | Newer; smaller ecosystem |
-| **Securonix** | Spotter | Cloud-native; strong UEBA; MITRE ATT&CK overlay | Less community content |
+| Splunk Enterprise / Cloud | SPL | Most powerful; largest ecosystem; Phantom SOAR; UEBA | Very expensive at scale; complex licensing |
+| Microsoft Sentinel | KQL | Azure-native; threat intel integration; UEBA; Logic Apps SOAR | KQL learning curve; Azure dependency |
+| Elastic SIEM / Security | EQL / KQL | Open-source core; fast search; ECS standard; ML anomaly | Complex to self-manage at scale |
+| IBM QRadar | AQL | Network-centric; strong large enterprise; built-in SOAR | Dated UI; complex administration; expensive |
+| Google Chronicle / SecOps | YARA-L | Petabyte retention; Google threat intel; massive scale | Proprietary; Google Cloud lock-in |
+| LogRhythm NextGen SIEM | LEQL | Compliance-focused; UEBA built-in; good workflow | Expensive; complex; slower innovation |
+| Sumo Logic | SumoQL | Cloud-native SaaS; easy setup; good for cloud logs | Less powerful correlation than Splunk |
+| Exabeam Fusion SIEM | Search DSL | UEBA-first; behavioral analytics; timeline view | Newer; smaller ecosystem |
+| Securonix | Spotter | Cloud-native; strong UEBA; MITRE ATT&CK overlay | Less community content |
 
 ## SIEM Architecture Deep Dive
 
 ### Data Collection Methods
 | Method | Examples | Use Case |
 |---|---|---|
-| **Agent-based** | Splunk UF, Elastic Agent, Winlogbeat | Windows endpoints, servers — rich telemetry |
-| **Syslog (UDP/TCP)** | rsyslog, syslog-ng | Network devices, firewalls, Unix systems |
-| **API Polling** | O365 Management API, AWS CloudTrail, Google Workspace | Cloud service logs |
-| **Network TAP / Span Port** | Zeek, Suricata, Packetbeat | Network flow and protocol analysis |
-| **File/Webhook Ingest** | S3 bucket ingestion, HTTP Event Collector (HEC) | Batch log delivery from cloud services |
+| Agent-based | Splunk UF, Elastic Agent, Winlogbeat | Windows endpoints, servers: rich telemetry |
+| Syslog (UDP/TCP) | rsyslog, syslog-ng | Network devices, firewalls, Unix systems |
+| API Polling | O365 Management API, AWS CloudTrail, Google Workspace | Cloud service logs |
+| Network TAP / Span Port | Zeek, Suricata, Packetbeat | Network flow and protocol analysis |
+| File/Webhook Ingest | S3 bucket ingestion, HTTP Event Collector (HEC) | Batch log delivery from cloud services |
 
 ### Log Normalization Standards
-- **ECS (Elastic Common Schema)**: Standardizes field names across log sources for Elastic; `source.ip`, `event.action`, `user.name`
-- **CEF (Common Event Format)**: ArcSight-originated standard; widely supported by security products
-- **LEEF (Log Event Extended Format)**: IBM QRadar standard
-- **OCSF (Open Cybersecurity Schema Framework)**: Newer open standard backed by AWS, Splunk, IBM; gaining adoption
+- ECS (Elastic Common Schema): Standardizes field names across log sources for Elastic; `source.ip`, `event.action`, `user.name`
+- CEF (Common Event Format): ArcSight-originated standard; widely supported by security products
+- LEEF (Log Event Extended Format): IBM QRadar standard
+- OCSF (Open Cybersecurity Schema Framework): Newer open standard backed by AWS, Splunk, IBM; gaining adoption
 
 ### Storage and Retention Architecture
-- **Hot tier**: Recent data (7–30 days); SSD; fast search; expensive
-- **Warm tier**: Medium-term data (30–90 days); HDD; slower search; moderate cost
-- **Cold/Frozen tier**: Long-term data (90 days–7 years); object storage (S3, Azure Blob); compliance retention; slow search
-- **Retention policies**: PCI DSS requires 1 year; HIPAA requires 6 years; set policies that meet compliance minimums
+- Hot tier: Recent data (7-30 days); SSD; fast search; expensive
+- Warm tier: Medium-term data (30-90 days); HDD; slower search; moderate cost
+- Cold/Frozen tier: Long-term data (90 days-7 years); object storage (S3, Azure Blob); compliance retention; slow search
+- Retention policies: PCI DSS requires 1 year; HIPAA requires 6 years; set policies that meet compliance minimums
 
 ### Correlation Rule Types
 | Rule Type | Example | Strength |
 |---|---|---|
-| **Threshold** | 10 failed logins in 60 seconds | Simple, low FP for clear thresholds |
-| **Statistical Anomaly** | Outbound bytes > 3σ from baseline | Catches novel attacks; requires baseline |
-| **Pattern Matching** | Specific command sequence in shell history | High fidelity for known attack patterns |
-| **Sequence Detection** | Recon → lateral movement → exfil within 24h | Complex multi-stage attack detection |
-| **ML/UEBA Behavioral** | User suddenly accesses 500 files not in their baseline | Catches insider threat and account compromise |
+| Threshold | 10 failed logins in 60 seconds | Simple, low FP for clear thresholds |
+| Statistical Anomaly | Outbound bytes > 3σ from baseline | Catches novel attacks; requires baseline |
+| Pattern Matching | Specific command sequence in shell history | High fidelity for known attack patterns |
+| Sequence Detection | Recon -> lateral movement -> exfil within 24h | Complex multi-stage attack detection |
+| ML/UEBA Behavioral | User suddenly accesses 500 files not in their baseline | Catches insider threat and account compromise |
 
 ## Search Language Examples
 
-### SPL (Splunk Processing Language) — Production Queries
+### SPL (Splunk Processing Language): Production Queries
 
 ```spl
 # Top talkers — identify unusual data volumes by host
@@ -142,7 +142,7 @@ index=windows EventCode=4728 OR EventCode=4732
 | table _time host SubjectUserName TargetUserName MemberName GroupName
 ```
 
-### KQL (Kusto Query Language) — Microsoft Sentinel Production Queries
+### KQL (Kusto Query Language): Microsoft Sentinel Production Queries
 
 ```kql
 // Detect impossible travel (sign-ins from two geographies within 1 hour)
@@ -174,7 +174,7 @@ DeviceEvents
 | project Timestamp, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine
 ```
 
-### EQL (Event Query Language) — Elastic Detection
+### EQL (Event Query Language): Elastic Detection
 
 ```eql
 // Detect parent process spoofing
@@ -234,28 +234,28 @@ DOCUMENTATION (Auto-close with notes / Escalate to tier 2)
 
 | Platform | Type | Strengths |
 |---|---|---|
-| **Splunk SOAR (Phantom)** | Commercial | Largest app ecosystem (400+ integrations); Python playbooks; tight Splunk integration |
-| **Palo Alto XSOAR (Demisto)** | Commercial | Content Hub with 700+ integrations; Case Management; MITRE ATT&CK mapping |
-| **Microsoft Sentinel Automation** | Cloud-native | Native to Sentinel; Logic Apps-based; no separate product license |
-| **Tines** | Commercial/Low-code | No-code/low-code; accessible for non-developers; fast playbook development |
-| **Shuffle** | Open source | Free; Docker-based; REST API integrations; growing community |
-| **TheHive + Cortex** | Open source | Free; strong incident case management; 100+ Cortex analyzers |
+| Splunk SOAR (Phantom) | Commercial | Largest app ecosystem (400+ integrations); Python playbooks; tight Splunk integration |
+| Palo Alto XSOAR (Demisto) | Commercial | Content Hub with 700+ integrations; Case Management; MITRE ATT&CK mapping |
+| Microsoft Sentinel Automation | Cloud-native | Native to Sentinel; Logic Apps-based; no separate product license |
+| Tines | Commercial/Low-code | No-code/low-code; accessible for non-developers; fast playbook development |
+| Shuffle | Open source | Free; Docker-based; REST API integrations; growing community |
+| TheHive + Cortex | Open source | Free; strong incident case management; 100+ Cortex analyzers |
 
-## Offensive Angle — SIEM/SOAR Evasion
+## Offensive Angle: SIEM/SOAR Evasion
 
 Sophisticated attackers actively study and evade SIEM detection. Understanding these techniques is essential for detection engineers.
 
 ### Log Manipulation Techniques
-- **Event Log Clearing**: `wevtutil cl Security` / `Clear-EventLog` — clears Windows event logs. **High confidence IOC** — SIEM should alert immediately on EventID 1102 (Security log cleared) and 104 (System log cleared). However, if SIEM is not real-time, clearing buys time
-- **Timestomping**: Modify file $MTIME/$CTIME/$ATIME attributes to blend into normal activity. `Invoke-TimeStomp` or `touch -t` on Linux. **Mitigation**: Rely on SIEM ingest time, not file timestamps, for forensic timelines
-- **Log Flooding**: Generate thousands of low-severity events (port scans, failed logins) to bury real alerts in noise. **Mitigation**: Dynamic threshold tuning; risk scoring to suppress known-noisy sources
+- Event Log Clearing: `wevtutil cl Security` / `Clear-EventLog`: clears Windows event logs. High confidence IOC — SIEM should alert immediately on EventID 1102 (Security log cleared) and 104 (System log cleared). However, if SIEM is not real-time, clearing buys time
+- Timestomping: Modify file $MTIME/$CTIME/$ATIME attributes to blend into normal activity. `Invoke-TimeStomp` or `touch -t` on Linux. Mitigation: Rely on SIEM ingest time, not file timestamps, for forensic timelines
+- Log Flooding: Generate thousands of low-severity events (port scans, failed logins) to bury real alerts in noise. Mitigation: Dynamic threshold tuning; risk scoring to suppress known-noisy sources
 
 ### Detection Evasion Techniques
-- **Living Off the Land (LOTL)**: Use legitimate OS binaries — `certutil`, `mshta`, `wscript`, `regsvr32`, `rundll32` — to execute payloads. Fewer signatures than custom malware. **Mitigation**: Process lineage analysis; parent-child relationship rules (Excel spawning PowerShell)
-- **Slow and Low Attacks**: Stay below threshold-based detection rates — one failed login per 10 minutes instead of 100 in 60 seconds. **Mitigation**: Longer time-window correlation; UEBA behavioral baselines
-- **Detection Blind Spots by Protocol**: Move laterally via protocols with poor SIEM coverage — WMI (`wmic` remote commands), DCOM, RDP `ShellBrowserWindow`. **Mitigation**: Enable verbose WMI and DCOM logging; correlate EventID 4688 with network connections
-- **Obfuscated Commands**: Base64 encoding (`-EncodedCommand`), string concatenation, character substitution in PowerShell and cmd.exe. **Mitigation**: Script block logging (EventID 4104); AmsiScanBuffer hooks; command-line deobfuscation
-- **SOAR Abuse via False Positives**: If SOAR automatically blocks IPs, attackers can trigger false positives to block legitimate infrastructure (defensive abuse). **Mitigation**: Human approval gates for high-impact SOAR actions
+- Living Off the Land (LOTL): Use legitimate OS binaries: `certutil`, `mshta`, `wscript`, `regsvr32`, `rundll32` — to execute payloads. Fewer signatures than custom malware. Mitigation: Process lineage analysis; parent-child relationship rules (Excel spawning PowerShell)
+- Slow and Low Attacks: Stay below threshold-based detection rates: one failed login per 10 minutes instead of 100 in 60 seconds. Mitigation: Longer time-window correlation; UEBA behavioral baselines
+- Detection Blind Spots by Protocol: Move laterally via protocols with poor SIEM coverage — WMI (`wmic` remote commands), DCOM, RDP `ShellBrowserWindow`. Mitigation: Enable verbose WMI and DCOM logging; correlate EventID 4688 with network connections
+- Obfuscated Commands: Base64 encoding (`-EncodedCommand`), string concatenation, character substitution in PowerShell and cmd.exe. Mitigation: Script block logging (EventID 4104); AmsiScanBuffer hooks; command-line deobfuscation
+- SOAR Abuse via False Positives: If SOAR automatically blocks IPs, attackers can trigger false positives to block legitimate infrastructure (defensive abuse). Mitigation: Human approval gates for high-impact SOAR actions
 
 ## NIST 800-53 Alignment
 
@@ -289,16 +289,16 @@ Sophisticated attackers actively study and evade SIEM detection. Understanding t
 
 | Certification | Issuer | Focus |
 |---|---|---|
-| **Splunk Core Certified User** | Splunk | Entry-level SPL and Splunk navigation |
-| **Splunk Core Certified Power User** | Splunk | Intermediate SPL; advanced searches, dashboards |
-| **Splunk Enterprise Certified Admin** | Splunk | Architecture, deployment, management |
-| **Splunk Enterprise Security Certified Admin** | Splunk | ES-specific; correlation rules, threat intel |
-| **Elastic Certified Analyst** | Elastic | ELK Stack, EQL, Elastic SIEM |
-| **SC-200** (Microsoft Security Operations Analyst) | Microsoft | Microsoft Sentinel, Defender XDR |
-| **GCIA** (GIAC Certified Intrusion Analyst) | GIAC/SANS | Deep packet analysis, IDS/SIEM |
-| **BTL1** (Blue Team Labs Level 1) | Security Blue Team | Practical SOC analyst skills |
-| **CySA+** | CompTIA | Cybersecurity analyst; SIEM/threat detection |
-| **eCDFP** | eLearnSecurity | Digital forensics integrated with SIEM analysis |
+| Splunk Core Certified User | Splunk | Entry-level SPL and Splunk navigation |
+| Splunk Core Certified Power User | Splunk | Intermediate SPL; advanced searches, dashboards |
+| Splunk Enterprise Certified Admin | Splunk | Architecture, deployment, management |
+| Splunk Enterprise Security Certified Admin | Splunk | ES-specific; correlation rules, threat intel |
+| Elastic Certified Analyst | Elastic | ELK Stack, EQL, Elastic SIEM |
+| SC-200 (Microsoft Security Operations Analyst) | Microsoft | Microsoft Sentinel, Defender XDR |
+| GCIA (GIAC Certified Intrusion Analyst) | GIAC/SANS | Deep packet analysis, IDS/SIEM |
+| BTL1 (Blue Team Labs Level 1) | Security Blue Team | Practical SOC analyst skills |
+| CySA+ | CompTIA | Cybersecurity analyst; SIEM/threat detection |
+| eCDFP | eLearnSecurity | Digital forensics integrated with SIEM analysis |
 
 ## Learning Resources
 

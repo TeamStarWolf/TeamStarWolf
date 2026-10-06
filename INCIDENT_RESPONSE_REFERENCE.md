@@ -1,15 +1,15 @@
 # Incident Response Reference Library
 
-> **Classification:** Internal Security Reference | **Maintained by:** Security Operations
-> **Last Updated:** 2026-05-04 | **Version:** 1.0
+> Classification: Internal Security Reference | Maintained by: Security Operations
+> Last Updated: 2026-05-04 | Version: 1.0
 
-> **In one minute** — This is the working reference for handling security incidents end to end: frameworks (NIST 800-61, SANS PICERL), triage checklists, and hands-on response procedures for ransomware, business email compromise, endpoint/network forensics, and cloud (AWS/Azure/GCP) incidents. It is useful because it pairs the process side (severity levels, team roles, notification templates, regulatory deadlines) with copy-paste commands for the tools you actually use mid-incident (EDR containment, audit-log queries, firewall blocks). Reach for it when the clock is running and you need the next concrete step, not theory.
+> In one minute — This is the working reference for handling security incidents end to end: frameworks (NIST 800-61, SANS PICERL), triage checklists, and hands-on response procedures for ransomware, business email compromise, endpoint/network forensics, and cloud (AWS/Azure/GCP) incidents. It is useful because it pairs the process side (severity levels, team roles, notification templates, regulatory deadlines) with copy-paste commands for the tools you actually use mid-incident (EDR containment, audit-log queries, firewall blocks). Reach for it when the clock is running and you need the next concrete step, not theory.
 
 | | |
 |---|---|
-| **Read this when** | an alert or user report needs triage in the next five minutes, ransomware or a suspicious wire request just landed, you are building or testing an IR plan and tabletop program |
-| **Start at** | [Detection & Initial Triage](#_2-detection-amp-initial-triage), [Ransomware Response](#_3-ransomware-response), [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation) |
-| **Pairs with** | [IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
+| Read this when | an alert or user report needs triage in the next five minutes, ransomware or a suspicious wire request just landed, you are building or testing an IR plan and tabletop program |
+| Start at | [Detection & Initial Triage](#_2-detection-amp-initial-triage), [Ransomware Response](#_3-ransomware-response), [IR Frameworks & Preparation](#_1-ir-frameworks-amp-preparation) |
+| Pairs with | [IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md) |
 
 ---
 
@@ -32,16 +32,16 @@
 
 ### 1.1 NIST SP 800-61 Incident Response Lifecycle
 
-The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as **four phases**: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. The popular six-step **PICERL** sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the **SANS** model — not NIST's — and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
+The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. The popular six-step PICERL sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the SANS model — not NIST's — and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
 
-> **Revision note:** NIST **SP 800-61 Revision 3** (April 2025) supersedes Revision 2. Rev 3
+> Revision note: NIST SP 800-61 Revision 3 (April 2025) supersedes Revision 2. Rev 3
 > retires the fixed four-phase lifecycle and instead reframes incident response around the **NIST
 > Cybersecurity Framework (CSF) 2.0** Functions (Govern, Identify, Protect, Detect, Respond,
 > Recover), treating IR as a continuous risk-management activity rather than a linear sequence.
 > The four-phase model below remains a useful mental model and is retained for that reason, but
 > Rev 3 is the current authoritative guidance.
 
-**Phase 1 — Preparation**
+Phase 1 — Preparation
 Preparation is the most investment-heavy phase and the primary determinant of IR effectiveness. Key activities include:
 - Developing and approving the IR policy, plan, and procedures
 - Establishing the CSIRT with defined roles, authorities, and escalation paths
@@ -53,14 +53,14 @@ Preparation is the most investment-heavy phase and the primary determinant of IR
 - Maintaining current asset inventory, network diagrams, data flow maps, and crown-jewel registers
 - Documenting system baselines and approved software lists
 
-**Phase 2 — Detection & Analysis**
+Phase 2 — Detection & Analysis
 - Monitoring alerts from SIEM, EDR, IDS/IPS, MSSP, threat feeds, and user reports
 - Performing initial triage to distinguish true positives from false positives
 - Classifying incident type and assigning severity level
 - Notifying stakeholders per the escalation matrix
 - Opening an IR ticket and initiating evidence preservation
 
-**Phase 3 — Containment, Eradication & Recovery**
+Phase 3 — Containment, Eradication & Recovery
 NIST groups these three activities into a single phase because they interleave in practice — you often eradicate and recover system-by-system while still containing others.
 
 *Containment*
@@ -80,7 +80,7 @@ NIST groups these three activities into a single phase because they interleave i
 - Increase monitoring during the recovery period (elevated alert thresholds)
 - Confirm business operations have returned to normal
 
-**Phase 4 — Post-Incident Activity**
+Phase 4 — Post-Incident Activity
 - Conduct lessons-learned meeting within 2 weeks of resolution
 - Produce post-incident report
 - Update IR plan, playbooks, and detection rules based on findings
@@ -94,18 +94,18 @@ The SANS PICERL model extends NIST with explicit Recovery and Lessons Learned ph
 
 | Phase | Key Questions |
 |-------|--------------|
-| **P**reparation | Are we ready to detect and respond? |
-| **I**dentification | Is this a real incident? What type? What scope? |
-| **C**ontainment | How do we stop the bleeding without destroying evidence? |
-| **E**radication | Have we removed all attacker artifacts and access? |
-| **R**ecovery | How do we restore to a known-good state? |
-| **L**essons Learned | What can we improve? |
+| Preparation | Are we ready to detect and respond? |
+| Identification | Is this a real incident? What type? What scope? |
+| Containment | How do we stop the bleeding without destroying evidence? |
+| Eradication | Have we removed all attacker artifacts and access? |
+| Recovery | How do we restore to a known-good state? |
+| Lessons Learned | What can we improve? |
 
 ---
 
 ### 1.3 IR Team Structure & RACI
 
-**Core CSIRT Roles:**
+Core CSIRT Roles:
 
 | Role | Responsibility | Typical Owner |
 |------|---------------|---------------|
@@ -117,7 +117,7 @@ The SANS PICERL model extends NIST with explicit Recovery and Lessons Learned ph
 | Business Liaison | Business impact assessment, recovery prioritization | Business Unit Owner |
 | Threat Intel Analyst | IOC enrichment, actor attribution, feed updates | CTI Team |
 
-**RACI Matrix Template:**
+RACI Matrix Template:
 
 | Task | IC | Tech Lead | Comms | Legal | Scribe |
 |------|----|-----------|-------|-------|--------|
@@ -134,15 +134,15 @@ The SANS PICERL model extends NIST with explicit Recovery and Lessons Learned ph
 ### 1.4 IR Policy Components
 
 A complete IR policy must address:
-1. **Scope:** Systems, data types, geographic locations covered
-2. **Definitions:** Incident, event, alert, breach, severity levels
-3. **Roles & Authorities:** Who can declare an incident, who can authorize containment actions
-4. **Escalation Paths:** Contact lists, on-call rotations, executive notification thresholds
-5. **Reporting Requirements:** Internal SLAs, regulatory obligations, law enforcement triggers
-6. **Evidence Handling:** Chain of custody, retention periods, legal hold procedures
-7. **Communication Protocols:** Approved channels, media handling, customer notification templates
-8. **Training & Testing:** Annual tabletop requirements, purple team exercises
-9. **Plan Maintenance:** Review cycle (annually minimum, or after major incidents)
+1. Scope: Systems, data types, geographic locations covered
+2. Definitions: Incident, event, alert, breach, severity levels
+3. Roles & Authorities: Who can declare an incident, who can authorize containment actions
+4. Escalation Paths: Contact lists, on-call rotations, executive notification thresholds
+5. Reporting Requirements: Internal SLAs, regulatory obligations, law enforcement triggers
+6. Evidence Handling: Chain of custody, retention periods, legal hold procedures
+7. Communication Protocols: Approved channels, media handling, customer notification templates
+8. Training & Testing: Annual tabletop requirements, purple team exercises
+9. Plan Maintenance: Review cycle (annually minimum, or after major incidents)
 
 ---
 
@@ -160,24 +160,24 @@ A complete IR policy must address:
 ### 1.6 IR Retainer Services
 
 Retainer engagements provide guaranteed response times and pre-negotiated rates. Key considerations:
-- **Minimum hour commitments:** Typically 40–200 hours/year retainer; unused hours may roll over or expire
-- **SLA guarantees:** Ensure contract specifies on-site response SLAs (e.g., IR firm on-site within 4h for P1)
-- **Scope definition:** Forensics, legal support, ransomware negotiation, crisis PR — verify what is included
-- **Pre-engagement:** Share network diagrams, asset inventory, IR plan with retainer firm before an incident occurs
-- **Key vendors:** Mandiant, CrowdStrike Services, Secureworks CTU, Palo Alto Unit 42, Kroll
+- Minimum hour commitments: Typically 40-200 hours/year retainer; unused hours may roll over or expire
+- SLA guarantees: Ensure contract specifies on-site response SLAs (e.g., IR firm on-site within 4h for P1)
+- Scope definition: Forensics, legal support, ransomware negotiation, crisis PR: verify what is included
+- Pre-engagement: Share network diagrams, asset inventory, IR plan with retainer firm before an incident occurs
+- Key vendors: Mandiant, CrowdStrike Services, Secureworks CTU, Palo Alto Unit 42, Kroll
 
 ---
 
 ### 1.7 Tabletop Exercise Design
 
 Effective tabletops follow a structured format:
-1. **Scenario Selection:** Base on realistic threats to your sector (ransomware, supply chain, BEC)
-2. **Inject Sequence:** Prepare 6–10 injects that escalate over 2–3 hours
-3. **Participants:** Include technical, legal, HR, finance, communications, and executive representatives
-4. **Facilitation:** Neutral facilitator; timekeeper; scribe capturing decisions and gaps
-5. **Hot Wash:** Immediate debrief (30 min) after exercise
-6. **After Action Report:** Document gaps, action owners, and remediation timelines within 1 week
-7. **Frequency:** Quarterly tabletops; annual full-scale simulation
+1. Scenario Selection: Base on realistic threats to your sector (ransomware, supply chain, BEC)
+2. Inject Sequence: Prepare 6-10 injects that escalate over 2-3 hours
+3. Participants: Include technical, legal, HR, finance, communications, and executive representatives
+4. Facilitation: Neutral facilitator; timekeeper; scribe capturing decisions and gaps
+5. Hot Wash: Immediate debrief (30 min) after exercise
+6. After Action Report: Document gaps, action owners, and remediation timelines within 1 week
+7. Frequency: Quarterly tabletops; annual full-scale simulation
 
 ---
 
@@ -197,7 +197,7 @@ Effective tabletops follow a structured format:
 
 ### 1.9 IR Toolkit Contents
 
-**Software (bootable forensic USB or IR jump bag):**
+Software (bootable forensic USB or IR jump bag):
 - Kali Linux / SIFT Workstation (bootable)
 - Volatility 3 (memory forensics)
 - KAPE (triage collection)
@@ -209,14 +209,14 @@ Effective tabletops follow a structured format:
 - Eric Zimmerman Tools (Windows artifact parsing)
 - CyberChef (data decoding/transformation)
 
-**Hardware:**
+Hardware:
 - Write blockers (Tableau TX1, WiebeTech)
 - Forensic imaging drives (multiple 4TB+ portable drives)
 - Network tap (PassMark)
 - Serial console cables
 - Out-of-band laptop with cellular hotspot
 
-**Documentation:**
+Documentation:
 - Chain of custody forms
 - Evidence label templates
 - Network diagram templates
@@ -226,11 +226,11 @@ Effective tabletops follow a structured format:
 
 ### 1.10 On-Call Procedures
 
-- **PagerDuty / OpsGenie:** Configure escalation policies with 5-minute auto-escalation for P1/P2
-- **On-Call Rotation:** Minimum 2 analysts per shift; 24/7/365 coverage for P1
-- **Runbooks:** Accessible offline via printed binder and encrypted USB; not solely on systems that may be compromised
-- **Warm Transfer Protocol:** On-call analyst briefs incoming shift within 15 minutes at each handoff using SBAR format (Situation, Background, Assessment, Recommendation)
-- **Executive Notification:** P1 requires automated notification to CISO within 15 minutes; do not wait for full assessment
+- PagerDuty / OpsGenie: Configure escalation policies with 5-minute auto-escalation for P1/P2
+- On-Call Rotation: Minimum 2 analysts per shift; 24/7/365 coverage for P1
+- Runbooks: Accessible offline via printed binder and encrypted USB; not solely on systems that may be compromised
+- Warm Transfer Protocol: On-call analyst briefs incoming shift within 15 minutes at each handoff using SBAR format (Situation, Background, Assessment, Recommendation)
+- Executive Notification: P1 requires automated notification to CISO within 15 minutes; do not wait for full assessment
 
 
 ---
@@ -239,35 +239,35 @@ Effective tabletops follow a structured format:
 
 ### 2.1 Alert Sources
 
-**SIEM (Security Information & Event Management)**
+SIEM (Security Information & Event Management)
 - Aggregates logs from network devices, endpoints, cloud, applications
 - Correlation rules surface multi-stage attacks that individual tools miss
 - Key SIEM platforms: Splunk Enterprise Security, Microsoft Sentinel, IBM QRadar, Elastic SIEM, Exabeam
 - UEBA (User and Entity Behavior Analytics) detects anomalous patterns without predefined signatures
 
-**EDR (Endpoint Detection & Response)**
+EDR (Endpoint Detection & Response)
 - Real-time telemetry from endpoints: process trees, file writes, network connections, registry changes
 - Key platforms: CrowdStrike Falcon, SentinelOne, Microsoft Defender for Endpoint, Carbon Black
 - Provides automated containment capability (host isolation with one command)
 
-**MSSP / MDR (Managed Security Service Providers)**
+MSSP / MDR (Managed Security Service Providers)
 - 24/7 SOC monitoring offloaded to third-party specialists
 - Common providers: Secureworks, Arctic Wolf, Expel, Red Canary, Deepwatch
 - Ensure SLA includes P1 escalation to client within 15 minutes
 
-**Threat Intelligence Feeds**
+Threat Intelligence Feeds
 - Commercial: Recorded Future, Mandiant Advantage, CrowdStrike Intelligence
 - Open source: AbuseIPDB, AlienVault OTX, MISP community feeds, Emerging Threats rules
 
-**User Reports**
+User Reports
 - Phishing report button (Microsoft Report Message, KnowBe4 PAB)
-- Help desk tickets — first line for detecting BEC, ransomware, insider threat
+- Help desk tickets: first line for detecting BEC, ransomware, insider threat
 - Executive assistant reports of suspicious executive impersonation emails
 
-**Other Detection Sources**
+Other Detection Sources
 - Honeypots / deception technology (Thinkst Canary, Canarytokens)
 - DLP alerts (data exfiltration to personal cloud, USB usage)
-- DNS security (Cisco Umbrella, Infoblox, NextDNS) — DNS request anomalies
+- DNS security (Cisco Umbrella, Infoblox, NextDNS): DNS request anomalies
 - NDR (Network Detection & Response): Darktrace, ExtraHop, Vectra AI
 
 ---
@@ -295,29 +295,29 @@ Upon receiving an alert or report, complete the following within the first 5 min
 
 | Category | Sub-type | Initial Indicators |
 |----------|----------|-------------------|
-| **Ransomware** | Crypto ransomware, wiper, double extortion | File extension changes, ransom note, EDR alert on shadow copy deletion |
-| **Business Email Compromise** | CEO fraud, vendor impersonation, payroll diversion | Forwarding rules, impossible travel, financial request from exec |
-| **Insider Threat** | Data theft, sabotage, privilege abuse | Large data transfers to personal cloud/USB, off-hours access, terminated employee activity |
-| **DDoS** | Volumetric, protocol, application layer | Traffic spike, service unavailability, ISP notification |
-| **Data Breach** | Exfiltration, accidental exposure, third-party breach | DLP alert, large outbound transfers, dark web mention |
-| **Account Compromise** | Credential stuffing, phishing, MFA bypass | Impossible travel, unfamiliar MFA device, password spray in logs |
-| **Malware Infection** | RAT, keylogger, cryptominer, botnet | EDR detection, C2 beaconing, unusual process execution |
-| **Supply Chain Attack** | Software update compromise, vendor lateral movement | Legitimate signed binary with malicious behavior, unexpected vendor connections |
-| **Vulnerability Exploitation** | Web app, network service, zero-day | WAF/IDS alerts, exploit-like traffic, unexpected process spawning from service |
-| **Physical Security** | Tailgating, device theft, unauthorized access | Badge system alerts, missing assets, camera footage |
+| Ransomware | Crypto ransomware, wiper, double extortion | File extension changes, ransom note, EDR alert on shadow copy deletion |
+| Business Email Compromise | CEO fraud, vendor impersonation, payroll diversion | Forwarding rules, impossible travel, financial request from exec |
+| Insider Threat | Data theft, sabotage, privilege abuse | Large data transfers to personal cloud/USB, off-hours access, terminated employee activity |
+| DDoS | Volumetric, protocol, application layer | Traffic spike, service unavailability, ISP notification |
+| Data Breach | Exfiltration, accidental exposure, third-party breach | DLP alert, large outbound transfers, dark web mention |
+| Account Compromise | Credential stuffing, phishing, MFA bypass | Impossible travel, unfamiliar MFA device, password spray in logs |
+| Malware Infection | RAT, keylogger, cryptominer, botnet | EDR detection, C2 beaconing, unusual process execution |
+| Supply Chain Attack | Software update compromise, vendor lateral movement | Legitimate signed binary with malicious behavior, unexpected vendor connections |
+| Vulnerability Exploitation | Web app, network service, zero-day | WAF/IDS alerts, exploit-like traffic, unexpected process spawning from service |
+| Physical Security | Tailgating, device theft, unauthorized access | Badge system alerts, missing assets, camera footage |
 
 ---
 
 ### 2.4 Initial Evidence Preservation Principles
 
-**Do NOT:**
+Do NOT:
 - Power off systems unless absolutely necessary (volatile memory will be lost)
 - Reboot systems (clears RAM, modifies timestamps)
 - Run antivirus scans on live systems (can destroy artifacts)
 - Install software on potentially compromised systems
 - Open suspicious files on your administrative workstation
 
-**DO:**
+DO:
 - Capture volatile memory first (RAM dump) using Winpmem, DumpIt, or EDR live response
 - Take forensic disk images before any remediation
 - Preserve network logs, firewall logs, and proxy logs for the incident timeframe (±48h minimum)
@@ -331,7 +331,7 @@ Upon receiving an alert or report, complete the following within the first 5 min
 
 Every piece of evidence must have documented chain of custody from collection through legal proceedings:
 
-**Chain of Custody Form fields:**
+Chain of Custody Form fields:
 - Case/Incident number
 - Evidence item number and description
 - Acquisition date/time (UTC)
@@ -340,7 +340,7 @@ Every piece of evidence must have documented chain of custody from collection th
 - Storage location and access controls
 - All transfers: who transferred, when, to whom, why
 
-**Digital Evidence Handling:**
+Digital Evidence Handling:
 - Store evidence on write-protected media or in read-only forensic containers
 - Use forensic image formats: E01 (EnCase), AFF4, or raw DD with separate hash manifest
 - Maintain original evidence; work only on forensic copies
@@ -350,26 +350,26 @@ Every piece of evidence must have documented chain of custody from collection th
 
 ### 2.6 IR Ticketing Platforms
 
-**TheHive**
-- SIRP (Security Incident Response Platform) — NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see DFIR-IRIS (github.com/dfir-iris/iris-web)
+TheHive
+- SIRP (Security Incident Response Platform): NOTE: TheHive 5 is now a commercial StrangeBee product; the open-source v4 (AGPLv3) is archived/unmaintained since 2023. For a maintained open-source alternative see DFIR-IRIS (github.com/dfir-iris/iris-web)
 - Integrates with MISP for IOC sharing and Cortex for automated enrichment
 - Case templates for incident types; task management within cases
 - Observable tracking: IP, domain, hash, email, URL with automatic enrichment
 - Command: `thehive-cli case create --title "Ransomware P1" --severity 3`
 
-**ServiceNow Security Incident Response**
+ServiceNow Security Incident Response
 - Enterprise ITSM integration; links security incidents to change management and asset management
 - SLA tracking built-in; dashboards for MTTD/MTTR reporting
 - Workflow automation for common playbooks
 - Integrates with Splunk SOAR, IBM SOAR for automated enrichment
 
-**Jira + Security Plugin**
+Jira + Security Plugin
 - Flexible for teams already using Jira for project management
 - Create IR project board with swimlanes (Triage / Active / Containment / Recovery / Closed)
 - Link incidents to Confluence knowledge base articles and playbooks
 - Automation rules: auto-assign P1 tickets, auto-notify Slack channel
 
-**SOAR Platforms (Complementary)**
+SOAR Platforms (Complementary)
 - Splunk SOAR (Phantom): Playbook automation, case management, IOC enrichment
 - Palo Alto XSOAR: 700+ integrations, automated playbooks, threat intel management
 - IBM Security SOAR: Enterprise-grade, compliance workflow integration
@@ -400,20 +400,20 @@ IR Lead: [Name and contact]
 
 ### 3.1 Detection Indicators
 
-**EDR Alerts (High Fidelity)**
+EDR Alerts (High Fidelity)
 - Shadow copy deletion: `vssadmin delete shadows /all`, `wmic shadowcopy delete`
 - Mass file rename/encrypt events (thousands of file modifications in seconds)
 - Ransomware note creation: `HOW_TO_DECRYPT.txt`, `README_FOR_DECRYPT.html`
 - Known ransomware process hashes or behavioral signatures
 - Disabling Windows Defender: `Set-MpPreference -DisableRealtimeMonitoring $true`
 
-**SIEM Correlation Rules**
+SIEM Correlation Rules
 - Host generating >10,000 file write events per minute
 - SMB lateral spread: single source accessing multiple remote shares
 - Credential harvesting tools: Mimikatz, ProcDump targeting LSASS, secretsdump.py
 - Cobalt Strike beacon patterns: regular callback intervals, HTTPS to unusual domains
 
-**User Reports**
+User Reports
 - "All my files have a weird extension and I can't open them"
 - Ransom note visible on desktop
 - Mapped drives showing encrypted files
@@ -422,7 +422,7 @@ IR Lead: [Name and contact]
 
 ### 3.2 Immediate Containment Steps
 
-**Step 1: Confirm and Escalate (0–5 min)**
+Step 1: Confirm and Escalate (0-5 min)
 ```
 1. Verify it is ransomware (not false positive)
 2. Immediately escalate to P1 — notify IC, CISO, Legal
@@ -430,7 +430,7 @@ IR Lead: [Name and contact]
 4. Open war room (bridge line + collaboration channel)
 ```
 
-**Step 2: Network Isolation (5–15 min)**
+Step 2: Network Isolation (5-15 min)
 
 *CrowdStrike Falcon (contain host):*
 ```bash
@@ -472,7 +472,7 @@ netsh advfirewall set allprofiles firewallpolicy blockinbound,blockoutbound
 netsh advfirewall firewall add rule name="BLOCK-C2" dir=out action=block remoteip=<C2_IP>
 ```
 
-**Step 3: Preserve Evidence (concurrent with containment)**
+Step 3: Preserve Evidence (concurrent with containment)
 ```bash
 # Memory dump (Windows) — use winpmem or EDR live response
 winpmem_mini_x64.exe memory.dmp
@@ -495,7 +495,7 @@ wevtutil epl "Microsoft-Windows-Sysmon/Operational" sysmon.evtx
 
 ### 3.3 Business Impact Assessment
 
-Within 30–60 minutes of P1 declaration, the IC must assess:
+Within 30-60 minutes of P1 declaration, the IC must assess:
 
 | Question | Source |
 |----------|--------|
@@ -528,20 +528,20 @@ Identifying the initial compromise vector is critical for eradication:
 
 ### 3.5 Ransomware Family Identification
 
-**ID Ransomware (https://id-ransomware.malwarehunterteam.com)**
+ID Ransomware (https://id-ransomware.malwarehunterteam.com)
 - Upload ransom note and/or encrypted file sample
 - Identifies 1,000+ ransomware families
 - Indicates if decryptor exists
 
-**VirusTotal**
+VirusTotal
 - Submit ransomware binary hash for family identification
 - Check detections, behavioral analysis, and community comments
 
-**No More Ransom Project (https://www.nomoreransom.org)**
+No More Ransom Project (https://www.nomoreransom.org)
 - Law enforcement + industry partnership offering free decryptors
 - Check before paying ransom or beginning lengthy recovery
 
-**Common Ransomware Families & Indicators:**
+Common Ransomware Families & Indicators:
 
 | Family | Extension | Ransom Note | Known Vector |
 |--------|-----------|-------------|--------------|
@@ -556,16 +556,16 @@ Identifying the initial compromise vector is critical for eradication:
 
 ### 3.6 Law Enforcement Notification
 
-**FBI via IC3 (https://www.ic3.gov)**
+FBI via IC3 (https://www.ic3.gov)
 - File a complaint for ransomware incidents regardless of whether you pay
 - FBI may have decryption keys for specific variants seized during takedowns
 - Proactive engagement can accelerate law enforcement investigation
 
-**CISA Reporting**
+CISA Reporting
 - Report to CISA at https://www.cisa.gov/report or call 1-888-282-0870
 - CISA may provide technical assistance and threat intelligence
 
-**What to Include in LE Reports:**
+What to Include in LE Reports:
 - Incident timeline and discovery circumstances
 - Ransomware family (if identified)
 - Ransom demand amount and cryptocurrency wallet address
@@ -618,18 +618,18 @@ Phase 7: Return to normal operations with sustained enhanced monitoring
 
 | BEC Type | Description | Key Indicator |
 |----------|-------------|---------------|
-| **CEO Fraud** | Attacker impersonates CEO/executive to request urgent wire transfer | Email from lookalike domain; pressure for secrecy |
-| **Vendor Impersonation** | Compromised or spoofed vendor email requests change to payment banking details | Invoice with new bank account; urgency |
-| **Payroll Diversion** | Attacker poses as employee to redirect payroll to attacker-controlled account | HR email request from personal address; recent password reset |
-| **W-2 / Tax Fraud** | Impersonation of executive requesting employee W-2 data | Annual spike during tax season; targets HR/payroll staff |
-| **Attorney Impersonation** | Fake lawyer contact regarding confidential acquisition needing urgent funds | Pressure for secrecy; unusual request channel |
-| **Gift Card Fraud** | Impersonation requests purchase of gift cards "for employees" | Unusual purchase request; urgency |
+| CEO Fraud | Attacker impersonates CEO/executive to request urgent wire transfer | Email from lookalike domain; pressure for secrecy |
+| Vendor Impersonation | Compromised or spoofed vendor email requests change to payment banking details | Invoice with new bank account; urgency |
+| Payroll Diversion | Attacker poses as employee to redirect payroll to attacker-controlled account | HR email request from personal address; recent password reset |
+| W-2 / Tax Fraud | Impersonation of executive requesting employee W-2 data | Annual spike during tax season; targets HR/payroll staff |
+| Attorney Impersonation | Fake lawyer contact regarding confidential acquisition needing urgent funds | Pressure for secrecy; unusual request channel |
+| Gift Card Fraud | Impersonation requests purchase of gift cards "for employees" | Unusual purchase request; urgency |
 
 ---
 
 ### 4.2 Microsoft 365 Investigation
 
-**Search-UnifiedAuditLog (PowerShell)**
+Search-UnifiedAuditLog (PowerShell)
 ```powershell
 # Search audit log for suspicious mailbox activity
 $startDate = (Get-Date).AddDays(-30)
@@ -654,7 +654,7 @@ Search-UnifiedAuditLog -StartDate $startDate -EndDate $endDate `
   -Operations "Consent to application"
 ```
 
-**Message Trace (Exchange Online)**
+Message Trace (Exchange Online)
 ```powershell
 # Trace messages for compromised user
 Get-MessageTrace -SenderAddress "victim@company.com" `
@@ -666,7 +666,7 @@ Get-MessageTrace -SenderAddress "vendor@partner.com" `
   -StartDate (Get-Date).AddDays(-90) | Where-Object {$_.Subject -like "*invoice*"}
 ```
 
-**Hawk Tool (Open Source BEC Investigation)**
+Hawk Tool (Open Source BEC Investigation)
 ```powershell
 # Install Hawk
 Install-Module -Name Hawk -Force
@@ -680,7 +680,7 @@ Start-HawkUserInvestigation -UserPrincipalName victim@company.com
 # Hawk collects: mailbox rules, delegates, admin changes, sign-in logs, OAuth grants
 ```
 
-**Microsoft Entra ID Sign-in Investigation**
+Microsoft Entra ID Sign-in Investigation
 ```powershell
 # Via Graph PowerShell — get sign-in logs for user
 Connect-MgGraph -Scopes "AuditLog.Read.All"
@@ -723,7 +723,7 @@ gam user victim@company.com show pop
 
 ### 4.4 Compromised Account Remediation
 
-**Immediate Actions (within minutes of confirmation):**
+Immediate Actions (within minutes of confirmation):
 ```powershell
 # Revoke all active sessions (M365)
 Revoke-AzureADUserAllRefreshToken -ObjectId <user-object-id>
@@ -748,7 +748,7 @@ Set-Mailbox -Identity victim@company.com -DeliverToMailboxAndForward $false `
 # Verify MFA method is legitimate device (not attacker-added MFA device)
 ```
 
-**Review and Remove Attacker Artifacts:**
+Review and Remove Attacker Artifacts:
 - All inbox rules (especially forwarding, move-to-folder, delete)
 - Mailbox delegates and Full Access permissions
 - OAuth application consents
@@ -760,19 +760,19 @@ Set-Mailbox -Identity victim@company.com -DeliverToMailboxAndForward $false `
 
 ### 4.5 Financial Transaction Recall Process
 
-**Immediate (within hours of discovery):**
-1. Contact your bank's fraud department immediately — time is critical (hours, not days)
+Immediate (within hours of discovery):
+1. Contact your bank's fraud department immediately: time is critical (hours, not days)
 2. Request SWIFT recall message (gpi STOP payment) if wire has been sent
-3. Request the receiving bank freeze the funds — banks can hold for 24–72h pending investigation
+3. Request the receiving bank freeze the funds: banks can hold for 24-72h pending investigation
 4. Obtain wire transfer confirmation number, beneficiary account, and receiving bank SWIFT code
 
-**FBI IC3 Financial Fraud Kill Chain**
+FBI IC3 Financial Fraud Kill Chain
 - Submit complaint at **https://www.ic3.gov**
-- For active wire fraud, call **FBI Financial Fraud (1-800-CALL-FBI)** immediately
-- IC3's FFKC can freeze funds in transit — success rate highest within first few hours
+- For active wire fraud, call FBI Financial Fraud (1-800-CALL-FBI) immediately
+- IC3's FFKC can freeze funds in transit: success rate highest within first few hours
 - Provide: sender/receiver account info, wire amount, transfer date/time, beneficiary bank info
 
-**Supporting Documentation:**
+Supporting Documentation:
 - Original fraudulent email headers (full)
 - Wire transfer confirmation
 - Internal approval chain documentation
@@ -782,7 +782,7 @@ Set-Mailbox -Identity victim@company.com -DeliverToMailboxAndForward $false `
 
 ### 4.6 BEC Indicators of Compromise
 
-**Email Header Red Flags:**
+Email Header Red Flags:
 ```
 # Check Return-Path vs From header mismatch
 # Check Reply-To header pointing to attacker domain
@@ -795,7 +795,7 @@ Set-Mailbox -Identity victim@company.com -DeliverToMailboxAndForward $false `
 # - Google Admin Toolbox: https://toolbox.googleapps.com/apps/messageheader/
 ```
 
-**Common Attacker Infrastructure Patterns:**
+Common Attacker Infrastructure Patterns:
 - Lookalike domains: `company-inc.com`, `company.co`, `cornpany.com` (rn vs m)
 - Free email services: Gmail, Yahoo, Outlook accounts impersonating executives
 - VPN/proxy exit nodes in Eastern Europe or Southeast Asia
@@ -808,7 +808,7 @@ Set-Mailbox -Identity victim@company.com -DeliverToMailboxAndForward $false `
 
 ### 5.1 Live Response Platforms
 
-**CrowdStrike Real Time Response (RTR)**
+CrowdStrike Real Time Response (RTR)
 ```bash
 # Connect to host via RTR
 # Falcon Console > Hosts > Select Host > Real Time Response
@@ -824,7 +824,7 @@ put evil_hunter.exe                 # Upload tool to host
 run evil_hunter.exe --scan          # Execute uploaded tool
 ```
 
-**SentinelOne Remote Shell**
+SentinelOne Remote Shell
 ```bash
 # Via console: Sentinels > Agent > Remote Shell
 # Available commands: Similar to RTR — file ops, process listing, network state
@@ -836,7 +836,7 @@ tasklist /v /fo csv                          # Verbose process list
 wmic process where "name='malware.exe'" get commandline  # Get command line
 ```
 
-**Velociraptor (Open Source Live Response)**
+Velociraptor (Open Source Live Response)
 ```yaml
 # Query for suspicious processes
 SELECT Pid, Name, CommandLine, Exe, Hash.SHA256
@@ -861,7 +861,7 @@ VeloRaptor -v artifacts collect Windows.KapeFiles.Targets --output /evidence/
 
 ### 5.2 Windows Forensic Artifacts
 
-**Critical Windows Event Log IDs**
+Critical Windows Event Log IDs
 
 | Event ID | Description | Log Source | IR Relevance |
 |----------|-------------|-----------|--------------|
@@ -881,7 +881,7 @@ VeloRaptor -v artifacts collect Windows.KapeFiles.Targets --output /evidence/
 | 7045 | New service installed | System | Malware/backdoor persistence |
 | 1102 | Audit log cleared | Security | Anti-forensic activity |
 
-**Logon Type Reference:**
+Logon Type Reference:
 - Type 2: Interactive (console)
 - Type 3: Network (SMB, shared resources)
 - Type 4: Batch (scheduled tasks)
@@ -890,7 +890,7 @@ VeloRaptor -v artifacts collect Windows.KapeFiles.Targets --output /evidence/
 - Type 10: Remote Interactive (RDP)
 - Type 11: Cached interactive
 
-**Prefetch Analysis**
+Prefetch Analysis
 ```powershell
 # Location: C:\Windows\Prefetch\*.pf
 # Parse with PECmd (Eric Zimmerman)
@@ -898,7 +898,7 @@ PECmd.exe -d "C:\Windows\Prefetch" --csv "C:\Evidence" --csvf prefetch.csv
 # Reveals: execution count, last run times, files accessed, directories accessed
 ```
 
-**ShimCache (AppCompatCache)**
+ShimCache (AppCompatCache)
 ```powershell
 # Registry: HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
 # Parse with AppCompatCacheParser (Eric Zimmerman)
@@ -907,7 +907,7 @@ AppCompatCacheParser.exe --csv "C:\Evidence" -t
 # Useful for finding malware even after deletion
 ```
 
-**Amcache**
+Amcache
 ```powershell
 # Location: C:\Windows\AppCompat\Programs\Amcache.hve
 # Parse with AmcacheParser (Eric Zimmerman)
@@ -915,7 +915,7 @@ AmcacheParser.exe -f "C:\Windows\AppCompat\Programs\Amcache.hve" --csv "C:\Evide
 # Reveals: SHA1 hashes of executed programs, install paths, compile timestamps
 ```
 
-**LNK Files (Shortcut Files)**
+LNK Files (Shortcut Files)
 ```powershell
 # Locations:
 # C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent\
@@ -925,7 +925,7 @@ LECmd.exe -d "C:\Users\victim\AppData\Roaming\Microsoft\Windows\Recent" --csv "C
 # Reveals: accessed files (even if deleted), target path, MAC times, volume serial number
 ```
 
-**MFT ($MFT)**
+MFT ($MFT)
 ```powershell
 # Master File Table — metadata for every file on NTFS volume
 # Parse with MFTECmd (Eric Zimmerman)
@@ -938,7 +938,7 @@ MFTECmd.exe -f "C:\$MFT" --csv "C:\Evidence" --csvf mft.csv
 
 ### 5.3 Linux Forensic Artifacts
 
-**Log Files**
+Log Files
 ```bash
 # Authentication logs
 /var/log/auth.log          # Debian/Ubuntu — SSH, sudo, PAM
@@ -959,7 +959,7 @@ journalctl -u sshd         # SSH service logs specifically
 /var/log/httpd/access_log
 ```
 
-**User Activity**
+User Activity
 ```bash
 # Bash history (often incomplete — attacker may clear)
 ~/.bash_history
@@ -972,7 +972,7 @@ ls -la /proc/<pid>/fd/       # Open file descriptors
 cat /proc/<pid>/cmdline      # Command line of process (null-delimited)
 ```
 
-**Persistence Locations**
+Persistence Locations
 ```bash
 # Cron jobs
 /etc/cron*                  # System cron directories
@@ -990,7 +990,7 @@ ls -la /etc/systemd/system/*.service | xargs grep -l "ExecStart"
 /root/.ssh/authorized_keys
 ```
 
-**Temporary and Suspicious Locations**
+Temporary and Suspicious Locations
 ```bash
 # Common malware drop locations
 ls -la /tmp/
@@ -1003,7 +1003,7 @@ find / -name ".*" -type f -newer /tmp -maxdepth 4 2>/dev/null  # Hidden recent f
 
 ### 5.4 macOS Forensic Artifacts
 
-**Unified Log**
+Unified Log
 ```bash
 # Parse unified log
 log show --predicate 'eventMessage contains "sudo"' --last 7d
@@ -1013,7 +1013,7 @@ log show --style syslog --last 24h > unified_log.txt
 # loginwindow, sudo, sshd, bash, python, curl, osascript
 ```
 
-**Persistence Mechanisms**
+Persistence Mechanisms
 ```bash
 # LaunchAgents and LaunchDaemons (most common persistence)
 ls -la ~/Library/LaunchAgents/          # User LaunchAgents
@@ -1028,7 +1028,7 @@ plutil -p ~/Library/LaunchAgents/com.malware.plist
 osascript -e 'tell application "System Events" to get the name of every login item'
 ```
 
-**FSEvents**
+FSEvents
 ```bash
 # File system event log — records all file system changes
 # Location: /.fseventsd/
@@ -1042,7 +1042,7 @@ python3 FSEventsParser.py -f /.fseventsd/ -o /evidence/fsevents/
 
 KAPE rapidly collects and processes forensic artifacts from live systems or mounted images.
 
-**Common Triage Targets:**
+Common Triage Targets:
 ```powershell
 # Collect key artifacts for IR (run as Administrator)
 kape.exe --tsource C: --tdest "D:\Evidence\Collection" ^
@@ -1057,7 +1057,7 @@ kape.exe --msource "D:\Evidence\Collection" --mdest "D:\Evidence\Processed" ^
   --module "!EZParser"  # Runs all Eric Zimmerman parsers
 ```
 
-**KAPE Module Outputs:**
+KAPE Module Outputs:
 - Parsed prefetch CSV with execution times
 - Parsed event log CSVs (Security, System, Application, Sysmon)
 - Shimcache and Amcache CSVs
@@ -1074,15 +1074,15 @@ kape.exe --msource "D:\Evidence\Collection" --mdest "D:\Evidence\Processed" ^
 
 | Source | Data Captured | Retention Typical | IR Value |
 |--------|--------------|------------------|----------|
-| Firewall Logs | Allow/deny decisions, source/dest IP+port, bytes | 30–90 days | Lateral movement, exfiltration volume |
-| Proxy Logs | HTTP/HTTPS request URLs, user-agent, response codes | 30–90 days | C2 beacon patterns, exfiltration URLs |
-| DNS Logs | Query/response, requester IP, record type | 7–30 days | DGA domains, DNS tunneling, C2 |
-| NetFlow/IPFIX | 5-tuple summary, bytes/packets, duration | 30–90 days | Traffic volume analysis, lateral movement |
+| Firewall Logs | Allow/deny decisions, source/dest IP+port, bytes | 30-90 days | Lateral movement, exfiltration volume |
+| Proxy Logs | HTTP/HTTPS request URLs, user-agent, response codes | 30-90 days | C2 beacon patterns, exfiltration URLs |
+| DNS Logs | Query/response, requester IP, record type | 7-30 days | DGA domains, DNS tunneling, C2 |
+| NetFlow/IPFIX | 5-tuple summary, bytes/packets, duration | 30-90 days | Traffic volume analysis, lateral movement |
 | PCAP (Full Packet) | Complete network traffic content | Hours to days (expensive) | Deep protocol analysis, data recovery |
-| IDS/IPS Alerts | Signature matches with packet context | 30–90 days | Known attack signatures |
-| VPN/Remote Access | User, source IP, session duration, bytes | 30–90 days | Initial access vector |
-| Email Gateway | SMTP metadata, attachment hashes | 30–90 days | Phishing delivery, BEC |
-| NDR Platform | Behavioral anomalies, protocol analysis | 30–90 days | Zero-day detection, insider |
+| IDS/IPS Alerts | Signature matches with packet context | 30-90 days | Known attack signatures |
+| VPN/Remote Access | User, source IP, session duration, bytes | 30-90 days | Initial access vector |
+| Email Gateway | SMTP metadata, attachment hashes | 30-90 days | Phishing delivery, BEC |
+| NDR Platform | Behavioral anomalies, protocol analysis | 30-90 days | Zero-day detection, insider |
 
 ---
 
@@ -1090,7 +1090,7 @@ kape.exe --msource "D:\Evidence\Collection" --mdest "D:\Evidence\Processed" ^
 
 Zeek (formerly Bro) generates structured logs that are ideal for IR investigations. Key log types:
 
-**conn.log — All network connections**
+conn.log — All network connections
 ```bash
 # Find connections to suspicious IP
 cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p proto service duration orig_bytes resp_bytes | \
@@ -1104,7 +1104,7 @@ cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes | \
 cat conn.log | zeek-cut id.orig_h id.resp_h | sort | uniq -c | sort -rn
 ```
 
-**http.log — HTTP requests**
+http.log — HTTP requests
 ```bash
 # Find POST requests (potential exfiltration or C2)
 cat http.log | zeek-cut id.orig_h id.resp_h method uri user_agent request_body_len | \
@@ -1117,7 +1117,7 @@ cat http.log | zeek-cut user_agent | sort | uniq -c | sort -rn | head -30
 cat http.log | zeek-cut host uri | sort -u
 ```
 
-**dns.log — DNS queries**
+dns.log — DNS queries
 ```bash
 # High volume of failed DNS queries (DGA or beaconing)
 cat dns.log | zeek-cut id.orig_h query qtype_name rcode_name | \
@@ -1130,7 +1130,7 @@ cat dns.log | zeek-cut query | awk 'length($1) > 50 {print}' | sort -u
 cat dns.log | zeek-cut id.orig_h query | grep -v "10\." | head -50
 ```
 
-**ssl.log — SSL/TLS connections**
+ssl.log — SSL/TLS connections
 ```bash
 # Self-signed or invalid certificates (common for C2)
 cat ssl.log | zeek-cut id.orig_h id.resp_h server_name validation_status | \
@@ -1143,7 +1143,7 @@ cat ssl.log | zeek-cut ja3 ja3s server_name | sort -u
 cat ssl.log | zeek-cut id.orig_h id.resp_h server_name | grep "^-" | head -20
 ```
 
-**files.log — File transfers**
+files.log — File transfers
 ```bash
 # Extract file hashes for all transferred files
 cat files.log | zeek-cut sha256 mime_type tx_hosts rx_hosts | grep -v "^-"
@@ -1218,7 +1218,7 @@ nfdump -r /var/cache/nfdump/ \
 
 DNS tunneling encodes data within DNS queries/responses to bypass network controls.
 
-**Detection Indicators:**
+Detection Indicators:
 - Query length > 50 characters in subdomain portion
 - High entropy in subdomain labels (random-looking: `aGVsbG8gd29ybGQ.attacker.com`)
 - Volume: > 1,000 DNS queries/hour to single domain from single host
@@ -1226,7 +1226,7 @@ DNS tunneling encodes data within DNS queries/responses to bypass network contro
 - NXDOMAIN ratio < 5% (tunneling tools use valid responses)
 - Subdomain label count > 5
 
-**Tools for DNS Tunnel Detection:**
+Tools for DNS Tunnel Detection:
 ```bash
 # DNScat2 (common tool) network signature:
 # Queries to *.c2domain.com with base32/hex encoded subdomains
@@ -1244,20 +1244,20 @@ cat dns.log | zeek-cut query | \
 
 ### 6.6 Lateral Movement in Network Logs
 
-**Indicators in Firewall Logs:**
+Indicators in Firewall Logs:
 - Single source IP connecting to multiple internal hosts on ports 445 (SMB), 135 (RPC), 3389 (RDP)
 - Sequential connection pattern to entire IP range (scanner behavior)
 - Service account authenticating from unexpected source workstation
 
-**Indicators in DNS Logs:**
+Indicators in DNS Logs:
 - New internal host resolving many other internal hostnames rapidly (reconnaissance)
 - Reverse DNS lookups for entire internal subnets
 
-**Indicators in NetFlow:**
+Indicators in NetFlow:
 - East-west traffic spikes (workstation-to-workstation)
 - Connections between security zones that violate firewall policy
 
-**Timeline Construction from Multiple Sources:**
+Timeline Construction from Multiple Sources:
 ```
 1. Establish T0 (initial compromise time) from EDR or email gateway
 2. Build timeline: for each hop, record:
@@ -1278,7 +1278,7 @@ cat dns.log | zeek-cut query | \
 
 ### 7.1 AWS Incident Response
 
-**CloudTrail — Key Suspicious API Calls**
+CloudTrail — Key Suspicious API Calls
 
 | API Call | Service | IR Significance |
 |----------|---------|----------------|
@@ -1286,7 +1286,7 @@ cat dns.log | zeek-cut query | \
 | `CreateUser` | IAM | New IAM user (backdoor creation) |
 | `AttachUserPolicy` / `PutUserPolicy` | IAM | Privilege escalation |
 | `CreateAccessKey` | IAM | New API key (persistence) |
-| `AssumeRole` | STS | Role assumption — check unusual principals |
+| `AssumeRole` | STS | Role assumption: check unusual principals |
 | `GetSecretValue` | Secrets Manager | Secret exfiltration |
 | `GetPasswordData` | EC2 | Windows instance password retrieval |
 | `CreateKeyPair` | EC2 | New SSH key (persistence) |
@@ -1299,17 +1299,17 @@ cat dns.log | zeek-cut query | \
 | `UpdateFunctionCode` | Lambda | Lambda code modification |
 | `DescribeInstances` | EC2 | Reconnaissance |
 
-**GuardDuty Finding Types (High Priority)**
-- `UnauthorizedAccess:IAMUser/TorIPCaller` — API calls from Tor exit nodes
-- `UnauthorizedAccess:EC2/TorClient` — EC2 instance connecting to Tor
-- `Backdoor:EC2/C&CActivity.B` — Known C2 communication
-- `CryptoCurrency:EC2/BitcoinTool.B` — Crypto mining activity
-- `Stealth:IAMUser/PasswordPolicyChange` — Weakening password policy
-- `UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B` — Unusual console login
-- `Persistence:IAMUser/NetworkPermissions` — Anomalous network permission changes
-- `PrivilegeEscalation:IAMUser/AdministrativePermissions` — Priv esc attempt
+GuardDuty Finding Types (High Priority)
+- `UnauthorizedAccess:IAMUser/TorIPCaller`: API calls from Tor exit nodes
+- `UnauthorizedAccess:EC2/TorClient`: EC2 instance connecting to Tor
+- `Backdoor:EC2/C&CActivity.B`: Known C2 communication
+- `CryptoCurrency:EC2/BitcoinTool.B`: Crypto mining activity
+- `Stealth:IAMUser/PasswordPolicyChange`: Weakening password policy
+- `UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B`: Unusual console login
+- `Persistence:IAMUser/NetworkPermissions`: Anomalous network permission changes
+- `PrivilegeEscalation:IAMUser/AdministrativePermissions`: Priv esc attempt
 
-**AWS CLI Forensic Commands**
+AWS CLI Forensic Commands
 ```bash
 # List all IAM users and their last activity
 aws iam generate-credential-report
@@ -1341,7 +1341,7 @@ aws lambda list-functions --query 'Functions[*].{Name:FunctionName,Modified:Last
   --output table | sort -k2
 ```
 
-**AWS Containment Actions**
+AWS Containment Actions
 ```bash
 # Isolate EC2 instance: create deny-all security group and attach
 aws ec2 create-security-group \
@@ -1368,7 +1368,7 @@ aws ec2 create-snapshot --volume-id vol-xxxx \
 
 ### 7.2 Azure Incident Response
 
-**Entra ID Sign-in Log Investigation (KQL)**
+Entra ID Sign-in Log Investigation (KQL)
 ```kql
 // Find sign-ins from high-risk locations for specific user
 SigninLogs
@@ -1397,7 +1397,7 @@ SigninLogs
 | where count_ > 5  // MFA fatigue pattern
 ```
 
-**Azure Activity Log Investigation (KQL)**
+Azure Activity Log Investigation (KQL)
 ```kql
 // Find new role assignments (privilege escalation)
 AzureActivity
@@ -1422,7 +1422,7 @@ AzureActivity
 | project TimeGenerated, Caller, OperationNameValue, ActivityStatusValue
 ```
 
-**Azure Containment Actions**
+Azure Containment Actions
 ```bash
 # Disable compromised service principal
 az ad sp update --id <service-principal-id> --set accountEnabled=false
@@ -1450,13 +1450,13 @@ az snapshot create --resource-group IR-RG \
 
 ### 7.3 GCP Incident Response
 
-**Cloud Audit Log Types:**
-- **Admin Activity logs:** API calls that modify configuration (always enabled, cannot disable)
-- **Data Access logs:** API calls that read data or metadata (disabled by default — enable for IR)
-- **System Event logs:** Google Cloud system events (always enabled)
-- **Policy Denied logs:** Failed access due to policy (enabled by default)
+Cloud Audit Log Types:
+- Admin Activity logs: API calls that modify configuration (always enabled, cannot disable)
+- Data Access logs: API calls that read data or metadata (disabled by default — enable for IR)
+- System Event logs: Google Cloud system events (always enabled)
+- Policy Denied logs: Failed access due to policy (enabled by default)
 
-**Key GCP CLI Commands for IR**
+Key GCP CLI Commands for IR
 ```bash
 # List recent admin activity for project
 gcloud logging read 'logName="projects/<project>/logs/cloudaudit.googleapis.com%2Factivity"' \
@@ -1481,12 +1481,12 @@ gcloud projects get-iam-policy <project> --format json | \
   gcloud projects set-iam-policy <project> /dev/stdin
 ```
 
-**Security Command Center Findings:**
-- `MALWARE: Bad domain` — DNS request to known malware domain
-- `ACTIVE_SCAN: Log4j` — Log4Shell exploitation attempt
-- `INITIAL_ACCESS: Leaked Credential` — Known-leaked credential used
-- `DEFENSE_EVASION: Modify Cloud Logs` — Audit log modification attempt
-- `EXFILTRATION: BigQuery Data Extraction` — Unusual data export
+Security Command Center Findings:
+- `MALWARE: Bad domain`: DNS request to known malware domain
+- `ACTIVE_SCAN: Log4j`: Log4Shell exploitation attempt
+- `INITIAL_ACCESS: Leaked Credential`: Known-leaked credential used
+- `DEFENSE_EVASION: Modify Cloud Logs`: Audit log modification attempt
+- `EXFILTRATION: BigQuery Data Extraction`: Unusual data export
 
 
 ---
@@ -1495,7 +1495,7 @@ gcloud projects get-iam-policy <project> --format json | \
 
 ### 8.1 IOC Extraction and Enrichment Workflow
 
-**Step 1 — Extract IOCs from raw evidence:**
+Step 1 — Extract IOCs from raw evidence:
 ```
 From malware samples: hashes (MD5, SHA1, SHA256), PDB paths, embedded IPs/domains, mutex names
 From memory dumps: injected code, C2 URLs, encryption keys, configuration data
@@ -1504,12 +1504,12 @@ From email: sender domain, reply-to, X-headers, attachment hashes, embedded URLs
 From log files: usernames, hostnames, API endpoints, file paths, registry keys
 ```
 
-**Step 2 — Normalize and deduplicate IOCs**
+Step 2 — Normalize and deduplicate IOCs
 - Remove known-good infrastructure (CDNs, Microsoft IPs, Google IPs)
 - Check against internal asset inventory (don't flag your own systems)
 - Tag with context: `source=phishing_email`, `confidence=high`, `first_seen=2026-05-03`
 
-**Step 3 — Enrich IOCs**
+Step 3 — Enrich IOCs
 ```python
 # VirusTotal lookups
 import requests
@@ -1531,7 +1531,7 @@ def vt_lookup_ip(ip):
     return r.json()
 ```
 
-**Step 4 — Deploy IOCs to detection stack**
+Step 4 — Deploy IOCs to detection stack
 - SIEM: Add IOC-based correlation rules or threat intelligence feeds
 - EDR: Push hashes to blocklist; enable prevention for known-bad hashes
 - Firewall: Block malicious IPs and domains at perimeter
@@ -1542,13 +1542,13 @@ def vt_lookup_ip(ip):
 
 ### 8.2 Key Enrichment Platforms
 
-**VirusTotal (https://www.virustotal.com)**
+VirusTotal (https://www.virustotal.com)
 - File hash, IP, domain, URL lookups
 - Behavioral analysis sandbox (Jujubox, Triage integration)
 - Retrohunt for new IOC matches across historical submissions
 - VT Enterprise: pivot on JARM, JA3, SSL cert, network indicators
 
-**AbuseIPDB (https://www.abuseipdb.com)**
+AbuseIPDB (https://www.abuseipdb.com)
 - Community-sourced IP reputation database
 - Confidence score and report count
 - Categories: web attack, brute force, scan, spam, port scan
@@ -1557,7 +1557,7 @@ curl "https://api.abuseipdb.com/api/v2/check?ipAddress=198.51.100.1&maxAgeInDays
   -H "Key: $ABUSEIPDB_KEY" -H "Accept: application/json" | jq '.data'
 ```
 
-**Shodan (https://www.shodan.io)**
+Shodan (https://www.shodan.io)
 - Internet-wide scanning data on hosts, services, banners
 - Find attacker infrastructure: same banner across IPs, self-signed cert reuse
 - Useful for identifying if attacker exposed your stolen data on an open server
@@ -1570,7 +1570,7 @@ shodan search "ssl.cert.subject.cn:'Major Cobalt Strike'"
 shodan host <ip>
 ```
 
-**Recorded Future / Mandiant Advantage / CrowdStrike Intel**
+Recorded Future / Mandiant Advantage / CrowdStrike Intel
 - Commercial threat intelligence with actor tracking
 - Dark web monitoring for data breach mentions
 - Malware family analysis and YARA rules
@@ -1580,7 +1580,7 @@ shodan host <ip>
 
 ### 8.3 Threat Actor Identification via ATT&CK
 
-**Process:**
+Process:
 1. Map observed TTPs to ATT&CK techniques (Initial Access, Execution, Persistence, etc.)
 2. Cross-reference technique combinations with ATT&CK Groups (https://attack.mitre.org/groups/)
 3. Check Navigator layer files shared by vendors for actor TTPs
@@ -1598,7 +1598,7 @@ def groups_using_technique(technique_id):
     return [r['target_ref'] for r in rels if r.get('relationship_type') == 'uses']
 ```
 
-**Common Actor-to-Technique Signatures:**
+Common Actor-to-Technique Signatures:
 | Actor | Common Techniques | Targeted Sectors |
 |-------|------------------|-----------------|
 | APT29 (Cozy Bear) | T1566.001 Spearphishing, T1195 Supply Chain, T1059.001 PowerShell | Government, Defense, Healthcare |
@@ -1611,7 +1611,7 @@ def groups_using_technique(technique_id):
 
 ### 8.4 Pivoting on IOCs
 
-**IP to Domain:**
+IP to Domain:
 ```bash
 # Passive DNS — find domains that resolved to attacker IP
 curl "https://api.passivetotal.org/v2/dns/passive?query=203.0.113.66" \
@@ -1622,7 +1622,7 @@ curl "https://www.virustotal.com/api/v3/ip_addresses/203.0.113.66/resolutions" \
   -H "x-apikey: $VT_KEY" | jq '.data[].attributes.host_name'
 ```
 
-**Domain to Certificate:**
+Domain to Certificate:
 ```bash
 # Certificate transparency logs — find certs for domain and related domains
 curl "https://crt.sh/?q=%.attacker.com&output=json" | \
@@ -1632,13 +1632,13 @@ curl "https://crt.sh/?q=%.attacker.com&output=json" | \
 shodan search "ssl.cert.serial:<serial_number>"
 ```
 
-**Certificate to Infrastructure:**
+Certificate to Infrastructure:
 ```bash
 # Find all hosts serving same SSL cert (fingerprint pivot)
 shodan search "ssl.cert.fingerprint:<sha1_fingerprint>" --fields ip_str,hostnames,port
 ```
 
-**JARM Fingerprint Pivot:**
+JARM Fingerprint Pivot:
 ```bash
 # JARM fingerprints C2 servers by TLS configuration
 # Common Cobalt Strike JARM: 07d14d16d21d21d07c42d41d00041d47e4e0ae17933977f5d38a33b38aa
@@ -1685,12 +1685,12 @@ result = misp.add_event(event)
 | Water | WaterISAC | https://waterisac.org |
 | Retail | R-CISC | https://r-cisc.org |
 
-**Government Reporting Partners:**
-- **CISA:** https://www.cisa.gov/report | 1-888-282-0870 | report@cisa.gov
-- **FBI Cyber Division:** https://www.fbi.gov/contact-us/field-offices (contact local field office)
-- **IC3:** https://www.ic3.gov (FBI Internet Crime Complaint Center)
-- **Secret Service ECTF:** Financial cybercrime — contact local Electronic Crimes Task Force
-- **NSA Cybersecurity:** For defense industrial base — DIBNet portal
+Government Reporting Partners:
+- CISA: https://www.cisa.gov/report | 1-888-282-0870 | report@cisa.gov
+- FBI Cyber Division: https://www.fbi.gov/contact-us/field-offices (contact local field office)
+- IC3: https://www.ic3.gov (FBI Internet Crime Complaint Center)
+- Secret Service ECTF: Financial cybercrime: contact local Electronic Crimes Task Force
+- NSA Cybersecurity: For defense industrial base: DIBNet portal
 
 
 ---
@@ -1703,27 +1703,27 @@ Before taking containment action, evaluate:
 
 | Factor | Consider |
 |--------|---------|
-| **Evidence Preservation** | Will containment destroy forensic evidence? If yes, collect evidence first. |
-| **Business Impact** | What is the business cost of taking system offline vs. leaving it connected? |
-| **Attacker Awareness** | Will containment alert the attacker to change TTPs or destroy evidence? |
-| **Scope** | Is this isolated or part of a wider compromise requiring coordinated containment? |
-| **Legal Requirements** | Is law enforcement conducting an investigation requiring continued attacker access? |
-| **System Criticality** | Is this a life-safety, revenue-critical, or administrative system? |
+| Evidence Preservation | Will containment destroy forensic evidence? If yes, collect evidence first. |
+| Business Impact | What is the business cost of taking system offline vs. leaving it connected? |
+| Attacker Awareness | Will containment alert the attacker to change TTPs or destroy evidence? |
+| Scope | Is this isolated or part of a wider compromise requiring coordinated containment? |
+| Legal Requirements | Is law enforcement conducting an investigation requiring continued attacker access? |
+| System Criticality | Is this a life-safety, revenue-critical, or administrative system? |
 
-**Containment Options (least to most disruptive):**
+Containment Options (least to most disruptive):
 1. Increased monitoring (no disruption, attacker unaware)
 2. Rate limiting or blocking specific traffic
 3. Firewall micro-segmentation (block lateral movement, allow production traffic)
 4. Disable specific user account or API key
 5. Network isolation of host (retain management access, block production traffic)
 6. Full network isolation (complete disconnect)
-7. Powered shutdown (last resort — destroys volatile evidence)
+7. Powered shutdown (last resort: destroys volatile evidence)
 
 ---
 
 ### 9.2 Firewall Emergency Blocks
 
-**Palo Alto Networks (PAN-OS)**
+Palo Alto Networks (PAN-OS)
 ```bash
 # Block C2 IP immediately via CLI
 set security policies pre-rulebase security rules "BLOCK-C2-IR" from any
@@ -1740,7 +1740,7 @@ move security rules "BLOCK-C2-IR" top
 commit
 ```
 
-**Cisco ASA / Firepower**
+Cisco ASA / Firepower
 ```bash
 # Block C2 IP via access control entry
 access-list OUTSIDE_IN extended deny ip any host 203.0.113.66 log
@@ -1750,7 +1750,7 @@ access-list OUTSIDE_IN extended deny ip host 203.0.113.66 any log
 # Cisco Umbrella: Policies > Security Settings > Add destination list
 ```
 
-**Windows Firewall (Emergency Host Block)**
+Windows Firewall (Emergency Host Block)
 ```powershell
 # Block all outbound from compromised host (run on host via RTR)
 New-NetFirewallRule -DisplayName "IR-BLOCK-ALL-OUT" -Direction Outbound `
@@ -1765,7 +1765,7 @@ New-NetFirewallRule -DisplayName "IR-ALLOW-MGT" -Direction Outbound `
 
 ### 9.3 Active Directory Remediation
 
-**Compromised Account Remediation**
+Compromised Account Remediation
 ```powershell
 # Reset compromised account password
 Set-ADAccountPassword -Identity compromised_user -Reset `
@@ -1786,7 +1786,7 @@ klist purge  # On each workstation the user is logged into
 Invoke-Command -ComputerName <all_computers> -ScriptBlock { klist.exe purge }
 ```
 
-**KRBTGT Reset (Golden Ticket Invalidation)**
+KRBTGT Reset (Golden Ticket Invalidation)
 
 The krbtgt account secret is used to sign all Kerberos tickets. Resetting it invalidates all existing Kerberos tickets, including any golden tickets created by an attacker.
 
@@ -1811,13 +1811,13 @@ repadmin /showrepl
 repadmin /syncall /AdeP
 ```
 
-**Note:** After krbtgt reset, all service tickets must be re-issued. Coordinate with business during low-traffic window. Some services may require manual restart.
+Note: After krbtgt reset, all service tickets must be re-issued. Coordinate with business during low-traffic window. Some services may require manual restart.
 
 ---
 
 ### 9.4 Endpoint Reimaging vs. Cleaning Decision Criteria
 
-**Reimage (preferred for):**
+Reimage (preferred for):
 - Any confirmed ransomware infection
 - Systems with confirmed rootkit presence
 - Systems where full scope of compromise is unknown
@@ -1826,13 +1826,13 @@ repadmin /syncall /AdeP
 - Systems with firmware compromise indicators
 - When cleaning would take longer than reimaging
 
-**Clean (acceptable for):**
+Clean (acceptable for):
 - Isolated adware or PUP (Potentially Unwanted Program) with no privilege escalation
 - Confirmed, fully remediated credential stuffing attempt (no code execution)
 - Known, easily removable malware families with high-confidence signatures
 - When system cannot be quickly reimaged (e.g., physical OT equipment)
 
-**Reimaging Procedure:**
+Reimaging Procedure:
 ```
 1. Capture forensic image and memory dump before wiping (evidence preservation)
 2. Verify clean, tested backup or gold image is available
@@ -1850,7 +1850,7 @@ repadmin /syncall /AdeP
 
 Verify ALL locations are clear before declaring eradication complete:
 
-**Windows Persistence Locations:**
+Windows Persistence Locations:
 ```powershell
 # 1. Run Keys (most common)
 reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run"
@@ -1899,21 +1899,21 @@ reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Executio
 
 ### 9.6 Business Continuity During IR
 
-**Communication Strategy:**
+Communication Strategy:
 - Establish command center separate from potentially compromised systems
 - Use out-of-band communication (personal cell phones, Signal, physical meetings)
 - Provide business leaders status updates every 2 hours for P1 incidents
 - Coordinate with business continuity team on manual process fallbacks
 
-**System Priority Tiers for Recovery:**
+System Priority Tiers for Recovery:
 | Tier | Systems | RTO Target |
 |------|---------|-----------|
-| 1 | Life-safety, emergency services, payment processing | 0–4 hours |
-| 2 | Core business operations, ERP, email, VPN | 4–24 hours |
-| 3 | Internal productivity tools, reporting systems | 24–72 hours |
+| 1 | Life-safety, emergency services, payment processing | 0-4 hours |
+| 2 | Core business operations, ERP, email, VPN | 4-24 hours |
+| 3 | Internal productivity tools, reporting systems | 24-72 hours |
 | 4 | Development environments, analytics, archival | 72+ hours |
 
-**Backup Validation Before Restore:**
+Backup Validation Before Restore:
 ```bash
 # Verify backup integrity before restoring
 sha256sum backup.tar.gz  # Compare to recorded hash
@@ -1929,15 +1929,15 @@ sha256sum backup.tar.gz  # Compare to recorded hash
 
 ### 10.1 Lessons Learned Blameless Postmortem
 
-The lessons learned meeting should occur within **10–14 days** of incident closure, while details are fresh.
+The lessons learned meeting should occur within 10-14 days of incident closure, while details are fresh.
 
-**Principles:**
-- **Blameless:** Focus on system and process failures, not individual blame
-- **Data-driven:** Work from the documented timeline, not memory
-- **Action-oriented:** Every finding must have an owner and due date
-- **Inclusive:** Involve all participants — technical, business, legal, communications
+Principles:
+- Blameless: Focus on system and process failures, not individual blame
+- Data-driven: Work from the documented timeline, not memory
+- Action-oriented: Every finding must have an owner and due date
+- Inclusive: Involve all participants: technical, business, legal, communications
 
-**Agenda (2-hour session):**
+Agenda (2-hour session):
 ```
 0:00 - 0:10  Ground rules and blameless culture reminder
 0:10 - 0:40  Timeline walkthrough (scribe-recorded, factual)
@@ -1947,7 +1947,7 @@ The lessons learned meeting should occur within **10–14 days** of incident clo
 1:50 - 2:00  Next steps and PIR draft timeline
 ```
 
-**Five Whys Root Cause Analysis Example:**
+Five Whys Root Cause Analysis Example:
 ```
 Incident: Ransomware spread through 80% of network before detection
 
@@ -2032,38 +2032,38 @@ Root Cause: Absence of business-aligned risk quantification leading to under-inv
 
 ### 10.3 Regulatory Notification Requirements
 
-**GDPR (EU General Data Protection Regulation)**
-- **Trigger:** Personal data breach affecting EU residents
-- **Timeline:** 72 hours from becoming aware of breach to notify supervisory authority (DPA)
-- **Subject matter:** Nature of breach, categories and approximate number of data subjects/records, DPO contact, likely consequences, measures taken
-- **Individual notification:** "Without undue delay" if high risk to individuals
-- **Documentation:** All breaches must be documented even if no notification required
+GDPR (EU General Data Protection Regulation)
+- Trigger: Personal data breach affecting EU residents
+- Timeline: 72 hours from becoming aware of breach to notify supervisory authority (DPA)
+- Subject matter: Nature of breach, categories and approximate number of data subjects/records, DPO contact, likely consequences, measures taken
+- Individual notification: "Without undue delay" if high risk to individuals
+- Documentation: All breaches must be documented even if no notification required
 
-**SEC Cybersecurity Disclosure Rule (Item 1.05 Form 8-K)**
-- **Trigger:** "Material" cybersecurity incident
-- **Timeline:** 4 business days from determining materiality
-- **Content:** Nature, scope, timing of incident; material impact or reasonably likely material impact
-- **Annual disclosure:** 10-K must include cybersecurity risk management and governance disclosures
+SEC Cybersecurity Disclosure Rule (Item 1.05 Form 8-K)
+- Trigger: "Material" cybersecurity incident
+- Timeline: 4 business days from determining materiality
+- Content: Nature, scope, timing of incident; material impact or reasonably likely material impact
+- Annual disclosure: 10-K must include cybersecurity risk management and governance disclosures
 
-**HIPAA Breach Notification Rule**
-- **Trigger:** Breach of unsecured Protected Health Information (PHI)
-- **Timeline to HHS:** 60 days from discovery (for breaches affecting 500+, also notify media)
-- **Timeline to individuals:** 60 days from discovery
-- **Content:** Description of breach, PHI involved, steps individuals should take, steps covered entity is taking
-- **Business Associates:** Must notify Covered Entity within 60 days
+HIPAA Breach Notification Rule
+- Trigger: Breach of unsecured Protected Health Information (PHI)
+- Timeline to HHS: 60 days from discovery (for breaches affecting 500+, also notify media)
+- Timeline to individuals: 60 days from discovery
+- Content: Description of breach, PHI involved, steps individuals should take, steps covered entity is taking
+- Business Associates: Must notify Covered Entity within 60 days
 
-**State Breach Notification Laws (US)**
+State Breach Notification Laws (US)
 - All 50 states + DC have breach notification laws with varying requirements
 - Fastest deadlines: 30 days (Florida, Colorado, New Mexico)
 - Key elements vary: definition of "personal information," notification triggers, safe harbors
 
-**PCI DSS Incident Response**
+PCI DSS Incident Response
 - Notify acquiring bank and card brands (Visa, Mastercard) immediately upon suspicion of cardholder data compromise
-- Engage PCI Forensic Investigator (PFI) — QSA firm authorized by card brands
+- Engage PCI Forensic Investigator (PFI): QSA firm authorized by card brands
 - Preserve all logs and evidence per PFI guidance
 - 24-hour notification requirement to card brands after confirmed compromise
 
-**CCPA / CPRA (California)**
+CCPA / CPRA (California)
 - Notification to California AG for breaches of 500+ California residents (if reasonable to believe AG notified)
 - No statutory deadline but must be "expedient" and "without unreasonable delay"
 - Expanded rights for consumers to opt out of sale/sharing
@@ -2072,21 +2072,21 @@ Root Cause: Absence of business-aligned risk quantification leading to under-inv
 
 ### 10.4 Law Enforcement Engagement
 
-**Decision Framework:**
+Decision Framework:
 - Ransomware: Always report to FBI via IC3; may have decryption keys or intelligence
 - Financial fraud (BEC, wire transfer): Report to IC3 immediately; FBI FFKC can freeze funds
 - Nation-state attribution suspected: Engage FBI Cyber Division directly
 - Critical infrastructure attack: Mandatory reporting to CISA
 - Child exploitation material discovered: Required reporting to NCMEC and FBI
 
-**What LE Can Provide:**
+What LE Can Provide:
 - Intelligence on attacker TTPs and infrastructure
 - Decryption keys seized during takedowns
 - Financial transaction tracing and fund recovery
 - Legal process assistance (subpoenas, court orders) for preserving evidence at third parties
 - Declassified threat intelligence briefings for critical infrastructure sectors
 
-**What to Provide LE:**
+What to Provide LE:
 - Timeline and narrative description
 - Known IOCs (IP addresses, domains, file hashes, email addresses)
 - Ransomware note and sample (if ransomware)
@@ -2094,20 +2094,20 @@ Root Cause: Absence of business-aligned risk quantification leading to under-inv
 - Financial transaction details (if BEC/fraud)
 - All evidence in unmodified form with chain of custody
 
-**Important:** Coordinate with legal counsel before sharing with LE. Attorney-client privilege considerations apply.
+Important: Coordinate with legal counsel before sharing with LE. Attorney-client privilege considerations apply.
 
 ---
 
 ### 10.5 Evidence Preservation for Litigation (Legal Hold)
 
-**Immediate Legal Hold Actions:**
+Immediate Legal Hold Actions:
 1. Notify IT and relevant custodians in writing: "Do not delete or modify"
 2. Identify all potentially relevant data sources: email, file shares, databases, cloud storage, endpoint data, log files
 3. Implement technical holds: disable auto-delete policies in email, preserve backup snapshots
 4. Collect and hash all forensic evidence; document chain of custody
 5. Engage eDiscovery counsel and platform (Relativity, Everlaw, Nuix)
 
-**Evidence Preservation Periods:**
+Evidence Preservation Periods:
 - Forensic images: Minimum 7 years (litigation statute of limitations consideration)
 - Log files related to incident: Do not delete during and for 3 years post-incident
 - Communications during incident response: Preserve for duration of any investigation/litigation
@@ -2119,11 +2119,11 @@ Root Cause: Absence of business-aligned risk quantification leading to under-inv
 
 | Level | Description | Characteristics |
 |-------|-------------|----------------|
-| 1 — Initial | Ad hoc, reactive | No formal IR plan; heroes respond from memory |
-| 2 — Developing | Basic plan exists | IR policy documented; some playbooks; manual processes |
-| 3 — Defined | Repeatable process | Full playbook library; SIEM/EDR deployed; regular tabletops |
-| 4 — Managed | Measured and controlled | MTTD/MTTR tracked; SOAR automation; purple team exercises |
-| 5 — Optimizing | Continuous improvement | Threat intel-driven detection; ATT&CK mapped controls; proactive hunting |
+| 1: Initial | Ad hoc, reactive | No formal IR plan; heroes respond from memory |
+| 2: Developing | Basic plan exists | IR policy documented; some playbooks; manual processes |
+| 3: Defined | Repeatable process | Full playbook library; SIEM/EDR deployed; regular tabletops |
+| 4: Managed | Measured and controlled | MTTD/MTTR tracked; SOAR automation; purple team exercises |
+| 5: Optimizing | Continuous improvement | Threat intel-driven detection; ATT&CK mapped controls; proactive hunting |
 
 ---
 
@@ -2141,7 +2141,7 @@ After each significant incident, convert findings into purple team scenarios:
 7. Regression test: Run same simulation quarterly to verify detections don't degrade
 ```
 
-**ATT&CK-Based Validation Coverage Tracking:**
+ATT&CK-Based Validation Coverage Tracking:
 ```
 Track percentage of ATT&CK techniques with:
 - Active detection (alert fires within 10 minutes)

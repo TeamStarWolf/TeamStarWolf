@@ -1,13 +1,13 @@
 # SOAR Automation Reference Library
 > Professional Cybersecurity Reference | Maintained by TeamStarWolf Security Engineering
 
-> **In one minute** — This is a working reference for SOAR (Security Orchestration, Automation, and Response): platforms that let a SOC connect its security tools, automate repetitive triage, and run incident response through playbooks (predefined response workflows). It covers playbook design patterns, then platform-specific code and APIs for Splunk SOAR, Palo Alto XSOAR, Microsoft Sentinel, and IBM QRadar SOAR, plus ready-made automation for phishing, malware, ransomware, and BEC. It is useful because the examples are copy-adaptable Python, YAML, and API calls, not just concepts.
+> In one minute — This is a working reference for SOAR (Security Orchestration, Automation, and Response): platforms that let a SOC connect its security tools, automate repetitive triage, and run incident response through playbooks (predefined response workflows). It covers playbook design patterns, then platform-specific code and APIs for Splunk SOAR, Palo Alto XSOAR, Microsoft Sentinel, and IBM QRadar SOAR, plus ready-made automation for phishing, malware, ransomware, and BEC. It is useful because the examples are copy-adaptable Python, YAML, and API calls, not just concepts.
 
 | | |
 |---|---|
-| **Read this when** | you are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, you are measuring SOAR ROI or playbook effectiveness |
-| **Start at** | [SOAR Fundamentals](#_1-soar-fundamentals), [Playbook Design](#_2-playbook-design), [IR Automation by Incident Type](#_9-ir-automation-by-incident-type) |
-| **Pairs with** | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [disciplines/incident-response.md](disciplines/incident-response.md) |
+| Read this when | you are designing or hardening a playbook (triggers, error handling, approval gates), you need the API or SDK pattern for a specific SOAR platform, you are automating phishing/malware/ransomware/BEC response, you are measuring SOAR ROI or playbook effectiveness |
+| Start at | [SOAR Fundamentals](#_1-soar-fundamentals), [Playbook Design](#_2-playbook-design), [IR Automation by Incident Type](#_9-ir-automation-by-incident-type) |
+| Pairs with | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_INTELLIGENCE_REFERENCE.md](THREAT_INTELLIGENCE_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [disciplines/incident-response.md](disciplines/incident-response.md) |
 
 ---
 
@@ -30,9 +30,9 @@
 ### What Is SOAR?
 Security Orchestration, Automation, and Response (SOAR) is a category of security platforms that enables SOC teams to collect threat data from multiple sources, automate repetitive tasks, and orchestrate complex incident response workflows. The term was coined by Gartner and encompasses three core capabilities:
 
-- **Orchestration**: Connecting and coordinating disparate security tools, systems, and data sources into unified workflows. Orchestration ties together firewalls, EDR platforms, threat intel feeds, ticketing systems, communication tools, and cloud APIs so they act as a single cohesive defense ecosystem.
-- **Automation**: Executing predefined response actions without human intervention. This includes enriching alerts with threat context, blocking malicious IPs, quarantining endpoints, disabling compromised accounts, and generating incident reports at machine speed.
-- **Response**: Providing case management, playbook execution tracking, collaboration workspaces (war rooms), and structured IR workflows that guide analysts from detection through remediation and closure.
+- Orchestration: Connecting and coordinating disparate security tools, systems, and data sources into unified workflows. Orchestration ties together firewalls, EDR platforms, threat intel feeds, ticketing systems, communication tools, and cloud APIs so they act as a single cohesive defense ecosystem.
+- Automation: Executing predefined response actions without human intervention. This includes enriching alerts with threat context, blocking malicious IPs, quarantining endpoints, disabling compromised accounts, and generating incident reports at machine speed.
+- Response: Providing case management, playbook execution tracking, collaboration workspaces (war rooms), and structured IR workflows that guide analysts from detection through remediation and closure.
 
 SOAR platforms reduce mean time to detect (MTTD) and mean time to respond (MTTR), decrease alert fatigue by filtering noise, and allow Tier-1 analysts to focus on high-value decisions rather than repetitive triage tasks.
 
@@ -40,75 +40,75 @@ SOAR platforms reduce mean time to detect (MTTD) and mean time to respond (MTTR)
 
 | Dimension | SIEM | SOAR | XDR |
 |---|---|---|---|
-| **Primary Function** | Log aggregation, correlation, alerting | Workflow automation, orchestration, case management | Cross-layer detection and native response |
-| **Data Scope** | Logs from any source | Inputs from SIEM, EDR, TIP, ticketing | Endpoint, network, cloud, email (vendor ecosystem) |
-| **Response Capability** | Limited (basic alerting) | Full playbook-driven automation | Native automated response within vendor stack |
-| **Integration Model** | Log ingestion via syslog/API | API-driven bidirectional integrations | Deep vendor-native integrations |
-| **Analyst Workflow** | Alert review, manual investigation | Guided/automated investigation + response | Unified investigation console |
-| **Typical Users** | SIEM analysts, threat hunters | SOC automation engineers, IR leads | Enterprise SOC teams (vendor-aligned) |
-| **Example Platforms** | Splunk, Microsoft Sentinel, IBM QRadar | Splunk SOAR, XSOAR, IBM SOAR, Tines | Microsoft Defender XDR, CrowdStrike Falcon, Palo Alto Cortex |
+| Primary Function | Log aggregation, correlation, alerting | Workflow automation, orchestration, case management | Cross-layer detection and native response |
+| Data Scope | Logs from any source | Inputs from SIEM, EDR, TIP, ticketing | Endpoint, network, cloud, email (vendor ecosystem) |
+| Response Capability | Limited (basic alerting) | Full playbook-driven automation | Native automated response within vendor stack |
+| Integration Model | Log ingestion via syslog/API | API-driven bidirectional integrations | Deep vendor-native integrations |
+| Analyst Workflow | Alert review, manual investigation | Guided/automated investigation + response | Unified investigation console |
+| Typical Users | SIEM analysts, threat hunters | SOC automation engineers, IR leads | Enterprise SOC teams (vendor-aligned) |
+| Example Platforms | Splunk, Microsoft Sentinel, IBM QRadar | Splunk SOAR, XSOAR, IBM SOAR, Tines | Microsoft Defender XDR, CrowdStrike Falcon, Palo Alto Cortex |
 
 SIEM and SOAR are highly complementary: SIEM detects and generates alerts; SOAR consumes those alerts and drives automated or guided response. XDR increasingly absorbs some SOAR capabilities natively but typically lacks the deep third-party orchestration breadth that dedicated SOAR platforms provide.
 
 ### Core SOAR Components
 
-**Orchestration Engine**
+Orchestration Engine
 The orchestration engine is the workflow runtime that executes playbooks. It manages task sequencing (sequential, parallel, conditional branching), handles inter-action data passing, evaluates decision logic, and coordinates across integrated tools. Enterprise-grade engines support hundreds of concurrent playbook executions with queuing, prioritization, and fault tolerance.
 
-**Automation Engine**
+Automation Engine
 The automation engine executes individual actions against integrated tools: running API calls, executing scripts, invoking threat intel lookups, or triggering cloud functions. It manages authentication, retry logic, rate limit handling, and response parsing. Modern automation engines support containerized execution environments to isolate and version integrations independently.
 
-**Case Management**
+Case Management
 Case management (sometimes called incident management) provides structured tracking of security incidents from creation through closure. Features include: incident timeline visualization, task assignment and tracking, SLA monitoring, evidence attachment, analyst collaboration notes, audit trail logging, and integration with external ticketing systems (ServiceNow, Jira, PagerDuty).
 
-**Threat Intelligence Platform (TIP) Integration**
+Threat Intelligence Platform (TIP) Integration
 SOAR platforms integrate with TIPs to automatically enrich indicators (IPs, domains, hashes, URLs) with reputation data, attribution, MITRE ATT&CK mappings, and related IOC context. Some SOAR platforms include embedded TIP functionality such as XSOAR indicator management and Splunk SOAR artifact enrichment.
 
-**Integration Layer**
+Integration Layer
 The integration layer provides pre-built connectors (apps, integrations, plugins) to hundreds of security and IT tools. Connections are authenticated via API keys, OAuth, certificates, or service accounts. Integration catalogs range from 300+ (Tines) to 1000+ (XSOAR marketplace). Custom integrations can be built using SDKs or REST API wrappers.
 
 ### Deployment Models
 
 | Model | Description | Use Case |
 |---|---|---|
-| **On-Premises** | SOAR installed in customer data center | Air-gapped environments, strict data residency |
-| **Cloud-Hosted SaaS** | Vendor-managed cloud deployment | Fastest time-to-value, automatic upgrades |
-| **Hybrid** | Cloud SOAR with on-prem integration bridges | Large enterprises with mixed environments |
-| **Multi-Tenant** | Single SOAR instance serving multiple orgs | MSSPs, managed security service providers |
+| On-Premises | SOAR installed in customer data center | Air-gapped environments, strict data residency |
+| Cloud-Hosted SaaS | Vendor-managed cloud deployment | Fastest time-to-value, automatic upgrades |
+| Hybrid | Cloud SOAR with on-prem integration bridges | Large enterprises with mixed environments |
+| Multi-Tenant | Single SOAR instance serving multiple orgs | MSSPs, managed security service providers |
 
 ### Vendor Landscape
 
 | Vendor | Platform | Key Strengths |
 |---|---|---|
-| **Splunk** | Splunk SOAR (formerly Phantom) | Largest app catalog (~500+), strong Python SDK, on-prem/cloud/hybrid |
-| **Palo Alto Networks** | Cortex XSOAR | Deep Palo Alto integration, MSSP multi-tenancy, rich marketplace |
-| **IBM** | QRadar SOAR (formerly Resilient) | Mature case management, privacy/compliance modules, strong QRadar sync |
-| **Microsoft** | Sentinel Playbooks (Logic Apps) | Azure-native, 200+ Logic App connectors, tight M365/Defender integration |
-| **Swimlane** | Swimlane Turbine | Low-code builder, strong reporting, flexible data model |
-| **Tines** | Tines | No-code/low-code, transparent pricing, fast onboarding |
-| **Torq** | Torq Hyperautomation | Hyperautomation focus, enterprise scalability, AI-assisted building |
-| **D3 Security** | D3 Smart SOAR | MITRE ATT&CK native, strong case management, global deployment |
+| Splunk | Splunk SOAR (formerly Phantom) | Largest app catalog (~500+), strong Python SDK, on-prem/cloud/hybrid |
+| Palo Alto Networks | Cortex XSOAR | Deep Palo Alto integration, MSSP multi-tenancy, rich marketplace |
+| IBM | QRadar SOAR (formerly Resilient) | Mature case management, privacy/compliance modules, strong QRadar sync |
+| Microsoft | Sentinel Playbooks (Logic Apps) | Azure-native, 200+ Logic App connectors, tight M365/Defender integration |
+| Swimlane | Swimlane Turbine | Low-code builder, strong reporting, flexible data model |
+| Tines | Tines | No-code/low-code, transparent pricing, fast onboarding |
+| Torq | Torq Hyperautomation | Hyperautomation focus, enterprise scalability, AI-assisted building |
+| D3 Security | D3 Smart SOAR | MITRE ATT&CK native, strong case management, global deployment |
 
 ### ROI Metrics
 SOAR ROI is quantified across several dimensions:
 
-- **MTTD Reduction**: Automated enrichment cuts analyst time to understand an alert from hours to seconds. Typical organizations report 60-80% MTTD reduction within 12 months of SOAR deployment.
-- **MTTR Reduction**: Automated containment and remediation actions drive MTTR from days to hours or minutes. Industry benchmarks show 50-70% MTTR improvement with mature playbook coverage.
-- **Automation Rate %**: Percentage of alerts handled without analyst intervention. Leading SOCs achieve 70-90% automation rates for high-volume, well-defined alert types (phishing, malware, vulnerability notifications).
-- **Alert-to-Ticket Ratio**: Ratio of raw alerts to actionable tickets created. SOAR filtering and correlation typically reduces this ratio by 80-95%.
-- **Analyst Hours Saved**: Calculated as (avg manual task time x volume) minus (SOAR execution time x volume). A single phishing playbook handling 200 alerts per day at 15 minutes per alert manual equals 50 analyst-hours per day saved.
-- **Cost Per Incident**: Total SOC operating cost divided by incident volume. SOAR reduces cost per incident by increasing throughput without proportional headcount growth.
+- MTTD Reduction: Automated enrichment cuts analyst time to understand an alert from hours to seconds. Typical organizations report 60-80% MTTD reduction within 12 months of SOAR deployment.
+- MTTR Reduction: Automated containment and remediation actions drive MTTR from days to hours or minutes. Industry benchmarks show 50-70% MTTR improvement with mature playbook coverage.
+- Automation Rate %: Percentage of alerts handled without analyst intervention. Leading SOCs achieve 70-90% automation rates for high-volume, well-defined alert types (phishing, malware, vulnerability notifications).
+- Alert-to-Ticket Ratio: Ratio of raw alerts to actionable tickets created. SOAR filtering and correlation typically reduces this ratio by 80-95%.
+- Analyst Hours Saved: Calculated as (avg manual task time x volume) minus (SOAR execution time x volume). A single phishing playbook handling 200 alerts per day at 15 minutes per alert manual equals 50 analyst-hours per day saved.
+- Cost Per Incident: Total SOC operating cost divided by incident volume. SOAR reduces cost per incident by increasing throughput without proportional headcount growth.
 
 ### SOAR Maturity Model
 
 | Level | Name | Characteristics |
 |---|---|---|
-| **L0** | Manual | All triage and response manual; SOAR not deployed |
-| **L1** | Alert Enrichment | SOAR enriches alerts automatically; analysts still decide actions |
-| **L2** | Semi-Automated Response | Common response actions automated (IP block, user disable); analyst approves |
-| **L3** | Playbook-Driven SOC | Comprehensive playbooks for all tier-1 alert types; minimal manual triage |
-| **L4** | Autonomous Response | AI-assisted decision-making; fully automated containment for known patterns |
-| **L5** | Adaptive & Self-Optimizing | Playbooks self-tune based on outcomes; threat-intel-driven proactive automation |
+| L0 | Manual | All triage and response manual; SOAR not deployed |
+| L1 | Alert Enrichment | SOAR enriches alerts automatically; analysts still decide actions |
+| L2 | Semi-Automated Response | Common response actions automated (IP block, user disable); analyst approves |
+| L3 | Playbook-Driven SOC | Comprehensive playbooks for all tier-1 alert types; minimal manual triage |
+| L4 | Autonomous Response | AI-assisted decision-making; fully automated containment for known patterns |
+| L5 | Adaptive & Self-Optimizing | Playbooks self-tune based on outcomes; threat-intel-driven proactive automation |
 
 Most enterprise SOCs target L3 within 18-24 months of SOAR deployment. L4-L5 maturity requires significant data quality investment, ML model development, and governance frameworks to manage autonomous response risk.
 
@@ -117,7 +117,7 @@ Most enterprise SOCs target L3 within 18-24 months of SOAR deployment. L4-L5 mat
 
 ### Trigger Types
 
-**Alert-Based Triggers**
+Alert-Based Triggers
 The most common trigger: a SIEM alert, EDR detection, or threat intel hit creates an event that fires a playbook. Alert triggers typically pass the alert metadata (severity, source IP, affected host, rule name) into the playbook as input data. Filtering criteria determine which playbooks fire for which alert types, preventing runaway execution.
 
 ```yaml
@@ -132,7 +132,7 @@ trigger:
       value: 3
 ```
 
-**Scheduled Triggers**
+Scheduled Triggers
 Playbooks that run on a cron-like schedule for proactive tasks: threat intel sync, vulnerability report generation, IOC expiry cleanup, SLA breach checks, and daily health checks on integrations. Scheduled playbooks typically pull data from external sources and push updates to internal systems.
 
 ```yaml
@@ -142,10 +142,10 @@ trigger:
   timezone: "UTC"
 ```
 
-**Manual Triggers**
+Manual Triggers
 Analyst-initiated playbook execution against a specific case, artifact, or indicator. Manual triggers are essential for ad-hoc investigation workflows, re-investigation of closed cases, or running enrichment on newly discovered IOCs. Most SOAR UIs expose a "Run Playbook" button with a selection dialog.
 
-**Webhook Triggers**
+Webhook Triggers
 Inbound HTTP POST requests from external systems fire playbooks in real time. Common sources: vulnerability scanners (Tenable, Qualys), cloud security posture tools (Wiz, Orca), identity providers (Okta, Microsoft Entra ID), or custom in-house tools. Webhook endpoints require authentication via HMAC signature validation, API key headers, or mTLS.
 
 ```python
@@ -181,9 +181,9 @@ Key principles for decision tree design:
 
 ### Parallel vs Sequential Execution
 
-**Sequential Execution**: Actions run one after another, each depending on the previous result. Use for workflows where action B requires output from action A, for example get device ID then isolate device by ID.
+Sequential Execution: Actions run one after another, each depending on the previous result. Use for workflows where action B requires output from action A, for example get device ID then isolate device by ID.
 
-**Parallel Execution**: Multiple independent actions run simultaneously, reducing total wall-clock time. Use when actions do not depend on each other's results, for example simultaneously querying VirusTotal, AbuseIPDB, and Shodan for IP enrichment.
+Parallel Execution: Multiple independent actions run simultaneously, reducing total wall-clock time. Use when actions do not depend on each other's results, for example simultaneously querying VirusTotal, AbuseIPDB, and Shodan for IP enrichment.
 
 ```
 Sequential (total: A+B+C time):      Parallel (total: max(A,B,C) time):
@@ -216,7 +216,7 @@ action:
     backoff_seconds: 30
 ```
 
-**Rollback patterns**: For actions with side effects (account disables, firewall blocks), maintain a rollback log. Rollback playbooks can reverse changes if an action was taken in error:
+Rollback patterns: For actions with side effects (account disables, firewall blocks), maintain a rollback log. Rollback playbooks can reverse changes if an action was taken in error:
 
 ```python
 # Rollback: re-enable a disabled AD account
@@ -231,7 +231,7 @@ def rollback_account_disable(container, username):
 
 ### Playbook Versioning and Testing
 
-**Version Control**: Store all playbook definitions (YAML, JSON, or exported formats) in Git. Use branches for development, pull requests for peer review, and tags for production releases. Every production playbook deployment should be traceable to a specific Git commit.
+Version Control: Store all playbook definitions (YAML, JSON, or exported formats) in Git. Use branches for development, pull requests for peer review, and tags for production releases. Every production playbook deployment should be traceable to a specific Git commit.
 
 ```
 main (production)
@@ -241,11 +241,11 @@ main (production)
 +-- hotfix/critical-firewall-block-fix
 ```
 
-**Testing Framework Levels**:
-- **Unit Tests**: Test individual action logic with mocked API responses. Validate input/output data transformations.
-- **Integration Tests**: Test against sandbox/staging instances of integrated tools with real API calls.
-- **Regression Tests**: Run the full playbook against a library of historical test cases to ensure new changes do not break existing behavior.
-- **Chaos Tests**: Inject deliberate failures (network timeouts, API 500 errors) to verify error handling paths execute correctly.
+Testing Framework Levels:
+- Unit Tests: Test individual action logic with mocked API responses. Validate input/output data transformations.
+- Integration Tests: Test against sandbox/staging instances of integrated tools with real API calls.
+- Regression Tests: Run the full playbook against a library of historical test cases to ensure new changes do not break existing behavior.
+- Chaos Tests: Inject deliberate failures (network timeouts, API 500 errors) to verify error handling paths execute correctly.
 
 ```python
 # Example pytest-based playbook unit test
@@ -292,15 +292,15 @@ tasks:
 
 A mature playbook CI/CD pipeline includes:
 
-1. **Lint & Static Analysis**: Check syntax, undefined variables, unreachable branches
-2. **Automated Validation**: `demisto-sdk validate` (XSOAR), custom schema validators (Tines JSON)
-3. **Security Scanning**: Check for hardcoded credentials, injection vulnerabilities in custom code blocks
-4. **Unit Test Execution**: Run mocked playbook tests
-5. **Staging Deployment**: Auto-deploy to staging SOAR instance
-6. **Integration Test Run**: Execute playbooks against test data in staging
-7. **Approval Gate**: Require senior engineer sign-off for production promotion
-8. **Production Deployment**: Automated deployment via SOAR API
-9. **Post-Deploy Validation**: Smoke test with known-good test case
+1. Lint & Static Analysis: Check syntax, undefined variables, unreachable branches
+2. Automated Validation: `demisto-sdk validate` (XSOAR), custom schema validators (Tines JSON)
+3. Security Scanning: Check for hardcoded credentials, injection vulnerabilities in custom code blocks
+4. Unit Test Execution: Run mocked playbook tests
+5. Staging Deployment: Auto-deploy to staging SOAR instance
+6. Integration Test Run: Execute playbooks against test data in staging
+7. Approval Gate: Require senior engineer sign-off for production promotion
+8. Production Deployment: Automated deployment via SOAR API
+9. Post-Deploy Validation: Smoke test with known-good test case
 
 ```yaml
 # .github/workflows/playbook-ci.yml (excerpt)
@@ -323,10 +323,10 @@ jobs:
 
 Not all response actions should be fully automated. Human-in-the-loop (HITL) design patterns:
 
-- **Approval Workflows**: High-impact actions (blocking a /16 subnet, disabling a VIP executive account) pause and request explicit analyst approval via email, Slack, or SOAR UI notification before proceeding.
-- **Confidence Thresholds**: Automate response when confidence score exceeds a threshold; route to analyst queue when confidence falls below.
-- **Escalation Timers**: If no analyst response within N minutes, auto-escalate to a supervisor or apply a conservative default action.
-- **Audit Logging**: Every automated action and every approval decision is logged with actor identity and timestamp for compliance and post-incident review.
+- Approval Workflows: High-impact actions (blocking a /16 subnet, disabling a VIP executive account) pause and request explicit analyst approval via email, Slack, or SOAR UI notification before proceeding.
+- Confidence Thresholds: Automate response when confidence score exceeds a threshold; route to analyst queue when confidence falls below.
+- Escalation Timers: If no analyst response within N minutes, auto-escalate to a supervisor or apply a conservative default action.
+- Audit Logging: Every automated action and every approval decision is logged with actor identity and timestamp for compliance and post-incident review.
 
 ```python
 # Splunk SOAR approval pattern
@@ -350,23 +350,23 @@ def request_approval(container_id, message):
 
 | Metric | Description | Target |
 |---|---|---|
-| **Execution Time (p50/p95)** | Median and 95th-percentile playbook wall-clock time | p50 < 2 min, p95 < 10 min |
-| **Success Rate %** | % of executions completing without errors | > 95% |
-| **Action Failure Rate** | % of individual actions failing within executions | < 5% per action |
-| **False Positive Rate** | % of automated actions later reversed as incorrect | < 2% |
-| **Human Override Rate** | % of auto-decisions overridden by analysts | Monitor for trend |
-| **Coverage %** | % of alert types with active playbook coverage | Target 80%+ for tier-1 |
+| Execution Time (p50/p95) | Median and 95th-percentile playbook wall-clock time | p50 < 2 min, p95 < 10 min |
+| Success Rate % | % of executions completing without errors | > 95% |
+| Action Failure Rate | % of individual actions failing within executions | < 5% per action |
+| False Positive Rate | % of automated actions later reversed as incorrect | < 2% |
+| Human Override Rate | % of auto-decisions overridden by analysts | Monitor for trend |
+| Coverage % | % of alert types with active playbook coverage | Target 80%+ for tier-1 |
 
 ---
 ## 3. Splunk SOAR (Phantom)
 
 ### Platform Architecture Overview
 Splunk SOAR (formerly Phantom) is an on-premises, cloud, and hybrid SOAR platform. Its core architecture consists of:
-- **Phantom Core**: Django-based web application and REST API server
-- **App Runner**: Isolated execution environment for app actions (Python virtualenvs or containers)
-- **Clustering**: Active-active cluster with shared PostgreSQL and NFS storage
-- **Message Queue**: RabbitMQ for action distribution across cluster nodes
-- **Search**: Elasticsearch for artifact and event search
+- Phantom Core: Django-based web application and REST API server
+- App Runner: Isolated execution environment for app actions (Python virtualenvs or containers)
+- Clustering: Active-active cluster with shared PostgreSQL and NFS storage
+- Message Queue: RabbitMQ for action distribution across cluster nodes
+- Search: Elasticsearch for artifact and event search
 
 ### App Framework
 Phantom apps are Python packages that wrap integrations with external tools. Each app contains:
@@ -380,7 +380,7 @@ my_connector/
 +-- readme.html              # Documentation
 ```
 
-**Connector Base Class**:
+Connector Base Class:
 ```python
 import phantom.app as phantom
 from phantom.base_connector import BaseConnector
@@ -413,21 +413,21 @@ class MyConnector(BaseConnector):
 
 | Action Type | Description | Examples |
 |---|---|---|
-| **investigate** | Read-only data retrieval | get user info, lookup IP, get process list |
-| **contain** | Isolate or restrict resources | block IP, disable user, quarantine endpoint |
-| **correct** | Remediation actions | delete email, restore file, unlock account |
-| **generic** | Multi-purpose | run query, execute script |
-| **test connectivity** | Verify app configuration | ping API endpoint |
+| investigate | Read-only data retrieval | get user info, lookup IP, get process list |
+| contain | Isolate or restrict resources | block IP, disable user, quarantine endpoint |
+| correct | Remediation actions | delete email, restore file, unlock account |
+| generic | Multi-purpose | run query, execute script |
+| test connectivity | Verify app configuration | ping API endpoint |
 
 ### Container and Artifact Model
 
-**Containers** are the top-level objects (analogous to cases/incidents). Each container has:
+Containers are the top-level objects (analogous to cases/incidents). Each container has:
 - `id`, `name`, `description`, `severity`, `status`, `sensitivity`
 - `label` (categorization tag, e.g., "events", "alerts")
 - `tags`, `owner`, `due_time`, `close_time`
 - Custom fields via container metadata
 
-**Artifacts** are the data objects attached to containers. Each artifact contains:
+Artifacts are the data objects attached to containers. Each artifact contains:
 - `cef` (Common Event Format) dictionary of key-value fields
 - `cef_types` mapping field names to CEF data types (e.g., `{"sourceAddress": ["ip"]}`)
 - `label`, `name`, `severity`, `type`
@@ -585,27 +585,27 @@ Workbooks provide structured investigation checklists tied to incident types. Ea
 The HUD is the analyst primary investigation console. It presents container details, artifacts, action results, and playbook status in a configurable panel layout. Analysts can run ad-hoc actions, add notes, change severity/status, and view related containers directly from the HUD.
 
 ### Cloud C2 and Mission Control
-- **Cloud C2**: Phantom cloud connector that allows on-prem Phantom instances to reach out to Splunk Cloud and cloud-hosted apps without inbound firewall rules.
-- **Mission Control**: The unified SOC operations view showing active incidents, workbook progress across the team, SLA status, and analyst workload distribution.
+- Cloud C2: Phantom cloud connector that allows on-prem Phantom instances to reach out to Splunk Cloud and cloud-hosted apps without inbound firewall rules.
+- Mission Control: The unified SOC operations view showing active incidents, workbook progress across the team, SLA status, and analyst workload distribution.
 
 ---
 ## 4. Palo Alto XSOAR
 
 ### Platform Architecture
 Cortex XSOAR (formerly Demisto) is Palo Alto Networks' SOAR platform. Architecture components:
-- **Server**: Golang-based server handling API, playbook engine, and UI
-- **Elasticsearch**: Incident, indicator, and investigation data storage
-- **Docker**: Each integration runs in an isolated Docker container
-- **Cortex Data Lake**: Optional cloud storage and analytics integration
-- **MSSP Layer**: Multi-tenant architecture for service providers
+- Server: Golang-based server handling API, playbook engine, and UI
+- Elasticsearch: Incident, indicator, and investigation data storage
+- Docker: Each integration runs in an isolated Docker container
+- Cortex Data Lake: Optional cloud storage and analytics integration
+- MSSP Layer: Multi-tenant architecture for service providers
 
 ### Incident Types and Layouts
 
 Incident types define the schema and behavior for different alert categories. Each incident type specifies:
-- **Fields**: Custom fields (text, number, date, list, boolean, grid) mapped to this incident type
-- **Layout**: UI layout defining which fields appear in which panels for this incident type
-- **Playbooks**: Default playbooks that auto-trigger when an incident of this type is created
-- **Close Reasons**: Valid closure classifications
+- Fields: Custom fields (text, number, date, list, boolean, grid) mapped to this incident type
+- Layout: UI layout defining which fields appear in which panels for this incident type
+- Playbooks: Default playbooks that auto-trigger when an incident of this type is created
+- Close Reasons: Valid closure classifications
 
 ```python
 # Creating an incident via XSOAR REST API
@@ -635,12 +635,12 @@ resp = requests.post(
 
 | Task Type | Description | Use Case |
 |---|---|---|
-| **Automated** | Runs an integration command automatically | IP lookup, file hash check, firewall block |
-| **Manual** | Requires analyst to mark complete or input data | Evidence review, executive approval |
-| **Conditional** | Branches based on field values or previous outputs | If severity > High, escalate; else auto-close |
-| **Data Collection** | Presents a form to collect analyst input | Ask analyst to classify incident |
-| **Playbook** | Calls a sub-playbook | Modular reuse of common workflows |
-| **Start/End** | Marks playbook flow boundaries | Every playbook has exactly one start and one end |
+| Automated | Runs an integration command automatically | IP lookup, file hash check, firewall block |
+| Manual | Requires analyst to mark complete or input data | Evidence review, executive approval |
+| Conditional | Branches based on field values or previous outputs | If severity > High, escalate; else auto-close |
+| Data Collection | Presents a form to collect analyst input | Ask analyst to classify incident |
+| Playbook | Calls a sub-playbook | Modular reuse of common workflows |
+| Start/End | Marks playbook flow boundaries | Every playbook has exactly one start and one end |
 
 ```yaml
 # XSOAR Playbook Task (YAML definition)
@@ -668,10 +668,10 @@ tasks:
 
 ### Integrations as Docker Containers
 Every XSOAR integration runs in its own Docker container, providing:
-- **Isolation**: A buggy or vulnerable integration cannot affect the XSOAR server
-- **Dependency Management**: Each integration pins its Python dependencies independently
-- **Versioning**: Integration versions are tracked separately from the platform
-- **Custom Containers**: Organizations can build custom Docker images for integrations with specialized dependencies
+- Isolation: A buggy or vulnerable integration cannot affect the XSOAR server
+- Dependency Management: Each integration pins its Python dependencies independently
+- Versioning: Integration versions are tracked separately from the platform
+- Custom Containers: Organizations can build custom Docker images for integrations with specialized dependencies
 
 ```dockerfile
 # Example custom integration Dockerfile
@@ -744,12 +744,12 @@ Packs/PhishingTriage/
 
 XSOAR has a built-in Threat Intelligence Management (TIM) module for indicator management:
 
-1. **Ingestion**: Indicators sourced from threat intel integrations (MISP, VirusTotal, feed integrations)
-2. **Deduplication**: Exact-match dedup; relationships mapped between related indicators
-3. **Enrichment**: Automated enrichment playbooks run on new indicators
-4. **Scoring**: DBot Score (0=Unknown, 1=Good, 2=Suspicious, 3=Bad) aggregated from sources
-5. **Expiry**: Configurable TTL per indicator type; expired indicators archived or deleted
-6. **Export**: Push to TIP, firewall blocklists, DNS sinkholes via export integrations
+1. Ingestion: Indicators sourced from threat intel integrations (MISP, VirusTotal, feed integrations)
+2. Deduplication: Exact-match dedup; relationships mapped between related indicators
+3. Enrichment: Automated enrichment playbooks run on new indicators
+4. Scoring: DBot Score (0=Unknown, 1=Good, 2=Suspicious, 3=Bad) aggregated from sources
+5. Expiry: Configurable TTL per indicator type; expired indicators archived or deleted
+6. Export: Push to TIP, firewall blocklists, DNS sinkholes via export integrations
 
 ```python
 # XSOAR Python script: Create and enrich an indicator
@@ -781,10 +781,10 @@ War Rooms are collaborative investigation workspaces providing:
 
 ### MSSP Multi-Tenant
 XSOAR multi-tenant architecture allows MSSPs to manage multiple customer environments from a single XSOAR instance:
-- **Account**: Each customer is an isolated Account with separate incidents, indicators, and playbooks
-- **Main Account**: MSSP operators work from the Main Account; content can be pushed to child accounts
-- **Propagation**: Playbooks, integrations, and incident types can be propagated from Main to child accounts
-- **Isolation**: Cross-account data access is controlled; customers cannot see each other's data
+- Account: Each customer is an isolated Account with separate incidents, indicators, and playbooks
+- Main Account: MSSP operators work from the Main Account; content can be pushed to child accounts
+- Propagation: Playbooks, integrations, and incident types can be propagated from Main to child accounts
+- Isolation: Cross-account data access is controlled; customers cannot see each other's data
 
 ### CI/CD Pipeline for Content
 
@@ -825,8 +825,8 @@ deploy-production:
 
 ### Automation Architecture Overview
 Microsoft Sentinel automation stack has two layers:
-1. **Automation Rules**: Lightweight, fast rules that trigger on incident creation/update to perform simple actions (change severity, assign owner, add tags, suppress alerts, trigger playbooks). Rules execute in order with a priority ranking.
-2. **Playbooks (Logic Apps)**: Full workflow automation using Azure Logic Apps, triggered by Sentinel automation rules or directly by analytics rules. Logic Apps provide 200+ connectors and support complex branching, loops, and API calls.
+1. Automation Rules: Lightweight, fast rules that trigger on incident creation/update to perform simple actions (change severity, assign owner, add tags, suppress alerts, trigger playbooks). Rules execute in order with a priority ranking.
+2. Playbooks (Logic Apps): Full workflow automation using Azure Logic Apps, triggered by Sentinel automation rules or directly by analytics rules. Logic Apps provide 200+ connectors and support complex branching, loops, and API calls.
 
 ### Analytics Rule to Playbook Flow
 
@@ -847,16 +847,16 @@ Sentinel playbooks leverage the Azure Logic Apps connector ecosystem (200+ built
 
 | Connector | Actions | Use Case |
 |---|---|---|
-| **Microsoft Sentinel** | Get incident, update incident, add comment, add entity | Incident manipulation |
-| **Microsoft Defender for Endpoint** | Isolate machine, run AV scan, get machine actions | Endpoint response |
-| **Microsoft Teams** | Post message, post adaptive card, create channel | Analyst notification |
-| **Microsoft Entra ID** (formerly Azure AD) | Get user, revoke sign-in sessions, disable user, reset password | Identity response |
-| **Office 365 Outlook** | Send email, get email, delete email | Email response |
-| **Slack** | Post message, post interactive message | Analyst notification |
-| **ServiceNow** | Create/update incident, get record | ITSM integration |
-| **HTTP** | Generic HTTP call | Any REST API integration |
-| **Azure Key Vault** | Get secret | Secrets management |
-| **VirusTotal** | Scan URL, get report | Threat intel enrichment |
+| Microsoft Sentinel | Get incident, update incident, add comment, add entity | Incident manipulation |
+| Microsoft Defender for Endpoint | Isolate machine, run AV scan, get machine actions | Endpoint response |
+| Microsoft Teams | Post message, post adaptive card, create channel | Analyst notification |
+| Microsoft Entra ID (formerly Azure AD) | Get user, revoke sign-in sessions, disable user, reset password | Identity response |
+| Office 365 Outlook | Send email, get email, delete email | Email response |
+| Slack | Post message, post interactive message | Analyst notification |
+| ServiceNow | Create/update incident, get record | ITSM integration |
+| HTTP | Generic HTTP call | Any REST API integration |
+| Azure Key Vault | Get secret | Secrets management |
+| VirusTotal | Scan URL, get report | Threat intel enrichment |
 
 ### Sentinel Playbook ARM Template
 
@@ -938,10 +938,10 @@ def check_watchlist(subscription_id, rg, workspace_id, watchlist_name, item_key,
 
 ### UEBA Integration
 Microsoft Sentinel UEBA enriches incidents with:
-- **Entity Behavior Score**: Anomaly score for users and hosts based on baseline deviation
-- **Blast Radius**: Estimated impact of a compromised entity
-- **Peer Group Comparisons**: How an entity's behavior compares to similar entities
-- **Timeline**: Full activity timeline for an entity across Microsoft services
+- Entity Behavior Score: Anomaly score for users and hosts based on baseline deviation
+- Blast Radius: Estimated impact of a compromised entity
+- Peer Group Comparisons: How an entity's behavior compares to similar entities
+- Timeline: Full activity timeline for an entity across Microsoft services
 
 ```kql
 BehaviorAnalytics
@@ -1019,43 +1019,43 @@ def create_threat_intelligence_indicator(token, indicator_value, indicator_type)
 
 | Feature | Consumption | Standard |
 |---|---|---|
-| **Pricing** | Per execution + connector call | Fixed monthly + execution units |
-| **Networking** | Shared multi-tenant | VNet integration, private endpoints |
-| **State** | Stateful workflows | Stateful + stateless workflows |
-| **Performance** | Shared resources | Dedicated compute |
-| **Best For** | Low-to-medium volume SOC automation | High-volume, VNet-isolated, latency-sensitive |
+| Pricing | Per execution + connector call | Fixed monthly + execution units |
+| Networking | Shared multi-tenant | VNet integration, private endpoints |
+| State | Stateful workflows | Stateful + stateless workflows |
+| Performance | Shared resources | Dedicated compute |
+| Best For | Low-to-medium volume SOC automation | High-volume, VNet-isolated, latency-sensitive |
 
 ### Microsoft Defender XDR AIR (Automated Investigation and Response)
 Defender XDR native AIR capability provides automated investigation without SOAR:
-- **Trigger**: Alert from Defender for Endpoint, Office 365, or Identity
-- **Investigation Graph**: Automated expansion of the incident entity graph (related processes, files, network connections, emails, users)
-- **Verdict**: AI assigns verdict to each entity (malicious, suspicious, no threats found)
-- **Remediation Actions**: Automatically queued (quarantine file, block IP, soft-delete email, disable user)
-- **Approval**: Remediation actions require SOC team approval (configurable: auto-approve for low risk)
-- **Integration**: AIR results surfaced in Sentinel as incidents, triggering Sentinel playbooks for extended response
+- Trigger: Alert from Defender for Endpoint, Office 365, or Identity
+- Investigation Graph: Automated expansion of the incident entity graph (related processes, files, network connections, emails, users)
+- Verdict: AI assigns verdict to each entity (malicious, suspicious, no threats found)
+- Remediation Actions: Automatically queued (quarantine file, block IP, soft-delete email, disable user)
+- Approval: Remediation actions require SOC team approval (configurable: auto-approve for low risk)
+- Integration: AIR results surfaced in Sentinel as incidents, triggering Sentinel playbooks for extended response
 
 ---
 ## 6. IBM QRadar SOAR
 
 ### Platform Overview
 IBM QRadar SOAR (formerly IBM Resilient) is a mature SOAR platform with deep case management capabilities. The platform centers on a structured workflow engine and has strong compliance/privacy features. Architecture components:
-- **Resilient Server**: Java-based application server
-- **PostgreSQL**: Primary data store for cases, tasks, artifacts
-- **Elasticsearch**: Search indexing
-- **Message Queue**: Apache Kafka for action dispatcher
-- **Integration Services**: Python-based function runners for app integrations
+- Resilient Server: Java-based application server
+- PostgreSQL: Primary data store for cases, tasks, artifacts
+- Elasticsearch: Search indexing
+- Message Queue: Apache Kafka for action dispatcher
+- Integration Services: Python-based function runners for app integrations
 
 ### Case Management Workflows
 
 SOAR cases (called Incidents) in QRadar SOAR follow a structured lifecycle:
-1. **Creation**: Incident created manually, via SIEM sync, or via API
-2. **Classification**: Type, severity, owner, affected parties assigned
-3. **Phases**: Configurable phases (Detect, Analyze, Respond, Post-Incident)
-4. **Tasks**: Required tasks per phase, with due dates and owners
-5. **Artifacts**: IOCs and evidence attached to the incident
-6. **Notes**: Structured notes and timeline entries
-7. **SLA Tracking**: Phase and task SLAs monitored with automated escalation
-8. **Closure**: Closure code, report generation, lessons learned capture
+1. Creation: Incident created manually, via SIEM sync, or via API
+2. Classification: Type, severity, owner, affected parties assigned
+3. Phases: Configurable phases (Detect, Analyze, Respond, Post-Incident)
+4. Tasks: Required tasks per phase, with due dates and owners
+5. Artifacts: IOCs and evidence attached to the incident
+6. Notes: Structured notes and timeline entries
+7. SLA Tracking: Phase and task SLAs monitored with automated escalation
+8. Closure: Closure code, report generation, lessons learned capture
 
 ### Rules Engine
 QRadar SOAR rules engine fires automation based on incident conditions:
@@ -1181,14 +1181,14 @@ def should_escalate_to_ciso(incident, fields):
 
 QRadar SOAR includes a purpose-built Privacy module for regulatory breach response:
 
-**Breach Assessment Workflow**:
-1. **Classification**: Is the incident a personal data breach? (PII types affected)
-2. **Risk Assessment**: Score breach risk (sensitivity x volume x likelihood of harm)
-3. **Regulatory Mapping**: Which regulations apply? (GDPR Article 33, CCPA, HIPAA, state laws)
-4. **Notification Deadlines**: Auto-calculate notification deadlines (GDPR: 72 hours to DPA; CCPA: 30 days to AG)
-5. **Authority Notification**: Track notification to Data Protection Authorities
-6. **Subject Notification**: Track notification to affected data subjects
-7. **Documentation**: Auto-generate regulatory documentation artifacts
+Breach Assessment Workflow:
+1. Classification: Is the incident a personal data breach? (PII types affected)
+2. Risk Assessment: Score breach risk (sensitivity x volume x likelihood of harm)
+3. Regulatory Mapping: Which regulations apply? (GDPR Article 33, CCPA, HIPAA, state laws)
+4. Notification Deadlines: Auto-calculate notification deadlines (GDPR: 72 hours to DPA; CCPA: 30 days to AG)
+5. Authority Notification: Track notification to Data Protection Authorities
+6. Subject Notification: Track notification to affected data subjects
+7. Documentation: Auto-generate regulatory documentation artifacts
 
 ```python
 from datetime import datetime, timedelta
@@ -1223,11 +1223,11 @@ sla_config = {
 ### QRadar SIEM Bidirectional Sync
 
 QRadar SOAR integrates natively with IBM QRadar SIEM:
-- **Alert to Incident**: QRadar offenses auto-create SOAR incidents via the QRadar plugin
-- **Incident to Offense**: SOAR incident status changes sync back to QRadar offense status
-- **Artifact Enrichment**: SOAR incidents automatically pull network flows and log data from QRadar
-- **Custom Properties**: Map QRadar offense fields to SOAR incident custom fields
-- **Closed Loop**: When SOAR closes an incident as False Positive, QRadar offense is closed and analyst feedback is stored for tuning
+- Alert to Incident: QRadar offenses auto-create SOAR incidents via the QRadar plugin
+- Incident to Offense: SOAR incident status changes sync back to QRadar offense status
+- Artifact Enrichment: SOAR incidents automatically pull network flows and log data from QRadar
+- Custom Properties: Map QRadar offense fields to SOAR incident custom fields
+- Closed Loop: When SOAR closes an incident as False Positive, QRadar offense is closed and analyst feedback is stored for tuning
 
 ### App Exchange
 IBM QRadar App Exchange provides 300+ pre-built integrations and content packs including:
@@ -1242,7 +1242,7 @@ IBM QRadar App Exchange provides 300+ pre-built integrations and content packs i
 
 ### Phishing Response Playbook
 
-**Complete Phishing Triage Workflow**:
+Complete Phishing Triage Workflow:
 
 ```
 Phishing Reported (via email/API/SIEM alert)
@@ -1262,7 +1262,7 @@ URL Detonation                    Header Analysis
                 +-- Benign -> Notify Reporter + Close
 ```
 
-**Step 1: Extract Artifacts from Email**
+Step 1: Extract Artifacts from Email
 ```python
 import email, re, hashlib
 from email import policy
@@ -1303,7 +1303,7 @@ def parse_email(raw_email_bytes):
     return artifacts
 ```
 
-**Step 2: URL Detonation via VirusTotal API v3**
+Step 2: URL Detonation via VirusTotal API v3
 ```python
 import requests, base64, time
 
@@ -1336,7 +1336,7 @@ def detonate_url_vt(url, vt_api_key):
     return {"verdict": "timeout"}
 ```
 
-**Step 3: M365 Defender Mailbox Remediation**
+Step 3: M365 Defender Mailbox Remediation
 ```python
 def search_and_delete_phishing_emails(token, sender_email, subject):
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
@@ -1389,7 +1389,7 @@ def get_proofpoint_threats(principal, secret, interval_seconds=3600):
 
 ### Malware Triage Automation
 
-**Hash Lookup Pipeline**:
+Hash Lookup Pipeline:
 ```python
 def triage_file_hash(sha256_hash, vt_key, mb_api_key):
     results = {}
@@ -1862,7 +1862,7 @@ def deduplicate_and_score_indicators(raw_indicators):
 
 ### Ransomware Response Playbook
 
-**Phase 1: Detect and Validate**
+Phase 1: Detect and Validate
 ```python
 def ransomware_detection_validation(alert_data):
     indicators = []
@@ -1895,7 +1895,7 @@ def ransomware_detection_validation(alert_data):
     }
 ```
 
-**Phase 2: Isolate Affected Systems**
+Phase 2: Isolate Affected Systems
 ```python
 def isolate_ransomware_affected_hosts(affected_hosts):
     results = []
@@ -1922,7 +1922,7 @@ def isolate_ransomware_affected_hosts(affected_hosts):
     return results
 ```
 
-**Phase 3: Snapshot and Preserve Evidence**
+Phase 3: Snapshot and Preserve Evidence
 ```python
 import boto3, time
 
@@ -1951,7 +1951,7 @@ def snapshot_ec2_instance(instance_id, region="us-east-1"):
     return snapshot_ids
 ```
 
-**Phase 4: Notify Stakeholders**
+Phase 4: Notify Stakeholders
 ```python
 def notify_ransomware_stakeholders(incident_id, affected_systems, ransom_family):
     # Slack notification
@@ -2175,16 +2175,16 @@ def disable_ad_account_powershell(samaccountname, run_remote_ps):
 
 | KPI | Definition | Calculation | Target |
 |---|---|---|---|
-| **Automation Rate %** | % of alerts handled without analyst intervention | Auto Closures / Total Alerts x 100 | > 70% |
-| **MTTR Reduction %** | Improvement in mean time to respond vs baseline | (Baseline - Current) / Baseline x 100 | > 50% |
-| **Alert-to-Ticket Ratio** | Ratio of raw alerts to actionable incidents | Total Alerts / Incidents Created | < 10:1 |
-| **False Positive Rate %** | % of automated actions reversed as incorrect | Reversed / Total Automated x 100 | < 3% |
-| **Playbook p50 Exec Time** | Median playbook wall-clock time | 50th percentile of execution duration | < 2 min |
-| **Playbook p95 Exec Time** | 95th-percentile execution time | 95th percentile of execution duration | < 10 min |
-| **Analyst Hours Saved** | Estimated analyst time saved by automation | (Avg Manual x Vol) - (SOAR Time x Vol) | Maximize |
-| **Playbook Success Rate** | % of executions completing without error | Successful / Total x 100 | > 95% |
-| **Coverage %** | % of alert types with active playbook | Types with Playbook / Total Types x 100 | > 80% tier-1 |
-| **SLA Compliance %** | % of incidents meeting SLA targets | SLA Met / Total Incidents x 100 | > 98% |
+| Automation Rate % | % of alerts handled without analyst intervention | Auto Closures / Total Alerts x 100 | > 70% |
+| MTTR Reduction % | Improvement in mean time to respond vs baseline | (Baseline - Current) / Baseline x 100 | > 50% |
+| Alert-to-Ticket Ratio | Ratio of raw alerts to actionable incidents | Total Alerts / Incidents Created | < 10:1 |
+| False Positive Rate % | % of automated actions reversed as incorrect | Reversed / Total Automated x 100 | < 3% |
+| Playbook p50 Exec Time | Median playbook wall-clock time | 50th percentile of execution duration | < 2 min |
+| Playbook p95 Exec Time | 95th-percentile execution time | 95th percentile of execution duration | < 10 min |
+| Analyst Hours Saved | Estimated analyst time saved by automation | (Avg Manual x Vol) - (SOAR Time x Vol) | Maximize |
+| Playbook Success Rate | % of executions completing without error | Successful / Total x 100 | > 95% |
+| Coverage % | % of alert types with active playbook | Types with Playbook / Total Types x 100 | > 80% tier-1 |
+| SLA Compliance % | % of incidents meeting SLA targets | SLA Met / Total Incidents x 100 | > 98% |
 
 ### SOC Efficiency Dashboard
 
@@ -2280,12 +2280,12 @@ def score_playbook_effectiveness(playbook_id, metrics_db):
 
 | Parameter | Warning | Critical | Action |
 |---|---|---|---|
-| **Concurrent Executions** | > 80% of license limit | > 95% | Scale out cluster nodes |
-| **Queue Depth** | > 500 queued runs | > 2000 queued runs | Add execution workers |
-| **API Rate Limits** | > 70% of API quota | > 90% of API quota | Implement request queuing |
-| **Action Failure Rate** | > 5% per app | > 15% per app | Investigate integration health |
-| **Database Size Growth** | > 10 GB/month | > 50 GB/month | Archive old containers |
-| **API Response Time p95** | > 5 sec | > 15 sec | Review infrastructure sizing |
+| Concurrent Executions | > 80% of license limit | > 95% | Scale out cluster nodes |
+| Queue Depth | > 500 queued runs | > 2000 queued runs | Add execution workers |
+| API Rate Limits | > 70% of API quota | > 90% of API quota | Implement request queuing |
+| Action Failure Rate | > 5% per app | > 15% per app | Investigate integration health |
+| Database Size Growth | > 10 GB/month | > 50 GB/month | Archive old containers |
+| API Response Time p95 | > 5 sec | > 15 sec | Review infrastructure sizing |
 
 ```python
 def check_soar_health(soar_metrics):
@@ -2308,13 +2308,13 @@ def check_soar_health(soar_metrics):
 
 ### Maintenance Procedures
 
-**App/Integration Updates**:
+App/Integration Updates:
 - Test updated app versions in staging SOAR instance before production deployment
 - Review release notes for breaking API changes with every version update
 - Rotate authentication credentials when API keys expire or are cycled
 - Run full regression playbook tests after every app update
 
-**Quarterly Playbook Audit Checklist**:
+Quarterly Playbook Audit Checklist:
 ```
 For each production playbook:
 1. Verify all integrated apps are functional and at current versions
@@ -2327,7 +2327,7 @@ For each production playbook:
 8. Verify secrets and API credentials are not expiring within 30 days
 ```
 
-**Secrets Rotation Schedule**:
+Secrets Rotation Schedule:
 ```python
 from datetime import datetime
 
@@ -2373,35 +2373,35 @@ Map playbooks to MITRE ATT&CK techniques to ensure comprehensive coverage and id
 
 ### SOAR Vendor Evaluation RFP Template
 
-**Section 1 - Functional Requirements**
+Section 1 - Functional Requirements
 - Integration catalog size and coverage for current tool stack (require list of 20 key tools)
 - Custom integration development framework (SDK language, documentation quality, community)
 - Playbook building interface (visual canvas, code-based, or hybrid approach)
 - Case management features (SLA enforcement, approval workflows, full audit trail)
 - Threat intelligence management (built-in TIP, indicator scoring, expiry management)
 
-**Section 2 - Technical Requirements**
+Section 2 - Technical Requirements
 - Deployment models supported (on-prem, cloud SaaS, hybrid, air-gapped)
 - High availability and clustering architecture and documented failover behavior
 - API-first design (full REST API coverage for all platform functions)
 - Data residency options (US, EU, multi-region with data sovereignty controls)
 - RBAC granularity (field-level permissions, role-based playbook access controls)
 
-**Section 3 - Performance and Scale**
+Section 3 - Performance and Scale
 - Maximum concurrent playbook executions (licensed limit and architectural ceiling)
 - Alert ingestion rate (events per second at sustained load)
 - Playbook execution throughput (runs per hour under load)
 - API rate limits per integration (document per-app limits)
 - Data retention limits and archival/export options
 
-**Section 4 - Operational Requirements**
+Section 4 - Operational Requirements
 - Playbook CI/CD and version control support (Git integration, export formats)
 - Dedicated testing and staging environment support
 - Upgrade process documentation (downtime window, rollback procedures)
 - Monitoring and observability (built-in dashboards, Prometheus/Grafana export support)
 - Support SLA tiers and escalation paths with named contacts
 
-**Section 5 - Commercial**
+Section 5 - Commercial
 - Licensing model (per user, per alert volume, per execution, flat fee, hybrid)
 - Integration and app licensing (included vs separately licensed add-ons)
 - Professional services scope and cost for initial deployment and onboarding
@@ -2411,17 +2411,17 @@ Map playbooks to MITRE ATT&CK techniques to ensure comprehensive coverage and id
 
 | Resource | Description |
 |---|---|
-| **Splunk SOAR Apps (github.com/splunk-soar-connectors)** | 500+ open-source SOAR app connectors with Python source |
-| **XSOAR Marketplace (marketplace.xsoar.pan.dev)** | 1000+ content packs, integrations, playbooks, scripts |
-| **Tines Community Library (library.tines.com)** | Pre-built Tines stories for common security use cases |
-| **Sigma Rules (github.com/SigmaHQ/sigma)** | Detection rules convertible to SOAR alert triggers |
-| **MITRE ATT&CK Navigator** | Coverage mapping tool for playbook-to-technique alignment |
-| **Awesome-SOAR (github.com/correlatedsecurity/Awesome-SOAR)** | Curated SOAR resources, tools, blog posts, vendors |
-| **CISA IR Playbooks (cisa.gov)** | Federal government incident response playbook templates |
-| **OpenCTI Platform (github.com/OpenCTI-Platform/opencti)** | Open-source CTI platform with SOAR integration APIs |
-| **The DFIR Report (thedfirreport.com)** | Real-world IR case studies with detailed TTPs for tuning |
-| **FIRST CSIRT Services Framework (first.org)** | IR process frameworks and service category definitions |
-| **OASIS CTI TC (oasis-open.org)** | STIX/TAXII standards documentation and working groups |
+| Splunk SOAR Apps (github.com/splunk-soar-connectors) | 500+ open-source SOAR app connectors with Python source |
+| XSOAR Marketplace (marketplace.xsoar.pan.dev) | 1000+ content packs, integrations, playbooks, scripts |
+| Tines Community Library (library.tines.com) | Pre-built Tines stories for common security use cases |
+| Sigma Rules (github.com/SigmaHQ/sigma) | Detection rules convertible to SOAR alert triggers |
+| MITRE ATT&CK Navigator | Coverage mapping tool for playbook-to-technique alignment |
+| Awesome-SOAR (github.com/correlatedsecurity/Awesome-SOAR) | Curated SOAR resources, tools, blog posts, vendors |
+| CISA IR Playbooks (cisa.gov) | Federal government incident response playbook templates |
+| OpenCTI Platform (github.com/OpenCTI-Platform/opencti) | Open-source CTI platform with SOAR integration APIs |
+| The DFIR Report (thedfirreport.com) | Real-world IR case studies with detailed TTPs for tuning |
+| FIRST CSIRT Services Framework (first.org) | IR process frameworks and service category definitions |
+| OASIS CTI TC (oasis-open.org) | STIX/TAXII standards documentation and working groups |
 
 ---
 

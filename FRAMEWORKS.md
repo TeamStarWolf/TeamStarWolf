@@ -1,12 +1,12 @@
 # Security Frameworks Reference
 
-> **In one minute** — This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
+> In one minute — This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
 
 | | |
 |---|---|
-| **Read this when** | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
-| **Start at** | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
-| **Pairs with** | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
+| Read this when | you need to pick a framework for a compliance or sales requirement, someone asks how two frameworks relate or overlap, you need a fast refresher on a framework's structure before a meeting or assessment |
+| Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
+| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
 
 A quick-reference guide to major cybersecurity and privacy frameworks — what they cover, who they apply to, and how they relate to each other.
 
@@ -36,33 +36,33 @@ A quick-reference guide to major cybersecurity and privacy frameworks — what t
 
 ## NIST Cybersecurity Framework (CSF) 2.0
 
-**Published**: 2024 | **Org**: NIST | **Cost**: Free
+Published: 2024 | Org: NIST | Cost: Free
 
 The CSF provides a common language for managing cybersecurity risk across sectors. Version 2.0 added a sixth function (Govern) and expanded supply chain guidance.
 
 ### Six Core Functions
 | Function | Goal | Key Activities |
 |---|---|---|
-| **Govern** | Establish organizational context and accountability | Policies, roles, risk strategy, supply chain |
-| **Identify** | Understand assets, risks, and environment | Asset inventory, risk assessment, threat intelligence |
-| **Protect** | Implement safeguards | Access control, awareness training, data security, platform hardening |
-| **Detect** | Identify cybersecurity events | Continuous monitoring, anomaly detection |
-| **Respond** | Take action on detected incidents | IR planning, communication, containment, analysis |
-| **Recover** | Restore capabilities | Recovery planning, lessons learned, comms |
+| Govern | Establish organizational context and accountability | Policies, roles, risk strategy, supply chain |
+| Identify | Understand assets, risks, and environment | Asset inventory, risk assessment, threat intelligence |
+| Protect | Implement safeguards | Access control, awareness training, data security, platform hardening |
+| Detect | Identify cybersecurity events | Continuous monitoring, anomaly detection |
+| Respond | Take action on detected incidents | IR planning, communication, containment, analysis |
+| Recover | Restore capabilities | Recovery planning, lessons learned, comms |
 
-### Tiers (1–4)
-- **Tier 1 Partial** — Reactive, ad hoc
-- **Tier 2 Risk Informed** — Awareness without org-wide policy
-- **Tier 3 Repeatable** — Formalized, org-wide practices
-- **Tier 4 Adaptive** — Continuous improvement, threat-informed
+### Tiers (1-4)
+- Tier 1 Partial: Reactive, ad hoc
+- Tier 2 Risk Informed: Awareness without org-wide policy
+- Tier 3 Repeatable: Formalized, org-wide practices
+- Tier 4 Adaptive: Continuous improvement, threat-informed
 
-**Resources**: [NIST CSF 2.0](https://www.nist.gov/cyberframework) | [CSF 2.0 Quick Start Guide](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf)
+Resources: [NIST CSF 2.0](https://www.nist.gov/cyberframework) | [CSF 2.0 Quick Start Guide](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf)
 
 ---
 
 ## NIST Risk Management Framework (RMF)
 
-**Published**: SP 800-37 Rev 2 (2018) | **Org**: NIST | **Mandatory**: FISMA, FedRAMP
+Published: SP 800-37 Rev 2 (2018) | Org: NIST | Mandatory: FISMA, FedRAMP
 
 The RMF is the US federal authorization process. Every federal system must go through RMF to receive an Authority to Operate (ATO).
 
@@ -77,13 +77,13 @@ The RMF is the US federal authorization process. Every federal system must go th
 | 6. Authorize | AO grants ATO, P-ATO, or DATO |
 | 7. Monitor | Continuous monitoring, annual assessments, POA&M |
 
-**Resources**: [SP 800-37](https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final) | [OSCAL](https://pages.nist.gov/OSCAL/) (machine-readable RMF)
+Resources: [SP 800-37](https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final) | [OSCAL](https://pages.nist.gov/OSCAL/) (machine-readable RMF)
 
 ---
 
 ## NIST SP 800-53 R5
 
-**Published**: 2020 (Rev 5); current maintenance release **5.2.0** (August 27, 2025 — adds secure software-update and patch controls in response to EO 14306; no change to the SP 800-53B baselines) | **Org**: NIST | **Mandatory**: US federal systems (FISMA)
+Published: 2020 (Rev 5); current maintenance release 5.2.0 (August 27, 2025 — adds secure software-update and patch controls in response to EO 14306; no change to the SP 800-53B baselines) | Org: NIST | Mandatory: US federal systems (FISMA)
 
 The most comprehensive security and privacy control catalog available. Maps to CSF, ISO 27001, CMMC, and ATT&CK. Used as the baseline for FedRAMP, DoD, and civilian agency ATOs.
 
@@ -111,39 +111,39 @@ The most comprehensive security and privacy control catalog available. Maps to C
 | Supply Chain Risk Management | SR | Supplier assessment, SBOM, provenance |
 | Individual Participation | IP | Privacy rights, redress |
 
-**Resources**: [SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) | [Controls Mapping](CONTROLS_MAPPING.md) | [CTID ATT&CK Mapping](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
+Resources: [SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) | [Controls Mapping](CONTROLS_MAPPING.md) | [CTID ATT&CK Mapping](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
 
 ---
 
 ## ISO/IEC 27001:2022
 
-**Published**: October 2022 | **Org**: ISO/IEC | **Cost**: Purchasable standard (~$170)
+Published: October 2022 | Org: ISO/IEC | Cost: Purchasable standard (~$170)
 
 The international standard for Information Security Management Systems (ISMS). Organizations can pursue third-party certification. Used globally across industries.
 
 ### Clause Structure
 | Clauses | Content |
 |---|---|
-| Clauses 4–10 | Mandatory ISMS requirements (context, leadership, planning, support, operation, evaluation, improvement) |
+| Clauses 4-10 | Mandatory ISMS requirements (context, leadership, planning, support, operation, evaluation, improvement) |
 | Annex A | 93 controls in 4 themes (Organizational, People, Physical, Technological) |
 
 ### Four Control Themes (2022 restructure from 14 domains)
 | Theme | Controls |
 |---|---|
-| Organizational | 37 controls — policies, roles, supplier security, IR, BCP |
-| People | 8 controls — screening, awareness, training, disciplinary |
-| Physical | 14 controls — physical access, equipment, media disposal |
-| Technological | 34 controls — endpoint, network, cryptography, logging, SDLC |
+| Organizational | 37 controls: policies, roles, supplier security, IR, BCP |
+| People | 8 controls: screening, awareness, training, disciplinary |
+| Physical | 14 controls: physical access, equipment, media disposal |
+| Technological | 34 controls: endpoint, network, cryptography, logging, SDLC |
 
-**Relationship to 800-53**: NIST provides a mapping between 800-53 and ISO 27001 controls. Most controls overlap with ~70% coverage equivalence.
+Relationship to 800-53: NIST provides a mapping between 800-53 and ISO 27001 controls. Most controls overlap with ~70% coverage equivalence.
 
-**Resources**: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html) | [NIST 800-53 / 27001 mapping](https://csrc.nist.gov/projects/risk-management/sp800-53-controls/mappings)
+Resources: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html) | [NIST 800-53 / 27001 mapping](https://csrc.nist.gov/projects/risk-management/sp800-53-controls/mappings)
 
 ---
 
 ## SOC 2
 
-**Published**: Ongoing | **Org**: AICPA | **Cost**: Audit fees ($30K–$100K+)
+Published: Ongoing | Org: AICPA | Cost: Audit fees ($30K–$100K+)
 
 An audit framework for service organizations (SaaS, cloud, managed services). Customers — especially enterprises — require SOC 2 reports from their vendors. Not a certification; rather a third-party auditor's opinion.
 
@@ -157,16 +157,16 @@ An audit framework for service organizations (SaaS, cloud, managed services). Cu
 | Privacy | Optional | PII collection, use, retention, disposal |
 
 ### Type I vs Type II
-- **Type I**: Point-in-time assessment — controls designed appropriately
-- **Type II**: Period of time (usually 6–12 months) — controls operating effectively
+- Type I: Point-in-time assessment: controls designed appropriately
+- Type II: Period of time (usually 6-12 months): controls operating effectively
 
-**Resources**: [AICPA SOC 2](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services) | [AICPA TSC](https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria)
+Resources: [AICPA SOC 2](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services) | [AICPA TSC](https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria)
 
 ---
 
 ## PCI DSS v4.0.1
 
-**Published**: v4.0 March 2022; v4.0.1 (limited revision) June 2024 | **Org**: PCI SSC | **Mandatory**: Card brands (Visa, Mastercard, etc.)
+Published: v4.0 March 2022; v4.0.1 (limited revision) June 2024 | Org: PCI SSC | Mandatory: Card brands (Visa, Mastercard, etc.)
 
 Required for any entity that stores, processes, or transmits payment card data. Version 4.0 introduced customized implementation and multi-factor authentication expansion; v4.0.1 clarified wording and added no new requirements. v4.0 was retired on 31 December 2024, so v4.0.1 is the only active version of the standard.
 
@@ -186,13 +186,13 @@ Required for any entity that stores, processes, or transmits payment card data. 
 | 11 | Test security of systems and networks regularly |
 | 12 | Support information security with organizational policies |
 
-**Resources**: [PCI SSC](https://www.pcisecuritystandards.org/) | [PCI DSS v4.0 document](https://www.pcisecuritystandards.org/document_library/)
+Resources: [PCI SSC](https://www.pcisecuritystandards.org/) | [PCI DSS v4.0 document](https://www.pcisecuritystandards.org/document_library/)
 
 ---
 
 ## HIPAA Security Rule
 
-**Published**: 2003 (original), ongoing updates | **Org**: HHS | **Mandatory**: US covered entities and business associates
+Published: 2003 (original), ongoing updates | Org: HHS | Mandatory: US covered entities and business associates
 
 Requires administrative, physical, and technical safeguards to protect electronic protected health information (ePHI).
 
@@ -203,13 +203,13 @@ Requires administrative, physical, and technical safeguards to protect electroni
 | Physical | Facility access controls, workstation use policies, media disposal |
 | Technical | Access control, audit controls, integrity, transmission security (encryption) |
 
-**Resources**: [HHS Security Rule](https://www.hhs.gov/hipaa/for-professionals/security/index.html)
+Resources: [HHS Security Rule](https://www.hhs.gov/hipaa/for-professionals/security/index.html)
 
 ---
 
 ## CMMC 2.0
 
-**Published**: November 2021 (model); codified in 32 CFR Part 170 (effective Dec 16, 2024) with the DFARS/48 CFR acquisition rule 252.204-7021 (effective Nov 10, 2025) | **Org**: DoD | **Mandatory**: DoD contractors handling CUI or FCI
+Published: November 2021 (model); codified in 32 CFR Part 170 (effective Dec 16, 2024) with the DFARS/48 CFR acquisition rule 252.204-7021 (effective Nov 10, 2025) | Org: DoD | Mandatory: DoD contractors handling CUI or FCI
 
 Cybersecurity Maturity Model Certification — required for defense industrial base (DIB) contractors. Streamlined from CMMC 1.0 (5 levels) to 3 levels.
 
@@ -220,20 +220,20 @@ Cybersecurity Maturity Model Certification — required for defense industrial b
 | Level 2 (Advanced) | 110 practices (full NIST 800-171) | Triennial C3PAO assessment |
 | Level 3 (Expert) | 110 + NIST 800-172 | Government-led assessment |
 
-**Resources**: [DoD CMMC](https://dodcio.defense.gov/CMMC/) | [NIST SP 800-171](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)
+Resources: [DoD CMMC](https://dodcio.defense.gov/CMMC/) | [NIST SP 800-171](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)
 
 ---
 
 ## CIS Controls v8
 
-**Published**: May 2021 (v8.0); iteratively updated to v8.1 in June 2024 | **Org**: Center for Internet Security | **Cost**: Free
+Published: May 2021 (v8.0); iteratively updated to v8.1 in June 2024 | Org: Center for Internet Security | Cost: Free
 
 18 prioritized controls mapped to Implementation Groups (IG1/IG2/IG3) for organizations of different sizes. Excellent starting point for smaller organizations or those without formal frameworks.
 
 ### Implementation Groups
 | IG | Target | Controls |
 |---|---|---|
-| IG1 (Basic hygiene) | Small orgs, limited IT staff | 56 safeguards covering CIS Controls 1–6 |
+| IG1 (Basic hygiene) | Small orgs, limited IT staff | 56 safeguards covering CIS Controls 1-6 |
 | IG2 (Moderate security) | Mid-size, multiple departments | Adds 74 safeguards |
 | IG3 (Advanced) | Complex/regulated orgs | Adds 23 safeguards |
 
@@ -259,7 +259,7 @@ Cybersecurity Maturity Model Certification — required for defense industrial b
 | 17 | Incident Response Management |
 | 18 | Penetration Testing |
 
-**Resources**: [CIS Controls v8](https://www.cisecurity.org/controls/v8)
+Resources: [CIS Controls v8](https://www.cisecurity.org/controls/v8)
 
 ---
 
@@ -270,23 +270,23 @@ The [CTID (Center for Threat-Informed Defense)](https://ctid.mitre-engenuity.org
 - Identifying technique gaps in your control baseline
 - Prioritizing controls based on adversary behavior data
 
-**See**: [Controls Mapping](CONTROLS_MAPPING.md) | [ATT&CK Navigator layers](navigator/) | [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
+See: [Controls Mapping](CONTROLS_MAPPING.md) | [ATT&CK Navigator layers](navigator/) | [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
 
 ---
 
 ## ISO 27701
 
-**Published**: 2025 (2nd ed., 14 Oct 2025; supersedes 2019) | **Org**: ISO/IEC
+Published: 2025 (2nd ed., 14 Oct 2025; supersedes 2019) | Org: ISO/IEC
 
 Privacy Information Management System (PIMS) for organizations acting as PII controllers or processors; provides a structured path to GDPR accountability. The 2019 first edition was an extension to ISO 27001; the 2025 second edition is a standalone standard, certifiable on its own without an ISO 27001 ISMS.
 
-**Resources**: [ISO/IEC 27701:2025](https://www.iso.org/standard/27701)
+Resources: [ISO/IEC 27701:2025](https://www.iso.org/standard/27701)
 
 ---
 
 ## GDPR
 
-**Published**: May 2018 | **Org**: EU | **Mandatory**: EU law
+Published: May 2018 | Org: EU | Mandatory: EU law
 
 Applies to any organization processing personal data of EU residents. Key security requirements:
 
@@ -297,41 +297,41 @@ Applies to any organization processing personal data of EU residents. Key securi
 | Art. 33 | 72-hour breach notification to supervisory authority |
 | Art. 34 | Notification to data subjects when high risk |
 
-**Resources**: [GDPR text](https://gdpr-info.eu/) | [EDPB guidelines](https://www.edpb.europa.eu/edpb_en)
+Resources: [GDPR text](https://gdpr-info.eu/) | [EDPB guidelines](https://www.edpb.europa.eu/edpb_en)
 
 ---
 
 ## CCPA/CPRA
 
-**Published**: CCPA 2018, CPRA amendments 2023 | **Org**: California | **Mandatory**: CA law
+Published: CCPA 2018, CPRA amendments 2023 | Org: California | Mandatory: CA law
 
 Applies to for-profit businesses meeting size/data thresholds in California. CPRA created the California Privacy Protection Agency (CPPA) and added data minimization, purpose limitation, and correction rights.
 
-**Resources**: [CPPA](https://cppa.ca.gov/) | [CCPA text](https://oag.ca.gov/privacy/ccpa)
+Resources: [CPPA](https://cppa.ca.gov/) | [CCPA text](https://oag.ca.gov/privacy/ccpa)
 
 ---
 
 ## NIST AI RMF
 
-**Published**: January 2023 | **Org**: NIST | **Cost**: Free
+Published: January 2023 | Org: NIST | Cost: Free
 
 Framework for managing risks from AI systems. Four core functions:
-- **GOVERN** — Policies, accountability, culture for AI risk management
-- **MAP** — Context and risk identification for AI systems
-- **MEASURE** — Analyze, assess, and track AI risks
-- **MANAGE** — Prioritize and treat AI risks; plan for residual risk
+- GOVERN: Policies, accountability, culture for AI risk management
+- MAP: Context and risk identification for AI systems
+- MEASURE: Analyze, assess, and track AI risks
+- MANAGE: Prioritize and treat AI risks; plan for residual risk
 
-**Resources**: [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/NIST.AI.100-1.pdf) | [AI RMF Playbook](https://airc.nist.gov/Docs/2)
+Resources: [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/NIST.AI.100-1.pdf) | [AI RMF Playbook](https://airc.nist.gov/Docs/2)
 
 ---
 
 ## IEC 62443
 
-**Published**: Ongoing series | **Org**: IEC | **Mandatory**: Sector-specific (energy, manufacturing, water)
+Published: Ongoing series | Org: IEC | Mandatory: Sector-specific (energy, manufacturing, water)
 
 International standard for industrial automation and control system (IACS) security. Addresses product suppliers, system integrators, and asset owners.
 
-### Security Levels (SL 0–4)
+### Security Levels (SL 0-4)
 | Level | Protection |
 |---|---|
 | SL 0 | No special security requirements |
@@ -340,7 +340,7 @@ International standard for industrial automation and control system (IACS) secur
 | SL 3 | Protection against sophisticated means with IACS-specific knowledge |
 | SL 4 | Protection against state-sponsored actors with extensive resources |
 
-**Resources**: [IEC 62443](https://www.iec.ch/iec62443) | [ISA/IEC 62443 overview](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards)
+Resources: [IEC 62443](https://www.iec.ch/iec62443) | [ISA/IEC 62443 overview](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards)
 
 ---
 
@@ -348,7 +348,7 @@ International standard for industrial automation and control system (IACS) secur
 
 | Your Goal | Start With |
 |---|---|
-| Build a baseline security program | CIS Controls v8 (IG1→IG2→IG3) |
+| Build a baseline security program | CIS Controls v8 (IG1->IG2->IG3) |
 | Achieve enterprise risk management | NIST CSF 2.0 |
 | US federal ATO / FedRAMP | NIST RMF + NIST 800-53 R5 |
 | ISO certification for enterprise sales | ISO 27001:2022 |
@@ -359,7 +359,7 @@ International standard for industrial automation and control system (IACS) secur
 | EU data subjects | GDPR |
 | AI system development | NIST AI RMF |
 | Industrial / OT environments | IEC 62443 |
-| Map controls to adversary techniques | NIST 800-53 → MITRE ATT&CK (CTID) |
+| Map controls to adversary techniques | NIST 800-53 -> MITRE ATT&CK (CTID) |
 
 ---
 
@@ -367,20 +367,20 @@ International standard for industrial automation and control system (IACS) secur
 
 ## NIST CSF 2.0 Deep Dive
 
-NIST CSF 2.0 (released February 2024) added a sixth function — **Govern** — and restructured the framework to be applicable to any organization size and sector.
+NIST CSF 2.0 (released February 2024) added a sixth function — Govern — and restructured the framework to be applicable to any organization size and sector.
 
-**Six Functions and Core Categories**
+Six Functions and Core Categories
 
 | Function | ID | Key Categories | Purpose |
 |---|---|---|---|
-| Govern | GV | Organizational Context, Risk Management Strategy, Roles & Responsibilities, Policy, Oversight, Supply Chain Risk | New in 2.0 — sets organizational risk strategy and accountabilities |
+| Govern | GV | Organizational Context, Risk Management Strategy, Roles & Responsibilities, Policy, Oversight, Supply Chain Risk | New in 2.0: sets organizational risk strategy and accountabilities |
 | Identify | ID | Asset Management, Risk Assessment, Improvement | Understand cybersecurity risks to systems, people, assets, data |
 | Protect | PR | Identity Management, Awareness Training, Data Security, Platform Security, Technology Resilience | Safeguards to limit or contain cybersecurity event impact |
 | Detect | DE | Continuous Monitoring, Adverse Event Analysis | Identify occurrence of cybersecurity events |
 | Respond | RS | Incident Management, Incident Analysis, Reporting, Communication, Mitigation | Take action on detected cybersecurity incidents |
 | Recover | RC | Incident Recovery Plan, Incident Recovery Communication | Restore capabilities after a cybersecurity incident |
 
-**Key Changes from CSF 1.1 to 2.0**
+Key Changes from CSF 1.1 to 2.0
 - Govern function added (organizational leadership accountability)
 - Supply chain risk management elevated to its own category under Govern
 - Expanded applicability beyond critical infrastructure (now universal)
@@ -415,7 +415,7 @@ NIST CSF 2.0 (released February 2024) added a sixth function — **Govern** — 
 | System & Comm Protection | SC | 51 | Network boundaries, cryptography, data-in-transit |
 | System & Info Integrity | SI | 23 | Malware protection, security alerts, patching |
 
-**Key Rev 5 Changes**
+Key Rev 5 Changes
 - Supply Chain Risk Management (SR) family added
 - PII Processing and Transparency (PT) family added
 - Outcome-based language replacing prescriptive requirements
@@ -428,7 +428,7 @@ NIST CSF 2.0 (released February 2024) added a sixth function — **Govern** — 
 
 ISO 27001 was updated in October 2022 with significant changes to Annex A controls.
 
-**Control Set Changes: 2013 to 2022**
+Control Set Changes: 2013 to 2022
 
 | Category | 2013 | 2022 |
 |---|---|---|
@@ -437,13 +437,13 @@ ISO 27001 was updated in October 2022 with significant changes to Annex A contro
 | Merged controls | — | 24 pairs merged |
 | Deleted controls | — | 1 deleted |
 
-**Four Themes (replacing 14 domains)**
-1. **Organizational controls** (37 controls) — policies, roles, risk management, supplier security
-2. **People controls** (8 controls) — screening, awareness, responsibilities, remote work
-3. **Physical controls** (14 controls) — physical security, media, equipment
-4. **Technological controls** (34 controls) — authentication, access, encryption, monitoring, vulnerability management
+Four Themes (replacing 14 domains)
+1. Organizational controls (37 controls): policies, roles, risk management, supplier security
+2. People controls (8 controls): screening, awareness, responsibilities, remote work
+3. Physical controls (14 controls): physical security, media, equipment
+4. Technological controls (34 controls): authentication, access, encryption, monitoring, vulnerability management
 
-**11 New Controls in 2022 Annex A**
+11 New Controls in 2022 Annex A
 
 | Control | ID | Description |
 |---|---|---|
@@ -463,7 +463,7 @@ ISO 27001 was updated in October 2022 with significant changes to Annex A contro
 
 ## SOC 2 Trust Services Criteria
 
-**Five Trust Service Categories**
+Five Trust Service Categories
 
 | Category | Abbreviation | Always Required | Description |
 |---|---|---|---|
@@ -473,11 +473,11 @@ ISO 27001 was updated in October 2022 with significant changes to Annex A contro
 | Confidentiality | C | Optional | Confidential info protected as agreed |
 | Privacy | P | Optional | PII collected, used, retained, disclosed appropriately |
 
-**Type I vs Type II**
-- **Type I**: Point-in-time assessment of control design only. Completed faster (2-4 months). Less meaningful to sophisticated customers.
-- **Type II**: 6-12 month observation period assessing operating effectiveness. Standard expectation for B2B SaaS vendors. More expensive ($30,000-$100,000+).
+Type I vs Type II
+- Type I: Point-in-time assessment of control design only. Completed faster (2-4 months). Less meaningful to sophisticated customers.
+- Type II: 6-12 month observation period assessing operating effectiveness. Standard expectation for B2B SaaS vendors. More expensive ($30,000-$100,000+).
 
-**Common Criteria (CC) Control Categories**
+Common Criteria (CC) Control Categories
 - CC1: Control Environment (COSO principles)
 - CC2: Communication and Information
 - CC3: Risk Assessment
@@ -494,11 +494,11 @@ ISO 27001 was updated in October 2022 with significant changes to Annex A contro
 
 PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024. The limited-revision v4.0.1 (June 2024) then superseded v4.0 on 31 December 2024 and is now the only active version; it made clarifications only, with no added or removed requirements.
 
-**Key Changes**
+Key Changes
 
 | Area | Change |
 |---|---|
-| Customized approach | New alternative to prescriptive controls — organizations can design their own controls to meet security objectives |
+| Customized approach | New alternative to prescriptive controls: organizations can design their own controls to meet security objectives |
 | Authentication | MFA required for ALL access to cardholder data environment (not just remote access) |
 | Anti-phishing | New requirements for anti-phishing mechanisms |
 | E-commerce | Explicit requirements for protection of payment pages |
@@ -506,7 +506,7 @@ PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024. 
 | Network security | "Firewalls" replaced with "network security controls" (broadened to include cloud/SDWAN) |
 | Targeted risk analysis | Organizations must perform TRA for each requirement with "periodically" language |
 
-**12 PCI DSS Requirements (v4.0)**
+12 PCI DSS Requirements (v4.0)
 1. Install and maintain network security controls
 2. Apply secure configurations to all system components
 3. Protect stored account data
@@ -530,7 +530,7 @@ PCI DSS v4.0 replaced v3.2.1 with significant updates effective March 31, 2024. 
 | Level 2 | Advanced | 110 (NIST SP 800-171) | Annual self-assessment OR triennial C3PAO | Contractors handling CUI |
 | Level 3 | Expert | 110 + 24 (NIST SP 800-172) | Triennial DCSA-led government assessment | High-value/priority programs, advanced APT risk |
 
-**Domains in Level 2 (800-171 Families)**
+Domains in Level 2 (800-171 Families)
 
 Access Control, Awareness & Training, Audit & Accountability, Configuration Management, Identification & Authentication, Incident Response, Maintenance, Media Protection, Personnel Security, Physical Protection, Risk Assessment, Security Assessment, System & Communications Protection, System & Information Integrity
 
@@ -556,9 +556,9 @@ Access Control, Awareness & Training, Audit & Accountability, Configuration Mana
 ---
 
 ## Related Resources
-- [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md) — breach-notification & incident-reporting clocks (NIS2, DORA, EU CRA, EU AI Act, SEC, NYDFS, CIRCIA, GDPR)
-- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — controls mapped to pipeline stages and vendors
-- [Controls Mapping](CONTROLS_MAPPING.md) — NIST 800-53 → ATT&CK technique chain
-- [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) — GRC discipline page
-- [Privacy Engineering](disciplines/privacy-engineering.md) — GDPR/CCPA technical implementation
-- [ICS / OT Security](disciplines/ics-ot-security.md) — IEC 62443 implementation
+- [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md): breach-notification & incident-reporting clocks (NIS2, DORA, EU CRA, EU AI Act, SEC, NYDFS, CIRCIA, GDPR)
+- [Enterprise Security Pipeline](SECURITY_PIPELINE.md): controls mapped to pipeline stages and vendors
+- [Controls Mapping](CONTROLS_MAPPING.md): NIST 800-53 -> ATT&CK technique chain
+- [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md): GRC discipline page
+- [Privacy Engineering](disciplines/privacy-engineering.md): GDPR/CCPA technical implementation
+- [ICS / OT Security](disciplines/ics-ot-security.md): IEC 62443 implementation

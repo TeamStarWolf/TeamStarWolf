@@ -32,7 +32,7 @@ Detection engineering is a continuous cycle, not a one-time configuration effort
 7. Deprecation       → Retire detections for retired technologies, superseded TTPs, or consistently FP-heavy rules
 ```
 
-**Pyramid of Pain** (David Bianco): Attacker cost to evade detections increases as you move up the pyramid.
+Pyramid of Pain (David Bianco): Attacker cost to evade detections increases as you move up the pyramid.
 
 ```
 [TTP-Based Detections]     ← Tough! Changing behavior requires significant effort
@@ -43,7 +43,7 @@ Detection engineering is a continuous cycle, not a one-time configuration effort
 [Hash Values]              ← Trivial — recompile, trivially different hash
 ```
 
-The detection engineering goal is to build detections as high on this pyramid as possible — detecting **behaviors** (process injection, LOLBAS execution, credential access patterns) rather than specific indicators.
+The detection engineering goal is to build detections as high on this pyramid as possible — detecting behaviors (process injection, LOLBAS execution, credential access patterns) rather than specific indicators.
 
 ---
 
@@ -65,7 +65,7 @@ These are the highest-value Windows Security and System event IDs for detection 
 | 4776 | Security | NTLM authentication attempt | Pass-the-hash and NTLM relay detection when Kerberos should be in use; correlate with lateral movement |
 | 1102 | Security | Audit log was cleared | High-priority alert; legitimate clearing is rare; almost always indicates active attacker covering tracks |
 
-**Enabling Process Creation Logging**: Event ID 4688 with command-line logging requires enabling "Audit Process Creation" in Advanced Audit Policy and setting the `ProcessCreationIncludeCmdLine_Enabled` registry key. Without command-line, 4688 is significantly less useful.
+Enabling Process Creation Logging: Event ID 4688 with command-line logging requires enabling "Audit Process Creation" in Advanced Audit Policy and setting the `ProcessCreationIncludeCmdLine_Enabled` registry key. Without command-line, 4688 is significantly less useful.
 
 ---
 
@@ -126,12 +126,12 @@ falsepositives:
 level: high
 ```
 
-**Key YAML fields**:
-- `logsource` — defines the log category and product; pySigma backends translate this to the correct index/source
-- `detection` — named selection blocks; supports field modifiers (`|contains`, `|endswith`, `|startswith`, `|re`)
-- `condition` — boolean logic combining selection blocks; `1 of selection*` matches any block prefixed with "selection"
-- `falsepositives` — documented expected FP sources for tuning guidance
-- `level` — informational / low / medium / high / critical; drives SIEM alert priority
+Key YAML fields:
+- `logsource`: defines the log category and product; pySigma backends translate this to the correct index/source
+- `detection`: named selection blocks; supports field modifiers (`|contains`, `|endswith`, `|startswith`, `|re`)
+- `condition`: boolean logic combining selection blocks; `1 of selection*` matches any block prefixed with "selection"
+- `falsepositives`: documented expected FP sources for tuning guidance
+- `level`: informational / low / medium / high / critical; drives SIEM alert priority
 
 ---
 
@@ -141,51 +141,51 @@ Detection programs must explicitly cover adversary evasion, not just the initial
 
 | Evasion Technique | How It Works | Detection Approach |
 |---|---|---|
-| **Timestomping** | Modifying file timestamps to blend with legitimate files or pre-date the incident | Sysmon Event 2 (file creation time changed); compare filesystem timestamps with MFT timestamps |
-| **Parent Process Spoofing** | Using `CreateProcess` with `PROCESS_CREATION` flags to set a fake parent process — e.g., making malware appear as a child of explorer.exe | Detect mismatches between the process tree and expected parent-child relationships |
-| **AMSI Bypass** | Patching the AmsiScanBuffer function in memory to return "clean" for all content; defeats script-based malware detection | Sysmon Event 10 (handle to amsi.dll process); memory write patterns; PowerShell ScriptBlock logging |
-| **Log Clearing** | Deleting event logs (wevtutil cl, Clear-EventLog) to remove forensic evidence | Event ID 1102 (Security log cleared), 104 (System log cleared); near-real-time SIEM forwarding to preserve logs before clearing |
-| **LOLBAS** | Using legitimate binaries (certutil, mshta, regsvr32, wscript, bitsadmin) for malicious purposes to blend with legitimate activity | Process execution rules for known LOLBAS binaries with suspicious command-line patterns; network connections from non-network binaries |
-| **Process Injection** | Injecting malicious code into legitimate processes (e.g., svchost.exe, explorer.exe) to hide execution and evade process-based detection | Sysmon Event 8 (CreateRemoteThread), Event 10 (ProcessAccess to injection targets); behavioral detection of unexpected modules |
+| Timestomping | Modifying file timestamps to blend with legitimate files or pre-date the incident | Sysmon Event 2 (file creation time changed); compare filesystem timestamps with MFT timestamps |
+| Parent Process Spoofing | Using `CreateProcess` with `PROCESS_CREATION` flags to set a fake parent process: e.g., making malware appear as a child of explorer.exe | Detect mismatches between the process tree and expected parent-child relationships |
+| AMSI Bypass | Patching the AmsiScanBuffer function in memory to return "clean" for all content; defeats script-based malware detection | Sysmon Event 10 (handle to amsi.dll process); memory write patterns; PowerShell ScriptBlock logging |
+| Log Clearing | Deleting event logs (wevtutil cl, Clear-EventLog) to remove forensic evidence | Event ID 1102 (Security log cleared), 104 (System log cleared); near-real-time SIEM forwarding to preserve logs before clearing |
+| LOLBAS | Using legitimate binaries (certutil, mshta, regsvr32, wscript, bitsadmin) for malicious purposes to blend with legitimate activity | Process execution rules for known LOLBAS binaries with suspicious command-line patterns; network connections from non-network binaries |
+| Process Injection | Injecting malicious code into legitimate processes (e.g., svchost.exe, explorer.exe) to hide execution and evade process-based detection | Sysmon Event 8 (CreateRemoteThread), Event 10 (ProcessAccess to injection targets); behavioral detection of unexpected modules |
 
 ---
 
 ## Free Training
 
-- [BHIS SOC Core Skills Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/) — Hundreds of free hours covering detection methodology, SIEM tuning, log analysis, and SOC workflow
-- [SANS Threat Hunting and Detection Summit Talks](https://www.youtube.com/@SansInstitute) — Annual summit recordings covering detection-as-code, behavioral analytics, and advanced detection programs
-- [TryHackMe SOC Level 1 and Level 2 Paths](https://tryhackme.com) — Structured browser-based learning covering Windows Event Logs, Splunk, Snort, Zeek, and detection fundamentals
-- [Hack The Box Academy SOC Analyst Path](https://academy.hackthebox.com) — Free Student tier covering Windows/Linux log analysis, SIEM fundamentals, IDS/IPS, and network traffic analysis
-- [Sigma Documentation and Community](https://github.com/SigmaHQ/sigma) — Free rule format documentation, conversion tools, and the community rule repository
-- [Splunk Security Essentials App](https://splunkbase.splunk.com/app/3435) — Free Splunk app containing 200+ detections mapped to ATT&CK with detailed explanations
-- [Elastic Security Labs](https://www.elastic.co/security-labs) — Free detection research, EQL rule examples, and malware analysis from Elastic's security team
-- [LetsDefend](https://letsdefend.io) — Free SOC simulator for practicing alert triage, threat analysis, and detection validation
-- [Blue Team Labs Online](https://blueteamlabs.online) — Free detection and forensics challenges covering log analysis and SIEM investigation
-- [Antisyphon SOC Core Skills](https://www.antisyphontraining.com) — Pay-what-you-can live training from John Strand; exceptional value
+- [BHIS SOC Core Skills Webcasts](https://www.blackhillsinfosec.com/blog/webcasts/): Hundreds of free hours covering detection methodology, SIEM tuning, log analysis, and SOC workflow
+- [SANS Threat Hunting and Detection Summit Talks](https://www.youtube.com/@SansInstitute): Annual summit recordings covering detection-as-code, behavioral analytics, and advanced detection programs
+- [TryHackMe SOC Level 1 and Level 2 Paths](https://tryhackme.com): Structured browser-based learning covering Windows Event Logs, Splunk, Snort, Zeek, and detection fundamentals
+- [Hack The Box Academy SOC Analyst Path](https://academy.hackthebox.com): Free Student tier covering Windows/Linux log analysis, SIEM fundamentals, IDS/IPS, and network traffic analysis
+- [Sigma Documentation and Community](https://github.com/SigmaHQ/sigma): Free rule format documentation, conversion tools, and the community rule repository
+- [Splunk Security Essentials App](https://splunkbase.splunk.com/app/3435): Free Splunk app containing 200+ detections mapped to ATT&CK with detailed explanations
+- [Elastic Security Labs](https://www.elastic.co/security-labs): Free detection research, EQL rule examples, and malware analysis from Elastic's security team
+- [LetsDefend](https://letsdefend.io): Free SOC simulator for practicing alert triage, threat analysis, and detection validation
+- [Blue Team Labs Online](https://blueteamlabs.online): Free detection and forensics challenges covering log analysis and SIEM investigation
+- [Antisyphon SOC Core Skills](https://www.antisyphontraining.com): Pay-what-you-can live training from John Strand; exceptional value
 
 ---
 
 ## Tools & Repositories
 
 ### Detection Content & Rule Formats
-- [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) — Universal detection rule format; 3000+ community rules mapped to ATT&CK; convert to Splunk SPL, Elastic EQL, Microsoft KQL, and 30+ other targets
-- [SigmaHQ/pySigma](https://github.com/SigmaHQ/pySigma) — Python library for Sigma rule parsing, validation, and backend conversion; use to build detection pipelines and CI/CD workflows
-- [elastic/detection-rules](https://github.com/elastic/detection-rules) — Elastic's production detection rules; excellent reference for EQL and KQL detection patterns regardless of SIEM
-- [splunk/security_content](https://github.com/splunk/security_content) — Splunk Threat Research Team detection content with ATT&CK mappings and data source requirements
+- [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma): Universal detection rule format; 3000+ community rules mapped to ATT&CK; convert to Splunk SPL, Elastic EQL, Microsoft KQL, and 30+ other targets
+- [SigmaHQ/pySigma](https://github.com/SigmaHQ/pySigma): Python library for Sigma rule parsing, validation, and backend conversion; use to build detection pipelines and CI/CD workflows
+- [elastic/detection-rules](https://github.com/elastic/detection-rules): Elastic's production detection rules; excellent reference for EQL and KQL detection patterns regardless of SIEM
+- [splunk/security_content](https://github.com/splunk/security_content): Splunk Threat Research Team detection content with ATT&CK mappings and data source requirements
 
 ### Sysmon & Endpoint Telemetry
-- [SwiftOnSecurity/sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config) — Most widely deployed Sysmon configuration; carefully tuned for maximum visibility with controlled noise
-- [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular) — Modular Sysmon configuration framework for selective event collection and easier maintenance
-- [Neo23x0/signature-base](https://github.com/Neo23x0/signature-base) — Florian Roth's YARA and Sigma rule base; thousands of production-quality detection rules
+- [SwiftOnSecurity/sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config): Most widely deployed Sysmon configuration; carefully tuned for maximum visibility with controlled noise
+- [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular): Modular Sysmon configuration framework for selective event collection and easier maintenance
+- [Neo23x0/signature-base](https://github.com/Neo23x0/signature-base): Florian Roth's YARA and Sigma rule base; thousands of production-quality detection rules
 
 ### Adversary Emulation & Validation
-- [redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team) — Library of focused test cases mapped to ATT&CK techniques; the standard for validating detection coverage
-- [mitre/caldera](https://github.com/mitre/caldera) — MITRE's automated adversary emulation platform; runs ATT&CK-mapped operations for continuous detection validation
-- [center-for-threat-informed-defense/summiting_the_pyramid](https://github.com/center-for-threat-informed-defense/summiting_the_pyramid) — Framework for building detections robust against adversary evasion; detect behavior rather than brittle indicators
+- [redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team): Library of focused test cases mapped to ATT&CK techniques; the standard for validating detection coverage
+- [mitre/caldera](https://github.com/mitre/caldera): MITRE's automated adversary emulation platform; runs ATT&CK-mapped operations for continuous detection validation
+- [center-for-threat-informed-defense/summiting_the_pyramid](https://github.com/center-for-threat-informed-defense/summiting_the_pyramid): Framework for building detections robust against adversary evasion; detect behavior rather than brittle indicators
 
 ### SIEM-Specific Content
-- [microsoft/Microsoft-Sentinel-Content](https://github.com/Azure/Azure-Sentinel) — Microsoft Sentinel Content Hub rules, workbooks, and playbooks; the community contribution point for Sentinel detections
-- [Splunk Security Content](https://github.com/splunk/security_content) — See above; 1000+ SPL detections with ATT&CK mappings and data model documentation
+- [microsoft/Microsoft-Sentinel-Content](https://github.com/Azure/Azure-Sentinel): Microsoft Sentinel Content Hub rules, workbooks, and playbooks; the community contribution point for Sentinel detections
+- [Splunk Security Content](https://github.com/splunk/security_content): See above; 1000+ SPL detections with ATT&CK mappings and data model documentation
 
 ---
 
@@ -193,14 +193,14 @@ Detection programs must explicitly cover adversary evasion, not just the initial
 
 | Platform | Strength |
 |---|---|
-| **Splunk Enterprise Security** | Most widely deployed enterprise SIEM; Risk-Based Alerting (RBA), Splunk Security Essentials content library, powerful SPL |
-| **Microsoft Sentinel** | Cloud-native SIEM; KQL analytics, tight M365 Defender integration, Sentinel Content Hub with community rules |
-| **Elastic Security** | Open-source core with enterprise tiers; EQL temporal sequence matching, built-in ATT&CK alignment |
-| **CrowdStrike Falcon** | Market-leading EDR; behavioral engine, OverWatch managed hunting, Fusion SOAR for automated response |
-| **SentinelOne Singularity** | EDR and XDR with autonomous response and Storyline attack chain reconstruction |
-| **Palo Alto Cortex XDR** | XDR correlating endpoint, network, and cloud telemetry; behavioral analytics with ATT&CK mapping |
-| **IBM QRadar** | Long-standing enterprise SIEM dominant in regulated industries; AQL query language, deep compliance reporting |
-| **Vectra AI** | Network detection and response using AI; strongest for C2 beaconing and lateral movement detection |
+| Splunk Enterprise Security | Most widely deployed enterprise SIEM; Risk-Based Alerting (RBA), Splunk Security Essentials content library, powerful SPL |
+| Microsoft Sentinel | Cloud-native SIEM; KQL analytics, tight M365 Defender integration, Sentinel Content Hub with community rules |
+| Elastic Security | Open-source core with enterprise tiers; EQL temporal sequence matching, built-in ATT&CK alignment |
+| CrowdStrike Falcon | Market-leading EDR; behavioral engine, OverWatch managed hunting, Fusion SOAR for automated response |
+| SentinelOne Singularity | EDR and XDR with autonomous response and Storyline attack chain reconstruction |
+| Palo Alto Cortex XDR | XDR correlating endpoint, network, and cloud telemetry; behavioral analytics with ATT&CK mapping |
+| IBM QRadar | Long-standing enterprise SIEM dominant in regulated industries; AQL query language, deep compliance reporting |
+| Vectra AI | Network detection and response using AI; strongest for C2 beaconing and lateral movement detection |
 
 ---
 
@@ -208,7 +208,7 @@ Detection programs must explicitly cover adversary evasion, not just the initial
 
 | Control | ID | Detection Engineering Relevance |
 |---|---|---|
-| Audit Events | AU-2 | Define the event types to be logged — Security Event IDs, Sysmon, EDR telemetry; the data source foundation for all detection |
+| Audit Events | AU-2 | Define the event types to be logged: Security Event IDs, Sysmon, EDR telemetry; the data source foundation for all detection |
 | Audit Record Generation | AU-12 | Ensure logging is enabled at endpoints, servers, and network devices; detection fails completely when logs are absent |
 | Audit Record Review, Analysis, and Reporting | AU-6 | The SIEM detection program implements this control; automated analysis of audit records to identify anomalous activity |
 | Security Alerts, Advisories, and Directives | SI-5 | Threat intelligence feeds integrated into SIEM/detection content to operationalize external adversary indicators |
@@ -238,14 +238,14 @@ Detection engineering directly implements coverage against specific ATT&CK techn
 
 ## Certifications
 
-- **GCIA** (GIAC Certified Intrusion Analyst) — Covers network traffic analysis, IDS/IPS signature development, and protocol analysis; strong foundation for detection engineers focused on network-layer telemetry
-- **GCIH** (GIAC Certified Incident Handler) — Core certification covering incident detection, analysis, and response; validates the full detection-to-response workflow
-- **GCED** (GIAC Certified Enterprise Defender) — Enterprise defense including network security monitoring, SIEM tuning, and endpoint detection; most directly aligned to detection engineering roles
-- **BTL1** (Blue Team Labs Level 1 — Security Blue Team) — Hands-on SOC analyst certification covering log analysis, SIEM investigation, and digital forensics; strong practical validation for entry-level detection roles
-- **Splunk Core Certified User / Power User** — SPL proficiency; valuable for detection engineers operating primarily in Splunk environments
-- **Elastic Certified Analyst** — EQL proficiency and Elastic Security platform expertise; the corresponding credential for Elastic-focused detection engineers
-- **Microsoft SC-200** (Security Operations Analyst) — Microsoft Sentinel-focused certification covering detection rule authoring, threat hunting, and SOAR playbook development
-- **CySA+** (CompTIA Cybersecurity Analyst) — Vendor-neutral credential covering threat detection, analysis, and response; widely recognized as an entry-to-mid-level credential
+- GCIA (GIAC Certified Intrusion Analyst): Covers network traffic analysis, IDS/IPS signature development, and protocol analysis; strong foundation for detection engineers focused on network-layer telemetry
+- GCIH (GIAC Certified Incident Handler): Core certification covering incident detection, analysis, and response; validates the full detection-to-response workflow
+- GCED (GIAC Certified Enterprise Defender): Enterprise defense including network security monitoring, SIEM tuning, and endpoint detection; most directly aligned to detection engineering roles
+- BTL1 (Blue Team Labs Level 1: Security Blue Team) — Hands-on SOC analyst certification covering log analysis, SIEM investigation, and digital forensics; strong practical validation for entry-level detection roles
+- Splunk Core Certified User / Power User: SPL proficiency; valuable for detection engineers operating primarily in Splunk environments
+- Elastic Certified Analyst: EQL proficiency and Elastic Security platform expertise; the corresponding credential for Elastic-focused detection engineers
+- Microsoft SC-200 (Security Operations Analyst): Microsoft Sentinel-focused certification covering detection rule authoring, threat hunting, and SOAR playbook development
+- CySA+ (CompTIA Cybersecurity Analyst): Vendor-neutral credential covering threat detection, analysis, and response; widely recognized as an entry-to-mid-level credential
 
 ---
 

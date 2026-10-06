@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, you are evaluating deception platforms or writing SIEM rules for decoy assets |
-| **Start at** | [Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines |
-| **Pairs with** | [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md) |
+| Read this when | You are planning your first honeypot or honeytoken deployment, you need near-zero false-positive detection for lateral movement or credential theft, you are evaluating deception platforms or writing SIEM rules for decoy assets |
+| Start at | [Deception Technology Fundamentals](#deception-technology-fundamentals) for why deception works, [Honeytokens](#honeytokens) for the fastest wins (CanaryTokens, AWS keys, AD honey users), [Deception Deployment Strategy](#deception-deployment-strategy) for breadcrumbs and alert pipelines |
+| Pairs with | [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [HONEYPOT_DECEPTION_REFERENCE.md](HONEYPOT_DECEPTION_REFERENCE.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md) |
 
 ---
 
@@ -34,13 +34,13 @@ but attackers must avoid every trap. A single honeytoken access or decoy system 
 generates a near-zero false-positive alert with full attacker context (IP, credential used,
 time, lateral path).
 
-**Attacker psychology factors:**
+Attacker psychology factors:
 - Attackers perform reconnaissance and assume any accessible resource is legitimate
 - Discovery tools (nmap, BloodHound, Mimikatz) touch decoys the same way they touch real assets
-- Credential reuse is automatic — attackers try found passwords everywhere, including honeytokens
+- Credential reuse is automatic: attackers try found passwords everywhere, including honeytokens
 - Time pressure during intrusions discourages careful validation of every resource
 
-**Alert fidelity:** Deception alerts are true positives by design. No tuning required.
+Alert fidelity: Deception alerts are true positives by design. No tuning required.
 Any interaction with a decoy or honeytoken is definitionally malicious because no legitimate
 user should ever access it.
 
@@ -49,28 +49,28 @@ user should ever access it.
 | Attribute | Traditional Detection (SIEM/EDR) | Deception Technology |
 |---|---|---|
 | Alert volume | High | Very low |
-| False positive rate | 30–95% depending on tuning | Near 0% |
+| False positive rate | 30-95% depending on tuning | Near 0% |
 | Coverage | Known TTPs and signatures | Catches novel/unknown activity |
 | Attacker requirement | Must trigger a known rule | Must perfectly avoid every decoy |
 | Deployment complexity | High (tuning, log sources) | Low (place and forget) |
-| Cost (enterprise) | High | Low–Medium |
+| Cost (enterprise) | High | Low-Medium |
 | Lateral movement detection | Difficult, noisy | Early, high-fidelity |
 | Insider threat detection | Limited | Effective (token access) |
 | Cloud coverage | Requires agent/log config | Native (cloud honeytokens) |
 
 ### Deception Grid Design Principles
 
-1. **Breadcrumbs lead to decoys** — plant fake credentials, DNS entries, SSH configs, and
+1. Breadcrumbs lead to decoys: plant fake credentials, DNS entries, SSH configs, and
    AWS profiles that point to decoy systems. Attackers following stolen breadcrumbs land on
    honeypots instead of real assets.
-2. **Decoys blend with real assets** — match OS versions, service banners, and naming
+2. Decoys blend with real assets: match OS versions, service banners, and naming
    conventions to the production environment. Decoys named `CORP-DC03` in an environment
    with `CORP-DC01` and `CORP-DC02` are convincing.
-3. **Comprehensive coverage** — every subnet, VLAN, and credential store should contain
+3. Comprehensive coverage: every subnet, VLAN, and credential store should contain
    at least one decoy or honeytoken.
-4. **Active decoys** — generate realistic background traffic (scheduled tasks, fake logins)
+4. Active decoys: generate realistic background traffic (scheduled tasks, fake logins)
    so decoys appear live on the network.
-5. **No legitimate access** — decoys and honeytokens must be excluded from monitoring
+5. No legitimate access: decoys and honeytokens must be excluded from monitoring
    whitelists, password managers, and automation. Any access is an alert.
 
 ### ATT&CK Techniques Deception Detects
@@ -204,17 +204,17 @@ conpot --template default
 
 Real operating systems and applications, fully monitored. Higher fidelity but higher risk.
 
-**Design principles:**
+Design principles:
 - Place on isolated network segment (honeypot VLAN) with no route to production
 - Full packet capture on ingress/egress (tcpdump or Zeek)
 - Host-based behavioral monitoring (auditd, Sysmon, osquery)
 - Read-only golden image with tripwire monitoring for filesystem changes
 - Automated shutdown on certain trigger events (prevent pivoting)
 
-**HoneyDrive** — Ubuntu-based Linux distro pre-loaded with 10+ honeypot packages:
+HoneyDrive — Ubuntu-based Linux distro pre-loaded with 10+ honeypot packages:
 Kippo, Dionaea, Honeyd, LaBrea, Thug, PhoneyC, Glastopf, and analysis tools.
 
-**Legal considerations:**
+Legal considerations:
 - Entrapment: honeypots are legal in most jurisdictions; they do not induce crime,
   they merely observe attackers already committing it
 - Employee monitoring: ensure acceptable use policy and employment agreements cover
@@ -309,7 +309,7 @@ attackers are likely to look.
 
 Free hosted service from Thinkst for generating and managing honeytokens.
 
-**Token types:**
+Token types:
 
 | Type | Use Case |
 |---|---|
@@ -327,15 +327,15 @@ Free hosted service from Thinkst for generating and managing honeytokens.
 | Fast redirect | Track link sharing |
 | Executable (.exe) | Detect execution of fake tools |
 
-**Creating a token via API:**
+Creating a token via API:
 ```bash
 curl -X POST https://canarytokens.org/generate \
   -d "type=dns&email=soc@example.com&memo=AWS+config+honeytoken"
 ```
 
-**Alert delivery:** HTTP callback, email, Slack/Teams/PagerDuty webhook.
+Alert delivery: HTTP callback, email, Slack/Teams/PagerDuty webhook.
 
-**Deployment locations:**
+Deployment locations:
 - Password manager vault (fake entry named "AWS Production Root")
 - Email drafts folder (fake credentials doc)
 - Cloud storage (fake configuration files)
@@ -412,7 +412,7 @@ GitHub: `https://github.com/spacesiren/spacesiren`
 
 ### Document Honeytokens
 
-**Word/Excel with embedded URL (phone-home on open):**
+Word/Excel with embedded URL (phone-home on open):
 
 Use CanaryTokens.org Word token, or manually embed a URL in a DDEAUTO field or
 linked image that loads from a canary URL when the document is opened.
@@ -427,7 +427,7 @@ resp = requests.post("https://canarytokens.org/generate", data={
 # Download and deploy the returned document
 ```
 
-**Filename lures (effective names):**
+Filename lures (effective names):
 - `2024_salary_bands.xlsx`
 - `board_presentation_Q4_confidential.pdf`
 - `vpn_credentials_emergency.txt`
@@ -438,7 +438,7 @@ resp = requests.post("https://canarytokens.org/generate", data={
 
 ### Database Honeytokens
 
-**Fake high-value records in production database:**
+Fake high-value records in production database:
 
 ```sql
 -- MySQL: insert honeytoken credit card record
@@ -460,7 +460,7 @@ END//
 DELIMITER ;
 ```
 
-**Fake admin credentials table:**
+Fake admin credentials table:
 ```sql
 CREATE TABLE admin_credentials_backup (
   username VARCHAR(64),
@@ -477,7 +477,7 @@ INSERT INTO admin_credentials_backup VALUES
 
 ### File System Honeytokens
 
-#### Windows — Object Access Auditing
+#### Windows: Object Access Auditing
 
 ```powershell
 # Enable object access auditing
@@ -496,7 +496,7 @@ Set-Acl $file $acl
 # Splunk: index=wineventlog EventCode=4663 ObjectName="*passwords_master*"
 ```
 
-#### Linux — inotifywait and auditd
+#### Linux: inotifywait and auditd
 
 ```bash
 # inotifywait monitoring
@@ -529,7 +529,7 @@ New-ADUser -Name "svc-legacy-backup" `
 # Alert rule: any auth event for this account = P1 incident
 ```
 
-**Detection in Splunk:**
+Detection in Splunk:
 ```splunk
 index=wineventlog (EventCode=4768 OR EventCode=4769 OR EventCode=4624)
   Account_Name="svc-legacy-backup"
@@ -566,7 +566,7 @@ Add-ADGroupMember -Identity "Domain Admins Backup Shadow" -Members "svc-legacy-b
 
 | Platform | Deployment | Token Types | SIEM Integration | ATT&CK Coverage | Tier |
 |---|---|---|---|---|---|
-| SentinelOne Singularity Hologram (formerly Attivo) | On-prem / Cloud | AD, file, network, cloud, endpoint | Splunk, Sentinel, QRadar | TA0007–TA0008 | Enterprise |
+| SentinelOne Singularity Hologram (formerly Attivo) | On-prem / Cloud | AD, file, network, cloud, endpoint | Splunk, Sentinel, QRadar | TA0007-TA0008 | Enterprise |
 | Palo Alto Cortex (formerly Illusive Networks) | SaaS | AD objects, credentials, network | Cortex XSOAR native | Heavy AD/identity focus | Enterprise |
 | TrapX DeceptionGrid | On-prem appliance | Network decoys, endpoint, OT/ICS | Splunk, ArcSight | Broad OT coverage | Enterprise |
 | Acalvio ShadowPlex | SaaS / hybrid | AD, cloud, network, file, OT | Splunk, Sentinel, XSOAR | High | Enterprise |
@@ -588,11 +588,11 @@ Add-ADGroupMember -Identity "Domain Admins Backup Shadow" -Members "svc-legacy-b
 Physical or VM hardware appliances that auto-discover the environment and mimic local
 services (file shares, printers, SSH servers, Active Directory).
 
-- **Form factors:** Physical device (PoE), AWS AMI, VMware OVA, Azure VM image, GCP image
-- **Auto-configuration:** Listens passively, adopts environment naming conventions
-- **Alert delivery:** Email, Slack, Teams, PagerDuty, webhook, syslog
-- **Whitelisting:** IP-based and token-based to suppress scanner noise
-- **Management:** Cloud console at `canary.tools`; API for bulk management
+- Form factors: Physical device (PoE), AWS AMI, VMware OVA, Azure VM image, GCP image
+- Auto-configuration: Listens passively, adopts environment naming conventions
+- Alert delivery: Email, Slack, Teams, PagerDuty, webhook, syslog
+- Whitelisting: IP-based and token-based to suppress scanner noise
+- Management: Cloud console at `canary.tools`; API for bulk management
 
 ---
 
@@ -603,12 +603,12 @@ services (file shares, printers, SSH servers, Active Directory).
 Breadcrumbs are fake artifacts planted in locations attackers commonly search,
 designed to guide them to decoys rather than real assets.
 
-**Browser history breadcrumbs:**
+Browser history breadcrumbs:
 Plant a fake internal URL in browser history that resolves via a DNS canary token.
 Attacker dumping browser history finds `http://vpn-admin.corp.local:8443`;
 the DNS canary for `vpn-admin.corp.local` fires on lookup.
 
-**SSH config breadcrumbs:**
+SSH config breadcrumbs:
 ```bash
 cat >> ~/.ssh/config << 'EOF'
 Host prod-bastion
@@ -619,7 +619,7 @@ EOF
 # id_prod_deploy does not exist — canary DNS fires when attacker resolves hostname
 ```
 
-**AWS credentials breadcrumbs:**
+AWS credentials breadcrumbs:
 ```ini
 # ~/.aws/credentials — plant honeytoken key alongside real profiles
 # (Replace placeholders with real key IDs generated for your honeytoken IAM user)
@@ -632,7 +632,7 @@ aws_access_key_id = <HONEYTOKEN_KEY_ID>
 aws_secret_access_key = <HONEYTOKEN_SECRET_KEY>
 ```
 
-**Environment variable breadcrumbs:**
+Environment variable breadcrumbs:
 ```bash
 # /etc/environment or ~/.bashrc
 # Use real honeytokens generated via canarytokens.org or your deception platform.
@@ -643,7 +643,7 @@ export GITHUB_TOKEN="<honeytoken-pat-value>"
 export DATABASE_URL="<honeytoken-dsn-value>"
 ```
 
-**Hosts file breadcrumbs:**
+Hosts file breadcrumbs:
 ```
 # /etc/hosts — fake server addresses pointing to honeypots
 10.0.100.50  password-vault.internal.corp.local
@@ -654,12 +654,12 @@ export DATABASE_URL="<honeytoken-dsn-value>"
 
 ### Decoy Density
 
-- **Recommended ratio:** 1 decoy per 10 real assets (minimum)
-- **Subnet coverage:** Every /24 should have at least 2 decoy IPs
-- **Credential stores:** Every password manager, browser, and config file should have
+- Recommended ratio: 1 decoy per 10 real assets (minimum)
+- Subnet coverage: Every /24 should have at least 2 decoy IPs
+- Credential stores: Every password manager, browser, and config file should have
   at least one honeytoken credential
-- **Active Directory:** Minimum 3–5 honey users and 2–3 honey SPNs per domain
-- **File shares:** Honeytoken files in every major share root
+- Active Directory: Minimum 3-5 honey users and 2-3 honey SPNs per domain
+- File shares: Honeytoken files in every major share root
 
 ---
 
@@ -694,7 +694,7 @@ No false positive tuning is needed. Every alert from a deception system is a tru
 
 ### Threat Hunting with Deception
 
-**Use honeytoken access as a hunt pivot:**
+Use honeytoken access as a hunt pivot:
 
 1. Honeytoken fires for `svc-legacy-backup` at 02:17 UTC from `10.1.45.22`
 2. Hunt: what other activity came from `10.1.45.22` in the 4 hours prior?
@@ -702,7 +702,7 @@ No false positive tuning is needed. Every alert from a deception system is a tru
 4. Hunt: what systems did `10.1.45.22` connect TO after the honeytoken access?
 5. Hunt: are there other honeytoken or decoy interactions from adjacent IPs?
 
-**Lateral movement detection via decoy-to-decoy hops:**
+Lateral movement detection via decoy-to-decoy hops:
 If an attacker moves from Decoy A to Decoy B, you have a full map of their lateral
 movement path with timestamps — before they reach any real asset.
 
@@ -710,7 +710,7 @@ movement path with timestamps — before they reach any real asset.
 
 ## Detection Rules for Deception
 
-### Splunk SPL — AWS Honeytoken CloudTrail Alert
+### Splunk SPL: AWS Honeytoken CloudTrail Alert
 
 ```splunk
 index=aws_cloudtrail sourcetype=aws:cloudtrail
@@ -720,7 +720,7 @@ index=aws_cloudtrail sourcetype=aws:cloudtrail
 | sort -_time
 ```
 
-### KQL — Honeytoken User Logon (Microsoft Sentinel)
+### KQL: Honeytoken User Logon (Microsoft Sentinel)
 
 ```kql
 SecurityEvent
@@ -730,7 +730,7 @@ SecurityEvent
 | order by TimeGenerated desc
 ```
 
-### KQL — Azure Honeytoken Key Vault Access
+### KQL: Azure Honeytoken Key Vault Access
 
 ```kql
 AzureDiagnostics
@@ -831,16 +831,16 @@ def page_oncall(summary: str, severity: str = "critical"):
 
 By design, deception alerts have a ~100% true positive rate. Track:
 
-- **Total deception alerts per month** — increasing trend indicates attacker activity
-- **Alerts by token type** — which breadcrumbs are most effective?
-- **Time-to-alert** — deception event timestamp to SOC notification (target: < 2 minutes)
-- **False positive count** — should be 0; any FP indicates misconfiguration
+- Total deception alerts per month: increasing trend indicates attacker activity
+- Alerts by token type: which breadcrumbs are most effective?
+- Time-to-alert: deception event timestamp to SOC notification (target: < 2 minutes)
+- False positive count: should be 0; any FP indicates misconfiguration
   (legitimate process touching a decoy)
 
 ### Dwell Time Reduction
 
 Deception technology is the most effective dwell time reduction control available.
-Industry benchmark: median attacker dwell time without deception is 16–21 days.
+Industry benchmark: median attacker dwell time without deception is 16-21 days.
 With mature deception deployment, lateral movement is typically detected within hours.
 
 | Scenario | Without Deception | With Deception |
@@ -891,14 +891,14 @@ index=incident_management source=ticketing
 
 | Control Family | Control | Deception Mapping |
 |---|---|---|
-| DE — Detect | DE-2 | Honeypots and honeytokens as detection sensors |
-| DE — Detect | DE-3 | Continuous deception monitoring |
-| SI — System Integrity | SI-3 | Honeytoken-based malware behavior detection |
-| IR — Incident Response | IR-4 | Deception alerts trigger IR procedures |
-| AU — Audit | AU-12 | Audit logging on all honeytoken accesses |
-| SC — System and Communications | SC-26 | Honeypots as deceptive components |
+| DE: Detect | DE-2 | Honeypots and honeytokens as detection sensors |
+| DE: Detect | DE-3 | Continuous deception monitoring |
+| SI: System Integrity | SI-3 | Honeytoken-based malware behavior detection |
+| IR: Incident Response | IR-4 | Deception alerts trigger IR procedures |
+| AU: Audit | AU-12 | Audit logging on all honeytoken accesses |
+| SC: System and Communications | SC-26 | Honeypots as deceptive components |
 
-> **NIST SP 800-53 SC-26 (Decoys):** "Employ a diverse set of information technologies and
+> NIST SP 800-53 SC-26 (Decoys): "Employ a diverse set of information technologies and
 > practices to detect, identify, and analyze attacker tactics, techniques, and procedures."
 > Deception technology directly satisfies SC-26.
 

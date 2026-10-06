@@ -1,19 +1,19 @@
 # CAPEC Attack Pattern Reference
 
-> [MITRE CAPEC](https://capec.mitre.org/) (Common Attack Pattern Enumeration and Classification) describes the **615 common patterns of attack** that exploit software weaknesses. CAPEC is the *attack-pattern* bridge between **CWE** (the weakness) and **ATT&CK** (the adversary behavior) in the [knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md). **177** patterns carry an explicit ATT&CK technique mapping.
+> [MITRE CAPEC](https://capec.mitre.org/) (Common Attack Pattern Enumeration and Classification) describes the 615 common patterns of attack that exploit software weaknesses. CAPEC is the *attack-pattern* bridge between CWE (the weakness) and ATT&CK (the adversary behavior) in the [knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md). 177 patterns carry an explicit ATT&CK technique mapping.
 
-Machine-readable: [`data/weaknesses/capec.jsonl`](data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md) · [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
+Machine-readable: [`data/weaknesses/capec.jsonl`](data/weaknesses/capec.jsonl). Related: [CWE Weaknesses](CWE_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md).
 
 | | |
 |---|---|
-| **Read this when** | you have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, you are triaging which high-severity patterns touch your stack |
-| **Start at** | [Attack patterns mapped to ATT&CK](#attack-patterns-mapped-to-attampck) for the direct CAPEC-to-ATT&CK bridge, [High-severity attack patterns](#high-severity-attack-patterns) for severity-first triage |
+| Read this when | you have a CWE weakness and need the attack patterns that exploit it, you need to pivot from an attack pattern to the ATT&CK techniques it maps to, you are triaging which high-severity patterns touch your stack |
+| Start at | [Attack patterns mapped to ATT&CK](#attack-patterns-mapped-to-attampck) for the direct CAPEC-to-ATT&CK bridge, [High-severity attack patterns](#high-severity-attack-patterns) for severity-first triage |
 
-**Abstraction:** 77 Meta · 197 Standard · 341 Detailed.
+Abstraction: 77 Meta, 197 Standard, 341 Detailed.
 
 ## Attack patterns mapped to ATT&CK
 
-Patterns with an explicit ATT&CK technique mapping — the direct CAPEC → ATT&CK bridge.
+Patterns with an explicit ATT&CK technique mapping — the direct CAPEC -> ATT&CK bridge.
 
 | CAPEC | Pattern | Severity | ATT&CK techniques | Related CWE |
 |---|---|---|---|---|

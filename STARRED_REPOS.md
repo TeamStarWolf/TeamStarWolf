@@ -1,14 +1,14 @@
 # Starred Repositories Index
 
-> **In one minute** — This is the full map of 1032 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
+> In one minute — This is the full map of 1032 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
 
 | | |
 |---|---|
-| **Read this when** | you need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
-| **Start at** | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue) |
-| **Pairs with** | [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
+| Read this when | you need a tool for a specific security task and want to browse by discipline, you remember starring something but not what it was called, you want a broad map of the whole collection before diving into curated lists |
+| Start at | [Category Index](#category-index), [How To Use This File](#how-to-use-this-file), [Black Hat Arsenal Review Queue](#black-hat-arsenal-review-queue) |
+| Pairs with | [research/CURATED_STARS_LISTS.md](research/CURATED_STARS_LISTS.md), [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) |
 
-A categorized index of **1032** starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
+A categorized index of 1032 starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
 
 ## How To Use This File
 
@@ -20,29 +20,29 @@ A categorized index of **1032** starred repositories grouped by cybersecurity di
 
 ## Category Index
 
-- **[Frameworks & Standards](#frameworks-amp-standards)** (38)
-- **[Threat Intelligence](#threat-intelligence)** (29)
-- **[Detection Engineering](#detection-engineering)** (37)
-- **[Vulnerability Management](#vulnerability-management)** (57)
-- **[DFIR - Digital Forensics & Incident Response](#dfir-digital-forensics-amp-incident-response)** (28)
-- **[Malware Analysis & Reverse Engineering](#malware-analysis-amp-reverse-engineering)** (42)
-- **[Red Team - Offensive Security](#red-team-offensive-security)** (272)
-- **[Network Security](#network-security)** (20)
-- **[Cloud, Container & Identity](#cloud-container-amp-identity)** (59)
-- **[Cryptography & Passwords](#cryptography-amp-passwords)** (21)
-- **[AI / LLM Security](#ai-llm-security)** (8)
-- **[Smart Contracts / Web3](#smart-contracts-web3)** (6)
-- **[Threat Modeling](#threat-modeling)** (2)
-- **[Vendor & Platform Repos](#vendor-amp-platform-repos)** (110)
-- **[Hardware, OS, Lab](#hardware-os-lab)** (82)
-- **[Compliance GRC](#compliance-grc)** (6)
-- **[SOAR](#soar)** (4)
-- **[Honeypots & Deception](#honeypots-amp-deception)** (6)
-- **[Government Agencies](#government-agencies)** (2)
-- **[Learning & Content](#learning-amp-content)** (58)
-- **[Anthropic & AI Skills](#anthropic-amp-ai-skills)** (7)
-- **[GitHub Tools](#github-tools)** (1)
-- **[Personal & Misc](#personal-amp-misc)** (173)
+- [Frameworks & Standards](#frameworks-amp-standards) (38)
+- [Threat Intelligence](#threat-intelligence) (29)
+- [Detection Engineering](#detection-engineering) (37)
+- [Vulnerability Management](#vulnerability-management) (57)
+- [DFIR - Digital Forensics & Incident Response](#dfir-digital-forensics-amp-incident-response) (28)
+- [Malware Analysis & Reverse Engineering](#malware-analysis-amp-reverse-engineering) (42)
+- [Red Team - Offensive Security](#red-team-offensive-security) (272)
+- [Network Security](#network-security) (20)
+- [Cloud, Container & Identity](#cloud-container-amp-identity) (59)
+- [Cryptography & Passwords](#cryptography-amp-passwords) (21)
+- [AI / LLM Security](#ai-llm-security) (8)
+- [Smart Contracts / Web3](#smart-contracts-web3) (6)
+- [Threat Modeling](#threat-modeling) (2)
+- [Vendor & Platform Repos](#vendor-amp-platform-repos) (110)
+- [Hardware, OS, Lab](#hardware-os-lab) (82)
+- [Compliance GRC](#compliance-grc) (6)
+- [SOAR](#soar) (4)
+- [Honeypots & Deception](#honeypots-amp-deception) (6)
+- [Government Agencies](#government-agencies) (2)
+- [Learning & Content](#learning-amp-content) (58)
+- [Anthropic & AI Skills](#anthropic-amp-ai-skills) (7)
+- [GitHub Tools](#github-tools) (1)
+- [Personal & Misc](#personal-amp-misc) (173)
 
 ## Black Hat Arsenal Review Queue
 
@@ -1659,7 +1659,7 @@ Supplemental defensive and DFIR tooling not covered elsewhere.
 
 | Repository | Author | Stars | Description |
 |------------|--------|-------|-------------|
-| [EricZimmermann/KAPE](https://ericzimmerman.github.io/#!index.md) | EricZimmermann | ★★★★★ | Kroll Artifact Parser and Extractor — triage collection |
+| [EricZimmermann/KAPE](https://ericzimmerman.github.io/#!index.md) | EricZimmermann | ★★★★★ | Kroll Artifact Parser and Extractor: triage collection |
 | [volatilityfoundation/volatility3](https://github.com/volatilityfoundation/volatility3) | Volatility Foundation | ★★★★★ | Memory forensics framework (Python 3) |
 | [countercept/chainsaw](https://github.com/countercept/chainsaw) | countercept | ★★★★★ | Fast Windows event log hunting (Sigma rules) |
 | [Yamato-Security/hayabusa](https://github.com/Yamato-Security/hayabusa) | Yamato-Security | ★★★★ | Sigma-based Windows event log analysis |
@@ -1676,9 +1676,9 @@ Supplemental threat intelligence feeds and IOC repositories.
 
 | Repository | Author | Stars | Description |
 |------------|--------|-------|-------------|
-| [mitre/cti](https://github.com/mitre/cti) | MITRE | ★★★★★ | MITRE ATT&CK STIX data — machine-readable technique data |
+| [mitre/cti](https://github.com/mitre/cti) | MITRE | ★★★★★ | MITRE ATT&CK STIX data: machine-readable technique data |
 | [pan-unit42](https://github.com/pan-unit42) | Palo Alto Unit 42 | ★★★★★ | Unit 42 threat intelligence reports and IOC collections |
 | [MalwareBazaar](https://bazaar.abuse.ch/) | Abuse.ch | ★★★★★ | Malware sample repository with IOCs |
 | [firehol/blocklist-ipsets](https://github.com/firehol/blocklist-ipsets) | FireHOL | ★★★★ | Aggregated blocklists from 300+ sources |
 | [stamparm/ipsum](https://github.com/stamparm/ipsum) | stamparm | ★★★★ | Daily updated IP blacklist (threat intelligence) |
-| [Neo23x0/signature-base](https://github.com/Neo23x0/signature-base) | Neo23x0 | ★★★★★ | YARA rules from Florian Roth — most comprehensive public collection |
+| [Neo23x0/signature-base](https://github.com/Neo23x0/signature-base) | Neo23x0 | ★★★★★ | YARA rules from Florian Roth: most comprehensive public collection |

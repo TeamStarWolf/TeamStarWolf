@@ -55,7 +55,7 @@ binwalk firmware.bin
 binwalk --dd='squashfs:squashfs' firmware.bin
 ```
 
-**binwalk -eM** (`--extract --matryoshka`) recursively extracts embedded file systems, compressed archives, and nested firmware images. After extraction, the `_firmware.bin.extracted/` directory contains the device's root filesystem for manual analysis.
+binwalk -eM (`--extract --matryoshka`) recursively extracts embedded file systems, compressed archives, and nested firmware images. After extraction, the `_firmware.bin.extracted/` directory contains the device's root filesystem for manual analysis.
 
 ### Post-Extraction Analysis with firmwalker
 ```bash
@@ -116,7 +116,7 @@ mosquitto_pub -h TARGET_IP -t 'actuator/door/control' -m 'UNLOCK'
 ### Credential Theft
 Many MQTT brokers require username/password but transmit credentials in plaintext over TCP. A network-level MitM on port 1883 intercepts credentials in the CONNECT packet. Even when TLS is used, certificate validation is frequently disabled in IoT MQTT clients.
 
-**Mitigations**: Enable MQTT authentication and TLS (port 8883), validate certificates in client implementations, use ACLs to restrict topic access per device, consider MQTT 5.0 enhanced authentication.
+Mitigations: Enable MQTT authentication and TLS (port 8883), validate certificates in client implementations, use ACLs to restrict topic access per device, consider MQTT 5.0 enhanced authentication.
 
 ---
 
@@ -125,13 +125,13 @@ Many MQTT brokers require username/password but transmit credentials in plaintex
 ### Mirai (2016)
 Mirai achieved its scale by scanning for IoT devices accepting default Telnet credentials from a hardcoded list of 62 username/password pairs. Infected devices ran a Linux-based bot that launched massive UDP and TCP flood DDoS attacks. The September 2016 attacks against Krebs on Security (620 Gbps) and Dyn DNS (disrupting Twitter, Netflix, Amazon) remain among the largest DDoS events recorded. Mirai's source code was released publicly, spawning dozens of successor variants (Satori, Reaper, Mozi).
 
-**Technical mechanism**: Telnet scanner → default credential brute-force → shell command injection → download and execute Mirai binary for device architecture → kill competing malware → connect to C2 → await DDoS commands.
+Technical mechanism: Telnet scanner -> default credential brute-force -> shell command injection -> download and execute Mirai binary for device architecture -> kill competing malware -> connect to C2 -> await DDoS commands.
 
 ### VPNFilter (2018)
 VPNFilter was attributed to Sandworm (GRU Unit 74455) and compromised 500,000+ home and small-office routers across 54 countries. Unlike Mirai, VPNFilter was a sophisticated multi-stage modular malware designed for espionage and sabotage — not just DDoS:
-- **Stage 1**: Persistent loader surviving reboots; contacted Photobucket for C2 infrastructure (DNS/Tor fallback)
-- **Stage 2**: Core intelligence collection; Modbus SCADA protocol sniffer; destructive "kill" capability to brick devices
-- **Stage 3**: Pluggable modules including packet sniffer, credential harvester, and Tor anonymization
+- Stage 1: Persistent loader surviving reboots; contacted Photobucket for C2 infrastructure (DNS/Tor fallback)
+- Stage 2: Core intelligence collection; Modbus SCADA protocol sniffer; destructive "kill" capability to brick devices
+- Stage 3: Pluggable modules including packet sniffer, credential harvester, and Tor anonymization
 
 VPNFilter demonstrated that nation-state adversaries treat compromised IoT/router infrastructure as persistent intelligence collection platforms, not just botnets.
 
@@ -143,45 +143,45 @@ Secure device identity is the foundation of IoT security — without it, any dev
 
 | Mechanism | Description | Maturity |
 |---|---|---|
-| **X.509 Per-Device Certificates** | Each device receives a unique X.509 certificate at manufacture; used for TLS mutual authentication to cloud backends; certificate revocation enables remote disable | Widely deployed in enterprise IoT; AWS IoT, Azure IoT Hub, GCP IoT Core all support |
-| **TPM Attestation** | Trusted Platform Module (TPM 2.0) stores device identity keys in hardware; remote attestation proves device identity and firmware integrity to servers | Growing adoption in higher-security IoT; used in automotive and industrial contexts |
-| **FIDO Device Onboard (FDO)** | FIDO Alliance standard for automated IoT device provisioning; cryptographic device identity established at manufacture; zero-touch provisioning to cloud platforms without manual configuration | Emerging; Intel Open FDO is the reference implementation; designed to solve supply chain onboarding at scale |
-| **Symmetric Keys (PSK)** | Pre-shared keys provisioned per device; simpler than PKI but key compromise affects only one device if keys are truly unique; common in resource-constrained devices | Widely used; inferior to PKI for revocation but acceptable for very constrained devices |
+| X.509 Per-Device Certificates | Each device receives a unique X.509 certificate at manufacture; used for TLS mutual authentication to cloud backends; certificate revocation enables remote disable | Widely deployed in enterprise IoT; AWS IoT, Azure IoT Hub, GCP IoT Core all support |
+| TPM Attestation | Trusted Platform Module (TPM 2.0) stores device identity keys in hardware; remote attestation proves device identity and firmware integrity to servers | Growing adoption in higher-security IoT; used in automotive and industrial contexts |
+| FIDO Device Onboard (FDO) | FIDO Alliance standard for automated IoT device provisioning; cryptographic device identity established at manufacture; zero-touch provisioning to cloud platforms without manual configuration | Emerging; Intel Open FDO is the reference implementation; designed to solve supply chain onboarding at scale |
+| Symmetric Keys (PSK) | Pre-shared keys provisioned per device; simpler than PKI but key compromise affects only one device if keys are truly unique; common in resource-constrained devices | Widely used; inferior to PKI for revocation but acceptable for very constrained devices |
 
 ---
 
 ## Free Training & Standards
 
-- [OWASP IoT Project](https://owasp.org/www-project-internet-of-things/) — OWASP IoT Top 10, attack surface mapping, and testing guidance; standard reference for IoT security assessment methodology
-- [NIST IR 8259: Baseline IoT Device Cybersecurity](https://doi.org/10.6028/NIST.IR.8259) — NIST baseline cybersecurity activities for IoT device manufacturers; foundational reading for device security requirements
-- [NIST SP 800-213: IoT Cybersecurity](https://doi.org/10.6028/NIST.SP.800-213) — NIST guidance for federal agencies on IoT cybersecurity; risk considerations and integration into organizational security programs
-- [ETSI EN 303 645](https://www.etsi.org/deliver/etsi_en/303600_303699/303645/02.01.01_60/en_303645v020101p.pdf) — European standard for consumer IoT security; 13 outcome-focused provisions covering default credentials, update mechanisms, and vulnerability disclosure
-- [DEFCON IoT Village](https://www.iotvillage.org) — Annual IoT security research presentations and hands-on contests; YouTube archive of practical attack technique talks
-- [Attify IoT Security Training](https://www.attify.com) — Practical IoT security training covering firmware analysis, hardware hacking, and protocol exploitation
-- [Expliot Framework Documentation](https://expliot.readthedocs.io) — Documentation for the IoT exploitation framework
+- [OWASP IoT Project](https://owasp.org/www-project-internet-of-things/): OWASP IoT Top 10, attack surface mapping, and testing guidance; standard reference for IoT security assessment methodology
+- [NIST IR 8259: Baseline IoT Device Cybersecurity](https://doi.org/10.6028/NIST.IR.8259): NIST baseline cybersecurity activities for IoT device manufacturers; foundational reading for device security requirements
+- [NIST SP 800-213: IoT Cybersecurity](https://doi.org/10.6028/NIST.SP.800-213): NIST guidance for federal agencies on IoT cybersecurity; risk considerations and integration into organizational security programs
+- [ETSI EN 303 645](https://www.etsi.org/deliver/etsi_en/303600_303699/303645/02.01.01_60/en_303645v020101p.pdf): European standard for consumer IoT security; 13 outcome-focused provisions covering default credentials, update mechanisms, and vulnerability disclosure
+- [DEFCON IoT Village](https://www.iotvillage.org): Annual IoT security research presentations and hands-on contests; YouTube archive of practical attack technique talks
+- [Attify IoT Security Training](https://www.attify.com): Practical IoT security training covering firmware analysis, hardware hacking, and protocol exploitation
+- [Expliot Framework Documentation](https://expliot.readthedocs.io): Documentation for the IoT exploitation framework
 
 ---
 
 ## Tools & Repositories
 
 ### Firmware Analysis
-- [ReFirmLabs/binwalk](https://github.com/ReFirmLabs/binwalk) — Standard firmware extraction and analysis tool; identifies and extracts file systems from firmware images; first tool in any firmware analysis workflow
-- [craigz28/firmwalker](https://github.com/craigz28/firmwalker) — Searches extracted firmware for passwords, keys, interesting files, and vulnerability indicators; fast triage after extraction
-- [fkie-cad/FACT_core](https://github.com/fkie-cad/FACT_core) — Firmware Analysis and Comparison Tool from Fraunhofer FKIE; automated unpacking, component analysis, vulnerability detection, and cross-firmware comparison
-- [attify/firmware-analysis-toolkit](https://github.com/attify/firmware-analysis-toolkit) — FAT automates QEMU-based firmware emulation; enables dynamic analysis and network service testing without physical hardware
+- [ReFirmLabs/binwalk](https://github.com/ReFirmLabs/binwalk): Standard firmware extraction and analysis tool; identifies and extracts file systems from firmware images; first tool in any firmware analysis workflow
+- [craigz28/firmwalker](https://github.com/craigz28/firmwalker): Searches extracted firmware for passwords, keys, interesting files, and vulnerability indicators; fast triage after extraction
+- [fkie-cad/FACT_core](https://github.com/fkie-cad/FACT_core): Firmware Analysis and Comparison Tool from Fraunhofer FKIE; automated unpacking, component analysis, vulnerability detection, and cross-firmware comparison
+- [attify/firmware-analysis-toolkit](https://github.com/attify/firmware-analysis-toolkit): FAT automates QEMU-based firmware emulation; enables dynamic analysis and network service testing without physical hardware
 
 ### Network & Protocol Analysis
-- [shodan.io](https://www.shodan.io) — Internet-wide scanner exposing IoT devices; primary tool for IoT exposure assessment and device-specific vulnerability research
-- [eclipse/mosquitto](https://github.com/eclipse/mosquitto) — Open-source MQTT broker; essential for MQTT security testing and understanding broker misconfigurations
-- [IoTSeeker](https://github.com/rapid7/IoTSeeker) — Network scanner for detecting IoT devices using default credentials; rapid identification of vulnerable devices on enterprise networks
+- [shodan.io](https://www.shodan.io): Internet-wide scanner exposing IoT devices; primary tool for IoT exposure assessment and device-specific vulnerability research
+- [eclipse/mosquitto](https://github.com/eclipse/mosquitto): Open-source MQTT broker; essential for MQTT security testing and understanding broker misconfigurations
+- [IoTSeeker](https://github.com/rapid7/IoTSeeker): Network scanner for detecting IoT devices using default credentials; rapid identification of vulnerable devices on enterprise networks
 
 ### Exploitation & Testing
-- [threat9/routersploit](https://github.com/threat9/routersploit) — Exploitation framework for embedded devices and routers; modules for credential brute-forcing, CVE exploitation, and network service attacks
-- [expliot-framework/expliot](https://github.com/expliot-framework/expliot) — IoT exploitation framework covering BLE, MQTT, CoAP, I2C, SPI, UART, and JTAG; designed specifically for IoT security testing
+- [threat9/routersploit](https://github.com/threat9/routersploit): Exploitation framework for embedded devices and routers; modules for credential brute-forcing, CVE exploitation, and network service attacks
+- [expliot-framework/expliot](https://github.com/expliot-framework/expliot): IoT exploitation framework covering BLE, MQTT, CoAP, I2C, SPI, UART, and JTAG; designed specifically for IoT security testing
 
 ### Mobile App Analysis
-- [MobSF/Mobile-Security-Framework-MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) — Automated mobile app security analysis for Android and iOS; analyzes IoT companion apps for hardcoded credentials and insecure API calls
-- [frida/frida](https://github.com/frida/frida) — Dynamic instrumentation toolkit for hooking mobile apps and embedded binaries; runtime analysis of IoT companion apps and firmware
+- [MobSF/Mobile-Security-Framework-MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF): Automated mobile app security analysis for Android and iOS; analyzes IoT companion apps for hardcoded credentials and insecure API calls
+- [frida/frida](https://github.com/frida/frida): Dynamic instrumentation toolkit for hooking mobile apps and embedded binaries; runtime analysis of IoT companion apps and firmware
 
 ---
 
@@ -189,11 +189,11 @@ Secure device identity is the foundation of IoT security — without it, any dev
 
 | Platform | Strength |
 |---|---|
-| **Claroty** | Enterprise IoT and OT security; agentless device discovery, vulnerability management, network segmentation guidance, and threat detection; strong in healthcare and industrial |
-| **Armis** | Agentless device security specializing in unmanaged and IoT devices; passive traffic analysis for device fingerprinting and behavioral monitoring |
-| **Microsoft Defender for IoT** | Agentless IoT and OT security integrated with Microsoft Sentinel; passive network monitoring for device discovery and threat detection |
-| **Forescout** | Network access control and device visibility; comprehensive IoT device profiling and policy enforcement for network segmentation |
-| **Tenable.ot** | Vulnerability management extended to IoT and OT environments; combines Nessus capabilities with passive OT/IoT protocol analysis |
+| Claroty | Enterprise IoT and OT security; agentless device discovery, vulnerability management, network segmentation guidance, and threat detection; strong in healthcare and industrial |
+| Armis | Agentless device security specializing in unmanaged and IoT devices; passive traffic analysis for device fingerprinting and behavioral monitoring |
+| Microsoft Defender for IoT | Agentless IoT and OT security integrated with Microsoft Sentinel; passive network monitoring for device discovery and threat detection |
+| Forescout | Network access control and device visibility; comprehensive IoT device profiling and policy enforcement for network segmentation |
+| Tenable.ot | Vulnerability management extended to IoT and OT environments; combines Nessus capabilities with passive OT/IoT protocol analysis |
 
 ---
 
@@ -210,7 +210,7 @@ Secure device identity is the foundation of IoT security — without it, any dev
 | Maintenance Tools | MA-3 | Control physical maintenance interfaces; disable or physically protect JTAG and UART debug ports in production devices; document and control all hardware debug access |
 | Supply Chain Risk Management | SR-3 | Firmware supply chain integrity verification; hardware bill of materials (HBOM) for critical IoT components; manufacturer security attestation in procurement requirements |
 
-**Key Standards**: NIST IR 8259 (IoT Device Baseline), NIST SP 800-213 (Federal IoT Security), ETSI EN 303 645 (Consumer IoT), IEC 62443 (Industrial IoT)
+Key Standards: NIST IR 8259 (IoT Device Baseline), NIST SP 800-213 (Federal IoT Security), ETSI EN 303 645 (Consumer IoT), IEC 62443 (Industrial IoT)
 
 ---
 
@@ -233,11 +233,11 @@ MITRE ATT&CK Enterprise, ICS, and Mobile domains all apply to IoT. Key technique
 
 ## Certifications
 
-- **GICSP** (Global Industrial Cyber Security Professional — GIAC) — Most respected credential for ICS/IoT security; covers industrial control systems, embedded devices, and operational technology; valued in critical infrastructure and industrial IoT roles
-- **CEH** (Certified Ethical Hacker — EC-Council) — Includes an IoT security module covering attack techniques and countermeasures
-- **EC-Council IoTSP** (IoT Security Practitioner) — EC-Council's dedicated IoT security certification covering IoT architecture, attack surface, and security controls
-- **CompTIA Security+** — Covers IoT security concepts at the foundational level; appropriate starting point before specialized IoT credentials
-- **CISSP** (ISC2) — Security engineering and asset security domains address IoT security architecture and risk management
+- GICSP (Global Industrial Cyber Security Professional: GIAC) — Most respected credential for ICS/IoT security; covers industrial control systems, embedded devices, and operational technology; valued in critical infrastructure and industrial IoT roles
+- CEH (Certified Ethical Hacker: EC-Council) — Includes an IoT security module covering attack techniques and countermeasures
+- EC-Council IoTSP (IoT Security Practitioner): EC-Council's dedicated IoT security certification covering IoT architecture, attack surface, and security controls
+- CompTIA Security+: Covers IoT security concepts at the foundational level; appropriate starting point before specialized IoT credentials
+- CISSP (ISC2): Security engineering and asset security domains address IoT security architecture and risk management
 
 ---
 

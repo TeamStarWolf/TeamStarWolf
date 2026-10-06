@@ -7,9 +7,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You're hardening an IdP (Entra, Okta, AD), investigating a credential or MFA-bypass incident, or writing identity detections and CA/PAM/IGA policy |
-| **Start at** | [Identity Attack Surface](#_1-identity-attack-surface), [MFA Bypass Techniques & Defenses](#_3-multi-factor-authentication-bypass-techniques-amp-defenses), [Identity Detection & Response](#_10-identity-detection-amp-response) |
-| **Pairs with** | [Identity & Access Management (IAM) Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) (controls/architecture counterpart: authorization models, IGA/PAM design, compliance mapping), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md) |
+| Read this when | You're hardening an IdP (Entra, Okta, AD), investigating a credential or MFA-bypass incident, or writing identity detections and CA/PAM/IGA policy |
+| Start at | [Identity Attack Surface](#_1-identity-attack-surface), [MFA Bypass Techniques & Defenses](#_3-multi-factor-authentication-bypass-techniques-amp-defenses), [Identity Detection & Response](#_10-identity-detection-amp-response) |
+| Pairs with | [Identity & Access Management (IAM) Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md) (controls/architecture counterpart: authorization models, IGA/PAM design, compliance mapping), [Zero Trust Reference](ZERO_TRUST_REFERENCE.md), [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Privilege Escalation Reference](PRIVESC_REFERENCE.md), [GRC Reference](GRC_REFERENCE.md) |
 
 ---
 
@@ -21,7 +21,7 @@
 4. [Microsoft Entra ID (Azure AD)](#_4-microsoft-entra-id-azure-ad-vendor-specific-controls)
 5. [Privileged Access Management (PAM)](#_5-privileged-access-management-pam)
 6. [Identity Governance & Administration (IGA)](#_6-identity-governance-amp-administration-iga)
-7. [Okta — Vendor-Specific Controls](#_7-okta-vendor-specific-controls)
+7. [Okta: Vendor-Specific Controls](#_7-okta-vendor-specific-controls)
 8. [Active Directory Identity Attacks](#_8-active-directory-identity-attacks-deep-dive)
 9. [Service Accounts & Non-Human Identities](#_9-service-accounts-amp-non-human-identities)
 10. [Identity Detection & Response](#_10-identity-detection-amp-response)
@@ -39,11 +39,11 @@ adoption, remote work, and SaaS proliferation mean that **identity is now the
 primary control plane** for access decisions. According to the **Verizon 2024
 Data Breach Investigations Report (DBIR)**:
 
-- **74 %** of all breaches involve a human element (credentials, privilege
+- 74 % of all breaches involve a human element (credentials, privilege
   abuse, social engineering, or error)
-- **86 %** of web application attacks use stolen credentials
+- 86 % of web application attacks use stolen credentials
 - Credential theft is the #1 initial access vector in ransomware incidents
-- Identity-based attacks take an average of **287 days** to detect and contain
+- Identity-based attacks take an average of 287 days to detect and contain
   (IBM Cost of a Data Breach 2024)
 
 ### Attack Taxonomy
@@ -90,34 +90,34 @@ Data Breach Investigations Report (DBIR)**:
 An attacker systematically tries all possible passwords until the correct one
 is found.
 
-**Defenses:**
-- **Account lockout policy**: Lock after 5–10 failed attempts, 15-minute
+Defenses:
+- Account lockout policy: Lock after 5-10 failed attempts, 15-minute
   observation window (CIS Benchmark recommendation)
-- **Smart lockout (Entra ID)**: Locks accounts for 60 s after 10 failures;
+- Smart lockout (Entra ID): Locks accounts for 60 s after 10 failures;
   duration doubles per subsequent failure; separate tracking per location
-  (`az ad sp show` or portal → Security → Authentication methods)
-- **CAPTCHA** after N failed attempts
+  (`az ad sp show` or portal -> Security -> Authentication methods)
+- CAPTCHA after N failed attempts
 
 #### Credential Stuffing (T1110.004)
 Uses username/password pairs from public breaches (e.g., HIBP datasets) to
 gain access to accounts where users reuse passwords.
 
-**Defenses:**
-- **Breached password detection**: Microsoft Entra → Authentication methods →
-  Password protection → "Enforce custom banned passwords list"
-- **HIBP integration** (Okta, 1Password, etc.)
+Defenses:
+- Breached password detection: Microsoft Entra -> Authentication methods ->
+  Password protection -> "Enforce custom banned passwords list"
+- HIBP integration (Okta, 1Password, etc.)
 - Require unique passwords per service; mandate password manager adoption
 
 #### Password Spraying (T1110.003)
 Tests one or few common passwords against many accounts to avoid lockout
 (one-to-many vs brute force many-to-one).
 
-**Common passwords targeted:** `Summer2024!`, `Welcome1`, `Password1`,
+Common passwords targeted: `Summer2024!`, `Welcome1`, `Password1`,
 `[Company]2024`
 
-**Defenses:**
+Defenses:
 - Entra ID Smart Lockout (separate spray detection thresholds)
-- Identity Protection — "Password spray" risk detection
+- Identity Protection: "Password spray" risk detection
 - Disable legacy auth protocols that bypass modern lockout controls
 
 ---
@@ -130,17 +130,17 @@ Tests one or few common passwords against many accounts to avoid lockout
 | HOTP (Counter-based OTP) | RFC 4226 | No | Hardware tokens (old RSA SecurID) |
 | SMS OTP | Carrier SMS | No | Most consumer banks |
 | Push notification | Proprietary | No | Duo Push, Microsoft Authenticator push, Okta Verify |
-| FIDO2 / WebAuthn (Passkeys) | W3C WebAuthn + CTAP2 | **Yes** | YubiKey 5, passkeys in iOS/Android/Windows |
-| Hardware token (FIDO2) | CTAP2 | **Yes** | YubiKey 5 NFC, FEITIAN ePass |
+| FIDO2 / WebAuthn (Passkeys) | W3C WebAuthn + CTAP2 | Yes | YubiKey 5, passkeys in iOS/Android/Windows |
+| Hardware token (FIDO2) | CTAP2 | Yes | YubiKey 5 NFC, FEITIAN ePass |
 | Hardware token (YubiKey OTP) | Yubico OTP (AES-128) | No (replay-proof but not phishing-resistant) | YubiKey 5 |
-| Certificate-based (CBA) | X.509 / TLS client cert | **Yes** | Smart cards, PIV, CAC |
-| Windows Hello for Business | TPM-backed FIDO2 | **Yes** | Windows 10/11 enterprise |
+| Certificate-based (CBA) | X.509 / TLS client cert | Yes | Smart cards, PIV, CAC |
+| Windows Hello for Business | TPM-backed FIDO2 | Yes | Windows 10/11 enterprise |
 
 ---
 
 ### FIDO2/WebAuthn Deep Dive
 
-**Authenticator Assertion Flow:**
+Authenticator Assertion Flow:
 1. Relying Party (RP) sends a `challenge` (random 32-byte nonce)
 2. Authenticator (device TPM / security key) signs the challenge using the
    private key bound to that RP origin
@@ -149,7 +149,7 @@ Tests one or few common passwords against many accounts to avoid lockout
 4. Server verifies: correct origin, challenge matches, counter > previous
    counter (replay prevention), signature valid
 
-**Resident Keys vs Server-Side Credentials:**
+Resident Keys vs Server-Side Credentials:
 
 | | Resident Keys (Discoverable) | Server-Side Credentials |
 |---|---|---|
@@ -158,30 +158,30 @@ Tests one or few common passwords against many accounts to avoid lockout
 | Storage limit | ~25 keys (YubiKey 5) | Unlimited |
 | Use case | Passkeys, passwordless | Traditional WebAuthn + MFA step-up |
 
-**Attestation Types:**
-- `none` — no attestation; RP cannot verify authenticator model
-- `self` — signed by authenticator key itself; limited assurance
-- `packed` — most common; signed by AAGUID-specific cert chain
-- `tpm` — TPM-attested (Windows Hello, enterprise grade)
-- `android-key` — Android hardware-backed
-- `fido-u2f` — legacy U2F format
-- `apple` — Apple Secure Enclave attestation
+Attestation Types:
+- `none`: no attestation; RP cannot verify authenticator model
+- `self`: signed by authenticator key itself; limited assurance
+- `packed`: most common; signed by AAGUID-specific cert chain
+- `tpm`: TPM-attested (Windows Hello, enterprise grade)
+- `android-key`: Android hardware-backed
+- `fido-u2f`: legacy U2F format
+- `apple`: Apple Secure Enclave attestation
 
 ---
 
 ### Passkeys
 
-**Synced Passkeys** (e.g., iCloud Keychain, Google Password Manager):
+Synced Passkeys (e.g., iCloud Keychain, Google Password Manager):
 - Discoverable credential synced across devices via encrypted cloud backup
 - Threat: cloud account compromise can expose all passkeys
 - FIDO Alliance guidance: treat synced passkeys as AAL2 (not AAL3)
 
-**Device-Bound Passkeys:**
+Device-Bound Passkeys:
 - Credential never leaves the device (hardware-backed, YubiKey, TPM)
 - Lost device = lost credential; requires recovery flow
 - Suitable for AAL3 / high-assurance use cases
 
-**PRF Extension (Pseudo-Random Function):**
+PRF Extension (Pseudo-Random Function):
 - Allows WebAuthn credential to derive deterministic key material
 - Used for end-to-end encryption keying (e.g., 1Password passkeys)
 - Requires `prf` extension in `create()` / `get()` calls
@@ -190,7 +190,7 @@ Tests one or few common passwords against many accounts to avoid lockout
 
 ### Passwordless Architectures
 
-**Windows Hello for Business (WHfB):**
+Windows Hello for Business (WHfB):
 - Enrolls a TPM-bound asymmetric key pair per device per user
 - Authentication: device TPM signs IdP challenge (no password ever sent)
 - Deployment modes: Key Trust (requires line-of-sight DC), Certificate Trust,
@@ -198,7 +198,7 @@ Tests one or few common passwords against many accounts to avoid lockout
 - Requires: Windows 10 1703+, TPM 1.2+ (2.0 preferred), Entra ID or Hybrid
   Entra joined
 
-**Microsoft Authenticator Passwordless:**
+Microsoft Authenticator Passwordless:
 - Phone sign-in: push + biometric/PIN
 - Behind the scenes: asymmetric key pair stored in phone secure enclave
 - Conditional Access: compatible as a phishing-resistant factor with
@@ -206,24 +206,24 @@ Tests one or few common passwords against many accounts to avoid lockout
 
 ---
 
-## 3. Multi-Factor Authentication — Bypass Techniques & Defenses
+## 3. Multi-Factor Authentication: Bypass Techniques & Defenses
 
 ### AiTM (Adversary-in-the-Middle)
 
-**Attack Flow (EvilGinx2 / Modlishka):**
+Attack Flow (EvilGinx2 / Modlishka):
 1. Attacker registers phish domain (e.g., `login-microsoft-secure[.]com`)
 2. Reverse proxy (EvilGinx2) sits between victim and legitimate IdP
-3. Victim completes full MFA — all credentials AND session cookies pass through
+3. Victim completes full MFA: all credentials AND session cookies pass through
    proxy
 4. Attacker replays session cookie to authenticate as victim
    (token lifetime varies: O365 default = 1 hour for access token,
-   14–90 days for refresh token)
+   14-90 days for refresh token)
 
-**Real Incidents:**
-- **Storm-0867 (2023)**: AiTM campaign targeting 10,000+ M365 organizations
-- **DEV-0537 (Lapsus$, 2022)**: Combined AiTM with MFA fatigue
+Real Incidents:
+- Storm-0867 (2023): AiTM campaign targeting 10,000+ M365 organizations
+- DEV-0537 (Lapsus$, 2022): Combined AiTM with MFA fatigue
 
-**Microsoft Entra Detection Signals:**
+Microsoft Entra Detection Signals:
 - Sign-in risk: `Token issuer anomaly`
 - Sign-in risk: `Unfamiliar sign-in properties`
 - `anonymizedIPAddress` risk detection when proxied through Tor
@@ -237,10 +237,10 @@ Tests one or few common passwords against many accounts to avoid lockout
             AppDisplayName, RiskEventTypes, RiskLevelDuringSignIn
   ```
 
-**Defenses:**
-- **Conditional Access + Token Protection** (Entra P2): binds token to device
+Defenses:
+- Conditional Access + Token Protection (Entra P2): binds token to device
   TPM; replayed token on different device is rejected
-- **CAE (Continuous Access Evaluation)**: IdP pushes revocation events in
+- CAE (Continuous Access Evaluation): IdP pushes revocation events in
   near-real-time to resource providers (Exchange, SharePoint, Teams)
 - Require FIDO2/passkeys instead of push MFA (eliminates session hijack surface)
 - Named locations: block sign-ins from unexpected countries
@@ -249,10 +249,10 @@ Tests one or few common passwords against many accounts to avoid lockout
 
 ### MFA Fatigue / Push Bombing (T1621)
 
-**Technique:** Attacker with stolen credentials sends repeated push MFA
+Technique: Attacker with stolen credentials sends repeated push MFA
 requests, hoping victim approves accidentally or out of frustration.
 
-**Real Incident — Uber 2022:**
+Real Incident — Uber 2022:
 - Attacker obtained contractor credentials via dark web
 - Sent ~20 push notifications; victim did not approve
 - Attacker then contacted victim via WhatsApp claiming to be IT support,
@@ -260,14 +260,14 @@ requests, hoping victim approves accidentally or out of frustration.
 - Victim approved; attacker gained full access including Thycotic PAM, GSuite,
   Slack, AWS
 
-**Defenses:**
-- **Number matching** (Microsoft Authenticator): app displays a 2-digit number;
+Defenses:
+- Number matching (Microsoft Authenticator): app displays a 2-digit number;
   user must enter it on the authenticator — prevents blind approval
-  - Policy path: Entra → Authentication methods → Microsoft Authenticator →
+  - Policy path: Entra -> Authentication methods -> Microsoft Authenticator ->
     Number matching = Enabled
-- **Additional context**: shows app name, geographic location in push
-- **FIDO2 / passkeys**: eliminates push entirely
-- **Okta Verify number challenge**: same number-matching concept
+- Additional context: shows app name, geographic location in push
+- FIDO2 / passkeys: eliminates push entirely
+- Okta Verify number challenge: same number-matching concept
 - Rate-limit push attempts: Entra Identity Protection blocks after N sequential
   push denials
 
@@ -275,18 +275,18 @@ requests, hoping victim approves accidentally or out of frustration.
 
 ### SIM Swapping
 
-**Attack Flow:**
+Attack Flow:
 1. Attacker uses OSINT / social engineering to gather victim's carrier account
    info
 2. Social engineers carrier support to transfer phone number to attacker's SIM
 3. All SMS OTP and phone calls for that number now received by attacker
 
-**SS7 Exploitation:**
+SS7 Exploitation:
 - BGP/SS7 protocol weaknesses allow nation-state actors to reroute SMS at the
   network level without social engineering carrier
 - CVE-equivalent: SS7 MAP protocol `sendRoutingInfoForSM` attack
 
-**Defenses:**
+Defenses:
 - Replace SMS MFA with authenticator app or hardware token
 - Carrier SIM lock / port freeze
 - Account takeover protection: many carriers offer PIN-protected SIM changes
@@ -295,12 +295,12 @@ requests, hoping victim approves accidentally or out of frustration.
 
 ### OTP Interception
 
-**Reverse proxy**: same as AiTM — proxy forwards OTP entered by victim to
+Reverse proxy: same as AiTM — proxy forwards OTP entered by victim to
 legitimate site before it expires
 
-**Malware**: keyloggers or browser extensions intercept OTP as typed
+Malware: keyloggers or browser extensions intercept OTP as typed
 
-**Defenses:** FIDO2 (cryptographically bound to origin — proxy cannot relay)
+Defenses: FIDO2 (cryptographically bound to origin — proxy cannot relay)
 
 ---
 
@@ -311,19 +311,19 @@ legitimate site before it expires
 - Admin override: helpdesk social engineering to bypass MFA for "locked out"
   users
 
-**Defenses:**
+Defenses:
 - Restrict self-service password reset (SSPR) to require MFA challenge
-  (Entra: Authentication methods → SSPR → Require registration at sign-in)
+  (Entra: Authentication methods -> SSPR -> Require registration at sign-in)
 - Limit backup codes to FIDO2 hardware only
 - Helpdesk verification identity protocol (knowledge factors + manager approval)
 
 ---
 
-## 4. Microsoft Entra ID (Azure AD) — Vendor-Specific Controls
+## 4. Microsoft Entra ID (Azure AD): Vendor-Specific Controls
 
 ### Conditional Access Policies
 
-**Require MFA for All Users (Template):**
+Require MFA for All Users (Template):
 ```json
 {
   "displayName": "CA001 - Require MFA for All Users",
@@ -340,7 +340,7 @@ legitimate site before it expires
 }
 ```
 
-**Require Compliant Device (Intune):**
+Require Compliant Device (Intune):
 ```json
 {
   "displayName": "CA002 - Require Compliant Device for M365",
@@ -355,7 +355,7 @@ legitimate site before it expires
 }
 ```
 
-**Block Legacy Authentication:**
+Block Legacy Authentication:
 ```json
 {
   "displayName": "CA003 - Block Legacy Authentication",
@@ -369,7 +369,7 @@ legitimate site before it expires
 }
 ```
 
-**Sign-In Risk-Based Policy:**
+Sign-In Risk-Based Policy:
 ```json
 {
   "displayName": "CA004 - MFA on Medium+ Sign-In Risk",
@@ -380,7 +380,7 @@ legitimate site before it expires
 }
 ```
 
-**User Risk-Based Policy:**
+User Risk-Based Policy:
 ```json
 {
   "displayName": "CA005 - Require Password Change on High User Risk",
@@ -394,7 +394,7 @@ legitimate site before it expires
 }
 ```
 
-**Named Location Definition (Trusted HQ):**
+Named Location Definition (Trusted HQ):
 ```json
 {
   "displayName": "HQ - Corporate IP Range",
@@ -470,14 +470,14 @@ Get-MgAuditLogRiskySignIn -Filter "createdDateTime ge $start" |
 
 ### PIM (Privileged Identity Management)
 
-**Just-In-Time (JIT) Activation Flow:**
+Just-In-Time (JIT) Activation Flow:
 1. User opens Entra PIM portal or runs `az role assignment create --justification`
 2. User provides business justification (required if configured)
 3. Approver receives email/Teams notification (if approval workflow enabled)
-4. Role activated for configured duration (1–24 hours, default 1 h)
+4. Role activated for configured duration (1-24 hours, default 1 h)
 5. All activation events logged to PIM audit log + Sentinel
 
-**PIM Role Settings (per-role configuration):**
+PIM Role Settings (per-role configuration):
 ```
 Activation maximum duration: 4 hours
 Require MFA on activation: Yes
@@ -489,7 +489,7 @@ Send notifications: to role activations
 Require Azure AD Conditional Access authentication context: CAx-PIM
 ```
 
-**Access Reviews:**
+Access Reviews:
 ```powershell
 # Create an access review for Global Admins
 $reviewScope = @{
@@ -511,13 +511,13 @@ New-MgIdentityGovernanceAccessReviewDefinition `
 
 ### External Identities & Cross-Tenant Access
 
-**B2B Guest Access Controls:**
-- Tenant → External Identities → External collaboration settings
+B2B Guest Access Controls:
+- Tenant -> External Identities -> External collaboration settings
 - Guest user access: "Guest users have limited access to properties and
   memberships of directory objects" (recommended)
 - Restrict invitation to specific domains: `allowedDomains` list
 
-**Cross-Tenant Access Policy (XTAP):**
+Cross-Tenant Access Policy (XTAP):
 ```json
 {
   "tenantId": "<partnerTenantId>",
@@ -534,7 +534,7 @@ New-MgIdentityGovernanceAccessReviewDefinition `
 
 ---
 
-### Entra ID Protection KQL — Azure Sentinel Detections
+### Entra ID Protection KQL: Azure Sentinel Detections
 
 ```kql
 // AiTM token anomaly with successful sign-in
@@ -568,7 +568,7 @@ SigninLogs
 
 ## 5. Privileged Access Management (PAM)
 
-### CyberArk — Policy Settings
+### CyberArk: Policy Settings
 
 #### Safe Permissions
 
@@ -599,7 +599,7 @@ Maximum validity period: 8 hours
 Require dual control for: Retrieve
 ```
 
-#### CPM (Central Policy Manager) — Password Rotation
+#### CPM (Central Policy Manager): Password Rotation
 
 ```
 Password change interval: 90 days (CIS recommendation)
@@ -730,7 +730,7 @@ vault write -f transit/keys/myapp-key/rotate
 # Old ciphertext still decryptable; new encryptions use latest key version
 ```
 
-#### Vault Agent — Kubernetes Sidecar
+#### Vault Agent: Kubernetes Sidecar
 
 ```yaml
 # vault-agent-config.hcl
@@ -754,11 +754,11 @@ template {
 
 ### PAM Architecture Best Practices
 
-- **Break-glass accounts**: Two accounts per org (one per admin) stored in
+- Break-glass accounts: Two accounts per org (one per admin) stored in
   CyberArk, MFA-protected, alerting on any use, reviewed quarterly
-- **Service account vaulting**: ALL service account passwords managed via CPM;
+- Service account vaulting: ALL service account passwords managed via CPM;
   zero human knowledge of actual password value
-- **SSH Certificate Authorities**: Vault CA issues short-lived SSH certs (1-h
+- SSH Certificate Authorities: Vault CA issues short-lived SSH certs (1-h
   TTL) instead of distributing public keys; eliminates SSH key sprawl
   ```bash
   vault write ssh-client-signer/sign/myrole \
@@ -780,7 +780,7 @@ template {
 | Application owner certification | App owners review all users in application | Annual |
 | Role composition certification | Role owners certify role entitlements | Annual |
 
-**Campaign Configuration (IdentityNow API):**
+Campaign Configuration (IdentityNow API):
 ```json
 {
   "name": "Q2-2024 Manager Certification",
@@ -861,12 +861,12 @@ SOD Rule: Code Commit + Production Deploy
 
 ### Saviynt
 
-**Application Access Governance:**
+Application Access Governance:
 - Connect app via SCIM 2.0 or connector framework
 - Map app roles to Saviynt entitlements
-- Configure risk scoring per entitlement (1–10 scale)
+- Configure risk scoring per entitlement (1-10 scale)
 
-**SOD Ruleset:**
+SOD Ruleset:
 ```
 Ruleset: Finance Controls SOD
 Rule: AP_AR_Conflict
@@ -879,11 +879,11 @@ Rule: AP_AR_Conflict
 
 ---
 
-## 7. Okta — Vendor-Specific Controls
+## 7. Okta: Vendor-Specific Controls
 
 ### Okta Sign-On Policy / Global Session Policy
 
-**Global Session Policy (Organization-level):**
+Global Session Policy (Organization-level):
 ```
 Policy name: Default Policy
 Rules (in evaluation order):
@@ -897,7 +897,7 @@ Rules (in evaluation order):
     Session: terminate (require fresh sign-in)
 ```
 
-**MFA Enrollment Policy:**
+MFA Enrollment Policy:
 ```
 Policy name: Employee MFA Enrollment
 Eligible authenticators:
@@ -909,7 +909,7 @@ Enforcement: REQUIRED (block access until enrolled)
 Target group: All Employees
 ```
 
-**App Sign-On Policy (per-app rule):**
+App Sign-On Policy (per-app rule):
 ```
 Rule: Require Phishing-Resistant MFA for Admin Console
   IF user is in group "Okta-Admins"
@@ -939,13 +939,13 @@ POST /api/v1/threats/configuration
 
 ### Okta FastPass & Number Challenge
 
-**Okta FastPass (device-bound passkey):**
+Okta FastPass (device-bound passkey):
 - Credential bound to Okta Verify on enrolled device
 - Requires Okta Identity Engine (OIE)
 - Enables passwordless sign-in with biometric + device trust
 - Combine with device management (Jamf, Intune) for full Zero Trust
 
-**Number Challenge:**
+Number Challenge:
 ```
 Okta Admin Console →
   Security → Authenticators → Okta Verify →
@@ -973,7 +973,7 @@ Okta Admin Console →
 | `group.user_membership.add` | User added to group |
 | `application.user_membership.add` | User assigned to app |
 
-**Okta System Log KQL equivalent (for Sentinel via Okta connector):**
+Okta System Log KQL equivalent (for Sentinel via Okta connector):
 ```kql
 OktaSSO
 | where eventType == "user.authentication.sso"
@@ -1279,7 +1279,7 @@ secret = client.get_secret("my-secret")
 
 ### Workload Identity Federation
 
-**GitHub Actions → Azure (no secrets stored):**
+GitHub Actions -> Azure (no secrets stored):
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -1419,14 +1419,14 @@ index=azure_signin sourcetype=azure:signin result=success
 
 ### UEBA (User and Entity Behavior Analytics)
 
-**Key Behavioral Baselines:**
-- Login time distribution (08:00–18:00 local → alert on 02:00 login)
-- Login geography (typical cities/countries → alert on new region)
-- Volume of data accessed per day (100 MB → alert on 10 GB)
-- Privileged operations per week (2 → alert on 50)
-- Application access patterns (CRM + email → alert on sudden HR system access)
+Key Behavioral Baselines:
+- Login time distribution (08:00-18:00 local -> alert on 02:00 login)
+- Login geography (typical cities/countries -> alert on new region)
+- Volume of data accessed per day (100 MB -> alert on 10 GB)
+- Privileged operations per week (2 -> alert on 50)
+- Application access patterns (CRM + email -> alert on sudden HR system access)
 
-**Peer Group Analysis:**
+Peer Group Analysis:
 - Cluster users by department/role
 - Alert when user accesses resources that 0 % of peer group accesses
 - Reduces false positives vs rule-based detection
@@ -1476,11 +1476,11 @@ T+45 Notify user; initiate forensic investigation if data exfiltration suspected
 
 ### Never Trust, Always Verify
 
-The Zero Trust model, codified in **NIST SP 800-207**, requires that every
+The Zero Trust model, codified in NIST SP 800-207, requires that every
 access request be fully authenticated, authorized, and continuously validated
 regardless of network location.
 
-**Access Decision Formula:**
+Access Decision Formula:
 ```
 Access Grant = f(Identity + Device Health + Context + Policy)
   WHERE:
@@ -1494,18 +1494,18 @@ Access Grant = f(Identity + Device Health + Context + Policy)
 
 ### Continuous Access Evaluation (CAE)
 
-**How CAE works:**
-1. User authenticates → receives access token (default 1-hour lifetime)
+How CAE works:
+1. User authenticates -> receives access token (default 1-hour lifetime)
 2. Risk event occurs (user disabled, IP blocked, password changed, high risk)
 3. IdP pushes CAE event to CAE-capable resource provider
 4. Resource provider rejects next API call immediately (no waiting for token expiry)
 5. Client receives 401 with `WWW-Authenticate: Bearer claims=...` challenge
 6. Client redirects user to re-authenticate
 
-**CAE-capable resources (Microsoft):** Exchange Online, SharePoint Online,
+CAE-capable resources (Microsoft): Exchange Online, SharePoint Online,
 Teams, Graph API, Azure Key Vault
 
-**CAE + Conditional Access + Token Protection** = full defense against AiTM
+CAE + Conditional Access + Token Protection = full defense against AiTM
 session replay attacks
 
 ---
@@ -1513,17 +1513,17 @@ session replay attacks
 ### NIST SP 800-207 Identity Guidance
 
 Key tenets relevant to identity:
-- **Principle 1**: All data sources and computing services are considered
+- Principle 1: All data sources and computing services are considered
   resources
-- **Principle 2**: All communication is secured regardless of network location
-- **Principle 3**: Access to individual enterprise resources is granted on a
+- Principle 2: All communication is secured regardless of network location
+- Principle 3: Access to individual enterprise resources is granted on a
   per-session basis
-- **Principle 4**: Access to resources is determined by dynamic policy
-- **Principle 5**: Enterprise monitors and measures the integrity and security
+- Principle 4: Access to resources is determined by dynamic policy
+- Principle 5: Enterprise monitors and measures the integrity and security
   posture of all owned assets
-- **Principle 6**: All resource authentication and authorization is dynamic
+- Principle 6: All resource authentication and authorization is dynamic
   and strictly enforced before access is allowed
-- **Principle 7**: Enterprise collects as much information as possible about
+- Principle 7: Enterprise collects as much information as possible about
   the current state of assets, network infrastructure, and communications
 
 ---
@@ -1531,7 +1531,7 @@ Key tenets relevant to identity:
 ### Identity as Control Plane
 
 In a Zero Trust architecture, the identity provider IS the security boundary:
-- Every access request — SaaS, IaaS, on-premises — is mediated through the IdP
+- Every access request: SaaS, IaaS, on-premises — is mediated through the IdP
 - The IdP enforces Conditional Access / adaptive authentication
 - No implicit trust based on network segment
 - Service mesh / mTLS for machine-to-machine (each workload has an identity)
@@ -1541,9 +1541,9 @@ In a Zero Trust architecture, the identity provider IS the security boundary:
 
 ## 12. Compliance & Frameworks
 
-### NIST SP 800-63B — Authenticator Assurance Levels
+### NIST SP 800-63B: Authenticator Assurance Levels
 
-> Reflects **NIST SP 800-63B-4** (Digital Identity Guidelines, final July 2025), which supersedes Rev 3: it recognizes syncable passkeys as AAL2 authenticators and integrates phishing-resistant authentication into the AAL2/AAL3 requirements.
+> Reflects NIST SP 800-63B-4 (Digital Identity Guidelines, final July 2025), which supersedes Rev 3: it recognizes syncable passkeys as AAL2 authenticators and integrates phishing-resistant authentication into the AAL2/AAL3 requirements.
 
 | AAL | Requirements | Examples |
 |---|---|---|
@@ -1551,20 +1551,20 @@ In a Zero Trust architecture, the identity provider IS the security boundary:
 | AAL2 | Two factors: MFA required; approved cryptography | Password + TOTP; password + push |
 | AAL3 | Phishing-resistant MFA; hardware-bound authenticator | FIDO2 hardware key, PIV/CAC smart card, WHfB |
 
-**AAL3 requirements (summary):**
+AAL3 requirements (summary):
 - Verifier impersonation resistance (phishing-resistant)
 - Hardware cryptographic authenticator (private key never leaves hardware)
 - Verifier-CSP communication using approved cryptography
 - Reauthentication required every 12 hours or 15 minutes of inactivity
 
-**Phishing-resistant = AAL3** — FIDO2/WebAuthn, PIV, CAC meet this bar.
+Phishing-resistant = AAL3 — FIDO2/WebAuthn, PIV, CAC meet this bar.
 SMS OTP and push notifications do NOT meet phishing resistance requirement.
 
 ---
 
-### CIS Controls — Identity-Specific Safeguards
+### CIS Controls: Identity-Specific Safeguards
 
-**CIS Control 5: Account Management**
+CIS Control 5: Account Management
 
 | Safeguard | IG | Description |
 |---|---|---|
@@ -1575,7 +1575,7 @@ SMS OTP and push notifications do NOT meet phishing resistance requirement.
 | 5.5 | 1 | Establish and maintain an inventory of service accounts |
 | 5.6 | 3 | Centralize account management via a directory or IAM system |
 
-**CIS Control 6: Access Control Management**
+CIS Control 6: Access Control Management
 
 | Safeguard | IG | Description |
 |---|---|---|
@@ -1590,9 +1590,9 @@ SMS OTP and push notifications do NOT meet phishing resistance requirement.
 
 ---
 
-### DISA STIG — Active Directory (V3R3)
+### DISA STIG: Active Directory (V3R3)
 
-**CAT I (High) Findings — Admin Account Controls:**
+CAT I (High) Findings — Admin Account Controls:
 
 | STIG-ID | Rule | Fix |
 |---|---|---|

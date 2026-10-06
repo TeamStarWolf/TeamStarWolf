@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, planning or running a wireless penetration test, hardening a wireless network against real attacks |
-| **Start at** | [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening) |
-| **Pairs with** | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/iot-security.md](disciplines/iot-security.md) |
+| Read this when | Assessing the security of a Wi-Fi, Bluetooth, cellular, RFID/NFC, or IoT wireless deployment, planning or running a wireless penetration test, hardening a wireless network against real attacks |
+| Start at | [Wi-Fi Security Protocols](#_1-wi-fi-security-protocols), [Wi-Fi Attack Techniques](#_2-wi-fi-attack-techniques), [Wireless Hardening](#_9-wireless-hardening) |
+| Pairs with | [NETWORK_PROTOCOLS_SECURITY.md](NETWORK_PROTOCOLS_SECURITY.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md), [disciplines/radio-frequency-security.md](disciplines/radio-frequency-security.md), [disciplines/iot-security.md](disciplines/iot-security.md) |
 
 ---
 
@@ -27,7 +27,7 @@
 
 ## 1. Wi-Fi Security Protocols
 
-### 1.1 WEP (Wired Equivalent Privacy) — Legacy / Broken
+### 1.1 WEP (Wired Equivalent Privacy): Legacy / Broken
 
 WEP was ratified in 1997 as part of the original IEEE 802.11 standard. It was designed to provide data confidentiality equivalent to a wired LAN but is now considered completely broken and should never be used.
 
@@ -39,12 +39,12 @@ WEP uses RC4 (Rivest Cipher 4), a stream cipher. Every packet is encrypted with 
 keystream = RC4(IV || WEP_Key)
 ```
 
-- The **Initialization Vector (IV)** is 24 bits — only 16,777,216 possible values.
+- The Initialization Vector (IV) is 24 bits: only 16,777,216 possible values.
 - IVs are transmitted in plaintext in the packet header.
 - In a busy network, IV collisions occur within minutes to hours.
 - When two packets share the same IV, XORing them cancels the keystream, exposing plaintext relationships.
 
-**Weak IVs (FMS Attack):** In 2001, Fluhrer, Mantin, and Shamir identified that certain IV values (e.g., (3, 255, N)) leak the first byte of the RC4 key. Collecting ~1,000–2,000 weak IVs allows full key recovery. Tools like `aircrack-ng` automate this.
+Weak IVs (FMS Attack): In 2001, Fluhrer, Mantin, and Shamir identified that certain IV values (e.g., (3, 255, N)) leak the first byte of the RC4 key. Collecting ~1,000-2,000 weak IVs allows full key recovery. Tools like `aircrack-ng` automate this.
 
 ```
 RC4 key schedule vulnerability:
@@ -57,7 +57,7 @@ RC4 key schedule vulnerability:
 Because WEP has no replay protection and the CRC-32 integrity check (ICV) is linear and malleable:
 
 1. Capture a single encrypted ARP request.
-2. Replay it thousands of times — each replay generates a new IV from the AP.
+2. Replay it thousands of times: each replay generates a new IV from the AP.
 3. Capture enough IVs passively to crack the key in minutes.
 
 ```bash
@@ -69,7 +69,7 @@ aireplay-ng -3 -b <AP_MAC> -h <CLIENT_MAC> wlan0mon   # ARP replay
 aircrack-ng wep_capture-01.cap               # crack key
 ```
 
-**Bit-flipping attack:** An attacker can flip bits in the ciphertext and adjust the ICV, redirecting decrypted packets to an attacker-controlled IP — allowing decryption of one byte per 128 attempts on average.
+Bit-flipping attack: An attacker can flip bits in the ciphertext and adjust the ICV, redirecting decrypted packets to an attacker-controlled IP — allowing decryption of one byte per 128 attempts on average.
 
 #### CRC-32 / ICV Weakness
 
@@ -82,17 +82,17 @@ The Integrity Check Value in WEP is simply CRC-32 of the plaintext appended befo
 
 ### 1.2 WPA / WPA2
 
-#### WPA (Wi-Fi Protected Access) — 2003
+#### WPA (Wi-Fi Protected Access): 2003
 
 WPA was an interim fix deployed via firmware updates while 802.11i was finalized. It introduced TKIP (Temporal Key Integrity Protocol) over RC4.
 
-**TKIP improvements over WEP:**
+TKIP improvements over WEP:
 - 48-bit IV (eliminates IV exhaustion for practical networks).
-- Per-packet key mixing (IV + base key → unique per-packet key).
-- Michael MIC (Message Integrity Code) — 64-bit, provides weak but better-than-nothing authentication.
+- Per-packet key mixing (IV + base key -> unique per-packet key).
+- Michael MIC (Message Integrity Code): 64-bit, provides weak but better-than-nothing authentication.
 - Sequence counter (TSC) to detect replays.
 
-**TKIP Vulnerabilities:**
+TKIP Vulnerabilities:
 
 | Vulnerability | Description |
 |---|---|
@@ -101,19 +101,19 @@ WPA was an interim fix deployed via firmware updates while 802.11i was finalized
 | Ohigashi-Morii attack | Extends Beck-Tews to work without QoS by using MITM to relay between two APs |
 | RC4 biases | TKIP still uses RC4; 2013 RC4 bias attacks (Royal Holloway) partially recover keystreams |
 
-**TKIP countermeasure:** Two MIC failures within 60 seconds triggers a 60-second lockout (MIC failure countermeasure). This limits chopchop attacks to one attempt per minute.
+TKIP countermeasure: Two MIC failures within 60 seconds triggers a 60-second lockout (MIC failure countermeasure). This limits chopchop attacks to one attempt per minute.
 
-#### WPA2 (802.11i) — 2004
+#### WPA2 (802.11i): 2004
 
 WPA2 replaced TKIP with CCMP (Counter Mode with CBC-MAC Protocol) based on AES-128. This eliminated the cryptographic weaknesses of RC4/TKIP.
 
-**CCMP operation:**
+CCMP operation:
 - AES in Counter Mode for confidentiality.
 - AES-CBC-MAC for integrity and authenticity.
 - 48-bit Packet Number (PN) for replay protection.
 - 128-bit key, 64-bit MIC.
 
-**4-Way Handshake:**
+4-Way Handshake:
 
 The WPA2 4-way handshake establishes the PTK (Pairwise Transient Key) between client (STA) and AP:
 
@@ -124,18 +124,18 @@ AP → STA:  GTK (Group Temporal Key) encrypted + MIC
 STA → AP:  ACK
 ```
 
-**PTK derivation:**
+PTK derivation:
 ```
 PTK = PRF-512(PMK, "Pairwise key expansion" || min(AA,SA) || max(AA,SA) || min(ANonce,SNonce) || max(ANonce,SNonce))
 ```
 
 Components of the PTK (total 512 bits for CCMP):
-- KCK (Key Confirmation Key) — 128 bits — used to compute MIC on handshake frames
-- KEK (Key Encryption Key) — 128 bits — used to encrypt GTK
-- TK (Temporal Key) — 128 bits — used for CCMP data encryption
+- KCK (Key Confirmation Key): 128 bits — used to compute MIC on handshake frames
+- KEK (Key Encryption Key): 128 bits — used to encrypt GTK
+- TK (Temporal Key): 128 bits — used for CCMP data encryption
 - MIC Tx/Rx keys (if applicable)
 
-**Handshake capture for offline cracking:**
+Handshake capture for offline cracking:
 The MIC in message 2 of the 4-way handshake is computed using the KCK derived from the PMK. If an attacker captures messages 1 and 2 (ANonce + SNonce + MIC), they can brute-force:
 ```
 For each candidate_password:
@@ -146,14 +146,14 @@ For each candidate_password:
     if test_MIC == captured_MIC: found!
 ```
 
-**PMKID Attack (2018, Jens Steube):**
+PMKID Attack (2018, Jens Steube):
 
 The PMKID is included in the first EAPOL frame (RSN IE) of the 4-way handshake:
 ```
 PMKID = HMAC-SHA1-128(PMK, "PMK Name" || AP_MAC || STA_MAC)
 ```
 
-This allows cracking **without capturing a full 4-way handshake** — just a single frame from the AP, with no client deauth needed:
+This allows cracking without capturing a full 4-way handshake — just a single frame from the AP, with no client deauth needed:
 
 ```bash
 hcxdumptool -i wlan0mon -o capture.pcapng --enable_status=3
@@ -173,30 +173,30 @@ EAP methods used with WPA2/WPA3 Enterprise:
 
 | Method | Description | Security |
 |---|---|---|
-| EAP-TLS | Mutual certificate authentication | Strongest — both sides present certs |
+| EAP-TLS | Mutual certificate authentication | Strongest: both sides present certs |
 | PEAP | Certificate on server side only; inner EAP (MSCHAPv2 or GTC) | Strong if server cert validated |
 | EAP-TTLS | TLS tunnel; any inner authentication | Flexible; strong if cert validated |
 | EAP-FAST | Cisco; uses PAC instead of certificate | Acceptable if PAC provisioned securely |
-| LEAP | Cisco legacy; based on MS-CHAPv1 | Broken — do not use |
+| LEAP | Cisco legacy; based on MS-CHAPv1 | Broken: do not use |
 
-**PEAP/MSCHAPv2 vulnerability:** If clients do not validate the server certificate, an attacker can set up a rogue RADIUS server. The inner MSCHAPv2 exchange can be cracked offline using tools like `asleap` or relayed using techniques like `chapcrack`.
+PEAP/MSCHAPv2 vulnerability: If clients do not validate the server certificate, an attacker can set up a rogue RADIUS server. The inner MSCHAPv2 exchange can be cracked offline using tools like `asleap` or relayed using techniques like `chapcrack`.
 
 ---
 
-### 1.3 WPA3 — 2018
+### 1.3 WPA3: 2018
 
 WPA3 addresses key WPA2 weaknesses, primarily dictionary attacks against PSK networks.
 
-#### SAE (Simultaneous Authentication of Equals) — Dragonfly Handshake
+#### SAE (Simultaneous Authentication of Equals): Dragonfly Handshake
 
 SAE replaces the PSK 4-way handshake with a zero-knowledge proof of password knowledge based on the Diffie-Hellman Dragonfly key exchange (RFC 7664).
 
-**Properties:**
-- **Forward secrecy:** Each session generates a fresh PMK; capturing old traffic cannot be decrypted even if the password is later disclosed.
-- **Offline dictionary attack resistance:** No MIC over password-derived key material is sent in the clear; brute-force requires an active online interaction per guess.
-- **Equal authentication:** Neither side is purely the authenticator; both prove knowledge simultaneously.
+Properties:
+- Forward secrecy: Each session generates a fresh PMK; capturing old traffic cannot be decrypted even if the password is later disclosed.
+- Offline dictionary attack resistance: No MIC over password-derived key material is sent in the clear; brute-force requires an active online interaction per guess.
+- Equal authentication: Neither side is purely the authenticator; both prove knowledge simultaneously.
 
-**SAE commit-confirm exchange:**
+SAE commit-confirm exchange:
 ```
 STA → AP:  Commit(scalar_s, element_E_s)   [blinded password element]
 AP → STA:  Commit(scalar_a, element_E_a)
@@ -223,24 +223,24 @@ Researchers Vanhoef and Ronen discovered multiple vulnerabilities in WPA3-Person
 | CVE-2019-9497 | Reflection attack | Reflect commit frame back to AP; partial authentication bypass |
 | CVE-2019-9498 | Invalid curve attack | Use point on unexpected curve to recover password |
 
-**Patches:** Wi-Fi Alliance issued guidance; vendors patched implementations. WPA3 Revision 1 (Dec 2019) addressed SAE hash-to-element via constant-time operations.
+Patches: Wi-Fi Alliance issued guidance; vendors patched implementations. WPA3 Revision 1 (Dec 2019) addressed SAE hash-to-element via constant-time operations.
 
 #### 802.11w Management Frame Protection (MFP)
 
 Prior to 802.11w (2009), all management frames (deauth, disassoc, beacon, probe) were unauthenticated and unencrypted. This enabled deauth flood DoS and evil twin attacks.
 
 802.11w protects unicast management frames:
-- **Deauthentication / Disassociation:** Encrypted with CCMP using PTK.
-- **SA Query:** Verifies client hasn't been hijacked.
-- **Broadcast/multicast management frames:** Protected with BIP (Broadcast/Multicast Integrity Protocol) using IGTK.
+- Deauthentication / Disassociation: Encrypted with CCMP using PTK.
+- SA Query: Verifies client hasn't been hijacked.
+- Broadcast/multicast management frames: Protected with BIP (Broadcast/Multicast Integrity Protocol) using IGTK.
 
-**Modes:**
-- `optional` (MFPC=1, MFPR=0) — capable but not required
-- `required` (MFPC=1, MFPR=1) — only 802.11w clients may associate
+Modes:
+- `optional` (MFPC=1, MFPR=0): capable but not required
+- `required` (MFPC=1, MFPR=1): only 802.11w clients may associate
 
 WPA3 mandates 802.11w.
 
-**Residual limitations:** An attacker can still send unprotected deauth frames if 802.11w is not required, forcing clients off. With 802.11w required, deauth floods fail because clients ignore unauthenticated deauth frames.
+Residual limitations: An attacker can still send unprotected deauth frames if 802.11w is not required, forcing clients off. With 802.11w required, deauth floods fail because clients ignore unauthenticated deauth frames.
 
 ---
 
@@ -250,7 +250,7 @@ WPA3 mandates 802.11w.
 
 An evil twin AP mimics a legitimate AP (same SSID, similar BSSID) to lure clients to associate with it. Traffic is then intercepted via MITM.
 
-**Setup with hostapd-wpe:**
+Setup with hostapd-wpe:
 
 `hostapd-wpe` (WPE = Wireless Pwnage Edition) is a modified hostapd that logs EAP credentials:
 
@@ -278,9 +278,9 @@ hostapd-wpe /etc/hostapd-wpe/hostapd-wpe.conf
 
 For personal networks (WPA2-PSK), use hostapd normally and capture the 4-way handshake from connecting clients.
 
-**Captive portal evil twin:**
+Captive portal evil twin:
 1. Clone legitimate AP (same SSID/BSSID spoofed on different channel).
-2. Deauth clients from real AP — they connect to evil twin.
+2. Deauth clients from real AP: they connect to evil twin.
 3. Serve captive portal requesting "re-authentication."
 4. Harvest credentials in cleartext.
 
@@ -297,15 +297,15 @@ Client: "Is anyone out there named 'HomeWifi'?"
 KARMA AP: "Yes! I am HomeWifi!" (responds to any probe)
 ```
 
-**Process:**
+Process:
 1. Enable promiscuous probe response in hostapd or a KARMA-capable device (WiFi Pineapple).
 2. Listen for probe requests from clients.
 3. Respond to each probe as if you are the requested AP.
 4. Client auto-associates; attacker controls all traffic.
 
-**Defense:** Modern OS behavior has changed — clients often send directed probes only, or use randomized MAC addresses. However, open networks without authentication remain vulnerable, as do devices with older OS versions.
+Defense: Modern OS behavior has changed — clients often send directed probes only, or use randomized MAC addresses. However, open networks without authentication remain vulnerable, as do devices with older OS versions.
 
-**WiFi Pineapple** automates KARMA with a web UI and module system (PineAP).
+WiFi Pineapple automates KARMA with a web UI and module system (PineAP).
 
 ---
 
@@ -339,7 +339,7 @@ hashcat -m 2500 capture.hccapx wordlist.txt
 hashcat -m 22000 hash.22000 wordlist.txt -r rules/best64.rule --status
 ```
 
-**PMKID Attack (no client needed):**
+PMKID Attack (no client needed):
 
 ```bash
 # Capture PMKID
@@ -356,11 +356,11 @@ hashcat -m 22000 hash.22000 /usr/share/wordlists/rockyou.txt
 hashcat -m 22000 hash.22000 -a 3 ?d?d?d?d?d?d?d?d  # 8-digit mask
 ```
 
-**Wordlist resources:**
-- `/usr/share/wordlists/rockyou.txt` — 14M common passwords
-- `crunch` — generate custom masks
+Wordlist resources:
+- `/usr/share/wordlists/rockyou.txt`: 14M common passwords
+- `crunch`: generate custom masks
 - `hashcat` rules: `best64.rule`, `OneRuleToRuleThemAll.rule`
-- `PACK` (Password Analysis and Cracking Kit) — analyze existing passwords for mask generation
+- `PACK` (Password Analysis and Cracking Kit): analyze existing passwords for mask generation
 
 ---
 
@@ -368,7 +368,7 @@ hashcat -m 22000 hash.22000 -a 3 ?d?d?d?d?d?d?d?d  # 8-digit mask
 
 When a network is configured in WPA3 transition mode or accepts multiple EAP methods, attackers can force weaker authentication:
 
-**EAP downgrade:**
+EAP downgrade:
 1. Stand up rogue AP accepting only EAP-MD5 or EAP-GTC.
 2. If client accepts any EAP method, inner credentials are sent in weaker form.
 3. MSCHAPv2 captured from PEAP can be cracked with `asleap`:
@@ -379,7 +379,7 @@ asleap -C <challenge> -R <response> -W wordlist.txt
 hashcat -m 5500 "username:::challenge:response1:response2" wordlist.txt
 ```
 
-**Certificate validation bypass:**
+Certificate validation bypass:
 If clients don't pin the server certificate, an attacker can present any valid certificate. Tools like `FreeRADIUS-WPE` serve a self-signed cert matching the legitimate CN.
 
 ---
@@ -396,7 +396,7 @@ Captive portals are used in hotels, airports, and cafes. Attack scenarios:
 | DNS rebinding | From inside captive portal, rebind DNS to attack internal services |
 | SSL stripping | Downgrade HTTPS login page if HSTS not enforced |
 
-**Wifiphisher** automates captive portal attacks:
+Wifiphisher automates captive portal attacks:
 ```bash
 wifiphisher -aI wlan0 -eI wlan1 -p firmware-upgrade --handshake-capture capture.cap
 ```
@@ -422,7 +422,7 @@ mdk4 wlan0mon b -c 6
 mdk4 wlan0mon a -a AA:BB:CC:DD:EE:FF
 ```
 
-**Impact:**
+Impact:
 - Overwhelms wireless client scanning engines.
 - Causes kernel crashes in some older wireless drivers.
 - Degrades legitimate AP discovery for users.
@@ -447,7 +447,7 @@ deauth = RadioTap()/dot11/Dot11Deauth(reason=7)
 sendp(deauth, iface="wlan0mon", count=100, inter=0.1)
 ```
 
-**Detection indicators:**
+Detection indicators:
 - Surge in Reason Code 7 (Class 3 frame received from nonassociated station) management frames.
 - Client disconnect/reconnect cycling.
 - 802.11w (MFP) deployment as countermeasure.
@@ -458,7 +458,7 @@ sendp(deauth, iface="wlan0mon", count=100, inter=0.1)
 
 Wi-Fi Direct (P2P) creates direct device-to-device connections without an AP:
 
-**Security concerns:**
+Security concerns:
 - Uses WPA2-PSK or WPS (PIN or PBC) for authentication.
 - WPS PIN method is vulnerable to Pixie Dust and online brute-force attacks.
 - P2P Group Owner (GO) becomes a soft AP; same attack surface as a real AP.
@@ -488,14 +488,14 @@ wash -i wlan0mon          # discover WPS-enabled APs and GO devices
 
 ### 3.2 Pairing Modes
 
-#### Bluetooth Classic — Legacy PIN Pairing (pre-2.1)
+#### Bluetooth Classic: Legacy PIN Pairing (pre-2.1)
 
 - Both devices enter the same PIN.
-- PIN → INIT_KEY → COMB_KEY (16 bytes).
+- PIN -> INIT_KEY -> COMB_KEY (16 bytes).
 - Vulnerable to passive eavesdropping and brute-force of PIN (4-6 digits).
 - `btcrack` can crack 4-digit PINs from captured LMP frames.
 
-#### Bluetooth Classic — Secure Simple Pairing (SSP, BT 2.1+)
+#### Bluetooth Classic: Secure Simple Pairing (SSP, BT 2.1+)
 
 SSP uses Elliptic Curve Diffie-Hellman (ECDH P-192) for key exchange plus one of four association models:
 
@@ -506,7 +506,7 @@ SSP uses Elliptic Curve Diffie-Hellman (ECDH P-192) for key exchange plus one of
 | Out-of-Band (OOB) | NFC or other channel available | MITM protection from OOB channel |
 | Passkey Entry | One display, one keyboard | 6-digit passkey; some MITM protection |
 
-**ECDH key exchange (SSP):**
+ECDH key exchange (SSP):
 ```
 Public key: P = d × G  (d = private key, G = curve generator)
 Shared secret: DHKey = dA × PB = dB × PA
@@ -515,11 +515,11 @@ Link key: derived from DHKey using commitment scheme
 
 #### BLE Pairing
 
-**LE Legacy Pairing (pre-4.2):**
+LE Legacy Pairing (pre-4.2):
 - TK (Temporary Key) = 0 for Just Works, or 6-digit PIN for Passkey.
 - STK = AES-ECB(TK, Srand || Mrand).
-- **Vulnerable:** Passive eavesdroppers can crack 6-digit TK (max 1,000,000 attempts).
-- Cracking tool: `crackle` — decrypts LE Legacy captures with known TK.
+- Vulnerable: Passive eavesdroppers can crack 6-digit TK (max 1,000,000 attempts).
+- Cracking tool: `crackle`: decrypts LE Legacy captures with known TK.
 
 ```bash
 # Capture BLE traffic with Ubertooth
@@ -531,9 +531,9 @@ ubertooth-btle -f -c capture.pcap -A 37
 crackle -i capture.pcap -o decrypted.pcap
 ```
 
-**LE Secure Connections (BT 4.2+, LESC):**
+LE Secure Connections (BT 4.2+, LESC):
 - Uses ECDH P-256 for key agreement.
-- LTK derived from DHKey — not brute-forceable passively.
+- LTK derived from DHKey: not brute-forceable passively.
 - Numeric Comparison and OOB modes provide MITM protection.
 - Replaces STK with LTK directly; no long-term key exposure.
 
@@ -547,16 +547,16 @@ A set of eight vulnerabilities across Android, Linux, Windows, and iOS Bluetooth
 
 | CVE | Platform | Type |
 |---|---|---|
-| CVE-2017-0785 | Android | Information leak in SDP — 31 bytes of heap memory |
+| CVE-2017-0785 | Android | Information leak in SDP: 31 bytes of heap memory |
 | CVE-2017-0781 | Android | RCE in BNEP (Bluetooth Network Encapsulation Protocol) |
-| CVE-2017-0782 | Android | RCE in BNEP — integer overflow |
-| CVE-2017-1000251 | Linux kernel | RCE in L2CAP — stack overflow |
+| CVE-2017-0782 | Android | RCE in BNEP: integer overflow |
+| CVE-2017-1000251 | Linux kernel | RCE in L2CAP: stack overflow |
 | CVE-2017-1000250 | Linux BlueZ | Info leak in SDP |
 | CVE-2017-8628 | Windows | MITM in Bluetooth network (BNEP) |
 
-**Attack vector:** Over-the-air — no pairing required. The Bluetooth stack processes advertising/discovery frames before authentication. Device does not need to be in discoverable mode for some attacks.
+Attack vector: Over-the-air — no pairing required. The Bluetooth stack processes advertising/discovery frames before authentication. Device does not need to be in discoverable mode for some attacks.
 
-**Patch:** All vendors released patches September 2017. Verify `BluetoothStack` version or apply OS updates.
+Patch: All vendors released patches September 2017. Verify `BluetoothStack` version or apply OS updates.
 
 #### BIAS Attack (Bluetooth Impersonation Attacks, 2020)
 
@@ -575,15 +575,15 @@ CVE-2020-10135 — Affects Bluetooth Classic Secure Connections:
 5. Successfully authenticates without link key
 ```
 
-**Fix:** Enforce Secure Connections Only mode; mandate mutual authentication.
+Fix: Enforce Secure Connections Only mode; mandate mutual authentication.
 
 #### KNOB Attack (Key Negotiation of Bluetooth, 2019)
 
 CVE-2019-9506 — Bluetooth Classic:
 
 - The entropy of the Bluetooth encryption key is negotiated in LMP (Link Manager Protocol).
-- Valid entropy values: 1–16 bytes (specification allows 1 byte!).
-- Attacker in the middle can reduce entropy to 1 byte → only 256 possible keys.
+- Valid entropy values: 1-16 bytes (specification allows 1 byte!).
+- Attacker in the middle can reduce entropy to 1 byte -> only 256 possible keys.
 - Then brute-forces the 1-byte encryption key in real time.
 
 ```
@@ -630,7 +630,7 @@ GATT Server (peripheral)
         └── Descriptors
 ```
 
-**Enumeration tools:**
+Enumeration tools:
 
 ```bash
 # gatttool (Linux)
@@ -656,12 +656,12 @@ for svc in p.getServices():
 bettercap -eval "ble.recon on; events.stream on"
 ```
 
-**Common attack vectors:**
+Common attack vectors:
 - Unauthenticated write to control characteristics (door locks, medical devices).
 - Replay attacks against fixed command sequences.
-- Fuzzing GATT write handlers — heap overflow in custom firmware.
+- Fuzzing GATT write handlers: heap overflow in custom firmware.
 - Notification subscription to receive sensitive data (heart rate, glucose readings).
-- Pairing downgrade to Just Works — sniff and replay.
+- Pairing downgrade to Just Works: sniff and replay.
 
 ---
 
@@ -675,14 +675,14 @@ BT Mesh uses a layered security model:
 | Application | AppKey | Encrypts payload; bound to NetKey; shared among app-level nodes |
 | Device | DevKey | Unique per node; used for provisioning and configuration |
 
-**Provisioning security:**
+Provisioning security:
 - OOB Input/Output provides MITM protection during provisioning.
 - Certificate-based provisioning (CBAP) uses X.509 for stronger identity.
 
-**Attack surfaces:**
+Attack surfaces:
 - Replay attacks if SEQ (24-bit sequence number) not properly managed.
-- Key compromise — if NetKey is leaked, all network traffic is decryptable.
-- IV update attack — forcing IV index change can replay old messages.
+- Key compromise: if NetKey is leaked, all network traffic is decryptable.
+- IV update attack: forcing IV index change can replay old messages.
 - Relay node compromise enables network-wide snooping.
 
 ---
@@ -691,14 +691,14 @@ BT Mesh uses a layered security model:
 
 AirDrop uses Bluetooth Low Energy for discovery and Wi-Fi Direct for transfer.
 
-**Hash truncation vulnerability (2021):**
+Hash truncation vulnerability (2021):
 - AirDrop broadcasts truncated SHA-256 hashes of sender's email/phone number in BLE advertising frames.
-- Truncation to first 3 bytes (24 bits) → only 16.7M values.
+- Truncation to first 3 bytes (24 bits) -> only 16.7M values.
 - Brute-forceable against known contact lists.
-- **PrivateDrop** (TU Darmstadt) proposed private set intersection as fix.
-- **AirDrop name leakage:** macOS sends device name (containing full name by default) in the BLE TLV frame, visible to nearby non-Apple devices.
+- PrivateDrop (TU Darmstadt) proposed private set intersection as fix.
+- AirDrop name leakage: macOS sends device name (containing full name by default) in the BLE TLV frame, visible to nearby non-Apple devices.
 
-**CVE-2023-42941:** AirDrop could be forced to reveal sender identity to unauthenticated nearby devices.
+CVE-2023-42941: AirDrop could be forced to reveal sender identity to unauthenticated nearby devices.
 
 ---
 
@@ -708,13 +708,13 @@ AirDrop uses Bluetooth Low Energy for discovery and Wi-Fi Direct for transfer.
 
 LTE authentication uses a challenge-response protocol between the UE (User Equipment) and the core network:
 
-**Key components:**
-- **USIM** — SIM card containing IMSI, long-term key K, and authentication algorithms (MILENAGE or TUAK).
-- **HSS** (Home Subscriber Server) — stores subscriber profile and generates AV (Authentication Vector).
-- **MME** (Mobility Management Entity) — handles authentication and key agreement.
-- **eNB** (eNodeB) — radio access node (base station).
+Key components:
+- USIM: SIM card containing IMSI, long-term key K, and authentication algorithms (MILENAGE or TUAK).
+- HSS (Home Subscriber Server): stores subscriber profile and generates AV (Authentication Vector).
+- MME (Mobility Management Entity): handles authentication and key agreement.
+- eNB (eNodeB): radio access node (base station).
 
-**EPS-AKA (Authentication and Key Agreement):**
+EPS-AKA (Authentication and Key Agreement):
 ```
 1. UE → MME:     Attach Request (IMSI or GUTI)
 2. MME → HSS:    Authentication Information Request
@@ -727,7 +727,7 @@ LTE authentication uses a challenge-response protocol between the UE (User Equip
 → Derive NAS keys, AS keys from KASME
 ```
 
-**LTE key hierarchy:**
+LTE key hierarchy:
 ```
 K (long-term, on USIM)
 └── CK, IK (cipher/integrity keys)
@@ -753,7 +753,7 @@ K (long-term, on USIM)
 | NAS security | Integrity on select messages | Mandatory NAS integrity protection |
 | Roaming security | Limited | SEPP (Security Edge Protection Proxy) |
 
-**SUPI/SUCI (Identity Privacy):**
+SUPI/SUCI (Identity Privacy):
 ```
 SUPI = Subscriber Permanent Identifier (replaces IMSI concept)
 SUCI = f(SUPI, HNPK)  where HNPK = Home Network Public Key
@@ -763,8 +763,8 @@ SUCI = f(SUPI, HNPK)  where HNPK = Home Network Public Key
 
 This prevents passive IMSI catchers from learning subscriber identities from registration messages.
 
-**5G-AKA vs. EPS-AKA:**
-- 5G-AKA adds **home network confirmation** — the AMF sends a proof-of-authentication back to the home network, preventing false authentication claims by visited networks.
+5G-AKA vs. EPS-AKA:
+- 5G-AKA adds home network confirmation: the AMF sends a proof-of-authentication back to the home network, preventing false authentication claims by visited networks.
 - EAP-AKA' provides EAP framework compatibility for non-3GPP access.
 
 ---
@@ -773,18 +773,18 @@ This prevents passive IMSI catchers from learning subscriber identities from reg
 
 IMSI catchers (IMSI grabbers, cell-site simulators, Stingrays) impersonate legitimate cell towers:
 
-**Operation:**
-1. Broadcast stronger signal than real towers — UEs connect preferentially.
+Operation:
+1. Broadcast stronger signal than real towers: UEs connect preferentially.
 2. Force UE to reveal IMSI (in LTE: send Identity Request after GUTI rejection).
-3. Optionally act as MITM — relay to real network for transparent interception.
+3. Optionally act as MITM: relay to real network for transparent interception.
 4. Some models jam 4G/5G to force fallback to 2G (GSM), where no authentication of the network is required.
 
-**Detection methods:**
-- **SnoopSnitch** (Android) — detects suspicious events: silent SMS, IMSI catcher indicators, protocol anomalies.
-- **Android IMSI Catcher Detector (AIMSICD)** — monitors cell tower parameters for anomalies.
+Detection methods:
+- SnoopSnitch (Android): detects suspicious events: silent SMS, IMSI catcher indicators, protocol anomalies.
+- Android IMSI Catcher Detector (AIMSICD): monitors cell tower parameters for anomalies.
 - Indicators: sudden 2G fallback, cell tower with unknown LAC/CID, excessive authentication requests, pilot signal strength inconsistency.
 
-**Defense:**
+Defense:
 - 5G SUCI prevents IMSI harvesting in 5G networks.
 - Disable 2G fallback where possible (Android 12+ allows this).
 - Monitor for Cell Broadcast anomalies.
@@ -796,7 +796,7 @@ IMSI catchers (IMSI grabbers, cell-site simulators, Stingrays) impersonate legit
 
 SS7 (Signaling System No. 7) is the protocol suite used for communication between telecom networks. Originally designed in 1975 with no authentication — any SS7 node is implicitly trusted.
 
-**Key attack categories:**
+Key attack categories:
 
 #### Location Tracking
 
@@ -827,7 +827,7 @@ Attack: CancelLocation
 Result: Effective DoS until subscriber re-registers
 ```
 
-**Mitigations:**
+Mitigations:
 - SS7 firewalls (filtering SRI/PSI/CancelLocation by source).
 - Monitoring for anomalous inter-network signaling.
 - GSMA FS.11 and FS.07 security guidelines.
@@ -839,27 +839,27 @@ Result: Effective DoS until subscriber re-registers
 
 Diameter replaced SS7's MAP protocol for 4G signaling. While improved, it retains vulnerabilities:
 
-- **Routing Agent compromise:** Diameter proxies are implicitly trusted; a compromised DEA (Diameter Edge Agent) can launch all MAP-equivalent attacks.
-- **S6a interface attacks:** Cancel-Location-Request, Insert-Subscriber-Data — same concepts as SS7 CancelLocation/PSI.
-- **Rx/Gx interface abuse:** Quality of Service manipulation, bearer modification.
-- **Roaming hub exposure:** Interconnect providers (IPX) create attack surface across multiple operators.
+- Routing Agent compromise: Diameter proxies are implicitly trusted; a compromised DEA (Diameter Edge Agent) can launch all MAP-equivalent attacks.
+- S6a interface attacks: Cancel-Location-Request, Insert-Subscriber-Data: same concepts as SS7 CancelLocation/PSI.
+- Rx/Gx interface abuse: Quality of Service manipulation, bearer modification.
+- Roaming hub exposure: Interconnect providers (IPX) create attack surface across multiple operators.
 
 ---
 
 ### 4.6 SIM Swapping
 
-**Social engineering SIM swap:**
+Social engineering SIM swap:
 1. Attacker gathers PII (name, address, last 4 digits of SSN) from data breaches or social media.
 2. Contacts carrier posing as victim; claims to have a new phone.
 3. Carrier ports victim's number to attacker's SIM.
 4. Attacker receives all SMS (including 2FA), intercepts calls.
 
-**Technical SIM swap indicators:**
+Technical SIM swap indicators:
 - Victim's phone suddenly loses signal.
 - Victim receives "SIM changed" or "port out" notification.
 - Attacker receives the victim's inbound SMS.
 
-**Defenses:**
+Defenses:
 - Set carrier PIN/passcode requiring in-person verification.
 - Use authenticator app (TOTP) instead of SMS-based 2FA.
 - Use hardware security key (FIDO2) where possible.
@@ -871,23 +871,23 @@ Diameter replaced SS7's MAP protocol for 4G signaling. While improved, it retain
 
 eSIM (GSMA SGP.02/SGP.22) replaces physical SIM with an embedded secure element:
 
-**Architecture:**
-- **eUICC** (Embedded Universal Integrated Circuit Card) — hardware secure element.
-- **SM-DP+** (Subscription Manager Data Preparation) — profile provisioning server.
-- **SM-DS** (Discovery Server) — notifies device of available profiles.
-- **LPA** (Local Profile Assistant) — on-device software managing profiles.
+Architecture:
+- eUICC (Embedded Universal Integrated Circuit Card): hardware secure element.
+- SM-DP+ (Subscription Manager Data Preparation): profile provisioning server.
+- SM-DS (Discovery Server): notifies device of available profiles.
+- LPA (Local Profile Assistant): on-device software managing profiles.
 
-**Security controls:**
+Security controls:
 - Profiles cryptographically signed by SM-DP+.
 - Mutual authentication between LPA and SM-DP+ (TLS with certificate pinning).
 - Profile download protected end-to-end; operator keys never leave SM-DP+.
 - eUICC has tamper-resistant secure enclave; keys not extractable.
 
-**Attack surface:**
+Attack surface:
 - SM-DP+ server compromise could allow fraudulent profile injection.
 - LPA software vulnerabilities on device.
 - Social engineering of eSIM transfer (analogous to SIM swap).
-- **CVE-2022-26143 (TP240PhoneHome):** Amplification attack via MITEL devices, unrelated but demonstrates telecom protocol abuse.
+- CVE-2022-26143 (TP240PhoneHome): Amplification attack via MITEL devices, unrelated but demonstrates telecom protocol abuse.
 
 ---
 
@@ -897,18 +897,18 @@ eSIM (GSMA SGP.02/SGP.22) replaces physical SIM with an embedded secure element:
 
 Zigbee (IEEE 802.15.4) is used in home automation (Philips Hue, SmartThings, etc.).
 
-**Security architecture:**
-- **AES-128 CCM*** — authenticated encryption (Counter with CBC-MAC, asterisk = optional auth).
-- **Key types:**
-  - **Master Key** — used to establish link keys; pre-installed or OOB.
-  - **Network Key** — shared by all nodes; encrypts all network-layer traffic.
-  - **Link Key** — pairwise between two devices; application layer security.
-  - **Transport Key** — temporary key used during key transport.
+Security architecture:
+- AES-128 CCM*: authenticated encryption (Counter with CBC-MAC, asterisk = optional auth).
+- Key types:
+  - Master Key: used to establish link keys; pre-installed or OOB.
+  - Network Key: shared by all nodes; encrypts all network-layer traffic.
+  - Link Key: pairwise between two devices; application layer security.
+  - Transport Key: temporary key used during key transport.
 
-**Key transport:**
+Key transport:
 During joining (commissioning), the new device receives the Network Key from the Trust Center (coordinator). In Zigbee HA (Home Automation) 1.2, this key is often sent in the clear ("well-known" transport key = `5A6967426565416C6C69616E63653039`). This allows passive sniffing of the Network Key during device joining.
 
-**Zigbee 3.0 improvements:**
+Zigbee 3.0 improvements:
 - Mandatory link key encryption for NWK key transport.
 - Installation code-based link keys (unique per device).
 - But still often deployed with default transport keys in practice.
@@ -948,7 +948,7 @@ zbdecrypt -f capture.pcap -k 5A6967426565416C6C69616E63653039
 zbfind -i /dev/ttyUSB0 -c 11
 ```
 
-**Key recovery attack:**
+Key recovery attack:
 1. Put Zigbee coordinator into permit-join mode.
 2. Sniff with zbdump while a device joins.
 3. If Zigbee HA transport key used, Network Key sent in cleartext in "Transport-Key" command frame.
@@ -960,25 +960,25 @@ zbfind -i /dev/ttyUSB0 -c 11
 
 Z-Wave operates at 908.42 MHz (US) / 868.42 MHz (EU), below the 2.4 GHz ISM band. This means standard 2.4 GHz tools cannot attack it — requires dedicated hardware (e.g., Z-Wave USB stick, HackRF).
 
-**Z-Wave security frameworks:**
+Z-Wave security frameworks:
 
 | Framework | Description | Weaknesses |
 |---|---|---|
 | S0 (legacy) | AES-128 encryption, static network key | Replay attacks; key exchanged in cleartext during inclusion |
 | S2 (current) | ECDH key exchange during inclusion; per-device keys | Must verify DSK (Device Specific Key) to prevent MITM |
 
-**S0 inclusion attack:**
+S0 inclusion attack:
 During S0 inclusion, the network key is sent encrypted with the "all-zeros" key (`00000000000000000000000000000000`). An attacker sniffing the inclusion process captures the encrypted NWK key and decrypts it trivially.
 
-**S2 inclusion security:**
+S2 inclusion security:
 - Uses ECDH (Curve25519) to derive session key for NWK key transport.
 - DSK (9-digit QR code printed on device) is OOB authentication to prevent MITM.
 - Three security classes: S2 Unauthenticated (no DSK), S2 Authenticated (DSK required), S2 Access Control (highest privilege).
 
-**Tools:**
-- `z-wave-js` — JavaScript Z-Wave controller library with logging.
-- `OpenZWave` — open-source Z-Wave stack.
-- `zwave-shepherd` — sniffing and analysis (software-defined radio).
+Tools:
+- `z-wave-js`: JavaScript Z-Wave controller library with logging.
+- `OpenZWave`: open-source Z-Wave stack.
+- `zwave-shepherd`: sniffing and analysis (software-defined radio).
 
 ---
 
@@ -986,9 +986,9 @@ During S0 inclusion, the network key is sent encrypted with the "all-zeros" key 
 
 LoRaWAN (Long Range Wide Area Network) is used for IoT at distances up to 15 km.
 
-**Join procedures:**
+Join procedures:
 
-**OTAA (Over-The-Air Activation) — preferred:**
+OTAA (Over-The-Air Activation) — preferred:
 ```
 Device → Network: JoinRequest(AppEUI, DevEUI, DevNonce)
 Network → Device: JoinAccept(AppNonce, NetID, DevAddr, encrypted with AppKey)
@@ -997,14 +997,14 @@ Network → Device: JoinAccept(AppNonce, NetID, DevAddr, encrypted with AppKey)
   AppSKey = AES-128(AppKey, 0x02 || AppNonce || NetID || DevNonce || pad)
 ```
 
-**ABP (Activation by Personalization) — less secure:**
+ABP (Activation by Personalization) — less secure:
 - NwkSKey and AppSKey hardcoded in device firmware.
 - No dynamic key derivation.
 - If firmware is extracted, all session keys are compromised.
 - No replay protection reset on re-join.
 
-**Security issues:**
-- ABP devices with hardcoded keys — firmware extraction → full decrypt.
+Security issues:
+- ABP devices with hardcoded keys: firmware extraction -> full decrypt.
 - Frame counter (FCnt) reuse due to device resets (some networks accept FCnt=0 reset).
 - AppKey stored in device flash; side-channel or glitching attacks extract it.
 - No per-device AppSKey in LoRaWAN 1.0 (fixed in 1.1 with NwkKey/AppKey separation).
@@ -1015,13 +1015,13 @@ Network → Device: JoinAccept(AppNonce, NetID, DevAddr, encrypted with AppKey)
 
 Thread is used in smart home devices (Google Nest, Apple HomePod, etc.) and is the network layer under the Matter/CHIP application protocol.
 
-**Security features:**
-- **Commissioning:** Uses DTLS with a network credential (passphrase + network key).
-- **MLE (Mesh Link Establishment):** Authenticated with network key.
-- **IEEE 802.15.4 link-layer encryption:** AES-CCM* with per-device frame counters.
-- **External Commissioner:** Thread allows a remote device to commission new nodes; this role requires strong authentication.
+Security features:
+- Commissioning: Uses DTLS with a network credential (passphrase + network key).
+- MLE (Mesh Link Establishment): Authenticated with network key.
+- IEEE 802.15.4 link-layer encryption: AES-CCM* with per-device frame counters.
+- External Commissioner: Thread allows a remote device to commission new nodes; this role requires strong authentication.
 
-**Key security controls:**
+Key security controls:
 - Network Key (128-bit AES) distributed during commissioning.
 - Commissioner must authenticate via PSKC (Pre-Shared Key for Commissioner).
 - Border Router provides IPv6 connectivity with NAT64 and DNS64.
@@ -1032,17 +1032,17 @@ Thread is used in smart home devices (Google Nest, Apple HomePod, etc.) and is t
 
 Matter (formerly Project CHIP) is the smart home interoperability standard from the CSA (Connectivity Standards Alliance), supported by Apple, Google, Amazon, and Samsung.
 
-**Security highlights:**
-- **Passcode-authenticated session establishment (PASE):** Uses SPAKE2+ (CPace-based PAKE) during commissioning. Passcode printed on device (or QR code).
-- **Certificate-authenticated session establishment (CASE):** After commissioning, uses NOC (Node Operational Certificate) + DAC (Device Attestation Certificate) — X.509 PKI.
-- **DAC attestation:** Verifies device is genuine (signed by manufacturer CA → Matter Product Attestation Authority).
-- **Fabric:** Nodes share a fabric (cryptographic domain); cross-fabric operations are controlled.
-- **ACL (Access Control List):** Fine-grained attribute/command access per subject.
+Security highlights:
+- Passcode-authenticated session establishment (PASE): Uses SPAKE2+ (CPace-based PAKE) during commissioning. Passcode printed on device (or QR code).
+- Certificate-authenticated session establishment (CASE): After commissioning, uses NOC (Node Operational Certificate) + DAC (Device Attestation Certificate) — X.509 PKI.
+- DAC attestation: Verifies device is genuine (signed by manufacturer CA -> Matter Product Attestation Authority).
+- Fabric: Nodes share a fabric (cryptographic domain); cross-fabric operations are controlled.
+- ACL (Access Control List): Fine-grained attribute/command access per subject.
 
-**Attack considerations:**
+Attack considerations:
 - DAC key extraction from device firmware is a critical threat.
 - Commissioning window exposure (device in BLE advertising mode with passcode accessible).
-- Multi-admin fabric: multiple controllers can administer the same device — CASE session revocation must be verified.
+- Multi-admin fabric: multiple controllers can administer the same device: CASE session revocation must be verified.
 
 ---
 
@@ -1052,10 +1052,10 @@ Matter (formerly Project CHIP) is the smart home interoperability standard from 
 
 | Band | Frequency | Range | Typical Use |
 |---|---|---|---|
-| LF | 125–134 kHz | < 10 cm | Access control (HID Prox, EM4100), animal tracking |
+| LF | 125-134 kHz | < 10 cm | Access control (HID Prox, EM4100), animal tracking |
 | HF | 13.56 MHz | < 1 m | Smart cards (MIFARE, DESFire), NFC, payment |
-| UHF | 860–960 MHz | 1–12 m | Inventory, supply chain, retail |
-| SHF | 2.45 / 5.8 GHz | 3–10 m | Toll (EZ-Pass), vehicle tracking |
+| UHF | 860-960 MHz | 1-12 m | Inventory, supply chain, retail |
+| SHF | 2.45 / 5.8 GHz | 3-10 m | Toll (EZ-Pass), vehicle tracking |
 
 ---
 
@@ -1064,10 +1064,10 @@ Matter (formerly Project CHIP) is the smart home interoperability standard from 
 HID Prox (125 kHz) is widely deployed in physical access control but has no cryptographic security:
 
 - Card broadcasts its ID (Facility Code + Card Number) in FSK encoding.
-- No authentication — any reader that can receive the signal accepts the card.
-- Reader does not authenticate to card — no mutual authentication.
+- No authentication: any reader that can receive the signal accepts the card.
+- Reader does not authenticate to card: no mutual authentication.
 
-**Cloning with Proxmark3:**
+Cloning with Proxmark3:
 
 ```bash
 # Proxmark3 commands
@@ -1088,20 +1088,20 @@ pm3 --> lf em 410x clone --id <cardid>  # clone
 pm3 --> lf sniff              # sniff LF traffic between card and reader
 ```
 
-**Long-range cloning:** Devices like the Proxmark3 Easy with a larger antenna can read HID Prox cards from 10-30 cm, enabling surreptitious cloning (e.g., from a bag, through a wallet).
+Long-range cloning: Devices like the Proxmark3 Easy with a larger antenna can read HID Prox cards from 10-30 cm, enabling surreptitious cloning (e.g., from a bag, through a wallet).
 
 ---
 
 ### 6.3 MIFARE Classic Attacks
 
-MIFARE Classic (13.56 MHz) is the most widely deployed smart card family (transit cards, corporate access, parking). It uses a proprietary cipher called **CRYPTO1** that was reverse-engineered in 2008.
+MIFARE Classic (13.56 MHz) is the most widely deployed smart card family (transit cards, corporate access, parking). It uses a proprietary cipher called CRYPTO1 that was reverse-engineered in 2008.
 
-**CRYPTO1 weaknesses:**
-- 48-bit LFSR stream cipher — short key.
-- Weak PRNG — tag's nonce generation is predictable.
+CRYPTO1 weaknesses:
+- 48-bit LFSR stream cipher: short key.
+- Weak PRNG: tag's nonce generation is predictable.
 - Authentication protocol leaks key material.
 
-**Nested Authentication Attack:**
+Nested Authentication Attack:
 ```
 1. Authenticate to one sector using known key (often default keys: FFFFFFFFFFFF, A0A1A2A3A4A5, etc.)
 2. When authenticating to next sector, the tag uses a PRNG-derived nonce.
@@ -1110,7 +1110,7 @@ MIFARE Classic (13.56 MHz) is the most widely deployed smart card family (transi
 5. Use nested attack to recover all unknown sector keys in ~1 second.
 ```
 
-**Darkside Attack:**
+Darkside Attack:
 ```
 1. Requires no known sector key.
 2. Exploits parity bit leakage when authentication fails.
@@ -1147,7 +1147,7 @@ MIFARE DESFire (EV1/EV2/EV3) replaces MIFARE Classic with real cryptography:
 | DESFire EV2 | AES-128 + transaction MAC | Proximity check, Transaction MAC |
 | DESFire EV3 | AES-128 + Secure Channel | SUN (Secure Unique NFC) message |
 
-**Authentication (EV1 AES example):**
+Authentication (EV1 AES example):
 ```
 1. PCD (reader) → PICC (card): Authenticate command + key number
 2. PICC → PCD: RndB (encrypted, AES-ECB)
@@ -1156,16 +1156,16 @@ MIFARE DESFire (EV1/EV2/EV3) replaces MIFARE Classic with real cryptography:
 5. Both derive session key = AES(RndA[0:8] || RndB[0:8] || RndA[8:16] || RndB[8:16])
 ```
 
-**Known attacks:**
-- **Side-channel on DESFire original:** Power analysis recovers 3DES key.
-- **Relay attack:** No distance bounding — card signals can be relayed over NFC using a smartphone MITM.
-- **Downgrade:** If system accepts both Classic and DESFire, attacker presents cloned Classic card.
+Known attacks:
+- Side-channel on DESFire original: Power analysis recovers 3DES key.
+- Relay attack: No distance bounding: card signals can be relayed over NFC using a smartphone MITM.
+- Downgrade: If system accepts both Classic and DESFire, attacker presents cloned Classic card.
 
 ---
 
 ### 6.5 NFC Relay Attacks and Payment Skimming
 
-**NFC relay attack (payment skimming):**
+NFC relay attack (payment skimming):
 ```
 Victim's card (mole device A, near victim) ↔ WiFi/Internet ↔ Attacker's POS device (mole device B)
 ```
@@ -1174,13 +1174,13 @@ Victim's card (mole device A, near victim) ↔ WiFi/Internet ↔ Attacker's POS 
 3. Mole B presents itself to a payment terminal as if it were the legitimate card.
 4. Transaction authorized because cryptographic responses are relayed in real time.
 
-**Countermeasures:**
+Countermeasures:
 - RFID-blocking wallets (Faraday cage).
 - EMV transaction limits (contactless transactions often capped).
-- CVC3 dynamic value — changes per transaction; only useful for CNP (Card Not Present) fraud if sniffed.
-- Proximity check (DESFire EV2) — but not widely implemented in payment cards.
+- CVC3 dynamic value: changes per transaction; only useful for CNP (Card Not Present) fraud if sniffed.
+- Proximity check (DESFire EV2): but not widely implemented in payment cards.
 
-**NFCGate** — Android app for NFC relay research:
+NFCGate — Android app for NFC relay research:
 ```
 Device A (reader role) ↔ Internet ↔ Device B (emulator role, HCE)
 ```
@@ -1191,18 +1191,18 @@ Device A (reader role) ↔ Internet ↔ Device B (emulator role, HCE)
 
 UHF RFID (EPC Gen2 / ISO 18000-6C) used in supply chain has minimal security:
 
-- **No authentication in Gen2:** Reader sends Query → Tag responds with EPC (Electronic Product Code) and serial number.
-- **Kill password:** 32-bit — permanently deactivates tag. Can be brute-forced (no rate limiting in spec).
-- **Access password:** 32-bit — locks tag memory. Also brute-forceable.
-- **Cloning:** Copy EPC to blank tag — identical in all respects.
+- No authentication in Gen2: Reader sends Query -> Tag responds with EPC (Electronic Product Code) and serial number.
+- Kill password: 32-bit: permanently deactivates tag. Can be brute-forced (no rate limiting in spec).
+- Access password: 32-bit: locks tag memory. Also brute-forceable.
+- Cloning: Copy EPC to blank tag: identical in all respects.
 
-**Tools:**
+Tools:
 - Proxmark3 with UHF antenna (Proxmark3 RDV4.01 has LF/HF but not UHF natively).
 - Impinj R420 + SDK for enterprise-grade testing.
-- **RFIDler** — software-defined RFID emulator.
-- **uhd-uhf** — GNU Radio-based UHF RFID reader.
+- RFIDler: software-defined RFID emulator.
+- uhd-uhf: GNU Radio-based UHF RFID reader.
 
-**Inventory manipulation attacks:**
+Inventory manipulation attacks:
 - Clone high-value items' EPC to cheap items (price tag swap for organized retail crime).
 - Replay stored EPC to satisfy checkpoint scans.
 - DoS by jamming UHF band with continuous carrier (illegal in most jurisdictions).
@@ -1213,29 +1213,29 @@ UHF RFID (EPC Gen2 / ISO 18000-6C) used in supply chain has minimal security:
 
 ### 7.1 WIDS Architecture
 
-**Dedicated sensor model:**
+Dedicated sensor model:
 - Overlay sensors deployed throughout RF coverage area (not APs themselves).
 - Sensors dedicated to monitoring; never serve client traffic.
-- Higher coverage — sensors can be positioned for RF visibility, not client density.
+- Higher coverage: sensors can be positioned for RF visibility, not client density.
 - More expensive: separate hardware for every coverage zone.
 
-**AP-based monitoring:**
+AP-based monitoring:
 - APs split time between serving clients and scanning other channels.
-- Cisco CleanAir, Aruba AirMonitor — APs toggle between access mode and monitor mode.
+- Cisco CleanAir, Aruba AirMonitor: APs toggle between access mode and monitor mode.
 - Lower cost; denser deployment of sensors.
-- Coverage gaps — AP busy serving clients = less monitoring.
+- Coverage gaps: AP busy serving clients = less monitoring.
 
-**Controller integration:**
+Controller integration:
 WIDS data flows to:
-- WLAN Controller (WLC) — for policy enforcement (rogue containment).
-- SIEM — for correlation with wired events.
-- Network management platform — for visualization.
+- WLAN Controller (WLC): for policy enforcement (rogue containment).
+- SIEM: for correlation with wired events.
+- Network management platform: for visualization.
 
 ---
 
 ### 7.2 Rogue AP Detection
 
-**Methods:**
+Methods:
 
 | Method | Description |
 |---|---|
@@ -1245,21 +1245,21 @@ WIDS data flows to:
 | Probe request matching | Clients probe for known SSIDs; if unfamiliar AP responds, flag as potential evil twin |
 | RSSI triangulation | Use multiple sensors to locate rogue by signal strength |
 
-**Evil twin detection:**
-- Two APs with same SSID but different BSSID — flag for investigation.
-- BSSID that matches whitelist but on unexpected channel — cloning indicator.
-- Same SSID with significantly higher signal strength than known AP — potential close-range evil twin.
+Evil twin detection:
+- Two APs with same SSID but different BSSID: flag for investigation.
+- BSSID that matches whitelist but on unexpected channel: cloning indicator.
+- Same SSID with significantly higher signal strength than known AP: potential close-range evil twin.
 
 ---
 
 ### 7.3 Deauth Attack Detection
 
-**Indicators:**
+Indicators:
 - High rate of Reason Code 7 deauth frames from unexpected sources.
 - Client association/deassociation cycling faster than normal roaming.
 - Deauth frames with source MAC not in authorized AP list.
 
-**Detection logic:**
+Detection logic:
 ```python
 # Simplified deauth flood detection (Scapy-based)
 from scapy.all import *
@@ -1282,7 +1282,7 @@ def detect(pkt):
 sniff(iface="wlan0mon", prn=detect, store=False)
 ```
 
-**Countermeasure:** 802.11w (Management Frame Protection) — see section 1.3.
+Countermeasure: 802.11w (Management Frame Protection) — see section 1.3.
 
 ---
 
@@ -1290,16 +1290,16 @@ sniff(iface="wlan0mon", prn=detect, store=False)
 
 Client isolation prevents wireless clients on the same AP/SSID from communicating directly:
 
-**Implementation:**
-- **AP-level:** AP drops frames destined from one client to another client on same BSS.
-- **VLAN-level:** Assign each client to a unique VLAN; inter-VLAN routing blocked by firewall.
+Implementation:
+- AP-level: AP drops frames destined from one client to another client on same BSS.
+- VLAN-level: Assign each client to a unique VLAN; inter-VLAN routing blocked by firewall.
 
-**Use cases:**
-- Guest networks — prevent lateral movement between guest devices.
+Use cases:
+- Guest networks: prevent lateral movement between guest devices.
 - Hotspot environments.
-- IoT segments — prevent IoT device compromise from reaching other IoT devices.
+- IoT segments: prevent IoT device compromise from reaching other IoT devices.
 
-**Limitations:**
+Limitations:
 - Does not prevent communication through the internet (e.g., C2 over HTTPS).
 - Does not prevent multicast/broadcast abuse.
 - Layer 3 isolation requires firewall rules in addition to AP setting.
@@ -1308,14 +1308,14 @@ Client isolation prevents wireless clients on the same AP/SSID from communicatin
 
 ### 7.5 RF Spectrum Monitoring
 
-**Waterfall display:**
+Waterfall display:
 Time-frequency visualization showing spectral power over time. Used to identify:
 - Interference sources (microwave ovens, baby monitors, radar).
 - Jamming attacks (continuous carrier, swept carrier, swept tone).
 - Unauthorized frequency use.
 - Channel utilization patterns.
 
-**Tools:**
+Tools:
 ```bash
 # Kismet — comprehensive wireless monitoring
 kismet -c wlan0mon
@@ -1328,7 +1328,7 @@ rtl_power -f 2400M:2480M:1M -g 50 -i 1 -e 3600 power_scan.csv
 heatmap.py power_scan.csv heatmap.png
 ```
 
-**WIPS products:**
+WIPS products:
 
 | Product | Vendor | Features |
 |---|---|---|
@@ -1348,12 +1348,12 @@ heatmap.py power_scan.csv heatmap.png
 | Alfa AWUS036ACS | 802.11ac dual-band, 2.4/5 GHz, monitor mode, injection | Best general-purpose Wi-Fi pentest adapter |
 | Alfa AWUS036ACH | 802.11ac dual-band, high-power | Dual antenna; good for long-range capture |
 | Alfa AWUS1900 | 802.11ac, 4×4 MIMO | High throughput; for enterprise testing |
-| HackRF One | 1 MHz – 6 GHz TX/RX, 20 MHz BW | SDR — Bluetooth, Zigbee, cellular, custom protocols |
+| HackRF One | 1 MHz: 6 GHz TX/RX, 20 MHz BW | SDR: Bluetooth, Zigbee, cellular, custom protocols |
 | YARD Stick One | Sub-GHz (300-928 MHz) | Z-Wave, LoRa, ISM-band protocols |
 | Ubertooth One | Bluetooth 2.4 GHz sniffer | BLE and Classic Bluetooth capture |
 | Proxmark3 RDV4 | LF/HF RFID (125kHz, 13.56MHz) | Gold standard RFID/NFC research tool |
 | WiFi Pineapple (MK7) | Dual-band evil twin, KARMA, modules | Purpose-built Wi-Fi pentest platform |
-| RTL-SDR v3 | 500kHz – 1.75GHz receive only | Budget SDR for spectrum analysis |
+| RTL-SDR v3 | 500kHz: 1.75GHz receive only | Budget SDR for spectrum analysis |
 | Flipper Zero | Sub-GHz, NFC, RFID, IR, BLE, iButton | Portable multi-protocol tool |
 
 ---
@@ -1450,21 +1450,21 @@ wlan.rsn.version == 1
 
 The WiFi Pineapple (Hak5 MK7) is a purpose-built Wi-Fi pentesting platform:
 
-**PineAP modules:**
-- **PineAP Daemon** — KARMA attack; responds to client probe requests.
-- **Evil Twin** — clone a specific AP with optional credential harvesting portal.
-- **Recon** — passive discovery of APs and clients.
-- **Deauth** — targeted deauthentication.
-- **Client Manager** — allow/deny specific client MACs.
+PineAP modules:
+- PineAP Daemon: KARMA attack; responds to client probe requests.
+- Evil Twin: clone a specific AP with optional credential harvesting portal.
+- Recon: passive discovery of APs and clients.
+- Deauth: targeted deauthentication.
+- Client Manager: allow/deny specific client MACs.
 
-**Useful modules (Community):**
-- `DNSSpoof` — DNS poisoning for captive portal.
-- `SSLsplit` — SSL MITM (limited to non-HSTS/non-pinned sites).
-- `Responder` — LLMNR/NBT-NS/WPAD poisoning.
-- `Veil` — payload generation (archived Jan 2024, unmaintained).
-- `RandomRoll` — randomize BSSID/channel.
+Useful modules (Community):
+- `DNSSpoof`: DNS poisoning for captive portal.
+- `SSLsplit`: SSL MITM (limited to non-HSTS/non-pinned sites).
+- `Responder`: LLMNR/NBT-NS/WPAD poisoning.
+- `Veil`: payload generation (archived Jan 2024, unmaintained).
+- `RandomRoll`: randomize BSSID/channel.
 
-**Setup:**
+Setup:
 ```bash
 # Connect via SSH
 ssh root@172.16.42.1
@@ -1480,12 +1480,12 @@ http://172.16.42.1:1471
 
 ### 8.5 Testing 802.1X Enterprise Networks
 
-**Goals:**
+Goals:
 1. Recover EAP credentials (PEAP/MSCHAPv2 inner challenge-response).
 2. Determine if server certificate is validated.
 3. Test for EAP method downgrade.
 
-**Hostapd-WPE workflow:**
+Hostapd-WPE workflow:
 ```bash
 # 1. Generate self-signed certificates (or copy from known CA)
 openssl req -new -x509 -days 365 -keyout server.key -out server.pem -nodes \
@@ -1506,17 +1506,17 @@ hashcat -m 5500 "username:::challenge_hex:response1:response2" rockyou.txt
 # response = NT response (24 bytes), split into two 12-byte halves
 ```
 
-**Verifying certificate validation:**
+Verifying certificate validation:
 Use a certificate with a different Common Name / different CA than legitimate server. If the client connects anyway — certificate validation is disabled/misconfigured.
 
 ---
 
 ### 8.6 Physical Layer Attacks
 
-**Jamming:**
-- Continuous carrier jamming — transmit continuous RF signal on target channel.
-- Reactive jamming — detect frame preamble, immediately jam; harder to detect.
-- Deceptive jamming — inject malformed frames; appears as interference.
+Jamming:
+- Continuous carrier jamming: transmit continuous RF signal on target channel.
+- Reactive jamming: detect frame preamble, immediately jam; harder to detect.
+- Deceptive jamming: inject malformed frames; appears as interference.
 
 ```bash
 # HackRF jamming (educational/authorized testing only)
@@ -1530,7 +1530,7 @@ mdk4 wlan0mon x -t AA:BB:CC:DD:EE:FF
 mdk4 wlan0mon m -t AA:BB:CC:DD:EE:FF
 ```
 
-**Legal note:** All jamming and interference generation is illegal on public airwaves in virtually all jurisdictions. These capabilities are documented for authorized penetration testing in controlled environments only.
+Legal note: All jamming and interference generation is illegal on public airwaves in virtually all jurisdictions. These capabilities are documented for authorized penetration testing in controlled environments only.
 
 ---
 
@@ -1538,15 +1538,15 @@ mdk4 wlan0mon m -t AA:BB:CC:DD:EE:FF
 
 ### 9.1 SSID Hardening
 
-**SSID broadcast:**
-- Hiding SSID (disabling beacon SSID broadcast) provides minimal security — SSIDs are visible in probe requests and association frames.
+SSID broadcast:
+- Hiding SSID (disabling beacon SSID broadcast) provides minimal security: SSIDs are visible in probe requests and association frames.
 - Recommendation: Do not rely on SSID hiding for security; but hidden SSIDs may reduce casual targeting.
 
-**SSID naming:**
+SSID naming:
 - Avoid SSIDs that reveal organization name, location, or AP hardware model.
 - Use different SSIDs for different security zones (corporate, guest, IoT).
 
-**Separate guest VLAN:**
+Separate guest VLAN:
 ```
 Corporate SSID → VLAN 10 → Internal firewall → Corporate resources
 Guest SSID → VLAN 100 → Internet-only firewall → No internal access
@@ -1560,7 +1560,7 @@ IoT SSID → VLAN 200 → Segmented firewall → Limited internet access
 - [ ] Inventory all wireless clients for WPA3 support (drivers, OS version).
 - [ ] Enable WPA3-Personal (SAE) on APs; configure transition mode for legacy clients.
 - [ ] Enable WPA3-Enterprise (192-bit mode) for high-security zones.
-- [ ] Enable 802.11w (MFP) — set to `required` on WPA3-only SSIDs.
+- [ ] Enable 802.11w (MFP): set to `required` on WPA3-only SSIDs.
 - [ ] Disable WPA1/TKIP on all SSIDs.
 - [ ] Set minimum RSN IE: WPA2 + WPA3 on transition mode, WPA3-only on secure SSIDs.
 - [ ] Verify SAE password element uses hash-to-element (patched against Dragonblood).
@@ -1574,7 +1574,7 @@ IoT SSID → VLAN 200 → Segmented firewall → Limited internet access
 
 EAP-TLS is the most secure EAP method — both client and server present X.509 certificates.
 
-**PKI requirements:**
+PKI requirements:
 ```
 Root CA
 └── Intermediate CA (RADIUS signing)
@@ -1583,7 +1583,7 @@ Root CA
     └── Client Certificate per device (client auth EKU)
 ```
 
-**RADIUS server configuration (FreeRADIUS):**
+RADIUS server configuration (FreeRADIUS):
 ```
 # /etc/freeradius/3.0/mods-enabled/eap
 eap {
@@ -1602,12 +1602,12 @@ eap {
 }
 ```
 
-**Client certificate deployment:**
+Client certificate deployment:
 - SCEP (Simple Certificate Enrollment Protocol) via MDM for automated cert distribution.
-- PKCS#12 bundle per device — distribute via MDM policy.
+- PKCS#12 bundle per device: distribute via MDM policy.
 - Require EKU: Client Authentication (1.3.6.1.5.5.7.3.2).
 
-**Client-side validation:**
+Client-side validation:
 - Configure supplicant (Windows NPS, Android, iOS, macOS) to:
   - Validate server certificate chain to trusted root.
   - Pin server certificate CN or SANs.
@@ -1619,16 +1619,16 @@ eap {
 
 MAC filtering allows only pre-approved MAC addresses to associate:
 
-**Limitations:**
-- MAC addresses are transmitted in plaintext in 802.11 headers — trivially sniffable.
+Limitations:
+- MAC addresses are transmitted in plaintext in 802.11 headers: trivially sniffable.
 - Spoofing a MAC: `ip link set wlan0 address AA:BB:CC:DD:EE:FF` (Linux).
 - In monitor mode: observe an authorized client's MAC, then clone it.
 - Provides no protection against determined attackers; security by obscurity.
 
-**When to use:**
+When to use:
 - As one layer in a defense-in-depth strategy for IoT networks.
 - To enforce known-device inventory (operational, not security goal).
-- Combined with 802.1X, NAC, and network monitoring — not as a standalone control.
+- Combined with 802.1X, NAC, and network monitoring: not as a standalone control.
 
 ---
 
@@ -1636,10 +1636,10 @@ MAC filtering allows only pre-approved MAC addresses to associate:
 
 Minimizing RF signal leakage beyond the physical perimeter reduces the attack surface:
 
-- **Transmit power reduction:** Lower AP TX power so signal does not extend significantly beyond the building.
-- **Directional antennas:** Point RF lobes inward; avoid omnidirectional coverage in perimeter-adjacent areas.
-- **Site survey:** Conduct RF site survey to identify leakage points (windows, parking lots).
-- **Channel planning:** Assign non-overlapping channels (1, 6, 11 for 2.4 GHz; 36, 40, 44, 48 etc. for 5 GHz) to minimize co-channel interference and simplify monitoring.
+- Transmit power reduction: Lower AP TX power so signal does not extend significantly beyond the building.
+- Directional antennas: Point RF lobes inward; avoid omnidirectional coverage in perimeter-adjacent areas.
+- Site survey: Conduct RF site survey to identify leakage points (windows, parking lots).
+- Channel planning: Assign non-overlapping channels (1, 6, 11 for 2.4 GHz; 36, 40, 44, 48 etc. for 5 GHz) to minimize co-channel interference and simplify monitoring.
 
 ---
 
@@ -1654,10 +1654,10 @@ Minimizing RF signal leakage beyond the physical perimeter reduces the attack su
 | Canada | ISED | Aligned with FCC rules |
 | Australia | ACMA | Aligned with ETSI |
 
-**Key compliance considerations:**
-- **DFS (Dynamic Frequency Selection):** Mandatory on 5 GHz channels 52-144 in EU/US — AP must detect radar and vacate channel within 10 seconds.
-- **TPC (Transmit Power Control):** Required on 5 GHz; AP adapts power based on client capability.
-- **FCC §333:** Prohibits jamming or interfering with licensed RF transmissions. Civil and criminal penalties.
+Key compliance considerations:
+- DFS (Dynamic Frequency Selection): Mandatory on 5 GHz channels 52-144 in EU/US: AP must detect radar and vacate channel within 10 seconds.
+- TPC (Transmit Power Control): Required on 5 GHz; AP adapts power based on client capability.
+- FCC §333: Prohibits jamming or interfering with licensed RF transmissions. Civil and criminal penalties.
 
 ---
 
@@ -1688,20 +1688,20 @@ Minimizing RF signal leakage beyond the physical perimeter reduces the attack su
 
 ### 10.2 NIST SP 800-97
 
-**NIST SP 800-97: Establishing Wireless Robust Security Networks (2007)**
+NIST SP 800-97: Establishing Wireless Robust Security Networks (2007)
 
 Key guidance areas:
-- **RSNA (Robust Security Network Association):** Framework for WPA2/802.11i deployment.
-- **EAP selection guidance:** EAP-TLS preferred; PEAP acceptable with cert validation.
-- **Key management:** Rotate GTK (Group Temporal Key) regularly; configure PMKSA caching appropriately.
-- **Network segmentation:** Separate wireless from wired with firewall; treat wireless as untrusted zone.
-- **Monitoring:** WIDS deployment, log collection, anomaly detection.
+- RSNA (Robust Security Network Association): Framework for WPA2/802.11i deployment.
+- EAP selection guidance: EAP-TLS preferred; PEAP acceptable with cert validation.
+- Key management: Rotate GTK (Group Temporal Key) regularly; configure PMKSA caching appropriately.
+- Network segmentation: Separate wireless from wired with firewall; treat wireless as untrusted zone.
+- Monitoring: WIDS deployment, log collection, anomaly detection.
 
-**Companion publications:**
-- **NIST SP 800-153:** Guidelines for Securing Wireless LANs (updated 2012).
-- **NIST SP 800-187:** Guide to LTE Security.
-- **NIST SP 800-187r1:** Guide to 5G Security.
-- **NIST IR 8200:** Interagency Report on Status of International IoT Standards.
+Companion publications:
+- NIST SP 800-153: Guidelines for Securing Wireless LANs (updated 2012).
+- NIST SP 800-187: Guide to LTE Security.
+- NIST SP 800-187r1: Guide to 5G Security.
+- NIST IR 8200: Interagency Report on Status of International IoT Standards.
 
 ---
 
@@ -1711,17 +1711,17 @@ PCI DSS v4.0 requirements relevant to wireless:
 
 | Requirement | Description |
 |---|---|
-| 1.3 | Restrict inbound/outbound traffic — wireless segment must be firewall-isolated from CDE |
-| 2.2.1 | Configuration standards — disable WEP/WPA-TKIP; require WPA2+ |
+| 1.3 | Restrict inbound/outbound traffic: wireless segment must be firewall-isolated from CDE |
+| 2.2.1 | Configuration standards: disable WEP/WPA-TKIP; require WPA2+ |
 | 2.3.2 | Protect wireless with strong cryptography on all transmission of cardholder data |
-| 4.2.1 | Strong cryptography in transit — WPA2/WPA3 acceptable; WEP/WPA-TKIP prohibited |
-| 9.4.3 | Physical access controls — wireless APs must be secured against unauthorized physical access |
+| 4.2.1 | Strong cryptography in transit: WPA2/WPA3 acceptable; WEP/WPA-TKIP prohibited |
+| 9.4.3 | Physical access controls: wireless APs must be secured against unauthorized physical access |
 | 11.2.1 | Authorized and unauthorized wireless access point discovery (quarterly scans) |
 | 11.2.2 | Respond to detected unauthorized wireless APs within defined timeframe |
 | 12.3.3 | Review wireless AP inventory and assess new risk at least once every 12 months |
 
-**Wireless testing requirements:**
-- 11.2.1 requires quarterly scanning for unauthorized wireless APs — using wireless analyzers, WIDS, or manual surveys.
+Wireless testing requirements:
+- 11.2.1 requires quarterly scanning for unauthorized wireless APs: using wireless analyzers, WIDS, or manual surveys.
 - Evidence of scanning methodology, scan results, and remediation documentation required for audit.
 
 ---
@@ -1730,12 +1730,12 @@ PCI DSS v4.0 requirements relevant to wireless:
 
 FIPS 140-2 (now transitioning to FIPS 140-3) defines security requirements for cryptographic modules used in US federal systems.
 
-**Relevance to wireless:**
+Relevance to wireless:
 - Federal agencies must use FIPS-validated cryptographic modules in wireless infrastructure.
 - WPA2/WPA3 AES implementations must be from FIPS 140-2/3 validated modules.
-- CMVP (Cryptographic Module Validation Program) — list of validated modules at csrc.nist.gov/projects/cryptographic-module-validation-program.
+- CMVP (Cryptographic Module Validation Program): list of validated modules at csrc.nist.gov/projects/cryptographic-module-validation-program.
 
-**FIPS 140-2 security levels:**
+FIPS 140-2 security levels:
 
 | Level | Description |
 |---|---|
@@ -1744,10 +1744,10 @@ FIPS 140-2 (now transitioning to FIPS 140-3) defines security requirements for c
 | 3 | Tamper-detection and response; identity-based authentication; zeroize keys on tamper |
 | 4 | Complete physical security envelope; protects against environmental attacks |
 
-**Common FIPS-validated wireless components:**
-- Cisco Catalyst wireless APs — AES modules FIPS validated.
-- Aruba AP series — AES/CCMP modules validated.
-- Microsoft Windows WPA2 supplicant — uses BCRYPT.DLL (FIPS validated).
+Common FIPS-validated wireless components:
+- Cisco Catalyst wireless APs: AES modules FIPS validated.
+- Aruba AP series: AES/CCMP modules validated.
+- Microsoft Windows WPA2 supplicant: uses BCRYPT.DLL (FIPS validated).
 
 ---
 
@@ -1767,7 +1767,7 @@ MITRE ATT&CK for Enterprise includes wireless-relevant techniques:
 | T1600.002 | Weaken Encryption | Force WEP/TKIP downgrade |
 | T1205.002 | Traffic Signaling: Socket Filters | Monitor mode capture triggers |
 
-**MITRE ATT&CK for Mobile (additional wireless relevance):**
+MITRE ATT&CK for Mobile (additional wireless relevance):
 
 | Technique ID | Name | Description |
 |---|---|---|
@@ -1813,49 +1813,49 @@ MITRE ATT&CK for Enterprise includes wireless-relevant techniques:
 
 | Term | Definition |
 |---|---|
-| BSSID | Basic Service Set Identifier — 6-byte MAC address of an AP |
-| SSID | Service Set Identifier — human-readable network name |
-| ESSID | Extended SSID — same as SSID in modern usage |
-| PMK | Pairwise Master Key — 256-bit key derived from passphrase or 802.1X |
-| PTK | Pairwise Transient Key — session key derived from PMK for unicast data |
-| GTK | Group Temporal Key — shared key for multicast/broadcast data |
-| MIC | Message Integrity Code — authentication tag on frames |
-| ANonce | Authenticator Nonce — random value from AP in 4-way handshake |
-| SNonce | Supplicant Nonce — random value from client in 4-way handshake |
-| PMKID | PMK Identifier — hash linking PMK to AP and client MACs |
-| SAE | Simultaneous Authentication of Equals — WPA3 PSK replacement |
-| EAP | Extensible Authentication Protocol — framework for authentication methods |
-| RADIUS | Remote Authentication Dial-In User Service — AAA protocol for 802.1X |
-| EAPOL | EAP over LAN — encapsulates EAP in 802.3/802.11 frames |
-| PEAP | Protected EAP — EAP in TLS tunnel; server cert only |
-| EAP-TLS | EAP with TLS — mutual certificate authentication |
-| TKIP | Temporal Key Integrity Protocol — WPA's RC4-based encryption |
-| CCMP | Counter Mode with CBC-MAC Protocol — WPA2's AES-based encryption |
-| MFP | Management Frame Protection — 802.11w feature |
-| WPS | Wi-Fi Protected Setup — PIN or PBC device onboarding |
+| BSSID | Basic Service Set Identifier: 6-byte MAC address of an AP |
+| SSID | Service Set Identifier: human-readable network name |
+| ESSID | Extended SSID: same as SSID in modern usage |
+| PMK | Pairwise Master Key: 256-bit key derived from passphrase or 802.1X |
+| PTK | Pairwise Transient Key: session key derived from PMK for unicast data |
+| GTK | Group Temporal Key: shared key for multicast/broadcast data |
+| MIC | Message Integrity Code: authentication tag on frames |
+| ANonce | Authenticator Nonce: random value from AP in 4-way handshake |
+| SNonce | Supplicant Nonce: random value from client in 4-way handshake |
+| PMKID | PMK Identifier: hash linking PMK to AP and client MACs |
+| SAE | Simultaneous Authentication of Equals: WPA3 PSK replacement |
+| EAP | Extensible Authentication Protocol: framework for authentication methods |
+| RADIUS | Remote Authentication Dial-In User Service: AAA protocol for 802.1X |
+| EAPOL | EAP over LAN: encapsulates EAP in 802.3/802.11 frames |
+| PEAP | Protected EAP: EAP in TLS tunnel; server cert only |
+| EAP-TLS | EAP with TLS: mutual certificate authentication |
+| TKIP | Temporal Key Integrity Protocol: WPA's RC4-based encryption |
+| CCMP | Counter Mode with CBC-MAC Protocol: WPA2's AES-based encryption |
+| MFP | Management Frame Protection: 802.11w feature |
+| WPS | Wi-Fi Protected Setup: PIN or PBC device onboarding |
 | KARMA | Attack exploiting automatic probe request responses |
-| IMSI | International Mobile Subscriber Identity — unique SIM identifier |
-| SUCI | Subscription Concealed Identifier — 5G privacy-preserving IMSI substitute |
-| HSS | Home Subscriber Server — LTE subscriber database |
-| MME | Mobility Management Entity — LTE core authentication node |
-| USIM | Universal SIM — UMTS/LTE SIM with AKA algorithms |
-| EPC | Electronic Product Code — UHF RFID identifier standard |
-| GATT | Generic Attribute Profile — BLE data exchange framework |
-| UUID | Universally Unique Identifier — 128-bit GATT service/characteristic ID |
-| LTK | Long-Term Key — BLE key stored after initial pairing |
-| STK | Short-Term Key — temporary BLE session key during pairing |
-| OOB | Out-of-Band — secondary channel for key exchange (NFC, manual) |
-| SSP | Secure Simple Pairing — Bluetooth 2.1+ pairing with ECDH |
-| ECDH | Elliptic Curve Diffie-Hellman — key agreement primitive |
-| NetKey | Zigbee Network Key — shared encryption key for all network nodes |
-| AppKey | Zigbee / LoRaWAN Application Key — end-to-end payload encryption |
-| OTAA | Over-The-Air Activation — LoRaWAN dynamic key provisioning |
-| ABP | Activation By Personalization — LoRaWAN static key provisioning |
-| DSK | Device Specific Key — Z-Wave S2 OOB verification passphrase |
-| DAC | Device Attestation Certificate — Matter device authenticity proof |
-| NOC | Node Operational Certificate — Matter per-session identity |
-| PASE | Passcode-Authenticated Session Establishment — Matter commissioning |
-| CASE | Certificate-Authenticated Session Establishment — Matter post-commissioning |
+| IMSI | International Mobile Subscriber Identity: unique SIM identifier |
+| SUCI | Subscription Concealed Identifier: 5G privacy-preserving IMSI substitute |
+| HSS | Home Subscriber Server: LTE subscriber database |
+| MME | Mobility Management Entity: LTE core authentication node |
+| USIM | Universal SIM: UMTS/LTE SIM with AKA algorithms |
+| EPC | Electronic Product Code: UHF RFID identifier standard |
+| GATT | Generic Attribute Profile: BLE data exchange framework |
+| UUID | Universally Unique Identifier: 128-bit GATT service/characteristic ID |
+| LTK | Long-Term Key: BLE key stored after initial pairing |
+| STK | Short-Term Key: temporary BLE session key during pairing |
+| OOB | Out-of-Band: secondary channel for key exchange (NFC, manual) |
+| SSP | Secure Simple Pairing: Bluetooth 2.1+ pairing with ECDH |
+| ECDH | Elliptic Curve Diffie-Hellman: key agreement primitive |
+| NetKey | Zigbee Network Key: shared encryption key for all network nodes |
+| AppKey | Zigbee / LoRaWAN Application Key: end-to-end payload encryption |
+| OTAA | Over-The-Air Activation: LoRaWAN dynamic key provisioning |
+| ABP | Activation By Personalization: LoRaWAN static key provisioning |
+| DSK | Device Specific Key: Z-Wave S2 OOB verification passphrase |
+| DAC | Device Attestation Certificate: Matter device authenticity proof |
+| NOC | Node Operational Certificate: Matter per-session identity |
+| PASE | Passcode-Authenticated Session Establishment: Matter commissioning |
+| CASE | Certificate-Authenticated Session Establishment: Matter post-commissioning |
 
 ---
 

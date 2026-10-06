@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | standing up or maturing a CTI program, enriching and scoring IOCs before pushing them to your SIEM or firewall, trying to attribute activity to a known threat actor |
-| **Start at** | [CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution) |
-| **Pairs with** | [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [disciplines/threat-intelligence.md](disciplines/threat-intelligence.md) |
+| Read this when | standing up or maturing a CTI program, enriching and scoring IOCs before pushing them to your SIEM or firewall, trying to attribute activity to a known threat actor |
+| Start at | [CTI Fundamentals](#_1-cti-fundamentals), [IOC Management & Enrichment](#_4-ioc-management-amp-enrichment), [Threat Actor Tracking & Attribution](#_5-threat-actor-tracking-amp-attribution) |
+| Pairs with | [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md), [THREAT_HUNTING_REFERENCE.md](THREAT_HUNTING_REFERENCE.md), [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [disciplines/threat-intelligence.md](disciplines/threat-intelligence.md) |
 
 ---
 
@@ -52,42 +52,42 @@ Planning & Direction
         +--------------> (back to Planning)
 ```
 
-**Planning & Direction**
+Planning & Direction
 - Define Priority Intelligence Requirements (PIRs) with stakeholders
 - Identify knowledge gaps and collection needs
 - Allocate analyst resources to highest-value tasks
 - Establish reporting cadences and consumer expectations
 - Maintain standing collection plans for recurring requirements
 
-**Collection**
+Collection
 - Gather raw data from technical feeds (OSINT, commercial TI, ISACs, dark web)
 - Ingest malware samples, network logs, endpoint telemetry
 - Conduct human source elicitation from sector peers and government liaisons
 - Operate honeypots, sinkholes, and passive DNS sensors
 - Subscribe to threat feeds (STIX/TAXII, CSV blocklists, API-based enrichment)
 
-**Processing**
+Processing
 - Parse, normalize, and de-duplicate raw data
 - Translate, transliterate, and OCR foreign-language content
 - Decode malware configs, extract IOCs from sandbox reports
 - Ingest into TIP (MISP, OpenCTI, ThreatConnect) with structured tagging
 - Apply confidence scoring based on source reliability
 
-**Analysis**
+Analysis
 - Apply structured analytic techniques (ACH, timeline analysis, link analysis)
 - Map TTPs to MITRE ATT&CK framework
 - Assess adversary capability, intent, and opportunity
 - Identify patterns, clusters, and campaign activity threads
 - Produce finished intelligence products at appropriate classification
 
-**Dissemination**
+Dissemination
 - Distribute finished intelligence to appropriate consumers
 - Apply TLP markings and handling caveats
 - Format products for consumer audience (technical IOCs vs. executive brief)
 - Push machine-readable STIX bundles to SIEM/SOAR/TIP via TAXII
 - Publish to sharing communities (ISACs, CISA AIS) with proper controls
 
-**Feedback**
+Feedback
 - Collect consumer feedback on product quality and relevance
 - Measure whether intelligence drove defensive actions
 - Adjust PIRs based on changing threat landscape and business priorities
@@ -101,32 +101,32 @@ Planning & Direction
 Intelligence is classified into four distinct levels, each serving different consumers and decision horizons:
 
 #### Strategic Intelligence
-- **Audience**: C-suite, board of directors, CISO, business unit leaders
-- **Time horizon**: Months to years
-- **Purpose**: Inform long-term security investment, risk appetite, and organizational posture
-- **Examples**: Nation-state threat landscape briefings; geopolitical risk assessments; sector-wide campaign trend analysis; adversary intent assessments targeting the organization's industry
-- **Products**: Quarterly threat landscape reports, annual risk assessments, board briefings
+- Audience: C-suite, board of directors, CISO, business unit leaders
+- Time horizon: Months to years
+- Purpose: Inform long-term security investment, risk appetite, and organizational posture
+- Examples: Nation-state threat landscape briefings; geopolitical risk assessments; sector-wide campaign trend analysis; adversary intent assessments targeting the organization's industry
+- Products: Quarterly threat landscape reports, annual risk assessments, board briefings
 
 #### Operational Intelligence
-- **Audience**: Security managers, incident response leads, red team leads
-- **Time horizon**: Days to weeks
-- **Purpose**: Understand ongoing adversary campaigns, TTPs, and targeting patterns to inform defensive operations and hunting priorities
-- **Examples**: Active campaign analysis with actor attribution; C2 infrastructure mapping; spearphishing lure analysis; ransomware precursor activity tracking
-- **Products**: Campaign reports, weekly threat digests, hunting briefs
+- Audience: Security managers, incident response leads, red team leads
+- Time horizon: Days to weeks
+- Purpose: Understand ongoing adversary campaigns, TTPs, and targeting patterns to inform defensive operations and hunting priorities
+- Examples: Active campaign analysis with actor attribution; C2 infrastructure mapping; spearphishing lure analysis; ransomware precursor activity tracking
+- Products: Campaign reports, weekly threat digests, hunting briefs
 
 #### Tactical Intelligence
-- **Audience**: SOC analysts, tier-1/2/3 responders, threat hunters
-- **Time horizon**: Hours to days
-- **Purpose**: Provide IOCs and detection signatures for immediate defensive action
-- **Examples**: Malicious IP lists, phishing domain feeds, file hash blocklists, Snort/Yara/Sigma rules
-- **Products**: Structured IOC feeds (STIX/TAXII), blocklist updates, detection rule packages
+- Audience: SOC analysts, tier-1/2/3 responders, threat hunters
+- Time horizon: Hours to days
+- Purpose: Provide IOCs and detection signatures for immediate defensive action
+- Examples: Malicious IP lists, phishing domain feeds, file hash blocklists, Snort/Yara/Sigma rules
+- Products: Structured IOC feeds (STIX/TAXII), blocklist updates, detection rule packages
 
 #### Technical Intelligence
-- **Audience**: Malware analysts, vulnerability researchers, platform engineers
-- **Time horizon**: Real-time to days
-- **Purpose**: Deep technical understanding of tools, exploits, and malware capabilities for detection engineering and platform hardening
-- **Examples**: Malware reverse engineering reports, exploit PoC analysis, C2 protocol documentation, packers and evasion techniques
-- **Products**: Technical reports with YARA rules, network signatures, configuration parser scripts
+- Audience: Malware analysts, vulnerability researchers, platform engineers
+- Time horizon: Real-time to days
+- Purpose: Deep technical understanding of tools, exploits, and malware capabilities for detection engineering and platform hardening
+- Examples: Malware reverse engineering reports, exploit PoC analysis, C2 protocol documentation, packers and evasion techniques
+- Products: Technical reports with YARA rules, network signatures, configuration parser scripts
 
 ---
 
@@ -159,7 +159,7 @@ David Bianco's Pyramid of Pain (2013) describes the relative difficulty for adve
 | 5 | Tools | Hard -- retool, rewrite, acquire new implant | High |
 | 6 | TTPs | Very Hard -- change tradecraft, retrain operators | Highest |
 
-**Operational Implication**: CTI programs should prioritize detection at the Tools and TTPs levels via behavioral detection (ATT&CK-mapped rules) rather than relying primarily on hash and IP blocklists.
+Operational Implication: CTI programs should prioritize detection at the Tools and TTPs levels via behavioral detection (ATT&CK-mapped rules) rather than relying primarily on hash and IP blocklists.
 
 ---
 
@@ -180,23 +180,23 @@ The Diamond Model (Caltagirone, Pendergast, Betz -- 2013) provides a structured 
               (meta-features)
 ```
 
-**Four Core Features**:
-- **Adversary**: The threat actor or group conducting the intrusion
-- **Capability**: The tools, exploits, malware, and TTPs employed
-- **Infrastructure**: The IP addresses, domains, servers, email accounts used
-- **Victim**: The targeted organization, individual, or asset
+Four Core Features:
+- Adversary: The threat actor or group conducting the intrusion
+- Capability: The tools, exploits, malware, and TTPs employed
+- Infrastructure: The IP addresses, domains, servers, email accounts used
+- Victim: The targeted organization, individual, or asset
 
-**Meta-Features** (extend the model for analytical depth):
-- **Timestamp**: When the event occurred
-- **Phase**: Which phase of the kill chain or ATT&CK the event maps to
-- **Result**: Success/fail/unknown -- what the adversary achieved
-- **Direction**: Victim-to-infrastructure vs. infrastructure-to-victim
-- **Methodology**: Spearphishing, watering hole, supply chain, etc.
-- **Resources**: External infrastructure, capabilities, and funding
+Meta-Features (extend the model for analytical depth):
+- Timestamp: When the event occurred
+- Phase: Which phase of the kill chain or ATT&CK the event maps to
+- Result: Success/fail/unknown -- what the adversary achieved
+- Direction: Victim-to-infrastructure vs. infrastructure-to-victim
+- Methodology: Spearphishing, watering hole, supply chain, etc.
+- Resources: External infrastructure, capabilities, and funding
 
-**Activity Threads**: Multiple Diamond events can be linked into activity threads when they share adversary, capability, or infrastructure nodes, enabling campaign-level correlation across disparate intrusion events.
+Activity Threads: Multiple Diamond events can be linked into activity threads when they share adversary, capability, or infrastructure nodes, enabling campaign-level correlation across disparate intrusion events.
 
-**Analytical Application**: When a new intrusion event is detected, populate all four nodes. Pivot from known nodes (e.g., shared C2 IP) to identify related events, cluster activity into campaigns, and ultimately attribute to known threat actors or create a new activity cluster.
+Analytical Application: When a new intrusion event is detected, populate all four nodes. Pivot from known nodes (e.g., shared C2 IP) to identify related events, cluster activity into campaigns, and ultimately attribute to known threat actors or create a new activity cluster.
 
 ---
 
@@ -206,12 +206,12 @@ Originally a military targeting methodology, F3EAD has been adapted for cyber th
 
 | Phase | Description | CTI Application |
 |-------|-------------|-----------------|
-| **Find** | Locate the target/threat | Identify IOCs, detect malware, find adversary infrastructure via OSINT |
-| **Fix** | Confirm and track the target | Validate IOCs, track C2 infrastructure, confirm active campaign |
-| **Finish** | Act on the target | Block IOCs, isolate endpoints, take down infrastructure, notify law enforcement |
-| **Exploit** | Gather intelligence from the target | Analyze malware, extract configs, recover forensic artifacts |
-| **Analyze** | Process intelligence gathered | Produce finished intelligence products, update actor profiles |
-| **Disseminate** | Share intelligence with consumers | Push to SIEM, share with sector peers, brief leadership |
+| Find | Locate the target/threat | Identify IOCs, detect malware, find adversary infrastructure via OSINT |
+| Fix | Confirm and track the target | Validate IOCs, track C2 infrastructure, confirm active campaign |
+| Finish | Act on the target | Block IOCs, isolate endpoints, take down infrastructure, notify law enforcement |
+| Exploit | Gather intelligence from the target | Analyze malware, extract configs, recover forensic artifacts |
+| Analyze | Process intelligence gathered | Produce finished intelligence products, update actor profiles |
+| Disseminate | Share intelligence with consumers | Push to SIEM, share with sector peers, brief leadership |
 
 ---
 
@@ -219,11 +219,11 @@ Originally a military targeting methodology, F3EAD has been adapted for cyber th
 
 A mature intelligence-led security program integrates CTI into every tier of the security operations stack:
 
-- **Detection Engineering**: ATT&CK-mapped SIEM rules informed by current actor TTPs; detection coverage gap analysis vs. known actor playbooks
-- **Threat Hunting**: Hypothesis-driven hunts based on CTI campaign reports; proactive search for actor-specific artifacts before alerting fires
-- **Incident Response**: Pre-built playbooks per known actor group; rapid actor attribution during active incidents to predict next steps
-- **Vulnerability Management**: Prioritize patching by CVEs actively exploited by actors targeting your sector (CISA KEV, Shadowserver data)
-- **Red Team Operations**: Emulate specific threat actor TTPs identified through CTI; validate detection coverage against realistic adversary behavior
+- Detection Engineering: ATT&CK-mapped SIEM rules informed by current actor TTPs; detection coverage gap analysis vs. known actor playbooks
+- Threat Hunting: Hypothesis-driven hunts based on CTI campaign reports; proactive search for actor-specific artifacts before alerting fires
+- Incident Response: Pre-built playbooks per known actor group; rapid actor attribution during active incidents to predict next steps
+- Vulnerability Management: Prioritize patching by CVEs actively exploited by actors targeting your sector (CISA KEV, Shadowserver data)
+- Red Team Operations: Emulate specific threat actor TTPs identified through CTI; validate detection coverage against realistic adversary behavior
 
 ---
 
@@ -231,12 +231,12 @@ A mature intelligence-led security program integrates CTI into every tier of the
 
 | Consumer | Primary Needs | Product Format |
 |----------|---------------|----------------|
-| **SOC Analysts (Tier 1-2)** | Actionable IOCs, quick context on alerts | STIX feeds, enrichment cards, alert annotations |
-| **Incident Responders** | Actor TTP playbooks, forensic indicators, C2 infrastructure maps | Technical reports, actor profiles, IR briefs |
-| **Threat Hunters** | Hypotheses, behavioral TTPs, ATT&CK coverage gaps | Hunt packages, ATT&CK heatmaps, analytics |
-| **Vulnerability Management** | Exploited CVEs, actor exploit preferences | KEV-mapped priority lists, exploitation context |
-| **Executives / CISO** | Business risk, threat landscape, adversary intent | 1-page threat briefs, risk heat maps |
-| **Board of Directors** | Strategic risk, regulatory posture, industry benchmarks | Quarterly briefings, geopolitical risk summaries |
+| SOC Analysts (Tier 1-2) | Actionable IOCs, quick context on alerts | STIX feeds, enrichment cards, alert annotations |
+| Incident Responders | Actor TTP playbooks, forensic indicators, C2 infrastructure maps | Technical reports, actor profiles, IR briefs |
+| Threat Hunters | Hypotheses, behavioral TTPs, ATT&CK coverage gaps | Hunt packages, ATT&CK heatmaps, analytics |
+| Vulnerability Management | Exploited CVEs, actor exploit preferences | KEV-mapped priority lists, exploitation context |
+| Executives / CISO | Business risk, threat landscape, adversary intent | 1-page threat briefs, risk heat maps |
+| Board of Directors | Strategic risk, regulatory posture, industry benchmarks | Quarterly briefings, geopolitical risk summaries |
 
 ---
 
@@ -258,18 +258,18 @@ Event (container)
 
 #### MISP Galaxies
 Galaxies provide curated knowledge base entries that can be attached to events:
-- **Threat Actor Galaxy**: Nation-state and eCrime actor profiles (APT groups, FIN groups)
-- **Tool Galaxy**: Malware families and offensive tools (Cobalt Strike, Mimikatz, etc.)
-- **ATT&CK Galaxy**: MITRE ATT&CK Enterprise/Mobile/ICS techniques
-- **Ransomware Galaxy**: Ransomware family profiles with IOCs and TTPs
-- **Sector Galaxy**: Industry vertical targeting information
+- Threat Actor Galaxy: Nation-state and eCrime actor profiles (APT groups, FIN groups)
+- Tool Galaxy: Malware families and offensive tools (Cobalt Strike, Mimikatz, etc.)
+- ATT&CK Galaxy: MITRE ATT&CK Enterprise/Mobile/ICS techniques
+- Ransomware Galaxy: Ransomware family profiles with IOCs and TTPs
+- Sector Galaxy: Industry vertical targeting information
 
 #### Correlation Engine
 MISP automatically correlates attributes across events when values match. Correlation types:
-- **Exact match**: Identical attribute values (IP, hash, domain)
-- **CIDR correlation**: IP address within a known malicious subnet
-- **Fuzzy hash**: ssdeep/TLSH similarity matching for file hashes
-- **Disable correlation**: For high-frequency attributes (e.g., common legitimate IPs)
+- Exact match: Identical attribute values (IP, hash, domain)
+- CIDR correlation: IP address within a known malicious subnet
+- Fuzzy hash: ssdeep/TLSH similarity matching for file hashes
+- Disable correlation: For high-frequency attributes (e.g., common legitimate IPs)
 
 #### Sharing Groups
 Granular sharing control beyond organization-level:
@@ -359,11 +359,11 @@ results = misp.search(
 OpenCTI (Open Cyber Threat Intelligence Platform) is a newer open-source TIP built natively on STIX 2.1, developed by Filigran with backing from ANSSI (French CERT).
 
 #### Architecture
-- **Native STIX 2.1**: All objects stored as STIX SDOs/SCOs/SROs
-- **GraphQL API**: Flexible query language for complex relationship traversal
-- **Elasticsearch**: Full-text search across all objects
-- **MinIO/S3**: Artifact storage for malware samples and reports
-- **RabbitMQ**: Async connector message bus
+- Native STIX 2.1: All objects stored as STIX SDOs/SCOs/SROs
+- GraphQL API: Flexible query language for complex relationship traversal
+- Elasticsearch: Full-text search across all objects
+- MinIO/S3: Artifact storage for malware samples and reports
+- RabbitMQ: Async connector message bus
 
 #### Connector Ecosystem
 ```
@@ -432,11 +432,11 @@ Raw Data (unstructured feeds, reports, logs)
 ```
 
 #### Key Features
-- **Playbooks**: Low-code automation workflows for enrichment, scoring, and distribution
-- **CAL (Collective Analytics Layer)**: Community-based IOC scoring using telemetry from ThreatConnect customers
-- **STIX/TAXII**: Native import/export for interoperability
-- **REST API**: Full CRUD operations on all intelligence objects
-- **Tags & Associations**: Link IOCs to actors, campaigns, and incidents
+- Playbooks: Low-code automation workflows for enrichment, scoring, and distribution
+- CAL (Collective Analytics Layer): Community-based IOC scoring using telemetry from ThreatConnect customers
+- STIX/TAXII: Native import/export for interoperability
+- REST API: Full CRUD operations on all intelligence objects
+- Tags & Associations: Link IOCs to actors, campaigns, and incidents
 
 ---
 
@@ -445,10 +445,10 @@ Raw Data (unstructured feeds, reports, logs)
 Recorded Future uses machine learning to collect and analyze intelligence from open web, dark web, and technical sources at scale.
 
 #### Data Sources
-- **Open Web**: News sites, blogs, paste sites, code repositories, social media
-- **Dark Web**: Forums, marketplaces, ransomware leak sites, Telegram channels
-- **Technical Sources**: Malware sandboxes, DNS data, certificate transparency, WHOIS
-- **Premium Sources**: Analyst-curated reports, vulnerability databases
+- Open Web: News sites, blogs, paste sites, code repositories, social media
+- Dark Web: Forums, marketplaces, ransomware leak sites, Telegram channels
+- Technical Sources: Malware sandboxes, DNS data, certificate transparency, WHOIS
+- Premium Sources: Analyst-curated reports, vulnerability databases
 
 #### Key APIs
 ```bash
@@ -468,11 +468,11 @@ GET https://api.recordedfuture.com/v2/alert/search
 
 #### Threat Intelligence Cards
 Each entity (IP, domain, hash, vulnerability, actor) has a Threat Intelligence Card with:
-- **Risk Score** (0-100): ML-calculated based on observed evidence
-- **Risk Rules**: Specific risk indicators that contributed to the score
-- **Timeline**: Historical activity and first/last seen dates
-- **Related Entities**: Linked actors, campaigns, malware families
-- **Raw Intelligence**: Source references for analyst review
+- Risk Score (0-100): ML-calculated based on observed evidence
+- Risk Rules: Specific risk indicators that contributed to the score
+- Timeline: Historical activity and first/last seen dates
+- Related Entities: Linked actors, campaigns, malware families
+- Raw Intelligence: Source references for analyst review
 
 ---
 
@@ -481,12 +481,12 @@ Each entity (IP, domain, hash, vulnerability, actor) has a Threat Intelligence C
 Anomali ThreatStream focuses on aggregating and operationalizing threat feeds across a large ecosystem.
 
 #### Key Capabilities
-- **STIX/TAXII Ingestion**: Automated ingestion from hundreds of commercial and open-source feeds
-- **Threat Bulletin Creation**: Analyst-authored reports with linked IOCs for team consumption
-- **Actor Library**: Pre-populated actor profiles with associated IOCs and campaigns
-- **ThreatStream Integrations**: Native connectors to Splunk, QRadar, Palo Alto, Cisco, etc.
-- **Confidence Scoring**: Automated scoring based on feed source reliability and corroboration
-- **Expiration Management**: Automatic IOC aging and removal based on configured TTLs
+- STIX/TAXII Ingestion: Automated ingestion from hundreds of commercial and open-source feeds
+- Threat Bulletin Creation: Analyst-authored reports with linked IOCs for team consumption
+- Actor Library: Pre-populated actor profiles with associated IOCs and campaigns
+- ThreatStream Integrations: Native connectors to Splunk, QRadar, Palo Alto, Cisco, etc.
+- Confidence Scoring: Automated scoring based on feed source reliability and corroboration
+- Expiration Management: Automatic IOC aging and removal based on configured TTLs
 
 ---
 
@@ -504,24 +504,24 @@ STIX 2.1 defines 18 SDOs representing core intelligence concepts:
 
 | SDO | Description | Key Properties |
 |-----|-------------|----------------|
-| **Attack-Pattern** | TTPs describing how attacks are carried out | name, description, external_references (ATT&CK ID) |
-| **Campaign** | Grouping of adversary activity over time | name, aliases, first_seen, last_seen, objective |
-| **Course-of-Action** | Recommended defensive action | name, description, action_bin |
-| **Grouping** | Collection of STIX objects with shared context | name, context, object_refs |
-| **Identity** | Organizations, individuals, or systems | name, identity_class, sectors, contact_information |
-| **Indicator** | Pattern for detecting threats | name, pattern, pattern_type, valid_from, valid_until |
-| **Infrastructure** | Systems used for adversary operations | name, infrastructure_types (C2, phishing, botnet) |
-| **Intrusion-Set** | Named cluster of related adversary activity | name, aliases, goals, resource_level, primary_motivation |
-| **Location** | Geographic or logical location | name, region, country, city, latitude, longitude |
-| **Malware** | Malicious code and its characteristics | name, is_family, malware_types, capabilities, architecture |
-| **Malware-Analysis** | Results of malware analysis | product, version, result, analysis_sco_refs |
-| **Note** | Analyst commentary on STIX objects | content, authors, object_refs |
-| **Observed-Data** | Raw observed data from sensors | first_observed, last_observed, number_observed, object_refs |
-| **Opinion** | Analyst assessment of STIX content | opinion (strongly-disagree to strongly-agree), explanation |
-| **Report** | Collection of intelligence on a topic | name, published, report_types, object_refs |
-| **Threat-Actor** | Actors or groups behind intrusions | name, threat_actor_types, aliases, sophistication, goals |
-| **Tool** | Legitimate software used for malicious purposes | name, tool_types, aliases, tool_version |
-| **Vulnerability** | A security weakness | name, description, external_references (CVE) |
+| Attack-Pattern | TTPs describing how attacks are carried out | name, description, external_references (ATT&CK ID) |
+| Campaign | Grouping of adversary activity over time | name, aliases, first_seen, last_seen, objective |
+| Course-of-Action | Recommended defensive action | name, description, action_bin |
+| Grouping | Collection of STIX objects with shared context | name, context, object_refs |
+| Identity | Organizations, individuals, or systems | name, identity_class, sectors, contact_information |
+| Indicator | Pattern for detecting threats | name, pattern, pattern_type, valid_from, valid_until |
+| Infrastructure | Systems used for adversary operations | name, infrastructure_types (C2, phishing, botnet) |
+| Intrusion-Set | Named cluster of related adversary activity | name, aliases, goals, resource_level, primary_motivation |
+| Location | Geographic or logical location | name, region, country, city, latitude, longitude |
+| Malware | Malicious code and its characteristics | name, is_family, malware_types, capabilities, architecture |
+| Malware-Analysis | Results of malware analysis | product, version, result, analysis_sco_refs |
+| Note | Analyst commentary on STIX objects | content, authors, object_refs |
+| Observed-Data | Raw observed data from sensors | first_observed, last_observed, number_observed, object_refs |
+| Opinion | Analyst assessment of STIX content | opinion (strongly-disagree to strongly-agree), explanation |
+| Report | Collection of intelligence on a topic | name, published, report_types, object_refs |
+| Threat-Actor | Actors or groups behind intrusions | name, threat_actor_types, aliases, sophistication, goals |
+| Tool | Legitimate software used for malicious purposes | name, tool_types, aliases, tool_version |
+| Vulnerability | A security weakness | name, description, external_references (CVE) |
 
 ---
 
@@ -531,17 +531,17 @@ SCOs represent actual observed data (not intelligence assertions):
 
 | SCO | Key Properties | Example |
 |-----|----------------|---------|
-| **Domain-Name** | value | `evil-update.com` |
-| **Email-Message** | from_ref, to_refs, subject, body | Phishing email content |
-| **File** | name, hashes (MD5/SHA-1/SHA-256), size, mime_type | Malware sample metadata |
-| **IPv4-Addr** | value | `192.0.2.1` |
-| **IPv6-Addr** | value | `2001:db8::1` |
-| **Network-Traffic** | src_ref, dst_ref, dst_port, protocols | C2 connection |
-| **Process** | pid, name, command_line, created_time | Malicious process |
-| **URL** | value | `https://evil.com/payload.exe` |
-| **User-Account** | user_id, account_type, display_name | Compromised credential |
-| **Windows-Registry-Key** | key, values | Persistence registry key |
-| **Artifact** | mime_type, payload_bin (base64) | Raw file content |
+| Domain-Name | value | `evil-update.com` |
+| Email-Message | from_ref, to_refs, subject, body | Phishing email content |
+| File | name, hashes (MD5/SHA-1/SHA-256), size, mime_type | Malware sample metadata |
+| IPv4-Addr | value | `192.0.2.1` |
+| IPv6-Addr | value | `2001:db8::1` |
+| Network-Traffic | src_ref, dst_ref, dst_port, protocols | C2 connection |
+| Process | pid, name, command_line, created_time | Malicious process |
+| URL | value | `https://evil.com/payload.exe` |
+| User-Account | user_id, account_type, display_name | Compromised credential |
+| Windows-Registry-Key | key, values | Persistence registry key |
+| Artifact | mime_type, payload_bin (base64) | Raw file content |
 
 ---
 
@@ -709,7 +709,7 @@ curl -s "https://api.abuseipdb.com/api/v2/check?ipAddress=192.0.2.1&maxAgeInDays
   -H "Key: API_KEY" -H "Accept: application/json"
 ```
 
-**Key Context Fields for IPs**:
+Key Context Fields for IPs:
 - Hosting provider / ASN (bulletproof ASNs indicate higher risk)
 - Open ports and banners (Cobalt Strike indicators: `Server: Cobalt Strike Beacon`)
 - Passive DNS history (how many domains have resolved to this IP)
@@ -781,7 +781,7 @@ Collection -> Validation -> Scoring -> Enrichment -> Distribution -> Review -> E
   Hunting        space IPs    weights     store         Blocklist   scoring   TTL
 ```
 
-**Recommended TTLs by IOC Type**:
+Recommended TTLs by IOC Type:
 | IOC Type | Default TTL | Extended TTL | Notes |
 |----------|-------------|--------------|-------|
 | IPv4 Addresses | 7 days | 30 days | Rotate frequently; bulletproof hosting longer |
@@ -848,7 +848,7 @@ class IOCEnricher:
 
 The Admiralty Code (NATO standardized) provides a structured way to rate source reliability and information credibility:
 
-**Source Reliability (A-F)**:
+Source Reliability (A-F):
 | Rating | Description | Examples |
 |--------|-------------|----------|
 | A | Completely reliable | Own sensors, trusted government partner |
@@ -858,7 +858,7 @@ The Admiralty Code (NATO standardized) provides a structured way to rate source 
 | E | Unreliable | Single unvetted source, anonymous tip |
 | F | Reliability cannot be judged | New source, no track record |
 
-**Information Credibility (1-6)**:
+Information Credibility (1-6):
 | Rating | Description |
 |--------|-------------|
 | 1 | Confirmed by other sources |
@@ -868,7 +868,7 @@ The Admiralty Code (NATO standardized) provides a structured way to rate source 
 | 5 | Improbable |
 | 6 | Truth cannot be judged |
 
-**Composite IOC Score Formula** (example weighting):
+Composite IOC Score Formula (example weighting):
 ```
 score = (source_reliability * 0.4) + (info_credibility * 0.3) +
         (freshness * 0.2) + (corroboration_count * 0.1)
@@ -899,14 +899,14 @@ Multiple vendors maintain their own actor naming schemes. Cross-referencing is c
 | Hacktivists | JACKAL | Corsair Jackal, Ghost Jackal |
 
 #### Mandiant/Google Threat Intelligence Naming
-- **APT1-APT41+**: Nation-state actors (APT = Advanced Persistent Threat)
+- APT1-APT41+: Nation-state actors (APT = Advanced Persistent Threat)
   - APT1: China, PLA Unit 61398, Comment Crew
   - APT29: Russia SVR, Cozy Bear, Midnight Blizzard
   - APT41: China, dual-nexus espionage + financial crime
-- **FIN1-FIN13**: Financially motivated threat actors
+- FIN1-FIN13: Financially motivated threat actors
   - FIN7: POS attacks, Carbanak banking trojan
   - FIN11: Cl0p ransomware affiliation
-- **UNC (Uncategorized)**: New clusters not yet merged into named groups
+- UNC (Uncategorized): New clusters not yet merged into named groups
 
 #### Microsoft Threat Actor Naming (Element-Based, 2023+)
 | Nation-State | Element | Old Name Examples |
@@ -956,7 +956,7 @@ for actor, ttps in known_actor_ttps.items():
 # APT29: Jaccard=0.50 Coverage=0.83  <- strong overlap, likely candidate
 ```
 
-**Rule of thumb**: >70% TTP overlap with a known actor's documented playbook suggests same or related actor. Always corroborate with additional evidence.
+Rule of thumb: >70% TTP overlap with a known actor's documented playbook suggests same or related actor. Always corroborate with additional evidence.
 
 #### Infrastructure Reuse Analysis
 ```bash
@@ -982,11 +982,11 @@ shodan search 'Server: Cobalt Strike Beacon' --fields ip_str,port,org,hostnames
 
 #### OPSEC Failure Indicators
 Attribution accelerators when actors make mistakes:
-- **Language artifacts**: Error messages in native language, Cyrillic/Chinese strings in binaries, comments in code
-- **Metadata**: Compilation timestamps in local timezone (correlate to UTC offset of target country)
-- **Infrastructure overlap**: Reusing C2 infrastructure across campaigns (can pivot via passive DNS)
-- **Tool reuse**: Unique custom tools reappearing in new campaigns (high confidence same actor)
-- **Operator errors**: Direct-connect from non-proxied IP, VPN dropout revealing real IP in logs
+- Language artifacts: Error messages in native language, Cyrillic/Chinese strings in binaries, comments in code
+- Metadata: Compilation timestamps in local timezone (correlate to UTC offset of target country)
+- Infrastructure overlap: Reusing C2 infrastructure across campaigns (can pivot via passive DNS)
+- Tool reuse: Unique custom tools reappearing in new campaigns (high confidence same actor)
+- Operator errors: Direct-connect from non-proxied IP, VPN dropout revealing real IP in logs
 
 ---
 
@@ -995,57 +995,57 @@ Attribution accelerators when actors make mistakes:
 #### APT29 / Cozy Bear / Midnight Blizzard (Russia -- SVR)
 | Attribute | Detail |
 |-----------|--------|
-| **Attribution** | Russian Foreign Intelligence Service (SVR) |
-| **Naming** | APT29 (Mandiant), Cozy Bear (CrowdStrike), Midnight Blizzard (Microsoft), The Dukes (ESET) |
-| **Targeting** | Government, think tanks, defense, technology, healthcare |
-| **Motivation** | Espionage / political intelligence |
-| **Notable Campaigns** | SolarWinds (SUNBURST/TEARDROP 2020), StellarParticle (Microsoft 2023), DNC breach 2016 |
-| **Signature TTPs** | Spearphishing -> OAuth token theft -> lateral movement via living-off-the-land -> slow data exfiltration |
-| **Key Malware** | SUNBURST, BOOMBOX, WINGMAN, EnvyScout, ROOTSAW (HTML smuggling), MagicWeb (ADFS), HALFRIG |
+| Attribution | Russian Foreign Intelligence Service (SVR) |
+| Naming | APT29 (Mandiant), Cozy Bear (CrowdStrike), Midnight Blizzard (Microsoft), The Dukes (ESET) |
+| Targeting | Government, think tanks, defense, technology, healthcare |
+| Motivation | Espionage / political intelligence |
+| Notable Campaigns | SolarWinds (SUNBURST/TEARDROP 2020), StellarParticle (Microsoft 2023), DNC breach 2016 |
+| Signature TTPs | Spearphishing -> OAuth token theft -> lateral movement via living-off-the-land -> slow data exfiltration |
+| Key Malware | SUNBURST, BOOMBOX, WINGMAN, EnvyScout, ROOTSAW (HTML smuggling), MagicWeb (ADFS), HALFRIG |
 
 #### APT41 / Winnti (China -- Dual Nexus)
 | Attribute | Detail |
 |-----------|--------|
-| **Attribution** | Chinese Ministry of State Security (MSS) + eCrime |
-| **Naming** | APT41 (Mandiant), Wicked Panda (CrowdStrike), Barium (Microsoft old) |
-| **Targeting** | Healthcare, telecoms, technology, gaming, pharmaceuticals |
-| **Motivation** | Espionage + financial gain (supply chain compromise for financial fraud) |
-| **Notable Campaigns** | ShadowPad supply chain, Asus Live Update, multiple gaming company compromises |
-| **Signature TTPs** | Supply chain compromise, ProxyLogon exploitation, custom rootkits |
-| **Key Malware** | ShadowPad, Winnti, DUSTPAN, DUSTTRAP |
+| Attribution | Chinese Ministry of State Security (MSS) + eCrime |
+| Naming | APT41 (Mandiant), Wicked Panda (CrowdStrike), Barium (Microsoft old) |
+| Targeting | Healthcare, telecoms, technology, gaming, pharmaceuticals |
+| Motivation | Espionage + financial gain (supply chain compromise for financial fraud) |
+| Notable Campaigns | ShadowPad supply chain, Asus Live Update, multiple gaming company compromises |
+| Signature TTPs | Supply chain compromise, ProxyLogon exploitation, custom rootkits |
+| Key Malware | ShadowPad, Winnti, DUSTPAN, DUSTTRAP |
 
 #### Lazarus Group / Labyrinth Chollima (DPRK)
 | Attribute | Detail |
 |-----------|--------|
-| **Attribution** | North Korean Reconnaissance General Bureau (RGB) |
-| **Naming** | Lazarus (most vendors), Labyrinth Chollima (CrowdStrike), HIDDEN COBRA (US Gov) |
-| **Targeting** | Financial institutions, cryptocurrency exchanges, defense, media |
-| **Motivation** | Sanctions evasion through cryptocurrency theft; regime funding |
-| **Notable Campaigns** | Bangladesh Bank SWIFT heist ($81M), WannaCry 2017, Ronin Network ($625M crypto) |
-| **Signature TTPs** | Job-themed spearphishing, custom tooling, SWIFT exploitation, crypto mixing |
-| **Key Malware** | BLINDINGCAN, HOPLIGHT, AppleJeus, TraderTraitor toolset |
+| Attribution | North Korean Reconnaissance General Bureau (RGB) |
+| Naming | Lazarus (most vendors), Labyrinth Chollima (CrowdStrike), HIDDEN COBRA (US Gov) |
+| Targeting | Financial institutions, cryptocurrency exchanges, defense, media |
+| Motivation | Sanctions evasion through cryptocurrency theft; regime funding |
+| Notable Campaigns | Bangladesh Bank SWIFT heist ($81M), WannaCry 2017, Ronin Network ($625M crypto) |
+| Signature TTPs | Job-themed spearphishing, custom tooling, SWIFT exploitation, crypto mixing |
+| Key Malware | BLINDINGCAN, HOPLIGHT, AppleJeus, TraderTraitor toolset |
 
 #### APT34 / OilRig (Iran -- MOIS)
 | Attribute | Detail |
 |-----------|--------|
-| **Attribution** | Iranian Ministry of Intelligence and Security (MOIS) |
-| **Naming** | APT34 (Mandiant), Helix Kitten (CrowdStrike), Cobalt Gypsy (SecureWorks) |
-| **Targeting** | Middle East governments, energy, financial, telecom |
-| **Motivation** | Regional espionage and domestic dissident tracking |
-| **Notable Campaigns** | DNSpionage, OopsIE, Shamoon wiper support |
-| **Signature TTPs** | Watering hole attacks, custom backdoors, DNS tunneling for C2 |
-| **Key Malware** | POWRUNER, BONDUPDATER, Saitama, SideTwist |
+| Attribution | Iranian Ministry of Intelligence and Security (MOIS) |
+| Naming | APT34 (Mandiant), Helix Kitten (CrowdStrike), Cobalt Gypsy (SecureWorks) |
+| Targeting | Middle East governments, energy, financial, telecom |
+| Motivation | Regional espionage and domestic dissident tracking |
+| Notable Campaigns | DNSpionage, OopsIE, Shamoon wiper support |
+| Signature TTPs | Watering hole attacks, custom backdoors, DNS tunneling for C2 |
+| Key Malware | POWRUNER, BONDUPDATER, Saitama, SideTwist |
 
 #### FIN7 / Carbanak (eCrime)
 | Attribute | Detail |
 |-----------|--------|
-| **Attribution** | Eastern European criminal organization |
-| **Naming** | FIN7 (Mandiant), Carbon Spider (CrowdStrike), Sangria Tempest (Microsoft) |
-| **Targeting** | Retail, hospitality, restaurant POS systems; later ransomware |
-| **Motivation** | Financial -- card theft, banking fraud, ransomware |
-| **Notable Campaigns** | Carbanak banking trojan ($1B+ stolen), Cl0p ransomware affiliation |
-| **Signature TTPs** | Spearphishing with malicious DOCX, JScript, PowerShell fileless |
-| **Key Malware** | Carbanak, Griffon, LOADOUT, PILLOWMINT, Cl0p ransomware |
+| Attribution | Eastern European criminal organization |
+| Naming | FIN7 (Mandiant), Carbon Spider (CrowdStrike), Sangria Tempest (Microsoft) |
+| Targeting | Retail, hospitality, restaurant POS systems; later ransomware |
+| Motivation | Financial -- card theft, banking fraud, ransomware |
+| Notable Campaigns | Carbanak banking trojan ($1B+ stolen), Cl0p ransomware affiliation |
+| Signature TTPs | Spearphishing with malicious DOCX, JScript, PowerShell fileless |
+| Key Malware | Carbanak, Griffon, LOADOUT, PILLOWMINT, Cl0p ransomware |
 
 ---
 
@@ -1183,7 +1183,7 @@ curl -s 'https://crt.sh/?q=%.suspicious-actor-domain.com&output=json' | \
 #### Monitoring Methodology
 Dark web intelligence collection requires specialized tooling and strict OPSEC:
 
-**Ransomware Leak Site Monitoring**:
+Ransomware Leak Site Monitoring:
 ```
 Active leak sites (as of 2024) -- access via Tor:
 +-- LockBit 3.0:   Victim listing + file previews before payment deadline
@@ -1194,7 +1194,7 @@ Active leak sites (as of 2024) -- access via Tor:
 +-- RansomHub:     Newer 2024 entrant with active victim listing
 ```
 
-**Commercial Dark Web Monitoring Platforms**:
+Commercial Dark Web Monitoring Platforms:
 | Platform | Strengths | Coverage |
 |----------|-----------|----------|
 | Flashpoint | Forum monitoring, threat actor profiles, marketplace data | Extensive deep/dark web |
@@ -1202,7 +1202,7 @@ Active leak sites (as of 2024) -- access via Tor:
 | Digital Shadows (ReliaQuest) | Brand protection, data breach monitoring, executive tracking | Mixed OSINT + dark web |
 | Recorded Future | Integrated with open/technical intel, dark web as one source | Comprehensive |
 
-**Telegram Channel Intelligence**:
+Telegram Channel Intelligence:
 - Ransomware groups operate Telegram channels for victim announcements
 - Initial access brokers advertise access in cybercriminal channels
 - Malware authors sell stealer logs via Telegram bots
@@ -1521,14 +1521,14 @@ Information Sharing and Analysis Centers (ISACs) are sector-specific sharing com
 
 | ISAC | Sector | Platform | Notes |
 |------|--------|----------|-------|
-| **FS-ISAC** | Financial Services | Portal + STIX/TAXII | Largest, most mature; includes banking, insurance |
-| **H-ISAC** | Healthcare | Portal + threat feeds | Ransomware focus; critical infrastructure |
-| **E-ISAC** | Electricity | Portal + CRISP program | Grid security; interconnects with NERC |
-| **Auto-ISAC** | Automotive | Portal | OT/vehicle cybersecurity |
-| **Aviation ISAC** | Aviation | Portal | ATC and airline cybersecurity |
-| **IT-ISAC** | IT Sector | Portal + feeds | Technology companies |
-| **MS-ISAC** | State/Local Gov | Portal + Albert sensors | CISA-funded; free for SLTT |
-| **WaterISAC** | Water Sector | Portal | Critical infrastructure |
+| FS-ISAC | Financial Services | Portal + STIX/TAXII | Largest, most mature; includes banking, insurance |
+| H-ISAC | Healthcare | Portal + threat feeds | Ransomware focus; critical infrastructure |
+| E-ISAC | Electricity | Portal + CRISP program | Grid security; interconnects with NERC |
+| Auto-ISAC | Automotive | Portal | OT/vehicle cybersecurity |
+| Aviation ISAC | Aviation | Portal | ATC and airline cybersecurity |
+| IT-ISAC | IT Sector | Portal + feeds | Technology companies |
+| MS-ISAC | State/Local Gov | Portal + Albert sensors | CISA-funded; free for SLTT |
+| WaterISAC | Water Sector | Portal | Critical infrastructure |
 
 #### Government Sharing Programs
 ```
@@ -1582,7 +1582,7 @@ TLP:CLEAR
   Example: Vendor threat reports, CVE details, CISA advisories
 ```
 
-**Applying TLP in MISP**:
+Applying TLP in MISP:
 ```python
 from pymisp import MISPEvent
 
@@ -1602,7 +1602,7 @@ Widely applied in CTI sharing forums and tabletops:
 
 > "When a meeting, or part thereof, is held under the Chatham House Rule, participants are free to use the information received, but neither the identity nor the affiliation of the speaker(s), nor that of any other participant, may be revealed."
 
-**CTI Application**:
+CTI Application:
 - ISAC calls routinely operate under Chatham House Rule
 - Analysts can share IOCs and TTPs received on calls, but cannot attribute the source organization
 - Enables organizations to share sensitive intelligence without reputational or legal exposure
@@ -1612,14 +1612,14 @@ Widely applied in CTI sharing forums and tabletops:
 ### 8.4 Legal Considerations for Intelligence Sharing
 
 #### United States
-- **CISA Cybersecurity Act of 2015**: Safe harbor provisions for sharing cybersecurity threat indicators with CISA; protects organizations from antitrust and privacy liability when sharing through DHS-designated portals
-- **Computer Fraud and Abuse Act (CFAA)**: Active defense and attribution activities can create legal risk; consult legal counsel before any offensive-adjacent intelligence gathering
-- **Export Control (ITAR/EAR)**: Certain offensive security tools and intelligence methods may be controlled; sharing with foreign partners requires review
+- CISA Cybersecurity Act of 2015: Safe harbor provisions for sharing cybersecurity threat indicators with CISA; protects organizations from antitrust and privacy liability when sharing through DHS-designated portals
+- Computer Fraud and Abuse Act (CFAA): Active defense and attribution activities can create legal risk; consult legal counsel before any offensive-adjacent intelligence gathering
+- Export Control (ITAR/EAR): Certain offensive security tools and intelligence methods may be controlled; sharing with foreign partners requires review
 
 #### European Union
-- **NIS2 Directive (2022/2555)**: Mandates security incident reporting for essential entities; encourages threat intelligence sharing with national CSIRTs
-- **GDPR**: Personal data in threat indicators (IP addresses as PII, email addresses) requires legal basis for processing and sharing; document legitimate interest or consent
-- **ECSM**: ENISA coordinates pan-EU threat intelligence sharing via the CSIRTs Network
+- NIS2 Directive (2022/2555): Mandates security incident reporting for essential entities; encourages threat intelligence sharing with national CSIRTs
+- GDPR: Personal data in threat indicators (IP addresses as PII, email addresses) requires legal basis for processing and sharing; document legitimate interest or consent
+- ECSM: ENISA coordinates pan-EU threat intelligence sharing via the CSIRTs Network
 
 #### Protecting Proprietary Intelligence
 Before sharing with ISACs or community portals:
@@ -1958,15 +1958,15 @@ A mature CTI team balances technical depth with analytical rigor and stakeholder
 
 | Role | Primary Responsibilities | Key Skills |
 |------|-------------------------|------------|
-| **CTI Analyst (Junior)** | IOC processing, feed triage, enrichment, basic reporting | STIX/TAXII, TIP tools, OSINT |
-| **CTI Analyst (Senior)** | All-source analysis, campaign tracking, actor profiles, hunting briefs | ATT&CK mapping, threat modeling, structured analytic techniques |
-| **Malware Analyst** | Sample analysis, YARA authoring, config extraction, technical reports | Reverse engineering, sandboxing, scripting |
-| **Threat Hunter** | Operationalize CTI into hunting hypotheses; proactive threat detection | SIEM/EDR query, ATT&CK, behavioral analysis |
-| **CTI Engineer** | TIP administration, API integrations, automation, feed management | Python, STIX/TAXII, SIEM integrations |
-| **All-Source Analyst** | Strategic/operational intelligence products, geopolitical context | Intelligence tradecraft, report writing |
-| **CTI Manager** | Program strategy, stakeholder management, budget, personnel | Leadership, communication, program management |
+| CTI Analyst (Junior) | IOC processing, feed triage, enrichment, basic reporting | STIX/TAXII, TIP tools, OSINT |
+| CTI Analyst (Senior) | All-source analysis, campaign tracking, actor profiles, hunting briefs | ATT&CK mapping, threat modeling, structured analytic techniques |
+| Malware Analyst | Sample analysis, YARA authoring, config extraction, technical reports | Reverse engineering, sandboxing, scripting |
+| Threat Hunter | Operationalize CTI into hunting hypotheses; proactive threat detection | SIEM/EDR query, ATT&CK, behavioral analysis |
+| CTI Engineer | TIP administration, API integrations, automation, feed management | Python, STIX/TAXII, SIEM integrations |
+| All-Source Analyst | Strategic/operational intelligence products, geopolitical context | Intelligence tradecraft, report writing |
+| CTI Manager | Program strategy, stakeholder management, budget, personnel | Leadership, communication, program management |
 
-**Team sizing by organization**:
+Team sizing by organization:
 | Org Size | Revenue / Users | Recommended CTI FTE |
 |----------|----------------|---------------------|
 | Small | <$100M / <500 employees | 0.5-1 FTE (hybrid SOC role) |
@@ -2038,35 +2038,35 @@ Metrics should demonstrate value to stakeholders at each level:
 #### IOC Quality Metrics
 | Metric | Definition | Target |
 |--------|-----------|--------|
-| **False Positive Rate** | % of CTI-sourced blocks/alerts that are not malicious | < 2% |
-| **IOC Coverage** | % of known actor infrastructure represented in our TIP | > 60% of tracked actors |
-| **IOC Freshness** | Average age of active IOCs in SIEM at time of block | < 14 days for IPs |
-| **Corroboration Rate** | % of IOCs confirmed by 2+ independent sources | > 70% |
-| **Enrichment Rate** | % of IOCs with full context (actor, campaign, TTPs) | > 80% |
+| False Positive Rate | % of CTI-sourced blocks/alerts that are not malicious | < 2% |
+| IOC Coverage | % of known actor infrastructure represented in our TIP | > 60% of tracked actors |
+| IOC Freshness | Average age of active IOCs in SIEM at time of block | < 14 days for IPs |
+| Corroboration Rate | % of IOCs confirmed by 2+ independent sources | > 70% |
+| Enrichment Rate | % of IOCs with full context (actor, campaign, TTPs) | > 80% |
 
 #### Operational Metrics
 | Metric | Definition | Target |
 |--------|-----------|--------|
-| **Attacks Blocked via CTI IOCs** | Confirmed blocks where CTI-sourced IOC was the detection | Track monthly trend |
-| **MTTD Reduction** | Reduction in mean time to detect when CTI context applied | > 20% reduction |
-| **Hunts Generated from CTI** | Hunting hypotheses derived from CTI analysis | 2-4 per month |
-| **Hunt Success Rate** | % of CTI-based hunts that find malicious activity | > 15% |
-| **IR Enrichment Speed** | Time from IR escalation to CTI context delivery | < 30 minutes |
+| Attacks Blocked via CTI IOCs | Confirmed blocks where CTI-sourced IOC was the detection | Track monthly trend |
+| MTTD Reduction | Reduction in mean time to detect when CTI context applied | > 20% reduction |
+| Hunts Generated from CTI | Hunting hypotheses derived from CTI analysis | 2-4 per month |
+| Hunt Success Rate | % of CTI-based hunts that find malicious activity | > 15% |
+| IR Enrichment Speed | Time from IR escalation to CTI context delivery | < 30 minutes |
 
 #### Strategic Metrics
 | Metric | Definition | Target |
 |--------|-----------|--------|
-| **Products Delivered** | CTI reports, briefs, and products produced | Per agreed schedule |
-| **Executive Consumption** | % of executive products reported as "useful" | > 80% |
-| **Board Briefings** | Quarterly briefings delivered to board | 4 per year |
-| **Requirements Satisfaction** | % of PIRs with current actionable intelligence | > 70% |
+| Products Delivered | CTI reports, briefs, and products produced | Per agreed schedule |
+| Executive Consumption | % of executive products reported as "useful" | > 80% |
+| Board Briefings | Quarterly briefings delivered to board | 4 per year |
+| Requirements Satisfaction | % of PIRs with current actionable intelligence | > 70% |
 
 #### Sharing Metrics
 | Metric | Definition | Target |
 |--------|-----------|--------|
-| **Indicators Shared** | IOCs shared with ISAC/community per month | Track trend |
-| **IOCs Received and Operationalized** | Inbound community IOCs imported to SIEM | > 90% ingestion rate |
-| **Sharing Reciprocity** | Ratio of sent:received indicators | > 0.5 (give as much as received) |
+| Indicators Shared | IOCs shared with ISAC/community per month | Track trend |
+| IOCs Received and Operationalized | Inbound community IOCs imported to SIEM | > 90% ingestion rate |
+| Sharing Reciprocity | Ratio of sent:received indicators | > 0.5 (give as much as received) |
 
 ---
 
@@ -2074,13 +2074,13 @@ Metrics should demonstrate value to stakeholders at each level:
 
 | Product | Length | Audience | Frequency | Contents |
 |---------|--------|----------|-----------|----------|
-| **Flash Report** | 1 page | SOC, IR, Management | As-needed (hours) | Immediate threat: actor, IOCs, TTPs, recommendations |
-| **Technical Report** | 5-20 pages | Malware analysts, Detection engineers | Weekly/campaign-driven | Deep-dive malware/campaign analysis with IOCs, YARA, ATT&CK mapping |
-| **Threat Assessment** | 3-8 pages | CISO, Security management | Monthly | Strategic risk rating of top threats; likelihood and impact |
-| **Actor Profile** | 5-15 pages | All technical teams | Updated per new campaign | Comprehensive actor dossier: history, TTPs, infrastructure, campaigns |
-| **Landscape Briefing** | 5-10 pages/slides | Executives, Board | Quarterly | Threat landscape overview; sector trends; strategic risk |
-| **Hunt Package** | 2-5 pages + queries | Threat Hunters | Monthly | Hypothesis + ATT&CK technique + hunting queries for SIEM/EDR |
-| **Vulnerability Intelligence** | 1-3 pages | Vuln Management | Per critical CVE | Exploitation activity, affected products, CVSS context, CISA KEV status |
+| Flash Report | 1 page | SOC, IR, Management | As-needed (hours) | Immediate threat: actor, IOCs, TTPs, recommendations |
+| Technical Report | 5-20 pages | Malware analysts, Detection engineers | Weekly/campaign-driven | Deep-dive malware/campaign analysis with IOCs, YARA, ATT&CK mapping |
+| Threat Assessment | 3-8 pages | CISO, Security management | Monthly | Strategic risk rating of top threats; likelihood and impact |
+| Actor Profile | 5-15 pages | All technical teams | Updated per new campaign | Comprehensive actor dossier: history, TTPs, infrastructure, campaigns |
+| Landscape Briefing | 5-10 pages/slides | Executives, Board | Quarterly | Threat landscape overview; sector trends; strategic risk |
+| Hunt Package | 2-5 pages + queries | Threat Hunters | Monthly | Hypothesis + ATT&CK technique + hunting queries for SIEM/EDR |
+| Vulnerability Intelligence | 1-3 pages | Vuln Management | Per critical CVE | Exploitation activity, affected products, CVSS context, CISA KEV status |
 
 ---
 
@@ -2090,16 +2090,16 @@ When selecting or replacing a Threat Intelligence Platform:
 
 | Criterion | Weight | Evaluation Questions |
 |-----------|--------|---------------------|
-| **STIX/TAXII 2.1 Support** | High | Native STIX 2.1 data model? TAXII server and client? |
-| **Integration Ecosystem** | High | Out-of-box connectors to SIEM, SOAR, EDR, firewall? |
-| **Enrichment Automation** | High | Automated IOC enrichment via API? Which sources? |
-| **Analyst Workflow** | Medium | Investigation workspace? Case management? Collaboration? |
-| **IOC Lifecycle Management** | Medium | Expiry, scoring, and active/inactive state management? |
-| **Sharing Capabilities** | Medium | ISAC integration? TLP enforcement? Sharing group control? |
-| **ATT&CK Integration** | Medium | Native ATT&CK mapping? Coverage heatmap? |
-| **Scalability** | Medium | IOC volume limits? Search performance at scale? |
-| **Total Cost of Ownership** | Variable | License + infrastructure + staffing to maintain |
-| **Vendor Support & Roadmap** | Medium | Support SLAs? Frequency of updates? Community? |
+| STIX/TAXII 2.1 Support | High | Native STIX 2.1 data model? TAXII server and client? |
+| Integration Ecosystem | High | Out-of-box connectors to SIEM, SOAR, EDR, firewall? |
+| Enrichment Automation | High | Automated IOC enrichment via API? Which sources? |
+| Analyst Workflow | Medium | Investigation workspace? Case management? Collaboration? |
+| IOC Lifecycle Management | Medium | Expiry, scoring, and active/inactive state management? |
+| Sharing Capabilities | Medium | ISAC integration? TLP enforcement? Sharing group control? |
+| ATT&CK Integration | Medium | Native ATT&CK mapping? Coverage heatmap? |
+| Scalability | Medium | IOC volume limits? Search performance at scale? |
+| Total Cost of Ownership | Variable | License + infrastructure + staffing to maintain |
+| Vendor Support & Roadmap | Medium | Support SLAs? Frequency of updates? Community? |
 
 ---
 

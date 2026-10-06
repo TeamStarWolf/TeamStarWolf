@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You are triaging an unknown malware sample, tearing apart router or IoT firmware, or hunting a vulnerability in a compiled binary |
-| **Start at** | [RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging) |
-| **Pairs with** | [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EXPLOIT_DEVELOPMENT_REFERENCE.md](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+| Read this when | You are triaging an unknown malware sample, tearing apart router or IoT firmware, or hunting a vulnerability in a compiled binary |
+| Start at | [RE Fundamentals & Architectures](#section-1-re-fundamentals-amp-architectures), [Static Analysis Tools](#section-3-static-analysis-tools), [Dynamic Analysis & Debugging](#section-4-dynamic-analysis-amp-debugging) |
+| Pairs with | [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DIGITAL_FORENSICS_REFERENCE.md](DIGITAL_FORENSICS_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EXPLOIT_DEVELOPMENT_REFERENCE.md](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
 
 ---
 
@@ -17,13 +17,13 @@
 
 Reverse engineering for security research operates under several legal frameworks that analysts should understand before beginning any engagement.
 
-**DMCA Section 1201 Security Research Exemption (USA):** The Digital Millennium Copyright Act's anti-circumvention provisions include a security research exemption (17 U.S.C. 1201(j)) allowing circumvention of technological protection measures for good-faith security research. The exemption requires the researcher to be employed or a student in a field of computer security, that the activity is for purposes of good-faith security research, and that information derived is used primarily to promote security. The Copyright Office periodically renews and expands exemptions. The 2021 rulemaking explicitly covers software security research, including on motor vehicles, medical devices, and networked devices. Always work under a defined scope of engagement or with explicit authorization from the software owner.
+DMCA Section 1201 Security Research Exemption (USA): The Digital Millennium Copyright Act's anti-circumvention provisions include a security research exemption (17 U.S.C. 1201(j)) allowing circumvention of technological protection measures for good-faith security research. The exemption requires the researcher to be employed or a student in a field of computer security, that the activity is for purposes of good-faith security research, and that information derived is used primarily to promote security. The Copyright Office periodically renews and expands exemptions. The 2021 rulemaking explicitly covers software security research, including on motor vehicles, medical devices, and networked devices. Always work under a defined scope of engagement or with explicit authorization from the software owner.
 
-**CFAA Authorized Access (USA):** The Computer Fraud and Abuse Act (18 U.S.C. 1030) criminalizes access to protected computers "without authorization" or "exceeding authorized access." For RE analysts, this means: operate only on systems you own, systems where you have explicit written authorization (bug bounty scope, penetration test contract, incident response retainer), or isolated lab environments with no live system connectivity. The Van Buren v. United States (2021) Supreme Court ruling narrowed "exceeds authorized access" to mean accessing information that is off-limits, not merely using authorized access for an improper purpose. Explicit authorization remains best practice.
+CFAA Authorized Access (USA): The Computer Fraud and Abuse Act (18 U.S.C. 1030) criminalizes access to protected computers "without authorization" or "exceeding authorized access." For RE analysts, this means: operate only on systems you own, systems where you have explicit written authorization (bug bounty scope, penetration test contract, incident response retainer), or isolated lab environments with no live system connectivity. The Van Buren v. United States (2021) Supreme Court ruling narrowed "exceeds authorized access" to mean accessing information that is off-limits, not merely using authorized access for an improper purpose. Explicit authorization remains best practice.
 
-**EU Software Directive 2009/24/EC Interoperability Exception:** Article 6 of the EU Software Directive permits decompilation of a computer program without the rightholder's authorization when necessary to achieve interoperability of an independently created program with the original, provided: the acts are performed by a licensee or someone authorized to use the program, the information necessary for interoperability has not previously been made available, and the acts are confined to the parts of the original program necessary for interoperability. This is the primary legal basis for legitimate interoperability-focused RE in EU jurisdictions.
+EU Software Directive 2009/24/EC Interoperability Exception: Article 6 of the EU Software Directive permits decompilation of a computer program without the rightholder's authorization when necessary to achieve interoperability of an independently created program with the original, provided: the acts are performed by a licensee or someone authorized to use the program, the information necessary for interoperability has not previously been made available, and the acts are confined to the parts of the original program necessary for interoperability. This is the primary legal basis for legitimate interoperability-focused RE in EU jurisdictions.
 
-**Practical Authorization Checklist:**
+Practical Authorization Checklist:
 - Written authorization or bug bounty scope document on file
 - Isolated analysis environment (no production network connectivity)
 - Data handling agreement for any samples containing PII
@@ -49,9 +49,9 @@ Reverse engineering for security research operates under several legal framework
 | R8-R15 | 64-bit | Additional general-purpose registers |
 | RIP | 64-bit | Instruction pointer; not directly writeable |
 
-**Sub-register aliases:** EAX/AX/AH/AL are the lower 32/16/8/8 bits of RAX. Writing to a 32-bit register (e.g., EAX) zero-extends to 64 bits; writing to 16/8-bit registers does not. This is a common source of subtle bugs and an anti-analysis technique.
+Sub-register aliases: EAX/AX/AH/AL are the lower 32/16/8/8 bits of RAX. Writing to a 32-bit register (e.g., EAX) zero-extends to 64 bits; writing to 16/8-bit registers does not. This is a common source of subtle bugs and an anti-analysis technique.
 
-**RFLAGS Important Bits:**
+RFLAGS Important Bits:
 
 | Bit | Abbreviation | Meaning |
 |-----|--------------|---------|
@@ -65,13 +65,13 @@ Reverse engineering for security research operates under several legal framework
 | 10 | DF | Direction Flag: string ops direction |
 | 11 | OF | Overflow Flag: signed overflow |
 
-**Segment Registers:** CS (Code Segment), DS (Data Segment), SS (Stack Segment), ES (Extra Segment), FS and GS (general purpose, OS-specific use). On Windows x64, GS holds the Thread Information Block (TIB) base; FS holds TIB on x86 Windows. On Linux x64, FS holds the Thread Local Storage (TLS) base. Malware frequently accesses FS:[0x30] (x86) or GS:[0x60] (x64) to locate the Process Environment Block (PEB) without calling Windows API functions.
+Segment Registers: CS (Code Segment), DS (Data Segment), SS (Stack Segment), ES (Extra Segment), FS and GS (general purpose, OS-specific use). On Windows x64, GS holds the Thread Information Block (TIB) base; FS holds TIB on x86 Windows. On Linux x64, FS holds the Thread Local Storage (TLS) base. Malware frequently accesses FS:[0x30] (x86) or GS:[0x60] (x64) to locate the Process Environment Block (PEB) without calling Windows API functions.
 
-**XMM/YMM/ZMM Registers:** XMM0-XMM15 are 128-bit SSE2 registers (available on all x86-64 CPUs). YMM0-YMM15 extend to 256-bit (AVX). ZMM0-ZMM31 extend to 512-bit (AVX-512). These are used for SIMD (Single Instruction Multiple Data) operations. In calling conventions, XMM0-XMM7 are used for floating-point arguments. Cryptographic implementations often use AESNI instructions (AESENC, AESDEC) operating on XMM registers.
+XMM/YMM/ZMM Registers: XMM0-XMM15 are 128-bit SSE2 registers (available on all x86-64 CPUs). YMM0-YMM15 extend to 256-bit (AVX). ZMM0-ZMM31 extend to 512-bit (AVX-512). These are used for SIMD (Single Instruction Multiple Data) operations. In calling conventions, XMM0-XMM7 are used for floating-point arguments. Cryptographic implementations often use AESNI instructions (AESENC, AESDEC) operating on XMM registers.
 
 #### Calling Conventions
 
-**System V AMD64 ABI (Linux, macOS, BSDs):**
+System V AMD64 ABI (Linux, macOS, BSDs):
 - Integer/pointer arguments: RDI, RSI, RDX, RCX, R8, R9 (in order)
 - Additional args: pushed on stack right-to-left
 - Return value: RAX (integer/pointer), RDX:RAX for 128-bit return
@@ -80,7 +80,7 @@ Reverse engineering for security research operates under several legal framework
 - Stack alignment: 16-byte aligned before CALL instruction
 - Red zone: 128 bytes below RSP reserved (leaf functions may use without adjusting RSP)
 
-**Microsoft x64 ABI (Windows):**
+Microsoft x64 ABI (Windows):
 - Integer/pointer arguments: RCX, RDX, R8, R9 (in order)
 - Floating-point arguments: XMM0, XMM1, XMM2, XMM3
 - Additional args: pushed on stack
@@ -90,17 +90,17 @@ Reverse engineering for security research operates under several legal framework
 - Callee-saved: RBX, RBP, RDI, RSI, R12, R13, R14, R15, XMM6-XMM15
 - Stack alignment: 16-byte aligned before CALL
 
-**Legacy cdecl (x86, Linux/GCC):**
+Legacy cdecl (x86, Linux/GCC):
 - All arguments pushed on stack right-to-left
 - Caller cleans up stack (ADD ESP, N after CALL)
 - Return in EAX (EDX:EAX for 64-bit)
 - Caller-saved: EAX, ECX, EDX
 
-**Legacy stdcall (x86, Windows API):**
+Legacy stdcall (x86, Windows API):
 - Arguments pushed right-to-left; callee cleans stack (RETN N)
 - Used throughout Win32 API
 
-**Legacy fastcall (x86, MSVC):**
+Legacy fastcall (x86, MSVC):
 - First two args in ECX, EDX; remainder on stack
 
 #### Stack Frame Structure
@@ -119,13 +119,13 @@ ret                  ; return to caller
 
 #### Common Compiler Patterns
 
-**Loop Recognition:**
+Loop Recognition:
 - do-while: single block with conditional backward jump (JNZ label_top)
 - while: conditional forward jump to skip body (JZ label_end) at top, unconditional backward jump (JMP label_top) at bottom
 - for: init before loop, condition check at top, increment after body
 - Compilers (especially with optimization) often convert while to do-while by hoisting the condition
 
-**Switch Statement Jump Tables:**
+Switch Statement Jump Tables:
 ```asm
 cmp  eax, MAX_CASE      ; bounds check
 ja   default_handler    ; out of range -> default
@@ -136,7 +136,7 @@ jmp  rcx                ; dispatch
 ```
 Recognize: bounds check immediately before indirect jump, nearby data block of same-sized entries.
 
-**Virtual Dispatch (C++ vtables):**
+Virtual Dispatch (C++ vtables):
 ```asm
 mov rax, [rdi]          ; load vtable pointer (object at RDI, vptr at offset 0)
 call [rax+0x18]         ; call virtual function at vtable slot index 3 (offset 0x18 = 3*8)
@@ -147,19 +147,19 @@ RTTI on MSVC: type_info structure in .rdata with mangled class name. On GCC/Clan
 
 ### ARM64/AArch64 Architecture
 
-**Registers:**
+Registers:
 - X0-X30: 64-bit general purpose (W0-W30 are 32-bit lower halves)
 - X30 = LR (Link Register): holds return address for BL/BLR
 - SP: Stack Pointer (aligned to 16 bytes)
 - PC: Program Counter (not directly accessible as a register in most contexts)
 - XZR/WZR: Zero register: reads always return 0, writes discarded
 
-**AAPCS64 Calling Convention:**
+AAPCS64 Calling Convention:
 - Arguments: X0-X7 (integer/pointer), V0-V7 (floating-point/SIMD)
 - Return: X0 (or X0+X1 for 128-bit), V0 for float
 - Callee-saved: X19-X28, X29 (frame pointer), X30 (link register), SP
 
-**AArch32/Thumb2 Interworking:**
+AArch32/Thumb2 Interworking:
 - BLX instruction switches between ARM and Thumb mode
 - LSB of branch target address: 1 = Thumb, 0 = ARM
 - T32 (Thumb2) instructions are 16 or 32 bits wide; common on Cortex-M embedded targets
@@ -168,7 +168,7 @@ RTTI on MSVC: type_info structure in .rdata with mangled class name. On GCC/Clan
 
 ### MIPS32 Architecture
 
-**Register Conventions (MIPS O32 ABI):**
+Register Conventions (MIPS O32 ABI):
 - $a0-$a3: First four function arguments
 - $v0-$v1: Return values
 - $t0-$t9: Temporaries (caller-saved)
@@ -176,9 +176,9 @@ RTTI on MSVC: type_info structure in .rdata with mangled class name. On GCC/Clan
 - $ra: Return address (set by JAL/JALR)
 - $sp: Stack pointer, $fp: Frame pointer, $gp: Global pointer
 
-**Branch Delay Slots:** Every branch/jump instruction in MIPS has a delay slot: the instruction immediately following the branch is always executed before the branch takes effect. Disassemblers show this; decompilers abstract it away. Watch for intentional misuse: shellcode sometimes places meaningful code in delay slots to confuse naive disassemblers.
+Branch Delay Slots: Every branch/jump instruction in MIPS has a delay slot: the instruction immediately following the branch is always executed before the branch takes effect. Disassemblers show this; decompilers abstract it away. Watch for intentional misuse: shellcode sometimes places meaningful code in delay slots to confuse naive disassemblers.
 
-**Endianness:** MIPS runs both big-endian (network equipment, older SGI) and little-endian (PlayStation, some routers). The file command will identify; binwalk and Ghidra handle both.
+Endianness: MIPS runs both big-endian (network equipment, older SGI) and little-endian (PlayStation, some routers). The file command will identify; binwalk and Ghidra handle both.
 ---
 
 ## Section 2: Binary Formats
@@ -229,7 +229,7 @@ readelf -r binary     # relocation entries
 
 On first call to printf@PLT: the PLT stub loads the GOT entry, which initially points back into the PLT resolver. The resolver calls _dl_runtime_resolve(link_map, reloc_index), which patches the GOT entry with the real address. All subsequent calls go directly from PLT stub to printf in libc.
 
-**Security relevance:** A writable GOT is a classic exploitation target. Check for FULL RELRO with: `readelf -l binary | grep GNU_RELRO` and verify BIND_NOW in the dynamic section.
+Security relevance: A writable GOT is a classic exploitation target. Check for FULL RELRO with: `readelf -l binary | grep GNU_RELRO` and verify BIND_NOW in the dynamic section.
 
 #### Relocation Types (x86-64)
 
@@ -296,7 +296,7 @@ checksec --file=binary
 
 The IMAGE_IMPORT_DESCRIPTOR describes one imported DLL. OriginalFirstThunk points to the Import Name Table (INT), containing IMAGE_IMPORT_BY_NAME structures with Hint and function name. FirstThunk points to the Import Address Table (IAT), which the Windows loader patches with real addresses at load time.
 
-**IAT forensics:** In a running process, IAT entries hold resolved addresses. If an IAT entry points outside the expected DLL's memory range, this indicates IAT hooking (malware intercepting Windows API calls). Compare against GetModuleHandle/GetProcAddress results.
+IAT forensics: In a running process, IAT entries hold resolved addresses. If an IAT entry points outside the expected DLL's memory range, this indicates IAT hooking (malware intercepting Windows API calls). Compare against GetModuleHandle/GetProcAddress results.
 
 #### Export Table
 
@@ -304,7 +304,7 @@ IMAGE_EXPORT_DIRECTORY contains AddressOfFunctions (Export Address Table, RVA ar
 
 #### TLS Callbacks
 
-IMAGE_TLS_DIRECTORY.AddressOfCallBacks points to an array of function pointers executed **before** the entry point by the Windows loader. Malware uses TLS callbacks for anti-analysis code, early decryption, or to bypass code at the standard entry point. Check TLS callbacks in pestudio or pefile.
+IMAGE_TLS_DIRECTORY.AddressOfCallBacks points to an array of function pointers executed before the entry point by the Windows loader. Malware uses TLS callbacks for anti-analysis code, early decryption, or to bypass code at the standard entry point. Check TLS callbacks in pestudio or pefile.
 
 #### Resources (.rsrc)
 
@@ -374,18 +374,18 @@ Open-source RE suite developed by the NSA, released in 2019. Java-based with ext
 
 #### Navigation and Core Windows
 
-- **CodeBrowser:** Main analysis window. Program tree and symbol table on left; disassembly listing in center; decompiler on right.
-- **Function Graph:** CFG (control flow graph) view of a single function. Press G from the listing view. Essential for understanding complex control flow and obfuscated loops.
-- **Decompiler Window:** Produces pseudo-C output. Right-click variables to retype; right-click function calls to edit signatures. Decompiler quality degrades with optimization; heavily optimized binaries require manual annotation.
-- **Symbol Tree:** Lists namespaces, functions, labels, and classes. Sort by name or address.
+- CodeBrowser: Main analysis window. Program tree and symbol table on left; disassembly listing in center; decompiler on right.
+- Function Graph: CFG (control flow graph) view of a single function. Press G from the listing view. Essential for understanding complex control flow and obfuscated loops.
+- Decompiler Window: Produces pseudo-C output. Right-click variables to retype; right-click function calls to edit signatures. Decompiler quality degrades with optimization; heavily optimized binaries require manual annotation.
+- Symbol Tree: Lists namespaces, functions, labels, and classes. Sort by name or address.
 
 #### Improving Decompiler Output
 
-1. **Apply function signatures:** Right-click function -> Edit Function Signature. Import type libraries via File -> Parse C Source or pre-built .gdt files for Windows headers, Linux system headers, or Windows driver kit types.
-2. **Set calling convention:** Correctly setting the calling convention prevents the decompiler from misidentifying which registers hold arguments.
-3. **Retype variables:** Right-click local variable -> Retype Variable. Applying a correct struct pointer type propagates through the function and replaces opaque offsets with named field accesses.
-4. **RTTI recovery:** Run RecoverClassesFromRTTI from Script Manager. Recovers vtable structure and class hierarchies from MSVC or GCC RTTI.
-5. **Import Windows type libraries:** Community-provided GDT files for NTDLL, Kernel32, WinSock, and COM types significantly improve decompiler output for Windows malware.
+1. Apply function signatures: Right-click function -> Edit Function Signature. Import type libraries via File -> Parse C Source or pre-built .gdt files for Windows headers, Linux system headers, or Windows driver kit types.
+2. Set calling convention: Correctly setting the calling convention prevents the decompiler from misidentifying which registers hold arguments.
+3. Retype variables: Right-click local variable -> Retype Variable. Applying a correct struct pointer type propagates through the function and replaces opaque offsets with named field accesses.
+4. RTTI recovery: Run RecoverClassesFromRTTI from Script Manager. Recovers vtable structure and class hierarchies from MSVC or GCC RTTI.
+5. Import Windows type libraries: Community-provided GDT files for NTDLL, Kernel32, WinSock, and COM types significantly improve decompiler output for Windows malware.
 
 #### PCode Intermediate Representation
 
@@ -561,15 +561,15 @@ x64dbg is the primary open-source Windows debugger for user-mode malware analysi
 | Memory breakpoint | Right-click memory -> Breakpoint | Triggers on any access to a memory region |
 | Conditional | Right-click BP -> Edit -> Add Condition | Examples: rax==0, utf8([rcx])=="config" |
 
-**Anti-debug bypass:** Prefer hardware breakpoints when malware scans its own code for INT3 (0xCC) bytes as a debugger detection technique.
+Anti-debug bypass: Prefer hardware breakpoints when malware scans its own code for INT3 (0xCC) bytes as a debugger detection technique.
 
 #### Key Plugins
 
-**ScyllaHide:** Transparent anti-anti-debug. Patches: PEB.BeingDebugged to 0, NtQueryInformationProcess (ProcessDebugPort returns 0), heap flags, and RDTSC timing. Essential for any malware with anti-debug.
+ScyllaHide: Transparent anti-anti-debug. Patches: PEB.BeingDebugged to 0, NtQueryInformationProcess (ProcessDebugPort returns 0), heap flags, and RDTSC timing. Essential for any malware with anti-debug.
 
-**x64dbgpy:** Python scripting interface for automation.
+x64dbgpy: Python scripting interface for automation.
 
-**Scylla:** PE dump and IAT reconstruction after manual unpacking.
+Scylla: PE dump and IAT reconstruction after manual unpacking.
 
 ---
 
@@ -769,13 +769,13 @@ This section is framed for defensive analysts: understanding what obfuscation an
 
 All basic blocks are placed at the same nesting level within a dispatcher loop controlled by a state variable. Legitimate code has hierarchical, nested control flow; flattened code has all blocks at the same depth with one state variable routing execution.
 
-**Recognition:**
+Recognition:
 - Single large dispatcher with a switch or if-else chain covering all blocks
 - All "real" basic blocks at the same loop nesting depth
 - State variable updated at the end of each block
 - High cyclomatic complexity despite apparent simplicity
 
-**Deobfuscation approaches:**
+Deobfuscation approaches:
 - angr symbolic execution: mark the state variable as symbolic, explore all paths, and recover original edges
 - miasm2 framework: built-in control flow unflattener module
 - Manual: identify all possible values of the state variable and reconstruct transitions
@@ -786,7 +786,7 @@ Conditions that always evaluate to the same boolean value but appear complex eno
 
 #### String Obfuscation
 
-**XOR encryption pattern:**
+XOR encryption pattern:
 ```c
 void decrypt(char *buf, size_t len, uint8_t key) {
     for (size_t i = 0; i < len; i++) buf[i] ^= key;
@@ -794,13 +794,13 @@ void decrypt(char *buf, size_t len, uint8_t key) {
 ```
 Look for: short loop iterating over a buffer, XOR instruction with a constant or single-byte key, buffer initialized from .data before the loop.
 
-**Stack strings:** Individual characters assigned to stack offsets (MOV BYTE PTR [rbp-N], CHAR_VALUE instructions). The complete string only exists at runtime.
+Stack strings: Individual characters assigned to stack offsets (MOV BYTE PTR [rbp-N], CHAR_VALUE instructions). The complete string only exists at runtime.
 
-**RC4 KSA loop:** Runs 256 iterations over a 256-byte S-box. The initialization loop `for(i=0;i<256;i++) S[i]=i;` followed by a shuffle loop is a strong RC4 indicator in disassembly.
+RC4 KSA loop: Runs 256 iterations over a 256-byte S-box. The initialization loop `for(i=0;i<256;i++) S[i]=i;` followed by a shuffle loop is a strong RC4 indicator in disassembly.
 
-**AES S-box constants:** The AES SubBytes S-box begins with `0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5`. These bytes in .rodata strongly indicate AES. AESNI instructions (AESENC, AESDEC, AESKEYGEN) indicate hardware-accelerated AES.
+AES S-box constants: The AES SubBytes S-box begins with `0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5`. These bytes in .rodata strongly indicate AES. AESNI instructions (AESENC, AESDEC, AESKEYGEN) indicate hardware-accelerated AES.
 
-**FLOSS (FireEye FLARE Obfuscated String Solver):** Automatically recovers XOR-encrypted strings, stack strings, and strings decoded by tight loops. Run `floss --no-static-strings binary.exe` to show only decoded strings.
+FLOSS (FireEye FLARE Obfuscated String Solver): Automatically recovers XOR-encrypted strings, stack strings, and strings decoded by tight loops. Run `floss --no-static-strings binary.exe` to show only decoded strings.
 
 ---
 
@@ -812,13 +812,13 @@ The kernel sets PEB.BeingDebugged to 1 when a debugger is attached. Access in as
 - x86: `mov eax, fs:[0x30]` then `movzx eax, byte [eax+0x2]`
 - x64: `mov rax, gs:[0x60]` then `movzx eax, byte [rax+0x2]`
 
-**Bypass:** ScyllaHide automatically patches this byte to 0. Manual: set a write hardware breakpoint on PEB+0x2, or use the debugger to patch the byte directly.
+Bypass: ScyllaHide automatically patches this byte to 0. Manual: set a write hardware breakpoint on PEB+0x2, or use the debugger to patch the byte directly.
 
 #### NtQueryInformationProcess
 
 Called with ProcessDebugPort (class 7): returns -1 (0xFFFFFFFFFFFFFFFF) if a debugger is attached, 0 otherwise. Also checked: ProcessDebugObjectHandle (class 30) and ProcessDebugFlags (class 31, returns 0 when debugged).
 
-**Bypass:** ScyllaHide hooks these calls. Manual: set a breakpoint on NtQueryInformationProcess, check the class argument, and patch the return value.
+Bypass: ScyllaHide hooks these calls. Manual: set a breakpoint on NtQueryInformationProcess, check the class argument, and patch the return value.
 
 #### Timing-Based Detection (RDTSC)
 
@@ -832,7 +832,7 @@ cmp eax, 0x1000      ; threshold: ~4096 cycles
 ja  anti_debug_path  ; debugger is slow -> detected
 ```
 
-**Bypass:** NOP the conditional jump, or patch the comparison threshold to 0xFFFFFFFF. ScyllaHide can intercept RDTSC.
+Bypass: NOP the conditional jump, or patch the comparison threshold to 0xFFFFFFFF. ScyllaHide can intercept RDTSC.
 
 #### Common Anti-Debug Reference
 
@@ -862,7 +862,7 @@ cpuid          ; EBX:EDX:ECX = vendor
 ; Intel:    "GenuineIntel"
 ```
 
-**Bypass:** Configure the hypervisor to report a non-virtualized CPUID vendor string.
+Bypass: Configure the hypervisor to report a non-virtualized CPUID vendor string.
 
 #### Registry-Based Detection
 
@@ -871,13 +871,13 @@ Keys checked by malware:
 - HKLM\SOFTWARE\Oracle\VirtualBox Guest Additions
 - HKLM\HARDWARE\DESCRIPTION\System\BIOS (check for "VBOX", "VMWARE" in SystemBiosVersion)
 
-**Bypass:** Uninstall guest additions; configure the hypervisor to hide VM-specific registry entries.
+Bypass: Uninstall guest additions; configure the hypervisor to hide VM-specific registry entries.
 
 #### Process and Driver Enumeration
 
 VMware artifacts: vmtoolsd.exe, vmwaretray.exe; drivers vmmouse.sys, vmhgfs.sys. VirtualBox artifacts: VBoxService.exe, VBoxTray.exe; driver VBoxGuest.sys.
 
-**Bypass:** Rename or disable VM tools services. Use REMnux (Linux-based analysis VM) which minimizes obvious VM indicators.
+Bypass: Rename or disable VM tools services. Use REMnux (Linux-based analysis VM) which minimizes obvious VM indicators.
 
 ---
 
@@ -979,13 +979,13 @@ Define custom calling conventions under Edit -> Options -> Compiler Specificatio
 
 The primary tool for .NET malware. Decompiles, edits, and debugs .NET assemblies.
 
-**Decompiling:** Open the EXE or DLL directly. dnSpy produces C# or VB.NET with near-source quality because .NET metadata preserves type names, method signatures, and field names.
+Decompiling: Open the EXE or DLL directly. dnSpy produces C# or VB.NET with near-source quality because .NET metadata preserves type names, method signatures, and field names.
 
-**Live debugging:** Set breakpoints in the decompiled C# code by clicking in the margin. Run the process under dnSpy (Debug -> Start). Execution pauses at breakpoints and the Locals window shows current variable values. Far simpler than native debugging for .NET malware.
+Live debugging: Set breakpoints in the decompiled C# code by clicking in the margin. Run the process under dnSpy (Debug -> Start). Execution pauses at breakpoints and the Locals window shows current variable values. Far simpler than native debugging for .NET malware.
 
-**Patching:** Right-click method -> Edit Method -> modify C# -> Compile -> File -> Save Module. Common patches: remove license checks, disable anti-debug, alter configuration values.
+Patching: Right-click method -> Edit Method -> modify C# -> Compile -> File -> Save Module. Common patches: remove license checks, disable anti-debug, alter configuration values.
 
-**IL inspection:** Right-click method -> Edit IL Instructions to view raw CIL opcodes.
+IL inspection: Right-click method -> Edit IL Instructions to view raw CIL opcodes.
 
 #### ILSpy
 
@@ -1264,7 +1264,7 @@ grep -r "system(" extracted/ --include="*.c" --include="*.cgi" 2>/dev/null
 strings extracted/usr/sbin/httpd | grep -E "system|popen|exec"
 ```
 
-**httpd binary analysis in Ghidra:**
+httpd binary analysis in Ghidra:
 1. Load with correct architecture (MIPS/ARM); let Ghidra auto-analyze
 2. Find main() and the HTTP request dispatcher
 3. Locate CGI parameter parsing: search for xrefs to getenv("QUERY_STRING"), fgets, recv
@@ -1275,11 +1275,11 @@ strings extracted/usr/sbin/httpd | grep -E "system|popen|exec"
 
 ### Hardware Debug Interfaces
 
-**JTAG:** Provides CPU-level debug access (hardware breakpoints, memory reads, halt/resume). Identification: JTAGULATOR for finding pins; connection via OpenOCD + FT2232H adapter. Command: `openocd -f interface/ftdi/generic.cfg -f target/imx6.cfg`. With JTAG you can: read flash without chip removal, set hardware breakpoints in ROM, examine full CPU state.
+JTAG: Provides CPU-level debug access (hardware breakpoints, memory reads, halt/resume). Identification: JTAGULATOR for finding pins; connection via OpenOCD + FT2232H adapter. Command: `openocd -f interface/ftdi/generic.cfg -f target/imx6.cfg`. With JTAG you can: read flash without chip removal, set hardware breakpoints in ROM, examine full CPU state.
 
-**UART/Serial Console:** Most embedded Linux devices expose a serial console at 3.3V or 5V TTL levels. Identify pins with a multimeter or logic analyzer. Common baud rates: 115200, 57600, 9600. Connect with: `minicom -D /dev/ttyUSB0 -b 115200`. Boot console output reveals kernel version, mount points, and may allow unauthenticated access during U-Boot countdown.
+UART/Serial Console: Most embedded Linux devices expose a serial console at 3.3V or 5V TTL levels. Identify pins with a multimeter or logic analyzer. Common baud rates: 115200, 57600, 9600. Connect with: `minicom -D /dev/ttyUSB0 -b 115200`. Boot console output reveals kernel version, mount points, and may allow unauthenticated access during U-Boot countdown.
 
-**SPI Flash Dumping:** Attach a clip (e.g., Pomona 5250) to the SPI flash chip and use flashrom: `flashrom -p ft2232_spi:type=2232H -r firmware_dump.bin`. Enables complete firmware extraction without board disassembly. Essential when other extraction methods are unavailable.
+SPI Flash Dumping: Attach a clip (e.g., Pomona 5250) to the SPI flash chip and use flashrom: `flashrom -p ft2232_spi:type=2232H -r firmware_dump.bin`. Enables complete firmware extraction without board disassembly. Essential when other extraction methods are unavailable.
 ---
 
 ## Section 8: Protocol & Network Reverse Engineering
@@ -1299,15 +1299,15 @@ Iterate across all variable fields to map the complete packet structure.
 
 #### Structural Pattern Recognition
 
-**Magic bytes:** First 2-4 bytes are typically constant (0xDEAD, 0x1337, vendor-specific). Identify by looking for bytes that never vary across all captured packets.
+Magic bytes: First 2-4 bytes are typically constant (0xDEAD, 0x1337, vendor-specific). Identify by looking for bytes that never vary across all captured packets.
 
-**Length fields:** Look for big-endian or little-endian uint16/uint32 values numerically equal to the remaining packet length. Vary payload size and watch which field tracks the change.
+Length fields: Look for big-endian or little-endian uint16/uint32 values numerically equal to the remaining packet length. Vary payload size and watch which field tracks the change.
 
-**TLV (Type-Length-Value):** Pattern: [type: N bytes][length: N bytes][value: length bytes]. Common in X.509 ASN.1, Bluetooth HCI, and many proprietary protocols. Recognition: the Length field always matches the size of the following Value region.
+TLV (Type-Length-Value): Pattern: [type: N bytes][length: N bytes][value: length bytes]. Common in X.509 ASN.1, Bluetooth HCI, and many proprietary protocols. Recognition: the Length field always matches the size of the following Value region.
 
-**Sequence numbers:** Fields that increment by 1 per message or per request/response pair. Useful for identifying retransmission logic in C2 protocols.
+Sequence numbers: Fields that increment by 1 per message or per request/response pair. Useful for identifying retransmission logic in C2 protocols.
 
-**Checksums:** Typically the last 2-4 bytes. Changes when any preceding byte changes. Test by flipping one payload bit and observing which trailing bytes change.
+Checksums: Typically the last 2-4 bytes. Changes when any preceding byte changes. Test by flipping one payload bit and observing which trailing bytes change.
 
 ---
 
@@ -1380,17 +1380,17 @@ for p in pkts:
 
 When a binary protocol runs over TLS, decrypt at the TLS layer for analysis.
 
-**mitmproxy (transparent proxy):**
+mitmproxy (transparent proxy):
 ```bash
 mitmproxy --mode transparent --showhost
 # Install mitmproxy CA certificate into system trust store or application trust store
 mitmdump -w output.pcap "~dst host 192.168.1.1"
 ```
 
-**Frida for SSL interception (when certificate pinning is present):**
+Frida for SSL interception (when certificate pinning is present):
 Use the frida-ssl-pinning-bypass script to hook the certificate verification functions in the target application. This allows mitmproxy to intercept traffic from applications that do not respect the system certificate store.
 
-**Burp Suite:** For REST/JSON or SOAP/XML over HTTPS, configure the target application to use Burp as a proxy. Import the Burp CA certificate. Use the Repeater and Intruder modules for manual testing and automated fuzzing.
+Burp Suite: For REST/JSON or SOAP/XML over HTTPS, configure the target application to use Burp as a proxy. Import the Burp CA certificate. Use the Repeater and Intruder modules for manual testing and automated fuzzing.
 
 ---
 
@@ -1451,10 +1451,10 @@ Online IDE: https://ide.kaitai.io/ for interactive parsing in the browser.
 
 Reversing a complete client-server protocol requires reconstructing the state machine:
 
-1. **Find all send/recv call sites:** In Ghidra, search xrefs to recv@PLT, send@PLT, WSARecv, WSASend, HttpSendRequest, InternetReadFile.
-2. **Identify state variables:** Variables read before network calls and modified after responses determine which state the application is in.
-3. **Map transitions:** For each state value, determine: what is sent, what response is expected, what state comes next, what error state handles failures.
-4. **Reconstruct the diagram:** States as nodes, message types as labeled edges.
+1. Find all send/recv call sites: In Ghidra, search xrefs to recv@PLT, send@PLT, WSARecv, WSASend, HttpSendRequest, InternetReadFile.
+2. Identify state variables: Variables read before network calls and modified after responses determine which state the application is in.
+3. Map transitions: For each state value, determine: what is sent, what response is expected, what state comes next, what error state handles failures.
+4. Reconstruct the diagram: States as nodes, message types as labeled edges.
 
 This state machine becomes the specification for a custom Wireshark dissector and a boofuzz fuzzing session.
 
@@ -1497,18 +1497,18 @@ This section covers techniques used by security analysts to find vulnerabilities
 
 #### Buffer Overflows
 
-**Source code search:**
+Source code search:
 ```bash
 grep -rn "strcpy\|strcat\|sprintf\|vsprintf\|gets\|scanf"   --include="*.c" --include="*.cpp" src/
 ```
 
-**Binary analysis in Ghidra:**
+Binary analysis in Ghidra:
 1. Search -> Symbol Table -> filter for unsafe function names
 2. Right-click -> References -> Show References to unsafe_func@PLT
 3. At each call site: is the destination a fixed-size stack buffer? Is the source length validated?
 4. Trace the source argument back to user-controlled input (network recv, file read, argv)
 
-**Indicators of stack buffer overflow:**
+Indicators of stack buffer overflow:
 - strcpy(fixed_buf, user_input) without strlen check
 - sprintf(buf, "%s%s", a, b) where buf is a fixed stack allocation
 - read(fd, stack_buf, LARGE_CONSTANT) where LARGE_CONSTANT exceeds the buffer
@@ -1523,7 +1523,7 @@ void  *buf   = malloc(size);               // allocates tiny buffer
 memcpy(buf, user_data, count * sizeof(element_t));  // writes far beyond allocation
 ```
 
-**Ghidra detection:** Look for multiplication of two values where one is user-controlled, and the result is used as a malloc argument without overflow checking. Also look for int (signed 32-bit) cast to size_t (unsigned 64-bit) used for allocation: a negative signed value wraps to a huge unsigned value.
+Ghidra detection: Look for multiplication of two values where one is user-controlled, and the result is used as a malloc argument without overflow checking. Also look for int (signed 32-bit) cast to size_t (unsigned 64-bit) used for allocation: a negative signed value wraps to a huge unsigned value.
 
 #### Use-After-Free
 
@@ -1539,7 +1539,7 @@ For automated detection: CodeQL has built-in use-after-free queries for C/C++. V
 
 Vulnerable pattern: `printf(user_input)` where user_input is not a literal format string. Safe pattern: `printf("%s", user_input)`.
 
-**Binary detection:** Find all printf/fprintf/sprintf/syslog call sites. For each: is the first argument a fixed string from .rodata, or a register loaded from user-controlled data? If the latter, it is a potential vulnerability.
+Binary detection: Find all printf/fprintf/sprintf/syslog call sites. For each: is the first argument a fixed string from .rodata, or a register loaded from user-controlled data? If the latter, it is a potential vulnerability.
 
 ---
 
@@ -1585,7 +1585,7 @@ libFuzzer is built into LLVM. Combine with AddressSanitizer (-fsanitize=address)
 
 BinDiff identifies changed functions between two binary versions. Essential for understanding what a security patch fixed without access to source code.
 
-**Workflow:**
+Workflow:
 1. Obtain pre-patch and post-patch versions of the binary
 2. Open both in IDA Pro and export as .i64 databases
 3. In IDA Pro: BinDiff -> Diff Database -> select the second .i64
@@ -1595,7 +1595,7 @@ BinDiff identifies changed functions between two binary versions. Essential for 
    - Red: unmatched functions (added or removed)
 5. For each yellow function: use the function diff view to see exactly what changed
 
-**Indicators of a security fix in the diff:**
+Indicators of a security fix in the diff:
 - Added bounds check: `if (len >= sizeof(buf)) return ERROR;`
 - Safe function substitution: strcpy replaced with strncpy or strlcpy
 - Added null pointer check before dereference
@@ -1608,7 +1608,7 @@ BinDiff identifies changed functions between two binary versions. Essential for 
 
 Once you identify a vulnerability pattern, search for the same pattern elsewhere.
 
-**CodeQL (source-available software):**
+CodeQL (source-available software):
 ```ql
 import cpp
 from FunctionCall call, Variable dest
@@ -1618,7 +1618,7 @@ where call.getTarget().getName() = "strcpy"
 select call, dest, "Potential stack overflow via strcpy to fixed-size buffer"
 ```
 
-**Ghidra script for binary pattern search:**
+Ghidra script for binary pattern search:
 ```python
 # Find functions containing both malloc and memcpy (potential size confusion)
 malloc_addr = getSymbolAddress("malloc")
@@ -1637,13 +1637,13 @@ for func in currentProgram.getFunctionManager().getFunctions(True):
 
 Taint analysis tracks user-controlled data from input sources to dangerous sinks.
 
-**Sources:**
+Sources:
 - Network: recv, read, recvfrom, WSARecv, HttpQueryInfo
 - File: fread, fgets, ReadFile
 - Process: argv[], getenv(), shared memory
 - IPC: named pipe reads, message queue receives
 
-**Sinks:**
+Sinks:
 - memcpy(dest, src, size): tainted size -> overflow
 - malloc(size): tainted size -> integer overflow
 - system(cmd), popen(cmd): tainted cmd -> command injection
@@ -1651,7 +1651,7 @@ Taint analysis tracks user-controlled data from input sources to dangerous sinks
 - strcpy(dest, src): tainted src -> stack/heap overflow
 - function pointer call: tainted pointer -> control flow hijack
 
-**Procedure:** Starting from a source function call, trace the data variable through the decompiler. Note each transformation (arithmetic, string operations, comparisons). At each sink, assess whether user control persists and whether validation was sufficient.
+Procedure: Starting from a source function call, trace the data variable through the decompiler. Note each transformation (arithmetic, string operations, comparisons). At each sink, assess whether user control persists and whether validation was sufficient.
 
 ---
 
@@ -1763,7 +1763,7 @@ Run in an isolated sandbox before investing time in static deep-dive. Behavioral
 | Hybrid Analysis | CrowdStrike backend; strong family attribution; free |
 | Joe Sandbox | Most comprehensive report; Windows + Linux + Android |
 
-**Collect from the report:**
+Collect from the report:
 - Process tree (spawned child processes indicate injection or dropper behavior)
 - File modifications (dropped files, overwritten executables)
 - Registry modifications (persistence keys, configuration storage)
@@ -1780,7 +1780,7 @@ Detect packing indicators:
 - Entry point section entropy > 7.0
 - Decompiler at entry point shows tight loop with VirtualAlloc / WriteProcessMemory / CreateThread
 
-**ESP trick for generic unpacking:** See Section 5 for detailed steps. Result: OEP found, process memory contains unpacked code, use Scylla to dump and fix IAT.
+ESP trick for generic unpacking: See Section 5 for detailed steps. Result: OEP found, process memory contains unpacked code, use Scylla to dump and fix IAT.
 
 ---
 
@@ -1804,27 +1804,27 @@ Look for:
 
 ### Phase 6: C2 Protocol Identification
 
-**Extract hardcoded infrastructure:**
+Extract hardcoded infrastructure:
 ```bash
 strings malware.exe | grep -E "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 strings malware.exe | grep -E "[a-z0-9-]{3,50}\.(com|net|org|ru|cn|io|cc|biz)"
 ```
 
-**DGA detection:** High-entropy domain strings, no recognizable English words, lengths of 10-20 characters, DNS logs show long sequences of NXDOMAIN responses. In disassembly: look for a date-seeded PRNG feeding a character selection loop.
+DGA detection: High-entropy domain strings, no recognizable English words, lengths of 10-20 characters, DNS logs show long sequences of NXDOMAIN responses. In disassembly: look for a date-seeded PRNG feeding a character selection loop.
 
-**HTTP C2 patterns:**
+HTTP C2 patterns:
 - POST to /gate.php, /submit, /tasks, /upload (data exfiltration or check-in)
 - GET to /config, /commands, /update (command retrieval)
 - User-agent: hardcoded non-browser string or dynamically built from system info
 - Data format: Base64 in POST body, JSON, RC4-encrypted blob
 
-**Beacon interval:** Search for Sleep() in the main loop. Typical values: 30000-300000 ms (30 seconds to 5 minutes) for active C2; 86400000 ms (24 hours) for dormant implants.
+Beacon interval: Search for Sleep() in the main loop. Typical values: 30000-300000 ms (30 seconds to 5 minutes) for active C2; 86400000 ms (24 hours) for dormant implants.
 
 ---
 
 ### Phase 7: Persistence Analysis
 
-**Registry Run keys (search xrefs to RegSetValueEx in Ghidra):**
+Registry Run keys (search xrefs to RegSetValueEx in Ghidra):
 ```
 HKCU\Software\Microsoft\Windows\CurrentVersion\Run
 HKLM\Software\Microsoft\Windows\CurrentVersion\Run
@@ -1832,14 +1832,14 @@ HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
 HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon (Userinit, Shell)
 ```
 
-**Scheduled tasks:**
+Scheduled tasks:
 - ITaskService COM object: CLSID {0f87369f-a4e5-4cfc-bd3e-73e6154572dd}
 - Shell: CreateProcess with schtasks.exe /Create arguments
 - Search for strings "schtasks" or "/SC DAILY" in decoded strings
 
-**Service installation pattern:** OpenSCManager -> CreateService (with SERVICE_AUTO_START) -> StartService. The binary path argument to CreateService is the persistence location.
+Service installation pattern: OpenSCManager -> CreateService (with SERVICE_AUTO_START) -> StartService. The binary path argument to CreateService is the persistence location.
 
-**DLL hijacking:** Binary running from a writable directory that loads a DLL by name. Search for LoadLibrary calls with non-absolute paths.
+DLL hijacking: Binary running from a writable directory that loads a DLL by name. Search for LoadLibrary calls with non-absolute paths.
 
 ---
 
@@ -1902,13 +1902,13 @@ Test rules before submission: run against a clean file corpus (should produce ze
 
 ### Phase 10: Malware Analysis Report (MAR)
 
-**Executive Summary (one page)**
+Executive Summary (one page)
 - Malware family and classification: RAT, ransomware, loader, infostealer, wiper
 - Threat severity: Critical / High / Medium / Low with justification
 - Capability summary: two to three sentences on what the malware does
 - Recommended immediate actions: network blocks, host isolation, credential reset, patch
 
-**Technical Analysis (main body)**
+Technical Analysis (main body)
 1. Triage findings: hash, file size, compile timestamp (if not zeroed), packer, detection rate
 2. Static analysis: suspicious imports, encoded strings, anti-analysis indicators
 3. Behavioral analysis: sandbox findings summarized
@@ -1916,7 +1916,7 @@ Test rules before submission: run against a clean file corpus (should produce ze
 5. Unpacking methodology (if applicable)
 6. C2 protocol specification
 
-**Indicators of Compromise Table**
+Indicators of Compromise Table
 
 | Type | Value | Context |
 |------|-------|---------|
@@ -1929,7 +1929,7 @@ Test rules before submission: run against a clean file corpus (should produce ze
 | Mutex | Global\{4A8B2C91-3D7F} | Anti-reinfection check |
 | User-Agent | Mozilla/5.0 (compatible; MSIE 9.0) | C2 HTTP header |
 
-**MITRE ATT&CK Technique Table**
+MITRE ATT&CK Technique Table
 
 | Tactic | Technique | Name | Evidence |
 |--------|-----------|------|---------|

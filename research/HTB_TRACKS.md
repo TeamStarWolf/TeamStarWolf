@@ -1,16 +1,16 @@
 # HackTheBox Learning Tracks
 
-> **In one minute** — A catalog of HackTheBox's 45 learning tracks: curated sequences of hacking machines and challenges grouped by theme, skill, or certification. Completing a track builds depth in one area (Active Directory, blue team, web, cloud) instead of scattered breadth, and many tracks map directly to certification exams like CPTS, CDSA, and CREST. It also covers Pro Labs (full enterprise network simulations) and how to build your own custom track when no official one fits.
+> In one minute — A catalog of HackTheBox's 45 learning tracks: curated sequences of hacking machines and challenges grouped by theme, skill, or certification. Completing a track builds depth in one area (Active Directory, blue team, web, cloud) instead of scattered breadth, and many tracks map directly to certification exams like CPTS, CDSA, and CREST. It also covers Pro Labs (full enterprise network simulations) and how to build your own custom track when no official one fits.
 
 | | |
 |---|---|
-| **Read this when** | picking your next structured HTB learning path, prepping for a cert like CPTS/CDSA/OSCP, deciding which Pro Lab matches your skill level |
-| **Start at** | [Recommended Learning Sequences](#recommended-learning-sequences), [Certification Alignment](#certification-alignment), [Pro Labs](#pro-labs) |
-| **Pairs with** | [HTB Machine Index](HTB_MACHINE_INDEX.md), [Labs Reference](../LABS.md), [Certifications](../CERTIFICATIONS.md) |
+| Read this when | picking your next structured HTB learning path, prepping for a cert like CPTS/CDSA/OSCP, deciding which Pro Lab matches your skill level |
+| Start at | [Recommended Learning Sequences](#recommended-learning-sequences), [Certification Alignment](#certification-alignment), [Pro Labs](#pro-labs) |
+| Pairs with | [HTB Machine Index](HTB_MACHINE_INDEX.md), [Labs Reference](../LABS.md), [Certifications](../CERTIFICATIONS.md) |
 
 Curated learning tracks from [HackTheBox](https://app.hackthebox.com/tracks) — structured paths grouping machines and challenges by theme, skill, or certification. Data extracted April 2026.
 
-**45 total tracks** · 1 Very Easy · 21 Easy · 16 Medium · 7 Hard
+45 total tracks, 1 Very Easy, 21 Easy, 16 Medium, 7 Hard
 
 > Tracks marked with high likes are community favourites. Sorted by likes within each section.
 
@@ -140,30 +140,30 @@ Tracks created by industry partners for recruitment or team development.
 ## Recommended Learning Sequences
 
 ### Blue Team Beginner
-1. **Detecting Active Directory Attacks** (Very Easy) — start here for detection fundamentals
-2. **Intro to Blue Team** (Easy) — SOC workflows and log analysis
-3. **OWASP Top 10 2025** (Easy) — understand what you are defending against
-4. **CDSA Preparation** (Easy) — work toward HTB CDSA certification
+1. Detecting Active Directory Attacks (Very Easy): start here for detection fundamentals
+2. Intro to Blue Team (Easy): SOC workflows and log analysis
+3. OWASP Top 10 2025 (Easy): understand what you are defending against
+4. CDSA Preparation (Easy): work toward HTB CDSA certification
 
 ### Red Team Beginner
-1. **Intro to Red Team** (Easy) — offensive methodology and mindset
-2. **Active Directory Exploitation** (Easy) — essential AD attack techniques
-3. **OWASP Top 10 2021** (Easy) — web application exploitation
-4. **CPTS Preparation** (Medium) — professional certification path
+1. Intro to Red Team (Easy): offensive methodology and mindset
+2. Active Directory Exploitation (Easy): essential AD attack techniques
+3. OWASP Top 10 2021 (Easy): web application exploitation
+4. CPTS Preparation (Medium): professional certification path
 
 ### Specialist Paths
-- **Cloud Offensive**: Cloud Track (Medium)
-- **Malware/RE**: Reverse Engineering (Easy) then Binary Exploitation (Easy)
-- **ICS/OT**: ICS and SCADA Exploitation (Easy)
-- **CREST Certification**: CREST CRT (Easy) then CREST CCT INF/APP
+- Cloud Offensive: Cloud Track (Medium)
+- Malware/RE: Reverse Engineering (Easy) then Binary Exploitation (Easy)
+- ICS/OT: ICS and SCADA Exploitation (Easy)
+- CREST Certification: CREST CRT (Easy) then CREST CCT INF/APP
 
 ---
 
 ## Related Resources
-- [HTB Machine Index](/research/HTB_MACHINE_INDEX.md) — 127 retired machines indexed by difficulty and skill
-- [Labs Reference](../LABS.md) — all practice platforms including HTB, THM, BTLO
-- [Certifications](../CERTIFICATIONS.md) — cert guide with CREST, HTB, OSCP and 40+ more
-- [HackTheBox Tracks](https://app.hackthebox.com/tracks) — live tracks on HTB (login required)
+- [HTB Machine Index](/research/HTB_MACHINE_INDEX.md): 127 retired machines indexed by difficulty and skill
+- [Labs Reference](../LABS.md): all practice platforms including HTB, THM, BTLO
+- [Certifications](../CERTIFICATIONS.md): cert guide with CREST, HTB, OSCP and 40+ more
+- [HackTheBox Tracks](https://app.hackthebox.com/tracks): live tracks on HTB (login required)
 ---
 
 ## Introduction
@@ -187,7 +187,7 @@ Many tracks align directly to professional certifications -- completing the rele
 | Reverse Engineering + Binary Exploitation | OSED (OffSec), GREM (SANS) | Exploit development and malware RE; demanding cert prep |
 | Intro to Red Team | PNPT (TCM Security) | Practical Network Penetration Tester; methodology-focused |
 
-**Note:** For OSCP (OffSec Certified Professional), no single HTB track covers everything. See the TJnull section below for the community-curated OSCP preparation list.
+Note: For OSCP (OffSec Certified Professional), no single HTB track covers everything. See the TJnull section below for the community-curated OSCP preparation list.
 
 ---
 
@@ -195,15 +195,15 @@ Many tracks align directly to professional certifications -- completing the rele
 
 Not all valuable learning machines are in official tracks, and official tracks sometimes include machines outside your current skill range. Building a custom track:
 
-1. **Browse machine tags** on HTB -- every machine is tagged with techniques (e.g., "Active Directory", "Web", "Buffer Overflow", "Kerberoasting"). Filter by tags relevant to your current learning goal.
+1. Browse machine tags on HTB -- every machine is tagged with techniques (e.g., "Active Directory", "Web", "Buffer Overflow", "Kerberoasting"). Filter by tags relevant to your current learning goal.
 
-2. **Follow community-curated lists** -- see the TJnull section below. The community has done significant work mapping machines to skill areas and certification prep.
+2. Follow community-curated lists -- see the TJnull section below. The community has done significant work mapping machines to skill areas and certification prep.
 
-3. **Sort by user ratings and difficulty ratings** -- within a tag, sort by user rating to surface the machines most appreciated for teaching that technique. Avoid unrated or low-rated machines when starting a new topic.
+3. Sort by user ratings and difficulty ratings -- within a tag, sort by user rating to surface the machines most appreciated for teaching that technique. Avoid unrated or low-rated machines when starting a new topic.
 
-4. **Sequence by difficulty** -- within a technique area, start with Easy machines to understand the concept, then progress to Medium machines that add complexity and chaining.
+4. Sequence by difficulty -- within a technique area, start with Easy machines to understand the concept, then progress to Medium machines that add complexity and chaining.
 
-5. **Cross-reference IppSec** -- use https://www.ippsec.rocks/ to search machines by technique name. The search index covers all retired machines and lets you build a playlist from technique searches.
+5. Cross-reference IppSec -- use https://www.ippsec.rocks/ to search machines by technique name. The search index covers all retired machines and lets you build a playlist from technique searches.
 
 ---
 
@@ -211,13 +211,13 @@ Not all valuable learning machines are in official tracks, and official tracks s
 
 The most widely cited community resource for OSCP exam preparation. TJnull's list is a curated selection of HTB and VulnHub machines organized by:
 
-- **Operating system** (Linux and Windows columns)
-- **Difficulty** (Easy through Hard)
-- **Machine type** (Buffer overflow machines listed separately)
+- Operating system (Linux and Windows columns)
+- Difficulty (Easy through Hard)
+- Machine type (Buffer overflow machines listed separately)
 
-Search **"TJnull OSCP list"** for the current version -- it is updated each time OffSec revises the OSCP exam syllabus. The list is maintained as a Google Sheet and referenced extensively in the OffSec community Discord.
+Search "TJnull OSCP list" for the current version -- it is updated each time OffSec revises the OSCP exam syllabus. The list is maintained as a Google Sheet and referenced extensively in the OffSec community Discord.
 
-**Key characteristics of TJnull machines:**
+Key characteristics of TJnull machines:
 - Techniques match the OSCP exam scope (no AD on older list versions, AD added in newer PEN-200 versions)
 - Machines are rooted without Metasploit to match exam conditions
 - Windows machines emphasize service enumeration, credential reuse, and manual exploitation

@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
-| **Start at** | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
-| **Pairs with** | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md) |
+| Read this when | standing up or tuning an NSM sensor stack (Suricata, Zeek, Security Onion, Arkime), hunting for beaconing or DNS tunneling in network logs, designing segmentation, NAC, or DDoS defenses |
+| Start at | [Network Defense Architecture](#_1-network-defense-architecture), [Suricata IDS/IPS](#_2-suricata-idsips), [Network Defense Operations](#_10-network-defense-operations) |
+| Pairs with | [NETWORK_ATTACKS_REFERENCE.md](NETWORK_ATTACKS_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [NETWORK_FORENSICS_REFERENCE.md](NETWORK_FORENSICS_REFERENCE.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md) |
 
 ---
 
@@ -32,34 +32,34 @@
 Defense-in-depth is the foundational principle of layered network security — no single control is sufficient; multiple overlapping controls are required so that when one fails, others compensate.
 
 #### Perimeter Layer
-- **Firewall (stateful/NGFW):** Enforces ingress and egress policy; blocks unauthorized traffic by port, protocol, and application.
-- **IDS/IPS:** Inspects traffic crossing the boundary; alerts on or blocks known malicious signatures and anomalies.
-- **Anti-DDoS / Scrubbing:** Upstream volumetric filtering; rate limiting at the edge router.
-- **Email & Web Gateway:** Inline scanning of HTTP(S) and SMTP traffic for malware and phishing content.
-- **DMZ (Demilitarized Zone):** Isolates externally facing services (web, mail, DNS) from internal networks. Traffic flows: Internet → Firewall → DMZ → Firewall → Internal. Hosts in the DMZ must never be trusted by internal systems.
+- Firewall (stateful/NGFW): Enforces ingress and egress policy; blocks unauthorized traffic by port, protocol, and application.
+- IDS/IPS: Inspects traffic crossing the boundary; alerts on or blocks known malicious signatures and anomalies.
+- Anti-DDoS / Scrubbing: Upstream volumetric filtering; rate limiting at the edge router.
+- Email & Web Gateway: Inline scanning of HTTP(S) and SMTP traffic for malware and phishing content.
+- DMZ (Demilitarized Zone): Isolates externally facing services (web, mail, DNS) from internal networks. Traffic flows: Internet -> Firewall -> DMZ -> Firewall -> Internal. Hosts in the DMZ must never be trusted by internal systems.
 
 #### Internal / Core Layer
-- **Internal Segmentation Firewall (ISFW):** Micro-segments the internal network by business unit, function, or sensitivity level.
-- **VLAN Segregation:** Layer 2 separation of traffic domains (servers, users, IoT, management).
-- **Zero-Trust Architecture (ZTA):** "Never trust, always verify" — all sessions authenticated and authorized regardless of network location.
-- **East-West Traffic Inspection:** Lateral movement detection between internal segments via taps, NDR, and service mesh telemetry.
+- Internal Segmentation Firewall (ISFW): Micro-segments the internal network by business unit, function, or sensitivity level.
+- VLAN Segregation: Layer 2 separation of traffic domains (servers, users, IoT, management).
+- Zero-Trust Architecture (ZTA): "Never trust, always verify": all sessions authenticated and authorized regardless of network location.
+- East-West Traffic Inspection: Lateral movement detection between internal segments via taps, NDR, and service mesh telemetry.
 
 #### Endpoint Layer
-- **Host-based Firewall:** OS-level packet filtering; prevents unauthorized listening services.
-- **EDR / XDR:** Behavioral detection on the host; telemetry fed back to central SIEM.
-- **Application Whitelisting:** Prevents execution of unauthorized binaries.
+- Host-based Firewall: OS-level packet filtering; prevents unauthorized listening services.
+- EDR / XDR: Behavioral detection on the host; telemetry fed back to central SIEM.
+- Application Whitelisting: Prevents execution of unauthorized binaries.
 
 #### Cloud Layer
-- **Security Groups / NACLs:** Virtual firewall policy applied per VPC, subnet, or instance.
-- **Cloud-native CSPM:** Continuous posture management for misconfigured cloud resources.
-- **VPC Flow Logs / NSG Flow Logs:** Native L4 telemetry; equivalent of NetFlow in cloud environments.
-- **CASB:** Visibility and control over SaaS application usage.
+- Security Groups / NACLs: Virtual firewall policy applied per VPC, subnet, or instance.
+- Cloud-native CSPM: Continuous posture management for misconfigured cloud resources.
+- VPC Flow Logs / NSG Flow Logs: Native L4 telemetry; equivalent of NetFlow in cloud environments.
+- CASB: Visibility and control over SaaS application usage.
 
 ---
 
 ### Network Security Monitoring (NSM) Fundamentals
 
-NSM is the collection, analysis, and escalation of network data to detect and respond to intrusions. Coined by Richard Bejtlich, NSM focuses on **visibility**, **collection**, and **analysis**.
+NSM is the collection, analysis, and escalation of network data to detect and respond to intrusions. Coined by Richard Bejtlich, NSM focuses on visibility, collection, and analysis.
 
 #### NSM Data Types
 | Type | Description | Example Tools |
@@ -72,17 +72,17 @@ NSM is the collection, analysis, and escalation of network data to detect and re
 | Log Data | Application and infrastructure logs correlated with network | Syslog, Windows Event Log |
 
 #### NSM Sensor Placement
-- **Tap (Test Access Point):** Passive optical or copper tap; copies all traffic without introducing latency or single points of failure. Preferred for production environments.
-- **SPAN Port (Switch Port Analyzer):** Mirror port on a managed switch; may drop packets under high load. Acceptable for lower-speed links.
-- **Inline (Bump-in-the-wire):** Sensor sits in the traffic path; required for IPS blocking. Introduces latency and potential failure point — use bypass NICs with fail-open capability.
-- **Agent-based / eBPF:** Host-level packet capture; useful for east-west traffic inside container or VM environments.
+- Tap (Test Access Point): Passive optical or copper tap; copies all traffic without introducing latency or single points of failure. Preferred for production environments.
+- SPAN Port (Switch Port Analyzer): Mirror port on a managed switch; may drop packets under high load. Acceptable for lower-speed links.
+- Inline (Bump-in-the-wire): Sensor sits in the traffic path; required for IPS blocking. Introduces latency and potential failure point — use bypass NICs with fail-open capability.
+- Agent-based / eBPF: Host-level packet capture; useful for east-west traffic inside container or VM environments.
 
 #### Traffic Analysis Methodology
-1. **Baseline Establishment:** Capture "normal" traffic patterns (protocols, top talkers, bytes/sec, connection frequency) over a 2–4 week period. Document authorized services, expected external connections, and internal communication patterns.
-2. **Anomaly Detection:** Compare real-time metrics against baseline; alert on statistically significant deviations.
-3. **Signature Matching:** Apply known-bad rules (Suricata/Snort signatures) to identified traffic.
-4. **Threat Hunting:** Proactive hypothesis-driven searches through historical traffic data for TTPs not caught by automated alerts.
-5. **Incident Investigation:** Pivot from alert → flow data → PCAP to reconstruct attacker actions.
+1. Baseline Establishment: Capture "normal" traffic patterns (protocols, top talkers, bytes/sec, connection frequency) over a 2-4 week period. Document authorized services, expected external connections, and internal communication patterns.
+2. Anomaly Detection: Compare real-time metrics against baseline; alert on statistically significant deviations.
+3. Signature Matching: Apply known-bad rules (Suricata/Snort signatures) to identified traffic.
+4. Threat Hunting: Proactive hypothesis-driven searches through historical traffic data for TTPs not caught by automated alerts.
+5. Incident Investigation: Pivot from alert -> flow data -> PCAP to reconstruct attacker actions.
 
 #### Visibility Gaps
 | Gap | Description | Mitigation |
@@ -115,16 +115,16 @@ NSM is the collection, analysis, and escalation of network data to detect and re
 Suricata (https://suricata.io/) is a high-performance, open-source IDS, IPS, and NSM engine maintained by the Open Information Security Foundation (OISF).
 
 #### Multi-Threaded Design
-- **Capture Threads:** Receive packets from the NIC (AF_PACKET, PF_RING, DPDK, or libpcap).
-- **Decode Threads:** Parse Ethernet, IP, TCP/UDP/ICMP headers.
-- **Detect Threads:** Apply signature rules against decoded traffic; one thread per CPU core is typical.
-- **Output Threads:** Write logs (Eve JSON, PCAP, unified2) asynchronously.
-- **Flow Engine:** Maintains flow state table for TCP session reassembly and protocol detection.
+- Capture Threads: Receive packets from the NIC (AF_PACKET, PF_RING, DPDK, or libpcap).
+- Decode Threads: Parse Ethernet, IP, TCP/UDP/ICMP headers.
+- Detect Threads: Apply signature rules against decoded traffic; one thread per CPU core is typical.
+- Output Threads: Write logs (Eve JSON, PCAP, unified2) asynchronously.
+- Flow Engine: Maintains flow state table for TCP session reassembly and protocol detection.
 
 #### Capture Methods (Performance Order)
 | Method | Description |
 |--------|-------------|
-| DPDK | Kernel-bypass; highest throughput (10–100 Gbps). Requires DPDK-compatible NIC. |
+| DPDK | Kernel-bypass; highest throughput (10-100 Gbps). Requires DPDK-compatible NIC. |
 | PF_RING ZC | Zero-copy kernel module; 10+ Gbps with commodity NICs. |
 | AF_PACKET | Linux native; cluster mode distributes flows across threads. Most common production method. |
 | libpcap | Portable; lower performance. Development/testing only. |
@@ -148,7 +148,7 @@ af-packet:
 
 ### Rule Syntax
 
-A Suricata rule consists of a **header** and a **body** (options).
+A Suricata rule consists of a header and a body (options).
 
 #### Header Format
 ```
@@ -163,9 +163,9 @@ action protocol src_ip src_port direction dst_ip dst_port
 | ports | Port, port range (`1024:65535`), negation (`!80`), group (`[80,443]`) |
 | direction | `->` (unidirectional), `<>` (bidirectional) |
 
-#### Body (Options) — Key Keywords
+#### Body (Options): Key Keywords
 
-**Content Matching**
+Content Matching
 ```
 content:"malware.exe";          # Case-sensitive byte match
 content:"GET"; nocase;          # Case-insensitive
@@ -173,7 +173,7 @@ content:"|0d 0a|";              # Hex byte sequence
 pcre:"/evil[0-9]+\.com/i";     # Perl-compatible regex
 ```
 
-**Context Modifiers (Sticky Buffers)**
+Context Modifiers (Sticky Buffers)
 ```
 http.uri; content:"/admin/shell.php";
 http.header; content:"User-Agent|3a| curl";
@@ -182,7 +182,7 @@ dns.query; content:"evil.com";
 tls.sni; content:"malicious.";
 ```
 
-**Metadata / Classification**
+Metadata / Classification
 ```
 msg:"ET MALWARE Cobalt Strike Beacon";
 classtype:trojan-activity;
@@ -196,7 +196,7 @@ metadata:affected_product Windows_XP_Vista_7_8_10_Server_32_64_Bit,
          tag CobaltStrike;
 ```
 
-**Flow and State**
+Flow and State
 ```
 flow:to_server,established;     # Only match client→server in established TCP session
 flow:from_server,established;   # Only match server→client responses
@@ -204,7 +204,7 @@ flowbits:set,http.post;         # Set a flag for cross-rule correlation
 flowbits:isset,http.post;       # Check flag set by previous rule
 ```
 
-**Thresholding**
+Thresholding
 ```
 threshold: type limit, track by_src, count 1, seconds 60;   # Alert once per src per minute
 threshold: type threshold, track by_src, count 10, seconds 5; # Alert after 10 hits in 5s
@@ -244,7 +244,7 @@ alert http $EXTERNAL_NET any -> $HTTP_SERVERS any (
 
 ### Inline IPS Mode
 
-In IPS mode, Suricata sits **inline** (NFQUEUE or AF_PACKET with copy-mode) and can **drop** or **reject** packets matching rules.
+In IPS mode, Suricata sits inline (NFQUEUE or AF_PACKET with copy-mode) and can drop or reject packets matching rules.
 
 ```bash
 # NFQUEUE mode — redirect kernel traffic to Suricata via iptables
@@ -256,7 +256,7 @@ iptables -I OUTPUT -j NFQUEUE --queue-num 0
 suricata -q 0 -c /etc/suricata/suricata.yaml -l /var/log/suricata/
 ```
 
-**Action Semantics in IPS Mode**
+Action Semantics in IPS Mode
 | Action | IDS Mode | IPS Mode |
 |--------|----------|----------|
 | `alert` | Log event | Log event, pass packet |
@@ -382,7 +382,7 @@ stream:
     toclient-chunk-size: 2560
 ```
 
-**Scirius (Stamus Networks):** Web-based rule management GUI for Suricata. Provides rule activation/deactivation, policy management, threshold editing, and performance dashboards. Available at https://github.com/StamusNetworks/scirius.
+Scirius (Stamus Networks): Web-based rule management GUI for Suricata. Provides rule activation/deactivation, policy management, threshold editing, and performance dashboards. Available at https://github.com/StamusNetworks/scirius.
 
 
 ---
@@ -391,13 +391,13 @@ stream:
 
 ### Architecture
 
-Zeek (formerly Bro) is a passive network analysis framework that transforms raw packet data into structured, high-level logs. Unlike signature-based IDS, Zeek's primary mode is **semantic analysis** — understanding what is happening in network traffic and recording it as rich metadata.
+Zeek (formerly Bro) is a passive network analysis framework that transforms raw packet data into structured, high-level logs. Unlike signature-based IDS, Zeek's primary mode is semantic analysis — understanding what is happening in network traffic and recording it as rich metadata.
 
 #### Core Components
-- **Event Engine:** Parses protocols, assembles TCP streams, and generates events (e.g., `http_request`, `dns_request`, `ssl_client_hello`).
-- **Policy Script Interpreter:** Zeek scripts (`.zeek` files) define what happens when events fire — logging, alerting, correlation.
-- **Communication Framework (Broker):** Enables distributed Zeek deployments to share events and data in real time.
-- **Logging Framework:** Writes structured TSV/JSON logs per protocol.
+- Event Engine: Parses protocols, assembles TCP streams, and generates events (e.g., `http_request`, `dns_request`, `ssl_client_hello`).
+- Policy Script Interpreter: Zeek scripts (`.zeek` files) define what happens when events fire — logging, alerting, correlation.
+- Communication Framework (Broker): Enables distributed Zeek deployments to share events and data in real time.
+- Logging Framework: Writes structured TSV/JSON logs per protocol.
 
 ```
 Network Traffic → [Event Engine] → Events → [Policy Scripts] → Logs / Notices / Actions
@@ -437,7 +437,7 @@ duration    orig_bytes  resp_bytes  conn_state  missed_bytes  history
 0.002341    45          89          SF          0             Dd
 ```
 
-**conn_state Values:** SF (normal close), S0 (no reply), S1 (established, no close), RSTO/RSTR (reset), SH/SHR (SYN+SYN-ACK only), OTH (other)
+conn_state Values: SF (normal close), S0 (no reply), S1 (established, no close), RSTO/RSTR (reset), SH/SHR (SYN+SYN-ACK only), OTH (other)
 
 ---
 
@@ -535,7 +535,7 @@ zkg install zeek/corelight/bro-long-connections  # Detect unusually long connect
 zkg install zeek/sethhall/entity-tracking        # Track hosts and services over time
 ```
 
-**Detect Beaconing (built-in approach):**
+Detect Beaconing (built-in approach):
 ```zeek
 # Simplified beaconing detector — track connection intervals per dst
 global beacon_tracker: table[addr] of vector of interval &default=vector();
@@ -561,13 +561,13 @@ event connection_state_remove(c: connection)
 
 | ATT&CK Technique | Zeek Detection |
 |-----------------|----------------|
-| T1046 — Network Service Discovery | Sudden burst of conn.log entries; missing SYN-ACK (S0 state) |
-| T1040 — Network Sniffing | Promiscuous mode detection in weird.log |
-| T1071 — Application Layer Protocol | http.log/dns.log unusual user-agents, large DNS responses |
-| T1572 — Protocol Tunneling | Long-duration DNS sessions; high bytes in dns.log; HTTP CONNECT tunnels |
-| T1048 — Exfiltration Over C2 | Large resp_bytes in http.log/ssl.log to rare external IPs |
-| T1557 — Adversary-in-the-Middle | arp.log conflicts; certificate anomalies in x509.log |
-| T1078 — Valid Accounts | kerberos.log unusual ticket requests; authentication from unexpected src |
+| T1046: Network Service Discovery | Sudden burst of conn.log entries; missing SYN-ACK (S0 state) |
+| T1040: Network Sniffing | Promiscuous mode detection in weird.log |
+| T1071: Application Layer Protocol | http.log/dns.log unusual user-agents, large DNS responses |
+| T1572: Protocol Tunneling | Long-duration DNS sessions; high bytes in dns.log; HTTP CONNECT tunnels |
+| T1048: Exfiltration Over C2 | Large resp_bytes in http.log/ssl.log to rare external IPs |
+| T1557: Adversary-in-the-Middle | arp.log conflicts; certificate anomalies in x509.log |
+| T1078: Valid Accounts | kerberos.log unusual ticket requests; authentication from unexpected src |
 
 ---
 
@@ -607,10 +607,10 @@ Security Onion (https://github.com/Security-Onion-Solutions/securityonion) is a 
 
 | Mode | Description | Use Case |
 |------|-------------|---------|
-| **Standalone** | All services on a single node | Lab, small orgs (<1 Gbps) |
-| **Distributed** | Manager + Search + Sensor nodes | Enterprise, multi-site |
-| **Eval (Import)** | Import PCAP files for analysis | Training, incident replay |
-| **Cloud** | AWS, Azure, GCP deployment | Cloud-native SOC |
+| Standalone | All services on a single node | Lab, small orgs (<1 Gbps) |
+| Distributed | Manager + Search + Sensor nodes | Enterprise, multi-site |
+| Eval (Import) | Import PCAP files for analysis | Training, incident replay |
+| Cloud | AWS, Azure, GCP deployment | Cloud-native SOC |
 
 #### Distributed Architecture
 ```
@@ -652,12 +652,12 @@ Security Onion (https://github.com/Security-Onion-Solutions/securityonion) is a 
 The Security Onion Console (SOC) is the primary analyst interface accessible at `https://<manager-ip>`.
 
 #### Alert Triage Interface
-1. **Alerts Queue:** Suricata alerts aggregated by signature and severity. Sort by count, severity, or first/last seen.
-2. **Alert Detail:** Click alert → view: rule text, 5-tuple, community_id, Eve JSON fields.
-3. **PCAP Pivot:** Click the PCAP icon → download full session PCAP → open in Wireshark.
-4. **Transcript View:** Inline ASCII/hex session transcript for text protocols (HTTP, SMTP, FTP).
-5. **Hunt Pivot:** Click src or dst IP → pivot to Hunt interface for historical investigation.
-6. **Case Creation:** Escalate alert directly to TheHive case with enriched context.
+1. Alerts Queue: Suricata alerts aggregated by signature and severity. Sort by count, severity, or first/last seen.
+2. Alert Detail: Click alert -> view: rule text, 5-tuple, community_id, Eve JSON fields.
+3. PCAP Pivot: Click the PCAP icon -> download full session PCAP -> open in Wireshark.
+4. Transcript View: Inline ASCII/hex session transcript for text protocols (HTTP, SMTP, FTP).
+5. Hunt Pivot: Click src or dst IP -> pivot to Hunt interface for historical investigation.
+6. Case Creation: Escalate alert directly to TheHive case with enriched context.
 
 #### Hunt Interface (Threat Hunting)
 Hunt allows ad-hoc Elasticsearch DSL or SIGMA-style queries across all Zeek and Suricata logs.
@@ -682,7 +682,7 @@ event.module:suricata AND tls.ja3.hash:a0e9f5d64349fb13191bc781f81f42e1
 
 ### PCAP Pivot from Alerts
 
-Security Onion uses **Stenographer** for continuous full packet capture and retrieval.
+Security Onion uses Stenographer for continuous full packet capture and retrieval.
 
 ```bash
 # Query Stenographer directly (from sensor node)
@@ -773,11 +773,11 @@ Arkime (formerly Moloch, https://arkime.com/) is an open-source, large-scale ful
 | Traffic Volume | PCAP Storage (90-day retention) | Elasticsearch Nodes |
 |---------------|--------------------------------|---------------------|
 | 100 Mbps | ~1 TB | 1 node (small) |
-| 1 Gbps | ~10 TB | 2–3 nodes |
-| 10 Gbps | ~100 TB | 5–10 nodes |
+| 1 Gbps | ~10 TB | 2-3 nodes |
+| 10 Gbps | ~100 TB | 5-10 nodes |
 | 40 Gbps | ~400 TB | 20+ nodes |
 
-**Rule of thumb:** ~100 GB/day per Gbps of average traffic. Adjust based on compression ratio and protocol mix (encrypted traffic compresses poorly).
+Rule of thumb: ~100 GB/day per Gbps of average traffic. Adjust based on compression ratio and protocol mix (encrypted traffic compresses poorly).
 
 ---
 
@@ -919,11 +919,11 @@ freeSpaceG=10%    # Keep at least 10% free space; delete oldest PCAP files
 ### DNS as a Visibility Goldmine
 
 Nearly every network connection — malware C2, data exfiltration, phishing, lateral movement — begins with a DNS query. DNS monitoring provides:
-- **Pre-connection visibility:** See what hosts are trying to reach before TCP sessions are established.
-- **Threat intel matching:** Block known-bad domains at resolution time.
-- **Beaconing detection:** Periodic DNS queries to the same domain with slight variation.
-- **Tunneling detection:** Data hidden in DNS query/response fields.
-- **Asset tracking:** Map internal IP addresses to hostnames over time.
+- Pre-connection visibility: See what hosts are trying to reach before TCP sessions are established.
+- Threat intel matching: Block known-bad domains at resolution time.
+- Beaconing detection: Periodic DNS queries to the same domain with slight variation.
+- Tunneling detection: Data hidden in DNS query/response fields.
+- Asset tracking: Map internal IP addresses to hostnames over time.
 
 ---
 
@@ -1066,7 +1066,7 @@ dig @your-resolver.ip dnssec.works       # Should succeed
 
 DNS tunneling encodes data in DNS query/response fields (subdomains, TXT records) to exfiltrate data or establish C2 channels over DNS.
 
-**Indicators:**
+Indicators:
 - High-entropy subdomain labels (random-looking strings: `a1b2c3d4e5f6.evil.com`)
 - Unusually long subdomain names (>50 characters)
 - High query rate to a single domain
@@ -1096,7 +1096,7 @@ for d in domains:
 # High entropy (>3.5 bits/char) suggests encoding/tunneling
 ```
 
-**dnstwist for Typosquatting Detection:**
+dnstwist for Typosquatting Detection:
 ```bash
 pip install dnstwist
 dnstwist --registered corp.com          # Find registered lookalike domains
@@ -1146,12 +1146,12 @@ nDPI (https://github.com/ntop/nDPI) is an open-source deep packet inspection lib
 ### Protocol Detection Capabilities
 
 nDPI classifies traffic into:
-- **Layer 7 protocols:** HTTP, HTTPS, DNS, FTP, SMTP, SSH, RDP, VoIP (SIP/RTP), SMB, NFS
-- **Applications:** Netflix, YouTube, Spotify, BitTorrent, Zoom, Teams, Skype, WhatsApp
-- **Tunneling:** Tor, VPN (OpenVPN, WireGuard, IPsec), DNS tunneling, HTTP tunneling
-- **P2P:** BitTorrent, eDonkey, Gnutella, DC++
-- **Malware-associated:** Cobalt Strike, Metasploit, custom protocols detected by heuristics
-- **Industrial:** Modbus, DNP3, IEC 60870-5-104, EtherNet/IP, BACnet
+- Layer 7 protocols: HTTP, HTTPS, DNS, FTP, SMTP, SSH, RDP, VoIP (SIP/RTP), SMB, NFS
+- Applications: Netflix, YouTube, Spotify, BitTorrent, Zoom, Teams, Skype, WhatsApp
+- Tunneling: Tor, VPN (OpenVPN, WireGuard, IPsec), DNS tunneling, HTTP tunneling
+- P2P: BitTorrent, eDonkey, Gnutella, DC++
+- Malware-associated: Cobalt Strike, Metasploit, custom protocols detected by heuristics
+- Industrial: Modbus, DNP3, IEC 60870-5-104, EtherNet/IP, BACnet
 
 ```c
 // Basic nDPI usage in C
@@ -1177,7 +1177,7 @@ printf("Protocol: %s / %s
 
 JA3 creates an MD5 fingerprint of TLS Client Hello parameters; JA3S fingerprints the Server Hello. These fingerprints identify TLS clients and servers regardless of the destination IP/domain.
 
-**JA3 is computed from:**
+JA3 is computed from:
 `SSLVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats`
 
 ```
@@ -1185,7 +1185,7 @@ JA3 string:  771,49195-49199-49196-49200-52393-52392,0-23-65281-10-11-16-5-13,23
 JA3 hash:    a0e9f5d64349fb13191bc781f81f42e1  ← Cobalt Strike default
 ```
 
-**Notable JA3 Hashes (Malware):**
+Notable JA3 Hashes (Malware):
 | Hash | Malware / Tool |
 |------|----------------|
 | `a0e9f5d64349fb13191bc781f81f42e1` | Cobalt Strike default beacon |
@@ -1194,7 +1194,7 @@ JA3 hash:    a0e9f5d64349fb13191bc781f81f42e1  ← Cobalt Strike default
 | `c35b0c1dbc64e55f8e1cfd4bb3c2f03b` | AsyncRAT |
 | `b386946a5a44d1ddcc843bc75336dfce` | njRAT |
 
-**JA3 Databases:** https://sslbl.abuse.ch/ja3-fingerprints/ | https://github.com/salesforce/ja3
+JA3 Databases: https://sslbl.abuse.ch/ja3-fingerprints/ | https://github.com/salesforce/ja3
 
 ```bash
 # Zeek JA3 (requires zeek-ja3 package)
@@ -1208,7 +1208,7 @@ alert tls any any -> any any (
 )
 ```
 
-**JARM** is an active TLS fingerprinting tool that probes a server with specific TLS Client Hellos and fingerprints the server's response pattern. Useful for identifying C2 server infrastructure.
+JARM is an active TLS fingerprinting tool that probes a server with specific TLS Client Hellos and fingerprints the server's response pattern. Useful for identifying C2 server infrastructure.
 
 ```bash
 # JARM fingerprinting
@@ -1239,7 +1239,7 @@ apt-get install ntopng
 # Access: http://localhost:3000 (default admin/admin)
 ```
 
-**ntopng capabilities:**
+ntopng capabilities:
 - Real-time top talkers, top protocols, top applications
 - Historical flow data with nProbe integration
 - Host scoring and anomaly detection
@@ -1356,7 +1356,7 @@ IEEE 802.1X is the port-based network access control standard. It uses the Exten
   (Endpoint)                  (Network Device)                         (FreeRADIUS / ISE)
 ```
 
-**EAP Methods:**
+EAP Methods:
 | Method | Auth Type | Security | Use Case |
 |--------|-----------|---------|---------|
 | EAP-TLS | Client certificate | Highest | Corp devices with PKI |
@@ -1440,7 +1440,7 @@ post-auth {
 }
 ```
 
-**Cisco switch 802.1X port configuration:**
+Cisco switch 802.1X port configuration:
 ```
 interface GigabitEthernet0/1
  description User Port - 802.1X Enabled
@@ -1531,11 +1531,11 @@ systemctl enable --now packetfence-config
 
 Initial authentication is not enough — devices must remain compliant throughout their session.
 
-**Continuous compliance checks via:**
-- **Osquery:** SQL queries to verify endpoint health (patch level, AV status, disk encryption)
-- **SNMP Traps:** Switch notifies NAC of new MAC on authenticated port
-- **Periodic RADIUS re-authentication:** Force re-auth every N minutes; apply updated policy
-- **EDR Integration:** XDR platforms can trigger CoA (Change of Authorization) RADIUS packets to quarantine compromised endpoints
+Continuous compliance checks via:
+- Osquery: SQL queries to verify endpoint health (patch level, AV status, disk encryption)
+- SNMP Traps: Switch notifies NAC of new MAC on authenticated port
+- Periodic RADIUS re-authentication: Force re-auth every N minutes; apply updated policy
+- EDR Integration: XDR platforms can trigger CoA (Change of Authorization) RADIUS packets to quarantine compromised endpoints
 
 ```bash
 # RADIUS CoA (Change of Authorization) — quarantine a live session
@@ -1551,29 +1551,29 @@ echo "User-Name=baddevice@corp.com,Cisco-AVPair=subscriber:command=reauthenticat
 
 #### Volumetric Attacks (Layer 3/4)
 Overwhelm bandwidth capacity. Measured in Gbps or Mpps.
-- **UDP Flood:** Random UDP packets to random ports; exhausts bandwidth.
-- **ICMP Flood (Ping Flood):** Overloads with ICMP Echo requests.
-- **Amplification Attacks:** Spoof victim IP as source; receive amplified response.
-  - DNS amplification: 28-byte query → 3,000-byte response (107x amplification)
-  - NTP amplification (monlist): 234-byte query → 48KB response (556x)
-  - SSDP amplification: 30-byte query → 3,000-byte response (100x)
-  - Memcached amplification: 15-byte query → 750KB response (50,000x)
+- UDP Flood: Random UDP packets to random ports; exhausts bandwidth.
+- ICMP Flood (Ping Flood): Overloads with ICMP Echo requests.
+- Amplification Attacks: Spoof victim IP as source; receive amplified response.
+  - DNS amplification: 28-byte query -> 3,000-byte response (107x amplification)
+  - NTP amplification (monlist): 234-byte query -> 48KB response (556x)
+  - SSDP amplification: 30-byte query -> 3,000-byte response (100x)
+  - Memcached amplification: 15-byte query -> 750KB response (50,000x)
 
 #### Protocol Attacks (Layer 3/4)
 Exhaust state tables on firewalls, load balancers, or servers.
-- **SYN Flood:** Sends thousands of SYN packets without completing handshake; exhausts server connection table.
-- **TCP State Exhaustion:** Established connections sent garbage data; keeps state alive.
-- **Fragmentation Attack:** Malformed fragments exhaust reassembly buffers.
-- **Ping of Death:** Oversized ICMP packets (historical; patched).
+- SYN Flood: Sends thousands of SYN packets without completing handshake; exhausts server connection table.
+- TCP State Exhaustion: Established connections sent garbage data; keeps state alive.
+- Fragmentation Attack: Malformed fragments exhaust reassembly buffers.
+- Ping of Death: Oversized ICMP packets (historical; patched).
 
 #### Application-Layer Attacks (Layer 7)
 Mimic legitimate requests; bypass volumetric detection.
-- **HTTP Flood (GET/POST):** Floods web server with valid HTTP requests.
-- **Slowloris:** Opens many connections and sends headers slowly; exhausts connection pool without bandwidth.
-- **Slow POST (RUDY):** Sends POST requests at 1 byte/second; keeps threads occupied.
-- **ReDoS:** Crafted regex input causes catastrophic backtracking in vulnerable apps.
-- **SSL/TLS Exhaustion:** Forces expensive handshakes; exhausts CPU.
-- **DNS Query Flood:** Overwhelms authoritative DNS server with random subdomains (NXDOMAIN flood).
+- HTTP Flood (GET/POST): Floods web server with valid HTTP requests.
+- Slowloris: Opens many connections and sends headers slowly; exhausts connection pool without bandwidth.
+- Slow POST (RUDY): Sends POST requests at 1 byte/second; keeps threads occupied.
+- ReDoS: Crafted regex input causes catastrophic backtracking in vulnerable apps.
+- SSL/TLS Exhaustion: Forces expensive handshakes; exhausts CPU.
+- DNS Query Flood: Overwhelms authoritative DNS server with random subdomains (NXDOMAIN flood).
 
 ---
 
@@ -1614,7 +1614,7 @@ routing-options {
 
 For volumetric DDoS, the only effective mitigation is scrubbing at or near the source:
 
-**Commercial Cloud Scrubbing:**
+Commercial Cloud Scrubbing:
 | Provider | Capacity | Method |
 |----------|---------|--------|
 | Cloudflare Magic Transit | 100+ Tbps | Anycast BGP; automatic mitigation |
@@ -1623,7 +1623,7 @@ For volumetric DDoS, the only effective mitigation is scrubbing at or near the s
 | Fastly DDoS Protection | Multiple Tbps | Anycast CDN |
 | Radware DefensePro | On-prem + cloud | Hybrid scrubbing |
 
-**BGP Re-routing to Scrubbing:**
+BGP Re-routing to Scrubbing:
 ```
 Under attack:
 [Attacker]  →  [Internet]  →  [Customer Edge Router]  →  [Server - overwhelmed]
@@ -1902,18 +1902,18 @@ tshark -r evidence.pcap -Y "http.request" -T fields        -e frame.time -e ip.s
 
 A quarterly network segmentation audit verifies that firewall rules and VLAN boundaries are enforced as designed.
 
-**Audit Steps:**
-1. **Document intended architecture:** Obtain network diagrams, VLAN assignments, firewall rule tables.
-2. **Map actual traffic flows:** Use Zeek conn.log to identify all unique src→dst VLAN pairs.
-3. **Test firewall rules:**
+Audit Steps:
+1. Document intended architecture: Obtain network diagrams, VLAN assignments, firewall rule tables.
+2. Map actual traffic flows: Use Zeek conn.log to identify all unique src->dst VLAN pairs.
+3. Test firewall rules:
    ```bash
    # Use nmap from test host in VLAN A to verify VLAN B is inaccessible
    nmap -p 1-65535 --open -Pn 10.20.0.0/24   # Should be blocked
    # Document results in segmentation test matrix
    ```
-4. **Compare flows to policy:** Flag any cross-segment traffic not in the approved rule base.
-5. **Remediate gaps:** Tighten overly permissive rules; investigate unauthorized flows.
-6. **Document residual risk:** Approved exceptions documented with business justification and owner.
+4. Compare flows to policy: Flag any cross-segment traffic not in the approved rule base.
+5. Remediate gaps: Tighten overly permissive rules; investigate unauthorized flows.
+6. Document residual risk: Approved exceptions documented with business justification and owner.
 
 ---
 
@@ -1921,7 +1921,7 @@ A quarterly network segmentation audit verifies that firewall rules and VLAN bou
 
 Stale firewall rules accumulate over time, creating unnecessary attack surface.
 
-**Quarterly Firewall Hygiene:**
+Quarterly Firewall Hygiene:
 ```
 For each rule in ruleset:
   1. Check last hit timestamp (most NGFWs track this)
@@ -1970,7 +1970,7 @@ event.module:zeek AND event.dataset:conn AND NOT source.ip:known_assets
 |-----------|-----------|---------------|-------------------|--------|
 | T1046 | Network Service Scanning | conn.log: many S0/RSTO states from single src in short window | ET SCAN rules; threshold on connection attempts | Session count spike per src IP |
 | T1040 | Network Sniffing | weird.log: promiscuous mode; unusual ARP behavior | — | Monitor for pcap software on network |
-| T1557 | Adversary-in-the-Middle | arp.log: IP→MAC mapping conflicts; ssl.log: cert issuer anomaly | JA3 mismatch; cert validation failures | x509 certificate changes per IP |
+| T1557 | Adversary-in-the-Middle | arp.log: IP->MAC mapping conflicts; ssl.log: cert issuer anomaly | JA3 mismatch; cert validation failures | x509 certificate changes per IP |
 | T1090 | Proxy (Connection Proxy) | conn.log: CONNECT method in http.log; SOCKS detection | ET Proxy rules; CONNECT tunnel detection | High-volume relay sessions |
 | T1095 | Non-Application Layer Protocol | conn.log: raw IP protocols (non-TCP/UDP/ICMP) | Protocol mismatch signatures; tunnel detection | Custom protocol sessions |
 | T1071.001 | Web Protocols C2 | http.log: low-volume periodic POSTs; beacon intervals | ET CnC rules; JA3 hash matching | Beaconing session patterns |
@@ -2010,22 +2010,22 @@ fi
 
 ## References and Further Reading
 
-- **Suricata:** https://suricata.io/documentation/ | https://docs.suricata.io/
-- **Zeek:** https://docs.zeek.org/ | https://github.com/zeek/zeek
-- **Security Onion:** https://docs.securityonion.net/ | https://github.com/Security-Onion-Solutions/securityonion
-- **Arkime:** https://arkime.com/faq | https://github.com/arkime/arkime
-- **Pi-hole:** https://docs.pi-hole.net/ | https://github.com/pi-hole/pi-hole
-- **AdGuard Home:** https://github.com/AdguardTeam/AdGuardHome/wiki
-- **nDPI:** https://github.com/ntop/nDPI | https://www.ntop.org/ndpi/
-- **FreeRADIUS:** https://wiki.freeradius.org/
-- **PacketFence:** https://www.packetfence.org/documentation/
-- **The Practice of Network Security Monitoring** — Richard Bejtlich
-- **MITRE ATT&CK:** https://attack.mitre.org/
-- **Cloudflare DDoS Resources:** https://www.cloudflare.com/learning/ddos/
-- **BCP38 / RFC 2827:** https://www.rfc-editor.org/rfc/rfc2827
-- **JA3 Fingerprints:** https://github.com/salesforce/ja3 | https://sslbl.abuse.ch/ja3-fingerprints/
-- **Community ID Spec:** https://github.com/corelight/community-id-spec
-- **Arkime Wiki:** https://github.com/arkime/arkime/wiki
+- Suricata: https://suricata.io/documentation/ | https://docs.suricata.io/
+- Zeek: https://docs.zeek.org/ | https://github.com/zeek/zeek
+- Security Onion: https://docs.securityonion.net/ | https://github.com/Security-Onion-Solutions/securityonion
+- Arkime: https://arkime.com/faq | https://github.com/arkime/arkime
+- Pi-hole: https://docs.pi-hole.net/ | https://github.com/pi-hole/pi-hole
+- AdGuard Home: https://github.com/AdguardTeam/AdGuardHome/wiki
+- nDPI: https://github.com/ntop/nDPI | https://www.ntop.org/ndpi/
+- FreeRADIUS: https://wiki.freeradius.org/
+- PacketFence: https://www.packetfence.org/documentation/
+- The Practice of Network Security Monitoring: Richard Bejtlich
+- MITRE ATT&CK: https://attack.mitre.org/
+- Cloudflare DDoS Resources: https://www.cloudflare.com/learning/ddos/
+- BCP38 / RFC 2827: https://www.rfc-editor.org/rfc/rfc2827
+- JA3 Fingerprints: https://github.com/salesforce/ja3 | https://sslbl.abuse.ch/ja3-fingerprints/
+- Community ID Spec: https://github.com/corelight/community-id-spec
+- Arkime Wiki: https://github.com/arkime/arkime/wiki
 
 ---
 

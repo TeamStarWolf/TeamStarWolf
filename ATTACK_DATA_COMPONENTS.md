@@ -1,14 +1,14 @@
 # ATT&CK Data Components & Log Sources
 
-> The **106 MITRE ATT&CK data components** (v19.2) — the telemetry categories that feed detection — each with the concrete **log sources and channels** that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
+> The 106 MITRE ATT&CK data components (v19.2) — the telemetry categories that feed detection — each with the concrete log sources and channels that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
 
 | | |
 |---|---|
-| **Read this when** | planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
-| **Start at** | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
-| **Pairs with** | [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Read this when | planning or auditing logging coverage, deciding which log sources to onboard for a detection, checking whether a technique's required telemetry exists in your environment |
+| Start at | [Process Creation](#process-creation), [Command Execution](#command-execution), [Detail](#detail) |
+| Pairs with | [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 
-Machine-readable: [`data/attack/data_components.jsonl`](data/attack/data_components.jsonl). See also: [Detection Strategies](detections/strategies/README.md) · [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md).
+Machine-readable: [`data/attack/data_components.jsonl`](data/attack/data_components.jsonl). See also: [Detection Strategies](detections/strategies/README.md), [Technique Detection Library](detections/TECHNIQUE_DETECTION_LIBRARY.md).
 
 | Data Component | Data Source | Techniques | Example log sources |
 |---|---|--:|---|
@@ -124,7 +124,7 @@ Machine-readable: [`data/attack/data_components.jsonl`](data/attack/data_compone
 ## Detail
 
 ### Process Creation
-**Feeds detection for 452 techniques.**  
+Feeds detection for 452 techniques.  
 Refers to the event in which a new process (executable) is initialized by an operating system. This can involve parent-child process relationships, process arguments, and environmental variables. Monitoring process creation is crucial for detecting malicious behaviors, such as execution of unauthorized binaries, scripting abuse, or privilege escalation attempts..  
 
 | Log source | Channel |
@@ -236,7 +236,7 @@ Refers to the event in which a new process (executable) is initialized by an ope
 | `macos:osquery` | execve: command LIKE '%systemsetup -gettimezone%' OR '%date%' |
 | `macos:unifiedlog` | execution of osascript, curl, or unexpected automation |
 | `macos:unifiedlog` | exec /usr/bin/pwpolicy |
-| `auditd:SYSCALL` | socket(AF_PACKET|AF_INET, SOCK_RAW, *), setsockopt(… SO_ATTACH_FILTER|SO_ATTACH_BPF …), bpf(cmd=BPF_PROG_LOAD), open/openat path="/dev/bpf*" (BSD/macOS-like) or setcap cap_net_raw. |
+| `auditd:SYSCALL` | socket(AF_PACKET|AF_INET, SOCK_RAW, *), setsockopt(... SO_ATTACH_FILTER|SO_ATTACH_BPF ...), bpf(cmd=BPF_PROG_LOAD), open/openat path="/dev/bpf*" (BSD/macOS-like) or setcap cap_net_raw. |
 | `linux:syslog` | KERN messages about eBPF program load/verify or LSM denials related to bpf. |
 | `OpenBSM:AuditTrail` | open/openat of /dev/bpf*; ioctl BIOCSETF-like operations. |
 | `macos:unifiedlog` | Exec of tcpdump, rvictl, custom tools linked to libpcap.A.dylib; sysextd/systemextensionsctl events for NetworkExtension content filters. |
@@ -453,13 +453,13 @@ Refers to the event in which a new process (executable) is initialized by an ope
 ---
 
 ### Command Execution
-**Feeds detection for 209 techniques.**  
+Feeds detection for 209 techniques.  
 Command Execution involves monitoring and capturing the execution of textual commands (including shell commands, cmdlets, and scripts) within an operating system or application. These commands may include arguments or parameters and are typically executed through interpreters such as `cmd.exe`, `bash`, `zsh`, `PowerShell`, or programmatic execution. Examples: 
 
 - Windows Command Prompt
- - dir – Lists directory contents.
- - net user – Queries or manipulates user accounts.
- - tasklist – Lists runn  
+ - dir: Lists directory contents.
+ - net user: Queries or manipulates user accounts.
+ - tasklist: Lists runn  
 
 | Log source | Channel |
 |---|---|
@@ -533,7 +533,7 @@ Command Execution involves monitoring and capturing the execution of textual com
 | `esxi:shell` | base64 or gzip use within shell session |
 | `macos:unifiedlog` | exec: Invocation of /usr/bin/defaults write or /usr/bin/plutil modifying plist keys |
 | `auditd:SYSCALL` | chmod, execve |
-| `macos:unifiedlog` | chmod command with arguments including '+s', 'u+s', or numeric values 4000–6777 |
+| `macos:unifiedlog` | chmod command with arguments including '+s', 'u+s', or numeric values 4000-6777 |
 | `macos:unifiedlog` | command includes dscl . delete or sysadminctl --deleteUser |
 | `fs:fsusage` | file system activity monitor |
 | `networkdevice:cli` | ip ssh pubkey-chain |
@@ -636,7 +636,7 @@ Command Execution involves monitoring and capturing the execution of textual com
 | `networkdevice:syslog` | interactive shell logging |
 | `esxi:hostd` | Execution of '/bin/vmx' or modifications to '/etc/rc.local.d/local.sh' |
 | `auditd:SYSCALL` | chattr, rm, shred, dd run on recovery directories or partitions |
-| `networkdevice:syslog` | command sequence: erase → format → reload |
+| `networkdevice:syslog` | command sequence: erase -> format -> reload |
 | `macos:unifiedlog` | process: at, job runner |
 | `macos:osquery` | Interpreter exec with suspicious arguments as above |
 | `auditd:SYSCALL` | execve: Execution of curl or wget writing files to /tmp/* followed by chmod or execution |
@@ -750,7 +750,7 @@ Command Execution involves monitoring and capturing the execution of textual com
 ---
 
 ### File Creation
-**Feeds detection for 174 techniques.**  
+Feeds detection for 174 techniques.  
 A new file is created on a system or network storage. This action often signifies an operation such as saving a document, writing data, or deploying a file. Logging these events helps identify legitimate or potentially malicious file creation activities. Examples include logging file creation events (e.g., Sysmon Event ID 11 or Linux auditd logs).  
 
 | Log source | Channel |
@@ -848,13 +848,13 @@ A new file is created on a system or network storage. This action often signifie
 ---
 
 ### Network Connection Creation
-**Feeds detection for 151 techniques.**  
+Feeds detection for 151 techniques.  
 The initial establishment of a network session, where a system or process initiates a connection to a local or remote endpoint. This typically involves capturing socket information (source/destination IP, ports, protocol) and tracking session metadata. Monitoring these events helps detect lateral movement, exfiltration, and command-and-control (C2) activities.
 
 *Data Collection Measures:*
 
 - Windows:
- - Event ID 5156 – Filtering Platform Connection - Logs network connections permitted by Windows  
+ - Event ID 5156: Filtering Platform Connection - Logs network connections permitted by Windows  
 
 | Log source | Channel |
 |---|---|
@@ -957,7 +957,7 @@ The initial establishment of a network session, where a system or process initia
 ---
 
 ### Network Traffic Content
-**Feeds detection for 139 techniques.**  
+Feeds detection for 139 techniques.  
 The full packet capture (PCAP) or session data that logs both protocol headers and payload content. This allows analysts to inspect command and control (C2) traffic, exfiltration, and other suspicious activity within network communications. Unlike metadata-based logs, full content analysis enables deeper protocol inspection, payload decoding, and forensic investigations.
 
 *Data Collection Measures:*
@@ -1058,7 +1058,7 @@ The full packet capture (PCAP) or session data that logs both protocol headers a
 | `esxi:vmkernel` | HTTPS POST connections to webhook endpoints |
 | `NSM:Flow` | Single, low-volume inbound packet (REJ/S0/OTH or uncommon dport/protocol) from src_ip followed by outbound SF connection to src_ip. |
 | `NSM:Flow` | Rare inbound packet characteristics (ICMP/UDP/TCP to uncommon port) from src_ip followed ≤TimeWindow by outbound SF from same host to src_ip. |
-| `NSM:Flow` | Inbound one-off packet to uncommon port → outbound SF to same src_ip within TimeWindow. |
+| `NSM:Flow` | Inbound one-off packet to uncommon port -> outbound SF to same src_ip within TimeWindow. |
 | `networkdevice:config` | NAT table modification (add/update/delete rule) |
 | `NSM:Flow` | large upload to firmware interface port or path |
 | `macos:unifiedlog` | Rapid incoming TLS handshakes or HTTP requests in quick succession |
@@ -1211,7 +1211,7 @@ The full packet capture (PCAP) or session data that logs both protocol headers a
 ---
 
 ### File Modification
-**Feeds detection for 115 techniques.**  
+Feeds detection for 115 techniques.  
 Changes made to a file, including updates to its contents, metadata, access permissions, or attributes. These modifications may indicate legitimate activity (e.g., software updates) or unauthorized changes (e.g., tampering, ransomware, or adversarial modifications). Examples: 
 
 - Content Modifications: Changes to the content of a configuration file, such as modifying `/etc/ssh/sshd_config` on Linux or `C:\Windows\System32\drivers\etc\hosts` on Windows.
@@ -1367,7 +1367,7 @@ Changes made to a file, including updates to its contents, metadata, access perm
 ---
 
 ### Module Load
-**Feeds detection for 109 techniques.**  
+Feeds detection for 109 techniques.  
 When a process or program dynamically attaches a shared library, module, or plugin into its memory space. This action is typically performed to extend the functionality of an application, access shared system resources, or interact with kernel-mode components.  
 
 | Log source | Channel |
@@ -1415,7 +1415,7 @@ When a process or program dynamically attaches a shared library, module, or plug
 ---
 
 ### Application Log Content
-**Feeds detection for 98 techniques.**  
+Feeds detection for 98 techniques.  
 Application Log Content refers to logs generated by applications or services, providing a record of their activity. These logs may include metrics, errors, performance data, and operational alerts from web, mail, or other applications. These logs are vital for monitoring application behavior and detecting malicious activities or anomalies. Examples: 
 
 - Web Application Logs: These logs include information about requests, responses, errors, and security events (e.g., unauthorized access attempts)  
@@ -1632,7 +1632,7 @@ Application Log Content refers to logs generated by applications or services, pr
 ---
 
 ### Network Traffic Flow
-**Feeds detection for 92 techniques.**  
+Feeds detection for 92 techniques.  
 Summarized network packet data that captures session-level details such as source/destination IPs, ports, protocol types, timestamps, and data volume, without storing full packet payloads. This is commonly used for traffic analysis, anomaly detection, and network performance monitoring.  
 
 | Log source | Channel |
@@ -1747,7 +1747,7 @@ Summarized network packet data that captures session-level details such as sourc
 | `macos:unifiedlog` | log stream 'eventMessage contains "dns_request"' |
 | `esxi:syslog` | /var/log/syslog.log |
 | `AWS:CloudTrail` | CreateTrafficMirrorSession or ModifyTrafficMirrorTarget |
-| `networkdevice:syslog` | Config change: CLI/NETCONF/SNMP – 'monitor session', 'mirror port' |
+| `networkdevice:syslog` | Config change: CLI/NETCONF/SNMP: 'monitor session', 'mirror port' |
 | `NSM:Flow` | Outbound UDP floods targeting common reflection services with spoofed IP headers |
 | `macos:unifiedlog` | Outbound UDP spikes to external reflector IPs |
 | `AWS:VPCFlowLogs` | Large outbound UDP traffic to multiple public reflector IPs |
@@ -1796,7 +1796,7 @@ Summarized network packet data that captures session-level details such as sourc
 ---
 
 ### File Access
-**Feeds detection for 91 techniques.**  
+Feeds detection for 91 techniques.  
 To events where a file is opened or accessed, making its contents available to the requester. This includes reading, executing, or interacting with files by authorized or unauthorized entities. Examples include logging file access events (e.g., Windows Event ID 4663), monitoring file reads, and detecting unusual file access patterns. Examples: 
 
 - File Read Operations: A user opens a sensitive document (e.g., financial_report.xlsx) on a shared drive.
@@ -1910,7 +1910,7 @@ To events where a file is opened or accessed, making its contents available to t
 ---
 
 ### Windows Registry Key Modification
-**Feeds detection for 86 techniques.**  
+Feeds detection for 86 techniques.  
 Changes made to an existing registry key or its values. These modifications can include altering permissions, modifying stored data, or updating configuration settings.
 
 *Data Collection Measures:*
@@ -1936,7 +1936,7 @@ Changes made to an existing registry key or its values. These modifications can 
 ---
 
 ### Process Access
-**Feeds detection for 77 techniques.**  
+Feeds detection for 77 techniques.  
 Refers to an event where one process attempts to open another process, typically to inspect or manipulate its memory, access handles, or modify execution flow. Monitoring these access attempts can provide valuable insight into both benign and malicious behaviors, such as debugging, inter-process communication (IPC), or process injection.
 
 *Data Collection Measures:*
@@ -1972,7 +1972,7 @@ Refers to an event where one process attempts to open another process, typically
 ---
 
 ### File Metadata
-**Feeds detection for 64 techniques.**  
+Feeds detection for 64 techniques.  
 contextual information about a file, including attributes such as the file's name, size, type, content (e.g., signatures, headers, media), user/owner, permissions, timestamps, and other related properties. File metadata provides insights into a file's characteristics and can be used to detect malicious activity, unauthorized modifications, or other anomalies. Examples: 
 
 - File Ownership and Permissions: Checking the owner and permissions of a critical configuration file like /etc/passwd on Linu  
@@ -2072,7 +2072,7 @@ contextual information about a file, including attributes such as the file's nam
 ---
 
 ### Logon Session Creation
-**Feeds detection for 56 techniques.**  
+Feeds detection for 56 techniques.  
 The successful establishment of a new user session following a successful authentication attempt. This typically signifies that a user has provided valid credentials or authentication tokens, and the system has initiated a session associated with that user account. This data is crucial for tracking authentication events and identifying potential unauthorized access. Examples: 
 
 - Windows Systems
@@ -2153,7 +2153,7 @@ The successful establishment of a new user session following a successful authen
 ---
 
 ### OS API Execution
-**Feeds detection for 54 techniques.**  
+Feeds detection for 54 techniques.  
 Calls made by a process to operating system-provided Application Programming Interfaces (APIs). These calls are essential for interacting with system resources such as memory, files, and hardware, or for performing system-level tasks. Monitoring these calls can provide insight into a process's intent, especially if the process is malicious.  
 
 | Log source | Channel |
@@ -2231,7 +2231,7 @@ Calls made by a process to operating system-provided Application Programming Int
 ---
 
 ### User Account Authentication
-**Feeds detection for 53 techniques.**  
+Feeds detection for 53 techniques.  
 An attempt (successful and failed login attempts) by a user, service, or application to gain access to a network, system, or cloud-based resource. This typically involves credentials such as passwords, tokens, multi-factor authentication (MFA), or biometric validation.  
 
 | Log source | Channel |
@@ -2346,7 +2346,7 @@ An attempt (successful and failed login attempts) by a user, service, or applica
 ---
 
 ### Logon Session Metadata
-**Feeds detection for 30 techniques.**  
+Feeds detection for 30 techniques.  
 Contextual data about a logon session, such as username, logon type, access tokens (security context, user SIDs, logon identifiers, and logon SID), and any activity associated within it  
 
 | Log source | Channel |
@@ -2389,7 +2389,7 @@ Contextual data about a logon session, such as username, logon type, access toke
 ---
 
 ### Process Metadata
-**Feeds detection for 30 techniques.**  
+Feeds detection for 30 techniques.  
 Contextual data about a running process, which may include information such as environment variables, image name, user/owner, etc.  
 
 | Log source | Channel |
@@ -2442,7 +2442,7 @@ Contextual data about a running process, which may include information such as e
 ---
 
 ### Response Content
-**Feeds detection for 28 techniques.**  
+Feeds detection for 28 techniques.  
 Captured network traffic that provides details about responses received during an internet scan. This data includes both protocol header values (e.g., HTTP status codes, IP headers, or DNS response codes) and response body content (e.g., HTML, JSON, or raw data). Examples:
 
 - HTTP Scan: A web server responds to a probe with an HTTP 200 status code and an HTML body indicating the default page is accessible.
@@ -2456,7 +2456,7 @@ Captured network traffic that provides details about responses received during a
 ---
 
 ### Service Creation
-**Feeds detection for 28 techniques.**  
+Feeds detection for 28 techniques.  
 The registration of a new service or daemon on an operating system.
 
 *Data Collection Measures:*
@@ -2490,7 +2490,7 @@ The registration of a new service or daemon on an operating system.
 ---
 
 ### Script Execution
-**Feeds detection for 28 techniques.**  
+Feeds detection for 28 techniques.  
 The execution of a text file that contains code via the interpreter.  
 
 | Log source | Channel |
@@ -2531,7 +2531,7 @@ The execution of a text file that contains code via the interpreter.
 ---
 
 ### Process Modification
-**Feeds detection for 24 techniques.**  
+Feeds detection for 24 techniques.  
 Changes made to a running process, such as writing data into memory, modifying execution behavior, or injecting code into an existing process. Adversaries frequently modify processes to execute malicious payloads, evade detection, or gain escalated privileges.  
 
 | Log source | Channel |
@@ -2559,7 +2559,7 @@ Changes made to a running process, such as writing data into memory, modifying e
 ---
 
 ### User Account Modification
-**Feeds detection for 21 techniques.**  
+Feeds detection for 21 techniques.  
 Changes made to an existing user, service, or machine account, including alterations to attributes, permissions, roles, authentication methods, or group memberships.  
 
 | Log source | Channel |
@@ -2609,7 +2609,7 @@ Changes made to an existing user, service, or machine account, including alterat
 ---
 
 ### User Account Metadata
-**Feeds detection for 20 techniques.**  
+Feeds detection for 20 techniques.  
 Contextual data about an account, which may include a username, user ID, environmental data, etc.  
 
 | Log source | Channel |
@@ -2646,7 +2646,7 @@ Contextual data about an account, which may include a username, user ID, environ
 ---
 
 ### Cloud Service Modification
-**Feeds detection for 18 techniques.**  
+Feeds detection for 18 techniques.  
 Cloud service modification refers to changes made to the configuration, settings, or data of a cloud service. These modifications can include administrative changes such as enabling or disabling features, altering permissions, or deleting critical components. Monitoring these changes is critical to detect potential misconfigurations or malicious activity. Examples: 
 
 - AWS Cloud Service Modifications: A user disables AWS CloudTrail logging (StopLogging) or deletes a CloudWatch configuration rule  
@@ -2688,7 +2688,7 @@ Cloud service modification refers to changes made to the configuration, settings
 ---
 
 ### Active Directory Object Modification
-**Feeds detection for 17 techniques.**  
+Feeds detection for 17 techniques.  
 Changes to AD objects (e.g., users, groups, OUs) are logged as Event ID 5136 (Object Modification) or 5163 (Attribute Changes). Examples:
 
 - User Account: Modifying attributes (e.g., group membership, enabling/disabling accounts).
@@ -2714,7 +2714,7 @@ Changes to AD objects (e.g., users, groups, OUs) are logged as Event ID 5136 (Ob
 ---
 
 ### Scheduled Job Creation
-**Feeds detection for 15 techniques.**  
+Feeds detection for 15 techniques.  
 The establishment of a task or job that will execute at a predefined time or based on specific triggers.  
 
 | Log source | Channel |
@@ -2739,7 +2739,7 @@ The establishment of a task or job that will execute at a predefined time or bas
 ---
 
 ### Driver Load
-**Feeds detection for 14 techniques.**  
+Feeds detection for 14 techniques.  
 The process of attaching a driver, which is a software component that allows the operating system and applications to interact with hardware devices, to either user-mode or kernel-mode of a system. This can include benign actions (e.g., hardware drivers) or malicious behavior (e.g., rootkits or unsigned drivers). Examples: 
 
 - Legitimate Driver Loading: A new graphics driver from a vendor like NVIDIA or AMD is loaded into the system.
@@ -2754,7 +2754,7 @@ The process of attaching a driver, which is a software component that allows the
 ---
 
 ### Host Status
-**Feeds detection for 14 techniques.**  
+Feeds detection for 14 techniques.  
 Logging, messaging, and other artifacts that highlight the health and operational state of host-based security sensors, such as Endpoint Detection and Response (EDR) agents, antivirus software, logging services, and system monitoring tools. Monitoring sensor health is essential for detecting misconfigurations, sensor failures, tampering, or deliberate security control evasion by adversaries.
 
 *Data Collection Measures:*
@@ -2807,7 +2807,7 @@ Logging, messaging, and other artifacts that highlight the health and operationa
 ---
 
 ### Service Metadata
-**Feeds detection for 13 techniques.**  
+Feeds detection for 13 techniques.  
 Contextual data about a service/daemon, which may include information such as name, service executable, start type, etc.  
 
 | Log source | Channel |
@@ -2837,7 +2837,7 @@ Contextual data about a service/daemon, which may include information such as na
 ---
 
 ### Firewall Rule Modification
-**Feeds detection for 12 techniques.**  
+Feeds detection for 12 techniques.  
 The creation, deletion, or alteration of firewall rules to allow or block specific network traffic. Monitoring changes to these rules is critical for detecting misconfigurations, unauthorized access, or malicious attempts to bypass network protections. Examples: 
 
 - Rule Creation: Adding a new rule to allow inbound traffic on port 3389 (RDP).
@@ -2864,7 +2864,7 @@ The creation, deletion, or alteration of firewall rules to allow or block specif
 ---
 
 ### File Deletion
-**Feeds detection for 12 techniques.**  
+Feeds detection for 12 techniques.  
 Refers to events where files are removed from a system or storage device. These events can indicate legitimate housekeeping activities or malicious actions such as attackers attempting to cover their tracks. Monitoring file deletions helps organizations identify unauthorized or suspicious activities.  
 
 | Log source | Channel |
@@ -2895,7 +2895,7 @@ Refers to events where files are removed from a system or storage device. These 
 ---
 
 ### Cloud Storage Access
-**Feeds detection for 11 techniques.**  
+Feeds detection for 11 techniques.  
 Cloud storage access refers to the retrieval or interaction with data stored in cloud infrastructure. This data component includes activities such as reading, downloading, or accessing files and objects within cloud storage systems. Common examples include API calls like GetObject in AWS S3, which retrieves objects from cloud buckets. Examples: 
 
 - AWS S3 Access: An adversary uses the `GetObject` API to retrieve sensitive data from an AWS S3 bucket.
@@ -2915,7 +2915,7 @@ Cloud storage access refers to the retrieval or interaction with data stored in 
 ---
 
 ### Windows Registry Key Creation
-**Feeds detection for 11 techniques.**  
+Feeds detection for 11 techniques.  
 Initial construction of a new registry key within the Windows operating system.  
 
 | Log source | Channel |
@@ -2925,7 +2925,7 @@ Initial construction of a new registry key within the Windows operating system.
 ---
 
 ### Instance Start
-**Feeds detection for 11 techniques.**  
+Feeds detection for 11 techniques.  
 The initiation or activation of a virtual machine instance within a cloud infrastructure. This action typically involves starting an existing instance that had been stopped or paused, allowing it to resume operation. Examples: 
 
 - Google Cloud Platform (GCP): Starting an instance through `instance.start` API activity.
@@ -2940,7 +2940,7 @@ The initiation or activation of a virtual machine instance within a cloud infras
 ---
 
 ### Firmware Modification
-**Feeds detection for 10 techniques.**  
+Feeds detection for 10 techniques.  
 Changes made to firmware, which may include its settings, configurations, or underlying data. This can encompass alterations to the Master Boot Record (MBR), Volume Boot Record (VBR), or other firmware components critical to system boot and functionality. Such modifications are often indicators of adversary activity, including malware persistence and system compromise. Examples: 
 
 - Changes to Master Boot Record (MBR): Modifying the MBR to load malicious code during the boot process.
@@ -2971,7 +2971,7 @@ Changes made to firmware, which may include its settings, configurations, or und
 ---
 
 ### Active Directory Credential Request
-**Feeds detection for 9 techniques.**  
+Feeds detection for 9 techniques.  
 Requests for authentication credentials via Kerberos or other methods like NTLM and LDAP queries. Examples:
 
 - Kerberos TGT and Service Tickets (Event IDs 4768, 4769)
@@ -2989,7 +2989,7 @@ Requests for authentication credentials via Kerberos or other methods like NTLM 
 ---
 
 ### Process Termination
-**Feeds detection for 9 techniques.**  
+Feeds detection for 9 techniques.  
 The exit or termination of a running process on a system. This can occur due to normal operations, user-initiated commands, or malicious actions such as process termination by malware to disable security controls.  
 
 | Log source | Channel |
@@ -3011,7 +3011,7 @@ The exit or termination of a running process on a system. This can occur due to 
 ---
 
 ### Cloud Service Metadata
-**Feeds detection for 9 techniques.**  
+Feeds detection for 9 techniques.  
 Cloud service metadata refers to the contextual and descriptive information about cloud services, including their name, type, purpose, configuration, and activity around them. This metadata is essential for understanding the roles and functions of cloud services, their operational status, and their potential misuse. Examples: 
 
 - Azure Service Metadata: Metadata describing a resource in Azure, such as an Azure Storage Account or a Virtual Machine.
@@ -3033,7 +3033,7 @@ Cloud service metadata refers to the contextual and descriptive information abou
 ---
 
 ### Network Share Access
-**Feeds detection for 9 techniques.**  
+Feeds detection for 9 techniques.  
 Opening a network share, which makes the contents available to the requestor (ex: Windows EID 5140 or 5145)  
 
 | Log source | Channel |
@@ -3049,7 +3049,7 @@ Opening a network share, which makes the contents available to the requestor (ex
 ---
 
 ### Drive Creation
-**Feeds detection for 8 techniques.**  
+Feeds detection for 8 techniques.  
 The activity of assigning a new drive letter or creating a mount point for a data storage device, such as a USB, network share, or external hard drive, enabling access to its content on a host system. Examples: 
 
 - USB Drive Insertion: A USB drive is plugged in and automatically assigned the letter `E:\` on a Windows machine.
@@ -3084,7 +3084,7 @@ The activity of assigning a new drive letter or creating a mount point for a dat
 ---
 
 ### Drive Access
-**Feeds detection for 8 techniques.**  
+Feeds detection for 8 techniques.  
 Refers to the act of accessing a data storage device, such as a hard drive, SSD, USB, or network-mounted drive. This data component logs the opening or mounting of drives, capturing activities such as reading, writing, or executing files within an assigned drive letter (e.g., `C:\`, `/mnt/drive`) or mount point. Examples: 
 
 - Removable Drive Insertion: A USB drive is inserted, assigned the letter `F:\`, and files are accessed.
@@ -3104,7 +3104,7 @@ Refers to the act of accessing a data storage device, such as a hard drive, SSD,
 ---
 
 ### Container Creation
-**Feeds detection for 8 techniques.**  
+Feeds detection for 8 techniques.  
 "Container Creation" data component captures details about the initial construction of a container in a containerized environment. This includes events where a new container is instantiated, such as through Docker, Kubernetes, or other container orchestration platforms. Monitoring these events helps detect unauthorized or potentially malicious container creation. Examples:
 
 - Docker Example: `docker create my-container`, `docker run --name=my-container nginx:latest`
@@ -3124,7 +3124,7 @@ Refers to the act of accessing a data storage device, such as a hard drive, SSD,
 ---
 
 ### WMI Creation
-**Feeds detection for 7 techniques.**  
+Feeds detection for 7 techniques.  
 Initial construction of a WMI object, such as a filter, consumer, subscription, binding, or providers.  
 
 | Log source | Channel |
@@ -3136,7 +3136,7 @@ Initial construction of a WMI object, such as a filter, consumer, subscription, 
 ---
 
 ### Response Metadata
-**Feeds detection for 7 techniques.**  
+Feeds detection for 7 techniques.  
 Contextual information about an Internet-facing resource collected during a scan, including details such as open ports, running services, protocols, and versions. This metadata is typically derived from interpreting scan results and helps build a profile of the targeted system. Examples: 
 
 - Port and Service Details:
@@ -3152,7 +3152,7 @@ Contextual information about an Internet-facing resource collected during a scan
 ---
 
 ### Malware Metadata
-**Feeds detection for 7 techniques.**  
+Feeds detection for 7 techniques.  
 Contextual data about a malicious payload, such as compilation times, file hashes, as well as watermarks or other identifiable configuration information  
 
 | Log source | Channel |
@@ -3162,7 +3162,7 @@ Contextual data about a malicious payload, such as compilation times, file hashe
 ---
 
 ### Drive Modification
-**Feeds detection for 6 techniques.**  
+Feeds detection for 6 techniques.  
 The alteration of a drive letter, mount point, or other attributes of a data storage device, which could involve reassignment, renaming, permissions changes, or other modifications. Examples: 
 
 - Drive Letter Reassignment: A USB drive previously assigned `E:\` is reassigned to `D:\` on a Windows machine.
@@ -3185,7 +3185,7 @@ The alteration of a drive letter, mount point, or other attributes of a data sto
 ---
 
 ### Active Directory Object Access
-**Feeds detection for 6 techniques.**  
+Feeds detection for 6 techniques.  
 Object access refers to activities where AD objects (e.g., user accounts, groups, policies) are accessed or queried. Example: Windows Event ID 4661 logs object access attempts. Examples:
 
 - Attribute Access: e.g., `userPassword`, `memberOf`, `securityDescriptor`.
@@ -3201,7 +3201,7 @@ Object access refers to activities where AD objects (e.g., user accounts, groups
 ---
 
 ### Cloud Service Enumeration
-**Feeds detection for 6 techniques.**  
+Feeds detection for 6 techniques.  
 Cloud service enumeration involves listing or querying available cloud services in a cloud control plane. This activity is often performed to identify resources such as virtual machines, storage buckets, compute clusters, or other services within a cloud environment. Examples include API calls like `AWS ECS ListServices`, `Azure ListAllResources`, or `Google Cloud ListInstances`. Examples: 
 
 AWS Cloud Service Enumeration: The adversary gathers details about existing ECS services to identify oppo  
@@ -3223,7 +3223,7 @@ AWS Cloud Service Enumeration: The adversary gathers details about existing ECS 
 ---
 
 ### User Account Creation
-**Feeds detection for 6 techniques.**  
+Feeds detection for 6 techniques.  
 The initial establishment of a new user, service, or machine account within an operating system, cloud environment, or identity management system.  
 
 | Log source | Channel |
@@ -3243,7 +3243,7 @@ The initial establishment of a new user, service, or machine account within an o
 ---
 
 ### Windows Registry Key Access
-**Feeds detection for 6 techniques.**  
+Feeds detection for 6 techniques.  
 The action of opening a specific Windows Registry key, typically to read its associated value. This activity can be used for system configuration, application settings retrieval, and security policies.  
 
 | Log source | Channel |
@@ -3256,7 +3256,7 @@ The action of opening a specific Windows Registry key, typically to read its ass
 ---
 
 ### Web Credential Usage
-**Feeds detection for 6 techniques.**  
+Feeds detection for 6 techniques.  
 An attempt by a user to gain access to a network or computing resource by providing web credentials (ex: Windows EID 1202)  
 
 | Log source | Channel |
@@ -3285,7 +3285,7 @@ An attempt by a user to gain access to a network or computing resource by provid
 ---
 
 ### Active DNS
-**Feeds detection for 5 techniques.**  
+Feeds detection for 5 techniques.  
 "Domain Name: Active DNS" data component captures queried DNS registry data that highlights current domain-to-IP address resolutions. This data includes both direct queries to DNS servers and records that provide mappings between domain names and associated IP addresses. It serves as a critical resource for tracking active infrastructure and understanding the network footprint of an organization or adversary. Examples: 
 
 - DNS Query Example: `nslookup example.com`, `dig example.com A`
@@ -3298,7 +3298,7 @@ An attempt by a user to gain access to a network or computing resource by provid
 ---
 
 ### Passive DNS
-**Feeds detection for 5 techniques.**  
+Feeds detection for 5 techniques.  
 "Domain Name: Passive DNS" captures logged historical and real-time domain name system (DNS) data. This includes records of domain-to-IP address resolutions over time, enabling analysts to track the evolution of domain infrastructure, uncover historical patterns of use, and detect malicious activities tied to domains and their associated IP addresses. Examples: 
 
 - Historical Resolutions
@@ -3316,7 +3316,7 @@ This data componen
 ---
 
 ### Domain Registration
-**Feeds detection for 5 techniques.**  
+Feeds detection for 5 techniques.  
 "Domain Name: Domain Registration" data component captures information about the assignment, ownership, and metadata of domain names. This information is often sourced from registries like WHOIS and includes details such as registrant names, contact information, registration dates, expiration dates, and registrar details. This data is invaluable for tracking domain ownership, detecting malicious domain registrations, and identifying trends in adversary behavior. Examples: 
 
 - Registrant Informat  
@@ -3330,7 +3330,7 @@ This data componen
 ---
 
 ### Instance Stop
-**Feeds detection for 4 techniques.**  
+Feeds detection for 4 techniques.  
 The deactivation or shutdown of a virtual machine instance within a cloud infrastructure. This action typically involves stopping a running instance, which halts its operation and releases certain associated resources, such as CPU and memory. Examples: 
 
 - Google Cloud Platform (GCP): `instance.stop` events recorded in GCP Audit Logs indicate the deactivation of an instance.
@@ -3345,7 +3345,7 @@ The deactivation or shutdown of a virtual machine instance within a cloud infras
 ---
 
 ### Malware Content
-**Feeds detection for 4 techniques.**  
+Feeds detection for 4 techniques.  
 Code, strings, signatures, and other identifying characteristics of a malicious payload stored within a malware repository. It includes both static (file-based) and dynamic (behavioral or execution-based) components that can be analyzed for threat intelligence, detection, and prevention purposes. Examples:
 
 - Static Analysis:
@@ -3359,7 +3359,7 @@ Code, strings, signatures, and other identifying characteristics of a malicious 
 ---
 
 ### Snapshot Creation
-**Feeds detection for 4 techniques.**  
+Feeds detection for 4 techniques.  
 The process of taking a point-in-time copy of a cloud storage volume (files, settings, configurations, etc.), virtual machine (VM), or database that can be created and deployed in cloud environments.  
 
 | Log source | Channel |
@@ -3371,7 +3371,7 @@ The process of taking a point-in-time copy of a cloud storage volume (files, set
 ---
 
 ### Container Start
-**Feeds detection for 4 techniques.**  
+Feeds detection for 4 techniques.  
 "Container Start" data component captures events related to the activation or invocation of a container within a containerized environment. This includes starting a previously stopped container, restarting an existing container, or initializing a container for runtime. Monitoring these activities is critical for identifying unauthorized or unexpected container activations, which may indicate potential adversarial activity or misconfigurations. Examples: 
 
 - Docker Example: `docker start <contain  
@@ -3379,14 +3379,14 @@ The process of taking a point-in-time copy of a cloud storage volume (files, set
 | Log source | Channel |
 |---|---|
 | `docker:events` | exec_create: docker exec events targeting running containers from non-CI sources |
-| `kubernetes:events` | start: ContainerStarted or Pulling image → Started container |
+| `kubernetes:events` | start: ContainerStarted or Pulling image -> Started container |
 | `containerd:runtime` | CRI CreateContainer/StartContainer with privileged=true OR added capabilities OR host* namespaces |
 | `docker:events` | start |
 
 ---
 
 ### Social Media
-**Feeds detection for 4 techniques.**  
+Feeds detection for 4 techniques.  
 Established, compromised, or otherwise acquired by adversaries to conduct reconnaissance, influence operations, social engineering, or other cyber threats.
 
 *Data Collection Measures:*
@@ -3405,7 +3405,7 @@ Established, compromised, or otherwise acquired by adversaries to conduct reconn
 ---
 
 ### Named Pipe Metadata
-**Feeds detection for 4 techniques.**  
+Feeds detection for 4 techniques.  
 Contextual data about a named pipe on a system, including pipe name and creating process (ex: Sysmon EIDs 17-18)
 
 *Data Collection Measures:*
@@ -3426,7 +3426,7 @@ Contextual data about a named pipe on a system, including pipe name and creating
 ---
 
 ### Active Directory Object Creation
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Creating new objects in AD, such as user accounts, groups, organizational units (OUs), or trust relationships. Logged as Event ID 5137. Examples:
 
 - User Account Creation: New user account.
@@ -3445,7 +3445,7 @@ Creating new objects in AD, such as user accounts, groups, organizational units 
 ---
 
 ### Cloud Storage Modification
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Cloud Storage Modification involves tracking changes made to cloud storage infrastructure, including updates to settings, permissions, or stored data. Examples include modifying object access control lists (ACLs), uploading new objects, or updating bucket policies. Examples: 
 
 AWS S3: An object is uploaded or its ACL is modified.
@@ -3464,7 +3464,7 @@ AWS S3: An object is uploaded or its ACL is modified.
 ---
 
 ### Instance Metadata
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Contextual data about an instance and activity around it such as name, type, or status  
 
 | Log source | Channel |
@@ -3474,7 +3474,7 @@ Contextual data about an instance and activity around it such as name, type, or 
 ---
 
 ### Scheduled Job Metadata
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Contextual data about a scheduled job, which may include information such as name, timing, command(s), etc.  
 
 | Log source | Channel |
@@ -3491,7 +3491,7 @@ Contextual data about a scheduled job, which may include information such as nam
 ---
 
 ### Image Creation
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Initial construction of a virtual machine image within a cloud environment. Virtual machine images are templates containing an operating system and installed applications, which can be deployed to create new virtual machines. Monitoring the creation of these images is important because adversaries may create custom images to include malicious software or misconfigurations for later exploitation. Examples: 
 
 - Azure Compute Service Image Creation
@@ -3509,7 +3509,7 @@ Initial construction of a virtual machine image within a cloud environment. Virt
 ---
 
 ### Image Metadata
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 contextual information associated with a virtual machine image, such as its name, resource group, status (active or inactive), type (custom or prebuilt), size, creation date, and permissions. This metadata is critical for understanding the state and configuration of virtual machine images in cloud environments. Examples: 
 
 - Azure Compute Service Image Metadata Example:
@@ -3528,7 +3528,7 @@ contextual information associated with a virtual machine image, such as its name
 ---
 
 ### Instance Creation
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 The initial provisioning and construction of a virtual machine (VM) or compute instance within a cloud infrastructure environment. This activity involves defining and allocating resources such as CPU, memory, storage, and networking to spin up a new compute instance. Examples:
 
 - AWS: creating an EC2 instance using RunInstances API calls.
@@ -3546,7 +3546,7 @@ The initial provisioning and construction of a virtual machine (VM) or compute i
 ---
 
 ### Scheduled Job Modification
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Changes made to an existing scheduled job, including modifications to its execution parameters, command payload, or execution timing.  
 
 | Log source | Channel |
@@ -3559,7 +3559,7 @@ Changes made to an existing scheduled job, including modifications to its execut
 ---
 
 ### Cloud Storage Enumeration
-**Feeds detection for 3 techniques.**  
+Feeds detection for 3 techniques.  
 Cloud Storage Enumeration involves retrieving a list of available cloud storage infrastructure, such as buckets, containers, or objects, within a cloud environment. This activity may be performed for legitimate administrative purposes or malicious reconnaissance by adversaries seeking to identify accessible storage resources.Examples:
 
 - AWS S3 Bucket Enumeration: An AWS user lists all buckets using the `ListBuckets` API call.
@@ -3575,7 +3575,7 @@ Cloud Storage Enumeration involves retrieving a list of available cloud storage 
 ---
 
 ### Snapshot Deletion
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The removal of a point-in-time backup of a cloud storage volume, virtual machine (VM), or database.
 
 *Data Collection Measures:*
@@ -3595,7 +3595,7 @@ The removal of a point-in-time backup of a cloud storage volume, virtual machine
 ---
 
 ### Certificate Registration
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Certificate Registration refers to the collection and analysis of information about digital certificates, including current, revoked, and expired certificates. Sources such as Certificate Transparency logs and other public resources provide visibility into certificates issued for specific domains or organizations. Monitoring certificate registrations can help identify potential misuse, such as unauthorized certificates or signs of adversary reconnaissance. Examples: 
 
 - Certificate Transparency   
@@ -3607,7 +3607,7 @@ Certificate Registration refers to the collection and analysis of information ab
 ---
 
 ### Kernel Module Load
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The process of loading a kernel module into the operating system kernel. Kernel modules are object files that extend the kernel’s functionality, such as adding support for device drivers, new filesystems, or additional system calls. This action can be legitimate (e.g., loading a driver) or malicious (e.g., adding a rootkit). 
 
 *Data Collection Measures:*
@@ -3624,7 +3624,7 @@ The process of loading a kernel module into the operating system kernel. Kernel 
 ---
 
 ### Instance Enumeration
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The process of retrieving or querying a list of virtual machine instances or compute instances within a cloud infrastructure. This activity provides a view of all available or running instances, typically including their associated metadata such as instance ID, name, state, and configuration details. Examples:
 
 - AWS: instance enumeration involves the `DescribeInstances` API call, which retrieves information about running or stopped EC2 instances.
@@ -3641,7 +3641,7 @@ The process of retrieving or querying a list of virtual machine instances or com
 ---
 
 ### Volume Deletion
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The removal of a cloud-based or on-premise block storage volume. This action permanently deletes the allocated storage and may result in data loss if not backed up.
 
 *Data Collection Measures:*
@@ -3663,7 +3663,7 @@ The removal of a cloud-based or on-premise block storage volume. This action per
 ---
 
 ### Cloud Storage Deletion
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Cloud Storage Deletion refers to the removal or destruction of cloud storage infrastructure, such as buckets, containers, or directories, within a cloud environment. Monitoring this activity is critical to detecting potential unauthorized or malicious actions, such as data destruction by adversaries or accidental deletions that may lead to data loss. Examples: 
 
 - AWS S3 Bucket Deletion: An AWS user deletes an S3 bucket using the `DeleteBucket` API call.
@@ -3676,7 +3676,7 @@ Cloud Storage Deletion refers to the removal or destruction of cloud storage inf
 ---
 
 ### Pod Creation
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The initial deployment or instantiation of a new pod in a containerized environment. This includes creating a pod manually, through orchestration tools (Kubernetes), or via Infrastructure-as-Code (IaC) configurations. A Pod is the smallest deployable unit in Kubernetes, typically containing one or more containers. Creation methods include:
 - Direct pod deployment (`kubectl run`, `kubectl apply`)
 - Automated deployment via CI/CD pipelines (e.g., ArgoCD, Jenkins, GitOps)
@@ -3690,7 +3690,7 @@ The initial deployment or instantiation of a new pod in a containerized environm
 ---
 
 ### Web Credential Creation
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Initial construction of new web credential material (ex: Windows EID 1200 or 4769)  
 
 | Log source | Channel |
@@ -3704,7 +3704,7 @@ Initial construction of new web credential material (ex: Windows EID 1200 or 476
 ---
 
 ### Service Modification
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Changes made to an existing service or daemon, such as modifying the service name, start type, execution parameters, or security configurations.  
 
 | Log source | Channel |
@@ -3716,7 +3716,7 @@ Changes made to an existing service or daemon, such as modifying the service nam
 ---
 
 ### Snapshot Metadata
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Contextual data about a snapshot, which may include information such as ID, type, and status  
 
 | Log source | Channel |
@@ -3728,7 +3728,7 @@ Contextual data about a snapshot, which may include information such as ID, type
 ---
 
 ### Container Enumeration
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 "Container Enumeration" data component captures events and actions related to listing and identifying active or available containers within a containerized environment. This includes information about running, stopped, or configured containers, such as their names, IDs, statuses, or associated images. Monitoring this activity is crucial for detecting unauthorized discovery or reconnaissance efforts. Examples: 
 
 - Docker Example: `docker ps`, `docker ps -a`
@@ -3743,7 +3743,7 @@ Contextual data about a snapshot, which may include information such as ID, type
 ---
 
 ### Firewall Disable
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The deactivation, misconfiguration, or complete stoppage of firewall services, either on a host or in a cloud control plane. Such activity may involve turning off firewalls, modifying rules to disable protection, or deleting firewall-related configurations and activity logs. Examples: 
 
 - Disabling Host-Based Firewalls: Stopping the Windows Defender Firewall service or using `iptables -F` to flush all rules on a Linux system.
@@ -3757,7 +3757,7 @@ The deactivation, misconfiguration, or complete stoppage of firewall services, e
 ---
 
 ### Volume Modification
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Changes made to a cloud volume, including its settings and control data (ex: AWS modify-volume)  
 
 | Log source | Channel |
@@ -3768,7 +3768,7 @@ Changes made to a cloud volume, including its settings and control data (ex: AWS
 ---
 
 ### User Account Deletion
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The removal of a user, service, or machine account from an operating system, cloud identity management system, or directory service.  
 
 | Log source | Channel |
@@ -3780,7 +3780,7 @@ The removal of a user, service, or machine account from an operating system, clo
 ---
 
 ### Volume Creation
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 The initial provisioning of block storage volumes in cloud or on-prem environments, typically used for data storage, backup, or workload scaling.  
 
 | Log source | Channel |
@@ -3791,7 +3791,7 @@ The initial provisioning of block storage volumes in cloud or on-prem environmen
 ---
 
 ### Cloud Storage Metadata
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Cloud Storage Metadata provides contextual information about cloud storage infrastructure and its associated activity. This data may include attributes such as storage name, size, owner, permissions, creation date, region, and activity metadata. It is essential for monitoring, auditing, and identifying anomalies in cloud storage environments. Examples: 
 
 - AWS S3 Bucket Metadata: Metadata about an S3 bucket includes the bucket name, region, creation date, owner, storage class, and permissions.
@@ -3807,7 +3807,7 @@ Cloud Storage Metadata provides contextual information about cloud storage infra
 ---
 
 ### Cloud Service Disable
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 This data component refers to monitoring actions that deactivate or stop a cloud service in a cloud control plane. Examples include disabling essential logging services like AWS CloudTrail (`StopLogging` API call), Microsoft Azure Monitor Logs, or Google Cloud's Operations Suite (formerly Stackdriver). Disabling such services can hinder visibility into adversary activities within the cloud environment. Examples: 
 
 - AWS CloudTrail StopLogging: This action stops logging of API activity for a part  
@@ -3823,7 +3823,7 @@ This data component refers to monitoring actions that deactivate or stop a cloud
 ---
 
 ### Snapshot Modification
-**Feeds detection for 2 techniques.**  
+Feeds detection for 2 techniques.  
 Changes made to a cloud snapshot's metadata, attributes, or control settings. These modifications may involve adjusting access permissions, changing retention policies, or altering encryption settings. 
 
 *Data Collection Measures:*
@@ -3842,7 +3842,7 @@ Changes made to a cloud snapshot's metadata, attributes, or control settings. Th
 ---
 
 ### Group Modification
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Changes made to a group, such as membership, name, or permissions (ex: Windows EID 4728 or 4732, AWS IAM UpdateGroup). Examples: 
 
 - Active Directory:
@@ -3859,7 +3859,7 @@ Changes made to a group, such as membership, name, or permissions (ex: Windows E
 ---
 
 ### Image Modification
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Changes made to a virtual machine image, including setting and/or control data (ex: Azure Compute Service Images PATCH)  
 
 | Log source | Channel |
@@ -3870,7 +3870,7 @@ Changes made to a virtual machine image, including setting and/or control data (
 ---
 
 ### Pod Enumeration
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Extracting a list of running or existing pods within a containerized cluster environment. Pods are the smallest deployable units in a Kubernetes cluster and typically represent an application or workload. Enumeration of pods provides insight into the structure and state of applications running in the cluster, such as the names of pods, their namespaces, and their associated metadata.
 
 *Data Collection Measures:*
@@ -3885,7 +3885,7 @@ Extracting a list of running or existing pods within a containerized cluster env
 ---
 
 ### Instance Modification
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Changes made to a virtual machine (VM) or compute instance, including alterations to its configuration, metadata, attached policies, or operational state. Such modifications can include updating metadata, attaching or detaching resource policies, resizing instances, or modifying network configurations. Examples:
 
 - AWS: instance modifications include API actions like `ModifyInstanceAttribute`, `ModifyInstanceMetadataOptions`, or `RebootInstances`.
@@ -3900,7 +3900,7 @@ Changes made to a virtual machine (VM) or compute instance, including alteration
 ---
 
 ### Cloud Storage Creation
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Cloud Storage Creation refers to the initial creation of a new cloud storage resource, such as buckets, containers, or directories, within a cloud environment. This action is critical to track as it might indicate the legitimate provisioning of resources or unauthorized actions taken by adversaries to stage, store, or exfiltrate data. Examples: 
 
 - AWS S3 Bucket Creation: An AWS user creates a new S3 bucket using the `CreateBucket` API call.
@@ -3913,7 +3913,7 @@ Cloud Storage Creation refers to the initial creation of a new cloud storage res
 ---
 
 ### Instance Deletion
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Removal of a virtual machine (VM) or compute instance within a cloud infrastructure. This activity results in the termination and deletion of the allocated resources (e.g., CPU, memory, storage), making the instance unavailable for future use. Examples:
 
 - AWS: instance deletion involves the `TerminateInstances` API call, which is recorded in CloudTrail logs.
@@ -3928,7 +3928,7 @@ Removal of a virtual machine (VM) or compute instance within a cloud infrastruct
 ---
 
 ### Group Metadata
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Group metadata includes attributes like name, permissions, purpose, and associated user accounts or roles, which adversaries may exploit for privilege escalation. Examples:
 
 - Active Directory: `Get-ADGroup -Identity "Domain Admins" -Properties Members, Description`
@@ -3944,7 +3944,7 @@ Group metadata includes attributes like name, permissions, purpose, and associat
 ---
 
 ### Group Enumeration
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Extracting group lists from identity systems identifies permissions, roles, or configurations. Adversaries may exploit high-privilege groups or misconfigurations. Examples:
 
 - AWS CLI: `aws iam list-groups`
@@ -3968,7 +3968,7 @@ Extracting group lists from identity systems identifies permissions, roles, or c
 ---
 
 ### Active Directory Object Deletion
-**Feeds detection for 1 techniques.**  
+Feeds detection for 1 techniques.  
 Object deletion in AD (e.g., user accounts, groups, OUs) is logged as Event ID 5141. Examples:
 
 - User Account: Deleted user.
@@ -3990,7 +3990,7 @@ Object deletion in AD (e.g., user accounts, groups, OUs) is logged as Event ID 5
 ---
 
 ### Volume Metadata
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 Contextual data about a cloud volume and activity around it, such as id, type, state, and size  
 
 | Log source | Channel |
@@ -4000,7 +4000,7 @@ Contextual data about a cloud volume and activity around it, such as id, type, s
 ---
 
 ### Windows Registry Key Deletion
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 The removal of a registry key within the Windows operating system.
 
 *Data Collection Measures:*
@@ -4019,7 +4019,7 @@ The removal of a registry key within the Windows operating system.
 ---
 
 ### Pod Modification
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 Changes made to a pod’s configuration or control data within a containerized cluster. This can include updating settings such as resource limits, environment variables, annotations, labels, or even the containers running within the pod. Pod modifications are often executed using commands like kubectl set, kubectl patch, or kubectl edit.
 
 *Data Collection Measures:* 
@@ -4030,7 +4030,7 @@ Changes made to a pod’s configuration or control data within a containerized c
 ---
 
 ### Firewall Metadata
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 Contextual information about firewalls, including their configurations, policies, status, and other details such as names and associated rules. This metadata provides valuable insights into the operational state and configurations of firewalls, both in cloud control planes and host systems. Examples: 
 
 - Firewall Name and Configuration: The name, type, and purpose of a firewall such as "Azure Firewall - Production Environment."
@@ -4039,7 +4039,7 @@ Contextual information about firewalls, including their configurations, policies
 ---
 
 ### Image Deletion
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 Removal of a virtual machine image in a cloud infrastructure (ex: Azure Compute Service Images DELETE) Examples: 
 
 - Azure Compute Service Image Deletion
@@ -4052,7 +4052,7 @@ Removal of a virtual machine image in a cloud infrastructure (ex: Azure Compute 
 ---
 
 ### Firewall Enumeration
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 Querying and extracting a list of available firewalls or their associated configurations and rules. This activity can occur across host systems and cloud control planes, providing insight into the state and configuration of firewalls that protect the environment. Examples: 
 
 - Querying Host-Based Firewalls: Using Windows PowerShell commands like `Get-NetFirewallRule` or Linux commands such as `iptables -L` or `firewalld --list-all`.
@@ -4061,13 +4061,13 @@ Querying and extracting a list of available firewalls or their associated config
 ---
 
 ### Volume Enumeration
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 An extracted list of available volumes within a cloud environment (ex: AWS describe-volumes)  
 
 ---
 
 ### Driver Metadata
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 to contextual data about a driver, including its attributes, functionality, and activity. This can involve details such as the driver's origin, integrity, cryptographic signature, issues reported during its use, and runtime behavior. Examples include metadata captured during driver integrity checks, hash validation, or error reporting. Examples: 
 
 - Driver Signature Validation: A driver is validated to ensure it is signed by a trusted Certificate Authority (CA).
@@ -4076,7 +4076,7 @@ to contextual data about a driver, including its attributes, functionality, and 
 ---
 
 ### Snapshot Enumeration
-**Feeds detection for 0 techniques.**  
+Feeds detection for 0 techniques.  
 The process of listing or retrieving metadata about existing snapshots in a cloud environment.
 
 *Data Collection Measures:*

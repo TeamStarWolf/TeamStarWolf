@@ -35,7 +35,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 | Tool | Purpose | Link |
 |---|---|---|
-| binwalk | Firmware extraction — identifies and extracts embedded file systems and binaries | https://github.com/ReFirmLabs/binwalk |
+| binwalk | Firmware extraction: identifies and extracts embedded file systems and binaries | https://github.com/ReFirmLabs/binwalk |
 | Firmwalker | Searches extracted firmware for credentials, private keys, and config files | https://github.com/craigz28/firmwalker |
 | Jefferson | JFFS2 (flash filesystem) extractor | https://github.com/sviehb/jefferson |
 | ubireader | UBI/UBIFS flash filesystem extraction | https://github.com/jrspruitt/ubi_reader |
@@ -43,16 +43,16 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | Ghidra | Reverse engineering and decompilation of firmware binaries (ARM, MIPS, x86) | https://ghidra-sre.org/ |
 | QEMU | Emulate embedded firmware (ARM/MIPS) for dynamic analysis | https://www.qemu.org/ |
 
-### Debug Interfaces — JTAG, UART, SPI
+### Debug Interfaces: JTAG, UART, SPI
 
 | Tool | Purpose | Link |
 |---|---|---|
 | OpenOCD | JTAG/SWD interface for debugging embedded targets; supports hundreds of devices | https://openocd.org/ |
 | JTAGulator | Identifies JTAG/UART pins on unknown PCBs via brute-force scanning | http://www.grandideastudio.com/jtagulator/ |
 | flashrom | Read, write, and verify SPI/I2C flash chips directly from PCB pads | https://www.flashrom.org/ |
-| Bus Pirate | Universal bus interface: SPI, I2C, UART, JTAG — beginner-friendly hardware tool | http://dangerousprototypes.com/docs/Bus_Pirate |
+| Bus Pirate | Universal bus interface: SPI, I2C, UART, JTAG: beginner-friendly hardware tool | http://dangerousprototypes.com/docs/Bus_Pirate |
 | HydraBus | Open-source multi-protocol hardware interface for security research | https://github.com/hydrabus/hydrabus |
-| GreatFET | USB-based hardware hacking platform — GPIO, SPI, I2C, UART, JTAG | https://github.com/greatscottgadgets/greatfet |
+| GreatFET | USB-based hardware hacking platform: GPIO, SPI, I2C, UART, JTAG | https://github.com/greatscottgadgets/greatfet |
 | Sigrok / PulseView | Open-source logic analyzer software; works with low-cost logic analyzers | https://sigrok.org/ |
 
 ### Secure Boot & TPM
@@ -132,15 +132,15 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 | Control | Family | Relevance |
 |---|---|---|
-| SI-7 | System & Information Integrity | Firmware integrity — signed updates, measured boot, integrity monitoring |
-| SA-12 | System & Services Acquisition | Supply chain risk management — hardware provenance verification |
-| SC-28 | System & Communications Protection | Protection of information at rest — full-disk encryption, memory encryption |
-| SC-51 | System & Communications Protection | Hardware-based protection — TPM, secure enclaves, hardware root of trust |
-| PE-3 | Physical & Environmental Protection | Physical access controls for hardware — server room, device custody |
-| CM-7 | Configuration Management | Least functionality — disable JTAG, UART, USB in production firmware |
-| SA-3 | System & Services Acquisition | System development lifecycle — security requirements for hardware acquisition |
-| SA-4 | System & Services Acquisition | Acquisition process — firmware security requirements in vendor contracts |
-| SC-8 | System & Communications Protection | Transmission confidentiality — encrypted management interfaces (IPMI, BMC) |
+| SI-7 | System & Information Integrity | Firmware integrity: signed updates, measured boot, integrity monitoring |
+| SA-12 | System & Services Acquisition | Supply chain risk management: hardware provenance verification |
+| SC-28 | System & Communications Protection | Protection of information at rest: full-disk encryption, memory encryption |
+| SC-51 | System & Communications Protection | Hardware-based protection: TPM, secure enclaves, hardware root of trust |
+| PE-3 | Physical & Environmental Protection | Physical access controls for hardware: server room, device custody |
+| CM-7 | Configuration Management | Least functionality: disable JTAG, UART, USB in production firmware |
+| SA-3 | System & Services Acquisition | System development lifecycle: security requirements for hardware acquisition |
+| SA-4 | System & Services Acquisition | Acquisition process: firmware security requirements in vendor contracts |
+| SC-8 | System & Communications Protection | Transmission confidentiality: encrypted management interfaces (IPMI, BMC) |
 
 ---
 
@@ -168,7 +168,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 | [SANS FOR610](https://www.sans.org/cyber-security-courses/reverse-engineering-malware-malware-analysis-tools-techniques/) | SANS | Malware and firmware reverse engineering |
 | [CompTIA Security+](https://www.comptia.org/certifications/security) | CompTIA | Broad security fundamentals including physical and hardware controls |
 | [Certified Hardware Security Professional (CHSP)](https://www.hardwaresecurity.io/) | HSP Institute | Dedicated hardware security practitioner certification |
-| [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing — includes physical, embedded, and IoT attack paths |
+| [OSCP](https://www.offensive-security.com/pwk-oscp/) | OffSec | Penetration testing: includes physical, embedded, and IoT attack paths |
 
 ---
 
@@ -178,7 +178,7 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 |---|---|---|
 | [The Hardware Hacker (bunnie huang)](https://nostarch.com/hardwarehacking) | Book | Practical hardware hacking, PCB analysis, firmware extraction |
 | [Hacking the Xbox (bunnie huang)](https://nostarch.com/xbox.htm) | Book | Classic hardware RE; free PDF; security by obscurity failures |
-| [Embedded Security (Jasper van Woudenberg)](https://www.riscure.com/book/) | Book | Side-channel analysis and fault injection — academic and practical |
+| [Embedded Security (Jasper van Woudenberg)](https://www.riscure.com/book/) | Book | Side-channel analysis and fault injection: academic and practical |
 | [Joe Grand DEF CON Talks](https://www.youtube.com/results?search_query=joe+grand+defcon) | Video | Wallet recovery, JTAG reconnaissance, hardware attack methodology |
 | [Hardwear.io Conference](https://hardwear.io/) | Conference | Premier annual hardware security conference |
 | [DEF CON Hardware Hacking Village](https://www.dc-hhv.com/) | Community | Annual competitions, beginner workshops, talks |
@@ -192,61 +192,61 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 ### Side-Channel Attacks
 
-**Power Analysis**
+Power Analysis
 - Simple Power Analysis (SPA): single trace reveals key bits from power variations
 - Differential Power Analysis (DPA): statistical correlation across many traces extracts secret keys
 
-**Timing Attacks**
+Timing Attacks
 - Measure execution time variations to infer secret data (crypto key bits, password characters)
 - Applies to software crypto without constant-time implementations
 
-**Electromagnetic Emissions**
+Electromagnetic Emissions
 - EM radiation from chips leaks computation; measured with EM probe + oscilloscope
 - ChipWhisperer: Open hardware platform for power analysis and glitching attacks; `chipwhisperer.io`
 
-**Cache Side-Channel**
-- Spectre/Meltdown class attacks — exploit CPU cache timing differences to read across privilege boundaries
+Cache Side-Channel
+- Spectre/Meltdown class attacks: exploit CPU cache timing differences to read across privilege boundaries
 
 ### Fault Injection
 
-**Voltage Glitching**
+Voltage Glitching
 - Brief voltage spike causes CPU to skip instructions (bypass secure boot, authentication checks)
 
-**Clock Glitching**
-- Momentary clock signal manipulation causes setup/hold time violations → computation errors
+Clock Glitching
+- Momentary clock signal manipulation causes setup/hold time violations -> computation errors
 
-**Laser Fault Injection**
+Laser Fault Injection
 - Focused laser induces bit flips in memory cells (most precise, expensive)
 
-**Tools**: ChipWhisperer, Riscure Inspector, NewAE CW Husky
+Tools: ChipWhisperer, Riscure Inspector, NewAE CW Husky
 
 ### JTAG and Debug Interface Attacks
 
-**JTAG (IEEE 1149.1)**
+JTAG (IEEE 1149.1)
 - Test interface on nearly all embedded devices; provides full CPU control when active
-- Discovery: JTAGulator — automated JTAG pin discovery; scan 24 I/O lines to find TCK/TDO/TDI/TMS/TRST
-- Exploitation: OpenOCD + JTAG adapter → halt CPU → dump firmware → patch memory → read protected areas
+- Discovery: JTAGulator: automated JTAG pin discovery; scan 24 I/O lines to find TCK/TDO/TDI/TMS/TRST
+- Exploitation: OpenOCD + JTAG adapter -> halt CPU -> dump firmware -> patch memory -> read protected areas
 
-**UART**
+UART
 - Async serial interface (common default console); 115200 baud common
 - `minicom -D /dev/ttyUSB0 -b 115200`
 
 ### Firmware Extraction and Analysis
 
-**Chip-off**
-- Physically remove flash chip → read with programmer (SOIC clip, VCC-GND-CLK-DATA-CS connections)
+Chip-off
+- Physically remove flash chip -> read with programmer (SOIC clip, VCC-GND-CLK-DATA-CS connections)
 
-**In-Circuit Programming (ICSP)**
+In-Circuit Programming (ICSP)
 - Read flash in-circuit using SPI/I2C/JTAG without desoldering
 
-**Key Tools**
+Key Tools
 - Binwalk: Identify embedded file systems, compression, crypto; `binwalk -e firmware.bin` extracts
 - Firmwalker: Scripts for finding interesting files (passwords, keys, telnet/ssh config, admin interfaces)
 - QEMU: Emulate ARM/MIPS firmware without hardware; `qemu-arm-static ./squashfs-root/usr/bin/httpd`
 
 ### Secure Boot Bypass Techniques
 
-**Known Methods**
+Known Methods
 - BootROM vulnerabilities: Immutable code in ROM; if flawed, game over (Samsung BootROM, iPhone checkm8)
 - Key extraction: Read signing keys from OTP (One-Time Programmable) memory via glitching
 - Downgrade attack: Flash older vulnerable firmware if version checking not enforced
@@ -258,16 +258,16 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 ### TPM 2.0
 
-- **Purpose**: Hardware root of trust; stores keys, certificates; measured boot; remote attestation
-- **Key capabilities**: Key generation, signing/encryption, PCR sealing (bind key to system state), attestation
-- **Attack**: TPM sniffing — intercept SPI bus between CPU and TPM; demonstrated on BitLocker-protected laptops
-- **Defense**: Use TPM 2.0 with PIN/biometric second factor; PIN defeats direct SPI sniffing attack
+- Purpose: Hardware root of trust; stores keys, certificates; measured boot; remote attestation
+- Key capabilities: Key generation, signing/encryption, PCR sealing (bind key to system state), attestation
+- Attack: TPM sniffing: intercept SPI bus between CPU and TPM; demonstrated on BitLocker-protected laptops
+- Defense: Use TPM 2.0 with PIN/biometric second factor; PIN defeats direct SPI sniffing attack
 
 ### Intel SGX / AMD SEV
 
-- **SGX (Software Guard Extensions)**: CPU-level memory encryption; enclaves isolated from OS/hypervisor
-- **Attacks on SGX**: ÆPIC Leak (CVE-2022-21233), Foreshadow (L1TF), PlunderVolt (voltage fault injection)
-- **AMD SEV**: Encrypt virtual machine memory; protect VMs from hypervisor; SEV-SNP adds integrity protection
+- SGX (Software Guard Extensions): CPU-level memory encryption; enclaves isolated from OS/hypervisor
+- Attacks on SGX: ÆPIC Leak (CVE-2022-21233), Foreshadow (L1TF), PlunderVolt (voltage fault injection)
+- AMD SEV: Encrypt virtual machine memory; protect VMs from hypervisor; SEV-SNP adds integrity protection
 
 ### HSM (Hardware Security Module)
 
@@ -294,9 +294,9 @@ Hardware security addresses the lowest layers of the computing stack: firmware, 
 
 ## Related Disciplines
 
-- [ICS / OT Security](/disciplines/ics-ot-security.md) — Industrial control systems, PLCs, SCADA with embedded firmware
-- [Malware Analysis](/disciplines/malware-analysis.md) — Firmware reverse engineering overlaps heavily with malware RE techniques
-- [Cryptography & PKI](/disciplines/cryptography-pki.md) — HSMs, TPMs, hardware-backed key storage and attestation
-- [Supply Chain Security](/disciplines/supply-chain-security.md) — Hardware supply chain integrity, component authentication
-- [Security Architecture](/disciplines/security-architecture.md) — Hardware root of trust design in system architecture
-- [Penetration Testing / Offensive Security](/disciplines/offensive-security.md) — Physical pentesting, red team hardware implants
+- [ICS / OT Security](/disciplines/ics-ot-security.md): Industrial control systems, PLCs, SCADA with embedded firmware
+- [Malware Analysis](/disciplines/malware-analysis.md): Firmware reverse engineering overlaps heavily with malware RE techniques
+- [Cryptography & PKI](/disciplines/cryptography-pki.md): HSMs, TPMs, hardware-backed key storage and attestation
+- [Supply Chain Security](/disciplines/supply-chain-security.md): Hardware supply chain integrity, component authentication
+- [Security Architecture](/disciplines/security-architecture.md): Hardware root of trust design in system architecture
+- [Penetration Testing / Offensive Security](/disciplines/offensive-security.md): Physical pentesting, red team hardware implants

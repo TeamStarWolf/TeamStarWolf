@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | standing up or maturing a GRC program, preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), building a risk register, or automating compliance evidence and scanning |
-| **Start at** | [GRC Fundamentals](#_1-grc-fundamentals) for definitions and risk scoring, [Control Frameworks Comparison](#_17-control-frameworks-comparison) to pick a framework, [GRC Tools and Automation](#_10-grc-tools-and-automation) for tooling |
-| **Pairs with** | [GRC_REFERENCE.md](GRC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md) |
+| Read this when | standing up or maturing a GRC program, preparing for an audit or certification (PCI DSS, HIPAA, SOC 2, ISO 27001), building a risk register, or automating compliance evidence and scanning |
+| Start at | [GRC Fundamentals](#_1-grc-fundamentals) for definitions and risk scoring, [Control Frameworks Comparison](#_17-control-frameworks-comparison) to pick a framework, [GRC Tools and Automation](#_10-grc-tools-and-automation) for tooling |
+| Pairs with | [GRC_REFERENCE.md](GRC_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md), [SECURITY_METRICS_REFERENCE.md](SECURITY_METRICS_REFERENCE.md) |
 
 ---
 
@@ -14,7 +14,7 @@
 
 1. [GRC Fundamentals](#_1-grc-fundamentals)
 2. [NIST Cybersecurity Framework (CSF) 2.0](#_2-nist-cybersecurity-framework-csf-20)
-3. [OSCAL — Open Security Controls Assessment Language](#_3-oscal-open-security-controls-assessment-language)
+3. [OSCAL: Open Security Controls Assessment Language](#_3-oscal-open-security-controls-assessment-language)
 4. [ComplianceAsCode / OpenSCAP](#_4-complianceascode-openscap)
 5. [CIS Controls v8](#_5-cis-controls-v8)
 6. [PCI DSS v4.0](#_6-pci-dss-v40)
@@ -27,15 +27,15 @@
 
 ## 1. GRC Fundamentals
 
-### 1.1 Governance, Risk, and Compliance — Definitions
+### 1.1 Governance, Risk, and Compliance: Definitions
 
 | Pillar | Definition | Primary Owner | Key Outputs |
 |--------|-----------|---------------|-------------|
-| **Governance** | The system of rules, practices, and processes by which an organization is directed and controlled — including policies, accountability structures, and strategic alignment | Board / C-Suite | Policies, charters, organizational structures, oversight committees |
-| **Risk** | The potential for loss, harm, or missed opportunity resulting from an event or circumstance; risk management is the process of identifying, assessing, treating, and monitoring risks | CISO / CRO | Risk register, risk appetite statement, risk treatment plans |
-| **Compliance** | Adherence to applicable laws, regulations, standards, and contractual obligations | Compliance Officer / Legal | Compliance calendar, audit evidence, gap assessments, remediation plans |
+| Governance | The system of rules, practices, and processes by which an organization is directed and controlled — including policies, accountability structures, and strategic alignment | Board / C-Suite | Policies, charters, organizational structures, oversight committees |
+| Risk | The potential for loss, harm, or missed opportunity resulting from an event or circumstance; risk management is the process of identifying, assessing, treating, and monitoring risks | CISO / CRO | Risk register, risk appetite statement, risk treatment plans |
+| Compliance | Adherence to applicable laws, regulations, standards, and contractual obligations | Compliance Officer / Legal | Compliance calendar, audit evidence, gap assessments, remediation plans |
 
-**Why GRC matters:** Organizations that silo governance, risk, and compliance end up with duplicated effort, inconsistent control testing, and gaps where risks fall between teams. Integrated GRC aligns security spend to actual risk and regulatory obligation.
+Why GRC matters: Organizations that silo governance, risk, and compliance end up with duplicated effort, inconsistent control testing, and gaps where risks fall between teams. Integrated GRC aligns security spend to actual risk and regulatory obligation.
 
 ### 1.2 GRC Program Components
 
@@ -83,12 +83,12 @@ GRC Program
 
 | Concept | Definition | Example |
 |---------|-----------|---------|
-| **Risk Appetite** | The broad-level amount of risk the organization is willing to accept in pursuit of its objectives — a strategic statement | "We have a low appetite for risks that could result in exposure of customer PII" |
-| **Risk Tolerance** | The acceptable variation around risk appetite — operational bounds for specific risk categories | "We tolerate no more than 4 hours of unplanned downtime per quarter for Tier 1 systems" |
-| **Risk Threshold** | The point at which a risk must be escalated or treated immediately | "Any risk with a residual score above 15 must be reported to the CISO within 24 hours" |
-| **Risk Capacity** | The maximum amount of risk the organization can absorb before it threatens viability | Determined by capital reserves, insurance, legal exposure limits |
+| Risk Appetite | The broad-level amount of risk the organization is willing to accept in pursuit of its objectives — a strategic statement | "We have a low appetite for risks that could result in exposure of customer PII" |
+| Risk Tolerance | The acceptable variation around risk appetite: operational bounds for specific risk categories | "We tolerate no more than 4 hours of unplanned downtime per quarter for Tier 1 systems" |
+| Risk Threshold | The point at which a risk must be escalated or treated immediately | "Any risk with a residual score above 15 must be reported to the CISO within 24 hours" |
+| Risk Capacity | The maximum amount of risk the organization can absorb before it threatens viability | Determined by capital reserves, insurance, legal exposure limits |
 
-**Practical tip:** Risk appetite statements should be tied to business objectives. A startup in growth mode may have high appetite for operational risk but near-zero appetite for reputational/regulatory risk.
+Practical tip: Risk appetite statements should be tied to business objectives. A startup in growth mode may have high appetite for operational risk but near-zero appetite for reputational/regulatory risk.
 
 ### 1.4 Risk Register Structure
 
@@ -96,26 +96,26 @@ A comprehensive risk register captures the full risk life cycle. Recommended col
 
 | Field | Description | Example Value |
 |-------|-------------|---------------|
-| **Risk ID** | Unique identifier | RISK-2024-047 |
-| **Asset** | System, process, or data affected | Customer PII database (prod-db-01) |
-| **Threat** | The threat event or actor | Ransomware / external attacker |
-| **Vulnerability** | The weakness being exploited | Unpatched OS (CVE-2024-XXXX), no MFA on RDP |
-| **Likelihood** | Probability of occurrence (1–5 qualitative or % quantitative) | 4 (High) |
-| **Impact** | Business impact if realized (1–5 or financial) | 5 (Critical) — regulatory fines + data breach costs |
-| **Inherent Risk Score** | Likelihood × Impact before controls | 20 (Critical) |
-| **Existing Controls** | Controls currently in place | EDR, daily backups, network segmentation |
-| **Control Effectiveness** | How well controls reduce likelihood/impact | Partial (backups not tested, RDP exposed) |
-| **Residual Risk Score** | Risk remaining after controls | 12 (High) |
-| **Risk Owner** | Accountable individual | VP of Engineering |
-| **Treatment Decision** | Accept / Mitigate / Transfer / Avoid | Mitigate |
-| **Treatment Plan** | Specific remediation actions and due dates | Patch OS by 2024-12-01, enforce MFA on all remote access by 2024-11-15 |
-| **Target Residual Score** | Risk score after planned treatment | 6 (Medium) |
-| **Review Date** | Next scheduled review | Quarterly |
-| **Status** | Open / In Remediation / Closed | In Remediation |
+| Risk ID | Unique identifier | RISK-2024-047 |
+| Asset | System, process, or data affected | Customer PII database (prod-db-01) |
+| Threat | The threat event or actor | Ransomware / external attacker |
+| Vulnerability | The weakness being exploited | Unpatched OS (CVE-2024-XXXX), no MFA on RDP |
+| Likelihood | Probability of occurrence (1-5 qualitative or % quantitative) | 4 (High) |
+| Impact | Business impact if realized (1-5 or financial) | 5 (Critical): regulatory fines + data breach costs |
+| Inherent Risk Score | Likelihood × Impact before controls | 20 (Critical) |
+| Existing Controls | Controls currently in place | EDR, daily backups, network segmentation |
+| Control Effectiveness | How well controls reduce likelihood/impact | Partial (backups not tested, RDP exposed) |
+| Residual Risk Score | Risk remaining after controls | 12 (High) |
+| Risk Owner | Accountable individual | VP of Engineering |
+| Treatment Decision | Accept / Mitigate / Transfer / Avoid | Mitigate |
+| Treatment Plan | Specific remediation actions and due dates | Patch OS by 2024-12-01, enforce MFA on all remote access by 2024-11-15 |
+| Target Residual Score | Risk score after planned treatment | 6 (Medium) |
+| Review Date | Next scheduled review | Quarterly |
+| Status | Open / In Remediation / Closed | In Remediation |
 
 ### 1.5 Risk Scoring Methodologies
 
-#### Qualitative — 5x5 Risk Matrix
+#### Qualitative: 5x5 Risk Matrix
 
 ```
        |  1-Negligible  |  2-Minor  |  3-Moderate  |  4-Major  |  5-Catastrophic
@@ -137,13 +137,13 @@ Unlikly|   LOW          |   LOW     |    MEDIUM    |  MEDIUM   |     HIGH
        |   LOW          |   LOW     |    LOW       |   LOW     |     MEDIUM
 ```
 
-**Score Thresholds:**
-- 1-4: LOW — Accept or monitor; document rationale
-- 5-9: MEDIUM — Treat within 90 days; assign owner
-- 10-16: HIGH — Treat within 30 days; escalate to CISO
-- 17-25: CRITICAL — Immediate treatment required; executive notification
+Score Thresholds:
+- 1-4: LOW: Accept or monitor; document rationale
+- 5-9: MEDIUM: Treat within 90 days; assign owner
+- 10-16: HIGH: Treat within 30 days; escalate to CISO
+- 17-25: CRITICAL: Immediate treatment required; executive notification
 
-#### Quantitative — FAIR Model (Factor Analysis of Information Risk)
+#### Quantitative: FAIR Model (Factor Analysis of Information Risk)
 
 FAIR decomposes risk into financially measurable components:
 
@@ -160,7 +160,7 @@ LM = Primary Loss + Secondary Loss
    Secondary Loss = Reputation + Regulatory + Competitive + Legal costs
 ```
 
-**FAIR Analysis Steps:**
+FAIR Analysis Steps:
 1. Identify the asset and threat scenario
 2. Estimate Threat Event Frequency (events/year)
 3. Estimate Threat Capability (percentile vs. controls)
@@ -170,32 +170,32 @@ LM = Primary Loss + Secondary Loss
 7. Run Monte Carlo simulation (1,000-10,000 iterations)
 8. Output: Loss Exceedance Curve with 10th/50th/90th percentile values
 
-**FAIR Tools:** RiskLens (commercial), PyFAIR (open-source Python library), FAIR-U (free training tool)
+FAIR Tools: RiskLens (commercial), PyFAIR (open-source Python library), FAIR-U (free training tool)
 
 ### 1.6 Control Types
 
 | Type | Definition | Examples |
 |------|-----------|---------|
-| **Preventive** | Stop an incident before it occurs | Firewalls, MFA, encryption, access controls, code reviews |
-| **Detective** | Identify an incident during or after it occurs | SIEM, IDS, audit logs, anomaly detection, file integrity monitoring |
-| **Corrective** | Restore systems after an incident | Incident response procedures, backup restoration, patch management |
-| **Deterrent** | Discourage threat actors from attempting an attack | Security awareness training, legal notices, visible cameras, warning banners |
-| **Compensating** | Alternative controls when primary controls are not feasible | Enhanced logging + monitoring instead of MFA for legacy systems; network segmentation where patching is not possible |
-| **Directive** | Mandate behavior through policy or procedure | Security policies, acceptable use agreements, compliance training requirements |
+| Preventive | Stop an incident before it occurs | Firewalls, MFA, encryption, access controls, code reviews |
+| Detective | Identify an incident during or after it occurs | SIEM, IDS, audit logs, anomaly detection, file integrity monitoring |
+| Corrective | Restore systems after an incident | Incident response procedures, backup restoration, patch management |
+| Deterrent | Discourage threat actors from attempting an attack | Security awareness training, legal notices, visible cameras, warning banners |
+| Compensating | Alternative controls when primary controls are not feasible | Enhanced logging + monitoring instead of MFA for legacy systems; network segmentation where patching is not possible |
+| Directive | Mandate behavior through policy or procedure | Security policies, acceptable use agreements, compliance training requirements |
 
 ### 1.7 Control Frameworks Comparison
 
 | Framework | Primary Use | Controls Count | Prescriptiveness | Certifiable? | Best For |
 |-----------|------------|----------------|-----------------|--------------|----------|
-| **NIST CSF 2.0** | Risk-based cybersecurity program | ~100 subcategories | Low (outcome-based) | No | Most organizations; flexible starting point |
-| **NIST SP 800-53 r5** (release 5.2.0, Aug 2025) | Federal/FedRAMP compliance | 1,189 controls | High (very detailed) | Via FedRAMP/FISMA | Federal agencies; FedRAMP cloud providers |
-| **CIS Controls v8** | Prioritized cyber hygiene | 153 safeguards across 18 controls | Medium | Via CIS CSAT | SMBs and enterprises wanting prioritized approach |
-| **ISO 27001:2022** | ISMS certification | 93 Annex A controls | Medium | Yes (formal cert) | Global enterprises; customer-facing trust |
-| **SOC 2** | Service organization trust | ~60 Trust Service Criteria points | Medium | Yes (audit report) | SaaS companies; vendor assessment |
-| **PCI DSS v4.0** | Payment card security | 12 requirements / 250+ sub-requirements | High | Yes (QSA audit/SAQ) | Any entity processing card payments |
-| **HIPAA Security Rule** | Healthcare data | 18 standards / 36 specifications | Medium | No (enforcement-based) | Healthcare providers, payers, BAs |
-| **CMMC 2.0** | Defense contractor cybersecurity | 110-320 practices (L1-L3) | High | Yes (C3PAO for L2/L3) | DoD contractors |
-| **GDPR** | EU personal data privacy | Principles + 99 articles | Medium-High | No (regulatory) | Any org processing EU resident data |
+| NIST CSF 2.0 | Risk-based cybersecurity program | ~100 subcategories | Low (outcome-based) | No | Most organizations; flexible starting point |
+| NIST SP 800-53 r5 (release 5.2.0, Aug 2025) | Federal/FedRAMP compliance | 1,189 controls | High (very detailed) | Via FedRAMP/FISMA | Federal agencies; FedRAMP cloud providers |
+| CIS Controls v8 | Prioritized cyber hygiene | 153 safeguards across 18 controls | Medium | Via CIS CSAT | SMBs and enterprises wanting prioritized approach |
+| ISO 27001:2022 | ISMS certification | 93 Annex A controls | Medium | Yes (formal cert) | Global enterprises; customer-facing trust |
+| SOC 2 | Service organization trust | ~60 Trust Service Criteria points | Medium | Yes (audit report) | SaaS companies; vendor assessment |
+| PCI DSS v4.0 | Payment card security | 12 requirements / 250+ sub-requirements | High | Yes (QSA audit/SAQ) | Any entity processing card payments |
+| HIPAA Security Rule | Healthcare data | 18 standards / 36 specifications | Medium | No (enforcement-based) | Healthcare providers, payers, BAs |
+| CMMC 2.0 | Defense contractor cybersecurity | 110-320 practices (L1-L3) | High | Yes (C3PAO for L2/L3) | DoD contractors |
+| GDPR | EU personal data privacy | Principles + 99 articles | Medium-High | No (regulatory) | Any org processing EU resident data |
 
 ---
 
@@ -203,9 +203,9 @@ LM = Primary Loss + Secondary Loss
 
 ### 2.1 Overview
 
-Released February 2024, CSF 2.0 expands the framework beyond critical infrastructure to all organizations. The most significant addition is the **Govern** function, which elevates cybersecurity governance as a first-class discipline alongside the original five functions.
+Released February 2024, CSF 2.0 expands the framework beyond critical infrastructure to all organizations. The most significant addition is the Govern function, which elevates cybersecurity governance as a first-class discipline alongside the original five functions.
 
-**Key CSF 2.0 Documents:**
+Key CSF 2.0 Documents:
 - Framework Core: `NIST.CSWP.29.pdf`
 - Implementation Examples: `NIST.CSWP.32.pdf`
 - Quick-Start Guides (Enterprise, SMB, Communities)
@@ -213,7 +213,7 @@ Released February 2024, CSF 2.0 expands the framework beyond critical infrastruc
 
 ### 2.2 Six Functions
 
-#### GV — Govern (NEW in 2.0)
+#### GV: Govern (NEW in 2.0)
 
 The Govern function establishes and monitors the organization's cybersecurity risk management strategy, expectations, and policy.
 
@@ -226,7 +226,7 @@ The Govern function establishes and monitors the organization's cybersecurity ri
 | Oversight | GV.OV | Results of cybersecurity risk management reviewed |
 | Cybersecurity Supply Chain Risk Mgmt | GV.SC | SCRM integrated into enterprise risk management |
 
-#### ID — Identify
+#### ID: Identify
 
 | Category | Category ID | Key Subcategories |
 |----------|-------------|-------------------|
@@ -234,14 +234,14 @@ The Govern function establishes and monitors the organization's cybersecurity ri
 | Risk Assessment | ID.RA | Threat intelligence; vulnerability identification; risk scoring; risk register maintenance |
 | Improvement | ID.IM | Lessons learned; improvements identified from incidents and exercises |
 
-**Key Subcategory Examples:**
+Key Subcategory Examples:
 - ID.AM-01: Software assets inventoried
 - ID.AM-02: Hardware assets inventoried
 - ID.AM-07: Data flows mapped (NEW in 2.0)
 - ID.RA-01: Vulnerabilities identified and documented
 - ID.RA-09: Third-party component vulnerabilities assessed (supply chain)
 
-#### PR — Protect
+#### PR: Protect
 
 | Category | Category ID | Key Subcategories |
 |----------|-------------|-------------------|
@@ -251,14 +251,14 @@ The Govern function establishes and monitors the organization's cybersecurity ri
 | Platform Security | PR.PS | Hardening baselines; patch management; secure configuration; software integrity |
 | Technology Infrastructure Resilience | PR.IR | Network segmentation; redundancy; capacity management |
 
-#### DE — Detect
+#### DE: Detect
 
 | Category | Category ID | Key Subcategories |
 |----------|-------------|-------------------|
 | Continuous Monitoring | DE.CM | Network monitoring; endpoint monitoring; user activity; log aggregation; threat intelligence integration |
 | Adverse Event Analysis | DE.AE | Alerts analyzed; anomalies correlated; incident declared when appropriate |
 
-#### RS — Respond
+#### RS: Respond
 
 | Category | Category ID | Key Subcategories |
 |----------|-------------|-------------------|
@@ -267,7 +267,7 @@ The Govern function establishes and monitors the organization's cybersecurity ri
 | Incident Response Reporting and Communication | RS.CO | Coordination with stakeholders; regulatory notification |
 | Incident Mitigation | RS.MI | Containment actions; eradication procedures |
 
-#### RC — Recover
+#### RC: Recover
 
 | Category | Category ID | Key Subcategories |
 |----------|-------------|-------------------|
@@ -280,20 +280,20 @@ CSF Tiers describe the degree to which an organization's cybersecurity risk mana
 
 | Tier | Name | Characteristics |
 |------|------|----------------|
-| **Tier 1** | Partial | Risk management is ad hoc and reactive. No formal cybersecurity program. Little awareness of organizational risk. |
-| **Tier 2** | Risk Informed | Risk management practices approved by management but not enterprise-wide policy. Awareness exists but not consistently implemented. Some external collaboration. |
-| **Tier 3** | Repeatable | Formal cybersecurity policies exist, are enforced, and regularly updated. Risk management integrated into enterprise risk. Threat intelligence shared. |
-| **Tier 4** | Adaptive | Continuous improvement based on lessons learned and predictive indicators. Active participation in threat intelligence sharing. Supply chain risk fully integrated. |
+| Tier 1 | Partial | Risk management is ad hoc and reactive. No formal cybersecurity program. Little awareness of organizational risk. |
+| Tier 2 | Risk Informed | Risk management practices approved by management but not enterprise-wide policy. Awareness exists but not consistently implemented. Some external collaboration. |
+| Tier 3 | Repeatable | Formal cybersecurity policies exist, are enforced, and regularly updated. Risk management integrated into enterprise risk. Threat intelligence shared. |
+| Tier 4 | Adaptive | Continuous improvement based on lessons learned and predictive indicators. Active participation in threat intelligence sharing. Supply chain risk fully integrated. |
 
-**Tier Selection Guidance:** Most organizations should target Tier 2 or 3. Tier 4 is appropriate for critical infrastructure or organizations with mature cyber programs. Moving from Tier 1 to Tier 2 often has the highest ROI.
+Tier Selection Guidance: Most organizations should target Tier 2 or 3. Tier 4 is appropriate for critical infrastructure or organizations with mature cyber programs. Moving from Tier 1 to Tier 2 often has the highest ROI.
 
 ### 2.4 CSF Profiles
 
-**Current Profile:** Documents the current state of cybersecurity outcomes the organization is achieving.
+Current Profile: Documents the current state of cybersecurity outcomes the organization is achieving.
 
-**Target Profile:** Documents the desired state of outcomes — what the organization wants to achieve, based on risk appetite and business objectives.
+Target Profile: Documents the desired state of outcomes — what the organization wants to achieve, based on risk appetite and business objectives.
 
-**Gap Analysis:** The difference between Current and Target Profiles drives the remediation roadmap.
+Gap Analysis: The difference between Current and Target Profiles drives the remediation roadmap.
 
 ```
 Profile Development Process:
@@ -310,18 +310,18 @@ Profile Development Process:
 
 ### 2.5 CSF 2.0 New Additions
 
-**Govern Function:** Elevates cybersecurity governance; previously embedded in framework implementation guidance only. Now explicitly includes supply chain risk management (GV.SC).
+Govern Function: Elevates cybersecurity governance; previously embedded in framework implementation guidance only. Now explicitly includes supply chain risk management (GV.SC).
 
-**Supply Chain Risk Management (SCRM):** GV.SC contains 10 subcategories covering:
+Supply Chain Risk Management (SCRM): GV.SC contains 10 subcategories covering:
 - Identifying and prioritizing suppliers
 - Contractual requirements for cybersecurity
 - Supplier risk assessments
 - Incident notification from suppliers
 - Due diligence for critical software
 
-**Implementation Examples:** CSF 2.0 ships with concrete implementation examples for each subcategory — more practical than CSF 1.1.
+Implementation Examples: CSF 2.0 ships with concrete implementation examples for each subcategory — more practical than CSF 1.1.
 
-**Community Profiles:** NIST is publishing sector-specific profiles (healthcare, financial services, etc.) as reference baselines.
+Community Profiles: NIST is publishing sector-specific profiles (healthcare, financial services, etc.) as reference baselines.
 
 ### 2.6 CSF Mapping to CIS Controls v8 and ISO 27001
 
@@ -340,17 +340,17 @@ Profile Development Process:
 
 ---
 
-## 3. OSCAL — Open Security Controls Assessment Language
+## 3. OSCAL: Open Security Controls Assessment Language
 
 ### 3.1 What is OSCAL?
 
 OSCAL (Open Security Controls Assessment Language) is a NIST-developed standard for expressing security control catalogs, profiles, system security plans, assessment plans, assessment results, and plans of action and milestones in a machine-readable format (XML, JSON, or YAML).
 
-**Problem OSCAL Solves:** Security documentation is traditionally in Word/Excel/PDF — unstructured, hard to validate, not reusable. OSCAL makes compliance documentation machine-readable, enabling automation, consistency, and cross-framework mapping.
+Problem OSCAL Solves: Security documentation is traditionally in Word/Excel/PDF — unstructured, hard to validate, not reusable. OSCAL makes compliance documentation machine-readable, enabling automation, consistency, and cross-framework mapping.
 
-**Governance:** NIST maintains OSCAL at `https://pages.nist.gov/OSCAL/`
-**Repository:** `https://github.com/usnistgov/OSCAL`
-**Current Release:** OSCAL v1.1.x
+Governance: NIST maintains OSCAL at `https://pages.nist.gov/OSCAL/`
+Repository: `https://github.com/usnistgov/OSCAL`
+Current Release: OSCAL v1.1.x
 
 ### 3.2 OSCAL Models
 
@@ -437,7 +437,7 @@ Plan of Action and Milestones (POA&M)
 
 The `oscal-cli` tool provides command-line utilities for validating and converting OSCAL content.
 
-**Installation:**
+Installation:
 ```bash
 # Download from GitHub releases
 wget https://github.com/usnistgov/oscal-cli/releases/latest/download/oscal-cli.zip
@@ -448,7 +448,7 @@ chmod +x oscal-cli
 brew install usnistgov/oscal-cli/oscal-cli
 ```
 
-**Key Commands:**
+Key Commands:
 ```bash
 # Validate an OSCAL document
 oscal-cli validate --file ssp.json
@@ -467,10 +467,10 @@ oscal-cli metaschema validate --metaschema oscal_catalog_metaschema.xml --file m
 
 `compliance-trestle` is an open-source Python CLI and SDK for OSCAL content authoring, transformation, and compliance automation.
 
-**Repository:** `https://github.com/oscal-compass/compliance-trestle`
-**Install:** `pip install compliance-trestle`
+Repository: `https://github.com/oscal-compass/compliance-trestle`
+Install: `pip install compliance-trestle`
 
-**Key Commands:**
+Key Commands:
 ```bash
 # Initialize a trestle workspace
 trestle init --verbose
@@ -498,7 +498,7 @@ trestle author component-definition generate -c my-component -p moderate-profile
 trestle author poam generate -a assessment-results-name -o my-poam
 ```
 
-**Trestle Workspace Structure:**
+Trestle Workspace Structure:
 ```
 trestle-workspace/
 ├── .trestle/
@@ -576,8 +576,8 @@ print(f"SSP generated at {WORKSPACE}/system-security-plans/{SSP_NAME}/")
 
 ComplianceAsCode (formerly SCAP Security Guide / SSG) is an open-source project that produces machine-readable security content — SCAP DataStreams, Ansible playbooks, Bash scripts, and Kubernetes remediations — from a single source of truth.
 
-**Repository:** `https://github.com/ComplianceAsCode/content`
-**Supported Platforms:** RHEL 7/8/9, CentOS, Fedora, Ubuntu 18/20/22/24, Debian, Windows Server, OCP/Kubernetes, macOS
+Repository: `https://github.com/ComplianceAsCode/content`
+Supported Platforms: RHEL 7/8/9, CentOS, Fedora, Ubuntu 18/20/22/24, Debian, Windows Server, OCP/Kubernetes, macOS
 
 ### 4.2 Repository Structure
 
@@ -608,11 +608,11 @@ content/
 
 | Component | Format | Purpose |
 |-----------|--------|---------|
-| **XCCDF** | XML | Checklist format — defines rules, profiles, benchmark structure |
-| **OVAL** | XML | Open Vulnerability and Assessment Language — machine-readable checks |
-| **DataStream** | XML | Combined XCCDF + OVAL in a single file for distribution |
-| **CPE Dictionary** | XML | Platform identification for conditional applicability |
-| **OCIL** | XML | Questionnaire-based checks for items that cannot be automated |
+| XCCDF | XML | Checklist format: defines rules, profiles, benchmark structure |
+| OVAL | XML | Open Vulnerability and Assessment Language: machine-readable checks |
+| DataStream | XML | Combined XCCDF + OVAL in a single file for distribution |
+| CPE Dictionary | XML | Platform identification for conditional applicability |
+| OCIL | XML | Questionnaire-based checks for items that cannot be automated |
 
 ### 4.4 Building Profiles with CMake
 
@@ -642,7 +642,7 @@ cmake -DALL_PRODUCTS=ON ..
 make -j8
 ```
 
-**Build Outputs (in `build/`):**
+Build Outputs (in `build/`):
 ```
 build/
 ├── ssg-rhel9-ds.xml              # Full DataStream (use this for scanning)
@@ -733,7 +733,7 @@ sudo apt install scap-workbench   # Ubuntu
 scap-workbench
 ```
 
-**Workbench Workflow:**
+Workbench Workflow:
 1. Load DataStream file
 2. Select profile from dropdown
 3. Customize rules (enable/disable, change values)
@@ -796,7 +796,7 @@ scap_scan:
 
 CIS Controls v8 (released May 2021; iteratively updated to v8.1 in June 2024) is a prioritized set of 18 controls with 153 safeguards organized into three Implementation Groups (IGs) based on organizational risk profile and resources. v8.1 retained the 18 controls and 153 safeguards, adding a 'Govern' security function and a 'Documentation' asset class and realigning mappings to NIST CSF 2.0.
 
-**Key Resources:**
+Key Resources:
 - Controls document: `https://www.cisecurity.org/controls/v8`
 - CIS Benchmarks: `https://www.cisecurity.org/cis-benchmarks`
 - CIS-CAT Pro: Automated assessment tool
@@ -806,52 +806,52 @@ CIS Controls v8 (released May 2021; iteratively updated to v8.1 in June 2024) is
 
 | Group | Target Organization | Profile |
 |-------|---------------------|---------|
-| **IG1** | Small organizations with limited IT/security expertise and resources | Basic cyber hygiene — essential safeguards all organizations should implement |
-| **IG2** | Organizations with moderate IT expertise handling sensitive data | Includes IG1 + additional safeguards for managing risk in multi-department organizations |
-| **IG3** | Large organizations with significant security expertise facing sophisticated attacks | Includes IG1+2 + advanced safeguards for critical infrastructure and sensitive data |
+| IG1 | Small organizations with limited IT/security expertise and resources | Basic cyber hygiene: essential safeguards all organizations should implement |
+| IG2 | Organizations with moderate IT expertise handling sensitive data | Includes IG1 + additional safeguards for managing risk in multi-department organizations |
+| IG3 | Large organizations with significant security expertise facing sophisticated attacks | Includes IG1+2 + advanced safeguards for critical infrastructure and sensitive data |
 
-**Safeguard counts:** IG1 = 56 safeguards; IG2 = 130 safeguards; IG3 = 153 safeguards
+Safeguard counts: IG1 = 56 safeguards; IG2 = 130 safeguards; IG3 = 153 safeguards
 
 ### 5.3 All 18 CIS Controls
 
 | # | Control | Description |
 |---|---------|-------------|
-| **1** | Inventory and Control of Enterprise Assets | Actively manage all hardware assets; DHCP logging; passive discovery |
-| **2** | Inventory and Control of Software Assets | Software inventory; authorized software only (allowlisting) |
-| **3** | Data Protection | Data classification; secure data disposal; encryption at rest/transit; DLP; retention policies |
-| **4** | Secure Configuration of Enterprise Assets and Software | Hardening baselines; secure defaults; configuration management; automated scanning |
-| **5** | Account Management | Account inventory; least privilege; MFA for admin; account lifecycle management |
-| **6** | Access Control Management | Least privilege; deny by default; MFA for remote access |
-| **7** | Continuous Vulnerability Management | Automated vulnerability scanning; patch within SLA; remediation tracking |
-| **8** | Audit Log Management | Enable logging; centralize logs; log retention (90+ days accessible, 1+ year retained) |
-| **9** | Email and Web Browser Protections | Anti-malware filtering; browser hardening; DNS filtering |
-| **10** | Malware Defenses | Antimalware on all assets; automatic updates; USB/removable media controls; anti-exploit features |
-| **11** | Data Recovery | Automated backups; backup isolation; tested recovery; offsite backups |
-| **12** | Network Infrastructure Management | Network diagrams; secure network protocols; DMZ; updated network infrastructure |
-| **13** | Network Monitoring and Defense | Centralized network monitoring; DNS filtering; IDS/IPS; traffic filtering |
-| **14** | Security Awareness and Skills Training | Security awareness program; role-based training; phishing simulations |
-| **15** | Service Provider Management | Vendor inventory; service provider security requirements; monitor providers |
-| **16** | Application Software Security | SDLC security; WAF; application hardening; penetration testing |
-| **17** | Incident Response Management | Incident response plan; IR contacts; tabletop exercises; post-incident review |
-| **18** | Penetration Testing | External and internal penetration tests; red team exercises; remediation validation |
+| 1 | Inventory and Control of Enterprise Assets | Actively manage all hardware assets; DHCP logging; passive discovery |
+| 2 | Inventory and Control of Software Assets | Software inventory; authorized software only (allowlisting) |
+| 3 | Data Protection | Data classification; secure data disposal; encryption at rest/transit; DLP; retention policies |
+| 4 | Secure Configuration of Enterprise Assets and Software | Hardening baselines; secure defaults; configuration management; automated scanning |
+| 5 | Account Management | Account inventory; least privilege; MFA for admin; account lifecycle management |
+| 6 | Access Control Management | Least privilege; deny by default; MFA for remote access |
+| 7 | Continuous Vulnerability Management | Automated vulnerability scanning; patch within SLA; remediation tracking |
+| 8 | Audit Log Management | Enable logging; centralize logs; log retention (90+ days accessible, 1+ year retained) |
+| 9 | Email and Web Browser Protections | Anti-malware filtering; browser hardening; DNS filtering |
+| 10 | Malware Defenses | Antimalware on all assets; automatic updates; USB/removable media controls; anti-exploit features |
+| 11 | Data Recovery | Automated backups; backup isolation; tested recovery; offsite backups |
+| 12 | Network Infrastructure Management | Network diagrams; secure network protocols; DMZ; updated network infrastructure |
+| 13 | Network Monitoring and Defense | Centralized network monitoring; DNS filtering; IDS/IPS; traffic filtering |
+| 14 | Security Awareness and Skills Training | Security awareness program; role-based training; phishing simulations |
+| 15 | Service Provider Management | Vendor inventory; service provider security requirements; monitor providers |
+| 16 | Application Software Security | SDLC security; WAF; application hardening; penetration testing |
+| 17 | Incident Response Management | Incident response plan; IR contacts; tabletop exercises; post-incident review |
+| 18 | Penetration Testing | External and internal penetration tests; red team exercises; remediation validation |
 
 ### 5.4 CIS Benchmarks
 
 CIS Benchmarks are consensus-based hardening guidelines for 100+ technologies. Available for free (PDF) or automated via CIS-CAT.
 
-**Categories:**
-- **Operating Systems:** Windows 10/11/Server, RHEL, Ubuntu, macOS, Debian, Amazon Linux, SLES
-- **Cloud:** AWS Foundations, Azure, GCP, Oracle Cloud
-- **Containers:** Docker, Kubernetes, EKS, GKE, AKS
-- **Databases:** MySQL, PostgreSQL, Oracle DB, MSSQL, MongoDB
-- **Network:** Cisco IOS, Palo Alto, Juniper, F5
-- **Web Servers:** Apache, NGINX, IIS
-- **Applications:** Microsoft 365, Chrome, Firefox, Safari
+Categories:
+- Operating Systems: Windows 10/11/Server, RHEL, Ubuntu, macOS, Debian, Amazon Linux, SLES
+- Cloud: AWS Foundations, Azure, GCP, Oracle Cloud
+- Containers: Docker, Kubernetes, EKS, GKE, AKS
+- Databases: MySQL, PostgreSQL, Oracle DB, MSSQL, MongoDB
+- Network: Cisco IOS, Palo Alto, Juniper, F5
+- Web Servers: Apache, NGINX, IIS
+- Applications: Microsoft 365, Chrome, Firefox, Safari
 
-**Benchmark Levels:**
-- **Level 1:** Essential, minimal performance impact. Recommended for all organizations.
-- **Level 2:** Defense-in-depth, may impact usability/performance. For high-security environments.
-- **STIG:** Defense Information Systems Agency STIG mappings.
+Benchmark Levels:
+- Level 1: Essential, minimal performance impact. Recommended for all organizations.
+- Level 2: Defense-in-depth, may impact usability/performance. For high-security environments.
+- STIG: Defense Information Systems Agency STIG mappings.
 
 ### 5.5 CIS-CAT Tool
 
@@ -868,7 +868,7 @@ java -jar CIS-CAT-Pro-Assessor-CLI.jar   --benchmark /benchmarks/CIS_RHEL9_Bench
 java -jar CIS-CAT-Pro-Assessor-CLI.jar   --sessions sessions.properties   --benchmark /benchmarks/CIS_Ubuntu_22.04_Benchmark.xml   --profile "Level 1 - Server"
 ```
 
-**CIS-CAT Pro Dashboard:** Web-based dashboard for aggregating scan results, tracking remediation, trending over time, and generating compliance reports.
+CIS-CAT Pro Dashboard: Web-based dashboard for aggregating scan results, tracking remediation, trending over time, and generating compliance reports.
 
 ### 5.6 CIS Controls to ATT&CK Mapping
 
@@ -883,23 +883,23 @@ java -jar CIS-CAT-Pro-Assessor-CLI.jar   --sessions sessions.properties   --benc
 | CIS 13 (Network Monitoring) | T1021 (Remote Services), T1071 (App Layer Protocol C2), T1041 |
 | CIS 16 (App Security) | T1190 (Web Exploit), T1059.007 (JavaScript), T1566 (Phishing - Attachment) |
 
-**Full mapping:** `https://www.cisecurity.org/controls/cis-controls-navigator/`
+Full mapping: `https://www.cisecurity.org/controls/cis-controls-navigator/`
 
 ### 5.7 CIS RAM (Risk Assessment Method)
 
 CIS RAM is a methodology for conducting risk assessments aligned to CIS Controls, suitable for any organization size.
 
-**CIS RAM Process:**
-1. Define scope — systems, processes, or enterprise-wide
-2. Identify stakeholders and their needs — what must be protected and why
-3. Catalog safeguards — what CIS Controls safeguards are implemented at what level
-4. Identify threats — threat scenarios relevant to the organization
-5. Evaluate likelihood and impact — using qualitative scales calibrated to the organization
-6. Score risks — inherent and residual
-7. Prioritize treatment — focus on IG1 gaps first
-8. Document — risk register with safeguard ownership
+CIS RAM Process:
+1. Define scope: systems, processes, or enterprise-wide
+2. Identify stakeholders and their needs: what must be protected and why
+3. Catalog safeguards: what CIS Controls safeguards are implemented at what level
+4. Identify threats: threat scenarios relevant to the organization
+5. Evaluate likelihood and impact: using qualitative scales calibrated to the organization
+6. Score risks: inherent and residual
+7. Prioritize treatment: focus on IG1 gaps first
+8. Document: risk register with safeguard ownership
 
-**CIS RAM Versions:** CIS RAM v2.1 — available at `https://www.cisecurity.org/insights/white-papers/cis-ram`
+CIS RAM Versions: CIS RAM v2.1 — available at `https://www.cisecurity.org/insights/white-papers/cis-ram`
 
 ---
 
@@ -909,25 +909,25 @@ CIS RAM is a methodology for conducting risk assessments aligned to CIS Controls
 
 PCI DSS (Payment Card Industry Data Security Standard) v4.0 was released March 2022 by the PCI Security Standards Council. Organizations had until March 2024 to adopt v4.0 (v3.2.1 retired). The limited-revision v4.0.1 was published June 2024; v4.0 was then retired on December 31, 2024, making v4.0.1 the only active version of the standard. New "future-dated" requirements introduced in v4.x became mandatory as of March 31, 2025.
 
-**Governing Body:** PCI Security Standards Council (PCI SSC)
-**Applies to:** Any entity that stores, processes, or transmits cardholder data (CHD) or sensitive authentication data (SAD)
+Governing Body: PCI Security Standards Council (PCI SSC)
+Applies to: Any entity that stores, processes, or transmits cardholder data (CHD) or sensitive authentication data (SAD)
 
 ### 6.2 The 12 Requirements Summary
 
 | Req | Domain | Title | Key Focus |
 |-----|--------|-------|-----------|
-| **1** | Network Security | Install and Maintain Network Security Controls | Firewalls, network access controls, documentation of all connections |
-| **2** | Secure Configs | Apply Secure Configurations to All System Components | No default passwords; system hardening; software inventory |
-| **3** | Account Data Protection | Protect Stored Account Data | No storage of SAD post-authorization; CHD minimization; encryption/tokenization |
-| **4** | Encryption in Transit | Protect Cardholder Data with Strong Cryptography During Transmission | TLS 1.2+ for all CHD in transit; no deprecated protocols (SSL, TLS 1.0, 1.1) |
-| **5** | Anti-Malware | Protect All Systems Against Malware | Anti-malware on all applicable systems; behavioral detection; periodic reviews |
-| **6** | Secure Development | Develop and Maintain Secure Systems and Software | SDLC; patching SLAs; web-app scanning; WAF for public-facing apps |
-| **7** | Access Control | Restrict Access to System Components and Cardholder Data | Need-to-know principle; documented access control policy; role-based access |
-| **8** | Authentication | Identify Users and Authenticate Access | Unique IDs; strong authentication (MFA for all CDE access v4.0); password complexity |
-| **9** | Physical Security | Restrict Physical Access to Cardholder Data | Facility entry controls; visitor logs; media protection; card reader protection |
-| **10** | Logging and Monitoring | Log and Monitor All Access to System Components and Cardholder Data | Centralized logging; tamper-evident logs; daily log review; 12-month retention |
-| **11** | Security Testing | Test Security of Systems and Networks Regularly | Internal/external vulnerability scans; penetration testing; network change detection; IDS/IPS |
-| **12** | Security Policy | Support Information Security with Organizational Policies and Programs | Security policy; risk assessment; awareness training; vendor management; IR plan |
+| 1 | Network Security | Install and Maintain Network Security Controls | Firewalls, network access controls, documentation of all connections |
+| 2 | Secure Configs | Apply Secure Configurations to All System Components | No default passwords; system hardening; software inventory |
+| 3 | Account Data Protection | Protect Stored Account Data | No storage of SAD post-authorization; CHD minimization; encryption/tokenization |
+| 4 | Encryption in Transit | Protect Cardholder Data with Strong Cryptography During Transmission | TLS 1.2+ for all CHD in transit; no deprecated protocols (SSL, TLS 1.0, 1.1) |
+| 5 | Anti-Malware | Protect All Systems Against Malware | Anti-malware on all applicable systems; behavioral detection; periodic reviews |
+| 6 | Secure Development | Develop and Maintain Secure Systems and Software | SDLC; patching SLAs; web-app scanning; WAF for public-facing apps |
+| 7 | Access Control | Restrict Access to System Components and Cardholder Data | Need-to-know principle; documented access control policy; role-based access |
+| 8 | Authentication | Identify Users and Authenticate Access | Unique IDs; strong authentication (MFA for all CDE access v4.0); password complexity |
+| 9 | Physical Security | Restrict Physical Access to Cardholder Data | Facility entry controls; visitor logs; media protection; card reader protection |
+| 10 | Logging and Monitoring | Log and Monitor All Access to System Components and Cardholder Data | Centralized logging; tamper-evident logs; daily log review; 12-month retention |
+| 11 | Security Testing | Test Security of Systems and Networks Regularly | Internal/external vulnerability scans; penetration testing; network change detection; IDS/IPS |
+| 12 | Security Policy | Support Information Security with Organizational Policies and Programs | Security policy; risk assessment; awareness training; vendor management; IR plan |
 
 ### 6.3 Key Changes from v3.2.1 to v4.0
 
@@ -946,28 +946,28 @@ PCI DSS (Payment Card Industry Data Security Standard) v4.0 was released March 2
 
 | SAQ | Who Uses It | Scope |
 |-----|-------------|-------|
-| **SAQ A** | Card-not-present merchants; fully outsourced card processing; no electronic storage | ~22 requirements |
-| **SAQ A-EP** | E-commerce merchants with third-party payment page but direct connection to payment processor | ~191 requirements |
-| **SAQ B** | Merchants using only imprint machines or stand-alone dial-up terminals; no electronic storage | ~41 requirements |
-| **SAQ B-IP** | Merchants using standalone IP-connected PTS-approved terminals | ~83 requirements |
-| **SAQ C** | Merchants with payment app systems connected to internet; no electronic CHD storage | ~160 requirements |
-| **SAQ C-VT** | Merchants using web-based virtual terminal; no electronic CHD storage | ~77 requirements |
-| **SAQ D-Merchant** | All other merchants not eligible for SAQ A through C | All 12 requirements (~250 sub-reqs) |
-| **SAQ D-Service Provider** | Service providers not eligible for other SAQs | All 12 requirements + additional SP requirements |
+| SAQ A | Card-not-present merchants; fully outsourced card processing; no electronic storage | ~22 requirements |
+| SAQ A-EP | E-commerce merchants with third-party payment page but direct connection to payment processor | ~191 requirements |
+| SAQ B | Merchants using only imprint machines or stand-alone dial-up terminals; no electronic storage | ~41 requirements |
+| SAQ B-IP | Merchants using standalone IP-connected PTS-approved terminals | ~83 requirements |
+| SAQ C | Merchants with payment app systems connected to internet; no electronic CHD storage | ~160 requirements |
+| SAQ C-VT | Merchants using web-based virtual terminal; no electronic CHD storage | ~77 requirements |
+| SAQ D-Merchant | All other merchants not eligible for SAQ A through C | All 12 requirements (~250 sub-reqs) |
+| SAQ D-Service Provider | Service providers not eligible for other SAQs | All 12 requirements + additional SP requirements |
 
 ### 6.5 Scoping
 
-**Cardholder Data Environment (CDE):** Systems that store, process, or transmit CHD or SAD.
+Cardholder Data Environment (CDE): Systems that store, process, or transmit CHD or SAD.
 
-**Connected-to or Security-Impacting:** Systems that connect to the CDE or could impact CDE security — these are in scope even if they do not touch CHD directly (examples: authentication servers, log management, patch management, Active Directory for CDE systems).
+Connected-to or Security-Impacting: Systems that connect to the CDE or could impact CDE security — these are in scope even if they do not touch CHD directly (examples: authentication servers, log management, patch management, Active Directory for CDE systems).
 
-**Out-of-Scope:** Systems fully segmented from the CDE with no connectivity path and no ability to impact CDE security.
+Out-of-Scope: Systems fully segmented from the CDE with no connectivity path and no ability to impact CDE security.
 
-**Scope Reduction Techniques:**
+Scope Reduction Techniques:
 - Network segmentation (firewalls, VLANs) to isolate CDE
-- Tokenization — replace PANs with tokens outside the CDE
-- Point-to-Point Encryption (P2PE) — validated P2PE solutions reduce scope significantly
-- Third-party payment processors — redirect to hosted payment page removes e-commerce from scope (SAQ A)
+- Tokenization: replace PANs with tokens outside the CDE
+- Point-to-Point Encryption (P2PE): validated P2PE solutions reduce scope significantly
+- Third-party payment processors: redirect to hosted payment page removes e-commerce from scope (SAQ A)
 
 ### 6.6 Key Technical Controls
 
@@ -1045,8 +1045,8 @@ Daily log review:
 
 | Approach | Description | When to Use | Documentation Required |
 |----------|-------------|-------------|------------------------|
-| **Defined Approach** | Traditional PCI DSS; implement specific stated requirements | Most organizations | Standard testing procedures apply |
-| **Customized Approach** | Meet the Customized Approach Objective using alternative controls | Organizations with mature security programs wanting flexibility | Formal risk analysis required; document controls; QSA validates independently |
+| Defined Approach | Traditional PCI DSS; implement specific stated requirements | Most organizations | Standard testing procedures apply |
+| Customized Approach | Meet the Customized Approach Objective using alternative controls | Organizations with mature security programs wanting flexibility | Formal risk analysis required; document controls; QSA validates independently |
 
 ### 6.8 Timeline
 
@@ -1066,16 +1066,16 @@ Daily log review:
 
 HIPAA (Health Insurance Portability and Accountability Act, 1996) Privacy and Security Rules protect Protected Health Information (PHI). HITECH (Health Information Technology for Economic and Clinical Health Act, 2009) strengthened HIPAA enforcement and extended requirements to Business Associates.
 
-**Regulated Entities (Covered Entities):**
+Regulated Entities (Covered Entities):
 - Health plans (insurance companies, HMOs, employer health plans)
 - Healthcare clearinghouses
 - Healthcare providers who transmit health information electronically
 
-**Business Associates (BAs):** Vendors/contractors who handle PHI on behalf of covered entities. Business Associates must sign a **Business Associate Agreement (BAA)** and are directly liable for HIPAA Security Rule compliance under HITECH.
+Business Associates (BAs): Vendors/contractors who handle PHI on behalf of covered entities. Business Associates must sign a Business Associate Agreement (BAA) and are directly liable for HIPAA Security Rule compliance under HITECH.
 
-**ePHI:** Electronic Protected Health Information — any PHI created, received, maintained, or transmitted in electronic form.
+ePHI: Electronic Protected Health Information — any PHI created, received, maintained, or transmitted in electronic form.
 
-### 7.2 HIPAA Security Rule — Three Safeguard Categories
+### 7.2 HIPAA Security Rule: Three Safeguard Categories
 
 #### Administrative Safeguards (164.308)
 
@@ -1112,33 +1112,33 @@ HIPAA (Health Insurance Portability and Accountability Act, 1996) Privacy and Se
 
 ### 7.3 Required vs. Addressable Specifications
 
-**Required (R):** Must be implemented; no flexibility. The specific implementation may vary but the standard must be met.
+Required (R): Must be implemented; no flexibility. The specific implementation may vary but the standard must be met.
 
-**Addressable (A):** Entities must assess whether the implementation specification is reasonable and appropriate. If yes, implement it. If no, document the rationale and implement an equivalent alternative measure.
+Addressable (A): Entities must assess whether the implementation specification is reasonable and appropriate. If yes, implement it. If no, document the rationale and implement an equivalent alternative measure.
 
-**Common misunderstanding:** "Addressable" does NOT mean optional. Most addressable specifications are implemented by virtually all organizations; the flexibility is in HOW, not WHETHER.
+Common misunderstanding: "Addressable" does NOT mean optional. Most addressable specifications are implemented by virtually all organizations; the flexibility is in HOW, not WHETHER.
 
 ### 7.4 Risk Analysis Requirement (164.308(a)(1))
 
 The risk analysis is the cornerstone of HIPAA Security Rule compliance and the most cited deficiency in OCR audits.
 
-**Required elements of a compliant risk analysis:**
-1. **Scope:** Identify all ePHI the organization creates, receives, maintains, or transmits
-2. **Threat identification:** Identify reasonably anticipated threats to ePHI confidentiality, integrity, availability
-3. **Vulnerability identification:** Identify vulnerabilities that, if exploited by threats, would create risk
-4. **Current controls:** Assess existing security measures protecting ePHI
-5. **Likelihood assessment:** Estimate the probability that each threat will exploit each vulnerability
-6. **Impact assessment:** Estimate the impact on operations and ePHI if the threat is realized
-7. **Risk rating:** Assign risk levels to identified risk combinations
-8. **Documentation:** Documented risk analysis that can be produced for OCR auditors
+Required elements of a compliant risk analysis:
+1. Scope: Identify all ePHI the organization creates, receives, maintains, or transmits
+2. Threat identification: Identify reasonably anticipated threats to ePHI confidentiality, integrity, availability
+3. Vulnerability identification: Identify vulnerabilities that, if exploited by threats, would create risk
+4. Current controls: Assess existing security measures protecting ePHI
+5. Likelihood assessment: Estimate the probability that each threat will exploit each vulnerability
+6. Impact assessment: Estimate the impact on operations and ePHI if the threat is realized
+7. Risk rating: Assign risk levels to identified risk combinations
+8. Documentation: Documented risk analysis that can be produced for OCR auditors
 
-**NIST SP 800-66 Rev. 2:** Implementation guidance for HIPAA Security Rule — highly recommended reference.
+NIST SP 800-66 Rev. 2: Implementation guidance for HIPAA Security Rule — highly recommended reference.
 
 ### 7.5 Business Associate Agreements (BAA)
 
 A BAA is a contract between a covered entity and a business associate (or between two BAs — a subcontractor BAA).
 
-**Required BAA provisions:**
+Required BAA provisions:
 - Permitted and required uses/disclosures of PHI
 - BA will not use/disclose PHI other than permitted or required by the BAA or law
 - BA will use appropriate safeguards to prevent unauthorized PHI use/disclosure
@@ -1147,41 +1147,41 @@ A BAA is a contract between a covered entity and a business associate (or betwee
 - BA will return or destroy PHI at contract termination
 - BA will make internal practices available to HHS/OCR for audit
 
-**Cloud BAAs:** Major cloud providers offer BAAs:
-- **AWS:** Sign via AWS Artifact; covers 130+ services
-- **Azure:** Covered under Microsoft Online Services Agreement; BAA available via portal
-- **GCP:** Healthcare and Life Sciences addendum (BAA) available for all customers
-- **Microsoft 365:** HIPAA BAA available for E3/E5 licenses and above
+Cloud BAAs: Major cloud providers offer BAAs:
+- AWS: Sign via AWS Artifact; covers 130+ services
+- Azure: Covered under Microsoft Online Services Agreement; BAA available via portal
+- GCP: Healthcare and Life Sciences addendum (BAA) available for all customers
+- Microsoft 365: HIPAA BAA available for E3/E5 licenses and above
 
-### 7.6 HITECH — Increased Penalties
+### 7.6 HITECH: Increased Penalties
 
 HITECH (2009) significantly increased HIPAA penalties and extended liability to Business Associates.
 
-**Civil Monetary Penalty Tiers:**
+Civil Monetary Penalty Tiers:
 
 | Violation Category | Per Violation | Annual Cap |
 |-------------------|---------------|------------|
 | Did not know (and with reasonable diligence would not have known) | $100-$50,000 | $25,000 |
 | Reasonable cause (not willful neglect) | $1,000-$50,000 | $100,000 |
-| Willful neglect — corrected | $10,000-$50,000 | $250,000 |
-| Willful neglect — not corrected | $50,000-$1,900,000 | $1,900,000 |
+| Willful neglect: corrected | $10,000-$50,000 | $250,000 |
+| Willful neglect: not corrected | $50,000-$1,900,000 | $1,900,000 |
 
-**Notable OCR Settlements:**
-- Advocate Health Care (2016): $5.55M — lost unencrypted laptops
-- Memorial Hermann (2017): $2.4M — PHI on press release
-- Premera Blue Cross (2020): $6.85M — inadequate risk analysis; 10.4M records breached
-- Montefiore Medical Center (2023): $4.75M — insider threat; inadequate access controls
+Notable OCR Settlements:
+- Advocate Health Care (2016): $5.55M: lost unencrypted laptops
+- Memorial Hermann (2017): $2.4M: PHI on press release
+- Premera Blue Cross (2020): $6.85M: inadequate risk analysis; 10.4M records breached
+- Montefiore Medical Center (2023): $4.75M: insider threat; inadequate access controls
 
 ### 7.7 Breach Notification Requirements
 
-**Breach:** Impermissible use or disclosure of PHI that compromises security or privacy.
+Breach: Impermissible use or disclosure of PHI that compromises security or privacy.
 
-**Notification timelines:**
-- **Individuals:** Written notice within 60 days of discovery
-- **HHS Secretary:** Within 60 days (breaches fewer than 500 records can be reported annually); same day for breaches affecting 500 or more
-- **Media:** Prominent media notice within 60 days for breaches affecting 500 or more residents of a state/jurisdiction
+Notification timelines:
+- Individuals: Written notice within 60 days of discovery
+- HHS Secretary: Within 60 days (breaches fewer than 500 records can be reported annually); same day for breaches affecting 500 or more
+- Media: Prominent media notice within 60 days for breaches affecting 500 or more residents of a state/jurisdiction
 
-**Safe Harbors (no breach notification required):**
+Safe Harbors (no breach notification required):
 - PHI was encrypted per NIST standards AND the decryption key was not compromised
 - PHI was destroyed per NIST standards
 - The incident was an unintentional acquisition by a workforce member acting in good faith
@@ -1206,29 +1206,29 @@ HITECH (2009) significantly increased HIPAA penalties and extended liability to 
 
 SOC 2 (Service Organization Control 2) is an auditing standard developed by the AICPA for service organizations. SOC 2 Type II reports evaluate the design AND operating effectiveness of controls over a defined period (typically 6-12 months).
 
-**SOC 2 vs. SOC 1:** SOC 1 covers internal controls over financial reporting (ICFR). SOC 2 covers security, availability, and related criteria.
+SOC 2 vs. SOC 1: SOC 1 covers internal controls over financial reporting (ICFR). SOC 2 covers security, availability, and related criteria.
 
-**SOC 2 Type I vs. Type II:**
-- **Type I:** Point-in-time assessment — controls are suitably designed (but not tested over time). Faster to obtain; less rigorous.
-- **Type II:** Assessment over a period (typically 6-12 months) — controls are suitably designed AND operating effectively. More valuable to customers.
+SOC 2 Type I vs. Type II:
+- Type I: Point-in-time assessment: controls are suitably designed (but not tested over time). Faster to obtain; less rigorous.
+- Type II: Assessment over a period (typically 6-12 months): controls are suitably designed AND operating effectively. More valuable to customers.
 
-**Who needs SOC 2:** SaaS companies, cloud providers, data centers, managed service providers — any service organization whose systems store, process, or transmit customer data.
+Who needs SOC 2: SaaS companies, cloud providers, data centers, managed service providers — any service organization whose systems store, process, or transmit customer data.
 
 ### 8.2 Trust Service Criteria (TSC)
 
-**Security (CC):** Required for all SOC 2 reports — the "Common Criteria" (CC) covering logical access, system operations, change management, and risk management.
+Security (CC): Required for all SOC 2 reports — the "Common Criteria" (CC) covering logical access, system operations, change management, and risk management.
 
-**Availability (A):** System availability for operation and use as committed. Add if customers have uptime SLAs.
+Availability (A): System availability for operation and use as committed. Add if customers have uptime SLAs.
 
-**Confidentiality (C):** Information designated as confidential is protected as committed. Add for data handling sensitivity commitments.
+Confidentiality (C): Information designated as confidential is protected as committed. Add for data handling sensitivity commitments.
 
-**Processing Integrity (PI):** System processing is complete, valid, accurate, timely, and authorized. Add for transactional systems (payments, data processing).
+Processing Integrity (PI): System processing is complete, valid, accurate, timely, and authorized. Add for transactional systems (payments, data processing).
 
-**Privacy (P):** Personal information is collected, used, retained, disclosed per privacy notice and AICPA Generally Accepted Privacy Principles. Add for consumer data handling.
+Privacy (P): Personal information is collected, used, retained, disclosed per privacy notice and AICPA Generally Accepted Privacy Principles. Add for consumer data handling.
 
-### 8.3 Common Criteria (CC) Series — Key Controls
+### 8.3 Common Criteria (CC) Series: Key Controls
 
-#### CC6 — Logical and Physical Access Controls
+#### CC6: Logical and Physical Access Controls
 
 | Criterion | Description | Example Evidence |
 |-----------|-------------|-----------------|
@@ -1241,7 +1241,7 @@ SOC 2 (Service Organization Control 2) is an auditing standard developed by the 
 | CC6.7 | Transmission of data restricted | TLS certificates; network diagram; DLP controls |
 | CC6.8 | System accounts restricted; privileged access monitored | PAM solution (CyberArk/Vault); privileged account inventory; session recordings |
 
-#### CC7 — System Operations
+#### CC7: System Operations
 
 | Criterion | Description | Example Evidence |
 |-----------|-------------|-----------------|
@@ -1251,13 +1251,13 @@ SOC 2 (Service Organization Control 2) is an auditing standard developed by the 
 | CC7.4 | Security incidents identified and responded to | Incident response policy; IR runbooks; post-incident reviews |
 | CC7.5 | Disclosure of security incidents | Breach notification procedure; customer notification examples |
 
-#### CC8 — Change Management
+#### CC8: Change Management
 
 | Criterion | Description | Example Evidence |
 |-----------|-------------|-----------------|
 | CC8.1 | Infrastructure/software changes authorized and tested before production | Change management policy; approved change tickets; test results; CAB meeting minutes |
 
-#### CC9 — Risk Mitigation
+#### CC9: Risk Mitigation
 
 | Criterion | Description | Example Evidence |
 |-----------|-------------|-----------------|
@@ -1302,14 +1302,14 @@ evidence/
 
 | Platform | Key Features | Pricing |
 |----------|-------------|---------|
-| **Vanta** | Automated evidence collection; 200+ integrations; vendor management; trust center | ~$15K-$40K/year |
-| **Drata** | Continuous monitoring; policy management; employee security training; cross-framework | ~$15K-$35K/year |
-| **Secureframe** | SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR; AI-assisted evidence collection | ~$12K-$30K/year |
-| **Tugboat Logic** | Policy management; evidence collection; risk assessment; acquired by OneTrust | Varies |
-| **Sprinto** | Fast SOC 2 (6-8 weeks claim); 100+ integrations; onboarding assistance | ~$8K-$20K/year |
-| **AuditBoard** | Enterprise GRC; SOX + SOC 2; cross-functional audit management | Enterprise pricing |
+| Vanta | Automated evidence collection; 200+ integrations; vendor management; trust center | ~$15K-$40K/year |
+| Drata | Continuous monitoring; policy management; employee security training; cross-framework | ~$15K-$35K/year |
+| Secureframe | SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR; AI-assisted evidence collection | ~$12K-$30K/year |
+| Tugboat Logic | Policy management; evidence collection; risk assessment; acquired by OneTrust | Varies |
+| Sprinto | Fast SOC 2 (6-8 weeks claim); 100+ integrations; onboarding assistance | ~$8K-$20K/year |
+| AuditBoard | Enterprise GRC; SOX + SOC 2; cross-functional audit management | Enterprise pricing |
 
-**Self-managed SOC 2:** Organizations can achieve SOC 2 without a compliance platform using spreadsheets + evidence repo + audit firm — typically takes longer and requires more internal effort.
+Self-managed SOC 2: Organizations can achieve SOC 2 without a compliance platform using spreadsheets + evidence repo + audit firm — typically takes longer and requires more internal effort.
 
 ### 8.6 SOC 2 to CSF and ISO 27001 Mapping
 
@@ -1333,17 +1333,17 @@ evidence/
 
 ISO/IEC 27001:2022 is the international standard for information security management systems (ISMS). Organizations can pursue formal third-party certification by an accredited certification body.
 
-**2022 Update:** ISO 27001:2022 replaced ISO 27001:2013. Key changes:
+2022 Update: ISO 27001:2022 replaced ISO 27001:2013. Key changes:
 - Annex A restructured from 114 controls in 14 domains to 93 controls in 4 themes
 - 11 new controls added (covering threat intelligence, cloud security, ICT readiness, data masking, etc.)
 - Control attributes added (control type, security properties, cybersecurity concepts, operational capabilities, security domains)
 - Transition deadline: Organizations with 2013 certification had until October 31, 2025 to transition
 
-### 9.2 ISMS — Information Security Management System
+### 9.2 ISMS: Information Security Management System
 
-An ISMS is the framework of policies, processes, procedures, and controls to manage information security risks. ISO 27001 follows the **Plan-Do-Check-Act (PDCA)** cycle and uses **Annex SL** (common management system structure shared with ISO 9001, ISO 22301, etc.).
+An ISMS is the framework of policies, processes, procedures, and controls to manage information security risks. ISO 27001 follows the Plan-Do-Check-Act (PDCA) cycle and uses Annex SL (common management system structure shared with ISO 9001, ISO 22301, etc.).
 
-**ISMS Clauses (4 through 10 — mandatory):**
+ISMS Clauses (4 through 10 — mandatory):
 
 | Clause | Title | Key Requirements |
 |--------|-------|-----------------|
@@ -1355,11 +1355,11 @@ An ISMS is the framework of policies, processes, procedures, and controls to man
 | 9 | Performance Evaluation | Monitoring; internal audit; management review |
 | 10 | Improvement | Nonconformities; corrective actions; continual improvement |
 
-### 9.3 Annex A Controls — 2022 Structure
+### 9.3 Annex A Controls: 2022 Structure
 
 ISO 27001:2022 Annex A has 93 controls across 4 themes:
 
-#### Theme 1: Organizational Controls (37 controls — A.5.x)
+#### Theme 1: Organizational Controls (37 controls: A.5.x)
 
 | Control | Title |
 |---------|-------|
@@ -1401,7 +1401,7 @@ ISO 27001:2022 Annex A has 93 controls across 4 themes:
 | A.5.36 | Compliance with policies, rules and standards |
 | A.5.37 | Documented operating procedures |
 
-#### Theme 2: People Controls (8 controls — A.6.x)
+#### Theme 2: People Controls (8 controls: A.6.x)
 
 | Control | Title |
 |---------|-------|
@@ -1414,7 +1414,7 @@ ISO 27001:2022 Annex A has 93 controls across 4 themes:
 | A.6.7 | Remote working |
 | A.6.8 | Information security event reporting |
 
-#### Theme 3: Physical Controls (14 controls — A.7.x)
+#### Theme 3: Physical Controls (14 controls: A.7.x)
 
 | Control | Title |
 |---------|-------|
@@ -1433,7 +1433,7 @@ ISO 27001:2022 Annex A has 93 controls across 4 themes:
 | A.7.13 | Equipment maintenance |
 | A.7.14 | Secure disposal or re-use of equipment |
 
-#### Theme 4: Technological Controls (34 controls — A.8.x)
+#### Theme 4: Technological Controls (34 controls: A.8.x)
 
 | Control | Title |
 |---------|-------|
@@ -1485,14 +1485,14 @@ ISO 27001:2022 Annex A has 93 controls across 4 themes:
 | A.8.10 Information deletion | Technological | Right to erasure (GDPR) and secure data destruction now mainstream |
 | A.8.11 Data masking | Technological | Privacy-by-design; anonymization/pseudonymization for dev/test environments |
 | A.8.12 Data leakage prevention | Technological | DLP tools now widely available; explicit control required |
-| A.8.16 Monitoring activities | Technological | Broader than just audit logs — includes anomaly detection, threat monitoring |
+| A.8.16 Monitoring activities | Technological | Broader than just audit logs: includes anomaly detection, threat monitoring |
 | A.8.23 Web filtering | Technological | Web-based threat vectors increased significantly |
 
 ### 9.5 Statement of Applicability (SoA)
 
 The SoA is the central ISMS document listing all 93 Annex A controls, whether each is applicable, justification for applicability or exclusion, and implementation status.
 
-**SoA Template Structure:**
+SoA Template Structure:
 
 | Control ID | Control Title | Applicable? | Justification | Implementation Status | Evidence Reference |
 |------------|--------------|-------------|---------------|-----------------------|--------------------|
@@ -1500,16 +1500,16 @@ The SoA is the central ISMS document listing all 93 Annex A controls, whether ea
 | A.5.23 | Cloud services security | Yes | Organization uses AWS and Azure | In progress | Cloud-SEC-PROC-003 |
 | A.7.1 | Physical security perimeters | No | Fully remote organization; no physical office | Excluded | — |
 
-**Important:** Excluding a control requires documented justification. Auditors will challenge exclusions that do not have sound rationale.
+Important: Excluding a control requires documented justification. Auditors will challenge exclusions that do not have sound rationale.
 
 ### 9.6 Risk Treatment Options
 
 | Option | Description | When to Use |
 |--------|-------------|-------------|
-| **Modify** (Treat/Mitigate) | Implement controls to reduce likelihood or impact | Risk above tolerance; controls are cost-effective |
-| **Retain** (Accept) | Consciously accept the risk without additional controls | Risk within appetite; treatment cost exceeds potential loss |
-| **Avoid** | Eliminate the activity that creates the risk | Risk is unacceptable and activity is not essential |
-| **Share** (Transfer) | Transfer risk to a third party via insurance or contract | Financial risks; low control over threat sources |
+| Modify (Treat/Mitigate) | Implement controls to reduce likelihood or impact | Risk above tolerance; controls are cost-effective |
+| Retain (Accept) | Consciously accept the risk without additional controls | Risk within appetite; treatment cost exceeds potential loss |
+| Avoid | Eliminate the activity that creates the risk | Risk is unacceptable and activity is not essential |
+| Share (Transfer) | Transfer risk to a third party via insurance or contract | Financial risks; low control over threat sources |
 
 ### 9.7 ISO 27001 Certification Process
 
@@ -1546,9 +1546,9 @@ Month 12+: Certification Issued
   Recertification audit: Year 3 (full audit)
 ```
 
-**Major Nonconformity:** Failure to meet a mandatory clause requirement or an applicable Annex A control. Must be corrected before certification is granted.
-**Minor Nonconformity:** Control gap that does not represent a system failure. Must be corrected within the certification cycle.
-**Observation:** Area for improvement, not a finding. Not required to address.
+Major Nonconformity: Failure to meet a mandatory clause requirement or an applicable Annex A control. Must be corrected before certification is granted.
+Minor Nonconformity: Control gap that does not represent a system failure. Must be corrected within the certification cycle.
+Observation: Area for improvement, not a finding. Not required to address.
 
 ---
 
@@ -1560,8 +1560,8 @@ Month 12+: Certification Issued
 
 An open-source compliance automation platform designed to make FedRAMP, NIST 800-53, and other government framework compliance more manageable.
 
-**Repository:** `https://github.com/GovReady/govready-q`
-**Key features:**
+Repository: `https://github.com/GovReady/govready-q`
+Key features:
 - Questionnaire-driven compliance data collection
 - Machine-readable compliance output (OSCAL)
 - Multi-tenant (multiple systems/teams)
@@ -1579,8 +1579,8 @@ docker-compose up
 
 VECTR tracks adversary simulation and purple team activities against security controls, helping organizations measure control effectiveness over time.
 
-**Repository:** `https://github.com/SecurityRiskAdvisors/VECTR`
-**Key features:**
+Repository: `https://github.com/SecurityRiskAdvisors/VECTR`
+Key features:
 - Track red team and blue team activities
 - Map findings to MITRE ATT&CK
 - Measure detection and prevention rates per control
@@ -1597,7 +1597,7 @@ docker-compose up -d
 # Access at https://localhost:8081
 ```
 
-**VECTR Workflow:**
+VECTR Workflow:
 1. Create a campaign (e.g., "Q4 2024 Purple Team")
 2. Import ATT&CK techniques as test cases
 3. Record attack execution results (succeed/fail)
@@ -1609,7 +1609,7 @@ docker-compose up -d
 
 Open-source vulnerability assessment and management platform that aggregates scanner output and maps to compliance frameworks.
 
-**Repository:** `https://github.com/archerysec/archerysec`
+Repository: `https://github.com/archerysec/archerysec`
 
 ```bash
 # Docker deployment
@@ -1620,7 +1620,7 @@ docker-compose up -d
 # Map vulnerabilities to CIS Controls, PCI DSS requirements
 ```
 
-### 10.2 Risk Register — Spreadsheet vs. GRC Platform
+### 10.2 Risk Register: Spreadsheet vs. GRC Platform
 
 | Feature | Spreadsheet (Excel/Sheets) | Dedicated GRC Platform |
 |---------|---------------------------|------------------------|
@@ -1636,7 +1636,7 @@ docker-compose up -d
 | API/integrations | None | Extensive |
 | Best for | Startups, small orgs, initial programs | Mid-market and enterprise |
 
-**Spreadsheet Risk Register Template Columns (minimal viable):**
+Spreadsheet Risk Register Template Columns (minimal viable):
 ```
 Risk ID | Asset | Threat | Vulnerability | Likelihood (1-5) | Impact (1-5) |
 Inherent Score | Controls | Residual Score | Owner | Due Date | Status | Notes
@@ -1645,34 +1645,34 @@ Inherent Score | Controls | Residual Score | Owner | Due Date | Status | Notes
 ### 10.3 Commercial Compliance Automation Platforms
 
 #### Vanta
-- **Focus:** SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA, CMMC
-- **Integrations:** 200+ (AWS, GCP, Azure, GitHub, Jira, Okta, Slack, etc.)
-- **Key differentiator:** Automated evidence collection; continuous compliance monitoring
-- **Trust Center:** Public-facing page showing compliance status to customers
-- **Pricing:** ~$15,000-$40,000/year depending on frameworks and size
+- Focus: SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR, CCPA, CMMC
+- Integrations: 200+ (AWS, GCP, Azure, GitHub, Jira, Okta, Slack, etc.)
+- Key differentiator: Automated evidence collection; continuous compliance monitoring
+- Trust Center: Public-facing page showing compliance status to customers
+- Pricing: ~$15,000-$40,000/year depending on frameworks and size
 
 #### Drata
-- **Focus:** SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR, CMMC, FedRAMP
-- **Integrations:** 150+ with automated evidence pull
-- **Key differentiator:** Policy management; employee security training module built-in
-- **Workflows:** Automated vendor questionnaires; access review automation
-- **Pricing:** ~$15,000-$35,000/year
+- Focus: SOC 2, ISO 27001, HIPAA, PCI DSS, GDPR, CMMC, FedRAMP
+- Integrations: 150+ with automated evidence pull
+- Key differentiator: Policy management; employee security training module built-in
+- Workflows: Automated vendor questionnaires; access review automation
+- Pricing: ~$15,000-$35,000/year
 
 #### Secureframe
-- **Focus:** SOC 2, ISO 27001, PCI DSS, HIPAA, GDPR, NIST, FedRAMP
-- **Key differentiator:** AI-assisted gap identification; faster time to compliance
-- **Integrations:** 150+
-- **Pricing:** ~$12,000-$30,000/year
+- Focus: SOC 2, ISO 27001, PCI DSS, HIPAA, GDPR, NIST, FedRAMP
+- Key differentiator: AI-assisted gap identification; faster time to compliance
+- Integrations: 150+
+- Pricing: ~$12,000-$30,000/year
 
 ### 10.4 Policy Management Platforms
 
 | Platform | Type | Key Features |
 |----------|------|-------------|
-| **Tugboat Logic** (OneTrust) | SaaS | Policy library; control mapping; evidence collection |
-| **PolicyTech** (NAVEX) | SaaS | Policy lifecycle; attestation tracking; version control |
-| **LogicManager** | SaaS | Enterprise GRC; policy + risk + audit integration |
-| **ServiceNow GRC** | SaaS/On-prem | Enterprise; ITSM integration; deep customization |
-| **Hyperproof** | SaaS | Multi-framework; evidence collection; audit management |
+| Tugboat Logic (OneTrust) | SaaS | Policy library; control mapping; evidence collection |
+| PolicyTech (NAVEX) | SaaS | Policy lifecycle; attestation tracking; version control |
+| LogicManager | SaaS | Enterprise GRC; policy + risk + audit integration |
+| ServiceNow GRC | SaaS/On-prem | Enterprise; ITSM integration; deep customization |
+| Hyperproof | SaaS | Multi-framework; evidence collection; audit management |
 
 ### 10.5 Third-Party Risk Management (TPRM) Workflow
 
@@ -1707,20 +1707,20 @@ TPRM Life Cycle:
    - Contract termination checklist
 ```
 
-**Questionnaire Standards:**
-- **SIG (Standardized Information Gathering):** Industry standard; ~1,400 questions; maintained by Shared Assessments
-- **CAIQ (Consensus Assessments Initiative Questionnaire):** CSA cloud security questionnaire for cloud providers
-- **VSA (Vendor Security Alliance Questionnaire):** Shorter, focused questionnaire
-- **Custom:** Internal questionnaire tailored to organization's risk areas
+Questionnaire Standards:
+- SIG (Standardized Information Gathering): Industry standard; ~1,400 questions; maintained by Shared Assessments
+- CAIQ (Consensus Assessments Initiative Questionnaire): CSA cloud security questionnaire for cloud providers
+- VSA (Vendor Security Alliance Questionnaire): Shorter, focused questionnaire
+- Custom: Internal questionnaire tailored to organization's risk areas
 
-**Continuous Monitoring Tools:**
+Continuous Monitoring Tools:
 
 | Tool | Key Metrics | Notes |
 |------|-------------|-------|
-| **SecurityScorecard** | Letter grade (A-F); 10+ factor analysis | Widely used; customer-facing scorecards |
-| **BitSight** | Numeric score (250-900) | Strong enterprise adoption |
-| **RiskRecon** | Risk rating with issue details | Internet-facing asset discovery |
-| **Black Kite** | Three-dimensional rating (cyber/financial/compliance) | Regulatory compliance scoring |
+| SecurityScorecard | Letter grade (A-F); 10+ factor analysis | Widely used; customer-facing scorecards |
+| BitSight | Numeric score (250-900) | Strong enterprise adoption |
+| RiskRecon | Risk rating with issue details | Internet-facing asset discovery |
+| Black Kite | Three-dimensional rating (cyber/financial/compliance) | Regulatory compliance scoring |
 
 ### 10.6 Evidence Collection Automation
 
@@ -1789,7 +1789,7 @@ Exceptions/Drift Alerts:
   - Risk register update
 ```
 
-**Key Integrations for Continuous Compliance:**
+Key Integrations for Continuous Compliance:
 ```
 Identity:    Okta, Azure AD, JumpCloud           -> CC6 (access, MFA)
 Cloud:       AWS Config, Azure Policy, GCP SCC   -> CC6, CC7

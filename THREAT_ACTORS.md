@@ -1,12 +1,12 @@
 # Threat Actor Reference
 
-> **In one minute** — A quick-reference catalog of the threat actors that matter: nation-state APT groups (advanced persistent threats — state-backed intrusion teams) from China, Russia, North Korea, and Iran, plus ransomware operators, financial crime groups, and hacktivists. Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs (tactics, techniques, and procedures), so you can go from a name in a report to what the group actually does. Useful when you need attribution context, actor-specific TTPs to detect or emulate, or a fast answer to "who is Fancy Bear again?"
+> In one minute — A quick-reference catalog of the threat actors that matter: nation-state APT groups (advanced persistent threats — state-backed intrusion teams) from China, Russia, North Korea, and Iran, plus ransomware operators, financial crime groups, and hacktivists. Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs (tactics, techniques, and procedures), so you can go from a name in a report to what the group actually does. Useful when you need attribution context, actor-specific TTPs to detect or emulate, or a fast answer to "who is Fancy Bear again?"
 
 | | |
 |---|---|
-| **Read this when** | an intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
-| **Start at** | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
-| **Pairs with** | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
+| Read this when | an intel report or news story names an actor you need context on, you are building detections or emulation plans around a specific group's TTPs, you are briefing leadership on who targets your sector |
+| Start at | [Nation-State APTs](#nation-state-apts), [Ransomware Groups](#ransomware-groups), [Threat Intelligence Tools for Actor Tracking](#threat-intelligence-tools-for-actor-tracking) |
+| Pairs with | [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md), [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md), [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) |
 
 A quick-reference guide to notable advanced persistent threat (APT) groups, ransomware operators, and cybercriminal organizations, mapped to their known TTPs and ATT&CK groups. For deeper intelligence, use MISP, OpenCTI, or the ATT&CK Groups catalog.
 
@@ -21,13 +21,13 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 | Group | ATT&CK ID | Also Known As | Primary Targets | Notable Operations |
 |---|---|---|---|---|
 | APT1 | [G0006](https://attack.mitre.org/groups/G0006/) | Comment Crew, Shanghai Group | Aerospace, defense, energy, telecom | Mandiant APT1 report (2013) |
-| APT10 | [G0045](https://attack.mitre.org/groups/G0045/) | Stone Panda, MenuPass, Potassium | MSPs, healthcare, government | Cloud Hopper — MSP supply chain (2017) |
+| APT10 | [G0045](https://attack.mitre.org/groups/G0045/) | Stone Panda, MenuPass, Potassium | MSPs, healthcare, government | Cloud Hopper: MSP supply chain (2017) |
 | APT40 | [G0065](https://attack.mitre.org/groups/G0065/) | BRONZE MOHAWK, Kryptonite Panda | Maritime, defense, aviation, universities | Exploits N-day vulns rapidly after disclosure |
 | APT41 | [G0096](https://attack.mitre.org/groups/G0096/) | Winnti, Barium, Double Dragon | Gaming, healthcare, telecom, financial | Dual espionage + financial crime; supply chain |
 | Volt Typhoon | [G1017](https://attack.mitre.org/groups/G1017/) | Bronze Silhouette | US critical infrastructure | LOTL techniques; pre-positioning in US infrastructure |
 | Salt Typhoon | — | — | US telecom carriers | Wiretap access to US carrier infrastructure (2024) |
 
-**Common TTPs**: Spearphishing (T1566), Valid Accounts (T1078), Living off the Land (T1059), Web Shell (T1505.003), Supply chain compromise (T1195)
+Common TTPs: Spearphishing (T1566), Valid Accounts (T1078), Living off the Land (T1059), Web Shell (T1505.003), Supply chain compromise (T1195)
 
 ---
 
@@ -41,7 +41,7 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 | Turla | [G0010](https://attack.mitre.org/groups/G0010/) | Snake, Venomous Bear, Waterbug | Governments, embassies, military | 25+ year campaign; satellite C2; Snake malware (dismantled 2023) |
 | Gamaredon | [G0047](https://attack.mitre.org/groups/G0047/) | Primitive Bear, ACTINIUM | Ukraine government | High-volume spearphishing, persistent access to Ukrainian entities |
 
-**Common TTPs**: Spearphishing (T1566), credential theft (T1003), supply chain (T1195), destructive malware (T1485), living off the land
+Common TTPs: Spearphishing (T1566), credential theft (T1003), supply chain (T1195), destructive malware (T1485), living off the land
 
 ---
 
@@ -53,7 +53,7 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 | Kimsuky | [G0094](https://attack.mitre.org/groups/G0094/) | Thallium, Black Banshee | Government, think tanks, South Korea, academia | Spearphishing for intelligence collection |
 | Andariel | [G0138](https://attack.mitre.org/groups/G0138/) | Silent Chollima | Healthcare, defense, financial | Ransomware (Maui), ATM cashout schemes |
 
-**Common TTPs**: Social engineering (T1566), credential theft, crypto theft (T1657), destructive malware, watering hole (T1189)
+Common TTPs: Social engineering (T1566), credential theft, crypto theft (T1657), destructive malware, watering hole (T1189)
 
 ---
 
@@ -66,7 +66,7 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 | APT35 | [G0059](https://attack.mitre.org/groups/G0059/) | Charming Kitten, Phosphorus, TA453 | Journalists, activists, nuclear researchers | Password spray, phishing for credentials |
 | Volt Typhoon lookalike | — | Cyber Av3ngers (IRGC) | US water/wastewater systems | Unitronics PLC exploitation (2023) |
 
-**Common TTPs**: Password spray (T1110), spearphishing (T1566), web shell (T1505.003), DNS tunneling (T1071.004), destructive wipers
+Common TTPs: Password spray (T1110), spearphishing (T1566), web shell (T1505.003), DNS tunneling (T1071.004), destructive wipers
 
 ---
 
@@ -74,16 +74,16 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 
 | Group | Status | Notable Attacks | Ransomware | Notes |
 |---|---|---|---|---|
-| LockBit | Disrupted (2024 Operation Cronos) | Royal Mail, ICBC, Boeing | LockBit 3.0 | Most prolific RaaS 2022–2024; rebuilt post-disruption |
+| LockBit | Disrupted (2024 Operation Cronos) | Royal Mail, ICBC, Boeing | LockBit 3.0 | Most prolific RaaS 2022-2024; rebuilt post-disruption |
 | ALPHV / BlackCat | Dismantled (FBI, Dec 2023) | MGM Resorts ($100M+), Caesars, Change Healthcare | BlackCat/ALPHV | Rust-based ransomware; triple extortion |
-| Clop | Active | MOVEit (2023 — 2,000+ orgs), GoAnywhere, Accellion | Cl0p | Specializes in MFT zero-day exploitation |
+| Clop | Active | MOVEit (2023: 2,000+ orgs), GoAnywhere, Accellion | Cl0p | Specializes in MFT zero-day exploitation |
 | Black Basta | Active | Ascension Health, BACnet organizations | Black Basta | Ex-Conti operators; QAKBOT distribution |
 | RansomHub | Active | 200+ orgs (2024) | RansomHub | Launched Feb 2024; targeting critical infrastructure |
 | Scattered Spider | Active | MGM Resorts, Caesars, ~130 orgs | ALPHV affiliate | Social engineering specialists; vishing IT helpdesks |
 | Play | Active | Dallas, Oakland, Rackspace | Play | Targeting VMware ESXi vulnerabilities |
 | Royal | Believed merged into BlackSuit | Dallas city government | Royal | Ex-Conti members; Batloader distribution |
 
-**Common TTPs**: Initial access via T1566/T1133/T1190, credential access (T1003/T1110), lateral movement, data exfiltration before encryption (T1048), T1486 (encryption), T1489 (service stop), double/triple extortion
+Common TTPs: Initial access via T1566/T1133/T1190, credential access (T1003/T1110), lateral movement, data exfiltration before encryption (T1048), T1486 (encryption), T1489 (service stop), double/triple extortion
 
 ---
 
@@ -138,7 +138,7 @@ Use filters for country attribution, associated software, and technique mapping.
 
 ## TLP and Sharing Frameworks
 
-Threat intelligence is shared under the **Traffic Light Protocol (TLP)**:
+Threat intelligence is shared under the Traffic Light Protocol (TLP):
 
 | TLP Color | Sharing Scope |
 |---|---|
@@ -148,7 +148,7 @@ Threat intelligence is shared under the **Traffic Light Protocol (TLP)**:
 | TLP:GREEN | Community sharing; not publicly posted |
 | TLP:CLEAR (formerly TLP:WHITE, renamed in TLP 2.0) | Unrestricted public sharing |
 
-**Intelligence sharing platforms**: ISACs (sector-specific), MISP communities, FS-ISAC, MS-ISAC, CISA AIS (Automated Indicator Sharing)
+Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-ISAC, MS-ISAC, CISA AIS (Automated Indicator Sharing)
 
 ---
 ---
@@ -193,11 +193,11 @@ Threat intelligence is shared under the **Traffic Light Protocol (TLP)**:
 - Attribution: Chinese state-sponsored, PRC
 - Notable operations: US critical infrastructure pre-positioning (2023-present), Guam military networks, living-off-the-land confirmed by CISA/NSA/FBI joint advisory
 - Signature TTPs: Zero use of custom malware (LOL only), KV-Botnet SOHO router proxy network, LOTL (wmic, netsh, ntdsutil, certutil), web shells on edge devices
-- Primary targets: US military bases, communications infrastructure, power grid, water — pre-positioning for potential conflict
+- Primary targets: US military bases, communications infrastructure, power grid, water: pre-positioning for potential conflict
 
 ### APT10 / Stone Panda / MenuPass
 - Attribution: Chinese MSS (Tianjin State Security Bureau)
-- Notable operations: Cloud Hopper (2016-2018) — massive MSP supply chain attack compromising hundreds of downstream enterprises, US Navy contractor breach (614GB stolen)
+- Notable operations: Cloud Hopper (2016-2018): massive MSP supply chain attack compromising hundreds of downstream enterprises, US Navy contractor breach (614GB stolen)
 - Signature TTPs: MSP targeting for downstream access, PlugX/RedLeaves/UPPERCUT, spearphishing, VPN exploitation
 
 ---
@@ -232,37 +232,37 @@ Threat intelligence is shared under the **Traffic Light Protocol (TLP)**:
 
 | Group | Active Period | RaaS? | Notable Victims | Takedown Status | Key TTPs |
 |---|---|---|---|---|---|
-| LockBit | 2019–present | Yes | Royal Mail, ICBC, Boeing | Disrupted Feb 2024 (Op Cronos), rebuilt; operators indicted | Double extortion, affiliate model, ESXi attacks |
-| ALPHV/BlackCat | 2021–2024 | Yes | MGM Resorts ($100M+), Change Healthcare | Disbanded 2024; FBI seized infra, exit scam | Rust-based ransomware, triple extortion |
-| Conti | 2020–2022 | Yes | HSE Ireland, Broward County schools | Disbanded 2022; playbooks leaked; members joined BlackBasta/Royal | Cobalt Strike, Ryuk successor |
-| REvil/Sodinokibi | 2019–2021 | Yes | Kaseya VSA (1500+ orgs), JBS Foods | Seized Nov 2021; members arrested in Russia (2022) | Supply chain, auction-based extortion |
-| DarkSide/BlackMatter | 2020–2021 | Yes | Colonial Pipeline ($4.4M ransom) | Rebranded after Colonial Pipeline pressure; BlackMatter successor also shutdown | Affiliate RaaS, ESXi, double extortion |
-| Cl0p | 2019–present | No (FIN11 nexus) | MOVEit campaign (2023, 2000+ orgs), GoAnywhere, Accellion | Active | MFT zero-day exploitation specialty |
-| Scattered Spider / 0ktapus | 2022–present | Affiliate | MGM, Caesars, ~130 orgs | Members arrested 2023-2024 (English-speaking, UG) | Social engineering, MFA fatigue, helpdesk vishing |
-| Akira | 2023–present | Yes | Stanford, Cisco | Active | Conti successor TTP overlap; ESXi attacks |
-| Play | 2022–present | No | Dallas, Oakland, Rackspace | Active | VMware ESXi vulns, no public leak site initially |
-| Black Basta | 2022–present | Yes | Ascension Health, BACnet orgs | Active | Ex-Conti operators; QakBot distribution |
+| LockBit | 2019-present | Yes | Royal Mail, ICBC, Boeing | Disrupted Feb 2024 (Op Cronos), rebuilt; operators indicted | Double extortion, affiliate model, ESXi attacks |
+| ALPHV/BlackCat | 2021-2024 | Yes | MGM Resorts ($100M+), Change Healthcare | Disbanded 2024; FBI seized infra, exit scam | Rust-based ransomware, triple extortion |
+| Conti | 2020-2022 | Yes | HSE Ireland, Broward County schools | Disbanded 2022; playbooks leaked; members joined BlackBasta/Royal | Cobalt Strike, Ryuk successor |
+| REvil/Sodinokibi | 2019-2021 | Yes | Kaseya VSA (1500+ orgs), JBS Foods | Seized Nov 2021; members arrested in Russia (2022) | Supply chain, auction-based extortion |
+| DarkSide/BlackMatter | 2020-2021 | Yes | Colonial Pipeline ($4.4M ransom) | Rebranded after Colonial Pipeline pressure; BlackMatter successor also shutdown | Affiliate RaaS, ESXi, double extortion |
+| Cl0p | 2019-present | No (FIN11 nexus) | MOVEit campaign (2023, 2000+ orgs), GoAnywhere, Accellion | Active | MFT zero-day exploitation specialty |
+| Scattered Spider / 0ktapus | 2022-present | Affiliate | MGM, Caesars, ~130 orgs | Members arrested 2023-2024 (English-speaking, UG) | Social engineering, MFA fatigue, helpdesk vishing |
+| Akira | 2023-present | Yes | Stanford, Cisco | Active | Conti successor TTP overlap; ESXi attacks |
+| Play | 2022-present | No | Dallas, Oakland, Rackspace | Active | VMware ESXi vulns, no public leak site initially |
+| Black Basta | 2022-present | Yes | Ascension Health, BACnet orgs | Active | Ex-Conti operators; QakBot distribution |
 
 ---
 
 ## Hacktivists and Other Actors
 
-- **Anonymous**: Decentralized collective with no persistent infrastructure. Key operations: Operation Payback (RIAA/MPAA 2010), HBGary Federal hack (2011 — exposed HB Gary's plans against WikiLeaks), OpRussia (2022 Ukraine war). Capability varies widely by participant.
-- **Lapsus$**: South American teenager-led group (2021-2022). Hit Microsoft, Okta, Nvidia, Samsung, T-Mobile via social engineering and MFA fatigue attacks — no traditional malware. Several members arrested in UK and Brazil (2022).
-- **GhostSec**: Initially anti-ISIS hacktivists; shifted to pro-Russian/anti-NATO stance during Ukraine war; associated with ransomware operations in 2023.
-- **KillNet**: Pro-Russian hacktivist collective conducting DDoS campaigns against NATO member websites, hospitals, and government portals during Ukraine conflict. Limited persistent impact beyond availability disruption.
-- **IT Army of Ukraine**: Volunteer cyber force targeting Russian infrastructure, organized via Telegram; coordinated DDoS and data exfiltration against Russian state entities.
+- Anonymous: Decentralized collective with no persistent infrastructure. Key operations: Operation Payback (RIAA/MPAA 2010), HBGary Federal hack (2011 — exposed HB Gary's plans against WikiLeaks), OpRussia (2022 Ukraine war). Capability varies widely by participant.
+- Lapsus$: South American teenager-led group (2021-2022). Hit Microsoft, Okta, Nvidia, Samsung, T-Mobile via social engineering and MFA fatigue attacks — no traditional malware. Several members arrested in UK and Brazil (2022).
+- GhostSec: Initially anti-ISIS hacktivists; shifted to pro-Russian/anti-NATO stance during Ukraine war; associated with ransomware operations in 2023.
+- KillNet: Pro-Russian hacktivist collective conducting DDoS campaigns against NATO member websites, hospitals, and government portals during Ukraine conflict. Limited persistent impact beyond availability disruption.
+- IT Army of Ukraine: Volunteer cyber force targeting Russian infrastructure, organized via Telegram; coordinated DDoS and data exfiltration against Russian state entities.
 
 
 ---
 
 ## Related Resources
-- [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md) — timeline of major cyber incidents
-- [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md) — malware family reference by threat actor
-- [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md) — incident response playbooks for APT intrusions
-- [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) — Sigma/YARA/Snort rules mapped to actor TTPs
-- [Threat Intelligence](disciplines/threat-intelligence.md) — full discipline page with tools and methodology
-- [Detection Engineering](disciplines/detection-engineering.md) — building detections from actor TTPs
-- [ATT&CK Navigator](navigator/) — visualize actor coverage against your controls
-- [Incident Response](disciplines/incident-response.md) — responding to APT intrusions
-- [Purple Teaming](disciplines/purple-teaming.md) — emulating actor TTPs for detection validation
+- [NOTABLE_INCIDENTS.md](NOTABLE_INCIDENTS.md): timeline of major cyber incidents
+- [MALWARE_FAMILIES.md](MALWARE_FAMILIES.md): malware family reference by threat actor
+- [IR_PLAYBOOKS.md](IR_PLAYBOOKS.md): incident response playbooks for APT intrusions
+- [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md): Sigma/YARA/Snort rules mapped to actor TTPs
+- [Threat Intelligence](disciplines/threat-intelligence.md): full discipline page with tools and methodology
+- [Detection Engineering](disciplines/detection-engineering.md): building detections from actor TTPs
+- [ATT&CK Navigator](navigator/): visualize actor coverage against your controls
+- [Incident Response](disciplines/incident-response.md): responding to APT intrusions
+- [Purple Teaming](disciplines/purple-teaming.md): emulating actor TTPs for detection validation

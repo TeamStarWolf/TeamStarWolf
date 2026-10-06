@@ -2,13 +2,13 @@
 
 > A curated bookmarks reference for security professionals — free and open source tools organized by discipline.
 > Companion to [TOOLS.md](TOOLS.md) (enterprise/commercial coverage) and [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md).
-> All tools listed here are free to use unless noted as **[free tier]** or **[commercial, listed for reference]**.
+> All tools listed here are free to use unless noted as [free tier] or [commercial, listed for reference].
 
 | | |
 |---|---|
-| **Read this when** | you need a free tool for a specific job (recon, cracking, forensics, cloud audit), you are building out a lab or home toolkit, you want the practice platform or cheat-sheet link you half-remember |
-| **Start at** | [Reconnaissance & OSINT](#reconnaissance-amp-osint), [Detection & Blue Team](#detection-amp-blue-team), [Online Resources & Bookmarks](#online-resources-amp-bookmarks) |
-| **Pairs with** | [TOOLS.md](TOOLS.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
+| Read this when | you need a free tool for a specific job (recon, cracking, forensics, cloud audit), you are building out a lab or home toolkit, you want the practice platform or cheat-sheet link you half-remember |
+| Start at | [Reconnaissance & OSINT](#reconnaissance-amp-osint), [Detection & Blue Team](#detection-amp-blue-team), [Online Resources & Bookmarks](#online-resources-amp-bookmarks) |
+| Pairs with | [TOOLS.md](TOOLS.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
 
 ---
 
@@ -90,7 +90,7 @@
 | Sliver | [github.com/BishopFox/sliver](https://github.com/BishopFox/sliver) | Open source cross-platform adversary simulation C2 framework |
 | Havoc C2 | [github.com/HavocFramework/Havoc](https://github.com/HavocFramework/Havoc) | Modern and malleable post-exploitation C2 framework |
 | Covenant | [github.com/cobbr/Covenant](https://github.com/cobbr/Covenant) | Collaborative .NET C2 framework for red team operations |
-| Cobalt Strike | [cobaltstrike.com](https://www.cobaltstrike.com/) | Industry-standard adversary simulation platform **[commercial, listed for reference]** |
+| Cobalt Strike | [cobaltstrike.com](https://www.cobaltstrike.com/) | Industry-standard adversary simulation platform [commercial, listed for reference] |
 | SILENTTRINITY | [github.com/byt3bl33d3r/SILENTTRINITY](https://github.com/byt3bl33d3r/SILENTTRINITY) | IronPython-based post-exploitation agent and C2 |
 | PoshC2 | [github.com/nettitude/PoshC2](https://github.com/nettitude/PoshC2) | Proxy-aware C2 framework with Python3 implants and PowerShell |
 
@@ -100,9 +100,9 @@
 
 | Tool | Repo / Link | Purpose |
 |------|-------------|---------|
-| BloodHound CE | [github.com/SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) | Graph-based Active Directory attack path analysis (SpecterOps Community Edition; legacy BloodHoundAD repo → SpecterOps/BloodHound-Legacy, unmaintained) |
+| BloodHound CE | [github.com/SpecterOps/BloodHound](https://github.com/SpecterOps/BloodHound) | Graph-based Active Directory attack path analysis (SpecterOps Community Edition; legacy BloodHoundAD repo -> SpecterOps/BloodHound-Legacy, unmaintained) |
 | SharpHound | [github.com/SpecterOps/SharpHound](https://github.com/SpecterOps/SharpHound) | C# data collector (ingestor) for BloodHound (now under SpecterOps) |
-| Mimikatz | [github.com/gentilkiwi/mimikatz](https://github.com/gentilkiwi/mimikatz) | Windows credential extraction — LSASS, Kerberos, hashes |
+| Mimikatz | [github.com/gentilkiwi/mimikatz](https://github.com/gentilkiwi/mimikatz) | Windows credential extraction: LSASS, Kerberos, hashes |
 | Rubeus | [github.com/GhostPack/Rubeus](https://github.com/GhostPack/Rubeus) | C# Kerberos abuse toolkit for Windows environments |
 | evil-winrm | [github.com/Hackplayers/evil-winrm](https://github.com/Hackplayers/evil-winrm) | WinRM shell for pentesting with upload/download and script loading |
 | PowerSploit | [github.com/PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit) | PowerShell post-exploitation framework (archived 2021-01-21, read-only/unmaintained; still widely referenced) |
@@ -200,14 +200,14 @@
 
 | Tool | Repo / Link | Purpose |
 |------|-------------|---------|
-| Ghidra | [github.com/NationalSecurityAgency/ghidra](https://github.com/NationalSecurityAgency/ghidra) | NSA open source SRE suite — disassembler, decompiler, scripting |
+| Ghidra | [github.com/NationalSecurityAgency/ghidra](https://github.com/NationalSecurityAgency/ghidra) | NSA open source SRE suite: disassembler, decompiler, scripting |
 | radare2 | [github.com/radareorg/radare2](https://github.com/radareorg/radare2) | Portable multi-arch disassembly and binary analysis framework |
 | Cutter | [github.com/rizinorg/cutter](https://github.com/rizinorg/cutter) | GUI frontend for Rizin/radare2 with decompiler integration |
 | x64dbg | [github.com/x64dbg/x64dbg](https://github.com/x64dbg/x64dbg) | Open source x64/x32 Windows debugger for malware and vulnerability research |
-| Binary Ninja | [binary.ninja](https://binary.ninja/) | Interactive binary analysis platform with Python API **[commercial, free personal tier]** |
-| IDA Free | [hex-rays.com/ida-free](https://hex-rays.com/ida-free/) | Freeware version of the IDA Pro disassembler **[commercial, listed for reference]** |
+| Binary Ninja | [binary.ninja](https://binary.ninja/) | Interactive binary analysis platform with Python API [commercial, free personal tier] |
+| IDA Free | [hex-rays.com/ida-free](https://hex-rays.com/ida-free/) | Freeware version of the IDA Pro disassembler [commercial, listed for reference] |
 | pwndbg | [github.com/pwndbg/pwndbg](https://github.com/pwndbg/pwndbg) | GDB plugin that makes exploit development and RE much easier |
-| GEF | [github.com/hugsy/gef](https://github.com/hugsy/gef) | GDB Enhanced Features — multi-arch exploit development plugin |
+| GEF | [github.com/hugsy/gef](https://github.com/hugsy/gef) | GDB Enhanced Features: multi-arch exploit development plugin |
 | rizin | [github.com/rizinorg/rizin](https://github.com/rizinorg/rizin) | UNIX-like RE framework and command-line toolset (radare2 fork) |
 | angr | [github.com/angr/angr](https://github.com/angr/angr) | Python binary analysis framework supporting symbolic execution |
 
@@ -279,7 +279,7 @@
 |------|-------------|---------|
 | OpenVAS / Greenbone | [github.com/greenbone/openvas-scanner](https://github.com/greenbone/openvas-scanner) | Full-featured open source network vulnerability assessment scanner |
 | Nuclei | [github.com/projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) | Template-based scanning with a community library of 10,000+ checks |
-| Nessus Essentials | [tenable.com/products/nessus/nessus-essentials](https://www.tenable.com/products/nessus/nessus-essentials) | Free up to 16 IPs; professional Nessus engine **[free tier]** |
+| Nessus Essentials | [tenable.com/products/nessus/nessus-essentials](https://www.tenable.com/products/nessus/nessus-essentials) | Free up to 16 IPs; professional Nessus engine [free tier] |
 | osv-scanner | [github.com/google/osv-scanner](https://github.com/google/osv-scanner) | Scan dependencies against Google's Open Source Vulnerability database |
 | Grype | [github.com/anchore/grype](https://github.com/anchore/grype) | Vulnerability scanner for container images, filesystems, and SBOMs |
 | vulners-scanner | [github.com/vulnersCom/nmap-vulners](https://github.com/vulnersCom/nmap-vulners) | nmap NSE script for CVE-based service vulnerability lookup |
@@ -385,7 +385,7 @@
 
 ---
 
-> **Note:** Always obtain proper written authorization before conducting any security testing.
+> Note: Always obtain proper written authorization before conducting any security testing.
 > Use these tools only on systems you own or have explicit permission to test.
 > Many tools listed here are dual-use — understanding offensive techniques is essential for building effective defenses.
 

@@ -12,7 +12,7 @@ This file explains the cybersecurity GitHub Stars Lists maintained on the [TeamS
 
 The 30 curated GitHub Stars Lists live on the [TeamStarWolf profile](https://github.com/TeamStarWolf?tab=stars).
 
-**Coverage:** 813 of ~1032 starred repositories are sorted into Lists, with roughly 1100 list memberships because many repositories belong to more than one list.
+Coverage: 813 of ~1032 starred repositories are sorted into Lists, with roughly 1100 list memberships because many repositories belong to more than one list.
 
 | List | Repos |
 |---|---|
@@ -103,7 +103,7 @@ TeamStarWolf-authored projects (LimeWire, ATTACK-Navi, PokeNav) plus the upstrea
 Open-source vulnerability management platforms, vulnerability scanners, attack surface management, and external exposure monitoring. DefectDojo, archerysec, Greenbone OpenVAS/gvmd, Wiz Open-CVDB, OWASP ZAP, Coraza WAF, dnstwist, ThreatMapper, SecretScanner, rEngine, Sn1per, surf, scan4all, shellhub, Brinqa LDAP-CLI, and the cisagov vulnrichment + CVE Project automation working group.
 
 ## 17. Enterprise EDR and Endpoint Security Vendors
-Official tooling and integrations from major endpoint security vendors. **CrowdStrike Falcon** (falconpy, falcon-helm, falcon-operator, foundry samples, caracara, container-image-scan, gofalcon, falcon-integration-gateway). **Microsoft Defender for Endpoint** (MDE PowerBI templates, MSTIC-Sysmon, MSTICPy, MDTI Solutions, defender-docs, M365 Defender hunting queries, Cloud-Katana, counterfit, SimuLand). **Tanium** (Tanium-OSS, Sentinel integration). **Armis** (CLI, SDK, BlueBorne research, ICS Security Tools, Kenna toolkit).
+Official tooling and integrations from major endpoint security vendors. CrowdStrike Falcon (falconpy, falcon-helm, falcon-operator, foundry samples, caracara, container-image-scan, gofalcon, falcon-integration-gateway). Microsoft Defender for Endpoint (MDE PowerBI templates, MSTIC-Sysmon, MSTICPy, MDTI Solutions, defender-docs, M365 Defender hunting queries, Cloud-Katana, counterfit, SimuLand). Tanium (Tanium-OSS, Sentinel integration). Armis (CLI, SDK, BlueBorne research, ICS Security Tools, Kenna toolkit).
 
 ## 18. SOAR and Security Automation
 Security orchestration, automation, and response platforms plus SIEM-adjacent automation. Demisto/Cortex XSOAR content, demisto-sdk, Shuffle and Shuffle python-apps, Splunk Ansible, Splunk security_content, Elastic integrations and Kibana. For building SOC playbook automation and detection content pipelines.

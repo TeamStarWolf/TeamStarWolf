@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443) |
-| **Start at** | [IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart |
-| **Pairs with** | [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
+| Read this when | You are assessing a router, camera, PLC, or other connected device; you need to pull and analyze firmware off a chip; you are hardening an IoT/OT network or mapping it to a compliance standard (ETSI EN 303 645, NIST IR 8259, IEC 62443) |
+| Start at | [IoT Security Testing Methodology](#_8-iot-security-testing-methodology) for the end-to-end assessment process, [Firmware Extraction](#_2-firmware-extraction) to get the bits off the device, [Firmware Analysis Tools](#_3-firmware-analysis-tools) to tear them apart |
+| Pairs with | [HARDWARE_SECURITY_REFERENCE.md](HARDWARE_SECURITY_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [SDR_RF_SECURITY_REFERENCE.md](SDR_RF_SECURITY_REFERENCE.md), [REVERSE_ENGINEERING_REFERENCE.md](REVERSE_ENGINEERING_REFERENCE.md) |
 
 ---
 
@@ -31,7 +31,7 @@
 
 Modern IoT devices are built around SoCs that integrate CPU, memory, peripherals, and radio interfaces into a single die. The attack surface begins at silicon level.
 
-**Common IoT SoC Families:**
+Common IoT SoC Families:
 
 | Vendor | SoC Series | Architecture | Common Use |
 |--------|-----------|--------------|------------|
@@ -45,16 +45,16 @@ Modern IoT devices are built around SoCs that integrate CPU, memory, peripherals
 | Nordic | nRF52840 | ARM Cortex-M4 | BLE devices |
 | Texas Instruments | CC2652 | ARM Cortex-M4 | Zigbee/Thread |
 
-**SoC Attack Vectors:**
-- **Debug interface exposure**: JTAG/SWD pins left accessible on PCB
-- **Bootloader configuration**: U-Boot `bootargs` manipulation via UART
-- **Trusted Execution Environment (TEE)**: ARM TrustZone exploitation (CVE-2019-9506, OP-TEE vulns)
-- **Secure element bypass**: Fault injection to skip secure boot verification
-- **Memory-mapped I/O**: Direct hardware register manipulation via /dev/mem
+SoC Attack Vectors:
+- Debug interface exposure: JTAG/SWD pins left accessible on PCB
+- Bootloader configuration: U-Boot `bootargs` manipulation via UART
+- Trusted Execution Environment (TEE): ARM TrustZone exploitation (CVE-2019-9506, OP-TEE vulns)
+- Secure element bypass: Fault injection to skip secure boot verification
+- Memory-mapped I/O: Direct hardware register manipulation via /dev/mem
 
 ### 1.2 Flash Memory Attack Vectors
 
-**Flash Memory Types in IoT:**
+Flash Memory Types in IoT:
 
 | Type | Interface | Capacity | Common Use |
 |------|-----------|----------|------------|
@@ -63,25 +63,25 @@ Modern IoT devices are built around SoCs that integrate CPU, memory, peripherals
 | eMMC | MMC/SDIO | 4-256 GB | Full OS (higher-end) |
 | LPDDR/DDR | Parallel | 64 MB-2 GB | RAM (volatile) |
 
-**Flash Attack Scenarios:**
-- **Direct chip read**: Desolder SPI flash → read with programmer (CH341A, Bus Pirate)
-- **In-circuit SPI dump**: Clip directly onto flash chip using SOIC-8 test clip
-- **Firmware modification**: Patch binaries in extracted filesystem, reflash
-- **eMMC extraction**: Remove eMMC, mount on SD adapter or solder wires
-- **Wear-leveling artifacts**: Recover deleted files from NAND flash raw dumps
+Flash Attack Scenarios:
+- Direct chip read: Desolder SPI flash -> read with programmer (CH341A, Bus Pirate)
+- In-circuit SPI dump: Clip directly onto flash chip using SOIC-8 test clip
+- Firmware modification: Patch binaries in extracted filesystem, reflash
+- eMMC extraction: Remove eMMC, mount on SD adapter or solder wires
+- Wear-leveling artifacts: Recover deleted files from NAND flash raw dumps
 
 ### 1.3 UART Attack Vectors
 
 Universal Asynchronous Receiver-Transmitter (UART) is the most commonly exposed debug interface. Present on >80% of consumer IoT devices.
 
-**Attack Capabilities via UART:**
+Attack Capabilities via UART:
 - Boot log capture (kernel messages, filesystem mounts, service startups)
 - U-Boot shell access (pre-OS, full hardware control)
 - Linux root shell (if console=ttyS0 and no password)
 - Kernel parameter modification (`init=/bin/sh`, `rdinit=/bin/sh`)
 - Memory dump via `/dev/mem` or kernel module
 
-**Typical UART Exposure Pattern:**
+Typical UART Exposure Pattern:
 ```
 [1.234] Starting kernel...
 [1.890] Mounting rootfs...
@@ -94,7 +94,7 @@ U-Boot>
 
 Joint Test Action Group (JTAG) provides low-level CPU debugging and boundary scan capabilities.
 
-**JTAG Capabilities:**
+JTAG Capabilities:
 - Halt CPU execution at arbitrary points
 - Read/write all CPU registers
 - Read/write physical memory (RAM, flash-mapped regions)
@@ -102,11 +102,11 @@ Joint Test Action Group (JTAG) provides low-level CPU debugging and boundary sca
 - Bypass software security checks
 - Extract encryption keys from RAM during runtime
 
-**SWD (Serial Wire Debug):** ARM-specific 2-wire variant of JTAG, common on Cortex-M microcontrollers. Same capabilities with fewer pins.
+SWD (Serial Wire Debug): ARM-specific 2-wire variant of JTAG, common on Cortex-M microcontrollers. Same capabilities with fewer pins.
 
 ### 1.5 RF Attack Vectors
 
-**Wireless Protocol Attack Surface:**
+Wireless Protocol Attack Surface:
 
 | Protocol | Frequency | Key Attacks |
 |----------|-----------|-------------|
@@ -121,25 +121,25 @@ Joint Test Action Group (JTAG) provides low-level CPU debugging and boundary sca
 
 ### 1.6 Firmware Types
 
-**Bare Metal Firmware:**
+Bare Metal Firmware:
 - Runs directly on hardware, no OS abstraction
 - Single execution context, no process isolation
 - Common in microcontrollers (Arduino, STM32, ESP8266 non-RTOS)
 - Attack focus: stack overflows, integer overflows, hardcoded credentials in binary
 - Analysis: IDA Pro/Ghidra with SVD-Loader for register definitions
 
-**Real-Time Operating System (RTOS) Firmware:**
+Real-Time Operating System (RTOS) Firmware:
 - FreeRTOS, Zephyr, ThreadX, VxWorks, QNX, uC/OS
 - Task scheduling, memory management, IPC
 - VxWorks: Used in critical infrastructure, many CVEs (CVE-2019-12255 through 12264 "URGENT/11")
 - FreeRTOS: CVE-2018-16522 through 16528 (heap/stack overflows)
 - Analysis: Identify RTOS by binary signatures, use RTOS-aware debugger
 
-**Linux-Based Firmware:**
+Linux-Based Firmware:
 - Full Linux kernel + userspace (BusyBox, uClibc/musl/glibc)
 - OpenWrt, DD-WRT, custom vendor builds
 - Attack surface: web interface, SSH, Telnet, SNMP, UPnP, TR-069
-- Analysis: binwalk extraction → standard Linux tools on filesystem
+- Analysis: binwalk extraction -> standard Linux tools on filesystem
 
 ### 1.7 OWASP IoT Top 10
 
@@ -158,29 +158,29 @@ Joint Test Action Group (JTAG) provides low-level CPU debugging and boundary sca
 
 ### 1.8 IoT Botnet Threat Landscape
 
-**Mirai (2016):**
+Mirai (2016):
 - Infected 600,000+ devices; conducted 1.2 Tbps DDoS against Dyn DNS
 - Exploitation: Telnet brute force with 62 hardcoded credential pairs
 - Target: IP cameras, DVRs, routers running BusyBox Linux
 - CVEs exploited: Multiple default credential issues, CVE-2016-6277 (Netgear)
 - Variants: Okiru, Satori, Masuta, PureMasuta, OMG, Wicked, Miori
 
-**Mozi (2019-2023):**
+Mozi (2019-2023):
 - P2P botnet using DHT protocol for C2 (no centralized server)
 - Exploited 9 router vulnerabilities: CVE-2014-2321, CVE-2017-17215, CVE-2018-10561
 - Peak infection: 1.5 million devices
 - Capabilities: DDoS, data collection, command execution
 - Takedown: September 2023 (Chinese authorities, ISP cooperation)
 
-**VPNFilter (2018):**
+VPNFilter (2018):
 - State-sponsored (attributed to Sandworm/Russia) router malware
-- Three-stage architecture: persistent loader → core C2 module → plugins
+- Three-stage architecture: persistent loader -> core C2 module -> plugins
 - Stage 2 capabilities: file exfiltration, command execution, device destruction
 - Stage 3 plugins: Ssler (HTTPS MITM, credential harvest), ps (port scanner)
 - Affected: Linksys, MikroTik, Netgear, TP-Link, QNAP (500,000+ devices)
 - CVEs: CVE-2018-5767 (Tenda), multiple router vulns
 
-**BlackMatter/REvil IoT (2021+):**
+BlackMatter/REvil IoT (2021+):
 - Ransomware operators pivoting to industrial/IoT networks
 - Target: OT networks accessible via poorly secured IoT gateways
 
@@ -190,12 +190,12 @@ Joint Test Action Group (JTAG) provides low-level CPU debugging and boundary sca
 
 ### 2.1 SPI Flash Dumping with flashrom
 
-**Hardware Required:**
+Hardware Required:
 - CH341A USB programmer (~$5) or Bus Pirate v3/v4
 - SOIC-8 test clip for in-circuit reading
 - Logic level shifter if device uses 1.8V flash (most modern routers)
 
-**Identify Flash Chip:**
+Identify Flash Chip:
 ```bash
 # Look for chip markings: Winbond (W25Q), Macronix (MX25L), GigaDevice (GD25Q)
 # Example: W25Q128JV = 128Mbit (16MB) SPI NOR flash
@@ -204,7 +204,7 @@ Joint Test Action Group (JTAG) provides low-level CPU debugging and boundary sca
 flashrom --programmer ch341a_spi -V  # Verbose: detect chip
 ```
 
-**In-Circuit SPI Dump (Device Powered Off):**
+In-Circuit SPI Dump (Device Powered Off):
 ```bash
 # Identify chip on PCB (usually 8-pin SOIC near CPU)
 # Attach SOIC-8 clip to chip
@@ -224,7 +224,7 @@ md5sum firmware_dump.bin firmware_dump2.bin  # Must match
 flashrom -p ch341a_spi -w modified_firmware.bin
 ```
 
-**Bus Pirate SPI Dump:**
+Bus Pirate SPI Dump:
 ```bash
 # Connect Bus Pirate:
 # MOSI -> DI (pin 5), MISO -> DO (pin 2), CLK -> CLK (pin 6)
@@ -236,7 +236,7 @@ flashrom -p buspirate_spi:dev=/dev/ttyUSB0,spispeed=1M -r dump.bin
 # Or use Dediprog SF100/SF600 (supports 1.8V natively)
 ```
 
-**flashrom Voltage Warning:**
+flashrom Voltage Warning:
 ```bash
 # CRITICAL: Many modern routers use 1.8V flash
 # CH341A outputs 3.3V — can destroy 1.8V flash chips
@@ -244,7 +244,7 @@ flashrom -p buspirate_spi:dev=/dev/ttyUSB0,spispeed=1M -r dump.bin
 # Use 1.8V adapter board or Dediprog for safety
 ```
 
-**Partial Flash Operations:**
+Partial Flash Operations:
 ```bash
 # Read specific region (e.g., U-Boot at start of flash)
 flashrom -p ch341a_spi -r uboot.bin --layout layout.txt --image uboot
@@ -256,13 +256,13 @@ flashrom -p ch341a_spi -r uboot.bin --layout layout.txt --image uboot
 
 ### 2.2 UART Serial Interface
 
-**Finding UART Pins:**
+Finding UART Pins:
 1. Look for 4-6 pin headers on PCB (often unpopulated)
 2. Use multimeter: GND pin reads 0V, TX idles at VCC (3.3V or 5V)
 3. Power on device; TX will show voltage fluctuations during boot
 4. Use logic analyzer or oscilloscope to confirm baud rate
 
-**Baud Rate Detection:**
+Baud Rate Detection:
 ```bash
 # Method 1: Use baudrate.py (automatic detection)
 pip install pyserial
@@ -280,7 +280,7 @@ screen /dev/ttyUSB0 115200
 minicom -D /dev/ttyUSB0 -b 115200
 ```
 
-**Boot Log Capture:**
+Boot Log Capture:
 ```bash
 # Connect: TX(device) -> RX(USB-serial), RX(device) -> TX(USB-serial), GND -> GND
 # DO NOT connect device TX to host TX — will damage adapter
@@ -299,7 +299,7 @@ picocom -b 115200 /dev/ttyUSB0 --logfile bootlog.txt
 # - Potential credential hints
 ```
 
-**U-Boot Interruption Procedure:**
+U-Boot Interruption Procedure:
 ```bash
 # U-Boot displays countdown: "Hit any key to stop autoboot: 3"
 # Press any key within countdown window (usually 1-3 seconds)
@@ -334,7 +334,7 @@ cp.b 0x9f000000 0x80000000 0x1000000  # Copy flash to RAM
 tftp 0x80000000 dump.bin              # Send RAM to TFTP server
 ```
 
-**U-Boot Environment Exploitation:**
+U-Boot Environment Exploitation:
 ```bash
 # Many devices store credentials in U-Boot environment
 printenv | grep -i pass
@@ -348,14 +348,14 @@ reset
 
 ### 2.3 JTAG/SWD with OpenOCD
 
-**Hardware Adapters:**
+Hardware Adapters:
 - Segger J-Link (professional, $30-$500)
 - ST-Link v2 ($3 clone, excellent for STM32/ARM)
 - Bus Pirate (slow but universal)
 - FTDI FT2232H-based adapters (OpenOCD native support)
 - Tigard (open-source multi-protocol debug board)
 
-**OpenOCD Configuration:**
+OpenOCD Configuration:
 ```tcl
 # openocd.cfg for BCM4708 (ARM Cortex-A9)
 source [find interface/ftdi/openocd-usb.cfg]
@@ -377,7 +377,7 @@ set CHIPNAME bcm4708
 source [find target/cortex_a.cfg]
 ```
 
-**OpenOCD Memory Operations:**
+OpenOCD Memory Operations:
 ```bash
 # Start OpenOCD
 openocd -f openocd.cfg
@@ -419,7 +419,7 @@ continue
 # Connect: gdb-multiarch vmlinux -ex "target remote :3333"
 ```
 
-**SWD Configuration (ARM Cortex-M):**
+SWD Configuration (ARM Cortex-M):
 ```tcl
 # For nRF52840, STM32, etc.
 source [find interface/stlink.cfg]
@@ -431,7 +431,7 @@ source [find interface/stlink.cfg]
 source [find target/stm32f4x.cfg]
 ```
 
-**Extracting Firmware via JTAG:**
+Extracting Firmware via JTAG:
 ```bash
 # OpenOCD telnet session
 halt
@@ -442,20 +442,20 @@ dump_image firmware_via_jtag.bin 0x08000000 0x100000  # STM32: 1MB flash
 
 ### 2.4 Chip-Off Procedure
 
-**When to Use:**
+When to Use:
 - JTAG/UART not accessible
 - Device is bricked/won't boot
 - Need forensic-grade evidence
 - Memory protection prevents in-circuit reading
 
-**Tools Required:**
+Tools Required:
 - Hot air rework station (Hakko FR-810, Quick 861DW)
 - Reflow preheater (recommended to reduce thermal stress)
 - Flux (no-clean flux pen or paste)
 - BGA reball kit (if BGA package)
 - Chip programmer (Dediprog, TL866II+, XGecu T48)
 
-**Chip-Off Process:**
+Chip-Off Process:
 ```
 1. Document PCB layout with high-res photos before removal
 2. Apply flux generously around chip
@@ -469,7 +469,7 @@ dump_image firmware_via_jtag.bin 0x08000000 0x100000  # STM32: 1MB flash
 10. Read chip contents
 ```
 
-**Programmer Commands:**
+Programmer Commands:
 ```bash
 # TL866II+ with minipro
 minipro -p W25Q128JV -r dump.bin    # Read
@@ -482,7 +482,7 @@ minipro -p MT29F4G08ABADA -r nand_dump.bin
 
 ### 2.5 Firmware Update MITM with mitmproxy
 
-**Setup:**
+Setup:
 ```bash
 pip install mitmproxy
 
@@ -496,7 +496,7 @@ mitmproxy -p 8080
 # Configure device to use 192.168.1.100:8080 as proxy
 ```
 
-**Intercepting Firmware Updates:**
+Intercepting Firmware Updates:
 ```python
 # mitmproxy addon: firmware_intercept.py
 from mitmproxy import http
@@ -544,7 +544,7 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8
 
 binwalk is the primary tool for firmware analysis — it identifies file signatures, compression boundaries, encrypted regions, and embedded filesystems.
 
-**Installation:**
+Installation:
 ```bash
 # Kali Linux (pre-installed)
 apt install binwalk
@@ -557,7 +557,7 @@ cd binwalk && pip install .
 apt install mtd-utils gzip bzip2 tar arj lhasa p7zip squashfs-tools             zlib1g-dev liblzma-dev liblzo2-dev sleuthkit default-jdk             cpio openjdk-11-jre
 ```
 
-**Signature Scanning:**
+Signature Scanning:
 ```bash
 # Basic signature scan
 binwalk firmware.bin
@@ -578,7 +578,7 @@ binwalk *.bin
 binwalk --list
 ```
 
-**Entropy Analysis:**
+Entropy Analysis:
 ```bash
 # Entropy analysis (high entropy = encrypted/compressed)
 binwalk -E firmware.bin
@@ -594,7 +594,7 @@ binwalk -E -J firmware.bin  # Creates firmware.bin.png
 # Peaks/transitions indicate region boundaries
 ```
 
-**Architecture Detection:**
+Architecture Detection:
 ```bash
 # Detect CPU architecture
 binwalk -A firmware.bin
@@ -608,7 +608,7 @@ binwalk -A firmware.bin
 binwalk -BAeE firmware.bin
 ```
 
-**Extraction:**
+Extraction:
 ```bash
 # Extract all identified components
 binwalk -e firmware.bin
@@ -630,7 +630,7 @@ binwalk -e --include=0x180000 firmware.bin
 binwalk -e -l binwalk_log.txt firmware.bin
 ```
 
-**Filesystem Analysis Post-Extraction:**
+Filesystem Analysis Post-Extraction:
 ```bash
 # Navigate extracted filesystem
 ls -la _firmware.bin.extracted/
@@ -651,7 +651,7 @@ grep -i "password\|passwd\|secret\|key\|token\|credential" all_strings.txt
 grep -rE "([0-9]{1,3}\.){3}[0-9]{1,3}" _firmware.bin.extracted/etc/
 ```
 
-**Custom Signatures:**
+Custom Signatures:
 ```bash
 # Define custom magic bytes signature
 # Create ~/.config/binwalk/magic/custom_sigs:
@@ -663,7 +663,7 @@ binwalk --magic=~/.config/binwalk/magic/custom_sigs firmware.bin
 
 ### 3.2 Firmware Analysis Toolkit (FAT) / Attify
 
-**FAT by Attify provides automated IoT firmware emulation using QEMU:**
+FAT by Attify provides automated IoT firmware emulation using QEMU:
 
 ```bash
 # Installation
@@ -675,7 +675,7 @@ cd firmware-analysis-toolkit
 apt install qemu qemu-system-arm qemu-system-mips qemu-system-x86             busybox-static fakeroot git dmsetup kpartx netcat-openbsd             nmap python3-psycopg2
 ```
 
-**Running FAT:**
+Running FAT:
 ```bash
 # Basic usage (attempts automatic emulation)
 sudo python3 fat.py firmware.bin
@@ -696,7 +696,7 @@ nikto -h http://192.168.0.1/
 nmap -sV 192.168.0.1
 ```
 
-**QEMU Manual Emulation Setup:**
+QEMU Manual Emulation Setup:
 ```bash
 # For MIPS firmware (big-endian)
 qemu-system-mips -M malta -kernel vmlinux-3.2.0-4-4kc-malta     -initrd initrd.img-3.2.0-4-4kc-malta     -drive format=raw,file=rootfs.ext2     -append "root=/dev/sda1"     -net nic -net tap,ifname=tap0,script=no,downscript=no     -nographic
@@ -705,7 +705,7 @@ qemu-system-mips -M malta -kernel vmlinux-3.2.0-4-4kc-malta     -initrd initrd.i
 qemu-system-arm -M vexpress-a9 -kernel zImage     -drive if=sd,file=rootfs.ext3     -append "root=/dev/mmcblk0 console=ttyAMA0"     -net nic -net tap -nographic
 ```
 
-**QEMU User-Mode Chroot Emulation:**
+QEMU User-Mode Chroot Emulation:
 ```bash
 # Emulate individual binaries without full system emulation
 # Useful for testing specific components
@@ -731,11 +731,11 @@ sudo mount --bind /dev _firmware.bin.extracted/squashfs-root/dev
 sudo mount --bind /sys _firmware.bin.extracted/squashfs-root/sys
 ```
 
-### 3.3 Firmadyne — Automated Linux Firmware Emulation
+### 3.3 Firmadyne: Automated Linux Firmware Emulation
 
 Firmadyne is a systematic platform for automated dynamic analysis of Linux-based embedded firmware.
 
-**Installation:**
+Installation:
 ```bash
 git clone --recursive https://github.com/firmadyne/firmadyne
 cd firmadyne
@@ -760,7 +760,7 @@ TARBALL_DIR=${FIRMADYNE_DIR}/images/
 SQL_SERVER=127.0.0.1
 ```
 
-**Firmadyne Workflow:**
+Firmadyne Workflow:
 ```bash
 # Step 1: Extract firmware
 ./sources/extractor/extractor.py -b Netgear -sql 127.0.0.1 -np -nk     firmware.bin scratch/
@@ -785,7 +785,7 @@ sudo ./scratch/1/run.sh
 # Usually accessible at 192.168.0.100 or as reported by inferNetwork
 ```
 
-**Automated Analysis Scripts:**
+Automated Analysis Scripts:
 ```bash
 # Check which services are running
 ./analyses/runExploits.py -q 127.0.0.1 -i 1 -e ./exploits/
@@ -799,7 +799,7 @@ psql -U firmadyne -d firmadyne -c "SELECT id FROM image WHERE status='Completed'
 
 ### 3.4 Ghidra Flat Binary Loading
 
-**Loading Bare-Metal / Stripped Firmware in Ghidra:**
+Loading Bare-Metal / Stripped Firmware in Ghidra:
 
 ```
 1. File → Import File → firmware.bin
@@ -813,7 +813,7 @@ psql -U firmadyne -d firmadyne -c "SELECT id FROM image WHERE status='Completed'
    - RISC-V: RISCV:LE:32:RV32IMC
 ```
 
-**Memory Map Setup:**
+Memory Map Setup:
 ```
 Window → Memory Map → Add Memory Block
 For typical router firmware layout:
@@ -831,7 +831,7 @@ For bare-metal with vector table at 0x00000000:
   Mark as "Entry Point" to let Ghidra find reset handler
 ```
 
-**Analysis Tips:**
+Analysis Tips:
 ```
 Analysis → Auto Analyze → Select:
 - ARM Aggressive Instruction Finder (for ARM/Thumb interworking)
@@ -861,7 +861,7 @@ The UEFI Platform Initialization (PI) specification defines firmware execution p
 | RT | Runtime | OS running, Runtime Services still available | SMM attacks, runtime variable tampering |
 | AL | After Life | S3/S4/S5 power transitions | S3 resume attacks |
 
-**DXE Phase Attack Details:**
+DXE Phase Attack Details:
 - DXE drivers are loaded from firmware volume (FV) in flash
 - Driver authentication via authenticode signatures (if Secure Boot enforced)
 - Without Secure Boot: any DXE driver in flash executes as firmware
@@ -870,15 +870,15 @@ The UEFI Platform Initialization (PI) specification defines firmware execution p
 
 ### 4.2 SMM Rootkits and DXE Driver Attacks
 
-**System Management Mode (SMM):**
+System Management Mode (SMM):
 - Highest privilege CPU mode (Ring -2)
 - Triggered by System Management Interrupt (SMI)
 - Executes from SMRAM (memory region locked from OS)
 - Used legitimately for power management, hardware abstraction
 
-**SMM Attack Scenarios:**
+SMM Attack Scenarios:
 
-**SMM Callout (SWSMI Handler Hijack):**
+SMM Callout (SWSMI Handler Hijack):
 ```
 1. SMM handler calls out to non-SMRAM memory (violation of SMM security)
 2. Attacker modifies code/data in memory referenced by SMM handler
@@ -887,21 +887,21 @@ CVE-2021-33164: Intel NUC SMM callout via SWSMI
 CVE-2020-8703: Multiple Intel platforms
 ```
 
-**SMRAM Confusion:**
+SMRAM Confusion:
 ```
 DXE driver allocated buffer overlaps SMRAM region
 Write to "normal" memory corrupts SMM handler
 Execute shellcode with SMM privileges
 ```
 
-**ThinkPwn (CVE-2016-3699):**
+ThinkPwn (CVE-2016-3699):
 ```
 Lenovo ThinkPad UEFI SMM callout vulnerability
 SMM handler called EFI Runtime Services without proper validation
 Allowed unprivileged kernel driver to execute code in SMM
 ```
 
-**SMM Persistence (ImposterV2 technique):**
+SMM Persistence (ImposterV2 technique):
 ```python
 # SMM rootkit capabilities:
 # 1. Intercept OS disk writes to persist malicious code
@@ -911,11 +911,11 @@ Allowed unprivileged kernel driver to execute code in SMM
 # 5. Only removable by re-flashing firmware
 ```
 
-### 4.3 efiXplorer — UEFI Analysis Plugin
+### 4.3 efiXplorer: UEFI Analysis Plugin
 
 efiXplorer provides GUID identification, protocol tracking, and SMM vulnerability detection for IDA Pro and Ghidra.
 
-**Installation:**
+Installation:
 ```bash
 # IDA Pro plugin
 git clone https://github.com/binarly-io/efiXplorer
@@ -927,7 +927,7 @@ cp -r efiXplorer/efiXplorer/ /path/to/ida/plugins/
 # File → Install Extensions → select JAR
 ```
 
-**Using efiXplorer in IDA Pro:**
+Using efiXplorer in IDA Pro:
 ```
 1. Open UEFI binary (DXE driver, SMM handler, etc.)
 2. Edit → Plugins → efiXplorer
@@ -941,7 +941,7 @@ Output:
 - EFI service detection: All EFI_BOOT_SERVICES and EFI_RUNTIME_SERVICES calls named
 ```
 
-**GUID Identification:**
+GUID Identification:
 ```python
 # efiXplorer uses multiple GUID databases:
 # - EDKII (TianoCore) — thousands of protocol GUIDs
@@ -955,7 +955,7 @@ Output:
 # UEFI_VARIABLE_GUID: {8be4df61-...} — NVRAM variable storage
 ```
 
-**Protocol Tracking:**
+Protocol Tracking:
 ```
 efiXplorer creates protocol usage graph:
 - Which drivers install which protocols
@@ -964,7 +964,7 @@ efiXplorer creates protocol usage graph:
 - Useful for finding trust boundaries
 ```
 
-**SMM Callout Detection:**
+SMM Callout Detection:
 ```
 efiXplorer flags:
 - Calls from SMM handlers to pointers in >4GB address space
@@ -975,7 +975,7 @@ efiXplorer flags:
 
 ### 4.4 Secure Boot Chain
 
-**UEFI Secure Boot Verification Chain:**
+UEFI Secure Boot Verification Chain:
 ```
 PK (Platform Key)     — OEM or enterprise root key
   └─ KEK (Key Exchange Key) — Microsoft/OEM key
@@ -986,7 +986,7 @@ PK (Platform Key)     — OEM or enterprise root key
                               └─ Kernel modules (signed by kernel)
 ```
 
-**MOK (Machine Owner Key):**
+MOK (Machine Owner Key):
 ```bash
 # User-enrolled keys for custom kernel/module signing
 mokutil --list-enrolled     # Show enrolled MOKs
@@ -1001,7 +1001,7 @@ mokutil --import MOK.der
 
 ### 4.5 Secure Boot Bypass Techniques
 
-**BlackLotus (CVE-2023-24932):**
+BlackLotus (CVE-2023-24932):
 ```
 - First in-the-wild UEFI bootkit bypassing Secure Boot on Windows 11
 - Exploits Windows Boot Manager vulnerability
@@ -1012,7 +1012,7 @@ mokutil --import MOK.der
 - Patch: KB5025885 (May 2023) — revokes vulnerable Windows Boot Manager versions
 ```
 
-**BootHole (CVE-2020-10713):**
+BootHole (CVE-2020-10713):
 ```
 - Buffer overflow in GRUB2 grub.cfg parsing
 - Any file on EFI System Partition can be modified (no Secure Boot protection)
@@ -1022,7 +1022,7 @@ mokutil --import MOK.der
 - CVE chain: CVE-2020-10713 through CVE-2020-15706 (7 related vulns)
 ```
 
-**UEFI Variable Tampering:**
+UEFI Variable Tampering:
 ```bash
 # Direct NVRAM variable access (Linux)
 ls /sys/firmware/efi/efivars/
@@ -1041,7 +1041,7 @@ efivar -d -n 8be4df61-93ca-11d2-aa0d-00e098032b8c-SecureBoot
 
 ### 4.6 Intel Boot Guard
 
-**Boot Guard Overview:**
+Boot Guard Overview:
 ```
 Intel Boot Guard is a hardware-rooted verified boot mechanism.
 OEM programs ACM (Authenticated Code Module) with SHA256 hash of IBB
@@ -1049,7 +1049,7 @@ OEM programs ACM (Authenticated Code Module) with SHA256 hash of IBB
 If hash doesn't match, CPU halts or attempts recovery.
 ```
 
-**OEM Key Fusing:**
+OEM Key Fusing:
 ```
 Fuse values stored in CPU (PCH strap registers):
 - FORCE_BOOT_GUARD_ACM: Mandate ACM execution
@@ -1062,7 +1062,7 @@ Profile 4: Measured+Verified Boot (TPM + verified)
 Profile 5: Maximum protection (no debug, full measurement)
 ```
 
-**PCR Values:**
+PCR Values:
 ```
 TPM PCR measurements from Boot Guard:
 PCR[0]: Core BIOS Measurement (CBM) — BIOS code
@@ -1078,7 +1078,7 @@ tpm2_pcrread sha256:0,1,2,3,4,5,6,7
 
 CHIPSEC is Intel's open-source platform security assessment framework.
 
-**Installation:**
+Installation:
 ```bash
 pip install chipsec
 # OR
@@ -1091,7 +1091,7 @@ sudo modprobe msr  # required for full access
 sudo python chipsec_main.py  # full mode with kernel driver
 ```
 
-**Key CHIPSEC Commands:**
+Key CHIPSEC Commands:
 ```bash
 # Run all security checks
 sudo python chipsec_main.py
@@ -1139,7 +1139,7 @@ sudo python chipsec_util.py uefi var-read db EFI_IMAGE_SECURITY_DATABASE_GUID  #
 
 MQTT (Message Queuing Telemetry Transport) is the dominant IoT messaging protocol, running on port 1883 (plain) or 8883 (TLS).
 
-**Common Misconfigurations:**
+Common Misconfigurations:
 ```bash
 # Test for unauthenticated broker access
 mosquitto_pub -h 192.168.1.100 -t "test/topic" -m "hello"
@@ -1153,7 +1153,7 @@ mosquitto_sub -h broker.example.com -t "home/#" -v
 mosquitto_sub -h broker.example.com -t "$SYS/#" -v  # Broker statistics
 ```
 
-**MQTT Security Configuration:**
+MQTT Security Configuration:
 ```conf
 # /etc/mosquitto/mosquitto.conf
 
@@ -1180,7 +1180,7 @@ acl_file /etc/mosquitto/acl
 # topic #
 ```
 
-**MQTT CVEs:**
+MQTT CVEs:
 | CVE | Affected | Description |
 |-----|---------|-------------|
 | CVE-2017-7650 | Mosquitto <1.4.15 | Pattern-based ACL bypass |
@@ -1189,7 +1189,7 @@ acl_file /etc/mosquitto/acl
 | CVE-2021-28166 | Eclipse Mosquitto | MQTT v5 excessive memory consumption DoS |
 | CVE-2023-0809 | Mosquitto <2.0.16 | Denial of service via CONNACK |
 
-**MQTT Attack Scenarios:**
+MQTT Attack Scenarios:
 ```bash
 # Topic enumeration (subscribe to wildcard, observe all messages)
 mosquitto_sub -h target -t "#" -v -u username -P password 2>&1 | tee mqtt_dump.txt
@@ -1209,7 +1209,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt mqtt://target
 
 CoAP (Constrained Application Protocol) runs over UDP port 5683, DTLS on port 5684.
 
-**CoAP Amplification Attack:**
+CoAP Amplification Attack:
 ```bash
 # CoAP supports multicast — potential for amplification DDoS
 # Request: ~20 bytes, Response: can be hundreds of bytes (amplification factor 10-50x)
@@ -1228,7 +1228,7 @@ coap-client -m get coap://224.0.1.187/.well-known/core
 coap-client -m get -s 10 coap://192.168.1.1/sensors/temperature
 ```
 
-**DTLS Security Issues:**
+DTLS Security Issues:
 ```
 Common DTLS misconfigurations in IoT:
 1. Pre-Shared Keys (PSK) hardcoded in firmware
@@ -1244,7 +1244,7 @@ CVE-2021-24082: TinyDTLS vulnerability allowing session hijacking
 
 OPC Unified Architecture is used in industrial IoT (IIoT) and SCADA systems.
 
-**OPC-UA Session Hijacking CVEs:**
+OPC-UA Session Hijacking CVEs:
 | CVE | Description | Impact |
 |-----|-------------|--------|
 | CVE-2019-13549 | Kepware OPC-UA heap overflow | Remote code execution |
@@ -1253,7 +1253,7 @@ OPC Unified Architecture is used in industrial IoT (IIoT) and SCADA systems.
 | CVE-2022-25164 | Mitsubishi OPC-UA server | Auth bypass |
 | CVE-2023-25155 | Multiple OPC-UA implementations | Heap corruption |
 
-**OPC-UA Security Assessment:**
+OPC-UA Security Assessment:
 ```python
 from opcua import Client
 
@@ -1281,7 +1281,7 @@ client.set_security_string("Basic256Sha256,SignAndEncrypt,cert.der,key.pem")
 
 Modbus TCP runs on port 502. No authentication, no encryption — designed for isolated networks.
 
-**Modbus Attack Scenarios with pymodbus:**
+Modbus Attack Scenarios with pymodbus:
 ```python
 from pymodbus.client import ModbusTcpClient
 
@@ -1312,7 +1312,7 @@ for unit_id in range(1, 248):
 client.close()
 ```
 
-**Modbus Scanning:**
+Modbus Scanning:
 ```bash
 # Nmap Modbus detection
 nmap -p 502 --script modbus-discover 192.168.1.0/24
@@ -1327,11 +1327,11 @@ mbtget -w 1 -a 0 -v 1234 192.168.1.100  # Write value to register 0
 
 KillerBee is the primary Zigbee security testing framework.
 
-**Hardware Required:**
+Hardware Required:
 - RZUSBSTICK (Atmel), ApiMote, MicaZ, TelosB
 - Or: TI CC2531 USB dongle with KillerBee firmware
 
-**KillerBee Usage:**
+KillerBee Usage:
 ```bash
 # Install KillerBee
 pip install killerbee
@@ -1358,7 +1358,7 @@ zbdecrypt -r capture.pcap -k 00112233445566778899aabbccddeeff -w decrypted.pcap
 zbkey -i /dev/ttyUSB0 -c 11
 ```
 
-**Zigbee Security Weaknesses:**
+Zigbee Security Weaknesses:
 ```
 - Default/well-known network keys (e.g., 01030507090B0D0F0... "ZigBee Alliance" key)
 - Key transport in clear during join (if TC Link Key is default)
@@ -1371,7 +1371,7 @@ zbkey -i /dev/ttyUSB0 -c 11
 
 AMQP (Advanced Message Queuing Protocol) on port 5672 (plain), 5671 (TLS), 15672 (RabbitMQ Management).
 
-**RabbitMQ Security Issues:**
+RabbitMQ Security Issues:
 ```bash
 # Default credentials: guest/guest (allowed from localhost only by default)
 # But many deployments expose management UI or AMQP externally
@@ -1398,7 +1398,7 @@ curl -u admin:password http://192.168.1.100:15672/api/exchanges
 
 ### 6.1 UART Pin Identification
 
-**Step-by-Step UART Discovery:**
+Step-by-Step UART Discovery:
 
 ```
 Equipment: Multimeter, USB-to-Serial adapter (FTDI FT232RL, CP2102, CH340)
@@ -1439,7 +1439,7 @@ Step 7: Connect
 - DO NOT connect VCC unless powering device from USB-serial
 ```
 
-**Logic Analyzer Capture (Sigrok/PulseView):**
+Logic Analyzer Capture (Sigrok/PulseView):
 ```bash
 # sigrok-cli for UART decode
 sigrok-cli -d fx2lafw --channels D0 --config samplerate=1MHz     --samples 1000000 -P uart:baudrate=115200:rx=D0 -A uart=rx-data
@@ -1450,7 +1450,7 @@ sigrok-cli -d fx2lafw --channels D0 --config samplerate=1MHz     --samples 10000
 
 ### 6.2 JTAG Boundary Scan and TAP Identification
 
-**JTAG Pin Identification:**
+JTAG Pin Identification:
 ```
 JTAG signals: TDI, TDO, TCK, TMS, [TRST], [RTCK]
 SWD signals: SWDIO, SWCLK, [SWO], [RESET]
@@ -1462,7 +1462,7 @@ Identification methods:
 4. Manual probing with logic analyzer
 ```
 
-**JTAGulator:**
+JTAGulator:
 ```
 Open-source hardware for automated JTAG discovery:
 1. Connect all suspected JTAG pins to JTAGulator channels
@@ -1476,7 +1476,7 @@ jtagulator> i          # IDCODE scan
 jtagulator> d 0x0b     # Target specific device (ARM Cortex-A)
 ```
 
-**JTAGenum (Arduino-based):**
+JTAGenum (Arduino-based):
 ```cpp
 // Flash JTAGenum.ino to Arduino
 // Wire suspected JTAG pins to Arduino digital pins
@@ -1485,7 +1485,7 @@ jtagulator> d 0x0b     # Target specific device (ARM Cortex-A)
 // Automated TAP detection
 ```
 
-**IDCODE Extraction:**
+IDCODE Extraction:
 ```bash
 # OpenOCD
 openocd -f interface/ftdi/openocd-usb.cfg -c "transport select jtag"     -c "adapter speed 1000"     -c "jtag init; scan_chain; exit"
@@ -1497,7 +1497,7 @@ openocd -f interface/ftdi/openocd-usb.cfg -c "transport select jtag"     -c "ada
 # 0x4ba00477 = ARM Cortex-A9 (manufacturer: ARM, part: Cortex-A9)
 ```
 
-**JTAG IDCODE Decoding:**
+JTAG IDCODE Decoding:
 ```
 IDCODE format (32 bits):
 Bits[31:28] = Version (4 bits)
@@ -1517,7 +1517,7 @@ Common ARM IDCODEs:
 
 ### 6.3 SPI/I2C Sniffing with Sigrok/PulseView
 
-**SPI Sniffing:**
+SPI Sniffing:
 ```bash
 # Hardware: Logic analyzer (Saleae Logic Pro, fx2lafw cheap clone)
 # Connect: CS, CLK, MOSI, MISO channels to respective SPI lines
@@ -1533,7 +1533,7 @@ sigrok-cli -d fx2lafw --channels CS=D3,CLK=D0,MISO=D1,MOSI=D2     --config sampl
 sigrok-cli -d fx2lafw --channels CS=D3,CLK=D0,MISO=D1     --config samplerate=8MHz --samples 50000000     -P spi -A spi=miso-transfer > spi_flash_boot.txt
 ```
 
-**I2C Sniffing:**
+I2C Sniffing:
 ```bash
 # I2C: SDA, SCL (2 wires)
 sigrok-cli -d fx2lafw --channels SDA=D0,SCL=D1     --config samplerate=1MHz --samples 1000000     -P i2c:sda=SDA:scl=SCL     -A i2c=data-read,data-write,address-read,address-write
@@ -1548,15 +1548,15 @@ sigrok-cli -d fx2lafw --channels SDA=D0,SCL=D1     --config samplerate=1MHz --sa
 
 ### 6.4 Voltage Glitching with ChipWhisperer
 
-**ChipWhisperer Overview:**
+ChipWhisperer Overview:
 ChipWhisperer is an open-source hardware security research platform for power analysis and fault injection.
 
-**Hardware:**
+Hardware:
 - ChipWhisperer-Lite (CW1173): ~$250, built-in target
 - ChipWhisperer-Pro (CW1200): ~$1500, professional features
 - CW-Husky: Latest version with USB 3.0
 
-**Voltage Glitch Basics:**
+Voltage Glitch Basics:
 ```python
 import chipwhisperer as cw
 
@@ -1586,7 +1586,7 @@ print(f"Response: {response.hex()}")
 
 ### 6.5 Fault Injection Attack Surfaces
 
-**Secure Boot Bypass via Glitching:**
+Secure Boot Bypass via Glitching:
 ```
 Target: Bootloader hash verification function
 Method:
@@ -1603,7 +1603,7 @@ CVE examples:
 - STM32 RDP Level 2 bypass (Jon Oberheide, 2018)
 ```
 
-**JTAG Re-Enable via Glitch:**
+JTAG Re-Enable via Glitch:
 ```
 Many devices disable JTAG by checking a fuse/register at boot.
 Glitch the check instruction to re-enable JTAG access.
@@ -1615,7 +1615,7 @@ May require thousands of attempts with automated setup
 
 ### 6.6 Side-Channel Power Analysis
 
-**Simple Power Analysis (SPA):**
+Simple Power Analysis (SPA):
 ```python
 # Capture power trace during cryptographic operation
 import chipwhisperer as cw
@@ -1636,7 +1636,7 @@ for i in range(100):
 # AES SubBytes, ShiftRows, MixColumns show characteristic patterns
 ```
 
-**Differential Power Analysis (DPA):**
+Differential Power Analysis (DPA):
 ```python
 import numpy as np
 from scipy.stats import pearsonr
@@ -1673,14 +1673,14 @@ correct_key_byte = np.argmax(correlations)
 
 ### 7.1 Default and Hardcoded Credentials
 
-**Default Credential Databases:**
-- **arnaudsoullie/ics-default-passwords**: 2000+ ICS/SCADA/IoT device default credentials
+Default Credential Databases:
+- arnaudsoullie/ics-default-passwords: 2000+ ICS/SCADA/IoT device default credentials
   - URL: https://github.com/arnaudsoullie/ics-default-passwords
   - Covers: Siemens, Allen-Bradley, Schneider, Honeywell, GE, ABB
-- **DefaultCreds-cheat-sheet**: 1500+ network device defaults
-- **routersploit**: Built-in credential database for routers
+- DefaultCreds-cheat-sheet: 1500+ network device defaults
+- routersploit: Built-in credential database for routers
 
-**Testing Default Credentials:**
+Testing Default Credentials:
 ```bash
 # routersploit automated scanner
 msfconsole -q
@@ -1698,7 +1698,7 @@ run
 # ftp:ftp (anonymous FTP)
 ```
 
-**Hardcoded Credential Extraction:**
+Hardcoded Credential Extraction:
 ```bash
 # strings extraction
 strings firmware.bin | grep -iE "password|passwd|secret|admin|user|root|login"
@@ -1727,7 +1727,7 @@ grep -rn "jwt_secret\|JWT_SECRET\|secret_key" . 2>/dev/null
 
 ### 7.2 Command Injection via Web Interface
 
-**Common Injection Points:**
+Common Injection Points:
 ```
 - Ping/traceroute/diagnostic tools that pass user input to shell
 - NTP server configuration
@@ -1739,7 +1739,7 @@ grep -rn "jwt_secret\|JWT_SECRET\|secret_key" . 2>/dev/null
 - Log file download functions
 ```
 
-**Command Injection Examples:**
+Command Injection Examples:
 ```bash
 # Ping diagnostic injection (classic)
 # Normal: POST /cgi-bin/ping.cgi  target=192.168.1.1
@@ -1762,16 +1762,16 @@ grep -rn "jwt_secret\|JWT_SECRET\|secret_key" . 2>/dev/null
 
 ### 7.3 Buffer Overflows in Embedded Web Servers
 
-**Common Embedded HTTP Servers:**
+Common Embedded HTTP Servers:
 
-**uhttpd (OpenWrt):**
+uhttpd (OpenWrt):
 ```
 CVE-2021-22220: uhttpd CSRF token bypass
 Primary attack vector: Long URI, malformed chunked encoding
 Binary location: /usr/sbin/uhttpd
 ```
 
-**mini_httpd:**
+mini_httpd:
 ```bash
 # CVE-2018-18778: mini_httpd path traversal → arbitrary file read
 curl http://192.168.1.1/../../../etc/passwd --path-as-is
@@ -1782,7 +1782,7 @@ python3 -c "print('GET /' + 'A'*8192 + ' HTTP/1.0
 ')" | nc 192.168.1.1 80
 ```
 
-**thttpd:**
+thttpd:
 ```bash
 # thttpd tilde expansion buffer overflow
 # Affects many embedded routers using thttpd 2.25b
@@ -1793,7 +1793,7 @@ curl "http://192.168.1.1/~$(python3 -c 'print("A"*256)')"
 # Many proprietary modifications introduce new vulnerabilities
 ```
 
-**GoAhead WebServer:**
+GoAhead WebServer:
 ```
 CVE-2017-17562: GoAhead 2.5.0-3.6.5 RCE via CGI environment variables
 Affects: many IP cameras, routers, NAS
@@ -1823,7 +1823,7 @@ curl "http://192.168.1.1/cgi-bin/info?LD_PRELOAD=/tmp/mal.so"
 
 ### 7.5 Unsigned OTA Updates
 
-**Attack Scenario:**
+Attack Scenario:
 ```
 1. Device downloads firmware update from vendor server or CDN
 2. Update lacks cryptographic signature, or signature not verified
@@ -1839,7 +1839,7 @@ Detection:
   strings firmware.bin | grep -i "verify\|signature\|rsa\|sha256"
 ```
 
-**Firmware Signing (Proper Implementation):**
+Firmware Signing (Proper Implementation):
 ```bash
 # Generate signing key pair
 openssl genrsa -out firmware_signing.key 4096
@@ -1857,7 +1857,7 @@ openssl dgst -sha256 -verify firmware_signing.pub -signature firmware.sig firmwa
 
 ### 7.6 Exposed Debug Interfaces
 
-**Common Debug Interface Scenarios:**
+Common Debug Interface Scenarios:
 ```bash
 # Telnet exposed on internal interface
 telnet 192.168.1.1
@@ -1912,7 +1912,7 @@ nmap -p 1883 192.168.1.0/24 --open
 
 ### 8.1 Shodan IoT Fingerprinting
 
-**Shodan Account Setup:**
+Shodan Account Setup:
 ```bash
 # Install Shodan CLI
 pip install shodan
@@ -1926,7 +1926,7 @@ shodan search 'port:23 "login:" "Password:"'
 shodan count 'port:1883 MQTT'
 ```
 
-**Device-Specific Shodan Queries:**
+Device-Specific Shodan Queries:
 ```bash
 # IP cameras
 shodan search 'title:"Network Camera" country:US'
@@ -2095,7 +2095,7 @@ nmap -sV -p 23,80,443,502,1883,4840,5683,7547,8080,8443,44818     --script "bann
 
 ### 8.5 Mobile App Reverse Engineering for IoT Credentials
 
-**Android APK Analysis:**
+Android APK Analysis:
 ```bash
 # Extract APK
 adb shell pm list packages | grep -i vendor_name
@@ -2147,7 +2147,7 @@ ETSI EN 303 645 "Cyber Security for Consumer IoT" defines 13 baseline provisions
 | 5.12 | Make installation and maintenance easy | Security-by-default configuration |
 | 5.13 | Validate input data | Input validation to prevent injection |
 
-**ETSI EN 303 645 Compliance Assessment:**
+ETSI EN 303 645 Compliance Assessment:
 ```
 Auditable evidence requirements:
 - Provision 5.1: Firmware analysis shows no universal default passwords
@@ -2156,7 +2156,7 @@ Auditable evidence requirements:
 - Provision 5.5: TLS configuration audit (cipher suites, cert validation)
 ```
 
-### 9.2 NIST IR 8259 — IoT Device Cybersecurity Baseline
+### 9.2 NIST IR 8259: IoT Device Cybersecurity Baseline
 
 NIST IR 8259A defines the IoT device cybersecurity core baseline (6 capabilities):
 
@@ -2169,9 +2169,9 @@ NIST IR 8259A defines the IoT device cybersecurity core baseline (6 capabilities
 | Software Update | Authenticated, integrity-verified updates |
 | Cybersecurity Event Logging | Security event log with timestamps |
 
-**NIST IR 8259B** adds non-technical supporting capabilities (documentation, education, training).
+NIST IR 8259B adds non-technical supporting capabilities (documentation, education, training).
 
-**NIST IoT Cybersecurity Profile for Manufacturers:**
+NIST IoT Cybersecurity Profile for Manufacturers:
 ```
 NISTIR 8259C: Creating a Profile Using NISTIR 8259A and 8259B
 NISTIR 8259D: Profile for Federal Government IoT Devices
@@ -2198,16 +2198,16 @@ The ioXt Alliance "Pledge" certification program defines 8 security principles:
 8. Security expiration date — published end-of-support date
 ```
 
-**ioXt Certification Levels:**
+ioXt Certification Levels:
 - ioXt SmartHome: Consumer smart home devices
 - ioXt Mobile Application: Companion apps
 - ioXt VPN: Consumer/enterprise VPN products
 
 ### 9.4 UK Product Security and Telecommunications Infrastructure (PSTI) Act 2022
 
-**Effective Date:** April 29, 2024
+Effective Date: April 29, 2024
 
-**Requirements for Consumer IoT Products in UK:**
+Requirements for Consumer IoT Products in UK:
 
 ```
 1. Minimum security requirements (Schedule 1):
@@ -2229,14 +2229,14 @@ The ioXt Alliance "Pledge" certification program defines 8 security principles:
 4. Statement of Compliance: Required documentation proving requirements met
 ```
 
-**PSTI Scope:**
+PSTI Scope:
 - Internet-connectable products sold to UK consumers
 - Products capable of connecting to other products (IoT hubs, smart home)
 - Excludes: medical devices, smart meter infrastructure, desktop/laptop PCs
 
 ### 9.5 FCC IoT Labeling Program (Cyber Trust Mark)
 
-**US FCC Voluntary IoT Labeling Program (2024):**
+US FCC Voluntary IoT Labeling Program (2024):
 
 ```
 Program: US Cyber Trust Mark (shield logo)
@@ -2263,7 +2263,7 @@ Device categories covered:
 
 ### 9.6 PSA Certified (Arm)
 
-**Platform Security Architecture (PSA) Certification:**
+Platform Security Architecture (PSA) Certification:
 
 ```
 PSA Certified framework defines 4 certification levels:
@@ -2285,7 +2285,7 @@ SG-09: Lifecycle management
 SG-10: Debug interface control
 ```
 
-### 9.7 IEC 62443 — Industrial Cybersecurity
+### 9.7 IEC 62443: Industrial Cybersecurity
 
 IEC 62443 defines security requirements for Industrial Automation and Control Systems (IACS).
 
@@ -2298,7 +2298,7 @@ IEC 62443 defines security requirements for Industrial Automation and Control Sy
 | 62443-4-1 | Product Development Requirements | Secure SDL for device manufacturers |
 | 62443-4-2 | Technical Requirements for IACS Components | Component-level requirements |
 
-**Security Levels (SL):**
+Security Levels (SL):
 ```
 SL 1: Protection against casual/unintentional violation
 SL 2: Protection against intentional violation using simple means
@@ -2321,7 +2321,7 @@ FR 7: Resource Availability
 
 ### 10.1 Network Segmentation
 
-**IoT VLAN Architecture:**
+IoT VLAN Architecture:
 ```
 Architecture principle: Zero trust for IoT — no lateral movement possible
 
@@ -2343,7 +2343,7 @@ Firewall rules for IoT VLAN:
 - IoT → Cloud Service: ALLOW (specific IP/domain whitelist)
 ```
 
-**Cisco IOS VLAN/ACL Configuration:**
+Cisco IOS VLAN/ACL Configuration:
 ```
 ! Create IoT VLAN
 vlan 20
@@ -2370,7 +2370,7 @@ interface Vlan20
  ip access-group IoT_ACL in
 ```
 
-**pfSense/OPNsense IoT Rules:**
+pfSense/OPNsense IoT Rules:
 ```
 Interface: IoT_VLAN (192.168.20.0/24)
 
@@ -2385,9 +2385,9 @@ Rules (top to bottom):
 
 ### 10.2 IoT Asset Inventory
 
-**Passive Discovery Platforms:**
+Passive Discovery Platforms:
 
-**Armis (agentless, passive):**
+Armis (agentless, passive):
 ```
 - Monitors network traffic passively (SPAN port or network tap)
 - Device fingerprinting via traffic patterns, protocols, DHCP, OUI
@@ -2396,7 +2396,7 @@ Rules (top to bottom):
 - Integration: ServiceNow, Splunk, Palo Alto Cortex
 ```
 
-**Claroty (OT/IoT specialist):**
+Claroty (OT/IoT specialist):
 ```
 - Deep packet inspection of OT protocols (Modbus, PROFINET, EtherNet/IP)
 - Network baseline + anomaly detection
@@ -2405,7 +2405,7 @@ Rules (top to bottom):
 - CVE tracking per asset
 ```
 
-**Forescout Platform:**
+Forescout Platform:
 ```
 - Agentless device discovery and classification
 - Integration with NAC (802.1X enforcement)
@@ -2414,7 +2414,7 @@ Rules (top to bottom):
 - Integration: Cisco ISE, Aruba ClearPass
 ```
 
-**Open Source Alternative — Nmap + Custom Fingerprinting:**
+Open Source Alternative — Nmap + Custom Fingerprinting:
 ```bash
 # Regular automated inventory scan
 nmap -sn -T4 192.168.20.0/24 -oX iot_scan_$(date +%Y%m%d).xml
@@ -2431,7 +2431,7 @@ grep "DHCPACK" /var/log/dhcp.log | awk '{print $12, $7}' | sort | uniq
 
 ### 10.3 Firmware Update Policy
 
-**Key Policy Elements:**
+Key Policy Elements:
 ```
 1. Asset Inventory Integration
    - All IoT devices registered in CMDB
@@ -2463,7 +2463,7 @@ grep "DHCPACK" /var/log/dhcp.log | awk '{print $12, $7}' | sort | uniq
 
 ### 10.4 Microsoft Defender for IoT
 
-**Architecture:**
+Architecture:
 ```
 Sensor deployment options:
 1. Network sensor (OT): Agentless, SPAN port or network tap
@@ -2479,7 +2479,7 @@ Detection capabilities:
 - Asset discovery and inventory (auto-populated)
 ```
 
-**Deployment:**
+Deployment:
 ```bash
 # Install Defender for IoT OT sensor (Ubuntu 18.04 LTS)
 # 1. Download installation ISO from Azure portal
@@ -2493,7 +2493,7 @@ az iot defender sensor create     --name "factory-floor-sensor"     --resource-g
 
 ### 10.5 SBOM Requirements for IoT
 
-**Software Bill of Materials (SBOM) — IoT Context:**
+Software Bill of Materials (SBOM) — IoT Context:
 
 ```
 SBOM formats:
@@ -2531,7 +2531,7 @@ grype sbom:./sbom.spdx.json
 osv-scanner --sbom sbom.cyclonedx.json
 ```
 
-**Regulatory Requirements:**
+Regulatory Requirements:
 ```
 - US Executive Order 14028 (May 2021): Federal agencies must obtain SBOM
 - FDA (medical devices): SBOM required for cybersecurity submissions (Oct 2023)
@@ -2541,7 +2541,7 @@ osv-scanner --sbom sbom.cyclonedx.json
 
 ### 10.6 Zeek/Suricata IoT Anomaly Detection
 
-**Zeek IoT Protocol Detection:**
+Zeek IoT Protocol Detection:
 ```zeek
 # /opt/zeek/share/zeek/site/iot-monitor.zeek
 
@@ -2577,7 +2577,7 @@ event dhcp_message(c: connection, is_orig: bool, msg: DHCP::Msg, options: DHCP::
     }
 ```
 
-**Suricata IoT Rules:**
+Suricata IoT Rules:
 ```yaml
 # /etc/suricata/rules/iot.rules
 
@@ -2619,7 +2619,7 @@ alert udp any any -> any 5683 (msg:"IOT CoAP Multicast Probe";
 
 ATT&CK for ICS covers tactics and techniques specific to Industrial Control Systems. The T0800 range covers ICS-specific techniques.
 
-**Tactic-Technique Mapping (Key T0800-T0900 Range):**
+Tactic-Technique Mapping (Key T0800-T0900 Range):
 
 | Tactic | Technique ID | Technique Name | IoT/ICS Context |
 |--------|-------------|----------------|-----------------|
@@ -2651,7 +2651,7 @@ ATT&CK for ICS covers tactics and techniques specific to Industrial Control Syst
 | Impact | T0831 | Manipulation of Control | Alter process values |
 | Impact | T0879 | Damage to Property | Cause physical damage (cf. Stuxnet) |
 
-**Stuxnet ATT&CK Mapping Reference:**
+Stuxnet ATT&CK Mapping Reference:
 ```
 T0862: Supply chain via infected USB drives
 T0857: Modified Siemens S7-315 firmware

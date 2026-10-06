@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
-| **Start at** | [Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory) |
-| **Pairs with** | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Read this when | rolling out or tuning an EDR/email/web-proxy product and you need the vendor-recommended settings, hardening an M365 or Google Workspace tenant against CISA SCuBA baselines, deciding which policies to set to Block vs Audit during a phased deployment |
+| Start at | [Microsoft Defender for Endpoint Prevention Policies](#microsoft-defender-for-endpoint-prevention-policies), [NSA/CISA Hardening Guidance](#nsacisa-hardening-guidance), [Official Source Directory](#official-source-directory) |
+| Pairs with | [WINDOWS_HARDENING.md](WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](WINDOWS_HARDENING_GPO.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md), [TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 
 ---
 
@@ -16,11 +16,11 @@
 
 ---
 
-### Attack Surface Reduction (ASR) Rules — Complete Reference
+### Attack Surface Reduction (ASR) Rules: Complete Reference
 
 *Official reference: https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-reference*
 
-ASR rules are policy-enforced controls that block specific behaviors commonly used by malware and attackers. Each rule targets a discrete attack technique and can be set to **Disabled**, **Audit**, or **Block** mode. Microsoft recommends a phased rollout: Audit first, then Block.
+ASR rules are policy-enforced controls that block specific behaviors commonly used by malware and attackers. Each rule targets a discrete attack technique and can be set to Disabled, Audit, or Block mode. Microsoft recommends a phased rollout: Audit first, then Block.
 
 | GUID | Rule Name | Recommended Mode | ATT&CK Technique |
 |---|---|---|---|
@@ -44,7 +44,7 @@ ASR rules are policy-enforced controls that block specific behaviors commonly us
 | 92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b | Block Win32 API calls from Office macros | Block | T1106 |
 | c1db55ab-c21a-4637-bb3f-a12568109d35 | Use advanced protection against ransomware | Block | T1486 |
 
-**PowerShell deployment — enable all rules in Block mode:**
+PowerShell deployment — enable all rules in Block mode:
 
 ```powershell
 # Enable ALL recommended ASR rules in Block mode via PowerShell
@@ -75,9 +75,9 @@ foreach ($rule in $rules) {
 Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 ```
 
-**ASR exclusion guidance (from Microsoft):** Exclude by specific file path only — not by extension. Example: `C:\Program Files\VendorApp\app.exe`. Broad exclusions (e.g., entire `C:\Users`) significantly reduce protection.
+ASR exclusion guidance (from Microsoft): Exclude by specific file path only — not by extension. Example: `C:\Program Files\VendorApp\app.exe`. Broad exclusions (e.g., entire `C:\Users`) significantly reduce protection.
 
-**Intune OMA-URI for ASR (example — Block Office child processes):**
+Intune OMA-URI for ASR (example — Block Office child processes):
 - OMA-URI: `./Device/Vendor/MSFT/Policy/Config/Defender/AttackSurfaceReductionRules`
 - Data type: String
 - Value: `d4f940ab-401b-4efc-aadc-ad5f3c50688a=2` (2 = Block, 1 = Audit, 0 = Disabled)
@@ -90,7 +90,7 @@ Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 
 | Setting | Recommended Value | Notes |
 |---|---|---|
-| Cloud-delivered protection | Enabled — High+ level | Enables cloud lookup for unknown files |
+| Cloud-delivered protection | Enabled: High+ level | Enables cloud lookup for unknown files |
 | MAPS reporting | Advanced MAPS | Sends full telemetry for cloud analysis |
 | Automatic sample submission | Send safe samples (or All samples) | Required for cloud analysis to function |
 | Real-time protection | Enabled | Never disable in production |
@@ -103,7 +103,7 @@ Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 | Email scanning | Enabled | Scan .eml, .msg files |
 | Scan mapped network drives | Enabled | May impact performance; test first |
 
-**PowerShell verification:**
+PowerShell verification:
 
 ```powershell
 Get-MpPreference | Select-Object `
@@ -118,13 +118,13 @@ Get-MpPreference | Select-Object `
     DisableTamperProtection
 ```
 
-**Network protection modes:** 0 = Disabled, 1 = Block, 2 = Audit
+Network protection modes: 0 = Disabled, 1 = Block, 2 = Audit
 
-**Controlled Folder Access modes:** 0 = Disabled, 1 = Enabled (Block), 2 = Audit, 3 = Block disk modification only, 4 = Audit disk modification only
+Controlled Folder Access modes: 0 = Disabled, 1 = Enabled (Block), 2 = Audit, 3 = Block disk modification only, 4 = Audit disk modification only
 
 ---
 
-### Microsoft Secure Score — High-Impact Recommendations
+### Microsoft Secure Score: High-Impact Recommendations
 
 *Source: https://security.microsoft.com/securescore (Microsoft 365 Defender portal)*
 
@@ -151,9 +151,9 @@ Get-MpPreference | Select-Object `
 
 ### Policy Architecture
 
-Prevention Policies are assigned to **Host Groups**. Each policy is a collection of toggle settings grouped into categories. The recommended approach is a **ring-based rollout**: pilot group (IT/security), broad group, then all endpoints.
+Prevention Policies are assigned to Host Groups. Each policy is a collection of toggle settings grouped into categories. The recommended approach is a ring-based rollout: pilot group (IT/security), broad group, then all endpoints.
 
-### Malware Protection Settings — Recommended Production Values
+### Malware Protection Settings: Recommended Production Values
 
 | Setting Category | Setting | Recommended Value | Notes |
 |---|---|---|---|
@@ -183,18 +183,18 @@ Prevention Policies are assigned to **Host Groups**. Each policy is a collection
 | Heap Integrity Protection | Enabled | Detects heap corruption |
 | Deny Loading of Suspicious Modules | Enabled | Blocks known suspicious DLLs |
 
-### Indicators of Attack (IOA) — Behavioral Prevention
+### Indicators of Attack (IOA): Behavioral Prevention
 
 | IOA Category | Recommended Setting | Priority |
 |---|---|---|
-| Process Hollowing | Prevent | Critical — common post-exploitation technique |
-| Credential Dumping | Prevent | Critical — catches LSASS access attempts |
-| AMSI Bypass | Prevent | High — blocks PowerShell AMSI disablement |
+| Process Hollowing | Prevent | Critical: common post-exploitation technique |
+| Credential Dumping | Prevent | Critical: catches LSASS access attempts |
+| AMSI Bypass | Prevent | High: blocks PowerShell AMSI disablement |
 | Suspicious Scripts | Prevent | High |
 | Suspicious PowerShell Commands | Prevent and Kill | High |
-| PowerShell Downgrade Attack | Prevent | Medium — blocks -Version 2 flag |
+| PowerShell Downgrade Attack | Prevent | Medium: blocks -Version 2 flag |
 | Code Injection | Prevent | Critical |
-| Bootloader | Prevent | High — blocks MBR/VBR modification |
+| Bootloader | Prevent | High: blocks MBR/VBR modification |
 | COM Class Hijacking | Prevent | Medium |
 | Suspicious Registry Operations | Prevent | Medium |
 | Exploitation | Prevent | Critical |
@@ -205,9 +205,9 @@ Prevention Policies are assigned to **Host Groups**. Each policy is a collection
 
 | Phase | Duration | Configuration | Goal |
 |---|---|---|---|
-| 1 — Detection Only | 2–4 weeks | All settings: Detect/Audit only | Baseline FP rate, identify exclusions needed |
-| 2 — Moderate Prevention | 2–4 weeks | Conservative ML + Exploit: Prevent; IOAs: Detect | Validate exclusions, catch high-confidence threats |
-| 3 — Aggressive Prevention | Ongoing | All ML/Exploit: Aggressive; all IOAs: Prevent | Full protection posture |
+| 1: Detection Only | 2-4 weeks | All settings: Detect/Audit only | Baseline FP rate, identify exclusions needed |
+| 2: Moderate Prevention | 2-4 weeks | Conservative ML + Exploit: Prevent; IOAs: Detect | Validate exclusions, catch high-confidence threats |
+| 3: Aggressive Prevention | Ongoing | All ML/Exploit: Aggressive; all IOAs: Prevent | Full protection posture |
 
 ---
 
@@ -227,10 +227,10 @@ Prevention Policies are assigned to **Host Groups**. Each policy is a collection
 
 | Setting | Mode | Notes |
 |---|---|---|
-| Static AI — Malicious | Protect | ML model scores known and variant malware at write-time |
-| Static AI — Suspicious | Detect (promote to Protect after tuning) | Higher FP potential; tune exclusions first |
-| Behavioral AI — Malicious | Protect | Runtime behavioral analysis |
-| Behavioral AI — Suspicious | Protect | Lower confidence behavioral detections |
+| Static AI: Malicious | Protect | ML model scores known and variant malware at write-time |
+| Static AI: Suspicious | Detect (promote to Protect after tuning) | Higher FP potential; tune exclusions first |
+| Behavioral AI: Malicious | Protect | Runtime behavioral analysis |
+| Behavioral AI: Suspicious | Protect | Lower confidence behavioral detections |
 | Anti-Exploit | Protect | Memory exploit techniques (ROP, heap spray, shellcode) |
 | Anti-Ransomware | Protect + Auto Remediate | Includes volume shadow copy protection |
 | Remote Shell | Protect | Blocks unauthorized remote shell connections |
@@ -249,13 +249,13 @@ Alert
         -> Alert + Network Quarantine (isolate endpoint)
 ```
 
-**Auto-remediation (rollback):** SentinelOne takes VSS snapshots before execution and can revert filesystem changes from ransomware even after encryption begins.
+Auto-remediation (rollback): SentinelOne takes VSS snapshots before execution and can revert filesystem changes from ransomware even after encryption begins.
 
 ### Exclusion Best Practices
 
-- Exclude by **path + certificate** combination, not by path alone
+- Exclude by path + certificate combination, not by path alone
 - Never exclude entire drives or system directories
-- Use **scope** exclusions (interoperability) for trusted security software (AV, backup agents)
+- Use scope exclusions (interoperability) for trusted security software (AV, backup agents)
 - Review exclusion list quarterly; remove stale entries
 
 ---
@@ -264,7 +264,7 @@ Alert
 
 *Source: PAN-OS Administrator's Guide — docs.paloaltonetworks.com*
 
-### Antivirus Profile — Recommended Security Settings
+### Antivirus Profile: Recommended Security Settings
 
 ```
 Profile: Clone from predefined "strict" profile
@@ -279,9 +279,9 @@ Per-application, per-direction settings:
   Decoders: HTTP, HTTPS, SMTP, IMAP, POP3, FTP, SMB
 ```
 
-**Inline ML (PAN-OS 10.1+):** Enable for real-time file analysis without WildFire submission latency. Set to `enable` for: PE files, PowerShell, ELF.
+Inline ML (PAN-OS 10.1+): Enable for real-time file analysis without WildFire submission latency. Set to `enable` for: PE files, PowerShell, ELF.
 
-### Anti-Spyware Profile — Recommended Settings
+### Anti-Spyware Profile: Recommended Settings
 
 | Threat Severity | Action | Additional |
 |---|---|---|
@@ -291,7 +291,7 @@ Per-application, per-direction settings:
 | Low | alert | Log only |
 | Informational | allow | |
 
-**DNS Security (requires subscription):**
+DNS Security (requires subscription):
 - Enable all DNS security categories
 - Block categories: malware, phishing, C2, dynamic-dns, newly-registered-domains, grayware
 - Passive DNS Monitoring: Enabled
@@ -309,7 +309,7 @@ Per-application, per-direction settings:
 
 ### URL Filtering Profile
 
-**Block (not Alert) these categories:**
+Block (not Alert) these categories:
 
 ```
 command-and-control
@@ -323,7 +323,7 @@ cryptocurrency
 unknown (review by category first)
 ```
 
-**Alert (for visibility) — review for potential block:**
+Alert (for visibility) — review for potential block:
 ```
 high-risk
 peer-to-peer
@@ -331,7 +331,7 @@ gambling
 adult
 ```
 
-**Safe search enforcement:** Enable for search engines (Google, Bing, Yahoo) — append `&safe=strict` at the URL category level.
+Safe search enforcement: Enable for search engines (Google, Bing, Yahoo) — append `&safe=strict` at the URL category level.
 
 ### WildFire Analysis Profile
 
@@ -341,7 +341,7 @@ adult
 | Forward for | All applications |
 | Analysis | public-cloud + private-cloud (if WF Appliance licensed) |
 | Real-time WildFire | Enabled (requires subscription) |
-| Block on timeout | Yes — hold file until verdict received |
+| Block on timeout | Yes: hold file until verdict received |
 
 ---
 
@@ -363,7 +363,7 @@ adult
 | Cryptominer Protection | Mode | Block |
 | Local Privilege Escalation | Mode | Block |
 
-**Cortex XDR Agent Hardening Policy (recommended):**
+Cortex XDR Agent Hardening Policy (recommended):
 - Enable tamper protection on the agent
 - Require agent uninstall password
 - Block agent service termination from non-admin processes
@@ -374,14 +374,14 @@ adult
 
 *Source: Proofpoint documentation — help.proofpoint.com*
 
-### Targeted Attack Protection (TAP) Settings — Enterprise
+### Targeted Attack Protection (TAP) Settings: Enterprise
 
 | Feature | Setting | Recommended Value |
 |---|---|---|
 | URL Defense | URL rewriting | Rewrite ALL URLs (not just suspicious) |
-| URL Defense | Click-time protection | Enabled — check at click, not just at delivery |
+| URL Defense | Click-time protection | Enabled: check at click, not just at delivery |
 | URL Defense | Block on timeout | Block (do not deliver if sandbox times out) |
-| Attachment Defense | Block on timeout | Block (default is deliver — change this) |
+| Attachment Defense | Block on timeout | Block (default is deliver: change this) |
 | Attachment Defense | Password-protected archives | Block (unknown content cannot be analyzed) |
 | Attachment Defense | Sandbox all Office/PDF/EXE | Enabled |
 | Impostor/BEC | Display name spoofing | Block |
@@ -390,15 +390,15 @@ adult
 
 ### Spam and Bulk Mail Thresholds
 
-Proofpoint uses a 0–100 spam confidence score. Higher = more confident it is spam.
+Proofpoint uses a 0-100 spam confidence score. Higher = more confident it is spam.
 
 | Mail Type | Recommended Action | Threshold Notes |
 |---|---|---|
-| Spam | Quarantine or Tag | Score threshold: 75 (default 90 — lower = more aggressive) |
+| Spam | Quarantine or Tag | Score threshold: 75 (default 90: lower = more aggressive) |
 | Bulk Mail | Quarantine | Bulk threshold: 90 |
 | Phish | Block (reject or high-risk quarantine) | Never just deliver with tag |
-| Malware | Block and delete | Never quarantine — delete immediately |
-| Impostor (BEC) | Quarantine with notification to security team | High-risk — always notify |
+| Malware | Block and delete | Never quarantine: delete immediately |
+| Impostor (BEC) | Quarantine with notification to security team | High-risk: always notify |
 | Suspected Spam | Tag subject line | Lower-confidence threshold |
 
 ### Email Authentication Policy Actions
@@ -410,7 +410,7 @@ Proofpoint uses a 0–100 spam confidence score. Higher = more confident it is s
 | DMARC Reject | Reject |
 | DMARC Quarantine | Quarantine |
 | DKIM fail only (no DMARC/SPF) | Deliver with tag (DMARC is primary signal) |
-| No authentication (no SPF/DKIM/DMARC) | Scrutinize — often malicious for corporate email |
+| No authentication (no SPF/DKIM/DMARC) | Scrutinize: often malicious for corporate email |
 
 ### VIP/Impostor Protection Rules
 
@@ -435,9 +435,9 @@ Rule: Newly Registered Domain links
 
 *Source: Zscaler Help Portal — help.zscaler.com/zia*
 
-### URL Category Blocking — Recommended Production Defaults
+### URL Category Blocking: Recommended Production Defaults
 
-**Block these categories (no user override):**
+Block these categories (no user override):
 
 | Category | Reason |
 |---|---|
@@ -451,7 +451,7 @@ Rule: Newly Registered Domain links
 | Dynamic DNS Providers | Common attacker infrastructure |
 | Spyware / Adware | Malware-adjacent |
 
-**Caution — Audit before Block:**
+Caution — Audit before Block:
 
 | Category | Notes |
 |---|---|
@@ -469,7 +469,7 @@ Rule: Newly Registered Domain links
 | Certificate-pinned apps | Bypass | Microsoft Teams, Salesforce, etc. |
 | Windows Update / Apple / Google | Bypass | Prevent breaking OS updates |
 
-**Minimum SSL inspection requirements:**
+Minimum SSL inspection requirements:
 - Deploy Zscaler root CA to all endpoints via GPO / MDM
 - Enable: Full SSL inspection with certificate validation
 - Validate: `openssl s_client -connect target.com:443 | openssl x509 -noout -issuer`
@@ -485,9 +485,9 @@ Rule: Newly Registered Domain links
 | Adware | Block |
 | Crypto Mining | Block |
 | Suspicious Content | Block or Quarantine |
-| IPS signatures | Enable all — IPS block mode after 2-week audit period |
+| IPS signatures | Enable all: IPS block mode after 2-week audit period |
 
-**Sandbox (Zscaler Cloud Sandbox):**
+Sandbox (Zscaler Cloud Sandbox):
 - Submit: All unknown executables and Office documents
 - Block on: Malicious verdict
 - Action on timeout: Hold (caution page) or Block
@@ -526,11 +526,11 @@ Rule 4: Allow DNS to ZIA resolvers only
 
 *Source: https://www.cisa.gov/resources-tools/services/scuba — official CISA guidance*
 
-### Microsoft 365 Baseline Assessment — ScubaGear
+### Microsoft 365 Baseline Assessment: ScubaGear
 
 ScubaGear is CISA's official open-source assessment tool for M365 tenants.
 
-**Installation and run:**
+Installation and run:
 
 ```powershell
 Install-Module -Name ScubaGear -Scope CurrentUser
@@ -539,7 +539,7 @@ Invoke-SCuBA -ProductNames teams,exo,defender,aad,powerplatform
 # Output: HTML report + JSON results in ./ScubaResults/
 ```
 
-**GitHub:** https://github.com/cisagov/ScubaGear
+GitHub: https://github.com/cisagov/ScubaGear
 
 ### Key CISA M365 Mandatory Policies
 
@@ -600,7 +600,7 @@ From NSA's "Top Ten Cybersecurity Mitigations" (NSA-CISA joint advisory — medi
 
 *Source: NSA/CISA Cybersecurity Information Sheet "Keeping PowerShell: Security Measures to Use and Embrace" — media.defense.gov*
 
-**Key finding:** NSA recommends keeping PowerShell — removing it forces attackers to use other LOLBins with less logging. PowerShell v5.1+ has AMSI, Script Block Logging, and module logging built in.
+Key finding: NSA recommends keeping PowerShell — removing it forces attackers to use other LOLBins with less logging. PowerShell v5.1+ has AMSI, Script Block Logging, and module logging built in.
 
 | Control | Implementation | Registry / GPO Path |
 |---|---|---|
@@ -611,7 +611,7 @@ From NSA's "Top Ten Cybersecurity Mitigations" (NSA-CISA joint advisory — medi
 | Transcription output directory | Central network share (read-only from endpoint) | `OutputDirectory = \\\\siem-share\\pstranscripts\\` |
 | Constrained Language Mode | Restrict .NET, COM, type acceleration | Enforced via WDAC (preferred) or AppLocker |
 
-**Disable PowerShell v2 (no AMSI, no logging):**
+Disable PowerShell v2 (no AMSI, no logging):
 
 ```powershell
 # Disable PowerShell v2 — requires restart
@@ -628,12 +628,12 @@ Get-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
 
 CISA BOD 26-04 (issued June 10, 2026, superseding and revoking BOD 22-01) requires federal agencies to remediate KEV entries within risk-based timelines. Non-federal organizations should treat KEV as a priority patching signal.
 
-**Patch timelines:**
-- KEV-listed CVEs (federal agencies): risk-based deadlines under BOD 26-04 (June 10, 2026) — from 3 days (publicly exposed + KEV + automatable + total impact, with mandatory forensic triage) down to fix-on-upgrade; this replaced the flat 2-week deadline of the now-revoked BOD 22-01
+Patch timelines:
+- KEV-listed CVEs (federal agencies): risk-based deadlines under BOD 26-04 (June 10, 2026): from 3 days (publicly exposed + KEV + automatable + total impact, with mandatory forensic triage) down to fix-on-upgrade; this replaced the flat 2-week deadline of the now-revoked BOD 22-01
 - Critical/exploited CVEs not in KEV: 30 days (CISA recommendation)
 - High CVEs: 60 days
 
-**KEV API for continuous monitoring:**
+KEV API for continuous monitoring:
 
 ```bash
 # Pull all KEV entries with due dates after Jan 1, 2024
@@ -654,7 +654,7 @@ curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabi
 
 The Elastic detection-rules repository is the authoritative source for production-ready Elastic SIEM rules, maintained by the Elastic Security Research team.
 
-**Installation:**
+Installation:
 
 ```bash
 git clone https://github.com/elastic/detection-rules
@@ -666,30 +666,30 @@ python -m detection_rules kibana upload-rule rules/ --space default
 
 ### Key Detection Rule Categories
 
-**Credential Access:**
+Credential Access:
 - LSASS Memory Dump Handle Access (Mimikatz, ProcDump patterns)
 - Attempted Private Key or Certificate Theft Event
 - Kerberoasting via Impacket
 - DCSync via NTDSUtil
 
-**Persistence:**
+Persistence:
 - Startup Folder Persistence via Unsigned Process
 - Registry Run Keys / Startup Folder
 - Scheduled Task Created by a Windows Script
 - WMI Permanent Event Subscription
 
-**Stealth:**
+Stealth:
 - Potential Process Injection via PowerShell
 - NTDLL Hooking via MapViewOfSection
 - Disabling Windows Defender via PowerShell
-- Indicator Removal — Clear Windows Event Logs
+- Indicator Removal: Clear Windows Event Logs
 
-**Discovery:**
+Discovery:
 - Network Scanning with NMAP
 - Enumeration of Administrator Accounts
 - PowerView PowerShell Reconnaissance
 
-**Lateral Movement:**
+Lateral Movement:
 - Incoming Execution via WMI
 - Remote Scheduled Task Creation via RPC
 - PsExec Network Connection
@@ -743,9 +743,9 @@ ESCU is the official Splunk detection content library maintained by the Splunk T
 
 ### Installation
 
-- **Splunkbase:** Search for "Splunk Security Essentials" and "DA-ESS-ContentUpdate"
-- **GitHub:** `git clone https://github.com/splunk/security_content`
-- **Content Hub:** Available directly in Splunk Enterprise Security UI
+- Splunkbase: Search for "Splunk Security Essentials" and "DA-ESS-ContentUpdate"
+- GitHub: `git clone https://github.com/splunk/security_content`
+- Content Hub: Available directly in Splunk Enterprise Security UI
 
 ### Content Categories
 
@@ -789,7 +789,7 @@ ESCU is the official Splunk detection content library maintained by the Splunk T
 
 ### Analytic Story Concept
 
-An **Analytic Story** groups related detections, investigations, and baselines around a specific threat scenario.
+An Analytic Story groups related detections, investigations, and baselines around a specific threat scenario.
 
 | Analytic Story | Included Detections | Threat |
 |---|---|---|
@@ -817,7 +817,7 @@ az rest --method PUT \
   --body @rule.json
 ```
 
-**Content Hub:** Sentinel UI > Content Hub > browse 200+ vendor solutions and community packs.
+Content Hub: Sentinel UI > Content Hub > browse 200+ vendor solutions and community packs.
 
 ### Scheduled Analytics Rule Structure (ARM Template)
 
@@ -865,7 +865,7 @@ az rest --method PUT \
 | Successful sign-in from non-compliant device | Medium | Initial Access |
 | Mass secret retrieval from Azure Key Vault | High | Credential Access |
 | Privileged role assigned outside Privileged Identity Management | High | Privilege Escalation |
-| NRT — Malicious inbox rule created after suspicious sign-in | High | Persistence |
+| NRT: Malicious inbox rule created after suspicious sign-in | High | Persistence |
 
 ---
 

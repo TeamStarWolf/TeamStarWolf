@@ -7,32 +7,32 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## 2026-09-26
 
 ### Added
-- **MITRE enriched pages — remaining frameworks** in `mitre/`: 14 tactic hub pages,
+- MITRE enriched pages: remaining frameworks in `mitre/`: 14 tactic hub pages,
   156 D3FEND countermeasure pages (each with the ATT&CK techniques it counters), 615
   CAPEC attack-pattern pages (mapped to ATT&CK + CWE, grouped by severity), and 170
   ATLAS AI/ML technique pages + 35 ATLAS mitigations — completing "one page per MITRE
   object" alongside the technique/mitigation pages. All internal links verified (0 broken)
-- **MITRE cross-framework crosswalk** (`mitre/crosswalk.md`) — technique ↔ mitigation ↔
-  NIST 800-53 ↔ D3FEND ↔ CAPEC in one place, including a per-mitigation rollup of NIST
+- MITRE cross-framework crosswalk (`mitre/crosswalk.md`): technique <-> mitigation <->
+  NIST 800-53 <-> D3FEND <-> CAPEC in one place, including a per-mitigation rollup of NIST
   families and D3FEND countermeasures (the join not expressed elsewhere)
-- **MITRE enriched per-object pages** in `mitre/` — a browsable, ATT&CK-Navigator-style
+- MITRE enriched per-object pages in `mitre/`: a browsable, ATT&CK-Navigator-style
   page for each object: 691 technique pages (tactics, platforms, mitigations, D3FEND
   countermeasures, CAPEC, NIST 800-53, detection strategies, and Team Star Wolf corpus
-  prevalence where observed) and 44 mitigation pages with concrete **how-to-implement**
+  prevalence where observed) and 44 mitigation pages with concrete how-to-implement
   guidance, mapped NIST families, and the techniques each counters. Cross-framework
-  relationships (ATT&CK ↔ Mitigation ↔ D3FEND ↔ CAPEC ↔ NIST) in one place
-- **16 step-by-step how-to guides** in `guides/`, with a grouped hub — start-to-finish
+  relationships (ATT&CK <-> Mitigation <-> D3FEND <-> CAPEC <-> NIST) in one place
+- 16 step-by-step how-to guides in `guides/`, with a grouped hub: start-to-finish
   procedures (triage a CVE, build a detection, respond to ransomware, harden Windows/
   macOS, assess M365 with ScubaGear, run a purple-team exercise, start a vuln-mgmt
   program, and more), each with prerequisites, checkpoints, and links into the references (#18)
-- **Threat Report Almanac** — an annotated index of the major annual threat reports,
+- Threat Report Almanac: an annotated index of the major annual threat reports,
   organized by methodology basis, with a critical-reading method and reading calendar (#18)
-- **Six program-layer references** — Vulnerability Prioritization (SSVC/KEV/EPSS/VEX),
+- Six program-layer references: Vulnerability Prioritization (SSVC/KEV/EPSS/VEX),
   Data Security, LOTL Detection, Edge & Network Device Security, Cyber Resilience & BCDR,
-  and Security Data Engineering; **CTEM reference expanded** in depth (#15)
-- A **plain-English orientation block** ("In one minute / Read this when / Start at /
+  and Security Data Engineering; CTEM reference expanded in depth (#15)
+- A plain-English orientation block ("In one minute / Read this when / Start at /
   Pairs with") at the top of every reference document (#17)
-- A dedicated site homepage (`HOME.md`) and the **STARWOLF64 banner** on both the README
+- A dedicated site homepage (`HOME.md`) and the STARWOLF64 banner on both the README
   and the docsify cover (#16, #19, #20)
 
 ### Changed
@@ -42,10 +42,10 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## 2026-09-25
 
 ### Added
-- **Eight specialized-domain references** — SPARTA (space systems), MITRE FiGHT (telecom/5G),
+- Eight specialized-domain references: SPARTA (space systems), MITRE FiGHT (telecom/5G),
   MITRE EMB3D (embedded devices), Insider Threat program, macOS security, SaaS security,
   Post-Quantum migration, and Ransomware defense & resilience (#11)
-- Viasat KA-SAT (2022) and Salt Typhoon (2024–2025) added to Notable Incidents (#13)
+- Viasat KA-SAT (2022) and Salt Typhoon (2024-2025) added to Notable Incidents (#13)
 
 ### Fixed
 - Corrected ML-DSA and SLH-DSA signature sizes to the FIPS 204 / FIPS 205 final values (#12)

@@ -1,4 +1,4 @@
-# Vendor Coverage Gap Scoring — Data Model & Schema
+# Vendor Coverage Gap Scoring: Data Model & Schema
 
 This page defines the data model for scoring vendor coverage against ATT&CK techniques through NIST 800-53 controls. It connects the Optiv market map vendor taxonomy, the NIST 800-53 control framework, and ATT&CK technique coverage into a queryable gap analysis system.
 
@@ -92,11 +92,11 @@ Edge Tables:
 
 ## Coverage Edge Schema (Graph Model)
 
-> **⚠️ Conceptual model vs. on-disk schema.** The JSON examples in this section illustrate the *graph model*.
-> The **canonical field names actually enforced** on the shipped `.jsonl` files are defined in
+> Conceptual model vs. on-disk schema. The JSON examples in this section illustrate the *graph model*.
+> The canonical field names actually enforced on the shipped `.jsonl` files are defined in
 > [`scripts/validate_jsonl.py`](scripts/validate_jsonl.py) and checked in CI by
 > [`.github/workflows/validate-data.yml`](.github/workflows/validate-data.yml). If you regenerate the edge
-> tables, match **that** schema and run `python scripts/validate_jsonl.py` before opening a PR — see
+> tables, match that schema and run `python scripts/validate_jsonl.py` before opening a PR — see
 > [Canonical on-disk schema](#canonical-on-disk-schema-ci-enforced) below.
 
 ### Canonical on-disk schema (CI-enforced)
@@ -111,9 +111,9 @@ Edge Tables:
 allowed — the shipped files also carry `edge_type`, `tactics`, `via_controls`, `control_count`, and `source`
 for richer querying.
 
-**`coverage_type` derivation** (vendor → technique): from the NIST control families behind the mapping —
-`AU-*`, `SI-4`, `CA-7` → `detect`; `IR-*` → `respond`; `RA-*`/`CA-*`/`PM-*` → `identify`; others → `prevent`;
-a technique reached by both preventive and detective controls → `prevent_detect`.
+`coverage_type` derivation (vendor -> technique): from the NIST control families behind the mapping —
+`AU-*`, `SI-4`, `CA-7` -> `detect`; `IR-*` -> `respond`; `RA-*`/`CA-*`/`PM-*` -> `identify`; others -> `prevent`;
+a technique reached by both preventive and detective controls -> `prevent_detect`.
 
 ### vendor_to_control edges
 ```json
@@ -320,18 +320,18 @@ Download the raw mapping data directly from CTID to build the control_to_techniq
 
 | Framework | CTID Explorer URL | Coverage |
 |---|---|---|
-| NIST 800-53 v5 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/) | All 800-53 controls → Enterprise ATT&CK |
-| AWS Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) | AWS native controls → ATT&CK |
-| Azure Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) | Azure/Entra controls → ATT&CK |
-| GCP Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/) | GCP controls → ATT&CK |
-| Microsoft 365 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) | M365 controls → ATT&CK |
-| CSA CCM | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) | Cloud security controls → ATT&CK |
-| CISA KEV | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) | Known exploited CVEs → ATT&CK techniques |
+| NIST 800-53 v5 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/) | All 800-53 controls -> Enterprise ATT&CK |
+| AWS Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) | AWS native controls -> ATT&CK |
+| Azure Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) | Azure/Entra controls -> ATT&CK |
+| GCP Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/) | GCP controls -> ATT&CK |
+| Microsoft 365 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) | M365 controls -> ATT&CK |
+| CSA CCM | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) | Cloud security controls -> ATT&CK |
+| CISA KEV | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) | Known exploited CVEs -> ATT&CK techniques |
 
 
 ### Coverage Gap Analysis Methodology
 
-**Step 1: Asset Inventory**
+Step 1: Asset Inventory
 Before measuring coverage, establish what you're protecting:
 ```json
 {
@@ -341,7 +341,7 @@ Before measuring coverage, establish what you're protecting:
 }
 ```
 
-**Step 2: Control Mapping**
+Step 2: Control Mapping
 Map each deployed control to NIST 800-53 families and ATT&CK techniques it addresses:
 ```python
 # Example control mapping entry
@@ -354,7 +354,7 @@ control = {
 }
 ```
 
-**Step 3: Gap Scoring**
+Step 3: Gap Scoring
 ```python
 def calculate_technique_coverage(technique_id: str, controls: list[dict]) -> float:
     """
@@ -370,7 +370,7 @@ def calculate_technique_coverage(technique_id: str, controls: list[dict]) -> flo
     return min(1.0, avg_deployment * depth_multiplier)
 ```
 
-**Step 4: ATT&CK Navigator Layer Generation**
+Step 4: ATT&CK Navigator Layer Generation
 ```python
 import json
 
@@ -412,16 +412,16 @@ def score_to_color(score: float) -> str:
 
 | Technique Coverage | Business Impact | Priority | Action |
 |---|---|---|---|
-| 0% | Critical | P1 | Immediate — acquire or deploy control within 30 days |
-| 0% | High | P2 | Near-term — deploy within 90 days |
-| 0-25% | Critical | P1 | Immediate — expand deployment coverage |
-| 25-50% | High | P2 | Near-term — expand deployment and add compensating control |
-| 50-75% | Medium | P3 | Planned — include in next budget cycle |
-| 75-100% | Any | P4 | Monitoring — optimize existing controls |
+| 0% | Critical | P1 | Immediate: acquire or deploy control within 30 days |
+| 0% | High | P2 | Near-term: deploy within 90 days |
+| 0-25% | Critical | P1 | Immediate: expand deployment coverage |
+| 25-50% | High | P2 | Near-term: expand deployment and add compensating control |
+| 50-75% | Medium | P3 | Planned: include in next budget cycle |
+| 75-100% | Any | P4 | Monitoring: optimize existing controls |
 
 ### ROSI Calculation Model
 
-**Return on Security Investment**
+Return on Security Investment
 
 ```python
 def calculate_rosi(

@@ -1,12 +1,12 @@
 # Supply Chain Security Reference
 
-> **In one minute** — This document is a working reference for securing the software supply chain: every component, build step, and distribution channel between someone's source code and what you actually run. It walks the whole problem end to end — how attacks like typosquatting, dependency confusion, and build injection work (with real incidents such as SolarWinds and XZ Utils), then the defenses: SBOMs, dependency scanners, artifact signing with Sigstore/cosign, SLSA build levels, CI/CD hardening, and incident response. Nearly every section includes copy-paste commands and configs, so it doubles as a runbook, not just background reading.
+> In one minute — This document is a working reference for securing the software supply chain: every component, build step, and distribution channel between someone's source code and what you actually run. It walks the whole problem end to end — how attacks like typosquatting, dependency confusion, and build injection work (with real incidents such as SolarWinds and XZ Utils), then the defenses: SBOMs, dependency scanners, artifact signing with Sigstore/cosign, SLSA build levels, CI/CD hardening, and incident response. Nearly every section includes copy-paste commands and configs, so it doubles as a runbook, not just background reading.
 
 | | |
 |---|---|
-| **Read this when** | you need to vet or scan a project's dependencies, you're adding SBOM generation or artifact signing to a pipeline, you're hardening GitHub Actions/CI workflows, or you suspect a compromised package and need containment steps |
-| **Start at** | [Threat landscape](#_1-software-supply-chain-threat-landscape) for how the attacks work, [Artifact signing & verification](#_4-artifact-signing-amp-verification) for cosign/signing workflows, [Incident response](#_10-supply-chain-incident-response) when something is already on fire |
-| **Pairs with** | [SUPPLY_CHAIN_SECURITY.md](SUPPLY_CHAIN_SECURITY.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
+| Read this when | you need to vet or scan a project's dependencies, you're adding SBOM generation or artifact signing to a pipeline, you're hardening GitHub Actions/CI workflows, or you suspect a compromised package and need containment steps |
+| Start at | [Threat landscape](#_1-software-supply-chain-threat-landscape) for how the attacks work, [Artifact signing & verification](#_4-artifact-signing-amp-verification) for cosign/signing workflows, [Incident response](#_10-supply-chain-incident-response) when something is already on fire |
+| Pairs with | [SUPPLY_CHAIN_SECURITY.md](SUPPLY_CHAIN_SECURITY.md), [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md), [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md) |
 
 ## 1. Software Supply Chain Threat Landscape
 
@@ -46,15 +46,15 @@ The NotPetya attack (2017) leveraged a compromised update server for M.E.Doc acc
 
 ### MITRE ATT&CK Supply Chain Techniques
 
-**T1195.001 — Compromise Software Dependencies and Development Tools**: Adversaries manipulate software dependencies prior to receipt by the final consumer. This includes compromising package repositories, injecting malicious code into open-source dependencies, and targeting development tool distributions.
+T1195.001 — Compromise Software Dependencies and Development Tools: Adversaries manipulate software dependencies prior to receipt by the final consumer. This includes compromising package repositories, injecting malicious code into open-source dependencies, and targeting development tool distributions.
 
-**T1195.002 — Compromise Software Supply Chain**: Adversaries manipulate application software prior to receipt by a final consumer. Involves tampering with software during distribution or within a distribution infrastructure, such as compromising update servers, installers, or distribution channels.
+T1195.002 — Compromise Software Supply Chain: Adversaries manipulate application software prior to receipt by a final consumer. Involves tampering with software during distribution or within a distribution infrastructure, such as compromising update servers, installers, or distribution channels.
 
-**T1195.003 — Compromise Hardware Supply Chain**: Adversaries manipulate hardware components prior to delivery to the end consumer. Encompasses firmware modifications, malicious hardware implants, and counterfeit components.
+T1195.003 — Compromise Hardware Supply Chain: Adversaries manipulate hardware components prior to delivery to the end consumer. Encompasses firmware modifications, malicious hardware implants, and counterfeit components.
 
-**T1554 — Compromise Client Software Binary**: Adversaries modify client software binaries to establish persistent access. Can involve patching existing binaries on disk or replacing them entirely, leveraging the implicit trust users place in installed software.
+T1554 — Compromise Client Software Binary: Adversaries modify client software binaries to establish persistent access. Can involve patching existing binaries on disk or replacing them entirely, leveraging the implicit trust users place in installed software.
 
-**T1574 — Hijack Execution Flow**: Adversaries execute their own malicious payloads by hijacking the way operating systems run programs. Subtechniques include DLL search order hijacking (T1574.001), DLL side-loading (T1574.002), and PATH interception (T1574.007).
+T1574 — Hijack Execution Flow: Adversaries execute their own malicious payloads by hijacking the way operating systems run programs. Subtechniques include DLL search order hijacking (T1574.001), DLL side-loading (T1574.002), and PATH interception (T1574.007).
 
 ### Notable Supply Chain Incidents
 
@@ -86,29 +86,29 @@ Attackers modified Codecov's bash uploader script hosted on codecov.io. The modi
 The 3CX attack is notable as a double supply chain compromise: ICON Trading's legitimate software was first compromised (via North Korean Lazarus Group), and the resulting malicious ICON installer was then used to compromise a 3CX developer's machine. This compromised developer's credentials were used to inject malicious code into the 3CX Electron-based softphone application. The final malicious 3CX application was signed with a valid certificate and distributed to ~600,000 3CX customers globally.
 
 #### PyPI Malware Campaigns
-**W4SP Stealer (2022)**: Multiple packages including pyquest, ultrarequests, pystyle, and numerous others contained W4SP stealer targeting Discord tokens, browser cookies, cryptocurrency wallets, and saved passwords. Packages had thousands of downloads before detection.
+W4SP Stealer (2022): Multiple packages including pyquest, ultrarequests, pystyle, and numerous others contained W4SP stealer targeting Discord tokens, browser cookies, cryptocurrency wallets, and saved passwords. Packages had thousands of downloads before detection.
 
-**ctx/phpass Typosquatting (2022)**: Security researcher demonstrated compromise of ctx (Python package) and phpass (PHP) packages by registering expired domains used as home pages, then publishing malicious versions. The ctx package had ~20,000 monthly downloads.
+ctx/phpass Typosquatting (2022): Security researcher demonstrated compromise of ctx (Python package) and phpass (PHP) packages by registering expired domains used as home pages, then publishing malicious versions. The ctx package had ~20,000 monthly downloads.
 
 #### npm Malicious Packages
-**event-stream (2018)**: Dominic Tarr transferred ownership to user right9ctrl who added a new dependency (flatmap-stream) containing an encrypted payload targeting the Copay Bitcoin wallet. The payload only activated on specific Bitcoin wallet codebases. Discovered after 8 million downloads.
+event-stream (2018): Dominic Tarr transferred ownership to user right9ctrl who added a new dependency (flatmap-stream) containing an encrypted payload targeting the Copay Bitcoin wallet. The payload only activated on specific Bitcoin wallet codebases. Discovered after 8 million downloads.
 
-**node-ipc (2022)**: Maintainer RIAEvangelist added malicious code (peacenotwar) that wiped files on Russian and Belarusian systems in response to the Ukraine invasion. The maintainer had activist intent rather than financial motivation, demonstrating insider threat scenarios.
+node-ipc (2022): Maintainer RIAEvangelist added malicious code (peacenotwar) that wiped files on Russian and Belarusian systems in response to the Ukraine invasion. The maintainer had activist intent rather than financial motivation, demonstrating insider threat scenarios.
 
 ### SLSA Threat Model Categories
 
 The SLSA threat model defines attack surfaces across four categories:
-1. **Source integrity threats**: Malicious commits, unauthorized changes, source control bypass
-2. **Build integrity threats**: Compromised build system, injected build steps, tampered artifacts
-3. **Dependency integrity threats**: Malicious dependencies, compromised registries, version pinning bypass
-4. **Deployment integrity threats**: Artifact tampering in transit, registry poisoning, update server compromise
+1. Source integrity threats: Malicious commits, unauthorized changes, source control bypass
+2. Build integrity threats: Compromised build system, injected build steps, tampered artifacts
+3. Dependency integrity threats: Malicious dependencies, compromised registries, version pinning bypass
+4. Deployment integrity threats: Artifact tampering in transit, registry poisoning, update server compromise
 
 
 ## 2. Software Bill of Materials (SBOM)
 
 ### SBOM Format Comparison: CycloneDX 1.7 vs SPDX 2.3
 
-> **Version note (verified 2026-09-29):** Current spec releases are **CycloneDX 1.7** (October 21, 2025; final of the 1.x line, ratified as ECMA-424 2nd Edition) and **SPDX 3.0.1** (December 2024). CycloneDX 1.7 is backward compatible with 1.4–1.6, and **SPDX 2.3 remains the most widely deployed SPDX version**, so the comparison below tracks the still-common CycloneDX 1.x / SPDX 2.3 feature baselines. Sources: <https://cyclonedx.org/news/cyclonedx-v1.7-released/>, <https://spdx.github.io/spdx-spec/v3.0.1/>.
+> Version note (verified 2026-09-29): Current spec releases are CycloneDX 1.7 (October 21, 2025; final of the 1.x line, ratified as ECMA-424 2nd Edition) and SPDX 3.0.1 (December 2024). CycloneDX 1.7 is backward compatible with 1.4-1.6, and SPDX 2.3 remains the most widely deployed SPDX version, so the comparison below tracks the still-common CycloneDX 1.x / SPDX 2.3 feature baselines. Sources: <https://cyclonedx.org/news/cyclonedx-v1.7-released/>, <https://spdx.github.io/spdx-spec/v3.0.1/>.
 
 | Feature | CycloneDX 1.7 | SPDX 2.3 |
 |---------|---------------|----------|
@@ -131,19 +131,19 @@ The SLSA threat model defines attack surfaces across four categories:
 
 Per the National Telecommunications and Information Administration (NTIA) guidance "The Minimum Elements For a Software Bill of Materials" (July 2021), every SBOM must contain:
 
-1. **Supplier Name**: The name of an entity that creates, defines, and identifies components. May be a software author, open source project, or commercial vendor.
+1. Supplier Name: The name of an entity that creates, defines, and identifies components. May be a software author, open source project, or commercial vendor.
 
-2. **Component Name**: Designation assigned to a unit of software defined by the original supplier. The human-readable name used to identify the component.
+2. Component Name: Designation assigned to a unit of software defined by the original supplier. The human-readable name used to identify the component.
 
-3. **Version of the Component**: Identifier used by the supplier to specify a change in software from a previously identified version. Includes version strings, commit hashes, or build numbers.
+3. Version of the Component: Identifier used by the supplier to specify a change in software from a previously identified version. Includes version strings, commit hashes, or build numbers.
 
-4. **Other Unique Identifiers**: Other identifiers used to identify a component or serve as a look-up key for relevant databases. Package URL (PURL), Common Platform Enumeration (CPE), and Software Identifier (SWID) tags serve this function.
+4. Other Unique Identifiers: Other identifiers used to identify a component or serve as a look-up key for relevant databases. Package URL (PURL), Common Platform Enumeration (CPE), and Software Identifier (SWID) tags serve this function.
 
-5. **Dependency Relationships**: Characterizing the relationship that an upstream component X is included in software Y. Must document direct dependencies; transitive dependencies are recommended.
+5. Dependency Relationships: Characterizing the relationship that an upstream component X is included in software Y. Must document direct dependencies; transitive dependencies are recommended.
 
-6. **Author of SBOM Data**: The name of the entity that created the SBOM data for the component. May differ from the component supplier (e.g., a third-party auditor generating the SBOM).
+6. Author of SBOM Data: The name of the entity that created the SBOM data for the component. May differ from the component supplier (e.g., a third-party auditor generating the SBOM).
 
-7. **Timestamp**: Record of the date and time of the SBOM data assembly. ISO 8601 format (2024-01-15T10:30:00Z) required.
+7. Timestamp: Record of the date and time of the SBOM data assembly. ISO 8601 format (2024-01-15T10:30:00Z) required.
 
 ### Executive Order 14028 SBOM Requirements
 
@@ -154,7 +154,7 @@ President Biden's Executive Order on Improving the Nation's Cybersecurity (May 2
 - Automated tooling for SBOM generation recommended
 - Self-attestation forms required for critical software
 
-### EU Cyber Resilience Act (CRA) — Article 13 Requirements
+### EU Cyber Resilience Act (CRA): Article 13 Requirements
 
 The EU CRA (in force since 10 December 2024) phases in its obligations: the Article 14 vulnerability/incident reporting duties (below) apply from 11 September 2026, and the main manufacturer obligations apply in full from 11 December 2027. It requires manufacturers of products with digital elements to:
 - Generate and maintain SBOM for the lifetime of the product plus 10 years
@@ -166,7 +166,7 @@ The EU CRA (in force since 10 December 2024) phases in its obligations: the Arti
 
 ### SBOM Generation Tools
 
-**Syft (Anchore)**
+Syft (Anchore)
 ```bash
 # Generate CycloneDX JSON from container image
 syft packages image:nginx -o cyclonedx-json > nginx-sbom.json
@@ -181,7 +181,7 @@ syft packages docker-archive:myimage.tar -o cyclonedx-json
 syft packages image:nginx -o cyclonedx-json=sbom.cdx.json -o spdx-json=sbom.spdx.json
 ```
 
-**cdxgen (OWASP)**
+cdxgen (OWASP)
 ```bash
 # Python project
 cdxgen -t python -o bom.json .
@@ -199,7 +199,7 @@ cdxgen -t docker --image nginx:latest -o bom.json
 cdxgen -r -o bom.json .
 ```
 
-**Trivy (Aqua Security)**
+Trivy (Aqua Security)
 ```bash
 # Container image in CycloneDX format
 trivy image --format cyclonedx nginx > nginx-sbom.json
@@ -214,7 +214,7 @@ trivy image --format cyclonedx --include-dev-deps nginx
 trivy image --format cyclonedx --output sbom.json nginx:latest
 ```
 
-**SPDX Tools**
+SPDX Tools
 ```bash
 # Validate SPDX document
 java -jar spdx-tools.jar Verify sbom.spdx.json
@@ -229,13 +229,13 @@ fossology-spdx --output sbom.spdx ./source-dir
 ### SBOM Quality Scoring Criteria
 
 A high-quality SBOM should score well across these dimensions:
-1. **Completeness**: All components present including transitive dependencies (target: >95%)
-2. **Accuracy**: Component versions, licenses, and checksums are correct
-3. **Freshness**: SBOM generated at build time, not retrospectively
-4. **Machine-readability**: Standard format (CycloneDX/SPDX) parseable by tooling
-5. **Uniqueness**: All components have unique identifiers (PURL or CPE)
-6. **Authenticity**: SBOM is signed and its integrity verifiable
-7. **Sharing**: SBOM is accessible to downstream consumers via HTTPS or transparency log
+1. Completeness: All components present including transitive dependencies (target: >95%)
+2. Accuracy: Component versions, licenses, and checksums are correct
+3. Freshness: SBOM generated at build time, not retrospectively
+4. Machine-readability: Standard format (CycloneDX/SPDX) parseable by tooling
+5. Uniqueness: All components have unique identifiers (PURL or CPE)
+6. Authenticity: SBOM is signed and its integrity verifiable
+7. Sharing: SBOM is accessible to downstream consumers via HTTPS or transparency log
 
 ### Package URL (PURL) Format
 
@@ -281,11 +281,11 @@ Parts: a=application, o=operating system, h=hardware
 ### SBOM Sharing Mechanisms
 
 SBOMs should be shared via:
-1. **HTTPS endpoint**: Stable URL returning machine-readable SBOM (e.g., https://example.com/.well-known/sbom.json)
-2. **OCI registry attachment**: `cosign attach sbom --sbom sbom.spdx.json ghcr.io/owner/image`
-3. **Transparency logs**: Publishing SBOM hash to Rekor for immutability verification
-4. **Package registry metadata**: Embedding SBOM reference in package manifest
-5. **Release artifact**: Including SBOM in GitHub Releases alongside binary artifacts
+1. HTTPS endpoint: Stable URL returning machine-readable SBOM (e.g., https://example.com/.well-known/sbom.json)
+2. OCI registry attachment: `cosign attach sbom --sbom sbom.spdx.json ghcr.io/owner/image`
+3. Transparency logs: Publishing SBOM hash to Rekor for immutability verification
+4. Package registry metadata: Embedding SBOM reference in package manifest
+5. Release artifact: Including SBOM in GitHub Releases alongside binary artifacts
 
 
 ## 3. Dependency Security
@@ -528,7 +528,7 @@ curl -X POST https://api.osv.dev/v1/querybatch   -H "Content-Type: application/j
 curl https://api.osv.dev/v1/vulns/GHSA-jfh8-c2jp-hdp8
 ```
 
-**osv-scanner CLI:**
+osv-scanner CLI:
 ```bash
 # Scan lockfile
 osv-scanner --lockfile=package-lock.json
@@ -550,20 +550,20 @@ osv-scanner --lockfile=package-lock.json --lockfile=requirements.txt --lockfile=
 
 Traditional dependency scanners report all vulnerabilities in all dependencies, including vulnerabilities in code paths that are never called. Reachability analysis reduces false positives by determining whether vulnerable code is actually called in the application's execution paths.
 
-**Endor Labs** performs static analysis to build a call graph from the application through all its dependencies, then maps CVEs to specific functions. Only vulnerabilities in reachable functions are flagged, reducing alert noise by 80-95% in typical applications.
+Endor Labs performs static analysis to build a call graph from the application through all its dependencies, then maps CVEs to specific functions. Only vulnerabilities in reachable functions are flagged, reducing alert noise by 80-95% in typical applications.
 
-**Concept**: A vulnerability in lodash.merge() is only exploitable if your application actually calls lodash.merge() with user-controlled data flowing into the merge path. Reachability analysis traces these paths.
+Concept: A vulnerability in lodash.merge() is only exploitable if your application actually calls lodash.merge() with user-controlled data flowing into the merge path. Reachability analysis traces these paths.
 
 ### Socket.dev Behavioral Analysis
 
 Socket.dev analyzes package behavior beyond known CVEs:
-- **Install scripts**: Detection of postinstall/preinstall scripts that execute code (high risk)
-- **Network access**: Packages that make outbound HTTP/DNS calls during or after install
-- **Obfuscated code**: Base64 encoding, eval() usage, dynamic require() with string concatenation
-- **Environment variable access**: process.env access patterns indicating potential exfiltration
-- **File system access**: Unusual file read/write patterns outside package directory
-- **Binary execution**: child_process.exec() or spawn() calls with external commands
-- **Dependency confusion indicators**: Unusual version bumps, new maintainers, changed package metadata
+- Install scripts: Detection of postinstall/preinstall scripts that execute code (high risk)
+- Network access: Packages that make outbound HTTP/DNS calls during or after install
+- Obfuscated code: Base64 encoding, eval() usage, dynamic require() with string concatenation
+- Environment variable access: process.env access patterns indicating potential exfiltration
+- File system access: Unusual file read/write patterns outside package directory
+- Binary execution: child_process.exec() or spawn() calls with external commands
+- Dependency confusion indicators: Unusual version bumps, new maintainers, changed package metadata
 
 ### License Compliance Scanning
 
@@ -584,11 +584,11 @@ pip-licenses --fail-on="GPL;AGPL"
 licensee detect .
 ```
 
-**Common License Risk Categories:**
-- **Permissive** (low risk): MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC
-- **Weak copyleft** (medium risk, review required): LGPL-2.1, MPL-2.0, EPL-2.0
-- **Strong copyleft** (high risk, legal review required): GPL-2.0, GPL-3.0, AGPL-3.0
-- **Proprietary/commercial**: Must verify terms; typically incompatible with open-source distribution
+Common License Risk Categories:
+- Permissive (low risk): MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC
+- Weak copyleft (medium risk, review required): LGPL-2.1, MPL-2.0, EPL-2.0
+- Strong copyleft (high risk, legal review required): GPL-2.0, GPL-3.0, AGPL-3.0
+- Proprietary/commercial: Must verify terms; typically incompatible with open-source distribution
 
 ### Transitive Dependency Graph Visualization
 
@@ -754,13 +754,13 @@ notation inspect $IMAGE
 
 In-toto attestations are signed, structured claims about software artifacts. The attestation envelope contains a predicate describing what the attestation claims.
 
-**Predicate Types:**
-- `https://slsa.dev/provenance/v1` — SLSA Provenance (build origin, inputs, environment)
-- `https://spdx.dev/Document` — SBOM in SPDX format
-- `https://cyclonedx.org/bom` — SBOM in CycloneDX format
-- `https://in-toto.io/attestation/test-result/v0.1` — Test results
-- `https://in-toto.io/attestation/vuln/v0.1` — Vulnerability scan results
-- `https://in-toto.io/attestation/link/v0.3` — Link (step evidence in a supply chain layout)
+Predicate Types:
+- `https://slsa.dev/provenance/v1`: SLSA Provenance (build origin, inputs, environment)
+- `https://spdx.dev/Document`: SBOM in SPDX format
+- `https://cyclonedx.org/bom`: SBOM in CycloneDX format
+- `https://in-toto.io/attestation/test-result/v0.1`: Test results
+- `https://in-toto.io/attestation/vuln/v0.1`: Vulnerability scan results
+- `https://in-toto.io/attestation/link/v0.3`: Link (step evidence in a supply chain layout)
 
 ```bash
 # Attach SLSA provenance attestation
@@ -821,13 +821,13 @@ npm config set sign-git-commit true
 
 TUF provides a secure framework for software update systems with defense against various key compromise scenarios.
 
-**Role Hierarchy:**
-- **Root**: Top-level trust anchor; signs metadata about other keys; long validity period; typically kept offline
-- **Targets**: Signs metadata about software artifacts (hashes, sizes); offline or HSM-protected
-- **Snapshot**: Signs metadata about current state of all targets metadata; may be online
-- **Timestamp**: Signs freshness guarantee for snapshot metadata; must be online, short validity (hours/days)
+Role Hierarchy:
+- Root: Top-level trust anchor; signs metadata about other keys; long validity period; typically kept offline
+- Targets: Signs metadata about software artifacts (hashes, sizes); offline or HSM-protected
+- Snapshot: Signs metadata about current state of all targets metadata; may be online
+- Timestamp: Signs freshness guarantee for snapshot metadata; must be online, short validity (hours/days)
 
-**TUF Client Update Workflow:**
+TUF Client Update Workflow:
 1. Download timestamp.json to check freshness
 2. Verify timestamp.json against trusted timestamp key
 3. Download snapshot.json if timestamp indicates it changed
@@ -837,7 +837,7 @@ TUF provides a secure framework for software update systems with defense against
 7. Verify targets.json against trusted targets key
 8. For each target: download target file, verify hash against targets.json
 
-**Key rotation**: When a key is compromised, the parent role re-signs with a new key reference. Root key compromise requires an out-of-band root update process.
+Key rotation: When a key is compromised, the parent role re-signs with a new key reference. Root key compromise requires an out-of-band root update process.
 
 ```python
 # Using python-tuf client
@@ -859,54 +859,54 @@ updater.find_cached_target(updater.get_targetinfo("myapp-v1.2.3.tar.gz"))
 
 SLSA (Supply chain Levels for Software Artifacts) defines a graduated set of requirements for build integrity:
 
-> **Version note (verified 2026-09-29):** The current specification is **SLSA v1.2** (approved November 12, 2025), which promotes the **Source track** from experimental to approved — covering source-history integrity and tamper protection alongside the stable Build track (the L0–L3 build levels below). The Build-track requirements are unchanged from v1.0 (where the old L4 was merged into L3+). See <https://slsa.dev/spec/v1.2/>.
+> Version note (verified 2026-09-29): The current specification is SLSA v1.2 (approved November 12, 2025), which promotes the Source track from experimental to approved — covering source-history integrity and tamper protection alongside the stable Build track (the L0-L3 build levels below). The Build-track requirements are unchanged from v1.0 (where the old L4 was merged into L3+). See <https://slsa.dev/spec/v1.2/>.
 
 | Requirement | L0 | L1 | L2 | L3 |
 |-------------|----|----|----|----|
-| **Provenance exists** | No | Yes | Yes | Yes |
-| **Build scripted** | No | Yes | Yes | Yes |
-| **Provenance signed** | No | No | Yes | Yes |
-| **Hosted build service** | No | No | Yes | Yes |
-| **Hardened build** | No | No | No | Yes |
-| **Non-forgeable provenance** | No | No | No | Yes |
-| **Ephemeral build environment** | No | No | No | Yes |
-| **Hermetic build** | No | No | No | Recommended |
-| **Reproducible build** | No | No | No | Recommended |
-| **Two-party review** | No | No | No | No (L4) |
+| Provenance exists | No | Yes | Yes | Yes |
+| Build scripted | No | Yes | Yes | Yes |
+| Provenance signed | No | No | Yes | Yes |
+| Hosted build service | No | No | Yes | Yes |
+| Hardened build | No | No | No | Yes |
+| Non-forgeable provenance | No | No | No | Yes |
+| Ephemeral build environment | No | No | No | Yes |
+| Hermetic build | No | No | No | Recommended |
+| Reproducible build | No | No | No | Recommended |
+| Two-party review | No | No | No | No (L4) |
 
-**SLSA L0**: No guarantees. No provenance, no verification. This is the baseline state of most open-source software today.
+SLSA L0: No guarantees. No provenance, no verification. This is the baseline state of most open-source software today.
 
-**SLSA L1**: Provenance exists and the build is scripted (automated, not manual). Provenance does not need to be signed. Protects against accidental errors in the build process and provides documentation of how artifacts were built. Easy to achieve by adding provenance generation to existing CI/CD workflows.
+SLSA L1: Provenance exists and the build is scripted (automated, not manual). Provenance does not need to be signed. Protects against accidental errors in the build process and provides documentation of how artifacts were built. Easy to achieve by adding provenance generation to existing CI/CD workflows.
 
-**SLSA L2**: Provenance is signed by the build service that created it and the build runs on a hosted build service (not developer workstations). The hosted service authenticates provenance authorship. Protects against compromised developer workstations. GitHub Actions, Google Cloud Build, GitLab CI qualify as hosted build services.
+SLSA L2: Provenance is signed by the build service that created it and the build runs on a hosted build service (not developer workstations). The hosted service authenticates provenance authorship. Protects against compromised developer workstations. GitHub Actions, Google Cloud Build, GitLab CI qualify as hosted build services.
 
-**SLSA L3**: Build is hardened against tampering during the build process. Provenance is non-forgeable — the build service generates and signs provenance such that even the operator of the service cannot forge provenance for an artifact they didn't build. Environment is ephemeral: no persistent workspace between builds, fresh environment for each build. Protects against insider threats at the build service operator level.
+SLSA L3: Build is hardened against tampering during the build process. Provenance is non-forgeable — the build service generates and signs provenance such that even the operator of the service cannot forge provenance for an artifact they didn't build. Environment is ephemeral: no persistent workspace between builds, fresh environment for each build. Protects against insider threats at the build service operator level.
 
-**SLSA L4** (deprecated in SLSA v1.0, merged into L3+): Two-person review of all source changes before they can influence the build. Hermetic and reproducible builds required. Now addressed through source requirements separate from build requirements in SLSA v1.0.
+SLSA L4 (deprecated in SLSA v1.0, merged into L3+): Two-person review of all source changes before they can influence the build. Hermetic and reproducible builds required. Now addressed through source requirements separate from build requirements in SLSA v1.0.
 
 ### Source Requirements
 
-- **Version controlled**: All source code tracked in a version control system (git, Mercurial, SVN)
-- **Verified history**: Cannot delete or modify existing history; append-only
-- **Retained 18 months**: Source code and version history retained for at least 18 months
-- **Two-person reviewed**: Each commit reviewed and approved by at least one other trusted person before it can affect the build (required for highest source level)
-- **Consistent**: No inconsistency between source code and VCS contents at build time
+- Version controlled: All source code tracked in a version control system (git, Mercurial, SVN)
+- Verified history: Cannot delete or modify existing history; append-only
+- Retained 18 months: Source code and version history retained for at least 18 months
+- Two-person reviewed: Each commit reviewed and approved by at least one other trusted person before it can affect the build (required for highest source level)
+- Consistent: No inconsistency between source code and VCS contents at build time
 
 ### Build Requirements
 
-- **Scripted**: Build definition is in code, not manual steps
-- **Build-as-code**: Build definition stored in version control
-- **Ephemeral environment**: Build runs in a fresh, isolated environment for each build (no shared mutable state)
-- **Hermetic**: Build does not fetch dependencies at build time; all inputs are declared and fetched before the build begins. Network access blocked during build.
-- **Reproducible**: Given the same inputs, the build produces bit-for-bit identical outputs (optional for L3, required for highest levels)
+- Scripted: Build definition is in code, not manual steps
+- Build-as-code: Build definition stored in version control
+- Ephemeral environment: Build runs in a fresh, isolated environment for each build (no shared mutable state)
+- Hermetic: Build does not fetch dependencies at build time; all inputs are declared and fetched before the build begins. Network access blocked during build.
+- Reproducible: Given the same inputs, the build produces bit-for-bit identical outputs (optional for L3, required for highest levels)
 
 ### Provenance Requirements
 
-- **Available**: Provenance is generated and available for consumers to access
-- **Authenticated**: Provenance is signed by the build service
-- **Service-generated**: Provenance is generated by the build service, not the build script
-- **Non-falsifiable**: Build service generates provenance such that even the caller cannot forge it
-- **Dependencies complete**: All build inputs are listed in the provenance, including transitive dependencies where possible
+- Available: Provenance is generated and available for consumers to access
+- Authenticated: Provenance is signed by the build service
+- Service-generated: Provenance is generated by the build service, not the build script
+- Non-falsifiable: Build service generates provenance such that even the caller cannot forge it
+- Dependencies complete: All build inputs are listed in the provenance, including transitive dependencies where possible
 
 ### Achieving SLSA L3 on GitHub Actions
 
@@ -1069,7 +1069,7 @@ GUAC ingests: SBOMs (SPDX, CycloneDX), SLSA provenance, Scorecard results, OSV v
 
 PPE attacks allow adversaries to execute malicious code in CI pipelines without direct repository write access.
 
-**Direct PPE**: Attacker has write access to a branch that triggers CI. They push malicious pipeline configuration or build scripts. Target: any developer or bot account with push access to non-protected branches.
+Direct PPE: Attacker has write access to a branch that triggers CI. They push malicious pipeline configuration or build scripts. Target: any developer or bot account with push access to non-protected branches.
 
 ```yaml
 # Vulnerable: triggers on any push to any branch
@@ -1080,7 +1080,7 @@ on:
 # Attack: push malicious workflow modification to feature branch
 ```
 
-**Indirect PPE**: Attacker modifies files referenced by the pipeline (build scripts, Makefile, test configuration) in a PR. When CI runs tests, it executes the attacker's code.
+Indirect PPE: Attacker modifies files referenced by the pipeline (build scripts, Makefile, test configuration) in a PR. When CI runs tests, it executes the attacker's code.
 
 ```yaml
 # Vulnerable: runs make test from PR-provided code without review
@@ -1091,7 +1091,7 @@ jobs:
       - run: make test             # Attacker controls Makefile
 ```
 
-**Public PPE**: Forks submitting PRs can trigger CI workflows in the parent repository context. If the workflow accesses secrets, the fork's code runs with access to those secrets.
+Public PPE: Forks submitting PRs can trigger CI workflows in the parent repository context. If the workflow accesses secrets, the fork's code runs with access to those secrets.
 
 ```yaml
 # Vulnerable: exposes secrets to fork PRs
@@ -1467,7 +1467,7 @@ EXPOSE 8080
 ENTRYPOINT ["./app"]
 ```
 
-**Kubernetes Security Context to complement hardened image:**
+Kubernetes Security Context to complement hardened image:
 ```yaml
 securityContext:
   runAsNonRoot: true
@@ -1609,7 +1609,7 @@ spec:
 
 Typosquatting detection compares new package names against a corpus of popular packages using string similarity metrics:
 
-**Levenshtein Distance**: The minimum number of single-character edits (insertions, deletions, substitutions) needed to transform one string into another. A threshold of ≤2 from top-1000 packages flags most typosquats.
+Levenshtein Distance: The minimum number of single-character edits (insertions, deletions, substitutions) needed to transform one string into another. A threshold of ≤2 from top-1000 packages flags most typosquats.
 
 ```python
 import editdistance
@@ -1626,11 +1626,11 @@ def is_potential_typosquat(package_name, popular_packages, threshold=2):
 # "colour" vs "color" -> distance 1 (extra 'u')
 ```
 
-**Common typosquatting patterns:**
-- Character transposition: `reqeusts` → `requests`
-- Missing character: `reques` → `requests`
-- Extra character: `requestss` → `requests`
-- Character substitution: `1odash` → `lodash` (l→1 homoglyph)
+Common typosquatting patterns:
+- Character transposition: `reqeusts` -> `requests`
+- Missing character: `reques` -> `requests`
+- Extra character: `requestss` -> `requests`
+- Character substitution: `1odash` -> `lodash` (l->1 homoglyph)
 - Hyphen/underscore confusion: `py-yaml` vs `pyyaml`
 - Plural/singular: `colour` vs `color`
 
@@ -1657,14 +1657,14 @@ def detect_unicode_confusables(package_name):
 
 #### Package Name Squatting Patterns
 
-- **Pre-registration**: Registering `company-internal-package` on public npm/PyPI before the company does
-- **Namespace occupation**: Registering `@companyname/` scoped packages on npm
-- **Version shadowing**: Publishing a higher version of a private package name on public registry
-- **CDN dependency**: Squatting on package names referenced in documentation or tutorials
+- Pre-registration: Registering `company-internal-package` on public npm/PyPI before the company does
+- Namespace occupation: Registering `@companyname/` scoped packages on npm
+- Version shadowing: Publishing a higher version of a private package name on public registry
+- CDN dependency: Squatting on package names referenced in documentation or tutorials
 
 ### Dependency Confusion Attacks
 
-**Original Research (Alex Birsan, 2021):**
+Original Research (Alex Birsan, 2021):
 
 Birsan discovered that when both private and public registries are configured, most package managers prefer the higher version number regardless of registry source. By registering a package with the same name as a private internal package but a higher version (99.0.0 vs internal 1.0.0), he caused automated pipelines at 35 companies to download and execute his code.
 
@@ -1688,7 +1688,7 @@ npm install --registry=https://internal.registry.company.com/
 pip install --index-url https://internal.pypi.company.com/simple/             --no-index             company-internal-package
 ```
 
-**Detection:**
+Detection:
 - Monitor public registries for package names that match internal package names
 - Alert on any public registration of packages matching internal naming conventions
 - Configure package manager priority: private registry always takes precedence for internal scopes
@@ -1803,11 +1803,11 @@ Socket.dev analyzes the diff between consecutive package versions to detect:
 #### Phylum Platform
 
 Phylum performs behavioral scoring for packages across 5 risk dimensions:
-1. **Author risk**: Account age, prior packages, contributor history
-2. **Engineering risk**: Code quality metrics, test coverage, documentation
-3. **Malicious code risk**: Static analysis for malware patterns
-4. **Vulnerability risk**: Known CVEs in the package
-5. **License risk**: License compatibility and compliance
+1. Author risk: Account age, prior packages, contributor history
+2. Engineering risk: Code quality metrics, test coverage, documentation
+3. Malicious code risk: Static analysis for malware patterns
+4. Vulnerability risk: Known CVEs in the package
+5. License risk: License compatibility and compliance
 
 ```bash
 # Phylum CLI
@@ -1818,12 +1818,12 @@ phylum project status              # Current project policy status
 
 ### PyPI Malware Reporting Process
 
-1. **Discovery**: Identify malicious package via behavioral analysis, user report, or automated scanning
-2. **Report**: File report at security@pypi.org or via https://pypi.org/security/
-3. **Include**: Package name, version(s), evidence of malicious behavior, YARA rules if available
-4. **Timeline**: PyPI security team typically responds within hours for high-severity cases
-5. **Removal**: PyPI admins quarantine/remove package; may ban maintainer account
-6. **Disclosure**: OpenSSF Malicious Packages repository updated with package details and analysis
+1. Discovery: Identify malicious package via behavioral analysis, user report, or automated scanning
+2. Report: File report at security@pypi.org or via https://pypi.org/security/
+3. Include: Package name, version(s), evidence of malicious behavior, YARA rules if available
+4. Timeline: PyPI security team typically responds within hours for high-severity cases
+5. Removal: PyPI admins quarantine/remove package; may ban maintainer account
+6. Disclosure: OpenSSF Malicious Packages repository updated with package details and analysis
 
 ```bash
 # Check if package is quarantined
@@ -1892,7 +1892,7 @@ curl "https://api.securityscorecards.dev/projects/github.com/owner/repo" | jq '
 
 ### OpenSSF Best Practices Badge Levels
 
-**Passing (Bronze)**: Basic security practices
+Passing (Bronze): Basic security practices
 - HTTPS for project website and repository
 - Vulnerability disclosure policy (SECURITY.md)
 - At least one automated test suite
@@ -1900,7 +1900,7 @@ curl "https://api.securityscorecards.dev/projects/github.com/owner/repo" | jq '
 - Signed releases or cryptographic hashes for releases
 - Uses standard coding style
 
-**Silver**: More rigorous practices
+Silver: More rigorous practices
 - At least 50% test statement coverage
 - Memory-safety language or hardened memory-safe functions
 - Warning flags enabled in builds
@@ -1908,7 +1908,7 @@ curl "https://api.securityscorecards.dev/projects/github.com/owner/repo" | jq '
 - Dynamic analysis (fuzzing) used for testing
 - Static analysis integrated into CI
 
-**Gold**: Comprehensive security posture
+Gold: Comprehensive security posture
 - At least 80% test statement coverage
 - All cryptographic algorithms come from standard libraries
 - CI runs the full test suite on all platforms
@@ -1936,18 +1936,18 @@ curl "https://api.deps.dev/v3alpha/systems/pypi/packages/requests" | jq '.versio
 ```
 
 Key health signals:
-- **Latest version**: Is the pinned version current or significantly behind?
-- **License**: SPDX license expression; any GPL contamination?
-- **Advisories**: Known vulnerabilities in this version
-- **Dependents count**: How many packages depend on this? (criticality indicator)
-- **Published date**: How recently was this version released?
-- **Verified**: Does it match the source repository?
+- Latest version: Is the pinned version current or significantly behind?
+- License: SPDX license expression; any GPL contamination?
+- Advisories: Known vulnerabilities in this version
+- Dependents count: How many packages depend on this? (criticality indicator)
+- Published date: How recently was this version released?
+- Verified: Does it match the source repository?
 
 ### CHAOSS Project Metrics
 
 CHAOSS (Community Health Analytics in Open Source Software) defines metrics for evaluating open source community health:
 
-**Contributor Metrics:**
+Contributor Metrics:
 ```
 Bus Factor = number of contributors accounting for 50% of commits
 (Lower is riskier: Bus Factor 1 means one person could leave and cripple the project)
@@ -1957,12 +1957,12 @@ Response Time to Issues = median time from issue creation to first response
 PR Cycle Time = median time from PR creation to merge
 ```
 
-**Activity Metrics:**
+Activity Metrics:
 - Release Cadence: Frequency of releases (should match project needs)
 - Issue Closure Rate: Issues closed vs opened in time period
 - Code Change Frequency: Commits per week/month
 
-**Risk Metrics:**
+Risk Metrics:
 - Elephant Factor: % of commits from top-1 organization (>50% indicates organizational dependency risk)
 - Organizational Diversity: Number of organizations contributing
 - Technical Fork Count: How many active forks exist
@@ -1971,12 +1971,12 @@ PR Cycle Time = median time from PR creation to merge
 
 Alpha-Omega funds security work for critical open source projects:
 
-**Alpha**: Targets the most critical projects with dedicated security engineers
+Alpha: Targets the most critical projects with dedicated security engineers
 - Projects: curl (Daniel Stenberg), Node.js, Python, Rust, OpenSSL, Linux kernel
 - Provides funding for security audits, vulnerability remediation, security tooling
 - Deliverables: threat model, security audit, CVE remediation
 
-**Omega**: Automated security analysis across top 10,000 open source projects
+Omega: Automated security analysis across top 10,000 open source projects
 - Automated scanning with CodeQL, Semgrep, OSV Scanner
 - Human review of highest-confidence findings
 - Patch submission to upstream projects
@@ -2109,7 +2109,7 @@ cosign verify   --certificate-identity "https://github.com/myorg/myrepo/*"   --c
 
 #### Package Version Removal
 
-**npm:**
+npm:
 ```bash
 # Unpublish specific version (within 72 hours)
 npm unpublish package-name@1.2.3
@@ -2122,7 +2122,7 @@ npm unpublish package-name --force
 npm deprecate package-name@1.2.3 "SECURITY: This version contains a backdoor. Use 1.2.4+"
 ```
 
-**PyPI:**
+PyPI:
 ```bash
 # Submit removal request to PyPI admins
 # Email: admin@pypi.org or file issue at https://github.com/pypa/warehouse
@@ -2136,7 +2136,7 @@ npm deprecate package-name@1.2.3 "SECURITY: This version contains a backdoor. Us
 # Via PyPI web interface: Manage > Release > Yank this release
 ```
 
-**Maven Central:**
+Maven Central:
 ```bash
 # Maven Central does not support deletion of published artifacts
 # This is a deliberate policy (reproducible builds depend on immutability)
@@ -2234,13 +2234,13 @@ gh pr view <PR_NUMBER> --json reviews,reviewers,mergedAt,author
 
 Product Security Incident Response Team (PSIRT) workflow for supply chain incidents:
 
-1. **Triage** (0-4 hours): Confirm incident, assess scope, convene response team
-2. **Contain** (0-24 hours): Isolate affected systems, block malicious infrastructure
-3. **Notify internal** (0-24 hours): Alert engineering, legal, communications teams
-4. **Assess impact** (24-72 hours): Determine which customers/products are affected
-5. **Draft advisory** (24-72 hours): Prepare GitHub Security Advisory and VEX document
-6. **Notify affected customers** (72 hours): Direct notification to affected accounts
-7. **Public disclosure**: Coordinate with affected parties on timing
+1. Triage (0-4 hours): Confirm incident, assess scope, convene response team
+2. Contain (0-24 hours): Isolate affected systems, block malicious infrastructure
+3. Notify internal (0-24 hours): Alert engineering, legal, communications teams
+4. Assess impact (24-72 hours): Determine which customers/products are affected
+5. Draft advisory (24-72 hours): Prepare GitHub Security Advisory and VEX document
+6. Notify affected customers (72 hours): Direct notification to affected accounts
+7. Public disclosure: Coordinate with affected parties on timing
 
 #### GitHub Security Advisory
 ```bash
@@ -2340,15 +2340,15 @@ cosign attach sbom --sbom new-sbom.json   ghcr.io/myorg/myimage@sha256:<new-clea
 
 The Secure Software Development Framework (SSDF) maps supply chain practices to requirements:
 
-**PW.4 — Reuse Existing Well-Secured Software**: Use vetted, well-maintained libraries instead of custom implementations. Evaluate dependencies using Scorecard, deps.dev health metrics, and license compliance before adoption. Maintain an approved dependency allowlist.
+PW.4 — Reuse Existing Well-Secured Software: Use vetted, well-maintained libraries instead of custom implementations. Evaluate dependencies using Scorecard, deps.dev health metrics, and license compliance before adoption. Maintain an approved dependency allowlist.
 
-**PW.7 — Review Code for Security Vulnerabilities**: All code changes including dependency updates should be reviewed. Use automated SAST (CodeQL, Semgrep), SCA (OWASP Dependency Check, Snyk), and human review. Document security review outcomes.
+PW.7 — Review Code for Security Vulnerabilities: All code changes including dependency updates should be reviewed. Use automated SAST (CodeQL, Semgrep), SCA (OWASP Dependency Check, Snyk), and human review. Document security review outcomes.
 
-**RV.1 — Identify and Confirm Vulnerabilities**: Continuously monitor for new vulnerabilities via OSV, GitHub Security Advisories, and NVD. Automated scanning in CI (govulncheck, pip-audit, npm audit). Subscribe to security mailing lists for critical dependencies.
+RV.1 — Identify and Confirm Vulnerabilities: Continuously monitor for new vulnerabilities via OSV, GitHub Security Advisories, and NVD. Automated scanning in CI (govulncheck, pip-audit, npm audit). Subscribe to security mailing lists for critical dependencies.
 
-**RV.2 — Assess Vulnerabilities**: For each identified vulnerability, assess exploitability in your specific context (reachability analysis), impact (CVSS, EPSS scores), and remediation options (patch, workaround, compensating controls). Document risk acceptance decisions.
+RV.2 — Assess Vulnerabilities: For each identified vulnerability, assess exploitability in your specific context (reachability analysis), impact (CVSS, EPSS scores), and remediation options (patch, workaround, compensating controls). Document risk acceptance decisions.
 
-**RV.3 — Analyze Vulnerabilities to Create Fixes**: Develop patches or implement workarounds. Test fixes in staging. Create regression tests. Update SBOM and VEX documents. Publish security advisory coordinated with upstream maintainers.
+RV.3 — Analyze Vulnerabilities to Create Fixes: Develop patches or implement workarounds. Test fixes in staging. Create regression tests. Update SBOM and VEX documents. Publish security advisory coordinated with upstream maintainers.
 
 ```
 SSDF Practice     | Supply Chain Control

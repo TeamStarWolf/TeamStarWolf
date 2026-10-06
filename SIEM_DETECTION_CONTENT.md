@@ -1,18 +1,18 @@
 # SIEM Detection Content Reference
 
-> **In one minute** — A catalog of the official, vendor-maintained repositories of ready-made SIEM detection content: Sigma's universal rule format, Splunk ESCU, Elastic detection rules, Microsoft Sentinel analytics, Chronicle YARA-L, and QRadar use cases, plus the hardening baselines (ATT&CK mitigations, CIS Controls, DISA STIGs) that pair with them. For each source it shows the rule format, how to install or deploy the content, and where the highest-value rule sets live. Useful because you rarely need to write detections from scratch — these repos hold thousands of maintained rules you can convert and deploy.
+> In one minute — A catalog of the official, vendor-maintained repositories of ready-made SIEM detection content: Sigma's universal rule format, Splunk ESCU, Elastic detection rules, Microsoft Sentinel analytics, Chronicle YARA-L, and QRadar use cases, plus the hardening baselines (ATT&CK mitigations, CIS Controls, DISA STIGs) that pair with them. For each source it shows the rule format, how to install or deploy the content, and where the highest-value rule sets live. Useful because you rarely need to write detections from scratch — these repos hold thousands of maintained rules you can convert and deploy.
 
 | | |
 |---|---|
-| **Read this when** | You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, you want to convert Sigma rules to your platform's query language |
-| **Start at** | [Sigma — Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary) |
-| **Pairs with** | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [detections/strategies/README.md](detections/strategies/README.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
+| Read this when | You are standing up or expanding detection coverage in a SIEM, you need a maintained rule for a specific technique before writing your own, you want to convert Sigma rules to your platform's query language |
+| Start at | [Sigma: Universal Detection Rule Format](#sigma-universal-detection-rule-format), [Splunk Security Content (ESCU)](#splunk-security-content-escu), [Authoritative Detection Content Sources Summary](#authoritative-detection-content-sources-summary) |
+| Pairs with | [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [detections/strategies/README.md](detections/strategies/README.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [detections/TECHNIQUE_DETECTION_LIBRARY.md](detections/TECHNIQUE_DETECTION_LIBRARY.md) |
 
 Detection content from official repositories, maintained by the organizations that build the underlying platforms. All sources are authoritative and regularly updated by practitioners.
 
 ---
 
-## Sigma — Universal Detection Rule Format
+## Sigma: Universal Detection Rule Format
 *Source: github.com/SigmaHQ/sigma | sigmahq.io*
 
 ### What is Sigma
@@ -51,7 +51,7 @@ falsepositives:
 level: high
 ```
 
-### pySigma — Official Conversion Framework
+### pySigma: Official Conversion Framework
 *Source: github.com/SigmaHQ/pySigma*
 ```bash
 pip install pysigma pysigma-backend-splunk pysigma-backend-elasticsearch
@@ -63,13 +63,13 @@ sigma convert -t microsoft365defender rules/windows/
 
 ### Sigma Rule Repository Categories
 High-value rule directories in SigmaHQ/sigma:
-- `rules/windows/process_creation/` — 800+ process execution detections
-- `rules/windows/registry_event/` — Registry persistence and tampering
-- `rules/windows/network_connection/` — Suspicious network connections
-- `rules/windows/pipe_created/` — Named pipe detections (Cobalt Strike etc.)
-- `rules/linux/auditd/` — Linux audit log detections
-- `rules/cloud/aws/` — AWS CloudTrail detections
-- `rules/cloud/azure/` — Azure Activity Log detections
+- `rules/windows/process_creation/`: 800+ process execution detections
+- `rules/windows/registry_event/`: Registry persistence and tampering
+- `rules/windows/network_connection/`: Suspicious network connections
+- `rules/windows/pipe_created/`: Named pipe detections (Cobalt Strike etc.)
+- `rules/linux/auditd/`: Linux audit log detections
+- `rules/cloud/aws/`: AWS CloudTrail detections
+- `rules/cloud/azure/`: Azure Activity Log detections
 
 ---
 
@@ -78,11 +78,11 @@ High-value rule directories in SigmaHQ/sigma:
 *Maintained by: Splunk Threat Research Team (STRT)*
 
 ### Content Types
-- **Analytics**: SPL-based detections (1,000+)
-- **Baselines**: Normal behavior establishment
-- **Investigations**: Analyst workflow searches
-- **Lookups**: Reference data (malicious IPs, suspicious commands, etc.)
-- **Analytic Stories**: Themed collection of detections + investigations
+- Analytics: SPL-based detections (1,000+)
+- Baselines: Normal behavior establishment
+- Investigations: Analyst workflow searches
+- Lookups: Reference data (malicious IPs, suspicious commands, etc.)
+- Analytic Stories: Themed collection of detections + investigations
 
 ### Installing ESCU
 ```bash
@@ -121,7 +121,7 @@ python contentctl build
 ```
 
 ### STRT Blog and Research
-- Splunk Security Blog: blogs.splunk.com/security — new detection research
+- Splunk Security Blog: blogs.splunk.com/security: new detection research
 - GitHub Issues/Releases: contribution process for new detections
 
 ---
@@ -192,11 +192,11 @@ process where host.os.type == "windows" and event.action == "start" and
 
 ### Elastic SIEM Machine Learning Jobs
 Built-in ML jobs for anomaly detection:
-- `windows_rare_user_type10_remote_login` — Rare remote login user
-- `packetbeat_dns_tunneling` — DNS tunneling via Packetbeat
-- `rare_process_by_host_windows_ecs` — Rare process execution
-- `v3_windows_network_connection_anomalies` — Anomalous network connections
-- `v3_linux_system_user_discovery` — Linux user discovery anomaly
+- `windows_rare_user_type10_remote_login`: Rare remote login user
+- `packetbeat_dns_tunneling`: DNS tunneling via Packetbeat
+- `rare_process_by_host_windows_ecs`: Rare process execution
+- `v3_windows_network_connection_anomalies`: Anomalous network connections
+- `v3_linux_system_user_discovery`: Linux user discovery anomaly
 
 ---
 
@@ -206,11 +206,11 @@ Built-in ML jobs for anomaly detection:
 
 ### Content Hub Solutions
 Install from Sentinel Content Hub (100+ solutions, each with rules + workbooks + playbooks):
-- **Microsoft 365 Defender**: 50+ rules from M365 signals
-- **Azure Active Directory**: Identity attack detections
-- **Microsoft Defender for Cloud**: Cloud workload detections
-- **UEBA**: User/Entity Behavior Analytics
-- **MITRE ATT&CK**: Rules organized by ATT&CK technique
+- Microsoft 365 Defender: 50+ rules from M365 signals
+- Azure Active Directory: Identity attack detections
+- Microsoft Defender for Cloud: Cloud workload detections
+- UEBA: User/Entity Behavior Analytics
+- MITRE ATT&CK: Rules organized by ATT&CK technique
 
 ### GitHub Repository Structure
 ```
@@ -240,11 +240,11 @@ az rest --method GET \
 
 ### High-Value Community Rules (from Azure-Sentinel GitHub)
 Key detections in the official repo:
-- **Rare MFA app enrollment** — detects new app enrollment (potential MFA fatigue setup)
-- **Impossible travel** — sign-in from geographically impossible locations
-- **AAD user disabled then enabled** — account manipulation pattern
-- **First access from new country** — UEBA-type detection
-- **High volume of failed MFA** — MFA spraying/fatigue precursor
+- Rare MFA app enrollment: detects new app enrollment (potential MFA fatigue setup)
+- Impossible travel: sign-in from geographically impossible locations
+- AAD user disabled then enabled: account manipulation pattern
+- First access from new country: UEBA-type detection
+- High volume of failed MFA: MFA spraying/fatigue precursor
 
 ---
 
@@ -298,9 +298,9 @@ print(f'Total mitigations: {len(mitigations)}')
 
 ### CIS Controls Overview
 18 Controls organized into 3 Implementation Groups (IGs):
-- **IG1**: Essential cyber hygiene (small orgs, limited IT, Safeguards 1-56)
-- **IG2**: IG1 + additional controls for moderate risk (mid-size, Safeguards 1-130)
-- **IG3**: IG2 + full controls for high risk/regulatory (large/sensitive, all 153 Safeguards)
+- IG1: Essential cyber hygiene (small orgs, limited IT, Safeguards 1-56)
+- IG2: IG1 + additional controls for moderate risk (mid-size, Safeguards 1-130)
+- IG3: IG2 + full controls for high risk/regulatory (large/sensitive, all 153 Safeguards)
 
 ### Controls by Category
 | # | Control | IG1 Safeguards |
@@ -364,7 +364,7 @@ Security Technical Implementation Guides — mandatory for DoD, gold standard fo
 - Export checklist (.ckl) for tracking compliance
 - InSpec/SCC SCAP tool for automated STIG scanning
 
-### High-Priority (CAT I) STIG Requirements — Windows Server 2022
+### High-Priority (CAT I) STIG Requirements: Windows Server 2022
 CAT I findings that are commonly failed:
 - V-254239: Accounts with blank passwords must be disabled
 - V-254240: Reversible password encryption must be disabled
@@ -404,12 +404,12 @@ rule suspicious_powershell_download {
 ## IBM QRadar Use Cases
 *Source: ibm.com/docs/en/qradar-on-cloud | IBM X-Force Exchange*
 
-### QRadar SIEM Rules — Built-in Use Cases
+### QRadar SIEM Rules: Built-in Use Cases
 High-value default rules by category:
-- **Authentication**: Multiple Failed Logins Followed by Success, Admin Logon Outside Business Hours
-- **Network**: Port Scan Detected, Beaconing Behavior, DNS Tunneling
-- **Endpoint**: Malware Detected, Potential Lateral Movement via SMB
-- **Custom Rules**: via Rules Wizard or API
+- Authentication: Multiple Failed Logins Followed by Success, Admin Logon Outside Business Hours
+- Network: Port Scan Detected, Beaconing Behavior, DNS Tunneling
+- Endpoint: Malware Detected, Potential Lateral Movement via SMB
+- Custom Rules: via Rules Wizard or API
 
 ### IBM X-Force Exchange
 *Source: exchange.xforce.ibmcloud.com*

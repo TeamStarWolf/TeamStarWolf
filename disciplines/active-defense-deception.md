@@ -27,11 +27,11 @@ Monitor    Detect    Deny    Disrupt    Deceive    Manipulate
 ```
 
 The [Cyber Active Defense Continuum](https://www.sans.org/white-papers/36022/) defines five escalating levels:
-1. **Annoy** — Slow attackers down (tarpits, false credentials)
-2. **Attribute** — Identify attacker origin (beacon payloads, tracking pixels)
-3. **Attack** — Counterattack (legally complex; typically off-limits)
+1. Annoy: Slow attackers down (tarpits, false credentials)
+2. Attribute: Identify attacker origin (beacon payloads, tracking pixels)
+3. Attack: Counterattack (legally complex; typically off-limits)
 
-Most enterprise programs operate at levels 1–2 (annoy + attribute).
+Most enterprise programs operate at levels 1-2 (annoy + attribute).
 
 ### Deception Technology Taxonomy
 
@@ -122,20 +122,20 @@ MITRE ENGAGE organizes active defense into three goal categories:
 
 ### Expose
 Reveal adversary capabilities and intent by allowing controlled access:
-- **Collect** — Gather data on adversary tools and TTPs
-- **Detect** — Identify adversary activity with high confidence
-- **Contain** — Limit adversary movement to controlled environments
+- Collect: Gather data on adversary tools and TTPs
+- Detect: Identify adversary activity with high confidence
+- Contain: Limit adversary movement to controlled environments
 
 ### Affect
 Negatively impact adversary operations:
-- **Disrupt** — Interrupt adversary task execution
-- **Degrade** — Reduce adversary effectiveness
-- **Redirect** — Move adversary into monitored environment
+- Disrupt: Interrupt adversary task execution
+- Degrade: Reduce adversary effectiveness
+- Redirect: Move adversary into monitored environment
 
 ### Elicit
 Draw out adversary behavior for intelligence:
-- **Motivate** — Encourage adversary to take specific actions
-- **Test** — Probe adversary for responses
+- Motivate: Encourage adversary to take specific actions
+- Test: Probe adversary for responses
 
 ---
 
@@ -166,7 +166,7 @@ IF access_to(honey_resource) → HIGH CONFIDENCE ALERT
 
 ## ATT&CK Coverage
 
-Deception technology primarily detects **post-initial-access** techniques — adversaries already inside the network:
+Deception technology primarily detects post-initial-access techniques — adversaries already inside the network:
 
 | Technique | Deception Detection |
 |---|---|
@@ -232,7 +232,7 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 ### Canary Token Deployment (Thinkst Canary)
 
-- Free tier: canarytokens.org — generate URL, file, AWS key, email address tokens
+- Free tier: canarytokens.org: generate URL, file, AWS key, email address tokens
 - Enterprise: Thinkst Canary hardware devices; realistic honeypot infrastructure; per-device pricing
 - HTTPS web bug: Embed in documents; fires when document opened online
 - Usage: Seed fake credentials in password managers; embed URL tokens in sensitive directories; place DNS tokens in internal documentation
@@ -241,7 +241,7 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 - Coverage points: Every subnet should have at least one honeypot; cover all common attack pivot paths
 - Realistic appearance: Decoys should look identical to real systems (same OS, same open ports, same naming convention)
-- Low noise: Honeypots should generate near-zero legitimate traffic — any connection is suspicious
+- Low noise: Honeypots should generate near-zero legitimate traffic: any connection is suspicious
 - Alert fidelity: Honeypot alerts are high-fidelity (very few false positives); treat every alert as real
 - Integration: Feed honeypot alerts to SIEM as high-priority events; auto-create incident tickets
 
@@ -253,7 +253,7 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 - Passive defense: Standard hardening, patching, detection (fully legal everywhere)
 - Active defense: Using deception and engagement techniques against attackers within your own network (legal)
-- Offensive countermeasures: Hacking back — illegal in almost all jurisdictions; significant legal risk
+- Offensive countermeasures: Hacking back: illegal in almost all jurisdictions; significant legal risk
 - Legal boundary: Everything within your own network is generally permissible; never hack back into external systems
 
 ### Adversary Engagement Goals
@@ -273,8 +273,8 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 ### Deception Playbooks
 
-- Honey credentials workflow: Create fake AD account → monitor authentication logs → alert if account used → auto-isolate source IP
-- Honey document exfiltration workflow: Seed document with canarytoken → employee receives alert email on open → SOC investigates source IP/device
+- Honey credentials workflow: Create fake AD account -> monitor authentication logs -> alert if account used -> auto-isolate source IP
+- Honey document exfiltration workflow: Seed document with canarytoken -> employee receives alert email on open -> SOC investigates source IP/device
 
 ---
 
@@ -296,8 +296,8 @@ Deception technology primarily detects **post-initial-access** techniques — ad
 
 ## Related Disciplines
 
-- [Detection Engineering](/disciplines/detection-engineering.md) — Integrating deception alerts into detection pipeline
-- [Threat Intelligence](/disciplines/threat-intelligence.md) — Extracting intel from attacker behavior in deception environments
-- [Security Operations](/disciplines/security-operations.md) — Triaging high-fidelity deception alerts
-- [Incident Response](/disciplines/incident-response.md) — Using deception to slow and study active intrusions
-- [Network Security](/disciplines/network-security.md) — Network-layer deception (fake VLANs, honey services)
+- [Detection Engineering](/disciplines/detection-engineering.md): Integrating deception alerts into detection pipeline
+- [Threat Intelligence](/disciplines/threat-intelligence.md): Extracting intel from attacker behavior in deception environments
+- [Security Operations](/disciplines/security-operations.md): Triaging high-fidelity deception alerts
+- [Incident Response](/disciplines/incident-response.md): Using deception to slow and study active intrusions
+- [Network Security](/disciplines/network-security.md): Network-layer deception (fake VLANs, honey services)

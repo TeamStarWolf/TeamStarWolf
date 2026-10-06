@@ -37,7 +37,7 @@ A comprehensive reference for network security controls across AWS, Azure, and G
 
 An Amazon VPC (Virtual Private Cloud) is the foundational network isolation boundary in AWS. Every VPC is defined by one or more CIDR blocks and spans all Availability Zones in a region. Subnets are always scoped to a single AZ.
 
-**Recommended four-tier subnet design per AZ:**
+Recommended four-tier subnet design per AZ:
 
 | Tier | Subnet Name | Example CIDR (/VPC 10.0.0.0/16) | Route Table |
 |---|---|---|---|
@@ -46,9 +46,9 @@ An Amazon VPC (Virtual Private Cloud) is the foundational network isolation boun
 | Private Data | private-data-az1 | 10.0.20.0/24 | Local only (no internet route) |
 | Intra (isolated) | intra-az1 | 10.0.30.0/24 | Local only, VPC Endpoints only |
 
-**Internet Gateway (IGW)** — Attached to the VPC; provides bidirectional internet access for public subnets. One per VPC.
+Internet Gateway (IGW) — Attached to the VPC; provides bidirectional internet access for public subnets. One per VPC.
 
-**NAT Gateway** — Allows private subnets to initiate outbound internet connections; deployed in a public subnet. Use one per AZ for HA.
+NAT Gateway — Allows private subnets to initiate outbound internet connections; deployed in a public subnet. Use one per AZ for HA.
 
 ```bash
 # Create a VPC
@@ -69,7 +69,7 @@ aws ec2 allocate-address --domain vpc
 aws ec2 create-nat-gateway --subnet-id subnet-0pub123 --allocation-id eipalloc-0abc
 ```
 
-**VPC Endpoints** reduce exposure by keeping traffic off the public internet:
+VPC Endpoints reduce exposure by keeping traffic off the public internet:
 
 | Type | Traffic Path | Use Case |
 |---|---|---|
@@ -97,9 +97,9 @@ aws ec2 create-vpc-endpoint \
 
 ### Security Groups
 
-Security Groups are **stateful**, virtual firewalls applied at the ENI level. Return traffic is automatically allowed regardless of outbound rules. Unlike NACLs, Security Groups support **SG-to-SG references** — this is the preferred pattern for intra-VPC rules because it avoids hardcoding CIDR blocks that change as instances scale.
+Security Groups are stateful, virtual firewalls applied at the ENI level. Return traffic is automatically allowed regardless of outbound rules. Unlike NACLs, Security Groups support SG-to-SG references — this is the preferred pattern for intra-VPC rules because it avoids hardcoding CIDR blocks that change as instances scale.
 
-**Three-tier Security Group design (Terraform):**
+Three-tier Security Group design (Terraform):
 
 ```hcl
 # ALB Security Group — accepts HTTPS from the internet
@@ -163,7 +163,7 @@ resource "aws_security_group" "db" {
 }
 ```
 
-**Security Group best practices:**
+Security Group best practices:
 
 - Never allow `0.0.0.0/0` on port 22 (SSH) or 3389 (RDP). Use AWS Systems Manager Session Manager for shell access — no inbound ports required.
 - Apply the principle of least privilege: use the minimum port range, never `0-65535`.
@@ -171,13 +171,13 @@ resource "aws_security_group" "db" {
 - Tag security groups with owner, service, and environment.
 - Regularly audit with AWS Config rules.
 
-**AWS Config rules for Security Group compliance:**
+AWS Config rules for Security Group compliance:
 
 | Config Rule | What It Checks |
 |---|---|
 | `restricted-ssh` | Flags SGs allowing SSH (port 22) from 0.0.0.0/0 or ::/0 |
 | `restricted-common-ports` | Flags unrestricted access on ports 20, 21, 3389, 3306, 4333 |
-| `vpc-sg-open-only-to-authorized-ports` | Custom — specify allowed inbound ports |
+| `vpc-sg-open-only-to-authorized-ports` | Custom: specify allowed inbound ports |
 | `vpc-default-security-group-closed` | Default SG should have no rules |
 
 ```bash
@@ -202,9 +202,9 @@ aws configservice put-config-rule --config-rule '{
 
 ### Network ACLs (NACLs)
 
-Network ACLs are **stateless** — you must explicitly allow both inbound and return (outbound) traffic. Rules are processed in ascending numeric order; the first match wins. NACLs are applied at the subnet boundary, not the instance level.
+Network ACLs are stateless — you must explicitly allow both inbound and return (outbound) traffic. Rules are processed in ascending numeric order; the first match wins. NACLs are applied at the subnet boundary, not the instance level.
 
-**Key differences from Security Groups:**
+Key differences from Security Groups:
 
 | Feature | Security Group | Network ACL |
 |---|---|---|
@@ -215,7 +215,7 @@ Network ACLs are **stateless** — you must explicitly allow both inbound and re
 | Rule ordering | All rules evaluated | First match wins (numbered) |
 | Best for | Instance-level micro-segmentation | Subnet-level coarse blocking |
 
-**Example NACL for a private app subnet:**
+Example NACL for a private app subnet:
 
 ```bash
 # Create a NACL
@@ -272,8 +272,8 @@ aws ec2 create-network-acl-entry \
   --rule-action allow
 ```
 
-**When to use NACLs vs Security Groups:**
-- Use NACLs to **explicitly deny** known-bad IPs or CIDR ranges at the subnet boundary.
+When to use NACLs vs Security Groups:
+- Use NACLs to explicitly deny known-bad IPs or CIDR ranges at the subnet boundary.
 - Use NACLs to enforce a hard perimeter between tiers (e.g., deny all traffic from the public subnet to the data tier).
 - Use Security Groups for all service-to-service allow rules.
 
@@ -281,14 +281,14 @@ aws ec2 create-network-acl-entry \
 
 ### AWS Network Firewall
 
-AWS Network Firewall is a managed stateful firewall service deployed inline in a dedicated firewall subnet. It supports both **stateless** (fast path, 5-tuple matching) and **stateful** (deep packet inspection, Suricata-compatible) rule groups.
+AWS Network Firewall is a managed stateful firewall service deployed inline in a dedicated firewall subnet. It supports both stateless (fast path, 5-tuple matching) and stateful (deep packet inspection, Suricata-compatible) rule groups.
 
-**Architecture:**
+Architecture:
 1. Create a firewall subnet in each AZ (dedicated `/28` recommended).
 2. Deploy the firewall in each subnet.
 3. Update route tables: traffic from public subnet routes through the firewall endpoint before reaching the IGW.
 
-**Terraform example:**
+Terraform example:
 
 ```hcl
 resource "aws_networkfirewall_firewall" "main" {
@@ -365,7 +365,7 @@ resource "aws_networkfirewall_firewall_policy" "main" {
 }
 ```
 
-**Route table configuration (inspection VPC pattern):**
+Route table configuration (inspection VPC pattern):
 
 ```bash
 # Route from public subnet to firewall endpoint (replace with actual endpoint ID)
@@ -387,7 +387,7 @@ aws ec2 create-route \
 
 VPC Flow Logs capture metadata about IP traffic to/from ENIs, subnets, or entire VPCs. They do NOT capture packet payloads.
 
-**Enable Flow Logs:**
+Enable Flow Logs:
 
 ```bash
 # Enable flow logs to CloudWatch Logs
@@ -409,7 +409,7 @@ aws ec2 create-flow-logs \
   --log-format '${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}'
 ```
 
-**Flow Log fields:**
+Flow Log fields:
 
 | Field | Description |
 |---|---|
@@ -427,7 +427,7 @@ aws ec2 create-flow-logs \
 | action | ACCEPT or REJECT |
 | log-status | OK, NODATA, SKIPDATA |
 
-**Athena queries for threat hunting:**
+Athena queries for threat hunting:
 
 ```sql
 -- Create Athena table for flow logs in S3
@@ -493,7 +493,7 @@ LIMIT 50;
 
 AWS WAF v2 is a web application firewall that can be attached to ALBs, CloudFront, API Gateway, AppSync, and Cognito.
 
-**Full WAF WebACL configuration (JSON):**
+Full WAF WebACL configuration (JSON):
 
 ```json
 {
@@ -570,7 +570,7 @@ AWS WAF v2 is a web application firewall that can be attached to ALBs, CloudFron
 }
 ```
 
-**Deploy WAF and associate with ALB:**
+Deploy WAF and associate with ALB:
 
 ```bash
 # Create WebACL from JSON file
@@ -589,7 +589,7 @@ aws wafv2 put-logging-configuration \
   }'
 ```
 
-**AWS WAF Managed Rule Groups:**
+AWS WAF Managed Rule Groups:
 
 | Rule Group | Description |
 |---|---|
@@ -614,7 +614,7 @@ aws wafv2 put-logging-configuration \
 
 Amazon GuardDuty uses threat intelligence, ML, and anomaly detection to identify malicious network activity in VPC Flow Logs, DNS logs, and CloudTrail.
 
-**Network-relevant GuardDuty findings:**
+Network-relevant GuardDuty findings:
 
 | Finding Type | Description | Recommended Response |
 |---|---|---|
@@ -663,7 +663,7 @@ aws guardduty create-filter \
 
 AWS PrivateLink (Interface VPC Endpoints) allows you to access AWS services and third-party services over private network connections, keeping traffic entirely within the AWS network.
 
-**Advantages over VPC Peering for service access:**
+Advantages over VPC Peering for service access:
 
 | Feature | VPC Peering | PrivateLink |
 |---|---|---|
@@ -690,7 +690,7 @@ aws ec2 describe-vpc-endpoint-services \
   --output table
 ```
 
-**S3 bucket policy enforcing VPC Endpoint access only (prevent direct internet access):**
+S3 bucket policy enforcing VPC Endpoint access only (prevent direct internet access):
 
 ```json
 {
@@ -732,9 +732,9 @@ nslookup my-sensitive-bucket.s3.amazonaws.com
 
 ### VNet and NSG
 
-An Azure Virtual Network (VNet) is the fundamental network isolation unit. Network Security Groups (NSGs) are **stateful** packet filters applied at the subnet level or directly to individual NICs. Return traffic is automatically permitted.
+An Azure Virtual Network (VNet) is the fundamental network isolation unit. Network Security Groups (NSGs) are stateful packet filters applied at the subnet level or directly to individual NICs. Return traffic is automatically permitted.
 
-**Create VNet and NSG via Azure CLI:**
+Create VNet and NSG via Azure CLI:
 
 ```bash
 # Create resource group
@@ -796,7 +796,7 @@ az network vnet subnet update \
   --network-security-group app-nsg
 ```
 
-**Enable NSG Flow Logs with Traffic Analytics:**
+Enable NSG Flow Logs with Traffic Analytics:
 
 ```bash
 # Create storage account for flow logs
@@ -826,7 +826,7 @@ az network watcher flow-log update \
   --interval 10
 ```
 
-**Hub-Spoke topology overview:**
+Hub-Spoke topology overview:
 
 The hub VNet contains shared services (Azure Firewall, VPN/ExpressRoute gateway, DNS, Bastion). Spoke VNets contain workloads and peer to the hub. Traffic between spokes is forced through the hub firewall via User Defined Routes (UDRs), providing centralized inspection. This is the recommended topology for enterprise Azure deployments.
 
@@ -880,7 +880,7 @@ az network firewall policy intrusion-detection add \
   --signature-id 2013028  # Example: ET MALWARE known trojan
 ```
 
-**IDPS Signature Categories to set Alert+Deny:**
+IDPS Signature Categories to set Alert+Deny:
 
 | Category | Description |
 |---|---|
@@ -962,7 +962,7 @@ az network private-endpoint dns-zone-group create \
   --zone-name sql
 ```
 
-**Private DNS Zones by service:**
+Private DNS Zones by service:
 
 | Azure Service | Private DNS Zone |
 |---|---|
@@ -1004,7 +1004,7 @@ az monitor metrics alert create \
   --action /subscriptions/<sub>/resourceGroups/prod-rg/providers/microsoft.insights/actionGroups/SecurityTeamAG
 ```
 
-**DDoS Protection Standard features:**
+DDoS Protection Standard features:
 
 | Feature | Description |
 |---|---|
@@ -1016,7 +1016,7 @@ az monitor metrics alert create \
 | Cost protection | Service credit for scale-out costs during verified attacks |
 | Multi-layered mitigation | Volumetric, protocol, and resource layer attack mitigation |
 
-**Cost reference:** Azure DDoS Protection Standard is priced per protection plan (~$2,944/month for the plan) plus a per-resource fee for public IPs. Evaluate against the cost of downtime for your workload.
+Cost reference: Azure DDoS Protection Standard is priced per protection plan (~$2,944/month for the plan) plus a per-resource fee for public IPs. Evaluate against the cost of downtime for your workload.
 
 ---
 
@@ -1024,7 +1024,7 @@ az monitor metrics alert create \
 
 Azure Front Door with WAF provides global Layer 7 DDoS protection, WAF, and CDN capabilities.
 
-**WAF Policy (JSON — Bicep-compatible):**
+WAF Policy (JSON — Bicep-compatible):
 
 ```json
 {
@@ -1095,7 +1095,7 @@ az network front-door waf-policy managed-rules add \
   --version 1.0
 ```
 
-**Azure Front Door WAF Managed Rule Sets:**
+Azure Front Door WAF Managed Rule Sets:
 
 | Rule Set | Version | Description |
 |---|---|---|
@@ -1108,7 +1108,7 @@ az network front-door waf-policy managed-rules add \
 
 ### Custom Mode VPC
 
-GCP VPCs are global (not regional), but subnets are regional. **Always use custom mode VPC** — auto mode creates subnets in every region using the same predictable CIDR blocks (/20 from 10.128.0.0/9), which reduces segmentation and creates overlap risks.
+GCP VPCs are global (not regional), but subnets are regional. Always use custom mode VPC — auto mode creates subnets in every region using the same predictable CIDR blocks (/20 from 10.128.0.0/9), which reduces segmentation and creates overlap risks.
 
 ```bash
 # Create custom mode VPC (no auto subnets)
@@ -1134,7 +1134,7 @@ gcloud compute networks subnets create data-subnet-us-east1 \
   --range=10.10.10.0/24
 ```
 
-**Firewall rule design — GCP uses tags and service accounts:**
+Firewall rule design — GCP uses tags and service accounts:
 
 ```bash
 # Baseline: deny all ingress (GCP default is implied deny, but make it explicit)
@@ -1177,7 +1177,7 @@ gcloud compute firewall-rules create prod-allow-iap-ssh \
   --target-tags=app-server
 ```
 
-**Assign tags to instances:**
+Assign tags to instances:
 
 ```bash
 gcloud compute instances add-tags app-instance-1 \
@@ -1247,7 +1247,7 @@ gcloud compute backend-services update prod-backend-service \
   --global
 ```
 
-**Cloud Armor pre-configured rule sets:**
+Cloud Armor pre-configured rule sets:
 
 | Rule Set Expression | Description |
 |---|---|
@@ -1290,7 +1290,7 @@ gcloud access-context-manager levels create corp-network-level \
   --basic-level-spec=corp-network-conditions.yaml
 ```
 
-**corp-network-conditions.yaml:**
+corp-network-conditions.yaml:
 
 ```yaml
 conditions:
@@ -1299,7 +1299,7 @@ conditions:
       - "198.51.100.0/24"   # VPN IP range
 ```
 
-**VPC-SC perimeter in dry run mode (for testing):**
+VPC-SC perimeter in dry run mode (for testing):
 
 ```bash
 # Enable dry run (logs violations without blocking) before enforcing
@@ -1335,7 +1335,7 @@ gcloud logging sinks create vpc-flowlogs-bq \
   --log-filter='resource.type="gce_subnetwork" AND logName="projects/<project-id>/logs/compute.googleapis.com%2Fvpc_flows"'
 ```
 
-**BigQuery query for unusual outbound connections:**
+BigQuery query for unusual outbound connections:
 
 ```sql
 -- Unusual outbound ports from internal VMs (not 80, 443, 53, 123)
@@ -1380,19 +1380,19 @@ LIMIT 25;
 
 | Control | AWS | Azure | GCP |
 |---|---|---|---|
-| **Virtual Network** | VPC | VNet | VPC (global) |
-| **Subnet Firewall** | Security Groups (stateful, ENI) + NACLs (stateless, subnet) | NSG (stateful, subnet or NIC) | VPC Firewall Rules (stateful, network-wide, tag-based) |
-| **L3/L4 Network Firewall** | AWS Network Firewall (Suricata, stateful+stateless) | Azure Firewall (FQDN filtering, threat intel) | Cloud Next Generation Firewall (Palo Alto powered) |
-| **WAF** | AWS WAF v2 (ALB, CloudFront, API GW) | Azure WAF (App Gateway, Front Door) | Cloud Armor (Global LB, Managed Protection Plus) |
-| **DDoS Protection** | AWS Shield Standard (free) / Shield Advanced | DDoS Basic (free) / DDoS Protection Standard | Cloud Armor Standard / Managed Protection Plus |
-| **Flow Logs** | VPC Flow Logs (CloudWatch, S3, Athena) | NSG Flow Logs with Traffic Analytics (Log Analytics) | VPC Flow Logs (Cloud Logging, BigQuery) |
-| **Private Connectivity** | PrivateLink (Interface Endpoints) | Private Endpoints | Private Service Connect |
-| **Service Perimeter** | VPC Endpoint Policies + SCPs | Private Endpoints + Azure Policy | VPC Service Controls |
-| **DNS Firewall** | Route 53 Resolver DNS Firewall | Azure Firewall DNS Proxy + DNS filtering | Cloud DNS Response Policy Zones |
-| **Network IDS/NDR** | GuardDuty (VPC Flow Logs, DNS) + Traffic Mirroring | Microsoft Defender for Cloud (network layer) | Cloud IDS (Palo Alto Threat Prevention) |
-| **Connectivity (on-prem)** | VPN Gateway / Direct Connect | VPN Gateway / ExpressRoute | Cloud VPN / Cloud Interconnect |
-| **Transit Routing** | Transit Gateway | Azure Virtual WAN | Network Connectivity Center |
-| **Patch/Access (no bastion)** | SSM Session Manager | Azure Bastion / Azure Arc | Identity-Aware Proxy (IAP) |
+| Virtual Network | VPC | VNet | VPC (global) |
+| Subnet Firewall | Security Groups (stateful, ENI) + NACLs (stateless, subnet) | NSG (stateful, subnet or NIC) | VPC Firewall Rules (stateful, network-wide, tag-based) |
+| L3/L4 Network Firewall | AWS Network Firewall (Suricata, stateful+stateless) | Azure Firewall (FQDN filtering, threat intel) | Cloud Next Generation Firewall (Palo Alto powered) |
+| WAF | AWS WAF v2 (ALB, CloudFront, API GW) | Azure WAF (App Gateway, Front Door) | Cloud Armor (Global LB, Managed Protection Plus) |
+| DDoS Protection | AWS Shield Standard (free) / Shield Advanced | DDoS Basic (free) / DDoS Protection Standard | Cloud Armor Standard / Managed Protection Plus |
+| Flow Logs | VPC Flow Logs (CloudWatch, S3, Athena) | NSG Flow Logs with Traffic Analytics (Log Analytics) | VPC Flow Logs (Cloud Logging, BigQuery) |
+| Private Connectivity | PrivateLink (Interface Endpoints) | Private Endpoints | Private Service Connect |
+| Service Perimeter | VPC Endpoint Policies + SCPs | Private Endpoints + Azure Policy | VPC Service Controls |
+| DNS Firewall | Route 53 Resolver DNS Firewall | Azure Firewall DNS Proxy + DNS filtering | Cloud DNS Response Policy Zones |
+| Network IDS/NDR | GuardDuty (VPC Flow Logs, DNS) + Traffic Mirroring | Microsoft Defender for Cloud (network layer) | Cloud IDS (Palo Alto Threat Prevention) |
+| Connectivity (on-prem) | VPN Gateway / Direct Connect | VPN Gateway / ExpressRoute | Cloud VPN / Cloud Interconnect |
+| Transit Routing | Transit Gateway | Azure Virtual WAN | Network Connectivity Center |
+| Patch/Access (no bastion) | SSM Session Manager | Azure Bastion / Azure Arc | Identity-Aware Proxy (IAP) |
 
 ---
 

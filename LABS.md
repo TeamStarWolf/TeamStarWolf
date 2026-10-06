@@ -1,12 +1,12 @@
 # Hands-On Labs & Practice Environments
 
-> **In one minute** — This is a curated index of free (or free-tier) hands-on practice environments: lab platforms, CTF (capture-the-flag) competitions, vulnerable-by-design targets, and home lab build recipes. It is organized by security discipline — detection engineering, DFIR, offensive security, cloud, malware analysis, ICS/OT, AI/LLM security, and more — so you can jump straight to labs for the skill you are building. Every entry links directly to the platform and notes what it is best for, saving you the search for legitimate, low-cost practice.
+> In one minute — This is a curated index of free (or free-tier) hands-on practice environments: lab platforms, CTF (capture-the-flag) competitions, vulnerable-by-design targets, and home lab build recipes. It is organized by security discipline — detection engineering, DFIR, offensive security, cloud, malware analysis, ICS/OT, AI/LLM security, and more — so you can jump straight to labs for the skill you are building. Every entry links directly to the platform and notes what it is best for, saving you the search for legitimate, low-cost practice.
 
 | | |
 |---|---|
-| **Read this when** | you want hands-on practice in a specific discipline, you are prepping for a cert or CTF and need free targets, you are building a home lab and need a components-and-hardware starting point |
-| **Start at** | [Platform Index](#platform-index), [By Discipline](#by-discipline), [Home Lab Builds](#home-lab-builds) |
-| **Pairs with** | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Starred Repositories](STARRED_REPOS.md) |
+| Read this when | you want hands-on practice in a specific discipline, you are prepping for a cert or CTF and need free targets, you are building a home lab and need a components-and-hardware starting point |
+| Start at | [Platform Index](#platform-index), [By Discipline](#by-discipline), [Home Lab Builds](#home-lab-builds) |
+| Pairs with | [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Starred Repositories](STARRED_REPOS.md) |
 
 A curated index of free and accessible lab environments, CTF platforms, and practice ranges mapped to each security discipline. All platforms listed here offer a free tier or are fully open source.
 
@@ -166,7 +166,7 @@ A detection-focused lab that runs on a single host with 16 GB RAM:
 | SOAR | Shuffle (open source) | Alert automation |
 | Threat Intel | MISP (local instance) | IOC management |
 
-**Setup guides**: [DetectionLab](https://github.com/clong/DetectionLab) | [HELK](https://github.com/Cyb3rWard0g/HELK) | [Wazuh VM](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html)
+Setup guides: [DetectionLab](https://github.com/clong/DetectionLab) | [HELK](https://github.com/Cyb3rWard0g/HELK) | [Wazuh VM](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html)
 
 ### Offensive Lab
 | Component | Tool | Purpose |
@@ -243,7 +243,7 @@ Use AWS Free Tier + CloudGoat + Prowler:
 
 - Hypervisor: VMware Workstation Pro ($200, permanent license) or Proxmox VE (free, enterprise-grade)
 - Domain: Windows Server 2022 Evaluation (free 180 days); active directory with multiple OUs
-- Detection stack: Security Onion (Zeek + Suricata + Elastic + Kibana) — single-ISO deployment
+- Detection stack: Security Onion (Zeek + Suricata + Elastic + Kibana): single-ISO deployment
 - Endpoint telemetry: Sysmon on Windows VMs; Wazuh agents; forward to Elastic
 - Attack machine: Kali Linux or Parrot OS
 - Recommended exercises: Run Atomic Red Team tests; verify they appear in SIEM; tune detections

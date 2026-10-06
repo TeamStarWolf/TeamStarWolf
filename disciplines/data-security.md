@@ -21,24 +21,24 @@ Data security is the set of technical and operational practices that ensure sens
 
 | Stage | Focus | Resources |
 |---|---|---|
-| **Foundation** | Understand data classification tiers, encryption fundamentals (symmetric vs. asymmetric, AES, TLS), and regulatory drivers (GDPR, HIPAA, PCI DSS). Learn what DLP is and why it fails without classification. | [NIST SP 800-53 MP/SC families](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final), [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html), CompTIA Security+ study materials, GDPR Article 32 text |
-| **Practitioner** | Deploy and tune DLP policies in a lab environment. Practice key management with HashiCorp Vault. Run Microsoft Presidio against a sample dataset. Understand DSPM and how it differs from CSPM. Build a data classification policy from scratch. | [HashiCorp Vault tutorials](https://developer.hashicorp.com/vault/tutorials), [Microsoft Presidio](https://github.com/microsoft/presidio), [Microsoft Purview learning path](https://learn.microsoft.com/en-us/purview/), CDPSE exam prep materials |
-| **Advanced** | Design enterprise-wide data governance programs. Integrate DSPM into cloud pipelines. Implement field-level encryption and tokenization in applications. Lead data breach response. Build a KMS strategy across multi-cloud. Evaluate DSPM/DAM vendors against requirements. | [NIST SP 800-188](https://csrc.nist.gov/publications/detail/sp/800-188/final) (de-identification), [Cloud Security Alliance research](https://cloudsecurityalliance.org/research/), Varonis/BigID vendor documentation, breach notification law matrix |
+| Foundation | Understand data classification tiers, encryption fundamentals (symmetric vs. asymmetric, AES, TLS), and regulatory drivers (GDPR, HIPAA, PCI DSS). Learn what DLP is and why it fails without classification. | [NIST SP 800-53 MP/SC families](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final), [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html), CompTIA Security+ study materials, GDPR Article 32 text |
+| Practitioner | Deploy and tune DLP policies in a lab environment. Practice key management with HashiCorp Vault. Run Microsoft Presidio against a sample dataset. Understand DSPM and how it differs from CSPM. Build a data classification policy from scratch. | [HashiCorp Vault tutorials](https://developer.hashicorp.com/vault/tutorials), [Microsoft Presidio](https://github.com/microsoft/presidio), [Microsoft Purview learning path](https://learn.microsoft.com/en-us/purview/), CDPSE exam prep materials |
+| Advanced | Design enterprise-wide data governance programs. Integrate DSPM into cloud pipelines. Implement field-level encryption and tokenization in applications. Lead data breach response. Build a KMS strategy across multi-cloud. Evaluate DSPM/DAM vendors against requirements. | [NIST SP 800-188](https://csrc.nist.gov/publications/detail/sp/800-188/final) (de-identification), [Cloud Security Alliance research](https://cloudsecurityalliance.org/research/), Varonis/BigID vendor documentation, breach notification law matrix |
 
 ---
 
 ## Free Training
 
-- [NIST SP 800-53 MP and SC Control Families](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) — The authoritative federal control catalog; Media Protection (MP) and System and Communications Protection (SC) families map directly to data security requirements; reading the control baselines and supplemental guidance teaches the full scope of what data security programs must address
-- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html) — Practical developer-facing guidance on how to encrypt data at the application layer; covers algorithm selection, key storage, IV handling, and common mistakes; essential for anyone implementing encryption in code rather than just configuring cloud services
-- [Microsoft Learn — Information Protection and Governance](https://learn.microsoft.com/en-us/purview/information-protection) — Free Microsoft documentation covering sensitivity labels, DLP policy design, data classification, and the Microsoft Purview compliance portal; hands-on learning path available for the SC-400 certification
-- [HashiCorp Vault Tutorials](https://developer.hashicorp.com/vault/tutorials) — Free interactive tutorials covering secrets management, encryption-as-a-service (Transit secrets engine), dynamic database credentials, and PKI; the best hands-on introduction to enterprise key management concepts
-- [Microsoft Presidio Documentation and Notebooks](https://microsoft.github.io/presidio/) — Free documentation and Jupyter notebooks for the open-source PII detection and anonymization engine; teaches how PII recognition, NLP-based entity detection, and anonymization operators work in practice
-- [GDPR Article 32 and Recital 83](https://gdpr.eu/article-32-security-of-processing/) — The actual legal text defining what "appropriate technical measures" means under EU law; understanding the regulatory driver is as important as knowing the controls; free to read at gdpr.eu
-- [ENISA Guidelines on Pseudonymisation](https://www.enisa.europa.eu/publications/pseudonymisation-techniques-and-best-practices) — Free technical guide from the EU Agency for Cybersecurity covering pseudonymisation techniques, implementation patterns, and their limitations; directly applicable to GDPR Article 25 compliance
-- [Google Cloud Data Loss Prevention Documentation](https://cloud.google.com/dlp/docs) — Free reference covering DLP concepts, info type detectors, de-identification transformations, and risk analysis; teaches DLP architecture patterns applicable to any platform, not just GCP
-- [NIST SP 800-111: Storage Encryption for End User Devices](https://csrc.nist.gov/publications/detail/sp/800-111/final) — Free NIST guide on full-disk encryption, volume encryption, and file/folder encryption; explains the threat models that each approach addresses and which to use for which scenarios
-- [PCI DSS Quick Reference Guide](https://www.pcisecuritystandards.org/documents/PCI_DSS-QRG-v3_2_1.pdf) — Free condensed summary of PCI DSS requirements; Requirement 3 (protect stored cardholder data) and Requirement 4 (encrypt transmission) are the core data security requirements; useful for understanding how payment card data protection works
+- [NIST SP 800-53 MP and SC Control Families](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final): The authoritative federal control catalog; Media Protection (MP) and System and Communications Protection (SC) families map directly to data security requirements; reading the control baselines and supplemental guidance teaches the full scope of what data security programs must address
+- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html): Practical developer-facing guidance on how to encrypt data at the application layer; covers algorithm selection, key storage, IV handling, and common mistakes; essential for anyone implementing encryption in code rather than just configuring cloud services
+- [Microsoft Learn: Information Protection and Governance](https://learn.microsoft.com/en-us/purview/information-protection) — Free Microsoft documentation covering sensitivity labels, DLP policy design, data classification, and the Microsoft Purview compliance portal; hands-on learning path available for the SC-400 certification
+- [HashiCorp Vault Tutorials](https://developer.hashicorp.com/vault/tutorials): Free interactive tutorials covering secrets management, encryption-as-a-service (Transit secrets engine), dynamic database credentials, and PKI; the best hands-on introduction to enterprise key management concepts
+- [Microsoft Presidio Documentation and Notebooks](https://microsoft.github.io/presidio/): Free documentation and Jupyter notebooks for the open-source PII detection and anonymization engine; teaches how PII recognition, NLP-based entity detection, and anonymization operators work in practice
+- [GDPR Article 32 and Recital 83](https://gdpr.eu/article-32-security-of-processing/): The actual legal text defining what "appropriate technical measures" means under EU law; understanding the regulatory driver is as important as knowing the controls; free to read at gdpr.eu
+- [ENISA Guidelines on Pseudonymisation](https://www.enisa.europa.eu/publications/pseudonymisation-techniques-and-best-practices): Free technical guide from the EU Agency for Cybersecurity covering pseudonymisation techniques, implementation patterns, and their limitations; directly applicable to GDPR Article 25 compliance
+- [Google Cloud Data Loss Prevention Documentation](https://cloud.google.com/dlp/docs): Free reference covering DLP concepts, info type detectors, de-identification transformations, and risk analysis; teaches DLP architecture patterns applicable to any platform, not just GCP
+- [NIST SP 800-111: Storage Encryption for End User Devices](https://csrc.nist.gov/publications/detail/sp/800-111/final): Free NIST guide on full-disk encryption, volume encryption, and file/folder encryption; explains the threat models that each approach addresses and which to use for which scenarios
+- [PCI DSS Quick Reference Guide](https://www.pcisecuritystandards.org/documents/PCI_DSS-QRG-v3_2_1.pdf): Free condensed summary of PCI DSS requirements; Requirement 3 (protect stored cardholder data) and Requirement 4 (encrypt transmission) are the core data security requirements; useful for understanding how payment card data protection works
 
 ---
 
@@ -104,11 +104,11 @@ Data security is the set of technical and operational practices that ensure sens
 
 | Level | Examples | Controls |
 |---|---|---|
-| **Public** | Marketing materials, press releases | No restrictions |
-| **Internal** | Internal wikis, general business docs | Employee access only |
-| **Confidential** | Business plans, contracts, HR data | Need-to-know, encrypted in transit |
-| **Restricted** | PII, PHI, PCI data, trade secrets | Encrypted at rest + in transit, strict access, DLP |
-| **Top Secret** | M&A data, key material, source code | Isolated systems, PAM, full audit |
+| Public | Marketing materials, press releases | No restrictions |
+| Internal | Internal wikis, general business docs | Employee access only |
+| Confidential | Business plans, contracts, HR data | Need-to-know, encrypted in transit |
+| Restricted | PII, PHI, PCI data, trade secrets | Encrypted at rest + in transit, strict access, DLP |
+| Top Secret | M&A data, key material, source code | Isolated systems, PAM, full audit |
 
 ### Common Sensitive Data Types
 
@@ -175,7 +175,7 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 | Resource | Type | Notes |
 |---|---|---|
 | [Microsoft Purview Documentation](https://learn.microsoft.com/en-us/purview/) | Reference | DLP, sensitivity labels, compliance portal; the most complete free documentation for a commercial data security platform |
-| [NIST Cybersecurity Framework — Protect](https://www.nist.gov/cyberframework) | Framework | Data security is core to the Protect function; free download includes implementation tiers and profiles |
+| [NIST Cybersecurity Framework: Protect](https://www.nist.gov/cyberframework) | Framework | Data security is core to the Protect function; free download includes implementation tiers and profiles |
 | [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html) | Reference | Application-layer encryption best practices; algorithm selection, key storage, and common implementation errors |
 | [Cloud Security Alliance STAR](https://cloudsecurityalliance.org/star/) | Registry | Cloud provider security and data controls; the CCM (Cloud Controls Matrix) maps data security requirements to cloud provider capabilities |
 | [ENISA Data Protection Guidelines](https://www.enisa.europa.eu/topics/data-protection) | Reference | EU agency data protection technical guides; free and authoritative for GDPR-aligned data security programs |
@@ -189,7 +189,7 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 
 #### Data Classification Framework
 
-**Classification Levels (Standard Model)**
+Classification Levels (Standard Model)
 
 | Level | Examples | Controls Required |
 |---|---|---|
@@ -198,7 +198,7 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 | Confidential / Sensitive | Financial reports, HR records, customer PII, contracts | Encryption at rest; access control; need-to-know |
 | Restricted / Highly Confidential | Trade secrets, M&A plans, TS/SCI classified, cryptographic keys | Strict access logging; MFA; air-gapped where required |
 
-**Data Classification Tools**
+Data Classification Tools
 - Microsoft Purview (formerly AIP): Auto-classification via ML, sensitivity labels, policy enforcement across M365
 - Varonis: Data classification + access governance; identifies sensitive data and over-privileged access
 - BigID: ML-based PII/PHI/PCI discovery across structured and unstructured stores
@@ -207,18 +207,18 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 
 #### Database Activity Monitoring (DAM)
 
-**Why DAM?**
+Why DAM?
 - DBA accounts with SELECT * on everything; privileged access is the biggest data breach risk
-- DAM records all SQL activity at the network/agent level — independent of database audit logs
+- DAM records all SQL activity at the network/agent level: independent of database audit logs
 - Key use cases: Insider threat detection, compliance (PCI DSS, SOX, HIPAA), data exfiltration detection
 
-**DAM Detection Patterns**
+DAM Detection Patterns
 - Unusual query volume: DBA running SELECT on 10M rows at 2am
 - New query patterns: Application service account running ad-hoc queries (not part of normal app pattern)
-- Cross-table access: Joining PII tables with financial tables — unusual for application accounts
-- Bulk export: Repeated SELECT with ORDER BY on primary key — full table walk pattern
+- Cross-table access: Joining PII tables with financial tables: unusual for application accounts
+- Bulk export: Repeated SELECT with ORDER BY on primary key: full table walk pattern
 
-**DAM Products**
+DAM Products
 - IBM Guardium: Market leader; agent + network-based; comprehensive; expensive
 - Imperva Data Security Fabric: Strong DAM + data classification
 - DataSunrise: Cross-database, cloud-friendly
@@ -227,18 +227,18 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 
 #### Data Loss Prevention (DLP)
 
-**DLP Deployment Modes**
+DLP Deployment Modes
 - Network DLP: Inspect traffic leaving perimeter (email, web, FTP); block or quarantine
 - Endpoint DLP: Agent on laptop/desktop; monitor clipboard, print, USB, screenshot, file access
 - Cloud DLP (CASB): API-based inspection of cloud storage (Box, SharePoint, S3); proxy-based inline inspection
 
-**DLP Content Detection Techniques**
+DLP Content Detection Techniques
 - Regex patterns: Credit card (Luhn check), SSN (XXX-XX-XXXX pattern), phone numbers
-- Exact data match (EDM): Fingerprint specific known sensitive records (customer database) — high precision, no false positives
+- Exact data match (EDM): Fingerprint specific known sensitive records (customer database): high precision, no false positives
 - Document fingerprinting: Detect modified versions of specific documents
 - ML classifiers: Classify content by category (financial, medical, legal) without exact patterns
 
-**DLP Products**
+DLP Products
 
 | Product | Type | Strength |
 |---|---|---|
@@ -250,20 +250,20 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 
 #### Encryption Reference
 
-**Encryption at Rest**
-- AES-256-GCM: Standard choice for file/disk encryption (AEAD — provides both confidentiality and integrity)
+Encryption at Rest
+- AES-256-GCM: Standard choice for file/disk encryption (AEAD: provides both confidentiality and integrity)
 - BitLocker (Windows): Full-disk encryption; TPM-backed key; FIPS 140-2 validated
 - FileVault 2 (macOS): AES-XTS; TPM (T2/Apple Silicon) backed
 - LUKS (Linux): Linux Unified Key Setup; dm-crypt; multiple key slots
 - Database: TDE (Transparent Data Encryption) in SQL Server, Oracle, PostgreSQL
 
-**Encryption in Transit**
+Encryption in Transit
 - TLS 1.3: Mandatory; eliminates weak cipher suites and RSA key exchange
 - Certificate management: Minimum 2048-bit RSA or P-256 ECDSA; 1-year max validity (will become 47 days in 2026)
-- HSTS: HTTP Strict Transport Security — `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
-- mTLS: Mutual TLS — both client and server authenticate; used in service mesh, Zero Trust
+- HSTS: HTTP Strict Transport Security: `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
+- mTLS: Mutual TLS: both client and server authenticate; used in service mesh, Zero Trust
 
-**Key Management**
+Key Management
 - Principle: Keys must be protected as carefully as the data they protect
 - KMIP (Key Management Interoperability Protocol): Standard for key lifecycle management
 - Solutions: HashiCorp Vault, AWS KMS, Azure Key Vault, GCP KMS, Thales CipherTrust
@@ -273,8 +273,8 @@ Data security controls directly address the following MITRE ATT&CK techniques:
 
 ## Related Disciplines
 
-- [Privacy Engineering](/disciplines/privacy-engineering.md) — Data security provides the technical controls (encryption, DLP, access) that privacy engineering programs depend on to enforce consent, minimization, and DSR workflows; the two disciplines share tooling but have different regulatory drivers
-- [Cryptography & PKI](/disciplines/cryptography-pki.md) — Encryption is the foundational data security control; understanding cipher modes, key derivation, certificate management, and HSMs is required to implement data-at-rest and data-in-transit protection correctly
-- [Cloud Security](/disciplines/cloud-security.md) — Most sensitive data now lives in cloud storage, databases, and SaaS applications; cloud security controls (CSPM, CASB, IAM) are the enforcement layer for data security policies in cloud environments
-- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md) — Regulatory frameworks (GDPR, HIPAA, PCI DSS) define what data must be protected and how; GRC programs translate these requirements into the classification policies and control mandates that data security engineers implement
-- [Supply Chain Security](/disciplines/supply-chain-security.md) — Third parties and software dependencies are frequent vectors for data exposure; SBOM analysis and vendor data processing agreements are data security responsibilities that connect to supply chain risk management
+- [Privacy Engineering](/disciplines/privacy-engineering.md): Data security provides the technical controls (encryption, DLP, access) that privacy engineering programs depend on to enforce consent, minimization, and DSR workflows; the two disciplines share tooling but have different regulatory drivers
+- [Cryptography & PKI](/disciplines/cryptography-pki.md): Encryption is the foundational data security control; understanding cipher modes, key derivation, certificate management, and HSMs is required to implement data-at-rest and data-in-transit protection correctly
+- [Cloud Security](/disciplines/cloud-security.md): Most sensitive data now lives in cloud storage, databases, and SaaS applications; cloud security controls (CSPM, CASB, IAM) are the enforcement layer for data security policies in cloud environments
+- [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md): Regulatory frameworks (GDPR, HIPAA, PCI DSS) define what data must be protected and how; GRC programs translate these requirements into the classification policies and control mandates that data security engineers implement
+- [Supply Chain Security](/disciplines/supply-chain-security.md): Third parties and software dependencies are frequent vectors for data exposure; SBOM analysis and vendor data processing agreements are data security responsibilities that connect to supply chain risk management

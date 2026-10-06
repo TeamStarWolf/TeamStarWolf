@@ -1,37 +1,37 @@
 # ICS ATT&CK Technique Atlas
 
-> The complete **MITRE ATT&CK for ICS** matrix (v18.1) — **83 techniques** across 12 tactics — cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/ics/technique_profiles.jsonl`](data/attack/ics/technique_profiles.jsonl).
+> The complete MITRE ATT&CK for ICS matrix (v18.1) — 83 techniques across 12 tactics — cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/ics/technique_profiles.jsonl`](data/attack/ics/technique_profiles.jsonl).
 
-**Legend** — **Grp** = threat groups · **SW** = software · **Mit** = ATT&CK mitigations · **Det** = ATT&CK detection guidance exists.
+Legend — Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists.
 
-Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Threat Group Profiles](THREAT_GROUP_PROFILES.md) · [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) · [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
+Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
 
 | | |
 |---|---|
-| **Read this when** | You need to look up an ICS ATT&CK technique by tactic, check which threat groups or software use a technique, or find the ATT&CK mitigations that address it |
-| **Start at** | [Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control) |
+| Read this when | You need to look up an ICS ATT&CK technique by tactic, check which threat groups or software use a technique, or find the ATT&CK mitigations that address it |
+| Start at | [Tactics](#tactics) for the full tactic index, then jump to ICS-specific tactics like [Inhibit Response Function](#inhibit-response-function) or [Impair Process Control](#impair-process-control) |
 
 ## Tactics
 
-- [Initial Access](#initial-access) — 12 techniques
-- [Execution](#execution) — 10 techniques
-- [Persistence](#persistence) — 6 techniques
-- [Privilege Escalation](#privilege-escalation) — 2 techniques
-- [Evasion](#evasion) — 7 techniques
-- [Discovery](#discovery) — 5 techniques
-- [Lateral Movement](#lateral-movement) — 7 techniques
-- [Collection](#collection) — 11 techniques
-- [Command and Control](#command-and-control) — 3 techniques
-- [Inhibit Response Function](#inhibit-response-function) — 14 techniques
-- [Impair Process Control](#impair-process-control) — 5 techniques
-- [Impact](#impact) — 12 techniques
+- [Initial Access](#initial-access): 12 techniques
+- [Execution](#execution): 10 techniques
+- [Persistence](#persistence): 6 techniques
+- [Privilege Escalation](#privilege-escalation): 2 techniques
+- [Evasion](#evasion): 7 techniques
+- [Discovery](#discovery): 5 techniques
+- [Lateral Movement](#lateral-movement): 7 techniques
+- [Collection](#collection): 11 techniques
+- [Command and Control](#command-and-control): 3 techniques
+- [Inhibit Response Function](#inhibit-response-function): 14 techniques
+- [Impair Process Control](#impair-process-control): 5 techniques
+- [Impact](#impact): 12 techniques
 
 ---
 
 ## Initial Access
 <a id="initial-access"></a>
 
-[`TA0108`](https://attack.mitre.org/tactics/TA0108/) · 12 techniques
+[`TA0108`](https://attack.mitre.org/tactics/TA0108/), 12 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -51,7 +51,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Execution
 <a id="execution"></a>
 
-[`TA0104`](https://attack.mitre.org/tactics/TA0104/) · 10 techniques
+[`TA0104`](https://attack.mitre.org/tactics/TA0104/), 10 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -69,7 +69,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Persistence
 <a id="persistence"></a>
 
-[`TA0110`](https://attack.mitre.org/tactics/TA0110/) · 6 techniques
+[`TA0110`](https://attack.mitre.org/tactics/TA0110/), 6 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -83,7 +83,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Privilege Escalation
 <a id="privilege-escalation"></a>
 
-[`TA0111`](https://attack.mitre.org/tactics/TA0111/) · 2 techniques
+[`TA0111`](https://attack.mitre.org/tactics/TA0111/), 2 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -93,7 +93,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Evasion
 <a id="evasion"></a>
 
-[`TA0103`](https://attack.mitre.org/tactics/TA0103/) · 7 techniques
+[`TA0103`](https://attack.mitre.org/tactics/TA0103/), 7 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -108,7 +108,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Discovery
 <a id="discovery"></a>
 
-[`TA0102`](https://attack.mitre.org/tactics/TA0102/) · 5 techniques
+[`TA0102`](https://attack.mitre.org/tactics/TA0102/), 5 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -121,7 +121,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Lateral Movement
 <a id="lateral-movement"></a>
 
-[`TA0109`](https://attack.mitre.org/tactics/TA0109/) · 7 techniques
+[`TA0109`](https://attack.mitre.org/tactics/TA0109/), 7 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -136,7 +136,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Collection
 <a id="collection"></a>
 
-[`TA0100`](https://attack.mitre.org/tactics/TA0100/) · 11 techniques
+[`TA0100`](https://attack.mitre.org/tactics/TA0100/), 11 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -155,7 +155,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Command and Control
 <a id="command-and-control"></a>
 
-[`TA0101`](https://attack.mitre.org/tactics/TA0101/) · 3 techniques
+[`TA0101`](https://attack.mitre.org/tactics/TA0101/), 3 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -166,7 +166,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Inhibit Response Function
 <a id="inhibit-response-function"></a>
 
-[`TA0107`](https://attack.mitre.org/tactics/TA0107/) · 14 techniques
+[`TA0107`](https://attack.mitre.org/tactics/TA0107/), 14 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -188,7 +188,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Impair Process Control
 <a id="impair-process-control"></a>
 
-[`TA0106`](https://attack.mitre.org/tactics/TA0106/) · 5 techniques
+[`TA0106`](https://attack.mitre.org/tactics/TA0106/), 5 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|
@@ -201,7 +201,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md) · [Th
 ## Impact
 <a id="impact"></a>
 
-[`TA0105`](https://attack.mitre.org/tactics/TA0105/) · 12 techniques
+[`TA0105`](https://attack.mitre.org/tactics/TA0105/), 12 techniques
 
 | Technique | Platforms | Grp | SW | Mit | Det |
 |---|---|--:|--:|--:|:--:|

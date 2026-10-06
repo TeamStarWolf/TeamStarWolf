@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| **Read this when** | planning or maturing an enterprise security stack stage by stage, picking open-source vs commercial tooling for a control area, mapping vendors to NIST 800-53 controls and ATT&CK techniques |
-| **Start at** | [Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration) |
-| **Pairs with** | [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Gap Analysis](scores/coverage_gaps.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md), [Coverage Schema](COVERAGE_SCHEMA.md) |
+| Read this when | planning or maturing an enterprise security stack stage by stage, picking open-source vs commercial tooling for a control area, mapping vendors to NIST 800-53 controls and ATT&CK techniques |
+| Start at | [Pipeline Overview](#pipeline-overview), [Enterprise Security Tool Integration Map](#enterprise-security-tool-integration-map), [Incident Response Pipeline Integration](#incident-response-pipeline-integration) |
+| Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Coverage Gap Analysis](scores/coverage_gaps.md), [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md), [Coverage Schema](COVERAGE_SCHEMA.md) |
 
 ---
 
@@ -23,9 +23,9 @@ Each stage builds on the previous. Gaps in Stage 2 (identity) compound into Stag
 
 ---
 
-## Stage 1 — Governance, Risk & Compliance
+## Stage 1: Governance, Risk & Compliance
 
-**Goal:** Establish the policy, risk management, and compliance baseline that all other stages operate within.
+Goal: Establish the policy, risk management, and compliance baseline that all other stages operate within.
 
 ### Core Controls (NIST 800-53)
 | Control | Description |
@@ -46,10 +46,10 @@ Each stage builds on the previous. Gaps in Stage 2 (identity) compound into Stag
 | Policy Management | [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) | OneTrust, LogicGate |
 
 ### Key Frameworks
-- **NIST Cybersecurity Framework (CSF) 2.0** — Govern, Identify, Protect, Detect, Respond, Recover
-- **NIST RMF (SP 800-37)** — Authorization and continuous monitoring lifecycle
-- **ISO 27001** — ISMS certification
-- **SOC 2** — Trust services criteria for SaaS/cloud providers
+- NIST Cybersecurity Framework (CSF) 2.0: Govern, Identify, Protect, Detect, Respond, Recover
+- NIST RMF (SP 800-37): Authorization and continuous monitoring lifecycle
+- ISO 27001: ISMS certification
+- SOC 2: Trust services criteria for SaaS/cloud providers
 
 ### Discipline Pages
 - [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md)
@@ -57,9 +57,9 @@ Each stage builds on the previous. Gaps in Stage 2 (identity) compound into Stag
 
 ---
 
-## Stage 2 — Identity & Access Management
+## Stage 2: Identity & Access Management
 
-**Goal:** Ensure every user, device, and workload authenticates strongly, has only the access it needs, and that privileged access is tightly controlled.
+Goal: Ensure every user, device, and workload authenticates strongly, has only the access it needs, and that privileged access is tightly controlled.
 
 ### Core Controls (NIST 800-53)
 | Control | Description |
@@ -73,7 +73,7 @@ Each stage builds on the previous. Gaps in Stage 2 (identity) compound into Stag
 | IA-8 | Non-Organizational User Authentication |
 
 ### ATT&CK Coverage
-Techniques mitigated: **T1078** (Valid Accounts), **T1110** (Brute Force), **T1556** (Modify Authentication Process), **T1621** (MFA Request Generation), **T1098** (Account Manipulation), **T1550** (Use Alternate Authentication Material), **T1558** (Steal or Forge Kerberos Tickets)
+Techniques mitigated: T1078 (Valid Accounts), T1110 (Brute Force), T1556 (Modify Authentication Process), T1621 (MFA Request Generation), T1098 (Account Manipulation), T1550 (Use Alternate Authentication Material), T1558 (Steal or Forge Kerberos Tickets)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -92,9 +92,9 @@ Load the [Identity & Access Stage Layer](https://mitre-attack.github.io/attack-n
 
 ---
 
-## Stage 3 — Endpoint & Workload Protection
+## Stage 3: Endpoint & Workload Protection
 
-**Goal:** Prevent, detect, and respond to threats on endpoints, servers, and cloud workloads.
+Goal: Prevent, detect, and respond to threats on endpoints, servers, and cloud workloads.
 
 ### Core Controls (NIST 800-53)
 | Control | Description |
@@ -107,7 +107,7 @@ Load the [Identity & Access Stage Layer](https://mitre-attack.github.io/attack-n
 | SC-39 | Process Isolation |
 
 ### ATT&CK Coverage
-Techniques mitigated: **T1059** (Command and Scripting Interpreter), **T1055** (Process Injection), **T1486** (Data Encrypted for Impact), **T1566** (Phishing), **T1547** (Boot/Logon Autostart), **T1543** (Create/Modify System Process), **T1053** (Scheduled Task/Job), **T1562** (Impair Defenses), **T1490** (Inhibit System Recovery)
+Techniques mitigated: T1059 (Command and Scripting Interpreter), T1055 (Process Injection), T1486 (Data Encrypted for Impact), T1566 (Phishing), T1547 (Boot/Logon Autostart), T1543 (Create/Modify System Process), T1053 (Scheduled Task/Job), T1562 (Impair Defenses), T1490 (Inhibit System Recovery)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -128,9 +128,9 @@ Load the [EDR / Endpoint Layer](https://mitre-attack.github.io/attack-navigator/
 
 ---
 
-## Stage 4 — Network & Boundary
+## Stage 4: Network & Boundary
 
-**Goal:** Control traffic flows, enforce Zero Trust network segmentation, filter threats at the perimeter, and protect email.
+Goal: Control traffic flows, enforce Zero Trust network segmentation, filter threats at the perimeter, and protect email.
 
 ### Core Controls (NIST 800-53)
 | Control | Description |
@@ -143,7 +143,7 @@ Load the [EDR / Endpoint Layer](https://mitre-attack.github.io/attack-navigator/
 | SC-5 | Denial-of-Service Protection |
 
 ### ATT&CK Coverage
-Techniques mitigated: **T1021** (Remote Services), **T1133** (External Remote Services), **T1048** (Exfiltration Over Alt Protocol), **T1071** (Application Layer Protocol), **T1040** (Network Sniffing), **T1557** (Adversary-in-the-Middle), **T1090** (Proxy), **T1566** (Phishing — Email), **T1114** (Email Collection)
+Techniques mitigated: T1021 (Remote Services), T1133 (External Remote Services), T1048 (Exfiltration Over Alt Protocol), T1071 (Application Layer Protocol), T1040 (Network Sniffing), T1557 (Adversary-in-the-Middle), T1090 (Proxy), T1566 (Phishing — Email), T1114 (Email Collection)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -166,9 +166,9 @@ Techniques mitigated: **T1021** (Remote Services), **T1133** (External Remote Se
 
 ---
 
-## Stage 5 — Visibility, Detection & Operations
+## Stage 5: Visibility, Detection & Operations
 
-**Goal:** Aggregate logs, correlate events, detect adversary behavior, and orchestrate response across the environment.
+Goal: Aggregate logs, correlate events, detect adversary behavior, and orchestrate response across the environment.
 
 ### Core Controls (NIST 800-53)
 | Control | Description |
@@ -181,7 +181,7 @@ Techniques mitigated: **T1021** (Remote Services), **T1133** (External Remote Se
 | RA-5 | Vulnerability Monitoring and Scanning |
 
 ### ATT&CK Coverage
-Techniques mitigated: **T1078** (Valid Accounts — anomaly detection), **T1059** (Scripting — behavioral detection), **T1003** (Credential Dumping — alert), **T1055** (Process Injection — memory detection), **T1486** (Ransomware — behavior block + response), **T1562** (Impair Defenses — integrity monitoring)
+Techniques mitigated: T1078 (Valid Accounts — anomaly detection), T1059 (Scripting — behavioral detection), T1003 (Credential Dumping — alert), T1055 (Process Injection — memory detection), T1486 (Ransomware — behavior block + response), T1562 (Impair Defenses — integrity monitoring)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -205,9 +205,9 @@ Load the [Visibility & Detection Stage Layer](https://mitre-attack.github.io/att
 
 ---
 
-## Stage 6 — Data & Cloud Security
+## Stage 6: Data & Cloud Security
 
-**Goal:** Protect data at rest, in transit, and in use across cloud environments. Enforce classification, prevent exfiltration, and maintain posture visibility.
+Goal: Protect data at rest, in transit, and in use across cloud environments. Enforce classification, prevent exfiltration, and maintain posture visibility.
 
 ### Core Controls (NIST 800-53)
 | Control | Description |
@@ -220,7 +220,7 @@ Load the [Visibility & Detection Stage Layer](https://mitre-attack.github.io/att
 | SA-9 | External System Services |
 
 ### ATT&CK Coverage
-Techniques mitigated: **T1530** (Data from Cloud Storage), **T1552** (Unsecured Credentials in Cloud), **T1580** (Cloud Infrastructure Discovery), **T1619** (Cloud Storage Object Discovery), **T1537** (Transfer Data to Cloud Account), **T1190** (Exploit Public-Facing Application)
+Techniques mitigated: T1530 (Data from Cloud Storage), T1552 (Unsecured Credentials in Cloud), T1580 (Cloud Infrastructure Discovery), T1619 (Cloud Storage Object Discovery), T1537 (Transfer Data to Cloud Account), T1190 (Exploit Public-Facing Application)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -252,16 +252,16 @@ The combined coverage of all six pipeline stages across the TeamStarWolf vendor 
 
 | Tactic | Coverage | Priority |
 |---|---|---|
-| Discovery | ~3% | 🔴 Critical |
-| Stealth | ~5% | 🔴 Critical |
-| Collection | ~6% | 🔴 Critical |
-| Lateral Movement | ~18% | 🟠 High |
-| Command & Control | ~22% | 🟠 High |
-| Credential Access | ~31% | 🟡 Medium |
-| Persistence | ~38% | 🟡 Medium |
-| Execution | ~44% | 🟢 Adequate |
-| Initial Access | ~51% | 🟢 Adequate |
-| Impact | ~55% | 🟢 Adequate |
+| Discovery | ~3% | Critical |
+| Stealth | ~5% | Critical |
+| Collection | ~6% | Critical |
+| Lateral Movement | ~18% | High |
+| Command & Control | ~22% | High |
+| Credential Access | ~31% | Medium |
+| Persistence | ~38% | Medium |
+| Execution | ~44% | Adequate |
+| Initial Access | ~51% | Adequate |
+| Impact | ~55% | Adequate |
 
 See [Coverage Gap Analysis](scores/coverage_gaps.md) for full details and P1/P2 recommendations.
 
@@ -269,20 +269,20 @@ See [Coverage Gap Analysis](scores/coverage_gaps.md) for full details and P1/P2 
 
 ## Controls Mapping
 
-This pipeline maps to NIST 800-53 R5 controls via the CTID framework. See [Controls Mapping](CONTROLS_MAPPING.md) for the full vendor → control → technique chain.
+This pipeline maps to NIST 800-53 R5 controls via the CTID framework. See [Controls Mapping](CONTROLS_MAPPING.md) for the full vendor -> control -> technique chain.
 
 Data files:
-- [`data/vendor_to_control.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_control.jsonl) — Vendor to NIST 800-53 control edges
-- [`data/control_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/control_to_technique.jsonl) — NIST control to ATT&CK technique edges
-- [`data/vendor_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl) — Derived vendor to ATT&CK technique coverage
+- [`data/vendor_to_control.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_control.jsonl): Vendor to NIST 800-53 control edges
+- [`data/control_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/control_to_technique.jsonl): NIST control to ATT&CK technique edges
+- [`data/vendor_to_technique.jsonl`](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/vendor_to_technique.jsonl): Derived vendor to ATT&CK technique coverage
 
 ---
 
 ## Related Resources
 
-- [Coverage Schema](COVERAGE_SCHEMA.md) — JSONL schema documentation
-- [ATT&CK Navigator](navigator/index.md) — Interactive coverage visualization
-- [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md) — Open-source tools mapped to this pipeline
+- [Coverage Schema](COVERAGE_SCHEMA.md): JSONL schema documentation
+- [ATT&CK Navigator](navigator/index.md): Interactive coverage visualization
+- [Black Hat Arsenal Crosswalk](research/BLACK_HAT_ARSENAL_CROSSWALK.md): Open-source tools mapped to this pipeline
 
 ---
 

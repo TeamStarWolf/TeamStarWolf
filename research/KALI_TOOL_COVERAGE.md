@@ -36,7 +36,7 @@ The 106 direct matches plus the indirect coverage means roughly ~26% of Kali's c
 
 Grouped by which existing Stars List the tool would join. Each entry is a tool that ships in Kali, has an actively maintained upstream GitHub repo, and is not yet starred.
 
-### -> Active Directory Offensive Operations
+### Active Directory Offensive Operations
 - `bloodyad`: [CravateRouge/bloodyAD](https://github.com/CravateRouge/bloodyAD), AD privilege escalation framework
 - `certipy-ad`: [ly4k/Certipy](https://github.com/ly4k/Certipy), ADCS abuse toolkit (likely already starred under different basename; verify)
 - `dploot`: [zblurx/dploot](https://github.com/zblurx/dploot), DPAPI secret extraction at scale
@@ -44,7 +44,7 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `shimit`: [cyberark/shimit](https://github.com/cyberark/shimit), Golden ticket forging for Kerberos
 - `windapsearch` / `ldeep`: verify both are starred
 
-### -> Bug Bounty and Web Application Reconnaissance
+### Bug Bounty and Web Application Reconnaissance
 - `assetfinder`: [tomnomnom/assetfinder](https://github.com/tomnomnom/assetfinder), passive subdomain enumeration
 - `crlfuzz`: [dwisiswant0/crlfuzz](https://github.com/dwisiswant0/crlfuzz), CRLF injection scanner
 - `dnsgen`: [ProjectAnte/dnsgen](https://github.com/ProjectAnte/dnsgen), wordlist mutation for subdomain bruteforcing
@@ -60,12 +60,12 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `waybackurls`: [tomnomnom/waybackurls](https://github.com/tomnomnom/waybackurls), Wayback Machine URL extraction
 - `xsstrike`: [s0md3v/XSStrike](https://github.com/s0md3v/XSStrike), XSS detection suite (verify, possibly starred)
 
-### -> Cloud and Container Security
+### Cloud and Container Security
 - `cloudbrute`: [0xsha/CloudBrute](https://github.com/0xsha/CloudBrute), multi-cloud asset enumeration
 - `dufflebag`: [BishopFox/dufflebag](https://github.com/BishopFox/dufflebag), search public EBS snapshots for secrets
 - `kubectl` / `eksctl` / `cilium-cli` / `calico`: kubernetes tooling, may be deliberately omitted
 
-### -> Command-and-Control and Post-Exploitation Frameworks
+### Command-and-Control and Post-Exploitation Frameworks
 - `adaptixc2`: [Adaptix-Framework/AdaptixC2](https://github.com/Adaptix-Framework/AdaptixC2), C2 framework
 - `koadic`: [offsecginger/koadic](https://github.com/offsecginger/koadic), JScript RAT
 - `nishang`: [samratashok/nishang](https://github.com/samratashok/nishang), PowerShell offensive scripts
@@ -73,28 +73,28 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `powersploit`: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit), classic PS post-exploit
 - `silenttrinity`: [byt3bl33d3r/SILENTTRINITY](https://github.com/byt3bl33d3r/SILENTTRINITY), .NET / IronPython C2
 
-### -> Cybersecurity Learning Resources and Catalogs
+### Cybersecurity Learning Resources and Catalogs
 - `linux-exploit-suggester`: [mzet-/linux-exploit-suggester](https://github.com/mzet-/linux-exploit-suggester), local privesc auditor
 - `linuxprivchecker`: [sleventyeleven/linuxprivchecker](https://github.com/sleventyeleven/linuxprivchecker), script-based linux audit
 - `windows-exploit-suggester`: [AonCyberLabs/Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
 - `xss-payload-list`: [payloadbox/xss-payload-list](https://github.com/payloadbox/xss-payload-list)
 
-### -> Detection Engineering and Analytics
+### Detection Engineering and Analytics
 - `chainsaw`: [WithSecureLabs/chainsaw](https://github.com/WithSecureLabs/chainsaw), fast Sigma-based event log triage (verify, high-priority)
 - `loki`: [Neo23x0/Loki](https://github.com/Neo23x0/Loki), Florian Roth's IOC scanner
 
-### -> Digital Forensics and Incident Response
+### Digital Forensics and Incident Response
 - `bulk-extractor`: [simsong/bulk_extractor](https://github.com/simsong/bulk_extractor)
 - `kape`: Eric Zimmerman tooling already covered; verify KAPE specifically
 - `regripper`: [keydet89/RegRipper3.0](https://github.com/keydet89/RegRipper3.0), registry parser
 - `samdump2`: old but still shipped
 - `volatility-cmt`: [volatilityfoundation/community](https://github.com/volatilityfoundation/community), Volatility plugin community
 
-### -> Email Security and Anti-Phishing
+### Email Security and Anti-Phishing
 - `swaks`: [jetmore/swaks](https://github.com/jetmore/swaks), SMTP swiss-army knife
 - `phishery`: [ryhanson/phishery](https://github.com/ryhanson/phishery), basic auth phishing for docs
 
-### -> Malware Analysis and Reverse Engineering
+### Malware Analysis and Reverse Engineering
 - `bytecode-viewer`: [Konloch/bytecode-viewer](https://github.com/Konloch/bytecode-viewer), Java disassembler
 - `manticore`: [trailofbits/manticore](https://github.com/trailofbits/manticore), symbolic execution
 - `pdfid` / `pdfparser`: [DidierStevens/DidierStevensSuite](https://github.com/DidierStevens/DidierStevensSuite), PDF triage
@@ -102,14 +102,14 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `radare2-cutter`: [rizinorg/cutter](https://github.com/rizinorg/cutter), Qt disassembler GUI
 - `stringsifter`: [mandiant/stringsifter](https://github.com/mandiant/stringsifter), ML-ranked strings
 
-### -> OSINT and External Reconnaissance
+### OSINT and External Reconnaissance
 - `cewl`: [digininja/CeWL](https://github.com/digininja/CeWL), wordlist scraper
 - `email2phonenumber`: [martinvigo/email2phonenumber](https://github.com/martinvigo/email2phonenumber)
 - `metagoofil`: [laramies/metagoofil](https://github.com/laramies/metagoofil), file metadata scraper
 - `osrframework`: [i3visio/osrframework](https://github.com/i3visio/osrframework), OSINT framework
 - `pwndb`: [davidtavarez/pwndb](https://github.com/davidtavarez/pwndb), leaked credential search
 
-### -> Wireless Security (slated for new List)
+### Wireless Security (slated for new List)
 - `eaphammer`: [s0lst1c3/eaphammer](https://github.com/s0lst1c3/eaphammer), WPA2-Enterprise targeted attacks
 - `fluxion`: [FluxionNetwork/fluxion](https://github.com/FluxionNetwork/fluxion), automated WPA evil twin
 - `hcxdumptool` / `hcxtools`: [ZerBea/hcxdumptool](https://github.com/ZerBea/hcxdumptool), modern WPA capture
@@ -118,7 +118,7 @@ Grouped by which existing Stars List the tool would join. Each entry is a tool t
 - `wifite2`: [derv82/wifite2](https://github.com/derv82/wifite2), automated WPA cracking
 - `airgeddon`: already covered
 
-### -> Application Security (SAST/DAST/AppSec)
+### Application Security (SAST/DAST/AppSec)
 - `graudit`: [wireghoul/graudit](https://github.com/wireghoul/graudit), grep-based source auditor
 - `ssh-audit`: [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit), SSH config auditor
 - `sslyze`: [nabla-c0d3/sslyze](https://github.com/nabla-c0d3/sslyze), TLS scanner

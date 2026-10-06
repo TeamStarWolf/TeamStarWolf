@@ -698,7 +698,7 @@ Common and well-worn ways to move between roles as you grow.
 | [TOOLS.md](TOOLS.md) | 100+ security tools organized by category with OSS/commercial tags |
 | [research/HTB_TRACKS.md](research/HTB_TRACKS.md) | Structured HackTheBox learning paths mapped to career tracks |
 | [FRAMEWORKS.md](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, and 10+ others |
-| [Disciplines](README.md#disciplines) | Deep-dive pages for 30+ cybersecurity specializations |
+| [Learning paths](disciplines/README.md) | Study paths for each cybersecurity discipline |
 | [IR Playbooks](IR_PLAYBOOKS.md) | Step-by-step response procedures for common incident types |
 | [Threat Actors](THREAT_ACTORS.md) | Nation-state APTs and ransomware groups mapped to ATT&CK TTPs |
 

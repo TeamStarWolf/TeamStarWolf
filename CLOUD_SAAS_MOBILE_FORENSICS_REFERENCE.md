@@ -74,7 +74,7 @@ What must be on before the incident, per provider. If it is not enabled at time-
 
 ## AWS acquisition and investigation
 
-- Control-plane timeline: CloudTrail. The authoritative record of API activity. Pull with Athena or CloudTrail Lake (SQL); for the field-level query set (IAM changes, S3 data events, evasion detection such as `StopLogging`/`DeleteTrail`) see [DIGITAL_FORENSICS §9](DIGITAL_FORENSICS_REFERENCE.md#_9-cloud--email-forensics) and [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md). Validate integrity first:
+- Control-plane timeline: CloudTrail. The authoritative record of API activity. Pull with Athena or CloudTrail Lake (SQL); for the field-level query set (IAM changes, S3 data events, evasion detection such as `StopLogging`/`DeleteTrail`) see [DIGITAL_FORENSICS §9](DIGITAL_FORENSICS_REFERENCE.md#_9-cloud-amp-email-forensics) and [CLOUD_ATTACK_REFERENCE.md](CLOUD_ATTACK_REFERENCE.md). Validate integrity first:
   ```bash
   aws cloudtrail validate-logs --trail-arn arn:aws:cloudtrail:us-east-1:ACCT:trail/NAME \
       --start-time 2026-09-01T00:00:00Z
@@ -92,7 +92,7 @@ What must be on before the incident, per provider. If it is not enabled at time-
 ## Azure and Microsoft 365
 
 - Identity plane: Entra ID. Pull sign-in logs (interactive + non-interactive + service-principal/managed-identity), audit logs, and Graph Activity Logs (records raw Graph API calls; critical for token-/OAuth-abuse cases like Midnight Blizzard). Retention is short (7d Free / 30d P1/P2), so collect immediately or rely on your Log Analytics export.
-- M365: Purview Unified Audit Log (UAL). The cross-workload record (Exchange, SharePoint/OneDrive, Teams, Entra). Query via `Search-UnifiedAuditLog` or the Purview portal; operation meanings are tabulated in [DIGITAL_FORENSICS §9](DIGITAL_FORENSICS_REFERENCE.md#_9-cloud--email-forensics).
+- M365: Purview Unified Audit Log (UAL). The cross-workload record (Exchange, SharePoint/OneDrive, Teams, Entra). Query via `Search-UnifiedAuditLog` or the Purview portal; operation meanings are tabulated in [DIGITAL_FORENSICS §9](DIGITAL_FORENSICS_REFERENCE.md#_9-cloud-amp-email-forensics).
   ```powershell
   Connect-ExchangeOnline
   Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-90) -EndDate (Get-Date) `
@@ -183,7 +183,7 @@ The deliverable is one normalized, UTC super-timeline stitched from identity, cl
 - Normalize to UTC first. Every source has its own zone/format; skew destroys correlation. Record each source's native zone in custody notes.
 - Pivot keys across sources: user/UPN, IP + ASN, user-agent, OAuth app/client ID, `session_id`/token ID, device ID, and resource ARNs/URLs.
 - Correlation pattern: anomalous sign-in (Entra/Okta/Workspace) -> consent/token grant -> control-plane action (CloudTrail/Azure activity) -> data-plane access (S3 data events / `MailItemsAccessed` / Drive export) -> endpoint corroboration.
-- Tooling: Timesketch (collaborative timeline) fed by plaso/log2timeline (host artifacts) plus cloud logs; Sigma rules for repeatable detection over exported logs; native Athena / CloudTrail Lake / KQL / BigQuery for the cloud tables. Network-side reconstruction (flow <-> CloudTrail correlation) is in [NETWORK_FORENSICS §9](NETWORK_FORENSICS_REFERENCE.md#_9-cloud--container-network-forensics).
+- Tooling: Timesketch (collaborative timeline) fed by plaso/log2timeline (host artifacts) plus cloud logs; Sigma rules for repeatable detection over exported logs; native Athena / CloudTrail Lake / KQL / BigQuery for the cloud tables. Network-side reconstruction (flow <-> CloudTrail correlation) is in [NETWORK_FORENSICS §9](NETWORK_FORENSICS_REFERENCE.md#_9-cloud-amp-container-network-forensics).
 
 ---
 

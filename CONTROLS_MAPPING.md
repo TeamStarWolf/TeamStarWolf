@@ -1,4 +1,4 @@
-# Controls Mapping: Vendor -> NIST 800-53 -> ATT&CK
+# Controls Mapping: Vendor to NIST 800-53 to ATT&CK
 
 This page provides the cross-reference chain connecting security vendors to the NIST 800-53 controls they implement, and from those controls to the ATT&CK techniques they mitigate. The bridge between NIST 800-53 and ATT&CK is provided by the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/).
 
@@ -47,7 +47,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 
 ---
 
-## Optiv Market Family -> NIST Control Family Mapping
+## Optiv Market Family to NIST Control Family Mapping
 
 | Optiv Market Family | Primary NIST Controls | Secondary NIST Controls | Cloud-Native CTID Mappings |
 |---|---|---|---|
@@ -68,7 +68,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 
 ---
 
-## Vendor -> NIST Control -> ATT&CK Coverage
+## Vendor to NIST Control to ATT&CK Coverage
 
 ### GRC / Risk Management Vendors
 
@@ -148,7 +148,7 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 
 ---
 
-## Key ATT&CK Technique -> NIST Control Reference
+## Key ATT&CK Technique to NIST Control Reference
 
 For practitioners building coverage maps, these are the most commonly targeted ATT&CK techniques and their primary NIST 800-53 mitigating controls.
 

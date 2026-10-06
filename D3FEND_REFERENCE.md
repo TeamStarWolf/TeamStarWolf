@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | you know which ATT&CK technique threatens you and need the countermeasures that blunt it, you are planning defensive coverage across Model/Harden/Detect/Isolate/Deceive/Evict/Restore, you want the machine-readable ATT&CK-to-D3FEND mapping for tooling |
-| Start at | [The 7 defensive tactics](#the-7-defensive-tactics) for the lay of the land, [Detect](#detect) for the largest tactic (56 techniques), [ATT&CK technique to D3FEND countermeasures](#attampck-technique-d3fend-countermeasures-most-covered) to work backward from a threat |
+| Start at | [The 7 defensive tactics](#the-7-defensive-tactics) for the lay of the land, [Detect](#detect) for the largest tactic (56 techniques), [ATT&CK technique to D3FEND countermeasures](#attampck-technique-to-d3fend-countermeasures-most-covered) to work backward from a threat |
 | Pairs with | [THREAT_INFORMED_DEFENSE_REFERENCE.md](THREAT_INFORMED_DEFENSE_REFERENCE.md), [CVE_REFERENCE.md](CVE_REFERENCE.md), [ENGAGE_REFERENCE.md](ENGAGE_REFERENCE.md), [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md) |
 
 Machine-readable: [`data/attack/technique_to_d3fend.jsonl`](data/attack/technique_to_d3fend.jsonl). Source: D3FEND ontology full inferred mappings.
@@ -231,7 +231,7 @@ Machine-readable: [`data/attack/technique_to_d3fend.jsonl`](data/attack/techniqu
 
 ---
 
-## ATT&CK technique -> D3FEND countermeasures (most-covered)
+## ATT&CK technique to D3FEND countermeasures (most-covered)
 
 For each ATT&CK technique, the D3FEND defensive techniques that counter it. Full mapping in the dataset.
 

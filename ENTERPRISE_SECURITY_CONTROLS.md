@@ -141,7 +141,7 @@ resource "azurerm_web_application_firewall_policy" "example" {
 
 ## 2. Microsoft Defender Attack Surface Reduction (ASR) Rules
 
-ASR rules block specific behaviors commonly used by malware — independent of signature detection. Each rule has three modes: Off, Audit (log only), Block.
+ASR rules block specific behaviors commonly used by malware, independent of signature detection. Each rule has three modes: Off, Audit (log only), Block.
 
 ### All ASR Rules Reference
 
@@ -210,7 +210,7 @@ Sensor-Based Machine Learning (ML)
   - Settings: Off / Cautious / Moderate / Aggressive
   - Recommended: Aggressive; requires internet connectivity to CrowdStrike cloud
 
-Behavioral Protection (Indicators of Attack — IOA)
+Behavioral Protection (Indicators of Attack, IOA)
 
 IOAs are behavior-based detections independent of file signatures. Key prevention categories:
 
@@ -392,7 +392,7 @@ SPF Record
 ```dns
 v=spf1 include:_spf.google.com include:spf.protection.outlook.com ip4:203.0.113.10 -all
 ```
-- `-all` = hard fail (reject); `~all` = soft fail (mark); `?all` = neutral (no action — avoid)
+- `-all` = hard fail (reject); `~all` = soft fail (mark); `?all` = neutral (no action; avoid)
 - Maximum 10 DNS lookups per SPF evaluation: flattening required for complex setups
 
 DKIM Configuration

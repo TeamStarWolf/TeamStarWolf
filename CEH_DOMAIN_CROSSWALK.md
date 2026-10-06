@@ -1,6 +1,6 @@
 # CEH Domain Crosswalk
 
-> The CEH exam names the attack; this library teaches the defense behind it. EC-Council's Certified Ethical Hacker (CEH v13, exam code 312-50) is built on the public [CEH Exam Blueprint v5.0](https://cert.eccouncil.org/wp-content/uploads/2024/04/CEH-Exam-Blueprint-v5.pdf) — 9 domains, 125 multiple-choice questions, 4 hours. This page maps each domain onto the reference docs already in this library, but keeps the defender's lens throughout: every attack technique CEH asks you to recognize is here framed as something to detect, map to MITRE ATT&CK, and mitigate. It is an original study map built only from the official public blueprint and this library's own pages — not courseware, not a brain dump, and not a substitute for EC-Council's iLabs.
+> The CEH exam names the attack; this library teaches the defense behind it. EC-Council's Certified Ethical Hacker (CEH v13, exam code 312-50) is built on the public [CEH Exam Blueprint v5.0](https://cert.eccouncil.org/wp-content/uploads/2024/04/CEH-Exam-Blueprint-v5.pdf): 9 domains, 125 multiple-choice questions, 4 hours. This page maps each domain onto the reference docs already in this library, but keeps the defender's lens throughout: every attack technique CEH asks you to recognize is here framed as something to detect, map to MITRE ATT&CK, and mitigate. It is an original study map built only from the official public blueprint and this library's own pages, not courseware, not a brain dump, and not a substitute for EC-Council's iLabs.
 
 Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md), [Hands-On Labs](LABS.md), [HackTheBox Learning Tracks](research/HTB_TRACKS.md), [CTF Methodology](CTF_METHODOLOGY.md), [Interview Prep](INTERVIEW_PREP.md)
 
@@ -13,7 +13,7 @@ Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roa
 
 ## At a glance
 
-CEH v13 is the current program (released September 23, 2024; v12 is retired, and no v14 has been announced as of this writing). The knowledge exam draws on 20 courseware modules grouped into 9 exam domains. Unlike many certifiers, EC-Council publishes both exact per-domain weights and exact per-sub-domain question counts in Blueprint v5.0 — both are reproduced below as published.
+CEH v13 is the current program (released September 23, 2024; v12 is retired, and no v14 has been announced as of this writing). The knowledge exam draws on 20 courseware modules grouped into 9 exam domains. Unlike many certifiers, EC-Council publishes both exact per-domain weights and exact per-sub-domain question counts in Blueprint v5.0; both are reproduced below as published.
 
 | Domain | Weight | Questions | Defensive focus in this library |
 |---|---|---|---|
@@ -27,7 +27,7 @@ CEH v13 is the current program (released September 23, 2024; v12 is retired, and
 | 8. Cloud Computing | 5% | 6 | Cloud/container/K8s attack paths and posture |
 | 9. Cryptography | 5% | 6 | Algorithms, PKI, key management, PQC context |
 
-The question counts above are EC-Council's exact figures, not estimates: Blueprint v5.0 publishes a per-sub-domain *Number of Questions* column, and those counts aggregate to the domain totals shown here and sum to exactly 125. They are published, not derived from the weights — a naive weight-times-125 calculation would misround several (6% × 125 = 7.5 would round to 8, but the blueprint publishes 7; 10% × 125 = 12.5 would round to 13, but the blueprint publishes 12). The weights, by contrast, sum to 101% — a rounding artifact in EC-Council's own blueprint, not an error in this table — so treat the *percentages* as approximate emphasis and the *question counts* as exact. Verify both against the [official blueprint](https://cert.eccouncil.org/wp-content/uploads/2024/04/CEH-Exam-Blueprint-v5.pdf) before you rely on them, since EC-Council revises blueprints between versions.
+The question counts above are EC-Council's exact figures, not estimates: Blueprint v5.0 publishes a per-sub-domain *Number of Questions* column, and those counts aggregate to the domain totals shown here and sum to exactly 125. They are published, not derived from the weights: a naive weight-times-125 calculation would misround several (6% × 125 = 7.5 would round to 8, but the blueprint publishes 7; 10% × 125 = 12.5 would round to 13, but the blueprint publishes 12). The weights, by contrast, sum to 101% (a rounding artifact in EC-Council's own blueprint, not an error in this table), so treat the *percentages* as approximate emphasis and the *question counts* as exact. Verify both against the [official blueprint](https://cert.eccouncil.org/wp-content/uploads/2024/04/CEH-Exam-Blueprint-v5.pdf) before you rely on them, since EC-Council revises blueprints between versions.
 
 ### Exam format
 
@@ -41,7 +41,7 @@ The question counts above are EC-Council's exact figures, not estimates: Bluepri
 
 On the passing score: EC-Council's published exam pages give 60%–85% for both the knowledge exam and the Practical. For the knowledge exam this is a genuine variable cut score, set per exam form by psychometric analysis. EC-Council does not publish a separate fixed cut score for the Practical on its official pages, so this crosswalk reports the official 60%–85% range rather than the specific figures (e.g. a fixed 70% / 14-of-20) that circulate in third-party write-ups but do not appear in EC-Council's own published materials. Confirm the current figure on EC-Council's [CEH (Practical)](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh-practical/) page before you rely on it.
 
-The knowledge exam is recognition-and-recall; the optional Practical is hands-on and is where legal lab time pays off. For the Practical and for genuine skill (not just the multiple-choice exam), practice only on legal, authorized platforms — this library indexes them in [Hands-On Labs](LABS.md), [HackTheBox Learning Tracks](research/HTB_TRACKS.md), and the [CTF Methodology](CTF_METHODOLOGY.md). This crosswalk never points to offensive how-to; it points to the platforms that let you practice within the law.
+The knowledge exam is recognition-and-recall; the optional Practical is hands-on and is where legal lab time pays off. For the Practical and for genuine skill (not just the multiple-choice exam), practice only on legal, authorized platforms; this library indexes them in [Hands-On Labs](LABS.md), [HackTheBox Learning Tracks](research/HTB_TRACKS.md), and the [CTF Methodology](CTF_METHODOLOGY.md). This crosswalk never points to offensive how-to; it points to the platforms that let you practice within the law.
 
 ---
 
@@ -54,7 +54,7 @@ Each domain below has four parts:
 - Honest gap: what the exam covers that this library does *not*, so you know where official EC-Council courseware, iLabs, or a wireless/mobile lab is required.
 - Study tip: the one framing that turns memorization into understanding.
 
-Throughout, the library's advantage over a pure exam-cram is that it pairs each attack with its MITRE ATT&CK technique, detection telemetry, and mitigation — see the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md), [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md), and [ATT&CK Detection Strategies](detections/strategies/README.md). Learning the defense alongside the attack is both better security practice and a more durable way to answer CEH's countermeasure questions.
+Throughout, the library's advantage over a pure exam-cram is that it pairs each attack with its MITRE ATT&CK technique, detection telemetry, and mitigation; see the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [ATT&CK Mitigations Reference](ATTACK_MITIGATIONS_REFERENCE.md), [D3FEND Countermeasure Reference](D3FEND_REFERENCE.md), and [ATT&CK Detection Strategies](detections/strategies/README.md). Learning the defense alongside the attack is both better security practice and a more durable way to answer CEH's countermeasure questions.
 
 ---
 
@@ -75,7 +75,7 @@ In this library.
 | Engagement authorization and phases | [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md) |
 | Terminology | [Glossary](GLOSSARY.md) |
 
-Honest gap. EC-Council's exact phrasing of the "phases of hacking," its specific list of information-security laws by region, and its preferred control taxonomy are courseware conventions — confirm the exam's exact terms in official Module 01 material.
+Honest gap. EC-Council's exact phrasing of the "phases of hacking," its specific list of information-security laws by region, and its preferred control taxonomy are courseware conventions; confirm the exam's exact terms in official Module 01 material.
 
 Study tip. Treat MITRE ATT&CK tactics as the modern, testable replacement for CEH's older "hacking phases" model, and anchor the laws section to the ones you actually operate under. Authorization and scope are the ethical core the exam keeps returning to.
 
@@ -96,7 +96,7 @@ In this library.
 | Detecting scans and enumeration | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md), [ATT&CK Detection Strategies](detections/strategies/README.md) |
 | Hands-on (legal) | [Hands-On Labs](LABS.md), [HackTheBox Learning Tracks](research/HTB_TRACKS.md) |
 
-Honest gap. CEH drills specific tool syntax as recognition items (Nmap flag combinations, Recon-ng and theHarvester modules, WHOIS/DNS tooling). The library explains the techniques defensively but does not rehearse the tool-trivia format — that is what official iLabs provide.
+Honest gap. CEH drills specific tool syntax as recognition items (Nmap flag combinations, Recon-ng and theHarvester modules, WHOIS/DNS tooling). The library explains the techniques defensively but does not rehearse the tool-trivia format; that is what official iLabs provide.
 
 Study tip. For every recon and enumeration technique, learn the log signature that detects it (a port-scan pattern, an SNMP sweep, a DNS zone-transfer attempt). Knowing what the defender sees is exactly what CEH's "countermeasures" sub-topics reward.
 
@@ -118,15 +118,15 @@ In this library.
 | Fileless / living-off-the-land | [LOLBin/LOTL Detection](LOTL_DETECTION_REFERENCE.md) |
 | Detecting system hacking and log clearing | [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md), [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) |
 
-Honest gap. The exam's tool-recognition items (John/Hashcat modes, steganography utilities, specific rootkit families) and its taxonomy of persistence tricks are courseware-specific — official material covers the exact names and options CEH expects.
+Honest gap. The exam's tool-recognition items (John/Hashcat modes, steganography utilities, specific rootkit families) and its taxonomy of persistence tricks are courseware-specific; official material covers the exact names and options CEH expects.
 
-Study tip. Map each system-hacking step to its ATT&CK technique and the endpoint telemetry that catches it — for example, log clearing is T1070 and shows up as Windows Event ID 1102. The privilege-escalation and persistence chains are covered end-to-end in [Privilege Escalation](PRIVESC_REFERENCE.md) and the AD reference.
+Study tip. Map each system-hacking step to its ATT&CK technique and the endpoint telemetry that catches it; for example, log clearing is T1070 and shows up as Windows Event ID 1102. The privilege-escalation and persistence chains are covered end-to-end in [Privilege Escalation](PRIVESC_REFERENCE.md) and the AD reference.
 
 ---
 
 ### Domain 4: Network and Perimeter Hacking (24%)
 
-This is the single heaviest domain — nearly a quarter of the exam. Weight your study time here first.
+This is the single heaviest domain, nearly a quarter of the exam. Weight your study time here first.
 
 What it tests. Sniffing (MAC, DHCP, ARP-poisoning, spoofing, DNS-poisoning, plus sniffing detection), social engineering (techniques, insider threats, impersonation, identity theft), denial-of-service (DoS/DDoS techniques and botnets), session hijacking (application- and network-level), and evading IDS, firewalls, and honeypots.
 
@@ -141,9 +141,9 @@ In this library.
 | Insider threats | [Insider Threat](INSIDER_THREAT_REFERENCE.md) |
 | Honeypots and evasion (both sides) | [Honeypot & Deception](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md), [MITRE Engage](ENGAGE_REFERENCE.md) |
 
-Honest gap. Specific session-hijacking tool names, EC-Council's DDoS-attack taxonomy labels, and its IDS/firewall-evasion tool list are courseware conventions — verify exact terms in official material.
+Honest gap. Specific session-hijacking tool names, EC-Council's DDoS-attack taxonomy labels, and its IDS/firewall-evasion tool list are courseware conventions; verify exact terms in official material.
 
-Study tip. [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) pairs every Layer 2 and routing attack with the switchport, monitoring, or protocol control that stops it — study the attack and its defense as one unit. Because this domain is 24% of the exam, mastering these attack/defense pairs is the highest-leverage thing you can do.
+Study tip. [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) pairs every Layer 2 and routing attack with the switchport, monitoring, or protocol control that stops it; study the attack and its defense as one unit. Because this domain is 24% of the exam, mastering these attack/defense pairs is the highest-leverage thing you can do.
 
 ---
 
@@ -165,7 +165,7 @@ In this library.
 
 Honest gap. The web-server-attack and patch-management modules use EC-Council-specific tool and methodology naming; confirm those in official courseware.
 
-Study tip. Work the free, legal PortSwigger Web Security Academy labs (indexed in [Hands-On Labs](LABS.md)) once per injection class, and for each one learn the fix in [Secure Coding](SECURE_CODING_REFERENCE.md) and the WAF/detection signature next to the attack. CEH's SQL-injection sub-domain is a full sixth of this domain — give it dedicated time.
+Study tip. Work the free, legal PortSwigger Web Security Academy labs (indexed in [Hands-On Labs](LABS.md)) once per injection class, and for each one learn the fix in [Secure Coding](SECURE_CODING_REFERENCE.md) and the WAF/detection signature next to the attack. CEH's SQL-injection sub-domain is a full sixth of this domain; give it dedicated time.
 
 ---
 
@@ -202,7 +202,7 @@ In this library.
 
 Honest gap. CEH's specific MDM products, jailbreak/root tooling, and IoT/OT attack-tool names are courseware items; the library covers the threat models and defenses rather than the exam's tool list.
 
-Study tip. Treat this as three mini-domains and lean on the ATT&CK-style taxonomies the library already provides — [Mobile Attack Atlas](MOBILE_ATTACK_ATLAS.md) (MITRE Mobile ATT&CK) and [ICS Attack Atlas](ICS_ATTACK_ATLAS.md) (ATT&CK for ICS) — so mobile, IoT, and OT each become a structured technique list instead of scattered facts.
+Study tip. Treat this as three mini-domains and lean on the ATT&CK-style taxonomies the library already provides, [Mobile Attack Atlas](MOBILE_ATTACK_ATLAS.md) (MITRE Mobile ATT&CK) and [ICS Attack Atlas](ICS_ATTACK_ATLAS.md) (ATT&CK for ICS), so mobile, IoT, and OT each become a structured technique list instead of scattered facts.
 
 ---
 
@@ -241,7 +241,7 @@ In this library.
 
 Honest gap. Specific cryptography-tool names and EC-Council's list of named crypto attacks are courseware trivia; the library teaches the concepts rather than the exam's tool catalog.
 
-Study tip. Memorize the families — symmetric (AES, 3DES), asymmetric (RSA, ECC, Diffie-Hellman), and hashing (SHA-2/3, bcrypt) — with their key sizes and use cases, and the PKI trust chain. CEH cryptography is mostly recognition, not computation.
+Study tip. Memorize the families: symmetric (AES, 3DES), asymmetric (RSA, ECC, Diffie-Hellman), and hashing (SHA-2/3, bcrypt), with their key sizes and use cases, and the PKI trust chain. CEH cryptography is mostly recognition, not computation.
 
 ---
 
@@ -256,7 +256,7 @@ Across all nine domains, the recurring gap is the same: CEH is a tool-and-termin
 | Wireless and mobile hands-on | RF and device attacks need your own gear; public ranges rarely include them | [Home-lab builds in LABS.md](LABS.md) + own hardware |
 | The Practical exam's live challenges | A hands-on lab exam, not a reading exercise | [HTB tracks](research/HTB_TRACKS.md), [LABS.md](LABS.md), [CTF Methodology](CTF_METHODOLOGY.md) |
 
-None of this is a weakness in the library — it reflects that CEH intentionally tests breadth of attacker tooling, while this library is a defender's reference. The two are complementary: use official courseware for the exam's tool vocabulary, and use this library to actually understand and defend against what those tools do.
+None of this is a weakness in the library; it reflects that CEH intentionally tests breadth of attacker tooling, while this library is a defender's reference. The two are complementary: use official courseware for the exam's tool vocabulary, and use this library to actually understand and defend against what those tools do.
 
 ---
 
@@ -266,7 +266,7 @@ A weight-proportional sequence. Adjust the calendar to your own timeline; the *o
 
 | Phase | Domains | Focus | Library anchors | Legal hands-on |
 |---|---|---|---|---|
-| 1: Foundations | 1 | Methodology, ATT&CK, laws, authorization | [Frameworks](FRAMEWORKS.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Pentest Methodology](PENETRATION_TESTING_METHODOLOGY.md) | — |
+| 1: Foundations | 1 | Methodology, ATT&CK, laws, authorization | [Frameworks](FRAMEWORKS.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Pentest Methodology](PENETRATION_TESTING_METHODOLOGY.md) | None |
 | 2: Recon | 2 (17%) | Footprinting, scanning, enumeration + their detection | [OSINT](OSINT_REFERENCE.md), [Network Protocols](NETWORK_PROTOCOLS_REFERENCE.md), [Detection Strategies](detections/strategies/README.md) | [LABS](LABS.md), [HTB tracks](research/HTB_TRACKS.md) |
 | 3: Network & perimeter | 4 (24%) | The heaviest domain: sniffing, SE, DoS, hijacking, evasion | [Network Attacks](NETWORK_ATTACKS_REFERENCE.md), [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md), [Network Defense](NETWORK_DEFENSE_REFERENCE.md) | [LABS](LABS.md) |
 | 4: System hacking | 3 (15%) | Vuln assessment, credentials, privesc, malware | [Vuln Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Privilege Escalation](PRIVESC_REFERENCE.md), [Malware Analysis](MALWARE_ANALYSIS_REFERENCE.md) | [HTB tracks](research/HTB_TRACKS.md) |
@@ -281,10 +281,10 @@ Sequencing logic: front-load Domains 2, 4, and 3 (56% of the exam combined); bui
 
 ## Sources
 
-- [Certified Ethical Hacker (CEH): EC-Council](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/) — current version (v13), exam format, module count
-- [CEH (Practical): EC-Council](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh-practical/) — the Practical exam's format, 20 challenges, 6-hour duration, and 60%–85% passing score
-- [CEH Exam Blueprint v5.0 (PDF): EC-Council](https://cert.eccouncil.org/wp-content/uploads/2024/04/CEH-Exam-Blueprint-v5.pdf) — the 9 domains, sub-domains, per-domain weights, and exact per-sub-domain question counts used throughout this page
-- [CEH v13 brochure / syllabus: EC-Council](https://www.eccouncil.org/cehv13-brochure/) — courseware modules and program overview
+- [Certified Ethical Hacker (CEH), EC-Council](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/): current version (v13), exam format, module count
+- [CEH (Practical), EC-Council](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh-practical/): the Practical exam's format, 20 challenges, 6-hour duration, and 60%–85% passing score
+- [CEH Exam Blueprint v5.0 (PDF), EC-Council](https://cert.eccouncil.org/wp-content/uploads/2024/04/CEH-Exam-Blueprint-v5.pdf): the 9 domains, sub-domains, per-domain weights, and exact per-sub-domain question counts used throughout this page
+- [CEH v13 brochure / syllabus, EC-Council](https://www.eccouncil.org/cehv13-brochure/): courseware modules and program overview
 - [MITRE ATT&CK](https://attack.mitre.org/): the technique taxonomy this crosswalk uses to reframe each domain defensively
 - [OWASP](https://owasp.org/): the web-application weakness framing behind Domain 5
 

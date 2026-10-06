@@ -1,6 +1,6 @@
 # Windows Hardening Reference
 
-> Scope: Windows 10/11 endpoints and Windows Server 2019/2022 — from architecture foundations through monitoring pipelines.
+> Scope: Windows 10/11 endpoints and Windows Server 2019/2022, from architecture foundations through monitoring pipelines.
 > Last updated: 2026-04-26
 
 | | |
@@ -61,7 +61,7 @@ LSA (Local Security Authority)
 
 NTDS.dit (Active Directory Database)
 - Located at `%SystemRoot%\NTDS\NTDS.dit` on domain controllers.
-- Jet Blue database containing all AD objects including `unicodePwd` attribute (NT hash, encrypted with PEK — Password Encryption Key).
+- Jet Blue database containing all AD objects including `unicodePwd` attribute (NT hash, encrypted with PEK, the Password Encryption Key).
 - PEK itself encrypted with the BOOTKEY (same derivation as SAM Syskey).
 - Extraction requires: DC replication rights (DCSync), VSS shadow copy, or physical access + offline tools.
 - DCSync attack mitigations: Remove `Replicating Directory Changes All` from non-DC accounts; alert on Event ID 4662 with GUID `{1131f6ad-9c07-11d1-f79f-00c04fc2dcd2}`.
@@ -163,7 +163,7 @@ Windows 11 mandates TPM 2.0 as a baseline requirement. The TPM provides:
 
 Verify TPM status: `tpm.msc` or `Get-Tpm`
 Check PCR values: `certutil -v -scinfo` or third-party tools
-TPM reset risk: Clearing TPM destroys BitLocker VMK — ensure recovery key is backed up.
+TPM reset risk: Clearing TPM destroys BitLocker VMK; ensure recovery key is backed up.
 
 ---
 
@@ -212,11 +212,11 @@ Get-LapsADPassword -Identity "WORKSTATION01" -AsPlainText
 Get-LapsAADPassword -DeviceId "device-guid" -AsPlainText
 ```
 
-Event IDs for LAPS monitoring: 10018 (password updated), 10020 (password read), 10022 (policy applied) — source: `Microsoft-Windows-LAPS`.
+Event IDs for LAPS monitoring: 10018 (password updated), 10020 (password read), 10022 (policy applied). Source: `Microsoft-Windows-LAPS`.
 
 ### 2.2 Built-in Administrator Account (SID 500)
 
-The built-in Administrator (RID 500) cannot be locked out by account lockout policy — a significant brute-force risk.
+The built-in Administrator (RID 500) cannot be locked out by account lockout policy, a significant brute-force risk.
 
 ```powershell
 # Rename the account (GPO: Computer Config > Windows Settings > Security Settings > Local Policies > Security Options)
@@ -293,7 +293,7 @@ HKLM\SOFTWARE\Policies\Microsoft\PassportForWork
 
 Verify enrollment:
 `certutil -scinfo` (certificate trust)
-`dsregcmd /status` — look for `AzureAdJoined: YES` and `NgcSet: YES`
+`dsregcmd /status`: look for `AzureAdJoined: YES` and `NgcSet: YES`
 
 ### 2.5 NTLM Restrictions
 
@@ -317,7 +317,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
   RestrictReceivingNTLMTraffic = 0  ; Audit only initially
 ```
 
-Event IDs generated: 8001 (NTLM authentication to remote server), 8002 (NTLM pass-through), 8003 (NTLM blocked) — source: `Microsoft-Windows-NTLM`.
+Event IDs generated: 8001 (NTLM authentication to remote server), 8002 (NTLM pass-through), 8003 (NTLM blocked). Source: `Microsoft-Windows-NTLM`.
 
 Restrict NTLM to specific servers (phased approach):
 ```registry
@@ -428,7 +428,7 @@ HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
 
 ### 3.2 Microsoft Security Baseline Settings
 
-Download via: Microsoft Security Compliance Toolkit (SCT) — `https://www.microsoft.com/en-us/download/details.aspx?id=55319`
+Download via: Microsoft Security Compliance Toolkit (SCT), `https://www.microsoft.com/en-us/download/details.aspx?id=55319`
 
 Key baselines available: Windows 11, Windows Server 2022, Microsoft 365 Apps, Edge.
 
@@ -697,7 +697,7 @@ sysmon-modular/
 
 ### 4.5 Key Detection-Focused Event IDs
 
-EID 10 — ProcessAccess (LSASS Credential Dumping):
+EID 10: ProcessAccess (LSASS Credential Dumping)
 ```xml
 <ProcessAccess onmatch="include">
   <TargetImage condition="is">C:\Windows\system32\lsass.exe</TargetImage>
@@ -705,21 +705,21 @@ EID 10 — ProcessAccess (LSASS Credential Dumping):
 ```
 Alert when: `GrantedAccess` contains `0x1010`, `0x1038`, `0x1fffff` targeting lsass.exe.
 
-EID 8 — CreateRemoteThread (Process Injection):
+EID 8: CreateRemoteThread (Process Injection)
 ```xml
 <CreateRemoteThread onmatch="exclude">
   <SourceImage condition="is">C:\Windows\System32\svchost.exe</SourceImage>
 </CreateRemoteThread>
 ```
 
-EID 3 — NetworkConnect (C2 Beaconing):
+EID 3: NetworkConnect (C2 Beaconing)
 Alert on: `svchost.exe`, `powershell.exe`, `mshta.exe`, `wscript.exe`, `cscript.exe` initiating outbound connections on non-standard ports.
 
-EID 25 — ProcessTampering:
-Detects process hollowing, process herpaderping, process doppelganging. No filter needed — all are suspicious.
+EID 25: ProcessTampering
+Detects process hollowing, process herpaderping, process doppelganging. No filter needed; all are suspicious.
 
-EID 15 — FileCreateStreamHash (ADS):
-Alerts on creation of Alternate Data Streams — common malware persistence technique.
+EID 15: FileCreateStreamHash (ADS)
+Alerts on creation of Alternate Data Streams, common malware persistence technique.
 
 ### 4.6 Updating Sysmon Config Without Service Restart
 
@@ -870,7 +870,7 @@ New-NetFirewallRule -Name "WEF-WinRM-In" -DisplayName "WEF WinRM Inbound" `
 
 ### 6.1 Constrained Language Mode (CLM)
 
-CLM restricts PowerShell to a safe subset — prevents access to .NET types, COM objects, and arbitrary code execution patterns used by attackers.
+CLM restricts PowerShell to a safe subset, which prevents access to .NET types, COM objects, and arbitrary code execution patterns used by attackers.
 
 ```powershell
 # Check current language mode
@@ -930,7 +930,7 @@ HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription
   OutputDirectory           = \\logserver\PStranscripts$\%COMPUTERNAME%
 ```
 
-Important: Transcripts are plaintext files — secure the output directory with restricted ACLs.
+Important: Transcripts are plaintext files; secure the output directory with restricted ACLs.
 
 ### 6.3 AMSI (Antimalware Scan Interface)
 
@@ -1017,7 +1017,7 @@ powershell -ep bypass
 Get-Content script.ps1 | Invoke-Expression    # bypasses EP
 ```
 
-Actual script enforcement — WDAC Publisher rules:
+Actual script enforcement (WDAC Publisher rules):
 ```xml
 <!-- In WDAC policy XML -->
 <FileRules>
@@ -1058,7 +1058,7 @@ Get-MpPreference | Select-Object MAPSReporting, CloudBlockLevel, CloudExtendedTi
 ```
 
 Tamper Protection:
-Tamper Protection prevents local changes to Defender settings — must be managed via Intune if enrolled.
+Tamper Protection prevents local changes to Defender settings; it must be managed via Intune if enrolled.
 
 ```powershell
 # Check tamper protection status
@@ -1119,7 +1119,7 @@ Set-MpPreference -AttackSurfaceReductionRules_Ids $asrRules `
 Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 ```
 
-ASR audit events: EID 1121 (Block), 1122 (Audit) — source: `Microsoft-Windows-Windows Defender`
+ASR audit events: EID 1121 (Block), 1122 (Audit). Source: `Microsoft-Windows-Windows Defender`
 
 ### 7.3 Exploit Guard Settings
 
@@ -1175,7 +1175,7 @@ Get-MpComputerStatus | Select-Object DefenderEnabled, RealTimeProtectionEnabled
 Get-Service -Name "sense"  # Windows Defender Advanced Threat Protection Service
 ```
 
-Advanced Hunting KQL — Common Attacks:
+Advanced Hunting KQL (Common Attacks):
 
 ```kql
 // Credential Dumping — LSASS Access
@@ -1267,11 +1267,11 @@ AppLocker Event Log: `Microsoft-Windows-AppLocker/EXE and DLL`
 - EID 8006: Allow (Enforcement mode: DLL)
 - EID 8007: Allow (Enforcement mode: EXE)
 
-Limitations: AppLocker can be bypassed via alternate execution environments (`msbuild.exe`, `regsvr32.exe`, `InstallUtil.exe`, `rundll32.exe`, `mshta.exe`) — these LOLBins may be whitelisted by default. Supplement with WDAC.
+Limitations: AppLocker can be bypassed via alternate execution environments (`msbuild.exe`, `regsvr32.exe`, `InstallUtil.exe`, `rundll32.exe`, `mshta.exe`); these LOLBins may be whitelisted by default. Supplement with WDAC.
 
 ### 8.2 Windows Defender Application Control (WDAC)
 
-WDAC enforces code integrity at the kernel level — superior to AppLocker because bypassing it requires a kernel exploit.
+WDAC enforces code integrity at the kernel level, superior to AppLocker because bypassing it requires a kernel exploit.
 
 Policy Types:
 
@@ -1347,7 +1347,7 @@ HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCo
 ```
 
 Requirements: VT-x/AMD-V with SLAT, IOMMU, Secure Boot, no legacy mode drivers.
-Impact: Incompatible with many legacy/unsigned kernel drivers — audit driver compatibility before enabling.
+Impact: Incompatible with many legacy/unsigned kernel drivers; audit driver compatibility before enabling.
 
 ### 8.4 Smart App Control (Windows 11)
 
@@ -1816,4 +1816,4 @@ System:
 
 ---
 
-*TeamStarWolf Cybersecurity Reference Library — Windows Hardening Reference v1.0*
+*TeamStarWolf Cybersecurity Reference Library: Windows Hardening Reference v1.0*

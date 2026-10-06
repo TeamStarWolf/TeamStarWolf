@@ -1,6 +1,6 @@
 # Digital Forensics
 
-Digital forensics is the application of scientific methods to the identification, preservation, analysis, and presentation of digital evidence. It spans disk forensics (file system analysis, deleted file recovery, timeline reconstruction), memory forensics (live capture of volatile data, malware hunting in RAM), network forensics (packet capture analysis, flow reconstruction), mobile forensics, and cloud forensics. Unlike incident response — which prioritizes rapid containment — forensics prioritizes evidence integrity and legal defensibility. The two disciplines overlap significantly in DFIR (Digital Forensics and Incident Response) roles.
+Digital forensics is the application of scientific methods to the identification, preservation, analysis, and presentation of digital evidence. It spans disk forensics (file system analysis, deleted file recovery, timeline reconstruction), memory forensics (live capture of volatile data, malware hunting in RAM), network forensics (packet capture analysis, flow reconstruction), mobile forensics, and cloud forensics. Unlike incident response, which prioritizes rapid containment, forensics prioritizes evidence integrity and legal defensibility. The two disciplines overlap significantly in DFIR (Digital Forensics and Incident Response) roles.
 
 ---
 

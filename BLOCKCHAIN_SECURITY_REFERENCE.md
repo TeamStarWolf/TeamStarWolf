@@ -133,7 +133,7 @@ This means:
 - 7 nodes -> tolerates 2 Byzantine nodes
 - 10 nodes -> tolerates 3 Byzantine nodes
 
-PBFT message complexity: O(n²) — scales poorly, impractical beyond ~100 validators
+PBFT message complexity: O(n²); scales poorly, impractical beyond ~100 validators
 
 PBFT protocol phases:
 ```
@@ -200,14 +200,14 @@ ECDSA signature generation:
 5. Signature = (r, s)
 ```
 
-CRITICAL VULNERABILITY — Nonce reuse:
+CRITICAL VULNERABILITY (nonce reuse):
 If the same `k` is used for two different messages, the private key can be recovered:
 ```
 k_recovered = (hash1 - hash2) × (s1 - s2)⁻¹ mod n
 private_key = (s1 × k - hash1) × r⁻¹ mod n
 ```
 
-Real-world nonce reuse attack: PlayStation 3 (2010) — Sony used constant k=0 for firmware signing, allowing full key extraction.
+Real-world nonce reuse attack: PlayStation 3 (2010); Sony used constant k=0 for firmware signing, allowing full key extraction.
 
 Bitcoin/Ethereum signing mitigation:
 - RFC 6979: Deterministic k generation using HMAC-DRBG with private key + message hash
@@ -292,7 +292,7 @@ Used by: Binance, OKX, Kraken post-FTX collapse
 
 #### HD Wallets: BIP32/39/44
 
-BIP39 — Mnemonic Generation:
+BIP39, Mnemonic Generation:
 ```
 1. Generate 128–256 bits of entropy (CSPRNG)
 2. Append SHA-256 checksum (entropy_bits/32 bits)
@@ -316,7 +316,7 @@ def mnemonic_to_seed(mnemonic: str, passphrase: str = "") -> bytes:
 # Returns 512-bit (64-byte) seed
 ```
 
-BIP32 — Hierarchical Deterministic Key Derivation:
+BIP32, Hierarchical Deterministic Key Derivation:
 ```python
 def derive_child_key(parent_key: bytes, parent_chain_code: bytes, index: int) -> tuple:
     if index >= 0x80000000:  # hardened derivation
@@ -330,7 +330,7 @@ def derive_child_key(parent_key: bytes, parent_chain_code: bytes, index: int) ->
     return child_key.to_bytes(32, 'big'), child_chain_code
 ```
 
-BIP44 — Multi-Account Hierarchy:
+BIP44, Multi-Account Hierarchy:
 ```
 m / purpose' / coin_type' / account' / change / address_index
 
@@ -387,7 +387,7 @@ Security comparison:
 
 Known hardware wallet attacks:
 - Ledger data breach (2020): ~272,000 customer shipping addresses leaked from e-commerce database (not key compromise, but enabled targeted physical attacks)
-- Trezor One voltage glitching: Physical attacks can bypass PIN protection by injecting voltage glitches during verification — requires hands-on access
+- Trezor One voltage glitching: Physical attacks can bypass PIN protection by injecting voltage glitches during verification; requires hands-on access
 - Supply chain interdiction: Evil maid attacks via malicious firmware pre-flash
 - Malicious companion app: Fake Ledger Live apps have stolen seeds by prompting "recovery" phrases
 
@@ -846,7 +846,7 @@ contract WalletLibrary {
 // ~$280M of ETH locked in wallets using that library became permanently inaccessible.
 ```
 
-Fix — use OpenZeppelin Initializable:
+Fix (use OpenZeppelin Initializable):
 ```solidity
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
@@ -1528,7 +1528,7 @@ Mythril vulnerability classes detected:
 - Unprotected selfdestruct (SWC-106)
 - State change after external call (SWC-107)
 
-SWC Registry: https://swcregistry.io — standardized vulnerability classification for smart contracts
+SWC Registry: https://swcregistry.io, standardized vulnerability classification for smart contracts
 
 ---
 
@@ -2526,7 +2526,7 @@ OFAC SDN List screening for blockchain:
 
 ### 9.4 MiCA (EU Crypto Regulation)
 
-Markets in Crypto-Assets Regulation (MiCA) — effective June 2024 for stablecoins, December 2024 for CASPs.
+Markets in Crypto-Assets Regulation (MiCA): effective June 2024 for stablecoins, December 2024 for CASPs.
 
 Key security requirements:
 ```

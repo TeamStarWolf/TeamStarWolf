@@ -1,6 +1,6 @@
 # Active Directory Security
 
-> Active Directory is the backbone of enterprise identity — controlling authentication, authorization, and access for millions of organizations worldwide. Attackers target AD for persistence and privilege escalation; a compromised domain controller is effectively a full organizational compromise. Defenders must understand both the attack and defense sides of AD to protect their environments effectively.
+> Active Directory is the backbone of enterprise identity, controlling authentication, authorization, and access for millions of organizations worldwide. Attackers target AD for persistence and privilege escalation; a compromised domain controller is effectively a full organizational compromise. Defenders must understand both the attack and defense sides of AD to protect their environments effectively.
 
 ---
 
@@ -17,7 +17,7 @@
 | Global Catalog (GC) | Partial replica of all objects in the forest; required for cross-domain logon and universal group resolution |
 | FSMO Roles | Five single-master operation roles: Schema Master, Domain Naming Master, PDC Emulator, RID Master, Infrastructure Master |
 | SYSVOL | Shared folder on every DC; stores GPO files and logon scripts; replicated via DFSR |
-| Trust | Relationship allowing cross-domain/forest authentication; types: parent-child (transitive), forest trust, external trust, shortcut trust — each has different security implications |
+| Trust | Relationship allowing cross-domain/forest authentication; types: parent-child (transitive), forest trust, external trust, shortcut trust; each has different security implications |
 | Organizational Unit (OU) | Container for grouping objects; primary target for GPO application and delegation of control |
 | Group Policy Object (GPO) | Policy container linked to sites, domains, or OUs; enforces security settings and software deployment |
 
@@ -88,7 +88,7 @@ bloodhound-python -u user -p pass -d domain.local -dc dc.domain.local -c All
 
 ## Kerberoasting
 
-Request service tickets for any SPN-registered account; the ticket is encrypted with the service account's NT hash and can be cracked offline. Any domain user can perform this — no special privileges required.
+Request service tickets for any SPN-registered account; the ticket is encrypted with the service account's NT hash and can be cracked offline. Any domain user can perform this: no special privileges required.
 
 ```bash
 # Get all SPNs and request service tickets (from Linux)
@@ -108,7 +108,7 @@ hashcat -m 13100 kerberoast.txt /usr/share/wordlists/rockyou.txt --force
 
 ## AS-REP Roasting
 
-Accounts with "Do not require Kerberos preauthentication" enabled return an AS-REP that contains data encrypted with the user's NT hash — crackable without ever authenticating.
+Accounts with "Do not require Kerberos preauthentication" enabled return an AS-REP that contains data encrypted with the user's NT hash, crackable without ever authenticating.
 
 ```bash
 # Find vulnerable accounts (requires credentials)
@@ -158,7 +158,7 @@ Add-DomainObjectAcl -TargetIdentity "DC=domain,DC=local" -PrincipalIdentity atta
 
 ## Active Directory Certificate Services (ADCS) Attacks
 
-ADCS misconfigurations are among the most impactful modern AD attack vectors — they allow privilege escalation to Domain Admin and persistent backdoor access via certificate-based authentication.
+ADCS misconfigurations are among the most impactful modern AD attack vectors: they allow privilege escalation to Domain Admin and persistent backdoor access via certificate-based authentication.
 
 | ESC | Vulnerability | Impact |
 |---|---|---|
@@ -268,7 +268,7 @@ kerberos::golden /user:Administrator /domain:domain.local /sid:S-1-5-21-XXXX \
 | Control | Implementation | Techniques Mitigated |
 |---|---|---|
 | Microsoft Defender for Identity (MDI) | Deploy sensors on all DCs; connect to Azure portal | Detects Kerberoasting, PtH, DCSync, BloodHound scanning in real-time |
-| Protected Users Security Group | Add privileged accounts to the group | Members cannot use NTLM auth, cannot cache credentials, cannot use DES/RC4 Kerberos — kills PtH and Kerberoasting |
+| Protected Users Security Group | Add privileged accounts to the group | Members cannot use NTLM auth, cannot cache credentials, cannot use DES/RC4 Kerberos; kills PtH and Kerberoasting |
 | Privileged Access Workstations (PAW) | Dedicated hardened workstations for admin tasks; no internet access | Reduces phishing and credential theft from admin workstations |
 | LAPS | [Local Admin Password Solution](https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview): randomizes local admin passwords per machine | Eliminates lateral movement via reused local admin credentials |
 | Tiered Administration (Tier 0/1/2) | Tier 0: DCs only; Tier 1: servers; Tier 2: workstations; no cross-tier admin logon | Limits lateral movement scope; compromise of Tier 2 cannot reach Tier 0 |

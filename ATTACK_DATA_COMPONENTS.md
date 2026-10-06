@@ -1,6 +1,6 @@
 # ATT&CK Data Components & Log Sources
 
-> The 106 MITRE ATT&CK data components (v19.2) — the telemetry categories that feed detection — each with the concrete log sources and channels that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
+> The 106 MITRE ATT&CK data components (v19.2), the telemetry categories that feed detection, each with the concrete log sources and channels that populate it and the number of techniques its analytics help detect. Use this to plan logging coverage: if a data component is dark in your environment, every technique that depends on it is a blind spot.
 
 | | |
 |---|---|
@@ -12,112 +12,112 @@ Machine-readable: [`data/attack/data_components.jsonl`](data/attack/data_compone
 
 | Data Component | Data Source | Techniques | Example log sources |
 |---|---|--:|---|
-| Process Creation | — | 452 | `Process`, `auditd:SYSCALL`, `macos:unifiedlog`, `WinEventLog:Sysmon` +316 |
-| Command Execution | — | 209 | `Command`, `auditd:SYSCALL`, `macos:unifiedlog`, `EDR:AMSI` +279 |
-| File Creation | — | 174 | `File`, `WinEventLog:Sysmon`, `auditd:SYSCALL`, `macos:unifiedlog` +85 |
-| Network Connection Creation | — | 151 | `Network Traffic`, `AWS:VPCFlowLogs`, `macos:unifiedlog`, `esxi:hostd` +91 |
-| Network Traffic Content | — | 139 | `Network Traffic`, `ebpf:syscalls`, `WebProxy:AccessLogs`, `NSM:Flow` +235 |
-| File Modification | — | 115 | `File`, `auditd:SYSCALL`, `macos:unifiedlog`, `fs:fileevents` +140 |
-| Module Load | — | 109 | `Module`, `WinEventLog:Sysmon`, `ETW:LoadImage`, `auditd:SYSCALL` +35 |
-| Application Log Content | — | 98 | `Application Log`, `WinEventLog:Application`, `m365:unified`, `saas:okta` +202 |
-| Network Traffic Flow | — | 92 | `Network Traffic`, `macos:osquery`, `NSM:Flow`, `snmp:config` +151 |
-| File Access | — | 91 | `File`, `m365:unified`, `auditd:SYSCALL`, `macos:unifiedlog` +98 |
-| Windows Registry Key Modification | — | 86 | `Windows Registry`, `WinEventLog:Security`, `WinEventLog:Security`, `WinEventLog:Sysmon` +6 |
-| Process Access | — | 77 | `WinEventLog:Sysmon`, `linux:osquery`, `auditd:SYSCALL`, `macos:unifiedlog` +18 |
-| File Metadata | — | 64 | `File`, `linux:osquery`, `WinEventLog:Microsoft-Windows-CodeIntegrity/Operational`, `journald:package` +85 |
-| Logon Session Creation | — | 56 | `Logon Session`, `macos:unifiedlog`, `AWS:CloudTrail`, `azure:signin` +63 |
-| OS API Execution | — | 54 | `Process`, `etw:Microsoft-Windows-Kernel-Base`, `AWS:CloudTrail`, `macos:osquery` +65 |
-| User Account Authentication | — | 53 | `User Account`, `NSM:Flow`, `WinEventLog:Security`, `saas:okta` +102 |
-| Logon Session Metadata | — | 30 | `Logon Session`, `WinEventLog:Security`, `macos:unifiedlog`, `WinEventLog:Security` +30 |
-| Process Metadata | — | 30 | `Process`, `macos:unifiedlog`, `WinEventLog:Microsoft-Windows-CodeIntegrity/Operational`, `linux:syslog` +40 |
-| Response Content | — | 28 | `Internet Scan`, `NSM:Flow` |
-| Service Creation | — | 28 | `Service`, `WinEventLog:System`, `auditd:CONFIG_CHANGE`, `macos:osquery` +11 |
-| Script Execution | — | 28 | `Script`, `m365:office`, `macos:unifiedlog`, `linux:syslog` +28 |
-| Process Modification | — | 24 | `auditd:SYSCALL`, `auditd:SYSCALL`, `macos:endpointsecurity`, `auditd:SYSCALL` +15 |
-| User Account Modification | — | 21 | `azure:audit`, `linux:syslog`, `WinEventLog:Security`, `auditd:SYSCALL` +37 |
-| User Account Metadata | — | 20 | `WinEventLog:Security`, `WinEventLog:Security`, `AWS:CloudTrail`, `auditd:SYSCALL` +24 |
-| Cloud Service Modification | — | 18 | `AWS:CloudTrail`, `m365:unified`, `AWS:CloudTrail`, `AWS:CloudTrail` +27 |
-| Active Directory Object Modification | — | 17 | `azure:activity`, `esxi:vpxa`, `WinEventLog:Security`, `WinEventLog:Security` +7 |
-| Scheduled Job Creation | — | 15 | `Scheduled Job`, `WinEventLog:Security`, `linux:syslog`, `WinEventLog:TaskScheduler` +12 |
-| Driver Load | — | 14 | `WinEventLog:Sysmon`, `linux:syslog`, `linux:syslog` |
-| Host Status | — | 14 | `Sensor Health`, `macos:osquery`, `Windows:perfmon`, `macos:unifiedlog` +35 |
-| Service Metadata | — | 13 | `Service`, `WinEventLog:Sysmon`, `linux:syslog`, `macos:unifiedlog` +17 |
-| Firewall Rule Modification | — | 12 | `WinEventLog:Security`, `Firewall Audit Logs`, `esxi:hostd`, `networkdevice:cli` +10 |
-| File Deletion | — | 12 | `File`, `auditd:SYSCALL`, `auditd:SYSCALL`, `macos:osquery` +18 |
-| Cloud Storage Access | — | 11 | `AWS:CloudTrail`, `AWS:CloudTrail`, `m365:unified`, `m365:unified` +4 |
-| Windows Registry Key Creation | — | 11 | `WinEventLog:Sysmon` |
-| Instance Start | — | 11 | `AWS:CloudTrail`, `AWS:CloudTrail` |
-| Firmware Modification | — | 10 | `Firmware`, `networkdevice:syslog`, `networkdevice:config`, `WinEventLog:Microsoft-Windows-Kernel-Boot` +15 |
-| Active Directory Credential Request | — | 9 | `WinEventLog:Security`, `WinEventLog:Security`, `WinEventLog:Kerberos`, `WinEventLog:Security` +1 |
-| Process Termination | — | 9 | `Process`, `WinEventLog:Sysmon`, `linux:syslog`, `macos:osquery` +9 |
-| Cloud Service Metadata | — | 9 | `AWS:CloudTrail`, `AWS:CloudTrail`, `saas:github`, `AWS:CloudWatch` +6 |
-| Network Share Access | — | 9 | `Network Share`, `WinEventLog:Microsoft-Windows-SMBClient/Security`, `WinEventLog:Security`, `WinEventLog:Security` +3 |
-| Drive Creation | — | 8 | `Drive`, `WinEventLog:System`, `auditd:SYSCALL`, `macos:unifiedlog` +18 |
-| Drive Access | — | 8 | `WinEventLog:Sysmon`, `auditd:SYSCALL`, `auditd:SYSCALL`, `auditd:SYSCALL` +4 |
-| Container Creation | — | 8 | `kubernetes:apiserver`, `kubernetes:events`, `docker:daemon`, `kubernetes:audit` +4 |
-| WMI Creation | — | 7 | `WinEventLog:WMI`, `WinEventLog:WMI`, `WinEventLog:Application` |
-| Response Metadata | — | 7 | `Internet Scan`, `NSM:Flow` |
-| Malware Metadata | — | 7 | `Malware Repository` |
-| Drive Modification | — | 6 | `Drive`, `networkdevice:runtime`, `WinEventLog:Sysmon`, `macos:unifiedlog` +6 |
-| Active Directory Object Access | — | 6 | `WinEventLog:Security`, `WinEventLog:Security` |
-| Cloud Service Enumeration | — | 6 | `AWS:CloudTrail`, `gcp:secrets`, `azure:ad`, `AWS:CloudTrail` +7 |
-| User Account Creation | — | 6 | `WinEventLog:Security`, `azure:audit`, `AWS:CloudTrail`, `saas:zoom` +7 |
-| Windows Registry Key Access | — | 6 | `WinEventLog:Security`, `WinEventLog:Security`, `EDR:hunting`, `Autoruns:RegistryScan` |
-| Web Credential Usage | — | 6 | `AWS:CloudTrail`, `m365:unified`, `AWS:CloudTrail`, `saas:access` +16 |
-| Active DNS | — | 5 | `Domain Name` |
-| Passive DNS | — | 5 | `Domain Name` |
-| Domain Registration | — | 5 | `Domain Name`, `dns:query`, `esxi:vmkernel` |
-| Instance Stop | — | 4 | `AWS:CloudTrail`, `AWS:CloudTrail` |
-| Malware Content | — | 4 | `Malware Repository` |
-| Snapshot Creation | — | 4 | `esxi:vmkernel`, `AWS:CloudTrail`, `azure:activity` |
-| Container Start | — | 4 | `docker:events`, `kubernetes:events`, `containerd:runtime`, `docker:events` |
-| Social Media | — | 4 | `Persona` |
-| Named Pipe Metadata | — | 4 | `WinEventLog:Sysmon`, `macos:unifiedlog` |
-| Active Directory Object Creation | — | 3 | `azure:audit`, `WinEventLog:Security`, `WinEventLog:Security`, `AWS:CloudTrail` |
-| Cloud Storage Modification | — | 3 | `AWS:CloudTrail`, `AWS:CloudTrail`, `AWS:CloudTrail`, `m365:unified` +1 |
-| Instance Metadata | — | 3 | `AWS:CloudTrail` |
-| Scheduled Job Metadata | — | 3 | `Scheduled Job`, `linux:cron`, `fs:fileevents`, `WinEventLog:TaskScheduler` +4 |
-| Image Creation | — | 3 | `containerd:events`, `docker:daemon`, `kubernetes:audit`, `AWS:CloudTrail` +2 |
-| Image Metadata | — | 3 | `docker:events`, `esxi:vmkernel`, `kubernetes:apiserver` |
-| Instance Creation | — | 3 | `azure:activity`, `gcp:audit`, `azure:activity`, `gcp:audit` +1 |
-| Scheduled Job Modification | — | 3 | `Scheduled Job`, `auditd:CONFIG_CHANGE`, `m365:exchange`, `WinEventLog:Security` |
-| Cloud Storage Enumeration | — | 3 | `AWS:CloudTrail`, `AWS:CloudTrail`, `azure:activity`, `gcp:storage` |
-| Snapshot Deletion | — | 2 | `AWS:CloudTrail`, `esxi:hostd` |
-| Certificate Registration | — | 2 | `Certificate` |
-| Kernel Module Load | — | 2 | `esxi:vmkernel`, `macos:osquery` |
-| Instance Enumeration | — | 2 | `AWS:CloudTrail`, `azure:activity`, `gcp:audit`, `AWS:CloudTrail` +1 |
-| Volume Deletion | — | 2 | `esxi:vmkernel`, `AWS:CloudTrail` |
-| Cloud Storage Deletion | — | 2 | `AWS:CloudTrail` |
-| Pod Creation | — | 2 | `AWS:CloudTrail`, `kubernetes:audit` |
-| Web Credential Creation | — | 2 | `WinEventLog:ADFS`, `AWS:CloudTrail`, `azure:signinlogs`, `m365:unified` +1 |
-| Service Modification | — | 2 | `Service`, `WinEventLog:Microsoft-IIS-Configuration`, `WinEventLog:System` |
-| Snapshot Metadata | — | 2 | `AWS:CloudTrail`, `gcp:audit`, `AWS:CloudTrail` |
-| Container Enumeration | — | 2 | `docker:daemon`, `AWS:CloudTrail`, `containerd:runtime` |
-| Firewall Disable | — | 2 | `esxi:vmkernel`, `AWS:CloudTrail` |
-| Volume Modification | — | 2 | `kubernetes:apiserver`, `AWS:CloudTrail` |
-| User Account Deletion | — | 2 | `WinEventLog:Security`, `esxi:hostd`, `m365:unified` |
-| Volume Creation | — | 2 | `AWS:CloudTrail`, `WinEventLog:Microsoft-Windows-VSS` |
-| Cloud Storage Metadata | — | 2 | `AWS:CloudTrail`, `m365:unified`, `saas:box`, `saas:dropbox` |
-| Cloud Service Disable | — | 2 | `AWS:CloudTrail`, `AWS:CloudTrail`, `azure:activity`, `saas:audit` +1 |
-| Snapshot Modification | — | 2 | `AWS:CloudTrail` |
-| Group Modification | — | 1 | `m365:unified` |
-| Image Modification | — | 1 | `docker:registry`, `AWS:CloudTrail` |
-| Pod Enumeration | — | 1 | `kubernetes:apiserver` |
-| Instance Modification | — | 1 | `AWS:CloudTrail`, `azure:activity`, `gcp:audit` |
-| Cloud Storage Creation | — | 1 | `AWS:CloudTrail` |
-| Instance Deletion | — | 1 | `azure:activity`, `gcp:audit` |
-| Group Metadata | — | 1 | `m365:sharepoint` |
-| Group Enumeration | — | 1 | `AWS:CloudTrail`, `azure:audit`, `gcp:audit`, `saas:salesforce` +1 |
-| Active Directory Object Deletion | — | 1 | `WinEventLog:Security` |
-| Volume Metadata | — | 0 | `Metadata` |
-| Windows Registry Key Deletion | — | 0 | `Windows Registry` |
-| Pod Modification | — | 0 |  |
-| Firewall Metadata | — | 0 |  |
-| Image Deletion | — | 0 |  |
-| Firewall Enumeration | — | 0 |  |
-| Volume Enumeration | — | 0 |  |
-| Driver Metadata | — | 0 |  |
-| Snapshot Enumeration | — | 0 |  |
+| Process Creation | N/A | 452 | `Process`, `auditd:SYSCALL`, `macos:unifiedlog`, `WinEventLog:Sysmon` +316 |
+| Command Execution | N/A | 209 | `Command`, `auditd:SYSCALL`, `macos:unifiedlog`, `EDR:AMSI` +279 |
+| File Creation | N/A | 174 | `File`, `WinEventLog:Sysmon`, `auditd:SYSCALL`, `macos:unifiedlog` +85 |
+| Network Connection Creation | N/A | 151 | `Network Traffic`, `AWS:VPCFlowLogs`, `macos:unifiedlog`, `esxi:hostd` +91 |
+| Network Traffic Content | N/A | 139 | `Network Traffic`, `ebpf:syscalls`, `WebProxy:AccessLogs`, `NSM:Flow` +235 |
+| File Modification | N/A | 115 | `File`, `auditd:SYSCALL`, `macos:unifiedlog`, `fs:fileevents` +140 |
+| Module Load | N/A | 109 | `Module`, `WinEventLog:Sysmon`, `ETW:LoadImage`, `auditd:SYSCALL` +35 |
+| Application Log Content | N/A | 98 | `Application Log`, `WinEventLog:Application`, `m365:unified`, `saas:okta` +202 |
+| Network Traffic Flow | N/A | 92 | `Network Traffic`, `macos:osquery`, `NSM:Flow`, `snmp:config` +151 |
+| File Access | N/A | 91 | `File`, `m365:unified`, `auditd:SYSCALL`, `macos:unifiedlog` +98 |
+| Windows Registry Key Modification | N/A | 86 | `Windows Registry`, `WinEventLog:Security`, `WinEventLog:Security`, `WinEventLog:Sysmon` +6 |
+| Process Access | N/A | 77 | `WinEventLog:Sysmon`, `linux:osquery`, `auditd:SYSCALL`, `macos:unifiedlog` +18 |
+| File Metadata | N/A | 64 | `File`, `linux:osquery`, `WinEventLog:Microsoft-Windows-CodeIntegrity/Operational`, `journald:package` +85 |
+| Logon Session Creation | N/A | 56 | `Logon Session`, `macos:unifiedlog`, `AWS:CloudTrail`, `azure:signin` +63 |
+| OS API Execution | N/A | 54 | `Process`, `etw:Microsoft-Windows-Kernel-Base`, `AWS:CloudTrail`, `macos:osquery` +65 |
+| User Account Authentication | N/A | 53 | `User Account`, `NSM:Flow`, `WinEventLog:Security`, `saas:okta` +102 |
+| Logon Session Metadata | N/A | 30 | `Logon Session`, `WinEventLog:Security`, `macos:unifiedlog`, `WinEventLog:Security` +30 |
+| Process Metadata | N/A | 30 | `Process`, `macos:unifiedlog`, `WinEventLog:Microsoft-Windows-CodeIntegrity/Operational`, `linux:syslog` +40 |
+| Response Content | N/A | 28 | `Internet Scan`, `NSM:Flow` |
+| Service Creation | N/A | 28 | `Service`, `WinEventLog:System`, `auditd:CONFIG_CHANGE`, `macos:osquery` +11 |
+| Script Execution | N/A | 28 | `Script`, `m365:office`, `macos:unifiedlog`, `linux:syslog` +28 |
+| Process Modification | N/A | 24 | `auditd:SYSCALL`, `auditd:SYSCALL`, `macos:endpointsecurity`, `auditd:SYSCALL` +15 |
+| User Account Modification | N/A | 21 | `azure:audit`, `linux:syslog`, `WinEventLog:Security`, `auditd:SYSCALL` +37 |
+| User Account Metadata | N/A | 20 | `WinEventLog:Security`, `WinEventLog:Security`, `AWS:CloudTrail`, `auditd:SYSCALL` +24 |
+| Cloud Service Modification | N/A | 18 | `AWS:CloudTrail`, `m365:unified`, `AWS:CloudTrail`, `AWS:CloudTrail` +27 |
+| Active Directory Object Modification | N/A | 17 | `azure:activity`, `esxi:vpxa`, `WinEventLog:Security`, `WinEventLog:Security` +7 |
+| Scheduled Job Creation | N/A | 15 | `Scheduled Job`, `WinEventLog:Security`, `linux:syslog`, `WinEventLog:TaskScheduler` +12 |
+| Driver Load | N/A | 14 | `WinEventLog:Sysmon`, `linux:syslog`, `linux:syslog` |
+| Host Status | N/A | 14 | `Sensor Health`, `macos:osquery`, `Windows:perfmon`, `macos:unifiedlog` +35 |
+| Service Metadata | N/A | 13 | `Service`, `WinEventLog:Sysmon`, `linux:syslog`, `macos:unifiedlog` +17 |
+| Firewall Rule Modification | N/A | 12 | `WinEventLog:Security`, `Firewall Audit Logs`, `esxi:hostd`, `networkdevice:cli` +10 |
+| File Deletion | N/A | 12 | `File`, `auditd:SYSCALL`, `auditd:SYSCALL`, `macos:osquery` +18 |
+| Cloud Storage Access | N/A | 11 | `AWS:CloudTrail`, `AWS:CloudTrail`, `m365:unified`, `m365:unified` +4 |
+| Windows Registry Key Creation | N/A | 11 | `WinEventLog:Sysmon` |
+| Instance Start | N/A | 11 | `AWS:CloudTrail`, `AWS:CloudTrail` |
+| Firmware Modification | N/A | 10 | `Firmware`, `networkdevice:syslog`, `networkdevice:config`, `WinEventLog:Microsoft-Windows-Kernel-Boot` +15 |
+| Active Directory Credential Request | N/A | 9 | `WinEventLog:Security`, `WinEventLog:Security`, `WinEventLog:Kerberos`, `WinEventLog:Security` +1 |
+| Process Termination | N/A | 9 | `Process`, `WinEventLog:Sysmon`, `linux:syslog`, `macos:osquery` +9 |
+| Cloud Service Metadata | N/A | 9 | `AWS:CloudTrail`, `AWS:CloudTrail`, `saas:github`, `AWS:CloudWatch` +6 |
+| Network Share Access | N/A | 9 | `Network Share`, `WinEventLog:Microsoft-Windows-SMBClient/Security`, `WinEventLog:Security`, `WinEventLog:Security` +3 |
+| Drive Creation | N/A | 8 | `Drive`, `WinEventLog:System`, `auditd:SYSCALL`, `macos:unifiedlog` +18 |
+| Drive Access | N/A | 8 | `WinEventLog:Sysmon`, `auditd:SYSCALL`, `auditd:SYSCALL`, `auditd:SYSCALL` +4 |
+| Container Creation | N/A | 8 | `kubernetes:apiserver`, `kubernetes:events`, `docker:daemon`, `kubernetes:audit` +4 |
+| WMI Creation | N/A | 7 | `WinEventLog:WMI`, `WinEventLog:WMI`, `WinEventLog:Application` |
+| Response Metadata | N/A | 7 | `Internet Scan`, `NSM:Flow` |
+| Malware Metadata | N/A | 7 | `Malware Repository` |
+| Drive Modification | N/A | 6 | `Drive`, `networkdevice:runtime`, `WinEventLog:Sysmon`, `macos:unifiedlog` +6 |
+| Active Directory Object Access | N/A | 6 | `WinEventLog:Security`, `WinEventLog:Security` |
+| Cloud Service Enumeration | N/A | 6 | `AWS:CloudTrail`, `gcp:secrets`, `azure:ad`, `AWS:CloudTrail` +7 |
+| User Account Creation | N/A | 6 | `WinEventLog:Security`, `azure:audit`, `AWS:CloudTrail`, `saas:zoom` +7 |
+| Windows Registry Key Access | N/A | 6 | `WinEventLog:Security`, `WinEventLog:Security`, `EDR:hunting`, `Autoruns:RegistryScan` |
+| Web Credential Usage | N/A | 6 | `AWS:CloudTrail`, `m365:unified`, `AWS:CloudTrail`, `saas:access` +16 |
+| Active DNS | N/A | 5 | `Domain Name` |
+| Passive DNS | N/A | 5 | `Domain Name` |
+| Domain Registration | N/A | 5 | `Domain Name`, `dns:query`, `esxi:vmkernel` |
+| Instance Stop | N/A | 4 | `AWS:CloudTrail`, `AWS:CloudTrail` |
+| Malware Content | N/A | 4 | `Malware Repository` |
+| Snapshot Creation | N/A | 4 | `esxi:vmkernel`, `AWS:CloudTrail`, `azure:activity` |
+| Container Start | N/A | 4 | `docker:events`, `kubernetes:events`, `containerd:runtime`, `docker:events` |
+| Social Media | N/A | 4 | `Persona` |
+| Named Pipe Metadata | N/A | 4 | `WinEventLog:Sysmon`, `macos:unifiedlog` |
+| Active Directory Object Creation | N/A | 3 | `azure:audit`, `WinEventLog:Security`, `WinEventLog:Security`, `AWS:CloudTrail` |
+| Cloud Storage Modification | N/A | 3 | `AWS:CloudTrail`, `AWS:CloudTrail`, `AWS:CloudTrail`, `m365:unified` +1 |
+| Instance Metadata | N/A | 3 | `AWS:CloudTrail` |
+| Scheduled Job Metadata | N/A | 3 | `Scheduled Job`, `linux:cron`, `fs:fileevents`, `WinEventLog:TaskScheduler` +4 |
+| Image Creation | N/A | 3 | `containerd:events`, `docker:daemon`, `kubernetes:audit`, `AWS:CloudTrail` +2 |
+| Image Metadata | N/A | 3 | `docker:events`, `esxi:vmkernel`, `kubernetes:apiserver` |
+| Instance Creation | N/A | 3 | `azure:activity`, `gcp:audit`, `azure:activity`, `gcp:audit` +1 |
+| Scheduled Job Modification | N/A | 3 | `Scheduled Job`, `auditd:CONFIG_CHANGE`, `m365:exchange`, `WinEventLog:Security` |
+| Cloud Storage Enumeration | N/A | 3 | `AWS:CloudTrail`, `AWS:CloudTrail`, `azure:activity`, `gcp:storage` |
+| Snapshot Deletion | N/A | 2 | `AWS:CloudTrail`, `esxi:hostd` |
+| Certificate Registration | N/A | 2 | `Certificate` |
+| Kernel Module Load | N/A | 2 | `esxi:vmkernel`, `macos:osquery` |
+| Instance Enumeration | N/A | 2 | `AWS:CloudTrail`, `azure:activity`, `gcp:audit`, `AWS:CloudTrail` +1 |
+| Volume Deletion | N/A | 2 | `esxi:vmkernel`, `AWS:CloudTrail` |
+| Cloud Storage Deletion | N/A | 2 | `AWS:CloudTrail` |
+| Pod Creation | N/A | 2 | `AWS:CloudTrail`, `kubernetes:audit` |
+| Web Credential Creation | N/A | 2 | `WinEventLog:ADFS`, `AWS:CloudTrail`, `azure:signinlogs`, `m365:unified` +1 |
+| Service Modification | N/A | 2 | `Service`, `WinEventLog:Microsoft-IIS-Configuration`, `WinEventLog:System` |
+| Snapshot Metadata | N/A | 2 | `AWS:CloudTrail`, `gcp:audit`, `AWS:CloudTrail` |
+| Container Enumeration | N/A | 2 | `docker:daemon`, `AWS:CloudTrail`, `containerd:runtime` |
+| Firewall Disable | N/A | 2 | `esxi:vmkernel`, `AWS:CloudTrail` |
+| Volume Modification | N/A | 2 | `kubernetes:apiserver`, `AWS:CloudTrail` |
+| User Account Deletion | N/A | 2 | `WinEventLog:Security`, `esxi:hostd`, `m365:unified` |
+| Volume Creation | N/A | 2 | `AWS:CloudTrail`, `WinEventLog:Microsoft-Windows-VSS` |
+| Cloud Storage Metadata | N/A | 2 | `AWS:CloudTrail`, `m365:unified`, `saas:box`, `saas:dropbox` |
+| Cloud Service Disable | N/A | 2 | `AWS:CloudTrail`, `AWS:CloudTrail`, `azure:activity`, `saas:audit` +1 |
+| Snapshot Modification | N/A | 2 | `AWS:CloudTrail` |
+| Group Modification | N/A | 1 | `m365:unified` |
+| Image Modification | N/A | 1 | `docker:registry`, `AWS:CloudTrail` |
+| Pod Enumeration | N/A | 1 | `kubernetes:apiserver` |
+| Instance Modification | N/A | 1 | `AWS:CloudTrail`, `azure:activity`, `gcp:audit` |
+| Cloud Storage Creation | N/A | 1 | `AWS:CloudTrail` |
+| Instance Deletion | N/A | 1 | `azure:activity`, `gcp:audit` |
+| Group Metadata | N/A | 1 | `m365:sharepoint` |
+| Group Enumeration | N/A | 1 | `AWS:CloudTrail`, `azure:audit`, `gcp:audit`, `saas:salesforce` +1 |
+| Active Directory Object Deletion | N/A | 1 | `WinEventLog:Security` |
+| Volume Metadata | N/A | 0 | `Metadata` |
+| Windows Registry Key Deletion | N/A | 0 | `Windows Registry` |
+| Pod Modification | N/A | 0 |  |
+| Firewall Metadata | N/A | 0 |  |
+| Image Deletion | N/A | 0 |  |
+| Firewall Enumeration | N/A | 0 |  |
+| Volume Enumeration | N/A | 0 |  |
+| Driver Metadata | N/A | 0 |  |
+| Snapshot Enumeration | N/A | 0 |  |
 
 ---
 

@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) are the operational backbone of a modern Security Operations Center (SOC). SIEM aggregates and correlates security telemetry from across the environment to detect threats. SOAR automates the response workflow — enriching alerts, making decisions, and taking actions at machine speed.
+Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) are the operational backbone of a modern Security Operations Center (SOC). SIEM aggregates and correlates security telemetry from across the environment to detect threats. SOAR automates the response workflow: enriching alerts, making decisions, and taking actions at machine speed.
 
-Together, they reduce mean time to detect (MTTD) and mean time to respond (MTTR) — the two metrics that most determine how much damage an attacker can do before being stopped.
+Together, they reduce mean time to detect (MTTD) and mean time to respond (MTTR), the two metrics that most determine how much damage an attacker can do before being stopped.
 
 ## Where to Start
 
@@ -246,14 +246,14 @@ DOCUMENTATION (Auto-close with notes / Escalate to tier 2)
 Sophisticated attackers actively study and evade SIEM detection. Understanding these techniques is essential for detection engineers.
 
 ### Log Manipulation Techniques
-- Event Log Clearing: `wevtutil cl Security` / `Clear-EventLog`: clears Windows event logs. High confidence IOC — SIEM should alert immediately on EventID 1102 (Security log cleared) and 104 (System log cleared). However, if SIEM is not real-time, clearing buys time
+- Event Log Clearing: `wevtutil cl Security` / `Clear-EventLog`: clears Windows event logs. High confidence IOC; SIEM should alert immediately on EventID 1102 (Security log cleared) and 104 (System log cleared). However, if SIEM is not real-time, clearing buys time
 - Timestomping: Modify file $MTIME/$CTIME/$ATIME attributes to blend into normal activity. `Invoke-TimeStomp` or `touch -t` on Linux. Mitigation: Rely on SIEM ingest time, not file timestamps, for forensic timelines
 - Log Flooding: Generate thousands of low-severity events (port scans, failed logins) to bury real alerts in noise. Mitigation: Dynamic threshold tuning; risk scoring to suppress known-noisy sources
 
 ### Detection Evasion Techniques
-- Living Off the Land (LOTL): Use legitimate OS binaries: `certutil`, `mshta`, `wscript`, `regsvr32`, `rundll32` — to execute payloads. Fewer signatures than custom malware. Mitigation: Process lineage analysis; parent-child relationship rules (Excel spawning PowerShell)
+- Living Off the Land (LOTL): Use legitimate OS binaries (`certutil`, `mshta`, `wscript`, `regsvr32`, `rundll32`) to execute payloads. Fewer signatures than custom malware. Mitigation: Process lineage analysis; parent-child relationship rules (Excel spawning PowerShell)
 - Slow and Low Attacks: Stay below threshold-based detection rates: one failed login per 10 minutes instead of 100 in 60 seconds. Mitigation: Longer time-window correlation; UEBA behavioral baselines
-- Detection Blind Spots by Protocol: Move laterally via protocols with poor SIEM coverage — WMI (`wmic` remote commands), DCOM, RDP `ShellBrowserWindow`. Mitigation: Enable verbose WMI and DCOM logging; correlate EventID 4688 with network connections
+- Detection Blind Spots by Protocol: Move laterally via protocols with poor SIEM coverage, such as WMI (`wmic` remote commands), DCOM, RDP `ShellBrowserWindow`. Mitigation: Enable verbose WMI and DCOM logging; correlate EventID 4688 with network connections
 - Obfuscated Commands: Base64 encoding (`-EncodedCommand`), string concatenation, character substitution in PowerShell and cmd.exe. Mitigation: Script block logging (EventID 4104); AmsiScanBuffer hooks; command-line deobfuscation
 - SOAR Abuse via False Positives: If SOAR automatically blocks IPs, attackers can trigger false positives to block legitimate infrastructure (defensive abuse). Mitigation: Human approval gates for high-impact SOAR actions
 

@@ -131,7 +131,7 @@ Tools
 
 ### Phase 5: Post-Exploitation
 
-Determine the full impact of initial access — what an attacker could do once inside.
+Determine the full impact of initial access: what an attacker could do once inside.
 
 Key Activities
 - Privilege escalation (local and domain)
@@ -229,7 +229,7 @@ Before any testing begins, confirm the following in writing:
 
 ## Vulnerability Scoring: CVSS v3.1
 
-CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to rate vulnerability severity. CVSS v4.0 (published by FIRST on November 1, 2023) is the current version — it adds Attack Requirements (AT), a finer-grained User Interaction metric, and a two-system (Vulnerable/Subsequent) impact model in place of Scope; NVD still assigns v3.1 base scores to most CVEs, so both appear in reports. The v3.1 base score is calculated from the following metrics:
+CVSS (Common Vulnerability Scoring System) v3.1 provides a standardized way to rate vulnerability severity. CVSS v4.0 (published by FIRST on November 1, 2023) is the current version: it adds Attack Requirements (AT), a finer-grained User Interaction metric, and a two-system (Vulnerable/Subsequent) impact model in place of Scope; NVD still assigns v3.1 base scores to most CVEs, so both appear in reports. The v3.1 base score is calculated from the following metrics:
 
 | Metric | Options | Description |
 |---|---|---|

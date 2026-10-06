@@ -1,6 +1,6 @@
 # AI and LLM Security Reference
 
-> In one minute — This document is a field guide to securing AI and LLM systems: the OWASP LLM Top 10 risks, prompt injection (crafted input that overrides a model's instructions) in depth, adversarial machine learning attacks, and hardening patterns for LLM deployments. Each risk comes with concrete attack examples, detection approaches, and mitigations, plus working Python for guardrails, PII anonymization, and injection detection. It also covers the flip side — using LLMs inside the SOC for triage, detection rule generation, and threat intel — and the regulatory landscape (EU AI Act, NIST AI RMF, MITRE ATLAS).
+> In one minute: This document is a field guide to securing AI and LLM systems: the OWASP LLM Top 10 risks, prompt injection (crafted input that overrides a model's instructions) in depth, adversarial machine learning attacks, and hardening patterns for LLM deployments. Each risk comes with concrete attack examples, detection approaches, and mitigations, plus working Python for guardrails, PII anonymization, and injection detection. It also covers the flip side (using LLMs inside the SOC for triage, detection rule generation, and threat intel) and the regulatory landscape (EU AI Act, NIST AI RMF, MITRE ATLAS).
 
 | | |
 |---|---|
@@ -27,7 +27,7 @@ A comprehensive reference covering OWASP LLM Top 10 (2025), prompt injection att
 
 ## OWASP LLM Top 10 (2025)
 
-> Currency note: The current edition is the 2026 OWASP Top 10 for LLM Applications (OWASP GenAI Security Project, published August 2026). It re-ranks the list and renames System Prompt Leakage to Hidden Context Exposure (now LLM08). 2026 order: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. Note: the numbered entries below predate even the 2025 edition — they use the legacy 2023/2024 taxonomy (Insecure Output Handling, Training Data Poisoning, Model Denial of Service, Insecure Plugin Design, Overreliance, Model Theft), which the 2025 release replaced. A full refresh is recommended; retained here as history.
+> Currency note: The current edition is the 2026 OWASP Top 10 for LLM Applications (OWASP GenAI Security Project, published August 2026). It re-ranks the list and renames System Prompt Leakage to Hidden Context Exposure (now LLM08). 2026 order: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. Note: the numbered entries below predate even the 2025 edition; they use the legacy 2023/2024 taxonomy (Insecure Output Handling, Training Data Poisoning, Model Denial of Service, Insecure Plugin Design, Overreliance, Model Theft), which the 2025 release replaced. A full refresh is recommended; retained here as history.
 
 *Source: owasp.org/www-project-top-10-for-large-language-model-applications*
 

@@ -1,8 +1,8 @@
 # ICS ATT&CK Technique Atlas
 
-> The complete MITRE ATT&CK for ICS matrix (v18.1) — 83 techniques across 12 tactics — cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/ics/technique_profiles.jsonl`](data/attack/ics/technique_profiles.jsonl).
+> The complete MITRE ATT&CK for ICS matrix (v18.1), 83 techniques across 12 tactics, cross-referenced to the threat groups and software that use them and the ATT&CK mitigations that address them. Machine-readable source: [`data/attack/ics/technique_profiles.jsonl`](data/attack/ics/technique_profiles.jsonl).
 
-Legend — Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists.
+Legend: Grp = threat groups, SW = software, Mit = ATT&CK mitigations, Det = ATT&CK detection guidance exists.
 
 Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Threat Group Profiles](THREAT_GROUP_PROFILES.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ICS/OT Security Reference](ICS_OT_SECURITY_REFERENCE.md)
 
@@ -64,7 +64,7 @@ Related: [ATT&CK Technique Atlas (Enterprise)](ATTACK_TECHNIQUE_ATLAS.md), [Thre
 | [T0863 User Execution](https://attack.mitre.org/techniques/T0863) | None | 0 | 4 | 6 |  |
 | [T0871 Execution through API](https://attack.mitre.org/techniques/T0871) | None | 0 | 1 | 4 |  |
 | [T0874 Hooking](https://attack.mitre.org/techniques/T0874) | None | 0 | 2 | 2 |  |
-| [T0895 Autorun Image](https://attack.mitre.org/techniques/T0895) | — | 0 | 0 | 1 |  |
+| [T0895 Autorun Image](https://attack.mitre.org/techniques/T0895) | None | 0 | 0 | 1 |  |
 
 ## Persistence
 <a id="persistence"></a>

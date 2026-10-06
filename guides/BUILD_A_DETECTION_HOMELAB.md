@@ -12,13 +12,13 @@
 
 Work through this checklist before you touch a hypervisor. Each item links to the doctrine it comes from or the official tool.
 
-- [ ] Read the lab foundations so this guide's choices make sense in context — [HOMELAB_SETUP.md](/HOMELAB_SETUP.md) and the platform index in [LABS.md](/LABS.md).
+- [ ] Read the lab foundations so this guide's choices make sense in context: [HOMELAB_SETUP.md](/HOMELAB_SETUP.md) and the platform index in [LABS.md](/LABS.md).
 - [ ] Confirm your host meets the "Minimum Hardware for Lab" bar (16 GB RAM minimum, SSD strongly preferred) from [LABS.md](/LABS.md).
 - [ ] Enable hardware virtualization (Intel VT-x / AMD-V) in your host's BIOS/UEFI. Without it, 64-bit guest VMs will not boot.
 - [ ] Pick a hypervisor and get the installer: [VMware Workstation Pro](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) (free for personal use), [VirtualBox](https://www.virtualbox.org/), or [Proxmox VE](https://www.proxmox.com/) for a dedicated box.
 - [ ] Download a free Windows evaluation ISO from the [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter) (Windows 10/11 Enterprise, 90-180 day eval, no key needed).
 - [ ] Choose one free SIEM and open its docs: [Splunk Free](https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.4/configure-splunk-licenses/about-splunk-free), [Elastic Security](https://www.elastic.co/docs/solutions/security), or [Security Onion 2.4](https://docs.securityonion.net/en/2.4/).
-- [ ] Skim what telemetry matters and why, so you know what you are hunting for — [ATTACK_DATA_COMPONENTS.md](/ATTACK_DATA_COMPONENTS.md) and [ENDPOINT_SECURITY_REFERENCE.md](/ENDPOINT_SECURITY_REFERENCE.md).
+- [ ] Skim what telemetry matters and why, so you know what you are hunting for: [ATTACK_DATA_COMPONENTS.md](/ATTACK_DATA_COMPONENTS.md) and [ENDPOINT_SECURITY_REFERENCE.md](/ENDPOINT_SECURITY_REFERENCE.md).
 
 > Watch out: Everything here stays on an isolated host-only / internal network. A detection lab does not need internet access on the victim, and giving it any raises real risk. Never point these tools at machines you do not own.
 
@@ -42,7 +42,7 @@ Once Windows is up, take a hypervisor snapshot named `clean-base` before install
 
 Checkpoint: A Windows victim VM boots, sits on the isolated network, and has a clean snapshot you can revert to.
 
-Watch out: Snapshots are your undo button. Take one now and after each major step. Detection testing intentionally makes noise on this host — you want fast rollback, not a rebuild.
+Watch out: Snapshots are your undo button. Take one now and after each major step. Detection testing intentionally makes noise on this host: you want fast rollback, not a rebuild.
 
 ## Step 3: Instrument the victim with Sysmon
 
@@ -66,7 +66,7 @@ Pick one SIEM and build a second VM for it. Match the resources to your choice:
 
 | SIEM (free tier) | VM sizing to start | The free-tier catch to plan around |
 |---|---|---|
-| Splunk Free | 4 GB RAM, 2 vCPU, Windows or Linux | 500 MB/day index cap; no auth (you land in Splunk Web as admin), no alerting, no distributed search — 3 license warnings in a rolling 30 days disables search |
+| Splunk Free | 4 GB RAM, 2 vCPU, Windows or Linux | 500 MB/day index cap; no auth (you land in Splunk Web as admin), no alerting, no distributed search; 3 license warnings in a rolling 30 days disables search |
 | Elastic Security | 8 GB RAM, 2-4 vCPU | Free Basic license covers the detection engine and prebuilt rules; heavier RAM footprint than Splunk Free |
 | Security Onion 2.4 | 12 GB RAM minimum for a quick VM eval; Eval node wants 4 CPU / 8 GB, Standalone 4 CPU / 24 GB | All-in-one (Zeek, Suricata, Elastic): biggest resource ask; use Import/Eval for a first lab |
 
@@ -74,7 +74,7 @@ Install per the official docs linked in "Before you start." Put the SIEM VM on t
 
 Checkpoint: The SIEM's web console loads from your host browser (for example Splunk Web on port 8000, Kibana on 5601, or the Security Onion console).
 
-Watch out: Splunk Free has no login and no alerting by design — it is fine for a learning lab, but do not treat "an alert fired" as your success signal there; you will validate via search instead. If you want scheduled alerting on a free stack, choose Elastic or Security Onion.
+Watch out: Splunk Free has no login and no alerting by design; it is fine for a learning lab, but do not treat "an alert fired" as your success signal there; you will validate via search instead. If you want scheduled alerting on a free stack, choose Elastic or Security Onion.
 
 ## Step 5: Ship victim logs into the SIEM
 
@@ -90,7 +90,7 @@ Watch out: Time skew and firewalls are the usual culprits when nothing arrives. 
 
 ## Step 6: Install Atomic Red Team on the victim
 
-[Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) is a library of small, ATT&CK-mapped tests for safe detection validation — you run a known technique on purpose so you can confirm your telemetry and detections catch it. Install the execution framework and the atomics from an elevated PowerShell prompt on the victim:
+[Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) is a library of small, ATT&CK-mapped tests for safe detection validation; you run a known technique on purpose so you can confirm your telemetry and detections catch it. Install the execution framework and the atomics from an elevated PowerShell prompt on the victim:
 
 ```powershell
 Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser
@@ -106,11 +106,11 @@ Import-Module invoke-atomicredteam
 
 Checkpoint: `Invoke-AtomicTest` is available, and `C:\AtomicRedTeam\atomics` contains per-technique folders (one folder per ATT&CK technique ID).
 
-Watch out: Run this only on the isolated victim VM you snapshotted. Per Red Canary's own guidance, atomic tests can leave a system in an undesirable state — understand each test before running it, and never run these on a machine you rely on.
+Watch out: Run this only on the isolated victim VM you snapshotted. Per Red Canary's own guidance, atomic tests can leave a system in an undesirable state: understand each test before running it, and never run these on a machine you rely on.
 
 ## Step 7: Run your first safe technique test
 
-Use the standard, non-destructive workflow: inspect, check prerequisites, run, then clean up. A good first technique is T1059.001 (PowerShell) — it maps cleanly to Sysmon Event ID 1 and to PowerShell logging. First inspect what the technique's tests do, without executing anything:
+Use the standard, non-destructive workflow: inspect, check prerequisites, run, then clean up. A good first technique is T1059.001 (PowerShell): it maps cleanly to Sysmon Event ID 1 and to PowerShell logging. First inspect what the technique's tests do, without executing anything:
 
 ```powershell
 Invoke-AtomicTest T1059.001 -ShowDetails
@@ -127,7 +127,7 @@ Invoke-AtomicTest T1059.001 -TestNumbers 1 -Cleanup
 
 Checkpoint: The test reports it executed, and within a minute or two the corresponding process-creation event for that test is searchable in your SIEM.
 
-Watch out: If `-CheckPrereqs` prints `Elevation required but not provided`, you are not in an elevated prompt — reopen PowerShell as Administrator. Always finish with `-Cleanup`, then revert to your snapshot if a test changed system state you do not want to keep.
+Watch out: If `-CheckPrereqs` prints `Elevation required but not provided`, you are not in an elevated prompt; reopen PowerShell as Administrator. Always finish with `-Cleanup`, then revert to your snapshot if a test changed system state you do not want to keep.
 
 ## Step 8: Write and validate your first detection
 
@@ -156,7 +156,7 @@ Watch out: A rule that never fires and a rule that fires on everything are equal
 - Every atomic you run appears in the SIEM within a couple of minutes, and you can name the exact event ID and field that carried the signal.
 - At least one detection fires on its intended technique and stays quiet during normal use of the victim.
 - You can repeat the full attack -> collect -> identify -> write -> test -> tune loop on a new technique without re-reading this guide.
-- Nothing in the lab can reach: or be reached from — your real network or the internet from the victim.
+- Nothing in the lab can reach, or be reached from, your real network or the internet from the victim.
 
 ## Go deeper
 
@@ -169,11 +169,11 @@ Library references:
 - [ATTACK_DATA_COMPONENTS.md](/ATTACK_DATA_COMPONENTS.md): which data sources you need to detect which techniques.
 
 Authoritative external resources:
-- [Sysmon: Microsoft Sysinternals](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon) — official download, event schema, and command reference.
+- [Sysmon: Microsoft Sysinternals](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon): official download, event schema, and command reference.
 - [Atomic Red Team documentation](https://www.atomicredteam.io/): official install and safe-execution guidance from Red Canary.
-- [Sigma CLI: SigmaHQ](https://github.com/SigmaHQ/sigma-cli) — official conversion tool, backends, and pipelines.
+- [Sigma CLI: SigmaHQ](https://github.com/SigmaHQ/sigma-cli): official conversion tool, backends, and pipelines.
 - [Security Onion 2.4 documentation](https://docs.securityonion.net/en/2.4/): hardware sizing and install modes for the all-in-one NSM/SIEM.
 
 ---
 
-*Guides are procedures, not guarantees. Tools, flags, and free-tier limits change — verify every command against the current official documentation before relying on it outside a lab.*
+*Guides are procedures, not guarantees. Tools, flags, and free-tier limits change: verify every command against the current official documentation before relying on it outside a lab.*

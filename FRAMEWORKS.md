@@ -1,6 +1,6 @@
 # Security Frameworks Reference
 
-> In one minute — This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
+> In one minute: This is a quick-reference guide to the major cybersecurity and privacy frameworks: NIST CSF and 800-53, ISO 27001, SOC 2, PCI DSS, HIPAA, CMMC, CIS Controls, GDPR/CCPA, NIST AI RMF, and IEC 62443. For each one it tells you who publishes it, whether it is mandatory, who it applies to, and its core structure (functions, control families, levels, or requirements). Use it to pick the right framework for a situation and to see how they map to each other before diving into any single standard.
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@
 | Start at | [Framework Comparison Overview](#framework-comparison-overview), [Framework Mapping Quick Reference](#framework-mapping-quick-reference), [Framework Selection Guide](#framework-selection-guide) |
 | Pairs with | [Controls Mapping](CONTROLS_MAPPING.md), [Enterprise Security Pipeline](SECURITY_PIPELINE.md), [Governance, Risk & Compliance](disciplines/governance-risk-compliance.md) |
 
-A quick-reference guide to major cybersecurity and privacy frameworks — what they cover, who they apply to, and how they relate to each other.
+A quick-reference guide to major cybersecurity and privacy frameworks: what they cover, who they apply to, and how they relate to each other.
 
 ---
 
@@ -83,7 +83,7 @@ Resources: [SP 800-37](https://csrc.nist.gov/publications/detail/sp/800-37/rev-2
 
 ## NIST SP 800-53 R5
 
-Published: 2020 (Rev 5); current maintenance release 5.2.0 (August 27, 2025 — adds secure software-update and patch controls in response to EO 14306; no change to the SP 800-53B baselines) | Org: NIST | Mandatory: US federal systems (FISMA)
+Published: 2020 (Rev 5); current maintenance release 5.2.0 (August 27, 2025; adds secure software-update and patch controls in response to EO 14306; no change to the SP 800-53B baselines) | Org: NIST | Mandatory: US federal systems (FISMA)
 
 The most comprehensive security and privacy control catalog available. Maps to CSF, ISO 27001, CMMC, and ATT&CK. Used as the baseline for FedRAMP, DoD, and civilian agency ATOs.
 
@@ -145,7 +145,7 @@ Resources: [ISO 27001](https://www.iso.org/isoiec-27001-information-security.htm
 
 Published: Ongoing | Org: AICPA | Cost: Audit fees ($30K–$100K+)
 
-An audit framework for service organizations (SaaS, cloud, managed services). Customers — especially enterprises — require SOC 2 reports from their vendors. Not a certification; rather a third-party auditor's opinion.
+An audit framework for service organizations (SaaS, cloud, managed services). Customers, especially enterprises, require SOC 2 reports from their vendors. Not a certification; rather a third-party auditor's opinion.
 
 ### Trust Services Criteria (TSC)
 | Criteria | Required? | Focus |
@@ -211,7 +211,7 @@ Resources: [HHS Security Rule](https://www.hhs.gov/hipaa/for-professionals/secur
 
 Published: November 2021 (model); codified in 32 CFR Part 170 (effective Dec 16, 2024) with the DFARS/48 CFR acquisition rule 252.204-7021 (effective Nov 10, 2025) | Org: DoD | Mandatory: DoD contractors handling CUI or FCI
 
-Cybersecurity Maturity Model Certification — required for defense industrial base (DIB) contractors. Streamlined from CMMC 1.0 (5 levels) to 3 levels.
+Cybersecurity Maturity Model Certification: required for defense industrial base (DIB) contractors. Streamlined from CMMC 1.0 (5 levels) to 3 levels.
 
 ### Three Levels
 | Level | Requirements | Assessment |
@@ -367,7 +367,7 @@ Resources: [IEC 62443](https://www.iec.ch/iec62443) | [ISA/IEC 62443 overview](h
 
 ## NIST CSF 2.0 Deep Dive
 
-NIST CSF 2.0 (released February 2024) added a sixth function — Govern — and restructured the framework to be applicable to any organization size and sector.
+NIST CSF 2.0 (released February 2024) added a sixth function, Govern, and restructured the framework to be applicable to any organization size and sector.
 
 Six Functions and Core Categories
 
@@ -433,9 +433,9 @@ Control Set Changes: 2013 to 2022
 | Category | 2013 | 2022 |
 |---|---|---|
 | Total controls | 114 (14 domains) | 93 (4 themes) |
-| New controls | — | 11 new controls |
-| Merged controls | — | 24 pairs merged |
-| Deleted controls | — | 1 deleted |
+| New controls | N/A | 11 new controls |
+| Merged controls | N/A | 24 pairs merged |
+| Deleted controls | N/A | 1 deleted |
 
 Four Themes (replacing 14 domains)
 1. Organizational controls (37 controls): policies, roles, risk management, supplier security

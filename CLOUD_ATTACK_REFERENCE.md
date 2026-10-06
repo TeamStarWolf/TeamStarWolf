@@ -1,6 +1,6 @@
 # Cloud Attack Reference
 
-> Comprehensive cloud attack techniques for AWS, Azure, and GCP — aligned to MITRE ATT&CK for Cloud.  
+> Comprehensive cloud attack techniques for AWS, Azure, and GCP, aligned to MITRE ATT&CK for Cloud.  
 > For defensive security engineers and incident responders: understand attacker techniques to build better detections and controls.
 
 | | |

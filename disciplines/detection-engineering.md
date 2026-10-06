@@ -1,14 +1,14 @@
 # Detection Engineering
 
-Detection engineering is the practice of building, testing, validating, and maintaining a scalable program for identifying adversary behavior across an organization's environments. It is distinct from alert triage — detection engineers don't respond to alerts, they design the systems that generate them. The discipline covers the full detection lifecycle: identifying coverage gaps through threat modeling and adversary emulation, authoring detection logic in structured formats like Sigma and YARA, validating coverage using atomic tests and purple team exercises, tuning to eliminate false positives, and retiring detections that no longer reflect the threat landscape.
+Detection engineering is the practice of building, testing, validating, and maintaining a scalable program for identifying adversary behavior across an organization's environments. It is distinct from alert triage: detection engineers don't respond to alerts, they design the systems that generate them. The discipline covers the full detection lifecycle: identifying coverage gaps through threat modeling and adversary emulation, authoring detection logic in structured formats like Sigma and YARA, validating coverage using atomic tests and purple team exercises, tuning to eliminate false positives, and retiring detections that no longer reflect the threat landscape.
 
-Good detection programs are hypothesis-driven, not signature-collection exercises. The goal is behavioral coverage of adversary TTPs mapped to the threats most relevant to your organization — not maximizing alert volume. The Pyramid of Pain illustrates this: IOC-based detections (hashes, IPs, domains) are trivially bypassed by adversaries, while TTP-based detections (process injection, LOLBAS abuse, credential dumping behaviors) remain durable even when tooling changes. Every detection should have a documented data source requirement, a validation test, and a clear suppression policy. This engineering rigor separates mature detection programs from collections of vendor-default rules that fire constantly and get ignored.
+Good detection programs are hypothesis-driven, not signature-collection exercises. The goal is behavioral coverage of adversary TTPs mapped to the threats most relevant to your organization, not maximizing alert volume. The Pyramid of Pain illustrates this: IOC-based detections (hashes, IPs, domains) are trivially bypassed by adversaries, while TTP-based detections (process injection, LOLBAS abuse, credential dumping behaviors) remain durable even when tooling changes. Every detection should have a documented data source requirement, a validation test, and a clear suppression policy. This engineering rigor separates mature detection programs from collections of vendor-default rules that fire constantly and get ignored.
 
 ---
 
 ## Where to Start
 
-Learn your log sources before you learn detection logic. Understanding what Windows Event ID 4624 actually means, what Sysmon event 1 captures versus event 10, and how network flow data differs from full packet capture is foundational. From there, learn Sigma as your portable rule format, then learn the query language for whichever SIEM your environment uses. Practice in free environments — Elastic SIEM, Splunk free trial, or Microsoft Sentinel trial — before working with production data.
+Learn your log sources before you learn detection logic. Understanding what Windows Event ID 4624 actually means, what Sysmon event 1 captures versus event 10, and how network flow data differs from full packet capture is foundational. From there, learn Sigma as your portable rule format, then learn the query language for whichever SIEM your environment uses. Practice in free environments (Elastic SIEM, Splunk free trial, or Microsoft Sentinel trial) before working with production data.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -43,7 +43,7 @@ Pyramid of Pain (David Bianco): Attacker cost to evade detections increases as y
 [Hash Values]              ← Trivial — recompile, trivially different hash
 ```
 
-The detection engineering goal is to build detections as high on this pyramid as possible — detecting behaviors (process injection, LOLBAS execution, credential access patterns) rather than specific indicators.
+The detection engineering goal is to build detections as high on this pyramid as possible: detecting behaviors (process injection, LOLBAS execution, credential access patterns) rather than specific indicators.
 
 ---
 
@@ -89,7 +89,7 @@ Sysmon (System Monitor) provides dramatically richer telemetry than native Windo
 
 ## Sigma Rule Structure
 
-Sigma is the universal detection rule format — write once, convert to Splunk SPL, Elastic EQL, Microsoft KQL, QRadar AQL, and 30+ other targets.
+Sigma is the universal detection rule format: write once, convert to Splunk SPL, Elastic EQL, Microsoft KQL, QRadar AQL, and 30+ other targets.
 
 ```yaml
 title: Suspicious LSASS Memory Access
@@ -241,7 +241,7 @@ Detection engineering directly implements coverage against specific ATT&CK techn
 - GCIA (GIAC Certified Intrusion Analyst): Covers network traffic analysis, IDS/IPS signature development, and protocol analysis; strong foundation for detection engineers focused on network-layer telemetry
 - GCIH (GIAC Certified Incident Handler): Core certification covering incident detection, analysis, and response; validates the full detection-to-response workflow
 - GCED (GIAC Certified Enterprise Defender): Enterprise defense including network security monitoring, SIEM tuning, and endpoint detection; most directly aligned to detection engineering roles
-- BTL1 (Blue Team Labs Level 1: Security Blue Team) — Hands-on SOC analyst certification covering log analysis, SIEM investigation, and digital forensics; strong practical validation for entry-level detection roles
+- BTL1 (Blue Team Labs Level 1: Security Blue Team). Hands-on SOC analyst certification covering log analysis, SIEM investigation, and digital forensics; strong practical validation for entry-level detection roles
 - Splunk Core Certified User / Power User: SPL proficiency; valuable for detection engineers operating primarily in Splunk environments
 - Elastic Certified Analyst: EQL proficiency and Elastic Security platform expertise; the corresponding credential for Elastic-focused detection engineers
 - Microsoft SC-200 (Security Operations Analyst): Microsoft Sentinel-focused certification covering detection rule authoring, threat hunting, and SOAR playbook development

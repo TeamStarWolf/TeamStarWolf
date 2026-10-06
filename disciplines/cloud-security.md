@@ -1,14 +1,14 @@
 # Cloud Security
 
-Cloud security encompasses the practices, tools, and governance required to secure infrastructure, workloads, data, and identities in cloud environments — primarily AWS, Azure, and Google Cloud Platform, along with the Kubernetes and container ecosystems that run on top of them. The discipline has evolved from traditional security lifted to the cloud into something fundamentally different: infrastructure is ephemeral, identity and access management is the primary attack vector, configuration drift is constant, and the blast radius of a single overprivileged role can be an entire organization. Cloud-native architectures — serverless functions, managed Kubernetes, shared IAM hierarchies — introduce attack surfaces that have no analog in traditional on-premises security.
+Cloud security encompasses the practices, tools, and governance required to secure infrastructure, workloads, data, and identities in cloud environments, primarily AWS, Azure, and Google Cloud Platform, along with the Kubernetes and container ecosystems that run on top of them. The discipline has evolved from traditional security lifted to the cloud into something fundamentally different: infrastructure is ephemeral, identity and access management is the primary attack vector, configuration drift is constant, and the blast radius of a single overprivileged role can be an entire organization. Cloud-native architectures (serverless functions, managed Kubernetes, shared IAM hierarchies) introduce attack surfaces that have no analog in traditional on-premises security.
 
-The shared responsibility model is the foundational concept every cloud security practitioner must internalize: the cloud provider secures the infrastructure, but the customer owns the configuration, identity management, data protection, and workload security. The vast majority of cloud security incidents are not the result of cloud provider failures — they are the result of misconfigured S3 buckets, overprivileged IAM roles, exposed secrets in environment variables, and SSRF vulnerabilities that reach cloud metadata APIs. These are customer-owned failure modes, and cloud security is the discipline of systematically finding and eliminating them.
+The shared responsibility model is the foundational concept every cloud security practitioner must internalize: the cloud provider secures the infrastructure, but the customer owns the configuration, identity management, data protection, and workload security. The vast majority of cloud security incidents are not the result of cloud provider failures; they are the result of misconfigured S3 buckets, overprivileged IAM roles, exposed secrets in environment variables, and SSRF vulnerabilities that reach cloud metadata APIs. These are customer-owned failure modes, and cloud security is the discipline of systematically finding and eliminating them.
 
 ---
 
 ## Where to Start
 
-Earn AWS Solutions Architect Associate (or its Azure/GCP equivalent) before focusing on security. The security knowledge is useless without understanding how cloud infrastructure is actually built. Once you have that foundation, flaws.cloud is the single best entry point into cloud security practice — complete every level before spending money on any certification or course.
+Earn AWS Solutions Architect Associate (or its Azure/GCP equivalent) before focusing on security. The security knowledge is useless without understanding how cloud infrastructure is actually built. Once you have that foundation, flaws.cloud is the single best entry point into cloud security practice; complete every level before spending money on any certification or course.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -140,11 +140,11 @@ Cloud attack techniques are catalogued in the [MITRE ATT&CK Cloud Matrix](https:
 
 ## Certifications
 
-- CCSP (Certified Cloud Security Professional: ISC2) — The most widely recognized vendor-neutral cloud security certification; covers cloud architecture, data security, platform security, and compliance; valued in governance and architecture roles
-- AWS Certified Security: Specialty — The premier AWS security certification; covers IAM, encryption, logging, incident response, and infrastructure protection; the most respected cloud vendor certification in the market
+- CCSP (Certified Cloud Security Professional: ISC2). The most widely recognized vendor-neutral cloud security certification; covers cloud architecture, data security, platform security, and compliance; valued in governance and architecture roles
+- AWS Certified Security: Specialty. The premier AWS security certification; covers IAM, encryption, logging, incident response, and infrastructure protection; the most respected cloud vendor certification in the market
 - AZ-500 (Microsoft Azure Security Engineer Associate): Azure security controls, Entra ID, network security, and security operations; required for Azure security roles
-- CKS (Certified Kubernetes Security Specialist: CNCF) — Advanced Kubernetes security certification covering cluster hardening, supply chain security, and runtime security; requires CKA as prerequisite; highly respected in cloud-native environments
-- KCSA (Kubernetes and Cloud Native Security Associate: CNCF) — Entry-level cloud-native security certification covering Kubernetes security fundamentals and supply chain security
+- CKS (Certified Kubernetes Security Specialist: CNCF). Advanced Kubernetes security certification covering cluster hardening, supply chain security, and runtime security; requires CKA as prerequisite; highly respected in cloud-native environments
+- KCSA (Kubernetes and Cloud Native Security Associate: CNCF). Entry-level cloud-native security certification covering Kubernetes security fundamentals and supply chain security
 - Google Professional Cloud Security Engineer: GCP security covering IAM, encryption, and compliance; valuable for Google Cloud-focused practitioners
 
 ---

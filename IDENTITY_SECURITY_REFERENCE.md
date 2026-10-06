@@ -2,7 +2,7 @@
 
 > A comprehensive vendor-specific, technique-mapped reference for identity
 > security architecture, attack techniques, detection engineering, and
-> compliance — covering Microsoft Entra ID, Okta, Active Directory, CyberArk,
+> compliance, covering Microsoft Entra ID, Okta, Active Directory, CyberArk,
 > HashiCorp Vault, SailPoint, and more.
 
 | | |
@@ -35,9 +35,9 @@
 ### Identity Is the New Perimeter
 
 Modern infrastructure has dissolved the traditional network perimeter. Cloud
-adoption, remote work, and SaaS proliferation mean that **identity is now the
-primary control plane** for access decisions. According to the **Verizon 2024
-Data Breach Investigations Report (DBIR)**:
+adoption, remote work, and SaaS proliferation mean that identity is now the
+primary control plane for access decisions. According to the Verizon 2024
+Data Breach Investigations Report (DBIR):
 
 - 74 % of all breaches involve a human element (credentials, privilege
   abuse, social engineering, or error)
@@ -194,7 +194,7 @@ Windows Hello for Business (WHfB):
 - Enrolls a TPM-bound asymmetric key pair per device per user
 - Authentication: device TPM signs IdP challenge (no password ever sent)
 - Deployment modes: Key Trust (requires line-of-sight DC), Certificate Trust,
-  Cloud Trust (hybrid — requires Entra Kerberos)
+  Cloud Trust (hybrid: requires Entra Kerberos)
 - Requires: Windows 10 1703+, TPM 1.2+ (2.0 preferred), Entra ID or Hybrid
   Entra joined
 
@@ -252,7 +252,7 @@ Defenses:
 Technique: Attacker with stolen credentials sends repeated push MFA
 requests, hoping victim approves accidentally or out of frustration.
 
-Real Incident — Uber 2022:
+Real Incident (Uber 2022):
 - Attacker obtained contractor credentials via dark web
 - Sent ~20 push notifications; victim did not approve
 - Attacker then contacted victim via WhatsApp claiming to be IT support,
@@ -262,7 +262,7 @@ Real Incident — Uber 2022:
 
 Defenses:
 - Number matching (Microsoft Authenticator): app displays a 2-digit number;
-  user must enter it on the authenticator — prevents blind approval
+  user must enter it on the authenticator (prevents blind approval)
   - Policy path: Entra -> Authentication methods -> Microsoft Authenticator ->
     Number matching = Enabled
 - Additional context: shows app name, geographic location in push
@@ -295,12 +295,12 @@ Defenses:
 
 ### OTP Interception
 
-Reverse proxy: same as AiTM — proxy forwards OTP entered by victim to
+Reverse proxy: same as AiTM; proxy forwards OTP entered by victim to
 legitimate site before it expires
 
 Malware: keyloggers or browser extensions intercept OTP as typed
 
-Defenses: FIDO2 (cryptographically bound to origin — proxy cannot relay)
+Defenses: FIDO2 (cryptographically bound to origin; proxy cannot relay)
 
 ---
 
@@ -1531,7 +1531,7 @@ Key tenets relevant to identity:
 ### Identity as Control Plane
 
 In a Zero Trust architecture, the identity provider IS the security boundary:
-- Every access request: SaaS, IaaS, on-premises — is mediated through the IdP
+- Every access request (SaaS, IaaS, on-premises) is mediated through the IdP
 - The IdP enforces Conditional Access / adaptive authentication
 - No implicit trust based on network segment
 - Service mesh / mTLS for machine-to-machine (each workload has an identity)
@@ -1557,7 +1557,7 @@ AAL3 requirements (summary):
 - Verifier-CSP communication using approved cryptography
 - Reauthentication required every 12 hours or 15 minutes of inactivity
 
-Phishing-resistant = AAL3 — FIDO2/WebAuthn, PIV, CAC meet this bar.
+Phishing-resistant = AAL3: FIDO2/WebAuthn, PIV, CAC meet this bar.
 SMS OTP and push notifications do NOT meet phishing resistance requirement.
 
 ---
@@ -1592,7 +1592,7 @@ CIS Control 6: Access Control Management
 
 ### DISA STIG: Active Directory (V3R3)
 
-CAT I (High) Findings — Admin Account Controls:
+CAT I (High) Findings, Admin Account Controls:
 
 | STIG-ID | Rule | Fix |
 |---|---|---|

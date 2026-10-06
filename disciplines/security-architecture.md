@@ -1,8 +1,8 @@
 # Security Architecture
 
-Security architecture is the discipline of designing systems, networks, and applications so that security properties are built in from the start rather than bolted on afterward. A security architect translates business requirements and threat intelligence into structured frameworks, reference models, and design patterns that ensure confidentiality, integrity, and availability across the entire technology stack. The role spans cloud, on-premises, hybrid, and OT environments — and requires understanding both how systems are attacked and how to make that attack expensive, detectable, and recoverable.
+Security architecture is the discipline of designing systems, networks, and applications so that security properties are built in from the start rather than bolted on afterward. A security architect translates business requirements and threat intelligence into structured frameworks, reference models, and design patterns that ensure confidentiality, integrity, and availability across the entire technology stack. The role spans cloud, on-premises, hybrid, and OT environments, and requires understanding both how systems are attacked and how to make that attack expensive, detectable, and recoverable.
 
-Good security architecture is not just about controls — it is about making security a natural property of the system. It applies defense-in-depth, eliminates implicit trust, enforces least privilege structurally, and ensures that failures are contained rather than cascading.
+Good security architecture is not just about controls; it is about making security a natural property of the system. It applies defense-in-depth, eliminates implicit trust, enforces least privilege structurally, and ensures that failures are contained rather than cascading.
 
 ## Where to Start
 
@@ -32,7 +32,7 @@ Good security architecture is not just about controls — it is about making sec
 | OWASP Threat Dragon | Open-source threat modeling with support for STRIDE, DFDs, and integration into CI/CD pipelines | https://github.com/OWASP/threat-dragon |
 | IriusRisk Community | Automated threat modeling platform with a community edition supporting architecture-as-code threat models | https://github.com/iriusrisk |
 | Lucidchart / draw.io (diagrams.net) | Open-source diagramming for architecture and DFD creation, exportable to threat modeling tools | https://github.com/jgraph/drawio |
-| Checkov | Static analysis for infrastructure-as-code (Terraform, CloudFormation, Kubernetes) — enforces architectural security controls at design time | https://github.com/bridgecrewio/checkov |
+| Checkov | Static analysis for infrastructure-as-code (Terraform, CloudFormation, Kubernetes); enforces architectural security controls at design time | https://github.com/bridgecrewio/checkov |
 | tfsec | Terraform security scanner that validates architecture configurations against CIS Benchmarks and best practices | https://github.com/aquasecurity/tfsec |
 | Prowler | AWS/Azure/GCP security assessment tool that validates cloud architecture against CIS, NIST, and SOC2 controls | https://github.com/prowler-cloud/prowler |
 | ScoutSuite | Multi-cloud security auditing tool for reviewing architecture posture across providers | https://github.com/nccgroup/ScoutSuite |
@@ -119,7 +119,7 @@ Key Design Patterns:
 
 | Resource | Type | Notes |
 |----------|------|-------|
-| *Security Engineering*: Ross Anderson (3rd ed.) | Book | Foundational textbook covering security architecture theory, protocols, and design — free online |
+| *Security Engineering*: Ross Anderson (3rd ed.) | Book | Foundational textbook covering security architecture theory, protocols, and design; free online |
 | *The TOGAF Standard*: The Open Group | Standard | Enterprise architecture framework with security extension; free registration download |
 | NIST SP 800-207: Zero Trust Architecture | Standard | Definitive US government guidance on Zero Trust design principles and deployment models |
 | SABSA Foundation Guide | Framework | SABSA enterprise security architecture methodology: risk-driven, business-aligned architecture |
@@ -131,7 +131,7 @@ Key Design Patterns:
 
 #### Zero Trust Architecture (Deep Reference)
 
-CISA Zero Trust Maturity Model (ZTMM) — 5 Pillars
+CISA Zero Trust Maturity Model (ZTMM): 5 Pillars
 
 | Pillar | Traditional | Advanced | Optimal |
 |---|---|---|---|
@@ -149,7 +149,7 @@ Zero Trust Architecture Principles (NIST SP 800-207)
 5. Monitor all assets and communications for integrity and security posture
 6. Authentication and authorization are dynamic and strictly enforced before access
 
-Reference Architecture — ZTNA Implementation
+Reference Architecture: ZTNA Implementation
 - Identity Provider (IdP): Okta, Azure AD / Entra ID, Ping Identity
 - Device trust: Intune, Jamf, CrowdStrike Falcon Device Control
 - ZTNA gateway: Zscaler Private Access, Cloudflare Access, Palo Alto Prisma Access

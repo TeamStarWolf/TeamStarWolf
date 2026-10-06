@@ -1,6 +1,6 @@
 # PURPLE TEAM REFERENCE LIBRARY
 
-> In one minute — Purple teaming is red (attack) and blue (defense) working side by side so that every attack technique tested immediately becomes a tuned detection, instead of a finding buried in a report weeks later. This library is the practitioner's playbook for running that loop: how to structure a program, execute atomic tests and adversary emulation, measure ATT&CK coverage, and feed the gaps back to detection engineering. Reach for it when you need to prove — and improve — what your SIEM and EDR actually catch.
+> In one minute: Purple teaming is red (attack) and blue (defense) working side by side so that every attack technique tested immediately becomes a tuned detection, instead of a finding buried in a report weeks later. This library is the practitioner's playbook for running that loop: how to structure a program, execute atomic tests and adversary emulation, measure ATT&CK coverage, and feed the gaps back to detection engineering. Reach for it when you need to prove, and improve, what your SIEM and EDR actually catch.
 
 | | |
 |---|---|
@@ -31,7 +31,7 @@ Version: 1.0 | Classification: Internal Use | Maintained by: Security Engineerin
 
 ### 1.1 Purple Team Defined
 
-A purple team is a collaborative security function in which offensive (red) and defensive (blue) personnel work together in real time to improve detection and response capabilities. Unlike a traditional red team engagement — which is adversarial and designed to keep the blue team uninformed — a purple team shares attack context immediately so defenders can tune controls, build detections, and close gaps as testing progresses.
+A purple team is a collaborative security function in which offensive (red) and defensive (blue) personnel work together in real time to improve detection and response capabilities. Unlike a traditional red team engagement (which is adversarial and designed to keep the blue team uninformed), a purple team shares attack context immediately so defenders can tune controls, build detections, and close gaps as testing progresses.
 
 Core distinction:
 
@@ -45,7 +45,7 @@ Core distinction:
 
 ### 1.2 Value Proposition
 
-Faster detection improvement cycle: Because both teams share context in real time, a missed detection can be diagnosed and tuned on the same day it is tested — not weeks later when a red team report is delivered.
+Faster detection improvement cycle: Because both teams share context in real time, a missed detection can be diagnosed and tuned on the same day it is tested, not weeks later when a red team report is delivered.
 
 Targeted gap analysis: Purple teams can methodically test every technique in a threat actor's known playbook, producing a precise map of which TTPs are detected versus missed, rather than a sample of what a red teamer happened to use.
 
@@ -65,7 +65,7 @@ Continuous automated: Atomic tests run on a scheduled basis (daily or weekly) vi
 
 ATT&CK provides the shared vocabulary that makes purple teaming tractable at scale.
 
-Technique IDs as atomic unit: Each test maps to a specific technique (T1059.001 — PowerShell) or sub-technique. This enables unambiguous tracking: "We tested T1003.001 and it is detected" is a precise statement that any team member can act on.
+Technique IDs as atomic unit: Each test maps to a specific technique (T1059.001, PowerShell) or sub-technique. This enables unambiguous tracking: "We tested T1003.001 and it is detected" is a precise statement that any team member can act on.
 
 Tactic coverage measurement: ATT&CK's 14 tactics (see Section 2) form the rows of a coverage heatmap. Teams can track what percentage of techniques under each tactic are detected, and prioritize the most-used tactics by active threat actors.
 
@@ -394,7 +394,7 @@ Plugins:
 - Filestore: File hosting for payloads
 - Response: Automated response actions (blue team automation)
 
-REST API — Starting an operation:
+REST API (Starting an operation):
 ```bash
 curl -X POST http://localhost:8888/api/v2/operations   -H "KEY: ADMIN123"   -H "Content-Type: application/json"   -d '{
     "name": "Purple Team Test - APT29",
@@ -689,7 +689,7 @@ Primary intelligence sources:
 - Recorded Future: Structured threat intelligence with ATT&CK integration
 - CISA Advisories: Free government advisories for nation-state and criminal groups
 - ISAC reports: Sector-specific threat intelligence sharing
-- ATT&CK Groups page: https://attack.mitre.org/groups/ — Free ATT&CK mappings for known groups
+- ATT&CK Groups page: https://attack.mitre.org/groups/ (Free ATT&CK mappings for known groups)
 
 ### 6.2 APT Emulation Plans
 
@@ -729,7 +729,7 @@ APT29 Procedure: Kerberoast service accounts
 
 ### 6.3 Intelligence-Based Scenario Design
 
-Scenario template — APT29 Initial Compromise to Credential Theft:
+Scenario template (APT29 Initial Compromise to Credential Theft):
 
 ```
 SCENARIO: APT29-Inspired Credential Access Campaign
@@ -1012,7 +1012,7 @@ $spns | ForEach-Object {
 }
 ```
 
-Detection — Windows Security Event 4769:
+Detection (Windows Security Event 4769):
 ```
 EventID: 4769 (A Kerberos service ticket was requested)
 TicketEncryptionType: 0x17 (RC4 — weak, crackable offline)
@@ -1041,7 +1041,7 @@ Get-ADUser -Filter {DoesNotRequirePreAuth -eq $true} -Properties DoesNotRequireP
 .\Rubeus.exe asreproast /format:hashcat /outfile:hashes.txt
 ```
 
-Detection — Windows Security Event 4768:
+Detection (Windows Security Event 4768):
 ```
 EventID: 4768 (A Kerberos authentication ticket was requested)
 PreAuthType: 0 (No pre-authentication)
@@ -1069,7 +1069,7 @@ SecurityEvent
 
 Attack: Authenticate using stolen NTLM hash without knowing the plaintext password.
 
-Detection — combined event correlation:
+Detection (combined event correlation):
 ```
 Event 4624 (Successful Logon):
   LogonType: 3 (Network)
@@ -1092,7 +1092,7 @@ index=windows EventCode=4624 LogonType=3 AuthenticationPackageName=NTLM
 
 Attack: Modify Group Policy Objects to execute malicious code across domain systems.
 
-Detection — Windows Security Event 5136:
+Detection (Windows Security Event 5136):
 ```
 EventID: 5136 (A directory service object was modified)
 ObjectClass: groupPolicyContainer
@@ -1103,7 +1103,7 @@ AttributeValue: Modified
 
 Attack: Register a rogue domain controller to push malicious replication changes without standard DC audit logs.
 
-Detection: Look for new domain controller registration events — unusual `nTDSDSA` object creation in the Configuration partition, unexpected replication partner announcements.
+Detection: Look for new domain controller registration events (unusual `nTDSDSA` object creation in the Configuration partition, unexpected replication partner announcements).
 
 ### 8.2 BloodHound for Purple Team Attack Path Planning
 
@@ -1111,7 +1111,7 @@ BloodHound (https://github.com/BloodHoundAD/BloodHound) visualizes Active Direct
 
 Purple team workflow with BloodHound:
 
-Step 1 — SharpHound collection:
+Step 1 (SharpHound collection):
 ```powershell
 # Run SharpHound collector on domain-joined system
 .\SharpHound.exe -c All --zipfilename purpleteam_collection.zip
@@ -1119,7 +1119,7 @@ Step 1 — SharpHound collection:
 .\SharpHound.exe -c DCOnly,Session,ACL,ObjectProps --domain CORP.LOCAL
 ```
 
-Step 2 — BloodHound analysis:
+Step 2 (BloodHound analysis):
 ```cypher
 -- Find all paths from any owned user to Domain Admins
 MATCH p=shortestPath((u:User {owned:true})-[*1..]->(g:Group {name:"DOMAIN ADMINS@CORP.LOCAL"}))
@@ -1132,7 +1132,7 @@ RETURN u.name, length(p) as hops
 ORDER BY hops ASC LIMIT 20
 ```
 
-Step 3 — Select edges for detection testing:
+Step 3 (Select edges for detection testing):
 Each BloodHound edge type maps to ATT&CK techniques:
 
 | BloodHound Edge | ATT&CK Technique | Test |
@@ -1183,7 +1183,7 @@ SecurityEvent
 
 #### IAM Enumeration (T1087.004, T1069.003)
 
-Attack — enumerate IAM permissions:
+Attack (enumerate IAM permissions):
 ```bash
 # Enumerate all IAM users
 aws iam list-users --output json
@@ -1218,7 +1218,7 @@ index=aws sourcetype=aws:cloudtrail eventSource=iam.amazonaws.com
 
 #### EC2 Instance Metadata Service (IMDS) Credential Theft (T1552.005)
 
-Attack — steal instance credentials from IMDS:
+Attack (steal instance credentials from IMDS):
 ```bash
 # IMDSv1 (no authentication required — vulnerable)
 curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
@@ -1237,7 +1237,7 @@ aws ec2 modify-instance-metadata-options   --instance-id i-1234567890   --http-t
 
 #### S3 Sensitive Data Access (T1530)
 
-Attack — access sensitive S3 buckets:
+Attack (access sensitive S3 buckets):
 ```bash
 # List bucket contents
 aws s3 ls s3://corp-sensitive-bucket/ --recursive
@@ -1249,7 +1249,7 @@ aws s3 cp s3://corp-sensitive-bucket/passwords.xlsx ./
 stratus-red-team detonate aws.exfiltration.s3-backdoor-bucket-policy
 ```
 
-Detection — CloudTrail S3 data events (must be enabled):
+Detection (CloudTrail S3 data events, must be enabled):
 ```json
 {
   "eventSource": "s3.amazonaws.com",
@@ -1263,7 +1263,7 @@ Detection — CloudTrail S3 data events (must be enabled):
 
 #### Lambda Abuse (T1648)
 
-Attack — create malicious Lambda for persistence or compute:
+Attack (create malicious Lambda for persistence or compute):
 ```bash
 aws lambda create-function   --function-name "LegitBackupFunction"   --runtime python3.9   --handler lambda_function.lambda_handler   --role arn:aws:iam::123456789:role/lambda-role   --zip-file fileb://malicious_payload.zip
 ```
@@ -1317,7 +1317,7 @@ Get-MgGroup -All | Select-Object DisplayName, Id, GroupTypes
 Get-MgServicePrincipal -All | Select-Object DisplayName, AppId, ServicePrincipalType
 ```
 
-Detection — Entra ID Audit Logs:
+Detection (Entra ID Audit Logs):
 ```kql
 AuditLogs
 | where OperationName in ("List users", "List groups", "List service principals")
@@ -1329,7 +1329,7 @@ AuditLogs
 
 Attack: Trick user into granting OAuth permissions to malicious application.
 
-Detection — Permission grant audit log:
+Detection (Permission grant audit log):
 ```kql
 AuditLogs
 | where OperationName == "Consent to application"
@@ -1340,7 +1340,7 @@ AuditLogs
 
 #### ARM Resource Enumeration (T1580)
 
-Detection — Azure Activity Log:
+Detection (Azure Activity Log):
 ```kql
 AzureActivity
 | where OperationName contains "list" or OperationName contains "read"
@@ -1481,7 +1481,7 @@ Maturity self-assessment questions:
 
 ### 10.4 Continuous Program Building
 
-Monthly — Automated atomic validation:
+Monthly (Automated atomic validation):
 ```
 Schedule: 1st Monday of each month, 02:00 UTC
 Scope: Full Atomic Red Team library for in-scope platforms
@@ -1489,7 +1489,7 @@ Method: CI/CD pipeline (see Section 7.6)
 Output: Coverage dashboard update; regression alerts to Slack
 ```
 
-Quarterly — Structured campaign:
+Quarterly (Structured campaign):
 ```
 Schedule: First 2 weeks of each quarter
 Scope: Threat actor emulation plan (rotated quarterly)
@@ -1498,7 +1498,7 @@ Output: Vectr campaign results; Navigator before/after; executive report
 Remediation: Findings enter Jira with 60-day SLA
 ```
 
-Annual — Full red team:
+Annual (Full red team):
 ```
 Scope: Full kill chain, production environment, blind blue team
 Output: Strategic report; informs next year's purple team priority list
@@ -1548,4 +1548,4 @@ Reference repositories:
 
 ---
 
-*End of PURPLE_TEAM_REFERENCE.md — TeamStarWolf Security Engineering*
+*End of PURPLE_TEAM_REFERENCE.md (TeamStarWolf Security Engineering)*

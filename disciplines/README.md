@@ -1,9 +1,9 @@
-<!-- disciplines/README.md — the hub docsify serves at #/disciplines/ and GitHub renders for the disciplines/ folder.
-     Mirrors HOME.md "Discipline paths" clusters — update both in the same PR when a path is added or removed. -->
+<!-- disciplines/README.md: the hub docsify serves at #/disciplines/ and GitHub renders for the disciplines/ folder.
+     Mirrors HOME.md "Discipline paths" clusters; update both in the same PR when a path is added or removed. -->
 
 # Discipline Learning Paths
 
-47 guided paths take you from zero to working practitioner — each one sequences the right references in the right order.
+47 guided paths take you from zero to working practitioner; each one sequences the right references in the right order.
 
 | Cluster | Paths |
 |---|---|

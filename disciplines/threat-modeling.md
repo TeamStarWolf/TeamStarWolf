@@ -2,14 +2,14 @@
 
 ## Introduction
 
-Threat modeling is a structured approach to identifying threats, attack vectors, and mitigations during the design phase of a system — before code is written. The goal is to answer four key questions:
+Threat modeling is a structured approach to identifying threats, attack vectors, and mitigations during the design phase of a system, before code is written. The goal is to answer four key questions:
 
 1. What are we building? (System decomposition)
 2. What can go wrong? (Threat identification)
 3. What are we going to do about it? (Mitigations)
 4. Did we do a good enough job? (Validation)
 
-It is far cheaper to fix a design flaw before implementation than to retrofit security after deployment. Threat modeling shifts security left — it belongs in the architecture phase, not the penetration testing phase.
+It is far cheaper to fix a design flaw before implementation than to retrofit security after deployment. Threat modeling shifts security left: it belongs in the architecture phase, not the penetration testing phase.
 
 Threat modeling produces actionable security requirements, guides architecture decisions, informs penetration test scope, and provides audit evidence for compliance programs.
 
@@ -112,7 +112,7 @@ PASTA is a risk-centric, seven-stage methodology that connects technical threats
 
 ## LINDDUN (Privacy Threat Modeling)
 
-LINDDUN is the privacy-focused analog to STRIDE. It is applied to DFDs to identify privacy threats — essential for GDPR, HIPAA, and CCPA compliance.
+LINDDUN is the privacy-focused analog to STRIDE. It is applied to DFDs to identify privacy threats, essential for GDPR, HIPAA, and CCPA compliance.
 
 | Letter | Threat Category | Description | Example |
 |---|---|---|---|
@@ -225,12 +225,12 @@ Threagile analyzes this and automatically generates STRIDE threats for each comp
 
 ## Offensive Angle: Why Threat Models Get It Wrong
 
-Understanding common threat modeling failures is essential — these are the gaps attackers find and exploit.
+Understanding common threat modeling failures is essential: these are the gaps attackers find and exploit.
 
 ### Incomplete System Decomposition
 - Missing third-party integrations: Analytics trackers, payment SDKs, monitoring agents, CDN providers often omitted from DFDs. These are real attack surfaces (supply chain, XSS, data leakage)
 - Logging and monitoring pipelines not modeled: SIEM agents, log shippers, and monitoring tools have elevated privileges and network access; rarely included in threat models
-- Administrative interfaces excluded: The admin panel, internal API, management plane often skipped because "only internal users access it" — internal attackers and lateral movement reach these too
+- Administrative interfaces excluded: The admin panel, internal API, management plane often skipped because "only internal users access it"; internal attackers and lateral movement reach these too
 
 ### Incorrect Trust Assumptions
 - Internal services blindly trusted: "If it's on the internal network, it's trusted": this assumption enables lateral movement post-breach; Zero Trust principles should apply inside too
@@ -238,8 +238,8 @@ Understanding common threat modeling failures is essential — these are the gap
 - Trusting the client: Assuming the browser/mobile app cannot be modified; all client-side validation is bypassable
 
 ### Scope Omissions
-- Supply chain threats: Build systems, CI/CD pipelines, package registries (npm, PyPI), base container images — all are attack surfaces; rarely modeled
-- Human element absent: Social engineering, insider threat, physical access not on DFD because "you can't put a person in a DFD" — but these are real attack paths that countermeasures must address
+- Supply chain threats: Build systems, CI/CD pipelines, package registries (npm, PyPI), base container images. All are attack surfaces; rarely modeled
+- Human element absent: Social engineering, insider threat, physical access not on DFD because "you can't put a person in a DFD", but these are real attack paths that countermeasures must address
 - The attack on the threat model itself: An attacker who can modify the threat model document or the IriusRisk/ThreatModeler tool can suppress countermeasures
 
 ### Process Failures

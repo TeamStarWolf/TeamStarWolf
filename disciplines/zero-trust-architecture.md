@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Zero Trust Architecture (ZTA) is a security paradigm that eliminates implicit trust and enforces continuous verification for every user, device, and workload — regardless of whether they are inside or outside the traditional network perimeter. The foundational principle, coined by John Kindervag at Forrester Research in 2010, is "never trust, always verify."
+Zero Trust Architecture (ZTA) is a security paradigm that eliminates implicit trust and enforces continuous verification for every user, device, and workload, regardless of whether they are inside or outside the traditional network perimeter. The foundational principle, coined by John Kindervag at Forrester Research in 2010, is "never trust, always verify."
 
-Traditional perimeter-based security assumed that everything inside the corporate network was safe. Modern threats — cloud adoption, remote work, supply chain compromises, and insider threats — shattered that assumption. ZTA treats every access request as potentially hostile and requires explicit verification before granting access.
+Traditional perimeter-based security assumed that everything inside the corporate network was safe. Modern threats (cloud adoption, remote work, supply chain compromises, and insider threats) shattered that assumption. ZTA treats every access request as potentially hostile and requires explicit verification before granting access.
 
 ## Where to Start
 
@@ -74,13 +74,13 @@ Traditional perimeter-based security assumed that everything inside the corporat
 ## Core Principles
 
 ### "Never Trust, Always Verify"
-Every access request — from any user, device, or workload, on any network — is treated as untrusted until verified. Network location (inside or outside the perimeter) grants no inherent trust.
+Every access request (from any user, device, or workload, on any network) is treated as untrusted until verified. Network location (inside or outside the perimeter) grants no inherent trust.
 
 ### Microsegmentation
 The network is divided into small, isolated zones. Each zone requires separate authentication and authorization to access. Breach of one zone does not grant access to others. This limits blast radius.
 
 ### Least Privilege Access
-Users and workloads receive the minimum access required for their task. Privileges are granted just-in-time (JIT) and just-enough-access (JEA). No standing administrative privileges — admins elevate when needed and de-elevate when done.
+Users and workloads receive the minimum access required for their task. Privileges are granted just-in-time (JIT) and just-enough-access (JEA). No standing administrative privileges; admins elevate when needed and de-elevate when done.
 
 ### Assume Breach
 Design the system assuming attackers are already inside. Focus on minimizing damage, detecting quickly, and containing laterally. This mindset drives micro-segmentation, east-west inspection, and aggressive monitoring.
@@ -142,7 +142,7 @@ Key Tools: Azure AD/Entra PIM, Okta Privileged Access, CyberArk Privilege Cloud,
 
 - Device health verification: Before any access is granted, verify device compliance: EDR agent present and healthy, OS patch level meets policy, disk encryption enabled, no known malware
 - Certificate-based device authentication: Device certificates issued by enterprise PKI; untrusted devices cannot authenticate
-- Mobile Device Management (MDM): Microsoft Intune, Jamf Pro (macOS/iOS), VMware Workspace ONE — enforce compliance policies, remote wipe capability
+- Mobile Device Management (MDM): Microsoft Intune, Jamf Pro (macOS/iOS), VMware Workspace ONE; enforce compliance policies, remote wipe capability
 - Privileged Access Workstations (PAW): Dedicated, hardened workstations for administrative tasks; isolated from standard user browsing/email risk
 
 ## Network Pillar (Deep Dive)
@@ -183,8 +183,8 @@ Understanding how attackers target ZTA implementations is essential for defender
 
 ### Policy and Configuration Gaps
 - Legacy Authentication Protocols: SMTP, IMAP, POP3, and Basic Auth bypass Conditional Access policies. Mitigation: Block legacy auth in Conditional Access; enforce modern auth only
-- Conditional Access Exclusions: Emergency break-glass accounts, service accounts, specific user groups excluded from strong auth requirements — often targeted. Mitigation: Audit exclusions regularly; monitor excluded accounts aggressively
-- Service Account Abuse: Service accounts frequently exempt from ZT policies (no MFA, no device compliance) — prime lateral movement targets. Mitigation: Workload identity federation; managed identities; apply ZT to service accounts
+- Conditional Access Exclusions: Emergency break-glass accounts, service accounts, specific user groups excluded from strong auth requirements; often targeted. Mitigation: Audit exclusions regularly; monitor excluded accounts aggressively
+- Service Account Abuse: Service accounts frequently exempt from ZT policies (no MFA, no device compliance); prime lateral movement targets. Mitigation: Workload identity federation; managed identities; apply ZT to service accounts
 
 ### Post-Access Exploitation
 - Lateral Movement Within Allowed Application Scope: ZTA prevents unauthorized application access, but legitimate application vulnerabilities (SSRF, SQLi) can still be exploited once access is granted

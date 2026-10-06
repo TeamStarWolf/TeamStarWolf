@@ -1,6 +1,6 @@
 # OSINT
 
-Open Source Intelligence (OSINT) is the discipline of collecting, processing, analyzing, and acting on information derived from publicly available sources. In cybersecurity, OSINT spans everything from pre-engagement reconnaissance to persistent threat actor tracking, brand protection, fraud investigation, and vulnerability surface mapping. The defining constraint is that all sources must be publicly accessible — no unauthorized access, no credential theft, no exploitation. The discipline requires rigorous methodology, strong operational security, and careful legal and ethical awareness.
+Open Source Intelligence (OSINT) is the discipline of collecting, processing, analyzing, and acting on information derived from publicly available sources. In cybersecurity, OSINT spans everything from pre-engagement reconnaissance to persistent threat actor tracking, brand protection, fraud investigation, and vulnerability surface mapping. The defining constraint is that all sources must be publicly accessible: no unauthorized access, no credential theft, no exploitation. The discipline requires rigorous methodology, strong operational security, and careful legal and ethical awareness.
 
 OSINT is not passive browsing. Professional OSINT work involves structured collection plans, source validation frameworks, link analysis, and documented intelligence products. The same data that helps a red team map an attack surface also helps a threat intelligence analyst track a criminal actor, a fraud investigator build a case, or a security team identify exposed credentials before attackers do. The discipline underlies all of them.
 
@@ -82,7 +82,7 @@ Start with passive reconnaissance against your own infrastructure. Use Shodan to
 
 ## Core Methodology
 
-Effective OSINT work follows a structured cycle. Skipping phases — especially OpSec and objective definition — is where investigations fail or cause harm.
+Effective OSINT work follows a structured cycle. Skipping phases, especially OpSec and objective definition, is where investigations fail or cause harm.
 
 | Phase | Activity | Key Consideration |
 |---|---|---|
@@ -166,7 +166,7 @@ Understanding which of these techniques expose your organization's data drives p
 
 ## Certifications
 
-- BTL1 (Blue Team Labs Level 1: Security Blue Team) — Hands-on analyst certification with OSINT modules covering threat intelligence collection and investigation; the most accessible entry-level validation for OSINT skills in a defensive context
+- BTL1 (Blue Team Labs Level 1: Security Blue Team). Hands-on analyst certification with OSINT modules covering threat intelligence collection and investigation; the most accessible entry-level validation for OSINT skills in a defensive context
 - SANS FOR578 (Cyber Threat Intelligence): The most rigorous professional training for threat intelligence OSINT; covers structured analytic techniques, threat actor attribution, and intelligence production; leads to the GCTI certification
 - GCTI (GIAC Cyber Threat Intelligence): The certification paired with FOR578; validates professional-level threat intelligence and OSINT tradecraft; widely respected in corporate threat intelligence programs
 - OSCP (Offensive Security Certified Professional): Provides the offensive recon context that makes OSINT practitioners more effective; hands-on exploitation experience deeply informs what adversaries can do with collected intelligence

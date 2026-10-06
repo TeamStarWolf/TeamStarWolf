@@ -294,7 +294,7 @@ Use this table to find Arsenal tools by discipline and ATT&CK technique coverage
 
 | OpenTitan | BH USA 2022 | Hardware Security | [Security Architecture](../disciplines/security-architecture.md) | T1542, T1495 | Open-source silicon root of trust |
 
-| OWASP Threat Dragon | BH USA 2019 | Threat Modeling | [Security Architecture](../disciplines/security-architecture.md) | — | Visual threat modeling tool |
+| OWASP Threat Dragon | BH USA 2019 | Threat Modeling | [Security Architecture](../disciplines/security-architecture.md) | None | Visual threat modeling tool |
 
 
 

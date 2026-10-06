@@ -1,6 +1,6 @@
 # CISSP Domain Crosswalk
 
-> This library is a supplement to the Official Study Guide, not a replacement for it. The CISSP tests eight domains — some heavily theoretical, some pure management judgment — and this reference is a technical practitioner's library. This crosswalk maps each of the eight domains of the [ISC2 CISSP exam outline](https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline) (effective April 15, 2024) onto the docs already in this library, then names — honestly, domain by domain — exactly where the library runs out and you have to open the OSG. Written practitioner-to-practitioner by someone who holds the cert: the goal is to tell you where your day-job knowledge already covers the exam and where it will quietly let you down.
+> This library is a supplement to the Official Study Guide, not a replacement for it. The CISSP tests eight domains (some heavily theoretical, some pure management judgment), and this reference is a technical practitioner's library. This crosswalk maps each of the eight domains of the [ISC2 CISSP exam outline](https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline) (effective April 15, 2024) onto the docs already in this library, then names (honestly, domain by domain) exactly where the library runs out and you have to open the OSG. Written practitioner-to-practitioner by someone who holds the cert: the goal is to tell you where your day-job knowledge already covers the exam and where it will quietly let you down.
 
 Related: [Certifications Reference](CERTIFICATIONS.md), [Career Paths & Cert Roadmap](CAREER_PATHS.md), [Interview Prep](INTERVIEW_PREP.md), [Frameworks Reference](FRAMEWORKS.md), [GRC Reference](GRC_REFERENCE.md), [Security Architecture Reference](SECURITY_ARCHITECTURE_REFERENCE.md)
 
@@ -33,18 +33,18 @@ The pattern is worth internalizing before you spend a dollar on training: the li
 
 ## Exam format
 
-Study to the format, not just the content — the CISSP CAT rewards different behavior than a fixed-form exam.
+Study to the format, not just the content; the CISSP CAT rewards different behavior than a fixed-form exam.
 
 | Attribute | Detail |
 |---|---|
-| Format | Computerized Adaptive Testing (CAT) in every language since April 2024 — the 250-item linear exam is retired |
+| Format | Computerized Adaptive Testing (CAT) in every language since April 2024; the 250-item linear exam is retired |
 | Length | 100-150 items |
 | Time | Maximum 3 hours |
 | Passing | 700 out of 1000 |
 | Item types | Multiple choice plus advanced (drag-and-drop, hotspot) items |
 | Coverage | All eight domains, weighted as above |
 
-Because it is adaptive, you cannot go back and change an answer, and the engine escalates difficulty as you answer correctly — feeling like the questions are getting harder is a good sign, not a bad one. Commit to each answer, manage the clock (roughly a minute an item as a floor), and read every question as "which is the *best* answer for a security manager," not "which is technically true." Several options will be technically correct; the exam wants the one that best fits governance, risk, and the ISC2 mindset.
+Because it is adaptive, you cannot go back and change an answer, and the engine escalates difficulty as you answer correctly; feeling like the questions are getting harder is a good sign, not a bad one. Commit to each answer, manage the clock (roughly a minute an item as a floor), and read every question as "which is the *best* answer for a security manager," not "which is technically true." Several options will be technically correct; the exam wants the one that best fits governance, risk, and the ISC2 mindset.
 
 ---
 
@@ -54,10 +54,10 @@ Each domain section below gives you four things:
 
 - What it actually tests: the domain in plain English, keyed to the public outline, in a practitioner's words.
 - Where the library teaches it: the docs on disk that cover that ground, with what each one actually contributes. Every link resolves to a real file in this library.
-- What the library does not cover: go to the OSG — the honest gap. These are the topics you will *not* find here (or find only operationally, not as the exam frames them). Source them from the Official Study Guide and official practice tests.
+- What the library does not cover (go to the OSG): the honest gap. These are the topics you will *not* find here (or find only operationally, not as the exam frames them). Source them from the Official Study Guide and official practice tests.
 - Study tip: the one thing a practitioner most often gets wrong on that domain.
 
-A closing note on honesty: this library was built for operators — blue teamers, red teamers, detection engineers, vuln-management leads. That makes it a genuinely strong companion for the technical two-thirds of the CISSP and a weak one for the management, legal, and formal-theory third. Where a section says "go to the OSG," take it literally.
+A closing note on honesty: this library was built for operators (blue teamers, red teamers, detection engineers, vuln-management leads). That makes it a genuinely strong companion for the technical two-thirds of the CISSP and a weak one for the management, legal, and formal-theory third. Where a section says "go to the OSG," take it literally.
 
 ---
 
@@ -81,7 +81,7 @@ Where the library teaches it.
 | [Insider Threat Reference](INSIDER_THREAT_REFERENCE.md) | Personnel security and the HR/legal/privacy guardrails |
 | [Social Engineering Reference](SOCIAL_ENGINEERING_REFERENCE.md) | Security awareness and training program design |
 
-What the library does not cover — go to the OSG. The ISC2 Code of Ethics canons (memorize them and their *order* — precedence between canons is testable); the exam's risk arithmetic as drilled (SLE = AV × EF, ALE = SLE × ARO, safeguard cost/benefit and ROSI); the specific legal vocabulary (types of investigations — administrative, criminal, civil, regulatory — plus evidence standards, liability, and computer-crime law by jurisdiction); and the precise ISC2 definitions of governance terms (due care vs due diligence, the document hierarchy). The library gives you FAIR and program mechanics; it does not drill the ALE math or the canons.
+What the library does not cover: go to the OSG. The ISC2 Code of Ethics canons (memorize them and their *order*; precedence between canons is testable); the exam's risk arithmetic as drilled (SLE = AV × EF, ALE = SLE × ARO, safeguard cost/benefit and ROSI); the specific legal vocabulary (types of investigations: administrative, criminal, civil, regulatory; plus evidence standards, liability, and computer-crime law by jurisdiction); and the precise ISC2 definitions of governance terms (due care vs due diligence, the document hierarchy). The library gives you FAIR and program mechanics; it does not drill the ALE math or the canons.
 
 Study tip. At 16% this is the single biggest slice, and it is where technical candidates bleed points by choosing the *technically* best answer over the *risk/management* best answer. Retrain the instinct now. Memorize the four ethics canons cold, drill the quantitative risk formulas until they are automatic, and learn the difference between a policy, a standard, a procedure, and a guideline.
 
@@ -101,9 +101,9 @@ Where the library teaches it.
 | [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md) | Secret and key lifecycle, handling, and rotation |
 | [Controls Mapping](CONTROLS_MAPPING.md) | Control baselines that back data-handling requirements |
 
-What the library does not cover — go to the OSG. The CISSP-specific data-role taxonomy and each role's exact duties (owner vs custodian vs steward is a favorite exam distinction); classification and clearance models (government vs commercial schemes and their labels); media sanitization to exam depth — NIST SP 800-88 *clear / purge / destroy* and the media-decision matrix (the library covers destruction only lightly); baseline scoping and tailoring terminology; and data-remanence theory. Source the role definitions and the 800-88 matrix from the OSG.
+What the library does not cover: go to the OSG. The CISSP-specific data-role taxonomy and each role's exact duties (owner vs custodian vs steward is a favorite exam distinction); classification and clearance models (government vs commercial schemes and their labels); media sanitization to exam depth: NIST SP 800-88 *clear / purge / destroy* and the media-decision matrix (the library covers destruction only lightly); baseline scoping and tailoring terminology; and data-remanence theory. Source the role definitions and the 800-88 matrix from the OSG.
 
-Study tip. D2 is small (10%) and mostly definitions and ordering — cheap points if you memorize the data roles, the lifecycle order, and the sanitization vocabulary. Do not overthink it, and do not let the small weight tempt you to skip it: the questions are gettable.
+Study tip. D2 is small (10%) and mostly definitions and ordering: cheap points if you memorize the data roles, the lifecycle order, and the sanitization vocabulary. Do not overthink it, and do not let the small weight tempt you to skip it: the questions are gettable.
 
 ---
 
@@ -126,9 +126,9 @@ Where the library teaches it.
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md), [Edge & Network Device Security](EDGE_DEVICE_SECURITY_REFERENCE.md) | Embedded, IoT, and edge system weaknesses |
 | [Container](CONTAINER_SECURITY_REFERENCE.md), [Kubernetes](KUBERNETES_SECURITY_REFERENCE.md) | Microservices and orchestration architecture risk |
 
-What the library does not cover — go to the OSG. The formal security models are the big gap: Bell-LaPadula (simple-security and \*-property), Biba's integrity axioms, Clark-Wilson, Brewer-Nash / Chinese Wall, Take-Grant, and Graham-Denning — this library is operational, not theoretical, and these are heavily tested (know which model enforces confidentiality vs integrity, and read-up/read-down rules). Also missing: the reference monitor concept and its implementation as the security kernel within the trusted computing base (TCB) — the abstract model of complete, tamperproof access mediation the Orange Book was written to evaluate; evaluation frameworks (Common Criteria, EAL 1-7, the TCSEC "Orange Book" lineage); the security modes of operation (dedicated, system-high, compartmented, multilevel); and the cryptanalytic-attack taxonomy as tested. Source the models, the reference monitor, and CC/EAL from the OSG.
+What the library does not cover: go to the OSG. The formal security models are the big gap: Bell-LaPadula (simple-security and \*-property), Biba's integrity axioms, Clark-Wilson, Brewer-Nash / Chinese Wall, Take-Grant, and Graham-Denning; this library is operational, not theoretical, and these are heavily tested (know which model enforces confidentiality vs integrity, and read-up/read-down rules). Also missing: the reference monitor concept and its implementation as the security kernel within the trusted computing base (TCB), the abstract model of complete, tamperproof access mediation the Orange Book was written to evaluate; evaluation frameworks (Common Criteria, EAL 1-7, the TCSEC "Orange Book" lineage); the security modes of operation (dedicated, system-high, compartmented, multilevel); and the cryptanalytic-attack taxonomy as tested. Source the models, the reference monitor, and CC/EAL from the OSG.
 
-Study tip. This is the most theory-heavy technical domain, and even strong engineers must memorize the classical models. Build a one-page model cheat-sheet (model -> confidentiality or integrity -> its axioms). The cryptography here is *conceptual* — when and why, not implementation — so resist the urge to go down the algorithm rabbit hole your day job rewards.
+Study tip. This is the most theory-heavy technical domain, and even strong engineers must memorize the classical models. Build a one-page model cheat-sheet (model -> confidentiality or integrity -> its axioms). The cryptography here is *conceptual* (when and why, not implementation), so resist the urge to go down the algorithm rabbit hole your day job rewards.
 
 ---
 
@@ -150,7 +150,7 @@ Where the library teaches it.
 | [Cloud & Network Security](CLOUD_NETWORK_SECURITY.md) | Virtualized and cloud networking |
 | [Network Security discipline](disciplines/network-security.md) | The discipline overview |
 
-What the library does not cover — go to the OSG. The exam's protocol-by-layer mapping drills at a conceptual level; some legacy and telephony topics (PBX, analog voice, specific multimedia-collaboration terms); the CISSP framing of converged protocols (FCoE, iSCSI, MPLS) and WAN technologies to exam depth. The gap here is the opposite of most domains — the library is *deeper and more offensive* than the exam needs. Study to the exam's breadth, not the library's depth.
+What the library does not cover: go to the OSG. The exam's protocol-by-layer mapping drills at a conceptual level; some legacy and telephony topics (PBX, analog voice, specific multimedia-collaboration terms); the CISSP framing of converged protocols (FCoE, iSCSI, MPLS) and WAN technologies to exam depth. The gap here is the opposite of most domains: the library is *deeper and more offensive* than the exam needs. Study to the exam's breadth, not the library's depth.
 
 Study tip. If you are a practitioner you almost certainly over-know this domain, and that is the trap: the exam wants layer mapping and "which secure protocol replaces which insecure one," not packet-level tradecraft. Memorize the OSI layer -> protocol -> attack -> control table and move on. Do not spend a week here.
 
@@ -158,7 +158,7 @@ Study tip. If you are a practitioner you almost certainly over-know this domain,
 
 ## Domain 5: Identity and Access Management (IAM) (13%)
 
-What it actually tests. Physical and logical access control to assets; identity management (the identity lifecycle — provisioning through deprovisioning, registration and proofing, identity providers, federation, SSO, just-in-time); authentication and authorization (MFA, biometrics with FAR/FRR/CER, session and credential management); federated identity (SAML, OIDC, OAuth, cross-domain trust); the access-control models (DAC, MAC, RBAC, ABAC, RuBAC, ReBAC); accountability; and privileged access management.
+What it actually tests. Physical and logical access control to assets; identity management (the identity lifecycle: provisioning through deprovisioning, registration and proofing, identity providers, federation, SSO, just-in-time); authentication and authorization (MFA, biometrics with FAR/FRR/CER, session and credential management); federated identity (SAML, OIDC, OAuth, cross-domain trust); the access-control models (DAC, MAC, RBAC, ABAC, RuBAC, ReBAC); accountability; and privileged access management.
 
 Where the library teaches it.
 
@@ -170,9 +170,9 @@ Where the library teaches it.
 | [Password Security Reference](PASSWORD_SECURITY_REFERENCE.md) | NIST 800-63B policy, credential storage (Argon2/bcrypt/PBKDF2) |
 | [Zero Trust Reference](ZERO_TRUST_REFERENCE.md) | Identity as the zero-trust control plane |
 
-What the library does not cover — go to the OSG. The exam's access-control model taxonomy and its nuances (MAC vs DAC vs RBAC vs RuBAC vs ABAC — and which the exam labels "non-discretionary"); biometric accuracy metrics as tested (FAR, FRR, and the CER crossover point); the conceptual federation flows at the "which protocol for which scenario" level; identity proofing and assurance (the IAL/AAL/FAL levels from NIST 800-63); and the reference monitor — the abstraction behind all access mediation, though the exam files its formal treatment under Domain 3's architecture material. The library is vendor- and attack-deep; source the model taxonomy and biometrics math from the OSG.
+What the library does not cover: go to the OSG. The exam's access-control model taxonomy and its nuances (MAC vs DAC vs RBAC vs RuBAC vs ABAC, and which the exam labels "non-discretionary"); biometric accuracy metrics as tested (FAR, FRR, and the CER crossover point); the conceptual federation flows at the "which protocol for which scenario" level; identity proofing and assurance (the IAL/AAL/FAL levels from NIST 800-63); and the reference monitor, the abstraction behind all access mediation, though the exam files its formal treatment under Domain 3's architecture material. The library is vendor- and attack-deep; source the model taxonomy and biometrics math from the OSG.
 
-Study tip. Nail the access-control model taxonomy and the biometric metrics — CER is the point where FAR equals FRR, and a lower CER means a better system. Keep the federation trio straight (SAML is XML-based enterprise SSO; OAuth 2.0 is delegated authorization; OIDC is the authentication layer on top of OAuth). Under time pressure, practitioners fumble authentication vs authorization — drill the distinction.
+Study tip. Nail the access-control model taxonomy and the biometric metrics: CER is the point where FAR equals FRR, and a lower CER means a better system. Keep the federation trio straight (SAML is XML-based enterprise SSO; OAuth 2.0 is delegated authorization; OIDC is the authentication layer on top of OAuth). Under time pressure, practitioners fumble authentication vs authorization; drill the distinction.
 
 ---
 
@@ -194,9 +194,9 @@ Where the library teaches it.
 | [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md) | Fuzzing and dynamic testing depth |
 | [Run a Coverage-Gap Assessment](guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md), [Run a Purple-Team Exercise](guides/RUN_A_PURPLE_TEAM_EXERCISE.md), [Start a Vuln-Mgmt Program](guides/START_A_VULN_MGMT_PROGRAM.md) | The assessment activities as runnable procedures |
 
-What the library does not cover — go to the OSG. Audit management as the exam frames it — internal vs external vs third-party audit roles, the audit lifecycle, and the SOC report types (SOC 1 vs SOC 2 vs SOC 3, Type I vs Type II, and who reads each); the formal test-type definitions the exam loves (synthetic transactions, misuse-case testing, interface and coverage testing); log-review governance; and "collecting security process data" (account access reviews, the management-review cadence) as a *governance* activity rather than a technical one. The library shows you how to test; source the audit and process-data framing from the OSG.
+What the library does not cover: go to the OSG. Audit management as the exam frames it: internal vs external vs third-party audit roles, the audit lifecycle, and the SOC report types (SOC 1 vs SOC 2 vs SOC 3, Type I vs Type II, and who reads each); the formal test-type definitions the exam loves (synthetic transactions, misuse-case testing, interface and coverage testing); log-review governance; and "collecting security process data" (account access reviews, the management-review cadence) as a *governance* activity rather than a technical one. The library shows you how to test; source the audit and process-data framing from the OSG.
 
-Study tip. The library makes you strong on the *doing*. The exam adds a *governance* layer on top — audit types, report types, and formal test-type definitions. Learn the vocabulary of assessment, not just the practice; a SOC 2 Type II vs Type I question is pure recall and free if you have memorized it.
+Study tip. The library makes you strong on the *doing*. The exam adds a *governance* layer on top: audit types, report types, and formal test-type definitions. Learn the vocabulary of assessment, not just the practice; a SOC 2 Type II vs Type I question is pure recall and free if you have memorized it.
 
 ---
 
@@ -222,15 +222,15 @@ Where the library teaches it.
 | [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md) | Honeypots and deception as detective measures |
 | [Respond to Ransomware](guides/RESPOND_TO_RANSOMWARE.md), [Onboard a Log Source](guides/ONBOARD_A_LOG_SOURCE.md), [Hunt for LOTL Activity](guides/HUNT_FOR_LOTL_ACTIVITY.md) | Operations as runnable procedures |
 
-What the library does not cover — go to the OSG. The administrative controls the exam stresses as governance concepts (separation of duties, job rotation, mandatory vacation, dual control, need-to-know) — a technical candidate underweights these badly; the CISSP legal-evidence framing (evidence types — real, documentary, testimonial; admissibility; chain of custody as legal doctrine; eDiscovery); recovery-site definitions (hot, warm, cold, mobile, cloud) and RAID levels to exam depth; and the exam's specific incident-management step order, which may differ from the NIST/SANS wording you use daily. Source the admin-control and legal-evidence vocabulary from the OSG.
+What the library does not cover: go to the OSG. The administrative controls the exam stresses as governance concepts (separation of duties, job rotation, mandatory vacation, dual control, need-to-know; a technical candidate underweights these badly); the CISSP legal-evidence framing (evidence types: real, documentary, testimonial; admissibility; chain of custody as legal doctrine; eDiscovery); recovery-site definitions (hot, warm, cold, mobile, cloud) and RAID levels to exam depth; and the exam's specific incident-management step order, which may differ from the NIST/SANS wording you use daily. Source the admin-control and legal-evidence vocabulary from the OSG.
 
-Study tip. D7 is a practitioner's home turf and overlaps with D1 — expect it. Two traps: first, the exam's incident lifecycle step *names and order* may not match your day-to-day framework, so learn the ISC2 version; second, it heavily tests administrative controls (SoD, job rotation, mandatory vacation) that engineers skim past. Memorize the recovery-site tiers and RAID basics — they are recall points.
+Study tip. D7 is a practitioner's home turf and overlaps with D1; expect it. Two traps: first, the exam's incident lifecycle step *names and order* may not match your day-to-day framework, so learn the ISC2 version; second, it heavily tests administrative controls (SoD, job rotation, mandatory vacation) that engineers skim past. Memorize the recovery-site tiers and RAID basics; they are recall points.
 
 ---
 
 ## Domain 8: Software Development Security (10%)
 
-What it actually tests. Security in the SDLC (development models — Waterfall, Agile, DevOps, DevSecOps; maturity models — SAMM, BSIMM, CMMI; change management; integrated product teams); security controls in development ecosystems (IDEs, repositories, libraries, CI/CD, application security testing — SAST/DAST/IAST/SCA, runtime protection); assessing software security effectiveness (change auditing and logging, risk analysis and mitigation); assessing the security of acquired software (COTS, OSS, third-party, managed services, SaaS/IaaS/PaaS); and secure coding (guidelines and standards, programming-language weaknesses, API security, secure deployment, OWASP).
+What it actually tests. Security in the SDLC (development models: Waterfall, Agile, DevOps, DevSecOps; maturity models: SAMM, BSIMM, CMMI; change management; integrated product teams); security controls in development ecosystems (IDEs, repositories, libraries, CI/CD, application security testing (SAST/DAST/IAST/SCA), runtime protection); assessing software security effectiveness (change auditing and logging, risk analysis and mitigation); assessing the security of acquired software (COTS, OSS, third-party, managed services, SaaS/IaaS/PaaS); and secure coding (guidelines and standards, programming-language weaknesses, API security, secure deployment, OWASP).
 
 Where the library teaches it.
 
@@ -245,15 +245,15 @@ Where the library teaches it.
 | [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md) | Acquired and third-party software risk, SBOM, SLSA |
 | [Threat-Model an Application](guides/THREAT_MODEL_AN_APPLICATION.md) | Building security into design as a runnable procedure |
 
-What the library does not cover — go to the OSG. The SDLC models and software-security maturity models as the exam *contrasts* them (SAMM vs BSIMM vs CMMI — what each measures and when to use it); the software-security-effectiveness and change-audit framing; and database security concepts the exam tests but the library barely touches — ACID properties, aggregation and inference, polyinstantiation, and DBMS access controls. The library is practitioner-grade on modern AppSec and DevSecOps; source the SDLC/maturity-model contrasts and the database-security theory from the OSG.
+What the library does not cover: go to the OSG. The SDLC models and software-security maturity models as the exam *contrasts* them (SAMM vs BSIMM vs CMMI: what each measures and when to use it); the software-security-effectiveness and change-audit framing; and database security concepts the exam tests but the library barely touches: ACID properties, aggregation and inference, polyinstantiation, and DBMS access controls. The library is practitioner-grade on modern AppSec and DevSecOps; source the SDLC/maturity-model contrasts and the database-security theory from the OSG.
 
-Study tip. The library over-delivers on modern AppSec, so the D8 twist is the *process and theory* side: the SDLC models, the maturity-model trio (SAMM/BSIMM/CMMI), and the database concepts (aggregation, inference, polyinstantiation) that never show up in day-to-day coding. Study those specifically — they are the questions you will not intuit from experience.
+Study tip. The library over-delivers on modern AppSec, so the D8 twist is the *process and theory* side: the SDLC models, the maturity-model trio (SAMM/BSIMM/CMMI), and the database concepts (aggregation, inference, polyinstantiation) that never show up in day-to-day coding. Study those specifically; they are the questions you will not intuit from experience.
 
 ---
 
 ## A twelve-week study plan
 
-A realistic skeleton for a working professional at roughly 8-12 hours a week. It front-loads the heavy, unfamiliar domains (D1-D3), moves fast through the domains a practitioner already knows (D4, D5, D7), and reserves the last two weeks for full-length practice and memorization. Adjust the pace to your own weak spots — the [at-a-glance table](#the-eight-domains-at-a-glance) tells you where your gaps probably are.
+A realistic skeleton for a working professional at roughly 8-12 hours a week. It front-loads the heavy, unfamiliar domains (D1-D3), moves fast through the domains a practitioner already knows (D4, D5, D7), and reserves the last two weeks for full-length practice and memorization. Adjust the pace to your own weak spots; the [at-a-glance table](#the-eight-domains-at-a-glance) tells you where your gaps probably are.
 
 | Week | Focus | Domain(s) | Library anchors |
 |---|---|---|---|
@@ -270,7 +270,7 @@ A realistic skeleton for a working professional at roughly 8-12 hours a week. It
 | 11 | Full-length practice exams + weak-domain drill | All | Re-hit the domain sections above where you scored low; redo risk math, models, taxonomies |
 | 12 | Final memorization + logistics + one last practice | All | Cheat-sheets: ethics canons, security models, RAID/recovery sites, biometrics, data roles, ALE math |
 
-Two rules that matter more than the schedule: take a full-length, timed practice exam before week 11 so you know your real baseline early, and treat every "+ OSG" cell as mandatory reading, not optional — those are the gaps this library cannot close.
+Two rules that matter more than the schedule: take a full-length, timed practice exam before week 11 so you know your real baseline early, and treat every "+ OSG" cell as mandatory reading, not optional; those are the gaps this library cannot close.
 
 ---
 
@@ -278,7 +278,7 @@ Two rules that matter more than the schedule: take a full-length, timed practice
 
 - [ISC2 CISSP Certification Exam Outline](https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline): the official outline, effective April 15, 2024; domains and weights
 - [ISC2 CISSP Computerized Adaptive Testing (CAT)](https://www.isc2.org/certifications/cissp/cissp-cat): CAT format, item count, and time limit
-- [ISC2: Computerized Adaptive Testing for CISSP Examinations in All Languages](https://www.isc2.org/Insights/2024/02/Computerized-Adaptive-Testing-CISSP-Examinations-All-Languages) — retirement of the linear exam
+- [ISC2: Computerized Adaptive Testing for CISSP Examinations in All Languages](https://www.isc2.org/Insights/2024/02/Computerized-Adaptive-Testing-CISSP-Examinations-All-Languages): retirement of the linear exam
 - [ISC2 CISSP Exam Refresh FAQ](https://www.isc2.org/certifications/cissp/cissp-exam-refresh-faq): the April 2024 refresh detail
 - [ISC2 Code of Ethics](https://www.isc2.org/ethics): the four professional-ethics canons (Domain 1)
 

@@ -1,6 +1,6 @@
 # Governance, Risk & Compliance (GRC)
 
-GRC is the backbone of every mature security program. Governance defines policies and accountability structures. Risk management identifies, assesses, and prioritizes threats to the business. Compliance maps those risks to regulatory and contractual obligations — NIST CSF, ISO 27001, SOC 2, HIPAA, PCI DSS, FedRAMP, and more. A GRC practitioner translates between the language of risk and the language of technical security controls, enabling the organization to make informed, documented decisions about acceptable risk.
+GRC is the backbone of every mature security program. Governance defines policies and accountability structures. Risk management identifies, assesses, and prioritizes threats to the business. Compliance maps those risks to regulatory and contractual obligations: NIST CSF, ISO 27001, SOC 2, HIPAA, PCI DSS, FedRAMP, and more. A GRC practitioner translates between the language of risk and the language of technical security controls, enabling the organization to make informed, documented decisions about acceptable risk.
 
 ---
 
@@ -12,7 +12,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 2. Work through [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) to understand what security controls actually look like at depth
 3. Practice with the [CISA Cyber Resilience Review (CRR)](https://www.cisa.gov/resources-tools/services/cyber-resilience-review) self-assessment
 4. Explore [OpenRMF](https://github.com/Cingulara/openrmf-oss) to see how control frameworks are operationalized in practice
-5. Use the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/) to map NIST 800-53 controls to ATT&CK techniques — this connects compliance to threat reality
+5. Use the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/) to map NIST 800-53 controls to ATT&CK techniques; this connects compliance to threat reality
 
 ---
 
@@ -51,7 +51,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 | Platform | Category | Key Capabilities |
 |---|---|---|
-| ServiceNow GRC | Integrated Risk Management | Policy lifecycle, risk registers, third-party risk, audit management — deeply integrated with IT operations |
+| ServiceNow GRC | Integrated Risk Management | Policy lifecycle, risk registers, third-party risk, audit management; deeply integrated with IT operations |
 | RSA Archer | GRC Platform | Risk management, compliance workflows, vendor risk, BCM: widely deployed in regulated industries |
 | MetricStream | GRC / IRM | Enterprise risk, audit management, regulatory compliance, ESG reporting |
 | OneTrust | Privacy & GRC | Privacy program management, DPIA/PIA, consent management, third-party risk, ESG |
@@ -85,7 +85,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 | Resource | Focus |
 |---|---|
-| *How to Measure Anything in Cybersecurity Risk*: Douglas Hubbard & Richard Seiersen | Quantitative risk measurement using FAIR and Monte Carlo methods — the best book on security risk analysis |
+| *How to Measure Anything in Cybersecurity Risk*: Douglas Hubbard & Richard Seiersen | Quantitative risk measurement using FAIR and Monte Carlo methods; the best book on security risk analysis |
 | *The CISO’s Guide to an Effective Security Program*: Todd Fitzgerald | Practical program-building from a practitioner perspective |
 | *IT Auditing: Using Controls to Protect Information Assets*: Davis, Schiller & Wheeler | Internal audit methodology and IT control frameworks |
 | *NIST SP 800-30 Rev 1: Guide for Conducting Risk Assessments* | Authoritative NIST risk assessment methodology: free |
@@ -159,7 +159,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 #### Risk Management Process
 
-NIST RMF (Risk Management Framework) — 7 Steps
+NIST RMF (Risk Management Framework): 7 Steps
 1. Prepare: Identify mission/business objectives, define risk tolerance, designate roles (ISSO, ISSM)
 2. Categorize: FIPS 199 impact levels (Low/Moderate/High) for Confidentiality, Integrity, Availability
 3. Select: Choose controls from NIST 800-53 baseline for impact level, tailor as needed
@@ -188,7 +188,7 @@ Quantitative Risk (FAIR Model)
 
 Evidence Collection and Audit Readiness
 - GRC platforms: ServiceNow GRC, Archer, OneTrust, Drata (automated evidence collection), Vanta (automated SOC 2/ISO compliance)
-- Continuous compliance: Integrate automated evidence via API (cloud config states, access reviews, patch compliance) — removes point-in-time scramble
+- Continuous compliance: Integrate automated evidence via API (cloud config states, access reviews, patch compliance); removes point-in-time scramble
 - Evidence types: Screenshots, log exports, policy documents, signed attestations, configuration exports
 - Audit cycle: Quarterly control self-assessments, annual internal audits, annual external audit/pentest
 

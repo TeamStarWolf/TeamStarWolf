@@ -25,7 +25,7 @@
 
 ## 1. Early Hacking History (1986-2009)
 
-The incidents below established the legal, technical, and geopolitical frameworks that define modern cybersecurity. Many introduced concepts — worms, espionage, social engineering, mass exploitation — that remain central today.
+The incidents below established the legal, technical, and geopolitical frameworks that define modern cybersecurity. Many introduced concepts (worms, espionage, social engineering, mass exploitation) that remain central today.
 
 | Year | Incident | Actor | Impact | Significance |
 |------|----------|-------|--------|--------------|
@@ -44,7 +44,7 @@ The incidents below established the legal, technical, and geopolitical framework
 
 ## 2. Nation-State Campaigns (2010-2020)
 
-This era saw state-sponsored hacking mature into a strategic geopolitical instrument — targeting critical infrastructure, political processes, financial systems, and the intelligence community itself.
+This era saw state-sponsored hacking mature into a strategic geopolitical instrument, targeting critical infrastructure, political processes, financial systems, and the intelligence community itself.
 
 ### 2010: Stuxnet
 
@@ -66,7 +66,7 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 - Target: 72+ organizations including US government agencies, defense contractors, the UN, the IOC, and various national Olympic committees
 - Attribution: Chinese government (attributed by McAfee)
-- Method: Spear-phishing leading to remote access trojans; longest-running APT campaign disclosed at the time — active for 5+ years
+- Method: Spear-phishing leading to remote access trojans; longest-running APT campaign disclosed at the time; active for 5+ years
 - Impact: Terabytes of sensitive data exfiltrated; full scope never publicly disclosed
 - Significance: McAfee's disclosure report coined "RAT" as a standard term and brought APT campaigns to board-level attention worldwide
 
@@ -198,9 +198,9 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 - Date: February 24, 2022 (beginning roughly one hour before Russia's invasion of Ukraine)
 - Actor: Russian Federation (formally attributed May 10, 2022 by the EU together with the US, UK, and other partner governments)
-- Method: Entry through a misconfigured VPN appliance into the KA-SAT ground-segment management network; the AcidRain wiper was then pushed to subscriber modems through the legitimate management plane, overwriting their flash memory — the satellite itself was never touched (per Viasat's own incident disclosure)
+- Method: Entry through a misconfigured VPN appliance into the KA-SAT ground-segment management network; the AcidRain wiper was then pushed to subscriber modems through the legitimate management plane, overwriting their flash memory; the satellite itself was never touched (per Viasat's own incident disclosure)
 - Impact: Tens of thousands of KA-SAT broadband modems rendered inoperable across Ukraine and Europe at the moment of invasion; spillover knocked out remote monitoring and control of roughly 5,800 Enercon wind turbines in Germany; Viasat had to ship replacement modems in bulk to restore service
-- Significance: The most consequential publicly documented cyberattack on a space system; assessed by the attributing governments as intended to disrupt Ukrainian command and control during the invasion; proved the ground and user segments — not the satellite — are the real attack surface, and that a SATCOM attack cascades across sectors; prompted the CISA/FBI AA22-076A SATCOM hardening advisory. Full segment-by-segment case study in the library's [Space Systems Security Reference](SPACE_SECURITY_REFERENCE.md)
+- Significance: The most consequential publicly documented cyberattack on a space system; assessed by the attributing governments as intended to disrupt Ukrainian command and control during the invasion; proved the ground and user segments, not the satellite, are the real attack surface, and that a SATCOM attack cascades across sectors; prompted the CISA/FBI AA22-076A SATCOM hardening advisory. Full segment-by-segment case study in the library's [Space Systems Security Reference](SPACE_SECURITY_REFERENCE.md)
 
 ### 2022: Lapsus$ Group
 
@@ -231,9 +231,9 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Date: May 27-28, 2023 (mass exploitation); June 2023 (disclosure cascade)
 - Actor: Cl0p ransomware gang (TA505, Russian-speaking)
 - CVE: CVE-2023-34362 (SQL injection leading to RCE in Progress Software MOVEit Transfer)
-- Method: Unauthenticated SQL injection to extract admin credentials; deploy web shell ("LEMURLOOT"); exfiltrate all data; no encryption deployed — pure extortion via data theft
+- Method: Unauthenticated SQL injection to extract admin credentials; deploy web shell ("LEMURLOOT"); exfiltrate all data; no encryption deployed; pure extortion via data theft
 - Impact: 2,500+ organizations affected; 90M+ individuals' records stolen; victims include US government agencies (DOE, OPM), Shell, British Airways, BBC, Boots, Johns Hopkins, Ernst & Young, Aon, Cognizant; total damages estimated $9.9B+
-- Significance: Largest single-vulnerability mass exploitation event in history; Cl0p's "no encryption" model proved that ransomware groups don't need ransomware — data theft alone is sufficient leverage; highlighted managed file transfer software as a systemic risk
+- Significance: Largest single-vulnerability mass exploitation event in history; Cl0p's "no encryption" model proved that ransomware groups don't need ransomware; data theft alone is sufficient leverage; highlighted managed file transfer software as a systemic risk
 
 ### 2023: MGM Resorts (Scattered Spider)
 
@@ -264,15 +264,15 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 - Actor: Volt Typhoon (Bronze Silhouette): Chinese MSS/PLA (attributed by US IC, Five Eyes)
 - Targets: US critical infrastructure: power utilities, water systems, telecommunications, transportation, military logistics nodes; Guam infrastructure specifically targeted
 - Method: Living-off-the-land (LOTL): exclusively uses native OS tools (wmic, ntdsutil, netsh, PowerShell); no custom malware deployed; compromises SOHO routers (Cisco, Netgear, ASUS) as proxy infrastructure; long-dwell persistent access
-- Impact: Confirmed presence in multiple US critical infrastructure sectors; CISA/FBI issued emergency advisories; some victims had Volt Typhoon present for 5+ years undetected; no destructive action taken — assessed as pre-positioning for wartime disruption
+- Impact: Confirmed presence in multiple US critical infrastructure sectors; CISA/FBI issued emergency advisories; some victims had Volt Typhoon present for 5+ years undetected; no destructive action taken; assessed as pre-positioning for wartime disruption
 - Significance: Shift from intelligence collection to sabotage pre-positioning; LOTL techniques defeat signature-based detection; assessed as preparation for potential conflict over Taiwan; forced rethinking of OT/IT network segmentation and SOHO router security
 
 ### 2024-2025: Salt Typhoon (Chinese Telecom Espionage)
 
 - Actor: PRC state-sponsored actors: activity overlapping industry reporting on Salt Typhoon, OPERATOR PANDA, RedMike, UNC5807, and GhostEmperor; joint advisory AA25-239A names three PRC companies providing cyber services to Chinese intelligence
 - Targets: Commercial telecommunications carriers (multiple US providers confirmed compromised in FBI/CISA joint statements, October-November 2024), plus government, transportation, lodging, and military infrastructure worldwide
-- Method: Exploitation of known, unpatched vulnerabilities in network edge devices: Cisco IOS XE web UI (CVE-2023-20198, CVE-2023-20273), Cisco Smart Install (CVE-2018-0171), Ivanti Connect Secure (CVE-2024-21887), Palo Alto PAN-OS GlobalProtect (CVE-2024-3400) — with long-dwell persistence in carrier backbone and provider-edge routers and their management planes; no 5G-specific exploitation involved
-- Impact: FBI/CISA confirmed three categories: bulk theft of customer call records (metadata), compromise of the private communications of a limited number of individuals primarily involved in government or political activity, and copying of information subject to US law-enforcement requests under court orders — a publicly documented reach into lawful-intercept infrastructure
+- Method: Exploitation of known, unpatched vulnerabilities in network edge devices: Cisco IOS XE web UI (CVE-2023-20198, CVE-2023-20273), Cisco Smart Install (CVE-2018-0171), Ivanti Connect Secure (CVE-2024-21887), Palo Alto PAN-OS GlobalProtect (CVE-2024-3400), with long-dwell persistence in carrier backbone and provider-edge routers and their management planes; no 5G-specific exploitation involved
+- Impact: FBI/CISA confirmed three categories: bulk theft of customer call records (metadata), compromise of the private communications of a limited number of individuals primarily involved in government or political activity, and copying of information subject to US law-enforcement requests under court orders, a publicly documented reach into lawful-intercept infrastructure
 - Significance: The most sweeping publicly confirmed compromise of telecommunications infrastructure to date; answered by the December 2024 joint visibility/hardening guidance and by advisory AA25-239A (August 2025), co-sealed by agencies from 13 countries; alongside Volt Typhoon it defines the twin PRC threats of espionage at scale and sabotage pre-positioning. Full advisory timeline and defender guidance in the library's [Telecom & 5G Security Reference](TELECOM_5G_SECURITY_REFERENCE.md)
 
 ---
@@ -335,12 +335,12 @@ This era saw state-sponsored hacking mature into a strategic geopolitical instru
 
 ### Step 1: Immediate OFAC Sanctions Check (Before Any Payment)
 
-The US Treasury's Office of Foreign Assets Control (OFAC) maintains a Specially Designated Nationals (SDN) list. Paying a ransom to a sanctioned entity — even if unaware — can result in civil penalties up to $1M+ and criminal charges.
+The US Treasury's Office of Foreign Assets Control (OFAC) maintains a Specially Designated Nationals (SDN) list. Paying a ransom to a sanctioned entity, even if unaware, can result in civil penalties up to $1M+ and criminal charges.
 
 - Check: [ofac.treasury.gov](https://ofac.treasury.gov): SDN list search
 - Known sanctioned ransomware groups: Evil Corp (OFAC sanctioned Dec 2019: do not pay), Sandworm/TrickBot operators (sanctioned Sept 2019)
 - Retain legal counsel with OFAC expertise before any payment decision
-- OFAC issued guidance that paying ransoms to sanctioned groups is a strict liability offense — "I didn't know" is not a defense
+- OFAC issued guidance that paying ransoms to sanctioned groups is a strict liability offense: "I didn't know" is not a defense
 
 ### Step 2: Engage Professional Incident Response
 
@@ -401,7 +401,7 @@ Work through these questions in order before any payment decision:
 
 ### Free Decryptors: No More Ransom Project
 
-nomoreransom.org — Joint initiative by Europol, Interpol, and security vendors.
+nomoreransom.org: Joint initiative by Europol, Interpol, and security vendors.
 
 - Free decryptors available for 150+ ransomware families including: Avaddon, Babuk, DarkSide, GandCrab, HermeticRansom, Maze, MegaCortex, REvil/Sodinokibi (partial), Shade/Troldesh, WannaCry
 - Always check before paying: a free decryptor may already exist
@@ -461,7 +461,7 @@ The following vulnerability classes have proven to be high-impact, widely exploi
 
 When triaging, prioritize patching based on:
 
-1. CISA KEV (Known Exploited Vulnerabilities) Catalog: [cisa.gov/kev](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) — mandatory patching deadlines for federal agencies; use as a baseline for all orgs
+1. CISA KEV (Known Exploited Vulnerabilities) Catalog: [cisa.gov/kev](https://www.cisa.gov/known-exploited-vulnerabilities-catalog); mandatory patching deadlines for federal agencies; use as a baseline for all orgs
 2. EPSS Score (Exploit Prediction Scoring System): probability a CVE will be exploited in the wild within 30 days
 3. Asset exposure: internet-facing systems (VPNs, file transfer, email) require faster patching than internal-only
 4. Compensating controls: can you segment, disable, or add WAF rules while patching?

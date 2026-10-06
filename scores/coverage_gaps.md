@@ -41,8 +41,8 @@ What's missing: Attackers staging and collecting data before exfiltration is nea
 | T1213: Data from Information Repositories | 24 | Confluence, SharePoint, O365 data harvesting: extremely common in breaches |
 | T1530: Data from Cloud Storage | 33 | S3/Azure Blob/GCS unauthorized data access: highest NIST score in the matrix |
 | T1560: Archive Collected Data | 5 | Pre-exfil staging; zip/rar of sensitive files before sending out |
-| T1056: Input Capture | — | Keylogging and credential capture from interactive sessions |
-| T1074: Data Staged | — | Local/remote staging before exfiltration |
+| T1056: Input Capture | None | Keylogging and credential capture from interactive sessions |
+| T1074: Data Staged | None | Local/remote staging before exfiltration |
 | T1114: Email Collection | 14 | Mailbox rule creation for auto-forwarding (partial via Mimecast) |
 
 Recommended addition: CASB (Netskope, Microsoft Purview, Zscaler CASB) + DLP (Microsoft Purview DLP, Forcepoint)
@@ -55,15 +55,15 @@ What's missing: Attackers mapping the environment post-compromise are nearly und
 
 | Uncovered Technique | NIST Depth | Why It Matters |
 |---|---|---|
-| T1082: System Information Discovery | — | Near-universal in all attacks; precedes targeting decisions |
-| T1083: File and Directory Discovery | — | Attacker locating sensitive files and credentials |
+| T1082: System Information Discovery | None | Near-universal in all attacks; precedes targeting decisions |
+| T1083: File and Directory Discovery | None | Attacker locating sensitive files and credentials |
 | T1087: Account Discovery | 3 | Mapping users and groups; precedes privilege escalation |
-| T1018: Remote System Discovery | — | Network mapping post-compromise |
-| T1069: Permission Groups Discovery | — | AD/Azure group enumeration before lateral movement |
+| T1018: Remote System Discovery | None | Network mapping post-compromise |
+| T1069: Permission Groups Discovery | None | AD/Azure group enumeration before lateral movement |
 | T1482: Domain Trust Discovery | 9 | Forest/trust enumeration before cross-domain attacks |
 | T1580: Cloud Infrastructure Discovery | 5 | Cloud asset enumeration (partial via Wiz identify) |
 
-Recommended addition: UEBA behavioral analytics in existing SIEM (Splunk UBA, Sentinel UEBA, Securonix) — uses existing log telemetry to detect discovery patterns without new data sources.
+Recommended addition: UEBA behavioral analytics in existing SIEM (Splunk UBA, Sentinel UEBA, Securonix), which uses existing log telemetry to detect discovery patterns without new data sources.
 
 ---
 
@@ -97,7 +97,7 @@ What's missing: Only scripting (T1059) is covered. Most execution techniques fal
 | T1129: Shared Modules | 5 | DLL loading for execution |
 | T1204: User Execution | 13 | Partial via email security; endpoint detection needed |
 
-Recommended addition: EDR policy tuning — CrowdStrike/SentinelOne already deployed, expand behavioral rules to cover WMI execution and scheduled task abuse. Existing telemetry is present; rule coverage is the gap.
+Recommended addition: EDR policy tuning. CrowdStrike/SentinelOne already deployed, expand behavioral rules to cover WMI execution and scheduled task abuse. Existing telemetry is present; rule coverage is the gap.
 
 ---
 

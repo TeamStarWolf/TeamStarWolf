@@ -238,7 +238,7 @@ Supported standards:
 - NIST SP 800-53: Rev 5
 - SOC 2
 
-Finding format: AWS Security Finding Format (ASFF) — standardized JSON schema.
+Finding format: AWS Security Finding Format (ASFF), a standardized JSON schema.
 
 ---
 
@@ -392,7 +392,7 @@ codestar:CreateProject → creates roles with elevated permissions
 
 #### IMDSv1 (Vulnerable)
 
-EC2 Instance Metadata Service available at `http://169.254.169.254/`. IMDSv1 accepts unauthenticated GET requests — any application with SSRF can query it.
+EC2 Instance Metadata Service available at `http://169.254.169.254/`. IMDSv1 accepts unauthenticated GET requests; any application with SSRF can query it.
 
 Classic SSRF attack:
 ```bash
@@ -417,7 +417,7 @@ http://169.254.169.254/latest/dynamic/instance-identity/document     # account I
 
 #### IMDSv2 (Hardened)
 
-Requires a session-oriented token. Token request uses PUT method with `X-aws-ec2-metadata-token-ttl-seconds` header — most SSRF vulnerabilities can only make GET requests, blocking exploitation.
+Requires a session-oriented token. Token request uses PUT method with `X-aws-ec2-metadata-token-ttl-seconds` header; most SSRF vulnerabilities can only make GET requests, blocking exploitation.
 
 ```bash
 # Legitimate IMDSv2 usage
@@ -497,7 +497,7 @@ Role trust policy misconfiguration:
   "Condition": {"StringEquals": {"sts:ExternalId": "12345"}}
 }
 ```
-External ID should be treated as a shared secret — do not publish it.
+External ID should be treated as a shared secret; do not publish it.
 
 Supply chain: Compromise software/AMI/container image used by target account.
 
@@ -545,7 +545,7 @@ python aws_consoler.py -a ASIA... -s xxx -t SessionToken
 
 weirdAAL (AWS Attack Library): Categorized attack modules for reconnaissance, lateral movement.
 
-CloudSploit: Open-source CSPM — 500+ security checks across AWS, Azure, GCP, Oracle.
+CloudSploit: Open-source CSPM with 500+ security checks across AWS, Azure, GCP, Oracle.
 ```bash
 node index.js --cloud aws --csv report.csv
 ```
@@ -649,7 +649,7 @@ Access Reviews: Periodic certification of group memberships, app assignments, ro
 - Auto-apply results: remove access if no response / deny
 - Frequency: weekly, monthly, quarterly, semi-annual, annual
 
-Entitlement Management: Access packages — bundles of resources (groups, apps, SharePoint sites) with governance policies.
+Entitlement Management: Access packages, bundles of resources (groups, apps, SharePoint sites) with governance policies.
 - Internal users: self-service request, approval workflow
 - External users (B2B): guest access with expiration
 - Connected organizations: trusted external directories
@@ -985,7 +985,7 @@ Attack flow:
 
 Detection: Sign-in logs with `Device Code` authentication method from unfamiliar device.
 
-Prevention: Conditional Access — block device code flow (Authentication flows condition -> Block device code flow).
+Prevention: Conditional Access to block device code flow (Authentication flows condition -> Block device code flow).
 
 ---
 
@@ -1058,7 +1058,7 @@ Invoke-AzureRTIngest                               # Ingest data into BloodHound
 
 Legacy auth protocols (SMTP AUTH, POP3, IMAP, basic auth to Exchange Online, older Office clients) do not support modern auth and cannot satisfy MFA challenges.
 
-Attack: Use legacy protocol to authenticate with just username/password — bypasses MFA-requiring Conditional Access policies that don't explicitly block legacy auth.
+Attack: Use legacy protocol to authenticate with just username/password, which bypasses MFA-requiring Conditional Access policies that don't explicitly block legacy auth.
 
 ```bash
 # Test if legacy auth is available
@@ -1114,7 +1114,7 @@ Key IMDS endpoints:
 | Predefined roles | Service-specific curated roles | roles/storage.objectViewer, roles/bigquery.dataEditor |
 | Custom roles | User-defined granular roles | Organization or project scope |
 
-Primitive roles should not be used in production — they grant broad permissions across all services.
+Primitive roles should not be used in production; they grant broad permissions across all services.
 
 #### IAM Policy Binding Structure
 
@@ -1244,7 +1244,7 @@ gcloud access-context-manager perimeters create prod-perimeter \
   --access-levels=trusted-corp
 ```
 
-Dry-run mode: Test perimeter changes without enforcement — generates audit logs showing what would be blocked.
+Dry-run mode: Test perimeter changes without enforcement; it generates audit logs showing what would be blocked.
 
 ---
 
@@ -1587,7 +1587,7 @@ RETURN ec2.instanceid, role.name, sg.name
 
 Intentionally vulnerable environments for security training.
 
-CloudGoat (Rhino Security Labs — AWS):
+CloudGoat (Rhino Security Labs, AWS):
 ```bash
 pip install cloudgoat
 cloudgoat config profile default
@@ -2143,7 +2143,7 @@ Key capabilities:
 - Risk prioritization: Context-aware scoring (exposure + identity + data sensitivity)
 - Cloud Detection and Response (CDR): Real-time threat detection via cloud provider logs
 
-Wiz query example (WQL — Wiz Query Language):
+Wiz query example (WQL, Wiz Query Language):
 ```
 FIND Cloud Resource
 WHERE Cloud Resource.type = 'VirtualMachine'
@@ -2154,7 +2154,7 @@ WHERE Cloud Resource.type = 'VirtualMachine'
 
 #### Orca Security
 
-SideScanning: Reads cloud provider storage snapshots out-of-band — no agents, no performance impact, no privilege escalation risk.
+SideScanning: Reads cloud provider storage snapshots out-of-band (no agents, no performance impact, no privilege escalation risk).
 
 Coverage: Vulnerabilities (CVEs), malware, misconfigurations, authentication risks, lateral movement paths, sensitive data, compliance.
 
@@ -2211,7 +2211,7 @@ Runtime protection components:
 - Container runtime: eBPF-based syscall monitoring (Falco, Sysdig, Aqua)
 - Serverless: Function invocation monitoring, dependency scanning
 
-Falco (CNCF — open-source runtime security):
+Falco (CNCF, open-source runtime security):
 ```yaml
 # Falco rule example
 - rule: Unexpected outbound connection from container
@@ -2355,7 +2355,7 @@ Common Lambda vulnerabilities:
 | VPC misconfig | Data exfiltration via Lambda | Enable VPC for sensitive functions + use VPC endpoints |
 | Overly permissive resource policy | Unauthorized invocation | Restrict lambda:InvokeFunction to specific principals |
 
-Environment variable secrets — use Secrets Manager Lambda extension:
+For environment variable secrets, use Secrets Manager Lambda extension:
 ```bash
 # Add layer (region-specific ARN)
 aws lambda update-function-configuration \
@@ -2423,7 +2423,7 @@ aws ecr put-lifecycle-policy --repository-name my-repo \
   --lifecycle-policy-text '{"rules":[{"rulePriority":1,"selection":{"tagStatus":"untagged","countType":"sinceImagePushed","countUnit":"days","countNumber":30},"action":{"type":"expire"}}]}'
 ```
 
-Cosign (sigstore) — image signing:
+Cosign (sigstore) for image signing:
 ```bash
 # Generate key pair
 cosign generate-key-pair
@@ -2497,7 +2497,7 @@ trivy k8s --report summary cluster        # Live Kubernetes cluster
 
 #### FedRAMP (Federal Risk and Authorization Management Program)
 
-Authorization process (ATO — Authority to Operate):
+Authorization process (ATO, Authority to Operate):
 1. Initiation: Select impact level (Low/Moderate/High), choose authorization path (Agency ATO or JAB P-ATO)
 2. Documentation: System Security Plan (SSP): 300+ controls based on NIST SP 800-53
 3. Assessment: 3PAO (Third-Party Assessment Organization) performs independent security assessment
@@ -2519,7 +2519,7 @@ FedRAMP Marketplace: List of authorized cloud services (CSOs). Required for fede
 #### ISO 27001
 
 - ISMS (Information Security Management System): Risk-based management framework
-- Annex A controls: 93 controls in 4 themes (Organizational, People, Physical, Technological) — ISO 27002 provides implementation guidance
+- Annex A controls: 93 controls in 4 themes (Organizational, People, Physical, Technological); ISO 27002 provides implementation guidance
 - Certification: Accredited CB (certification body) audits; certificate valid 3 years with annual surveillance audits
 - Statement of Applicability (SoA): Document all controls, justification for inclusion/exclusion
 

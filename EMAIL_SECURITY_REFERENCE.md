@@ -136,7 +136,7 @@ DKIM key rotation:
 - Then remove old selector from DNS
 
 DKIM weaknesses:
-- DKIM replay attack: valid DKIM signature can be reused by copying the email to new recipients — DMARC mitigates by checking `From` domain alignment
+- DKIM replay attack: valid DKIM signature can be reused by copying the email to new recipients; DMARC mitigates by checking `From` domain alignment
 - DKIM body length (`l=`) tag: allows partial body signing: avoid; attackers can append malicious content
 - Signing algorithm `rsa-sha1` is deprecated: require `rsa-sha256` or `ed25519-sha256`
 
@@ -200,7 +200,7 @@ parsedmarc -c parsedmarc.ini aggregate_report.xml.gz
 # hosts = localhost:9200
 ```
 
-DMARC aggregate report (XML) — key fields:
+DMARC aggregate report (XML), key fields:
 - `<source_ip>`: sending IP
 - `<count>`: number of messages
 - `<policy_evaluated>`: DMARC pass/fail
@@ -246,7 +246,7 @@ Two distinct operations:
 | Signing | Proves sender identity; detects tampering | Sender's private key (signing cert) |
 | Encryption | Encrypts body to recipient | Recipient's public key must be obtained in advance |
 
-Key exchange challenge: Encryption requires sender to have recipient's cert in advance — often exchanged via a signed email first, or through a certificate directory (LDAP/GAL).
+Key exchange challenge: Encryption requires sender to have recipient's cert in advance, often exchanged via a signed email first, or through a certificate directory (LDAP/GAL).
 
 Client support:
 - Outlook (Windows, Mac): native support
@@ -607,7 +607,7 @@ BEC detection signals:
 - Email chain anomaly: reply thread that doesn't match original conversation
 - Sender IP/domain inconsistent with previous emails from that contact
 
-PowerShell — audit suspicious forwarding rules (BEC indicator):
+PowerShell to audit suspicious forwarding rules (BEC indicator):
 ```powershell
 # Check all mailboxes for forwarding rules
 Get-Mailbox -ResultSize Unlimited | ForEach-Object {

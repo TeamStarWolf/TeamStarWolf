@@ -12,7 +12,7 @@
 
 ## Microsoft Defender for Endpoint Prevention Policies
 
-*Source: Microsoft Learn — Microsoft Defender for Endpoint documentation*
+*Source: Microsoft Learn, Microsoft Defender for Endpoint documentation*
 
 ---
 
@@ -44,7 +44,7 @@ ASR rules are policy-enforced controls that block specific behaviors commonly us
 | 92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b | Block Win32 API calls from Office macros | Block | T1106 |
 | c1db55ab-c21a-4637-bb3f-a12568109d35 | Use advanced protection against ransomware | Block | T1486 |
 
-PowerShell deployment — enable all rules in Block mode:
+PowerShell deployment (enable all rules in Block mode):
 
 ```powershell
 # Enable ALL recommended ASR rules in Block mode via PowerShell
@@ -75,9 +75,9 @@ foreach ($rule in $rules) {
 Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 ```
 
-ASR exclusion guidance (from Microsoft): Exclude by specific file path only — not by extension. Example: `C:\Program Files\VendorApp\app.exe`. Broad exclusions (e.g., entire `C:\Users`) significantly reduce protection.
+ASR exclusion guidance (from Microsoft): Exclude by specific file path only, not by extension. Example: `C:\Program Files\VendorApp\app.exe`. Broad exclusions (e.g., entire `C:\Users`) significantly reduce protection.
 
-Intune OMA-URI for ASR (example — Block Office child processes):
+Intune OMA-URI for ASR (example, Block Office child processes):
 - OMA-URI: `./Device/Vendor/MSFT/Policy/Config/Defender/AttackSurfaceReductionRules`
 - Data type: String
 - Value: `d4f940ab-401b-4efc-aadc-ad5f3c50688a=2` (2 = Block, 1 = Audit, 0 = Disabled)
@@ -147,7 +147,7 @@ Controlled Folder Access modes: 0 = Disabled, 1 = Enabled (Block), 2 = Audit, 3 
 
 ## CrowdStrike Falcon Prevention Policies
 
-*Source: CrowdStrike documentation — falcon.crowdstrike.com/documentation*
+*Source: CrowdStrike documentation, falcon.crowdstrike.com/documentation*
 
 ### Policy Architecture
 
@@ -213,7 +213,7 @@ Prevention Policies are assigned to Host Groups. Each policy is a collection of 
 
 ## SentinelOne Prevention Policies
 
-*Source: SentinelOne Knowledge Base — support.sentinelone.com*
+*Source: SentinelOne Knowledge Base, support.sentinelone.com*
 
 ### Policy Modes
 
@@ -262,7 +262,7 @@ Auto-remediation (rollback): SentinelOne takes VSS snapshots before execution an
 
 ## Palo Alto Networks Security Profiles
 
-*Source: PAN-OS Administrator's Guide — docs.paloaltonetworks.com*
+*Source: PAN-OS Administrator's Guide, docs.paloaltonetworks.com*
 
 ### Antivirus Profile: Recommended Security Settings
 
@@ -323,7 +323,7 @@ cryptocurrency
 unknown (review by category first)
 ```
 
-Alert (for visibility) — review for potential block:
+Alert (for visibility), review for potential block:
 ```
 high-risk
 peer-to-peer
@@ -331,7 +331,7 @@ gambling
 adult
 ```
 
-Safe search enforcement: Enable for search engines (Google, Bing, Yahoo) — append `&safe=strict` at the URL category level.
+Safe search enforcement: Enable for search engines (Google, Bing, Yahoo); append `&safe=strict` at the URL category level.
 
 ### WildFire Analysis Profile
 
@@ -347,7 +347,7 @@ Safe search enforcement: Enable for search engines (Google, Bing, Yahoo) — app
 
 ### Cortex XDR Prevention Profiles
 
-*Source: Cortex XDR Administrator Guide — docs-cortex.paloaltonetworks.com*
+*Source: Cortex XDR Administrator Guide, docs-cortex.paloaltonetworks.com*
 
 | Module | Setting | Recommended Value |
 |---|---|---|
@@ -372,7 +372,7 @@ Cortex XDR Agent Hardening Policy (recommended):
 
 ## Proofpoint Email Security Policies
 
-*Source: Proofpoint documentation — help.proofpoint.com*
+*Source: Proofpoint documentation, help.proofpoint.com*
 
 ### Targeted Attack Protection (TAP) Settings: Enterprise
 
@@ -433,7 +433,7 @@ Rule: Newly Registered Domain links
 
 ## Zscaler Internet Access (ZIA) Policies
 
-*Source: Zscaler Help Portal — help.zscaler.com/zia*
+*Source: Zscaler Help Portal, help.zscaler.com/zia*
 
 ### URL Category Blocking: Recommended Production Defaults
 
@@ -451,7 +451,7 @@ Block these categories (no user override):
 | Dynamic DNS Providers | Common attacker infrastructure |
 | Spyware / Adware | Malware-adjacent |
 
-Caution — Audit before Block:
+Caution (Audit before Block):
 
 | Category | Notes |
 |---|---|
@@ -524,7 +524,7 @@ Rule 4: Allow DNS to ZIA resolvers only
 
 ## CISA SCuBA (Secure Cloud Business Applications) Policies
 
-*Source: https://www.cisa.gov/resources-tools/services/scuba — official CISA guidance*
+*Source: https://www.cisa.gov/resources-tools/services/scuba, official CISA guidance*
 
 ### Microsoft 365 Baseline Assessment: ScubaGear
 
@@ -560,7 +560,7 @@ GitHub: https://github.com/cisagov/ScubaGear
 
 ### Google Workspace Baseline
 
-*Source: CISA Google Workspace SCuBA Baseline — github.com/cisagov/ScubaGear*
+*Source: CISA Google Workspace SCuBA Baseline, github.com/cisagov/ScubaGear*
 
 | Control | Requirement |
 |---|---|
@@ -577,11 +577,11 @@ GitHub: https://github.com/cisagov/ScubaGear
 
 ## NSA/CISA Hardening Guidance
 
-*Source: NSA Cybersecurity Technical Reports — media.defense.gov*
+*Source: NSA Cybersecurity Technical Reports, media.defense.gov*
 
 ### NSA Top Ten Cybersecurity Mitigation Strategies
 
-From NSA's "Top Ten Cybersecurity Mitigations" (NSA-CISA joint advisory — media.defense.gov):
+From NSA's "Top Ten Cybersecurity Mitigations" (NSA-CISA joint advisory, media.defense.gov):
 
 | Rank | Mitigation | Implementation Notes |
 |---|---|---|
@@ -598,9 +598,9 @@ From NSA's "Top Ten Cybersecurity Mitigations" (NSA-CISA joint advisory — medi
 
 ### NSA PowerShell Security Guidance
 
-*Source: NSA/CISA Cybersecurity Information Sheet "Keeping PowerShell: Security Measures to Use and Embrace" — media.defense.gov*
+*Source: NSA/CISA Cybersecurity Information Sheet "Keeping PowerShell: Security Measures to Use and Embrace," media.defense.gov*
 
-Key finding: NSA recommends keeping PowerShell — removing it forces attackers to use other LOLBins with less logging. PowerShell v5.1+ has AMSI, Script Block Logging, and module logging built in.
+Key finding: NSA recommends keeping PowerShell; removing it forces attackers to use other LOLBins with less logging. PowerShell v5.1+ has AMSI, Script Block Logging, and module logging built in.
 
 | Control | Implementation | Registry / GPO Path |
 |---|---|---|
@@ -650,7 +650,7 @@ curl -s https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabi
 
 ## Elastic Security Detection Rules
 
-*Source: github.com/elastic/detection-rules — official Elastic Security repository*
+*Source: github.com/elastic/detection-rules, official Elastic Security repository*
 
 The Elastic detection-rules repository is the authoritative source for production-ready Elastic SIEM rules, maintained by the Elastic Security Research team.
 
@@ -737,7 +737,7 @@ reference = "https://attack.mitre.org/techniques/T1003/"
 
 ## Splunk Enterprise Security Content Update (ESCU)
 
-*Source: github.com/splunk/security_content — official Splunk Threat Research Team*
+*Source: github.com/splunk/security_content, official Splunk Threat Research Team*
 
 ESCU is the official Splunk detection content library maintained by the Splunk Threat Research Team.
 
@@ -803,7 +803,7 @@ An Analytic Story groups related detections, investigations, and baselines aroun
 
 ## Microsoft Sentinel Analytics Rules
 
-*Source: github.com/Azure/Azure-Sentinel — official Microsoft repository*
+*Source: github.com/Azure/Azure-Sentinel, official Microsoft repository*
 
 ### Installing Community Content
 

@@ -1,6 +1,6 @@
 # Conference Talks, Slides & Papers
 
-> A curated reference for finding security conference presentations, research papers, vulnerability disclosures, and associated code repositories from the most significant security conferences worldwide. Conference talks represent the cutting edge of security research — often months or years ahead of any book, course, or certification curriculum.
+> A curated reference for finding security conference presentations, research papers, vulnerability disclosures, and associated code repositories from the most significant security conferences worldwide. Conference talks represent the cutting edge of security research, often months or years ahead of any book, course, or certification curriculum.
 
 | | |
 |---|---|
@@ -50,7 +50,7 @@ Finding Black Hat repositories: Most presenters link their GitHub from the speak
 | Talk Archives | [defcon.org/html/links/dc-archives.html](https://defcon.org/html/links/dc-archives.html) | Official DEF CON archives page linking all prior years |
 | Village Talks | [villageatdefcon.org](https://www.villageatdefcon.org/) | Each village (Car Hacking, Hardware, RF, AI, etc.) records and publishes its own talks separately |
 
-DEF CON numbering: DEF CON uses numeric designations — DEF CON 32 = 2024, DEF CON 31 = 2023. The first DEF CON was held in 1993 (DC 1).
+DEF CON numbering: DEF CON uses numeric designations (DEF CON 32 = 2024, DEF CON 31 = 2023). The first DEF CON was held in 1993 (DC 1).
 
 ---
 
@@ -61,7 +61,7 @@ Security BSides events are community-organized conferences that emerged from pre
 | Resource | URL | Notes |
 |---|---|---|
 | BSides Las Vegas | [bsideslv.org](https://www.bsideslv.org/) | The original BSides event; free to attend; talks recorded annually |
-| Iron Geek BSides Archive | [irongeek.com](https://www.irongeek.com/) | Adrian Crenshaw's extensive recording archive for BSides and smaller conference talks — one of the most comprehensive free security video archives available |
+| Iron Geek BSides Archive | [irongeek.com](https://www.irongeek.com/) | Adrian Crenshaw's extensive recording archive for BSides and smaller conference talks, one of the most comprehensive free security video archives available |
 | BSides Global Calendar | [securitybsides.com](https://www.securitybsides.com/) | Directory of BSides events worldwide |
 | BSides San Francisco | [bsidessf.org](https://bsidessf.org/) | Recorded talks published on YouTube post-conference |
 | BSides London | [securitybsides.org.uk](https://www.securitybsides.org.uk/) | UK edition; talks published after the event |
@@ -71,7 +71,7 @@ Security BSides events are community-organized conferences that emerged from pre
 
 ## Chaos Communication Congress (CCC)
 
-The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest hacker gathering, organized by the Chaos Computer Club in Germany. Talks encompass privacy, cryptography, surveillance research, and technical freedom alongside traditional security research. The CCC media archive at [media.ccc.de](https://media.ccc.de/) hosts complete recordings of every talk going back decades — one of the most comprehensive and accessible free technical video archives in existence.
+The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest hacker gathering, organized by the Chaos Computer Club in Germany. Talks encompass privacy, cryptography, surveillance research, and technical freedom alongside traditional security research. The CCC media archive at [media.ccc.de](https://media.ccc.de/) hosts complete recordings of every talk going back decades, one of the most comprehensive and accessible free technical video archives in existence.
 
 | Resource | URL | Notes |
 |---|---|---|
@@ -79,7 +79,7 @@ The [Chaos Communication Congress](https://events.ccc.de/) is Europe's largest h
 | YouTube Mirror | [youtube.com/@MediaCCC](https://www.youtube.com/@MediaCCC) | YouTube mirror of the media.ccc.de archive |
 | CCC Events Calendar | [events.ccc.de](https://events.ccc.de/) | Upcoming CCC events including Chaos Camp (held every four years) |
 
-CCC naming convention: Annual Congress events use the format `[number]C3` — 38C3 = 38th Chaos Communication Congress (2024). Chaos Camp is a separate outdoor event held every four years.
+CCC naming convention: Annual Congress events use the format `[number]C3`; 38C3 = 38th Chaos Communication Congress (2024). Chaos Camp is a separate outdoor event held every four years.
 
 ---
 
@@ -97,7 +97,7 @@ CCC naming convention: Annual Congress events use the format `[number]C3` — 38
 
 ## IEEE Security & Privacy (IEEE S&P)
 
-[IEEE S&P](https://www.ieee-security.org/TC/SP-Index.html) — informally called "Oakland" — is one of the four top-tier academic security venues alongside USENIX Security, ACM CCS, and NDSS. Known for high acceptance standards and rigorous systems security research spanning from hardware to software to human factors.
+[IEEE S&P](https://www.ieee-security.org/TC/SP-Index.html), informally called "Oakland", is one of the four top-tier academic security venues alongside USENIX Security, ACM CCS, and NDSS. Known for high acceptance standards and rigorous systems security research spanning from hardware to software to human factors.
 
 | Resource | URL | Notes |
 |---|---|---|
@@ -114,7 +114,7 @@ CCC naming convention: Annual Congress events use the format `[number]C3` — 38
 
 ## NDSS Symposium
 
-[NDSS](https://www.ndss-symposium.org/) focuses on network and distributed systems security. Notable for being fully open access — all papers and most presentation recordings are available free without institutional affiliation.
+[NDSS](https://www.ndss-symposium.org/) focuses on network and distributed systems security. Notable for being fully open access: all papers and most presentation recordings are available free without institutional affiliation.
 
 | Resource | URL | Notes |
 |---|---|---|

@@ -1,6 +1,6 @@
 # Database Security Reference
 
-> The database is where the loss actually happens. Nearly every breach that matters ends at a data store — a SQL Server holding cardholder data, a PostgreSQL cluster of PII, an unauthenticated MongoDB indexed by a scanner, a Redis instance one Lua script away from host code execution. This reference is the defensive baseline for hardening the database management systems themselves: authentication, least-privilege roles, encryption at rest and in transit, activity monitoring, privileged access, audit logging, backup, and the handful of misconfigurations that cause most database incidents. It covers SQL Server, PostgreSQL, MySQL/MariaDB, Oracle, MongoDB, Redis/Valkey, and Elasticsearch. It is not a SQL-injection guide — application-layer injection lives in [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md).
+> The database is where the loss actually happens. Nearly every breach that matters ends at a data store: a SQL Server holding cardholder data, a PostgreSQL cluster of PII, an unauthenticated MongoDB indexed by a scanner, a Redis instance one Lua script away from host code execution. This reference is the defensive baseline for hardening the database management systems themselves: authentication, least-privilege roles, encryption at rest and in transit, activity monitoring, privileged access, audit logging, backup, and the handful of misconfigurations that cause most database incidents. It covers SQL Server, PostgreSQL, MySQL/MariaDB, Oracle, MongoDB, Redis/Valkey, and Elasticsearch. It is not a SQL-injection guide; application-layer injection lives in [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md).
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@
 | Start at | [The database attack surface](#the-database-attack-surface), [Universal hardening baseline](#universal-hardening-baseline), [Per-engine hardening](#per-engine-hardening-quick-reference), then the [Defender checklist](#defender-checklist) |
 | Pairs with | [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md), [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md), [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md), [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md), [WEB_APPLICATION_SECURITY_REFERENCE.md](WEB_APPLICATION_SECURITY_REFERENCE.md) |
 
-> Version note. Product versions, editions, and CVE facts below were live-verified on 2026-09-29 and carry inline sources. Databases move fast — confirm the linked original before pinning a control to a specific version or feature name.
+> Version note. Product versions, editions, and CVE facts below were live-verified on 2026-09-29 and carry inline sources. Databases move fast; confirm the linked original before pinning a control to a specific version or feature name.
 
 ---
 
@@ -55,19 +55,19 @@ These apply to every engine before any product-specific tuning. Treat as the non
 
 1. Reduce the network surface. Bind to `localhost` or a private interface; never a public IP. Put the DB in a private subnet, restrict the port by firewall/security group to known app hosts only, and prefer a bastion, VPN, or private-link path for admin. Change from the well-known default port only as defense-in-depth, never as the sole control.
 2. Eliminate default and weak credentials. Remove or rename default admin accounts, delete sample/anonymous accounts and demo databases, and set strong unique passwords or key-based auth. Verify with the engine's own audit or a CIS-Benchmark scan.
-3. Patch on a defined SLA. Track DBMS CVEs (see [CVE_REFERENCE.md](CVE_REFERENCE.md)) and vendor critical-patch cycles — Oracle's quarterly Critical Patch Update, Microsoft Patch Tuesday, and the PostgreSQL/MySQL/MariaDB minor-release cadence. Prioritize anything on the CISA KEV catalog.
-4. Least privilege everywhere. Application accounts get object-level grants for exactly the operations they perform — never `DBA`, `sysadmin`, `SUPERUSER`, or `root`. One service = one DB identity. Revoke default `PUBLIC` grants.
-5. Encrypt in transit and at rest. Enforce TLS for all client and replication traffic; enable TDE or filesystem/volume encryption for data files, temp/undo, and — critically — backups.
+3. Patch on a defined SLA. Track DBMS CVEs (see [CVE_REFERENCE.md](CVE_REFERENCE.md)) and vendor critical-patch cycles: Oracle's quarterly Critical Patch Update, Microsoft Patch Tuesday, and the PostgreSQL/MySQL/MariaDB minor-release cadence. Prioritize anything on the CISA KEV catalog.
+4. Least privilege everywhere. Application accounts get object-level grants for exactly the operations they perform, never `DBA`, `sysadmin`, `SUPERUSER`, or `root`. One service = one DB identity. Revoke default `PUBLIC` grants.
+5. Encrypt in transit and at rest. Enforce TLS for all client and replication traffic; enable TDE or filesystem/volume encryption for data files, temp/undo, and, critically, backups.
 6. Turn on audit logging and forward it off the box. Local logs are the first thing an attacker with DB admin clears. Ship to a SIEM/immutable store.
 7. Disable unused features. OS-command surfaces (`xp_cmdshell`), unused stored-procedure/UDF/scripting engines, network-accessible management interfaces, sample schemas, and unneeded network listeners.
-8. Harden the host underneath. The DB is only as safe as its OS — see [LINUX_HARDENING_REFERENCE.md](LINUX_HARDENING_REFERENCE.md) / [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md). Run the DB service as a dedicated, non-root, low-privileged OS account.
+8. Harden the host underneath. The DB is only as safe as its OS; see [LINUX_HARDENING_REFERENCE.md](LINUX_HARDENING_REFERENCE.md) / [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md). Run the DB service as a dedicated, non-root, low-privileged OS account.
 9. Baseline against a benchmark. Apply the relevant CIS Benchmark and/or DISA STIG (both publish database baselines) and scan for drift.
 
 ---
 
 ## Authentication & least-privilege roles
 
-Authentication — order of preference:
+Authentication (order of preference):
 
 1. Centralized/federated identity: Kerberos/Active Directory or Azure Entra ID for SQL Server; IAM authentication for cloud-managed engines (RDS/Aurora, Cloud SQL); LDAP/SSO where supported. Fewer standing passwords, central revocation.
 2. Certificate / key-based auth for service-to-service where the engine supports it.
@@ -82,9 +82,9 @@ Least-privilege role model:
 | Role-based, not user-based | Grant to roles; assign users/services to roles. Keeps grants auditable and revocable. |
 | Object-level grants | Grant `SELECT/INSERT/UPDATE` on the specific tables/views the app touches: not schema- or database-wide, not `ALL`. |
 | Separate read vs write | Reporting/analytics accounts get read-only roles; only the write path gets DML. |
-| No standing admin for apps | Schema changes run through migration tooling with a separate, gated identity — not the runtime app account. |
+| No standing admin for apps | Schema changes run through migration tooling with a separate, gated identity, not the runtime app account. |
 | Revoke `PUBLIC` | Strip default public/`PUBLIC` grants that ship enabled (Oracle, PostgreSQL). |
-| Review & recertify | Periodic access review of privileged DB roles; tie to joiner/mover/leaver — see [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md). |
+| Review & recertify | Periodic access review of privileged DB roles; tie to joiner/mover/leaver (see [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)). |
 
 ```sql
 -- PostgreSQL: least-privilege application role (illustrative)
@@ -100,7 +100,7 @@ REVOKE ALL ON DATABASE appdb FROM PUBLIC;              -- strip default public g
 
 ## Encryption at rest, in transit & key management
 
-At rest — Transparent Data Encryption (TDE) encrypts data files, logs, and (configurably) backups at the storage layer, transparent to the application. It defends against stolen files, disks, and backup media — it does not protect against a compromised DB credential, which sees plaintext. Layer it with column/field encryption or application-level encryption for the most sensitive fields.
+At rest: Transparent Data Encryption (TDE) encrypts data files, logs, and (configurably) backups at the storage layer, transparent to the application. It defends against stolen files, disks, and backup media; it does not protect against a compromised DB credential, which sees plaintext. Layer it with column/field encryption or application-level encryption for the most sensitive fields.
 
 | Engine | At-rest option |
 |---|---|
@@ -112,9 +112,9 @@ At rest — Transparent Data Encryption (TDE) encrypts data files, logs, and (co
 | Redis / Valkey | No native at-rest encryption of RDB/AOF: rely on filesystem/volume encryption and protect persistence files |
 | Elasticsearch | Encrypt indices via filesystem/volume encryption; the Elastic keystore protects secure settings |
 
-Key management is the hard part. Store the master/wrapping keys in a KMS or HSM, not on the DB host. Rotate on a schedule, separate key-admin duty from DB-admin duty, and back up keystores/wallets independently — losing the key means losing the data. See [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) for algorithm/rotation mechanics and [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md) for KMS/HSM and dynamic DB credentials.
+Key management is the hard part. Store the master/wrapping keys in a KMS or HSM, not on the DB host. Rotate on a schedule, separate key-admin duty from DB-admin duty, and back up keystores/wallets independently: losing the key means losing the data. See [CRYPTOGRAPHY_REFERENCE.md](CRYPTOGRAPHY_REFERENCE.md) for algorithm/rotation mechanics and [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md) for KMS/HSM and dynamic DB credentials.
 
-In transit — enforce TLS for all client, admin, and replication connections; require modern TLS (1.2+/1.3), validate certificates on the client, and reject non-TLS connections rather than merely offering TLS. Example (PostgreSQL `pg_hba.conf`): use `hostssl` (not `host`) for remote records and set `ssl = on`.
+In transit: enforce TLS for all client, admin, and replication connections; require modern TLS (1.2+/1.3), validate certificates on the client, and reject non-TLS connections rather than merely offering TLS. Example (PostgreSQL `pg_hba.conf`): use `hostssl` (not `host`) for remote records and set `ssl = on`.
 
 ```conf
 # pg_hba.conf — require TLS + strong auth for remote clients, no plaintext
@@ -144,15 +144,15 @@ Selected per-engine notes:
 - PostgreSQL. The two files that decide most exposure are `postgresql.conf` (`listen_addresses`, `ssl = on`) and `pg_hba.conf` (auth method and source CIDR). Use `scram-sha-256` (not `md5`/`trust`), enable `pgaudit` for statement-level logging, and use row-level security for multi-tenant tables.
 - MySQL / MariaDB. Run `mysql_secure_installation` (removes anonymous users, the `test` database, and remote `root`), set `require_secure_transport=ON`, load the audit plugin, and grant per-object rather than `GRANT ALL`.
 - Oracle. Apply the quarterly Critical Patch Update, use Oracle Database Vault to separate duties (even DBAs shouldn't read app data by default), enable Unified Auditing, revoke `PUBLIC` execute on powerful packages (`UTL_FILE`, `DBMS_*`), and drop/lock default sample accounts.
-- MongoDB. The single most important control is enabling authentication — MongoDB ships auth *off* for local dev, and unauthenticated, internet-bound instances are the classic mass-exposure case. Bind to a private interface, enable RBAC, require TLS, and use Queryable Encryption for regulated fields.
+- MongoDB. The single most important control is enabling authentication; MongoDB ships auth *off* for local dev, and unauthenticated, internet-bound instances are the classic mass-exposure case. Bind to a private interface, enable RBAC, require TLS, and use Queryable Encryption for regulated fields.
 - Redis / Valkey. Designed as a trusted-network cache, so an exposed instance is dangerous by default. Keep `protected-mode` on, require a password or ACL, bind to localhost/private, and restrict or rename the scripting and admin commands (`EVAL`, `CONFIG`, `MODULE`, `FLUSHALL`, `DEBUG`). See the RediShell entry below.
-- Elasticsearch. Security features are on by default in modern releases — do not disable them. Enable TLS on both the transport and HTTP layers, use role-based access and API keys, and never expose port `9200` to the internet (the historical source of countless open-index leaks).
+- Elasticsearch. Security features are on by default in modern releases; do not disable them. Enable TLS on both the transport and HTTP layers, use role-based access and API keys, and never expose port `9200` to the internet (the historical source of countless open-index leaks).
 
 ---
 
 ## Audit logging & Database Activity Monitoring (DAM)
 
-Native audit is the baseline; DAM is the enrichment. Each engine can log authentication, DDL, DML, and privileged actions (SQL Server Audit, PostgreSQL `pgaudit`, MySQL/MariaDB audit plugin, Oracle Unified Auditing, MongoDB auditing). Turn these on, capture who / what / when / from where, and forward off the host — see [SIEM_REFERENCE.md](SIEM_REFERENCE.md) and [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md).
+Native audit is the baseline; DAM is the enrichment. Each engine can log authentication, DDL, DML, and privileged actions (SQL Server Audit, PostgreSQL `pgaudit`, MySQL/MariaDB audit plugin, Oracle Unified Auditing, MongoDB auditing). Turn these on, capture who / what / when / from where, and forward off the host; see [SIEM_REFERENCE.md](SIEM_REFERENCE.md) and [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md).
 
 Database Activity Monitoring (DAM) adds independent, real-time monitoring (often out-of-band or via an agent), behavioral baselines, and policy blocking that a DBA cannot silently disable. Established platforms (verified current, [PeerSpot 2026](https://www.peerspot.com/categories/database-security)):
 
@@ -174,17 +174,17 @@ Standing DBA credentials are a top-tier risk: broad blast radius, rarely rotated
 
 - No shared DBA logins. Individual identities, federated to the IdP, MFA-gated.
 - Just-in-time elevation. Grant admin only for a bounded window on approval; auto-revoke. Access brokers (Teleport, StrongDM, HashiCorp Boundary, CyberArk, Delinea) proxy the connection, enforce MFA, and record the session.
-- Dynamic, short-lived credentials. A secrets engine (e.g., HashiCorp Vault database secrets engine) issues per-session DB credentials that expire automatically — no long-lived password to steal. See [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md).
+- Dynamic, short-lived credentials. A secrets engine (e.g., HashiCorp Vault database secrets engine) issues per-session DB credentials that expire automatically: no long-lived password to steal. See [SECRETS_MANAGEMENT_REFERENCE.md](SECRETS_MANAGEMENT_REFERENCE.md).
 - Session recording & command logging for every privileged connection, stored off-box.
 - Separation of duties. Oracle Database Vault, MongoDB/PostgreSQL role design, and SQL Server role separation keep even DBAs from casually reading regulated application data.
 
-This is the data-tier expression of Zero Trust — see [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md) and [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md).
+This is the data-tier expression of Zero Trust; see [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md) and [IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md).
 
 ---
 
 ## Backup, recovery & resilience
 
-Backups are both a recovery control and a target — ransomware crews now delete or encrypt backups first, and unprotected dumps are a breach vector of their own.
+Backups are both a recovery control and a target: ransomware crews now delete or encrypt backups first, and unprotected dumps are a breach vector of their own.
 
 - Encrypt every backup (and replicas, snapshots, and exports) with keys managed separately from the DB.
 - Immutability / air-gap. Keep at least one copy immutable (object-lock/WORM) or offline; follow 3-2-1-1-0 (three copies, two media, one off-site, one immutable/offline, zero errors on verification).
@@ -211,9 +211,9 @@ A small set of misconfigurations causes most real database incidents. Each maps 
 | Enabled OS-command / scripting surface | DB compromise -> host RCE | Disable `xp_cmdshell`, restrict Lua/UDFs |
 | Audit logging off or local-only | No detection, no forensics | Native audit + DAM, forwarded off-box |
 
-Threat context — unauthenticated data stores are found and abused automatically. Internet-exposed, no-auth MongoDB, Elasticsearch, and Redis instances are routinely discovered by scanners and destroyed by automated campaigns — the 2020 "Meow" bot wiped thousands of open Elasticsearch/MongoDB databases, leaving only a `meow` marker. The lesson has not changed: never expose a data store without authentication and network restriction.
+Threat context: unauthenticated data stores are found and abused automatically. Internet-exposed, no-auth MongoDB, Elasticsearch, and Redis instances are routinely discovered by scanners and destroyed by automated campaigns; the 2020 "Meow" bot wiped thousands of open Elasticsearch/MongoDB databases, leaving only a `meow` marker. The lesson has not changed: never expose a data store without authentication and network restriction.
 
-Threat context — Redis scripting RCE (RediShell, CVE-2025-49844). In October 2025 Redis patched a ~13-year-old use-after-free in the embedded Lua engine that lets an authenticated user escape the Lua sandbox and run native code on the host — CVSS 10.0, dubbed "RediShell," reported by Wiz via Pwn2Own Berlin, fixed on 2025-10-03 ([Redis advisory](https://redis.io/blog/security-advisory-cve-2025-49844/), [Wiz](https://www.wiz.io/blog/wiz-research-redis-rce-cve-2025-49844)). It affects all versions with Lua scripting. Mitigation: upgrade, and where scripting isn't required, restrict the `EVAL`/`EVALSHA` command family via ACLs — a concrete case for the "disable unused scripting surface" rule above. Track database CVEs and KEV status via [CVE_REFERENCE.md](CVE_REFERENCE.md) and [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md).
+Threat context: Redis scripting RCE (RediShell, CVE-2025-49844). In October 2025 Redis patched a ~13-year-old use-after-free in the embedded Lua engine that lets an authenticated user escape the Lua sandbox and run native code on the host: CVSS 10.0, dubbed "RediShell," reported by Wiz via Pwn2Own Berlin, fixed on 2025-10-03 ([Redis advisory](https://redis.io/blog/security-advisory-cve-2025-49844/), [Wiz](https://www.wiz.io/blog/wiz-research-redis-rce-cve-2025-49844)). It affects all versions with Lua scripting. Mitigation: upgrade, and where scripting isn't required, restrict the `EVAL`/`EVALSHA` command family via ACLs (a concrete case for the "disable unused scripting surface" rule above). Track database CVEs and KEV status via [CVE_REFERENCE.md](CVE_REFERENCE.md) and [VULNERABILITY_MANAGEMENT_REFERENCE.md](VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ---
 
@@ -221,11 +221,11 @@ Threat context — Redis scripting RCE (RediShell, CVE-2025-49844). In October 2
 
 | Resource | Use |
 |---|---|
-| CIS Benchmarks | Consensus hardening baselines published for Microsoft SQL Server, Oracle Database, PostgreSQL, MySQL, and MongoDB — the default starting checklist |
+| CIS Benchmarks | Consensus hardening baselines published for Microsoft SQL Server, Oracle Database, PostgreSQL, MySQL, and MongoDB; the default starting checklist |
 | DISA STIGs | DoD security technical implementation guides for major databases (SQL Server, Oracle, PostgreSQL, MongoDB); stricter, control-mapped |
 | Vendor security guides | Each engine's official security/hardening docs: authoritative for feature-specific settings |
 | NIST SP 800-53 / CSF 2.0 | Control catalog and program framing; the data-tier controls map to `PR.DS` and `PR.AA` (see [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md)) |
-| PCI DSS / HIPAA / SOX | Regulatory drivers for encryption, access control, and audit on card/health/financial data — see [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md) |
+| PCI DSS / HIPAA / SOX | Regulatory drivers for encryption, access control, and audit on card/health/financial data; see [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md) |
 | DAM / DB firewall | Guardium, Imperva DSF, Oracle AVDF, DataSunrise; native Defender for SQL / Database Activity Streams |
 | Scanning | Vulnerability scanners and CIS-CAT / benchmark scanners for drift; DSPM for discovering *where* databases and copies live ([DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md)) |
 

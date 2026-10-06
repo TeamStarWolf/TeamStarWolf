@@ -1,7 +1,7 @@
 # Active Directory Attack Reference: Defender Edition
 
 > Audience: Blue teamers, detection engineers, SOC analysts, and AD administrators.  
-> Purpose: This reference documents the attack techniques adversaries use against Active Directory environments, explained from the defender's perspective — what each attack looks like on the wire, what telemetry it generates, and how to detect and prevent it.  
+> Purpose: This reference documents the attack techniques adversaries use against Active Directory environments, explained from the defender's perspective (what each attack looks like on the wire, what telemetry it generates, and how to detect and prevent it).  
 > Ethics note: All tool names and command examples are provided for detection-writing and threat-hunting purposes only.
 
 | | |
@@ -144,7 +144,7 @@ SecurityEvent
 
 ### Overview
 
-Kerberoasting targets Active Directory service accounts that have a Service Principal Name (SPN) registered. When a domain user requests a Kerberos Ticket Granting Service (TGS) ticket for a service, the KDC encrypts a portion of that ticket using the service account's password hash. Any domain user can request these tickets, and the encrypted blob can be extracted and cracked offline without any interaction with the target service — making this technique particularly dangerous.
+Kerberoasting targets Active Directory service accounts that have a Service Principal Name (SPN) registered. When a domain user requests a Kerberos Ticket Granting Service (TGS) ticket for a service, the KDC encrypts a portion of that ticket using the service account's password hash. Any domain user can request these tickets, and the encrypted blob can be extracted and cracked offline without any interaction with the target service, making this technique particularly dangerous.
 
 ### Mechanism
 
@@ -159,7 +159,7 @@ Protocol walkthrough:
 Encryption type matters critically:
 - RC4-HMAC (type 0x17 / etype 23): Legacy encryption using NT hash as key. Much faster to crack offline (~10 billion hashes/second on consumer GPU). Hashcat mode `13100`.
 - AES-128 (etype 17) / AES-256 (etype 18): Stronger encryption using AES-derived keys. Far slower to crack. Hashcat modes `19600`/`19700`.
-- Attackers explicitly request RC4 downgrade even when AES is available by omitting AES from the `etype` list in the TGS-REQ — a key detection indicator.
+- Attackers explicitly request RC4 downgrade even when AES is available by omitting AES from the `etype` list in the TGS-REQ, a key detection indicator.
 
 ### Attacker Tooling
 
@@ -184,7 +184,7 @@ Invoke-Kerberoast -OutputFormat Hashcat | Select-Object Hash | Out-File hashes.t
 
 ### Detection
 
-Event ID 4769 — Kerberos Service Ticket Requested:
+Event ID 4769, Kerberos Service Ticket Requested:
 
 This is the primary detection event. Logged on the DC that processed the TGS-REQ. Key fields:
 
@@ -220,7 +220,7 @@ index=windows EventCode=4769 TicketEncryptionType="0x17"
 | sort - count
 ```
 
-MDI alert: *Suspected Kerberos SPN exposure (Kerberoasting)* — triggered when MDI observes multiple TGS-REQ operations with RC4 cipher from a single account in a short window. Severity: High.
+MDI alert: *Suspected Kerberos SPN exposure (Kerberoasting)*, triggered when MDI observes multiple TGS-REQ operations with RC4 cipher from a single account in a short window. Severity: High.
 
 Behavioral indicators:
 - Single account requesting TGS tickets for 5+ different SPNs within minutes
@@ -275,7 +275,7 @@ AS-REP Roasting flow (no preauthentication):
 4. Attacker extracts the encrypted blob (Hashcat mode `18200` for RC4 AS-REP)
 5. Offline cracking proceeds without any network interaction with the target
 
-Critical difference from Kerberoasting: AS-REP Roasting does not require any valid domain credentials — it can be performed anonymously from the network. This makes it particularly valuable in scenarios where no credentials are yet held.
+Critical difference from Kerberoasting: AS-REP Roasting does not require any valid domain credentials; it can be performed anonymously from the network. This makes it particularly valuable in scenarios where no credentials are yet held.
 
 ### Attacker Tooling
 
@@ -305,7 +305,7 @@ Get-DomainUser -UACFilter DONT_REQ_PREAUTH -Properties samaccountname,admincount
 
 ### Detection
 
-Event ID 4768 — Kerberos Authentication Ticket (TGT) Requested:
+Event ID 4768, Kerberos Authentication Ticket (TGT) Requested:
 
 This event fires on DCs when an AS-REQ is received. Key detection fields:
 
@@ -339,7 +339,7 @@ index=windows EventCode=4768 Pre_Authentication_Type=0
 | sort - count
 ```
 
-Hunting query — find vulnerable accounts before attackers do:
+Hunting query (find vulnerable accounts before attackers do):
 
 ```kql
 // Identify accounts with preauthentication disabled (from AD data source or SecurityEvent 4738)
@@ -377,7 +377,7 @@ UEBA baseline: Accounts that have `DoesNotRequirePreAuth=true` should be extreme
 
 5. Separate service accounts: Legacy applications sometimes require preauthentication disabled. If unavoidable, isolate these accounts: do not grant them any elevated rights, monitor them closely, and use Fine-Grained Password Policies to enforce maximum password length.
 
-6. Honeypot accounts: Create a fake account with `DoesNotRequirePreAuth=true` and an alert on any AS-REP request for that account. Any request is malicious — the account is not used for any legitimate purpose.
+6. Honeypot accounts: Create a fake account with `DoesNotRequirePreAuth=true` and an alert on any AS-REP request for that account. Any request is malicious: the account is not used for any legitimate purpose.
 
 ---
 
@@ -415,7 +415,7 @@ mimikatz # kerberos::ptt ticket.kirbi
 Rubeus.exe ptt /ticket:doIFuj...base64...
 ```
 
-Detection: PTT itself doesn't generate a unique event — the injected ticket looks like a normal TGS use. Detection relies on:
+Detection: PTT itself doesn't generate a unique event; the injected ticket looks like a normal TGS use. Detection relies on:
 - Event ID 4769 from source IPs/hosts that don't match the account's normal workstation
 - Event ID 4624 Logon Type 3 (network logon) with mismatched workstation/account patterns
 - MDI *Pass-the-Ticket* alert: MDI correlates ticket requests with subsequent ticket use and detects geographic/host anomalies
@@ -423,7 +423,7 @@ Detection: PTT itself doesn't generate a unique event — the injected ticket lo
 
 ### Golden Ticket
 
-Mechanism: The Golden Ticket is a forged Kerberos TGT encrypted with the krbtgt account's NT hash. Because the KDC validates TGTs using the krbtgt key, a correctly forged ticket is indistinguishable from a legitimate one. Golden Tickets can specify any SIDs, groups, and lifetimes — including future-dated tickets that remain valid for 10 years.
+Mechanism: The Golden Ticket is a forged Kerberos TGT encrypted with the krbtgt account's NT hash. Because the KDC validates TGTs using the krbtgt key, a correctly forged ticket is indistinguishable from a legitimate one. Golden Tickets can specify any SIDs, groups, and lifetimes, including future-dated tickets that remain valid for 10 years.
 
 Attack sequence:
 
@@ -468,7 +468,7 @@ Detection:
 
 krbtgt Double Rotation Procedure:
 
-After detecting a Golden Ticket or krbtgt compromise, rotate krbtgt twice (not once — old hash is still valid for one rotation):
+After detecting a Golden Ticket or krbtgt compromise, rotate krbtgt twice (not once; old hash is still valid for one rotation):
 ```powershell
 # Step 1: Reset krbtgt password (AD replication must complete between steps)
 Set-ADAccountPassword -Identity krbtgt -Reset -NewPassword (New-Object SecureString)
@@ -480,7 +480,7 @@ The New-School approach uses the New-KrbtgtKeys.ps1 script from Microsoft, which
 
 ### Silver Ticket
 
-Mechanism: A Silver Ticket is a forged TGS (service ticket) encrypted with a service account's NT hash rather than the krbtgt key. It bypasses the KDC entirely — the forged ticket is presented directly to the target service. Silver Tickets are more targeted (specific service only) but harder to detect since the KDC never sees them.
+Mechanism: A Silver Ticket is a forged TGS (service ticket) encrypted with a service account's NT hash rather than the krbtgt key. It bypasses the KDC entirely: the forged ticket is presented directly to the target service. Silver Tickets are more targeted (specific service only) but harder to detect since the KDC never sees them.
 
 Common targets: `cifs/server` (SMB), `host/server` (WMI/PSRemote), `HTTP/server` (WinRM web), `ldap/dc` (LDAP)
 
@@ -500,7 +500,7 @@ Both techniques evade detection methods that look for accounts that don't exist 
 
 ### MS14-068 (Historical)
 
-CVE-2014-6324 — A now-patched vulnerability allowing a standard domain user to forge a Kerberos PAC claiming Domain Admin membership. All DCs should be patched; include in vulnerability scanning baseline verification.
+CVE-2014-6324: A now-patched vulnerability allowing a standard domain user to forge a Kerberos PAC claiming Domain Admin membership. All DCs should be patched; include in vulnerability scanning baseline verification.
 
 ---
 
@@ -508,7 +508,7 @@ CVE-2014-6324 — A now-patched vulnerability allowing a standard domain user to
 
 ### Overview
 
-NTLM authentication uses the NT hash of a user's password as the credential. Unlike Kerberos, NTLM is a challenge-response protocol where the server sends a challenge, and the client responds with an HMAC computed using the NT hash. Attackers who obtain an NT hash can authenticate as the user without knowing the plaintext password. NTLM Relay takes this further — attackers intercept NTLM authentication attempts and relay them to target services.
+NTLM authentication uses the NT hash of a user's password as the credential. Unlike Kerberos, NTLM is a challenge-response protocol where the server sends a challenge, and the client responds with an HMAC computed using the NT hash. Attackers who obtain an NT hash can authenticate as the user without knowing the plaintext password. NTLM Relay takes this further: attackers intercept NTLM authentication attempts and relay them to target services.
 
 ### Pass-the-Hash (PTH)
 
@@ -563,7 +563,7 @@ Detection:
 
 Mechanism: Attackers force victims to authenticate to an attacker-controlled server, then relay those credentials to a target service (SMB -> SMB, NTLM -> LDAP, etc.). Because NTLM doesn't protect against relay by default, the relayed authentication succeeds at the target as if the victim authenticated directly.
 
-Step 1 — Poisoning (force authentication):
+Step 1: Poisoning (force authentication)
 
 Tools like Responder poison name resolution to redirect authentication attempts:
 - LLMNR (Link-Local Multicast Name Resolution, UDP 5355): responds to any name query
@@ -576,7 +576,7 @@ Tools like Responder poison name resolution to redirect authentication attempts:
 responder -I eth0 -rdw   # LLMNR + NBT-NS + WPAD
 ```
 
-Step 2 — Relay:
+Step 2: Relay
 ```bash
 # ntlmrelayx.py — relay to target
 ntlmrelayx.py -t smb://192.168.1.10 -smb2support         # relay to SMB
@@ -623,7 +623,7 @@ Detection:
 
 ### Overview
 
-DCSync is a technique that abuses the legitimate Active Directory replication protocol to extract password hashes directly from a domain controller — without running any code on the DC itself. It exploits the `DS-Replication-Get-Changes` and `DS-Replication-Get-Changes-All` extended rights that domain controllers use to synchronize the NTDS.dit database. Any account granted these rights can impersonate a DC and request credential data for any domain account.
+DCSync is a technique that abuses the legitimate Active Directory replication protocol to extract password hashes directly from a domain controller, without running any code on the DC itself. It exploits the `DS-Replication-Get-Changes` and `DS-Replication-Get-Changes-All` extended rights that domain controllers use to synchronize the NTDS.dit database. Any account granted these rights can impersonate a DC and request credential data for any domain account.
 
 ### Mechanism
 
@@ -657,7 +657,7 @@ crackmapexec smb dc01.corp.local -u Administrator -p pass --ntds
 
 ### Detection
 
-Event ID 4662 — An operation was performed on an object:
+Event ID 4662 (An operation was performed on an object):
 
 This is the primary detection event for DCSync. Logged on the Domain Controller receiving the replication request. Fields:
 
@@ -694,7 +694,7 @@ index=windows EventCode=4662
 | table _time, Account_Name, host, Object_Type, Properties
 ```
 
-MDI alert: *Suspected DCSync attack (replication of directory services)* — MDI specifically monitors DRS traffic and alerts when replication requests originate from non-DC IPs or accounts. This is one of MDI's highest-fidelity alerts. Severity: High.
+MDI alert: *Suspected DCSync attack (replication of directory services)*. MDI specifically monitors DRS traffic and alerts when replication requests originate from non-DC IPs or accounts. This is one of MDI's highest-fidelity alerts. Severity: High.
 
 Hunting for accounts with replication rights (pre-compromise audit):
 
@@ -783,7 +783,7 @@ Remediation: Restrict enrollment agent templates. Configure "Issuance Requiremen
 
 Vulnerability: A low-privileged principal has `Write` rights over a certificate template object in AD (GenericWrite, WriteProperty, WriteDacl). They can modify the template to introduce ESC1 conditions, then exploit it.
 
-Detection: Event ID 4899 (Certificate Services template changed) and Event ID 5136 (AD object modified — pKICertificateTemplate class).
+Detection: Event ID 4899 (Certificate Services template changed) and Event ID 5136 (AD object modified, pKICertificateTemplate class).
 
 Remediation: Audit template ACLs. Remove unexpected write permissions. Only PKI administrators should have write access to certificate templates.
 
@@ -839,7 +839,7 @@ Windows Event IDs (Certificate Services log):
 - Event ID 4899: Certificate Services template was changed
 - Event ID 4900: Certificate Services template security permission changed
 
-KQL hunting query — detect anomalous certificate issuance:
+KQL hunting query (detect anomalous certificate issuance):
 
 ```kql
 // Certificates issued with SAN (potential ESC1/ESC6)
@@ -855,7 +855,7 @@ MDI alerts:
 - *Active Directory attributes reconnaissance*: Certipy enumeration generates LDAP queries
 
 Certipy shadow credentials detection (Event ID 4662):
-When Certipy modifies `msDS-KeyCredentialLink` for shadow credential attacks, Event ID 4662 fires with `msDS-KeyCredentialLink` in the Properties field — same as Section 9 coverage.
+When Certipy modifies `msDS-KeyCredentialLink` for shadow credential attacks, Event ID 4662 fires with `msDS-KeyCredentialLink` in the Properties field, same as Section 9 coverage.
 
 ---
 
@@ -882,7 +882,7 @@ Key Event IDs on the TARGET system:
 | 5145 | Security | Share access check (file/directory within share) |
 | 4688 | Security | New process created (attacker's command executed as service) |
 
-Detection query — PsExec composite signal:
+Detection query (PsExec composite signal):
 ```kql
 let psexec_logons = SecurityEvent | where EventID == 4624 | where LogonType == 3;
 let new_services = SecurityEvent | where EventID == 7045;
@@ -909,7 +909,7 @@ Key Event IDs on TARGET:
 - Microsoft-Windows-WMI-Activity/Operational Event ID 5857/5858/5859/5860/5861: WMI activity, consumer-to-filter binding (for persistence-type WMI, not execution)
 - Sysmon Event ID 20 (WmiEvent Filter Activity), 21 (WmiEvent Consumer)
 
-Behavioral indicator: `WmiPrvSE.exe` spawning command-line tools (`cmd.exe`, `powershell.exe`, `net.exe`) — this parent-child relationship is highly suspicious.
+Behavioral indicator: `WmiPrvSE.exe` spawning command-line tools (`cmd.exe`, `powershell.exe`, `net.exe`); this parent-child relationship is highly suspicious.
 
 ### WinRM / PowerShell Remoting
 
@@ -947,7 +947,7 @@ Detection: Event ID 4624 (Logon Type 3) followed by `mmc.exe` or `explorer.exe` 
 
 ### RDP Lateral Movement
 
-Mechanism: Remote Desktop Protocol (port 3389). Attackers use RDP for interactive access. Restricted Admin mode (`mstsc.exe /restrictedadmin`) allows RDP without sending credentials to the remote host — enabling PTH via RDP.
+Mechanism: Remote Desktop Protocol (port 3389). Attackers use RDP for interactive access. Restricted Admin mode (`mstsc.exe /restrictedadmin`) allows RDP without sending credentials to the remote host, enabling PTH via RDP.
 
 Key Event IDs on TARGET:
 
@@ -1050,14 +1050,14 @@ Add-ObjectAcl -TargetAD "CN=AdminSDHolder,CN=System,DC=corp,DC=local" `
   -PrincipalSamAccountName attacker -Rights All
 ```
 
-After 60 minutes: The attacker now has `GenericAll` on every DA/EA/Schema Admin account — they can reset passwords, disable protections, etc.
+After 60 minutes: The attacker now has `GenericAll` on every DA/EA/Schema Admin account; they can reset passwords, disable protections, etc.
 
 Detection:
 - Event ID 5136 (Directory Service Object Modified) on the AdminSDHolder object itself: any ACL modification here is critical
 - Monitor `nTSecurityDescriptor` attribute changes on `CN=AdminSDHolder,CN=System`
 - Event ID 4662 with write access to AdminSDHolder
 
-Remediation: Review AdminSDHolder ACL, remove all unexpected entries. No individual user accounts should appear there — only domain groups.
+Remediation: Review AdminSDHolder ACL, remove all unexpected entries. No individual user accounts should appear there, only domain groups.
 
 ### DSRM Account Abuse
 
@@ -1068,7 +1068,7 @@ mimikatz # lsadump::lsa /patch     # Extract DSRM hash from DC
 # Set DsrmAdminLogonBehavior = 2 to allow network logon
 ```
 
-Detection: Monitor `HKLM\System\CurrentControlSet\Control\Lsa\DsrmAdminLogonBehavior` on DCs — value should be `0` or `1` (not `2`). Event ID 4624 with `DSRM` in logon data.
+Detection: Monitor `HKLM\System\CurrentControlSet\Control\Lsa\DsrmAdminLogonBehavior` on DCs; value should be `0` or `1` (not `2`). Event ID 4624 with `DSRM` in logon data.
 
 Prevention: Regularly rotate DSRM passwords (Microsoft recommends on AD DS upgrade or quarterly); ensure `DsrmAdminLogonBehavior != 2`.
 
@@ -1105,7 +1105,7 @@ Prevention: AGPM (Advanced Group Policy Management) for change control; separate
 
 ### DCshadow
 
-Mechanism: DCshadow (mimikatz) registers a rogue Domain Controller in AD and uses legitimate replication mechanisms to push malicious changes to real DCs. Unlike DCSync (which reads), DCshadow writes — it can modify any AD attribute including `sIDHistory`, group memberships, SPN values, or ACLs.
+Mechanism: DCshadow (mimikatz) registers a rogue Domain Controller in AD and uses legitimate replication mechanisms to push malicious changes to real DCs. Unlike DCSync (which reads), DCshadow writes: it can modify any AD attribute including `sIDHistory`, group memberships, SPN values, or ACLs.
 
 ```
 # Terminal 1 — register rogue DC
@@ -1319,7 +1319,7 @@ Protections applied automatically:
 
 Accounts to enroll immediately: Domain Admins, Enterprise Admins, Schema Admins, krbtgt (by default), DSRM Administrator accounts concept, PAM/PAW administrative accounts.
 
-Caution: Test before adding service accounts — Protected Users breaks RC4 and NTLM, which some legacy services require.
+Caution: Test before adding service accounts; Protected Users breaks RC4 and NTLM, which some legacy services require.
 
 ### Authentication Policy Silos
 
@@ -1400,5 +1400,5 @@ PAW hardening checklist:
 
 ---
 
-*Last updated: 2026-05-06 — Covers techniques through 2025/2026 threat landscape.*  
+*Last updated: 2026-05-06. Covers techniques through 2025/2026 threat landscape.*  
 *Reference sources: Microsoft Security documentation, Impacket/Certipy/Rubeus documentation (for defender awareness), MITRE ATT&CK Enterprise Matrix, SpecterOps research, MDI detection documentation.*

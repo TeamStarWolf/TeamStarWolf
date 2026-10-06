@@ -1,8 +1,8 @@
 # Cryptography & PKI
 
-> The mathematical foundations of confidentiality, integrity, and authentication — from cipher algorithms and certificate lifecycle management to post-quantum readiness and cryptographic attacks.
+> The mathematical foundations of confidentiality, integrity, and authentication, from cipher algorithms and certificate lifecycle management to post-quantum readiness and cryptographic attacks.
 
-Cryptography and Public Key Infrastructure (PKI) underpin nearly every security control in modern computing. Cryptography transforms data so that only authorized parties can read or verify it; PKI provides the trust infrastructure — certificate authorities, digital certificates, and revocation mechanisms — that makes asymmetric cryptography usable at scale. Practitioners span defensive roles (designing TLS configurations, operating CAs, managing HSMs, planning post-quantum migrations) and offensive roles (auditing implementations, attacking weak ciphers, abusing certificate authority trust chains, testing for downgrade vulnerabilities). Without sound cryptography, authentication, data-in-transit protection, code signing, and non-repudiation all fail.
+Cryptography and Public Key Infrastructure (PKI) underpin nearly every security control in modern computing. Cryptography transforms data so that only authorized parties can read or verify it; PKI provides the trust infrastructure (certificate authorities, digital certificates, and revocation mechanisms) that makes asymmetric cryptography usable at scale. Practitioners span defensive roles (designing TLS configurations, operating CAs, managing HSMs, planning post-quantum migrations) and offensive roles (auditing implementations, attacking weak ciphers, abusing certificate authority trust chains, testing for downgrade vulnerabilities). Without sound cryptography, authentication, data-in-transit protection, code signing, and non-repudiation all fail.
 
 ---
 
@@ -95,9 +95,9 @@ Cryptography and Public Key Infrastructure (PKI) underpin nearly every security 
 | ECC (NIST P-256) | Recommended | 256-bit (equivalent to RSA-3072) | ECDSA/ECDH; widely supported |
 | Curve25519 / Ed25519 | Recommended | 256-bit | Modern, constant-time; excellent for TLS/SSH |
 | Diffie-Hellman (finite field) | Deprecated | 1024-bit is broken; 2048 minimum | Prefer ECDH; Logjam attack affects 1024-bit DH |
-| ML-KEM (Kyber) | Post-quantum | — | NIST FIPS 203; KEM for key encapsulation |
-| ML-DSA (Dilithium) | Post-quantum | — | NIST FIPS 204; lattice-based digital signatures |
-| SLH-DSA (SPHINCS+) | Post-quantum | — | NIST FIPS 205; hash-based signatures; conservative |
+| ML-KEM (Kyber) | Post-quantum | N/A | NIST FIPS 203; KEM for key encapsulation |
+| ML-DSA (Dilithium) | Post-quantum | N/A | NIST FIPS 204; lattice-based digital signatures |
+| SLH-DSA (SPHINCS+) | Post-quantum | N/A | NIST FIPS 205; hash-based signatures; conservative |
 
 ### Hashing Algorithms
 

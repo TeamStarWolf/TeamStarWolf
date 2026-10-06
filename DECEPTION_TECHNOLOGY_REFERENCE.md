@@ -136,7 +136,7 @@ Supported alert channels: syslog, email, Slack webhook, HipChat, PagerDuty, MS T
 
 #### Honeyd
 
-Virtual honeypot daemon — simulates thousands of virtual hosts with configurable
+Virtual honeypot daemon: simulates thousands of virtual hosts with configurable
 personalities.
 
 ```bash
@@ -211,7 +211,7 @@ Design principles:
 - Read-only golden image with tripwire monitoring for filesystem changes
 - Automated shutdown on certain trigger events (prevent pivoting)
 
-HoneyDrive — Ubuntu-based Linux distro pre-loaded with 10+ honeypot packages:
+HoneyDrive, Ubuntu-based Linux distro pre-loaded with 10+ honeypot packages:
 Kippo, Dionaea, Honeyd, LaBrea, Thug, PhoneyC, Glastopf, and analysis tools.
 
 Legal considerations:
@@ -298,7 +298,7 @@ App Registrations with fake credentials, unused subscriptions.
 
 ### What Are Honeytokens
 
-Honeytokens are fake digital artifacts — credentials, files, records, or tokens —
+Honeytokens are fake digital artifacts (credentials, files, records, or tokens)
 that have no legitimate use and generate an alert when touched. Unlike honeypots
 (which are systems), honeytokens are individual data objects planted wherever
 attackers are likely to look.
@@ -704,7 +704,7 @@ Use honeytoken access as a hunt pivot:
 
 Lateral movement detection via decoy-to-decoy hops:
 If an attacker moves from Decoy A to Decoy B, you have a full map of their lateral
-movement path with timestamps — before they reach any real asset.
+movement path with timestamps, before they reach any real asset.
 
 ---
 

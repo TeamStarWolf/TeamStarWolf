@@ -1,6 +1,6 @@
 # Enterprise Infrastructure Reference
 
-> A practical reference for security practitioners covering the operating systems, server roles, networking components, and technology stacks present in enterprise environments. Understanding what you are working with — and what it does — is a prerequisite for both attacking and defending it effectively.
+> A practical reference for security practitioners covering the operating systems, server roles, networking components, and technology stacks present in enterprise environments. Understanding what you are working with, and what it does, is a prerequisite for both attacking and defending it effectively.
 
 | | |
 |---|---|
@@ -76,8 +76,8 @@ Linux is the dominant platform for web servers, containerized workloads, databas
 | Alpine Linux | musl/apk | Container base images; minimal attack surface; distroless-adjacent; Kubernetes pods | `apk` |
 
 Security relevance:
-- Different distributions use different init systems (systemd vs. SysV init), package managers, SELinux/AppArmor configurations, and default firewall configurations — attackers and defenders must know which they are operating on
-- RHEL-family systems use SELinux by default; Debian/Ubuntu use AppArmor — both enforce mandatory access controls that affect privilege escalation paths
+- Different distributions use different init systems (systemd vs. SysV init), package managers, SELinux/AppArmor configurations, and default firewall configurations; attackers and defenders must know which they are operating on
+- RHEL-family systems use SELinux by default; Debian/Ubuntu use AppArmor. Both enforce mandatory access controls that affect privilege escalation paths
 - Container base images (Alpine, Distroless) minimize the available tooling for living-off-the-land; attackers must bring their own binaries
 
 ---
@@ -166,7 +166,7 @@ Database servers store and serve structured data. They are the ultimate target f
 
 | Database | Type | Common Use Case |
 |---|---|---|
-| Microsoft SQL Server (MSSQL) | Relational | Windows enterprise applications; ERP systems; can execute OS commands via `xp_cmdshell` — a critical misconfiguration to audit |
+| Microsoft SQL Server (MSSQL) | Relational | Windows enterprise applications; ERP systems; can execute OS commands via `xp_cmdshell`, a critical misconfiguration to audit |
 | MySQL / MariaDB | Relational | Web application backends; LAMP/LEMP stacks; most common open source RDBMS |
 | PostgreSQL | Relational | Modern applications; JSON support; increasing enterprise adoption; `COPY TO/FROM` allows file system interaction |
 | Oracle Database | Relational | Financial services, ERP (Oracle E-Business Suite, SAP); high-value target; complex privilege model |
@@ -235,7 +235,7 @@ The Dynamic Host Configuration Protocol server assigns IP addresses, subnet mask
 |---|---|---|
 | Active Directory Domain Services | Windows domain authentication and authorization | The central identity authority for Windows environments; Kerberos and NTLM authentication |
 | LDAP Server (OpenLDAP) | Lightweight Directory Access Protocol | Linux identity directory; provides authentication for Linux systems, applications, VPNs, and network devices |
-| RADIUS Server (FreeRADIUS, NPS) | Remote Authentication Dial-In User Service | Network access authentication; WiFi, VPN, 802.1X — credential capture via rogue AP attacks |
+| RADIUS Server (FreeRADIUS, NPS) | Remote Authentication Dial-In User Service | Network access authentication; WiFi, VPN, 802.1X; credential capture via rogue AP attacks |
 | CAS / SAML / OAuth IdP | Web single sign-on | Okta, Shibboleth, Keycloak, ADFS: federated identity for web applications; target for token theft and SSO bypass |
 | PKI / Certificate Authority | Certificate issuance and management | Microsoft ADCS, Let's Encrypt, HashiCorp Vault PKI; ESC1-ESC8 vulnerabilities in misconfigured ADCS allow privilege escalation |
 
@@ -340,7 +340,7 @@ Key concepts:
 
 ## 6. Database Systems
 
-See [Server Roles & Functions — Database Server](#database-server) for the full database reference.
+See [Server Roles & Functions: Database Server](#database-server) for the full database reference.
 
 Quick security reference:
 

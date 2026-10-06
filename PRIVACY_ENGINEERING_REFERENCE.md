@@ -1,6 +1,6 @@
 # Privacy Engineering Reference
 
-> Privacy Engineering — comprehensive technical and regulatory reference covering GDPR, CCPA/CPRA, global privacy laws, Privacy by Design, anonymization, pseudonymization, consent management, DPIA, and privacy-preserving engineering patterns.
+> Privacy Engineering: comprehensive technical and regulatory reference covering GDPR, CCPA/CPRA, global privacy laws, Privacy by Design, anonymization, pseudonymization, consent management, DPIA, and privacy-preserving engineering patterns.
 
 | | |
 |---|---|
@@ -63,9 +63,9 @@ Engineering practices: Privacy by Design, LINDDUN threat modeling, ROPA, DPIA, p
 
 ### PII vs Personal Data
 
-PII (US concept): Directly identifies an individual — name, SSN, passport number, biometric data.
+PII (US concept): Directly identifies an individual (name, SSN, passport number, biometric data).
 
-Personal data (GDPR): Much broader — any information relating to an *identifiable* person:
+Personal data (GDPR): Much broader (any information relating to an *identifiable* person):
 - IP addresses (Court of Justice of the EU, C-582/14: *Breyer*)
 - Cookie IDs / device fingerprints
 - Behavioral/clickstream data linked to a user profile
@@ -161,7 +161,7 @@ High-risk indicators for Art. 34 notification: health data, financial data, chil
 | Tier 1 | €10M or 2% global annual turnover (whichever higher) | Processor obligations, DPIA, DPO, certification bodies |
 | Tier 2 | €20M or 4% global annual turnover (whichever higher) | Basic processing principles (Art. 5), lawful basis (Art. 6), consent (Art. 7), data subject rights, international transfers |
 
-Notable fines: Meta (€1.2B, 2023 — transfers); Amazon (€746M, 2021 — consent); WhatsApp (€225M, 2021 — transparency).
+Notable fines: Meta (€1.2B, 2023; transfers); Amazon (€746M, 2021; consent); WhatsApp (€225M, 2021; transparency).
 
 ---
 
@@ -183,7 +183,7 @@ DPIA Template Sections:
 7. Sign-off and review date
 8. Residual risk acceptance
 
-Free tool: CNIL DPIA open-source software — https://www.cnil.fr/en/open-source-pia-software
+Free tool: CNIL DPIA open-source software, https://www.cnil.fr/en/open-source-pia-software
 
 ---
 
@@ -257,7 +257,7 @@ CPPA (California Privacy Protection Agency): Independent enforcement body create
 
 ## 5. Privacy by Design: 7 Principles
 
-Ann Cavoukian's Privacy by Design (PbD) — developed in the 1990s, codified in GDPR Recital 78 and Art. 25 (data protection by design and by default).
+Ann Cavoukian's Privacy by Design (PbD): developed in the 1990s, codified in GDPR Recital 78 and Art. 25 (data protection by design and by default).
 
 ### The 7 Foundational Principles
 
@@ -360,7 +360,7 @@ Controller ROPA required fields (Art. 30(1)):
 6. Retention periods (or criteria)
 7. Security measures (technical and organisational, where possible)
 
-Sample ROPA Entry — Customer Order Processing:
+Sample ROPA Entry (Customer Order Processing):
 ```python
 ROPA_ENTRY = {
     "process_id": "PROC-001",
@@ -405,7 +405,7 @@ ROPA_ENTRY = {
 
 ### Pseudonymization: Art. 4(5)
 
-Pseudonymization replaces directly identifying data with an artificial identifier. The mapping is stored separately. The data is still personal data — GDPR still applies, but with reduced risk (affects DPIA risk scoring, breach impact assessment).
+Pseudonymization replaces directly identifying data with an artificial identifier. The mapping is stored separately. The data is still personal data: GDPR still applies, but with reduced risk (affects DPIA risk scoring, breach impact assessment).
 
 HMAC-Based Deterministic Pseudonymization (Python):
 ```python
@@ -443,7 +443,7 @@ Key management for pseudonymization:
 
 ### Anonymization Techniques
 
-True anonymization makes re-identification impossible — the data is no longer personal data and falls outside GDPR scope. In practice, anonymization is very difficult.
+True anonymization makes re-identification impossible: the data is no longer personal data and falls outside GDPR scope. In practice, anonymization is very difficult.
 
 #### k-Anonymity
 A dataset satisfies k-anonymity if every record is indistinguishable from at least k-1 other records with respect to quasi-identifiers (age, ZIP code, gender).
@@ -459,7 +459,7 @@ Each row now matches at least 2 others — k=3 satisfied
 Weakness: Homogeneity attack (if all k records share the same sensitive attribute, knowing quasi-identifiers reveals it).
 
 #### l-Diversity
-Extension of k-anonymity — each equivalence class must have at least l "well-represented" values for the sensitive attribute.
+Extension of k-anonymity: each equivalence class must have at least l "well-represented" values for the sensitive attribute.
 
 #### t-Closeness
 Distribution of sensitive attribute in each group must be close to its distribution in the whole dataset (distance ≤ t).
@@ -521,7 +521,7 @@ Detokenize only for authorized services (e.g., payment processor) → audit logg
 
 ### Field-Level Encryption
 
-Encrypt specific sensitive fields at the application level — database stores ciphertext.
+Encrypt specific sensitive fields at the application level: database stores ciphertext.
 
 ```python
 from cryptography.fernet import Fernet
@@ -555,7 +555,7 @@ class UserProfile(models.Model):
 
 Libraries: `cryptography` (Python Fernet/AES-GCM), `django-encrypted-model-fields`, `sqlalchemy-utils` EncryptedType, `pgcrypto` (PostgreSQL native).
 
-Key rotation: Re-encrypt all rows with new key; use envelope encryption (data key encrypted with master key in KMS — rotate master key without re-encrypting all data).
+Key rotation: Re-encrypt all rows with new key; use envelope encryption (data key encrypted with master key in KMS; rotate master key without re-encrypting all data).
 
 ---
 
@@ -713,7 +713,7 @@ CASB (Cloud Access Security Broker):
 
 ### Data Minimization
 
-Return only the fields required for the stated purpose — projection at the database query level.
+Return only the fields required for the stated purpose: projection at the database query level.
 
 ```python
 # BAD: Returns full User object including DOB, address, SSN, phone
@@ -989,4 +989,4 @@ Payment card data?
 
 ---
 
-*Reference compiled for TeamStarWolf cybersecurity library. Verify regulatory details against primary sources and qualified legal counsel — regulations evolve.*
+*Reference compiled for TeamStarWolf cybersecurity library. Verify regulatory details against primary sources and qualified legal counsel: regulations evolve.*

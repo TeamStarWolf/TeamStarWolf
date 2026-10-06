@@ -1,12 +1,12 @@
 # Assess Your M365 Tenant with ScubaGear
 
-> By the end of this guide you will have scored your Microsoft 365 tenant against CISA's SCuBA secure configuration baselines, read the conformance report like an assessor, and turned the failures into a prioritized remediation plan that won't lock anyone out. Written for M365 administrators and security engineers who can get read-level admin access to a tenant — no prior ScubaGear experience assumed.
+> By the end of this guide you will have scored your Microsoft 365 tenant against CISA's SCuBA secure configuration baselines, read the conformance report like an assessor, and turned the failures into a prioritized remediation plan that won't lock anyone out. Written for M365 administrators and security engineers who can get read-level admin access to a tenant (no prior ScubaGear experience assumed).
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
 | 2-4 hours for the first full run and report review | Intermediate | Windows + PowerShell 5.1, a Global Reader account (or product-admin equivalents) | HTML/JSON/CSV conformance reports, an `ActionPlan.csv` of failing mandatory controls, and a scheduled re-run cadence |
 
-ScubaGear is CISA's free assessment tool for Microsoft 365. It queries your tenant's settings through Microsoft's APIs, evaluates them against the [SCuBA Secure Configuration Baselines](https://github.com/cisagov/ScubaGear/tree/main/PowerShell/ScubaGear/baselines) using Open Policy Agent, and emits a scored report. It reads configuration; it changes nothing. Under [BOD 25-01](https://www.cisa.gov/news-events/directives/bod-25-01-implementing-secure-practices-cloud-services) these baselines are mandatory for U.S. federal civilian agencies — for everyone else they are the best free answer to "is my tenant configured sanely?" The doctrinal context — why tenant misconfiguration is the dominant SaaS exposure class — lives in this library's [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md).
+ScubaGear is CISA's free assessment tool for Microsoft 365. It queries your tenant's settings through Microsoft's APIs, evaluates them against the [SCuBA Secure Configuration Baselines](https://github.com/cisagov/ScubaGear/tree/main/PowerShell/ScubaGear/baselines) using Open Policy Agent, and emits a scored report. It reads configuration; it changes nothing. Under [BOD 25-01](https://www.cisa.gov/news-events/directives/bod-25-01-implementing-secure-practices-cloud-services) these baselines are mandatory for U.S. federal civilian agencies; for everyone else they are the best free answer to "is my tenant configured sanely?" The doctrinal context (why tenant misconfiguration is the dominant SaaS exposure class) lives in this library's [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md).
 
 ## Before you start
 
@@ -31,9 +31,9 @@ Read before you run. ScubaGear scores seven M365 products, each against its own 
 | `sharepoint` | SharePoint Online & OneDrive: external sharing defaults, link scopes |
 | `teams` | Teams: external access, meeting policies, app management |
 
-Every policy has an ID (for example `MS.AAD.3.1v1`) and a criticality: SHALL policies are mandatory, SHOULD policies are recommended. BOD 25-01 made the SHALLs enforceable for federal agencies with documented deviations — that "mandatory floor plus documented exceptions" pattern is worth copying even if no directive applies to you.
+Every policy has an ID (for example `MS.AAD.3.1v1`) and a criticality: SHALL policies are mandatory, SHOULD policies are recommended. BOD 25-01 made the SHALLs enforceable for federal agencies with documented deviations; that "mandatory floor plus documented exceptions" pattern is worth copying even if no directive applies to you.
 
-Checkpoint: You can name which of the seven products your tenant actually uses — that list is what you'll assess in Step 4.
+Checkpoint: You can name which of the seven products your tenant actually uses; that list is what you'll assess in Step 4.
 
 ## Step 2: Install ScubaGear and its dependencies
 
@@ -49,13 +49,13 @@ Invoke-SCuBA -Version
 
 Checkpoint: `Invoke-SCuBA -Version` prints a version number without errors.
 
-Watch out: On proxied corporate networks the OPA download is the piece that fails. If it does, run `Install-OPAforSCuBA` separately or place the tested OPA version manually per the [dependencies doc](https://cisagov.github.io/ScubaGear/docs/prerequisites/dependencies.html) — ScubaGear will not evaluate anything without it.
+Watch out: On proxied corporate networks the OPA download is the piece that fails. If it does, run `Install-OPAforSCuBA` separately or place the tested OPA version manually per the [dependencies doc](https://cisagov.github.io/ScubaGear/docs/prerequisites/dependencies.html); ScubaGear will not evaluate anything without it.
 
 ## Step 3: Set up least-privilege access
 
 Do not run this as Global Administrator just because it works. ScubaGear only reads, so give it read-level roles.
 
-Interactive runs (your first run): Global Reader covers Entra ID, Security Suite, Exchange Online, SharePoint, and Teams. Two products need more because their APIs demand it: Power BI requires Fabric Administrator with a Power BI/Fabric license, and Power Platform requires Power Platform Administrator with a "Power Apps for Office 365" license ([interactive permissions doc](https://cisagov.github.io/ScubaGear/docs/prerequisites/interactive.html)). On first sign-in, ScubaGear requests seven delegated Graph permissions — `Directory.Read.All`, `Policy.Read.All`, `PrivilegedAccess.Read.AzureADGroup`, `PrivilegedEligibilitySchedule.Read.AzureADGroup`, `RoleManagement.Read.Directory`, `RoleManagementPolicy.Read.AzureADGroup`, `User.Read.All` — which need one-time admin consent.
+Interactive runs (your first run): Global Reader covers Entra ID, Security Suite, Exchange Online, SharePoint, and Teams. Two products need more because their APIs demand it: Power BI requires Fabric Administrator with a Power BI/Fabric license, and Power Platform requires Power Platform Administrator with a "Power Apps for Office 365" license ([interactive permissions doc](https://cisagov.github.io/ScubaGear/docs/prerequisites/interactive.html)). On first sign-in, ScubaGear requests seven delegated Graph permissions (`Directory.Read.All`, `Policy.Read.All`, `PrivilegedAccess.Read.AzureADGroup`, `PrivilegedEligibilitySchedule.Read.AzureADGroup`, `RoleManagement.Read.Directory`, `RoleManagementPolicy.Read.AzureADGroup`, `User.Read.All`), which need one-time admin consent.
 
 Unattended runs (for the Step 9 schedule): create an Entra app registration with certificate authentication per the [non-interactive permissions doc](https://cisagov.github.io/ScubaGear/docs/prerequisites/noninteractive.html):
 
@@ -63,11 +63,11 @@ Unattended runs (for the Step 9 schedule): create an Entra app registration with
 2. Add `Exchange.ManageAsApp` from the Office 365 Exchange Online API (needed for `exo` and `securitysuite`).
 3. Add `Sites.FullControl.All` from the SharePoint API (needed for `sharepoint`).
 4. Assign the service principal the Global Reader directory role (needed for Security Suite and Teams checks).
-5. Create or import a certificate into `Cert:\CurrentUser\My` on the machine that will run the assessments — ScubaGear requires that specific store — and upload its public key to the app registration. Record the thumbprint.
+5. Create or import a certificate into `Cert:\CurrentUser\My` on the machine that will run the assessments (ScubaGear requires that specific store) and upload its public key to the app registration. Record the thumbprint.
 
 Checkpoint: Either a Global Reader account you can sign in with, or an app registration with admin-consented permissions and a certificate thumbprint recorded somewhere safe.
 
-Watch out: `Sites.FullControl.All` and `Exchange.ManageAsApp` make this service principal a high-value target even though ScubaGear only reads. Treat the certificate's private key like an admin credential, and put the app registration itself on the OAuth-app review cycle described in the [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md) — an assessment tool that becomes an unowned legacy app is exactly the failure mode it exists to find.
+Watch out: `Sites.FullControl.All` and `Exchange.ManageAsApp` make this service principal a high-value target even though ScubaGear only reads. Treat the certificate's private key like an admin credential, and put the app registration itself on the OAuth-app review cycle described in the [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md); an assessment tool that becomes an unowned legacy app is exactly the failure mode it exists to find.
 
 ## Step 4: Run your first assessment
 
@@ -84,7 +84,7 @@ Invoke-SCuBA
 Invoke-SCuBA -ProductNames *
 ```
 
-Set `-M365Environment` to `gcc`, `gcchigh`, or `dod` if that's where your tenant lives. Expect a sign-in prompt (or several — different products use different APIs). Use `-OutPath` to control where reports land and add `-DisconnectOnExit` on shared machines to delete the cached authentication tokens afterward.
+Set `-M365Environment` to `gcc`, `gcchigh`, or `dod` if that's where your tenant lives. Expect a sign-in prompt (or several: different products use different APIs). Use `-OutPath` to control where reports land and add `-DisconnectOnExit` on shared machines to delete the cached authentication tokens afterward.
 
 For an unattended run with the Step 3 app registration:
 
@@ -97,7 +97,7 @@ Invoke-SCuBA -ProductNames * `
 
 Checkpoint: A timestamped output folder exists and `BaselineReports.html` has opened in your browser with a scored summary per product.
 
-Watch out: Running against a GCC/GCC-High/DoD tenant without the matching `-M365Environment` value fails with confusing authentication and endpoint errors — set it explicitly rather than debugging the wrong problem.
+Watch out: Running against a GCC/GCC-High/DoD tenant without the matching `-M365Environment` value fails with confusing authentication and endpoint errors; set it explicitly rather than debugging the wrong problem.
 
 ## Step 5: Read the report like an assessor
 
@@ -121,7 +121,7 @@ All failures are not equal. Order the work:
 2. Within the SHALLs, lead with the controls that have incident pedigree. The [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md) case studies map directly onto baseline policies: MFA gaps and legacy authentication (Midnight Blizzard's entry point was an MFA-less account), unrestricted user consent and unaudited app permissions (its escalation path), and permissive sharing defaults in SharePoint/OneDrive.
 3. Then SHOULDs, ordered by the same logic.
 
-Assign every failure an owner and a target date in `ActionPlan.csv`, and feed the list into the same remediation pipeline you use for vulnerabilities — findings with owners and SLAs, not a report on a shelf ([CTEM Reference](/CTEM_REFERENCE.md), mobilization stage).
+Assign every failure an owner and a target date in `ActionPlan.csv`, and feed the list into the same remediation pipeline you use for vulnerabilities: findings with owners and SLAs, not a report on a shelf ([CTEM Reference](/CTEM_REFERENCE.md), mobilization stage).
 
 Checkpoint: A ranked `ActionPlan.csv` where every failing SHALL has an owner and a date.
 
@@ -129,10 +129,10 @@ Watch out: Don't burn the first week arguing about SHOULDs while SHALL failures 
 
 ## Step 7: Remediate without locking anyone out
 
-The highest-impact fixes — conditional access, MFA enforcement, legacy-auth blocking, consent restriction — are also the ones that can lock out your CEO on a Monday. Sequence them:
+The highest-impact fixes (conditional access, MFA enforcement, legacy-auth blocking, consent restriction) are also the ones that can lock out your CEO on a Monday. Sequence them:
 
 - Use report-only mode for conditional access changes first. Watch the sign-in logs for who *would* have been blocked before you enforce.
-- Exclude and protect break-glass accounts before tightening authentication policy, and alert on their use — vaulted emergency access is part of the identity baseline, not an exception to it ([Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)).
+- Exclude and protect break-glass accounts before tightening authentication policy, and alert on their use; vaulted emergency access is part of the identity baseline, not an exception to it ([Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)).
 - Inventory before you block legacy authentication. Check sign-in logs for legacy-protocol usage; old clients, scanners, and service mailboxes still using it will break silently.
 - Pair consent restriction with the admin consent workflow. If you disable user consent without giving users a request path, you get shadow-IT workarounds instead of security.
 - Change one control class per change window, then verify with a targeted re-run: `Invoke-SCuBA -ProductNames exo` re-scores just the product you touched in minutes.
@@ -143,7 +143,7 @@ Watch out: A fix that "passes" by disabling a business capability nobody signed 
 
 ## Step 8: Record deviations in a config file
 
-Some baseline policies genuinely won't apply to you. Don't let them rot as permanent red rows — document them in a ScubaGear YAML configuration file ([configuration doc](https://cisagov.github.io/ScubaGear/docs/configuration/configuration.html)), which also makes every future run repeatable:
+Some baseline policies genuinely won't apply to you. Don't let them rot as permanent red rows; document them in a ScubaGear YAML configuration file ([configuration doc](https://cisagov.github.io/ScubaGear/docs/configuration/configuration.html)), which also makes every future run repeatable:
 
 ```yaml
 ProductNames: ['aad', 'securitysuite', 'exo', 'sharepoint', 'teams']
@@ -158,21 +158,21 @@ AnnotatePolicy:
     RemediationDate: 2026-11-30
 ```
 
-Run with `Invoke-SCuBA -ConfigFilePath .\scuba-config.yaml`. Omitted policies render as gray "Omitted" rows with your rationale; annotations append to the details column of failing controls. Keep the config in version control — it is your deviation register, which is exactly what BOD 25-01 requires agencies to maintain ([GRC & Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)).
+Run with `Invoke-SCuBA -ConfigFilePath .\scuba-config.yaml`. Omitted policies render as gray "Omitted" rows with your rationale; annotations append to the details column of failing controls. Keep the config in version control; it is your deviation register, which is exactly what BOD 25-01 requires agencies to maintain ([GRC & Compliance Reference](/GRC_COMPLIANCE_REFERENCE.md)).
 
 Checkpoint: A committed config file; a re-run shows your omissions in gray with rationale text and your annotations on failing rows.
 
-Watch out: An omission without an `Expiration` date is a permanent exception nobody will ever revisit. Set one, always — expiry is what turns an exception into a review.
+Watch out: An omission without an `Expiration` date is a permanent exception nobody will ever revisit. Set one, always; expiry is what turns an exception into a review.
 
 ## Step 9: Schedule re-runs and track drift
 
 One assessment is a snapshot; configuration drifts back. Make it a cadence:
 
 - Monthly or better, using the Step 3 app registration and the Step 8 config file so runs are hands-off and identical.
-- Archive `ScubaResults_<UUID>.json` from every run and trend the SHALL-failure count per product over time — that number is a reportable posture metric ([Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)), and a regression (a control flipping from pass back to fail) is a drift signal worth alerting on in your SIEM ([SIEM Reference](/SIEM_REFERENCE.md)).
-- Keep the tool and baselines current: run `Update-ScubaGear` before scheduled runs pick up a stale version, and re-check the baselines directory when policy IDs change — the Defender/Security Suite reorganization is a live example.
+- Archive `ScubaResults_<UUID>.json` from every run and trend the SHALL-failure count per product over time; that number is a reportable posture metric ([Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)), and a regression (a control flipping from pass back to fail) is a drift signal worth alerting on in your SIEM ([SIEM Reference](/SIEM_REFERENCE.md)).
+- Keep the tool and baselines current: run `Update-ScubaGear` before scheduled runs pick up a stale version, and re-check the baselines directory when policy IDs change; the Defender/Security Suite reorganization is a live example.
 
-Checkpoint: A second run's results archived next to the first, with the failure-count delta visible — you are now measuring drift, not just posture.
+Checkpoint: A second run's results archived next to the first, with the failure-count delta visible. You are now measuring drift, not just posture.
 
 ## What good looks like
 

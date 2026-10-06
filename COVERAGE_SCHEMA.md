@@ -96,7 +96,7 @@ Edge Tables:
 > The canonical field names actually enforced on the shipped `.jsonl` files are defined in
 > [`scripts/validate_jsonl.py`](scripts/validate_jsonl.py) and checked in CI by
 > [`.github/workflows/validate-data.yml`](.github/workflows/validate-data.yml). If you regenerate the edge
-> tables, match that schema and run `python scripts/validate_jsonl.py` before opening a PR — see
+> tables, match that schema and run `python scripts/validate_jsonl.py` before opening a PR; see
 > [Canonical on-disk schema](#canonical-on-disk-schema-ci-enforced) below.
 
 ### Canonical on-disk schema (CI-enforced)
@@ -108,10 +108,10 @@ Edge Tables:
 | [`data/vendor_to_technique.jsonl`](data/vendor_to_technique.jsonl) | `vendor`, `vendor_normalized`, `attack_technique`, `technique_desc`, `via_control`, `coverage_type`, `confidence` | `coverage_type` ∈ prevent / detect / respond / identify / prevent_detect; `confidence` ∈ high / medium / low |
 
 `attack_technique` must be an ATT&CK ID (`T####`, optionally `.###`). Extra fields beyond the required set are
-allowed — the shipped files also carry `edge_type`, `tactics`, `via_controls`, `control_count`, and `source`
+allowed; the shipped files also carry `edge_type`, `tactics`, `via_controls`, `control_count`, and `source`
 for richer querying.
 
-`coverage_type` derivation (vendor -> technique): from the NIST control families behind the mapping —
+`coverage_type` derivation (vendor -> technique): from the NIST control families behind the mapping.
 `AU-*`, `SI-4`, `CA-7` -> `detect`; `IR-*` -> `respond`; `RA-*`/`CA-*`/`PM-*` -> `identify`; others -> `prevent`;
 a technique reached by both preventive and detective controls -> `prevent_detect`.
 

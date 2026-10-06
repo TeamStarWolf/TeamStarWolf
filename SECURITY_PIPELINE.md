@@ -1,6 +1,6 @@
 # Enterprise Security Pipeline
 
-> A stage-by-stage model for building and operating enterprise security controls — from identity governance through detection and response. Each stage maps to NIST 800-53 control families, vendor tooling, and ATT&CK coverage.
+> A stage-by-stage model for building and operating enterprise security controls, from identity governance through detection and response. Each stage maps to NIST 800-53 control families, vendor tooling, and ATT&CK coverage.
 
 | | |
 |---|---|
@@ -19,7 +19,7 @@ Governance   →   Identity &   →   Endpoint &   →   Network &    →   Visi
 (GRC)            (IAM/PAM)        (EDR/AV)         (FW/ZT/Email)    (SIEM/SOAR)      (DSPM/CSPM)
 ```
 
-Each stage builds on the previous. Gaps in Stage 2 (identity) compound into Stage 5 (detection) — attackers abuse valid credentials that detections never see as anomalous.
+Each stage builds on the previous. Gaps in Stage 2 (identity) compound into Stage 5 (detection): attackers abuse valid credentials that detections never see as anomalous.
 
 ---
 
@@ -42,7 +42,7 @@ Goal: Establish the policy, risk management, and compliance baseline that all ot
 |---|---|---|
 | GRC Platform | [OpenRMF](https://www.openrmf.io/), [OSCAL](https://pages.nist.gov/OSCAL/) | ServiceNow GRC, RSA Archer |
 | Compliance Automation | [Wazuh](https://wazuh.com/) | Drata, Vanta, Thoropass |
-| Risk Quantification | — | RiskLens, Safe Security |
+| Risk Quantification | None | RiskLens, Safe Security |
 | Policy Management | [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) | OneTrust, LogicGate |
 
 ### Key Frameworks
@@ -143,7 +143,7 @@ Goal: Control traffic flows, enforce Zero Trust network segmentation, filter thr
 | SC-5 | Denial-of-Service Protection |
 
 ### ATT&CK Coverage
-Techniques mitigated: T1021 (Remote Services), T1133 (External Remote Services), T1048 (Exfiltration Over Alt Protocol), T1071 (Application Layer Protocol), T1040 (Network Sniffing), T1557 (Adversary-in-the-Middle), T1090 (Proxy), T1566 (Phishing — Email), T1114 (Email Collection)
+Techniques mitigated: T1021 (Remote Services), T1133 (External Remote Services), T1048 (Exfiltration Over Alt Protocol), T1071 (Application Layer Protocol), T1040 (Network Sniffing), T1557 (Adversary-in-the-Middle), T1090 (Proxy), T1566 (Phishing, Email), T1114 (Email Collection)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -181,7 +181,7 @@ Goal: Aggregate logs, correlate events, detect adversary behavior, and orchestra
 | RA-5 | Vulnerability Monitoring and Scanning |
 
 ### ATT&CK Coverage
-Techniques mitigated: T1078 (Valid Accounts — anomaly detection), T1059 (Scripting — behavioral detection), T1003 (Credential Dumping — alert), T1055 (Process Injection — memory detection), T1486 (Ransomware — behavior block + response), T1562 (Impair Defenses — integrity monitoring)
+Techniques mitigated: T1078 (Valid Accounts, anomaly detection), T1059 (Scripting, behavioral detection), T1003 (Credential Dumping, alert), T1055 (Process Injection, memory detection), T1486 (Ransomware, behavior block + response), T1562 (Impair Defenses, integrity monitoring)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |

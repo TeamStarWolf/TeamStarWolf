@@ -1,6 +1,6 @@
 # Threat Modeling Reference
 
-> Threat Modeling — comprehensive reference covering STRIDE, PASTA, LINDDUN, attack trees, DREAD, MITRE ATT&CK integration, Data Flow Diagrams, cloud/microservices threats, and practical SDLC integration for software and infrastructure security.
+> Threat Modeling: comprehensive reference covering STRIDE, PASTA, LINDDUN, attack trees, DREAD, MITRE ATT&CK integration, Data Flow Diagrams, cloud/microservices threats, and practical SDLC integration for software and infrastructure security.
 
 | | |
 |---|---|
@@ -175,7 +175,7 @@ Decompose the system into analyzable units:
 Analyze the threat landscape relevant to the system:
 - Threat intelligence review: Which threat actors are currently targeting your industry and geography? (ISAC feeds, vendor advisories, CISA KEV list)
 - Attacker profiling: Script kiddies, cybercriminal groups (ransomware, data theft), nation-state APTs, insider threats (malicious, negligent), supply chain attackers
-- ATT&CK mapping: Map threat actor TTPs from MITRE ATT&CK to your architecture components — which ATT&CK techniques are relevant given your stack?
+- ATT&CK mapping: Map threat actor TTPs from MITRE ATT&CK to your architecture components. Which ATT&CK techniques are relevant given your stack?
 - Insider threat modeling: Include privileged user abuse scenarios (sysadmin data theft, developer backdoor)
 - Supply chain threats: Third-party libraries, CI/CD pipeline compromise, vendor account takeover
 
@@ -818,7 +818,7 @@ jobs:
 | Title | Author | Notes |
 |-------|--------|-------|
 | Threat Modeling: Designing for Security | Adam Shostack | The definitive reference: comprehensive coverage of STRIDE, DFDs, and real-world application |
-| The Threat Modeling Manifesto | Community (2020) | https://www.threatmodelingmanifesto.org — four key questions framework |
+| The Threat Modeling Manifesto | Community (2020) | https://www.threatmodelingmanifesto.org, four key questions framework |
 | Threat Modeling: A Practical Guide for Development Teams | Izar Tarandach & Matthew Coles | Practitioner-focused; agile integration; tool guidance |
 | Threat Modeling | Frank Swiderski & Window Snyder | Original Microsoft threat modeling book; foundational STRIDE coverage |
 
@@ -866,7 +866,7 @@ jobs:
 | Threat Modeling Connect (LinkedIn group) | Community of practice for threat modeling practitioners |
 | ThreatModCon | Annual threat modeling conference |
 | SANS SEC504, SEC540 | Security courses covering threat modeling in penetration testing and DevSecOps context |
-| Adam Shostack's blog | https://shostack.org/blog — commentary from the author of the definitive TM book |
+| Adam Shostack's blog | https://shostack.org/blog, commentary from the author of the definitive TM book |
 
 ---
 

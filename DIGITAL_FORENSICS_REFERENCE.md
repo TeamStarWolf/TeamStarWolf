@@ -54,7 +54,7 @@ The SWGDE/NIST framework defines six ordered phases:
 - Apply write blockers before connecting media
 - Photograph device state (powered on/off, screen content, running processes)
 - Maintain chain of custody from first contact
-- Power considerations: powered-on systems contain volatile evidence (RAM, active network connections) — decide live acquisition vs. immediate shutdown based on case needs
+- Power considerations: powered-on systems contain volatile evidence (RAM, active network connections); decide live acquisition vs. immediate shutdown based on case needs
 - Evidence bags, tamper-evident seals, anti-static packaging for storage media
 
 #### Phase 3: Collection
@@ -302,7 +302,7 @@ The Windows Registry is a hierarchical database storing system and user configur
 
 #### Key Forensic Registry Keys
 
-UserAssist — GUI program execution history with timestamps and run count:
+UserAssist (GUI program execution history with timestamps and run count):
 ```
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\
 {CEBFF5CD-...}\Count  <- Applications
@@ -310,24 +310,24 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\
 ```
 Values are ROT-13 encoded. Use RegRipper or Eric Zimmerman's RECmd to decode.
 
-MuiCache — Recently executed programs (persists even after deletion):
+MuiCache, recently executed programs (persists even after deletion):
 ```
 HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
 ```
 
-RecentDocs — Recently opened files by extension:
+RecentDocs (recently opened files by extension):
 ```
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.pdf
 ```
 
-ShimCache / AppCompatCache — Application compatibility cache. Proves a file was present / known to the system (records path + the file's `$StandardInformation` last-modified time), not that it executed: an entry is created when the shim engine becomes aware of a file (for example, the file appears in a directory that gets enumerated), whether or not it ran. An "executed" flag exists only on Windows 7 / Server 2008 R2; Windows 8 and later have no execution indicator in ShimCache. For actual execution evidence, corroborate with Amcache and Prefetch (below):
+ShimCache / AppCompatCache: Application compatibility cache. Proves a file was present / known to the system (records path + the file's `$StandardInformation` last-modified time), not that it executed: an entry is created when the shim engine becomes aware of a file (for example, the file appears in a directory that gets enumerated), whether or not it ran. An "executed" flag exists only on Windows 7 / Server 2008 R2; Windows 8 and later have no execution indicator in ShimCache. For actual execution evidence, corroborate with Amcache and Prefetch (below):
 ```
 HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
 ```
 Parse with: `AppCompatCacheParser.exe -f SYSTEM --csv output\`
 
-Amcache.hve (`C:\\Windows\\AppCompat\\Programs\\Amcache.hve`) — Detailed program execution artifacts including SHA-1 hash, file path, install date, publisher:
+Amcache.hve (`C:\\Windows\\AppCompat\\Programs\\Amcache.hve`), detailed program execution artifacts including SHA-1 hash, file path, install date, publisher:
 ```powershell
 # Parse Amcache
 AmcacheParser.exe -f Amcache.hve --csv output\
@@ -473,7 +473,7 @@ Jump lists can reveal files accessed from USB or network locations even after th
 
 ### Shellbags
 
-Shellbags store user Explorer window preferences (folder view settings) but forensically reveal folder browsing history — even for deleted folders, network shares, and removable media.
+Shellbags store user Explorer window preferences (folder view settings) but forensically reveal folder browsing history, even for deleted folders, network shares, and removable media.
 
 Located in `UsrClass.dat`:
 ```
@@ -577,7 +577,7 @@ Profile location: `C:\\Users\\<user>\\AppData\\Local\\Google\\Chrome\\User Data\
 sqlite3 History "SELECT datetime(last_visit_time/1000000-11644473600,'unixepoch','localtime'), url, title, visit_count FROM urls ORDER BY last_visit_time DESC LIMIT 50;"
 ```
 
-Note: Chrome timestamps use Windows FILETIME format — microseconds since Jan 1, 1601.
+Note: Chrome timestamps use Windows FILETIME format (microseconds since Jan 1, 1601).
 
 Chrome Password Decryption:
 Passwords are encrypted with DPAPI (user context). Decrypt offline with DPAPI master key and user password, or on a live system:
@@ -640,7 +640,7 @@ EnCase / FTK can parse PST/OST natively and search across email content.
 
 #### Mozilla Thunderbird: MBOX
 Profile location: `C:\\Users\\<user>\\AppData\\Roaming\\Thunderbird\\Profiles\\<profile>\\Mail\\`
-Each folder is a plain MBOX file (text format — one email per record separated by `From ` lines).
+Each folder is a plain MBOX file (text format, one email per record separated by `From ` lines).
 
 ```bash
 # Convert MBOX to EML files
@@ -693,7 +693,7 @@ Parse with SrumECmd.exe:
 SrumECmd.exe -f "C:\Windows\System32\sru\SRUDB.dat" -r "C:\Windows\System32\config\SOFTWARE" --csv output\
 ```
 
-Forensic value: SRUM proves an application ran and quantifies its network activity — even if the executable was deleted. Critical for proving data exfiltration volumes.
+Forensic value: SRUM proves an application ran and quantifies its network activity, even if the executable was deleted. Critical for proving data exfiltration volumes.
 
 ---
 
@@ -751,7 +751,7 @@ PSReadLine history (persistent across sessions):
 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
-Script block logging (requires GPO enablement) — Event ID 4104 in:
+Script block logging (requires GPO enablement), Event ID 4104 in:
 `Microsoft-Windows-PowerShell/Operational.evtx`
 
 Transcripts: If transcript logging is enabled:
@@ -1114,7 +1114,7 @@ File > Capture Memory > select output path > include pagefile option
 
 #### Linux Memory Acquisition
 
-LiME (Linux Memory Extractor) — Kernel module approach:
+LiME (Linux Memory Extractor), kernel module approach:
 ```bash
 # Build LiME for target kernel
 sudo apt install linux-headers-$(uname -r) build-essential
@@ -1435,44 +1435,44 @@ gdisk -l evidence.dd  # View GPT structure
 
 ### The Sleuth Kit (TSK) Commands
 
-mmls — Partition Layout:
+mmls (Partition Layout):
 ```bash
 mmls evidence.dd
 # Output shows: slot, start sector, end sector, length, description
 ```
 
-fsstat — Filesystem Statistics:
+fsstat (Filesystem Statistics):
 ```bash
 fsstat -o <sector_offset> evidence.dd
 # Shows: filesystem type, volume label, block size, cluster count, metadata range
 ```
 
-fls — File Listing:
+fls (File Listing):
 ```bash
 fls -r -o <offset> evidence.dd           # Recursive file listing
 fls -r -d -o <offset> evidence.dd        # Show only deleted files
 fls -r -o <offset> evidence.dd | grep -i "\.pdf$"  # Filter by extension
 ```
 
-istat — Inode/MFT Entry Statistics:
+istat (Inode/MFT Entry Statistics):
 ```bash
 istat -o <offset> evidence.dd <inode>
 # Shows: allocated/deleted, MFT entry details, timestamps, attributes
 ```
 
-icat — Extract File Content by Inode:
+icat (Extract File Content by Inode):
 ```bash
 icat -o <offset> evidence.dd <inode> > recovered_file.pdf
 # Works even for deleted files if blocks not overwritten
 ```
 
-tsk_recover — Automated File Recovery:
+tsk_recover (Automated File Recovery):
 ```bash
 tsk_recover -e -o <offset> evidence.dd recovered_files/
 # -e flag recovers allocated + unallocated files
 ```
 
-blkcat / blkls — Block Analysis:
+blkcat / blkls (Block Analysis):
 ```bash
 blkcat -o <offset> evidence.dd <block_number> | xxd  # Hex dump of block
 blkls -o <offset> evidence.dd > unallocated.bin      # Extract unallocated space
@@ -2133,7 +2133,7 @@ Common MDM Platforms:
 - Jamf Pro (Apple): Jamf console > Inventory > Computer/Mobile history
 - VMware Workspace ONE: UEM console > Device logs
 
-If device was remotely wiped: MDM logs prove the wipe command was issued, by whom, and when — potentially relevant to destruction of evidence analysis.
+If device was remotely wiped: MDM logs prove the wipe command was issued, by whom, and when, potentially relevant to destruction of evidence analysis.
 
 ---
 ## 9. Cloud & Email Forensics
@@ -2474,7 +2474,7 @@ docker pull log2timeline/plaso
 docker run -v /evidence:/evidence log2timeline/plaso log2timeline.py /evidence/output.plaso /evidence/image.dd
 ```
 
-Phase 1 — Processing (log2timeline):
+Phase 1. Processing (log2timeline):
 ```bash
 # Process a disk image
 log2timeline.py --parsers all output.plaso evidence.dd
@@ -2492,7 +2492,7 @@ log2timeline.py --timezone UTC output.plaso evidence.dd
 log2timeline.py --parsers win_evt,win_prefetch,winevtx,winreg,chrome_history,firefox_history output.plaso /evidence/
 ```
 
-Phase 2 — Filtering and Output (psort):
+Phase 2. Filtering and Output (psort):
 ```bash
 # Filter by date range and output to CSV
 psort.py -o l2tcsv -w timeline.csv output.plaso "date > '2024-01-01 00:00:00' AND date < '2024-01-31 23:59:59'"
@@ -2574,7 +2574,7 @@ Download: https://ericzimmerman.github.io/#!index.md
 | JLECmd | Parse Jump Lists | Recently/frequently used files per app |
 | PECmd | Parse Prefetch files | Execution history, accessed files |
 | RECmd | Registry Command-line parser | Key/value extraction with batch maps |
-| AppCompatCacheParser | Parse ShimCache/AppCompatCache | File presence/awareness (path + last-modified) from SYSTEM hive — NOT proof of execution |
+| AppCompatCacheParser | Parse ShimCache/AppCompatCache | File presence/awareness (path + last-modified) from SYSTEM hive; NOT proof of execution |
 | AmcacheParser | Parse Amcache.hve | SHA1, execution history, publisher |
 | SrumECmd | Parse SRUM database | Network usage, app resource usage |
 | WxTCmd | Parse Windows Timeline | App usage, file opens |

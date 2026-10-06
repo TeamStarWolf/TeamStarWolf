@@ -1,6 +1,6 @@
 # Hypervisor & Virtualization Hardening Reference
 
-> In one minute — The hypervisor is the single most valuable ransomware pivot in the modern enterprise: one compromised ESXi host or vCenter can encrypt every VM at once, below the guest OS where EDR cannot see. This reference maps the virtualization attack surface (VMware ESXi/vSphere, Microsoft Hyper-V, Proxmox VE, KVM/QEMU), walks the ESXi ransomware kill chain end to end, catalogs the CVEs actually exploited in the wild (2019-2026), and gives concrete, defender-framed hardening: lockdown mode, management-plane isolation, MFA/RBAC, Secure Boot/TPM, VM encryption, patch/lifecycle, and backup/recovery for virtual estates. Use it to harden a virtual estate before an incident and to answer "is our hypervisor a soft target?"
+> In one minute: The hypervisor is the single most valuable ransomware pivot in the modern enterprise: one compromised ESXi host or vCenter can encrypt every VM at once, below the guest OS where EDR cannot see. This reference maps the virtualization attack surface (VMware ESXi/vSphere, Microsoft Hyper-V, Proxmox VE, KVM/QEMU), walks the ESXi ransomware kill chain end to end, catalogs the CVEs actually exploited in the wild (2019-2026), and gives concrete, defender-framed hardening: lockdown mode, management-plane isolation, MFA/RBAC, Secure Boot/TPM, VM encryption, patch/lifecycle, and backup/recovery for virtual estates. Use it to harden a virtual estate before an incident and to answer "is our hypervisor a soft target?"
 
 | | |
 |---|---|
@@ -14,8 +14,8 @@
 
 Type-1 (bare-metal) hypervisors run *beneath* every guest OS. That position is exactly what makes them the highest-leverage target in a modern intrusion:
 
-- One host, many victims. Encrypting a datastore or the underlying VMDK files takes down every VM on that host or cluster in a single action — dozens to hundreds of servers at once. Attackers describe vSphere as offering "immediate and widespread infrastructure paralysis."
-- Below the security stack. EDR/AV runs *inside* guests. A locker that runs on the ESXi hypervisor shell shuts VMs down and encrypts virtual disks directly, "bypassing all Windows OS security" — no in-guest agent ever sees it.
+- One host, many victims. Encrypting a datastore or the underlying VMDK files takes down every VM on that host or cluster in a single action: dozens to hundreds of servers at once. Attackers describe vSphere as offering "immediate and widespread infrastructure paralysis."
+- Below the security stack. EDR/AV runs *inside* guests. A locker that runs on the ESXi hypervisor shell shuts VMs down and encrypts virtual disks directly, "bypassing all Windows OS security"; no in-guest agent ever sees it.
 - Flat, under-monitored management plane. vCenter, ESXi host management, IPMI/iLO/iDRAC, and backup consoles are frequently reachable from the same network as workstations, rarely have MFA, and are often excluded from patch SLAs.
 - Sparse native logging. Host-to-guest operations and hypervisor shell activity historically produce little telemetry, and attackers actively delete core dumps and logs to hide (e.g., removing `vmdird` core dumps after a vCenter crash).
 
@@ -49,7 +49,7 @@ A composite of real campaigns (ESXiArgs, Akira, Black Basta, Scattered Spider/Dr
 | 6 | Detonate: enable SSH, power off VMs, encrypt VMDK/datastore | T1675, T1529, T1486 | Lockdown mode; disable ESXi Shell/SSH; execInstalledOnly; file-integrity |
 | 7 | Extort: double extortion with prior data theft | T1567, T1657 | Egress control; DLP; tested clean-room recovery |
 
-> Key insight: stages 3-6 all live in the virtualization control plane. The controls that matter most are management-plane isolation, not joining ESXi to production AD, and immutable backups — not another in-guest agent.
+> Key insight: stages 3-6 all live in the virtualization control plane. The controls that matter most are management-plane isolation, not joining ESXi to production AD, and immutable backups, not another in-guest agent.
 
 ---
 
@@ -70,18 +70,18 @@ All entries below have documented in-the-wild exploitation. Verify current fixed
 | CVE-2020-3992 | ESXi | OpenSLP use-after-free (port 427) -> RCE | 9.8 | RansomExx-style hypervisor encryption | [Rapid7](https://www.rapid7.com/blog/post/2020/11/11/vmware-esxi-openslp-remote-code-execution-vulnerability-cve-2020-3992-and-cve-2019-5544-what-you-need-to-know/) |
 | CVE-2019-5544 | ESXi | OpenSLP heap overwrite (port 427) -> RCE | 9.8 | Early hypervisor-direct ransomware | [Rapid7](https://www.rapid7.com/blog/post/2020/11/11/vmware-esxi-openslp-remote-code-execution-vulnerability-cve-2020-3992-and-cve-2019-5544-what-you-need-to-know/) |
 
-Pattern to remember: the OpenSLP trio (2019/2020/2021) drove the *first* wave of ESXi ransomware — which is why SLP is now disabled by default on current ESXi and should be disabled/removed everywhere it is not required. The 2023-2026 wave shifted to vCenter RCE, VMware Tools abuse, AD-integration bypass, and true VM-escape chains. See [CVE_REFERENCE.md](CVE_REFERENCE.md) for KEV status and [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md) for actor detail (UNC3886, Scattered Spider/UNC3944).
+Pattern to remember: the OpenSLP trio (2019/2020/2021) drove the *first* wave of ESXi ransomware, which is why SLP is now disabled by default on current ESXi and should be disabled/removed everywhere it is not required. The 2023-2026 wave shifted to vCenter RCE, VMware Tools abuse, AD-integration bypass, and true VM-escape chains. See [CVE_REFERENCE.md](CVE_REFERENCE.md) for KEV status and [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md) for actor detail (UNC3886, Scattered Spider/UNC3944).
 
 ---
 
 ## VMware ESXi / vSphere Hardening
 
-The authoritative baseline is Broadcom's vSphere Security Configuration Guide (SCG) — the renamed "Hardening Guide," published per release at [core.vmware.com/security](https://core.vmware.com/security) — complemented by the CIS VMware ESXi 8.0 Benchmark (v1.0.0, Oct 2023) and the DISA vSphere 8.0 ESXi STIG. Licensing context: after Broadcom's acquisition, vSphere ships via subscription (VMware vSphere Foundation / VMware Cloud Foundation); a limited free ESXi returned with ESXi 8.0 Update 3e (2025, no vCenter, capped vCPUs, non-production).
+The authoritative baseline is Broadcom's vSphere Security Configuration Guide (SCG), the renamed "Hardening Guide," published per release at [core.vmware.com/security](https://core.vmware.com/security), complemented by the CIS VMware ESXi 8.0 Benchmark (v1.0.0, Oct 2023) and the DISA vSphere 8.0 ESXi STIG. Licensing context: after Broadcom's acquisition, vSphere ships via subscription (VMware vSphere Foundation / VMware Cloud Foundation); a limited free ESXi returned with ESXi 8.0 Update 3e (2025, no vCenter, capped vCPUs, non-production).
 
 ### Access & management plane
 
 - Lockdown mode: set hosts to Strict (or at minimum Normal) so hosts are managed only through vCenter; direct DCUI/host-client/SSH paths are denied, preventing controls from being bypassed by logging into a host directly. Maintain an explicit Exception Users list only where operationally required.
-- Disable ESXi Shell and SSH; leave them stopped and set the shell/DCUI idle and availability timeouts. Alert on any enablement — attackers routinely turn SSH on right before detonation.
+- Disable ESXi Shell and SSH; leave them stopped and set the shell/DCUI idle and availability timeouts. Alert on any enablement: attackers routinely turn SSH on right before detonation.
 - Isolate the management network. vCenter, ESXi vmkernel management, IPMI/iLO/iDRAC and backup consoles belong on a dedicated, firewalled management VLAN reachable only from a Privileged Access Workstation (PAW)/jump host. Never expose management interfaces or port 427/SLP to the internet or user VLANs.
 - MFA + least-privilege RBAC. Enforce MFA at vCenter SSO / the identity provider (SAML/OIDC). Replace shared root logins with named accounts; scope custom roles tightly; audit `Administrator` and `No cryptography administrator` assignments.
 
@@ -118,7 +118,7 @@ Also: keep hosts Server Core to shrink attack surface, apply Windows security ba
 
 ## Proxmox VE / KVM / QEMU / libvirt Hardening
 
-Open-source stacks (Proxmox VE — current 9.2, May 2026, on Debian 13 "Trixie"; note Proxmox VE 8 reaches EOL 31 Aug 2026) and bare KVM/libvirt need the same control-plane discipline:
+Open-source stacks (Proxmox VE: current 9.2, May 2026, on Debian 13 "Trixie"; note Proxmox VE 8 reaches EOL 31 Aug 2026) and bare KVM/libvirt need the same control-plane discipline:
 
 - Protect the web/API console (Proxmox `:8006`): put it on a management VLAN, front it with a reverse proxy or VPN, enable built-in two-factor authentication (TOTP/WebAuthn), and use realm-based RBAC with least-privilege roles instead of shared root.
 - UEFI Secure Boot for hosts and guests (Proxmox ships signed-boot support; validate shim/cert state after major upgrades) plus vTPM for guests that need measured boot/BitLocker.
@@ -131,7 +131,7 @@ Open-source stacks (Proxmox VE — current 9.2, May 2026, on Debian 13 "Trixie";
 
 ## Management-Plane Isolation, MFA & RBAC (the non-negotiables)
 
-If you do only five things, do these — they break the 2023-2026 ransomware playbook regardless of vendor:
+If you do only five things, do these; they break the 2023-2026 ransomware playbook regardless of vendor:
 
 1. Segment the control plane. vCenter/Hyper-V/Proxmox management, host BMCs, and backup consoles live on an isolated, firewalled network reachable only via PAW/jump hosts. No path from a user workstation to a hypervisor management port.
 2. Phishing-resistant MFA on the hypervisor identity provider *and* on the help desk's identity-proofing process (Scattered Spider's initial access is help-desk social engineering, not an exploit).
@@ -148,7 +148,7 @@ Ransomware's stage 5 is *destroy recovery*, so backups are the control that deci
 - Immutable, offline/air-gapped backups (object-lock/WORM or tape) that the hypervisor and its admins cannot delete. Follow 3-2-1-1-0: 3 copies, 2 media, 1 offsite, 1 immutable/offline, 0 recovery errors.
 - Separate the backup identity and network. Backup systems must not authenticate against the same AD/SSO as the hypervisor; compromise of vCenter should not equal compromise of backups.
 - Protect the backup console (Veeam/Commvault/Rubrik/PBS, etc.) as Tier-0: it is itself a top ransomware target.
-- Test restores in a clean room, including full vCenter/host rebuild and datastore recovery, and measure real RTO/RPO. Keep offline copies of ESXi/vCenter configs and encryption keys (KMS/Native Key Provider) — losing the key provider can make encrypted VMs unrecoverable.
+- Test restores in a clean room, including full vCenter/host rebuild and datastore recovery, and measure real RTO/RPO. Keep offline copies of ESXi/vCenter configs and encryption keys (KMS/Native Key Provider): losing the key provider can make encrypted VMs unrecoverable.
 - See [CYBER_RESILIENCE_BCDR_REFERENCE.md](CYBER_RESILIENCE_BCDR_REFERENCE.md) and [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md).
 
 ---
@@ -194,7 +194,7 @@ Map coverage with [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md) a
 - [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md) / [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md): the containerized side of workload isolation
 - [ACTIVE_DIRECTORY_SECURITY_REFERENCE.md](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md): decoupling hypervisor identity from prod AD
 - [WINDOWS_HARDENING_REFERENCE.md](WINDOWS_HARDENING_REFERENCE.md) / [LINUX_HARDENING_REFERENCE.md](LINUX_HARDENING_REFERENCE.md): host-OS hardening for Hyper-V and KVM/Proxmox
-- [CVE_REFERENCE.md](CVE_REFERENCE.md): KEV status for the CVEs above; [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md) — UNC3886, Scattered Spider (UNC3944)
+- [CVE_REFERENCE.md](CVE_REFERENCE.md): KEV status for the CVEs above; [THREAT_GROUP_PROFILES.md](THREAT_GROUP_PROFILES.md): UNC3886, Scattered Spider (UNC3944)
 - [DETECTION_RULES_REFERENCE.md](DETECTION_RULES_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [mitre/techniques/T1675.md](mitre/techniques/T1675.md)
 
 ---

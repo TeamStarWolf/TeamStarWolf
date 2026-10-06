@@ -1,8 +1,8 @@
 # Reverse Engineering
 
-Reverse engineering is the discipline of analyzing compiled software without access to its original source code — dissecting binaries to understand behavior, find vulnerabilities, analyze malware, defeat software protections, or develop interoperability. It sits at the intersection of computer architecture, operating system internals, and adversarial thinking. Every exploit developer, malware analyst, and CTF player depends on reverse engineering skills. The analyst who can read disassembly, navigate a decompiler, and methodically trace execution through an unknown binary unlocks capabilities that automated tools simply cannot replicate.
+Reverse engineering is the discipline of analyzing compiled software without access to its original source code: dissecting binaries to understand behavior, find vulnerabilities, analyze malware, defeat software protections, or develop interoperability. It sits at the intersection of computer architecture, operating system internals, and adversarial thinking. Every exploit developer, malware analyst, and CTF player depends on reverse engineering skills. The analyst who can read disassembly, navigate a decompiler, and methodically trace execution through an unknown binary unlocks capabilities that automated tools simply cannot replicate.
 
-Modern targets range from packed Windows PE binaries and Linux ELF files to firmware running on embedded routers, mobile APKs, and obfuscated scripting languages. The tools and techniques differ by target, but the underlying discipline is consistent: identify the file format, understand the execution model, trace the logic that matters, and extract the insight needed. Static analysis — examining the binary without running it — pairs with dynamic analysis — running the binary under a debugger in a controlled environment — to build a complete picture.
+Modern targets range from packed Windows PE binaries and Linux ELF files to firmware running on embedded routers, mobile APKs, and obfuscated scripting languages. The tools and techniques differ by target, but the underlying discipline is consistent: identify the file format, understand the execution model, trace the logic that matters, and extract the insight needed. Static analysis (examining the binary without running it) pairs with dynamic analysis (running the binary under a debugger in a controlled environment) to build a complete picture.
 
 Security applications of RE include: malware analysis, vulnerability research, firmware security, CTF challenges, anti-cheat bypass research, and intellectual property protection audits.
 
@@ -10,7 +10,7 @@ Security applications of RE include: malware analysis, vulnerability research, f
 
 ## Where to Start
 
-Start with Ghidra on beginner crackmes from Crackmes.one. Crackmes are small binaries with a single goal — produce the right serial key or password — which forces you to read disassembly, understand comparisons, and trace logic without the complexity of full malware. Learn x86/x64 assembly alongside tool use; you do not need to memorize the instruction set, you need to recognize common patterns (function prologues, comparisons, loops). pwn.college's reverse engineering module provides structured, graded challenges with built-in learning materials.
+Start with Ghidra on beginner crackmes from Crackmes.one. Crackmes are small binaries with a single goal (produce the right serial key or password), which forces you to read disassembly, understand comparisons, and trace logic without the complexity of full malware. Learn x86/x64 assembly alongside tool use; you do not need to memorize the instruction set, you need to recognize common patterns (function prologues, comparisons, loops). pwn.college's reverse engineering module provides structured, graded challenges with built-in learning materials.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -37,8 +37,8 @@ Understanding CPU registers, calling conventions, and stack frame layout is mand
 | RSP | ESP | Stack Pointer: top of stack; never clobber casually |
 | RBP | EBP | Base Pointer: stack frame base reference |
 | RIP | EIP | Instruction Pointer: current execution address |
-| — | EFLAGS | Status flags: ZF (zero), SF (sign), CF (carry), OF (overflow) |
-| R8-R15 | — | Extended registers (x64 only); R8/R9 are 5th/6th args on Windows x64 |
+| N/A | EFLAGS | Status flags: ZF (zero), SF (sign), CF (carry), OF (overflow) |
+| R8-R15 | N/A | Extended registers (x64 only); R8/R9 are 5th/6th args on Windows x64 |
 
 ### Calling Conventions
 
@@ -228,7 +228,7 @@ Dynamic analysis runs the binary in a controlled environment under observation. 
 Managed languages compile to intermediate bytecode rather than native machine code, making decompilation dramatically more effective than with native binaries. Expect near-original source quality.
 
 ### .NET
-- dnSpy: decompile CIL/MSIL to C# and debug live; edit IL and recompile — the most powerful .NET RE tool
+- dnSpy: decompile CIL/MSIL to C# and debug live; edit IL and recompile; the most powerful .NET RE tool
 - ILSpy: lightweight .NET decompiler; good for quick reads without a full debug environment
 - dotPeek (JetBrains): free .NET decompiler with Visual Studio integration
 - CIL is typed and structured: class names, method names, and variable types are preserved unless obfuscated with ConfuserEx or similar
@@ -252,7 +252,7 @@ Managed languages compile to intermediate bytecode rather than native machine co
 
 ## Firmware Reversing
 
-Firmware reversing extracts and analyzes the software running on embedded devices — routers, IoT sensors, PLCs, and similar hardware.
+Firmware reversing extracts and analyzes the software running on embedded devices: routers, IoT sensors, PLCs, and similar hardware.
 
 1. Obtain firmware: download from vendor site, extract via JTAG/UART, or capture from device update traffic
 2. Extract file system: `binwalk -e firmware.bin` auto-extracts known file system types

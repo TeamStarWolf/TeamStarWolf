@@ -292,7 +292,7 @@ These techniques open doors without picking the lock mechanism:
 
 ### Security Pin Types (Anti-Pick)
 
-When picking, security pins create "false sets" — the plug partially rotates as if opening:
+When picking, security pins create "false sets" (the plug partially rotates as if opening):
 
 | Pin Type | Mechanism | Detection Feel |
 |---|---|---|
@@ -467,7 +467,7 @@ Flipper Zero limitations vs. Proxmark3:
 For demonstration of risk, researchers have built long-range readers:
 
 - Bishop Fox Tastic RFID Thief: Reads HID Prox/EM4100 at distances up to 3 feet (concealed in backpack)
-- Commercial UHF RFID readers (900 MHz): Reads UHF RFID at 15-30 feet (different technology — used in warehouses)
+- Commercial UHF RFID readers (900 MHz): Reads UHF RFID at 15-30 feet (different technology, used in warehouses)
 - Proximity skimmer demonstrations: Show that cards broadcast identity without contact
 
 Physical attack scenario: Attacker stands near target employee in elevator or break room; long-range reader in backpack silently captures card credentials.
@@ -858,7 +858,7 @@ Key risk: Full disk encryption keys (BitLocker, LUKS) stored in RAM are recovera
 Defense: TPM with PIN (key not released without correct PIN even on warm boot), memory encryption (AMD SME/SEV, Intel TME)
 
 #### DMA Attacks via Thunderbolt / FireWire
-Threat: PCIe-based interfaces have direct memory access — they can read/write arbitrary RAM
+Threat: PCIe-based interfaces have direct memory access; they can read/write arbitrary RAM
 
 Tools:
 - PCILeech: Open-source DMA attack framework
@@ -1198,7 +1198,7 @@ Requirement 9.5: Point of interaction (POI) devices are protected from tampering
 
 ### Additional Standards
 
-NERC CIP-006 (Critical Infrastructure Protection — Physical Security of BES Cyber Systems):
+NERC CIP-006 (Critical Infrastructure Protection, Physical Security of BES Cyber Systems):
 - Applicable to electric utilities
 - Requires Physical Security Plan, Physical Security Perimeter (PSP) definition
 - 6-year retention of physical access logs

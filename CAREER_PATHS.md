@@ -1,6 +1,6 @@
 # Cybersecurity Career Paths
 
-> Comprehensive progression guides covering 15+ cybersecurity roles — from entry-level to CISO. Each path includes salary ranges, key skills, certifications, HTB tracks, tools, and typical job titles at every level.
+> Comprehensive progression guides covering 15+ cybersecurity roles, from entry-level to CISO. Each path includes salary ranges, key skills, certifications, HTB tracks, tools, and typical job titles at every level.
 
 | | |
 |---|---|
@@ -369,7 +369,7 @@ Tools commonly used: ServiceNow GRC, RSA Archer, OneTrust, Drata, Vanta, Tugboat
 
 ## Career Path 10: Vulnerability Management
 
-Role description: Vulnerability Management specialists identify, prioritize, track, and drive remediation of vulnerabilities across an organization's entire attack surface — endpoints, servers, cloud workloads, applications, and network devices.
+Role description: Vulnerability Management specialists identify, prioritize, track, and drive remediation of vulnerabilities across an organization's entire attack surface (endpoints, servers, cloud workloads, applications, and network devices).
 
 Typical responsibilities:
 - Operate and tune vulnerability scanners across all asset types
@@ -473,7 +473,7 @@ Key skills:
 | Application security principles | Multi-cloud and hybrid architecture | Security program strategy |
 | Compliance and risk frameworks | Technology standards governance | Emerging technology evaluation |
 
-Recommended certifications: [CISSP (ISC2)](CERTIFICATIONS.md), [SABSA](CERTIFICATIONS.md), [TOGAF](CERTIFICATIONS.md), [CCSP](CERTIFICATIONS.md), [AWS Solutions Architect — Security](CERTIFICATIONS.md)
+Recommended certifications: [CISSP (ISC2)](CERTIFICATIONS.md), [SABSA](CERTIFICATIONS.md), [TOGAF](CERTIFICATIONS.md), [CCSP](CERTIFICATIONS.md), [AWS Solutions Architect (Security)](CERTIFICATIONS.md)
 
 Recommended HTB tracks: [Enterprise Architecture Track](research/HTB_TRACKS.md), [Cloud Security Track](research/HTB_TRACKS.md)
 

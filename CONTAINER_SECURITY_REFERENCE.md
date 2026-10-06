@@ -29,7 +29,7 @@
 
 ### Linux Kernel Primitives
 
-Containers are not VMs — they are isolated processes that share the host kernel. Security depends entirely on these Linux primitives:
+Containers are not VMs; they are isolated processes that share the host kernel. Security depends entirely on these Linux primitives:
 
 #### Namespaces
 
@@ -340,7 +340,7 @@ augenrules --load
 }
 ```
 
-> Currency note (verified 2026-09-29): CIS checks 2.14 and 4.5 (and the hardening checklist below) call for Docker Content Trust, which depends on the upstream Notary v1 server (`notary.docker.io`). Notary v1 is no longer maintained, and Docker Content Trust is being fully retired by December 8, 2026 (phased brownouts begin July 2026). For new work, sign and verify images with Sigstore Cosign or the Notary Project's Notation (Notary v2) — both store OCI-native signatures in the registry with no separate trust server (see the Notation workflow later in this reference). Source: <https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/>.
+> Currency note (verified 2026-09-29): CIS checks 2.14 and 4.5 (and the hardening checklist below) call for Docker Content Trust, which depends on the upstream Notary v1 server (`notary.docker.io`). Notary v1 is no longer maintained, and Docker Content Trust is being fully retired by December 8, 2026 (phased brownouts begin July 2026). For new work, sign and verify images with Sigstore Cosign or the Notary Project's Notation (Notary v2); both store OCI-native signatures in the registry with no separate trust server (see the Notation workflow later in this reference). Source: <https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/>.
 
 #### Section 4: Container Images and Build Files
 

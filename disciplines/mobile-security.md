@@ -1,8 +1,8 @@
 # Mobile Security
 
-> Securing iOS and Android devices, mobile applications, and enterprise mobility management — from app vulnerability assessment to MDM/EMM deployment, mobile threat defense, and offensive exploitation techniques.
+> Securing iOS and Android devices, mobile applications, and enterprise mobility management, from app vulnerability assessment to MDM/EMM deployment, mobile threat defense, and offensive exploitation techniques.
 
-Mobile security encompasses the protection of smartphones, tablets, and the applications running on them across iOS and Android platforms. The discipline bridges application security (static/dynamic analysis of APKs and IPAs), network security (certificate pinning, TLS inspection), endpoint management (MDM/EMM policy enforcement), and threat intelligence (mobile malware, zero-click exploits, stalkerware). Practitioners analyze apps for MASVS compliance, conduct runtime hooking with Frida to bypass security controls, investigate spyware campaigns, and configure mobile threat defense (MTD) platforms. Understanding both the offensive perspective — how attackers abuse exported Android components, bypass jailbreak detection on iOS, or deliver zero-click exploits — and the defensive controls is essential for comprehensive mobile security programs.
+Mobile security encompasses the protection of smartphones, tablets, and the applications running on them across iOS and Android platforms. The discipline bridges application security (static/dynamic analysis of APKs and IPAs), network security (certificate pinning, TLS inspection), endpoint management (MDM/EMM policy enforcement), and threat intelligence (mobile malware, zero-click exploits, stalkerware). Practitioners analyze apps for MASVS compliance, conduct runtime hooking with Frida to bypass security controls, investigate spyware campaigns, and configure mobile threat defense (MTD) platforms. Understanding both the offensive perspective (how attackers abuse exported Android components, bypass jailbreak detection on iOS, or deliver zero-click exploits) and the defensive controls is essential for comprehensive mobile security programs.
 
 ---
 
@@ -105,7 +105,7 @@ Mobile security encompasses the protection of smartphones, tablets, and the appl
 
 ## Android Security Deep Dive
 
-Android applications are distributed as APKs (ZIP archives containing DEX bytecode, resources, native libraries). The `AndroidManifest.xml` declares components — Activities, Services, Broadcast Receivers, and Content Providers — and their exported status. Exported components accessible without permissions are a common attack surface.
+Android applications are distributed as APKs (ZIP archives containing DEX bytecode, resources, native libraries). The `AndroidManifest.xml` declares components (Activities, Services, Broadcast Receivers, and Content Providers) and their exported status. Exported components accessible without permissions are a common attack surface.
 
 Key attack techniques:
 - Intent hijacking: Malicious apps intercept implicit intents from exported components
@@ -313,7 +313,7 @@ cycript -p com.target.app
 ## Related Disciplines
 
 - [Application Security](/disciplines/application-security.md): Mobile API and backend security, OWASP alignment
-- [Malware Analysis](/disciplines/malware-analysis.md): Mobile malware analysis — APK/IPA reverse engineering
+- [Malware Analysis](/disciplines/malware-analysis.md): Mobile malware analysis (APK/IPA reverse engineering)
 - [Penetration Testing / Offensive Security](/disciplines/offensive-security.md): Mobile pentesting methodology, red team techniques
 - [DevSecOps](/disciplines/devsecops.md): Mobile SAST/DAST integration in CI/CD pipelines
 - [Privacy Engineering](/disciplines/privacy-engineering.md): Mobile data collection, consent, and GDPR/CCPA compliance

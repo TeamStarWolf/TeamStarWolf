@@ -20,7 +20,7 @@ per-file provenance and [../THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 | `ctid_source` | control_to_technique | `nist800-53-r5` | The CTID Mappings Explorer source dataset. |
 | `reason` | superseded_by | `revoked`, `deprecated` | Why an ATT&CK id was retired: `revoked` (replaced by `new_id`; may be null if the replacement is itself a dead-end) vs `deprecated` (removed, `new_id` null). |
 
-> Known gap: `vendor_to_control.pipeline_stage` is present in the schema but empty in every row — populate or drop it in a future pass. Not currently consumed.
+> Known gap: `vendor_to_control.pipeline_stage` is present in the schema but empty in every row; populate or drop it in a future pass. Not currently consumed.
 
 ## Framework-derived vocabularies (track upstream)
 

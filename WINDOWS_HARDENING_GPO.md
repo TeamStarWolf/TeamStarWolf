@@ -63,7 +63,7 @@ Navigate to: `Computer Configuration > Windows Settings > Security Settings > Sy
 | Print Spooler (on non-print servers) | Spooler | PrintNightmare (CVE-2021-1675), SpoolFool; exploited by Lazarus, APT29 | `HKLM\SYSTEM\CurrentControlSet\Services\Spooler` |
 | Remote Registry | RemoteRegistry | Enables remote reading/writing of registry; used by attackers for lateral movement | `HKLM\SYSTEM\CurrentControlSet\Services\RemoteRegistry` |
 | Server (SMB Server) on workstations | LanmanServer | Removes SMB attack surface if file sharing not needed; eliminates WannaCry/EternalBlue entry | `HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer` |
-| Netlogon (only on non-domain members) | Netlogon | Zerologon (CVE-2020-1472); critical — only disable if not domain-joined | `HKLM\SYSTEM\CurrentControlSet\Services\Netlogon` |
+| Netlogon (only on non-domain members) | Netlogon | Zerologon (CVE-2020-1472); critical: only disable if not domain-joined | `HKLM\SYSTEM\CurrentControlSet\Services\Netlogon` |
 | WinRM on non-admin workstations | WinRM | Lateral movement via PowerShell Remoting; evil-winrm | `HKLM\SYSTEM\CurrentControlSet\Services\WinRM` |
 | Telnet Client | TlntSvr | Cleartext credential transmission; obsolete | `HKLM\SYSTEM\CurrentControlSet\Services\TlntSvr` |
 | TFTP Client | TFTP | Used to transfer malicious payloads; LOTL technique | N/A (feature, not service) |
@@ -154,7 +154,7 @@ Computer Configuration >
 ```
 Effect: Isolates LSASS secrets in hypervisor-protected region; Mimikatz cannot extract them
 
-LSA Protection (PPL — Protected Process Light)
+LSA Protection (PPL: Protected Process Light)
 ```
 Computer Configuration >
   Windows Settings >
@@ -232,7 +232,7 @@ Public Profile:  Inbound = Block, Outbound = Block (locked-down; explicit allows
 
 ### SMB Hardening
 
-Disable SMBv1 (critical — WannaCry/EternalBlue uses SMBv1):
+Disable SMBv1 (critical; WannaCry/EternalBlue uses SMBv1):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -245,7 +245,7 @@ Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force
 Set-SmbClientConfiguration -EnableSMB1Protocol $false -Force
 ```
 
-SMB Signing (required — prevents relay attacks):
+SMB Signing (required; prevents relay attacks):
 ```
 Computer Configuration >
   Windows Settings >
@@ -276,7 +276,7 @@ Via AppLocker or WDAC (Windows Defender Application Control):
 # Forces Constrained Language Mode for non-administrators
 ```
 
-PowerShell Execution Policy via GPO (insufficient alone — not a security boundary):
+PowerShell Execution Policy via GPO (insufficient alone, not a security boundary):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -300,7 +300,7 @@ Computer Configuration >
 ```
 Event ID 4103 in `Microsoft-Windows-PowerShell/Operational`
 
-Script Block Logging (logs full script content including decoded blocks — critical for AMSI bypass detection):
+Script Block Logging (logs full script content including decoded blocks; critical for AMSI bypass detection):
 ```
 Computer Configuration >
   Administrative Templates >
@@ -336,7 +336,7 @@ Computer Configuration >
 - Block rules: `C:\Temp\`, `C:\Users\*\Downloads\`, `C:\Users\*\AppData\`
 - Script rules: Block `.ps1`, `.vbs`, `.js` except from Program Files
 
-WDAC (Windows Defender Application Control) — stronger than AppLocker:
+WDAC (Windows Defender Application Control), stronger than AppLocker:
 - Kernel-level enforcement; cannot be bypassed by admin (AppLocker can)
 - WDAC Wizard: `https://aka.ms/wdacwizard`: GUI for policy creation
 - Policy modes: Audit -> Enforce
@@ -413,7 +413,7 @@ Computer Configuration >
 | No Credential Guard | T1003.001 | Hash/ticket extraction from LSASS | Enable Device Guard/Credential Guard GPO |
 | PowerShell v2 available | T1059.001 | PowerShell v2 bypasses AMSI/logging | Disable PowerShell v2: `Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root` |
 | No AppLocker/WDAC | T1059 | Run arbitrary scripts from user-writable locations | Deploy AppLocker blocking scripts in user dirs |
-| AlwaysInstallElevated = 1 | T1548.002 | Install malicious MSI with SYSTEM privileges | Never enable; GPO: Computer+User both must be 1 — set both to Disabled |
+| AlwaysInstallElevated = 1 | T1548.002 | Install malicious MSI with SYSTEM privileges | Never enable; GPO: Computer+User both must be 1; set both to Disabled |
 | Unconstrained delegation | T1558 | SpoolSample + TGT capture -> impersonate any user | Enable Protected Users group; set delegation to None on sensitive accounts |
 | Guest account enabled | T1078.001 | Anonymous access to shares | Disable via Computer > Security Settings > Local Policies > Security Options |
 | AutoRun enabled | T1091 | USB autorun malware | Disable via Computer > Admin Templates > Windows Components > AutoPlay Policies |
@@ -422,14 +422,14 @@ Computer Configuration >
 
 ## 8. CIS Benchmark Key Controls (Level 1: Windows 10/11 Enterprise)
 
-Section 1 — Account Policies
+Section 1: Account Policies
 - 1.1.1: Enforce password history = 24 passwords
 - 1.1.2: Maximum password age = 365 days or less
 - 1.1.4: Minimum password length = 14 characters
 - 1.2.1: Account lockout duration = 15+ minutes
 - 1.2.2: Account lockout threshold = 5-10 invalid attempts
 
-Section 2 — Local Policies
+Section 2: Local Policies
 - 2.2.1: Access this computer from the network = Administrators, Authenticated Users only
 - 2.2.4: Allow log on through Remote Desktop = Administrators only (not generic RDP group)
 - 2.2.11: Deny log on locally for service accounts = service accounts should NOT be in this list (they should not have interactive logon)
@@ -438,7 +438,7 @@ Section 2 — Local Policies
 - 2.3.11.2: Network security: Allow anonymous SID enumeration = Disabled
 - 2.3.15.1: System objects: Strengthen default permissions = Enabled
 
-Section 18 — Administrative Templates
+Section 18: Administrative Templates
 - 18.3.5: MSS: Disable NetBIOS = Enabled
 - 18.4.3: Enable Font Providers = Disabled (prevents remote font loading C2 technique)
 - 18.5.11.3: Network connections: Prohibit use of Internet Connection Sharing = Enabled
@@ -456,26 +456,26 @@ Section 18 — Administrative Templates
 
 ### Defense-in-Depth GPO Layers
 
-Layer 1 — Prevent Initial Compromise:
+Layer 1, Prevent Initial Compromise:
 - SmartScreen enabled
 - AppLocker blocking untrusted script locations
 - Attack Surface Reduction rules in Block mode
 - Email filtering (Proofpoint TAP, EOP)
 
-Layer 2 — Prevent Lateral Movement:
+Layer 2, Prevent Lateral Movement:
 - SMB signing required
 - LLMNR/NetBIOS disabled
 - Local admin account disabled or unique per machine (LAPS)
 - Tiered AD model (Tier 0/1/2 separation)
 
-Layer 3 — Prevent Credential Theft:
+Layer 3, Prevent Credential Theft:
 - Credential Guard enabled
 - LSA Protection (PPL) enabled
 - WDigest disabled
 - No unconstrained delegation
 - Protected Users group for all privileged accounts
 
-Layer 4 — Contain Blast Radius:
+Layer 4, Contain Blast Radius:
 - Windows Firewall blocking unnecessary inbound/outbound
 - No lateral movement from workstation to workstation (deny TCP 445/139 between workstations)
 - Service account lockdown (deny interactive logon, restrict to specific computers)

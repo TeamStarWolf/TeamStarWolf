@@ -1,6 +1,6 @@
 # Red Teaming
 
-> Red teaming simulates a realistic, goal-oriented threat actor — measuring an organization's ability to detect, respond to, and recover from a determined adversary. Where penetration testing finds vulnerabilities, red teaming tests whether defenders can catch someone exploiting them.
+> Red teaming simulates a realistic, goal-oriented threat actor, measuring an organization's ability to detect, respond to, and recover from a determined adversary. Where penetration testing finds vulnerabilities, red teaming tests whether defenders can catch someone exploiting them.
 
 Red teaming differs fundamentally from penetration testing. A pentest is scoped, time-boxed, and delivers a list of vulnerabilities. A red team engagement simulates a persistent Advanced Persistent Threat (APT): it is stealth-first, objective-driven, and measures the blue team's detection and response capability, not just the attack surface. Engagements typically run weeks to months, avoid detection as a primary constraint, and conclude with a findings debrief that includes defender performance metrics alongside technical findings. Understanding this distinction is essential before approaching the tooling or tradecraft.
 
@@ -21,13 +21,13 @@ Red teaming differs fundamentally from penetration testing. A pentest is scoped,
 
 ## Red Team Engagement Types
 
-Full Red Team (FRT) — No prior knowledge of the target environment. Operators begin from zero (open-source recon only) with unrestricted objectives such as domain admin, data exfiltration, or executive email access. Closest simulation of a real APT intrusion.
+Full Red Team (FRT): No prior knowledge of the target environment. Operators begin from zero (open-source recon only) with unrestricted objectives such as domain admin, data exfiltration, or executive email access. Closest simulation of a real APT intrusion.
 
-Assumed Breach — Operators are seeded with a foothold: a compromised endpoint, VPN credentials, or low-privilege domain account. Skips initial access to focus assessment time on post-exploitation, lateral movement, and detection capability. Most efficient model for organizations that have already tested initial access controls.
+Assumed Breach: Operators are seeded with a foothold (a compromised endpoint, VPN credentials, or low-privilege domain account). Skips initial access to focus assessment time on post-exploitation, lateral movement, and detection capability. Most efficient model for organizations that have already tested initial access controls.
 
-Purple Team — Collaborative exercise where defenders observe attacks in real time. Red team announces each technique before executing it; blue team attempts detection. Produces a direct mapping of detection coverage and drives immediate tuning of SIEM rules and EDR policies. See also: [Purple Teaming](/disciplines/purple-teaming.md).
+Purple Team: Collaborative exercise where defenders observe attacks in real time. Red team announces each technique before executing it; blue team attempts detection. Produces a direct mapping of detection coverage and drives immediate tuning of SIEM rules and EDR policies. See also: [Purple Teaming](/disciplines/purple-teaming.md).
 
-Tabletop Exercise — Scenario-based discussion with no actual attack execution. A facilitator walks an IR team through a realistic intrusion scenario and evaluates response decisions, escalation paths, and playbook quality. Low cost; high value for process validation and training.
+Tabletop Exercise: Scenario-based discussion with no actual attack execution. A facilitator walks an IR team through a realistic intrusion scenario and evaluates response decisions, escalation paths, and playbook quality. Low cost; high value for process validation and training.
 
 ---
 
@@ -129,17 +129,17 @@ Self-signed certificates or stolen/leaked code-signing certificates are applied 
 
 ## Infrastructure OPSEC
 
-Domain categorization and aging — Register domains weeks or months before use. Submit to categorization services (Bluecoat, McAfee TrustedSource, Fortiguard) targeting categories like Business Services or Technology to bypass web proxy filtering. Aged domains carry existing reputation.
+Domain categorization and aging: Register domains weeks or months before use. Submit to categorization services (Bluecoat, McAfee TrustedSource, Fortiguard) targeting categories like Business Services or Technology to bypass web proxy filtering. Aged domains carry existing reputation.
 
-Redirectors — Front-end servers (Apache/Nginx) using `mod_rewrite` rules to proxy only valid C2 callbacks to the team server, while serving benign content or returning 404 to scanners. Redirectors are burned; team servers are protected.
+Redirectors: Front-end servers (Apache/Nginx) using `mod_rewrite` rules to proxy only valid C2 callbacks to the team server, while serving benign content or returning 404 to scanners. Redirectors are burned; team servers are protected.
 
-Malleable C2 profiles — Cobalt Strike profiles (and equivalent in Sliver/Havoc) define HTTP request/response format, headers, URIs, and staging behavior. Profiles mimicking OneDrive sync, Microsoft Teams traffic, or CDN requests blend into corporate traffic baselines.
+Malleable C2 profiles: Cobalt Strike profiles (and equivalent in Sliver/Havoc) define HTTP request/response format, headers, URIs, and staging behavior. Profiles mimicking OneDrive sync, Microsoft Teams traffic, or CDN requests blend into corporate traffic baselines.
 
-CDN fronting — Historically: route C2 traffic through Azure CDN, Cloudflare Workers, or AWS CloudFront so the C2 destination appears as a legitimate CDN. Increasingly blocked by providers; domain fronting within the same CDN is largely eliminated.
+CDN fronting: Historically, route C2 traffic through Azure CDN, Cloudflare Workers, or AWS CloudFront so the C2 destination appears as a legitimate CDN. Increasingly blocked by providers; domain fronting within the same CDN is largely eliminated.
 
-Short/long haul infrastructure separation — Maintain separate infrastructure for interactive operations (short haul, high-touch) and persistent implants (long haul, low-and-slow check-ins). Burning short-haul infrastructure does not expose long-haul access.
+Short/long haul infrastructure separation: Maintain separate infrastructure for interactive operations (short haul, high-touch) and persistent implants (long haul, low-and-slow check-ins). Burning short-haul infrastructure does not expose long-haul access.
 
-VPS provider selection — Vultr, DigitalOcean, Hetzner (EU-based, slower abuse response), Contabo. Avoid providers with aggressive abuse teams or IP ranges that are pre-blocked. Rotate provider per engagement.
+VPS provider selection: Vultr, DigitalOcean, Hetzner (EU-based, slower abuse response), Contabo. Avoid providers with aggressive abuse teams or IP ranges that are pre-blocked. Rotate provider per engagement.
 
 ---
 

@@ -1,6 +1,6 @@
 # Penetration Testing Methodology Reference
 
-> In one minute — This is the end-to-end playbook for running an authorized penetration test, from the signed legal paperwork through recon, scanning, exploitation, post-exploitation, and the final client report. A practitioner cares because it puts the RoE templates, the exact tool commands (nmap, nuclei, sqlmap, impacket, cloud CLIs), and the reporting/CVSS/ATT&CK scaffolding in one place. What makes it useful is that every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK, so your work stays defensible and traceable.
+> In one minute: This is the end-to-end playbook for running an authorized penetration test, from the signed legal paperwork through recon, scanning, exploitation, post-exploitation, and the final client report. A practitioner cares because it puts the RoE templates, the exact tool commands (nmap, nuclei, sqlmap, impacket, cloud CLIs), and the reporting/CVSS/ATT&CK scaffolding in one place. What makes it useful is that every phase maps to PTES, OWASP, NIST SP 800-115, and MITRE ATT&CK, so your work stays defensible and traceable.
 
 | | |
 |---|---|

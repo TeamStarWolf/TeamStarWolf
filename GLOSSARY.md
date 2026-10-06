@@ -1,6 +1,6 @@
 # Security Glossary
 
-> In one minute — A single lookup page for the security terms, acronyms, and attack/defense concepts used throughout this library, from everyday abbreviations like CVE and SIEM to specialist techniques like Kerberoasting and Golden Ticket. Each entry is a one-line plain-English definition, organized A-Z in tables you can search with Ctrl+F. Keep it open while reading any other doc here so an unfamiliar acronym never stops you.
+> In one minute: A single lookup page for the security terms, acronyms, and attack/defense concepts used throughout this library, from everyday abbreviations like CVE and SIEM to specialist techniques like Kerberoasting and Golden Ticket. Each entry is a one-line plain-English definition, organized A-Z in tables you can search with Ctrl+F. Keep it open while reading any other doc here so an unfamiliar acronym never stops you.
 
 | | |
 |---|---|
@@ -67,7 +67,7 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 | DNSSEC | DNS Security Extensions: cryptographic signing of DNS records to prevent spoofing |
 | DoS / DDoS | Denial of Service / Distributed Denial of Service: attack that makes a service unavailable by overwhelming it |
 | DKIM | DomainKeys Identified Mail: email authentication using cryptographic signatures to verify sender domain |
-| DMARC | Domain-based Message Authentication, Reporting and Conformance — email policy that builds on SPF and DKIM |
+| DMARC | Domain-based Message Authentication, Reporting and Conformance: email policy that builds on SPF and DKIM |
 | DSPM | Data Security Posture Management: discovery and classification of data across cloud environments, with risk assessment |
 
 ---
@@ -237,7 +237,7 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 | SPF | Sender Policy Framework: email authentication method specifying authorized mail servers for a domain |
 | SQL Injection (SQLi) | Attack inserting malicious SQL into queries, enabling unauthorized database access (OWASP Top 10 #3) |
 | SSRF | Server-Side Request Forgery: vulnerability tricking a server to make requests to unintended locations (OWASP Top 10 #7) |
-| STIX / TAXII | Structured Threat Information eXpression / Trusted Automated eXchange of Intelligence Information — standards for threat intelligence sharing |
+| STIX / TAXII | Structured Threat Information eXpression / Trusted Automated eXchange of Intelligence Information: standards for threat intelligence sharing |
 | SWG | Secure Web Gateway: web proxy enforcing policy, URL filtering, and malware inspection |
 
 ---
@@ -378,7 +378,7 @@ Common terms, acronyms, and concepts across cybersecurity disciplines. Use `Ctrl
 
 | Term | Definition |
 |---|---|
-| AiTM (Adversary-in-the-Middle) | Phishing attack that proxies authentication between victim and legitimate site, capturing session tokens even after MFA — used by Evilginx3 and similar tools |
+| AiTM (Adversary-in-the-Middle) | Phishing attack that proxies authentication between victim and legitimate site, capturing session tokens even after MFA; used by Evilginx3 and similar tools |
 | AS-REP Roasting | Attack targeting Kerberos accounts with pre-authentication disabled; attacker requests an AS-REP encrypted with user's password hash, then cracks offline |
 | BFLA (Broken Function Level Authorization) | API vulnerability where a lower-privileged user can invoke administrative functions; unauthorized vertical privilege escalation via API endpoints |
 | BOLA (Broken Object Level Authorization) | API vulnerability where a user can access another user's objects by manipulating ID parameters; most common API vulnerability (OWASP API #1) |

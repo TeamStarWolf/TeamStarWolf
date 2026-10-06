@@ -1,6 +1,6 @@
 # Threat-Informed Defense Reference
 
-> What this is. A field guide to running defense with MITRE ATT&CK at the center — connecting the
+> What this is. A field guide to running defense with MITRE ATT&CK at the center, connecting the
 > knowledge systems that answer *what behavior is happening*, *what weakness enables it*, *what products
 > are affected*, and *what we should do about it*. It is the conceptual backbone behind this repository's
 > [ATT&CK Navigator layers](navigator/), [control/technique edge tables](data/), and the
@@ -56,7 +56,7 @@ Reading it in both directions is the point:
   class (CWE), exploited through an attack pattern (CAPEC), realized as an ATT&CK technique, which is
   opposed by specific D3FEND countermeasures and framework controls.
 - Backward (behavior -> root cause): an ATT&CK technique you observed maps back to the attack patterns,
-  weakness classes, and concrete vulnerabilities that make it possible in your environment — turning a long
+  weakness classes, and concrete vulnerabilities that make it possible in your environment, turning a long
   CVE list into a handful of root-cause weakness groupings.
 
 ### The most important individual mappings
@@ -75,7 +75,7 @@ Reading it in both directions is the point:
 ## 2. The threat-informed data-source stack
 
 A mature program layers several open knowledge bases and detection sources on top of ATT&CK. Organize
-them by the coverage type they provide — *mitigation, detection, validation, intel,* or *exposure* —
+them by the coverage type they provide (*mitigation, detection, validation, intel,* or *exposure*)
 so every technique can carry a consistent "coverage stack."
 
 ### Behavior & attribution
@@ -207,7 +207,7 @@ Following one technique across the whole graph:
 | exposure | Any CVE that yields code execution feeding a PowerShell cradle; prioritize by KEV/EPSS |
 | detection | Encoded-command and script-block analytics: see the [Detection Library entry](detections/TECHNIQUE_DETECTION_LIBRARY.md#t1059001) for Splunk/Elastic/KQL/Chronicle/CrowdStrike queries |
 | validation | [Atomic Red Team T1059.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1059.001) tests |
-| mitigation (controls) | NIST 800-53 controls mapped to T1059.001 (CM-7 least functionality, SI-3/SI-4, AC-6) — see [`control_to_technique.jsonl`](data/control_to_technique.jsonl) |
+| mitigation (controls) | NIST 800-53 controls mapped to T1059.001 (CM-7 least functionality, SI-3/SI-4, AC-6); see [`control_to_technique.jsonl`](data/control_to_technique.jsonl) |
 | defense (D3FEND) | Script execution analysis, process spawn analysis countermeasures |
 
 The same traversal works for any technique and is exactly what the coverage layers and detection library

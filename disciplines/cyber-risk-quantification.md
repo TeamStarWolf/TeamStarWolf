@@ -1,14 +1,14 @@
 # Cyber Risk Quantification
 
-Cyber risk quantification (CRQ) is the practice of translating cybersecurity risk into financial and business terms using probabilistic models and analytical frameworks. Where traditional risk management produces qualitative red/yellow/green heat maps and subjective ordinal scores, CRQ produces outputs in dollars — annualized expected loss, confidence intervals, and scenario-based loss distributions that executives, boards, and insurance underwriters can act on directly. The discipline enables security leaders to make the same kind of evidence-based, financially grounded investment decisions that other business units use for capital allocation.
+Cyber risk quantification (CRQ) is the practice of translating cybersecurity risk into financial and business terms using probabilistic models and analytical frameworks. Where traditional risk management produces qualitative red/yellow/green heat maps and subjective ordinal scores, CRQ produces outputs in dollars: annualized expected loss, confidence intervals, and scenario-based loss distributions that executives, boards, and insurance underwriters can act on directly. The discipline enables security leaders to make the same kind of evidence-based, financially grounded investment decisions that other business units use for capital allocation.
 
-The central problem CRQ solves is comparability. A "high" risk in one security program cannot be compared to a "high" risk in another. A score of 7/10 conveys no information about how much to spend on remediation. CRQ replaces these subjective scales with a common currency — expected financial loss — that makes it possible to compare risks across business units, prioritize control investments by return on security investment (ROSI), size cyber insurance coverage rationally, and communicate residual risk to boards in language they already use to govern other enterprise risks. The FAIR framework has become the dominant open standard for structured CRQ, and it underpins most commercial and practitioner-grade quantification programs.
+The central problem CRQ solves is comparability. A "high" risk in one security program cannot be compared to a "high" risk in another. A score of 7/10 conveys no information about how much to spend on remediation. CRQ replaces these subjective scales with a common currency, expected financial loss, that makes it possible to compare risks across business units, prioritize control investments by return on security investment (ROSI), size cyber insurance coverage rationally, and communicate residual risk to boards in language they already use to govern other enterprise risks. The FAIR framework has become the dominant open standard for structured CRQ, and it underpins most commercial and practitioner-grade quantification programs.
 
 ---
 
 ## Where to Start
 
-Begin with the FAIR ontology before touching any tools or models. FAIR (Factor Analysis of Information Risk) provides the conceptual vocabulary — threat event frequency, vulnerability, loss magnitude, primary and secondary loss — that structures every CRQ analysis. Read the FAIR Institute's free foundational materials and Jack Jones' original FAIR paper before attempting a quantitative analysis. Once the framework is clear, use Python or Excel Monte Carlo simulations to build intuition for how uncertainty ranges propagate through the model.
+Begin with the FAIR ontology before touching any tools or models. FAIR (Factor Analysis of Information Risk) provides the conceptual vocabulary (threat event frequency, vulnerability, loss magnitude, primary and secondary loss) that structures every CRQ analysis. Read the FAIR Institute's free foundational materials and Jack Jones' original FAIR paper before attempting a quantitative analysis. Once the framework is clear, use Python or Excel Monte Carlo simulations to build intuition for how uncertainty ranges propagate through the model.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -26,7 +26,7 @@ Begin with the FAIR ontology before touching any tools or models. FAIR (Factor A
 - [RiskLens Academy](https://www.risklens.com/academy): Free introductory CRQ content from the leading FAIR-native commercial platform; covers FAIR basics, model construction, and executive communication
 - [ISACA CRISC Study Materials](https://www.isaca.org/credentialing/crisc): Free overview content for the CRISC certification; covers risk identification, assessment, response, and reporting frameworks including quantitative approaches
 - [PyFAIR Documentation](https://github.com/theFIRMkid/pyfair): Free Python library for building FAIR risk models programmatically; documentation includes worked examples and Monte Carlo output visualization; the best hands-on tool for learning FAIR mechanics
-- [Hubbard Decision Research: How to Measure Anything](https://www.howtomeasureanything.com) — Free resources accompanying Douglas Hubbard's foundational text on measurement and uncertainty quantification; calibrated estimation techniques directly applicable to CRQ
+- [Hubbard Decision Research: How to Measure Anything](https://www.howtomeasureanything.com): Free resources accompanying Douglas Hubbard's foundational text on measurement and uncertainty quantification; calibrated estimation techniques directly applicable to CRQ
 - [SecurityMetrics.org](http://securitymetrics.org): Community resource for security metrics and measurement; free articles and frameworks for building quantitative security measurement programs
 
 ---
@@ -37,7 +37,7 @@ Begin with the FAIR ontology before touching any tools or models. FAIR (Factor A
 
 FAIR (Factor Analysis of Information Risk) is an open standard for cyber risk quantification developed by Jack Jones and published by The Open Group as the Open FAIR standard. It is the dominant framework for translating cybersecurity risk into financial terms and the foundation of most commercial CRQ platforms and vendor offerings.
 
-FAIR solves a fundamental problem with traditional risk assessment: ordinal scales (High/Medium/Low, 1-10 scores) are not additive, not comparable across programs, and cannot answer the questions executives actually need answered — "How much could this cost us?" and "How much risk reduction does this control provide for the investment?" FAIR replaces these scales with probability distributions of financial loss, expressed in dollars, which can be directly compared, aggregated, and used in financial decision-making.
+FAIR solves a fundamental problem with traditional risk assessment: ordinal scales (High/Medium/Low, 1-10 scores) are not additive, not comparable across programs, and cannot answer the questions executives actually need answered: "How much could this cost us?" and "How much risk reduction does this control provide for the investment?" FAIR replaces these scales with probability distributions of financial loss, expressed in dollars, which can be directly compared, aggregated, and used in financial decision-making.
 
 ### The Core Formula: LEF × LM -> ALE
 
@@ -76,8 +76,8 @@ Where:
 
 Because input estimates are uncertain ranges rather than single numbers, FAIR uses Monte Carlo simulation to compute the output distribution. The process works as follows:
 
-1. Estimate TEF as a range: e.g., "Between 1 and 10 threat events per year, most likely around 3" — expressed as a PERT distribution
-2. Estimate Vulnerability as a probability range: e.g., "Between 20% and 60% chance a threat event succeeds" — expressed as a beta or PERT distribution
+1. Estimate TEF as a range: e.g., "Between 1 and 10 threat events per year, most likely around 3", expressed as a PERT distribution
+2. Estimate Vulnerability as a probability range: e.g., "Between 20% and 60% chance a threat event succeeds", expressed as a beta or PERT distribution
 3. Estimate LM components as ranges: e.g., "Primary loss between $50K and $500K, most likely $150K"
 4. Run 10,000 iterations, sampling randomly from each distribution in each iteration
 5. The output is a histogram of 10,000 ALE values: a loss distribution showing the most likely outcome, the mean, and tail risk percentiles
@@ -190,11 +190,11 @@ CRQ and the MITRE ATT&CK framework are complementary: ATT&CK provides the threat
 
 ## Certifications
 
-- [FAIR-P](https://www.fairinstitute.org/certifications/fair-practitioner) (FAIR Practitioner: FAIR Institute) — The entry-level FAIR certification; validates ability to conduct FAIR analyses, estimate model inputs, and communicate quantitative risk outputs; the recommended first credential for CRQ practitioners; covers the full FAIR ontology and analysis process per the OpenFAIR standard
-- [FAIR-CAM](https://www.fairinstitute.org/certifications/fair-controls-analytics-model) (FAIR Controls Analytics Model: FAIR Institute) — Advanced FAIR certification covering control effectiveness modeling, FAIR-CAM framework application, and portfolio-level risk analysis; the credential for senior CRQ analysts who need to quantify the financial impact of specific security controls
-- [CRISC](https://www.isaca.org/credentialing/crisc) (Certified in Risk and Information Systems Control: ISACA) — The most widely recognized IT risk certification; covers risk identification, assessment, response, and monitoring frameworks including quantitative approaches; valued in governance and risk management roles; broader than FAIR but provides important risk management context
-- [CISM](https://www.isaca.org/credentialing/cism) (Certified Information Security Manager: ISACA) — Information security management certification with significant risk management content; the governance-layer credential for security managers communicating risk to business stakeholders; pairs well with CRQ skills for CISO-track practitioners
-- [CISSP](https://www.isc2.org/Certifications/CISSP) (Certified Information Systems Security Professional: ISC2) — Broad security certification with a dedicated risk management domain; the credential most commonly held by practitioners entering CRQ from a general security background; Domain 1 (Security and Risk Management) covers risk frameworks including quantitative approaches
+- [FAIR-P](https://www.fairinstitute.org/certifications/fair-practitioner) (FAIR Practitioner, FAIR Institute): The entry-level FAIR certification; validates ability to conduct FAIR analyses, estimate model inputs, and communicate quantitative risk outputs; the recommended first credential for CRQ practitioners; covers the full FAIR ontology and analysis process per the OpenFAIR standard
+- [FAIR-CAM](https://www.fairinstitute.org/certifications/fair-controls-analytics-model) (FAIR Controls Analytics Model, FAIR Institute): Advanced FAIR certification covering control effectiveness modeling, FAIR-CAM framework application, and portfolio-level risk analysis; the credential for senior CRQ analysts who need to quantify the financial impact of specific security controls
+- [CRISC](https://www.isaca.org/credentialing/crisc) (Certified in Risk and Information Systems Control, ISACA): The most widely recognized IT risk certification; covers risk identification, assessment, response, and monitoring frameworks including quantitative approaches; valued in governance and risk management roles; broader than FAIR but provides important risk management context
+- [CISM](https://www.isaca.org/credentialing/cism) (Certified Information Security Manager, ISACA): Information security management certification with significant risk management content; the governance-layer credential for security managers communicating risk to business stakeholders; pairs well with CRQ skills for CISO-track practitioners
+- [CISSP](https://www.isc2.org/Certifications/CISSP) (Certified Information Systems Security Professional, ISC2): Broad security certification with a dedicated risk management domain; the credential most commonly held by practitioners entering CRQ from a general security background; Domain 1 (Security and Risk Management) covers risk frameworks including quantitative approaches
 
 ---
 
@@ -299,7 +299,7 @@ CISO Board Presentation Template
 
 Business Risk vs Technical Risk Communication
 - Technical: "We have a critical unpatched RCE in our customer portal"
-- Business: "There is a $2.3M expected annual loss exposure from an exploitable web vulnerability that enables unauthorized access to 800,000 customer records — representing CCPA notification and regulatory penalty risk"
+- Business: "There is a $2.3M expected annual loss exposure from an exploitable web vulnerability that enables unauthorized access to 800,000 customer records, representing CCPA notification and regulatory penalty risk"
 
 #### ROSI (Return on Security Investment)
 
@@ -321,5 +321,5 @@ Example:
 - [Governance, Risk & Compliance](/disciplines/governance-risk-compliance.md): CRQ is the quantitative engine inside GRC programs; it transforms qualitative risk registers into financially expressed risk portfolios that governance frameworks can act on
 - [Security Architecture](/disciplines/security-architecture.md): CRQ provides the financial justification for architecture decisions; ROSI calculations determine which security architecture investments are economically rational
 - [Threat Intelligence](/disciplines/threat-intelligence.md): Threat intelligence feeds provide empirical data for FAIR Threat Event Frequency estimation; CTI teams are the primary source of adversary capability and frequency data for CRQ models
-- [Threat Modeling](/disciplines/threat-modeling.md): Threat modeling identifies the risk scenarios that CRQ quantifies; the two disciplines are complementary — threat modeling scopes and structures the scenarios, CRQ assigns financial values
+- [Threat Modeling](/disciplines/threat-modeling.md): Threat modeling identifies the risk scenarios that CRQ quantifies; the two disciplines are complementary; threat modeling scopes and structures the scenarios, CRQ assigns financial values
 - [Security Operations](/disciplines/security-operations.md): SOC detection coverage and incident metrics provide empirical Vulnerability and frequency data for FAIR models; CRQ quantifies the financial value of SOC investment and detection engineering

@@ -1,6 +1,6 @@
 # Cybersecurity Interview Preparation
 
-> In one minute — This is a question bank and prep guide for cybersecurity job interviews: fundamentals (networking, Windows/Linux internals, security concepts), role-specific questions for SOC, pentest, DFIR, AppSec, cloud, GRC, and threat intel, plus behavioral answers and salary negotiation scripts. Each question comes with the key points an interviewer expects to hear, so you can rehearse answers instead of guessing what "good" sounds like. It also covers practical tests (CTF boxes, packet and log analysis) and which tools and certs to name for each role.
+> In one minute: This is a question bank and prep guide for cybersecurity job interviews: fundamentals (networking, Windows/Linux internals, security concepts), role-specific questions for SOC, pentest, DFIR, AppSec, cloud, GRC, and threat intel, plus behavioral answers and salary negotiation scripts. Each question comes with the key points an interviewer expects to hear, so you can rehearse answers instead of guessing what "good" sounds like. It also covers practical tests (CTF boxes, packet and log analysis) and which tools and certs to name for each role.
 
 | | |
 |---|---|
@@ -30,7 +30,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 |---|---|
 | Explain the OSI model and give examples at each layer | L1: cables/fiber, L2: Ethernet/MAC, L3: IP/routing, L4: TCP/UDP, L7: HTTP/DNS. Focus on L3-L7 for security work |
 | What happens when you type google.com into a browser? | DNS resolution, TCP 3-way handshake, TLS negotiation, HTTP request, CDN routing |
-| What is the difference between TCP and UDP? | TCP: reliable, ordered, connection-oriented (3-way handshake). UDP: faster, stateless — used for DNS, VoIP, gaming |
+| What is the difference between TCP and UDP? | TCP: reliable, ordered, connection-oriented (3-way handshake). UDP: faster, stateless; used for DNS, VoIP, gaming |
 | Explain the TCP 3-way handshake | SYN -> SYN-ACK -> ACK. Half-open during SYN flood attack |
 | What is ARP and how can it be abused? | Maps IP to MAC. ARP poisoning/spoofing enables MitM on local network |
 | What is the difference between a hub, switch, and router? | Hub: broadcasts all, Switch: MAC table forwarding, Router: IP-based forwarding between networks |
@@ -62,7 +62,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 
 | Question | Key Points |
 |---|---|
-| How does Linux file permissions work? | rwxrwxrwx — owner/group/other. chmod, chown. SUID bit (chmod +s) — privilege escalation vector |
+| How does Linux file permissions work? | rwxrwxrwx: owner/group/other. chmod, chown. SUID bit (chmod +s): privilege escalation vector |
 | What is sudo and how is it abused? | Allows running commands as another user (root). Misconfigured sudo rules (NOPASSWD, wildcard) = privesc |
 | What are cron jobs and how are they abused? | Scheduled tasks. World-writable scripts called by root cron = privilege escalation |
 | Where are credentials stored on Linux? | /etc/shadow (hashed passwords), ~/.ssh/id_rsa (SSH keys), env variables, .bash_history |
@@ -126,7 +126,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 |---|---|
 | Walk me through responding to a ransomware incident | Isolate -> preserve forensics -> identify blast radius -> check backups -> contain -> eradicate (rebuild, reset creds) -> restore -> post-incident |
 | What is the NIST IR lifecycle? | Preparation -> Detection & Analysis -> Containment -> Eradication -> Recovery -> Post-Incident Activity |
-| What volatile evidence should you collect first? | Memory dump, running processes, network connections, logged-on users, open files — collected before shutdown. Then disk image |
+| What volatile evidence should you collect first? | Memory dump, running processes, network connections, logged-on users, open files, collected before shutdown. Then disk image |
 | What tools do you use for memory forensics? | Volatility 3 (pslist, netscan, dumpfiles, malfind), WinPmem for acquisition; Rekall (archived, superseded by Volatility 3) |
 | How do you determine if a binary is malicious? | Static: hash lookup (VirusTotal), strings analysis, PE header inspection. Dynamic: sandbox (Any.run, Triage), behavioral analysis |
 | What are common persistence mechanisms? | Registry run keys, scheduled tasks, services, startup folder, DLL hijacking, WMI subscriptions, browser extensions |
@@ -141,7 +141,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 | How do you prevent SQL injection? | Parameterized queries / prepared statements. Input validation. Least-privilege DB accounts. WAF as defense-in-depth |
 | What is IDOR? | Insecure Direct Object Reference: accessing resources by changing ID in request (e.g., /user/1234 -> /user/1235). Missing authorization check |
 | What is JWT and what vulnerabilities exist? | JSON Web Token: header.payload.signature. Attacks: alg=none (no sig verification), weak secret (crack with hashcat), key confusion RS256->HS256 |
-| What is the Same-Origin Policy? | Browser security: restricts scripts from one origin accessing resources from another. CORS relaxes this — misconfigured CORS = data theft |
+| What is the Same-Origin Policy? | Browser security: restricts scripts from one origin accessing resources from another. CORS relaxes this; misconfigured CORS = data theft |
 | How would you perform a code review for security? | SAST tool first (Semgrep, Bandit). Then manual: input validation, auth checks, cryptography use, logging of sensitive data, error handling |
 | Explain DevSecOps | Integrating security into CI/CD: SAST in PR checks, DAST in staging, SCA for dependencies, secrets scanning, IaC scanning |
 
@@ -168,7 +168,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 | How do you stay current in cybersecurity? | Twitter/X follows, RSS feeds (Krebs, Bleeping Computer), HTB/THM weekly, CISA advisories, conference talks (DEF CON, Black Hat YouTube) |
 | How do you explain a technical issue to a non-technical stakeholder? | Avoid jargon, use analogies, focus on business impact and risk, recommend specific actions |
 | Tell me about a time you worked under pressure | Security incident scenarios work well. Show structured thinking (triage, escalation, resolution) |
-| What do you do when you disagree with a security decision? | Raise concern with data, document it, accept decision if overruled — but escalate if it poses unacceptable risk |
+| What do you do when you disagree with a security decision? | Raise concern with data, document it, accept decision if overruled, but escalate if it poses unacceptable risk |
 | Where do you want to be in 5 years? | Show ambition tied to the role: certifications planned, skills to develop, leadership aspirations |
 
 ---
@@ -193,8 +193,8 @@ Many companies include a practical component. Common formats:
 - Know how to pivot: IP -> hostname -> user -> process -> parent process
 
 ### Scenario Walk-Throughs
-- "You get an alert at 3am: what do you do?" — show triage process
-- "You find malware on a laptop: what are your first 5 actions?" — isolate, image memory, capture logs, escalate, forensic triage
+- "You get an alert at 3am: what do you do?" Show triage process
+- "You find malware on a laptop: what are your first 5 actions?" Isolate, image memory, capture logs, escalate, forensic triage
 
 ---
 
@@ -240,7 +240,7 @@ See [Certifications Reference](CERTIFICATIONS.md) for full details on each cert.
 | What is a SOC 2 Type II report? | AICPA audit of controls across 5 Trust Services Criteria over a 6-12 month period. Type I: design only (point-in-time). Type II: operating effectiveness over time |
 | How do you perform a gap analysis? | Compare current-state controls against a target framework. Document gaps, assign risk ratings, prioritize by risk severity and remediation effort |
 | What is a BIA (Business Impact Analysis)? | Identifies critical business functions and quantifies the impact of disruption. Outputs RTO, RPO, and MTD per critical function |
-| Qualitative vs. quantitative risk assessment? | Qualitative: High/Medium/Low ratings — fast but subjective. Quantitative: dollar-value calculations (ALE = ARO x SLE) — more defensible for budget decisions |
+| Qualitative vs. quantitative risk assessment? | Qualitative: High/Medium/Low ratings, fast but subjective. Quantitative: dollar-value calculations (ALE = ARO x SLE), more defensible for budget decisions |
 | How would you build a third-party risk program? | Tier vendors by risk level (data access, operational criticality), define questionnaires per tier, review SOC 2 and ISO 27001 reports, perform on-site assessments for highest-risk vendors, include contractual security requirements |
 | What is CMMC 2.0? | DoD framework for defense contractors: Level 1 (17 practices), Level 2 (110 NIST 800-171 practices), Level 3 (plus 24 NIST 800-172 practices). C3PAO third-party assessments required at Levels 2 and 3 |
 | How do you measure security program effectiveness? | KPIs: patch SLA compliance rate, phishing simulation click rate trend, MTTD/MTTR, critical vulnerability remediation rate, control test pass rates, audit findings closed on time |
@@ -323,7 +323,7 @@ Research compensation thoroughly before any negotiation. Key sources:
 | What is a SOC 2 Type II report? | AICPA audit of controls across 5 Trust Services Criteria over a 6-12 month period. Type I: design only (point-in-time). Type II: operating effectiveness over time |
 | How do you perform a gap analysis? | Compare current-state controls against a target framework. Document gaps, assign risk ratings, prioritize by risk severity and remediation effort |
 | What is a BIA (Business Impact Analysis)? | Identifies critical business functions and quantifies the impact of disruption. Outputs RTO, RPO, and MTD per critical function |
-| Qualitative vs. quantitative risk assessment? | Qualitative: High/Medium/Low ratings — fast but subjective. Quantitative: dollar-value calculations (ALE = ARO x SLE) — more defensible for budget decisions |
+| Qualitative vs. quantitative risk assessment? | Qualitative: High/Medium/Low ratings, fast but subjective. Quantitative: dollar-value calculations (ALE = ARO x SLE), more defensible for budget decisions |
 | How would you build a third-party risk program? | Tier vendors by risk level (data access, operational criticality), define questionnaires per tier, review SOC 2 and ISO 27001 reports, perform on-site assessments for highest-risk vendors, include contractual security requirements |
 | What is CMMC 2.0? | DoD framework for defense contractors: Level 1 (17 practices), Level 2 (110 NIST 800-171 practices), Level 3 (plus 24 NIST 800-172 practices). C3PAO third-party assessments required at Levels 2 and 3 |
 | How do you measure security program effectiveness? | KPIs: patch SLA compliance rate, phishing simulation click rate trend, MTTD/MTTR, critical vulnerability remediation rate, control test pass rates, audit findings closed on time |

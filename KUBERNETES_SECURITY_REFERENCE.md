@@ -1,6 +1,6 @@
 # Kubernetes Security Reference
 
-> A comprehensive reference for Kubernetes security — attack surface mapping, RBAC deep dives,
+> A comprehensive reference for Kubernetes security: attack surface mapping, RBAC deep dives,
 > container escape techniques, Pod Security Standards, NetworkPolicy, secrets management,
 > supply chain security, etcd hardening, and a full security checklist.
 
@@ -88,7 +88,7 @@ Defenses:
 | `RoleBinding` | Namespace | Binds a Role or ClusterRole to subjects within a namespace |
 | `ClusterRoleBinding` | Cluster-wide | Binds a ClusterRole to subjects cluster-wide |
 
-Service accounts are the identity for pods — they receive a JWT token automatically mounted at
+Service accounts are the identity for pods; they receive a JWT token automatically mounted at
 `/var/run/secrets/kubernetes.io/serviceaccount/token` (unless disabled).
 
 ### Dangerous Permissions
@@ -466,7 +466,7 @@ kubectl get events -n staging | grep Warning
 
 ## 6. Network Policies
 
-By default, all pods in a Kubernetes cluster can communicate with all other pods — there is zero
+By default, all pods in a Kubernetes cluster can communicate with all other pods: there is zero
 network segmentation. NetworkPolicy resources require a CNI plugin that enforces them.
 
 ### CNI Plugin Support
@@ -845,7 +845,7 @@ deny[msg] {
 ## 9. etcd Security
 
 etcd is the most sensitive component in a Kubernetes cluster. Compromise of etcd equals
-compromise of the entire cluster — all secrets, RBAC rules, and service account tokens are stored there.
+compromise of the entire cluster: all secrets, RBAC rules, and service account tokens are stored there.
 
 ### Hardening Checklist
 

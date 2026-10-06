@@ -1,6 +1,6 @@
 # Cybersecurity Book and Resource List
 
-> In one minute — A curated reading and lab guide for every major cybersecurity specialty, from pentesting and malware analysis to blue team, cloud, and OSINT. Each section pairs the best books with the repos, YouTube channels, certifications, and practice platforms that let you apply them, so you read and lab in parallel instead of just collecting titles. Six role-based learning paths give you a starting sequence when you don't know where to begin.
+> In one minute: A curated reading and lab guide for every major cybersecurity specialty, from pentesting and malware analysis to blue team, cloud, and OSINT. Each section pairs the best books with the repos, YouTube channels, certifications, and practice platforms that let you apply them, so you read and lab in parallel instead of just collecting titles. Six role-based learning paths give you a starting sequence when you don't know where to begin.
 
 | | |
 |---|---|
@@ -283,7 +283,7 @@ Practice: [PortSwigger Web Academy](https://portswigger.net/web-security) (free)
 
 ## Application Security (SAST, DAST & Secure Development)
 
-> Covers secure coding, shift-left security, AppSec program building, and tooling for finding vulnerabilities in source code and running apps. Distinct from web pentesting — this section is developer and AppSec engineer oriented.
+> Covers secure coding, shift-left security, AppSec program building, and tooling for finding vulnerabilities in source code and running apps. Distinct from web pentesting; this section is developer and AppSec engineer oriented.
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
@@ -1045,7 +1045,7 @@ Portfolio builders: Start a blog | Do HTB/THM writeups | Submit a CVE | Contribu
 
 ## Incident Response & Digital Forensics
 
-> Dedicated IR and DFIR resource track. The books below focus specifically on forensic methodology, evidence acquisition, and the full incident response lifecycle — complementing the Blue Team section's detection and monitoring focus.
+> Dedicated IR and DFIR resource track. The books below focus specifically on forensic methodology, evidence acquisition, and the full incident response lifecycle, complementing the Blue Team section's detection and monitoring focus.
 
 | Book | Author | Year | Level | Why Read |
 |---|---|---|---|---|

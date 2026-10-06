@@ -1,6 +1,6 @@
 # Windows Hardening Reference
 
-> In one minute — This is a hands-on hardening guide for Windows endpoints and servers, built from CIS Benchmarks, Microsoft Security Baselines, and DISA STIGs. Every control comes with the exact registry path, GPO path, or PowerShell command to apply and verify it, so you can go from "we should harden that" to a working setting in one pass. Sections also tag the ATT&CK techniques and NIST 800-53 controls each setting counters, which makes justifying the change to auditors or leadership easy.
+> In one minute: This is a hands-on hardening guide for Windows endpoints and servers, built from CIS Benchmarks, Microsoft Security Baselines, and DISA STIGs. Every control comes with the exact registry path, GPO path, or PowerShell command to apply and verify it, so you can go from "we should harden that" to a working setting in one pass. Sections also tag the ATT&CK techniques and NIST 800-53 controls each setting counters, which makes justifying the change to auditors or leadership easy.
 
 | | |
 |---|---|
@@ -36,7 +36,7 @@ The CIS Benchmark for Windows Server 2022 is organized into Level 1 (basic hygie
 
 ### Account Policies: Password Policy
 
-CIS 1.1 — Password Policy
+CIS 1.1: Password Policy
 
 | Setting | Recommended Value | GPO Path |
 |---|---|---|
@@ -60,11 +60,11 @@ net accounts /minpwlen:14 /maxpwage:365 /minpwage:1 /uniquepw:24
 net accounts
 ```
 
-Registry for password complexity is managed through SAM — use GPO or secedit, not direct registry edits.
+Registry for password complexity is managed through SAM. Use GPO or secedit, not direct registry edits.
 
 ### Account Policies: Account Lockout
 
-CIS 1.2 — Account Lockout Policy
+CIS 1.2: Account Lockout Policy
 
 | Setting | Recommended Value | CIS Ref |
 |---|---|---|
@@ -86,7 +86,7 @@ New-ADFineGrainedPasswordPolicy -Name "StrictPolicy" -Precedence 10 `
 
 ### Local Policies: User Rights Assignment
 
-CIS 2.2 — User Rights Assignment
+CIS 2.2: User Rights Assignment
 
 | Right | Recommended | GPO Path |
 |---|---|---|
@@ -114,7 +114,7 @@ Get-Content C:\Temp\userrights.cfg | Select-String "Se"
 
 ### Security Options
 
-CIS 2.3 — Security Options
+CIS 2.3: Security Options
 
 Key registry values under `HKLM\SYSTEM\CurrentControlSet\Control\Lsa` and related hives:
 
@@ -859,7 +859,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
 | Object Access | File Share | Success, Failure | CIS 17.6.2 |
 | Object Access | Other Object Access Events | Success, Failure | CIS 17.6.3 |
 | Object Access | Removable Storage | Success, Failure | CIS 17.6.4 |
-| Object Access | SAM | Failure | — |
+| Object Access | SAM | Failure | N/A |
 | Policy Change | Audit Policy Change | Success | CIS 17.7.1 |
 | Policy Change | Authentication Policy Change | Success | CIS 17.7.2 |
 | Policy Change | Authorization Policy Change | Success | CIS 17.7.3 |
@@ -1443,7 +1443,7 @@ Test-WindowsHardening
 | RDP Hardening | CIS 18.10.56 | AC-17, SC-8 | V-93591 | M1035 |
 | AppLocker / WDAC | CIS Level 2 | CM-14, SI-7 | V-93623 | M1038 |
 | Windows Firewall | CIS 9.x | SC-7, CA-9 | V-93475 | M1031 |
-| ASR Rules | — | SI-3, CM-7 | — | M1040 |
+| ASR Rules | N/A | SI-3, CM-7 | N/A | M1040 |
 | LAPS | CIS Control 5 | AC-2, IA-5 | V-93149 | M1026 |
 
 ---

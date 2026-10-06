@@ -1,8 +1,8 @@
 # IoT Security
 
-IoT Security is the discipline of securing Internet of Things devices — embedded systems, connected sensors, smart home and building devices, wearables, medical devices, and industrial sensors — that operate with limited compute resources and often lack the security controls available on traditional endpoints. The IoT attack surface is uniquely challenging: devices frequently ship with default credentials, no update mechanism, unencrypted communications, and no runtime security tooling. Once deployed, they may remain in the field for years or decades without patching.
+IoT Security is the discipline of securing Internet of Things devices (embedded systems, connected sensors, smart home and building devices, wearables, medical devices, and industrial sensors) that operate with limited compute resources and often lack the security controls available on traditional endpoints. The IoT attack surface is uniquely challenging: devices frequently ship with default credentials, no update mechanism, unencrypted communications, and no runtime security tooling. Once deployed, they may remain in the field for years or decades without patching.
 
-IoT Security is distinct from Hardware Security (which focuses on chip-level and physical attacks on computing hardware) and ICS/OT Security (which covers industrial control systems and operational technology). IoT spans consumer, enterprise, and industrial domains — smart thermostats, hospital infusion pumps, IP cameras, and building management systems all represent IoT attack surfaces. The Mirai botnet demonstrated in 2016 that millions of compromised IoT devices running default credentials could be weaponized for the largest DDoS attacks ever recorded. VPNFilter (2018, attributed to GRU Sandworm) compromised 500,000+ routers and NAS devices for espionage and destructive capability. The threat landscape continues to expand as device counts approach 30 billion.
+IoT Security is distinct from Hardware Security (which focuses on chip-level and physical attacks on computing hardware) and ICS/OT Security (which covers industrial control systems and operational technology). IoT spans consumer, enterprise, and industrial domains: smart thermostats, hospital infusion pumps, IP cameras, and building management systems all represent IoT attack surfaces. The Mirai botnet demonstrated in 2016 that millions of compromised IoT devices running default credentials could be weaponized for the largest DDoS attacks ever recorded. VPNFilter (2018, attributed to GRU Sandworm) compromised 500,000+ routers and NAS devices for espionage and destructive capability. The threat landscape continues to expand as device counts approach 30 billion.
 
 The discipline encompasses firmware security, hardware interface analysis, network protocol security (MQTT, CoAP, Zigbee, Z-Wave, BLE), cloud API security for IoT backends, mobile companion app security, and supply chain integrity. Practitioners must be comfortable operating across all these layers simultaneously.
 
@@ -102,7 +102,7 @@ mosquitto_sub -h TARGET_IP -t 'home/#' -v
 mosquitto_sub -h TARGET_IP -t 'sensor/+/data' -v
 ```
 
-The `#` wildcard subscribes to every topic, exposing all messages published to the broker — sensor readings, commands, credentials, and device status. Shodan query `port:1883` reveals thousands of internet-exposed MQTT brokers, many without authentication.
+The `#` wildcard subscribes to every topic, exposing all messages published to the broker: sensor readings, commands, credentials, and device status. Shodan query `port:1883` reveals thousands of internet-exposed MQTT brokers, many without authentication.
 
 ### Command Injection via MQTT
 ```bash
@@ -128,7 +128,7 @@ Mirai achieved its scale by scanning for IoT devices accepting default Telnet cr
 Technical mechanism: Telnet scanner -> default credential brute-force -> shell command injection -> download and execute Mirai binary for device architecture -> kill competing malware -> connect to C2 -> await DDoS commands.
 
 ### VPNFilter (2018)
-VPNFilter was attributed to Sandworm (GRU Unit 74455) and compromised 500,000+ home and small-office routers across 54 countries. Unlike Mirai, VPNFilter was a sophisticated multi-stage modular malware designed for espionage and sabotage — not just DDoS:
+VPNFilter was attributed to Sandworm (GRU Unit 74455) and compromised 500,000+ home and small-office routers across 54 countries. Unlike Mirai, VPNFilter was a sophisticated multi-stage modular malware designed for espionage and sabotage, not just DDoS:
 - Stage 1: Persistent loader surviving reboots; contacted Photobucket for C2 infrastructure (DNS/Tor fallback)
 - Stage 2: Core intelligence collection; Modbus SCADA protocol sniffer; destructive "kill" capability to brick devices
 - Stage 3: Pluggable modules including packet sniffer, credential harvester, and Tor anonymization
@@ -139,7 +139,7 @@ VPNFilter demonstrated that nation-state adversaries treat compromised IoT/route
 
 ## Device Identity
 
-Secure device identity is the foundation of IoT security — without it, any device can impersonate any other.
+Secure device identity is the foundation of IoT security; without it, any device can impersonate any other.
 
 | Mechanism | Description | Maturity |
 |---|---|---|
@@ -233,8 +233,8 @@ MITRE ATT&CK Enterprise, ICS, and Mobile domains all apply to IoT. Key technique
 
 ## Certifications
 
-- GICSP (Global Industrial Cyber Security Professional: GIAC) — Most respected credential for ICS/IoT security; covers industrial control systems, embedded devices, and operational technology; valued in critical infrastructure and industrial IoT roles
-- CEH (Certified Ethical Hacker: EC-Council) — Includes an IoT security module covering attack techniques and countermeasures
+- GICSP (Global Industrial Cyber Security Professional: GIAC). Most respected credential for ICS/IoT security; covers industrial control systems, embedded devices, and operational technology; valued in critical infrastructure and industrial IoT roles
+- CEH (Certified Ethical Hacker: EC-Council). Includes an IoT security module covering attack techniques and countermeasures
 - EC-Council IoTSP (IoT Security Practitioner): EC-Council's dedicated IoT security certification covering IoT architecture, attack surface, and security controls
 - CompTIA Security+: Covers IoT security concepts at the foundational level; appropriate starting point before specialized IoT credentials
 - CISSP (ISC2): Security engineering and asset security domains address IoT security architecture and risk management

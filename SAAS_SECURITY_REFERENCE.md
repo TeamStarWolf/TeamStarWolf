@@ -1,8 +1,8 @@
 # SaaS Security Reference
 
-> SaaS is someone else's software but your security problem. The vendor patches the platform; you own the identities, the sharing settings, the third-party integrations, and the audit-log configuration — and that customer-side half is where the recent breach record lives. The anchor framework for getting it right is [CISA's Secure Cloud Business Applications (SCuBA) project](https://www.cisa.gov/resources-tools/services/secure-cloud-business-applications-scuba-project) (established 2022): free, testable Secure Configuration Baselines for Microsoft 365 and Google Workspace, plus the automated tools — ScubaGear and ScubaGoggles — to score a live tenant against them.
+> SaaS is someone else's software but your security problem. The vendor patches the platform; you own the identities, the sharing settings, the third-party integrations, and the audit-log configuration, and that customer-side half is where the recent breach record lives. The anchor framework for getting it right is [CISA's Secure Cloud Business Applications (SCuBA) project](https://www.cisa.gov/resources-tools/services/secure-cloud-business-applications-scuba-project) (established 2022): free, testable Secure Configuration Baselines for Microsoft 365 and Google Workspace, plus the automated tools (ScubaGear and ScubaGoggles) to score a live tenant against them.
 
-The defining pattern of 2023-2025 SaaS incidents is not exploitation of vendor code. It is abused trust: a legacy OAuth app with tenant-wide mail access (Midnight Blizzard), a forged signing key redeemed for mailbox tokens (Storm-0558), session tokens lifted from support-ticket attachments (Okta), and a compromised third-party integration's OAuth tokens replayed against hundreds of customer tenants (Salesloft Drift). Every one of those was an identity-and-configuration failure a customer-side control could have narrowed — and in several, the victims who *detected* it were the ones who had paid for the right logs.
+The defining pattern of 2023-2025 SaaS incidents is not exploitation of vendor code. It is abused trust: a legacy OAuth app with tenant-wide mail access (Midnight Blizzard), a forged signing key redeemed for mailbox tokens (Storm-0558), session tokens lifted from support-ticket attachments (Okta), and a compromised third-party integration's OAuth tokens replayed against hundreds of customer tenants (Salesloft Drift). Every one of those was an identity-and-configuration failure a customer-side control could have narrowed, and in several, the victims who *detected* it were the ones who had paid for the right logs.
 
 This reference covers the SaaS threat surface at a taxonomy level, the case studies as the vendors publicly documented them, the SSPM tool category, CISA SCuBA and adjacent frameworks, identity-centric controls, OAuth app governance, license-gated logging, and per-platform hardening checklists.
 
@@ -22,7 +22,7 @@ Related: [Identity & Access Management](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
 | No perimeter, no agent | The "server" is a vendor API endpoint. You cannot deploy EDR to Salesforce; controls are configuration, identity, and API-consumed logs |
 | Admin plane is a web console | Tenant-wide compromise is one hijacked admin session away; the console itself is internet-facing by design |
 | Vendor patches, customer configures | CVE count is a poor risk signal; misconfiguration and over-permissive defaults are the dominant exposure class |
-| Integration sprawl | Every OAuth grant, API key, marketplace app, and webhook is a standing credential with its own blast radius — a supply chain inside your tenant |
+| Integration sprawl | Every OAuth grant, API key, marketplace app, and webhook is a standing credential with its own blast radius: a supply chain inside your tenant |
 | Tenants multiply silently | Business units buy SaaS on a credit card; each unmanaged tenant is unmonitored attack surface (shadow SaaS) |
 | Telemetry is license-gated | What you can detect depends on what tier you bought: a procurement decision becomes a detection decision |
 | Data leaves by design | Sharing links, guest access, and export APIs are features; "exfiltration" often looks like normal product usage |
@@ -31,14 +31,14 @@ Related: [Identity & Access Management](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
 
 | Layer | Vendor owns | Customer owns |
 |---|---|---|
-| Platform code & infrastructure | Vulnerabilities, patching, availability | — |
+| Platform code & infrastructure | Vulnerabilities, patching, availability | Nothing |
 | Identity | The authentication machinery | Who has accounts, MFA strength, SSO enforcement, lifecycle (SCIM) |
 | Authorization | The permission model | Role assignments, admin count, least privilege |
 | Integrations | The OAuth/consent machinery | Which apps are consented, what scopes they hold, review and revocation |
 | Data exposure | The sharing feature set | Default sharing posture, external/guest policy, DLP |
 | Telemetry | Generating the logs | Licensing the right tier, exporting to SIEM, building detections |
 
-Everything in the right-hand column is assessable, and most of it is scriptable — which is exactly the gap SCuBA and the SSPM category exist to close.
+Everything in the right-hand column is assessable, and most of it is scriptable, which is exactly the gap SCuBA and the SSPM category exist to close.
 
 ---
 
@@ -78,7 +78,7 @@ Five conceptual threat classes cover most of what public advisories document aga
 | Shadow SaaS | Tenants, apps, and integrations adopted outside IT visibility | Procurement is a credit card; discovery lags adoption | SSO-only policy, egress/CASB discovery, expense-report mining, app allowlisting |
 | Misconfigured sharing | Public links, org-wide defaults, anonymous access, over-broad guest permissions | Sharing is the product's core feature; secure defaults vary by platform and era of tenant creation | Baseline the sharing settings (SCuBA SCBs), continuous posture monitoring (SSPM), DLP |
 
-> The non-human identity problem. OAuth app registrations, service accounts, and API tokens are identities that never do MFA, never get offboarded by HR, and frequently outlive their purpose. Treat every integration grant as an account with a credential — inventoried, scoped, owned, and expiring. This is the core argument of the [OWASP Non-Human Identities Top 10 (2025)](https://owasp.org/www-project-non-human-identities-top-10/), covered under Frameworks below.
+> The non-human identity problem. OAuth app registrations, service accounts, and API tokens are identities that never do MFA, never get offboarded by HR, and frequently outlive their purpose. Treat every integration grant as an account with a credential: inventoried, scoped, owned, and expiring. This is the core argument of the [OWASP Non-Human Identities Top 10 (2025)](https://owasp.org/www-project-non-human-identities-top-10/), covered under Frameworks below.
 
 ---
 
@@ -93,10 +93,10 @@ Four incidents, documented by the affected vendors themselves, that together map
 | Victim surface | Exchange Online mailboxes, including U.S. government agencies |
 | Actor | Storm-0558 (Microsoft designation) |
 | Mechanism | Forged authentication tokens signed with an acquired Microsoft account (MSA) signing key |
-| Detection | The U.S. State Department spotted anomalous access via the `MailItemsAccessed` audit event — which at the time required premium (E5-tier) logging |
+| Detection | The U.S. State Department spotted anomalous access via the `MailItemsAccessed` audit event, which at the time required premium (E5-tier) logging |
 | Public record | [Microsoft Security Blog, July 19, 2023](https://www.microsoft.com/en-us/security/blog/2023/07/19/expanding-cloud-logging-to-give-customers-deeper-security-visibility/) |
 
-Why it matters: the customer who could see the attack was the one paying for the right log tier. Under CISA pressure, Microsoft announced on July 19, 2023 that it would expand cloud logging access at no additional cost — moving events like mail items accessed, mail sent, and user search into Purview Audit (Standard). The structural lesson: log availability is a security control, and it was being sold as a premium feature. See the license-tier section below.
+Why it matters: the customer who could see the attack was the one paying for the right log tier. Under CISA pressure, Microsoft announced on July 19, 2023 that it would expand cloud logging access at no additional cost, moving events like mail items accessed, mail sent, and user search into Purview Audit (Standard). The structural lesson: log availability is a security control, and it was being sold as a premium feature. See the license-tier section below.
 
 ### Okta support system: one saved credential, 134 downstream victims (2023)
 
@@ -109,7 +109,7 @@ Why it matters: the customer who could see the attack was the one paying for the
 | Remediations (per Okta) | Service account disabled, personal Google profiles blocked on managed laptops, session token binding by network location shipped for admin sessions |
 | Public record | [Okta root-cause disclosure, Nov 2023](https://sec.okta.com/articles/2023/11/unauthorized-access-oktas-support-case-management-system-root-cause/) |
 
-Why it matters: three SaaS failure modes in one incident — an unmonitored non-human identity (the service account), credential sprawl into unmanaged SaaS (personal Google profile), and tokens as toxic residue (HAR files carry live session cookies; scrub them before upload). If your IdP's vendor can be a source of your session tokens, token binding and short admin-session lifetimes are your compensating controls.
+Why it matters: three SaaS failure modes in one incident, namely an unmonitored non-human identity (the service account), credential sprawl into unmanaged SaaS (personal Google profile), and tokens as toxic residue (HAR files carry live session cookies; scrub them before upload). If your IdP's vendor can be a source of your session tokens, token binding and short admin-session lifetimes are your compensating controls.
 
 ### Midnight Blizzard vs. Microsoft: legacy OAuth app abuse (2024)
 
@@ -135,13 +135,13 @@ Why it matters: every link in the chain is a customer-side SaaS control. Microso
 | Response | Salesloft and Salesforce revoked all active Drift access/refresh tokens on August 20, 2025; Salesforce temporarily removed Drift from AppExchange; scope later expanded beyond the Salesforce integration (e.g., Drift Email) |
 | Public record | [GTIG advisory, Aug 26, 2025](https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift), [Salesforce security response](https://help.salesforce.com/s/articleView?id=005134951&language=en_US&type=1) |
 
-Why it matters: customers were breached without their own credentials, users, or infrastructure being touched — the integration *was* the credential. Two durable lessons: (1) your integration inventory is a dependency list you must be able to revoke in hours, not weeks; (2) SaaS data stores are full of secondary credentials — the actor's first move after export was secret-hunting, so treat CRM cases, chat transcripts, and attachments as secret-bearing material ([Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md)). Salesforce's secure-by-default follow-up (blocking uninstalled connected apps, from early September 2025) is covered in the governance section below.
+Why it matters: customers were breached without their own credentials, users, or infrastructure being touched; the integration *was* the credential. Two durable lessons: (1) your integration inventory is a dependency list you must be able to revoke in hours, not weeks; (2) SaaS data stores are full of secondary credentials (the actor's first move after export was secret-hunting), so treat CRM cases, chat transcripts, and attachments as secret-bearing material ([Secrets Management](SECRETS_MANAGEMENT_REFERENCE.md)). Salesforce's secure-by-default follow-up (blocking uninstalled connected apps, from early September 2025) is covered in the governance section below.
 
 ---
 
 ## The ATT&CK lens on SaaS threats
 
-MITRE ATT&CK v19 (released April 28, 2026) covers Enterprise with 15 tactics, 222 techniques, 475 sub-techniques, and 44 mitigations; v19 split the old Defense Evasion tactic into Stealth (TA0005) and Defense Impairment (TA0112). The SaaS-relevant platform tags in Enterprise ATT&CK are SaaS, Office Suite, and Identity Provider — filter any matrix view to those three to get the SaaS-relevant technique set. ([v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/))
+MITRE ATT&CK v19 (released April 28, 2026) covers Enterprise with 15 tactics, 222 techniques, 475 sub-techniques, and 44 mitigations; v19 split the old Defense Evasion tactic into Stealth (TA0005) and Defense Impairment (TA0112). The SaaS-relevant platform tags in Enterprise ATT&CK are SaaS, Office Suite, and Identity Provider; filter any matrix view to those three to get the SaaS-relevant technique set. ([v19 release notes](https://attack.mitre.org/resources/updates/updates-april-2026/))
 
 The two anchor techniques for the OAuth-token threat class, verified current in v19 (both last modified May 12, 2026):
 
@@ -171,16 +171,16 @@ Adjacent techniques that recur in the case studies (IDs verified against this li
 
 ### CISA SCuBA: the tenant baseline standard
 
-The [Secure Cloud Business Applications (SCuBA) project](https://www.cisa.gov/resources-tools/services/secure-cloud-business-applications-scuba-project) (CISA, established 2022) publishes Secure Configuration Baselines (SCBs) and automated assessment tools for the two dominant productivity suites. Everything is free — GitHub, PowerShell Gallery, PyPI. Related deliverables include Hybrid Identity Solutions Guidance and a Technical Reference Architecture.
+The [Secure Cloud Business Applications (SCuBA) project](https://www.cisa.gov/resources-tools/services/secure-cloud-business-applications-scuba-project) (CISA, established 2022) publishes Secure Configuration Baselines (SCBs) and automated assessment tools for the two dominant productivity suites. Everything is free: GitHub, PowerShell Gallery, PyPI. Related deliverables include Hybrid Identity Solutions Guidance and a Technical Reference Architecture.
 
 | Tool | Platform | Current release | How it works |
 |---|---|---|---|
 | [ScubaGear](https://github.com/cisagov/ScubaGear) | Microsoft 365 | v1.8.0 (2026-05-07) | PowerShell; queries M365 APIs, evaluates settings against Rego policies with Open Policy Agent (OPA), emits HTML/JSON/CSV reports; a YAML config file is required for BOD 25-01 submissions |
 | [ScubaGoggles](https://github.com/cisagov/ScubaGoggles) | Google Workspace | v1.0.1 (2026-07-28; v1.0.0 was 2026-07-24) | Python (PyPI `scubagoggles`); exports settings via the Google Admin SDK / Policy API, evaluates with OPA Rego |
 
-M365 baseline coverage — seven products per the current ScubaGear README: Microsoft Entra ID, Security Suite (Defender for Office 365 + Microsoft Purview functions), Exchange Online, Power BI, Power Platform, SharePoint Online & OneDrive (one combined baseline), and Teams. The repo's [baselines directory](https://github.com/cisagov/ScubaGear/tree/main/PowerShell/ScubaGear/baselines) currently carries eight baseline documents (`aad`, `defender`, `exo`, `powerbi`, `powerplatform`, `securitysuite`, `sharepoint`, `teams`) — note the baselines are mid-reorganization (`defender.md` and the newer `securitysuite.md` coexist), so check the repo before quoting per-baseline policy IDs.
+M365 baseline coverage (seven products per the current ScubaGear README): Microsoft Entra ID, Security Suite (Defender for Office 365 + Microsoft Purview functions), Exchange Online, Power BI, Power Platform, SharePoint Online & OneDrive (one combined baseline), and Teams. The repo's [baselines directory](https://github.com/cisagov/ScubaGear/tree/main/PowerShell/ScubaGear/baselines) currently carries eight baseline documents (`aad`, `defender`, `exo`, `powerbi`, `powerplatform`, `securitysuite`, `sharepoint`, `teams`); note the baselines are mid-reorganization (`defender.md` and the newer `securitysuite.md` coexist), so check the repo before quoting per-baseline policy IDs.
 
-Google Workspace baseline coverage — eleven baseline documents in the ScubaGoggles repo: Assured Controls, Calendar, Chat, Classroom, Common Controls, Drive & Docs, Gemini for Workspace, Gmail, Groups for Business, Meet, and Sites.
+Google Workspace baseline coverage (eleven baseline documents in the ScubaGoggles repo): Assured Controls, Calendar, Chat, Classroom, Common Controls, Drive & Docs, Gemini for Workspace, Gmail, Groups for Business, Meet, and Sites.
 
 ### BOD 25-01: the baselines become mandatory
 
@@ -196,21 +196,21 @@ Even outside the federal space, BOD 25-01 is the useful template: inventory -> a
 
 ### CSA SaaS Security Capability Framework (SSCF)
 
-The Cloud Security Alliance released [SSCF v1.0](https://cloudsecurityalliance.org/artifacts/saas-security-capability-framework) on September 24, 2025 (v1.0.1 followed in April 2026 with a self-assessment questionnaire). It is the vendor-facing complement to SCuBA: a vendor-agnostic definition of the configurable, customer-facing security controls a SaaS vendor should *expose* (SSO support, audit-log access, token revocation, etc.), aligned to CSA CCM domains. Use it in procurement — as the requirements list you hand a SaaS vendor before signing — where SCuBA governs how you configure the tenant you already have.
+The Cloud Security Alliance released [SSCF v1.0](https://cloudsecurityalliance.org/artifacts/saas-security-capability-framework) on September 24, 2025 (v1.0.1 followed in April 2026 with a self-assessment questionnaire). It is the vendor-facing complement to SCuBA: a vendor-agnostic definition of the configurable, customer-facing security controls a SaaS vendor should *expose* (SSO support, audit-log access, token revocation, etc.), aligned to CSA CCM domains. Use it in procurement (as the requirements list you hand a SaaS vendor before signing), where SCuBA governs how you configure the tenant you already have.
 
 ### OWASP: what exists and what doesn't
 
-OWASP has no flagship "SaaS Security" project and no SaaS Top 10 (verified as of this writing — do not cite one). The closest official OWASP material is the [Non-Human Identities Top 10, 2025 edition](https://owasp.org/www-project-non-human-identities-top-10/) — directly on point for integration risk. Its NHI3:2025 "Vulnerable Third-Party NHI" covers third-party OAuth/SaaS integrations and cites the Midnight Blizzard legacy-OAuth-app incident as its real-world example. For the application layer of SaaS products you *build*, the general OWASP Top 10 and ASVS apply as usual ([Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md)).
+OWASP has no flagship "SaaS Security" project and no SaaS Top 10 (verified as of this writing; do not cite one). The closest official OWASP material is the [Non-Human Identities Top 10, 2025 edition](https://owasp.org/www-project-non-human-identities-top-10/), directly on point for integration risk. Its NHI3:2025 "Vulnerable Third-Party NHI" covers third-party OAuth/SaaS integrations and cites the Midnight Blizzard legacy-OAuth-app incident as its real-world example. For the application layer of SaaS products you *build*, the general OWASP Top 10 and ASVS apply as usual ([Web Application Security](WEB_APPLICATION_SECURITY_REFERENCE.md)).
 
 ### NIST SSDF adjacency
 
-For teams that build or heavily extend SaaS, the [Secure Software Development Framework](https://csrc.nist.gov/projects/ssdf) is the vendor-side hygiene standard: SP 800-218 v1.1 remains the current final version; SP 800-218A (the SSDF Community Profile for generative AI and dual-use foundation models) is final; and an initial public draft of SP 800-218r1 (SSDF v1.2) was released in December 2025 under EO 14306 — check CSRC for its final status before citing it as current. SSDF is about how the software is built; SCuBA/SSCF are about how the service is configured and what controls it exposes. A complete SaaS assurance story needs both.
+For teams that build or heavily extend SaaS, the [Secure Software Development Framework](https://csrc.nist.gov/projects/ssdf) is the vendor-side hygiene standard: SP 800-218 v1.1 remains the current final version; SP 800-218A (the SSDF Community Profile for generative AI and dual-use foundation models) is final; and an initial public draft of SP 800-218r1 (SSDF v1.2) was released in December 2025 under EO 14306. Check CSRC for its final status before citing it as current. SSDF is about how the software is built; SCuBA/SSCF are about how the service is configured and what controls it exposes. A complete SaaS assurance story needs both.
 
 ---
 
 ## SSPM: the SaaS Security Posture Management category
 
-SSPM is a tool category defined by Gartner — widely credited to its *Hype Cycle for Cloud Security, 2020* — for tools that continuously assess security risk and manage the security posture of SaaS applications: misconfiguration detection against baselines, reporting on native security settings, and remediation suggestions. (The U.S. CMS security program maintains a useful public [SSPM explainer](https://security.cms.gov/learn/saas-security-posture-management-sspm).)
+SSPM is a tool category defined by Gartner (widely credited to its *Hype Cycle for Cloud Security, 2020*) for tools that continuously assess security risk and manage the security posture of SaaS applications: misconfiguration detection against baselines, reporting on native security settings, and remediation suggestions. (The U.S. CMS security program maintains a useful public [SSPM explainer](https://security.cms.gov/learn/saas-security-posture-management-sspm).)
 
 | | CSPM | SSPM |
 |---|---|---|
@@ -221,15 +221,15 @@ SSPM is a tool category defined by Gartner — widely credited to its *Hype Cycl
 
 What a credible SSPM deployment gives you, regardless of vendor:
 
-- Continuous configuration drift detection against a named baseline (CIS benchmark, SCuBA SCB, or vendor best practice) — not a quarterly screenshot audit
+- Continuous configuration drift detection against a named baseline (CIS benchmark, SCuBA SCB, or vendor best practice), not a quarterly screenshot audit
 - Third-party app/OAuth inventory across tenants: what is connected, with which scopes, granted by whom, last used when
 - Identity posture: admin sprawl, MFA-less accounts, dormant users, non-human identities without owners
 - Cross-tenant visibility: the estate view a single product's admin console cannot give you
 
 Do
-- Start free: ScubaGear and ScubaGoggles are, functionally, no-cost SSPM for the two big suites — run them before buying anything, and keep them as the neutral scoring reference afterward.
+- Start free: ScubaGear and ScubaGoggles are, functionally, no-cost SSPM for the two big suites; run them before buying anything, and keep them as the neutral scoring reference afterward.
 - Use vendor-native posture tools where they exist: e.g., [Okta HealthInsight](https://help.okta.com/en-us/content/topics/security/healthinsight/about-healthinsight.htm) audits an Okta org's settings against Okta best practices (admin MFA policies, ThreatInsight, session policies).
-- Buy commercial SSPM for breadth (the long tail of apps) and for continuous OAuth-grant monitoring — the two things scripts and native tools cover least.
+- Buy commercial SSPM for breadth (the long tail of apps) and for continuous OAuth-grant monitoring, the two things scripts and native tools cover least.
 - Feed SSPM findings into the same remediation pipeline as vulnerabilities: owner, SLA, ticket ([CTEM mobilization](CTEM_REFERENCE.md)).
 
 Don't
@@ -253,7 +253,7 @@ Identity is the SaaS perimeter. Four controls carry most of the weight.
 Do
 - Enforce MFA on every account in every tenant: Midnight Blizzard's entry point was a non-production test tenant account without it.
 - Prioritize phishing-resistant factors for admins, then developers and finance, then everyone; treat SMS as a migration debt with a retirement date.
-- Deprovision through SCIM from HR events, then verify: reconcile IdP-assigned users against each app's actual account list monthly — apps accumulate accounts SCIM never created.
+- Deprovision through SCIM from HR events, then verify: reconcile IdP-assigned users against each app's actual account list monthly; apps accumulate accounts SCIM never created.
 - Constrain admin sessions hardest: shortest lifetimes, re-auth for sensitive actions, and token/session binding where the platform offers it (Okta shipped network-location binding for admin sessions as a direct remediation of its 2023 incident).
 - Extend the lifecycle to non-human identities: every OAuth app, service account, and API token gets an owner, a scope review date, and an expiry.
 
@@ -270,7 +270,7 @@ The lifecycle every tenant needs, independent of platform:
 
 1. Inventory: enumerate every consented app and integration, with scopes, grant date, grantor, and last-used timestamp.
 2. Risk-tier by scope: mail-read, files-wide, directory-write, and app-only ("act as the app, no user present") permissions are high tier; presence/profile-read is low. Refresh-token issuance (`offline_access`-style grants) raises any tier.
-3. Gate new consent: end users request; a reviewer approves against written criteria (publisher verification, scope minimalism, vendor security posture — hand them the CSA SSCF).
+3. Gate new consent: end users request; a reviewer approves against written criteria (publisher verification, scope minimalism, vendor security posture; hand them the CSA SSCF).
 4. Monitor: alert on new high-scope grants, consent from admin accounts, and dormant apps that suddenly wake up.
 5. Re-certify and revoke: periodic review; unused for N days -> revoke; vendor breach -> revoke first, ask questions after (the Drift response was mass token revocation within days).
 
@@ -279,7 +279,7 @@ The lifecycle every tenant needs, independent of platform:
 | Platform | Native controls |
 |---|---|
 | Microsoft Entra ID | [User consent settings](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent) restrict or disable self-service consent (e.g., allow only verified publishers requesting low-risk permissions); the [admin consent workflow](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/admin-consent-workflow-overview) lets users request and designated reviewers approve centrally |
-| Microsoft Defender for Cloud Apps | [App governance](https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-manage-app-governance) adds visibility, policy, detection, and remediation for OAuth apps registered in Entra ID, Google, and Salesforce — which user-installed apps have data access, their permissions, and who consented |
+| Microsoft Defender for Cloud Apps | [App governance](https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-manage-app-governance) adds visibility, policy, detection, and remediation for OAuth apps registered in Entra ID, Google, and Salesforce: which user-installed apps have data access, their permissions, and who consented |
 | Google Workspace | [App access control](https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data): classify third-party apps Trusted / Limited / access-to-specific-data / Blocked, mark Google services (Gmail, Drive, ...) as *restricted* so only configured apps reach them via OAuth scopes, and block access to unconfigured apps entirely |
 | Salesforce | Secure-by-default from early September 2025: end users are blocked from using uninstalled connected apps. Admins review Setup -> Connected Apps OAuth Usage, explicitly *Install* trusted apps, set Permitted Users to "Admin approved users are pre-authorized" (Salesforce's recommendation), and *Block* untrusted apps ([Salesforce guidance](https://help.salesforce.com/s/articleView?id=005132365&language=en_US&type=1)) |
 | GitHub | Organization-level approval controls over which OAuth apps and GitHub Apps may access org resources; review installed apps and their repository scopes as part of the same re-certification cycle |
@@ -294,16 +294,16 @@ What you can detect in SaaS depends on what you licensed. This is the Storm-0558
 
 | Platform | Baseline tier | Gated tier | What changed / what's gated |
 |---|---|---|---|
-| Microsoft 365 | Purview Audit (Standard) — E3/G3-level — now includes previously premium-only events: mail sent, mail items accessed, user search in Exchange Online and SharePoint Online (the post-Storm-0558 expansion Microsoft announced July 19, 2023) | Purview Audit (Premium) retains longer retention and additional capability | The events that detected Storm-0558 moved down-tier; CISA's [Microsoft Expanded Cloud Logs Implementation Playbook](https://www.cisa.gov/sites/default/files/2025-01/microsoft-expanded-cloud-logs-implementation-playbook-508c.pdf) (Jan 2025) covers operationalizing them in Microsoft Sentinel and Splunk |
-| Salesforce | Setup audit trail and basic login history | Salesforce Shield / Event Monitoring add-on (Enterprise, Performance, Unlimited, Developer editions): full event log files with ~1 year retention, plus Real-Time Event Monitoring with Transaction Security policies ([Shield](https://www.salesforce.com/platform/shield/)) | Detection-grade telemetry — the kind needed to spot a Drift-style mass export — sits behind the add-on |
+| Microsoft 365 | Purview Audit (Standard), E3/G3-level, now includes previously premium-only events: mail sent, mail items accessed, user search in Exchange Online and SharePoint Online (the post-Storm-0558 expansion Microsoft announced July 19, 2023) | Purview Audit (Premium) retains longer retention and additional capability | The events that detected Storm-0558 moved down-tier; CISA's [Microsoft Expanded Cloud Logs Implementation Playbook](https://www.cisa.gov/sites/default/files/2025-01/microsoft-expanded-cloud-logs-implementation-playbook-508c.pdf) (Jan 2025) covers operationalizing them in Microsoft Sentinel and Splunk |
+| Salesforce | Setup audit trail and basic login history | Salesforce Shield / Event Monitoring add-on (Enterprise, Performance, Unlimited, Developer editions): full event log files with ~1 year retention, plus Real-Time Event Monitoring with Transaction Security policies ([Shield](https://www.salesforce.com/platform/shield/)) | Detection-grade telemetry, the kind needed to spot a Drift-style mass export, sits behind the add-on |
 | Google Workspace | Admin console audit and investigation capability varies by edition | Higher Workspace editions carry the more advanced investigation tooling | Verify specifics against Google's current edition-comparison documentation before relying on a given log source |
 | GitHub | Organization audit log | Streaming/API export options vary by plan | Confirm your plan's audit-log retention and export path against current GitHub docs |
 
 Do
-- Write log availability into vendor selection: "security-relevant audit events at the tier we're buying, exportable by API" — the CSA SSCF gives you the vocabulary.
+- Write log availability into vendor selection: "security-relevant audit events at the tier we're buying, exportable by API"; the CSA SSCF gives you the vocabulary.
 - Export SaaS audit logs to your SIEM on day one; retention inside the SaaS product is not incident-response retention ([SIEM Reference](SIEM_REFERENCE.md)).
 - Build detections for the SaaS-specific event classes: new OAuth consent grants, app-role assignments, mass download/export, anomalous token usage, admin-setting changes, new mail-forwarding rules.
-- Know your revocation levers *before* the incident: which console/API call kills a user session, an app's tokens, a refresh token family — and who is authorized to pull it at 2 a.m.
+- Know your revocation levers *before* the incident: which console/API call kills a user session, an app's tokens, a refresh token family; and who is authorized to pull it at 2 a.m.
 
 Don't
 - Assume the default tier logs what you need: verify event-by-event against your detection requirements.
@@ -345,7 +345,7 @@ Baseline-first: run the automated assessment, then work the failures. These chec
 
 ### GitHub
 
-- Require 2FA for all organization members ([docs](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)); GitHub itself required 2FA for code contributors on GitHub.com starting March 13, 2023, reporting ~95% opt-in among the required cohort and a ~25% drop in SMS's share as a second factor between early 2023 and early 2024 ([GitHub blog](https://github.blog/security/supply-chain-security/securing-millions-of-developers-through-2fa/)) — prefer security keys/passkeys over SMS.
+- Require 2FA for all organization members ([docs](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)); GitHub itself required 2FA for code contributors on GitHub.com starting March 13, 2023, reporting ~95% opt-in among the required cohort and a ~25% drop in SMS's share as a second factor between early 2023 and early 2024 ([GitHub blog](https://github.blog/security/supply-chain-security/securing-millions-of-developers-through-2fa/)). Prefer security keys/passkeys over SMS.
 - Govern OAuth app and GitHub App access to the organization: approval required, scopes reviewed, unused installations removed on the same re-certification cycle as other SaaS integrations.
 - Enable secret scanning (with push protection) and dependency/code scanning on organization repositories; treat a leaked token in a repo as an active incident.
 - Protect default branches (reviews required, force-push restricted) and minimize organization owners.
@@ -370,9 +370,9 @@ Baseline-first: run the automated assessment, then work the failures. These chec
 | 4. Identity lifecycle | SSO enforcement targets, SCIM coverage percentage, phishing-resistant MFA rollout tiers, non-human identity register with expiries |
 | 5. Detection engineering | SaaS log sources in the SIEM with detections for consent grants, app-role changes, token anomalies, mass export, forwarding rules; coverage mapped per technique via the [Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), never assumed |
 | 6. Procurement gate | Security requirements in every SaaS purchase: SSO/SCIM support, audit-log availability at the purchased tier, token revocation capability, SSCF-style control exposure |
-| 7. Exercise it | Tabletop the Drift scenario: "our vendor's tokens are compromised — revoke, scope, notify." Measure hours-to-revocation the way you measure MTTR ([Security Metrics](SECURITY_METRICS_REFERENCE.md)) |
+| 7. Exercise it | Tabletop the Drift scenario: "our vendor's tokens are compromised; revoke, scope, notify." Measure hours-to-revocation the way you measure MTTR ([Security Metrics](SECURITY_METRICS_REFERENCE.md)) |
 
-Run it as a [CTEM](CTEM_REFERENCE.md) scope: "the SaaS estate" is a textbook scoping choice — discovery is the inventory, prioritization weighs scope-breadth × data sensitivity, validation tests whether the consent gate and revocation runbook actually work, and mobilization gives every failing baseline control an owner and an SLA.
+Run it as a [CTEM](CTEM_REFERENCE.md) scope: "the SaaS estate" is a textbook scoping choice; discovery is the inventory, prioritization weighs scope-breadth × data sensitivity, validation tests whether the consent gate and revocation runbook actually work, and mobilization gives every failing baseline control an owner and an SLA.
 
 ---
 
@@ -388,15 +388,15 @@ CISA / U.S. government
 - CMS SSPM explainer: https://security.cms.gov/learn/saas-security-posture-management-sspm
 
 Vendor advisories & documentation
-- Microsoft: Midnight Blizzard responder guidance (Jan 25, 2024) — https://www.microsoft.com/en-us/security/blog/2024/01/25/midnight-blizzard-guidance-for-responders-on-nation-state-attack/
-- Microsoft: Expanding cloud logging (July 19, 2023) — https://www.microsoft.com/en-us/security/blog/2023/07/19/expanding-cloud-logging-to-give-customers-deeper-security-visibility/
-- Microsoft: Entra user consent configuration — https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent, admin consent workflow — https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/admin-consent-workflow-overview
-- Microsoft: Defender for Cloud Apps app governance — https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-manage-app-governance
-- Google Threat Intelligence Group: Salesloft Drift / UNC6395 advisory (Aug 26, 2025) — https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift
-- Salesforce: Drift incident response — https://help.salesforce.com/s/articleView?id=005134951&language=en_US&type=1, connected app secure-by-default guidance — https://help.salesforce.com/s/articleView?id=005132365&language=en_US&type=1, Shield — https://www.salesforce.com/platform/shield/
-- Okta: support system root-cause disclosure (Nov 2023) — https://sec.okta.com/articles/2023/11/unauthorized-access-oktas-support-case-management-system-root-cause/, HealthInsight — https://help.okta.com/en-us/content/topics/security/healthinsight/about-healthinsight.htm
-- Google Workspace: security checklist (100+ users) — https://support.google.com/a/answer/7587183, app access control — https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data
-- GitHub: 2FA enforcement results — https://github.blog/security/supply-chain-security/securing-millions-of-developers-through-2fa/, requiring 2FA in your organization — https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization
+- Microsoft: Midnight Blizzard responder guidance (Jan 25, 2024), https://www.microsoft.com/en-us/security/blog/2024/01/25/midnight-blizzard-guidance-for-responders-on-nation-state-attack/
+- Microsoft: Expanding cloud logging (July 19, 2023), https://www.microsoft.com/en-us/security/blog/2023/07/19/expanding-cloud-logging-to-give-customers-deeper-security-visibility/
+- Microsoft: Entra user consent configuration, https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent; admin consent workflow, https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/admin-consent-workflow-overview
+- Microsoft: Defender for Cloud Apps app governance, https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-manage-app-governance
+- Google Threat Intelligence Group: Salesloft Drift / UNC6395 advisory (Aug 26, 2025), https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift
+- Salesforce: Drift incident response, https://help.salesforce.com/s/articleView?id=005134951&language=en_US&type=1; connected app secure-by-default guidance, https://help.salesforce.com/s/articleView?id=005132365&language=en_US&type=1; Shield, https://www.salesforce.com/platform/shield/
+- Okta: support system root-cause disclosure (Nov 2023), https://sec.okta.com/articles/2023/11/unauthorized-access-oktas-support-case-management-system-root-cause/; HealthInsight, https://help.okta.com/en-us/content/topics/security/healthinsight/about-healthinsight.htm
+- Google Workspace: security checklist (100+ users), https://support.google.com/a/answer/7587183; app access control, https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data
+- GitHub: 2FA enforcement results, https://github.blog/security/supply-chain-security/securing-millions-of-developers-through-2fa/; requiring 2FA in your organization, https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization
 
 Frameworks & standards
 - CSA SaaS Security Capability Framework: https://cloudsecurityalliance.org/artifacts/saas-security-capability-framework
@@ -407,4 +407,4 @@ Frameworks & standards
 
 ---
 
-*This reference summarizes third-party frameworks and public vendor disclosures — including CISA's SCuBA project and BOD 25-01, the CSA SSCF, the OWASP NHI Top 10, MITRE ATT&CK®, and the Gartner-defined SSPM category — as an independent practitioner summary. It is not affiliated with or endorsed by any of those organizations; release versions and dates were verified as of September 2026 and will drift — consult the linked upstream sources for authoritative and current content.*
+*This reference summarizes third-party frameworks and public vendor disclosures (including CISA's SCuBA project and BOD 25-01, the CSA SSCF, the OWASP NHI Top 10, MITRE ATT&CK®, and the Gartner-defined SSPM category) as an independent practitioner summary. It is not affiliated with or endorsed by any of those organizations; release versions and dates were verified as of September 2026 and will drift. Consult the linked upstream sources for authoritative and current content.*

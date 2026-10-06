@@ -6,7 +6,7 @@ ATLAS deliberately mirrors the ATT&CK structure and reuses its tactic names wher
 
 | ATLAS-specific tactic | What the adversary is doing |
 |---|---|
-| AI Model Access | Obtaining some level of access to the model itself — API, inference endpoint, weights, or the physical environment — which is a prerequisite for most AI attacks |
+| AI Model Access | Obtaining some level of access to the model itself (API, inference endpoint, weights, or the physical environment), which is a prerequisite for most AI attacks |
 | AI Attack Adaptation | Adapting capabilities or observations to a target or operational objective, before initial access or during an operation |
 
 | | |
@@ -465,4 +465,4 @@ Mitigation-name refresh: AML.M0002, AML.M0003, AML.M0004, AML.M0006, AML.M0009, 
 
 ---
 
-*Source: [MITRE ATLAS](https://atlas.mitre.org/) via [mitre-atlas/atlas-navigator-data](https://github.com/mitre-atlas/atlas-navigator-data) STIX export. ATLAS™ and ATT&CK® are trademarks of The MITRE Corporation. Independent reference summary — consult the upstream project for authoritative content.*
+*Source: [MITRE ATLAS](https://atlas.mitre.org/) via [mitre-atlas/atlas-navigator-data](https://github.com/mitre-atlas/atlas-navigator-data) STIX export. ATLAS™ and ATT&CK® are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream project for authoritative content.*

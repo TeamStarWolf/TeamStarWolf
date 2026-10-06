@@ -1,6 +1,6 @@
 # Home Lab Setup Guide
 
-> In one minute — This is a build guide for a personal cybersecurity practice lab: which hardware and hypervisor to buy, which virtual machines to spin up, how to segment them into safe VLANs, and how to stand up attack targets, logging, Active Directory, malware sandboxes, and free cloud environments. A practitioner cares because you cannot safely learn offense or detection on production systems, and this doc lets you break things freely and reset to a snapshot. It is useful because every section is concrete: copy-paste PowerShell/CLI commands, dollar-cost tiers, and a beginner-to-expert progression.
+> In one minute: This is a build guide for a personal cybersecurity practice lab: which hardware and hypervisor to buy, which virtual machines to spin up, how to segment them into safe VLANs, and how to stand up attack targets, logging, Active Directory, malware sandboxes, and free cloud environments. A practitioner cares because you cannot safely learn offense or detection on production systems, and this doc lets you break things freely and reset to a snapshot. It is useful because every section is concrete: copy-paste PowerShell/CLI commands, dollar-cost tiers, and a beginner-to-expert progression.
 
 | | |
 |---|---|

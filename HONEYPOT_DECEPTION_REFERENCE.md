@@ -1,6 +1,6 @@
 # HONEYPOT & DECEPTION TECHNOLOGY REFERENCE
 
-> In one minute — This document is a field guide to deception technology: honeypots (decoy systems whose only visitors are attackers), honeytokens (fake credentials and files that alert when touched), and honeynets (whole decoy networks). Because no legitimate traffic ever touches a decoy, every alert is a true positive — which makes deception the cheapest high-fidelity detection a defender can deploy. It covers the fundamentals plus hands-on install, config, and SIEM integration for OpenCanary, Canarytokens, Dionaea, T-Pot, and Cowrie, and maps it all to MITRE ENGAGE, D3FEND, and ATT&CK.
+> In one minute: This document is a field guide to deception technology: honeypots (decoy systems whose only visitors are attackers), honeytokens (fake credentials and files that alert when touched), and honeynets (whole decoy networks). Because no legitimate traffic ever touches a decoy, every alert is a true positive, which makes deception the cheapest high-fidelity detection a defender can deploy. It covers the fundamentals plus hands-on install, config, and SIEM integration for OpenCanary, Canarytokens, Dionaea, T-Pot, and Cowrie, and maps it all to MITRE ENGAGE, D3FEND, and ATT&CK.
 
 | | |
 |---|---|
@@ -43,7 +43,7 @@ Effective deception operates across multiple network and system layers:
 
 ### 1.4 Legal Considerations
 
-Entrapment Debate: In most jurisdictions, honeypots are NOT entrapment. Entrapment requires law enforcement inducing someone to commit a crime they would not otherwise commit. Honeypots passively await attack — they do not solicit or induce. However, active redirection of external traffic to honeypots without authorization may raise legal issues.
+Entrapment Debate: In most jurisdictions, honeypots are NOT entrapment. Entrapment requires law enforcement inducing someone to commit a crime they would not otherwise commit. Honeypots passively await attack: they do not solicit or induce. However, active redirection of external traffic to honeypots without authorization may raise legal issues.
 
 Evidence Admissibility: Logs from honeypots are generally admissible as business records if chain of custody is maintained, collection methods are documented, and logs are stored with integrity verification (hashing). Timestamps should be synchronized via NTP and logged.
 
@@ -118,7 +118,7 @@ The Honeynet Project (honeynet.org) has published detailed architecture guides s
 
 OpenCanary is an open-source, multi-protocol honeypot developed by Thinkst Applied Research (creators of the commercial Canary product). It runs as a daemon on Linux systems and emulates multiple network services simultaneously, alerting on any connection attempt.
 
-Design Philosophy: OpenCanary is intentionally simple — it does not try to fully emulate complex protocols but provides enough response to trigger automated scanners, credential brute-forcers, and curious attackers. Every connection to an OpenCanary service is an alert.
+Design Philosophy: OpenCanary is intentionally simple; it does not try to fully emulate complex protocols but provides enough response to trigger automated scanners, credential brute-forcers, and curious attackers. Every connection to an OpenCanary service is an alert.
 
 ### 2.2 Installation
 
@@ -316,7 +316,7 @@ TCP Socket (for Logstash/Splunk):
 
 ### 2.6 Placement Strategy
 
-Rule: Deploy one OpenCanary instance per VLAN/network segment. Any alert = immediate P1 incident. No tuning required — zero legitimate traffic should ever reach a honeypot.
+Rule: Deploy one OpenCanary instance per VLAN/network segment. Any alert = immediate P1 incident. No tuning required: zero legitimate traffic should ever reach a honeypot.
 
 Recommended Deployment Points:
 - Server VLAN: Emulate inactive IP addresses (pick unused IPs from DHCP exclusion range)
@@ -1625,14 +1625,14 @@ Incidents Escalated: N
 
 The most effective enterprise deception programs layer multiple deception technologies:
 
-Layer 1 — Network: Honeypot VMs on every VLAN (OpenCanary or T-Pot)
-Layer 2 — Service: Protocol-specific emulation for common attacker targets
-Layer 3 — Identity: AD canary accounts, AWS honey keys, cached fake credentials
-Layer 4 — Data: Honeyfiles in every sensitive share, canarytoken documents
-Layer 5 — Application: Web app honeypots for internet-facing services
-Layer 6 — Cloud: Decoy S3 buckets, fake Lambda functions, canary cloud API keys
+Layer 1, Network: Honeypot VMs on every VLAN (OpenCanary or T-Pot)
+Layer 2, Service: Protocol-specific emulation for common attacker targets
+Layer 3, Identity: AD canary accounts, AWS honey keys, cached fake credentials
+Layer 4, Data: Honeyfiles in every sensitive share, canarytoken documents
+Layer 5, Application: Web app honeypots for internet-facing services
+Layer 6, Cloud: Decoy S3 buckets, fake Lambda functions, canary cloud API keys
 
-With all six layers active, attacker detection probability exceeds 95% for any lateral movement attempt within the network. The remaining 5% represents highly targeted, slow-and-low attacks that deliberately avoid known deception indicators — a level of sophistication that itself indicates an advanced persistent threat (APT).
+With all six layers active, attacker detection probability exceeds 95% for any lateral movement attempt within the network. The remaining 5% represents highly targeted, slow-and-low attacks that deliberately avoid known deception indicators: a level of sophistication that itself indicates an advanced persistent threat (APT).
 ## Part 8: MITRE D3FEND and ATT&CK Mapping
 
 ### 8.1 MITRE D3FEND Deception Techniques

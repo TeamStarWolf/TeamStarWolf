@@ -1,6 +1,6 @@
 # Hacker Culture Hobbies
 
-Hacker culture extends far beyond professional security work. At its core, hacking is a mindset — curiosity, creativity, and a drive to understand how things work at a fundamental level. DEF CON, the world's largest hacker conference, organizes this curiosity into villages: dedicated spaces where practitioners teach hands-on skills in everything from lockpicking to car hacking to radio communications. These hobbies are not just fun — they build the foundational intuition that separates a skilled security practitioner from someone who only knows tool syntax. Understanding *why* a lock pin sets, *why* a radio signal leaks information, or *why* a CAN bus has no authentication directly informs how you think about attack surfaces and defenses.
+Hacker culture extends far beyond professional security work. At its core, hacking is a mindset: curiosity, creativity, and a drive to understand how things work at a fundamental level. DEF CON, the world's largest hacker conference, organizes this curiosity into villages: dedicated spaces where practitioners teach hands-on skills in everything from lockpicking to car hacking to radio communications. These hobbies are not just fun; they build the foundational intuition that separates a skilled security practitioner from someone who only knows tool syntax. Understanding *why* a lock pin sets, *why* a radio signal leaks information, or *why* a CAN bus has no authentication directly informs how you think about attack surfaces and defenses.
 
 ---
 
@@ -10,7 +10,7 @@ Locksport is the sport of picking locks as a hobby. It teaches physical security
 
 ### Why It Matters for Security
 
-Most buildings rely on pin tumbler locks that were designed in the 1800s. Understanding the mechanical tolerances that make picking possible — manufacturing variance creating a "binding order" of pins — teaches you to look for similar exploitable tolerances in digital systems. A lock that looks secure on paper (5 pins, hardened shackle) can be defeated in seconds if its manufacturing quality is poor.
+Most buildings rely on pin tumbler locks that were designed in the 1800s. Understanding the mechanical tolerances that make picking possible (manufacturing variance creating a "binding order" of pins) teaches you to look for similar exploitable tolerances in digital systems. A lock that looks secure on paper (5 pins, hardened shackle) can be defeated in seconds if its manufacturing quality is poor.
 
 ### Core Techniques
 
@@ -90,7 +90,7 @@ The Flipper Zero deserves special mention as a purpose-built hacker multi-tool. 
 
 ## Software Defined Radio (SDR)
 
-Software Defined Radio (SDR) replaces traditional radio hardware circuits with software running on a general-purpose computer. Where a traditional radio has fixed analog circuits for filtering and demodulation, an SDR uses a wideband analog-to-digital converter to capture raw radio frequency data, which software then processes. This means a single piece of hardware can receive (and in some cases transmit) virtually any signal in its frequency range — AM/FM broadcast, aircraft transponders, weather satellites, pager systems, garage door openers, and much more.
+Software Defined Radio (SDR) replaces traditional radio hardware circuits with software running on a general-purpose computer. Where a traditional radio has fixed analog circuits for filtering and demodulation, an SDR uses a wideband analog-to-digital converter to capture raw radio frequency data, which software then processes. This means a single piece of hardware can receive (and in some cases transmit) virtually any signal in its frequency range: AM/FM broadcast, aircraft transponders, weather satellites, pager systems, garage door openers, and much more.
 
 ### Why It Matters for Security
 
@@ -116,13 +116,13 @@ Software
 
 ### Beginner Projects
 
-ADS-B Aircraft Tracking — Commercial aircraft broadcast their position, altitude, speed, and callsign on 1090 MHz using ADS-B (Automatic Dependent Surveillance-Broadcast). With an RTL-SDR and [dump1090](https://github.com/flightaware/dump1090) or [ADS-B Exchange](https://www.adsbexchange.com/), you can build your own radar display. This project teaches signal reception, decoding, and data visualization — and illustrates that aircraft broadcast identifying information to anyone who listens.
+ADS-B Aircraft Tracking: Commercial aircraft broadcast their position, altitude, speed, and callsign on 1090 MHz using ADS-B (Automatic Dependent Surveillance-Broadcast). With an RTL-SDR and [dump1090](https://github.com/flightaware/dump1090) or [ADS-B Exchange](https://www.adsbexchange.com/), you can build your own radar display. This project teaches signal reception, decoding, and data visualization, and illustrates that aircraft broadcast identifying information to anyone who listens.
 
-NOAA Weather Satellites — NOAA 15/18/19 broadcast APT (Automatic Picture Transmission) weather images at 137 MHz. A V-dipole antenna and [WXtoImg](https://wxtoimgrestored.xyz/) lets you receive real-time satellite images. Teaches orbital mechanics, antenna theory, and FM demodulation.
+NOAA Weather Satellites: NOAA 15/18/19 broadcast APT (Automatic Picture Transmission) weather images at 137 MHz. A V-dipole antenna and [WXtoImg](https://wxtoimgrestored.xyz/) lets you receive real-time satellite images. Teaches orbital mechanics, antenna theory, and FM demodulation.
 
-Pager Decoding — POCSAG and FLEX pager protocols transmit on VHF/UHF. Many hospital, emergency service, and commercial pager systems still broadcast plaintext messages. Tools: [PDW](http://www.discriminator.nl/pdw/index-en.html) (Windows), [multimon-ng](https://github.com/EliasOenal/multimon-ng). Teaches that legacy protocols often have zero security.
+Pager Decoding: POCSAG and FLEX pager protocols transmit on VHF/UHF. Many hospital, emergency service, and commercial pager systems still broadcast plaintext messages. Tools: [PDW](http://www.discriminator.nl/pdw/index-en.html) (Windows), [multimon-ng](https://github.com/EliasOenal/multimon-ng). Teaches that legacy protocols often have zero security.
 
-433 MHz IoT Sensor Capture — Cheap weather stations, door/window sensors, temperature sensors, and tire pressure monitors transmit on 433 MHz or 315 MHz with no authentication. URH can decode these signals and identify the protocol. Replay attacks against garage doors, gate openers, and remote controls often work because manufacturers use simple fixed codes.
+433 MHz IoT Sensor Capture: Cheap weather stations, door/window sensors, temperature sensors, and tire pressure monitors transmit on 433 MHz or 315 MHz with no authentication. URH can decode these signals and identify the protocol. Replay attacks against garage doors, gate openers, and remote controls often work because manufacturers use simple fixed codes.
 
 ### Going Further: HackRF One
 
@@ -144,7 +144,7 @@ Amateur radio (ham radio) is a licensed radio communications service that allows
 
 ### Why It Matters for Security
 
-Ham radio is the original hacker radio culture. The FCC Technician license exam covers antenna theory, propagation, RF safety, and basic electronics — all directly relevant to understanding wireless attack surfaces. Many professional RF security researchers hold ham licenses not just for the legal transmit privileges, but because the licensing process forces you to learn the *physics* of radio in a structured way.
+Ham radio is the original hacker radio culture. The FCC Technician license exam covers antenna theory, propagation, RF safety, and basic electronics, all directly relevant to understanding wireless attack surfaces. Many professional RF security researchers hold ham licenses not just for the legal transmit privileges, but because the licensing process forces you to learn the *physics* of radio in a structured way.
 
 ### Getting Licensed
 
@@ -163,7 +163,7 @@ Ham radio is the original hacker radio culture. The FCC Technician license exam 
 
 ## Badge Hacking
 
-DEF CON has issued custom electronic badges since 1998, with badges growing progressively more complex over the years. Each badge contains a puzzle — sometimes spanning multiple layers of cryptography, steganography, hardware debugging, and reverse engineering — that the hacker community works collectively to solve.
+DEF CON has issued custom electronic badges since 1998, with badges growing progressively more complex over the years. Each badge contains a puzzle (sometimes spanning multiple layers of cryptography, steganography, hardware debugging, and reverse engineering) that the hacker community works collectively to solve.
 
 ### Why It Matters for Security
 
@@ -184,7 +184,7 @@ Badge hacking is a microcosm of real hardware security research. Solving a DEF C
 
 ## Car Hacking
 
-Modern vehicles are rolling networks. A typical car contains 50-150 Electronic Control Units (ECUs) communicating over multiple networks, most notably the Controller Area Network (CAN bus). CAN was designed in the 1980s for reliability, not security — there is no authentication, no encryption, and any node on the bus can send messages to any other node.
+Modern vehicles are rolling networks. A typical car contains 50-150 Electronic Control Units (ECUs) communicating over multiple networks, most notably the Controller Area Network (CAN bus). CAN was designed in the 1980s for reliability, not security: there is no authentication, no encryption, and any node on the bus can send messages to any other node.
 
 ### Why It Matters for Security
 
@@ -192,9 +192,9 @@ Car hacking illustrates a broader truth: safety-critical systems were often desi
 
 ### Core Concepts
 
-CAN Bus — A two-wire differential bus where every node receives every message. Messages have an 11-bit or 29-bit arbitration ID but no source address or authentication. An attacker with physical access to the OBD-II port (or wireless access via a compromised head unit/TCU) can inject arbitrary CAN frames.
+CAN Bus: A two-wire differential bus where every node receives every message. Messages have an 11-bit or 29-bit arbitration ID but no source address or authentication. An attacker with physical access to the OBD-II port (or wireless access via a compromised head unit/TCU) can inject arbitrary CAN frames.
 
-OBD-II — Standardized diagnostic port present in all US vehicles since 1996. Located under the dashboard. Provides direct access to the CAN bus.
+OBD-II: Standardized diagnostic port present in all US vehicles since 1996. Located under the dashboard. Provides direct access to the CAN bus.
 
 Attacks
 - Spoofing: inject CAN frames with forged arbitration IDs to control ECUs (lock/unlock doors, disable brakes in research settings)
@@ -230,7 +230,7 @@ Drone threats range from corporate espionage (optical surveillance, WiFi/cellula
 
 ### Protocol Analysis
 
-Most consumer drones use proprietary protocols in the 2.4 GHz and 5.8 GHz ISM bands. Some use standard RC protocols (SBUS, CRSF, ExpressLRS). DJI drones use OcuSync and O3 — partially reverse engineered by the community.
+Most consumer drones use proprietary protocols in the 2.4 GHz and 5.8 GHz ISM bands. Some use standard RC protocols (SBUS, CRSF, ExpressLRS). DJI drones use OcuSync and O3, partially reverse engineered by the community.
 
 Tools & Techniques
 - HackRF One / USRP: wideband capture of drone control and video link signals
@@ -330,19 +330,19 @@ Core tenets from Hackers: Heroes of the Computer Revolution:
 - Computers change the world: The potential for computers to improve life is vast and mostly untapped
 
 The Hacker Manifesto (The Mentor, 1986)
-Written by Loyd Blankenship after his arrest. Published in Phrack Issue 7. One of the defining texts of hacker identity — "This is our world now, the world of the electron and the switch..." Articulates the alienation of intellectually curious youth within rigid educational systems, and the joy of finding community and freedom in networks. Essential cultural reading.
+Written by Loyd Blankenship after his arrest. Published in Phrack Issue 7. One of the defining texts of hacker identity: "This is our world now, the world of the electron and the switch..." Articulates the alienation of intellectually curious youth within rigid educational systems, and the joy of finding community and freedom in networks. Essential cultural reading.
 
 Phone Phreaking Era (1960s-1990s)
-- 2600 Hz tone: Discovered that AT&T's long-distance signaling used a 2600 Hz tone; could be replicated with a toy whistle (Cap'n Crunch whistle — John Draper "Captain Crunch" discovered this)
+- 2600 Hz tone: Discovered that AT&T's long-distance signaling used a 2600 Hz tone; could be replicated with a toy whistle (Cap'n Crunch whistle; John Draper "Captain Crunch" discovered this)
 - Blue boxes: Electronic devices generating the exact signaling tones to seize long-distance phone circuits, enabling free calls anywhere in the world
 - Key figures: Captain Crunch (John Draper), Joybubbles (Joe Engressia: blind phone phreak), Mark Bernay
 - Steve Wozniak and Steve Jobs built and sold blue boxes in college: formative experience in their partnership
 - 2600: The Hacker Quarterly: still published, named after the 2600 Hz phreaking tone
-- Underground BBS culture: Bulletin Board Systems in the 1980s as the internet before the internet — where hackers shared knowledge, tools, and culture
+- Underground BBS culture: Bulletin Board Systems in the 1980s as the internet before the internet, where hackers shared knowledge, tools, and culture
 
 Phrack Magazine
 - Published since 1985; the oldest and most respected underground technical journal
-- Notable issues: #49 (Smashing the Stack for Fun and Profit by Aleph One — defined a generation of security research), #7 (Hacker Manifesto), #57 (The Art of Exploitation)
+- Notable issues: #49 (Smashing the Stack for Fun and Profit by Aleph One; defined a generation of security research), #7 (Hacker Manifesto), #57 (The Art of Exploitation)
 - Still published at phrack.org; a rite of passage to be published in Phrack
 - Shaped offensive security research more than any other publication
 
@@ -350,7 +350,7 @@ Phrack Magazine
 - Founded 1984 by Emmanuel Goldstein (Eric Corley)
 - Quarterly print magazine covering hacker culture, phone phreaking, civil liberties, and technology
 - Famous cover stories: Operation Sundevil aftermath, free speech/DMCA battles, hacking culture anthropology
-- 2600 meetings: First Friday of every month at shopping malls in cities worldwide — a community institution
+- 2600 meetings: First Friday of every month at shopping malls in cities worldwide, a community institution
 
 Famous Hackers and Their Stories
 

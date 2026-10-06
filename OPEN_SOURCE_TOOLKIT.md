@@ -1,6 +1,6 @@
 # Open Source Security Toolkit
 
-> A curated bookmarks reference for security professionals — free and open source tools organized by discipline.
+> A curated bookmarks reference for security professionals: free and open source tools organized by discipline.
 > Companion to [TOOLS.md](TOOLS.md) (enterprise/commercial coverage) and [CONTROLS_MAPPING.md](CONTROLS_MAPPING.md).
 > All tools listed here are free to use unless noted as [free tier] or [commercial, listed for reference].
 
@@ -74,7 +74,7 @@
 | hashcat | [hashcat.net](https://hashcat.net/) | World's fastest GPU-based password recovery and hash cracking tool |
 | John the Ripper | [github.com/openwall/john](https://github.com/openwall/john) | Versatile password cracker supporting hundreds of hash types |
 | Hydra | [github.com/vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra) | Parallelized login cracker supporting 50+ protocols |
-| CrackMapExec | [github.com/byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) | Swiss army knife for Windows/AD network pentesting; deprecated/archived (Dec 2023) — use NetExec (nxc) |
+| CrackMapExec | [github.com/byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) | Swiss army knife for Windows/AD network pentesting; deprecated/archived (Dec 2023); use NetExec (nxc) |
 | Responder | [github.com/lgandx/Responder](https://github.com/lgandx/Responder) | LLMNR, NBT-NS, and MDNS poisoner for credential capture |
 | Impacket | [github.com/fortra/impacket](https://github.com/fortra/impacket) | Python library and toolset for Windows network protocol interactions |
 | sprayhound | [github.com/Hackndo/sprayhound](https://github.com/Hackndo/sprayhound) | Password spraying tool with BloodHound integration |
@@ -387,9 +387,9 @@
 
 > Note: Always obtain proper written authorization before conducting any security testing.
 > Use these tools only on systems you own or have explicit permission to test.
-> Many tools listed here are dual-use — understanding offensive techniques is essential for building effective defenses.
+> Many tools listed here are dual-use; understanding offensive techniques is essential for building effective defenses.
 
-*Last updated: April 2026 — contributions welcome via PR.*
+*Last updated: April 2026. Contributions welcome via PR.*
 
 ---
 

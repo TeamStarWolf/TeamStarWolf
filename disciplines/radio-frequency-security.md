@@ -1,8 +1,8 @@
 # Radio Frequency (RF) Security
 
-Radio frequency security is the discipline of assessing, attacking, and defending wireless communication systems. Modern infrastructure relies heavily on RF: cellular networks, satellite communications, building access control (RFID/NFC), industrial wireless sensors, vehicle key systems, drone control links, and emergency services all transmit data through the air. Unlike wired networks, RF signals propagate through walls, across streets, and in some cases across continents — and historically, the assumption that only expensive specialized hardware could receive these signals has led to widespread deployment of insecure wireless protocols.
+Radio frequency security is the discipline of assessing, attacking, and defending wireless communication systems. Modern infrastructure relies heavily on RF: cellular networks, satellite communications, building access control (RFID/NFC), industrial wireless sensors, vehicle key systems, drone control links, and emergency services all transmit data through the air. Unlike wired networks, RF signals propagate through walls, across streets, and in some cases across continents; and historically, the assumption that only expensive specialized hardware could receive these signals has led to widespread deployment of insecure wireless protocols.
 
-The security practitioner who understands RF has access to an attack surface that most organizations have never audited. Key areas include: signal interception and analysis, protocol reverse engineering, replay and injection attacks, jamming, credential cloning (RFID/NFC), and GPS manipulation. This discipline bridges hardware, software, and physics — and tools like the RTL-SDR have made entry-level research accessible for under $30.
+The security practitioner who understands RF has access to an attack surface that most organizations have never audited. Key areas include: signal interception and analysis, protocol reverse engineering, replay and injection attacks, jamming, credential cloning (RFID/NFC), and GPS manipulation. This discipline bridges hardware, software, and physics; and tools like the RTL-SDR have made entry-level research accessible for under $30.
 
 ---
 
@@ -100,7 +100,7 @@ Frequency bands and common systems:
 
 Attack techniques:
 
-*125 kHz (LF) cloning*: EM4100 and most HID Prox cards transmit their ID in cleartext with no authentication. A reader within a few centimeters (or up to ~50 cm with a long-range reader) can read and clone these cards. This is not a flaw — it is by design. The Proxmark3 and Flipper Zero can read and write these cards in seconds.
+*125 kHz (LF) cloning*: EM4100 and most HID Prox cards transmit their ID in cleartext with no authentication. A reader within a few centimeters (or up to ~50 cm with a long-range reader) can read and clone these cards. This is not a flaw; it is by design. The Proxmark3 and Flipper Zero can read and write these cards in seconds.
 
 *MIFARE Classic*: Used in hundreds of millions of access cards and transit systems worldwide. Uses a proprietary "Crypto-1" cipher that was fully reverse engineered in 2008 (Verdult et al.). Standard attacks:
 - Darkside attack: recover one key without prior knowledge
@@ -120,7 +120,7 @@ Tools:
 
 ### GPS Spoofing
 
-GPS receivers compute position by measuring time-of-arrival differences from multiple satellites. Critically, civilian GPS signals are unencrypted and unauthenticated — any transmitter can broadcast fake GPS signals.
+GPS receivers compute position by measuring time-of-arrival differences from multiple satellites. Critically, civilian GPS signals are unencrypted and unauthenticated: any transmitter can broadcast fake GPS signals.
 
 Impact:
 - Vehicle navigation manipulation
@@ -251,7 +251,7 @@ Always operate within the scope of authorized engagements. For research, obtain 
 ### RollJam Attack (Samy Kamkar): Detailed
 
 - Target: Rolling code car locks, garage doors using KeeLoq or similar
-- Mechanism: Jam the signal while recording; victim presses button again; record second code; now possess both codes — first use is already invalidated, but second code is still valid
+- Mechanism: Jam the signal while recording; victim presses button again; record second code; now possess both codes; first use is already invalidated, but second code is still valid
 - Implementation: HackRF + custom firmware or RTL-SDR + software-defined jammer
 - Rolling code (KeeLoq): Challenge-response prevents simple replay; but still vulnerable to RollJam attack
 

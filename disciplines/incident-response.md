@@ -1,6 +1,6 @@
 # Incident Response
 
-Incident response is the structured process of detecting, containing, investigating, and recovering from security incidents. Effective IR combines technical forensics — acquiring volatile memory, disk images, network traffic, and logs — with operational coordination, legal considerations, and communication protocols. The discipline spans first-response triage through root cause analysis, and the lessons from each incident should feed directly back into the detection and prevention programs that reduce dwell time on the next intrusion.
+Incident response is the structured process of detecting, containing, investigating, and recovering from security incidents. Effective IR combines technical forensics (acquiring volatile memory, disk images, network traffic, and logs) with operational coordination, legal considerations, and communication protocols. The discipline spans first-response triage through root cause analysis, and the lessons from each incident should feed directly back into the detection and prevention programs that reduce dwell time on the next intrusion.
 
 Modern IR increasingly means cloud IR, where traditional forensic tools have no foothold and evidence is ephemeral, volatile, or gated behind cloud provider APIs. Practitioners who can only do Windows disk forensics will find themselves blocked in the environments where attackers operate most freely today. Building fluency in at least one cloud provider's logging and forensic capability is now a baseline expectation for IR practitioners entering the job market.
 
@@ -8,7 +8,7 @@ Modern IR increasingly means cloud IR, where traditional forensic tools have no 
 
 ## Where to Start
 
-Incident response demands operating system internals knowledge before the forensics makes sense. Understand Windows process structure, registry hives, the Windows Event Log architecture, and Linux filesystem hierarchy before trying to analyze artifacts from them. The DFIR Report publishes real-world incident timelines that are worth reading before any training course — nothing orients a new practitioner faster than seeing what an actual ransomware intrusion looks like from first access through encryption.
+Incident response demands operating system internals knowledge before the forensics makes sense. Understand Windows process structure, registry hives, the Windows Event Log architecture, and Linux filesystem hierarchy before trying to analyze artifacts from them. The DFIR Report publishes real-world incident timelines that are worth reading before any training course; nothing orients a new practitioner faster than seeing what an actual ransomware intrusion looks like from first access through encryption.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -95,7 +95,7 @@ NIST SP 800-53 governs IR program structure in U.S. federal environments and set
 |---|---|---|
 | [IR-1](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-1) | Incident Response Policy and Procedures | The IR policy and plan document satisfies IR-1; establishes the organizational commitment to IR capability and the procedures for executing it |
 | [IR-2](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-2) | Incident Response Training | IR team training programs, tabletop exercises, and practitioner certification satisfy IR-2; training must be role-based and include simulated exercises |
-| [IR-3](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-3) | Incident Response Testing | Tabletop exercises, red team exercises, and simulated incident drills satisfy IR-3; the requirement to actually test — not just document — the IR plan |
+| [IR-3](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-3) | Incident Response Testing | Tabletop exercises, red team exercises, and simulated incident drills satisfy IR-3; the requirement to actually test, not just document, the IR plan |
 | [IR-4](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-4) | Incident Handling | The core IR control: requires an incident handling capability covering preparation, detection, analysis, containment, eradication, and recovery; maps directly to the NIST SP 800-61 incident lifecycle |
 | [IR-5](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-5) | Incident Monitoring | SIEM, EDR, and continuous monitoring programs satisfy IR-5; requires tracking and documenting incidents throughout their lifecycle |
 | [IR-6](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=IR-6) | Incident Reporting | Requires reporting incidents to organizational authorities and US-CERT/CISA within defined timeframes; incident ticket systems and escalation procedures satisfy this control |
@@ -113,7 +113,7 @@ Incident response is most effective when analysts can map observed behaviors to 
 | Technique | ID | How Incident Response Addresses It |
 |---|---|---|
 | Initial Access (all sub-techniques) | [TA0001](https://attack.mitre.org/tactics/TA0001/) | First-response forensics determines how attackers entered: email logs for phishing, web server logs for T1190, VPN logs for valid accounts; correctly identifying initial access prevents reinfection after remediation |
-| Persistence | [TA0003](https://attack.mitre.org/tactics/TA0003/) | IR analysts hunt for persistence mechanisms — scheduled tasks, registry run keys, WMI subscriptions, cron jobs, startup items — to ensure complete eradication; missing a persistence mechanism means the attacker returns after remediation |
+| Persistence | [TA0003](https://attack.mitre.org/tactics/TA0003/) | IR analysts hunt for persistence mechanisms (scheduled tasks, registry run keys, WMI subscriptions, cron jobs, startup items) to ensure complete eradication; missing a persistence mechanism means the attacker returns after remediation |
 | Stealth | [TA0005](https://attack.mitre.org/tactics/TA0005/) | Memory forensics and process analysis detect evasion techniques like process injection (T1055), timestomping (T1070.006), and log clearing (T1070.001); understanding evasion techniques determines what evidence is trustworthy |
 | Credential Access | [TA0006](https://attack.mitre.org/tactics/TA0006/) | Credential dumping artifacts (LSASS memory dumps, SAM database access, DCSync events) are key IR evidence; scope of credential compromise determines password reset requirements across the environment |
 | Lateral Movement | [TA0008](https://attack.mitre.org/tactics/TA0008/) | Network forensics (Zeek logs, Windows Security Event 4624/4625, SMB logs) maps attacker movement between systems; critical for scoping the incident and identifying all affected hosts |
@@ -139,7 +139,7 @@ Incident response is most effective when analysts can map observed behaviors to 
 
 | Type | Resource | Notes |
 |---|---|---|
-| Standard | [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf) | Current federal IR guidance (April 2025): *Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile* — reframes IR around the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover) rather than a fixed lifecycle |
+| Standard | [NIST SP 800-61r3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf) | Current federal IR guidance (April 2025): *Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile*, which reframes IR around the CSF 2.0 Functions (Govern, Identify, Protect, Detect, Respond, Recover) rather than a fixed lifecycle |
 | Standard | [NIST SP 800-61r2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) | Superseded by r3 (2012 *Computer Security Incident Handling Guide*); still a useful reference for the four-phase lifecycle (Preparation, Detection & Analysis, Containment/Eradication/Recovery, Post-Incident Activity); free and authoritative |
 | Framework | [MITRE ATT&CK](https://attack.mitre.org) | Adversary behavior taxonomy; mapping observed TTPs to ATT&CK during an investigation produces structured threat intelligence and reveals attacker intent |
 | Playbooks | [CISA IR Playbooks](https://www.cisa.gov/resources-tools/resources/federal-government-cybersecurity-incident-and-vulnerability-response-playbooks) | Federal IR playbooks for ransomware, data exfiltration, and vulnerability exploitation; adaptable templates for non-government organizations |
@@ -159,8 +159,8 @@ Incident response is most effective when analysts can map observed behaviors to 
 - GCFE (GIAC Certified Forensic Examiner): Windows and browser forensics; digital evidence acquisition and analysis methodology; strong entry-level DFIR credential for practitioners starting in host forensics
 - GCFA (GIAC Certified Forensic Analyst): Advanced incident investigation, memory forensics, and threat hunting; one of the most respected DFIR credentials available; pairs with SANS FOR508
 - GCIH (GIAC Certified Incident Handler): Incident handling methodology, detection, and response; the broadest IR certification covering the full incident lifecycle
-- eCIR (eLearnSecurity Certified Incident Responder: INE Security, formerly eLearnSecurity) — Practical hands-on IR certification assessed via simulated incident investigation; strong entry-level credential from INE Security
-- BTL1 (Blue Team Labs Level 1: Security Blue Team) — Practical SOC and IR certification covering six domain areas; lab-based assessment; strong validation for analysts entering IR roles
+- eCIR (eLearnSecurity Certified Incident Responder: INE Security, formerly eLearnSecurity). Practical hands-on IR certification assessed via simulated incident investigation; strong entry-level credential from INE Security
+- BTL1 (Blue Team Labs Level 1: Security Blue Team). Practical SOC and IR certification covering six domain areas; lab-based assessment; strong validation for analysts entering IR roles
 
 ---
 
@@ -307,7 +307,7 @@ cat /proc/modules
 
 ## Related Disciplines
 
-Incident response sits at the intersection of nearly every security discipline. During an active incident, IR teams call on capabilities across the entire security program — and every other team should feed context into the investigation.
+Incident response sits at the intersection of nearly every security discipline. During an active incident, IR teams call on capabilities across the entire security program, and every other team should feed context into the investigation.
 
 - [threat-intelligence.md](/disciplines/threat-intelligence.md): Threat intelligence transforms raw IOCs into structured adversary context during an investigation; knowing that a C2 IP belongs to a specific threat actor group immediately expands the scope of investigation to include that actor's known TTPs; post-incident, the findings feed back as new threat intelligence
 - [security-operations.md](/disciplines/security-operations.md): SOC analysts are the first line of detection that triggers IR; the quality of detection content (SIEM rules, EDR detections, alert tuning) directly determines dwell time before an incident is declared; the SOC and IR team operate as a continuous loop where IR findings drive new detection logic

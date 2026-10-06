@@ -34,7 +34,7 @@
 | [Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md) | AWS, Azure, and GCP attack techniques, IAM escalation paths, and defensive controls |
 | [Cloud Security Benchmark](CLOUD_SECURITY_BENCHMARK.md) | CIS Benchmarks for AWS, Azure, and GCP with automated remediation and detection queries |
 | [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md) | AWS/Azure/GCP security services, IAM attacks, SSRF to IMDS, Pacu/ROADtools/AzureHound, CSPM, K8s security, cloud IR |
-| [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives — with guidance on finding associated research repos |
+| [Conference Talks & Papers](research/CONFERENCE_TALKS.md) | Black Hat, DEF CON, BSides, CCC, USENIX, and landmark talk archives, with guidance on finding associated research repos |
 | [Container Security Reference](CONTAINER_SECURITY_REFERENCE.md) | Docker/container security, image hardening, runtime protection (Falco/seccomp/AppArmor), container escape defense, registry security, secrets management, SBOM, MITRE ATT&CK containers |
 | [CTF Methodology](CTF_METHODOLOGY.md) | Systematic approach to web, forensics, crypto, reverse engineering, binary exploitation, and OSINT challenges |
 | [CAPEC Attack Pattern Reference](CAPEC_REFERENCE.md) | 615 common attack patterns, 177 bridging to ATT&CK techniques, linked to their CWE weaknesses |
@@ -60,17 +60,17 @@
 | [EMB3D Reference (Embedded Devices)](EMB3D_REFERENCE.md) | MITRE EMB3D threat model: device properties -> threats -> tiered Foundational/Intermediate/Leading mitigations, IEC 62443-4-2 alignment, device threat-exposure reviews |
 | [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md) | MDE/CrowdStrike/SentinelOne config, all 19 ASR rules, Sysmon event IDs, Windows audit policy, KQL hunting queries |
 | [Engage Reference (deception)](ENGAGE_REFERENCE.md) | MITRE Engage: denial, deception and adversary engagement: 5 goals, 9 approaches, 31 activities, with 175 mappings to ATT&CK techniques |
-| [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments — with security context and ATT&CK relevance |
+| [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md) | Every OS, server role, and network component encountered in enterprise environments, with security context and ATT&CK relevance |
 | [Enterprise Security Controls](ENTERPRISE_SECURITY_CONTROLS.md) | Vendor-specific config, policy tuning, and detection guidance for major enterprise security platforms |
 | [Enterprise Security Pipeline](SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages |
 | [Exploit Development Reference](EXPLOIT_DEVELOPMENT_REFERENCE.md) | Buffer overflows, ROP chains, heap exploitation, format strings, shellcode, pwntools, Windows exploit dev, CTF resources |
 | [Firmware & IoT Security Reference](FIRMWARE_IOT_SECURITY_REFERENCE.md) | IoT/Firmware attack surface, extraction, analysis, UEFI/BIOS, protocols, hardware interfaces, standards |
-| [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md) | 123 cyber-enabled financial fraud techniques across 8 tactics — reconnaissance through monetization — from MITRE's Center for Threat-Informed Defense |
+| [Fight Fraud Framework (MITRE F3)](FRAUD_FRAMEWORK_REFERENCE.md) | 123 cyber-enabled financial fraud techniques across 8 tactics (reconnaissance through monetization) from MITRE's Center for Threat-Informed Defense |
 | [Frameworks Reference](FRAMEWORKS.md) | Side-by-side comparison of NIST CSF, 800-53, ISO 27001, SOC 2, PCI DSS, CMMC, GDPR, and 10+ other frameworks |
 | [Fuzzing & Vulnerability Research](FUZZING_VULNERABILITY_RESEARCH.md) | AFL++, libFuzzer, OSS-Fuzz, binary analysis, Ghidra/angr, symbolic execution, CVE process, bug bounty methodology |
 | [GRC Compliance Reference](GRC_COMPLIANCE_REFERENCE.md) | NIST CSF 2.0, OSCAL, ComplianceAsCode/OpenSCAP, CIS Controls v8, PCI DSS v4.0, HIPAA/HITECH, SOC 2 Type II, ISO 27001:2022 |
 | [GRC Reference](GRC_REFERENCE.md) | Security governance, risk management (FAIR), SOC 2, ISO 27001, PCI DSS, TPRM, compliance program management |
-| [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md) | Global cyber-regulation & breach-notification map — NIS2, DORA, EU CRA, AI Act, SEC Item 1.05, CIRCIA, NYDFS 500, HIPAA, GDPR — as a jurisdiction × obligation × deadline matrix |
+| [Regulatory Landscape Reference](REGULATORY_LANDSCAPE_REFERENCE.md) | Global cyber-regulation & breach-notification map (NIS2, DORA, EU CRA, AI Act, SEC Item 1.05, CIRCIA, NYDFS 500, HIPAA, GDPR) as a jurisdiction × obligation × deadline matrix |
 | [Hypervisor & Virtualization Hardening](HYPERVISOR_SECURITY_REFERENCE.md) | ESXi/vCenter/Hyper-V/Proxmox hardening; the ESXi ransomware kill chain; exploited hypervisor CVEs; management-plane isolation & immutable backups |
 | [Database Security](DATABASE_SECURITY_REFERENCE.md) | DBMS hardening (SQL Server/PostgreSQL/MySQL/Oracle/MongoDB/Redis/Elasticsearch), Database Activity Monitoring, privileged DB access, encryption, audit |
 | [Cloud, SaaS & Mobile Forensics](CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md) | CloudTrail/GuardDuty/EBS-snapshot acquisition, M365 UAL & Graph, Google Workspace logs, SaaS logs, iLEAPP/ALEAPP-class mobile workflows |
@@ -106,7 +106,7 @@
 | [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | SIP, Gatekeeper/notarization, XProtect, TCC, FileVault, Endpoint Security framework telemetry, unified log, NIST mSCP/CIS baselines, MDM, ATT&CK macOS coverage |
 | [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md) | Static/dynamic analysis, PE structure, process injection, YARA rules, ransomware, memory forensics, Volatility 3 |
 | [Malware Families](MALWARE_FAMILIES.md) | Ransomware, banking trojans, RATs, APT malware, rootkits, and loaders with TTPs and analysis resources |
-| [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK object — 714 technique + 44 mitigation + 15 tactic + 156 D3FEND + 615 CAPEC + 205 ATLAS pages, plus a cross-framework crosswalk — with mitigation/D3FEND/CAPEC/NIST 800-53 relationships and Team Star Wolf corpus prevalence; mitigation pages add concrete how-to-implement guidance |
+| [MITRE Enriched Pages (per-object)](mitre/README.md) | One page per ATT&CK object (714 technique + 44 mitigation + 15 tactic + 156 D3FEND + 615 CAPEC + 205 ATLAS pages, plus a cross-framework crosswalk), with mitigation/D3FEND/CAPEC/NIST 800-53 relationships and Team Star Wolf corpus prevalence; mitigation pages add concrete how-to-implement guidance |
 | [Mobile ATT&CK Atlas](MOBILE_ATTACK_ATLAS.md) | The full MITRE ATT&CK for Mobile matrix (124 techniques) cross-referenced to groups, software, and mitigations |
 | [Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md) | iOS/Android security architecture, mobile app pentesting, OWASP Mobile Top 10, MDM/EMM, mobile malware analysis |
 | [Network Attacks Reference](NETWORK_ATTACKS_REFERENCE.md) | ARP poisoning, VLAN hopping, LLMNR poisoning, MITM, network pivoting, tunneling, evasion techniques, and Scapy/Nmap reference |

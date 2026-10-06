@@ -1,6 +1,6 @@
 # GRC Compliance Reference
 
-> Comprehensive reference for Governance, Risk & Compliance (GRC) — covering foundational concepts, major frameworks, automation tooling, and practical implementation guidance.
+> Comprehensive reference for Governance, Risk & Compliance (GRC), covering foundational concepts, major frameworks, automation tooling, and practical implementation guidance.
 
 | | |
 |---|---|
@@ -31,7 +31,7 @@
 
 | Pillar | Definition | Primary Owner | Key Outputs |
 |--------|-----------|---------------|-------------|
-| Governance | The system of rules, practices, and processes by which an organization is directed and controlled — including policies, accountability structures, and strategic alignment | Board / C-Suite | Policies, charters, organizational structures, oversight committees |
+| Governance | The system of rules, practices, and processes by which an organization is directed and controlled, including policies, accountability structures, and strategic alignment | Board / C-Suite | Policies, charters, organizational structures, oversight committees |
 | Risk | The potential for loss, harm, or missed opportunity resulting from an event or circumstance; risk management is the process of identifying, assessing, treating, and monitoring risks | CISO / CRO | Risk register, risk appetite statement, risk treatment plans |
 | Compliance | Adherence to applicable laws, regulations, standards, and contractual obligations | Compliance Officer / Legal | Compliance calendar, audit evidence, gap assessments, remediation plans |
 
@@ -83,7 +83,7 @@ GRC Program
 
 | Concept | Definition | Example |
 |---------|-----------|---------|
-| Risk Appetite | The broad-level amount of risk the organization is willing to accept in pursuit of its objectives — a strategic statement | "We have a low appetite for risks that could result in exposure of customer PII" |
+| Risk Appetite | The broad-level amount of risk the organization is willing to accept in pursuit of its objectives, a strategic statement | "We have a low appetite for risks that could result in exposure of customer PII" |
 | Risk Tolerance | The acceptable variation around risk appetite: operational bounds for specific risk categories | "We tolerate no more than 4 hours of unplanned downtime per quarter for Tier 1 systems" |
 | Risk Threshold | The point at which a risk must be escalated or treated immediately | "Any risk with a residual score above 15 must be reported to the CISO within 24 hours" |
 | Risk Capacity | The maximum amount of risk the organization can absorb before it threatens viability | Determined by capital reserves, insurance, legal exposure limits |
@@ -276,7 +276,7 @@ Key Subcategory Examples:
 
 ### 2.3 CSF Tiers
 
-CSF Tiers describe the degree to which an organization's cybersecurity risk management practices exhibit the characteristics of the framework. Tiers are NOT maturity levels — they describe practices, not scores.
+CSF Tiers describe the degree to which an organization's cybersecurity risk management practices exhibit the characteristics of the framework. Tiers are NOT maturity levels; they describe practices, not scores.
 
 | Tier | Name | Characteristics |
 |------|------|----------------|
@@ -291,7 +291,7 @@ Tier Selection Guidance: Most organizations should target Tier 2 or 3. Tier 4 is
 
 Current Profile: Documents the current state of cybersecurity outcomes the organization is achieving.
 
-Target Profile: Documents the desired state of outcomes — what the organization wants to achieve, based on risk appetite and business objectives.
+Target Profile: Documents the desired state of outcomes, what the organization wants to achieve, based on risk appetite and business objectives.
 
 Gap Analysis: The difference between Current and Target Profiles drives the remediation roadmap.
 
@@ -319,7 +319,7 @@ Supply Chain Risk Management (SCRM): GV.SC contains 10 subcategories covering:
 - Incident notification from suppliers
 - Due diligence for critical software
 
-Implementation Examples: CSF 2.0 ships with concrete implementation examples for each subcategory — more practical than CSF 1.1.
+Implementation Examples: CSF 2.0 ships with concrete implementation examples for each subcategory (more practical than CSF 1.1).
 
 Community Profiles: NIST is publishing sector-specific profiles (healthcare, financial services, etc.) as reference baselines.
 
@@ -328,7 +328,7 @@ Community Profiles: NIST is publishing sector-specific profiles (healthcare, fin
 | CSF Function | CSF Category | CIS Controls v8 | ISO 27001:2022 Annex A |
 |--------------|--------------|-----------------|------------------------|
 | Govern | GV.OC | CIS 1, 2 (inventory context) | A.5.1, A.5.2 (policies) |
-| Govern | GV.RM | — | A.5.2, A.5.3 (org roles & segregation of duties) |
+| Govern | GV.RM | None | A.5.2, A.5.3 (org roles & segregation of duties) |
 | Identify | ID.AM | CIS 1 (inventory/control of assets), CIS 2 | A.5.9 (asset inventory) |
 | Identify | ID.RA | CIS 12 (network monitoring), CIS 7 (vuln mgmt) | A.8.8 (vuln mgmt); risk assessment is ISMS main-body clause 6.1.2, not an Annex A control |
 | Protect | PR.AA | CIS 5 (account mgmt), CIS 6 (access control) | A.8.2 (privileged access), A.8.3 (info access) |
@@ -346,7 +346,7 @@ Community Profiles: NIST is publishing sector-specific profiles (healthcare, fin
 
 OSCAL (Open Security Controls Assessment Language) is a NIST-developed standard for expressing security control catalogs, profiles, system security plans, assessment plans, assessment results, and plans of action and milestones in a machine-readable format (XML, JSON, or YAML).
 
-Problem OSCAL Solves: Security documentation is traditionally in Word/Excel/PDF — unstructured, hard to validate, not reusable. OSCAL makes compliance documentation machine-readable, enabling automation, consistency, and cross-framework mapping.
+Problem OSCAL Solves: Security documentation is traditionally in Word/Excel/PDF (unstructured, hard to validate, not reusable). OSCAL makes compliance documentation machine-readable, enabling automation, consistency, and cross-framework mapping.
 
 Governance: NIST maintains OSCAL at `https://pages.nist.gov/OSCAL/`
 Repository: `https://github.com/usnistgov/OSCAL`
@@ -574,7 +574,7 @@ print(f"SSP generated at {WORKSPACE}/system-security-plans/{SSP_NAME}/")
 
 ### 4.1 What is ComplianceAsCode?
 
-ComplianceAsCode (formerly SCAP Security Guide / SSG) is an open-source project that produces machine-readable security content — SCAP DataStreams, Ansible playbooks, Bash scripts, and Kubernetes remediations — from a single source of truth.
+ComplianceAsCode (formerly SCAP Security Guide / SSG) is an open-source project that produces machine-readable security content (SCAP DataStreams, Ansible playbooks, Bash scripts, and Kubernetes remediations) from a single source of truth.
 
 Repository: `https://github.com/ComplianceAsCode/content`
 Supported Platforms: RHEL 7/8/9, CentOS, Fedora, Ubuntu 18/20/22/24, Debian, Windows Server, OCP/Kubernetes, macOS
@@ -899,7 +899,7 @@ CIS RAM Process:
 7. Prioritize treatment: focus on IG1 gaps first
 8. Document: risk register with safeguard ownership
 
-CIS RAM Versions: CIS RAM v2.1 — available at `https://www.cisecurity.org/insights/white-papers/cis-ram`
+CIS RAM Versions: CIS RAM v2.1, available at `https://www.cisecurity.org/insights/white-papers/cis-ram`
 
 ---
 
@@ -959,7 +959,7 @@ Applies to: Any entity that stores, processes, or transmits cardholder data (CHD
 
 Cardholder Data Environment (CDE): Systems that store, process, or transmit CHD or SAD.
 
-Connected-to or Security-Impacting: Systems that connect to the CDE or could impact CDE security — these are in scope even if they do not touch CHD directly (examples: authentication servers, log management, patch management, Active Directory for CDE systems).
+Connected-to or Security-Impacting: Systems that connect to the CDE or could impact CDE security; these are in scope even if they do not touch CHD directly (examples: authentication servers, log management, patch management, Active Directory for CDE systems).
 
 Out-of-Scope: Systems fully segmented from the CDE with no connectivity path and no ability to impact CDE security.
 
@@ -1073,7 +1073,7 @@ Regulated Entities (Covered Entities):
 
 Business Associates (BAs): Vendors/contractors who handle PHI on behalf of covered entities. Business Associates must sign a Business Associate Agreement (BAA) and are directly liable for HIPAA Security Rule compliance under HITECH.
 
-ePHI: Electronic Protected Health Information — any PHI created, received, maintained, or transmitted in electronic form.
+ePHI: Electronic Protected Health Information, any PHI created, received, maintained, or transmitted in electronic form.
 
 ### 7.2 HIPAA Security Rule: Three Safeguard Categories
 
@@ -1132,11 +1132,11 @@ Required elements of a compliant risk analysis:
 7. Risk rating: Assign risk levels to identified risk combinations
 8. Documentation: Documented risk analysis that can be produced for OCR auditors
 
-NIST SP 800-66 Rev. 2: Implementation guidance for HIPAA Security Rule — highly recommended reference.
+NIST SP 800-66 Rev. 2: Implementation guidance for HIPAA Security Rule; highly recommended reference.
 
 ### 7.5 Business Associate Agreements (BAA)
 
-A BAA is a contract between a covered entity and a business associate (or between two BAs — a subcontractor BAA).
+A BAA is a contract between a covered entity and a business associate (or between two BAs, a subcontractor BAA).
 
 Required BAA provisions:
 - Permitted and required uses/disclosures of PHI
@@ -1212,11 +1212,11 @@ SOC 2 Type I vs. Type II:
 - Type I: Point-in-time assessment: controls are suitably designed (but not tested over time). Faster to obtain; less rigorous.
 - Type II: Assessment over a period (typically 6-12 months): controls are suitably designed AND operating effectively. More valuable to customers.
 
-Who needs SOC 2: SaaS companies, cloud providers, data centers, managed service providers — any service organization whose systems store, process, or transmit customer data.
+Who needs SOC 2: SaaS companies, cloud providers, data centers, managed service providers; any service organization whose systems store, process, or transmit customer data.
 
 ### 8.2 Trust Service Criteria (TSC)
 
-Security (CC): Required for all SOC 2 reports — the "Common Criteria" (CC) covering logical access, system operations, change management, and risk management.
+Security (CC): Required for all SOC 2 reports; the "Common Criteria" (CC) covering logical access, system operations, change management, and risk management.
 
 Availability (A): System availability for operation and use as committed. Add if customers have uptime SLAs.
 
@@ -1309,7 +1309,7 @@ evidence/
 | Sprinto | Fast SOC 2 (6-8 weeks claim); 100+ integrations; onboarding assistance | ~$8K-$20K/year |
 | AuditBoard | Enterprise GRC; SOX + SOC 2; cross-functional audit management | Enterprise pricing |
 
-Self-managed SOC 2: Organizations can achieve SOC 2 without a compliance platform using spreadsheets + evidence repo + audit firm — typically takes longer and requires more internal effort.
+Self-managed SOC 2: Organizations can achieve SOC 2 without a compliance platform using spreadsheets + evidence repo + audit firm. Typically takes longer and requires more internal effort.
 
 ### 8.6 SOC 2 to CSF and ISO 27001 Mapping
 
@@ -1343,7 +1343,7 @@ ISO/IEC 27001:2022 is the international standard for information security manage
 
 An ISMS is the framework of policies, processes, procedures, and controls to manage information security risks. ISO 27001 follows the Plan-Do-Check-Act (PDCA) cycle and uses Annex SL (common management system structure shared with ISO 9001, ISO 22301, etc.).
 
-ISMS Clauses (4 through 10 — mandatory):
+ISMS Clauses (4 through 10, mandatory):
 
 | Clause | Title | Key Requirements |
 |--------|-------|-----------------|
@@ -1498,7 +1498,7 @@ SoA Template Structure:
 |------------|--------------|-------------|---------------|-----------------------|--------------------|
 | A.5.1 | Policies for information security | Yes | All organizations need security policies | Implemented | IS-POL-001 |
 | A.5.23 | Cloud services security | Yes | Organization uses AWS and Azure | In progress | Cloud-SEC-PROC-003 |
-| A.7.1 | Physical security perimeters | No | Fully remote organization; no physical office | Excluded | — |
+| A.7.1 | Physical security perimeters | No | Fully remote organization; no physical office | Excluded | None |
 
 Important: Excluding a control requires documented justification. Auditors will challenge exclusions that do not have sound rationale.
 

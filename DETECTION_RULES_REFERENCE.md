@@ -1,6 +1,6 @@
 # Detection Rule Writing Reference
 
-> In one minute — This is a hands-on guide to writing detection rules in the five languages defenders actually use: Sigma (write once, convert to any SIEM), YARA (file and memory patterns for malware), Suricata/Snort (network traffic), Splunk SPL, and Microsoft Sentinel KQL. Every format gets a structure breakdown, copy-ready example rules mapped to MITRE ATT&CK techniques, and the tooling to convert, run, and tune them. It closes with detection engineering practice: testing rules with Atomic Red Team, managing false positives, and tracking coverage.
+> In one minute: This is a hands-on guide to writing detection rules in the five languages defenders actually use: Sigma (write once, convert to any SIEM), YARA (file and memory patterns for malware), Suricata/Snort (network traffic), Splunk SPL, and Microsoft Sentinel KQL. Every format gets a structure breakdown, copy-ready example rules mapped to MITRE ATT&CK techniques, and the tooling to convert, run, and tune them. It closes with detection engineering practice: testing rules with Atomic Red Team, managing false positives, and tracking coverage.
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@
 | Start at | [Overview of Detection Rule Formats](#_1-overview-of-detection-rule-formats) to pick the right format, [Sigma Rules](#_2-sigma-rules) for the vendor-agnostic starting point, [Best Practices for Detection Engineering](#_7-best-practices-for-detection-engineering) for the lifecycle and testing workflow |
 | Pairs with | [SIEM_DETECTION_CONTENT.md](SIEM_DETECTION_CONTENT.md), [SIEM_REFERENCE.md](SIEM_REFERENCE.md), [THREAT_HUNTING_PLAYBOOKS.md](THREAT_HUNTING_PLAYBOOKS.md), [PURPLE_TEAM_REFERENCE.md](PURPLE_TEAM_REFERENCE.md) |
 
-A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/Snort, Splunk SPL, and Microsoft Sentinel KQL — covering rule structure, example detections, conversion workflows, and detection engineering best practices.
+A comprehensive reference for writing detection rules in Sigma, YARA, Suricata/Snort, Splunk SPL, and Microsoft Sentinel KQL, covering rule structure, example detections, conversion workflows, and detection engineering best practices.
 
 ---
 
@@ -300,7 +300,7 @@ sigma convert -t splunk -p sysmon rule.yml
 
 #### Using sigmac (legacy: deprecated, EOL)
 
-> Tooling/spec note (verified 2026-09-29): `sigmac` (the original `sigmatools` package) is end-of-life and no longer maintained — it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by pySigma (library) and sigma-cli (the `sigma` command shown above). The current rule format is the [Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification) (released August 8, 2024), which formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
+> Tooling/spec note (verified 2026-09-29): `sigmac` (the original `sigmatools` package) is end-of-life and no longer maintained; it now lives in the archived [`SigmaHQ/legacy-sigmatools`](https://github.com/SigmaHQ/legacy-sigmatools) repo. It was replaced by pySigma (library) and sigma-cli (the `sigma` command shown above). The current rule format is the [Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification) (released August 8, 2024), which formalized correlation rules and other features. New rules and pipelines should target pySigma / sigma-cli.
 
 ```bash
 # Install
@@ -820,7 +820,7 @@ Splunk Search Processing Language (SPL) is the native query language for Splunk 
 
 > Log source note: Windows Security event 4688 populates the command line
 > (`Process_Command_Line`) only when *Audit Process Creation* and the "Include command line
-> in process creation events" GPO are both enabled. 4688 has no parent command line — only
+> in process creation events" GPO are both enabled. 4688 has no parent command line, only
 > the parent image path in `Creator_Process_Name` (surfaced by some SIEMs as `ParentProcessName`).
 > For parent command-line context, source from Sysmon event 1 instead.
 
@@ -846,8 +846,8 @@ index=windows EventCode=4625
 ### Lateral Movement via PsExec (T1021.002)
 
 > Log source note: Event 7045 ("a service was installed in the system") is written to the
-> System log and 4697 to the Security log; in both, the service binary path is the **Service
-> File Name** field (`Service_File_Name`), rendered from the raw XML element `ImagePath`. Match
+> System log and 4697 to the Security log; in both, the service binary path is the Service
+> File Name field (`Service_File_Name`), rendered from the raw XML element `ImagePath`. Match
 > on `Service_File_Name`, not a bare `ImagePath`, unless you ingest the raw event XML.
 
 ```spl
@@ -870,7 +870,7 @@ index=proxy bytes_out > 10000000
 
 ### New / Escalated Local Administrator Account (T1098 / T1136.001)
 
-> Event semantics: 4732 = a member was added to a security-enabled local group — use
+> Event semantics: 4732 = a member was added to a security-enabled local group; use
 > this for the local `Administrators` group (4728 is for global groups and never applies to
 > local admin). 4720 = a user account was created. Adding an existing account to
 > Administrators (4732) is a *membership change*, not account creation, so pair 4732 with 4720
@@ -888,7 +888,7 @@ index=windows ((EventCode=4732 Group_Name="Administrators") OR EventCode=4720)
 
 > Hunt, not a production alert. NTLM network logons are ubiquitous, so a bare
 > `Logon_Type=3` + `NTLM` rule fires on normal traffic. The discriminators below
-> (`Logon_Process="NtLmSsp"`, `Key_Length=0`) narrow the field but do not confirm PtH — OWA,
+> (`Logon_Process="NtLmSsp"`, `Key_Length=0`) narrow the field but do not confirm PtH: OWA,
 > some proxies, and legacy apps also produce `Key_Length=0` NTLM logons. Use it as a starting
 > point: pivot on the source host, exclude machine accounts, and correlate
 > workstation-to-workstation with the matching event 4776 (credential validation) on the
@@ -1021,7 +1021,7 @@ CloudAppEvents
 ### Azure Resource Creation in New Resource Group (T1578)
 
 > Field note: the `AzureActivity` table has no reliable region/location column, so this
-> query baselines by resource group (`ResourceGroup`), not by Azure region — the previous
+> query baselines by resource group (`ResourceGroup`), not by Azure region: the previous
 > "Regions" labels were grouping on `ResourceGroup`. For true region analysis, parse the region
 > out of `_ResourceId`/`Properties` or query Azure Resource Graph.
 

@@ -3,7 +3,7 @@
 > Classification: Internal Security Reference | Maintained by: Security Operations
 > Last Updated: 2026-05-04 | Version: 1.0
 
-> In one minute — This is the working reference for handling security incidents end to end: frameworks (NIST 800-61, SANS PICERL), triage checklists, and hands-on response procedures for ransomware, business email compromise, endpoint/network forensics, and cloud (AWS/Azure/GCP) incidents. It is useful because it pairs the process side (severity levels, team roles, notification templates, regulatory deadlines) with copy-paste commands for the tools you actually use mid-incident (EDR containment, audit-log queries, firewall blocks). Reach for it when the clock is running and you need the next concrete step, not theory.
+> In one minute: This is the working reference for handling security incidents end to end: frameworks (NIST 800-61, SANS PICERL), triage checklists, and hands-on response procedures for ransomware, business email compromise, endpoint/network forensics, and cloud (AWS/Azure/GCP) incidents. It is useful because it pairs the process side (severity levels, team roles, notification templates, regulatory deadlines) with copy-paste commands for the tools you actually use mid-incident (EDR containment, audit-log queries, firewall blocks). Reach for it when the clock is running and you need the next concrete step, not theory.
 
 | | |
 |---|---|
@@ -32,16 +32,16 @@
 
 ### 1.1 NIST SP 800-61 Incident Response Lifecycle
 
-The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. The popular six-step PICERL sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the SANS model — not NIST's — and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
+The NIST Computer Security Incident Handling Guide (SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity. The popular six-step PICERL sequence (Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned) is the SANS model, not NIST's, and is covered separately in §1.2. Each phase has distinct objectives and deliverables.
 
 > Revision note: NIST SP 800-61 Revision 3 (April 2025) supersedes Revision 2. Rev 3
-> retires the fixed four-phase lifecycle and instead reframes incident response around the **NIST
-> Cybersecurity Framework (CSF) 2.0** Functions (Govern, Identify, Protect, Detect, Respond,
+> retires the fixed four-phase lifecycle and instead reframes incident response around the NIST
+> Cybersecurity Framework (CSF) 2.0 Functions (Govern, Identify, Protect, Detect, Respond,
 > Recover), treating IR as a continuous risk-management activity rather than a linear sequence.
 > The four-phase model below remains a useful mental model and is retained for that reason, but
 > Rev 3 is the current authoritative guidance.
 
-Phase 1 — Preparation
+Phase 1: Preparation
 Preparation is the most investment-heavy phase and the primary determinant of IR effectiveness. Key activities include:
 - Developing and approving the IR policy, plan, and procedures
 - Establishing the CSIRT with defined roles, authorities, and escalation paths
@@ -53,15 +53,15 @@ Preparation is the most investment-heavy phase and the primary determinant of IR
 - Maintaining current asset inventory, network diagrams, data flow maps, and crown-jewel registers
 - Documenting system baselines and approved software lists
 
-Phase 2 — Detection & Analysis
+Phase 2: Detection & Analysis
 - Monitoring alerts from SIEM, EDR, IDS/IPS, MSSP, threat feeds, and user reports
 - Performing initial triage to distinguish true positives from false positives
 - Classifying incident type and assigning severity level
 - Notifying stakeholders per the escalation matrix
 - Opening an IR ticket and initiating evidence preservation
 
-Phase 3 — Containment, Eradication & Recovery
-NIST groups these three activities into a single phase because they interleave in practice — you often eradicate and recover system-by-system while still containing others.
+Phase 3: Containment, Eradication & Recovery
+NIST groups these three activities into a single phase because they interleave in practice: you often eradicate and recover system-by-system while still containing others.
 
 *Containment*
 - Short-term containment: isolate affected systems to stop immediate damage spread
@@ -80,7 +80,7 @@ NIST groups these three activities into a single phase because they interleave i
 - Increase monitoring during the recovery period (elevated alert thresholds)
 - Confirm business operations have returned to normal
 
-Phase 4 — Post-Incident Activity
+Phase 4: Post-Incident Activity
 - Conduct lessons-learned meeting within 2 weeks of resolution
 - Produce post-incident report
 - Update IR plan, playbooks, and detection rules based on findings
@@ -576,7 +576,7 @@ What to Include in LE Reports:
 
 ### 3.7 Recovery Sequencing
 
-Recover in dependency order — never reconnect compromised systems to clean networks:
+Recover in dependency order; never reconnect compromised systems to clean networks:
 
 ```
 Phase 1: Validate backup integrity (hash comparison, test restore in isolated environment)
@@ -767,7 +767,7 @@ Immediate (within hours of discovery):
 4. Obtain wire transfer confirmation number, beneficiary account, and receiving bank SWIFT code
 
 FBI IC3 Financial Fraud Kill Chain
-- Submit complaint at **https://www.ic3.gov**
+- Submit complaint at https://www.ic3.gov
 - For active wire fraud, call FBI Financial Fraud (1-800-CALL-FBI) immediately
 - IC3's FFKC can freeze funds in transit: success rate highest within first few hours
 - Provide: sender/receiver account info, wire amount, transfer date/time, beneficiary bank info
@@ -1090,7 +1090,7 @@ KAPE Module Outputs:
 
 Zeek (formerly Bro) generates structured logs that are ideal for IR investigations. Key log types:
 
-conn.log — All network connections
+conn.log: All network connections
 ```bash
 # Find connections to suspicious IP
 cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p proto service duration orig_bytes resp_bytes | \
@@ -1104,7 +1104,7 @@ cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes | \
 cat conn.log | zeek-cut id.orig_h id.resp_h | sort | uniq -c | sort -rn
 ```
 
-http.log — HTTP requests
+http.log: HTTP requests
 ```bash
 # Find POST requests (potential exfiltration or C2)
 cat http.log | zeek-cut id.orig_h id.resp_h method uri user_agent request_body_len | \
@@ -1117,7 +1117,7 @@ cat http.log | zeek-cut user_agent | sort | uniq -c | sort -rn | head -30
 cat http.log | zeek-cut host uri | sort -u
 ```
 
-dns.log — DNS queries
+dns.log: DNS queries
 ```bash
 # High volume of failed DNS queries (DGA or beaconing)
 cat dns.log | zeek-cut id.orig_h query qtype_name rcode_name | \
@@ -1130,7 +1130,7 @@ cat dns.log | zeek-cut query | awk 'length($1) > 50 {print}' | sort -u
 cat dns.log | zeek-cut id.orig_h query | grep -v "10\." | head -50
 ```
 
-ssl.log — SSL/TLS connections
+ssl.log: SSL/TLS connections
 ```bash
 # Self-signed or invalid certificates (common for C2)
 cat ssl.log | zeek-cut id.orig_h id.resp_h server_name validation_status | \
@@ -1143,7 +1143,7 @@ cat ssl.log | zeek-cut ja3 ja3s server_name | sort -u
 cat ssl.log | zeek-cut id.orig_h id.resp_h server_name | grep "^-" | head -20
 ```
 
-files.log — File transfers
+files.log: File transfers
 ```bash
 # Extract file hashes for all transferred files
 cat files.log | zeek-cut sha256 mime_type tx_hosts rx_hosts | grep -v "^-"
@@ -1278,7 +1278,7 @@ Timeline Construction from Multiple Sources:
 
 ### 7.1 AWS Incident Response
 
-CloudTrail — Key Suspicious API Calls
+CloudTrail: Key Suspicious API Calls
 
 | API Call | Service | IR Significance |
 |----------|---------|----------------|
@@ -1452,7 +1452,7 @@ az snapshot create --resource-group IR-RG \
 
 Cloud Audit Log Types:
 - Admin Activity logs: API calls that modify configuration (always enabled, cannot disable)
-- Data Access logs: API calls that read data or metadata (disabled by default — enable for IR)
+- Data Access logs: API calls that read data or metadata (disabled by default; enable for IR)
 - System Event logs: Google Cloud system events (always enabled)
 - Policy Denied logs: Failed access due to policy (enabled by default)
 
@@ -1495,7 +1495,7 @@ Security Command Center Findings:
 
 ### 8.1 IOC Extraction and Enrichment Workflow
 
-Step 1 — Extract IOCs from raw evidence:
+Step 1. Extract IOCs from raw evidence:
 ```
 From malware samples: hashes (MD5, SHA1, SHA256), PDB paths, embedded IPs/domains, mutex names
 From memory dumps: injected code, C2 URLs, encryption keys, configuration data
@@ -1504,12 +1504,12 @@ From email: sender domain, reply-to, X-headers, attachment hashes, embedded URLs
 From log files: usernames, hostnames, API endpoints, file paths, registry keys
 ```
 
-Step 2 — Normalize and deduplicate IOCs
+Step 2. Normalize and deduplicate IOCs
 - Remove known-good infrastructure (CDNs, Microsoft IPs, Google IPs)
 - Check against internal asset inventory (don't flag your own systems)
 - Tag with context: `source=phishing_email`, `confidence=high`, `first_seen=2026-05-03`
 
-Step 3 — Enrich IOCs
+Step 3. Enrich IOCs
 ```python
 # VirusTotal lookups
 import requests
@@ -1531,7 +1531,7 @@ def vt_lookup_ip(ip):
     return r.json()
 ```
 
-Step 4 — Deploy IOCs to detection stack
+Step 4. Deploy IOCs to detection stack
 - SIEM: Add IOC-based correlation rules or threat intelligence feeds
 - EDR: Push hashes to blocklist; enable prevention for known-bad hashes
 - Firewall: Block malicious IPs and domains at perimeter

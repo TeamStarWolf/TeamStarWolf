@@ -69,11 +69,11 @@ aireplay-ng -3 -b <AP_MAC> -h <CLIENT_MAC> wlan0mon   # ARP replay
 aircrack-ng wep_capture-01.cap               # crack key
 ```
 
-Bit-flipping attack: An attacker can flip bits in the ciphertext and adjust the ICV, redirecting decrypted packets to an attacker-controlled IP — allowing decryption of one byte per 128 attempts on average.
+Bit-flipping attack: An attacker can flip bits in the ciphertext and adjust the ICV, redirecting decrypted packets to an attacker-controlled IP, allowing decryption of one byte per 128 attempts on average.
 
 #### CRC-32 / ICV Weakness
 
-The Integrity Check Value in WEP is simply CRC-32 of the plaintext appended before encryption. CRC-32 is a linear checksum — not a cryptographic MAC. An attacker who knows some plaintext can:
+The Integrity Check Value in WEP is simply CRC-32 of the plaintext appended before encryption. CRC-32 is a linear checksum, not a cryptographic MAC. An attacker who knows some plaintext can:
 - Predict CRC changes when flipping bits.
 - Modify both ciphertext and ICV to produce a valid modified packet.
 - WEP provides no message authentication, only a weak integrity check.
@@ -130,9 +130,9 @@ PTK = PRF-512(PMK, "Pairwise key expansion" || min(AA,SA) || max(AA,SA) || min(A
 ```
 
 Components of the PTK (total 512 bits for CCMP):
-- KCK (Key Confirmation Key): 128 bits — used to compute MIC on handshake frames
-- KEK (Key Encryption Key): 128 bits — used to encrypt GTK
-- TK (Temporal Key): 128 bits — used for CCMP data encryption
+- KCK (Key Confirmation Key): 128 bits, used to compute MIC on handshake frames
+- KEK (Key Encryption Key): 128 bits, used to encrypt GTK
+- TK (Temporal Key): 128 bits, used for CCMP data encryption
 - MIC Tx/Rx keys (if applicable)
 
 Handshake capture for offline cracking:
@@ -153,7 +153,7 @@ The PMKID is included in the first EAPOL frame (RSN IE) of the 4-way handshake:
 PMKID = HMAC-SHA1-128(PMK, "PMK Name" || AP_MAC || STA_MAC)
 ```
 
-This allows cracking without capturing a full 4-way handshake — just a single frame from the AP, with no client deauth needed:
+This allows cracking without capturing a full 4-way handshake, just a single frame from the AP, with no client deauth needed:
 
 ```bash
 hcxdumptool -i wlan0mon -o capture.pcapng --enable_status=3
@@ -303,7 +303,7 @@ Process:
 3. Respond to each probe as if you are the requested AP.
 4. Client auto-associates; attacker controls all traffic.
 
-Defense: Modern OS behavior has changed — clients often send directed probes only, or use randomized MAC addresses. However, open networks without authentication remain vulnerable, as do devices with older OS versions.
+Defense: Modern OS behavior has changed; clients often send directed probes only, or use randomized MAC addresses. However, open networks without authentication remain vulnerable, as do devices with older OS versions.
 
 WiFi Pineapple automates KARMA with a web UI and module system (PineAP).
 
@@ -554,13 +554,13 @@ A set of eight vulnerabilities across Android, Linux, Windows, and iOS Bluetooth
 | CVE-2017-1000250 | Linux BlueZ | Info leak in SDP |
 | CVE-2017-8628 | Windows | MITM in Bluetooth network (BNEP) |
 
-Attack vector: Over-the-air — no pairing required. The Bluetooth stack processes advertising/discovery frames before authentication. Device does not need to be in discoverable mode for some attacks.
+Attack vector: Over-the-air, no pairing required. The Bluetooth stack processes advertising/discovery frames before authentication. Device does not need to be in discoverable mode for some attacks.
 
 Patch: All vendors released patches September 2017. Verify `BluetoothStack` version or apply OS updates.
 
 #### BIAS Attack (Bluetooth Impersonation Attacks, 2020)
 
-CVE-2020-10135 — Affects Bluetooth Classic Secure Connections:
+CVE-2020-10135 (affects Bluetooth Classic Secure Connections):
 
 - Exploits the asymmetry in role switching during connection establishment.
 - Attacker masquerades as a previously paired device using a known BD_ADDR.
@@ -579,7 +579,7 @@ Fix: Enforce Secure Connections Only mode; mandate mutual authentication.
 
 #### KNOB Attack (Key Negotiation of Bluetooth, 2019)
 
-CVE-2019-9506 — Bluetooth Classic:
+CVE-2019-9506 (Bluetooth Classic):
 
 - The entropy of the Bluetooth encryption key is negotiated in LMP (Link Manager Protocol).
 - Valid entropy values: 1-16 bytes (specification allows 1 byte!).
@@ -794,7 +794,7 @@ Defense:
 
 ### 4.4 SS7 Protocol Attacks
 
-SS7 (Signaling System No. 7) is the protocol suite used for communication between telecom networks. Originally designed in 1975 with no authentication — any SS7 node is implicitly trusted.
+SS7 (Signaling System No. 7) is the protocol suite used for communication between telecom networks. Originally designed in 1975 with no authentication: any SS7 node is implicitly trusted.
 
 Key attack categories:
 
@@ -958,7 +958,7 @@ Key recovery attack:
 
 ### 5.3 Z-Wave Security
 
-Z-Wave operates at 908.42 MHz (US) / 868.42 MHz (EU), below the 2.4 GHz ISM band. This means standard 2.4 GHz tools cannot attack it — requires dedicated hardware (e.g., Z-Wave USB stick, HackRF).
+Z-Wave operates at 908.42 MHz (US) / 868.42 MHz (EU), below the 2.4 GHz ISM band. This means standard 2.4 GHz tools cannot attack it; it requires dedicated hardware (e.g., Z-Wave USB stick, HackRF).
 
 Z-Wave security frameworks:
 
@@ -988,7 +988,7 @@ LoRaWAN (Long Range Wide Area Network) is used for IoT at distances up to 15 km.
 
 Join procedures:
 
-OTAA (Over-The-Air Activation) — preferred:
+OTAA (Over-The-Air Activation), preferred:
 ```
 Device → Network: JoinRequest(AppEUI, DevEUI, DevNonce)
 Network → Device: JoinAccept(AppNonce, NetID, DevAddr, encrypted with AppKey)
@@ -997,7 +997,7 @@ Network → Device: JoinAccept(AppNonce, NetID, DevAddr, encrypted with AppKey)
   AppSKey = AES-128(AppKey, 0x02 || AppNonce || NetID || DevNonce || pad)
 ```
 
-ABP (Activation by Personalization) — less secure:
+ABP (Activation by Personalization), less secure:
 - NwkSKey and AppSKey hardcoded in device firmware.
 - No dynamic key derivation.
 - If firmware is extracted, all session keys are compromised.
@@ -1034,7 +1034,7 @@ Matter (formerly Project CHIP) is the smart home interoperability standard from 
 
 Security highlights:
 - Passcode-authenticated session establishment (PASE): Uses SPAKE2+ (CPace-based PAKE) during commissioning. Passcode printed on device (or QR code).
-- Certificate-authenticated session establishment (CASE): After commissioning, uses NOC (Node Operational Certificate) + DAC (Device Attestation Certificate) — X.509 PKI.
+- Certificate-authenticated session establishment (CASE): After commissioning, uses NOC (Node Operational Certificate) + DAC (Device Attestation Certificate), X.509 PKI.
 - DAC attestation: Verifies device is genuine (signed by manufacturer CA -> Matter Product Attestation Authority).
 - Fabric: Nodes share a fabric (cryptographic domain); cross-fabric operations are controlled.
 - ACL (Access Control List): Fine-grained attribute/command access per subject.
@@ -1180,7 +1180,7 @@ Countermeasures:
 - CVC3 dynamic value: changes per transaction; only useful for CNP (Card Not Present) fraud if sniffed.
 - Proximity check (DESFire EV2): but not widely implemented in payment cards.
 
-NFCGate — Android app for NFC relay research:
+NFCGate (Android app for NFC relay research):
 ```
 Device A (reader role) ↔ Internet ↔ Device B (emulator role, HCE)
 ```
@@ -1241,7 +1241,7 @@ Methods:
 |---|---|
 | SSID/BSSID monitoring | Maintain whitelist of authorized BSSIDs; alert on new/unexpected SSIDs |
 | RF fingerprinting | Unique RF characteristics (clock skew, power amplifier distortion) identify specific radios |
-| Wired correlation | If rogue AP is on wired network, its MAC appears in switch CAM table — correlate with seen BSSID |
+| Wired correlation | If rogue AP is on wired network, its MAC appears in switch CAM table; correlate with seen BSSID |
 | Probe request matching | Clients probe for known SSIDs; if unfamiliar AP responds, flag as potential evil twin |
 | RSSI triangulation | Use multiple sensors to locate rogue by signal strength |
 
@@ -1282,7 +1282,7 @@ def detect(pkt):
 sniff(iface="wlan0mon", prn=detect, store=False)
 ```
 
-Countermeasure: 802.11w (Management Frame Protection) — see section 1.3.
+Countermeasure: 802.11w (Management Frame Protection); see section 1.3.
 
 ---
 
@@ -1507,7 +1507,7 @@ hashcat -m 5500 "username:::challenge_hex:response1:response2" rockyou.txt
 ```
 
 Verifying certificate validation:
-Use a certificate with a different Common Name / different CA than legitimate server. If the client connects anyway — certificate validation is disabled/misconfigured.
+Use a certificate with a different Common Name / different CA than legitimate server. If the client connects anyway, certificate validation is disabled/misconfigured.
 
 ---
 
@@ -1572,7 +1572,7 @@ IoT SSID → VLAN 200 → Segmented firewall → Limited internet access
 
 ### 9.3 Certificate-Based EAP-TLS Deployment Guide
 
-EAP-TLS is the most secure EAP method — both client and server present X.509 certificates.
+EAP-TLS is the most secure EAP method: both client and server present X.509 certificates.
 
 PKI requirements:
 ```

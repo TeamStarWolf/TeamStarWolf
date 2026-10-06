@@ -2,8 +2,8 @@
 
 > What this is. A catalog of the analytic *lenses* you can lay over a MITRE ATT&CK matrix to turn it
 > from a static list of techniques into a decision tool. Each lens recolors every technique by a different
-> security dimension — mitigation depth, threat activity, detection coverage, vulnerability exposure,
-> compliance, or composite risk — so a different question gets answered by the same matrix. These are the
+> security dimension (mitigation depth, threat activity, detection coverage, vulnerability exposure,
+> compliance, or composite risk), so a different question gets answered by the same matrix. These are the
 > 24 heatmap modes implemented in [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi); the model
 > generalizes to any Navigator-style workflow.
 
@@ -17,7 +17,7 @@ A single coverage view answers one question. Real coverage analysis means switch
 mitigated?* -> *are we detected?* -> *have we validated?* -> *is this under active exploitation?* -> *what is
 the composite risk?* The lenses below are grouped by the question they answer.
 
-How scoring works. Most lenses are *gradient* modes — a technique's cell is shaded from a count or
+How scoring works. Most lenses are *gradient* modes: a technique's cell is shaded from a count or
 probability, normalized against the maximum in view. A few are *categorical* (discrete states like
 implemented/planned/none). Combine lenses with filters (by threat group, platform, or data source) to
 narrow the matrix to your situation before coloring it.
@@ -57,8 +57,8 @@ view of this family.
 | Campaign | Has it shown up in real named campaigns? | Count of ATT&CK campaigns using it |
 | Intelligence | Do we have live intel signal for this technique? | `has-MISP (0/1) + selected threat-group count` |
 
-Use it to: prioritize detection investment on the most *popular* techniques, or — after selecting the
-threat actors relevant to your sector in a filter — switch to Exposure to see where *your* adversaries
+Use it to: prioritize detection investment on the most *popular* techniques, or, after selecting the
+threat actors relevant to your sector in a filter, switch to Exposure to see where *your* adversaries
 concentrate. High activity + thin mitigation (see family 1) is the definition of a priority gap.
 
 ---
@@ -81,7 +81,7 @@ EPSS should outrank an equally-covered technique with no active exploitation pre
 
 ## Lens family 4: Detection engineering
 
-*"If this happened, would we see it — and with what?"*
+*"If this happened, would we see it, and with what?"*
 
 | Lens | Question it answers | Score |
 |---|---|---|
@@ -100,7 +100,7 @@ provides concrete, multi-platform queries for a starter set of high-value techni
 
 ## Lens family 5: Breach patterns & composite risk
 
-*"Putting it together — where should I actually spend effort?"*
+*"Putting it together: where should I actually spend effort?"*
 
 | Lens | Question it answers | Score |
 |---|---|---|

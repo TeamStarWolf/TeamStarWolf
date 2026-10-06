@@ -1,6 +1,6 @@
 # Technique Detection Library
 
-> Multi-platform detection content keyed to MITRE ATT&CK techniques. Each technique below carries ready-to-adapt analytics for the major SIEM/EDR query languages, the telemetry each one needs, an analyst confidence rating, and the NIST 800-53 controls that mitigate the same technique — so a hunt can move from behavior, to detection, to control gap in one place.
+> Multi-platform detection content keyed to MITRE ATT&CK techniques. Each technique below carries ready-to-adapt analytics for the major SIEM/EDR query languages, the telemetry each one needs, an analyst confidence rating, and the NIST 800-53 controls that mitigate the same technique, so a hunt can move from behavior, to detection, to control gap in one place.
 
 | | |
 |---|---|
@@ -15,7 +15,7 @@ Machine-readable source: [`detections/technique-queries.json`](technique-queries
 ### How to use this library
 
 1. Pick the technique you are hunting or building coverage for (see the index below).
-2. Copy the query for your platform and adapt field names/indexes to your environment — these are starting points seeded from community detection projects, not drop-in production rules. Validate against your own data model and tune out benign activity before deploying.
+2. Copy the query for your platform and adapt field names/indexes to your environment: these are starting points seeded from community detection projects, not drop-in production rules. Validate against your own data model and tune out benign activity before deploying.
 3. Exercise the detection safely with the matching [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) test for the technique, then confirm the alert fires.
 4. Close the loop: check the NIST 800-53 controls listed for the technique against your control stack using the [control-depth coverage layer](../navigator/teamstarwolf_vendor_coverage.json) and [edge tables](../data/).
 
@@ -57,7 +57,7 @@ These analytics are seeded and adapted from open community detection sources. Co
 Tactic(s): Credential Access  
 ATT&CK: [T1003.001](https://attack.mitre.org/techniques/T1003/001/)  
 Mitigating NIST 800-53 R5 controls (19): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `IA-2`, `IA-5`, `SC-28`, `SC-3`, `SC-39`, `SI-16` (+3 more)  
-Validate with: [Atomic Red Team — T1003.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1003.001)
+Validate with: [Atomic Red Team, T1003.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1003.001)
 
 ### Splunk (SPL): LSASS process access from non-system parent
 
@@ -156,7 +156,7 @@ rule t1003_001_lsass_dump {
 
 Tactic(s): Discovery  
 ATT&CK: [T1018](https://attack.mitre.org/techniques/T1018/)  
-Validate with: [Atomic Red Team — T1018](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1018)
+Validate with: [Atomic Red Team, T1018](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1018)
 
 ### Splunk (SPL): Network discovery â€” net.exe view, ping sweep
 
@@ -236,7 +236,7 @@ rule t1018_remote_system_discovery {
 Tactic(s): Lateral Movement  
 ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/)  
 Mitigating NIST 800-53 R5 controls (23): `AC-11`, `AC-12`, `AC-17`, `AC-2`, `AC-20`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `AC-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2` (+7 more)  
-Validate with: [Atomic Red Team — T1021.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1021.001)
+Validate with: [Atomic Red Team, T1021.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1021.001)
 
 ### Splunk (SPL): RDP â€” successful logon from unusual source
 
@@ -312,7 +312,7 @@ rule t1021_001_rdp_logon {
 Tactic(s): Defense Evasion  
 ATT&CK: [T1027](https://attack.mitre.org/techniques/T1027/)  
 Mitigating NIST 800-53 R5 controls (8): `AC-3`, `CM-2`, `CM-6`, `CM-7`, `SI-2`, `SI-3`, `SI-4`, `SI-7`  
-Validate with: [Atomic Red Team — T1027](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1027)
+Validate with: [Atomic Red Team, T1027](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1027)
 
 ### Splunk (SPL): Suspicious base64 / obfuscated cmdline
 
@@ -389,7 +389,7 @@ rule t1027_encoded_payload {
 Tactic(s): Execution, Persistence, Privilege Escalation  
 ATT&CK: [T1053.005](https://attack.mitre.org/techniques/T1053/005/)  
 Mitigating NIST 800-53 R5 controls (13): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-4`, `RA-5`, `SI-4`  
-Validate with: [Atomic Red Team — T1053.005](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1053.005)
+Validate with: [Atomic Red Team, T1053.005](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1053.005)
 
 ### Splunk (SPL): Scheduled task created with suspicious payload
 
@@ -469,7 +469,7 @@ rule t1053_005_schtasks_create {
 Tactic(s): Defense Evasion, Privilege Escalation  
 ATT&CK: [T1055](https://attack.mitre.org/techniques/T1055/)  
 Mitigating NIST 800-53 R5 controls (12): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-5`, `CM-6`, `IA-2`, `SC-18`, `SC-7`, `SI-2`, `SI-3`, `SI-4`  
-Validate with: [Atomic Red Team — T1055](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1055)
+Validate with: [Atomic Red Team, T1055](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1055)
 
 ### Splunk (SPL): CreateRemoteThread / WriteProcessMemory pattern
 
@@ -546,7 +546,7 @@ rule t1055_process_injection {
 Tactic(s): Execution  
 ATT&CK: [T1059.001](https://attack.mitre.org/techniques/T1059/001/)  
 Mitigating NIST 800-53 R5 controls (19): `AC-17`, `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-8`, `IA-2`, `IA-8`, `IA-9`, `RA-5`, `SI-10`, `SI-16`, `SI-2` (+3 more)  
-Validate with: [Atomic Red Team — T1059.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1059.001)
+Validate with: [Atomic Red Team, T1059.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1059.001)
 
 ### Splunk (SPL): PowerShell encoded command execution
 
@@ -631,7 +631,7 @@ rule t1059_001_powershell_encoded {
 Tactic(s): Defense Evasion, Persistence, Privilege Escalation, Initial Access  
 ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/)  
 Mitigating NIST 800-53 R5 controls (25): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-3`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `IA-12`, `IA-13`, `IA-2`, `IA-5`, `RA-5`, `SA-10`, `SA-11` (+9 more)  
-Validate with: [Atomic Red Team — T1078](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078)
+Validate with: [Atomic Red Team, T1078](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078)
 
 ### Splunk (SPL): Suspicious successful logon â€” first time on host
 
@@ -719,7 +719,7 @@ rule t1078_impossible_travel {
 Tactic(s): Credential Access  
 ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/)  
 Mitigating NIST 800-53 R5 controls (14): `AC-2`, `AC-20`, `AC-3`, `AC-5`, `AC-6`, `AC-7`, `CA-7`, `CM-2`, `CM-6`, `IA-11`, `IA-2`, `IA-4`, `IA-5`, `SI-4`  
-Validate with: [Atomic Red Team — T1110](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110)
+Validate with: [Atomic Red Team, T1110](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110)
 
 ### Splunk (SPL): Brute force â€” high-volume failed logons followed by success
 
@@ -813,7 +813,7 @@ rule t1110_brute_force {
 Tactic(s): Initial Access  
 ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/)  
 Mitigating NIST 800-53 R5 controls (29): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-2`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-8`, `RA-10`, `RA-5`, `SA-8` (+13 more)  
-Validate with: [Atomic Red Team — T1190](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1190)
+Validate with: [Atomic Red Team, T1190](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1190)
 
 ### Splunk (SPL): Public-facing app â€” exploit attempts in web logs
 
@@ -897,7 +897,7 @@ rule t1190_web_exploit {
 Tactic(s): Impact  
 ATT&CK: [T1486](https://attack.mitre.org/techniques/T1486/)  
 Mitigating NIST 800-53 R5 controls (11): `AC-3`, `AC-6`, `CM-2`, `CP-10`, `CP-2`, `CP-6`, `CP-7`, `CP-9`, `SI-3`, `SI-4`, `SI-7`  
-Validate with: [Atomic Red Team — T1486](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1486)
+Validate with: [Atomic Red Team, T1486](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1486)
 
 ### Splunk (SPL): Mass file modification + extension change (ransomware indicator)
 
@@ -984,7 +984,7 @@ rule t1486_ransomware_ext {
 
 Tactic(s): Persistence, Privilege Escalation  
 ATT&CK: [T1547.001](https://attack.mitre.org/techniques/T1547/001/)  
-Validate with: [Atomic Red Team — T1547.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1547.001)
+Validate with: [Atomic Red Team, T1547.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1547.001)
 
 ### Splunk (SPL): Persistence â€” registry Run key modification
 
@@ -1063,7 +1063,7 @@ rule t1547_001_run_key {
 Tactic(s): Initial Access  
 ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/)  
 Mitigating NIST 800-53 R5 controls (12): `AC-4`, `CA-7`, `CM-2`, `CM-6`, `IA-9`, `SC-20`, `SC-44`, `SC-7`, `SI-2`, `SI-3`, `SI-4`, `SI-8`  
-Validate with: [Atomic Red Team — T1566.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1566.001)
+Validate with: [Atomic Red Team, T1566.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1566.001)
 
 ### Splunk (SPL): Spearphishing attachment â€” email gateway â†’ endpoint execution
 

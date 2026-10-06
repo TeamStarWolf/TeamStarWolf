@@ -1,7 +1,7 @@
 # SOAR Automation Reference Library
 > Professional Cybersecurity Reference | Maintained by TeamStarWolf Security Engineering
 
-> In one minute — This is a working reference for SOAR (Security Orchestration, Automation, and Response): platforms that let a SOC connect its security tools, automate repetitive triage, and run incident response through playbooks (predefined response workflows). It covers playbook design patterns, then platform-specific code and APIs for Splunk SOAR, Palo Alto XSOAR, Microsoft Sentinel, and IBM QRadar SOAR, plus ready-made automation for phishing, malware, ransomware, and BEC. It is useful because the examples are copy-adaptable Python, YAML, and API calls, not just concepts.
+> In one minute: This is a working reference for SOAR (Security Orchestration, Automation, and Response): platforms that let a SOC connect its security tools, automate repetitive triage, and run incident response through playbooks (predefined response workflows). It covers playbook design patterns, then platform-specific code and APIs for Splunk SOAR, Palo Alto XSOAR, Microsoft Sentinel, and IBM QRadar SOAR, plus ready-made automation for phishing, malware, ransomware, and BEC. It is useful because the examples are copy-adaptable Python, YAML, and API calls, not just concepts.
 
 | | |
 |---|---|

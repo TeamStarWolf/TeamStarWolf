@@ -29,7 +29,7 @@
 
 ### The API Attack Surface Explosion
 
-APIs have become the dominant interface for modern software. Gartner has projected that APIs will be the #1 attack vector for enterprise applications, surpassing traditional web application attacks. This prediction is borne out by breach data: Optus (2022), T-Mobile (2023), Twitter (2022), Peloton (2021), and hundreds of smaller organizations suffered major data exposures through API vulnerabilities — not through SQL injection or XSS on web frontends.
+APIs have become the dominant interface for modern software. Gartner has projected that APIs will be the #1 attack vector for enterprise applications, surpassing traditional web application attacks. This prediction is borne out by breach data: Optus (2022), T-Mobile (2023), Twitter (2022), Peloton (2021), and hundreds of smaller organizations suffered major data exposures through API vulnerabilities, not through SQL injection or XSS on web frontends.
 
 Why APIs are the primary target:
 
@@ -182,10 +182,10 @@ OAS documents enable:
 ### API1:2023: Broken Object Level Authorization (BOLA)
 
 Description:
-BOLA (formerly called IDOR — Insecure Direct Object Reference in the OWASP Web Top 10) is the most prevalent and impactful API vulnerability. It occurs when an API endpoint accepts a user-supplied object identifier (ID) and returns the corresponding object without verifying that the requesting user is authorized to access that specific object. The API validates *authentication* (the user is logged in) but not *authorization* (the user is allowed to see *this* object).
+BOLA (formerly called IDOR, Insecure Direct Object Reference in the OWASP Web Top 10) is the most prevalent and impactful API vulnerability. It occurs when an API endpoint accepts a user-supplied object identifier (ID) and returns the corresponding object without verifying that the requesting user is authorized to access that specific object. The API validates *authentication* (the user is logged in) but not *authorization* (the user is allowed to see *this* object).
 
 Why it dominates API vulnerabilities:
-APIs return raw data objects — unlike web UIs that render only the data the server decides to show, APIs return the complete object. Developers often assume that clients "can only see their own data" without enforcing this at the API layer.
+APIs return raw data objects; unlike web UIs that render only the data the server decides to show, APIs return the complete object. Developers often assume that clients "can only see their own data" without enforcing this at the API layer.
 
 Attack Example:
 ```
@@ -240,7 +240,7 @@ Use indirect references: map internal IDs to user-specific tokens. Implement cen
 ### API2:2023: Broken Authentication
 
 Description:
-Authentication mechanisms for APIs are frequently implemented incorrectly or incompletely. Unlike web applications that can rely on battle-tested session management frameworks, APIs often implement custom authentication logic — JWT validation, API key checking, token introspection — that contains subtle flaws.
+Authentication mechanisms for APIs are frequently implemented incorrectly or incompletely. Unlike web applications that can rely on battle-tested session management frameworks, APIs often implement custom authentication logic (JWT validation, API key checking, token introspection) that contains subtle flaws.
 
 Common Authentication Weaknesses:
 
@@ -384,7 +384,7 @@ Attack Vectors:
 - File upload abuse: Upload thousands of large files to exhaust storage
 - Third-party cost exploitation: Trigger API calls to paid services (SMS, email, payment) repeatedly
 
-Example — SMS verification abuse:
+Example (SMS verification abuse):
 ```
 POST /api/v1/auth/send-sms-otp
 {"phone": "+15551234567"}
@@ -783,7 +783,7 @@ def validate_jwt(token: str, expected_audience: str) -> dict:
         raise HTTPException(401, f"Invalid token: {e}")
 ```
 
-JWT Attack Tool — jwt_tool:
+JWT Attack Tool (jwt_tool):
 ```bash
 # Install
 git clone https://github.com/ticarpi/jwt_tool
@@ -952,7 +952,7 @@ app.use('/api/', cors(corsOptions));
 
 ### Introspection Risks
 
-GraphQL's introspection system allows clients to query the schema itself — discovering all types, queries, mutations, and fields. In production, this capability is a reconnaissance goldmine for attackers.
+GraphQL's introspection system allows clients to query the schema itself, discovering all types, queries, mutations, and fields. In production, this capability is a reconnaissance goldmine for attackers.
 
 ```graphql
 # Introspection query — reveals entire API schema
@@ -1027,7 +1027,7 @@ const server = new ApolloServer({
 
 ### Query Complexity Analysis
 
-Depth limiting alone is insufficient — a query can be shallow but wide, requesting thousands of fields:
+Depth limiting alone is insufficient; a query can be shallow but wide, requesting thousands of fields:
 
 ```graphql
 # Wide query — expensive even at depth 2
@@ -1146,7 +1146,7 @@ if (!persistedQueries[req.body.extensions?.persistedQuery?.sha256Hash]) {
 
 ### GraphQL Security Tools
 
-GraphQL Voyager: Visual schema explorer — converts introspection results into interactive graph diagram, ideal for understanding attack surface.
+GraphQL Voyager: Visual schema explorer, which converts introspection results into interactive graph diagram, ideal for understanding attack surface.
 
 graphql-cop:
 ```bash
@@ -1190,7 +1190,7 @@ const server = new ApolloServer({
 
 ### Protobuf vs. JSON
 
-gRPC uses Protocol Buffers (Protobuf) — a binary serialization format defined by `.proto` schema files. This provides structural advantages over JSON:
+gRPC uses Protocol Buffers (Protobuf), a binary serialization format defined by `.proto` schema files. This provides structural advantages over JSON:
 
 | Aspect | JSON | Protobuf/gRPC |
 |--------|------|---------------|
@@ -1274,7 +1274,7 @@ channel = grpc.secure_channel(
 
 ### Authentication via Metadata
 
-gRPC does not have HTTP headers — authentication tokens are passed via metadata:
+gRPC does not have HTTP headers; authentication tokens are passed via metadata:
 
 ```python
 # Client: attach JWT token as gRPC metadata
@@ -1328,7 +1328,7 @@ server = grpc.server(
 
 ### gRPC Reflection: Disable in Production
 
-gRPC reflection is the equivalent of GraphQL introspection — it exposes service definitions to any client:
+gRPC reflection is the equivalent of GraphQL introspection; it exposes service definitions to any client:
 
 ```bash
 # Attacker uses grpcurl to list services via reflection
@@ -1925,7 +1925,7 @@ OpenAPI Spec Locations:
 /.well-known/openid-configuration  (OAuth/OIDC)
 ```
 
-kiterunner — API Route Brute Force:
+kiterunner (API Route Brute Force):
 ```bash
 # Install kiterunner
 go install github.com/assetnote/kiterunner@latest
@@ -1938,7 +1938,7 @@ kr kb convert swagger.json -o swagger.kite
 kr scan https://api.target.com -w swagger.kite
 ```
 
-Arjun — Parameter Discovery:
+Arjun (Parameter Discovery):
 ```bash
 # Discover hidden GET/POST parameters
 arjun -u https://api.target.com/v1/search
@@ -1947,7 +1947,7 @@ arjun -u https://api.target.com/v1/users -m POST   -H "Authorization: Bearer $TO
 # Arjun output: discovered params like ?admin=, ?debug=, ?internal=
 ```
 
-ffuf — Endpoint Fuzzing:
+ffuf (Endpoint Fuzzing):
 ```bash
 # Fuzz API version numbers
 ffuf -u https://api.target.com/FUZZ/users   -w versions.txt \  # v1, v2, v3, alpha, beta, internal
@@ -2356,7 +2356,7 @@ Key requirements:
 - Implicit grant flow deprecated: do not use
 - Resource Owner Password Credentials flow deprecated: do not use
 
-DPoP (Demonstrating Proof of Possession) — RFC 9449:
+DPoP (Demonstrating Proof of Possession), RFC 9449:
 ```http
 POST /token HTTP/1.1
 DPoP: eyJhbGciOiJFUzI1NiIsInR5cCI6ImRwb3Arand...
@@ -2487,20 +2487,20 @@ Trust boundaries: External->Gateway, Gateway->Service, Service->DataStore
 
 ### Audit Logging Requirements
 
-PCI DSS v4.0 — API Audit Requirements:
+PCI DSS v4.0 (API Audit Requirements):
 - Log all access to cardholder data via APIs (Requirement 10.2)
 - Capture: user ID, date/time, action type, object accessed, originating IP
 - Log failures: failed authentication, privilege escalation attempts
 - Tamper-evident logs: write-once storage, integrity monitoring
 - Retention: 12 months minimum, 3 months immediately available
 
-HIPAA — API Audit for PHI:
+HIPAA (API Audit for PHI):
 - Audit controls for all ePHI access via APIs (§164.312(b))
 - Log who accessed what PHI, when, and from where
 - Activity review: regularly review API logs for suspicious access patterns
 - Retention: 6 years minimum
 
-SOC 2 Type II — API Logging for CC7:
+SOC 2 Type II (API Logging for CC7):
 - Log authentication events (success/failure) for all API calls
 - Monitor for unauthorized access attempts
 - Alert on anomalous access patterns

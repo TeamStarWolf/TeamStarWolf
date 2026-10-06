@@ -8,11 +8,11 @@
 
 Kali is the de-facto baseline reference distribution for offensive security. When a working catalogue claims "comprehensive coverage" of practitioner tooling, the honest test is: *how does it line up against the tools a Kali user already has on disk?*
 
-This document answers that. It is not a recommendation to star every Kali tool — many are distro packages, GUI shells, or unmaintained forks with no useful upstream. It identifies the tools that (a) have a maintained upstream GitHub repository and (b) are not yet in the curated Stars Lists, so the gap can be closed deliberately rather than by reflex.
+This document answers that. It is not a recommendation to star every Kali tool; many are distro packages, GUI shells, or unmaintained forks with no useful upstream. It identifies the tools that (a) have a maintained upstream GitHub repository and (b) are not yet in the curated Stars Lists, so the gap can be closed deliberately rather than by reflex.
 
 ## Method
 
-1. Extract the canonical tool list from the Kali tools index (655 tools surveyed in this pass — Kali rolls forward, expect drift).
+1. Extract the canonical tool list from the Kali tools index (655 tools surveyed in this pass; Kali rolls forward, expect drift).
 2. Match by basename against the 1,076 starred repositories in the live `TeamStarWolf` profile.
 3. Classify the remainder into four buckets:
    - Already covered indirectly: same upstream project, repo named differently (e.g., `impacket-scripts` -> `fortra/impacket`).
@@ -37,96 +37,96 @@ The 106 direct matches plus the indirect coverage means roughly ~26% of Kali's c
 Grouped by which existing Stars List the tool would join. Each entry is a tool that ships in Kali, has an actively maintained upstream GitHub repo, and is not yet starred.
 
 ### -> Active Directory Offensive Operations
-- `bloodyad`: [CravateRouge/bloodyAD](https://github.com/CravateRouge/bloodyAD) — AD privilege escalation framework
-- `certipy-ad`: [ly4k/Certipy](https://github.com/ly4k/Certipy) — ADCS abuse toolkit (likely already starred under different basename — verify)
-- `dploot`: [zblurx/dploot](https://github.com/zblurx/dploot) — DPAPI secret extraction at scale
-- `linkedin2username`: [initstring/linkedin2username](https://github.com/initstring/linkedin2username) — usernames from LinkedIn for password spraying
-- `shimit`: [cyberark/shimit](https://github.com/cyberark/shimit) — Golden ticket forging for Kerberos
+- `bloodyad`: [CravateRouge/bloodyAD](https://github.com/CravateRouge/bloodyAD), AD privilege escalation framework
+- `certipy-ad`: [ly4k/Certipy](https://github.com/ly4k/Certipy), ADCS abuse toolkit (likely already starred under different basename; verify)
+- `dploot`: [zblurx/dploot](https://github.com/zblurx/dploot), DPAPI secret extraction at scale
+- `linkedin2username`: [initstring/linkedin2username](https://github.com/initstring/linkedin2username), usernames from LinkedIn for password spraying
+- `shimit`: [cyberark/shimit](https://github.com/cyberark/shimit), Golden ticket forging for Kerberos
 - `windapsearch` / `ldeep`: verify both are starred
 
 ### -> Bug Bounty and Web Application Reconnaissance
-- `assetfinder`: [tomnomnom/assetfinder](https://github.com/tomnomnom/assetfinder) — passive subdomain enumeration
-- `crlfuzz`: [dwisiswant0/crlfuzz](https://github.com/dwisiswant0/crlfuzz) — CRLF injection scanner
-- `dnsgen`: [ProjectAnte/dnsgen](https://github.com/ProjectAnte/dnsgen) — wordlist mutation for subdomain bruteforcing
-- `feroxbuster`: [epi052/feroxbuster](https://github.com/epi052/feroxbuster) — Rust content discovery
-- `findomain`: [Findomain/Findomain](https://github.com/Findomain/Findomain) — fast cross-platform subdomain enumerator
-- `getallurls` (`gau`): [lc/gau](https://github.com/lc/gau) — fetches URLs from AlienVault OTX, Wayback, Common Crawl
-- `gospider`: [jaeles-project/gospider](https://github.com/jaeles-project/gospider) — fast web spider in Go
-- `goshs`: [patrickhener/goshs](https://github.com/patrickhener/goshs) — replacement for SimpleHTTPServer with auth and TLS
-- `hurl`: [Orange-Cyberdefense/hurl](https://github.com/Orange-Cyberdefense/hurl) — HTTP request sender
-- `jsql-injection`: [ron190/jsql-injection](https://github.com/ron190/jsql-injection) — Java SQL injection tool
-- `subzy`: [LukaSikic/subzy](https://github.com/LukaSikic/subzy) — subdomain takeover scanner
-- `urlcrazy`: [urbanadventurer/urlcrazy](https://github.com/urbanadventurer/urlcrazy) — typo-domain generator
-- `waybackurls`: [tomnomnom/waybackurls](https://github.com/tomnomnom/waybackurls) — Wayback Machine URL extraction
-- `xsstrike`: [s0md3v/XSStrike](https://github.com/s0md3v/XSStrike) — XSS detection suite (verify — possibly starred)
+- `assetfinder`: [tomnomnom/assetfinder](https://github.com/tomnomnom/assetfinder), passive subdomain enumeration
+- `crlfuzz`: [dwisiswant0/crlfuzz](https://github.com/dwisiswant0/crlfuzz), CRLF injection scanner
+- `dnsgen`: [ProjectAnte/dnsgen](https://github.com/ProjectAnte/dnsgen), wordlist mutation for subdomain bruteforcing
+- `feroxbuster`: [epi052/feroxbuster](https://github.com/epi052/feroxbuster), Rust content discovery
+- `findomain`: [Findomain/Findomain](https://github.com/Findomain/Findomain), fast cross-platform subdomain enumerator
+- `getallurls` (`gau`): [lc/gau](https://github.com/lc/gau), fetches URLs from AlienVault OTX, Wayback, Common Crawl
+- `gospider`: [jaeles-project/gospider](https://github.com/jaeles-project/gospider), fast web spider in Go
+- `goshs`: [patrickhener/goshs](https://github.com/patrickhener/goshs), replacement for SimpleHTTPServer with auth and TLS
+- `hurl`: [Orange-Cyberdefense/hurl](https://github.com/Orange-Cyberdefense/hurl), HTTP request sender
+- `jsql-injection`: [ron190/jsql-injection](https://github.com/ron190/jsql-injection), Java SQL injection tool
+- `subzy`: [LukaSikic/subzy](https://github.com/LukaSikic/subzy), subdomain takeover scanner
+- `urlcrazy`: [urbanadventurer/urlcrazy](https://github.com/urbanadventurer/urlcrazy), typo-domain generator
+- `waybackurls`: [tomnomnom/waybackurls](https://github.com/tomnomnom/waybackurls), Wayback Machine URL extraction
+- `xsstrike`: [s0md3v/XSStrike](https://github.com/s0md3v/XSStrike), XSS detection suite (verify, possibly starred)
 
 ### -> Cloud and Container Security
-- `cloudbrute`: [0xsha/CloudBrute](https://github.com/0xsha/CloudBrute) — multi-cloud asset enumeration
-- `dufflebag`: [BishopFox/dufflebag](https://github.com/BishopFox/dufflebag) — search public EBS snapshots for secrets
+- `cloudbrute`: [0xsha/CloudBrute](https://github.com/0xsha/CloudBrute), multi-cloud asset enumeration
+- `dufflebag`: [BishopFox/dufflebag](https://github.com/BishopFox/dufflebag), search public EBS snapshots for secrets
 - `kubectl` / `eksctl` / `cilium-cli` / `calico`: kubernetes tooling, may be deliberately omitted
 
 ### -> Command-and-Control and Post-Exploitation Frameworks
-- `adaptixc2`: [Adaptix-Framework/AdaptixC2](https://github.com/Adaptix-Framework/AdaptixC2) — C2 framework
-- `koadic`: [offsecginger/koadic](https://github.com/offsecginger/koadic) — JScript RAT
-- `nishang`: [samratashok/nishang](https://github.com/samratashok/nishang) — PowerShell offensive scripts
-- `powercat`: [besimorhino/powercat](https://github.com/besimorhino/powercat) — PowerShell netcat
-- `powersploit`: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit) — classic PS post-exploit
-- `silenttrinity`: [byt3bl33d3r/SILENTTRINITY](https://github.com/byt3bl33d3r/SILENTTRINITY) — .NET / IronPython C2
+- `adaptixc2`: [Adaptix-Framework/AdaptixC2](https://github.com/Adaptix-Framework/AdaptixC2), C2 framework
+- `koadic`: [offsecginger/koadic](https://github.com/offsecginger/koadic), JScript RAT
+- `nishang`: [samratashok/nishang](https://github.com/samratashok/nishang), PowerShell offensive scripts
+- `powercat`: [besimorhino/powercat](https://github.com/besimorhino/powercat), PowerShell netcat
+- `powersploit`: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit), classic PS post-exploit
+- `silenttrinity`: [byt3bl33d3r/SILENTTRINITY](https://github.com/byt3bl33d3r/SILENTTRINITY), .NET / IronPython C2
 
 ### -> Cybersecurity Learning Resources and Catalogs
-- `linux-exploit-suggester`: [mzet-/linux-exploit-suggester](https://github.com/mzet-/linux-exploit-suggester) — local privesc auditor
-- `linuxprivchecker`: [sleventyeleven/linuxprivchecker](https://github.com/sleventyeleven/linuxprivchecker) — script-based linux audit
+- `linux-exploit-suggester`: [mzet-/linux-exploit-suggester](https://github.com/mzet-/linux-exploit-suggester), local privesc auditor
+- `linuxprivchecker`: [sleventyeleven/linuxprivchecker](https://github.com/sleventyeleven/linuxprivchecker), script-based linux audit
 - `windows-exploit-suggester`: [AonCyberLabs/Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
 - `xss-payload-list`: [payloadbox/xss-payload-list](https://github.com/payloadbox/xss-payload-list)
 
 ### -> Detection Engineering and Analytics
-- `chainsaw`: [WithSecureLabs/chainsaw](https://github.com/WithSecureLabs/chainsaw) — fast Sigma-based event log triage (verify — high-priority)
-- `loki`: [Neo23x0/Loki](https://github.com/Neo23x0/Loki) — Florian Roth's IOC scanner
+- `chainsaw`: [WithSecureLabs/chainsaw](https://github.com/WithSecureLabs/chainsaw), fast Sigma-based event log triage (verify, high-priority)
+- `loki`: [Neo23x0/Loki](https://github.com/Neo23x0/Loki), Florian Roth's IOC scanner
 
 ### -> Digital Forensics and Incident Response
 - `bulk-extractor`: [simsong/bulk_extractor](https://github.com/simsong/bulk_extractor)
 - `kape`: Eric Zimmerman tooling already covered; verify KAPE specifically
-- `regripper`: [keydet89/RegRipper3.0](https://github.com/keydet89/RegRipper3.0) — registry parser
+- `regripper`: [keydet89/RegRipper3.0](https://github.com/keydet89/RegRipper3.0), registry parser
 - `samdump2`: old but still shipped
-- `volatility-cmt`: [volatilityfoundation/community](https://github.com/volatilityfoundation/community) — Volatility plugin community
+- `volatility-cmt`: [volatilityfoundation/community](https://github.com/volatilityfoundation/community), Volatility plugin community
 
 ### -> Email Security and Anti-Phishing
-- `swaks`: [jetmore/swaks](https://github.com/jetmore/swaks) — SMTP swiss-army knife
-- `phishery`: [ryhanson/phishery](https://github.com/ryhanson/phishery) — basic auth phishing for docs
+- `swaks`: [jetmore/swaks](https://github.com/jetmore/swaks), SMTP swiss-army knife
+- `phishery`: [ryhanson/phishery](https://github.com/ryhanson/phishery), basic auth phishing for docs
 
 ### -> Malware Analysis and Reverse Engineering
-- `bytecode-viewer`: [Konloch/bytecode-viewer](https://github.com/Konloch/bytecode-viewer) — Java disassembler
-- `manticore`: [trailofbits/manticore](https://github.com/trailofbits/manticore) — symbolic execution
-- `pdfid` / `pdfparser`: [DidierStevens/DidierStevensSuite](https://github.com/DidierStevens/DidierStevensSuite) — PDF triage
-- `peepdf`: [jesparza/peepdf](https://github.com/jesparza/peepdf) — PDF analysis
-- `radare2-cutter`: [rizinorg/cutter](https://github.com/rizinorg/cutter) — Qt disassembler GUI
-- `stringsifter`: [mandiant/stringsifter](https://github.com/mandiant/stringsifter) — ML-ranked strings
+- `bytecode-viewer`: [Konloch/bytecode-viewer](https://github.com/Konloch/bytecode-viewer), Java disassembler
+- `manticore`: [trailofbits/manticore](https://github.com/trailofbits/manticore), symbolic execution
+- `pdfid` / `pdfparser`: [DidierStevens/DidierStevensSuite](https://github.com/DidierStevens/DidierStevensSuite), PDF triage
+- `peepdf`: [jesparza/peepdf](https://github.com/jesparza/peepdf), PDF analysis
+- `radare2-cutter`: [rizinorg/cutter](https://github.com/rizinorg/cutter), Qt disassembler GUI
+- `stringsifter`: [mandiant/stringsifter](https://github.com/mandiant/stringsifter), ML-ranked strings
 
 ### -> OSINT and External Reconnaissance
-- `cewl`: [digininja/CeWL](https://github.com/digininja/CeWL) — wordlist scraper
+- `cewl`: [digininja/CeWL](https://github.com/digininja/CeWL), wordlist scraper
 - `email2phonenumber`: [martinvigo/email2phonenumber](https://github.com/martinvigo/email2phonenumber)
-- `metagoofil`: [laramies/metagoofil](https://github.com/laramies/metagoofil) — file metadata scraper
-- `osrframework`: [i3visio/osrframework](https://github.com/i3visio/osrframework) — OSINT framework
-- `pwndb`: [davidtavarez/pwndb](https://github.com/davidtavarez/pwndb) — leaked credential search
+- `metagoofil`: [laramies/metagoofil](https://github.com/laramies/metagoofil), file metadata scraper
+- `osrframework`: [i3visio/osrframework](https://github.com/i3visio/osrframework), OSINT framework
+- `pwndb`: [davidtavarez/pwndb](https://github.com/davidtavarez/pwndb), leaked credential search
 
 ### -> Wireless Security (slated for new List)
-- `eaphammer`: [s0lst1c3/eaphammer](https://github.com/s0lst1c3/eaphammer) — WPA2-Enterprise targeted attacks
-- `fluxion`: [FluxionNetwork/fluxion](https://github.com/FluxionNetwork/fluxion) — automated WPA evil twin
-- `hcxdumptool` / `hcxtools`: [ZerBea/hcxdumptool](https://github.com/ZerBea/hcxdumptool) — modern WPA capture
-- `hostapd-mana`: [sensepost/hostapd-mana](https://github.com/sensepost/hostapd-mana) — Mana rogue AP
-- `pixiewps`: [wiire-a/pixiewps](https://github.com/wiire-a/pixiewps) — WPS pixie-dust attack
-- `wifite2`: [derv82/wifite2](https://github.com/derv82/wifite2) — automated WPA cracking
+- `eaphammer`: [s0lst1c3/eaphammer](https://github.com/s0lst1c3/eaphammer), WPA2-Enterprise targeted attacks
+- `fluxion`: [FluxionNetwork/fluxion](https://github.com/FluxionNetwork/fluxion), automated WPA evil twin
+- `hcxdumptool` / `hcxtools`: [ZerBea/hcxdumptool](https://github.com/ZerBea/hcxdumptool), modern WPA capture
+- `hostapd-mana`: [sensepost/hostapd-mana](https://github.com/sensepost/hostapd-mana), Mana rogue AP
+- `pixiewps`: [wiire-a/pixiewps](https://github.com/wiire-a/pixiewps), WPS pixie-dust attack
+- `wifite2`: [derv82/wifite2](https://github.com/derv82/wifite2), automated WPA cracking
 - `airgeddon`: already covered
 
 ### -> Application Security (SAST/DAST/AppSec)
-- `graudit`: [wireghoul/graudit](https://github.com/wireghoul/graudit) — grep-based source auditor
-- `ssh-audit`: [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit) — SSH config auditor
-- `sslyze`: [nabla-c0d3/sslyze](https://github.com/nabla-c0d3/sslyze) — TLS scanner
-- `testssl.sh`: [drwetter/testssl.sh](https://github.com/drwetter/testssl.sh) — TLS scanner (verify)
-- `whatweb`: [urbanadventurer/WhatWeb](https://github.com/urbanadventurer/WhatWeb) — web fingerprinter
-- `wfuzz`: [xmendez/wfuzz](https://github.com/xmendez/wfuzz) — web fuzzer
-- `tplmap`: [epinna/tplmap](https://github.com/epinna/tplmap) — server-side template injection
-- `weevely`: [epinna/weevely3](https://github.com/epinna/weevely3) — PHP webshell
+- `graudit`: [wireghoul/graudit](https://github.com/wireghoul/graudit), grep-based source auditor
+- `ssh-audit`: [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit), SSH config auditor
+- `sslyze`: [nabla-c0d3/sslyze](https://github.com/nabla-c0d3/sslyze), TLS scanner
+- `testssl.sh`: [drwetter/testssl.sh](https://github.com/drwetter/testssl.sh), TLS scanner (verify)
+- `whatweb`: [urbanadventurer/WhatWeb](https://github.com/urbanadventurer/WhatWeb), web fingerprinter
+- `wfuzz`: [xmendez/wfuzz](https://github.com/xmendez/wfuzz), web fuzzer
+- `tplmap`: [epinna/tplmap](https://github.com/epinna/tplmap), server-side template injection
+- `weevely`: [epinna/weevely3](https://github.com/epinna/weevely3), PHP webshell
 - `joomscan`: [OWASP/joomscan](https://github.com/OWASP/joomscan)
 - `skipfish`: abandoned; skip
 
@@ -138,13 +138,13 @@ The following Kali-shipped tools are deliberately excluded from the worth-adding
 
 - Commercial / closed source: `burpsuite`, `maltego`, `jeb-ce`, `nessus` (not in Kali default but referenced). The free trials live in the user's licence list, not the Stars Lists.
 
-- Deprecated / no commit activity in 5+ years: `b374k`, `cisco7crack`, `cisco-ocs`, `cisco-torch`, `cisco-global-exploiter`, `copy-router-config`, `cutycapt`, `dbd`, `dhcpig`, `dirb`, `dirbuster`, `dnsmap`, `dns2tcp` (verify), `doona`, `dotdotpwn`, `enumiax`, `fierce`, `fiked`, `firmware-mod-kit`, `framework2`, `ftester`, `goldeneye`, `goofile`, `inetsim`, `intersect`, `intrace`, `ismtp`, `isr-evilgrade`, `joomscan` (slow), `kalibrate-rtl`, `magicrescue`, `medusa`, `mfcuk`, `mfoc`, `mfterm`, `miredo`, `missidentify`, `multimac`, `multimon-ng`, `ndiff`, `netdiscover` (verify), `nipper-ng`, `ohrwurm`, `ollydbg`, `ollydbg2`, `onesixtyone` (revived?), `parsero`, `pcaplookup`, `pdf-id`, `polenum`, `proxytunnel`, `psad`, `pst-utils`, `randomgenerator`, `rcracki-mt`, `rebind`, `redfang`, `regdump`, `rkhunter` (slow upstream), `rlogin-rcp-rsh`, `rsmangler`, `sakis3g`, `sbd`, `sca`, `scalpel`, `secure-delete`, `serpico`, `set` (Social Engineering Toolkit — verify), `shellnoob`, `shellter`, `siege`, `sipsak`, `slowhttptest`, `smbnetfs`, `smtp-user-enum`, `sniffjoke`, `snmpcheck`, `solfege`, `spike`, `sqlninja`, `sqlsus`, `ssss`, `stf`, `tachyon`, `tcpkill`, `thc-pptp-bruter`, `thc-ssl-dos`, `tnscmd10g`, `udptunnel`, `uniscan`, `vega`, `voipong`, `volume_key`, `webacoo`, `webscarab`, `websploit`, `wig`, `winexe`, `wnaf-tools`, `xerosploit`, `xprobe`, `xspy`, `xsser`, `yersinia`, `zerologon` (POC — research interest only). Triage by activity, not nostalgia.
+- Deprecated / no commit activity in 5+ years: `b374k`, `cisco7crack`, `cisco-ocs`, `cisco-torch`, `cisco-global-exploiter`, `copy-router-config`, `cutycapt`, `dbd`, `dhcpig`, `dirb`, `dirbuster`, `dnsmap`, `dns2tcp` (verify), `doona`, `dotdotpwn`, `enumiax`, `fierce`, `fiked`, `firmware-mod-kit`, `framework2`, `ftester`, `goldeneye`, `goofile`, `inetsim`, `intersect`, `intrace`, `ismtp`, `isr-evilgrade`, `joomscan` (slow), `kalibrate-rtl`, `magicrescue`, `medusa`, `mfcuk`, `mfoc`, `mfterm`, `miredo`, `missidentify`, `multimac`, `multimon-ng`, `ndiff`, `netdiscover` (verify), `nipper-ng`, `ohrwurm`, `ollydbg`, `ollydbg2`, `onesixtyone` (revived?), `parsero`, `pcaplookup`, `pdf-id`, `polenum`, `proxytunnel`, `psad`, `pst-utils`, `randomgenerator`, `rcracki-mt`, `rebind`, `redfang`, `regdump`, `rkhunter` (slow upstream), `rlogin-rcp-rsh`, `rsmangler`, `sakis3g`, `sbd`, `sca`, `scalpel`, `secure-delete`, `serpico`, `set` (Social Engineering Toolkit; verify), `shellnoob`, `shellter`, `siege`, `sipsak`, `slowhttptest`, `smbnetfs`, `smtp-user-enum`, `sniffjoke`, `snmpcheck`, `solfege`, `spike`, `sqlninja`, `sqlsus`, `ssss`, `stf`, `tachyon`, `tcpkill`, `thc-pptp-bruter`, `thc-ssl-dos`, `tnscmd10g`, `udptunnel`, `uniscan`, `vega`, `voipong`, `volume_key`, `webacoo`, `webscarab`, `websploit`, `wig`, `winexe`, `wnaf-tools`, `xerosploit`, `xprobe`, `xspy`, `xsser`, `yersinia`, `zerologon` (POC, research interest only). Triage by activity, not nostalgia.
 
 ## What this analysis is good for
 
 - Defending the curation against "you don't have X" challenges. When someone asks "where's `feroxbuster`?" the answer is here, in the worth-adding queue, with a triage rationale.
 - Avoiding curation drift. Mass-starring all 547 uncovered Kali tools would inflate the catalogue by 50% overnight with mostly distro-package noise. This document is the explicit decision *not* to do that.
-- Operating as a planning artifact. The worth-adding queue is the next-actions list for the Stars Lists — additions go through the same classifier (`smart_categorize.py`) and bulk-add pipeline documented in [Field Notes](/research/FIELD_NOTES.md).
+- Operating as a planning artifact. The worth-adding queue is the next-actions list for the Stars Lists; additions go through the same classifier (`smart_categorize.py`) and bulk-add pipeline documented in [Field Notes](/research/FIELD_NOTES.md).
 
 ## Adjacent reference distributions
 

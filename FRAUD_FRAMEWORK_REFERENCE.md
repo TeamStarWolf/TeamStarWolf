@@ -1,13 +1,13 @@
 # MITRE Fight Fraud Framework (F3) Reference
 
-> The [MITRE Fight Fraud Framework™ (F3)](https://ctid.mitre.org/fraud) is a behavior-based model of cyber-enabled financial fraud — the ATT&CK-style counterpart for fraud actor tradecraft. This reference covers all 123 techniques (74 techniques + 49 sub-techniques) across F3's 8 tactics (v1.1).
+> The [MITRE Fight Fraud Framework™ (F3)](https://ctid.mitre.org/fraud) is a behavior-based model of cyber-enabled financial fraud, the ATT&CK-style counterpart for fraud actor tradecraft. This reference covers all 123 techniques (74 techniques + 49 sub-techniques) across F3's 8 tactics (v1.1).
 
 | | |
 |---|---|
 | Read this when | a fraud desk and the SOC are describing the same incident in different words, you need to name a fraud behavior (account takeover, mule cash-out, check fraud) with a standard technique ID, you are mapping fraud coverage onto ATT&CK-based detections |
 | Start at | [The F3 kill chain](#the-f3-kill-chain) for the 8-tactic overview, [Monetization](#monetization) for where the money actually leaves, [Using F3 with the rest of this library](#using-f3-with-the-rest-of-this-library) to connect it to detections and CTEM |
 
-F3 was developed by the MITRE [Center for Threat-Informed Defense](https://ctid.mitre.org/) (CTID) with FS-ISAC, Citi, JPMorganChase, CrowdStrike, Lloyds Banking Group, Standard Chartered, Verizon Business, RH-ISAC, A-ISAC, Marsh, and the National Retail Federation — derived from real-world fraud incidents. It gives fraud teams and cyber teams one shared vocabulary, so an event seen by the SOC and an event seen by the fraud desk can be described as the same behavior chain.
+F3 was developed by the MITRE [Center for Threat-Informed Defense](https://ctid.mitre.org/) (CTID) with FS-ISAC, Citi, JPMorganChase, CrowdStrike, Lloyds Banking Group, Standard Chartered, Verizon Business, RH-ISAC, A-ISAC, Marsh, and the National Retail Federation, derived from real-world fraud incidents. It gives fraud teams and cyber teams one shared vocabulary, so an event seen by the SOC and an event seen by the fraud desk can be described as the same behavior chain.
 
 | | |
 |---|---|
@@ -18,7 +18,7 @@ F3 was developed by the MITRE [Center for Threat-Informed Defense](https://ctid.
 | Navigator layer | [`navigator/fraud/f3-matrix.json`](navigator/fraud/f3-matrix.json) |
 | Datasets | [`data/fraud/f3_techniques.jsonl`](data/fraud/f3_techniques.jsonl), [`data/fraud/f3_tactics.jsonl`](data/fraud/f3_tactics.jsonl) |
 
-Why it matters. Traditional ATT&CK coverage stops at the intrusion. Fraud loss usually happens *after* it — in account takeover, mule networks, and cash-out. F3 extends the behavioral model through to Monetization, which is where the money actually leaves. Pair it with the [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) and [CTEM Reference](CTEM_REFERENCE.md) for the full exposure-to-impact picture.
+Why it matters. Traditional ATT&CK coverage stops at the intrusion. Fraud loss usually happens *after* it: in account takeover, mule networks, and cash-out. F3 extends the behavioral model through to Monetization, which is where the money actually leaves. Pair it with the [Threat-Informed Defense Reference](THREAT_INFORMED_DEFENSE_REFERENCE.md) and [CTEM Reference](CTEM_REFERENCE.md) for the full exposure-to-impact picture.
 
 ---
 
@@ -107,7 +107,7 @@ The fraud actor's actions to gain a foothold in a selected environment. Initial 
 | &nbsp;&nbsp;↳ [F1002.001 Mobile API Abuse](https://ctid.mitre.org/fraud/techniques/F1002.001) | Fraud actors may exploit mobile-specific APIs to conduct fraud operations. This may include using modified mobile applications, mobile device emulators, or custom scripts to generate fraudulent API ca... |
 | &nbsp;&nbsp;↳ [F1002.002 Web API Abuse](https://ctid.mitre.org/fraud/techniques/F1002.002) | Fraud actors may abuse web-based APIs exposed through websites or web applications to automate fraud operations. This may include leveraging botnets, proxy networks, or headless browsers to mimic legi... |
 | [F1004 Access with Stolen Session Cookie](https://ctid.mitre.org/fraud/techniques/F1004) | Fraud actors may use stolen session cookies to gain unauthorized access to user accounts without requiring authentication credentials. Session cookies maintain user login state and may be obtained through phishing, malware, network intercep... |
-| [F1006 Account Takeover](https://ctid.mitre.org/fraud/techniques/F1006) | Fraud actors may gain unauthorized access and control of a customer’s bank or payment account on a financial platform or service. This typically involves compromising the account used to hold and move funds—such as online banking, card‑issu... |
+| [F1006 Account Takeover](https://ctid.mitre.org/fraud/techniques/F1006) | Fraud actors may gain unauthorized access and control of a customer’s bank or payment account on a financial platform or service. This typically involves compromising the account used to hold and move funds, such as online banking, card‑issu... |
 | &nbsp;&nbsp;↳ [F1006.001 Exposed API Key](https://ctid.mitre.org/fraud/techniques/F1006.001) | Fraudsters may take over accounts by obtaining exposed API keys that are intended to authorize programmatic access to financial services. An exposed key can allow unauthorized interaction with payment... |
 | &nbsp;&nbsp;↳ [F1006.002 Exposed Login Credential](https://ctid.mitre.org/fraud/techniques/F1006.002) | Fraudsters may gain control of accounts by using exposed login credentials, such as usernames and passwords leaked or stolen from other sources. Using these credentials, they authenticate directly to... |
 | &nbsp;&nbsp;↳ [F1006.003 Password Reset](https://ctid.mitre.org/fraud/techniques/F1006.003) | Fraudsters may seize control of accounts by abusing password reset and account recovery mechanisms. By compromising a victim’s email account or intercepting reset links and one‑time codes, they can in... |
@@ -304,4 +304,4 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Socia
 
 ---
 
-*Source: MITRE Fight Fraud Framework™ (F3) v1.1, MITRE Center for Threat-Informed Defense — [ctid.mitre.org/fraud](https://ctid.mitre.org/fraud), [github](https://github.com/center-for-threat-informed-defense/fight-fraud-framework) (Apache-2.0). MITRE F3™ and ATT&CK® are trademarks of The MITRE Corporation. This is an independent reference summary; consult the upstream project for authoritative and current content.*
+*Source: MITRE Fight Fraud Framework™ (F3) v1.1, MITRE Center for Threat-Informed Defense, [ctid.mitre.org/fraud](https://ctid.mitre.org/fraud), [github](https://github.com/center-for-threat-informed-defense/fight-fraud-framework) (Apache-2.0). MITRE F3™ and ATT&CK® are trademarks of The MITRE Corporation. This is an independent reference summary; consult the upstream project for authoritative and current content.*

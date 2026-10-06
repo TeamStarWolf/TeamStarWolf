@@ -1,6 +1,6 @@
 # Network Security
 
-Network security encompasses the tools, techniques, and disciplines used to monitor, defend, and investigate network traffic. It spans network security monitoring (NSM), intrusion detection and prevention (IDS/IPS), traffic analysis and packet capture, wireless security, and the detection of adversary behaviors in network data — command-and-control beaconing, lateral movement, data exfiltration, and protocol abuse. Network security practitioners work with raw packet data, flow records, DNS logs, and proxy logs to reconstruct adversary activity that endpoint tools never see, and to detect threats in environments where agents cannot be deployed.
+Network security encompasses the tools, techniques, and disciplines used to monitor, defend, and investigate network traffic. It spans network security monitoring (NSM), intrusion detection and prevention (IDS/IPS), traffic analysis and packet capture, wireless security, and the detection of adversary behaviors in network data: command-and-control beaconing, lateral movement, data exfiltration, and protocol abuse. Network security practitioners work with raw packet data, flow records, DNS logs, and proxy logs to reconstruct adversary activity that endpoint tools never see, and to detect threats in environments where agents cannot be deployed.
 
 The discipline has expanded significantly with the rise of encrypted traffic, cloud networking, and east-west lateral movement that never crosses a perimeter. Modern network security requires understanding TLS inspection, cloud VPC flow logs, DNS-over-HTTPS implications for detection, and the network behavior signatures of sophisticated threat actors who specifically design their tools to blend into normal business traffic.
 
@@ -8,7 +8,7 @@ The discipline has expanded significantly with the rise of encrypted traffic, cl
 
 ## Where to Start
 
-Network security rewards people who understand how protocols actually work. Spend time with Wireshark before learning any detection tools — understand what normal HTTP, DNS, SMB, and Kerberos traffic looks like at the packet level before trying to detect anomalies in it. The free Wireshark University videos and Chris Sanders' Applied NSM content are the right starting points. From there, learn Zeek for structured log generation, then Suricata for signature-based detection.
+Network security rewards people who understand how protocols actually work. Spend time with Wireshark before learning any detection tools; understand what normal HTTP, DNS, SMB, and Kerberos traffic looks like at the packet level before trying to detect anomalies in it. The free Wireshark University videos and Chris Sanders' Applied NSM content are the right starting points. From there, learn Zeek for structured log generation, then Suricata for signature-based detection.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|

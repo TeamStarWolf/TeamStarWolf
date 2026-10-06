@@ -542,7 +542,7 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8
 
 ### 3.1 binwalk
 
-binwalk is the primary tool for firmware analysis — it identifies file signatures, compression boundaries, encrypted regions, and embedded filesystems.
+binwalk is the primary tool for firmware analysis: it identifies file signatures, compression boundaries, encrypted regions, and embedded filesystems.
 
 Installation:
 ```bash
@@ -1279,7 +1279,7 @@ client.set_security_string("Basic256Sha256,SignAndEncrypt,cert.der,key.pem")
 
 ### 5.4 Modbus TCP Security
 
-Modbus TCP runs on port 502. No authentication, no encryption — designed for isolated networks.
+Modbus TCP runs on port 502. No authentication, no encryption; designed for isolated networks.
 
 Modbus Attack Scenarios with pymodbus:
 ```python
@@ -2414,7 +2414,7 @@ Forescout Platform:
 - Integration: Cisco ISE, Aruba ClearPass
 ```
 
-Open Source Alternative — Nmap + Custom Fingerprinting:
+Open Source Alternative (Nmap + Custom Fingerprinting):
 ```bash
 # Regular automated inventory scan
 nmap -sn -T4 192.168.20.0/24 -oX iot_scan_$(date +%Y%m%d).xml
@@ -2493,7 +2493,7 @@ az iot defender sensor create     --name "factory-floor-sensor"     --resource-g
 
 ### 10.5 SBOM Requirements for IoT
 
-Software Bill of Materials (SBOM) — IoT Context:
+Software Bill of Materials (SBOM), IoT Context:
 
 ```
 SBOM formats:

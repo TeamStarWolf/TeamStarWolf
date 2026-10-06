@@ -8,7 +8,7 @@
 | Start at | [Engagement Scoping and Legal Framework](#_1-engagement-scoping-and-legal-framework), [Reconnaissance](#_2-reconnaissance), [Professional Reporting](#_8-professional-reporting) |
 | Pairs with | [PENTEST_CHECKLISTS.md](PENTEST_CHECKLISTS.md), [WEB_APPLICATION_PENTESTING.md](WEB_APPLICATION_PENTESTING.md), [PRIVESC_REFERENCE.md](PRIVESC_REFERENCE.md), [RED_TEAM_REFERENCE.md](RED_TEAM_REFERENCE.md) |
 
-> Classification: Internal Use -- Authorized Security Personnel Only
+> Classification: Internal Use, Authorized Security Personnel Only
 > Standard: PTES, OWASP Testing Guide v4.2, NIST SP 800-115, MITRE ATT&CK v19.2
 > Last Updated: 2026-04-26
 
@@ -179,7 +179,7 @@ Transmission Security
 
 ### 1.5 Emergency Procedures and Kill Switch
 
-Kill Switch Conditions -- Testing stops immediately upon:
+Kill Switch Conditions. Testing stops immediately upon:
 
 1. Production systems becoming unresponsive, degraded, or reporting anomalies
 2. Inadvertent access to or exfiltration of real user or customer data

@@ -1185,7 +1185,7 @@ High-profile incidents:
 
 #### BGP Route Leaks
 
-A route leak occurs when an AS re-announces routes it should not -- typically advertising routes learned from a peer to another peer or upstream.
+A route leak occurs when an AS re-announces routes it should not, typically advertising routes learned from a peer to another peer or upstream.
 
 - 2019 Cloudflare/Verizon: DQE Communications leaked 212 routes through Allegheny Technologies to Verizon, which propagated globally, making Cloudflare briefly unreachable for millions.
 - 2010 Moratel: Leaked Google prefixes, causing outages.

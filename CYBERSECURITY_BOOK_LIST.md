@@ -1110,7 +1110,7 @@ YouTube: [John Hammond](https://www.youtube.com/@_JohnHammond) | [IppSec](https:
 
 ## Hacker Culture Classics (Extended)
 
-> These titles round out the cultural and historical canon -- covering the origins of hacker culture, the 1990s federal crackdowns, cybercrime journalism, and techno-fiction that gets the details right. Read alongside the main Hacker Culture / History section.
+> These titles round out the cultural and historical canon, covering the origins of hacker culture, the 1990s federal crackdowns, cybercrime journalism, and techno-fiction that gets the details right. Read alongside the main Hacker Culture / History section.
 
 | Book | Author | Year | Level | Why Read |
 |---|---|---|---|---|
@@ -1120,7 +1120,7 @@ YouTube: [John Hammond](https://www.youtube.com/@_JohnHammond) | [IppSec](https:
 | We Are Anonymous | Parmy Olson | 2012 | Anyone | Inside Anonymous; LulzSec; hacktivism; social dynamics of online collectives; IRC culture |
 | Zero Day | Mark Russinovich | 2011 | Fiction | Techno-thriller by the Sysinternals creator; surprisingly technically accurate; good gateway fiction |
 
-> Note: *The Hacker Crackdown* is freely available online (Bruce Sterling released it). *Hackers: Heroes* explains why the hacker ethic exists -- understanding it makes you a better defender and more ethical practitioner.
+> Note: *The Hacker Crackdown* is freely available online (Bruce Sterling released it). *Hackers: Heroes* explains why the hacker ethic exists; understanding it makes you a better defender and more ethical practitioner.
 
 Hands-on repos:
 - [APTnotes](https://github.com/kbandla/APTnotes) - Real APT campaign reports (modern equivalent of the stories in these books)

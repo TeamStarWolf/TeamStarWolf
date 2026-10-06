@@ -1956,4 +1956,4 @@ Hybrid approach (most enterprises):
 
 ---
 
-*SIEM Reference Library -- Generated 2026-05-06 | TeamStarWolf Security*
+*SIEM Reference Library, generated 2026-05-06 | TeamStarWolf Security*

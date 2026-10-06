@@ -134,7 +134,7 @@ deborphan   # Debian/Ubuntu
 
 ### 1.6 OS Update Management
 
-RHEL/CentOS -- dnf-automatic:
+RHEL/CentOS (dnf-automatic):
 ```bash
 # Install
 dnf install dnf-automatic
@@ -151,7 +151,7 @@ systemctl enable --now dnf-automatic-install.timer
 systemctl status dnf-automatic-install.timer
 ```
 
-Debian/Ubuntu -- unattended-upgrades:
+Debian/Ubuntu (unattended-upgrades):
 ```bash
 apt-get install unattended-upgrades apt-listchanges
 
@@ -1979,7 +1979,7 @@ showmount -e localhost
 
 ### 9.1 Host-Based IDS
 
-Wazuh (OSSEC fork -- most actively maintained):
+Wazuh (OSSEC fork, most actively maintained):
 ```bash
 # Install Wazuh agent (connects to central manager)
 # RHEL/CentOS
@@ -2327,7 +2327,7 @@ oscap xccdf generate fix \
 
 ### 10.2 Hardening Automation Tools
 
-OpenSCAP -- Remediation Playbook Generation:
+OpenSCAP (Remediation Playbook Generation):
 ```bash
 # Generate Ansible remediation playbook from scan results
 oscap xccdf generate fix \
@@ -2385,7 +2385,7 @@ ansible-playbook -i inventory.ini harden.yml --check   # Dry run
 ansible-playbook -i inventory.ini harden.yml           # Apply
 ```
 
-Chef InSpec -- Compliance Testing:
+Chef InSpec (Compliance Testing):
 ```bash
 # Install InSpec
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
@@ -2565,4 +2565,4 @@ cat /proc/version                    # Kernel build info
 ---
 
 *Last updated: 2026-05-04 | Reference library for Linux system hardening, compliance, and security operations.*
-*Maintained by the security engineering team -- validate all commands in a test environment before production use.*
+*Maintained by the security engineering team. Validate all commands in a test environment before production use.*

@@ -155,7 +155,7 @@ The fastest legal path into offensive security is through structured lab environ
 
 ## Attack Lifecycle Overview
 
-The full offensive lifecycle maps to MITRE ATT&CK phases. Understanding each phase -- and the real tools used at each -- is essential for both operators and defenders.
+The full offensive lifecycle maps to MITRE ATT&CK phases. Understanding each phase, and the real tools used at each, is essential for both operators and defenders.
 
 #### Reconnaissance (TA0043)
 

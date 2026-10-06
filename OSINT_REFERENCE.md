@@ -89,7 +89,7 @@ with target systems.
 
 | Framework | Key Implication |
 |-----------|----------------|
-| CFAA (US) | Accessing a computer without authorization -- or exceeding authorized access -- is criminal even if data is technically visible |
+| CFAA (US) | Accessing a computer without authorization, or exceeding authorized access, is criminal even if data is technically visible |
 | GDPR (EU) | Processing personal data of EU residents requires a lawful basis; security research exemptions are narrow; data minimization mandatory |
 | CCPA (California) | Similar consent/data-minimization obligations for California residents |
 | Terms of Service | LinkedIn, Twitter, GitHub prohibit automated scraping; civil liability and account termination risk; use official APIs |
@@ -1517,19 +1517,19 @@ Organization
 
 When attributing threat actor infrastructure or activity:
 
-Level 1 -- Technical Indicators (Low confidence alone):
+Level 1, Technical Indicators (Low confidence alone):
 - Shared IP/ASN
 - Reused SSL certificate fingerprint
 - Same registrar/registration pattern (WHOIS similarity)
 - Common hosting provider
 
-Level 2 -- Behavioral Indicators (Medium confidence):
+Level 2, Behavioral Indicators (Medium confidence):
 - Same malware family with similar configuration
 - Same C2 communication protocol and URIs
 - Operational schedule overlaps (timezone inference from commit/activity times)
 - Similar victimology (same sectors targeted)
 
-Level 3 -- Strategic Indicators (High confidence when combined):
+Level 3, Strategic Indicators (High confidence when combined):
 - Overlapping TTPs matching known actor profile (MITRE ATT&CK)
 - Victimology consistent with known actor geopolitical interests
 - Intelligence community corroboration
@@ -1690,9 +1690,9 @@ MITRE ATT&CK v19.2 Reconnaissance (TA0043) techniques and OSINT tool mapping:
 | T1597.001 | Threat Intel Vendors | Commercial feeds | Mandiant, CrowdStrike, Recorded Future |
 | T1597.002 | Purchase Technical Data | Credential markets (monitor only) | (monitor only: never purchase) |
 | T1598 | Phishing for Information | Pretext calls/emails for information | Social engineering (authorized only) |
-| T1598.001 | Spearphishing Service | Via third-party messaging service | -- |
-| T1598.002 | Spearphishing Attachment | Weaponized document with tracking | -- |
-| T1598.003 | Spearphishing Link | Credential harvesting page | -- |
+| T1598.001 | Spearphishing Service | Via third-party messaging service | N/A |
+| T1598.002 | Spearphishing Attachment | Weaponized document with tracking | N/A |
+| T1598.003 | Spearphishing Link | Credential harvesting page | N/A |
 
 ---
 

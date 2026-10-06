@@ -1532,9 +1532,9 @@ File carving recovers files from unallocated space using header/footer signature
 | PNG | `89 50 4E 47 0D 0A 1A 0A` | `49 45 4E 44 AE 42 60 82` | |
 | ZIP/DOCX/XLSX | `50 4B 03 04` | `50 4B 05 06` | ZIP local file header |
 | GIF | `47 49 46 38` (GIF8) | `00 3B` | |
-| Windows PE | `4D 5A` (MZ) | -- | Use size from PE header |
-| SQLite | `53 51 4C 69 74 65 20 33` (SQLite 3) | -- | |
-| ELF | `7F 45 4C 46` | -- | Linux executables |
+| Windows PE | `4D 5A` (MZ) | N/A | Use size from PE header |
+| SQLite | `53 51 4C 69 74 65 20 33` (SQLite 3) | N/A | |
+| ELF | `7F 45 4C 46` | N/A | Linux executables |
 
 #### Scalpel Configuration and Usage
 ```bash
@@ -2508,7 +2508,7 @@ psort.py -o json -w output.json output.plaso
 psort.py -o xlsx -w timeline.xlsx output.plaso
 ```
 
-Timeline Explorer (Eric Zimmerman -- Windows GUI):
+Timeline Explorer (Eric Zimmerman, Windows GUI):
 ```cmd
 TimelineExplorer.exe timeline.csv
 :: Features: filter, search, highlight, group by source type
@@ -2539,7 +2539,7 @@ Verified intact: Yes / No
 Signature: _________________________
 ```
 
-Digital CoC -- Hash-Based Verification:
+Digital CoC (Hash-Based Verification):
 ```bash
 # At each transfer point, generate and record hashes
 sha256sum evidence.dd > evidence.dd.sha256

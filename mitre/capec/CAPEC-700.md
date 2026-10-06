@@ -1,17 +1,17 @@
-# CAPEC-700 — Network Boundary Bridging
+# CAPEC-700: Network Boundary Bridging
 
 <a id="capec-700"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary which has gained elevated access to network boundary devices may use these devices to create a channel to bridge trusted and untrusted networks. Boundary devices do not necessarily have to be on the network’s edge, but rather must serve to segment portions of the target network the adversary wishes to cross into.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1599 — Network Boundary Bridging](/mitre/techniques/T1599.md) — Adversaries may bridge network boundaries by compromising perimeter network devices or internal devices responsible for network segmentation.
+- [T1599: Network Boundary Bridging](/mitre/techniques/T1599.md): Adversaries may bridge network boundaries by compromising perimeter network devices or internal devices responsible for network segmentation.
 
 ## Prerequisites
 
@@ -37,4 +37,4 @@ An adversary which has gained elevated access to network boundary devices may us
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

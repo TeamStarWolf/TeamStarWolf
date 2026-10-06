@@ -1,16 +1,16 @@
-# CAPEC-618 — Cellular Broadcast Message Request
+# CAPEC-618: Cellular Broadcast Message Request
 
 <a id="capec-618"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Low  
+Status: Draft  
 
 In this attack scenario, the attacker uses knowledge of the target’s mobile phone number (i.e., the number associated with the SIM used in the retransmission device) to cause the cellular network to send broadcast messages to alert the mobile device. Since the network knows which cell tower the target’s mobile device is attached to, the broadcast messages are only sent in the Location Area Code (LAC) where the target is currently located. By triggering the cellular broadcast message and then listening for the presence or absence of that message, an attacker could verify that the target is in (or not in) a given location.
 
 ## Related CWE (1)
 
-- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html) — The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
+- [CWE-201: Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html): The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
 
 ## Prerequisites
 
@@ -30,4 +30,4 @@ In this attack scenario, the attacker uses knowledge of the target’s mobile ph
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

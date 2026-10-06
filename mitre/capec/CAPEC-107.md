@@ -1,18 +1,18 @@
-# CAPEC-107 — Cross Site Tracing
+# CAPEC-107: Cross Site Tracing
 
 <a id="capec-107"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Very High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Very High  
+Likelihood: Medium  
+Status: Draft  
 
 Cross Site Tracing (XST) enables an adversary to steal the victim's session cookie and possibly other authentication credentials transmitted in the header of the HTTP request when the victim's browser communicates to a destination system's web server.
 
 ## Related CWE (2)
 
-- [CWE-693 — Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html) — The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
-- [CWE-648 — Incorrect Use of Privileged APIs](https://cwe.mitre.org/data/definitions/648.html) — The product does not conform to the API requirements for a function call that requires extra privileges.
+- [CWE-693: Protection Mechanism Failure](https://cwe.mitre.org/data/definitions/693.html): The product does not use or incorrectly uses a protection mechanism that provides sufficient defense against directed attacks against the product.
+- [CWE-648: Incorrect Use of Privileged APIs](https://cwe.mitre.org/data/definitions/648.html): The product does not conform to the API requirements for a function call that requires extra privileges.
 
 ## Prerequisites
 
@@ -38,4 +38,4 @@ Cross Site Tracing (XST) enables an adversary to steal the victim's session cook
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

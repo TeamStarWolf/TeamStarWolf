@@ -1,12 +1,12 @@
-# CAPEC-566 — DEPRECATED: Dump Password Hashes
+# CAPEC-566: DEPRECATED: Dump Password Hashes
 
 <a id="capec-566"></a>
 
-**Abstraction:** Detailed  
-**Status:** Deprecated  
+Abstraction: Detailed  
+Status: Deprecated  
 
 This CAPEC has been deprecated because of is not directly related to a weakness, social engineering, supply chains, or a physical-based attack.
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

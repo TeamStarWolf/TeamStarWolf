@@ -1,21 +1,21 @@
-# CAPEC-132 — Symlink Attack
+# CAPEC-132: Symlink Attack
 
 <a id="capec-132"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An adversary positions a symbolic link in such a manner that the targeted user or application accesses the link's endpoint, assuming that it is accessing a file with the link's name.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1547.009 — Shortcut Modification](/mitre/techniques/T1547-009.md) — Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
+- [T1547.009: Shortcut Modification](/mitre/techniques/T1547-009.md): Adversaries may create or modify shortcuts that can execute a program during system boot or user login.
 
 ## Related CWE (1)
 
-- [CWE-59 — Improper Link Resolution Before File Access ('Link Following')](https://cwe.mitre.org/data/definitions/59.html) — The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.
+- [CWE-59: Improper Link Resolution Before File Access ('Link Following')](https://cwe.mitre.org/data/definitions/59.html): The product attempts to access a file based on the filename, but it does not properly prevent that filename from identifying a link or shortcut that resolves to an unintended resource.
 
 ## Prerequisites
 
@@ -44,4 +44,4 @@ An adversary positions a symbolic link in such a manner that the targeted user o
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,16 +1,16 @@
-# CAPEC-500 — WebView Injection
+# CAPEC-500: WebView Injection
 
 <a id="capec-500"></a>
 
-**Abstraction:** Detailed  
-**Status:** Draft  
+Abstraction: Detailed  
+Status: Draft  
 
 An adversary, through a previously installed malicious application, injects code into the context of a web page displayed by a WebView component. Through the injected code, an adversary is able to manipulate the DOM tree and cookies of the page, expose sensitive information, and can launch attacks against the web application from within the web page.
 
 ## Related CWE (2)
 
-- [CWE-749 — Exposed Dangerous Method or Function](https://cwe.mitre.org/data/definitions/749.html) — The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted.
-- [CWE-940 — Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html) — The product establishes a communication channel to handle an incoming request that has been initiated by an actor, but it does not properly verify that the request is coming from the expected origin.
+- [CWE-749: Exposed Dangerous Method or Function](https://cwe.mitre.org/data/definitions/749.html): The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not properly restricted.
+- [CWE-940: Improper Verification of Source of a Communication Channel](https://cwe.mitre.org/data/definitions/940.html): The product establishes a communication channel to handle an incoming request that has been initiated by an actor, but it does not properly verify that the request is coming from the expected origin.
 
 ## Prerequisites
 
@@ -22,4 +22,4 @@ An adversary, through a previously installed malicious application, injects code
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

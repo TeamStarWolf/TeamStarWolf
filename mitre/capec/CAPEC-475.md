@@ -1,19 +1,19 @@
-# CAPEC-475 — Signature Spoofing by Improper Validation
+# CAPEC-475: Signature Spoofing by Improper Validation
 
 <a id="capec-475"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An adversary exploits a cryptographic weakness in the signature verification algorithm implementation to generate a valid signature without knowing the key.
 
 ## Related CWE (3)
 
-- [CWE-347 — Improper Verification of Cryptographic Signature](https://cwe.mitre.org/data/definitions/347.html) — The product does not verify, or incorrectly verifies, the cryptographic signature for data.
-- [CWE-327 — Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html) — The product uses a broken or risky cryptographic algorithm or protocol.
-- [CWE-295 — Improper Certificate Validation](https://cwe.mitre.org/data/definitions/295.html) — The product does not validate, or incorrectly validates, a certificate.
+- [CWE-347: Improper Verification of Cryptographic Signature](https://cwe.mitre.org/data/definitions/347.html): The product does not verify, or incorrectly verifies, the cryptographic signature for data.
+- [CWE-327: Use of a Broken or Risky Cryptographic Algorithm](https://cwe.mitre.org/data/definitions/327.html): The product uses a broken or risky cryptographic algorithm or protocol.
+- [CWE-295: Improper Certificate Validation](https://cwe.mitre.org/data/definitions/295.html): The product does not validate, or incorrectly validates, a certificate.
 
 ## Prerequisites
 
@@ -30,4 +30,4 @@ An adversary exploits a cryptographic weakness in the signature verification alg
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

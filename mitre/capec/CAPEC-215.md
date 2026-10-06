@@ -1,18 +1,18 @@
-# CAPEC-215 — Fuzzing for application mapping
+# CAPEC-215: Fuzzing for application mapping
 
 <a id="capec-215"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Low  
+Likelihood: High  
+Status: Draft  
 
 An attacker sends random, malformed, or otherwise unexpected messages to a target application and observes the application's log or error messages returned. The attacker does not initially know how a target will respond to individual messages but by attempting a large number of message variants they may find a variant that trigger's desired behavior. In this attack, the purpose of the fuzzing is to observe the application's log and error messages, although fuzzing a target can also sometimes cause the target to enter an unstable state, causing a crash.
 
 ## Related CWE (2)
 
-- [CWE-209 — Generation of Error Message Containing Sensitive Information](https://cwe.mitre.org/data/definitions/209.html) — The product generates an error message that includes sensitive information about its environment, users, or associated data.
-- [CWE-532 — Insertion of Sensitive Information into Log File](https://cwe.mitre.org/data/definitions/532.html) — The product writes sensitive information to a log file.
+- [CWE-209: Generation of Error Message Containing Sensitive Information](https://cwe.mitre.org/data/definitions/209.html): The product generates an error message that includes sensitive information about its environment, users, or associated data.
+- [CWE-532: Insertion of Sensitive Information into Log File](https://cwe.mitre.org/data/definitions/532.html): The product writes sensitive information to a log file.
 
 ## Prerequisites
 
@@ -39,4 +39,4 @@ An attacker sends random, malformed, or otherwise unexpected messages to a targe
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

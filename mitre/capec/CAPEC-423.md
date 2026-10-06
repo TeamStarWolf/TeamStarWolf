@@ -1,11 +1,11 @@
-# CAPEC-423 — Influence Perception of Liking
+# CAPEC-423: Influence Perception of Liking
 
 <a id="capec-423"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Low  
+Likelihood: Medium  
+Status: Stable  
 
 The adversary influences the target's actions by building a relationship where the target has a liking to the adversary. People are more likely to be influenced by people of whom they are fond, so the adversary attempts to ingratiate themself with the target via actions, appearance, or a combination thereof.
 
@@ -27,4 +27,4 @@ The adversary influences the target's actions by building a relationship where t
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

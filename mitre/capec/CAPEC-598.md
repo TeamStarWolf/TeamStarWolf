@@ -1,9 +1,9 @@
-# CAPEC-598 — DNS Spoofing
+# CAPEC-598: DNS Spoofing
 
 <a id="capec-598"></a>
 
-**Abstraction:** Detailed  
-**Status:** Draft  
+Abstraction: Detailed  
+Status: Draft  
 
 An adversary sends a malicious ("NXDOMAIN" ("No such domain") code, or DNS A record) response to a target's route request before a legitimate resolver can. This technique requires an On-path or In-path device that can monitor and respond to the target's DNS requests. This attack differs from BGP Tampering in that it directly responds to requests made by the target instead of polluting the routing the target's infrastructure uses.
 
@@ -25,4 +25,4 @@ An adversary sends a malicious ("NXDOMAIN" ("No such domain") code, or DNS A rec
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

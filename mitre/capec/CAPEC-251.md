@@ -1,20 +1,20 @@
-# CAPEC-251 — Local Code Inclusion
+# CAPEC-251: Local Code Inclusion
 
 <a id="capec-251"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Medium  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Medium  
+Status: Stable  
 
 The attacker forces an application to load arbitrary code files from the local machine. The attacker could use this to try to load old versions of library files that have known vulnerabilities, to load files that the attacker placed on the local machine during a prior attack, or to otherwise change the functionality of the targeted application in unexpected ways.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1055 — Process Injection](/mitre/techniques/T1055.md) — Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges.
+- [T1055: Process Injection](/mitre/techniques/T1055.md): Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges.
 
 ## Related CWE (1)
 
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html): The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ The attacker forces an application to load arbitrary code files from the local m
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

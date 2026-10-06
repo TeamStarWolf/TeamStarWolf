@@ -1,25 +1,25 @@
-# CAPEC-640 — Inclusion of Code in Existing Process
+# CAPEC-640: Inclusion of Code in Existing Process
 
 <a id="capec-640"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Stable  
 
 The adversary takes advantage of a bug in an application failing to verify the integrity of the running process to execute arbitrary code in the address space of a separate live process. The adversary could use running code in the context of another process to try to access process's memory, system/network resources, etc. The goal of this attack is to evade detection defenses and escalate privileges by masking the malicious code under an existing legitimate process. Examples of approaches include but not limited to: dynamic-link library (DLL) injection, portable executable injection, thread execution hijacking, ptrace system calls, VDSO hijacking, function hooking, reflective code loading, and more.
 
 ## Mapped ATT&CK techniques (4)
 
-- [T1505.005 — Terminal Services DLL](/mitre/techniques/T1505-005.md) — Adversaries may abuse components of Terminal Services to enable persistent access to systems.
-- [T1574.006 — Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md) — Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
-- [T1574.013 — KernelCallbackTable](/mitre/techniques/T1574-013.md) — Adversaries may abuse the <code>KernelCallbackTable</code> of a process to hijack its execution flow in order to run their own payloads.
-- [T1620 — Reflective Code Loading](/mitre/techniques/T1620.md) — Adversaries may reflectively load code into a process in order to conceal the execution of malicious payloads.
+- [T1505.005: Terminal Services DLL](/mitre/techniques/T1505-005.md): Adversaries may abuse components of Terminal Services to enable persistent access to systems.
+- [T1574.006: Dynamic Linker Hijacking](/mitre/techniques/T1574-006.md): Adversaries may execute their own malicious payloads by hijacking environment variables the dynamic linker uses to load shared libraries.
+- [T1574.013: KernelCallbackTable](/mitre/techniques/T1574-013.md): Adversaries may abuse the <code>KernelCallbackTable</code> of a process to hijack its execution flow in order to run their own payloads.
+- [T1620: Reflective Code Loading](/mitre/techniques/T1620.md): Adversaries may reflectively load code into a process in order to conceal the execution of malicious payloads.
 
 ## Related CWE (2)
 
-- [CWE-114 — Process Control](https://cwe.mitre.org/data/definitions/114.html) — Executing commands or loading libraries from an untrusted source or in an untrusted environment can cause an application to execute malicious commands (and payloads) on behalf of an attacker.
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+- [CWE-114: Process Control](https://cwe.mitre.org/data/definitions/114.html): Executing commands or loading libraries from an untrusted source or in an untrusted environment can cause an application to execute malicious commands (and payloads) on behalf of an attacker.
+- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html): The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 
@@ -45,4 +45,4 @@ The adversary takes advantage of a bug in an application failing to verify the i
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

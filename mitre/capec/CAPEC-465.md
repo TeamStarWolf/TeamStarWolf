@@ -1,20 +1,20 @@
-# CAPEC-465 — Transparent Proxy Abuse
+# CAPEC-465: Transparent Proxy Abuse
 
 <a id="capec-465"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Medium  
+Status: Draft  
 
 A transparent proxy serves as an intermediate between the client and the internet at large. It intercepts all requests originating from the client and forwards them to the correct location. The proxy also intercepts all responses to the client and forwards these to the client. All of this is done in a manner transparent to the client.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1090.001 — Internal Proxy](/mitre/techniques/T1090-001.md) — Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment.
+- [T1090.001: Internal Proxy](/mitre/techniques/T1090-001.md): Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment.
 
 ## Related CWE (1)
 
-- [CWE-441 — Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html) — The product receives a request, message, or directive from an upstream component, but the product does not sufficiently preserve the original source of the request before forwarding the request to an external actor that is outside of the product's control sphere.
+- [CWE-441: Unintended Proxy or Intermediary ('Confused Deputy')](https://cwe.mitre.org/data/definitions/441.html): The product receives a request, message, or directive from an upstream component, but the product does not sufficiently preserve the original source of the request before forwarding the request to an external actor that is outside of the product's control sphere.
 
 ## Prerequisites
 
@@ -31,4 +31,4 @@ A transparent proxy serves as an intermediate between the client and the interne
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

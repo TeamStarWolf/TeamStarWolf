@@ -1,11 +1,11 @@
-# CAPEC-548 — Contaminate Resource
+# CAPEC-548: Contaminate Resource
 
 <a id="capec-548"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Meta  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An adversary contaminates organizational information systems (including devices and networks) by causing them to handle information of a classification/sensitivity for which they have not been authorized. When this happens, the contaminated information system, device, or network must be brought offline to investigate and mitigate the data spill, which denies availability of the system until the investigation is complete.
 
@@ -32,4 +32,4 @@ An adversary contaminates organizational information systems (including devices 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

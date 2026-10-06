@@ -1,11 +1,11 @@
-# CAPEC-690 — Metadata Spoofing
+# CAPEC-690: Metadata Spoofing
 
 <a id="capec-690"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Meta  
+Typical severity: High  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary alters the metadata of a resource (e.g., file, directory, repository, etc.) to present a malicious resource as legitimate/credible.
 
@@ -31,4 +31,4 @@ An adversary alters the metadata of a resource (e.g., file, directory, repositor
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

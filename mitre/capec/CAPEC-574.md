@@ -1,21 +1,21 @@
-# CAPEC-574 — Services Footprinting
+# CAPEC-574: Services Footprinting
 
 <a id="capec-574"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Low  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Low  
+Likelihood: Low  
+Status: Stable  
 
 An adversary exploits functionality meant to identify information about the services on the target system to an authorized user. By knowing what services are registered on the target system, the adversary can learn about the target environment as a means towards further malicious behavior. Depending on the operating system, commands that can obtain services information include "sc" and "tasklist/svc" using Tasklist, and "net start" using Net.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1007 — System Service Discovery](/mitre/techniques/T1007.md) — Adversaries may try to gather information about registered local system services.
+- [T1007: System Service Discovery](/mitre/techniques/T1007.md): Adversaries may try to gather information about registered local system services.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary exploits functionality meant to identify information about the serv
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,19 +1,19 @@
-# CAPEC-562 — Modify Shared File
+# CAPEC-562: Modify Shared File
 
 <a id="capec-562"></a>
 
-**Abstraction:** Detailed  
-**Status:** Draft  
+Abstraction: Detailed  
+Status: Draft  
 
 An adversary manipulates the files in a shared location by adding malicious programs, scripts, or exploit code to valid content. Once a user opens the shared content, the tainted content is executed.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1080 — Taint Shared Content](/mitre/techniques/T1080.md) — Adversaries may deliver payloads to remote systems by adding content to shared storage locations, such as network drives or internal code repositories.
+- [T1080: Taint Shared Content](/mitre/techniques/T1080.md): Adversaries may deliver payloads to remote systems by adding content to shared storage locations, such as network drives or internal code repositories.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
+- [CWE-284: Improper Access Control](https://cwe.mitre.org/data/definitions/284.html): The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Mitigations
 
@@ -21,4 +21,4 @@ An adversary manipulates the files in a shared location by adding malicious prog
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

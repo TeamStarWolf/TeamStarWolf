@@ -1,17 +1,17 @@
-# CAPEC-139 — Relative Path Traversal
+# CAPEC-139: Relative Path Traversal
 
 <a id="capec-139"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: High  
+Status: Draft  
 
 An attacker exploits a weakness in input validation on the target by supplying a specially constructed path utilizing dot and slash characters for the purpose of obtaining access to arbitrary files or resources. An attacker modifies a known path on the target in order to reach material that is not available through intended channels. These attacks normally involve adding additional path separators (/ or \) and/or dots (.), or encodings thereof, in various combinations in order to reach parent directories or entirely separate trees of the target's directory structure.
 
 ## Related CWE (1)
 
-- [CWE-23 — Relative Path Traversal](https://cwe.mitre.org/data/definitions/23.html) — The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as ..
+- [CWE-23: Relative Path Traversal](https://cwe.mitre.org/data/definitions/23.html): The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize sequences such as ..
 
 ## Prerequisites
 
@@ -41,4 +41,4 @@ An attacker exploits a weakness in input validation on the target by supplying a
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

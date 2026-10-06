@@ -1,17 +1,17 @@
-# CAPEC-242 — Code Injection
+# CAPEC-242: Code Injection
 
 <a id="capec-242"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** High  
-**Likelihood:** High  
-**Status:** Stable  
+Abstraction: Meta  
+Typical severity: High  
+Likelihood: High  
+Status: Stable  
 
 An adversary exploits a weakness in input validation on the target to inject new code into that which is currently executing. This differs from code inclusion in that code inclusion involves the addition or replacement of a reference to a code file, which is subsequently loaded by the target and used as part of the code of some application.
 
 ## Related CWE (1)
 
-- [CWE-94 — Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html) — The product constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.
+- [CWE-94: Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html): The product constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.
 
 ## Prerequisites
 
@@ -30,4 +30,4 @@ An adversary exploits a weakness in input validation on the target to inject new
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,17 +1,17 @@
-# CAPEC-244 — XSS Targeting URI Placeholders
+# CAPEC-244: XSS Targeting URI Placeholders
 
 <a id="capec-244"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: High  
+Status: Draft  
 
 An attack of this type exploits the ability of most browsers to interpret "data", "javascript" or other URI schemes as client-side executable content placeholders. This attack consists of passing a malicious URI in an anchor tag HREF attribute or any other similar attributes in other HTML tags. Such malicious URI contains, for example, a base64 encoded HTML content with an embedded cross-site scripting payload. The attack is executed when the browser interprets the malicious content i.e., for example, when the victim clicks on the malicious link.
 
 ## Related CWE (1)
 
-- [CWE-83 — Improper Neutralization of Script in Attributes in a Web Page](https://cwe.mitre.org/data/definitions/83.html) — The product does not neutralize or incorrectly neutralizes javascript: or other URIs from dangerous attributes within tags, such as onmouseover, onload, onerror, or style.
+- [CWE-83: Improper Neutralization of Script in Attributes in a Web Page](https://cwe.mitre.org/data/definitions/83.html): The product does not neutralize or incorrectly neutralizes javascript: or other URIs from dangerous attributes within tags, such as onmouseover, onload, onerror, or style.
 
 ## Prerequisites
 
@@ -42,4 +42,4 @@ An attack of this type exploits the ability of most browsers to interpret "data"
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

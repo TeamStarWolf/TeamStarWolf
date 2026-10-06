@@ -1,21 +1,21 @@
-# CAPEC-11 — Cause Web Server Misclassification
+# CAPEC-11: Cause Web Server Misclassification
 
 <a id="capec-11"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An attack of this type exploits a Web server's decision to take action based on filename or file extension. Because different file types are handled by different server processes, misclassification may force the Web server to take unexpected action, or expected actions in an unexpected sequence. This may cause the server to exhaust resources, supply debug or system data to the attacker, or bind an attacker to a remote process.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.006 — Space after Filename](/mitre/techniques/T1036-006.md) — Adversaries can hide a program's true filetype by changing the extension of a file.
+- [T1036.006: Space after Filename](/mitre/techniques/T1036-006.md): Adversaries can hide a program's true filetype by changing the extension of a file.
 
 ## Related CWE (1)
 
-- [CWE-430 — Deployment of Wrong Handler](https://cwe.mitre.org/data/definitions/430.html) — The wrong handler is assigned to process an object.
+- [CWE-430: Deployment of Wrong Handler](https://cwe.mitre.org/data/definitions/430.html): The wrong handler is assigned to process an object.
 
 ## Prerequisites
 
@@ -38,4 +38,4 @@ An attack of this type exploits a Web server's decision to take action based on 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,21 +1,21 @@
-# CAPEC-313 — Passive OS Fingerprinting
+# CAPEC-313: Passive OS Fingerprinting
 
 <a id="capec-313"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Low  
-**Likelihood:** High  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Low  
+Likelihood: High  
+Status: Stable  
 
 An adversary engages in activity to detect the version or type of OS software in a an environment by passively monitoring communication between devices, nodes, or applications. Passive techniques for operating system detection send no actual probes to a target, but monitor network or client-server communication between nodes in order to identify operating systems based on observed behavior as compared to a database of known signatures or values. While passive OS fingerprinting is not usually as reliable as active methods, it is generally better able to evade detection.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1082 — System Information Discovery](/mitre/techniques/T1082.md) — An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
+- [T1082: System Information Discovery](/mitre/techniques/T1082.md): An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -28,4 +28,4 @@ An adversary engages in activity to detect the version or type of OS software in
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

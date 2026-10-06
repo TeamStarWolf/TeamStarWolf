@@ -1,21 +1,21 @@
-# CAPEC-504 — Task Impersonation
+# CAPEC-504: Task Impersonation
 
 <a id="capec-504"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary, through a previously installed malicious application, impersonates an expected or routine task in an attempt to steal sensitive information or leverage a user's privileges.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1036.004 — Masquerade Task or Service](/mitre/techniques/T1036-004.md) — Adversaries may attempt to manipulate the name of a task or service to make it appear legitimate or benign.
+- [T1036.004: Masquerade Task or Service](/mitre/techniques/T1036-004.md): Adversaries may attempt to manipulate the name of a task or service to make it appear legitimate or benign.
 
 ## Related CWE (1)
 
-- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html) — The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
+- [CWE-1021: Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html): The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
 
 ## Prerequisites
 
@@ -37,4 +37,4 @@ An adversary, through a previously installed malicious application, impersonates
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

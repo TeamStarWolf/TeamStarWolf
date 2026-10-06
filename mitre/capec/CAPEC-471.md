@@ -1,22 +1,22 @@
-# CAPEC-471 — Search Order Hijacking
+# CAPEC-471: Search Order Hijacking
 
 <a id="capec-471"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Medium  
+Status: Stable  
 
 An adversary exploits a weakness in an application's specification of external libraries to exploit the functionality of the loader where the process loading the library searches first in the same directory in which the process binary resides and then in other directories. Exploitation of this preferential search order can allow an attacker to make the loading process load the adversary's rogue library rather than the legitimate library. This attack can be leveraged with many different libraries and with many different loading processes. No forensic trails are left in the system's registry or file system that an incorrect library had been loaded.
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1574.001 — DLL](/mitre/techniques/T1574-001.md) — Adversaries may abuse dynamic-link library files (DLLs) in order to achieve persistence, escalate privileges, and evade defenses.
-- [T1574.004 — Dylib Hijacking](/mitre/techniques/T1574-004.md) — Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime.
-- [T1574.008 — Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md) — Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
+- [T1574.001: DLL](/mitre/techniques/T1574-001.md): Adversaries may abuse dynamic-link library files (DLLs) in order to achieve persistence, escalate privileges, and evade defenses.
+- [T1574.004: Dylib Hijacking](/mitre/techniques/T1574-004.md): Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime.
+- [T1574.008: Path Interception by Search Order Hijacking](/mitre/techniques/T1574-008.md): Adversaries may execute their own malicious payloads by hijacking the search order used to load other programs.
 
 ## Related CWE (1)
 
-- [CWE-427 — Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html) — The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.
+- [CWE-427: Uncontrolled Search Path Element](https://cwe.mitre.org/data/definitions/427.html): The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.
 
 ## Prerequisites
 
@@ -33,4 +33,4 @@ An adversary exploits a weakness in an application's specification of external l
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

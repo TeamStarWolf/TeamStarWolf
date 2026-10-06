@@ -1,23 +1,23 @@
-# CAPEC-169 — Footprinting
+# CAPEC-169: Footprinting
 
 <a id="capec-169"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** Very Low  
-**Likelihood:** High  
-**Status:** Stable  
+Abstraction: Meta  
+Typical severity: Very Low  
+Likelihood: High  
+Status: Stable  
 
 An adversary engages in probing and exploration activities to identify constituents and properties of the target.
 
 ## Mapped ATT&CK techniques (3)
 
-- [T1217 — Browser Information Discovery](/mitre/techniques/T1217.md) — Adversaries may enumerate information about browsers to learn more about compromised environments.
-- [T1592 — Gather Victim Host Information](/mitre/techniques/T1592.md) — Adversaries may gather information about the victim's hosts that can be used during targeting.
-- [T1595 — Active Scanning](/mitre/techniques/T1595.md) — Adversaries may execute active reconnaissance scans to gather information that can be used during targeting.
+- [T1217: Browser Information Discovery](/mitre/techniques/T1217.md): Adversaries may enumerate information about browsers to learn more about compromised environments.
+- [T1592: Gather Victim Host Information](/mitre/techniques/T1592.md): Adversaries may gather information about the victim's hosts that can be used during targeting.
+- [T1595: Active Scanning](/mitre/techniques/T1595.md): Adversaries may execute active reconnaissance scans to gather information that can be used during targeting.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -42,4 +42,4 @@ An adversary engages in probing and exploration activities to identify constitue
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

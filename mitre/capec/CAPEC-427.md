@@ -1,11 +1,11 @@
-# CAPEC-427 — Influence via Psychological Principles
+# CAPEC-427: Influence via Psychological Principles
 
 <a id="capec-427"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Low  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Low  
+Likelihood: Low  
+Status: Draft  
 
 The adversary shapes the target's actions or behavior by focusing on the ways human interact and learn, leveraging such elements as cognitive and social psychology. In a variety of ways, a target can be influenced to behave or perform an action through capitalizing on what scholarship and research has learned about how and why humans react to specific scenarios and cues.
 
@@ -27,4 +27,4 @@ The adversary shapes the target's actions or behavior by focusing on the ways hu
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

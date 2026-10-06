@@ -1,17 +1,17 @@
-# CAPEC-699 — Eavesdropping on a Monitor
+# CAPEC-699: Eavesdropping on a Monitor
 
 <a id="capec-699"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Meta  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An Adversary can eavesdrop on the content of an external monitor through the air without modifying any cable or installing software, just capturing this signal emitted by the cable or video port, with this the attacker will be able to impact the confidentiality of the data without being detected by traditional security tools
 
 ## Related CWE (1)
 
-- [CWE-1300 — Improper Protection of Physical Side Channels](https://cwe.mitre.org/data/definitions/1300.html) — The device does not contain sufficient protection mechanisms to prevent physical side channels from exposing sensitive information due to patterns in physically observable phenomena such as variations in power consumption, electromagnetic emissions (EME), or acoustic emissions.
+- [CWE-1300: Improper Protection of Physical Side Channels](https://cwe.mitre.org/data/definitions/1300.html): The device does not contain sufficient protection mechanisms to prevent physical side channels from exposing sensitive information due to patterns in physically observable phenomena such as variations in power consumption, electromagnetic emissions (EME), or acoustic emissions.
 
 ## Prerequisites
 
@@ -36,4 +36,4 @@ An Adversary can eavesdrop on the content of an external monitor through the air
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

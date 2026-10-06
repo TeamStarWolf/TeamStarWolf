@@ -1,20 +1,20 @@
-# CAPEC-295 — Timestamp Request
+# CAPEC-295: Timestamp Request
 
 <a id="capec-295"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Low  
+Status: Stable  
 
 This pattern of attack leverages standard requests to learn the exact time associated with a target system. An adversary may be able to use the timestamp returned from the target to attack time-based security algorithms, such as random number generators, or time-based authentication mechanisms.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1124 — System Time Discovery](/mitre/techniques/T1124.md) — An adversary may gather the system time and/or time zone settings from a local or remote system.
+- [T1124: System Time Discovery](/mitre/techniques/T1124.md): An adversary may gather the system time and/or time zone settings from a local or remote system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -26,4 +26,4 @@ This pattern of attack leverages standard requests to learn the exact time assoc
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,9 +1,9 @@
-# CAPEC-507 — Physical Theft
+# CAPEC-507: Physical Theft
 
 <a id="capec-507"></a>
 
-**Abstraction:** Meta  
-**Status:** Draft  
+Abstraction: Meta  
+Status: Draft  
 
 An adversary gains physical access to a system or device through theft of the item. Possession of a system or device enables a number of unique attacks to be executed and often provides the adversary with an extended timeframe for which to perform an attack. Most protections put in place to secure sensitive information can be defeated when an adversary has physical access and enough time.
 
@@ -17,4 +17,4 @@ An adversary gains physical access to a system or device through theft of the it
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

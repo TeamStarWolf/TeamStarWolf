@@ -1,21 +1,21 @@
-# CAPEC-131 — Resource Leak Exposure
+# CAPEC-131: Resource Leak Exposure
 
 <a id="capec-131"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** Medium  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Meta  
+Typical severity: Medium  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary utilizes a resource leak on the target to deplete the quantity of the resource available to service legitimate requests.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1499 — Endpoint Denial of Service](/mitre/techniques/T1499.md) — Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to users.
+- [T1499: Endpoint Denial of Service](/mitre/techniques/T1499.md): Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block the availability of services to users.
 
 ## Related CWE (1)
 
-- [CWE-404 — Improper Resource Shutdown or Release](https://cwe.mitre.org/data/definitions/404.html) — The product does not release or incorrectly releases a resource before it is made available for re-use.
+- [CWE-404: Improper Resource Shutdown or Release](https://cwe.mitre.org/data/definitions/404.html): The product does not release or incorrectly releases a resource before it is made available for re-use.
 
 ## Prerequisites
 
@@ -33,4 +33,4 @@ An adversary utilizes a resource leak on the target to deplete the quantity of t
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

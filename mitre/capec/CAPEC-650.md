@@ -1,21 +1,21 @@
-# CAPEC-650 — Upload a Web Shell to a Web Server
+# CAPEC-650: Upload a Web Shell to a Web Server
 
 <a id="capec-650"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Status: Draft  
 
 By exploiting insufficient permissions, it is possible to upload a web shell to a web server in such a way that it can be executed remotely. This shell can have various capabilities, thereby acting as a "gateway" to the underlying web server. The shell might execute at the higher permission level of the web server, providing the ability the execute malicious code at elevated levels.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1505.003 — Web Shell](/mitre/techniques/T1505-003.md) — Adversaries may backdoor web servers with web shells to establish persistent access to systems.
+- [T1505.003: Web Shell](/mitre/techniques/T1505-003.md): Adversaries may backdoor web servers with web shells to establish persistent access to systems.
 
 ## Related CWE (2)
 
-- [CWE-287 — Improper Authentication](https://cwe.mitre.org/data/definitions/287.html) — When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
-- [CWE-553 — Command Shell in Externally Accessible Directory](https://cwe.mitre.org/data/definitions/553.html) — A possible shell file exists in /cgi-bin/ or other accessible directories.
+- [CWE-287: Improper Authentication](https://cwe.mitre.org/data/definitions/287.html): When an actor claims to have a given identity, the product does not prove or insufficiently proves that the claim is correct.
+- [CWE-553: Command Shell in Externally Accessible Directory](https://cwe.mitre.org/data/definitions/553.html): A possible shell file exists in /cgi-bin/ or other accessible directories.
 
 ## Prerequisites
 
@@ -34,4 +34,4 @@ By exploiting insufficient permissions, it is possible to upload a web shell to 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

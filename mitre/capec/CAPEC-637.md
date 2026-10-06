@@ -1,21 +1,21 @@
-# CAPEC-637 — Collect Data from Clipboard
+# CAPEC-637: Collect Data from Clipboard
 
 <a id="capec-637"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Low  
+Likelihood: Low  
+Status: Stable  
 
 The adversary exploits an application that allows for the copying of sensitive data or information by collecting information copied to the clipboard. Data copied to the clipboard can be accessed by other applications, such as malware built to exfiltrate or log clipboard contents on a periodic basis. In this way, the adversary aims to garner information to which they are unauthorized.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1115 — Clipboard Data](/mitre/techniques/T1115.md) — Adversaries may collect data stored in the clipboard from users copying information within or between applications.
+- [T1115: Clipboard Data](/mitre/techniques/T1115.md): Adversaries may collect data stored in the clipboard from users copying information within or between applications.
 
 ## Related CWE (1)
 
-- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html) — A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
+- [CWE-267: Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html): A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
 
 ## Prerequisites
 
@@ -36,4 +36,4 @@ The adversary exploits an application that allows for the copying of sensitive d
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

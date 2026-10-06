@@ -1,10 +1,10 @@
-# CAPEC-610 — Cellular Data Injection
+# CAPEC-610: Cellular Data Injection
 
 <a id="capec-610"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: High  
+Status: Stable  
 
 Adversaries inject data into mobile technology traffic (data flows or signaling data) to disrupt communications or conduct additional surveillance operations.
 
@@ -23,4 +23,4 @@ Adversaries inject data into mobile technology traffic (data flows or signaling 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

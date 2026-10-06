@@ -1,21 +1,21 @@
-# CAPEC-485 — Signature Spoofing by Key Recreation
+# CAPEC-485: Signature Spoofing by Key Recreation
 
 <a id="capec-485"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An attacker obtains an authoritative or reputable signer's private signature key by exploiting a cryptographic weakness in the signature algorithm or pseudorandom number generation and then uses this key to forge signatures from the original signer to mislead a victim into performing actions that benefit the attacker.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1552.004 — Private Keys](/mitre/techniques/T1552-004.md) — Adversaries may search for private key certificate files on compromised systems for insecurely stored credentials.
+- [T1552.004: Private Keys](/mitre/techniques/T1552-004.md): Adversaries may search for private key certificate files on compromised systems for insecurely stored credentials.
 
 ## Related CWE (1)
 
-- [CWE-330 — Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html) — The product uses insufficiently random numbers or values in a security context that depends on unpredictable numbers.
+- [CWE-330: Use of Insufficiently Random Values](https://cwe.mitre.org/data/definitions/330.html): The product uses insufficiently random numbers or values in a security context that depends on unpredictable numbers.
 
 ## Prerequisites
 
@@ -34,4 +34,4 @@ An attacker obtains an authoritative or reputable signer's private signature key
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

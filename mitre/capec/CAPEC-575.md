@@ -1,21 +1,21 @@
-# CAPEC-575 — Account Footprinting
+# CAPEC-575: Account Footprinting
 
 <a id="capec-575"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Low  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Low  
+Likelihood: Low  
+Status: Stable  
 
 An adversary exploits functionality meant to identify information about the domain accounts and their permissions on the target system to an authorized user. By knowing what accounts are registered on the target system, the adversary can inform further and more targeted malicious behavior. Example Windows commands which can acquire this information are: "net user" and "dsquery".
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1087 — Account Discovery](/mitre/techniques/T1087.md) — Adversaries may attempt to get a listing of valid accounts, usernames, or email addresses on a system or within a compromised environment.
+- [T1087: Account Discovery](/mitre/techniques/T1087.md): Adversaries may attempt to get a listing of valid accounts, usernames, or email addresses on a system or within a compromised environment.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary exploits functionality meant to identify information about the doma
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

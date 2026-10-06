@@ -1,21 +1,21 @@
-# CAPEC-573 — Process Footprinting
+# CAPEC-573: Process Footprinting
 
 <a id="capec-573"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Low  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Low  
+Likelihood: Low  
+Status: Stable  
 
 An adversary exploits functionality meant to identify information about the currently running processes on the target system to an authorized user. By knowing what processes are running on the target system, the adversary can learn about the target environment as a means towards further malicious behavior.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1057 — Process Discovery](/mitre/techniques/T1057.md) — Adversaries may attempt to get information about running processes on a system.
+- [T1057: Process Discovery](/mitre/techniques/T1057.md): Adversaries may attempt to get information about running processes on a system.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary exploits functionality meant to identify information about the curr
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

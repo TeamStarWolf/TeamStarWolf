@@ -85,6 +85,7 @@ Recommendation:
 | Parrot OS Security | Alternative pentesting OS | 4 GB | Lighter than Kali; also has Home edition |
 | REMnux | Linux malware analysis | 4 GB | Pre-loaded with reverse engineering tools |
 | FlareVM (Windows 10) | Windows malware / RE analysis | 8 GB | FLARE team Chocolatey-based toolset overlay |
+| Commando VM (Windows 10/11) | Windows offensive / red-team platform | 8 GB | Mandiant Chocolatey/Boxstarter overlay (BloodHound, Covenant, Impacket, Rubeus, PowerSploit). Offensive counterpart to FlareVM; lives on the **Attack VLAN**, never the isolated malware net |
 | Windows Server 2019/2022 | Active Directory domain controller | 4-8 GB | Use Microsoft eval license (free, 180 days) |
 | Windows 10/11 | Domain-joined workstation target | 4 GB | Join to lab domain for realistic AD attacks |
 | Ubuntu Server 22.04 | Linux target, web app hosting | 2-4 GB | Run DVWA, LAMP stack, or custom apps |
@@ -112,6 +113,18 @@ Recommendation:
 | 60 | Security / Monitoring | Security Onion, Wazuh, ELK | Receives logs/mirror traffic; management access only |
 | 99 | Internet Uplink | pfSense WAN | NAT gateway to physical network / internet |
 
+### Extended VLANs (advanced labs)
+
+The seven VLANs above cover a classic pentest/AD/SIEM lab. Labs that add cloud, container, ICS/OT, or mobile targets need extra segments. These follow the same philosophy — one segment per host *role*, every crossing routed and policed through pfSense — rather than inventing a new topology:
+
+| VLAN | Name | Hosts | Purpose |
+|---|---|---|---|
+| 70 | ICS / OT | OpenPLC, GRFICS, ScadaBR, Conpot, protocol sims (Modbus/IEC-104/61850) | Industrial-control simulation. **Simulated gear only — never real plant equipment.** Purdue L2/L3/L3.5 sub-zoning; no outbound; mirrored to monitoring |
+| 80 | Supply-chain / Container | Kubernetes (kind/minikube), CI/CD runners, private registry, build hosts | Container-escape, CI poisoning, image-supply-chain labs; API-server audit + admission + runtime sensor feed the SIEM |
+| 90 | Cloud edge / Federation | Local cloud emulator (LocalStack), IdP (Keycloak), ADFS/SAML, MFA push sim | On-prem stand-ins for cloud/identity attacks; pairs with external free-tier tenants reached only through pfSense |
+
+**Specialty isolated islands.** Some targets don't belong on any shared segment — a mobile-app bench, an RF/IoT rig, a hardware-wallet or hypervisor-escape bench, an AI/ML-attack box. Give each its own host-only "island," started per lab and torn down after, so a compromise can't pivot. This is the same isolation discipline as the malware island in §8, generalized: one bench, one network, no shared gateway.
+
 ### Segmentation Setup
 1. Use a managed switch that supports 802.1Q VLANs (TP-Link TL-SG108E ~$30, or Cisco SG series).
 2. Configure trunk ports between the switch and the hypervisor host (carries all VLANs tagged).
@@ -122,6 +135,10 @@ Recommendation:
    - Attack VLAN -> Management VLAN: Block
    - Victim VLAN -> Management VLAN: Block
    - Monitoring VLAN -> All: Allow (for log collection)
+   - ICS/OT VLAN (70) -> any: Block all outbound; inbound only from the Attack VLAN; mirror to Monitoring
+   - Container VLAN (80) -> internet: Allow only to package/registry mirrors; -> Management: Block
+   - Cloud-edge VLAN (90) -> internet: Allow to the external tenant only; -> Victim/AD: Block
+   - Any VLAN -> a specialty island: Block (islands are host-only; reach them from their paired attacker box only)
 
 ### Logical Diagram
 ```
@@ -309,6 +326,8 @@ auditpol /set /subcategory:"Process Creation" /success:enable
 |---|---|---|
 | FlareVM | Windows 10 | x64dbg, OllyDbg, Ghidra, PE-bear, CFF Explorer, PEiD, FakeNet-NG, ProcMon, Wireshark |
 | REMnux | Ubuntu (custom) | YARA, Ghidra, Volatility, radare2, INetSim, Zeek, oledump, pdfid, Cutter |
+
+> **Not here: Commando VM.** Commando VM (§3) is Mandiant's *offensive* Windows distro, not a malware-analysis box. It belongs on the Attack VLAN with internet reach — keep it off this isolated/air-gapped net. FlareVM is the Windows box for this section.
 
 ### Analysis Workflow
 

@@ -1,6 +1,6 @@
 # MITRE D3FEND Countermeasure Reference
 
-> [MITRE D3FEND](https://d3fend.mitre.org/) is the defensive counterpart to ATT&CK — a knowledge base of cybersecurity countermeasures. This reference maps 156 D3FEND defensive techniques to the 426 ATT&CK techniques they counter (via the digital artifacts each acts on), completing the *defense* node of the [threat-informed knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md): CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND.
+> [MITRE D3FEND](https://d3fend.mitre.org/) is the defensive counterpart to ATT&CK: a knowledge base of cybersecurity countermeasures. This reference maps 156 D3FEND defensive techniques to the 426 ATT&CK techniques they counter (via the digital artifacts each acts on), completing the *defense* node of the [threat-informed knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md): CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND.
 
 | | |
 |---|---|
@@ -26,7 +26,7 @@ Machine-readable: [`data/attack/technique_to_d3fend.jsonl`](data/attack/techniqu
 
 ## Model
 
-*Inventory and understand the system — assets, data flows, and dependencies.*
+*Inventory and understand the system: assets, data flows, and dependencies.*
 
 | D3FEND technique | ATT&CK techniques countered |
 |---|--:|

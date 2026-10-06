@@ -1,6 +1,6 @@
 # GRC Reference
 
-> Governance, Risk, and Compliance — comprehensive operational reference for security program management, risk quantification, regulatory compliance, third-party risk, and audit management.
+> Governance, Risk, and Compliance: comprehensive operational reference for security program management, risk quantification, regulatory compliance, third-party risk, and audit management.
 
 | | |
 |---|---|
@@ -199,11 +199,11 @@ Primary Loss components:
 
 Secondary Loss: downstream losses after the primary event (e.g., customers who leave after a breach notification).
 
-Monte Carlo simulation runs thousands of iterations across input ranges to produce a probability distribution of ALE — more defensible than single-point estimates.
+Monte Carlo simulation runs thousands of iterations across input ranges to produce a probability distribution of ALE, more defensible than single-point estimates.
 
 #### Semi-Quantitative Approaches
 
-DREAD scoring (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) — rates each 1-10, averages to a risk score.
+DREAD scoring (Damage, Reproducibility, Exploitability, Affected Users, Discoverability): rates each 1-10, averages to a risk score.
 
 CVSS as risk input: CVSS Base Score measures vulnerability severity, not risk. Adjust with CVSS Temporal (exploit availability, remediation level) and Environmental (asset criticality, existing controls) to produce context-aware risk scores.
 
@@ -311,7 +311,7 @@ Resources: FAIR Institute (fairinstitute.org), Open FAIR Body of Knowledge, Risk
 
 ### Compliance vs. Security
 
-Key distinction: Compliance is a floor, not a ceiling. Meeting a compliance requirement does not mean you are secure — it means you have demonstrated minimum acceptable controls to an auditor at a point in time.
+Key distinction: Compliance is a floor, not a ceiling. Meeting a compliance requirement does not mean you are secure; it means you have demonstrated minimum acceptable controls to an auditor at a point in time.
 
 Compliance theater risks:
 - Checkbox mentality: passing audits without improving actual security posture
@@ -364,7 +364,7 @@ Trust Services Criteria (TSC):
 
 | Criteria | Code | Description |
 |---|---|---|
-| Security (Common Criteria) | CC | Logical and physical access, change management, risk management — required for all SOC 2 |
+| Security (Common Criteria) | CC | Logical and physical access, change management, risk management; required for all SOC 2 |
 | Availability | A | System availability per SLA commitments |
 | Processing Integrity | PI | Complete, accurate, timely processing |
 | Confidentiality | C | Protection of confidential information |
@@ -510,7 +510,7 @@ SPRS score calculation:
 - Score submitted to Supplier Performance Risk System (SPRS)
 - Scores visible to contracting officers
 
-C3PAO: CMMC Third-Party Assessment Organizations — accredited by the CMMC Accreditation Body (Cyber-AB) to conduct Level 2 assessments.
+C3PAO: CMMC Third-Party Assessment Organizations, accredited by the CMMC Accreditation Body (Cyber-AB) to conduct Level 2 assessments.
 
 ---
 

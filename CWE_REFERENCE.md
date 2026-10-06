@@ -1,6 +1,6 @@
 # CWE Weakness Reference
 
-> [MITRE CWE](https://cwe.mitre.org/) (Common Weakness Enumeration) catalogs the 969 software and hardware weakness types that vulnerabilities (CVEs) are instances of. CWE is the *weakness* node of the [threat-informed knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md) — CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND — answering *why* an exploit works. See the official [CWE Top 25 Most Dangerous Weaknesses](https://cwe.mitre.org/top25/).
+> [MITRE CWE](https://cwe.mitre.org/) (Common Weakness Enumeration) catalogs the 969 software and hardware weakness types that vulnerabilities (CVEs) are instances of. CWE is the *weakness* node of the [threat-informed knowledge graph](THREAT_INFORMED_DEFENSE_REFERENCE.md) (CVE -> CWE -> CAPEC -> ATT&CK -> D3FEND), answering *why* an exploit works. See the official [CWE Top 25 Most Dangerous Weaknesses](https://cwe.mitre.org/top25/).
 
 Machine-readable: [`data/weaknesses/cwe.jsonl`](data/weaknesses/cwe.jsonl). Related: [CAPEC Attack Patterns](CAPEC_REFERENCE.md), [Secure Coding](SECURE_CODING_REFERENCE.md).
 
@@ -32,7 +32,7 @@ CWE is a hierarchy: 10 Pillars (most abstract) -> 114 Classes -> 539 Base -> 299
 
 ## Most-attacked weaknesses
 
-Ranked by the number of CAPEC attack patterns that target them — a data-driven view of which weaknesses have the richest known exploit tradecraft.
+Ranked by the number of CAPEC attack patterns that target them: a data-driven view of which weaknesses have the richest known exploit tradecraft.
 
 | CWE | Weakness | Abstraction | CAPEC patterns | Consequences |
 |---|---|---|--:|---|
@@ -81,7 +81,7 @@ Ranked by the number of CAPEC attack patterns that target them — a data-driven
 
 ## Weakness classes
 
-The Class-level weaknesses — the practical taxonomy most secure-coding and testing work maps to.
+The Class-level weaknesses: the practical taxonomy most secure-coding and testing work maps to.
 
 | CWE | Class | Consequences | Example mitigation |
 |---|---|---|---|
@@ -92,51 +92,51 @@ The Class-level weaknesses — the practical taxonomy most secure-coding and tes
 | [CWE-99](https://cwe.mitre.org/data/definitions/99.html) | Improper Control of Resource Identifiers ('Resource Injection') | Modify Application Data, Modify Files or Directories | Assume all input is malicious. Use an accept known good input validation strategy, i.e., u |
 | [CWE-114](https://cwe.mitre.org/data/definitions/114.html) | Process Control | Execute Unauthorized Code or Commands | Libraries that are loaded should be well understood and come from a trusted source. The ap |
 | [CWE-116](https://cwe.mitre.org/data/definitions/116.html) | Improper Encoding or Escaping of Output | Bypass Protection Mechanism, Execute Unauthorized Code or Commands | Use a vetted library or framework that does not allow this weakness to occur or provides c |
-| [CWE-118](https://cwe.mitre.org/data/definitions/118.html) | Incorrect Access of Indexable Resource ('Range Error') | Varies by Context | — |
+| [CWE-118](https://cwe.mitre.org/data/definitions/118.html) | Incorrect Access of Indexable Resource ('Range Error') | Varies by Context | N/A |
 | [CWE-119](https://cwe.mitre.org/data/definitions/119.html) | Improper Restriction of Operations within the Bounds of a Memory Buffer | DoS, Execute Unauthorized Code or Commands | Use a language that does not allow this weakness to occur or provides constructs that make |
 | [CWE-138](https://cwe.mitre.org/data/definitions/138.html) | Improper Neutralization of Special Elements | Alter Execution Logic, DoS | Developers should anticipate that special elements (e.g. delimiters, symbols) will be inje |
 | [CWE-159](https://cwe.mitre.org/data/definitions/159.html) | Improper Handling of Invalid Use of Special Elements | Unexpected State | Developers should anticipate that special elements will be injected/removed/manipulated in |
 | [CWE-172](https://cwe.mitre.org/data/definitions/172.html) | Encoding Error | Unexpected State | Assume all input is malicious. Use an accept known good input validation strategy, i.e., u |
 | [CWE-185](https://cwe.mitre.org/data/definitions/185.html) | Incorrect Regular Expression | Bypass Protection Mechanism, Unexpected State | Regular expressions can become error prone when defining a complex language even for those |
 | [CWE-200](https://cwe.mitre.org/data/definitions/200.html) | Exposure of Sensitive Information to an Unauthorized Actor | Read Application Data | Compartmentalize the system to have safe areas where trust boundaries can be unambiguously |
-| [CWE-216](https://cwe.mitre.org/data/definitions/216.html) | DEPRECATED: Containment Errors (Container Errors) | — | — |
-| [CWE-221](https://cwe.mitre.org/data/definitions/221.html) | Information Loss or Omission | Hide Activities | — |
-| [CWE-228](https://cwe.mitre.org/data/definitions/228.html) | Improper Handling of Syntactically Invalid Structure | DoS, Unexpected State | — |
+| [CWE-216](https://cwe.mitre.org/data/definitions/216.html) | DEPRECATED: Containment Errors (Container Errors) | N/A | N/A |
+| [CWE-221](https://cwe.mitre.org/data/definitions/221.html) | Information Loss or Omission | Hide Activities | N/A |
+| [CWE-228](https://cwe.mitre.org/data/definitions/228.html) | Improper Handling of Syntactically Invalid Structure | DoS, Unexpected State | N/A |
 | [CWE-269](https://cwe.mitre.org/data/definitions/269.html) | Improper Privilege Management | Gain Privileges or Assume Identity | Very carefully manage the setting, management, and handling of privileges. Explicitly mana |
 | [CWE-271](https://cwe.mitre.org/data/definitions/271.html) | Privilege Dropping / Lowering Errors | Gain Privileges or Assume Identity, Hide Activities | Compartmentalize the system to have safe areas where trust boundaries can be unambiguously |
 | [CWE-282](https://cwe.mitre.org/data/definitions/282.html) | Improper Ownership Management | Gain Privileges or Assume Identity | Very carefully manage the setting, management, and handling of privileges. Explicitly mana |
 | [CWE-285](https://cwe.mitre.org/data/definitions/285.html) | Improper Authorization | Execute Unauthorized Code or Commands, Gain Privileges or Assume Identity | Divide the product into anonymous, normal, privileged, and administrative areas. Reduce th |
-| [CWE-286](https://cwe.mitre.org/data/definitions/286.html) | Incorrect User Management | Varies by Context | — |
+| [CWE-286](https://cwe.mitre.org/data/definitions/286.html) | Incorrect User Management | Varies by Context | N/A |
 | [CWE-287](https://cwe.mitre.org/data/definitions/287.html) | Improper Authentication | Execute Unauthorized Code or Commands, Gain Privileges or Assume Identity | Use an authentication framework or library such as the OWASP ESAPI Authentication feature. |
 | [CWE-300](https://cwe.mitre.org/data/definitions/300.html) | Channel Accessible by Non-Endpoint | Gain Privileges or Assume Identity, Modify Application Data | Always fully authenticate both ends of any communications channel. |
 | [CWE-311](https://cwe.mitre.org/data/definitions/311.html) | Missing Encryption of Sensitive Data | Modify Application Data, Read Application Data | Clearly specify which data or resources are valuable enough that they should be protected  |
 | [CWE-326](https://cwe.mitre.org/data/definitions/326.html) | Inadequate Encryption Strength | Bypass Protection Mechanism, Read Application Data | Use an encryption scheme that is currently considered to be strong by experts in the field |
 | [CWE-327](https://cwe.mitre.org/data/definitions/327.html) | Use of a Broken or Risky Cryptographic Algorithm | Hide Activities, Modify Application Data | When there is a need to store or transmit sensitive data, use strong, up-to-date cryptogra |
 | [CWE-330](https://cwe.mitre.org/data/definitions/330.html) | Use of Insufficiently Random Values | Bypass Protection Mechanism, Gain Privileges or Assume Identity | Use a well-vetted algorithm that is currently considered to be strong by experts in the fi |
-| [CWE-340](https://cwe.mitre.org/data/definitions/340.html) | Generation of Predictable Numbers or Identifiers | Varies by Context | — |
-| [CWE-345](https://cwe.mitre.org/data/definitions/345.html) | Insufficient Verification of Data Authenticity | Unexpected State, Varies by Context | — |
-| [CWE-346](https://cwe.mitre.org/data/definitions/346.html) | Origin Validation Error | Gain Privileges or Assume Identity, Varies by Context | — |
+| [CWE-340](https://cwe.mitre.org/data/definitions/340.html) | Generation of Predictable Numbers or Identifiers | Varies by Context | N/A |
+| [CWE-345](https://cwe.mitre.org/data/definitions/345.html) | Insufficient Verification of Data Authenticity | Unexpected State, Varies by Context | N/A |
+| [CWE-346](https://cwe.mitre.org/data/definitions/346.html) | Origin Validation Error | Gain Privileges or Assume Identity, Varies by Context | N/A |
 | [CWE-362](https://cwe.mitre.org/data/definitions/362.html) | Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') | Bypass Protection Mechanism, DoS | In languages that support it, use synchronization primitives. Only wrap these around criti |
-| [CWE-377](https://cwe.mitre.org/data/definitions/377.html) | Insecure Temporary File | Modify Files or Directories, Read Files or Directories | — |
+| [CWE-377](https://cwe.mitre.org/data/definitions/377.html) | Insecure Temporary File | Modify Files or Directories, Read Files or Directories | N/A |
 | [CWE-400](https://cwe.mitre.org/data/definitions/400.html) | Uncontrolled Resource Consumption | Bypass Protection Mechanism, DoS | Design throttling mechanisms into the system architecture. The best protection is to limit |
-| [CWE-402](https://cwe.mitre.org/data/definitions/402.html) | Transmission of Private Resources into a New Sphere ('Resource Leak') | Read Application Data | — |
+| [CWE-402](https://cwe.mitre.org/data/definitions/402.html) | Transmission of Private Resources into a New Sphere ('Resource Leak') | Read Application Data | N/A |
 | [CWE-404](https://cwe.mitre.org/data/definitions/404.html) | Improper Resource Shutdown or Release | DoS, Read Application Data | Use a language that does not allow this weakness to occur or provides constructs that make |
 | [CWE-405](https://cwe.mitre.org/data/definitions/405.html) | Asymmetric Resource Consumption (Amplification) | DoS | An application must make resources available to a client commensurate with the client's ac |
 | [CWE-406](https://cwe.mitre.org/data/definitions/406.html) | Insufficient Control of Network Message Volume (Network Amplification) | DoS | An application must make network resources available to a client commensurate with the cli |
-| [CWE-407](https://cwe.mitre.org/data/definitions/407.html) | Inefficient Algorithmic Complexity | DoS | — |
+| [CWE-407](https://cwe.mitre.org/data/definitions/407.html) | Inefficient Algorithmic Complexity | DoS | N/A |
 | [CWE-410](https://cwe.mitre.org/data/definitions/410.html) | Insufficient Resource Pool | DoS, Other | Do not perform resource-intensive transactions for unauthenticated users and/or invalid re |
 | [CWE-424](https://cwe.mitre.org/data/definitions/424.html) | Improper Protection of Alternate Path | Bypass Protection Mechanism, Gain Privileges or Assume Identity | Deploy different layers of protection to implement security in depth. |
-| [CWE-436](https://cwe.mitre.org/data/definitions/436.html) | Interpretation Conflict | Unexpected State, Varies by Context | — |
+| [CWE-436](https://cwe.mitre.org/data/definitions/436.html) | Interpretation Conflict | Unexpected State, Varies by Context | N/A |
 | [CWE-441](https://cwe.mitre.org/data/definitions/441.html) | Unintended Proxy or Intermediary ('Confused Deputy') | Execute Unauthorized Code or Commands, Gain Privileges or Assume Identity | Enforce the use of strong mutual authentication mechanism between the two parties. |
-| [CWE-446](https://cwe.mitre.org/data/definitions/446.html) | UI Discrepancy for Security Feature | Varies by Context | — |
+| [CWE-446](https://cwe.mitre.org/data/definitions/446.html) | UI Discrepancy for Security Feature | Varies by Context | N/A |
 | [CWE-451](https://cwe.mitre.org/data/definitions/451.html) | User Interface (UI) Misrepresentation of Critical Information | Bypass Protection Mechanism, Hide Activities | Perform data validation (e.g. syntax, length, etc.) before interpreting the data. |
 | [CWE-506](https://cwe.mitre.org/data/definitions/506.html) | Embedded Malicious Code | Execute Unauthorized Code or Commands | Remove the malicious code and start an effort to ensure that no more malicious code exists |
-| [CWE-514](https://cwe.mitre.org/data/definitions/514.html) | Covert Channel | Bypass Protection Mechanism, Read Application Data | — |
+| [CWE-514](https://cwe.mitre.org/data/definitions/514.html) | Covert Channel | Bypass Protection Mechanism, Read Application Data | N/A |
 | [CWE-522](https://cwe.mitre.org/data/definitions/522.html) | Insufficiently Protected Credentials | Gain Privileges or Assume Identity | Use an appropriate security mechanism to protect the credentials. |
-| [CWE-573](https://cwe.mitre.org/data/definitions/573.html) | Improper Following of Specification by Caller | Quality Degradation, Varies by Context | — |
-| [CWE-592](https://cwe.mitre.org/data/definitions/592.html) | DEPRECATED: Authentication Bypass Issues | — | — |
+| [CWE-573](https://cwe.mitre.org/data/definitions/573.html) | Improper Following of Specification by Caller | Quality Degradation, Varies by Context | N/A |
+| [CWE-592](https://cwe.mitre.org/data/definitions/592.html) | DEPRECATED: Authentication Bypass Issues | N/A | N/A |
 | [CWE-602](https://cwe.mitre.org/data/definitions/602.html) | Client-Side Enforcement of Server-Side Security | Bypass Protection Mechanism, DoS | For any security checks that are performed on the client side, ensure that these checks ar |
-| [CWE-610](https://cwe.mitre.org/data/definitions/610.html) | Externally Controlled Reference to a Resource in Another Sphere | Gain Privileges or Assume Identity, Modify Application Data | — |
+| [CWE-610](https://cwe.mitre.org/data/definitions/610.html) | Externally Controlled Reference to a Resource in Another Sphere | Gain Privileges or Assume Identity, Modify Application Data | N/A |
 | [CWE-636](https://cwe.mitre.org/data/definitions/636.html) | Not Failing Securely ('Failing Open') | Bypass Protection Mechanism | Subdivide and allocate resources and components so that a failure in one part does not aff |
 | [CWE-637](https://cwe.mitre.org/data/definitions/637.html) | Unnecessary Complexity in Protection Mechanism (Not Using 'Economy of Mechanism') | Other | Avoid complex security mechanisms when simpler ones would meet requirements. Avoid complex |
 | [CWE-638](https://cwe.mitre.org/data/definitions/638.html) | Not Using Complete Mediation | Bypass Protection Mechanism, Execute Unauthorized Code or Commands | Invalidate cached privileges, file handles or descriptors, or other access credentials whe |
@@ -144,58 +144,58 @@ The Class-level weaknesses — the practical taxonomy most secure-coding and tes
 | [CWE-653](https://cwe.mitre.org/data/definitions/653.html) | Improper Isolation or Compartmentalization | Bypass Protection Mechanism, Gain Privileges or Assume Identity | Break up privileges between different modules, objects, or entities. Minimize the interfac |
 | [CWE-655](https://cwe.mitre.org/data/definitions/655.html) | Insufficient Psychological Acceptability | Bypass Protection Mechanism | Where possible, perform human factors and usability studies to identify where your product |
 | [CWE-656](https://cwe.mitre.org/data/definitions/656.html) | Reliance on Security Through Obscurity | Other | Always consider whether knowledge of your code or design is sufficient to break it. Revers |
-| [CWE-657](https://cwe.mitre.org/data/definitions/657.html) | Violation of Secure Design Principles | Other | — |
+| [CWE-657](https://cwe.mitre.org/data/definitions/657.html) | Violation of Secure Design Principles | Other | N/A |
 | [CWE-662](https://cwe.mitre.org/data/definitions/662.html) | Improper Synchronization | Alter Execution Logic, Modify Application Data | Use industry standard APIs to synchronize your code. |
 | [CWE-665](https://cwe.mitre.org/data/definitions/665.html) | Improper Initialization | Bypass Protection Mechanism, DoS | Use a language that does not allow this weakness to occur or provides constructs that make |
 | [CWE-666](https://cwe.mitre.org/data/definitions/666.html) | Operation on Resource in Wrong Phase of Lifetime | Other | Follow the resource's lifecycle from creation to release. |
 | [CWE-667](https://cwe.mitre.org/data/definitions/667.html) | Improper Locking | DoS | Use industry standard APIs to implement locking mechanism. |
-| [CWE-668](https://cwe.mitre.org/data/definitions/668.html) | Exposure of Resource to Wrong Sphere | Modify Application Data, Read Application Data | — |
-| [CWE-669](https://cwe.mitre.org/data/definitions/669.html) | Incorrect Resource Transfer Between Spheres | Modify Application Data, Read Application Data | — |
-| [CWE-670](https://cwe.mitre.org/data/definitions/670.html) | Always-Incorrect Control Flow Implementation | Alter Execution Logic, Other | — |
-| [CWE-671](https://cwe.mitre.org/data/definitions/671.html) | Lack of Administrator Control over Security | Varies by Context | — |
-| [CWE-672](https://cwe.mitre.org/data/definitions/672.html) | Operation on a Resource after Expiration or Release | DoS, Modify Application Data | — |
-| [CWE-673](https://cwe.mitre.org/data/definitions/673.html) | External Influence of Sphere Definition | Other | — |
+| [CWE-668](https://cwe.mitre.org/data/definitions/668.html) | Exposure of Resource to Wrong Sphere | Modify Application Data, Read Application Data | N/A |
+| [CWE-669](https://cwe.mitre.org/data/definitions/669.html) | Incorrect Resource Transfer Between Spheres | Modify Application Data, Read Application Data | N/A |
+| [CWE-670](https://cwe.mitre.org/data/definitions/670.html) | Always-Incorrect Control Flow Implementation | Alter Execution Logic, Other | N/A |
+| [CWE-671](https://cwe.mitre.org/data/definitions/671.html) | Lack of Administrator Control over Security | Varies by Context | N/A |
+| [CWE-672](https://cwe.mitre.org/data/definitions/672.html) | Operation on a Resource after Expiration or Release | DoS, Modify Application Data | N/A |
+| [CWE-673](https://cwe.mitre.org/data/definitions/673.html) | External Influence of Sphere Definition | Other | N/A |
 | [CWE-674](https://cwe.mitre.org/data/definitions/674.html) | Uncontrolled Recursion | DoS, Read Application Data | Ensure that an end condition will be reached under all logic conditions. The end condition |
-| [CWE-675](https://cwe.mitre.org/data/definitions/675.html) | Multiple Operations on Resource in Single-Operation Context | Other | — |
+| [CWE-675](https://cwe.mitre.org/data/definitions/675.html) | Multiple Operations on Resource in Single-Operation Context | Other | N/A |
 | [CWE-684](https://cwe.mitre.org/data/definitions/684.html) | Incorrect Provision of Specified Functionality | Quality Degradation | Ensure that your code strictly conforms to specifications. |
-| [CWE-696](https://cwe.mitre.org/data/definitions/696.html) | Incorrect Behavior Order | Alter Execution Logic | — |
-| [CWE-704](https://cwe.mitre.org/data/definitions/704.html) | Incorrect Type Conversion or Cast | Other | — |
-| [CWE-705](https://cwe.mitre.org/data/definitions/705.html) | Incorrect Control Flow Scoping | Alter Execution Logic, Other | — |
-| [CWE-706](https://cwe.mitre.org/data/definitions/706.html) | Use of Incorrectly-Resolved Name or Reference | Modify Application Data, Read Application Data | — |
+| [CWE-696](https://cwe.mitre.org/data/definitions/696.html) | Incorrect Behavior Order | Alter Execution Logic | N/A |
+| [CWE-704](https://cwe.mitre.org/data/definitions/704.html) | Incorrect Type Conversion or Cast | Other | N/A |
+| [CWE-705](https://cwe.mitre.org/data/definitions/705.html) | Incorrect Control Flow Scoping | Alter Execution Logic, Other | N/A |
+| [CWE-706](https://cwe.mitre.org/data/definitions/706.html) | Use of Incorrectly-Resolved Name or Reference | Modify Application Data, Read Application Data | N/A |
 | [CWE-732](https://cwe.mitre.org/data/definitions/732.html) | Incorrect Permission Assignment for Critical Resource | Gain Privileges or Assume Identity, Modify Application Data | When using a critical resource such as a configuration file, check to see if the resource  |
 | [CWE-754](https://cwe.mitre.org/data/definitions/754.html) | Improper Check for Unusual or Exceptional Conditions | DoS, Unexpected State | Use a language that does not allow this weakness to occur or provides constructs that make |
-| [CWE-755](https://cwe.mitre.org/data/definitions/755.html) | Improper Handling of Exceptional Conditions | Other | — |
-| [CWE-758](https://cwe.mitre.org/data/definitions/758.html) | Reliance on Undefined, Unspecified, or Implementation-Defined Behavior | Quality Degradation, Reduce Maintainability | — |
-| [CWE-790](https://cwe.mitre.org/data/definitions/790.html) | Improper Filtering of Special Elements | Unexpected State | — |
-| [CWE-799](https://cwe.mitre.org/data/definitions/799.html) | Improper Control of Interaction Frequency | Bypass Protection Mechanism, DoS | — |
-| [CWE-834](https://cwe.mitre.org/data/definitions/834.html) | Excessive Iteration | DoS | — |
-| [CWE-841](https://cwe.mitre.org/data/definitions/841.html) | Improper Enforcement of Behavioral Workflow | Alter Execution Logic | — |
+| [CWE-755](https://cwe.mitre.org/data/definitions/755.html) | Improper Handling of Exceptional Conditions | Other | N/A |
+| [CWE-758](https://cwe.mitre.org/data/definitions/758.html) | Reliance on Undefined, Unspecified, or Implementation-Defined Behavior | Quality Degradation, Reduce Maintainability | N/A |
+| [CWE-790](https://cwe.mitre.org/data/definitions/790.html) | Improper Filtering of Special Elements | Unexpected State | N/A |
+| [CWE-799](https://cwe.mitre.org/data/definitions/799.html) | Improper Control of Interaction Frequency | Bypass Protection Mechanism, DoS | N/A |
+| [CWE-834](https://cwe.mitre.org/data/definitions/834.html) | Excessive Iteration | DoS | N/A |
+| [CWE-841](https://cwe.mitre.org/data/definitions/841.html) | Improper Enforcement of Behavioral Workflow | Alter Execution Logic | N/A |
 | [CWE-862](https://cwe.mitre.org/data/definitions/862.html) | Missing Authorization | Bypass Protection Mechanism, DoS | Divide the product into anonymous, normal, privileged, and administrative areas. Reduce th |
 | [CWE-863](https://cwe.mitre.org/data/definitions/863.html) | Incorrect Authorization | Bypass Protection Mechanism, DoS | Divide the product into anonymous, normal, privileged, and administrative areas. Reduce th |
 | [CWE-909](https://cwe.mitre.org/data/definitions/909.html) | Missing Initialization of Resource | DoS, Read Application Data | Explicitly initialize the resource before use. If this is performed through an API functio |
 | [CWE-912](https://cwe.mitre.org/data/definitions/912.html) | Hidden Functionality | Alter Execution Logic, Varies by Context | Always verify the integrity of the product that is being installed. |
 | [CWE-913](https://cwe.mitre.org/data/definitions/913.html) | Improper Control of Dynamically-Managed Code Resources | Alter Execution Logic, Execute Unauthorized Code or Commands | For any externally-influenced input, check the input against an allowlist of acceptable va |
-| [CWE-922](https://cwe.mitre.org/data/definitions/922.html) | Insecure Storage of Sensitive Information | Modify Application Data, Modify Files or Directories | — |
-| [CWE-923](https://cwe.mitre.org/data/definitions/923.html) | Improper Restriction of Communication Channel to Intended Endpoints | Gain Privileges or Assume Identity | — |
-| [CWE-943](https://cwe.mitre.org/data/definitions/943.html) | Improper Neutralization of Special Elements in Data Query Logic | Bypass Protection Mechanism, Modify Application Data | — |
-| [CWE-1023](https://cwe.mitre.org/data/definitions/1023.html) | Incomplete Comparison with Missing Factors | Alter Execution Logic, Bypass Protection Mechanism | — |
-| [CWE-1038](https://cwe.mitre.org/data/definitions/1038.html) | Insecure Automated Optimizations | Alter Execution Logic | — |
+| [CWE-922](https://cwe.mitre.org/data/definitions/922.html) | Insecure Storage of Sensitive Information | Modify Application Data, Modify Files or Directories | N/A |
+| [CWE-923](https://cwe.mitre.org/data/definitions/923.html) | Improper Restriction of Communication Channel to Intended Endpoints | Gain Privileges or Assume Identity | N/A |
+| [CWE-943](https://cwe.mitre.org/data/definitions/943.html) | Improper Neutralization of Special Elements in Data Query Logic | Bypass Protection Mechanism, Modify Application Data | N/A |
+| [CWE-1023](https://cwe.mitre.org/data/definitions/1023.html) | Incomplete Comparison with Missing Factors | Alter Execution Logic, Bypass Protection Mechanism | N/A |
+| [CWE-1038](https://cwe.mitre.org/data/definitions/1038.html) | Insecure Automated Optimizations | Alter Execution Logic | N/A |
 | [CWE-1039](https://cwe.mitre.org/data/definitions/1039.html) | Inadequate Detection or Handling of Adversarial Input Perturbations in Automated Recognition Mechanism | Bypass Protection Mechanism, DoS | Algorithmic modifications such as model pruning or compression can help mitigate this weak |
 | [CWE-1059](https://cwe.mitre.org/data/definitions/1059.html) | Insufficient Technical Documentation | Hide Activities, Quality Degradation | Ensure that design documentation is detailed enough to allow for post-manufacturing verifi |
-| [CWE-1061](https://cwe.mitre.org/data/definitions/1061.html) | Insufficient Encapsulation | Bypass Protection Mechanism, Increase Analytical Complexity | — |
-| [CWE-1076](https://cwe.mitre.org/data/definitions/1076.html) | Insufficient Adherence to Expected Conventions | Reduce Maintainability | — |
-| [CWE-1078](https://cwe.mitre.org/data/definitions/1078.html) | Inappropriate Source Code Style or Formatting | Increase Analytical Complexity | — |
-| [CWE-1093](https://cwe.mitre.org/data/definitions/1093.html) | Excessively Complex Data Representation | Increase Analytical Complexity, Reduce Maintainability | — |
-| [CWE-1120](https://cwe.mitre.org/data/definitions/1120.html) | Excessive Code Complexity | Increase Analytical Complexity, Reduce Maintainability | — |
-| [CWE-1164](https://cwe.mitre.org/data/definitions/1164.html) | Irrelevant Code | Reduce Performance, Reduce Reliability | — |
-| [CWE-1176](https://cwe.mitre.org/data/definitions/1176.html) | Inefficient CPU Computation | DoS, Reduce Performance | — |
+| [CWE-1061](https://cwe.mitre.org/data/definitions/1061.html) | Insufficient Encapsulation | Bypass Protection Mechanism, Increase Analytical Complexity | N/A |
+| [CWE-1076](https://cwe.mitre.org/data/definitions/1076.html) | Insufficient Adherence to Expected Conventions | Reduce Maintainability | N/A |
+| [CWE-1078](https://cwe.mitre.org/data/definitions/1078.html) | Inappropriate Source Code Style or Formatting | Increase Analytical Complexity | N/A |
+| [CWE-1093](https://cwe.mitre.org/data/definitions/1093.html) | Excessively Complex Data Representation | Increase Analytical Complexity, Reduce Maintainability | N/A |
+| [CWE-1120](https://cwe.mitre.org/data/definitions/1120.html) | Excessive Code Complexity | Increase Analytical Complexity, Reduce Maintainability | N/A |
+| [CWE-1164](https://cwe.mitre.org/data/definitions/1164.html) | Irrelevant Code | Reduce Performance, Reduce Reliability | N/A |
+| [CWE-1176](https://cwe.mitre.org/data/definitions/1176.html) | Inefficient CPU Computation | DoS, Reduce Performance | N/A |
 | [CWE-1177](https://cwe.mitre.org/data/definitions/1177.html) | Use of Prohibited Code | Reduce Maintainability | Identify a list of prohibited API functions and prohibit developers from using these funct |
-| [CWE-1229](https://cwe.mitre.org/data/definitions/1229.html) | Creation of Emergent Resource | Varies by Context | — |
+| [CWE-1229](https://cwe.mitre.org/data/definitions/1229.html) | Creation of Emergent Resource | Varies by Context | N/A |
 | [CWE-1263](https://cwe.mitre.org/data/definitions/1263.html) | Improper Physical Access Control | Varies by Context | Specific protection requirements depend strongly on contextual factors including the level |
 | [CWE-1294](https://cwe.mitre.org/data/definitions/1294.html) | Insecure Security Identifier Mechanism | DoS, Execute Unauthorized Code or Commands | Security Identifier Decoders must be reviewed for design inconsistency and common weakness |
 | [CWE-1357](https://cwe.mitre.org/data/definitions/1357.html) | Reliance on Insufficiently Trustworthy Component | Reduce Maintainability | For each component, ensure that its supply chain is well-controlled with sub-tier supplier |
 | [CWE-1384](https://cwe.mitre.org/data/definitions/1384.html) | Improper Handling of Physical or Environmental Conditions | Unexpected State, Varies by Context | In requirements, be specific about expectations for how the product will perform when it e |
-| [CWE-1390](https://cwe.mitre.org/data/definitions/1390.html) | Weak Authentication | Execute Unauthorized Code or Commands, Gain Privileges or Assume Identity | — |
+| [CWE-1390](https://cwe.mitre.org/data/definitions/1390.html) | Weak Authentication | Execute Unauthorized Code or Commands, Gain Privileges or Assume Identity | N/A |
 | [CWE-1391](https://cwe.mitre.org/data/definitions/1391.html) | Use of Weak Credentials | Bypass Protection Mechanism | When the user changes or sets a password, check the password against a database of already |
 | [CWE-1395](https://cwe.mitre.org/data/definitions/1395.html) | Dependency on Vulnerable Third-Party Component | Varies by Context | In some industries such as healthcare [REF-1320] [REF-1322] or technologies such as the cl |
 | [CWE-1419](https://cwe.mitre.org/data/definitions/1419.html) | Incorrect Initialization of Resource | Gain Privileges or Assume Identity, Read Application Data | Choose the safest-possible initialization for security-related resources. |

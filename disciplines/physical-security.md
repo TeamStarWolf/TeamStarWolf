@@ -1,6 +1,6 @@
 # Physical Security
 
-Physical security is the discipline of protecting physical assets, facilities, people, and hardware from unauthorized access, theft, sabotage, and environmental threats. It bridges the gap between the digital and physical worlds — an attacker who can walk into a data center, clone a badge, or plug in a rogue device has bypassed virtually every logical control in place. Physical security professionals must think offensively (how would an adversary defeat our controls?) and defensively (what layers of protection make that defeat expensive and detectable?).
+Physical security is the discipline of protecting physical assets, facilities, people, and hardware from unauthorized access, theft, sabotage, and environmental threats. It bridges the gap between the digital and physical worlds: an attacker who can walk into a data center, clone a badge, or plug in a rogue device has bypassed virtually every logical control in place. Physical security professionals must think offensively (how would an adversary defeat our controls?) and defensively (what layers of protection make that defeat expensive and detectable?).
 
 Physical security underpins every other security domain. Strong network segmentation means nothing if an attacker can unplug a server, and encryption is irrelevant if a drive can be physically removed. Understanding physical security is essential for penetration testers, red teamers, facility managers, and enterprise security architects alike.
 
@@ -28,7 +28,7 @@ Physical security underpins every other security domain. Strong network segmenta
 
 | Tool | Description | Link |
 |------|-------------|-------|
-| Proxmark3 | Premier RFID research tool supporting HID, EM4100, MIFARE, iCLASS, and dozens of other card standards — used for reading, cloning, and analyzing RF cards | https://github.com/Proxmark/proxmark3 |
+| Proxmark3 | Premier RFID research tool supporting HID, EM4100, MIFARE, iCLASS, and dozens of other card standards; used for reading, cloning, and analyzing RF cards | https://github.com/Proxmark/proxmark3 |
 | Flipper Zero | Portable multi-tool for RF, NFC, IR, iButton, GPIO, and BadUSB attacks; widely used in physical pen tests | https://github.com/flipperdevices/flipperzero-firmware |
 | RFIDler | Open-source HF/LF RFID and NFC research platform | https://github.com/ApertureLabsLtd/RFIDler |
 | Crapto1 | Implementation of the broken Crypto1 cipher used in MIFARE Classic cards; enables offline cracking of intercepted authentication sessions | https://github.com/RfidResearchGroup/proxmark3 |
@@ -36,7 +36,7 @@ Physical security underpins every other security domain. Strong network segmenta
 | Lock Pick Training Boards (Sparrows) | Open-source cutaway lock designs for learning single pin picking | https://www.sparrowslockpicks.com |
 | UDT (Under-Door Tool) Designs | Community documentation of under-door lever manipulation tools | https://github.com/deviantollam/decoding |
 | Wiegand Attack Tools | Tools for intercepting and replaying Wiegand protocol signals from card readers | https://github.com/linklayer/wiegotcha |
-| GrayKey / Cellebrite (research refs) | Commercial forensic tools referenced in physical security research for device seizure scenarios | — |
+| GrayKey / Cellebrite (research refs) | Commercial forensic tools referenced in physical security research for device seizure scenarios | None |
 
 ## Commercial Platforms
 
@@ -129,7 +129,7 @@ A physical penetration test follows a structured kill chain:
 - HID Prox (125 kHz LF): No authentication; trivially cloned with Proxmark3 or Flipper Zero at 5-10 cm range. Extremely common in older deployments.
 - HID iCLASS (13.56 MHz HF): Early versions cracked using the iCLASS master key (publicly known since 2012). iCLASS SE and iCLASS Seos offer genuine cryptographic protection but are more expensive.
 - MIFARE Classic: Uses the broken Crypto1 stream cipher. Vulnerable to nested authentication attacks and offline cracking with Crapto1. Widely deployed in parking, transit, and some enterprise PACS.
-- NFC Relay Attacks: Using two devices (one near victim, one near reader) to relay an authentication session in real time — bypasses distance-based security assumptions.
+- NFC Relay Attacks: Using two devices (one near victim, one near reader) to relay an authentication session in real time; bypasses distance-based security assumptions.
 - OSDP Protocol: Open Supervised Device Protocol (RS-485) is the modern standard for reader-to-controller communication. Unlike Wiegand (no encryption, no authentication), OSDP v2 supports AES-128 encryption, but many deployments leave it unconfigured.
 
 

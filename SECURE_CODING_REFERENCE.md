@@ -1,6 +1,6 @@
 # Secure Coding Reference
 
-> In one minute — This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
+> In one minute: This document shows how to write code that resists attack: each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw. It covers input validation, password hashing, JWTs, crypto, file uploads, dependency and supply chain safety, and the scanners (SAST, DAST, secrets, IaC) to wire into your pipeline. Everything is mapped back to CWE, NIST SSDF, and MITRE ATT&CK so a fix can be traced to the standard that requires it.
 
 | | |
 |---|---|
@@ -36,7 +36,7 @@ A comprehensive reference for writing secure code, covering OWASP Top 10 (2021),
 
 Description: Access control enforces policy so users cannot act outside their intended permissions. Failures lead to unauthorized information disclosure, modification, or destruction of all data, or performing a business function outside the user's limits. Includes IDOR (Insecure Direct Object Reference), privilege escalation, and missing function-level access control. CWE-284, CWE-285, CWE-639. ATT&CK: T1078 (Valid Accounts), T1548 (Abuse Elevation Control Mechanism).
 
-Vulnerable — IDOR example (Python/Flask):
+Vulnerable (IDOR example, Python/Flask):
 ```python
 # BAD: User can access any invoice by changing the ID
 @app.route("/invoice/<int:invoice_id>")
@@ -45,7 +45,7 @@ def get_invoice(invoice_id):
     return jsonify(invoice.to_dict())  # No ownership check!
 ```
 
-Secure — Object-level authorization:
+Secure (object-level authorization):
 ```python
 from flask_login import login_required, current_user
 
@@ -68,7 +68,7 @@ Detection: Code review for missing `owner_id`/`user_id` filters; fuzz object IDs
 
 Description: Formerly "Sensitive Data Exposure." Root cause is weak or missing cryptography protecting data in transit or at rest. Includes use of deprecated algorithms (MD5, SHA-1, DES, RC4), weak key lengths, missing TLS, hardcoded keys, and ECB mode. CWE-326, CWE-327, CWE-328. ATT&CK: T1552 (Unsecured Credentials), T1040 (Network Sniffing).
 
-Vulnerable — MD5 password hashing:
+Vulnerable (MD5 password hashing):
 ```python
 import hashlib
 # BAD: MD5 is a fast hash — billions of attempts/second with GPU
@@ -76,7 +76,7 @@ def store_password(password):
     return hashlib.md5(password.encode()).hexdigest()
 ```
 
-Secure — bcrypt (cost ≥12):
+Secure (bcrypt, cost ≥12):
 ```python
 import bcrypt
 
@@ -88,7 +88,7 @@ def verify_password(password: str, hashed: bytes) -> bool:
     return bcrypt.checkpw(password.encode("utf-8"), hashed)
 ```
 
-Secure — Argon2id (NIST SP 800-63B recommended):
+Secure (Argon2id, NIST SP 800-63B recommended):
 ```python
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
@@ -119,7 +119,7 @@ Detection: Grep codebase for `md5`, `sha1`, `DES`, `RC4`; use Semgrep rule `pyth
 
 Description: User-supplied data is sent to an interpreter without validation or escaping. Includes SQL, OS command, LDAP, XPath, NoSQL, and template injection. CWE-89 (SQL), CWE-78 (OS Command), CWE-90 (LDAP). ATT&CK: T1190 (Exploit Public-Facing Application).
 
-Vulnerable — SQL Injection:
+Vulnerable (SQL Injection):
 ```python
 # BAD: String concatenation — classic SQLi
 def get_user(username):
@@ -128,7 +128,7 @@ def get_user(username):
 # Payload: username = "' OR '1'='1" -- dumps entire table
 ```
 
-Secure — Parameterized query (Python sqlite3/SQLAlchemy):
+Secure (parameterized query, Python sqlite3/SQLAlchemy):
 ```python
 # sqlite3 — use ? placeholders
 import sqlite3
@@ -146,7 +146,7 @@ def get_user_orm(session: Session, username: str):
     return session.query(User).filter(User.username == username).first()
 ```
 
-Vulnerable — OS Command Injection:
+Vulnerable (OS Command Injection):
 ```python
 import os
 # BAD: shell=True with user input
@@ -155,7 +155,7 @@ def ping_host(host):
 # Payload: host = "127.0.0.1; cat /etc/passwd"
 ```
 
-Secure — subprocess with shell=False:
+Secure (subprocess with shell=False):
 ```python
 import subprocess, re
 
@@ -170,7 +170,7 @@ def ping_host(host: str) -> str:
     return result.stdout
 ```
 
-LDAP Injection — Secure escaping (Python ldap3):
+LDAP Injection (secure escaping, Python ldap3):
 ```python
 from ldap3.utils.conv import escape_filter_chars
 
@@ -186,7 +186,7 @@ Detection: `bandit -r . -t B608` (SQL); `semgrep --config=p/sql-injection`; tain
 
 ### A04: Insecure Design
 
-Description: Missing or ineffective security controls at the design level — no threat modeling, no rate limiting by design, unsafe business logic. Cannot be fixed by implementation alone. CWE-73, CWE-183, CWE-209. ATT&CK: T1110 (Brute Force), T1499 (Endpoint Denial of Service).
+Description: Missing or ineffective security controls at the design level (no threat modeling, no rate limiting by design, unsafe business logic). Cannot be fixed by implementation alone. CWE-73, CWE-183, CWE-209. ATT&CK: T1110 (Brute Force), T1499 (Endpoint Denial of Service).
 
 STRIDE Threat Modeling:
 
@@ -250,7 +250,7 @@ Detection: CIS Benchmarks automated scanning; `checkov` for IaC; `docker-bench-s
 
 ### A06: Vulnerable and Outdated Components
 
-Description: Using components with known vulnerabilities — libraries, frameworks, OS packages. CWE-1035, CWE-937. ATT&CK: T1195 (Supply Chain Compromise), T1203 (Exploitation for Client Execution).
+Description: Using components with known vulnerabilities (libraries, frameworks, OS packages). CWE-1035, CWE-937. ATT&CK: T1195 (Supply Chain Compromise), T1203 (Exploitation for Client Execution).
 
 SCA (Software Composition Analysis) tools:
 ```bash
@@ -293,7 +293,7 @@ Detection: Integrate SCA into CI pipeline as a blocking gate; subscribe to GitHu
 
 Description: Confirms the user's identity, authentication, and session management. Weaknesses include credential stuffing, brute force, session fixation, weak tokens, missing MFA. CWE-287, CWE-384, CWE-307. ATT&CK: T1110 (Brute Force), T1539 (Steal Web Session Cookie).
 
-Session Fixation — Vulnerable:
+Session Fixation (vulnerable):
 ```python
 # BAD: Session ID not regenerated after login
 @app.route("/login", methods=["POST"])
@@ -304,7 +304,7 @@ def login():
         return redirect("/dashboard")
 ```
 
-Secure — Regenerate session ID on privilege change:
+Secure (regenerate session ID on privilege change):
 ```python
 from flask import session
 from flask_login import login_user
@@ -343,7 +343,7 @@ Detection: Automated credential stuffing testing; verify session cookie attribut
 
 Description: Code and infrastructure not protected against integrity violations. Includes insecure deserialization, unsigned updates, and malicious CI/CD pipeline code. CWE-502, CWE-345, CWE-494. ATT&CK: T1195 (Supply Chain Compromise), T1059 (Command and Scripting Interpreter).
 
-Vulnerable — Python pickle deserialization:
+Vulnerable (Python pickle deserialization):
 ```python
 import pickle
 # BAD: Deserializing untrusted data — arbitrary code execution
@@ -440,9 +440,9 @@ Detection: Deploy SIEM with alert rules for: 10+ failed logins in 5 min; after-h
 
 ### A10: Server-Side Request Forgery (SSRF)
 
-Description: Web app fetches a remote resource without validating the user-supplied URL. Allows attackers to access internal services, cloud metadata, and bypass firewalls. CWE-918. ATT&CK: T1090 (Proxy), T1552 (Unsecured Credentials — cloud IMDS).
+Description: Web app fetches a remote resource without validating the user-supplied URL. Allows attackers to access internal services, cloud metadata, and bypass firewalls. CWE-918. ATT&CK: T1090 (Proxy), T1552 (Unsecured Credentials, cloud IMDS).
 
-Vulnerable — SSRF to internal/cloud metadata:
+Vulnerable (SSRF to internal/cloud metadata):
 ```python
 import requests
 # BAD: User controls the URL — accesses internal services
@@ -458,7 +458,7 @@ def fetch_url():
 # ?url=file:///etc/passwd
 ```
 
-Secure — Allow-list with DNS rebinding protection:
+Secure (allow-list with DNS rebinding protection):
 ```python
 import ipaddress, socket
 from urllib.parse import urlparse
@@ -501,7 +501,7 @@ Detection: ZAP active scan SSRF rules; Burp Collaborator for out-of-band detecti
 
 ### Validation Principles
 
-Allow-list over deny-list: Define exactly what is permitted; reject everything else. Deny-lists are incomplete by definition — there is always a bypass.
+Allow-list over deny-list: Define exactly what is permitted; reject everything else. Deny-lists are incomplete by definition; there is always a bypass.
 
 ```python
 import re

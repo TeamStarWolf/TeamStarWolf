@@ -1,6 +1,6 @@
 # Endpoint Security Reference
 
-> In one minute — This is a hands-on field guide to defending endpoints: choosing and tuning EDR (endpoint detection and response) platforms like Microsoft Defender, CrowdStrike, and SentinelOne, deploying Sysmon and Windows audit logging, and hunting for attacker behavior in the resulting telemetry. Practitioners care because most intrusions land on an endpoint first, and this doc gives the exact settings, commands, and queries to prevent, detect, and investigate them. It pairs ready-to-paste configuration (PowerShell, ASR rules, Sysmon XML) with KQL, S1QL, and Splunk hunting queries mapped to MITRE ATT&CK.
+> In one minute: This is a hands-on field guide to defending endpoints: choosing and tuning EDR (endpoint detection and response) platforms like Microsoft Defender, CrowdStrike, and SentinelOne, deploying Sysmon and Windows audit logging, and hunting for attacker behavior in the resulting telemetry. Practitioners care because most intrusions land on an endpoint first, and this doc gives the exact settings, commands, and queries to prevent, detect, and investigate them. It pairs ready-to-paste configuration (PowerShell, ASR rules, Sysmon XML) with KQL, S1QL, and Splunk hunting queries mapped to MITRE ATT&CK.
 
 | | |
 |---|---|
@@ -83,7 +83,7 @@ Deployment strategy: Start all rules in Audit mode, monitor for false positives 
 
 ### Tamper Protection
 
-Always enable — prevents disabling Defender via registry, PowerShell, or local policy.
+Always enable: prevents disabling Defender via registry, PowerShell, or local policy.
 
 ```powershell
 # Enable Tamper Protection via PowerShell (requires admin)
@@ -259,7 +259,7 @@ Custom IOAs detect behaviors not covered by default detections. Example patterns
 ### Storyline™ Technology
 
 All events (process, file, network, registry) are automatically linked to the originating
-process tree. This eliminates manual correlation in the console — an alert includes full
+process tree. This eliminates manual correlation in the console: an alert includes full
 context without additional investigation.
 
 ### Deep Visibility Queries (S1QL)
@@ -796,7 +796,7 @@ Detection improvements:
 
 ### ETW (Event Tracing for Windows) Bypass
 
-Technique: Patch `EtwEventWrite` in ntdll.dll to `ret` — disables ETW-based telemetry.
+Technique: Patch `EtwEventWrite` in ntdll.dll to `ret`, which disables ETW-based telemetry.
 
 Detection: Memory integrity checks, Kernel Patch Protection (KPP), EDR driver-level hooks.
 

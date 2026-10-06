@@ -1,6 +1,6 @@
 ﻿# Browser Security Reference
 
-> In one minute — This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
+> In one minute: This document explains how a modern browser keeps one website from tampering with another and how servers reinforce those boundaries. It walks through the browser's isolation model, the same-origin policy (the core rule that one site's code cannot read another site's data), and the response headers and cookie settings that harden a web app. Each topic is paired with the misconfigurations that weaken it and the defensive settings that fix them, so a practitioner can both audit and configure.
 
 | | |
 |---|---|
@@ -45,7 +45,7 @@ Modern browsers use a multi-process architecture to isolate content and limit th
 
 ### Sandboxing
 
-Renderer processes operate inside a sandbox with severely restricted syscall access — no direct kernel or file system access.
+Renderer processes operate inside a sandbox with severely restricted syscall access: no direct kernel or file system access.
 
 - Linux: Seccomp-BPF filters + Linux namespaces
 - Windows: Restricted tokens + job objects + LPAC integrity level
@@ -156,7 +156,7 @@ Access-Control-Max-Age: 86400
 
 Origin Reflection (Critical): Server copies the Origin header directly into ACAO. Any attacker origin is permitted.
 
-Null Origin Allowed: `Access-Control-Allow-Origin: null` — sandboxed iframes send `Origin: null`, attackers exploit this.
+Null Origin Allowed: `Access-Control-Allow-Origin: null`. Sandboxed iframes send `Origin: null`, attackers exploit this.
 
 Prefix/Suffix Match Bypass: Regex `^https://.*\.app\.com$` allows `https://evil.app.com`.
 
@@ -277,7 +277,7 @@ Superseded by CSP `frame-ancestors`. Use CSP for new deployments.
 X-Content-Type-Options: nosniff
 ```
 
-Prevents MIME sniffing — browser honors declared Content-Type exactly. Without it, a file served as `text/plain` could be re-interpreted as JavaScript.
+Prevents MIME sniffing: browser honors declared Content-Type exactly. Without it, a file served as `text/plain` could be re-interpreted as JavaScript.
 
 ### Referrer-Policy
 
@@ -381,7 +381,7 @@ Set-Cookie: __Secure-token=abc123; Secure; Domain=example.com
 | sessionStorage | Yes | No | Tab close | No |
 | IndexedDB | Yes | No | Never | No |
 
-Best practice: Store session tokens in `HttpOnly; Secure; SameSite=Lax` cookies — never in localStorage.
+Best practice: Store session tokens in `HttpOnly; Secure; SameSite=Lax` cookies, never in localStorage.
 
 ---
 
@@ -491,7 +491,7 @@ X-Frame-Options: DENY
 X-Frame-Options: SAMEORIGIN
 ```
 
-Frame-busting JavaScript is a weak defense — easily bypassed by `<iframe sandbox="allow-scripts">` which prevents top-navigation.
+Frame-busting JavaScript is a weak defense, easily bypassed by `<iframe sandbox="allow-scripts">` which prevents top-navigation.
 
 ---
 
@@ -776,7 +776,7 @@ console.log({}.isAdmin);  // true
 
 ### Impact Scenarios
 
-Privilege escalation: `if (user.isAdmin) { grantAccess(); }` — polluting `isAdmin` bypasses authorization for every user.
+Privilege escalation: `if (user.isAdmin) { grantAccess(); }`; polluting `isAdmin` bypasses authorization for every user.
 
 Denial of service: Polluting `toString` or `valueOf` breaks JSON serialization and string operations application-wide.
 

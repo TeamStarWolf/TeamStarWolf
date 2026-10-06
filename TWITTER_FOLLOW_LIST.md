@@ -1,6 +1,6 @@
 # Cybersecurity X / Twitter Follow List
 
-> In one minute — A curated, categorized list of about 205 X/Twitter accounts that consistently share useful security research, tooling, threat reporting, detection work, and community commentary. It is organized into 19 sections by specialty (threat intel, detection engineering, red team, DFIR, and more) so you can build a focused reading list for your own area of work instead of following everything. Enriched tables at the end add real names, focus areas, and a short "why follow" note for key accounts.
+> In one minute: A curated, categorized list of about 205 X/Twitter accounts that consistently share useful security research, tooling, threat reporting, detection work, and community commentary. It is organized into 19 sections by specialty (threat intel, detection engineering, red team, DFIR, and more) so you can build a focused reading list for your own area of work instead of following everything. Enriched tables at the end add real names, focus areas, and a short "why follow" note for key accounts.
 
 | | |
 |---|---|

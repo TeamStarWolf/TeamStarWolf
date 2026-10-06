@@ -1,14 +1,14 @@
 # ICS/OT Security
 
-Protecting industrial control systems, operational technology, and critical infrastructure — including SCADA, PLCs, DCS, and the communication protocols that bind them — from adversaries who increasingly target the physical processes that power grids, water systems, pipelines, and manufacturing depend on. ICS/OT security sits at the intersection of information technology security and operational engineering, and practitioners must understand both domains to be effective.
+Protecting industrial control systems, operational technology, and critical infrastructure (including SCADA, PLCs, DCS, and the communication protocols that bind them) from adversaries who increasingly target the physical processes that power grids, water systems, pipelines, and manufacturing depend on. ICS/OT security sits at the intersection of information technology security and operational engineering, and practitioners must understand both domains to be effective.
 
-The consequences of a security failure in OT are measured in physical damage, production loss, safety incidents, and human harm — not just data breaches. Sandworm's INDUSTROYER malware blacked out a portion of Kyiv in December 2016 following the 2015 Ukraine power grid attacks. XENOTIME deployed TRITON/TRISIS to attack Schneider Electric safety instrumented systems at a Saudi petrochemical plant, attempting to disable the last line of protection before a physical catastrophe. Volt Typhoon pre-positioned inside US critical infrastructure networks for years. Stuxnet physically destroyed Iranian centrifuges at Natanz — the first confirmed cyber weapon to cause kinetic damage. Unlike IT security, where patches can be deployed rapidly, OT environments often run decades-old systems that cannot be patched, rebooted during production, or tested with security tools that could cause physical process disruption.
+The consequences of a security failure in OT are measured in physical damage, production loss, safety incidents, and human harm, not just data breaches. Sandworm's INDUSTROYER malware blacked out a portion of Kyiv in December 2016 following the 2015 Ukraine power grid attacks. XENOTIME deployed TRITON/TRISIS to attack Schneider Electric safety instrumented systems at a Saudi petrochemical plant, attempting to disable the last line of protection before a physical catastrophe. Volt Typhoon pre-positioned inside US critical infrastructure networks for years. Stuxnet physically destroyed Iranian centrifuges at Natanz, the first confirmed cyber weapon to cause kinetic damage. Unlike IT security, where patches can be deployed rapidly, OT environments often run decades-old systems that cannot be patched, rebooted during production, or tested with security tools that could cause physical process disruption.
 
 ---
 
 ## Where to Start
 
-ICS/OT security requires building on IT security fundamentals before layering OT-specific engineering knowledge on top. Study the ICS ATT&CK matrix to understand how adversaries move from IT networks into OT environments — the TRITON, Industroyer, and Sandworm campaigns are documented case studies worth deep reading. Learn the major industrial protocols (Modbus, DNP3, IEC 61850, S7) so you recognize normal traffic before trying to detect anomalies. CISA and Idaho National Laboratory offer extensive free training purpose-built for this domain.
+ICS/OT security requires building on IT security fundamentals before layering OT-specific engineering knowledge on top. Study the ICS ATT&CK matrix to understand how adversaries move from IT networks into OT environments; the TRITON, Industroyer, and Sandworm campaigns are documented case studies worth deep reading. Learn the major industrial protocols (Modbus, DNP3, IEC 61850, S7) so you recognize normal traffic before trying to detect anomalies. CISA and Idaho National Laboratory offer extensive free training purpose-built for this domain.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -38,7 +38,7 @@ IT/OT Convergence Risks: Remote access expansion (VPNs, RDP) during and after CO
 
 ## ICS Protocols: Authentication and Encryption Gaps
 
-Most industrial protocols were designed for reliability and determinism in isolated networks — security was an afterthought.
+Most industrial protocols were designed for reliability and determinism in isolated networks; security was an afterthought.
 
 | Protocol | Layer | Auth | Encryption | Primary Use | Key Risk |
 |---|---|---|---|---|---|
@@ -129,7 +129,7 @@ NIST SP 800-82 Rev 3 (Guide to OT Security) adapts 800-53 for industrial environ
 | Control | ID | ICS/OT Relevance |
 |---|---|---|
 | Access Control | AC-3, AC-17 | Restrict ICS engineering workstation access; enforce MFA for remote access to OT; eliminate shared accounts on HMIs and SCADA servers |
-| Audit and Accountability | AU-2, AU-12 | Log historian access, HMI changes, and engineering workstation connections; OT logging is often absent — establishing it is a primary gap to address |
+| Audit and Accountability | AU-2, AU-12 | Log historian access, HMI changes, and engineering workstation connections; OT logging is often absent: establishing it is a primary gap to address |
 | Configuration Management | CM-7, CM-8 | Maintain OT asset inventory (Level 0-3 devices); disable unnecessary services on PLCs and HMIs; document all authorized communications |
 | Identification and Authentication | IA-2, IA-3 | Require authentication for OT system access; avoid default credentials on all ICS devices; implement device-level authentication where feasible |
 | System and Communications Protection | SC-7, SC-8 | Network segmentation per zone-conduit model (IEC 62443); iDMZ between Level 3 and Level 4; unidirectional security gateways (data diodes) for high-consequence environments |
@@ -151,7 +151,7 @@ ATT&CK for ICS documents techniques used in real campaigns against industrial en
 | Denial of Control | T0815 | Preventing operators from issuing commands to process equipment; flooding PLC command queues | Monitor for communication anomalies; rate limiting; redundant control paths |
 | Man in the Middle | T0830 | Intercepting and potentially modifying ICS protocol communications between components | Encrypted protocols where possible; passive anomaly detection; network segmentation limiting L2 access |
 | Network Connection Enumeration | T0840 | Mapping OT network topology and device inventory as reconnaissance | Alert on active scanning in OT networks; passive discovery is expected but active Nmap scans are not |
-| Damage to Property | T0879 | Actions resulting in physical damage to equipment or the environment — the ultimate ICS attack objective | Consequence analysis; physical safety systems (SIS) as last resort; process safety interlocks |
+| Damage to Property | T0879 | Actions resulting in physical damage to equipment or the environment, the ultimate ICS attack objective | Consequence analysis; physical safety systems (SIS) as last resort; process safety interlocks |
 | Activate Firmware Update Mode | T0800 | Forcing a device into firmware update mode to deploy malicious firmware or cause disruption | Restrict firmware update capabilities; monitor for unexpected update mode transitions |
 | Modify Control Logic | T0833 | Modifying PLC ladder logic, function block diagrams, or other control programs | Integrity monitoring of PLC programs; compare against known-good baselines; engineering workstation audit logs |
 | Spearphishing Attachment | T0865 | Initial access via malicious email attachments targeting OT-adjacent staff (engineers, IT admins) | Email security controls at IT boundary; awareness training for engineering and operations staff |
@@ -160,7 +160,7 @@ ATT&CK for ICS documents techniques used in real campaigns against industrial en
 
 ## Certifications
 
-- GICSP (Global Industrial Cyber Security Professional: GIAC) — The premier ICS security certification; covers ICS/SCADA architecture, protocols, security controls, and incident response for operational technology; widely recognized across critical infrastructure sectors
+- GICSP (Global Industrial Cyber Security Professional: GIAC). The premier ICS security certification; covers ICS/SCADA architecture, protocols, security controls, and incident response for operational technology; widely recognized across critical infrastructure sectors
 - GRID (GIAC Response and Industrial Defense): Advanced ICS incident response and threat hunting; active defense in OT environments, TRITON and INDUSTROYER malware analysis
 - CSSA (Certified SCADA Security Architect): Dedicated SCADA/ICS security architecture credential; covers zone-conduit architecture, IEC 62443, and OT security program design
 - ISA/IEC 62443 Cybersecurity Certificate Program: ISA's certificate program covering the international standard for industrial automation and control system security; tiered levels from awareness through expert

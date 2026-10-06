@@ -335,11 +335,11 @@ Separation of Duties (SoD) Matrix:
 
 | | Create PO | Approve PO | Pay Invoice | Create Vendor | Approve Vendor |
 |--|:---------:|:----------:|:-----------:|:-------------:|:--------------:|
-| Create PO | — | CONFLICT | OK | OK | OK |
-| Approve PO | CONFLICT | — | CONFLICT | OK | OK |
-| Pay Invoice | OK | CONFLICT | — | OK | OK |
-| Create Vendor | OK | OK | OK | — | CONFLICT |
-| Approve Vendor | OK | OK | OK | CONFLICT | — |
+| Create PO | N/A | CONFLICT | OK | OK | OK |
+| Approve PO | CONFLICT | N/A | CONFLICT | OK | OK |
+| Pay Invoice | OK | CONFLICT | N/A | OK | OK |
+| Create Vendor | OK | OK | OK | N/A | CONFLICT |
+| Approve Vendor | OK | OK | OK | CONFLICT | N/A |
 
 Role Explosion Problem:
 ```
@@ -723,7 +723,7 @@ Token Types:
 | Local Administrator | Built-in/created local admin on workstations | Lateral movement via pass-the-hash |
 | Domain Administrator | AD Domain Admin group membership | Complete domain compromise if stolen |
 | Schema Admin | Can modify AD schema | Catastrophic: persistent backdoor possible |
-| Service Accounts | Runs services/applications; often over-privileged | Rarely rotated; often SPNs — Kerberoastable |
+| Service Accounts | Runs services/applications; often over-privileged | Rarely rotated; often SPNs (Kerberoastable) |
 | Application Accounts | Hardcoded in apps/configs | Shared across teams; never expire |
 | Emergency (Break-Glass) | Last-resort admin access; rarely used | Must be monitored; requires dual custody |
 | Cloud Root/Owner | AWS root, Azure Owner, GCP project Owner | Disable root access keys; use only for recovery |
@@ -835,7 +835,7 @@ Managed Identities:
   - No credential management; token from IMDS endpoint
 ```
 
-HashiCorp Vault — Dynamic Secrets:
+HashiCorp Vault (Dynamic Secrets):
 ```bash
 # Enable database secrets engine
 vault secrets enable database
@@ -1110,7 +1110,7 @@ Result:   VPN eliminated; access granted per-application per-session
 
 ### Conditional Access as Zero Trust Enforcement
 
-Entra ID Conditional Access — Full Policy Structure:
+Entra ID Conditional Access (Full Policy Structure):
 
 ```
 Policy: "Require MFA and Compliant Device for Sensitive Apps"
@@ -1133,7 +1133,7 @@ Session Controls:
   Persistent browser session: Disabled
 ```
 
-Conditional Access Gap Analysis — What If Tool:
+Conditional Access Gap Analysis (What If Tool):
 ```
 Purpose:  Simulate policy evaluation for specific user/app/condition scenarios
           Identify gaps before deploying restrictive policies
@@ -1611,7 +1611,7 @@ Core UEBA Capabilities:
 | Entity Timeline | Unified view of all events for a user across all data sources |
 | Anomaly Detection | Statistical deviation from historical baseline |
 
-Exabeam / Securonix — Risk Signals:
+Exabeam / Securonix (Risk Signals):
 ```
 Session risk:     Login from new country (+30 points)
                   New device (+20 points)
@@ -1692,7 +1692,7 @@ AuditLogs
 
 ### Regulatory Requirements Mapping
 
-SOC 2 — Common Criteria 6 (Logical and Physical Access Controls):
+SOC 2, Common Criteria 6 (Logical and Physical Access Controls):
 ```
 CC6.1:  Logical access security software, infrastructure, and architectures
         → MFA, RBAC, least privilege, access reviews
@@ -1708,7 +1708,7 @@ CC6.8:  Unauthorized or malicious software prevented
         → Endpoint controls (related to identity)
 ```
 
-ISO 27001:2022 — Annex A.8 (Technological Controls) — Identity:
+ISO 27001:2022, Annex A.8 (Technological Controls), Identity:
 ```
 A.8.2  Privileged access rights          → PAM, JIT, PIM
 A.8.3  Information access restriction    → RBAC, least privilege
@@ -1718,7 +1718,7 @@ A.8.18 Use of privileged utility programs → Privileged access controls
 A.8.35 Secure development lifecycle      → Service account governance in SDLC
 ```
 
-PCI DSS v4.0 — Requirements 7 & 8:
+PCI DSS v4.0, Requirements 7 & 8:
 
 | Requirement | Description | IAM Control |
 |------------|-------------|------------|
@@ -1732,7 +1732,7 @@ PCI DSS v4.0 — Requirements 7 & 8:
 | 8.6 | System/application accounts managed by policy | Service account governance |
 | 8.7 | Database access controlled | PAM for database access |
 
-HIPAA — §164.312(a)(1) — Technical Safeguards:
+HIPAA, §164.312(a)(1), Technical Safeguards:
 ```
 §164.312(a)(2)(i):  Unique user identification — assign unique name/number
 §164.312(a)(2)(ii): Emergency access procedure — break-glass documented
@@ -1742,7 +1742,7 @@ HIPAA — §164.312(a)(1) — Technical Safeguards:
 §164.312(d):         Person or entity authentication — verify user identity
 ```
 
-NIST SP 800-53 — AC Control Family:
+NIST SP 800-53, AC Control Family:
 
 | Control | Title | Implementation |
 |---------|-------|---------------|
@@ -1758,7 +1758,7 @@ NIST SP 800-53 — AC Control Family:
 | AC-20 | Use of External Systems | BYOD policy; CA for unmanaged |
 | AC-25 | Reference Monitor | PEP cannot be bypassed |
 
-GDPR — Article 25 (Data Protection by Design):
+GDPR, Article 25 (Data Protection by Design):
 ```
 Access Minimization:
   Only the data strictly necessary for the purpose should be accessible
@@ -1837,7 +1837,7 @@ Verifiable Credentials (VC):
 Status: Emerging — limited enterprise adoption; government-led (EU Digital Identity Wallet)
 ```
 
-CAEP — Continuous Access Evaluation Protocol:
+CAEP (Continuous Access Evaluation Protocol):
 ```
 Problem:  OAuth access tokens valid for hours; revocation not immediate
 Solution: CAEP allows IdPs to push revocation events to resource servers

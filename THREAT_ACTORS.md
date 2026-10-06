@@ -1,6 +1,6 @@
 # Threat Actor Reference
 
-> In one minute — A quick-reference catalog of the threat actors that matter: nation-state APT groups (advanced persistent threats — state-backed intrusion teams) from China, Russia, North Korea, and Iran, plus ransomware operators, financial crime groups, and hacktivists. Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs (tactics, techniques, and procedures), so you can go from a name in a report to what the group actually does. Useful when you need attribution context, actor-specific TTPs to detect or emulate, or a fast answer to "who is Fancy Bear again?"
+> In one minute: A quick-reference catalog of the threat actors that matter: nation-state APT groups (advanced persistent threats, state-backed intrusion teams) from China, Russia, North Korea, and Iran, plus ransomware operators, financial crime groups, and hacktivists. Each group is mapped to its MITRE ATT&CK ID, aliases, targets, and signature TTPs (tactics, techniques, and procedures), so you can go from a name in a report to what the group actually does. Useful when you need attribution context, actor-specific TTPs to detect or emulate, or a fast answer to "who is Fancy Bear again?"
 
 | | |
 |---|---|
@@ -25,7 +25,7 @@ A quick-reference guide to notable advanced persistent threat (APT) groups, rans
 | APT40 | [G0065](https://attack.mitre.org/groups/G0065/) | BRONZE MOHAWK, Kryptonite Panda | Maritime, defense, aviation, universities | Exploits N-day vulns rapidly after disclosure |
 | APT41 | [G0096](https://attack.mitre.org/groups/G0096/) | Winnti, Barium, Double Dragon | Gaming, healthcare, telecom, financial | Dual espionage + financial crime; supply chain |
 | Volt Typhoon | [G1017](https://attack.mitre.org/groups/G1017/) | Bronze Silhouette | US critical infrastructure | LOTL techniques; pre-positioning in US infrastructure |
-| Salt Typhoon | — | — | US telecom carriers | Wiretap access to US carrier infrastructure (2024) |
+| Salt Typhoon | None | None | US telecom carriers | Wiretap access to US carrier infrastructure (2024) |
 
 Common TTPs: Spearphishing (T1566), Valid Accounts (T1078), Living off the Land (T1059), Web Shell (T1505.003), Supply chain compromise (T1195)
 
@@ -64,7 +64,7 @@ Common TTPs: Social engineering (T1566), credential theft, crypto theft (T1657),
 | APT33 | [G0064](https://attack.mitre.org/groups/G0064/) | Elfin, Refined Kitten | Aerospace, energy, petrochemical | Shamoon-adjacent; Saudi Arabia targeting |
 | APT34 | [G0049](https://attack.mitre.org/groups/G0049/) | OilRig, Helix Kitten, CHRYSENE | Middle East financial, government, energy | DNSpionage, QUADAGENT backdoor |
 | APT35 | [G0059](https://attack.mitre.org/groups/G0059/) | Charming Kitten, Phosphorus, TA453 | Journalists, activists, nuclear researchers | Password spray, phishing for credentials |
-| Volt Typhoon lookalike | — | Cyber Av3ngers (IRGC) | US water/wastewater systems | Unitronics PLC exploitation (2023) |
+| Volt Typhoon lookalike | None | Cyber Av3ngers (IRGC) | US water/wastewater systems | Unitronics PLC exploitation (2023) |
 
 Common TTPs: Password spray (T1110), spearphishing (T1566), web shell (T1505.003), DNS tunneling (T1071.004), destructive wipers
 
@@ -170,7 +170,7 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 
 ### APT29 / Cozy Bear (SVR)
 - Attribution: Russian SVR (Foreign Intelligence Service)
-- Notable operations: DNC hack (2016), SolarWinds/SUNBURST (2020), COVID-19 vaccine research theft, Microsoft breach (2024 — Midnight Blizzard/Nobelium)
+- Notable operations: DNC hack (2016), SolarWinds/SUNBURST (2020), COVID-19 vaccine research theft, Microsoft breach (2024, Midnight Blizzard/Nobelium)
 - Signature TTPs: SUNBURST backdoor, TEARDROP in-memory loader, WellMess, BEATDROP, Cobalt Strike with malleable C2, living-off-the-land, patient long-term access
 - Primary targets: Government, defense, think tanks, pharma/biotech, cloud providers
 
@@ -247,8 +247,8 @@ Intelligence sharing platforms: ISACs (sector-specific), MISP communities, FS-IS
 
 ## Hacktivists and Other Actors
 
-- Anonymous: Decentralized collective with no persistent infrastructure. Key operations: Operation Payback (RIAA/MPAA 2010), HBGary Federal hack (2011 — exposed HB Gary's plans against WikiLeaks), OpRussia (2022 Ukraine war). Capability varies widely by participant.
-- Lapsus$: South American teenager-led group (2021-2022). Hit Microsoft, Okta, Nvidia, Samsung, T-Mobile via social engineering and MFA fatigue attacks — no traditional malware. Several members arrested in UK and Brazil (2022).
+- Anonymous: Decentralized collective with no persistent infrastructure. Key operations: Operation Payback (RIAA/MPAA 2010), HBGary Federal hack (2011, exposed HB Gary's plans against WikiLeaks), OpRussia (2022 Ukraine war). Capability varies widely by participant.
+- Lapsus$: South American teenager-led group (2021-2022). Hit Microsoft, Okta, Nvidia, Samsung, T-Mobile via social engineering and MFA fatigue attacks, no traditional malware. Several members arrested in UK and Brazil (2022).
 - GhostSec: Initially anti-ISIS hacktivists; shifted to pro-Russian/anti-NATO stance during Ukraine war; associated with ransomware operations in 2023.
 - KillNet: Pro-Russian hacktivist collective conducting DDoS campaigns against NATO member websites, hospitals, and government portals during Ukraine conflict. Limited persistent impact beyond availability disruption.
 - IT Army of Ukraine: Volunteer cyber force targeting Russian infrastructure, organized via Telegram; coordinated DDoS and data exfiltration against Russian state entities.

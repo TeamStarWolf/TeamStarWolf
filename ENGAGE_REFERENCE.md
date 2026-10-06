@@ -1,6 +1,6 @@
 # MITRE Engage Reference: Denial, Deception & Adversary Engagement
 
-> [MITRE Engage™](https://engage.mitre.org/) is the framework for planning and running adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment — 5 goals, 9 approaches, and 31 activities, with 793 mappings to ATT&CK techniques.
+> [MITRE Engage™](https://engage.mitre.org/) is the framework for planning and running adversary engagement, denial, and deception operations. Where ATT&CK describes what the adversary does and D3FEND describes countermeasures, Engage describes what *you* do to expose, affect, and learn from an adversary already in your environment: 5 goals, 9 approaches, and 31 activities, with 793 mappings to ATT&CK techniques.
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | ATT&CK mappings | 793 across 175 techniques |
 | Datasets | [goals](data/engage/engage_goals.jsonl), [approaches](data/engage/engage_approaches.jsonl), [activities](data/engage/engage_activities.jsonl), [ATT&CK -> Engage](data/engage/attack_to_engage.jsonl) |
 
-> Deception is a detection strategy, not a trap for its own sake. Engage's value is that every activity ties back to an adversary behavior (ATT&CK technique) and a defensive outcome — so a honeypot becomes a measurable control rather than a science project.
+> Deception is a detection strategy, not a trap for its own sake. Engage's value is that every activity ties back to an adversary behavior (ATT&CK technique) and a defensive outcome, so a honeypot becomes a measurable control rather than a science project.
 
 Related: [Honeypot & Deception Reference](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md), [D3FEND](D3FEND_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Purple Team](PURPLE_TEAM_REFERENCE.md)
 
@@ -29,7 +29,7 @@ Goals set intent, approaches group tactics, activities are what you actually dep
 
 Reveal the presence of ongoing adversary operations.
 
-EAP0001, Collect — Gather adversary tools, observe tactics, and collect other raw intelligence about the adversary’s activity.
+EAP0001, Collect: Gather adversary tools, observe tactics, and collect other raw intelligence about the adversary’s activity.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -38,7 +38,7 @@ EAP0001, Collect — Gather adversary tools, observe tactics, and collect other 
 | [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
 | [EAC0003 System Activity Monitoring](https://engage.mitre.org/matrix/) | 22 | Collect system activity logs that can reveal adversary activity. |
 
-EAP0002, Detect — Establish or maintain awareness regarding adversary activity.
+EAP0002, Detect: Establish or maintain awareness regarding adversary activity.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -53,7 +53,7 @@ EAP0002, Detect — Establish or maintain awareness regarding adversary activity
 
 Negatively impact the adversaries operations.
 
-EAP0003, Prevent — Stop all or part of the adversary’s ability to conduct their operation as intended.
+EAP0003, Prevent: Stop all or part of the adversary’s ability to conduct their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -63,7 +63,7 @@ EAP0003, Prevent — Stop all or part of the adversary’s ability to conduct th
 | [EAC0016 Network Manipulation](https://engage.mitre.org/matrix/) | 45 | Make changes to network properties and functions to achieve a desired effect. |
 | [EAC0018 Security Controls](https://engage.mitre.org/matrix/) | 66 | Alter security controls to make the system more or less vulnerable to attack. |
 
-EAP0004, Direct — Encourage or discourage the adversary from conducting their operation as intended.
+EAP0004, Direct: Encourage or discourage the adversary from conducting their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -77,7 +77,7 @@ EAP0004, Direct — Encourage or discourage the adversary from conducting their 
 | [EAC0014 Software Manipulation](https://engage.mitre.org/matrix/) | 53 | Make changes to a system’s software properties and functions to achieve a desired effect. |
 | [EAC0023 Introduced Vulnerabilities](https://engage.mitre.org/matrix/) | 4 | Intentionally introduce vulnerabilities into the environment for the adversary to exploit. |
 
-EAP0005, Disrupt — Impair an adversary’s ability to conduct their operation as intended.
+EAP0005, Disrupt: Impair an adversary’s ability to conduct their operation as intended.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -92,7 +92,7 @@ EAP0005, Disrupt — Impair an adversary’s ability to conduct their operation 
 
 Learn about adversaries tactics, techniques, and procedures (TTPs).
 
-EAP0006, Reassure — Add authenticity to deceptive components to convince an adversary that an environment is real.
+EAP0006, Reassure: Add authenticity to deceptive components to convince an adversary that an environment is real.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -105,7 +105,7 @@ EAP0006, Reassure — Add authenticity to deceptive components to convince an ad
 | [EAC0010 Peripheral Management](https://engage.mitre.org/matrix/) | 8 | Manage peripheral devices used on systems within the network for engagement purposes. |
 | [EAC0011 Pocket Litter](https://engage.mitre.org/matrix/) | 58 | Data used to support the engagement narrative. |
 
-EAP0007, Motivate — Encourage an adversary to conduct part or all of their mission.
+EAP0007, Motivate: Encourage an adversary to conduct part or all of their mission.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -123,7 +123,7 @@ EAP0007, Motivate — Encourage an adversary to conduct part or all of their mis
 
 Help the defender think about what they want to accomplish with operations.
 
-SAP0001, Plan — Identify and align an operation with a desired end-state.
+SAP0001, Plan: Identify and align an operation with a desired end-state.
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -141,7 +141,7 @@ SAP0001, Plan — Identify and align an operation with a desired end-state.
 
 Make sure that the defender is capturing, utilizing, and refining knowledge learned to improve the defender’s posture.
 
-SAP0002, Analyze — Retrospective review of information gained from an operation .
+SAP0002, Analyze: Retrospective review of information gained from an operation .
 
 | Activity | ATT&CK techniques | Description |
 |---|--:|---|
@@ -153,7 +153,7 @@ SAP0002, Analyze — Retrospective review of information gained from an operatio
 
 ## Activities by ATT&CK coverage
 
-Which engagement activities apply to the widest range of adversary behavior — a good place to start a deception program.
+Which engagement activities apply to the widest range of adversary behavior: a good place to start a deception program.
 
 | Activity | ATT&CK techniques covered |
 |---|--:|
@@ -240,4 +240,4 @@ For these techniques, Engage offers the widest choice of deception/denial respon
 
 ---
 
-*Source: [MITRE Engage](https://engage.mitre.org/) via [mitre/engage](https://github.com/mitre/engage) published data. Engage™ and ATT&CK® are trademarks of The MITRE Corporation. Independent reference summary — consult the upstream project for authoritative content.*
+*Source: [MITRE Engage](https://engage.mitre.org/) via [mitre/engage](https://github.com/mitre/engage) published data. Engage™ and ATT&CK® are trademarks of The MITRE Corporation. Independent reference summary: consult the upstream project for authoritative content.*

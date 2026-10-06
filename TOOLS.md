@@ -1,6 +1,6 @@
 # Security Tools Reference
 
-> In one minute — This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
+> In one minute: This is a quick-reference matrix of security tools, defensive and offensive, organized by function: EDR, SIEM, threat intel, red teaming, forensics, cloud, AppSec, and more. Each entry says whether the tool is open source (OSS) or commercial (COM), what it is primarily used for, and links to its homepage. Reach for it when you need to name candidate tools for a category fast, without researching each one from scratch.
 
 | | |
 |---|---|

@@ -31,7 +31,7 @@
 
 Network forensics is the capture, recording, and analysis of network events for the purpose of discovering the source of security attacks or other problem incidents. Primary objectives include:
 
-- Incident Reconstruction: Establishing an accurate timeline of attacker actions: initial access vector, lateral movement, privilege escalation, data staging, and exfiltration — by correlating packet captures, flow records, and log sources.
+- Incident Reconstruction: Establishing an accurate timeline of attacker actions: initial access vector, lateral movement, privilege escalation, data staging, and exfiltration, by correlating packet captures, flow records, and log sources.
 - Attribution: Identifying threat actors through IP addresses, ASN ownership, infrastructure reuse (C2 hostnames, TLS certificates), behavioral TTPs, and threat intelligence correlation. Attribution is probabilistic, not deterministic.
 - Evidence for Legal Proceedings: Producing forensically sound evidence packages that can withstand scrutiny in civil litigation or criminal prosecution, including chain-of-custody documentation, authenticated hash values, and examiner logs.
 - Threat Intelligence Production: Extracting IOCs (IP addresses, domains, JA3 hashes, YARA-matchable patterns) from network captures to improve detection across the enterprise.
@@ -83,7 +83,7 @@ Chain of Custody for Network Evidence
 - Evidence bags, tamper-evident seals, and hash verification at each transfer point.
 - Maintain a custody log that travels with the evidence from collection through courtroom.
 
-Wiretapping Laws — ECPA (Electronic Communications Privacy Act)
+Wiretapping Laws: ECPA (Electronic Communications Privacy Act)
 - Title I (Wiretap Act): prohibits real-time interception of wire, oral, or electronic communications without consent or court order.
 - Title II (Stored Communications Act): governs access to stored electronic communications.
 - Business exception: employers may monitor their own networks if employees have been given notice (acceptable use policy).
@@ -116,7 +116,7 @@ Write-Blocking for Stored Captures
 - Hardware write-blockers (Tableau, WiebeTech) are preferred for legal proceedings.
 - Mount evidence storage read-only before analysis: `mount -o ro /dev/sdb1 /mnt/evidence`
 
-RFC 3227 — Guidelines for Evidence Collection and Archiving
+RFC 3227: Guidelines for Evidence Collection and Archiving
 - Order of volatility: network state -> running processes -> memory -> swap -> disk -> archival media.
 - For network evidence, capture volatile data first (ARP table, routing table, active connections).
 - Minimize footprint: use known-good binaries, document every command executed.
@@ -294,18 +294,18 @@ zeek-cut id.resp_h < conn.log | sort | uniq -c | sort -rn | head -20
 
 ### Additional Capture Tools
 
-tcpflow — Reconstructs TCP sessions from pcap, writing each flow as a file named by 4-tuple. `tcpflow -r capture.pcap -o sessions/`
+tcpflow: Reconstructs TCP sessions from pcap, writing each flow as a file named by 4-tuple. `tcpflow -r capture.pcap -o sessions/`
 
-NetworkMiner — Windows-based passive network forensics tool. Auto-extracts files, images, credentials, and messages from pcap. Performs passive OS fingerprinting using TCP/IP stack behavior (TTL, window size, options).
+NetworkMiner: Windows-based passive network forensics tool. Auto-extracts files, images, credentials, and messages from pcap. Performs passive OS fingerprinting using TCP/IP stack behavior (TTL, window size, options).
 
-Security Onion — Integrated Linux distribution for network security monitoring:
+Security Onion (integrated Linux distribution for network security monitoring):
 - Zeek for protocol logs
 - Suricata for signature-based detection
 - Elasticsearch + Kibana for log analysis
 - TheHive for case management
 - Useful for rapid deployment of full packet capture + detection + analysis stack.
 
-Arkime (formerly Moloch) — Full PCAP capture, indexing, and search platform. Indexes sessions in Elasticsearch; enables search by any protocol field. Supports PCAP download for any session. Scales to 100+ Gbps with clustered deployment.
+Arkime (formerly Moloch): Full PCAP capture, indexing, and search platform. Indexes sessions in Elasticsearch; enables search by any protocol field. Supports PCAP download for any session. Scales to 100+ Gbps with clustered deployment.
 
 ### Cloud Provider Flow Logs
 
@@ -324,9 +324,9 @@ WHERE action = 'REJECT' AND dstaddr NOT LIKE '10.%' AND dstaddr NOT LIKE '172.%'
 GROUP BY dstaddr ORDER BY count DESC LIMIT 20;
 ```
 
-Azure NSG Flow Logs — JSON format, delivered to Storage Account, analyzed in Sentinel via `AzureNetworkAnalytics_CL` table.
+Azure NSG Flow Logs: JSON format, delivered to Storage Account, analyzed in Sentinel via `AzureNetworkAnalytics_CL` table.
 
-GCP VPC Flow Logs — Ingested via Cloud Logging; query with Logs Explorer or BigQuery.
+GCP VPC Flow Logs: Ingested via Cloud Logging; query with Logs Explorer or BigQuery.
 
 ---
 
@@ -1508,7 +1508,7 @@ aws logs filter-log-events \
 
 ### Case Documentation Standards
 
-Chain of Custody Form — Required Fields
+Chain of Custody Form: Required Fields
 
 ```
 EVIDENCE CHAIN OF CUSTODY
@@ -1552,13 +1552,13 @@ Examination Log (required per NIST SP 800-86)
 
 ### NIST SP 800-86 and Related Standards
 
-NIST SP 800-86 — Guide to Integrating Forensic Techniques
+NIST SP 800-86: Guide to Integrating Forensic Techniques
 - Four-phase forensics process: Collection -> Examination -> Analysis -> Reporting.
 - Network forensics-specific guidance in Section 4.
 - Key principle: use forensic tools that do not alter the original evidence.
 - Maintain toolset validation log: version, known limitations, test results.
 
-RFC 4810 — Long-Term Archive and Notary Services
+RFC 4810: Long-Term Archive and Notary Services
 - Addresses long-term integrity verification of digital evidence.
 - Timestamp evidence files using a trusted timestamping authority at time of collection.
 - Renew timestamps before hash algorithm becomes computationally broken.

@@ -3,8 +3,8 @@
 The TeamStarWolf reference library is released under the [MIT License](LICENSE).
 It aggregates and reformats data from several third-party sources, each governed
 by its own terms. This file records those sources and their licenses. A
-machine-readable, per-file provenance record — with row counts, byte sizes and
-SHA-256 checksums — is generated at [`data/MANIFEST.json`](data/MANIFEST.json)
+machine-readable, per-file provenance record (with row counts, byte sizes and
+SHA-256 checksums) is generated at [`data/MANIFEST.json`](data/MANIFEST.json)
 by [`scripts/build_manifest.py`](scripts/build_manifest.py).
 
 Nothing here modifies the license of the upstream material; it remains under the
@@ -96,6 +96,6 @@ and `data/vendor_to_control.jsonl`.
 
 ---
 
-*Corrections to attribution or licensing are welcome — open an issue. When adding
+*Corrections to attribution or licensing are welcome; open an issue. When adding
 a dataset, record its source and license in `scripts/build_manifest.py`'s
 `PROVENANCE` table and add an entry here.*

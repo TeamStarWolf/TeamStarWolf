@@ -1,6 +1,6 @@
 # Packet Analysis Reference
 
-> In one minute — This is a hands-on reference for reading raw network traffic: decoding packets field by field, driving Wireshark, tcpdump, and Zeek, and spotting attacks (scans, C2 beaconing, DNS tunneling, ARP spoofing, exfiltration) directly in packet captures. Every section pairs the concept with copy-paste filters and queries, so you can go from "here's a pcap" to "here's what happened" without hunting through vendor docs. It also covers TLS decryption with session keys, JA3 fingerprinting of malware TLS clients, and a step-by-step pcap investigation workflow.
+> In one minute: This is a hands-on reference for reading raw network traffic: decoding packets field by field, driving Wireshark, tcpdump, and Zeek, and spotting attacks (scans, C2 beaconing, DNS tunneling, ARP spoofing, exfiltration) directly in packet captures. Every section pairs the concept with copy-paste filters and queries, so you can go from "here's a pcap" to "here's what happened" without hunting through vendor docs. It also covers TLS decryption with session keys, JA3 fingerprinting of malware TLS clients, and a step-by-step pcap investigation workflow.
 
 | | |
 |---|---|
@@ -91,7 +91,7 @@ Security notes on key fields:
 
 ### TCP Handshake Dissection
 
-Frame 1 — SYN (Client -> Server)
+Frame 1: SYN (Client -> Server)
 ```
 TCP  49152 → 443  [SYN]  Seq=0  Win=64240
   Options: MSS=1460, SACK_PERM, Timestamps, NOP, WS=256
@@ -101,7 +101,7 @@ TCP  49152 → 443  [SYN]  Seq=0  Win=64240
 - Client advertises capabilities: SACK, timestamps, window scaling
 - Only SYN flag set: this is what Nmap SYN scan sends and expects RST back
 
-Frame 2 — SYN-ACK (Server -> Client)
+Frame 2: SYN-ACK (Server -> Client)
 ```
 TCP  443 → 49152  [SYN, ACK]  Seq=0  Ack=1  Win=65535
   Options: MSS=1452, SACK_PERM, Timestamps, NOP, WS=128
@@ -111,7 +111,7 @@ TCP  443 → 49152  [SYN, ACK]  Seq=0  Ack=1  Win=65535
 - MSS 1452 vs 1460 = server is behind a VPN/tunnel (extra header bytes)
 - If SYN-ACK never arrives -> filtered port; if RST arrives -> closed port
 
-Frame 3 — ACK (Client -> Server)
+Frame 3: ACK (Client -> Server)
 ```
 TCP  49152 → 443  [ACK]  Seq=1  Ack=1  Win=131072 (after scaling)
 ```
@@ -507,7 +507,7 @@ ls *.log
 
 ### Key Log Files (Field Reference)
 
-conn.log — Every network connection
+conn.log: Every network connection
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -541,7 +541,7 @@ SH    SYN→SYN-ACK→originator RST (common in SYN scans)
 OTH   Mid-stream traffic (no handshake seen)
 ```
 
-dns.log — DNS queries and responses
+dns.log: DNS queries and responses
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -554,7 +554,7 @@ dns.log — DNS queries and responses
 | TTLs | Response TTLs | Low TTL = fast flux |
 | rejected | Query rejected | DNS firewall activity |
 
-http.log — HTTP/1.x requests
+http.log: HTTP/1.x requests
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -568,7 +568,7 @@ http.log — HTTP/1.x requests
 | resp_mime_types | MIME type returned | Executable delivered over HTTP |
 | referrer | Referrer header | Phishing chain tracking |
 
-ssl.log — TLS/SSL connections
+ssl.log: TLS/SSL connections
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -582,7 +582,7 @@ ssl.log — TLS/SSL connections
 | resumed | Session resumed | Beaconing pattern |
 | cert_chain_fuids | Cert UIDs | Link to x509.log |
 
-files.log — Transferred files
+files.log: Transferred files
 
 | Field | Description | Security Use |
 |---|---|---|
@@ -595,7 +595,7 @@ files.log — Transferred files
 | sha256 | SHA256 hash | VirusTotal lookup |
 | extracted | Path if extracted | Automated extraction |
 
-x509.log — TLS Certificates
+x509.log: TLS Certificates
 
 | Field | Description | Security Use |
 |---|---|---|

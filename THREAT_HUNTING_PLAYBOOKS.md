@@ -1,6 +1,6 @@
 # Threat Hunting Playbooks
 
-> In one minute — Five ready-to-run threat hunting playbooks, each built around a hypothesis (a specific guess about what an attacker might be doing, like dumping credentials from LSASS or beaconing over DNS) and mapped to a MITRE ATT&CK technique. Every playbook hands you the data sources to check, a copy-paste Splunk or KQL query, step-by-step investigation guidance, and concrete response actions. Instead of staring at a SIEM wondering where to start, you pick a playbook and follow the procedure.
+> In one minute: Five ready-to-run threat hunting playbooks, each built around a hypothesis (a specific guess about what an attacker might be doing, like dumping credentials from LSASS or beaconing over DNS) and mapped to a MITRE ATT&CK technique. Every playbook hands you the data sources to check, a copy-paste Splunk or KQL query, step-by-step investigation guidance, and concrete response actions. Instead of staring at a SIEM wondering where to start, you pick a playbook and follow the procedure.
 
 | | |
 |---|---|
@@ -25,7 +25,7 @@ Hypothesis-driven hunting procedures mapped to MITRE ATT&CK. Each playbook inclu
 
 ## HP-001: LSASS Credential Dumping
 
-ATT&CK Technique: T1003.001 — OS Credential Dumping: LSASS Memory
+ATT&CK Technique: T1003.001 (OS Credential Dumping: LSASS Memory)
 ATT&CK Tactic: Credential Access
 Data Sources: Sysmon EventID 10, EDR process telemetry
 Hunt Frequency: Weekly
@@ -59,7 +59,7 @@ NOT (SourceImage="*\\MsMpEng.exe" OR SourceImage="*\\csrss.exe" OR SourceImage="
 
 ## HP-002: Kerberoasting Detection
 
-ATT&CK Technique: T1558.003 — Kerberoasting
+ATT&CK Technique: T1558.003 (Kerberoasting)
 ATT&CK Tactic: Credential Access
 Data Sources: Windows Security Event Log on Domain Controllers
 Hunt Frequency: Weekly
@@ -92,7 +92,7 @@ NOT ServiceName="krbtgt"
 
 ## HP-003: Lateral Movement via SMB
 
-ATT&CK Technique: T1021.002 — Remote Services: SMB/Windows Admin Shares
+ATT&CK Technique: T1021.002 (Remote Services: SMB/Windows Admin Shares)
 ATT&CK Tactic: Lateral Movement
 Data Sources: Windows Security Event Log, network flow data
 Hunt Frequency: Daily
@@ -168,7 +168,7 @@ DeviceProcessEvents
 
 ## HP-005: DNS Beaconing
 
-ATT&CK Technique: T1071.004 — Application Layer Protocol: DNS
+ATT&CK Technique: T1071.004 (Application Layer Protocol: DNS)
 ATT&CK Tactic: Command and Control
 Data Sources: DNS logs (Zeek, Windows DNS, firewall DNS)
 Hunt Frequency: Daily

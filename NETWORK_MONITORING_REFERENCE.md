@@ -1,6 +1,6 @@
 # Network Monitoring Reference
 
-> Audience: Security practitioners — SOC analysts, detection engineers, and network defenders. This reference covers the full NSM (Network Security Monitoring) stack: sensors, log sources, detection logic, and threat hunting workflows.
+> Audience: Security practitioners (SOC analysts, detection engineers, and network defenders). This reference covers the full NSM (Network Security Monitoring) stack: sensors, log sources, detection logic, and threat hunting workflows.
 
 | | |
 |---|---|

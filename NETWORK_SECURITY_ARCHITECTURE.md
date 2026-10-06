@@ -1,6 +1,6 @@
 # Network Security Architecture Reference
 
-> In one minute — This document shows how to build an enterprise network that limits the damage of a breach: split the network into zones (DMZ, user, server, database, management), put firewalls and intrusion prevention at the right choke points, and control who gets on the wire with 802.1X port authentication. It pairs each pattern with real configuration examples (Cisco IOS-XE, Suricata, Calico, IKEv2 VPN) so you can implement rather than just read, and maps every control to NIST 800-53, CIS Controls 12-13, and MITRE ATT&CK.
+> In one minute: This document shows how to build an enterprise network that limits the damage of a breach: split the network into zones (DMZ, user, server, database, management), put firewalls and intrusion prevention at the right choke points, and control who gets on the wire with 802.1X port authentication. It pairs each pattern with real configuration examples (Cisco IOS-XE, Suricata, Calico, IKEv2 VPN) so you can implement rather than just read, and maps every control to NIST 800-53, CIS Controls 12-13, and MITRE ATT&CK.
 
 | | |
 |---|---|
@@ -133,7 +133,7 @@ Policy hierarchy: security zones -> address groups -> application groups -> user
 (via User-ID / AD integration). Policies evaluated top-down; first match wins.
 
 Default deny: an implicit deny-all rule at the bottom of the ruleset catches all
-unmatched traffic. Log all denied traffic — denied connections are a key detection signal
+unmatched traffic. Log all denied traffic: denied connections are a key detection signal
 (ATT&CK T1046 Network Service Scanning, T1571 Non-Standard Port).
 
 Rule naming convention:
@@ -172,7 +172,7 @@ DENY    ANY             ANY             ANY             Default deny — log all
 Operational notes:
 - Audit rules quarterly: remove rules that have not matched in 90+ days
 - Document business justification for every allow rule (change control)
-- Log all traffic including allowed: not just denies — for full visibility
+- Log all traffic including allowed, not just denies, for full visibility
 - Separate management access rules into their own policy section
 
 ---
@@ -569,13 +569,13 @@ Site A                          Site B
 
 IKEv2 is the current standard (IKEv1 is deprecated per RFC 9395).
 
-Phase 1 (IKE_SA — protect control channel):
+Phase 1 (IKE_SA, protect control channel):
 - Authentication: RSA certificates (preferred) or pre-shared key
 - Key exchange: Diffie-Hellman Group 20 (384-bit ECC) minimum; Group 21 (521-bit ECC) for high-security
 - Encryption: AES-256-GCM
 - PRF/Integrity: SHA-384 or SHA-512
 
-Phase 2 (Child_SA — protect data traffic):
+Phase 2 (Child_SA, protect data traffic):
 - Protocol: ESP (Encapsulating Security Payload): provides confidentiality + integrity
 - Encryption: AES-256-GCM (AEAD: no separate integrity algorithm needed)
 - PFS: Enabled (DH Group 20): new key for each Child_SA
@@ -669,7 +669,7 @@ TLS termination models:
 | SSL Bridging | TLS terminated at LB, re-encrypted to backend | Full | Yes |
 | SSL Passthrough | TLS passes through to backend unchanged | None | Yes (backend handles) |
 
-Security recommendation: SSL Bridging — decrypt at load balancer, inspect (WAF, DLP),
+Security recommendation: SSL Bridging. Decrypt at load balancer, inspect (WAF, DLP),
 re-encrypt to backend. SSL Passthrough prevents security inspection.
 
 WAF integration:
@@ -738,7 +738,7 @@ Protection layers:
 | DNS | L7 | NXDOMAIN flood, random subdomain (water torture) | Response rate limiting (DNS RRL), anycast DNS, query filtering |
 
 BCP38 (Network Ingress Filtering): ISPs should filter traffic from customer-facing interfaces
-where source IP does not match the allocated prefix — prevents spoofed-source amplification attacks.
+where source IP does not match the allocated prefix (prevents spoofed-source amplification attacks).
 Internal implementation: filter outbound traffic where source IP is not within your allocated ranges.
 
 SYN cookie implementation (Linux kernel):
@@ -786,7 +786,7 @@ interface GigabitEthernet0/0/1
  ip flow egress
 ```
 
-IPFIX (NetFlow v10 — IETF standard):
+IPFIX (NetFlow v10, IETF standard):
 - Recommended over proprietary NetFlow v9 for multi-vendor environments
 - Flexible template system: export custom fields
 - Supported by most modern routers/switches and cloud providers (VPC Flow Logs, Azure NSG Flow)
@@ -836,7 +836,7 @@ Components:
   - Session recording (CyberArk PSM, Teleport, StrongDM)
   - No Internet access from jump server: air-gapped from production traffic
 - Management ACLs: all device management interfaces (SSH, HTTPS, SNMP) only accept
-  connections from the management subnet — deny all other sources
+  connections from the management subnet; deny all other sources
 
 Cisco IOS management ACL:
 ```
@@ -878,7 +878,7 @@ Network Detection and Response (NDR):
 | Stamus Networks | Suricata + ML | Signature + ML, open source foundation |
 
 Zeek (formerly Bro):
-Zeek generates structured log files from network traffic — not signatures, but protocol state.
+Zeek generates structured log files from network traffic: not signatures, but protocol state.
 Key log files for threat detection:
 
 | Log File | Contents | Use Cases |
@@ -1005,4 +1005,4 @@ Use this checklist when evaluating or designing an enterprise network security a
 
 ---
 
-*Last updated: April 2026 — mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v19.2*
+*Last updated: April 2026; mapped to NIST 800-53 Rev 5, CIS Controls v8, MITRE ATT&CK v19.2*

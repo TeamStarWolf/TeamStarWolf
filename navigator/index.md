@@ -51,7 +51,7 @@ Threat-intelligence and gap-analysis heatmaps derived from MITRE ATT&CK Enterpri
 
 | Layer | Description | Load |
 |---|---|---|
-| [Threat Group Frequency](analytics/group_frequency.json) | Techniques colored by how many tracked ATT&CK threat groups use them — the most common adversary behaviors | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/group_frequency.json) |
+| [Threat Group Frequency](analytics/group_frequency.json) | Techniques colored by how many tracked ATT&CK threat groups use them; the most common adversary behaviors | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/group_frequency.json) |
 | [Framework Blind Spots](analytics/no_nist_coverage.json) | The 223 techniques with no mapped NIST 800-53 control, shaded by threat-group usage (priority) | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/no_nist_coverage.json) |
 | [ICS: Group Frequency](analytics/ics_group_frequency.json) | MITRE ATT&CK for ICS techniques colored by threat-group usage | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/ics_group_frequency.json) |
 | [Mobile: Group Frequency](analytics/mobile_group_frequency.json) | MITRE ATT&CK for Mobile techniques colored by threat-group usage | [ Navigator](https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/analytics/mobile_group_frequency.json) |
@@ -60,7 +60,7 @@ Threat-intelligence and gap-analysis heatmaps derived from MITRE ATT&CK Enterpri
 
 ## Fraud Matrix (MITRE F3)
 
-The [MITRE Fight Fraud Framework](../FRAUD_FRAMEWORK_REFERENCE.md) matrix — 123 cyber-enabled fraud techniques across 8 tactics, from reconnaissance through monetization. Published by MITRE's Center for Threat-Informed Defense (Apache-2.0) and vendored here with provenance metadata.
+The [MITRE Fight Fraud Framework](../FRAUD_FRAMEWORK_REFERENCE.md) matrix: 123 cyber-enabled fraud techniques across 8 tactics, from reconnaissance through monetization. Published by MITRE's Center for Threat-Informed Defense (Apache-2.0) and vendored here with provenance metadata.
 
 | Layer | Description | Load |
 |---|---|---|
@@ -95,7 +95,7 @@ The [MITRE Fight Fraud Framework](../FRAUD_FRAMEWORK_REFERENCE.md) matrix — 12
   <iframe
     src="https://mitre-attack.github.io/attack-navigator//#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FTeamStarWolf%2FTeamStarWolf%2Fmain%2Fnavigator%2Fteamstarwolf_vendor_coverage.json"
     style="position:absolute; top:0; left:0; width:100%; height:100%; border:1px solid #334155; border-radius:6px;"
-    title="MITRE ATT&CK Navigator — TeamStarWolf Full Stack Coverage"
+    title="MITRE ATT&CK Navigator: TeamStarWolf Full Stack Coverage"
     loading="lazy"
     allowfullscreen>
   </iframe>

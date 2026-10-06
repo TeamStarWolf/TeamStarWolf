@@ -1,6 +1,6 @@
 # How to Use This Library
 
-> In about 30 minutes you will know what lives where in this library, be able to find any technique, control, or reference in under a minute, and have a personal entry path picked out. This guide is for anyone opening TeamStarWolf for the first time — a student, a working SOC analyst, or a security lead — no prior knowledge of the repo required.
+> In about 30 minutes you will know what lives where in this library, be able to find any technique, control, or reference in under a minute, and have a personal entry path picked out. This guide is for anyone opening TeamStarWolf for the first time (a student, a working SOC analyst, or a security lead), no prior knowledge of the repo required.
 
 ## At a glance
 
@@ -25,7 +25,7 @@ Every page on the live site has an "Edit this page on GitHub" link at the top, s
 
 Checkpoint: You can see the homepage hero ("An open, threat-informed cybersecurity reference library") and the stat tiles: 139 reference docs, 47 discipline paths, 28 Navigator layers.
 
-Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site — the site's hash router cannot serve raw data files. That is by design, not a broken link.
+Watch out: Dataset links (the `.jsonl` files) always open on GitHub, not on the site; the site's hash router cannot serve raw data files. That is by design, not a broken link.
 
 ## Step 2: Learn what lives where
 
@@ -34,7 +34,7 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 | Location | What lives there |
 |---|---|
 | Root `*.md` files | The 139 reference documents: one deep, self-contained doc per domain (e.g. [Incident Response](/INCIDENT_RESPONSE_REFERENCE.md), [Cloud Security](/CLOUD_SECURITY_REFERENCE.md), [SIEM](/SIEM_REFERENCE.md)) |
-| `disciplines/` | 47 guided learning paths that sequence those references in the right order — hub at [Discipline Paths](/disciplines/README.md) |
+| `disciplines/` | 47 guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
 | `guides/` | Step-by-step how-to guides (you are reading one): procedures, where the references are doctrine |
 | `techniques/` | Per-technique ATT&CK detail pages, one file per tactic: hub at [Technique Detail Pages](/techniques/README.md) |
 | `detections/` | Detection engineering: 691 MITRE detection strategies + 1,739 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
@@ -45,15 +45,15 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 
 One companion lives outside this repo: [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/), an interactive ATT&CK workbench that consumes the same coverage data published here.
 
-Checkpoint: Given any question — "how does Kerberoasting detection work", "which controls map to T1078", "where do I start learning cloud security" — you can name the folder it will be answered in before you search.
+Checkpoint: Given any question ("how does Kerberoasting detection work", "which controls map to T1078", "where do I start learning cloud security"), you can name the folder it will be answered in before you search.
 
 ## Step 3: Find anything three ways
 
-1. Search. On the live site, press `/` (or click the search box) and type a term or an ATT&CK technique ID — `T1059` works, and so does `Kerberoasting`. Sub-techniques use dot notation: `T1059.001`. Press `Esc` to clear.
-2. The Reference Index. [INDEX](/INDEX.md) is the complete alphabetical listing of all 139 documents with one-line descriptions — the fastest way to scan what exists.
+1. Search. On the live site, press `/` (or click the search box) and type a term or an ATT&CK technique ID: `T1059` works, and so does `Kerberoasting`. Sub-techniques use dot notation: `T1059.001`. Press `Esc` to clear.
+2. The Reference Index. [INDEX](/INDEX.md) is the complete alphabetical listing of all 139 documents with one-line descriptions: the fastest way to scan what exists.
 3. The sidebar and Quick router. The sidebar groups every doc by domain (Coverage & Data, Defense & Detection, Offensive Security, GRC, and so on). The homepage Quick router does the same by *goal*: "Build detections", "Respond now", "Harden", "Map coverage & gaps".
 
-Checkpoint: Searching `T1059` returns hits across the Technique Atlas, detection strategies, and threat group profiles — the same technique seen from several angles.
+Checkpoint: Searching `T1059` returns hits across the Technique Atlas, detection strategies, and threat group profiles: the same technique seen from several angles.
 
 Watch out: Site search indexes pages reachable from the sidebar and caches the index for an hour, so the very first search after a page load can take a moment to warm up.
 
@@ -79,7 +79,7 @@ Checkpoint: You can answer "which NIST 800-53 controls mitigate Valid Accounts (
 
 ## Step 5: Enter as a student or career changer
 
-1. Open the [Discipline Paths hub](/disciplines/README.md) and pick one path from the cluster that matches your goal — for example [Security Operations](/disciplines/security-operations.md) or [Detection Engineering](/disciplines/detection-engineering.md). Each path sequences the references in learning order; resist reading the library alphabetically.
+1. Open the [Discipline Paths hub](/disciplines/README.md) and pick one path from the cluster that matches your goal, for example [Security Operations](/disciplines/security-operations.md) or [Detection Engineering](/disciplines/detection-engineering.md). Each path sequences the references in learning order; resist reading the library alphabetically.
 2. Keep the [Glossary](/GLOSSARY.md) open in a second tab for unfamiliar terms.
 3. Pair the reading with practice: [Hands-On Labs](/LABS.md) maps free lab platforms to each domain, and [Home Lab Setup](/HOMELAB_SETUP.md) shows how to build your own.
 4. When you want direction, [Career Paths](/CAREER_PATHS.md) and [Certifications](/CERTIFICATIONS.md) map roles to skills and certs.
@@ -88,7 +88,7 @@ Checkpoint: One discipline path bookmarked, its first two references skimmed, an
 
 ## Step 6: Enter as a SOC analyst
 
-Worked example — an alert fires on suspicious PowerShell:
+Worked example (an alert fires on suspicious PowerShell):
 
 1. Press `/` and search the technique ID from the alert (or the behavior name): `T1059`.
 2. Open its entry in the [Technique Detail Pages](/techniques/README.md): description, mitigations, NIST controls, detections, and the groups and software that use it, on one page.
@@ -96,23 +96,23 @@ Worked example — an alert fires on suspicious PowerShell:
 4. Check you actually collect the telemetry the detection needs in [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md).
 5. For scoping and attribution context, look the technique up in [Threat Group Profiles](/THREAT_GROUP_PROFILES.md); if an incident is unfolding, pivot to [IR Playbooks](/IR_PLAYBOOKS.md).
 
-Checkpoint: From one technique ID you reached its detection logic, the queries for your SIEM, the log sources they require, and the adversaries known to use it — without leaving the library.
+Checkpoint: From one technique ID you reached its detection logic, the queries for your SIEM, the log sources they require, and the adversaries known to use it, without leaving the library.
 
-Watch out: The queries are reference logic, not drop-in rules. Field names, index names, and thresholds vary by environment — tune and test in a lab before deploying, per your platform's official documentation.
+Watch out: The queries are reference logic, not drop-in rules. Field names, index names, and thresholds vary by environment: tune and test in a lab before deploying, per your platform's official documentation.
 
 ## Step 7: Enter as a security lead
 
-Worked example — "where are our coverage gaps?":
+Worked example ("where are our coverage gaps?"):
 
 1. Read the [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md) for the model, then [ATT&CK Matrix Analysis](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md) for the 24 analytic lenses you can apply to a matrix.
 2. Open the [Navigator Layers index](/navigator/index.md) and click any layer's " Navigator" link: it opens MITRE's hosted [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) with the layer pre-loaded via its documented `layerURL` fragment. Start with the master NIST 800-53 coverage layer.
 3. Read the ranked write-ups: [Priority Gap Analysis](/scores/attack_priority_gaps.md) lists the most-used, least-covered techniques, and the Framework Blind Spots layer shows the 223 techniques with no mapped NIST 800-53 control.
-4. For vendor questions: "what does our EDR actually cover?" — use the vendor layers and the edge tables described in [Coverage Schema](/COVERAGE_SCHEMA.md).
+4. For vendor questions ("what does our EDR actually cover?"), use the vendor layers and the edge tables described in [Coverage Schema](/COVERAGE_SCHEMA.md).
 5. For richer interactive analysis (EPSS, CISA KEV, detection-content correlation), move to the [ATTACK-Navi workbench](https://teamstarwolf.github.io/ATTACK-Navi/).
 
 Checkpoint: A coverage heatmap open in ATT&CK Navigator and a shortlist of high-priority gap techniques for your program.
 
-Watch out: Layers are pinned to ATT&CK versions (the CTID control mappings are built on ATT&CK v16.1; the analytic layers on v18.1). Comparing layers across versions can silently drop or mismatch techniques — check the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend — treat blind spots as prompts for detection engineering, not verdicts.
+Watch out: Layers are pinned to ATT&CK versions (the CTID control mappings are built on ATT&CK v16.1; the analytic layers on v18.1). Comparing layers across versions can silently drop or mismatch techniques: check the version badge Navigator shows for each layer. Also, "no mapped control" means no *NIST 800-53 mapping exists*, not that a technique is impossible to defend: treat blind spots as prompts for detection engineering, not verdicts.
 
 ## Step 8: Take the data home
 
@@ -145,7 +145,7 @@ Every mapping is machine-readable, so you can query it instead of reading it.
 
 Checkpoint: The T1078 query returns 25 control edges, each carrying the control ID, its description, confidence, and the CTID source URL.
 
-Watch out: A few reference docs quote attack-tool and detection strings that some antivirus engines flag on checkout — a false positive on plain markdown. If a file vanishes after cloning, check your AV quarantine before assuming the repo is broken.
+Watch out: A few reference docs quote attack-tool and detection strings that some antivirus engines flag on checkout, a false positive on plain markdown. If a file vanishes after cloning, check your AV quarantine before assuming the repo is broken.
 
 ## What good looks like
 
@@ -168,7 +168,7 @@ In the library:
 
 Official external resources:
 
-- [MITRE ATT&CK: Get Started](https://attack.mitre.org/resources/) — ATT&CK 101 and the four primary use-case guides
+- [MITRE ATT&CK: Get Started](https://attack.mitre.org/resources/): ATT&CK 101 and the four primary use-case guides
 - [ATT&CK Navigator](https://github.com/mitre-attack/attack-navigator): the layer format and `layerURL` loading, from the source
 - [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/): the authoritative NIST 800-53 -> ATT&CK mappings this library ships
 - [jq manual](https://jqlang.org/manual/): the full filter language for querying the datasets

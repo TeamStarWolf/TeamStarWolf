@@ -1,6 +1,6 @@
 # AI Infrastructure & MLOps Security
 
-> In one minute — This is the defender's reference for the *infrastructure* behind AI systems: model registries and artifact provenance, unsafe model deserialization (pickle/PyTorch/Keras/joblib) and the scanners that catch it, training-data and RAG-corpus poisoning, vector-store and feature-store security, the ML CI/CD supply chain, GPU and inference-server hardening, model access control and rate-limiting, and secrets in notebooks. It is deliberately *not* about prompt injection or model-level adversarial ML — those live in [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md) and [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md). This doc covers the pipes, servers, stores, and build systems an attacker takes over to steal models, poison outputs, or get RCE on the platform. Every section pairs concepts with concrete hardening steps, real tooling (named and current), and the CVEs that make the risk non-theoretical.
+> In one minute: This is the defender's reference for the *infrastructure* behind AI systems: model registries and artifact provenance, unsafe model deserialization (pickle/PyTorch/Keras/joblib) and the scanners that catch it, training-data and RAG-corpus poisoning, vector-store and feature-store security, the ML CI/CD supply chain, GPU and inference-server hardening, model access control and rate-limiting, and secrets in notebooks. It is deliberately *not* about prompt injection or model-level adversarial ML; those live in [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md) and [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md). This doc covers the pipes, servers, stores, and build systems an attacker takes over to steal models, poison outputs, or get RCE on the platform. Every section pairs concepts with concrete hardening steps, real tooling (named and current), and the CVEs that make the risk non-theoretical.
 
 | | |
 |---|---|
@@ -14,7 +14,7 @@
 
 ## 1. The AI Infrastructure Attack Surface
 
-Prompt injection gets the headlines, but most *real* AI compromises reported in 2024-2025 were plain infrastructure attacks — unauthenticated inference servers, RCE on model load, exposed pipeline orchestrators — that would look familiar to any web or cloud pentester. The AI-specific twist is that the "data" (models, embeddings, training sets) is executable, trusted, and huge, and the platforms that move it were built by ML teams optimizing for iteration speed, not for a hostile network.
+Prompt injection gets the headlines, but most *real* AI compromises reported in 2024-2025 were plain infrastructure attacks (unauthenticated inference servers, RCE on model load, exposed pipeline orchestrators) that would look familiar to any web or cloud pentester. The AI-specific twist is that the "data" (models, embeddings, training sets) is executable, trusted, and huge, and the platforms that move it were built by ML teams optimizing for iteration speed, not for a hostile network.
 
 | Layer | Representative components | Primary infra risks | Deep-dive |
 |---|---|---|---|
@@ -27,7 +27,7 @@ Prompt injection gets the headlines, but most *real* AI compromises reported in 
 | Serving / GPU tier | Triton, TorchServe, vLLM, Ray Serve, Ollama, KServe | Unauth RCE, model theft, resource exhaustion, tenant escape | [§8](#8-gpu--inference-server-hardening) |
 | Access & governance | API gateways, IAM, quotas, audit logs | Missing authn/authz, no rate limits, no audit trail | [§9](#9-model-access-control--rate-limiting) |
 
-Framing for threat models. Map these to MITRE ATLAS tactics for AI systems — *ML/AI Supply Chain Compromise*, *Poison Training Data*, *Manipulate AI Model*, and *Exfiltrate/Extract AI Model* — but treat the enabling weaknesses (missing auth, deserialization, exposed dashboards) as ordinary [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md) and [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) problems. See [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md) for current technique IDs and names.
+Framing for threat models. Map these to MITRE ATLAS tactics for AI systems (*ML/AI Supply Chain Compromise*, *Poison Training Data*, *Manipulate AI Model*, and *Exfiltrate/Extract AI Model*), but treat the enabling weaknesses (missing auth, deserialization, exposed dashboards) as ordinary [SECURE_CODING_REFERENCE.md](SECURE_CODING_REFERENCE.md) and [CLOUD_SECURITY_REFERENCE.md](CLOUD_SECURITY_REFERENCE.md) problems. See [ATLAS_REFERENCE.md](ATLAS_REFERENCE.md) for current technique IDs and names.
 
 ---
 
@@ -49,8 +49,8 @@ The single most exploited AI-infra weakness: model files that execute arbitrary 
 
 ### The CVEs that make this concrete
 
-- PyTorch: CVE-2025-32434 (CVSS 9.3): `torch.load(..., weights_only=True)` — the setting everyone was told was safe — still reached RCE on PyTorch ≤ 2.5.1. Fixed in 2.6.0, which also flips `weights_only` to default `True`. *Source: [GHSA-53q9-r3pm-6pq6](https://github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6).*
-- Keras: CVE-2024-3660: Lambda layers execute arbitrary Python on model load in Keras < 2.13. `safe_mode=True` (default from 2.13 / Keras 3) blocks it for the `.keras` v3 format — but the legacy H5 format ignores `safe_mode`, so a malicious `.h5` still executes on a patched runtime (JFrog / Oligo "downgrade" research). *Source: [JFrog](https://jfrog.com/blog/keras-safe_mode-bypass-vulnerability/), [NVD](https://www.wiz.io/vulnerability-database/cve/cve-2024-3660).*
+- PyTorch: CVE-2025-32434 (CVSS 9.3): `torch.load(..., weights_only=True)`, the setting everyone was told was safe, still reached RCE on PyTorch ≤ 2.5.1. Fixed in 2.6.0, which also flips `weights_only` to default `True`. *Source: [GHSA-53q9-r3pm-6pq6](https://github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6).*
+- Keras: CVE-2024-3660: Lambda layers execute arbitrary Python on model load in Keras < 2.13. `safe_mode=True` (default from 2.13 / Keras 3) blocks it for the `.keras` v3 format, but the legacy H5 format ignores `safe_mode`, so a malicious `.h5` still executes on a patched runtime (JFrog / Oligo "downgrade" research). *Source: [JFrog](https://jfrog.com/blog/keras-safe_mode-bypass-vulnerability/), [NVD](https://www.wiz.io/vulnerability-database/cve/cve-2024-3660).*
 - MLflow: CVE-2024-37052 through CVE-2024-37060 (the "unsafe deserialization" cluster, disclosed by HiddenLayer via Protect AI's huntr): malicious models in a registry run code when a victim calls `mlflow.<flavor>.load_model` (e.g. CVE-2024-37059 PyTorch, CVE-2024-37054 pyfunc/cloudpickle). Fixed in MLflow 2.14.2. *Source: [mlflow#12256](https://github.com/mlflow/mlflow/issues/12256).*
 
 > "Sleepy Pickle" and friends. Even a fully-loaded, "correct" model can carry a payload that patches the model object in memory or hooks downstream code (Trail of Bits demonstrated this class in 2024). Scanning before load is necessary; provenance/signing (§3) is what actually establishes trust.
@@ -113,8 +113,8 @@ model_signing sign   ./model_dir --signature model.sig      # keyless (Sigstore)
 model_signing verify ./model_dir --signature model.sig --identity <expected-signer>
 ```
 
-- SBOM for models / AI-BOM. Record training data sources, base model, libraries, and evaluation lineage. This extends software-supply-chain SBOM practice — see [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) for CycloneDX/SPDX, cosign, and SLSA build levels, which apply directly to the model build.
-- SLSA-style build provenance. Produce and verify provenance attestations for the training/fine-tuning job so consumers can confirm *which pipeline* produced a weight file — the same "signature validates origin, not integrity of the build" caveat from SolarWinds applies to model builds.
+- SBOM for models / AI-BOM. Record training data sources, base model, libraries, and evaluation lineage. This extends software-supply-chain SBOM practice; see [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) for CycloneDX/SPDX, cosign, and SLSA build levels, which apply directly to the model build.
+- SLSA-style build provenance. Produce and verify provenance attestations for the training/fine-tuning job so consumers can confirm *which pipeline* produced a weight file; the same "signature validates origin, not integrity of the build" caveat from SolarWinds applies to model builds.
 - Model cards capture intended use, eval results, and known limitations: governance metadata, not a security control, but required by NIST/CoSAI/EU AI Act processes.
 
 Third-party model intake checklist: verify signature/provenance -> confirm publisher identity -> scan artifact (§2) -> prefer safetensors variant -> pin by digest, not tag -> load in a sandboxed, network-restricted runner first.
@@ -123,13 +123,13 @@ Third-party model intake checklist: verify signature/provenance -> confirm publi
 
 ## 4. Training-Data & RAG-Corpus Poisoning
 
-Poisoning targets integrity of the data that shapes model behavior. It is an *infrastructure* problem because the fix is provenance, access control, and validation on the data plane — not a model tweak.
+Poisoning targets integrity of the data that shapes model behavior. It is an *infrastructure* problem because the fix is provenance, access control, and validation on the data plane, not a model tweak.
 
 Attack classes
 
 - Web-scale poisoning is practical. Research (Carlini et al., "Poisoning Web-Scale Training Datasets is Practical") showed split-view poisoning (content at a scraped URL changes after the snapshot) and frontrunning poisoning (editing a resource, e.g. a wiki page, right before a known crawl) let an attacker taint a meaningful fraction of a public corpus cheaply.
 - Backdoor / trigger poisoning. A small set of poisoned samples binds a trigger phrase or pattern to an attacker-chosen output; the model behaves normally otherwise, defeating accuracy-based QA.
-- Model-hub poisoning. Publicly editable hubs let attackers upload surgically edited models (the Mithril "PoisonGPT" demonstration uploaded a model that spread targeted misinformation) — a data-integrity problem solved by signing/provenance (§3).
+- Model-hub poisoning. Publicly editable hubs let attackers upload surgically edited models (the Mithril "PoisonGPT" demonstration uploaded a model that spread targeted misinformation), a data-integrity problem solved by signing/provenance (§3).
 - RAG-corpus poisoning. The retrieval corpus is a live training surface: an attacker who can write to an indexed document store (ticketing system, wiki, shared drive, crawled site) plants content that the retriever surfaces and the model treats as trusted context. This is the indirect-injection bridge to [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md); the *infra* mitigation is controlling and vetting what gets indexed.
 
 Defenses
@@ -143,7 +143,7 @@ Defenses
 | Immutable snapshots + integrity hashes | Pin exactly which data version trained which model (ties to §3 provenance) |
 | Least-privilege on the data plane | Restrict who/what can write to lakes, corpora, and index pipelines |
 
-The CISA/NSA/FBI + allied "AI Data Security" CSI (22 May 2025) is the authoritative baseline here — 10 best practices covering data provenance, integrity, and protection across the AI data lifecycle, building on the NSA/CISA *Deploying AI Systems Securely* guidance (April 2024). *Source: [CISA](https://www.cisa.gov/news-events/alerts/2025/05/22/new-best-practices-guide-securing-ai-data-released).*
+The CISA/NSA/FBI + allied "AI Data Security" CSI (22 May 2025) is the authoritative baseline here: 10 best practices covering data provenance, integrity, and protection across the AI data lifecycle, building on the NSA/CISA *Deploying AI Systems Securely* guidance (April 2024). *Source: [CISA](https://www.cisa.gov/news-events/alerts/2025/05/22/new-best-practices-guide-securing-ai-data-released).*
 
 ---
 
@@ -173,12 +173,12 @@ Hardening checklist
 
 ## 6. Feature Stores
 
-Feature stores (Feast, Tecton, and managed Databricks / SageMaker / Vertex AI feature stores) serve engineered features to both training (offline) and inference (online) and centralize sensitive, often-PII data — a high-value, under-secured target.
+Feature stores (Feast, Tecton, and managed Databricks / SageMaker / Vertex AI feature stores) serve engineered features to both training (offline) and inference (online) and centralize sensitive, often-PII data, a high-value, under-secured target.
 
 - Integrity = correctness. Tampering with feature values, or training-serving skew (offline and online stores drift out of sync), silently degrades or manipulates model behavior; monitor parity between offline and online values and alert on drift.
 - Access control & lineage. RBAC on feature groups; log who reads/writes; capture lineage from raw source -> feature -> model so a poisoned or wrong feature can be traced.
-- PII governance. Features frequently embed regulated data — apply classification, minimization, masking/tokenization, and retention. See [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md) and [PRIVACY_ENGINEERING_REFERENCE.md](PRIVACY_ENGINEERING_REFERENCE.md).
-- Online-store exposure. The low-latency online store (often Redis/DynamoDB-class) is network-reachable from serving — authenticate it, isolate it, and don't expose it beyond the inference tier.
+- PII governance. Features frequently embed regulated data; apply classification, minimization, masking/tokenization, and retention. See [DATA_SECURITY_REFERENCE.md](DATA_SECURITY_REFERENCE.md) and [PRIVACY_ENGINEERING_REFERENCE.md](PRIVACY_ENGINEERING_REFERENCE.md).
+- Online-store exposure. The low-latency online store (often Redis/DynamoDB-class) is network-reachable from serving; authenticate it, isolate it, and don't expose it beyond the inference tier.
 
 ---
 
@@ -187,7 +187,7 @@ Feature stores (Feast, Tecton, and managed Databricks / SageMaker / Vertex AI fe
 "CI/CD for models" inherits every software supply-chain risk plus a few of its own. Read [SUPPLY_CHAIN_SECURITY_REFERENCE.md](SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [DEVSECOPS_REFERENCE.md](DEVSECOPS_REFERENCE.md) first; the ML-specific deltas:
 
 - Notebooks as unreviewed production code. Jupyter/Colab notebooks run with broad credentials, are rarely code-reviewed, and often reach out to install packages and pull data at runtime. Route notebook-originated code through the same review/scan gates as app code; disallow arbitrary `pip install` from inside production runs.
-- Orchestrator exposure. Kubeflow Pipelines, Airflow, Argo, and MLflow servers are web apps with powerful permissions — a long history of exposed Airflow UIs and Kubeflow dashboards led to cryptomining and cluster takeover. Put them behind SSO, restrict network reach, patch, and scope their service accounts tightly.
+- Orchestrator exposure. Kubeflow Pipelines, Airflow, Argo, and MLflow servers are web apps with powerful permissions; a long history of exposed Airflow UIs and Kubeflow dashboards led to cryptomining and cluster takeover. Put them behind SSO, restrict network reach, patch, and scope their service accounts tightly.
 - Dependency risk is amplified. ML stacks pull enormous, fast-moving dependency trees (and models-as-dependencies). Pin and hash-verify dependencies, scan for known-vulnerable and typosquatted/dependency-confusion packages, and vendor critical ones.
 - Build provenance for models. Emit SLSA-style provenance from training/fine-tuning jobs and sign outputs (§3); verify at deploy.
 - Least-privilege pipeline identities. Short-lived, workload-scoped credentials (OIDC to cloud, no long-lived keys); a single over-broad pipeline token is the "cascading failure" enabler seen in agentic-swarm intrusions ([AGENTIC_AI_ATTACK_REFERENCE.md](AGENTIC_AI_ATTACK_REFERENCE.md)).
@@ -196,7 +196,7 @@ Feature stores (Feast, Tecton, and managed Databricks / SageMaker / Vertex AI fe
 
 ## 8. GPU & Inference-Server Hardening
 
-The serving tier is where most *public* AI-infra compromises landed — unauthenticated model servers reachable from the internet, several with critical RCE. Model servers must be treated as untrusted-input-facing services on a hostile network.
+The serving tier is where most *public* AI-infra compromises landed: unauthenticated model servers reachable from the internet, several with critical RCE. Model servers must be treated as untrusted-input-facing services on a hostile network.
 
 ### Recent, verified inference-server CVEs
 
@@ -204,7 +204,7 @@ The serving tier is where most *public* AI-infra compromises landed — unauthen
 |---|---|---|---|
 | NVIDIA Triton Inference Server | CVE-2025-23319 (+ CVE-2025-23320, CVE-2025-23334; also CVE-2025-23317) | Chained unauthenticated RCE via the Python backend (shared-memory info-leak -> full server takeover) | Upgrade Triton and Python backend to 25.07; isolate ([Wiz](https://www.wiz.io/blog/nvidia-triton-cve-2025-23319-vuln-chain-to-ai-server)) |
 | TorchServe ("ShellTorch") | CVE-2023-43654 (SSRF->RCE, 9.8) + CVE-2022-1471 (SnakeYAML deserialization, 9.9) | Default-open management API + model-URL allowlist accepting all domains -> malicious model -> RCE | Patch; set `allowed_urls`; bind management API to localhost ([Oligo](https://www.oligo.security/blog/shelltorch-torchserve-ssrf-vulnerability-cve-2023-43654)) |
-| Ray | CVE-2023-48022 ("ShadowRay", 9.8) | Jobs API has no authn by default -> RCE; actively exploited for cryptomining/botnets | Network-isolate the dashboard/Jobs API (maintainers treat no-auth as intended trust model); later releases added optional auth — do not rely on defaults ([TXOne](https://www.txone.com/blog/ai-infrastructure-under-siege-cve-2023-48022/)) |
+| Ray | CVE-2023-48022 ("ShadowRay", 9.8) | Jobs API has no authn by default -> RCE; actively exploited for cryptomining/botnets | Network-isolate the dashboard/Jobs API (maintainers treat no-auth as intended trust model); later releases added optional auth; do not rely on defaults ([TXOne](https://www.txone.com/blog/ai-infrastructure-under-siege-cve-2023-48022/)) |
 | Ollama | CVE-2024-37032 ("Probllama") | Path traversal via `/api/pull` from a rogue registry -> arbitrary file write -> RCE | Upgrade to 0.1.34+; don't expose the API; don't pull from untrusted registries ([Wiz](https://www.wiz.io/blog/probllama-ollama-vulnerability-cve-2024-37032)) |
 
 ### Hardening controls
@@ -215,7 +215,7 @@ The serving tier is where most *public* AI-infra compromises landed — unauthen
 - Resource limits & DoS controls. Cap request size, batch size, context length, and concurrency; set GPU memory/timeouts. Unbounded consumption (the OWASP LLM "Unbounded Consumption" risk) is cheap to trigger and expensive on GPUs.
 - Multi-tenant GPU isolation. Use hardware/driver isolation (e.g. NVIDIA MIG partitions, per-tenant nodes) rather than sharing a GPU context across tenants; scrub GPU memory between tenants; keep drivers/CUDA patched.
 - Container & K8s hardening for serving pods: non-root, read-only rootfs, dropped capabilities, seccomp, network policies, admission control (verify model signatures at admission). See [KUBERNETES_SECURITY_REFERENCE.md](KUBERNETES_SECURITY_REFERENCE.md) and [CONTAINER_SECURITY_REFERENCE.md](CONTAINER_SECURITY_REFERENCE.md).
-- Egress control. A compromised inference/worker pod should not reach the internet or the credential/metadata service freely — restrict egress and block IMDS abuse.
+- Egress control. A compromised inference/worker pod should not reach the internet or the credential/metadata service freely; restrict egress and block IMDS abuse.
 
 ---
 
@@ -224,10 +224,10 @@ The serving tier is where most *public* AI-infra compromises landed — unauthen
 The model endpoint is an asset to protect (against theft/extraction) and a resource to meter (against abuse and cost).
 
 - AuthN/AuthZ per consumer. Every inference call is attributable to an identity; scope keys/tokens to specific models and actions; rotate and revoke. No shared "one key for the whole platform."
-- Rate limits and quotas per identity: request-rate, token, and cost budgets — to blunt model-extraction (systematically querying to clone behavior/decision boundaries) and denial-of-wallet. Add anomaly detection on query volume and patterns.
+- Rate limits and quotas per identity: request-rate, token, and cost budgets, to blunt model-extraction (systematically querying to clone behavior/decision boundaries) and denial-of-wallet. Add anomaly detection on query volume and patterns.
 - Output and error hygiene. Don't leak logits/probabilities or verbose internals that accelerate extraction; generic errors.
 - Audit logging. Log prompts/inputs (with privacy controls), model+version, identity, and decisions to a tamper-evident store for IR and abuse investigation ([SIEM_REFERENCE.md](SIEM_REFERENCE.md)).
-- Gateway pattern. Front models with an AI/API gateway that centralizes authn, quotas, logging, and payload policy — the natural chokepoint for these controls ([API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md)).
+- Gateway pattern. Front models with an AI/API gateway that centralizes authn, quotas, logging, and payload policy, the natural chokepoint for these controls ([API_SECURITY_REFERENCE.md](API_SECURITY_REFERENCE.md)).
 
 ---
 

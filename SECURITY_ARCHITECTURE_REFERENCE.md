@@ -1,6 +1,6 @@
 # Security Architecture Reference
 
-> In one minute — A practitioner's handbook for designing and reviewing security architectures: layered frameworks (SABSA, TOGAF, defense-in-depth), Zero Trust, network, cloud, application, data, identity, operations, and resilience architecture. It matters because it turns abstract security principles into concrete designs — diagrams, policy examples, migration roadmaps, and review checklists you can apply directly. Each section pairs the "why" (threat-driven design) with the "how" (reference architectures and tool examples).
+> In one minute: A practitioner's handbook for designing and reviewing security architectures: layered frameworks (SABSA, TOGAF, defense-in-depth), Zero Trust, network, cloud, application, data, identity, operations, and resilience architecture. It matters because it turns abstract security principles into concrete designs: diagrams, policy examples, migration roadmaps, and review checklists you can apply directly. Each section pairs the "why" (threat-driven design) with the "how" (reference architectures and tool examples).
 
 | | |
 |---|---|
@@ -109,7 +109,7 @@ SABSA Architecture Process:
 
 #### TOGAF Security (The Open Group Architecture Framework)
 
-TOGAF provides a generic enterprise architecture method (ADM — Architecture
+TOGAF provides a generic enterprise architecture method (ADM: Architecture
 Development Method) that can be extended with a security overlay.
 
 Security in the TOGAF ADM Phases:
@@ -282,7 +282,7 @@ least privilege per-request access decisions. The seven tenets:
    and the requesting asset's security posture.
 
 5. The enterprise monitors and measures the integrity and security posture of all assets.
-   Continuous monitoring of asset health — patch level, EDR status, MDM
+   Continuous monitoring of asset health: patch level, EDR status, MDM
    compliance, vulnerability scan results.
 
 6. All resource authentication and authorization is dynamic and strictly enforced before access is allowed.
@@ -1661,7 +1661,7 @@ Encryption in Transit:
 | API-to-API | mTLS | TLS 1.2 | ECDHE-ECDSA-AES256-GCM-SHA384 |
 | Database connections | TLS | TLS 1.2 | Per database driver |
 | Email (MTA-to-MTA) | STARTTLS + MTA-STS | TLS 1.2 | ECDHE ciphers |
-| VPN tunnels | IPsec IKEv2 | — | AES-256-GCM, SHA-384, DH group 20+ |
+| VPN tunnels | IPsec IKEv2 | N/A | AES-256-GCM, SHA-384, DH group 20+ |
 
 Encryption in Use (Emerging):
 
@@ -1798,7 +1798,7 @@ Static Data Masking (SDM):
 Dynamic Data Masking (DDM):
 - Masks data at query time based on user role
 - Original data unchanged in database
-- DBA sees full PAN; customer service rep sees "**--**-4242"
+- DBA sees full PAN; customer service rep sees "---4242"
 - Tools: Satori, BigID DDM, SQL Server DDM, Oracle DDM
 
 Tokenization:

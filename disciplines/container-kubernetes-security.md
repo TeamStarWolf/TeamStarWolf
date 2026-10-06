@@ -1,14 +1,14 @@
 # Container & Kubernetes Security
 
-Container and Kubernetes security encompasses the practices, tools, and controls required to secure containerized workloads throughout their full lifecycle — from image build through registry storage, deployment, and runtime execution. The discipline has matured rapidly alongside the adoption of Kubernetes as the dominant container orchestration platform, and it now covers a distinct and deep attack surface: vulnerable base images, misconfigured orchestration layers, container runtime escapes, insecure pod configurations, secrets embedded in manifests, and supply chain risks in public container registries.
+Container and Kubernetes security encompasses the practices, tools, and controls required to secure containerized workloads throughout their full lifecycle, from image build through registry storage, deployment, and runtime execution. The discipline has matured rapidly alongside the adoption of Kubernetes as the dominant container orchestration platform, and it now covers a distinct and deep attack surface: vulnerable base images, misconfigured orchestration layers, container runtime escapes, insecure pod configurations, secrets embedded in manifests, and supply chain risks in public container registries.
 
-The fundamental challenge of container security is that containers share a kernel with the host. An improperly configured container running as root with unnecessary Linux capabilities is not an isolated workload — it is a privilege escalation path to the underlying node and, from there, to the rest of the cluster. Kubernetes amplifies this: a single misconfigured RBAC binding, an exposed API server, or an unencrypted etcd store can compromise an entire production environment. Container and Kubernetes security is the discipline of systematically reducing this attack surface at every layer of the stack.
+The fundamental challenge of container security is that containers share a kernel with the host. An improperly configured container running as root with unnecessary Linux capabilities is not an isolated workload; it is a privilege escalation path to the underlying node and, from there, to the rest of the cluster. Kubernetes amplifies this: a single misconfigured RBAC binding, an exposed API server, or an unencrypted etcd store can compromise an entire production environment. Container and Kubernetes security is the discipline of systematically reducing this attack surface at every layer of the stack.
 
 ---
 
 ## Where to Start
 
-Begin with the fundamentals of how containers actually work — namespaces, cgroups, and the Linux capabilities model — before studying Kubernetes security. Understanding why `--privileged` containers are dangerous, what `CAP_NET_ADMIN` actually grants, and how the container runtime mediates host access makes every other Kubernetes security concept more concrete. The CKA certification provides the necessary Kubernetes operations foundation before pursuing the CKS.
+Begin with the fundamentals of how containers actually work (namespaces, cgroups, and the Linux capabilities model) before studying Kubernetes security. Understanding why `--privileged` containers are dangerous, what `CAP_NET_ADMIN` actually grants, and how the container runtime mediates host access makes every other Kubernetes security concept more concrete. The CKA certification provides the necessary Kubernetes operations foundation before pursuing the CKS.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -120,11 +120,11 @@ Begin with the fundamentals of how containers actually work — namespaces, cgro
 
 ## Attacking Container Environments
 
-Understanding how attackers compromise container environments is essential for building effective defenses. The techniques below represent the most common and impactful attack paths observed in real-world incidents and penetration tests. Each technique is explained at the mechanism level — knowing *why* it works helps you understand what controls actually prevent it.
+Understanding how attackers compromise container environments is essential for building effective defenses. The techniques below represent the most common and impactful attack paths observed in real-world incidents and penetration tests. Each technique is explained at the mechanism level: knowing *why* it works helps you understand what controls actually prevent it.
 
 ### Container Escape Techniques
 
-A container escape is any technique that allows a process running inside a container to gain access to the host OS or other containers on the same node. Containers are not a security boundary by default — they are a process isolation mechanism. The Linux kernel is shared, and most escape techniques exploit the gap between "isolation" and "true isolation."
+A container escape is any technique that allows a process running inside a container to gain access to the host OS or other containers on the same node. Containers are not a security boundary by default; they are a process isolation mechanism. The Linux kernel is shared, and most escape techniques exploit the gap between "isolation" and "true isolation."
 
 Privileged Container Escape
 
@@ -151,9 +151,9 @@ chroot /mnt /bin/bash
 
 ---
 
-nsenter — Joining Host Namespaces
+nsenter: Joining Host Namespaces
 
-Linux namespaces are the kernel feature that makes containers feel isolated: each container gets its own PID, network, mount, and UTS namespace. The `nsenter` tool joins an *existing* namespace by referencing another process's `/proc/<pid>/ns/*` file descriptors. Running `nsenter --target 1` from inside a container requests entry into PID 1's namespaces — which belong to the host init process, outside all container isolation.
+Linux namespaces are the kernel feature that makes containers feel isolated: each container gets its own PID, network, mount, and UTS namespace. The `nsenter` tool joins an *existing* namespace by referencing another process's `/proc/<pid>/ns/*` file descriptors. Running `nsenter --target 1` from inside a container requests entry into PID 1's namespaces, which belong to the host init process, outside all container isolation.
 
 ```bash
 # nsenter --target 1 joins the namespaces of PID 1 (the host init / systemd process).
@@ -168,7 +168,7 @@ Linux namespaces are the kernel feature that makes containers feel isolated: eac
 nsenter --target 1 --mount --uts --ipc --net --pid -- /bin/bash
 ```
 
-*Why it works:* Namespace access is gated only by a capability check. Any process with the right capabilities can legally ask the kernel to switch into any namespace it can reference via a `/proc/<pid>/ns/` file descriptor. There is no membership requirement — only a capability check.
+*Why it works:* Namespace access is gated only by a capability check. Any process with the right capabilities can legally ask the kernel to switch into any namespace it can reference via a `/proc/<pid>/ns/` file descriptor. There is no membership requirement, only a capability check.
 
 *Detection:* Falco's `nsenter_container_escape` rule detects `nsenter` execution from container context. Tetragon can enforce a kernel-level policy blocking `setns` syscalls (the underlying call `nsenter` uses) from any container context.
 
@@ -201,7 +201,7 @@ curl --unix-socket /var/run/docker.sock \
   -X POST "http://localhost/containers/<CONTAINER_ID>/start"
 ```
 
-*Why it works:* The Docker daemon is a privileged root process. Its socket has no authentication beyond Unix filesystem permissions. Anyone who can write to the socket can instruct the daemon to perform any operation — including creating new privileged containers with host filesystem mounts.
+*Why it works:* The Docker daemon is a privileged root process. Its socket has no authentication beyond Unix filesystem permissions. Anyone who can write to the socket can instruct the daemon to perform any operation, including creating new privileged containers with host filesystem mounts.
 
 *Detection:* Falco detects reads and writes to `/var/run/docker.sock` from container processes. OPA Gatekeeper and Kyverno policies block pods declaring `/var/run/docker.sock` as a `hostPath` volume. Any admission webhook should reject pod specs mounting the Docker socket path.
 
@@ -273,7 +273,7 @@ Beyond escaping individual containers, attackers who gain any foothold pursue la
 
 Unauthenticated API Server Access
 
-The Kubernetes API server is the cluster control plane — every operation passes through it. Clusters misconfigured with `--anonymous-auth=true` and permissive RBAC for `system:anonymous` can allow full unauthenticated cluster control.
+The Kubernetes API server is the cluster control plane: every operation passes through it. Clusters misconfigured with `--anonymous-auth=true` and permissive RBAC for `system:anonymous` can allow full unauthenticated cluster control.
 
 ```bash
 # Probe the API server for unauthenticated access.
@@ -288,7 +288,7 @@ kubectl --server https://<API_SERVER_IP>:6443 --insecure-skip-tls-verify \
   get pods,secrets,configmaps --all-namespaces
 ```
 
-*Detection:* kube-bench 1.2.1 checks `--anonymous-auth=false`. kube-bench 1.2.6 checks `--authorization-mode` includes `Node,RBAC`. Kubernetes audit logs record every API server request including source IP and user identity — anonymous requests are immediately identifiable.
+*Detection:* kube-bench 1.2.1 checks `--anonymous-auth=false`. kube-bench 1.2.6 checks `--authorization-mode` includes `Node,RBAC`. Kubernetes audit logs record every API server request including source IP and user identity; anonymous requests are immediately identifiable.
 
 ---
 
@@ -317,7 +317,7 @@ curl -s --cacert $CACERT \
   -d '{"apiVersion":"authorization.k8s.io/v1","kind":"SelfSubjectAccessReview","spec":{"resourceAttributes":{"verb":"list","resource":"secrets","namespace":"default"}}}'
 ```
 
-*Detection:* Disable automatic token mounting where not needed (`automountServiceAccountToken: false`). Apply RBAC least privilege — service accounts should have only the specific permissions the workload requires. Falco detects unexpected reads of the SA token by non-application processes. KubiScan identifies overprivileged service accounts cluster-wide.
+*Detection:* Disable automatic token mounting where not needed (`automountServiceAccountToken: false`). Apply RBAC least privilege: service accounts should have only the specific permissions the workload requires. Falco detects unexpected reads of the SA token by non-application processes. KubiScan identifies overprivileged service accounts cluster-wide.
 
 ---
 
@@ -353,9 +353,9 @@ kubectl rakkess
 
 ---
 
-etcd Access — Direct Credential Extraction
+etcd Access: Direct Credential Extraction
 
-etcd is the key-value store backing all Kubernetes cluster state. An attacker with direct etcd network access bypasses RBAC entirely — the authorization layer applies only to the API server, not to direct etcd access. Before Kubernetes 1.13, Secrets were stored as base64-encoded plaintext.
+etcd is the key-value store backing all Kubernetes cluster state. An attacker with direct etcd network access bypasses RBAC entirely: the authorization layer applies only to the API server, not to direct etcd access. Before Kubernetes 1.13, Secrets were stored as base64-encoded plaintext.
 
 ```bash
 # If etcd lacks mutual TLS client authentication, dump the entire cluster state.
@@ -388,9 +388,9 @@ ETCDCTL_API=3 etcdctl \
 | [KubiScan](https://github.com/cyberark/KubiScan) | RBAC risk scanning | Identifies risky roles, overprivileged role bindings, and SA escalation paths without requiring active exploitation |
 | [etcdctl](https://github.com/etcd-io/etcd) | etcd direct interaction | Dump cluster state when etcd is accessible; verify encryption-at-rest configuration as a defender |
 
-CDK — Automated Container Escape Triage
+CDK: Automated Container Escape Triage
 
-CDK automates detection of which escape techniques are viable in the current container environment — useful for rapidly assessing attack surface after landing in an unknown container.
+CDK automates detection of which escape techniques are viable in the current container environment, useful for rapidly assessing attack surface after landing in an unknown container.
 
 ```bash
 # CDK evaluate auto-detects all available escape paths in the current container.
@@ -403,7 +403,7 @@ CDK automates detection of which escape techniques are viable in the current con
 ./cdk run mount-cgroup           # cgroup release_agent escape
 ```
 
-Peirates — Kubernetes Post-Exploitation
+Peirates: Kubernetes Post-Exploitation
 
 ```bash
 # Peirates provides an interactive post-exploitation menu for Kubernetes.
@@ -432,7 +432,7 @@ Peirates — Kubernetes Post-Exploitation
 | SA token read by unexpected process | `read_sensitive_file` rule on `/var/run/secrets/` | 5.1.6: Do not bind default SA to active roles | `automountServiceAccountToken: false`; RBAC least privilege per workload |
 | Anonymous API server access | Audit log: `user=system:anonymous` | 1.2.1: `--anonymous-auth=false` | Network policy blocking external access to API server port 6443 |
 | ClusterRoleBinding escalation | Audit log: create/patch on `clusterrolebindings` | 5.1.1: Restrict cluster-admin | KubiScan continuous monitoring; Gatekeeper blocking wildcard RBAC grants |
-| etcd unauthenticated access | N/A (network layer) | 2.1 — etcd TLS client auth; 1.2.34 — secrets encrypted at rest | Network segmentation; etcd port 2379 control-plane-only |
+| etcd unauthenticated access | N/A (network layer) | 2.1: etcd TLS client auth; 1.2.34: secrets encrypted at rest | Network segmentation; etcd port 2379 control-plane-only |
 | Cryptomining workload (T1496) | `detect_crypto_miners_using_the_cpu` rule | N/A | Tetragon process execution policy; egress NetworkPolicy blocking mining pool IP ranges |
 | Container filesystem write | `write_below_binary_dir` rule | N/A | `readOnlyRootFilesystem: true` in pod securityContext |
 
@@ -464,10 +464,10 @@ For high-security environments, Tetragon can enforce this as a kernel-level poli
 
 ## Certifications
 
-- CKS (Certified Kubernetes Security Specialist: CNCF) — The premier Kubernetes security certification; covers cluster hardening, system hardening, minimizing microservice vulnerabilities, supply chain security, monitoring, and runtime security; requires CKA as prerequisite; the most respected credential for Kubernetes security practitioners
-- CKA (Certified Kubernetes Administrator: CNCF) — The required prerequisite for CKS; validates deep Kubernetes operations knowledge including networking, storage, scheduling, and troubleshooting; foundational for any Kubernetes security role
-- CKAD (Certified Kubernetes Application Developer: CNCF) — Validates container and Kubernetes application development skills; useful context for security practitioners who need to understand what developers are deploying and why
-- AWS Certified Security: Specialty — Covers EKS security including IAM roles for service accounts, ECR image scanning, and EKS cluster hardening; the relevant vendor certification for AWS-hosted Kubernetes workloads
+- CKS (Certified Kubernetes Security Specialist, CNCF): The premier Kubernetes security certification; covers cluster hardening, system hardening, minimizing microservice vulnerabilities, supply chain security, monitoring, and runtime security; requires CKA as prerequisite; the most respected credential for Kubernetes security practitioners
+- CKA (Certified Kubernetes Administrator, CNCF): The required prerequisite for CKS; validates deep Kubernetes operations knowledge including networking, storage, scheduling, and troubleshooting; foundational for any Kubernetes security role
+- CKAD (Certified Kubernetes Application Developer, CNCF): Validates container and Kubernetes application development skills; useful context for security practitioners who need to understand what developers are deploying and why
+- AWS Certified Security (Specialty): Covers EKS security including IAM roles for service accounts, ECR image scanning, and EKS cluster hardening; the relevant vendor certification for AWS-hosted Kubernetes workloads
 - OSCP (Offensive Security Certified Professional): Container escape and Kubernetes privilege escalation techniques appear in modern OSCP exam environments; offensive knowledge directly informs defensive container security controls
 
 ---

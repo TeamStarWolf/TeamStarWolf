@@ -1,6 +1,6 @@
 # Cloud Network Security Reference
 
-A comprehensive reference for network security controls across AWS, Azure, and GCP — covering architecture, firewall policy, WAF configuration, private connectivity, DDoS protection, flow log analysis, and compliance mappings.
+A comprehensive reference for network security controls across AWS, Azure, and GCP, covering architecture, firewall policy, WAF configuration, private connectivity, DDoS protection, flow log analysis, and compliance mappings.
 
 ---
 
@@ -46,9 +46,9 @@ Recommended four-tier subnet design per AZ:
 | Private Data | private-data-az1 | 10.0.20.0/24 | Local only (no internet route) |
 | Intra (isolated) | intra-az1 | 10.0.30.0/24 | Local only, VPC Endpoints only |
 
-Internet Gateway (IGW) — Attached to the VPC; provides bidirectional internet access for public subnets. One per VPC.
+Internet Gateway (IGW): Attached to the VPC; provides bidirectional internet access for public subnets. One per VPC.
 
-NAT Gateway — Allows private subnets to initiate outbound internet connections; deployed in a public subnet. Use one per AZ for HA.
+NAT Gateway: Allows private subnets to initiate outbound internet connections; deployed in a public subnet. Use one per AZ for HA.
 
 ```bash
 # Create a VPC
@@ -97,7 +97,7 @@ aws ec2 create-vpc-endpoint \
 
 ### Security Groups
 
-Security Groups are stateful, virtual firewalls applied at the ENI level. Return traffic is automatically allowed regardless of outbound rules. Unlike NACLs, Security Groups support SG-to-SG references — this is the preferred pattern for intra-VPC rules because it avoids hardcoding CIDR blocks that change as instances scale.
+Security Groups are stateful, virtual firewalls applied at the ENI level. Return traffic is automatically allowed regardless of outbound rules. Unlike NACLs, Security Groups support SG-to-SG references: this is the preferred pattern for intra-VPC rules because it avoids hardcoding CIDR blocks that change as instances scale.
 
 Three-tier Security Group design (Terraform):
 
@@ -165,7 +165,7 @@ resource "aws_security_group" "db" {
 
 Security Group best practices:
 
-- Never allow `0.0.0.0/0` on port 22 (SSH) or 3389 (RDP). Use AWS Systems Manager Session Manager for shell access — no inbound ports required.
+- Never allow `0.0.0.0/0` on port 22 (SSH) or 3389 (RDP). Use AWS Systems Manager Session Manager for shell access, no inbound ports required.
 - Apply the principle of least privilege: use the minimum port range, never `0-65535`.
 - Use SG references for all intra-VPC service-to-service rules.
 - Tag security groups with owner, service, and environment.
@@ -202,7 +202,7 @@ aws configservice put-config-rule --config-rule '{
 
 ### Network ACLs (NACLs)
 
-Network ACLs are stateless — you must explicitly allow both inbound and return (outbound) traffic. Rules are processed in ascending numeric order; the first match wins. NACLs are applied at the subnet boundary, not the instance level.
+Network ACLs are stateless: you must explicitly allow both inbound and return (outbound) traffic. Rules are processed in ascending numeric order; the first match wins. NACLs are applied at the subnet boundary, not the instance level.
 
 Key differences from Security Groups:
 
@@ -1024,7 +1024,7 @@ Cost reference: Azure DDoS Protection Standard is priced per protection plan (~$
 
 Azure Front Door with WAF provides global Layer 7 DDoS protection, WAF, and CDN capabilities.
 
-WAF Policy (JSON — Bicep-compatible):
+WAF Policy (JSON, Bicep-compatible):
 
 ```json
 {
@@ -1108,7 +1108,7 @@ Azure Front Door WAF Managed Rule Sets:
 
 ### Custom Mode VPC
 
-GCP VPCs are global (not regional), but subnets are regional. Always use custom mode VPC — auto mode creates subnets in every region using the same predictable CIDR blocks (/20 from 10.128.0.0/9), which reduces segmentation and creates overlap risks.
+GCP VPCs are global (not regional), but subnets are regional. Always use custom mode VPC: auto mode creates subnets in every region using the same predictable CIDR blocks (/20 from 10.128.0.0/9), which reduces segmentation and creates overlap risks.
 
 ```bash
 # Create custom mode VPC (no auto subnets)
@@ -1134,7 +1134,7 @@ gcloud compute networks subnets create data-subnet-us-east1 \
   --range=10.10.10.0/24
 ```
 
-Firewall rule design — GCP uses tags and service accounts:
+Firewall rule design (GCP uses tags and service accounts):
 
 ```bash
 # Baseline: deny all ingress (GCP default is implied deny, but make it explicit)

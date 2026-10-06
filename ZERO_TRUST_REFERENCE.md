@@ -1,6 +1,6 @@
 # Zero Trust Reference: Comprehensive Cybersecurity Guide
 
-> In one minute — This is a full walkthrough of Zero Trust: the security model that trusts no user, device, or network segment by default and verifies every access request instead. It covers the theory (Kindervag's original model, NIST 800-207, the CISA maturity model), each of the five pillars (identity, device, network, application, data), hands-on tooling (Teleport, HashiCorp Boundary, Cloudflare Zero Trust) with real config examples, and a phased multi-year implementation roadmap. Reach for it whether you need the concepts, the configs, or the migration plan.
+> In one minute: This is a full walkthrough of Zero Trust: the security model that trusts no user, device, or network segment by default and verifies every access request instead. It covers the theory (Kindervag's original model, NIST 800-207, the CISA maturity model), each of the five pillars (identity, device, network, application, data), hands-on tooling (Teleport, HashiCorp Boundary, Cloudflare Zero Trust) with real config examples, and a phased multi-year implementation roadmap. Reach for it whether you need the concepts, the configs, or the migration plan.
 
 | | |
 |---|---|
@@ -35,11 +35,11 @@ Zero Trust was coined by John Kindervag in 2010 while he was a principal analyst
 
 Kindervag's original model rested on three core concepts:
 
-1. Ensure all resources are accessed securely regardless of location. There is no trusted network — neither the internal LAN nor the cloud nor a VPN tunnel. Every connection must be treated as potentially hostile.
+1. Ensure all resources are accessed securely regardless of location. There is no trusted network: neither the internal LAN nor the cloud nor a VPN tunnel. Every connection must be treated as potentially hostile.
 2. Adopt a least-privilege strategy and strictly enforce access control. Users and systems should receive only the minimum permissions required to perform their function, and those permissions should expire as soon as the task is complete.
 3. Inspect and log all traffic. You cannot trust what you cannot see. All packets, sessions, and transactions must be recorded and analysed for anomalous behaviour.
 
-The original Kindervag paper introduced the concept of a "Protect Surface" — the smallest possible grouping of data, assets, applications, and services (DAAS) that needs protection — in contrast to the traditional "attack surface reduction" mindset. By shrinking the protect surface to a fine-grained segment, organisations can apply extremely tight controls around exactly what matters.
+The original Kindervag paper introduced the concept of a "Protect Surface": the smallest possible grouping of data, assets, applications, and services (DAAS) that needs protection, in contrast to the traditional "attack surface reduction" mindset. By shrinking the protect surface to a fine-grained segment, organisations can apply extremely tight controls around exactly what matters.
 
 Kindervag later described a five-step methodology for building a Zero Trust network:
 
@@ -63,7 +63,7 @@ NIST identifies seven tenets of Zero Trust:
 
 3. Access to individual enterprise resources is granted on a per-session basis. Trust in the requester is evaluated before access is granted. Access should also be granted with the least privilege needed to complete the task.
 
-4. Access to resources is determined by dynamic policy. Policy is the set of access rules based on attributes that an organisation assigns to a subject, data asset, or application. The observable state of client identity, application/service, and the requesting asset are evaluated — and may include other behavioural and environmental attributes.
+4. Access to resources is determined by dynamic policy. Policy is the set of access rules based on attributes that an organisation assigns to a subject, data asset, or application. The observable state of client identity, application/service, and the requesting asset are evaluated, and may include other behavioural and environmental attributes.
 
 5. The enterprise monitors and measures the integrity and security posture of all owned and associated assets. No asset is inherently trusted. The enterprise evaluates the security posture of the asset when evaluating a resource request.
 
@@ -216,14 +216,14 @@ Data       Unclassified;      Basic labels;         DLP enforced;        Automat
 
 ### 2.1 Identity as the New Perimeter
 
-In a Zero Trust architecture, identity replaces the network perimeter as the primary trust boundary. Because users work from anywhere — home networks, coffee shops, cloud environments, contractor laptops — network location is no longer a reliable proxy for trustworthiness. Instead, every access decision begins with the question: *Who (or what) is making this request, and can that identity be verified with sufficient confidence?*
+In a Zero Trust architecture, identity replaces the network perimeter as the primary trust boundary. Because users work from anywhere (home networks, coffee shops, cloud environments, contractor laptops), network location is no longer a reliable proxy for trustworthiness. Instead, every access decision begins with the question: *Who (or what) is making this request, and can that identity be verified with sufficient confidence?*
 
 The identity perimeter encompasses:
 - Human identities: Employees, contractors, partners, customers
 - Non-person entities (NPEs): Service accounts, application identities, CI/CD pipelines, automation scripts, IoT devices
 - Workload identities: Microservices, containers, serverless functions, VMs
 
-A mature identity perimeter relies on a unified identity fabric — a set of federated identity providers (IdPs), a consistent attribute schema, and centralised policy enforcement — rather than a patchwork of siloed directory services.
+A mature identity perimeter relies on a unified identity fabric (a set of federated identity providers (IdPs), a consistent attribute schema, and centralised policy enforcement) rather than a patchwork of siloed directory services.
 
 ### 2.2 Conditional Access Policies
 
@@ -382,7 +382,7 @@ jobs:
           # No client secret needed -- uses OIDC federation
 ```
 
-Managed Identities (Azure) and Service Accounts with Workload Identity (GKE) provide similar capability for workloads running in cloud environments — the cloud platform issues and rotates credentials automatically.
+Managed Identities (Azure) and Service Accounts with Workload Identity (GKE) provide similar capability for workloads running in cloud environments: the cloud platform issues and rotates credentials automatically.
 
 ### 2.7 Certificate-Based Authentication for Devices
 
@@ -800,7 +800,7 @@ AFTER (ZT Segmented):
 
 ### 5.1 Application-Layer Access Control: Identity-Aware Proxy
 
-An Identity-Aware Proxy (IAP) sits in front of applications and enforces access control based on user identity and context — not network location. The application itself remains unexposed to the public internet; the proxy is the only entry point.
+An Identity-Aware Proxy (IAP) sits in front of applications and enforces access control based on user identity and context, not network location. The application itself remains unexposed to the public internet; the proxy is the only entry point.
 
 IAP Traffic Flow:
 ```
@@ -1003,7 +1003,7 @@ metadata:
 
 ### 6.1 Data Classification Driving Access Decisions
 
-Data classification is the foundation of the data pillar — you cannot protect what you have not classified. Classification must be accurate, consistent, and actionable.
+Data classification is the foundation of the data pillar: you cannot protect what you have not classified. Classification must be accurate, consistent, and actionable.
 
 Standard Classification Taxonomy:
 
@@ -1082,7 +1082,7 @@ DLP Enforcement Points in ZTA:
 | Network DLP | Traffic at network egress point | Block data containing sensitive patterns |
 | IAP/Proxy DLP | HTTP(S) requests through corporate proxy | Block upload of classified content |
 
-Example DLP Policy — Credit Card Number Blocking:
+Example DLP Policy (Credit Card Number Blocking):
 
 ```yaml
 dlp_policy:
@@ -1139,7 +1139,7 @@ Implementation options:
 
 ### 6.6 Data Activity Monitoring and DSPM
 
-Data Activity Monitoring (DAM) provides real-time visibility into who is accessing what data, when, from where, and how — enabling detection of data theft, insider threats, and compliance violations.
+Data Activity Monitoring (DAM) provides real-time visibility into who is accessing what data, when, from where, and how, enabling detection of data theft, insider threats, and compliance violations.
 
 Key DAM Metrics to Monitor:
 - Bulk download events (user downloads >100 files in a session)
@@ -1662,7 +1662,7 @@ cloudflared service install
 systemctl start cloudflared && systemctl enable cloudflared
 ```
 
-Tunnel Redundancy: Run multiple `cloudflared` instances (on different hosts) for the same tunnel UUID — Cloudflare automatically load-balances and provides failover.
+Tunnel Redundancy: Run multiple `cloudflared` instances (on different hosts) for the same tunnel UUID; Cloudflare automatically load-balances and provides failover.
 
 ### 9.4 WARP Client: Device Agent
 

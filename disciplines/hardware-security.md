@@ -1,8 +1,8 @@
 # Hardware Security
 
-> Securing the physical layer — from firmware analysis and secure boot to side-channel attacks, hardware implants, and supply chain trust anchors.
+> Securing the physical layer, from firmware analysis and secure boot to side-channel attacks, hardware implants, and supply chain trust anchors.
 
-Hardware security addresses the lowest layers of the computing stack: firmware, bootloaders, microcontrollers, debug interfaces, and physical silicon. Practitioners analyze firmware for embedded vulnerabilities, test hardware interfaces (JTAG, UART, SPI), perform side-channel attacks to extract cryptographic secrets, and harden platforms against physical-access adversaries. The field spans both offensive disciplines — fault injection, cold boot attacks, PCIe DMA exploitation — and defensive engineering — measured boot chains, firmware signing, TPM attestation, and memory encryption. As hardware supply chain attacks and firmware-resident implants become increasingly relevant to nation-state and advanced threat actor playbooks, hardware security has moved from a niche specialization to a critical component of enterprise and government security programs.
+Hardware security addresses the lowest layers of the computing stack: firmware, bootloaders, microcontrollers, debug interfaces, and physical silicon. Practitioners analyze firmware for embedded vulnerabilities, test hardware interfaces (JTAG, UART, SPI), perform side-channel attacks to extract cryptographic secrets, and harden platforms against physical-access adversaries. The field spans both offensive disciplines (fault injection, cold boot attacks, PCIe DMA exploitation) and defensive engineering (measured boot chains, firmware signing, TPM attestation, and memory encryption). As hardware supply chain attacks and firmware-resident implants become increasingly relevant to nation-state and advanced threat actor playbooks, hardware security has moved from a niche specialization to a critical component of enterprise and government security programs.
 
 ---
 

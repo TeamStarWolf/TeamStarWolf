@@ -291,8 +291,8 @@ Calculator: https://www.first.org/cvss/calculator/4-0
 ## 4. EPSS -- Exploit Prediction Scoring System
 
 ### What EPSS Measures
-EPSS (maintained by FIRST) answers: **"What is the probability this CVE will
-be exploited in the wild in the next 30 days?"**
+EPSS (maintained by FIRST) answers: "What is the probability this CVE will
+be exploited in the wild in the next 30 days?"
 
 - Score: 0.000001 to 1.0 (probability)
 - Updated daily at api.first.org
@@ -648,7 +648,7 @@ Patch Diffing (N-day research):
 
 Find vendor contact:
 
-    curl https://target.com/.well-known/security.txt # RFC 9116 standard
+    curl https://target.com/.well-known/security.txt  # RFC 9116 standard
     # Try: security@, psirt@, vulnerability@vendor.com
     # Check HackerOne/Bugcrowd program directories
 
@@ -1028,12 +1028,12 @@ Oct 10, 2023 patch release due to slow enterprise edge infrastructure patching.
 DefectDojo (github.com/DefectDojo/django-DefectDojo):
 
     # Import scanner results (100+ formats supported)
-    curl -X POST https://defectdojo.example.com/api/v2/import-scan/ -H "Authorization: Token $TOKEN" -F "scan_type=Trivy Scan" -F "file=@trivy.json" -F "product_name=My App" -F "engagement_name=Sprint-42"
+    curl -X POST https://defectdojo.example.com/api/v2/import-scan/       -H "Authorization: Token $TOKEN"       -F "scan_type=Trivy Scan" -F "file=@trivy.json"       -F "product_name=My App" -F "engagement_name=Sprint-42"
 
 Dependency-Track (github.com/DependencyTrack/dependency-track):
 
     # Upload SBOM for continuous tracking
-    curl -X PUT https://dtrack.example.com/api/v1/bom -H "X-Api-Key: $DT_KEY" -F "projectName=My App" -F "projectVersion=2.1.0" -F "autoCreate=true" -F "bom=@sbom.cdx.json"
+    curl -X PUT https://dtrack.example.com/api/v1/bom       -H "X-Api-Key: $DT_KEY"       -F "projectName=My App" -F "projectVersion=2.1.0"       -F "autoCreate=true" -F "bom=@sbom.cdx.json"
 
 ### CI/CD Security Scanning
 

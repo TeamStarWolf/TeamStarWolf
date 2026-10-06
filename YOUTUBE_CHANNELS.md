@@ -1,6 +1,6 @@
 # Cybersecurity YouTube Channel Library
 
-> In one minute — A curated directory of cybersecurity YouTube channels sorted into 18 disciplines, from CTF walkthroughs and malware analysis to cloud security and conference talks. It matters because watching a practitioner work through a lab, tool, or attack path is often faster than reading docs alone. Channels are kept current (active in roughly the last 12 months or still the clearest reference), and several tables add focus and skill-level ratings so you can pick content that matches where you are.
+> In one minute: A curated directory of cybersecurity YouTube channels sorted into 18 disciplines, from CTF walkthroughs and malware analysis to cloud security and conference talks. It matters because watching a practitioner work through a lab, tool, or attack path is often faster than reading docs alone. Channels are kept current (active in roughly the last 12 months or still the clearest reference), and several tables add focus and skill-level ratings so you can pick content that matches where you are.
 
 | | |
 |---|---|
@@ -206,7 +206,7 @@ The Arsenal source material only exposes a handful of direct YouTube links, so t
 
 | Channel | Focus | Skill Level | Notes |
 |---------|-------|-------------|-------|
-| 13Cubed | Windows DFIR, memory forensics | Intermediate-Advanced | Richard Davis; excellent technical depth; Volatility + Velociraptor — also listed in Detection Engineering |
+| 13Cubed | Windows DFIR, memory forensics | Intermediate-Advanced | Richard Davis; excellent technical depth; Volatility + Velociraptor; also listed in Detection Engineering |
 | DFIR.Science | DFIR methodology, evidence collection | Intermediate | Case studies; academic-quality content |
 | Gary Ruddell | Magnet Forensics tools, practical DFIR | Intermediate | Mobile and computer forensics |
 | The PC Security Channel | Malware analysis, AV testing | Beginner-Mid | Accessible malware behavior demos |
@@ -217,15 +217,15 @@ The Arsenal source material only exposes a handful of direct YouTube links, so t
 
 | Channel | Focus | Skill Level | Notes |
 |---------|-------|-------------|-------|
-| IppSec | HTB machine walkthroughs | Intermediate-Advanced | 600+ videos; every technique searchable at ippsec.rocks — also listed in CTF Walkthroughs |
-| John Hammond | CTF, malware analysis, coding | Beginner-Advanced | Wide range; accessible; strong CTF community — also listed in General |
-| LiveOverflow | Browser security, CTF, web | Advanced | Deep technical dives; academic approach to exploitation — also listed in Exploit Development |
+| IppSec | HTB machine walkthroughs | Intermediate-Advanced | 600+ videos; every technique searchable at ippsec.rocks; also listed in CTF Walkthroughs |
+| John Hammond | CTF, malware analysis, coding | Beginner-Advanced | Wide range; accessible; strong CTF community; also listed in General |
+| LiveOverflow | Browser security, CTF, web | Advanced | Deep technical dives; academic approach to exploitation; also listed in Exploit Development |
 | S3cur3Th1sSh1t | Active Directory attacks | Intermediate-Advanced | One of the best AD attack channels |
 | Seytonic | Hacking culture, fun demos | Beginner | Popular; social engineering, hardware; entry-level |
-| HackerSploit | Penetration testing, Linux | Beginner-Intermediate | Large library; OSCP prep content — also listed in General |
-| TCM Security | Ethical hacking, PNPT prep | Beginner-Intermediate | Practical Network Pentest Training creators; highly practical — also listed in General |
-| The Cyber Mentor | Web app, AD, practical hacking | Beginner-Intermediate | Excellent beginner courses; authentic and practical — also listed in General |
-| NullByte | Hacking how-to | Beginner | Basic techniques; good for absolute beginners — also listed in General |
+| HackerSploit | Penetration testing, Linux | Beginner-Intermediate | Large library; OSCP prep content; also listed in General |
+| TCM Security | Ethical hacking, PNPT prep | Beginner-Intermediate | Practical Network Pentest Training creators; highly practical; also listed in General |
+| The Cyber Mentor | Web app, AD, practical hacking | Beginner-Intermediate | Excellent beginner courses; authentic and practical; also listed in General |
+| NullByte | Hacking how-to | Beginner | Basic techniques; good for absolute beginners; also listed in General |
 
 
 ## Blue Team, SOC, and Detection Engineering Channels
@@ -234,7 +234,7 @@ The Arsenal source material only exposes a handful of direct YouTube links, so t
 |---------|-------|-------------|-------|
 | Eric Zimmermann | Windows forensics, EZTools | Intermediate-Advanced | Tool author; Eric Zimmermann forensic artifact tools |
 | SANS Digital Forensics | DFIR, memory forensics | Intermediate-Advanced | Conference talks, tool demos, course previews: also listed in Detection Engineering |
-| Cyber Defender | SOC fundamentals, threat hunting | Beginner-Mid | LetsDefend creator; SOC workflow content — also listed in Detection Engineering |
+| Cyber Defender | SOC fundamentals, threat hunting | Beginner-Mid | LetsDefend creator; SOC workflow content; also listed in Detection Engineering |
 | MyDFIR | SOC analyst content, detection | Beginner-Mid | SOC analyst walkthroughs; practical SIEM/EDR use |
 | Cybersecurity Meg | Career advice, blue team | Beginner | Accessible; honest career advice |
 
@@ -243,9 +243,9 @@ The Arsenal source material only exposes a handful of direct YouTube links, so t
 
 | Channel | Focus | Skill Level | Notes |
 |---------|-------|-------------|-------|
-| OALabs | Malware unpacking, config extraction | Advanced | Best YouTube channel for RE analysts; Ghidra + x64dbg — also listed in Malware Analysis |
+| OALabs | Malware unpacking, config extraction | Advanced | Best YouTube channel for RE analysts; Ghidra + x64dbg; also listed in Malware Analysis |
 | HuskyHacks | Blue team malware analysis | Intermediate | Hands-on with real malware families |
-| MalwareAnalysisForHedgehogs | Malware analysis methodology | Intermediate | German researcher; very methodical approach — also listed in Malware Analysis |
+| MalwareAnalysisForHedgehogs | Malware analysis methodology | Intermediate | German researcher; very methodical approach; also listed in Malware Analysis |
 | Guided Hacking | Game hacking, x86 assembly | Intermediate-Advanced | Excellent x86/assembly fundamentals via game hacking: also listed in Malware Analysis |
 
 

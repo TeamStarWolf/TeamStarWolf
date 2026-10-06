@@ -1,6 +1,6 @@
 # Contributing to TeamStarWolf
 
-Thank you for helping improve this resource. This is a community-maintained cybersecurity library — the goal is accurate, practical, and current information for practitioners at every level.
+Thank you for helping improve this resource. This is a community-maintained cybersecurity library; the goal is accurate, practical, and current information for practitioners at every level.
 
 ---
 
@@ -62,7 +62,7 @@ Thank you for helping improve this resource. This is a community-maintained cybe
 - Must be a real credential with a verifiable issuer (GIAC, ISC², ISACA, CREST, EC-Council, INE, Offensive Security, etc.)
 - Include the full certification name and abbreviation
 - Note the issuer accurately: especially for certifications that have changed hands (e.g., eLearnSecurity -> INE Security)
-- Do not include courses as certifications (e.g., SANS SEC courses are not certs — GIAC exams are)
+- Do not include courses as certifications (e.g., SANS SEC courses are not certs; GIAC exams are)
 
 ### Commercial Platforms
 - Include the vendor name, a one-line description of what it does, and the market category

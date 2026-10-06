@@ -93,7 +93,7 @@ Each block is encrypted independently with the same key.
 C_i = E_K(P_i)
 ```
 
-The Penguin Problem: ECB reveals patterns in plaintext. Identical plaintext blocks produce identical ciphertext blocks. The classic demonstration is encrypting a bitmap image of Tux the Linux penguin — the outline remains visible in the ciphertext because identical pixel blocks encrypt to identical ciphertext blocks.
+The Penguin Problem: ECB reveals patterns in plaintext. Identical plaintext blocks produce identical ciphertext blocks. The classic demonstration is encrypting a bitmap image of Tux the Linux penguin: the outline remains visible in the ciphertext because identical pixel blocks encrypt to identical ciphertext blocks.
 
 ECB should never be used for encrypting more than one block of data.
 
@@ -229,7 +229,7 @@ def quarter_round(a, b, c, d):
     return a, b, c, d
 ```
 
-Uses only ARX (Add, Rotate, XOR) operations — no lookup tables, immune to cache-timing attacks.
+Uses only ARX (Add, Rotate, XOR) operations, no lookup tables, immune to cache-timing attacks.
 
 #### Poly1305 MAC
 
@@ -425,7 +425,7 @@ Used with RSA signatures (PKCS#1 v2.1). Adds randomness and a salt to resist exi
 
 #### CBC Padding Oracle
 
-A padding oracle is any system that reveals whether decrypted data has valid PKCS#7 padding — even just through different error messages or timing.
+A padding oracle is any system that reveals whether decrypted data has valid PKCS#7 padding, even just through different error messages or timing.
 
 Attack mechanism (Vaudenay, 2002):
 
@@ -811,7 +811,7 @@ Timeline:
 
 Migration urgency: Chrome/Firefox dropped SHA-1 certificate support in 2017. All code signing systems should have migrated by now. Git announced SHA-1 to SHA-256 transition (ongoing).
 
-Git's internal use of SHA-1 (for object naming, not security) was a separate concern — git uses SHA-1 in a hash-ID context where second preimage resistance matters more than collision resistance.
+Git's internal use of SHA-1 (for object naming, not security) was a separate concern: git uses SHA-1 in a hash-ID context where second preimage resistance matters more than collision resistance.
 
 ---
 
@@ -828,7 +828,7 @@ Hi = compress(H_{i-1}, Mi)
 Output = Hn
 ```
 
-The compression function is the core — SHA-256 uses 64 rounds of a complex mixing function.
+The compression function is the core: SHA-256 uses 64 rounds of a complex mixing function.
 
 SHA-2 variants:
 
@@ -853,7 +853,7 @@ mac = sha256(secret + message)
 mac = hmac.new(secret, message, sha256)
 ```
 
-Affected: MD5, SHA-1, SHA-256, SHA-512 — Merkle-Damgård hashes that output their full internal state.
+Affected: MD5, SHA-1, SHA-256, SHA-512 (Merkle-Damgård hashes that output their full internal state).
 Not affected: the truncated SHA-2 variants SHA-224, SHA-384, SHA-512/224, SHA-512/256 (they emit only part of the internal state, so the attacker cannot recover the state needed to continue hashing); SHA-3 (sponge construction); BLAKE2/BLAKE3; and HMAC-based constructions.
 
 ---
@@ -872,7 +872,7 @@ Squeezing phase: Output rate portion, apply permutation f, repeat
 SHA3-256: r=1088, c=512, output=256 bits
 ```
 
-The permutation f is Keccak-f[1600] — 24 rounds of 5 steps (θ, ρ, π, χ, ι) over a 5x5x64 bit array.
+The permutation f is Keccak-f[1600]: 24 rounds of 5 steps (θ, ρ, π, χ, ι) over a 5x5x64 bit array.
 
 Key properties:
 - Inherently resistant to length extension attacks (capacity c is never exposed)
@@ -1097,7 +1097,7 @@ Intermediate CA: Online, issues end-entity certificates. If compromised, can be 
 
 Cross-certification: Two root CAs can cross-certify each other, extending trust paths.
 
-Certificate Pinning (in CA context): Browsers have built-in root stores. Mozilla NSS, Chrome Root Store, Apple Root Store, Microsoft Root Program — each with different inclusion requirements.
+Certificate Pinning (in CA context): Browsers have built-in root stores. Mozilla NSS, Chrome Root Store, Apple Root Store, Microsoft Root Program: each with different inclusion requirements.
 
 ---
 
@@ -1193,7 +1193,7 @@ Timestamp countersignatures extend validity past certificate expiration.
 
 Apple Notarization: macOS Gatekeeper requires code signing + notarization (Apple scans for malware). Notarization ticket is stapled to the binary.
 
-Sigstore / cosign: Open-source code signing using ephemeral certificates tied to OIDC identity (GitHub Actions, Google accounts). Keyless signing — private keys are generated in memory and discarded; the certificate is logged in Rekor (transparency log).
+Sigstore / cosign: Open-source code signing using ephemeral certificates tied to OIDC identity (GitHub Actions, Google accounts). Keyless signing: private keys are generated in memory and discarded; the certificate is logged in Rekor (transparency log).
 
 ```bash
 cosign sign --key cosign.key image:tag
@@ -1654,7 +1654,7 @@ Side-channel attacks exploit information leaked by the physical implementation, 
 
 Execution time varies based on secret data.
 
-Classic example — RSA square-and-multiply:
+Classic example (RSA square-and-multiply):
 ```
 For each bit b in exponent d:
   state = state^2 mod n  (always)
@@ -1804,7 +1804,7 @@ Nation-state adversaries may be recording encrypted traffic today to decrypt onc
 
 Timeline concern: Data with 10+ year sensitivity (state secrets, long-term contracts, medical records) is at risk if encrypted with classical algorithms today.
 
-Affected algorithms: RSA, ECDH (key exchange) — compromise of past sessions is possible. AES-256 is quantum-resistant (symmetric).
+Affected algorithms: RSA, ECDH (key exchange); compromise of past sessions is possible. AES-256 is quantum-resistant (symmetric).
 
 Mitigation:
 - Deploy post-quantum key exchange (ML-KEM) NOW for key agreement
@@ -2414,4 +2414,4 @@ HSM certifications: Hardware Security Modules (HSMs) used for key storage typica
 
 ---
 
-*Last updated: 2024. Standards and recommendations evolve — always verify against current NIST, IETF, and vendor guidance.*
+*Last updated: 2024. Standards and recommendations evolve: always verify against current NIST, IETF, and vendor guidance.*

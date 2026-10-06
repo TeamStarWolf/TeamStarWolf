@@ -1,6 +1,6 @@
 # Security Operations (SOC / SecOps)
 
-Security Operations is the continuous practice of monitoring, detecting, analyzing, and responding to cybersecurity threats across an organization's environment. It is carried out by Security Operations Centers (SOCs) staffed by analysts working in tiered roles — from alert triage through advanced threat hunting and incident response. The discipline matters because prevention alone fails: sophisticated adversaries get through defenses, and the difference between a contained incident and a breach is how quickly the SOC detects, understands, and neutralizes the threat. SOC practitioners work with SIEM platforms, SOAR orchestration, endpoint telemetry, network logs, and threat intelligence feeds. The offensive perspective is equally critical: defenders must understand SOC evasion techniques — log flooding, timestomping, LOLBAS abuse, and living-off-the-land binaries — because adversaries specifically craft tradecraft to blind detection tooling. A mature SOC is built on the principle that attackers and defenders use the same tools; knowing how attackers evade detection is what makes detections resilient.
+Security Operations is the continuous practice of monitoring, detecting, analyzing, and responding to cybersecurity threats across an organization's environment. It is carried out by Security Operations Centers (SOCs) staffed by analysts working in tiered roles, from alert triage through advanced threat hunting and incident response. The discipline matters because prevention alone fails: sophisticated adversaries get through defenses, and the difference between a contained incident and a breach is how quickly the SOC detects, understands, and neutralizes the threat. SOC practitioners work with SIEM platforms, SOAR orchestration, endpoint telemetry, network logs, and threat intelligence feeds. The offensive perspective is equally critical: defenders must understand SOC evasion techniques (log flooding, timestomping, LOLBAS abuse, and living-off-the-land binaries) because adversaries specifically craft tradecraft to blind detection tooling. A mature SOC is built on the principle that attackers and defenders use the same tools; knowing how attackers evade detection is what makes detections resilient.
 
 ---
 
@@ -129,7 +129,7 @@ A SIEM ingests logs from across the environment, normalizes them into a common s
 
 Threat hunting is the proactive, hypothesis-driven search for adversaries that have evaded automated detections:
 
-- Hypothesis-Driven: Start with an ATT&CK technique: "Assume T1078 (Valid Accounts) — look for logins at unusual hours from new geolocations"
+- Hypothesis-Driven: Start with an ATT&CK technique: "Assume T1078 (Valid Accounts); look for logins at unusual hours from new geolocations"
 - Data-Driven: Analyze baseline behavior anomalies: "Find processes making outbound connections that have never done so before"
 - IOC-Driven: Hunt for known indicators from threat intelligence feeds across historical logs
 - Hunt Tools: Splunk SPL, Elastic EQL, KQL (Sentinel), OSQuery, Velociraptor VQL

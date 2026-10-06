@@ -60,7 +60,7 @@ Flag submission hygiene.
 - Share partial findings immediately; a 50% solve note can unblock a teammate
 - Designate one person to handle flag submission and score tracking
 - During long CTFs (24-48 hours), schedule rest rotations so someone is always active
-- Keep a shared notes document with all commands run, findings, and dead ends — this saves time when handoffs happen
+- Keep a shared notes document with all commands run, findings, and dead ends; this saves time when handoffs happen
 
 ### Setting Up a CTF Environment
 
@@ -105,7 +105,7 @@ Always start by mapping the attack surface before touching any inputs:
 - Page source (`Ctrl+U`): look for HTML comments, hidden form fields, API endpoints, hardcoded credentials, JS file references
 - JavaScript files: enumerate all `.js` files; search for API keys, endpoints, authentication logic, and secrets using browser DevTools Sources tab or `grep`
 - Cookies: inspect all cookies: look for Base64-encoded JSON, JWT tokens, session identifiers that look sequential or guessable
-- HTTP headers: check `Server`, `X-Powered-By`, `X-Frame-Options`, `Content-Security-Policy` — these reveal the tech stack and misconfigurations
+- HTTP headers: check `Server`, `X-Powered-By`, `X-Frame-Options`, `Content-Security-Policy`; these reveal the tech stack and misconfigurations
 - Tech stack fingerprinting: use `whatweb`, Wappalyzer browser extension, or check `generator` meta tags
 
 ```bash
@@ -132,7 +132,7 @@ Cross-Site Scripting (XSS)
 - Test all input fields with `<script>alert(1)</script>` and variations
 - If filtered, try: `<img src=x onerror=alert(1)>`, `<svg onload=alert(1)>`, `javascript:alert(1)`
 - For blind XSS, use a callback URL (requestbin, interactsh) to confirm execution
-- For DOM-based XSS, look in JS source for sinks: `innerHTML`, `eval`, `setTimeout` with user-controlled data — these are dangerous patterns in client-side code that can execute attacker-controlled strings
+- For DOM-based XSS, look in JS source for sinks: `innerHTML`, `eval`, `setTimeout` with user-controlled data; these are dangerous patterns in client-side code that can execute attacker-controlled strings
 
 Local/Remote File Inclusion (LFI/RFI)
 - Test path traversal: `../../etc/passwd`, `....//....//etc/passwd`
@@ -236,7 +236,7 @@ Common magic bytes:
 | PE (Windows) | `4D 5A` (`MZ`) |
 | 7-Zip | `37 7A BC AF 27 1C` |
 
-binwalk — scan for embedded files and file systems:
+binwalk (scan for embedded files and file systems):
 ```bash
 binwalk suspicious_file           # List embedded files
 binwalk -e suspicious_file        # Extract embedded files
@@ -255,12 +255,12 @@ strings file.bin | grep -i flag  # Grep strings for flag patterns
 
 ### Disk and Filesystem Analysis
 
-Autopsy — GUI forensics platform (recommended for beginners):
+Autopsy, GUI forensics platform (recommended for beginners):
 - Open disk image (`.dd`, `.img`, `.E01`)
 - Run ingest modules: recent activity, keyword search, hash lookup
 - Browse file system, deleted files, artifacts, and timeline
 
-The Sleuth Kit (TSK) — command-line disk forensics:
+The Sleuth Kit (TSK), command-line disk forensics:
 ```bash
 mmls disk.img                    # Show partition layout
 fls -r -o 2048 disk.img          # List files recursively (offset from mmls)
@@ -268,9 +268,9 @@ icat -o 2048 disk.img 15         # Extract file by inode number
 fsstat -o 2048 disk.img          # Filesystem statistics
 ```
 
-FTK Imager / FTK Lite — acquire and examine disk images on Windows.
+FTK Imager / FTK Lite: acquire and examine disk images on Windows.
 
-ext4 carving — if filesystem is damaged:
+ext4 carving, if filesystem is damaged:
 ```bash
 extundelete disk.img --restore-all
 ```
@@ -297,28 +297,28 @@ vol.py -f memory.raw linux.bash              # Bash history (Linux)
 
 ### Steganography
 
-steghide — hides data in JPEG/BMP/WAV/AU:
+steghide (hides data in JPEG/BMP/WAV/AU):
 ```bash
 steghide info image.jpg          # Check for embedded data
 steghide extract -sf image.jpg   # Extract (will prompt for password)
 steghide extract -sf image.jpg -p ""  # Try empty password
 ```
 
-zsteg — LSB steganography in PNG and BMP:
+zsteg, LSB steganography in PNG and BMP:
 ```bash
 zsteg image.png                  # Try all common methods
 zsteg -a image.png               # Try all methods (exhaustive)
 zsteg image.png -E "b1,rgb,lsb,xy"  # Specific channel extraction
 ```
 
-stegsolve — GUI tool for image layer analysis:
+stegsolve, GUI tool for image layer analysis:
 - Open image, cycle through color planes with arrows
 - Analyse -> Data Extract for LSB extraction
 - Analyse -> Frame Browser for animated GIFs
 
-OpenStego — GUI steganography for PNG files.
+OpenStego: GUI steganography for PNG files.
 
-LSB analysis — manual approach:
+LSB analysis, manual approach:
 ```python
 from PIL import Image
 img = Image.open("image.png")
@@ -329,7 +329,7 @@ bits = [pixel[0] & 1 for pixel in pixels]  # LSB of red channel
 
 ### Network Capture Analysis
 
-Wireshark — primary GUI tool:
+Wireshark, primary GUI tool:
 - `File → Export Objects → HTTP` to extract transferred files
 - Filter examples:
   - `http`: HTTP traffic only
@@ -339,16 +339,16 @@ Wireshark — primary GUI tool:
   - `frame contains "flag"`: search for flag string
   - `ip.addr == 192.168.1.1`: filter by IP
 
-tshark — command-line Wireshark:
+tshark, command-line Wireshark:
 ```bash
 tshark -r capture.pcap -Y "http" -T fields -e http.request.uri
 tshark -r capture.pcap -qz io,phs          # Protocol hierarchy stats
 tshark -r capture.pcap --export-objects http,./output/
 ```
 
-NetworkMiner — Windows GUI for extracting files, credentials, and artifacts from pcap.
+NetworkMiner: Windows GUI for extracting files, credentials, and artifacts from pcap.
 
-tcpdump — capture and filter:
+tcpdump (capture and filter):
 ```bash
 tcpdump -r capture.pcap -A 'port 80'       # Read and display ASCII
 tcpdump -r capture.pcap -w filtered.pcap 'host 10.0.0.1'
@@ -400,7 +400,7 @@ for i in range(26):
 
 ### Modern Crypto Weaknesses
 
-Weak RSA — Low Public Exponent (e=3)
+Weak RSA: Low Public Exponent (e=3)
 If `e=3` and the message `m` is small, then `c = m^3` without wrapping, so `m = cube_root(c)`:
 ```python
 from gmpy2 import iroot
@@ -409,7 +409,7 @@ if exact:
     print(bytes.fromhex(hex(m)[2:]))
 ```
 
-Weak RSA — Common Modulus Attack
+Weak RSA: Common Modulus Attack
 If two ciphertexts use the same modulus `n` but different exponents `e1`, `e2` (with `gcd(e1,e2)=1`):
 ```python
 from sympy import gcdex
@@ -417,7 +417,7 @@ s1, s2, _ = gcdex(e1, e2)
 m = pow(c1, s1, n) * pow(c2, s2, n) % n
 ```
 
-Weak RSA — Small Primes / Factorable N
+Weak RSA: Small Primes / Factorable N
 - Try factordb.com first: paste `n` and see if it is already factored
 - Use `RsaCtfTool`: `python3 RsaCtfTool.py --publickey key.pem --uncipherfile cipher.txt`
 - SageMath for advanced factoring: Fermat factorization for close primes
@@ -428,7 +428,7 @@ Modifying a byte in ciphertext block `i` corrupts block `i` but predictably flip
 - `new_cipher_byte = original_cipher_byte XOR original_plain_byte XOR desired_plain_byte`
 
 ECB Mode Detection
-ECB encrypts each block independently — identical 16-byte plaintext blocks produce identical ciphertext blocks:
+ECB encrypts each block independently; identical 16-byte plaintext blocks produce identical ciphertext blocks:
 ```python
 # Detect ECB: submit 48 identical bytes, check for repeated blocks
 ct = encrypt(b'A' * 48)
@@ -504,12 +504,12 @@ Ghidra (free, NSA-developed):
 3. Use Decompiler window: right-click variables to rename for clarity
 4. Search -> Search Memory for flag patterns
 
-IDA Free — powerful disassembler, free version for non-commercial use:
+IDA Free (powerful disassembler, free version for non-commercial use):
 - Better than Ghidra for initial navigation in many cases
 - `F5` for pseudocode (limited in free version)
 - `n` to rename, `y` to retype
 
-Binary Ninja — modern RE platform with a free cloud version at cloud.binary.ninja.
+Binary Ninja: modern RE platform with a free cloud version at cloud.binary.ninja.
 
 readelf / objdump:
 ```bash
@@ -533,7 +533,7 @@ pwndbg> x/s 0x402010       # Examine string at address
 pwndbg> x/20wx $rsp        # Examine stack
 ```
 
-GDB with PEDA — alternative plugin with pattern tools:
+GDB with PEDA, alternative plugin with pattern tools:
 ```bash
 gdb-peda$ pattern create 200    # Create cyclic pattern
 gdb-peda$ pattern offset $rsp   # Find offset
@@ -546,7 +546,7 @@ ltrace ./binary             # Trace library calls
 strace -e openat ./binary   # Only file open syscalls
 ```
 
-x64dbg (Windows) — GUI debugger for Windows PE binaries:
+x64dbg (Windows), GUI debugger for Windows PE binaries:
 - Set breakpoints on `strcmp`, `memcmp`, check registers at comparison
 - Use "Follow in Dump" to inspect memory
 
@@ -643,7 +643,7 @@ p.interactive()
 
 ### Return-Oriented Programming (ROP)
 
-Used when NX is enabled (no executable stack) — chain small "gadgets" ending in `ret`.
+Used when NX is enabled (no executable stack): chain small "gadgets" ending in `ret`.
 
 Find gadgets:
 ```bash
@@ -761,8 +761,8 @@ Common places to check manually: GitHub, Twitter/X, Instagram, Reddit, LinkedIn,
 ### Image Reverse Search
 
 - Google Images: drag and drop image or paste URL; good for common images
-- TinEye: https://tineye.com — finds exact matches and traces image history
-- Yandex Images: https://yandex.com/images — best for faces and obscure images, especially non-Western content
+- TinEye: https://tineye.com (finds exact matches and traces image history)
+- Yandex Images: https://yandex.com/images (best for faces and obscure images, especially non-Western content)
 - Bing Visual Search: sometimes finds results others miss
 
 Workflow: Try all four; each has different indexes. Yandex is often the most powerful for CTF geolocation challenges.
@@ -841,7 +841,7 @@ For any file in a misc/stego challenge:
 
 ### Audio Challenges
 
-Audacity — open audio file, view spectrogram:
+Audacity (open audio file, view spectrogram):
 - View -> Spectrogram to see frequency spectrum
 - Hidden messages are often visible as text/images in the spectrogram
 - Change spectrogram settings (View -> Spectrogram Settings) for better resolution

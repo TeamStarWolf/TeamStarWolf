@@ -798,7 +798,7 @@ level: high
 
 > Note (verified 2026-09-29): The current Sigma rule format is the [Sigma Specification v2.0](https://github.com/SigmaHQ/sigma-specification) (August 8, 2024). The legacy `sigmac`/`sigmatools` converter is end-of-life (archived as `SigmaHQ/legacy-sigmatools`) and has been replaced by pySigma + sigma-cli; prefer the `sigma-cli` workflow shown below. The `sigmac` block is kept for reference only.
 
-Using sigmac (legacy — deprecated/EOL, retained for reference):
+Using sigmac (legacy; deprecated/EOL, retained for reference):
 ```bash
 pip install sigmatools
 sigmac -t splunk -c splunk-windows rules/windows/credential_access/lsass_access.yml

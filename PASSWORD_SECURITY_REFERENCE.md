@@ -51,7 +51,7 @@
 | Kerberos TGS-REP 23 | `$krb5tgs$23$*user*domain*service*...` | 13100 | Kerberoasting; RC4-HMAC encrypted ticket |
 | Kerberos AS-REP 23 | `$krb5asrep$23$user@domain:HASH` | 18200 | AS-REP roasting; accounts without pre-auth |
 | Kerberos TGS AES256 | `$krb5tgs$18$*user*domain*service*...` | 19700 | AES-256 Kerberoasting (harder to crack) |
-| DPAPI MasterKey | Binary blob (80 bytes typically) | — | Windows credential store; encrypted with user password |
+| DPAPI MasterKey | Binary blob (80 bytes typically) | N/A | Windows credential store; encrypted with user password |
 | WPA/WPA2 Handshake | PMKID / hccapx format | 22000 / 2500 | Wi-Fi pre-shared key cracking |
 | WPA-PMKID | `WPA*01*PMKID*BSSID*STA*ESSID*` | 22801 | Clientless WPA capture (hcxtools) |
 | SHA-1 salted | `SALT:HASH` or `HASH:SALT` | various | Many web apps; identify by context |
@@ -631,7 +631,7 @@ rtsort *.rt                                   # Sort table for lookup
 
 ### CeWL (Custom Word List Generator)
 
-Crawls target websites and generates wordlists from page content — highly effective when targeting organization-specific passwords.
+Crawls target websites and generates wordlists from page content, highly effective when targeting organization-specific passwords.
 
 ```bash
 # Basic crawl with 3 levels depth, minimum 5 chars
@@ -725,7 +725,7 @@ crunch 10 10 -t Company@@## -o company_pattern.txt # Company + 2 alpha + 2 digit
 
 ### Algorithms to NEVER Use for Passwords
 
-The following algorithms are cryptographically fast — designed for speed, which makes them catastrophically unsuitable for password storage:
+The following algorithms are cryptographically fast, designed for speed, which makes them catastrophically unsuitable for password storage:
 
 | Algorithm | Why Unsuitable | Example Attack Speed (RTX 4090) |
 |-----------|---------------|-------------------------------|
@@ -1097,7 +1097,7 @@ Security controls:
 
 ### Group Managed Service Accounts (gMSA)
 
-gMSAs automatically manage service account passwords — no human ever knows or sets the password. Windows Key Distribution Service (KDS) rotates passwords every 30 days (default configurable).
+gMSAs automatically manage service account passwords; no human ever knows or sets the password. Windows Key Distribution Service (KDS) rotates passwords every 30 days (default configurable).
 
 ```powershell
 # Prerequisites: KDS root key (one-time setup per forest)

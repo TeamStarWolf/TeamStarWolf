@@ -1,8 +1,8 @@
 # Annual Threat Report Almanac
 
-> Nobody can read every annual threat report; everybody should know what the big ones can and cannot tell them. Each spring the industry buries practitioners under hundreds of pages of vendor and government reporting, and most of it gets skimmed for one chart and forgotten. This almanac is an annotated index of the reports that earn their reading time — who publishes each one, what evidence it stands on, when it lands, and the one question it answers better than anything else — plus a method for reading any of them critically. The most important column in every table below is the methodology basis: incident casework, product telemetry, surveys, and official statistics are four different instruments, and each can support only certain kinds of conclusion.
+> Nobody can read every annual threat report; everybody should know what the big ones can and cannot tell them. Each spring the industry buries practitioners under hundreds of pages of vendor and government reporting, and most of it gets skimmed for one chart and forgotten. This almanac is an annotated index of the reports that earn their reading time (who publishes each one, what evidence it stands on, when it lands, and the one question it answers better than anything else), plus a method for reading any of them critically. The most important column in every table below is the methodology basis: incident casework, product telemetry, surveys, and official statistics are four different instruments, and each can support only certain kinds of conclusion.
 
-Every report indexed here is free — "form" in the access column means an email-registration gate, never payment. Names, publishers, release dates, and landing pages were verified against the publishers' own announcements in September 2026; several reports have rebranded or changed hands recently (M-Trends now ships under Google Cloud, X-Force under IBM, Red Canary under Zscaler, Recorded Future under Mastercard), so links point at the current official landing pages.
+Every report indexed here is free; "form" in the access column means an email-registration gate, never payment. Names, publishers, release dates, and landing pages were verified against the publishers' own announcements in September 2026; several reports have rebranded or changed hands recently (M-Trends now ships under Google Cloud, X-Force under IBM, Red Canary under Zscaler, Recorded Future under Mastercard), so links point at the current official landing pages.
 
 Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Security Metrics](SECURITY_METRICS_REFERENCE.md), [Threat Actors](THREAT_ACTORS.md), [ATT&CK Priority Gaps](scores/attack_priority_gaps.md)
 
@@ -10,7 +10,7 @@ Related: [Threat Intelligence](THREAT_INTELLIGENCE_REFERENCE.md), [CTEM](CTEM_RE
 
 ## Methodology determines meaning
 
-Before the findings, ask what the instrument was. A report's evidence base decides which conclusions it can carry — and most misuse of threat reports is a category error: quoting a casework statistic as if it were a base rate, or a survey perception as if it were a measurement.
+Before the findings, ask what the instrument was. A report's evidence base decides which conclusions it can carry, and most misuse of threat reports is a category error: quoting a casework statistic as if it were a base rate, or a survey perception as if it were a measurement.
 
 | Basis | What it actually measures | Can support | Cannot support | Majors built on it |
 |---|---|---|---|---|
@@ -20,11 +20,11 @@ Before the findings, ask what the instrument was. A report's evidence base decid
 | Official statistics | Incidents and complaints reported to authorities | Reported-crime trends; loss floors; regulatory context | True totals: unreported crime is invisible by construction | IC3, ENISA, CISA |
 | Analyst synthesis | Curated intelligence across many sources | Geopolitical narrative, actor intent, forecasts | Falsifiable measurement: there is no denominator at all | Recorded Future, national annual reviews |
 
-The practical rule: triangulate. A claim worth acting on shows up in at least two instrument types — when IR casework, telemetry, and official statistics all point at identity abuse and edge-device exploitation, that is signal; when one vendor's survey says its product category is underfunded, that is marketing.
+The practical rule: triangulate. A claim worth acting on shows up in at least two instrument types: when IR casework, telemetry, and official statistics all point at identity abuse and edge-device exploitation, that is signal; when one vendor's survey says its product category is underfunded, that is marketing.
 
 ### Lineage and custody
 
-The long-running reports are valuable *because* they are long-running — a consistent instrument read over a decade beats any single year's headline. But several have changed hands recently, which moves landing pages, sometimes changes branding, and occasionally changes the telemetry base underneath the trend line:
+The long-running reports are valuable *because* they are long-running: a consistent instrument read over a decade beats any single year's headline. But several have changed hands recently, which moves landing pages, sometimes changes branding, and occasionally changes the telemetry base underneath the trend line:
 
 | Report | Lineage | Current custody |
 |---|---|---|
@@ -51,10 +51,10 @@ What responders saw in real engagements. Strongest evidence for *how* attackers 
 | Global Incident Response Report | Unit 42, Palo Alto Networks | Free (form) | February-March | [paloaltonetworks.com: Unit 42 IR Report](https://www.paloaltonetworks.com/resources/research/unit-42-incident-response-report) |
 | Active Adversary Report | Sophos | Free, no form | Early in the year (2026: 24 Feb) | [sophos.com: Active Adversary](https://www.sophos.com/en-us/blog/2026-sophos-active-adversary-report) |
 
-- Verizon DBIR: the closest thing the industry has to a shared statistical baseline: breach and incident data contributed by a large roster of external partners (law enforcement, CERTs, vendors), normalized into the VERIS schema and analyzed with unusual statistical honesty, confidence intervals included. Uniquely good for patterns by industry and by attack pattern over time — it is the default citation for "how do breaches in my sector happen." The 2026 edition, published May 2026, covers incidents from 1 November 2024 to 31 October 2025; read the methodology appendix first, because the contributor mix changes year to year.
-- M-Trends (Google Cloud / Mandiant): the annual distillation of Mandiant's global IR engagements, and the origin of the industry's dwell-time benchmark. Uniquely good for state-sponsored tradecraft and detection-source trends. M-Trends 2026 (March 2026) reported global median dwell time rising to 14 days from 11, pulled upward by long-dwell espionage and DPRK IT-worker cases — a caseload artifact worth understanding before quoting.
+- Verizon DBIR: the closest thing the industry has to a shared statistical baseline: breach and incident data contributed by a large roster of external partners (law enforcement, CERTs, vendors), normalized into the VERIS schema and analyzed with unusual statistical honesty, confidence intervals included. Uniquely good for patterns by industry and by attack pattern over time; it is the default citation for "how do breaches in my sector happen." The 2026 edition, published May 2026, covers incidents from 1 November 2024 to 31 October 2025; read the methodology appendix first, because the contributor mix changes year to year.
+- M-Trends (Google Cloud / Mandiant): the annual distillation of Mandiant's global IR engagements, and the origin of the industry's dwell-time benchmark. Uniquely good for state-sponsored tradecraft and detection-source trends. M-Trends 2026 (March 2026) reported global median dwell time rising to 14 days from 11, pulled upward by long-dwell espionage and DPRK IT-worker cases, a caseload artifact worth understanding before quoting.
 - Unit 42 Global Incident Response Report: Palo Alto Networks' IR casework (the 2026 edition draws on 750+ incidents from October 2024 to September 2025). Uniquely good for attack-speed data: the 2026 report's headline is that the fastest quartile of intrusions reached data exfiltration in 72 minutes, down from 285 the year before.
-- Sophos Active Adversary Report: IR plus MDR casework (661 cases across 70 countries in the 2026 edition) with a mid-market skew that complements the enterprise-heavy reports above. Uniquely good for the defender-workflow view: dwell time by detection route, tooling abused, and where MFA was missing. Its 2026 finding that 67% of cases were rooted in identity attacks, with median dwell time down to three days, pairs instructively with M-Trends' 14 days — see [instrument bias](#how-to-read-a-threat-report-critically).
+- Sophos Active Adversary Report: IR plus MDR casework (661 cases across 70 countries in the 2026 edition) with a mid-market skew that complements the enterprise-heavy reports above. Uniquely good for the defender-workflow view: dwell time by detection route, tooling abused, and where MFA was missing. Its 2026 finding that 67% of cases were rooted in identity attacks, with median dwell time down to three days, pairs instructively with M-Trends' 14 days; see [instrument bias](#how-to-read-a-threat-report-critically).
 
 ### Product and platform telemetry
 
@@ -67,22 +67,22 @@ What sensors saw at scale. Strongest for prevalence and speed among the vendor's
 | X-Force Threat Intelligence Index | IBM | Free (form) | February-April | [ibm.com: X-Force Index](https://www.ibm.com/reports/threat-intelligence) |
 | Threat Detection Report | Red Canary (a Zscaler company) | Free (web open; PDF form) | March | [redcanary.com: Threat Detection Report](https://redcanary.com/threat-detection-report/) |
 
-- CrowdStrike Global Threat Report: Falcon telemetry plus the OverWatch hunting team and adversary tracking; the source of the breakout time metric (foothold to lateral movement). The 2026 edition (24 February 2026) put average eCrime breakout at 29 minutes, the fastest observed at 27 seconds. Uniquely good for named-adversary tracking and eCrime ecosystem trends; remember its naming scheme (SPIDERs, BEARs, PANDAs) is proprietary — map to your own actor names via [Threat Actors](THREAT_ACTORS.md).
-- Microsoft Digital Defense Report: the largest telemetry aperture in the industry (Windows, Entra, M365, Azure) plus MSTIC/DART nation-state tracking. Uniquely good for identity-attack statistics and nation-state activity at platform scale: the 2025 edition (October 2025, covering July 2024-June 2025) reported 52% of attacks financially motivated and password attacks making up more than 97% of identity attacks. Long and policy-flavored — read the chapter you need, not the whole volume.
+- CrowdStrike Global Threat Report: Falcon telemetry plus the OverWatch hunting team and adversary tracking; the source of the breakout time metric (foothold to lateral movement). The 2026 edition (24 February 2026) put average eCrime breakout at 29 minutes, the fastest observed at 27 seconds. Uniquely good for named-adversary tracking and eCrime ecosystem trends; remember its naming scheme (SPIDERs, BEARs, PANDAs) is proprietary. Map to your own actor names via [Threat Actors](THREAT_ACTORS.md).
+- Microsoft Digital Defense Report: the largest telemetry aperture in the industry (Windows, Entra, M365, Azure) plus MSTIC/DART nation-state tracking. Uniquely good for identity-attack statistics and nation-state activity at platform scale: the 2025 edition (October 2025, covering July 2024-June 2025) reported 52% of attacks financially motivated and password attacks making up more than 97% of identity attacks. Long and policy-flavored: read the chapter you need, not the whole volume.
 - IBM X-Force Threat Intelligence Index: a hybrid of X-Force IR engagements, managed-security telemetry, and dark-web tracking; the long-running initial-access-vector share tables are its trademark. The 2026 edition (25 February 2026) reported a 44% jump in attacks beginning with exploitation of public-facing applications. Uniquely good for regional and industry attack-share comparisons.
-- Red Canary Threat Detection Report: the most operationally reusable of the set: confirmed threats (110,000+ across 1,700 organizations in the 2026 edition) ranked into top ATT&CK techniques and top threats, with detection and testing guidance per technique. Uniquely good for feeding detection-engineering backlogs directly — it is the natural annual companion to [ATT&CK Priority Gaps](scores/attack_priority_gaps.md).
+- Red Canary Threat Detection Report: the most operationally reusable of the set: confirmed threats (110,000+ across 1,700 organizations in the 2026 edition) ranked into top ATT&CK techniques and top threats, with detection and testing guidance per technique. Uniquely good for feeding detection-engineering backlogs directly; it is the natural annual companion to [ATT&CK Priority Gaps](scores/attack_priority_gaps.md).
 
 ### Surveys and cost models
 
-What respondents reported. The only instrument that reaches costs and program behavior — and the one most exposed to recall bias, sampling choices, and sponsor framing.
+What respondents reported. The only instrument that reaches costs and program behavior, and the one most exposed to recall bias, sampling choices, and sponsor framing.
 
 | Report | Publisher | Access | Typically lands | Landing page |
 |---|---|---|---|---|
 | Cost of a Data Breach Report | IBM, research by Ponemon Institute | Free (form) | Late July | [ibm.com: Cost of a Data Breach](https://www.ibm.com/reports/data-breach) |
 | Cost of Insider Risks Global Report | DTEX Systems, research by Ponemon Institute | Free (form) | Late February | [ponemon.dtex.ai](https://ponemon.dtex.ai/) |
 
-- IBM Cost of a Data Breach: Ponemon Institute interviews with organizations that actually suffered breaches (602 of them, March 2025-February 2026, in the 2026 edition), converted to cost via activity-based estimation. Uniquely good for the board and budget conversation: cost per record, cost by industry and by control. The 2026 report (29 July 2026) put the global average at $4.99M and the US average at $11.5M. It is an average of *studied* breaches — not your expected loss, and not a breach-probability measure.
-- Ponemon / DTEX Cost of Insider Risks: the insider-threat counterpart, surveying thousands of practitioners on incident counts, containment time, and annualized cost. The 2026 edition (24 February 2026) reported an average annual insider-risk cost of $19.5M and containment down to 67 days. Uniquely good for justifying insider-risk programs — pair it with [Insider Threat](INSIDER_THREAT_REFERENCE.md) and treat every self-reported count as a perception, not a measurement.
+- IBM Cost of a Data Breach: Ponemon Institute interviews with organizations that actually suffered breaches (602 of them, March 2025-February 2026, in the 2026 edition), converted to cost via activity-based estimation. Uniquely good for the board and budget conversation: cost per record, cost by industry and by control. The 2026 report (29 July 2026) put the global average at $4.99M and the US average at $11.5M. It is an average of *studied* breaches, not your expected loss, and not a breach-probability measure.
+- Ponemon / DTEX Cost of Insider Risks: the insider-threat counterpart, surveying thousands of practitioners on incident counts, containment time, and annualized cost. The 2026 edition (24 February 2026) reported an average annual insider-risk cost of $19.5M and containment down to 67 days. Uniquely good for justifying insider-risk programs; pair it with [Insider Threat](INSIDER_THREAT_REFERENCE.md) and treat every self-reported count as a perception, not a measurement.
 
 ### Government and official statistics
 
@@ -94,8 +94,8 @@ What was reported to authorities. Authoritative floors, systematic undercounts.
 | IC3 Internet Crime Report | FBI Internet Crime Complaint Center | Free, no form | April | [ic3.gov: Annual Reports](https://www.ic3.gov/AnnualReport/Reports) |
 | CISA Year in Review | CISA | Free, no form | January-February | [cisa.gov: 2025 Year in Review](https://www.cisa.gov/about/2025YIR) |
 
-- ENISA Threat Landscape: the EU's official annual synthesis, built on open-source collection of publicly reported incidents (4,875 of them, July 2024-June 2025, in the 2025 edition, published 1 October 2025). Uniquely good for the European regulatory and sectoral view — it is the report to cite in NIS2-adjacent work, and its threat taxonomy is a useful neutral vocabulary. Its counts reflect what became public, not what happened.
-- FBI IC3 Internet Crime Report: victim complaints filed with the FBI: the 2025 report (April 2026) logged 1,008,597 complaints and $20.9B in reported losses, both records. Uniquely good for fraud and cybercrime loss trends — BEC, investment scams, ransomware complaints, elder fraud — and the only major built on victim self-reporting at population scale. Losses are a floor; most victims never file.
+- ENISA Threat Landscape: the EU's official annual synthesis, built on open-source collection of publicly reported incidents (4,875 of them, July 2024-June 2025, in the 2025 edition, published 1 October 2025). Uniquely good for the European regulatory and sectoral view; it is the report to cite in NIS2-adjacent work, and its threat taxonomy is a useful neutral vocabulary. Its counts reflect what became public, not what happened.
+- FBI IC3 Internet Crime Report: victim complaints filed with the FBI: the 2025 report (April 2026) logged 1,008,597 complaints and $20.9B in reported losses, both records. Uniquely good for fraud and cybercrime loss trends (BEC, investment scams, ransomware complaints, elder fraud), and the only major built on victim self-reporting at population scale. Losses are a floor; most victims never file.
 - CISA Year in Review: the agency's own account of its year (the 2025 edition landed in early February 2026). Read it honestly for what it is: an accomplishments report, not a threat-statistics report. Uniquely good for discovering free CISA services, exercises, and joint advisories your program is not yet using.
 
 ### Sector deep dives and intelligence synthesis
@@ -105,8 +105,8 @@ What was reported to authorities. Authoritative floors, systematic undercounts.
 | OT/ICS Cybersecurity Year in Review | Dragos | Free (form) | February | [dragos.com: Year in Review](https://www.dragos.com/ot-cybersecurity-year-in-review) |
 | State of Security Report | Recorded Future (a Mastercard company) | Free (form) | February | [recordedfuture.com: State of Security](https://www.recordedfuture.com/research/state-of-security) |
 
-- Dragos OT/ICS Year in Review: the reference report for industrial and critical-infrastructure defense, built on Dragos IR casework, OT telemetry, and its own vulnerability re-analysis. The 2026 edition (17 February 2026, ninth year) found 25% of ICS advisories carried incorrect CVSS scores and 26% shipped with no patch or mitigation — the kind of data nobody else publishes. Uniquely good for OT threat-group tracking; feed it into [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md) and the [ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md).
-- Recorded Future State of Security: Insikt Group's annual threat-landscape analysis (the 2026 edition launched 12 February 2026 at the Munich Cyber Security Conference), synthesizing state-sponsored, criminal, and emerging-technology trends into a geopolitical narrative. Uniquely good for strategic-tier intelligence — briefing leadership on the year ahead — rather than for any single defensible statistic.
+- Dragos OT/ICS Year in Review: the reference report for industrial and critical-infrastructure defense, built on Dragos IR casework, OT telemetry, and its own vulnerability re-analysis. The 2026 edition (17 February 2026, ninth year) found 25% of ICS advisories carried incorrect CVSS scores and 26% shipped with no patch or mitigation, the kind of data nobody else publishes. Uniquely good for OT threat-group tracking; feed it into [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md) and the [ICS ATT&CK Atlas](ICS_ATTACK_ATLAS.md).
+- Recorded Future State of Security: Insikt Group's annual threat-landscape analysis (the 2026 edition launched 12 February 2026 at the Munich Cyber Security Conference), synthesizing state-sponsored, criminal, and emerging-technology trends into a geopolitical narrative. Uniquely good for strategic-tier intelligence (briefing leadership on the year ahead) rather than for any single defensible statistic.
 
 ### Honorable mentions by sector and region
 
@@ -125,7 +125,7 @@ Survey-heavy vendor "state of X" reports beyond these exist by the hundred; appl
 
 ## Cover year versus data window
 
-A report's cover year is a marketing label; its data window is a methodology fact, and the two rarely match. Most "2026" reports describe calendar 2025 — or an offset year that ends the previous autumn — so two same-year covers can describe periods that barely overlap. The windows below are as stated by the publishers for the current editions:
+A report's cover year is a marketing label; its data window is a methodology fact, and the two rarely match. Most "2026" reports describe calendar 2025 (or an offset year that ends the previous autumn), so two same-year covers can describe periods that barely overlap. The windows below are as stated by the publishers for the current editions:
 
 | Edition | Actual data window |
 |---|---|
@@ -140,7 +140,7 @@ A report's cover year is a marketing label; its data window is a methodology fac
 | ASD Annual Cyber Threat Report 2024-25 | Australian financial year, Jul 2024: Jun 2025 |
 | UK NCSC Annual Review 2025 | 1 Sep 2024: 31 Aug 2025 |
 
-Two consequences. First, when a February report and a May report disagree about "last year," check whether they even measured the same year. Second, a fast-moving development (a new exploitation wave, a takedown) can be present in one report's window and absent from another's — absence of a finding is often just a calendar artifact.
+Two consequences. First, when a February report and a May report disagree about "last year," check whether they even measured the same year. Second, a fast-moving development (a new exploitation wave, a takedown) can be present in one report's window and absent from another's; absence of a finding is often just a calendar artifact.
 
 ---
 
@@ -158,10 +158,10 @@ Four traps account for most bad citations of good reports.
 Three subtler failure modes, worth naming because they survive even careful readers:
 
 - Definitional drift. "Ransomware incident," "identity-based attack," and "AI-enabled breach" have no industry-standard definitions; each publisher draws its own boundary, and some redraw it between editions. A category that grows 50% the year it was redefined has not grown 50%. The newer the category (anything AI-labeled since 2025), the softer the definition.
-- Composition effects. A vendor's telemetry trend rides on its customer mix: expand into healthcare and "attacks on healthcare" rise in the data with no change in the world. Casework has the same problem — one large multi-victim campaign (a file-transfer exploitation wave, a single prolific actor) can dominate a year's caseload and masquerade as a broad trend.
+- Composition effects. A vendor's telemetry trend rides on its customer mix: expand into healthcare and "attacks on healthcare" rise in the data with no change in the world. Casework has the same problem: one large multi-victim campaign (a file-transfer exploitation wave, a single prolific actor) can dominate a year's caseload and masquerade as a broad trend.
 - Precision theater. Two decimal places on a statistic derived from a few hundred interviews implies a precision the sample cannot carry. Reports that publish confidence intervals or explicitly rounded figures are signaling methodological honesty; reward them.
 
-The dwell-time object lesson. In the same season, Sophos reported median dwell time of 3 days (2026) and Mandiant reported 14 days (2026) — and both are right. Sophos's caseload is MDR-heavy (detection is the product); Mandiant's 2025 caseload was espionage-heavy, with edge-device persistence and DPRK IT-worker cases stretching the tail. Neither number is "the" dwell time; each measures its own caseload. Any metric quoted without its caseload is an anecdote with decimals.
+The dwell-time object lesson. In the same season, Sophos reported median dwell time of 3 days (2026) and Mandiant reported 14 days (2026), and both are right. Sophos's caseload is MDR-heavy (detection is the product); Mandiant's 2025 caseload was espionage-heavy, with edge-device persistence and DPRK IT-worker cases stretching the tail. Neither number is "the" dwell time; each measures its own caseload. Any metric quoted without its caseload is an anecdote with decimals.
 
 Do
 
@@ -216,12 +216,12 @@ An annual report earns its shelf space only when its findings land in a workflow
 | Detection engineering: [Detection Rules](DETECTION_RULES_REFERENCE.md), [SIEM Content](SIEM_DETECTION_CONTENT.md) | Red Canary TDR (per-technique detection guidance), MDDR | New analytics for the year's top techniques; validation targets for purple-team cycles |
 | IR preparedness: [Incident Response](INCIDENT_RESPONSE_REFERENCE.md) | Unit 42, Sophos, M-Trends | Speed benchmarks (breakout, time-to-exfiltration) as tabletop scenario parameters |
 
-The repeatable practice: for each report you adopt, extract exactly three artifacts — the techniques or vectors that moved, the metric worth using as external context, and the one finding that changes a priority in the current CTEM cycle — and file them into the references above. Everything else is reading, not intelligence.
+The repeatable practice: for each report you adopt, extract exactly three artifacts (the techniques or vectors that moved, the metric worth using as external context, and the one finding that changes a priority in the current CTEM cycle) and file them into the references above. Everything else is reading, not intelligence.
 
-Worked example — one report, three artifacts. The 2026 Red Canary Threat Detection Report lands in March. From its public findings:
+Worked example: one report, three artifacts. The 2026 Red Canary Threat Detection Report lands in March. From its public findings:
 
 1. *Techniques that moved:* identity threats at record volume and remote monitoring and management (RMM) tools as a payload of choice, frequently following paste-and-run lures -> re-weight the corresponding techniques in [ATT&CK Priority Gaps](scores/attack_priority_gaps.md) and queue RMM-abuse analytics in [SIEM Content](SIEM_DETECTION_CONTENT.md).
-2. *Metric for context:* its analysis base (110,000+ confirmed threats across 1,700 organizations, 2026) goes into the footnote of any chart that borrows its prevalence figures — the caseload caveat travels with the number.
+2. *Metric for context:* its analysis base (110,000+ confirmed threats across 1,700 organizations, 2026) goes into the footnote of any chart that borrows its prevalence figures; the caseload caveat travels with the number.
 3. *Priority change:* browsers called out as a primary adversary focal point -> check whether the current [CTEM](CTEM_REFERENCE.md) cycle's scope statement covers browser extensions and session tokens; if not, that is a Stage 1 input for the next cycle, worked with [Browser Security](BROWSER_SECURITY_REFERENCE.md).
 
 Fifteen minutes per report, three durable artifacts, and the report has done its job before the next one lands.
@@ -230,7 +230,7 @@ Fifteen minutes per report, three durable artifacts, and the report has done its
 
 ## Sources
 
-Verification anchors, September 2026 — publisher announcements for the current editions:
+Verification anchors, September 2026 (publisher announcements for the current editions):
 
 - Verizon: [2026 DBIR landing page](https://www.verizon.com/business/resources/reports/dbir/) and [2026 announcement](https://www.verizon.com/about/news/breach-industry-wide-dbir-finds)
 - Google Cloud: [M-Trends 2026 blog](https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026/), [Threat Horizons H1 2026](https://cloud.google.com/security/report/resources/cloud-threat-horizons-report-h1-2026)
@@ -251,4 +251,4 @@ Verification anchors, September 2026 — publisher announcements for the current
 
 ---
 
-*This almanac is an original, independent annotated index for a defensive reference library. All report names and trademarks belong to their publishers; none endorses this document. It reproduces no report content — the handful of headline findings quoted above come from the publishers' own public announcements and are attributed by edition year — and links go to official landing pages only. Release windows and access terms were verified in September 2026 and do change; when an edition matters to a decision, confirm against the publisher's page. Read every statistic here with its methodology attached.*
+*This almanac is an original, independent annotated index for a defensive reference library. All report names and trademarks belong to their publishers; none endorses this document. It reproduces no report content (the handful of headline findings quoted above come from the publishers' own public announcements and are attributed by edition year), and links go to official landing pages only. Release windows and access terms were verified in September 2026 and do change; when an edition matters to a decision, confirm against the publisher's page. Read every statistic here with its methodology attached.*

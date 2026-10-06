@@ -1,6 +1,6 @@
 # Hardware Security Reference
 
-> In one minute — This is the practitioner's field manual for the security that lives below the operating system: the chips, boot firmware, and debug ports that decide whether a machine can be trusted at all. It walks through TPMs and HSMs (dedicated crypto chips that guard keys), Secure Boot and UEFI, the side-channel and fault-injection attacks that pull secrets out of silicon, JTAG/debug-port access, and confidential-computing enclaves. Reach for it when the threat model includes someone who can touch the hardware, tamper with the boot chain, or measure a chip's power and timing.
+> In one minute: This is the practitioner's field manual for the security that lives below the operating system: the chips, boot firmware, and debug ports that decide whether a machine can be trusted at all. It walks through TPMs and HSMs (dedicated crypto chips that guard keys), Secure Boot and UEFI, the side-channel and fault-injection attacks that pull secrets out of silicon, JTAG/debug-port access, and confidential-computing enclaves. Reach for it when the threat model includes someone who can touch the hardware, tamper with the boot chain, or measure a chip's power and timing.
 
 | | |
 |---|---|
@@ -44,7 +44,7 @@ PCR Extension Mechanics:
 ```
 PCR[n] = H(PCR[n] || new_value)
 ```
-A PCR starts at all-zeros and is extended by hashing the concatenation of the current value with the measurement. This makes PCR values a running hash chain — you cannot remove a measurement, only accumulate.
+A PCR starts at all-zeros and is extended by hashing the concatenation of the current value with the measurement. This makes PCR values a running hash chain: you cannot remove a measurement, only accumulate.
 
 ### Key Hierarchy
 
@@ -502,7 +502,7 @@ modinfo mymodule.ko | grep sig
 
 ### Notable Secure Boot Bypasses
 
-CVE-2020-10713 — BootHole (GRUB2)
+CVE-2020-10713: BootHole (GRUB2)
 - Severity: CVSS 8.2
 - Root Cause: Buffer overflow in GRUB2's config file parser (`grub.cfg`)
 - Impact: Arbitrary code execution in bootloader context, bypass Secure Boot
@@ -511,7 +511,7 @@ CVE-2020-10713 — BootHole (GRUB2)
 - Affected: All distros using GRUB2 + shim prior to 2020-07-29 patch
 - Detection: `sbverify` against updated db/dbx; check GRUB2 version ≥ 2.06
 
-CVE-2023-21894 — BlackLotus UEFI Bootkit
+CVE-2023-21894: BlackLotus UEFI Bootkit
 - Severity: CVSS 6.7 (requires physical or admin access)
 - Root Cause: Exploited CVE-2022-21894 (Secure Boot bypass via Windows Boot Manager)
 - Impact: First in-the-wild UEFI bootkit bypassing Secure Boot on fully-patched Win11
@@ -521,7 +521,7 @@ CVE-2023-21894 — BlackLotus UEFI Bootkit
 - Fix: KB5025885: revocation via dbx; enable Secure Boot CVE-2023-21894 mitigation
 - Indicators: `bootmgr.efi` with hash matching revoked list, unexpected SbPolicy changes
 
-CVE-2022-21894 — "Baton Drop"
+CVE-2022-21894: "Baton Drop"
 - Allows enrolling attacker-controlled Secure Boot policy
 - Affects Windows boot manager versions before Jan 2022 patch
 - BlackLotus uses this to downgrade to vulnerable bootmgr
@@ -599,7 +599,7 @@ Runtime Security:
 
 ### Spectre & Meltdown Variants
 
-Meltdown (CVE-2017-5754) — Rogue Data Cache Load
+Meltdown (CVE-2017-5754): Rogue Data Cache Load
 - Mechanism: Out-of-order execution reads kernel memory into CPU cache before privilege check completes; Flush+Reload leaks cached value
 - Affected: Intel (primarily); some ARM; not AMD
 - Mitigation: KPTI (Kernel Page Table Isolation): separates kernel/user page tables
@@ -610,7 +610,7 @@ cat /sys/devices/system/cpu/vulnerabilities/meltdown
 # Verify kernel boot: grep pti /proc/cmdline (nopti disables it)
 ```
 
-Spectre v1 (CVE-2017-5753) — Bounds Check Bypass
+Spectre v1 (CVE-2017-5753): Bounds Check Bypass
 - Mechanism: Speculative execution bypasses array bounds check; side-channel leaks
 - Mitigation: Compiler retpoline (`__builtin_load_no_speculate`); lfence barriers
 ```c
@@ -622,7 +622,7 @@ if (index < array1_size) {
 }
 ```
 
-Spectre v2 (CVE-2017-5715) — Branch Target Injection
+Spectre v2 (CVE-2017-5715): Branch Target Injection
 - Mechanism: Poison indirect branch predictor to redirect speculative execution
 - Mitigation: Retpoline (thunk-based indirect call replacement); microcode IBRS/IBPB/STIBP
 
@@ -636,7 +636,7 @@ spectre_v2=retpoline   # Software mitigation
 spectre_v2=ibrs        # Hardware IBRS (slower)
 ```
 
-Spectre v4 (CVE-2018-3639) — Speculative Store Bypass
+Spectre v4 (CVE-2018-3639): Speculative Store Bypass
 ```bash
 cat /sys/devices/system/cpu/vulnerabilities/spec_store_bypass
 # "Mitigation: Speculative Store Bypass disabled via prctl"
@@ -701,7 +701,7 @@ Rowhammer Defenses:
 Simple Power Analysis (SPA):
 Direct visual inspection of power trace to identify operations
 
-Differential Power Analysis (DPA) — Kocher et al. 1999:
+Differential Power Analysis (DPA), Kocher et al. 1999:
 ```python
 # DPA attack skeleton against AES first round
 import numpy as np
@@ -1372,7 +1372,7 @@ int seal_secret(const uint8_t *data, size_t len,
 }
 ```
 
-SGX Remote Attestation (DCAP — Data Center Attestation Primitives):
+SGX Remote Attestation (DCAP, Data Center Attestation Primitives):
 ```
 1. Enclave generates RSA/ECDSA attestation key pair
 2. Enclave calls sgx_get_quote() → produces SGX Quote (signed by PCK)
@@ -1441,7 +1441,7 @@ qemu-system-x86_64   -machine q35,memory-encryption=sev0,vmport=off   -object se
 
 ### ARM CCA (Confidential Compute Architecture)
 
-ARM CCA introduces Realms — hardware-isolated VMs protected from hypervisor:
+ARM CCA introduces Realms, hardware-isolated VMs protected from hypervisor:
 
 ```
 Exception Levels:

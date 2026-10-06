@@ -1,6 +1,6 @@
 # Hands-On Labs & Practice Environments
 
-> In one minute — This is a curated index of free (or free-tier) hands-on practice environments: lab platforms, CTF (capture-the-flag) competitions, vulnerable-by-design targets, and home lab build recipes. It is organized by security discipline — detection engineering, DFIR, offensive security, cloud, malware analysis, ICS/OT, AI/LLM security, and more — so you can jump straight to labs for the skill you are building. Every entry links directly to the platform and notes what it is best for, saving you the search for legitimate, low-cost practice.
+> In one minute: This is a curated index of free (or free-tier) hands-on practice environments: lab platforms, CTF (capture-the-flag) competitions, vulnerable-by-design targets, and home lab build recipes. It is organized by security discipline (detection engineering, DFIR, offensive security, cloud, malware analysis, ICS/OT, AI/LLM security, and more) so you can jump straight to labs for the skill you are building. Every entry links directly to the platform and notes what it is best for, saving you the search for legitimate, low-cost practice.
 
 | | |
 |---|---|

@@ -1,8 +1,8 @@
 # Privacy Engineering
 
-> Designing systems that minimize data collection, enforce consent, and protect personal information — building privacy in, not bolting it on.
+> Designing systems that minimize data collection, enforce consent, and protect personal information: building privacy in, not bolting it on.
 
-Privacy engineering is the discipline of making data protection a structural property of systems rather than an afterthought. Where legal and compliance teams interpret what privacy regulations require, privacy engineers build the technical mechanisms that fulfill those requirements at scale: consent management platforms that record lawful bases for processing, data pipelines that strip PII before it reaches analytics systems, automated deletion workflows that purge records when retention periods expire, and data subject request systems that can locate and delete a person's information across dozens of databases within a legal deadline. The field emerged in response to regulations like GDPR and CCPA, but it reflects a broader recognition that privacy failures are architectural failures — they result from systems designed to collect and retain everything rather than systems designed around the minimum data needed to deliver a service.
+Privacy engineering is the discipline of making data protection a structural property of systems rather than an afterthought. Where legal and compliance teams interpret what privacy regulations require, privacy engineers build the technical mechanisms that fulfill those requirements at scale: consent management platforms that record lawful bases for processing, data pipelines that strip PII before it reaches analytics systems, automated deletion workflows that purge records when retention periods expire, and data subject request systems that can locate and delete a person's information across dozens of databases within a legal deadline. The field emerged in response to regulations like GDPR and CCPA, but it reflects a broader recognition that privacy failures are architectural failures: they result from systems designed to collect and retain everything rather than systems designed around the minimum data needed to deliver a service.
 
 ## What Privacy Engineers Do
 
@@ -36,7 +36,7 @@ Privacy engineering is the discipline of making data protection a structural pro
 
 | Stage | Focus | Resources |
 |---|---|---|
-| Foundation | Understand the privacy principles — data minimization, purpose limitation, storage limitation, integrity/confidentiality — and why each exists. Read GDPR Articles 5-6 to understand lawful bases. Learn the difference between anonymization, pseudonymization, and encryption. Understand what a DPIA is and when it is required. | [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework), [GDPR full text at gdpr.eu](https://gdpr.eu/), [IAPP Introduction to Privacy](https://iapp.org/resources/), [LINDDUN Go threat modeling cards](https://linddun.org/go/) |
+| Foundation | Understand the privacy principles (data minimization, purpose limitation, storage limitation, integrity/confidentiality) and why each exists. Read GDPR Articles 5-6 to understand lawful bases. Learn the difference between anonymization, pseudonymization, and encryption. Understand what a DPIA is and when it is required. | [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework), [GDPR full text at gdpr.eu](https://gdpr.eu/), [IAPP Introduction to Privacy](https://iapp.org/resources/), [LINDDUN Go threat modeling cards](https://linddun.org/go/) |
 | Practitioner | Build a data map for a real or practice system. Write a DPIA for a hypothetical data processing activity. Implement Microsoft Presidio to detect PII in a dataset. Design a DSR workflow end-to-end. Use ARX to apply k-anonymity to a sample dataset. Write an OPA policy to enforce data access controls. | [Microsoft Presidio quickstart](https://microsoft.github.io/presidio/), [ARX Data Anonymization Tool](https://arx.deidentifier.org/), [Open Policy Agent docs](https://www.openpolicyagent.org/docs/latest/), [Privacypatterns.eu pattern library](https://privacypatterns.eu/) |
 | Advanced | Design enterprise-wide consent management architectures. Implement differential privacy in analytics pipelines. Build automated DSR systems that span multiple data stores. Lead privacy threat modeling workshops using LINDDUN. Evaluate and integrate commercial privacy platforms. Advise on cross-border data transfer mechanisms (SCCs, adequacy decisions, BCRs). | [Google Differential Privacy library](https://github.com/google/differential-privacy), [OpenDP toolkit](https://opendp.org/), [IAPP CIPT certification materials](https://iapp.org/certify/cipt/), [ENISA Privacy and Data Protection by Design](https://www.enisa.europa.eu/publications/privacy-and-data-protection-by-design) |
 
@@ -237,7 +237,7 @@ HIPAA (US Healthcare)
 
 #### Privacy Engineering Techniques
 
-Privacy by Design (PbD) — 7 Foundational Principles
+Privacy by Design (PbD): 7 Foundational Principles
 1. Proactive, not reactive: embed privacy before the fact
 2. Privacy as the default setting
 3. Privacy embedded into design

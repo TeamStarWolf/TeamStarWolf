@@ -37,10 +37,10 @@ Robert Cialdini's seminal research in *Influence: The Psychology of Persuasion* 
 
 #### 1.1.1 Reciprocity
 
-Humans feel obligated to return favors. When someone does something for us — even something we did not ask for — we feel psychological pressure to reciprocate.
+Humans feel obligated to return favors. When someone does something for us, even something we did not ask for, we feel psychological pressure to reciprocate.
 
 Attack application:
-- An attacker posing as IT support "helps" a user reset their password or resolve a ticket, then later calls back and asks the user to confirm a code they just received by SMS. The user, feeling indebted, complies — handing over an OTP.
+- An attacker posing as IT support "helps" a user reset their password or resolve a ticket, then later calls back and asks the user to confirm a code they just received by SMS. The user, feeling indebted, complies, handing over an OTP.
 - "Free" USB drives left in parking lots as gifts. Recipients plug them in out of curiosity and gratitude.
 - Phishing emails that begin with genuinely useful information (e.g., a real industry report attachment) before embedding a credential-harvesting link.
 
@@ -50,7 +50,7 @@ Defensive awareness:
 
 #### 1.1.2 Commitment and Consistency
 
-Once people commit to a position — especially publicly — they feel pressure to remain consistent with that commitment. Small initial agreements pave the way for larger requests (foot-in-the-door technique).
+Once people commit to a position, especially publicly, they feel pressure to remain consistent with that commitment. Small initial agreements pave the way for larger requests (foot-in-the-door technique).
 
 Attack application:
 - Pretexting calls begin with innocuous confirmation ("Can you confirm your first name and department?") before escalating ("And the last four of your employee ID?").
@@ -141,7 +141,7 @@ Attack application: After a real data breach announcement in the news, attackers
 Decisions are influenced by how information is presented, not just its content.
 
 Attack application:
-- "Your account shows suspicious activity" (threat frame) vs. "Please confirm your details to keep your account secure" (positive frame) — both lead to the same credential submission page, but the second feels safer.
+- "Your account shows suspicious activity" (threat frame) vs. "Please confirm your details to keep your account secure" (positive frame): both lead to the same credential submission page, but the second feels safer.
 - Financial fraud: "Approve this payment to avoid a $5,000 late fee" is more effective than "Approve this payment."
 
 #### 1.2.4 Confirmation Bias
@@ -154,7 +154,7 @@ Attack application: Attackers research a target's known concerns or interests an
 
 The belief that negative events are less likely to happen to oneself than to others.
 
-Attack application: Most employees believe they are too savvy to fall for phishing — making them less vigilant. Security awareness programs must address this directly.
+Attack application: Most employees believe they are too savvy to fall for phishing, making them less vigilant. Security awareness programs must address this directly.
 
 #### 1.2.6 Authority Bias (see Cialdini above)
 
@@ -363,7 +363,7 @@ Defenses:
 
 ### 2.6 Clone Phishing
 
-Clone phishing replicates a legitimate email — including formatting, branding, and sender details — replacing benign attachments or links with malicious ones.
+Clone phishing replicates a legitimate email (including formatting, branding, and sender details), replacing benign attachments or links with malicious ones.
 
 Process:
 1. Attacker obtains a copy of a legitimate email (via breach, public exposure, or by being on a mailing list)
@@ -531,7 +531,7 @@ certbot certonly --manual --preferred-challenges dns \
 certbot renew --pre-hook "nginx -s stop" --post-hook "nginx"
 ```
 
-Note for defenders: The presence of HTTPS (padlock) does NOT indicate a site is legitimate — only that the connection is encrypted. Certificate Transparency logs (crt.sh) can be monitored for newly issued certificates for lookalike domains.
+Note for defenders: The presence of HTTPS (padlock) does NOT indicate a site is legitimate, only that the connection is encrypted. Certificate Transparency logs (crt.sh) can be monitored for newly issued certificates for lookalike domains.
 
 ---
 
@@ -1271,7 +1271,7 @@ Enabling reporting:
 - Single-click reporting: minimize friction to near zero
 - Acknowledge every report with an automated or manual response
 - Never punish employees for clicking; reward employees for reporting
-- Share anonymized threat intelligence from reports back with employees: "Your colleagues reported 47 phishing attempts this week — here's what they looked like"
+- Share anonymized threat intelligence from reports back with employees: "Your colleagues reported 47 phishing attempts this week. Here's what they looked like"
 
 SIEM integration for phishing reports:
 ```
@@ -1418,7 +1418,7 @@ Tools for header analysis:
 | Cisco Secure Email (IronPort) | Anti-spam, anti-malware, Cisco Talos threat intelligence integration |
 | Barracuda Email Security | Inbound/outbound filtering, link protection, AI-based BEC detection |
 
-Microsoft Defender for Office 365 — Safe Links configuration:
+Microsoft Defender for Office 365, Safe Links configuration:
 
 ```powershell
 # PowerShell: Configure Safe Links policy
@@ -1442,12 +1442,12 @@ New-SafeLinksRule -Name "CompanyWideSafeLinksRule" `
 
 ### 8.4 FIDO2 / Hardware Security Keys (Phishing-Resistant MFA)
 
-FIDO2 is a W3C/FIDO Alliance standard that provides cryptographic, phishing-resistant authentication. Unlike TOTP or push MFA, FIDO2 keys are origin-bound — the credential is tied to the exact domain. A phishing proxy cannot relay authentication to a different domain.
+FIDO2 is a W3C/FIDO Alliance standard that provides cryptographic, phishing-resistant authentication. Unlike TOTP or push MFA, FIDO2 keys are origin-bound: the credential is tied to the exact domain. A phishing proxy cannot relay authentication to a different domain.
 
 Why FIDO2 defeats AiTM:
 - During registration, the authenticator stores the relying party ID (domain)
 - During authentication, the authenticator verifies the origin matches the registered domain
-- If a reverse proxy redirects to a different domain, the authentication fails silently from the user's perspective — the credential simply will not work
+- If a reverse proxy redirects to a different domain, the authentication fails silently from the user's perspective: the credential simply will not work
 
 FIDO2 hardware authenticators:
 
@@ -1618,7 +1618,7 @@ Verification procedure:
 
 ### 9.3 W-2 and Payroll Redirect Fraud
 
-W-2 scam: Attacker impersonates CEO or HR director, emails payroll/HR requesting all employee W-2 forms — used for identity theft and fraudulent tax returns.
+W-2 scam: Attacker impersonates CEO or HR director, emails payroll/HR requesting all employee W-2 forms (used for identity theft and fraudulent tax returns).
 
 Payroll redirect: Attacker impersonates an employee, contacts HR/payroll to redirect direct deposit to a new account.
 
@@ -1633,16 +1633,16 @@ Controls:
 
 ### 9.4 BEC Case Studies
 
-Ubiquiti Networks (2015) — $46.7 million
+Ubiquiti Networks (2015): $46.7 million
 Attackers impersonated the company's finance department and requests from a vendor it used in Hong Kong, persuading employees to wire $46.7M over 17 transactions. The company recovered approximately $15M.
 
-Toyota Boshoku Corporation (2019) — $37 million
+Toyota Boshoku Corporation (2019): $37 million
 Attackers convinced a finance executive to change the account information for a wire transfer, resulting in a $37M loss. Highlights the need for dual approval and callback verification.
 
-Puerto Rico Government (2020) — $2.6 million
+Puerto Rico Government (2020): $2.6 million
 Attackers impersonating a government contractor convinced the Puerto Rico Industrial Development Company to change bank account information for an existing vendor. Three separate fraudulent transfers occurred.
 
-Barbara Corcoran (2020) — $388,000
+Barbara Corcoran (2020): $388,000
 An attacker spoofed an email from Barbara Corcoran's assistant to her bookkeeper, requesting payment of invoices totaling $388,000. The bookkeeper sent the wire before verification was sought. The funds were recovered in this case.
 
 Key lessons from BEC cases:
@@ -1655,7 +1655,7 @@ Key lessons from BEC cases:
 
 ### 9.5 FBI IC3 BEC Reporting
 
-The FBI's Internet Crime Complaint Center (IC3) operates the BEC Financial Fraud Kill Chain — a process to attempt recovery of fraudulently transferred funds.
+The FBI's Internet Crime Complaint Center (IC3) operates the BEC Financial Fraud Kill Chain, a process to attempt recovery of fraudulently transferred funds.
 
 If a BEC wire transfer occurs:
 1. Contact your financial institution immediately to request a SWIFT recall
@@ -1766,7 +1766,7 @@ SOCIAL ENGINEERING ENGAGEMENT SCOPE DOCUMENT (template)
 
 MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) provides a structured taxonomy of adversary behaviors.
 
-Initial Access — Phishing (T1566) and sub-techniques:
+Initial Access, Phishing (T1566) and sub-techniques:
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1776,7 +1776,7 @@ Initial Access — Phishing (T1566) and sub-techniques:
 | T1566.003 | Spearphishing via Service | Phishing via third-party services (LinkedIn, Slack, social media) |
 | T1566.004 | Spearphishing Voice | Vishing: voice call-based phishing |
 
-Reconnaissance — Gather Victim Identity Information (T1589):
+Reconnaissance, Gather Victim Identity Information (T1589):
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1785,7 +1785,7 @@ Reconnaissance — Gather Victim Identity Information (T1589):
 | T1589.002 | Email Addresses | Enumerate valid email addresses |
 | T1589.003 | Employee Names | Collect employee names for pretexting |
 
-Resource Development (T1598) — Phishing for Information:
+Resource Development (T1598), Phishing for Information:
 
 | Technique ID | Name | Description |
 |-------------|------|-------------|
@@ -1811,8 +1811,8 @@ Additional relevant techniques:
 Detection and mitigation mappings:
 
 For T1566 (Phishing):
-- Mitigations: M1049 (Anti-virus/Malware), M1031 (Network Intrusion Prevention), M1054 (Software Configuration — email filtering), M1017 (User Training), M1032 (Multi-factor Authentication)
-- Detections: DS0015 (Application Log: email gateway logs), DS0029 (Network Traffic), DS0022 (File — malicious attachment creation/execution)
+- Mitigations: M1049 (Anti-virus/Malware), M1031 (Network Intrusion Prevention), M1054 (Software Configuration: email filtering), M1017 (User Training), M1032 (Multi-factor Authentication)
+- Detections: DS0015 (Application Log: email gateway logs), DS0029 (Network Traffic), DS0022 (File: malicious attachment creation/execution)
 
 ---
 

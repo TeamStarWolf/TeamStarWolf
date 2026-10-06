@@ -19,7 +19,7 @@
 - [5. Lateral Movement](#_5-lateral-movement)
 - [6. Credential Harvesting](#_6-credential-harvesting)
 - [7. Domain Persistence](#_7-domain-persistence)
-- [8. AD Certificate Services (ADCS) Attacks — ESC1-ESC8](#_8-ad-certificate-services-adcs-attacks-esc1-esc8)
+- [8. AD Certificate Services (ADCS) Attacks: ESC1-ESC8](#_8-ad-certificate-services-adcs-attacks-esc1-esc8)
 - [9. Domain Trust Attacks](#_9-domain-trust-attacks)
 - [10. Tools Quick Reference](#_10-tools-quick-reference)
 - [11. Detection & Defense Summary](#_11-detection-amp-defense-summary)
@@ -77,7 +77,7 @@ Why flattening creates attack paths: When Tier 0 admins log into Tier 2 machines
 
 ### AdminSDHolder
 
-AdminSDHolder is an AD object whose ACL is propagated to all privileged groups by the SDProp background process (runs every 60 minutes). If you modify the AdminSDHolder ACL to grant a backdoor account permissions, those permissions will be pushed to Domain Admins, Enterprise Admins, and other protected groups within 60 minutes — and will survive if manually removed from those groups.
+AdminSDHolder is an AD object whose ACL is propagated to all privileged groups by the SDProp background process (runs every 60 minutes). If you modify the AdminSDHolder ACL to grant a backdoor account permissions, those permissions will be pushed to Domain Admins, Enterprise Admins, and other protected groups within 60 minutes, and will survive if manually removed from those groups.
 
 Protected groups (SDProp targets): Account Operators, Administrators, Backup Operators, Domain Admins, Domain Controllers, Enterprise Admins, Print Operators, Read-only Domain Controllers, Replicator, Schema Admins, Server Operators.
 
@@ -403,11 +403,11 @@ hashcat -m 19700 kerberoast_aes.txt /usr/share/wordlists/rockyou.txt
 
 - Detection: Event 4769 (Kerberos Service Ticket Operations) with Ticket Encryption Type 0x17 (RC4-HMAC) from non-DC source, unusually high volume of 4769 events from single workstation
 - ATT&CK: T1558.003
-- Defense: Use strong random passwords (25+ chars) for all service accounts; configure AES-only Kerberos encryption (set `msDS-SupportedEncryptionTypes = 24` — AES128+AES256 only); migrate service accounts to gMSA (passwords 240-char, auto-rotated)
+- Defense: Use strong random passwords (25+ chars) for all service accounts; configure AES-only Kerberos encryption (set `msDS-SupportedEncryptionTypes = 24`: AES128+AES256 only); migrate service accounts to gMSA (passwords 240-char, auto-rotated)
 
 ### AS-REP Roasting (T1558.004)
 
-Mechanism: Accounts with "Do not require Kerberos preauthentication" enabled send an AS-REP that is partially encrypted with the user's NTLM hash — extractable without authenticating first.
+Mechanism: Accounts with "Do not require Kerberos preauthentication" enabled send an AS-REP that is partially encrypted with the user's NTLM hash, extractable without authenticating first.
 
 ```bash
 # ── No creds required (if you have a user list) ─────────────────────────────
@@ -472,7 +472,7 @@ Rubeus.exe ptt /ticket:golden.kirbi
 dir \\DC01\C$
 ```
 
-- Detection: Event 4769 with anomalous ticket parameters (lifetime > 10h, KVNO mismatch), Event 4672 (special privilege logon) with unusual SIDs in token, PAC validation failures — but Golden Tickets bypass most standard detection when using valid domain parameters
+- Detection: Event 4769 with anomalous ticket parameters (lifetime > 10h, KVNO mismatch), Event 4672 (special privilege logon) with unusual SIDs in token, PAC validation failures; but Golden Tickets bypass most standard detection when using valid domain parameters
 - ATT&CK: T1558.001
 - Defense: Rotate krbtgt password TWICE with 10+ hour gap between rotations (to invalidate all existing TGTs); enable Credential Guard; add DAs to Protected Users group; monitor 4769 anomalies
 
@@ -637,7 +637,7 @@ Set-DomainObject TARGET01 -Clear 'msds-allowedtoactonbehalfofotheridentity'
 
 ### Pass-the-Hash (T1550.002)
 
-Mechanism: Use NTLM hash directly for authentication — no plaintext password needed. NTLM authentication accepts the hash as the credential.
+Mechanism: Use NTLM hash directly for authentication, no plaintext password needed. NTLM authentication accepts the hash as the credential.
 
 ```bash
 # ── Impacket suite ───────────────────────────────────────────────────────────
@@ -668,7 +668,7 @@ evil-winrm -i TARGET01 -u administrator -H NTLM_HASH
 
 ### Over-Pass-the-Hash (T1550.003)
 
-Convert an NTLM hash directly into a Kerberos TGT — avoids NTLM network traffic, bypasses NTLM blocking.
+Convert an NTLM hash directly into a Kerberos TGT: avoids NTLM network traffic, bypasses NTLM blocking.
 
 ```bash
 # Mimikatz — spawns new process with Kerberos TGT
@@ -825,7 +825,7 @@ impacket-secretsdump local_admin:password@TARGET01
 
 ### NTDS.dit Extraction (T1003.003)
 
-NTDS.dit is the Active Directory database — contains all domain account hashes.
+NTDS.dit is the Active Directory database, which contains all domain account hashes.
 
 ```bash
 # ── Via ntdsutil (built-in, creates IFM backup) ──────────────────────────────
@@ -939,7 +939,7 @@ mimikatz # misc::skeleton
 
 ### WMI Event Subscription (T1546.003)
 
-Persistent — survives reboots. Executes payload when condition met (e.g., system boot, time-based).
+Persistent: survives reboots. Executes payload when condition met (e.g., system boot, time-based).
 
 ```powershell
 # Create event filter (trigger condition)
@@ -1038,7 +1038,7 @@ certipy auth -pfx administrator.pfx -dc-ip 192.168.1.10
 
 ### ESC2: Any Purpose EKU
 
-Condition: Template has "Any Purpose" or no EKU restriction — can be used for any purpose including client authentication.
+Condition: Template has "Any Purpose" or no EKU restriction; can be used for any purpose including client authentication.
 
 ```bash
 # Certificate can be used for smartcard auth
@@ -1075,7 +1075,7 @@ certipy auth -pfx administrator.pfx
 
 ### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2 Flag on CA
 
-Condition: CA is configured with EDITF_ATTRIBUTESUBJECTALTNAME2 flag — allows any template's requests to include SAN even if template doesn't require it.
+Condition: CA is configured with EDITF_ATTRIBUTESUBJECTALTNAME2 flag; allows any template's requests to include SAN even if template doesn't require it.
 
 ```bash
 # Check CA configuration
@@ -1201,7 +1201,7 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 | Mimikatz | Credential extraction, ticket attacks | Windows | github.com/gentilkiwi/mimikatz |
 | Impacket | Full AD attack suite (Python) | Linux | github.com/fortra/impacket |
 | NetExec (nxc) | AD pentesting automation | Linux/Windows | github.com/Pennyw0rth/NetExec |
-| CrackMapExec | AD pentesting; deprecated original (archived Dec 2023) — NetExec (nxc) is the maintained fork/successor | Linux | github.com/byt3bl33d3r/CrackMapExec |
+| CrackMapExec | AD pentesting; deprecated original (archived Dec 2023): NetExec (nxc) is the maintained fork/successor | Linux | github.com/byt3bl33d3r/CrackMapExec |
 | Certipy | ADCS attack and enumeration | Linux | github.com/ly4k/Certipy |
 | Responder | LLMNR/NBT-NS/mDNS/WPAD poisoning | Linux | github.com/lgandx/Responder |
 | Evil-WinRM | WinRM shell with upload/download | Linux | github.com/Hackplayers/evil-winrm |

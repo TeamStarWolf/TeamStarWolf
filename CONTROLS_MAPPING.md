@@ -51,20 +51,20 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 
 | Optiv Market Family | Primary NIST Controls | Secondary NIST Controls | Cloud-Native CTID Mappings |
 |---|---|---|---|
-| GRC | PM, RA, CA, PL | SA-9 | — |
+| GRC | PM, RA, CA, PL | SA-9 | None |
 | Risk & Vulnerability Management | RA-3, RA-5, SA-11 | CM-8, SI-2 | [KEV -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) |
-| ServiceNow Technology Partners | IR-8, PM-3, CA-5 | PM-1, PM-14 | — |
+| ServiceNow Technology Partners | IR-8, PM-3, CA-5 | PM-1, PM-14 | None |
 | Identity | IA-2, IA-5, AC-2, AC-3 | AC-6, IA-8, IA-12 | [Azure IAM -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [AWS IAM -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) |
 | Zero Trust | AC-17, AC-20, SC-7, IA-3 | AC-4, AC-24, SC-3 | [Azure -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) |
 | Application Security | SA-11, SA-15, SI-10 | SA-3, SA-8, CM-7 | [AWS -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) |
 | Network Security | SC-7, SC-8, SC-10, AC-17 | SC-5, SC-20, SI-4 | [AWS VPC -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) |
 | Email Security | SC-8, SC-28, SI-3, SI-8 | SI-10, SC-26 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) |
 | Cloud Security | AC-2, AC-3, AU-2, CM-8 | SC-7, RA-5, SI-4 | [AWS](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/), [Azure](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [GCP](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/), [CSA CCM](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) |
-| Data Security | MP-2, MP-3, AC-3, AU-9 | SC-28, SI-12, AC-4 | — |
-| IoT / OT Security | PE-3, SC-7, SI-3, CM-8 | SC-10, SI-4, AC-17 | — |
+| Data Security | MP-2, MP-3, AC-3, AU-9 | SC-28, SI-12, AC-4 | None |
+| IoT / OT Security | PE-3, SC-7, SI-3, CM-8 | SC-10, SI-4, AC-17 | None |
 | SecOps | AU-2, AU-6, SI-4, IR-4 | AU-12, IR-5, IR-6 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) |
 | Threat Intelligence | RA-3, SI-5, IR-4 | PM-16, RA-10 | [KEV -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) |
-| MSSP | IR-4, IR-7, CA-7 | IR-6, IR-8 | — |
+| MSSP | IR-4, IR-7, CA-7 | IR-6, IR-8 | None |
 
 ---
 

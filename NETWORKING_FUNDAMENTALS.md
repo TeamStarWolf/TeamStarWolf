@@ -1,6 +1,6 @@
 # Networking Fundamentals for Security Practitioners
 
-> This reference is written for cybersecurity practitioners who need to understand how networking works — not just what it is — so they can reason about attacks, build detections, and design defenses. OSI layers, TCP/IP internals, Layer 2 behavior, routing protocols, DNS, and security architecture are covered with operational depth.
+> This reference is written for cybersecurity practitioners who need to understand how networking works, not just what it is, so they can reason about attacks, build detections, and design defenses. OSI layers, TCP/IP internals, Layer 2 behavior, routing protocols, DNS, and security architecture are covered with operational depth.
 
 | | |
 |---|---|
@@ -69,7 +69,7 @@ Attacks at Layer 3 include IP spoofing, ICMP tunneling, and BGP/OSPF route injec
 
 Attacks at Layer 2 are the most dangerous in internal networks because many organizations have weak Layer 2 controls. ARP poisoning, VLAN hopping, and STP manipulation are all Layer 2 attacks that can position an attacker for MITM without touching Layer 3 security controls.
 
-Attacks at Layer 1 are physical — wiretapping, optical splitters on fiber, RF jamming. Physical security controls (locked comms rooms, tamper-evident seals) operate here.
+Attacks at Layer 1 are physical: wiretapping, optical splitters on fiber, RF jamming. Physical security controls (locked comms rooms, tamper-evident seals) operate here.
 
 ATT&CK Mapping: Network sniffing (T1040), MITM (T1557), ARP cache poisoning (T1557.002), DNS hijacking (T1584.002), traffic signaling (T1205), network service discovery (T1046).
 
@@ -179,33 +179,33 @@ Tools: `p0f` (passive OS fingerprinting), `nmap -O` (active), Wireshark statisti
 | /31 | 255.255.255.254 | 2 | 2 | P2P link (RFC 3021; no broadcast addr) |
 | /32 | 255.255.255.255 | 1 | 1 | Host route, loopback, firewall rule |
 
-Usable hosts = Total addresses - 2 (network address + broadcast address). Exception: /31 (RFC 3021) and /32 (host route — used in OSPF loopback advertisements and firewall rules).
+Usable hosts = Total addresses - 2 (network address + broadcast address). Exception: /31 (RFC 3021) and /32 (host route, used in OSPF loopback advertisements and firewall rules).
 
 #### Subnetting Math: Worked Example
 
 Given: 192.168.10.0/26
 
-Step 1 — Convert prefix to mask:
+Step 1. Convert prefix to mask:
 ```
 /26 = 26 bits set to 1
 Binary: 11111111.11111111.11111111.11000000
 Mask:   255      .255     .255     .192
 ```
 
-Step 2 — Block size (the "magic number"):
+Step 2. Block size (the "magic number"):
 ```
 Block size = 256 - last non-zero octet = 256 - 192 = 64
 Subnets repeat every 64 addresses in the last octet: 0, 64, 128, 192
 ```
 
-Step 3 — Calculate addresses for 192.168.10.0/26:
+Step 3. Calculate addresses for 192.168.10.0/26:
 - Network address: 192.168.10.0 (all host bits = 0)
 - First usable host: 192.168.10.1
 - Last usable host: 192.168.10.62
 - Broadcast address: 192.168.10.63 (all host bits = 1)
 - Total usable hosts: 2^6 - 2 = 62
 
-Step 4 — Verify whether a host belongs to this subnet:
+Step 4. Verify whether a host belongs to this subnet:
 ```
 Does 192.168.10.45 belong to 192.168.10.0/26?
 45 AND 192 (bitwise) = 0 → network = 192.168.10.0 → YES, it belongs.
@@ -227,9 +227,9 @@ Usable hosts = 2^(host_bits) - 2
 
 - Micro-segmentation: Use /28 or /29 subnets for server groups to limit blast radius of compromise.
 - Scanning scope: Understanding subnets tells you how many IPs nmap will probe. A /16 = ~65,000 hosts; /24 = 254 hosts.
-- Longest-prefix-match in attacks: OSPF/BGP route injection is more dangerous when you inject a more-specific route — it wins by longest-prefix-match rule. A hijacker advertising a /24 out of your /22 steals traffic for that /24.
+- Longest-prefix-match in attacks: OSPF/BGP route injection is more dangerous when you inject a more-specific route; it wins by longest-prefix-match rule. A hijacker advertising a /24 out of your /22 steals traffic for that /24.
 - CIDR in firewall rules: A rule for `10.0.0.0/8` covers all RFC 1918 Class A addresses. Miscounting host bits creates over-permissive or broken rules.
-- RFC 1918 in captures: Seeing RFC 1918 addresses where public IPs are expected = misconfiguration or spoofing. Seeing 169.254.x.x = DHCP failure — a configuration alert worth monitoring.
+- RFC 1918 in captures: Seeing RFC 1918 addresses where public IPs are expected = misconfiguration or spoofing. Seeing 169.254.x.x = DHCP failure, a configuration alert worth monitoring.
 
 ---
 
@@ -291,7 +291,7 @@ Client (192.168.1.100)            Server (192.168.1.1:443)
         |========= ESTABLISHED =============|   Both sides have synced sequence numbers
 ```
 
-ISN (Initial Sequence Number): Should be cryptographically random per RFC 6528. Predictable ISNs (early implementations used simple counters) allowed TCP session hijacking — an attacker who can predict the next sequence number can inject data into an existing connection.
+ISN (Initial Sequence Number): Should be cryptographically random per RFC 6528. Predictable ISNs (early implementations used simple counters) allowed TCP session hijacking: an attacker who can predict the next sequence number can inject data into an existing connection.
 
 SYN flood attack mechanics:
 ```
@@ -318,7 +318,7 @@ Client                              Server
   (waits 2x MSL = 60-120s)
 ```
 
-TIME_WAIT prevents old duplicate segments from being mistaken for new connections. A large number of TIME_WAIT connections is normal on busy servers. CLOSE_WAIT accumulation (many connections stuck in CLOSE_WAIT) indicates an application is not calling close() on sockets — potential resource leak or bug.
+TIME_WAIT prevents old duplicate segments from being mistaken for new connections. A large number of TIME_WAIT connections is normal on busy servers. CLOSE_WAIT accumulation (many connections stuck in CLOSE_WAIT) indicates an application is not calling close() on sockets (potential resource leak or bug).
 
 #### TCP States: Full Reference
 
@@ -356,7 +356,7 @@ TCP options are negotiated in the SYN packet and reveal OS-specific defaults:
 
 ### UDP (User Datagram Protocol)
 
-UDP is connectionless — 8 bytes, no handshake, no state, no guaranteed delivery. This simplicity is both its strength (low latency) and why it creates distinct security challenges.
+UDP is connectionless: 8 bytes, no handshake, no state, no guaranteed delivery. This simplicity is both its strength (low latency) and why it creates distinct security challenges.
 
 #### UDP Header Structure
 
@@ -386,9 +386,9 @@ Amplification/Reflection DDoS: UDP's connectionless nature enables reflection at
 | TFTP | 69 | Variable | TFTP amplification | Block at border |
 | QUIC | 443/UDP | N/A | QUIC-based C2 | Inspect or block QUIC |
 
-Mitigation for amplification: BCP38 (ingress filtering — drop packets with spoofed source IPs at ISP level), rate limiting, disable unnecessary UDP services on internet-facing hosts.
+Mitigation for amplification: BCP38 (ingress filtering, drop packets with spoofed source IPs at ISP level), rate limiting, disable unnecessary UDP services on internet-facing hosts.
 
-Stateless = harder to filter precisely: Without stateful inspection, UDP-based protocols are nearly impossible to filter precisely. A stateless ACL `permit udp any any eq 53` lets all UDP/53 pass both directions — including attacker probes. A stateful firewall tracks the outbound query and only permits the matching response.
+Stateless = harder to filter precisely: Without stateful inspection, UDP-based protocols are nearly impossible to filter precisely. A stateless ACL `permit udp any any eq 53` lets all UDP/53 pass both directions, including attacker probes. A stateful firewall tracks the outbound query and only permits the matching response.
 
 C2 over UDP: QUIC (HTTP/3) runs over UDP/443 and is encrypted. Many NDR/proxy solutions struggle to inspect QUIC traffic. Attackers increasingly use QUIC or DNS-over-HTTPS to blend with legitimate encrypted traffic.
 
@@ -421,7 +421,7 @@ ICMP carries network error and diagnostic messages. It operates at Layer 3 (insi
 
 Host discovery without TCP/UDP: `nmap -sn -PE 10.0.0.0/24` sends ICMP Echo Requests. Many hosts respond even when TCP ports are filtered. Windows allows ICMP from the local subnet by default. Combine with ARP scan for more complete results.
 
-Traceroute mechanics explained: Linux `traceroute` sends UDP probes (default) or ICMP (`-I` flag) with TTL starting at 1, incrementing each probe. When TTL reaches zero at a router, the router generates ICMP Time Exceeded (Type 11, Code 0) — the source IP of this reply reveals the router's identity. Windows `tracert` uses ICMP Echo Requests directly. `traceroute -T -p 443` sends TCP SYN probes to port 443, bypassing ICMP-blocking firewalls.
+Traceroute mechanics explained: Linux `traceroute` sends UDP probes (default) or ICMP (`-I` flag) with TTL starting at 1, incrementing each probe. When TTL reaches zero at a router, the router generates ICMP Time Exceeded (Type 11, Code 0); the source IP of this reply reveals the router's identity. Windows `tracert` uses ICMP Echo Requests directly. `traceroute -T -p 443` sends TCP SYN probes to port 443, bypassing ICMP-blocking firewalls.
 
 ICMP tunneling (C2/exfiltration): ICMP Echo payload is arbitrary data up to ~65,000 bytes. Tools like `ptunnel`, `icmptunnel`, and `hans` embed TCP sessions inside ICMP Echo packets, traversing firewalls that allow ICMP but block TCP.
 
@@ -433,7 +433,7 @@ Detection signatures:
 
 ICMP redirect attack: Type 5 ICMP Redirect tells a host "use this router instead for that destination." Forged redirects from an attacker redirect victim traffic through the attacker for MITM. Modern Linux kernels ignore ICMP redirects by default (`net.ipv4.conf.all.accept_redirects = 0`). Check: `sysctl net.ipv4.conf.all.accept_redirects`.
 
-Smurf attack (historical): Attacker sends ICMP Echo Request to subnet broadcast address with spoofed source = victim IP. Every host on the subnet replies to the victim — amplification DDoS. Mitigated by disabling directed broadcasts on routers (`no ip directed-broadcast` in Cisco IOS) and BCP38.
+Smurf attack (historical): Attacker sends ICMP Echo Request to subnet broadcast address with spoofed source = victim IP. Every host on the subnet replies to the victim (amplification DDoS). Mitigated by disabling directed broadcasts on routers (`no ip directed-broadcast` in Cisco IOS) and BCP38.
 
 ---
 
@@ -468,9 +468,9 @@ curl -s https://api.macvendors.com/AA:BB:CC
 wireshark -G manuf | grep -i "Apple"
 ```
 
-CAM table (Content Addressable Memory): A switch learns MAC->port mappings by observing source MACs of incoming frames. Default timeout is ~300 seconds. When a destination MAC is unknown, the switch floods the frame to all ports except the source — this "unknown unicast flooding" can expose traffic to other hosts on the segment.
+CAM table (Content Addressable Memory): A switch learns MAC->port mappings by observing source MACs of incoming frames. Default timeout is ~300 seconds. When a destination MAC is unknown, the switch floods the frame to all ports except the source; this "unknown unicast flooding" can expose traffic to other hosts on the segment.
 
-MAC flooding attack: Fill the CAM table with bogus MAC addresses using tools like `macof` (dsniff) or `ettercap`. When the table is full, the switch degrades to hub behavior — flooding all frames to all ports. Attacker on any port sees all traffic. Mitigation: Port Security — configure `switchport port-security maximum 3` and `switchport port-security violation shutdown` to limit MACs per port.
+MAC flooding attack: Fill the CAM table with bogus MAC addresses using tools like `macof` (dsniff) or `ettercap`. When the table is full, the switch degrades to hub behavior, flooding all frames to all ports. Attacker on any port sees all traffic. Mitigation: Port Security. Configure `switchport port-security maximum 3` and `switchport port-security violation shutdown` to limit MACs per port.
 
 MAC randomization: Modern iOS, Android, and Windows 11 randomize MAC addresses per SSID to prevent tracking. This complicates MAC-based network access control (NAC) and asset tracking. Enterprise impact: 802.1X with certificates (EAP-TLS) is not affected; MAB is.
 
@@ -478,7 +478,7 @@ MAC randomization: Modern iOS, Android, and Windows 11 randomize MAC addresses p
 
 ### ARP (Address Resolution Protocol)
 
-ARP resolves Layer 3 IPv4 addresses to Layer 2 MAC addresses. It operates at "Layer 2.5" — encapsulated in Ethernet frames (EtherType 0x0806), but logically bridges Layer 2 and Layer 3.
+ARP resolves Layer 3 IPv4 addresses to Layer 2 MAC addresses. It operates at "Layer 2.5": encapsulated in Ethernet frames (EtherType 0x0806), but logically bridges Layer 2 and Layer 3.
 
 #### How ARP Works
 
@@ -508,9 +508,9 @@ Gratuitous ARP: An unsolicited ARP reply where the sender announces its own IP-t
 
 #### ARP Poisoning (ARP Spoofing) Attack
 
-ARP has no authentication — any host can send ARP replies claiming any IP-to-MAC mapping.
+ARP has no authentication: any host can send ARP replies claiming any IP-to-MAC mapping.
 
-Attack flow — MITM via ARP poisoning:
+Attack flow (MITM via ARP poisoning):
 ```
 Normal state:
   Victim      → Gateway    (direct path)
@@ -545,7 +545,7 @@ Detection methods:
 - DHCP snooping + Dynamic ARP Inspection (DAI) on managed switches: validates ARP against DHCP binding table, drops unauthorized ARP packets
 - XDR/NDR behavioral correlation: rapid ARP table changes across multiple hosts
 
-ATT&CK: T1557.002 — ARP Cache Poisoning
+ATT&CK: T1557.002 (ARP Cache Poisoning)
 
 ---
 
@@ -585,7 +585,7 @@ Native VLAN security risk: On a trunk port, native VLAN traffic is sent and rece
 
 Attack 1: Switch Spoofing (DTP Negotiation)
 
-Dynamic Trunking Protocol (DTP) is a Cisco protocol that allows switches to auto-negotiate trunk links. An attacker on an access port sends DTP frames pretending to be a switch — if the port is in `dynamic desirable` or `dynamic auto` mode, it may become a trunk, granting access to all VLANs.
+Dynamic Trunking Protocol (DTP) is a Cisco protocol that allows switches to auto-negotiate trunk links. An attacker on an access port sends DTP frames pretending to be a switch; if the port is in `dynamic desirable` or `dynamic auto` mode, it may become a trunk, granting access to all VLANs.
 
 ```bash
 # Yersinia — DTP trunk negotiation attack
@@ -612,7 +612,7 @@ First switch: strips outer VLAN1 tag (native = no tag), forwards frame with VLAN
 Second switch: sees VLAN100, delivers to VLAN100 hosts
 ```
 
-Limitation: Double tagging is one-directional — attacker can send to target VLAN but cannot receive replies (target host's reply goes to VLAN100, not back to attacker's access port in VLAN1).
+Limitation: Double tagging is one-directional; attacker can send to target VLAN but cannot receive replies (target host's reply goes to VLAN100, not back to attacker's access port in VLAN1).
 
 Mitigation:
 ```
@@ -621,13 +621,13 @@ vlan dot1q tag native                     ! Tag native VLAN explicitly (global)
 switchport mode access                    ! Access ports cannot receive double-tagged frames
 ```
 
-ATT&CK: T1599 — Network Boundary Bridging; T1599.001 — VLAN Hopping
+ATT&CK: T1599 (Network Boundary Bridging); T1599.001 (VLAN Hopping)
 
 ---
 
 ### Spanning Tree Protocol (STP/RSTP)
 
-STP (IEEE 802.1D) prevents Layer 2 broadcast loops by electing one switch as root bridge and blocking redundant paths. Without STP, a loop would cause a broadcast storm that saturates the network in seconds — a Layer 2 self-inflicted DDoS.
+STP (IEEE 802.1D) prevents Layer 2 broadcast loops by electing one switch as root bridge and blocking redundant paths. Without STP, a loop would cause a broadcast storm that saturates the network in seconds, a Layer 2 self-inflicted DDoS.
 
 #### How STP Works
 
@@ -650,7 +650,7 @@ STP (IEEE 802.1D) prevents Layer 2 broadcast loops by electing one switch as roo
 #### STP Attacks
 
 Root bridge injection (most dangerous):
-Attacker sends BPDUs with Bridge Priority = 0 (lower than any legitimate switch). All switches re-elect attacker as new root bridge. Traffic paths shift to go through attacker's switch — all traffic passes through attacker -> MITM.
+Attacker sends BPDUs with Bridge Priority = 0 (lower than any legitimate switch). All switches re-elect attacker as new root bridge. Traffic paths shift to go through attacker's switch; all traffic passes through attacker -> MITM.
 
 ```bash
 yersinia stp -attack 4   # Send superior BPDUs to become root bridge
@@ -671,7 +671,7 @@ spanning-tree guard root                    ! On ports where root should NOT be
 spanning-tree portfast                      ! Per-port on access ports only
 ```
 
-ATT&CK: T1565 — Data Manipulation (STP manipulation enables traffic interception); Network DoS (BPDU flood).
+ATT&CK: T1565, Data Manipulation (STP manipulation enables traffic interception); Network DoS (BPDU flood).
 
 ---
 
@@ -679,7 +679,7 @@ ATT&CK: T1565 — Data Manipulation (STP manipulation enables traffic intercepti
 
 ### Static vs Dynamic Routing
 
-Static routes: Manually configured, zero overhead, no automatic convergence — if the path fails, traffic drops until an admin intervenes. Used for stub networks, default routes, and point-to-point WAN links.
+Static routes: Manually configured, zero overhead, no automatic convergence. If the path fails, traffic drops until an admin intervenes. Used for stub networks, default routes, and point-to-point WAN links.
 
 ```bash
 # Cisco IOS static route syntax
@@ -764,7 +764,7 @@ router ospf 1
  area 0 authentication message-digest
 ```
 
-Attack — OSPF LSA injection: An attacker on the network segment who can speak OSPF (no authentication enabled, or authentication cracked) injects Router LSAs or Summary LSAs to:
+Attack (OSPF LSA injection): An attacker on the network segment who can speak OSPF (no authentication enabled, or authentication cracked) injects Router LSAs or Summary LSAs to:
 - Black-hole traffic (advertise a prefix with infinite cost or via a non-existent next-hop)
 - Redirect traffic through attacker's path
 - Cause routing table corruption and convergence instability
@@ -777,16 +777,16 @@ Detection: Unexpected Router ID in OSPF neighbor table (`show ip ospf neighbor`)
 
 ### BGP (Border Gateway Protocol)
 
-BGP is the routing protocol of the internet — a path vector EGP (Exterior Gateway Protocol) that routes between Autonomous Systems (ASes). The global internet routing table contains 900,000+ prefixes as of 2025.
+BGP is the routing protocol of the internet, a path vector EGP (Exterior Gateway Protocol) that routes between Autonomous Systems (ASes). The global internet routing table contains 900,000+ prefixes as of 2025.
 
 #### BGP Fundamentals
 
 - AS (Autonomous System): A network under single administrative control, identified by ASN. 16-bit ASNs: 1-65535. 32-bit ASNs: up to 4,294,967,295. Private ASNs: 64512-65534 (16-bit), 4200000000-4294967294 (32-bit).
 - eBGP: Between different ASes. Default TTL=1 (neighbor must be directly connected). Use EBGP multihop for non-adjacent peers.
 - iBGP: Within the same AS. Full mesh required (or route reflectors / confederations to scale). iBGP does not change AS_PATH.
-- TCP port 179: BGP sessions run over TCP. A BGP session is a long-lived TCP connection — RST injection can tear down the session (hence MD5/GTSM protection).
+- TCP port 179: BGP sessions run over TCP. A BGP session is a long-lived TCP connection; RST injection can tear down the session (hence MD5/GTSM protection).
 - Message types: OPEN (establish session), UPDATE (route advertisements/withdrawals), NOTIFICATION (error/teardown), KEEPALIVE (60s default; hold time 180s).
-- AS_PATH loop prevention: When a router receives an UPDATE with its own ASN in AS_PATH, it discards it — prevents routing loops between ASes.
+- AS_PATH loop prevention: When a router receives an UPDATE with its own ASN in AS_PATH, it discards it, which prevents routing loops between ASes.
 
 #### BGP Path Selection (Simplified, in Priority Order)
 
@@ -833,11 +833,11 @@ BGP security controls:
 - RPKI + ROV: Drop RPKI-invalid routes at border: prevents most hijacking of prefixes with ROAs
 - Prefix filters: Explicit allow-lists of expected prefixes from each peer (most effective; operationally complex)
 - max-prefix limits: Automatically shut down a peer session if they send too many prefixes (fat finger protection)
-- GTSM (Generalized TTL Security Mechanism): BGP peers set TTL=255; peers expect to receive TTL≥254 — prevents RST injection from off-path attackers who can't set that TTL
+- GTSM (Generalized TTL Security Mechanism): BGP peers set TTL=255; peers expect to receive TTL≥254, which prevents RST injection from off-path attackers who can't set that TTL
 - MD5 TCP authentication: Password-based TCP segment authentication (weaker than GTSM but widely deployed)
 - BGPsec: Cryptographic path validation per AS hop: not widely deployed as of 2025
 
-ATT&CK: T1584.002 — DNS Server; T1599 — Network Boundary Bridging (BGP hijack used to intercept traffic at internet scale).
+ATT&CK: T1584.002, DNS Server; T1599, Network Boundary Bridging (BGP hijack used to intercept traffic at internet scale).
 
 ---
 
@@ -847,7 +847,7 @@ NAT translates IP addresses (and ports) as traffic crosses a boundary, enabling 
 
 #### NAT Types
 
-SNAT (Source NAT) / PAT (Port Address Translation) / Masquerade — many-to-one:
+SNAT (Source NAT) / PAT (Port Address Translation) / Masquerade (many-to-one):
 The firewall maintains a NAT translation table keyed on (inside source IP:port, outside translated IP:port). Return traffic is un-NATed using this table.
 
 ```
@@ -856,7 +856,7 @@ NAT translates: 192.168.1.100:54321  →  203.0.113.1:12345   (public IP:transla
 Return traffic: 93.184.216.34:443    →  203.0.113.1:12345   →  un-NATed  →  192.168.1.100:54321
 ```
 
-DNAT (Destination NAT) / Port Forwarding — inbound to specific host:
+DNAT (Destination NAT) / Port Forwarding (inbound to specific host):
 ```
 Internet request: 203.0.113.1:443  →  Internal web server: 10.0.1.5:443
 ```
@@ -865,7 +865,7 @@ Hairpin NAT / NAT loopback: Internal host accesses public IP of a service hosted
 
 #### NAT and Security Implications
 
-Common misconception — NAT is NOT a security boundary: NAT provides implicit inbound blocking for unsolicited connections (no state table entry = drop), but:
+Common misconception (NAT is NOT a security boundary): NAT provides implicit inbound blocking for unsolicited connections (no state table entry = drop), but:
 - Port forwards expose internal hosts to the internet
 - NAT does not filter malicious content: a NATed HTTPS connection can carry malware
 - Carrier-grade NAT (CGN, RFC 6598, 100.64.0.0/10) complicates law enforcement attribution: multiple customers share one public IP
@@ -876,13 +876,13 @@ NAT traversal for legitimate protocols: VoIP (SIP), WebRTC, some VPNs, and games
 - TURN (Traversal Using Relays around NAT, RFC 5766): Relay all traffic through a TURN server when STUN fails (symmetric NAT)
 - ICE (Interactive Connectivity Establishment, RFC 8445): Framework that tries direct, STUN, then TURN in order
 
-Security relevance: STUN servers are internet-facing and often weakly authenticated. STUN/TURN protocols have been abused for C2 traffic — attackers use WebRTC infrastructure (Twilio, Google TURN) to relay C2 traffic through otherwise-trusted connections.
+Security relevance: STUN servers are internet-facing and often weakly authenticated. STUN/TURN protocols have been abused for C2 traffic; attackers use WebRTC infrastructure (Twilio, Google TURN) to relay C2 traffic through otherwise-trusted connections.
 
 ---
 
 ## DNS (Domain Name System)
 
-DNS is the phonebook of the internet, but it is also one of the most abused protocols in security — used for C2, data exfiltration, amplification attacks, and phishing infrastructure.
+DNS is the phonebook of the internet, but it is also one of the most abused protocols in security: used for C2, data exfiltration, amplification attacks, and phishing infrastructure.
 
 ### How DNS Resolution Works
 
@@ -901,7 +901,7 @@ Client application (Chrome, curl, malware)
 Client connects to 93.184.216.34
 ```
 
-TTL (Time to Live): Caching duration for DNS records. Low TTL (30-300 seconds) = fast propagation but more queries to authoritative servers. Attackers set very low TTLs (30-60s) before changing C2 infrastructure IP — "fast flux" to evade blocklists and takedowns.
+TTL (Time to Live): Caching duration for DNS records. Low TTL (30-300 seconds) = fast propagation but more queries to authoritative servers. Attackers set very low TTLs (30-60s) before changing C2 infrastructure IP ("fast flux") to evade blocklists and takedowns.
 
 ### DNS Record Types: Security Reference
 
@@ -966,7 +966,7 @@ nmap --script dns-brute domain.com
 
 ### DNS over HTTPS (DoH) and DNS over TLS (DoT)
 
-Traditional DNS is unencrypted on UDP/53 — visible to any network observer with a tap or SPAN port.
+Traditional DNS is unencrypted on UDP/53, visible to any network observer with a tap or SPAN port.
 
 | Protocol | Port | Encryption | Blue Team Concern |
 |---|---|---|---|
@@ -1035,7 +1035,7 @@ print(entropy("a7f3k9x2b8m1n4p"))   # ~3.9 — suspicious
 print(entropy("www"))                 # ~1.58 — normal
 ```
 
-ATT&CK: T1071.004 — Application Layer Protocol: DNS; T1048.003 — Exfiltration Over Alternative Protocol; T1568.002 — Domain Generation Algorithms
+ATT&CK: T1071.004 (Application Layer Protocol: DNS); T1048.003 (Exfiltration Over Alternative Protocol); T1568.002 (Domain Generation Algorithms)
 
 #### DNS Hijacking
 
@@ -1049,7 +1049,7 @@ Multiple paths to redirect DNS queries to attacker-controlled IPs:
 
 How it works: Attacker registers a domain with a very short TTL (1 second). Initially it resolves to attacker's public IP (legitimate). After the victim's browser caches the response, the attacker changes the DNS record to point to an internal IP (e.g., 192.168.1.1). The browser, believing the IP is still associated with the same origin, makes requests to the internal network under the attacker's domain origin.
 
-Impact: Browser-based SSRF — JavaScript can make requests to internal services (router admin pages, cloud metadata 169.254.169.254, internal APIs) using victim's credentials.
+Impact: Browser-based SSRF. JavaScript can make requests to internal services (router admin pages, cloud metadata 169.254.169.254, internal APIs) using victim's credentials.
 
 Mitigation: DNS rebinding protection in browsers/resolvers (reject private IPs in DNS responses for public domains), bind services to specific interfaces.
 
@@ -1061,11 +1061,11 @@ DNSSEC adds cryptographic signatures to DNS records:
 - DS (Delegation Signer): Hash of child zone's DNSKEY stored in parent zone (forms chain of trust)
 - NSEC/NSEC3: Authenticated denial-of-existence (NSEC3 adds hashing to prevent zone enumeration via "walking")
 
-DNSSEC validates that responses haven't been tampered with but does not encrypt queries (that's DoH/DoT). Implementation is complex and misconfiguration causes resolution failures — DNSSEC is a common source of outages when signing keys expire without renewal.
+DNSSEC validates that responses haven't been tampered with but does not encrypt queries (that's DoH/DoT). Implementation is complex and misconfiguration causes resolution failures; DNSSEC is a common source of outages when signing keys expire without renewal.
 
 #### Subdomain Takeover
 
-A CNAME record points to an external service (GitHub Pages, Heroku, Azure, S3) that has been deprovisioned. The subdomain is "dangling" — anyone can claim the service and host content under the victim's trusted domain.
+A CNAME record points to an external service (GitHub Pages, Heroku, Azure, S3) that has been deprovisioned. The subdomain is "dangling": anyone can claim the service and host content under the victim's trusted domain.
 
 ```bash
 # Step 1: Enumerate subdomains
@@ -1103,7 +1103,7 @@ Problem: Rule allows ANY TCP packet to port 443 — including unsolicited
 
 Used in: Router ACLs (Cisco IOS access-lists), `iptables -t raw`, network appliance ACLs.
 
-Limitation: Stateless rules require symmetric permit for both directions or allow all return traffic — this is the weakness that stateful inspection solves.
+Limitation: Stateless rules require symmetric permit for both directions or allow all return traffic; this is the weakness that stateful inspection solves.
 
 #### Stateful Inspection
 
@@ -1132,7 +1132,7 @@ Adds Layer 7 visibility via Deep Packet Inspection (DPI):
 | Inline IPS | Signature matching on decrypted application traffic | Block known exploits mid-session |
 | DNS Security | Sinkhole/block malicious domains | Prevent C2 dial-out via DNS |
 
-Key architectural concept — Security Zones: NGFWs group interfaces into trust zones (Trust, Untrust, DMZ, VPN, Management). Policies are zone-pair-based. Traffic between zones requires an explicit allow rule; implicit deny at end.
+Key architectural concept (Security Zones): NGFWs group interfaces into trust zones (Trust, Untrust, DMZ, VPN, Management). Policies are zone-pair-based. Traffic between zones requires an explicit allow rule; implicit deny at end.
 
 Firewall evasion techniques:
 
@@ -1197,11 +1197,11 @@ Testing tools: `fragroute` (fragmentation), `scapy` (custom malformed packets), 
 
 ### Network Access Control (NAC)
 
-NAC enforces policy before devices access the network — validating identity, device posture (patch level, AV status, OS version), and assigning appropriate network access.
+NAC enforces policy before devices access the network, validating identity, device posture (patch level, AV status, OS version), and assigning appropriate network access.
 
 #### 802.1X: Port-Based Network Access Control
 
-802.1X is the standard for authentication before network access. The switch or AP enforces access, but does not authenticate — it relays to a RADIUS server using RADIUS protocol (UDP 1812/1813).
+802.1X is the standard for authentication before network access. The switch or AP enforces access, but does not authenticate; it relays to a RADIUS server using RADIUS protocol (UDP 1812/1813).
 
 ```
 Supplicant (PC)  ←[EAP over LAN (EAPOL)]→  Authenticator (Switch/AP)  ←[RADIUS]→  Auth Server (FreeRADIUS, Cisco ISE, NPS)
@@ -1225,7 +1225,7 @@ EAP Methods Comparison:
 | EAP-TTLS | Flexible inner method | Yes (TLS tunnel) | No | More flexible than PEAP |
 | EAP-FAST | PAC (credential) | No (PAC-based) | No | Cisco; easier to deploy; weaker |
 
-PEAP-MSCHAPv2 attack — Evil twin RADIUS:
+PEAP-MSCHAPv2 attack (Evil twin RADIUS):
 If clients do not validate the RADIUS server's TLS certificate (common misconfiguration), an attacker can deploy a rogue AP + fake RADIUS server (hostapd-WPE, eaphammer) to capture the MSCHAPv2 challenge/response hash:
 
 ```bash
@@ -1256,7 +1256,7 @@ NAC vendors: Cisco ISE (most feature-rich), Aruba ClearPass, Forescout eyeSight/
 | 802.11ac | WiFi 5 | 5 GHz | ~3.5 Gbps | WPA2/WPA3 |
 | 802.11ax | WiFi 6/6E | 2.4/5/6 GHz | ~9.6 Gbps | WPA3 required for 6 GHz |
 
-2.4 GHz vs 5 GHz security relevance: 2.4 GHz has longer range (penetrates walls) and only 3 non-overlapping channels (1, 6, 11) — making it easier for attackers to reach more clients with an evil twin and creating congestion for jamming. 5 GHz has shorter range but more non-overlapping channels (up to 24 in some regions) and higher throughput.
+2.4 GHz vs 5 GHz security relevance: 2.4 GHz has longer range (penetrates walls) and only 3 non-overlapping channels (1, 6, 11), making it easier for attackers to reach more clients with an evil twin and creating congestion for jamming. 5 GHz has shorter range but more non-overlapping channels (up to 24 in some regions) and higher throughput.
 
 ### WiFi Association Process
 
@@ -1304,7 +1304,7 @@ AP → Client: GTK (Group Temporal Key for broadcast/multicast) encrypted with K
 Why this matters for attacks:
 - The PMK is deterministic given passphrase + SSID: offline dictionary attack is possible if you capture the 4-way handshake
 - Each session derives a fresh PTK (ANonce and SNonce are random per session)
-- PMKID attack (clientless): The PMKID (HMAC-SHA1 of PMK + AP MAC + Client MAC) is transmitted in the first EAPOL frame — captured without needing a client to authenticate, enabling offline cracking
+- PMKID attack (clientless): The PMKID (HMAC-SHA1 of PMK + AP MAC + Client MAC) is transmitted in the first EAPOL frame and is captured without needing a client to authenticate, enabling offline cracking
 
 ```bash
 # Capture PMKID (no client deauth needed)
@@ -1364,7 +1364,7 @@ hcxpcapngtool -o hash.hc22000 capture.pcapng
 hashcat -m 22000 hash.hc22000 rockyou.txt
 ```
 
-ATT&CK: T1465 — Rogue Wi-Fi Access Points; T1040 — Network Sniffing; T1557 — Adversary-in-the-Middle
+ATT&CK: T1465 (Rogue Wi-Fi Access Points); T1040 (Network Sniffing); T1557 (Adversary-in-the-Middle)
 
 ---
 
@@ -1586,14 +1586,14 @@ type C:\Windows\System32\drivers\etc\hosts
 
 ### Traffic Flow and Security Controls
 
-North-South traffic (crossing the perimeter boundary — client <-> internet):
+North-South traffic (crossing the perimeter boundary, client <-> internet):
 - Inspected at perimeter NGFW
 - WAF for inbound web traffic (OWASP Top 10)
 - SSL/TLS inspection for HTTPS traffic
 - Proxy (forward proxy) for outbound browsing: URL categorization, malware inspection
 - DLP at egress: detect data exfiltration patterns in outbound traffic
 
-East-West traffic (internal server-to-server — lateral movement path):
+East-West traffic (internal server-to-server, lateral movement path):
 - Often underinspected: switches forward without inspection
 - Lateral movement: compromise endpoint -> pivot to internal servers
 - Controls:
@@ -1613,7 +1613,7 @@ Zero Trust overlay principle:
 1. Define trust zones by risk and data sensitivity: Internet, DMZ, workstation, server, OT/ICS, management, partner/guest
 2. Build a communication matrix: Document which zone talks to which, which protocols, which ports. If it's not documented, it should be denied.
 3. Default-deny between zones: Every inter-zone rule is an explicit permit with business justification
-4. Management plane isolation: Out-of-band management network for network devices (switches, firewalls, routers) — separate from data plane; only accessible from dedicated jump hosts
+4. Management plane isolation: Out-of-band management network for network devices (switches, firewalls, routers), separate from data plane; only accessible from dedicated jump hosts
 5. Blast radius minimization: A compromised IoT device on a dedicated /28 cannot reach domain controllers. A compromised user workstation should not be able to reach HR database servers.
 6. Segment by function, not just subnet: PCI-scoped assets in dedicated VLAN/segment; privilege workstations for admin use only
 
@@ -1665,4 +1665,4 @@ Zero Trust overlay principle:
 
 ---
 
-*Reference built for cybersecurity practitioners. Depth over brevity — understanding the mechanism is what enables both offense and defense.*
+*Reference built for cybersecurity practitioners. Depth over brevity: understanding the mechanism is what enables both offense and defense.*

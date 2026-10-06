@@ -1,6 +1,6 @@
 # SIEM Detection Content Reference
 
-> In one minute — A catalog of the official, vendor-maintained repositories of ready-made SIEM detection content: Sigma's universal rule format, Splunk ESCU, Elastic detection rules, Microsoft Sentinel analytics, Chronicle YARA-L, and QRadar use cases, plus the hardening baselines (ATT&CK mitigations, CIS Controls, DISA STIGs) that pair with them. For each source it shows the rule format, how to install or deploy the content, and where the highest-value rule sets live. Useful because you rarely need to write detections from scratch — these repos hold thousands of maintained rules you can convert and deploy.
+> In one minute: A catalog of the official, vendor-maintained repositories of ready-made SIEM detection content: Sigma's universal rule format, Splunk ESCU, Elastic detection rules, Microsoft Sentinel analytics, Chronicle YARA-L, and QRadar use cases, plus the hardening baselines (ATT&CK mitigations, CIS Controls, DISA STIGs) that pair with them. For each source it shows the rule format, how to install or deploy the content, and where the highest-value rule sets live. Useful because you rarely need to write detections from scratch; these repos hold thousands of maintained rules you can convert and deploy.
 
 | | |
 |---|---|
@@ -344,7 +344,7 @@ CIS-CAT Pro: automated benchmark scanning tool (available to CIS SecureSuite mem
 *Maintained by: Defense Information Systems Agency (DISA)*
 
 ### What Are STIGs
-Security Technical Implementation Guides — mandatory for DoD, gold standard for government and regulated industries
+Security Technical Implementation Guides: mandatory for DoD, gold standard for government and regulated industries
 
 ### STIG Content Downloads
 ```bash

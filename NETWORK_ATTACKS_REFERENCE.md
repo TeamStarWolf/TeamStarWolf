@@ -1,6 +1,6 @@
 # Network Attacks Reference
 
-> In one minute — This is a defender's field guide to how network attacks actually work, layer by layer (ARP/Layer 2, DNS, man-in-the-middle, SMB/Windows, DoS/DDoS, BGP routing, and wireless), written so you can detect and block them. Every attack is paired with the switch config, IDS/SIEM query, or protocol control that stops it, plus real-world incidents and the MITRE ATT&CK techniques involved. Reach for it when you need to understand an attack well enough to hunt for it or engineer a defense, not just name it.
+> In one minute: This is a defender's field guide to how network attacks actually work, layer by layer (ARP/Layer 2, DNS, man-in-the-middle, SMB/Windows, DoS/DDoS, BGP routing, and wireless), written so you can detect and block them. Every attack is paired with the switch config, IDS/SIEM query, or protocol control that stops it, plus real-world incidents and the MITRE ATT&CK techniques involved. Reach for it when you need to understand an attack well enough to hunt for it or engineer a defense, not just name it.
 
 | | |
 |---|---|
@@ -9,7 +9,7 @@
 | Pairs with | [NETWORK_DEFENSE_REFERENCE.md](NETWORK_DEFENSE_REFERENCE.md), [NETWORK_MONITORING_REFERENCE.md](NETWORK_MONITORING_REFERENCE.md), [ACTIVE_DIRECTORY_ATTACK_REFERENCE.md](ACTIVE_DIRECTORY_ATTACK_REFERENCE.md), [WIRELESS_SECURITY_REFERENCE.md](WIRELESS_SECURITY_REFERENCE.md) |
 
 Audience: Network security engineers, incident responders, SOC analysts  
-Perspective: Defensive — attack mechanics explained to enable detection and prevention  
+Perspective: Defensive (attack mechanics explained to enable detection and prevention)  
 Last updated: 2026-05  
 
 ---
@@ -45,7 +45,7 @@ Understanding which OSI layer an attack targets guides both detection placement 
 | Layer 6 | Presentation | SSL/TLS downgrade, cipher suite exploitation | TLS policy enforcement, certificate monitoring |
 | Layer 7 | Application | HTTP flood, DNS poisoning, SQL injection, SSRF | WAF, app-layer IDS, RASP |
 
-Defenders should deploy controls at multiple layers — an attacker who defeats Layer 3 controls may still be caught by Layer 7 monitoring.
+Defenders should deploy controls at multiple layers: an attacker who defeats Layer 3 controls may still be caught by Layer 7 monitoring.
 
 ### Network Attack Categories
 
@@ -102,16 +102,16 @@ Wireless Infrastructure: SSIDs, BSSIDs, channel allocation, authentication mode 
 
 ### Threat Actors Known for Network Attacks
 
-Nation-State APTs — BGP Hijacking:  
+Nation-State APTs (BGP Hijacking):  
 - Rostelecom (AS12389): 2020 BGP route leak affecting financial institutions, Google, Amazon  
 - China Telecom: documented BGP misdirection incidents routing North American traffic through China (2010, 2019)  
 - APT groups (Volt Typhoon, APT41) pre-position in ISP/edge infrastructure for traffic interception  
 
-Ransomware Groups — SMB Relay:  
+Ransomware Groups (SMB Relay):  
 - Conti, BlackCat/ALPHV, LockBit: all use Responder + ntlmrelayx as standard lateral movement tools post-initial-access  
 - Ryuk precursor TrickBot used network scanning (mass-scan module) to identify SMB targets  
 
-Hacktivists/Criminal Groups — DDoS:  
+Hacktivists/Criminal Groups (DDoS):  
 - Killnet (Russian hacktivist): primarily L7 HTTP floods against critical infrastructure  
 - Anonymous Sudan: used Cloudflare-bypassing DDoS techniques against Microsoft, Dyn  
 - Mirai botnet descendants (Moobot, Mantis) generate volumetric amplification attacks  
@@ -122,7 +122,7 @@ Hacktivists/Criminal Groups — DDoS:
 
 ### ARP Protocol Review
 
-Address Resolution Protocol (ARP) maps IPv4 addresses to MAC addresses within a Layer 2 broadcast domain. ARP is stateless and unauthenticated — hosts accept ARP replies even without having sent a request.
+Address Resolution Protocol (ARP) maps IPv4 addresses to MAC addresses within a Layer 2 broadcast domain. ARP is stateless and unauthenticated: hosts accept ARP replies even without having sent a request.
 
 Gratuitous ARP: A host broadcasts an ARP reply with its own IP/MAC mapping, used for IP conflict detection or to update ARP caches after interface changes. Attackers abuse this as it causes hosts to update their ARP tables immediately.
 
@@ -217,7 +217,7 @@ XDR/NDR alerts to configure:
 
 ### VLAN Hopping
 
-Double Tagging: Attacker on native VLAN sends frames with two 802.1Q headers. The first switch strips the outer tag (native VLAN), and the inner tag (target VLAN) causes the frame to be forwarded to a different VLAN. Unidirectional — attacker cannot receive replies directly.
+Double Tagging: Attacker on native VLAN sends frames with two 802.1Q headers. The first switch strips the outer tag (native VLAN), and the inner tag (target VLAN) causes the frame to be forwarded to a different VLAN. Unidirectional: attacker cannot receive replies directly.
 
 Switch Spoofing (DTP Abuse): 802.1Q Dynamic Trunking Protocol (DTP) allows switches to auto-negotiate trunk mode. An attacker sends DTP frames to establish a trunk, gaining access to all VLANs.
 
@@ -474,7 +474,7 @@ cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service | \
 
 ### DNSSEC, RPZ, and DoH/DoT
 
-DNSSEC: Cryptographically signs DNS records. Validators check signatures; forged responses lack valid signatures. DNSSEC does not encrypt queries — only authenticates responses. Full chain: root -> TLD -> SLD. Resolver validation prevents cache poisoning. Deploy DNSSEC on authoritative zones; configure resolver to validate (BIND: `dnssec-validation auto;`).
+DNSSEC: Cryptographically signs DNS records. Validators check signatures; forged responses lack valid signatures. DNSSEC does not encrypt queries, only authenticates responses. Full chain: root -> TLD -> SLD. Resolver validation prevents cache poisoning. Deploy DNSSEC on authoritative zones; configure resolver to validate (BIND: `dnssec-validation auto;`).
 
 RPZ (Response Policy Zone): Allows a resolver to override DNS responses based on a policy zone. Used for threat blocking (malware C2 domains, phishing domains). Feeds: Spamhaus RPZ, Infoblox TIDE, ISC DNSRPZ. Deploy: `response-policy { zone "rpz.threatfeed.com"; };` in named.conf.
 
@@ -634,7 +634,7 @@ nslookup wpad   # should not resolve externally
 
 ### NTLM Relay Attack Chain
 
-NTLM relay is one of the most impactful network attacks in Active Directory environments. The attacker does not need to crack NTLM hashes — they relay the authentication in real-time to a target service.
+NTLM relay is one of the most impactful network attacks in Active Directory environments. The attacker does not need to crack NTLM hashes; they relay the authentication in real-time to a target service.
 
 Full attack chain:
 
@@ -687,7 +687,7 @@ Once relay succeeds, attacker has authenticated session:
 
 Windows Event IDs:
 - 4648: A logon was attempted using explicit credentials (unusual source)
-- 4624 Type 3: Network logon — unexpected source IP for service accounts
+- 4624 Type 3: Network logon (unexpected source IP for service accounts)
 - 4625: Failed logon (if relay fails)
 - 5145: Network share access (SMB access from unexpected host)
 
@@ -916,7 +916,7 @@ flow-route ddos-block {
 }
 ```
 
-RTBH (Remotely Triggered Black Hole): Announce victim IP with community tag that causes upstream ISPs to drop all traffic to that IP. Coarse mitigation — stops DDoS but also blocks legitimate traffic. Use as last resort or with selective RTBH (src-based).
+RTBH (Remotely Triggered Black Hole): Announce victim IP with community tag that causes upstream ISPs to drop all traffic to that IP. Coarse mitigation: stops DDoS but also blocks legitimate traffic. Use as last resort or with selective RTBH (src-based).
 
 Netflow DDoS detection:
 ```bash
@@ -962,8 +962,8 @@ A multi-homed AS incorrectly redistributes routes learned from one provider to a
 
 Notable incidents:
 - AS7007 (1997): Florida ISP announced 70,000+ routes as /24s covering most of the internet
-- Rostelecom (2020): Russian ISP AS12389 leaked ~8,800 prefixes belonging to financial institutions, Google, Amazon — lasted ~10 minutes
-- Facebook (2021): Internal BGP misconfiguration withdrew Facebook's own prefixes from the internet, causing global outage — not an attack, but illustrates BGP fragility
+- Rostelecom (2020): Russian ISP AS12389 leaked ~8,800 prefixes belonging to financial institutions, Google, Amazon; lasted ~10 minutes
+- Facebook (2021): Internal BGP misconfiguration withdrew Facebook's own prefixes from the internet, causing global outage; not an attack, but illustrates BGP fragility
 
 ### RPKI: Resource Public Key Infrastructure
 
@@ -1094,7 +1094,7 @@ curl "https://api.cloudflare.com/client/v4/radar/bgp/hijacks/events" \
 
 ### WPA2-Personal: PMKID Attack
 
-The PMKID attack (Jens Steube, 2018) requires no clients — just an AP association attempt. The PMKID is derived from PMK (the network password), and is broadcast by APs in EAPOL association responses.
+The PMKID attack (Jens Steube, 2018) requires no clients, just an AP association attempt. The PMKID is derived from PMK (the network password), and is broadcast by APs in EAPOL association responses.
 
 Formula: `PMKID = HMAC-SHA1-128(PMK, "PMK Name" || AP_MAC || Client_MAC)`
 
@@ -1138,7 +1138,7 @@ hashcat -m 22000 hashes.22000 /usr/share/wordlists/rockyou.txt
 
 ### WPA3 SAE (Dragonfly) and Dragonblood
 
-WPA3 replaces PSK with SAE (Simultaneous Authentication of Equals) — a balanced PAKE protocol providing forward secrecy. The Dragonblood attacks (CVE-2019-13377, CVE-2019-9494) exploit implementation vulnerabilities:
+WPA3 replaces PSK with SAE (Simultaneous Authentication of Equals), a balanced PAKE protocol providing forward secrecy. The Dragonblood attacks (CVE-2019-13377, CVE-2019-9494) exploit implementation vulnerabilities:
 
 - Timing side-channel: SAE commit frame processing time leaks information about the password encoding curve used, enabling offline dictionary attack
 - Cache-based side-channel: CPU cache access patterns in SAE crypto operations leak password-derived values
@@ -1546,14 +1546,14 @@ nfdump -r /var/flow/nfcapd.* \
 
 | Attack Type | Darktrace | ExtraHop Reveal(x) | Vectra AI | Corelight |
 |---|---|---|---|---|
-| ARP Spoofing | ARP behavioral anomaly | ARP spoofing detection | — | Zeek arp.log |
+| ARP Spoofing | ARP behavioral anomaly | ARP spoofing detection | None | Zeek arp.log |
 | DNS Tunneling | "Unusual DNS" model | DNS tunnel detection | DNS data transfer | Zeek dns.log analytics |
 | NTLM Relay | Lateral movement model | NTLM relay detection | Suspicious Kerberos | conn.log + dcerpc |
-| DDoS | Volumetric anomaly | DDoS classification | — | conn.log aggregation |
-| BGP Hijack | — | — | — | BGP log (custom) |
+| DDoS | Volumetric anomaly | DDoS classification | None | conn.log aggregation |
+| BGP Hijack | None | None | None | BGP log (custom) |
 | C2 Beaconing | Autonomous response | Beaconing ML model | C2 channel detection | conn.log periodicity |
 | SMB Enumeration | Scanning model | Service discovery | Reconnaissance | smb.log |
-| Evil Twin | — | — | — | Wireless-specific (Corelight Sensor) |
+| Evil Twin | None | None | None | Wireless-specific (Corelight Sensor) |
 
 ### Packet Capture Strategy
 
@@ -1719,4 +1719,4 @@ The following table maps this reference to ATT&CK techniques and recommended det
 
 ---
 
-*This reference is maintained for defensive research and operational security purposes. All techniques described are documented to enable detection, prevention, and incident response — not for unauthorized use.*
+*This reference is maintained for defensive research and operational security purposes. All techniques described are documented to enable detection, prevention, and incident response, not for unauthorized use.*

@@ -1,8 +1,8 @@
 # Security Awareness
 
-Security awareness is the discipline of designing, implementing, and measuring programs that reduce human-layer risk across an organization. It is distinct from social engineering, which covers offensive attack techniques — security awareness is the defensive program: training design, phishing simulation campaigns, security culture change, and measuring whether human behavior actually improves. The field is increasingly framed around Security Behavior and Culture Change (SBCC), reflecting a shift from checkbox compliance training toward evidence-based behavior modification.
+Security awareness is the discipline of designing, implementing, and measuring programs that reduce human-layer risk across an organization. It is distinct from social engineering, which covers offensive attack techniques; security awareness is the defensive program: training design, phishing simulation campaigns, security culture change, and measuring whether human behavior actually improves. The field is increasingly framed around Security Behavior and Culture Change (SBCC), reflecting a shift from checkbox compliance training toward evidence-based behavior modification.
 
-The human layer remains the highest-leverage attack surface for adversaries. Phishing drives the majority of initial access events (T1566). Credential reuse enables credential stuffing at scale. Employees who fail to report anomalies extend dwell time. Security awareness programs exist to systematically reduce each of these risk vectors — not by making employees security experts, but by building habitual behaviors: recognizing phishing, using MFA, reporting suspicious activity, and escalating to the security team without fear of blame. The discipline requires expertise in adult learning principles, organizational psychology, and measurement design, not just security knowledge.
+The human layer remains the highest-leverage attack surface for adversaries. Phishing drives the majority of initial access events (T1566). Credential reuse enables credential stuffing at scale. Employees who fail to report anomalies extend dwell time. Security awareness programs exist to systematically reduce each of these risk vectors, not by making employees security experts, but by building habitual behaviors: recognizing phishing, using MFA, reporting suspicious activity, and escalating to the security team without fear of blame. The discipline requires expertise in adult learning principles, organizational psychology, and measurement design, not just security knowledge.
 
 ---
 
@@ -25,7 +25,7 @@ Security awareness programs fail when they treat training as information deliver
 ### BJ Fogg Tiny Habits
 Fogg's Behavior Model: B = MAP (Behavior = Motivation × Ability × Prompt). A behavior occurs when motivation and ability are both sufficient *at the moment of a prompt*. Security implications:
 - Don't ask employees to do things they find difficult (low ability): simplify the secure action (one-click MFA approval, pre-configured password manager)
-- Deliver the security prompt at the moment of risk (just-in-time training when an employee clicks a suspicious link — not during annual training)
+- Deliver the security prompt at the moment of risk (just-in-time training when an employee clicks a suspicious link, not during annual training)
 - Celebrate tiny behaviors (reporting a phish) to build the habit through positive reinforcement
 - Tiny Habits: Attach security behaviors to existing habits ("After I open my email, I will look at the sender domain before clicking any links")
 
@@ -99,7 +99,7 @@ Effective security awareness programs track behavioral metrics, not just trainin
 - [CISA Secure Our World](https://www.cisa.gov/secure-our-world): Free awareness materials, posters, and campaign kits from CISA; phishing, password hygiene, and MFA awareness content
 - [GoPhish Documentation and Quickstart](https://getgophish.com/): Open-source phishing simulation framework; complete documentation for building in-house simulation capability
 - [ENISA Awareness Raising Handbook](https://www.enisa.europa.eu/topics/cybersecurity-education/awareness-raising): EU Agency guidance on security awareness campaign design, targeting, and measurement; vendor-neutral
-- [SANS Ouch! Newsletter](https://www.sans.org/newsletters/ouch/) — Free monthly security awareness newsletter for end users; covers current threats in accessible language
+- [SANS Ouch! Newsletter](https://www.sans.org/newsletters/ouch/): Free monthly security awareness newsletter for end users; covers current threats in accessible language
 - [MITRE ATT&CK M1017: User Training](https://attack.mitre.org/mitigations/M1017/): MITRE's documentation of User Training as mitigation; connects awareness content to specific ATT&CK techniques
 
 ---
@@ -139,7 +139,7 @@ Effective security awareness programs track behavioral metrics, not just trainin
 | Control | ID | Security Awareness Relevance |
 |---|---|---|
 | Literacy Training and Awareness | AT-2 | Primary control for security awareness programs; requires organizations to provide literacy training focused on recognizing and responding to threats including social engineering and phishing; mandates role-specific and general workforce awareness |
-| Role-Based Training | AT-3 | Requires training tailored to specific roles with security responsibilities — administrators, developers, incident responders, and executives each receive training appropriate to their access and responsibilities |
+| Role-Based Training | AT-3 | Requires training tailored to specific roles with security responsibilities: administrators, developers, incident responders, and executives each receive training appropriate to their access and responsibilities |
 | Training Records | AT-4 | Documentation and retention of training completion records; awareness programs must maintain audit-ready records of who completed what training and when; required by most compliance frameworks |
 | Rules of Behavior | PL-4 | Acceptable use policies and rules of behavior that employees acknowledge; the policy foundation that awareness programs reinforce through training and simulation |
 | Access Agreements | AC-20 | Signed access agreements for external systems and resources; awareness programs reinforce the security obligations employees assume when accessing organizational systems from personal or external devices |
@@ -162,7 +162,7 @@ Security awareness directly mitigates initial access and execution techniques by
 
 ## Certifications
 
-- SSAP (Security Sensibilities Awareness Professional: SANS/ISACA) — The most recognized dedicated security awareness certification; covers program design, adult learning principles, phishing simulation methodology, and behavior change measurement; the credential for practitioners building awareness as a career specialty
+- SSAP (Security Sensibilities Awareness Professional: SANS/ISACA). The most recognized dedicated security awareness certification; covers program design, adult learning principles, phishing simulation methodology, and behavior change measurement; the credential for practitioners building awareness as a career specialty
 - Security+ (CompTIA): Covers social engineering attack types and awareness fundamentals; useful foundation for practitioners entering the awareness discipline from a general security background; widely recognized as a baseline credential
 - CISSP (ISC2): Domain 1 (Security and Risk Management) covers security awareness and training program requirements; the credential for senior practitioners who need to align awareness programs with enterprise risk management and compliance
 - CISM (ISACA): Information security management credential covering security awareness as a risk management control; appropriate for practitioners in governance and program management roles

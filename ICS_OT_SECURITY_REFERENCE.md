@@ -1,6 +1,6 @@
 # ICS/OT Security Reference
 
-> In one minute — This is a field guide to defending the computers that run physical processes: power grids, water plants, pipelines, and factories (collectively OT, operational technology). It walks through how these networks are built (the Purdue model), the industrial protocols and threat actors that target them, deep case studies of real attacks (Stuxnet, TRITON, Industroyer), and the architecture, detection, and incident-response practices that keep them safe. Practitioners reach for it because OT security follows different rules than IT — a scan that crashes a PLC can stop a turbine, and safety comes before containment.
+> In one minute: This is a field guide to defending the computers that run physical processes: power grids, water plants, pipelines, and factories (collectively OT, operational technology). It walks through how these networks are built (the Purdue model), the industrial protocols and threat actors that target them, deep case studies of real attacks (Stuxnet, TRITON, Industroyer), and the architecture, detection, and incident-response practices that keep them safe. Practitioners reach for it because OT security follows different rules than IT: a scan that crashes a PLC can stop a turbine, and safety comes before containment.
 
 | | |
 |---|---|
@@ -8,7 +8,7 @@
 | Start at | [ICS/OT Fundamentals](#icsot-fundamentals), [ICS Attack Methodology](#ics-attack-methodology-mitre-attampck-for-ics), [Quick Reference Checklists](#quick-reference-checklists) |
 | Pairs with | [ICS_ATTACK_ATLAS.md](ICS_ATTACK_ATLAS.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md) |
 
-A comprehensive reference for ICS/OT/SCADA security professionals — covering architecture, threat actors, malware analysis, attack methodology, network security, standards, vulnerability management, detection, incident response, and physical security.
+A comprehensive reference for ICS/OT/SCADA security professionals, covering architecture, threat actors, malware analysis, attack methodology, network security, standards, vulnerability management, detection, incident response, and physical security.
 
 ---
 
@@ -184,7 +184,7 @@ Stuxnet remains the most technically sophisticated ICS malware ever discovered. 
 
 ### Delivery and Propagation
 
-Stuxnet used four zero-day vulnerabilities — an unprecedented number for a single piece of malware:
+Stuxnet used four zero-day vulnerabilities, an unprecedented number for a single piece of malware:
 
 | CVE | Vulnerability | Description |
 |---|---|---|
@@ -243,7 +243,7 @@ MITRE ATT&CK for ICS techniques used:
 
 ## TRITON/TRISIS Analysis
 
-TRITON (also known as TRISIS or HatMan) represents the most dangerous ICS malware discovered to date because it specifically targeted Safety Instrumented Systems (SIS) — the last line of defense preventing physical disasters.
+TRITON (also known as TRISIS or HatMan) represents the most dangerous ICS malware discovered to date because it specifically targeted Safety Instrumented Systems (SIS), the last line of defense preventing physical disasters.
 
 ### Background and Discovery
 
@@ -719,7 +719,7 @@ Security Policy: OT-Modbus-Read-Only
 
 ### OT Asset Inventory
 
-Passive asset discovery is mandatory — active scanning can disrupt OT operations.
+Passive asset discovery is mandatory: active scanning can disrupt OT operations.
 
 | Platform | Discovery Method | Key Capability |
 |---|---|---|
@@ -1022,7 +1022,7 @@ Phase 2: Containment (without disrupting safe process)
 - Do NOT take PLC offline unless process can be safely halted
 
 Phase 3: Evidence Collection
-- Network packet captures (out-of-band TAP: not inline — to avoid disruption)
+- Network packet captures (out-of-band TAP: not inline, to avoid disruption)
 - Historian data export (process variable timeline)
 - HMI screenshots and alarm logs
 - EWS forensic image (can be taken offline for imaging)
@@ -1192,4 +1192,4 @@ Incident Response:
 
 ---
 
-*Reference compiled for cybersecurity professionals. All tool usage against live systems requires explicit authorization. ICS scanning carries risk of operational disruption — always use passive methods first.*
+*Reference compiled for cybersecurity professionals. All tool usage against live systems requires explicit authorization. ICS scanning carries risk of operational disruption; always use passive methods first.*

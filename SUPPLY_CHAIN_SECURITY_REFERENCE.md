@@ -1,6 +1,6 @@
 # Supply Chain Security Reference
 
-> In one minute — This document is a working reference for securing the software supply chain: every component, build step, and distribution channel between someone's source code and what you actually run. It walks the whole problem end to end — how attacks like typosquatting, dependency confusion, and build injection work (with real incidents such as SolarWinds and XZ Utils), then the defenses: SBOMs, dependency scanners, artifact signing with Sigstore/cosign, SLSA build levels, CI/CD hardening, and incident response. Nearly every section includes copy-paste commands and configs, so it doubles as a runbook, not just background reading.
+> In one minute: This document is a working reference for securing the software supply chain: every component, build step, and distribution channel between someone's source code and what you actually run. It walks the whole problem end to end: how attacks like typosquatting, dependency confusion, and build injection work (with real incidents such as SolarWinds and XZ Utils), then the defenses: SBOMs, dependency scanners, artifact signing with Sigstore/cosign, SLSA build levels, CI/CD hardening, and incident response. Nearly every section includes copy-paste commands and configs, so it doubles as a runbook, not just background reading.
 
 | | |
 |---|---|
@@ -30,13 +30,13 @@ Alex Birsan demonstrated this attack in 2021, successfully targeting 35 major co
 
 A legitimate project maintainer turns malicious, transfers ownership to a bad actor, or has their account compromised. Unlike other supply chain attacks, malicious maintainer attacks leverage established trust and existing user bases. The event-stream incident (2018) saw a new maintainer added to the popular npm package who then published a hidden payload targeting cryptocurrency wallets. The payload was obfuscated using minification and only activated on specific system configurations.
 
-Account takeover is the most common vector—attackers target maintainers with weak passwords, absent MFA, or via phishing campaigns. Platforms have responded with mandatory 2FA for high-impact packages (npm requires 2FA for packages with >1M weekly downloads).
+Account takeover is the most common vector: attackers target maintainers with weak passwords, absent MFA, or via phishing campaigns. Platforms have responded with mandatory 2FA for high-impact packages (npm requires 2FA for packages with >1M weekly downloads).
 
 #### Build System Injection
 
 Attackers compromise the build infrastructure itself rather than source code. This includes CI/CD server compromise, build script manipulation, artifact repository poisoning, and compiler/toolchain backdoors. The canonical example is the SolarWinds SUNBURST attack where malicious code was injected into the Orion build process, signing legitimate binaries with valid certificates.
 
-Build injection attacks are particularly dangerous because they affect signed artifacts—the signature validates that the artifact came from a legitimate build process, not that the build process itself was clean. Mitigations include hermetic builds, reproducible builds, SLSA provenance attestations, and separation of build infrastructure from development environments.
+Build injection attacks are particularly dangerous because they affect signed artifacts: the signature validates that the artifact came from a legitimate build process, not that the build process itself was clean. Mitigations include hermetic builds, reproducible builds, SLSA provenance attestations, and separation of build infrastructure from development environments.
 
 #### Compromised Update Server
 
@@ -46,15 +46,15 @@ The NotPetya attack (2017) leveraged a compromised update server for M.E.Doc acc
 
 ### MITRE ATT&CK Supply Chain Techniques
 
-T1195.001 — Compromise Software Dependencies and Development Tools: Adversaries manipulate software dependencies prior to receipt by the final consumer. This includes compromising package repositories, injecting malicious code into open-source dependencies, and targeting development tool distributions.
+T1195.001, Compromise Software Dependencies and Development Tools: Adversaries manipulate software dependencies prior to receipt by the final consumer. This includes compromising package repositories, injecting malicious code into open-source dependencies, and targeting development tool distributions.
 
-T1195.002 — Compromise Software Supply Chain: Adversaries manipulate application software prior to receipt by a final consumer. Involves tampering with software during distribution or within a distribution infrastructure, such as compromising update servers, installers, or distribution channels.
+T1195.002, Compromise Software Supply Chain: Adversaries manipulate application software prior to receipt by a final consumer. Involves tampering with software during distribution or within a distribution infrastructure, such as compromising update servers, installers, or distribution channels.
 
-T1195.003 — Compromise Hardware Supply Chain: Adversaries manipulate hardware components prior to delivery to the end consumer. Encompasses firmware modifications, malicious hardware implants, and counterfeit components.
+T1195.003, Compromise Hardware Supply Chain: Adversaries manipulate hardware components prior to delivery to the end consumer. Encompasses firmware modifications, malicious hardware implants, and counterfeit components.
 
-T1554 — Compromise Client Software Binary: Adversaries modify client software binaries to establish persistent access. Can involve patching existing binaries on disk or replacing them entirely, leveraging the implicit trust users place in installed software.
+T1554, Compromise Client Software Binary: Adversaries modify client software binaries to establish persistent access. Can involve patching existing binaries on disk or replacing them entirely, leveraging the implicit trust users place in installed software.
 
-T1574 — Hijack Execution Flow: Adversaries execute their own malicious payloads by hijacking the way operating systems run programs. Subtechniques include DLL search order hijacking (T1574.001), DLL side-loading (T1574.002), and PATH interception (T1574.007).
+T1574, Hijack Execution Flow: Adversaries execute their own malicious payloads by hijacking the way operating systems run programs. Subtechniques include DLL search order hijacking (T1574.001), DLL side-loading (T1574.002), and PATH interception (T1574.007).
 
 ### Notable Supply Chain Incidents
 
@@ -859,7 +859,7 @@ updater.find_cached_target(updater.get_targetinfo("myapp-v1.2.3.tar.gz"))
 
 SLSA (Supply chain Levels for Software Artifacts) defines a graduated set of requirements for build integrity:
 
-> Version note (verified 2026-09-29): The current specification is SLSA v1.2 (approved November 12, 2025), which promotes the Source track from experimental to approved — covering source-history integrity and tamper protection alongside the stable Build track (the L0-L3 build levels below). The Build-track requirements are unchanged from v1.0 (where the old L4 was merged into L3+). See <https://slsa.dev/spec/v1.2/>.
+> Version note (verified 2026-09-29): The current specification is SLSA v1.2 (approved November 12, 2025), which promotes the Source track from experimental to approved, covering source-history integrity and tamper protection alongside the stable Build track (the L0-L3 build levels below). The Build-track requirements are unchanged from v1.0 (where the old L4 was merged into L3+). See <https://slsa.dev/spec/v1.2/>.
 
 | Requirement | L0 | L1 | L2 | L3 |
 |-------------|----|----|----|----|
@@ -880,7 +880,7 @@ SLSA L1: Provenance exists and the build is scripted (automated, not manual). Pr
 
 SLSA L2: Provenance is signed by the build service that created it and the build runs on a hosted build service (not developer workstations). The hosted service authenticates provenance authorship. Protects against compromised developer workstations. GitHub Actions, Google Cloud Build, GitLab CI qualify as hosted build services.
 
-SLSA L3: Build is hardened against tampering during the build process. Provenance is non-forgeable — the build service generates and signs provenance such that even the operator of the service cannot forge provenance for an artifact they didn't build. Environment is ephemeral: no persistent workspace between builds, fresh environment for each build. Protects against insider threats at the build service operator level.
+SLSA L3: Build is hardened against tampering during the build process. Provenance is non-forgeable: the build service generates and signs provenance such that even the operator of the service cannot forge provenance for an artifact they didn't build. Environment is ephemeral: no persistent workspace between builds, fresh environment for each build. Protects against insider threats at the build service operator level.
 
 SLSA L4 (deprecated in SLSA v1.0, merged into L3+): Two-person review of all source changes before they can influence the build. Hermetic and reproducible builds required. Now addressed through source requirements separate from build requirements in SLSA v1.0.
 
@@ -2340,15 +2340,15 @@ cosign attach sbom --sbom new-sbom.json   ghcr.io/myorg/myimage@sha256:<new-clea
 
 The Secure Software Development Framework (SSDF) maps supply chain practices to requirements:
 
-PW.4 — Reuse Existing Well-Secured Software: Use vetted, well-maintained libraries instead of custom implementations. Evaluate dependencies using Scorecard, deps.dev health metrics, and license compliance before adoption. Maintain an approved dependency allowlist.
+PW.4, Reuse Existing Well-Secured Software: Use vetted, well-maintained libraries instead of custom implementations. Evaluate dependencies using Scorecard, deps.dev health metrics, and license compliance before adoption. Maintain an approved dependency allowlist.
 
-PW.7 — Review Code for Security Vulnerabilities: All code changes including dependency updates should be reviewed. Use automated SAST (CodeQL, Semgrep), SCA (OWASP Dependency Check, Snyk), and human review. Document security review outcomes.
+PW.7, Review Code for Security Vulnerabilities: All code changes including dependency updates should be reviewed. Use automated SAST (CodeQL, Semgrep), SCA (OWASP Dependency Check, Snyk), and human review. Document security review outcomes.
 
-RV.1 — Identify and Confirm Vulnerabilities: Continuously monitor for new vulnerabilities via OSV, GitHub Security Advisories, and NVD. Automated scanning in CI (govulncheck, pip-audit, npm audit). Subscribe to security mailing lists for critical dependencies.
+RV.1, Identify and Confirm Vulnerabilities: Continuously monitor for new vulnerabilities via OSV, GitHub Security Advisories, and NVD. Automated scanning in CI (govulncheck, pip-audit, npm audit). Subscribe to security mailing lists for critical dependencies.
 
-RV.2 — Assess Vulnerabilities: For each identified vulnerability, assess exploitability in your specific context (reachability analysis), impact (CVSS, EPSS scores), and remediation options (patch, workaround, compensating controls). Document risk acceptance decisions.
+RV.2, Assess Vulnerabilities: For each identified vulnerability, assess exploitability in your specific context (reachability analysis), impact (CVSS, EPSS scores), and remediation options (patch, workaround, compensating controls). Document risk acceptance decisions.
 
-RV.3 — Analyze Vulnerabilities to Create Fixes: Develop patches or implement workarounds. Test fixes in staging. Create regression tests. Update SBOM and VEX documents. Publish security advisory coordinated with upstream maintainers.
+RV.3, Analyze Vulnerabilities to Create Fixes: Develop patches or implement workarounds. Test fixes in staging. Create regression tests. Update SBOM and VEX documents. Publish security advisory coordinated with upstream maintainers.
 
 ```
 SSDF Practice     | Supply Chain Control

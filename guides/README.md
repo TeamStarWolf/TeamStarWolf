@@ -2,7 +2,7 @@
 
 > The references tell you *what*; the guides tell you *how*. Each guide is a self-contained, start-to-finish procedure with prerequisites, numbered steps, checkpoints you can verify, and links back into the library's reference docs for the depth behind each move. Pick the task you need to do today.
 
-Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. Commands are verified against current official documentation — still confirm them against the live docs before production use.
+Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. Commands are verified against current official documentation; still confirm them against the live docs before production use.
 
 Related: [How to Use This Library](HOW_TO_USE_THIS_LIBRARY.md), [Reference Index](../INDEX.md), [Discipline Paths](../disciplines/README.md)
 
@@ -40,7 +40,7 @@ Related: [How to Use This Library](HOW_TO_USE_THIS_LIBRARY.md), [Reference Index
 | [Respond to a Ransomware Incident](RESPOND_TO_RANSOMWARE.md) | The first 24-72 hours as a numbered procedure, keyed to the CISA #StopRansomware Guide |
 | [Run a Ransomware Tabletop Exercise](RUN_A_RANSOMWARE_TABLETOP.md) | A facilitated CISA CTEP tabletop and a corrective-action plan with owners and dates |
 | [Investigate a Phishing Report](INVESTIGATE_A_PHISHING_EMAIL.md) | A verdict and containment action on a reported email, from headers to purge |
-| [Acquire & Triage an Endpoint](ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | Forensically sound memory + disk images, a super-timeline, and a findings report — from 'we think it's compromised' to defensible evidence |
+| [Acquire & Triage an Endpoint](ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md) | Forensically sound memory + disk images, a super-timeline, and a findings report, from 'we think it's compromised' to defensible evidence |
 | [Investigate a Cloud Compromise](INVESTIGATE_A_CLOUD_COMPROMISE.md) | Scope, contain, and reconstruct a cloud/identity compromise (AWS/Azure/M365/GCP) from the audit logs, with a first-hour containment checklist |
 
 ## Hardening & assessment

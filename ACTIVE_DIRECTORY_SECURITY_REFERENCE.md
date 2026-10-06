@@ -1,6 +1,6 @@
 # Active Directory Security Reference
 
-> Security Operations Companion — This document is a defense-focused companion to [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md). It pairs every major attack technique with detection guidance, hardening controls, and response playbooks. Intended audience: blue teamers, SOC analysts, detection engineers, and AD administrators.
+> Security Operations Companion: This document is a defense-focused companion to [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md). It pairs every major attack technique with detection guidance, hardening controls, and response playbooks. Intended audience: blue teamers, SOC analysts, detection engineers, and AD administrators.
 
 | | |
 |---|---|
@@ -28,7 +28,7 @@
 
 ### 1.1 Forest, Domain, and OU Structure
 
-Active Directory uses a hierarchical namespace. The forest is the ultimate security boundary — all domains within a forest share a common schema, configuration partition, and Global Catalog. Trusts within a forest are transitive by default; trusts between forests are not.
+Active Directory uses a hierarchical namespace. The forest is the ultimate security boundary: all domains within a forest share a common schema, configuration partition, and Global Catalog. Trusts within a forest are transitive by default; trusts between forests are not.
 
 | Object | Description | Security Implication |
 |--------|-------------|----------------------|
@@ -187,7 +187,7 @@ Defensive controls:
 | DNSAdmins | Domain | High: DLL injection into DNS service (running as SYSTEM on DC) |
 | ENTERPRISE DOMAIN CONTROLLERS | Forest | High: can trigger replication |
 
-Hardening: Use AdminSDHolder and SDProp (runs every 60 min) to protect privileged group members. Monitor `adminCount=1` attribute — objects inheriting from privileged groups get this set. Audit all members with `adminCount=1` that are NOT in privileged groups (orphaned protected objects).
+Hardening: Use AdminSDHolder and SDProp (runs every 60 min) to protect privileged group members. Monitor `adminCount=1` attribute; objects inheriting from privileged groups get this set. Audit all members with `adminCount=1` that are NOT in privileged groups (orphaned protected objects).
 
 ---
 
@@ -269,12 +269,12 @@ net view /domain
 net accounts /domain
 ```
 
-Detection — Sysmon Event 1 (Process Create):
+Detection (Sysmon Event 1, Process Create):
 - `ParentImage` = powershell.exe + `CommandLine` contains `Get-AD*`
 - `Image` = net.exe or net1.exe + `CommandLine` contains `/domain`
 - Flag `Get-ADObject` with `adminCount` filter: near-exclusive attacker usage
 
-KQL — Net domain commands:
+KQL for Net domain commands:
 ```kql
 DeviceProcessEvents
 | where FileName in ("net.exe", "net1.exe")
@@ -322,7 +322,7 @@ Full LDAP audit pipeline:
 
 SharpHound has distinct collection patterns:
 
-ACL collection indicator: LDAP queries with `LDAP_SERVER_SD_FLAGS_OID` control and `(objectCategory=*)` base filter — queries the security descriptor of every AD object.
+ACL collection indicator: LDAP queries with `LDAP_SERVER_SD_FLAGS_OID` control and `(objectCategory=*)` base filter, which queries the security descriptor of every AD object.
 
 Session collection: SharpHound enumerates logged-on sessions via `NetSessionEnum` (SMB `srvsvc`) and `NetWkstaUserEnum`. This generates:
 - Event `4624` LogonType 3 connections to many hosts in rapid succession from the collection host
@@ -379,7 +379,7 @@ Baselining approach: Establish normal LDAP query rates per source IP using a 30-
 
 Attack chain: Enumerate SPNs -> request TGS for service account -> offline brute-force RC4 ticket.
 
-Detection — Event 4769:
+Detection (Event 4769):
 ```
 Event 4769: A Kerberos service ticket was requested
   Account Name: attacking_user
@@ -416,9 +416,9 @@ Hardening controls:
 
 ### 3.2 AS-REP Roasting
 
-Attack: Accounts with `DONT_REQUIRE_PREAUTH` flag set respond to AS-REQ without requiring encrypted timestamp — the AS-REP contains material encryptable offline.
+Attack: Accounts with `DONT_REQUIRE_PREAUTH` flag set respond to AS-REQ without requiring encrypted timestamp; the AS-REP contains material encryptable offline.
 
-Detection — Event 4768:
+Detection (Event 4768):
 ```
 Event 4768: A Kerberos authentication ticket (TGT) was requested
   Pre-Authentication Type: 0        <- No preauth required
@@ -466,15 +466,15 @@ SecurityEvent
 
 Attack: Convert NT hash to Kerberos TGT using Mimikatz `sekurlsa::pth`. Results in a new process with a Kerberos ticket obtained using the hash.
 
-Detection: Event 4768 originating from a workstation (non-DC) where the client address is the workstation but `LogonType` context does not match. In normal environments, workstations obtain TGTs from DC — the 4768 event appears on the DC with the workstation IP. The suspicious indicator is a brand-new TGT request from an unexpected host for a privileged account during off-hours.
+Detection: Event 4768 originating from a workstation (non-DC) where the client address is the workstation but `LogonType` context does not match. In normal environments, workstations obtain TGTs from DC; the 4768 event appears on the DC with the workstation IP. The suspicious indicator is a brand-new TGT request from an unexpected host for a privileged account during off-hours.
 
-Combine with: Sysmon Event 1 for `mimikatz.exe` or `sekurlsa` command-line strings, and Event 4624 LogonType 9 (NewCredentials — `runas /netonly`).
+Combine with: Sysmon Event 1 for `mimikatz.exe` or `sekurlsa` command-line strings, and Event 4624 LogonType 9 (NewCredentials, `runas /netonly`).
 
 ### 3.5 Golden Ticket
 
 Attack: Forge TGT using the `krbtgt` account's NT hash. The forged ticket can include arbitrary SIDs, arbitrary PAC data, and arbitrarily long validity.
 
-Detection challenges: Golden Tickets do not require KDC contact for TGT issuance — the forgery is presented directly to services. However, detection is possible:
+Detection challenges: Golden Tickets do not require KDC contact for TGT issuance; the forgery is presented directly to services. However, detection is possible:
 
 | Indicator | Event | Notes |
 |-----------|-------|-------|
@@ -494,7 +494,7 @@ SecurityEvent
 | where TimeGenerated > ago(2h)
 ```
 
-Hardening — Double krbtgt reset:
+Hardening (double krbtgt reset):
 ```powershell
 # Reset krbtgt password — must be done TWICE with replication delay between resets
 # This invalidates ALL existing golden tickets
@@ -507,7 +507,7 @@ Set-ADAccountPassword $krbtgt -NewPassword (ConvertTo-SecureString -AsPlainText 
 
 Attack: Forge service ticket using service account's NT hash. No KDC contact required.
 
-Detection: Silver Tickets bypass the KDC entirely — there is no 4769 event on the DC. Detection relies on:
+Detection: Silver Tickets bypass the KDC entirely; there is no 4769 event on the DC. Detection relies on:
 - Service-side event logging: Windows Kerberos service validation failure (Event `4820` on the target)
 - Network-level: Kerberos AP-REQ to service with no preceding TGS-REQ to DC for that SPN
 - PAC validation: Enable `ValidateKdcPacSignature` on services (requires KDC contact for PAC verification: breaks Silver Ticket forging)
@@ -558,7 +558,7 @@ SecurityEvent
 
 Attack: Use NT hash directly for NTLM authentication without knowing plaintext password.
 
-Detection — Event 4624:
+Detection (Event 4624):
 ```
 Event 4624 LogonType 3 (Network):
   Authentication Package: NTLM
@@ -616,7 +616,7 @@ Attack: `wmic /node:target process call create "cmd.exe"` or PowerShell `Invoke-
 
 Detection:
 - Event 4624 LogonType 3 + Event 4688 `WmiPrvSE.exe` spawning child process on target host
-- WMI-Activity Operational log: `Microsoft-Windows-WMI-Activity/Operational` Event 5857 (provider loaded) and Event 5861 (registration failed — often seen during exploitation attempts)
+- WMI-Activity Operational log: `Microsoft-Windows-WMI-Activity/Operational` Event 5857 (provider loaded) and Event 5861 (registration failed, often seen during exploitation attempts)
 - Sysmon Event 20 (WmiEvent) and Event 21 (WmiEventConsumer): indicates WMI persistence
 
 KQL:
@@ -677,7 +677,7 @@ Detection:
 
 ### 4.7 Token Impersonation
 
-Attack: `Invoke-TokenManipulation`, `incognito`, `PrintSpoofer` — abuse tokens from other processes.
+Attack: `Invoke-TokenManipulation`, `incognito`, and `PrintSpoofer` abuse tokens from other processes.
 
 Detection:
 - Event 4624 LogonType 2 (Interactive) with an impersonation level of `Impersonation` or `Delegation`
@@ -726,11 +726,11 @@ Alert threshold: Score >= 60 = investigation; Score >= 80 = high-priority incide
 
 ### 5.1 DCSync Attack
 
-Attack: Account with `DS-Replication-Get-Changes` + `DS-Replication-Get-Changes-All` rights calls `DRSGetNCChanges` to extract all password hashes — equivalent to having NTDS.dit access without touching disk.
+Attack: Account with `DS-Replication-Get-Changes` + `DS-Replication-Get-Changes-All` rights calls `DRSGetNCChanges` to extract all password hashes, equivalent to having NTDS.dit access without touching disk.
 
 Mimikatz command: `lsadump::dcsync /user:krbtgt /domain:domain.com`
 
-Detection — Event 4662:
+Detection (Event 4662):
 ```
 Event 4662: An operation was performed on an object
   Object Type: domainDNS
@@ -792,7 +792,7 @@ Common dangerous ACL rights abused for persistence:
 | GenericWrite | N/A | Modify non-protected attributes (e.g., scriptPath, servicePrincipalName) |
 | Self-Membership | bf9679c0-0de6-11d0-a285-00aa003049e2 | Add self to group |
 
-Detection: Event 4662 (object accessed/modified) + Event 5136 (attribute modified) — monitor modifications to `nTSecurityDescriptor` on privileged objects.
+Detection: Event 4662 (object accessed/modified) + Event 5136 (attribute modified); monitor modifications to `nTSecurityDescriptor` on privileged objects.
 
 BloodHound ACL edges to monitor: GenericAll, GenericWrite, WriteDACL, WriteOwner, ForceChangePassword, AllExtendedRights on DA/EA/Schema Admin groups, Domain object, AdminSDHolder.
 
@@ -874,7 +874,7 @@ Detection:
 - Event 4624 on a DC with `SubjectUserName = Administrator` and `LogonType = 3` (NTLM network logon): DSRM account does not have Kerberos, so NTLM network logon to DC is suspicious
 - Registry audit: `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\DSRMAdminLogonBehavior = 2` should alert
 
-Hardening: Set `DSRMAdminLogonBehavior = 0` (default — only allows DSRM logon in safe mode). Rotate DSRM passwords regularly using `ntdsutil set dsrm password`.
+Hardening: Set `DSRMAdminLogonBehavior = 0` (default, only allows DSRM logon in safe mode). Rotate DSRM passwords regularly using `ntdsutil set dsrm password`.
 
 ---
 
@@ -954,7 +954,7 @@ Grant-ADAuthenticationPolicySiloAccess -Identity "Tier0Silo" -Account (Get-ADUse
 
 ### 6.4 Credential Guard
 
-Windows Defender Credential Guard uses Hyper-V virtualization (VBS — Virtualization Based Security) to isolate LSASS secrets in a separate, hardware-protected process (`LSAIso`).
+Windows Defender Credential Guard uses Hyper-V virtualization (VBS, Virtualization Based Security) to isolate LSASS secrets in a separate, hardware-protected process (`LSAIso`).
 
 What it protects: NT hashes, Kerberos TGTs/tickets, and NTDS secrets are not accessible to the normal OS, preventing Mimikatz `sekurlsa::logonpasswords` from dumping credentials.
 
@@ -1064,7 +1064,7 @@ Account Policies:
 - Maximum password age: 60 days (or use Fine-Grained Password Policies per role)
 - Account lockout threshold: 5 attempts / 15 min observation window / 30 min lockout
 
-Local Policies — Security Options:
+Local Policies (Security Options):
 - `Interactive logon: Do not display last username` = Enabled
 - `Interactive logon: Machine inactivity limit` = 900 seconds
 - `Network security: LAN Manager authentication level` = Send NTLMv2 response only. Refuse LM & NTLM
@@ -1170,7 +1170,7 @@ This enforces the tiered model and prevents tier-crossing (a Tier 2 admin loggin
 
 ### 7.8 Fine-Grained Password Policies (FGPP)
 
-FGPP (Password Settings Objects — PSO) allows different password policies per group/user:
+FGPP (Password Settings Objects, PSO) allows different password policies per group/user:
 
 ```powershell
 # Strict policy for privileged accounts
@@ -1208,7 +1208,7 @@ Microsoft provides Security Baseline GPOs via the Security Compliance Toolkit (S
 - Windows 11 Security Baseline
 - Windows Defender Antivirus Baseline
 
-Download from the Microsoft Security Compliance Toolkit page. Import and merge with organizational GPOs using LGPO.exe. Review and test before production deployment — some settings may break legacy applications.
+Download from the Microsoft Security Compliance Toolkit page. Import and merge with organizational GPOs using LGPO.exe. Review and test before production deployment; some settings may break legacy applications.
 
 ---
 
@@ -1254,41 +1254,41 @@ Critical template settings:
 
 ### 8.3 ESC1-ESC8 Vulnerabilities
 
-ESC1 — Enrollee Supplies Subject (SAN):
+ESC1 (Enrollee Supplies Subject, SAN):
 - Template allows `CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT`
 - Template has Client Authentication EKU
 - Low-privilege accounts can enroll
 - Impact: Authenticate as any user (including DA) by specifying their UPN in SAN
 - Certipy detection: `certipy find -u user@domain.com -p pass -dc-ip DC_IP -vulnerable`
 
-ESC2 — SubCA / Any Purpose EKU:
+ESC2 (SubCA / Any Purpose EKU):
 - Template has `Any Purpose` EKU or SubCA EKU
 - Low-privilege accounts can enroll
 - Impact: Certificate can be used for any purpose, including acting as a CA
 
-ESC3 — Enrollment Agent Abuse:
+ESC3 (Enrollment Agent Abuse):
 - Template 1: Enrollment Agent template (Certificate Request Agent EKU): low-priv can enroll
 - Template 2: Template allowing enrollment agent signatures + low-priv enrollment
 - Impact: Issue certificates on behalf of any user
 
-ESC4 — Template ACL Misconfiguration:
+ESC4 (Template ACL Misconfiguration):
 - Low-privilege users have `Write` rights on a certificate template object
 - Impact: Attacker modifies template to add SAN flag (ESC1 condition), enrolls, then reverts
 
-ESC5 — CA Object ACL Misconfiguration:
+ESC5 (CA Object ACL Misconfiguration):
 - Low-privilege users have ACL control over the CA object or server
 - Impact: Modify CA configuration to enable ESC1-equivalent conditions
 
-ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2:
+ESC6 (EDITF_ATTRIBUTESUBJECTALTNAME2):
 - CA configured with flag that allows ANY template to accept SAN from request
 - Impact: Any template with Client Auth EKU becomes ESC1-equivalent
 - Detection: `certutil -getreg CA\editflags`: check bit 0x00040000
 
-ESC7 — CA Officer/Manager Role:
+ESC7 (CA Officer/Manager Role):
 - Attacker holds Certificate Manager role
 - Impact: Approve or issue pending certificate requests for any user
 
-ESC8 — NTLM Relay to HTTP Enrollment:
+ESC8 (NTLM Relay to HTTP Enrollment):
 - Web enrollment endpoint (`http://CA/certsrv/`) allows NTLM authentication
 - Coerce machine authentication (PetitPotam, PrinterBug) to relay to certsrv
 - Impact: Certificate issued for machine account: DCSync equivalence for DCs
@@ -1349,7 +1349,7 @@ $templates | ForEach-Object {
 | 4890 | Security | Certificate Services revoked a certificate |
 | 4896 | Security | One or more rows have been deleted from the certificate database |
 
-KQL — Detect ESC8 (machine cert issued with alternate UPN):
+KQL to detect ESC8 (machine cert issued with alternate UPN):
 ```kql
 SecurityEvent
 | where EventID == 4887
@@ -1357,7 +1357,7 @@ SecurityEvent
 | where CertificateTemplate has_any ("Computer", "Machine", "DomainController")
 ```
 
-KQL — High volume certificate requests (potential ESC enumeration):
+KQL for high volume certificate requests (potential ESC enumeration):
 ```kql
 SecurityEvent
 | where EventID in (4886, 4888)
@@ -1367,7 +1367,7 @@ SecurityEvent
 
 ### 8.7 CRL/OCSP Hardening
 
-Certificate revocation is critical — a revoked certificate must not be usable for authentication.
+Certificate revocation is critical: a revoked certificate must not be usable for authentication.
 
 Hardening:
 - CDP (CRL Distribution Points) and AIA (Authority Information Access) must be HA: outage prevents certificate validation
@@ -1483,7 +1483,7 @@ Recommended Sysmon events for DCs and high-value servers:
 | 23 | FileDelete | NTDS staging file cleanup, log deletion |
 | 25 | ProcessTampering | Process hollowing/doppelganging |
 
-Critical Sysmon rule — LSASS access:
+Critical Sysmon rule for LSASS access:
 ```xml
 <ProcessAccess onmatch="include">
   <TargetImage condition="is">C:\Windows\system32\lsass.exe</TargetImage>
@@ -1506,7 +1506,7 @@ Key built-in Sentinel rules for AD:
 | LSASS Memory Dump | Credential Access | Sysmon 10 on lsass.exe |
 | Suspicious Service Installed | Persistence | Event 7045 with unusual binary path |
 
-Custom Sentinel KQL — Password spray detection:
+Custom Sentinel KQL for password spray detection:
 ```kql
 let threshold = 20;
 SecurityEvent
@@ -1552,9 +1552,9 @@ Set-ADAccountPassword svc-backup-legacy -NewPassword (ConvertTo-SecureString "$(
 # Alert on Event 4768/4769/4625/4624 for this account
 ```
 
-MDI integration: MDI has a built-in honeytoken account feature — designate accounts and MDI auto-alerts on any usage.
+MDI integration: MDI has a built-in honeytoken account feature; designate accounts and MDI auto-alerts on any usage.
 
-Canary SPN: Add an SPN to a honeytoken account. Any Kerberoasting scan will request a service ticket — Event 4769 — immediate alert.
+Canary SPN: Add an SPN to a honeytoken account. Any Kerberoasting scan will request a service ticket (Event 4769): immediate alert.
 
 ### 9.7 KQL Hunting Queries for 15+ AD Attack Techniques
 
@@ -1728,10 +1728,10 @@ Key principle: Control plane compromise = everything compromised. Protect it dis
 
 Hybrid Joined devices maintain both AD computer account and Entra ID device record. Security considerations:
 
-- PRT (Primary Refresh Token): SSO token issued to hybrid-joined devices; compromise enables SSO to all cloud apps — protect like a TGT
+- PRT (Primary Refresh Token): SSO token issued to hybrid-joined devices; compromise enables SSO to all cloud apps; protect like a TGT
 - Entra Connect / AD Connect sync account: Has `DS-Replication-Get-Changes-All` right: DCSync equivalent. The `MSOL_` sync account is a high-value target
 - Pass-through Authentication (PTA) agent: Runs on-prem; if compromised, attacker can validate any AD credential for cloud auth
-- Password Hash Sync (PHS): Syncs NT hashes (a derived hash) to Entra ID — compromise of Entra allows offline attack on synced hashes
+- Password Hash Sync (PHS): Syncs NT hashes (a derived hash) to Entra ID; compromise of Entra allows offline attack on synced hashes
 
 Alert on Entra Connect sync account activity:
 ```kql
@@ -1783,7 +1783,7 @@ Recommended schedule:
 
 ### 10.10 AD Incident Response Playbook
 
-Phase 1 — Containment (0-2 hours):
+Phase 1 (Containment, 0-2 hours):
 1. Identify scope: which accounts/systems compromised
 2. Disable compromised accounts (NOT delete: preserve evidence)
 3. Isolate compromised hosts from network (keep for forensics)
@@ -1791,7 +1791,7 @@ Phase 1 — Containment (0-2 hours):
 5. Force password reset for all accounts used on compromised hosts
 6. Block attacker egress IPs at perimeter firewall
 
-Phase 2 — Eradication (2-24 hours):
+Phase 2 (Eradication, 2-24 hours):
 1. Full credential reset sweep: all accounts accessed on compromised systems
 2. Review and rotate service account passwords
 3. Audit privileged group membership: remove unauthorized members
@@ -1800,7 +1800,7 @@ Phase 2 — Eradication (2-24 hours):
 6. Review AD CS: revoke any certificates issued during breach window
 7. Check `msDS-KeyCredentialLink` and `msDS-AllowedToActOnBehalfOfOtherIdentity` for unauthorized modifications
 
-Phase 3 — Recovery (24-72 hours):
+Phase 3 (Recovery, 24-72 hours):
 1. Restore from known-good backup if domain is fully compromised
 2. Re-image compromised hosts
 3. Update detection rules based on attacker TTPs observed
@@ -1808,7 +1808,7 @@ Phase 3 — Recovery (24-72 hours):
 5. Rotate DSRM passwords on all DCs
 6. Document IOCs for threat intel sharing
 
-Phase 4 — Lessons Learned:
+Phase 4 (Lessons Learned):
 1. Conduct root cause analysis: how did attacker gain initial access
 2. Map attack path in BloodHound: identify and remediate chokepoints
 3. Update purple team exercise scenarios to include observed TTPs

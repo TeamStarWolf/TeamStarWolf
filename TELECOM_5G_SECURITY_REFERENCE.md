@@ -1,8 +1,8 @@
 # Telecom & 5G Security Reference
 
-> Telecommunications networks are now a primary espionage target, and [MITRE FiGHT™](https://fight.mitre.org/) is the ATT&CK-style model for defending them. FiGHT (the *5G Hierarchy of Threats*), launched in September 2022 by MITRE with the DoD Office of the Under Secretary of Defense, catalogs adversary tactics and techniques against 5G systems — and the 2024-2025 Salt Typhoon intrusions into commercial telecom providers turned that catalog from theory into the most consequential defensive problem in critical infrastructure.
+> Telecommunications networks are now a primary espionage target, and [MITRE FiGHT™](https://fight.mitre.org/) is the ATT&CK-style model for defending them. FiGHT (the *5G Hierarchy of Threats*), launched in September 2022 by MITRE with the DoD Office of the Under Secretary of Defense, catalogs adversary tactics and techniques against 5G systems, and the 2024-2025 Salt Typhoon intrusions into commercial telecom providers turned that catalog from theory into the most consequential defensive problem in critical infrastructure.
 
-This reference covers the FiGHT framework's structure and how it extends ATT&CK, legacy signaling interconnect risk (SS7/Diameter/SIP) and the GSMA defense guidance, 5G core security architecture per 3GPP TS 33.501 (SBA, SUCI/SUPI privacy, SEPP roaming security), network slicing and O-RAN security, lawful-intercept infrastructure risk, and the CISA/FBI advisory record on Salt Typhoon with the resulting hardening guidance — distilled for defenders.
+This reference covers the FiGHT framework's structure and how it extends ATT&CK, legacy signaling interconnect risk (SS7/Diameter/SIP) and the GSMA defense guidance, 5G core security architecture per 3GPP TS 33.501 (SBA, SUCI/SUPI privacy, SEPP roaming security), network slicing and O-RAN security, lawful-intercept infrastructure risk, and the CISA/FBI advisory record on Salt Typhoon with the resulting hardening guidance, distilled for defenders.
 
 | | |
 |---|---|
@@ -24,7 +24,7 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [Mobil
 
 ## Why telecom infrastructure is a target: the Salt Typhoon wake-up call
 
-A telecom operator concentrates everything an espionage service wants in one place: who talks to whom (call detail records), where every subscriber is (location and registration data), the content of unencrypted communications, and — uniquely — the lawful-intercept systems that are purpose-built to covertly monitor selected targets. Compromise the operator and you inherit all of it, across every customer at once.
+A telecom operator concentrates everything an espionage service wants in one place: who talks to whom (call detail records), where every subscriber is (location and registration data), the content of unencrypted communications, and, uniquely, the lawful-intercept systems that are purpose-built to covertly monitor selected targets. Compromise the operator and you inherit all of it, across every customer at once.
 
 That is exactly what the public record now documents:
 
@@ -36,21 +36,21 @@ That is exactly what the public record now documents:
 | 2024-12-18 | CISA releases [Mobile Communications Best Practice Guidance](https://www.cisa.gov/resources-tools/resources/mobile-communications-best-practice-guidance) for highly targeted individuals |
 | Jan 2025 | FCC adopts a Declaratory Ruling ([FCC 25-9](https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf)) interpreting CALEA §105 as requiring carriers to secure networks against unlawful access, plus an NPRM on risk-management plans |
 | 2025-08-27 | Joint advisory [AA25-239A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a) released, co-sealed by agencies from 13 countries (updated to v1.1 on 2025-09-03) |
-| 2025-11-20 | FCC votes 2-1 to rescind the CALEA Declaratory Ruling and withdraw the NPRM ([Federal Register, 2025-12-15](https://www.federalregister.gov/documents/2025/12/15/2025-22830/protecting-the-nations-communications-systems-from-cybersecurity-threats)) — the January 2025 ruling is no longer in force |
+| 2025-11-20 | FCC votes 2-1 to rescind the CALEA Declaratory Ruling and withdraw the NPRM ([Federal Register, 2025-12-15](https://www.federalregister.gov/documents/2025/12/15/2025-22830/protecting-the-nations-communications-systems-from-cybersecurity-threats)); the January 2025 ruling is no longer in force |
 
 The November 13, 2024 statement confirmed three categories of impact from the PRC-affiliated campaign:
 
 1. Theft of customer call records data: bulk metadata: who called whom, when, from where.
 2. Compromise of private communications of a limited number of individuals, primarily involved in government or political activity.
-3. Copying of "certain information that was subject to U.S. law enforcement requests pursuant to court orders" — the publicly documented compromise touching lawful-intercept infrastructure.
+3. Copying of "certain information that was subject to U.S. law enforcement requests pursuant to court orders", the publicly documented compromise touching lawful-intercept infrastructure.
 
-> The lesson for defenders: the victims were not exotic 5G core functions — the advisory record centers on network edge devices, management planes, and legacy protocols in ordinary carrier backbone and enterprise-edge routers. The hardening that would have raised the cost is boring, well-understood network engineering (see [Hardening communications infrastructure](#hardening-communications-infrastructure-the-december-2024-joint-guidance-distilled) below). Track the actor in [Threat Group Profiles](THREAT_GROUP_PROFILES.md).
+> The lesson for defenders: the victims were not exotic 5G core functions; the advisory record centers on network edge devices, management planes, and legacy protocols in ordinary carrier backbone and enterprise-edge routers. The hardening that would have raised the cost is boring, well-understood network engineering (see [Hardening communications infrastructure](#hardening-communications-infrastructure-the-december-2024-joint-guidance-distilled) below). Track the actor in [Threat Group Profiles](THREAT_GROUP_PROFILES.md).
 
 ---
 
 ## MITRE FiGHT: structure, technique types, and how it extends ATT&CK
 
-FiGHT is a purpose-built knowledge base of adversary tactics and techniques for 5G systems, publicly launched September 26, 2022 by MITRE and the DoD Office of the Under Secretary of Defense. In MITRE's own words it is *modeled after the MITRE ATT&CK framework, and its tactics and techniques are complementary to those in ATT&CK* — a separate knowledge base, not an ATT&CK domain or matrix. Its stated operational uses: threat assessments, adversarial emulation, coverage-gap identification, and cyber investment planning for 5G networks and the devices and applications that use them.
+FiGHT is a purpose-built knowledge base of adversary tactics and techniques for 5G systems, publicly launched September 26, 2022 by MITRE and the DoD Office of the Under Secretary of Defense. In MITRE's own words it is *modeled after the MITRE ATT&CK framework, and its tactics and techniques are complementary to those in ATT&CK*, a separate knowledge base, not an ATT&CK domain or matrix. Its stated operational uses: threat assessments, adversarial emulation, coverage-gap identification, and cyber investment planning for 5G networks and the devices and applications that use them.
 
 Version history lives in the [mitre/FiGHT](https://github.com/mitre/FiGHT) repo's commit messages (there is no GitHub Releases page): current is v3.1.0 (2025-11-14), after v3.0.0 (2025-06-10) and v3.0.1 (2025-07-02). Per the repo README, a minority of FiGHT techniques are based on real-world observations, documented accordingly in each technique's evidentiary status; the v3.1.0 data has visibly absorbed the 2024-2025 Salt Typhoon record (see [Groups, software, campaigns](#groups-software-campaigns)).
 
@@ -88,7 +88,7 @@ FiGHT technique IDs encode their lineage (observable directly in the official da
 | FGT5### | 5G-unique technique with no ATT&CK counterpart | 43 of the 86 parent techniques |
 | FGT1###.5## | FiGHT-added sub-technique under an ATT&CK-derived parent | FGT1542.501 (a 5G-specific sub of T1542 Pre-OS Boot) |
 
-As of v3.1.0, the 86 parent techniques split exactly evenly: 43 ATT&CK-derived (`FGT1xxx`) and 43 5G-unique (`FGT5xxx`) — half of what FiGHT models simply does not exist in Enterprise ATT&CK, because it lives in RAN, core, or interconnect behavior.
+As of v3.1.0, the 86 parent techniques split exactly evenly: 43 ATT&CK-derived (`FGT1xxx`) and 43 5G-unique (`FGT5xxx`); half of what FiGHT models simply does not exist in Enterprise ATT&CK, because it lives in RAN, core, or interconnect behavior.
 
 ### Evidentiary status: FiGHT's most useful field
 
@@ -104,13 +104,13 @@ Every FiGHT technique carries a status label, something ATT&CK does not do. Use 
 
 ### Groups, software, campaigns
 
-FiGHT v3.1.0 ships 10 groups, 16 software entries, and 2 campaigns. Telecom-relevant group entries include Salt Typhoon (G1045), Liminal Panda (FGG5001), GALLIUM (G0093), Stone Panda (FGG5002), HiddenArt (FGG5003), Scattered Spider (FGG5004), TeamTNT, Silence, HAFNIUM, and APT29; the two campaigns are Operation Soft Cell (FGC5001) and SolarWinds Compromise (C0024). Salt Typhoon appears 51 times in the v3.1.0 data file — the framework has visibly absorbed the 2024-2025 campaign.
+FiGHT v3.1.0 ships 10 groups, 16 software entries, and 2 campaigns. Telecom-relevant group entries include Salt Typhoon (G1045), Liminal Panda (FGG5001), GALLIUM (G0093), Stone Panda (FGG5002), HiddenArt (FGG5003), Scattered Spider (FGG5004), TeamTNT, Silence, HAFNIUM, and APT29; the two campaigns are Operation Soft Cell (FGC5001) and SolarWinds Compromise (C0024). Salt Typhoon appears 51 times in the v3.1.0 data file; the framework has visibly absorbed the 2024-2025 campaign.
 
 ---
 
 ## Using FiGHT in a threat-informed defense program
 
-FiGHT slots into the same loop as ATT&CK — see [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) and [CTEM](CTEM_REFERENCE.md):
+FiGHT slots into the same loop as ATT&CK (see [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md) and [CTEM](CTEM_REFERENCE.md)):
 
 | Program activity | How FiGHT contributes |
 |---|---|
@@ -121,28 +121,28 @@ FiGHT slots into the same loop as ATT&CK — see [Threat-Informed Defense](THREA
 | Navigator layers | The `FGT1xxx` techniques share ATT&CK numbering, so cyber and telecom coverage can be reviewed side-by-side in [ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi) |
 
 Do
-- Treat `FGT1xxx` techniques as the join key between your enterprise ATT&CK program and your telecom estate — one detection engineering backlog, two matrices.
+- Treat `FGT1xxx` techniques as the join key between your enterprise ATT&CK program and your telecom estate: one detection engineering backlog, two matrices.
 - Use the Theoretical techniques in architecture and procurement reviews (they are requirements, not detections).
 - Re-pull `fight.yaml` when you build tooling: versions move and counts change.
 
 Don't
-- Don't present FiGHT-to-anything mappings as official unless MITRE published them. No officially published FiGHT->D3FEND or FiGHT->NIST 800-53 mapping was found as of this writing — if you need [D3FEND](D3FEND_REFERENCE.md) countermeasures, map via the shared ATT&CK technique IDs and label the result as your own inference.
-- Don't treat FiGHT as an ATT&CK domain in tooling that assumes STIX ATT&CK bundles — it is distributed as its own YAML data model.
+- Don't present FiGHT-to-anything mappings as official unless MITRE published them. No officially published FiGHT->D3FEND or FiGHT->NIST 800-53 mapping was found as of this writing; if you need [D3FEND](D3FEND_REFERENCE.md) countermeasures, map via the shared ATT&CK technique IDs and label the result as your own inference.
+- Don't treat FiGHT as an ATT&CK domain in tooling that assumes STIX ATT&CK bundles; it is distributed as its own YAML data model.
 
 ---
 
 ## Legacy signaling interconnect risk: SS7, Diameter, and SIP
 
-Every mobile operator is federated with hundreds of others through interconnect and roaming agreements. The signaling protocols that make roaming work were designed for a closed club of trusted state carriers — they authenticate *nothing* by default. Access to the interconnect (via a rogue operator, a leased Global Title, or a compromised carrier) has historically been enough to interact with other networks' subscribers.
+Every mobile operator is federated with hundreds of others through interconnect and roaming agreements. The signaling protocols that make roaming work were designed for a closed club of trusted state carriers; they authenticate *nothing* by default. Access to the interconnect (via a rogue operator, a leased Global Title, or a compromised carrier) has historically been enough to interact with other networks' subscribers.
 
 | Protocol | Where it lives | Interconnect exposure (conceptual) |
 |---|---|---|
-| SS7 (MAP/CAP, incl. over SIGTRAN) | 2G/3G core interconnect | Public advisories and GSMA guidance describe subscriber location tracking, call/SMS interception (which defeats SMS-based MFA), fraud, and denial of service against subscribers — all achievable with signaling messages the protocol treats as inherently trusted |
+| SS7 (MAP/CAP, incl. over SIGTRAN) | 2G/3G core interconnect | Public advisories and GSMA guidance describe subscriber location tracking, call/SMS interception (which defeats SMS-based MFA), fraud, and denial of service against subscribers, all achievable with signaling messages the protocol treats as inherently trusted |
 | Diameter | 4G/LTE core interconnect (S6a etc.) | Same *classes* of abuse re-expressed in Diameter semantics; IPsec/TLS support exists but interconnect deployment is inconsistent |
-| SIP | VoLTE/VoWiFi, IMS, SIP trunking | Caller-ID spoofing, registration abuse, toll fraud, and interception risk at poorly filtered IMS/NNI borders — *no dedicated public GSMA/CISA document verified for SIP interconnect; treat this row as conceptual* |
+| SIP | VoLTE/VoWiFi, IMS, SIP trunking | Caller-ID spoofing, registration abuse, toll fraud, and interception risk at poorly filtered IMS/NNI borders (*no dedicated public GSMA/CISA document verified for SIP interconnect; treat this row as conceptual*) |
 | GTP (GTP-C/GTP-U) | Roaming user/control plane (2G-5G NSA) | User-plane and session-management abuse at roaming borders; filtered by GTP firewalls at the same perimeter |
 
-Why this still matters in a 5G document: 5G non-standalone (NSA) rides on the 4G core, roaming partners run every generation simultaneously, and downgrade to 2G/3G re-exposes subscribers to SS7-era weaknesses. Legacy signaling risk retires when the last 2G/3G roaming agreement does — not before.
+Why this still matters in a 5G document: 5G non-standalone (NSA) rides on the 4G core, roaming partners run every generation simultaneously, and downgrade to 2G/3G re-exposes subscribers to SS7-era weaknesses. Legacy signaling risk retires when the last 2G/3G roaming agreement does, not before.
 
 This section stays at the interconnect/defense altitude; for the attack-mechanics view of SS7 and Diameter S6a abuse (message flows, IMSI-catcher interplay, protocol history), see [Wireless Security](WIRELESS_SECURITY_REFERENCE.md) §4.4-4.5.
 
@@ -154,17 +154,17 @@ The GSMA's Fraud and Security Group maintains the operator-side defense guidance
 
 | Document | Title / scope |
 |---|---|
-| GSMA FS.11 | *SS7 Interconnect Security Monitoring and Firewall Guidelines* — the GSMA's baseline SS7 defense document, regularly updated (GSMA publishes no public version history or approval dates) |
+| GSMA FS.11 | *SS7 Interconnect Security Monitoring and Firewall Guidelines*: the GSMA's baseline SS7 defense document, regularly updated (GSMA publishes no public version history or approval dates) |
 | GSMA FS.19 | *Diameter Interconnect Security* |
 | GSMA FS.21 | *Interconnect Signalling Security Recommendations*: the cross-protocol umbrella document above both |
 
 > These documents are GSMA member-gated; current version numbers are not publicly verifiable, so they are cited here by title only. If your organization is a GSMA member, pull the current versions from InfoCentre before building controls against them.
 
-What a signaling firewall actually does. Industry practice built on this guidance screens interconnect messages in escalating tiers: (1) drop message types that have no legitimate reason to arrive from an external interconnect at all; (2) drop messages that claim to concern your own subscribers but arrive from networks where those subscribers cannot plausibly be; (3) apply stateful plausibility checks — velocity (can the subscriber physically have moved that far since the last event?), correlation with roaming status, and rate anomalies. The same conceptual tiers apply to SS7 and Diameter, with protocol-specific rulesets.
+What a signaling firewall actually does. Industry practice built on this guidance screens interconnect messages in escalating tiers: (1) drop message types that have no legitimate reason to arrive from an external interconnect at all; (2) drop messages that claim to concern your own subscribers but arrive from networks where those subscribers cannot plausibly be; (3) apply stateful plausibility checks: velocity (can the subscriber physically have moved that far since the last event?), correlation with roaming status, and rate anomalies. The same conceptual tiers apply to SS7 and Diameter, with protocol-specific rulesets.
 
 Do
-- Deploy signaling firewalls on every interconnect border (SS7 STP-adjacent, Diameter DEA/DRA-adjacent, GTP borders) — monitoring mode first, then enforce.
-- Feed signaling firewall verdicts and interconnect telemetry into the SOC like any other sensor ([SIEM Reference](SIEM_REFERENCE.md)) — signaling abuse against your executives is an *intrusion signal*, not just a fraud metric.
+- Deploy signaling firewalls on every interconnect border (SS7 STP-adjacent, Diameter DEA/DRA-adjacent, GTP borders), monitoring mode first, then enforce.
+- Feed signaling firewall verdicts and interconnect telemetry into the SOC like any other sensor ([SIEM Reference](SIEM_REFERENCE.md)); signaling abuse against your executives is an *intrusion signal*, not just a fraud metric.
 - Run periodic external signaling assessments against your own network from the interconnect side.
 - Treat SMS-based MFA as compromised by design for high-value accounts: this is a downstream enterprise consequence of SS7/Diameter exposure ([Identity & Access Management](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)).
 
@@ -177,16 +177,16 @@ Don't
 
 ## 5G core security architecture: SBA, SUCI/SUPI, SEPP, and TS 33.501
 
-The authoritative 5G security specification is 3GPP TS 33.501, "Security architecture and procedures for 5G System," owned by working group SA3. Latest version at the time of writing: 20.2.0 (2026-06-25, SA#112); latest per-release: Rel-15 15.20.0, Rel-16 16.20.0, Rel-17 17.16.0, Rel-18 18.12.0, Rel-19 19.7.0 ([3GPP portal record](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3169)). Versions mint at every SA plenary — check the portal before citing.
+The authoritative 5G security specification is 3GPP TS 33.501, "Security architecture and procedures for 5G System," owned by working group SA3. Latest version at the time of writing: 20.2.0 (2026-06-25, SA#112); latest per-release: Rel-15 15.20.0, Rel-16 16.20.0, Rel-17 17.16.0, Rel-18 18.12.0, Rel-19 19.7.0 ([3GPP portal record](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3169)). Versions mint at every SA plenary; check the portal before citing.
 
 What changed architecturally from 4G:
 
 | 5G security element | What it is | Why it matters |
 |---|---|---|
-| SBA (Service-Based Architecture) | Core network functions (AMF, SMF, UDM, AUSF, NRF, NEF...) exposing HTTP/2 REST APIs on a service mesh, instead of point-to-point telecom protocols | The core becomes *API security territory*: TS 33.501 specifies transport protection (TLS) between network functions and token-based authorization for service access — bringing [API Security](API_SECURITY_REFERENCE.md) discipline into the core |
-| SUPI -> SUCI concealment | The permanent subscriber identifier (SUPI) is encrypted into a SUCI over the air; the SIDF (Subscription Identifier De-concealing Function), offered by the UDM in the home network, de-conceals it | Kills passive IMSI-catcher-style permanent-identifier harvesting *when 5G SA is actually in use* — downgrade to legacy RATs reintroduces the exposure |
+| SBA (Service-Based Architecture) | Core network functions (AMF, SMF, UDM, AUSF, NRF, NEF...) exposing HTTP/2 REST APIs on a service mesh, instead of point-to-point telecom protocols | The core becomes *API security territory*: TS 33.501 specifies transport protection (TLS) between network functions and token-based authorization for service access, bringing [API Security](API_SECURITY_REFERENCE.md) discipline into the core |
+| SUPI -> SUCI concealment | The permanent subscriber identifier (SUPI) is encrypted into a SUCI over the air; the SIDF (Subscription Identifier De-concealing Function), offered by the UDM in the home network, de-conceals it | Kills passive IMSI-catcher-style permanent-identifier harvesting *when 5G SA is actually in use*; downgrade to legacy RATs reintroduces the exposure |
 | Unified primary authentication | 5G-AKA / EAP-AKA′ with home-network involvement in authentication confirmation | The home operator gets cryptographic say in roaming authentication, closing a 4G-era trust gap |
-| SEPP (Security Edge Protection Proxy) | The mandatory security gateway at the PLMN perimeter for inter-operator control-plane (roaming) traffic | Replaces the "flat trust" interconnect model of SS7/Diameter with an authenticated, encrypted, policy-enforcing border — the single most important interconnect upgrade in 5G |
+| SEPP (Security Edge Protection Proxy) | The mandatory security gateway at the PLMN perimeter for inter-operator control-plane (roaming) traffic | Replaces the "flat trust" interconnect model of SS7/Diameter with an authenticated, encrypted, policy-enforcing border, the single most important interconnect upgrade in 5G |
 
 ### SEPP and the N32 interface
 
@@ -204,17 +204,17 @@ What changed architecturally from 4G:
               └───── via IPX / interconnect ─┘
 ```
 
-N32 splits into N32-c (the control connection where the two SEPPs mutually authenticate and negotiate protection parameters) and N32-f (the forwarding channel carrying the actual signaling with application-layer protection using JSON Web Encryption, RFC 7516 — protecting message contents even across intermediary IPX carriers). SEPP functions include mutual authentication and key management, topology hiding (the partner sees the SEPP, not your core), access control, discarding malformed N32 messages, rate limiting, and anti-spoofing.
+N32 splits into N32-c (the control connection where the two SEPPs mutually authenticate and negotiate protection parameters) and N32-f (the forwarding channel carrying the actual signaling with application-layer protection using JSON Web Encryption, RFC 7516, protecting message contents even across intermediary IPX carriers). SEPP functions include mutual authentication and key management, topology hiding (the partner sees the SEPP, not your core), access control, discarding malformed N32 messages, rate limiting, and anti-spoofing.
 
-Defender's view of the 5G core: it is a Kubernetes-hosted microservice estate speaking HTTP/2 — so [container security](CONTAINER_SECURITY_REFERENCE.md), [Kubernetes security](KUBERNETES_SECURITY_REFERENCE.md), certificate lifecycle management, and NRF (service discovery) abuse monitoring are now *telecom core* disciplines, not just IT ones.
+Defender's view of the 5G core: it is a Kubernetes-hosted microservice estate speaking HTTP/2, so [container security](CONTAINER_SECURITY_REFERENCE.md), [Kubernetes security](KUBERNETES_SECURITY_REFERENCE.md), certificate lifecycle management, and NRF (service discovery) abuse monitoring are now *telecom core* disciplines, not just IT ones.
 
 ---
 
 ## Network slicing security: isolation threats and the NSA/CISA ESF guidance
 
-Network slicing lets one physical 5G infrastructure carry multiple logical end-to-end networks (a public-safety slice, an IoT slice, an enterprise slice) with distinct SLAs. Isolation between slices is a *configuration outcome*, not a physical fact — which makes it a security boundary that must be engineered and continuously verified.
+Network slicing lets one physical 5G infrastructure carry multiple logical end-to-end networks (a public-safety slice, an IoT slice, an enterprise slice) with distinct SLAs. Isolation between slices is a *configuration outcome*, not a physical fact, which makes it a security boundary that must be engineered and continuously verified.
 
-Two ESF (Enduring Security Framework — NSA/CISA/ODNI) publications anchor the topic:
+Two ESF (Enduring Security Framework, NSA/CISA/ODNI) publications anchor the topic:
 
 | Document | Date | Core content |
 |---|---|---|
@@ -246,24 +246,24 @@ Security specification work is led by O-RAN ALLIANCE WG11. Per the official [O-R
 | Security Tests Specifications | v12.0 |
 | Threat Modeling and Risk Assessment (Technical Report) | v8.0 |
 
-*(WG11 versions move quickly and secondary sources disagree — re-check the o-ran.org specifications page before citing.)* ETSI and ATIS published the four primary O-RAN security documents in 2025, giving them standing in formal standards ecosystems.
+*(WG11 versions move quickly and secondary sources disagree; re-check the o-ran.org specifications page before citing.)* ETSI and ATIS published the four primary O-RAN security documents in 2025, giving them standing in formal standards ecosystems.
 
 Key facts from the official [2025 security update](https://www.o-ran.org/blog/o-ran-alliance-security-update-2025):
 
 - The WG11 threat model covers over 160 distinct threats to O-RAN interfaces, network functions, and architecture elements (39 AI/ML threats added in 2024), analyzed using STRIDE ([Threat Modeling](THREAT_MODELING_REFERENCE.md)).
 - WG11 published the Zero Trust Architecture for Secure O-RAN white paper (May 2024), aligned to NIST SP 800-207 and assessed against CISA's Zero Trust Maturity Model ([Zero Trust Reference](ZERO_TRUST_REFERENCE.md)).
-- Requirements mandate a vendor-signed, NTIA-compliant SBOM with every O-RAN software delivery — supply-chain transparency as a conformance requirement, not a nice-to-have ([Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md)).
+- Requirements mandate a vendor-signed, NTIA-compliant SBOM with every O-RAN software delivery: supply-chain transparency as a conformance requirement, not a nice-to-have ([Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md)).
 - Security assurance specifications (SCAS) developed with GSMA/TIFG become publicly available in 2026.
 
-The practitioner takeaway: O-RAN's security posture is *specifiable and testable* in a way closed RAN never was — but only if buyers actually put WG11 requirements, SBOM delivery, and SCAS conformance into procurement language.
+The practitioner takeaway: O-RAN's security posture is *specifiable and testable* in a way closed RAN never was, but only if buyers actually put WG11 requirements, SBOM delivery, and SCAS conformance into procurement language.
 
 ---
 
 ## Lawful-intercept infrastructure risk
 
-Lawful interception (LI) systems are the highest-leverage components in any operator: infrastructure whose *purpose* is covert, targeted access to communications, with legally mandated secrecy around its operation. An adversary who compromises LI inherits a monitoring capability that is designed to be invisible — and learns *who is under surveillance*, which is itself counterintelligence gold.
+Lawful interception (LI) systems are the highest-leverage components in any operator: infrastructure whose *purpose* is covert, targeted access to communications, with legally mandated secrecy around its operation. An adversary who compromises LI inherits a monitoring capability that is designed to be invisible, and learns *who is under surveillance*, which is itself counterintelligence gold.
 
-The 3GPP LI specification trio (created fresh for the 5G era — [3gpp.org/technologies/li](https://www.3gpp.org/technologies/li)):
+The 3GPP LI specification trio (created fresh for the 5G era, [3gpp.org/technologies/li](https://www.3gpp.org/technologies/li)):
 
 | Spec | Scope |
 |---|---|
@@ -271,9 +271,9 @@ The 3GPP LI specification trio (created fresh for the 5G era — [3gpp.org/techn
 | TS 33.127 | LI architecture and functions |
 | TS 33.128 | Protocol and procedures for LI (Stage 3) |
 
-This risk is no longer hypothetical. The November 13, 2024 FBI/CISA joint statement documented that PRC-affiliated actors copied "certain information that was subject to U.S. law enforcement requests pursuant to court orders" — publicly confirming adversary reach into data tied to the lawful-access process at compromised providers.
+This risk is no longer hypothetical. The November 13, 2024 FBI/CISA joint statement documented that PRC-affiliated actors copied "certain information that was subject to U.S. law enforcement requests pursuant to court orders", publicly confirming adversary reach into data tied to the lawful-access process at compromised providers.
 
-The regulatory whiplash (US): in January 2025 the FCC adopted a Declaratory Ruling ([FCC 25-9](https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf)) interpreting CALEA Section 105 as affirmatively requiring carriers to secure their networks against unlawful access and interception, with an accompanying NPRM proposing cybersecurity risk-management plans and annual certifications — a direct response to Salt Typhoon. On November 20, 2025 the FCC voted 2-1 to rescind that ruling and withdraw the NPRM via an Order on Reconsideration ([Federal Register, Dec 15, 2025](https://www.federalregister.gov/documents/2025/12/15/2025-22830/protecting-the-nations-communications-systems-from-cybersecurity-threats)), calling the prior ruling a misinterpretation of CALEA. Do not cite the January 2025 ruling as current law. The engineering obligation, however, doesn't depend on the FCC: treat LI as crown-jewel infrastructure regardless of mandate.
+The regulatory whiplash (US): in January 2025 the FCC adopted a Declaratory Ruling ([FCC 25-9](https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf)) interpreting CALEA Section 105 as affirmatively requiring carriers to secure their networks against unlawful access and interception, with an accompanying NPRM proposing cybersecurity risk-management plans and annual certifications, a direct response to Salt Typhoon. On November 20, 2025 the FCC voted 2-1 to rescind that ruling and withdraw the NPRM via an Order on Reconsideration ([Federal Register, Dec 15, 2025](https://www.federalregister.gov/documents/2025/12/15/2025-22830/protecting-the-nations-communications-systems-from-cybersecurity-threats)), calling the prior ruling a misinterpretation of CALEA. Do not cite the January 2025 ruling as current law. The engineering obligation, however, doesn't depend on the FCC: treat LI as crown-jewel infrastructure regardless of mandate.
 
 Do
 - Put LI mediation and administration functions in their own maximum-isolation enclave: dedicated accounts, dedicated jump infrastructure, hardware-backed MFA, no shared administration with the general core.
@@ -288,7 +288,7 @@ Don't
 
 ## Case study: Salt Typhoon and the advisory record (AA25-239A)
 
-[AA25-239A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a), *"Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System"* (released 2025-08-27, updated to v1.1 on 2025-09-03), is the definitive public document on the campaign — co-sealed by agencies from 13 countries: US (NSA, CISA, FBI, DC3), Australia, Canada, New Zealand, UK, Czech Republic, Finland, Germany, Italy, Japan, Netherlands, Poland, and Spain.
+[AA25-239A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a), *"Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System"* (released 2025-08-27, updated to v1.1 on 2025-09-03), is the definitive public document on the campaign, co-sealed by agencies from 13 countries: US (NSA, CISA, FBI, DC3), Australia, Canada, New Zealand, UK, Czech Republic, Finland, Germany, Italy, Japan, Netherlands, Poland, and Spain.
 
 | Advisory element | Content |
 |---|---|
@@ -297,7 +297,7 @@ Don't
 | Sectors | Telecommunications, government, transportation, lodging, military |
 | Exploited CVEs | See table below |
 
-The five CVEs the advisory lists — all edge/network-device vulnerabilities, none of them 5G-specific ([CVE Reference](CVE_REFERENCE.md) for KEV/EPSS triage method):
+The five CVEs the advisory lists, all edge/network-device vulnerabilities, none of them 5G-specific ([CVE Reference](CVE_REFERENCE.md) for KEV/EPSS triage method):
 
 | CVE | Affected technology |
 |---|---|
@@ -309,7 +309,7 @@ The five CVEs the advisory lists — all edge/network-device vulnerabilities, no
 
 AA25-239A's defender guidance: management-plane isolation, SNMPv3-only, control-plane policing, immediate patching of the listed CVEs, disabling unused protocols, strong authentication, continuous configuration-change monitoring, and centralized logging with secure transmission.
 
-> Mapping honesty note: AA25-239A maps activity to ATT&CK Enterprise, not to FiGHT. FiGHT does contain a Salt Typhoon group entry (G1045), but no official FiGHT-to-advisory technique mapping exists — don't invent one. If you need the advisory's technique-level detail, pull its own ATT&CK table directly from CISA and work it through the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md). The campaign's exploitation of internet-exposed management services and network-device weaknesses corresponds to well-known Enterprise technique *families* (e.g., exploitation of public-facing applications, valid accounts, external remote services — T1190, T1078, T1133 exist in the ATT&CK data in this library), but treat any specific advisory-to-ID pairing you make yourself as your own analysis, clearly labeled.
+> Mapping honesty note: AA25-239A maps activity to ATT&CK Enterprise, not to FiGHT. FiGHT does contain a Salt Typhoon group entry (G1045), but no official FiGHT-to-advisory technique mapping exists; don't invent one. If you need the advisory's technique-level detail, pull its own ATT&CK table directly from CISA and work it through the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md). The campaign's exploitation of internet-exposed management services and network-device weaknesses corresponds to well-known Enterprise technique *families* (e.g., exploitation of public-facing applications, valid accounts, external remote services; T1190, T1078, T1133 exist in the ATT&CK data in this library), but treat any specific advisory-to-ID pairing you make yourself as your own analysis, clearly labeled.
 
 ---
 
@@ -321,7 +321,7 @@ The [Enhanced Visibility and Hardening Guidance for Communications Infrastructur
 
 | Measure | What good looks like |
 |---|---|
-| Configuration-change monitoring | Every device config change is captured, diffed, and alerted on out-of-band — an attacker's config edit *is* the incident |
+| Configuration-change monitoring | Every device config change is captured, diffed, and alerted on out-of-band; an attacker's config edit *is* the incident |
 | Centralized, secured logging | Device logs shipped off-box over encrypted transport to a store the device (and its admins) cannot alter |
 | SIEM correlation | Network-device telemetry treated as first-class SIEM input, not an afterthought ([SIEM Reference](SIEM_REFERENCE.md), [Detection Rules](DETECTION_RULES_REFERENCE.md)) |
 | Network flow monitoring | NetFlow/IPFIX baselining across backbone and management networks to expose abnormal peer-to-peer and exfil paths ([Network Monitoring](NETWORK_MONITORING_REFERENCE.md)) |
@@ -330,7 +330,7 @@ The [Enhanced Visibility and Hardening Guidance for Communications Infrastructur
 
 | Measure | What good looks like |
 |---|---|
-| Out-of-band management | Management plane on physically separate infrastructure from the data plane — an attacker on the transit path never touches device administration |
+| Out-of-band management | Management plane on physically separate infrastructure from the data plane; an attacker on the transit path never touches device administration |
 | Default-deny ACLs | Management services reachable only from enumerated admin networks |
 | Segmentation | VLAN + firewall separation between management, signaling, user plane, and corporate IT ([Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md)) |
 | Phishing-resistant MFA | FIDO2/PKI on all administrative access |
@@ -338,7 +338,7 @@ The [Enhanced Visibility and Hardening Guidance for Communications Infrastructur
 | Protocol hygiene | Disable Telnet, SSHv1, SNMPv1/v2c; SNMPv3 only; TLS 1.3 with strong ciphers for services that remain |
 | Cisco-specific | Disable Smart Install (the CVE-2018-0171 surface), disable guestshell, disable non-encrypted web management |
 
-Companion for the people layer: CISA's [Mobile Communications Best Practice Guidance](https://www.cisa.gov/resources-tools/resources/mobile-communications-best-practice-guidance) (December 18, 2024) covers the *highly targeted individual* side — senior government and political figures — recommending end-to-end encrypted communications and hardened mobile practices precisely because carrier infrastructure could not be presumed uncompromised ([Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)).
+Companion for the people layer: CISA's [Mobile Communications Best Practice Guidance](https://www.cisa.gov/resources-tools/resources/mobile-communications-best-practice-guidance) (December 18, 2024) covers the *highly targeted individual* side (senior government and political figures), recommending end-to-end encrypted communications and hardened mobile practices precisely because carrier infrastructure could not be presumed uncompromised ([Mobile Security Reference](MOBILE_SECURITY_REFERENCE.md)).
 
 ---
 
@@ -348,7 +348,7 @@ Telemetry worth collecting first, mapped to what it catches:
 
 | Telemetry source | What it surfaces |
 |---|---|
-| AAA/TACACS+ command accounting | Every administrative command on every network device, per admin — the primary record of management-plane abuse |
+| AAA/TACACS+ command accounting | Every administrative command on every network device, per admin; the primary record of management-plane abuse |
 | Config archive + diff alerting (e.g., RANCID/Oxidized-class tooling or vendor equivalent) | Unauthorized configuration changes: the core visibility measure in the Dec 2024 guidance |
 | Off-box syslog over encrypted transport | Device events an intruder with device admin cannot silently erase |
 | NetFlow/IPFIX from backbone and management networks | Abnormal peering, management-network egress, staging and exfiltration paths |
@@ -363,14 +363,14 @@ Pulling the advisory record and frameworks into one operating posture:
 Do
 - Instrument the management plane first. Every documented impact in this campaign flowed through device administration. TACACS+/AAA command accounting, config-diff alerting, and off-box syslog are the highest-yield telemetry in the sector.
 - Run FiGHT-informed coverage reviews on a cadence: Observed techniques -> detection backlog; PoC -> exposure validation; Theoretical -> architecture review. Track it like any [CTEM](CTEM_REFERENCE.md) loop.
-- Baseline interconnect behavior: signaling firewall verdicts, GTP anomalies, N32/SEPP errors — and treat deviations as security events, not just ops noise.
+- Baseline interconnect behavior: signaling firewall verdicts, GTP anomalies, N32/SEPP errors; and treat deviations as security events, not just ops noise.
 - Exercise the seam between fraud and intrusion. FiGHT's Fraud tactic (TA5001) and [F3](FRAUD_FRAMEWORK_REFERENCE.md) both exist because the fraud desk and the SOC routinely see two halves of the same actor.
 - Put supplier requirements in writing: WG11 conformance, signed NTIA-compliant SBOMs, SCAS results, vendor remote-access controls ([Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md)).
 - Patch the named CVEs as a standing directive: the AA25-239A five are the demonstrated entry set for this campaign class.
 
 Don't
 - Don't scope "5G security" to the 5G core while 2G-4G interconnect, edge routers, and LI enclaves carry the demonstrated risk.
-- Don't accept flat management networks or shared admin credentials anywhere in the operator estate — this is the exact terrain the advisories describe being exploited.
+- Don't accept flat management networks or shared admin credentials anywhere in the operator estate; this is the exact terrain the advisories describe being exploited.
 - Don't build compliance posture on the FCC's January 2025 CALEA ruling: it was rescinded November 20, 2025.
 - Don't wait for telecom-specific detection content to be handed to you; the December 2024 guidance is deliberately vendor-practical and implementable with standard NSM tooling ([Network Defense](NETWORK_DEFENSE_REFERENCE.md)).
 
@@ -404,9 +404,9 @@ Network slicing and O-RAN
 - O-RAN ALLIANCE Security Update 2025: https://www.o-ran.org/blog/o-ran-alliance-security-update-2025
 
 Regulatory
-- FCC Declaratory Ruling FCC 25-9 (January 2025; rescinded) — https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf
+- FCC Declaratory Ruling FCC 25-9 (January 2025; rescinded): https://docs.fcc.gov/public/attachments/FCC-25-9A1.pdf
 - FCC Order on Reconsideration rescinding the ruling (Federal Register, 2025-12-15): https://www.federalregister.gov/documents/2025/12/15/2025-22830/protecting-the-nations-communications-systems-from-cybersecurity-threats
 
 ---
 
-*MITRE FiGHT™ and ATT&CK® are trademarks of The MITRE Corporation; 3GPP specifications are the property of the 3GPP Organizational Partners; GSMA documents are the property of the GSM Association; O-RAN specifications are the property of the O-RAN ALLIANCE. FiGHT structural counts were computed from the official v3.1.0 data file and MITRE publishes no official count page — recount from `fight.yaml` if exactness matters. This is an independent practitioner reference summary, not affiliated with or endorsed by any of these organizations; consult the upstream sources for authoritative and current content.*
+*MITRE FiGHT™ and ATT&CK® are trademarks of The MITRE Corporation; 3GPP specifications are the property of the 3GPP Organizational Partners; GSMA documents are the property of the GSM Association; O-RAN specifications are the property of the O-RAN ALLIANCE. FiGHT structural counts were computed from the official v3.1.0 data file and MITRE publishes no official count page; recount from `fight.yaml` if exactness matters. This is an independent practitioner reference summary, not affiliated with or endorsed by any of these organizations; consult the upstream sources for authoritative and current content.*

@@ -31,8 +31,8 @@ Examples of unacceptable behavior:
 - Public or private harassment
 - Publishing others' private information, such as a physical or email address,
   without their explicit permission
-- **Using this library's content to plan, enable, or solicit unauthorized access
-  to systems.** This is a defensive reference; contributions and discussion must
+- Using this library's content to plan, enable, or solicit unauthorized access
+  to systems. This is a defensive reference; contributions and discussion must
   keep that framing.
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
@@ -51,15 +51,15 @@ when appropriate.
 
 ## Scope
 
-This Code of Conduct applies within all community spaces — issues, pull requests,
-discussions, and any other project channel — and also applies when an individual
+This Code of Conduct applies within all community spaces (issues, pull requests,
+discussions, and any other project channel) and also applies when an individual
 is officially representing the project in public spaces.
 
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the project maintainers through **[GitHub's private
-reporting](../../security/advisories/new)** or by opening a confidential report
+reported to the project maintainers through [GitHub's private
+reporting](../../security/advisories/new) or by opening a confidential report
 via GitHub's abuse-reporting tools. All complaints will be reviewed and
 investigated promptly and fairly. Maintainers are obligated to respect the privacy
 and security of the reporter of any incident.

@@ -1,6 +1,6 @@
 # Incident Response Playbooks
 
-> In one minute — Step-by-step response procedures for ten common incident types, from ransomware to supply chain compromise, each organized around the NIST SP 800-61 lifecycle (the standard prepare-detect-contain-recover model for handling security incidents). When an incident hits, you look up the matching playbook and follow its timed immediate actions, investigation steps, and recovery guidance instead of improvising. It also carries the reference tables you need under pressure: escalation timing, regulatory notification deadlines, and how to contact the FBI, CISA, and international authorities.
+> In one minute: Step-by-step response procedures for ten common incident types, from ransomware to supply chain compromise, each organized around the NIST SP 800-61 lifecycle (the standard prepare-detect-contain-recover model for handling security incidents). When an incident hits, you look up the matching playbook and follow its timed immediate actions, investigation steps, and recovery guidance instead of improvising. It also carries the reference tables you need under pressure: escalation timing, regulatory notification deadlines, and how to contact the FBI, CISA, and international authorities.
 
 | | |
 |---|---|
@@ -337,7 +337,7 @@ These are generic templates. Adapt them to your environment, tools, and escalati
 - CDN/WAF DDoS mitigation alert
 
 ### Immediate Actions (0-30 minutes)
-1. Confirm DDoS vs. legitimate traffic surge — check traffic patterns
+1. Confirm DDoS vs. legitimate traffic surge: check traffic patterns
 2. Engage upstream ISP / CDN DDoS mitigation scrubbing
 3. Enable rate limiting and geo-blocking if not already active
 4. Activate DDoS mitigation provider (Cloudflare, Akamai, AWS Shield)
@@ -641,7 +641,7 @@ Containment
 ### United States
 | Agency | Contact | When to Use |
 |---|---|---|
-| FBI Cyber Division | [ic3.gov](https://www.ic3.gov/) or local field office | Ransomware, nation-state attacks, critical infrastructure incidents — FBI may have decryption keys |
+| FBI Cyber Division | [ic3.gov](https://www.ic3.gov/) or local field office | Ransomware, nation-state attacks, critical infrastructure incidents; FBI may have decryption keys |
 | CISA | [cisa.gov/report](https://www.cisa.gov/report) or 1-888-282-0870 | Critical infrastructure incidents; CISA provides free technical assistance |
 | US Secret Service | [secretservice.gov/investigation/cyber](https://www.secretservice.gov/investigation/cyber) | Financial cybercrime, BEC, payment card fraud |
 | DHS | Via CISA for most cyber incidents | |

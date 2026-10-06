@@ -92,7 +92,7 @@ TCP Flags:
 | Xmas (FIN+PSH+URG) | 0x29 | Port scan; elicits RST on closed ports |
 | NULL (no flags) | 0x00 | Port scan; elicits RST on closed ports |
 
-TCP State Machine — Attacker View:
+TCP State Machine (Attacker View):
 ```
 LISTEN → [SYN] → SYN_RCVD → [SYN+ACK] → [ACK] → ESTABLISHED
          ↑ SYN flood targets this transition
@@ -216,7 +216,7 @@ alert icmp any any -> $HOME_NET any (msg:"ICMP Ping Sweep"; itype:8; threshold:t
 ### 1.6 IPv6 Security
 
 Extension Header Abuse:
-IPv6 extension headers (Hop-by-Hop, Routing, Fragment, Destination) processed before transport layer — historically bypassed ACLs.
+IPv6 extension headers (Hop-by-Hop, Routing, Fragment, Destination) processed before transport layer; historically bypassed ACLs.
 
 | Extension Header | Type | Security Issue |
 |-----------------|------|----------------|
@@ -334,7 +334,7 @@ nmap --script dns-zone-transfer -p 53 ns1.example.com
 
 Classic Poisoning (Pre-2008): Attacker guesses 16-bit Transaction ID -> 1/65536 chance per attempt.
 
-Kaminsky Attack (2008) — CVE-2008-1447:
+Kaminsky Attack (2008), CVE-2008-1447:
 1. Query a random, non-existent subdomain (`rand1234.example.com`).
 2. Flood resolver with forged responses containing:
    - Matching TXID guess (0-65535)
@@ -692,7 +692,7 @@ curl "https://api.ssllabs.com/api/v3/analyze?host=example.com" | jq '.status,.gr
 ### 3.5 Certificate Transparency
 
 CT Log Infrastructure:
-- All publicly trusted CAs must submit certificates to CT logs (since April 2018 — Chrome policy).
+- All publicly trusted CAs must submit certificates to CT logs (since April 2018, Chrome policy).
 - Browser verifies SCT (Signed Certificate Timestamp) from log is embedded in certificate.
 - Two+ SCTs from different logs required for EV certificates.
 
@@ -832,7 +832,7 @@ h2c (HTTP/2 cleartext):
 - Security risk: No encryption; rarely used in production but enabled in some frameworks.
 - Detection: `curl --http2 http://example.com -v 2>&1 | grep "Using HTTP2"`
 
-CVE-2023-44487 — HTTP/2 Rapid Reset:
+CVE-2023-44487 (HTTP/2 Rapid Reset):
 - Attacker sends HEADERS frame immediately followed by RST_STREAM frame, repeated at high rate.
 - Server must process each request start before receiving reset: CPU exhaustion.
 - Amplification: Attacker can open thousands of requests/second with minimal bandwidth.
@@ -1057,7 +1057,7 @@ NetbiosOptions = 2  (disabled)
 
 ### 5.3 OAuth 2.0
 
-Grant Types — Security Comparison:
+Grant Types (Security Comparison):
 
 | Grant Type | Use Case | Security Rating | Notes |
 |-----------|---------|----------------|-------|
@@ -1068,7 +1068,7 @@ Grant Types — Security Comparison:
 | Resource Owner Password | Legacy migration | Avoid | App receives user credentials |
 | Device Code | Smart TV/CLI | Acceptable | Polling-based; short-lived codes |
 
-PKCE (Proof Key for Code Exchange — RFC 7636):
+PKCE (Proof Key for Code Exchange, RFC 7636):
 ```
 code_verifier  = random_string(43-128 chars)
 code_challenge = BASE64URL(SHA256(code_verifier))
@@ -1465,7 +1465,7 @@ OSPF Attack Surface:
 
 ### 7.3 Spanning Tree Security
 
-STP Attack — Yersinia:
+STP Attack (Yersinia):
 ```bash
 # Send crafted BPDU to become root bridge
 yersinia stp -attack 1    # Claiming root role
@@ -1504,12 +1504,12 @@ spanning-tree loopguard default
 
 ### 7.4 VLAN Hopping
 
-Attack 1 — Switch Spoofing:
+Attack 1 (Switch Spoofing):
 1. Attacker sends DTP (Dynamic Trunking Protocol) frames.
 2. Switch negotiates trunk link with attacker.
 3. Attacker receives all VLAN traffic.
 
-Mitigation — Disable DTP:
+Mitigation (Disable DTP):
 ```
 ! Disable DTP negotiation on access ports
 interface GigabitEthernet0/1
@@ -1518,7 +1518,7 @@ interface GigabitEthernet0/1
  switchport access vlan 10
 ```
 
-Attack 2 — Double Tagging:
+Attack 2 (Double Tagging):
 1. Attacker adds two 802.1Q tags: outer = native VLAN, inner = target VLAN.
 2. Switch strips outer tag (native VLAN = no tag processing).
 3. Frame forwarded to target VLAN.
@@ -1570,7 +1570,7 @@ arp -a    # View ARP cache
 arp -a | awk '{print $4}' | sort | uniq -c | sort -rn | head
 ```
 
-Dynamic ARP Inspection (DAI) — Cisco:
+Dynamic ARP Inspection (DAI), Cisco:
 ```
 ! Enable DHCP snooping first (provides binding table)
 ip dhcp snooping
@@ -1610,7 +1610,7 @@ Rogue DHCP Attack:
 - Victims receive attacker's DNS, default gateway.
 - Result: Traffic redirection, DNS hijacking.
 
-DHCP Snooping — Cisco:
+DHCP Snooping (Cisco):
 ```
 ! Enable globally and per VLAN
 ip dhcp snooping
@@ -1651,7 +1651,7 @@ telnet mail.example.com 25
 EHLO test.com    # Should list STARTTLS in capabilities
 ```
 
-SPF (Sender Policy Framework) — TXT Record:
+SPF (Sender Policy Framework) TXT Record:
 ```
 v=spf1 ip4:203.0.113.0/24 ip4:198.51.100.0/24 include:_spf.google.com include:mailchimp.com -all
 
@@ -1796,7 +1796,7 @@ Authentication-Results: mx.google.com;
 
 ### 8.4 Phishing Infrastructure Detection
 
-dnstwist — Typosquatting Detection:
+dnstwist (Typosquatting Detection):
 ```bash
 # Generate typosquatted domains and check registration
 dnstwist --registered example.com
@@ -1887,7 +1887,7 @@ PROFINET DCP:
 - DCP flooding: Broadcast discovery frames exhaust PROFINET device processing capacity: DoS.
 - Mitigation: Storm control on switches, segment OT networks from IT.
 
-EtherNet/IP (Common Industrial Protocol — CIP):
+EtherNet/IP (Common Industrial Protocol, CIP):
 - TCP 44818 (explicit messaging), UDP 2222 (implicit/I/O messaging).
 - No native encryption or authentication.
 - CIP Safety: deterministic response timing for safety-rated networks.
@@ -2039,7 +2039,7 @@ MQTT Security Checklist:
 
 ### 10.1 Wireshark
 
-Capture Filters (BPF syntax — applied at capture time):
+Capture Filters (BPF syntax, applied at capture time):
 ```
 # Basic
 host 192.168.1.100                        # All traffic to/from host
@@ -2056,7 +2056,7 @@ not broadcast and not multicast and not arp
 tcp[tcpflags] & (tcp-syn|tcp-rst) != 0   # SYN or RST flags
 ```
 
-Display Filters (Wireshark expression language — applied post-capture):
+Display Filters (Wireshark expression language, applied post-capture):
 ```
 # IP
 ip.src == 192.168.1.100

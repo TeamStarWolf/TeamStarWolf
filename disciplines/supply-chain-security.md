@@ -1,6 +1,6 @@
 # Supply Chain Security
 
-Supply chain security is the practice of protecting the integrity of software and hardware as it flows from developers, vendors, and open-source maintainers into production environments. Every dependency a project pulls, every build system that compiles code, every container image used as a base, and every third-party vendor with privileged access represents a supply chain risk. Adversaries have learned that attacking one well-positioned supplier can compromise thousands of downstream organizations simultaneously — making supply chain attacks one of the highest-leverage offensive techniques available. Supply chain security practitioners include DevSecOps engineers, software engineers, platform security teams, procurement and vendor risk teams, and incident responders. The field sits at the intersection of software development, cryptographic integrity, and risk management.
+Supply chain security is the practice of protecting the integrity of software and hardware as it flows from developers, vendors, and open-source maintainers into production environments. Every dependency a project pulls, every build system that compiles code, every container image used as a base, and every third-party vendor with privileged access represents a supply chain risk. Adversaries have learned that attacking one well-positioned supplier can compromise thousands of downstream organizations simultaneously, making supply chain attacks one of the highest-leverage offensive techniques available. Supply chain security practitioners include DevSecOps engineers, software engineers, platform security teams, procurement and vendor risk teams, and incident responders. The field sits at the intersection of software development, cryptographic integrity, and risk management.
 
 ---
 
@@ -41,7 +41,7 @@ Understanding real-world supply chain attacks shapes defensive priorities:
 | event-stream npm compromise | 2018 | Malicious maintainer added backdoor targeting Copay Bitcoin wallet | Targeted financial application via transitive npm dependency |
 | PyPI malicious packages (ongoing) | 2022+ | Typosquatting and dependency confusion packages | Credential theft, reverse shells deployed to developer machines |
 
-Key lesson: Sophisticated adversaries target the weakest link in the software delivery chain — often a less-scrutinized open source maintainer, a CI/CD credential, or a transitive dependency — rather than attacking the hardened target directly.
+Key lesson: Sophisticated adversaries target the weakest link in the software delivery chain (often a less-scrutinized open source maintainer, a CI/CD credential, or a transitive dependency) rather than attacking the hardened target directly.
 
 ---
 
@@ -61,7 +61,7 @@ Key lesson: Sophisticated adversaries target the weakest link in the software de
 
 ## SBOM: Software Bill of Materials
 
-An SBOM is a machine-readable inventory of all software components in an application or container — analogous to an ingredient list for software. SBOMs enable vulnerability correlation (match components against CVE databases), license compliance, and incident response (instantly identify which products contain a vulnerable library).
+An SBOM is a machine-readable inventory of all software components in an application or container, analogous to an ingredient list for software. SBOMs enable vulnerability correlation (match components against CVE databases), license compliance, and incident response (instantly identify which products contain a vulnerable library).
 
 SBOM formats:
 - CycloneDX: OWASP standard; JSON/XML; rich vulnerability and license metadata; widely tooled
@@ -127,7 +127,7 @@ SLSA (Supply chain Levels for Software Artifacts):
 
 Securing the build system prevents SolarWinds-style attacks where the output artifact is trojanized:
 
-Hermetic builds: The build environment is fully isolated — no network access, no access to secrets or the host file system beyond explicitly declared inputs. Output depends only on declared inputs.
+Hermetic builds: The build environment is fully isolated (no network access, no access to secrets or the host file system beyond explicitly declared inputs). Output depends only on declared inputs.
 
 Reproducible builds: Given the same source code and build environment, the build produces bit-for-bit identical output. Enables independent verification by multiple parties.
 
@@ -317,7 +317,7 @@ Dependency Security Management
 ## SBOM (Software Bill of Materials)
 
 What is an SBOM?
-A machine-readable inventory of all components in a software artifact — libraries, OS packages, transitive dependencies — with versions, licenses, and provenance.
+A machine-readable inventory of all components in a software artifact (libraries, OS packages, transitive dependencies) with versions, licenses, and provenance.
 
 Regulatory Mandate
 - US Executive Order 14028 (May 2021): Federal agencies must obtain SBOM for all software they purchase

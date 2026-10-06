@@ -5,7 +5,7 @@ The normalized relationship contract for the TeamStarWolf library. Every derived
 here with its normalized interpretation: which field is the source node, which is
 the target, the node types, the edge type, and the row cardinality.
 
-This is the contract a consumer — e.g. ATTACK-Navi's cross-framework graph — uses to
+This is the contract a consumer (e.g. ATTACK-Navi's cross-framework graph) uses to
 join the library's relationships without re-deriving them. The source/target field
 presence declared here is enforced in CI by `scripts/validate_jsonl.py` (the
 `edge-contract` check): every row must carry a non-empty source id and a non-empty
@@ -27,14 +27,14 @@ D3FEND technique name; `car_analytic` = `CAR-YYYY-MM-NNN`; `engage_activity` =
 | `control_to_technique.jsonl` | `nist_control`, control | `attack_technique`, technique | `control_mitigates_technique` | `confidence` | CTID (NIST 800-53 r5) |
 | `vendor_to_control.jsonl` | `vendor_normalized`, vendor | `nist_control`, control | `vendor_satisfies_control` | `confidence` | TeamStarWolf |
 | `vendor_to_technique.jsonl` | `vendor_normalized`, vendor | `attack_technique`, technique | `vendor_covers_technique` | `confidence` | TeamStarWolf ⋈ CTID |
-| `attack/mitigation_to_technique.jsonl` | `mitigation_id`, mitigation | `technique_id`, technique | `mitigation_mitigates_technique` | — | MITRE ATT&CK |
-| `attack/software_to_technique.jsonl` | `software_id`, software | `technique_id`, technique | `software_uses_technique` | — | MITRE ATT&CK |
-| `attack/group_to_technique.jsonl` | `group_id`, group | `technique_id`, technique | `group_uses_technique` | — | MITRE ATT&CK |
-| `attack/ics/group_to_technique.jsonl` | `group_id`, group | `technique_id`, technique | `group_uses_technique` | — | MITRE ATT&CK (ICS) |
-| `attack/mobile/group_to_technique.jsonl` | `group_id`, group | `technique_id`, technique | `group_uses_technique` | — | MITRE ATT&CK (Mobile) |
-| `attack/technique_to_d3fend.jsonl` | `technique_id`, technique | `d3fend_technique`, d3fend_countermeasure | `technique_countered_by_d3fend` (see `relation`) | — | MITRE D3FEND |
-| `attack/technique_to_d3fend_internal.jsonl` | `technique_id`, d3fend_offensive_technique | `d3fend_technique`, d3fend_countermeasure | `technique_countered_by_d3fend` (see `relation`) | — | MITRE D3FEND |
-| `attack/superseded_by.jsonl` | `old_id`, technique | `new_id`, technique¹ | `technique_superseded_by` | — | MITRE ATT&CK |
+| `attack/mitigation_to_technique.jsonl` | `mitigation_id`, mitigation | `technique_id`, technique | `mitigation_mitigates_technique` | N/A | MITRE ATT&CK |
+| `attack/software_to_technique.jsonl` | `software_id`, software | `technique_id`, technique | `software_uses_technique` | N/A | MITRE ATT&CK |
+| `attack/group_to_technique.jsonl` | `group_id`, group | `technique_id`, technique | `group_uses_technique` | N/A | MITRE ATT&CK |
+| `attack/ics/group_to_technique.jsonl` | `group_id`, group | `technique_id`, technique | `group_uses_technique` | N/A | MITRE ATT&CK (ICS) |
+| `attack/mobile/group_to_technique.jsonl` | `group_id`, group | `technique_id`, technique | `group_uses_technique` | N/A | MITRE ATT&CK (Mobile) |
+| `attack/technique_to_d3fend.jsonl` | `technique_id`, technique | `d3fend_technique`, d3fend_countermeasure | `technique_countered_by_d3fend` (see `relation`) | N/A | MITRE D3FEND |
+| `attack/technique_to_d3fend_internal.jsonl` | `technique_id`, d3fend_offensive_technique | `d3fend_technique`, d3fend_countermeasure | `technique_countered_by_d3fend` (see `relation`) | N/A | MITRE D3FEND |
+| `attack/superseded_by.jsonl` | `old_id`, technique | `new_id`, technique¹ | `technique_superseded_by` | N/A | MITRE ATT&CK |
 
 ¹ `new_id` is nullable: a `deprecated` retirement (or a revoked-to-dead-end) has `new_id: null`. See [VOCABULARIES.md](VOCABULARIES.md) `reason`.
 

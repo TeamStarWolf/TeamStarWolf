@@ -1,6 +1,6 @@
 # HackTheBox Machine Index
 
-> In one minute — An index of 127 retired Hack The Box machines with official writeups, organized by difficulty (Easy through Insane) with each machine's OS and the key skills it teaches. It doubles as a progressive learning roadmap: pick machines by the technique you want to learn, follow the enumeration and note-taking workflow, and use writeups only after genuine effort. Useful whenever you want deliberate hands-on practice instead of random machine grinding.
+> In one minute: An index of 127 retired Hack The Box machines with official writeups, organized by difficulty (Easy through Insane) with each machine's OS and the key skills it teaches. It doubles as a progressive learning roadmap: pick machines by the technique you want to learn, follow the enumeration and note-taking workflow, and use writeups only after genuine effort. Useful whenever you want deliberate hands-on practice instead of random machine grinding.
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 
 
 
-Official HTB retired machine writeup index — 127 machines organized by difficulty with OS and key skills learned.
+Official HTB retired machine writeup index: 127 machines organized by difficulty with OS and key skills learned.
 
 
 
@@ -30,17 +30,17 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 |---|---|---|
 
-| Access | Windows | — |
+| Access | Windows | Not listed |
 
-| Active | Windows | — |
+| Active | Windows | Not listed |
 
-| Arctic | Windows | — |
+| Arctic | Windows | Not listed |
 
 | Bashed | Linux | Basic web fuzzing techniques; Locating recently modified files |
 
 | Bastion | Windows | Extracting passwords from SAM |
 
-| Blocky | Linux | — |
+| Blocky | Linux | Not listed |
 
 | Blue | Windows | Identifying Windows targets using SMB |
 
@@ -66,7 +66,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Help | Linux | GraphQL |
 
-| Irked | Linux | — |
+| Irked | Linux | Not listed |
 
 | Jerry | Linux | Basic script debugging; Custom war file payload creation; SILENTTRINITY post- |
 
@@ -88,9 +88,9 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Safe | Linux | Cracking keepass databases |
 
-| Shocker | Linux | — |
+| Shocker | Linux | Not listed |
 
-| SwagShop | Linux | — |
+| SwagShop | Linux | Not listed |
 
 | Writeup | Linux | Path hijacking; Process |
 
@@ -104,7 +104,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Apocalyst | Linux | Wordlist generation; HTTP-based brute forcing; Basic steganograpy |
 
-| Aragog | Linux | — |
+| Aragog | Linux | Not listed |
 
 | Arkham | Windows | Java Deserialization; UAC bypass |
 
@@ -114,11 +114,11 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Beep | Linux | Web-based fuzzing; Identifying known |
 
-| Canape | Linux | — |
+| Canape | Linux | Not listed |
 
-| Carrier | Linux | — |
+| Carrier | Linux | Not listed |
 
-| Celestial | Linux | — |
+| Celestial | Linux | Not listed |
 
 | Chaos | Linux | Breaking out of restricted shells; Extracting data from firefox profiles |
 
@@ -126,7 +126,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Cronos | Linux | SQL Injection; Command injection |
 
-| DevOops | Linux | — |
+| DevOops | Linux | Not listed |
 
 | Dropzone | Windows | TFTP data transfer |
 
@@ -150,7 +150,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Nineveh | Linux | HTTP-based brute forcing; Chaining |
 
-| Olympus | Linux | — |
+| Olympus | Linux | Not listed |
 
 | Popcorn | Linux | Bypassing file upload checks; Modifying HTTP requests |
 
@@ -166,7 +166,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Sneaky | Linux | Basic SQL injection; Enumerating SNMP |
 
-| SolidState | Linux | — |
+| SolidState | Linux | Not listed |
 
 | Stratosphere | Linux | Identifying and |
 
@@ -210,7 +210,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Conceal | Windows | IKE Configuration |
 
-| CrimeStoppers | Linux | — |
+| CrimeStoppers | Linux | Not listed |
 
 | Dab | Linux | Wfuzz advanced |
 
@@ -232,13 +232,13 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Joker | Linux | Bypassing network restrictions |
 
-| Kotarak | Linux | — |
+| Kotarak | Linux | Not listed |
 
 | Mantis | Windows | Enumerating SQL Server Express; databases |
 
 | Node | Linux | Bypassing |
 
-| October | Linux | — |
+| October | Linux | Not listed |
 
 | OneTwoSeven | Linux | Apache rules; Abusing apt package manager |
 
@@ -278,7 +278,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Fortune | Linux | Creating HTTPS client certificates |
 
-| Fulcrum | Windows | — |
+| Fulcrum | Windows | Not listed |
 
 | Hackback | Windows | ASPX tunneling; Named pipe impersonation |
 
@@ -288,7 +288,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Kryptos | Linux | PDO Injection |
 
-| Minion | Windows | — |
+| Minion | Windows | Not listed |
 
 | Mischief | Linux | Familiarity with SNMP OIDs; IPv6 decimal to hexadecimal encoding; techniques |
 
@@ -300,7 +300,7 @@ Official HTB retired machine writeup index — 127 machines organized by difficu
 
 | Smasher | Linux | Binary file fuzzing |
 
-| Smasher2 | Linux | — |
+| Smasher2 | Linux | Not listed |
 
 ## Unknown
 
@@ -463,4 +463,4 @@ Key usage tip: Search by *technique*, not machine name. For example:
 
 IppSec's videos are not speed-runs -- he explains *why* each step works, investigates rabbit holes, and often shows multiple approaches. Watching IppSec after completing a machine (or after a machine retires) dramatically accelerates skill development.
 
-Direct link: **https://www.ippsec.rocks/**
+Direct link: https://www.ippsec.rocks/

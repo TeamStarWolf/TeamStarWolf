@@ -165,7 +165,7 @@ High Availability Architecture:
 
 ### Seal/Unseal Mechanics
 
-When Vault starts, it is sealed — it knows the storage location but cannot decrypt any data. Unsealing decrypts the master key.
+When Vault starts, it is sealed: it knows the storage location but cannot decrypt any data. Unsealing decrypts the master key.
 
 Shamir's Secret Sharing (default):
 - Master encryption key is split into `N` shares using Shamir's algorithm.
@@ -915,7 +915,7 @@ secret = client.get_secret("DbPassword")
 print(secret.value)
 ```
 
-Soft delete + purge protection: Deleted secrets are retained for the retention period (7-90 days). With purge protection enabled, even vault administrators cannot permanently delete secrets until the retention period expires — critical protection against ransomware.
+Soft delete + purge protection: Deleted secrets are retained for the retention period (7-90 days). With purge protection enabled, even vault administrators cannot permanently delete secrets until the retention period expires, critical protection against ransomware.
 
 ### GCP Secret Manager
 
@@ -1142,7 +1142,7 @@ kubectl create secret generic myapp-secret --dry-run=client \
 kubectl apply -f myapp-sealed-secret.yaml
 ```
 
-The `SealedSecret` YAML is safe to commit to git — it can only be decrypted by the specific cluster controller.
+The `SealedSecret` YAML is safe to commit to git: it can only be decrypted by the specific cluster controller.
 
 ### SOPS (Secrets OPerationS)
 
@@ -1319,7 +1319,7 @@ Production HSM vendors: Thales Luna, AWS CloudHSM, Azure Dedicated HSM, Utimaco,
 
 ### mTLS Certificate Management for Microservices
 
-Mutual TLS (mTLS) requires both client and server to present certificates — essential for zero-trust microservice communication.
+Mutual TLS (mTLS) requires both client and server to present certificates, essential for zero-trust microservice communication.
 
 ```yaml
 # Istio mTLS PeerAuthentication
@@ -1373,7 +1373,7 @@ SSH keys face the same sprawl problems as passwords, compounded by:
 
 ### Vault SSH Secrets Engine
 
-CA signing mode (recommended) — short-lived certificates replace static authorized_keys:
+CA signing mode (recommended). Short-lived certificates replace static authorized_keys:
 
 ```bash
 vault secrets enable ssh

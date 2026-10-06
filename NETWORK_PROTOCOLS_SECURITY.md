@@ -1,9 +1,9 @@
 # Network Protocols Security Reference
 
-> How attackers exploit every major protocol — mechanics, TTPs, detection, and defenses.
+> How attackers exploit every major protocol: mechanics, TTPs, detection, and defenses.
 > ATT&CK technique IDs are noted throughout. All tool commands are for authorized use only.
 >
-> Pairs with [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md) — the engineering/defender companion: protocol internals, hardening configs (Cisco IOS / sshd_config), the TLS/OAuth/SAML chapters, OT-ICS / VoIP / MQTT coverage, and the packet-analysis tooling chapter (Wireshark, tshark, Zeek). This file is the attacker view; that one is the engineering view.
+> Pairs with [NETWORK_PROTOCOLS_REFERENCE.md](NETWORK_PROTOCOLS_REFERENCE.md), the engineering/defender companion: protocol internals, hardening configs (Cisco IOS / sshd_config), the TLS/OAuth/SAML chapters, OT-ICS / VoIP / MQTT coverage, and the packet-analysis tooling chapter (Wireshark, tshark, Zeek). This file is the attacker view; that one is the engineering view.
 
 ---
 
@@ -37,7 +37,7 @@ DNS is the internet's distributed naming system. Resolution follows a hierarchic
 4. TLD name server refers to the authoritative name server for the domain.
 5. Authoritative server returns the record; resolver caches it per the TTL.
 
-Common record types: `A` (IPv4), `AAAA` (IPv6), `MX` (mail), `CNAME` (alias), `NS` (name server), `TXT` (SPF/DKIM/etc.), `PTR` (reverse), `SRV` (service location), `ANY` (all records — now largely deprecated per RFC 8482).
+Common record types: `A` (IPv4), `AAAA` (IPv6), `MX` (mail), `CNAME` (alias), `NS` (name server), `TXT` (SPF/DKIM/etc.), `PTR` (reverse), `SRV` (service location), `ANY` (all records, now largely deprecated per RFC 8482).
 
 UDP is used for queries ≤512 bytes; TCP is used for zone transfers (AXFR) and responses that exceed 512 bytes (EDNS0 extends this to ~4096 bytes over UDP).
 
@@ -72,7 +72,7 @@ Detection indicators: high query rate to single domain, labels >40 characters (l
 
 #### DNS Amplification: T1498.002
 
-Exploit misconfigured resolvers to amplify DDoS traffic. An `ANY` or `DNSKEY` query of ~40 bytes can return 3,000+ bytes — 70x amplification. Combined with source IP spoofing (BCP38 violations), this floods victims.
+Exploit misconfigured resolvers to amplify DDoS traffic. An `ANY` or `DNSKEY` query of ~40 bytes can return 3,000+ bytes: 70x amplification. Combined with source IP spoofing (BCP38 violations), this floods victims.
 
 ```bash
 # Check if resolver is open (will amplify)
@@ -151,7 +151,7 @@ Server: HTTP/1.1 200 OK
 
 HTTP/2 (RFC 7540) introduces binary framing, multiplexing multiple streams over a single TCP connection, header compression (HPACK), and server push. HTTP/3 runs over QUIC (UDP).
 
-HTTPS wraps HTTP in TLS. TLS 1.3 (RFC 8446) is current — mandatory forward secrecy, 0-RTT resumption, encrypted handshake.
+HTTPS wraps HTTP in TLS. TLS 1.3 (RFC 8446) is current: mandatory forward secrecy, 0-RTT resumption, encrypted handshake.
 
 ### Attack Techniques
 
@@ -212,7 +212,7 @@ Tools: Burp Suite HTTP Request Smuggler extension, `smuggler.py`. Impact include
 
 Rapid7 / CERT/CC disclosed in April 2024 that many HTTP/2 implementations fail to limit CONTINUATION frames (used to extend HEADERS). Sending a stream of CONTINUATION frames without END_HEADERS flag forces servers to buffer indefinitely, causing OOM or CPU exhaustion with a single TCP connection.
 
-Affected: Apache httpd, nginx (certain configs), Node.js, Go net/http, Envoy — most patched by mid-2024.
+Affected: Apache httpd, nginx (certain configs), Node.js, Go net/http, Envoy; most patched by mid-2024.
 
 Detection: Unusual spike in HTTP/2 CONTINUATION frames per connection, server memory exhaustion, absence of END_HEADERS flag in extended frame sequences.
 
@@ -460,7 +460,7 @@ Golden Tickets can be set with 20-year validity. Detection: Tickets with anomalo
 
 #### Silver Ticket: T1558.002
 
-Forge a service ticket using the service account hash (no KDC contact). More stealthy than Golden Ticket — no authentication events at the DC.
+Forge a service ticket using the service account hash (no KDC contact). More stealthy than Golden Ticket: no authentication events at the DC.
 
 ```bash
 mimikatz # kerberos::silver /user:Administrator /domain:corp.local \
@@ -656,7 +656,7 @@ Detection: Event ID 4625 spikes from external IPs on port 3389, Event 4771 (Kerb
 
 #### RDP Session Hijacking: T1563.002
 
-An attacker with SYSTEM privileges can hijack any RDP session — including disconnected ones — without knowing the user's password:
+An attacker with SYSTEM privileges can hijack any RDP session, including disconnected ones, without knowing the user's password:
 
 ```bash
 # List sessions
@@ -853,7 +853,7 @@ POP3 (port 995/110): Downloads and deletes from server; legacy, single-device mo
 
 #### Open Relay Exploitation: T1566.002, T1114
 
-An open relay accepts and forwards mail from any source to any destination — used for spam and phishing.
+An open relay accepts and forwards mail from any source to any destination, used for spam and phishing.
 
 ```bash
 # Test for open relay via telnet
@@ -927,7 +927,7 @@ Unsanitized `\r\n` in user-controlled fields (name, address) in SMTP headers all
 
 - SPF: Publish TXT record listing authorized sending IPs; `v=spf1 include:sendgrid.net ~all`.
 - DKIM: Cryptographically sign outbound mail; `v=DKIM1; k=rsa; p=<pubkey>`.
-- DMARC: Policy for SPF/DKIM failures; `v=DMARC1; p=reject; rua=mailto:dmarc@corp.com` — enforce `p=reject`.
+- DMARC: Policy for SPF/DKIM failures; `v=DMARC1; p=reject; rua=mailto:dmarc@corp.com`; enforce `p=reject`.
 - Disable VRFY/EXPN: `smtpd_disable_vrfy_command = yes` (Postfix); prevents user enumeration.
 - Require authentication: `smtpd_relay_restrictions = permit_sasl_authenticated, reject`: no open relay.
 - STARTTLS / SMTPS: Encrypt in transit; use TLS 1.2+ only.
@@ -1043,7 +1043,7 @@ NTP uses UDP port 123. The protocol uses timestamps and round-trip delay calcula
 
 #### NTP Amplification: CVE-2013-5211, T1498.002
 
-The `monlist` command (MON_GETLIST) returns the last 600 hosts that synchronized with the server. A 234-byte request generates a ~48KB response — a 557x amplification factor.
+The `monlist` command (MON_GETLIST) returns the last 600 hosts that synchronized with the server. A 234-byte request generates a ~48KB response: a 557x amplification factor.
 
 ```bash
 # Check if monlist is enabled (vulnerable)
@@ -1122,7 +1122,7 @@ for i in range(256):
 
 #### Rogue DHCP Server: T1557, T1071.001
 
-After starvation (or without it on a network without DHCP snooping), deploy a rogue server that issues attacker-controlled gateway and DNS to all new DHCP clients — enabling MITM for all traffic.
+After starvation (or without it on a network without DHCP snooping), deploy a rogue server that issues attacker-controlled gateway and DNS to all new DHCP clients, enabling MITM for all traffic.
 
 ```bash
 # dnsmasq rogue DHCP server
@@ -1171,7 +1171,7 @@ Key concepts:
 
 #### BGP Prefix Hijacking: T1584.007, T1557
 
-An AS advertises prefixes it does not legitimately own — either accidentally (misconfiguration) or maliciously. Routers prefer more-specific prefixes (longer prefix length).
+An AS advertises prefixes it does not legitimately own: either accidentally (misconfiguration) or maliciously. Routers prefer more-specific prefixes (longer prefix length).
 
 ```
 Legitimate: AS15169 announces 8.8.8.0/24

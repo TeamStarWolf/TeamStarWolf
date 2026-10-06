@@ -1,14 +1,14 @@
 # AI & LLM Security
 
-AI and Large Language Model security covers two intersecting domains: securing AI systems against adversarial attack, and understanding how AI enables new categories of offensive capability. As organizations deploy LLMs in production, a distinct class of vulnerabilities has emerged — prompt injection, jailbreaking, training data poisoning, model inversion, and supply-chain attacks on model weights — while defenders simultaneously explore how AI agents can automate red-teaming, accelerate threat detection, and reason over massive datasets.
+AI and Large Language Model security covers two intersecting domains: securing AI systems against adversarial attack, and understanding how AI enables new categories of offensive capability. As organizations deploy LLMs in production, a distinct class of vulnerabilities has emerged (prompt injection, jailbreaking, training data poisoning, model inversion, and supply-chain attacks on model weights), while defenders simultaneously explore how AI agents can automate red-teaming, accelerate threat detection, and reason over massive datasets.
 
-This is the fastest-moving field in security. Threat taxonomies like MITRE ATLAS are maturing in public, the OWASP LLM Top 10 has become the reference framework for application-layer LLM risks, and the researchers defining best practices are doing so in real time. Practitioners entering this space need strong security fundamentals combined with enough ML knowledge to reason about model behavior — deep research experience is not required, but understanding what LLMs can and cannot do is essential for building meaningful threat models.
+This is the fastest-moving field in security. Threat taxonomies like MITRE ATLAS are maturing in public, the OWASP LLM Top 10 has become the reference framework for application-layer LLM risks, and the researchers defining best practices are doing so in real time. Practitioners entering this space need strong security fundamentals combined with enough ML knowledge to reason about model behavior: deep research experience is not required, but understanding what LLMs can and cannot do is essential for building meaningful threat models.
 
 ---
 
 ## Where to Start
 
-AI security demands fluency in both ML fundamentals and traditional offensive/defensive security. Start with a concrete threat model: decide whether you want to focus on attacking and evaluating AI systems or on defending them in production, then expand outward from there. MITRE ATLAS is the closest equivalent to ATT&CK for AI/ML — the best single framework for building a shared vocabulary. Start there, then work through the OWASP LLM Top 10 to understand application-level risks.
+AI security demands fluency in both ML fundamentals and traditional offensive/defensive security. Start with a concrete threat model: decide whether you want to focus on attacking and evaluating AI systems or on defending them in production, then expand outward from there. MITRE ATLAS is the closest equivalent to ATT&CK for AI/ML: the best single framework for building a shared vocabulary. Start there, then work through the OWASP LLM Top 10 to understand application-level risks.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -109,7 +109,7 @@ NIST SP 800-53 predates the current AI security landscape, but many controls map
 | Control ID | Control Name | How AI/LLM Security Addresses It |
 |---|---|---|
 | [SA-11](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SA-11) | Developer Testing and Evaluation | Red-teaming LLM systems before production deployment (using garak, PyRIT) satisfies the developer testing requirement; adversarial ML testing is a form of security testing that must be integrated into the AI development lifecycle |
-| [SA-15](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SA-15) | Development Process, Standards, and Tools | Secure AI development practices — including training data provenance, model version control, and supply chain integrity for model weights — map to SA-15 development process requirements |
+| [SA-15](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SA-15) | Development Process, Standards, and Tools | Secure AI development practices (including training data provenance, model version control, and supply chain integrity for model weights) map to SA-15 development process requirements |
 | [RA-3](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=RA-3) | Risk Assessment | AI/ML system risk assessments using MITRE ATLAS as a threat model and OWASP LLM Top 10 as a vulnerability taxonomy satisfy RA-3 for AI deployments; the NIST AI RMF provides the governance structure |
 | [SI-10](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SI-10) | Information Input Validation | Prompt injection defenses and input sanitization for LLM applications are a form of input validation; guardrails (NeMo-Guardrails, llm-guard) satisfy SI-10 for AI-powered interfaces |
 | [SI-7](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_1_0/home?element=SI-7) | Software, Firmware, and Information Integrity | Model weight integrity verification, SBOM tracking for ML dependencies, and supply chain controls for training datasets satisfy SI-7 for AI system components |
@@ -171,10 +171,10 @@ NIST SP 800-53 predates the current AI security landscape, but many controls map
 
 ## Certifications
 
-Note: AI security is an emerging field and formal certification infrastructure is still maturing. Most practitioners build credibility through research, CTF performance, public tooling, and published work rather than credentials alone. Certifications that exist today may not reflect the field's current state — prioritize demonstrated skill.
+Note: AI security is an emerging field and formal certification infrastructure is still maturing. Most practitioners build credibility through research, CTF performance, public tooling, and published work rather than credentials alone. Certifications that exist today may not reflect the field's current state: prioritize demonstrated skill.
 
 - GDAT (GIAC Defending Advanced Threats): Covers advanced defensive techniques including AI-enabled security tools and adversarial threat detection; the most applicable GIAC certification for AI security practitioners focused on defense
-- AWS Certified Machine Learning: Specialty — Includes security domains for AI workloads on AWS; valuable for practitioners securing AI deployments in AWS environments; covers model protection and access control
+- AWS Certified Machine Learning (Specialty): Includes security domains for AI workloads on AWS; valuable for practitioners securing AI deployments in AWS environments; covers model protection and access control
 - Azure AI Engineer Associate (AI-102): Azure AI security controls, responsible AI principles, and secure AI service deployment in the Microsoft ecosystem
 - AI Bug Bounty Programs: Anthropic, OpenAI, Google, and Meta run active bug bounty programs accepting AI-specific vulnerability reports; successful findings serve as stronger credentials than most formal certifications in this space
 
@@ -214,7 +214,7 @@ Note: AI security is an emerging field and formal certification infrastructure i
 - [NIST AI Risk Management Framework](https://airc.nist.gov/RMF): NIST's comprehensive framework for managing risk across the AI system lifecycle; the governance foundation for regulated environments
 - [Google SAIF](https://safety.google/cybersecurity-advancements/saif/): Google's Secure AI Framework covering six core elements for building and securing AI systems
 - [Anthropic Safety Research](https://www.anthropic.com/research): Published research on Constitutional AI, interpretability, and safety evaluation from a leading frontier model developer
-- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): AI-assisted security analysis in practice; uses data-driven technique correlation to help analysts reason over ATT&CK at scale — the same class of capability that AI security practitioners are both building and defending against
+- [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): AI-assisted security analysis in practice; uses data-driven technique correlation to help analysts reason over ATT&CK at scale; the same class of capability that AI security practitioners are both building and defending against
 - [LLM Security (llmsecurity.net)](https://llmsecurity.net): Curated aggregator of LLM vulnerability research and real-world incident disclosures; the best single source for staying current
 - [Microsoft AI Red Team Blog](https://www.microsoft.com/en-us/security/blog/topic/microsoft-ai-red-team/): Case studies and methodology from Microsoft's dedicated AI Red Team practice
 - [Berryville Institute of Machine Learning (BIML)](https://berryvilleiml.com): Gary McGraw's systematic architectural risk analysis of ML systems; rigorous engineering perspective on AI security
@@ -233,7 +233,7 @@ Prompt Injection Attacks
   - Real-world: Bing Chat (now Copilot) was manipulated via indirect injection in search results (2023)
   - Agent context: Most dangerous in agentic systems where LLM reads external content and takes actions
 
-OWASP Top 10 for LLM Applications (2023 — legacy taxonomy; see currency note)
+OWASP Top 10 for LLM Applications (2023, legacy taxonomy; see currency note)
 
 > Currency note: The current edition is the 2026 OWASP Top 10 for LLM Applications (OWASP GenAI Security Project, published August 2026). It re-ranks the 2025 list and renames System Prompt Leakage to Hidden Context Exposure (now LLM08). 2026 order: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. The table below uses the older 2023 taxonomy and is retained for history.
 
@@ -286,7 +286,7 @@ Model Theft / Extraction
 
 ## Related Disciplines
 
-AI/LLM security is inherently cross-disciplinary. Understanding how it connects to traditional security domains helps practitioners avoid blind spots — both the ones that come from approaching AI as a pure software problem and the ones that come from treating AI security as entirely separate from mainstream security practice.
+AI/LLM security is inherently cross-disciplinary. Understanding how it connects to traditional security domains helps practitioners avoid blind spots: both the ones that come from approaching AI as a pure software problem and the ones that come from treating AI security as entirely separate from mainstream security practice.
 
 - [threat-intelligence.md](/disciplines/threat-intelligence.md): AI systems are increasingly both producers and targets of threat intelligence; LLMs can accelerate threat report analysis and IOC extraction, but they also introduce new attack surfaces (adversarial prompts in threat feeds, malicious content in RAG data sources) that threat intelligence practitioners must understand
 - [vulnerability-management.md](/disciplines/vulnerability-management.md): AI/ML system components (frameworks like PyTorch and TensorFlow, inference servers like Triton, model hub packages) have CVEs just like any other software; VM programs must extend scope to include ML infrastructure; additionally, LLM-assisted code generation creates new vulnerability classes (insecure AI-generated code) that VM programs must account for

@@ -1,6 +1,6 @@
 # Starred Repositories Index
 
-> In one minute — This is the full map of 1032 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
+> In one minute: This is the full map of 1032 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
 
 | | |
 |---|---|
@@ -1626,8 +1626,8 @@ Curated reference additions: enterprise-grade detection and SIEM platforms, and 
 
 | Repository | Author/Org | Stars | Description |
 |------------|-----------|-------|-------------|
-| [CrowdStrike/MITRE-Eval-Detections](https://github.com/CrowdStrike/MITRE-Eval-Detections) | CrowdStrike | — | Detection mappings from CrowdStrike ATT&CK Evaluations |
-| [microsoft/MSTIC-Jupyter-Notebooks](https://github.com/microsoft/MSTIC-Jupyter-Notebooks) | Microsoft | — | Threat intelligence and hunting notebooks from MSTIC |
+| [CrowdStrike/MITRE-Eval-Detections](https://github.com/CrowdStrike/MITRE-Eval-Detections) | CrowdStrike | N/A | Detection mappings from CrowdStrike ATT&CK Evaluations |
+| [microsoft/MSTIC-Jupyter-Notebooks](https://github.com/microsoft/MSTIC-Jupyter-Notebooks) | Microsoft | N/A | Threat intelligence and hunting notebooks from MSTIC |
 | [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) | Microsoft | ★★★★★ | Microsoft Sentinel detection rules, playbooks, workbooks |
 | [splunk/security_content](https://github.com/splunk/security_content) | Splunk | ★★★★★ | Splunk Security Essentials detection rules and use cases |
 | [elastic/detection-rules](https://github.com/elastic/detection-rules) | Elastic | ★★★★★ | Elastic Security detection rules (EQL, KQL, YARA) |

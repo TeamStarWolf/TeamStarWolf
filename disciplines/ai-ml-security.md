@@ -1,6 +1,6 @@
 # AI / ML Security
 
-AI/ML security addresses the attack surface introduced by machine learning systems: the training pipeline, model artifacts, inference APIs, and the data they depend on. As ML systems move into high-stakes domains — fraud detection, autonomous vehicles, medical diagnosis, security tooling itself — the consequences of adversarial manipulation grow from academic curiosity to critical business and safety risk.
+AI/ML security addresses the attack surface introduced by machine learning systems: the training pipeline, model artifacts, inference APIs, and the data they depend on. As ML systems move into high-stakes domains (fraud detection, autonomous vehicles, medical diagnosis, security tooling itself), the consequences of adversarial manipulation grow from academic curiosity to critical business and safety risk.
 
 AI/ML security practitioners must understand both how to attack ML systems (poisoning training data, extracting model parameters, generating adversarial examples) and how to defend them (adversarial training, differential privacy, model monitoring, supply chain controls for ML artifacts). This discipline connects deeply with application security, cloud security, MLOps, and the emerging field of AI governance.
 
@@ -79,7 +79,7 @@ AI/ML security practitioners must understand both how to attack ML systems (pois
 | T1059 | Command and Scripting Interpreter | Execution | Compromising MLOps CI/CD pipelines to inject malicious training code or poisoned data |
 | T1190 | Exploit Public-Facing Application | Initial Access | Exploiting insecure ML serving endpoints (unauthenticated Jupyter notebooks, MLflow, Kubeflow) for initial access |
 | T1552 | Unsecured Credentials | Credential Access | Credentials embedded in ML training scripts, notebooks, or committed to model repositories |
-| T1485 | Data Destruction | Impact | Deletion or corruption of training datasets or model artifacts — destroying months of ML work |
+| T1485 | Data Destruction | Impact | Deletion or corruption of training datasets or model artifacts, destroying months of ML work |
 
 ## ML Lifecycle Attack Surface
 
@@ -174,7 +174,7 @@ NIST AI Risk Management Framework (AI RMF)
 - Measure: Analyze, assess, and track identified risks
 - Manage: Prioritize and implement risk treatments
 
-EU AI Act (2024) — Risk Tiers
+EU AI Act (2024): Risk Tiers
 
 | Risk Level | Examples | Requirements |
 |-----------|---------|-------------|

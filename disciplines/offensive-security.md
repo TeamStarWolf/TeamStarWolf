@@ -1,6 +1,6 @@
 # Offensive Security
 
-Offensive security encompasses penetration testing, red teaming, adversary emulation, and vulnerability research — the disciplines that stress-test defenses by thinking and operating like attackers. Penetration testing produces scoped findings against a defined attack surface. Red teaming evaluates the full detection, response, and recovery capability of an organization by simulating a persistent, goal-oriented adversary. Adversary emulation reproduces the specific TTPs of known threat groups to validate whether controls would actually stop them. These are distinct missions with different methodologies, deliverables, and required skills — understanding that distinction is the first mark of a serious offensive security practitioner.
+Offensive security encompasses penetration testing, red teaming, adversary emulation, and vulnerability research: the disciplines that stress-test defenses by thinking and operating like attackers. Penetration testing produces scoped findings against a defined attack surface. Red teaming evaluates the full detection, response, and recovery capability of an organization by simulating a persistent, goal-oriented adversary. Adversary emulation reproduces the specific TTPs of known threat groups to validate whether controls would actually stop them. These are distinct missions with different methodologies, deliverables, and required skills; understanding that distinction is the first mark of a serious offensive security practitioner.
 
 The field has evolved rapidly. Modern red teams must contend with EDR platforms that catch commodity tooling instantly, requiring custom implant development and living-off-the-land techniques. Active Directory remains the dominant internal attack surface, and cloud environments have opened entirely new initial access and lateral movement paths. Offensive practitioners who stay current are among the most valued in the industry precisely because the defenders they test are investing heavily to stop them.
 
@@ -8,7 +8,7 @@ The field has evolved rapidly. Modern red teams must contend with EDR platforms 
 
 ## Where to Start
 
-The fastest legal path into offensive security is through structured lab environments. Hack The Box, TryHackMe, and PentesterLab provide hands-on exploitation practice against deliberately vulnerable targets. Start with web applications — the attack surface is well-documented, the tools are accessible, and web exploitation skills transfer directly to bug bounty programs that pay cash. Move into network and Active Directory attacks once fundamentals are solid. Learn Python and PowerShell early; manual exploitation teaches the concept but automation teaches the craft.
+The fastest legal path into offensive security is through structured lab environments. Hack The Box, TryHackMe, and PentesterLab provide hands-on exploitation practice against deliberately vulnerable targets. Start with web applications: the attack surface is well-documented, the tools are accessible, and web exploitation skills transfer directly to bug bounty programs that pay cash. Move into network and Active Directory attacks once fundamentals are solid. Learn Python and PowerShell early; manual exploitation teaches the concept but automation teaches the craft.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -108,10 +108,10 @@ The fastest legal path into offensive security is through structured lab environ
 ## Certifications
 
 - OSCP (Offensive Security Certified Professional): The gold standard penetration testing certification; 24-hour exam compromising a lab network; required or strongly preferred by offensive security employers; validates real exploitation skill, not memorization
-- PNPT (Practical Network Penetration Tester: TCM Security) — Practical 5-day exam requiring a full external/internal pentest plus written report; the most accessible hands-on certification at any experience level; excellent value
-- CRTO (Certified Red Team Operator: Zero-Point Security) — Hands-on red team certification using the Havoc C2 framework; covers C2 infrastructure, phishing, Active Directory attacks, OPSEC, and evasion; the most respected red team-specific certification
-- CRTE (Certified Red Team Expert: Altered Security) — Advanced Active Directory attack certification covering complex trust relationships, ADCS abuse, delegation attacks, and cross-forest compromise
-- OSEP (Offensive Security Experienced Penetration Tester: OffSec) — Advanced evasion and red team operations; AV/EDR evasion, custom payload development, and advanced post-exploitation from OffSec
+- PNPT (Practical Network Penetration Tester: TCM Security). Practical 5-day exam requiring a full external/internal pentest plus written report; the most accessible hands-on certification at any experience level; excellent value
+- CRTO (Certified Red Team Operator: Zero-Point Security). Hands-on red team certification using the Havoc C2 framework; covers C2 infrastructure, phishing, Active Directory attacks, OPSEC, and evasion; the most respected red team-specific certification
+- CRTE (Certified Red Team Expert: Altered Security). Advanced Active Directory attack certification covering complex trust relationships, ADCS abuse, delegation attacks, and cross-forest compromise
+- OSEP (Offensive Security Experienced Penetration Tester: OffSec). Advanced evasion and red team operations; AV/EDR evasion, custom payload development, and advanced post-exploitation from OffSec
 - GPEN (GIAC Penetration Tester): Broad pentesting methodology certification; vendor-neutral and widely recognized in enterprise and government procurement requirements
 
 ---

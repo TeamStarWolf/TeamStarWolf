@@ -1,6 +1,6 @@
 # Blockchain & Web3 Security
 
-Blockchain and Web3 security encompasses the practices, tools, and controls required to secure blockchain protocols, smart contracts, DeFi protocols, NFT platforms, Web3 applications, and cryptocurrency infrastructure. It is a growing specialized discipline combining traditional web application security and cryptography skills with protocol-level analysis unique to decentralized systems. Unlike conventional software, smart contracts are immutable once deployed — bugs cannot be patched after the fact, making pre-deployment security review the only reliable defense. A single vulnerability in a widely-used DeFi protocol can result in nine-figure losses within a single transaction.
+Blockchain and Web3 security encompasses the practices, tools, and controls required to secure blockchain protocols, smart contracts, DeFi protocols, NFT platforms, Web3 applications, and cryptocurrency infrastructure. It is a growing specialized discipline combining traditional web application security and cryptography skills with protocol-level analysis unique to decentralized systems. Unlike conventional software, smart contracts are immutable once deployed: bugs cannot be patched after the fact, making pre-deployment security review the only reliable defense. A single vulnerability in a widely-used DeFi protocol can result in nine-figure losses within a single transaction.
 
 The discipline sits at the intersection of cryptography, distributed systems, and software security. Practitioners must understand not only code-level vulnerabilities like reentrancy and integer overflow, but also protocol-level attack surfaces including flash loans, oracle manipulation, bridge exploits, and MEV (Miner/Maximum Extractable Value). The historical record is stark: The DAO hack ($60M, 2016), Ronin bridge ($625M, 2022), and Wormhole bridge ($320M, 2022) represent a pattern of high-consequence exploits against systems securing real economic value with no recovery mechanism.
 
@@ -8,7 +8,7 @@ The discipline sits at the intersection of cryptography, distributed systems, an
 
 ## Where to Start
 
-Begin with Solidity and smart contract fundamentals before studying vulnerability classes. Understanding how the EVM executes code, how storage slots work, and what the call stack looks like at the bytecode level makes every vulnerability class more concrete. Ethernaut CTF and Damn Vulnerable DeFi are the hands-on starting points — working through them in order covers the majority of real-world exploit patterns.
+Begin with Solidity and smart contract fundamentals before studying vulnerability classes. Understanding how the EVM executes code, how storage slots work, and what the call stack looks like at the bytecode level makes every vulnerability class more concrete. Ethernaut CTF and Damn Vulnerable DeFi are the hands-on starting points: working through them in order covers the majority of real-world exploit patterns.
 
 | Stage | Focus | Where to Begin |
 |---|---|---|
@@ -46,7 +46,7 @@ Functions that should be restricted (owner-only, admin-only) are left `public` o
 Miners and MEV bots can observe pending transactions in the mempool and insert their own transactions with higher gas to execute first. DEX sandwich attacks extract value by front-running a large trade (buying before it, selling after), moving the price against the victim. Commit-reveal schemes and private mempools (Flashbots Protect) mitigate but do not eliminate MEV.
 
 ### Flash Loan Attacks
-Flash loans allow borrowing millions of tokens within a single transaction at zero cost — the loan must be repaid by the end of the transaction or everything reverts. Attackers use flash loans to manipulate DeFi protocol state temporarily: borrow enormous sums, manipulate an oracle or liquidity pool, exploit the manipulated state in another protocol, repay the loan, keep the profit — all in one transaction.
+Flash loans allow borrowing millions of tokens within a single transaction at zero cost: the loan must be repaid by the end of the transaction or everything reverts. Attackers use flash loans to manipulate DeFi protocol state temporarily: borrow enormous sums, manipulate an oracle or liquidity pool, exploit the manipulated state in another protocol, repay the loan, keep the profit, all in one transaction.
 
 Cream Finance (2021, $130M): Attacker used a flash loan to borrow large amounts, manipulate the price oracle used by Cream Finance's lending market, and drain the protocol's reserves by borrowing against artificially inflated collateral.
 
@@ -57,7 +57,7 @@ DeFi protocols rely on price oracles to determine asset values. On-chain oracles
 Cross-chain bridges lock assets on one chain and mint representations on another. The locking/minting logic represents one of the highest-value attack surfaces in crypto.
 
 - Ronin Bridge ($625M, March 2022): Lazarus Group (North Korea) compromised 5 of 9 Ronin validator keys (4 via a single entity running multiple validators), enabling them to forge withdrawal approvals and drain the bridge over several days before discovery.
-- Wormhole Bridge ($320M, February 2022): A signature verification flaw in the Solana side of the bridge allowed an attacker to mint 120,000 wETH without depositing any ETH — a pure arithmetic/logic exploit in the verification code.
+- Wormhole Bridge ($320M, February 2022): A signature verification flaw in the Solana side of the bridge allowed an attacker to mint 120,000 wETH without depositing any ETH, a pure arithmetic/logic exploit in the verification code.
 
 ### Rug Pulls
 Malicious project developers retain privileged contract functions (unlimited mint, drain liquidity, upgrade proxy) and use them to steal funds after building up significant liquidity and community trust. Unlike exploits, rug pulls are intentional fraud by the deployers.
@@ -121,10 +121,10 @@ Malicious project developers retain privileged contract functions (unlimited min
 
 | Control | ID | Blockchain & Web3 Relevance |
 |---|---|---|
-| Developer Testing and Evaluation | SA-11 | Pre-deployment smart contract security testing — static analysis (Slither), symbolic execution (Mythril), fuzzing (Echidna), formal verification (Certora) — is the primary preventive control given immutability |
+| Developer Testing and Evaluation | SA-11 | Pre-deployment smart contract security testing (static analysis (Slither), symbolic execution (Mythril), fuzzing (Echidna), formal verification (Certora)) is the primary preventive control given immutability |
 | Vulnerability Scanning | RA-5 | Continuous static analysis of contract code, runtime monitoring via Forta and OpenZeppelin Defender, and regular audit engagements constitute the vulnerability scanning program |
 | Protection of Information at Rest | SC-28 | Private key management via HSMs, hardware wallets, and multi-signature schemes protects cryptographic credentials controlling contract ownership and treasury funds |
-| Access Enforcement | AC-3 | Smart contract access control — owner patterns, role-based access via OpenZeppelin AccessControl, multi-signature governance — enforces authorization for privileged functions |
+| Access Enforcement | AC-3 | Smart contract access control (owner patterns, role-based access via OpenZeppelin AccessControl, multi-signature governance) enforces authorization for privileged functions |
 | Software and Information Integrity | SI-7 | Smart contract bytecode verification on Etherscan, immutable deployment addresses, and formal verification of critical invariants provide integrity assurance |
 | Configuration Management | CM-2, CM-6 | Immutable contract deployment as a baseline; proxy upgrade patterns must be documented and controlled; timelock mechanisms enforce change management delays |
 | Audit and Accountability | AU-2, AU-9 | On-chain event logs (emitted events) are immutable and auditable; monitoring for unexpected privileged function calls detects unauthorized access attempts |
@@ -149,12 +149,12 @@ Malicious project developers retain privileged contract functions (unlimited min
 
 ## Certifications
 
-There is no single dominant certification for smart contract security — the discipline is young enough that demonstrated skills outweigh credentials. The recognized pathway is:
+There is no single dominant certification for smart contract security: the discipline is young enough that demonstrated skills outweigh credentials. The recognized pathway is:
 
 - Portfolio-Based Recognition: The Web3 security community weights demonstrated audit findings, public CTF results (Ethernaut, Damn Vulnerable DeFi), Immunefi bug bounty payouts, and Code4rena audit competition rankings above formal certifications
 - Smart Contract Auditor Pathway: Ethernaut -> Damn Vulnerable DeFi -> Secureum Epoch 0 -> real audit contest participation (Code4rena, Sherlock, Cantina) -> private engagements or internal audit roles
-- CBSP (Certified Blockchain Security Professional: EC-Council) — The most recognized formal blockchain security certification; covers blockchain fundamentals, smart contract vulnerabilities, and DeFi security
-- CSSLP (Certified Secure Software Lifecycle Professional: ISC2) — Secure SDLC credential applicable to smart contract development practices
+- CBSP (Certified Blockchain Security Professional, EC-Council): The most recognized formal blockchain security certification; covers blockchain fundamentals, smart contract vulnerabilities, and DeFi security
+- CSSLP (Certified Secure Software Lifecycle Professional, ISC2): Secure SDLC credential applicable to smart contract development practices
 - OSCP (Offensive Security Certified Professional): Offensive methodology provides the attacker mindset essential for smart contract auditing; many top auditors hold OSCP for its offensive reasoning foundation
 
 ---

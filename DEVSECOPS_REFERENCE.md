@@ -29,7 +29,7 @@
 
 ### Shift-Left Security Philosophy
 
-Shift-left security is the practice of integrating security activities as early in the SDLC as possible — moving security "left" on the timeline toward design and coding phases rather than relegating it to a post-development gate.
+Shift-left security is the practice of integrating security activities as early in the SDLC as possible, moving security "left" on the timeline toward design and coding phases rather than relegating it to a post-development gate.
 
 NIST Cost Curve for Defect Remediation:
 
@@ -460,7 +460,7 @@ Incremental scanning for PRs: Scan only changed files and their transitive impor
 
 ### SCA Tool Ecosystem
 
-Software Composition Analysis identifies known vulnerabilities, license issues, and supply chain risks in open-source dependencies — both direct and transitive.
+Software Composition Analysis identifies known vulnerabilities, license issues, and supply chain risks in open-source dependencies, both direct and transitive.
 
 #### Snyk Open Source
 
@@ -877,7 +877,7 @@ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 # Coordinate force push with team before executing
 ```
 
-Important: Rotating credentials is mandatory. History rewriting is supplementary — assume the secret is compromised from the moment it was committed to any shared repository.
+Important: Rotating credentials is mandatory. History rewriting is supplementary: assume the secret is compromised from the moment it was committed to any shared repository.
 
 ---
 
@@ -960,7 +960,7 @@ secret = json.loads(
 DB_PASSWORD = secret['password']
 ```
 
-GitHub Actions (OIDC -> AWS Secrets Manager — no static keys):
+GitHub Actions (OIDC -> AWS Secrets Manager, no static keys):
 ```yaml
 - uses: aws-actions/configure-aws-credentials@v4
   with:
@@ -978,7 +978,7 @@ GitHub Actions (OIDC -> AWS Secrets Manager — no static keys):
 
 ### Secrets Rotation Automation
 
-Rotation pattern — AWS Lambda + Secrets Manager:
+Rotation pattern (AWS Lambda + Secrets Manager):
 1. Secrets Manager triggers Lambda on rotation schedule
 2. Lambda: `createSecret` -> generate new credential at target service
 3. Lambda: `setSecret` -> store new credential in Secrets Manager (staging)
@@ -996,13 +996,13 @@ Rotation cadence recommendations:
 
 ### Pipeline Security Principles
 
-Ephemeral Build Agents: Every build job runs in a fresh, clean environment. Never reuse build agents across jobs — persistent agents accumulate secrets, caches with malicious content, and state from previous (potentially compromised) builds.
+Ephemeral Build Agents: Every build job runs in a fresh, clean environment. Never reuse build agents across jobs: persistent agents accumulate secrets, caches with malicious content, and state from previous (potentially compromised) builds.
 
 Least Privilege Pipeline Identities: Pipeline service accounts and OIDC roles should have only the permissions required for that specific job. Separate read-only roles for test jobs from read-write roles for deployment jobs.
 
 Signed Artifacts with Provenance: Every artifact that flows through the pipeline should be signed and accompanied by a provenance attestation describing how it was built.
 
-No Secrets in Environment Variables: Secrets in env vars are readable by all process children and appear in crash dumps. Use Vault, AWS Secrets Manager, or similar — fetch at use time, not at job start.
+No Secrets in Environment Variables: Secrets in env vars are readable by all process children and appear in crash dumps. Use Vault, AWS Secrets Manager, or similar: fetch at use time, not at job start.
 
 ---
 
@@ -2039,7 +2039,7 @@ slsa-verifier verify-artifact \
 
 ### Sigstore Integration
 
-Sigstore provides free, transparent signing infrastructure using short-lived certificates tied to OIDC identities — eliminating the need for long-term key management.
+Sigstore provides free, transparent signing infrastructure using short-lived certificates tied to OIDC identities, eliminating the need for long-term key management.
 
 #### Cosign for Non-Container Artifacts
 
@@ -2463,7 +2463,7 @@ CISA KEV Override: Any vulnerability on the CISA Known Exploited Vulnerability c
 Security programs fail when they create friction without empathy. Key principles:
 
 - Fix the tool, not the developer: If SAST has 40% false positive rate, fix the rules before demanding developers triage findings
-- Context in findings: Every alert includes "Why this matters" and "How to fix it" — not just "CWE-89"
+- Context in findings: Every alert includes "Why this matters" and "How to fix it", not just "CWE-89"
 - One-click remediation: Where possible, provide automated fix (Snyk fix PR, Dependabot PR, suggested code change in PR comment)
 - Security office hours: Weekly 30-minute open Q&A with security team: no judgment, all questions welcome
 - Hack-and-fix days: Quarterly event where developers fix security findings in other teams' codebases (cross-pollination and empathy building)

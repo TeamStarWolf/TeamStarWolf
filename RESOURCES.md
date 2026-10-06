@@ -1,6 +1,6 @@
 # Resources
 
-> In one minute — A curated catalog of the learning and reference material worth your time: books, training platforms, YouTube channels, podcasts, news and threat-intel sources, CTF platforms, lab environments, conferences, standards bodies, and communities. Instead of wading through the internet's noise, you get vetted picks with notes on cost, focus, and skill level. Useful whether you are picking your first course or filling a gap in an established practice.
+> In one minute: A curated catalog of the learning and reference material worth your time: books, training platforms, YouTube channels, podcasts, news and threat-intel sources, CTF platforms, lab environments, conferences, standards bodies, and communities. Instead of wading through the internet's noise, you get vetted picks with notes on cost, focus, and skill level. Useful whether you are picking your first course or filling a gap in an established practice.
 
 | | |
 |---|---|

@@ -29,7 +29,7 @@
 
 ### Defense-in-Depth for Networks
 
-Defense-in-depth is the foundational principle of layered network security — no single control is sufficient; multiple overlapping controls are required so that when one fails, others compensate.
+Defense-in-depth is the foundational principle of layered network security: no single control is sufficient; multiple overlapping controls are required so that when one fails, others compensate.
 
 #### Perimeter Layer
 - Firewall (stateful/NGFW): Enforces ingress and egress policy; blocks unauthorized traffic by port, protocol, and application.
@@ -74,7 +74,7 @@ NSM is the collection, analysis, and escalation of network data to detect and re
 #### NSM Sensor Placement
 - Tap (Test Access Point): Passive optical or copper tap; copies all traffic without introducing latency or single points of failure. Preferred for production environments.
 - SPAN Port (Switch Port Analyzer): Mirror port on a managed switch; may drop packets under high load. Acceptable for lower-speed links.
-- Inline (Bump-in-the-wire): Sensor sits in the traffic path; required for IPS blocking. Introduces latency and potential failure point — use bypass NICs with fail-open capability.
+- Inline (Bump-in-the-wire): Sensor sits in the traffic path; required for IPS blocking. Introduces latency and potential failure point: use bypass NICs with fail-open capability.
 - Agent-based / eBPF: Host-level packet capture; useful for east-west traffic inside container or VM environments.
 
 #### Traffic Analysis Methodology
@@ -391,11 +391,11 @@ Scirius (Stamus Networks): Web-based rule management GUI for Suricata. Provides 
 
 ### Architecture
 
-Zeek (formerly Bro) is a passive network analysis framework that transforms raw packet data into structured, high-level logs. Unlike signature-based IDS, Zeek's primary mode is semantic analysis — understanding what is happening in network traffic and recording it as rich metadata.
+Zeek (formerly Bro) is a passive network analysis framework that transforms raw packet data into structured, high-level logs. Unlike signature-based IDS, Zeek's primary mode is semantic analysis: understanding what is happening in network traffic and recording it as rich metadata.
 
 #### Core Components
 - Event Engine: Parses protocols, assembles TCP streams, and generates events (e.g., `http_request`, `dns_request`, `ssl_client_hello`).
-- Policy Script Interpreter: Zeek scripts (`.zeek` files) define what happens when events fire — logging, alerting, correlation.
+- Policy Script Interpreter: Zeek scripts (`.zeek` files) define what happens when events fire: logging, alerting, correlation.
 - Communication Framework (Broker): Enables distributed Zeek deployments to share events and data in real time.
 - Logging Framework: Writes structured TSV/JSON logs per protocol.
 
@@ -918,7 +918,7 @@ freeSpaceG=10%    # Keep at least 10% free space; delete oldest PCAP files
 
 ### DNS as a Visibility Goldmine
 
-Nearly every network connection — malware C2, data exfiltration, phishing, lateral movement — begins with a DNS query. DNS monitoring provides:
+Nearly every network connection (malware C2, data exfiltration, phishing, lateral movement) begins with a DNS query. DNS monitoring provides:
 - Pre-connection visibility: See what hosts are trying to reach before TCP sessions are established.
 - Threat intel matching: Block known-bad domains at resolution time.
 - Beaconing detection: Periodic DNS queries to the same domain with slight variation.
@@ -1343,7 +1343,7 @@ detect_port_scans()
 
 ### Overview
 
-Network Access Control (NAC) enforces security policy for devices connecting to the network — ensuring only authorized, compliant devices gain access, and placing non-compliant or unknown devices in restricted VLANs.
+Network Access Control (NAC) enforces security policy for devices connecting to the network, ensuring only authorized, compliant devices gain access, and placing non-compliant or unknown devices in restricted VLANs.
 
 ---
 
@@ -1529,7 +1529,7 @@ systemctl enable --now packetfence-config
 
 ### Post-Admission Control (Continuous Compliance)
 
-Initial authentication is not enough — devices must remain compliant throughout their session.
+Initial authentication is not enough: devices must remain compliant throughout their session.
 
 Continuous compliance checks via:
 - Osquery: SQL queries to verify endpoint health (patch level, AV status, disk encryption)
@@ -1579,7 +1579,7 @@ Mimic legitimate requests; bypass volumetric detection.
 
 ### BGP Blackhole Routing (RTBH)
 
-Remote Triggered Black Hole (RTBH) routing allows ISP to drop traffic destined for victim IP at the provider edge — before it enters the customer network.
+Remote Triggered Black Hole (RTBH) routing allows ISP to drop traffic destined for victim IP at the provider edge, before it enters the customer network.
 
 ```
 # RTBH — advertise victim IP with special community to upstream ISP
@@ -1969,7 +1969,7 @@ event.module:zeek AND event.dataset:conn AND NOT source.ip:known_assets
 | ATT&CK ID | Technique | Zeek Detection | Suricata Detection | Arkime |
 |-----------|-----------|---------------|-------------------|--------|
 | T1046 | Network Service Scanning | conn.log: many S0/RSTO states from single src in short window | ET SCAN rules; threshold on connection attempts | Session count spike per src IP |
-| T1040 | Network Sniffing | weird.log: promiscuous mode; unusual ARP behavior | — | Monitor for pcap software on network |
+| T1040 | Network Sniffing | weird.log: promiscuous mode; unusual ARP behavior | N/A | Monitor for pcap software on network |
 | T1557 | Adversary-in-the-Middle | arp.log: IP->MAC mapping conflicts; ssl.log: cert issuer anomaly | JA3 mismatch; cert validation failures | x509 certificate changes per IP |
 | T1090 | Proxy (Connection Proxy) | conn.log: CONNECT method in http.log; SOCKS detection | ET Proxy rules; CONNECT tunnel detection | High-volume relay sessions |
 | T1095 | Non-Application Layer Protocol | conn.log: raw IP protocols (non-TCP/UDP/ICMP) | Protocol mismatch signatures; tunnel detection | Custom protocol sessions |

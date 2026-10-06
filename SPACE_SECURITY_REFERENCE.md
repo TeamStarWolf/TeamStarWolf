@@ -1,8 +1,8 @@
 # Space Systems Security Reference
 
-> Space systems are critical infrastructure with a threat model no other domain has. [The Aerospace Corporation's SPARTA](https://sparta.aerospace.org) (Space Attack Research and Tactic Analysis) framework gives defenders an ATT&CK-style taxonomy of 9 tactics and 90 countermeasures (CM0001-CM0090) for spacecraft and the systems that fly them — assets that cannot be rebooted by a technician, patched over a crossover cable, or physically inspected after compromise.
+> Space systems are critical infrastructure with a threat model no other domain has. [The Aerospace Corporation's SPARTA](https://sparta.aerospace.org) (Space Attack Research and Tactic Analysis) framework gives defenders an ATT&CK-style taxonomy of 9 tactics and 90 countermeasures (CM0001-CM0090) for spacecraft and the systems that fly them: assets that cannot be rebooted by a technician, patched over a crossover cable, or physically inspected after compromise.
 
-A satellite is a computer you can never touch again after launch, reachable only over an RF link, commanded from a ground network that looks like any other enterprise IT estate — and that ground network is where most real-world compromises start. The 2022 Viasat KA-SAT incident demonstrated the pattern publicly: a ground-side intrusion, a wiper pushed through a legitimate management network, and tens of thousands of user terminals dead on the morning of an invasion.
+A satellite is a computer you can never touch again after launch, reachable only over an RF link, commanded from a ground network that looks like any other enterprise IT estate, and that ground network is where most real-world compromises start. The 2022 Viasat KA-SAT incident demonstrated the pattern publicly: a ground-side intrusion, a wiper pushed through a legitimate management network, and tens of thousands of user terminals dead on the morning of an invasion.
 
 This reference covers the four segments of a space system and their attack surface, the SPARTA framework and its countermeasures, TT&C link protection with CCSDS SDLS, GPS/GNSS interference resilience, the Viasat case study, and the US standards and policy stack (SPD-5, NIST IR 8270/8401/8441/8323, CISA guidance) that a space cybersecurity program is built on.
 
@@ -22,7 +22,7 @@ Related: [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [D3FEN
 | No physical access after launch | No hands-on forensics, no hardware swap, no "reimage the box". Recovery depends entirely on what was designed in before launch |
 | Constrained SWaP (size, weight, power) | Onboard security controls compete with the mission for CPU, memory, and power budget; heavyweight agents are usually impossible |
 | Long lifecycles | Spacecraft fly for 15+ years on hardware and software frozen years before launch; crypto and protocols must survive that horizon |
-| RF is the only door | Every interaction crosses an open radio link that can be jammed, intercepted, or — if unauthenticated — spoofed |
+| RF is the only door | Every interaction crosses an open radio link that can be jammed, intercepted, or, if unauthenticated, spoofed |
 | Ground segment is standard IT | Mission operations centers run commodity OSes, VPNs, and remote access; they inherit the entire enterprise threat model |
 | Cyber + counterspace overlap | Threats span cyber intrusion, electronic warfare (jamming/spoofing), and physical/kinetic effects; frameworks must cover more than malware |
 | Cascading dependencies | GPS/GNSS timing underpins telecom, finance, and power grids; SATCOM outages cascade into other critical infrastructure (Viasat -> wind turbines) |
@@ -33,7 +33,7 @@ Space Policy Directive-5 frames the adversary goal set precisely: activities tha
 
 ## Segments and attack surface
 
-NIST IR 8270 and CISA's operator recommendations both decompose a space system into segments — the standard unit of attack-surface and risk analysis in this domain.
+NIST IR 8270 and CISA's operator recommendations both decompose a space system into segments, the standard unit of attack-surface and risk analysis in this domain.
 
 ```
                     ┌─────────────────────────┐
@@ -66,17 +66,17 @@ NIST IR 8270 and CISA's operator recommendations both decompose a space system i
 | Link | TT&C uplink/downlink, mission data downlink, inter-satellite crosslinks | Jamming, eavesdropping on unencrypted links, command replay or injection against unauthenticated links, hijacking transponders |
 | User | User terminals, SATCOM modems, GNSS receivers, VSATs | Terminal/modem firmware compromise (AcidRain), default credentials, exposed management interfaces, GNSS spoofing of receivers |
 
-The practical asymmetry: the space segment has the most exotic failure modes, but the ground and user segments carry most of the realized incidents — they are reachable from the internet, run commodity software, and are staffed by phishable humans. CISA's June 2024 operator recommendations and advisory AA22-076A are aimed almost entirely at ground and user segment hygiene for exactly this reason.
+The practical asymmetry: the space segment has the most exotic failure modes, but the ground and user segments carry most of the realized incidents; they are reachable from the internet, run commodity software, and are staffed by phishable humans. CISA's June 2024 operator recommendations and advisory AA22-076A are aimed almost entirely at ground and user segment hygiene for exactly this reason.
 
 ### The threat is wider than cyber
 
-SPD-5's verb list (manipulate, deny, degrade, disrupt, destroy, surveil, eavesdrop) deliberately spans more than network intrusion, and SPARTA's scope statement matches it — compromise "via cyber and traditional counterspace means" (so stated on the [sparta.aerospace.org](https://sparta.aerospace.org) front page as of September 2026; some site pages, such as the FAQ, abbreviate the scope to "via cyber means", but the counterspace techniques are in the matrix itself). A space program's threat model therefore has three lanes, and the cyber team usually owns only part of each:
+SPD-5's verb list (manipulate, deny, degrade, disrupt, destroy, surveil, eavesdrop) deliberately spans more than network intrusion, and SPARTA's scope statement matches it: compromise "via cyber and traditional counterspace means" (so stated on the [sparta.aerospace.org](https://sparta.aerospace.org) front page as of September 2026; some site pages, such as the FAQ, abbreviate the scope to "via cyber means", but the counterspace techniques are in the matrix itself). A space program's threat model therefore has three lanes, and the cyber team usually owns only part of each:
 
 | Lane | Examples (taxonomy level) | Primary defensive lever |
 |---|---|---|
 | Cyber | Ground-network intrusion, hostile commanding, flight/ground software compromise, supply chain implants, terminal/modem malware | Everything in this document: segmentation, authenticated commanding, hardening, detection |
 | Electronic warfare | Uplink/downlink jamming, GNSS jamming and spoofing, signal interception | Link margin and waveform design, authenticated links, interference monitoring and geolocation, PNT diversity |
-| Physical / kinetic | Ground-site sabotage or seizure, threats to spacecraft themselves | Physical security, site redundancy, constellation-level resilience — outside this document's scope, but in SPARTA's |
+| Physical / kinetic | Ground-site sabotage or seizure, threats to spacecraft themselves | Physical security, site redundancy, constellation-level resilience (outside this document's scope, but in SPARTA's) |
 
 The lanes interact: EW can be a denial tool while a cyber operation proceeds, and a cyber compromise of a ground station is often the cheapest path to an "EW-like" effect (transmitting from *your* antenna). Threat models and exercises should mix them rather than treating each in isolation.
 
@@ -84,7 +84,7 @@ The lanes interact: EW can be a denial tool while a cyber operation proceeds, an
 
 ## The SPARTA framework
 
-SPARTA — Space Attack Research and Tactic Analysis — is created and maintained by [The Aerospace Corporation](https://sparta.aerospace.org) to break down information-sharing barriers around space-system TTPs. It catalogs how spacecraft may be compromised via cyber and traditional counterspace means — the scope as stated on the SPARTA homepage — and pairs every technique with defenses.
+SPARTA (Space Attack Research and Tactic Analysis) is created and maintained by [The Aerospace Corporation](https://sparta.aerospace.org) to break down information-sharing barriers around space-system TTPs. It catalogs how spacecraft may be compromised via cyber and traditional counterspace means (the scope as stated on the SPARTA homepage) and pairs every technique with defenses.
 
 | | |
 |---|---|
@@ -93,7 +93,7 @@ SPARTA — Space Attack Research and Tactic Analysis — is created and maintain
 | First release | v1.0, October 2022 |
 | Current version | v4.0.1 (August 24, 2026: website fixes, corrected STIX bundles, CM0003 TEMPEST/EMSEC modification); v4.0 debuted August 2026 at DEF CON 34 |
 | Tactics | 9 |
-| Techniques | 87 active techniques as rendered on the live matrix (September 2026); many techniques carry sub-techniques, with per-technique counts varying widely — consult the matrix rather than quoting a range |
+| Techniques | 87 active techniques as rendered on the live matrix (September 2026); many techniques carry sub-techniques, with per-technique counts varying widely; consult the matrix rather than quoting a range |
 | Countermeasures | 90 (CM0001-CM0090), tiered I/II/III |
 | Official mappings | NIST SP 800-53 Rev. 5, MITRE D3FEND, ISO/IEC 27001, NASA best-practice guidance |
 | Tooling | Navigator, Countermeasure Mapper, Control Mapper, Spacecraft Mapper, JSON Creator, Attack Flow, Spacetrail, STIX bundles |
@@ -113,7 +113,7 @@ SPARTA — Space Attack Research and Tactic Analysis — is created and maintain
 - Dedicated Ground System Defense section added: formal acknowledgment that ground-segment defense is a first-class part of the framework, not an afterthought.
 - All 90 countermeasures revised with a lifecycle focus: countermeasures now speak to when in the program lifecycle (design, build, test, operate) each defense must be injected.
 
-Earlier, in March 2026, Aerospace published a Countermeasure Utilization & Prioritization methodology that scores each CM on efficacy, feasibility (SWaP impact, architectural fit, technology maturity), and cost — turning the countermeasure list into a rankable engineering backlog rather than a checklist.
+Earlier, in March 2026, Aerospace published a Countermeasure Utilization & Prioritization methodology that scores each CM on efficacy, feasibility (SWaP impact, architectural fit, technology maturity), and cost, turning the countermeasure list into a rankable engineering backlog rather than a checklist.
 
 ---
 
@@ -128,14 +128,14 @@ The nine tactics follow the familiar ATT&CK narrative arc, retold for spacecraft
 | 3 | Initial Access | 13 | Getting a first foothold: compromising the ground segment or supply chain, exploiting the RF link, abusing trusted relationships |
 | 4 | Execution | 18 | Getting hostile instructions to run: malicious commanding, exploiting flight software, abusing onboard interpreters and processes (the largest tactic) |
 | 5 | Persistence | 5 | Surviving resets and contact gaps on a system nobody can physically touch |
-| 6 | Defense Evasion | 12 | Defeating or blinding the limited onboard and ground defenses — masking activity in nominal telemetry, evading monitoring |
+| 6 | Defense Evasion | 12 | Defeating or blinding the limited onboard and ground defenses: masking activity in nominal telemetry, evading monitoring |
 | 7 | Lateral Movement | 7 | Moving between ground and space, bus and payload, or spacecraft and spacecraft via crosslinks and hosted-payload boundaries |
 | 8 | Exfiltration | 10 | Stealing mission data or spacecraft information, including over RF paths that never touch the victim's network monitoring |
-| 9 | Impact | 8 | Producing mission effect — the v4.0-redesigned tactic (IMP-0007 – IMP-0014) covering denial, degradation, manipulation, and destruction outcomes |
+| 9 | Impact | 8 | Producing mission effect: the v4.0-redesigned tactic (IMP-0007 to IMP-0014) covering denial, degradation, manipulation, and destruction outcomes |
 
 Two structural notes for anyone used to ATT&CK:
 
-- Execution is the center of gravity. Eighteen techniques — commanding a spacecraft *is* execution, so the tactic absorbs much of what Enterprise ATT&CK spreads across several tactics.
+- Execution is the center of gravity. Eighteen techniques: commanding a spacecraft *is* execution, so the tactic absorbs much of what Enterprise ATT&CK spreads across several tactics.
 - Counterspace is in scope. SPARTA techniques include electronic warfare and other non-cyber counterspace means alongside network intrusion. A purely packet-shaped mental model misses a third of the matrix.
 
 ### Reading the matrix as a defender
@@ -144,32 +144,32 @@ Technique names and IDs live on the site; what stays stable is the defensive que
 
 | Tactic | The defender's question | Where the answer mostly lives |
 |---|---|---|
-| Reconnaissance | What about our mission is discoverable — RF parameters, ground-site details, staffing, suppliers — and what of it must we accept as public? | OPSEC and information handling; orbital/RF data is largely observable, so plan controls assuming the adversary has it |
+| Reconnaissance | What about our mission is discoverable (RF parameters, ground-site details, staffing, suppliers), and what of it must we accept as public? | OPSEC and information handling; orbital/RF data is largely observable, so plan controls assuming the adversary has it |
 | Resource Development | What does an operation against us need to acquire (ground station access, RF gear, insider help, capabilities), and can we raise that cost? | Vendor and partner vetting, insider risk, threat intelligence on capability proliferation |
 | Initial Access | Which paths reach mission systems from outside: remote access, supply chain, RF, trusted integrators? | Ground enclave boundary, remote-access hardening, supply chain controls, link authentication |
 | Execution | Can hostile instructions run: on the ground software stack or the spacecraft itself? | Command authentication, command-link protection, application control on ground hosts, flight software load controls |
 | Persistence | Could an adversary survive our resets, contact schedules, and software reloads? | Verified boot/known-good reload paths, configuration baselining and drift detection, ground rebuild procedures |
 | Defense Evasion | Which of our few sensors could be blinded or fooled, and would we notice? | Telemetry integrity, redundant/independent observables, protecting monitoring itself |
-| Lateral Movement | What are the crossings — corporate<->mission, MOC<->station, bus<->payload, satellite<->satellite — and what enforces each boundary? | Segmentation and interface control at every seam, hosted-payload trust boundaries |
+| Lateral Movement | What are the crossings (corporate<->mission, MOC<->station, bus<->payload, satellite<->satellite), and what enforces each boundary? | Segmentation and interface control at every seam, hosted-payload trust boundaries |
 | Exfiltration | Which paths could move our mission data out, including RF paths that bypass network monitoring entirely? | Downlink encryption, data handling in the ground archive, egress monitoring in the mission enclave |
-| Impact | Which mission effects (denial, degradation, manipulation, destruction) matter most, and which do our recovery plans actually cover? | Fault management, safe-mode design, recovery/contingency procedures rehearsed against *adversarial* — not just random — failure |
+| Impact | Which mission effects (denial, degradation, manipulation, destruction) matter most, and which do our recovery plans actually cover? | Fault management, safe-mode design, recovery/contingency procedures rehearsed against *adversarial*, not just random, failure |
 
 ---
 
 ## SPARTA countermeasures (CM0001-CM0090)
 
-SPARTA's defensive half is its differentiator: 90 countermeasures with stable IDs, each mapped to the techniques it defeats. (A `CM-NA` placeholder — "Countermeasure Not Identified" — marks techniques without a cataloged defense; it is not one of the 90.)
+SPARTA's defensive half is its differentiator: 90 countermeasures with stable IDs, each mapped to the techniques it defeats. (A `CM-NA` placeholder, "Countermeasure Not Identified", marks techniques without a cataloged defense; it is not one of the 90.)
 
 | Dimension | How SPARTA organizes it |
 |---|---|
 | Defense-in-depth layers | CMs are grouped by architectural layer: the site's layering includes data protection, spacecraft software, the single-board computer, IDS/IPS, cryptography, the comms link, the ground segment, and up-front prevention (verify exact layer names on the [countermeasures page](https://sparta.aerospace.org/countermeasures/SPARTA) before enumerating them as canonical) |
-| Tiers | Tier I — foundational, do-first defenses, Tier II — moderate, Tier III — advanced capabilities for high-threat missions |
+| Tiers | Tier I (foundational, do-first defenses), Tier II (moderate), Tier III (advanced capabilities for high-threat missions) |
 | Lifecycle | Since v4.0, each CM is framed against the program lifecycle: many spacecraft defenses are only purchasable at design time |
 | Prioritization | The March 2026 methodology scores efficacy × feasibility (SWaP, architecture, maturity) × cost per CM |
 
 ### Official control mappings
 
-These are the mappings SPARTA itself publishes — use them as-is rather than inventing crosswalks:
+These are the mappings SPARTA itself publishes. Use them as-is rather than inventing crosswalks:
 
 | Mapped to | What you get |
 |---|---|
@@ -178,24 +178,24 @@ These are the mappings SPARTA itself publishes — use them as-is rather than in
 | ISO/IEC 27001 | Annex-control alignment for organizations governed by ISO-based ISMS programs |
 | NASA guidance | NASA best-practice references per CM, useful for civil-space and NASA-contract programs |
 
-How to actually use this: pick the spacecraft or mission class (the Spacecraft Mapper tool generates threat-informed CM baselines), pull the Tier I set as the floor, run the prioritization scoring against your SWaP and budget reality, and export the 800-53 mapping into whatever package your authorizing official reads. That is a threat-informed baseline traceable from technique -> countermeasure -> control — the same TTP-to-control pipeline this library uses for ATT&CK, applied to space.
+How to actually use this: pick the spacecraft or mission class (the Spacecraft Mapper tool generates threat-informed CM baselines), pull the Tier I set as the floor, run the prioritization scoring against your SWaP and budget reality, and export the 800-53 mapping into whatever package your authorizing official reads. That is a threat-informed baseline traceable from technique -> countermeasure -> control, the same TTP-to-control pipeline this library uses for ATT&CK, applied to space.
 
 ### Building a SPARTA coverage map
 
 The same coverage-mapping discipline this library applies to ATT&CK works on SPARTA, with the tooling SPARTA ships:
 
-1. Scope one mission (one spacecraft class + its ground system), not the whole fleet — the CTEM scoping rule applies unchanged.
+1. Scope one mission (one spacecraft class + its ground system), not the whole fleet; the CTEM scoping rule applies unchanged.
 2. Build a threat layer in the SPARTA Navigator: which tactics/techniques are relevant to your orbit, architecture, and adversary assumptions. Be honest about the counterspace lanes you can't defend with software.
 3. Map deployed countermeasures with the Countermeasure Mapper: what you actually have, per technique, per segment. Expect the space-segment column to be sparse on anything already flying; record that as accepted risk, not as a to-do.
-4. Score the gaps with the prioritization methodology (efficacy × feasibility × cost). SWaP-infeasible countermeasures on a flying bird get closed on the *next* design, and compensated on the ground meanwhile — write both halves down.
-5. Export the STIX/JSON and diff between review cycles, exactly like an ATT&CK Navigator layer — coverage drift is the metric leadership can read.
+4. Score the gaps with the prioritization methodology (efficacy × feasibility × cost). SWaP-infeasible countermeasures on a flying bird get closed on the *next* design, and compensated on the ground meanwhile; write both halves down.
+5. Export the STIX/JSON and diff between review cycles, exactly like an ATT&CK Navigator layer; coverage drift is the metric leadership can read.
 6. Trace to controls via the Control Mapper so the same work feeds the compliance package instead of duplicating it.
 
 ---
 
 ## How SPARTA parallels ATT&CK
 
-SPARTA explicitly borrows MITRE ATT&CK's methodology — the tactic -> technique -> sub-technique -> countermeasure model, matrix rendering, STIX representation, and Navigator-style tooling. It is a parallel matrix for a domain ATT&CK does not cover, not a part of ATT&CK.
+SPARTA explicitly borrows MITRE ATT&CK's methodology: the tactic -> technique -> sub-technique -> countermeasure model, matrix rendering, STIX representation, and Navigator-style tooling. It is a parallel matrix for a domain ATT&CK does not cover, not a part of ATT&CK.
 
 | | MITRE ATT&CK (Enterprise) | SPARTA |
 |---|---|---|
@@ -219,7 +219,7 @@ Telemetry, Tracking & Commanding is the crown-jewel interface: whoever can comma
 
 ### CCSDS Space Data Link Security (SDLS)
 
-CCSDS 355.0-B-2 (Blue Book, July 2022) defines the Space Data Link Security Protocol — security at the data link layer for the CCSDS framing protocols used by most civil and commercial missions:
+CCSDS 355.0-B-2 (Blue Book, July 2022) defines the Space Data Link Security Protocol, security at the data link layer for the CCSDS framing protocols used by most civil and commercial missions:
 
 | SDLS provides | Mechanism |
 |---|---|
@@ -236,7 +236,7 @@ SDLS makes the crypto tractable; the program-killer is managing key material acr
 | Concern | What good looks like |
 |---|---|
 | Key hierarchy | Separate long-lived key-encryption/master keys from operational session keys, so routine rotation never exposes the roots |
-| Mission-life inventory | Key material sized and planned for the full design life plus extension — running out of keys on orbit is a real failure mode |
+| Mission-life inventory | Key material sized and planned for the full design life plus extension; running out of keys on orbit is a real failure mode |
 | Rekey procedures | Defined, tested procedures for routine rotation *and* emergency rekey under compromise assumptions, rehearsed before launch |
 | Compromise recovery | Recovery keys held offline under split knowledge/dual control; a written decision tree for "we believe command keys are exposed" |
 | Ground protection | Keys generated and stored in HSMs; command-generation hosts treated as part of the cryptographic boundary |
@@ -253,7 +253,7 @@ Do
 - Monitor the link itself: carrier power, spectrum occupancy, unexpected uplink activity at your slots, and command counters in telemetry reconciled against your own command log (commands the MOC never sent are the highest-value alert in the domain).
 
 Don't
-- Rely on "obscurity of the waveform" or proprietary protocol formats as access control — RF parameters are recoverable by a resourced observer.
+- Rely on "obscurity of the waveform" or proprietary protocol formats as access control; RF parameters are recoverable by a resourced observer.
 - Treat encryption-without-authentication as command protection; integrity/authenticity is the property that stops hostile commanding.
 - Leave engineering/development command dictionaries or simulator configurations (which describe exactly how to command the spacecraft) on the general corporate network.
 - Assume the link is the attacker's cheapest path: a compromised MOC workstation sends perfectly authenticated hostile commands. Link crypto and ground hardening only work together.
@@ -262,18 +262,18 @@ Don't
 
 ## GPS/GNSS interference and PNT resilience
 
-GNSS is a one-way, unauthenticated (for civil signals), extremely weak broadcast — which makes interference the most commonly encountered space-related threat for ordinary organizations. Keep the discussion of incidents conceptual; the defensive posture is what matters.
+GNSS is a one-way, unauthenticated (for civil signals), extremely weak broadcast, which makes interference the most commonly encountered space-related threat for ordinary organizations. Keep the discussion of incidents conceptual; the defensive posture is what matters.
 
 | Threat | What it is | Effect on the receiver |
 |---|---|---|
 | Jamming | Overpowering GNSS frequencies with noise | Loss of lock: position/timing outage; failure is at least *visible* |
-| Spoofing | Transmitting counterfeit GNSS signals | Receiver computes a wrong position or time while appearing healthy — the dangerous case |
+| Spoofing | Transmitting counterfeit GNSS signals | Receiver computes a wrong position or time while appearing healthy (the dangerous case) |
 | Meaconing | Receiving and rebroadcasting genuine signals with delay | Position/time offset without crafting signals: a low-skill spoofing variant |
 
 ### Policy anchor
 
-- Executive Order 13905 (February 12, 2020): "Strengthening National Resilience Through Responsible Use of Positioning, Navigation, and Timing Services" — establishes the US policy that PNT-dependent systems must be identified and made resilient.
-- NIST IR 8323 Rev. 1 (January 31, 2023; original February 2021) — the *Foundational PNT Profile* — applies the Cybersecurity Framework to responsible PNT use and is the working document for building a PNT resilience program.
+- Executive Order 13905 (February 12, 2020), "Strengthening National Resilience Through Responsible Use of Positioning, Navigation, and Timing Services", establishes the US policy that PNT-dependent systems must be identified and made resilient.
+- NIST IR 8323 Rev. 1 (January 31, 2023; original February 2021), the *Foundational PNT Profile*, applies the Cybersecurity Framework to responsible PNT use and is the working document for building a PNT resilience program.
 
 ### Receiver observables worth monitoring
 
@@ -294,7 +294,7 @@ Route these to the SOC with thresholds, exactly like host telemetry. A fixed-sit
 
 Do
 - Inventory PNT dependence first (IR 8323's core move): which systems consume GNSS position, which consume GNSS *time*, and what breaks at what offset. Timing dependence hides in telecom, trading, power, and datacenter infrastructure.
-- Detect before you mitigate: monitor receiver observables: C/N0 anomalies, sudden clock bias jumps, position residuals, unexpected constellation geometry — and alert on them like any other security telemetry.
+- Detect before you mitigate: monitor receiver observables (C/N0 anomalies, sudden clock bias jumps, position residuals, unexpected constellation geometry) and alert on them like any other security telemetry.
 - Hold time through outages with disciplined holdover oscillators sized to your accuracy requirement, and validate GNSS time against independent references (network time from trusted sources, multiple constellations/frequencies).
 - Diversify PNT sources for critical functions: multi-constellation, multi-frequency receivers; non-GNSS timing paths; inertial or terrestrial augmentation where the mission justifies it.
 - Plan degraded-mode operations: rehearse what operators do when PNT is flagged untrusted, the same way you rehearse network isolation.
@@ -308,12 +308,12 @@ Don't
 
 ## Case study: the 2022 Viasat KA-SAT incident
 
-The most instructive public space-system cyber incident to date — notable for *where* it happened (user and ground segments, not the satellite) and *how little* of it was exotic.
+The most instructive public space-system cyber incident to date, notable for *where* it happened (user and ground segments, not the satellite) and *how little* of it was exotic.
 
 | Date | Event |
 |---|---|
 | February 24, 2022 | As Russia invades Ukraine, an attack on Viasat's KA-SAT consumer broadband network renders satellite modems inoperable in Ukraine and across Europe. Spillover knocks out remote monitoring and control of roughly 5,800 Enercon wind turbines in Germany (a figure from public reporting) |
-| March 17, 2022 | CISA/FBI release joint advisory AA22-076A, "Strengthening Cybersecurity of SATCOM Network Providers and Customers" — hardening guidance for SATCOM operators and customers (the original release carried no formal attribution; the advisory was updated later) |
+| March 17, 2022 | CISA/FBI release joint advisory AA22-076A, "Strengthening Cybersecurity of SATCOM Network Providers and Customers": hardening guidance for SATCOM operators and customers (the original release carried no formal attribution; the advisory was updated later) |
 | March 31, 2022 | SentinelLabs publishes analysis of AcidRain, an ELF MIPS wiper for modems and routers, noting code overlap with VPNFilter. Viasat confirms AcidRain was used in the incident |
 | May 10, 2022 | The EU, together with the US, UK, and other Five Eyes governments, formally attributes the attack to Russia |
 
@@ -321,7 +321,7 @@ The most instructive public space-system cyber incident to date — notable for 
 
 - The satellite was never touched. The compromise ran through a misconfigured VPN appliance into the KA-SAT ground-segment management network, per public reporting and Viasat's own statements.
 - The destructive payload landed on the user segment: AcidRain wiped modem firmware/storage at scale, pushed through the legitimate management plane that existed to update those modems.
-- The blast radius was cross-sector: a SATCOM attack became a wind-energy operations problem — the case study for why space systems are treated as critical infrastructure with cascading dependencies.
+- The blast radius was cross-sector: a SATCOM attack became a wind-energy operations problem, the case study for why space systems are treated as critical infrastructure with cascading dependencies.
 
 ### Lessons defenders should actually implement
 
@@ -331,7 +331,7 @@ The most instructive public space-system cyber incident to date — notable for 
 | The management plane is a weapon against your own fleet | Segment and monitor the systems that can mass-push firmware/config to terminals; require signing and staged rollout for anything the management plane distributes |
 | Least privilege between provider and customer segments | AA22-076A: enforce least privilege, review trust relationships between SATCOM providers, integrators, and customers |
 | Wipers demand recovery engineering, not just prevention | Out-of-band terminal re-provisioning, golden firmware images, and a tested mass-recovery procedure (Viasat had to ship replacement modems in bulk) |
-| Log and watch the boring infrastructure | AA22-076A calls out logging and monitoring of SATCOM network gear — the intrusion path was visible territory: VPNs, management servers, network appliances |
+| Log and watch the boring infrastructure | AA22-076A calls out logging and monitoring of SATCOM network gear; the intrusion path was visible territory: VPNs, management servers, network appliances |
 | Plan for spillover | If your operations depend on SATCOM or any third-party link, treat its loss as a scenario in *your* IR and continuity planning, not just the provider's |
 
 ---
@@ -344,9 +344,9 @@ The US public-guidance stack, in the order a program usually consumes it:
 |---|---|---|
 | Space Policy Directive-5 (SPD-5): *Cybersecurity Principles for Space Systems* | Signed September 4, 2020 | The policy foundation: US government civil/national-security and private space systems should use risk-based, cybersecurity-informed engineering against activities that manipulate, deny, degrade, disrupt, destroy, surveil, or eavesdrop on operations |
 | NIST IR 8270: *Introduction to Cybersecurity for Commercial Satellite Operations* | Final July 25, 2023 | The on-ramp: introductory, CSF-aligned risk management for commercial satellite operators; establishes the segment decomposition used across the domain |
-| NIST IR 8401: *Satellite Ground Segment: Applying the Cybersecurity Framework to Satellite Command and Control* | Final December 30, 2022 | CSF profile for the ground segment commanding satellite buses and payloads — the document to hand the MOC/ground-network owner |
-| NIST IR 8441: *Cybersecurity Framework Profile for Hybrid Satellite Networks (HSN)* | Final September 25, 2023 | CSF profile for architectures mixing owned, leased, and commercial space/ground components — the multi-party trust problem |
-| NIST IR 8323 Rev. 1 — *Foundational PNT Profile* | January 31, 2023 | CSF profile for PNT-consuming systems, responding to EO 13905 |
+| NIST IR 8401: *Satellite Ground Segment: Applying the Cybersecurity Framework to Satellite Command and Control* | Final December 30, 2022 | CSF profile for the ground segment commanding satellite buses and payloads, the document to hand the MOC/ground-network owner |
+| NIST IR 8441: *Cybersecurity Framework Profile for Hybrid Satellite Networks (HSN)* | Final September 25, 2023 | CSF profile for architectures mixing owned, leased, and commercial space/ground components (the multi-party trust problem) |
+| NIST IR 8323 Rev. 1: *Foundational PNT Profile* | January 31, 2023 | CSF profile for PNT-consuming systems, responding to EO 13905 |
 | CISA/FBI AA22-076A: *Strengthening Cybersecurity of SATCOM Network Providers and Customers* | Originally March 17, 2022 | Post-Viasat hardening: secure authentication, least privilege, encryption, patching, and log monitoring across SATCOM providers and customers |
 | CISA SSCIWG: *Recommendations to Space System Operators for Improving Cybersecurity* | June 6, 2024 | Per-segment risk and mitigation catalog aligned to NIST guidance, from CISA's Space Systems Critical Infrastructure Working Group; CISA's space hub is [cisa.gov/space-systems](https://www.cisa.gov/space-systems) |
 | CCSDS 355.0-B-2: *Space Data Link Security (SDLS) Protocol* | Blue Book, July 2022 | The engineering standard for link-layer authentication/encryption of TM/TC/AOS/USLP |
@@ -362,7 +362,7 @@ The advisory's recommendation themes, translated into a SATCOM operator/customer
 | Secure authentication | MFA on operator, administrator, and customer-portal access; kill shared accounts | MFA on the SATCOM provider portal and on any remote access to your terminals |
 | Least privilege | Scope what management systems and support staff can touch per customer; review trust relationships with integrators | Assume the provider link is untrusted transport; don't extend internal trust across it |
 | Encryption | Protect management and provisioning traffic in transit | Run your own encryption (VPN/application-layer) over the SATCOM link rather than trusting link-layer confidentiality alone |
-| Patching | Timely updates on network appliances, VPN gateways, and management servers — the actual 2022 intrusion surface | Keep terminal/modem firmware current; track vendor advisories for your terminal fleet |
+| Patching | Timely updates on network appliances, VPN gateways, and management servers, the actual 2022 intrusion surface | Keep terminal/modem firmware current; track vendor advisories for your terminal fleet |
 | Log monitoring | Centralize and review logs from network gear and management infrastructure; alert on anomalous provisioning actions | Log terminal behavior and connectivity; investigate fleet-wide anomalies as security events, not just outages |
 
 ---
@@ -373,7 +373,7 @@ What the guidance above converges on, segment by segment. Threat-level descripti
 
 ### Ground segment (highest-leverage, most attackable)
 
-- Enclave the mission network. TT&C, mission planning, and flight dynamics live in their own segmented enclave with controlled, monitored interconnects to corporate IT — the Purdue-style zoning argument from [ICS/OT security](ICS_OT_SECURITY_REFERENCE.md) applies nearly verbatim.
+- Enclave the mission network. TT&C, mission planning, and flight dynamics live in their own segmented enclave with controlled, monitored interconnects to corporate IT; the Purdue-style zoning argument from [ICS/OT security](ICS_OT_SECURITY_REFERENCE.md) applies nearly verbatim.
 - Treat command-capable hosts as Tier-0 assets: dedicated hardened workstations, no email/browsing, application allow-listing, EDR, and privileged access management for operator accounts.
 - MFA and least privilege on every remote path: operator VPNs, vendor support access, antenna-site links, backup MOC connectivity. This is the exact surface that failed publicly in 2022.
 - Harden the boring gear: VPN concentrators, jump hosts, network management servers, and station equipment get vendor-hardening-guide configuration, prompt patching, and centralized logging (AA22-076A's core recommendations).
@@ -389,7 +389,7 @@ What the guidance above converges on, segment by segment. Threat-level descripti
 
 ### Supply chain and lifecycle
 
-- Apply [supply-chain security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) discipline to flight software, ground software, and hardware: provenance, SBOM where feasible, and integrity verification for everything that touches the spacecraft before and after launch. (In ATT&CK terms, ground-side supply chain compromise is T1195 — the enterprise matrix covers this part of the estate directly.)
+- Apply [supply-chain security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) discipline to flight software, ground software, and hardware: provenance, SBOM where feasible, and integrity verification for everything that touches the spacecraft before and after launch. (In ATT&CK terms, ground-side supply chain compromise is T1195; the enterprise matrix covers this part of the estate directly.)
 - Security requirements enter at RFP/design time: SPARTA's lifecycle-focused countermeasures and tiering exist precisely because most spacecraft defenses cannot be retrofitted.
 - Development and test environments (simulators, flatsats, engineering models) hold command dictionaries and flight software; protect them like production.
 
@@ -404,7 +404,7 @@ What the guidance above converges on, segment by segment. Threat-level descripti
 
 ## Detection and monitoring
 
-Space programs get a detection stack in three layers — two of them familiar, one unique:
+Space programs get a detection stack in three layers, two of them familiar, one unique:
 
 | Layer | Telemetry to collect | What to alert on |
 |---|---|---|
@@ -436,7 +436,7 @@ Space-flavored tabletops expose seams that generic IR exercises never touch. Can
 
 ## Standing up the program
 
-A sequencing that matches how the guidance stack was written to be consumed — each phase produces something a leadership team can see:
+A sequencing that matches how the guidance stack was written to be consumed (each phase produces something a leadership team can see):
 
 | Phase | Focus | Concrete outputs |
 |---|---|---|
@@ -471,10 +471,10 @@ A sequencing that matches how the guidance stack was written to be consumed — 
 | Countermeasure Mapper | Technique -> countermeasure selection and gap views |
 | Control Mapper | Countermeasure -> NIST 800-53r5 / ISO control traceability |
 | Spacecraft Mapper | Threat-informed countermeasure baselining per spacecraft/mission class |
-| JSON Creator / STIX bundles | Machine-readable matrix and mappings for pipelines and tooling — the same integration pattern this library uses for ATT&CK data |
-| Attack Flow | Builds and visualizes multi-step attack sequences chaining SPARTA techniques — listed on the SPARTA resources page as an interactive tool plus a code repository |
+| JSON Creator / STIX bundles | Machine-readable matrix and mappings for pipelines and tooling, the same integration pattern this library uses for ATT&CK data |
+| Attack Flow | Builds and visualizes multi-step attack sequences chaining SPARTA techniques (listed on the SPARTA resources page as an interactive tool plus a code repository) |
 | Spacetrail | Educational companion game in the SPARTA resource set: an Oregon Trail-style survival sim (per Aerospace's DEF CON 34 materials) about keeping mission assets online through hazards; awareness/training, not analysis tooling |
-| ESA SPACE-SHIELD | The main European parallel: an ATT&CK-like knowledge base of adversary tactics and techniques for the space segment and communication links, at [spaceshield.esa.int](https://spaceshield.esa.int/). Maintained by ESA; version/counts not tracked here — consult the site directly |
+| ESA SPACE-SHIELD | The main European parallel: an ATT&CK-like knowledge base of adversary tactics and techniques for the space segment and communication links, at [spaceshield.esa.int](https://spaceshield.esa.int/). Maintained by ESA; version/counts not tracked here. Consult the site directly |
 
 In this library: SPARTA's D3FEND mappings join the [D3FEND Reference](D3FEND_REFERENCE.md); ground-segment work runs on the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md) and [Detection Strategies](detections/strategies/README.md); RF fundamentals live in [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md); the segmentation and safety-critical operations mindset carries over from [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md); and the Viasat case study above is this library's write-up of that incident ([Notable Incidents](NOTABLE_INCIDENTS.md) covers the broader incident record but does not currently include Viasat).
 
@@ -486,20 +486,20 @@ The minimum vocabulary for reading space-security guidance without stalling:
 
 | Term | Meaning |
 |---|---|
-| Bus | The spacecraft platform itself — power, attitude control, thermal, computing — as distinct from the payload |
+| Bus | The spacecraft platform itself (power, attitude control, thermal, computing) as distinct from the payload |
 | Payload | The part of the spacecraft that performs the mission (imager, transponder, sensor); may have a different owner than the bus |
 | Hosted payload | A payload owned by one party flying on another party's bus: a trust boundary in orbit |
 | OBC / flight software | Onboard computer and the software that flies the spacecraft, typically on a real-time operating system |
 | TT&C | Telemetry, Tracking & Commanding: the housekeeping link that monitors and controls the spacecraft |
 | TM / TC | Telemetry (down) / Telecommand (up): the CCSDS data link protocols for each direction |
-| AOS / USLP | Advanced Orbiting Systems and Unified Space Data Link Protocol — further CCSDS data link protocols covered by SDLS |
+| AOS / USLP | Advanced Orbiting Systems and Unified Space Data Link Protocol: further CCSDS data link protocols covered by SDLS |
 | SDLS | Space Data Link Security: CCSDS 355.0-B-2, link-layer authentication/encryption for TM/TC/AOS/USLP |
 | MOC | Mission Operations Center: where operators plan and command the mission |
 | Pass / contact | The scheduled window when a ground station can communicate with a satellite |
 | Crosslink / ISL | Inter-satellite link: satellite-to-satellite communication, a lateral-movement seam |
 | Transponder | A payload channel that relays communications traffic (bent-pipe SATCOM) |
 | VSAT | Very Small Aperture Terminal: the class of user terminals hit in the Viasat incident |
-| Flatsat | A ground-based replica of spacecraft avionics used for development and test — holds flight software and command knowledge, protect accordingly |
+| Flatsat | A ground-based replica of spacecraft avionics used for development and test; holds flight software and command knowledge; protect accordingly |
 | SWaP | Size, Weight, and Power: the budget every onboard security control must fit inside |
 | PNT / GNSS | Positioning, Navigation, and Timing / Global Navigation Satellite Systems (GPS, Galileo, GLONASS, BeiDou) |
 | Meaconing | Rebroadcast of genuine navigation signals with delay to induce position/timing error |
@@ -513,10 +513,10 @@ The minimum vocabulary for reading space-security guidance without stalling:
 |---|---|
 | Assess a space program's exposure | Run the [CTEM loop](CTEM_REFERENCE.md) with the mission enclave as the scope; use the SPARTA coverage-map workflow above as the discovery/prioritization engine |
 | Defend the ground segment | It's enterprise IT: use the [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Endpoint Security](ENDPOINT_SECURITY_REFERENCE.md), and [Detection Strategies](detections/strategies/README.md) directly |
-| Join SPARTA to your countermeasure graph | Through its official D3FEND mappings and the [D3FEND Reference](D3FEND_REFERENCE.md) — the shared defensive vocabulary between matrices |
+| Join SPARTA to your countermeasure graph | Through its official D3FEND mappings and the [D3FEND Reference](D3FEND_REFERENCE.md), the shared defensive vocabulary between matrices |
 | Understand the RF layer | [SDR & RF Security](SDR_RF_SECURITY_REFERENCE.md) covers the radio fundamentals behind jamming, interception, and spoofing |
 | Borrow the operational mindset | [ICS/OT Security](ICS_OT_SECURITY_REFERENCE.md): safety-critical operations, segmentation zones, and engineering-driven change control translate almost directly |
-| Brief the incident history | The Viasat case study above — this library's coverage of that incident — plus [Notable Incidents](NOTABLE_INCIDENTS.md) for incidents in other domains |
+| Brief the incident history | The Viasat case study above (this library's coverage of that incident) plus [Notable Incidents](NOTABLE_INCIDENTS.md) for incidents in other domains |
 | Secure what you buy and build | [Supply Chain Security](SUPPLY_CHAIN_SECURITY_REFERENCE.md) for the flight/ground software pipeline; [Cryptography](CRYPTOGRAPHY_REFERENCE.md) for the key-management foundations |
 
 ---
@@ -541,4 +541,4 @@ The minimum vocabulary for reading space-security guidance without stalling:
 
 ---
 
-*SPARTA is created and maintained by The Aerospace Corporation; MITRE ATT&CK® and D3FEND™ are trademarks of The MITRE Corporation; SPACE-SHIELD is maintained by ESA. This is an independent practitioner reference summary, not affiliated with or endorsed by any of these organizations — consult the upstream sources for authoritative and current content. Technique and countermeasure counts reflect the SPARTA matrix as rendered in September 2026 (v4.0.1) and will drift; re-verify before quoting.*
+*SPARTA is created and maintained by The Aerospace Corporation; MITRE ATT&CK® and D3FEND™ are trademarks of The MITRE Corporation; SPACE-SHIELD is maintained by ESA. This is an independent practitioner reference summary, not affiliated with or endorsed by any of these organizations; consult the upstream sources for authoritative and current content. Technique and countermeasure counts reflect the SPARTA matrix as rendered in September 2026 (v4.0.1) and will drift; re-verify before quoting.*

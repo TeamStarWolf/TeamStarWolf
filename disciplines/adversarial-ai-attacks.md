@@ -1,6 +1,6 @@
 # Adversarial AI Attacks
 
-AI systems occupy a unique position in the modern threat landscape: they are simultaneously high-value targets and increasingly powerful attack tools. Language models, image classifiers, fraud detectors, autonomous agents, and recommendation systems now underpin critical infrastructure, financial systems, healthcare diagnostics, and enterprise workflows — making them attractive targets for adversaries who understand their failure modes. Unlike traditional software, AI systems fail in ways that are non-obvious, often imperceptible, and deeply tied to their training data and model architecture. A carefully crafted input that looks innocuous to a human can reliably fool a state-of-the-art classifier; a single sentence embedded in a webpage can redirect an autonomous agent to exfiltrate data.
+AI systems occupy a unique position in the modern threat landscape: they are simultaneously high-value targets and increasingly powerful attack tools. Language models, image classifiers, fraud detectors, autonomous agents, and recommendation systems now underpin critical infrastructure, financial systems, healthcare diagnostics, and enterprise workflows, making them attractive targets for adversaries who understand their failure modes. Unlike traditional software, AI systems fail in ways that are non-obvious, often imperceptible, and deeply tied to their training data and model architecture. A carefully crafted input that looks innocuous to a human can reliably fool a state-of-the-art classifier; a single sentence embedded in a webpage can redirect an autonomous agent to exfiltrate data.
 
 Understanding how AI systems are attacked is essential knowledge for defenders who need to anticipate novel failure modes, red teamers who must evaluate AI deployments against realistic adversarial pressure, and AI engineers who need to build systems that are robust by design rather than by assumption. The attacks covered in this discipline are not theoretical: prompt injection has been demonstrated against deployed production systems, adversarial examples defeat real biometric authentication, and data poisoning has been executed against models trained on live web data. Every organization deploying AI systems needs practitioners who understand this attack surface.
 
@@ -10,43 +10,43 @@ Understanding how AI systems are attacked is essential knowledge for defenders w
 
 ### Prompt Injection
 
-Prompt injection exploits the fundamental architecture of large language models: a single context window that mixes system instructions, developer-supplied data, and user-supplied input with no hard enforcement boundary between them. When an LLM processes a context, it cannot reliably distinguish between instructions it should follow and data it should treat as inert — which means any untrusted text that reaches the context window is a potential instruction vector.
+Prompt injection exploits the fundamental architecture of large language models: a single context window that mixes system instructions, developer-supplied data, and user-supplied input with no hard enforcement boundary between them. When an LLM processes a context, it cannot reliably distinguish between instructions it should follow and data it should treat as inert, which means any untrusted text that reaches the context window is a potential instruction vector.
 
-Direct Prompt Injection occurs when the attacker interacts with the model directly — typically via a chat interface or API — and submits input designed to override or extend the system prompt. Common patterns include:
+Direct Prompt Injection occurs when the attacker interacts with the model directly (typically via a chat interface or API) and submits input designed to override or extend the system prompt. Common patterns include:
 
 - Instruction override: telling the model to disregard prior instructions
 - Role reassignment: telling the model it is a different system without the original constraints
 - Delimiter injection: using tokens the model interprets as ending the system prompt and beginning a new instruction block
 - Privilege escalation: convincing the model the user has elevated permissions that permit otherwise restricted actions
 
-Indirect Prompt Injection is more dangerous and harder to defend. Here the attacker does not interact with the model directly; instead, they embed malicious instructions in content that the model will later retrieve and process — a webpage the model browses, a document it summarizes, an email it reads, or a database record it looks up. The injected instructions then execute with the authority of the model's context when it processes that content. This is the primary attack vector against LLM agents with tool access.
+Indirect Prompt Injection is more dangerous and harder to defend. Here the attacker does not interact with the model directly; instead, they embed malicious instructions in content that the model will later retrieve and process: a webpage the model browses, a document it summarizes, an email it reads, or a database record it looks up. The injected instructions then execute with the authority of the model's context when it processes that content. This is the primary attack vector against LLM agents with tool access.
 
 Why it works: LLMs are trained to follow instructions and to be helpful. The same generalization that makes them capable of following novel instructions also makes them susceptible to instructions from unexpected sources. Instruction-following is a feature that becomes a vulnerability when the model cannot reliably determine who issued the instruction.
 
 Example attack flow (indirect): A user asks an LLM agent to summarize their inbox. One email contains hidden text instructing the agent to forward all emails before summarizing. If the model processes retrieved content without isolating it from instructions, it may treat the injected text as a legitimate directive and invoke its email-sending tools accordingly.
 
-References: [OWASP LLM Top 10 — LLM01: Prompt Injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/), [Kai Greshake et al., "Not What You've Signed Up For"](https://arxiv.org/abs/2302.12173)
+References: [OWASP LLM Top 10 (LLM01: Prompt Injection)](https://owasp.org/www-project-top-10-for-large-language-model-applications/), [Kai Greshake et al., "Not What You've Signed Up For"](https://arxiv.org/abs/2302.12173)
 
 ---
 
 ### Jailbreaking LLMs
 
-Jailbreaking refers to a class of techniques that cause a model to produce outputs that its safety training was designed to prevent — harmful content, dangerous instructions, personal attacks, or policy violations. Unlike prompt injection (which typically targets a specific deployed system to override its instructions), jailbreaking usually targets the base model's safety training directly.
+Jailbreaking refers to a class of techniques that cause a model to produce outputs that its safety training was designed to prevent: harmful content, dangerous instructions, personal attacks, or policy violations. Unlike prompt injection (which typically targets a specific deployed system to override its instructions), jailbreaking usually targets the base model's safety training directly.
 
 Roleplay and Persona Attacks
-The attacker asks the model to adopt a persona that is not bound by the model's normal values — a fictional AI with no restrictions, an older uncensored version of itself, or a character who would provide the restricted information. These work because the model's role-playing capability and its safety training were optimized somewhat independently.
+The attacker asks the model to adopt a persona that is not bound by the model's normal values: a fictional AI with no restrictions, an older uncensored version of itself, or a character who would provide the restricted information. These work because the model's role-playing capability and its safety training were optimized somewhat independently.
 
 Fictional Framing
-Wrapping a request in fictional framing distributes the safety signal across a creative context — writing a story in which a character provides dangerous information. The model may produce harmful content as dialogue within a narrative frame, effectively laundering the output through a fictional wrapper.
+Wrapping a request in fictional framing distributes the safety signal across a creative context: writing a story in which a character provides dangerous information. The model may produce harmful content as dialogue within a narrative frame, effectively laundering the output through a fictional wrapper.
 
 Many-Shot Jailbreaking
-As context windows have expanded, researchers demonstrated that providing many (dozens to hundreds) of examples of the model compliantly answering progressively more sensitive questions conditions it toward compliance for the final harmful request. This exploits in-context learning — the same mechanism that makes LLMs few-shot learners makes them susceptible to compliance conditioning at scale.
+As context windows have expanded, researchers demonstrated that providing many (dozens to hundreds) of examples of the model compliantly answering progressively more sensitive questions conditions it toward compliance for the final harmful request. This exploits in-context learning: the same mechanism that makes LLMs few-shot learners makes them susceptible to compliance conditioning at scale.
 
 Encoding and Obfuscation Tricks
 Requesting output in Base64, ROT13, Leetspeak, reversed text, or other encodings can bypass safety classifiers that operate on the surface form of text. The model encodes a response it would not produce in plaintext. Variations include token smuggling (inserting zero-width characters) or asking the model to respond character by character.
 
 Virtualization / Simulation Attacks
-Asking the model to simulate what an unrestricted system would output exploits the model's ability to reason about other systems and agents. The model may reason that it is merely describing what another system would say — while producing the harmful content regardless.
+Asking the model to simulate what an unrestricted system would output exploits the model's ability to reason about other systems and agents. The model may reason that it is merely describing what another system would say, while producing the harmful content regardless.
 
 Automated Jailbreak Search
 Gradient-based methods like GCG (Greedy Coordinate Gradient) automatically discover adversarial suffixes appended to prompts that reliably elicit harmful outputs. These suffixes look like gibberish to humans but are highly effective jailbreak triggers, and they transfer across models.
@@ -57,12 +57,12 @@ References: [Perez & Ribeiro, "Ignore Previous Prompt"](https://arxiv.org/abs/22
 
 ### Adversarial Inputs to ML Models
 
-Classical machine learning models — particularly image classifiers, audio recognizers, and intrusion detection systems — are vulnerable to adversarial examples: inputs that have been imperceptibly modified to cause misclassification. To a human observer the input looks identical to the original; to the model it lands in a completely different class.
+Classical machine learning models (particularly image classifiers, audio recognizers, and intrusion detection systems) are vulnerable to adversarial examples: inputs that have been imperceptibly modified to cause misclassification. To a human observer the input looks identical to the original; to the model it lands in a completely different class.
 
 Why adversarial examples exist: Neural networks learn decision boundaries that are locally non-linear and can be dramatically different from human perception. The high-dimensional input space contains directions along which the model's confidence changes rapidly while human perception does not. Small perturbations along these directions cross decision boundaries.
 
 Fast Gradient Sign Method (FGSM)
-The simplest white-box attack. Compute the gradient of the model's loss with respect to the input, take the sign of each gradient component, and add a small perturbation in that direction. One step, computationally cheap, surprisingly effective. The perturbation magnitude is controlled by epsilon — a small value ensures human-imperceptible changes.
+The simplest white-box attack. Compute the gradient of the model's loss with respect to the input, take the sign of each gradient component, and add a small perturbation in that direction. One step, computationally cheap, surprisingly effective. The perturbation magnitude is controlled by epsilon; a small value ensures human-imperceptible changes.
 
 Projected Gradient Descent (PGD)
 An iterative refinement of FGSM. Repeat gradient steps in a loop, projecting the result back into an L-infinity ball of radius epsilon around the original input after each step. More powerful than FGSM and the standard baseline for adversarial robustness evaluation. Introduced by Madry et al. and widely considered the de facto white-box attack benchmark.
@@ -87,10 +87,10 @@ References: [Goodfellow et al., FGSM (2014)](https://arxiv.org/abs/1412.6572), [
 Data poisoning attacks corrupt the training process by introducing malicious examples into the training dataset, causing the trained model to have degraded performance, misbehave on targeted inputs, or contain a hidden backdoor the attacker can activate.
 
 Availability Attacks (Degradation)
-Poison a fraction of training data — by flipping labels, injecting outliers, or adding corrupted samples — to degrade the model's overall accuracy or its performance on a specific class. Relatively detectable because the poisoned model simply performs worse.
+Poison a fraction of training data (by flipping labels, injecting outliers, or adding corrupted samples) to degrade the model's overall accuracy or its performance on a specific class. Relatively detectable because the poisoned model simply performs worse.
 
 Backdoor / Trojan Attacks
-The attacker injects training examples containing a trigger pattern (a pixel patch, a specific word, a particular formatting pattern) with an incorrect label. The model learns to associate the trigger with the attacker's desired output class. At inference time, the model behaves correctly on clean inputs but produces the attacker's desired output whenever the trigger is present — a persistent hidden capability invisible to standard evaluation.
+The attacker injects training examples containing a trigger pattern (a pixel patch, a specific word, a particular formatting pattern) with an incorrect label. The model learns to associate the trigger with the attacker's desired output class. At inference time, the model behaves correctly on clean inputs but produces the attacker's desired output whenever the trigger is present: a persistent hidden capability invisible to standard evaluation.
 
 Targeted Poisoning
 Rather than installing a trigger, the attacker crafts poisoning examples that cause the model to misclassify a specific target input (chosen by the attacker) while performing normally on all other inputs. Highly stealthy because standard evaluation metrics do not reveal the attack.
@@ -109,7 +109,7 @@ References: [Chen et al., "Targeted Backdoor Attacks on Deep Learning" (2017)](h
 
 ### Model Extraction / Stealing
 
-Model extraction attacks allow an adversary to reconstruct a functional approximation of a proprietary model — including its decision boundaries, confidence scores, and learned representations — by querying the model's API and observing its outputs.
+Model extraction attacks allow an adversary to reconstruct a functional approximation of a proprietary model (including its decision boundaries, confidence scores, and learned representations) by querying the model's API and observing its outputs.
 
 How it works:
 1. The attacker queries the target model on a large, representative input distribution and collects input-output pairs.
@@ -123,7 +123,7 @@ Exploitation paths after extraction:
 - Deploy the stolen model commercially to avoid licensing costs or reproduce a proprietary capability
 - Analyze the substitute model to infer information about the training data, architecture, or model capabilities
 
-Model inversion: Related but distinct — model inversion attacks reconstruct training data (e.g., faces from a face recognition model) rather than the decision boundary, by optimizing inputs to maximize confidence for a target class.
+Model inversion: Related but distinct, model inversion attacks reconstruct training data (e.g., faces from a face recognition model) rather than the decision boundary, by optimizing inputs to maximize confidence for a target class.
 
 Impact: Intellectual property theft, enabling downstream adversarial attacks, unauthorized reproduction of commercial models.
 
@@ -135,7 +135,7 @@ References: [Tramer et al., "Stealing Machine Learning Models" (2016)](https://a
 
 Membership inference attacks determine whether a specific data record was included in a model's training set. This is a privacy attack: if a model was trained on sensitive data (medical records, financial transactions, private communications), an attacker can confirm whether a particular individual's data was used.
 
-Why it works: Models tend to behave differently on examples they were trained on versus unseen examples. Specifically, models often exhibit higher confidence, lower loss, and more consistent predictions on training data — a consequence of overfitting. This signal, while noisy, is statistically detectable.
+Why it works: Models tend to behave differently on examples they were trained on versus unseen examples. Specifically, models often exhibit higher confidence, lower loss, and more consistent predictions on training data, a consequence of overfitting. This signal, while noisy, is statistically detectable.
 
 Shadow model attack (Shokri et al.):
 1. Train multiple shadow models on datasets of known composition (attacker knows which records are in/out).
@@ -155,7 +155,7 @@ References: [Shokri et al., "Membership Inference Attacks Against Machine Learni
 
 ### AI Agent Hijacking
 
-LLM agents combine language model reasoning with tool use — the ability to execute code, browse the web, read and write files, send emails, query databases, and call external APIs. This dramatically expands the blast radius of prompt injection and related attacks because a successfully hijacked agent can take consequential real-world actions, not just produce harmful text.
+LLM agents combine language model reasoning with tool use: the ability to execute code, browse the web, read and write files, send emails, query databases, and call external APIs. This dramatically expands the blast radius of prompt injection and related attacks because a successfully hijacked agent can take consequential real-world actions, not just produce harmful text.
 
 Attack surface unique to agents:
 - Tool invocation: If an attacker can redirect what tools the agent calls and with what arguments, they can cause code execution, data exfiltration, or unauthorized transactions
@@ -163,26 +163,26 @@ Attack surface unique to agents:
 - Multi-agent pipelines: In systems where agents call other agents, a compromised agent can propagate malicious instructions downstream across a trust chain
 - Environment observation: Agents that read files, emails, or web pages are exposed to indirect prompt injection from any content in those environments
 
-Attack scenario — web browsing agent:
+Attack scenario (web browsing agent):
 A user asks an agent to research a topic. The attacker publishes a webpage containing hidden instructions directing the agent to perform unauthorized actions before returning results. If the agent has network tools and insufficient instruction-isolation guardrails, it may execute those instructions as if they were legitimate directives.
 
-Attack scenario — code execution agent:
+Attack scenario (code execution agent):
 An agent is asked to analyze a data file. The file contains embedded content designed to be interpreted as instructions when processed. Without proper content isolation, the agent may pass the malicious content to its execution environment.
 
-Privilege escalation via agent chaining: In multi-agent systems, an attacker who compromises an outer orchestrator agent can issue instructions to inner agents with higher privilege — for example, directing a privileged data-access agent to exfiltrate records.
+Privilege escalation via agent chaining: In multi-agent systems, an attacker who compromises an outer orchestrator agent can issue instructions to inner agents with higher privilege, for example, directing a privileged data-access agent to exfiltrate records.
 
 Defenses: Principle of least privilege for agent tool access, human-in-the-loop confirmation for destructive or exfiltrating actions, prompt isolation between retrieved content and instructions, output monitoring for anomalous tool call patterns.
 
-References: [Greshake et al., "Not What You've Signed Up For" (2023)](https://arxiv.org/abs/2302.12173), [OWASP LLM Top 10 — LLM06: Excessive Agency](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+References: [Greshake et al., "Not What You've Signed Up For" (2023)](https://arxiv.org/abs/2302.12173), [OWASP LLM Top 10 (LLM06: Excessive Agency)](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
 ---
 
 ### Supply Chain Attacks on ML
 
-The ML ecosystem has a rich software supply chain — pretrained model weights, open-source libraries, training datasets, and model hubs — each of which is a potential attack surface. Unlike traditional software supply chain attacks, ML supply chain attacks can be nearly invisible because a malicious model may perform correctly on standard benchmarks while containing a hidden backdoor.
+The ML ecosystem has a rich software supply chain: pretrained model weights, open-source libraries, training datasets, and model hubs, each of which is a potential attack surface. Unlike traditional software supply chain attacks, ML supply chain attacks can be nearly invisible because a malicious model may perform correctly on standard benchmarks while containing a hidden backdoor.
 
 Unsafe Deserialization in ML Model Files
-Many ML frameworks have historically used serialization formats that execute arbitrary code when a model file is loaded. This means that loading a malicious model file can result in immediate code execution on the machine with no user interaction beyond a single load call — equivalent to running an untrusted binary. Safe serialization alternatives (such as the safetensors format) exist and should be preferred for any model loaded from an untrusted source.
+Many ML frameworks have historically used serialization formats that execute arbitrary code when a model file is loaded. This means that loading a malicious model file can result in immediate code execution on the machine with no user interaction beyond a single load call, equivalent to running an untrusted binary. Safe serialization alternatives (such as the safetensors format) exist and should be preferred for any model loaded from an untrusted source.
 
 Malicious Pretrained Weights on HuggingFace and Model Hubs
 HuggingFace Hub hosts hundreds of thousands of model repositories. An attacker can publish weights that contain code-execution payloads in model files, implement a hidden backdoor (the model performs correctly on benchmarks but misbehaves when a trigger is present), use names resembling popular legitimate models (typosquatting), or replace legitimate model repositories after gaining contributor access.
@@ -191,7 +191,7 @@ Compromised Training Pipelines
 ML training pipelines pull from multiple sources: package managers, data pipelines, and configuration files. A compromised dependency in any of these can inject malicious behavior or exfiltrate training data and model weights, analogous to traditional software supply chain attacks.
 
 Dataset Poisoning via Web Crawls
-Large models trained on web-crawled data are vulnerable to attackers who control web-accessible URLs included in the dataset index. By publishing carefully crafted content at those URLs before the dataset is assembled, an attacker can influence what the model learns — including installing backdoors in vision-language models by poisoning image-caption pairs.
+Large models trained on web-crawled data are vulnerable to attackers who control web-accessible URLs included in the dataset index. By publishing carefully crafted content at those URLs before the dataset is assembled, an attacker can influence what the model learns, including installing backdoors in vision-language models by poisoning image-caption pairs.
 
 Mitigation: Use safe serialization formats for model weights, verify model checksums against trusted manifests, scan model files with tools like ModelScan before loading, prefer models from verified organizations on model hubs, treat model loading as equivalent to code execution.
 
@@ -217,7 +217,7 @@ References: [Hugging Face Model Security](https://huggingface.co/docs/hub/securi
 | AML.T0048 | LLM Prompt Injection | Inject instructions into an LLM prompt via untrusted content to hijack the model's behavior |
 | AML.T0051 | LLM Jailbreak | Use adversarial prompting to cause an LLM to bypass its safety training and produce restricted outputs |
 | AML.T0054 | LLM Plugin Compromise | Exploit plugins or tool integrations connected to an LLM agent to achieve code execution or data exfiltration |
-| AML.T0035 | ML Supply Chain Compromise | Introduce malicious components at any stage of the ML pipeline — data, model, library, or infrastructure |
+| AML.T0035 | ML Supply Chain Compromise | Introduce malicious components at any stage of the ML pipeline: data, model, library, or infrastructure |
 | AML.T0044 | Full ML Model Access | Obtain complete access to model weights enabling white-box attacks and unrestricted analysis |
 
 ---
@@ -304,7 +304,7 @@ Understanding how attacks are detected is as important for attackers (to evade d
 
 Adversarial Examples (Evasion Attacks)
 - Definition: Carefully crafted inputs that cause ML model to misclassify with high confidence
-- Classic example: Goodfellow et al. 2014 — panda image + imperceptible noise = gibbon (99.3% confidence)
+- Classic example: Goodfellow et al. 2014, panda image + imperceptible noise = gibbon (99.3% confidence)
 - Types:
   - White-box: Full access to model gradients; most powerful (FGSM, PGD, C&W)
   - Black-box: Query-only access; no gradient access; harder but practical (ZOO, NES attacks)
@@ -337,7 +337,7 @@ Data Poisoning Attacks
 
 ## MITRE ATLAS Framework
 
-ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) — MITRE's ML threat matrix
+ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems): MITRE's ML threat matrix
 
 Key ATLAS Tactics and Techniques
 

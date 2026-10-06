@@ -1,11 +1,11 @@
-# CAPEC-529 — Malware-Directed Internal Reconnaissance
+# CAPEC-529: Malware-Directed Internal Reconnaissance
 
 <a id="capec-529"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Medium  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Medium  
+Likelihood: Medium  
+Status: Stable  
 
 Adversary uses malware or a similarly controlled application installed inside an organizational perimeter to gather information about the composition, configuration, and security mechanisms of a targeted application, system or network.
 
@@ -28,4 +28,4 @@ Adversary uses malware or a similarly controlled application installed inside an
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

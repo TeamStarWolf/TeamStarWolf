@@ -1,11 +1,11 @@
-# CAPEC-611 — BitSquatting
+# CAPEC-611: BitSquatting
 
 <a id="capec-611"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Medium  
+Likelihood: Low  
+Status: Draft  
 
 An adversary registers a domain name one bit different than a trusted domain. A BitSquatting attack leverages random errors in memory to direct Internet traffic to adversary-controlled destinations. BitSquatting requires no exploitation or complicated reverse engineering, and is operating system and architecture agnostic. Experimental observations show that BitSquatting popular websites could redirect non-trivial amounts of Internet traffic to a malicious entity.
 
@@ -28,4 +28,4 @@ An adversary registers a domain name one bit different than a trusted domain. A 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

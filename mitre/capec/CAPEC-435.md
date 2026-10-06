@@ -1,11 +1,11 @@
-# CAPEC-435 — Target Influence via Instant Rapport
+# CAPEC-435: Target Influence via Instant Rapport
 
 <a id="capec-435"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Low  
+Status: Draft  
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

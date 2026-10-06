@@ -1,22 +1,22 @@
-# CAPEC-654 — Credential Prompt Impersonation
+# CAPEC-654: Credential Prompt Impersonation
 
 <a id="capec-654"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary, through a previously installed malicious application, impersonates a credential prompt in an attempt to steal a user's credentials.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1056 — Input Capture](/mitre/techniques/T1056.md) — Adversaries may use methods of capturing user input to obtain credentials or collect information.
-- [T1548.004 — Elevated Execution with Prompt](/mitre/techniques/T1548-004.md) — Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API to escalate privileges by prompting the user for credentials.
+- [T1056: Input Capture](/mitre/techniques/T1056.md): Adversaries may use methods of capturing user input to obtain credentials or collect information.
+- [T1548.004: Elevated Execution with Prompt](/mitre/techniques/T1548-004.md): Adversaries may leverage the <code>AuthorizationExecuteWithPrivileges</code> API to escalate privileges by prompting the user for credentials.
 
 ## Related CWE (1)
 
-- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html) — The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
+- [CWE-1021: Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html): The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
 
 ## Prerequisites
 
@@ -37,4 +37,4 @@ An adversary, through a previously installed malicious application, impersonates
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

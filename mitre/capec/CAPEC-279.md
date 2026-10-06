@@ -1,17 +1,17 @@
-# CAPEC-279 — SOAP Manipulation
+# CAPEC-279: SOAP Manipulation
 
 <a id="capec-279"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 Simple Object Access Protocol (SOAP) is used as a communication protocol between a client and server to invoke web services on the server. It is an XML-based protocol, and therefore suffers from many of the same shortcomings as other XML-based protocols. Adversaries can make use of these shortcomings and manipulate the content of SOAP paramters, leading to undesirable behavior on the server and allowing the adversary to carry out a number of further attacks.
 
 ## Related CWE (1)
 
-- [CWE-707 — Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html) — The product does not ensure or incorrectly ensures that structured messages or data are well-formed and that certain security properties are met before being read from an upstream component or sent to a downstream component.
+- [CWE-707: Improper Neutralization](https://cwe.mitre.org/data/definitions/707.html): The product does not ensure or incorrectly ensures that structured messages or data are well-formed and that certain security properties are met before being read from an upstream component or sent to a downstream component.
 
 ## Prerequisites
 
@@ -27,4 +27,4 @@ Simple Object Access Protocol (SOAP) is used as a communication protocol between
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

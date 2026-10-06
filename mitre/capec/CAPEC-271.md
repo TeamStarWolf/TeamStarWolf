@@ -1,17 +1,17 @@
-# CAPEC-271 — Schema Poisoning
+# CAPEC-271: Schema Poisoning
 
 <a id="capec-271"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An adversary corrupts or modifies the content of a schema for the purpose of undermining the security of the target. Schemas provide the structure and content definitions for resources used by an application. By replacing or modifying a schema, the adversary can affect how the application handles or interprets a resource, often leading to possible denial of service, entering into an unexpected state, or recording incomplete data.
 
 ## Related CWE (1)
 
-- [CWE-15 — External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html) — One or more system settings or configuration elements can be externally controlled by a user.
+- [CWE-15: External Control of System or Configuration Setting](https://cwe.mitre.org/data/definitions/15.html): One or more system settings or configuration elements can be externally controlled by a user.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary corrupts or modifies the content of a schema for the purpose of und
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

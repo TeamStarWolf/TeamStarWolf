@@ -1,17 +1,17 @@
-# CAPEC-40 — Manipulating Writeable Terminal Devices
+# CAPEC-40: Manipulating Writeable Terminal Devices
 
 <a id="capec-40"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Very High  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Very High  
+Likelihood: High  
+Status: Draft  
 
 This attack exploits terminal devices that allow themselves to be written to by other users. The attacker sends command strings to the target terminal device hoping that the target user will hit enter and thereby execute the malicious command with their privileges. The attacker can send the results (such as copying /etc/passwd) to a known directory and collect once the attack has succeeded.
 
 ## Related CWE (1)
 
-- [CWE-77 — Improper Neutralization of Special Elements used in a Command ('Command Injection')](https://cwe.mitre.org/data/definitions/77.html) — The product constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.
+- [CWE-77: Improper Neutralization of Special Elements used in a Command ('Command Injection')](https://cwe.mitre.org/data/definitions/77.html): The product constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.
 
 ## Prerequisites
 
@@ -34,4 +34,4 @@ This attack exploits terminal devices that allow themselves to be written to by 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

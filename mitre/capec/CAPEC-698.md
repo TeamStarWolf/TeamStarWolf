@@ -1,23 +1,23 @@
-# CAPEC-698 — Install Malicious Extension
+# CAPEC-698: Install Malicious Extension
 
 <a id="capec-698"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary directly installs or tricks a user into installing a malicious extension into existing trusted software, with the goal of achieving a variety of negative technical impacts.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1176 — Software Extensions](/mitre/techniques/T1176.md) — Adversaries may abuse software extensions to establish persistent access to victim systems.
-- [T1505.004 — IIS Components](/mitre/techniques/T1505-004.md) — Adversaries may install malicious components that run on Internet Information Services (IIS) web servers to establish persistence.
+- [T1176: Software Extensions](/mitre/techniques/T1176.md): Adversaries may abuse software extensions to establish persistent access to victim systems.
+- [T1505.004: IIS Components](/mitre/techniques/T1505-004.md): Adversaries may install malicious components that run on Internet Information Services (IIS) web servers to establish persistence.
 
 ## Related CWE (2)
 
-- [CWE-507 — Trojan Horse](https://cwe.mitre.org/data/definitions/507.html) — The product appears to contain benign or useful functionality, but it also contains code that is hidden from normal operation that violates the intended security policy of the user or the system administrator.
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+- [CWE-507: Trojan Horse](https://cwe.mitre.org/data/definitions/507.html): The product appears to contain benign or useful functionality, but it also contains code that is hidden from normal operation that violates the intended security policy of the user or the system administrator.
+- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html): The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 
@@ -46,4 +46,4 @@ An adversary directly installs or tricks a user into installing a malicious exte
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

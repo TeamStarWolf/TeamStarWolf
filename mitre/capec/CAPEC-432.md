@@ -1,12 +1,12 @@
-# CAPEC-432 — DEPRECATED:  Target Influence via Voice in NLP
+# CAPEC-432: DEPRECATED: Target Influence via Voice in NLP
 
 <a id="capec-432"></a>
 
-**Abstraction:** Detailed  
-**Status:** Deprecated  
+Abstraction: Detailed  
+Status: Deprecated  
 
 This attack pattern has been deprecated.
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

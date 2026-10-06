@@ -1,16 +1,16 @@
-# CAPEC-217 — Exploiting Incorrectly Configured SSL/TLS
+# CAPEC-217: Exploiting Incorrectly Configured SSL/TLS
 
 <a id="capec-217"></a>
 
-**Abstraction:** Standard  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Standard  
+Likelihood: Low  
+Status: Draft  
 
 An adversary takes advantage of incorrectly configured SSL/TLS communications that enables access to data intended to be encrypted. The adversary may also use this type of attack to inject commands or other traffic into the encrypted stream to cause compromise of either the client or server.
 
 ## Related CWE (1)
 
-- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html) — The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
+- [CWE-201: Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html): The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
 
 ## Prerequisites
 
@@ -33,4 +33,4 @@ An adversary takes advantage of incorrectly configured SSL/TLS communications th
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,16 +1,16 @@
-# CAPEC-501 — Android Activity Hijack
+# CAPEC-501: Android Activity Hijack
 
 <a id="capec-501"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Medium  
+Status: Draft  
 
 An adversary intercepts an implicit intent sent to launch a Android-based trusted activity and instead launches a counterfeit activity in its place. The malicious activity is then used to mimic the trusted activity's user interface and prompt the target to enter sensitive data as if they were interacting with the trusted activity.
 
 ## Related CWE (1)
 
-- [CWE-923 — Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html) — The product establishes a communication channel to (or from) an endpoint for privileged or protected operations, but it does not properly ensure that it is communicating with the correct endpoint.
+- [CWE-923: Improper Restriction of Communication Channel to Intended Endpoints](https://cwe.mitre.org/data/definitions/923.html): The product establishes a communication channel to (or from) an endpoint for privileged or protected operations, but it does not properly ensure that it is communicating with the correct endpoint.
 
 ## Prerequisites
 
@@ -31,4 +31,4 @@ An adversary intercepts an implicit intent sent to launch a Android-based truste
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,18 +1,18 @@
-# CAPEC-90 — Reflection Attack in Authentication Protocol
+# CAPEC-90: Reflection Attack in Authentication Protocol
 
 <a id="capec-90"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: High  
+Status: Draft  
 
 An adversary can abuse an authentication protocol susceptible to reflection attack in order to defeat it. Doing so allows the adversary illegitimate access to the target system, without possessing the requisite credentials. Reflection attacks are of great concern to authentication protocols that rely on a challenge-handshake or similar mechanism. An adversary can impersonate a legitimate user and can gain illegitimate access to the system by successfully mounting a reflection attack during authentication.
 
 ## Related CWE (2)
 
-- [CWE-301 — Reflection Attack in an Authentication Protocol](https://cwe.mitre.org/data/definitions/301.html) — Simple authentication protocols are subject to reflection attacks if a malicious user can use the target machine to impersonate a trusted user.
-- [CWE-303 — Incorrect Implementation of Authentication Algorithm](https://cwe.mitre.org/data/definitions/303.html) — The requirements for the product dictate the use of an established authentication algorithm, but the implementation of the algorithm is incorrect.
+- [CWE-301: Reflection Attack in an Authentication Protocol](https://cwe.mitre.org/data/definitions/301.html): Simple authentication protocols are subject to reflection attacks if a malicious user can use the target machine to impersonate a trusted user.
+- [CWE-303: Incorrect Implementation of Authentication Algorithm](https://cwe.mitre.org/data/definitions/303.html): The requirements for the product dictate the use of an established authentication algorithm, but the implementation of the algorithm is incorrect.
 
 ## Prerequisites
 
@@ -35,4 +35,4 @@ An adversary can abuse an authentication protocol susceptible to reflection atta
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

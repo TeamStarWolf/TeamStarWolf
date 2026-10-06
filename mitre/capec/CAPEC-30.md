@@ -1,21 +1,21 @@
-# CAPEC-30 — Hijacking a Privileged Thread of Execution
+# CAPEC-30: Hijacking a Privileged Thread of Execution
 
 <a id="capec-30"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Very High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Very High  
+Likelihood: Low  
+Status: Draft  
 
 An adversary hijacks a privileged thread of execution by injecting malicious code into a running process. By using a privleged thread to do their bidding, adversaries can evade process-based detection that would stop an attack that creates a new process. This can lead to an adversary gaining access to the process's memory and can also enable elevated privileges. The most common way to perform this attack is by suspending an existing thread and manipulating its memory.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1055.003 — Thread Execution Hijacking](/mitre/techniques/T1055-003.md) — Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges.
+- [T1055.003: Thread Execution Hijacking](/mitre/techniques/T1055-003.md): Adversaries may inject malicious code into hijacked processes in order to evade process-based defenses as well as possibly elevate privileges.
 
 ## Related CWE (1)
 
-- [CWE-270 — Privilege Context Switching Error](https://cwe.mitre.org/data/definitions/270.html) — The product does not properly manage privileges while it is switching between different contexts that have different privileges or spheres of control.
+- [CWE-270: Privilege Context Switching Error](https://cwe.mitre.org/data/definitions/270.html): The product does not properly manage privileges while it is switching between different contexts that have different privileges or spheres of control.
 
 ## Prerequisites
 
@@ -38,4 +38,4 @@ An adversary hijacks a privileged thread of execution by injecting malicious cod
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

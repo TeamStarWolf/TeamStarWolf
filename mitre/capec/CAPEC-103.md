@@ -1,17 +1,17 @@
-# CAPEC-103 — Clickjacking
+# CAPEC-103: Clickjacking
 
 <a id="capec-103"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary tricks a victim into unknowingly initiating some action in one system while interacting with the UI from a seemingly completely different, usually an adversary controlled or intended, system.
 
 ## Related CWE (1)
 
-- [CWE-1021 — Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html) — The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
+- [CWE-1021: Improper Restriction of Rendered UI Layers or Frames](https://cwe.mitre.org/data/definitions/1021.html): The web application does not restrict or incorrectly restricts frame objects or UI layers that belong to another application or domain.
 
 ## Prerequisites
 
@@ -40,4 +40,4 @@ An adversary tricks a victim into unknowingly initiating some action in one syst
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

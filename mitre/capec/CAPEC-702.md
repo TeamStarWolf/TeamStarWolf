@@ -1,17 +1,17 @@
-# CAPEC-702 — Exploiting Incorrect Chaining or Granularity of Hardware Debug Components
+# CAPEC-702: Exploiting Incorrect Chaining or Granularity of Hardware Debug Components
 
 <a id="capec-702"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Medium  
+Likelihood: Low  
+Status: Draft  
 
 An adversary exploits incorrect chaining or granularity of hardware debug components in order to gain unauthorized access to debug functionality on a chip. This happens when authorization is not checked on a per function basis and is assumed for a chain or group of debug functionality.
 
 ## Related CWE (1)
 
-- [CWE-1296 — Incorrect Chaining or Granularity of Debug Components](https://cwe.mitre.org/data/definitions/1296.html) — The product's debug components contain incorrect chaining or granularity of debug components.
+- [CWE-1296: Incorrect Chaining or Granularity of Debug Components](https://cwe.mitre.org/data/definitions/1296.html): The product's debug components contain incorrect chaining or granularity of debug components.
 
 ## Prerequisites
 
@@ -35,4 +35,4 @@ An adversary exploits incorrect chaining or granularity of hardware debug compon
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

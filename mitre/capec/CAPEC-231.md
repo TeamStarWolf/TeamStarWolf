@@ -1,20 +1,20 @@
-# CAPEC-231 — Oversized Serialized Data Payloads
+# CAPEC-231: Oversized Serialized Data Payloads
 
 <a id="capec-231"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary injects oversized serialized data payloads into a parser during data processing to produce adverse effects upon the parser such as exhausting system resources and arbitrary code execution.
 
 ## Related CWE (4)
 
-- [CWE-112 — Missing XML Validation](https://cwe.mitre.org/data/definitions/112.html) — The product accepts XML from an untrusted source but does not validate the XML against the proper schema.
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
-- [CWE-674 — Uncontrolled Recursion](https://cwe.mitre.org/data/definitions/674.html) — The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack.
-- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html) — The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
+- [CWE-112: Missing XML Validation](https://cwe.mitre.org/data/definitions/112.html): The product accepts XML from an untrusted source but does not validate the XML against the proper schema.
+- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html): The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-674: Uncontrolled Recursion](https://cwe.mitre.org/data/definitions/674.html): The product does not properly control the amount of recursion that takes place, consuming excessive resources, such as allocated memory or the program stack.
+- [CWE-770: Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html): The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
 
 ## Prerequisites
 
@@ -42,4 +42,4 @@ An adversary injects oversized serialized data payloads into a parser during dat
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

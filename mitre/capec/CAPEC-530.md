@@ -1,11 +1,11 @@
-# CAPEC-530 — Provide Counterfeit Component
+# CAPEC-530: Provide Counterfeit Component
 
 <a id="capec-530"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An attacker provides a counterfeit component during the procurement process of a lower-tier component supplier to a sub-system developer or integrator, which is then built into the system being upgraded or repaired by the victim, allowing the attacker to cause disruption or additional compromise.
 
@@ -23,4 +23,4 @@ An attacker provides a counterfeit component during the procurement process of a
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

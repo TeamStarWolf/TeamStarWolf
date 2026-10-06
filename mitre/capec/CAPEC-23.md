@@ -1,17 +1,17 @@
-# CAPEC-23 — File Content Injection
+# CAPEC-23: File Content Injection
 
 <a id="capec-23"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Very High  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Very High  
+Likelihood: High  
+Status: Draft  
 
 An adversary poisons files with a malicious payload (targeting the file systems accessible by the target software), which may be passed through by standard channels such as via email, and standard web content like PDF and multimedia files. The adversary exploits known vulnerabilities or handling routines in the target processes, in order to exploit the host's trust in executing remote content, including binary files.
 
 ## Related CWE (1)
 
-- [CWE-20 — Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html) — The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html): The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
 
 ## Prerequisites
 
@@ -37,4 +37,4 @@ An adversary poisons files with a malicious payload (targeting the file systems 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

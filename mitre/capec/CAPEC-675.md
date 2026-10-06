@@ -1,21 +1,21 @@
-# CAPEC-675 — Retrieve Data from Decommissioned Devices
+# CAPEC-675: Retrieve Data from Decommissioned Devices
 
 <a id="capec-675"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Medium  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: Medium  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary obtains decommissioned, recycled, or discarded systems and devices that can include an organization’s intellectual property, employee data, and other types of controlled information. Systems and devices that have reached the end of their lifecycles may be subject to recycle or disposal where they can be exposed to adversarial attempts to retrieve information from internal memory chips and storage devices that are part of the system.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1052 — Exfiltration Over Physical Medium](/mitre/techniques/T1052.md) — Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive.
+- [T1052: Exfiltration Over Physical Medium](/mitre/techniques/T1052.md): Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive.
 
 ## Related CWE (1)
 
-- [CWE-1266 — Improper Scrubbing of Sensitive Data from Decommissioned Device](https://cwe.mitre.org/data/definitions/1266.html) — The product does not properly provide a capability for the product administrator to remove sensitive data at the time the product is decommissioned.
+- [CWE-1266: Improper Scrubbing of Sensitive Data from Decommissioned Device](https://cwe.mitre.org/data/definitions/1266.html): The product does not properly provide a capability for the product administrator to remove sensitive data at the time the product is decommissioned.
 
 ## Prerequisites
 
@@ -41,4 +41,4 @@ An adversary obtains decommissioned, recycled, or discarded systems and devices 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

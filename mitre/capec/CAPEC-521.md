@@ -1,11 +1,11 @@
-# CAPEC-521 — Hardware Design Specifications Are Altered
+# CAPEC-521: Hardware Design Specifications Are Altered
 
 <a id="capec-521"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An attacker with access to a manufacturer's hardware manufacturing process documentation alters the design specifications, which introduces flaws advantageous to the attacker once the system is deployed.
 
@@ -30,4 +30,4 @@ An attacker with access to a manufacturer's hardware manufacturing process docum
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

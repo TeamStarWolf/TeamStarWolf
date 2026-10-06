@@ -1,17 +1,17 @@
-# CAPEC-672 — Malicious Code Implanted During Chip Programming
+# CAPEC-672: Malicious Code Implanted During Chip Programming
 
 <a id="capec-672"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 During the programming step of chip manufacture, an adversary with access and necessary technical skills maliciously alters a chip’s intended program logic to produce an effect intended by the adversary when the fully manufactured chip is deployed and in operational use. Intended effects can include the ability of the adversary to remotely control a host system to carry out malicious acts.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md) — Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.003: Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md): Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 
@@ -34,4 +34,4 @@ During the programming step of chip manufacture, an adversary with access and ne
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

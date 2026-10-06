@@ -1,17 +1,17 @@
-# CAPEC-673 — Developer Signing Maliciously Altered Software
+# CAPEC-673: Developer Signing Maliciously Altered Software
 
 <a id="capec-673"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 Software produced by a reputable developer is clandestinely infected with malicious code and then digitally signed by the unsuspecting developer, where the software has been altered via a compromised software development or build process prior to being signed. The receiver or user of the software has no reason to believe that it is anything but legitimate and proceeds to deploy it to organizational systems. This attack differs from CAPEC-206, since the developer is inadvertently signing malicious code they believe to be legitimate and which they are unware of any malicious modifications.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.002: Compromise Software Supply Chain](/mitre/techniques/T1195-002.md): Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 
@@ -33,4 +33,4 @@ Software produced by a reputable developer is clandestinely infected with malici
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

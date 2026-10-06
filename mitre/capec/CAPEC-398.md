@@ -1,9 +1,9 @@
-# CAPEC-398 — Magnetic Strip Card Brute Force Attacks
+# CAPEC-398: Magnetic Strip Card Brute Force Attacks
 
 <a id="capec-398"></a>
 
-**Abstraction:** Detailed  
-**Status:** Draft  
+Abstraction: Detailed  
+Status: Draft  
 
 An adversary analyzes the data on two or more magnetic strip cards and is able to generate new cards containing valid sequences that allow unauthorized access and/or impersonation of individuals.
 
@@ -13,4 +13,4 @@ An adversary analyzes the data on two or more magnetic strip cards and is able t
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

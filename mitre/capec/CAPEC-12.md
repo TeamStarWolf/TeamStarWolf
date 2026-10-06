@@ -1,18 +1,18 @@
-# CAPEC-12 — Choosing Message Identifier
+# CAPEC-12: Choosing Message Identifier
 
 <a id="capec-12"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: High  
+Status: Draft  
 
 This pattern of attack is defined by the selection of messages distributed via multicast or public information channels that are intended for another client by determining the parameter value assigned to that client. This attack allows the adversary to gain access to potentially privileged information, and to possibly perpetrate other attacks through the distribution means by impersonation. If the channel/message being manipulated is an input rather than output mechanism for the system, (such as a command bus), this style of attack could be used to change the adversary's identifier to more a privileged one.
 
 ## Related CWE (2)
 
-- [CWE-201 — Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html) — The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
-- [CWE-306 — Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html) — The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
+- [CWE-201: Insertion of Sensitive Information Into Sent Data](https://cwe.mitre.org/data/definitions/201.html): The code transmits data to another actor, but a portion of the data includes sensitive information that should not be accessible to that actor.
+- [CWE-306: Missing Authentication for Critical Function](https://cwe.mitre.org/data/definitions/306.html): The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
 
 ## Prerequisites
 
@@ -35,4 +35,4 @@ This pattern of attack is defined by the selection of messages distributed via m
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

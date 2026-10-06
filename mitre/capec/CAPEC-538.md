@@ -1,22 +1,22 @@
-# CAPEC-538 — Open-Source Library Manipulation
+# CAPEC-538: Open-Source Library Manipulation
 
 <a id="capec-538"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Stable  
 
 Adversaries implant malicious code in open source software (OSS) libraries to have it widely distributed, as OSS is commonly downloaded by developers and other users to incorporate into software development projects. The adversary can have a particular system in mind to target, or the implantation can be the first stage of follow-on attacks on many systems.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md) — Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.001: Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md): Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Related CWE (2)
 
-- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html) — The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
-- [CWE-829 — Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html) — The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+- [CWE-494: Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html): The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
+- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html): The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
 
 ## Prerequisites
 
@@ -28,4 +28,4 @@ Adversaries implant malicious code in open source software (OSS) libraries to ha
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

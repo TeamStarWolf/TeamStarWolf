@@ -1,22 +1,22 @@
-# CAPEC-442 — Infected Software
+# CAPEC-442: Infected Software
 
 <a id="capec-442"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary adds malicious logic, often in the form of a computer virus, to otherwise benign software. This logic is often hidden from the user of the software and works behind the scenes to achieve negative impacts. Many times, the malicious logic is inserted into empty space between legitimate code, and is then called when the software is executed. This pattern of attack focuses on software already fielded and used in operation as opposed to software that is still under development and part of the supply chain.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1195.001 — Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md) — Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
-- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.001: Compromise Software Dependencies and Development Tools](/mitre/techniques/T1195-001.md): Adversaries may manipulate software dependencies and development tools prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.002: Compromise Software Supply Chain](/mitre/techniques/T1195-002.md): Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Related CWE (1)
 
-- [CWE-506 — Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html) — The product contains code that appears to be malicious in nature.
+- [CWE-506: Embedded Malicious Code](https://cwe.mitre.org/data/definitions/506.html): The product contains code that appears to be malicious in nature.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary adds malicious logic, often in the form of a computer virus, to oth
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

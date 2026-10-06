@@ -1,17 +1,17 @@
-# CAPEC-522 — Malicious Hardware Component Replacement
+# CAPEC-522: Malicious Hardware Component Replacement
 
 <a id="capec-522"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Low  
+Status: Draft  
 
 An adversary replaces legitimate hardware in the system with faulty counterfeit or tampered hardware in the supply chain distribution channel, with purpose of causing malicious disruption or allowing for additional compromise when the system is deployed.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.003 — Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md) — Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.003: Compromise Hardware Supply Chain](/mitre/techniques/T1195-003.md): Adversaries may manipulate hardware components in products prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 
@@ -30,4 +30,4 @@ An adversary replaces legitimate hardware in the system with faulty counterfeit 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

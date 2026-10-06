@@ -1,20 +1,20 @@
-# CAPEC-464 — Evercookie
+# CAPEC-464: Evercookie
 
 <a id="capec-464"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Medium  
+Status: Draft  
 
 An attacker creates a very persistent cookie that stays present even after the user thinks it has been removed. The cookie is stored on the victim's machine in over ten places. When the victim clears the cookie cache via traditional means inside the browser, that operation removes the cookie from certain places but not others. The malicious code then replicates the cookie from all of the places where it was not deleted to all of the possible storage locations once again. So the victim again has the cookie in all of the original storage locations. In other words, failure to delete the cookie in even one location will result in the cookie's resurrection everywhere. The evercookie will also persist across different browsers because certain stores (e.g., Local Shared Objects) are shared between different browsers.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1606.001 — Web Cookies](/mitre/techniques/T1606-001.md) — Adversaries may forge web cookies that can be used to gain access to web applications or Internet services.
+- [T1606.001: Web Cookies](/mitre/techniques/T1606-001.md): Adversaries may forge web cookies that can be used to gain access to web applications or Internet services.
 
 ## Related CWE (1)
 
-- [CWE-359 — Exposure of Private Personal Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/359.html) — The product does not properly prevent a person's private, personal information from being accessed by actors who either (1) are not explicitly authorized to access the information or (2) do not have the implicit consent of the person about whom the information is collected.
+- [CWE-359: Exposure of Private Personal Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/359.html): The product does not properly prevent a person's private, personal information from being accessed by actors who either (1) are not explicitly authorized to access the information or (2) do not have the implicit consent of the person about whom the information is collected.
 
 ## Prerequisites
 
@@ -27,4 +27,4 @@ An attacker creates a very persistent cookie that stays present even after the u
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

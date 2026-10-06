@@ -1,10 +1,10 @@
-# CAPEC-200 — Removal of filters: Input filters, output filters, data masking
+# CAPEC-200: Removal of filters: Input filters, output filters, data masking
 
 <a id="capec-200"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Medium  
+Status: Draft  
 
 An attacker removes or disables filtering mechanisms on the target application. Input filters prevent invalid data from being sent to an application (for example, overly large inputs that might cause a buffer overflow or other malformed inputs that may not be correctly handled by an application). Input filters might also be designed to constrained executable content.
 
@@ -14,4 +14,4 @@ An attacker removes or disables filtering mechanisms on the target application. 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

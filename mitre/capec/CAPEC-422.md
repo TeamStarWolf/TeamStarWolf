@@ -1,11 +1,11 @@
-# CAPEC-422 — Influence Perception of Commitment and Consistency
+# CAPEC-422: Influence Perception of Commitment and Consistency
 
 <a id="capec-422"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Likelihood:** High  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Low  
+Likelihood: High  
+Status: Stable  
 
 An adversary uses social engineering to convince the target to do minor tasks as opposed to larger actions. After complying with a request, individuals are more likely to agree to subsequent requests that are similar in type and required effort.
 
@@ -28,4 +28,4 @@ An adversary uses social engineering to convince the target to do minor tasks as
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,21 +1,21 @@
-# CAPEC-158 — Sniffing Network Traffic
+# CAPEC-158: Sniffing Network Traffic
 
 <a id="capec-158"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Medium  
+Status: Draft  
 
 In this attack pattern, the adversary monitors network traffic between nodes of a public or multicast network in an attempt to capture sensitive information at the protocol level. Network sniffing applications can reveal TCP/IP, DNS, Ethernet, and other low-level network communication information. The adversary takes a passive role in this attack pattern and simply observes and analyzes the traffic. The adversary may precipitate or indirectly influence the content of the observed transaction, but is never the intended recipient of the target information.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1040 — Network Sniffing](/mitre/techniques/T1040.md) — Adversaries may passively sniff network traffic to capture information about an environment, including authentication material passed over the network.
-- [T1111 — Multi-Factor Authentication Interception](/mitre/techniques/T1111.md) — Adversaries may target multi-factor authentication (MFA) mechanisms, (i.e., smart cards, token generators, etc.) to gain access to credentials that can be used to access systems, services, and network resources.
+- [T1040: Network Sniffing](/mitre/techniques/T1040.md): Adversaries may passively sniff network traffic to capture information about an environment, including authentication material passed over the network.
+- [T1111: Multi-Factor Authentication Interception](/mitre/techniques/T1111.md): Adversaries may target multi-factor authentication (MFA) mechanisms, (i.e., smart cards, token generators, etc.) to gain access to credentials that can be used to access systems, services, and network resources.
 
 ## Related CWE (1)
 
-- [CWE-311 — Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html) — The product does not encrypt sensitive or critical information before storage or transmission.
+- [CWE-311: Missing Encryption of Sensitive Data](https://cwe.mitre.org/data/definitions/311.html): The product does not encrypt sensitive or critical information before storage or transmission.
 
 ## Prerequisites
 
@@ -37,4 +37,4 @@ In this attack pattern, the adversary monitors network traffic between nodes of 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

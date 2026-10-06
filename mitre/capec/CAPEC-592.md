@@ -1,17 +1,17 @@
-# CAPEC-592 — Stored XSS
+# CAPEC-592: Stored XSS
 
 <a id="capec-592"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Very High  
-**Likelihood:** High  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Very High  
+Likelihood: High  
+Status: Stable  
 
 An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious script is persistently "stored" within the data storage of a vulnerable web application as valid input.
 
 ## Related CWE (1)
 
-- [CWE-79 — Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html) — The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
+- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html): The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.
 
 ## Prerequisites
 
@@ -38,4 +38,4 @@ An adversary utilizes a form of Cross-site Scripting (XSS) where a malicious scr
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

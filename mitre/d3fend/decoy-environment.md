@@ -2,15 +2,15 @@
 
 <a id="decoy-environment"></a>
 
-**D3FEND tactic:** Deceive  
-**Digital artifacts:** Decoy Artifact  
+D3FEND tactic: Deceive  
+Digital artifacts: Decoy Artifact  
 
 A Decoy Environment comprises hosts and networks for the purposes of deceiving an attacker.
 
 ## ATT&CK techniques countered (1)
 
-- [T1082 — System Information Discovery](/mitre/techniques/T1082.md) — manages. An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
+- [T1082: System Information Discovery](/mitre/techniques/T1082.md): manages. An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

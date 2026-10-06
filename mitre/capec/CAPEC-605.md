@@ -1,10 +1,10 @@
-# CAPEC-605 — Cellular Jamming
+# CAPEC-605: Cellular Jamming
 
 <a id="capec-605"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Low  
+Status: Draft  
 
 In this attack scenario, the attacker actively transmits signals to overpower and disrupt the communication between a cellular user device and a cell tower. Several existing techniques are known in the open literature for this attack for 2G, 3G, and 4G LTE cellular technology. For example, some attacks target cell towers by overwhelming them with false status messages, while others introduce high levels of noise on signaling channels.
 
@@ -26,4 +26,4 @@ In this attack scenario, the attacker actively transmits signals to overpower an
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

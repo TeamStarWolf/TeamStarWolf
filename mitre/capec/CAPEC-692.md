@@ -1,17 +1,17 @@
-# CAPEC-692 — Spoof Version Control System Commit Metadata
+# CAPEC-692: Spoof Version Control System Commit Metadata
 
 <a id="capec-692"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Stable  
 
 An adversary spoofs metadata pertaining to a Version Control System (VCS) (e.g., Git) repository's commits to deceive users into believing that the maliciously provided software is frequently maintained and originates from a trusted source.
 
 ## Related CWE (1)
 
-- [CWE-494 — Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html) — The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
+- [CWE-494: Download of Code Without Integrity Check](https://cwe.mitre.org/data/definitions/494.html): The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
 
 ## Prerequisites
 
@@ -38,4 +38,4 @@ An adversary spoofs metadata pertaining to a Version Control System (VCS) (e.g.,
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

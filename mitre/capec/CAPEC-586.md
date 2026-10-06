@@ -1,17 +1,17 @@
-# CAPEC-586 — Object Injection
+# CAPEC-586: Object Injection
 
 <a id="capec-586"></a>
 
-**Abstraction:** Meta  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Meta  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary attempts to exploit an application by injecting additional, malicious content during its processing of serialized objects. Developers leverage serialization in order to convert data or state into a static, binary format for saving to disk or transferring over a network. These objects are then deserialized when needed to recover the data/state. By injecting a malformed object into a vulnerable application, an adversary can potentially compromise the application by manipulating the deserialization process. This can result in a number of unwanted outcomes, including remote code execution.
 
 ## Related CWE (1)
 
-- [CWE-502 — Deserialization of Untrusted Data](https://cwe.mitre.org/data/definitions/502.html) — The product deserializes untrusted data without sufficiently ensuring that the resulting data will be valid.
+- [CWE-502: Deserialization of Untrusted Data](https://cwe.mitre.org/data/definitions/502.html): The product deserializes untrusted data without sufficiently ensuring that the resulting data will be valid.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary attempts to exploit an application by injecting additional, malicio
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

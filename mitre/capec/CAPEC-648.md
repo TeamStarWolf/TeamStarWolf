@@ -1,22 +1,22 @@
-# CAPEC-648 — Collect Data from Screen Capture
+# CAPEC-648: Collect Data from Screen Capture
 
 <a id="capec-648"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Medium  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Medium  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary gathers sensitive information by exploiting the system's screen capture functionality. Through screenshots, the adversary aims to see what happens on the screen over the course of an operation. The adversary can leverage information gathered in order to carry out further attacks.
 
 ## Mapped ATT&CK techniques (2)
 
-- [T1113 — Screen Capture](/mitre/techniques/T1113.md) — Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation.
+- [T1113: Screen Capture](/mitre/techniques/T1113.md): Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation.
 - `T1513`
 
 ## Related CWE (1)
 
-- [CWE-267 — Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html) — A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
+- [CWE-267: Privilege Defined With Unsafe Actions](https://cwe.mitre.org/data/definitions/267.html): A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
 
 ## Prerequisites
 
@@ -37,4 +37,4 @@ An adversary gathers sensitive information by exploiting the system's screen cap
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

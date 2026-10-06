@@ -1,19 +1,19 @@
-# CAPEC-488 — HTTP Flood
+# CAPEC-488: HTTP Flood
 
 <a id="capec-488"></a>
 
-**Abstraction:** Standard  
-**Status:** Draft  
+Abstraction: Standard  
+Status: Draft  
 
 An adversary may execute a flooding attack using the HTTP protocol with the intent to deny legitimate users access to a service by consuming resources at the application layer such as web services and their infrastructure. These attacks use legitimate session-based HTTP GET requests designed to consume large amounts of a server's resources. Since these are legitimate sessions this attack is very difficult to detect.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1499.002 — Service Exhaustion Flood](/mitre/techniques/T1499-002.md) — Adversaries may target the different network services provided by systems to conduct a denial of service (DoS).
+- [T1499.002: Service Exhaustion Flood](/mitre/techniques/T1499-002.md): Adversaries may target the different network services provided by systems to conduct a denial of service (DoS).
 
 ## Related CWE (1)
 
-- [CWE-770 — Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html) — The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
+- [CWE-770: Allocation of Resources Without Limits or Throttling](https://cwe.mitre.org/data/definitions/770.html): The product allocates a reusable resource or group of resources on behalf of an actor without imposing any intended restrictions on the size or number of resources that can be allocated.
 
 ## Prerequisites
 
@@ -28,4 +28,4 @@ An adversary may execute a flooding attack using the HTTP protocol with the inte
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

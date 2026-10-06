@@ -1,15 +1,15 @@
-# CAPEC-503 — WebView Exposure
+# CAPEC-503: WebView Exposure
 
 <a id="capec-503"></a>
 
-**Abstraction:** Standard  
-**Status:** Draft  
+Abstraction: Standard  
+Status: Draft  
 
 An adversary, through a malicious web page, accesses application specific functionality by leveraging interfaces registered through WebView's addJavascriptInterface API. Once an interface is registered to WebView through addJavascriptInterface, it becomes global and all pages loaded in the WebView can call this interface.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
+- [CWE-284: Improper Access Control](https://cwe.mitre.org/data/definitions/284.html): The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Prerequisites
 
@@ -21,4 +21,4 @@ An adversary, through a malicious web page, accesses application specific functi
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

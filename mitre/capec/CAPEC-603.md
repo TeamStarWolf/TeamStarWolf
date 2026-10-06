@@ -1,11 +1,11 @@
-# CAPEC-603 — Blockage
+# CAPEC-603: Blockage
 
 <a id="capec-603"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary blocks the delivery of an important system resource causing the system to fail or stop working.
 
@@ -19,4 +19,4 @@ An adversary blocks the delivery of an important system resource causing the sys
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

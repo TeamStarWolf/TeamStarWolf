@@ -1,10 +1,10 @@
-# ATT&CK Technique Detail — Index
+# ATT&CK Technique Detail: Index
 
-> Consolidated detail pages for all **697 MITRE ATT&CK Enterprise techniques** (v19.2), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
+> Consolidated detail pages for all 697 MITRE ATT&CK Enterprise techniques (v19.2), grouped by primary tactic. Each links its ATT&CK description, mitigations, NIST 800-53 controls, detections, and the groups and software that use it.
 
-**By tactic:** [Reconnaissance](/techniques/reconnaissance.md) · [Resource Development](/techniques/resource-development.md) · [Initial Access](/techniques/initial-access.md) · [Execution](/techniques/execution.md) · [Persistence](/techniques/persistence.md) · [Privilege Escalation](/techniques/privilege-escalation.md) · [Stealth](/techniques/stealth.md) · [Defense Impairment](/techniques/defense-impairment.md) · [Credential Access](/techniques/credential-access.md) · [Discovery](/techniques/discovery.md) · [Lateral Movement](/techniques/lateral-movement.md) · [Collection](/techniques/collection.md) · [Command and Control](/techniques/command-and-control.md) · [Exfiltration](/techniques/exfiltration.md) · [Impact](/techniques/impact.md)
+By tactic: [Reconnaissance](/techniques/reconnaissance.md), [Resource Development](/techniques/resource-development.md), [Initial Access](/techniques/initial-access.md), [Execution](/techniques/execution.md), [Persistence](/techniques/persistence.md), [Privilege Escalation](/techniques/privilege-escalation.md), [Stealth](/techniques/stealth.md), [Defense Impairment](/techniques/defense-impairment.md), [Credential Access](/techniques/credential-access.md), [Discovery](/techniques/discovery.md), [Lateral Movement](/techniques/lateral-movement.md), [Collection](/techniques/collection.md), [Command and Control](/techniques/command-and-control.md), [Exfiltration](/techniques/exfiltration.md), [Impact](/techniques/impact.md)
 
-See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view) · [Threat Group Profiles](../THREAT_GROUP_PROFILES.md) · [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md)
+See also: [Technique Atlas](../ATTACK_TECHNIQUE_ATLAS.md) (matrix view), [Threat Group Profiles](../THREAT_GROUP_PROFILES.md), [Detection Library](../detections/TECHNIQUE_DETECTION_LIBRARY.md)
 
 | Technique | Name | Detail page |
 |---|---|---|

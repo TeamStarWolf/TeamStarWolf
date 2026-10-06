@@ -1,16 +1,16 @@
-# CAPEC-307 — TCP RPC Scan
+# CAPEC-307: TCP RPC Scan
 
 <a id="capec-307"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Low  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: Low  
+Status: Stable  
 
 An adversary scans for RPC services listing on a Unix/Linux host.
 
 ## Related CWE (1)
 
-- [CWE-200 — Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html) — The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
+- [CWE-200: Exposure of Sensitive Information to an Unauthorized Actor](https://cwe.mitre.org/data/definitions/200.html): The product exposes sensitive information to an actor that is not explicitly authorized to have access to that information.
 
 ## Prerequisites
 
@@ -27,4 +27,4 @@ An adversary scans for RPC services listing on a Unix/Linux host.
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

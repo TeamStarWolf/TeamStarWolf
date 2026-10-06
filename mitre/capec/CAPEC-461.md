@@ -1,17 +1,17 @@
-# CAPEC-461 — Web Services API Signature Forgery Leveraging Hash Function Extension Weakness
+# CAPEC-461: Web Services API Signature Forgery Leveraging Hash Function Extension Weakness
 
 <a id="capec-461"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Status: Draft  
 
 An adversary utilizes a hash function extension/padding weakness, to modify the parameters passed to the web service requesting authentication by generating their own call in order to generate a legitimate signature hash (as described in the notes), without knowledge of the secret token sometimes provided by the web service.
 
 ## Related CWE (2)
 
-- [CWE-328 — Use of Weak Hash](https://cwe.mitre.org/data/definitions/328.html) — The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (2nd preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack).
-- [CWE-290 — Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html) — This attack-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.
+- [CWE-328: Use of Weak Hash](https://cwe.mitre.org/data/definitions/328.html): The product uses an algorithm that produces a digest (output value) that does not meet security expectations for a hash function that allows an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (2nd preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack).
+- [CWE-290: Authentication Bypass by Spoofing](https://cwe.mitre.org/data/definitions/290.html): This attack-focused weakness is caused by incorrectly implemented authentication schemes that are subject to spoofing attacks.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary utilizes a hash function extension/padding weakness, to modify the 
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -1,16 +1,16 @@
-# CAPEC-128 — Integer Attacks
+# CAPEC-128: Integer Attacks
 
 <a id="capec-128"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Medium  
+Status: Draft  
 
 An attacker takes advantage of the structure of integer variables to cause these variables to assume values that are not expected by an application. For example, adding one to the largest positive integer in a signed integer variable results in a negative number. Negative numbers may be illegal in an application and the application may prevent an attacker from providing them directly, but the application may not consider that adding two positive numbers can create a negative number do to the structure of integer storage formats.
 
 ## Related CWE (1)
 
-- [CWE-682 — Incorrect Calculation](https://cwe.mitre.org/data/definitions/682.html) — The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.
+- [CWE-682: Incorrect Calculation](https://cwe.mitre.org/data/definitions/682.html): The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.
 
 ## Prerequisites
 
@@ -19,4 +19,4 @@ An attacker takes advantage of the structure of integer variables to cause these
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

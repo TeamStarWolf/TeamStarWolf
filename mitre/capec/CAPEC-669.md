@@ -1,17 +1,17 @@
-# CAPEC-669 — Alteration of a Software Update
+# CAPEC-669: Alteration of a Software Update
 
 <a id="capec-669"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 An adversary with access to an organization’s software update infrastructure inserts malware into the content of an outgoing update to fielded systems where a wide range of malicious effects are possible. With the same level of access, the adversary can alter a software update to perform specific malicious acts including granting the adversary control over the software’s normal functionality.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1195.002 — Compromise Software Supply Chain](/mitre/techniques/T1195-002.md) — Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
+- [T1195.002: Compromise Software Supply Chain](/mitre/techniques/T1195-002.md): Adversaries may manipulate application software prior to receipt by a final consumer for the purpose of data or system compromise.
 
 ## Prerequisites
 
@@ -35,4 +35,4 @@ An adversary with access to an organization’s software update infrastructure i
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

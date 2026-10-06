@@ -1,15 +1,15 @@
-# CAPEC-563 — Add Malicious File to Shared Webroot
+# CAPEC-563: Add Malicious File to Shared Webroot
 
 <a id="capec-563"></a>
 
-**Abstraction:** Detailed  
-**Status:** Draft  
+Abstraction: Detailed  
+Status: Draft  
 
 An adversaries may add malicious content to a website through the open file share and then browse to that content with a web browser to cause the server to execute the content. The malicious content will typically run under the context and permissions of the web server process, often resulting in local system or administrative privileges depending on how the web server is configured.
 
 ## Related CWE (1)
 
-- [CWE-284 — Improper Access Control](https://cwe.mitre.org/data/definitions/284.html) — The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
+- [CWE-284: Improper Access Control](https://cwe.mitre.org/data/definitions/284.html): The product does not restrict or incorrectly restricts access to a resource from an unauthorized actor.
 
 ## Mitigations
 
@@ -17,4 +17,4 @@ An adversaries may add malicious content to a website through the open file shar
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

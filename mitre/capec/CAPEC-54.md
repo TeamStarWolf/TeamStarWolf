@@ -1,17 +1,17 @@
-# CAPEC-54 — Query System for Information
+# CAPEC-54: Query System for Information
 
 <a id="capec-54"></a>
 
-**Abstraction:** Standard  
-**Typical severity:** Low  
-**Likelihood:** High  
-**Status:** Draft  
+Abstraction: Standard  
+Typical severity: Low  
+Likelihood: High  
+Status: Draft  
 
 An adversary, aware of an application's location (and possibly authorized to use the application), probes an application's structure and evaluates its robustness by submitting requests and examining responses. Often, this is accomplished by sending variants of expected queries in the hope that these modified queries might return information beyond what the expected set of queries would provide.
 
 ## Related CWE (1)
 
-- [CWE-209 — Generation of Error Message Containing Sensitive Information](https://cwe.mitre.org/data/definitions/209.html) — The product generates an error message that includes sensitive information about its environment, users, or associated data.
+- [CWE-209: Generation of Error Message Containing Sensitive Information](https://cwe.mitre.org/data/definitions/209.html): The product generates an error message that includes sensitive information about its environment, users, or associated data.
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ An adversary, aware of an application's location (and possibly authorized to use
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

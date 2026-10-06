@@ -1,20 +1,20 @@
-# CAPEC-206 — Signing Malicious Code
+# CAPEC-206: Signing Malicious Code
 
 <a id="capec-206"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** Very High  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: Very High  
+Status: Draft  
 
 The adversary extracts credentials used for code signing from a production environment and then uses these credentials to sign malicious content with the developer's key. Many developers use signing keys to sign code or hashes of code. When users or applications verify the signatures are accurate they are led to believe that the code came from the owner of the signing key and that the code has not been modified since the signature was applied. If the adversary has extracted the signing credentials then they can use those credentials to sign their own code bundles. Users or tools that verify the signatures attached to the code will likely assume the code came from the legitimate developer and install or run the code, effectively allowing the adversary to execute arbitrary code on the victim's computer. This differs from CAPEC-673, because the adversary is performing the code signing.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1553.002 — Code Signing](/mitre/techniques/T1553-002.md) — Adversaries may create, acquire, or steal code signing materials to sign their malware or tools.
+- [T1553.002: Code Signing](/mitre/techniques/T1553-002.md): Adversaries may create, acquire, or steal code signing materials to sign their malware or tools.
 
 ## Related CWE (1)
 
-- [CWE-732 — Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html) — The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
+- [CWE-732: Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html): The product specifies permissions for a security-critical resource in a way that allows that resource to be read or modified by unintended actors.
 
 ## Prerequisites
 
@@ -28,4 +28,4 @@ The adversary extracts credentials used for code signing from a production envir
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

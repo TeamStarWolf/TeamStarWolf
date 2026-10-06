@@ -1,16 +1,16 @@
-# CAPEC-569 — Collect Data as Provided by Users
+# CAPEC-569: Collect Data as Provided by Users
 
 <a id="capec-569"></a>
 
-**Abstraction:** Standard  
-**Status:** Draft  
+Abstraction: Standard  
+Status: Draft  
 
 An attacker leverages a tool, device, or program to obtain specific information as provided by a user of the target system. This information is often needed by the attacker to launch a follow-on attack. This attack is different than Social Engineering as the adversary is not tricking or deceiving the user. Instead the adversary is putting a mechanism in place that captures the information that a user legitimately enters into a system. Deploying a keylogger, performing a UAC prompt, or wrapping the Windows default credential provider are all examples of such interactions.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1056 — Input Capture](/mitre/techniques/T1056.md) — Adversaries may use methods of capturing user input to obtain credentials or collect information.
+- [T1056: Input Capture](/mitre/techniques/T1056.md): Adversaries may use methods of capturing user input to obtain credentials or collect information.
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

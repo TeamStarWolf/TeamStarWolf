@@ -1,18 +1,18 @@
-# CAPEC-4 — Using Alternative IP Address Encodings
+# CAPEC-4: Using Alternative IP Address Encodings
 
 <a id="capec-4"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Medium  
-**Status:** Draft  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Medium  
+Status: Draft  
 
 This attack relies on the adversary using unexpected formats for representing IP addresses. Networked applications may expect network location information in a specific format, such as fully qualified domains names (FQDNs), URL, IP address, or IP Address ranges. If the location information is not validated against a variety of different possible encodings and formats, the adversary can use an alternate format to bypass application access control.
 
 ## Related CWE (2)
 
-- [CWE-291 — Reliance on IP Address for Authentication](https://cwe.mitre.org/data/definitions/291.html) — The product uses an IP address for authentication.
-- [CWE-173 — Improper Handling of Alternate Encoding](https://cwe.mitre.org/data/definitions/173.html) — The product does not properly handle when an input uses an alternate encoding that is valid for the control sphere to which the input is being sent.
+- [CWE-291: Reliance on IP Address for Authentication](https://cwe.mitre.org/data/definitions/291.html): The product uses an IP address for authentication.
+- [CWE-173: Improper Handling of Alternate Encoding](https://cwe.mitre.org/data/definitions/173.html): The product does not properly handle when an input uses an alternate encoding that is valid for the control sphere to which the input is being sent.
 
 ## Prerequisites
 
@@ -35,4 +35,4 @@ This attack relies on the adversary using unexpected formats for representing IP
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

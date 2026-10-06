@@ -1,11 +1,11 @@
-# CAPEC-641 — DLL Side-Loading
+# CAPEC-641: DLL Side-Loading
 
 <a id="capec-641"></a>
 
-**Abstraction:** Detailed  
-**Typical severity:** High  
-**Likelihood:** Low  
-**Status:** Stable  
+Abstraction: Detailed  
+Typical severity: High  
+Likelihood: Low  
+Status: Stable  
 
 An adversary places a malicious version of a Dynamic-Link Library (DLL) in the Windows Side-by-Side (WinSxS) directory to trick the operating system into loading this malicious DLL instead of a legitimate DLL. Programs specify the location of the DLLs to load via the use of WinSxS manifests or DLL redirection and if they aren't used then Windows searches in a predefined set of directories to locate the file. If the applications improperly specify a required DLL or WinSxS manifests aren't explicit about the characteristics of the DLL to be loaded, they can be vulnerable to side-loading.
 
@@ -15,7 +15,7 @@ An adversary places a malicious version of a Dynamic-Link Library (DLL) in the W
 
 ## Related CWE (1)
 
-- [CWE-706 — Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html) — The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.
+- [CWE-706: Use of Incorrectly-Resolved Name or Reference](https://cwe.mitre.org/data/definitions/706.html): The product uses a name or reference to access a resource, but the name/reference resolves to a resource that is outside of the intended control sphere.
 
 ## Prerequisites
 
@@ -39,4 +39,4 @@ An adversary places a malicious version of a Dynamic-Link Library (DLL) in the W
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

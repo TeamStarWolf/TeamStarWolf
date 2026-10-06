@@ -1,15 +1,15 @@
-# CAPEC-581 — Security Software Footprinting
+# CAPEC-581: Security Software Footprinting
 
 <a id="capec-581"></a>
 
-**Abstraction:** Detailed  
-**Status:** Draft  
+Abstraction: Detailed  
+Status: Draft  
 
 Adversaries may attempt to get a listing of security tools that are installed on the system and their configurations. This may include security related system features (such as a built-in firewall or anti-spyware) as well as third-party security software.
 
 ## Mapped ATT&CK techniques (1)
 
-- [T1518.001 — Security Software Discovery](/mitre/techniques/T1518-001.md) — Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment.
+- [T1518.001: Security Software Discovery](/mitre/techniques/T1518-001.md): Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment.
 
 ## Mitigations
 
@@ -17,4 +17,4 @@ Adversaries may attempt to get a listing of security tools that are installed on
 
 ---
 
-*Source: MITRE ATT&CK® / D3FEND™ / CAPEC™ / ATLAS™ — trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*
+*Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

@@ -491,7 +491,7 @@ JA3S fingerprints the TLS ServerHello response:
 - Cipher: single selected cipher suite
 - Extensions: server extension types
 
-JA3S identifies the server-side TLS stack -- useful for detecting C2 frameworks by their server configuration regardless of IP address or certificate.
+JA3S identifies the server-side TLS stack, which is useful for detecting C2 frameworks by their server configuration regardless of IP address or certificate.
 
 ---
 
@@ -507,7 +507,7 @@ JA3S identifies the server-side TLS stack -- useful for detecting C2 frameworks 
 | `72a589da586844d7f0818ce684948eea` | Empire PowerShell C2 | |
 | `7dd80d593b8f87e32a3d56e96c57fc2e` | AsyncRAT | Open-source remote access trojan |
 
-Reference: https://sslbl.abuse.ch/ja3-fingerprints/ -- live database of malicious JA3 hashes with context and campaign attribution.
+Reference: https://sslbl.abuse.ch/ja3-fingerprints/ (live database of malicious JA3 hashes with context and campaign attribution).
 
 ---
 

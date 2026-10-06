@@ -396,7 +396,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | Prowler | prowler-cloud | AWS, Azure, and GCP security assessments aligned to CIS benchmarks and compliance frameworks | github.com/prowler-cloud/prowler |
 | AzureHound | BloodHoundAD | Azure AD and Azure resource attack path data collection for BloodHound analysis | github.com/BloodHoundAD/AzureHound |
 | ROADtools | dirkjanm | Azure AD enumeration and attack toolkit; includes ROADrecon for tenant data collection and analysis | github.com/dirkjanm/ROADtools |
-| Stratus Red Team | DataDog | Cloud attack technique atomic tests for AWS, Azure, GCP, and Kubernetes -- enables detection validation | github.com/DataDog/stratus-red-team |
+| Stratus Red Team | DataDog | Cloud attack technique atomic tests for AWS, Azure, GCP, and Kubernetes; enables detection validation | github.com/DataDog/stratus-red-team |
 
 ---
 

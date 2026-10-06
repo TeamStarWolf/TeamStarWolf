@@ -165,7 +165,7 @@ Operational Implication: CTI programs should prioritize detection at the Tools a
 
 ### 1.4 Diamond Model of Intrusion Analysis
 
-The Diamond Model (Caltagirone, Pendergast, Betz -- 2013) provides a structured framework for analyzing intrusion events and correlating activity across campaigns:
+The Diamond Model (Caltagirone, Pendergast, Betz, 2013) provides a structured framework for analyzing intrusion events and correlating activity across campaigns:
 
 ```
              Adversary
@@ -2171,4 +2171,4 @@ Enterprise (5+ FTE, $1.5M+ total):
 
 ---
 
-*Last updated: 2026-05-06 | Maintained by CTI Team | TLP:GREEN -- For internal use and trusted community sharing*
+*Last updated: 2026-05-06 | Maintained by CTI Team | TLP:GREEN (for internal use and trusted community sharing)*

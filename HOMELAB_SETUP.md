@@ -252,7 +252,7 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa `
 
 ### Step 6 - Populate with BadBlood
 
-[BadBlood](https://github.com/davidprowe/BadBlood) fills the domain with thousands of realistic users, groups, OUs, and randomized ACL misconfigs -- mimicking real enterprise AD.
+[BadBlood](https://github.com/davidprowe/BadBlood) fills the domain with thousands of realistic users, groups, OUs, and randomized ACL misconfigs, mimicking real enterprise AD.
 
 ```powershell
 git clone https://github.com/davidprowe/BadBlood

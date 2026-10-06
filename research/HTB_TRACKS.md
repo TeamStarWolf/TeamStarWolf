@@ -170,7 +170,7 @@ Tracks created by industry partners for recruitment or team development.
 
 HackTheBox learning tracks are curated sequences of machines and challenges targeting specific skill domains. Completing a track is more valuable than randomly rooting machines because it builds depth in a specific area rather than scattered breadth. Tracks are designed so that each machine reinforces and builds on the techniques from the previous one.
 
-Many tracks align directly to professional certifications -- completing the relevant HTB track before attempting a certification exam significantly improves pass rates. Tracks also serve as proof of competency: a completed track demonstrates structured learning to employers and clients in a way that a raw machine count does not.
+Many tracks align directly to professional certifications; completing the relevant HTB track before attempting a certification exam significantly improves pass rates. Tracks also serve as proof of competency: a completed track demonstrates structured learning to employers and clients in a way that a raw machine count does not.
 
 ---
 
@@ -215,7 +215,7 @@ The most widely cited community resource for OSCP exam preparation. TJnull's lis
 - Difficulty (Easy through Hard)
 - Machine type (Buffer overflow machines listed separately)
 
-Search "TJnull OSCP list" for the current version -- it is updated each time OffSec revises the OSCP exam syllabus. The list is maintained as a Google Sheet and referenced extensively in the OffSec community Discord.
+Search "TJnull OSCP list" for the current version; it is updated each time OffSec revises the OSCP exam syllabus. The list is maintained as a Google Sheet and referenced extensively in the OffSec community Discord.
 
 Key characteristics of TJnull machines:
 - Techniques match the OSCP exam scope (no AD on older list versions, AD added in newer PEN-200 versions)
@@ -227,10 +227,10 @@ Key characteristics of TJnull machines:
 
 ## Pro Labs
 
-HTB Pro Labs are full enterprise network simulations -- not individual machines. They are the most realistic pentest training environments available outside of actual client engagements. Each lab requires completion of multiple machines with pivoting and lateral movement across network segments.
+HTB Pro Labs are full enterprise network simulations, not individual machines. They are the most realistic pentest training environments available outside of actual client engagements. Each lab requires completion of multiple machines with pivoting and lateral movement across network segments.
 
 ### Dante (Beginner-Intermediate)
-A multi-machine network pentest simulating a small enterprise environment. Covers: initial external foothold, internal pivoting, Active Directory basics, credential reuse, and report writing. Widely recommended as OSCP preparation -- the attack surface and methodology closely match the exam format. Best starting point for Pro Labs.
+A multi-machine network pentest simulating a small enterprise environment. Covers: initial external foothold, internal pivoting, Active Directory basics, credential reuse, and report writing. Widely recommended as OSCP preparation; the attack surface and methodology closely match the exam format. Best starting point for Pro Labs.
 
 ### Offshore (Intermediate-Advanced)
 External penetration test of a large enterprise Active Directory environment with multiple forests, domain trusts, and segmented networks. Requires solid BloodHound usage, trust relationship abuse, and multi-hop pivoting. One of the most comprehensive AD labs available.

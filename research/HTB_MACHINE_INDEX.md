@@ -361,7 +361,7 @@ Official HTB retired machine writeup index: 127 machines organized by difficulty
 
 This index is designed as a progressive learning roadmap. Start with Easy machines to build confidence and core skills: Linux file system navigation, basic web fuzzing, service enumeration, and simple privilege escalation. Once you can consistently root Easy machines without hints, move to Medium, where exploitation chains become multi-step and rabbit holes are intentional. Approach Hard machines only after you have solid Linux and Windows enumeration skills and understand common attack patterns. Insane machines demand deep expertise in one or more domains and often involve chained vulnerabilities across multiple services.
 
-Every machine in this index teaches specific techniques. The goal is not to collect rooted machines -- it is to internalize the mindset: enumerate thoroughly, research every service version, take notes on what you tried, and understand *why* an exploit works before moving on.
+Every machine in this index teaches specific techniques. The goal is not to collect rooted machines; it is to internalize the mindset: enumerate thoroughly, research every service version, take notes on what you tried, and understand *why* an exploit works before moving on.
 
 ---
 
@@ -375,7 +375,7 @@ Run a full port scan before doing anything else:
 nmap -sC -sV -p- --min-rate 5000 -oA scan_output <TARGET_IP>
 ```
 
-Once open ports are identified, enumerate each service individually. For web ports, run directory and file fuzzing. For SMB, run enum4linux-ng. For SNMP, run snmpwalk. Do not skip services that look unimportant -- many machines are designed so that the foothold is through an obscure port.
+Once open ports are identified, enumerate each service individually. For web ports, run directory and file fuzzing. For SMB, run enum4linux-ng. For SNMP, run snmpwalk. Do not skip services that look unimportant; many machines are designed so that the foothold is through an obscure port.
 
 ### 2. Take Notes (IppSec Style)
 
@@ -461,6 +461,6 @@ Key usage tip: Search by *technique*, not machine name. For example:
 - Search "SUID" to find privilege escalation examples
 - Search "deserialization" to find all deserialization chains
 
-IppSec's videos are not speed-runs -- he explains *why* each step works, investigates rabbit holes, and often shows multiple approaches. Watching IppSec after completing a machine (or after a machine retires) dramatically accelerates skill development.
+IppSec's videos are not speed-runs; he explains *why* each step works, investigates rabbit holes, and often shows multiple approaches. Watching IppSec after completing a machine (or after a machine retires) dramatically accelerates skill development.
 
 Direct link: https://www.ippsec.rocks/

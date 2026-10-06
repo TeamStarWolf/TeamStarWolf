@@ -86,7 +86,7 @@ A comprehensive guide to common interview questions, technical topics, and prepa
 | What is a hash function and what makes it good? | One-way function. Good: collision resistant, pre-image resistant, avalanche effect. MD5/SHA1 broken, use SHA-256+ |
 | What is salting? | Random value added to password before hashing. Defeats rainbow tables. Per-user salt means same password = different hash |
 | What is MFA and what are its types? | Something you know (password), have (token/phone), are (biometric). SMS weakest (SIM swap), FIDO2 strongest |
-| What is SQL injection? | Inserting SQL meta-characters to modify query logic. ' OR 1=1 -- classic example. Prevent with parameterized queries |
+| What is SQL injection? | Inserting SQL meta-characters to modify query logic; `' OR 1=1 --` is the classic example. Prevent with parameterized queries |
 | What is XSS? | Cross-site scripting: injecting JS into pages. Reflected (URL-based), Stored (persistent), DOM-based. Steal cookies, deface |
 | What is CSRF? | Cross-Site Request Forgery: trick authenticated user into making unwanted request. Prevent with CSRF tokens, SameSite cookies |
 | What is SSRF? | Server-Side Request Forgery: make server fetch attacker-controlled URLs. Can hit internal services, cloud metadata APIs |
@@ -252,10 +252,10 @@ See [Certifications Reference](CERTIFICATIONS.md) for full details on each cert.
 | Explain the intelligence lifecycle | Planning and Direction -> Collection -> Processing -> Analysis -> Dissemination -> Feedback. Feedback loop refines future collection requirements |
 | What is the difference between strategic, operational, and tactical intelligence? | Strategic: long-term executive-level trend reports. Operational: active campaign TTPs and threat actor profiles. Tactical: IOCs (IPs, hashes, domains) for immediate defensive use |
 | What is the Diamond Model of Intrusion Analysis? | Framework with four vertices: Adversary, Capability, Infrastructure, Victim. Used to link intrusion events into campaigns and cluster activity for attribution |
-| Cyber Kill Chain vs. ATT&CK? | Kill Chain (Lockheed Martin): 7 linear phases from Reconnaissance to Actions on Objectives. ATT&CK: granular non-linear taxonomy with 14 tactics and hundreds of techniques -- better for detection engineering and coverage gap analysis |
+| Cyber Kill Chain vs. ATT&CK? | Kill Chain (Lockheed Martin): 7 linear phases from Reconnaissance to Actions on Objectives. ATT&CK: granular non-linear taxonomy with 14 tactics and hundreds of techniques, better for detection engineering and coverage gap analysis |
 | What is MISP and how is it used? | Open-source Threat Intelligence Platform for sharing structured threat data. Supports STIX/TAXII, automated correlation, and galaxy clusters for tagging actors and malware families |
 | How do you assess confidence in a report? | Evaluate source reliability (track record and access level), information credibility (corroboration, timeliness, internal consistency), and analysis quality. Apply the Admiralty Scale or ACH methodology |
-| IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability -- adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
+| IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability; adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
 | What is STIX/TAXII? | STIX: structured JSON format for threat intelligence objects (indicators, campaigns, malware, TTPs, threat actors). TAXII: transport protocol for automated STIX data sharing between platforms |
 | Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR): targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
 
@@ -335,10 +335,10 @@ Research compensation thoroughly before any negotiation. Key sources:
 | Explain the intelligence lifecycle | Planning and Direction -> Collection -> Processing -> Analysis -> Dissemination -> Feedback. Feedback loop refines future collection requirements |
 | What is the difference between strategic, operational, and tactical intelligence? | Strategic: long-term executive-level trend reports. Operational: active campaign TTPs and threat actor profiles. Tactical: IOCs (IPs, hashes, domains) for immediate defensive use |
 | What is the Diamond Model of Intrusion Analysis? | Framework with four vertices: Adversary, Capability, Infrastructure, Victim. Used to link intrusion events into campaigns and cluster activity for attribution |
-| Cyber Kill Chain vs. ATT&CK? | Kill Chain (Lockheed Martin): 7 linear phases from Reconnaissance to Actions on Objectives. ATT&CK: granular non-linear taxonomy with 14 tactics and hundreds of techniques -- better for detection engineering and coverage gap analysis |
+| Cyber Kill Chain vs. ATT&CK? | Kill Chain (Lockheed Martin): 7 linear phases from Reconnaissance to Actions on Objectives. ATT&CK: granular non-linear taxonomy with 14 tactics and hundreds of techniques, better for detection engineering and coverage gap analysis |
 | What is MISP and how is it used? | Open-source Threat Intelligence Platform for sharing structured threat data. Supports STIX/TAXII, automated correlation, and galaxy clusters for tagging actors and malware families |
 | How do you assess confidence in a report? | Evaluate source reliability (track record and access level), information credibility (corroboration, timeliness, internal consistency), and analysis quality. Apply the Admiralty Scale or ACH methodology |
-| IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability -- adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
+| IOC types and their limitations? | Types: IPs, domains, URLs, file hashes, email addresses. Primary limitation: high perishability; adversaries rotate infrastructure rapidly. TTPs are more durable indicators for long-term detection |
 | What is STIX/TAXII? | STIX: structured JSON format for threat intelligence objects (indicators, campaigns, malware, TTPs, threat actors). TAXII: transport protocol for automated STIX data sharing between platforms |
 | Describe a threat actor you know well | Example: APT29/Cozy Bear (Russian SVR): targets government and political organizations, responsible for SUNBURST supply chain attack, uses custom Cobalt Strike malleable C2, spearphishing, and living-off-the-land techniques across the entire kill chain |
 

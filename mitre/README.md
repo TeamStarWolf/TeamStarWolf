@@ -16,7 +16,7 @@ ATT&CK-Navigator-style browsable pages: one page per MITRE object, cross-linked 
 | [Threat Groups](/mitre/groups/README.md) | 176 | ATT&CK adversary groups (intrusion sets): aliases, techniques used (linked), and software wielded |
 | [Software & Tools](/mitre/software/README.md) | 825 | ATT&CK malware & tools: type, platforms, aliases, techniques implemented (linked), and the groups that wield them |
 | [Campaigns](/mitre/campaigns/README.md) | 56 | ATT&CK intrusion campaigns: active window, attributed groups, techniques used (linked), and software deployed |
-| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | n/a | technique, mitigation, NIST, D3FEND, CAPEC in one table |
+| [Cross-Framework Crosswalk](/mitre/crosswalk.md) | N/A | technique, mitigation, NIST, D3FEND, CAPEC in one table |
 
 ## Start here
 

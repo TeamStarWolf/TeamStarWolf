@@ -130,7 +130,7 @@ def plain_line(line):
         for c in cells:
             c2 = _prose(c)
             if re.fullmatch(r"\s*—\s*", c2):
-                c2 = " n/a "
+                c2 = " N/A "
             elif c2.count("—") + c2.count(" – ") == 1:
                 c2 = _term_lead(c2, keep, 60)
             out.append(c2)

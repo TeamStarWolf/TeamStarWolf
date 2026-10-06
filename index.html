@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="TeamStarWolf — an open, threat-informed cybersecurity reference library. 139 in-depth references across offense, defense, cloud, identity, GRC and AI security, anchored to MITRE ATT&CK, ATLAS, Engage, D3FEND and NIST 800-53.">
+  <meta name="description" content="TeamStarWolf is a cybersecurity reference library covering offensive testing, defense, cloud, identity, governance, and AI security, cross-referenced to MITRE ATT&CK, D3FEND, and NIST SP 800-53.">
   <meta name="theme-color" content="#0b1220">
-  <meta property="og:title" content="TeamStarWolf — Cybersecurity Reference Library">
-  <meta property="og:description" content="An open, threat-informed cybersecurity reference library — 139 in-depth references anchored to MITRE ATT&CK, ATLAS, Engage and D3FEND.">
+  <meta property="og:title" content="TeamStarWolf: Cybersecurity Reference Library">
+  <meta property="og:description" content="A cybersecurity reference library cross-referenced to MITRE ATT&CK, with how-to guides, learning paths, and published mapping data.">
   <meta property="og:type" content="website">
-  <title>TeamStarWolf — Cybersecurity Reference Library</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BA%3C/text%3E%3C/svg%3E">
+  <title>TeamStarWolf: Cybersecurity Reference Library</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230b1220'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='68' font-weight='700' text-anchor='middle' fill='%237aa2f7'%3ET%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" integrity="sha384-jCK82M2ExfkqAO/MYBKMjP1qC4AvZ4/Duf2gVWOy3RPn26uz+KW5I+9S39za1Fqv" crossorigin="anonymous">
 
   <style>
@@ -560,12 +560,12 @@
   </style>
 </head>
 <body>
-  <div id="app">Loading TeamStarWolf…</div>
+  <div id="app">Loading</div>
   <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
 
   <script>
     window.$docsify = {
-      name: '🐺 TeamStarWolf',
+      name: 'TeamStarWolf',
       nameLink: '#/',
       repo: 'https://github.com/TeamStarWolf/TeamStarWolf',
       loadSidebar: true,
@@ -589,7 +589,7 @@
       search: {
         maxAge: 3600000,
         paths: 'auto',
-        placeholder: '🔍  Search the library — try T1059…',
+        placeholder: 'Search the library, for example T1059',
         noData: 'No matches. Try a technique ID (T1059), a tool, a control, or a concept.',
         depth: 6,
         hideOtherSidebarContent: false,
@@ -597,8 +597,8 @@
       },
 
       pagination: {
-        previousText: '← Previous',
-        nextText: 'Next →',
+        previousText: 'Previous',
+        nextText: 'Next',
         crossChapter: true,
         crossChapterText: true
       },
@@ -614,7 +614,7 @@
         function (hook, vm) {
           hook.beforeEach(function (html) {
             var url = 'https://github.com/TeamStarWolf/TeamStarWolf/blob/main/' + vm.route.file;
-            return '> 📝 [Edit this page on GitHub](' + url + ') &nbsp;·&nbsp; press <kbd>/</kbd> to search\n\n' + html;
+            return '> [Edit this page on GitHub](' + url + '). Press <kbd>/</kbd> to search.\n\n' + html;
           });
         },
         // Back-to-top behaviour

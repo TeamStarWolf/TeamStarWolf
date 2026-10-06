@@ -1,16 +1,14 @@
-<!-- _coverpage.md — numbers mirror README.md "At a glance" (the single source of truth); update both in the same PR.
-     Docsify styles the LAST link of the final paragraph as the gradient primary — keep "Enter the Library" last. -->
+<!-- _coverpage.md: keep this page factual and free of headline counts.
+     Docsify styles the LAST link of the final paragraph as the primary button, so keep "Enter the Library" last. -->
 
-<img src="assets/starwolf64-banner.jpg" alt="STARWOLF64" class="tsw-cover-banner" width="620" />
+# TeamStarWolf
 
-# TeamStarWolf 🐺
+> A cybersecurity reference library cross-referenced to MITRE ATT&CK.
 
-> An open, threat-informed cybersecurity reference library — built for practitioners.
-
-- **References, how-to guides & discipline paths** — offense, defense, cloud, identity, GRC, AI, and fraud
-- **ATT&CK at the center** — techniques mapped to NIST 800-53 controls, the detections that catch them, and D3FEND countermeasures
-- **The full MITRE stack** — ATT&CK · ATLAS · Engage · D3FEND · F3 · EMB3D · FiGHT · CWE · CAPEC
-- **Free, open & machine-readable** — MIT licensed, every mapping ships as JSONL, no signup, no tracking
+- Reference documents, how-to guides, and learning paths on offensive testing, defense, cloud, identity, governance, and AI security
+- ATT&CK techniques linked to NIST SP 800-53 controls, MITRE detection analytics, and D3FEND countermeasures where a published mapping exists
+- Coverage of ATT&CK, ATLAS, Engage, D3FEND, F3, EMB3D, FiGHT, CWE, and CAPEC
+- Relationships published as JSONL files and ATT&CK Navigator layers
 
 [GitHub](https://github.com/TeamStarWolf/TeamStarWolf)
 [Reference Index](/INDEX.md)

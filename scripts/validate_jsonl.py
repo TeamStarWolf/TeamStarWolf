@@ -55,6 +55,12 @@ SCHEMAS = {
             "reason": ["revoked", "deprecated"],
         }
     },
+    # Per-technique prevalence extracted from the (uncommitted) 529-machine training
+    # corpus; scripts/generate_mitre_pages.py renders the "corpus signal" paragraph from it.
+    "data/generated/corpus_signal.jsonl": {
+        "required": ["technique_id", "corpus_n", "machines", "pct", "linux", "windows"],
+        "field_values": {},
+    },
 }
 
 # Layer 2 — the primary key of each node/entity file (must be unique per file).
@@ -88,6 +94,7 @@ PRIMARY_KEYS = {
     "data/engage/engage_goals.jsonl": "goal_id",
     "data/fraud/f3_tactics.jsonl": "tactic_id",
     "data/fraud/f3_techniques.jsonl": "technique_id",
+    "data/generated/corpus_signal.jsonl": "technique_id",
     "data/weaknesses/capec.jsonl": "capec_id",
     "data/weaknesses/cwe.jsonl": "cwe_id",
 }

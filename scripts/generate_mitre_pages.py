@@ -6,15 +6,20 @@ Regenerates one page per MITRE object for: techniques, mitigations, tactics, D3F
 CAPEC, ATLAS, plus the /mitre/README landing. Everything is derived deterministically
 from data/attack, data/weaknesses, and data/ai.
 
-PRESERVED, NOT REGENERATED: the "Team Star Wolf corpus signal" block (and the star that
-flags corpus-observed techniques). That signal is keyword-derived from a local
-529-machine HTB training corpus that is NOT committed to this repo, so it is carried
-verbatim from the current pages. This script only ever re-emits what it finds.
+CORPUS SIGNAL: the "Team Star Wolf corpus signal" paragraph on a technique page (and the
+"(observed)" mark that flags corpus-observed techniques on tactic pages, the crosswalk
+and the landing page) is keyword-derived from a local 529-machine HTB training corpus
+that is NOT committed to this repo. The extracted per-technique counts ARE committed, in
+data/generated/corpus_signal.jsonl, and the paragraph is rendered from that file like
+every other section. The generator never scrapes the previous pages for it: if a page
+carries the paragraph for a technique the data file does not know, or the data file is
+missing while pages carry the paragraph, the run aborts before writing anything.
 
 Usage:
     python scripts/generate_mitre_pages.py                 # techniques + landing
     python scripts/generate_mitre_pages.py --only techniques,landing
     python scripts/generate_mitre_pages.py --check         # write to mitre/_gen_check/ (no overwrite)
+    python scripts/generate_mitre_pages.py --verify-corpus 21   # CI: data file <-> pages round-trip, exactly 21
 """
 import json
 import re
@@ -129,15 +134,81 @@ def clean_capec_field(s):
     return out
 
 
-CORPUS_RE = re.compile(r"\*\*Team Star Wolf corpus signal.*?(?=\n\s*\n|\Z)", re.S)
+CORPUS_PATH = DATA / "generated" / "corpus_signal.jsonl"
+# Marker-tolerant: pages are written through plain(), which strips the "**" bold
+# markers, so the committed paragraph starts with the bare phrase. (The old pattern
+# required the literal "**" and matched nothing, which made a regeneration delete the
+# paragraph from every page.)
+CORPUS_RE = re.compile(r"(?:\*\*)?Team Star Wolf corpus signal.*?(?=\n\s*\n|\Z)", re.S)
 
 
 def extract_corpus(md_path):
-    """Pull the preserved corpus paragraph (not in committed data) from an existing page."""
+    """Return the corpus-signal paragraph an existing page carries (guard input, not a data source)."""
     if not md_path.exists():
         return None
     m = CORPUS_RE.search(md_path.read_text(encoding="utf-8"))
     return m.group(0).strip() if m else None
+
+
+def render_corpus(row):
+    """Render the corpus-signal paragraph for one data/generated/corpus_signal.jsonl row.
+
+    Output is already in plain() form (no bold markers) so the written page is
+    byte-identical whether or not plain() touches it.
+    """
+    return ("Team Star Wolf corpus signal (keyword-derived, n=" + str(row["corpus_n"]) +
+            " HTB training machines): observed on " + str(row["machines"]) + " machines (" +
+            ("%.1f" % float(row["pct"])) + "%) " + DASH + " Linux " + str(row["linux"]) +
+            " / Windows " + str(row["windows"]) + ". See the corpus deep-dive and "
+            "detection-coverage matrix in the Lylat Labs range for tooling and detections.")
+
+
+class CorpusSignalError(RuntimeError):
+    """Raised when regenerating would silently drop or contradict corpus evidence."""
+
+
+def load_corpus_signal(prof_ids, tdir):
+    """Load corpus_signal.jsonl and reconcile it against the paragraphs existing pages carry.
+
+    Returns (corpus, corpus_pct, page_blocks):
+      corpus      technique_id -> rendered paragraph (from data)
+      corpus_pct  technique_id -> prevalence percent (from data)
+      page_blocks technique_id -> paragraph currently on the committed page (guard only)
+    Raises CorpusSignalError instead of letting a regeneration delete evidence.
+    """
+    page_blocks = {}
+    if tdir.exists():
+        for tid in prof_ids:
+            block = extract_corpus(tdir / (tslug(tid) + ".md"))
+            if block:
+                page_blocks[tid] = block
+
+    if not CORPUS_PATH.exists():
+        if page_blocks:
+            raise CorpusSignalError(
+                str(len(page_blocks)) + " technique page(s) carry a corpus-signal paragraph but " +
+                CORPUS_PATH.relative_to(ROOT).as_posix() + " is missing; refusing to regenerate "
+                "(the paragraphs would be deleted). Restore the data file.")
+        return {}, {}, page_blocks
+
+    corpus, corpus_pct = {}, {}
+    for row in load_jsonl(CORPUS_PATH):
+        tid = row.get("technique_id")
+        if tid not in prof_ids:
+            raise CorpusSignalError("corpus_signal.jsonl row for unknown technique " + repr(tid))
+        if tid in corpus:
+            raise CorpusSignalError("corpus_signal.jsonl has duplicate technique_id " + tid)
+        corpus[tid] = render_corpus(row)
+        corpus_pct[tid] = float(row["pct"])
+
+    lost = sorted(t for t in page_blocks if t not in corpus)
+    if lost:
+        raise CorpusSignalError(
+            "pages carry a corpus-signal paragraph for " + ", ".join(lost) + " but " +
+            CORPUS_PATH.relative_to(ROOT).as_posix() + " has no row for them; refusing to "
+            "regenerate (the paragraphs would be deleted). Add the rows or remove the paragraphs "
+            "deliberately.")
+    return corpus, corpus_pct, page_blocks
 
 
 def link(text, url):
@@ -284,21 +355,12 @@ class DB:
             if r.get("revoked") and r.get("superseded_by"):
                 self.supersedes[r["superseded_by"]].append((r["technique_id"], r["name"]))
 
-        # corpus signal preserved from existing pages (technique_id -> paragraph)
-        self.corpus = {}
-        tdir = MITRE / "techniques"
-        if tdir.exists():
-            for tid in self.prof:
-                block = extract_corpus(tdir / (tslug(tid) + ".md"))
-                if block:
-                    self.corpus[tid] = block
+        # corpus signal rendered from data/generated/corpus_signal.jsonl
+        # (technique_id -> paragraph, technique_id -> percent for tactic "most-observed");
+        # the paragraphs the committed pages carry are kept only as a loss guard.
+        self.corpus, self.corpus_pct, self.corpus_on_pages = load_corpus_signal(
+            set(self.prof), MITRE / "techniques")
         self.corpus_ids = set(self.corpus)
-        # corpus prevalence percent parsed from the block (for tactic "most-observed")
-        self.corpus_pct = {}
-        for tid, blk in self.corpus.items():
-            m = re.search(r"\(([\d.]+)%\)", blk)
-            if m:
-                self.corpus_pct[tid] = float(m.group(1))
 
         # --- mitigations ---
         self.mit = {r["mitigation_id"]: r for r in load_jsonl(DATA / "attack/mitigations.jsonl")}
@@ -1130,13 +1192,43 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="techniques,landing")
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--verify-corpus", type=int, metavar="N", default=None,
+                    help="write nothing; fail unless corpus_signal.jsonl holds exactly N rows, every "
+                         "row's paragraph is on its committed page verbatim, and no page carries a "
+                         "paragraph the data file lacks")
     args = ap.parse_args()
     only = set(x.strip() for x in args.only.split(",") if x.strip())
 
-    db = DB()
+    try:
+        db = DB()
+    except CorpusSignalError as e:
+        print("ERROR: corpus signal: " + str(e))
+        raise SystemExit(2)
     out_root = (MITRE / "_gen_check") if args.check else MITRE
     print("loaded: " + str(len(db.prof)) + " techniques, corpus preserved for " +
-          str(len(db.corpus_ids)) + " of them")
+          str(len(db.corpus_ids)) + " of them (" + CORPUS_PATH.relative_to(ROOT).as_posix() +
+          "; " + str(len(db.corpus_on_pages)) + " committed pages carry the paragraph)")
+
+    if args.verify_corpus is not None:
+        problems = []
+        if len(db.corpus_ids) != args.verify_corpus:
+            problems.append("expected " + str(args.verify_corpus) + " corpus-signal rows, data file has " +
+                            str(len(db.corpus_ids)))
+        for tid in sorted(db.corpus_ids):
+            on_page = db.corpus_on_pages.get(tid)
+            if on_page is None:
+                problems.append(tid + ": page lacks the corpus-signal paragraph (regenerate techniques)")
+            elif on_page != db.corpus[tid]:
+                problems.append(tid + ": page paragraph differs from data (regenerate techniques)")
+        # (a page paragraph with no data row already aborted inside DB())
+        if problems:
+            print("CORPUS SIGNAL CHECK FAILED:")
+            for p in problems:
+                print("  - " + p)
+            raise SystemExit(1)
+        print("OK: corpus signal round-trips for " + str(len(db.corpus_ids)) + " techniques "
+              "(data file == committed pages)")
+        return
 
     if "techniques" in only:
         d = out_root / "techniques"

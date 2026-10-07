@@ -12,6 +12,7 @@ on:
       - 'INDEX.md'
       - 'CITATION.cff'
       - 'scores/**'
+      - 'mitre/**'
   pull_request:
     branches: [main]
     paths:
@@ -23,6 +24,7 @@ on:
       - 'INDEX.md'
       - 'CITATION.cff'
       - 'scores/**'
+      - 'mitre/**'
   workflow_dispatch:
 
 jobs:
@@ -43,6 +45,26 @@ jobs:
 
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
+
+  corpus-signal:
+    name: Corpus-signal round-trip (data file == pages, exactly 21)
+    # The "Team Star Wolf corpus signal" paragraph on 21 technique pages comes from the
+    # uncommitted training corpus and exists in-repo only as
+    # data/generated/corpus_signal.jsonl. Fail if the data file and the committed pages
+    # disagree, or if the count drifts from 21 (a regeneration that dropped the
+    # paragraphs, or an edit that added one without a data row, both fail here).
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Corpus signal preserved for exactly 21 techniques
+        run: python scripts/generate_mitre_pages.py --verify-corpus 21
 
   validate-navigator:
     name: Validate ATT&CK Navigator layer

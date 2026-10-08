@@ -21,6 +21,9 @@ by the date its pull requests merged to `main` rather than by tagged release.
   malware, prompt injection, the AI software supply chain, and machine-speed vulnerability
   discovery), each event graded Confirmed, Reported, or Demonstrated, with sources checked
   as of 7 October 2026. Linked from the sidebar, homepage, README, and index
+- Case Studies: a 16-slide PowerPoint deck for the AI Threats 2026 case study
+  (`case-studies/slides/`), with each slide's sources in its speaker notes, linked
+  from the study page and the Case Studies hub
 
 ## 2026-09-26
 

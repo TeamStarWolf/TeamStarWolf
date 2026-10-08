@@ -225,6 +225,12 @@
   - [AI Security Reference](/AI_SECURITY_REFERENCE.md)
   - [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
   - [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)
+  - AI Tooling
+    - [Overview](/ai-tooling/README.md)
+    - [AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md)
+    - [AI Tool Manuals](/ai-tooling/tools/README.md)
+    - [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md)
+    - [AI Labs](/ai-tooling/AI_LABS.md)
   - [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md)
 
 ---

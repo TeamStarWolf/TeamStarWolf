@@ -14,7 +14,8 @@ specific task step by step. [Learning paths](disciplines/README.md) suggest an o
 discipline and collect training, tools, books, and certifications for it. [Framework pages](mitre/README.md)
 are generated from MITRE data, one page for each ATT&CK technique, group, software entry, campaign, and
 mitigation, and for each CAPEC, D3FEND, ATLAS, and F3 entry. The library also includes curated lists of
-tools, reading, and other resources.
+tools, reading, and other resources, and [Tools Research](tools-research/README.md) studies that review
+security products and their integrations against the vendors' official documentation.
 
 Where a published mapping exists, an ATT&CK technique is linked to the NIST SP 800-53 controls that mitigate
 it, the detection strategies and analytics MITRE publishes for it, the CAPEC attack patterns that reference
@@ -34,7 +35,7 @@ renders the same files.
 | Assess ATT&CK coverage | [Threat-Informed Defense](THREAT_INFORMED_DEFENSE_REFERENCE.md), [ATT&CK Matrix Analysis](ATTACK_MATRIX_ANALYSIS_REFERENCE.md), [Priority Gap Analysis](scores/attack_priority_gaps.md), [Navigator layers](navigator/index.md) |
 | Respond to an incident | [Incident Response](INCIDENT_RESPONSE_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md) |
 | Harden systems and cloud | [Windows](WINDOWS_HARDENING_REFERENCE.md) and [Linux](LINUX_HARDENING_REFERENCE.md) hardening, [Cloud Security](CLOUD_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md) |
-| Manage vulnerabilities | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Triage a CVE](guides/TRIAGE_A_CVE.md) |
+| Manage vulnerabilities | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Triage a CVE](guides/TRIAGE_A_CVE.md), [Tools Research](tools-research/README.md) |
 | Secure AI and ML systems | [MITRE ATLAS](ATLAS_REFERENCE.md), [AI Security](AI_SECURITY_REFERENCE.md), [AI and MCP Security](AI_MCP_SECURITY_REFERENCE.md) |
 | Use deception | [MITRE Engage](ENGAGE_REFERENCE.md), [Honeypots and Deception](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) |
 | Counter fraud | [MITRE F3](FRAUD_FRAMEWORK_REFERENCE.md), [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security](IDENTITY_SECURITY_REFERENCE.md) |

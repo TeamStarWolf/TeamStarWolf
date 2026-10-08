@@ -148,6 +148,8 @@
 | [Security Glossary](GLOSSARY.md) | 100+ cybersecurity terms, acronyms, and definitions from APT to ZTNA |
 | [Security Metrics Reference](SECURITY_METRICS_REFERENCE.md) | SOC KPIs, vulnerability management SLAs, detection coverage scoring, risk metrics, and executive reporting frameworks |
 | [Security Tools Reference](TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags |
+| [ServiceNow USEM with Tenable and Wiz](tools-research/SERVICENOW_USEM_TENABLE_WIZ.md) | Tools Research: ServiceNow Unified Security Exposure Management reviewed against official docs (Brazil): data model, risk scoring, Tenable and Wiz integration paths, deduplication, migration, licensing |
+| [ServiceNow VR, CC and CVR with Tenable and Wiz](tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md) | Tools Research: how Vulnerability Response, Configuration Compliance and Container Vulnerability Response work and how Tenable and Wiz feed each, from official docs |
 | [SIEM Detection Content](SIEM_DETECTION_CONTENT.md) | Official detection rules from Sigma, Elastic, Splunk ESCU, Microsoft Sentinel, MITRE ATT&CK mitigations, CIS Controls, and DISA STIGs |
 | [SIEM Reference](SIEM_REFERENCE.md) | Splunk ES/SPL, Microsoft Sentinel/KQL, IBM QRadar/AQL, Elastic SIEM, log normalization, detection engineering, SOC operations, threat hunting |
 | [SOAR Automation Reference](SOAR_AUTOMATION_REFERENCE.md) | SOAR platforms, playbook design, Splunk SOAR/Phantom, XSOAR, Sentinel, QRadar SOAR, phishing/malware triage, threat intel automation, IR playbooks, metrics |
@@ -170,6 +172,7 @@
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
 | [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, LINDDUN, attack trees, MITRE ATT&CK integration, DFDs, pytm, cloud microservices threat modeling |
 | [Threat Report Almanac](THREAT_REPORT_ALMANAC.md) | Annotated index of the 15 major annual threat reports (DBIR, M-Trends, CrowdStrike GTR, MDDR, X-Force, ENISA, IC3, Dragos, etc.) organized by methodology basis, with a critical-reading method and a quarterly reading calendar |
+| [Tools Research](tools-research/README.md) | Documentation-verified studies of security products and their integrations, with confidence labels, figures, and PDF downloads |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |
 | [Vulnerability Prioritization Reference](VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design |

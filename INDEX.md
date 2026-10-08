@@ -10,9 +10,13 @@
 | [Active Directory Attacks](ACTIVE_DIRECTORY_ATTACKS.md) | BloodHound, Kerberoasting, DCSync, Golden/Silver/Diamond tickets, RBCD, ADCS ESC1-8, NTLM relay, lateral movement |
 | [Active Directory Security Reference](ACTIVE_DIRECTORY_SECURITY_REFERENCE.md) | AD architecture, Kerberos attacks (Kerberoasting/Golden Ticket/DCSync), AD CS ESC vulnerabilities, GPO hardening, tiered admin model, MDI detection |
 | [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation |
+| [AI and LLM Learning Path](ai-tooling/AI_LEARNING_PATH.md) | AI Tooling: nine modules from how LLMs work through prompting, RAG, agents and MCP, fine-tuning, evaluation, local models, security and governance |
+| [AI Labs](ai-tooling/AI_LABS.md) | AI Tooling: six local, defensive labs: run a model with Ollama, build a small RAG, write an MCP server, evaluate prompts, scan your own model, add a guardrail |
 | [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
 | [AI Threats: A 2026 Case Study](case-studies/AI_THREATS_2026.md) | Case Studies: six AI threat classes from 2024 to 2026 (agentic intrusions, deepfakes, AI-native malware, prompt injection, AI supply chain, machine-speed vulnerability discovery), each event graded by evidence, with a defensive playbook and roadmap |
+| [AI Tooling](ai-tooling/README.md) | Practical guide to AI tools and LLMs: a grouped index of 46 tools, a one-page manual for each, a learning path, and hands-on labs |
+| [AI Tools and LLMs Index](ai-tooling/AI_TOOLS_INDEX.md) | AI Tooling: 46 tools and model platforms in 12 categories, each with license, official docs, repository, and a manual covering quick start and security notes |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |

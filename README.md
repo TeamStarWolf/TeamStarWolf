@@ -37,7 +37,7 @@ renders the same files.
 | Respond to an incident | [Incident Response](INCIDENT_RESPONSE_REFERENCE.md), [IR Playbooks](IR_PLAYBOOKS.md), [Digital Forensics](DIGITAL_FORENSICS_REFERENCE.md) |
 | Harden systems and cloud | [Windows](WINDOWS_HARDENING_REFERENCE.md) and [Linux](LINUX_HARDENING_REFERENCE.md) hardening, [Cloud Security](CLOUD_SECURITY_REFERENCE.md), [Zero Trust](ZERO_TRUST_REFERENCE.md) |
 | Manage vulnerabilities | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization](VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM](CTEM_REFERENCE.md), [Triage a CVE](guides/TRIAGE_A_CVE.md), [Tools Research](tools-research/README.md) |
-| Secure AI and ML systems | [MITRE ATLAS](ATLAS_REFERENCE.md), [AI Security](AI_SECURITY_REFERENCE.md), [AI and MCP Security](AI_MCP_SECURITY_REFERENCE.md), [AI Threats 2026 case study](case-studies/AI_THREATS_2026.md) |
+| Secure AI and ML systems | [MITRE ATLAS](ATLAS_REFERENCE.md), [AI Security](AI_SECURITY_REFERENCE.md), [AI and MCP Security](AI_MCP_SECURITY_REFERENCE.md), [AI Threats 2026 case study](case-studies/AI_THREATS_2026.md), [AI Tooling](ai-tooling/README.md) |
 | Use deception | [MITRE Engage](ENGAGE_REFERENCE.md), [Honeypots and Deception](HONEYPOT_DECEPTION_REFERENCE.md), [Deception Technology](DECEPTION_TECHNOLOGY_REFERENCE.md) |
 | Counter fraud | [MITRE F3](FRAUD_FRAMEWORK_REFERENCE.md), [Social Engineering](SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security](IDENTITY_SECURITY_REFERENCE.md) |
 | Build a career | [Career Paths](CAREER_PATHS.md), [Certifications](CERTIFICATIONS.md), [Home Lab Setup](HOMELAB_SETUP.md), [Hands-On Labs](LABS.md) |

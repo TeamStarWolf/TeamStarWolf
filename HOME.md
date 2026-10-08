@@ -315,6 +315,7 @@ The references follow the chain from a vulnerability (CVE) to the weakness it ex
     <a class="tsw-swb-l" href="#/AI_SECURITY_REFERENCE">AI Security</a>
     <a class="tsw-swb-l" href="#/AI_MCP_SECURITY_REFERENCE">AI &amp; MCP Security</a>
     <a class="tsw-swb-l" href="#/AI_OFFENSIVE_SECURITY_REFERENCE">AI Offensive Security</a>
+    <a class="tsw-swb-l" href="#/ai-tooling/README">AI Tooling: tools, manuals, learning, labs</a>
     <a class="tsw-swb-l" href="#/BLOCKCHAIN_SECURITY_REFERENCE">Blockchain Security</a>
   </div>
   <div class="tsw-swb-group">

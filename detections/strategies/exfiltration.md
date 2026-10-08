@@ -64,7 +64,7 @@ ATT&CK: [T1020](https://attack.mitre.org/techniques/T1020/), [detail page](../..
 - `AN1114` Analytic 1114, Linux
   Background scripts (e.g., via cron) or daemons transmitting data repeatedly to remote IPs or URLs.
   - *Log sources:* `auditd:SYSCALL (execve)`; `NSM:Flow (Outbound Connections)`
-  - *Tune:* `CronJobInterval`: Tunable time range for recurring tasks seen creating outbound connections.; `UserContext`: Tunable for scope (service accounts vs user accounts).
+  - *Tune:* `CronJobInterval`: Tunable time range for recurring tasks seen creating outbound connections.; `UserContext`: Tunable for scope — service accounts vs user accounts.
 - `AN1115` Analytic 1115, macOS
   Observation of LaunchAgents or LaunchDaemons establishing periodic external connections indicative of automated data transfer.
   - *Log sources:* `macos:unifiedlog (process: exec)`; `macos:unifiedlog (network)`; `macos:cron (cron/launchd)`

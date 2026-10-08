@@ -236,7 +236,7 @@ Platforms: PRE
 ATT&CK: [T1592](https://attack.mitre.org/techniques/T1592/), [detail page](../../techniques/reconnaissance.md#t1592)
 
 - `AN1958` Analytic 1958, PRE
-  Internet scanners may be used to look for patterns associated with malicious content designed to collect host information from visitors.
+  Internet scanners may be used to look for patterns associated with malicious content designed to collect host information from visitors.(Citation: ThreatConnect Infrastructure Dec 2020)(Citation: ATT ScanBox)
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
@@ -250,7 +250,7 @@ Platforms: PRE
 ATT&CK: [T1592.001](https://attack.mitre.org/techniques/T1592/001/), [detail page](../../techniques/reconnaissance.md#t1592001)
 
 - `AN2019` Analytic 2019, PRE
-  Internet scanners may be used to look for patterns associated with malicious content designed to collect host hardware information from visitors.
+  Internet scanners may be used to look for patterns associated with malicious content designed to collect host hardware information from visitors.(Citation: ThreatConnect Infrastructure Dec 2020)(Citation: ATT ScanBox)
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
@@ -264,7 +264,7 @@ Platforms: PRE
 ATT&CK: [T1592.002](https://attack.mitre.org/techniques/T1592/002/), [detail page](../../techniques/reconnaissance.md#t1592002)
 
 - `AN2020` Analytic 2020, PRE
-  Internet scanners may be used to look for patterns associated with malicious content designed to collect host software information from visitors.
+  Internet scanners may be used to look for patterns associated with malicious content designed to collect host software information from visitors.(Citation: ThreatConnect Infrastructure Dec 2020)(Citation: ATT ScanBox)
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
@@ -292,7 +292,7 @@ Platforms: PRE
 ATT&CK: [T1592.004](https://attack.mitre.org/techniques/T1592/004/), [detail page](../../techniques/reconnaissance.md#t1592004)
 
 - `AN1952` Analytic 1952, PRE
-  Internet scanners may be used to look for patterns associated with malicious content designed to collect client configuration information from visitors.
+  Internet scanners may be used to look for patterns associated with malicious content designed to collect client configuration information from visitors.(Citation: ThreatConnect Infrastructure Dec 2020)(Citation: ATT ScanBox)
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders. Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
   - *Log sources:* `Internet Scan`
 
@@ -557,7 +557,12 @@ ATT&CK: [T1598](https://attack.mitre.org/techniques/T1598/), [detail page](../..
 
 - `AN1955` Analytic 1955, PRE
   Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
-Depending on the specific method of phishing, the detections can vary. Monitor for suspicious email activity, such as numerous accounts receiving messages from a single unusual/unknown sender. Filtering based on DKIM+SPF or header anal
+Depending on the specific method of phishing, the detections can vary. Monitor for suspicious email activity, such as numerous accounts receiving messages from a single unusual/unknown sender. Filtering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed.(Citation: Microsoft Anti Spoofing)(Citation: ACSC Email Spoofing)
+When it comes to following links, monitor for references to uncategorized or known-bad sites. URL inspection within email (including expanding shortened links) can also help detect links leading to known malicious sites.
+Monitor social media traffic for suspicious activity, including messages requesting information as well as abnormal file or data transfers (especially those involving unknown, or otherwise suspicious accounts).
+
+Monitor call logs from corporate devices to identify patterns of potential voice phishing, such as calls to/from known malicious phone numbers.
+Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
   - *Log sources:* `Network Traffic`; `Application Log`; `Network Traffic`
 
 ---
@@ -574,7 +579,7 @@ ATT&CK: [T1598.001](https://attack.mitre.org/techniques/T1598/001/), [detail pag
 Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders.
 Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
-Monitor and analyze traffic patterns and packet inspection associated to protocol(s) th
+Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
   - *Log sources:* `Application Log`; `Network Traffic`; `Network Traffic`
 
 ---
@@ -588,8 +593,8 @@ ATT&CK: [T1598.002](https://attack.mitre.org/techniques/T1598/002/), [detail pag
 
 - `AN1997` Analytic 1997, PRE
   Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
-Monitor for suspicious email activity, such as numerous accounts receiving messages from a single unusual/unknown sender. Filtering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed.
-Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command
+Monitor for suspicious email activity, such as numerous accounts receiving messages from a single unusual/unknown sender. Filtering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed.(Citation: Microsoft Anti Spoofing)(Citation: ACSC Email Spoofing)
+Monitor and analyze traffic patterns and packet inspection associated to protocol(s) that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
   - *Log sources:* `Network Traffic`; `Application Log`; `Network Traffic`
 
 ---
@@ -602,11 +607,13 @@ Platforms: PRE
 ATT&CK: [T1598.003](https://attack.mitre.org/techniques/T1598/003/), [detail page](../../techniques/reconnaissance.md#t1598003)
 
 - `AN2010` Analytic 2010, PRE
-  Monitor for suspicious email activity, such as numerous accounts receiving messages from a single unusual/unknown sender. Filtering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed. Monitor for references to uncategorized or known-bad sites. URL inspection within email (including expanding shortened links and identifying obfuscated URLs) can also help detect links leading to known malicious sites.
+  Monitor for suspicious email activity, such as numerous accounts receiving messages from a single unusual/unknown sender. Filtering based on DKIM+SPF or header analysis can help detect when the email sender is spoofed.(Citation: Microsoft Anti Spoofing)(Citation: ACSC Email Spoofing) Monitor for references to uncategorized or known-bad sites. URL inspection within email (including expanding shortened links and identifying obfuscated URLs) can also help detect links leading to known malicious sites.(Citation: Mandiant URL Obfuscation 2023)
 
 Furthermore, monitor browser logs for homographs in ASCII and in internationalized domain names abusing different character sets (e.g. Cyrillic vs Latin versions of trusted sites).
 Monitor network data for uncommon data flows. Processes utilizing the network that do not normally have network communication or have never been seen before are suspicious.
-Monitor
+Monitor and analyze traffic patterns and packet inspection associated to protocol(s), leveraging SSL/TLS inspection for encrypted traffic, that do not follow the expected protocol standards and traffic flows (e.g extraneous packets that do not belong to established flows, gratuitous or anomalous traffic patterns, anomalous syntax, or structure). Consider correlation with process monitoring and command line to detect anomalous processes execution and command line arguments associated to traffic patterns (e.g. monitor anomalies in use of files that do not normally initiate connections for respective protocol(s)).
+
+Furthermore, monitor network traffic for homographs via the use of internationalized domain names abusing different character sets (e.g. Cyrillic vs Latin versions of trusted sites). Also monitor and analyze traffic patterns and packet inspection for indicators of cloned websites. For example, if adversaries use HTTrack to clone websites, <code> Mirrored from (victim URL)</code> may be visible in the HTML section of packets.
   - *Log sources:* `Application Log`; `Network Traffic`; `Network Traffic`
 
 ---
@@ -633,5 +640,19 @@ ATT&CK: [T1681](https://attack.mitre.org/techniques/T1681/), [detail page](../..
 
 - `AN1998` Analytic 1998, PRE
   Much of this activity may have a very high occurrence and associated false positive rate, as well as potentially taking place outside the visibility of the target organization, making detection difficult for defenders.
+
+---
+
+### T1682: Query Public AI Services
+<a id="t1682"></a>
+
+Detection strategy: Detection of Query Public AI Services (`DET0919`)  
+Platforms: PRE  
+ATT&CK: [T1682](https://attack.mitre.org/techniques/T1682/), [detail page](../../techniques/reconnaissance.md#t1682)
+
+- `AN2062` Analytic 2062, PRE
+  Much of this takes place outside the visibility of the target organization, making detection difficult for defenders.
+
+Detection efforts may be focused on related stages of the adversary lifecycle, such as during Initial Access.
 
 ---

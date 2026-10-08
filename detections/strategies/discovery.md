@@ -280,7 +280,7 @@ ATT&CK: [T1057](https://attack.mitre.org/techniques/T1057/), [detail page](../..
 - `AN0098` Analytic 0098, ESXi
   Detects process enumeration using `esxcli system process list` or `ps` on ESXi shell or via unauthorized SSH sessions. Correlates with interactive sessions and abnormal user roles.
   - *Log sources:* `esxi:shell (interactive shell)`; `esxi:auth (user session)`
-  - *Tune:* `User`: Admins are expected to run these commands; flag if non-admin or unknown users do
+  - *Tune:* `User`: Admins are expected to run these commands—flag if non-admin or unknown users do
 - `AN0099` Analytic 0099, Network Devices
   Monitors CLI-based execution of `show process` or equivalent on routers/switches. Correlates unusual device access, unauthorized roles, or config mode changes.
   - *Log sources:* `networkdevice:cli (CLI command)`; `networkdevice:syslog (Admin activity)`
@@ -384,8 +384,8 @@ Platforms: ESXi, IaaS, Linux, Network Devices, Windows, macOS
 ATT&CK: [T1082](https://attack.mitre.org/techniques/T1082/), [detail page](../../techniques/discovery.md#t1082)
 
 - `AN1452` Analytic 1452, Windows
-  Process creation and command-line execution of native system discovery utilities such as `systeminfo`, `hostname`, `wmic`, or use of PowerShell/WMI for system enumeration.
-  - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`
+  Detection of processes executing system environment inspection operations followed by access to OS configuration APIs or registry locations that expose OS version, architecture, patch level, or hardware characteristics. Defenders observe process execution retrieving system configuration metadata immediately after process startup.
+  - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=13, 14)`
   - *Tune:* `TimeWindow`: Detect multiple discovery commands executed in short succession.; `UserContext`: Scope alerts to unusual user accounts or service accounts.
 - `AN1453` Analytic 1453, Linux
   Execution of system enumeration commands such as `uname`, `df`, `uptime`, `hostname`, `lscpu`, and `cat /etc/os-release` through local terminal or scripts.
@@ -448,27 +448,27 @@ Platforms: ESXi, IaaS, Identity Provider, Linux, Office Suite, SaaS, Windows, ma
 ATT&CK: [T1087](https://attack.mitre.org/techniques/T1087/), [detail page](../../techniques/discovery.md#t1087)
 
 - `AN1612` Analytic 1612, Windows
-  Detection of suspicious enumeration of local or domain accounts via command-line tools, WMI, or scripts.
-  - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`
+  Detection of processes performing local or domain account enumeration by invoking account directory queries or security APIs followed by structured output of account lists. The defender observes command execution or API invocation patterns that retrieve account information and produce enumeration artifacts shortly afterward.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Security (EventCode=4798, 4799)`
   - *Tune:* `CommandLinePattern`: Match variations in enumeration commands like 'net user', 'Get-ADUser', 'dsquery'.; `TimeWindow`: Short burst of account enumeration commands may indicate automation.; `UserContext`: Restrict to non-admin accounts or unexpected users executing enumeration commands.
 - `AN1613` Analytic 1613, Linux
   Enumeration of users and groups through suspicious shell commands or unauthorized access to /etc/passwd or /etc/shadow.
   - *Log sources:* `auditd:SYSCALL (PATH)`; `linux:Sysmon (EventCode=1)`
   - *Tune:* `AccessedFile`: Tune based on file paths such as '/etc/passwd', '/etc/group', '/etc/shadow'.; `ParentProcessName`: Filter known admin processes to reduce false positives.
 - `AN1614` Analytic 1614, macOS
-  Detection of user account enumeration through tools like dscl, dscacheutil, or loginshell enumeration via command-line.
-  - *Log sources:* `macos:unifiedlog (process event)`
+  Detection of account enumeration through directory service queries or system utilities accessing account metadata stores, followed by structured enumeration output.
+  - *Log sources:* `macos:unifiedlog (process event)`; `macos:unifiedlog (DirectoryService queries retrieving account information)`
   - *Tune:* `CommandLine`: Tune for dscl -list, dscacheutil -q user, id -un, etc.; `ExecutionContext`: Alert if enumeration is performed in non-console session or by unusual users.
 - `AN1615` Analytic 1615, IaaS
-  Detection of API calls listing users, IAM roles, or groups in cloud environments.
+  Detection of enumeration of identity entities through cloud provider APIs where principals retrieve account metadata such as IAM users or roles in rapid succession.
   - *Log sources:* `AWS:CloudTrail (DescribeUsers / ListUsers / GetUser)`
   - *Tune:* `API_Method`: Tune based on which IAM APIs are used and their frequency.; `CallerType`: Differentiate user-initiated from automated/scripted enumeration.
 - `AN1616` Analytic 1616, Identity Provider
-  Enumeration of user or role objects via IdP API endpoints or LDAP queries.
+  Detection of identity directory enumeration through API calls or administrative queries retrieving multiple account objects within a short interval.
   - *Log sources:* `azure:signinlogs (Graph API Query)`; `saas:okta (User Enumeration Events)`
   - *Tune:* `QueryType`: Detect user vs role enumeration. Tune based on query scope.; `AppContext`: Correlate enumeration with unexpected app registrations or identities.
 - `AN1617` Analytic 1617, ESXi
-  Account enumeration via esxcli, vim-cmd, or API calls to vSphere.
+  Detection of enumeration activity when system processes query ESXi host account configuration or management APIs to retrieve user account listings.
   - *Log sources:* `esxi:vpxd (vCenter Management)`
   - *Tune:* `CommandPattern`: Tune based on known enumeration commands: 'vim-cmd vimsvc/auth/userlist'.; `PrivilegedSession`: Elevated enumeration from vpxuser or root may indicate threat activity.
 - `AN1618` Analytic 1618, SaaS
@@ -651,7 +651,7 @@ ATT&CK: [T1135](https://attack.mitre.org/techniques/T1135/), [detail page](../..
 ### T1201: Password Policy Discovery
 <a id="t1201"></a>
 
-Detection strategy: Password Policy Discovery, cross-platform behavior-chain analytics (`DET0161`)  
+Detection strategy: Password Policy Discovery – cross-platform behavior-chain analytics (`DET0161`)  
 Platforms: IaaS, Identity Provider, Linux, Network Devices, SaaS, Windows, macOS  
 ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](../../techniques/discovery.md#t1201)
 
@@ -662,7 +662,7 @@ ATT&CK: [T1201](https://attack.mitre.org/techniques/T1201/), [detail page](../..
 - `AN0456` Analytic 0456, Linux
   Chain: (1) interactive/non-interactive `chage -l`, `grep`/`cat` of PAM config (e.g., `/etc/pam.d/common-password`, `/etc/security/pwquality.conf`); (2) optional reads of `/etc/login.defs`; (3) same user performs account enumeration or password change attempts shortly after. Use auditd `execve` and file read events plus shell history collection.
   - *Log sources:* `auditd:SYSCALL (execve)`; `auditd:SYSCALL (open,openat,read)`; `linux:syslog (sudo chage|grep pam_pwquality|cat /etc/login.defs)`
-  - *Tune:* `MonitoredPaths`: Exact PAM/QoP config files used by your distro (Debian vs. RHEL paths differ).; `ServiceAccountsExclude`: System daemons that legitimately parse policies on boot.; `TerminalType`: TTY vs. non-interactive; raise risk for non-interactive remote execution.
+  - *Tune:* `MonitoredPaths`: Exact PAM/QoP config files used by your distro (Debian vs. RHEL paths differ).; `ServiceAccountsExclude`: System daemons that legitimately parse policies on boot.; `TerminalType`: TTY vs. non-interactive—raise risk for non-interactive remote execution.
 - `AN0457` Analytic 0457, macOS
   Chain: (1) execution of `pwpolicy` or MDM/DirectoryService reads of account policies; (2) optional read of `/Library/Preferences/com.apple.loginwindow` or config profiles; (3) follow-on credential probing or lateral movement by same user/session. Use unified logs and process telemetry.
   - *Log sources:* `macos:unifiedlog (pwpolicy|PasswordPolicy)`; `macos:unifiedlog (exec /usr/bin/pwpolicy)`; `macos:MDM (profiles -P|getaccountpolicies)`

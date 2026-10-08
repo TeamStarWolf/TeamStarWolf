@@ -271,6 +271,13 @@
 
 ---
 
+- Tools Research
+  - [Overview](/tools-research/README.md)
+  - [ServiceNow USEM with Tenable & Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
+  - [ServiceNow VR, CC & CVR with Tenable & Wiz](/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md)
+
+---
+
 - Resources
   - [Starred Repositories](/STARRED_REPOS.md)
   - [Book List](/CYBERSECURITY_BOOK_LIST.md)

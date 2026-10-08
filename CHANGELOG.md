@@ -4,6 +4,17 @@ All notable changes to this library are recorded here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project groups work
 by the date its pull requests merged to `main` rather than by tagged release.
 
+## Unreleased
+
+### Added
+- Tools Research section (`tools-research/`): documentation-verified studies of security
+  products and their integrations, with confidence labels, original figures, and PDF
+  downloads. First two studies: ServiceNow Unified Security Exposure Management (USEM)
+  with Tenable and Wiz, and ServiceNow Vulnerability Response, Configuration Compliance
+  and Container Vulnerability Response with Tenable and Wiz, both verified against
+  ServiceNow's official documentation repository (Brazil release, September 2026).
+  Linked from the sidebar, homepage, README, and index
+
 ## 2026-09-26
 
 ### Added

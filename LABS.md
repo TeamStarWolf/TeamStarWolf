@@ -256,3 +256,15 @@ Use AWS Free Tier + CloudGoat + Prowler:
 | CPU | 4 cores | 8+ cores | Virtualization support (VT-x/VT-d) required |
 | Storage | 500GB SSD | 1TB+ NVMe SSD | VMs are IO-intensive; NVMe matters |
 | Network | 1Gbps | 2.5Gbps | Internal lab traffic; host-only networks in hypervisor |
+
+---
+
+## Key External Resources
+
+Additional training providers, free courseware, and tooling that span multiple disciplines covered above.
+
+| Resource | URL |
+|---|---|
+| OffSec (OSCP/training & labs) | https://www.offsec.com/ |
+| OpenSecurityTraining2 (free) | https://p.ost2.fyi/ |
+| Kali Linux | https://www.kali.org/ |

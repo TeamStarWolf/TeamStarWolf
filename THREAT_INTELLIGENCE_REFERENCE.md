@@ -2194,6 +2194,37 @@ Enterprise (5+ FTE, $1.5M+ total):
 | Canadian Centre for Cyber Security | https://www.cyber.gc.ca/en |
 | FBI IC3 | https://www.ic3.gov/ |
 | HHS HC3 (Healthcare) | https://www.hhs.gov/hc3 |
+| SentinelOne Labs | https://www.sentinelone.com/labs/ |
+| Trend Micro Research | https://www.trendmicro.com/en_us/research.html |
+| Sophos X-Ops / News | https://news.sophos.com/en-us/ |
+| Red Canary Blog | https://redcanary.com/blog/ |
+| Huntress Blog | https://www.huntress.com/blog |
+| Rapid7 Blog | https://www.rapid7.com/blog/ |
+| Proofpoint Threat Insight | https://www.proofpoint.com/us/blog/threat-insight |
+| Group-IB Blog | https://www.group-ib.com/blog/ |
+| Trellix Advanced Research Center | https://www.trellix.com/blogs/research/ |
+| Dragos Blog (ICS/OT) | https://www.dragos.com/blog/ |
+| Nozomi Networks Labs (OT) | https://www.nozominetworks.com/blog |
+| Elastic Security Labs | https://www.elastic.co/security-labs |
+| WithSecure Labs | https://labs.withsecure.com/ |
+| NCC Group Research | https://research.nccgroup.com/ |
+| Zscaler ThreatLabz | https://www.zscaler.com/blogs/security-research |
+| Akamai Security Research | https://www.akamai.com/blog/security-research |
+| Cybereason Blog | https://www.cybereason.com/blog |
+| Malwarebytes Labs | https://www.malwarebytes.com/blog |
+| Fortinet FortiGuard Labs | https://www.fortinet.com/blog/threat-research |
+| SpecterOps Blog | https://posts.specterops.io/ |
+| Google Project Zero | https://googleprojectzero.blogspot.com/ |
+| Intel 471 Blog | https://intel471.com/blog |
+| DomainTools Blog | https://www.domaintools.com/resources/blog/ |
+| IBM X-Force Exchange | https://exchange.xforce.ibmcloud.com/ |
+| Cisco Talos Intelligence | https://talosintelligence.com/ |
+| Spamhaus | https://www.spamhaus.org/ |
+| Team Cymru | https://www.team-cymru.com/ |
+| OpenPhish | https://openphish.com/ |
+| PhishTank | https://phishtank.org/ |
+| vx-underground | https://vx-underground.org/ |
+| APTnotes | https://github.com/aptnotes/data |
 
 ### ATT&CK Quick Reference: Common Techniques by Phase
 

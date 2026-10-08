@@ -2122,4 +2122,14 @@ Annual security conference calendar:
 
 ---
 
+## Key External Resources
+
+Official product sites and primary code repositories for the gadgets and platforms covered in this reference.
+
+| Resource | URL |
+|----------|-----|
+| Flipper Devices (GitHub) | https://github.com/flipperdevices |
+
+---
+
 *This document is maintained for authorized security research and educational purposes. Always obtain explicit written authorization before conducting any security testing on systems you do not own. Unauthorized use of the tools and techniques described herein may violate applicable law.*

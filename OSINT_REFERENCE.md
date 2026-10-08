@@ -1715,6 +1715,8 @@ Curated starting points for the infrastructure-intelligence, internet-scanning, 
 | theHarvester | https://github.com/laramies/theHarvester |
 | SpiderFoot | https://github.com/smicallef/spiderfoot |
 | recon-ng | https://github.com/lanmaster53/recon-ng |
+| Sherlock Project (username OSINT) | https://sherlockproject.xyz/ |
+| IntelTechniques Tools | https://inteltechniques.com/tools/ |
 
 ---
 

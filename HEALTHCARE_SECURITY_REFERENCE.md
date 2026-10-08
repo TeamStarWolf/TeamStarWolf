@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | segmenting a hospital network and its biomedical devices; scoping an IoMT/HTM security program; assessing a medical-device vendor or an FDA premarket submission; hardening an HL7 interface engine, a FHIR API, or a PACS; briefing clinical/biomed leadership on ransomware and patient-safety risk |
-| Start at | [Sector Threat Profile](#sector-threat-profile), [Clinical Data Protocols](#clinical-data-protocols--their-security), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation--lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements) |
+| Start at | [Sector Threat Profile](#sector-threat-profile), [Clinical Data Protocols](#clinical-data-protocols-amp-their-security), [IoMT: Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle), [FDA Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements) |
 | Pairs with | [REGULATORY_LANDSCAPE_REFERENCE.md](REGULATORY_LANDSCAPE_REFERENCE.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [ICS_OT_SECURITY_REFERENCE.md](ICS_OT_SECURITY_REFERENCE.md), [FIRMWARE_IOT_SECURITY_REFERENCE.md](FIRMWARE_IOT_SECURITY_REFERENCE.md), [EMB3D_REFERENCE.md](EMB3D_REFERENCE.md), [ZERO_TRUST_REFERENCE.md](ZERO_TRUST_REFERENCE.md), [RANSOMWARE_DEFENSE_REFERENCE.md](RANSOMWARE_DEFENSE_REFERENCE.md) |
 
 > Not legal advice. This is a defender's operational reference, not legal or regulatory counsel. HIPAA obligations, FDA requirements, and standards conformance turn on facts and definitions that change; confirm current text and your specific obligations with qualified counsel and your regulatory-affairs team. Time-sensitive facts are marked with a source and were verified 2026-09-29.
@@ -16,10 +16,10 @@
 
 1. [Why Healthcare Is Different](#why-healthcare-is-different)
 2. [Sector Threat Profile](#sector-threat-profile)
-3. [Clinical Data Protocols & Their Security](#clinical-data-protocols--their-security)
-4. [IoMT: Medical-Device Segmentation & Lifecycle](#iomt-medical-device-segmentation--lifecycle)
+3. [Clinical Data Protocols & Their Security](#clinical-data-protocols-amp-their-security)
+4. [IoMT: Medical-Device Segmentation & Lifecycle](#iomt-medical-device-segmentation-amp-lifecycle)
 5. [FDA Medical-Device Cybersecurity Requirements](#fda-medical-device-cybersecurity-requirements)
-6. [Standards & Frameworks](#standards--frameworks)
+6. [Standards & Frameworks](#standards-amp-frameworks)
 7. [The HIPAA Security Rule (and its 2025 overhaul)](#the-hipaa-security-rule-and-its-2025-overhaul)
 8. [Defender Checklist](#defender-checklist)
 9. [Tooling](#tooling)

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | building controls so an impersonated executive cannot authorize a payment; a suspected voice/video deepfake just hit Finance, the SOC, or a KYC flow; writing a wire-transfer approval policy, an awareness module, or an IR runbook for BEC/vishing; evaluating deepfake-detection or liveness vendors |
-| Start at | [Anatomy of the finance-approval scam](#anatomy-of-the-finance-approval-video-call-scam), [Layer 1: Process & policy controls](#layer-1-process--policy-controls-the-strongest-layer), [Deepfake-defense checklist](#deepfake-defense-checklist) |
+| Start at | [Anatomy of the finance-approval scam](#anatomy-of-the-finance-approval-video-call-scam), [Layer 1: Process & policy controls](#layer-1-process-amp-policy-controls-the-strongest-layer), [Deepfake-defense checklist](#deepfake-defense-checklist) |
 | Pairs with | [SOCIAL_ENGINEERING_REFERENCE.md](SOCIAL_ENGINEERING_REFERENCE.md), [FRAUD_FRAMEWORK_REFERENCE.md](FRAUD_FRAMEWORK_REFERENCE.md), [INCIDENT_RESPONSE_REFERENCE.md](INCIDENT_RESPONSE_REFERENCE.md), [EMAIL_SECURITY_REFERENCE.md](EMAIL_SECURITY_REFERENCE.md), [IDENTITY_SECURITY_REFERENCE.md](IDENTITY_SECURITY_REFERENCE.md), [AI_SECURITY_REFERENCE.md](AI_SECURITY_REFERENCE.md) |
 
 ---

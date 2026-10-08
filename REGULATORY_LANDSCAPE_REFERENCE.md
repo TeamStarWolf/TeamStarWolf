@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Read this when | an incident just triggered notification duties and you need every clock in one place; scoping which regimes apply to a new market or product; briefing legal/board on cross-border reporting exposure; building an incident-response runbook's notification matrix |
-| Start at | [Obligation & Deadline Matrix](#obligation--deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail) |
+| Start at | [Obligation & Deadline Matrix](#obligation-amp-deadline-matrix), [Conflicting Clocks](#conflicting-clocks-practical-guidance), [Regime Detail](#regime-detail) |
 | Pairs with | [FRAMEWORKS.md](FRAMEWORKS.md), [GRC_REFERENCE.md](GRC_REFERENCE.md), [GRC_COMPLIANCE_REFERENCE.md](GRC_COMPLIANCE_REFERENCE.md), [disciplines/governance-risk-compliance.md](disciplines/governance-risk-compliance.md), [CVE_REFERENCE.md](CVE_REFERENCE.md) |
 
 > Not legal advice. This is a defender's operational reference, not legal counsel. Notification duties turn on facts, definitions, and national transpositions that change; confirm the current text and your specific obligations with qualified counsel before acting. Every date below carries a source or a "status to confirm" marker, verified as of 2026-09-29.

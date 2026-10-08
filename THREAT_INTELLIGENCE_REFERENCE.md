@@ -2152,6 +2152,48 @@ Enterprise (5+ FTE, $1.5M+ total):
 | CIRCL PDNS | https://www.circl.lu/services/passive-dns/ |
 | Malpedia | https://malpedia.caad.fkie.fraunhofer.de |
 | TLP Standard | https://www.cisa.gov/tlp |
+| abuse.ch ThreatFox | https://threatfox.abuse.ch/ |
+| abuse.ch YARAify | https://yaraify.abuse.ch/ |
+| AlienVault OTX | https://otx.alienvault.com/ |
+| AbuseIPDB | https://www.abuseipdb.com/ |
+| Pulsedive | https://pulsedive.com/ |
+| Onyphe | https://www.onyphe.io/ |
+| MITRE ATT&CK Software | https://attack.mitre.org/software/ |
+| ETDA/ThaiCERT APT Groups | https://apt.etda.or.th/cgi-bin/aptgroups.cgi |
+| MISP Galaxy | https://www.misp-galaxy.org/ |
+| ORKL — Threat Report Library | https://orkl.eu/ |
+| CrowdStrike Adversary Universe | https://adversary.crowdstrike.com/ |
+| Microsoft Threat Actor Naming | https://learn.microsoft.com/en-us/unified-secops-platform/microsoft-threat-actor-naming |
+| Google Threat Intelligence (Mandiant) | https://cloud.google.com/blog/topics/threat-intelligence |
+| Google Threat Analysis Group (TAG) | https://blog.google/threat-analysis-group/ |
+| Microsoft Threat Intelligence | https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/ |
+| Cisco Talos | https://blog.talosintelligence.com/ |
+| Palo Alto Unit 42 | https://unit42.paloaltonetworks.com/ |
+| CrowdStrike Blog | https://www.crowdstrike.com/blog/ |
+| Recorded Future | https://www.recordedfuture.com/blog |
+| Check Point Research | https://research.checkpoint.com/ |
+| ESET WeLiveSecurity | https://www.welivesecurity.com/ |
+| Kaspersky Securelist | https://securelist.com/ |
+| Volexity | https://www.volexity.com/blog/ |
+| The DFIR Report | https://thedfirreport.com/ |
+| Sekoia Blog | https://blog.sekoia.io/ |
+| Verizon DBIR | https://www.verizon.com/business/resources/reports/dbir/ |
+| Mandiant M-Trends | https://www.mandiant.com/m-trends |
+| CrowdStrike Global Threat Report | https://www.crowdstrike.com/global-threat-report/ |
+| ENISA Threat Landscape | https://www.enisa.europa.eu/topics/cyber-threats |
+| IBM X-Force Threat Intelligence | https://www.ibm.com/reports/threat-intelligence |
+| Yeti | https://yeti-platform.io/ |
+| IntelOwl | https://github.com/intelowlproject/IntelOwl |
+| OASIS STIX/TAXII | https://oasis-open.github.io/cti-documentation/ |
+| CISA Cybersecurity Advisories | https://www.cisa.gov/news-events/cybersecurity-advisories |
+| CISA #StopRansomware | https://www.cisa.gov/stopransomware |
+| CISA Secure by Design | https://www.cisa.gov/securebydesign |
+| CERT/CC Vulnerability Notes | https://www.kb.cert.org/vuls/ |
+| NCSC UK | https://www.ncsc.gov.uk/ |
+| ACSC (Australia) | https://www.cyber.gov.au/ |
+| Canadian Centre for Cyber Security | https://www.cyber.gc.ca/en |
+| FBI IC3 | https://www.ic3.gov/ |
+| HHS HC3 (Healthcare) | https://www.hhs.gov/hc3 |
 
 ### ATT&CK Quick Reference: Common Techniques by Phase
 

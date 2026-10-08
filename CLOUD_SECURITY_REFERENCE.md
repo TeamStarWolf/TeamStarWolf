@@ -2582,4 +2582,25 @@ Study resources:
 
 ---
 
+## Key External Resources
+
+Curated cloud security tooling, offensive frameworks, hands-on labs, and vendor documentation referenced throughout this guide.
+
+| Resource | URL |
+|---|---|
+| Prowler | https://github.com/prowler-cloud/prowler |
+| ScoutSuite | https://github.com/nccgroup/ScoutSuite |
+| CloudFox | https://github.com/BishopFox/cloudfox |
+| kube-bench | https://github.com/aquasecurity/kube-bench |
+| kube-hunter | https://github.com/aquasecurity/kube-hunter |
+| Trivy | https://github.com/aquasecurity/trivy |
+| Falco | https://github.com/falcosecurity/falco |
+| Wiz Blog | https://www.wiz.io/blog |
+| Hacking the Cloud | https://hackingthe.cloud/ |
+| AWS Security | https://aws.amazon.com/security/ |
+| Azure Security | https://learn.microsoft.com/en-us/azure/security/ |
+| Google Cloud Security | https://cloud.google.com/security |
+
+---
+
 *Last updated: 2026-05-06 | Maintained by TeamStarWolf | For professional cybersecurity reference use*

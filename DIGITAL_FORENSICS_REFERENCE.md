@@ -2752,4 +2752,28 @@ def mac_abs_to_dt(t):
 
 ---
 
+## Key External Resources
+
+Curated malware-analysis sandboxes, DFIR tooling, and reverse-engineering resources that complement the artifacts and workflows above.
+
+| Resource | URL |
+|----------|-----|
+| Any.run | https://any.run/ |
+| Hybrid Analysis | https://www.hybrid-analysis.com/ |
+| Joe Sandbox | https://www.joesandbox.com/ |
+| Hatching Triage | https://tria.ge/ |
+| MalwareBazaar | https://bazaar.abuse.ch/ |
+| VirusTotal | https://www.virustotal.com/ |
+| UnpacMe | https://www.unpac.me/ |
+| Malpedia | https://malpedia.caad.fkie.fraunhofer.de/ |
+| Autopsy | https://www.autopsy.com/ |
+| KAPE | https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape |
+| Velociraptor | https://github.com/Velocidex/velociraptor |
+| Chainsaw | https://github.com/WithSecureLabs/chainsaw |
+| Timesketch | https://github.com/google/timesketch |
+| plaso (log2timeline) | https://github.com/log2timeline/plaso |
+| SANS DFIR | https://www.sans.org/cyber-security-courses/?focus-area=digital-forensics-incident-response |
+
+---
+
 *This reference library is maintained for professional use in lawful digital forensics investigations. All techniques should be applied within the bounds of applicable law, proper legal authority, and ethical guidelines. Last updated: 2026.*

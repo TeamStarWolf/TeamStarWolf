@@ -129,7 +129,7 @@ a registered trademark of The MITRE Corporation. This project is not affiliated 
 
 ## Contributing and license
 
-Corrections and additions are welcome. See [CONTRIBUTING](.github/CONTRIBUTING.md), or open an
+Corrections and additions are welcome. See [CONTRIBUTING](CONTRIBUTING.md), or open an
 [issue](https://github.com/TeamStarWolf/TeamStarWolf/issues).
 
 Original content is released under the [MIT License](LICENSE). Data and text drawn from MITRE and other

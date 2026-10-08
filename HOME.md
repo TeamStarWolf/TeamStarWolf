@@ -115,7 +115,7 @@ Press <kbd>/</kbd> to search, for example for a technique ID such as T1059.
 
 ## How-to guides
 
-The [how-to guides](#/guides/README) are step-by-step procedures with prerequisites, numbered steps, and checks.
+The [how-to guides](/guides/README.md) are step-by-step procedures with prerequisites, numbered steps, and checks.
 
 <div class="tsw-router">
   <a class="tsw-card" href="#/guides/HOW_TO_USE_THIS_LIBRARY">
@@ -144,7 +144,7 @@ The [how-to guides](#/guides/README) are step-by-step procedures with prerequisi
   </a>
 </div>
 
-[All how-to guides](#/guides/README)
+[All how-to guides](/guides/README.md)
 
 ## How it connects
 
@@ -466,7 +466,7 @@ Free training platforms such as Antisyphon, PortSwigger, HTB Academy, TryHackMe,
 
 <div class="tsw-footer">
   <div class="tsw-footer-links">
-    <a href="#/.github/CONTRIBUTING">Contribute</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">License</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">Third-party notices</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/ATTACK-Navi" target="_blank" rel="noopener">ATTACK-Navi repository</a>
+    <a href="#/CONTRIBUTING">Contribute</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/issues" target="_blank" rel="noopener">Open an issue</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/LICENSE" target="_blank" rel="noopener">License</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/TeamStarWolf/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">Third-party notices</a><span class="tsw-footer-sep">|</span><a href="https://github.com/TeamStarWolf/ATTACK-Navi" target="_blank" rel="noopener">ATTACK-Navi repository</a>
   </div>
   <div class="tsw-footer-small">
     Offensive material is provided for authorized security testing, education, and defensive research.

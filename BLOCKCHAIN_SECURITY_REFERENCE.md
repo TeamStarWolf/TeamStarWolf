@@ -2897,4 +2897,4 @@ Post-audit:
 
 ---
 
-*Part of the TeamStarWolf Cybersecurity Reference Library. For contributions, see [CONTRIBUTING.md](.github/CONTRIBUTING.md).*
+*Part of the TeamStarWolf Cybersecurity Reference Library. For contributions, see [CONTRIBUTING.md](CONTRIBUTING.md).*

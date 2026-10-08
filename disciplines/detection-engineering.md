@@ -230,7 +230,7 @@ Detection engineering directly implements coverage against specific ATT&CK techn
 | Scheduled Task/Job Creation | T1053.005 | Alert on task creation with executable/script paths in temp directories or using encoded commands | Windows Event 4698, 4702; Sysmon Event 1 (schtasks.exe) |
 | Command and Scripting Interpreter: PowerShell | T1059.001 | Monitor PowerShell script block logging (Event 4104); alert on encoded commands, AMSI bypass patterns | Windows Event 4104, Sysmon Event 1 |
 | Boot or Logon Autostart: Registry Run Keys | T1547.001 | Monitor registry writes to Run/RunOnce keys and service configuration keys | Sysmon Event 13 (RegistryEvent), Windows Event 4657 |
-| Indicator Removal: Clear Windows Event Logs | T1070.001 | Alert immediately on Security log (1102) or System log (104) clear events | Windows Security 1102, System 104 |
+| Disable or Modify Tools: Clear Windows Event Logs | T1685.005 | Alert immediately on Security log (1102) or System log (104) clear events | Windows Security 1102, System 104 |
 | Living Off The Land Binaries (LOLBAS) | T1218 | Detect LOLBAS execution (certutil, mshta, regsvr32) with network connections or encoding flags | Sysmon Events 1, 3; Windows Event 4688 |
 | Lateral Movement: Pass the Hash | T1550.002 | Detect Type 3 (network) logons with NTLM authentication where Kerberos is expected | Windows Event 4624 (logon type 3), 4776 |
 

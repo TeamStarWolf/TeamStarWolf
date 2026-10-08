@@ -174,6 +174,7 @@
 | [Threat Intelligence Reference](THREAT_INTELLIGENCE_REFERENCE.md) | Intel lifecycle, STIX/TAXII, threat actor profiles, IOC enrichment, TIP platforms, and intelligence-driven detection |
 | [Threat Modeling Reference](THREAT_MODELING_REFERENCE.md) | STRIDE, PASTA, LINDDUN, attack trees, MITRE ATT&CK integration, DFDs, pytm, cloud microservices threat modeling |
 | [Threat Report Almanac](THREAT_REPORT_ALMANAC.md) | Annotated index of the 15 major annual threat reports (DBIR, M-Trends, CrowdStrike GTR, MDDR, X-Force, ENISA, IC3, Dragos, etc.) organized by methodology basis, with a critical-reading method and a quarterly reading calendar |
+| [Tool Manuals and Repositories](tools-research/TOOL_MANUALS_AND_REPOSITORIES.md) | Tools Research: verified directory of manuals, API references, release notes, Store and Splunkbase listings, GitHub orgs, repositories and GitHub Pages for ServiceNow, Armis and the MITRE threat-informed defense ecosystem |
 | [Tools Research](tools-research/README.md) | Documentation-verified studies of security products and their integrations, with confidence labels, figures, and PDF downloads |
 | [Vendor Prevention Policies](VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk |
 | [Vulnerability Management](VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs |

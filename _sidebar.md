@@ -281,6 +281,7 @@
   - [Overview](/tools-research/README.md)
   - [ServiceNow USEM with Tenable & Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)
   - [ServiceNow VR, CC & CVR with Tenable & Wiz](/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ.md)
+  - [Tool Manuals & Repositories](/tools-research/TOOL_MANUALS_AND_REPOSITORIES.md)
 
 ---
 

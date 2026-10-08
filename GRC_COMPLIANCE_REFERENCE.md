@@ -878,7 +878,7 @@ CIS-CAT Pro Dashboard: Web-based dashboard for aggregating scan results, trackin
 | CIS 3 (Data Protection) | T1530 (Data from Cloud Storage), T1486 (Ransomware), T1041 (Exfiltration) |
 | CIS 5 (Account Mgmt) | T1078 (Valid Accounts), T1136 (Create Account), T1110 (Brute Force) |
 | CIS 7 (Vuln Mgmt) | T1190 (Exploit Public-Facing), T1203 (Exploitation for Client Execution) |
-| CIS 8 (Audit Logs) | T1070 (Indicator Removal), T1562 (Impair Defenses) |
+| CIS 8 (Audit Logs) | T1070 (Indicator Removal), T1685 (Disable or Modify Tools) |
 | CIS 10 (Malware Defenses) | T1204 (User Execution), T1059 (Command Scripting), T1055 (Process Injection) |
 | CIS 13 (Network Monitoring) | T1021 (Remote Services), T1071 (App Layer Protocol C2), T1041 |
 | CIS 16 (App Security) | T1190 (Web Exploit), T1059.007 (JavaScript), T1566 (Phishing - Attachment) |

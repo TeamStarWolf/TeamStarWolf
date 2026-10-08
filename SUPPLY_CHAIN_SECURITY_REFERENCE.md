@@ -54,7 +54,7 @@ T1195.003, Compromise Hardware Supply Chain: Adversaries manipulate hardware com
 
 T1554, Compromise Client Software Binary: Adversaries modify client software binaries to establish persistent access. Can involve patching existing binaries on disk or replacing them entirely, leveraging the implicit trust users place in installed software.
 
-T1574, Hijack Execution Flow: Adversaries execute their own malicious payloads by hijacking the way operating systems run programs. Subtechniques include DLL search order hijacking (T1574.001), DLL side-loading (T1574.002), and PATH interception (T1574.007).
+T1574, Hijack Execution Flow: Adversaries execute their own malicious payloads by hijacking the way operating systems run programs. Subtechniques include DLL search order hijacking and side-loading (T1574.001), and PATH interception (T1574.007).
 
 ### Notable Supply Chain Incidents
 

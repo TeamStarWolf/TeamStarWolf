@@ -107,7 +107,7 @@ Goal: Prevent, detect, and respond to threats on endpoints, servers, and cloud w
 | SC-39 | Process Isolation |
 
 ### ATT&CK Coverage
-Techniques mitigated: T1059 (Command and Scripting Interpreter), T1055 (Process Injection), T1486 (Data Encrypted for Impact), T1566 (Phishing), T1547 (Boot/Logon Autostart), T1543 (Create/Modify System Process), T1053 (Scheduled Task/Job), T1562 (Impair Defenses), T1490 (Inhibit System Recovery)
+Techniques mitigated: T1059 (Command and Scripting Interpreter), T1055 (Process Injection), T1486 (Data Encrypted for Impact), T1566 (Phishing), T1547 (Boot/Logon Autostart), T1543 (Create/Modify System Process), T1053 (Scheduled Task/Job), T1685 (Disable or Modify Tools), T1490 (Inhibit System Recovery)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |
@@ -181,7 +181,7 @@ Goal: Aggregate logs, correlate events, detect adversary behavior, and orchestra
 | RA-5 | Vulnerability Monitoring and Scanning |
 
 ### ATT&CK Coverage
-Techniques mitigated: T1078 (Valid Accounts, anomaly detection), T1059 (Scripting, behavioral detection), T1003 (Credential Dumping, alert), T1055 (Process Injection, memory detection), T1486 (Ransomware, behavior block + response), T1562 (Impair Defenses, integrity monitoring)
+Techniques mitigated: T1078 (Valid Accounts, anomaly detection), T1059 (Scripting, behavioral detection), T1003 (Credential Dumping, alert), T1055 (Process Injection, memory detection), T1486 (Ransomware, behavior block + response), T1685 (Disable or Modify Tools, integrity monitoring)
 
 ### Vendor Tooling
 | Category | Tool / Vendor |

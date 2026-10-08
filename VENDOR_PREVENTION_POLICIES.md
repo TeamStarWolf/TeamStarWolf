@@ -37,7 +37,7 @@ ASR rules are policy-enforced controls that block specific behaviors commonly us
 | 26190899-1602-49e8-8b27-eb1d0a1ce869 | Block Office communication application from creating child processes | Block | T1566.001 |
 | e6db77e5-3df2-4cf1-b95a-636979351e5b | Block persistence through WMI event subscription | Block | T1546.003 |
 | d1e49aac-8f56-4280-b9ba-993a6d77406c | Block process creations originating from PSExec and WMI commands | Block | T1047, T1569.002 |
-| 33ddedf1-c6e0-47cb-833e-de6133960387 | Block rebooting machine in Safe Mode (preview) | Block | T1562.009 |
+| 33ddedf1-c6e0-47cb-833e-de6133960387 | Block rebooting machine in Safe Mode (preview) | Block | T1688 |
 | b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4 | Block untrusted and unsigned processes that run from USB | Block | T1091 |
 | c0033c00-d16d-4114-a5a0-dc9b3a7d2ceb | Block use of copied or impersonated system tools (preview) | Block | T1036.003 |
 | a8f5898e-1dc8-49a9-9878-85004b8a61e6 | Block Webshell creation for Servers | Block | T1505.003 |

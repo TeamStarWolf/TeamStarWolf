@@ -47,7 +47,7 @@ The silent-failure catalog (each row is a recurring, real-world pattern; the gua
 
 Two consequences worth internalizing:
 
-- Telemetry integrity is a security property, not an ops nicety. Adversaries actively impair telemetry ([T1562.001](https://attack.mitre.org/techniques/T1562.001/) Disable or Modify Tools); a pipeline that cannot tell "source went quiet because of a config change" from "source went quiet because someone killed the forwarder" cannot support that detection at all.
+- Telemetry integrity is a security property, not an ops nicety. Adversaries actively impair telemetry ([T1685](https://attack.mitre.org/techniques/T1685/) Disable or Modify Tools); a pipeline that cannot tell "source went quiet because of a config change" from "source went quiet because someone killed the forwarder" cannot support that detection at all.
 - Coverage claims are pipeline claims. A statement like "we detect [T1003](https://attack.mitre.org/techniques/T1003/) credential dumping" decomposes into: the endpoint sensor emits the events, the agent ships them, the parser preserves the fields, the filter passes them, they arrive within the rule's window, and the entity fields resolve. The rule is one link of six. Coverage reviews ([ATT&CK Priority Gaps](scores/attack_priority_gaps.md)) that only audit rules audit one-sixth of the chain.
 
 ---
@@ -509,7 +509,7 @@ Program-level questions, in the order they bite. Each row is a decision someone 
 | 5 | Tier routing | Per-source routing to hot/warm/cold justified by query pattern, not habit; rehydration path tested |
 | 6 | Quality telemetry | Per-source dashboards + alerts: ingest lag p95, parse-failure rate, volume anomalies (both directions; silence is an incident), entity-resolution rate, enrichment coverage |
 | 7 | Retention schedule | Per data class, per tier, mapped to the named regulation or need driving it; disposal automated and logged; legal-hold mechanism identified |
-| 8 | Pipeline as attack surface | Pipeline/broker infrastructure treated as tier-0: hardened, least-privilege, its own logs monitored; an adversary who can drop your telemetry owns [T1562.001](https://attack.mitre.org/techniques/T1562.001/)-class outcomes at fleet scale without touching an endpoint |
+| 8 | Pipeline as attack surface | Pipeline/broker infrastructure treated as tier-0: hardened, least-privilege, its own logs monitored; an adversary who can drop your telemetry owns [T1685](https://attack.mitre.org/techniques/T1685/)-class outcomes at fleet scale without touching an endpoint |
 | 9 | Schema upgrade path | A written procedure for moving schema versions (parallel-run window, detection regression tests), rehearsed before OCSF/CIM/ASIM/ECS ship their next release |
 | 10 | Ownership | A named owner for the pipeline as a product, sharing a backlog and on-call reality with detection engineering |
 

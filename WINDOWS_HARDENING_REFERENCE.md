@@ -1748,7 +1748,7 @@ wevtutil gl Security
 | Lateral Movement (SMB) | T1021.002 | 5140, 5145, 4624 (Type 3) | Admin share access |
 | Pass the Ticket | T1550.003 | 4768, 4769, 4770 | Unusual TGT/TGS patterns |
 | Token Impersonation | T1134 | 4672, 4674, 4703 | SeImpersonatePrivilege use |
-| Defense Impairment (Log Clear) | T1070.001 | 1102, 104 | Audit log cleared |
+| Defense Impairment (Log Clear) | T1685.005 | 1102, 104 | Audit log cleared |
 | Account Discovery | T1087 | 4798, 4799 | Local group enumeration |
 | Network Scanning | T1046 | 5156, 5157 (WFP) | Port sweep patterns |
 

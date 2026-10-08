@@ -229,7 +229,7 @@ MITRE ATT&CK for ICS techniques used:
 - T0843 (Program Download to Controller): Malicious PLC code injection
 - T0836 (Modify Parameter): Frequency setpoint manipulation
 - T0849 (Masquerading): Replay of normal sensor readings to conceal attack
-- T0857 (System Firmware): Rootkit on Siemens S7 PLCs
+- T1693.001 (System Firmware): Rootkit on Siemens S7 PLCs
 
 ### Impact and Lessons
 
@@ -366,7 +366,7 @@ IEC-104 Attack Sequence:
 5. SIPROTEC relay DoS prevents manual remote recovery
 
 MITRE ATT&CK for ICS:
-- T0855 (Unauthorized Command Message): IEC-104 commands to circuit breakers
+- T1692.001 (Command Message): IEC-104 commands to circuit breakers
 - T0831 (Manipulation of Control): Opening circuit breakers
 - T0813 (Denial of Control): SIPROTEC DoS preventing operator control
 - T0872 (Indicator Removal): Wiper module
@@ -430,8 +430,8 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 | Technique | ID | Description |
 |---|---|---|
 | Modify Program | T0889 | Persistent malicious PLC logic |
-| System Firmware | T0857 | Firmware-level persistence on ICS devices |
-| Module Firmware | T0839 | Compromised communication module firmware |
+| System Firmware | T1693.001 | Firmware-level persistence on ICS devices |
+| Module Firmware | T1693.002 | Compromised communication module firmware |
 | Valid Accounts | T0859 | Legitimate OT credential abuse |
 
 ### Evasion
@@ -441,7 +441,7 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 | Indicator Removal on Host | T0872 | Log clearing, file deletion (Industroyer wiper) |
 | Masquerading | T0849 | Disguise malicious files as legitimate |
 | Rootkit | T0851 | Kernel-level concealment (Stuxnet MrxCls) |
-| Spoof Reporting Message | T0856 | Replay normal values to operator HMI |
+| Reporting Message | T1692.002 | Replay normal values to operator HMI |
 
 ### Discovery
 
@@ -457,7 +457,7 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 
 | Technique | ID | Description |
 |---|---|---|
-| Default Credentials | T0812 | Factory-default PLC/HMI passwords |
+| Default Credentials | T1694.001 | Factory-default PLC/HMI passwords |
 | Exploitation of Remote Services | T0866 | Exploit EWS/SCADA server vulnerabilities |
 | Program Download to Controller | T0843 | Push malicious code to PLC |
 | Lateral Tool Transfer | T0867 | Move attack tools across OT network |

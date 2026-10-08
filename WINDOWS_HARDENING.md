@@ -369,7 +369,7 @@ Get-MpPreference | Select-Object ExclusionPath, ExclusionExtension, ExclusionPro
 Add-MpPreference -ExclusionProcess "C:\Program Files\BackupAgent\agent.exe"
 ```
 
-ATT&CK: T1562.001 (Disable or Modify Tools)
+ATT&CK: T1685 (Disable or Modify Tools)
 
 ---
 
@@ -920,7 +920,7 @@ auditpol /restore /file:C:\AuditPolicy.csv
 | 4776 | NTLM authentication | PtH / NTLM relay detection |
 | 7045 | New service installed | Persistence |
 
-ATT&CK: T1562.002 (Disable Windows Event Logging)  
+ATT&CK: T1685.001 (Disable or Modify Windows Event Log)  
 NIST 800-53: AU-2, AU-3, AU-8, AU-12
 
 ---
@@ -1032,7 +1032,7 @@ Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational" |
   Select-Object TimeCreated, Message
 ```
 
-ATT&CK: T1059.001 (PowerShell), T1562.001 (Disable Security Tools)  
+ATT&CK: T1059.001 (PowerShell), T1685 (Disable or Modify Tools)  
 NIST 800-53: AU-2, CM-7, SI-3
 
 ---

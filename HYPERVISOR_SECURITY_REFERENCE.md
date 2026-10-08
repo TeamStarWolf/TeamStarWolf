@@ -45,7 +45,7 @@ A composite of real campaigns (ESXiArgs, Akira, Black Basta, Scattered Spider/Dr
 | 2 | Foothold & recon: find vCenter/ESXi, dump creds | T1087, T1003, T1018 | EDR on jump hosts; segment mgmt discovery; LAPS |
 | 3 | Reach the control plane: pivot to vCenter / management VLAN | T1021, T1210 | Management-plane isolation; deny flat access; jump/PAW only |
 | 4 | Gain hypervisor admin: valid vCenter creds, or AD-group auth bypass (CVE-2024-37085) | T1078, T1068 | Decouple ESXi from prod AD; MFA on vCenter SSO; patch |
-| 5 | Impair defenses & recovery: stop services, delete snapshots/backups | T1562, T1490, T1489 | Immutable/offline backups; separate backup identity; alerting |
+| 5 | Impair defenses & recovery: stop services, delete snapshots/backups | T1685, T1490, T1489 | Immutable/offline backups; separate backup identity; alerting |
 | 6 | Detonate: enable SSH, power off VMs, encrypt VMDK/datastore | T1675, T1529, T1486 | Lockdown mode; disable ESXi Shell/SSH; execInstalledOnly; file-integrity |
 | 7 | Extort: double extortion with prior data theft | T1567, T1657 | Egress control; DLP; tested clean-room recovery |
 
@@ -159,7 +159,7 @@ Forward everything to a SIEM ([SIEM_REFERENCE.md](SIEM_REFERENCE.md)); local log
 
 | Signal | Why it matters | ATT&CK |
 |---|---|---|
-| ESXi SSH/Shell enabled, lockdown mode disabled, or new Exception User | Immediate pre-detonation setup | T1562 |
+| ESXi SSH/Shell enabled, lockdown mode disabled, or new Exception User | Immediate pre-detonation setup | T1685 |
 | Guest-ops API calls (`StartProgramInGuest`, `InitiateFileTransferFromGuest`) from unusual sources | Host->guest command execution | T1675 |
 | New/unsigned VIB installed; `execInstalledOnly` bypass attempts | Hypervisor persistence / malicious module | T1554 |
 | vCenter/ESXi service crashes then missing core dumps (e.g., `vmdird`) | Exploit + anti-forensics | T1211, T1070 |

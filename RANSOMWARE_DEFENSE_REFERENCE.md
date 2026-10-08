@@ -177,7 +177,7 @@ The pattern below recurs across #StopRansomware advisories (Gunra, RansomHub, Me
 | Execution & persistence | [T1059](https://attack.mitre.org/techniques/T1059/) Command and Scripting Interpreter | PowerShell ScriptBlock logging (Event 4104), Sysmon Event 1 (process creation), new service installs (System log Event 7045), scheduled task creation (Security Event 4698) |
 | Credential access | [T1003](https://attack.mitre.org/techniques/T1003/) OS Credential Dumping | LSASS access alerts (EDR / Sysmon Event 10), Security Events 4624/4625 patterns, new privileged account creation (4720, 4728) |
 | Lateral movement | [T1021.001](https://attack.mitre.org/techniques/T1021.001/) Remote Desktop Protocol | LogonType 10 fan-out from a single source, SMB admin-share access spikes, remote-management tool installs where none belong |
-| Defense impairment | [T1562.001](https://attack.mitre.org/techniques/T1562.001/) Impair Defenses: Disable or Modify Tools | EDR/AV tamper alerts, Windows Defender operational log, security-service stop events |
+| Defense impairment | [T1685](https://attack.mitre.org/techniques/T1685/) Disable or Modify Tools | EDR/AV tamper alerts, Windows Defender operational log, security-service stop events |
 | Exfiltration (double extortion) | [T1567](https://attack.mitre.org/techniques/T1567/) Exfiltration Over Web Service, [T1048](https://attack.mitre.org/techniques/T1048/) Exfiltration Over Alternative Protocol | Egress volume baselines, cloud-storage-domain traffic (Rclone/MEGA-class patterns per advisories), [T1530](https://attack.mitre.org/techniques/T1530/) for cloud data stores |
 | Impact | [T1486](https://attack.mitre.org/techniques/T1486/) Data Encrypted for Impact, [T1490](https://attack.mitre.org/techniques/T1490/) Inhibit System Recovery, [T1489](https://attack.mitre.org/techniques/T1489/) Service Stop | Mass file-modification/rename rates (EDR, FIM), shadow-copy deletion (`vssadmin`/`wmic` command lines), backup-agent and database service stops |
 
@@ -191,7 +191,7 @@ Concrete tripwires to build (require command-line process auditing via Security 
 |---|---|---|
 | Shadow-copy deletion (`vssadmin delete shadows`, `wmic shadowcopy delete`, equivalent WMI/PowerShell) | Security 4688 / Sysmon 1 command lines | Page immediately: near-zero legitimate volume on most fleets |
 | Backup service/agent stops ([T1489](https://attack.mitre.org/techniques/T1489/)) | System log 7036/7040 (service state/start-type changes) on backup servers | Page on backup infrastructure; investigate elsewhere |
-| Security tooling disabled ([T1562.001](https://attack.mitre.org/techniques/T1562.001/)) | EDR tamper alerts; Windows Defender Operational log (real-time protection disabled events) | Page: advisories consistently report AV/EDR tampering pre-encryption |
+| Security tooling disabled ([T1685](https://attack.mitre.org/techniques/T1685/)) | EDR tamper alerts; Windows Defender Operational log (real-time protection disabled events) | Page: advisories consistently report AV/EDR tampering pre-encryption |
 | Event log cleared | Security Event 1102 | Investigate urgently; correlate with the above |
 | Backup-console actions: job deletion, retention shortened, repository credentials changed, snapshot mass-delete | Backup platform audit log (forward it to the SIEM: most deployments don't) | Page; require change-ticket correlation |
 | Boot-recovery tampering (`bcdedit` disabling recovery, `wbadmin delete catalog`) | Security 4688 / Sysmon 1 command lines | Page: no routine business use |

@@ -251,7 +251,7 @@ Email Security
 | Execution | T1059 Command-Line Interface | CM-7, SI-4, AU-12 |
 | Persistence | T1053 Scheduled Task | CM-7, SI-4, AU-2 |
 | Privilege Escalation | T1548 Abuse Elevation Control | AC-6, CM-6, AU-12 |
-| Defense Impairment | T1562 Impair Defenses | AU-9, SI-7, SI-4 |
+| Defense Impairment | T1685 Disable or Modify Tools | AU-9, SI-7, SI-4 |
 | Credential Access | T1003 OS Credential Dumping | IA-5, AC-6, SC-28 |
 | Discovery | T1083 File and Directory Discovery | AU-12, SI-4 |
 | Lateral Movement | T1021 Remote Services | AC-17, SC-7, AC-3 |

@@ -2152,6 +2152,79 @@ Enterprise (5+ FTE, $1.5M+ total):
 | CIRCL PDNS | https://www.circl.lu/services/passive-dns/ |
 | Malpedia | https://malpedia.caad.fkie.fraunhofer.de |
 | TLP Standard | https://www.cisa.gov/tlp |
+| abuse.ch ThreatFox | https://threatfox.abuse.ch/ |
+| abuse.ch YARAify | https://yaraify.abuse.ch/ |
+| AlienVault OTX | https://otx.alienvault.com/ |
+| AbuseIPDB | https://www.abuseipdb.com/ |
+| Pulsedive | https://pulsedive.com/ |
+| Onyphe | https://www.onyphe.io/ |
+| MITRE ATT&CK Software | https://attack.mitre.org/software/ |
+| ETDA/ThaiCERT APT Groups | https://apt.etda.or.th/cgi-bin/aptgroups.cgi |
+| MISP Galaxy | https://www.misp-galaxy.org/ |
+| ORKL — Threat Report Library | https://orkl.eu/ |
+| CrowdStrike Adversary Universe | https://adversary.crowdstrike.com/ |
+| Microsoft Threat Actor Naming | https://learn.microsoft.com/en-us/unified-secops-platform/microsoft-threat-actor-naming |
+| Google Threat Intelligence (Mandiant) | https://cloud.google.com/blog/topics/threat-intelligence |
+| Google Threat Analysis Group (TAG) | https://blog.google/threat-analysis-group/ |
+| Microsoft Threat Intelligence | https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/ |
+| Cisco Talos | https://blog.talosintelligence.com/ |
+| Palo Alto Unit 42 | https://unit42.paloaltonetworks.com/ |
+| CrowdStrike Blog | https://www.crowdstrike.com/blog/ |
+| Recorded Future | https://www.recordedfuture.com/blog |
+| Check Point Research | https://research.checkpoint.com/ |
+| ESET WeLiveSecurity | https://www.welivesecurity.com/ |
+| Kaspersky Securelist | https://securelist.com/ |
+| Volexity | https://www.volexity.com/blog/ |
+| The DFIR Report | https://thedfirreport.com/ |
+| Sekoia Blog | https://blog.sekoia.io/ |
+| Verizon DBIR | https://www.verizon.com/business/resources/reports/dbir/ |
+| Mandiant M-Trends | https://www.mandiant.com/m-trends |
+| CrowdStrike Global Threat Report | https://www.crowdstrike.com/global-threat-report/ |
+| ENISA Threat Landscape | https://www.enisa.europa.eu/topics/cyber-threats |
+| IBM X-Force Threat Intelligence | https://www.ibm.com/reports/threat-intelligence |
+| Yeti | https://yeti-platform.io/ |
+| IntelOwl | https://github.com/intelowlproject/IntelOwl |
+| OASIS STIX/TAXII | https://oasis-open.github.io/cti-documentation/ |
+| CISA Cybersecurity Advisories | https://www.cisa.gov/news-events/cybersecurity-advisories |
+| CISA #StopRansomware | https://www.cisa.gov/stopransomware |
+| CISA Secure by Design | https://www.cisa.gov/securebydesign |
+| CERT/CC Vulnerability Notes | https://www.kb.cert.org/vuls/ |
+| NCSC UK | https://www.ncsc.gov.uk/ |
+| ACSC (Australia) | https://www.cyber.gov.au/ |
+| Canadian Centre for Cyber Security | https://www.cyber.gc.ca/en |
+| FBI IC3 | https://www.ic3.gov/ |
+| HHS HC3 (Healthcare) | https://www.hhs.gov/hc3 |
+| SentinelOne Labs | https://www.sentinelone.com/labs/ |
+| Trend Micro Research | https://www.trendmicro.com/en_us/research.html |
+| Sophos X-Ops / News | https://news.sophos.com/en-us/ |
+| Red Canary Blog | https://redcanary.com/blog/ |
+| Huntress Blog | https://www.huntress.com/blog |
+| Rapid7 Blog | https://www.rapid7.com/blog/ |
+| Proofpoint Threat Insight | https://www.proofpoint.com/us/blog/threat-insight |
+| Group-IB Blog | https://www.group-ib.com/blog/ |
+| Trellix Advanced Research Center | https://www.trellix.com/blogs/research/ |
+| Dragos Blog (ICS/OT) | https://www.dragos.com/blog/ |
+| Nozomi Networks Labs (OT) | https://www.nozominetworks.com/blog |
+| Elastic Security Labs | https://www.elastic.co/security-labs |
+| WithSecure Labs | https://labs.withsecure.com/ |
+| NCC Group Research | https://research.nccgroup.com/ |
+| Zscaler ThreatLabz | https://www.zscaler.com/blogs/security-research |
+| Akamai Security Research | https://www.akamai.com/blog/security-research |
+| Cybereason Blog | https://www.cybereason.com/blog |
+| Malwarebytes Labs | https://www.malwarebytes.com/blog |
+| Fortinet FortiGuard Labs | https://www.fortinet.com/blog/threat-research |
+| SpecterOps Blog | https://posts.specterops.io/ |
+| Google Project Zero | https://googleprojectzero.blogspot.com/ |
+| Intel 471 Blog | https://intel471.com/blog |
+| DomainTools Blog | https://www.domaintools.com/resources/blog/ |
+| IBM X-Force Exchange | https://exchange.xforce.ibmcloud.com/ |
+| Cisco Talos Intelligence | https://talosintelligence.com/ |
+| Spamhaus | https://www.spamhaus.org/ |
+| Team Cymru | https://www.team-cymru.com/ |
+| OpenPhish | https://openphish.com/ |
+| PhishTank | https://phishtank.org/ |
+| vx-underground | https://vx-underground.org/ |
+| APTnotes | https://github.com/aptnotes/data |
 
 ### ATT&CK Quick Reference: Common Techniques by Phase
 

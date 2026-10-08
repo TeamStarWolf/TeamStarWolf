@@ -279,6 +279,7 @@
   - [Resources](/RESOURCES.md)
   - [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md)
   - [Tools Reference](/TOOLS.md)
+  - [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md)
 
 ---
 

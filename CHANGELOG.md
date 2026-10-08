@@ -14,6 +14,13 @@ by the date its pull requests merged to `main` rather than by tagged release.
   and Container Vulnerability Response with Tenable and Wiz, both verified against
   ServiceNow's official documentation repository (Brazil release, September 2026).
   Linked from the sidebar, homepage, README, and index
+- Case Studies section (`case-studies/`): evidence-graded studies of how the threat
+  landscape is changing, written from primary sources, with original figures and PDF
+  downloads. First study: AI Threats in the Cybersecurity Industry, a 2026 case study of
+  six threat classes (AI-orchestrated intrusions, deepfake social engineering, AI-native
+  malware, prompt injection, the AI software supply chain, and machine-speed vulnerability
+  discovery), each event graded Confirmed, Reported, or Demonstrated, with sources checked
+  as of 7 October 2026. Linked from the sidebar, homepage, README, and index
 
 ## 2026-09-26
 

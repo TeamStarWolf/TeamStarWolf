@@ -12,6 +12,7 @@
 | [AI & MCP Security Reference](AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation |
 | [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks |
 | [AI Security Reference](AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations |
+| [AI Threats: A 2026 Case Study](case-studies/AI_THREATS_2026.md) | Case Studies: six AI threat classes from 2024 to 2026 (agentic intrusions, deepfakes, AI-native malware, prompt injection, AI supply chain, machine-speed vulnerability discovery), each event graded by evidence, with a defensive playbook and roadmap |
 | [API Security Reference](API_SECURITY_REFERENCE.md) | OWASP API Top 10, REST and GraphQL attack techniques, JWT attacks, SSRF, BOLA/BFLA, and API security testing methodology |
 | [ATT&CK Campaigns Reference](ATTACK_CAMPAIGNS_REFERENCE.md) | 56 MITRE ATT&CK intrusion campaigns with active windows, techniques, software, and group attribution |
 | [ATT&CK Data Components & Log Sources](ATTACK_DATA_COMPONENTS.md) | 106 telemetry categories mapped to the techniques they detect, with concrete log sources and channels |
@@ -28,6 +29,7 @@
 | [Blockchain Security Reference](BLOCKCHAIN_SECURITY_REFERENCE.md) | Smart contract auditing, Solidity vulnerabilities, DeFi attacks, Web3 security tools, consensus mechanism security |
 | [Browser Security Reference](BROWSER_SECURITY_REFERENCE.md) | SOP, CORS attacks, CSP bypass, security headers, CSRF, clickjacking, cookie security, extension analysis, prototype pollution |
 | [Career Paths](CAREER_PATHS.md) | 15+ cybersecurity roles with skill maps, salary ranges, cert roadmaps, and career transition paths |
+| [Case Studies](case-studies/README.md) | Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads |
 | [Certifications Reference](CERTIFICATIONS.md) | Detailed reference for 40+ security certifications: cost, difficulty, DoD 8570, and who should pursue each |
 | [CEH Domain Crosswalk](CEH_DOMAIN_CROSSWALK.md) | EC-Council CEH v13 exam blueprint (9 domains) mapped onto the library, with study sequence, honest gaps, and legal-practice pointers |
 | [CISSP Domain Crosswalk](CISSP_DOMAIN_CROSSWALK.md) | ISC2 CISSP 8 domains (April 2024 weights) mapped onto the library, with a 12-week plan and honest coverage gaps |

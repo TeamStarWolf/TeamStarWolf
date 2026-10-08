@@ -172,7 +172,7 @@ ATT&CK: [T1021.008](https://attack.mitre.org/techniques/T1021/008/), [detail pag
 - `AN0594` Analytic 0594, IaaS
   Direct login to cloud-hosted virtual machines via cloud-native access methods (e.g., EC2 Instance Connect, Azure Serial Console, SSM), followed by command execution or privilege escalation on the VM
   - *Log sources:* `AWS:CloudTrail (SendSSHPublicKey, StartSession (SSM), EC2InstanceConnect)`; `WinEventLog:Sysmon (EventCode=1)`
-  - *Tune:* `TimeWindow`: Correlates cloud login to host activity within a reasonable time span (e.g., < 60 seconds); `CloudAuthMethod`: Filters based on access vector (SSH key, SSM session, or Console connect); `SessionOriginRegion`: Identifies sessions from out-of-region or untrusted networks; `TargetInstanceTags`: Filters sensitive systems or production assets for alert tuning
+  - *Tune:* `TimeWindow`: Correlates cloud login to host activity within a reasonable time span (e.g., < 60 seconds); `CloudAuthMethod`: Filters based on access vector: SSH key, SSM session, or Console connect; `SessionOriginRegion`: Identifies sessions from out-of-region or untrusted networks; `TargetInstanceTags`: Filters sensitive systems or production assets for alert tuning
 
 ---
 
@@ -223,7 +223,7 @@ ATT&CK: [T1091](https://attack.mitre.org/techniques/T1091/), [detail page](../..
 ### T1210: Exploitation of Remote Services
 <a id="t1210"></a>
 
-Detection strategy: Exploitation of Remote Services, multi-platform lateral movement detection (`DET0118`)  
+Detection strategy: Exploitation of Remote Services – multi-platform lateral movement detection (`DET0118`)  
 Platforms: ESXi, Linux, Windows, macOS  
 ATT&CK: [T1210](https://attack.mitre.org/techniques/T1210/), [detail page](../../techniques/lateral-movement.md#t1210)
 
@@ -242,7 +242,7 @@ ATT&CK: [T1210](https://attack.mitre.org/techniques/T1210/), [detail page](../..
 - `AN0330` Analytic 0330, macOS
   Ties inbound access to exposed services (ARD/VNC 5900, SSH 22, ScreenSharing, web services) with process crashes in unified logs and abnormal child processes spawned under those services (e.g., bash, curl) to indicate exploitation.
   - *Log sources:* `macos:unifiedlog (process 'crashed'|'EXC_BAD_ACCESS' for sshd, screensharingd, httpd; launchd restarts of these daemons.)`; `macos:osquery (parent_name in ('sshd','httpd','screensharingd') spawning shells or scripting runtimes.)`; `NSM:Flow (Inbound to 22/5900/8080 and follow-on internal connections.)`
-  - *Tune:* `ServicePortSet`: 22, 5900, 8080/8443 by default.; `AllowedAdmins`: MDM/jump-host IPs allowed to manage endpoints.; `TimeWindow`: Default 10 minutes.
+  - *Tune:* `ServicePortSet`: 22, 5900, 8080/8443 by default.; `AllowedAdmins`: MDM/jump-host IPs allowed to manage endpoints.; `TimeWindow`: Default: 10 minutes.
 
 ---
 
@@ -437,7 +437,7 @@ ATT&CK: [T1563.001](https://attack.mitre.org/techniques/T1563/001/), [detail pag
 ### T1563.002: RDP Hijacking
 <a id="t1563002"></a>
 
-Detection strategy: Detection fo Remote Service Session Hijacking for RDP. (`DET0588`)  
+Detection strategy: Detection of Remote Service Session Hijacking for RDP. (`DET0588`)  
 Platforms: Windows  
 ATT&CK: [T1563.002](https://attack.mitre.org/techniques/T1563/002/), [detail page](../../techniques/lateral-movement.md#t1563002)
 

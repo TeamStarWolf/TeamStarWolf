@@ -204,7 +204,7 @@ ATT&CK: [T1027.006](https://attack.mitre.org/techniques/T1027/006/), [detail pag
 - `AN0874` Analytic 0874, macOS
   Detection of HTML-based downloads via Safari/Chrome that create obfuscated files (e.g., .zip, .app, .js) in user directories and are followed by suspicious executions from preview or launch services.
   - *Log sources:* `macos:unifiedlog (File Events)`; `macos:osquery (process_events)`; `gatekeeper/quarantine database (LaunchServices quarantine)`
-  - *Tune:* `QuarantineFlagCheck`: Whether downloaded file has a quarantine flag and is bypassed via Gatekeeper; `BlobKeywordAlertList`: JavaScript strings that may indicate smuggling (msSaveBlob, download.href, createObjectURL)
+  - *Tune:* `QuarantineFlagCheck`: Whether downloaded file has a quarantine flag and is bypassed via Gatekeeper; `BlobKeywordAlertList`: JavaScript strings that may indicate smuggling: msSaveBlob, download.href, createObjectURL
 
 ---
 
@@ -354,7 +354,7 @@ Platforms: Linux, Windows, macOS
 ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail page](../../techniques/stealth.md#t1027014)
 
 - `AN0919` Analytic 0919, Windows
-  Identifies self-modifying executables that exhibit changes in binary hash, entropy, or memory sections during or between executions, often tied to dynamic unpacking or decryption behaviors.
+  Identifies self-modifying executables that exhibit changes in binary hash, entropy, or memory sections during or between executions—often tied to dynamic unpacking or decryption behaviors.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `EntropyThreshold`: Tune based on expected baseline entropy for executables; higher values may indicate polymorphic packing.; `TimeWindow`: Correlate rapid process spawn + image load activity suggesting mutation engine usage.; `ParentProcessPatterns`: Define expected or suspicious parent-child chains (e.g., script runner -> encoded PE)
 - `AN0920` Analytic 0920, Linux
@@ -362,7 +362,7 @@ ATT&CK: [T1027.014](https://attack.mitre.org/techniques/T1027/014/), [detail pag
   - *Log sources:* `auditd:SYSCALL (execve)`; `auditd:SYSCALL (mmap)`; `auditd:SYSCALL (chmod)`
   - *Tune:* `WriteExecThreshold`: Tune to alert on write followed by chmod + exec in quick succession.; `FileEntropyDeviation`: Detect high deviation from average entropy score of baseline ELF/script files.; `ExecutionFrequency`: Abnormal burst executions of file with identical functionality but varying hash.
 - `AN0921` Analytic 0921, macOS
-  Tracks modification of executables or interpreter payloads (e.g., Mach-O, dylib) that mutate across runs, using scripting engines, JIT compilers, or side-loaded plugins.
+  Tracks modification of executables or interpreter payloads (e.g., Mach-O, dylib) that mutate across runs—using scripting engines, JIT compilers, or side-loaded plugins.
   - *Log sources:* `macos:unifiedlog (code signature/memory protection)`; `fs:fsusage (file open/write)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_EXEC)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_MMAP)`
   - *Tune:* `ScriptEnginePatterns`: Detection may vary based on whether Python/Swift/AppleScript is used to mutate payloads.; `MachOEntropyThreshold`: Entropy tuning based on expected baseline for system vs user binaries.; `SignedBinaryChangeRate`: Helps flag apps that change but maintain signed status across invocations.
 
@@ -378,11 +378,11 @@ ATT&CK: [T1027.015](https://attack.mitre.org/techniques/T1027/015/), [detail pag
 - `AN0782` Analytic 0782, Windows
   Monitors for compression tool usage (e.g., 7zip, WinRAR, MakeCab) that follows or precedes file modification, suspicious file types (e.g., .exe, .dll) being compressed, or dropped from self-extracting archives followed by immediate execution.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`
-  - *Tune:* `CompressedFileType`: Zip, .rar, .cab, .gz (tune based on expected legitimate use of compression in environment); `SFXExecutionDelay`: Expected time between archive unpacking and first execution; short delays are suspicious; `UserContext`: Restrict detection to non-admin or interactive users if excessive FPs from sys admin activity
+  - *Tune:* `CompressedFileType`: Zip, .rar, .cab, .gz: tune based on expected legitimate use of compression in environment; `SFXExecutionDelay`: Expected time between archive unpacking and first execution – short delays are suspicious; `UserContext`: Restrict detection to non-admin or interactive users if excessive FPs from sys admin activity
 - `AN0783` Analytic 0783, Linux
   Detects sequential command-line compression utilities (e.g., gzip, tar, zip, 7z) followed by execution of unpacked files, especially in temp directories or under non-standard locations like /dev/shm or /tmp with ELF binaries.
   - *Log sources:* `auditd:SYSCALL (execve)`; `auditd:SYSCALL (write)`; `auditd:SYSCALL (openat)`; `auditd:SYSCALL (chmod)`
-  - *Tune:* `PathRegex`: Flag compressed archives extracted to /tmp, /dev/shm, or user’s home dir; `CompressionToolPatterns`: gzip, tar, bzip2, xz, 7z (tune to suppress admin packaging workflows); `ExecutionAfterUnpackWindow`: How soon a new file is executed after it’s unpacked
+  - *Tune:* `PathRegex`: Flag compressed archives extracted to /tmp, /dev/shm, or user’s home dir; `CompressionToolPatterns`: gzip, tar, bzip2, xz, 7z – tune to suppress admin packaging workflows; `ExecutionAfterUnpackWindow`: How soon a new file is executed after it’s unpacked
 - `AN0784` Analytic 0784, macOS
   Identifies archive utilities (e.g., ditto, unzip, xar, pkgutil) used to extract payloads to non-standard paths, then correlates with execution or file permission changes (e.g., `chmod +x`) and process spawns from decompressed location.
   - *Log sources:* `macos:unifiedlog (Process launch)`; `macos:unifiedlog (filesystem events)`; `fs:fsusage (file open/write)`
@@ -400,11 +400,11 @@ ATT&CK: [T1027.016](https://attack.mitre.org/techniques/T1027/016/), [detail pag
 - `AN0913` Analytic 0913, Windows
   Detects the presence of executables with high NOP padding, unusually large binary size for their function, and follow-on execution or memory injection from such files, especially when originating from temp or user-space paths.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=1)`
-  - *Tune:* `NOPThreshold`: High proportion of 0x90 opcodes indicating junk code; tune to suppress noise from some packing tools; `ExecutableSizeThreshold`: Size range for abnormally large binaries relative to their runtime behavior; `TimeWindow`: Window between file creation and execution; short intervals may indicate staged payload execution
+  - *Tune:* `NOPThreshold`: High proportion of 0x90 opcodes indicating junk code: tune to suppress noise from some packing tools; `ExecutableSizeThreshold`: Size range for abnormally large binaries relative to their runtime behavior; `TimeWindow`: Window between file creation and execution – short intervals may indicate staged payload execution
 - `AN0914` Analytic 0914, Linux
   Detects ELF binaries written to disk that demonstrate anomalous file size or entropy, quickly followed by execution or memory region writes into remote processes (e.g., using ptrace).
   - *Log sources:* `auditd:SYSCALL (write)`; `auditd:SYSCALL (execve)`; `auditd:SYSCALL (SYSCALL ptrace/mprotect)`
-  - *Tune:* `BinarySizeThreshold`: Used to flag binaries much larger than typical shell utilities or payloads; `MemoryWriteTargets`: Which processes are allowed ptrace/mprotect; can limit to suspicious child-to-parent targeting; `ExecutionAfterWriteWindow`: Temporal threshold for file write to execution
+  - *Tune:* `BinarySizeThreshold`: Used to flag binaries much larger than typical shell utilities or payloads; `MemoryWriteTargets`: Which processes are allowed ptrace/mprotect – can limit to suspicious child-to-parent targeting; `ExecutionAfterWriteWindow`: Temporal threshold for file write to execution
 - `AN0915` Analytic 0915, macOS
   Identifies Mach-O binaries dropped into temporary directories with abnormally high binary size or padding patterns, followed by privilege escalation, `exec`, or memory mapping of other processes.
   - *Log sources:* `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_EXEC)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_MMAP)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_OPEN)`
@@ -426,11 +426,33 @@ ATT&CK: [T1027.017](https://attack.mitre.org/techniques/T1027/017/), [detail pag
 - `AN1408` Analytic 1408, Linux
   Detects downloaded SVG files followed by execution of browser processes or tools like xdg-open, and rapid follow-on network connections or process spawns to interpreters like python or bash.
   - *Log sources:* `auditd:SYSCALL (open, write)`; `auditd:SYSCALL (execve)`; `NSM:Flow (Outbound HTTP/S)`
-  - *Tune:* `TargetPaths`: Suspicious write locations such as /tmp/, ~/Downloads/; `ExecutionContext`: Processes spawned by browsers or svg-viewing apps that invoke interpreters; `NetworkDestinations`: URLs/IPs contacted post-SVG access; may reflect initial C2
+  - *Tune:* `TargetPaths`: Suspicious write locations such as /tmp/, ~/Downloads/; `ExecutionContext`: Processes spawned by browsers or svg-viewing apps that invoke interpreters; `NetworkDestinations`: URLs/IPs contacted post-SVG access – may reflect initial C2
 - `AN1409` Analytic 1409, macOS
   Detects SVGs downloaded via browser that invoke AppleScript, osascript, or JavaScriptCore processes, followed by network egress or file drop to LaunchAgents or ~/Library.
   - *Log sources:* `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_EXEC)`; `macos:unifiedlog (subsystem: com.apple.WebKit or com.apple.WebKit.Networking)`
-  - *Tune:* `ScriptEngines`: Scriptable binaries such as osascript, jsc, JavaScriptCore; may vary by OS version; `UserContext`: Restrict to non-system users or only specific login sessions; `EmbeddedContentIndicators`: SVGs embedded inside PDFs or HTML with script-based triggers
+  - *Tune:* `ScriptEngines`: Scriptable binaries such as osascript, jsc, JavaScriptCore: may vary by OS version; `UserContext`: Restrict to non-system users or only specific login sessions; `EmbeddedContentIndicators`: SVGs embedded inside PDFs or HTML with script-based triggers
+
+---
+
+### T1027.018: Invisible Unicode
+<a id="t1027018"></a>
+
+Detection strategy: Detection Strategy for Invisible Unicode (`DET0920`)  
+Platforms: Linux, Windows, macOS  
+ATT&CK: [T1027.018](https://attack.mitre.org/techniques/T1027/018/), [detail page](../../techniques/stealth.md#t1027018)
+
+- `AN2063` Analytic 2063, Windows
+  Detection identifies execution of scripts or files that appear visually benign (low printable character ratio) but result in runtime decoding, dynamic evaluation, and subsequent process or network activity. Correlation links script execution with abnormal Unicode density and follow-on behavior such as child process creation or outbound connections.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`
+  - *Tune:* `AllocationSizeThreshold`: To tune for atypical virtual memory allocations that might indicate non-rendering characters in dense files; `ExecutionContext`: Allows tuning for atypical processes from script execution (e.g., powershell.exe, wscript.exe, mshta.exe); `UnicodeDensityThreshold`: Tune for invisible characters, or atypical amounts of Unicode characters (U+...)
+- `AN2064` Analytic 2064, Linux
+  Detection identifies execution of scripts containing high concentrations of invisible Unicode characters followed by decoding or interpretation behaviors (e.g., base64 decode, eval) and subsequent process or network activity. Emphasis is placed on mismatch between file entropy/structure and execution output.
+  - *Log sources:* `auditd:SYSCALL (stat and lstat syscall results on files, including inode and permission info)`; `auditd:EXECVE (execve of script/interpreter (bash, python, node) with suspicious encoded or non-printable content)`
+  - *Tune:* `DecodeUtility`: May include base64; `EntropyThreshold`: Useful for tuning sections containing high entropy indicative of Unicode sequences
+- `AN2065` Analytic 2065, macOS
+  Detection identifies execution of scripts or applications containing invisible Unicode payloads reconstructed at runtime, correlated with abnormal AppleScript, JavaScript for Automation, or shell execution and subsequent process or network behavior inconsistent with visible file content.
+  - *Log sources:* `NSM:Flow (log entries indicating network connection initiation on macOS)`; `macos:unifiedlog (Execution of osascript, sh, bash, zsh, installer, open)`; `macOS:unifiedlog (looking for file access to scripts with abnormal encoding patterns)`
+  - *Tune:* `ExecutionContext`: Use of abnormal AppleScript or JavaScript functions (such as eval()) not typically expected; `UnicodeCharacterSet`: Specific unicode ranges monitored (zero-width, PUA, bidi) 
 
 ---
 
@@ -756,7 +778,7 @@ Platforms: Windows
 ATT&CK: [T1055.002](https://attack.mitre.org/techniques/T1055/002/), [detail page](../../techniques/stealth.md#t1055002)
 
 - `AN0297` Analytic 0297, Windows
-  Detects PE injection through a behavioral sequence where one process opens (OpenProcess) a handle to another, allocates remote memory (VirtualAllocEx), writes a PE header (MZ) or shellcode (WriteProcessMemory), then initiates a new thread (CreateRemoteThread or NtCreateThreadEx) in that process, executing injected code in memory without touching disk. Optional: injects a trampoline or shellcode that unpacks/reflectively maps the payload.
+  Detects PE injection through a behavioral sequence where one process opens (OpenProcess) a handle to another, allocates remote memory (VirtualAllocEx), writes a PE header (MZ) or shellcode (WriteProcessMemory), then initiates a new thread (CreateRemoteThread or NtCreateThreadEx) in that process—executing injected code in memory without touching disk. Optional: injects a trampoline or shellcode that unpacks/reflectively maps the payload.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=8)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=11)`
   - *Tune:* `PayloadEntropyThreshold`: Controls for detecting high-entropy memory writes indicating shellcode or encrypted PE; `TargetProcessList`: High-value or sensitive processes that should never have remote threads injected; `TimeWindow`: Max allowed delay between memory write and thread execution; `ParentProcessAnomalyThreshold`: Used to filter legitimate process hierarchies vs anomalous injection sources
 
@@ -770,7 +792,7 @@ Platforms: Windows
 ATT&CK: [T1055.003](https://attack.mitre.org/techniques/T1055/003/), [detail page](../../techniques/stealth.md#t1055003)
 
 - `AN0822` Analytic 0822, Windows
-  Detects hijacking of an existing thread (OpenThread) through a behavioral chain involving thread suspension (SuspendThread), memory modification (VirtualAllocEx + WriteProcessMemory), context manipulation (SetThreadContext), and thread resumption, all within another live process's address space (ResumeThread).
+  Detects hijacking of an existing thread (OpenThread) through a behavioral chain involving thread suspension (SuspendThread), memory modification (VirtualAllocEx + WriteProcessMemory), context manipulation (SetThreadContext), and thread resumption—all within another live process's address space (ResumeThread).
   - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=8)`; `etw:Microsoft-Windows-Kernel-Process (API Calls)`; `WinEventLog:Sysmon (EventCode=1)`
   - *Tune:* `TargetProcessList`: Sensitive processes that should never be targeted for thread hijack attempts; `TimeWindow`: Expected delay between SuspendThread and ResumeThread events; tight thresholds reduce evasion; `SuspiciousThreadContextRegions`: Memory regions or offsets that should not be targeted for SetThreadContext; `ParentProcessAnomalyThreshold`: Score deviation of the parent/child relationship in a thread injection chain
 
@@ -962,7 +984,7 @@ ATT&CK: [T1070.003](https://attack.mitre.org/techniques/T1070/003/), [detail pag
 - `AN0471` Analytic 0471, Network Devices
   Detects use of `clear history` or `clear logging` commands on network device CLI to remove past activity logs.
   - *Log sources:* `networkdevice:syslog (CLI command audit)`
-  - *Tune:* `CommandPattern`: Support detection of known variants ('clear history', 'clear logging', etc.); `DeviceType`: Router, switch, firewall; may have different CLI behaviors.
+  - *Tune:* `CommandPattern`: Support detection of known variants: 'clear history', 'clear logging', etc.; `DeviceType`: Router, switch, firewall—may have different CLI behaviors.
 
 ---
 
@@ -1102,7 +1124,7 @@ ATT&CK: [T1070.009](https://attack.mitre.org/techniques/T1070/009/), [detail pag
 - `AN0115` Analytic 0115, macOS
   Detects deletion of launch agents (~/Library/LaunchAgents/) and launch daemons (/Library/LaunchDaemons/), especially after suspicious process execution or when tied to known persistence methods.
   - *Log sources:* `macos:unifiedlog (log stream)`; `macos:osquery (file_events)`
-  - *Tune:* `LaunchDaemonPath`: Common plist file paths for persistence (~/Library/LaunchAgents/*.plist); `CorrelatedProcessImage`: Ties deletion to parent process (e.g., suspicious AppleScript runner)
+  - *Tune:* `LaunchDaemonPath`: Common plist file paths for persistence: ~/Library/LaunchAgents/*.plist; `CorrelatedProcessImage`: Ties deletion to parent process (e.g., suspicious AppleScript runner)
 - `AN0116` Analytic 0116, ESXi
   Detects adversary removal of persistence implants (e.g., rc.local entries or crontab injections) via CLI (`rm`, `sed`, `crontab -r`) and deletion of startup or management scripts.
   - *Log sources:* `esxi:vmkernel (/var/log/vmkernel.log)`; `esxi:shell (shell history)`
@@ -1449,7 +1471,7 @@ ATT&CK: [T1197](https://attack.mitre.org/techniques/T1197/), [detail page](../..
 ### T1202: Indirect Command Execution
 <a id="t1202"></a>
 
-Detection strategy: Indirect Command Execution, Windows utility abuse behavior chain (`DET0200`)  
+Detection strategy: Indirect Command Execution – Windows utility abuse behavior chain (`DET0200`)  
 Platforms: Windows  
 ATT&CK: [T1202](https://attack.mitre.org/techniques/T1202/), [detail page](../../techniques/stealth.md#t1202)
 
@@ -1463,7 +1485,7 @@ ATT&CK: [T1202](https://attack.mitre.org/techniques/T1202/), [detail page](../..
 ### T1205: Traffic Signaling
 <a id="t1205"></a>
 
-Detection strategy: Traffic Signaling (Port-knock / magic-packet -> firewall or service activation), T1205 (`DET0524`)  
+Detection strategy: Traffic Signaling (Port-knock / magic-packet -> firewall or service activation) – T1205 (`DET0524`)  
 Platforms: Linux, Network Devices, Windows, macOS  
 ATT&CK: [T1205](https://attack.mitre.org/techniques/T1205/), [detail page](../../techniques/stealth.md#t1205)
 
@@ -1508,7 +1530,7 @@ ATT&CK: [T1205.001](https://attack.mitre.org/techniques/T1205/001/), [detail pag
 - `AN0845` Analytic 0845, Network Devices
   Router/switch receives a knock pattern (same src touches device unicast, broadcast, and network-address on same or stepped ports) followed by ACL/line-vty/service enable and the first mgmt session success.
   - *Log sources:* `networkdevice:syslog (Config/ACL changes, line vty transport input changes, telnet/ssh/http(s) enable, image/feature module changes.)`; `NSM:Flow (Series of denied/closed flows to distinct ports then success to mgmt port from same src_ip within TimeWindow.)`
-  - *Tune:* `MgmtPortSet`: Mgmt ports to focus on (22,23,2323,80,443,161,4786).; `DeviceRole`: Tighten thresholds on edge/internet-facing devices.
+  - *Tune:* `MgmtPortSet`: Mgmt ports to focus on: 22,23,2323,80,443,161,4786.; `DeviceRole`: Tighten thresholds on edge/internet-facing devices.
 
 ---
 
@@ -1522,7 +1544,7 @@ ATT&CK: [T1205.002](https://attack.mitre.org/techniques/T1205/002/), [detail pag
 - `AN0462` Analytic 0462, Windows
   Adversary installs/uses packet-capture or raw-socket capability (WinPcap/Npcap, wpcap/packet DLLs or raw socket attach) and sets a filter. A crafted inbound packet is observed; within a short window the host process that loaded capture libraries initiates an outbound connection (e.g., reverse shell) to the packet origin.
   - *Log sources:* `WinEventLog:System (EventCode=7045)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=6)`; `WinEventLog:Sysmon (EventCode=7)`; `NSM:Flow (Single, low-volume inbound packet (REJ/S0/OTH or uncommon dport/protocol) from src_ip followed by outbound SF connection to src_ip.)`
-  - *Tune:* `TimeWindow`: Seconds to correlate inbound trigger -> process library load/driver start -> outbound connect (default 120s).; `CaptureLibIndicators`: DLL/driver names to match (wpcap.dll, packet.dll, npcap.sys, npf.sys). Extend for EDR drivers in your fleet.; `AllowedInstallers`: Signed/expected processes allowed to install/start Npcap (software distribution tools).; `ReversePorts`: Likely egress ports to watch after trigger (4444, 53, 80/443, 8080, high ephemeral).
+  - *Tune:* `TimeWindow`: Seconds to correlate inbound trigger -> process library load/driver start -> outbound connect (default 120s).; `CaptureLibIndicators`: DLL/driver names to match (wpcap.dll, packet.dll, npcap.sys, npf.sys) – extend for EDR drivers in your fleet.; `AllowedInstallers`: Signed/expected processes allowed to install/start Npcap (software distribution tools).; `ReversePorts`: Likely egress ports to watch after trigger (4444, 53, 80/443, 8080, high ephemeral).
 - `AN0463` Analytic 0463, Linux
   Process creates a raw/packet socket and attaches a (e)BPF filter (setsockopt SO_ATTACH_FILTER/ATTACH_BPF or bpf(BPF_PROG_LOAD)). Immediately after a matching inbound packet, the same process binds/connects outward to a remote host (reverse shell or beacon).
   - *Log sources:* `auditd:SYSCALL (socket(AF_PACKET|AF_INET, SOCK_RAW, *), setsockopt(… SO_ATTACH_FILTER|SO_ATTACH_BPF …), bpf(cmd=BPF_PROG_LOAD), open/openat path="/dev/bpf*" (BSD/macOS-like) or setcap cap_net_raw.)`; `linux:osquery (family=AF_PACKET or protocol raw; process name not in allowlist.)`; `NSM:Flow (Rare inbound packet characteristics (ICMP/UDP/TCP to uncommon port) from src_ip followed ≤TimeWindow by outbound SF from same host to src_ip.)`
@@ -1537,7 +1559,7 @@ ATT&CK: [T1205.002](https://attack.mitre.org/techniques/T1205/002/), [detail pag
 ### T1211: Exploitation for Stealth
 <a id="t1211"></a>
 
-Detection strategy: Detection Strategy for Exploitation for Defense Evasion (`DET0595`)  
+Detection strategy: Detection Strategy for Exploitation for Stealth (`DET0595`)  
 Platforms: IaaS, Linux, SaaS, Windows, macOS  
 ATT&CK: [T1211](https://attack.mitre.org/techniques/T1211/), [detail page](../../techniques/stealth.md#t1211)
 
@@ -2333,7 +2355,7 @@ ATT&CK: [T1564.008](https://attack.mitre.org/techniques/T1564/008/), [detail pag
 
 - `AN0551` Analytic 0551, Windows
   Suspicious creation or modification of inbox rules through PowerShell (New-InboxRule, Set-InboxRule) to automatically delete, move, or hide emails. Defender perspective: unusual rule activity correlated with mailbox access and filtering patterns.
-  - *Log sources:* `WinEventLog:Security (EventCode=4103, 4104, 4105, 4106)`; `m365:unified (New-InboxRule or Set-InboxRule events recorded in Exchange Online)`
+  - *Log sources:* `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `m365:unified (New-InboxRule or Set-InboxRule events recorded in Exchange Online)`
   - *Tune:* `SuspiciousKeywords`: Keywords like 'phish', 'malware', 'suspicious' used in inbox rules to hide emails.; `UserContext`: Scope mailbox monitoring to high-value users such as executives or admins.
 - `AN0552` Analytic 0552, macOS
   Alterations to plist configuration files (RulesActiveState.plist, SyncedRules.plist, UnsyncedRules.plist, MessageRules.plist) that define email hiding or filtering rules. Defender perspective: unexpected changes in these files associated with Mail.app processes.
@@ -2454,6 +2476,208 @@ ATT&CK: [T1564.014](https://attack.mitre.org/techniques/T1564/014/), [detail pag
 
 ---
 
+### T1574: Hijack Execution Flow
+<a id="t1574"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow across OS platforms. (`DET0218`)  
+Platforms: Linux, Windows, macOS  
+ATT&CK: [T1574](https://attack.mitre.org/techniques/T1574/), [detail page](../../techniques/stealth.md#t1574)
+
+- `AN0609` Analytic 0609, Windows
+  Unusual modifications to service binary paths, registry keys, or DLL load paths resulting in alternate execution flow. Defender observes registry key modifications, suspicious file writes into system directories, and processes loading libraries from abnormal paths.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=11)`
+  - *Tune:* `ServiceBaseline`: Expected registry keys and service paths for comparison.; `AllowedDllPaths`: Directories considered valid for DLL loading.; `TimeWindow`: Correlation interval between registry/file modification and process execution.
+- `AN0610` Analytic 0610, Linux
+  Adversary manipulation of shared library paths, environment variables, or replacement of service binaries. Defender observes suspicious modifications in /etc/ld.so.preload, service config changes, or file writes replacing existing executables.
+  - *Log sources:* `auditd:SYSCALL (open/write syscalls targeting /etc/ld.so.preload or binaries in /usr/bin)`; `linux:syslog (Service restart with modified executable path)`; `linux:osquery (Process execution with LD_PRELOAD or modified library path)`
+  - *Tune:* `MonitoredDirectories`: Directories where binary replacement should trigger alerts.; `EnvVarMonitors`: Environment variables like LD_PRELOAD or PATH to monitor.
+- `AN0611` Analytic 0611, macOS
+  Abuse of DYLD_INSERT_LIBRARIES or hijacking framework paths for malicious libraries. Defender observes processes invoking abnormal dylibs, modified plist files, or persistence entries pointing to altered binaries.
+  - *Log sources:* `macos:unifiedlog (Execution of process with DYLD_INSERT_LIBRARIES set)`; `macos:unifiedlog (Modified application plist or binary replacement in /Applications)`; `macos:unifiedlog (Dylib loaded from abnormal location)`
+  - *Tune:* `AllowedDylibPaths`: Baseline directories for dylib loading.; `PlistMonitors`: Specific plist files used for persistence monitoring.
+
+---
+
+### T1574.001: DLL
+<a id="t1574001"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow for DLLs (`DET0201`)  
+Platforms: Windows  
+ATT&CK: [T1574.001](https://attack.mitre.org/techniques/T1574/001/), [detail page](../../techniques/stealth.md#t1574001)
+
+- `AN0577` Analytic 0577, Windows
+  DLL hijacking behaviors including unexpected DLL loads from non-standard directories, replacement of DLLs, phantom DLL insertion, redirection file creation, and substitution of legitimate DLLs. Defender correlates file system modifications, registry changes, and module load telemetry to detect abnormal DLL behavior in trusted processes.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=15)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`
+  - *Tune:* `AllowedDllPaths`: Known safe DLL directories to suppress false positives (e.g., C:\Windows\System32).; `ProcessAllowList`: Applications expected to load DLLs from non-standard locations (e.g., development tools).; `TimeWindow`: Correlation interval between DLL file creation, registry changes, and module load.; `HashBaseline`: Baseline hashes for legitimate DLLs used to detect substitution.
+
+---
+
+### T1574.004: Dylib Hijacking
+<a id="t1574004"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow: Dylib Hijacking (`DET0152`)  
+Platforms: macOS  
+ATT&CK: [T1574.004](https://attack.mitre.org/techniques/T1574/004/), [detail page](../../techniques/stealth.md#t1574004)
+
+- `AN0435` Analytic 0435, macOS
+  Detection focuses on adversaries placing or modifying malicious dylibs in locations searched by legitimate applications. From the defender’s perspective, observable patterns include unexpected creation or modification of dylib files in application bundle paths, unusual module loads by processes compared to historical baselines, and execution of applications loading dylibs from suspicious directories (e.g., /tmp, user-controlled paths). Correlation across file system changes, process execution, and module loads provides high-fidelity detection.
+  - *Log sources:* `macos:unifiedlog (process execution events with dylib load activity)`; `macos:unifiedlog (create/modify dylib files in monitored directories)`; `macos:unifiedlog (replace existing dylibs)`
+  - *Tune:* `MonitoredDirectories`: Application bundle directories (e.g., /Applications/*/Contents/MacOS, /Library/Frameworks). Adversaries may use non-standard paths like /tmp.; `BaselineDylibs`: Historical record of dylibs typically loaded by applications. Deviations should be flagged.; `CorrelationWindow`: Timeframe to correlate dylib file modification with subsequent process execution and module loads.
+
+---
+
+### T1574.005: Executable Installer File Permissions Weakness
+<a id="t1574005"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow using Executable Installer File Permissions Weakness (`DET0038`)  
+Platforms: Windows  
+ATT&CK: [T1574.005](https://attack.mitre.org/techniques/T1574/005/), [detail page](../../techniques/stealth.md#t1574005)
+
+- `AN0108` Analytic 0108, Windows
+  Executables written or modified in installer directories (e.g., %TEMP% subdirectories or Program Files installer paths) followed by execution under elevated context. Defender observes abnormal file replacement activity, process creation by installer processes pointing to attacker-supplied binaries, and unexpected module loads in elevated processes.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=15)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`
+  - *Tune:* `MonitoredDirectories`: Specific writable directories to monitor (e.g., %TEMP%, C:\ProgramData, installer unpack paths).; `HashBaseline`: Known good hashes of installer binaries to detect replacement.; `TimeWindow`: Correlation interval between file overwrite and execution event.; `UserContext`: Differentiate expected admin-installer execution vs. anomalous user writes.
+
+---
+
+### T1574.006: Dynamic Linker Hijacking
+<a id="t1574006"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow: Dynamic Linker Hijacking (`DET0435`)  
+Platforms: Linux, macOS  
+ATT&CK: [T1574.006](https://attack.mitre.org/techniques/T1574/006/), [detail page](../../techniques/stealth.md#t1574006)
+
+- `AN1209` Analytic 1209, Linux
+  Detection focuses on identifying abuse of LD_PRELOAD and related linker variables. Defender perspective: monitor unexpected setting or modification of LD_PRELOAD in shell initialization scripts or environment exports, file creation of suspicious shared libraries, and correlation of these modifications with anomalous process execution. Key signals include execve events with LD_PRELOAD defined, newly created .so files in user directories, and processes hooking libc functions exhibiting abnormal behavior.
+  - *Log sources:* `auditd:SYSCALL (execve with LD_PRELOAD or linker-related environment variables set)`; `auditd:PATH (creation of .so files in non-standard directories (e.g., /tmp, /home/*))`; `linux:osquery (process environment variables containing LD_PRELOAD)`
+  - *Tune:* `WatchedEnvVars`: Environment variables like LD_PRELOAD, LD_LIBRARY_PATH. Defenders can tune based on development vs. production systems.; `MonitoredDirectories`: Non-standard library paths (e.g., /tmp, user home dirs). May be tuned to reduce false positives from benign development activity.; `CorrelationWindow`: Timeframe to correlate suspicious library creation with process execution that loads it.
+- `AN1210` Analytic 1210, macOS
+  Detection centers on DYLD_INSERT_LIBRARIES and DYLD_LIBRARY_PATH abuse. Defender perspective: monitor for modification of these environment variables in shell or plist files, file creation of dylibs in user-controlled paths, and correlation of environment variable usage with unexpected module loads by user applications. Suspicious indicators include processes with DYLD_INSERT_LIBRARIES set, execution of applications loading untrusted dylibs, and anomalies in module load history.
+  - *Log sources:* `macos:unifiedlog (execution of process with DYLD_INSERT_LIBRARIES set)`; `macos:unifiedlog (create/modify dylib in monitored directories)`; `macos:unifiedlog (loading of unexpected dylibs compared to historical baselines)`
+  - *Tune:* `WatchedEnvVars`: macOS linker variables like DYLD_INSERT_LIBRARIES. Tunable to development environments where use may be expected.; `BaselineDylibs`: Known dylibs typically loaded by apps. Deviations highlight potential hijacking.; `MonitoredDirectories`: Locations where dylibs are monitored for tampering (e.g., /Applications, /System/Library, /tmp).
+
+---
+
+### T1574.007: Path Interception by PATH Environment Variable
+<a id="t1574007"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow using Path Interception by PATH Environment Variable. (`DET0004`)  
+Platforms: Linux, Windows, macOS  
+ATT&CK: [T1574.007](https://attack.mitre.org/techniques/T1574/007/), [detail page](../../techniques/stealth.md#t1574007)
+
+- `AN0009` Analytic 0009, Windows
+  Abnormal modification of the PATH environment variable or registry keys controlling system paths, combined with execution of binaries named after legitimate system tools from user-writable directories. Defender correlates registry modifications, file creation of suspicious binaries, and process execution paths inconsistent with baseline system directories.
+  - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=1)`
+  - *Tune:* `MonitoredRegistryKeys`: PATH environment keys under HKCU and HKLM to monitor for changes.; `SuspiciousBinaryList`: List of high-value system binaries commonly hijacked (e.g., net.exe, python.exe, powershell.exe).; `TimeWindow`: Correlation window between PATH modification and execution of a hijacked binary.
+- `AN0010` Analytic 0010, Linux
+  User modification of the $PATH environment variable in shell configuration files or direct runtime PATH changes, followed by execution of binaries from user-controlled directories. Defender observes file edits to ~/.bashrc, ~/.profile, or /etc/paths.d and process execution resolving to unexpected binary locations.
+  - *Log sources:* `auditd:SYSCALL (open/write calls modifying ~/.bashrc, ~/.profile, or /etc/paths.d)`; `linux:osquery (Execution of binary resolved from $PATH not located in /usr/bin or /bin)`
+  - *Tune:* `MonitoredShellConfigs`: Set of shell startup files where PATH changes should be flagged.; `AllowedUserBins`: Directories (e.g., /usr/local/bin) considered safe to avoid FP.
+- `AN0011` Analytic 0011, macOS
+  Modification of PATH or HOME environment variables through shell config files, launchctl, or /etc/paths.d entries, combined with process execution from attacker-controlled directories. Defender correlates file changes in /etc/paths.d with process execution resolving to malicious binaries.
+  - *Log sources:* `macos:unifiedlog (File modification in /etc/paths.d or user shell rc files)`; `macos:unifiedlog (Process execution path inconsistent with baseline PATH directories)`
+  - *Tune:* `WatchedPathsDirs`: Monitor /etc/paths.d and $HOME for unauthorized entries.; `TrustedExecutables`: Baseline applications expected in user PATH directories.
+
+---
+
+### T1574.008: Path Interception by Search Order Hijacking
+<a id="t1574008"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow using Path Interception by Search Order Hijacking (`DET0564`)  
+Platforms: Windows  
+ATT&CK: [T1574.008](https://attack.mitre.org/techniques/T1574/008/), [detail page](../../techniques/stealth.md#t1574008)
+
+- `AN1560` Analytic 1560, Windows
+  Processes executing binaries named after legitimate system utilities (e.g., net.exe, findstr.exe, python.exe) from non-standard or application-specific directories, combined with file creation or modification events for such binaries. Defender correlates file writes in vulnerable directories, process execution paths inconsistent with baseline system paths, and abnormal parent-child relationships in process lineage.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=15)`; `WinEventLog:Sysmon (EventCode=1)`
+  - *Tune:* `SuspiciousBinaryList`: Common system utilities often hijacked (e.g., net.exe, cmd.exe, powershell.exe, python.exe).; `MonitoredDirectories`: Directories where executables should not normally be written (e.g., application folders, user profile subdirs).; `TimeWindow`: Correlation window between file creation and subsequent process execution.; `ParentProcessBaseline`: Expected parent processes for critical system binaries, deviations may indicate hijacking.
+
+---
+
+### T1574.009: Path Interception by Unquoted Path
+<a id="t1574009"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow through Path Interception by Unquoted Path (`DET0064`)  
+Platforms: Windows  
+ATT&CK: [T1574.009](https://attack.mitre.org/techniques/T1574/009/), [detail page](../../techniques/stealth.md#t1574009)
+
+- `AN0176` Analytic 0176, Windows
+  Unquoted service or shortcut paths that contain spaces and allow path interception by higher-level executables. Defender observes registry service configurations with unquoted paths, file creation of executables in parent directories of unquoted paths, and subsequent process execution from unexpected locations.
+  - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=15)`
+  - *Tune:* `MonitoredServices`: List of critical services to check for unquoted paths in ImagePath registry keys.; `SuspiciousBinaryList`: Executables with names matching potential interception targets (e.g., program.exe, net.exe).; `TimeWindow`: Correlation interval between file creation in parent directories and execution of unquoted path process.; `BaselineServiceConfig`: Known good service paths for comparison against modified or unquoted values.
+
+---
+
+### T1574.010: Services File Permissions Weakness
+<a id="t1574010"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow through Services File Permissions Weakness. (`DET0436`)  
+Platforms: Windows  
+ATT&CK: [T1574.010](https://attack.mitre.org/techniques/T1574/010/), [detail page](../../techniques/stealth.md#t1574010)
+
+- `AN1211` Analytic 1211, Windows
+  Modification or replacement of service executables due to weak file or directory permissions. Defender observes file writes to service binary paths, unexpected modifications of executables associated with registered services, and subsequent service execution of attacker-supplied binaries under elevated permissions.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=15)`; `WinEventLog:System (EventCode=7045)`; `WinEventLog:Sysmon (EventCode=1)`
+  - *Tune:* `MonitoredServices`: List of critical services and their expected executable paths for integrity checking.; `HashBaseline`: Baseline hashes of legitimate service executables for tamper detection.; `TimeWindow`: Correlation interval between file modification of service executables and service execution.; `PrivilegedAccounts`: Accounts allowed to legitimately modify service executables.
+
+---
+
+### T1574.011: Services Registry Permissions Weakness
+<a id="t1574011"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow through Service Registry Premission Weakness. (`DET0427`)  
+Platforms: Windows  
+ATT&CK: [T1574.011](https://attack.mitre.org/techniques/T1574/011/), [detail page](../../techniques/stealth.md#t1574011)
+
+- `AN1195` Analytic 1195, Windows
+  Unauthorized modification of service-related registry keys such as ImagePath, FailureCommand, ServiceDll, or Performance/Parameters keys. Defender correlates registry modifications, anomalous service metadata changes, and subsequent service process executions that deviate from baseline configurations.
+  - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:System (EventCode=7040)`; `WinEventLog:Sysmon (EventCode=1)`
+  - *Tune:* `MonitoredServiceKeys`: Registry subkeys for critical services (ImagePath, ServiceDll, FailureCommand, Parameters).; `BaselineServiceConfig`: Known good service registry configurations and paths for comparison.; `TimeWindow`: Correlation interval between registry/service modifications and service execution.; `PrivilegedAccounts`: Accounts permitted to modify service configurations.
+
+---
+
+### T1574.012: COR_PROFILER
+<a id="t1574012"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow using the Windows COR_PROFILER. (`DET0479`)  
+Platforms: Windows  
+ATT&CK: [T1574.012](https://attack.mitre.org/techniques/T1574/012/), [detail page](../../techniques/stealth.md#t1574012)
+
+- `AN1319` Analytic 1319, Windows
+  Modification of COR_PROFILER-related environment variables or Registry keys (COR_ENABLE_PROFILING, COR_PROFILER, COR_PROFILER_PATH), combined with anomalous .NET process creation or unmanaged DLL loads. Defender observes registry modifications, suspicious process creation with altered environment variables, and profiler DLLs loaded unexpectedly into .NET CLR processes.
+  - *Log sources:* `WinEventLog:Security (EventCode=4657)`; `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `WinEventLog:Sysmon (EventCode=11)`
+  - *Tune:* `AllowedProfilers`: List of known good COR_PROFILER CLSIDs and DLLs expected in developer or monitoring environments.; `ProcessScope`: Processes expected to load COR_PROFILER (e.g., Visual Studio) for baseline comparison.; `TimeWindow`: Interval between registry modification or file creation and profiler DLL load into .NET processes.; `ProfilerDllPaths`: Directories considered legitimate for profiler DLLs; deviations should raise alerts.
+
+---
+
+### T1574.013: KernelCallbackTable
+<a id="t1574013"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow through the KernelCallbackTable on Windows. (`DET0577`)  
+Platforms: Windows  
+ATT&CK: [T1574.013](https://attack.mitre.org/techniques/T1574/013/), [detail page](../../techniques/stealth.md#t1574013)
+
+- `AN1593` Analytic 1593, Windows
+  Unexpected modification of the KernelCallbackTable in a process’s PEB followed by invocation of modified callback functions (e.g., fnCOPYDATA) through Windows messages. Defender observes suspicious API call chains such as NtQueryInformationProcess -> WriteProcessMemory -> abnormal GUI callback execution, often correlating to anomalous process behavior such as network activity or code injection.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=10)`; `WinEventLog:Sysmon (EventCode=1)`; `etw:Microsoft-Windows-Kernel-Process (WriteProcessMemory: WriteProcessMemory targeting regions containing KernelCallbackTable addresses)`
+  - *Tune:* `MonitoredProcesses`: GUI applications (e.g., explorer.exe, notepad.exe) where KernelCallbackTable abuse is more likely.; `CallbackFunctions`: Specific callback functions (e.g., fnCOPYDATA, fnDWORD) expected to remain stable.; `TimeWindow`: Correlation interval between WriteProcessMemory calls and execution of modified callback functions.; `AccessMaskThresholds`: Access rights values that should be flagged when targeting GUI processes.
+
+---
+
+### T1574.014: AppDomainManager
+<a id="t1574014"></a>
+
+Detection strategy: Detection Strategy for Hijack Execution Flow through the AppDomainManager on Windows. (`DET0517`)  
+Platforms: Windows  
+ATT&CK: [T1574.014](https://attack.mitre.org/techniques/T1574/014/), [detail page](../../techniques/stealth.md#t1574014)
+
+- `AN1433` Analytic 1433, Windows
+  Detection focuses on unauthorized manipulation of .NET AppDomainManager behavior. Defenders may observe suspicious creation of new AppDomains within trusted processes, anomalous loading of assemblies via non-standard configuration files, or registry/environment variable changes redirecting AppDomainManager to malicious assemblies. Correlated events include config file tampering, new process creation of .NET host processes (e.g., w3wp.exe, powershell.exe) with modified runtime parameters, and module loads of unusual or unsigned .NET DLLs.
+  - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Sysmon (EventCode=7)`
+  - *Tune:* `TargetProcesses`: List of monitored .NET host processes (e.g., powershell.exe, w3wp.exe, svchost.exe).; `AssemblyWhitelist`: Known benign .NET assemblies expected to load via AppDomainManager.; `ConfigFilePaths`: Directory paths where configuration tampering should be monitored (application directories, system32, program files).; `TimeWindow`: Correlation period between file modification of config/environment settings and subsequent anomalous module load.
+
+---
+
 ### T1612: Build Image on Host
 <a id="t1612"></a>
 
@@ -2476,7 +2700,7 @@ Platforms: Linux, Windows, macOS
 ATT&CK: [T1620](https://attack.mitre.org/techniques/T1620/), [detail page](../../techniques/stealth.md#t1620)
 
 - `AN0838` Analytic 0838, Windows
-  Detect anomalous chains of memory allocation and execution inside the same process (e.g., VirtualAlloc -> memcpy -> VirtualProtect -> CreateThread). Unlike process injection, reflective code loading does not perform cross-process memory writes; the suspicious activity occurs entirely within the process’s own PID context.
+  Detect anomalous chains of memory allocation and execution inside the same process (e.g., VirtualAlloc -> memcpy -> VirtualProtect -> CreateThread). Unlike process injection, reflective code loading does not perform cross-process memory writes — the suspicious activity occurs entirely within the process’s own PID context.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=7)`; `etw:Microsoft-Windows-DotNETRuntime (AssemblyLoad/ModuleLoad (Loader keyword) from Microsoft-Windows-DotNETRuntime)`; `etw:Microsoft-Antimalware-Scan-Interface (Amsi/Script content + API verdicts during in-memory staging)`; `WinEventLog:Sysmon (EventCode=10)`
   - *Tune:* `ParentProcessWhitelist`: Certain processes may legitimately use Assembly.Load(); defenders may whitelist known developer/admin tools.; `MemoryRegionPermissions`: Detection logic can tune for RWX memory allocations; some legitimate tools may allocate with RW permissions only.
 - `AN0839` Analytic 0839, Linux
@@ -2545,6 +2769,36 @@ ATT&CK: [T1679](https://attack.mitre.org/techniques/T1679/), [detail page](../..
   A process with no prior history or outside of known whitelisted tools initiates file or registry modifications to configure exclusion rules for antivirus, backup, or file-handling systems. Or a file system enumeration for specific file names andcritical extensions like .dll, .exe, .sys, or specific directories such as 'Program Files' or security tool paths or system component discovery for the exclusion of the files or components.
   - *Log sources:* `WinEventLog:PowerShell (EventCode=4103, 4104, 4105, 4106)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Security (EventCode=4663, 4670, 4656)`
   - *Tune:* `TimeWindow`: Correlate multiply discovery activities and file enumeration activities.; `DiscoveryActivityThreshold`: Minimum number of different discovery techniques within time window to trigger detection - balance between false positives and coverage (default: 4 activities); `ExclusionTargetList`: List of extensions or folders considered suspicious when excluded (e.g., .dll, .exe, C:\\Program Files\\); `AuthorizedExclusionModifiers`: Whitelist of known system management tools/processes allowed to modify exclusion settings
+
+---
+
+### T1684: Social Engineering
+<a id="t1684"></a>
+
+Detection strategy: Detect Social Engineering (`DET0899`)  
+Platforms: Linux, Office Suite, SaaS, Windows, macOS  
+ATT&CK: [T1684](https://attack.mitre.org/techniques/T1684/), [detail page](../../techniques/stealth.md#t1684)
+
+- `AN2033` Analytic 2033, Office Suite
+  Detects suspicious inbound communications or collaboration requests followed by rapid sensitive user actions such as file sharing changes, macro enablement, OAuth consent, credential submission, or financial workflow approvals that deviate from historical relationships or normal approval patterns.
+  - *Log sources:* `m365:unified (MailItemsAccessed; AddedInboxRule; ConsentToApplication; SharingSet)`; `m365:exchange (External sender message followed by user action involving links or attachments)`; `m365:teams (External chat request or new tenant communication preceding approval activity)`
+  - *Tune:* `ActionAfterMessageWindow`: Time window between inbound communication and sensitive action; `TrustedDomainAllowlist`: Known legitimate vendors or partner domains; `ApprovalAmountThreshold`: Monetary threshold for finance workflows
+- `AN2034` Analytic 2034, SaaS
+  Detects consent grants, password resets, role changes, external sharing, or token creation shortly after user interaction with messages, invites, or help desk workflows. Emphasis is placed on unusual requester relationships, new device context, or off-hours approvals.
+  - *Log sources:* `saas:okta (user.account.reset_password; user.mfa.factor.activate; app.oauth2.authorize)`; `saas:slack (xternal DM or workspace invite preceding credential or approval actions)`; `saas:zoom (Unexpected contact interaction preceding follow-on admin requests)`
+  - *Tune:* `RequesterNoveltyDays`: How long since requestor last interacted with user; `GeoVelocityThreshold`: Distance/time anomaly for follow-on login; `AfterHoursDefinition`: Organization-specific off-hours period
+- `AN2035` Analytic 2035, Windows
+  Detects user execution of newly received content or instructions shortly after external communication, including script launches, Office child process spawning, browser-to-script execution chains, or credential prompts followed by new logon sessions.
+  - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Security (EventCode=4624, 4648)`; `WinEventLog:Sysmon (EventCode=11)`
+  - *Tune:* `EmailToExecutionWindow`: Time between message delivery and process launch; `OfficeChildProcessAllowlist`: Approved Office child process patterns; `NewLogonWindow`: Time after credential prompt to monitor new sessions
+- `AN2036` Analytic 2036, macOS
+  Detects user-authorized execution of downloaded content or scripts after communication prompts, including browser downloads followed by osascript, shell, or installer execution and subsequent network activity.
+  - *Log sources:* `macos:unifiedlog (Execution of osascript, sh, bash, zsh, installer, open)`; `NSM:Connections (Outbound connection after script or installer launch)`; `macos:unifiedlog (Recent download opened or executed)`
+  - *Tune:* `DownloadToExecutionWindow`: Time between download and launch; `InstallerParentAllowlist`: Legitimate software deployment parents
+- `AN2037` Analytic 2037, Linux
+  Detects users executing commands copied from chats, tickets, or emails, including curl|bash patterns, shell script launches from temp directories, credential changes, or SSH key additions shortly after communication events.
+  - *Log sources:* `NSM:Connections (Outbound connection after script or installer launch)`; `auditd:EXECVE (execve of curl,wget,bash,sh,python with piped or remote content)`; `auditd:PATH (odification of ~/.ssh/authorized_keys or credential files)`
+  - *Tune:* `RemoteScriptExecutionPatterns`: Organization-specific admin automation patterns to exclude; `TicketToExecutionWindow`: Time from help desk/chat event to command execution
 
 ---
 

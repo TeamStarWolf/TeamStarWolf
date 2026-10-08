@@ -132,7 +132,7 @@ ATT&CK: [T1053.007](https://attack.mitre.org/techniques/T1053/007/), [detail pag
 - `AN0582` Analytic 0582, Containers
   Detects abuse of container orchestration platforms (e.g., Kubernetes) where adversaries create CronJobs to maintain persistence or execute malicious Jobs across the cluster.
   - *Log sources:* `kubernetes:apiserver (verb=create, resource=cronjobs, group=batch)`; `kubernetes:events (container start/stop activity via Docker, containerd, or CRI-O)`; `container:proxy (outbound/inbound network activity from spawned pods)`
-  - *Tune:* `NamespaceScope`: Kubernetes namespace the job is deployed to; scoping this to known trusted namespaces may reduce noise.; `ImageRepository`: The container image registry or repository the job pulls from, which can be filtered by trusted registries.; `ScheduleWindow`: Time window or frequency of CronJob execution (e.g., ‘@hourly’); jobs running at odd hours may be suspicious.; `ExecutionCommand`: The command or entrypoint executed by the Job; unexpected shell commands or interpreters may warrant inspection.
+  - *Tune:* `NamespaceScope`: Kubernetes namespace the job is deployed to—scoping this to known trusted namespaces may reduce noise.; `ImageRepository`: The container image registry or repository the job pulls from—can be filtered by trusted registries.; `ScheduleWindow`: Time window or frequency of CronJob execution (e.g., ‘@hourly’)—jobs running at odd hours may be suspicious.; `ExecutionCommand`: The command or entrypoint executed by the Job—unexpected shell commands or interpreters may warrant inspection.
 
 ---
 
@@ -270,7 +270,7 @@ ATT&CK: [T1059.006](https://attack.mitre.org/techniques/T1059/006/), [detail pag
 - `AN0173` Analytic 0173, macOS
   Detects native Python or framework-based execution from Terminal, embedded apps, or launchd jobs. Flags network calls, persistence writes, or system enumeration after Python launch.
   - *Log sources:* `macos:unifiedlog (log stream --predicate 'eventMessage contains "python"')`; `macos:osquery (process_events)`; `macos:syslog (system.log)`
-  - *Tune:* `ExecutionPath`: Detects python scripts from ~/Downloads/, /Volumes/, or /tmp/.; `ScriptName`: Obfuscated or high entropy script names.; `SpawnChain`: Chained behavior (Python -> bash -> curl or Python -> osascript).
+  - *Tune:* `ExecutionPath`: Detects python scripts from ~/Downloads/, /Volumes/, or /tmp/.; `ScriptName`: Obfuscated or high entropy script names.; `SpawnChain`: Chained behavior: Python -> bash -> curl or Python -> osascript.
 - `AN0174` Analytic 0174, Linux
   Detects Python execution from non-standard user contexts or cron jobs that invoke outbound traffic, access sensitive files, or perform process injection (e.g., ptrace or /proc memory maps).
   - *Log sources:* `auditd:SYSCALL (execve)`; `linux:syslog (/var/log/syslog)`
@@ -396,7 +396,7 @@ ATT&CK: [T1059.013](https://attack.mitre.org/techniques/T1059/013/), [detail pag
 - `AN0233` Analytic 0233, Containers
   Execution of container orchestration commands (e.g., `docker exec`, `kubectl exec`) or API-driven interactions with running containers from unauthorized hosts or non-standard user contexts. Defender sees programmatic or interactive command execution within containers outside expected CI/CD tools or automation frameworks, often followed by file writes, privilege escalation, or lateral discovery.
   - *Log sources:* `auditd:SYSCALL (execve: Execution of container management CLIs (docker, crictl, kubectl) or interpreted shells (sh, bash, python) within container context)`; `docker:events (exec_create: docker exec events targeting running containers from non-CI sources)`; `kubernetes:apiserver (create/exec: Kubernetes API calls to exec into containers or create pods from curl, kubectl, or SDK clients)`; `AWS:CloudTrail (CreatePod: Programmatic creation of new pod resources using container images not seen before in the environment)`; `kubernetes:audit (Shell process (e.g., /bin/sh, /bin/bash) spawned in a container without an interactive session attached (i.e., automation anomaly))`
-  - *Tune:* `AuthorizedUserAgents`: List of CI/CD pipeline runners, SRE tools, or cluster mgmt agents allowed to invoke API/CLI commands in containers.; `NewImageThreshold`: Threshold for alerting on unseen container images pulled and executed. Adjust to reduce noise from frequent deploys.; `TimeWindow`: Temporal window to correlate container exec with shell spawn and network activity (default: 2 minutes).; `InteractiveSessionExpectation`: Set whether shell spawns without TTY or PTY should be flagged, based on org deployment model.
+  - *Tune:* `AuthorizedUserAgents`: List of CI/CD pipeline runners, SRE tools, or cluster mgmt agents allowed to invoke API/CLI commands in containers.; `NewImageThreshold`: Threshold for alerting on unseen container images pulled and executed. Adjust to reduce noise from frequent deploys.; `TimeWindow`: Temporal window to correlate container exec with shell spawn and network activity (default: 2 minutes).; `InteractiveSessionExpectation`: Set whether shell spawns without TTY or PTY should be flagged — based on org deployment model.
 
 ---
 
@@ -466,18 +466,18 @@ ATT&CK: [T1129](https://attack.mitre.org/techniques/T1129/), [detail page](../..
 - `AN0053` Analytic 0053, Linux
   A process loads a shared object (.so) via dlopen/LD_PRELOAD/open from non-standard or temporary locations (e.g., /tmp, /dev/shm), especially shortly after that .so is written or fetched, or linked via manipulated environment variables (LD_PRELOAD/LD_LIBRARY_PATH).
   - *Log sources:* `auditd:SYSCALL (openat/read/mmap: Open/mmap .so files from non-standard paths)`; `auditd:EXECVE (execve: Processes launched with LD_PRELOAD/LD_LIBRARY_PATH pointing to non-system dirs)`; `linux:syslog (sudo or service accounts invoking loaders with suspicious env vars)`; `NSM:Flow (http/file-xfer: Inbound/outbound transfer of ELF shared objects)`
-  - *Tune:* `SuspiciousDirs`: (/tmp, /dev/shm, /var/tmp, user home dirs); adjust to your environment.; `TimeWindow`: Correlate write/fetch of .so to its load (e.g., 0-30 minutes).; `EnvVarWatchlist`: LD_PRELOAD, LD_LIBRARY_PATH, LD_AUDIT.; `AllowedSigning/HashList`: Known-good signed or hashed shared objects.
+  - *Tune:* `SuspiciousDirs`: (/tmp, /dev/shm, /var/tmp, user home dirs): adjust to your environment.; `TimeWindow`: Correlate write/fetch of .so to its load (e.g., 0-30 minutes).; `EnvVarWatchlist`: LD_PRELOAD, LD_LIBRARY_PATH, LD_AUDIT.; `AllowedSigning/HashList`: Known-good signed or hashed shared objects.
 - `AN0054` Analytic 0054, macOS
   A process loads a non-system .dylib/.so via dyld (dlopen/dlsym) from user-writable locations (~/Library, /tmp) or after the library was recently created/downloaded, often followed by network egress or persistence.
   - *Log sources:* `macos:unifiedlog (dyld/unified log entries indicating image load from non-system paths)`; `macos:endpointsecurity (exec: Process execution context for loaders calling dlopen/dlsym)`; `macos:endpointsecurity (ES_EVENT_TYPE_NOTIFY_OPEN: Open of .dylib/.so in user-writable locations)`
-  - *Tune:* `SuspiciousDirs`: ~/Library, /tmp, /Users/*/.* (hidden dirs); tune to enterprise layout.; `UnsignedOnly`: Alert only when code-signing is invalid or absent.; `TimeWindow`: Correlate write/open to module load within N minutes.
+  - *Tune:* `SuspiciousDirs`: ~/Library, /tmp, /Users/*/.* (hidden dirs): tune to enterprise layout.; `UnsignedOnly`: Alert only when code-signing is invalid or absent.; `TimeWindow`: Correlate write/open to module load within N minutes.
 
 ---
 
 ### T1203: Exploitation for Client Execution
 <a id="t1203"></a>
 
-Detection strategy: Exploitation for Client Execution, cross-platform behavior chain (browser/Office/3rd-party apps) (`DET0287`)  
+Detection strategy: Exploitation for Client Execution – cross-platform behavior chain (browser/Office/3rd-party apps) (`DET0287`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1203](https://attack.mitre.org/techniques/T1203/), [detail page](../../techniques/execution.md#t1203)
 
@@ -488,7 +488,7 @@ ATT&CK: [T1203](https://attack.mitre.org/techniques/T1203/), [detail page](../..
 - `AN0798` Analytic 0798, Linux
   Cause->effect chain: (1) Browser/Office/reader process logs crash/segfault or abnormal sandbox message, (2) new executable/script/write occurs in $HOME (Downloads, ~/.cache, /tmp), (3) unexpected child like curl/wget/bash/python opens network connections soon after.
   - *Log sources:* `linux:syslog (browser/office crash, segfault, abnormal termination)`; `auditd:SYSCALL (open)`; `auditd:SYSCALL (creat)`; `auditd:SYSCALL (rename,chmod)`; `auditd:SYSCALL (execve)`; `NetFlow:Flow (new outbound connections from exploited process tree)`
-  - *Tune:* `TimeWindow`: 5-20m correlation window.; `UserPaths`: HOME write targets (~/Downloads, ~/.config/autostart, ~/.local/share, /tmp).; `HighRiskChildren`: bash, sh, python, perl, node, curl, wget, socat, openssl, xxd.; `PackageUpdaters`: Allow-list common updaters (snap, flatpak, packagekit) to reduce FP.
+  - *Tune:* `TimeWindow`: 5-20m correlation window.; `UserPaths`: HOME write targets: ~/Downloads, ~/.config/autostart, ~/.local/share, /tmp.; `HighRiskChildren`: bash, sh, python, perl, node, curl, wget, socat, openssl, xxd.; `PackageUpdaters`: Allow-list common updaters (snap, flatpak, packagekit) to reduce FP.
 - `AN0799` Analytic 0799, macOS
   Cause->effect chain: (1) App crash/abnormal termination in unified logs for Safari/Chrome/Office/Preview, (2) new files/scripts in ~/Library, ~/Downloads, /private/var/folders/*, (3) unexpected child (osascript, zsh, bash, curl) spawned by those apps, (4) new outbound connections.
   - *Log sources:* `macos:unifiedlog (process crash, abort, code signing violations)`; `fs:fsevents (create/write/rename under user-writable paths)`; `macos:osquery (exec)`; `NSM:Connections (new connections from exploited lineage)`
@@ -499,14 +499,14 @@ ATT&CK: [T1203](https://attack.mitre.org/techniques/T1203/), [detail page](../..
 ### T1204: User Execution
 <a id="t1204"></a>
 
-Detection strategy: User Execution, multi-surface behavior chain (documents/links -> helper/unpacker -> LOLBIN/child -> egress) (`DET0478`)  
+Detection strategy: User Execution – multi-surface behavior chain (documents/links -> helper/unpacker -> LOLBIN/child -> egress) (`DET0478`)  
 Platforms: Containers, IaaS, Linux, Windows, macOS  
 ATT&CK: [T1204](https://attack.mitre.org/techniques/T1204/), [detail page](../../techniques/execution.md#t1204)
 
 - `AN1314` Analytic 1314, Windows
   Cause->effect chain: (1) User-facing app (Office/PDF/archiver/browser) records an open/click or abnormal event, then (2) a downloaded file is created in a user-writable path and/or decompressed, (3) the parent user app spawns a living-off-the-land binary (e.g., powershell/cmd/mshta/rundll32/msiexec/wscript/expand/zip) or installer, and (4) immediate outbound HTTP(S)/DNS/SMB from the same lineage.
   - *Log sources:* `WinEventLog:Application (EventCode=1000)`; `WinEventLog:Sysmon (EventCode=11)`; `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=3, 22)`
-  - *Tune:* `TimeWindow`: Correlation window (e.g., 15 minutes) from document open to child/egress.; `HighRiskParents`: Apps that should rarely spawn OS utilities (winword.exe, excel.exe, powerpnt.exe, acrord32.exe, chrome/msedge/firefox, 7zFM.exe, winrar.exe, explorer.exe).; `HighRiskChildren`: LOLBIN list (powershell.exe, cmd.exe, wscript.exe, cscript.exe, mshta.exe, rundll32.exe, regsvr32.exe, msiexec.exe, curl.exe, bitsadmin.exe, pcalua.exe, expand.exe, tar.exe).; `UserPaths`: Writable paths to watch (%USERPROFILE%\Downloads, %TEMP%, %APPDATA%\*, OneDrive/Teams cache, Office startup folders).; `EgressAllowList`: Corporate update/CDN domains and proxy egress CIDRs to suppress benign updater traffic.
+  - *Tune:* `TimeWindow`: Correlation window (e.g., 15 minutes) from document open to child/egress.; `HighRiskParents`: Apps that should rarely spawn OS utilities (winword.exe, excel.exe, powerpnt.exe, acrord32.exe, chrome/msedge/firefox, 7zFM.exe, winrar.exe, explorer.exe).; `HighRiskChildren`: LOLBIN list: powershell.exe, cmd.exe, wscript.exe, cscript.exe, mshta.exe, rundll32.exe, regsvr32.exe, msiexec.exe, curl.exe, bitsadmin.exe, pcalua.exe, expand.exe, tar.exe.; `UserPaths`: Writable paths to watch: %USERPROFILE%\Downloads, %TEMP%, %APPDATA%\*, OneDrive/Teams cache, Office startup folders.; `EgressAllowList`: Corporate update/CDN domains and proxy egress CIDRs to suppress benign updater traffic.
 - `AN1315` Analytic 1315, Linux
   Cause->effect chain: (1) User app/browser/archiver logs an open/click or abnormal exit, (2) new executable/script/archive extracted into $HOME/Downloads, /tmp, or ~/.cache, (3) parent app spawns shell/interpreter (bash/sh/python/node/curl/wget) or desktop file, and (4) new outbound connection(s) from the child lineage.
   - *Log sources:* `linux:syslog (opened document|clicked link|segfault|abnormal termination|sandbox)`; `auditd:SYSCALL (open)`; `auditd:SYSCALL (creat)`; `auditd:SYSCALL (rename,chmod)`; `auditd:SYSCALL (execve)`; `NSM:Flow (new outbound connection from browser/office lineage)`
@@ -529,14 +529,14 @@ ATT&CK: [T1204](https://attack.mitre.org/techniques/T1204/), [detail page](../..
 ### T1204.001: Malicious Link
 <a id="t1204001"></a>
 
-Detection strategy: User Execution, Malicious Link (click -> suspicious egress -> download/write -> follow-on activity) (`DET0066`)  
+Detection strategy: User Execution – Malicious Link (click -> suspicious egress -> download/write -> follow-on activity) (`DET0066`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1204.001](https://attack.mitre.org/techniques/T1204/001/), [detail page](../../techniques/execution.md#t1204001)
 
 - `AN0178` Analytic 0178, Windows
   Behavioral chain: (1) a user-facing app (browser/Office/email client) launches a URL or handles a link, then (2) the same process lineage makes an outbound connection to an untrusted domain/IP, (3) a file is downloaded or unpacked to a user-writable location shortly after the click. Optional enrichment: subsequent child execution by LOLBINs.
   - *Log sources:* `WinEventLog:Security (EventCode=4688)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Sysmon (EventCode=11)`; `NSM:Flow (Suspicious URL patterns, uncommon TLDs, short-lived domains, URL shorteners; HTTP method GET/POST)`
-  - *Tune:* `TimeWindow`: Correlation window (e.g., 15m) between link click / first egress / file write.; `BrowserParents`: Processes considered link sources (chrome.exe, msedge.exe, firefox.exe, winword.exe, outlook.exe, teams.exe).; `UserPaths`: User-writable directories to monitor (%USERPROFILE%\Downloads, %TEMP%, %APPDATA%\*, OneDrive caches).; `SuspiciousTLDs`: High-risk TLD and domain list (e.g., .top .xyz .monster; newly observed domains/NOD).; `AllowedCDNs`: Corporate CDNs/update hosts to reduce false positives.
+  - *Tune:* `TimeWindow`: Correlation window (e.g., 15m) between link click / first egress / file write.; `BrowserParents`: Processes considered link sources: chrome.exe, msedge.exe, firefox.exe, winword.exe, outlook.exe, teams.exe.; `UserPaths`: User-writable directories to monitor (%USERPROFILE%\Downloads, %TEMP%, %APPDATA%\*, OneDrive caches).; `SuspiciousTLDs`: High-risk TLD and domain list (e.g., .top .xyz .monster; newly observed domains/NOD).; `AllowedCDNs`: Corporate CDNs/update hosts to reduce false positives.
 - `AN0179` Analytic 0179, Linux
   Behavioral chain: (1) browser/office/GUI mail client opens a URL, (2) outbound connection to untrusted domain, (3) a new file is saved in $HOME/Downloads, /tmp, or cache immediately after.
   - *Log sources:* `auditd:SYSCALL (execve: Execs of chromium, google-chrome, firefox, libreoffice with http(s) in cmdline)`; `auditd:SYSCALL (open,creat,rename: Writes in $HOME/Downloads, /tmp, ~/.cache with exe/script/archive/office extensions)`; `NSM:Flow (Suspicious URL patterns, uncommon TLDs, URL shorteners)`
@@ -551,7 +551,7 @@ ATT&CK: [T1204.001](https://attack.mitre.org/techniques/T1204/001/), [detail pag
 ### T1204.002: Malicious File
 <a id="t1204002"></a>
 
-Detection strategy: User Execution, Malicious File via download/open -> spawn chain (T1204.002) (`DET0294`)  
+Detection strategy: User Execution – Malicious File via download/open -> spawn chain (T1204.002) (`DET0294`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1204.002](https://attack.mitre.org/techniques/T1204/002/), [detail page](../../techniques/execution.md#t1204002)
 
@@ -573,7 +573,7 @@ ATT&CK: [T1204.002](https://attack.mitre.org/techniques/T1204/002/), [detail pag
 ### T1204.003: Malicious Image
 <a id="t1204003"></a>
 
-Detection strategy: User Execution, Malicious Image (containers & IaaS), pull/run -> start -> anomalous behavior (T1204.003) (`DET0248`)  
+Detection strategy: User Execution – Malicious Image (containers & IaaS) – pull/run -> start -> anomalous behavior (T1204.003) (`DET0248`)  
 Platforms: Linux, Windows  
 ATT&CK: [T1204.003](https://attack.mitre.org/techniques/T1204/003/), [detail page](../../techniques/execution.md#t1204003)
 
@@ -591,7 +591,7 @@ ATT&CK: [T1204.003](https://attack.mitre.org/techniques/T1204/003/), [detail pag
 ### T1204.004: Malicious Copy and Paste
 <a id="t1204004"></a>
 
-Detection strategy: User Execution, Malicious Copy & Paste (browser/email -> shell with obfuscated one-liner), T1204.004 (`DET0340`)  
+Detection strategy: User Execution – Malicious Copy & Paste (browser/email -> shell with obfuscated one-liner) – T1204.004 (`DET0340`)  
 Platforms: Linux, Windows, macOS  
 ATT&CK: [T1204.004](https://attack.mitre.org/techniques/T1204/004/), [detail page](../../techniques/execution.md#t1204004)
 

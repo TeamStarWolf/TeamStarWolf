@@ -292,7 +292,7 @@ ATT&CK: [T1496.001](https://attack.mitre.org/techniques/T1496/001/), [detail pag
 - `AN1489` Analytic 1489, Windows
   Sustained execution of resource-intensive processes (e.g., cryptocurrency miners), often launched via scheduled tasks, WMI, or PowerShell. These processes frequently establish persistent external connections and attempt to evade detection using masqueraded or renamed binaries.
   - *Log sources:* `WinEventLog:Sysmon (EventCode=1)`; `WinEventLog:Sysmon (EventCode=3, 22)`; `WinEventLog:Security (EventCode=4698)`
-  - *Tune:* `Image`: The executable name of the miner or wrapper, which can vary across campaigns.; `DestinationIP`: May differ depending on the mining pool or proxy server.; `ParentProcessName`: Useful for filtering known-good automation vs malicious task runners.
+  - *Tune:* `Image`: The executable name of the miner or wrapper—can vary across campaigns.; `DestinationIP`: May differ depending on the mining pool or proxy server.; `ParentProcessName`: Useful for filtering known-good automation vs malicious task runners.
 - `AN1490` Analytic 1490, Linux
   Unusual long-running processes consuming high CPU cycles (e.g., via 'top' or 'ps') initiated via cron, shell scripts, or Docker. Connections to known mining pools or DNS over HTTPS usage as evasion.
   - *Log sources:* `auditd:SYSCALL (execve)`; `NSM:Flow (Outbound connection to mining pool port (3333, 4444, 5555))`; `linux:cron (Scheduled execution of unknown or unusual script/binary)`
@@ -373,7 +373,7 @@ ATT&CK: [T1496.004](https://attack.mitre.org/techniques/T1496/004/), [detail pag
 ### T1498: Network Denial of Service
 <a id="t1498"></a>
 
-Detection strategy: Behavioral Detection of T1498 (Network Denial of Service) Across Platforms (`DET0518`)  
+Detection strategy: Behavioral Detection of T1498 – Network Denial of Service Across Platforms (`DET0518`)  
 Platforms: Linux, Windows  
 ATT&CK: [T1498](https://attack.mitre.org/techniques/T1498/), [detail page](../../techniques/impact.md#t1498)
 
@@ -432,7 +432,7 @@ ATT&CK: [T1498.002](https://attack.mitre.org/techniques/T1498/002/), [detail pag
 - `AN1142` Analytic 1142, macOS
   Command-line initiated UDP traffic bursts to external reflection amplification ports using built-in scripting or binaries with network anomalies
   - *Log sources:* `macos:unifiedlog (Execution of ping, nping, or crafted network packets via bash or python to reflection services)`; `macos:unifiedlog (Outbound UDP spikes to external reflector IPs)`
-  - *Tune:* `ReflectionPorts`: Ports known for reflection abuse (DNS, NTP, SSDP, Memcached); `TrafficSpikeThreshold`: How much deviation in outbound traffic constitutes a suspicious spike
+  - *Tune:* `ReflectionPorts`: Ports known for reflection abuse: DNS, NTP, SSDP, Memcached; `TrafficSpikeThreshold`: How much deviation in outbound traffic constitutes a suspicious spike
 - `AN1143` Analytic 1143, IaaS
   Cloud-hosted VM or container generates spoofed UDP requests to third-party services on known amplifier ports, with high outbound-to-inbound traffic ratios in VPC Flow Logs
   - *Log sources:* `AWS:CloudTrail (Create egress rule allowing UDP to port 53, 123, 11211)`; `AWS:VPCFlowLogs (Large outbound UDP traffic to multiple public reflector IPs)`; `AWS:CloudWatch (Sudden spike in network output without a corresponding inbound request ratio)`
@@ -644,7 +644,7 @@ ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](../..
 - `AN0384` Analytic 0384, Windows
   Unusual direct disk access attempts (e.g., use of \\.\PhysicalDrive notation), abnormal writes to MBR/boot sectors, and installation of kernel drivers that grant raw disk access. Correlate anomalous process creation with disk modification attempts and driver loads.
   - *Log sources:* `WinEventLog:Security (EventCode=4673)`; `WinEventLog:Sysmon (Raw disk write access via \\.\PhysicalDrive* or \\.\C:)`; `WinEventLog:Sysmon (EventCode=6)`
-  - *Tune:* `ProcessWhitelist`: Legitimate disk imaging or backup tools may trigger raw disk access and must be excluded per environment.; `TimeWindow`: Correlate disk access, driver load, and process execution within a short timeframe to minimize false positives.
+  - *Tune:* `ProcessWhitelist`: Legitimate disk imaging or backup tools may trigger raw disk access — must be excluded per environment.; `TimeWindow`: Correlate disk access, driver load, and process execution within a short timeframe to minimize false positives.
 - `AN0385` Analytic 0385, Linux
   Processes invoking destructive commands (dd, shred, wipe) with raw device targets (e.g., /dev/sda, /dev/nvme0n1). Detect direct writes to disk partitions and abnormal superblock or bootloader modifications. Correlate shell execution with subsequent block device I/O.
   - *Log sources:* `auditd:SYSCALL (open/write syscalls on /dev/sd* or /dev/nvme*)`; `auditd:EXECVE (Execution of dd, shred, wipe targeting block devices)`
@@ -652,7 +652,7 @@ ATT&CK: [T1561](https://attack.mitre.org/techniques/T1561/), [detail page](../..
 - `AN0386` Analytic 0386, macOS
   Abnormal invocation of diskutil, asr, or low-level APIs (IOKit) to erase/partition drives. Correlate process execution with unified log entries showing destructive disk operations.
   - *Log sources:* `macos:unifiedlog (diskutil eraseDisk / asr restore with destructive flags)`; `macos:unifiedlog (IOKit disk write calls targeting raw devices)`
-  - *Tune:* `AdminToolWhitelist`: System administrators may legitimately use diskutil/asr for provisioning; whitelist by user or context.
+  - *Tune:* `AdminToolWhitelist`: System administrators may legitimately use diskutil/asr for provisioning: whitelist by user or context.
 - `AN0387` Analytic 0387, Network Devices
   Execution of destructive CLI commands such as 'erase startup-config', 'erase flash:' or 'format disk' on routers/switches. Detect privilege level escalation preceding destructive commands.
   - *Log sources:* `networkdevice:cli (erase flash:, erase startup-config, format disk)`; `networkdevice:syslog (User privilege escalation to level 15/root prior to destructive commands)`
@@ -670,7 +670,7 @@ ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail pag
 - `AN0882` Analytic 0882, Windows
   Processes attempting raw disk access via \\.\PhysicalDrive paths, abnormal file I/O to MBR/boot sectors, or loading of third-party drivers (e.g., RawDisk) that enable disk overwrite. Correlate process creation, privilege usage, and disk modification events within a short time window.
   - *Log sources:* `WinEventLog:Security (EventCode=4673)`; `WinEventLog:Sysmon (Raw disk writes targeting \\.\PhysicalDrive* or MBR locations)`; `WinEventLog:Sysmon (EventCode=6)`
-  - *Tune:* `ProcessWhitelist`: Backup, forensics, or imaging tools may perform legitimate raw disk access, which requires tuning per environment.; `TimeWindow`: Correlation threshold for process execution, driver load, and raw disk writes.
+  - *Tune:* `ProcessWhitelist`: Backup, forensics, or imaging tools may perform legitimate raw disk access — requires tuning per environment.; `TimeWindow`: Correlation threshold for process execution, driver load, and raw disk writes.
 - `AN0883` Analytic 0883, Linux
   Execution of destructive utilities (dd, shred, wipe) targeting block devices, or processes invoking syscalls to directly overwrite /dev/sd* or /dev/nvme* partitions. Correlate abnormal file write attempts with shell process execution and block device access.
   - *Log sources:* `auditd:SYSCALL (open/write syscalls to block devices (/dev/sd*, /dev/nvme*))`; `auditd:EXECVE (Execution of dd, shred, or wipe with arguments targeting block devices)`
@@ -678,7 +678,7 @@ ATT&CK: [T1561.001](https://attack.mitre.org/techniques/T1561/001/), [detail pag
 - `AN0884` Analytic 0884, macOS
   Abnormal invocation of diskutil or asr with destructive flags (eraseDisk, zeroDisk), or low-level IOKit calls that overwrite raw disk content. Detect correlation between elevated process execution and disk erase operations.
   - *Log sources:* `macos:unifiedlog (diskutil eraseDisk/zeroDisk or asr restore with destructive flags)`; `macos:unifiedlog (IOKit raw disk write activity targeting physical devices)`
-  - *Tune:* `AdminToolWhitelist`: Provisioning workflows may legitimately use diskutil/asr; whitelist by user or system context.
+  - *Tune:* `AdminToolWhitelist`: Provisioning workflows may legitimately use diskutil/asr: whitelist by user or system context.
 - `AN0885` Analytic 0885, Network Devices
   Execution of CLI commands erasing file systems or storage (erase flash:, format disk, erase nvram:). Detect authentication events followed by destructive commands within the same privileged session.
   - *Log sources:* `networkdevice:cli (erase flash:, erase nvram:, format disk)`; `networkdevice:syslog (Privileged login followed by destructive command sequence)`

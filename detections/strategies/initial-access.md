@@ -9,7 +9,7 @@ See also: [all detection strategies index](/detections/strategies/README.md), [T
 ### T1189: Drive-by Compromise
 <a id="t1189"></a>
 
-Detection strategy: Drive-by Compromise, Behavior-based, Multi-platform Detection Strategy (T1189) (`DET0176`)  
+Detection strategy: Drive-by Compromise — Behavior-based, Multi-platform Detection Strategy (T1189) (`DET0176`)  
 Platforms: Identity Provider, Linux, Windows, macOS  
 ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](../../techniques/initial-access.md#t1189)
 
@@ -24,7 +24,7 @@ ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](../..
 - `AN0500` Analytic 0500, macOS
   Correlated evidence where Safari/Chrome/WebKit-based processes issue network requests for uncommon or obfuscated JS resources followed by spawning of script interpreters, launchd or ad-hoc binaries, unusual child processes, or dynamic library loads into browser processes. Defender sees: proxy/HTTP logs with suspicious resource content + unifiedlogs/ASL showing browser/plugin crashes or extension loads + process events indicating child process creation and file writes to /var/folders or /tmp shortly after the fetch.
   - *Log sources:* `macos:unifiedlog (Logs from unifiedlogging that show browser crashes, plugin enumerations, extension installs or errors around the same time as suspicious network fetches)`; `macos:unifiedlog (process_create: Process creation where parent is Safari/Google Chrome and child is script interpreter or signed-but-unusual helper binary)`; `macos:unifiedlog (New files written to /var/folders, /tmp, ~/Library/Caches, or ~/Downloads by browser context or its children)`; `NSM:Flow (HTTP/HTTPS requests for script resources flagged by content inspection (excessive obfuscation, eval usage, unusual redirects))`; `macos:unifiedlog (Anomalous dyld dynamic library loads or RWX memory mappings in browser process)`
-  - *Tune:* `SleepyUserThreshold`: Volume thresholds for interactive user browsing vs. automated systems (e.g., shared kiosks). Tune to reduce FP in heavy-browsing employees.; `ExtensionInstallPolicy`: Policy setting that influences how extension installs are treated; strict policy reduces FP from known extension behavior.
+  - *Tune:* `SleepyUserThreshold`: Volume thresholds for interactive user browsing vs. automated systems (e.g., shared kiosks) — tune to reduce FP in heavy-browsing employees.; `ExtensionInstallPolicy`: Policy setting that influences how extension installs are treated: strict policy reduces FP from known extension behavior.
 - `AN0501` Analytic 0501, Identity Provider
   Post-compromise identity & session anomalies that follow a drive-by compromise: token reuse from new/unfamiliar IPs, anomalous sign-in patterns for previously inactive users, unexpected consent/grant events, or provisioning changes. Defender sees an endpoint/browser compromise (network + endpoint signals) followed by unusual IdP events: new refresh token issuance, consent/consent-grant events, odd MFA bypass patterns, or unusual OAuth client registrations.
   - *Log sources:* `azure:signinlogs (SignIn: Sign-ins flagged as atypical (new geographic region, unfamiliar device id) shortly after correlated endpoint/browser compromise times)`; `m365:unified (Application Consent grants, new OAuth client registrations, or unusual admin-level activities executed by a user account shortly after suspected drive-by compromise)`; `saas:auth (Refresh token issuance or refresh token usage from new IPs or user agents)`; `AWS:CloudTrail (ConsoleLogin: If IdP backed by cloud provider, Console login from new IP/agent after correlated endpoint compromise)`
@@ -35,7 +35,7 @@ ATT&CK: [T1189](https://attack.mitre.org/techniques/T1189/), [detail page](../..
 ### T1190: Exploit Public-Facing Application
 <a id="t1190"></a>
 
-Detection strategy: Exploit Public-Facing Application, multi-signal correlation (request -> error -> post-exploit process/egress) (`DET0080`)  
+Detection strategy: Exploit Public-Facing Application – multi-signal correlation (request -> error -> post-exploit process/egress) (`DET0080`)  
 Platforms: Containers, ESXi, IaaS, Linux, Network Devices, Windows, macOS  
 ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/), [detail page](../../techniques/initial-access.md#t1190)
 

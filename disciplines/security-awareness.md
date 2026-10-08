@@ -156,7 +156,7 @@ Security awareness directly mitigates initial access and execution techniques by
 | Phishing | T1566 | Primary target of security awareness programs; phishing simulation (GoPhish, KnowBe4) combined with MITRE M1017 User Training is the recommended mitigation; training reduces click rates and increases report rates; addresses all T1566 sub-techniques |
 | Phishing for Information | T1598 | Pre-texting, vishing, and credential harvesting awareness; train employees to verify identity before sharing credentials or sensitive information via phone, email, or web forms |
 | User Execution | T1204 | Awareness training on not executing unexpected attachments, macros, or downloaded files; just-in-time training triggered by simulation failures directly addresses this technique per M1017 |
-| Impersonation | T1656 | Business Email Compromise (BEC) and executive impersonation awareness; train finance and administrative staff on verbal confirmation procedures for financial requests regardless of email authority |
+| Impersonation | T1684.001 | Business Email Compromise (BEC) and executive impersonation awareness; train finance and administrative staff on verbal confirmation procedures for financial requests regardless of email authority |
 
 ---
 

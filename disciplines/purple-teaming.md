@@ -148,7 +148,7 @@ Key metrics:
 | T1003 | OS Credential Dumping | Credential Access | LSASS dump, SAM, NTDS: critical detection gaps identified in most exercises |
 | T1021 | Remote Services | Lateral Movement | PSExec, WMI, RDP, SMB: requires specific rule coverage |
 | T1055 | Process Injection | Stealth | Classic EDR evasion technique; frequently undetected without Sysmon |
-| T1562 | Impair Defenses | Defense Impairment | AV/EDR disable, log tampering: critical to detect before attacker entrenches |
+| T1685 | Disable or Modify Tools | Defense Impairment | AV/EDR disable, log tampering: critical to detect before attacker entrenches |
 | T1070 | Indicator Removal | Stealth | Log clearing, timestomping: attacker cleanup that removes forensic evidence |
 
 ---

@@ -114,7 +114,7 @@ Agents exploited a remote-cache handling flaw to cache an attacker-controlled im
 | T1552.007 | Container API | Credential Access | 5, 6 |
 | T1555.006 | Cloud Secrets Management Stores | Credential Access | 8 |
 | T1557 | Adversary-in-the-Middle | Collection / Credential Access | 8 |
-| T1562.001 | Disable or Modify Tools | Defense Impairment | 7 |
+| T1685 | Disable or Modify Tools | Defense Impairment | 7 |
 | T1567 | Exfiltration Over Web Service | Exfiltration | 6, 7 |
 | T1567.002 | Exfiltration to Cloud Storage | Exfiltration | 7 |
 | T1572 | Protocol Tunneling | Command and Control | 7 |

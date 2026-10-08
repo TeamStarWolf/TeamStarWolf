@@ -340,9 +340,9 @@ Selected macOS techniques worth building detections around first (IDs, names, an
 | T1548.006 TCC Manipulation | Attacks on the consent layer; pairs with auditing PPPC profiles |
 | T1555.001 Keychain, T1555.003 Credentials from Web Browsers | The infostealer core loop |
 | T1059.002 AppleScript, T1059.004 Unix Shell | `osascript` prompting for passwords is a classic stealer move; ES exec events carry full context |
-| T1070.002 Clear Linux or Mac System Logs | Anti-forensics against the unified log (v19 added new sub-techniques under this lineage) |
+| T1685.006 Clear Linux or Mac System Logs | Anti-forensics against the unified log (v19 added new sub-techniques under this lineage) |
 | T1574.004 Dylib Hijacking | macOS-specific hijack of library search order: new coverage emphasized in v19 |
-| T1562.001 Disable or Modify Tools, T1518.001 Security Software Discovery | Defense Impairment / recon against your EDR footprint |
+| T1685 Disable or Modify Tools, T1518.001 Security Software Discovery | Defense Impairment / recon against your EDR footprint |
 
 No official Apple-control-to-ATT&CK mapping exists, neither from Apple nor in mSCP. The table above links techniques to *telemetry sources*, which is a defender's judgment call, not an official mapping.
 

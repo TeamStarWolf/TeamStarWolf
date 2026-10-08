@@ -1569,7 +1569,7 @@ frida -U -f owasp.mstg.uncrackable1 --no-pause -l uncrackable1_solve.js
 | Initial Access | T1458 | Repackaged Application | Trojanized APK with RAT embedded |
 | Execution | T1603 | Scheduled Task/Job | AlarmManager / JobScheduler for persistence |
 | Persistence | T1577 | Compromise Application Executable | Modify APK; reflash device firmware |
-| Persistence | T1402 | Broadcast Receivers | BOOT_COMPLETED receiver for auto-start |
+| Persistence | T1624.001 | Broadcast Receivers | BOOT_COMPLETED receiver for auto-start |
 | Privilege Escalation | T1404 | Exploitation for Privilege Escalation | CVE-2019-2215 (Binder use-after-free) |
 | Defense Evasion | T1407 | Download New Code at Runtime | Reflective DEX loading; dynamic dexClassLoader |
 | Defense Evasion | T1418 | Software Discovery | Enumerate installed apps; detect sandbox/AV |
@@ -1577,12 +1577,12 @@ frida -U -f owasp.mstg.uncrackable1 --no-pause -l uncrackable1_solve.js
 | Credential Access | T1414 | Clipboard Data | READ_CLIPBOARD to steal OTPs |
 | Discovery | T1420 | File and Directory Discovery | Enumerate /sdcard/; find documents |
 | Discovery | T1421 | System Network Connections Discovery | List active connections; find listening services |
-| Collection | T1412 | Capture SMS Messages | READ_SMS; SMS worm for banking 2FA |
+| Collection | T1636.004 | SMS Messages | READ_SMS; SMS worm for banking 2FA |
 | Collection | T1429 | Capture Audio | RECORD_AUDIO without activation indicator |
 | Collection | T1512 | Video Capture | CAMERA access; background recording |
 | Collection | T1430 | Location Tracking | ACCESS_FINE_LOCATION; GPS polling |
 | Exfiltration | T1437 | Application Layer Protocol | HTTPS C2; XMPP; Firebase; Telegram API |
-| Impact | T1448 | Carrier Billing Fraud | SEND_SMS to premium numbers without consent |
+| Impact | T1643 | Generate Traffic from Victim | SEND_SMS to premium numbers without consent |
 | Impact | T1471 | Data Encrypted for Impact | Android ransomware; file encryption |
 
 ---

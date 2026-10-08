@@ -277,7 +277,7 @@ Sophisticated attackers actively study and evade SIEM detection. Understanding t
 | Technique | ID | Detection Approach |
 |---|---|---|
 | Indicator Removal (Log Clearing) | T1070 | EventID 1102/104; monitor for `wevtutil`, `Clear-EventLog` commands |
-| Impair Defenses | T1562 | Monitor for AV/EDR service stops; Event Log service manipulation |
+| Disable or Modify Tools | T1685 | Monitor for AV/EDR service stops; Event Log service manipulation |
 | Masquerading | T1036 | Process name vs. path correlation; signed binary misuse detection |
 | Obfuscated Files or Information | T1027 | Script block logging (EID 4104); detect encoded command-line arguments |
 | Command and Scripting Interpreter | T1059 | PowerShell/WMI/cmd.exe spawned by unusual parents; script block logging |

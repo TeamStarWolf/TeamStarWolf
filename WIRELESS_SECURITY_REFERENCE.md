@@ -1771,10 +1771,10 @@ MITRE ATT&CK for Mobile (additional wireless relevance):
 
 | Technique ID | Name | Description |
 |---|---|---|
-| T1465 | Rogue Wi-Fi Access Points | Evil twin for mobile device interception |
-| T1466 | Downgrade to Insecure Protocols | Force 2G, WEP, HTTP |
-| T1467 | Rogue Cellular Base Station | IMSI catcher |
-| T1468 | Remotely Wipe Data | Via compromised MDM or SIM swap |
+| T1638 | Adversary-in-the-Middle | Evil twin for mobile device interception |
+| T1638 | Adversary-in-the-Middle | Force 2G, WEP, HTTP |
+| T1638 | Adversary-in-the-Middle | IMSI catcher |
+| T1430.001 | Remotely Wipe Data | Via compromised MDM or SIM swap |
 | T1430 | Location Tracking | SS7 location query, IMSI catcher |
 | T1429 | Capture Audio | Via compromised baseband / rogue AP MITM |
 

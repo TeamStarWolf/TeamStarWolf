@@ -465,7 +465,7 @@ sysmon64.exe -u force
 | 4776 | NTLM authentication | Pass-the-hash indicators |
 | 4798 | User's local group membership enumerated | BloodHound/enumeration |
 | 4799 | Security-enabled local group enumerated | BloodHound/enumeration |
-| 4946 | Windows Firewall rule added | T1562.004 (firewall bypass) |
+| 4946 | Windows Firewall rule added | T1686 (firewall bypass) |
 | 5140 | Network share accessed | Lateral movement / data exfil |
 | 5145 | Network share object checked | File-level share access |
 | 7034 | Service crashed unexpectedly | Potential exploit attempt |

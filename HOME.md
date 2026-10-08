@@ -363,6 +363,7 @@ The references follow the chain from a vulnerability (CVE) to the weakness it ex
     <a class="tsw-swb-l" href="#/tools-research/README">Overview</a>
     <a class="tsw-swb-l" href="#/tools-research/SERVICENOW_USEM_TENABLE_WIZ">ServiceNow USEM with Tenable &amp; Wiz</a>
     <a class="tsw-swb-l" href="#/tools-research/SERVICENOW_VR_CC_CVR_TENABLE_WIZ">ServiceNow VR, CC &amp; CVR with Tenable &amp; Wiz</a>
+    <a class="tsw-swb-l" href="#/tools-research/TOOL_MANUALS_AND_REPOSITORIES">Tool Manuals &amp; Repositories</a>
   </div>
   <div class="tsw-swb-group">
     <div class="tsw-swb-h">Case Studies</div>

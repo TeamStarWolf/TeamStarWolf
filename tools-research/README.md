@@ -13,6 +13,13 @@ These studies are independent. TeamStarWolf is not affiliated with, sponsored by
 
 Read the USEM study first if you are new to ServiceNow's security applications. It explains the shared rule and scoring layer that sits above the three applications covered in the second study.
 
+## Reference directories
+
+| Directory | Covers |
+|---|---|
+| [Tool Manuals and Repositories](/tools-research/TOOL_MANUALS_AND_REPOSITORIES.md) | Verified links to official manuals, API references, release notes, ServiceNow Store and Splunkbase listings, GitHub organizations, repositories and GitHub Pages sites for ServiceNow, Armis and the MITRE threat-informed defense ecosystem, plus dead or moved links to avoid. Checked 2026-10-08 |
+| [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | The library's per-tool documentation index, including Tenable, Wiz, Snyk, Invicti, Zafran and Splunk |
+
 ## Method
 
 Every study follows the same rules.

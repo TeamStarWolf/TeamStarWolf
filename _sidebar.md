@@ -271,6 +271,12 @@
 
 ---
 
+- Case Studies
+  - [Overview](/case-studies/README.md)
+  - [AI Threats: A 2026 Case Study](/case-studies/AI_THREATS_2026.md)
+
+---
+
 - Tools Research
   - [Overview](/tools-research/README.md)
   - [ServiceNow USEM with Tenable & Wiz](/tools-research/SERVICENOW_USEM_TENABLE_WIZ.md)

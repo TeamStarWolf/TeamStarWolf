@@ -1,10 +1,10 @@
 {
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "name": "SIEM Coverage \u2014 Splunk ES, Microsoft Sentinel, Elastic Security",
+  "name": "SIEM Coverage — Splunk ES, Microsoft Sentinel, Elastic Security",
   "description": "ATT&CK technique coverage provided by Splunk Enterprise Security, Microsoft Sentinel, and Elastic Security SIEM through log correlation, behavioral detection rules, and UEBA analytics.",
   "domain": "enterprise-attack",
   "techniques": [
@@ -81,21 +81,21 @@
       "color": ""
     },
     {
-      "techniqueID": "T1562.001",
+      "techniqueID": "T1685",
       "score": 2,
-      "comment": "Security tool disable/modify detection",
+      "comment": "Security tool disable/modify detection (Re-keyed from T1562.001, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)",
       "color": ""
     },
     {
-      "techniqueID": "T1562.004",
+      "techniqueID": "T1686",
       "score": 2,
-      "comment": "Firewall disable/modify detection",
+      "comment": "Firewall disable/modify detection (Re-keyed from T1562.004, which ATT&CK v19 revoked in favour of T1686; data/attack/superseded_by.jsonl.)",
       "color": ""
     },
     {
       "techniqueID": "T1003.001",
       "score": 3,
-      "comment": "LSASS memory access detection \u2014 Mimikatz signatures",
+      "comment": "LSASS memory access detection — Mimikatz signatures",
       "color": ""
     },
     {
@@ -185,7 +185,7 @@
     {
       "techniqueID": "T1486",
       "score": 3,
-      "comment": "Ransomware behavioral detection \u2014 mass file encryption patterns",
+      "comment": "Ransomware behavioral detection — mass file encryption patterns",
       "color": ""
     },
     {
@@ -209,7 +209,12 @@
       "color": "#8b5cf6"
     }
   ],
-  "metadata": [],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
   "links": [],
   "showTacticRowBackground": true,
   "tacticRowBackground": "#1e293b",

@@ -1,7 +1,7 @@
 {
   "name": "Stage 1 — Governance, Risk & Compliance",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -12,12 +12,12 @@
       "Windows",
       "macOS",
       "Linux",
-      "Cloud",
-      "Containers",
-      "Network",
       "IaaS",
       "SaaS",
-      "Office Suite"
+      "Office Suite",
+      "Identity Provider",
+      "Containers",
+      "Network Devices"
     ]
   },
   "sorting": 3,
@@ -55,7 +55,7 @@
     },
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 2,
       "comment": "AC-2: Account Management policy; periodic access reviews"
     },
@@ -126,14 +126,14 @@
       "comment": "IR-4: Incident Handling policy addresses ransomware response"
     },
     {
-      "techniqueID": "T1562",
-      "tactic": "defense-evasion",
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
       "score": 2,
-      "comment": "CA-7: Continuous Monitoring policy; AU-9: Audit Log Protection"
+      "comment": "CA-7: Continuous Monitoring policy; AU-9: Audit Log Protection (Re-keyed from T1562, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)"
     },
     {
       "techniqueID": "T1070",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 2,
       "comment": "AU-9: Protection of Audit Information; log retention policy"
     },
@@ -145,7 +145,7 @@
     },
     {
       "techniqueID": "T1036",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "score": 1,
       "comment": "CM-7: Least Functionality; application allowlist policy"
     }
@@ -184,6 +184,10 @@
     {
       "name": "source",
       "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
     }
   ],
   "links": [

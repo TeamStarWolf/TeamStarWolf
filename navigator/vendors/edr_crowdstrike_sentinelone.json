@@ -1,7 +1,7 @@
 {
-  "name": "EDR \u2014 CrowdStrike Falcon / SentinelOne / Carbon Black",
+  "name": "EDR — CrowdStrike Falcon / SentinelOne / Carbon Black",
   "versions": {
-    "attack": "13",
+    "attack": "19",
     "navigator": "4.9",
     "layer": "4.5"
   },
@@ -12,14 +12,12 @@
       "Windows",
       "Linux",
       "macOS",
-      "Network",
-      "Cloud",
-      "Containers",
-      "SaaS",
+      "Network Devices",
       "IaaS",
-      "Office 365",
-      "Azure AD",
-      "Google Workspace"
+      "SaaS",
+      "Office Suite",
+      "Identity Provider",
+      "Containers"
     ]
   },
   "sorting": 0,
@@ -75,7 +73,7 @@
     },
     {
       "techniqueID": "T1055",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Process injection behavioral detection (hollowing, DLL injection)",
       "enabled": true,
@@ -85,7 +83,7 @@
     },
     {
       "techniqueID": "T1055.001",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "DLL injection via CreateRemoteThread detection",
       "enabled": true,
@@ -95,7 +93,7 @@
     },
     {
       "techniqueID": "T1055.012",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Process hollowing detection via memory scanning",
       "enabled": true,
@@ -165,7 +163,7 @@
     },
     {
       "techniqueID": "T1027",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Obfuscated payload detection via ML/behavioral engines",
       "enabled": true,
@@ -175,7 +173,7 @@
     },
     {
       "techniqueID": "T1027.002",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Software packing/obfuscation detection",
       "enabled": true,
@@ -185,7 +183,7 @@
     },
     {
       "techniqueID": "T1036",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Masquerading detection (process name spoofing)",
       "enabled": true,
@@ -195,7 +193,7 @@
     },
     {
       "techniqueID": "T1036.005",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Match legitimate name or location detection",
       "enabled": true,
@@ -205,7 +203,17 @@
     },
     {
       "techniqueID": "T1574",
-      "tactic": "persistence",
+      "tactic": "execution",
+      "color": "#ef4444",
+      "comment": "DLL search order hijacking detection",
+      "enabled": true,
+      "metadata": [],
+      "links": [],
+      "showSubtechniques": true
+    },
+    {
+      "techniqueID": "T1574",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "DLL search order hijacking detection",
       "enabled": true,
@@ -215,7 +223,7 @@
     },
     {
       "techniqueID": "T1574.001",
-      "tactic": "persistence",
+      "tactic": "execution",
       "color": "#ef4444",
       "comment": "DLL search order hijacking via EDR file monitoring",
       "enabled": true,
@@ -224,20 +232,20 @@
       "showSubtechniques": true
     },
     {
-      "techniqueID": "T1562",
-      "tactic": "defense-evasion",
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
       "color": "#ef4444",
-      "comment": "Security tool tampering detection and prevention",
+      "comment": "DLL search order hijacking via EDR file monitoring",
       "enabled": true,
       "metadata": [],
       "links": [],
       "showSubtechniques": true
     },
     {
-      "techniqueID": "T1562.001",
-      "tactic": "defense-evasion",
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
       "color": "#ef4444",
-      "comment": "Security tool disabling / EDR self-protection",
+      "comment": "Security tool tampering detection and prevention (Re-keyed from T1562, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.) | Security tool disabling / EDR self-protection (Re-keyed from T1562.001, which ATT&CK v19 revoked in favour of T1685; data/attack/superseded_by.jsonl.)",
       "enabled": true,
       "metadata": [],
       "links": [],
@@ -265,7 +273,7 @@
     },
     {
       "techniqueID": "T1078",
-      "tactic": "defense-evasion",
+      "tactic": "stealth",
       "color": "#ef4444",
       "comment": "Valid account abuse detection via behavioral baseline",
       "enabled": true,
@@ -304,11 +312,16 @@
   },
   "legendItems": [
     {
-      "label": "Covered by EDR \u2014 CrowdStrike Falcon / SentinelOne / Carbon Black",
+      "label": "Covered by EDR — CrowdStrike Falcon / SentinelOne / Carbon Black",
       "color": "#ef4444"
     }
   ],
-  "metadata": [],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v19.2: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
   "links": [],
   "showTacticRowBackground": false,
   "tacticRowBackground": "#dddddd",

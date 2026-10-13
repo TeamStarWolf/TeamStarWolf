@@ -402,7 +402,7 @@ class DB:
 
     def _carry_forward_crosswalks(self):
         """D3FEND, CAR and Engage publish their ATT&CK mappings against whatever id they
-        were authored for, so an edge keyed on an id ATT&CK v19 revoked (T1562 ->
+        were authored for, so an edge keyed on an id ATT&CK has since revoked (T1562 ->
         T1685, T1574.002 -> T1574.001, ...) is also shown on the live successor, following
         data/attack/superseded_by.jsonl chains - the same rule build_control_rollup.py and
         backfill_capec_edges.py apply to NIST and CAPEC. The revoked page keeps its own

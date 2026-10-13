@@ -62,7 +62,7 @@ own primary-key validation) but are part of the same relationship graph:
 
 Third-party mappings are published against the ATT&CK version they were authored for:
 the CTID NIST 800-53 mapping targets ATT&CK v16.1, CAPEC/D3FEND/CAR/Engage target older
-releases. When ATT&CK v19 renumbered a technique (`revoked-by`, recorded in
+releases. When ATT&CK revokes a technique in favour of another (`revoked-by`, recorded in
 `attack/superseded_by.jsonl`, e.g. T1562.001 -> T1685, T1070.001 -> T1685.005), the
 mapping still describes the same behaviour, so:
 

@@ -197,7 +197,7 @@ Key difference from Web Top 10: BOLA (API1) and Broken Function Level Authorizat
 - [PortSwigger Research](https://www.youtube.com/@PortSwiggerTV): Conference talks covering cutting-edge web security research from the Burp Suite team
 - [OWASP Global](https://www.youtube.com/@OWASPGLOBAL): AppSec conference talks on threat modeling, secure development, and application security research
 - [TCM Security](https://www.youtube.com/@TCMSecurityAcademy): Practical web application security training and methodology
-- [HackerOne](https://www.youtube.com/@Hacker0x01): Bug bounty guidance, vulnerability research spotlights, and disclosure best practices
+- HackerOne: Bug bounty guidance, vulnerability research spotlights, and disclosure best practices
 
 ---
 
@@ -332,6 +332,6 @@ Security Code Review Focus Areas
 - [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/): The framework for security requirements and application security maturity measurement
 - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org): Concise developer and tester reference on implementing security controls correctly
 - [HackerOne Hacktivity](https://hackerone.com/hacktivity): Public disclosure feed of real bug bounty findings; the best resource for learning what real-world vulnerabilities look like in production
-- [OWASP API Security Top 10](https://owasp.org/www-project-api-security/): Dedicated risk list for API vulnerabilities; essential as APIs represent the dominant attack surface in modern applications
+- [OWASP API Security Top 10](https://owasp.org/API-Security/): Dedicated risk list for API vulnerabilities; essential as APIs represent the dominant attack surface in modern applications
 - [CWE/SANS Top 25](https://cwe.mitre.org/top25/): The most impactful software weaknesses with scoring, examples, and remediation guidance
 - [Semgrep Registry](https://semgrep.dev/r): Free community and official security rules for static analysis across every major language and framework

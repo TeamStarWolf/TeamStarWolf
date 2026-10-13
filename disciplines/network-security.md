@@ -114,8 +114,8 @@ Network security has a mature commercial market with specialized vendors for NDR
 ## Channels
 
 - [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity): Network analysis, threat hunting from network data, and NSM methodology from John Strand and practitioners
-- [Chris Sanders](https://www.youtube.com/@ChrisSandersNSM): Applied Network Security Monitoring content; NSM methodology and practical network forensics
-- [Security Onion](https://www.youtube.com/@SecurityOnionSolutions): NSM platform walkthroughs, Zeek and Suricata tutorials, and network security analyst workflow demonstrations
+- Chris Sanders: Applied Network Security Monitoring content; NSM methodology and practical network forensics
+- Security Onion: NSM platform walkthroughs, Zeek and Suricata tutorials, and network security analyst workflow demonstrations
 - [13Cubed](https://www.youtube.com/@13Cubed): Network forensics content alongside Windows forensics; pcap analysis and network artifact investigation
 - [SANS Network Security](https://www.youtube.com/@SansInstitute): FOR572/SEC503 summit talks and network security research from SANS instructors
 

@@ -166,7 +166,7 @@ Secure device identity is the foundation of IoT security; without it, any device
 
 ### Firmware Analysis
 - [ReFirmLabs/binwalk](https://github.com/ReFirmLabs/binwalk): Standard firmware extraction and analysis tool; identifies and extracts file systems from firmware images; first tool in any firmware analysis workflow
-- [craigz28/firmwalker](https://github.com/craigz28/firmwalker): Searches extracted firmware for passwords, keys, interesting files, and vulnerability indicators; fast triage after extraction
+- [craigz28/firmwalker](https://web.archive.org/web/20260109160817/https://github.com/craigz28/firmwalker): Searches extracted firmware for passwords, keys, interesting files, and vulnerability indicators; fast triage after extraction
 - [fkie-cad/FACT_core](https://github.com/fkie-cad/FACT_core): Firmware Analysis and Comparison Tool from Fraunhofer FKIE; automated unpacking, component analysis, vulnerability detection, and cross-firmware comparison
 - [attify/firmware-analysis-toolkit](https://github.com/attify/firmware-analysis-toolkit): FAT automates QEMU-based firmware emulation; enables dynamic analysis and network service testing without physical hardware
 
@@ -246,7 +246,7 @@ MITRE ATT&CK Enterprise, ICS, and Mobile domains all apply to IoT. Key technique
 | Resource | Type | Notes |
 |---|---|---|
 | [OWASP IoT Top 10](https://owasp.org/www-project-internet-of-things/) | Free reference | Standard IoT vulnerability classification; baseline for any IoT security assessment |
-| [NIST IR 8259 Series](https://www.nist.gov/programs-projects/nist-cybersecurity-iot-program) | Free standard | NIST IoT cybersecurity program: device baseline, manufacturer guidance, federal IoT risk management |
+| [NIST IR 8259 Series](https://web.archive.org/web/20210202190928/https://www.nist.gov/programs-projects/nist-cybersecurity-iot-program) | Free standard | NIST IoT cybersecurity program: device baseline, manufacturer guidance, federal IoT risk management |
 | [NIST SP 800-213](https://doi.org/10.6028/NIST.SP.800-213) | Free standard | NIST guidance for integrating IoT into organizational security programs |
 | [ETSI EN 303 645](https://www.etsi.org/deliver/etsi_en/303600_303699/303645/02.01.01_60/en_303645v020101p.pdf) | Free standard | European consumer IoT security standard; practical outcome-based requirements |
 | [IEC 62443](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) | Standard | Industrial IoT and OT security standards series; authoritative framework for industrial IoT security |

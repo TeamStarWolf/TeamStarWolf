@@ -32,7 +32,7 @@ The Model Context Protocol (MCP) is an open, vendor-neutral protocol introduced 
 
 Prior to MCP, every AI application required bespoke connectors for each external system: a fragmented landscape of one-off integrations. MCP introduces a single, stable protocol that any AI host can use to discover and invoke capabilities offered by any MCP server, dramatically reducing integration complexity and improving security auditability.
 
-Key reference: [MCP Specification](https://spec.modelcontextprotocol.io/) | [Anthropic MCP Announcement](https://www.anthropic.com/news/model-context-protocol)
+Key reference: [MCP Specification](https://modelcontextprotocol.io/specification/latest) | [Anthropic MCP Announcement](https://www.anthropic.com/news/model-context-protocol)
 
 ---
 
@@ -1341,7 +1341,7 @@ Mitigations:
 
 The NIST AI Risk Management Framework (AI RMF 1.0), published January 2023, provides voluntary guidance for organizations to manage risks in the design, development, deployment, and use of AI systems.
 
-Reference: [https://www.nist.gov/system/files/documents/2023/01/26/AI%20RMF%201.0.pdf](https://www.nist.gov/system/files/documents/2023/01/26/AI%20RMF%201.0.pdf)
+Reference: [https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
 
 The framework consists of two parts:
 1. AI RMF Core: Four functions that organize AI risk management activities.

@@ -160,12 +160,12 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 - Jack Rhysider - https://www.youtube.com/@JackRhysider - Companion channel to the *Darknet Diaries* podcast; long-form cybercrime and intelligence-operation narratives
 - CyberBytes - https://www.youtube.com/@cyberbytes-the-podcast - Practitioner interviews and industry discussion
 - Cyber Warriors HQ - https://www.youtube.com/@CyberWarriorsHQ - Career development, community discussion, industry interviews
-- Cyber Warriors HQ Dispatch - https://www.youtube.com/@CyberWarriorsHQDispatch - Daily cybersecurity news briefings
+- Cyber Warriors HQ Dispatch - `https://www.youtube.com/@CyberWarriorsHQDispatch` - Daily cybersecurity news briefings
 
 ## Conference Talks
 - DEF CON Conference - https://www.youtube.com/@DEFCONConference - All DEF CON main-stage talks
 - Black Hat - https://www.youtube.com/@BlackHatOfficialYT - Black Hat USA, EU, and Asia
-- RSA Conference - https://www.youtube.com/@RSAConference - RSA keynotes and sessions
+- RSA Conference - https://web.archive.org/web/20260128164733/https://www.youtube.com/@RSAConference - RSA keynotes and sessions
 - OWASP Foundation - https://www.youtube.com/@OWASPGLOBAL - AppSec talks
 - NorthSec - https://www.youtube.com/@NorthSec - Canadian security conference
 - Chaos Computer Club (CCC) - https://www.youtube.com/@mediacccde - CCC Congress talks

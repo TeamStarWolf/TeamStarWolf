@@ -272,7 +272,7 @@ Research compensation thoroughly before any negotiation. Key sources:
 | Levels.fyi | [levels.fyi](https://www.levels.fyi/) | Base + bonus + equity at tech companies |
 | LinkedIn Salary | [linkedin.com/salary](https://www.linkedin.com/salary/) | Role and location-based ranges |
 | Glassdoor | [glassdoor.com](https://www.glassdoor.com/) | Company-specific data with culture reviews |
-| SANS Salary Survey | [sans.org/salary-survey](https://www.sans.org/salary-survey/) | Annual cybersecurity-specific compensation benchmarks |
+| SANS Salary Survey | sans.org/salary-survey | Annual cybersecurity-specific compensation benchmarks |
 | Dice | [dice.com](https://www.dice.com/) | Tech and security contractor/permanent role rates |
 
 ### Approximate Security Salary Ranges (US, 2024-2025)
@@ -355,7 +355,7 @@ Research compensation thoroughly before any negotiation. Key sources:
 | Levels.fyi | [levels.fyi](https://www.levels.fyi/) | Base + bonus + equity at tech companies |
 | LinkedIn Salary | [linkedin.com/salary](https://www.linkedin.com/salary/) | Role and location-based ranges |
 | Glassdoor | [glassdoor.com](https://www.glassdoor.com/) | Company-specific data with culture reviews |
-| SANS Salary Survey | [sans.org/salary-survey](https://www.sans.org/salary-survey/) | Annual cybersecurity-specific compensation benchmarks |
+| SANS Salary Survey | sans.org/salary-survey | Annual cybersecurity-specific compensation benchmarks |
 | Dice | [dice.com](https://www.dice.com/) | Tech and security contractor/permanent role rates |
 
 ### Approximate Security Salary Ranges (US, 2024-2025)

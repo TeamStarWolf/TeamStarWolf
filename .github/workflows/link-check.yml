@@ -7,6 +7,7 @@ on:
       - '**/*.md'
       - 'index.html'
       - '.lycheeignore'
+      - 'scripts/baselines/lychee_external.toml'
       - 'scripts/check_docsify_links.py'
       - 'scripts/repo_files.py'
       - 'scripts/baselines/docsify_links.json'
@@ -17,6 +18,7 @@ on:
       - '**/*.md'
       - 'index.html'
       - '.lycheeignore'
+      - 'scripts/baselines/lychee_external.toml'
       - 'scripts/check_docsify_links.py'
       - 'scripts/repo_files.py'
       - 'scripts/baselines/docsify_links.json'
@@ -58,8 +60,11 @@ jobs:
     # lines of the diff), so a dead, expired or hijackable outbound link cannot be merged.
     # Links that were already on a page are not re-litigated on every unrelated edit.
     # Monday schedule / manual run: the full scan of every page, reported in the run's job
-    # summary and the uploaded report; it does not fail, because the external web changes
-    # under the library and the list is worked through by hand.
+    # summary and the uploaded report. It does not fail yet: the 2026-10-13 sweep fixed or
+    # baselined every failure outside the open content PRs' pages, but those pages still carry
+    # failures; flip `fail=false` below to true once a full run is clean.
+    # Known links that only fail for an automated client (bot challenges, runner IP blocks)
+    # are baselined in scripts/baselines/lychee_external.toml, which only ever shrinks.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -100,11 +105,13 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           # http(s) only: in-repo links are the internal job's. Exclusions live in .lycheeignore
-          # (read automatically from the working directory). --root-dir lets lychee turn a
+          # (read automatically from the working directory) and, for the per-URL baseline of
+          # links that fail only for automated clients, in the --config file. --root-dir lets lychee turn a
           # root-absolute page link ("/X.md", the form docsify needs) into a file:// URI that
           # the scheme filter then skips; without it every such link is an input error.
           args: >-
             --no-progress
+            --config scripts/baselines/lychee_external.toml
             --root-dir '${{ github.workspace }}'
             --scheme https --scheme http
             --timeout 20

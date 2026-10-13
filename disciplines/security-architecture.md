@@ -10,7 +10,7 @@ Good security architecture is not just about controls; it is about making securi
 |-------|-------------|---------------|
 | Beginner | Understand the core principles: CIA triad, defense-in-depth, least privilege, separation of duties, fail secure, economy of mechanism. Learn what a security reference architecture is and why it matters | [NIST SP 800-12: Introduction to Information Security](https://csrc.nist.gov/publications/detail/sp/800-12/rev-1/final) |
 | Intermediate | Study threat modeling (STRIDE, PASTA, attack trees), network segmentation design, Zero Trust principles, and secure architecture review processes. Practice applying NIST SP 800-207 and reviewing cloud architecture diagrams | [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final) |
-| Advanced | Master enterprise security architecture frameworks (SABSA, TOGAF security extension, Zachman), architect multi-cloud landing zones with security guardrails, conduct formal architecture risk assessments, and design privileged access architectures from scratch | [SABSA Foundation Guide (Free Chapter)](https://sabsa.org/sabsa-foundation-white-paper/) |
+| Advanced | Master enterprise security architecture frameworks (SABSA, TOGAF security extension, Zachman), architect multi-cloud landing zones with security guardrails, conduct formal architecture risk assessments, and design privileged access architectures from scratch | SABSA Foundation Guide (Free Chapter) |
 
 ## Free Training
 

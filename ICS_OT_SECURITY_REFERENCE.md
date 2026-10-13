@@ -823,11 +823,11 @@ NERC CIP enforcement:
 | Resource | Description | URL |
 |---|---|---|
 | CISA ICS-CERT | Advisories, alerts, and vulnerability disclosures | https://www.cisa.gov/ics |
-| CISA CSET | Cyber Security Evaluation Tool for ICS self-assessment | https://www.cisa.gov/resources-tools/services/cyber-security-evaluation-tool |
-| Idaho National Lab | ICS security research, red team methodologies | https://inl.gov/cybersecurity |
+| CISA CSET | Cyber Security Evaluation Tool for ICS self-assessment | `https://www.cisa.gov/resources-tools/services/cyber-security-evaluation-tool` |
+| Idaho National Lab | ICS security research, red team methodologies | `https://inl.gov/cybersecurity` |
 | SANS ICS | ICS security training and certifications (GICSP, GRID) | https://www.sans.org/industrial-control-systems-security/ |
 | Dragos Year in Review | Annual ICS threat landscape report | https://www.dragos.com/year-in-review/ |
-| ICS-CERT Monitor | Historical newsletter archive | https://www.cisa.gov/resources-tools/resources/ics-cert-monitor |
+| ICS-CERT Monitor | Historical newsletter archive | `https://www.cisa.gov/resources-tools/resources/ics-cert-monitor` |
 
 ---
 

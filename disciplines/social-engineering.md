@@ -21,7 +21,7 @@ Social engineering is the practice of exploiting human psychology rather than te
 | GoPhish Documentation | https://docs.getgophish.com/ | Running phishing simulations, campaign setup, template creation |
 | MITRE ATT&CK | https://attack.mitre.org/techniques/T1566/ | Phishing technique mapping, sub-techniques, detection guidance |
 | Social-Engineer.org | https://www.social-engineer.org/ | SE frameworks, resources, and community knowledge |
-| DEF CON SE Village | https://www.sevillage.org/ | Live SE competitions and talks |
+| DEF CON SE Village | https://web.archive.org/web/20210308161518/https://www.sevillage.org/ | Live SE competitions and talks |
 | KnowBe4 Free Tools | https://www.knowbe4.com/free-phishing-security-test | Free phishing susceptibility test |
 | Cofense Phishing Defense Center | https://cofense.com/knowledge-center/ | Phishing trend reports and analysis |
 | SANS Cyber Aces | https://www.sans.org/cyberaces/ | Foundational security awareness content |
@@ -182,11 +182,11 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 
 | Certification | Issuer | Relevance |
 |---|---|---|
-| [SEPP (Social Engineering Pentest Professional)](https://www.social-engineer.com/sepp/) | Social-Engineer LLC | Dedicated social engineering penetration testing certification |
+| SEPP (Social Engineering Pentest Professional) | Social-Engineer LLC | Dedicated social engineering penetration testing certification |
 | [OSCP](https://www.offsec.com/courses/pen-200/) | Offensive Security | Practical offensive cert: social engineering supports initial access |
 | [GPEN](https://www.giac.org/certifications/penetration-tester-gpen/) | GIAC | Penetration testing including social engineering vectors |
 | [CEH (Certified Ethical Hacker)](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/) | EC-Council | Includes social engineering techniques and tools |
-| [SANS SEC467](https://www.sans.org/cyber-security-courses/social-engineering-for-penetration-testers/) | SANS / GIAC | Social Engineering for Penetration Testers: dedicated course |
+| SANS SEC467 | SANS / GIAC | Social Engineering for Penetration Testers: dedicated course |
 | [Security+](https://www.comptia.org/certifications/security) | CompTIA | Covers social engineering awareness and defensive controls |
 
 ---
@@ -198,8 +198,8 @@ Phishing simulation and awareness programs should be tracked with meaningful met
 | [Social Engineering: The Science of Human Hacking (Hadnagy)](https://www.wiley.com/en-us/Social+Engineering%3A+The+Science+of+Human+Hacking%2C+2nd+Edition-p-9781119433385) | Book | The foundational reference: psychology, techniques, and defense |
 | [The Art of Deception (Mitnick)](https://www.wiley.com/en-us/The+Art+of+Deception-p-9780764542800) | Book | Classic case studies of SE attacks from the world's most famous social engineer |
 | [Phishing Dark Waters (Hadnagy & Fincher)](https://www.wiley.com/en-us/Phishing+Dark+Waters-p-9781118958476) | Book | Deep dive on phishing psychology and enterprise defense |
-| [DEF CON SE Village](https://www.sevillage.org/) | Conference | Live SE competitions (SECTF) and practitioner talks |
-| [SANS SEC467](https://www.sans.org/cyber-security-courses/social-engineering-for-penetration-testers/) | Course | Hands-on social engineering for penetration testers |
+| [DEF CON SE Village](https://web.archive.org/web/20210308161518/https://www.sevillage.org/) | Conference | Live SE competitions (SECTF) and practitioner talks |
+| SANS SEC467 | Course | Hands-on social engineering for penetration testers |
 | [Social-Engineer.org](https://www.social-engineer.org/) | Community | Frameworks, podcast, and community from Christopher Hadnagy |
 | [The Social-Engineer Podcast](https://www.social-engineer.org/category/podcast/) | Podcast | Practitioner discussions on SE techniques and defense |
 

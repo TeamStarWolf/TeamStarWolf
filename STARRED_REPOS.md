@@ -680,7 +680,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 ### IoT Security (5)
 
 - [ReFirmLabs/binwalk](https://github.com/ReFirmLabs/binwalk)
-- [craigz28/firmwalker](https://github.com/craigz28/firmwalker)
+- [craigz28/firmwalker](https://web.archive.org/web/20260109160817/https://github.com/craigz28/firmwalker)
 - [elastic/protections-artifacts](https://github.com/elastic/protections-artifacts)
 - [fkie-cad/FACT_core](https://github.com/fkie-cad/FACT_core)
 - [secretsquirrel/the-backdoor-factory](https://github.com/secretsquirrel/the-backdoor-factory)
@@ -779,9 +779,9 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Evasion & Payloads (3)
 
-- [Nightmare-Eclipse/UnDefend](https://github.com/Nightmare-Eclipse/UnDefend)
-- [Nightmare-Eclipse/BlueHammer](https://github.com/Nightmare-Eclipse/BlueHammer)
-- [Nightmare-Eclipse/RedSun](https://github.com/Nightmare-Eclipse/RedSun)
+- [Nightmare-Eclipse/UnDefend](https://web.archive.org/web/20260413031343/https://github.com/Nightmare-Eclipse/UnDefend)
+- [Nightmare-Eclipse/BlueHammer](https://web.archive.org/web/20260406215456/https://github.com/Nightmare-Eclipse/BlueHammer)
+- [Nightmare-Eclipse/RedSun](https://web.archive.org/web/20260416031346/https://github.com/Nightmare-Eclipse/RedSun)
 
 ### Bug Bounty (15)
 
@@ -1024,7 +1024,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)
 - [Azure/counterfit](https://github.com/Azure/counterfit)
 - [MicrosoftDocs/azure-docs](https://github.com/MicrosoftDocs/azure-docs)
-- [MicrosoftDocs/defender-docs](https://github.com/MicrosoftDocs/defender-docs)
+- [MicrosoftDocs/defender-docs](https://web.archive.org/web/20260118151630/https://github.com/MicrosoftDocs/defender-docs)
 - [microsoft/CyberBattleSim](https://github.com/microsoft/CyberBattleSim)
 - [microsoft/Detours](https://github.com/microsoft/Detours)
 - [microsoft/MIEngine](https://github.com/microsoft/MIEngine)
@@ -1337,7 +1337,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [cipher387/osint_stuff_tool_collection](https://github.com/cipher387/osint_stuff_tool_collection)
 - [rmusser01/Infosec_Reference](https://github.com/rmusser01/Infosec_Reference)
 - [A-poc/RedTeam-Tools](https://github.com/A-poc/RedTeam-Tools)
-- [cloudcommunity/Free-Certifications](https://github.com/cloudcommunity/Free-Certifications)
+- [cloudcommunity/Free-Certifications](https://web.archive.org/web/20260404042403/https://github.com/cloudcommunity/Free-Certifications)
 
 ### Awesome Lists (31)
 
@@ -1425,8 +1425,8 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 ### TeamStarWolf - Your Repos (4)
 
 - [TeamStarWolf/ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi)
-- [TeamStarWolf/LimeWire](https://github.com/TeamStarWolf/LimeWire)
-- [TeamStarWolf/PokeNav](https://github.com/TeamStarWolf/PokeNav)
+- TeamStarWolf/LimeWire
+- TeamStarWolf/PokeNav
 - [TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf)
 
 ### Pokemon Disassembly (8)
@@ -1501,7 +1501,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [JusticeRage/Gepetto](https://github.com/JusticeRage/Gepetto)
 - [JusticeRage/Manalyze](https://github.com/JusticeRage/Manalyze)
 - [Karneades/SigmaFilterCheck](https://github.com/Karneades/SigmaFilterCheck)
-- [KasperskyLab/klara](https://github.com/KasperskyLab/klara)
+- [KasperskyLab/klara](https://web.archive.org/web/20260201000310/https://github.com/KasperskyLab/klara)
 - [LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird)
 - [LongSoft/UEFITool](https://github.com/LongSoft/UEFITool)
 - [MWR-CyberSec/PXEThief](https://github.com/MWR-CyberSec/PXEThief)
@@ -1626,8 +1626,8 @@ Curated reference additions: enterprise-grade detection and SIEM platforms, and 
 
 | Repository | Author/Org | Stars | Description |
 |------------|-----------|-------|-------------|
-| [CrowdStrike/MITRE-Eval-Detections](https://github.com/CrowdStrike/MITRE-Eval-Detections) | CrowdStrike | N/A | Detection mappings from CrowdStrike ATT&CK Evaluations |
-| [microsoft/MSTIC-Jupyter-Notebooks](https://github.com/microsoft/MSTIC-Jupyter-Notebooks) | Microsoft | N/A | Threat intelligence and hunting notebooks from MSTIC |
+| CrowdStrike/MITRE-Eval-Detections | CrowdStrike | N/A | Detection mappings from CrowdStrike ATT&CK Evaluations |
+| microsoft/MSTIC-Jupyter-Notebooks | Microsoft | N/A | Threat intelligence and hunting notebooks from MSTIC |
 | [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) | Microsoft | ★★★★★ | Microsoft Sentinel detection rules, playbooks, workbooks |
 | [splunk/security_content](https://github.com/splunk/security_content) | Splunk | ★★★★★ | Splunk Security Essentials detection rules and use cases |
 | [elastic/detection-rules](https://github.com/elastic/detection-rules) | Elastic | ★★★★★ | Elastic Security detection rules (EQL, KQL, YARA) |
@@ -1665,7 +1665,7 @@ Supplemental defensive and DFIR tooling not covered elsewhere.
 | [Yamato-Security/hayabusa](https://github.com/Yamato-Security/hayabusa) | Yamato-Security | ★★★★ | Sigma-based Windows event log analysis |
 | [pstirparo/mac4n6](https://github.com/pstirparo/mac4n6) | pstirparo | ★★★ | macOS forensics artifacts reference |
 | [Velocidex/velociraptor](https://github.com/Velocidex/velociraptor) | Velocidex | ★★★★★ | Enterprise DFIR and threat hunting |
-| [iped-project/iped](https://github.com/iped-project/iped) | IPED Project | ★★★★ | Brazilian federal police DFIR tool (open source) |
+| [sepinf-inc/IPED](https://github.com/sepinf-inc/IPED) | IPED Project | ★★★★ | Brazilian federal police DFIR tool (open source) |
 | [Neo23x0/Fenrir](https://github.com/Neo23x0/Fenrir) | Neo23x0 | ★★★★ | Simple bash IOC scanner for Unix systems |
 | [mandiant/capa](https://github.com/mandiant/capa) | Mandiant | ★★★★★ | Identify capabilities in executable files (malware analysis) |
 

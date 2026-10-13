@@ -37,7 +37,7 @@ The fastest legal path into offensive security is through structured lab environ
 
 ### C2 Frameworks
 - [BishopFox/sliver](https://github.com/BishopFox/sliver): Modern open-source cross-platform C2 from Bishop Fox; Go-based implants, mTLS/WireGuard/HTTP transport; widely used as a Cobalt Strike alternative for teams that cannot license commercial tooling
-- [HavocC2/Havoc](https://github.com/HavocC2/Havoc): Open-source C2 framework with a polished operator interface; Demon agent with sleep obfuscation, BOF support, and active community development; a serious capability for red teams and security researchers
+- [HavocFramework/Havoc](https://github.com/HavocFramework/Havoc): Open-source C2 framework with a polished operator interface; Demon agent with sleep obfuscation, BOF support, and active community development; a serious capability for red teams and security researchers
 - [BC-SECURITY/Empire](https://github.com/BC-SECURITY/Empire): PowerShell and Python C2 framework with stagers, listeners, and a modular post-exploitation library; actively maintained by BC Security
 - [cobbr/Covenant](https://github.com/cobbr/Covenant): .NET-based C2 targeting Windows environments; task-based interface and strong .NET post-exploitation tradecraft support
 

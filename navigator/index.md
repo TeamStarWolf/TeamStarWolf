@@ -141,7 +141,7 @@ The score counts mapped NIST 800-53 controls (framework depth). It does not meas
 - [Control to Technique edge table](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/control_to_technique.jsonl)
 - [Controls Mapping reference](/CONTROLS_MAPPING.md)
 - [Coverage gap analysis](/scores/coverage_gaps.md)
-- [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
+- [CTID Mappings Explorer](https://ctid.mitre.org/mappings/external/nist/)
 
 ---
 

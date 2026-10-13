@@ -8,7 +8,7 @@ AI/ML security practitioners must understand both how to attack ML systems (pois
 
 | Level | Description | Free Resource |
 |-------|-------------|---------------|
-| Beginner | Understand the ML lifecycle and where security concerns arise at each stage. Learn the key threat categories: data poisoning, model extraction, adversarial examples, and membership inference. No prior ML security experience required | [NIST AI Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/system/files/documents/2023/01/26/AI%20RMF%201.0.pdf) |
+| Beginner | Understand the ML lifecycle and where security concerns arise at each stage. Learn the key threat categories: data poisoning, model extraction, adversarial examples, and membership inference. No prior ML security experience required | [NIST AI Risk Management Framework (AI RMF 1.0)](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf) |
 | Intermediate | Study MITRE ATLAS (the ML-equivalent of ATT&CK), implement basic adversarial example generation with Foolbox or ART, and assess an MLOps pipeline (MLflow, DVC) for security weaknesses including model registry access controls and CI/CD integration | [MITRE ATLAS Navigator](https://atlas.mitre.org) |
 | Advanced | Design adversarial training pipelines, implement differential privacy in model training (using TensorFlow Privacy or Opacus), conduct model extraction attacks against black-box APIs, and build ML-specific threat models integrating ATLAS techniques with NIST AI RMF risk assessments | [Adversarial Robustness Toolbox (ART) Documentation](https://adversarial-robustness-toolbox.readthedocs.io) |
 

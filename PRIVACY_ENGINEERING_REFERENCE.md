@@ -183,7 +183,7 @@ DPIA Template Sections:
 7. Sign-off and review date
 8. Residual risk acceptance
 
-Free tool: CNIL DPIA open-source software, https://www.cnil.fr/en/open-source-pia-software
+Free tool: CNIL DPIA open-source software, `https://www.cnil.fr/en/open-source-pia-software`
 
 ---
 
@@ -878,7 +878,7 @@ Mandatory triggers (EDPB Guidelines 09/2022 + Art. 35(3)):
 
 Risk thresholds: 1-5 = Accept, 6-9 = Monitor, 10-15 = Treat (implement controls), 16-25 = Escalate/consult DPA.
 
-CNIL DPIA Free Software: https://www.cnil.fr/en/open-source-pia-software
+CNIL DPIA Free Software: `https://www.cnil.fr/en/open-source-pia-software`
 GitHub: https://github.com/LINCnil/pia
 
 ---

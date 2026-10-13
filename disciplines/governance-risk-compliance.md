@@ -10,8 +10,8 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 1. Read the [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework): free, authoritative, and widely adopted
 2. Work through [NIST SP 800-53 Rev 5](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) to understand what security controls actually look like at depth
-3. Practice with the [CISA Cyber Resilience Review (CRR)](https://www.cisa.gov/resources-tools/services/cyber-resilience-review) self-assessment
-4. Explore [OpenRMF](https://github.com/Cingulara/openrmf-oss) to see how control frameworks are operationalized in practice
+3. Practice with the CISA Cyber Resilience Review (CRR) self-assessment
+4. Explore OpenRMF to see how control frameworks are operationalized in practice
 5. Use the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/) to map NIST 800-53 controls to ATT&CK techniques; this connects compliance to threat reality
 
 ---
@@ -27,7 +27,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 | [ISO 27001 Toolkit Preview: IT Governance](https://www.itgovernance.co.uk/iso27001) | ISO 27001 overview and free implementation resources |
 | [SOC 2 Academy: Thoropass](https://thoropass.com/learn/) | Free SOC 2 fundamentals, trust service criteria, and audit prep |
 | [NIST Risk Management Framework (RMF) Course](https://csrc.nist.gov/projects/risk-management/rmf-overview) | Full RMF lifecycle: Categorize, Select, Implement, Assess, Authorize, Monitor |
-| [FedRAMP Training](https://www.fedramp.gov/training/) | Cloud compliance in the federal context |
+| [FedRAMP Training](https://web.archive.org/web/20250122011947/https://www.fedramp.gov/training/) | Cloud compliance in the federal context |
 
 ---
 
@@ -35,14 +35,14 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 | Tool | Purpose | Link |
 |---|---|---|
-| OpenRMF | Open-source RMF compliance automation and STIG tracking | [Cingulara/openrmf-oss](https://github.com/Cingulara/openrmf-oss) |
+| OpenRMF | Open-source RMF compliance automation and STIG tracking | Cingulara/openrmf-oss |
 | OSCAL | NIST Open Security Controls Assessment Language: machine-readable compliance data | [usnistgov/OSCAL](https://github.com/usnistgov/OSCAL) |
 | ComplianceAsCode / SCAP Security Guide | SCAP content and security baselines for automated compliance checking | [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content) |
 | CTID Mappings Explorer | Maps NIST 800-53, CSA CCM, CIS Controls -> ATT&CK techniques | [mappings-explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/) |
 | Wazuh | Open-source SIEM with built-in PCI DSS, HIPAA, GDPR, NIST compliance dashboards | [wazuh/wazuh](https://github.com/wazuh/wazuh) |
-| CIS-CAT Lite | Free CIS Benchmark assessment tool: scores system configs against CIS controls | [CIS Downloads](https://www.cisecurity.org/cybersecurity-tools/cis-cat-lite) |
+| CIS-CAT Lite | Free CIS Benchmark assessment tool: scores system configs against CIS controls | CIS Downloads |
 | MITRE ATT&CK Navigator | Map controls and coverage across ATT&CK techniques | [mitre-attack/attack-navigator](https://github.com/mitre-attack/attack-navigator) |
-| py-erm | Python enterprise risk modeling library | [ermsec/py-erm](https://github.com/ermsec/py-erm) |
+| py-erm | Python enterprise risk modeling library | ermsec/py-erm |
 | GovReady-Q | Open-source compliance-as-code platform built on OSCAL | [GovReady/govready-q](https://github.com/GovReady/govready-q) |
 
 ---
@@ -72,7 +72,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 | NIST SP 800-53 Rev 5 (current release 5.2.0, Aug 2025) | Federal and enterprise security controls catalog | [csrc.nist.gov](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) |
 | NIST RMF | Risk Management Framework: categorize through monitor | [csrc.nist.gov/projects/risk-management](https://csrc.nist.gov/projects/risk-management) |
 | ISO/IEC 27001:2022 | ISMS certification standard: global | [iso.org/standard/27001](https://www.iso.org/standard/27001) |
-| SOC 2 (AICPA) | Trust Service Criteria for SaaS and cloud | [aicpa.org](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/sorhome.html) |
+| SOC 2 (AICPA) | Trust Service Criteria for SaaS and cloud | [aicpa.org](https://web.archive.org/web/20230129192448/https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/sorhome.html/) |
 | CIS Controls v8 | Prioritized security controls mapped to common attack patterns | [cisecurity.org](https://www.cisecurity.org/controls) |
 | COBIT 2019 | IT governance and management framework | [isaca.org/resources/cobit](https://www.isaca.org/resources/cobit) |
 | PCI DSS v4.0 | Payment card data security requirements | [pcisecuritystandards.org](https://www.pcisecuritystandards.org) |
@@ -113,7 +113,7 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 | Channel | Focus |
 |---|---|
-| [ISACA](https://www.youtube.com/@ISACAorg) | GRC, audit, risk, and cybersecurity governance content from the association |
+| ISACA | GRC, audit, risk, and cybersecurity governance content from the association |
 | [NIST](https://www.youtube.com/user/USNISTgov) | Official NIST framework explanations, RMF, OSCAL, and CSF updates |
 | [Gerald Auger: Simply Cyber](https://www.youtube.com/@SimplyCyber) | Practitioner-level GRC, compliance, and security career content |
 | [Cybersecurity Guide](https://www.youtube.com/@CybersecurityGuide) | Security management, compliance, and career guidance |
@@ -136,11 +136,11 @@ GRC is framework-heavy but fundamentally about communication and process. Start 
 
 - [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
 - [NIST SP 800-53 Rev 5: Full Control Catalog](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
-- [CTID Mappings Explorer: NIST 800-53 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/)
+- [CTID Mappings Explorer: NIST 800-53 -> ATT&CK](https://ctid.mitre.org/mappings/external/nist/)
 - [CIS Controls v8](https://www.cisecurity.org/controls/cis-controls-list)
 - [FAIR Institute: Quantitative Risk Analysis](https://www.fairinstitute.org)
 - [OSCAL: Machine-Readable Compliance Data](https://pages.nist.gov/OSCAL/)
-- [FedRAMP Authorization Process](https://www.fedramp.gov/program-basics/)
+- [FedRAMP Authorization Process](https://web.archive.org/web/20250118064134/https://www.fedramp.gov/program-basics/)
 - [TeamStarWolf Controls Mapping](/CONTROLS_MAPPING.md): Vendor -> NIST 800-53 -> ATT&CK cross-reference
 - [TeamStarWolf Security Pipeline](/SECURITY_PIPELINE.md): GRC in the enterprise security lifecycle
 

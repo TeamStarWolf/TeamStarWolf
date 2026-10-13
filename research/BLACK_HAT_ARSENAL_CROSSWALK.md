@@ -2,7 +2,7 @@
 
 
 
-This page shows how the [official Black Hat Arsenal tools repository](https://github.com/toolswatch/blackhat-arsenal-tools) can strengthen the TeamStarWolf educational library.
+This page shows how the [official Black Hat Arsenal tools repository](https://web.archive.org/web/20260103233545/https://github.com/toolswatch/blackhat-arsenal-tools) can strengthen the TeamStarWolf educational library.
 
 
 
@@ -14,7 +14,7 @@ The goal is not to mirror Arsenal entry-for-entry. The goal is to turn a confere
 
 
 
-- Source repo: [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools)
+- Source repo: [toolswatch/blackhat-arsenal-tools](https://web.archive.org/web/20260103233545/https://github.com/toolswatch/blackhat-arsenal-tools)
 
 - Generated dataset: [data/blackhat_arsenal_tools.csv](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/research/data/blackhat_arsenal_tools.csv)
 
@@ -302,9 +302,9 @@ Use this table to find Arsenal tools by discipline and ATT&CK technique coverage
 
 
 
-- [Black Hat Arsenal](https://www.blackhat.com/arsenal.html): Official Arsenal archive
+- [Black Hat Arsenal](https://blackhat.com/html/arsenal.html): Official Arsenal archive
 
-- [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools): Community-maintained Arsenal tool list
+- [toolswatch/blackhat-arsenal-tools](https://web.archive.org/web/20260103233545/https://github.com/toolswatch/blackhat-arsenal-tools): Community-maintained Arsenal tool list
 
 - [MITRE ATT&CK](https://attack.mitre.org/): Technique references
 ---
@@ -419,7 +419,7 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 |---|---|---|---|
 | Velociraptor | Velocidex | Digital forensics and incident response platform with VQL query language for endpoint telemetry | github.com/Velocidex/velociraptor |
 | Volatility 3 | volatilityfoundation | Memory forensics framework for Windows, Linux, and macOS; supports plugin-based analysis | github.com/volatilityfoundation/volatility3 |
-| KAPE | EricZimmerman | Triage artifact collection and processing tool; collects Windows forensic artifacts and runs analysis modules | https://www.kroll.com/en/services/cyber-risk/incidents-intrusions-breaches/kroll-artifact-parser-extractor-kape |
+| KAPE | EricZimmerman | Triage artifact collection and processing tool; collects Windows forensic artifacts and runs analysis modules | https://www.kroll.com/en/services/cyber/reactive-services/kroll-artifact-parser-and-extractor-kape |
 | Chainsaw | WithSecureLabs | Fast Windows Event Log hunting and threat detection using Sigma rules and built-in patterns | github.com/WithSecureLabs/chainsaw |
 | Hayabusa | Yamato-Security | Windows Event Log fast forensics and threat hunting tool with 4000+ Sigma-based detection rules | github.com/Yamato-Security/hayabusa |
 

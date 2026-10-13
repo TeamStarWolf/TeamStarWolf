@@ -113,7 +113,7 @@ What was reported to authorities. Authoritative floors, systematic undercounts.
 | Report | Publisher | Focus | Typically lands | Access |
 |---|---|---|---|---|
 | [NCSC Annual Review](https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025) | UK NCSC (GCHQ) | UK national picture | October-December | Free |
-| [ASD Annual Cyber Threat Report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2024-2025) | Australian Signals Directorate (ACSC) | Australia; strong SMB guidance | October-November (AU financial year) | Free |
+| [ASD Annual Cyber Threat Report](https://www.cyber.gov.au/publication/annual-cyber-threat-report-2024-2025) | Australian Signals Directorate (ACSC) | Australia; strong SMB guidance | October-November (AU financial year) | Free |
 | [Global Cybersecurity Outlook](https://www.weforum.org/publications/global-cybersecurity-outlook-2026/) | World Economic Forum, with Accenture | C-suite risk perception, 90+ countries | Mid-January, before Davos | Free |
 | [Cloud Threat Horizons Report](https://cloud.google.com/security/report/resources/cloud-threat-horizons-report-h1-2026) | Google Cloud Office of the CISO | Cloud-specific threats | Twice yearly (H1/H2 editions) | Free |
 | [Health Sector Annual Threat Report](https://health-isac.org/annual-threat-report-health-sector-2026/) | Health-ISAC | Healthcare sector | January-February (members first) | Free |

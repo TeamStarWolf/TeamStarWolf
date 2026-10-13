@@ -781,7 +781,7 @@ Why it matters: Malware often uses consistent TLS libraries/configurations even 
 | c12f54a3f91dc7bafd92cb59fe009a35 | QakBot (Qbot) | Banking trojan family |
 
 Lookup databases:
-- [https://ja3er.com/search/<hash>](https://ja3er.com/search/)
+- `https://ja3er.com/search/<hash>`
 - [https://sslbl.abuse.ch/ja3-fingerprints/](https://sslbl.abuse.ch/ja3-fingerprints/)
 
 ```bash

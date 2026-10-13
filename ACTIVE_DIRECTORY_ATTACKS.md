@@ -1298,7 +1298,7 @@ Get-ADObject -SearchBase "CN=Shadow Principal Configuration,CN=Services,CN=Confi
 - [SpecterOps: Certified Pre-Owned (ADCS)](https://specterops.io/wp-content/uploads/sites/3/2022/06/Certified_Pre-Owned.pdf)
 - [Microsoft: Protecting Privileged Accounts](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)
 - [BloodHound Documentation](https://bloodhound.readthedocs.io/)
-- [Harmj0y: The Trustpocalypse (Domain Trusts)](https://www.harmj0y.net/blog/redteaming/the-trustpocalypse/)
+- [Harmj0y: The Trustpocalypse (Domain Trusts)](https://web.archive.org/web/20230216005640/http://www.harmj0y.net/blog/redteaming/the-trustpocalypse/)
 - [gentilkiwi: Mimikatz Documentation](https://github.com/gentilkiwi/mimikatz/wiki)
 - [Impacket Examples](https://github.com/fortra/impacket/tree/master/examples)
 - [adsecurity.org: Sean Metcalf's AD Security Research](https://adsecurity.org/)

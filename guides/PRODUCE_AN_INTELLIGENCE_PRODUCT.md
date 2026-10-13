@@ -60,7 +60,7 @@ Watch out: Collection without a plan becomes feed-hoarding (thousands of indicat
 Raw data is not intelligence. Normalize it, strip the noise, enrich it, and, critically, grade it, so the analysis in Step 4 weights each input by how much it deserves.
 
 1. Normalize and deduplicate. Parse indicators into consistent types, merge duplicates, and run candidate IOCs against a known-good list: [MISP warninglists](https://github.com/MISP/misp-warninglists) flags CDNs, cloud ranges, and popular sites so you do not "discover" that `8.8.8.8` is in a feed.
-2. Enrich each indicator once, from many sources. Aggregate enrichment through a tool like [IntelOwl](https://github.com/intelowl/IntelOwl) or [Cortex](https://github.com/TheHive-Project/Cortex) rather than pivoting site by site: reputation (VirusTotal), passive DNS, WHOIS age, and sandbox behavior in one pass. Keep hostile URLs and hashes defanged in notes (`hxxps://bad[.]example`).
+2. Enrich each indicator once, from many sources. Aggregate enrichment through a tool like [IntelOwl](https://github.com/intelowlproject/IntelOwl) or [Cortex](https://github.com/TheHive-Project/Cortex) rather than pivoting site by site: reputation (VirusTotal), passive DNS, WHOIS age, and sandbox behavior in one pass. Keep hostile URLs and hashes defanged in notes (`hxxps://bad[.]example`).
 3. Grade source reliability and information credibility with the Admiralty (NATO AJP-2.1) code, a two-character grade on every source and claim ([SANS: the Admiralty System for CTI](https://www.sans.org/blog/enhance-your-cyber-threat-intelligence-with-the-admiralty-system)):
 
    | Source reliability | | Information credibility | |

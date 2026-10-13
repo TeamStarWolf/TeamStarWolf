@@ -31,9 +31,9 @@ Search for speaker repositories by name on GitHub, or check the conference Arsen
 |---|---|---|
 | Archives (All Years) | [blackhat.com/html/archives.html](https://www.blackhat.com/html/archives.html) | Complete slides and whitepaper archive from Black Hat USA, Europe, and Asia |
 | YouTube Channel | [youtube.com/@BlackHatOfficialYT](https://www.youtube.com/@BlackHatOfficialYT) | Recorded Briefings talks; most sessions available within weeks of the conference |
-| Arsenal Tool Demos | [blackhat.com/us-24/arsenal/](https://www.blackhat.com/us-24/arsenal/) | Tool demonstration schedule; presenters typically publish to GitHub around the event |
-| BH USA 2024 Schedule | [blackhat.com/us-24/briefings/schedule/](https://www.blackhat.com/us-24/briefings/schedule/) | Current year program with speaker bios and abstract links |
-| Community Arsenal Index | [github.com/KINGSABRI/blackhat-arsenal-tools](https://github.com/KINGSABRI/blackhat-arsenal-tools) | Community-curated archive of Black Hat Arsenal tool submissions with GitHub links |
+| Arsenal Tool Demos | blackhat.com/us-24/arsenal/ | Tool demonstration schedule; presenters typically publish to GitHub around the event |
+| BH USA 2024 Schedule | [blackhat.com/us-24/briefings/schedule/](https://blackhat.com/archive/usa/2024/briefings/schedule/) | Current year program with speaker bios and abstract links |
+| Community Arsenal Index | github.com/KINGSABRI/blackhat-arsenal-tools | Community-curated archive of Black Hat Arsenal tool submissions with GitHub links |
 
 Finding Black Hat repositories: Most presenters link their GitHub from the speaker bio or abstract page. For Arsenal tools, search GitHub for the tool name combined with "blackhat" or the year of presentation.
 
@@ -48,7 +48,7 @@ Finding Black Hat repositories: Most presenters link their GitHub from the speak
 | DEF CON Media Server | [media.defcon.org](https://media.defcon.org/) | Complete free video and slide archive dating back to DEF CON 1; organized by year |
 | YouTube Channel | [youtube.com/@DEFCONConference](https://www.youtube.com/@DEFCONConference) | Recorded talks from recent conferences |
 | Talk Archives | [defcon.org/html/links/dc-archives.html](https://defcon.org/html/links/dc-archives.html) | Official DEF CON archives page linking all prior years |
-| Village Talks | [villageatdefcon.org](https://www.villageatdefcon.org/) | Each village (Car Hacking, Hardware, RF, AI, etc.) records and publishes its own talks separately |
+| Village Talks | villageatdefcon.org | Each village (Car Hacking, Hardware, RF, AI, etc.) records and publishes its own talks separately |
 
 DEF CON numbering: DEF CON uses numeric designations (DEF CON 32 = 2024, DEF CON 31 = 2023). The first DEF CON was held in 1993 (DC 1).
 
@@ -91,7 +91,7 @@ CCC naming convention: Annual Congress events use the format `[number]C3`; 38C3 
 |---|---|---|
 | All Proceedings (Open Access) | [usenix.org/conferences/byname/108](https://www.usenix.org/conferences/byname/108) | All USENIX Security papers freely available as PDF |
 | USENIX Security 2024 | [usenix.org/conference/usenixsecurity24](https://www.usenix.org/conference/usenixsecurity24) | 2024 papers, slides, and talk recordings |
-| USENIX YouTube | [youtube.com/@USENIXAssociation](https://www.youtube.com/@USENIXAssociation) | Recorded talks from USENIX Security and USENIX Enigma |
+| USENIX YouTube | youtube.com/@USENIXAssociation | Recorded talks from USENIX Security and USENIX Enigma |
 
 ---
 
@@ -118,7 +118,7 @@ CCC naming convention: Annual Congress events use the format `[number]C3`; 38C3 
 
 | Resource | URL | Notes |
 |---|---|---|
-| NDSS Proceedings (Free) | [ndss-symposium.org](https://www.ndss-symposium.org/ndss-program/) | All NDSS papers available free as PDF |
+| NDSS Proceedings (Free) | ndss-symposium.org | All NDSS papers available free as PDF |
 
 ---
 
@@ -128,7 +128,7 @@ CCC naming convention: Annual Congress events use the format `[number]C3`; 38C3 
 
 | Resource | URL | Notes |
 |---|---|---|
-| RSA YouTube | [youtube.com/@RSAConference](https://www.youtube.com/@RSAConference) | Recorded sessions from RSA USA and Europe |
+| RSA YouTube | [youtube.com/@RSAConference](https://web.archive.org/web/20260128164733/https://www.youtube.com/@RSAConference) | Recorded sessions from RSA USA and Europe |
 | RSA Library | [rsaconference.com/library](https://www.rsaconference.com/library) | Slides and papers from RSA sessions organized by topic |
 
 ---
@@ -139,7 +139,7 @@ CCC naming convention: Annual Congress events use the format `[number]C3`; 38C3 
 
 | Resource | URL | Notes |
 |---|---|---|
-| ShmooCon Recordings | [shmoocon.org/watch/](https://www.shmoocon.org/watch/) | Recorded talks from all prior ShmooCon events |
+| ShmooCon Recordings | shmoocon.org/watch/ | Recorded talks from all prior ShmooCon events |
 
 ---
 
@@ -223,8 +223,8 @@ Most presenters release code, tools, or datasets alongside their research. Relia
 |---|---|---|
 | Awesome Security Talks | [github.com/PaulSec/awesome-sec-talks](https://github.com/PaulSec/awesome-sec-talks) | Community-maintained list of notable security talks with links |
 | Iron Geek Conference Archive | [irongeek.com](https://www.irongeek.com/) | One of the most comprehensive archives of smaller conferences and BSides events |
-| DEF CON Speakers Archive | [defcon.org/html/links/dc-speaker.html](https://defcon.org/html/links/dc-speaker.html) | All DEF CON speakers indexed by year |
-| Black Hat Speaker Archive | [blackhat.com/html/bh-us-archives/](https://www.blackhat.com/html/bh-us-archives/) | All Black Hat USA speakers and abstracts |
+| DEF CON Speakers Archive | defcon.org/html/links/dc-speaker.html | All DEF CON speakers indexed by year |
+| Black Hat Speaker Archive | blackhat.com/html/bh-us-archives/ | All Black Hat USA speakers and abstracts |
 
 ---
 

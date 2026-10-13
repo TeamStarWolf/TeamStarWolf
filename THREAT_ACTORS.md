@@ -117,7 +117,7 @@ Use filters for country attribution, associated software, and technique mapping.
 | [Maltego](https://www.maltego.com/) | COM | Relationship graphing, attribution pivot |
 | [Mandiant Advantage](https://www.mandiant.com/advantage) | COM | Premium threat intelligence feeds |
 | [Recorded Future](https://www.recordedfuture.com/) | COM | Real-time threat intelligence, actor tracking |
-| [Crowdstrike Intelligence](https://www.crowdstrike.com/adversary-intelligence/) | COM | Adversary intelligence, eCrime/nation-state |
+| Crowdstrike Intelligence | COM | Adversary intelligence, eCrime/nation-state |
 | [VirusTotal Intelligence](https://www.virustotal.com/) | COM/Free | File/URL analysis, actor infrastructure tracking |
 | [AlienVault OTX](https://otx.alienvault.com/) | Free | Community threat intelligence, IOC feeds |
 

@@ -193,10 +193,10 @@ Understanding how cryptographic systems are attacked is essential for both build
 | [CISSP](https://www.isc2.org/Certifications/CISSP) | ISC² | Domain 3: Security Architecture & Engineering: deep cryptography coverage |
 | [CCSP](https://www.isc2.org/Certifications/CCSP) | ISC² | Cloud security including cloud key management, HSMs, certificate management |
 | [SSCP](https://www.isc2.org/Certifications/SSCP) | ISC² | Systems Security Certified Practitioner: cryptography fundamentals |
-| [GCED](https://www.giac.org/certifications/enterprise-defense-gced/) | GIAC | Enterprise defense including PKI operations |
+| GCED | GIAC | Enterprise defense including PKI operations |
 | [CEH](https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/) | EC-Council | Includes cryptanalysis and cryptographic attack techniques |
 | [CompTIA Security+](https://www.comptia.org/certifications/security) | CompTIA | Broad security including cryptography fundamentals |
-| [Certified PKI Professional (CPP)](https://pkiinstitute.com/) | PKI Institute | Dedicated PKI practitioner certification |
+| Certified PKI Professional (CPP) | PKI Institute | Dedicated PKI practitioner certification |
 
 ---
 

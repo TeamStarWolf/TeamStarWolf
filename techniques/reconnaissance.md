@@ -635,6 +635,7 @@ Adversaries may query publicly accessible artificial intelligence (AI) services,
 
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detection of Query Public AI Services  
 Used by 2 threat groups: [G0094 Kimsuky](https://attack.mitre.org/groups/G0094), [G1044 APT42](https://attack.mitre.org/groups/G1044)  
 
 ---

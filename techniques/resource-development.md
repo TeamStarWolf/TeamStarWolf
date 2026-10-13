@@ -674,6 +674,7 @@ Adversaries may create or generate content to support targeting and operations. 
 
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detection of Generate Content  
 
 ---
 
@@ -686,6 +687,7 @@ Adversaries may create or tailor written materials to support targeting and mali
 
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detection of Written Content  
 Used by 3 threat groups: [G0099 APT-C-36](https://attack.mitre.org/groups/G0099), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052), [G1056 TeamPCP](https://attack.mitre.org/groups/G1056)  
 Implemented by 1 software: [S9044 Kali365](https://attack.mitre.org/software/S9044)  
 
@@ -700,6 +702,7 @@ Adversaries may create or manipulate audio, image, and video content to support 
 
 ATT&CK mitigations (1): [M1056 Pre-compromise](../ATTACK_MITIGATIONS_REFERENCE.md#m1056)  
 NIST 800-53 R5 controls: none (*no CTID mapping under this ID or its predecessors; rely on detection/design controls*)  
+ATT&CK detection strategy: Detection of Audio-Visual Content  
 Used by 2 threat groups: [G0099 APT-C-36](https://attack.mitre.org/groups/G0099), [G1052 Contagious Interview](https://attack.mitre.org/groups/G1052)  
 
 ---

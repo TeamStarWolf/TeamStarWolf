@@ -339,6 +339,17 @@ class DB:
         # removed — those entities are official MITRE ATT&CK v19.2, verified live.)
         cp_p = DATA / "attack/campaign_profiles.jsonl"
         self.camp_prof = {r["campaign_id"]: r for r in (load_jsonl(cp_p) if cp_p.exists() else [])}
+        # Live per-technique edges. Technique pages print counts and lists from these
+        # edge tables, not from the denormalised *_count / mitigations /
+        # detection_strategies fields on technique_profiles (review gen-6/gen-7/gen-8:
+        # those fields were a pre-v19 snapshot, so headers contradicted the lists).
+        self.camps_by_t = defaultdict(list)
+        for cid in sorted(self.camp_prof):
+            for t in self.camp_prof[cid].get("techniques") or []:
+                self.camps_by_t[t].append(cid)
+        self.strats_by_t = defaultdict(list)
+        for r in sorted(load_jsonl(DATA / "attack/detection_strategies.jsonl"), key=lambda r: r["strategy_id"]):
+            self.strats_by_t[r["technique_id"]].append(r["name"])
 
         self.nist_name = {}
         for r in load_jsonl(DATA / "control_to_technique.jsonl"):
@@ -367,8 +378,10 @@ class DB:
         # --- mitigations ---
         self.mit = {r["mitigation_id"]: r for r in load_jsonl(DATA / "attack/mitigations.jsonl")}
         self.mit_techs = defaultdict(list)
+        self.mits_by_t = defaultdict(list)
         for r in load_jsonl(DATA / "attack/mitigation_to_technique.jsonl"):
             self.mit_techs[r["mitigation_id"]].append((r["technique_id"], r["technique_name"]))
+            self.mits_by_t[r["technique_id"]].append({"id": r["mitigation_id"], "name": r["mitigation_name"]})
 
         # --- CAPEC + CWE ---
         self.capec = {r["capec_id"]: r for r in load_jsonl(DATA / "weaknesses/capec.jsonl")}
@@ -470,8 +483,8 @@ def render_technique(db, tid):
     if tid in db.corpus:
         out.append(db.corpus[tid] + "\n")
 
-    # Mitigations
-    migs = p.get("mitigations") or []
+    # Mitigations (live edges: mitigation_to_technique.jsonl)
+    migs = sorted(db.mits_by_t.get(tid) or [], key=lambda m: m["id"])
     if migs:
         out.append("## Mitigations (" + str(len(migs)) + ")\n")
         rows = []
@@ -504,7 +517,7 @@ def render_technique(db, tid):
         out.append("\n".join(rows) + "\n")
 
     # Detection (enriched: strategies + analytics with log sources)
-    strategies = p.get("detection_strategies") or []
+    strategies = db.strats_by_t.get(tid) or []
     analytics = db.analytics.get(tid) or []
     if strategies or analytics:
         out.append("## Detection\n")
@@ -578,9 +591,9 @@ def render_technique(db, tid):
     # Adversary usage (named, replaces bare counts)
     groups = db.groups_by_t.get(tid) or []
     sw = db.sw_by_t.get(tid) or []
-    gc = p.get("group_count", len(groups))
-    sc = p.get("software_count", len(sw))
-    cc = p.get("campaign_count", 0)
+    gc = len(groups)
+    sc = len(sw)
+    cc = len(db.camps_by_t.get(tid) or [])
     if groups or sw or cc:
         out.append("## Adversary usage\n")
         if groups:
@@ -675,7 +688,7 @@ def link_tech(db, tid, name=None):
 def render_mitigation(db, mid, existing):
     m = db.mit.get(mid, {})
     out = ["# " + mid + " " + DASH + " " + m.get("name", "") + "\n", '<a id="' + mid.lower() + '"></a>\n']
-    tc = m.get("technique_count", len(db.mit_techs.get(mid, [])))
+    tc = len(db.mit_techs.get(mid, []))  # live edge count, never the stored snapshot
     out.append("**ATT&CK:** [" + mid + "](" + str(m.get("url")) + ") \N{MIDDLE DOT} addresses **" + str(tc) + "** techniques\n")
     if m.get("description"):
         out.append(m["description"].strip() + "\n")

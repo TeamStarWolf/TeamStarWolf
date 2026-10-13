@@ -120,3 +120,5 @@ Tools are listed for reference, not endorsed. Licenses are summarized; read each
 
 - Security of AI systems: [AI Security Reference](/AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md), [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md), [MITRE ATLAS Reference](/ATLAS_REFERENCE.md)
 - How these tools are attacked in practice: [AI Threats 2026 case study](/case-studies/AI_THREATS_2026.md)
+- Designing the systems these tools run in: [AI / ML System Architecture](/AI_ARCHITECTURE_REFERENCE.md)
+- Enterprise security platforms (not AI tools): [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md), one manual page per tool

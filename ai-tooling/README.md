@@ -35,3 +35,5 @@ AI tooling changes monthly: projects are renamed, archived and acquired. Confirm
 - [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md): model supply chain and serving
 - [MITRE ATLAS Reference](/ATLAS_REFERENCE.md) and [Agentic AI Swarm Attacks](/AGENTIC_AI_ATTACK_REFERENCE.md)
 - [Deepfake & Synthetic-Media Defense](/DEEPFAKE_DEFENSE_REFERENCE.md)
+- [AI / ML System Architecture](/AI_ARCHITECTURE_REFERENCE.md): data pipelines, training and inference planes, model serving and RAG design
+- [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md): manuals and repositories for 21 enterprise security platforms, one page per tool

@@ -455,23 +455,38 @@ class DB:
         T1685, T1574.002 -> T1574.001, ...) is also shown on the live successor, following
         data/attack/superseded_by.jsonl chains - the same rule build_control_rollup.py and
         backfill_capec_edges.py apply to NIST and CAPEC. The revoked page keeps its own
-        edges; an item already on the successor is not repeated."""
+        edges; an item already on the successor is not repeated.
+
+        Provenance is kept per framework in self.{d3,car,engage}_via_revoked as
+        successor -> {revoked predecessor: sorted keys that predecessor maps}, the same
+        rule and shape as AttackIds.carry_forward() and the nist_800_53_controls_via_revoked
+        / capec_via_revoked profile fields, so the technique page prints the same
+        "Carried forward from revoked ..." line under the D3FEND, CAR and Engage sections.
+        (The successor rows #48 copied into technique_to_d3fend.jsonl and
+        technique_to_car.jsonl are those predecessors' mappings, so they are credited to
+        the predecessor too.) Only live successors appear in predecessors(), so a revoked
+        page never receives carried edges or the line."""
         def merge(dst, src, key):
             have = {x.get(key) for x in dst}
             for x in src:
                 if x.get(key) not in have:
                     dst.append(x)
                     have.add(x.get(key))
+            return sorted({x.get(key) for x in src})
 
+        self.d3_via_revoked, self.car_via_revoked, self.engage_via_revoked = {}, {}, {}
         preds = self.ids.predecessors("enterprise")
         for succ in sorted(preds):
             for old in preds[succ]:
                 if self.d3.get(old):
-                    merge(self.d3[succ], self.d3[old], "d3fend_technique")
+                    self.d3_via_revoked.setdefault(succ, {})[old] = merge(
+                        self.d3[succ], self.d3[old], "d3fend_technique")
                 if self.car.get(old):
-                    merge(self.car.setdefault(succ, []), self.car[old], "car_id")
+                    self.car_via_revoked.setdefault(succ, {})[old] = merge(
+                        self.car.setdefault(succ, []), self.car[old], "car_id")
                 if self.engage.get(old):
-                    merge(self.engage.setdefault(succ, []), self.engage[old], "id")
+                    self.engage_via_revoked.setdefault(succ, {})[old] = merge(
+                        self.engage.setdefault(succ, []), self.engage[old], "id")
 
 
 # ----------------------------------------------------------------------------- technique
@@ -561,6 +576,9 @@ def render_technique(db, tid):
             rows.append(drow)
         out.append("## D3FEND countermeasures (" + str(len(rows)) + ")\n")
         out.append("\n".join(rows) + "\n")
+        via = db.d3_via_revoked.get(tid) or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "D3FEND"))
 
     # Detection (enriched: strategies + analytics with log sources)
     strategies = db.strats_by_t.get(tid) or []
@@ -612,6 +630,9 @@ def render_technique(db, tid):
             "- [" + c["car_id"] + " " + DASH + " " + c["title"] + "](" + c["url"] + ")" +
             ((" " + DASH + " coverage: " + c["coverage"]) if c.get("coverage") else "")
             for c in car) + "\n")
+        via = db.car_via_revoked.get(tid) or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "MITRE CAR"))
 
     # MITRE Engage (adversary engagement / deception opportunities)
     eng = db.engage.get(tid) or []
@@ -625,6 +646,9 @@ def render_technique(db, tid):
                 line += " " + DASH + " " + d
             rows.append(line)
         out.append("\n".join(rows) + "\n")
+        via = db.engage_via_revoked.get(tid) or {}
+        if via:
+            out.append(_via_revoked_note(db, via, "MITRE Engage"))
 
     # F3 (CTID Fight Fraud Framework) — this technique is also modeled as a fraud technique
     if tid in db.f3_of_attack:

@@ -33,6 +33,13 @@ jobs:
       - name: Validate JSONL files
         run: python scripts/validate_jsonl.py
 
+      # Rebuilds the ATT&CK core (Enterprise, ICS, Mobile) and superseded_by.jsonl in
+      # memory from the commit-pinned v19.2 STIX bundles and fails on any drift. It fetches
+      # the three public bundles (about 64 MB) from raw.githubusercontent.com at the pinned
+      # commit and aborts unless each one matches its SHA-256 in build_attack_core.py.
+      - name: ATT&CK core matches the pinned v19.2 STIX (Enterprise, ICS, Mobile)
+        run: python scripts/build_attack_core.py --check
+
       - name: Check CAPEC edge integrity (profiles vs capec.jsonl)
         run: python scripts/backfill_capec_edges.py --check
 

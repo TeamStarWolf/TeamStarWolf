@@ -2,7 +2,7 @@
 
 
 
-This page shows how the [official Black Hat Arsenal tools repository](https://github.com/toolswatch/blackhat-arsenal-tools) can strengthen the TeamStarWolf educational library.
+This page shows how the [official Black Hat Arsenal tools repository](https://web.archive.org/web/20260103233545/https://github.com/toolswatch/blackhat-arsenal-tools) can strengthen the TeamStarWolf educational library.
 
 
 
@@ -14,7 +14,7 @@ The goal is not to mirror Arsenal entry-for-entry. The goal is to turn a confere
 
 
 
-- Source repo: [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools)
+- Source repo: [toolswatch/blackhat-arsenal-tools](https://web.archive.org/web/20260103233545/https://github.com/toolswatch/blackhat-arsenal-tools)
 
 - Generated dataset: [data/blackhat_arsenal_tools.csv](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/research/data/blackhat_arsenal_tools.csv)
 
@@ -302,9 +302,9 @@ Use this table to find Arsenal tools by discipline and ATT&CK technique coverage
 
 
 
-- [Black Hat Arsenal](https://www.blackhat.com/arsenal.html): Official Arsenal archive
+- [Black Hat Arsenal](https://blackhat.com/html/arsenal.html): Official Arsenal archive
 
-- [toolswatch/blackhat-arsenal-tools](https://github.com/toolswatch/blackhat-arsenal-tools): Community-maintained Arsenal tool list
+- [toolswatch/blackhat-arsenal-tools](https://web.archive.org/web/20260103233545/https://github.com/toolswatch/blackhat-arsenal-tools): Community-maintained Arsenal tool list
 
 - [MITRE ATT&CK](https://attack.mitre.org/): Technique references
 ---

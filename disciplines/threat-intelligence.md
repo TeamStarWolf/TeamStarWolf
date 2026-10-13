@@ -14,7 +14,7 @@ Anchor on the intelligence cycle before anything else; it provides the framework
 |---|---|---|
 | Foundation | Intelligence cycle, indicator types (IOC/TTP), STIX/TAXII basics, MITRE ATT&CK threat group profiles, source evaluation | [MITRE ATT&CK website](https://attack.mitre.org), [MISP community docs](https://www.misp-project.org/documentation/), [Recorded Future University (free)](https://university.recordedfuture.com), [SANS CTI Summit talks (YouTube)](https://www.youtube.com/@SansInstitute) |
 | Practitioner | Platform operation (MISP/OpenCTI), threat actor profiling, campaign tracking, pivot techniques, feed curation and deduplication | [OpenCTI deployment labs](https://docs.opencti.io), [MISP Galaxy documentation](https://github.com/MISP/misp-galaxy), [Hatching Triage community](https://tria.ge), [CISA advisories](https://www.cisa.gov/news-events/cybersecurity-advisories) |
-| Advanced | Intelligence program design, adversary emulation alignment, deception operations, attribution methodology, fusion center integration | [SANS FOR578 previews (YouTube)](https://www.youtube.com/@SansInstitute), [CrowdStrike annual Global Threat Report](https://www.crowdstrike.com/global-threat-report/), [Mandiant M-Trends](https://www.mandiant.com/m-trends), [CTID publications](https://ctid.mitre-engenuity.org/) |
+| Advanced | Intelligence program design, adversary emulation alignment, deception operations, attribution methodology, fusion center integration | [SANS FOR578 previews (YouTube)](https://www.youtube.com/@SansInstitute), [CrowdStrike annual Global Threat Report](https://www.crowdstrike.com/global-threat-report/), [Mandiant M-Trends](https://www.mandiant.com/m-trends), [CTID publications](https://ctid.mitre.org/) |
 
 ---
 
@@ -28,8 +28,8 @@ Anchor on the intelligence cycle before anything else; it provides the framework
 - [Mandiant Threat Intelligence Free Resources](https://www.mandiant.com/resources): Mandiant's public threat actor profiles, APT group documentation, and campaign summaries represent some of the most accurate adversary research published openly
 - [Hatching Triage Community](https://tria.ge): Free malware sandbox with community intelligence sharing; excellent for understanding malware families and their C2 infrastructure through behavioral analysis
 - [BHIS Webcasts on Threat Intelligence](https://www.blackhillsinfosec.com/blog/webcasts/): Free webcasts covering threat hunting, intelligence analysis, and CTI program development
-- [FIRST.org Resources](https://www.first.org/resources/): Free guidance on TLP protocol, CVSS scoring, PSIRT operations, and CTI best practices from the global incident response and security community
-- [CTI League Resources](https://cti-league.com/resources/): Volunteer-driven community sharing real threat intelligence during crises; good model for understanding how peer CTI sharing networks operate
+- FIRST.org Resources: Free guidance on TLP protocol, CVSS scoring, PSIRT operations, and CTI best practices from the global incident response and security community
+- CTI League Resources: Volunteer-driven community sharing real threat intelligence during crises; good model for understanding how peer CTI sharing networks operate
 
 ---
 
@@ -46,7 +46,7 @@ Anchor on the intelligence cycle before anything else; it provides the framework
 - [MISP/misp-galaxy](https://github.com/MISP/misp-galaxy): Structured threat actor clusters, malware families, ransomware groups, and threat taxonomies in MISP Galaxy format; the most comprehensive open threat actor library available
 - [pan-unit42/iocs](https://github.com/pan-unit42/iocs): Palo Alto Unit 42 public IOC releases from active threat research; high-quality vetted indicators from one of the industry's most respected research teams
 - [stamparm/ipsum](https://github.com/stamparm/ipsum): Daily updated IP threat intelligence aggregating blacklists from dozens of public sources; lightweight and useful as a free enrichment feed
-- [intelowl/IntelOwl](https://github.com/intelowl/IntelOwl): Aggregates dozens of threat intelligence analyzers into a single API; integrates with VirusTotal, MISP, OTX, Shodan, and 100+ sources for automated IOC enrichment at scale
+- [intelowlproject/IntelOwl](https://github.com/intelowlproject/IntelOwl): Aggregates dozens of threat intelligence analyzers into a single API; integrates with VirusTotal, MISP, OTX, Shodan, and 100+ sources for automated IOC enrichment at scale
 
 ### STIX / TAXII & Structured Data
 - [oasis-open/cti-python-stix2](https://github.com/oasis-open/cti-python-stix2): The official OASIS Python library for creating, parsing, and validating STIX 2.x objects; essential for programmatic threat intelligence platform integration

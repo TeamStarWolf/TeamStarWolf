@@ -420,7 +420,7 @@ nomoreransom.org: Joint initiative by Europol, Interpol, and security vendors.
 | FBI: Internet Crime Complaint Center (IC3) | Primary cyber crime reporting; ransomware, fraud, nation-state intrusions | [ic3.gov](https://ic3.gov) |
 | FBI Local Field Office | Direct engagement for active incidents; 24/7 availability for critical infrastructure | [fbi.gov/contact-us/field-offices](https://www.fbi.gov/contact-us/field-offices) |
 | CISA (Cybersecurity & Infrastructure Security Agency) | Critical infrastructure incidents; operational assistance; free IR support available | [cisa.gov/report](https://cisa.gov/report), 888-282-0870, report@cisa.dhs.gov |
-| US Secret Service: Electronic Crimes Task Force (ECTF) | Financial cybercrime, ransomware with financial nexus | [secretservice.gov/investigation/cyber](https://www.secretservice.gov/investigation/cyber) |
+| US Secret Service: Electronic Crimes Task Force (ECTF) | Financial cybercrime, ransomware with financial nexus | [secretservice.gov/investigation/cyber](https://web.archive.org/web/20240104003313/https://www.secretservice.gov/investigation/cyber) |
 | National Cyber-Forensics and Training Alliance (NCFTA) | Industry-law enforcement partnership; particularly useful for financial sector | [ncfta.net](https://www.ncfta.net) |
 | US-CERT / CISA ICS-CERT | ICS/SCADA and OT-specific incidents | [us-cert.cisa.gov](https://us-cert.cisa.gov) |
 
@@ -428,10 +428,10 @@ nomoreransom.org: Joint initiative by Europol, Interpol, and security vendors.
 
 | Country | Agency | Contact |
 |---------|--------|---------|
-| United Kingdom | National Cyber Security Centre (NCSC) | [ncsc.gov.uk/cyberalert](https://www.ncsc.gov.uk/cyberalert) |
+| United Kingdom | National Cyber Security Centre (NCSC) | ncsc.gov.uk/cyberalert |
 | United Kingdom | Action Fraud (financial cybercrime) | [actionfraud.police.uk](https://www.actionfraud.police.uk) |
 | European Union | Europol European Cybercrime Centre (EC3) | [europol.europa.eu/report-a-crime/report-cybercrime-online](https://www.europol.europa.eu/report-a-crime/report-cybercrime-online) |
-| Australia | Australian Cyber Security Centre (ACSC) | [cyber.gov.au/acsc/report](https://www.cyber.gov.au/acsc/report), 1300 CYBER1 |
+| Australia | Australian Cyber Security Centre (ACSC) | [cyber.gov.au/acsc/report](https://www.cyber.gov.au/submit-a-report), 1300 CYBER1 |
 | Canada | Canadian Centre for Cyber Security (CCCS) | [cyber.gc.ca](https://www.cyber.gc.ca), 1-833-CYBER-88 |
 | Germany | BSI (Bundesamt für Sicherheit in der Informationstechnik) | [bsi.bund.de](https://www.bsi.bund.de) |
 | Interpol | Cybercrime Directorate (via national police) | Contact national law enforcement to initiate |

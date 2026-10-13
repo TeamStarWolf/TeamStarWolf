@@ -893,7 +893,7 @@ Important: Rotating credentials is mandatory. History rewriting is supplementary
 | GitHub Actions token | ghs_[A-Za-z0-9]{36} | Server-to-server token |
 | Private key header | -----BEGIN RSA PRIVATE KEY----- | PEM format |
 | DB connection string | Server=.*;Database=.*;User Id=.*;Password= | Multiple variants |
-| Slack webhook | https://hooks.slack.com/services/T.../B.../... | Webhook URL format |
+| Slack webhook | `https://hooks.slack.com/services/T.../B.../...` | Webhook URL format |
 | Stripe secret key | sk_live_[A-Za-z0-9]{24,} | Live key prefix |
 
 ---

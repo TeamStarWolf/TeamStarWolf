@@ -86,7 +86,7 @@ Intune OMA-URI for ASR (example, Block Office child processes):
 
 ### Microsoft Defender Antivirus Policy Settings
 
-*Source: https://learn.microsoft.com/en-us/defender-endpoint/next-generation-protection-overview*
+*Source: `https://learn.microsoft.com/en-us/defender-endpoint/next-generation-protection-overview`*
 
 | Setting | Recommended Value | Notes |
 |---|---|---|
@@ -524,7 +524,7 @@ Rule 4: Allow DNS to ZIA resolvers only
 
 ## CISA SCuBA (Secure Cloud Business Applications) Policies
 
-*Source: https://www.cisa.gov/resources-tools/services/scuba, official CISA guidance*
+*Source: `https://www.cisa.gov/resources-tools/services/scuba`, official CISA guidance*
 
 ### Microsoft 365 Baseline Assessment: ScubaGear
 

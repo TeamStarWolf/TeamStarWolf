@@ -127,7 +127,9 @@ FULL_STACK_TAIL = {
     "selectSubtechniquesWithParent": False,
 }
 GREENS = ["#e5f5f9", "#2ca25f", "#00441b"]
-CTID_URL = "https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/"
+# Mappings Explorer moved from the CTID GitHub Pages site to ctid.mitre.org; the old
+# github.io paths now 404 (the site root only redirects to the new home).
+CTID_URL = "https://ctid.mitre.org/mappings/external/nist/"
 
 
 def full_stack(ids: AttackIds) -> tuple[dict, dict]:

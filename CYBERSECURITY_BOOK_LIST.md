@@ -360,7 +360,7 @@ Hands-on repos:
 
 Certifications: CRTO | CRTE | PNPT | OSEP | GXPN
 YouTube: [IppSec](https://www.youtube.com/@ippsec) | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) | [Orange Cyberdefense](https://www.youtube.com/@OrangeCyberdefense)
-Practice: [Hack The Box Pro Labs (RastaLabs, Offshore)](https://hackthebox.com) | [TCM AD Labs](https://tcm-sec.com) | [VulnLab](https://vulnlab.com)
+Practice: [Hack The Box Pro Labs (RastaLabs, Offshore)](https://hackthebox.com) | [TCM AD Labs](https://tcm-sec.com) | [VulnLab](https://web.archive.org/web/20260310083345/https://www.vulnlab.com/)
 
 ---
 
@@ -497,7 +497,7 @@ Hands-on repos:
 - [scirius](https://github.com/StamusNetworks/scirius) - Suricata ruleset management and threat hunting UI
 
 Certifications: BTL1 | GCIH | GCFE | GCFA | CySA+ | BlueTeamLabs
-YouTube: [Eric Capuano](https://www.youtube.com/@reginald254) | [SANS DFIR](https://www.youtube.com/@SANSForensics) | [13Cubed](https://www.youtube.com/@13Cubed)
+YouTube: Eric Capuano | [SANS DFIR](https://www.youtube.com/@SANSForensics) | [13Cubed](https://www.youtube.com/@13Cubed)
 Practice: [Blue Team Labs Online](https://blueteamlabs.online) | [CyberDefenders](https://cyberdefenders.org) | [LetsDefend](https://letsdefend.io)
 
 ---
@@ -532,7 +532,7 @@ Hands-on repos:
 
 Certifications: GCTI | CREST CPSA | FOR578 (SANS TI) | eCTHP
 YouTube: [Recorded Future](https://www.youtube.com/@RecordedFuture) | [SANS Threat Hunting](https://www.youtube.com/@SANSForensics)
-Practice: [MITRE ATT&CK Evaluations](https://attackevals.mitre-engenuity.org) | [RangeForce](https://rangeforce.com)
+Practice: [MITRE ATT&CK Evaluations](https://evals.mitre.org/) | [RangeForce](https://rangeforce.com)
 
 ---
 
@@ -578,7 +578,7 @@ Hands-on repos:
 - [pi-hole](https://github.com/pi-hole/pi-hole) - DNS-level ad blocking for your entire network
 
 Certifications: OSINT Curious | GOSI | CREST | Trace Labs OSINT CTF
-YouTube: [Michael Bazzell](https://www.youtube.com/@IntelTechniques) | [OSINT Dojo](https://www.youtube.com/@OSINTDojo) | [Bendobrown](https://www.youtube.com/@Bendobrown)
+YouTube: Michael Bazzell | [OSINT Dojo](https://www.youtube.com/@OSINTDojo) | [Bendobrown](https://www.youtube.com/@Bendobrown)
 Practice: [TraceLabs Missing Persons CTF](https://tracelabs.org) | [Bellingcat Online Investigations](https://www.bellingcat.com)
 
 ---
@@ -627,7 +627,7 @@ Hands-on repos:
 - [scirius](https://github.com/StamusNetworks/scirius) - Suricata NDR ruleset management
 
 Certifications: CCSP | AWS Security Specialty | CCSK | KCSA | GCP Security Engineer
-YouTube: [CloudSecurityPodcast](https://www.youtube.com/@CloudSecurityPodcast) | [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec) | [Nick Jones (NCC)](https://www.youtube.com/@nickjones)
+YouTube: [CloudSecurityPodcast](https://www.youtube.com/@CloudSecurityPodcast) | [fwd:cloudsec](https://www.youtube.com/@fwdcloudsec) | Nick Jones (NCC)
 Practice: [CloudGoat (Rhino)](https://github.com/RhinoSecurityLabs/cloudgoat) | [flaws.cloud](http://flaws.cloud) | [flaws2.cloud](http://flaws2.cloud) | [AWSGoat](https://github.com/ine-labs/AWSGoat)
 
 ---
@@ -679,7 +679,7 @@ Practice: [DIVA Android](https://github.com/payatu/diva-android) | [iGoat](https
 > Practical note: A $20 RTL-SDR dongle and [GQRX](https://gqrx.dk) gets you into RF analysis. A $50 Flipper Zero gets you into sub-GHz, NFC, and infrared. Hardware hacking is cheaper to start than most people think.
 
 Hands-on repos:
-- [firmwalker](https://github.com/craigz28/firmwalker) - Search extracted firmware for interesting files
+- [firmwalker](https://web.archive.org/web/20260109160817/https://github.com/craigz28/firmwalker) - Search extracted firmware for interesting files
 - [binwalk](https://github.com/ReFirmLabs/binwalk) - Firmware analysis, extraction, and reverse engineering
 - [firmae](https://github.com/pr0v3rbs/FirmAE) - Emulate firmware for dynamic analysis
 - [FACT_core](https://github.com/fkie-cad/FACT_core) - Firmware Analysis and Comparison Tool
@@ -702,7 +702,7 @@ Hands-on repos:
 
 Certifications: GICSP (ICS Security) | ICS-CERT training | CSSA
 YouTube: [Joe Grand (Kingpin)](https://www.youtube.com/@JoeGrand) | [Phil's Lab](https://www.youtube.com/@PhilsLab) | [LiveOverflow Hardware](https://www.youtube.com/@LiveOverflow)
-Practice: [Hack The Box IoT challenges](https://hackthebox.com) | [DVID](https://github.com/Vulcainreo/DVID) | [Damn Vulnerable Router Firmware](https://github.com/threat9/dvrf)
+Practice: [Hack The Box IoT challenges](https://hackthebox.com) | [DVID](https://github.com/Vulcainreo/DVID) | Damn Vulnerable Router Firmware
 
 ---
 
@@ -740,7 +740,7 @@ Hands-on repos:
 - [heap-exploitation](https://github.com/DhavalKapil/heap-exploitation) - Heap exploitation techniques guide
 
 Certifications: OSED | OSCE3 | GXPN | eCXD
-YouTube: [pwn.college](https://www.youtube.com/@pwncollege) | [LiveOverflow](https://www.youtube.com/@LiveOverflow) | [ir0nstone](https://www.youtube.com/@ir0nstone)
+YouTube: [pwn.college](https://www.youtube.com/@pwncollege) | [LiveOverflow](https://www.youtube.com/@LiveOverflow) | ir0nstone
 Practice: [pwn.college](https://pwn.college) | [exploit.education](https://exploit.education) | [ROP Emporium](https://ropemporium.com) | [pwnable.kr](https://pwnable.kr)
 
 ---
@@ -769,11 +769,11 @@ Hands-on repos:
 - [google/security-research](https://github.com/google/security-research) - Google security advisories with working PoCs
 - [Fuzzing-Against-the-Machine](https://github.com/PacktPublishing/Fuzzing-Against-the-Machine) - Book companion with labs
 - [libFuzzer](https://github.com/llvm/llvm-project) - Part of LLVM - coverage-guided fuzzing library
-- [pwnautomate](https://github.com/n0mi1k/apkleaks) - Scanning for secrets in decompiled APKs
+- pwnautomate - Scanning for secrets in decompiled APKs
 - [semgrep](https://github.com/semgrep/semgrep) - Static analysis for finding bugs at scale
 
 Certifications: OSED | OSCE | CVE credits are better than any cert here
-YouTube: [Google Project Zero](https://www.youtube.com/@GoogleProjectZero) | [Trail of Bits](https://www.youtube.com/@trailofbits) | [USENIX Security](https://www.youtube.com/@USENIXSecurity)
+YouTube: Google Project Zero | [Trail of Bits](https://www.youtube.com/@trailofbits) | USENIX Security
 Practice: [Fuzzbench](https://github.com/google/fuzzbench) | Google VRP | HackerOne bounties
 
 ---
@@ -809,7 +809,7 @@ Hands-on repos:
 
 Certifications: CompTIA Network+ | CCNA | GCIA | GNFA
 YouTube: [David Bombal](https://www.youtube.com/@davidbombal) | [Professor Messer](https://www.youtube.com/@professormesser) | [Chris Greer (Wireshark)](https://www.youtube.com/@ChrisGreer)
-Practice: [Wireshark sample captures](https://wiki.wireshark.org/SampleCaptures) | [PacketLife pcap library](https://packetlife.net/captures/)
+Practice: [Wireshark sample captures](https://wiki.wireshark.org/SampleCaptures) | [PacketLife pcap library](https://web.archive.org/web/20240324180709/https://packetlife.net/captures/)
 
 ---
 
@@ -920,11 +920,11 @@ Practice: [Gandalf prompt injection game](https://gandalf.lakera.ai) | HuggingFa
 > Practical note: Cert priority order for offense: Net+ → Sec+ → PNPT → OSCP → CRTO. For defense: Net+ → Sec+ → BTL1 → CySA+ → GCIH. Don't get CISSP until you have 5 years experience - it won't help you before then.
 
 Hands-on repos:
-- [Free-Certifications](https://github.com/cloudcommunity/Free-Certifications) - Free courses with certs to supplement paid study
+- [Free-Certifications](https://web.archive.org/web/20260404042403/https://github.com/cloudcommunity/Free-Certifications) - Free courses with certs to supplement paid study
 - [Security-101](https://github.com/microsoft/Security-101) - Microsoft's 8-lesson cybersecurity curriculum (free)
 - [awesome-hacking](https://github.com/carpedm20/awesome-hacking) - Hacking tutorials and resources for foundations
-- [90DaysOfCyber](https://github.com/0xHop/90DaysOfCyber) - Structured 90-day cybersecurity learning path
-- [Cybersecurity-Roadmap](https://github.com/nicowillis/cybersecurity-roadmap) - Community-built career roadmap
+- 90DaysOfCyber - Structured 90-day cybersecurity learning path
+- Cybersecurity-Roadmap - Community-built career roadmap
 - [Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks) - Curated free hacking and security ebooks
 - [security-study-plan](https://github.com/jassics/security-study-plan) - Complete study plans for pentest, AppSec, cloud security, and DevSecOps roles
 - [Infosec_Reference](https://github.com/rmusser01/Infosec_Reference) - Massive information security reference - doesn't suck
@@ -999,9 +999,9 @@ Portfolio builders: Start a blog | Do HTB/THM writeups | Submit a CVE | Contribu
 ### Traffic Analysis Labs
 - [Malware Traffic Analysis Training](https://www.malware-traffic-analysis.net/training-exercises.html) - Real PCAP exercises - identify C2, malware, and intrusions from packet captures
 - [Malware Traffic Analysis Tutorials](https://www.malware-traffic-analysis.net/tutorials/index.html) - Step-by-step Wireshark analysis tutorials
-- [Blue Team Village DEFCON Workshop](https://www.malware-traffic-analysis.net/2018/workshop/BlueTeamVillage/) - Workshop-style PCAP analysis exercises
+- [Blue Team Village DEFCON Workshop](https://web.archive.org/web/20210611140921/https://www.malware-traffic-analysis.net/2018/workshop/BlueTeamVillage/) - Workshop-style PCAP analysis exercises
 - [Wireshark Sample Captures](https://wiki.wireshark.org/SampleCaptures) - Official Wireshark sample PCAPs for all protocol types
-- [PacketLife PCAP Library](https://packetlife.net/captures/) - Protocol-specific capture files for study
+- [PacketLife PCAP Library](https://web.archive.org/web/20240324180709/https://packetlife.net/captures/) - Protocol-specific capture files for study
 
 ### Active Directory Labs
 - [GOAD](https://github.com/Orange-Cyberdefense/GOAD) - Game of Active Directory - 5-VM vulnerable AD lab (the best one)

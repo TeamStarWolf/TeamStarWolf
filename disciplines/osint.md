@@ -24,7 +24,7 @@ Start with passive reconnaissance against your own infrastructure. Use Shodan to
 - [Bellingcat](https://www.bellingcat.com): The world's leading open source investigation outlet; publishes detailed methodology breakdowns alongside every major investigation; the best free resource for geolocation, image analysis, and corporate structure investigation techniques
 - [Michael Bazzell's OSINT Podcast (The Privacy, Security, & OSINT Show)](https://inteltechniques.com/podcast.html): Hundreds of free episodes covering current OSINT tools, techniques, and methodologies; the most practical free OSINT audio content available
 - [TraceLabs](https://www.tracelabs.org): Crowd-sourced missing persons CTF competitions using real OSINT; the most realistic free training environment available; produces actual intelligence for law enforcement while teaching practical collection skills
-- [OSINT Curious](https://osintcuriosity.com): Community-driven OSINT education including the 10 Minute Tip series, webcast recordings, and methodology guides; accessible content across all experience levels
+- OSINT Curious: Community-driven OSINT education including the 10 Minute Tip series, webcast recordings, and methodology guides; accessible content across all experience levels
 - [Google Dorking Reference](https://www.exploit-db.com/google-hacking-database): The Google Hacking Database (GHDB) from Exploit-DB; thousands of documented search operator combinations for finding exposed credentials, configuration files, and sensitive data
 - [Shodan Fundamentals](https://help.shodan.io): Free documentation and tutorials for the most powerful internet-facing asset search engine; learning Shodan is mandatory for any OSINT practitioner working in cybersecurity
 - [Maltego Community Edition](https://www.maltego.com/downloads/): Free tier of the leading link analysis and visualization platform; the standard graph analysis tool for professional OSINT investigations; learn transforms and entity relationships before moving to paid tiers
@@ -41,7 +41,7 @@ Start with passive reconnaissance against your own infrastructure. Use Shodan to
 - [osintframework.com](https://osintframework.com): The definitive browser-based taxonomy of OSINT tools organized by intelligence type and collection category; the reference map every analyst should know
 
 ### Domain & IP Intelligence
-- [Shodan](https://shodan.io): The most powerful search engine for internet-connected devices and services; indexes banners, certificates, and service metadata from billions of exposed endpoints; essential for external attack surface mapping and asset discovery
+- [Shodan](https://www.shodan.io/): The most powerful search engine for internet-connected devices and services; indexes banners, certificates, and service metadata from billions of exposed endpoints; essential for external attack surface mapping and asset discovery
 - [Censys](https://censys.io): Internet-wide scanning platform with comprehensive TLS certificate and service data; strong for certificate transparency log analysis, ASN-based asset discovery, and vulnerability surface mapping
 - [FOFA](https://fofa.info): Chinese internet intelligence platform indexing billions of global internet assets; strong coverage for infrastructure not indexed by Shodan or Censys; increasingly used for threat actor infrastructure tracking
 - [DNSdumpster](https://dnsdumpster.com): Free DNS reconnaissance tool mapping subdomains, DNS records, and hosting relationships; fast first-pass for domain enumeration without API keys
@@ -176,9 +176,9 @@ Understanding which of these techniques expose your organization's data drives p
 
 ## Channels
 
-- [Michael Bazzell (IntelTechniques)](https://www.youtube.com/@IntelTechniques): The most authoritative OSINT practitioner content creator; tool tutorials, methodology walkthroughs, and the definitive annual OSINT resource guide
-- [Bellingcat](https://www.youtube.com/@bellingcat): Open source investigation methodology from the world's leading OSINT outlet; geolocation walkthroughs, verification techniques, and investigation case studies
-- [OSINT Curious](https://www.youtube.com/@OSINTCuriousProject): Community OSINT education including 10 Minute Tip series, webcast archives, and practitioner interviews covering current tools and techniques
+- Michael Bazzell (IntelTechniques): The most authoritative OSINT practitioner content creator; tool tutorials, methodology walkthroughs, and the definitive annual OSINT resource guide
+- Bellingcat: Open source investigation methodology from the world's leading OSINT outlet; geolocation walkthroughs, verification techniques, and investigation case studies
+- OSINT Curious: Community OSINT education including 10 Minute Tip series, webcast archives, and practitioner interviews covering current tools and techniques
 - [Black Hills Information Security](https://www.youtube.com/@BlackHillsInformationSecurity): Includes OSINT content for red team reconnaissance, passive recon methodology, and threat intelligence collection alongside broader security content
 - [TCM Security](https://www.youtube.com/@TCMSecurityAcademy): Practical OSINT and recon content alongside offensive security training; accessible and hands-on
 

@@ -565,7 +565,7 @@ print(f"SSP generated at {WORKSPACE}/system-security-plans/{SSP_NAME}/")
 | OSCAL Content (catalogs/profiles) | https://github.com/usnistgov/oscal-content |
 | compliance-trestle | https://github.com/oscal-compass/compliance-trestle |
 | OSCAL CLI | https://github.com/usnistgov/oscal-cli |
-| FedRAMP OSCAL Templates | https://github.com/GSA/fedramp-automation |
+| FedRAMP OSCAL Templates | https://web.archive.org/web/20260213081037/https://github.com/GSA/fedramp-automation |
 | OSCAL Reference Tool | https://pages.nist.gov/OSCAL/reference/ |
 
 ---
@@ -1834,7 +1834,7 @@ Level 5 - Optimizing (Adaptive)
 |----------|-----|------|
 | NIST CSF 2.0 | https://www.nist.gov/cyberframework | Free |
 | NIST SP 800-53 r5 | https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final | Free |
-| NIST SP 800-66 r2 (HIPAA) | https://csrc.nist.gov/publications/detail/sp/800-66/rev-2/final | Free |
+| NIST SP 800-66 r2 (HIPAA) | https://csrc.nist.gov/pubs/sp/800/66/r2/final | Free |
 | CIS Controls v8 | https://www.cisecurity.org/controls/v8 | Free |
 | PCI DSS v4.0 | https://www.pcisecuritystandards.org | Free (registration) |
 | ISO 27001:2022 | https://www.iso.org/standard/82875.html | Paid (~$180) |

@@ -375,7 +375,7 @@ SecurityEvent
 
 | Resource | Type | Notes |
 |---|---|---|
-| [The Hacker Recipes: AD](https://www.thehacker.recipes/ad/) | Reference | Comprehensive AD attack technique walkthroughs with commands; best free reference |
+| The Hacker Recipes: AD | Reference | Comprehensive AD attack technique walkthroughs with commands; best free reference |
 | [SpecterOps BloodHound Documentation](https://bloodhound.readthedocs.io/) | Reference | BloodHound attack path methodology and edge type explanations |
 | [harmj0y Blog](https://blog.harmj0y.net/) | Blog | Foundational Kerberos, delegation, and PowerView research |
 | [adsecurity.org (Sean Metcalf)](https://adsecurity.org/) | Blog | Comprehensive AD security resource; Golden Ticket, Silver Ticket, DCSync |

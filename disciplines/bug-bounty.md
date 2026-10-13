@@ -185,7 +185,7 @@ A structured recon pipeline maximizes attack surface coverage before active test
 | [PentesterLab](https://pentesterlab.com/) | Labs | Hands-on exercises from basic to advanced; free and Pro tiers |
 | [Hacktivity (HackerOne)](https://hackerone.com/hacktivity) | Disclosed reports | Read real triaged and paid bug reports to study patterns and methodology |
 | [Pentester Land Write-ups](https://pentester.land/writeups/) | Write-ups | Curated database of community write-ups organized by vulnerability type |
-| [NahamSec Bug Bounty Bootcamp](https://www.udemy.com/course/the-complete-bug-bounty-bootcamp/) | Course | Beginner-friendly; recon methodology and live hunting demonstrations |
+| NahamSec Bug Bounty Bootcamp | Course | Beginner-friendly; recon methodology and live hunting demonstrations |
 | [Real-World Bug Hunting: Peter Yaworski](https://nostarch.com/bughunting) | Book | Case studies of real disclosed reports organized by vulnerability type |
 | [The Web Application Hacker's Handbook](https://www.wiley.com/en-us/The+Web+Application+Hacker%27s+Handbook%2C+2nd+Edition-p-9781118026472) | Book | Foundational reference for web vulnerability exploitation techniques |
 | [Jason Haddix Bug Bounty Methodology](https://github.com/jhaddix/tbhm) | GitHub | Community methodology guide maintained by a top-ranked researcher |

@@ -98,7 +98,7 @@ Effective security awareness programs track behavioral metrics, not just trainin
 - [NIST SP 800-16: IT Security Training Requirements](https://csrc.nist.gov/publications/detail/sp/800-16/final): NIST role-based training guidance; maps training requirements to job functions and responsibility levels
 - [CISA Secure Our World](https://www.cisa.gov/secure-our-world): Free awareness materials, posters, and campaign kits from CISA; phishing, password hygiene, and MFA awareness content
 - [GoPhish Documentation and Quickstart](https://getgophish.com/): Open-source phishing simulation framework; complete documentation for building in-house simulation capability
-- [ENISA Awareness Raising Handbook](https://www.enisa.europa.eu/topics/cybersecurity-education/awareness-raising): EU Agency guidance on security awareness campaign design, targeting, and measurement; vendor-neutral
+- ENISA Awareness Raising Handbook: EU Agency guidance on security awareness campaign design, targeting, and measurement; vendor-neutral
 - [SANS Ouch! Newsletter](https://www.sans.org/newsletters/ouch/): Free monthly security awareness newsletter for end users; covers current threats in accessible language
 - [MITRE ATT&CK M1017: User Training](https://attack.mitre.org/mitigations/M1017/): MITRE's documentation of User Training as mitigation; connects awareness content to specific ATT&CK techniques
 
@@ -111,11 +111,11 @@ Effective security awareness programs track behavioral metrics, not just trainin
 - [PhishingFrenzy](https://github.com/pentestgeek/phishing-frenzy): Open-source phishing framework built on Metasploit; campaign management, template library, and reporting
 
 ### Awareness Content & Program Resources
-- [CISA Phishing Guidance](https://www.cisa.gov/phishing): Free phishing awareness materials, infographics, and campaign resources
+- CISA Phishing Guidance: Free phishing awareness materials, infographics, and campaign resources
 - [SANS Security Awareness](https://www.sans.org/security-awareness-training/): SANS awareness resources including the monthly OUCH! newsletter, awareness posters, and program design guidance
 
 ### Metrics & Measurement
-- [OWASP Human Factor Security Awareness](https://owasp.org/www-project-human-factor-security-awareness/): Awareness program metrics, KPI frameworks, and measurement methodologies; useful for building defensible program metrics
+- OWASP Human Factor Security Awareness: Awareness program metrics, KPI frameworks, and measurement methodologies; useful for building defensible program metrics
 
 ---
 
@@ -178,9 +178,9 @@ Security awareness directly mitigates initial access and execution techniques by
 | [NIST SP 800-16](https://csrc.nist.gov/publications/detail/sp/800-16/final) | Free guide | Role-based training requirements mapped to job functions |
 | Transformational Security Awareness (Perry Carpenter) | Book | Definitive practitioner book on security awareness as behavior change; covers SBCC, BJ Fogg Tiny Habits, nudge theory, and program design |
 | [SANS MGT433: Managing Human Risk](https://www.sans.org/cyber-security-courses/managing-human-risk/) | Paid course | Most structured practitioner curriculum for security awareness professionals |
-| [SANS Security Awareness Summit](https://www.sans.org/cyber-security-summit/awareness/) | Free/paid conference | Annual conference dedicated to security awareness; free recordings from past summits |
+| SANS Security Awareness Summit | Free/paid conference | Annual conference dedicated to security awareness; free recordings from past summits |
 | [KnowBe4 Blog](https://blog.knowbe4.com/) | Free blog | Practitioner content on phishing trends, simulation methodology, and program design from the market leader |
-| [ENISA Awareness Guidelines](https://www.enisa.europa.eu/topics/cybersecurity-education/awareness-raising) | Free guide | EU agency guidance on awareness campaign design and measurement |
+| ENISA Awareness Guidelines | Free guide | EU agency guidance on awareness campaign design and measurement |
 | [GoPhish Documentation](https://docs.getgophish.com/) | Free reference | Complete documentation for deploying and running open-source phishing simulations |
 
 ---

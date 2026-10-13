@@ -41,7 +41,7 @@ Start with the foundational skill: disk forensics. Learn the evidence handling c
 | Autopsy / Sleuth Kit | GUI-based disk forensics platform: timeline, file recovery, keyword search | [sleuthkit/autopsy](https://github.com/sleuthkit/autopsy) |
 | Eric Zimmermann Tools (EZ Tools) | Suite of 30+ Windows artifact parsers: MFT, Registry, LNK, Prefetch, Amcache, ShimCache | [ericzimmerman.github.io](https://ericzimmerman.github.io/) |
 | KAPE: Kroll Artifact Parser and Extractor | Triage collection and artifact parsing: most widely used in enterprise DFIR | [github.com/EricZimmerman/KapeFiles](https://github.com/EricZimmerman/KapeFiles) |
-| FTK Imager (free) | Disk imaging, evidence acquisition, hash verification | [AccessData / Exterro](https://www.exterro.com/ftk-product-family/ftk-imager) |
+| FTK Imager (free) | Disk imaging, evidence acquisition, hash verification | AccessData / Exterro |
 | Plaso / log2timeline | Supertimeline generation from disk artifacts, logs, browser history | [log2timeline/plaso](https://github.com/log2timeline/plaso) |
 | Velociraptor | Endpoint triage, artifact collection, live forensics at scale | [Velocidex/velociraptor](https://github.com/Velocidex/velociraptor) |
 
@@ -122,7 +122,7 @@ Start with the foundational skill: disk forensics. Learn the evidence handling c
 | Channel | Focus |
 |---|---|
 | [13Cubed](https://www.youtube.com/@13Cubed) | Windows forensics, Volatility, KAPE, registry analysis: best free DFIR channel |
-| [SANS Digital Forensics](https://www.youtube.com/user/robtlee) | SANS instructor content: memory, disk, and network forensics |
+| SANS Digital Forensics | SANS instructor content: memory, disk, and network forensics |
 | [CyberDefenders](https://www.youtube.com/@CyberDefenders) | DFIR challenge walkthroughs |
 | [John Hammond](https://www.youtube.com/@_JohnHammond) | CTF and forensic challenge walkthroughs |
 | [Forensic Focus](https://www.forensicfocus.com/webinars/) | Professional DFIR webinars: mobile, cloud, legal |

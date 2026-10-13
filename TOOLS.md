@@ -207,7 +207,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Volatility 3](https://www.volatilityfoundation.org/) | OSS | Memory forensics, artifact extraction |
 | [Autopsy](https://www.autopsy.com/) | OSS | Disk forensics GUI (Sleuth Kit frontend) |
 | [Sleuth Kit](https://www.sleuthkit.org/) | OSS | Disk image analysis tools |
-| [FTK (Forensic Toolkit)](https://www.exterro.com/ftk) | COM | Enterprise disk and email forensics |
+| FTK (Forensic Toolkit) | COM | Enterprise disk and email forensics |
 | [X-Ways Forensics](https://www.x-ways.net/) | COM | Lightweight professional forensics |
 | [REMnux](https://remnux.org/) | OSS | Linux distro for malware and artifact analysis |
 
@@ -303,11 +303,11 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 
 | Tool | Language | Type | Description |
 |---|---|---|---|
-| [Amass](https://www.owasp.org/index.php/OWASP_Amass_Project) | Go | OSS | DNS enumeration and network mapping tool suite: scraping, recursive brute forcing, crawling web |
+| [Amass](https://web.archive.org/web/20190530105823/https://www.owasp.org/index.php/OWASP_Amass_Project) | Go | OSS | DNS enumeration and network mapping tool suite: scraping, recursive brute forcing, crawling web |
 | [Argus](https://github.com/jasonxtn/Argus) | Python | OSS | All-in-one toolkit for information gathering and reconnaissance |
 | [Ars0n Framework](https://github.com/R-s0n/ars0n-framework) | JavaScript | OSS | Bug bounty hunting framework to automate the reconnaissance in a WebUI |
 | [Ars0n Framework v2](https://github.com/R-s0n/ars0n-framework-v2) | JavaScript | OSS | Bug bounty hunting framework to automate the reconnaissance in a WebUI |
-| [Asnlookup](https://github.com/yassineaboukir/Asnlookup) | Python | OSS | Leverage ASN to look up IP addresses (IPv4 & IPv6) owned by a specific organization for reconna |
+| [Asnlookup](https://web.archive.org/web/20250109023824/https://github.com/yassineaboukir/Asnlookup) | Python | OSS | Leverage ASN to look up IP addresses (IPv4 & IPv6) owned by a specific organization for reconna |
 | [AttackSurfaceMapper](https://github.com/superhedgy/AttackSurfaceMapper) | Python | OSS | Subdomain enumerator |
 | [AutoRecon](https://github.com/Tib3rius/AutoRecon) | Python | OSS | Multi-threaded network reconnaissance tool which performs automated enumeration of services |
 | [BBOT](https://github.com/blacklanternsecurity/bbot) | Python | OSS | OSINT framework; subdomain enumeration, port scanning, web screenshots, vulnerability scanning |
@@ -346,7 +346,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [CrackerJack](https://github.com/ctxis/crackerjack) | Python | OSS | Hashcat WebUI; session management, mask generation, API, notifications, local and LDAP authenti |
 | [Cracklord](http://jmmcatee.github.io/cracklord/) | Go | OSS | Scalable, pluggable, and distributed system for hash cracking, supports Hashcat |
 | [Duplicut](https://github.com/nil0x42/duplicut) | C | OSS | Remove duplicates from massive wordlist, without sorting it (for dictionary-based password crac |
-| [Fitcrack](https://fitcrack.fit.vutbr.cz/) | C | OSS | Hashcat-based distributed password cracking system with WebUI |
+| [Fitcrack](https://web.archive.org/web/20260308042352/https://fitcrack.fit.vutbr.cz/) | C | OSS | Hashcat-based distributed password cracking system with WebUI |
 | [GAU](https://github.com/lc/gau) | Go | OSS | Fetch known URLs from AlienVault's Open Threat Exchange, the Wayback Machine, Common Crawl, and |
 | [GeoWordlists](https://github.com/p0dalirius/GeoWordlists) | Python | OSS | Generate wordlists of passwords containing cities at a defined distance around the client city |
 | [GoCrack](https://github.com/fireeye/gocrack) | Go | OSS | Management frontend for hash cracking tools, supporting hashcat |
@@ -370,7 +370,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Hijacker](https://github.com/chrisk44/Hijacker) | Java | OSS | Android GUI for Aircrack, Airodump, Aireplay, MDK3 and Reaver |
 | [Infernal-Wireless](https://github.com/entropy1337/infernal-twin) | Python | OSS | Automated wireless hacking tool  |
 | [Kismet](https://www.kismetwireless.net/) | CPlusPlus | OSS | Sniffer, WIDS, and wardriving tool for Wi-Fi, Bluetooth, Zigbee, RF |
-| [MDK3-master](https://github.com/wi-fi-analyzer/mdk3-master) | C | OSS | PoC tool to exploit common IEEE 802.11 protocol weaknesses |
+| [MDK3-master](https://web.archive.org/web/20180611163412/https://github.com/wi-fi-analyzer/mdk3-master) | C | OSS | PoC tool to exploit common IEEE 802.11 protocol weaknesses |
 | [MDK4](https://github.com/aircrack-ng/mdk4) | C | OSS | PoC tool to exploit common IEEE 802.11 protocol weaknesses |
 | [Modmobjam](https://github.com/Synacktiv/Modmobjam) | Python | OSS | Cellular networks jamming PoC for mobile equipments |
 | [Modmobmap](https://github.com/Synacktiv/Modmobmap) | Python | OSS | Tool to retrieve information of cellular networks |
@@ -404,7 +404,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Exiv2](http://www.exiv2.org/index.html) | CPlusPlus | OSS | Library and CLI tool to read and write meta information (Exif, IPTC & XMP metadata and ICC Prof |
 | [ImageMagick](http://www.imagemagick.org) | C | OSS | Software suite and library to create, edit, compose, or convert images |
 | Outguess |  | OSS | Tool to hide messages in files (website down since 2004) |
-| [SHIT](https://github.com/qll/shit) | Python | OSS | Stego Helper Identification Tool, multi-purpose image steganography tool |
+| [SHIT](https://web.archive.org/web/20260217163836/https://github.com/qll/shit) | Python | OSS | Stego Helper Identification Tool, multi-purpose image steganography tool |
 | [SmartDeblur](https://github.com/Y-Vladimir/SmartDeblur) | CPlusPlus | OSS | To to restore defocused and blurred images (update binary only for Windows, Mac OS binary out o |
 | [Sonic Visualiser](http://www.sonicvisualiser.org/) |  | OSS | Tool to edit and analyze audio tracks |
 | [StegOnline](https://georgeom.net/StegOnline) | JavaScript | OSS | Stego image toolsuite in the browser |
@@ -425,8 +425,8 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [Hackazon](https://github.com/rapid7/hackazon) | PHP | OSS | Intentionally vulnerable web shopping application using modern technologies and containing conf |
 | [Metasploitable](https://github.com/rapid7/metasploitable3) |  | OSS | VM that is built from the ground up with a large amount of security vulnerabilities |
 | [OWASP Juice Shop](http://owasp-juice.shop) | JavaScript | OSS | Insecure web application with >85 challenges; supports CTFs, custom themes, tutorial mode etc. |
-| [OWASP Mutillidae II](https://www.owasp.org/index.php/OWASP_Mutillidae_2_Project) | PHP | OSS | Intentionally vulnerable web-application containing some OWASP Top Ten vulnerabilities, with hi |
-| [OWASP WebGoat](https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project) | Java | OSS | Deliberately insecure web application to teach web application security lessons |
+| [OWASP Mutillidae II](https://web.archive.org/web/20190426070322/https://www.owasp.org/index.php/OWASP_Mutillidae_2_Project) | PHP | OSS | Intentionally vulnerable web-application containing some OWASP Top Ten vulnerabilities, with hi |
+| [OWASP WebGoat](https://web.archive.org/web/20190119155851/https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project) | Java | OSS | Deliberately insecure web application to teach web application security lessons |
 | [OopsSec Store](https://github.com/kOaDT/oss-oopssec-store) | JavaScript | OSS | Intentionally vulnerable e-commerce application built with Next.js and React, REST API, solutio |
 | [VAmPI](https://github.com/erev0s/VAmPI) | Python | OSS | Vulnerable REST API with OWASP top 10 vulnerabilities for security testing  |
 | [XVNA](https://github.com/vegabird/xvna) | JavaScript | OSS | Extreme Vulnerable Node Application, insecure webapp for security trainings |
@@ -454,7 +454,7 @@ For deeper context on how tools map to NIST 800-53 controls and ATT&CK technique
 | [API-fuzzer](https://github.com/Fuzzapi/API-fuzzer) | Ruby | OSS | Library to fuzz request attributes using common pentesting techniques and lists vulnerabilities |
 | [Acunetix](https://www.acunetix.com/) |  | OSS | Web application security scanner |
 | [Afuzz](https://github.com/RapidDNS/Afuzz) | Python | OSS | Web directory and file scanner (wordlist bruteforce) |
-| [Aquatone](https://michenriksen.com/blog/aquatone-now-in-go/) | Go | OSS | Domain flyover tool; visual inspection of websites across a large amount of hosts and is conven |
+| [Aquatone](https://web.archive.org/web/20260226023616/https://michenriksen.com/blog/aquatone-now-in-go/) | Go | OSS | Domain flyover tool; visual inspection of websites across a large amount of hosts and is conven |
 | [Arachni](http://www.arachni-scanner.com/) | Ruby | OSS | Web application security scanner framework |
 | [Arjun](https://github.com/s0md3v/Arjun) | Python | OSS | HTTP parameter discovery suite |
 | [AssassinGo](https://github.com/AmyangXYZ/AssassinGo) | Go | OSS | Web pentest framework for information gathering and vulnerability scanning |

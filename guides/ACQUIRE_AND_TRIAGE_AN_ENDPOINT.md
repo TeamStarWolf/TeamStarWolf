@@ -11,7 +11,7 @@ This guide is the procedure behind the library's [Digital Forensics Reference](/
 ## Before you start
 
 - [ ] Written authorization and defined scope. Who authorized the investigation, which hosts and accounts are in scope, and what the objective is. If this is potentially criminal or falls under a regulatory/breach regime, engage legal counsel and (where appropriate) law enforcement *before* acquisition, and route the work under privilege; the counsel-first pattern from [Respond to a Ransomware Incident](/guides/RESPOND_TO_RANSOMWARE.md) applies here too.
-- [ ] A separate forensic workstation, not the evidence host, with your toolkit installed and *tested* offline: [Volatility 3](https://github.com/volatilityfoundation/volatility3), [Plaso](https://github.com/log2timeline/plaso), [Eric Zimmerman's Tools](https://ericzimmerman.github.io/), [KAPE](https://www.kroll.com/kape), and [Autopsy](https://www.autopsy.com/). Tools verified on the day of the incident are not verified.
+- [ ] A separate forensic workstation, not the evidence host, with your toolkit installed and *tested* offline: [Volatility 3](https://github.com/volatilityfoundation/volatility3), [Plaso](https://github.com/log2timeline/plaso), [Eric Zimmerman's Tools](https://ericzimmerman.github.io/), [KAPE](https://www.kroll.com/en/services/cyber-risk/investigate-and-respond/kroll-artifact-parser-extractor-kape), and [Autopsy](https://www.autopsy.com/). Tools verified on the day of the incident are not verified.
 - [ ] A hardware write blocker (Tableau, WiebeTech/CRU, or equivalent) for any physical disk you image, and sterile evidence storage: wiped and freshly formatted, with more free capacity than the source drive holds.
 - [ ] Chain-of-custody paperwork and a case number. A custody form, an evidence log, tamper-evident bags/labels for physical media, and a single incident/case ID that every artifact, image, and note references.
 - [ ] A decision on posture. Rapid triage (live collection, host stays running, speed first) versus full forensic acquisition (power-down, physical imaging, defensibility first). Most enterprise DFIR is triage-first; know which you are doing before Step 3, because it changes what you collect and in what order.
@@ -86,7 +86,7 @@ Watch out: Acquire memory *before* running any live-triage collector that spawns
 
 While the host is still running, pull the high-value disk artifacts as a triage package. This is often enough to answer the investigation without a full disk image.
 
-On Windows, [KAPE](https://www.kroll.com/kape) collects a targeted artifact set (MFT, registry hives, event logs, prefetch, browser data, and more) in minutes. Collect, then parse:
+On Windows, [KAPE](https://www.kroll.com/en/services/cyber-risk/investigate-and-respond/kroll-artifact-parser-extractor-kape) collects a targeted artifact set (MFT, registry hives, event logs, prefetch, browser data, and more) in minutes. Collect, then parse:
 
 ```
 :: Collect the SANS triage target set into a container

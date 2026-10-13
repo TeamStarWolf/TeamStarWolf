@@ -22,10 +22,10 @@ Begin with the FAIR ontology before touching any tools or models. FAIR (Factor A
 
 - [FAIR Institute Resources](https://www.fairinstitute.org/resources): The authoritative source for FAIR methodology; free whitepapers, webinars, and the FAIR ontology documentation; the required starting point for anyone learning quantitative cyber risk
 - [Open FAIR Body of Knowledge](https://www.theopengroup.org/open-fair): The Open Group's formal FAIR standard documentation; defines the ontology, taxonomy, and analysis process; free to access and the basis for all FAIR certifications
-- [Jack Jones FAIR White Paper](https://www.riskmanagementinsight.com/media/docs/FAIR_Introduction.pdf): The original FAIR methodology paper from the framework's creator; concise and foundational; explains the decomposition model and the rationale for quantitative over qualitative approaches
-- [RiskLens Academy](https://www.risklens.com/academy): Free introductory CRQ content from the leading FAIR-native commercial platform; covers FAIR basics, model construction, and executive communication
+- [Jack Jones FAIR White Paper](https://web.archive.org/web/20150924091313/http://www.riskmanagementinsight.com/media/docs/FAIR_introduction.pdf): The original FAIR methodology paper from the framework's creator; concise and foundational; explains the decomposition model and the rationale for quantitative over qualitative approaches
+- RiskLens Academy: Free introductory CRQ content from the leading FAIR-native commercial platform; covers FAIR basics, model construction, and executive communication
 - [ISACA CRISC Study Materials](https://www.isaca.org/credentialing/crisc): Free overview content for the CRISC certification; covers risk identification, assessment, response, and reporting frameworks including quantitative approaches
-- [PyFAIR Documentation](https://github.com/theFIRMkid/pyfair): Free Python library for building FAIR risk models programmatically; documentation includes worked examples and Monte Carlo output visualization; the best hands-on tool for learning FAIR mechanics
+- PyFAIR Documentation: Free Python library for building FAIR risk models programmatically; documentation includes worked examples and Monte Carlo output visualization; the best hands-on tool for learning FAIR mechanics
 - [Hubbard Decision Research: How to Measure Anything](https://www.howtomeasureanything.com): Free resources accompanying Douglas Hubbard's foundational text on measurement and uncertainty quantification; calibrated estimation techniques directly applicable to CRQ
 - [SecurityMetrics.org](http://securitymetrics.org): Community resource for security metrics and measurement; free articles and frameworks for building quantitative security measurement programs
 
@@ -82,7 +82,7 @@ Because input estimates are uncertain ranges rather than single numbers, FAIR us
 4. Run 10,000 iterations, sampling randomly from each distribution in each iteration
 5. The output is a histogram of 10,000 ALE values: a loss distribution showing the most likely outcome, the mean, and tail risk percentiles
 
-The [PyFAIR library](https://github.com/theFIRMkid/pyfair) implements this directly in Python and produces standard FAIR visualizations.
+The PyFAIR library implements this directly in Python and produces standard FAIR visualizations.
 
 ### OpenFAIR Standard
 
@@ -98,14 +98,14 @@ The OpenFAIR standard is vendor-neutral, freely available, and the basis for all
 ## Tools & Repositories
 
 ### Open Source & DIY
-- [theFIRMkid/pyfair](https://github.com/theFIRMkid/pyfair): Python implementation of the FAIR quantitative risk model; supports Monte Carlo simulation, scenario modeling, and output visualization; the best open-source tool for FAIR analysis; enables programmatic risk modeling integrated into existing data pipelines
-- [Open FAIR Ontology](https://github.com/openfairorg/openfairtoolbox): Open-source FAIR toolbox resources including templates, reference models, and calibration guidance; the community implementation of the Open Group FAIR standard
+- theFIRMkid/pyfair: Python implementation of the FAIR quantitative risk model; supports Monte Carlo simulation, scenario modeling, and output visualization; the best open-source tool for FAIR analysis; enables programmatic risk modeling integrated into existing data pipelines
+- Open FAIR Ontology: Open-source FAIR toolbox resources including templates, reference models, and calibration guidance; the community implementation of the Open Group FAIR standard
 - [Monte Carlo in Python/Excel](https://numpy.org): NumPy and scipy.stats provide all the distributions needed for Monte Carlo CRQ models; triangular, PERT, and lognormal distributions are the workhorses of FAIR frequency and magnitude estimation
 
 ### Commercial Platforms
 | Platform | Strength |
 |---|---|
-| [RiskLens](https://www.risklens.com/) | The FAIR-native commercial platform; purpose-built for FAIR analysis at enterprise scale; workflow-guided scenario construction, control effectiveness modeling, and board-ready reporting; the reference implementation for mature CRQ programs |
+| [RiskLens](https://web.archive.org/web/20240106190532/https://www.risklens.com/) | The FAIR-native commercial platform; purpose-built for FAIR analysis at enterprise scale; workflow-guided scenario construction, control effectiveness modeling, and board-ready reporting; the reference implementation for mature CRQ programs |
 | [Safe Security (SAFE Platform)](https://safe.security/) | Continuous CRQ using asset inventory, threat intelligence, and control telemetry to produce real-time financial risk scores; strong for CISO dashboards and cyber insurance quantification; uses a quantitative model informed by FAIR principles |
 | [Axio](https://axio.com/) | FAIR-based CRQ integrated with the C2M2 (Cybersecurity Capability Maturity Model); strong for critical infrastructure and energy sector organizations; maps control maturity directly to financial risk reduction in FAIR terms |
 | [BitSight](https://www.bitsight.com/) | Security ratings platform with financial risk quantification features; uses externally observable security signals (DNS, SSL, vulnerability scanning, breach data) to estimate breach likelihood and expected loss; widely used for third-party risk quantification |
@@ -190,8 +190,8 @@ CRQ and the MITRE ATT&CK framework are complementary: ATT&CK provides the threat
 
 ## Certifications
 
-- [FAIR-P](https://www.fairinstitute.org/certifications/fair-practitioner) (FAIR Practitioner, FAIR Institute): The entry-level FAIR certification; validates ability to conduct FAIR analyses, estimate model inputs, and communicate quantitative risk outputs; the recommended first credential for CRQ practitioners; covers the full FAIR ontology and analysis process per the OpenFAIR standard
-- [FAIR-CAM](https://www.fairinstitute.org/certifications/fair-controls-analytics-model) (FAIR Controls Analytics Model, FAIR Institute): Advanced FAIR certification covering control effectiveness modeling, FAIR-CAM framework application, and portfolio-level risk analysis; the credential for senior CRQ analysts who need to quantify the financial impact of specific security controls
+- FAIR-P (FAIR Practitioner, FAIR Institute): The entry-level FAIR certification; validates ability to conduct FAIR analyses, estimate model inputs, and communicate quantitative risk outputs; the recommended first credential for CRQ practitioners; covers the full FAIR ontology and analysis process per the OpenFAIR standard
+- FAIR-CAM (FAIR Controls Analytics Model, FAIR Institute): Advanced FAIR certification covering control effectiveness modeling, FAIR-CAM framework application, and portfolio-level risk analysis; the credential for senior CRQ analysts who need to quantify the financial impact of specific security controls
 - [CRISC](https://www.isaca.org/credentialing/crisc) (Certified in Risk and Information Systems Control, ISACA): The most widely recognized IT risk certification; covers risk identification, assessment, response, and monitoring frameworks including quantitative approaches; valued in governance and risk management roles; broader than FAIR but provides important risk management context
 - [CISM](https://www.isaca.org/credentialing/cism) (Certified Information Security Manager, ISACA): Information security management certification with significant risk management content; the governance-layer credential for security managers communicating risk to business stakeholders; pairs well with CRQ skills for CISO-track practitioners
 - [CISSP](https://www.isc2.org/Certifications/CISSP) (Certified Information Systems Security Professional, ISC2): Broad security certification with a dedicated risk management domain; the credential most commonly held by practitioners entering CRQ from a general security background; Domain 1 (Security and Risk Management) covers risk frameworks including quantitative approaches
@@ -206,8 +206,8 @@ CRQ and the MITRE ATT&CK framework are complementary: ATT&CK provides the threat
 | [FAIR Institute](https://www.fairinstitute.org) | Community | Webinars, case studies, and the primary community for FAIR practitioners worldwide; free membership available |
 | [How to Measure Anything in Cybersecurity Risk (Hubbard & Seiersen)](https://www.amazon.com/How-Measure-Anything-Cybersecurity-Risk/dp/1119085292) | Book | Applies Hubbard's measurement methodology to cyber risk; calibrated estimation and Bayesian approaches; complements FAIR with statistical rigor |
 | [Open FAIR Body of Knowledge](https://www.theopengroup.org/open-fair) | Standard | The formal FAIR ontology (O-RT) and analysis process (O-RA) from The Open Group; free; the authoritative reference for OpenFAIR terminology and methodology |
-| [RiskLens Academy](https://www.risklens.com/academy) | Free course | FAIR-native platform training; practical CRQ workflows and case studies; teaches FAIR analysis in a guided commercial context |
-| [PyFAIR GitHub](https://github.com/theFIRMkid/pyfair) | OSS tool | Python FAIR library with worked examples; the best hands-on learning environment for understanding Monte Carlo FAIR models |
+| RiskLens Academy | Free course | FAIR-native platform training; practical CRQ workflows and case studies; teaches FAIR analysis in a guided commercial context |
+| PyFAIR GitHub | OSS tool | Python FAIR library with worked examples; the best hands-on learning environment for understanding Monte Carlo FAIR models |
 | [ISACA CRISC Resources](https://www.isaca.org/credentialing/crisc) | Certification prep | Risk and information systems control framework; quantitative risk assessment coverage |
 | [SecurityMetrics.org](http://securitymetrics.org) | Community | Security metrics and measurement resources; practitioner-focused and vendor-neutral |
 

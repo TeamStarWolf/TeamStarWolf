@@ -180,7 +180,7 @@ The U.S. policy scaffolding, in order of appearance:
 | Executive Order 13587 | October 2011 | Post-WikiLeaks order: directs federal agencies handling classified information to establish insider threat detection and prevention programs; creates the National Insider Threat Task Force (NITTF) under joint DOJ (Attorney General) / ODNI leadership |
 | National Insider Threat Policy & Minimum Standards | November 2012 (Presidential Memorandum) | Defines the minimum elements of an executive-branch program: including a designated senior official, user activity monitoring (UAM), employee training, and information integration and analysis capability |
 | NITTF Insider Threat Guide | 2017 | NITTF's practical how-to for meeting the Minimum Standards |
-| NITTF Maturity Framework | November 1, 2018 | 19 maturity elements to advance programs *beyond* minimum compliance ([PDF at dni.gov](https://www.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf)) |
+| NITTF Maturity Framework | November 1, 2018 | 19 maturity elements to advance programs *beyond* minimum compliance ([PDF at dni.gov](https://archive.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf)) |
 | 32 CFR Part 117 (NISPOM rule) | Effective February 24, 2021 | Moves the NISPOM into federal regulation for cleared industry: contractors must designate an Insider Threat Program Senior Official (ITPSO), run an insider threat program, and deliver insider-threat awareness training to newly cleared employees before classified access and annually thereafter |
 
 NITTF operates under the National Counterintelligence and Security Center (NCSC) and is co-directed with the FBI. Even if you are a purely commercial organization with no clearances, this lineage matters: the Minimum Standards' element list (senior accountable official, UAM, training, fusion/analysis capability) is the de facto blueprint every commercial program copies, and auditors, regulators, and courts treat it as the reasonable-practice baseline.
@@ -443,7 +443,7 @@ Don't: don't let contractors bypass the process because they're "not employees" 
 
 ### NITTF Maturity Framework
 
-The [NITTF Maturity Framework](https://www.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf) (November 2018) defines 19 maturity elements for advancing beyond the Minimum Standards, building on the 2017 NITTF Insider Threat Guide. The pattern it encodes generalizes to any organization: minimum standards get you a *compliant* program (an accountable official, UAM, training, an analysis capability); maturity is measured by how well those pieces fuse (leadership engagement, analyst tradecraft, breadth of data integration, and feedback loops from incidents back into controls). Grade your program honestly on the fusion, not the parts list.
+The [NITTF Maturity Framework](https://archive.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf) (November 2018) defines 19 maturity elements for advancing beyond the Minimum Standards, building on the 2017 NITTF Insider Threat Guide. The pattern it encodes generalizes to any organization: minimum standards get you a *compliant* program (an accountable official, UAM, training, an analysis capability); maturity is measured by how well those pieces fuse (leadership engagement, analyst tradecraft, breadth of data integration, and feedback loops from incidents back into controls). Grade your program honestly on the fusion, not the parts list.
 
 ### Cost benchmarks (industry survey data: label them as such)
 
@@ -519,9 +519,9 @@ Quarterly, four numbers and one story: KB technique coverage (are we watching wh
 | CISA Insider Threat Mitigation Guide | 2026 Edition | September 9, 2026 | [cisa.gov](https://www.cisa.gov/resources-tools/resources/insider-threat-mitigation-guide) |
 | CERT Common Sense Guide | 7th Edition (22 practices) | September 8, 2022 | [SEI digital library](https://www.sei.cmu.edu/documents/619/2022_019_001_886876.pdf) |
 | IIDES | v1.0 (+ PyIIDES) | June 12, 2025 | [github.com/cmu-sei/iides](https://github.com/cmu-sei/iides) |
-| EO 13587 | N/A | October 2011 | [dni.gov/NCSC-NITTF](https://www.dni.gov/index.php/ncsc-how-we-work/ncsc-nittf) |
-| National Insider Threat Policy & Minimum Standards | N/A | November 2012 | [dni.gov/NCSC-NITTF](https://www.dni.gov/index.php/ncsc-how-we-work/ncsc-nittf) |
-| NITTF Maturity Framework | 19 elements | November 1, 2018 | [dni.gov PDF](https://www.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf) |
+| EO 13587 | N/A | October 2011 | [dni.gov/NCSC-NITTF](https://archive.dni.gov/index.php/ncsc-how-we-work/ncsc-nittf) |
+| National Insider Threat Policy & Minimum Standards | N/A | November 2012 | [dni.gov/NCSC-NITTF](https://archive.dni.gov/index.php/ncsc-how-we-work/ncsc-nittf) |
+| NITTF Maturity Framework | 19 elements | November 1, 2018 | [dni.gov PDF](https://archive.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf) |
 | NISPOM rule | 32 CFR Part 117 | Effective February 24, 2021 | [ecfr.gov](https://www.ecfr.gov/current/title-32/subtitle-A/chapter-I/subchapter-D/part-117) |
 | NIST SP 800-53 | Rev 5, release 5.2.0 | August 27, 2025 | [csrc.nist.gov](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) |
 
@@ -532,7 +532,7 @@ Quarterly, four numbers and one story: KB technique coverage (are we watching wh
 - CTID Insider Threat TTP Knowledge Base: [repo](https://github.com/center-for-threat-informed-defense/insider-threat-ttp-kb), [project site](https://center-for-threat-informed-defense.github.io/insider-threat-ttp-kb/), [case analysis](https://center-for-threat-informed-defense.github.io/insider-threat-ttp-kb/analysis/), [CTID project page](https://ctid.mitre.org/projects/insider-threat-ttp-knowledge-base/), [v2.0 release announcement (MITRE-Engenuity)](https://medium.com/mitre-engenuity/insider-threat-knowledge-base-2-0-more-techniques-new-mitigations-and-the-human-touch-d246f5ef1135)
 - CISA Insider Threat Mitigation: [topic hub](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation), [defining insider threats](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats), [2026 guide](https://www.cisa.gov/resources-tools/resources/insider-threat-mitigation-guide), [2026 release announcement](https://www.cisa.gov/news-events/news/cisa-releases-updated-insider-threat-guide-new-insights-mitigate-physical-and-cyber-threats)
 - SEI CERT: [Common Sense Guide, 7th Ed. (PDF)](https://www.sei.cmu.edu/documents/619/2022_019_001_886876.pdf), [release announcement](https://www.sei.cmu.edu/news/new-edition-of-common-sense-guide-to-mitigating-insider-threats-released/), [IIDES](https://github.com/cmu-sei/iides)
-- ODNI/NCSC: [NITTF](https://www.dni.gov/index.php/ncsc-how-we-work/ncsc-nittf), [Maturity Framework PDF](https://www.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf)
+- ODNI/NCSC: [NITTF](https://archive.dni.gov/index.php/ncsc-how-we-work/ncsc-nittf), [Maturity Framework PDF](https://archive.dni.gov/files/NCSC/documents/features/NITTF_MaturityFramework_web.pdf)
 - Regulation & controls: [32 CFR Part 117](https://www.ecfr.gov/current/title-32/subtitle-A/chapter-I/subchapter-D/part-117), [NIST SP 800-53 Rev 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
 - MITRE ATT&CK: [version history](https://attack.mitre.org/resources/versions/)
 - Ponemon Institute (DTEX-sponsored): [2026 Cost of Insider Risks commentary](https://www.ponemon.org/news-updates/blog/security/lessons-learned-from-the-2026-global-cost-of-insider-risks.html)

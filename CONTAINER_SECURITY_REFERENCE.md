@@ -2076,7 +2076,7 @@ jobs:
 - [Docker Security Documentation](https://docs.docker.com/engine/security/)
 - [MITRE ATT&CK Containers Matrix](https://attack.mitre.org/matrices/enterprise/containers/)
 - [gVisor Documentation](https://gvisor.dev/docs/)
-- [Kata Containers Documentation](https://katacontainers.io/docs/)
+- [Kata Containers Documentation](https://web.archive.org/web/20260616074739/https://katacontainers.io/docs/)
 - [Harbor Documentation](https://goharbor.io/docs/)
 - [Docker Bench for Security](https://github.com/docker/docker-bench-security)
 - [Hadolint](https://github.com/hadolint/hadolint)

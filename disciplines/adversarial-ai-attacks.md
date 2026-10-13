@@ -237,7 +237,7 @@ References: [Hugging Face Model Security](https://huggingface.co/docs/hub/securi
 | ModelScan | Supply chain security scanner for ML model files; detects code-execution payloads in model serialization formats before loading | [github.com/protectai/modelscan](https://github.com/protectai/modelscan) |
 | Boofuzz | Python-based network protocol fuzzer adaptable to ML API endpoints; useful for discovering unexpected behavior at inference APIs | [github.com/jtpereyda/boofuzz](https://github.com/jtpereyda/boofuzz) |
 | LLMFuzzer | Fuzzing framework specifically for LLM APIs; generates and mutates prompts to discover jailbreaks and unexpected behaviors | [github.com/mnns/LLMFuzzer](https://github.com/mnns/LLMFuzzer) |
-| PromptMap | Tool for systematic prompt injection testing in LLM applications and RAG pipelines | [github.com/reversengineered/PromptMap](https://github.com/reversengineered/PromptMap) |
+| PromptMap | Tool for systematic prompt injection testing in LLM applications and RAG pipelines | github.com/reversengineered/PromptMap |
 
 ---
 
@@ -255,7 +255,7 @@ References: [Hugging Face Model Security](https://huggingface.co/docs/hub/securi
 - [ART Tutorial Notebooks](https://github.com/Trusted-AI/adversarial-robustness-toolbox/tree/main/notebooks): IBM ART tutorial notebooks covering evasion, poisoning, extraction, and inference attacks with hands-on code.
 - [CleverHans Tutorials](https://github.com/cleverhans-lab/cleverhans/tree/master/tutorials): Hands-on notebooks implementing FGSM and iterative attacks against MNIST and CIFAR classifiers.
 - [RobustBench Leaderboard](https://robustbench.github.io): Benchmark for adversarial robustness; useful for understanding the state of the field and testing attacks against standardized models.
-- [AI Village CTF (DEF CON)](https://aivillage.org/competitions/): Annual adversarial ML challenges at DEF CON covering evasion, extraction, and LLM attacks.
+- AI Village CTF (DEF CON): Annual adversarial ML challenges at DEF CON covering evasion, extraction, and LLM attacks.
 
 ### Advanced: Red Teaming and Agent Attacks
 

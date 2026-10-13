@@ -631,7 +631,7 @@ rule t1059_001_powershell_encoded {
 Tactic(s): Defense Evasion, Persistence, Privilege Escalation, Initial Access  
 ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/)  
 Mitigating NIST 800-53 R5 controls (25): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-3`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `IA-12`, `IA-13`, `IA-2`, `IA-5`, `RA-5`, `SA-10`, `SA-11` (+9 more)  
-Validate with: [Atomic Red Team, T1078](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078)
+Validate with: Atomic Red Team, T1078 sub-techniques (no parent-level test directory): [T1078.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.001), [T1078.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.003), [T1078.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.004)
 
 ### Splunk (SPL): Suspicious successful logon — first time on host
 
@@ -719,7 +719,7 @@ rule t1078_impossible_travel {
 Tactic(s): Credential Access  
 ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/)  
 Mitigating NIST 800-53 R5 controls (14): `AC-2`, `AC-20`, `AC-3`, `AC-5`, `AC-6`, `AC-7`, `CA-7`, `CM-2`, `CM-6`, `IA-11`, `IA-2`, `IA-4`, `IA-5`, `SI-4`  
-Validate with: [Atomic Red Team, T1110](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110)
+Validate with: Atomic Red Team, T1110 sub-techniques (no parent-level test directory): [T1110.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.001), [T1110.002](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.002), [T1110.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.003), [T1110.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.004)
 
 ### Splunk (SPL): Brute force — high-volume failed logons followed by success
 
@@ -813,7 +813,7 @@ rule t1110_brute_force {
 Tactic(s): Initial Access  
 ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/)  
 Mitigating NIST 800-53 R5 controls (29): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-2`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-8`, `RA-10`, `RA-5`, `SA-8` (+13 more)  
-Validate with: [Atomic Red Team, T1190](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1190)
+Validate with: Atomic Red Team has no T1190 test (listed as "contribute a test" in its [technique index](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/index.md), checked 2026-10-13)
 
 ### Splunk (SPL): Public-facing app — exploit attempts in web logs
 

@@ -114,7 +114,7 @@ Techniques mitigated: T1059 (Command and Scripting Interpreter), T1055 (Process 
 |---|---|
 | EDR / XDR | [CrowdStrike Falcon](https://www.crowdstrike.com/), [SentinelOne](https://www.sentinelone.com/), [Microsoft Defender for Endpoint](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-endpoint) |
 | Open Source EDR | [Wazuh](https://wazuh.com/), [Velociraptor](https://www.velocidex.com/) |
-| Application Control | [Carbon Black App Control](https://www.vmware.com/products/carbon-black-app-control.html) |
+| Application Control | Carbon Black App Control |
 | Vulnerability Scanning | [Tenable](https://www.tenable.com/), [Qualys](https://www.qualys.com/) |
 
 ### Navigator Layer

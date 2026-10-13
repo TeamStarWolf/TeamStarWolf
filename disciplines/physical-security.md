@@ -17,7 +17,7 @@ Physical security underpins every other security domain. Strong network segmenta
 | Platform | URL | What You Learn |
 |----------|-----|----------------|
 | CISA Physical Security Resources | https://www.cisa.gov/topics/physical-security | Facility hardening, active shooter response, perimeter security principles |
-| DEF CON Physical Security Village | https://physec.village.defcon.org | Badge cloning, lock bypass, physical pen testing methodology |
+| DEF CON Physical Security Village | `https://physec.village.defcon.org` | Badge cloning, lock bypass, physical pen testing methodology |
 | DEF CON Lockpick Village | https://toool.us/deviant/ | Lock picking mechanics, practice locks, bypass tools |
 | Deviant Ollam YouTube | https://www.youtube.com/@DeviantOllam | Elevator hacking, door hardware attacks, physical pen test walkthroughs |
 | SANS Reading Room (Physical) | https://www.sans.org/reading-room/ | Research papers on physical security controls and threat scenarios |
@@ -35,7 +35,7 @@ Physical security underpins every other security domain. Strong network segmenta
 | ChameleonMini | RFID emulator and sniffer for NFC and ISO 14443/15693 cards, useful for relay attacks and emulation | https://github.com/emsec/ChameleonMini |
 | Lock Pick Training Boards (Sparrows) | Open-source cutaway lock designs for learning single pin picking | https://www.sparrowslockpicks.com |
 | UDT (Under-Door Tool) Designs | Community documentation of under-door lever manipulation tools | https://github.com/deviantollam/decoding |
-| Wiegand Attack Tools | Tools for intercepting and replaying Wiegand protocol signals from card readers | https://github.com/linklayer/wiegotcha |
+| Wiegand Attack Tools | Tools for intercepting and replaying Wiegand protocol signals from card readers | `https://github.com/linklayer/wiegotcha` |
 | GrayKey / Cellebrite (research refs) | Commercial forensic tools referenced in physical security research for device seizure scenarios | None |
 
 ## Commercial Platforms

@@ -172,7 +172,7 @@ Prioritizing most-used techniques by active actors: Cross-reference ATT&CK Group
 
 ### 2.4 ATT&CK Evaluations
 
-MITRE conducts annual evaluations of security products against emulated threat actors. Results are published at https://attackevals.mitre-engenuity.org/.
+MITRE conducts annual evaluations of security products against emulated threat actors. Results are published at https://evals.mitre.org/.
 
 Evaluation rounds:
 - APT3 (2018): Chinese espionage group

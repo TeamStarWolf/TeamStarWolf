@@ -1316,7 +1316,7 @@ rita html-report incident-2024-01 --open-browser
 | nfdump | Flow Analysis | NetFlow collector (nfcapd) and query tool with aggregation support | https://github.com/phaag/nfdump |
 | JARM | TLS Fingerprinting | Active server-side TLS fingerprinting (Salesforce open-source) | https://github.com/salesforce/jarm |
 | Scapy | Packet Crafting | Python library for packet construction, capture, replay, and fuzzing | https://scapy.net |
-| FlowBAT | Flow Visualization | Browser-based SiLK / NetFlow analysis frontend | https://www.flowbat.com |
+| FlowBAT | Flow Visualization | Browser-based SiLK / NetFlow analysis frontend | https://web.archive.org/web/20220117215843/http://www.flowbat.com/ |
 
 ---
 

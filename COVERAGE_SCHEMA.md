@@ -320,13 +320,13 @@ Download the raw mapping data directly from CTID to build the control_to_techniq
 
 | Framework | CTID Explorer URL | Coverage |
 |---|---|---|
-| NIST 800-53 v5 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/) | All 800-53 controls -> Enterprise ATT&CK |
-| AWS Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) | AWS native controls -> ATT&CK |
-| Azure Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) | Azure/Entra controls -> ATT&CK |
-| GCP Security Controls | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/) | GCP controls -> ATT&CK |
-| Microsoft 365 | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) | M365 controls -> ATT&CK |
-| CSA CCM | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) | Cloud security controls -> ATT&CK |
-| CISA KEV | [View](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) | Known exploited CVEs -> ATT&CK techniques |
+| NIST 800-53 v5 | [View](https://ctid.mitre.org/mappings/external/nist/) | All 800-53 controls -> Enterprise ATT&CK |
+| AWS Security Controls | [View](https://ctid.mitre.org/mappings/external/aws/) | AWS native controls -> ATT&CK |
+| Azure Security Controls | [View](https://ctid.mitre.org/mappings/external/azure/) | Azure/Entra controls -> ATT&CK |
+| GCP Security Controls | [View](https://ctid.mitre.org/mappings/external/gcp/) | GCP controls -> ATT&CK |
+| Microsoft 365 | [View](https://ctid.mitre.org/mappings/external/m365/) | M365 controls -> ATT&CK |
+| CSA CCM | [View](https://ctid.mitre.org/mappings/external/csa_ccm/) | Cloud security controls -> ATT&CK |
+| CISA KEV | [View](https://ctid.mitre.org/mappings/external/kev/) | Known exploited CVEs -> ATT&CK techniques |
 
 
 ### Coverage Gap Analysis Methodology

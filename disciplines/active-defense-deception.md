@@ -87,7 +87,7 @@ Most enterprise programs operate at levels 1-2 (annoy + attribute).
 
 | Tool | Purpose | Notes |
 |---|---|---|
-| [HIHAT](https://github.com/ukhomeoffice/hihat) | Honeypot-in-a-hurry | Docker-based rapid honeypot deployment |
+| HIHAT | Honeypot-in-a-hurry | Docker-based rapid honeypot deployment |
 | [MHN (Modern Honey Network)](https://github.com/pwnlandia/mhn) | Honeypot management | Centralized honeypot deployment + data collection |
 | [Artillery](https://github.com/BinaryDefense/artillery) | Honeypot + hardening tool | Port scanner detection + fake services |
 | [Portspoof](https://github.com/drk1wi/portspoof) | Port spoofing | Makes every port appear open (scanner confusion) |
@@ -98,7 +98,7 @@ Most enterprise programs operate at levels 1-2 (annoy + attribute).
 | Tool | Purpose | Notes |
 |---|---|---|
 | [Kippo-Graph](https://github.com/ikoniaris/kippo-graph) | SSH honeypot visualization | Visualize Cowrie/Kippo attacker data |
-| [DShield](https://isc.sans.edu/tools/submit.html) | Honeypot data sharing | Submit honeypot logs to SANS Internet Storm Center |
+| DShield | Honeypot data sharing | Submit honeypot logs to SANS Internet Storm Center |
 | [Elastic SIEM](https://www.elastic.co/security) | Honeypot log analysis | Index honeypot logs for threat intel |
 
 ---
@@ -108,8 +108,8 @@ Most enterprise programs operate at levels 1-2 (annoy + attribute).
 | Vendor | Capability | Notes |
 |---|---|---|
 | [Thinkst Canary](https://canary.tools/) | Enterprise canary tokens + honeypots | Gold standard; near-zero false positives |
-| [Attivo Networks (SentinelOne)](https://www.sentinelone.com/platform/attivo-identity/) | Identity deception | AD decoys, fake credentials; acquired by SentinelOne |
-| [Illusive Networks (Crowdstrike)](https://www.illusivenetworks.com/) | Deception grid | Lateral movement detection via deception |
+| Attivo Networks (SentinelOne) | Identity deception | AD decoys, fake credentials; acquired by SentinelOne |
+| [Illusive Networks (Crowdstrike)](https://web.archive.org/web/20210101010221/https://www.illusivenetworks.com/) | Deception grid | Lateral movement detection via deception |
 | [Acalvio ShadowPlex](https://www.acalvio.com/) | AI-driven deception | Autonomous deception deployment |
 | [Cymulate](https://cymulate.com/) | BAS + deception validation | Breach and attack simulation with deception |
 | [Smokescreen](https://www.smokescreen.io/) | Enterprise deception grid | Full network deception; lateral movement tripwires |
@@ -198,7 +198,7 @@ Deception technology primarily detects post-initial-access techniques (adversari
 | [MITRE ENGAGE](https://engage.mitre.org/) | Framework | Active defense and adversary engagement matrix |
 | [Thinkst Applied Research](https://thinkst.com/research/) | Blog | Canary token research and deception theory |
 | [Active Defense & Cyber Deception (SANS)](https://www.sans.org/white-papers/36022/) | White paper | Foundational active defense paper |
-| [The Art of Deception (Mitnick)](https://www.wiley.com/en-us/The+Art+of+Deception) | Book | Social engineering and deception fundamentals |
+| The Art of Deception (Mitnick) | Book | Social engineering and deception fundamentals |
 | [Honeypots for Windows (Spitzner)](https://link.springer.com/book/9781590593357) | Book | Classic honeypot deployment guide |
 | [T-Pot Documentation](https://github.com/telekom-security/tpotce/wiki) | Reference | All-in-one honeypot platform setup |
 | [Canarytokens Docs](https://docs.canarytokens.org/) | Reference | Token types and deployment guide |

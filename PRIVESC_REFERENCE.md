@@ -1467,7 +1467,7 @@ Get-AzRoleAssignment | Where-Object {$_.RoleDefinitionName -eq "Owner"}
 |----------|-----|
 | GTFOBins | [gtfobins.github.io](https://gtfobins.github.io) |
 | LOLBAS Project | [lolbas-project.github.io](https://lolbas-project.github.io) |
-| HackTricks Linux Privesc | [book.hacktricks.xyz/linux-hardening/privilege-escalation](https://book.hacktricks.xyz/linux-hardening/privilege-escalation) |
+| HackTricks Linux Privesc | [book.hacktricks.xyz/linux-hardening/privilege-escalation](https://web.archive.org/web/20240124025353/https://book.hacktricks.xyz/linux-hardening/privilege-escalation) |
 | HackTricks Windows Privesc | [book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation) |
 | PayloadsAllTheThings | [github.com/swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org) |

@@ -226,7 +226,7 @@ SolarWinds-style DLL injection:
 | [Chainguard](https://chainguard.dev/) | Secure container images + SBOM | Minimal, hardened Wolfi-based images; zero CVE at build |
 | [Snyk](https://snyk.io/) | SCA + container + IaC scanning | Developer-first; rich IDE integrations |
 | [JFrog Xray](https://jfrog.com/xray/) | Universal artifact scanning | Deep recursive scanning; JFrog platform integration |
-| [Sonatype Nexus Lifecycle](https://www.sonatype.com/products/open-source-security-management) | Component intelligence | Policy enforcement; OSS Index |
+| Sonatype Nexus Lifecycle | Component intelligence | Policy enforcement; OSS Index |
 | [Mend (WhiteSource)](https://www.mend.io/) | SCA + malicious package detection | Remediation automation |
 | [Anchore Enterprise](https://anchore.com/) | Container supply chain security | Policy-based gate in CI/CD |
 | [Black Duck (Synopsys)](https://www.synopsys.com/software-integrity/software-composition-analysis-tools/black-duck-sca.html) | SCA + license compliance | Enterprise; proprietary component DB |
@@ -288,7 +288,7 @@ SolarWinds-style DLL injection:
 | [OpenSSF Guides](https://openssf.org/resources/guides/) | Free guides | Supply chain best practices for open source projects |
 | [Sigstore Documentation](https://docs.sigstore.dev/) | Reference | Keyless signing ecosystem: cosign, Rekor, Fulcio |
 | [OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/) | Reference | Pipeline attack surface: poisoned pipeline injection, credential theft |
-| [Securing the Software Supply Chain (CISA/NSA)](https://www.cisa.gov/resources-tools/resources/securing-software-supply-chain-recommended-practices-guide-developers) | Guide | CISA/NSA joint guidance for developers, suppliers, and customers |
+| Securing the Software Supply Chain (CISA/NSA) | Guide | CISA/NSA joint guidance for developers, suppliers, and customers |
 | [Dependency Confusion: Alex Birsan (2021)](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610) | Research | Original research paper demonstrating the dependency confusion attack |
 | [The Update Framework (TUF)](https://theupdateframework.io/) | Framework | Securing software update systems: used by PyPI, Docker, Conda |
 

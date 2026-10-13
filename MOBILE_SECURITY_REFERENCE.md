@@ -1621,7 +1621,7 @@ frida -U -f owasp.mstg.uncrackable1 --no-pause -l uncrackable1_solve.js
 - [Google Android Security Bulletins](https://source.android.com/docs/security/bulletin)
 - [Apple Platform Security Guide](https://support.apple.com/guide/security/welcome/web)
 - [MITRE ATT&CK for Mobile](https://attack.mitre.org/matrices/mobile/)
-- [GSMA Mobile Security Guidelines](https://www.gsma.com/security/)
+- [GSMA Mobile Security Guidelines](https://www.gsma.com/solutions-and-impact/technologies/security/)
 - [NSO Group Pegasus - Amnesty International Technical Analysis](https://www.amnesty.org/en/latest/research/2021/07/forensic-methodology-report-how-to-catch-nso-groups-pegasus/)
 - [Android Source Security](https://source.android.com/docs/security)
 - [Project Zero Blog - iOS exploits](https://googleprojectzero.blogspot.com/)

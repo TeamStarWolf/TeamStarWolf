@@ -74,7 +74,7 @@ Development Platforms
 
 Notable Security Projects
 - [Pi-hole](https://pi-hole.net/): network-level ad/tracker blocking via DNS; teaches DNS architecture
-- [Kali on Raspberry Pi](https://www.kali.org/docs/arm/raspberry-pi-full-fat/): portable pentesting platform
+- Kali on Raspberry Pi: portable pentesting platform
 - BadUSB with Pi Zero: emulates HID devices (keyboard/mouse) to deliver payloads; teaches USB attack surfaces
 - Wireless monitoring: capture 802.11 probe requests, passive WiFi reconnaissance
 
@@ -207,9 +207,9 @@ Attacks
 | Tool | Description |
 |------|-------------|
 | [ICSim](https://github.com/zombieCraig/ICSim) | Instrument Cluster Simulator; safe CAN bus learning environment |
-| [can-utils](https://github.com/linux-utils/can-utils) | Linux CAN bus tools (candump, cansend, cangen) |
+| [can-utils](https://github.com/linux-can/can-utils) | Linux CAN bus tools (candump, cansend, cangen) |
 | [CANalyzer](https://www.vector.com/int/en/products/products-a-z/software/canalyzer/) | Professional CAN analysis (expensive; Vector) |
-| [USB2CAN / CANable](https://canable.io/) | Cheap USB-to-CAN adapter for Linux |
+| [USB2CAN / CANable](https://web.archive.org/web/20260114111927/https://canable.io/) | Cheap USB-to-CAN adapter for Linux |
 | [Caring Caribou](https://github.com/CaringCaribou/caringcaribou) | CAN security tool |
 
 ### Resources
@@ -260,24 +260,24 @@ DEF CON villages are semi-independent spaces within the conference where specifi
 | [Blockchain Village](https://blockchainvillage.net/) | Crypto/DeFi security, smart contract auditing |
 | [Car Hacking Village](https://www.carhackingvillage.com/) | CAN bus, ECU, automotive security |
 | [Cloud Village](https://cloud-village.org/) | Cloud infrastructure security |
-| [Crypto & Privacy Village](https://cryptovillage.org/) | Cryptography, privacy tech |
+| [Crypto & Privacy Village](https://web.archive.org/web/20260108010914/https://cryptovillage.org/) | Cryptography, privacy tech |
 | [DC Demo Labs](https://www.defcon.org/) | Live tool demos |
-| [Ham Radio Village](https://hamradiovillage.org/) | Amateur radio, license exams on-site |
-| [Hardware Hacking Village](https://www.dc-hhv.com/) | PCB analysis, JTAG, soldering, RE |
+| [Ham Radio Village](https://hamvillage.org/) | Amateur radio, license exams on-site |
+| Hardware Hacking Village | PCB analysis, JTAG, soldering, RE |
 | [ICS Village](https://www.icsvillage.com/) | Industrial control systems, SCADA, OT |
 | [IoT Village](https://www.iotvillage.org/) | Consumer IoT security, embedded devices |
 | [Lock Bypass Village](https://toool.us/) | Physical security, lockpicking (TOOOL) |
-| [Misinfo Village](https://misinfovillage.org/) | Misinformation, OSINT |
+| [Misinfo Village](https://web.archive.org/web/20250116174053/https://www.misinfovillage.org/) | Misinformation, OSINT |
 | [Mobile Hacking Village](https://mobilehackingvillage.com/) | iOS/Android security |
 | [Password Village](https://passwordvillage.org/) | Password cracking, hash analysis |
 | [Packet Hacking Village](https://www.wallofsheep.com/) | Network analysis, "Wall of Sheep" |
 | [Red Team Village](https://redteamvillage.io/) | Offensive security techniques |
-| [RF Village](https://rfvillage.org/) | Radio frequency security, SDR |
+| RF Village | Radio frequency security, SDR |
 | [Recon Village](https://reconvillage.org/) | OSINT, reconnaissance |
-| [Social Engineering Village](https://www.se-village.org/) | Social engineering, vishing, pretexting |
+| Social Engineering Village | Social engineering, vishing, pretexting |
 | [Skytalks](https://skytalks.info/) | Off-record, sensitive talks |
 | [Voting Village](https://votingvillage.org/) | Election security, voting machine research |
-| [Wireless Village](https://wirelessvillage.ninja/) | WiFi, Bluetooth, ZigBee, wireless protocols |
+| [Wireless Village](https://web.archive.org/web/20220127021117/https://www.wirelessvillage.ninja/) | WiFi, Bluetooth, ZigBee, wireless protocols |
 
 ---
 
@@ -312,9 +312,9 @@ Tip: Start with your local BSides. Tickets are free or very cheap, talks are com
 | [Joe Grand (Grand Idea Studio)](https://www.youtube.com/@JoeGrand) | YouTube | Hardware RE, badge hacking |
 | [hamstudy.org](https://hamstudy.org/) | Study Tool | Ham radio license exam prep |
 | [ARRL Handbook](https://www.arrl.org/arrl-handbook-2024) | Book | Comprehensive amateur radio reference |
-| [Proxmark Forums](https://forum.proxmark.org/) | Forum | RFID/NFC research community |
-| [/r/lockpicking](https://reddit.com/r/lockpicking) | Community | Belt ranking, advice, picks |
-| [/r/RTLSDR](https://reddit.com/r/RTLSDR) | Community | SDR projects, help |
+| Proxmark Forums | Forum | RFID/NFC research community |
+| [/r/lockpicking](https://www.reddit.com/r/lockpicking/) | Community | Belt ranking, advice, picks |
+| [/r/RTLSDR](https://www.reddit.com/r/RTLSDR/) | Community | SDR projects, help |
 
 ---
 

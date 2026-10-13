@@ -278,7 +278,7 @@ Position it honestly: the man page itself says it is not intended to be used by 
 | What persists on this fleet? | Launch daemons/agents, login items, cron, kernel/system extensions tables |
 | Is the platform intact? | SIP status, Gatekeeper status, FileVault/disk-encryption state, OS version drift |
 | What's on disk / who signed it? | Apps inventory, code-signature tables, quarantine-attribute queries |
-| Event streams | osquery ships ES-backed event tables (process events and more); confirm exact table names and requirements in the [schema docs](https://osquery.io/schema/) for your deployed version |
+| Event streams | osquery ships ES-backed event tables (process events and more); confirm exact table names and requirements in the [schema docs](https://web.archive.org/web/20190131162147/https://osquery.io/schema) for your deployed version |
 | Baseline verification | mSCP-style checks expressed as scheduled queries feeding your SIEM |
 
 Representative posture queries (long-stable tables; still verify column names against the schema for your deployed version):

@@ -154,15 +154,15 @@ NIST SP 800-53 predates the current AI security landscape, but many controls map
 |---|---|---|
 | Framework | [MITRE ATLAS](https://atlas.mitre.org) | Adversarial threat landscape for AI/ML systems; organized like ATT&CK with real-world case studies; the authoritative starting framework for AI threat modeling |
 | Framework | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Ten critical LLM application risk categories with scenarios and mitigations; the most widely adopted framework for LLM deployment risk assessment |
-| Framework | [NIST AI Risk Management Framework](https://airc.nist.gov/RMF) | Comprehensive governance framework for AI system risk across the full lifecycle; the compliance baseline for regulated AI deployments |
+| Framework | NIST AI Risk Management Framework | Comprehensive governance framework for AI system risk across the full lifecycle; the compliance baseline for regulated AI deployments |
 | Framework | [Google SAIF](https://safety.google/cybersecurity-advancements/saif/) | Google's Secure AI Framework; six core elements for securing AI development and deployment |
-| Standard | [NIST AI 600-1](https://airc.nist.gov/Docs/1) | NIST's guidance on generative AI risks including adversarial manipulation, data privacy, and model bias; the emerging federal standard for GenAI security |
+| Standard | NIST AI 600-1 | NIST's guidance on generative AI risks including adversarial manipulation, data privacy, and model bias; the emerging federal standard for GenAI security |
 | Standard | [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final) | Secure software development practices extended specifically to AI/ML systems; the SSDF for AI development pipelines |
 | Tool | [NVIDIA garak](https://github.com/NVIDIA/garak) | LLM vulnerability scanner with 100+ probe types; the most comprehensive automated LLM red-teaming tool available for free |
 | Tool | [Microsoft PyRIT](https://github.com/microsoft/PyRIT) | Python Risk Identification Toolkit for orchestrating automated AI red-teaming at scale |
 | Research | [ArXiv LLM Security](https://arxiv.org/search/?searchtype=all&query=llm+security) | Pre-publication adversarial ML and LLM security research; following this feed is essential given the pace of the field |
 | Aggregator | [LLM Security (llmsecurity.net)](https://llmsecurity.net) | Curated aggregator of LLM vulnerability research and real-world incident disclosures; the best single source for staying current |
-| Blog | [Microsoft AI Red Team Blog](https://www.microsoft.com/en-us/security/blog/topic/microsoft-ai-red-team/) | Case studies and methodology from Microsoft's dedicated AI Red Team practice |
+| Blog | Microsoft AI Red Team Blog | Case studies and methodology from Microsoft's dedicated AI Red Team practice |
 | Research | [Berryville Institute of Machine Learning (BIML)](https://berryvilleiml.com) | Gary McGraw's systematic architectural risk analysis of ML systems; rigorous engineering perspective on AI security |
 | Course | [Anthropic Courses](https://github.com/anthropics/courses) | Free structured courses on prompt engineering, tool use, and responsible LLM deployment from the model creator |
 | Community | [DEF CON AI Village](https://aivillage.org) | Premier community for AI security research; annual CTFs, red-team exercises, and talks at DEF CON |
@@ -211,12 +211,12 @@ Note: AI security is an emerging field and formal certification infrastructure i
 
 - [MITRE ATLAS](https://atlas.mitre.org): The authoritative adversarial threat landscape framework for AI/ML systems; the ATT&CK equivalent for machine learning with real-world case studies
 - [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/): The most widely adopted framework for LLM application security risk; ten critical vulnerability categories with scenarios and mitigation guidance
-- [NIST AI Risk Management Framework](https://airc.nist.gov/RMF): NIST's comprehensive framework for managing risk across the AI system lifecycle; the governance foundation for regulated environments
+- NIST AI Risk Management Framework: NIST's comprehensive framework for managing risk across the AI system lifecycle; the governance foundation for regulated environments
 - [Google SAIF](https://safety.google/cybersecurity-advancements/saif/): Google's Secure AI Framework covering six core elements for building and securing AI systems
 - [Anthropic Safety Research](https://www.anthropic.com/research): Published research on Constitutional AI, interpretability, and safety evaluation from a leading frontier model developer
 - [ATTACK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/): AI-assisted security analysis in practice; uses data-driven technique correlation to help analysts reason over ATT&CK at scale; the same class of capability that AI security practitioners are both building and defending against
 - [LLM Security (llmsecurity.net)](https://llmsecurity.net): Curated aggregator of LLM vulnerability research and real-world incident disclosures; the best single source for staying current
-- [Microsoft AI Red Team Blog](https://www.microsoft.com/en-us/security/blog/topic/microsoft-ai-red-team/): Case studies and methodology from Microsoft's dedicated AI Red Team practice
+- Microsoft AI Red Team Blog: Case studies and methodology from Microsoft's dedicated AI Red Team practice
 - [Berryville Institute of Machine Learning (BIML)](https://berryvilleiml.com): Gary McGraw's systematic architectural risk analysis of ML systems; rigorous engineering perspective on AI security
 - [ArXiv AI Security Papers](https://arxiv.org/search/?searchtype=all&query=llm+security): Pre-publication adversarial ML and LLM security research; following this feed is essential given how rapidly new attack techniques emerge
 

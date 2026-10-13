@@ -21,7 +21,7 @@ Begin with the fundamentals of how containers actually work (namespaces, cgroups
 ## Free Training
 
 - [NSA/CISA Kubernetes Hardening Guide](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF): The authoritative US government hardening reference for Kubernetes; covers pod security, network policies, authentication, logging, and threat detection; free and kept current; the first document to read before hardening any cluster
-- [CNCF Cloud Native Security Whitepaper](https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf): Comprehensive cloud-native security architecture guidance from the CNCF Security Technical Advisory Group; covers the full lifecycle from development through runtime; authoritative and vendor-neutral
+- [CNCF Cloud Native Security Whitepaper](https://web.archive.org/web/20230417215914/https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf): Comprehensive cloud-native security architecture guidance from the CNCF Security Technical Advisory Group; covers the full lifecycle from development through runtime; authoritative and vendor-neutral
 - [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes): Free hardening baseline covering API server, etcd, kubelet, scheduler, and worker node configuration; the compliance standard most enterprise Kubernetes programs anchor to; run kube-bench to audit against it
 - [Kubernetes Security Documentation](https://kubernetes.io/docs/concepts/security/): Official Kubernetes security docs covering RBAC, network policies, pod security standards, secrets encryption, and admission control; required reading for the CKS exam
 - [KubeCon Security Talks (CNCF YouTube)](https://www.youtube.com/@cncf): Free recordings from every KubeCon conference covering container escape research, supply chain security, eBPF security, and Kubernetes hardening; the highest-signal free content in the discipline
@@ -477,7 +477,7 @@ For high-security environments, Tetragon can enforce this as a kernel-level poli
 | Resource | Type | Notes |
 |---|---|---|
 | [NSA/CISA Kubernetes Hardening Guide](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF) | Free guide | Authoritative US government Kubernetes hardening reference |
-| [CNCF Security Whitepaper v2](https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf) | Free paper | Cloud-native security architecture lifecycle reference |
+| [CNCF Security Whitepaper v2](https://web.archive.org/web/20230417215914/https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/CNCF_cloud-native-security-whitepaper-May2022-v2.pdf) | Free paper | Cloud-native security architecture lifecycle reference |
 | [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) | Free benchmark | Hardening baseline; run with kube-bench for CIS compliance |
 | [Container Security (Liz Rice, O'Reilly)](https://www.oreilly.com/library/view/container-security/9781492056690/) | Book | The definitive container security reference; namespaces, capabilities, seccomp, and runtime security |
 | [Kubernetes Security Best Practices (Liz Rice)](https://www.oreilly.com/library/view/kubernetes-security/9781492039075/) | Book | RBAC, network policies, admission control, and secrets management |

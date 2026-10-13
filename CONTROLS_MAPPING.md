@@ -1,6 +1,6 @@
 # Controls Mapping: Vendor to NIST 800-53 to ATT&CK
 
-This page provides the cross-reference chain connecting security vendors to the NIST 800-53 controls they implement, and from those controls to the ATT&CK techniques they mitigate. The bridge between NIST 800-53 and ATT&CK is provided by the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/nist800-53/).
+This page provides the cross-reference chain connecting security vendors to the NIST 800-53 controls they implement, and from those controls to the ATT&CK techniques they mitigate. The bridge between NIST 800-53 and ATT&CK is provided by the [CTID Mappings Explorer](https://ctid.mitre.org/mappings/external/nist/).
 
 The chain:
 ```
@@ -11,12 +11,12 @@ Vendor
 ```
 
 Additional cloud-native control mappings from CTID:
-- [AWS Security Controls -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/)
-- [Azure Security Controls -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/)
-- [GCP Security Controls -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/)
-- [Microsoft 365 Controls -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/)
-- [CSA CCM -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/)
-- [KEV -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/)
+- [AWS Security Controls -> ATT&CK](https://ctid.mitre.org/mappings/external/aws/)
+- [Azure Security Controls -> ATT&CK](https://ctid.mitre.org/mappings/external/azure/)
+- [GCP Security Controls -> ATT&CK](https://ctid.mitre.org/mappings/external/gcp/)
+- [Microsoft 365 Controls -> ATT&CK](https://ctid.mitre.org/mappings/external/m365/)
+- [CSA CCM -> ATT&CK](https://ctid.mitre.org/mappings/external/csa_ccm/)
+- [KEV -> ATT&CK](https://ctid.mitre.org/mappings/external/kev/)
 
 For the gap scoring data model, see [COVERAGE_SCHEMA.md](COVERAGE_SCHEMA.md).
 For the full pipeline context, see [SECURITY_PIPELINE.md](SECURITY_PIPELINE.md).
@@ -52,18 +52,18 @@ Each NIST control family mitigates a set of ATT&CK tactics and techniques. The t
 | Optiv Market Family | Primary NIST Controls | Secondary NIST Controls | Cloud-Native CTID Mappings |
 |---|---|---|---|
 | GRC | PM, RA, CA, PL | SA-9 | None |
-| Risk & Vulnerability Management | RA-3, RA-5, SA-11 | CM-8, SI-2 | [KEV -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) |
+| Risk & Vulnerability Management | RA-3, RA-5, SA-11 | CM-8, SI-2 | [KEV -> ATT&CK](https://ctid.mitre.org/mappings/external/kev/) |
 | ServiceNow Technology Partners | IR-8, PM-3, CA-5 | PM-1, PM-14 | None |
-| Identity | IA-2, IA-5, AC-2, AC-3 | AC-6, IA-8, IA-12 | [Azure IAM -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [AWS IAM -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) |
-| Zero Trust | AC-17, AC-20, SC-7, IA-3 | AC-4, AC-24, SC-3 | [Azure -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) |
-| Application Security | SA-11, SA-15, SI-10 | SA-3, SA-8, CM-7 | [AWS -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) |
-| Network Security | SC-7, SC-8, SC-10, AC-17 | SC-5, SC-20, SI-4 | [AWS VPC -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) |
-| Email Security | SC-8, SC-28, SI-3, SI-8 | SI-10, SC-26 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) |
-| Cloud Security | AC-2, AC-3, AU-2, CM-8 | SC-7, RA-5, SI-4 | [AWS](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/), [Azure](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [GCP](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/), [CSA CCM](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) |
+| Identity | IA-2, IA-5, AC-2, AC-3 | AC-6, IA-8, IA-12 | [Azure IAM -> ATT&CK](https://ctid.mitre.org/mappings/external/azure/), [AWS IAM -> ATT&CK](https://ctid.mitre.org/mappings/external/aws/) |
+| Zero Trust | AC-17, AC-20, SC-7, IA-3 | AC-4, AC-24, SC-3 | [Azure -> ATT&CK](https://ctid.mitre.org/mappings/external/azure/) |
+| Application Security | SA-11, SA-15, SI-10 | SA-3, SA-8, CM-7 | [AWS -> ATT&CK](https://ctid.mitre.org/mappings/external/aws/) |
+| Network Security | SC-7, SC-8, SC-10, AC-17 | SC-5, SC-20, SI-4 | [AWS VPC -> ATT&CK](https://ctid.mitre.org/mappings/external/aws/) |
+| Email Security | SC-8, SC-28, SI-3, SI-8 | SI-10, SC-26 | [M365 -> ATT&CK](https://ctid.mitre.org/mappings/external/m365/) |
+| Cloud Security | AC-2, AC-3, AU-2, CM-8 | SC-7, RA-5, SI-4 | [AWS](https://ctid.mitre.org/mappings/external/aws/), [Azure](https://ctid.mitre.org/mappings/external/azure/), [GCP](https://ctid.mitre.org/mappings/external/gcp/), [CSA CCM](https://ctid.mitre.org/mappings/external/csa_ccm/) |
 | Data Security | MP-2, MP-3, AC-3, AU-9 | SC-28, SI-12, AC-4 | None |
 | IoT / OT Security | PE-3, SC-7, SI-3, CM-8 | SC-10, SI-4, AC-17 | None |
-| SecOps | AU-2, AU-6, SI-4, IR-4 | AU-12, IR-5, IR-6 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) |
-| Threat Intelligence | RA-3, SI-5, IR-4 | PM-16, RA-10 | [KEV -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) |
+| SecOps | AU-2, AU-6, SI-4, IR-4 | AU-12, IR-5, IR-6 | [M365 -> ATT&CK](https://ctid.mitre.org/mappings/external/m365/) |
+| Threat Intelligence | RA-3, SI-5, IR-4 | PM-16, RA-10 | [KEV -> ATT&CK](https://ctid.mitre.org/mappings/external/kev/) |
 | MSSP | IR-4, IR-7, CA-7 | IR-6, IR-8 | None |
 
 ---
@@ -80,16 +80,16 @@ Each product has one name on this page, in this table and in the [reference tabl
 | RSA Archer | GRC | PM-1, RA-3, CA-2, CA-5 | Risk context across all tactics |
 | OneTrust | GRC | PM-1, PM-20, RA-3, RA-8 | Privacy-relevant technique coverage |
 | MetricStream | GRC | PM-1, RA-3, CA-2 | Risk and compliance coverage |
-| Tenable.io / Nessus | Risk & VM | RA-5, CM-8, SA-11 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
-| Qualys VMDR | Risk & VM | RA-5, CM-8, SI-2 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
-| Rapid7 InsightVM | Risk & VM | RA-5, SI-2, CM-7 | [Via KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/): Exploitation-mapped techniques |
-| Wiz | Risk & VM / Cloud | RA-5, CM-8, AC-2, AU-2 | [AWS](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/), [Azure](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [GCP](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/) |
+| Tenable.io / Nessus | Risk & VM | RA-5, CM-8, SA-11 | [Via KEV](https://ctid.mitre.org/mappings/external/kev/): Exploitation-mapped techniques |
+| Qualys VMDR | Risk & VM | RA-5, CM-8, SI-2 | [Via KEV](https://ctid.mitre.org/mappings/external/kev/): Exploitation-mapped techniques |
+| Rapid7 InsightVM | Risk & VM | RA-5, SI-2, CM-7 | [Via KEV](https://ctid.mitre.org/mappings/external/kev/): Exploitation-mapped techniques |
+| Wiz | Risk & VM / Cloud | RA-5, CM-8, AC-2, AU-2 | [AWS](https://ctid.mitre.org/mappings/external/aws/), [Azure](https://ctid.mitre.org/mappings/external/azure/), [GCP](https://ctid.mitre.org/mappings/external/gcp/) |
 
 ### Identity & Zero Trust Vendors
 
 | Vendor | Market Family | Primary NIST Controls | ATT&CK Coverage via CTID |
 |---|---|---|---|
-| Microsoft Entra ID | Identity | IA-2, IA-5, AC-2, AC-3, AC-6 | [Azure IAM -> T1078, T1110, T1556, T1134, T1098](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) |
+| Microsoft Entra ID | Identity | IA-2, IA-5, AC-2, AC-3, AC-6 | [Azure IAM -> T1078, T1110, T1556, T1134, T1098](https://ctid.mitre.org/mappings/external/azure/) |
 | Okta | Identity | IA-2, IA-5, AC-2, AC-3 | Initial Access (T1078), Credential Access (T1110), Persistence (T1098) |
 | CyberArk PAM | Identity (PAM) | AC-2, AC-3, AC-6, IA-4 | Privilege Escalation (T1078.003), Credential Access (T1003) |
 | BeyondTrust | Identity (PAM) | AC-2, AC-6, IA-4, AC-17 | Privilege Escalation, Lateral Movement via credentials |
@@ -115,9 +115,9 @@ Each product has one name on this page, in this table and in the [reference tabl
 |---|---|---|---|
 | CrowdStrike Falcon | SecOps (EDR) | SI-3, SI-4, CM-7, AU-2 | Broad coverage: Initial Access through Impact; all ATT&CK tactics |
 | SentinelOne | SecOps (EDR) | SI-3, SI-4, CM-7 | Broad endpoint coverage across all ATT&CK tactics |
-| Microsoft Defender for Endpoint | SecOps (EDR) | SI-3, SI-4, CM-7, AU-2 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) comprehensive |
+| Microsoft Defender for Endpoint | SecOps (EDR) | SI-3, SI-4, CM-7, AU-2 | [M365 -> ATT&CK](https://ctid.mitre.org/mappings/external/m365/) comprehensive |
 | Splunk Enterprise Security | SecOps (SIEM) | AU-2, AU-6, AU-12, SI-4 | Detection coverage across all tactics via correlation |
-| Microsoft Sentinel | SecOps (SIEM) | AU-2, AU-6, SI-4, IR-4 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) + Azure |
+| Microsoft Sentinel | SecOps (SIEM) | AU-2, AU-6, SI-4, IR-4 | [M365 -> ATT&CK](https://ctid.mitre.org/mappings/external/m365/) + Azure |
 | Elastic Security | SecOps (SIEM) | AU-2, AU-6, SI-4 | EQL behavioral detection across all tactics |
 | Exabeam | SecOps (UEBA) | AU-6, SI-4, IR-4 | Insider threat, Credential Access, Lateral Movement |
 | Securonix | SecOps (UEBA) | AU-6, SI-4, IA-4 | Behavioral analytics across Credential Access, Lateral Movement |
@@ -126,11 +126,11 @@ Each product has one name on this page, in this table and in the [reference tabl
 
 | Vendor | Market Family | Primary NIST Controls | ATT&CK Coverage via CTID |
 |---|---|---|---|
-| Wiz | Cloud Security | RA-5, CM-8, AC-2, AU-2 | [AWS](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/), [Azure](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/), [GCP](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/gcp/) cloud technique coverage |
+| Wiz | Cloud Security | RA-5, CM-8, AC-2, AU-2 | [AWS](https://ctid.mitre.org/mappings/external/aws/), [Azure](https://ctid.mitre.org/mappings/external/azure/), [GCP](https://ctid.mitre.org/mappings/external/gcp/) cloud technique coverage |
 | Prisma Cloud | Cloud Security | RA-5, CM-7, AC-2, SC-7 | Full cloud ATT&CK technique coverage via CSA CCM + cloud native |
-| Orca Security | Cloud Security | RA-5, CM-8, AU-2 | [CSA CCM -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/csa/) |
-| Microsoft Defender for Cloud | Cloud Security | RA-5, CM-8, AU-2, AC-2 | [Azure -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/azure/) native coverage |
-| AWS Security Hub | Cloud Security | AU-2, RA-5, CM-8 | [AWS -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/aws/) native coverage |
+| Orca Security | Cloud Security | RA-5, CM-8, AU-2 | [CSA CCM -> ATT&CK](https://ctid.mitre.org/mappings/external/csa_ccm/) |
+| Microsoft Defender for Cloud | Cloud Security | RA-5, CM-8, AU-2, AC-2 | [Azure -> ATT&CK](https://ctid.mitre.org/mappings/external/azure/) native coverage |
+| AWS Security Hub | Cloud Security | AU-2, RA-5, CM-8 | [AWS -> ATT&CK](https://ctid.mitre.org/mappings/external/aws/) native coverage |
 
 ### Email Security Vendors
 
@@ -138,13 +138,13 @@ Each product has one name on this page, in this table and in the [reference tabl
 |---|---|---|---|
 | Proofpoint | Email Security | SI-3, SI-8, SC-8, SC-28 | Initial Access (T1566 Phishing), Execution (T1204) |
 | Mimecast | Email Security | SI-3, SI-8, SC-8 | Phishing (T1566), Execution via email (T1204) |
-| Microsoft Defender for Office 365 | Email Security | SI-3, SI-8, SC-8 | [M365 -> ATT&CK](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/m365/) email coverage |
+| Microsoft Defender for Office 365 | Email Security | SI-3, SI-8, SC-8 | [M365 -> ATT&CK](https://ctid.mitre.org/mappings/external/m365/) email coverage |
 
 ### Threat Intelligence Vendors
 
 | Vendor | Market Family | Primary NIST Controls | ATT&CK Coverage via CTID |
 |---|---|---|---|
-| Recorded Future | Threat Intelligence | RA-3, SI-5, PM-16 | Enrichment context across all tactics; [KEV](https://center-for-threat-informed-defense.github.io/mappings-explorer/external/kev/) alignment |
+| Recorded Future | Threat Intelligence | RA-3, SI-5, PM-16 | Enrichment context across all tactics; [KEV](https://ctid.mitre.org/mappings/external/kev/) alignment |
 | Mandiant Advantage | Threat Intelligence | RA-3, SI-5, IR-4 | APT technique attribution across all ATT&CK tactics |
 | CrowdStrike Intelligence | Threat Intelligence | RA-3, SI-5, PM-16 | Adversary-technique mapping across all tactics |
 

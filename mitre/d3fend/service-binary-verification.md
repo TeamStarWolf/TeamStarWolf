@@ -9,10 +9,10 @@ Analyzing changes in service binary files by comparing to a source of truth.
 
 ## ATT&CK techniques countered (12)
 
-- [T0843](https://attack.mitre.org/techniques/T0843): verifies
-- [T0845](https://attack.mitre.org/techniques/T0845): verifies
-- [T0873](https://attack.mitre.org/techniques/T0873): verifies
-- [T0889](https://attack.mitre.org/techniques/T0889): verifies
+- [T0843: Program Download](https://attack.mitre.org/techniques/T0843): verifies
+- [T0845: Program Upload](https://attack.mitre.org/techniques/T0845): verifies
+- [T0873: Project File Infection](https://attack.mitre.org/techniques/T0873): verifies
+- [T0889: Modify Program](https://attack.mitre.org/techniques/T0889): verifies
 - [T1056.003: Web Portal Capture](/mitre/techniques/T1056-003.md): verifies. Adversaries may install code on externally facing portals, such as a VPN login page, to capture and transmit credentials of users who attempt to log into the service.
 - [T1072: Software Deployment Tools](/mitre/techniques/T1072.md): verifies. Adversaries may gain access to and use centralized software suites installed within an enterprise to execute commands and move laterally through the network.
 - [T1212: Exploitation for Credential Access](/mitre/techniques/T1212.md): verifies. Adversaries may exploit software vulnerabilities in an attempt to collect credentials.

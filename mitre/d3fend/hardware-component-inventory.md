@@ -9,8 +9,8 @@ Hardware component inventorying identifies and records the hardware items in the
 
 ## ATT&CK techniques countered (13)
 
-- [T0847](https://attack.mitre.org/techniques/T0847): inventories
-- [T0860](https://attack.mitre.org/techniques/T0860): inventories
+- [T0847: Replication Through Removable Media](https://attack.mitre.org/techniques/T0847): inventories
+- [T0860: Wireless Compromise](https://attack.mitre.org/techniques/T0860): inventories
 - [T1025: Data from Removable Media](/mitre/techniques/T1025.md): inventories. Adversaries may search connected removable media on computers they have compromised to find files of interest.
 - [T1052.001: Exfiltration over USB](/mitre/techniques/T1052-001.md): inventories. Adversaries may attempt to exfiltrate data over a USB connected physical device.
 - [T1056.001: Keylogging](/mitre/techniques/T1056-001.md): inventories. Adversaries may log user keystrokes to intercept credentials as the user types them.

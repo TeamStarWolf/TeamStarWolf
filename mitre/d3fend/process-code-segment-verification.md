@@ -9,10 +9,10 @@ Comparing the "text" or "code" memory segments to a source of truth.
 
 ## ATT&CK techniques countered (11)
 
-- [T0820](https://attack.mitre.org/techniques/T0820): verifies
-- [T0866](https://attack.mitre.org/techniques/T0866): verifies
-- [T0874](https://attack.mitre.org/techniques/T0874): verifies
-- [T0890](https://attack.mitre.org/techniques/T0890): verifies
+- [T0820: Exploitation for Evasion](https://attack.mitre.org/techniques/T0820): verifies
+- [T0866: Exploitation of Remote Services](https://attack.mitre.org/techniques/T0866): verifies
+- [T0874: Hooking](https://attack.mitre.org/techniques/T0874): verifies
+- [T0890: Exploitation for Privilege Escalation](https://attack.mitre.org/techniques/T0890): verifies
 - [T1055.012: Process Hollowing](/mitre/techniques/T1055-012.md): verifies. Adversaries may inject malicious code into suspended and hollowed processes in order to evade process-based defenses.
 - [T1056.004: Credential API Hooking](/mitre/techniques/T1056-004.md): verifies. Adversaries may hook into Windows application programming interface (API) functions and Linux system functions to collect user credentials.
 - [T1068: Exploitation for Privilege Escalation](/mitre/techniques/T1068.md): verifies. Adversaries may exploit software vulnerabilities in an attempt to elevate privileges.
